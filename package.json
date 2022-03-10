@@ -15,10 +15,6 @@
     "prepublish": "yarn build",
     "test": "jest"
   },
-  "jest": {
-    "preset": "ts-jest",
-    "testEnvironment": "jsdom"
-  },
   "eslintConfig": {
     "extends": [
       "react-app",
