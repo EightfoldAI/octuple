@@ -1,0 +1,78 @@
+.banners{
+
+  display: flex;
+  flex-direction: row;
+  background-color: $card-background-color;
+  align-items: stretch;
+  box-shadow: $shadow-object-l;
+  width: 100vw;
+  position: relative;
+  top: $disabled-zero;
+  left: $disabled-zero;
+  .banner-sections{
+    //padding-right: $space-m;
+    min-width: $space-xs;
+    background: inherit;
+    height: 100%;
+  }
+
+  .message-container{
+    display: flex;
+    flex-direction: column;
+    padding: $space-l-fitted;
+    width: 100%;
+
+    .banner-header{
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      padding-bottom: $space-xs;
+
+      &.neutral{
+        color: $color-secondary-grey;
+      }
+
+      &.positive{
+        color: $color-secondary-green;
+      }
+
+      &.warning{
+        color: $color-secondary-orange;
+      }
+
+      &.disruptive{
+        color: $color-secondary-red;
+      }
+    }
+
+  }
+
+  .buttons-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+}
+
+.priority-colors{
+  min-width: $space-xs!important;
+  display: block;
+  border-radius: $space-s;
+
+  &.neutral{
+    background-color: $color-tertiary-grey;
+  }
+
+  &.positive{
+    background-color: $color-secondary-green;
+  }
+
+  &.warning{
+    background-color: $color-secondary-orange;
+  }
+
+  &.disruptive{
+    background-color: $color-secondary-red;
+  }
+}

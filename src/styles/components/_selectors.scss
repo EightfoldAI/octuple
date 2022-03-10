@@ -1,0 +1,161 @@
+input[type=radio].with-font,
+input[type=checkbox].with-font {
+    border: $disabled-zero;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: $disabled-zero;
+    position: absolute;
+    width: 1px;
+}
+
+input[type=radio].with-font ~ label:before
+{
+    font-family: Material Design Icons;
+    display: inline-block;
+    content: "\F0130";  /* mdi-checkbox-blank-circle-outline */
+    color: $color-secondary-grey;
+    font-size: $icon-font-size-material-l;
+    line-height: $text-line-height-3;
+    transition: all $motion-duration-extra-fast $motion-easing-easeinout 0s;
+}
+input[type=radio].with-font:hover ~ label:before
+{
+    color: $color-tertiary-blue;
+}
+input[type=radio].with-font:checked ~ label:before
+{
+    content: "\F0EC2";  /* mdi-record-circle */
+    color: $color-secondary-blue!important;
+
+}
+input[type=radio].with-font:focus-visible ~ label,
+input[type=radio].with-font:focus-visibles ~ label:before
+{
+    border: $space-xxxs solid $button-color-primary-focused-border;
+    //box-sizing: border-box;
+    border-radius: $corner-radius-s;
+    color: $color-secondary-blue;
+}
+
+input[type=checkbox].with-font ~ label:before {
+    font-family: Material Design Icons;
+    display: inline-block;
+    content: "\F0131";  /* mdi-checkbox-blank-outline */
+    font-size: $icon-font-size-material-l;
+    line-height: $text-line-height-3;
+    color: $color-secondary-grey;
+    transition: all $motion-duration-extra-fast $motion-easing-easeinout 0s;
+}
+input[type=checkbox].with-font:hover ~ label:before {
+    color: $color-tertiary-blue;
+}
+input[type=checkbox].with-font:checked ~ label:before  {
+    content: "\F0132";  /* mdi-checkbox-marked */
+    color: $color-secondary-blue!important;
+}
+input[type=checkbox].with-font:focus-visible ~ label:before,
+input[type=checkbox].with-font:focus-visible ~ label
+{
+    border: $space-xxxs solid $button-color-primary-focused-border;
+    //box-sizing: border-box;
+    border-radius: $corner-radius-s;
+    color: $color-secondary-blue;
+}
+
+.selector-text-right.body1 {
+    margin-left: $space-xs;
+}
+
+.selector-text-left.body1 {
+    margin-right: $space-xs;
+}
+
+/* The switch - the box around the slider */
+.switch-body {
+  position: relative;
+  display: inline-block;
+  width: $space-xxl;
+  height: $space-l-fitted;
+  border-radius: $space-s;
+  border: $space-xxxs solid $color-secondary-grey;
+  //background-color: $color-secondary-blue;
+}
+
+.switch-body:before {
+  position: relative;
+  display: inline-block;
+  width: $space-xxl;
+  height: $space-l-fitted;
+  border-radius: $space-s;
+  border: $space-xxxs solid $color-secondary-grey;
+  //background-color: $color-secondary-blue;
+}
+
+/* Hide default HTML checkbox */
+.switch-body input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.switch-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: $card-background-color;
+  -webkit-transition: $motion-duration-extra-fast;
+  transition: $motion-duration-extra-fast;
+}
+
+.switch-slider:before {
+  position: absolute;
+  content: "";
+  width: $space-s;
+  height: $space-s;
+  border-radius: $space-s;
+  margin: $space-xxxs;
+  left: 0px;
+  background-color: $color-secondary-grey;
+  -webkit-transition: $motion-duration-extra-fast;
+  transition: $motion-duration-extra-fast;
+}
+
+input:checked + .switch-slider {
+  background-color: $color-secondary-blue;
+}
+input:checked + .switch-slider:before {
+  background-color: $card-background-color;
+}
+
+input:checked + .switch-body {
+  border: $space-xxxs solid $color-secondary-blue!important;
+}
+input:checked + .switch-body:before {
+  border: $space-xxxs solid $color-secondary-grey!important;
+}
+
+
+input:focus + .switch-slider {
+  //box-shadow: 0 0 1px $button-color-primary-focused-border;
+}
+
+input:checked + .switch-slider:before {
+  -webkit-transform: translateX(20px);
+  -ms-transform: translateX(20px);
+  transform: translateX(20px);
+}
+
+/* Rounded sliders */
+.switch-slider.round {
+  border-radius: $space-s;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}

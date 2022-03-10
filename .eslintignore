@@ -1,0 +1,12 @@
+public
+dist
+lib
+src
+tsconfig.json
+yarn.lock
+webpack.config.js
+MANIFEST.txt
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+/node_modules

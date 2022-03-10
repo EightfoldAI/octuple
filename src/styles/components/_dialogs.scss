@@ -1,0 +1,77 @@
+.dialog-backdrop {
+  position: fixed;
+  background-color: $all-backdrops;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: $z-index-500;
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transition: all $motion-duration-extra-fast $motion-easing-easeinout 0s;
+
+  &:target {
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  & > div {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: $space-l-fitted;
+    background: $card-background-color;
+    border-radius: $corner-radius-m;
+    box-shadow: $shadow-object-l;
+
+    &.small-dialog{
+      width: rem(352px);
+    }
+
+    &.medium-dialog{
+      width: rem(560px);
+    }
+
+    .dialog-header{
+      display: flex;
+      flex-direction: row;
+      padding-bottom: $space-s;
+
+      .header-text{
+
+        .small-header-width{
+          width: rem(280px);
+        }
+
+        .medium-header-width{
+        width: rem(480px);
+        }
+
+      }
+
+    }
+
+    .dialog-body{
+      display: flex;
+      flex-direction: column;
+      padding-bottom: $space-l-fitted;
+
+      .double-confirmation{
+        padding-top: $space-s;
+        display: flex;
+        flex-direction: row;
+      }
+    }
+
+    .dialog-buttons{
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+    }
+
+  }
+
+}

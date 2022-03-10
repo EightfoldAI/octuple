@@ -1,0 +1,179 @@
+.tag-pills{
+  padding: $space-xxs $space-s;
+  border-radius: $corner-radius-l;
+  transition: all $motion-duration-extra-fast $motion-easing-easeinout 0s;
+
+  &.primary-red{
+    background-color: $color-background2-red;
+    color: $color-primary-red;
+
+    &:hover{
+      background-color: $color-background3-red;
+      color: $text-color-primary;
+    }
+  }
+
+  &.primary-orange{
+    background-color: $color-background2-orange;
+    color: $color-primary-orange;
+
+    &:hover{
+      background-color: $color-background3-orange;
+      color: $text-color-primary;
+    }
+  }
+
+  &.primary-yellow{
+    background-color: $color-background2-yellow;
+    color: $color-primary-yellow;
+
+    &:hover{
+      background-color: $color-background3-yellow;
+      color: $text-color-primary;
+    }
+  }
+
+  &.primary-green{
+    background-color: $color-background2-green;
+    color: $color-primary-green;
+
+    &:hover{
+      background-color: $color-background3-green;
+      color: $text-color-primary;
+    }
+  }
+
+  &.primary-blue-green{
+    background-color: $color-background2-blue-green;
+    color: $color-primary-green;
+
+    &:hover{
+      background-color: $color-background3-blue-green;
+      color: $text-color-primary;
+    }
+  }
+
+  &.primary-blue{
+    background-color: $color-background2-blue;
+    color: $color-primary-blue;
+
+    &:hover{
+      background-color: $color-background3-blue;
+      color: $text-color-primary;
+    }
+  }
+
+  &.primary-violet{
+    background-color: $color-background2-violet;
+    color: $color-primary-violet;
+
+    &:hover{
+      background-color: $color-background3-violet;
+      color: $text-color-primary;
+    }
+  }
+
+  &.primary-grey{
+    background-color: $color-background2-grey;
+    color: $color-primary-grey;
+
+    &:hover{
+      background-color: $color-background3-grey;
+      color: $text-color-primary;
+    }
+  }
+
+}
+
+.tag-pills-xs{
+  transition: all $motion-duration-extra-fast $motion-easing-easeinout 0s;
+
+  &.secondary-red{
+
+    .text-color{
+      color: $color-secondary-red;
+    }
+    .icon-color{
+      color: $color-tertiary-red;
+    }
+
+  }
+
+  &.secondary-orange{
+
+    .text-color{
+      color: $color-secondary-orange;
+    }
+    .icon-color{
+      color: $color-tertiary-orange;
+    }
+
+  }
+
+  &.secondary-yellow{
+
+    .text-color{
+      color: $color-secondary-yellow;
+    }
+    .icon-color{
+      color: $color-tertiary-yellow;
+    }
+
+  }
+
+  &.secondary-green{
+
+    .text-color{
+      color: $color-secondary-green;
+    }
+    .icon-color{
+      color: $color-tertiary-green;
+    }
+
+  }
+
+  &.secondary-blue-green{
+
+    .text-color{
+      color: $color-secondary-blue-green;
+    }
+    .icon-color{
+      color: $color-tertiary-blue-green;
+    }
+
+  }
+
+  &.secondary-blue{
+
+    .text-color{
+      color: $color-secondary-blue;
+    }
+    .icon-color{
+      color: $color-tertiary-blue;
+    }
+
+  }
+
+  &.secondary-violet{
+
+    .text-color{
+      color: $color-secondary-violet;
+    }
+    .icon-color{
+      color: $color-tertiary-violet;
+    }
+
+  }
+
+  &.secondary-grey{
+
+    .text-color{
+      color: $color-secondary-grey;
+    }
+    .icon-color{
+      color: $color-tertiary-grey;
+    }
+
+  }
+
+}

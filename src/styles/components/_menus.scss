@@ -1,0 +1,113 @@
+.button-menu{
+  border-radius: $corner-radius-m;
+  position: relative;
+  display: inline-block;
+
+  .vertical-navigation{
+    color: $color-primary-grey;
+    font-family: "Open Sans", sans-serif!important;
+    list-style-type: none;
+    margin-left: -40px;
+
+
+  }
+}
+
+li:hover + .menu-item{
+
+  &.hover {
+    background: $eightfold-logo-gradient;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+.button-menu-default {
+  background: $card-background-color;
+  padding : $space-xs;
+  box-shadow: $shadow-object-m;
+  //height: $disabled-zero;
+  position: absolute;
+  transition: all $motion-duration-fast $motion-easing-easeout;
+  right: $disabled-zero;
+  z-index: $z-index-100;
+  //visibility: hidden;
+  display: none;
+  top: 100%;
+
+  &.menu-1{
+    min-width: rem(280px)!important;
+  }
+
+  &.menu-2{
+    min-width: rem(240px)!important;
+  }
+
+  &.menu-3{
+    min-width: rem(200px)!important;
+  }
+
+  &.page-jumper{
+    align-items: center;
+    text-align: justify;
+  }
+
+}
+
+.button-menu-default a{
+  display: flex;
+  flex-direction: row;
+  border-radius: $corner-radius-s;
+  padding: $space-s $space-xs;
+  border-color: $button-color-default-active;
+  color: $button-text__color-default;
+  text-decoration: none;
+
+  &:hover {
+    background-color: $button-color-default-hover;
+    border-color: $button-color-default-hover;
+  }
+
+  &:active {
+    background-color: $button-color-default-pressed;
+    border-color: $button-color-default-pressed;
+  }
+
+
+  &:focus-visible {
+    border-color: $button-color-default-focused-border;
+  }
+
+}
+
+.button-menu:focus-within .chevron-icon {
+  -webkit-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  transform: rotate(180deg);
+  transition: all $motion-duration-extra-fast $motion-easing-easeinout 0s;
+}
+
+.button-menu:focus-within > .button-menu-default {
+  display: block;
+  transition: all $motion-duration-extra-fast $motion-easing-easeinout 0s;
+}
+
+.button-menu:focus-within > .button-primary {
+  background-color: $button-color-primary-pressed;
+  border-color: $button-color-primary-pressed;
+}
+
+.button-menu:focus-within > .button-secondary {
+  border-color: $button-color-secondary-pressed;
+  color: $button-color-secondary-pressed;
+}
+
+.button-menu:focus-within > .button-default {
+  background-color: $button-color-default-pressed;
+  border-color: $button-color-default-pressed;
+}
+
+.checkbox input[type="checkbox"] {
+    opacity: $disabled-zero!important; //just to hide the default checkbox
+}

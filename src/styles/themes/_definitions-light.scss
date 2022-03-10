@@ -1,0 +1,242 @@
+// Typography Definitions
+
+$text-font-size-1: rem(12px);
+$text-font-size-2: rem(14px);
+$text-font-size-3: rem(16px);
+$text-font-size-4: rem(18px);
+$text-font-size-5: rem(20px);
+$text-font-size-6: rem(24px);
+$text-font-size-7: rem(32px);
+$text-font-size-8: rem(40px);
+$text-font-size-9: rem(56px);
+$text-font-size-10: rem(64px);
+$text-font-size-11: rem(80px);
+$text-font-size-12: rem(96px);
+
+$text-line-height-1: rem(16px);
+$text-line-height-2: rem(20px);
+$text-line-height-3: rem(24px);
+$text-line-height-4: rem(28px);
+$text-line-height-5: rem(32px);
+$text-line-height-6: rem(40px);
+$text-line-height-7: rem(48px);
+$text-line-height-8: rem(64px);
+$text-line-height-9: rem(72px);
+$text-line-height-10: rem(96px);
+$text-line-height-11: rem(112px);
+
+$text-font-weight-extra-light: 200;
+$text-font-weight-light: 300;
+$text-font-weight-regular: 400;
+$text-font-weight-semibold: 600;
+$text-font-weight-bold: 700;
+$text-font-weight-black: 900;
+
+$text-letter-spacing-xs: -0.01rem;
+$text-letter-spacing-s: -0.015rem;
+$text-letter-spacing-m: -0.02rem;
+$text-letter-spacing-l: -0.03rem;
+
+// Icon Definitions
+
+$icon-font-size-material-xs: rem(14px);
+$icon-font-size-material-s: rem(16px);
+$icon-font-size-material-m: rem(20px);
+$icon-font-size-material-l: rem(24px);
+
+// Color Definitions
+
+$color-background1-red: $red10;
+$color-background1-orange: $orange10;
+$color-background1-yellow: $yellow10;
+$color-background1-green: $green10;
+$color-background1-blue-green: $blue-green10;
+$color-background1-blue: $blue10;
+$color-background1-violet: $violet10;
+$color-background1-grey: $grey10;
+
+$color-background2-red: $red20;
+$color-background2-orange: $orange20;
+$color-background2-yellow: $yellow20;
+$color-background2-green: $green20;
+$color-background2-blue-green: $blue-green20;
+$color-background2-blue: $blue20;
+$color-background2-violet: $violet20;
+$color-background2-grey: $grey20;
+
+$color-background3-red: $red30;
+$color-background3-orange: $orange30;
+$color-background3-yellow: $yellow30;
+$color-background3-green: $green30;
+$color-background3-blue-green: $blue-green30;
+$color-background3-blue: $blue30;
+$color-background3-violet: $violet30;
+$color-background3-grey: $grey30;
+
+$color-primary-red: $red80;
+$color-primary-orange: $orange80;
+$color-primary-yellow: $yellow80;
+$color-primary-green: $green80;
+$color-primary-blue-green: $blue-green80;
+$color-primary-blue: $blue80;
+$color-primary-violet: $violet80;
+$color-primary-grey: $grey80;
+
+$color-secondary-red: $red70;
+$color-secondary-orange: $orange70;
+$color-secondary-yellow: $yellow70;
+$color-secondary-green: $green70;
+$color-secondary-blue-green: $blue-green70;
+$color-secondary-blue: $blue70;
+$color-secondary-violet: $violet70;
+$color-secondary-grey: $grey70;
+
+$color-tertiary-red: $red60;
+$color-tertiary-orange: $orange60;
+$color-tertiary-yellow: $yellow60;
+$color-tertiary-green: $green60;
+$color-tertiary-blue-green: $blue-green60;
+$color-tertiary-blue: $blue60;
+$color-tertiary-violet: $violet60;
+$color-tertiary-grey: $grey60;
+
+$button-color-primary-active: $blue70;
+$button-color-primary-hover: $blue60;
+$button-color-primary-pressed: $blue80;
+$button-color-primary-focused-border: $blue80;
+$button-text__color-primary: $grey0;
+
+$button-color-disruptive-active: $red70;
+$button-color-disruptive-hover: $red60;
+$button-color-disruptive-pressed: $red80;
+$button-color-disruptive-focused-border: $red80;
+$button-text__color-disruptive: $grey0;
+
+$button-color-secondary-active: $blue70;
+$button-color-secondary-hover: $blue60;
+$button-color-secondary-pressed: $blue80;
+$button-color-secondary-focused-border: $blue80;
+
+$button-text__color-default: $blue70;
+$button-color-default-hover: $blue20;
+$button-color-default-pressed: $blue10;
+$button-color-default-focused-border: $blue80;
+$button-color-default-active: rgba(104,186,239, 0.01);
+
+$button-text__color-neutral: $grey70;
+$button-color-neutral-hover: $grey20;
+$button-color-neutral-pressed: $grey10;
+$button-color-neutral-focused-border: $blue80;
+$button-color-neutral-active: rgba(104,186,239, 0.01);
+
+$text-color-primary: $grey90;
+$text-color-secondary: $grey80;
+
+$card-background-color: $grey0;
+
+$input-field-color-enabled: $grey40;
+
+// Gradient Definitions
+
+$eightfold-logo-gradient: linear-gradient(90deg, #3186C8 0.01%, #269FCA 18.01%, #1DB4CC 38.02%, #1ABBCD 50.02%, #6FC6AA 100.03%);
+
+
+// Shadow Definitions
+
+$shadow-object-xs: 0px 1px 2px rgba(15, 20, 31, 0.12);
+$shadow-object-s: 0px 1px 2px rgba(15, 20, 31, 0.12), 0px 1px 4px rgba(15, 20, 31, 0.16); // Smallest UI object like tooltips.
+$shadow-object-m: 0px 1px 2px rgba(15, 20, 31, 0.12), 0px 2px 8px rgba(15, 20, 31, 0.16); // UI objects like card, dropdown menu, etc
+$shadow-object-l: 0px 1px 2px rgba(15, 20, 31, 0.12), 0px 4px 16px rgba(15, 20, 31, 0.16); // Large UI objects like popover, dialog, etc
+$shadow-object-xl: 0px 1px 2px rgba(15, 20, 31, 0.12), 0px 8px 32px rgba(15, 20, 31, 0.16); // Largest UI objects like modal, slide-in panel, etc
+$shadow-panel-right: -1px 0px 2px rgba(15, 20, 31, 0.12), -8px 0px 32px rgba(15, 20, 31, 0.16);
+
+// Spacing Definitions
+
+$space-xxxs: rem(2px);
+$space-xxs: rem(4px);
+$space-xs: rem(8px);
+$space-s: rem(12px);
+$space-m: rem(16px);
+$space-l-fitted: rem(20px);
+$space-l: rem(24px);
+$space-xl: rem(32px);
+$space-xxl: rem(40px);
+$space-xxxl: rem(64px);
+
+$button-padding-vertical-large: rem(10px);
+$button-padding-horizontal-large: rem(14px);
+$button-padding-menu-large: rem(10px);
+$button-spacer-large: rem(8px);
+$button-padding-vertical-default-large: rem(10px);
+$button-padding-horizontal-default-large: rem(2px);
+
+$button-padding-vertical-medium: rem(8px);
+$button-padding-horizontal-medium: rem(12px);
+$button-padding-menu-medium: rem(8px);
+$button-spacer-medium: rem(6px);
+$button-padding-vertical-default-medium: rem(8px);
+$button-padding-horizontal-default-medium: rem(2px);
+
+$button-padding-vertical-small: rem(6px);
+$button-padding-horizontal-small: rem(10px);
+$button-padding-menu-small: rem(4px);
+$button-spacer-small: rem(4px);
+$button-padding-vertical-default-small: rem(6px);
+$button-padding-horizontal-default-small: rem(2px);
+
+// Corner-radius Definitions
+
+$corner-radius-s: rem(4px);
+$corner-radius-m: rem(8px);
+$corner-radius-l: rem(16px);
+$corner-radius-xl: rem(24px);
+
+// Speed / Duration Definitions
+
+$motion-duration-extra-fast: 200ms; // Smallest UI objects like buttons (hover effect), tooltips, etc.
+$motion-duration-fast: 400ms; // Small UI object like dialogs, notifications, dropdowns, instructional tooltips, etc.
+$motion-duration-normal: 600ms; // UI objects like card, popover, etc.
+$motion-duration-slow: 800ms; // Large UI objects like alert banners, modals, etc
+$motion-duration-extra-slow: 1000ms; // Largest UI objects like slide-in panels, page transitions, etc.
+
+// Easing Definitions
+
+$motion-easing-easeout: cubic-bezier(0,0,.58,1); // EaseOut is used when an element is appearing on-screen or within a component
+$motion-easing-easein: cubic-bezier(.42,0,1,1); // EaseIn is used when an element is removed from the screen or within a component
+$motion-easing-easeinout: cubic-bezier(.42,0,.58,1); // The primary easing curve. Used for any core animation not entering/exiting the screen or a component
+
+// Movement Definitions
+
+$motion-movement-s: rem(8px); // Used in animations involving parts of a component
+$motion-movement-m: rem(16px); // Used in animations of smaller components
+$motion-movement-l: rem(24px); // Used in animations of larger components
+$motion-movement-xl: rem(32px); // Used in animations involving the largest components
+
+// Delay Definitions
+
+$motion-delay-s: 80ms; // Used in animations within components
+$motion-delay-m: 120ms; // Used in animations of smaller components
+$motion-delay-l: 160ms; // Used in animations of larger components
+$motion-delay-xl: 200ms; // Used in animations involving multiple components
+
+// Disabled Definitions
+
+$disabled-alpha-value: 0.3;
+$disabled-zero: 0;
+
+// Z-index Definitions
+$z-index-auto: auto;
+$z-index-top: 99999; //this is a super weapon. use it wisely.
+$z-index-500: 500; //warning and alerts. needs to be on top of all the components
+$z-index-400: 400;
+$z-index-300: 300;
+$z-index-200: 200;
+$z-index-100: 100; //dropdown menu, tooltip, etc
+$z-index-0: 0;
+$z-index-bottom: -100;
+
+//dialog-backdrop
+$all-backdrops: rgba(0, 0, 0, 0.5);
+
+//dividers
+$divider-line-color: $grey40;

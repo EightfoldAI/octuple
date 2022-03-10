@@ -1,0 +1,162 @@
+
+input[type=search]::-webkit-search-cancel-button,
+input[type=text]::-webkit-search-cancel-button,
+.with-icon::-webkit-search-cancel-button {
+    position:relative;
+    -webkit-appearance: none;
+    height: 20px;
+    width: 20px;
+    border-radius:10px;
+    //background: red;
+    font-family: Material Design Icons;
+    background-image: none;
+    background-repeat: no-repeat;
+    color: $grey50;
+    font-size: $icon-font-size-material-m;
+    line-height: $text-line-height-2;
+    transition: all $motion-duration-extra-fast $motion-easing-easeinout 0s;
+    align-items: center;
+    text-align: center;
+}
+
+input[type=text], input[type=search] {
+  min-width: rem(320px);
+  box-sizing: border-box;
+  border: rem(1px) solid $input-field-color-enabled;
+  border-radius: $corner-radius-s;
+  padding: $space-xs;
+  font-family: "Source Sans Pro", sans-serif;
+  color: $color-tertiary-grey;
+  font-size: $text-font-size-3;
+  background-color: $card-background-color;
+  //height: 36px;
+
+  &.with-icon{
+    padding-left: $space-xl;
+    //background-image: url('./../../assets/searchicon.png');
+    //background-position: 10px 10px;
+    //background-repeat: no-repeat;
+  }
+
+  &.pill-shape{
+    border-radius: $corner-radius-xl;
+    padding: $space-xs $space-s
+  }
+
+  &.pill-shape-with-icon{
+    padding: $space-xs $space-s $space-xs $space-xl;
+    border-radius: $corner-radius-xl;
+  }
+
+  &:hover{
+    border-color: $color-tertiary-grey;
+  }
+  &:hover ~ .icon-style{
+    color: $color-tertiary-grey;
+  }
+  &:hover ~ .text-style{
+    color: $text-color-primary;
+  }
+
+  &:active{
+    border-color: $color-primary-grey;
+  }
+  &:active ~ .icon-style{
+    color: $color-primary-grey;
+  }
+  &:active ~ .text-style{
+    color: $text-color-primary;
+  }
+
+  &:focus-within {
+    border: rem(1px) solid $button-color-primary-focused-border;
+  }
+  &:focus ~ .icon-style{
+    color: $color-primary-grey;
+  }
+  &:focus ~ .text-style{
+    color: $text-color-primary;
+  }
+}
+
+.icon-style{
+  font-family: Material Design Icons;
+  font-size: $icon-font-size-material-m;
+  line-height: $text-line-height-2;
+  max-width: 20px;
+  //max-height: 20px;
+  align-items: center;
+  text-align: center;
+  color: $grey50;
+  position: relative;
+  transition: all $motion-duration-extra-fast $motion-easing-easeinout 0s;
+  //padding: 4px;
+
+  &.right-icon{
+    //order: 2!important;
+    //padding-left: 8px;
+    left: 292px;
+    margin-top: -28px;
+    padding-bottom: 8px;
+  }
+
+  &.left-icon{
+    left: 8px;
+    margin-top: -28px;
+    padding-bottom: 8px;
+  }
+}
+
+.field-label{
+  display: flex;
+  flex-direction: row;
+  padding-bottom: $space-xs;
+
+  .icon-style{
+    font-family: Material Design Icons;
+    font-size: $icon-font-size-material-s;
+    line-height: $text-line-height-2;
+    align-items: center;
+    text-align: center;
+    color: $color-primary-grey;
+
+    &:hover{
+      color: $color-tertiary-grey;
+    }
+  }
+
+  .text-style{
+    font-weight: $text-font-weight-semibold;
+    font-size: $text-font-size-3;
+    line-height: $text-line-height-2;
+    font-family: "Source Sans Pro", sans-serif;
+    color: $text-color-primary;
+  }
+}
+
+.field-support-text{
+  padding-top: $space-xs;
+  display: flex;
+  flex-direction: row;
+
+  .feedback-positive{
+    color: $color-secondary-green;
+  }
+
+  .feedback-warning{
+    color: $color-secondary-yellow;
+  }
+
+  .feedback-negative{
+    color: $color-secondary-red;
+  }
+
+  .instruction{
+    color: $color-primary-grey;
+  }
+
+  .link{
+    color: $color-secondary-blue;
+  }
+
+}

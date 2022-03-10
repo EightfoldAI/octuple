@@ -1,0 +1,82 @@
+.page-pagination {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  text-align: center;
+}
+
+.page-pagination a {
+  color: $button-text__color-default;
+  //float: left;
+  padding: $space-s;
+  text-decoration: none;
+  border-radius: $corner-radius-m;
+  transition: all $motion-duration-extra-fast $motion-easing-easeinout 0s;
+  min-width: rem(48px);
+}
+
+.page-pagination a.active {
+  background-color: $button-color-primary-active;
+  color: $button-text__color-primary;
+  border-radius: $corner-radius-m;
+  min-width: rem(48px);
+}
+
+.page-pagination a.disabled {
+  opacity: $disabled-alpha-value;
+  cursor: not-allowed;
+  min-width: rem(48px);
+}
+
+.page-pagination a:hover:not(.active) {
+  background-color: $button-color-default-hover;
+  min-width: rem(48px);
+}
+
+.carousel-pagination {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: $space-xs;
+
+  .pagination-controls {
+    border: rem(1px) solid $card-background-color;
+    min-width: rem(26px);
+    min-height: rem(26px);
+  }
+}
+
+.carousel-pagination a {
+  color: $button-text__color-default;
+  padding-top: rem(3px);
+  text-decoration: none;
+  border-radius: $corner-radius-l;
+  transition: all $motion-duration-extra-fast $motion-easing-easeinout 0s;
+  min-width: rem(24px);
+  min-height: rem(24px);
+  border: rem(1px) solid $button-text__color-default;
+}
+
+.carousel-pagination a.active {
+  background-color: $button-color-primary-active;
+  color: $button-text__color-primary;
+  border-radius: $corner-radius-l;
+  max-width: rem(24px);
+  max-height: rem(24px);
+  border: rem(1px) solid $button-text__color-default;
+}
+
+.carousel-pagination a.disabled {
+  opacity: $disabled-alpha-value;
+  cursor: not-allowed;
+  max-width: rem(24px);
+  max-height: rem(24px);
+}
+
+.carousel-pagination a:hover:not(.active) {
+  background-color: $button-color-default-hover;
+  max-width: rem(24px);
+  max-height: rem(24px);
+}
