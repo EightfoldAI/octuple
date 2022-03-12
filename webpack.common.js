@@ -1,9 +1,6 @@
 const path = require('path');
-const webpack = require('webpack');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = {
-    mode: 'production',
     entry: path.resolve(__dirname, './src/octuple.ts'),
     module: {
         rules: [ {
@@ -22,20 +19,11 @@ module.exports = {
     resolve: {
         extensions: ['.ts', '.tsx', '.js', '.json']
     },
+    devtool: 'source-map',
     output: {
         path: path.join(__dirname, 'lib'),
         library: 'Octuple',
         filename: 'octuple.js',
         libraryTarget: 'umd'
-    },
-    plugins: [
-        new webpack.DefinePlugin({
-          VERSION: JSON.stringify(require('./package.json').version)
-        }),
-        new BundleAnalyzerPlugin({
-            options: {
-                generateStatsFile: true
-            }
-        })
-    ]
+    }
 };
