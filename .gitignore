@@ -13,6 +13,7 @@
 /dist
 
 # misc
+stats.json
 .DS_Store
 .env.local
 .env.development.local
