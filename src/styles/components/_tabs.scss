@@ -1,118 +1,94 @@
 .tab-wrap {
-  width: 100%;
-  //margin-left: 20%;
-  position: relative;
   display: flex;
-  //top: -106px;
-  border-bottom: rem(1px) solid $divider-line-color;
 
-  &.align-right{
-    justify-content: flex-end;
-  }
-}
-
-input[type="radio"] {
-  position: absolute;
-  z-index: -1;
-  visibility:hidden;
-
-  &:checked {
-    + .tab-label-content
-    {
-
-      label {
-        color: $color-secondary-blue;
-        transition: transform $motion-duration-fast $motion-easing-easeout 0s;
-        border-bottom: rem(2px) solid $color-secondary-blue;
-        padding-bottom: $space-s;
-
-        .tab-label-counter{
-          background-color: $color-background2-blue;
-          color: $color-primary-blue;
-        }
-
-      }
-
-      .tab-content {
-        display: block!important;
-      }
-
+  &.scrollable {
+    overflow-x: scroll;
+    @include no-scrollbars;
   }
 
-  }
-
-}
-
-label {
-  cursor: pointer;
-  color: $color-secondary-grey;
-  background-color: $card-background-color;
-  box-sizing: border-box;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  transition: transform $motion-duration-fast $motion-easing-easein 0s;
-  width: auto;
-  //padding: $space-s $space-m;
-
-  &:hover{
-    color: $color-secondary-blue;
-    transition: transform $motion-duration-fast $motion-easing-easeout 0s;
-
-    .tab-label-counter{
-      background-color: $color-background2-blue;
-      color: $color-primary-blue;
-
-    }
-  }
-}
-
-
-
-.tab-label-content {
-  width: auto;
-  padding: $space-s $space-m $disabled-zero $space-m;
-
-  .tab-label-structure{
+  .tab {
     display: flex;
-    flex-direction: column;
+    padding: $space-s $space-m;
+    color: $color-secondary-grey;
+    background-color: $card-background-color;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    transition: background-color $motion-duration-fast $motion-easing-easeout 0s;
 
+    &:hover, &:focus {
+      transition: all $motion-duration-fast $motion-easing-easeout 0s;
+      color: $color-secondary-blue;
+    }
 
-    .with-item{
-      display: flex;
-      flex-direction: row;
+    &.active {
+      color: $color-secondary-blue;
+      transition: transform $motion-duration-fast $motion-easing-easeout 0s;
+    }
 
+    &:disabled {
+      opacity: $disabled-alpha-value;
+      cursor: not-allowed;
+    }
+
+    .tab-indicator {
+      position: absolute;
+      z-index: 1;
+      height: $space-xxxs;
+      bottom: 0;
+      width: calc(100% - #{$space-xl});
+      background: $color-secondary-blue;
+      border-radius: $space-xxs $space-xxs 0 0;
+    }
+
+    .label {
+      font-weight: $text-font-weight-semibold;
+      white-space: nowrap;
+    }
+
+    .icon + .label:not(:empty) {
+      margin-left: $space-xs;
     }
   }
 
-  .tab-content {
-    position: absolute;
-    top: $space-xxxl;
-    padding: $space-m;
-    left: 0;
-    display: none;
-    transition: transform $motion-duration-fast $motion-easing-easeinout 0s;
+  &.small {
+    .tab {
+      padding: $space-l $space-m;
+
+      &.active {
+        background: $color-background1-blue;
+      }
+
+      .tab-indicator {
+        height: $space-xxs;
+      }
+    }
   }
-}
 
-.tab-label-counter{
-  background-color: $color-background2-grey;
-  border-radius: $corner-radius-l;
-  padding: $disabled-zero $space-xxs;
-  color: $color-secondary-grey;
+  &.pill {
+    .tab {
+      padding: $space-xs $space-m;
+      color: $color-secondary-blue;
+      border: $space-xxxs solid $color-secondary-blue;
+      border-right: none;
 
-}
+      &.active {
+        background-color: $color-secondary-blue;
+        color: $card-background-color;
+      }
 
-@media screen and (max-width: 800px) {
-//  h1 {
-//    padding: 40px 0 90px 10%;
-//  }
-  .tab-wrap {
-    //width: 80%;
-    //margin-left: 10%;
-    //top: -106px;
-    position: relative;
-    //padding: $disabled-zero $space-l;
+      &:first-child {
+        border-radius: $space-l-fitted 0 0 $space-l-fitted;
+      }
+
+      &:last-child {
+        border-right: $space-xxxs solid $color-secondary-blue;
+        border-radius: 0 $space-l-fitted $space-l-fitted 0;
+      }
+
+      .tab-indicator {
+        display: none;
+      }
+    }
   }
 }
