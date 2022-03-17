@@ -1,4 +1,4 @@
-import * as React from "react";
+import * as React from 'react';
 
 export type SelectTabEvent<E = HTMLElement> =
     | React.MouseEvent<E>
@@ -9,12 +9,12 @@ export type OnChangeHandler = (value: TabValue, event: SelectTabEvent) => void;
 export type TabValue = string;
 
 export enum TabVariant {
-    default = "default",
-    small = "small",
+    default = 'default',
+    small = 'small',
     /**
      * @experimental as of version 0.0.1
      */
-    pill = "pill",
+    pill = 'pill',
 }
 
 export interface TabsContextProps {

@@ -1,11 +1,16 @@
-import React, {createContext, useState} from "react";
-import {TabsContextProps, ITabsContext, TabValue, SelectTabEvent} from "./Tabs.types";
+import React, { createContext, useState } from 'react';
+import {
+    TabsContextProps,
+    ITabsContext,
+    TabValue,
+    SelectTabEvent,
+} from './Tabs.types';
 
 const TabsContext = createContext<Partial<ITabsContext>>({});
 
-const TabsProvider = ({children, onChange, activeTab}: TabsContextProps) => {
-
-    const [currentActiveTab, setCurrentActiveTab] = useState<TabValue>(activeTab);
+const TabsProvider = ({ children, onChange, activeTab }: TabsContextProps) => {
+    const [currentActiveTab, setCurrentActiveTab] =
+        useState<TabValue>(activeTab);
 
     const onTabClick = (value: TabValue, e: SelectTabEvent) => {
         setCurrentActiveTab(value);
@@ -13,7 +18,7 @@ const TabsProvider = ({children, onChange, activeTab}: TabsContextProps) => {
     };
 
     return (
-        <TabsContext.Provider value={{onTabClick, currentActiveTab}}>
+        <TabsContext.Provider value={{ onTabClick, currentActiveTab }}>
             {children}
         </TabsContext.Provider>
     );
@@ -22,9 +27,9 @@ const TabsProvider = ({children, onChange, activeTab}: TabsContextProps) => {
 const useTabs = () => {
     const context = React.useContext(TabsContext);
     if (context === undefined) {
-        throw new Error("Tab component must be used within Tabs");
+        throw new Error('Tab component must be used within Tabs');
     }
     return context;
-}
+};
 
-export {TabsProvider, useTabs};
+export { TabsProvider, useTabs };
