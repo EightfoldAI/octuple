@@ -7,12 +7,12 @@
   "scripts": {
     "storybook": "start-storybook -p 2022",
     "build-storybook": "rm -rf dist && mkdir dist && build-storybook -o dist",
-    "build": "rm -rf lib && eslint . --ext .js,.jsx,.ts,.tsx && webpack --config webpack.prod.js --mode production",
+    "build": "rm -rf lib && npm run lint && webpack --config webpack.prod.js --mode production",
     "details": "webpack --config webpack.dev.js --mode development --stats-error-details",
     "analyze": "webpack --config webpack.dev.js --mode development --json > stats.json",
     "prepublish": "yarn build",
     "test": "jest",
-    "lint": "eslint .",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "format": "prettier --write \"**/*.+(js|jsx|ts|tsx|json|css|scss|md)\"",
     "postinstall": "husky install"
   },
