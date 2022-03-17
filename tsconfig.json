@@ -18,7 +18,13 @@
           "es5",
           "es2015.promise",
           "dom"
-      ]
+      ],
+      "plugins": [{
+          "name": "typescript-plugin-css-modules",
+          "options": {
+              "classnameTransform": "camelCase"
+          }
+      }]
   },
   "include": [ "src/**/*" ]
 }

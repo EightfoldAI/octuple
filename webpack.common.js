@@ -13,26 +13,7 @@ module.exports = {
             test: /\.s[ca]ss|css$/,
             exclude: /node_modules/,
             include: path.resolve(__dirname, './src'),
-            oneOf: [
-            {
-                test: /\.module\.(s[ca]ss|css)$/,
-                use: [
-                    'style-loader',
-                    {
-                        loader: 'css-loader',
-                        options: {
-                          modules: true,
-                          localIdentName: '[local]-[hash:base64:5]'
-                        },
-                    },
-                    'resolve-url-loader',
-                    'sass-loader',
-                ],
-            },
-            {
-                 use: ['style-loader', 'css-loader', 'resolve-url-loader', 'sass-loader'],
-            },
-          ],
+            use: ['style-loader', 'css-loader', 'resolve-url-loader', 'sass-loader'],
         } ]
     },
     resolve: {
