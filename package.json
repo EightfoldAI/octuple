@@ -13,7 +13,8 @@
     "prepublish": "yarn build",
     "test": "jest",
     "lint": "eslint .",
-    "format": "prettier --write \"**/*.+(js|jsx|json|yml|yaml|css|md|vue)\""
+    "format": "prettier --write \"**/*.+(js|jsx|ts|tsx|json|css|scss|md)\"",
+    "postinstall": "husky install"
   },
   "eslintConfig": {
     "extends": [
@@ -197,17 +198,12 @@
       "react-app"
     ]
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
   "lint-staged": {
     "*.+(js|jsx|ts|tsx)": [
       "eslint --fix",
       "git add"
     ],
-    "*.+(json|css|md|js|jsx|ts|tsx)": [
+    "*.+(js|jsx|ts|tsx|json|css|scss|md)": [
       "prettier --write",
       "git add"
     ]
