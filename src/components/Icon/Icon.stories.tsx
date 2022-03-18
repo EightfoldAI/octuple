@@ -1,5 +1,5 @@
 import React from 'react';
-import { IconSize, OctupleIcon } from './index';
+import { IconSize, mdiHeart, OctupleIcon } from './index';
 
 export default {
     title: 'Icon',
@@ -10,12 +10,12 @@ export const Icons = () => (
     <>
         <h2>Icons</h2>
         <p>X-Small</p>
-        <OctupleIcon icon={'mdiHeart'} size={IconSize.XSmall} />
+        <OctupleIcon icon={mdiHeart} size={IconSize.XSmall} />
         <p>Small</p>
-        <OctupleIcon icon={'mdiHeart'} size={IconSize.Small} />
+        <OctupleIcon icon={mdiHeart} size={IconSize.Small} />
         <p>Medium</p>
-        <OctupleIcon icon={'mdiHeart'} size={IconSize.Medium} />
+        <OctupleIcon icon={mdiHeart} size={IconSize.Medium} />
         <p>Large</p>
-        <OctupleIcon icon={'mdiHeart'} size={IconSize.Large} />
+        <OctupleIcon icon={mdiHeart} size={IconSize.Large} />
     </>
 );

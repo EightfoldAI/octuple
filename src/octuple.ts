@@ -7,6 +7,7 @@ import {
 
 import {
     IconSize,
+    mdiHeart,
     OctupleIcon,
 } from './components/Icon';
 
@@ -14,6 +15,7 @@ export {
     ButtonSize,
     DefaultButton,
     IconSize,
+    mdiHeart,
     OctupleIcon,
     PrimaryButton,
     SecondaryButton
