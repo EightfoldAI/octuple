@@ -6,17 +6,17 @@ import {
 } from './components/Button';
 
 import {
-    IconSize,
-    mdiHeart,
-    OctupleIcon,
+    Icon,
+    IconName,
+    IconSize
 } from './components/Icon';
 
 export { 
     ButtonSize,
     DefaultButton,
+    Icon,
+    IconName,
     IconSize,
-    mdiHeart,
-    OctupleIcon,
     PrimaryButton,
     SecondaryButton
 };

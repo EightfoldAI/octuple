@@ -1,14 +1,17 @@
 import React, { FC } from 'react';
-import { Icon } from '@mdi/react';
-import { IconProps } from './index';
+import { classNames } from '../../shared/utilities';
+import { Icon as MdiIcon } from '@mdi/react';
+import { IconProps, IconSize } from './index';
 
-export const OctupleIcon: FC<IconProps> = ({
-    icon,
+import styles from './icon.module.scss';
+
+export const Icon: FC<IconProps> = ({
     ariaHidden,
-    classes,
+    className,
     color,
     description,
     horizontal,
+    path,
     role,
     rotate,
     size,
@@ -16,23 +19,27 @@ export const OctupleIcon: FC<IconProps> = ({
     title,
     vertical,
 }) => {
+    const iconClassNames: string = classNames({
+        iconWrapper: styles.iconWrapper,
+        className: className && className !== '' ? className : '',
+    });
+
     return (
         <span
             aria-hidden={ariaHidden ? ariaHidden : false}
-            className={classes}
+            className={iconClassNames}
             role={role ? role : 'presentation'}
         >
-            <Icon
+            <MdiIcon
                 color={color}
                 description={description}
                 horizontal={horizontal}
-                path={icon}
+                path={path}
                 rotate={rotate}
-                size={size}
+                size={size ? size : IconSize.Medium}
                 title={title}
                 vertical={vertical}
-                spin={spin}
-            />
+                spin={spin} />
         </span>
     );
 };

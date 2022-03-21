@@ -1,21 +1,21 @@
 import React from 'react';
-import { IconSize, mdiHeart, OctupleIcon } from './index';
+import { Icon, IconName, IconSize } from './index';
 
 export default {
     title: 'Icon',
-    component: OctupleIcon,
+    component: Icon,
 };
 
 export const Icons = () => (
     <>
         <h2>Icons</h2>
         <p>X-Small</p>
-        <OctupleIcon icon={mdiHeart} size={IconSize.XSmall} />
+        <Icon path={IconName.mdiCardsHeart} size={IconSize.XSmall} />
         <p>Small</p>
-        <OctupleIcon icon={mdiHeart} size={IconSize.Small} />
+        <Icon path={IconName.mdiCardsHeart} size={IconSize.Small} />
         <p>Medium</p>
-        <OctupleIcon icon={mdiHeart} size={IconSize.Medium} />
+        <Icon path={IconName.mdiCardsHeart} />
         <p>Large</p>
-        <OctupleIcon icon={mdiHeart} size={IconSize.Large} />
+        <Icon path={IconName.mdiCardsHeart} size={IconSize.Large} />
     </>
 );

@@ -1,7 +1,5 @@
-/** Icons are to be cherry-picked from mdi.js to save on bytes.
- * https://github.com/Templarian/MaterialDesign-JS/blob/master/mdi.js
-*/
-export const mdiHeart: string = "M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z";
+import { IconName } from './mdi';
+import { IconProps as MdiIconProps } from '@mdi/react/dist/IconProps';
 
 export enum IconSize {
     Large = '1.5rem',
@@ -10,19 +8,20 @@ export enum IconSize {
     XSmall = '0.875rem',
 }
 
-export interface IconProps {
+export interface IconProps extends MdiIconProps {
     /**
-     * The icon string.
+     * The icon svg path name.
      */
-    icon: string;
+    path: IconName;
     /**
      * The icon is aria-hidden.
+     * @default false
      */
     ariaHidden?: boolean;
     /**
      * The icon class names.
      */
-    classes?: string;
+    className?: string;
     /**
      * The icon color.
      */
@@ -33,6 +32,7 @@ export interface IconProps {
     description?: string;
     /**
      * The icon is horizontal.
+     * @default false
      */
     horizontal?: boolean;
     /**
@@ -41,22 +41,26 @@ export interface IconProps {
     role?: string;
     /**
      * The icon is rotated.
+     * @default 0
      */
     rotate?: number;
     /**
      * The icon size.
+     * @default IconSize.Medium
      */
     size?: IconSize;
     /**
      * The icon spin animation timer in milliseconds, seconds.
+     * @default false
      */
-    spin?: number;
+    spin?: boolean | number;
     /**
      * The icon title.
      */
     title?: string;
     /**
      * The icon is vertical.
+     * @default false
      */
     vertical?: boolean;
 }

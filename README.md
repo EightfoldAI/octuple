@@ -1,24 +1,23 @@
-Eightfold Octuple Design System Component Library
-===================
+# Eightfold Octuple Design System Component Library
 
 ## About
 
 Octuple creates a shared language and visual consistency across different pages and channels.
 
-* Design (and development) work can be created and replicated quickly and at scale.
-* Alleviates strain on design resources to focus on larger, more complex problems.
-* Creates a unified language within and between crossfunctional teams.
-* Creates visual consistency across products, channels, and (potentially siloed) departments.
-* Serves as an educational tool and reference for junior-level designers and content contributors. 
+-   Design (and development) work can be created and replicated quickly and at scale.
+-   Alleviates strain on design resources to focus on larger, more complex problems.
+-   Creates a unified language within and between crossfunctional teams.
+-   Creates visual consistency across products, channels, and (potentially siloed) departments.
+-   Serves as an educational tool and reference for junior-level designers and content contributors.
 
 ## Prerequisites
 
-* Install the following:
+-   Install the following:
 
-* [Git](https://git-scm.com/)
-* [Node](https://nodejs.org/en/download/)
-* [Yarn](https://yarnpkg.com/getting-started/install)
-* [NVM (optional to quickly use different verions of Node)](https://github.com/nvm-sh/nvm)
+-   [Git](https://git-scm.com/)
+-   [Node](https://nodejs.org/en/download/)
+-   [Yarn](https://yarnpkg.com/getting-started/install)
+-   [NVM (optional to quickly use different verions of Node)](https://github.com/nvm-sh/nvm)
 
 ## Available Scripts
 
