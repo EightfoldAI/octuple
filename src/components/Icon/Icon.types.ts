@@ -37,6 +37,7 @@ export interface IconProps extends MdiIconProps {
     horizontal?: boolean;
     /**
      * The icon aria role.
+     * @default 'presentation'
      */
     role?: string;
     /**

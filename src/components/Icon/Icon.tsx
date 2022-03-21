@@ -20,10 +20,7 @@ export const Icon: FC<IconProps> = ({
     vertical,
 }) => {
     const iconClassNames: string = classNames({
-        className: [
-            styles.iconWrapper,
-            className && className !== '' ? className : ''
-        ]
+        classes: className && className !== '' ? className : ''
     });
 
     return (
