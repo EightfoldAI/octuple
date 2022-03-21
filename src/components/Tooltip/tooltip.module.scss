@@ -1,0 +1,73 @@
+@import '../../styles/abstracts/functions';
+
+@import '../../styles/base/colors';
+@import '../../styles/themes/definitions-light';
+
+.referenceWrapper {
+    display: inline-block;
+}
+
+.tooltip {
+    display: none;
+    box-shadow: $shadow-object-xs;
+    text-align: center;
+    z-index: $z-index-100;
+    padding: $space-xs;
+    border-radius: $corner-radius-s;
+    transition: all $motion-duration-extra-fast $motion-easing-easeinout 0s;
+    opacity: 0;
+
+    &.dark {
+        background-color: $color-primary-grey;
+        color: $button-text__color-primary;
+    }
+
+    &[data-show] {
+        opacity: 1;
+        display: block;
+    }
+
+    .arrow {
+        width: 6px;
+        height: 12px;
+        z-index: $z-index-100;
+
+        img {
+            width: inherit;
+            height: inherit;
+        }
+
+        &::before {
+            position: absolute;
+            z-index: -1;
+        }
+    }
+
+    &[data-popper-placement^='top'] > .arrow {
+        bottom: -10px;
+
+        img {
+            transform: rotate(90deg);
+        }
+    }
+
+    &[data-popper-placement^='bottom'] > .arrow {
+        top: -10px;
+
+        img {
+            transform: rotate(-90deg);
+        }
+    }
+
+    &[data-popper-placement^='left'] > .arrow {
+        right: -10px;
+    }
+
+    &[data-popper-placement^='right'] > .arrow {
+        left: -10px;
+
+        img {
+            transform: rotate(180deg);
+        }
+    }
+}
