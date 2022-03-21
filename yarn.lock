@@ -2397,7 +2397,7 @@
     prettier ">=2.2.1 <=2.3.0"
     ts-dedent "^2.0.0"
 
-"@storybook/node-logger@6.5.0-alpha.47", "@storybook/node-logger@^6.5.0-alpha.47":
+"@storybook/node-logger@6.5.0-alpha.47":
   version "6.5.0-alpha.47"
   resolved "https://registry.yarnpkg.com/@storybook/node-logger/-/node-logger-6.5.0-alpha.47.tgz#5b83e52f417127f3def1d28af49057a57326a2c7"
   integrity sha512-KVH1ZelVu3EEHsRj+NhmE0d7+S/IYDHxGdQVwmeCCm6iw2FwyxMwzaAkQhLRjh+WxQPZj5jf5+mo4773mvBndg==

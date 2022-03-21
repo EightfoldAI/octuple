@@ -20,14 +20,16 @@ export const Icon: FC<IconProps> = ({
     vertical,
 }) => {
     const iconClassNames: string = classNames({
-        iconWrapper: styles.iconWrapper,
-        className: className && className !== '' ? className : '',
+        className: [
+            styles.iconWrapper,
+            className && className !== '' ? className : ''
+        ]
     });
 
     return (
         <span
             aria-hidden={ariaHidden ? ariaHidden : false}
-            className={iconClassNames}
+            className={styles.iconWrapper + ' ' + iconClassNames}
             role={role ? role : 'presentation'}
         >
             <MdiIcon
