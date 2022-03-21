@@ -1,16 +1,17 @@
 import React, { FC } from 'react';
-import { classNames } from '../../../shared/utilities';
-import { ButtonSize, ButtonProps } from '../index';
-import { Icon, IconName, IconSize } from '../../Icon/index';
+import { classNames } from '../../shared/utilities';
+import { ButtonSize, ButtonProps } from './index';
+import { Icon, IconName, IconSize } from '../Icon/index';
 
-import '../../../styles/main.scss';
+import '../../styles/main.scss';
 
-export const DefaultButton: FC<ButtonProps> = ({
-    // allowDisabledFocus,
+export const BaseButton: FC<ButtonProps> = ({
+    //allowDisabledFocus,
     ariaLabel,
     checked,
     classes,
     disabled,
+    disruptive,
     icon,
     onClick,
     text,
@@ -19,10 +20,11 @@ export const DefaultButton: FC<ButtonProps> = ({
 }) => {
     const buttonClassNames: string = classNames({
         button: true,
-        'button1 button-padding-1': size === ButtonSize.Large,
-        'button2 button-padding-2': size === ButtonSize.Medium,
-        'button3 button-padding-3': size === ButtonSize.Small,
-        'button-default': true,
+        'button-padding-1': size === ButtonSize.Large,
+        'button-padding-2': size === ButtonSize.Medium,
+        'button-padding-3': size === ButtonSize.Small,
+        'button-primary': true,
+        'button-primary-disruptive': disruptive,
         classes: classes && classes !== '' ? classes : '',
     });
     const buttonSpacerClassNames: string = classNames({
@@ -67,6 +69,7 @@ export const DefaultButton: FC<ButtonProps> = ({
     ): JSX.Element => {
         return <span className={buttonTextClassNames}>{text}</span>;
     };
+
     return (
         <button
             aria-label={ariaLabel}
@@ -91,7 +94,7 @@ export const DefaultButton: FC<ButtonProps> = ({
                 getButtonText(buttonTextClassNames, text)}
             {!iconPropsExist &&
                 !textPropsExist &&
-                getButtonText(buttonTextClassNames, 'Default Button')}
+                getButtonText(buttonTextClassNames, text)}
         </button>
     );
 };

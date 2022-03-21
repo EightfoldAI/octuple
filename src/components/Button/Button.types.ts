@@ -1,24 +1,25 @@
 import * as React from 'react';
+import { IconName } from '../Icon/mdi'
 
 export enum ButtonSize {
     Large = 'large',
     Medium = 'medium',
-    Small = 'small'
+    Small = 'small',
 }
 
-export interface IButtonProps {
+export interface ButtonProps {
     allowDisabledFocus?: boolean;
     ariaLabel?: string;
     checked?: boolean;
-    classes?: String;
+    classes?: string;
     disabled?: boolean;
     disruptive?: boolean;
-    icon?: string;
+    icon?: IconName;
     onClick?: React.MouseEventHandler<HTMLButtonElement>;
     text?: string;
     size?: ButtonSize;
     split?: boolean;
     splitButtonAriaLabel?: string;
-    splitButtonMenuProps?: IButtonProps;
+    splitButtonMenuProps?: ButtonProps;
     styles?: React.CSSProperties;
 }
