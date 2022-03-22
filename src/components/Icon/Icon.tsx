@@ -3,42 +3,37 @@ import { classNames } from '../../shared/utilities';
 import { Icon as MdiIcon } from '@mdi/react';
 import { IconProps, IconSize } from './index';
 
-import styles from './icon.module.scss';
+import * as styles from './icon.module.scss';
 
 export const Icon: FC<IconProps> = ({
-    ariaHidden,
+    ariaHidden = false,
     className,
     color,
     description,
     horizontal,
     path,
-    role,
+    role = 'presentation',
     rotate,
-    size,
+    size = IconSize.Medium,
     spin,
     title,
     vertical,
 }) => {
-    const iconClassNames: string = classNames({
-        classes: className && className !== '' ? className : ''
-    });
+    const iconClassNames: string = classNames([className, styles.iconWrapper]);
 
     return (
-        <span
-            aria-hidden={ariaHidden ? ariaHidden : false}
-            className={styles.iconWrapper + ' ' + iconClassNames}
-            role={role ? role : 'presentation'}
-        >
+        <span aria-hidden={ariaHidden} className={iconClassNames} role={role}>
             <MdiIcon
                 color={color}
                 description={description}
                 horizontal={horizontal}
                 path={path}
                 rotate={rotate}
-                size={size ? size : IconSize.Medium}
+                size={size}
                 title={title}
                 vertical={vertical}
-                spin={spin} />
+                spin={spin}
+            />
         </span>
     );
 };

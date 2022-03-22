@@ -15,7 +15,7 @@
         "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
         "format": "prettier --write \"**/*.+(js|jsx|ts|tsx|json|css|scss|md)\"",
         "postinstall": "husky install",
-        "lint-staged": "lint-staged --config lint-staged.js"
+        "lint-staged": "lint-staged"
     },
     "eslintConfig": {
         "extends": [
