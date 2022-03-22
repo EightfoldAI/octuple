@@ -23,6 +23,22 @@
     border-radius: $corner-radius-s;
     max-width: 140px;
 
+    &.top {
+        transform-origin: bottom center;
+    }
+
+    &.left {
+        transform-origin: right center;
+    }
+
+    &.right {
+        transform-origin: left center;
+    }
+
+    &.bottom {
+        transform-origin: top center;
+    }
+
     &.visible {
         display: block;
         animation: scaleTooltip $motion-duration-extra-fast

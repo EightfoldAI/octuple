@@ -27,6 +27,7 @@ export const Tooltip: FC<TooltipProps> = ({
     tabIndex = 0,
     positionStrategy = 'absolute',
 }) => {
+    const tooltipSide: string = placement.split('-')?.[0];
     const [visible, setVisible] = useState<boolean>(false);
     const arrowRef = useRef<HTMLDivElement>(null);
     let timeout: ReturnType<typeof setTimeout>;
@@ -59,7 +60,7 @@ export const Tooltip: FC<TooltipProps> = ({
         );
     }, [refs.reference, refs.floating, update]);
 
-    const toggle = (show: boolean): void => {
+    const toggle: Function = (show: boolean): void => {
         timeout && clearTimeout(timeout);
         timeout = setTimeout(
             () => {
@@ -69,32 +70,36 @@ export const Tooltip: FC<TooltipProps> = ({
         );
     };
 
-    const tooltipClasses = classNames([
+    const tooltipClasses: string = classNames([
         className,
         styles.tooltip,
         { [styles.visible]: visible },
         { [styles.dark]: theme === TooltipTheme.dark },
+        { [styles.top]: tooltipSide === 'top' },
+        { [styles.bottom]: tooltipSide === 'bottom' },
+        { [styles.left]: tooltipSide === 'left' },
+        { [styles.right]: tooltipSide === 'right' },
     ]);
 
-    const referenceWrapperClasses = classNames([
+    const referenceWrapperClasses: string = classNames([
         styles.referenceWrapper,
         { [styles.disabled]: disabled },
     ]);
 
-    const staticSide = {
+    const staticSide: string = {
         top: 'bottom',
         right: 'left',
         bottom: 'top',
         left: 'right',
-    }[placement.split('-')[0]];
+    }[tooltipSide];
 
-    const tooltipStyle = {
+    const tooltipStyle: object = {
         position: strategy,
         top: y ?? '',
         left: x ?? '',
     };
 
-    const arrowStyle = {
+    const arrowStyle: object = {
         position: strategy,
         top: arrowY ?? '',
         left: arrowX ?? '',
