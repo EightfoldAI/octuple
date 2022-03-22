@@ -5,69 +5,51 @@
 
 .referenceWrapper {
     display: inline-block;
+    cursor: pointer;
+
+    &.disabled {
+        pointer-events: none;
+        cursor: auto;
+    }
 }
 
 .tooltip {
     display: none;
     box-shadow: $shadow-object-xs;
+    background: $background-color-white;
     text-align: center;
     z-index: $z-index-100;
     padding: $space-xs;
     border-radius: $corner-radius-s;
-    transition: all $motion-duration-extra-fast $motion-easing-easeinout 0s;
-    opacity: 0;
+    max-width: 140px;
+
+    &.visible {
+        display: block;
+        animation: scaleTooltip $motion-duration-extra-fast
+            $motion-easing-easeinout 0s;
+    }
+
+    .arrow {
+        width: 8px;
+        height: 8px;
+        z-index: $z-index-100;
+        transform: rotate(45deg);
+        background: inherit;
+    }
 
     &.dark {
         background-color: $color-primary-grey;
         color: $button-text__color-primary;
     }
 
-    &[data-show] {
-        opacity: 1;
-        display: block;
-    }
-
-    .arrow {
-        width: 6px;
-        height: 12px;
-        z-index: $z-index-100;
-
-        img {
-            width: inherit;
-            height: inherit;
+    @keyframes scaleTooltip {
+        from {
+            transform: scale(0);
+            opacity: 0;
         }
-
-        &::before {
-            position: absolute;
-            z-index: -1;
-        }
-    }
-
-    &[data-popper-placement^='top'] > .arrow {
-        bottom: -10px;
-
-        img {
-            transform: rotate(90deg);
-        }
-    }
-
-    &[data-popper-placement^='bottom'] > .arrow {
-        top: -10px;
-
-        img {
-            transform: rotate(-90deg);
-        }
-    }
-
-    &[data-popper-placement^='left'] > .arrow {
-        right: -10px;
-    }
-
-    &[data-popper-placement^='right'] > .arrow {
-        left: -10px;
-
-        img {
-            transform: rotate(180deg);
+        to {
+            transform: scale(1);
+            opacity: 1;
         }
     }
 }

@@ -1,4 +1,4 @@
-import { ComputedPlacement } from '@popperjs/core';
+import { Placement, Strategy } from '@floating-ui/react-dom';
 import React from 'react';
 
 export enum TooltipTheme {
@@ -24,7 +24,7 @@ export interface TooltipProps {
      * Placement of the tooltip
      * @default bottom
      */
-    placement?: ComputedPlacement;
+    placement?: Placement;
     /**
      * To disable the tooltip
      * @default false
@@ -50,10 +50,10 @@ export interface TooltipProps {
      */
     className?: string;
     /**
-     * Whether the mouse can enter the tooltip
-     * @default true
+     * Positioning strategy for the tooltip
+     * @default absolute
      */
-    enterable?: boolean;
+    positionStrategy?: Strategy;
     /**
      * Timeout in milliseconds to hide tooltip
      * @default 0

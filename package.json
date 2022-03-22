@@ -35,17 +35,16 @@
         ]
     },
     "dependencies": {
+        "@floating-ui/react-dom": "^0.6.0",
         "@mdi/js": "6.5.95",
         "@mdi/react": "1.5.0",
-        "@popperjs/core": "^2.11.4",
         "@types/react": "17.0.39",
         "@types/react-dom": "17.0.11",
         "bodymovin": "4.13.0",
         "lottie-web": "5.8.1",
         "react": "17.0.2",
         "react-app-polyfill": "3.0.0",
-        "react-dom": "17.0.2",
-        "react-popper": "^2.2.5"
+        "react-dom": "17.0.2"
     },
     "devDependencies": {
         "@babel/core": "7.17.5",
