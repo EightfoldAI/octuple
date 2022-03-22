@@ -37,6 +37,14 @@ export const Primary = () => (
             size={ButtonSize.Large}
             text="Primary Button"
         />
+        <p>Disruptive</p>
+        <PrimaryButton
+            ariaLabel="Primary Button"
+            disruptive
+            onClick={_alertClicked}
+            size={ButtonSize.Large}
+            text="Primary Button"
+        />
     </>
 );
 
@@ -61,6 +69,14 @@ export const Secondary = () => (
         <SecondaryButton
             ariaLabel="Secondary Button"
             icon={IconName.mdiCardsHeart}
+            onClick={_alertClicked}
+            size={ButtonSize.Large}
+            text="Secondary Button"
+        />
+        <p>Disruptive</p>
+        <SecondaryButton
+            ariaLabel="Secondary Button"
+            disruptive
             onClick={_alertClicked}
             size={ButtonSize.Large}
             text="Secondary Button"

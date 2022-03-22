@@ -1,31 +1,24 @@
 import React, { FC } from 'react';
 import { classNames } from '../../shared/utilities';
-import { ButtonSize, ButtonProps } from './index';
+import { ButtonProps, ButtonSize } from './index';
 import { Icon, IconName, IconSize } from '../Icon/index';
 
 import '../../styles/main.scss';
 
 export const BaseButton: FC<ButtonProps> = ({
-    //allowDisabledFocus,
+    allowDisabledFocus,
     ariaLabel,
     checked,
-    classes,
+    className,
     disabled,
-    disruptive,
     icon,
     onClick,
     text,
     size,
-    styles,
+    style,
 }) => {
-    const buttonClassNames: string = classNames({
-        button: true,
-        'button-padding-1': size === ButtonSize.Large,
-        'button-padding-2': size === ButtonSize.Medium,
-        'button-padding-3': size === ButtonSize.Small,
-        'button-primary': true,
-        'button-primary-disruptive': disruptive,
-        classes: classes && classes !== '' ? classes : '',
+    const buttonBaseClassNames: string = classNames({
+        disabled: allowDisabledFocus || disabled
     });
     const buttonSpacerClassNames: string = classNames({
         spacer: true,
@@ -72,12 +65,13 @@ export const BaseButton: FC<ButtonProps> = ({
 
     return (
         <button
+            aria-disabled={allowDisabledFocus}
             aria-label={ariaLabel}
             defaultChecked={checked}
-            className={buttonClassNames}
             disabled={disabled}
-            onClick={onClick}
-            style={styles}
+            className={className + ' ' + buttonBaseClassNames}
+            onClick={!allowDisabledFocus ? onClick : null}
+            style={style}
         >
             {iconPropsExist &&
                 !textPropsExist &&
@@ -94,7 +88,7 @@ export const BaseButton: FC<ButtonProps> = ({
                 getButtonText(buttonTextClassNames, text)}
             {!iconPropsExist &&
                 !textPropsExist &&
-                getButtonText(buttonTextClassNames, text)}
+                getButtonText(buttonTextClassNames, 'Button')}
         </button>
     );
 };
