@@ -3,7 +3,7 @@ import { classNames } from '../../shared/utilities';
 import { ButtonProps, ButtonSize } from './index';
 import { Icon, IconName, IconSize } from '../Icon/index';
 
-import '../../styles/main.scss';
+import * as styles from './button.module.scss';
 
 export const BaseButton: FC<ButtonProps> = ({
     allowDisabledFocus,
@@ -17,20 +17,21 @@ export const BaseButton: FC<ButtonProps> = ({
     size,
     style,
 }) => {
-    const buttonBaseClassNames: string = classNames({
-        disabled: allowDisabledFocus || disabled
-    });
-    const buttonSpacerClassNames: string = classNames({
-        spacer: true,
-        'button-spacer-1': size === ButtonSize.Large,
-        'button-spacer-2': size === ButtonSize.Medium,
-        'button-spacer-3': size === ButtonSize.Small,
-    });
-    const buttonTextClassNames: string = classNames({
-        button1: size === ButtonSize.Large,
-        button2: size === ButtonSize.Medium,
-        button3: size === ButtonSize.Small,
-    });
+    const buttonBaseClassNames: string = classNames([
+        className,
+        (allowDisabledFocus || disabled) ? styles.disabled : ''
+    ]);
+    const buttonSpacerClassNames: string = classNames([
+        styles.spacer,
+        size === ButtonSize.Large ? 'button-spacer-1' : '',
+        size === ButtonSize.Medium ? 'button-spacer-2' : '',
+        size === ButtonSize.Small? 'button-spacer-3' : '',
+    ]);
+    const buttonTextClassNames: string = classNames([
+        size === ButtonSize.Large ? 'button1' : '',
+        size === ButtonSize.Medium ? 'button2' : '',
+        size === ButtonSize.Small ? 'button3' : '',
+    ]);
 
     const iconPropsExist: boolean = icon && icon !== null;
     const textPropsExist: boolean = text && text !== '';
@@ -69,7 +70,7 @@ export const BaseButton: FC<ButtonProps> = ({
             aria-label={ariaLabel}
             defaultChecked={checked}
             disabled={disabled}
-            className={className + ' ' + buttonBaseClassNames}
+            className={buttonBaseClassNames}
             onClick={!allowDisabledFocus ? onClick : null}
             style={style}
         >

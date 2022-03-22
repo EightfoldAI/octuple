@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import { classNames } from '../../../shared/utilities';
 import { BaseButton, ButtonProps, ButtonSize } from '../index';
 
-import '../../../styles/main.scss';
+import * as styles from '../button.module.scss';
 
 export const DefaultButton: FC<ButtonProps> = ({
     allowDisabledFocus,
@@ -16,20 +16,21 @@ export const DefaultButton: FC<ButtonProps> = ({
     size,
     style,
 }) => {
-    const buttonClassNames: string = classNames({
-        button: true,
-        'button1 button-padding-1': size === ButtonSize.Large,
-        'button2 button-padding-2': size === ButtonSize.Medium,
-        'button3 button-padding-3': size === ButtonSize.Small,
-        'button-default': true
-    });
+    const buttonClassNames: string = classNames([
+        className,
+        styles.button,
+        size === ButtonSize.Large ? styles['button-padding-1'] : '',
+        size === ButtonSize.Medium ? styles['button-padding-2'] : '',
+        size === ButtonSize.Small ? styles['button-padding-3'] : '',
+        styles['button-default']
+    ]);
 
     return (
         <BaseButton
             allowDisabledFocus={allowDisabledFocus}
             ariaLabel={ariaLabel}
             checked={checked}
-            className={className + ' ' + buttonClassNames}
+            className={buttonClassNames}
             disabled={disabled}
             icon={icon}
             onClick={onClick}
