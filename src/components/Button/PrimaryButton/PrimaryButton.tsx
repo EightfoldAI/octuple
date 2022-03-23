@@ -2,24 +2,24 @@ import React, { FC } from 'react';
 import { classNames } from '../../../shared/utilities';
 import { BaseButton, ButtonProps, ButtonSize } from '../index';
 
-import * as styles from '../button.module.scss';
+import '../../../styles/main.scss';
 
 export const PrimaryButton: FC<ButtonProps> = ({
-    allowDisabledFocus,
+    allowDisabledFocus = false,
     ariaLabel,
-    checked,
+    checked = false,
     className,
-    disabled,
-    disruptive,
+    disabled = false,
+    disruptive = false,
     icon,
     onClick,
     text,
-    size,
+    size = ButtonSize.Medium,
     style,
 }) => {
     const buttonClassNames: string = classNames([
         className,
-        styles.button,
+        'button',
         size === ButtonSize.Large ? 'button-padding-1' : '',
         size === ButtonSize.Medium ? 'button-padding-2' : '',
         size === ButtonSize.Small ? 'button-padding-3' : '',

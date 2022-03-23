@@ -3,26 +3,26 @@ import { classNames } from '../../shared/utilities';
 import { ButtonProps, ButtonSize } from './index';
 import { Icon, IconName, IconSize } from '../Icon/index';
 
-import * as styles from './button.module.scss';
+import '../../styles/main.scss';
 
 export const BaseButton: FC<ButtonProps> = ({
-    allowDisabledFocus,
+    allowDisabledFocus = false,
     ariaLabel,
-    checked,
+    checked = false,
     className,
-    disabled,
+    disabled = false,
     icon,
     onClick,
     text,
-    size,
+    size = ButtonSize.Medium,
     style,
 }) => {
     const buttonBaseClassNames: string = classNames([
         className,
-        (allowDisabledFocus || disabled) ? styles.disabled : ''
+        (allowDisabledFocus || disabled) ? 'disabled' : ''
     ]);
     const buttonSpacerClassNames: string = classNames([
-        styles.spacer,
+        'spacer',
         size === ButtonSize.Large ? 'button-spacer-1' : '',
         size === ButtonSize.Medium ? 'button-spacer-2' : '',
         size === ButtonSize.Small? 'button-spacer-3' : '',
