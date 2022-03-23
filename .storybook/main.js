@@ -42,21 +42,15 @@ module.exports = {
                 test: /\.s[ca]ss|css$/,
                 use: [
                     'style-loader',
-                    '@teamsupercell/typings-for-css-modules-loader',
-                    {
-                        loader: 'css-loader',
-                        options: { modules: true },
-                    },
+                    'css-loader',
                     'resolve-url-loader',
                     'sass-loader',
                 ],
-                exclude: /node_modules/,
-                include: path.resolve(__dirname, '../src'),
+                include: path.resolve(__dirname, '../'),
             },
             {
                 test: /\.svg$/,
                 use: ['@svgr/webpack', 'file-loader', 'url-loader'],
-                exclude: /node_modules/,
                 include: path.resolve(__dirname, '../'),
             }
         );

@@ -3,7 +3,7 @@ import { classNames } from '../../shared/utilities';
 import { Icon as MdiIcon } from '@mdi/react';
 import { IconProps, IconSize } from './index';
 
-import * as styles from './icon.module.scss';
+import styles from './icon.module.scss';
 
 export const Icon: FC<IconProps> = ({
     ariaHidden = false,
