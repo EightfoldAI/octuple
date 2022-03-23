@@ -121,34 +121,46 @@ $button-text__color-default: $blue70;
 $button-color-default-hover: $blue20;
 $button-color-default-pressed: $blue10;
 $button-color-default-focused-border: $blue80;
-$button-color-default-active: rgba(104,186,239, 0.01);
+$button-color-default-active: rgba(104, 186, 239, 0.01);
 
 $button-text__color-neutral: $grey70;
 $button-color-neutral-hover: $grey20;
 $button-color-neutral-pressed: $grey10;
 $button-color-neutral-focused-border: $blue80;
-$button-color-neutral-active: rgba(104,186,239, 0.01);
+$button-color-neutral-active: rgba(104, 186, 239, 0.01);
 
 $text-color-primary: $grey90;
 $text-color-secondary: $grey80;
 
 $card-background-color: $grey0;
+$background-color-white: $grey0;
 
 $input-field-color-enabled: $grey40;
 
 // Gradient Definitions
 
-$eightfold-logo-gradient: linear-gradient(90deg, #3186C8 0.01%, #269FCA 18.01%, #1DB4CC 38.02%, #1ABBCD 50.02%, #6FC6AA 100.03%);
-
+$eightfold-logo-gradient: linear-gradient(
+    90deg,
+    #3186c8 0.01%,
+    #269fca 18.01%,
+    #1db4cc 38.02%,
+    #1abbcd 50.02%,
+    #6fc6aa 100.03%
+);
 
 // Shadow Definitions
 
 $shadow-object-xs: 0px 1px 2px rgba(15, 20, 31, 0.12);
-$shadow-object-s: 0px 1px 2px rgba(15, 20, 31, 0.12), 0px 1px 4px rgba(15, 20, 31, 0.16); // Smallest UI object like tooltips.
-$shadow-object-m: 0px 1px 2px rgba(15, 20, 31, 0.12), 0px 2px 8px rgba(15, 20, 31, 0.16); // UI objects like card, dropdown menu, etc
-$shadow-object-l: 0px 1px 2px rgba(15, 20, 31, 0.12), 0px 4px 16px rgba(15, 20, 31, 0.16); // Large UI objects like popover, dialog, etc
-$shadow-object-xl: 0px 1px 2px rgba(15, 20, 31, 0.12), 0px 8px 32px rgba(15, 20, 31, 0.16); // Largest UI objects like modal, slide-in panel, etc
-$shadow-panel-right: -1px 0px 2px rgba(15, 20, 31, 0.12), -8px 0px 32px rgba(15, 20, 31, 0.16);
+$shadow-object-s: 0px 1px 2px rgba(15, 20, 31, 0.12),
+    0px 1px 4px rgba(15, 20, 31, 0.16); // Smallest UI object like tooltips.
+$shadow-object-m: 0px 1px 2px rgba(15, 20, 31, 0.12),
+    0px 2px 8px rgba(15, 20, 31, 0.16); // UI objects like card, dropdown menu, etc
+$shadow-object-l: 0px 1px 2px rgba(15, 20, 31, 0.12),
+    0px 4px 16px rgba(15, 20, 31, 0.16); // Large UI objects like popover, dialog, etc
+$shadow-object-xl: 0px 1px 2px rgba(15, 20, 31, 0.12),
+    0px 8px 32px rgba(15, 20, 31, 0.16); // Largest UI objects like modal, slide-in panel, etc
+$shadow-panel-right: -1px 0px 2px rgba(15, 20, 31, 0.12),
+    -8px 0px 32px rgba(15, 20, 31, 0.16);
 
 // Spacing Definitions
 
@@ -201,16 +213,35 @@ $motion-duration-extra-slow: 1000ms; // Largest UI objects like slide-in panels,
 
 // Easing Definitions
 
-$motion-easing-easeout: cubic-bezier(0,0,.58,1); // EaseOut is used when an element is appearing on-screen or within a component
-$motion-easing-easein: cubic-bezier(.42,0,1,1); // EaseIn is used when an element is removed from the screen or within a component
-$motion-easing-easeinout: cubic-bezier(.42,0,.58,1); // The primary easing curve. Used for any core animation not entering/exiting the screen or a component
+$motion-easing-easeout: cubic-bezier(
+    0,
+    0,
+    0.58,
+    1
+); // EaseOut is used when an element is appearing on-screen or within a component
+$motion-easing-easein: cubic-bezier(
+    0.42,
+    0,
+    1,
+    1
+); // EaseIn is used when an element is removed from the screen or within a component
+$motion-easing-easeinout: cubic-bezier(
+    0.42,
+    0,
+    0.58,
+    1
+); // The primary easing curve. Used for any core animation not entering/exiting the screen or a component
 
 // Movement Definitions
 
-$motion-movement-s: rem(8px); // Used in animations involving parts of a component
+$motion-movement-s: rem(
+    8px
+); // Used in animations involving parts of a component
 $motion-movement-m: rem(16px); // Used in animations of smaller components
 $motion-movement-l: rem(24px); // Used in animations of larger components
-$motion-movement-xl: rem(32px); // Used in animations involving the largest components
+$motion-movement-xl: rem(
+    32px
+); // Used in animations involving the largest components
 
 // Delay Definitions
 
