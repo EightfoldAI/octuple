@@ -2,6 +2,8 @@
 @import '../../styles/base/colors';
 @import '../../styles/themes/definitions-light';
 
+$tooltip-arrow-shadow: 1px 1px 2px rgba(15, 20, 31, 0.12);
+
 .referenceWrapper {
     display: inline-block;
     cursor: pointer;
@@ -26,36 +28,35 @@
         width: 8px;
         height: 8px;
         z-index: -1;
-        transform: rotate(45deg);
         background: inherit;
-        box-shadow: $shadow-object-xs;
+        box-shadow: $tooltip-arrow-shadow;
     }
 
     &.top {
         transform-origin: bottom center;
         .arrow {
-            box-shadow: $shadow-object-xs;
+            transform: rotate(45deg);
         }
     }
 
     &.left {
         transform-origin: right center;
         .arrow {
-            box-shadow: $shadow-object-xs;
+            transform: rotate(315deg);
         }
     }
 
     &.right {
         transform-origin: left center;
         .arrow {
-            box-shadow: $shadow-object-xs;
+            transform: rotate(135deg);
         }
     }
 
     &.bottom {
         transform-origin: top center;
         .arrow {
-            box-shadow: $shadow-object-xs;
+            transform: rotate(225deg);
         }
     }
 

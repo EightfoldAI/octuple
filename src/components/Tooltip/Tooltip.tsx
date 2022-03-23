@@ -44,7 +44,11 @@ export const Tooltip: FC<TooltipProps> = ({
     } = useFloating({
         placement,
         strategy: positionStrategy,
-        middleware: [shift(), arrow({ element: arrowRef }), fOffset(offset)],
+        middleware: [
+            shift(),
+            arrow({ element: arrowRef, padding: TOOLTIP_ARROW_WIDTH }),
+            fOffset(offset),
+        ],
     });
 
     useEffect(() => {

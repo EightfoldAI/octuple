@@ -11,9 +11,8 @@ const Wrapper: FC = ({ children }) => (
     <div
         style={{
             display: 'flex',
-            gap: '8px',
-            marginBottom: '8px',
-            flexWrap: 'wrap',
+            marginBottom: '16px',
+            justifyContent: 'space-around',
         }}
     >
         {children}
@@ -21,32 +20,32 @@ const Wrapper: FC = ({ children }) => (
 );
 
 export const Base = () => (
-    <>
+    <div style={{ maxWidth: '60%', margin: 'auto' }}>
         <Wrapper>
             <Tooltip content={'Light tooltip'}>
                 <PrimaryButton
-                    ariaLabel="Primary Button"
+                    ariaLabel="Light bottom"
                     onClick={_alertClicked}
                     size={ButtonSize.Large}
-                    text="Primary Button"
+                    text="Light bottom"
                 />
             </Tooltip>
             <Tooltip content={'Dark tooltip'} theme={TooltipTheme.dark}>
                 <PrimaryButton
-                    ariaLabel="Primary Button"
+                    ariaLabel="Dark bottom"
                     onClick={_alertClicked}
                     size={ButtonSize.Large}
-                    text="Primary Button"
+                    text="Dark bottom"
                 />
             </Tooltip>
         </Wrapper>
         <Wrapper>
             <Tooltip content={'Dark tooltip'} placement={'top'}>
                 <PrimaryButton
-                    ariaLabel="Primary Button"
+                    ariaLabel="Light top"
                     onClick={_alertClicked}
                     size={ButtonSize.Large}
-                    text="Primary Button"
+                    text="Light top"
                 />
             </Tooltip>
             <Tooltip
@@ -55,20 +54,20 @@ export const Base = () => (
                 theme={TooltipTheme.dark}
             >
                 <PrimaryButton
-                    ariaLabel="Primary Button"
+                    ariaLabel="Dark top"
                     onClick={_alertClicked}
                     size={ButtonSize.Large}
-                    text="Primary Button"
+                    text="Dark top"
                 />
             </Tooltip>
         </Wrapper>
         <Wrapper>
             <Tooltip content={'Dark tooltip'} placement={'right'}>
                 <PrimaryButton
-                    ariaLabel="Primary Button"
+                    ariaLabel="Light right"
                     onClick={_alertClicked}
                     size={ButtonSize.Large}
-                    text="Primary Button"
+                    text="Light right"
                 />
             </Tooltip>
             <Tooltip
@@ -77,20 +76,23 @@ export const Base = () => (
                 theme={TooltipTheme.dark}
             >
                 <PrimaryButton
-                    ariaLabel="Primary Button"
+                    ariaLabel="Dark right"
                     onClick={_alertClicked}
                     size={ButtonSize.Large}
-                    text="Primary Button"
+                    text="Dark right"
                 />
             </Tooltip>
         </Wrapper>
         <Wrapper>
-            <Tooltip content={'Dark tooltip'} placement={'left'}>
+            <Tooltip
+                content="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+                placement={'left'}
+            >
                 <PrimaryButton
-                    ariaLabel="Primary Button"
+                    ariaLabel="Light left"
                     onClick={_alertClicked}
                     size={ButtonSize.Large}
-                    text="Primary Button"
+                    text="Light left"
                 />
             </Tooltip>
             <Tooltip
@@ -101,16 +103,14 @@ export const Base = () => (
                 theme={TooltipTheme.dark}
             >
                 <PrimaryButton
-                    ariaLabel="Primary Button"
+                    ariaLabel="Dark left"
                     onClick={_alertClicked}
                     size={ButtonSize.Large}
-                    text="Primary Button"
+                    text="Dark left"
                 />
             </Tooltip>
         </Wrapper>
-    </>
+    </div>
 );
 
-function _alertClicked(): void {
-    alert('Clicked');
-}
+function _alertClicked(): void {}
