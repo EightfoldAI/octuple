@@ -22,34 +22,47 @@
     border-radius: $corner-radius-s;
     max-width: 140px;
 
+    .arrow {
+        width: 8px;
+        height: 8px;
+        z-index: -1;
+        transform: rotate(45deg);
+        background: inherit;
+        box-shadow: $shadow-object-xs;
+    }
+
     &.top {
         transform-origin: bottom center;
+        .arrow {
+            box-shadow: $shadow-object-xs;
+        }
     }
 
     &.left {
         transform-origin: right center;
+        .arrow {
+            box-shadow: $shadow-object-xs;
+        }
     }
 
     &.right {
         transform-origin: left center;
+        .arrow {
+            box-shadow: $shadow-object-xs;
+        }
     }
 
     &.bottom {
         transform-origin: top center;
+        .arrow {
+            box-shadow: $shadow-object-xs;
+        }
     }
 
     &.visible {
         display: block;
         animation: scaleTooltip $motion-duration-extra-fast
             $motion-easing-easeinout 0s;
-    }
-
-    .arrow {
-        width: 8px;
-        height: 8px;
-        z-index: $z-index-100;
-        transform: rotate(45deg);
-        background: inherit;
     }
 
     &.dark {

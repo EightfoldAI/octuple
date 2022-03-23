@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { ButtonSize, PrimaryButton } from '../Button';
 import { Tooltip, TooltipTheme } from './';
 
@@ -7,9 +7,22 @@ export default {
     component: Tooltip,
 };
 
+const Wrapper: FC = ({ children }) => (
+    <div
+        style={{
+            display: 'flex',
+            gap: '8px',
+            marginBottom: '8px',
+            flexWrap: 'wrap',
+        }}
+    >
+        {children}
+    </div>
+);
+
 export const Base = () => (
     <>
-        <div>
+        <Wrapper>
             <Tooltip content={'Light tooltip'}>
                 <PrimaryButton
                     ariaLabel="Primary Button"
@@ -18,7 +31,6 @@ export const Base = () => (
                     text="Primary Button"
                 />
             </Tooltip>
-
             <Tooltip content={'Dark tooltip'} theme={TooltipTheme.dark}>
                 <PrimaryButton
                     ariaLabel="Primary Button"
@@ -27,13 +39,9 @@ export const Base = () => (
                     text="Primary Button"
                 />
             </Tooltip>
-        </div>
-        <div>
-            <Tooltip
-                content={'Dark tooltip'}
-                placement={'top'}
-                theme={TooltipTheme.dark}
-            >
+        </Wrapper>
+        <Wrapper>
+            <Tooltip content={'Dark tooltip'} placement={'top'}>
                 <PrimaryButton
                     ariaLabel="Primary Button"
                     onClick={_alertClicked}
@@ -53,13 +61,9 @@ export const Base = () => (
                     text="Primary Button"
                 />
             </Tooltip>
-        </div>
-        <div>
-            <Tooltip
-                content={'Dark tooltip'}
-                placement={'right'}
-                theme={TooltipTheme.dark}
-            >
+        </Wrapper>
+        <Wrapper>
+            <Tooltip content={'Dark tooltip'} placement={'right'}>
                 <PrimaryButton
                     ariaLabel="Primary Button"
                     onClick={_alertClicked}
@@ -79,14 +83,9 @@ export const Base = () => (
                     text="Primary Button"
                 />
             </Tooltip>
-        </div>
-
-        <div>
-            <Tooltip
-                content={'Dark tooltip'}
-                placement={'left'}
-                theme={TooltipTheme.dark}
-            >
+        </Wrapper>
+        <Wrapper>
+            <Tooltip content={'Dark tooltip'} placement={'left'}>
                 <PrimaryButton
                     ariaLabel="Primary Button"
                     onClick={_alertClicked}
@@ -108,7 +107,7 @@ export const Base = () => (
                     text="Primary Button"
                 />
             </Tooltip>
-        </div>
+        </Wrapper>
     </>
 );
 
