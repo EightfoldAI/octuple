@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { classNames } from '../../shared/utilities';
+import { classNames, invertForegroundColor } from '../../shared/utilities';
 import { ButtonProps, ButtonSize } from './index';
 import { Icon, IconName, IconSize } from '../Icon/index';
 
@@ -13,6 +13,7 @@ export const BaseButton: FC<ButtonProps> = ({
     disabled = false,
     icon,
     onClick,
+    primaryColor,
     text,
     size = ButtonSize.Medium,
     style,
@@ -61,7 +62,7 @@ export const BaseButton: FC<ButtonProps> = ({
         buttonTextClassNames: string,
         text: string
     ): JSX.Element => {
-        return <span className={buttonTextClassNames}>{text}</span>;
+        return <span className={buttonTextClassNames} style={{color: primaryColor ? invertForegroundColor(primaryColor) : 'inherit'}}>{text}</span>;
     };
 
     return (
@@ -72,7 +73,7 @@ export const BaseButton: FC<ButtonProps> = ({
             disabled={disabled}
             className={buttonBaseClassNames}
             onClick={!allowDisabledFocus ? onClick : null}
-            style={style}
+            style={{...style, backgroundColor: primaryColor}}
         >
             {iconPropsExist &&
                 !textPropsExist &&

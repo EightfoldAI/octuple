@@ -13,6 +13,7 @@ export const SecondaryButton: FC<ButtonProps> = ({
     disruptive = false,
     icon,
     onClick,
+    primaryColor,
     text,
     size = ButtonSize.Medium,
     style,
@@ -37,6 +38,7 @@ export const SecondaryButton: FC<ButtonProps> = ({
             disruptive={disruptive}
             icon={icon}
             onClick={onClick}
+            primaryColor={primaryColor}
             text={text}
             size={size}
             style={style}
