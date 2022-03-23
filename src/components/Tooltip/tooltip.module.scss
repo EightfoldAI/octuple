@@ -1,0 +1,84 @@
+@import '../../styles/abstracts/functions';
+@import '../../styles/base/colors';
+@import '../../styles/themes/definitions-light';
+
+$tooltip-arrow-shadow: 1px 1px 2px rgba(15, 20, 31, 0.12);
+
+.referenceWrapper {
+    display: inline-block;
+    cursor: pointer;
+
+    &.disabled {
+        pointer-events: none;
+        cursor: auto;
+    }
+}
+
+.tooltip {
+    display: none;
+    box-shadow: $shadow-object-xs;
+    background: $background-color-white;
+    text-align: center;
+    z-index: $z-index-100;
+    padding: $space-xs;
+    border-radius: $corner-radius-s;
+    max-width: 140px;
+
+    .arrow {
+        width: 8px;
+        height: 8px;
+        z-index: -1;
+        background: inherit;
+        box-shadow: $tooltip-arrow-shadow;
+    }
+
+    &.top {
+        transform-origin: bottom center;
+        .arrow {
+            transform: rotate(45deg);
+        }
+    }
+
+    &.left {
+        transform-origin: right center;
+        .arrow {
+            transform: rotate(315deg);
+        }
+    }
+
+    &.right {
+        transform-origin: left center;
+        .arrow {
+            transform: rotate(135deg);
+        }
+    }
+
+    &.bottom {
+        transform-origin: top center;
+        .arrow {
+            transform: rotate(225deg);
+        }
+    }
+
+    &.visible {
+        display: block;
+        animation: scaleTooltip $motion-duration-extra-fast
+            $motion-easing-easeinout 0s;
+    }
+
+    &.dark {
+        background-color: $color-primary-grey;
+        color: $button-text__color-primary;
+    }
+
+    @keyframes scaleTooltip {
+        from {
+            transform: scale(0);
+            opacity: 0;
+        }
+        to {
+            transform: scale(1);
+            opacity: 1;
+        }
+    }
+}
