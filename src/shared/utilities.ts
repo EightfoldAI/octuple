@@ -58,7 +58,7 @@ type RGB = {
     r: number;
     g: number;
     b: number;
-}
+};
 /**
  *  RGB list (array) type with red, green and blue components (used by invertForegroundColor).
  */
@@ -78,7 +78,7 @@ type Color = RGB | RgbArray | HexColor;
 interface BlackWhite {
     black: HexColor;
     white: HexColor;
-    threshold?: number
+    threshold?: number;
 }
 
 /**
@@ -89,7 +89,7 @@ const RE_HEX = /^(?:[0-9a-f]{3}){1,2}$/i;
 const DEFAULT_BW: BlackWhite = {
     black: '#000000',
     white: '#ffffff',
-    threshold: DEFAULT_THRESHOLD
+    threshold: DEFAULT_THRESHOLD,
 };
 
 /**
@@ -115,7 +115,7 @@ function hexToRgbArray(hex: string): RgbArray {
     return [
         parseInt(hex.slice(0, 2), 16), // r
         parseInt(hex.slice(2, 4), 16), // g
-        parseInt(hex.slice(4, 6), 16)  // b
+        parseInt(hex.slice(4, 6), 16), // b
     ];
 }
 

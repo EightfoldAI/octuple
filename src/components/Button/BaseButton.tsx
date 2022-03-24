@@ -1,9 +1,9 @@
 import React, { FC } from 'react';
 import { classNames, invertForegroundColor } from '../../shared/utilities';
-import { ButtonProps, ButtonSize } from './index';
+import { ButtonProps, ButtonSize, ButtonTheme } from './index';
 import { Icon, IconName, IconSize } from '../Icon/index';
 
-import '../../styles/main.scss';
+import styles from './button.module.scss';
 
 export const BaseButton: FC<ButtonProps> = ({
     allowDisabledFocus = false,
@@ -15,23 +15,25 @@ export const BaseButton: FC<ButtonProps> = ({
     onClick,
     primaryColor,
     text,
+    theme,
     size = ButtonSize.Medium,
     style,
 }) => {
     const buttonBaseClassNames: string = classNames([
         className,
-        (allowDisabledFocus || disabled) ? 'disabled' : ''
+        { [styles.dark]: theme === ButtonTheme.dark },
+        allowDisabledFocus || disabled ? styles.disabled : '',
     ]);
     const buttonSpacerClassNames: string = classNames([
-        'spacer',
-        size === ButtonSize.Large ? 'button-spacer-1' : '',
-        size === ButtonSize.Medium ? 'button-spacer-2' : '',
-        size === ButtonSize.Small? 'button-spacer-3' : '',
+        styles.spacer,
+        size === ButtonSize.Large ? styles['button-spacer-1'] : '',
+        size === ButtonSize.Medium ? styles['button-spacer-2'] : '',
+        size === ButtonSize.Small ? styles['button-spacer-3'] : '',
     ]);
     const buttonTextClassNames: string = classNames([
-        size === ButtonSize.Large ? 'button1' : '',
-        size === ButtonSize.Medium ? 'button2' : '',
-        size === ButtonSize.Small ? 'button3' : '',
+        size === ButtonSize.Large ? styles.button1 : '',
+        size === ButtonSize.Medium ? styles.button2 : '',
+        size === ButtonSize.Small ? styles.button3 : '',
     ]);
 
     const iconPropsExist: boolean = icon && icon !== null;
@@ -50,19 +52,43 @@ export const BaseButton: FC<ButtonProps> = ({
                 iconSize = IconSize.Large;
         }
         return iconSize;
-    }
+    };
 
     const getButtonIcon = (icon: IconName): JSX.Element => {
-        return (
-            <Icon path={icon} size={getButtonIconSize()} />
-        );
-    }
+        return <Icon path={icon} size={getButtonIconSize()} />;
+    };
+
+    const buttonStyles = (): React.CSSProperties => {
+        let buttonStyle: React.CSSProperties;
+        if (primaryColor) {
+            buttonStyle = {
+                ...style,
+                background: primaryColor,
+                borderColor: primaryColor,
+                // TODO: figure out how to do :hover and :active
+            };
+        } else {
+            buttonStyle = style;
+        }
+        return buttonStyle;
+    };
 
     const getButtonText = (
         buttonTextClassNames: string,
         text: string
     ): JSX.Element => {
-        return <span className={buttonTextClassNames} style={{color: primaryColor ? invertForegroundColor(primaryColor) : 'inherit'}}>{text}</span>;
+        return (
+            <span
+                className={buttonTextClassNames}
+                style={{
+                    color: primaryColor
+                        ? invertForegroundColor(primaryColor)
+                        : 'inherit',
+                }}
+            >
+                {text}
+            </span>
+        );
     };
 
     return (
@@ -73,13 +99,11 @@ export const BaseButton: FC<ButtonProps> = ({
             disabled={disabled}
             className={buttonBaseClassNames}
             onClick={!allowDisabledFocus ? onClick : null}
-            style={{...style, backgroundColor: primaryColor}}
+            style={buttonStyles()}
         >
-            {iconPropsExist &&
-                !textPropsExist &&
-                getButtonIcon(icon)}
+            {iconPropsExist && !textPropsExist && getButtonIcon(icon)}
             {iconPropsExist && textPropsExist && (
-                <span className="flex-structure-horizontal">
+                <span className={styles['flex-structure-horizontal']}>
                     {getButtonIcon(icon)}
                     <span className={buttonSpacerClassNames}></span>
                     {getButtonText(buttonTextClassNames, text)}

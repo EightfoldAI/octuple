@@ -1,10 +1,15 @@
 import * as React from 'react';
-import { IconName } from '../Icon/mdi'
+import { IconName } from '../Icon/mdi';
 
 export enum ButtonSize {
     Large = 'large',
     Medium = 'medium',
     Small = 'small',
+}
+
+export enum ButtonTheme {
+    light = 'light',
+    dark = 'dark',
 }
 
 export interface ButtonProps {
@@ -50,6 +55,11 @@ export interface ButtonProps {
      * The button text.
      */
     text?: string;
+    /**
+     * The button theme.
+     * @default light
+     */
+    theme?: ButtonTheme;
     /**
      * The button size.
      * @default ButtonSize.Medium
