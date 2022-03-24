@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { classNames } from '../../../shared/utilities';
-import { BaseButton, ButtonProps, ButtonSize } from '../index';
+import { BaseButton, ButtonProps, ButtonSize, ButtonType } from '../index';
 
 import styles from '../button.module.scss';
 
@@ -21,7 +21,7 @@ export const DefaultButton: FC<ButtonProps> = ({
     const buttonClassNames: string = classNames([
         className,
         styles.button,
-        styles['button-default'],
+        styles.buttonDefault,
     ]);
 
     return (
@@ -36,6 +36,7 @@ export const DefaultButton: FC<ButtonProps> = ({
             primaryColor={primaryColor}
             text={text}
             theme={theme}
+            type={ButtonType.Default}
             size={size}
             style={style}
         />

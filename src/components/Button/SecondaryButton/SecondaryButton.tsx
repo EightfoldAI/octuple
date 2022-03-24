@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { classNames } from '../../../shared/utilities';
-import { BaseButton, ButtonProps, ButtonSize } from '../index';
+import { BaseButton, ButtonProps, ButtonSize, ButtonType } from '../index';
 
 import styles from '../button.module.scss';
 
@@ -22,8 +22,8 @@ export const SecondaryButton: FC<ButtonProps> = ({
     const buttonClassNames: string = classNames([
         className,
         styles.button,
-        styles['button-secondary'],
-        disruptive ? styles['button-secondary-disruptive'] : '',
+        styles.buttonSecondary,
+        disruptive ? styles.buttonSecondaryDisruptive : '',
     ]);
 
     return (
@@ -39,6 +39,7 @@ export const SecondaryButton: FC<ButtonProps> = ({
             primaryColor={primaryColor}
             text={text}
             theme={theme}
+            type={ButtonType.Secondary}
             size={size}
             style={style}
         />

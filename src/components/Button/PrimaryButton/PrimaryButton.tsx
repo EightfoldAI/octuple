@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { classNames } from '../../../shared/utilities';
-import { BaseButton, ButtonProps, ButtonSize } from '../index';
+import { BaseButton, ButtonProps, ButtonSize, ButtonType } from '../index';
 
 import styles from '../button.module.scss';
 
@@ -22,8 +22,8 @@ export const PrimaryButton: FC<ButtonProps> = ({
     const buttonClassNames: string = classNames([
         className,
         styles.button,
-        styles['button-primary'],
-        disruptive ? styles['button-primary-disruptive'] : '',
+        styles.buttonPrimary,
+        disruptive ? styles.buttonPrimaryDisruptive : '',
     ]);
 
     return (
@@ -38,6 +38,7 @@ export const PrimaryButton: FC<ButtonProps> = ({
             onClick={onClick}
             primaryColor={primaryColor}
             text={text}
+            type={ButtonType.Primary}
             theme={theme}
             size={size}
             style={style}

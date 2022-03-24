@@ -13,6 +13,12 @@ export enum ButtonTheme {
     dark = 'dark',
 }
 
+export enum ButtonType {
+    Default = 'default',
+    Primary = 'primary',
+    Secondary = 'secondary',
+}
+
 export interface ButtonProps {
     /**
      * Allows focus on the button when it's disabled.
