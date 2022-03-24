@@ -50,6 +50,7 @@
     "devDependencies": {
         "@babel/core": "7.17.5",
         "@babel/runtime": "7.17.2",
+        "@ctrl/tinycolor": "^3.4.0",
         "@pmmmwh/react-refresh-webpack-plugin": "0.5.3",
         "@storybook/addon-actions": "6.5.0-alpha.47",
         "@storybook/addon-docs": "6.5.0-alpha.47",
