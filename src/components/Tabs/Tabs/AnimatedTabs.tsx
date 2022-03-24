@@ -4,7 +4,7 @@ import { TabsProps, TabVariant } from '../Tabs.types';
 import { useTabs } from '../Tabs.context';
 import { Flipper } from 'react-flip-toolkit';
 
-import '../../../styles/main.scss';
+import styles from '../tabs.module.scss';
 
 export const AnimatedTabs: FC<TabsProps> = ({
     children,
@@ -15,10 +15,10 @@ export const AnimatedTabs: FC<TabsProps> = ({
 }) => {
     const { currentActiveTab } = useTabs();
     const tabClassName: string = classNames([
-        'tab-wrap',
-        { small: variant === TabVariant.small },
-        { pill: variant === TabVariant.pill },
-        { scrollable: scrollable },
+        styles.tabWrap,
+        { [styles.small]: variant === TabVariant.small },
+        { [styles.pill]: variant === TabVariant.pill },
+        { [styles.scrollable]: scrollable },
         className,
     ]);
     return (

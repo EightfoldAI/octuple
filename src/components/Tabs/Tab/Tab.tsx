@@ -4,7 +4,8 @@ import { TabProps } from '../Tabs.types';
 import { useTabs } from '../Tabs.context';
 import { Flipped } from 'react-flip-toolkit';
 
-import '../../../styles/main.scss';
+import styles from '../tabs.module.scss';
+import { Icon, IconName } from '../../Icon';
 
 export const Tab: FC<TabProps> = ({
     value,
@@ -15,25 +16,26 @@ export const Tab: FC<TabProps> = ({
 }) => {
     const { onTabClick, currentActiveTab } = useTabs();
 
-    const iconExists: boolean = icon && icon !== '';
+    const iconExists: boolean = !!icon;
     const labelExists: boolean = !!label;
     const isActive: boolean = value === currentActiveTab;
 
-    const tabClassName: string = classNames(['tab', { active: isActive }]);
+    const tabClassName: string = classNames([
+        styles.tab,
+        { [styles.active]: isActive },
+    ]);
 
     const getIcon = (): JSX.Element => (
-        <span className={'icon'}>
-            <span className={'icon-1-material'}>
-                <i className={classNames(['mdi', icon])} />
-            </span>
-        </span>
+        <Icon path={icon} className={styles.icon} />
     );
 
-    const getLabel = (): JSX.Element => <span className="label">{label}</span>;
+    const getLabel = (): JSX.Element => (
+        <span className={styles.label}>{label}</span>
+    );
 
     const getTabIndicator = (): JSX.Element => (
         <Flipped flipId="tabIndicator">
-            <div className="tab-indicator" />
+            <div className={styles.tabIndicator} />
         </Flipped>
     );
 

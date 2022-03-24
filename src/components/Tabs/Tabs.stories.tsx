@@ -1,5 +1,6 @@
 import React from 'react';
 import { Tabs, Tab, TabVariant, TabValue } from './';
+import { IconName } from '../Icon';
 
 export default {
     title: 'Tabs',
@@ -15,14 +16,14 @@ const tabs = [1, 2, 3, 4].map((i) => ({
 
 const iconTabs = [1, 2, 3, 4].map((i) => ({
     value: `tab${i}`,
-    icon: `mdi-noodles`,
+    icon: IconName.mdiCardsHeart,
     ariaLabel: `Tab ${i}`,
     ...(i === 4 ? { disabled: true } : {}),
 }));
 
 const iconLabelTabs = [1, 2, 3, 4].map((i) => ({
     value: `tab${i}`,
-    icon: `mdi-noodles`,
+    icon: IconName.mdiCardsHeart,
     label: `Tab ${i}`,
     ariaLabel: `Tab ${i}`,
     ...(i === 4 ? { disabled: true } : {}),

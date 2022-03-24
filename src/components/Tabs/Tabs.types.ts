@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { IconName } from '../Icon';
 
 export type SelectTabEvent<E = HTMLElement> =
     | React.MouseEvent<E>
@@ -40,7 +41,7 @@ export interface TabProps {
     /**
      * The icon to display.
      */
-    icon?: string;
+    icon?: IconName;
     /**
      * The aria-label of the tab.
      */
