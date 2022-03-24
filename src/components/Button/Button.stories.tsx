@@ -15,6 +15,12 @@ export default {
 export const Primary = () => (
     <>
         <h2>Primary</h2>
+        <p>Default Flex</p>
+        <PrimaryButton
+            ariaLabel="Primary Button"
+            onClick={_alertClicked}
+            text="Primary Button"
+        />
         <p>Text only</p>
         <PrimaryButton
             ariaLabel="Primary Button"

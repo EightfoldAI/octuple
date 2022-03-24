@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import { classNames, invertForegroundColor } from '../../shared/utilities';
 import { ButtonProps, ButtonSize, ButtonTheme } from './index';
 import { Icon, IconName, IconSize } from '../Icon/index';
@@ -16,21 +16,80 @@ export const BaseButton: FC<ButtonProps> = ({
     primaryColor,
     text,
     theme,
-    size = ButtonSize.Medium,
+    size = ButtonSize.Flex,
     style,
 }) => {
+    const [xSmallScreen, setXSmallScreen] = useState(
+        window.matchMedia('(max-width: 599px)').matches
+    );
+    const [smallScreen, setSmallScreen] = useState(
+        window.matchMedia('(min-width: 600px)').matches
+    );
+    const [mediumScreen, setMediumScreen] = useState(
+        window.matchMedia('(min-width: 900px)').matches
+    );
+    const [largeScreen, setLargeScreen] = useState(
+        window.matchMedia('(min-width: 1200px)').matches
+    );
+
+    useEffect(() => {
+        window
+            .matchMedia('(max-width: 599px)')
+            .addEventListener('change', (e) => setXSmallScreen(e.matches));
+        window
+            .matchMedia('(min-width: 600px)')
+            .addEventListener('change', (e) => setSmallScreen(e.matches));
+        window
+            .matchMedia('(min-width: 900px)')
+            .addEventListener('change', (e) => setMediumScreen(e.matches));
+        window
+            .matchMedia('(min-width: 1200px)')
+            .addEventListener('change', (e) => setLargeScreen(e.matches));
+    }, []);
+
     const buttonBaseClassNames: string = classNames([
         className,
+        size === ButtonSize.Flex && largeScreen
+            ? styles['button-padding-3']
+            : '',
+        size === ButtonSize.Flex && mediumScreen
+            ? styles['button-padding-2']
+            : '',
+        size === ButtonSize.Flex && smallScreen
+            ? styles['button-padding-2']
+            : '',
+        size === ButtonSize.Flex && xSmallScreen
+            ? styles['button-padding-1']
+            : '',
+        size === ButtonSize.Large ? styles['button-padding-1'] : '',
+        size === ButtonSize.Medium ? styles['button-padding-2'] : '',
+        size === ButtonSize.Small ? styles['button-padding-3'] : '',
         { [styles.dark]: theme === ButtonTheme.dark },
         allowDisabledFocus || disabled ? styles.disabled : '',
     ]);
     const buttonSpacerClassNames: string = classNames([
         styles.spacer,
+        size === ButtonSize.Flex && largeScreen
+            ? styles['button-spacer-3']
+            : '',
+        size === ButtonSize.Flex && mediumScreen
+            ? styles['button-spacer-2']
+            : '',
+        size === ButtonSize.Flex && smallScreen
+            ? styles['button-spacer-2']
+            : '',
+        size === ButtonSize.Flex && xSmallScreen
+            ? styles['button-spacer-1']
+            : '',
         size === ButtonSize.Large ? styles['button-spacer-1'] : '',
         size === ButtonSize.Medium ? styles['button-spacer-2'] : '',
         size === ButtonSize.Small ? styles['button-spacer-3'] : '',
     ]);
     const buttonTextClassNames: string = classNames([
+        size === ButtonSize.Flex && largeScreen ? styles.button3 : '',
+        size === ButtonSize.Flex && mediumScreen ? styles.button2 : '',
+        size === ButtonSize.Flex && smallScreen ? styles.button2 : '',
+        size === ButtonSize.Flex && xSmallScreen ? styles.button1 : '',
         size === ButtonSize.Large ? styles.button1 : '',
         size === ButtonSize.Medium ? styles.button2 : '',
         size === ButtonSize.Small ? styles.button3 : '',
@@ -41,15 +100,27 @@ export const BaseButton: FC<ButtonProps> = ({
 
     const getButtonIconSize = (): IconSize => {
         let iconSize: IconSize;
-        switch (size) {
-            case ButtonSize.Large:
-                iconSize = IconSize.Large;
-            case ButtonSize.Medium:
+        if (size === ButtonSize.Flex) {
+            if (smallScreen) {
                 iconSize = IconSize.Medium;
-            case ButtonSize.Small:
+            } else if (mediumScreen) {
+                iconSize = IconSize.Medium;
+            } else if (largeScreen) {
                 iconSize = IconSize.Small;
-            default:
+            } else {
                 iconSize = IconSize.Large;
+            }
+        } else {
+            switch (size) {
+                case ButtonSize.Large:
+                    iconSize = IconSize.Large;
+                case ButtonSize.Medium:
+                    iconSize = IconSize.Medium;
+                case ButtonSize.Small:
+                    iconSize = IconSize.Small;
+                default:
+                    iconSize = IconSize.Large;
+            }
         }
         return iconSize;
     };

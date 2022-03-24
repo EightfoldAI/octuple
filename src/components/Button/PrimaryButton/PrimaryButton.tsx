@@ -16,15 +16,12 @@ export const PrimaryButton: FC<ButtonProps> = ({
     primaryColor,
     text,
     theme,
-    size = ButtonSize.Medium,
+    size = ButtonSize.Flex,
     style,
 }) => {
     const buttonClassNames: string = classNames([
         className,
         styles.button,
-        size === ButtonSize.Large ? styles['button-padding-1'] : '',
-        size === ButtonSize.Medium ? styles['button-padding-2'] : '',
-        size === ButtonSize.Small ? styles['button-padding-3'] : '',
         styles['button-primary'],
         disruptive ? styles['button-primary-disruptive'] : '',
     ]);

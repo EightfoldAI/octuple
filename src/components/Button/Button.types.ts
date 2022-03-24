@@ -2,6 +2,7 @@ import * as React from 'react';
 import { IconName } from '../Icon/mdi';
 
 export enum ButtonSize {
+    Flex = 'flex',
     Large = 'large',
     Medium = 'medium',
     Small = 'small',
