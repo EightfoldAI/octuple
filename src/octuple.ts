@@ -5,18 +5,19 @@ import {
     SecondaryButton,
 } from './components/Button';
 
-import {
-    Icon,
-    IconName,
-    IconSize
-} from './components/Icon';
+import { Icon, IconName, IconSize } from './components/Icon';
 
-export { 
+import { Tabs, Tab, TabVariant } from './components/Tabs';
+
+export {
     ButtonSize,
     DefaultButton,
     Icon,
     IconName,
     IconSize,
     PrimaryButton,
-    SecondaryButton
+    SecondaryButton,
+    Tabs,
+    Tab,
+    TabVariant,
 };
