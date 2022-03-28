@@ -1,0 +1,111 @@
+@import '../../styles/abstracts/functions';
+@import '../../styles/base/colors';
+@import '../../styles/themes/definitions-light';
+@import '../../styles/abstracts/mixins';
+
+.tabWrap {
+    --bg: var(--background);
+    --label: #4f5666;
+    --active-label: var(--primary-color);
+    --active-bg: var(--background);
+    --hover-label: var(--primary-color);
+    --hover-bg: var(--background);
+    --indicator: var(--primary-color);
+    --border: var(--primary-color);
+
+    display: flex;
+
+    &.scrollable {
+        overflow-x: scroll;
+        @include no-scrollbars;
+    }
+
+    .tab {
+        display: flex;
+        padding: $space-s $space-m;
+        color: var(--label);
+        background-color: var(---bg);
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        transition: background-color $motion-duration-fast
+            $motion-easing-easeout 0s;
+
+        &:hover,
+        &:focus {
+            color: var(--hover-label);
+            background: var(--hover-bg);
+            transition: all $motion-duration-fast $motion-easing-easeout 0s;
+        }
+
+        &.active {
+            color: var(--active-label);
+            background-color: var(--active-bg);
+            transition: transform $motion-duration-fast $motion-easing-easeout
+                0s;
+        }
+
+        &:disabled {
+            opacity: $disabled-alpha-value;
+            cursor: not-allowed;
+        }
+
+        .tabIndicator {
+            position: absolute;
+            z-index: 1;
+            height: $space-xxxs;
+            bottom: 0;
+            width: calc(100% - #{$space-xl});
+            background: var(--indicator);
+            border-radius: $space-xxs $space-xxs 0 0;
+        }
+
+        .label {
+            font-weight: $text-font-weight-semibold;
+            white-space: nowrap;
+        }
+
+        .icon + .label:not(:empty) {
+            margin-left: $space-xs;
+        }
+    }
+
+    &.small {
+        --active-bg: var(--primary-color-10);
+        --hover-bg: var(--primary-color-10);
+
+        .tab {
+            padding: $space-l $space-m;
+
+            .tabIndicator {
+                height: $space-xxs;
+            }
+        }
+    }
+
+    &.pill {
+        --label: var(--primary-color);
+        --active-label: var(--background);
+        --active-bg: var(--primary-color);
+        --hover-label: var(--primary-color);
+
+        .tab {
+            padding: $space-xs $space-m;
+            border: $space-xxxs solid var(--border);
+            border-right: none;
+
+            &:first-child {
+                border-radius: $space-l-fitted 0 0 $space-l-fitted;
+            }
+
+            &:last-child {
+                border-right: $space-xxxs solid var(--border);
+                border-radius: 0 $space-l-fitted $space-l-fitted 0;
+            }
+
+            .tabIndicator {
+                display: none;
+            }
+        }
+    }
+}
