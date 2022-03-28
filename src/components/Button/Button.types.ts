@@ -19,6 +19,13 @@ export enum ButtonType {
     Secondary = 'secondary',
 }
 
+export interface InternalButtonProps extends ButtonProps {
+    /**
+     * Determines the button type.
+     */
+    type?: ButtonType;
+}
+
 export interface ButtonProps {
     /**
      * Allows focus on the button when it's disabled.
