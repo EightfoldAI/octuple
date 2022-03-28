@@ -46,6 +46,10 @@ $icon-font-size-material-l: rem(24px);
 
 // Color Definitions
 
+:root {
+    --background: #ffffff;
+}
+
 $color-background1-red: $red10;
 $color-background1-orange: $orange10;
 $color-background1-yellow: $yellow10;

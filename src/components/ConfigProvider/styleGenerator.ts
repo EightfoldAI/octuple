@@ -1,11 +1,12 @@
-import { Theme } from './ConfigProvider.types';
+import { OcTheme, ThemeOptions } from './ConfigProvider.types';
 import { TinyColor } from '@ctrl/tinycolor';
 import generate from './generate';
+import OcThemes from './themes';
 
-export function getStyle(globalPrefixCls: string, theme: Theme) {
+export function getStyle(theme: ThemeOptions): string {
     const variables: Record<string, string> = {};
 
-    const fillColor = (colorVal: string, type: string) => {
+    const fillColor = (colorVal: string, type: string): void => {
         const baseColor = new TinyColor(colorVal);
         const colorPalettes = generate(baseColor.toRgbString(), {
             theme: 'dark',
@@ -16,12 +17,17 @@ export function getStyle(globalPrefixCls: string, theme: Theme) {
     };
 
     // ================ Primary Color ================
-    if (theme.primaryColor) {
+    const selectedTheme: OcTheme | null = OcThemes?.[theme.name];
+
+    if (selectedTheme) {
+        selectedTheme.palette.reverse().reduce((acc, color, index) => {
+            acc[`primary-color-${(index + 1) * 10}`] = color;
+            return acc;
+        }, variables);
+        variables[`primary-color`] = selectedTheme.primary;
+    } else if (theme.primaryColor) {
         fillColor(theme.primaryColor, 'primary');
-        // Legacy - We should use semantic naming standard
-        // primaryColors.forEach((color, index) => {
         variables[`primary-color`] = theme.primaryColor;
-        // });
     }
 
     // ================ Success Color ================
@@ -46,7 +52,7 @@ export function getStyle(globalPrefixCls: string, theme: Theme) {
 
     // Convert to css variables
     const cssList = Object.keys(variables).map(
-        (key) => `--${globalPrefixCls}-${key}: ${variables[key]};`
+        (key) => `--${key}: ${variables[key]};`
     );
 
     return `
@@ -95,6 +101,6 @@ export function injectCSS(css: string, option: Options = {}) {
     return styleNode;
 }
 
-export function registerTheme(globalPrefixCls: string, theme: Theme) {
-    injectCSS(getStyle(globalPrefixCls, theme));
+export function registerTheme(theme: ThemeOptions) {
+    injectCSS(getStyle(theme));
 }

@@ -1,6 +1,5 @@
 import React, { FC } from 'react';
 import { ButtonSize, DefaultButton, PrimaryButton } from '../Button';
-import { Theme } from '.';
 import { registerTheme } from './styleGenerator';
 
 export default {
@@ -8,10 +7,8 @@ export default {
 };
 
 export const Base = () => {
-    registerTheme('oc', {
-        name: 'custom',
-        primaryColor: 'red',
-        secondaryColor: 'blue',
+    registerTheme({
+        primaryColor: 'blue',
     });
     return (
         <div>

@@ -1,4 +1,11 @@
-export type OcThemes =
+export type Color = string;
+
+export interface OcTheme {
+    primary: Color;
+    palette: Color[];
+}
+
+export type OcThemeNames =
     | 'red'
     | 'orange'
     | 'yellow'
@@ -6,17 +13,14 @@ export type OcThemes =
     | 'blueGreen'
     | 'blue'
     | 'violet'
-    | 'grey'
-    | 'custom';
+    | 'grey';
 
-export interface Theme {
-    name: OcThemes;
-    primaryColor?: string;
-    secondaryColor?: string;
-    infoColor?: string;
-    successColor?: string;
-    processingColor?: string;
-    errorColor?: string;
-    warningColor?: string;
+export interface ThemeOptions {
+    name?: OcThemeNames;
+    primaryColor?: Color;
+    infoColor?: Color;
+    successColor?: Color;
+    errorColor?: Color;
+    warningColor?: Color;
     useSystemTheme?: boolean;
 }
