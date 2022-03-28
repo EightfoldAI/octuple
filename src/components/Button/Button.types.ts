@@ -60,6 +60,10 @@ export interface ButtonProps {
     /**
      * The button onClick event handler.
      */
+    /**
+     * The button id.
+     */
+    id?: string;
     onClick?: React.MouseEventHandler<HTMLButtonElement>;
     /**
      * The button primary color.

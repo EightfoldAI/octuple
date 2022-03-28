@@ -18,6 +18,7 @@ export const Primary = () => (
         <p>Default Flex</p>
         <PrimaryButton
             ariaLabel="Primary Button"
+            icon={IconName.mdiCardsHeart}
             onClick={_alertClicked}
             text="Primary Button"
         />

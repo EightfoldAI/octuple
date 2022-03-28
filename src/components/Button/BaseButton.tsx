@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from 'react';
+import React, { FC } from 'react';
 import { classNames, invertForegroundColor } from '../../shared/utilities';
 import { CSSVariables } from '../../shared/variables';
 import {
@@ -20,6 +20,7 @@ export const BaseButton: FC<InternalButtonProps> = ({
     disabled = false,
     disruptive = false,
     icon,
+    id,
     onClick,
     primaryColor,
     text,
@@ -38,83 +39,62 @@ export const BaseButton: FC<InternalButtonProps> = ({
 
     const buttonBaseClassNames: string = classNames([
         className,
-        size === ButtonSize.Flex && largeScreenActive
-            ? styles.buttonPadding3
-            : '',
-        size === ButtonSize.Flex && mediumScreenActive
-            ? styles.buttonPadding2
-            : '',
-        size === ButtonSize.Flex && smallScreenActive
-            ? styles.buttonPadding2
-            : '',
-        size === ButtonSize.Flex && xSmallScreenActive
-            ? styles.buttonPadding1
-            : '',
-        size === ButtonSize.Large ? styles.buttonPadding1 : '',
-        size === ButtonSize.Medium ? styles.buttonPadding2 : '',
-        size === ButtonSize.Small ? styles.buttonPadding3 : '',
+        {
+            [styles.buttonPadding3]:
+                size === ButtonSize.Flex && largeScreenActive,
+        },
+        {
+            [styles.buttonPadding2]:
+                size === ButtonSize.Flex && mediumScreenActive,
+        },
+        {
+            [styles.buttonPadding2]:
+                size === ButtonSize.Flex && smallScreenActive,
+        },
+        {
+            [styles.buttonPadding1]:
+                size === ButtonSize.Flex && xSmallScreenActive,
+        },
+        { [styles.buttonPadding1]: size === ButtonSize.Large },
+        { [styles.buttonPadding2]: size === ButtonSize.Medium },
+        { [styles.buttonPadding3]: size === ButtonSize.Small },
         { [styles.dark]: theme === ButtonTheme.dark },
-        allowDisabledFocus || disabled ? styles.disabled : '',
-    ]);
-
-    const buttonSpacerClassNames: string = classNames([
-        styles.spacer,
-        size === ButtonSize.Flex && largeScreenActive
-            ? styles.buttonSpacer3
-            : '',
-        size === ButtonSize.Flex && mediumScreenActive
-            ? styles.buttonSpacer2
-            : '',
-        size === ButtonSize.Flex && smallScreenActive
-            ? styles.buttonSpacer2
-            : '',
-        size === ButtonSize.Flex && xSmallScreenActive
-            ? styles.buttonSpacer1
-            : '',
-        size === ButtonSize.Large ? styles.buttonSpacer1 : '',
-        size === ButtonSize.Medium ? styles.buttonSpacer2 : '',
-        size === ButtonSize.Small ? styles.buttonSpacer3 : '',
+        { [styles.disabled]: allowDisabledFocus || disabled },
     ]);
 
     const buttonTextClassNames: string = classNames([
-        size === ButtonSize.Flex && largeScreenActive ? styles.button3 : '',
-        size === ButtonSize.Flex && mediumScreenActive ? styles.button2 : '',
-        size === ButtonSize.Flex && smallScreenActive ? styles.button2 : '',
-        size === ButtonSize.Flex && xSmallScreenActive ? styles.button1 : '',
-        size === ButtonSize.Large ? styles.button1 : '',
-        size === ButtonSize.Medium ? styles.button2 : '',
-        size === ButtonSize.Small ? styles.button3 : '',
+        { [styles.button3]: size === ButtonSize.Flex && largeScreenActive },
+        { [styles.button2]: size === ButtonSize.Flex && mediumScreenActive },
+        { [styles.button2]: size === ButtonSize.Flex && smallScreenActive },
+        { [styles.button1]: size === ButtonSize.Flex && xSmallScreenActive },
+        { [styles.button1]: size === ButtonSize.Large },
+        { [styles.button2]: size === ButtonSize.Medium },
+        { [styles.button3]: size === ButtonSize.Small },
     ]);
 
     const getButtonIconSize = (): IconSize => {
         let iconSize: IconSize;
-        if (size === ButtonSize.Flex) {
-            if (smallScreenActive) {
-                iconSize = IconSize.Medium;
-            } else if (mediumScreenActive) {
-                iconSize = IconSize.Medium;
-            } else if (largeScreenActive) {
-                iconSize = IconSize.Small;
-            } else {
-                iconSize = IconSize.Large;
-            }
-        } else {
-            switch (size) {
-                case ButtonSize.Large:
-                    iconSize = IconSize.Large;
-                case ButtonSize.Medium:
-                    iconSize = IconSize.Medium;
-                case ButtonSize.Small:
-                    iconSize = IconSize.Small;
-                default:
-                    iconSize = IconSize.Large;
-            }
+        if (size === ButtonSize.Flex && largeScreenActive) {
+            iconSize = IconSize.Small;
+        } else if (
+            size === ButtonSize.Flex &&
+            (mediumScreenActive || smallScreenActive)
+        ) {
+            iconSize = IconSize.Medium;
+        } else if (size === ButtonSize.Flex && xSmallScreenActive) {
+            iconSize = IconSize.Large;
+        } else if (size === ButtonSize.Large) {
+            iconSize = IconSize.Large;
+        } else if (size === ButtonSize.Medium) {
+            iconSize = IconSize.Medium;
+        } else if (size === ButtonSize.Small) {
+            iconSize = IconSize.Small;
         }
         return iconSize;
     };
 
     const getButtonIcon = (icon: IconName): JSX.Element => (
-        <Icon path={icon} size={getButtonIconSize()} />
+        <Icon className={styles.icon} path={icon} size={getButtonIconSize()} />
     );
 
     const buttonStyles = (): CSSVariables => {
@@ -169,6 +149,7 @@ export const BaseButton: FC<InternalButtonProps> = ({
             defaultChecked={checked}
             disabled={disabled}
             className={buttonBaseClassNames}
+            id={id}
             onClick={!allowDisabledFocus ? onClick : null}
             style={buttonStyles()}
         >
@@ -176,7 +157,6 @@ export const BaseButton: FC<InternalButtonProps> = ({
             {iconExists && textExists && (
                 <span className={styles.flexStructureHorizontal}>
                     {getButtonIcon(icon)}
-                    <span className={buttonSpacerClassNames}></span>
                     {getButtonText(buttonTextClassNames, text)}
                 </span>
             )}

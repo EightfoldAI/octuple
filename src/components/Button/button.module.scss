@@ -14,6 +14,18 @@
 
     border-radius: $corner-radius-s;
 
+    .icon + .button1:not(:empty) {
+        margin-left: $button-spacer-large;
+    }
+
+    .icon + .button2:not(:empty) {
+        margin-left: $button-spacer-medium;
+    }
+
+    .icon + .button3:not(:empty) {
+        margin-left: $button-spacer-small;
+    }
+
     &:disabled,
     &.disabled {
         opacity: $disabled-alpha-value;
