@@ -10,7 +10,7 @@ export default {
 export const Base = () => {
     registerTheme('oc', {
         name: 'custom',
-        primaryColor: '#146DA6',
+        primaryColor: 'red',
         secondaryColor: 'blue',
     });
     return (

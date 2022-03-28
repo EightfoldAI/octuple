@@ -69,17 +69,17 @@
     color: var(--white);
 
     &:hover {
-        background-color: var(--oc-primary-color-4);
-        border-color: var(--oc-primary-color-4);
+        background-color: var(--oc-primary-color-40);
+        border-color: var(--oc-primary-color-40);
     }
 
     &:active {
-        background-color: var(--oc-primary-color-6);
-        border-color: var(--oc-primary-color-6);
+        background-color: var(--oc-primary-color-60);
+        border-color: var(--oc-primary-color-60);
     }
 
     &:focus-visible {
-        border-color: var(--oc-primary-color-6);
+        border-color: var(--oc-primary-color-60);
     }
 }
 
