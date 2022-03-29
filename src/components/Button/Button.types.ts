@@ -13,7 +13,7 @@ export enum ButtonTheme {
     dark = 'dark',
 }
 
-export enum ButtonType {
+export enum ButtonMode {
     Default = 'default',
     Primary = 'primary',
     Secondary = 'secondary',
@@ -21,9 +21,9 @@ export enum ButtonType {
 
 export interface InternalButtonProps extends ButtonProps {
     /**
-     * Determines the button type.
+     * Determines the button mode.
      */
-    type?: ButtonType;
+    mode?: ButtonMode;
 }
 
 export interface ButtonProps {
@@ -58,13 +58,21 @@ export interface ButtonProps {
      */
     icon?: IconName;
     /**
-     * The button onClick event handler.
-     */
-    /**
      * The button id.
      */
     id?: string;
+    /**
+     * The button onClick event handler.
+     */
     onClick?: React.MouseEventHandler<HTMLButtonElement>;
+    /**
+     * The button onReset event handler.
+     */
+    onReset?: React.FormEventHandler<HTMLButtonElement>;
+    /**
+     * The button onSubmit event handler.
+     */
+    onSubmit?: React.FormEventHandler<HTMLButtonElement>;
     /**
      * The button primary color.
      */
@@ -100,4 +108,8 @@ export interface ButtonProps {
      * The buton style.
      */
     style?: React.CSSProperties;
+    /**
+     * The button type.
+     */
+    type?: 'button' | 'submit' | 'reset';
 }
