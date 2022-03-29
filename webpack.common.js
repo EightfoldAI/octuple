@@ -16,6 +16,7 @@ module.exports = {
                 include: path.resolve(__dirname, './src'),
                 use: [
                     'style-loader',
+                    '@teamsupercell/typings-for-css-modules-loader',
                     {
                         loader: 'css-loader',
                         options: {
