@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
-import { Icon, IconName, IconSize } from '../../Icon';
+import { ButtonSize, DefaultButton } from '../../Button';
+import { IconName } from '../../Icon';
 import {
     SearchBoxProps,
     TextInput,
@@ -17,7 +18,7 @@ export const SearchBox: FC<SearchBoxProps> = ({
     label,
     onBlur,
     onChange,
-    // onClear,
+    onClear,
     onFocus,
     onKeyDown,
     placeholder = 'Search',
@@ -25,13 +26,13 @@ export const SearchBox: FC<SearchBoxProps> = ({
     value,
     waitInterval = 500,
 }) => {
-    const iconWrapperClassNames: string = classNames([
-        styles.iconStyle,
+    const iconButtonClassNames: string = classNames([
+        styles.iconButtonStyle,
         styles.leftIcon,
     ]);
 
     return (
-        <form role="search">
+        <form className={styles.formWrapper} role="search">
             <TextInput
                 allowDisabledFocus={allowDisabledFocus}
                 className={className}
@@ -39,6 +40,7 @@ export const SearchBox: FC<SearchBoxProps> = ({
                 label={label}
                 onBlur={onBlur}
                 onChange={onChange}
+                onClear={onClear}
                 onFocus={onFocus}
                 onKeyDown={onKeyDown}
                 placeholder={placeholder}
@@ -47,9 +49,13 @@ export const SearchBox: FC<SearchBoxProps> = ({
                 value={value}
                 waitInterval={waitInterval}
             />
-            <div className={iconWrapperClassNames}>
-                <Icon path={IconName.mdiMagnify} size={IconSize.Medium} />
-            </div>
+            <DefaultButton
+                className={iconButtonClassNames}
+                disabled={disabled}
+                icon={IconName.mdiMagnify}
+                size={ButtonSize.Medium}
+                type="submit"
+            />
         </form>
     );
 };

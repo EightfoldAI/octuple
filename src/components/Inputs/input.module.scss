@@ -3,190 +3,243 @@
 @import '../../styles/themes/definitions-light';
 @import '../../styles/abstracts/mixins';
 
-input[type='text'],
-input[type='search'] {
-    background-color: $card-background-color;
-    border: rem(1px) solid $input-field-color-enabled;
-    border-radius: $corner-radius-s;
-    box-sizing: border-box;
-    color: $color-tertiary-grey;
-    font-family: 'Source Sans Pro', sans-serif;
-    font-size: $text-font-size-3;
-    min-width: rem(320px);
-    padding: $space-xs;
-
-    &::-webkit-search-cancel-button,
-    &.with-icon::-webkit-search-cancel-button {
-        align-items: center;
-        background-image: url("data:image/svg+xml;utf8,%3Csvg width='12' height='12' viewBox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7.27298 6.00019L11.1191 2.15407L11.9122 1.36092C12.0293 1.24391 12.0293 1.05378 11.9122 0.93678L11.0636 0.0881278C10.9466 -0.0288758 10.7565 -0.0288758 10.6395 0.0881278L6.00019 4.7274L1.36092 0.0877527C1.24391 -0.0292509 1.05378 -0.0292509 0.936779 0.0877527L0.0877527 0.936404C-0.0292509 1.05341 -0.0292509 1.24354 0.0877527 1.36054L4.7274 6.00019L0.0877527 10.6395C-0.0292509 10.7565 -0.0292509 10.9466 0.0877527 11.0636L0.936404 11.9122C1.05341 12.0293 1.24354 12.0293 1.36054 11.9122L6.00019 7.27298L9.84631 11.1191L10.6395 11.9122C10.7565 12.0293 10.9466 12.0293 11.0636 11.9122L11.9122 11.0636C12.0293 10.9466 12.0293 10.7565 11.9122 10.6395L7.27298 6.00019Z' fill='%2369717F'/%3E%3C/svg%3E%0A");
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: 12px 12px;
-        border-radius: 10px;
-        color: $color-tertiary-grey;
-        cursor: pointer;
-        height: 20px;
-        line-height: $text-line-height-2;
-        position: relative;
-        text-align: center;
-        transition: all $motion-duration-extra-fast $motion-easing-easeinout 0s;
-        width: 20px;
-        -webkit-appearance: none;
-    }
-
-    &.with-icon {
-        padding-left: $space-xl;
-    }
-
-    &.pill-shape {
-        border-radius: $corner-radius-xl;
-        padding: $space-xs $space-s;
-    }
-
-    &.pill-shape-with-icon {
-        padding: $space-xs $space-s $space-xs $space-xl;
-        border-radius: $corner-radius-xl;
-    }
-
-    &:hover {
-        border-color: $color-tertiary-grey;
-    }
-
-    &:hover ~ .icon-style {
-        color: $color-tertiary-grey;
-    }
-
-    &:hover ~ .text-style {
-        color: $text-color-primary;
-    }
-
-    &:active {
-        border-color: $color-primary-grey;
-    }
-
-    &:active ~ .icon-style {
-        color: $color-primary-grey;
-    }
-
-    &:active ~ .text-style {
-        color: $text-color-primary;
-    }
-
-    &:focus-within {
-        &:before {
-            border: rem(4px) solid $button-color-positive-focused-border;
-            content: '';
-            position: absolute;
-            display: block;
-            width: inherit;
-            z-index: 1;
-            margin-left: -16px;
-            top: -16px;
-            left: 50%;
-        }
-    }
-
-    &:focus ~ .icon-style {
-        color: $color-primary-grey;
-    }
-
-    &:focus ~ .text-style {
-        color: $text-color-primary;
-    }
-
-    &:disabled {
-        border-color: $color-background3-grey;
-        color: $color-background3-grey;
-    }
-
-    &:disabled ~ .icon-style {
-        color: $color-background3-grey;
-    }
-
-    &:disabled ~ .text-style {
-        color: $color-background3-grey;
-    }
-
-    &:disabled::-webkit-search-cancel-button,
-    &.with-icon:disabled::-webkit-search-cancel-button {
-        color: $color-background3-grey;
-    }
-
-    &:disabled::placeholder {
-        color: $color-background3-grey;
-    }
-}
-
-.icon-style {
-    align-items: center;
-    color: $color-tertiary-grey;
-    font-size: $icon-font-size-material-m;
-    line-height: $text-line-height-2;
-    max-width: 20px;
+.form-wrapper {
     position: relative;
-    text-align: center;
-    transition: all $motion-duration-extra-fast $motion-easing-easeinout 0s;
+    width: auto;
 
-    &.left-icon {
-        left: 8px;
-        line-height: $text-line-height-1;
-        margin-top: -28px;
-        padding-bottom: 8px;
-    }
-
-    svg {
+    input[type='text'],
+    input[type='search'] {
+        background-color: $card-background-color;
+        border: rem(1px) solid $input-field-color-enabled;
+        border-radius: $corner-radius-s;
+        box-sizing: border-box;
         color: $color-tertiary-grey;
-    }
-}
-
-.field-label {
-    display: flex;
-    flex-direction: row;
-    padding-bottom: $space-xs;
-
-    .icon-style {
-        align-items: center;
-        color: $color-primary-grey;
-        font-size: $icon-font-size-material-s;
-        line-height: $text-line-height-2;
-        text-align: center;
-
-        &:hover {
-            color: $color-tertiary-grey;
-        }
-    }
-
-    .text-style {
-        color: $text-color-primary;
         font-family: 'Source Sans Pro', sans-serif;
         font-size: $text-font-size-3;
-        font-weight: $text-font-weight-semibold;
-        line-height: $text-line-height-2;
+        min-width: rem(320px);
+        padding: $space-xs;
+
+        &::-webkit-search-cancel-button,
+        &.with-icon::-webkit-search-cancel-button {
+            align-items: center;
+            background-image: url("data:image/svg+xml;utf8,%3Csvg width='12' height='12' viewBox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7.27298 6.00019L11.1191 2.15407L11.9122 1.36092C12.0293 1.24391 12.0293 1.05378 11.9122 0.93678L11.0636 0.0881278C10.9466 -0.0288758 10.7565 -0.0288758 10.6395 0.0881278L6.00019 4.7274L1.36092 0.0877527C1.24391 -0.0292509 1.05378 -0.0292509 0.936779 0.0877527L0.0877527 0.936404C-0.0292509 1.05341 -0.0292509 1.24354 0.0877527 1.36054L4.7274 6.00019L0.0877527 10.6395C-0.0292509 10.7565 -0.0292509 10.9466 0.0877527 11.0636L0.936404 11.9122C1.05341 12.0293 1.24354 12.0293 1.36054 11.9122L6.00019 7.27298L9.84631 11.1191L10.6395 11.9122C10.7565 12.0293 10.9466 12.0293 11.0636 11.9122L11.9122 11.0636C12.0293 10.9466 12.0293 10.7565 11.9122 10.6395L7.27298 6.00019Z' fill='%2369717F'/%3E%3C/svg%3E%0A");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: 12px 12px;
+            border-radius: 10px;
+            color: $color-tertiary-grey;
+            cursor: pointer;
+            height: 20px;
+            line-height: $text-line-height-2;
+            position: relative;
+            text-align: center;
+            transition: all $motion-duration-extra-fast $motion-easing-easeinout
+                0s;
+            width: 20px;
+            -webkit-appearance: none;
+        }
+
+        &.with-icon {
+            padding-left: $space-xl;
+        }
+
+        &:hover {
+            border-color: $color-tertiary-grey;
+        }
+
+        &:hover ~ .icon-button-style {
+            background-color: transparent;
+            border-color: transparent;
+
+            svg {
+                color: $color-tertiary-grey;
+            }
+        }
+
+        &:hover ~ .text-style {
+            color: $text-color-primary;
+        }
+
+        &:active ~ .icon-button-style {
+            background-color: transparent;
+            border-color: transparent;
+
+            svg {
+                color: $color-primary-grey;
+            }
+        }
+
+        &:active ~ .text-style {
+            color: $text-color-primary;
+        }
+
+        &:focus ~ .icon-button-style {
+            background-color: transparent;
+            border-color: transparent;
+
+            svg {
+                color: $color-primary-grey;
+            }
+        }
+
+        &:focus ~ .text-style {
+            color: $text-color-primary;
+        }
+
+        &:disabled {
+            border-color: $color-background3-grey;
+            color: $color-background3-grey;
+        }
+
+        &:disabled ~ .icon-button-style {
+            background-color: transparent;
+            border-color: transparent;
+
+            svg {
+                color: $color-background3-grey;
+            }
+        }
+
+        &:disabled ~ .text-style {
+            color: $color-background3-grey;
+        }
+
+        &:disabled::-webkit-search-cancel-button,
+        &.with-icon:disabled::-webkit-search-cancel-button {
+            color: $color-background3-grey;
+        }
+
+        &:disabled::placeholder {
+            color: $color-background3-grey;
+        }
+
+        &.pill-shape {
+            border-color: transparent;
+            border-radius: $corner-radius-xl;
+            box-shadow: 0px 1px 2px rgba(15, 20, 31, 0.12),
+                0px 2px 8px rgba(15, 20, 31, 0.16);
+            padding: $space-xs $space-s;
+        }
+
+        &.pill-shape-with-icon {
+            border-color: transparent;
+            border-radius: $corner-radius-xl;
+            box-shadow: 0px 1px 2px rgba(15, 20, 31, 0.12),
+                0px 2px 8px rgba(15, 20, 31, 0.16);
+            padding: $space-xs $space-s $space-xs $space-xl;
+        }
+
+        &.pill-shape ~ .icon-button-style,
+        &.pill-shape-with-icon ~ .icon-button-style {
+            &.left-icon {
+                border-bottom-left-radius: 50%;
+                border-top-left-radius: 50%;
+            }
+
+            &.right-icon {
+                border-bottom-right-radius: 50%;
+                border-top-right-radius: 50%;
+            }
+        }
+
+        &:active,
+        &:focus,
+        &:focus-within {
+            border-color: transparent;
+
+            &:after {
+                border: rem(3px) solid $button-color-positive-focused-border;
+                content: '';
+                position: absolute;
+                display: block;
+                width: inherit;
+                z-index: 1;
+                margin-left: -16px;
+                top: -10px;
+                left: 50%;
+            }
+        }
     }
-}
 
-.field-support-text {
-    display: flex;
-    flex-direction: row;
-    padding-top: $space-xs;
+    .icon-button-style {
+        color: $color-tertiary-grey;
+        padding: $button-padding-vertical-small rem(4px);
+        position: absolute;
+        top: 1px;
 
-    .feedback-positive {
-        color: $color-secondary-green;
+        &.left-icon {
+            left: 1px;
+        }
+
+        &.right-icon {
+            right: 1px;
+        }
+
+        svg {
+            color: $color-tertiary-grey;
+        }
+
+        &:active,
+        &:focus,
+        &:hover {
+            background-color: transparent;
+            border-color: transparent;
+
+            svg {
+                color: $color-tertiary-grey;
+            }
+        }
     }
 
-    .feedback-warning {
-        color: $color-secondary-yellow;
+    .field-label {
+        display: flex;
+        flex-direction: row;
+        padding-bottom: $space-xs;
+
+        .icon-button-style {
+            align-items: center;
+            color: $color-primary-grey;
+            font-size: $icon-font-size-material-s;
+            line-height: $text-line-height-2;
+            text-align: center;
+
+            &:hover {
+                color: $color-tertiary-grey;
+            }
+        }
+
+        .text-style {
+            color: $text-color-primary;
+            font-family: 'Source Sans Pro', sans-serif;
+            font-size: $text-font-size-3;
+            font-weight: $text-font-weight-semibold;
+            line-height: $text-line-height-2;
+        }
     }
 
-    .feedback-negative {
-        color: $color-secondary-red;
-    }
+    .field-support-text {
+        display: flex;
+        flex-direction: row;
+        padding-top: $space-xs;
 
-    .instruction {
-        color: $color-primary-grey;
-    }
+        .feedback-positive {
+            color: $color-secondary-green;
+        }
 
-    .link {
-        color: $color-secondary-blue;
+        .feedback-warning {
+            color: $color-secondary-yellow;
+        }
+
+        .feedback-negative {
+            color: $color-secondary-red;
+        }
+
+        .instruction {
+            color: $color-primary-grey;
+        }
+
+        .link {
+            color: $color-secondary-blue;
+        }
     }
 }

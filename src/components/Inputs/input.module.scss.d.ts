@@ -28,6 +28,8 @@ declare namespace InputModuleScssModule {
         'flex-structure-vertical': string;
         flexStructureHorizontal: string;
         flexStructureVertical: string;
+        'form-wrapper': string;
+        formWrapper: string;
         'full-height': string;
         fullHeight: string;
         icon: string;
@@ -35,12 +37,12 @@ declare namespace InputModuleScssModule {
         'icon-2-material': string;
         'icon-3-material': string;
         'icon-4-material': string;
-        'icon-style': string;
+        'icon-button-style': string;
         icon1Material: string;
         icon2Material: string;
         icon3Material: string;
         icon4Material: string;
-        iconStyle: string;
+        iconButtonStyle: string;
         instruction: string;
         l: string;
         'left-icon': string;
@@ -57,6 +59,8 @@ declare namespace InputModuleScssModule {
         'pill-shape-with-icon': string;
         pillShape: string;
         pillShapeWithIcon: string;
+        'right-icon': string;
+        rightIcon: string;
         s: string;
         sourceRoot: string;
         sources: string;
