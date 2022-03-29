@@ -1,8 +1,23 @@
 export type Color = string;
 
-export interface OcTheme {
-    primary: Color;
+export interface OcBaseTheme {
+    primaryColor?: Color;
+    textColor?: Color;
+    textColorSecondary?: Color;
+    textColorInverse?: Color;
+    backgroundColor?: Color;
+    successColor?: Color;
+    warningColor?: Color;
+    infoColor?: Color;
+    errorColor?: Color;
+}
+
+export interface OcTheme extends OcBaseTheme {
     palette: Color[];
+}
+
+export interface OcCustomTheme extends OcBaseTheme {
+    name: string;
 }
 
 export type OcThemeNames =
@@ -17,10 +32,6 @@ export type OcThemeNames =
 
 export interface ThemeOptions {
     name?: OcThemeNames;
-    primaryColor?: Color;
-    infoColor?: Color;
-    successColor?: Color;
-    errorColor?: Color;
-    warningColor?: Color;
     useSystemTheme?: boolean;
+    customTheme?: OcCustomTheme;
 }

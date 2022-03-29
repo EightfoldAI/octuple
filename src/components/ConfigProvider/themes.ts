@@ -1,7 +1,19 @@
-import { OcTheme, OcThemeNames } from './ConfigProvider.types';
+import { OcBaseTheme, OcTheme, OcThemeNames } from './ConfigProvider.types';
 
-export const red = {
-    primary: '#993838',
+export const themeDefaults: OcBaseTheme = {
+    textColor: '#1A212E',
+    textColorSecondary: '#4F5666',
+    textColorInverse: '#fff',
+    backgroundColor: '#fff',
+    successColor: '#2B715F',
+    warningColor: '#9D6309',
+    infoColor: '#4F5666',
+    errorColor: '#993838',
+};
+
+export const red: OcTheme = {
+    primaryColor: '#993838',
+    ...themeDefaults,
     palette: [
         '#0A0202',
         '#3B1010',
@@ -16,8 +28,9 @@ export const red = {
     ],
 };
 
-export const orange = {
-    primary: '#9D6309',
+export const orange: OcTheme = {
+    primaryColor: '#9D6309',
+    ...themeDefaults,
     palette: [
         '#0A0700',
         '#3B2600',
@@ -32,8 +45,9 @@ export const orange = {
     ],
 };
 
-export const yellow = {
-    primary: '#857600',
+export const yellow: OcTheme = {
+    primaryColor: '#857600',
+    ...themeDefaults,
     palette: [
         '#0A0A00',
         '#333100',
@@ -48,8 +62,9 @@ export const yellow = {
     ],
 };
 
-export const green = {
-    primary: '#2B715F',
+export const green: OcTheme = {
+    primaryColor: '#2B715F',
+    ...themeDefaults,
     palette: [
         '#030A08',
         '#0E2E26',
@@ -64,8 +79,9 @@ export const green = {
     ],
 };
 
-export const blueGreen = {
-    primary: '#0B7B8B',
+export const blueGreen: OcTheme = {
+    primaryColor: '#0B7B8B',
+    ...themeDefaults,
     palette: [
         '#00090A',
         '#00333B',
@@ -80,8 +96,9 @@ export const blueGreen = {
     ],
 };
 
-export const blue = {
-    primary: '#146DA6',
+export const blue: OcTheme = {
+    primaryColor: '#146DA6',
+    ...themeDefaults,
     palette: [
         '#00060A',
         '#002A47',
@@ -96,8 +113,9 @@ export const blue = {
     ],
 };
 
-export const violet = {
-    primary: '#7E3A77',
+export const violet: OcTheme = {
+    primaryColor: '#7E3A77',
+    ...themeDefaults,
     palette: [
         '#060106',
         '#350E31',
@@ -112,8 +130,9 @@ export const violet = {
     ],
 };
 
-export const grey = {
-    primary: '#4F5666',
+export const grey: OcTheme = {
+    primaryColor: '#4F5666',
+    ...themeDefaults,
     palette: [
         '#05070A',
         '#1A212E',

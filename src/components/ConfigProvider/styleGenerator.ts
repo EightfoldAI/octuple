@@ -1,53 +1,82 @@
-import { OcTheme, ThemeOptions } from './ConfigProvider.types';
+import { OcBaseTheme, OcTheme, ThemeOptions } from './ConfigProvider.types';
 import { TinyColor } from '@ctrl/tinycolor';
 import generate from './generate';
 import OcThemes from './themes';
 
-export function getStyle(theme: ThemeOptions): string {
+export function getStyle(themeOptions: ThemeOptions): string {
     const variables: Record<string, string> = {};
 
-    const fillColor = (colorVal: string, type: string): void => {
-        const baseColor = new TinyColor(colorVal);
-        const colorPalettes = generate(baseColor.toRgbString(), {
-            theme: 'dark',
-        });
-        colorPalettes.forEach((color, index) => {
-            variables[`${type}-color-${(index + 1) * 10}`] = color;
-        });
-    };
-
-    // ================ Primary Color ================
-    const selectedTheme: OcTheme | null = OcThemes?.[theme.name];
-
-    if (selectedTheme) {
-        selectedTheme.palette.reverse().reduce((acc, color, index) => {
-            acc[`primary-color-${(index + 1) * 10}`] = color;
+    const fillColor = (
+        colorPalettes: string[],
+        type: string
+    ): Record<string, string> =>
+        colorPalettes.reduce((acc, color, index) => {
+            const key: string = `${type}-${(index + 1) * 10}`;
+            acc[key] = color;
             return acc;
         }, variables);
-        variables[`primary-color`] = selectedTheme.primary;
-    } else if (theme.primaryColor) {
-        fillColor(theme.primaryColor, 'primary');
+
+    const generatePalette = (colorVal: string, type: string): void => {
+        const baseColor = new TinyColor(colorVal);
+        const colorPalettes = generate(baseColor.toRgbString(), {});
+        fillColor(colorPalettes, type);
+    };
+
+    const themeName = themeOptions.name || themeOptions.customTheme?.name;
+
+    const theme: OcTheme | null = {
+        ...OcThemes?.[themeOptions.name],
+        ...themeOptions.customTheme,
+    };
+
+    // ================ Use existing palette ================
+    if (theme.palette) {
+        fillColor(theme.palette, 'primary-color');
         variables[`primary-color`] = theme.primaryColor;
+    }
+
+    // ================ Custom primary palette ================
+    if (themeOptions.customTheme?.primaryColor) {
+        generatePalette(theme.primaryColor, 'primary-color');
+        variables[`primary-color`] = theme.primaryColor;
+    }
+
+    // ================ Background Color ================
+    if (theme.backgroundColor) {
+        variables[`background-color`] = theme.backgroundColor;
+    }
+
+    // ================ Text Color ================
+    if (theme.textColor) {
+        variables[`text-primary-color`] = theme.textColor;
+    }
+
+    if (theme.textColorSecondary) {
+        variables[`text-secondary-color`] = theme.textColorSecondary;
+    }
+
+    if (theme.textColorInverse) {
+        variables[`text-inverse-color`] = theme.textColorInverse;
     }
 
     // ================ Success Color ================
     if (theme.successColor) {
-        fillColor(theme.successColor, 'success');
+        variables[`success-color`] = theme.successColor;
     }
 
     // ================ Warning Color ================
     if (theme.warningColor) {
-        fillColor(theme.warningColor, 'warning');
+        variables[`warning-color`] = theme.warningColor;
     }
 
     // ================= Error Color =================
     if (theme.errorColor) {
-        fillColor(theme.errorColor, 'error');
+        variables[`error-color`] = theme.errorColor;
     }
 
     // ================= Info Color ==================
     if (theme.infoColor) {
-        fillColor(theme.infoColor, 'info');
+        variables[`info-color`] = theme.infoColor;
     }
 
     // Convert to css variables
@@ -56,7 +85,7 @@ export function getStyle(theme: ThemeOptions): string {
     );
 
     return `
-  :root {
+  .theme-${themeName} {
     ${cssList.join('\n')}
   }
   `.trim();
@@ -101,6 +130,7 @@ export function injectCSS(css: string, option: Options = {}) {
     return styleNode;
 }
 
-export function registerTheme(theme: ThemeOptions) {
-    injectCSS(getStyle(theme));
+export function registerTheme(themeOptions: ThemeOptions) {
+    console.log('jijhihih');
+    injectCSS(getStyle(themeOptions));
 }

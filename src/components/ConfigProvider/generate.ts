@@ -1,13 +1,13 @@
 import { inputToRGB, rgbToHex, rgbToHsv } from '@ctrl/tinycolor';
 
-const hueStep = 2; // 色相阶梯
-const saturationStep = 0.16; // 饱和度阶梯，浅色部分
-const saturationStep2 = 0.05; // 饱和度阶梯，深色部分
-const brightnessStep1 = 0.05; // 亮度阶梯，浅色部分
-const brightnessStep2 = 0.15; // 亮度阶梯，深色部分
-const lightColorCount = 5; // 浅色数量，主色上
-const darkColorCount = 4; // 深色数量，主色下
-// 暗色主题颜色映射关系表
+const hueStep = 2; // hue step
+const saturationStep = 0.16; // saturation step, light part
+const saturationStepDark = 0.05; // saturation step, dark part
+const brightnessStep = 0.05; // brightness step, light part
+const brightnessStepDark = 0.15; // brightness step, dark part
+const lightColorCount = 5; // the number of light colors, on the main color
+const darkColorCount = 4; // number of dark colors, under the main color
+// Dark theme color mapping table
 const darkColorMap = [
     { index: 7, opacity: 0.15 },
     { index: 6, opacity: 0.25 },
@@ -60,7 +60,7 @@ function mix(rgb1: RgbObject, rgb2: RgbObject, amount: number): RgbObject {
 
 function getHue(hsv: HsvObject, i: number, light?: boolean): number {
     let hue: number;
-    // 根据色相不同，色相转向不同
+    // Depending on the hue, the hue turns differently
     if (Math.round(hsv.h) >= 60 && Math.round(hsv.h) <= 240) {
         hue = light
             ? Math.round(hsv.h) - hueStep * i
@@ -89,13 +89,13 @@ function getSaturation(hsv: HsvObject, i: number, light?: boolean): number {
     } else if (i === darkColorCount) {
         saturation = hsv.s + saturationStep;
     } else {
-        saturation = hsv.s + saturationStep2 * i;
+        saturation = hsv.s + saturationStepDark * i;
     }
-    // 边界值修正
+    // Boundary value correction
     if (saturation > 1) {
         saturation = 1;
     }
-    // 第一格的 s 限制在 0.06-0.1 之间
+    // The first cell's s is limited to 0.06-0.1
     if (light && i === lightColorCount && saturation > 0.1) {
         saturation = 0.1;
     }
@@ -108,9 +108,9 @@ function getSaturation(hsv: HsvObject, i: number, light?: boolean): number {
 function getValue(hsv: HsvObject, i: number, light?: boolean): number {
     let value: number;
     if (light) {
-        value = hsv.v + brightnessStep1 * i;
+        value = hsv.v + brightnessStep * i;
     } else {
-        value = hsv.v - brightnessStep2 * i;
+        value = hsv.v - brightnessStepDark * i;
     }
     if (value > 1) {
         value = 1;
@@ -162,5 +162,5 @@ export default function generate(color: string, opts: Opts = {}): string[] {
             )
         );
     }
-    return patterns;
+    return patterns.reverse();
 }
