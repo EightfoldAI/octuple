@@ -127,7 +127,7 @@ upstream        https://github.com/EightfoldAI/octuple.git (push)
 
 ### Commits
 
-When committing changes the Octuple project lints commit messages using the [Conventional Commits specification](https://www.conventionalcommits.org/en/v1.0.0-beta.2/). The subject line `<description>` must not be sentence-case, start-case, pascal-case, upper-case and must contain one of the following key words representing the `<type>` of commit: build, chore, ci, docs, feat, fix, perf, refactor, revert, style, test.
+When committing changes the Octuple project lints commit messages using the [Conventional Commits specification](https://www.conventionalcommits.org/en/v1.0.0-beta.2/). The subject line `<description>` must not be sentence-case, start-case, pascal-case, upper-case and must contain one of the following key words representing the `<type>` of commit: build, chore, ci, docs, feat, fix, perf, refactor, revert, style, test. The subject line: `<type>[optional scope]: <description>` must not be greater than 100 characters. The combined `[optional body]` and `[optional footer]` must not be greater than 100 characters.
 
 ```
 <type>[optional scope]: <description>
@@ -140,7 +140,7 @@ When committing changes the Octuple project lints commit messages using the [Con
 An example of such a message:
 
 ```
-fix: ABC-123: Button not keyboard accessible
+fix: ABC-123: button not keyboard accessible
 
 The button component had a tabIndex of -1 by default
 and therefore it was not keyboard accessible
