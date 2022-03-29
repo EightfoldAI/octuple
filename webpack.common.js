@@ -7,16 +7,22 @@ module.exports = {
             {
                 test: /\.tsx?$/,
                 use: 'ts-loader',
-                exclude: /node_modules/,
                 include: path.resolve(__dirname, './src'),
             },
             {
                 test: /\.s[ca]ss|css$/,
-                exclude: /node_modules/,
                 include: path.resolve(__dirname, './src'),
                 use: [
                     'style-loader',
-                    'css-loader',
+                    '@teamsupercell/typings-for-css-modules-loader',
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            modules: {
+                                exportLocalsConvention: 'camelCase',
+                            },
+                        },
+                    },
                     'resolve-url-loader',
                     'sass-loader',
                 ],

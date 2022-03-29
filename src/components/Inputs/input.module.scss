@@ -1,40 +1,41 @@
-input[type='search']::-webkit-search-cancel-button,
-input[type='text']::-webkit-search-cancel-button,
-.with-icon::-webkit-search-cancel-button {
-    position: relative;
-    -webkit-appearance: none;
-    height: 20px;
-    width: 20px;
-    border-radius: 10px;
-    //background: red;
-    font-family: Material Design Icons;
-    background-image: none;
-    background-repeat: no-repeat;
-    color: $grey50;
-    font-size: $icon-font-size-material-m;
-    line-height: $text-line-height-2;
-    transition: all $motion-duration-extra-fast $motion-easing-easeinout 0s;
-    align-items: center;
-    text-align: center;
-}
+@import '../../styles/abstracts/functions';
+@import '../../styles/base/colors';
+@import '../../styles/themes/definitions-light';
+@import '../../styles/abstracts/mixins';
 
 input[type='text'],
 input[type='search'] {
-    min-width: rem(320px);
-    box-sizing: border-box;
+    background-color: $card-background-color;
     border: rem(1px) solid $input-field-color-enabled;
     border-radius: $corner-radius-s;
-    padding: $space-xs;
-    font-family: 'Source Sans Pro', sans-serif;
+    box-sizing: border-box;
     color: $color-tertiary-grey;
+    font-family: 'Source Sans Pro', sans-serif;
     font-size: $text-font-size-3;
-    background-color: $card-background-color;
+    min-width: rem(320px);
+    padding: $space-xs;
+
+    &::-webkit-search-cancel-button,
+    &.with-icon::-webkit-search-cancel-button {
+        align-items: center;
+        background-image: url("data:image/svg+xml;utf8,%3Csvg width='12' height='12' viewBox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7.27298 6.00019L11.1191 2.15407L11.9122 1.36092C12.0293 1.24391 12.0293 1.05378 11.9122 0.93678L11.0636 0.0881278C10.9466 -0.0288758 10.7565 -0.0288758 10.6395 0.0881278L6.00019 4.7274L1.36092 0.0877527C1.24391 -0.0292509 1.05378 -0.0292509 0.936779 0.0877527L0.0877527 0.936404C-0.0292509 1.05341 -0.0292509 1.24354 0.0877527 1.36054L4.7274 6.00019L0.0877527 10.6395C-0.0292509 10.7565 -0.0292509 10.9466 0.0877527 11.0636L0.936404 11.9122C1.05341 12.0293 1.24354 12.0293 1.36054 11.9122L6.00019 7.27298L9.84631 11.1191L10.6395 11.9122C10.7565 12.0293 10.9466 12.0293 11.0636 11.9122L11.9122 11.0636C12.0293 10.9466 12.0293 10.7565 11.9122 10.6395L7.27298 6.00019Z' fill='%23858B98'/%3E%3C/svg%3E%0A");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 12px 12px;
+        border-radius: 10px;
+        color: $grey50;
+        cursor: pointer;
+        height: 20px;
+        line-height: $text-line-height-2;
+        position: relative;
+        text-align: center;
+        transition: all $motion-duration-extra-fast $motion-easing-easeinout 0s;
+        width: 20px;
+        -webkit-appearance: none;
+    }
 
     &.with-icon {
         padding-left: $space-xl;
-        //background-image: url('./../../assets/searchicon.png');
-        //background-position: 10px 10px;
-        //background-repeat: no-repeat;
     }
 
     &.pill-shape {
@@ -50,9 +51,11 @@ input[type='search'] {
     &:hover {
         border-color: $color-tertiary-grey;
     }
+
     &:hover ~ .icon-style {
         color: $color-tertiary-grey;
     }
+
     &:hover ~ .text-style {
         color: $text-color-primary;
     }
@@ -60,9 +63,11 @@ input[type='search'] {
     &:active {
         border-color: $color-primary-grey;
     }
+
     &:active ~ .icon-style {
         color: $color-primary-grey;
     }
+
     &:active ~ .text-style {
         color: $text-color-primary;
     }
@@ -70,37 +75,29 @@ input[type='search'] {
     &:focus-within {
         border: rem(1px) solid $button-color-primary-focused-border;
     }
+
     &:focus ~ .icon-style {
         color: $color-primary-grey;
     }
+
     &:focus ~ .text-style {
         color: $text-color-primary;
     }
 }
 
 .icon-style {
-    font-family: Material Design Icons;
+    align-items: center;
+    color: $grey50;
     font-size: $icon-font-size-material-m;
     line-height: $text-line-height-2;
     max-width: 20px;
-    //max-height: 20px;
-    align-items: center;
-    text-align: center;
-    color: $grey50;
     position: relative;
+    text-align: center;
     transition: all $motion-duration-extra-fast $motion-easing-easeinout 0s;
-    //padding: 4px;
-
-    &.right-icon {
-        //order: 2!important;
-        //padding-left: 8px;
-        left: 292px;
-        margin-top: -28px;
-        padding-bottom: 8px;
-    }
 
     &.left-icon {
         left: 8px;
+        line-height: $text-line-height-1;
         margin-top: -28px;
         padding-bottom: 8px;
     }
@@ -112,12 +109,11 @@ input[type='search'] {
     padding-bottom: $space-xs;
 
     .icon-style {
-        font-family: Material Design Icons;
+        align-items: center;
+        color: $color-primary-grey;
         font-size: $icon-font-size-material-s;
         line-height: $text-line-height-2;
-        align-items: center;
         text-align: center;
-        color: $color-primary-grey;
 
         &:hover {
             color: $color-tertiary-grey;
@@ -125,18 +121,18 @@ input[type='search'] {
     }
 
     .text-style {
-        font-weight: $text-font-weight-semibold;
-        font-size: $text-font-size-3;
-        line-height: $text-line-height-2;
-        font-family: 'Source Sans Pro', sans-serif;
         color: $text-color-primary;
+        font-family: 'Source Sans Pro', sans-serif;
+        font-size: $text-font-size-3;
+        font-weight: $text-font-weight-semibold;
+        line-height: $text-line-height-2;
     }
 }
 
 .field-support-text {
-    padding-top: $space-xs;
     display: flex;
     flex-direction: row;
+    padding-top: $space-xs;
 
     .feedback-positive {
         color: $color-secondary-green;

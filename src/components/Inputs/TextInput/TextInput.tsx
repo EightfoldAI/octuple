@@ -1,87 +1,100 @@
-import React, { FC, useEffect, useRef, useState } from 'react';
-import { Icon, IconName, IconSize } from '../Icon/index';
-import { TextInputProps, TextInputTheme } from './TextInput.types';
-import { classNames } from '../../shared/utilities';
+import React, { FC } from 'react';
+import { Icon, IconName, IconSize } from '../../Icon/index';
+import { TextInputProps, TextInputShape, TextInputTheme } from '../index';
+import { classNames } from '../../../shared/utilities';
 
-import styles from './textinput.module.scss';
+import styles from '../input.module.scss';
 
 export const TextInput: FC<TextInputProps> = ({
     allowDisabledFocus = false,
     ariaLabel,
     autoFocus = false,
     className,
-    clearInputTabIndex,
+    // clearInputTabIndex,
     disabled = false,
     enableExpand = false,
     helpText,
     id,
+    label,
     name,
     numbersOnly = false,
     onBlur,
     onChange,
-    onClear,
+    // onClear,
     onFocus,
     onKeyDown,
     placeholder,
     required = false,
+    shape = TextInputShape.Rectangle,
     textarea = false,
     textAreaCols = 50,
     textAreaRows = 5,
     type = 'text',
     value,
-    waitInterval = 500,
+    waitInterval = 10,
 }) => {
-    const [inputValue, setInputValue] = useState<string | number>(value);
-
-    const elementClassNames: string = classNames([className, 'form-control']);
+    const textAreaClassNames: string = classNames([className]);
+    const textInputClassNames: string = classNames([
+        className,
+        { [styles.withIcon]: shape === TextInputShape.Rectangle },
+        { [styles.pillShapeWithIcon]: shape === TextInputShape.Pill },
+    ]);
 
     const handleBlur = (
-        event?: React.FocusEvent<HTMLTextAreaElement | HTMLInputElement>
+        _event?: React.FocusEvent<HTMLTextAreaElement | HTMLInputElement>
     ): void => {
         if (allowDisabledFocus) {
             return;
         }
-        onBlur(event);
+        onBlur;
     };
 
     const handleChange = (
-        event?: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>
+        _event?: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>
     ): void => {
         if (allowDisabledFocus) {
             return;
         }
-        setInputValue(event.target.value);
-        onChange(event);
+        setTimeout(() => triggerChange(_event), waitInterval);
     };
 
     const handleFocus = (
-        event?: React.FocusEvent<HTMLTextAreaElement | HTMLInputElement>
+        _event?: React.FocusEvent<HTMLTextAreaElement | HTMLInputElement>
     ): void => {
         if (allowDisabledFocus) {
             return;
         }
-        onFocus(event);
+        onFocus;
     };
 
     const handleKeyDown = (
-        event?: React.KeyboardEvent<HTMLTextAreaElement | HTMLInputElement>
+        _event?: React.KeyboardEvent<HTMLTextAreaElement | HTMLInputElement>
     ): void => {
         if (allowDisabledFocus) {
             return;
         }
-        onKeyDown(event);
+        onKeyDown;
+    };
+
+    const triggerChange = (
+        _event?: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>
+    ) => {
+        onChange;
     };
 
     if (textarea) {
         return (
-            <div className={className}>
+            <>
+                <label className={styles.fieldLabel} htmlFor={name}>
+                    {label}
+                </label>
                 <textarea
                     aria-disabled={allowDisabledFocus}
                     autoFocus={autoFocus}
                     id={id}
-                    className={elementClassNames}
+                    className={textAreaClassNames}
                     name={name}
-                    value={inputValue}
+                    value={value}
                     placeholder={placeholder}
                     onBlur={handleBlur}
                     onChange={handleChange}
@@ -124,19 +137,19 @@ export const TextInput: FC<TextInputProps> = ({
                         </div>
                     </div>
                 )}
-            </div>
+            </>
         );
     }
     return (
-        <div className={className}>
+        <>
             <input
                 role="textbox"
                 aria-label={ariaLabel}
                 type={numbersOnly ? 'number' : type}
                 id={id}
-                className={elementClassNames}
+                className={textInputClassNames}
                 name={name}
-                value={inputValue}
+                value={value}
                 placeholder={placeholder}
                 onChange={handleChange}
                 onBlur={handleBlur}
@@ -161,6 +174,6 @@ export const TextInput: FC<TextInputProps> = ({
                     />
                 </span>
             } */}
-        </div>
+        </>
     );
 };

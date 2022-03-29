@@ -5,18 +5,36 @@ export enum TextInputTheme {
     dark = 'dark',
 }
 
-export interface TextInputProps {
+export enum TextInputShape {
+    Rectangle = 'rectangle',
+    Pill = 'pill',
+}
+
+export interface SearchBoxProps extends InputProps {
+    value?: string;
+}
+
+export interface TextInputProps extends InputProps {
+    enableExpand?: boolean;
+    numbersOnly?: boolean;
+    required?: boolean;
+    textarea?: boolean;
+    textAreaCols?: number;
+    textAreaRows?: number;
+    type?: string;
+}
+
+export interface InputProps {
     allowDisabledFocus?: boolean;
     ariaLabel?: string;
     autoFocus?: boolean;
     className?: string;
     clearInputTabIndex?: string;
     disabled?: boolean;
-    enableExpand?: boolean;
     helpText?: string;
     id?: string;
+    label?: string;
     name?: string;
-    numbersOnly?: boolean;
     onBlur?: React.FocusEventHandler<HTMLTextAreaElement | HTMLInputElement>;
     onChange?: React.ChangeEventHandler<HTMLTextAreaElement | HTMLInputElement>;
     onClear?: boolean | (() => {});
@@ -25,11 +43,7 @@ export interface TextInputProps {
         HTMLTextAreaElement | HTMLInputElement
     >;
     placeholder?: string;
-    required?: boolean;
-    textarea?: boolean;
-    textAreaCols?: number;
-    textAreaRows?: number;
-    type?: string;
+    shape?: TextInputShape;
     value?: string | number;
-    waitInterval?: number | boolean;
+    waitInterval?: number;
 }
