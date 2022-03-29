@@ -1,5 +1,6 @@
 import {
     ButtonSize,
+    ButtonTheme,
     DefaultButton,
     PrimaryButton,
     SecondaryButton,
@@ -11,6 +12,7 @@ import { Tabs, Tab, TabVariant } from './components/Tabs';
 
 export {
     ButtonSize,
+    ButtonTheme,
     DefaultButton,
     Icon,
     IconName,

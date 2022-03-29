@@ -1,40 +1,47 @@
-import * as React from 'react';
+import React, { FC } from 'react';
 import { classNames } from '../../../shared/utilities';
-import { ButtonSize, IButtonProps } from '../index';
-import '../../../styles/main.scss';
+import { BaseButton, ButtonProps, ButtonSize, ButtonType } from '../index';
 
-export class SecondaryButton extends React.Component<IButtonProps, {}> {
-    public render(): JSX.Element {
-        const {
-            allowDisabledFocus,
-            ariaLabel,
-            checked,
-            classes,
-            disabled,
-            disruptive,
-            onClick,
-            text,
-            size,
-            styles
-          } = this.props;
-          const buttonClassNames: string = classNames({
-            'button': true,
-            'button1 button-padding-1': size === ButtonSize.Large,
-            'button2 button-padding-2': size === ButtonSize.Medium,
-            'button3 button-padding-3': size === ButtonSize.Small,
-            'button-secondary': true,
-            'button-secondary-disruptive': disruptive
-        });
-        return (
-            <button
-                aria-label={ariaLabel}
-                defaultChecked={checked}
-                className={buttonClassNames + ' ' + classes}
-                disabled={disabled}
-                onClick={onClick}
-                style={styles}>
-                {text}
-            </button>
-        );
-    }
-}
+import styles from '../button.module.scss';
+
+export const SecondaryButton: FC<ButtonProps> = ({
+    allowDisabledFocus = false,
+    ariaLabel,
+    checked = false,
+    className,
+    disabled = false,
+    disruptive = false,
+    icon,
+    onClick,
+    primaryColor,
+    text,
+    theme,
+    size = ButtonSize.Flex,
+    style,
+}) => {
+    const buttonClassNames: string = classNames([
+        className,
+        styles.button,
+        styles.buttonSecondary,
+        disruptive ? styles.buttonSecondaryDisruptive : '',
+    ]);
+
+    return (
+        <BaseButton
+            allowDisabledFocus={allowDisabledFocus}
+            ariaLabel={ariaLabel}
+            checked={checked}
+            className={buttonClassNames}
+            disabled={disabled}
+            disruptive={disruptive}
+            icon={icon}
+            onClick={onClick}
+            primaryColor={primaryColor}
+            text={text}
+            theme={theme}
+            type={ButtonType.Secondary}
+            size={size}
+            style={style}
+        />
+    );
+};

@@ -40,7 +40,7 @@ export const Base = () => (
             </Tooltip>
         </Wrapper>
         <Wrapper>
-            <Tooltip content={'Dark tooltip'} placement={'top'}>
+            <Tooltip content={'Light tooltip'} placement={'top'}>
                 <PrimaryButton
                     ariaLabel="Light top"
                     onClick={_alertClicked}
@@ -62,7 +62,7 @@ export const Base = () => (
             </Tooltip>
         </Wrapper>
         <Wrapper>
-            <Tooltip content={'Dark tooltip'} placement={'right'}>
+            <Tooltip content={'Light tooltip'} placement={'right'}>
                 <PrimaryButton
                     ariaLabel="Light right"
                     onClick={_alertClicked}
