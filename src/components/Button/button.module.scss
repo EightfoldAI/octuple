@@ -1,0 +1,200 @@
+@import '../../styles/abstracts/functions';
+@import '../../styles/base/colors';
+@import '../../styles/themes/definitions-light';
+@import '../../styles/abstracts/mixins';
+@import '../../styles/base/typography';
+
+.button {
+    background-color: inherit;
+    border: rem(2px) solid $button-color-default-active;
+    cursor: pointer;
+    display: inline-block;
+    transition: all $motion-duration-extra-fast $motion-easing-easeinout 0s;
+    white-space: nowrap;
+
+    border-radius: $corner-radius-s;
+
+    .icon + .button1:not(:empty) {
+        margin-left: $button-spacer-large;
+    }
+
+    .icon + .button2:not(:empty) {
+        margin-left: $button-spacer-medium;
+    }
+
+    .icon + .button3:not(:empty) {
+        margin-left: $button-spacer-small;
+    }
+
+    &:disabled,
+    &.disabled {
+        opacity: $disabled-alpha-value;
+        cursor: not-allowed;
+    }
+
+    &:focus-visible {
+        box-sizing: border-box;
+        padding: $space-xs $space-s;
+        border-width: rem(4px);
+    }
+}
+
+.button-padding-1 {
+    padding: $button-padding-vertical-large $button-padding-horizontal-large;
+}
+
+.button-padding-1-default,
+.button-padding-1-neutral {
+    padding: $button-padding-vertical-default-large
+        $button-padding-horizontal-default-large;
+}
+
+.button-padding-2 {
+    padding: $button-padding-vertical-medium $button-padding-horizontal-medium;
+}
+
+.button-padding-2-default,
+.button-padding-2-neutral {
+    padding: $button-padding-vertical-default-medium
+        $button-padding-horizontal-default-medium;
+}
+
+.button-padding-3 {
+    padding: $button-padding-vertical-small $button-padding-horizontal-small;
+}
+
+.button-padding-3-default,
+.button-padding-3-neutral {
+    padding: $button-padding-vertical-default-small
+        $button-padding-horizontal-default-small;
+}
+
+.menu-padding-1 {
+    padding-right: $button-padding-menu-large;
+}
+
+.menu-padding-2 {
+    padding-right: $button-padding-menu-medium;
+}
+
+.menu-padding-3 {
+    padding-right: $button-padding-menu-small;
+}
+
+.button-primary {
+    background-color: $button-color-primary-active;
+    border-color: $button-color-primary-active;
+    color: $button-text__color-primary;
+
+    &:hover {
+        background-color: $button-color-primary-hover;
+        border-color: $button-color-primary-hover;
+    }
+
+    &:active {
+        background-color: $button-color-primary-pressed;
+        border-color: $button-color-primary-pressed;
+    }
+
+    &:focus-visible {
+        border-color: $button-color-primary-focused-border;
+    }
+}
+
+.button-secondary {
+    border-color: $button-color-secondary-active;
+    color: $button-color-secondary-active;
+    background-color: $card-background-color;
+
+    &:hover {
+        border-color: $button-color-secondary-hover;
+        background-color: $color-background1-blue;
+    }
+
+    &:active {
+        border-color: $button-color-secondary-pressed;
+        color: $button-color-secondary-pressed;
+    }
+
+    &:focus-visible {
+        border-color: $button-color-secondary-focused-border;
+    }
+}
+
+.button-primary-disruptive {
+    background-color: $button-color-disruptive-active;
+    border-color: $button-color-disruptive-active;
+    color: $button-text__color-disruptive;
+
+    &:hover {
+        background-color: $button-color-disruptive-hover;
+        border-color: $button-color-disruptive-hover;
+    }
+
+    &:active {
+        background-color: $button-color-disruptive-pressed;
+        border-color: $button-color-disruptive-pressed;
+    }
+
+    &:focus-visible {
+        border-color: $button-color-disruptive-focused-border;
+    }
+}
+
+.button-secondary-disruptive {
+    border-color: $button-color-disruptive-active;
+    color: $button-color-disruptive-active;
+    background-color: $card-background-color;
+
+    &:hover {
+        border-color: $button-color-disruptive-active;
+        background-color: $color-background1-red;
+    }
+
+    &:active {
+        border-color: $button-color-disruptive-pressed;
+        color: $button-color-disruptive-pressed;
+    }
+
+    &:focus-visible {
+        border-color: $button-color-disruptive-focused-border;
+    }
+}
+
+.button-default {
+    border-color: $button-color-default-active;
+    color: $button-text__color-default;
+
+    &:hover {
+        background-color: $button-color-default-hover;
+        border-color: $button-color-default-hover;
+    }
+
+    &:active {
+        background-color: $button-color-default-pressed;
+        border-color: $button-color-default-pressed;
+    }
+
+    &:focus-visible {
+        border-color: $button-color-default-focused-border;
+    }
+}
+
+.button-neutral {
+    border-color: $button-color-neutral-active;
+    color: $button-text__color-neutral;
+
+    &:hover {
+        background-color: $button-color-neutral-hover;
+        border-color: $button-color-neutral-hover;
+    }
+
+    &:active {
+        background-color: $button-color-neutral-pressed;
+        border-color: $button-color-neutral-pressed;
+    }
+
+    &:focus-visible {
+        border-color: $button-color-neutral-focused-border;
+    }
+}

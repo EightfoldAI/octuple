@@ -11,6 +11,7 @@ export const Icon: FC<IconProps> = ({
     color,
     description,
     horizontal,
+    id,
     path,
     role = 'presentation',
     rotate,
@@ -22,7 +23,12 @@ export const Icon: FC<IconProps> = ({
     const iconClassNames: string = classNames([className, styles.iconWrapper]);
 
     return (
-        <span aria-hidden={ariaHidden} className={iconClassNames} role={role}>
+        <span
+            aria-hidden={ariaHidden}
+            className={iconClassNames}
+            id={id}
+            role={role}
+        >
             <MdiIcon
                 color={color}
                 description={description}
