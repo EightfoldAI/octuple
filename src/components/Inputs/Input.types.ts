@@ -14,13 +14,16 @@ export interface SearchBoxProps extends InputProps {
     value?: string;
 }
 
-export interface TextInputProps extends InputProps {
+export interface TextAreaProps extends InputProps {
     enableExpand?: boolean;
-    numbersOnly?: boolean;
     required?: boolean;
-    textarea?: boolean;
     textAreaCols?: number;
     textAreaRows?: number;
+}
+
+export interface TextInputProps extends InputProps {
+    numbersOnly?: boolean;
+    required?: boolean;
     type?: string;
 }
 

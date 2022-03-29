@@ -9,8 +9,8 @@ export default {
 export const Search = () => (
     <>
         <p>Search Box (Rectangle)</p>
-        <SearchBox />
+        <SearchBox label="With label" />
         <p>Search Box (Pill)</p>
-        <SearchBox shape={TextInputShape.Pill} />
+        <SearchBox label="With label" shape={TextInputShape.Pill} />
     </>
 );

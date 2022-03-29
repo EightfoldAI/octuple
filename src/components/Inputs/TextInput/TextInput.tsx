@@ -12,7 +12,6 @@ export const TextInput: FC<TextInputProps> = ({
     className,
     // clearInputTabIndex,
     disabled = false,
-    enableExpand = false,
     helpText,
     id,
     label,
@@ -26,14 +25,10 @@ export const TextInput: FC<TextInputProps> = ({
     placeholder,
     required = false,
     shape = TextInputShape.Rectangle,
-    textarea = false,
-    textAreaCols = 50,
-    textAreaRows = 5,
     type = 'text',
     value,
     waitInterval = 10,
 }) => {
-    const textAreaClassNames: string = classNames([className]);
     const textInputClassNames: string = classNames([
         className,
         { [styles.withIcon]: shape === TextInputShape.Rectangle },
@@ -82,98 +77,34 @@ export const TextInput: FC<TextInputProps> = ({
         onChange;
     };
 
-    if (textarea) {
-        return (
-            <>
+    return (
+        <>
+            {label && (
                 <label className={styles.fieldLabel} htmlFor={name}>
                     {label}
                 </label>
-                <textarea
-                    aria-disabled={allowDisabledFocus}
-                    autoFocus={autoFocus}
-                    id={id}
-                    className={textAreaClassNames}
-                    name={name}
-                    value={value}
-                    placeholder={placeholder}
-                    onBlur={handleBlur}
-                    onChange={handleChange}
-                    onFocus={handleFocus}
-                    onKeyDown={handleKeyDown}
-                    rows={textAreaRows}
-                    cols={textAreaCols}
-                    disabled={disabled}
-                    aria-label={ariaLabel}
-                    tabIndex={0}
-                    required={required}
-                />
-                {helpText && (
-                    <div className="faded sm-text m-t-xs m-b-sm">
-                        {helpText}
-                    </div>
-                )}
-                {enableExpand && id && (
-                    <div className="expand-textarea">
-                        <div
-                            className="expand-textarea-icon-container"
-                            onClick={() => {
-                                const textAreaElement =
-                                    document.getElementById(id);
-                                const minHeight = parseInt(
-                                    textAreaElement.style.minHeight,
-                                    10
-                                );
-                                const scrollHeight =
-                                    textAreaElement.scrollHeight;
-                                if (minHeight < scrollHeight) {
-                                    textAreaElement.style.minHeight =
-                                        (scrollHeight + 5).toString() + 'px';
-                                } else {
-                                    textAreaElement.removeAttribute('style');
-                                }
-                            }}
-                        >
-                            <i className="fas fa-sort expand-textarea-icon" />
-                        </div>
-                    </div>
-                )}
-            </>
-        );
-    }
-    return (
-        <>
+            )}
             <input
-                role="textbox"
                 aria-label={ariaLabel}
-                type={numbersOnly ? 'number' : type}
-                id={id}
+                autoFocus={autoFocus}
                 className={textInputClassNames}
+                disabled={disabled}
+                id={id}
                 name={name}
-                value={value}
-                placeholder={placeholder}
                 onChange={handleChange}
                 onBlur={handleBlur}
                 onFocus={handleFocus}
                 onKeyDown={handleKeyDown}
-                autoFocus={autoFocus}
-                tabIndex={0}
-                disabled={disabled}
+                placeholder={placeholder}
                 required={required}
+                role="textbox"
+                tabIndex={0}
+                type={numbersOnly ? 'number' : type}
+                value={value}
             />
             {helpText && (
-                <div className="faded sm-text m-t-xs m-b-sm">{helpText}</div>
+                <div className={styles.fieldSupportText}>{helpText}</div>
             )}
-            {/* {onClear && value &&
-                <span className="faded sm-text m-t-xs m-b-sm clear-text-input">
-                    <i
-                        className="fal fa-times pointer"
-                        onClick={onClear}
-                        tab-index={clearInputTabIndex}
-                        role="button"
-                        aria-label={'Clear text'}
-                    />
-                </span>
-            } */}
         </>
     );
 };

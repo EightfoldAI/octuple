@@ -43,6 +43,8 @@ declare namespace InputModuleScssModule {
         icon3Material: string;
         icon4Material: string;
         iconButtonStyle: string;
+        'info-button-style': string;
+        infoButtonStyle: string;
         instruction: string;
         l: string;
         'left-icon': string;
