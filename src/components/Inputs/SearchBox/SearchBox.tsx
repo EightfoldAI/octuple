@@ -13,6 +13,7 @@ import styles from '../input.module.scss';
 export const SearchBox: FC<SearchBoxProps> = ({
     allowDisabledFocus = false,
     className,
+    disabled,
     label,
     onBlur,
     onChange,
@@ -34,6 +35,7 @@ export const SearchBox: FC<SearchBoxProps> = ({
             <TextInput
                 allowDisabledFocus={allowDisabledFocus}
                 className={className}
+                disabled={disabled}
                 label={label}
                 onBlur={onBlur}
                 onChange={onChange}
