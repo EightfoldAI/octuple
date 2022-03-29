@@ -15,7 +15,11 @@
         "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
         "format": "prettier --write \"**/*.+(js|jsx|ts|tsx|json|css|scss|md)\"",
         "postinstall": "husky install",
-        "lint-staged": "lint-staged"
+        "lint-staged": "lint-staged",
+        "release": "standard-version",
+        "release:minor": "standard-version --release-as minor",
+        "release:patch": "standard-version --release-as patch",
+        "release:major": "standard-version --release-as major"
     },
     "eslintConfig": {
         "extends": [
@@ -50,6 +54,8 @@
     "devDependencies": {
         "@babel/core": "7.17.5",
         "@babel/runtime": "7.17.2",
+        "@commitlint/cli": "16.2.3",
+        "@commitlint/config-conventional": "16.2.1",
         "@pmmmwh/react-refresh-webpack-plugin": "0.5.3",
         "@storybook/addon-actions": "6.5.0-alpha.47",
         "@storybook/addon-docs": "6.5.0-alpha.47",
@@ -129,6 +135,7 @@
         "sass-loader": "12.3.0",
         "semver": "7.3.5",
         "source-map-loader": "3.0.0",
+        "standard-version": "9.3.2",
         "storybook-addon-state": "1.0.3",
         "style-loader": "3.3.1",
         "terser-webpack-plugin": "5.2.5",

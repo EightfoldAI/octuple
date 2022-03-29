@@ -3,6 +3,7 @@
 ## About
 
 Octuple creates a shared language and visual consistency across different pages and channels.
+It represents a collection of assets, utilities, and React components for building web applications.
 
 -   Design (and development) work can be created and replicated quickly and at scale.
 -   Alleviates strain on design resources to focus on larger, more complex problems.
@@ -10,40 +11,25 @@ Octuple creates a shared language and visual consistency across different pages 
 -   Creates visual consistency across products, channels, and (potentially siloed) departments.
 -   Serves as an educational tool and reference for junior-level designers and content contributors.
 
-## Prerequisites
+## Changelog
 
--   Install the following:
+You can view the complete list of additions, fixes, and changes in the [CHANGELOG.md](./CHANGELOG.md)
 
--   [Git](https://git-scm.com/)
--   [Node](https://nodejs.org/en/download/)
--   [Yarn](https://yarnpkg.com/getting-started/install)
--   [NVM (optional to quickly use different versions of Node)](https://github.com/nvm-sh/nvm)
+## Usage
 
-## Available Scripts
+To use Octuple in your project run the following command:
 
-from the project root folder, you can run:
+Yarn
 
-### `yarn storybook`
+```
+yarn add @eightfold.ai/octuple
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:2022](http://localhost:2022) to view it in the browser.
+NPM
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `yarn build-storybook`
-
-Builds the Octuple Design System Storybook project for deployment to the `dist` folder.\
-
-### `yarn test`
-
-Runs the UTs.\
-
-### `yarn`
-
-Builds the Octuple Design System Component Library for prod publishing to NPM in to the `lib` folder.\
-Should also run the UTs as part of the process.
-Your package is ready to be published!
+```
+npm install @eightfold.ai/octuple
+```
 
 ## License
 
