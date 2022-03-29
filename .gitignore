@@ -23,6 +23,8 @@ stats.json
 .env.test.local
 .env.production.local
 
+*.scss.d.ts
+
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*

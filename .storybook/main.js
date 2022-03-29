@@ -42,6 +42,7 @@ module.exports = {
                 test: /\.s[ca]ss|css$/,
                 use: [
                     'style-loader',
+                    '@teamsupercell/typings-for-css-modules-loader',
                     {
                         loader: 'css-loader',
                         options: {
