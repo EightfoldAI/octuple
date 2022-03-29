@@ -17,7 +17,7 @@ Octuple creates a shared language and visual consistency across different pages 
 -   [Git](https://git-scm.com/)
 -   [Node](https://nodejs.org/en/download/)
 -   [Yarn](https://yarnpkg.com/getting-started/install)
--   [NVM (optional to quickly use different verions of Node)](https://github.com/nvm-sh/nvm)
+-   [NVM (optional to quickly use different versions of Node)](https://github.com/nvm-sh/nvm)
 
 ## Available Scripts
 
