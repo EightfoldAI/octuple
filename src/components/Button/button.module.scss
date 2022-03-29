@@ -198,3 +198,9 @@
         border-color: $button-color-neutral-focused-border;
     }
 }
+
+.dark {
+    .button {
+        background-color: inherit;
+    }
+}
