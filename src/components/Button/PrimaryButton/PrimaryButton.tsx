@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
-import { classNames } from '../../../shared/utilities';
 import { BaseButton, ButtonProps, ButtonSize, ButtonType } from '../index';
+import { classNames } from '../../../shared/utilities';
 
 import styles from '../button.module.scss';
 
@@ -11,13 +11,14 @@ export const PrimaryButton: FC<ButtonProps> = ({
     className,
     disabled = false,
     disruptive = false,
+    htmlType,
     icon,
     onClick,
     primaryColor,
-    text,
-    theme,
     size = ButtonSize.Flex,
     style,
+    text,
+    theme,
 }) => {
     const buttonClassNames: string = classNames([
         className,
@@ -34,14 +35,15 @@ export const PrimaryButton: FC<ButtonProps> = ({
             className={buttonClassNames}
             disabled={disabled}
             disruptive={disruptive}
+            htmlType={htmlType}
             icon={icon}
             onClick={onClick}
             primaryColor={primaryColor}
-            text={text}
-            type={ButtonType.Primary}
-            theme={theme}
             size={size}
             style={style}
+            text={text}
+            theme={theme}
+            type={ButtonType.Primary}
         />
     );
 };
