@@ -1,6 +1,4 @@
 import React, { FC } from 'react';
-import { classNames, invertForegroundColor } from '../../shared/utilities';
-import { CSSVariables } from '../../shared/variables';
 import {
     ButtonSize,
     ButtonTheme,
@@ -9,6 +7,8 @@ import {
 } from './index';
 import { Icon, IconName, IconSize } from '../Icon/index';
 import { Breakpoints, useMatchMedia } from '../../shared/hooks';
+import { CSSVariables } from '../../shared/variables';
+import { classNames, invertForegroundColor } from '../../shared/utilities';
 
 import styles from './button.module.scss';
 
@@ -19,15 +19,16 @@ export const BaseButton: FC<InternalButtonProps> = ({
     className,
     disabled = false,
     disruptive = false,
+    htmlType,
     icon,
     id,
     onClick,
     primaryColor,
-    text,
-    theme,
-    type,
     size = ButtonSize.Flex,
     style,
+    text,
+    theme,
+    type = ButtonType.Default,
 }) => {
     const largeScreenActive: boolean = useMatchMedia(Breakpoints.Large);
     const mediumScreenActive: boolean = useMatchMedia(Breakpoints.Medium);
@@ -152,6 +153,7 @@ export const BaseButton: FC<InternalButtonProps> = ({
             id={id}
             onClick={!allowDisabledFocus ? onClick : null}
             style={buttonStyles()}
+            type={htmlType}
         >
             {iconExists && !textExists && getButtonIcon(icon)}
             {iconExists && textExists && (
