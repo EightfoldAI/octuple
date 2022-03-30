@@ -20,13 +20,13 @@ const Wrapper: FC = ({ children }) => (
 );
 
 export const Base = () => (
-    <div style={{ maxWidth: '60%', margin: 'auto' }}>
+    <div style={{ margin: 'auto', maxWidth: '60%', marginTop: '50px' }}>
         <Wrapper>
             <Tooltip content={'Light tooltip'}>
                 <PrimaryButton
                     ariaLabel="Light bottom"
                     onClick={_alertClicked}
-                    size={ButtonSize.Large}
+                    size={ButtonSize.Medium}
                     text="Light bottom"
                 />
             </Tooltip>
@@ -34,7 +34,7 @@ export const Base = () => (
                 <PrimaryButton
                     ariaLabel="Dark bottom"
                     onClick={_alertClicked}
-                    size={ButtonSize.Large}
+                    size={ButtonSize.Medium}
                     text="Dark bottom"
                 />
             </Tooltip>
@@ -44,7 +44,7 @@ export const Base = () => (
                 <PrimaryButton
                     ariaLabel="Light top"
                     onClick={_alertClicked}
-                    size={ButtonSize.Large}
+                    size={ButtonSize.Medium}
                     text="Light top"
                 />
             </Tooltip>
@@ -56,7 +56,7 @@ export const Base = () => (
                 <PrimaryButton
                     ariaLabel="Dark top"
                     onClick={_alertClicked}
-                    size={ButtonSize.Large}
+                    size={ButtonSize.Medium}
                     text="Dark top"
                 />
             </Tooltip>
@@ -66,7 +66,7 @@ export const Base = () => (
                 <PrimaryButton
                     ariaLabel="Light right"
                     onClick={_alertClicked}
-                    size={ButtonSize.Large}
+                    size={ButtonSize.Medium}
                     text="Light right"
                 />
             </Tooltip>
@@ -78,7 +78,7 @@ export const Base = () => (
                 <PrimaryButton
                     ariaLabel="Dark right"
                     onClick={_alertClicked}
-                    size={ButtonSize.Large}
+                    size={ButtonSize.Medium}
                     text="Dark right"
                 />
             </Tooltip>
@@ -91,7 +91,7 @@ export const Base = () => (
                 <PrimaryButton
                     ariaLabel="Light left"
                     onClick={_alertClicked}
-                    size={ButtonSize.Large}
+                    size={ButtonSize.Medium}
                     text="Light left"
                 />
             </Tooltip>
@@ -105,7 +105,7 @@ export const Base = () => (
                 <PrimaryButton
                     ariaLabel="Dark left"
                     onClick={_alertClicked}
-                    size={ButtonSize.Large}
+                    size={ButtonSize.Medium}
                     text="Dark left"
                 />
             </Tooltip>
