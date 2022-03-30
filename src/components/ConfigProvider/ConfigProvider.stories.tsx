@@ -130,10 +130,7 @@ export const Theming = () => {
     return (
         <ConfigProvider
             themeOptions={{
-                name: 'custom',
-                customTheme: {
-                    primaryColor: 'red',
-                },
+                name: 'blue',
             }}
         >
             <ThemedComponents />
