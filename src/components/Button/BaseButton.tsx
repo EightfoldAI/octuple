@@ -1,14 +1,14 @@
 import React, { FC } from 'react';
-import { classNames, invertForegroundColor } from '../../shared/utilities';
-import { CSSVariables } from '../../shared/variables';
 import {
     ButtonSize,
     ButtonTheme,
-    ButtonMode,
+    ButtonType,
     InternalButtonProps,
 } from './index';
 import { Icon, IconName, IconSize } from '../Icon/index';
 import { Breakpoints, useMatchMedia } from '../../shared/hooks';
+import { CSSVariables } from '../../shared/variables';
+import { classNames, invertForegroundColor } from '../../shared/utilities';
 
 import styles from './button.module.scss';
 
@@ -19,18 +19,16 @@ export const BaseButton: FC<InternalButtonProps> = ({
     className,
     disabled = false,
     disruptive = false,
+    htmlType,
     icon,
     id,
-    mode = ButtonMode.Default,
     onClick,
-    onReset,
-    onSubmit,
     primaryColor,
     size = ButtonSize.Flex,
     style,
     text,
     theme,
-    type,
+    type = ButtonType.Default,
 }) => {
     const largeScreenActive: boolean = useMatchMedia(Breakpoints.Large);
     const mediumScreenActive: boolean = useMatchMedia(Breakpoints.Medium);
@@ -103,19 +101,19 @@ export const BaseButton: FC<InternalButtonProps> = ({
     const buttonStyles = (): CSSVariables => {
         let buttonStyle: CSSVariables;
         if (primaryColor && !disruptive) {
-            if (mode === ButtonMode.Default) {
+            if (type === ButtonType.Default) {
                 buttonStyle = {
                     ...style,
                     // TODO: Assign primaryColor to css variables when available
                     '--css-var-example': primaryColor,
                 };
-            } else if (mode === ButtonMode.Primary) {
+            } else if (type === ButtonType.Primary) {
                 buttonStyle = {
                     ...style,
                     // TODO: Assign primaryColor to css variables when available
                     '--css-var-example': primaryColor,
                 };
-            } else if (mode === ButtonMode.Secondary) {
+            } else if (type === ButtonType.Secondary) {
                 buttonStyle = {
                     ...style,
                     // TODO: Assign primaryColor to css variables when available
@@ -136,7 +134,7 @@ export const BaseButton: FC<InternalButtonProps> = ({
             className={buttonTextClassNames}
             style={{
                 color:
-                    primaryColor && mode === ButtonMode.Primary
+                    primaryColor && type === ButtonType.Primary
                         ? invertForegroundColor(primaryColor)
                         : 'inherit',
             }}
@@ -154,12 +152,8 @@ export const BaseButton: FC<InternalButtonProps> = ({
             className={buttonBaseClassNames}
             id={id}
             onClick={!allowDisabledFocus ? onClick : null}
-            onSubmit={
-                !allowDisabledFocus && type === 'submit' ? onSubmit : null
-            }
-            onReset={!allowDisabledFocus && type === 'reset' ? onReset : null}
             style={buttonStyles()}
-            type={type}
+            type={htmlType}
         >
             {iconExists && !textExists && getButtonIcon(icon)}
             {iconExists && textExists && (
