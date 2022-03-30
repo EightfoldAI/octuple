@@ -1,37 +1,14 @@
-export type Color = string;
+import { ThemeOptions } from './Theming';
 
-export interface OcBaseTheme {
-    primaryColor?: Color;
-    textColor?: Color;
-    textColorSecondary?: Color;
-    textColorInverse?: Color;
-    backgroundColor?: Color;
-    successColor?: Color;
-    warningColor?: Color;
-    infoColor?: Color;
-    errorColor?: Color;
+export interface IConfigContext {
+    themeOptions: ThemeOptions;
+    setThemeOptions: (themeOptions: ThemeOptions) => void;
 }
 
-export interface OcTheme extends OcBaseTheme {
-    palette: Color[];
-}
-
-export interface OcCustomTheme extends OcBaseTheme {
-    name: string;
-}
-
-export type OcThemeNames =
-    | 'red'
-    | 'orange'
-    | 'yellow'
-    | 'green'
-    | 'blueGreen'
-    | 'blue'
-    | 'violet'
-    | 'grey';
-
-export interface ThemeOptions {
-    name?: OcThemeNames;
-    useSystemTheme?: boolean;
-    customTheme?: OcCustomTheme;
+export interface ConfigProviderProps {
+    /**
+     * Options for theming
+     * @default { name: 'blue', useSystemTheme: false, customTheme: null }
+     */
+    themeOptions?: ThemeOptions;
 }

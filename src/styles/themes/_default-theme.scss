@@ -1,14 +1,15 @@
-:root {
-    --primary-color-10: #00060a;
-    --primary-color-20: #002a47;
-    --primary-color-30: #054d7b;
-    --primary-color-40: #146da6;
-    --primary-color-50: #2c8cc9;
-    --primary-color-60: #47a4df;
-    --primary-color-70: #68baef;
-    --primary-color-80: #8ed0fa;
-    --primary-color-90: #bce4ff;
-    --primary-color-100: #ebf7ff;
+/* TODO: @yash :root selector is not working with css module typing plugin debug later */
+body {
+    --primary-color-10: #ebf7ff;
+    --primary-color-20: #bce4ff;
+    --primary-color-30: #8ed0fa;
+    --primary-color-40: #68baef;
+    --primary-color-50: #47a4df;
+    --primary-color-60: #2c8cc9;
+    --primary-color-70: #146da6;
+    --primary-color-80: #054d7b;
+    --primary-color-90: #002a47;
+    --primary-color-100: #00060a;
     --primary-color: #146da6;
     --background-color: #fff;
     --text-primary-color: #1a212e;

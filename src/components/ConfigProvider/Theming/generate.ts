@@ -1,25 +1,22 @@
 import { inputToRGB, rgbToHex, rgbToHsv } from '@ctrl/tinycolor';
 
-const hueStep = 2; // hue step
-const saturationStep = 0.16; // saturation step, light part
-const saturationStepDark = 0.05; // saturation step, dark part
-const brightnessStep = 0.05; // brightness step, light part
-const brightnessStepDark = 0.15; // brightness step, dark part
-const lightColorCount = 5; // the number of light colors, on the main color
-const darkColorCount = 4; // number of dark colors, under the main color
-// Dark theme color mapping table
-const darkColorMap = [
-    { index: 7, opacity: 0.15 },
-    { index: 6, opacity: 0.25 },
-    { index: 5, opacity: 0.3 },
-    { index: 5, opacity: 0.45 },
-    { index: 5, opacity: 0.65 },
-    { index: 5, opacity: 0.85 },
-    { index: 4, opacity: 0.9 },
-    { index: 3, opacity: 0.95 },
-    { index: 2, opacity: 0.97 },
-    { index: 1, opacity: 0.98 },
-];
+const hueStep: number = 2; // hue step
+const saturationStep: number = 0.16; // saturation step, light part
+const saturationStepDark: number = 0.05; // saturation step, dark part
+const brightnessStep: number = 0.05; // brightness step, light part
+const brightnessStepDark: number = 0.15; // brightness step, dark part
+const lightColorCount: number = 5; // the number of light colors, on the main color
+const darkColorCount: number = 4; // number of dark colors, under the main color
+
+interface IDarkColorMap {
+    index: number;
+    opacity: number;
+}
+
+interface Opts {
+    theme?: 'dark' | 'default';
+    backgroundColor?: string;
+}
 
 interface HsvObject {
     h: number;
@@ -33,10 +30,24 @@ interface RgbObject {
     b: number;
 }
 
+// Dark theme color mapping table
+const darkColorMap: IDarkColorMap[] = [
+    { index: 7, opacity: 0.15 },
+    { index: 6, opacity: 0.25 },
+    { index: 5, opacity: 0.3 },
+    { index: 5, opacity: 0.45 },
+    { index: 5, opacity: 0.65 },
+    { index: 5, opacity: 0.85 },
+    { index: 4, opacity: 0.9 },
+    { index: 3, opacity: 0.95 },
+    { index: 2, opacity: 0.97 },
+    { index: 1, opacity: 0.98 },
+];
+
 // Wrapper function ported from TinyColor.prototype.toHsv
 // Keep it here because of `hsv.h * 360`
 function toHsv({ r, g, b }: RgbObject): HsvObject {
-    const hsv = rgbToHsv(r, g, b);
+    const hsv: HsvObject = rgbToHsv(r, g, b);
     return { h: hsv.h * 360, s: hsv.s, v: hsv.v };
 }
 
@@ -118,16 +129,11 @@ function getValue(hsv: HsvObject, i: number, light?: boolean): number {
     return Number(value.toFixed(2));
 }
 
-interface Opts {
-    theme?: 'dark' | 'default';
-    backgroundColor?: string;
-}
-
 export default function generate(color: string, opts: Opts = {}): string[] {
     const patterns: Array<string> = [];
-    const pColor = inputToRGB(color);
+    const pColor: ReturnType<typeof inputToRGB> = inputToRGB(color);
     for (let i = lightColorCount; i > 0; i -= 1) {
-        const hsv = toHsv(pColor);
+        const hsv: HsvObject = toHsv(pColor);
         const colorString: string = toHex(
             inputToRGB({
                 h: getHue(hsv, i, true),
@@ -162,5 +168,5 @@ export default function generate(color: string, opts: Opts = {}): string[] {
             )
         );
     }
-    return patterns.reverse();
+    return patterns;
 }

@@ -1,6 +1,7 @@
 @import '../../styles/abstracts/functions';
 @import '../../styles/base/colors';
 @import '../../styles/themes/definitions-light';
+@import '../../styles/themes/default-theme';
 @import '../../styles/abstracts/mixins';
 
 .tabWrap {
@@ -21,6 +22,8 @@
 
     .tab {
         display: flex;
+        border: none;
+        cursor: pointer;
         padding: $space-s $space-m;
         border: none;
         color: var(--label);
@@ -71,8 +74,8 @@
     }
 
     &.small {
-        --active-bg: var(--primary-color-100);
-        --hover-bg: var(--primary-color-100);
+        --active-bg: var(--primary-color-10);
+        --hover-bg: var(--primary-color-10);
 
         .tab {
             padding: $space-l $space-m;

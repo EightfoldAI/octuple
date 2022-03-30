@@ -1,7 +1,14 @@
-import { OcBaseTheme, OcTheme, ThemeOptions } from './ConfigProvider.types';
+import {
+    OcTheme,
+    OcThemeNames,
+    ThemeName,
+    ThemeOptions,
+} from './Theming.types';
 import { TinyColor } from '@ctrl/tinycolor';
 import generate from './generate';
 import OcThemes from './themes';
+
+const THEME_CONTAINER_ID = 'octuple-theme';
 
 export function getStyle(themeOptions: ThemeOptions): string {
     const variables: Record<string, string> = {};
@@ -22,16 +29,16 @@ export function getStyle(themeOptions: ThemeOptions): string {
         fillColor(colorPalettes, type);
     };
 
-    const themeName = themeOptions.name || themeOptions.customTheme?.name;
+    const themeName: ThemeName = themeOptions.name;
 
     const theme: OcTheme | null = {
-        ...OcThemes?.[themeOptions.name],
+        ...OcThemes?.[themeOptions.name as OcThemeNames],
         ...themeOptions.customTheme,
     };
 
     // ================ Use existing palette ================
     if (theme.palette) {
-        fillColor(theme.palette, 'primary-color');
+        fillColor([...theme.palette].reverse(), 'primary-color');
         variables[`primary-color`] = theme.primaryColor;
     }
 
@@ -108,7 +115,10 @@ function getContainer(option: Options) {
 }
 
 export function injectCSS(css: string, option: Options = {}) {
-    const styleNode = document.createElement('style');
+    const styleNode =
+        document.getElementById(THEME_CONTAINER_ID) ||
+        document.createElement('style');
+    styleNode.id = THEME_CONTAINER_ID;
     if (option.csp?.nonce) {
         styleNode.nonce = option.csp?.nonce;
     }
@@ -131,6 +141,5 @@ export function injectCSS(css: string, option: Options = {}) {
 }
 
 export function registerTheme(themeOptions: ThemeOptions) {
-    console.log('jijhihih');
     injectCSS(getStyle(themeOptions));
 }

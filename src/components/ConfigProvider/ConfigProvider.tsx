@@ -1,39 +1,36 @@
 import React, { createContext, FC, useEffect, useState } from 'react';
-import { registerTheme } from './styleGenerator';
-import { OcThemeNames, ThemeOptions } from './ConfigProvider.types';
-import { OnChangeHandler, TabValue } from '../Tabs';
-
-export interface IConfigContext {
-    themeName: string;
-    setThemeName: (name: OcThemeNames) => void;
-}
+import { registerTheme } from './Theming/styleGenerator';
+import { ConfigProviderProps, IConfigContext } from './ConfigProvider.types';
+import { ThemeOptions } from './Theming';
 
 const ConfigContext = createContext<Partial<IConfigContext>>({});
 
-interface ConfigProviderProps {
-    themeOptions?: ThemeOptions;
-}
+const DEFAULT_THEME = 'blue';
 
 const ConfigProvider: FC<ConfigProviderProps> = ({
     children,
-    themeOptions,
+    themeOptions: defaultThemeOptions,
 }) => {
-    const [themeName, setThemeName] = useState<OcThemeNames>(themeOptions.name);
+    const [themeOptions, setThemeOptions] =
+        useState<ThemeOptions>(defaultThemeOptions);
+
     useEffect(() => {
-        registerTheme({
-            ...themeOptions,
-            name: themeName,
-        });
-    }, [themeName]);
+        if (themeOptions) {
+            registerTheme({
+                name: DEFAULT_THEME,
+                ...themeOptions,
+            });
+        }
+    }, [themeOptions]);
 
     return (
         <ConfigContext.Provider
             value={{
-                themeName,
-                setThemeName,
+                themeOptions,
+                setThemeOptions,
             }}
         >
-            <div className={`theme-${themeName}`}>{children}</div>
+            <div className={`theme-${themeOptions.name}`}>{children}</div>
         </ConfigContext.Provider>
     );
 };

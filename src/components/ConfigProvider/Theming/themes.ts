@@ -1,4 +1,4 @@
-import { OcBaseTheme, OcTheme, OcThemeNames } from './ConfigProvider.types';
+import { OcBaseTheme, OcTheme, OcThemeNames } from './Theming.types';
 
 export const themeDefaults: OcBaseTheme = {
     textColor: '#1A212E',
@@ -11,7 +11,7 @@ export const themeDefaults: OcBaseTheme = {
     errorColor: '#993838',
 };
 
-export const red: OcTheme = {
+export const red: OcTheme = Object.freeze({
     primaryColor: '#993838',
     ...themeDefaults,
     palette: [
@@ -26,7 +26,7 @@ export const red: OcTheme = {
         '#FFC6C6',
         '#FFEFEF',
     ],
-};
+});
 
 export const orange: OcTheme = {
     primaryColor: '#9D6309',
