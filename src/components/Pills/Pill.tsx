@@ -1,9 +1,9 @@
 import React, { FC } from 'react';
 import { PillProps } from './Pills.types';
-
-import styles from './pills.module.scss';
 import { classNames } from '../../shared/utilities';
 import { Icon, IconName, IconSize } from '../Icon';
+
+import styles from './pills.module.scss';
 
 export const Pill: FC<PillProps> = ({
     color,
@@ -13,7 +13,7 @@ export const Pill: FC<PillProps> = ({
     theme = 'blue',
     closable,
 }) => {
-    const tagClassName = classNames([
+    const tagClassName: string = classNames([
         styles.tagPills,
         { [styles.red]: theme === 'red' },
         { [styles.orange]: theme === 'orange' },
@@ -36,11 +36,7 @@ export const Pill: FC<PillProps> = ({
             {children}
             {closable && (
                 <button onClick={onClose} className={styles.closeIconWrapper}>
-                    <Icon
-                        path={IconName.mdiClose}
-                        size={IconSize.Small}
-                        className={styles.closeIcon}
-                    />
+                    <Icon path={IconName.mdiClose} size={IconSize.Small} />
                 </button>
             )}
         </div>
