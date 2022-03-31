@@ -58,12 +58,12 @@ export interface ButtonProps {
      */
     icon?: IconName;
     /**
-     * The button onClick event handler.
-     */
-    /**
      * The button id.
      */
     id?: string;
+    /**
+     * The button onClick event handler.
+     */
     onClick?: React.MouseEventHandler<HTMLButtonElement>;
     /**
      * The button primary color.
@@ -100,4 +100,8 @@ export interface ButtonProps {
      * The buton style.
      */
     style?: React.CSSProperties;
+    /**
+     * The button html type.
+     */
+    htmlType?: 'button' | 'submit' | 'reset';
 }
