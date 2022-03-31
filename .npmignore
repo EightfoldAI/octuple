@@ -21,6 +21,8 @@ yarn-error.log*
 
 .eslintignore
 .eslintrc.js
+.commitlintrc.json
+.prettierrc.js
 .DS_Store
 .env.development.local
 .env.local

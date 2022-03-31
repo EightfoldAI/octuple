@@ -11,6 +11,7 @@ export const SecondaryButton: FC<ButtonProps> = ({
     className,
     disabled = false,
     disruptive = false,
+    htmlType,
     icon,
     onClick,
     primaryColor,
@@ -23,7 +24,7 @@ export const SecondaryButton: FC<ButtonProps> = ({
         className,
         styles.button,
         styles.buttonSecondary,
-        disruptive ? styles.buttonSecondaryDisruptive : '',
+        { [styles.buttonSecondaryDisruptive]: disruptive },
     ]);
 
     return (
@@ -34,14 +35,15 @@ export const SecondaryButton: FC<ButtonProps> = ({
             className={buttonClassNames}
             disabled={disabled}
             disruptive={disruptive}
+            htmlType={htmlType}
             icon={icon}
             onClick={onClick}
             primaryColor={primaryColor}
+            size={size}
+            style={style}
             text={text}
             theme={theme}
             type={ButtonType.Secondary}
-            size={size}
-            style={style}
         />
     );
 };
