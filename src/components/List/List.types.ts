@@ -8,11 +8,31 @@ export interface ListProps<T> {
      * Array off items
      */
     items: T[];
+    /**
+     * Render method for list item
+     * @param item
+     */
     renderItem: (item: T) => ReactNode;
+    /**
+     * Unique key for the item
+     * @param item
+     */
     rowKey?: (item: T) => Key | keyof T;
+    /**
+     * Custom class for the list container
+     */
     className?: string;
+    /**
+     * Custom class for list item
+     */
     itemClassName?: string;
+    /**
+     * Style of list container
+     */
     style?: React.CSSProperties;
+    /**
+     * Style of the item
+     */
     itemStyle?: React.CSSProperties;
     /**
      * List header renderer
