@@ -24,7 +24,7 @@ export const SecondaryButton: FC<ButtonProps> = ({
         className,
         styles.button,
         styles.buttonSecondary,
-        disruptive ? styles.buttonSecondaryDisruptive : '',
+        { [styles.buttonSecondaryDisruptive]: disruptive },
     ]);
 
     return (
