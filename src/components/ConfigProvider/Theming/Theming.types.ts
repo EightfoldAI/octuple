@@ -7,7 +7,7 @@ export type OcThemeNames =
     | 'orange'
     | 'yellow'
     | 'green'
-    | 'blueGreen'
+    | 'bluegreen'
     | 'blue'
     | 'violet'
     | 'grey';
@@ -16,6 +16,7 @@ export type ThemeName = OcThemeNames | OcCustomThemeName;
 
 export interface OcBaseTheme {
     primaryColor?: Color;
+    disruptiveColor?: Color;
     textColor?: Color;
     textColorSecondary?: Color;
     textColorInverse?: Color;

@@ -1,5 +1,10 @@
 import React, { useState } from 'react';
-import { ButtonSize, PrimaryButton } from '../Button';
+import {
+    ButtonSize,
+    DefaultButton,
+    PrimaryButton,
+    SecondaryButton,
+} from '../Button';
 import { Tab, Tabs, TabVariant } from '../Tabs';
 import { IconName } from '../Icon';
 import { CompactPicker } from 'react-color';
@@ -18,7 +23,7 @@ const ThemedComponents = () => {
         'orange',
         'yellow',
         'green',
-        'blueGreen',
+        'bluegreen',
         'blue',
         'violet',
         'grey',
@@ -42,7 +47,11 @@ const ThemedComponents = () => {
             <h2>
                 Selected Theme:
                 <span
-                    style={{ textTransform: 'capitalize', marginLeft: '4px' }}
+                    style={{
+                        textTransform: 'capitalize',
+                        marginLeft: '4px',
+                        color: 'var(--primary-color)',
+                    }}
                 >
                     {themeOptions.name}
                 </span>
@@ -84,12 +93,73 @@ const ThemedComponents = () => {
             </div>
             <br />
             <br />
-            <PrimaryButton
-                ariaLabel="Primary Button"
-                onClick={click}
-                size={ButtonSize.Large}
-                text="Primary Button"
-            />
+            <div style={{ display: 'flex', gap: '16px' }}>
+                <PrimaryButton
+                    ariaLabel="Primary Button"
+                    onClick={click}
+                    size={ButtonSize.Large}
+                    text="Primary Button"
+                />
+                <PrimaryButton
+                    ariaLabel="Primary Button"
+                    onClick={click}
+                    size={ButtonSize.Large}
+                    icon={IconName.mdiCardsHeart}
+                />
+                <PrimaryButton
+                    ariaLabel="Primary Button"
+                    onClick={click}
+                    size={ButtonSize.Large}
+                    icon={IconName.mdiCardsHeart}
+                    text="Primary Button"
+                />
+            </div>
+            <br />
+            <br />
+            <div style={{ display: 'flex', gap: '16px' }}>
+                <SecondaryButton
+                    ariaLabel="Secondary Button"
+                    onClick={click}
+                    size={ButtonSize.Large}
+                    text="Secondary Button"
+                />
+                <SecondaryButton
+                    ariaLabel="Secondary Button"
+                    icon={IconName.mdiCardsHeart}
+                    onClick={click}
+                    size={ButtonSize.Large}
+                />
+                <SecondaryButton
+                    ariaLabel="Secondary Button"
+                    onClick={click}
+                    size={ButtonSize.Large}
+                    text="Secondary Button"
+                    icon={IconName.mdiCardsHeart}
+                />
+            </div>
+            <br />
+            <br />
+            <div style={{ display: 'flex', gap: '16px' }}>
+                <DefaultButton
+                    ariaLabel="Default Button"
+                    onClick={click}
+                    size={ButtonSize.Large}
+                    text="Default Button"
+                />
+                <DefaultButton
+                    ariaLabel="Default Button"
+                    icon={IconName.mdiCardsHeart}
+                    onClick={click}
+                    size={ButtonSize.Large}
+                />
+                <DefaultButton
+                    ariaLabel="Default Button"
+                    icon={IconName.mdiCardsHeart}
+                    onClick={click}
+                    size={ButtonSize.Large}
+                    text="Default Button"
+                />
+            </div>
             <br />
             <br />
             <Tabs onChange={click} activeTab={'tab1'}>

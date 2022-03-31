@@ -79,7 +79,7 @@ export const green: OcTheme = {
     ],
 };
 
-export const blueGreen: OcTheme = {
+export const bluegreen: OcTheme = {
     primaryColor: '#0B7B8B',
     ...themeDefaults,
     palette: [
@@ -152,7 +152,7 @@ const themes: Record<OcThemeNames, OcTheme> = {
     orange,
     yellow,
     green,
-    blueGreen,
+    bluegreen,
     blue,
     violet,
     grey,

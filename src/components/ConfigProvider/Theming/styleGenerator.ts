@@ -10,6 +10,13 @@ import OcThemes from './themes';
 
 const THEME_CONTAINER_ID = 'octuple-theme';
 
+interface Options {
+    attachTo?: Element;
+    csp?: { nonce?: string };
+    prepend?: boolean;
+    mark?: string;
+}
+
 export function getStyle(themeOptions: ThemeOptions): string {
     const variables: Record<string, string> = {};
 
@@ -31,7 +38,7 @@ export function getStyle(themeOptions: ThemeOptions): string {
 
     const themeName: ThemeName = themeOptions.name;
 
-    const theme: OcTheme | null = {
+    const theme: OcTheme = {
         ...OcThemes?.[themeOptions.name as OcThemeNames],
         ...themeOptions.customTheme,
     };
@@ -46,6 +53,15 @@ export function getStyle(themeOptions: ThemeOptions): string {
     if (themeOptions.customTheme?.primaryColor) {
         generatePalette(theme.primaryColor, 'primary-color');
         variables[`primary-color`] = theme.primaryColor;
+    }
+
+    // ================ Disruptive palette ================
+    if (!theme.disruptiveColor) {
+        fillColor([...OcThemes.red.palette].reverse(), 'disruptive-color');
+        variables[`disruptive-color`] = OcThemes.red.primaryColor;
+    } else {
+        generatePalette(theme.disruptiveColor, 'disruptive-color');
+        variables[`disruptive-color`] = theme.disruptiveColor;
     }
 
     // ================ Background Color ================
@@ -98,14 +114,7 @@ export function getStyle(themeOptions: ThemeOptions): string {
   `.trim();
 }
 
-interface Options {
-    attachTo?: Element;
-    csp?: { nonce?: string };
-    prepend?: boolean;
-    mark?: string;
-}
-
-function getContainer(option: Options) {
+function getContainer(option: Options): Element {
     if (option.attachTo) {
         return option.attachTo;
     }
@@ -114,9 +123,9 @@ function getContainer(option: Options) {
     return head || document.body;
 }
 
-export function injectCSS(css: string, option: Options = {}) {
-    const styleNode =
-        document.getElementById(THEME_CONTAINER_ID) ||
+export function injectCSS(css: string, option: Options = {}): HTMLStyleElement {
+    const styleNode: HTMLStyleElement =
+        (document.getElementById(THEME_CONTAINER_ID) as HTMLStyleElement) ||
         document.createElement('style');
     styleNode.id = THEME_CONTAINER_ID;
     if (option.csp?.nonce) {
@@ -124,7 +133,7 @@ export function injectCSS(css: string, option: Options = {}) {
     }
     styleNode.innerHTML = css;
 
-    const container = getContainer(option);
+    const container: Element = getContainer(option);
     const { firstChild } = container;
 
     if (option.prepend && container.prepend) {
@@ -140,6 +149,6 @@ export function injectCSS(css: string, option: Options = {}) {
     return styleNode;
 }
 
-export function registerTheme(themeOptions: ThemeOptions) {
+export function registerTheme(themeOptions: ThemeOptions): void {
     injectCSS(getStyle(themeOptions));
 }
