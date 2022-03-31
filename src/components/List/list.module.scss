@@ -1,0 +1,9 @@
+@import '../../styles/themes/default-theme';
+
+.list-container {
+    display: flex;
+
+    &.vertical {
+        flex-direction: column;
+    }
+}
