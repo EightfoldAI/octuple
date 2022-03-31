@@ -15,14 +15,22 @@ $tooltip-arrow-shadow: 1px 1px 2px rgba(15, 20, 31, 0.12);
 }
 
 .tooltip {
+    --bg: var(--background-color);
+    --text-color: var(--text-primary-color);
     display: none;
     box-shadow: $shadow-object-xs;
-    background: $background-color-white;
+    background: var(--bg);
+    color: var(--text-color);
     text-align: center;
     z-index: $z-index-100;
     padding: $space-xs;
     border-radius: $corner-radius-s;
     max-width: 140px;
+
+    &.dark {
+        --bg: var(--grey-color-80);
+        --text-color: var(--text-inverse-color);
+    }
 
     .arrow {
         width: 8px;
@@ -34,6 +42,7 @@ $tooltip-arrow-shadow: 1px 1px 2px rgba(15, 20, 31, 0.12);
 
     &.top {
         transform-origin: bottom center;
+
         .arrow {
             transform: rotate(45deg);
         }
@@ -41,6 +50,7 @@ $tooltip-arrow-shadow: 1px 1px 2px rgba(15, 20, 31, 0.12);
 
     &.left {
         transform-origin: right center;
+
         .arrow {
             transform: rotate(315deg);
         }
@@ -48,6 +58,7 @@ $tooltip-arrow-shadow: 1px 1px 2px rgba(15, 20, 31, 0.12);
 
     &.right {
         transform-origin: left center;
+
         .arrow {
             transform: rotate(135deg);
         }
@@ -55,6 +66,7 @@ $tooltip-arrow-shadow: 1px 1px 2px rgba(15, 20, 31, 0.12);
 
     &.bottom {
         transform-origin: top center;
+
         .arrow {
             transform: rotate(225deg);
         }
@@ -64,11 +76,6 @@ $tooltip-arrow-shadow: 1px 1px 2px rgba(15, 20, 31, 0.12);
         display: block;
         animation: scaleTooltip $motion-duration-extra-fast
             $motion-easing-easeinout 0s;
-    }
-
-    &.dark {
-        background-color: $color-primary-grey;
-        color: $button-text__color-primary;
     }
 
     @keyframes scaleTooltip {

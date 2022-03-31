@@ -24,7 +24,7 @@ export const PrimaryButton: FC<ButtonProps> = ({
         className,
         styles.button,
         styles.buttonPrimary,
-        disruptive ? styles.buttonPrimaryDisruptive : '',
+        { [styles.buttonPrimaryDisruptive]: disruptive },
     ]);
 
     return (

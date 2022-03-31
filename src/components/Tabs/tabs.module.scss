@@ -1,9 +1,18 @@
 @import '../../styles/abstracts/functions';
 @import '../../styles/base/colors';
 @import '../../styles/themes/definitions-light';
+@import '../../styles/themes/default-theme';
 @import '../../styles/abstracts/mixins';
 
 .tabWrap {
+    --bg: var(--background-color);
+    --label: var(--text-secondary-color);
+    --active-label: var(--primary-color);
+    --active-bg: var(--background-color);
+    --hover-label: var(--primary-color);
+    --hover-bg: var(--background-color);
+    --indicator: var(--primary-color);
+    --border: var(--primary-color);
     display: flex;
 
     &.scrollable {
@@ -13,10 +22,11 @@
 
     .tab {
         display: flex;
-        padding: $space-s $space-m;
-        color: $color-secondary-grey;
-        background-color: $card-background-color;
         border: none;
+        cursor: pointer;
+        padding: $space-s $space-m;
+        color: var(--label);
+        background-color: var(---bg);
         align-items: center;
         justify-content: center;
         position: relative;
@@ -25,12 +35,14 @@
 
         &:hover,
         &:focus {
+            color: var(--hover-label);
+            background: var(--hover-bg);
             transition: all $motion-duration-fast $motion-easing-easeout 0s;
-            color: $color-secondary-blue;
         }
 
         &.active {
-            color: $color-secondary-blue;
+            color: var(--active-label);
+            background-color: var(--active-bg);
             transition: transform $motion-duration-fast $motion-easing-easeout
                 0s;
         }
@@ -46,7 +58,7 @@
             height: $space-xxxs;
             bottom: 0;
             width: calc(100% - #{$space-xl});
-            background: $color-secondary-blue;
+            background: var(--indicator);
             border-radius: $space-xxs $space-xxs 0 0;
         }
 
@@ -61,12 +73,11 @@
     }
 
     &.small {
+        --active-bg: var(--primary-color-10);
+        --hover-bg: var(--primary-color-10);
+
         .tab {
             padding: $space-l $space-m;
-
-            &.active {
-                background: $color-background1-blue;
-            }
 
             .tabIndicator {
                 height: $space-xxs;
@@ -75,23 +86,22 @@
     }
 
     &.pill {
+        --label: var(--primary-color);
+        --active-label: var(--background-color);
+        --active-bg: var(--primary-color);
+        --hover-label: var(--primary-color);
+
         .tab {
             padding: $space-xs $space-m;
-            color: $color-secondary-blue;
-            border: $space-xxxs solid $color-secondary-blue;
+            border: $space-xxxs solid var(--border);
             border-right: none;
-
-            &.active {
-                background-color: $color-secondary-blue;
-                color: $card-background-color;
-            }
 
             &:first-child {
                 border-radius: $space-l-fitted 0 0 $space-l-fitted;
             }
 
             &:last-child {
-                border-right: $space-xxxs solid $color-secondary-blue;
+                border-right: $space-xxxs solid var(--border);
                 border-radius: 0 $space-l-fitted $space-l-fitted 0;
             }
 
