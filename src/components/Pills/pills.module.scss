@@ -1,0 +1,187 @@
+@import '../../styles/abstracts/functions';
+@import '../../styles/base/colors';
+@import '../../styles/themes/definitions-light';
+@import '../../styles/themes/default-theme';
+
+.tag-pills {
+    --bg: var(--blue-color-20);
+    --label: var(--blue-color);
+    --hover-bg: var(--blue-color-30);
+    --hover-label: var(--text-primary-color);
+    padding: $space-xxs $space-s;
+    border-radius: $corner-radius-l;
+    transition: all $motion-duration-extra-fast $motion-easing-easeinout 0s;
+    background: var(--bg);
+    color: var(--label);
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    font-weight: $text-font-weight-semibold;
+
+    &:hover {
+        --bg: var(--hover-bg);
+        --label: var(--hover-label);
+    }
+
+    &.red {
+        --bg: var(--red-color-20);
+        --label: var(--red-color);
+        --hover-bg: var(--red-color-30);
+    }
+
+    &.orange {
+        --bg: var(--orange-color-20);
+        --label: var(--orange-color);
+        --hover-bg: var(--orange-color-30);
+    }
+
+    &.yellow {
+        --bg: var(--yellow-color-20);
+        --label: var(--yellow-color);
+        --hover-bg: var(--yellow-color-30);
+    }
+
+    &.green {
+        --bg: var(--green-color-20);
+        --label: var(--green-color);
+        --hover-bg: var(--green-color-30);
+    }
+
+    &.bluegreen {
+        --bg: var(--bluegreen-color-20);
+        --label: var(--bluegreen-color);
+        --hover-bg: var(--bluegreen-color-30);
+    }
+
+    &.blue {
+        --bg: var(--blue-color-20);
+        --label: var(--blue-color);
+    }
+
+    &.violet {
+        --bg: var(--violet-color-20);
+        --label: var(--violet-color);
+        --hover-bg: var(--violet-color-30);
+    }
+
+    &.grey {
+        --bg: var(--grey-color-20);
+        --label: var(--grey-color);
+        --hover-bg: var(--grey-color-30);
+    }
+
+    .close-icon-wrapper {
+        border: none;
+        background: inherit;
+        color: inherit;
+        padding: 0;
+        cursor: pointer;
+        margin: 0 0 0 $space-xxs;
+    }
+
+    .icon {
+        margin-right: $space-xxs;
+    }
+}
+
+//.tag-pills-xs {
+//  transition: all $motion-duration-extra-fast $motion-easing-easeinout 0s;
+//
+//  &.secondary-red {
+//
+//    .text-color {
+//      color: $color-secondary-red;
+//    }
+//
+//    .icon-color {
+//      color: $color-tertiary-red;
+//    }
+//
+//  }
+//
+//  &.secondary-orange {
+//
+//    .text-color {
+//      color: $color-secondary-orange;
+//    }
+//
+//    .icon-color {
+//      color: $color-tertiary-orange;
+//    }
+//
+//  }
+//
+//  &.secondary-yellow {
+//
+//    .text-color {
+//      color: $color-secondary-yellow;
+//    }
+//
+//    .icon-color {
+//      color: $color-tertiary-yellow;
+//    }
+//
+//  }
+//
+//  &.secondary-green {
+//
+//    .text-color {
+//      color: $color-secondary-green;
+//    }
+//
+//    .icon-color {
+//      color: $color-tertiary-green;
+//    }
+//
+//  }
+//
+//  &.secondary-blue-green {
+//
+//    .text-color {
+//      color: $color-secondary-blue-green;
+//    }
+//
+//    .icon-color {
+//      color: $color-tertiary-blue-green;
+//    }
+//
+//  }
+//
+//  &.secondary-blue {
+//
+//    .text-color {
+//      color: $color-secondary-blue;
+//    }
+//
+//    .icon-color {
+//      color: $color-tertiary-blue;
+//    }
+//
+//  }
+//
+//  &.secondary-violet {
+//
+//    .text-color {
+//      color: $color-secondary-violet;
+//    }
+//
+//    .icon-color {
+//      color: $color-tertiary-violet;
+//    }
+//
+//  }
+//
+//  &.secondary-grey {
+//
+//    .text-color {
+//      color: $color-secondary-grey;
+//    }
+//
+//    .icon-color {
+//      color: $color-tertiary-grey;
+//    }
+//
+//  }
+//
+//}
+//
