@@ -64,22 +64,22 @@
 }
 
 .button-primary {
-    background-color: $button-color-primary-active;
-    border-color: $button-color-primary-active;
-    color: $button-text__color-primary;
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: var(--white-color);
 
     &:hover {
-        background-color: $button-color-primary-hover;
-        border-color: $button-color-primary-hover;
+        background-color: var(--primary-color-40);
+        border-color: var(--primary-color-40);
     }
 
     &:active {
-        background-color: $button-color-primary-pressed;
-        border-color: $button-color-primary-pressed;
+        background-color: var(--primary-color-60);
+        border-color: var(--primary-color-60);
     }
 
     &:focus-visible {
-        border-color: $button-color-primary-focused-border;
+        border-color: var(--primary-color-60);
     }
 }
 
