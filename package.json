@@ -1,6 +1,6 @@
 {
     "name": "@eightfold.ai/octuple",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "license": "MIT",
     "main": "lib/octuple.js",
     "types": "lib/octuple.d.ts",
@@ -14,7 +14,7 @@
         "test": "jest",
         "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
         "format": "prettier --write \"**/*.+(js|jsx|ts|tsx|json|css|scss|md)\"",
-        "postinstall": "husky install",
+        "prepare": "husky install",
         "lint-staged": "lint-staged",
         "release": "standard-version",
         "release:minor": "standard-version --release-as minor",
