@@ -174,10 +174,10 @@
     }
 
     .icon-wrapper {
-        bottom: rem(2px);
-        height: rem(34px);
+        bottom: 0;
+        height: rem(36px);
         position: absolute;
-        width: rem(32px);
+        width: rem(36px);
 
         &.left-icon {
             left: rem(4px);
@@ -187,14 +187,16 @@
             right: rem(4px);
         }
 
-        img,
         span {
-            padding: rem(5px) rem(4px);
+            padding: rem(7px) rem(4px);
         }
 
         img {
-            height: rem(24px);
-            width: rem(24px);
+            display: inline-block;
+            height: 100%;
+            padding: rem(3px) rem(3px);
+            max-width: 30px;
+            vertical-align: middle;
         }
 
         svg {
@@ -288,7 +290,22 @@
         }
         .field-label-icon-button {
             display: inline-block;
-            margin-left: rem(8px);
+            margin-left: rem(4px);
+            padding-bottom: rem(6px);
+            vertical-align: bottom;
+
+            .label-icon-button {
+                border-radius: 100%;
+                box-sizing: border-box;
+                border-width: rem(1px);
+                padding: 0;
+
+                &:focus-visible {
+                    border-color: var(--primary-color);
+                    border-width: rem(1px);
+                    padding: 0;
+                }
+            }
         }
     }
 

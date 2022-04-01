@@ -19,7 +19,9 @@ export const TextInput: FC<TextInputProps> = ({
     iconButtonProps,
     id,
     label,
-    labelIconButtonProps,
+    labelIconButtonProps = {
+        icon: IconName.mdiInformation,
+    },
     maxlength,
     minlength,
     name,
@@ -128,17 +130,22 @@ export const TextInput: FC<TextInputProps> = ({
                         {label}
                     </label>
                 )}
-                {labelIconButtonProps && (
+                {labelIconButtonProps && labelIconButtonProps.show && (
                     <span className={styles.fieldLabelIconButton}>
                         <DefaultButton
                             allowDisabledFocus={
                                 labelIconButtonProps.allowDisabledFocus
                             }
                             ariaLabel={labelIconButtonProps.ariaLabel}
+                            className={styles.labelIconButton}
                             disabled={labelIconButtonProps.disabled}
-                            icon={IconName.mdiInformation}
+                            icon={labelIconButtonProps.icon}
                             iconColor={labelIconButtonProps.iconColor}
-                            onClick={labelIconButtonProps.onClick}
+                            onClick={
+                                !labelIconButtonProps.allowDisabledFocus
+                                    ? labelIconButtonProps.onClick
+                                    : null
+                            }
                             size={ButtonSize.Small}
                         />
                     </span>

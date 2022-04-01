@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+import { ButtonSize, DefaultButton } from '../../Button';
 import { Icon, IconName } from '../../Icon/index';
 import { TextAreaProps, TextInputTheme } from '../index';
 import { classNames, debounce } from '../../../shared/utilities';
@@ -14,6 +15,11 @@ export const TextArea: FC<TextAreaProps> = ({
     enableExpand = false,
     id,
     label,
+    labelIconButtonProps = {
+        icon: IconName.mdiInformation,
+    },
+    maxlength,
+    minlength,
     name,
     onBlur,
     onChange,
@@ -50,11 +56,28 @@ export const TextArea: FC<TextAreaProps> = ({
 
     return (
         <div className={styles.inputWrapper}>
-            {label && (
-                <label className={styles.fieldLabel} htmlFor={name}>
-                    {label}
-                </label>
-            )}
+            <div className={styles.fieldLabelWrapper}>
+                {label && (
+                    <label className={styles.fieldLabel} htmlFor={name}>
+                        {label}
+                    </label>
+                )}
+                {labelIconButtonProps && (
+                    <span className={styles.fieldLabelIconButton}>
+                        <DefaultButton
+                            allowDisabledFocus={
+                                labelIconButtonProps.allowDisabledFocus
+                            }
+                            ariaLabel={labelIconButtonProps.ariaLabel}
+                            disabled={labelIconButtonProps.disabled}
+                            icon={labelIconButtonProps.icon}
+                            iconColor={labelIconButtonProps.iconColor}
+                            onClick={labelIconButtonProps.onClick}
+                            size={ButtonSize.Small}
+                        />
+                    </span>
+                )}
+            </div>
             <textarea
                 aria-disabled={allowDisabledFocus}
                 aria-label={ariaLabel}
@@ -63,6 +86,8 @@ export const TextArea: FC<TextAreaProps> = ({
                 cols={textAreaCols}
                 disabled={disabled}
                 id={id}
+                maxLength={maxlength}
+                minLength={minlength}
                 name={name}
                 onChange={handleChange}
                 onBlur={!allowDisabledFocus ? onBlur : null}
