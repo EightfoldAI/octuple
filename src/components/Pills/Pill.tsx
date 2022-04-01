@@ -4,6 +4,7 @@ import { classNames } from '../../shared/utilities';
 import { Icon, IconName, IconSize } from '../Icon';
 
 import styles from './pills.module.scss';
+import { ButtonSize, DefaultButton } from '../Button';
 
 export const Pill: FC<PillProps> = ({
     color,
@@ -12,7 +13,8 @@ export const Pill: FC<PillProps> = ({
     theme = 'blue',
     onClose,
     onClick,
-    buttonContent,
+    closeButtonProps,
+    pillButtonProps,
     type = PillType.default,
     size = PillSize.Large,
 }) => {
@@ -40,14 +42,21 @@ export const Pill: FC<PillProps> = ({
             )}
             <span className={styles.label}>{label}</span>
             {type === PillType.withButton && (
-                <button onClick={onClick} className={styles.button}>
-                    {buttonContent}
-                </button>
+                <DefaultButton
+                    {...pillButtonProps}
+                    onClick={onClick}
+                    size={ButtonSize.Small}
+                    className={styles.button}
+                />
             )}
             {type === PillType.closable && (
-                <button onClick={onClose} className={styles.closeButton}>
-                    <Icon path={IconName.mdiClose} size={IconSize.Small} />
-                </button>
+                <DefaultButton
+                    {...closeButtonProps}
+                    icon={IconName.mdiClose}
+                    onClick={onClose}
+                    size={ButtonSize.Small}
+                    className={styles.closeButton}
+                />
             )}
         </div>
     );

@@ -48,6 +48,9 @@ export const Pills = () => (
                         theme={theme}
                         key={theme}
                         type={PillType.closable}
+                        closeButtonProps={{
+                            ariaLabel: 'Close',
+                        }}
                     />
                 ))}
             </div>
@@ -80,15 +83,11 @@ export const Pills = () => (
                         theme={theme}
                         key={theme}
                         type={PillType.withButton}
-                        buttonContent={
-                            <>
-                                <Icon
-                                    path={IconName.mdiThumbUpOutline}
-                                    size={IconSize.Small}
-                                />
-                                <span style={{ marginLeft: '4px' }}>2</span>
-                            </>
-                        }
+                        pillButtonProps={{
+                            icon: IconName.mdiThumbUpOutline,
+                            text: '2',
+                            ariaLabel: 'Thumbs up',
+                        }}
                     />
                 ))}
             </div>
@@ -129,6 +128,9 @@ export const Pills = () => (
                         key={theme}
                         size={PillSize.Medium}
                         type={PillType.closable}
+                        closeButtonProps={{
+                            ariaLabel: 'Close',
+                        }}
                     />
                 ))}
             </div>
@@ -163,15 +165,11 @@ export const Pills = () => (
                         key={theme}
                         type={PillType.withButton}
                         size={PillSize.Medium}
-                        buttonContent={
-                            <>
-                                <Icon
-                                    path={IconName.mdiThumbUpOutline}
-                                    size={IconSize.Small}
-                                />
-                                <span style={{ marginLeft: '4px' }}>2</span>
-                            </>
-                        }
+                        pillButtonProps={{
+                            icon: IconName.mdiThumbUpOutline,
+                            text: '2',
+                            ariaLabel: 'Thumbs up',
+                        }}
                     />
                 ))}
             </div>
@@ -211,6 +209,9 @@ export const Pills = () => (
                         key={theme}
                         size={PillSize.Small}
                         type={PillType.closable}
+                        closeButtonProps={{
+                            ariaLabel: 'Close',
+                        }}
                     />
                 ))}
             </div>
@@ -245,15 +246,11 @@ export const Pills = () => (
                         key={theme}
                         type={PillType.withButton}
                         size={PillSize.Small}
-                        buttonContent={
-                            <>
-                                <Icon
-                                    path={IconName.mdiThumbUpOutline}
-                                    size={IconSize.Small}
-                                />
-                                <span style={{ marginLeft: '4px' }}>2</span>
-                            </>
-                        }
+                        pillButtonProps={{
+                            icon: IconName.mdiThumbUpOutline,
+                            text: '2',
+                            ariaLabel: 'Thumbs up',
+                        }}
                     />
                 ))}
             </div>

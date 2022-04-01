@@ -89,13 +89,11 @@
     .button,
     .close-button {
         border: none;
+        border-radius: 0;
         background: inherit;
         color: inherit;
         padding: 0;
-        cursor: pointer;
         margin: 0 0 0 $space-xxs;
-        display: flex;
-        align-items: center;
     }
 
     .label + .button:not(:empty) {
