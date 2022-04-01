@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { PillProps } from './Pills.types';
+import { PillProps, PillSize, PillType } from './Pills.types';
 import { classNames } from '../../shared/utilities';
 import { Icon, IconName, IconSize } from '../Icon';
 
@@ -7,11 +7,14 @@ import styles from './pills.module.scss';
 
 export const Pill: FC<PillProps> = ({
     color,
-    children,
+    label,
     icon,
-    onClose,
     theme = 'blue',
-    closable,
+    onClose,
+    onClick,
+    buttonContent,
+    type = PillType.default,
+    size = PillSize.Large,
 }) => {
     const tagClassName: string = classNames([
         styles.tagPills,
@@ -23,6 +26,8 @@ export const Pill: FC<PillProps> = ({
         { [styles.blue]: theme === 'blue' },
         { [styles.violet]: theme === 'violet' },
         { [styles.grey]: theme === 'grey' },
+        { [styles.medium]: size === PillSize.Medium },
+        { [styles.small]: size === PillSize.Small },
     ]);
     return (
         <div className={tagClassName} style={{ color }}>
@@ -33,9 +38,14 @@ export const Pill: FC<PillProps> = ({
                     className={styles.icon}
                 />
             )}
-            {children}
-            {closable && (
-                <button onClick={onClose} className={styles.closeIconWrapper}>
+            <span className={styles.label}>{label}</span>
+            {type === PillType.withButton && (
+                <button onClick={onClick} className={styles.button}>
+                    {buttonContent}
+                </button>
+            )}
+            {type === PillType.closable && (
+                <button onClick={onClose} className={styles.closeButton}>
                     <Icon path={IconName.mdiClose} size={IconSize.Small} />
                 </button>
             )}
