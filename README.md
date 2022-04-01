@@ -13,7 +13,7 @@ It represents a collection of assets, utilities, and React components for buildi
 
 ## Changelog
 
-You can view the complete list of additions, fixes, and changes in the [change log](./CHANGELOG.md)
+You can view the complete list of additions, fixes, and changes in the [change log](https://github.com/EightfoldAI/octuple/blob/main/CHANGELOG.md)
 
 ## Usage
 
@@ -39,15 +39,15 @@ There are many ways to contribute to the Octuple project. Review the following s
 
 Please use the 'Get Help' tool at the bottom of any screen to submit bugs and suggestions.
 
-![Get Help](./public/assets/GetHelp.png)
+![Get Help](https://raw.githubusercontent.com/EightfoldAI/octuple/main/public/assets/GetHelp.png)
 
 ### Create an issue on GitHub
 
-![New Issue](./public/assets/NewIssue.png)
+![New Issue](https://raw.githubusercontent.com/EightfoldAI/octuple/main/public/assets/NewIssue.png)
 
 ### Pull requests
 
-Review the guidance for pull requests and the contribution workflow in our [contributor guide](./src/CONTRIBUTING.md).
+Review the guidance for pull requests and the contribution workflow in our [contributor guide](https://github.com/EightfoldAI/octuple/blob/main/src/CONTRIBUTING.md).
 
 ## License
 
