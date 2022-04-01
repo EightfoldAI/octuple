@@ -13,6 +13,7 @@ export const SecondaryButton: FC<ButtonProps> = ({
     disruptive = false,
     htmlType,
     icon,
+    iconColor,
     onClick,
     primaryColor,
     text,
@@ -37,6 +38,7 @@ export const SecondaryButton: FC<ButtonProps> = ({
             disruptive={disruptive}
             htmlType={htmlType}
             icon={icon}
+            iconColor={iconColor}
             onClick={onClick}
             primaryColor={primaryColor}
             size={size}

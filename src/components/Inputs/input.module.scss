@@ -3,150 +3,208 @@
 @import '../../styles/themes/definitions-light';
 @import '../../styles/abstracts/mixins';
 
-@mixin input-styles {
-    background-color: $card-background-color;
-    border: rem(1px) solid $input-field-color-enabled;
-    border-radius: $corner-radius-s;
-    box-sizing: border-box;
-    color: $color-tertiary-grey;
-    font-family: 'Source Sans Pro', sans-serif;
-    font-size: $text-font-size-3;
-    min-width: rem(320px);
-    padding: $space-xs;
+.input-wrapper {
+    position: relative;
+    width: fit-content;
 
-    &::-webkit-search-cancel-button {
-        align-items: center;
-        background-image: url("data:image/svg+xml;utf8,%3Csvg width='12' height='12' viewBox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7.27298 6.00019L11.1191 2.15407L11.9122 1.36092C12.0293 1.24391 12.0293 1.05378 11.9122 0.93678L11.0636 0.0881278C10.9466 -0.0288758 10.7565 -0.0288758 10.6395 0.0881278L6.00019 4.7274L1.36092 0.0877527C1.24391 -0.0292509 1.05378 -0.0292509 0.936779 0.0877527L0.0877527 0.936404C-0.0292509 1.05341 -0.0292509 1.24354 0.0877527 1.36054L4.7274 6.00019L0.0877527 10.6395C-0.0292509 10.7565 -0.0292509 10.9466 0.0877527 11.0636L0.936404 11.9122C1.05341 12.0293 1.24354 12.0293 1.36054 11.9122L6.00019 7.27298L9.84631 11.1191L10.6395 11.9122C10.7565 12.0293 10.9466 12.0293 11.0636 11.9122L11.9122 11.0636C12.0293 10.9466 12.0293 10.7565 11.9122 10.6395L7.27298 6.00019Z' fill='%2369717F'/%3E%3C/svg%3E%0A");
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: 12px 12px;
-        border-radius: 10px;
+    input[type='search'],
+    input[type='text'] {
+        background-color: $card-background-color;
+        border: rem(1px) solid $input-field-color-enabled;
+        border-radius: $corner-radius-s;
+        box-sizing: border-box;
         color: $color-tertiary-grey;
-        cursor: pointer;
-        height: 20px;
-        line-height: $text-line-height-2;
-        position: relative;
-        text-align: center;
-        transition: all $motion-duration-extra-fast $motion-easing-easeinout 0s;
-        width: 20px;
-        -webkit-appearance: none;
+        font-family: 'Source Sans Pro', sans-serif;
+        font-size: $text-font-size-3;
+        min-width: rem(320px);
+        padding: $space-xs;
+
+        &::-webkit-search-cancel-button {
+            align-items: center;
+            background-image: url("data:image/svg+xml;utf8,%3Csvg width='12' height='12' viewBox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7.27298 6.00019L11.1191 2.15407L11.9122 1.36092C12.0293 1.24391 12.0293 1.05378 11.9122 0.93678L11.0636 0.0881278C10.9466 -0.0288758 10.7565 -0.0288758 10.6395 0.0881278L6.00019 4.7274L1.36092 0.0877527C1.24391 -0.0292509 1.05378 -0.0292509 0.936779 0.0877527L0.0877527 0.936404C-0.0292509 1.05341 -0.0292509 1.24354 0.0877527 1.36054L4.7274 6.00019L0.0877527 10.6395C-0.0292509 10.7565 -0.0292509 10.9466 0.0877527 11.0636L0.936404 11.9122C1.05341 12.0293 1.24354 12.0293 1.36054 11.9122L6.00019 7.27298L9.84631 11.1191L10.6395 11.9122C10.7565 12.0293 10.9466 12.0293 11.0636 11.9122L11.9122 11.0636C12.0293 10.9466 12.0293 10.7565 11.9122 10.6395L7.27298 6.00019Z' fill='%2369717F'/%3E%3C/svg%3E%0A");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: 12px 12px;
+            border-radius: 10px;
+            color: $color-tertiary-grey;
+            cursor: pointer;
+            height: 20px;
+            line-height: $text-line-height-2;
+            position: relative;
+            text-align: center;
+            transition: all $motion-duration-extra-fast $motion-easing-easeinout
+                0s;
+            width: 20px;
+            -webkit-appearance: none;
+        }
+
+        &.with-icon {
+            padding: $space-xs $space-s $space-xs $space-xl;
+        }
+
+        &.with-image-icon {
+            padding: $space-xs $space-s $space-xs calc($space-xl + rem(4px));
+        }
+
+        &.with-icon-button {
+            padding-left: $space-xl;
+        }
+
+        &.with-icon-and-icon-button {
+            padding-left: $space-xxxl;
+        }
+
+        &:hover {
+            border-color: $color-tertiary-grey;
+        }
+
+        &:hover ~ .icon-button {
+            background-color: transparent;
+            border-color: transparent;
+
+            svg {
+                color: $color-primary-grey;
+            }
+        }
+
+        &:hover ~ .text-style {
+            color: $text-color-primary;
+        }
+
+        &:active ~ .icon-button {
+            background-color: transparent;
+            border-color: transparent;
+
+            svg {
+                color: $color-primary-grey;
+            }
+        }
+
+        &:active ~ .text-style {
+            color: $text-color-primary;
+        }
+
+        &:focus ~ .icon-button {
+            background-color: transparent;
+            border-color: transparent;
+
+            svg {
+                color: $color-primary-grey;
+            }
+        }
+
+        &:focus ~ .text-style {
+            color: $text-color-primary;
+        }
+
+        &:disabled {
+            border-color: $color-background3-grey;
+            color: $color-background3-grey;
+        }
+
+        &:disabled ~ .icon-button {
+            background-color: transparent;
+            border-color: transparent;
+
+            svg {
+                color: $color-background3-grey;
+            }
+        }
+
+        &:disabled ~ .text-style {
+            color: $color-background3-grey;
+        }
+
+        &:disabled::-webkit-search-cancel-button,
+        &.with-icon:disabled::-webkit-search-cancel-button {
+            color: $color-background3-grey;
+        }
+
+        &:disabled::placeholder {
+            color: $color-background3-grey;
+        }
+
+        &.pill-shape {
+            border-color: transparent;
+            border-radius: $corner-radius-xl;
+            box-shadow: 0 1px 2px rgba(15, 20, 31, 0.12),
+                0 2px 8px rgba(15, 20, 31, 0.16);
+            padding: $space-xs $space-s;
+        }
+
+        &.pill-shape-with-icon {
+            padding: $space-xs $space-s $space-xs $space-xl;
+        }
+
+        &.pill-shape-with-image-icon {
+            padding: $space-xs $space-s $space-xs calc($space-xl + rem(4px));
+        }
+
+        &.pill-shape-with-icon-button {
+            padding: $space-xs $space-s $space-xs $space-xl;
+        }
+
+        &.pill-shape-with-icon-and-icon-button {
+            padding: $space-xs $space-s $space-xs $space-xxxl;
+        }
+
+        &.pill-shape-with-icon-button ~ .icon-button {
+            &.left-icon {
+                border-bottom-left-radius: 50%;
+                border-top-left-radius: 50%;
+            }
+
+            &.right-icon {
+                border-bottom-right-radius: 50%;
+                border-top-right-radius: 50%;
+            }
+        }
+
+        &.pill-shape-with-icon-and-icon-button ~ .icon-button {
+            &.left-icon {
+                border-bottom-left-radius: inherit;
+                border-top-left-radius: inherit;
+            }
+
+            &.right-icon {
+                border-bottom-right-radius: inherit;
+                border-top-right-radius: inherit;
+            }
+        }
     }
 
-    &.with-icon {
-        padding-left: $space-xl;
-    }
+    .icon-wrapper {
+        bottom: rem(2px);
+        height: rem(34px);
+        position: absolute;
+        width: rem(32px);
 
-    &:hover {
-        border-color: $color-tertiary-grey;
-    }
+        &.left-icon {
+            left: rem(4px);
+        }
 
-    &:hover ~ .icon-button-style {
-        background-color: transparent;
-        border-color: transparent;
+        &.right-icon {
+            right: rem(4px);
+        }
+
+        img,
+        span {
+            padding: rem(5px) rem(4px);
+        }
+
+        img {
+            height: rem(24px);
+            width: rem(24px);
+        }
 
         svg {
             color: $color-tertiary-grey;
         }
     }
 
-    &:hover ~ .text-style {
-        color: $text-color-primary;
-    }
-
-    &:active ~ .icon-button-style {
-        background-color: transparent;
-        border-color: transparent;
-
-        svg {
-            color: $color-primary-grey;
-        }
-    }
-
-    &:active ~ .text-style {
-        color: $text-color-primary;
-    }
-
-    &:focus ~ .icon-button-style {
-        background-color: transparent;
-        border-color: transparent;
-
-        svg {
-            color: $color-primary-grey;
-        }
-    }
-
-    &:focus ~ .text-style {
-        color: $text-color-primary;
-    }
-
-    &:disabled {
-        border-color: $color-background3-grey;
-        color: $color-background3-grey;
-    }
-
-    &:disabled ~ .icon-button-style {
-        background-color: transparent;
-        border-color: transparent;
-
-        svg {
-            color: $color-background3-grey;
-        }
-    }
-
-    &:disabled ~ .text-style {
-        color: $color-background3-grey;
-    }
-
-    &:disabled::-webkit-search-cancel-button,
-    &.with-icon:disabled::-webkit-search-cancel-button {
-        color: $color-background3-grey;
-    }
-
-    &:disabled::placeholder {
-        color: $color-background3-grey;
-    }
-
-    &.pill-shape {
-        border-color: transparent;
-        border-radius: $corner-radius-xl;
-        box-shadow: 0 1px 2px rgba(15, 20, 31, 0.12),
-            0 2px 8px rgba(15, 20, 31, 0.16);
-        padding: $space-xs $space-s;
-    }
-
-    &.pill-shape-with-icon {
-        border-color: transparent;
-        border-radius: $corner-radius-xl;
-        box-shadow: 0 1px 2px rgba(15, 20, 31, 0.12),
-            0 2px 8px rgba(15, 20, 31, 0.16);
-        padding: $space-xs $space-s $space-xs $space-xl;
-    }
-
-    &.pill-shape ~ .icon-button-style,
-    &.pill-shape-with-icon ~ .icon-button-style {
-        &.left-icon {
-            border-bottom-left-radius: 50%;
-            border-top-left-radius: 50%;
-        }
-
-        &.right-icon {
-            border-bottom-right-radius: 50%;
-            border-top-right-radius: 50%;
-        }
-    }
-}
-
-.form-wrapper {
-    position: relative;
-    width: auto;
-
-    input[type='search'] {
-        @include input-styles();
-    }
-
-    .icon-button-style {
+    .icon-button {
         background-color: white;
-        bottom: 2px;
+        bottom: rem(2px);
         color: $color-tertiary-grey;
         height: rem(34px);
         padding: $button-padding-vertical-small $space-xxs;
@@ -154,11 +212,11 @@
         transition: none;
 
         &.left-icon {
-            left: 2px;
+            left: rem(2px);
         }
 
         &.right-icon {
-            right: 2px;
+            right: rem(2px);
         }
 
         svg {
@@ -167,7 +225,6 @@
 
         &:active,
         &:focus,
-        &:hover,
         &:focus-visible {
             background-color: white;
             padding: $button-padding-vertical-small $space-xxs;
@@ -179,61 +236,86 @@
                 margin-left: rem(1px);
             }
         }
-    }
-}
-
-input[type='text'] {
-    @include input-styles();
-}
-
-.field-label {
-    display: flex;
-    flex-direction: row;
-    padding-bottom: $space-xs;
-
-    .info-button-style {
-        align-items: center;
-        color: $color-primary-grey;
-        font-size: $icon-font-size-material-s;
-        line-height: $text-line-height-2;
-        text-align: center;
 
         &:hover {
-            color: $color-tertiary-grey;
+            background-color: white;
+            padding: $button-padding-vertical-small $space-xxs;
+            border-color: transparent;
+            border-width: rem(1px);
+
+            svg {
+                color: $color-primary-grey;
+                margin-bottom: rem(-2px);
+                margin-left: rem(1px);
+            }
         }
     }
 
-    .text-style {
-        color: $text-color-primary;
+    .icon-wrapper:not(:empty) + .icon-button {
+        &.left-icon {
+            left: $space-xl;
+        }
+
+        &.right-icon {
+            right: $space-xl;
+        }
+    }
+
+    .field-label-wrapper {
+        .field-label {
+            display: inline-block;
+            padding-bottom: $space-xs;
+
+            .info-button-style {
+                align-items: center;
+                color: $color-primary-grey;
+                font-size: $icon-font-size-material-s;
+                line-height: $text-line-height-2;
+                text-align: center;
+
+                &:hover {
+                    color: $color-tertiary-grey;
+                }
+            }
+
+            .text-style {
+                color: $text-color-primary;
+                font-family: 'Source Sans Pro', sans-serif;
+                font-size: $text-font-size-3;
+                font-weight: $text-font-weight-semibold;
+                line-height: $text-line-height-2;
+            }
+        }
+        .field-label-icon-button {
+            display: inline-block;
+            margin-left: rem(8px);
+        }
+    }
+
+    .text-area {
+        background-color: $card-background-color;
+        border: rem(1px) solid $input-field-color-enabled;
+        border-radius: $corner-radius-s;
+        box-sizing: border-box;
+        color: $color-tertiary-grey;
         font-family: 'Source Sans Pro', sans-serif;
         font-size: $text-font-size-3;
-        font-weight: $text-font-weight-semibold;
-        line-height: $text-line-height-2;
-    }
-}
+        min-height: rem(64px);
+        min-width: rem(320px);
+        padding: $space-xs;
 
-.field-support-text {
-    display: flex;
-    flex-direction: row;
-    padding-top: $space-xs;
+        &::-webkit-resizer {
+            display: none;
+        }
 
-    .feedback-positive {
-        color: $color-secondary-green;
-    }
-
-    .feedback-warning {
-        color: $color-secondary-yellow;
+        &.text-area-no-expand {
+            resize: none;
+        }
     }
 
-    .feedback-negative {
-        color: $color-secondary-red;
-    }
-
-    .instruction {
-        color: $color-primary-grey;
-    }
-
-    .link {
-        color: $color-secondary-blue;
+    .text-area-resize-icon {
+        position: absolute;
+        bottom: rem(8px);
+        right: rem(4px);
     }
 }
