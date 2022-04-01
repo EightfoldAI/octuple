@@ -1,5 +1,4 @@
 const path = require('path');
-
 module.exports = {
     entry: path.resolve(__dirname, './src/octuple.ts'),
     module: {
@@ -21,12 +20,21 @@ module.exports = {
                         loader: 'css-loader',
                         options: {
                             modules: {
+                                localIdentName: '[local]_[hash:base64:6]',
                                 exportLocalsConvention: 'camelCase',
                             },
                         },
                     },
                     'resolve-url-loader',
                     'sass-loader',
+                    {
+                        loader: 'style-resources-loader',
+                        options: {
+                            patterns: [
+                                path.resolve(__dirname, 'src/styles/main.scss'),
+                            ],
+                        },
+                    },
                 ],
             },
         ],
