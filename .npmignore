@@ -14,7 +14,9 @@ npm-debug.log*
 README.md
 stats.json
 tsconfig.json
-webpack.config.js
+webpack.common.js
+webpack.dev.js
+webpack.prod.js
 yarn.lock
 yarn-debug.log*
 yarn-error.log*
@@ -28,5 +30,6 @@ yarn-error.log*
 .env.local
 .env.production.local
 .env.test.local
+.versionrc.json
 
 lib/octuple.js.LICENSE.txt
