@@ -5,9 +5,13 @@ process.env.NODE_ENV = 'production';
 
 module.exports = {
     ...WebpackCommonConfig,
+    externals: {
+        react: 'commonjs react',
+        'react-dom': 'commonjs react-dom',
+    },
     plugins: [
         new webpack.DefinePlugin({
-            VERSION: JSON.stringify(require('./package.json').version)
-        })
-    ]
+            VERSION: JSON.stringify(require('./package.json').version),
+        }),
+    ],
 };
