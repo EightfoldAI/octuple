@@ -20,6 +20,7 @@ export const PrimaryButton: FC<ButtonProps> = ({
     text,
     theme,
     toggle,
+    buttonWidth,
 }) => {
     const buttonClassNames: string = classNames([
         className,
@@ -46,6 +47,7 @@ export const PrimaryButton: FC<ButtonProps> = ({
             theme={theme}
             type={ButtonType.Primary}
             toggle={toggle}
+            buttonWidth={buttonWidth}
         />
     );
 };

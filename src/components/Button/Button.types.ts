@@ -8,6 +8,11 @@ export enum ButtonSize {
     Small = 'small',
 }
 
+export enum ButtonWidth {
+    fitContent = 'fitContent',
+    fill = 'fill',
+}
+
 export enum ButtonTheme {
     light = 'light',
     dark = 'dark',
@@ -112,4 +117,9 @@ export interface ButtonProps {
      * The button is a toggle button with distinct on and off states.
      */
     toggle?: boolean;
+    /**
+     * The button width type
+     * @default fitContent
+     */
+    buttonWidth?: ButtonWidth;
 }

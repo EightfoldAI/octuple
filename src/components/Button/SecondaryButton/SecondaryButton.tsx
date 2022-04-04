@@ -20,6 +20,7 @@ export const SecondaryButton: FC<ButtonProps> = ({
     size = ButtonSize.Flex,
     style,
     toggle,
+    buttonWidth,
 }) => {
     const buttonClassNames: string = classNames([
         className,
@@ -46,6 +47,7 @@ export const SecondaryButton: FC<ButtonProps> = ({
             theme={theme}
             type={ButtonType.Secondary}
             toggle={toggle}
+            buttonWidth={buttonWidth}
         />
     );
 };

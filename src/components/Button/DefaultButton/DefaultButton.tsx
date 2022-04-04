@@ -19,6 +19,7 @@ export const DefaultButton: FC<ButtonProps> = ({
     size = ButtonSize.Flex,
     style,
     toggle,
+    buttonWidth,
 }) => {
     const buttonClassNames: string = classNames([
         className,
@@ -43,6 +44,7 @@ export const DefaultButton: FC<ButtonProps> = ({
             theme={theme}
             type={ButtonType.Default}
             toggle={toggle}
+            buttonWidth={buttonWidth}
         />
     );
 };

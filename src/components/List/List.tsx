@@ -15,13 +15,14 @@ export const List = <T extends any>({
     style,
     itemClassName,
     itemStyle,
+    listType = 'ul',
 }: ListProps<T>) => {
     const containerClasses: string = classNames([
         styles.listContainer,
         { [styles.vertical]: layout === 'vertical' },
     ]);
 
-    const itemClasses: string = classNames([itemClassName]);
+    const itemClasses: string = classNames([styles.listItem, itemClassName]);
 
     const getHeader = (): JSX.Element => <>{header}</>;
 
@@ -37,21 +38,27 @@ export const List = <T extends any>({
     };
 
     const getItem = (item: T, index: number): JSX.Element => (
-        <div
+        <li
             key={getItemKey(item, index)}
             className={itemClasses}
             style={itemStyle}
         >
             {renderItem(item)}
-        </div>
+        </li>
     );
+
+    const getItems = (): JSX.Element[] =>
+        items.map((item: T, index) => getItem(item, index));
 
     return (
         <div className={className} style={style}>
             {getHeader()}
-            <div className={containerClasses}>
-                {items.map((item: T, index) => getItem(item, index))}
-            </div>
+            {listType === 'ul' && (
+                <ul className={containerClasses}>{getItems()}</ul>
+            )}
+            {listType === 'ol' && (
+                <ol className={containerClasses}>{getItems()}</ol>
+            )}
             {getFooter()}
         </div>
     );

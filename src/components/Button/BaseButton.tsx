@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { ButtonSize, ButtonTheme, InternalButtonProps } from './index';
+import { ButtonSize, ButtonTheme, ButtonWidth, InternalButtonProps } from './index';
 import { Icon, IconName, IconSize } from '../Icon/index';
 import { Breakpoints, useMatchMedia } from '../../shared/hooks';
 import { classNames } from '../../shared/utilities';
@@ -22,6 +22,7 @@ export const BaseButton: FC<InternalButtonProps> = ({
     text,
     theme,
     toggle,
+    buttonWidth = ButtonWidth.fitContent,
 }) => {
     const largeScreenActive: boolean = useMatchMedia(Breakpoints.Large);
     const mediumScreenActive: boolean = useMatchMedia(Breakpoints.Medium);
@@ -52,6 +53,7 @@ export const BaseButton: FC<InternalButtonProps> = ({
         { [styles.buttonPadding1]: size === ButtonSize.Large },
         { [styles.buttonPadding2]: size === ButtonSize.Medium },
         { [styles.buttonPadding3]: size === ButtonSize.Small },
+        { [styles.buttonStretch]: buttonWidth === ButtonWidth.fill },
         { [styles.dark]: theme === ButtonTheme.dark },
         { [styles.disabled]: allowDisabledFocus || disabled },
     ]);

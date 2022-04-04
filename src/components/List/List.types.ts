@@ -46,4 +46,8 @@ export interface ListProps<T> {
      * @default vertical
      */
     layout?: ItemLayout;
+    /**
+     * @default ul
+     */
+    listType?: 'ul' | 'ol';
 }
