@@ -1,12 +1,17 @@
 .button {
     background-color: inherit;
     border: rem(2px) solid $button-color-default-active;
+    border-radius: $corner-radius-s;
     cursor: pointer;
     display: inline-block;
     transition: all $motion-duration-extra-fast $motion-easing-easeinout 0s;
     white-space: nowrap;
 
-    border-radius: $corner-radius-s;
+    span {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
 
     .icon + .button1:not(:empty) {
         margin-left: $button-spacer-large;
