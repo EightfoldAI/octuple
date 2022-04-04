@@ -18,6 +18,22 @@ export const Pill: FC<PillProps> = ({
     type = PillType.default,
     size = PillSize.Large,
 }) => {
+    const pillSizeToButtonSizeMap = new Map<PillSize, ButtonSize>([
+        [PillSize.Large, ButtonSize.Medium],
+        [PillSize.Medium, ButtonSize.Small],
+        [PillSize.Small, ButtonSize.Small],
+    ]);
+    const pillSizeToIconSizeMap = new Map<PillSize, IconSize>([
+        [PillSize.Large, IconSize.Medium],
+        [PillSize.Medium, IconSize.Small],
+        [PillSize.Small, IconSize.XSmall],
+    ]);
+    const labelClassName: string = classNames([
+        styles.label,
+        { [styles.header4]: size === PillSize.Large },
+        { [styles.header5]: size === PillSize.Medium },
+        { [styles.header6]: size === PillSize.Small },
+    ]);
     const tagClassName: string = classNames([
         styles.tagPills,
         { [styles.red]: theme === 'red' },
@@ -36,16 +52,16 @@ export const Pill: FC<PillProps> = ({
             {icon && (
                 <Icon
                     path={icon}
-                    size={IconSize.Small}
+                    size={pillSizeToIconSizeMap.get(size)}
                     className={styles.icon}
                 />
             )}
-            <span className={styles.label}>{label}</span>
+            <span className={labelClassName}>{label}</span>
             {type === PillType.withButton && (
                 <DefaultButton
                     {...pillButtonProps}
                     onClick={onClick}
-                    size={ButtonSize.Small}
+                    size={pillSizeToButtonSizeMap.get(size)}
                     className={styles.button}
                 />
             )}
@@ -54,7 +70,7 @@ export const Pill: FC<PillProps> = ({
                     {...closeButtonProps}
                     icon={IconName.mdiClose}
                     onClick={onClose}
-                    size={ButtonSize.Small}
+                    size={pillSizeToButtonSizeMap.get(size)}
                     className={styles.closeButton}
                 />
             )}

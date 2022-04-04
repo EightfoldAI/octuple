@@ -18,25 +18,8 @@
     align-items: center;
 
     .label {
-        font-weight: $text-font-weight-semibold;
-        font-size: $text-font-size-5;
-    }
-
-    &.medium {
-        .label {
-            font-size: $text-font-size-3;
-        }
-    }
-
-    &.small {
-        .label {
-            font-size: $text-font-size-2;
-        }
-    }
-
-    &:hover {
-        --bg: var(--hover-bg);
-        --label: var(--hover-label);
+        margin-bottom: rem(1px);
+        margin-top: rem(-1px);
     }
 
     &.red {
@@ -86,6 +69,11 @@
         --hover-bg: var(--grey-color-30);
     }
 
+    &:hover {
+        --bg: var(--hover-bg);
+        --label: var(--hover-label);
+    }
+
     .button,
     .close-button {
         border: none;
@@ -94,6 +82,7 @@
         color: inherit;
         padding: 0;
         margin: 0 0 0 $space-xxs;
+        transition: none;
     }
 
     .label + .button:not(:empty) {
