@@ -1,5 +1,10 @@
-import { MouseEventHandler, Ref, RefObject, useEffect } from 'react';
+import { RefObject, useEffect } from 'react';
 
+/**
+ * Helper hook for detecting clicks outside the ref element
+ * @param ref
+ * @param handler
+ */
 export const useOnClickOutside = (
     ref: RefObject<any>,
     handler: (event: MouseEvent) => void
