@@ -8,7 +8,7 @@ import { useOnClickOutside } from '../../hooks/useOnClickOutside';
 
 const TRIGGER_TO_HANDLER_MAP = {
     click: 'onClick',
-    hover: 'onMouesEnter',
+    hover: 'onMouseEnter',
     contextmenu: 'onContextMenu',
 };
 
@@ -97,21 +97,24 @@ export const Dropdown: FC<DropdownProps> = ({
         </div>
     );
 
+    const getDropdown = () =>
+        visible && (
+            <div
+                role="menu"
+                ref={floating}
+                style={dropdownStyle}
+                className={dropdownClasses}
+                tabIndex={0}
+                onClick={toggle(false)}
+            >
+                {overlay}
+            </div>
+        );
+
     return (
         <div ref={mainWrapperRef} className={styles.mainWrapper}>
             {getReference()}
-            {visible && (
-                <div
-                    role="menu"
-                    ref={floating}
-                    style={dropdownStyle}
-                    className={dropdownClasses}
-                    tabIndex={0}
-                    onClick={toggle(false)}
-                >
-                    {overlay}
-                </div>
-            )}
+            {getDropdown()}
         </div>
     );
 };
