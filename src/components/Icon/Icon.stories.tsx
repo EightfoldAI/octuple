@@ -8,14 +8,20 @@ export default {
 
 export const Icons = () => (
     <>
-        <h2>Icons</h2>
-        <p>X-Small</p>
+        <h1>Icons</h1>
+        <h2>X-Small</h2>
         <Icon path={IconName.mdiCardsHeart} size={IconSize.XSmall} />
-        <p>Small</p>
+        <br />
+        <br />
+        <h2>Small</h2>
         <Icon path={IconName.mdiCardsHeart} size={IconSize.Small} />
-        <p>Medium</p>
+        <br />
+        <br />
+        <h2>Medium</h2>
         <Icon path={IconName.mdiCardsHeart} />
-        <p>Large</p>
+        <br />
+        <br />
+        <h2>Large</h2>
         <Icon path={IconName.mdiCardsHeart} size={IconSize.Large} />
     </>
 );

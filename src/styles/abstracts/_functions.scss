@@ -1,7 +1,101 @@
-$html-font-size: 16px;
-@function stripUnit($value) {
-    @return calc($value / ($value * 0 + 1px));
+// Extend sass-rem https://github.com/pierreburel/sass-rem
+// Update $baseline to set base pixel value
+
+@use 'sass:list';
+@use 'sass:map';
+@use 'sass:math';
+@use 'sass:meta';
+
+$baseline: 10px !default;
+$fallback: false !default;
+$px-only: false !default;
+
+// Dart Sass <1.33.0 compatibility
+@function _divide($a, $b) {
+    @if map.has-key(meta.module-functions('math'), 'div') {
+        @return math.div($a, $b);
+    }
+
+    @return $a / $b;
 }
-@function rem($pxValue) {
-    @return #{calc(stripUnit($pxValue) / stripUnit($html-font-size))}rem;
+
+@function _convert($to, $values...) {
+    $result: ();
+    $separator: list.separator($values);
+
+    @each $value in $values {
+        @if meta.type-of($value) ==
+            'number' and
+            math.unit($value) ==
+            'rem' and
+            $to ==
+            'px'
+        {
+            $result: list.append(
+                $result,
+                _divide($value, 1rem) * $baseline,
+                $separator
+            );
+        } @else if
+            meta.type-of($value) ==
+            'number' and
+            math.unit($value) ==
+            'px' and
+            $to ==
+            'rem'
+        {
+            $result: list.append(
+                $result,
+                _divide($value, $baseline) * 1rem,
+                $separator
+            );
+        } @else if meta.type-of($value) == 'list' {
+            $result: list.append($result, _convert($to, $value...), $separator);
+        } @else {
+            $result: list.append($result, $value, $separator);
+        }
+    }
+
+    @return if(list.length($result) == 1, list.nth($result, 1), $result);
+}
+
+@function convert($values...) {
+    @if $px-only {
+        @return _convert(px, $values...);
+    } @else {
+        @return _convert(rem, $values...);
+    }
+}
+
+@mixin convert($properties, $values...) {
+    @if meta.type-of($properties) == 'map' {
+        @each $property, $values in $properties {
+            @include convert($property, $values);
+        }
+    } @else {
+        @each $property in $properties {
+            @if $fallback or $px-only {
+                #{$property}: _convert(px, $values...);
+            }
+            @if not $px-only {
+                #{$property}: _convert(rem, $values...);
+            }
+        }
+    }
+}
+
+@function rem($values...) {
+    @return convert($values...);
+}
+
+@mixin rem($properties, $values...) {
+    @include convert($properties, $values...);
+}
+
+@mixin baseline($zoom: 100%) {
+    font-size: _divide($zoom, 16px) * $baseline;
+}
+
+html {
+    @include baseline;
 }
