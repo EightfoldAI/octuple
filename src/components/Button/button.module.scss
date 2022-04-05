@@ -185,6 +185,24 @@
     }
 }
 
+.button-disruptive {
+    color: var(--disruptive-color-70);
+
+    &:hover {
+        background-color: var(--disruptive-color-20);
+        border-color: var(--disruptive-color-20);
+    }
+
+    &:active {
+        background-color: var(--disruptive-color-10);
+        border-color: var(--disruptive-color-10);
+    }
+
+    &:focus-visible {
+        border-color: var(--disruptive-color-80);
+    }
+}
+
 .button-neutral {
     color: var(--text-secondary-color);
     border: rem(2px) solid var(--grey-color-70);

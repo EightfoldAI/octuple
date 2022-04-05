@@ -2,8 +2,8 @@ import { RefObject, useEffect } from 'react';
 
 /**
  * Helper hook for detecting clicks outside the ref element
- * @param ref
- * @param handler
+ * @param ref The ref of the element we want to detect outside clicks on
+ * @param handler Callback fired when an outside click is detected
  */
 export const useOnClickOutside = (
     ref: RefObject<any>,

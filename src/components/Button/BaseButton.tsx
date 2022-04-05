@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { ButtonSize, ButtonTheme, ButtonWidth, InternalButtonProps } from './index';
 import { Icon, IconName, IconSize } from '../Icon/index';
-import { Breakpoints, useMatchMedia } from '../../shared/hooks';
+import { Breakpoints, useMatchMedia } from '../../hooks/useMatchMedia';
 import { classNames } from '../../shared/utilities';
 
 import styles from './button.module.scss';

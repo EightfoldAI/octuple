@@ -20,11 +20,13 @@ export const DefaultButton: FC<ButtonProps> = ({
     style,
     toggle,
     buttonWidth,
+    disruptive = false,
 }) => {
     const buttonClassNames: string = classNames([
         className,
         styles.button,
         styles.buttonDefault,
+        { [styles.buttonDisruptive]: disruptive },
     ]);
 
     return (

@@ -1,10 +1,11 @@
 import React, { FC, useEffect, useRef, useState } from 'react';
 import { DropdownProps } from './Dropdown.types';
-import { autoUpdate, offset, shift, useFloating } from '@floating-ui/react-dom';
+import { autoUpdate, shift, useFloating } from '@floating-ui/react-dom';
 import { offset as fOffset } from '@floating-ui/core';
 import { classNames } from '../../shared/utilities';
-import styles from './dropdown.module.scss';
 import { useOnClickOutside } from '../../hooks/useOnClickOutside';
+
+import styles from './dropdown.module.scss';
 
 const TRIGGER_TO_HANDLER_MAP = {
     click: 'onClick',
@@ -17,10 +18,14 @@ const ANIMATION_DURATION = 200;
 export const Dropdown: FC<DropdownProps> = ({
     trigger = 'click',
     className,
+    style,
+    dropdownClassName,
+    dropdownStyle,
     children,
     placement = 'bottom-start',
     overlay,
     offset = 0,
+    positionStrategy = 'fixed',
 }) => {
     const mainWrapperRef = useRef<HTMLDivElement>(null);
     const [visible, setVisible] = useState<boolean>(false);
@@ -37,7 +42,7 @@ export const Dropdown: FC<DropdownProps> = ({
         middlewareData: { arrow: { x: arrowX, y: arrowY } = {} },
     } = useFloating({
         placement,
-        strategy: 'fixed',
+        strategy: positionStrategy,
         middleware: [fOffset(offset), shift()],
     });
 
@@ -70,24 +75,30 @@ export const Dropdown: FC<DropdownProps> = ({
     }, [refs.reference, refs.floating, update]);
 
     const dropdownClasses: string = classNames([
-        className,
+        dropdownClassName,
         styles.dropdownWrapper,
         { [styles.open]: visible },
         { [styles.close]: closing },
     ]);
 
-    const dropdownStyle: object = {
-        position: 'fixed',
+    const dropdownStyles: React.CSSProperties = {
+        ...dropdownStyle,
+        position: strategy,
         top: y ?? '',
         left: x ?? '',
     };
+
+    const mainWrapperClasses: string = classNames([
+        className,
+        styles.mainWrapper,
+    ]);
 
     const referenceWrapperClasses: string = classNames([
         styles.referenceWrapper,
         { [styles.disabled]: false },
     ]);
 
-    const getReference = () => (
+    const getReference = (): JSX.Element => (
         <div
             {...{ [TRIGGER_TO_HANDLER_MAP[trigger]]: toggle(true) }}
             ref={reference}
@@ -97,12 +108,12 @@ export const Dropdown: FC<DropdownProps> = ({
         </div>
     );
 
-    const getDropdown = () =>
+    const getDropdown = (): JSX.Element =>
         visible && (
             <div
                 role="menu"
                 ref={floating}
-                style={dropdownStyle}
+                style={dropdownStyles}
                 className={dropdownClasses}
                 tabIndex={0}
                 onClick={toggle(false)}
@@ -112,7 +123,7 @@ export const Dropdown: FC<DropdownProps> = ({
         );
 
     return (
-        <div ref={mainWrapperRef} className={styles.mainWrapper}>
+        <div ref={mainWrapperRef} className={mainWrapperClasses} style={style}>
             {getReference()}
             {getDropdown()}
         </div>

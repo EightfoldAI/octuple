@@ -1,20 +1,24 @@
-import React from 'react';
-import { Placement } from '@floating-ui/react-dom';
-import { IconName } from '../Icon';
+import { ButtonProps } from '../Button';
+import { ListProps } from '../List';
 
-export enum MenuType {
-    primary = 'primary',
-    default = 'default',
-    disruptive = 'disruptive',
+export type MenuValue = string | number | boolean;
+
+export interface MenuItem extends Omit<ButtonProps, 'disruptive'> {
+    /**
+     * Unique value of the menu item
+     */
+    value: MenuValue;
 }
 
-export interface MenuItem {
-    icon?: IconName;
-    label: string;
-    value: string | number | boolean;
-}
-
-export interface MenuProps {
-    type?: MenuType;
-    items: MenuItem[];
+export interface MenuProps extends Omit<ListProps<MenuItem>, 'renderItem'> {
+    /**
+     * If menu is disruptive or not
+     * @default false
+     */
+    disruptive?: boolean;
+    /**
+     * On change callback when menu item is clicked
+     * @param value {MenuItem}
+     */
+    onChange?: (value: MenuValue) => void;
 }
