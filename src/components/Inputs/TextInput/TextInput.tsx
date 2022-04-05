@@ -8,7 +8,7 @@ import {
     TextInputTheme,
 } from '../index';
 import { Tooltip } from '../../Tooltip';
-import { useDebounce } from '../../../shared/hooks';
+import { useDebounce } from '../../../hooks/useDebounce';
 import { classNames, uniqueId } from '../../../shared/utilities';
 
 import styles from '../input.module.scss';
