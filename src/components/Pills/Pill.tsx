@@ -44,8 +44,6 @@ export const Pill: FC<PillProps> = ({
         { [styles.blue]: theme === 'blue' },
         { [styles.violet]: theme === 'violet' },
         { [styles.grey]: theme === 'grey' },
-        { [styles.medium]: size === PillSize.Medium },
-        { [styles.small]: size === PillSize.Small },
     ]);
     return (
         <div className={tagClassName} style={{ color }}>
