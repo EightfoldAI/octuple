@@ -163,7 +163,7 @@ export const BaseButton: FC<InternalButtonProps> = ({
         >
             {iconExists && !textExists && getButtonIcon(icon)}
             {iconExists && textExists && (
-                <span className={styles.flexStructureHorizontal}>
+                <span>
                     {getButtonIcon(icon)}
                     {getButtonText(buttonTextClassNames, text)}
                 </span>
