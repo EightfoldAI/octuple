@@ -1,10 +1,15 @@
-import React, { FC } from 'react';
-import escapeStringRegexp from 'escape-string-regexp';
+import React, { FC, useState } from 'react';
 import { ButtonSize, DefaultButton } from '../../Button';
 import { Icon, IconName, IconSize } from '../../Icon/index';
-import { TextInputProps, TextInputShape, TextInputTheme } from '../index';
+import {
+    InputWidth,
+    TextInputProps,
+    TextInputShape,
+    TextInputTheme,
+} from '../index';
+import { Tooltip } from '../../Tooltip';
 import { useDebounce } from '../../../shared/hooks';
-import { classNames } from '../../../shared/utilities';
+import { classNames, uniqueId } from '../../../shared/utilities';
 
 import styles from '../input.module.scss';
 
@@ -13,15 +18,15 @@ export const TextInput: FC<TextInputProps> = ({
     ariaLabel,
     autoFocus = false,
     className,
+    clearButtonAriaLabel,
     disabled = false,
     htmlType = 'text',
     iconProps,
     iconButtonProps,
     id,
+    inputWidth = InputWidth.fitContent,
     label,
-    labelIconButtonProps = {
-        icon: IconName.mdiInformation,
-    },
+    labelIconButtonProps,
     maxlength,
     minlength,
     name,
@@ -34,9 +39,14 @@ export const TextInput: FC<TextInputProps> = ({
     required = false,
     shape = TextInputShape.Rectangle,
     style,
+    theme = TextInputTheme.light,
     value,
     waitInterval = 10,
 }) => {
+    const [clearButtonShown, setClearButtonShown] = React.useState(false);
+    const [inputId] = useState(uniqueId('input-'));
+    const inputField: HTMLElement = document.getElementById(id ? id : inputId);
+
     const iconClassNames: string = classNames([
         styles.iconWrapper,
         styles.leftIcon,
@@ -45,15 +55,6 @@ export const TextInput: FC<TextInputProps> = ({
     const iconButtonClassNames: string = classNames([
         styles.iconButton,
         styles.leftIcon,
-    ]);
-
-    const labelIconButtonWrapperClassNames: string = classNames([
-        {
-            [styles.withIcon]:
-                !!iconProps &&
-                !!iconProps.path &&
-                shape === TextInputShape.Rectangle,
-        },
     ]);
 
     const textInputClassNames: string = classNames([
@@ -103,51 +104,82 @@ export const TextInput: FC<TextInputProps> = ({
                 !!iconButtonProps &&
                 shape === TextInputShape.Pill,
         },
+        {
+            [styles.dark]: theme === TextInputTheme.dark,
+        },
+        {
+            [styles.inputStretch]: inputWidth === InputWidth.fill,
+        },
     ]);
 
+    const textInputWrapperClassNames: string = classNames([
+        styles.inputWrapper,
+        {
+            [styles.inputStretch]: inputWidth === InputWidth.fill,
+        },
+    ]);
+
+    const handleOnClear = (_event: React.MouseEvent) => {
+        _event.preventDefault();
+        _event.stopPropagation();
+        if (!!inputField) {
+            (inputField as HTMLInputElement).value = '';
+        }
+        setClearButtonShown(false);
+    };
+
     const handleChange = useDebounce<React.ChangeEvent<HTMLInputElement>>(
-        (_event?: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) =>
-            triggerChange(_event),
+        (
+            _event?: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>
+        ) => {
+            onChange;
+        },
         waitInterval
     );
 
-    const triggerChange = (
-        _event?: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>
-    ) => {
-        if (!numbersOnly) {
-            _event.target.value = escapeStringRegexp(
-                _event.target.value.toLocaleString()
-            );
-        }
-        onChange;
-    };
-
     return (
-        <div className={styles.inputWrapper}>
-            <div className={styles.fieldLabelWrapper}>
+        <div className={textInputWrapperClassNames}>
+            <div className={styles.fieldLabel}>
                 {label && (
-                    <label className={styles.fieldLabel} htmlFor={name}>
+                    <label className={styles.textStyle} htmlFor={name}>
                         {label}
                     </label>
                 )}
                 {labelIconButtonProps && labelIconButtonProps.show && (
                     <span className={styles.fieldLabelIconButton}>
-                        <DefaultButton
-                            allowDisabledFocus={
-                                labelIconButtonProps.allowDisabledFocus
+                        <Tooltip
+                            content={labelIconButtonProps.toolTipContent}
+                            placement={
+                                labelIconButtonProps.toolTipPlacement
+                                    ? labelIconButtonProps.toolTipPlacement
+                                    : 'top'
                             }
-                            ariaLabel={labelIconButtonProps.ariaLabel}
-                            className={styles.labelIconButton}
-                            disabled={labelIconButtonProps.disabled}
-                            icon={labelIconButtonProps.icon}
-                            iconColor={labelIconButtonProps.iconColor}
-                            onClick={
-                                !labelIconButtonProps.allowDisabledFocus
-                                    ? labelIconButtonProps.onClick
-                                    : null
+                            positionStrategy={
+                                labelIconButtonProps.toolTipPositionStrategy
                             }
-                            size={ButtonSize.Small}
-                        />
+                            theme={labelIconButtonProps.toolTipTheme}
+                        >
+                            <DefaultButton
+                                allowDisabledFocus={
+                                    labelIconButtonProps.allowDisabledFocus
+                                }
+                                ariaLabel={labelIconButtonProps.ariaLabel}
+                                className={styles.labelIconButton}
+                                disabled={labelIconButtonProps.disabled}
+                                icon={
+                                    labelIconButtonProps.icon
+                                        ? labelIconButtonProps.icon
+                                        : IconName.mdiInformation
+                                }
+                                iconColor={labelIconButtonProps.iconColor}
+                                onClick={
+                                    !labelIconButtonProps.allowDisabledFocus
+                                        ? labelIconButtonProps.onClick
+                                        : null
+                                }
+                                size={ButtonSize.Small}
+                            />
+                        </Tooltip>
                     </span>
                 )}
             </div>
@@ -156,11 +188,20 @@ export const TextInput: FC<TextInputProps> = ({
                 autoFocus={autoFocus}
                 className={textInputClassNames}
                 disabled={disabled}
-                id={id}
+                id={id ? id : inputId}
                 maxLength={maxlength}
                 minLength={minlength}
                 name={name}
-                onChange={handleChange}
+                onChange={
+                    !allowDisabledFocus
+                        ? () => {
+                              handleChange;
+                              if (!clearButtonShown) {
+                                  setClearButtonShown(true);
+                              }
+                          }
+                        : null
+                }
                 onBlur={!allowDisabledFocus ? onBlur : null}
                 onFocus={!allowDisabledFocus ? onFocus : null}
                 onKeyDown={!allowDisabledFocus ? onKeyDown : null}
@@ -210,6 +251,17 @@ export const TextInput: FC<TextInputProps> = ({
                     onClick={iconButtonProps.onClick}
                     size={ButtonSize.Medium}
                     htmlType={iconButtonProps.htmlType}
+                />
+            )}
+            {clearButtonShown && (
+                <DefaultButton
+                    allowDisabledFocus={allowDisabledFocus}
+                    ariaLabel={clearButtonAriaLabel}
+                    className={styles.clearIconButton}
+                    disabled={disabled}
+                    icon={IconName.mdiClose}
+                    onClick={!allowDisabledFocus ? handleOnClear : null}
+                    size={ButtonSize.Small}
                 />
             )}
         </div>

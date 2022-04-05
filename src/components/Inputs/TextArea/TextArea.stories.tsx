@@ -1,6 +1,5 @@
 import React from 'react';
-import { IconName } from '../../Icon';
-import { TextArea, TextInputShape } from '../index';
+import { InputWidth, TextArea } from '../index';
 
 export default {
     title: 'Text Area',
@@ -9,9 +8,30 @@ export default {
 
 export const Area = () => (
     <>
-        <p>Text Area no expand (Rectangle)</p>
-        <TextArea label="Label" />
-        <p>Text Area with expand (Rectangle)</p>
+        <h1>Text Areas</h1>
+        <h2>Text Area No Expand Stretch (Rectangle)</h2>
+        <TextArea label="Label" inputWidth={InputWidth.fill} />
+        <br />
+        <br />
+        <h2>Text Area No Expand With Icon Button (Rectangle)</h2>
+        <TextArea
+            label="Label"
+            labelIconButtonProps={{
+                show: true,
+                toolTipContent: 'A tooltip',
+                toolTipPlacement: 'top',
+                onClick: _alertClicked,
+            }}
+        />
+        <br />
+        <br />
+        <h2>Text Area with expand (Rectangle)</h2>
         <TextArea label="Label" enableExpand={true} />
+        <br />
+        <br />
     </>
 );
+
+function _alertClicked(): void {
+    alert('Clicked');
+}

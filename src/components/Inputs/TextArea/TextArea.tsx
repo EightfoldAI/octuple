@@ -1,8 +1,10 @@
-import React, { FC } from 'react';
+import React, { FC, useState } from 'react';
 import { ButtonSize, DefaultButton } from '../../Button';
 import { Icon, IconName } from '../../Icon/index';
-import { TextAreaProps, TextInputTheme } from '../index';
-import { classNames, debounce } from '../../../shared/utilities';
+import { InputWidth, TextAreaProps, TextInputTheme } from '../index';
+import { Tooltip } from '../../Tooltip';
+import { useDebounce } from '../../../shared/hooks';
+import { classNames, uniqueId } from '../../../shared/utilities';
 
 import styles from '../input.module.scss';
 
@@ -14,10 +16,9 @@ export const TextArea: FC<TextAreaProps> = ({
     disabled = false,
     enableExpand = false,
     id,
+    inputWidth = InputWidth.fitContent,
     label,
-    labelIconButtonProps = {
-        icon: IconName.mdiInformation,
-    },
+    labelIconButtonProps,
     maxlength,
     minlength,
     name,
@@ -30,23 +31,32 @@ export const TextArea: FC<TextAreaProps> = ({
     style,
     textAreaCols = 50,
     textAreaRows = 5,
+    theme = TextInputTheme.light,
     value,
     waitInterval = 10,
 }) => {
+    const [textAreaId] = useState(uniqueId('textarea-'));
+
     const textAreaClassNames: string = classNames([
         className,
         styles.textArea,
         { [styles.textAreaNoExpand]: !enableExpand },
+        { [styles.dark]: theme === TextInputTheme.dark },
+        { [styles.inputStretch]: inputWidth === InputWidth.fill },
     ]);
 
-    const handleChange = (
-        _event?: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>
-    ): void => {
-        if (allowDisabledFocus) {
-            return;
-        }
-        debounce(() => triggerChange(_event), waitInterval);
-    };
+    const textAreaWrapperClassNames: string = classNames([
+        styles.inputWrapper,
+        {
+            [styles.inputStretch]: inputWidth === InputWidth.fill,
+        },
+    ]);
+
+    const handleChange = useDebounce<React.ChangeEvent<HTMLTextAreaElement>>(
+        (_event?: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) =>
+            triggerChange(_event),
+        waitInterval
+    );
 
     const triggerChange = (
         _event?: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>
@@ -55,26 +65,48 @@ export const TextArea: FC<TextAreaProps> = ({
     };
 
     return (
-        <div className={styles.inputWrapper}>
-            <div className={styles.fieldLabelWrapper}>
+        <div className={textAreaWrapperClassNames}>
+            <div className={styles.fieldLabel}>
                 {label && (
-                    <label className={styles.fieldLabel} htmlFor={name}>
+                    <label className={styles.textStyle} htmlFor={name}>
                         {label}
                     </label>
                 )}
-                {labelIconButtonProps && (
+                {labelIconButtonProps && labelIconButtonProps.show && (
                     <span className={styles.fieldLabelIconButton}>
-                        <DefaultButton
-                            allowDisabledFocus={
-                                labelIconButtonProps.allowDisabledFocus
+                        <Tooltip
+                            content={labelIconButtonProps.toolTipContent}
+                            placement={
+                                labelIconButtonProps.toolTipPlacement
+                                    ? labelIconButtonProps.toolTipPlacement
+                                    : 'top'
                             }
-                            ariaLabel={labelIconButtonProps.ariaLabel}
-                            disabled={labelIconButtonProps.disabled}
-                            icon={labelIconButtonProps.icon}
-                            iconColor={labelIconButtonProps.iconColor}
-                            onClick={labelIconButtonProps.onClick}
-                            size={ButtonSize.Small}
-                        />
+                            positionStrategy={
+                                labelIconButtonProps.toolTipPositionStrategy
+                            }
+                            theme={labelIconButtonProps.toolTipTheme}
+                        >
+                            <DefaultButton
+                                allowDisabledFocus={
+                                    labelIconButtonProps.allowDisabledFocus
+                                }
+                                ariaLabel={labelIconButtonProps.ariaLabel}
+                                className={styles.labelIconButton}
+                                disabled={labelIconButtonProps.disabled}
+                                icon={
+                                    labelIconButtonProps.icon
+                                        ? labelIconButtonProps.icon
+                                        : IconName.mdiInformation
+                                }
+                                iconColor={labelIconButtonProps.iconColor}
+                                onClick={
+                                    !labelIconButtonProps.allowDisabledFocus
+                                        ? labelIconButtonProps.onClick
+                                        : null
+                                }
+                                size={ButtonSize.Small}
+                            />
+                        </Tooltip>
                     </span>
                 )}
             </div>
@@ -85,11 +117,11 @@ export const TextArea: FC<TextAreaProps> = ({
                 className={textAreaClassNames}
                 cols={textAreaCols}
                 disabled={disabled}
-                id={id}
+                id={id ? id : textAreaId}
                 maxLength={maxlength}
                 minLength={minlength}
                 name={name}
-                onChange={handleChange}
+                onChange={!allowDisabledFocus ? handleChange : null}
                 onBlur={!allowDisabledFocus ? onBlur : null}
                 onFocus={!allowDisabledFocus ? onFocus : null}
                 onKeyDown={!allowDisabledFocus ? onKeyDown : null}
