@@ -32,9 +32,8 @@
     }
 
     &:focus-visible {
-        box-sizing: border-box;
-        padding: $space-xs $space-s;
-        border-width: rem(4px);
+        outline: rem(2px) solid var(--primary-color-80);
+        outline-offset: rem(-2px);
     }
 }
 
