@@ -44,7 +44,7 @@ export const TextInput: FC<TextInputProps> = ({
     waitInterval = 10,
 }) => {
     const [clearButtonShown, setClearButtonShown] = useState<boolean>(false);
-    const [inputId] = useState(uniqueId(id || 'input-'));
+    const [inputId] = useState<string>(uniqueId(id || 'input-'));
     const inputField: HTMLElement = document.getElementById(inputId);
 
     const iconClassNames: string = classNames([
