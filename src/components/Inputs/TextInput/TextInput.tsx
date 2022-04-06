@@ -183,9 +183,18 @@ export const TextInput: FC<TextInputProps> = ({
                 name={name}
                 onChange={
                     !allowDisabledFocus
-                        ? () => {
+                        ? (
+                              _event?: React.ChangeEvent<
+                                  HTMLTextAreaElement | HTMLInputElement
+                              >
+                          ) => {
                               handleChange;
-                              if (!clearButtonShown) {
+                              if (
+                                  _event.target.value.length === 0 &&
+                                  clearButtonShown
+                              ) {
+                                  setClearButtonShown(false);
+                              } else if (!clearButtonShown) {
                                   setClearButtonShown(true);
                               }
                           }
