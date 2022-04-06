@@ -1,3 +1,103 @@
+// BEGIN: VARIABLE COLOR DEFINITIONS
+
+$color-background1-red: var(--red-color-10);
+$color-background1-orange: var(--orange-color-10);
+$color-background1-yellow: var(--yellow-color-10);
+$color-background1-green: var(--green-color-10);
+$color-background1-blue-green: var(--bluegreen-color-10);
+$color-background1-blue: var(--blue-color-10);
+$color-background1-violet: var(--violet-color-10);
+$color-background1-grey: var(--grey-color-10);
+
+$color-background2-red: var(--red-color-20);
+$color-background2-orange: var(--orange-color-20);
+$color-background2-yellow: var(--yellow-color-20);
+$color-background2-green: var(--green-color-20);
+$color-background2-blue-green: var(--bluegreen-color-20);
+$color-background2-blue: var(--blue-color-20);
+$color-background2-violet: var(--violet-color-20);
+$color-background2-grey: var(--grey-color-20);
+
+$color-background3-red: var(--red-color-30);
+$color-background3-orange: var(--orange-color-30);
+$color-background3-yellow: var(--yellow-color-30);
+$color-background3-green: var(--green-color-30);
+$color-background3-blue-green: var(--bluegreen-color-30);
+$color-background3-blue: var(--blue-color-30);
+$color-background3-violet: var(--violet-color-30);
+$color-background3-grey: var(--grey-color-30);
+
+$color-primary-red: var(--red-color-80);
+$color-primary-orange: var(--orange-color-80);
+$color-primary-yellow: var(--yellow-color-80);
+$color-primary-green: var(--green-color-80);
+$color-primary-blue-green: var(--bluegreen-color-80);
+$color-primary-blue: var(--blue-color-80);
+$color-primary-violet: var(--violet-color-80);
+$color-primary-grey: var(--grey-color-80);
+
+$color-secondary-red: var(--red-color-70);
+$color-secondary-orange: var(--orange-color-70);
+$color-secondary-yellow: var(--yellow-color-70);
+$color-secondary-green: var(--green-color-70);
+$color-secondary-blue-green: var(--bluegreen-color-70);
+$color-secondary-blue: var(--blue-color-70);
+$color-secondary-violet: var(--violet-color-70);
+$color-secondary-grey: var(--grey-color-70);
+
+$color-tertiary-red: var(--red-color-60);
+$color-tertiary-orange: var(--orange-color-60);
+$color-tertiary-yellow: var(--yellow-color-60);
+$color-tertiary-green: var(--green-color-60);
+$color-tertiary-blue-green: var(--bluegreen-color-60);
+$color-tertiary-blue: var(--blue-color-60);
+$color-tertiary-violet: var(--violet-color-60);
+$color-tertiary-grey: var(--grey-color-60);
+
+$button-color-primary-active: var(--blue-color-70);
+$button-color-primary-hover: var(--blue-color-60);
+$button-color-primary-pressed: var(--blue-color-80);
+$button-color-primary-focused-border: var(--blue-color-80);
+$button-text__color-primary: var(--text-inverse-color);
+
+$button-color-disruptive-active: var(--disruptive-color-70);
+$button-color-disruptive-hover: var(--disruptive-color-60);
+$button-color-disruptive-pressed: var(--disruptive-color-80);
+$button-color-disruptive-focused-border: var(--disruptive-color-80);
+$button-text__color-disruptive-primary: var(--text-inverse-color);
+$button-text__color-disruptive-secondary: var(--disruptive-color);
+
+$button-color-secondary-active: var(--blue-color-70);
+$button-color-secondary-hover: var(--blue-color-60);
+$button-color-secondary-pressed: var(--blue-color-80);
+$button-color-secondary-focused-border: var(--blue-color-80);
+
+$button-text__color-default: var(--blue-color-70);
+$button-color-default-hover: var(--blue-color-20);
+$button-color-default-pressed: var(--blue-color-10);
+$button-color-default-focused-border: var(--blue-color-80);
+$button-color-default-active: rgba(var(--blue-color-40), 0.01);
+
+$button-text__color-neutral: var(--grey-color-70);
+$button-color-neutral-hover: var(--grey-color-20);
+$button-color-neutral-pressed: var(--grey-color-10);
+$button-color-neutral-focused-border: var(--blue-color-80);
+$button-color-neutral-active: rgba(var(--blue-color-40), 0.01);
+
+$text-color-primary: var(--grey-color-90);
+$text-color-secondary: var(--grey-color-80);
+
+$card-background-color: var(--background-color);
+$background-color-white: var(--background-color);
+
+$input-field-color-enabled: var(--grey-color-40);
+
+$divider-line-color: var(--grey-color-40);
+
+// END: VARIABLE COLOR DEFINITIONS
+
+// BEGIN: CONSTANTS
+
 // Typography Definitions
 
 $text-font-size-1: rem(12px);
@@ -43,99 +143,6 @@ $icon-font-size-material-xs: rem(14px);
 $icon-font-size-material-s: rem(16px);
 $icon-font-size-material-m: rem(20px);
 $icon-font-size-material-l: rem(24px);
-
-// Color Definitions
-
-$color-background1-red: $red10;
-$color-background1-orange: $orange10;
-$color-background1-yellow: $yellow10;
-$color-background1-green: $green10;
-$color-background1-blue-green: $blue-green10;
-$color-background1-blue: $blue10;
-$color-background1-violet: $violet10;
-$color-background1-grey: $grey10;
-
-$color-background2-red: $red20;
-$color-background2-orange: $orange20;
-$color-background2-yellow: $yellow20;
-$color-background2-green: $green20;
-$color-background2-blue-green: $blue-green20;
-$color-background2-blue: $blue20;
-$color-background2-violet: $violet20;
-$color-background2-grey: $grey20;
-
-$color-background3-red: $red30;
-$color-background3-orange: $orange30;
-$color-background3-yellow: $yellow30;
-$color-background3-green: $green30;
-$color-background3-blue-green: $blue-green30;
-$color-background3-blue: $blue30;
-$color-background3-violet: $violet30;
-$color-background3-grey: $grey30;
-
-$color-primary-red: $red80;
-$color-primary-orange: $orange80;
-$color-primary-yellow: $yellow80;
-$color-primary-green: $green80;
-$color-primary-blue-green: $blue-green80;
-$color-primary-blue: $blue80;
-$color-primary-violet: $violet80;
-$color-primary-grey: $grey80;
-
-$color-secondary-red: $red70;
-$color-secondary-orange: $orange70;
-$color-secondary-yellow: $yellow70;
-$color-secondary-green: $green70;
-$color-secondary-blue-green: $blue-green70;
-$color-secondary-blue: $blue70;
-$color-secondary-violet: $violet70;
-$color-secondary-grey: $grey70;
-
-$color-tertiary-red: $red60;
-$color-tertiary-orange: $orange60;
-$color-tertiary-yellow: $yellow60;
-$color-tertiary-green: $green60;
-$color-tertiary-blue-green: $blue-green60;
-$color-tertiary-blue: $blue60;
-$color-tertiary-violet: $violet60;
-$color-tertiary-grey: $grey60;
-
-$button-color-primary-active: $blue70;
-$button-color-primary-hover: $blue60;
-$button-color-primary-pressed: $blue80;
-$button-color-primary-focused-border: $blue80;
-$button-text__color-primary: $grey0;
-
-$button-color-disruptive-active: $red70;
-$button-color-disruptive-hover: $red60;
-$button-color-disruptive-pressed: $red80;
-$button-color-disruptive-focused-border: $red80;
-$button-text__color-disruptive: $grey0;
-
-$button-color-secondary-active: $blue70;
-$button-color-secondary-hover: $blue60;
-$button-color-secondary-pressed: $blue80;
-$button-color-secondary-focused-border: $blue80;
-
-$button-text__color-default: $blue70;
-$button-color-default-hover: $blue20;
-$button-color-default-pressed: $blue10;
-$button-color-default-focused-border: $blue80;
-$button-color-default-active: rgba(104, 186, 239, 0.01);
-
-$button-text__color-neutral: $grey70;
-$button-color-neutral-hover: $grey20;
-$button-color-neutral-pressed: $grey10;
-$button-color-neutral-focused-border: $blue80;
-$button-color-neutral-active: rgba(104, 186, 239, 0.01);
-
-$text-color-primary: $grey90;
-$text-color-secondary: $grey80;
-
-$card-background-color: $grey0;
-$background-color-white: $grey0;
-
-$input-field-color-enabled: $grey40;
 
 // Gradient Definitions
 
@@ -266,8 +273,6 @@ $z-index-100: 100; //dropdown menu, tooltip, etc
 $z-index-0: 0;
 $z-index-bottom: -100;
 
-//dialog-backdrop
 $all-backdrops: rgba(0, 0, 0, 0.5);
 
-//dividers
-$divider-line-color: $grey40;
+// END: CONSTANTS
