@@ -58,6 +58,10 @@ export interface ButtonProps {
      */
     icon?: IconName;
     /**
+     * The button icon color.
+     */
+    iconColor?: string;
+    /**
      * The button id.
      */
     id?: string;

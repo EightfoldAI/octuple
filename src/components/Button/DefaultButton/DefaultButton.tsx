@@ -12,6 +12,7 @@ export const DefaultButton: FC<ButtonProps> = ({
     disabled = false,
     htmlType,
     icon,
+    iconColor,
     onClick,
     primaryColor,
     text,
@@ -34,6 +35,7 @@ export const DefaultButton: FC<ButtonProps> = ({
             disabled={disabled}
             htmlType={htmlType}
             icon={icon}
+            iconColor={iconColor}
             onClick={onClick}
             primaryColor={primaryColor}
             size={size}
