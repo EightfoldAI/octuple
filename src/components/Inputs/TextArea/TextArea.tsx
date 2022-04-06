@@ -35,7 +35,7 @@ export const TextArea: FC<TextAreaProps> = ({
     value,
     waitInterval = 10,
 }) => {
-    const [textAreaId] = useState(uniqueId(id || 'textarea-'));
+    const [textAreaId] = useState<string>(uniqueId(id || 'textarea-'));
 
     const textAreaClassNames: string = classNames([
         className,
