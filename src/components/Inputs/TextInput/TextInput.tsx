@@ -44,8 +44,8 @@ export const TextInput: FC<TextInputProps> = ({
     waitInterval = 10,
 }) => {
     const [clearButtonShown, setClearButtonShown] = React.useState(false);
-    const [inputId] = useState(uniqueId('input-'));
-    const inputField: HTMLElement = document.getElementById(id ? id : inputId);
+    const [inputId] = useState(uniqueId(id || 'input-'));
+    const inputField: HTMLElement = document.getElementById(inputId);
 
     const iconClassNames: string = classNames([
         styles.iconWrapper,
@@ -61,15 +61,11 @@ export const TextInput: FC<TextInputProps> = ({
         className,
         {
             [styles.withIcon]:
-                !!iconProps &&
-                !!iconProps.path &&
-                shape === TextInputShape.Rectangle,
+                !!iconProps?.path && shape === TextInputShape.Rectangle,
         },
         {
             [styles.withImageIcon]:
-                !!iconProps &&
-                !!iconProps.imageSrc &&
-                shape === TextInputShape.Rectangle,
+                !!iconProps?.imageSrc && shape === TextInputShape.Rectangle,
         },
         {
             [styles.withIconButton]:
@@ -84,15 +80,11 @@ export const TextInput: FC<TextInputProps> = ({
         { [styles.pillShape]: shape === TextInputShape.Pill },
         {
             [styles.pillShapeWithIcon]:
-                !!iconProps &&
-                !!iconProps.path &&
-                shape === TextInputShape.Pill,
+                !!iconProps?.path && shape === TextInputShape.Pill,
         },
         {
             [styles.pillShapeWithImageIcon]:
-                !!iconProps &&
-                !!iconProps.imageSrc &&
-                shape === TextInputShape.Pill,
+                !!iconProps?.imageSrc && shape === TextInputShape.Pill,
         },
         {
             [styles.pillShapeWithIconButton]:
@@ -145,14 +137,12 @@ export const TextInput: FC<TextInputProps> = ({
                         {label}
                     </label>
                 )}
-                {labelIconButtonProps && labelIconButtonProps.show && (
+                {labelIconButtonProps?.show && (
                     <span className={styles.fieldLabelIconButton}>
                         <Tooltip
                             content={labelIconButtonProps.toolTipContent}
                             placement={
-                                labelIconButtonProps.toolTipPlacement
-                                    ? labelIconButtonProps.toolTipPlacement
-                                    : 'top'
+                                labelIconButtonProps.toolTipPlacement || 'top'
                             }
                             positionStrategy={
                                 labelIconButtonProps.toolTipPositionStrategy
@@ -167,9 +157,8 @@ export const TextInput: FC<TextInputProps> = ({
                                 className={styles.labelIconButton}
                                 disabled={labelIconButtonProps.disabled}
                                 icon={
-                                    labelIconButtonProps.icon
-                                        ? labelIconButtonProps.icon
-                                        : IconName.mdiInformation
+                                    labelIconButtonProps.icon ||
+                                    IconName.mdiInformation
                                 }
                                 iconColor={labelIconButtonProps.iconColor}
                                 onClick={
@@ -188,7 +177,7 @@ export const TextInput: FC<TextInputProps> = ({
                 autoFocus={autoFocus}
                 className={textInputClassNames}
                 disabled={disabled}
-                id={id ? id : inputId}
+                id={inputId}
                 maxLength={maxlength}
                 minLength={minlength}
                 name={name}

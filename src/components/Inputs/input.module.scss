@@ -4,11 +4,11 @@
 
     input[type='search'],
     input[type='text'] {
-        background-color: $card-background-color;
+        background-color: var(--background-color);
         border: rem(1px) solid var(--border-color);
         border-radius: $corner-radius-s;
         box-sizing: border-box;
-        color: $color-tertiary-grey;
+        color: var(--grey-color-60);
         font-family: 'Source Sans Pro', sans-serif;
         font-size: $text-font-size-3;
         min-width: rem(320px);
@@ -36,7 +36,7 @@
         }
 
         &:hover {
-            border-color: $color-tertiary-grey;
+            border-color: var(--grey-color-60);
         }
 
         &:hover ~ .icon-button {
@@ -44,12 +44,12 @@
             border-color: transparent;
 
             svg {
-                color: $color-primary-grey;
+                color: var(--grey-color-80);
             }
         }
 
         &:hover ~ .text-style {
-            color: $text-color-primary;
+            color: var(--text-primary-color);
         }
 
         &:active ~ .icon-button {
@@ -57,12 +57,12 @@
             border-color: transparent;
 
             svg {
-                color: $color-primary-grey;
+                color: var(--grey-color-80);
             }
         }
 
         &:active ~ .text-style {
-            color: $text-color-primary;
+            color: var(--text-primary-color);
         }
 
         &:focus ~ .icon-button {
@@ -70,17 +70,17 @@
             border-color: transparent;
 
             svg {
-                color: $color-primary-grey;
+                color: var(--grey-color-80);
             }
         }
 
         &:focus ~ .text-style {
-            color: $text-color-primary;
+            color: var(--text-primary-color);
         }
 
         &:disabled {
-            border-color: $color-background3-grey;
-            color: $color-background3-grey;
+            border-color: var(--grey-color-30);
+            color: var(--grey-color-30);
         }
 
         &:disabled ~ .icon-button {
@@ -88,21 +88,21 @@
             border-color: transparent;
 
             svg {
-                color: $color-background3-grey;
+                color: var(--grey-color-30);
             }
         }
 
         &:disabled ~ .text-style {
-            color: $color-background3-grey;
+            color: var(--grey-color-30);
         }
 
         &:disabled::-webkit-search-cancel-button,
         &.with-icon:disabled::-webkit-search-cancel-button {
-            color: $color-background3-grey;
+            color: var(--grey-color-30);
         }
 
         &:disabled::placeholder {
-            color: $color-background3-grey;
+            color: var(--grey-color-30);
         }
 
         &.pill-shape {
@@ -190,14 +190,14 @@
         }
 
         svg {
-            color: $color-tertiary-grey;
+            color: var(--grey-color-60);
         }
     }
 
     .icon-button {
-        background-color: white;
+        background-color: var(--background-color);
         bottom: rem(1px);
-        color: $color-tertiary-grey;
+        color: var(--grey-color-60);
         height: rem(34px);
         padding: $button-padding-vertical-small $space-xxs;
         position: absolute;
@@ -212,41 +212,46 @@
         }
 
         svg {
-            color: $color-tertiary-grey;
+            color: var(--grey-color-60);
         }
 
         &:active,
         &:focus,
         &:focus-visible {
-            background-color: white;
+            background-color: var(--background-color);
             padding: $button-padding-vertical-small $space-xxs;
             border-width: rem(1px);
 
             svg {
-                color: $color-tertiary-grey;
+                color: var(--grey-color-60);
                 margin-bottom: rem(-2px);
                 margin-left: rem(1px);
             }
         }
 
         &:hover {
-            background-color: white;
+            background-color: var(--background-color);
             padding: $button-padding-vertical-small $space-xxs;
             border-color: transparent;
             border-width: rem(1px);
 
             svg {
-                color: $color-primary-grey;
+                color: var(--grey-color-80);
                 margin-bottom: rem(-2px);
                 margin-left: rem(1px);
             }
+        }
+
+        &:focus-visible {
+            outline: rem(2px) solid var(--primary-color-40);
+            outline-offset: rem(-2px);
         }
     }
 
     .clear-icon-button {
         background-color: transparent;
         bottom: rem(1px);
-        color: $color-tertiary-grey;
+        color: var(--grey-color-60);
         height: rem(35px);
         position: absolute;
         right: rem(1px);
@@ -256,10 +261,10 @@
         &:hover {
             border-color: transparent;
             background-color: transparent;
-            color: $color-primary-grey;
+            color: var(--grey-color-80);
 
             svg {
-                color: $color-primary-grey;
+                color: var(--grey-color-80);
             }
         }
 
@@ -270,8 +275,13 @@
             outline-offset: rem(-2px);
 
             svg {
-                color: $color-primary-grey;
+                color: var(--grey-color-80);
             }
+        }
+
+        &:focus-visible {
+            outline: rem(2px) solid var(--primary-color-40);
+            outline-offset: rem(-2px);
         }
     }
 
@@ -290,18 +300,18 @@
 
         .info-button-style {
             align-items: center;
-            color: $color-primary-grey;
+            color: var(--grey-color-80);
             font-size: $icon-font-size-material-s;
             line-height: $text-line-height-2;
             text-align: center;
 
             &:hover {
-                color: $color-tertiary-grey;
+                color: var(--grey-color-60);
             }
         }
 
         .text-style {
-            color: $text-color-primary;
+            color: var(--text-primary-color);
             font-family: 'Source Sans Pro', sans-serif;
             font-size: $text-font-size-3;
             font-weight: $text-font-weight-semibold;
@@ -332,11 +342,11 @@
     }
 
     .text-area {
-        background-color: $card-background-color;
+        background-color: var(--background-color);
         border: rem(1px) solid --border-color;
         border-radius: $corner-radius-s;
         box-sizing: border-box;
-        color: $color-tertiary-grey;
+        color: var(--grey-color-60);
         font-family: 'Source Sans Pro', sans-serif;
         font-size: $text-font-size-3;
         min-height: rem(64px);

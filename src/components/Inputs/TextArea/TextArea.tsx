@@ -35,7 +35,7 @@ export const TextArea: FC<TextAreaProps> = ({
     value,
     waitInterval = 10,
 }) => {
-    const [textAreaId] = useState(uniqueId('textarea-'));
+    const [textAreaId] = useState(uniqueId(id || 'textarea-'));
 
     const textAreaClassNames: string = classNames([
         className,
@@ -77,9 +77,7 @@ export const TextArea: FC<TextAreaProps> = ({
                         <Tooltip
                             content={labelIconButtonProps.toolTipContent}
                             placement={
-                                labelIconButtonProps.toolTipPlacement
-                                    ? labelIconButtonProps.toolTipPlacement
-                                    : 'top'
+                                labelIconButtonProps?.toolTipPlacement || 'top'
                             }
                             positionStrategy={
                                 labelIconButtonProps.toolTipPositionStrategy
@@ -94,9 +92,8 @@ export const TextArea: FC<TextAreaProps> = ({
                                 className={styles.labelIconButton}
                                 disabled={labelIconButtonProps.disabled}
                                 icon={
-                                    labelIconButtonProps.icon
-                                        ? labelIconButtonProps.icon
-                                        : IconName.mdiInformation
+                                    labelIconButtonProps?.icon ||
+                                    IconName.mdiInformation
                                 }
                                 iconColor={labelIconButtonProps.iconColor}
                                 onClick={
@@ -117,7 +114,7 @@ export const TextArea: FC<TextAreaProps> = ({
                 className={textAreaClassNames}
                 cols={textAreaCols}
                 disabled={disabled}
-                id={id ? id : textAreaId}
+                id={textAreaId}
                 maxLength={maxlength}
                 minLength={minlength}
                 name={name}

@@ -166,7 +166,7 @@ export interface InputLabelIconButtonProps {
     toolTipPositionStrategy?: Strategy;
 }
 
-export interface SearchBoxProps extends InputProps {
+export interface SearchBoxProps extends Omit<InputProps, 'htmlType'> {
     /**
      * The search box value.
      */
