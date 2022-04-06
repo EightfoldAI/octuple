@@ -20,29 +20,35 @@ export default {
 
 export const Primary = () => (
     <>
-        <h2>Primary</h2>
-        <p>Default Flex</p>
+        <h1>Primary</h1>
+        <h2>Default Flex</h2>
         <PrimaryButton
             ariaLabel="Primary Button"
             icon={IconName.mdiCardsHeart}
             onClick={_alertClicked}
             text="Primary Button"
         />
-        <p>Text only</p>
+        <br />
+        <br />
+        <h2>Text only</h2>
         <PrimaryButton
             ariaLabel="Primary Button"
             onClick={_alertClicked}
             size={ButtonSize.Large}
             text="Primary Button"
         />
-        <p>Icon only</p>
+        <br />
+        <br />
+        <h2>Icon only</h2>
         <PrimaryButton
             ariaLabel="Primary Button"
             icon={IconName.mdiCardsHeart}
             onClick={_alertClicked}
             size={ButtonSize.Large}
         />
-        <p>Text + Icon</p>
+        <br />
+        <br />
+        <h2>Text + Icon</h2>
         <PrimaryButton
             ariaLabel="Primary Button"
             icon={IconName.mdiCardsHeart}
@@ -50,7 +56,9 @@ export const Primary = () => (
             size={ButtonSize.Large}
             text="Primary Button"
         />
-        <p>Disruptive</p>
+        <br />
+        <br />
+        <h2>Disruptive</h2>
         <PrimaryButton
             ariaLabel="Primary Button"
             disruptive
@@ -63,22 +71,26 @@ export const Primary = () => (
 
 export const Secondary = () => (
     <>
-        <p>Secondary</p>
-        <p>Text only</p>
+        <h1>Secondary</h1>
+        <h2>Text only</h2>
         <SecondaryButton
             ariaLabel="Secondary Button"
             onClick={_alertClicked}
             size={ButtonSize.Large}
             text="Secondary Button"
         />
-        <p>Icon only</p>
+        <br />
+        <br />
+        <h2>Icon only</h2>
         <SecondaryButton
             ariaLabel="Secondary Button"
             icon={IconName.mdiCardsHeart}
             onClick={_alertClicked}
             size={ButtonSize.Large}
         />
-        <p>Text + Icon</p>
+        <br />
+        <br />
+        <h2>Text + Icon</h2>
         <SecondaryButton
             ariaLabel="Secondary Button"
             icon={IconName.mdiCardsHeart}
@@ -86,7 +98,9 @@ export const Secondary = () => (
             size={ButtonSize.Large}
             text="Secondary Button"
         />
-        <p>Disruptive</p>
+        <br />
+        <br />
+        <h2>Disruptive</h2>
         <SecondaryButton
             ariaLabel="Secondary Button"
             disruptive
@@ -99,22 +113,26 @@ export const Secondary = () => (
 
 export const Default = () => (
     <>
-        <p>Default Button</p>
-        <p>Text only</p>
+        <h1>Default Button</h1>
+        <h2>Text only</h2>
         <DefaultButton
             ariaLabel="Default Button"
             onClick={_alertClicked}
             size={ButtonSize.Large}
             text="Default Button"
         />
-        <p>Icon only</p>
+        <br />
+        <br />
+        <h2>Icon only</h2>
         <DefaultButton
             ariaLabel="Default Button"
             icon={IconName.mdiCardsHeart}
             onClick={_alertClicked}
             size={ButtonSize.Large}
         />
-        <p>Text + Icon</p>
+        <br />
+        <br />
+        <h2>Text + Icon</h2>
         <DefaultButton
             ariaLabel="Default Button"
             icon={IconName.mdiCardsHeart}
