@@ -43,7 +43,7 @@ export const TextInput: FC<TextInputProps> = ({
     value,
     waitInterval = 10,
 }) => {
-    const [clearButtonShown, setClearButtonShown] = React.useState(false);
+    const [clearButtonShown, setClearButtonShown] = useState<boolean>(false);
     const [inputId] = useState(uniqueId(id || 'input-'));
     const inputField: HTMLElement = document.getElementById(inputId);
 

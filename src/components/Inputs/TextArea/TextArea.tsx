@@ -72,7 +72,7 @@ export const TextArea: FC<TextAreaProps> = ({
                         {label}
                     </label>
                 )}
-                {labelIconButtonProps && labelIconButtonProps.show && (
+                {labelIconButtonProps?.show && (
                     <span className={styles.fieldLabelIconButton}>
                         <Tooltip
                             content={labelIconButtonProps.toolTipContent}
