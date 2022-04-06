@@ -15,11 +15,11 @@ export const PrimaryButton: FC<ButtonProps> = ({
     icon,
     iconColor,
     onClick,
-    primaryColor,
     size = ButtonSize.Flex,
     style,
     text,
     theme,
+    toggle,
 }) => {
     const buttonClassNames: string = classNames([
         className,
@@ -40,12 +40,12 @@ export const PrimaryButton: FC<ButtonProps> = ({
             icon={icon}
             iconColor={iconColor}
             onClick={onClick}
-            primaryColor={primaryColor}
             size={size}
             style={style}
             text={text}
             theme={theme}
             type={ButtonType.Primary}
+            toggle={toggle}
         />
     );
 };

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import {
     ButtonSize,
     DefaultButton,
@@ -6,6 +6,12 @@ import {
     SecondaryButton,
 } from './index';
 import { IconName } from '../Icon/index';
+import { useBoolean } from '../../hooks/useBoolean';
+
+interface ToggleButtonExampleProps {
+    // These are set based on the toggle shown (not needed in real code)
+    checked?: boolean;
+}
 
 export default {
     title: 'Button',
@@ -118,6 +124,54 @@ export const Default = () => (
         />
     </>
 );
+
+export const Toggle: FC<ToggleButtonExampleProps> = ({ checked }) => {
+    const [skill1Added, { toggle: set1Added }] = useBoolean(false);
+    const [skill2Added, { toggle: set2Added }] = useBoolean(false);
+    const [skill3Added, { toggle: set3Added }] = useBoolean(false);
+    return (
+        <>
+            <h1>Toggle With Text + Icon</h1>
+            <h2>
+                Note: Toggle buttons require the <code>toggle</code> attribute
+                in addition to <code>checked</code>.
+            </h2>
+            <span style={{ marginRight: 16 }}>
+                <PrimaryButton
+                    ariaLabel="Primary Button"
+                    checked={skill1Added || checked}
+                    icon={skill1Added ? IconName.mdiMinus : IconName.mdiPlus}
+                    onClick={set1Added}
+                    size={ButtonSize.Medium}
+                    text="Primary Button"
+                    toggle
+                />
+            </span>
+            <span style={{ marginRight: 16 }}>
+                <SecondaryButton
+                    ariaLabel="Secondary Button"
+                    checked={skill2Added || checked}
+                    icon={skill2Added ? IconName.mdiMinus : IconName.mdiPlus}
+                    onClick={set2Added}
+                    size={ButtonSize.Medium}
+                    text="Secondary Button"
+                    toggle
+                />
+            </span>
+            <span>
+                <DefaultButton
+                    ariaLabel="Default Button"
+                    checked={skill3Added || checked}
+                    icon={skill3Added ? IconName.mdiMinus : IconName.mdiPlus}
+                    onClick={set3Added}
+                    size={ButtonSize.Medium}
+                    text="Default Button"
+                    toggle
+                />
+            </span>
+        </>
+    );
+};
 
 function _alertClicked(): void {
     alert('Clicked');
