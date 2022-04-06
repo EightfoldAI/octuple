@@ -21,6 +21,7 @@ export const BaseButton: FC<InternalButtonProps> = ({
     disruptive = false,
     htmlType,
     icon,
+    iconColor,
     id,
     onClick,
     primaryColor,
@@ -95,7 +96,12 @@ export const BaseButton: FC<InternalButtonProps> = ({
     };
 
     const getButtonIcon = (icon: IconName): JSX.Element => (
-        <Icon className={styles.icon} path={icon} size={getButtonIconSize()} />
+        <Icon
+            className={styles.icon}
+            color={iconColor}
+            path={icon}
+            size={getButtonIconSize()}
+        />
     );
 
     const buttonStyles = (): CSSVariables => {
