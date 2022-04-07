@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { useState } from 'react';
 import { useConst } from './useConst';
 
 /** Updater callbacks returned by `useBoolean`. */
@@ -21,7 +21,7 @@ export type UseBooleanCallbacks = {
 export const useBoolean = (
     initialState: boolean
 ): [boolean, UseBooleanCallbacks] => {
-    const [value, setValue] = React.useState(initialState);
+    const [value, setValue] = useState<boolean>(initialState);
 
     const setTrue = useConst(() => () => {
         setValue(true);
