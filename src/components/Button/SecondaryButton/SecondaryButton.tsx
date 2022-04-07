@@ -15,11 +15,11 @@ export const SecondaryButton: FC<ButtonProps> = ({
     icon,
     iconColor,
     onClick,
-    primaryColor,
     text,
     theme,
     size = ButtonSize.Flex,
     style,
+    toggle,
 }) => {
     const buttonClassNames: string = classNames([
         className,
@@ -40,12 +40,12 @@ export const SecondaryButton: FC<ButtonProps> = ({
             icon={icon}
             iconColor={iconColor}
             onClick={onClick}
-            primaryColor={primaryColor}
             size={size}
             style={style}
             text={text}
             theme={theme}
             type={ButtonType.Secondary}
+            toggle={toggle}
         />
     );
 };
