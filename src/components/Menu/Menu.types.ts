@@ -1,14 +1,7 @@
 import { ButtonProps } from '../Button';
 import { ListProps } from '../List';
 
-export type MenuValue = string | number | boolean;
-
-export interface MenuItem extends Omit<ButtonProps, 'disruptive'> {
-    /**
-     * Unique value of the menu item
-     */
-    value: MenuValue;
-}
+export interface MenuItem extends Omit<ButtonProps, 'disruptive' | 'onClick'> {}
 
 export interface MenuProps
     extends Omit<ListProps<MenuItem>, 'renderItem' | 'role' | 'itemRole'> {
@@ -21,5 +14,7 @@ export interface MenuProps
      * On change callback when menu item is clicked
      * @param value {MenuItem}
      */
-    onChange?: (value: MenuValue) => void;
+    onChange?: (
+        value: string | ReadonlyArray<string> | number | undefined
+    ) => void;
 }
