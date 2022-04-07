@@ -16,13 +16,19 @@ import { Pill, PillSize, PillType } from './components/Pills';
 
 import { ConfigProvider } from './components/ConfigProvider';
 
+import { useBoolean } from './hooks/useBoolean';
+
 export {
     ButtonSize,
     ButtonTheme,
+    ConfigProvider,
     DefaultButton,
     Icon,
     IconName,
     IconSize,
+    Pill,
+    PillSize,
+    PillType,
     PrimaryButton,
     SecondaryButton,
     Tabs,
@@ -30,8 +36,5 @@ export {
     TabVariant,
     Tooltip,
     TooltipTheme,
-    Pill,
-    PillSize,
-    PillType,
-    ConfigProvider,
+    useBoolean,
 };

@@ -1,14 +1,8 @@
 import React, { FC } from 'react';
-import {
-    ButtonSize,
-    ButtonTheme,
-    ButtonType,
-    InternalButtonProps,
-} from './index';
+import { ButtonSize, ButtonTheme, InternalButtonProps } from './index';
 import { Icon, IconName, IconSize } from '../Icon/index';
 import { Breakpoints, useMatchMedia } from '../../shared/hooks';
-import { CSSVariables } from '../../shared/variables';
-import { classNames, invertForegroundColor } from '../../shared/utilities';
+import { classNames } from '../../shared/utilities';
 
 import styles from './button.module.scss';
 
@@ -18,18 +12,16 @@ export const BaseButton: FC<InternalButtonProps> = ({
     checked = false,
     className,
     disabled = false,
-    disruptive = false,
     htmlType,
     icon,
     iconColor,
     id,
     onClick,
-    primaryColor,
     size = ButtonSize.Flex,
     style,
     text,
     theme,
-    type = ButtonType.Default,
+    toggle,
 }) => {
     const largeScreenActive: boolean = useMatchMedia(Breakpoints.Large);
     const mediumScreenActive: boolean = useMatchMedia(Breakpoints.Medium);
@@ -104,61 +96,25 @@ export const BaseButton: FC<InternalButtonProps> = ({
         />
     );
 
-    const buttonStyles = (): CSSVariables => {
-        let buttonStyle: CSSVariables;
-        if (primaryColor && !disruptive) {
-            if (type === ButtonType.Default) {
-                buttonStyle = {
-                    ...style,
-                    // TODO: Assign primaryColor to css variables when available
-                    '--css-var-example': primaryColor,
-                };
-            } else if (type === ButtonType.Primary) {
-                buttonStyle = {
-                    ...style,
-                    // TODO: Assign primaryColor to css variables when available
-                    '--css-var-example': primaryColor,
-                };
-            } else if (type === ButtonType.Secondary) {
-                buttonStyle = {
-                    ...style,
-                    // TODO: Assign primaryColor to css variables when available
-                    '--css-var-example': primaryColor,
-                };
-            }
-        } else {
-            buttonStyle = style;
-        }
-        return buttonStyle;
-    };
-
     const getButtonText = (
         buttonTextClassNames: string,
         text: string
     ): JSX.Element => (
-        <span
-            className={buttonTextClassNames}
-            style={{
-                color:
-                    primaryColor && type === ButtonType.Primary
-                        ? invertForegroundColor(primaryColor)
-                        : 'inherit',
-            }}
-        >
-            {text ? text : 'Button'}
-        </span>
+        <span className={buttonTextClassNames}>{text ? text : 'Button'}</span>
     );
 
     return (
         <button
+            aria-checked={toggle ? !!checked : undefined}
             aria-disabled={allowDisabledFocus}
             aria-label={ariaLabel}
+            aria-pressed={toggle ? !!checked : undefined}
             defaultChecked={checked}
             disabled={disabled}
             className={buttonBaseClassNames}
             id={id}
             onClick={!allowDisabledFocus ? onClick : null}
-            style={buttonStyles()}
+            style={style}
             type={htmlType}
         >
             {iconExists && !textExists && getButtonIcon(icon)}

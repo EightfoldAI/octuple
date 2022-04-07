@@ -1,6 +1,6 @@
 .button {
     background-color: inherit;
-    border: rem(2px) solid $button-color-default-active;
+    border: rem(2px) solid rgba(var(--blue-color-40), 0.01);
     border-radius: $corner-radius-s;
     cursor: pointer;
     display: inline-block;
@@ -32,7 +32,7 @@
     }
 
     &:focus-visible {
-        outline: rem(2px) solid var(--primary-color-80);
+        outline: rem(2px) solid var(--blue-color-80);
         outline-offset: rem(-2px);
     }
 }
@@ -95,27 +95,28 @@
     }
 
     &:focus-visible {
-        border-color: var(--primary-color-80);
+        outline-color: var(--primary-color-80);
     }
 }
 
 .button-secondary {
-    border-color: var(--primary-color);
     color: var(--primary-color);
     background-color: var(--text-inverse-color);
+    outline: rem(2px) solid var(--primary-color);
+    outline-offset: rem(-2px);
 
     &:hover {
-        border-color: var(--primary-color-60);
         background-color: var(--primary-color-10);
+        outline-color: var(--primary-color-60);
     }
 
     &:active {
         color: var(--primary-color-80);
-        border-color: var(--primary-color-80);
+        outline-color: var(--primary-color-80);
     }
 
     &:focus-visible {
-        border-color: var(--primary-color-80);
+        outline-color: var(--primary-color-80);
     }
 }
 
@@ -135,52 +136,54 @@
     }
 
     &:focus-visible {
-        border-color: var(--disruptive-color-80);
+        outline-color: var(--disruptive-color-80);
     }
 }
 
 .button-secondary-disruptive {
-    border-color: var(--disruptive-color-70);
     color: var(--disruptive-color-70);
     background-color: var(--white-color);
+    outline: rem(2px) solid var(--disruptive-color-70);
+    outline-offset: rem(-2px);
 
     &:hover {
-        border-color: var(--disruptive-color-70);
         background-color: var(--disruptive-color-10);
+        outline-color: var(--disruptive-color-70);
     }
 
     &:active {
-        border-color: var(--disruptive-color-80);
         color: var(--disruptive-color-80);
+        outline-color: var(--disruptive-color-80);
     }
 
     &:focus-visible {
-        border-color: var(--disruptive-color-80);
+        outline-color: var(--disruptive-color-80);
     }
 }
 
 .button-default {
-    //border-color: $button-color-default-active;
     color: var(--primary-color);
+    outline: rem(2px) solid transparent;
+    outline-offset: rem(-2px);
 
     &:hover {
         background-color: var(--primary-color-20);
-        border-color: var(--primary-color-20);
+        outline-color: var(--primary-color-20);
     }
 
     &:active {
         background-color: var(--primary-color-10);
-        border-color: var(--primary-color-10);
+        outline-color: var(--primary-color-10);
     }
 
     &:focus-visible {
-        border-color: var(--primary-color-80);
+        outline-color: var(--primary-color-80);
     }
 }
 
 .button-neutral {
-    //border-color: $button-color-neutral-active;
     color: var(--text-secondary-color);
+    border: rem(2px) solid var(--grey-color-70);
 
     &:hover {
         background-color: var(--grey-color-20);
