@@ -37,6 +37,10 @@
     }
 }
 
+.button-stretch {
+    width: 100%;
+}
+
 .button-padding-1 {
     padding: $button-padding-vertical-large $button-padding-horizontal-large;
 }
@@ -102,7 +106,7 @@
 .button-secondary {
     color: var(--primary-color);
     background-color: var(--text-inverse-color);
-    outline: rem(2px) solid var(--primary-color);
+    outline: var(--primary-color) solid rem(2px);
     outline-offset: rem(-2px);
 
     &:hover {
@@ -143,7 +147,7 @@
 .button-secondary-disruptive {
     color: var(--disruptive-color-70);
     background-color: var(--white-color);
-    outline: rem(2px) solid var(--disruptive-color-70);
+    outline: var(--disruptive-color-70) solid rem(2px);
     outline-offset: rem(-2px);
 
     &:hover {
@@ -163,7 +167,7 @@
 
 .button-default {
     color: var(--primary-color);
-    outline: rem(2px) solid transparent;
+    outline: transparent solid rem(2px);
     outline-offset: rem(-2px);
 
     &:hover {
@@ -178,6 +182,26 @@
 
     &:focus-visible {
         outline-color: var(--primary-color-80);
+    }
+}
+
+.button-disruptive {
+    color: var(--disruptive-color-70);
+    outline: transparent solid rem(2px);
+    outline-offset: rem(-2px);
+
+    &:hover {
+        background-color: var(--disruptive-color-20);
+        outline-color: var(--disruptive-color-20);
+    }
+
+    &:active {
+        background-color: var(--disruptive-color-10);
+        outline-color: var(--disruptive-color-10);
+    }
+
+    &:focus-visible {
+        outline-color: var(--disruptive-color-80);
     }
 }
 
