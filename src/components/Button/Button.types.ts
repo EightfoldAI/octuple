@@ -54,6 +54,10 @@ export interface ButtonProps {
      */
     disruptive?: boolean;
     /**
+     * The button html type.
+     */
+    htmlType?: 'button' | 'submit' | 'reset';
+    /**
      * The button icon.
      */
     icon?: IconName;
@@ -101,11 +105,11 @@ export interface ButtonProps {
      */
     splitButtonMenuProps?: ButtonProps;
     /**
-     * The buton style.
+     * The button style.
      */
     style?: React.CSSProperties;
     /**
-     * The button html type.
+     * The button is a toggle button with distinct on and off states.
      */
-    htmlType?: 'button' | 'submit' | 'reset';
+    toggle?: boolean;
 }
