@@ -35,6 +35,8 @@ export const Menu: FC<MenuProps> = ({
             header={header}
             footer={footer}
             listType={listType}
+            role="menu"
+            itemRole="menuitem"
         />
     );
 };

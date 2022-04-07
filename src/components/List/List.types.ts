@@ -50,4 +50,12 @@ export interface ListProps<T> {
      * @default ul
      */
     listType?: 'ul' | 'ol';
+    /**
+     * Role of the list
+     */
+    role?: string;
+    /**
+     * Role of the list item
+     */
+    itemRole?: string;
 }

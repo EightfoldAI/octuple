@@ -10,7 +10,8 @@ export interface MenuItem extends Omit<ButtonProps, 'disruptive'> {
     value: MenuValue;
 }
 
-export interface MenuProps extends Omit<ListProps<MenuItem>, 'renderItem'> {
+export interface MenuProps
+    extends Omit<ListProps<MenuItem>, 'renderItem' | 'role' | 'itemRole'> {
     /**
      * If menu is disruptive or not
      * @default false

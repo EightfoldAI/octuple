@@ -81,13 +81,6 @@ export const Dropdown: FC<DropdownProps> = ({
         { [styles.close]: closing },
     ]);
 
-    const dropdownStyles: React.CSSProperties = {
-        ...dropdownStyle,
-        position: strategy,
-        top: y ?? '',
-        left: x ?? '',
-    };
-
     const mainWrapperClasses: string = classNames([
         className,
         styles.mainWrapper,
@@ -97,6 +90,13 @@ export const Dropdown: FC<DropdownProps> = ({
         styles.referenceWrapper,
         { [styles.disabled]: false },
     ]);
+
+    const dropdownStyles: React.CSSProperties = {
+        ...dropdownStyle,
+        position: strategy,
+        top: y ?? '',
+        left: x ?? '',
+    };
 
     const getReference = (): JSX.Element => (
         <div
@@ -111,7 +111,6 @@ export const Dropdown: FC<DropdownProps> = ({
     const getDropdown = (): JSX.Element =>
         visible && (
             <div
-                role="menu"
                 ref={floating}
                 style={dropdownStyles}
                 className={dropdownClasses}
@@ -123,7 +122,13 @@ export const Dropdown: FC<DropdownProps> = ({
         );
 
     return (
-        <div ref={mainWrapperRef} className={mainWrapperClasses} style={style}>
+        <div
+            ref={mainWrapperRef}
+            className={mainWrapperClasses}
+            aria-expanded={visible}
+            aria-haspopup={true}
+            style={style}
+        >
             {getReference()}
             {getDropdown()}
         </div>

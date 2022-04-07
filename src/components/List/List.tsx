@@ -16,6 +16,8 @@ export const List = <T extends any>({
     itemClassName,
     itemStyle,
     listType = 'ul',
+    role,
+    itemRole,
 }: ListProps<T>) => {
     const containerClasses: string = classNames([
         styles.listContainer,
@@ -42,6 +44,7 @@ export const List = <T extends any>({
             key={getItemKey(item, index)}
             className={itemClasses}
             style={itemStyle}
+            role={itemRole}
         >
             {renderItem(item)}
         </li>
@@ -51,7 +54,7 @@ export const List = <T extends any>({
         items.map((item: T, index) => getItem(item, index));
 
     return (
-        <div className={className} style={style}>
+        <div className={className} style={style} role={role}>
             {getHeader()}
             {listType === 'ul' && (
                 <ul className={containerClasses}>{getItems()}</ul>

@@ -7,7 +7,13 @@ export default {
     component: Dropdown,
 };
 
-const Overlay = () => <DefaultButton buttonWidth={ButtonWidth.fill} />;
+const Overlay = () => (
+    <div>
+        <DefaultButton buttonWidth={ButtonWidth.fill} />
+        <DefaultButton buttonWidth={ButtonWidth.fill} />
+        <DefaultButton buttonWidth={ButtonWidth.fill} />
+    </div>
+);
 
 export const Dropdowns = () => (
     <>
