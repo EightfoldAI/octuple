@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { IconName } from '../Icon/mdi';
+import { IconName } from '../Icon';
 
 export enum ButtonSize {
     Flex = 'flex',

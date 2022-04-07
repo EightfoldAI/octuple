@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
-import { ButtonSize, ButtonTheme, ButtonWidth, InternalButtonProps } from './index';
-import { Icon, IconName, IconSize } from '../Icon/index';
+import { ButtonSize, ButtonTheme, ButtonWidth, InternalButtonProps } from './';
+import { Icon, IconName, IconSize } from '../Icon';
 import { Breakpoints, useMatchMedia } from '../../hooks/useMatchMedia';
 import { classNames } from '../../shared/utilities';
 

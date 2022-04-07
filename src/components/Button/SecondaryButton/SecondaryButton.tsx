@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { classNames } from '../../../shared/utilities';
-import { BaseButton, ButtonProps, ButtonSize, ButtonType } from '../index';
+import { BaseButton, ButtonProps, ButtonSize, ButtonType } from '../';
 
 import styles from '../button.module.scss';
 

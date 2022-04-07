@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 export enum Breakpoints {
     Large = '(min-width: 1200px)',
