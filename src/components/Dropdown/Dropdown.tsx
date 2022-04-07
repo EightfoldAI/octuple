@@ -1,8 +1,8 @@
-import React, { FC, useEffect, useRef, useState } from 'react';
+import React, { cloneElement, FC, useEffect, useRef, useState } from 'react';
 import { DropdownProps } from './Dropdown.types';
 import { autoUpdate, shift, useFloating } from '@floating-ui/react-dom';
 import { offset as fOffset } from '@floating-ui/core';
-import { classNames } from '../../shared/utilities';
+import { classNames, uniqueId } from '../../shared/utilities';
 import { useOnClickOutside } from '../../hooks/useOnClickOutside';
 
 import styles from './dropdown.module.scss';
@@ -26,10 +26,12 @@ export const Dropdown: FC<DropdownProps> = ({
     overlay,
     offset = 0,
     positionStrategy = 'fixed',
+    onVisibleChange,
 }) => {
     const mainWrapperRef = useRef<HTMLDivElement>(null);
     const [visible, setVisible] = useState<boolean>(false);
     const [closing, setClosing] = useState<boolean>(false);
+    const [dropdownId] = useState<string>(uniqueId('dropdown-'));
     let timeout: ReturnType<typeof setTimeout>;
     const {
         x,
@@ -60,6 +62,10 @@ export const Dropdown: FC<DropdownProps> = ({
         };
 
     useOnClickOutside(mainWrapperRef, toggle(false));
+
+    useEffect(() => {
+        onVisibleChange?.(visible);
+    }, [visible]);
 
     useEffect(() => {
         if (!refs.reference.current || !refs.floating.current) {
@@ -98,15 +104,17 @@ export const Dropdown: FC<DropdownProps> = ({
         left: x ?? '',
     };
 
-    const getReference = (): JSX.Element => (
-        <div
-            {...{ [TRIGGER_TO_HANDLER_MAP[trigger]]: toggle(true) }}
-            ref={reference}
-            className={referenceWrapperClasses}
-        >
-            {children}
-        </div>
-    );
+    const getReference = (): JSX.Element => {
+        const child = React.Children.only(children) as React.ReactElement<any>;
+        return cloneElement(child, {
+            ...{ [TRIGGER_TO_HANDLER_MAP[trigger]]: toggle(true) },
+            ref: reference,
+            className: referenceWrapperClasses,
+            'aria-controls': dropdownId,
+            'aria-expanded': visible,
+            'aria-haspopup': true,
+        });
+    };
 
     const getDropdown = (): JSX.Element =>
         visible && (
@@ -116,19 +124,14 @@ export const Dropdown: FC<DropdownProps> = ({
                 className={dropdownClasses}
                 tabIndex={0}
                 onClick={toggle(false)}
+                id={dropdownId}
             >
                 {overlay}
             </div>
         );
 
     return (
-        <div
-            ref={mainWrapperRef}
-            className={mainWrapperClasses}
-            aria-expanded={visible}
-            aria-haspopup={true}
-            style={style}
-        >
+        <div ref={mainWrapperRef} className={mainWrapperClasses} style={style}>
             {getReference()}
             {getDropdown()}
         </div>

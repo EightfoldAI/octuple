@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { IconName } from '../Icon';
+import { Ref } from 'react';
 
 export enum ButtonSize {
     Flex = 'flex',
@@ -24,14 +25,20 @@ export enum ButtonType {
     Secondary = 'secondary',
 }
 
+export type NativeButtonProps = Omit<React.ButtonHTMLAttributes<any>, 'type'>;
+
 export interface InternalButtonProps extends ButtonProps {
     /**
      * Determines the button type.
      */
     type?: ButtonType;
+    /**
+     * Ref of the button
+     */
+    ref?: Ref<HTMLButtonElement>;
 }
 
-export interface ButtonProps {
+export interface ButtonProps extends NativeButtonProps {
     /**
      * Allows focus on the button when it's disabled.
      */

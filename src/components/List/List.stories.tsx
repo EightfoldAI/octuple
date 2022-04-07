@@ -20,12 +20,12 @@ const sampleList: User[] = [1, 2, 3, 4, 5].map((i) => ({
 
 export const Default = () => (
     <>
-        <h2>List vertical</h2>
+        <h1>List vertical</h1>
         <List<User>
             items={sampleList}
             renderItem={(item) => (
                 <div>
-                    <h3>{item.name}</h3>
+                    <h2>{item.name}</h2>
                     <div>{item.summary}</div>
                 </div>
             )}
@@ -36,7 +36,7 @@ export const Default = () => (
             }
             footer={
                 <div style={{ paddingLeft: '16px' }}>
-                    <h4>Footer</h4>
+                    <h3>Footer</h3>
                 </div>
             }
             itemStyle={{ padding: '8px 16px' }}
@@ -44,12 +44,12 @@ export const Default = () => (
         <br />
         <br />
         <br />
-        <h2>List horizontal</h2>
+        <h1>List horizontal</h1>
         <List<User>
             items={sampleList}
             renderItem={(item) => (
                 <div>
-                    <h3>{item.name}</h3>
+                    <h2>{item.name}</h2>
                     <div>{item.summary}</div>
                 </div>
             )}
@@ -60,7 +60,7 @@ export const Default = () => (
             }
             footer={
                 <div style={{ paddingLeft: '16px' }}>
-                    <h4>Footer</h4>
+                    <h3>Footer</h3>
                 </div>
             }
             itemStyle={{ padding: '8px 16px' }}
