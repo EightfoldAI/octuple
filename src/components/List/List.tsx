@@ -54,13 +54,17 @@ export const List = <T extends any>({
         items.map((item: T, index) => getItem(item, index));
 
     return (
-        <div className={className} style={style} role={role}>
+        <div className={className} style={style}>
             {getHeader()}
             {listType === 'ul' && (
-                <ul className={containerClasses}>{getItems()}</ul>
+                <ul role={role} className={containerClasses}>
+                    {getItems()}
+                </ul>
             )}
             {listType === 'ol' && (
-                <ol className={containerClasses}>{getItems()}</ol>
+                <ol role={role} className={containerClasses}>
+                    {getItems()}
+                </ol>
             )}
             {getFooter()}
         </div>
