@@ -1,0 +1,14 @@
+.list-container {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    &.vertical {
+        flex-direction: column;
+    }
+
+    .list-item {
+        list-style-type: none;
+    }
+}

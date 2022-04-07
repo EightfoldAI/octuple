@@ -5,7 +5,7 @@ import {
     PrimaryButton,
     SecondaryButton,
 } from './index';
-import { IconName } from '../Icon/index';
+import { IconName } from '../Icon';
 import { useBoolean } from '../../hooks/useBoolean';
 
 interface ToggleButtonExampleProps {

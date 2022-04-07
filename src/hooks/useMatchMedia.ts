@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 export enum Breakpoints {
     Large = '(min-width: 1200px)',
@@ -13,10 +13,9 @@ export enum Breakpoints {
  * @returns a boolean determining if the threshold viewport size has been hit.
  */
 export const useMatchMedia = (breakpoint: Breakpoints): boolean => {
-    const [threshold, setThreshold]: [
-        boolean,
-        React.Dispatch<React.SetStateAction<boolean>>
-    ] = useState(window.matchMedia(breakpoint).matches);
+    const [threshold, setThreshold] = useState<boolean>(
+        window.matchMedia(breakpoint).matches
+    );
     useEffect((): void => {
         window
             .matchMedia(breakpoint)

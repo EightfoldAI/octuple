@@ -64,15 +64,17 @@ export const Tooltip: FC<TooltipProps> = ({
         );
     }, [refs.reference, refs.floating, update]);
 
-    const toggle: Function = (show: boolean): void => {
-        timeout && clearTimeout(timeout);
-        timeout = setTimeout(
-            () => {
-                setVisible(show);
-            },
-            show ? openDelay : hideAfter
-        );
-    };
+    const toggle: Function =
+        (show: boolean): Function =>
+        (): void => {
+            timeout && clearTimeout(timeout);
+            timeout = setTimeout(
+                () => {
+                    setVisible(show);
+                },
+                show ? openDelay : hideAfter
+            );
+        };
 
     const tooltipClasses: string = classNames([
         className,
@@ -113,10 +115,10 @@ export const Tooltip: FC<TooltipProps> = ({
     return (
         <>
             <div
-                onMouseEnter={() => toggle(true)}
-                onFocus={() => toggle(true)}
-                onBlur={() => toggle(false)}
-                onMouseLeave={() => toggle(false)}
+                onMouseEnter={toggle(true)}
+                onFocus={toggle(true)}
+                onBlur={toggle(false)}
+                onMouseLeave={toggle(false)}
                 ref={reference}
                 className={referenceWrapperClasses}
             >
