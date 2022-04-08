@@ -2,10 +2,10 @@ import { IconName } from './mdi';
 import { IconProps as MdiIconProps } from '@mdi/react/dist/IconProps';
 
 export enum IconSize {
-    Large = '2.4rem',
-    Medium = '2rem',
-    Small = '1.6rem',
-    XSmall = '1.4rem',
+    Large = '24px',
+    Medium = '20px',
+    Small = '16px',
+    XSmall = '14px',
 }
 
 export interface IconProps extends MdiIconProps {
