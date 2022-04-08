@@ -1,6 +1,6 @@
 import React from 'react';
 import { IconName } from '../../Icon';
-import { TextInput, TextInputShape, InputWidth } from '../index';
+import { TextInput, TextInputShape, TextInputWidth } from '../index';
 
 export default {
     title: 'Text Input',
@@ -11,7 +11,7 @@ export const Input = () => (
     <>
         <h1>Text Inputs</h1>
         <h2>Text Input Stretch (Rectangle)</h2>
-        <TextInput label="Label" inputWidth={InputWidth.fill} />
+        <TextInput label="Label" inputWidth={TextInputWidth.fill} />
         <br />
         <br />
         <h2>Text Input with Icon and Icon Button (Rectangle)</h2>
@@ -62,7 +62,7 @@ export const Input = () => (
         <TextInput
             label="Label"
             shape={TextInputShape.Pill}
-            inputWidth={InputWidth.fill}
+            inputWidth={TextInputWidth.fill}
         />
         <br />
         <br />

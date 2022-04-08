@@ -1,6 +1,12 @@
 import React, { FC, Ref } from 'react';
 import { classNames } from '../../../shared/utilities';
-import { BaseButton, ButtonProps, ButtonSize, ButtonType } from '../';
+import {
+    ButtonShape,
+    BaseButton,
+    ButtonProps,
+    ButtonSize,
+    ButtonType,
+} from '../';
 
 import styles from '../button.module.scss';
 
@@ -13,12 +19,14 @@ export const SecondaryButton: FC<ButtonProps> = React.forwardRef(
             className,
             disabled = false,
             disruptive = false,
+            dropShadow = false,
             htmlType,
             icon,
             iconColor,
             onClick,
             text,
             theme,
+            shape = ButtonShape.Rectangle,
             size = ButtonSize.Flex,
             style,
             toggle,
@@ -42,10 +50,12 @@ export const SecondaryButton: FC<ButtonProps> = React.forwardRef(
                 className={buttonClassNames}
                 disabled={disabled}
                 disruptive={disruptive}
+                dropShadow={dropShadow}
                 htmlType={htmlType}
                 icon={icon}
                 iconColor={iconColor}
                 onClick={onClick}
+                shape={shape}
                 size={size}
                 style={style}
                 text={text}

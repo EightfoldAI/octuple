@@ -10,7 +10,7 @@ import { classNames } from '../../../shared/utilities';
 
 import styles from '../button.module.scss';
 
-export const PrimaryButton: FC<ButtonProps> = React.forwardRef(
+export const NeutralButton: FC<ButtonProps> = React.forwardRef(
     (
         {
             allowDisabledFocus = false,
@@ -18,38 +18,37 @@ export const PrimaryButton: FC<ButtonProps> = React.forwardRef(
             checked = false,
             className,
             disabled = false,
-            disruptive = false,
             dropShadow = false,
             htmlType,
             icon,
             iconColor,
             onClick,
+            text,
+            theme,
             shape = ButtonShape.Rectangle,
             size = ButtonSize.Flex,
             style,
-            text,
-            theme,
             toggle,
             buttonWidth,
+            ...rest
         },
         ref: Ref<HTMLButtonElement>
     ) => {
         const buttonClassNames: string = classNames([
             className,
             styles.button,
-            styles.buttonPrimary,
-            { [styles.buttonPrimaryDisruptive]: disruptive },
+            styles.buttonNeutral,
         ]);
 
         return (
             <BaseButton
+                {...rest}
                 ref={ref}
                 allowDisabledFocus={allowDisabledFocus}
                 ariaLabel={ariaLabel}
                 checked={checked}
                 className={buttonClassNames}
                 disabled={disabled}
-                disruptive={disruptive}
                 dropShadow={dropShadow}
                 htmlType={htmlType}
                 icon={icon}
@@ -60,7 +59,7 @@ export const PrimaryButton: FC<ButtonProps> = React.forwardRef(
                 style={style}
                 text={text}
                 theme={theme}
-                type={ButtonType.Primary}
+                type={ButtonType.Neutral}
                 toggle={toggle}
                 buttonWidth={buttonWidth}
             />

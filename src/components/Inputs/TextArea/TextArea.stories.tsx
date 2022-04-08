@@ -1,5 +1,5 @@
 import React from 'react';
-import { InputWidth, TextArea } from '../index';
+import { TextArea, TextInputWidth } from '../index';
 
 export default {
     title: 'Text Area',
@@ -10,7 +10,7 @@ export const Area = () => (
     <>
         <h1>Text Areas</h1>
         <h2>Text Area No Expand Stretch (Rectangle)</h2>
-        <TextArea label="Label" inputWidth={InputWidth.fill} />
+        <TextArea label="Label" inputWidth={TextInputWidth.fill} />
         <br />
         <br />
         <h2>Text Area No Expand With Icon Button (Rectangle)</h2>

@@ -14,6 +14,11 @@ export enum ButtonWidth {
     fill = 'fill',
 }
 
+export enum ButtonShape {
+    Rectangle = 'rectangle',
+    Pill = 'pill',
+}
+
 export enum ButtonTheme {
     light = 'light',
     dark = 'dark',
@@ -21,6 +26,7 @@ export enum ButtonTheme {
 
 export enum ButtonType {
     Default = 'default',
+    Neutral = 'neutral',
     Primary = 'primary',
     Secondary = 'secondary',
 }
@@ -66,6 +72,11 @@ export interface ButtonProps extends NativeButtonProps {
      */
     disruptive?: boolean;
     /**
+     * The button drop shadow state.
+     * @default false
+     */
+    dropShadow?: boolean;
+    /**
      * The button html type.
      */
     htmlType?: 'button' | 'submit' | 'reset';
@@ -90,14 +101,10 @@ export interface ButtonProps extends NativeButtonProps {
      */
     primaryColor?: string;
     /**
-     * The button text.
+     * Shape of the button.
+     * @default ButtonShape.Rectangle
      */
-    text?: string;
-    /**
-     * The button theme.
-     * @default light
-     */
-    theme?: ButtonTheme;
+    shape?: ButtonShape;
     /**
      * The button size.
      * @default ButtonSize.Medium
@@ -120,6 +127,15 @@ export interface ButtonProps extends NativeButtonProps {
      * The button style.
      */
     style?: React.CSSProperties;
+    /**
+     * The button text.
+     */
+    text?: string;
+    /**
+     * The button theme.
+     * @default light
+     */
+    theme?: ButtonTheme;
     /**
      * The button is a toggle button with distinct on and off states.
      */

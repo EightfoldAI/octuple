@@ -8,7 +8,7 @@ export enum TextInputTheme {
     dark = 'dark',
 }
 
-export enum InputWidth {
+export enum TextInputWidth {
     fitContent = 'fitContent',
     fill = 'fill',
 }
@@ -258,7 +258,7 @@ export interface InputProps {
      * Width of the tooltip
      * @default fitContent
      */
-    inputWidth?: InputWidth;
+    inputWidth?: TextInputWidth;
     /**
      * The input icon img element source.
      */
