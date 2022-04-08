@@ -4,7 +4,7 @@ export enum Breakpoints {
     Large = '(min-width: 1200px)',
     Medium = '(min-width: 900px)',
     Small = '(min-width: 600px)',
-    XSmall = '(max-width: 599px)',
+    XSmall = '(min-width: 0)',
 }
 
 /**

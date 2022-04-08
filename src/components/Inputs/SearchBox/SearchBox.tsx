@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { IconName } from '../../Icon';
 import {
-    InputWidth,
+    TextInputWidth,
     SearchBoxProps,
     TextInput,
     TextInputShape,
@@ -21,7 +21,7 @@ export const SearchBox: FC<SearchBoxProps> = ({
         disabled: false,
         icon: IconName.mdiMagnify,
     },
-    inputWidth = InputWidth.fitContent,
+    inputWidth = TextInputWidth.fitContent,
     label,
     labelIconButtonProps,
     maxlength,
