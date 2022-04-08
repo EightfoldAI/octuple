@@ -37,14 +37,14 @@ const Overlay = (disruptive: boolean) => (
 
 export const Menus = () => (
     <>
-        <h2>Menu</h2>
+        <p>Menu</p>
         <Dropdown overlay={Overlay(false)}>
             <DefaultButton text={'Menu dropdown'} />
         </Dropdown>
         <br />
         <br />
         <br />
-        <h2>Menu (disruptive)</h2>
+        <p>Menu (disruptive)</p>
         <Dropdown overlay={Overlay(true)}>
             <DefaultButton text={'Menu dropdown'} disruptive />
         </Dropdown>
