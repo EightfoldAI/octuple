@@ -1,5 +1,11 @@
 import React, { FC, Ref } from 'react';
-import { ButtonSize, ButtonTheme, ButtonWidth, InternalButtonProps } from './';
+import {
+    ButtonShape,
+    ButtonSize,
+    ButtonTheme,
+    ButtonWidth,
+    InternalButtonProps,
+} from './';
 import { Icon, IconName, IconSize } from '../Icon';
 import { Breakpoints, useMatchMedia } from '../../hooks/useMatchMedia';
 import { classNames } from '../../shared/utilities';
@@ -14,11 +20,13 @@ export const BaseButton: FC<InternalButtonProps> = React.forwardRef(
             checked = false,
             className,
             disabled = false,
+            dropShadow = false,
             htmlType,
             icon,
             iconColor,
             id,
             onClick,
+            shape = ButtonShape.Rectangle,
             size = ButtonSize.Flex,
             style,
             text,
@@ -59,6 +67,8 @@ export const BaseButton: FC<InternalButtonProps> = React.forwardRef(
             { [styles.buttonPadding2]: size === ButtonSize.Medium },
             { [styles.buttonPadding3]: size === ButtonSize.Small },
             { [styles.buttonStretch]: buttonWidth === ButtonWidth.fill },
+            { [styles.pillShape]: shape === ButtonShape.Pill },
+            { [styles.dropShadow]: dropShadow },
             { [styles.dark]: theme === ButtonTheme.dark },
             { [styles.disabled]: allowDisabledFocus || disabled },
         ]);

@@ -1,5 +1,11 @@
 import React, { FC, Ref } from 'react';
-import { BaseButton, ButtonProps, ButtonSize, ButtonType } from '../';
+import {
+    ButtonShape,
+    BaseButton,
+    ButtonProps,
+    ButtonSize,
+    ButtonType,
+} from '../';
 import { classNames } from '../../../shared/utilities';
 
 import styles from '../button.module.scss';
@@ -12,12 +18,14 @@ export const DefaultButton: FC<ButtonProps> = React.forwardRef(
             checked = false,
             className,
             disabled = false,
+            dropShadow = false,
             htmlType,
             icon,
             iconColor,
             onClick,
             text,
             theme,
+            shape = ButtonShape.Rectangle,
             size = ButtonSize.Flex,
             style,
             toggle,
@@ -43,10 +51,12 @@ export const DefaultButton: FC<ButtonProps> = React.forwardRef(
                 checked={checked}
                 className={buttonClassNames}
                 disabled={disabled}
+                dropShadow={dropShadow}
                 htmlType={htmlType}
                 icon={icon}
                 iconColor={iconColor}
                 onClick={onClick}
+                shape={shape}
                 size={size}
                 style={style}
                 text={text}
