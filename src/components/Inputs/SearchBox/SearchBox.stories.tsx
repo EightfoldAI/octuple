@@ -1,6 +1,6 @@
 import React from 'react';
 import { IconName } from '../../Icon';
-import { InputWidth, SearchBox, TextInputShape } from '../index';
+import { SearchBox, TextInputShape, TextInputWidth } from '../index';
 
 export default {
     title: 'Search Box',
@@ -11,7 +11,7 @@ export const Search = () => (
     <>
         <h1>Search Boxes</h1>
         <h2>Search Box Stretch (Rectangle)</h2>
-        <SearchBox label="Label" inputWidth={InputWidth.fill} />
+        <SearchBox label="Label" inputWidth={TextInputWidth.fill} />
         <br />
         <br />
         <h2>Search Box with Icon and Icon Button (Rectangle)</h2>
@@ -49,7 +49,7 @@ export const Search = () => (
         <SearchBox
             label="Label"
             shape={TextInputShape.Pill}
-            inputWidth={InputWidth.fill}
+            inputWidth={TextInputWidth.fill}
             iconButtonProps={{
                 icon: IconName.mdiMagnify,
                 onClick: (_event: React.MouseEvent) => _alertClicked(_event),
