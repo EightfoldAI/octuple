@@ -1,6 +1,6 @@
 .button {
     background-color: inherit;
-    border: rem(2px) solid rgba(var(--blue-color-40), 0.01);
+    border: 2px solid rgba(var(--blue-color-40), 0.01);
     border-radius: $corner-radius-s;
     cursor: pointer;
     display: inline-block;
@@ -49,8 +49,8 @@
     }
 
     &:focus-visible {
-        outline: rem(2px) solid var(--blue-color-80);
-        outline-offset: rem(-2px);
+        outline: 2px solid var(--blue-color-80);
+        outline-offset: -2px;
     }
 }
 
@@ -119,8 +119,8 @@
 .button-secondary {
     color: var(--primary-color);
     background-color: var(--text-inverse-color);
-    outline: var(--primary-color) solid rem(2px);
-    outline-offset: rem(-2px);
+    outline: var(--primary-color) solid 2px;
+    outline-offset: -2px;
 
     &:hover {
         background-color: var(--primary-color-10);
@@ -160,8 +160,8 @@
 .button-secondary-disruptive {
     color: var(--disruptive-color-70);
     background-color: var(--white-color);
-    outline: var(--disruptive-color-70) solid rem(2px);
-    outline-offset: rem(-2px);
+    outline: var(--disruptive-color-70) solid 2px;
+    outline-offset: -2px;
 
     &:hover {
         background-color: var(--disruptive-color-10);
@@ -180,8 +180,8 @@
 
 .button-default {
     color: var(--primary-color);
-    outline: transparent solid rem(2px);
-    outline-offset: rem(-2px);
+    outline: transparent solid 2px;
+    outline-offset: -2px;
 
     &:hover {
         background-color: var(--primary-color-20);
@@ -200,8 +200,8 @@
 
 .button-disruptive {
     color: var(--disruptive-color-70);
-    outline: transparent solid rem(2px);
-    outline-offset: rem(-2px);
+    outline: transparent solid 2px;
+    outline-offset: -2px;
 
     &:hover {
         background-color: var(--disruptive-color-20);
@@ -220,8 +220,8 @@
 
 .button-neutral {
     color: var(--text-secondary-color);
-    outline: transparent solid rem(2px);
-    outline-offset: rem(-2px);
+    outline: transparent solid 2px;
+    outline-offset: -2px;
 
     &:hover {
         background-color: var(--grey-color-20);

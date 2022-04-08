@@ -5,26 +5,26 @@
     input[type='search'],
     input[type='text'] {
         background-color: var(--background-color);
-        border: rem(1px) solid var(--border-color);
+        border: 1px solid var(--border-color);
         border-radius: $corner-radius-s;
         box-sizing: border-box;
         color: var(--grey-color-60);
         font-family: 'Source Sans Pro', sans-serif;
         font-size: $text-font-size-3;
-        min-width: rem(320px);
-        padding: $space-xs calc($space-xxl + rem(4px)) $space-xs $space-xs;
+        min-width: 320px;
+        padding: $space-xs calc($space-xxl + 4px) $space-xs $space-xs;
 
         &::-webkit-search-cancel-button {
             -webkit-appearance: none;
         }
 
         &.with-icon {
-            padding: $space-xs calc($space-xxl + rem(4px)) $space-xs $space-xl;
+            padding: $space-xs calc($space-xxl + 4px) $space-xs $space-xl;
         }
 
         &.with-image-icon {
-            padding: $space-xs calc($space-xxl + rem(4px)) $space-xs
-                calc($space-xl + rem(4px));
+            padding: $space-xs calc($space-xxl + 4px) $space-xs
+                calc($space-xl + 4px);
         }
 
         &.with-icon-button {
@@ -113,7 +113,7 @@
         }
 
         &.pill-shape-with-image-icon {
-            padding: $space-xs $space-s $space-xs calc($space-xl + rem(4px));
+            padding: $space-xs $space-s $space-xs calc($space-xl + 4px);
         }
 
         &.pill-shape-with-icon-button {
@@ -154,8 +154,8 @@
         }
 
         &:focus-visible {
-            outline: rem(2px) solid var(--primary-color-40);
-            outline-offset: rem(-2px);
+            outline: 2px solid var(--primary-color-40);
+            outline-offset: -2px;
         }
 
         &.input-stretch {
@@ -165,26 +165,26 @@
 
     .icon-wrapper {
         bottom: 0;
-        height: rem(36px);
+        height: 36px;
         position: absolute;
-        width: rem(36px);
+        width: 36px;
 
         &.left-icon {
-            left: rem(4px);
+            left: 4px;
         }
 
         &.right-icon {
-            right: rem(4px);
+            right: 4px;
         }
 
         span {
-            padding: rem(8px) rem(4px);
+            padding: 8px 4px;
         }
 
         img {
             display: inline-block;
             height: 100%;
-            padding: rem(3px) rem(3px);
+            padding: 3px 3px;
             max-width: 30px;
             vertical-align: middle;
         }
@@ -196,19 +196,19 @@
 
     .icon-button {
         background-color: var(--background-color);
-        bottom: rem(1px);
+        bottom: 1px;
         color: var(--grey-color-60);
-        height: rem(34px);
+        height: 34px;
         padding: $button-padding-vertical-small $space-xxs;
         position: absolute;
         transition: none;
 
         &.left-icon {
-            left: rem(2px);
+            left: 2px;
         }
 
         &.right-icon {
-            right: rem(2px);
+            right: 2px;
         }
 
         svg {
@@ -237,20 +237,20 @@
         }
 
         &:focus-visible {
-            outline: rem(2px) solid var(--primary-color-40);
-            outline-offset: rem(-2px);
+            outline: 2px solid var(--primary-color-40);
+            outline-offset: -2px;
         }
     }
 
     .clear-icon-button {
         background-color: transparent;
-        bottom: rem(1px);
+        bottom: 1px;
         color: var(--grey-color-60);
-        height: rem(35px);
+        height: 35px;
         position: absolute;
-        right: rem(1px);
+        right: 1px;
         transition: none;
-        width: rem(35px);
+        width: 35px;
 
         &:hover {
             border-color: transparent;
@@ -265,8 +265,8 @@
         &:active,
         &:focus-visible {
             background-color: transparent;
-            outline: rem(2px) solid var(--primary-color-40);
-            outline-offset: rem(-2px);
+            outline: 2px solid var(--primary-color-40);
+            outline-offset: -2px;
 
             svg {
                 color: var(--grey-color-80);
@@ -274,8 +274,8 @@
         }
 
         &:focus-visible {
-            outline: rem(2px) solid var(--primary-color-40);
-            outline-offset: rem(-2px);
+            outline: 2px solid var(--primary-color-40);
+            outline-offset: -2px;
         }
     }
 
@@ -315,21 +315,21 @@
 
     .field-label-icon-button {
         display: inline-block;
-        margin-left: rem(4px);
-        margin-top: rem(1px);
+        margin-left: 4px;
+        margin-top: 1px;
         vertical-align: top;
 
         .label-icon-button {
             border-radius: 100%;
             box-sizing: border-box;
-            border-width: rem(1px);
+            border-width: 1px;
             padding: 0;
 
             &:active,
             &:focus-visible {
                 background-color: transparent;
-                outline: rem(2px) solid var(--primary-color-40);
-                outline-offset: rem(-2px);
+                outline: 2px solid var(--primary-color-40);
+                outline-offset: -2px;
                 padding: 0;
             }
         }
@@ -337,14 +337,14 @@
 
     .text-area {
         background-color: var(--background-color);
-        border: rem(1px) solid --border-color;
+        border: 1px solid --border-color;
         border-radius: $corner-radius-s;
         box-sizing: border-box;
         color: var(--grey-color-60);
         font-family: 'Source Sans Pro', sans-serif;
         font-size: $text-font-size-3;
-        min-height: rem(64px);
-        min-width: rem(320px);
+        min-height: 64px;
+        min-width: 320px;
         padding: $space-xs;
 
         &::-webkit-resizer {
@@ -356,8 +356,8 @@
         }
 
         &:focus-visible {
-            outline: rem(2px) solid var(--primary-color-40);
-            outline-offset: rem(-2px);
+            outline: 2px solid var(--primary-color-40);
+            outline-offset: -2px;
         }
 
         &.input-stretch {
@@ -367,8 +367,8 @@
 
     .text-area-resize-icon {
         position: absolute;
-        bottom: rem(7px);
-        right: rem(4px);
+        bottom: 7px;
+        right: 4px;
     }
 
     &.input-stretch {
