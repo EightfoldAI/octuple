@@ -66,7 +66,7 @@ const ThemedComponents = () => {
                                 name: e.target.value as OcThemeNames,
                             });
                         }}
-                        style={{ fontSize: '1.4rem' }}
+                        style={{ fontSize: '1rem' }}
                     >
                         {themes.map((theme) => (
                             <option value={theme} key={theme}>

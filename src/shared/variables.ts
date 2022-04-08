@@ -126,5 +126,49 @@ export interface CSSVariables extends React.CSSProperties {
     '--white-color'?: string;
     '--black-color'?: string;
 
+    '--button-primary-default-foreground-color'?: string;
+    '--button-primary-hover-foreground-color'?: string;
+    '--button-primary-focus-foreground-color'?: string;
+    '--button-primary-active-foreground-color'?: string;
+    '--button-primary-visited-foreground-color'?: string;
+
+    '--button-primary-default-background-color'?: string;
+    '--button-primary-hover-background-color'?: string;
+    '--button-primary-focus-background-color'?: string;
+    '--button-primary-active-background-color'?: string;
+    '--button-primary-visited-background-color'?: string;
+
+    '--button-primary-default-border-color'?: string;
+    '--button-primary-hover-border-color'?: string;
+    '--button-primary-focus-border-color'?: string;
+    '--button-primary-active-border-color'?: string;
+    '--button-primary-visited-border-color'?: string;
+
+    '--button-neutral-default-foreground-color'?: string;
+    '--button-neutral-hover-foreground-color'?: string;
+    '--button-neutral-focus-foreground-color'?: string;
+    '--button-neutral-active-foreground-color'?: string;
+    '--button-neutral-visited-foreground-color'?: string;
+
+    '--button-default-foreground-color'?: string;
+    '--button-hover-foreground-color'?: string;
+    '--button-focus-foreground-color'?: string;
+    '--button-active-foreground-color'?: string;
+    '--button-visited-foreground-color'?: string;
+
+    '--button-default-background-color'?: string;
+    '--button-hover-background-color'?: string;
+    '--button-focus-background-color'?: string;
+    '--button-active-background-color'?: string;
+    '--button-visited-background-color'?: string;
+
+    '--button-hover-variant-background-color'?: string;
+
+    '--button-default-outline-color'?: string;
+    '--button-hover-outline-color'?: string;
+    '--button-focus-outline-color'?: string;
+    '--button-active-outline-color'?: string;
+    '--button-visited-outline-color'?: string;
+
     '--font-size'?: string;
 }
