@@ -171,44 +171,44 @@ $shadow-panel-right: -1px 0px 2px rgba(15, 20, 31, 0.12),
 
 // Spacing Definitions
 
-$space-xxxs: rem(2px);
-$space-xxs: rem(4px);
-$space-xs: rem(8px);
-$space-s: rem(12px);
-$space-m: rem(16px);
-$space-l-fitted: rem(20px);
-$space-l: rem(24px);
-$space-xl: rem(32px);
-$space-xxl: rem(40px);
-$space-xxxl: rem(64px);
+$space-xxxs: 2px;
+$space-xxs: 4px;
+$space-xs: 8px;
+$space-s: 12px;
+$space-m: 16px;
+$space-l-fitted: 20px;
+$space-l: 24px;
+$space-xl: 32px;
+$space-xxl: 40px;
+$space-xxxl: 64px;
 
-$button-padding-vertical-large: rem(10px);
-$button-padding-horizontal-large: rem(14px);
-$button-padding-menu-large: rem(10px);
-$button-spacer-large: rem(8px);
-$button-padding-vertical-default-large: rem(10px);
-$button-padding-horizontal-default-large: rem(2px);
+$button-padding-vertical-large: 10px;
+$button-padding-horizontal-large: 14px;
+$button-padding-menu-large: 10px;
+$button-spacer-large: 8px;
+$button-padding-vertical-default-large: 10px;
+$button-padding-horizontal-default-large: 2px;
 
-$button-padding-vertical-medium: rem(8px);
-$button-padding-horizontal-medium: rem(12px);
-$button-padding-menu-medium: rem(8px);
-$button-spacer-medium: rem(6px);
-$button-padding-vertical-default-medium: rem(8px);
-$button-padding-horizontal-default-medium: rem(2px);
+$button-padding-vertical-medium: 8px;
+$button-padding-horizontal-medium: 12px;
+$button-padding-menu-medium: 8px;
+$button-spacer-medium: 6px;
+$button-padding-vertical-default-medium: 8px;
+$button-padding-horizontal-default-medium: 2px;
 
-$button-padding-vertical-small: rem(6px);
-$button-padding-horizontal-small: rem(10px);
-$button-padding-menu-small: rem(4px);
-$button-spacer-small: rem(4px);
-$button-padding-vertical-default-small: rem(6px);
-$button-padding-horizontal-default-small: rem(2px);
+$button-padding-vertical-small: 6px;
+$button-padding-horizontal-small: 10px;
+$button-padding-menu-small: 4px;
+$button-spacer-small: 4px;
+$button-padding-vertical-default-small: 6px;
+$button-padding-horizontal-default-small: 2px;
 
 // Corner-radius Definitions
 
-$corner-radius-s: rem(4px);
-$corner-radius-m: rem(8px);
-$corner-radius-l: rem(16px);
-$corner-radius-xl: rem(24px);
+$corner-radius-s: 4px;
+$corner-radius-m: 8px;
+$corner-radius-l: 16px;
+$corner-radius-xl: 24px;
 
 // Speed / Duration Definitions
 
@@ -241,14 +241,10 @@ $motion-easing-easeinout: cubic-bezier(
 
 // Movement Definitions
 
-$motion-movement-s: rem(
-    8px
-); // Used in animations involving parts of a component
-$motion-movement-m: rem(16px); // Used in animations of smaller components
-$motion-movement-l: rem(24px); // Used in animations of larger components
-$motion-movement-xl: rem(
-    32px
-); // Used in animations involving the largest components
+$motion-movement-s: 8px; // Used in animations involving parts of a component
+$motion-movement-m: 16px; // Used in animations of smaller components
+$motion-movement-l: 24px; // Used in animations of larger components
+$motion-movement-xl: 32px; // Used in animations involving the largest components
 
 // Delay Definitions
 

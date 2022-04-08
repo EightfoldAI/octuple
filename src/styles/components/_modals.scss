@@ -1,86 +1,80 @@
 .modal-backdrop {
-  position: fixed;
-  background-color: $all-backdrops;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: $z-index-500;
-  visibility: hidden;
-  opacity: 0;
-  pointer-events: none;
-  transition: all $motion-duration-extra-fast $motion-easing-easeinout 0s;
+    position: fixed;
+    background-color: $all-backdrops;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: $z-index-500;
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+    transition: all $motion-duration-extra-fast $motion-easing-easeinout 0s;
 
-  &:target {
-    visibility: visible;
-    opacity: 1;
-    pointer-events: auto;
-  }
-
-  & > div {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    //padding: $space-l-fitted;
-    background: $card-background-color;
-    border-radius: $corner-radius-m;
-    box-shadow: $shadow-object-l;
-
-    &.small-modal{
-      width: rem(480px);
-      max-height: rem(640px);
+    &:target {
+        visibility: visible;
+        opacity: 1;
+        pointer-events: auto;
     }
 
-    &.medium-modal{
-      width: rem(640px);
-      max-height: rem(640px);
-    }
+    & > div {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        //padding: $space-l-fitted;
+        background: $card-background-color;
+        border-radius: $corner-radius-m;
+        box-shadow: $shadow-object-l;
 
-    &.large-modal{
-      width: rem(960px);
-      max-height: rem(640px);
-    }
-
-    .modal-header{
-      display: flex;
-      flex-direction: row;
-      padding: $space-l $space-l $space-m $space-xl;
-
-      .header-text{
-
-        .small-header-width{
-          width: rem(380px);
+        &.small-modal {
+            width: 480px;
+            max-height: 640px;
         }
 
-        .medium-header-width{
-        width: rem(540px);
+        &.medium-modal {
+            width: 640px;
+            max-height: 640px;
         }
 
-        .large-header-width{
-        width: rem(860px);
+        &.large-modal {
+            width: 960px;
+            max-height: 640px;
         }
 
-      }
+        .modal-header {
+            display: flex;
+            flex-direction: row;
+            padding: $space-l $space-l $space-m $space-xl;
 
+            .header-text {
+                .small-header-width {
+                    width: 380px;
+                }
+
+                .medium-header-width {
+                    width: 540px;
+                }
+
+                .large-header-width {
+                    width: 860px;
+                }
+            }
+        }
+
+        .modal-body {
+            display: flex;
+            flex-direction: column;
+            padding: $disabled-zero $space-xl;
+            height: 484px;
+            overflow-y: scroll;
+        }
+
+        .modal-buttons {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-end;
+            padding: $space-m $space-xl $space-l $space-xl;
+        }
     }
-
-    .modal-body{
-      display: flex;
-      flex-direction: column;
-      padding: $disabled-zero $space-xl;
-      height: rem(484px);
-      overflow-y: scroll;
-
-    }
-
-    .modal-buttons{
-      display: flex;
-      flex-direction: row;
-      justify-content: flex-end;
-      padding: $space-m $space-xl $space-l $space-xl;
-    }
-
-  }
-
 }
