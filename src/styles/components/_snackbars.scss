@@ -1,46 +1,43 @@
-.snackbars{
-
-  display: flex;
-  flex-direction: row;
-  background-color: $card-background-color;
-  align-items: stretch;
-  box-shadow: $shadow-object-l;
-  border-radius: $space-s;
-  max-width: rem(640px);
-  overflow: hidden;
-
-  .message-container{
+.snackbars {
     display: flex;
     flex-direction: row;
-    padding: $space-m;
-    align-items: center;
-    width: 100%;
-    gap: rem(4px);
+    background-color: $card-background-color;
+    align-items: stretch;
+    box-shadow: $shadow-object-l;
+    border-radius: $space-s;
+    max-width: 640px;
+    overflow: hidden;
 
+    .message-container {
+        display: flex;
+        flex-direction: row;
+        padding: $space-m;
+        align-items: center;
+        width: 100%;
+        gap: 4px;
 
-      &.neutral{
-        color: $color-secondary-grey;
-      }
+        &.neutral {
+            color: $color-secondary-grey;
+        }
 
-      &.positive{
-        color: $color-secondary-green;
-      }
+        &.positive {
+            color: $color-secondary-green;
+        }
 
-      &.warning{
-        color: $color-secondary-orange;
-      }
+        &.warning {
+            color: $color-secondary-orange;
+        }
 
-      &.disruptive{
-        color: $color-secondary-red;
-      }
+        &.disruptive {
+            color: $color-secondary-red;
+        }
     }
 
-  .buttons-container{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: rem(8px);
-    padding: $space-m;
-  }
-
+    .buttons-container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 8px;
+        padding: $space-m;
+    }
 }
