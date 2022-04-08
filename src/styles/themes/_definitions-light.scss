@@ -1,3 +1,9 @@
+$font-size: var(--font-size);
+
+html {
+    font-size: $font-size;
+}
+
 // BEGIN: VARIABLE COLOR DEFINITIONS
 
 $color-background1-red: var(--red-color-10);
