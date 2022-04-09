@@ -58,7 +58,7 @@ const ThemedComponents = () => {
             </h1>
             <div style={{ display: 'flex', alignItems: 'flex-start' }}>
                 <div style={{ marginRight: '40px' }}>
-                    <h2>Predefined</h2>
+                    <p>Predefined</p>
                     <select
                         value={themeOptions.name}
                         onChange={(e) => {
@@ -66,7 +66,7 @@ const ThemedComponents = () => {
                                 name: e.target.value as OcThemeNames,
                             });
                         }}
-                        style={{ fontSize: '1.4rem' }}
+                        style={{ fontSize: '1rem' }}
                     >
                         {themes.map((theme) => (
                             <option value={theme} key={theme}>
@@ -77,7 +77,7 @@ const ThemedComponents = () => {
                 </div>
                 <br />
                 <div>
-                    <h2>Custom</h2>
+                    <p>Custom</p>
                     <CompactPicker
                         color={customColor}
                         onChange={(color) => {
