@@ -229,7 +229,7 @@
         &:hover {
             background-color: var(--background-color);
             padding: $button-padding-vertical-small $space-xxs;
-            border-color: transparent;
+            outline-color: transparent;
 
             svg {
                 color: var(--grey-color-80);

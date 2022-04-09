@@ -24,7 +24,7 @@ export default {
 export const Primary = () => (
     <>
         <h1>Primary</h1>
-        <h2>Default Flex</h2>
+        <p>Default Flex</p>
         <PrimaryButton
             ariaLabel="Primary Button"
             icon={IconName.mdiCardsHeart}
@@ -33,7 +33,7 @@ export const Primary = () => (
         />
         <br />
         <br />
-        <h2>Default Flex (Fill)</h2>
+        <p>Default Flex (Fill)</p>
         <div style={{ width: '50%' }}>
             <PrimaryButton
                 ariaLabel="Primary Button"
@@ -44,7 +44,7 @@ export const Primary = () => (
             />
         </div>
         <br />
-        <h2>Text only</h2>
+        <p>Text only</p>
         <PrimaryButton
             ariaLabel="Primary Button"
             onClick={_alertClicked}
@@ -53,7 +53,7 @@ export const Primary = () => (
         />
         <br />
         <br />
-        <h2>Text only (Pill)</h2>
+        <p>Text only (Pill)</p>
         <PrimaryButton
             ariaLabel="Primary Button"
             onClick={_alertClicked}
@@ -63,7 +63,7 @@ export const Primary = () => (
         />
         <br />
         <br />
-        <h2>Icon only</h2>
+        <p>Icon only</p>
         <PrimaryButton
             ariaLabel="Primary Button"
             icon={IconName.mdiCardsHeart}
@@ -72,7 +72,7 @@ export const Primary = () => (
         />
         <br />
         <br />
-        <h2>Text + Icon</h2>
+        <p>Text + Icon</p>
         <PrimaryButton
             ariaLabel="Primary Button"
             icon={IconName.mdiCardsHeart}
@@ -82,7 +82,7 @@ export const Primary = () => (
         />
         <br />
         <br />
-        <h2>Disruptive</h2>
+        <p>Disruptive</p>
         <PrimaryButton
             ariaLabel="Primary Button"
             disruptive
@@ -96,7 +96,7 @@ export const Primary = () => (
 export const Secondary = () => (
     <>
         <h1>Secondary</h1>
-        <h2>Text only</h2>
+        <p>Text only</p>
         <SecondaryButton
             ariaLabel="Secondary Button"
             onClick={_alertClicked}
@@ -105,7 +105,7 @@ export const Secondary = () => (
         />
         <br />
         <br />
-        <h2>Text only (Pill)</h2>
+        <p>Text only (Pill)</p>
         <SecondaryButton
             ariaLabel="Secondary Button"
             onClick={_alertClicked}
@@ -115,7 +115,7 @@ export const Secondary = () => (
         />
         <br />
         <br />
-        <h2>Icon only</h2>
+        <p>Icon only</p>
         <SecondaryButton
             ariaLabel="Secondary Button"
             icon={IconName.mdiCardsHeart}
@@ -124,7 +124,7 @@ export const Secondary = () => (
         />
         <br />
         <br />
-        <h2>Text + Icon</h2>
+        <p>Text + Icon</p>
         <SecondaryButton
             ariaLabel="Secondary Button"
             icon={IconName.mdiCardsHeart}
@@ -134,7 +134,7 @@ export const Secondary = () => (
         />
         <br />
         <br />
-        <h2>Disruptive</h2>
+        <p>Disruptive</p>
         <SecondaryButton
             ariaLabel="Secondary Button"
             disruptive
@@ -148,7 +148,7 @@ export const Secondary = () => (
 export const Default = () => (
     <>
         <h1>Default Button</h1>
-        <h2>Text only</h2>
+        <p>Text only</p>
         <DefaultButton
             ariaLabel="Default Button"
             onClick={_alertClicked}
@@ -157,7 +157,7 @@ export const Default = () => (
         />
         <br />
         <br />
-        <h2>Text only (Pill)</h2>
+        <p>Text only (Pill)</p>
         <DefaultButton
             ariaLabel="Default Button"
             dropShadow
@@ -168,7 +168,7 @@ export const Default = () => (
         />
         <br />
         <br />
-        <h2>Icon only</h2>
+        <p>Icon only</p>
         <DefaultButton
             ariaLabel="Default Button"
             icon={IconName.mdiCardsHeart}
@@ -177,7 +177,7 @@ export const Default = () => (
         />
         <br />
         <br />
-        <h2>Text + Icon</h2>
+        <p>Text + Icon</p>
         <DefaultButton
             ariaLabel="Default Button"
             icon={IconName.mdiCardsHeart}
@@ -187,7 +187,7 @@ export const Default = () => (
         />
         <br />
         <br />
-        <h2>Disruptive</h2>
+        <p>Disruptive</p>
         <DefaultButton
             ariaLabel="Default Button"
             disruptive
@@ -201,7 +201,7 @@ export const Default = () => (
 export const Neutral = () => (
     <>
         <h1>Neutral Button</h1>
-        <h2>Text only</h2>
+        <p>Text only</p>
         <NeutralButton
             ariaLabel="Neutral Button"
             onClick={_alertClicked}
@@ -210,7 +210,7 @@ export const Neutral = () => (
         />
         <br />
         <br />
-        <h2>Text only (Pill)</h2>
+        <p>Text only (Pill)</p>
         <NeutralButton
             ariaLabel="Neutral Button"
             dropShadow
@@ -221,7 +221,7 @@ export const Neutral = () => (
         />
         <br />
         <br />
-        <h2>Icon only</h2>
+        <p>Icon only</p>
         <NeutralButton
             ariaLabel="Neutral Button"
             icon={IconName.mdiCardsHeart}
@@ -230,7 +230,7 @@ export const Neutral = () => (
         />
         <br />
         <br />
-        <h2>Text + Icon</h2>
+        <p>Text + Icon</p>
         <NeutralButton
             ariaLabel="Neutral Button"
             icon={IconName.mdiCardsHeart}
@@ -249,10 +249,10 @@ export const Toggle: FC<ToggleButtonExampleProps> = ({ checked }) => {
     return (
         <>
             <h1>Toggle With Text + Icon</h1>
-            <h2>
+            <p>
                 Note: Toggle buttons require the <code>toggle</code> attribute
                 in addition to <code>checked</code>.
-            </h2>
+            </p>
             <span style={{ marginRight: 16 }}>
                 <PrimaryButton
                     ariaLabel="Primary Button"

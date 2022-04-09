@@ -20,6 +20,7 @@ export const BaseButton: FC<InternalButtonProps> = React.forwardRef(
             checked = false,
             className,
             disabled = false,
+            disruptive = false,
             dropShadow = false,
             htmlType,
             icon,
