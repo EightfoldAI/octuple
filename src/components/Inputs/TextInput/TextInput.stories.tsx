@@ -10,11 +10,11 @@ export default {
 export const Input = () => (
     <>
         <h1>Text Inputs</h1>
-        <h2>Text Input Stretch (Rectangle)</h2>
+        <p>Text Input Stretch (Rectangle)</p>
         <TextInput label="Label" inputWidth={TextInputWidth.fill} />
         <br />
         <br />
-        <h2>Text Input with Icon and Icon Button (Rectangle)</h2>
+        <p>Text Input with Icon and Icon Button (Rectangle)</p>
         <TextInput
             iconProps={{ path: IconName.mdiCardsHeart, color: 'red' }}
             label="Label"
@@ -27,7 +27,7 @@ export const Input = () => (
         />
         <br />
         <br />
-        <h2>Text Input with Image Icon (Rectangle)</h2>
+        <p>Text Input with Image Icon (Rectangle)</p>
         <TextInput
             label="Label"
             iconProps={{
@@ -37,7 +37,7 @@ export const Input = () => (
         />
         <br />
         <br />
-        <h2>Text Input with Icon Button (Rectangle)</h2>
+        <p>Text Input with Icon Button (Rectangle)</p>
         <TextInput
             iconButtonProps={{
                 icon: IconName.mdiFilterOutline,
@@ -47,7 +47,7 @@ export const Input = () => (
         />
         <br />
         <br />
-        <h2>Text Input with Icon and Icon Button (Rectangle)</h2>
+        <p>Text Input with Icon and Icon Button (Rectangle)</p>
         <TextInput
             iconProps={{ path: IconName.mdiMap }}
             iconButtonProps={{
@@ -58,7 +58,7 @@ export const Input = () => (
         />
         <br />
         <br />
-        <h2>Text Input Stretch (Pill)</h2>
+        <p>Text Input Stretch (Pill)</p>
         <TextInput
             label="Label"
             shape={TextInputShape.Pill}
@@ -66,7 +66,7 @@ export const Input = () => (
         />
         <br />
         <br />
-        <h2>Text Input with Icon (Pill)</h2>
+        <p>Text Input with Icon (Pill)</p>
         <TextInput
             iconProps={{ path: IconName.mdiCardsHeart, color: 'red' }}
             label="Label"
@@ -74,7 +74,7 @@ export const Input = () => (
         />
         <br />
         <br />
-        <h2>Text Input with Image Icon (Pill)</h2>
+        <p>Text Input with Image Icon (Pill)</p>
         <TextInput
             label="Label"
             iconProps={{
@@ -85,7 +85,7 @@ export const Input = () => (
         />
         <br />
         <br />
-        <h2>Text Input with Icon Button (Pill)</h2>
+        <p>Text Input with Icon Button (Pill)</p>
         <TextInput
             iconButtonProps={{
                 icon: IconName.mdiFilterOutline,
@@ -96,7 +96,7 @@ export const Input = () => (
         />
         <br />
         <br />
-        <h2>Text Input with Icon and Icon Button (Pill)</h2>
+        <p>Text Input with Icon and Icon Button (Pill)</p>
         <TextInput
             iconProps={{ path: IconName.mdiMap }}
             iconButtonProps={{

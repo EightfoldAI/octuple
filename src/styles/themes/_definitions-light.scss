@@ -1,3 +1,9 @@
+$font-size: var(--font-size);
+
+html {
+    font-size: $font-size;
+}
+
 // BEGIN: VARIABLE COLOR DEFINITIONS
 
 $color-background1-red: var(--red-color-10);
@@ -83,6 +89,86 @@ $button-color-neutral-hover: var(--grey-color-20);
 $button-color-neutral-pressed: var(--grey-color-10);
 $button-color-neutral-focused-border: var(--blue-color-80);
 $button-color-neutral-active: rgba(var(--blue-color-40), 0.01);
+
+$button-primary-default-foreground-color: var(
+    --button-primary-default-foreground-color
+);
+$button-primary-hover-foreground-color: var(
+    --button-primary-hover-foreground-color
+);
+$button-primary-focus-foreground-color: var(
+    --button-primary-focus-foreground-color
+);
+$button-primary-active-foreground-color: var(
+    --button-primary-active-foreground-color
+);
+$button-primary-visited-foreground-color: var(
+    --button-primary-visited-foreground-color
+);
+
+$button-primary-default-background-color: var(
+    --button-primary-default-background-color
+);
+$button-primary-hover-background-color: var(
+    --button-primary-hover-background-color
+);
+$button-primary-focus-background-color: var(
+    --button-primary-focus-background-color
+);
+$button-primary-active-background-color: var(
+    --button-primary-active-background-color
+);
+$button-primary-visited-background-color: var(
+    --button-primary-visited-background-color
+);
+
+$button-primary-default-border-color: var(
+    --button-primary-default-border-color
+);
+$button-primary-hover-border-color: var(--button-primary-hover-border-color);
+$button-primary-focus-border-color: var(--button-primary-focus-border-color);
+$button-primary-active-border-color: var(--button-primary-active-border-color);
+$button-primary-visited-border-color: var(
+    --button-primary-visited-border-color
+);
+
+$button-neutral-default-foreground-color: var(
+    --button-neutral-default-foreground-color
+);
+$button-neutral-hover-foreground-color: var(
+    --button-neutral-hover-foreground-color
+);
+$button-neutral-focus-foreground-color: var(
+    --button-neutral-focus-foreground-color
+);
+$button-neutral-active-foreground-color: var(
+    --button-neutral-active-foreground-color
+);
+$button-neutral-visited-foreground-color: var(
+    --button-neutral-visited-foreground-color
+);
+
+$button-default-foreground-color: var(--button-default-foreground-color);
+$button-hover-foreground-color: var(--button-hover-foreground-color);
+$button-focus-foreground-color: var(--button-focus-foreground-color);
+$button-active-foreground-color: var(--button-active-foreground-color);
+$button-visited-foreground-color: var(--button-visited-foreground-color);
+
+$button-default-background-color: var(--button-default-background-color);
+$button-hover-background-color: var(--button-hover-background-color);
+$button-focus-background-color: var(--button-focus-background-color);
+$button-active-background-color: var(--button-active-background-color);
+$button-visited-background-color: var(--button-visited-background-color);
+
+$button-hover-variant-background-color: var(
+    --button-hover-variant-background-color
+);
+
+$button-default-outline-color: var(--button-default-outline-color);
+$button-hover-outline-color: var(--button-hover-outline-color);
+$button-focus-outline-color: var(--button-focus-outline-color);
+$button-active-outline-color: var(--button-active-outline-color);
+$button-visited-outline-color: var(--button-visited-outline-color);
 
 $text-color-primary: var(--grey-color-90);
 $text-color-secondary: var(--grey-color-80);

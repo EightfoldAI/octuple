@@ -87,3 +87,11 @@ export const uniqueId = ((): ((prefix: string) => string) => {
     let counter: number = 0;
     return (prefix: string): string => `${prefix}${++counter}`;
 })();
+
+/**
+ * Utility to verify if the window object exists
+ * @returns {boolean}
+ */
+export const hasWindow = (): boolean => {
+    return typeof window !== 'undefined';
+};

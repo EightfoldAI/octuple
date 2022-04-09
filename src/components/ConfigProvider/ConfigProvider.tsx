@@ -2,6 +2,7 @@ import React, { createContext, FC, useEffect, useState } from 'react';
 import { registerTheme } from './Theming/styleGenerator';
 import { ConfigProviderProps, IConfigContext } from './ConfigProvider.types';
 import { ThemeOptions } from './Theming';
+import { useFontSize } from '../../hooks/useFontSize';
 
 const ConfigContext = createContext<Partial<IConfigContext>>({});
 
@@ -13,6 +14,9 @@ const ConfigProvider: FC<ConfigProviderProps> = ({
 }) => {
     const [themeOptions, setThemeOptions] =
         useState<ThemeOptions>(defaultThemeOptions);
+    const [fontSize, setFontSize] = useFontSize({
+        variableName: '--font-size',
+    });
 
     useEffect(() => {
         if (themeOptions) {
@@ -21,6 +25,7 @@ const ConfigProvider: FC<ConfigProviderProps> = ({
                 ...themeOptions,
             });
         }
+        setFontSize(16);
     }, [themeOptions]);
 
     return (

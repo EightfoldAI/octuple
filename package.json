@@ -121,6 +121,7 @@
         "install-peers": "1.0.3",
         "install-peers-cli": "2.2.0",
         "jest": "27.4.3",
+        "jest-localstorage-mock": "2.4.19",
         "jest-matchmedia-mock": "1.1.0",
         "jest-resolve": "27.4.2",
         "jest-watch-typeahead": "1.0.0",
@@ -174,7 +175,8 @@
             "!src/**/*.d.ts"
         ],
         "setupFiles": [
-            "react-app-polyfill/jsdom"
+            "react-app-polyfill/jsdom",
+            "jest-localstorage-mock"
         ],
         "setupFilesAfterEnv": [],
         "testMatch": [
@@ -212,7 +214,7 @@
             "jest-watch-typeahead/filename",
             "jest-watch-typeahead/testname"
         ],
-        "resetMocks": true
+        "resetMocks": false
     },
     "babel": {
         "presets": [
