@@ -1,5 +1,7 @@
 # Eightfold Octuple Design System Component Library
 
+[![npm version](https://badge.fury.io/js/@eightfold.ai%2Foctuple.svg)](https://badge.fury.io/js/@eightfold.ai%2Foctuple) [![build status](https://github.com/EightfoldAI/octuple/actions/workflows/pr-main.yml/badge.svg?branch=main)](https://github.com/EightfoldAI/octuple/actions/workflows/pr-main.yml)
+
 ## About
 
 Octuple creates a shared language and visual consistency across different pages and channels.
