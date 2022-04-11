@@ -170,10 +170,6 @@
         "roots": [
             "<rootDir>/src"
         ],
-        "collectCoverageFrom": [
-            "src/**/*.{js,jsx,ts,tsx}",
-            "!src/**/*.d.ts"
-        ],
         "setupFiles": [
             "react-app-polyfill/jsdom",
             "jest-localstorage-mock"
@@ -214,7 +210,13 @@
             "jest-watch-typeahead/filename",
             "jest-watch-typeahead/testname"
         ],
-        "resetMocks": false
+        "resetMocks": false,
+        "collectCoverage": true,
+        "collectCoverageFrom": [
+            "src/**/*.{js,jsx,ts,tsx}",
+            "!src/**/*.d.ts",
+            "!src/**/*.stories.{js,jsx,ts,tsx}"
+        ]
     },
     "babel": {
         "presets": [

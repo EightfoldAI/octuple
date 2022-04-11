@@ -20,6 +20,8 @@ jobs:
           node-version: ${{ env.NODE_VERSION }}
       - run: yarn
       - run: yarn test
+      - name: Upload code coverage
+        run: bash -c "bash <(curl -s https://codecov.io/bash) -t secrets.$CODECOV_TOKEN"
   lint:
     runs-on: ubuntu-latest
     steps:
