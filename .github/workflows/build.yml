@@ -1,4 +1,4 @@
-name: Test and lint
+name: Build
 
 on:
   push:
@@ -18,8 +18,18 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: ${{ env.NODE_VERSION }}
+      - name: Load cached node_modules
+        uses: actions/cache@v3
+        with:
+          path: node_modules
+          key: node_modules-${{ hashFiles('yarn.lock') }}
       - run: yarn
       - run: yarn test
+      - name: Upload code coverage
+        uses: codecov/codecov-action@v2
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          fail_ci_if_error: true
   lint:
     runs-on: ubuntu-latest
     steps:
@@ -27,5 +37,10 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: ${{ env.NODE_VERSION }}
+      - name: Load cached node_modules
+        uses: actions/cache@v3
+        with:
+          path: node_modules
+          key: node_modules-${{ hashFiles('yarn.lock') }}
       - run: yarn
       - run: yarn lint
