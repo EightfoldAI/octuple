@@ -26,7 +26,10 @@ jobs:
       - run: yarn
       - run: yarn test
       - name: Upload code coverage
-        run: bash -c "bash <(curl -s https://codecov.io/bash) -t secrets.codecov_token"
+        uses: codecov/codecov-action@v2
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          fail_ci_if_error: true
   lint:
     runs-on: ubuntu-latest
     steps:
