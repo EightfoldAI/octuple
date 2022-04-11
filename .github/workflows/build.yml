@@ -18,10 +18,15 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: ${{ env.NODE_VERSION }}
+      - name: Load cached node_modules
+        uses: actions/cache@v3
+        with:
+          path: node_modules
+          key: node_modules-${{ hashFiles('yarn.lock') }}
       - run: yarn
       - run: yarn test
       - name: Upload code coverage
-        run: bash -c "bash <(curl -s https://codecov.io/bash) -t secrets.$CODECOV_TOKEN"
+        run: bash -c "bash <(curl -s https://codecov.io/bash) -t secrets.codecov_token"
   lint:
     runs-on: ubuntu-latest
     steps:
@@ -29,5 +34,10 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: ${{ env.NODE_VERSION }}
+      - name: Load cached node_modules
+        uses: actions/cache@v3
+        with:
+          path: node_modules
+          key: node_modules-${{ hashFiles('yarn.lock') }}
       - run: yarn
       - run: yarn lint
