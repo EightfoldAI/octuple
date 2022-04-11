@@ -1,0 +1,75 @@
+.panel-backdrop {
+    position: fixed;
+    background-color: $all-backdrops;
+    top: 0;
+    right: 0;
+    z-index: $z-index-500;
+    pointer-events: none;
+    transition: all $motion-duration-extra-fast $motion-easing-easeinout 0s;
+    visibility: hidden;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+
+    .panel {
+        position: absolute;
+        padding: $space-xl;
+        background: var(--background-color);
+        box-shadow: $shadow-panel-right;
+        height: 100%;
+        transition: all $motion-duration-extra-fast $motion-easing-easeinout 0s;
+        top: 0;
+        transform: translateX(640px);
+
+        &.left {
+            left: 0;
+        }
+
+        &.right {
+            right: 0;
+        }
+
+        &.small {
+            width: 480px;
+        }
+
+        &.medium {
+            width: 640px;
+        }
+
+        .large {
+            width: 860px;
+        }
+
+        .header {
+            display: flex;
+            flex-direction: row;
+            padding: $space-l $space-l $space-m $space-xl;
+        }
+
+        .body {
+            display: flex;
+            flex-direction: column;
+            padding: $disabled-zero $space-xl;
+            overflow-y: scroll;
+            align-items: stretch;
+        }
+
+        .footer {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-end;
+            padding: $space-m $space-xl $space-l $space-xl;
+        }
+    }
+
+    &.visible {
+        visibility: visible;
+        opacity: 1;
+        pointer-events: auto;
+
+        .panel {
+            transform: translateX(0);
+        }
+    }
+}
