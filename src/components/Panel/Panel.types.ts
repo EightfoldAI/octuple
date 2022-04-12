@@ -2,7 +2,7 @@ import React from 'react';
 import { IconName } from '../Icon';
 import { ButtonProps } from '../Button';
 
-export enum SizeType {
+export enum PanelSize {
     small = 'small',
     medium = 'medium',
     large = 'large',
@@ -13,7 +13,7 @@ export type PanelRef = {
     pull: () => void;
 };
 
-export type PlacementTypes = 'top' | 'right' | 'bottom' | 'left';
+export type PanelPlacement = 'top' | 'right' | 'bottom' | 'left';
 
 type EventType =
     | React.KeyboardEvent<HTMLDivElement>
@@ -53,7 +53,7 @@ export interface PanelProps {
      * Size of the panel, can be overridden with width
      * @default medium
      */
-    size?: SizeType;
+    size?: PanelSize;
     /**
      * Whether the panel gets pushed out with nested panels
      * @default true
@@ -99,7 +99,7 @@ export interface PanelProps {
      * Where to place the drawer
      * @default right
      */
-    placement?: PlacementTypes;
+    placement?: PanelPlacement;
     /**
      * Callback fired on close on the panel
      * @param e {EventType}

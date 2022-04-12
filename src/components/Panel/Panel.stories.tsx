@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Panel, SizeType } from './';
+import { Panel, PanelSize } from './';
 import { PrimaryButton } from '../Button';
 
 export default {
@@ -31,7 +31,7 @@ export const Default = () => {
                     </div>
                 }
                 visible={visible.small}
-                size={SizeType.small}
+                size={PanelSize.small}
                 onClose={() => setVisible({})}
             >
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -111,7 +111,7 @@ export const Default = () => {
             <Panel
                 title={'This is a title'}
                 visible={visible.medium}
-                size={SizeType.medium}
+                size={PanelSize.medium}
                 onClose={() => setVisible({})}
             />
             <h1>Panel (large)</h1>
@@ -121,7 +121,7 @@ export const Default = () => {
             />
             <Panel
                 visible={visible.large}
-                size={SizeType.large}
+                size={PanelSize.large}
                 onClose={() => setVisible({})}
             />
             <h1>Panel (stacked)</h1>
@@ -136,7 +136,7 @@ export const Default = () => {
             <Panel
                 title={'This is a title'}
                 visible={visible.simple}
-                size={SizeType.large}
+                size={PanelSize.large}
                 onClose={() => setVisible({})}
             >
                 <PrimaryButton
@@ -150,7 +150,7 @@ export const Default = () => {
                 />
                 <Panel
                     visible={visible.child}
-                    size={SizeType.medium}
+                    size={PanelSize.medium}
                     onClose={() =>
                         setVisible({
                             ...visible,
@@ -169,7 +169,7 @@ export const Default = () => {
                     />
                     <Panel
                         visible={visible.nextChild}
-                        size={SizeType.small}
+                        size={PanelSize.small}
                         onClose={() =>
                             setVisible({
                                 ...visible,
@@ -198,7 +198,7 @@ export const Default = () => {
             <Panel
                 visible={visible.bottom}
                 onClose={() => setVisible({})}
-                size={SizeType.small}
+                size={PanelSize.small}
                 placement={'bottom'}
             />
 
@@ -210,7 +210,7 @@ export const Default = () => {
             <Panel
                 visible={visible.top}
                 onClose={() => setVisible({})}
-                size={SizeType.small}
+                size={PanelSize.small}
                 placement={'top'}
             />
         </>

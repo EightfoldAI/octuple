@@ -6,7 +6,7 @@ import React, {
     useState,
 } from 'react';
 import { classNames, stopPropagation } from '../../shared/utilities';
-import { PanelProps, PanelRef, SizeType } from './';
+import { PanelProps, PanelRef, PanelSize } from './';
 import { IconName } from '../Icon';
 import { DefaultButton } from '../Button';
 import { Portal } from '../Portal';
@@ -15,7 +15,7 @@ import styles from './panel.module.scss';
 
 const PanelContext = React.createContext<PanelRef | null>(null);
 
-const PANEL_WIDTHS: Record<SizeType, number> = Object.freeze({
+const PANEL_WIDTHS: Record<PanelSize, number> = Object.freeze({
     small: 480,
     medium: 640,
     large: 860,
@@ -24,7 +24,7 @@ const PANEL_WIDTHS: Record<SizeType, number> = Object.freeze({
 export const Panel = React.forwardRef<PanelRef, PanelProps>(
     (
         {
-            size = SizeType.medium,
+            size = PanelSize.medium,
             visible = false,
             closable = true,
             onClose = () => {},
@@ -69,9 +69,9 @@ export const Panel = React.forwardRef<PanelRef, PanelProps>(
             { [styles.left]: placement === 'left' },
             { [styles.bottom]: placement === 'bottom' },
             { [styles.top]: placement === 'top' },
-            { [styles.large]: size === SizeType.large },
-            { [styles.medium]: size === SizeType.medium },
-            { [styles.small]: size === SizeType.small },
+            { [styles.large]: size === PanelSize.large },
+            { [styles.medium]: size === PanelSize.medium },
+            { [styles.small]: size === PanelSize.small },
         ]);
 
         const bodyClasses: string = classNames([styles.body, bodyClassName]);
