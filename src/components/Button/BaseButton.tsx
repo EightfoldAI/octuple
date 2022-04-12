@@ -2,6 +2,7 @@ import React, { FC, Ref } from 'react';
 import {
     ButtonShape,
     ButtonSize,
+    ButtonTextAlign,
     ButtonTheme,
     ButtonWidth,
     InternalButtonProps,
@@ -15,8 +16,10 @@ import styles from './button.module.scss';
 export const BaseButton: FC<InternalButtonProps> = React.forwardRef(
     (
         {
+            alignText = ButtonTextAlign.Center,
             allowDisabledFocus = false,
             ariaLabel,
+            buttonWidth = ButtonWidth.fitContent,
             checked = false,
             className,
             disabled = false,
@@ -29,11 +32,12 @@ export const BaseButton: FC<InternalButtonProps> = React.forwardRef(
             onClick,
             shape = ButtonShape.Rectangle,
             size = ButtonSize.Flex,
+            split,
+            splitButtonProps,
             style,
             text,
             theme,
             toggle,
-            buttonWidth = ButtonWidth.fitContent,
             ...rest
         },
         ref: Ref<HTMLButtonElement>
@@ -70,6 +74,9 @@ export const BaseButton: FC<InternalButtonProps> = React.forwardRef(
             { [styles.buttonStretch]: buttonWidth === ButtonWidth.fill },
             { [styles.pillShape]: shape === ButtonShape.Pill },
             { [styles.dropShadow]: dropShadow },
+            { [styles.splitLeft]: split },
+            { [styles.left]: alignText === ButtonTextAlign.Left },
+            { [styles.right]: alignText === ButtonTextAlign.Right },
             { [styles.dark]: theme === ButtonTheme.dark },
             { [styles.disabled]: allowDisabledFocus || disabled },
         ]);

@@ -42,6 +42,37 @@
         }
     }
 
+    &.split-left {
+        border-bottom-right-radius: 0;
+        border-top-right-radius: 0;
+    }
+
+    &.split-right {
+        border-bottom-left-radius: 0;
+        border-top-left-radius: 0;
+        vertical-align: top;
+    }
+
+    &.button-stretch {
+        width: 100%;
+
+        span {
+            justify-content: center;
+        }
+    }
+
+    &.left {
+        span {
+            justify-content: left;
+        }
+    }
+
+    &.right {
+        span {
+            justify-content: right;
+        }
+    }
+
     &:disabled,
     &.disabled {
         opacity: $disabled-alpha-value;
@@ -82,18 +113,6 @@
 .button-padding-3-neutral {
     padding: $button-padding-vertical-default-small
         $button-padding-horizontal-default-small;
-}
-
-.menu-padding-1 {
-    padding-right: $button-padding-menu-large;
-}
-
-.menu-padding-2 {
-    padding-right: $button-padding-menu-medium;
-}
-
-.menu-padding-3 {
-    padding-right: $button-padding-menu-small;
 }
 
 .button-primary {

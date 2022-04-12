@@ -1,5 +1,5 @@
 import React from 'react';
-import { ButtonWidth, DefaultButton } from '../Button';
+import { ButtonTextAlign, ButtonWidth, DefaultButton } from '../Button';
 import { Dropdown } from './';
 
 export default {
@@ -9,9 +9,18 @@ export default {
 
 const Overlay = () => (
     <div>
-        <DefaultButton buttonWidth={ButtonWidth.fill} />
-        <DefaultButton buttonWidth={ButtonWidth.fill} />
-        <DefaultButton buttonWidth={ButtonWidth.fill} />
+        <DefaultButton
+            alignText={ButtonTextAlign.Left}
+            buttonWidth={ButtonWidth.fill}
+        />
+        <DefaultButton
+            alignText={ButtonTextAlign.Left}
+            buttonWidth={ButtonWidth.fill}
+        />
+        <DefaultButton
+            alignText={ButtonTextAlign.Left}
+            buttonWidth={ButtonWidth.fill}
+        />
     </div>
 );
 

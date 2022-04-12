@@ -109,7 +109,7 @@ export const Dropdown: FC<DropdownProps> = ({
         return cloneElement(child, {
             ...{ [TRIGGER_TO_HANDLER_MAP[trigger]]: toggle(true) },
             ref: reference,
-            className: referenceWrapperClasses,
+            className: child.props.className + ' ' + referenceWrapperClasses,
             'aria-controls': dropdownId,
             'aria-expanded': visible,
             'aria-haspopup': true,

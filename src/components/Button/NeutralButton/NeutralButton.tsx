@@ -1,9 +1,10 @@
 import React, { FC, Ref } from 'react';
 import {
-    ButtonShape,
     BaseButton,
     ButtonProps,
     ButtonSize,
+    ButtonShape,
+    ButtonTextAlign,
     ButtonType,
 } from '../';
 import { classNames } from '../../../shared/utilities';
@@ -13,6 +14,7 @@ import styles from '../button.module.scss';
 export const NeutralButton: FC<ButtonProps> = React.forwardRef(
     (
         {
+            alignText = ButtonTextAlign.Center,
             allowDisabledFocus = false,
             ariaLabel,
             checked = false,
@@ -27,6 +29,8 @@ export const NeutralButton: FC<ButtonProps> = React.forwardRef(
             theme,
             shape = ButtonShape.Rectangle,
             size = ButtonSize.Flex,
+            split,
+            splitButtonProps,
             style,
             toggle,
             buttonWidth,
@@ -44,6 +48,7 @@ export const NeutralButton: FC<ButtonProps> = React.forwardRef(
             <BaseButton
                 {...rest}
                 ref={ref}
+                alignText={alignText}
                 allowDisabledFocus={allowDisabledFocus}
                 ariaLabel={ariaLabel}
                 checked={checked}
@@ -56,6 +61,8 @@ export const NeutralButton: FC<ButtonProps> = React.forwardRef(
                 onClick={onClick}
                 shape={shape}
                 size={size}
+                split={split}
+                splitButtonProps={splitButtonProps}
                 style={style}
                 text={text}
                 theme={theme}

@@ -2,14 +2,21 @@ import React, { FC } from 'react';
 import {
     ButtonShape,
     ButtonSize,
+    ButtonTextAlign,
     ButtonWidth,
     DefaultButton,
     NeutralButton,
     PrimaryButton,
     SecondaryButton,
 } from './index';
+import { Dropdown } from '../Dropdown/Dropdown';
 import { IconName } from '../Icon';
 import { useBoolean } from '../../hooks/useBoolean';
+
+interface SplitButtonExampleProps {
+    // These are set based on the menu shown (not needed in real code)
+    checked?: boolean;
+}
 
 interface ToggleButtonExampleProps {
     // These are set based on the toggle shown (not needed in real code)
@@ -240,6 +247,44 @@ export const Neutral = () => (
         />
     </>
 );
+
+export const Split: FC<SplitButtonExampleProps> = ({ checked }) => {
+    const [menuShown, { toggle: setMenuShown }] = useBoolean(false);
+    return (
+        <>
+            <h1>Split Button</h1>
+            <Dropdown
+                overlay={
+                    <div>
+                        <DefaultButton
+                            alignText={ButtonTextAlign.Left}
+                            buttonWidth={ButtonWidth.fill}
+                        />
+                        <DefaultButton
+                            alignText={ButtonTextAlign.Left}
+                            buttonWidth={ButtonWidth.fill}
+                        />
+                        <DefaultButton
+                            alignText={ButtonTextAlign.Left}
+                            buttonWidth={ButtonWidth.fill}
+                        />
+                    </div>
+                }
+            >
+                <PrimaryButton
+                    ariaLabel="Split Button"
+                    onClick={_alertClicked}
+                    split
+                    splitButtonProps={{
+                        checked: menuShown || checked,
+                        onClick: setMenuShown,
+                    }}
+                    text="Split Button"
+                />
+            </Dropdown>
+        </>
+    );
+};
 
 export const Toggle: FC<ToggleButtonExampleProps> = ({ checked }) => {
     const [skill1Added, { toggle: set1Added }] = useBoolean(false);
