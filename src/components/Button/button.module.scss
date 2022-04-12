@@ -171,6 +171,7 @@
 
     &:hover {
         background-color: var(--disruptive-color-10);
+        color: var(--disruptive-color-70);
         outline-color: var(--disruptive-color-70);
     }
 
@@ -180,6 +181,7 @@
     }
 
     &:focus-visible {
+        color: var(--disruptive-color-80);
         outline-color: var(--disruptive-color-80);
     }
 }
@@ -217,15 +219,19 @@
 
     &:hover {
         background-color: var(--disruptive-color-20);
+        color: var(--disruptive-color-70);
         outline-color: var(--disruptive-color-20);
     }
 
     &:active {
         background-color: var(--disruptive-color-10);
+        color: var(--disruptive-color-80);
         outline-color: var(--disruptive-color-10);
     }
 
     &:focus-visible {
+        background-color: var(--disruptive-color-10);
+        color: var(--disruptive-color-80);
         outline-color: var(--disruptive-color-80);
     }
 }
