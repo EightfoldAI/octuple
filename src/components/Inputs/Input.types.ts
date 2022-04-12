@@ -3,6 +3,12 @@ import { Placement, Strategy } from '@floating-ui/react-dom';
 import { IconName } from '../Icon';
 import { TooltipTheme } from '../Tooltip';
 
+export enum SelectorSize {
+    Large = 'large',
+    Medium = 'medium',
+    Small = 'small',
+}
+
 export enum TextInputTheme {
     light = 'light',
     dark = 'dark',
