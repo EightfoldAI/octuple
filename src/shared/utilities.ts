@@ -1,3 +1,5 @@
+import React from 'react';
+
 /**
  *  Value represented as a generic (used by classNames).
  */
@@ -6,10 +8,12 @@ type Value = string | number | boolean | undefined | null;
  *  Mapping that constructs a type with a set of properties K of type T (used by classNames).
  */
 type Mapping = Record<string, unknown>;
+
 /**
  *  ArgumentArray (used by classNames).
  */
 interface ArgumentArray extends Array<Argument> {}
+
 /**
  *  Argument represented as a Value, Mapping or ArgumentArray (used by classNames).
  */
@@ -95,3 +99,10 @@ export const uniqueId = ((): ((prefix: string) => string) => {
 export const hasWindow = (): boolean => {
     return typeof window !== 'undefined';
 };
+
+/**
+ * Helper method to stop propagation
+ * @param e {React.MouseEvent}
+ */
+export const stopPropagation = (e: React.MouseEvent<any>) =>
+    e.stopPropagation();
