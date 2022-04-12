@@ -13,13 +13,28 @@
 
     .panel {
         position: absolute;
-        padding: $space-xl;
+        padding: 0 $space-xl;
         background: var(--background-color);
         box-shadow: $shadow-panel-right;
-        height: 100%;
         transition: all $motion-duration-extra-fast $motion-easing-easeinout 0s;
-        top: 0;
-        transform: translateX(640px);
+        overflow: scroll;
+
+        &.left,
+        &.right {
+            height: 100%;
+
+            &.small {
+                width: 480px;
+            }
+
+            &.medium {
+                width: 640px;
+            }
+
+            &.large {
+                width: 860px;
+            }
+        }
 
         &.left {
             left: 0;
@@ -29,37 +44,54 @@
             right: 0;
         }
 
-        &.small {
-            width: 480px;
+        &.top,
+        &.bottom {
+            width: 100%;
+
+            &.small {
+                height: 480px;
+            }
+
+            &.medium {
+                height: 640px;
+            }
+
+            &.large {
+                height: 860px;
+            }
         }
 
-        &.medium {
-            width: 640px;
+        &.top {
+            top: 0;
         }
 
-        .large {
-            width: 860px;
+        &.bottom {
+            bottom: 0;
         }
 
         .header {
+            background-color: inherit;
+            padding: $space-l 0 $space-m;
+            position: sticky;
+            top: 0;
             display: flex;
-            flex-direction: row;
-            padding: $space-l $space-l $space-m $space-xl;
+            justify-content: space-between;
         }
 
         .body {
             display: flex;
             flex-direction: column;
-            padding: $disabled-zero $space-xl;
-            overflow-y: scroll;
             align-items: stretch;
         }
 
         .footer {
+            background-color: inherit;
+            padding: $space-m 0 $space-l 0;
+            position: sticky;
+            bottom: 0;
             display: flex;
             flex-direction: row;
             justify-content: flex-end;
-            padding: $space-m $space-xl $space-l $space-xl;
         }
     }
 
@@ -67,9 +99,5 @@
         visibility: visible;
         opacity: 1;
         pointer-events: auto;
-
-        .panel {
-            transform: translateX(0);
-        }
     }
 }
