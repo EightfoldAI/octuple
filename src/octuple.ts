@@ -34,6 +34,10 @@ import { Tabs, Tab, TabVariant } from './components/Tabs';
 
 import { Tooltip, TooltipTheme } from './components/Tooltip';
 
+import { Panel, PanelPlacement, PanelSize } from './components/Panel';
+
+import { Portal } from './components/Portal';
+
 import { useBoolean } from './hooks/useBoolean';
 
 import { useMatchMedia } from './hooks/useMatchMedia';
@@ -52,9 +56,13 @@ export {
     List,
     Menu,
     NeutralButton,
+    Panel,
+    PanelPlacement,
+    PanelSize,
     Pill,
     PillSize,
     PillType,
+    Portal,
     PrimaryButton,
     SearchBox,
     SecondaryButton,
