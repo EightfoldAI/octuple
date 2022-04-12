@@ -170,7 +170,7 @@ export const Panel = React.forwardRef<PanelRef, PanelProps>(
 
         useImperativeHandle(ref, () => operations);
 
-        const getPanel = () => (
+        const getPanel = (): JSX.Element => (
             <PanelContext.Provider value={operations}>
                 <div
                     tabIndex={-1}
