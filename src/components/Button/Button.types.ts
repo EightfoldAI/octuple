@@ -1,6 +1,11 @@
-import * as React from 'react';
+import React, { Ref } from 'react';
 import { IconName } from '../Icon';
-import { Ref } from 'react';
+
+export enum ButtonTextAlign {
+    Center = 'center',
+    Left = 'left',
+    Right = 'right',
+}
 
 export enum ButtonSize {
     Flex = 'flex',
@@ -33,6 +38,12 @@ export enum ButtonType {
 
 export type NativeButtonProps = Omit<React.ButtonHTMLAttributes<any>, 'type'>;
 
+export interface SplitButtonProps
+    extends Omit<
+        InternalButtonProps,
+        'text' | 'htmlType' | 'onContextMenu' | 'splitButtonProps' | 'toggle'
+    > {}
+
 export interface InternalButtonProps extends ButtonProps {
     /**
      * Determines the button type.
@@ -53,6 +64,16 @@ export interface ButtonProps extends NativeButtonProps {
      * The button aria-label text.
      */
     ariaLabel?: string;
+    /**
+     * The button text alignment.
+     * @default ButtonTextAlign.Center
+     */
+    alignText?: ButtonTextAlign;
+    /**
+     * The button width type
+     * @default fitContent
+     */
+    buttonWidth?: ButtonWidth;
     /**
      * The button checked value.
      */
@@ -97,9 +118,9 @@ export interface ButtonProps extends NativeButtonProps {
      */
     onClick?: React.MouseEventHandler<HTMLButtonElement>;
     /**
-     * The button primary color.
+     * The split button click event handler.
      */
-    primaryColor?: string;
+    onContextMenu?: React.MouseEventHandler<HTMLButtonElement>;
     /**
      * Shape of the button.
      * @default ButtonShape.Rectangle
@@ -116,13 +137,13 @@ export interface ButtonProps extends NativeButtonProps {
      */
     split?: boolean;
     /**
-     * The split button aria-label text.
+     * The split button checked value.
      */
-    splitButtonAriaLabel?: string;
+    splitButtonChecked?: boolean;
     /**
-     * The split button menu props.
+     * The split button props.
      */
-    splitButtonMenuProps?: ButtonProps;
+    splitButtonProps?: SplitButtonProps;
     /**
      * The button style.
      */
@@ -140,9 +161,4 @@ export interface ButtonProps extends NativeButtonProps {
      * The button is a toggle button with distinct on and off states.
      */
     toggle?: boolean;
-    /**
-     * The button width type
-     * @default fitContent
-     */
-    buttonWidth?: ButtonWidth;
 }

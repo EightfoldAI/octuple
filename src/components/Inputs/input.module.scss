@@ -316,7 +316,8 @@
     .field-label-icon-button {
         display: inline-block;
         margin-left: 4px;
-        margin-top: 1px;
+        position: relative;
+        top: 2px;
         vertical-align: top;
 
         .label-icon-button {
@@ -367,7 +368,7 @@
 
     .text-area-resize-icon {
         position: absolute;
-        bottom: 7px;
+        bottom: 8px;
         right: 4px;
     }
 

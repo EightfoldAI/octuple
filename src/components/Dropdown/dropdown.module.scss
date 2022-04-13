@@ -1,5 +1,6 @@
 .main-wrapper {
     display: inline-block;
+    white-space: nowrap;
 
     .dropdown-wrapper {
         background: var(--background-color);
@@ -9,6 +10,7 @@
         transition: all $motion-duration-fast $motion-easing-easeout;
         min-width: 280px;
         opacity: 0;
+        white-space: normal;
 
         &.open {
             animation: slideUpIn $motion-duration-extra-fast
