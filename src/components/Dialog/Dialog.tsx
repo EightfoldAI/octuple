@@ -3,7 +3,7 @@ import { DialogProps, DialogSize } from './Dialog.types';
 import { Portal } from '../Portal';
 
 import styles from './dialog.module.scss';
-import { classNames, stopPropagation } from '../../shared/utilities';
+import { classNames, stopPropagation, uniqueId } from '../../shared/utilities';
 import { DefaultButton, NeutralButton, PrimaryButton } from '../Button';
 import { IconName } from '../Icon';
 
@@ -28,6 +28,8 @@ export const Dialog: FC<DialogProps> = ({
     onOk,
     onCancel,
 }) => {
+    const labelId = uniqueId('dialog-label');
+
     const dialogBackdropClasses: string = classNames([
         styles.dialogBackdrop,
         dialogWrapperClassName,
@@ -62,6 +64,8 @@ export const Dialog: FC<DialogProps> = ({
     const getDialog = (): JSX.Element => (
         <div
             role="dialog"
+            aria-modal={true}
+            aria-labelledby={labelId}
             className={dialogBackdropClasses}
             onClick={(e: React.MouseEvent<HTMLDivElement>) => {
                 maskClosable && onClose(e);
@@ -73,7 +77,7 @@ export const Dialog: FC<DialogProps> = ({
                 onClick={stopPropagation}
             >
                 <div className={headerClasses}>
-                    {header}
+                    <span id={labelId}>{header}</span>
                     <NeutralButton icon={IconName.mdiClose} onClick={onClose} />
                 </div>
                 <div className={bodyClasses}>{body}</div>
