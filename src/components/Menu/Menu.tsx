@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { MenuItem, MenuProps } from './Menu.types';
 import { List } from '../List';
-import { ButtonWidth, DefaultButton } from '../Button';
+import { ButtonTextAlign, ButtonWidth, DefaultButton } from '../Button';
 
 export const Menu: FC<MenuProps> = ({
     items,
@@ -17,6 +17,7 @@ export const Menu: FC<MenuProps> = ({
 }) => {
     const getDefaultButton = (item: MenuItem): JSX.Element => (
         <DefaultButton
+            alignText={ButtonTextAlign.Left}
             buttonWidth={ButtonWidth.fill}
             {...item}
             disruptive={disruptive}

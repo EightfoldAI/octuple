@@ -4,3 +4,4 @@ export * from './DefaultButton/DefaultButton';
 export * from './NeutralButton/NeutralButton';
 export * from './PrimaryButton/PrimaryButton';
 export * from './SecondaryButton/SecondaryButton';
+export * from './SplitButton/SplitButton';
