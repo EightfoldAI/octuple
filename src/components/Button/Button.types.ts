@@ -38,28 +38,17 @@ export enum ButtonType {
 
 export type NativeButtonProps = Omit<React.ButtonHTMLAttributes<any>, 'type'>;
 
+export interface SplitButtonProps
+    extends Omit<
+        InternalButtonProps,
+        'text' | 'htmlType' | 'onContextMenu' | 'splitButtonProps' | 'toggle'
+    > {}
+
 export interface InternalButtonProps extends ButtonProps {
     /**
      * Determines the button type.
      */
     type?: ButtonType;
-    /**
-     * Ref of the button
-     */
-    ref?: Ref<HTMLButtonElement>;
-}
-export interface SplitButtonProps
-    extends Omit<
-        ButtonProps,
-        | 'buttonWidth'
-        | 'checked'
-        | 'disruptive'
-        | 'text'
-        | 'htmlType'
-        | 'shape'
-        | 'size'
-        | 'toggle'
-    > {
     /**
      * Ref of the button
      */

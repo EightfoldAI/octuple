@@ -11,6 +11,7 @@ import {
 } from './index';
 import { Dropdown } from '../Dropdown/Dropdown';
 import { IconName } from '../Icon';
+import { List, ItemLayout } from '../List';
 import { useBoolean } from '../../hooks/useBoolean';
 
 interface ExampleProps {
@@ -274,7 +275,6 @@ export const Split: FC<ExampleProps> = ({ checked }) => {
             >
                 <PrimaryButton
                     ariaLabel="Split Button"
-                    buttonWidth={ButtonWidth.fill}
                     onClick={_alertClicked}
                     onContextMenu={setMenuShown}
                     split
