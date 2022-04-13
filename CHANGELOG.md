@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.11](https://github.com/EightfoldAI/octuple/compare/v0.0.10...v0.0.11) (2022-04-13)
+
+### Features
+
+-   adds octuple panel component, add portal component ([#55](https://github.com/EightfoldAI/octuple/issues/55)) ([4e1a7e1](https://github.com/EightfoldAI/octuple/commits/4e1a7e14348f9bb6b4bbe281872b9d8ec5941e09))
+-   adds octuples dialog component ([#58](https://github.com/EightfoldAI/octuple/issues/58)) ([7fbf365](https://github.com/EightfoldAI/octuple/commits/7fbf3651d3ce53c63f953a49bc9e53b0e42f8e84))
+-   button: add split button component ([#57](https://github.com/EightfoldAI/octuple/issues/57)) ([46246b7](https://github.com/EightfoldAI/octuple/commits/46246b74514b3ae234517ecfa9a52fe9242ab9cd))
+
+### Bug Fixes
+
+-   button: fixes disruptive button foreground color state css variable reference ([#54](https://github.com/EightfoldAI/octuple/issues/54)) ([25a45be](https://github.com/EightfoldAI/octuple/commits/25a45be203c9f6e954e2fe7ba23c5ae26325c757))
+
 ### 0.0.10 (2022-04-11)
 
 ### Features
