@@ -4,7 +4,6 @@ import {
     ButtonSize,
     ButtonTextAlign,
     ButtonTheme,
-    ButtonType,
     ButtonWidth,
     InternalButtonProps,
     SplitButton,
