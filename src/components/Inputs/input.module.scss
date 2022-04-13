@@ -253,9 +253,9 @@
         width: 35px;
 
         &:hover {
-            border-color: transparent;
             background-color: transparent;
             color: var(--grey-color-80);
+            outline-color: transparent;
 
             svg {
                 color: var(--grey-color-80);
