@@ -1,6 +1,7 @@
 import {
     ButtonShape,
     ButtonSize,
+    ButtonTextAlign,
     ButtonTheme,
     ButtonWidth,
     DefaultButton,
@@ -10,6 +11,8 @@ import {
 } from './components/Button';
 
 import { ConfigProvider } from './components/ConfigProvider';
+
+import { Dialog, DialogSize } from './components/Dialog';
 
 import { Dropdown } from './components/Dropdown';
 
@@ -45,10 +48,13 @@ import { useMatchMedia } from './hooks/useMatchMedia';
 export {
     ButtonShape,
     ButtonSize,
+    ButtonTextAlign,
     ButtonTheme,
     ButtonWidth,
     ConfigProvider,
     DefaultButton,
+    Dialog,
+    DialogSize,
     Dropdown,
     Icon,
     IconName,
