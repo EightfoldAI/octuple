@@ -50,7 +50,7 @@ jobs:
           API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
         with:
           source-directory: 'dist'
-          destination-github-username: 'yrchhabra'
+          destination-github-username: 'EightfoldAI'
           destination-repository-name: 'octuple.github.io'
           user-email: ychhabra@eightfold.ai
           target-branch: main
