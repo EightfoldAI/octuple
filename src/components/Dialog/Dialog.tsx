@@ -22,6 +22,7 @@ export const Dialog: FC<DialogProps> = ({
     body,
     bodyClassName,
     actionsClassName,
+    dialogWrapperClassName,
     okButtonProps,
     cancelButtonProps,
     onOk,
@@ -29,6 +30,7 @@ export const Dialog: FC<DialogProps> = ({
 }) => {
     const dialogBackdropClasses: string = classNames([
         styles.dialogBackdrop,
+        dialogWrapperClassName,
         { [styles.visible]: visible },
     ]);
 

@@ -13,6 +13,9 @@ export enum DialogSize {
 }
 
 export interface DialogProps {
+    /**
+     * Dialog is visible or not
+     */
     visible?: boolean;
     /**
      * Clicking on mask should close modal or not
@@ -29,7 +32,6 @@ export interface DialogProps {
      * @param visible {bool}
      */
     onVisibleChange?: (visible: boolean) => void;
-
     /**
      * Custom class for the dialog wrapper
      */
