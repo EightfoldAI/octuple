@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.12](https://github.com/EightfoldAI/octuple/compare/v0.0.11...v0.0.12) (2022-04-13)
+
+### Bug Fixes
+
+-   input: ensures there is no visible outline on clear button hover ([#63](https://github.com/EightfoldAI/octuple/issues/63)) ([38258a9](https://github.com/EightfoldAI/octuple/commits/38258a95c1585d2dea053176bae0a5bc55674e4c))
+
 ### [0.0.11](https://github.com/EightfoldAI/octuple/compare/v0.0.10...v0.0.11) (2022-04-13)
 
 ### Features
