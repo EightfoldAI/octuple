@@ -10,7 +10,7 @@ import styles from './dropdown.module.scss';
 const TRIGGER_TO_HANDLER_MAP = {
     click: 'onClick',
     hover: 'onMouseEnter',
-    // contextmenu: 'onContextMenu',
+    contextmenu: 'onContextMenu',
 };
 
 const ANIMATION_DURATION = 200;
@@ -109,7 +109,7 @@ export const Dropdown: FC<DropdownProps> = ({
         return cloneElement(child, {
             ...{ [TRIGGER_TO_HANDLER_MAP[trigger]]: toggle(true) },
             ref: reference,
-            className: child.props.className + ' ' + referenceWrapperClasses,
+            className: referenceWrapperClasses,
             'aria-controls': dropdownId,
             'aria-expanded': visible,
             'aria-haspopup': true,

@@ -30,6 +30,7 @@ export const DefaultButton: FC<ButtonProps> = React.forwardRef(
             shape = ButtonShape.Rectangle,
             size = ButtonSize.Flex,
             split,
+            splitButtonChecked,
             splitButtonProps,
             style,
             toggle,
@@ -64,6 +65,7 @@ export const DefaultButton: FC<ButtonProps> = React.forwardRef(
                 shape={shape}
                 size={size}
                 split={split}
+                splitButtonChecked={splitButtonChecked}
                 splitButtonProps={splitButtonProps}
                 style={style}
                 text={text}

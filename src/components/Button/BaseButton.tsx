@@ -4,6 +4,7 @@ import {
     ButtonSize,
     ButtonTextAlign,
     ButtonTheme,
+    ButtonType,
     ButtonWidth,
     InternalButtonProps,
 } from './';
@@ -30,14 +31,17 @@ export const BaseButton: FC<InternalButtonProps> = React.forwardRef(
             iconColor,
             id,
             onClick,
+            onContextMenu,
             shape = ButtonShape.Rectangle,
             size = ButtonSize.Flex,
             split,
+            splitButtonChecked = false,
             splitButtonProps,
             style,
             text,
             theme,
             toggle,
+            type,
             ...rest
         },
         ref: Ref<HTMLButtonElement>
@@ -50,7 +54,7 @@ export const BaseButton: FC<InternalButtonProps> = React.forwardRef(
         const iconExists: boolean = !!icon;
         const textExists: boolean = !!text;
 
-        const buttonBaseClassNames: string = classNames([
+        const buttonBaseSharedClassNames: string = classNames([
             className,
             {
                 [styles.buttonPadding3]:
@@ -71,14 +75,29 @@ export const BaseButton: FC<InternalButtonProps> = React.forwardRef(
             { [styles.buttonPadding1]: size === ButtonSize.Large },
             { [styles.buttonPadding2]: size === ButtonSize.Medium },
             { [styles.buttonPadding3]: size === ButtonSize.Small },
-            { [styles.buttonStretch]: buttonWidth === ButtonWidth.fill },
             { [styles.pillShape]: shape === ButtonShape.Pill },
             { [styles.dropShadow]: dropShadow },
+            { [styles.dark]: theme === ButtonTheme.dark },
+        ]);
+
+        const buttonBaseClassNames: string = classNames([
+            buttonBaseSharedClassNames,
+            { [styles.buttonStretch]: buttonWidth === ButtonWidth.fill },
             { [styles.splitLeft]: split },
             { [styles.left]: alignText === ButtonTextAlign.Left },
             { [styles.right]: alignText === ButtonTextAlign.Right },
-            { [styles.dark]: theme === ButtonTheme.dark },
             { [styles.disabled]: allowDisabledFocus || disabled },
+        ]);
+
+        const splitButtonClassNames: string = classNames([
+            buttonBaseSharedClassNames,
+            styles.splitButton,
+            { [styles.splitRight]: split },
+            {
+                [styles.disabled]:
+                    splitButtonProps?.allowDisabledFocus ||
+                    splitButtonProps?.disabled,
+            },
         ]);
 
         const buttonTextClassNames: string = classNames([
@@ -95,6 +114,45 @@ export const BaseButton: FC<InternalButtonProps> = React.forwardRef(
             { [styles.button1]: size === ButtonSize.Large },
             { [styles.button2]: size === ButtonSize.Medium },
             { [styles.button3]: size === ButtonSize.Small },
+        ]);
+
+        const splitDividerClassNames: string = classNames([
+            styles.splitDivider,
+            {
+                [styles.splitDividerSmall]:
+                    size === ButtonSize.Flex && largeScreenActive,
+            },
+            {
+                [styles.splitDividerMedium]:
+                    size === ButtonSize.Flex && mediumScreenActive,
+            },
+            {
+                [styles.splitDividerMedium]:
+                    size === ButtonSize.Flex && smallScreenActive,
+            },
+            {
+                [styles.splitDividerLarge]:
+                    size === ButtonSize.Flex && xSmallScreenActive,
+            },
+            { [styles.splitDividerLarge]: size === ButtonSize.Large },
+            { [styles.splitDividerMedium]: size === ButtonSize.Medium },
+            { [styles.splitDividerSmall]: size === ButtonSize.Small },
+            { [styles.splitDividerPrimary]: type === ButtonType.Primary },
+            {
+                [styles.splitDividerPrimaryDisruptive]:
+                    type === ButtonType.Primary && disruptive,
+            },
+            { [styles.splitDividerSecondary]: type === ButtonType.Secondary },
+            {
+                [styles.splitDividerSecondaryDisruptive]:
+                    type === ButtonType.Secondary && disruptive,
+            },
+            { [styles.splitDividerDefault]: type === ButtonType.Default },
+            { [styles.splitDividerNeutral]: type === ButtonType.Neutral },
+            {
+                [styles.splitDividerDisruptive]:
+                    type === ButtonType.Default && disruptive,
+            },
         ]);
 
         const getButtonIconSize = (): IconSize => {
@@ -137,30 +195,67 @@ export const BaseButton: FC<InternalButtonProps> = React.forwardRef(
         );
 
         return (
-            <button
-                {...rest}
-                ref={ref}
-                aria-checked={toggle ? !!checked : undefined}
-                aria-disabled={allowDisabledFocus}
-                aria-label={ariaLabel}
-                aria-pressed={toggle ? !!checked : undefined}
-                defaultChecked={checked}
-                disabled={disabled}
-                className={buttonBaseClassNames}
-                id={id}
-                onClick={!allowDisabledFocus ? onClick : null}
-                style={style}
-                type={htmlType}
-            >
-                {iconExists && !textExists && getButtonIcon(icon)}
-                {iconExists && textExists && (
-                    <span>
-                        {getButtonIcon(icon)}
-                        {getButtonText(buttonTextClassNames, text)}
-                    </span>
+            <>
+                <button
+                    {...rest}
+                    ref={ref}
+                    aria-checked={toggle ? !!checked : undefined}
+                    aria-disabled={allowDisabledFocus}
+                    aria-label={ariaLabel}
+                    aria-pressed={toggle ? !!checked : undefined}
+                    defaultChecked={checked}
+                    disabled={disabled}
+                    className={buttonBaseClassNames}
+                    id={id}
+                    onClick={!allowDisabledFocus ? onClick : null}
+                    style={style}
+                    type={htmlType}
+                >
+                    {iconExists && !textExists && getButtonIcon(icon)}
+                    {iconExists && textExists && (
+                        <span>
+                            {getButtonIcon(icon)}
+                            {getButtonText(buttonTextClassNames, text)}
+                        </span>
+                    )}
+                    {!iconExists && getButtonText(buttonTextClassNames, text)}
+                </button>
+                {split && (
+                    <>
+                        <button
+                            aria-checked={
+                                split ? !!splitButtonChecked : undefined
+                            }
+                            aria-disabled={splitButtonProps?.allowDisabledFocus}
+                            aria-label={splitButtonProps?.ariaLabel}
+                            aria-pressed={
+                                split ? !!splitButtonChecked : undefined
+                            }
+                            defaultChecked={splitButtonChecked}
+                            disabled={splitButtonProps?.disabled}
+                            className={splitButtonClassNames}
+                            id={splitButtonProps?.id}
+                            onClick={
+                                !splitButtonProps?.allowDisabledFocus
+                                    ? onContextMenu
+                                    : null
+                            }
+                            style={splitButtonProps?.style}
+                            type="button"
+                        >
+                            {getButtonIcon(
+                                splitButtonProps?.icon || splitButtonChecked
+                                    ? IconName.mdiChevronDown
+                                    : IconName.mdiChevronUp
+                            )}
+                            <span
+                                className={splitDividerClassNames}
+                                aria-hidden="true"
+                            ></span>
+                        </button>
+                    </>
                 )}
-                {!iconExists && getButtonText(buttonTextClassNames, text)}
-            </button>
+            </>
         );
     }
 );

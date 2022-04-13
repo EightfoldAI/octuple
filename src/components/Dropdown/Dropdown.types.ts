@@ -5,7 +5,7 @@ export interface DropdownProps {
     /**
      * The trigger mode that opens the dropdown
      */
-    trigger?: 'click' | 'hover';
+    trigger?: 'click' | 'hover' | 'contextmenu';
     /**
      * Callback called when the visibility of the dropdown changes
      * @param visible {boolean}

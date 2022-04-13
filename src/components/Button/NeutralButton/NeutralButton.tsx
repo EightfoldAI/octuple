@@ -31,6 +31,7 @@ export const NeutralButton: FC<ButtonProps> = React.forwardRef(
             size = ButtonSize.Flex,
             split,
             splitButtonProps,
+            splitButtonChecked = false,
             style,
             toggle,
             buttonWidth,
@@ -62,6 +63,7 @@ export const NeutralButton: FC<ButtonProps> = React.forwardRef(
                 shape={shape}
                 size={size}
                 split={split}
+                splitButtonChecked={splitButtonChecked}
                 splitButtonProps={splitButtonProps}
                 style={style}
                 text={text}

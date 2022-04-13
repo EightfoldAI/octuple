@@ -13,13 +13,7 @@ import { Dropdown } from '../Dropdown/Dropdown';
 import { IconName } from '../Icon';
 import { useBoolean } from '../../hooks/useBoolean';
 
-interface SplitButtonExampleProps {
-    // These are set based on the menu shown (not needed in real code)
-    checked?: boolean;
-}
-
-interface ToggleButtonExampleProps {
-    // These are set based on the toggle shown (not needed in real code)
+interface ExampleProps {
     checked?: boolean;
 }
 
@@ -248,11 +242,16 @@ export const Neutral = () => (
     </>
 );
 
-export const Split: FC<SplitButtonExampleProps> = ({ checked }) => {
+export const Split: FC<ExampleProps> = ({ checked }) => {
     const [menuShown, { toggle: setMenuShown }] = useBoolean(false);
     return (
         <>
             <h1>Split Button</h1>
+            <p>
+                Note: Split buttons require the <code>onContextMenu</code>,{' '}
+                <code>split</code> attributes in addition to{' '}
+                <code>splitButtonChecked</code>.
+            </p>
             <Dropdown
                 overlay={
                     <div>
@@ -270,15 +269,16 @@ export const Split: FC<SplitButtonExampleProps> = ({ checked }) => {
                         />
                     </div>
                 }
+                trigger="contextmenu"
+                onVisibleChange={setMenuShown}
             >
                 <PrimaryButton
                     ariaLabel="Split Button"
+                    buttonWidth={ButtonWidth.fill}
                     onClick={_alertClicked}
+                    onContextMenu={setMenuShown}
                     split
-                    splitButtonProps={{
-                        checked: menuShown || checked,
-                        onClick: setMenuShown,
-                    }}
+                    splitButtonChecked={menuShown || checked}
                     text="Split Button"
                 />
             </Dropdown>
@@ -286,7 +286,7 @@ export const Split: FC<SplitButtonExampleProps> = ({ checked }) => {
     );
 };
 
-export const Toggle: FC<ToggleButtonExampleProps> = ({ checked }) => {
+export const Toggle: FC<ExampleProps> = ({ checked }) => {
     const [skill1Added, { toggle: set1Added }] = useBoolean(false);
     const [skill2Added, { toggle: set2Added }] = useBoolean(false);
     const [skill3Added, { toggle: set3Added }] = useBoolean(false);

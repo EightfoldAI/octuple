@@ -52,6 +52,7 @@ export interface SplitButtonProps
     extends Omit<
         ButtonProps,
         | 'buttonWidth'
+        | 'checked'
         | 'disruptive'
         | 'text'
         | 'htmlType'
@@ -128,6 +129,10 @@ export interface ButtonProps extends NativeButtonProps {
      */
     onClick?: React.MouseEventHandler<HTMLButtonElement>;
     /**
+     * The split button click event handler.
+     */
+    onContextMenu?: React.MouseEventHandler<HTMLButtonElement>;
+    /**
      * Shape of the button.
      * @default ButtonShape.Rectangle
      */
@@ -142,6 +147,10 @@ export interface ButtonProps extends NativeButtonProps {
      * @default false
      */
     split?: boolean;
+    /**
+     * The split button checked value.
+     */
+    splitButtonChecked?: boolean;
     /**
      * The split button props.
      */
