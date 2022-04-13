@@ -1,15 +1,5 @@
 .panel-backdrop {
-    position: fixed;
-    background-color: $all-backdrops;
-    top: 0;
-    right: 0;
-    z-index: $z-index-500;
-    pointer-events: none;
-    transition: all $motion-duration-extra-fast $motion-easing-easeinout 0s;
-    visibility: hidden;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
+    @include backdrop;
 
     .panel {
         position: absolute;

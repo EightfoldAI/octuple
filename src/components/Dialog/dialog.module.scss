@@ -1,0 +1,67 @@
+.dialog-backdrop {
+    @include backdrop;
+
+    .dialog {
+        position: absolute;
+        padding: $space-l-fitted;
+        background: $card-background-color;
+        border-radius: $corner-radius-m;
+        box-shadow: $shadow-object-l;
+        width: 352px;
+        transform-origin: 50% 50%;
+        opacity: 0;
+
+        &.small {
+            width: 352px;
+        }
+
+        &.medium {
+            width: 560px;
+        }
+
+        .header {
+            font-size: $text-font-size-5;
+            font-weight: $text-font-weight-semibold;
+            display: flex;
+            justify-content: space-between;
+            padding-bottom: $space-s;
+        }
+
+        .body {
+            padding-bottom: $space-l-fitted;
+            font-size: $text-font-size-3;
+            font-weight: $text-font-weight-regular;
+            line-height: $text-line-height-3;
+        }
+
+        .actions {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-end;
+            gap: $space-xs;
+        }
+    }
+
+    &.visible {
+        visibility: visible;
+        opacity: 1;
+        pointer-events: auto;
+
+        .dialog {
+            animation: scaleIn $motion-duration-extra-fast
+                $motion-easing-easeinout 0s forwards;
+        }
+    }
+
+    @keyframes scaleIn {
+        0% {
+            transform: scale(0, 0);
+            opacity: 0;
+        }
+
+        100% {
+            transform: scale(1, 1);
+            opacity: 1;
+        }
+    }
+}
