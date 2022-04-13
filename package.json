@@ -215,7 +215,8 @@
         "collectCoverageFrom": [
             "src/**/*.{js,jsx,ts,tsx}",
             "!src/**/*.d.ts",
-            "!src/**/*.stories.{js,jsx,ts,tsx}"
+            "!src/**/*.stories.{js,jsx,ts,tsx}",
+            "!src/**/*.types.{js,ts}"
         ]
     },
     "babel": {
