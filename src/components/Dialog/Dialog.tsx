@@ -28,7 +28,7 @@ export const Dialog: FC<DialogProps> = ({
     onOk,
     onCancel,
 }) => {
-    const labelId = uniqueId('dialog-label');
+    const labelId = uniqueId('dialog-label-');
 
     const dialogBackdropClasses: string = classNames([
         styles.dialogBackdrop,
