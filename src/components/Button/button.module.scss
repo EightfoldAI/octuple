@@ -42,6 +42,37 @@
         }
     }
 
+    &.split-left {
+        border-bottom-right-radius: 0;
+        border-top-right-radius: 0;
+    }
+
+    &.split-right {
+        border-bottom-left-radius: 0;
+        border-top-left-radius: 0;
+        vertical-align: top;
+    }
+
+    &.button-stretch {
+        width: 100%;
+
+        span {
+            justify-content: center;
+        }
+    }
+
+    &.left {
+        span {
+            justify-content: left;
+        }
+    }
+
+    &.right {
+        span {
+            justify-content: right;
+        }
+    }
+
     &:disabled,
     &.disabled {
         opacity: $disabled-alpha-value;
@@ -82,18 +113,6 @@
 .button-padding-3-neutral {
     padding: $button-padding-vertical-default-small
         $button-padding-horizontal-default-small;
-}
-
-.menu-padding-1 {
-    padding-right: $button-padding-menu-large;
-}
-
-.menu-padding-2 {
-    padding-right: $button-padding-menu-medium;
-}
-
-.menu-padding-3 {
-    padding-right: $button-padding-menu-small;
 }
 
 .button-primary {
@@ -258,6 +277,61 @@
         background-color: var(--grey-color-10);
         color: var(--button-neutral-active-foreground-color);
         outline-color: var(--grey-color-80);
+    }
+}
+
+.split-button {
+    position: relative;
+
+    .split-divider {
+        position: absolute;
+        width: 1px;
+
+        &.split-divider-primary {
+            background-color: var(--button-primary-default-foreground-color);
+        }
+
+        &.split-divider-secondary {
+            background-color: var(--button-default-foreground-color);
+        }
+
+        &.split-divider-primary-disruptive {
+            background-color: var(--white-color);
+        }
+
+        &.split-divider-secondary-disruptive {
+            background-color: var(--disruptive-color-70);
+        }
+
+        &.split-divider-default {
+            background-color: var(--button-default-foreground-color);
+        }
+
+        &.split-divider-disruptive {
+            background-color: var(--disruptive-color-70);
+        }
+
+        &.split-divider-neutral {
+            background-color: var(--button-neutral-default-foreground-color);
+        }
+    }
+
+    .split-divider-large {
+        bottom: 10px;
+        right: 50px;
+        top: 10px;
+    }
+
+    .split-divider-medium {
+        bottom: 8px;
+        right: 42px;
+        top: 8px;
+    }
+
+    .split-divider-small {
+        bottom: 6px;
+        right: 34px;
+        top: 6px;
     }
 }
 
