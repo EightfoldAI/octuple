@@ -159,7 +159,11 @@ export const SplitButton: FC<SplitButtonProps> = React.forwardRef(
                 style={style}
                 type="button"
             >
-                {getButtonIcon(icon)}
+                {getButtonIcon(
+                    icon || checked
+                        ? IconName.mdiChevronDown
+                        : IconName.mdiChevronUp
+                )}
                 <span
                     className={splitDividerClassNames}
                     aria-hidden="true"

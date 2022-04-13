@@ -172,27 +172,15 @@ export const BaseButton: FC<InternalButtonProps> = React.forwardRef(
                 </button>
                 {split && (
                     <SplitButton
-                        alignText={splitButtonProps?.alignText}
-                        allowDisabledFocus={
-                            splitButtonProps?.allowDisabledFocus
-                        }
-                        ariaLabel={splitButtonProps?.ariaLabel}
+                        {...splitButtonProps}
                         className={
                             buttonBaseSharedClassNames +
                             ' ' +
                             splitButtonProps?.className
                         }
                         checked={splitButtonChecked}
-                        disabled={splitButtonProps?.disabled}
                         disruptive={disruptive}
                         dropShadow={dropShadow}
-                        icon={
-                            splitButtonProps?.icon || splitButtonChecked
-                                ? IconName.mdiChevronDown
-                                : IconName.mdiChevronUp
-                        }
-                        iconColor={splitButtonProps?.iconColor}
-                        id={splitButtonProps?.id}
                         onClick={
                             !splitButtonProps?.allowDisabledFocus
                                 ? onContextMenu
@@ -201,7 +189,6 @@ export const BaseButton: FC<InternalButtonProps> = React.forwardRef(
                         shape={shape}
                         size={size}
                         split={split}
-                        style={splitButtonProps?.style}
                         theme={theme}
                         type={type}
                     />
