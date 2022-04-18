@@ -30,9 +30,8 @@ export const Pill: FC<PillProps> = ({
     ]);
     const labelClassName: string = classNames([
         styles.label,
-        { [styles.header4]: size === PillSize.Large },
-        { [styles.header5]: size === PillSize.Medium },
-        { [styles.header6]: size === PillSize.Small },
+        { [styles.medium]: size === PillSize.Medium },
+        { [styles.small]: size === PillSize.Small },
     ]);
     const tagClassName: string = classNames([
         styles.tagPills,
