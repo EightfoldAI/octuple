@@ -1,4 +1,4 @@
-const webpackCommon = require('../webpack.common')({}, { mode: 'development' });
+const webpackCommon = require('../webpack.common');
 
 module.exports = {
     stories: [
@@ -28,11 +28,18 @@ module.exports = {
         },
     },
     webpackFinal: async (config, { configType }) => {
+        const webpackCommonConfig = webpackCommon(
+            {},
+            { mode: configType.toLowerCase() }
+        );
         return {
             ...config,
-            optimization: webpackCommon.optimization,
-            plugins: [...config.plugins, ...webpackCommon.plugins],
-            module: { ...config.module, rules: webpackCommon.module.rules },
+            optimization: webpackCommonConfig.optimization,
+            plugins: [...config.plugins, ...webpackCommonConfig.plugins],
+            module: {
+                ...config.module,
+                rules: webpackCommonConfig.module.rules,
+            },
         };
     },
 };
