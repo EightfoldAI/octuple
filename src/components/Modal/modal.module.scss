@@ -1,0 +1,37 @@
+.modal {
+    width: 480px;
+    transform-origin: 50% 50%;
+
+    &.small {
+        width: 480px;
+        max-height: 640px;
+    }
+
+    &.medium {
+        width: 640px;
+        max-height: 640px;
+    }
+
+    &.large {
+        width: 960px;
+        max-height: 640px;
+    }
+
+    .header {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .body {
+        display: flex;
+        flex-direction: column;
+        overflow-y: scroll;
+    }
+
+    .footer {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        padding: $space-m $space-xl $space-l $space-xl;
+    }
+}
