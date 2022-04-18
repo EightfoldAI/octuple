@@ -1,5 +1,4 @@
-const path = require('path');
-const webpackCommon = require('../webpack.common');
+const webpackCommon = require('../webpack.common')({}, { mode: 'development' });
 
 module.exports = {
     stories: [

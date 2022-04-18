@@ -2,7 +2,7 @@ const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 
-module.exports = {
+module.exports = (_, { mode }) => ({
     entry: {
         octuple: [path.resolve(__dirname, 'src/octuple.ts')],
     },
@@ -19,7 +19,9 @@ module.exports = {
                 exclude: /node_modules/,
                 include: path.resolve(__dirname, 'src'),
                 use: [
-                    MiniCssExtractPlugin.loader,
+                    mode === 'production'
+                        ? MiniCssExtractPlugin.loader
+                        : 'style-loader',
                     '@teamsupercell/typings-for-css-modules-loader',
                     {
                         loader: 'css-loader',
@@ -62,4 +64,4 @@ module.exports = {
         filename: '[name].js',
         libraryTarget: 'umd',
     },
-};
+});
