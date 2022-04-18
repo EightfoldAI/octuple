@@ -1,5 +1,5 @@
 const webpack = require('webpack');
-const WebpackCommonConfig = require('./webpack.common.js');
+const WebpackCommonConfig = require('./webpack.common');
 
 process.env.NODE_ENV = 'production';
 
@@ -10,6 +10,7 @@ module.exports = {
         'react-dom': 'commonjs react-dom',
     },
     plugins: [
+        ...WebpackCommonConfig.plugins,
         new webpack.DefinePlugin({
             VERSION: JSON.stringify(require('./package.json').version),
         }),

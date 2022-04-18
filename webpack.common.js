@@ -1,20 +1,26 @@
 const path = require('path');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+
 module.exports = {
-    entry: path.resolve(__dirname, './src/octuple.ts'),
+    entry: [
+        path.resolve(__dirname, 'src/octuple.ts'),
+        path.resolve(__dirname, 'src/styles/main.scss'),
+    ],
     module: {
         rules: [
             {
                 test: /\.tsx?$/,
                 use: 'ts-loader',
                 exclude: /node_modules/,
-                include: path.resolve(__dirname, './src'),
+                include: path.resolve(__dirname, 'src'),
             },
             {
                 test: /\.s[ca]ss|css$/,
                 exclude: /node_modules/,
-                include: path.resolve(__dirname, './src'),
+                include: path.resolve(__dirname, 'src'),
                 use: [
-                    'style-loader',
+                    MiniCssExtractPlugin.loader,
                     '@teamsupercell/typings-for-css-modules-loader',
                     {
                         loader: 'css-loader',
@@ -31,7 +37,10 @@ module.exports = {
                         loader: 'style-resources-loader',
                         options: {
                             patterns: [
-                                path.resolve(__dirname, 'src/styles/main.scss'),
+                                path.resolve(
+                                    __dirname,
+                                    'src/styles/common.scss'
+                                ),
                             ],
                         },
                     },
@@ -39,8 +48,16 @@ module.exports = {
             },
         ],
     },
+    optimization: {
+        minimizer: [`...`, new CssMinimizerPlugin()],
+    },
+    plugins: [
+        new MiniCssExtractPlugin({
+            filename: '[name].css',
+        }),
+    ],
     resolve: {
-        extensions: ['.ts', '.tsx', '.js', '.json'],
+        extensions: ['.ts', '.tsx', '.js', '.json', '.css', '.scss'],
     },
     devtool: 'source-map',
     output: {
