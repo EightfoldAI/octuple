@@ -1,20 +1,27 @@
 const path = require('path');
-module.exports = {
-    entry: path.resolve(__dirname, './src/octuple.ts'),
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+
+module.exports = (_, { mode }) => ({
+    entry: {
+        octuple: [path.resolve(__dirname, 'src/octuple.ts')],
+    },
     module: {
         rules: [
             {
                 test: /\.tsx?$/,
                 use: 'ts-loader',
                 exclude: /node_modules/,
-                include: path.resolve(__dirname, './src'),
+                include: path.resolve(__dirname, 'src'),
             },
             {
                 test: /\.s[ca]ss|css$/,
                 exclude: /node_modules/,
-                include: path.resolve(__dirname, './src'),
+                include: path.resolve(__dirname, 'src'),
                 use: [
-                    'style-loader',
+                    mode === 'production'
+                        ? MiniCssExtractPlugin.loader
+                        : 'style-loader',
                     '@teamsupercell/typings-for-css-modules-loader',
                     {
                         loader: 'css-loader',
@@ -39,14 +46,22 @@ module.exports = {
             },
         ],
     },
+    optimization: {
+        minimizer: [`...`, new CssMinimizerPlugin()],
+    },
+    plugins: [
+        new MiniCssExtractPlugin({
+            filename: '[name].css',
+        }),
+    ],
     resolve: {
-        extensions: ['.ts', '.tsx', '.js', '.json'],
+        extensions: ['.ts', '.tsx', '.js', '.json', '.css', '.scss'],
     },
     devtool: 'source-map',
     output: {
         path: path.join(__dirname, 'lib'),
         library: 'Octuple',
-        filename: 'octuple.js',
+        filename: '[name].js',
         libraryTarget: 'umd',
     },
-};
+});
