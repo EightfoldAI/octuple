@@ -3,10 +3,9 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 
 module.exports = {
-    entry: [
-        path.resolve(__dirname, 'src/octuple.ts'),
-        path.resolve(__dirname, 'src/styles/main.scss'),
-    ],
+    entry: {
+        octuple: [path.resolve(__dirname, 'src/octuple.ts')],
+    },
     module: {
         rules: [
             {
@@ -37,10 +36,7 @@ module.exports = {
                         loader: 'style-resources-loader',
                         options: {
                             patterns: [
-                                path.resolve(
-                                    __dirname,
-                                    'src/styles/common.scss'
-                                ),
+                                path.resolve(__dirname, 'src/styles/main.scss'),
                             ],
                         },
                     },
@@ -63,7 +59,7 @@ module.exports = {
     output: {
         path: path.join(__dirname, 'lib'),
         library: 'Octuple',
-        filename: 'octuple.js',
+        filename: '[name].js',
         libraryTarget: 'umd',
     },
 };
