@@ -112,6 +112,42 @@
     }
 }
 
+.button1 {
+    // Button 1 (Mobile L)
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: $text-font-weight-semibold;
+    font-size: $text-font-size-5;
+    line-height: $text-line-height-3;
+
+    &.open-sans {
+        font-family: 'Open Sans', sans-serif;
+    }
+}
+
+.button2 {
+    // Button 2 (Mobile M, Desktop L)
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: $text-font-weight-semibold;
+    font-size: $text-font-size-3;
+    line-height: $text-line-height-2;
+
+    &.open-sans {
+        font-family: 'Open Sans', sans-serif;
+    }
+}
+
+.button3 {
+    // Button 3 (Desktop M)
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: $text-font-weight-semibold;
+    font-size: $text-font-size-2;
+    line-height: $text-line-height-1;
+
+    &.open-sans {
+        font-family: 'Open Sans', sans-serif;
+    }
+}
+
 .button-padding-1 {
     padding: $button-padding-vertical-large $button-padding-horizontal-large;
 }
@@ -315,7 +351,7 @@
         width: 1px;
 
         &.split-divider-primary {
-            background-color: var(--button-default-foreground-color);
+            background-color: var(--text-color);
         }
 
         &.split-divider-secondary {
@@ -323,7 +359,7 @@
         }
 
         &.split-divider-primary-disruptive {
-            background-color: var(--white-color);
+            background-color: var(--text-inverse-color);
         }
 
         &.split-divider-secondary-disruptive {
