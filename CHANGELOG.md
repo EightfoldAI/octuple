@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.13](https://github.com/EightfoldAI/octuple/compare/v0.0.12...v0.0.13) (2022-04-19)
+
+### Features
+
+-   handle inverse themes in config provider ([#67](https://github.com/EightfoldAI/octuple/issues/67)) ([a8ac667](https://github.com/EightfoldAI/octuple/commits/a8ac667cc2e4f19f5fc68d31ad2a3b5f06badd4f))
+
 ### [0.0.12](https://github.com/EightfoldAI/octuple/compare/v0.0.11...v0.0.12) (2022-04-13)
 
 ### Bug Fixes
