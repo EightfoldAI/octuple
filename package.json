@@ -232,5 +232,9 @@
         "*.+(js|jsx|ts|tsx|json|css|scss|md)": [
             "prettier --write"
         ]
+    },
+    "engines": {
+        "node": ">=16.14.0 < 16.15",
+        "npm": ">=8.5.0 < 8.6"
     }
 }
