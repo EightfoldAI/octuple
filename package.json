@@ -66,6 +66,7 @@
         "@storybook/addon-interactions": "6.5.0-alpha.47",
         "@storybook/addon-links": "6.5.0-alpha.47",
         "@storybook/addon-postcss": "2.0.0",
+        "@storybook/addon-storyshots": "^6.4.22",
         "@storybook/addon-viewport": "6.5.0-alpha.47",
         "@storybook/addons": "6.5.0-alpha.47",
         "@storybook/builder-webpack5": "6.5.0-alpha.47",
