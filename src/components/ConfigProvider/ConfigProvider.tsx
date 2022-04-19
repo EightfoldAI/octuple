@@ -1,12 +1,13 @@
 import React, { createContext, FC, useEffect, useState } from 'react';
 import { registerTheme } from './Theming/styleGenerator';
 import { ConfigProviderProps, IConfigContext } from './ConfigProvider.types';
-import { ThemeOptions } from './Theming';
+import { IRegisterTheme, ThemeOptions } from './Theming';
 import { useFontSize } from '../../hooks/useFontSize';
 
 const ConfigContext = createContext<Partial<IConfigContext>>({});
 
 const DEFAULT_THEME = 'blue';
+const DEFAULT_FONT_SIZE = 16;
 
 const ConfigProvider: FC<ConfigProviderProps> = ({
     children,
@@ -14,18 +15,25 @@ const ConfigProvider: FC<ConfigProviderProps> = ({
 }) => {
     const [themeOptions, setThemeOptions] =
         useState<ThemeOptions>(defaultThemeOptions);
+
+    const [registeredTheme, setRegisteredTheme] = useState<IRegisterTheme>(
+        {} as IRegisterTheme
+    );
+
     const [fontSize, setFontSize] = useFontSize({
         variableName: '--font-size',
     });
 
     useEffect(() => {
         if (themeOptions) {
-            registerTheme({
-                name: DEFAULT_THEME,
-                ...themeOptions,
-            });
+            setRegisteredTheme(
+                registerTheme({
+                    name: DEFAULT_THEME,
+                    ...themeOptions,
+                })
+            );
         }
-        setFontSize(16);
+        setFontSize(DEFAULT_FONT_SIZE);
     }, [themeOptions]);
 
     return (
@@ -33,6 +41,7 @@ const ConfigProvider: FC<ConfigProviderProps> = ({
             value={{
                 themeOptions,
                 setThemeOptions,
+                registeredTheme,
             }}
         >
             <div className={`theme-${themeOptions.name}`}>{children}</div>

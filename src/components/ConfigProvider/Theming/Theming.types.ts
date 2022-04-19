@@ -25,32 +25,6 @@ export interface OcBaseTheme {
     warningColor?: Color;
     infoColor?: Color;
     errorColor?: Color;
-    buttonDefaultForegroundColor?: Color;
-    buttonHoverForegroundColor?: Color;
-    buttonFocusForegroundColor?: Color;
-    buttonActiveForegroundColor?: Color;
-    buttonVisitedForegroundColor?: Color;
-    buttonDefaultOutlineColor?: Color;
-    buttonHoverOutlineColor?: Color;
-    buttonFocusOutlineColor?: Color;
-    buttonActiveOutlineColor?: Color;
-    buttonVisitedOutlineColor?: Color;
-    buttonPrimaryDefaultBackgroundColor?: Color;
-    buttonPrimaryHoverBackgroundColor?: Color;
-    buttonPrimaryFocusBackgroundColor?: Color;
-    buttonPrimaryActiveBackgroundColor?: Color;
-    buttonPrimaryVisitedBackgroundColor?: Color;
-    buttonPrimaryDefaultBorderColor?: Color;
-    buttonPrimaryHoverBorderColor?: Color;
-    buttonPrimaryFocusBorderColor?: Color;
-    buttonPrimaryActiveBorderColor?: Color;
-    buttonPrimaryVisitedBorderColor?: Color;
-    buttonDefaultBackgroundColor?: Color;
-    buttonHoverBackgroundColor?: Color;
-    buttonFocusBackgroundColor?: Color;
-    buttonActiveBackgroundColor?: Color;
-    buttonVisitedBackgroundColor?: Color;
-    buttonHoverVariantBackgroundColor?: Color;
 }
 
 export interface OcTheme extends OcBaseTheme {
@@ -79,4 +53,16 @@ export interface ThemeOptions {
      * @default null
      */
     customTheme?: OcBaseTheme;
+}
+
+export type Variables = Record<string, Color>;
+
+export interface IGetStyle {
+    themeName: ThemeName;
+    light: boolean;
+    variables: Variables;
+}
+
+export interface IRegisterTheme extends IGetStyle {
+    styleNode: HTMLStyleElement;
 }
