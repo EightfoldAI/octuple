@@ -1,9 +1,5 @@
-name: Build
-
-# Workflow name
 name: 'Chromatic'
 
-# Event for the workflow
 on: push
 
 env:
