@@ -1,6 +1,8 @@
 # Eightfold Octuple Design System Component Library
 
-[![npm version](https://badge.fury.io/js/@eightfold.ai%2Foctuple.svg)](https://badge.fury.io/js/@eightfold.ai%2Foctuple) ![Build](https://github.com/EightfoldAI/octuple/actions/workflows/build.yml/badge.svg) [![codecov](https://codecov.io/gh/yrchhabra-eightfold/octuple/branch/main/graph/badge.svg?token=K2BV6M1JS5)](https://codecov.io/gh/yrchhabra-eightfold/octuple)
+[![npm version](https://badge.fury.io/js/@eightfold.ai%2Foctuple.svg)](https://badge.fury.io/js/@eightfold.ai%2Foctuple)  ![node](https://img.shields.io/badge/node-16.14.2-brightgreen.svg) [![codecov](https://codecov.io/gh/yrchhabra-eightfold/octuple/branch/main/graph/badge.svg?token=K2BV6M1JS5)](https://codecov.io/gh/yrchhabra-eightfold/octuple) ![Build](https://github.com/EightfoldAI/octuple/actions/workflows/build.yml/badge.svg) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+
 
 ## About
 
