@@ -1,5 +1,5 @@
 <p align="center">
-    <img width="200" src="./public/assets/Octuple-Logo.svg">
+    <img width="200" src="https://raw.githubusercontent.com/EightfoldAI/octuple/main/public/assets/Octuple-Logo.svg">
 </p>
 
 <h1 align="center">Eightfold Octuple Design System Component Library</h1>
