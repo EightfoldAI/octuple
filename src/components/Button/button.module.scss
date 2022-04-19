@@ -27,7 +27,7 @@
     --button-hover-variant-background-color: var(--primary-color-20);
     --text-color: var(--text-inverse-color);
     background-color: inherit;
-    border: 8px solid rgba(var(--button-primary-default-border-color), 0.01);
+    border: 2px solid rgba(var(--button-primary-default-border-color), 0.01);
     border-radius: $corner-radius-s;
     cursor: pointer;
     display: inline-block;
@@ -116,7 +116,7 @@
     // Button 1 (Mobile L)
     font-family: 'Source Sans Pro', sans-serif;
     font-weight: $text-font-weight-semibold;
-    font-size: $text-font-size-5;
+    font-size: $text-font-size-2;
     line-height: $text-line-height-3;
 
     &.open-sans {
@@ -128,7 +128,7 @@
     // Button 2 (Mobile M, Desktop L)
     font-family: 'Source Sans Pro', sans-serif;
     font-weight: $text-font-weight-semibold;
-    font-size: $text-font-size-3;
+    font-size: $text-font-size-2;
     line-height: $text-line-height-2;
 
     &.open-sans {
@@ -351,7 +351,7 @@
         width: 1px;
 
         &.split-divider-primary {
-            background-color: var(--text-color);
+            background-color: var(--button-default-foreground-color);
         }
 
         &.split-divider-secondary {
@@ -359,7 +359,7 @@
         }
 
         &.split-divider-primary-disruptive {
-            background-color: var(--text-inverse-color);
+            background-color: var(--white-color);
         }
 
         &.split-divider-secondary-disruptive {
