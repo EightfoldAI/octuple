@@ -12,11 +12,12 @@ jobs:
         with:
             fetch-depth: 0
       - uses: actions/setup-node@v3
+        with:
+            node-version: ${{ env.NODE_VERSION }}
       - name: Load cached node_modules
         uses: actions/cache@v3
         run: yarn
         with:
-          node-version: ${{ env.NODE_VERSION }}
           path: node_modules
           key: node_modules-${{ hashFiles('yarn.lock') }}
       - name: Publish to Chromatic
