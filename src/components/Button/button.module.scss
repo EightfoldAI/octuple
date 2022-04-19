@@ -27,7 +27,7 @@
     --button-hover-variant-background-color: var(--primary-color-20);
     --text-color: var(--text-inverse-color);
     background-color: inherit;
-    border: 2px solid rgba(var(--button-primary-default-border-color), 0.01);
+    border: 8px solid rgba(var(--button-primary-default-border-color), 0.01);
     border-radius: $corner-radius-s;
     cursor: pointer;
     display: inline-block;
