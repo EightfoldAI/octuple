@@ -1,8 +1,17 @@
-# Eightfold Octuple Design System Component Library
+<p align="center">
+    <img width="200" src="./public/assets/Octuple-Logo.svg">
+</p>
 
-[![npm version](https://badge.fury.io/js/@eightfold.ai%2Foctuple.svg)](https://badge.fury.io/js/@eightfold.ai%2Foctuple)  ![node](https://img.shields.io/badge/node-16.14.2-brightgreen.svg) [![codecov](https://codecov.io/gh/yrchhabra-eightfold/octuple/branch/main/graph/badge.svg?token=K2BV6M1JS5)](https://codecov.io/gh/yrchhabra-eightfold/octuple) ![Build](https://github.com/EightfoldAI/octuple/actions/workflows/build.yml/badge.svg) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+<h1 align="center">Eightfold Octuple Design System Component Library</h1>
 
+<div align="center">
 
+[![npm version](https://badge.fury.io/js/@eightfold.ai%2Foctuple.svg)](https://badge.fury.io/js/@eightfold.ai%2Foctuple) ![node](https://img.shields.io/badge/node-16.14.2-brightgreen.svg) [![codecov](https://codecov.io/gh/yrchhabra-eightfold/octuple/branch/main/graph/badge.svg?token=K2BV6M1JS5)](https://codecov.io/gh/yrchhabra-eightfold/octuple) ![Build](https://github.com/EightfoldAI/octuple/actions/workflows/build.yml/badge.svg) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+![bundlesize-js-image](https://img.badgesize.io/https:/unpkg.com/browse/@eightfold.ai/octuple/lib/octuple.js?label=octuple.js&compression=gzip)
+![bundlesize-css-image](https://img.badgesize.io/https:/unpkg.com/browse/@eightfold.ai/octuple/lib/octuple.css?label=octuple.css&compression=gzip)
+
+</div>
 
 ## About
 
