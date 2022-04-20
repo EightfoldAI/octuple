@@ -6,7 +6,7 @@
 
 <div align="center">
 
-[![npm version](https://badge.fury.io/js/@eightfold.ai%2Foctuple.svg)](https://badge.fury.io/js/@eightfold.ai%2Foctuple) ![node](https://img.shields.io/badge/node-16.14.2-brightgreen.svg) [![codecov](https://codecov.io/gh/yrchhabra-eightfold/octuple/branch/main/graph/badge.svg?token=K2BV6M1JS5)](https://codecov.io/gh/yrchhabra-eightfold/octuple) ![Build](https://github.com/EightfoldAI/octuple/actions/workflows/build.yml/badge.svg) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![npm version](https://badge.fury.io/js/@eightfold.ai%2Foctuple.svg)](https://badge.fury.io/js/@eightfold.ai%2Foctuple) ![node](https://img.shields.io/badge/node-16.14.2-brightgreen.svg) [![codecov](https://codecov.io/gh/ychhabra-eightfold/octuple/branch/main/graph/badge.svg?token=K2BV6M1JS5)](https://codecov.io/gh/ychhabra-eightfold/octuple) ![Build](https://github.com/EightfoldAI/octuple/actions/workflows/build.yml/badge.svg) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ![bundlesize-js-image](https://img.badgesize.io/https:/unpkg.com/browse/@eightfold.ai/octuple/lib/octuple.js?label=octuple.js&compression=gzip)
 ![bundlesize-css-image](https://img.badgesize.io/https:/unpkg.com/browse/@eightfold.ai/octuple/lib/octuple.css?label=octuple.css&compression=gzip)
@@ -28,9 +28,9 @@ It represents a collection of assets, utilities, and React components for buildi
 
 You can view the complete list of additions, fixes, and changes in the [change log](https://github.com/EightfoldAI/octuple/blob/main/CHANGELOG.md)
 
-## Usage
+## Install
 
-To use Octuple in your project run the following command:
+To install Octuple in your project run the following command:
 
 Yarn
 
@@ -42,6 +42,24 @@ NPM
 
 ```
 npm install @eightfold.ai/octuple
+```
+
+## Usage
+
+```tsx
+import { PrimaryButton } from '@eightfold.ai/octuple';
+
+export const App = () => (
+    <>
+        <PrimaryButton text={'Button'} />
+    </>
+);
+```
+
+And import styles manually:
+
+```tsx
+import '@eightfold.ai/octuple/lib/octuple.css';
 ```
 
 ## How can I contribute?
