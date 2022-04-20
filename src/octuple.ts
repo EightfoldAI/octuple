@@ -22,6 +22,8 @@ import { List } from './components/List';
 
 import { Menu } from './components/Menu';
 
+import { Modal, ModalSize } from './components/Modal';
+
 import { Pill, PillSize, PillType } from './components/Pills';
 
 import {
@@ -45,6 +47,10 @@ import { useBoolean } from './hooks/useBoolean';
 
 import { useMatchMedia } from './hooks/useMatchMedia';
 
+import { useOnClickOutside } from './hooks/useOnClickOutside';
+
+import { useScrollLock } from './hooks/useScrollLock';
+
 export {
     ButtonShape,
     ButtonSize,
@@ -61,6 +67,8 @@ export {
     IconSize,
     List,
     Menu,
+    Modal,
+    ModalSize,
     NeutralButton,
     Panel,
     PanelPlacement,
@@ -84,4 +92,6 @@ export {
     TooltipTheme,
     useBoolean,
     useMatchMedia,
+    useOnClickOutside,
+    useScrollLock,
 };

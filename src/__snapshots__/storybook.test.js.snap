@@ -4061,10 +4061,10 @@ Array [
 ]
 `;
 
-exports[`Storyshots Panel Default 1`] = `
+exports[`Storyshots Modal Default 1`] = `
 Array [
   <h1>
-    Panel (small)
+    Modal (large)
   </h1>,
   <button
     aria-disabled={false}
@@ -4076,11 +4076,11 @@ Array [
     <span
       className=""
     >
-      Open panel
+      Open modal
     </span>
   </button>,
   <h1>
-    Panel (medium)
+    Modal (medium)
   </h1>,
   <button
     aria-disabled={false}
@@ -4092,11 +4092,11 @@ Array [
     <span
       className=""
     >
-      Open panel
+      Open modal
     </span>
   </button>,
   <h1>
-    Panel (large)
+    Modal (small)
   </h1>,
   <button
     aria-disabled={false}
@@ -4108,11 +4108,11 @@ Array [
     <span
       className=""
     >
-      Open panel
+      Open modal
     </span>
   </button>,
   <h1>
-    Panel (stacked)
+    Modal (fullscreen)
   </h1>,
   <button
     aria-disabled={false}
@@ -4124,11 +4124,11 @@ Array [
     <span
       className=""
     >
-      Open panel
+      Open modal
     </span>
   </button>,
   <h1>
-    Panel Right
+    Modal (scrollable)
   </h1>,
   <button
     aria-disabled={false}
@@ -4140,42 +4140,133 @@ Array [
     <span
       className=""
     >
-      Open panel
-    </span>
-  </button>,
-  <h1>
-    Panel Bottom
-  </h1>,
-  <button
-    aria-disabled={false}
-    className="button buttonPrimary"
-    defaultChecked={false}
-    disabled={false}
-    onClick={[Function]}
-  >
-    <span
-      className=""
-    >
-      Open panel
-    </span>
-  </button>,
-  <h1>
-    Panel Top
-  </h1>,
-  <button
-    aria-disabled={false}
-    className="button buttonPrimary"
-    defaultChecked={false}
-    disabled={false}
-    onClick={[Function]}
-  >
-    <span
-      className=""
-    >
-      Open panel
+      Open modal
     </span>
   </button>,
 ]
+`;
+
+exports[`Storyshots Panel Default 1`] = `
+<div
+  style={
+    Object {
+      "height": "1000px",
+    }
+  }
+>
+  <h1>
+    Panel (small)
+  </h1>
+  <button
+    aria-disabled={false}
+    className="button buttonPrimary"
+    defaultChecked={false}
+    disabled={false}
+    onClick={[Function]}
+  >
+    <span
+      className=""
+    >
+      Open panel
+    </span>
+  </button>
+  <h1>
+    Panel (medium)
+  </h1>
+  <button
+    aria-disabled={false}
+    className="button buttonPrimary"
+    defaultChecked={false}
+    disabled={false}
+    onClick={[Function]}
+  >
+    <span
+      className=""
+    >
+      Open panel
+    </span>
+  </button>
+  <h1>
+    Panel (large)
+  </h1>
+  <button
+    aria-disabled={false}
+    className="button buttonPrimary"
+    defaultChecked={false}
+    disabled={false}
+    onClick={[Function]}
+  >
+    <span
+      className=""
+    >
+      Open panel
+    </span>
+  </button>
+  <h1>
+    Panel (stacked)
+  </h1>
+  <button
+    aria-disabled={false}
+    className="button buttonPrimary"
+    defaultChecked={false}
+    disabled={false}
+    onClick={[Function]}
+  >
+    <span
+      className=""
+    >
+      Open panel
+    </span>
+  </button>
+  <h1>
+    Panel Right
+  </h1>
+  <button
+    aria-disabled={false}
+    className="button buttonPrimary"
+    defaultChecked={false}
+    disabled={false}
+    onClick={[Function]}
+  >
+    <span
+      className=""
+    >
+      Open panel
+    </span>
+  </button>
+  <h1>
+    Panel Bottom
+  </h1>
+  <button
+    aria-disabled={false}
+    className="button buttonPrimary"
+    defaultChecked={false}
+    disabled={false}
+    onClick={[Function]}
+  >
+    <span
+      className=""
+    >
+      Open panel
+    </span>
+  </button>
+  <h1>
+    Panel Top
+  </h1>
+  <button
+    aria-disabled={false}
+    className="button buttonPrimary"
+    defaultChecked={false}
+    disabled={false}
+    onClick={[Function]}
+  >
+    <span
+      className=""
+    >
+      Open panel
+    </span>
+  </button>
+</div>
 `;
 
 exports[`Storyshots Pill Pills 1`] = `
