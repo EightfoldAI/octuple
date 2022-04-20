@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.15](https://github.com/EightfoldAI/octuple/compare/v0.0.14...v0.0.15) (2022-04-20)
+
+### Features
+
+-   adds octuples modal component, handle mobile view in dialog ([#65](https://github.com/EightfoldAI/octuple/issues/65)) ([3dfd43f](https://github.com/EightfoldAI/octuple/commits/3dfd43f9763e44026de4e7f0a98928b083610db9))
+
 ### [0.0.14](https://github.com/EightfoldAI/octuple/compare/v0.0.13...v0.0.14) (2022-04-19)
 
 ### Bug Fixes
