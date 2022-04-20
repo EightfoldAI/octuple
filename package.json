@@ -4,6 +4,10 @@
     "license": "MIT",
     "main": "lib/octuple.js",
     "types": "lib/octuple.d.ts",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/EightfoldAI/octuple"
+    },
     "scripts": {
         "storybook": "start-storybook -p 2022",
         "build-storybook": "rm -rf dist && mkdir dist && build-storybook -o dist",
