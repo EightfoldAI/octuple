@@ -35,6 +35,8 @@ import {
     TextInputWidth,
 } from './components/Inputs';
 
+import { Snackbar } from './components/Snackbar';
+
 import { Tabs, Tab, TabVariant } from './components/Tabs';
 
 import { Tooltip, TooltipTheme } from './components/Tooltip';
@@ -80,6 +82,7 @@ export {
     PrimaryButton,
     SearchBox,
     SecondaryButton,
+    Snackbar,
     Tabs,
     Tab,
     TabVariant,
