@@ -20,6 +20,7 @@ export const Modal: FC<ModalProps> = ({
         { [styles.small]: size === ModalSize.small },
         { [styles.medium]: size === ModalSize.medium },
         { [styles.large]: size === ModalSize.large },
+        { [styles.fullscreen]: size === ModalSize.fullscreen },
     ]);
 
     const headerClasses: string = classNames([styles.header, headerClassName]);
@@ -27,7 +28,7 @@ export const Modal: FC<ModalProps> = ({
     const bodyClasses: string = classNames([styles.body, bodyClassName]);
 
     const actionsClasses: string = classNames([
-        styles.actions,
+        styles.footer,
         actionsClassName,
     ]);
 

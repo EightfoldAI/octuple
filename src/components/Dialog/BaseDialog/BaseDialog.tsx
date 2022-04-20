@@ -1,8 +1,6 @@
 import React, { FC, useEffect } from 'react';
 import { BaseDialogProps } from './BaseDialog.types';
 import { Portal } from '../../Portal';
-
-import styles from './base-dialog.module.scss';
 import {
     classNames,
     stopPropagation,
@@ -10,6 +8,9 @@ import {
 } from '../../../shared/utilities';
 import { IconName } from '../../Icon';
 import { NeutralButton } from '../../Button';
+import { useScrollLock } from '../../../hooks/useScrollLock';
+
+import styles from './base-dialog.module.scss';
 
 export const BaseDialog: FC<BaseDialogProps> = ({
     parent = document.body,
@@ -31,6 +32,8 @@ export const BaseDialog: FC<BaseDialogProps> = ({
 }) => {
     const labelId = uniqueId('dialog-label-');
 
+    const { lockScroll, unlockScroll } = useScrollLock(parent);
+
     const dialogBackdropClasses: string = classNames([
         styles.dialogBackdrop,
         dialogWrapperClassName,
@@ -49,6 +52,11 @@ export const BaseDialog: FC<BaseDialogProps> = ({
 
     useEffect(() => {
         onVisibleChange?.(visible);
+        if (visible) {
+            lockScroll();
+        } else {
+            unlockScroll();
+        }
     }, [visible]);
 
     const getDialog = (): JSX.Element => (
@@ -71,7 +79,7 @@ export const BaseDialog: FC<BaseDialogProps> = ({
                     <NeutralButton icon={IconName.mdiClose} onClick={onClose} />
                 </div>
                 <div className={bodyClassName}>{body}</div>
-                <div className={actionsClassName}>{actions}</div>
+                {actions && <div className={actionsClassName}>{actions}</div>}
             </div>
         </div>
     );

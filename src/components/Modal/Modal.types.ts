@@ -4,6 +4,7 @@ export enum ModalSize {
     small = 'small',
     medium = 'medium',
     large = 'large',
+    fullscreen = 'fullscreen',
 }
 
 export interface ModalProps
