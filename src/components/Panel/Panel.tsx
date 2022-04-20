@@ -10,6 +10,7 @@ import { PanelProps, PanelRef, PanelSize } from './';
 import { IconName } from '../Icon';
 import { DefaultButton } from '../Button';
 import { Portal } from '../Portal';
+import { useScrollLock } from '../../hooks/useScrollLock';
 
 import styles from './panel.module.scss';
 
@@ -55,6 +56,7 @@ export const Panel = React.forwardRef<PanelRef, PanelProps>(
         const containerRef = useRef<HTMLDivElement>(null);
         const parentPanel = useContext<PanelRef>(PanelContext);
         const [internalPush, setPush] = useState<boolean>(false);
+        const { lockScroll, unlockScroll } = useScrollLock(parent);
 
         const panelBackdropClasses: string = classNames([
             styles.panelBackdrop,
@@ -92,6 +94,12 @@ export const Panel = React.forwardRef<PanelRef, PanelProps>(
                     parentPanel.push();
                 } else {
                     parentPanel.pull();
+                }
+            } else {
+                if (visible) {
+                    lockScroll();
+                } else {
+                    unlockScroll();
                 }
             }
             if (autoFocus) {

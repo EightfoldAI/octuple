@@ -1,43 +1,27 @@
-import React, { FC, useEffect } from 'react';
+import React, { FC } from 'react';
 import { DialogProps, DialogSize } from './Dialog.types';
-import { Portal } from '../Portal';
+import { classNames } from '../../shared/utilities';
+import { DefaultButton, PrimaryButton } from '../Button';
+import { BaseDialog } from './BaseDialog/BaseDialog';
 
 import styles from './dialog.module.scss';
-import { classNames, stopPropagation, uniqueId } from '../../shared/utilities';
-import { DefaultButton, NeutralButton, PrimaryButton } from '../Button';
-import { IconName } from '../Icon';
 
 export const Dialog: FC<DialogProps> = ({
     parent = document.body,
-    visible,
-    onClose,
-    maskClosable = true,
-    onVisibleChange,
-    height,
-    width,
-    zIndex,
     size = DialogSize.medium,
-    header,
     headerClassName,
-    body,
     bodyClassName,
     actionsClassName,
-    dialogWrapperClassName,
+    dialogClassName,
     okButtonProps,
     cancelButtonProps,
     onOk,
     onCancel,
+    ...rest
 }) => {
-    const labelId = uniqueId('dialog-label-');
-
-    const dialogBackdropClasses: string = classNames([
-        styles.dialogBackdrop,
-        dialogWrapperClassName,
-        { [styles.visible]: visible },
-    ]);
-
     const dialogClasses: string = classNames([
         styles.dialog,
+        dialogClassName,
         { [styles.small]: size === DialogSize.small },
         { [styles.medium]: size === DialogSize.medium },
     ]);
@@ -51,37 +35,15 @@ export const Dialog: FC<DialogProps> = ({
         actionsClassName,
     ]);
 
-    const dialogStyle: React.CSSProperties = {
-        zIndex,
-        height,
-        width,
-    };
-
-    useEffect(() => {
-        onVisibleChange?.(visible);
-    }, [visible]);
-
-    const getDialog = (): JSX.Element => (
-        <div
-            role="dialog"
-            aria-modal={true}
-            aria-labelledby={labelId}
-            className={dialogBackdropClasses}
-            onClick={(e: React.MouseEvent<HTMLDivElement>) => {
-                maskClosable && onClose(e);
-            }}
-        >
-            <div
-                className={dialogClasses}
-                style={dialogStyle}
-                onClick={stopPropagation}
-            >
-                <div className={headerClasses}>
-                    <span id={labelId}>{header}</span>
-                    <NeutralButton icon={IconName.mdiClose} onClick={onClose} />
-                </div>
-                <div className={bodyClasses}>{body}</div>
-                <div className={actionClasses}>
+    return (
+        <BaseDialog
+            {...rest}
+            dialogClassName={dialogClasses}
+            headerClassName={headerClasses}
+            bodyClassName={bodyClasses}
+            actionsClassName={actionClasses}
+            actions={
+                <>
                     {cancelButtonProps && (
                         <DefaultButton
                             {...cancelButtonProps}
@@ -91,9 +53,8 @@ export const Dialog: FC<DialogProps> = ({
                     {okButtonProps && (
                         <PrimaryButton {...okButtonProps} onClick={onOk} />
                     )}
-                </div>
-            </div>
-        </div>
+                </>
+            }
+        />
     );
-    return <Portal getContainer={() => parent}>{getDialog()}</Portal>;
 };

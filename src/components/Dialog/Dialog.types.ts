@@ -1,9 +1,6 @@
 import React from 'react';
 import { ButtonProps } from '../Button';
-
-type EventType =
-    | React.KeyboardEvent<HTMLDivElement>
-    | React.MouseEvent<HTMLDivElement | HTMLButtonElement>;
+import { BaseDialogProps } from './BaseDialog/BaseDialog.types';
 
 type DialogButtonProps = Omit<ButtonProps, 'onClick'>;
 
@@ -12,54 +9,7 @@ export enum DialogSize {
     medium = 'medium',
 }
 
-export interface DialogProps {
-    /**
-     * Dialog is visible or not
-     */
-    visible?: boolean;
-    /**
-     * Clicking on mask should close modal or not
-     * @default true
-     */
-    maskClosable?: boolean;
-    /**
-     * Callback fired on close on the modal
-     * @param e {EventType}
-     */
-    onClose?: (e: EventType) => void;
-    /**
-     * Callback fired on visibility change of the modal
-     * @param visible {bool}
-     */
-    onVisibleChange?: (visible: boolean) => void;
-    /**
-     * Custom class for the dialog wrapper
-     */
-    dialogWrapperClassName?: string;
-    /**
-     * Custom class for the dialog
-     */
-    dialogClassName?: string;
-    /**
-     * Custom class for the header
-     */
-    headerClassName?: string;
-    /**
-     * Custom class for the body
-     */
-    bodyClassName?: string;
-    /**
-     * Custom class for the actions wrapper
-     */
-    actionsClassName?: string;
-    /**
-     * The header of the dialog
-     */
-    header?: React.ReactNode;
-    /**
-     * The body of the dialog
-     */
-    body?: React.ReactNode;
+export interface DialogProps extends BaseDialogProps {
     /**
      * Props for the ok button
      */
@@ -81,21 +31,4 @@ export interface DialogProps {
      * @default medium
      */
     size?: DialogSize;
-    /**
-     * Custom width of the dialog
-     */
-    width?: number;
-    /**
-     * Custom height of the dialog
-     */
-    height?: number;
-    /**
-     * Custom zIndex for the dialog
-     */
-    zIndex?: number;
-    /**
-     * Element to which to attach the modal to
-     * @default HTMLBodyElement
-     */
-    parent?: HTMLDivElement | HTMLBodyElement;
 }
