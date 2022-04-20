@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.14](https://github.com/EightfoldAI/octuple/compare/v0.0.13...v0.0.14) (2022-04-19)
+
+### Bug Fixes
+
+-   button: move unreferenced global style into the module ([#74](https://github.com/EightfoldAI/octuple/issues/74)) ([3f87bcd](https://github.com/EightfoldAI/octuple/commits/3f87bcd7b9c612a3bcd103a9899a9f812d27d6cd))
+
 ### [0.0.13](https://github.com/EightfoldAI/octuple/compare/v0.0.12...v0.0.13) (2022-04-19)
 
 ### Features
