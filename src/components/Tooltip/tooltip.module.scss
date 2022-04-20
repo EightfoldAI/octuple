@@ -74,15 +74,4 @@ $tooltip-arrow-shadow: 1px 1px 2px rgba(15, 20, 31, 0.12);
         animation: scaleTooltip $motion-duration-extra-fast
             $motion-easing-easeinout 0s;
     }
-
-    @keyframes scaleTooltip {
-        from {
-            transform: scale(0);
-            opacity: 0;
-        }
-        to {
-            transform: scale(1);
-            opacity: 1;
-        }
-    }
 }
