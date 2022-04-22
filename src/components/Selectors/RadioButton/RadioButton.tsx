@@ -1,5 +1,5 @@
-import React, { FC } from 'react';
-import { RadioButtonProps, SelectorSize } from '../index';
+import React, { FC, useState } from 'react';
+import { RadioButtonProps } from '../index';
 import { classNames } from '../../../shared/utilities';
 
 import styles from '../selectors.module.scss';
@@ -8,53 +8,46 @@ export const RadioButton: FC<RadioButtonProps> = ({
     ariaLabel,
     checked = false,
     color = '',
+    disabled = false,
     id,
-    inputType = 'radio',
+    index,
+    forRadioGroup,
     name,
-    size = SelectorSize.Medium,
     value,
-    onClick,
+    onChange,
+    updateRadioGroup,
 }) => {
-    const radioButtonDivClassNames: string = classNames([styles.selector]);
-
-    const radioButtonInputWrapperClassNames: string = classNames([
-        styles.selectorWrapper,
-    ]);
-
-    const radioButtonLabelClassNames: string = classNames([
-        styles.selectorLabel,
-    ]);
+    const [isChecked, setIsChecked] = useState(checked);
 
     const radioButtonClassNames: string = classNames([
         styles.radioButton,
-        { [styles.selectorSmall]: size === SelectorSize.Small },
-        { [styles.selectorMedium]: size === SelectorSize.Medium },
-        { [styles.selectorLarge]: size === SelectorSize.Large },
-        { [styles.red]: color === 'red' },
-        { [styles.orange]: color === 'orange' },
-        { [styles.yellow]: color === 'yellow' },
-        { [styles.green]: color === 'green' },
-        { [styles.bluegreen]: color === 'bluegreen' },
-        { [styles.blue]: color === 'blue' },
-        { [styles.violet]: color === 'violet' },
-        { [styles.grey]: color === 'grey' },
+        { [styles.disabled]: disabled },
     ]);
 
+    const toggleChecked = () => {
+        if (!disabled && forRadioGroup) updateRadioGroup(index);
+        else if (!disabled) setIsChecked(!isChecked);
+    };
+
     return (
-        <div className={radioButtonDivClassNames}>
-            <label className={radioButtonInputWrapperClassNames}>
-                <input
-                    aria-label={ariaLabel}
-                    checked={checked}
-                    color={color}
-                    id={id}
-                    name={name}
-                    onClick={onClick}
-                    type={inputType}
-                    value={value}
-                />
-                <span className={radioButtonClassNames}></span>
-                <span className={radioButtonLabelClassNames}>{value}</span>
+        <div className={styles.selector}>
+            <input
+                aria-label={ariaLabel}
+                checked={forRadioGroup ? checked : isChecked}
+                color={color}
+                disabled={disabled}
+                id={id}
+                name={name}
+                onChange={onChange}
+                type={'radio'}
+                value={value}
+            />
+            <label>
+                <span
+                    className={radioButtonClassNames}
+                    onClick={toggleChecked}
+                ></span>
+                <span className={styles.selectorLabel}>{value}</span>
             </label>
         </div>
     );

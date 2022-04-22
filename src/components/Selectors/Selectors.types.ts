@@ -1,11 +1,5 @@
 import React from 'react';
 
-export enum SelectorSize {
-    Large = 'large',
-    Medium = 'medium',
-    Small = 'small',
-}
-
 export interface CheckBoxProps {
     /**
      * Allows focus on the checkbox when it's disabled.
@@ -41,10 +35,6 @@ export interface CheckBoxProps {
      */
     id?: string;
     /**
-     * The input type.
-     */
-    inputType?: 'checkbox';
-    /**
      * The array of items for the radio group.
      */
     items?: Array<CheckBoxProps>;
@@ -53,18 +43,13 @@ export interface CheckBoxProps {
      */
     name?: string;
     /**
-     * The checkbox size.
-     * @default SelectorSize.Medium
-     */
-    size?: SelectorSize;
-    /**
      * The check box value.
      */
     value?: string;
     /**
-     * The checkbox onClick event handler.
+     * The checkbox onChange event handler.
      */
-    onClick?: React.MouseEventHandler<HTMLButtonElement>;
+    onChange?: React.ChangeEventHandler<HTMLInputElement>;
 }
 
 export interface RadioButtonProps {
@@ -81,32 +66,40 @@ export interface RadioButtonProps {
      */
     color?: string;
     /**
+     * The input radio default selected value.
+     */
+    defaultSelected?: boolean;
+    /**
+     * The boolean for disabling the radio button.
+     */
+    disabled?: boolean;
+    /**
      * The radio button id.
      */
     id?: string;
     /**
-     * The input icon button html type.
+     * The radio button index.
      */
-    inputType?: 'radio';
+    index?: number;
     /**
      * The array of items for the radio group.
      */
     items?: Array<RadioButtonProps>;
     /**
+     * The boolean for the radio button being part of a group.
+     */
+    forRadioGroup?: boolean;
+    /**
      * The name of the radio button group.
      */
     name?: string;
-    /**
-     * The radio button size.
-     * @default SelectorSize.Medium
-     */
-    size?: SelectorSize;
     /**
      * The value of the input.
      */
     value?: string | number;
     /**
-     * The radio button onClick event handler.
+     * The radio button onChange event handler.
      */
-    onClick?: React.MouseEventHandler<HTMLButtonElement>;
+    onChange?: React.ChangeEventHandler<HTMLInputElement>;
+    updateRadioGroup?: Function;
 }

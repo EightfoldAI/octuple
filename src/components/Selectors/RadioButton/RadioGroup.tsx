@@ -1,27 +1,38 @@
-import React, { FC } from 'react';
+import React, { FC, useState, useEffect } from 'react';
 import { RadioButtonProps } from '../index';
-import { SelectorSize } from '../Selectors.types';
 import { RadioButton } from './RadioButton';
 
 export const RadioGroup: FC<RadioButtonProps> = ({
-    inputType = 'radio',
+    defaultSelected = false,
     items,
+    onChange,
 }) => {
-    return (
-        <div>
-            {items.map((item) => (
+    const [radioGroupItems, setRadioGroupItems] = useState(items);
+    const updateRadioGroup = (index: number) => {
+        let group = [...radioGroupItems];
+        group[index].checked = true;
+        group.forEach((item, idx) => {
+            if (index !== idx) item.checked = false;
+        });
+        setRadioGroupItems(group);
+    };
+
+    const renderRadioGroup = () =>
+        radioGroupItems.map((item, index) => {
+            return (
                 <RadioButton
-                    ariaLabel={item.ariaLabel}
-                    checked={item.checked}
-                    color={item.color ? item.color : null}
-                    id={item.id}
-                    inputType={inputType}
+                    ariaLabel={item.ariaLabel ? item.ariaLabel : ''}
+                    checked={item.checked ? item.checked : defaultSelected}
+                    color={item.color ? item.color : ''}
+                    id={item.id ? item.id : ''}
+                    index={index}
+                    forRadioGroup={true}
                     name={item.name}
-                    size={item.size ? item.size : SelectorSize.Medium}
                     value={item.value}
-                    onClick={item.onClick}
+                    onChange={onChange}
+                    updateRadioGroup={() => updateRadioGroup(index)}
                 />
-            ))}
-        </div>
-    );
+            );
+        });
+    return <div>{renderRadioGroup()}</div>;
 };
