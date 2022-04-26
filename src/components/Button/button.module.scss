@@ -25,6 +25,30 @@
     --button-active-background-color: var(--primary-color-10);
     --button-visited-background-color: var(--primary-color-10);
     --button-hover-variant-background-color: var(--primary-color-20);
+    --button-two-state-default-foreground-color: var(--grey-color-70);
+    --button-two-state-hover-foreground-color: var(--primary-color-70);
+    --button-two-state-focus-foreground-color: var(--primary-color-80);
+    --button-two-state-checked-foreground-color: var(--primary-color-80);
+    --button-two-state-active-foreground-color: var(--primary-color-80);
+    --button-two-state-visited-foreground-color: var(--primary-color-80);
+    --button-two-state-default-background-color: var(--white-color);
+    --button-two-state-hover-background-color: var(--white-color);
+    --button-two-state-focus-background-color: var(--white-color);
+    --button-two-state-checked-background-color: var(--primary-color-20);
+    --button-two-state-active-background-color: var(--primary-color-20);
+    --button-two-state-visited-background-color: var(--primary-color-20);
+    --button-counter-default-background-color: var(--grey-color-20);
+    --button-counter-hover-background-color: var(--primary-color-20);
+    --button-counter-checked-background-color: var(--primary-color-10);
+    --button-counter-focus-background-color: var(--primary-color-20);
+    --button-counter-active-background-color: var(--primary-color-10);
+    --button-counter-visited-background-color: var(--primary-color-10);
+    --button-two-state-default-outline-color: var(--grey-color-70);
+    --button-two-state-hover-outline-color: var(--primary-color-60);
+    --button-two-state-checked-outline-color: var(--primary-color-70);
+    --button-two-state-focus-outline-color: var(--primary-color-40);
+    --button-two-state-active-outline-color: var(--primary-color-70);
+    --button-two-state-visited-outline-color: var(--primary-color-70);
     --text-color: var(--text-inverse-color);
     background-color: inherit;
     border: 2px solid rgba(var(--button-primary-default-border-color), 0.01);
@@ -35,9 +59,9 @@
     white-space: nowrap;
 
     span {
+        align-items: center;
         display: flex;
         flex-direction: row;
-        align-items: center;
     }
 
     .icon + .button1:not(:empty) {
@@ -119,6 +143,14 @@
     font-size: $text-font-size-5;
     line-height: $text-line-height-3;
 
+    &.counter {
+        font-size: $text-font-size-4;
+        height: 24px;
+        line-height: 24px;
+        margin: 0 $space-xs;
+        width: 24px;
+    }
+
     &.open-sans {
         font-family: 'Open Sans', sans-serif;
     }
@@ -131,6 +163,15 @@
     font-size: $text-font-size-3;
     line-height: $text-line-height-2;
 
+    &.counter {
+        font-size: $text-font-size-2;
+        height: 18px;
+        line-height: 18px;
+        margin: 0 $space-xs;
+        padding-left: 1px;
+        width: 18px;
+    }
+
     &.open-sans {
         font-family: 'Open Sans', sans-serif;
     }
@@ -142,6 +183,15 @@
     font-weight: $text-font-weight-semibold;
     font-size: $text-font-size-2;
     line-height: $text-line-height-1;
+
+    &.counter {
+        font-size: $text-font-size-1;
+        height: 16px;
+        line-height: 16px;
+        margin: 0 $space-xxs;
+        padding-left: 0;
+        width: 16px;
+    }
 
     &.open-sans {
         font-family: 'Open Sans', sans-serif;
@@ -395,6 +445,66 @@
         bottom: 6px;
         right: 34px;
         top: 6px;
+    }
+}
+
+.two-state-button {
+    background-color: var(--button-two-state-default-background-color);
+    color: var(--button-two-state-default-foreground-color);
+    outline: var(--button-two-state-default-outline-color) solid 1px;
+    outline-offset: -2px;
+
+    .counter {
+        background-color: var(--button-counter-default-background-color);
+        border-radius: 50%;
+        display: inline;
+        text-align: center;
+    }
+
+    &:hover {
+        background-color: var(--button-two-state-hover-background-color);
+        color: var(--button-two-state-hover-foreground-color);
+        outline-color: var(--button-two-state-hover-outline-color);
+
+        .counter {
+            background-color: var(--button-counter-hover-background-color);
+        }
+    }
+
+    &:active {
+        background-color: var(--button-two-state-active-background-color);
+        color: var(--button-two-state-active-foreground-color);
+        outline-color: var(--button-two-state-active-outline-color);
+
+        .counter {
+            background-color: var(--button-counter-active-background-color);
+        }
+    }
+
+    &.checked {
+        background-color: var(--button-two-state-checked-background-color);
+        color: var(--button-two-state-checked-foreground-color);
+        outline-color: var(--button-two-state-checked-outline-color);
+
+        .counter {
+            background-color: var(--button-counter-checked-background-color);
+        }
+    }
+
+    &:focus-visible {
+        background-color: var(--button-two-state-focus-background-color);
+        color: var(--button-two-state-focus-foreground-color);
+        outline: 1px solid var(--button-two-state-focus-outline-color);
+
+        &.checked {
+            background-color: var(--button-two-state-checked-background-color);
+            color: var(--button-two-state-checked-foreground-color);
+            outline: 1px solid var(--button-two-state-focus-outline-color);
+        }
+
+        .counter {
+            background-color: var(--button-counter-focus-background-color);
+        }
     }
 }
 
