@@ -9,12 +9,13 @@ export const CheckBoxGroup: FC<CheckBoxProps> = ({
 }) => {
     return (
         <div>
-            {items.map((item) => (
+            {items.map((item, index) => (
                 <CheckBox
                     ariaLabel={item.ariaLabel}
                     checked={item.checked ? item.checked : defaultChecked}
                     color={item.color ? item.color : null}
                     id={item.id}
+                    key={index}
                     name={item.name}
                     value={item.value}
                     onChange={onChange}

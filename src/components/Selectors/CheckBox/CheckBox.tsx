@@ -8,7 +8,7 @@ export const CheckBox: FC<CheckBoxProps> = ({
     ariaLabel,
     checked = false,
     color,
-    defaultChecked = false,
+    defaultChecked,
     disabled = false,
     id,
     name,
@@ -39,8 +39,9 @@ export const CheckBox: FC<CheckBoxProps> = ({
                 name={name}
                 type={'checkbox'}
                 value={value}
+                readOnly
             />
-            <label style={value === '' && { marginBottom: '15px' }}>
+            <label style={value === '' ? { marginBottom: '15px' } : null}>
                 <span
                     className={checkBoxCheckClassNames}
                     onClick={toggleChecked}
