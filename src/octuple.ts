@@ -35,7 +35,12 @@ import {
     TextInputWidth,
 } from './components/Inputs';
 
-import { Snackbar } from './components/Snackbar';
+import {
+    SnackbarContainer,
+    Snackbar,
+    SnackbarType,
+    useSnack,
+} from './components/Snackbar';
 
 import { Tabs, Tab, TabVariant } from './components/Tabs';
 
@@ -83,6 +88,8 @@ export {
     SearchBox,
     SecondaryButton,
     Snackbar,
+    SnackbarContainer,
+    SnackbarType,
     Tabs,
     Tab,
     TabVariant,
@@ -97,4 +104,5 @@ export {
     useMatchMedia,
     useOnClickOutside,
     useScrollLock,
+    useSnack,
 };

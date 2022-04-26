@@ -1,36 +1,48 @@
 import React from 'react';
-import { Snackbar, SnackbarType } from './';
+import { Snackbar, SnackbarContainer, SnackbarType } from './';
+import { useSnack } from './snack';
+import { DefaultButton } from '../Button';
 
 export default {
     title: 'Snackbar',
     component: Snackbar,
 };
 
-export const Default = () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-        <h1>Snackbar</h1>
-        <Snackbar
-            message={
-                'Body 2 is used in this snackbar. This should be straight forward but can wrap up to two lines if needed.'
-            }
-        />
-        <Snackbar
-            message={
-                'Body 2 is used in this snackbar. This should be straight forward but can wrap up to two lines if needed.'
-            }
-            type={SnackbarType.positive}
-        />
-        <Snackbar
-            message={
-                'Body 2 is used in this snackbar. This should be straight forward but can wrap up to two lines if needed.'
-            }
-            type={SnackbarType.warning}
-        />
-        <Snackbar
-            message={
-                'Body 2 is used in this snackbar. This should be straight forward but can wrap up to two lines if needed.'
-            }
-            type={SnackbarType.disruptive}
-        />
-    </div>
-);
+export const Default = () => {
+    let snackIndex = 1;
+    const { serve } = useSnack();
+
+    return (
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+            <h1>Snackbar</h1>
+            <DefaultButton
+                text={'Serve snack'}
+                onClick={() => {
+                    serve({
+                        content: `My first snack ${snackIndex}`,
+                        type: SnackbarType.neutral,
+                        closable: true,
+                        onClose: () => {
+                            console.log('closed');
+                        },
+                    });
+                    serve({
+                        content: `My first snack ${snackIndex}`,
+                        type: SnackbarType.positive,
+                        position: 'top',
+                    });
+                    serve({
+                        content: `My first snack ${snackIndex}`,
+                        type: SnackbarType.warning,
+                    });
+                    serve({
+                        content: `My first snack ${snackIndex}`,
+                        type: SnackbarType.disruptive,
+                    });
+                    snackIndex += 1;
+                }}
+            />
+            <SnackbarContainer />
+        </div>
+    );
+};
