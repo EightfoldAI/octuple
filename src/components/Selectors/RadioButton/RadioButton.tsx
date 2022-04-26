@@ -42,7 +42,7 @@ export const RadioButton: FC<RadioButtonProps> = ({
                 type={'radio'}
                 value={value}
             />
-            <label>
+            <label style={value === '' ? { marginBottom: '15px' } : null}>
                 <span
                     className={radioButtonClassNames}
                     onClick={toggleChecked}

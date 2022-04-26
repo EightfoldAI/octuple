@@ -12,7 +12,7 @@ export const CheckBox: FC<CheckBoxProps> = ({
     disabled = false,
     id,
     name,
-    value,
+    value = '',
     onChange,
 }) => {
     const [isChecked, setIsChecked] = useState(checked);
@@ -40,7 +40,7 @@ export const CheckBox: FC<CheckBoxProps> = ({
                 type={'checkbox'}
                 value={value}
             />
-            <label>
+            <label style={value === '' && { marginBottom: '15px' }}>
                 <span
                     className={checkBoxCheckClassNames}
                     onClick={toggleChecked}

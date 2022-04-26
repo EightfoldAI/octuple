@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { RadioButton, RadioGroup } from '../index';
-import { OcThemeNames } from '../../ConfigProvider';
 
 export default {
     title: 'Radio Button',
@@ -8,17 +7,6 @@ export default {
 };
 
 export const Radio = () => {
-    const themes: OcThemeNames[] = [
-        'red',
-        'orange',
-        'yellow',
-        'green',
-        'bluegreen',
-        'blue',
-        'violet',
-        'grey',
-    ];
-
     const radioGroupItems = [
         {
             checked: true,
@@ -42,18 +30,6 @@ export const Radio = () => {
             <RadioButton checked={true} />
             <h2>Label Radio Button</h2>
             <RadioButton checked={true} value="Label" />
-            <h2>Radio Button Colors</h2>
-            <div
-                style={{
-                    display: 'flex',
-                    flexDirection: 'row',
-                    gap: '16px',
-                }}
-            >
-                {themes.map((theme) => (
-                    <RadioButton checked={true} color={theme} />
-                ))}
-            </div>
             <h2>Radio Button Groups</h2>
             <RadioGroup items={radioGroupItems} />
         </>
