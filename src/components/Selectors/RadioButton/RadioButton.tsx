@@ -13,7 +13,7 @@ export const RadioButton: FC<RadioButtonProps> = ({
     index,
     forRadioGroup,
     name,
-    value,
+    value = '',
     onChange,
     updateRadioGroup,
 }) => {
@@ -41,6 +41,7 @@ export const RadioButton: FC<RadioButtonProps> = ({
                 onChange={onChange}
                 type={'radio'}
                 value={value}
+                readOnly
             />
             <label style={value === '' ? { marginBottom: '15px' } : null}>
                 <span

@@ -27,6 +27,7 @@ export const RadioGroup: FC<RadioButtonProps> = ({
                     id={item.id ? item.id : ''}
                     index={index}
                     forRadioGroup={true}
+                    key={index}
                     name={item.name}
                     value={item.value}
                     onChange={onChange}
