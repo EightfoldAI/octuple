@@ -8,10 +8,10 @@ import {
     NeutralButton,
     PrimaryButton,
     SecondaryButton,
+    TwoStateButton,
 } from './index';
 import { Dropdown } from '../Dropdown/Dropdown';
 import { IconName } from '../Icon';
-import { List, ItemLayout } from '../List';
 import { useBoolean } from '../../hooks/useBoolean';
 
 interface ExampleProps {
@@ -342,6 +342,33 @@ export const Toggle: FC<ExampleProps> = ({ checked }) => {
                     toggle
                 />
             </span>
+        </>
+    );
+};
+
+export const TwoState: FC<ExampleProps> = ({ checked }) => {
+    const [isToggled, { toggle: setToggled }] = useBoolean(false);
+    return (
+        <>
+            <h1>Two State Button</h1>
+            <p>
+                Note: Like Toggle, Two State buttons require the{' '}
+                <code>toggle</code> attribute in addition to{' '}
+                <code>checked</code>. Two State button's visual state is
+                different than a basic Toggle button.
+            </p>
+            <TwoStateButton
+                ariaLabel="Two State Button"
+                checked={isToggled || checked}
+                counter={8}
+                iconOne={IconName.mdiCardsHeart}
+                iconTwo={
+                    isToggled ? IconName.mdiChevronUp : IconName.mdiChevronDown
+                }
+                onClick={setToggled}
+                text="Two State Button"
+                toggle
+            />
         </>
     );
 };

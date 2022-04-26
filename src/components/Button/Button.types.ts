@@ -36,14 +36,6 @@ export enum ButtonType {
     Secondary = 'secondary',
 }
 
-export type NativeButtonProps = Omit<React.ButtonHTMLAttributes<any>, 'type'>;
-
-export interface SplitButtonProps
-    extends Omit<
-        InternalButtonProps,
-        'text' | 'htmlType' | 'onContextMenu' | 'splitButtonProps' | 'toggle'
-    > {}
-
 export interface InternalButtonProps extends ButtonProps {
     /**
      * Determines the button type.
@@ -53,6 +45,46 @@ export interface InternalButtonProps extends ButtonProps {
      * Ref of the button
      */
     ref?: Ref<HTMLButtonElement>;
+}
+
+export type NativeButtonProps = Omit<React.ButtonHTMLAttributes<any>, 'type'>;
+
+export interface SplitButtonProps
+    extends Omit<
+        InternalButtonProps,
+        'text' | 'htmlType' | 'onContextMenu' | 'splitButtonProps' | 'toggle'
+    > {}
+
+export interface TwoStateButtonProps
+    extends Omit<
+        InternalButtonProps,
+        | 'htmlType'
+        | 'icon'
+        | 'iconColor'
+        | 'onContextMenu'
+        | 'split'
+        | 'splitButtonProps'
+    > {
+    /**
+     * The button counter number.
+     */
+    counter?: number;
+    /**
+     * The button icon 1.
+     */
+    iconOne?: IconName;
+    /**
+     * The button icon 1 color.
+     */
+    iconOneColor?: string;
+    /**
+     * The button icon 2.
+     */
+    iconTwo?: IconName;
+    /**
+     * The button icon 2 color.
+     */
+    iconTwoColor?: string;
 }
 
 export interface ButtonProps extends NativeButtonProps {

@@ -8,6 +8,7 @@ import {
     NeutralButton,
     PrimaryButton,
     SecondaryButton,
+    TwoStateButton,
 } from './components/Button';
 
 import { ConfigProvider } from './components/ConfigProvider';
@@ -90,6 +91,7 @@ export {
     TextInputWidth,
     Tooltip,
     TooltipTheme,
+    TwoStateButton,
     useBoolean,
     useMatchMedia,
     useOnClickOutside,
