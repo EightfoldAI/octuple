@@ -1,41 +1,74 @@
-import { SnackbarProps } from './Snackbar.types';
+import {
+    ISnack,
+    SnackbarPosition,
+    SnackbarProps,
+    SnackbarType,
+} from './Snackbar.types';
+import { generateId } from '../../shared/utilities';
 
-const generateSnackId = (): string => {
-    return Math.random().toString(36).substring(2, 9);
+const DEFAULT_POSITION: SnackbarPosition = 'top-center';
+
+export const SNACK_EVENTS: Record<string, string> = {
+    SERVE: 'serveSnack',
+    EAT: 'eatSnack',
 };
 
-export const useSnack = () => {
-    const serve = (props: SnackbarProps): void => {
-        const id = generateSnackId();
-        const serveSnackEvent = new CustomEvent<SnackbarProps>('serveSnack', {
-            bubbles: true,
-            cancelable: false,
-            detail: {
-                ...props,
-                id,
-            },
-        });
-        document.dispatchEvent(serveSnackEvent);
-        if (!props.closable) {
-            setTimeout(() => {
-                eat(id);
-            }, props.duration || 3000);
-        }
-    };
+export const serve = (props: SnackbarProps): void => {
+    const id = generateId();
+    const serveSnackEvent = new CustomEvent<SnackbarProps>(SNACK_EVENTS.SERVE, {
+        bubbles: true,
+        cancelable: false,
+        detail: {
+            position: DEFAULT_POSITION,
+            id,
+            ...props,
+        },
+    });
+    document.dispatchEvent(serveSnackEvent);
+    if (!props.closable) {
+        setTimeout(() => {
+            eat(id);
+        }, props.duration || 3000);
+    }
+};
 
-    const eat = (snackId: string): void => {
-        const removeSnackEvent = new CustomEvent<string>('removeSnack', {
-            bubbles: true,
-            cancelable: false,
-            detail: snackId,
-        });
-        document.dispatchEvent(removeSnackEvent);
-    };
+export const eat = (snackId: string): void => {
+    const removeSnackEvent = new CustomEvent<string>(SNACK_EVENTS.EAT, {
+        bubbles: true,
+        cancelable: false,
+        detail: snackId,
+    });
+    document.dispatchEvent(removeSnackEvent);
+};
 
-    return {
-        serve,
-        add: serve,
-        eat,
-        remove: eat,
-    };
+export const serveNeutral = (props: SnackbarProps) =>
+    serve({
+        ...props,
+        type: SnackbarType.neutral,
+    });
+
+export const servePositive = (props: SnackbarProps) =>
+    serve({
+        ...props,
+        type: SnackbarType.positive,
+    });
+
+export const serveWarning = (props: SnackbarProps) =>
+    serve({
+        ...props,
+        type: SnackbarType.warning,
+    });
+
+export const serveDisruptive = (props: SnackbarProps) =>
+    serve({
+        ...props,
+        type: SnackbarType.disruptive,
+    });
+
+export const snack: ISnack = {
+    serve,
+    serveNeutral,
+    servePositive,
+    serveWarning,
+    serveDisruptive,
 };

@@ -39,7 +39,7 @@ import {
     SnackbarContainer,
     Snackbar,
     SnackbarType,
-    useSnack,
+    snack,
 } from './components/Snackbar';
 
 import { Tabs, Tab, TabVariant } from './components/Tabs';
@@ -87,6 +87,7 @@ export {
     PrimaryButton,
     SearchBox,
     SecondaryButton,
+    snack,
     Snackbar,
     SnackbarContainer,
     SnackbarType,
@@ -104,5 +105,4 @@ export {
     useMatchMedia,
     useOnClickOutside,
     useScrollLock,
-    useSnack,
 };

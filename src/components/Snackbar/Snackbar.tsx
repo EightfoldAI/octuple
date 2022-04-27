@@ -1,12 +1,8 @@
 import React, { FC } from 'react';
-import {
-    SnackbarPosition,
-    SnackbarProps,
-    SnackbarType,
-} from './Snackbar.types';
+import { SnackbarProps, SnackbarType } from './Snackbar.types';
 import { classNames } from '../../shared/utilities';
 import { Icon, IconName } from '../Icon';
-import { DefaultButton } from '../Button';
+import { NeutralButton } from '../Button';
 
 import styles from './snackbar.module.scss';
 
@@ -20,17 +16,7 @@ export const Snackbar: FC<SnackbarProps> = ({
     className,
     closeIcon = IconName.mdiClose,
     closeButtonProps,
-    position,
 }) => {
-    const POSITION_TO_CLASS_MAP: Record<SnackbarPosition, string> = {
-        'top-left': styles.topLeft,
-        'top-right': styles.topRight,
-        top: styles.top,
-        'bottom-left': styles.bottomLeft,
-        'bottom-right': styles.bottomRight,
-        bottom: styles.bottom,
-    };
-
     const snackbarClasses: string = classNames([
         styles.snackbars,
         className,
@@ -38,7 +24,6 @@ export const Snackbar: FC<SnackbarProps> = ({
         { [styles.positive]: type === SnackbarType.positive },
         { [styles.warning]: type === SnackbarType.warning },
         { [styles.disruptive]: type === SnackbarType.disruptive },
-        POSITION_TO_CLASS_MAP[position],
     ]);
 
     const messageClasses: string = classNames([styles.message, 'body2']);
@@ -63,7 +48,7 @@ export const Snackbar: FC<SnackbarProps> = ({
             <Icon path={getIconName()} className={styles.icon} />
             <div className={messageClasses}>{content}</div>
             {closable && (
-                <DefaultButton
+                <NeutralButton
                     icon={closeIcon}
                     ariaLabel={'Close'}
                     onClick={onClose}
