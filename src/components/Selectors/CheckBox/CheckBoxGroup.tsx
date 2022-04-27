@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { CheckBoxProps } from '../index';
+import { CheckBoxProps } from '../';
 import { CheckBox } from './CheckBox';
 
 export const CheckBoxGroup: FC<CheckBoxProps> = ({
@@ -8,12 +8,11 @@ export const CheckBoxGroup: FC<CheckBoxProps> = ({
     onChange,
 }) => {
     return (
-        <div>
+        <>
             {items.map((item, index) => (
                 <CheckBox
                     ariaLabel={item.ariaLabel}
                     checked={item.checked ? item.checked : defaultChecked}
-                    color={item.color ? item.color : null}
                     id={item.id}
                     key={index}
                     name={item.name}
@@ -21,6 +20,6 @@ export const CheckBoxGroup: FC<CheckBoxProps> = ({
                     onChange={onChange}
                 />
             ))}
-        </div>
+        </>
     );
 };

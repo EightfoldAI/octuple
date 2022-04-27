@@ -1,5 +1,5 @@
-import React, { FC, useState, useEffect } from 'react';
-import { RadioButtonProps } from '../index';
+import React, { FC, useState } from 'react';
+import { RadioButtonProps } from '../';
 import { RadioButton } from './RadioButton';
 
 export const RadioGroup: FC<RadioButtonProps> = ({
@@ -7,7 +7,9 @@ export const RadioGroup: FC<RadioButtonProps> = ({
     items,
     onChange,
 }) => {
-    const [radioGroupItems, setRadioGroupItems] = useState(items);
+    const [radioGroupItems, setRadioGroupItems] =
+        useState<RadioButtonProps[]>(items);
+
     const updateRadioGroup = (index: number) => {
         let group = [...radioGroupItems];
         group[index].checked = true;
@@ -23,7 +25,6 @@ export const RadioGroup: FC<RadioButtonProps> = ({
                 <RadioButton
                     ariaLabel={item.ariaLabel ? item.ariaLabel : ''}
                     checked={item.checked ? item.checked : defaultSelected}
-                    color={item.color ? item.color : ''}
                     id={item.id ? item.id : ''}
                     index={index}
                     forRadioGroup={true}
@@ -35,5 +36,5 @@ export const RadioGroup: FC<RadioButtonProps> = ({
                 />
             );
         });
-    return <div>{renderRadioGroup()}</div>;
+    return <>{renderRadioGroup()}</>;
 };

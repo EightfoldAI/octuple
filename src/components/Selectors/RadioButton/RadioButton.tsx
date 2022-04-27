@@ -1,13 +1,12 @@
 import React, { FC, useState } from 'react';
-import { RadioButtonProps } from '../index';
+import { RadioButtonProps } from '../';
 import { classNames } from '../../../shared/utilities';
 
-import styles from '../selectors.module.scss';
+import styles from './radio.module.scss';
 
 export const RadioButton: FC<RadioButtonProps> = ({
     ariaLabel,
     checked = false,
-    color = '',
     disabled = false,
     id,
     index,
@@ -17,14 +16,14 @@ export const RadioButton: FC<RadioButtonProps> = ({
     onChange,
     updateRadioGroup,
 }) => {
-    const [isChecked, setIsChecked] = useState(checked);
+    const [isChecked, setIsChecked] = useState<boolean>(checked);
 
     const radioButtonClassNames: string = classNames([
         styles.radioButton,
         { [styles.disabled]: disabled },
     ]);
 
-    const toggleChecked = () => {
+    const toggleChecked = (): void => {
         if (!disabled && forRadioGroup) updateRadioGroup(index);
         else if (!disabled) setIsChecked(!isChecked);
     };
@@ -34,7 +33,6 @@ export const RadioButton: FC<RadioButtonProps> = ({
             <input
                 aria-label={ariaLabel}
                 checked={forRadioGroup ? checked : isChecked}
-                color={color}
                 disabled={disabled}
                 id={id}
                 name={name}
@@ -43,7 +41,7 @@ export const RadioButton: FC<RadioButtonProps> = ({
                 value={value}
                 readOnly
             />
-            <label style={value === '' ? { marginBottom: '15px' } : null}>
+            <label className={value === '' ? styles.labelNoValue : ''}>
                 <span
                     className={radioButtonClassNames}
                     onClick={toggleChecked}

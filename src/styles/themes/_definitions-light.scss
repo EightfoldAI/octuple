@@ -203,6 +203,11 @@ $button-spacer-small: rem(4px);
 $button-padding-vertical-default-small: rem(6px);
 $button-padding-horizontal-default-small: rem(2px);
 
+$selector-margin-bottom: rem(15px);
+$selector-outline-offset: rem(1px);
+$label-no-value-margin-bottom: rem(15px);
+$selector-label-margin-left: rem(28px);
+
 // Corner-radius Definitions
 
 $corner-radius-s: rem(4px);
@@ -263,6 +268,7 @@ $disabled-alpha-value: 0.3;
 $disabled-zero: 0;
 
 // Z-index Definitions
+
 $z-index-auto: auto;
 $z-index-top: 99999; //this is a super weapon. use it wisely.
 $z-index-500: 500; //warning and alerts. needs to be on top of all the components
@@ -274,5 +280,24 @@ $z-index-0: 0;
 $z-index-bottom: -100;
 
 $all-backdrops: rgba(0, 0, 0, 0.5);
+
+// Sizing
+
+$selector-input-width: rem(18px);
+$selector-input-height: rem(18px);
+$checkmark-after-width: rem(7px);
+$checkmark-height: rem(22px);
+$checkmark-width: rem(22px);
+$radio-height: rem(22px);
+$radio-width: rem(22px);
+$radio-after-width: rem(6px);
+$radio-after-height: rem(6px);
+
+// Positioning
+
+$checkmark-after-left: rem(5px);
+$checkmark-after-top: rem(0px);
+$radio-after-top: rem(6px);
+$radio-after-left: rem(6px);
 
 // END: CONSTANTS

@@ -1,13 +1,12 @@
 import React, { FC, useState } from 'react';
-import { CheckBoxProps } from '../Selectors.types';
+import { CheckBoxProps } from '../';
 import { classNames } from '../../../shared/utilities';
 
-import styles from '../selectors.module.scss';
+import styles from './checkbox.module.scss';
 
 export const CheckBox: FC<CheckBoxProps> = ({
     ariaLabel,
     checked = false,
-    color,
     defaultChecked,
     disabled = false,
     id,
@@ -15,14 +14,14 @@ export const CheckBox: FC<CheckBoxProps> = ({
     value = '',
     onChange,
 }) => {
-    const [isChecked, setIsChecked] = useState(checked);
+    const [isChecked, setIsChecked] = useState<boolean>(checked);
 
     const checkBoxCheckClassNames: string = classNames([
         styles.checkmark,
         { [styles.disabled]: disabled },
     ]);
 
-    const toggleChecked = () => {
+    const toggleChecked = (): void => {
         if (!disabled) setIsChecked(!isChecked);
     };
 
@@ -31,7 +30,6 @@ export const CheckBox: FC<CheckBoxProps> = ({
             <input
                 aria-label={ariaLabel}
                 checked={isChecked}
-                color={color}
                 defaultChecked={defaultChecked}
                 disabled={disabled}
                 id={id}
@@ -41,7 +39,7 @@ export const CheckBox: FC<CheckBoxProps> = ({
                 value={value}
                 readOnly
             />
-            <label style={value === '' ? { marginBottom: '15px' } : null}>
+            <label className={value === '' ? styles.labelNoValue : ''}>
                 <span
                     className={checkBoxCheckClassNames}
                     onClick={toggleChecked}

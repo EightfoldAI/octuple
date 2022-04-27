@@ -14,10 +14,6 @@ export interface CheckBoxProps {
      */
     checked?: boolean;
     /**
-     * The checkbox color.
-     */
-    color?: string;
-    /**
      * The checkbox class names.
      */
     className?: string;
@@ -61,10 +57,6 @@ export interface RadioButtonProps {
      * The input icon button checked value.
      */
     checked?: boolean;
-    /**
-     * The icon color.
-     */
-    color?: string;
     /**
      * The input radio default selected value.
      */
