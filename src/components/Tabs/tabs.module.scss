@@ -1,5 +1,4 @@
 .tab-wrap {
-    --bg: var(--background-color);
     --label: var(--text-secondary-color);
     --active-label: var(--primary-color);
     --active-bg: var(--background-color);
@@ -20,7 +19,6 @@
         cursor: pointer;
         padding: $space-s $space-m;
         color: var(--label);
-        background-color: var(---bg);
         align-items: center;
         justify-content: center;
         position: relative;
