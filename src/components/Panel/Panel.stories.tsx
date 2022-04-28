@@ -111,6 +111,14 @@ export const Default = () => {
             <Panel
                 title={'This is a title'}
                 visible={visible.medium}
+                footer={
+                    <div>
+                        <PrimaryButton
+                            text={'Close'}
+                            onClick={() => setVisible({})}
+                        />
+                    </div>
+                }
                 size={PanelSize.medium}
                 onClose={() => setVisible({})}
             />
