@@ -1,0 +1,41 @@
+.info-bar {
+    --info-color: var(--grey-color-70);
+    display: flex;
+    border-radius: $space-xxs;
+    padding: $space-m;
+    width: 100%;
+    color: var(--info-color);
+    border: solid 1px var(--info-color);
+    border-left: solid $space-xs var(--info-color);
+    background-color: var(--background-color);
+    gap: $space-m;
+
+    &.neutral {
+        --info-color: var(--grey-color-70);
+    }
+
+    &.positive {
+        --info-color: var(--green-color-70);
+    }
+
+    &.warning {
+        --info-color: var(--orange-color-70);
+    }
+
+    &.disruptive {
+        --info-color: var(--disruptive-color-70);
+    }
+
+    .icon {
+        color: inherit;
+    }
+
+    .message {
+        flex: 1;
+        color: inherit;
+    }
+
+    .buttons-container {
+        padding: $space-m;
+    }
+}
