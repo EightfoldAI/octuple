@@ -36,12 +36,9 @@ import {
     TextInputWidth,
 } from './components/Inputs';
 
-import {
-    SnackbarContainer,
-    Snackbar,
-    SnackbarType,
-    snack,
-} from './components/Snackbar';
+import { InfoBar, InfoBarType } from './components/InfoBar';
+
+import { SnackbarContainer, Snackbar, snack } from './components/Snackbar';
 
 import { Tabs, Tab, TabVariant } from './components/Tabs';
 
@@ -73,6 +70,8 @@ export {
     Icon,
     IconName,
     IconSize,
+    InfoBar,
+    InfoBarType,
     List,
     Menu,
     Modal,
@@ -91,7 +90,6 @@ export {
     snack,
     Snackbar,
     SnackbarContainer,
-    SnackbarType,
     Tabs,
     Tab,
     TabVariant,
