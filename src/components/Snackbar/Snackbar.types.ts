@@ -1,22 +1,4 @@
-import React from 'react';
-import { IconName } from '../Icon';
-import { ButtonProps } from '../Button';
-import {
-    serve,
-    serveDisruptive,
-    serveNeutral,
-    servePositive,
-    serveWarning,
-} from './snack';
-
-export enum SnackbarType {
-    neutral = 'neutral',
-    positive = 'positive',
-    warning = 'warning',
-    disruptive = 'disruptive',
-}
-
-export type CloseButtonProps = Omit<ButtonProps, 'onClick' | 'icon'>;
+import { InfoBarsProps, InfoBarType } from '../InfoBar';
 
 export type SnackbarPosition =
     | 'top-center'
@@ -26,54 +8,17 @@ export type SnackbarPosition =
     | 'bottom-left'
     | 'bottom-right';
 
-export interface SnackbarProps {
-    /**
-     * Content of the snackbar
-     */
-    content: string;
+export type SnackbarType = InfoBarType;
+
+export interface SnackbarProps extends InfoBarsProps {
     /**
      * Unique id of the snackbar
      */
     id?: string;
     /**
-     * Type of the snackbar
-     * @default SnackbarType.neutral
+     * Content of the snackbar
      */
-    type?: SnackbarType;
-    /**
-     * Custom icon for the snackbar
-     * @default IconName.mdiInformation | IconName.mdiCheckCircle | IconName.mdiAlert
-     */
-    icon?: IconName;
-    /**
-     * Custom style for the snackbar
-     */
-    style?: React.CSSProperties;
-    /**
-     * Custom classname for the snackbar
-     */
-    className?: string;
-    /**
-     * If the snackbar is closable or not
-     */
-    closable?: boolean;
-    /**
-     * Callback fired on close of the snackbar
-     */
-    onClose?: () => void;
-    /**
-     * Icon for the close button
-     * @default IconName.mdiClose
-     */
-    closeIcon?: IconName;
-    /**
-     * Custom props for the close button
-     */
-    closeButtonProps?: CloseButtonProps;
-    /**
-     *
-     */
-    actionButtonProps?: ButtonProps;
+    content: string;
     /**
      * Duration for which the snackbar is shown
      * @default 3000

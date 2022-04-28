@@ -1,10 +1,6 @@
-import {
-    ISnack,
-    SnackbarPosition,
-    SnackbarProps,
-    SnackbarType,
-} from './Snackbar.types';
+import { ISnack, SnackbarPosition, SnackbarProps } from './Snackbar.types';
 import { generateId } from '../../shared/utilities';
+import { InfoBarType } from '../InfoBar';
 
 const DEFAULT_POSITION: SnackbarPosition = 'top-center';
 
@@ -44,25 +40,25 @@ export const eat = (snackId: string): void => {
 export const serveNeutral = (props: SnackbarProps) =>
     serve({
         ...props,
-        type: SnackbarType.neutral,
+        type: InfoBarType.neutral,
     });
 
 export const servePositive = (props: SnackbarProps) =>
     serve({
         ...props,
-        type: SnackbarType.positive,
+        type: InfoBarType.positive,
     });
 
 export const serveWarning = (props: SnackbarProps) =>
     serve({
         ...props,
-        type: SnackbarType.warning,
+        type: InfoBarType.warning,
     });
 
 export const serveDisruptive = (props: SnackbarProps) =>
     serve({
         ...props,
-        type: SnackbarType.disruptive,
+        type: InfoBarType.disruptive,
     });
 
 export const snack: ISnack = {
