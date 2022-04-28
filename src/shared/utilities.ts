@@ -106,3 +106,9 @@ export const hasWindow = (): boolean => {
  */
 export const stopPropagation = (e: React.MouseEvent<any>) =>
     e.stopPropagation();
+
+/**
+ * Get unique id
+ */
+export const generateId = (): string =>
+    Math.random().toString(36).substring(2, 9);
