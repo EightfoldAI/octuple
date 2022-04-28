@@ -1,6 +1,4 @@
 import React from 'react';
-import Enzyme from 'enzyme';
-import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import MatchMediaMock from 'jest-matchmedia-mock';
 import { snack, SnackbarContainer } from './';
 import {
@@ -106,6 +104,7 @@ describe('Snackbar', () => {
             const closeButton = wrapper.queryByRole('button');
             const event = createEvent.click(closeButton);
             fireEvent(closeButton, event);
+            expect(onClose).toBeCalled();
             expect(wrapper.queryByText(content)).toBe(null);
         });
     });
@@ -119,6 +118,28 @@ describe('Snackbar', () => {
             });
             await new Promise((r) => setTimeout(r, 300));
             expect(wrapper.queryByText(content)).not.toBe(null);
+            await new Promise((r) => setTimeout(r, 3200));
+            expect(wrapper.queryByText(content)).toBe(null);
+        });
+    });
+
+    test('test snack action', async () => {
+        expect(wrapper.queryByText(content)).toBe(null);
+        const onClick = jest.fn();
+        await act(async () => {
+            snack.serve({
+                content,
+                actionButtonProps: {
+                    text: 'Button',
+                    onClick,
+                },
+            });
+            await new Promise((r) => setTimeout(r, 300));
+            const actionButton = wrapper.queryByRole('button');
+            console.log(actionButton);
+            const event = createEvent.click(actionButton);
+            fireEvent(actionButton, event);
+            expect(onClick).toBeCalled();
             await new Promise((r) => setTimeout(r, 3200));
             expect(wrapper.queryByText(content)).toBe(null);
         });

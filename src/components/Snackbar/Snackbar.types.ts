@@ -71,6 +71,10 @@ export interface SnackbarProps {
      */
     closeButtonProps?: CloseButtonProps;
     /**
+     *
+     */
+    actionButtonProps?: ButtonProps;
+    /**
      * Duration for which the snackbar is shown
      * @default 3000
      */

@@ -40,6 +40,7 @@ export const Default = () => {
                 'Body 2 is used in this snackbar. This should be straight forward but can wrap up to two lines if needed.',
             type,
             position,
+            closable: !Math.round(Math.random()),
         });
         snackIndex += 1;
     };
@@ -55,6 +56,22 @@ export const Default = () => {
                     size={ButtonSize.Small}
                 />
             ))}
+            <DefaultButton
+                text={`Serve snack with action`}
+                onClick={() => {
+                    snack.serve({
+                        content:
+                            'Body 2 is used in this snackbar. This should be straight forward but can wrap up to two lines if needed.',
+                        actionButtonProps: {
+                            text: 'Action',
+                            onClick: () => {
+                                console.log('hi i was clicked');
+                            },
+                        },
+                    });
+                }}
+                size={ButtonSize.Small}
+            />
             <SnackbarContainer />
         </div>
     );

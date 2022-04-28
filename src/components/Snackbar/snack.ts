@@ -25,7 +25,7 @@ export const serve = (props: SnackbarProps): void => {
         },
     });
     document.dispatchEvent(serveSnackEvent);
-    if (!props.closable) {
+    if (!props.closable || props.actionButtonProps) {
         setTimeout(() => {
             eat(id);
         }, props.duration || 3000);

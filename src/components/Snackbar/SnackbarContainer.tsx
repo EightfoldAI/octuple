@@ -67,6 +67,16 @@ export const SnackbarContainer: FC<SnackbarContainerProps> = ({
                             eat(snack.id);
                             snack.onClose?.();
                         }}
+                        {...(snack.actionButtonProps
+                            ? {
+                                  onClick: (
+                                      e: React.MouseEvent<HTMLButtonElement>
+                                  ) => {
+                                      eat(snack.id);
+                                      snack.actionButtonProps?.onClick?.(e);
+                                  },
+                              }
+                            : {})}
                     />
                 ))}
             </div>

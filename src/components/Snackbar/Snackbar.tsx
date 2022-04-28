@@ -16,6 +16,7 @@ export const Snackbar: FC<SnackbarProps> = ({
     className,
     closeIcon = IconName.mdiClose,
     closeButtonProps,
+    actionButtonProps,
 }) => {
     const snackbarClasses: string = classNames([
         styles.snackbar,
@@ -44,9 +45,10 @@ export const Snackbar: FC<SnackbarProps> = ({
     };
 
     return (
-        <div className={snackbarClasses} style={style}>
+        <div className={snackbarClasses} style={style} role="alert">
             <Icon path={getIconName()} className={styles.icon} />
             <div className={messageClasses}>{content}</div>
+            {actionButtonProps && <NeutralButton {...actionButtonProps} />}
             {closable && (
                 <NeutralButton
                     icon={closeIcon}
