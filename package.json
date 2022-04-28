@@ -16,6 +16,7 @@
         "analyze": "webpack --config webpack.dev.js --mode production --json > stats.json",
         "prepublish": "yarn build",
         "test": "jest",
+        "test:update": "jest -u",
         "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
         "format": "prettier --write \"**/*.+(js|jsx|ts|tsx|json|css|scss|md)\"",
         "chromatic": "chromatic --exit-zero-on-changes",
