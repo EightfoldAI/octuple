@@ -24,8 +24,9 @@ export const Default = () => {
                     gap: '16px',
                 }}
             >
-                {infoBarTypes.map((infoBarType) => (
+                {infoBarTypes.map((infoBarType, index) => (
                     <InfoBar
+                        key={index}
                         content={'Body2 is used inside here.'}
                         type={infoBarType}
                     />
