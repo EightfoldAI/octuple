@@ -1,6 +1,6 @@
 import React from 'react';
 import { IconName } from '../../Icon';
-import { InputWidth, SearchBox, TextInputShape } from '../index';
+import { SearchBox, TextInputShape, TextInputWidth } from '../index';
 
 export default {
     title: 'Search Box',
@@ -10,11 +10,11 @@ export default {
 export const Search = () => (
     <>
         <h1>Search Boxes</h1>
-        <h2>Search Box Stretch (Rectangle)</h2>
-        <SearchBox label="Label" inputWidth={InputWidth.fill} />
+        <p>Search Box Stretch (Rectangle)</p>
+        <SearchBox label="Label" inputWidth={TextInputWidth.fill} />
         <br />
         <br />
-        <h2>Search Box with Icon and Icon Button (Rectangle)</h2>
+        <p>Search Box with Icon and Icon Button (Rectangle)</p>
         <SearchBox
             label="Label"
             iconProps={{ path: IconName.mdiCardsHeart, color: 'red' }}
@@ -31,7 +31,7 @@ export const Search = () => (
         />
         <br />
         <br />
-        <h2>Search Box with Image Icon (Rectangle)</h2>
+        <p>Search Box with Image Icon (Rectangle)</p>
         <SearchBox
             label="Label"
             iconProps={{
@@ -45,11 +45,11 @@ export const Search = () => (
         />
         <br />
         <br />
-        <h2>Search Box Stretch (Pill)</h2>
+        <p>Search Box Stretch (Pill)</p>
         <SearchBox
             label="Label"
             shape={TextInputShape.Pill}
-            inputWidth={InputWidth.fill}
+            inputWidth={TextInputWidth.fill}
             iconButtonProps={{
                 icon: IconName.mdiMagnify,
                 onClick: (_event: React.MouseEvent) => _alertClicked(_event),
@@ -57,7 +57,7 @@ export const Search = () => (
         />
         <br />
         <br />
-        <h2>Search Box with Icon (Pill)</h2>
+        <p>Search Box with Icon (Pill)</p>
         <SearchBox
             label="Label"
             iconProps={{ path: IconName.mdiCardsHeart, color: 'red' }}
@@ -69,7 +69,7 @@ export const Search = () => (
         />
         <br />
         <br />
-        <h2>Search Box with Image Icon (Pill)</h2>
+        <p>Search Box with Image Icon (Pill)</p>
         <SearchBox
             label="Label"
             iconProps={{

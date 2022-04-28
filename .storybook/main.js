@@ -1,4 +1,4 @@
-const path = require('path');
+const webpackCommon = require('../webpack.common');
 
 module.exports = {
     stories: [
@@ -28,57 +28,18 @@ module.exports = {
         },
     },
     webpackFinal: async (config, { configType }) => {
-        // `configType` has a value of 'DEVELOPMENT' or 'PRODUCTION'
-        // You can change the configuration based on that.
-        // 'PRODUCTION' is used when building the static version of storybook.
-
-        const fileLoaderRule = config.module.rules.find(
-            (rule) => rule.test && rule.test.test('.svg')
+        const webpackCommonConfig = webpackCommon(
+            {},
+            { mode: configType.toLowerCase() }
         );
-        fileLoaderRule.exclude = /\.svg$/;
-
-        config.module.rules.push(
-            {
-                test: /\.s[ca]ss|css$/,
-                use: [
-                    'style-loader',
-                    '@teamsupercell/typings-for-css-modules-loader',
-                    {
-                        loader: 'css-loader',
-                        options: {
-                            modules: {
-                                localIdentName: '[local]_[hash:base64:6]',
-                                exportLocalsConvention: 'camelCase',
-                            },
-                        },
-                    },
-                    'resolve-url-loader',
-                    'sass-loader',
-                    {
-                        loader: 'style-resources-loader',
-                        options: {
-                            patterns: [
-                                path.resolve(
-                                    __dirname,
-                                    '../src/styles/main.scss'
-                                ),
-                            ],
-                        },
-                    },
-                ],
-                include: path.resolve(__dirname, '../'),
+        return {
+            ...config,
+            optimization: webpackCommonConfig.optimization,
+            plugins: [...config.plugins, ...webpackCommonConfig.plugins],
+            module: {
+                ...config.module,
+                rules: webpackCommonConfig.module.rules,
             },
-            {
-                test: /\.svg$/,
-                use: ['@svgr/webpack', 'file-loader', 'url-loader'],
-                include: path.resolve(__dirname, '../'),
-            }
-        );
-
-        config.resolve.fallback = {
-            http: false,
         };
-
-        return config;
     },
 };

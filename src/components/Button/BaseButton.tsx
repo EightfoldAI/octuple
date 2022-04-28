@@ -1,5 +1,13 @@
 import React, { FC, Ref } from 'react';
-import { ButtonSize, ButtonTheme, ButtonWidth, InternalButtonProps } from './';
+import {
+    ButtonShape,
+    ButtonSize,
+    ButtonTextAlign,
+    ButtonTheme,
+    ButtonWidth,
+    InternalButtonProps,
+    SplitButton,
+} from './';
 import { Icon, IconName, IconSize } from '../Icon';
 import { Breakpoints, useMatchMedia } from '../../hooks/useMatchMedia';
 import { classNames } from '../../shared/utilities';
@@ -9,22 +17,31 @@ import styles from './button.module.scss';
 export const BaseButton: FC<InternalButtonProps> = React.forwardRef(
     (
         {
+            alignText = ButtonTextAlign.Center,
             allowDisabledFocus = false,
             ariaLabel,
+            buttonWidth = ButtonWidth.fitContent,
             checked = false,
             className,
             disabled = false,
+            disruptive = false,
+            dropShadow = false,
             htmlType,
             icon,
             iconColor,
             id,
             onClick,
+            onContextMenu,
+            shape = ButtonShape.Rectangle,
             size = ButtonSize.Flex,
+            split,
+            splitButtonChecked = false,
+            splitButtonProps,
             style,
             text,
             theme,
             toggle,
-            buttonWidth = ButtonWidth.fitContent,
+            type,
             ...rest
         },
         ref: Ref<HTMLButtonElement>
@@ -37,7 +54,7 @@ export const BaseButton: FC<InternalButtonProps> = React.forwardRef(
         const iconExists: boolean = !!icon;
         const textExists: boolean = !!text;
 
-        const buttonBaseClassNames: string = classNames([
+        const buttonBaseSharedClassNames: string = classNames([
             className,
             {
                 [styles.buttonPadding3]:
@@ -58,8 +75,17 @@ export const BaseButton: FC<InternalButtonProps> = React.forwardRef(
             { [styles.buttonPadding1]: size === ButtonSize.Large },
             { [styles.buttonPadding2]: size === ButtonSize.Medium },
             { [styles.buttonPadding3]: size === ButtonSize.Small },
-            { [styles.buttonStretch]: buttonWidth === ButtonWidth.fill },
+            { [styles.pillShape]: shape === ButtonShape.Pill },
+            { [styles.dropShadow]: dropShadow },
             { [styles.dark]: theme === ButtonTheme.dark },
+        ]);
+
+        const buttonBaseClassNames: string = classNames([
+            buttonBaseSharedClassNames,
+            { [styles.buttonStretch]: buttonWidth === ButtonWidth.fill },
+            { [styles.splitLeft]: split },
+            { [styles.left]: alignText === ButtonTextAlign.Left },
+            { [styles.right]: alignText === ButtonTextAlign.Right },
             { [styles.disabled]: allowDisabledFocus || disabled },
         ]);
 
@@ -119,30 +145,55 @@ export const BaseButton: FC<InternalButtonProps> = React.forwardRef(
         );
 
         return (
-            <button
-                {...rest}
-                ref={ref}
-                aria-checked={toggle ? !!checked : undefined}
-                aria-disabled={allowDisabledFocus}
-                aria-label={ariaLabel}
-                aria-pressed={toggle ? !!checked : undefined}
-                defaultChecked={checked}
-                disabled={disabled}
-                className={buttonBaseClassNames}
-                id={id}
-                onClick={!allowDisabledFocus ? onClick : null}
-                style={style}
-                type={htmlType}
-            >
-                {iconExists && !textExists && getButtonIcon(icon)}
-                {iconExists && textExists && (
-                    <span>
-                        {getButtonIcon(icon)}
-                        {getButtonText(buttonTextClassNames, text)}
-                    </span>
+            <>
+                <button
+                    {...rest}
+                    ref={ref}
+                    aria-checked={toggle ? !!checked : undefined}
+                    aria-disabled={allowDisabledFocus}
+                    aria-label={ariaLabel}
+                    aria-pressed={toggle ? !!checked : undefined}
+                    defaultChecked={checked}
+                    disabled={disabled}
+                    className={buttonBaseClassNames}
+                    id={id}
+                    onClick={!allowDisabledFocus ? onClick : null}
+                    style={style}
+                    type={htmlType}
+                >
+                    {iconExists && !textExists && getButtonIcon(icon)}
+                    {iconExists && textExists && (
+                        <span>
+                            {getButtonIcon(icon)}
+                            {getButtonText(buttonTextClassNames, text)}
+                        </span>
+                    )}
+                    {!iconExists && getButtonText(buttonTextClassNames, text)}
+                </button>
+                {split && (
+                    <SplitButton
+                        {...splitButtonProps}
+                        className={
+                            buttonBaseSharedClassNames +
+                            ' ' +
+                            splitButtonProps?.className
+                        }
+                        checked={splitButtonChecked}
+                        disruptive={disruptive}
+                        dropShadow={dropShadow}
+                        onClick={
+                            !splitButtonProps?.allowDisabledFocus
+                                ? onContextMenu
+                                : null
+                        }
+                        shape={shape}
+                        size={size}
+                        split={split}
+                        theme={theme}
+                        type={type}
+                    />
                 )}
-                {!iconExists && getButtonText(buttonTextClassNames, text)}
-            </button>
+            </>
         );
     }
 );

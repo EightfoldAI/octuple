@@ -1,12 +1,15 @@
 import {
+    IGetStyle,
+    IRegisterTheme,
     OcTheme,
     OcThemeNames,
     ThemeName,
     ThemeOptions,
+    Variables,
 } from './Theming.types';
 import { TinyColor } from '@ctrl/tinycolor';
 import generate from './generate';
-import OcThemes from './themes';
+import OcThemes, { themeDefaults } from './themes';
 
 const THEME_CONTAINER_ID = 'octuple-theme';
 
@@ -17,8 +20,8 @@ interface Options {
     mark?: string;
 }
 
-export function getStyle(themeOptions: ThemeOptions): string {
-    const variables: Record<string, string> = {};
+export function getStyle(themeOptions: ThemeOptions): IGetStyle {
+    const variables: Variables = {};
 
     const fillColor = (
         colorPalettes: string[],
@@ -39,6 +42,7 @@ export function getStyle(themeOptions: ThemeOptions): string {
     const themeName: ThemeName = themeOptions.name;
 
     const theme: OcTheme = {
+        ...themeDefaults,
         ...OcThemes?.[themeOptions.name as OcThemeNames],
         ...themeOptions.customTheme,
     };
@@ -69,9 +73,13 @@ export function getStyle(themeOptions: ThemeOptions): string {
         variables[`background-color`] = theme.backgroundColor;
     }
 
+    const themePrimaryColor: TinyColor = new TinyColor(theme.primaryColor);
+
     // ================ Text Color ================
     if (theme.textColor) {
-        variables[`text-primary-color`] = theme.textColor;
+        variables[`text-primary-color`] = themePrimaryColor.isDark()
+            ? theme.textColor
+            : theme.textColorInverse;
     }
 
     if (theme.textColorSecondary) {
@@ -79,7 +87,9 @@ export function getStyle(themeOptions: ThemeOptions): string {
     }
 
     if (theme.textColorInverse) {
-        variables[`text-inverse-color`] = theme.textColorInverse;
+        variables[`text-inverse-color`] = themePrimaryColor.isDark()
+            ? theme.textColorInverse
+            : theme.textColor;
     }
 
     // ================ Success Color ================
@@ -102,16 +112,11 @@ export function getStyle(themeOptions: ThemeOptions): string {
         variables[`info-color`] = theme.infoColor;
     }
 
-    // Convert to css variables
-    const cssList = Object.keys(variables).map(
-        (key) => `--${key}: ${variables[key]};`
-    );
-
-    return `
-  .theme-${themeName} {
-    ${cssList.join('\n')}
-  }
-  `.trim();
+    return {
+        variables,
+        light: themePrimaryColor.isLight(),
+        themeName,
+    };
 }
 
 function getContainer(option: Options): Element {
@@ -123,7 +128,18 @@ function getContainer(option: Options): Element {
     return head || document.body;
 }
 
-export function injectCSS(css: string, option: Options = {}): HTMLStyleElement {
+export function injectCSS(
+    variables: Variables,
+    themeName: string,
+    option: Options = {}
+): HTMLStyleElement {
+    const css = `
+          .theme-${themeName} {
+            ${Object.keys(variables)
+                .map((key) => `--${key}: ${variables[key]};`)
+                .join('\n')}
+          }
+          `.trim();
     const styleNode: HTMLStyleElement =
         (document.getElementById(THEME_CONTAINER_ID) as HTMLStyleElement) ||
         document.createElement('style');
@@ -149,6 +165,13 @@ export function injectCSS(css: string, option: Options = {}): HTMLStyleElement {
     return styleNode;
 }
 
-export function registerTheme(themeOptions: ThemeOptions): void {
-    injectCSS(getStyle(themeOptions));
+export function registerTheme(themeOptions: ThemeOptions): IRegisterTheme {
+    const { themeName, light, variables } = getStyle(themeOptions);
+    const styleNode: HTMLStyleElement = injectCSS(variables, themeName);
+    return {
+        themeName,
+        light,
+        variables,
+        styleNode,
+    };
 }

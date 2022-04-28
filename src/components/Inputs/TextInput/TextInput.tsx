@@ -2,7 +2,7 @@ import React, { FC, useState } from 'react';
 import { ButtonSize, DefaultButton } from '../../Button';
 import { Icon, IconName, IconSize } from '../../Icon/index';
 import {
-    InputWidth,
+    TextInputWidth,
     TextInputProps,
     TextInputShape,
     TextInputTheme,
@@ -24,7 +24,7 @@ export const TextInput: FC<TextInputProps> = ({
     iconProps,
     iconButtonProps,
     id,
-    inputWidth = InputWidth.fitContent,
+    inputWidth = TextInputWidth.fitContent,
     label,
     labelIconButtonProps,
     maxlength,
@@ -100,14 +100,14 @@ export const TextInput: FC<TextInputProps> = ({
             [styles.dark]: theme === TextInputTheme.dark,
         },
         {
-            [styles.inputStretch]: inputWidth === InputWidth.fill,
+            [styles.inputStretch]: inputWidth === TextInputWidth.fill,
         },
     ]);
 
     const textInputWrapperClassNames: string = classNames([
         styles.inputWrapper,
         {
-            [styles.inputStretch]: inputWidth === InputWidth.fill,
+            [styles.inputStretch]: inputWidth === TextInputWidth.fill,
         },
     ]);
 

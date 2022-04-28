@@ -25,7 +25,7 @@ export const Default = () => (
             items={sampleList}
             renderItem={(item) => (
                 <div>
-                    <h2>{item.name}</h2>
+                    <p>{item.name}</p>
                     <div>{item.summary}</div>
                 </div>
             )}
@@ -49,7 +49,7 @@ export const Default = () => (
             items={sampleList}
             renderItem={(item) => (
                 <div>
-                    <h2>{item.name}</h2>
+                    <p>{item.name}</p>
                     <div>{item.summary}</div>
                 </div>
             )}

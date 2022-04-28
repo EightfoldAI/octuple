@@ -10,7 +10,7 @@ import styles from './dropdown.module.scss';
 const TRIGGER_TO_HANDLER_MAP = {
     click: 'onClick',
     hover: 'onMouseEnter',
-    // contextmenu: 'onContextMenu',
+    contextmenu: 'onContextMenu',
 };
 
 const ANIMATION_DURATION = 200;

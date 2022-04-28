@@ -1,15 +1,20 @@
 import React, { FC } from 'react';
 import {
+    ButtonShape,
     ButtonSize,
+    ButtonTextAlign,
+    ButtonWidth,
     DefaultButton,
+    NeutralButton,
     PrimaryButton,
     SecondaryButton,
+    TwoStateButton,
 } from './index';
+import { Dropdown } from '../Dropdown/Dropdown';
 import { IconName } from '../Icon';
 import { useBoolean } from '../../hooks/useBoolean';
 
-interface ToggleButtonExampleProps {
-    // These are set based on the toggle shown (not needed in real code)
+interface ExampleProps {
     checked?: boolean;
 }
 
@@ -21,7 +26,7 @@ export default {
 export const Primary = () => (
     <>
         <h1>Primary</h1>
-        <h2>Default Flex</h2>
+        <p>Default Flex</p>
         <PrimaryButton
             ariaLabel="Primary Button"
             icon={IconName.mdiCardsHeart}
@@ -30,7 +35,18 @@ export const Primary = () => (
         />
         <br />
         <br />
-        <h2>Text only</h2>
+        <p>Default Flex (Fill)</p>
+        <div style={{ width: '50%' }}>
+            <PrimaryButton
+                ariaLabel="Primary Button"
+                buttonWidth={ButtonWidth.fill}
+                icon={IconName.mdiCardsHeart}
+                onClick={_alertClicked}
+                text="Primary Button"
+            />
+        </div>
+        <br />
+        <p>Text only</p>
         <PrimaryButton
             ariaLabel="Primary Button"
             onClick={_alertClicked}
@@ -39,7 +55,17 @@ export const Primary = () => (
         />
         <br />
         <br />
-        <h2>Icon only</h2>
+        <p>Text only (Pill)</p>
+        <PrimaryButton
+            ariaLabel="Primary Button"
+            onClick={_alertClicked}
+            size={ButtonSize.Large}
+            shape={ButtonShape.Pill}
+            text="Primary Button"
+        />
+        <br />
+        <br />
+        <p>Icon only</p>
         <PrimaryButton
             ariaLabel="Primary Button"
             icon={IconName.mdiCardsHeart}
@@ -48,7 +74,7 @@ export const Primary = () => (
         />
         <br />
         <br />
-        <h2>Text + Icon</h2>
+        <p>Text + Icon</p>
         <PrimaryButton
             ariaLabel="Primary Button"
             icon={IconName.mdiCardsHeart}
@@ -58,7 +84,7 @@ export const Primary = () => (
         />
         <br />
         <br />
-        <h2>Disruptive</h2>
+        <p>Disruptive</p>
         <PrimaryButton
             ariaLabel="Primary Button"
             disruptive
@@ -72,7 +98,7 @@ export const Primary = () => (
 export const Secondary = () => (
     <>
         <h1>Secondary</h1>
-        <h2>Text only</h2>
+        <p>Text only</p>
         <SecondaryButton
             ariaLabel="Secondary Button"
             onClick={_alertClicked}
@@ -81,7 +107,17 @@ export const Secondary = () => (
         />
         <br />
         <br />
-        <h2>Icon only</h2>
+        <p>Text only (Pill)</p>
+        <SecondaryButton
+            ariaLabel="Secondary Button"
+            onClick={_alertClicked}
+            shape={ButtonShape.Pill}
+            size={ButtonSize.Large}
+            text="Secondary Button"
+        />
+        <br />
+        <br />
+        <p>Icon only</p>
         <SecondaryButton
             ariaLabel="Secondary Button"
             icon={IconName.mdiCardsHeart}
@@ -90,7 +126,7 @@ export const Secondary = () => (
         />
         <br />
         <br />
-        <h2>Text + Icon</h2>
+        <p>Text + Icon</p>
         <SecondaryButton
             ariaLabel="Secondary Button"
             icon={IconName.mdiCardsHeart}
@@ -100,7 +136,7 @@ export const Secondary = () => (
         />
         <br />
         <br />
-        <h2>Disruptive</h2>
+        <p>Disruptive</p>
         <SecondaryButton
             ariaLabel="Secondary Button"
             disruptive
@@ -114,7 +150,7 @@ export const Secondary = () => (
 export const Default = () => (
     <>
         <h1>Default Button</h1>
-        <h2>Text only</h2>
+        <p>Text only</p>
         <DefaultButton
             ariaLabel="Default Button"
             onClick={_alertClicked}
@@ -123,7 +159,18 @@ export const Default = () => (
         />
         <br />
         <br />
-        <h2>Icon only</h2>
+        <p>Text only (Pill)</p>
+        <DefaultButton
+            ariaLabel="Default Button"
+            dropShadow
+            onClick={_alertClicked}
+            shape={ButtonShape.Pill}
+            size={ButtonSize.Large}
+            text="Default Button"
+        />
+        <br />
+        <br />
+        <p>Icon only</p>
         <DefaultButton
             ariaLabel="Default Button"
             icon={IconName.mdiCardsHeart}
@@ -132,10 +179,20 @@ export const Default = () => (
         />
         <br />
         <br />
-        <h2>Text + Icon</h2>
+        <p>Text + Icon</p>
         <DefaultButton
             ariaLabel="Default Button"
             icon={IconName.mdiCardsHeart}
+            onClick={_alertClicked}
+            size={ButtonSize.Large}
+            text="Default Button"
+        />
+        <br />
+        <br />
+        <p>Disruptive</p>
+        <DefaultButton
+            ariaLabel="Default Button"
+            disruptive
             onClick={_alertClicked}
             size={ButtonSize.Large}
             text="Default Button"
@@ -143,17 +200,104 @@ export const Default = () => (
     </>
 );
 
-export const Toggle: FC<ToggleButtonExampleProps> = ({ checked }) => {
+export const Neutral = () => (
+    <>
+        <h1>Neutral Button</h1>
+        <p>Text only</p>
+        <NeutralButton
+            ariaLabel="Neutral Button"
+            onClick={_alertClicked}
+            size={ButtonSize.Large}
+            text="Neutral Button"
+        />
+        <br />
+        <br />
+        <p>Text only (Pill)</p>
+        <NeutralButton
+            ariaLabel="Neutral Button"
+            dropShadow
+            onClick={_alertClicked}
+            shape={ButtonShape.Pill}
+            size={ButtonSize.Large}
+            text="Neutral Button"
+        />
+        <br />
+        <br />
+        <p>Icon only</p>
+        <NeutralButton
+            ariaLabel="Neutral Button"
+            icon={IconName.mdiCardsHeart}
+            onClick={_alertClicked}
+            size={ButtonSize.Large}
+        />
+        <br />
+        <br />
+        <p>Text + Icon</p>
+        <NeutralButton
+            ariaLabel="Neutral Button"
+            icon={IconName.mdiCardsHeart}
+            onClick={_alertClicked}
+            size={ButtonSize.Large}
+            text="Neutral Button"
+        />
+    </>
+);
+
+export const Split: FC<ExampleProps> = ({ checked }) => {
+    const [menuShown, { toggle: setMenuShown }] = useBoolean(false);
+    return (
+        <>
+            <h1>Split Button</h1>
+            <p>
+                Note: Split buttons require the <code>onContextMenu</code>,{' '}
+                <code>split</code> attributes in addition to{' '}
+                <code>splitButtonChecked</code>.
+            </p>
+            <Dropdown
+                overlay={
+                    <div>
+                        <DefaultButton
+                            alignText={ButtonTextAlign.Left}
+                            buttonWidth={ButtonWidth.fill}
+                        />
+                        <DefaultButton
+                            alignText={ButtonTextAlign.Left}
+                            buttonWidth={ButtonWidth.fill}
+                        />
+                        <DefaultButton
+                            alignText={ButtonTextAlign.Left}
+                            buttonWidth={ButtonWidth.fill}
+                        />
+                    </div>
+                }
+                trigger="contextmenu"
+                onVisibleChange={setMenuShown}
+            >
+                <PrimaryButton
+                    ariaLabel="Split Button"
+                    onClick={_alertClicked}
+                    onContextMenu={setMenuShown}
+                    split
+                    splitButtonChecked={menuShown || checked}
+                    text="Split Button"
+                />
+            </Dropdown>
+        </>
+    );
+};
+
+export const Toggle: FC<ExampleProps> = ({ checked }) => {
     const [skill1Added, { toggle: set1Added }] = useBoolean(false);
     const [skill2Added, { toggle: set2Added }] = useBoolean(false);
     const [skill3Added, { toggle: set3Added }] = useBoolean(false);
+    const [skill4Added, { toggle: set4Added }] = useBoolean(false);
     return (
         <>
             <h1>Toggle With Text + Icon</h1>
-            <h2>
+            <p>
                 Note: Toggle buttons require the <code>toggle</code> attribute
                 in addition to <code>checked</code>.
-            </h2>
+            </p>
             <span style={{ marginRight: 16 }}>
                 <PrimaryButton
                     ariaLabel="Primary Button"
@@ -187,6 +331,44 @@ export const Toggle: FC<ToggleButtonExampleProps> = ({ checked }) => {
                     toggle
                 />
             </span>
+            <span>
+                <NeutralButton
+                    ariaLabel="Neutral Button"
+                    checked={skill4Added || checked}
+                    icon={skill4Added ? IconName.mdiMinus : IconName.mdiPlus}
+                    onClick={set4Added}
+                    size={ButtonSize.Medium}
+                    text="Neutral Button"
+                    toggle
+                />
+            </span>
+        </>
+    );
+};
+
+export const TwoState: FC<ExampleProps> = ({ checked }) => {
+    const [isToggled, { toggle: setToggled }] = useBoolean(false);
+    return (
+        <>
+            <h1>Two State Button</h1>
+            <p>
+                Note: Like Toggle, Two State buttons require the{' '}
+                <code>toggle</code> attribute in addition to{' '}
+                <code>checked</code>. Two State button's visual state is
+                different than a basic Toggle button.
+            </p>
+            <TwoStateButton
+                ariaLabel="Two State Button"
+                checked={isToggled || checked}
+                counter={8}
+                iconOne={IconName.mdiCardsHeart}
+                iconTwo={
+                    isToggled ? IconName.mdiChevronUp : IconName.mdiChevronDown
+                }
+                onClick={setToggled}
+                text="Two State Button"
+                toggle
+            />
         </>
     );
 };

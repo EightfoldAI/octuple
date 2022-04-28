@@ -1,0 +1,170 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Panel tabs snapshot 1`] = `
+<div>
+  <div
+    className="tabWrap"
+    role="tablist"
+  >
+    <button
+      aria-label="Tab 1"
+      aria-selected={true}
+      className="tab active"
+      onClick={[Function]}
+      role="tab"
+    >
+      <span
+        aria-hidden={false}
+        className="icon iconWrapper"
+        role="presentation"
+      >
+        <svg
+          role="presentation"
+          style={
+            Object {
+              "height": "20px",
+              "width": "20px",
+            }
+          }
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"
+            style={
+              Object {
+                "fill": "currentColor",
+              }
+            }
+          />
+        </svg>
+      </span>
+      <span
+        className="label"
+      >
+        Tab 1
+      </span>
+      <div
+        className="tabIndicator"
+        data-flip-config="{\\"translate\\":true,\\"scale\\":true,\\"opacity\\":true}"
+        data-flip-id="tabIndicator"
+        data-portal-key="portal"
+      />
+    </button>
+    <button
+      aria-label="Tab 2"
+      aria-selected={false}
+      className="tab"
+      onClick={[Function]}
+      role="tab"
+    >
+      <span
+        aria-hidden={false}
+        className="icon iconWrapper"
+        role="presentation"
+      >
+        <svg
+          role="presentation"
+          style={
+            Object {
+              "height": "20px",
+              "width": "20px",
+            }
+          }
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"
+            style={
+              Object {
+                "fill": "currentColor",
+              }
+            }
+          />
+        </svg>
+      </span>
+      <span
+        className="label"
+      >
+        Tab 2
+      </span>
+    </button>
+    <button
+      aria-label="Tab 3"
+      aria-selected={false}
+      className="tab"
+      onClick={[Function]}
+      role="tab"
+    >
+      <span
+        aria-hidden={false}
+        className="icon iconWrapper"
+        role="presentation"
+      >
+        <svg
+          role="presentation"
+          style={
+            Object {
+              "height": "20px",
+              "width": "20px",
+            }
+          }
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"
+            style={
+              Object {
+                "fill": "currentColor",
+              }
+            }
+          />
+        </svg>
+      </span>
+      <span
+        className="label"
+      >
+        Tab 3
+      </span>
+    </button>
+    <button
+      aria-label="Tab 4"
+      aria-selected={false}
+      className="tab"
+      disabled={true}
+      onClick={[Function]}
+      role="tab"
+    >
+      <span
+        aria-hidden={false}
+        className="icon iconWrapper"
+        role="presentation"
+      >
+        <svg
+          role="presentation"
+          style={
+            Object {
+              "height": "20px",
+              "width": "20px",
+            }
+          }
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"
+            style={
+              Object {
+                "fill": "currentColor",
+              }
+            }
+          />
+        </svg>
+      </span>
+      <span
+        className="label"
+      >
+        Tab 4
+      </span>
+    </button>
+  </div>
+</div>
+`;

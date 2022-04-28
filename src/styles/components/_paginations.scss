@@ -1,82 +1,82 @@
 .page-pagination {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
 }
 
 .page-pagination a {
-  color: $button-text__color-default;
-  //float: left;
-  padding: $space-s;
-  text-decoration: none;
-  border-radius: $corner-radius-m;
-  transition: all $motion-duration-extra-fast $motion-easing-easeinout 0s;
-  min-width: rem(48px);
+    color: $button-text__color-default;
+    //float: left;
+    padding: $space-s;
+    text-decoration: none;
+    border-radius: $corner-radius-m;
+    transition: all $motion-duration-extra-fast $motion-easing-easeinout 0s;
+    min-width: 48px;
 }
 
 .page-pagination a.active {
-  background-color: $button-color-primary-active;
-  color: $button-text__color-primary;
-  border-radius: $corner-radius-m;
-  min-width: rem(48px);
+    background-color: $button-color-primary-active;
+    color: $button-text__color-primary;
+    border-radius: $corner-radius-m;
+    min-width: 48px;
 }
 
 .page-pagination a.disabled {
-  opacity: $disabled-alpha-value;
-  cursor: not-allowed;
-  min-width: rem(48px);
+    opacity: $disabled-alpha-value;
+    cursor: not-allowed;
+    min-width: 48px;
 }
 
 .page-pagination a:hover:not(.active) {
-  background-color: $button-color-default-hover;
-  min-width: rem(48px);
+    background-color: $button-color-default-hover;
+    min-width: 48px;
 }
 
 .carousel-pagination {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  gap: $space-xs;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: $space-xs;
 
-  .pagination-controls {
-    border: rem(1px) solid $card-background-color;
-    min-width: rem(26px);
-    min-height: rem(26px);
-  }
+    .pagination-controls {
+        border: 1px solid $card-background-color;
+        min-width: 26px;
+        min-height: 26px;
+    }
 }
 
 .carousel-pagination a {
-  color: $button-text__color-default;
-  padding-top: rem(3px);
-  text-decoration: none;
-  border-radius: $corner-radius-l;
-  transition: all $motion-duration-extra-fast $motion-easing-easeinout 0s;
-  min-width: rem(24px);
-  min-height: rem(24px);
-  border: rem(1px) solid $button-text__color-default;
+    color: $button-text__color-default;
+    padding-top: 3px;
+    text-decoration: none;
+    border-radius: $corner-radius-l;
+    transition: all $motion-duration-extra-fast $motion-easing-easeinout 0s;
+    min-width: 24px;
+    min-height: 24px;
+    border: 1px solid $button-text__color-default;
 }
 
 .carousel-pagination a.active {
-  background-color: $button-color-primary-active;
-  color: $button-text__color-primary;
-  border-radius: $corner-radius-l;
-  max-width: rem(24px);
-  max-height: rem(24px);
-  border: rem(1px) solid $button-text__color-default;
+    background-color: $button-color-primary-active;
+    color: $button-text__color-primary;
+    border-radius: $corner-radius-l;
+    max-width: 24px;
+    max-height: 24px;
+    border: 1px solid $button-text__color-default;
 }
 
 .carousel-pagination a.disabled {
-  opacity: $disabled-alpha-value;
-  cursor: not-allowed;
-  max-width: rem(24px);
-  max-height: rem(24px);
+    opacity: $disabled-alpha-value;
+    cursor: not-allowed;
+    max-width: 24px;
+    max-height: 24px;
 }
 
 .carousel-pagination a:hover:not(.active) {
-  background-color: $button-color-default-hover;
-  max-width: rem(24px);
-  max-height: rem(24px);
+    background-color: $button-color-default-hover;
+    max-width: 24px;
+    max-height: 24px;
 }

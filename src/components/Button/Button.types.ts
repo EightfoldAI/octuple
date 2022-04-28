@@ -1,6 +1,11 @@
-import * as React from 'react';
+import React, { Ref } from 'react';
 import { IconName } from '../Icon';
-import { Ref } from 'react';
+
+export enum ButtonTextAlign {
+    Center = 'center',
+    Left = 'left',
+    Right = 'right',
+}
 
 export enum ButtonSize {
     Flex = 'flex',
@@ -14,6 +19,11 @@ export enum ButtonWidth {
     fill = 'fill',
 }
 
+export enum ButtonShape {
+    Rectangle = 'rectangle',
+    Pill = 'pill',
+}
+
 export enum ButtonTheme {
     light = 'light',
     dark = 'dark',
@@ -21,11 +31,10 @@ export enum ButtonTheme {
 
 export enum ButtonType {
     Default = 'default',
+    Neutral = 'neutral',
     Primary = 'primary',
     Secondary = 'secondary',
 }
-
-export type NativeButtonProps = Omit<React.ButtonHTMLAttributes<any>, 'type'>;
 
 export interface InternalButtonProps extends ButtonProps {
     /**
@@ -38,6 +47,46 @@ export interface InternalButtonProps extends ButtonProps {
     ref?: Ref<HTMLButtonElement>;
 }
 
+export type NativeButtonProps = Omit<React.ButtonHTMLAttributes<any>, 'type'>;
+
+export interface SplitButtonProps
+    extends Omit<
+        InternalButtonProps,
+        'text' | 'htmlType' | 'onContextMenu' | 'splitButtonProps' | 'toggle'
+    > {}
+
+export interface TwoStateButtonProps
+    extends Omit<
+        InternalButtonProps,
+        | 'htmlType'
+        | 'icon'
+        | 'iconColor'
+        | 'onContextMenu'
+        | 'split'
+        | 'splitButtonProps'
+    > {
+    /**
+     * The button counter number.
+     */
+    counter?: number;
+    /**
+     * The button icon 1.
+     */
+    iconOne?: IconName;
+    /**
+     * The button icon 1 color.
+     */
+    iconOneColor?: string;
+    /**
+     * The button icon 2.
+     */
+    iconTwo?: IconName;
+    /**
+     * The button icon 2 color.
+     */
+    iconTwoColor?: string;
+}
+
 export interface ButtonProps extends NativeButtonProps {
     /**
      * Allows focus on the button when it's disabled.
@@ -47,6 +96,16 @@ export interface ButtonProps extends NativeButtonProps {
      * The button aria-label text.
      */
     ariaLabel?: string;
+    /**
+     * The button text alignment.
+     * @default ButtonTextAlign.Center
+     */
+    alignText?: ButtonTextAlign;
+    /**
+     * The button width type
+     * @default fitContent
+     */
+    buttonWidth?: ButtonWidth;
     /**
      * The button checked value.
      */
@@ -65,6 +124,11 @@ export interface ButtonProps extends NativeButtonProps {
      * @default false
      */
     disruptive?: boolean;
+    /**
+     * The button drop shadow state.
+     * @default false
+     */
+    dropShadow?: boolean;
     /**
      * The button html type.
      */
@@ -86,18 +150,14 @@ export interface ButtonProps extends NativeButtonProps {
      */
     onClick?: React.MouseEventHandler<HTMLButtonElement>;
     /**
-     * The button primary color.
+     * The split button click event handler.
      */
-    primaryColor?: string;
+    onContextMenu?: React.MouseEventHandler<HTMLButtonElement>;
     /**
-     * The button text.
+     * Shape of the button.
+     * @default ButtonShape.Rectangle
      */
-    text?: string;
-    /**
-     * The button theme.
-     * @default light
-     */
-    theme?: ButtonTheme;
+    shape?: ButtonShape;
     /**
      * The button size.
      * @default ButtonSize.Medium
@@ -109,24 +169,28 @@ export interface ButtonProps extends NativeButtonProps {
      */
     split?: boolean;
     /**
-     * The split button aria-label text.
+     * The split button checked value.
      */
-    splitButtonAriaLabel?: string;
+    splitButtonChecked?: boolean;
     /**
-     * The split button menu props.
+     * The split button props.
      */
-    splitButtonMenuProps?: ButtonProps;
+    splitButtonProps?: SplitButtonProps;
     /**
      * The button style.
      */
     style?: React.CSSProperties;
     /**
+     * The button text.
+     */
+    text?: string;
+    /**
+     * The button theme.
+     * @default light
+     */
+    theme?: ButtonTheme;
+    /**
      * The button is a toggle button with distinct on and off states.
      */
     toggle?: boolean;
-    /**
-     * The button width type
-     * @default fitContent
-     */
-    buttonWidth?: ButtonWidth;
 }

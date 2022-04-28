@@ -1,3 +1,9 @@
+$font-size: var(--font-size);
+
+html {
+    font-size: $font-size;
+}
+
 // BEGIN: VARIABLE COLOR DEFINITIONS
 
 $color-background1-red: var(--red-color-10);
@@ -83,6 +89,86 @@ $button-color-neutral-hover: var(--grey-color-20);
 $button-color-neutral-pressed: var(--grey-color-10);
 $button-color-neutral-focused-border: var(--blue-color-80);
 $button-color-neutral-active: rgba(var(--blue-color-40), 0.01);
+
+$button-primary-default-foreground-color: var(
+    --button-primary-default-foreground-color
+);
+$button-primary-hover-foreground-color: var(
+    --button-primary-hover-foreground-color
+);
+$button-primary-focus-foreground-color: var(
+    --button-primary-focus-foreground-color
+);
+$button-primary-active-foreground-color: var(
+    --button-primary-active-foreground-color
+);
+$button-primary-visited-foreground-color: var(
+    --button-primary-visited-foreground-color
+);
+
+$button-primary-default-background-color: var(
+    --button-primary-default-background-color
+);
+$button-primary-hover-background-color: var(
+    --button-primary-hover-background-color
+);
+$button-primary-focus-background-color: var(
+    --button-primary-focus-background-color
+);
+$button-primary-active-background-color: var(
+    --button-primary-active-background-color
+);
+$button-primary-visited-background-color: var(
+    --button-primary-visited-background-color
+);
+
+$button-primary-default-border-color: var(
+    --button-primary-default-border-color
+);
+$button-primary-hover-border-color: var(--button-primary-hover-border-color);
+$button-primary-focus-border-color: var(--button-primary-focus-border-color);
+$button-primary-active-border-color: var(--button-primary-active-border-color);
+$button-primary-visited-border-color: var(
+    --button-primary-visited-border-color
+);
+
+$button-neutral-default-foreground-color: var(
+    --button-neutral-default-foreground-color
+);
+$button-neutral-hover-foreground-color: var(
+    --button-neutral-hover-foreground-color
+);
+$button-neutral-focus-foreground-color: var(
+    --button-neutral-focus-foreground-color
+);
+$button-neutral-active-foreground-color: var(
+    --button-neutral-active-foreground-color
+);
+$button-neutral-visited-foreground-color: var(
+    --button-neutral-visited-foreground-color
+);
+
+$button-default-foreground-color: var(--button-default-foreground-color);
+$button-hover-foreground-color: var(--button-hover-foreground-color);
+$button-focus-foreground-color: var(--button-focus-foreground-color);
+$button-active-foreground-color: var(--button-active-foreground-color);
+$button-visited-foreground-color: var(--button-visited-foreground-color);
+
+$button-default-background-color: var(--button-default-background-color);
+$button-hover-background-color: var(--button-hover-background-color);
+$button-focus-background-color: var(--button-focus-background-color);
+$button-active-background-color: var(--button-active-background-color);
+$button-visited-background-color: var(--button-visited-background-color);
+
+$button-hover-variant-background-color: var(
+    --button-hover-variant-background-color
+);
+
+$button-default-outline-color: var(--button-default-outline-color);
+$button-hover-outline-color: var(--button-hover-outline-color);
+$button-focus-outline-color: var(--button-focus-outline-color);
+$button-active-outline-color: var(--button-active-outline-color);
+$button-visited-outline-color: var(--button-visited-outline-color);
 
 $text-color-primary: var(--grey-color-90);
 $text-color-secondary: var(--grey-color-80);
@@ -171,37 +257,37 @@ $shadow-panel-right: -1px 0px 2px rgba(15, 20, 31, 0.12),
 
 // Spacing Definitions
 
-$space-xxxs: rem(2px);
-$space-xxs: rem(4px);
-$space-xs: rem(8px);
-$space-s: rem(12px);
-$space-m: rem(16px);
-$space-l-fitted: rem(20px);
-$space-l: rem(24px);
-$space-xl: rem(32px);
-$space-xxl: rem(40px);
-$space-xxxl: rem(64px);
+$space-xxxs: 2px;
+$space-xxs: 4px;
+$space-xs: 8px;
+$space-s: 12px;
+$space-m: 16px;
+$space-l-fitted: 20px;
+$space-l: 24px;
+$space-xl: 32px;
+$space-xxl: 40px;
+$space-xxxl: 64px;
 
-$button-padding-vertical-large: rem(10px);
-$button-padding-horizontal-large: rem(14px);
-$button-padding-menu-large: rem(10px);
-$button-spacer-large: rem(8px);
-$button-padding-vertical-default-large: rem(10px);
-$button-padding-horizontal-default-large: rem(2px);
+$button-padding-vertical-large: 10px;
+$button-padding-horizontal-large: 14px;
+$button-padding-menu-large: 10px;
+$button-spacer-large: 8px;
+$button-padding-vertical-default-large: 10px;
+$button-padding-horizontal-default-large: 2px;
 
-$button-padding-vertical-medium: rem(8px);
-$button-padding-horizontal-medium: rem(12px);
-$button-padding-menu-medium: rem(8px);
-$button-spacer-medium: rem(6px);
-$button-padding-vertical-default-medium: rem(8px);
-$button-padding-horizontal-default-medium: rem(2px);
+$button-padding-vertical-medium: 8px;
+$button-padding-horizontal-medium: 12px;
+$button-padding-menu-medium: 8px;
+$button-spacer-medium: 6px;
+$button-padding-vertical-default-medium: 8px;
+$button-padding-horizontal-default-medium: 2px;
 
-$button-padding-vertical-small: rem(6px);
-$button-padding-horizontal-small: rem(10px);
-$button-padding-menu-small: rem(4px);
-$button-spacer-small: rem(4px);
-$button-padding-vertical-default-small: rem(6px);
-$button-padding-horizontal-default-small: rem(2px);
+$button-padding-vertical-small: 6px;
+$button-padding-horizontal-small: 10px;
+$button-padding-menu-small: 4px;
+$button-spacer-small: 4px;
+$button-padding-vertical-default-small: 6px;
+$button-padding-horizontal-default-small: 2px;
 
 $selector-margin-bottom: rem(15px);
 $selector-outline-offset: rem(1px);
@@ -210,10 +296,10 @@ $selector-label-margin-left: rem(28px);
 
 // Corner-radius Definitions
 
-$corner-radius-s: rem(4px);
-$corner-radius-m: rem(8px);
-$corner-radius-l: rem(16px);
-$corner-radius-xl: rem(24px);
+$corner-radius-s: 4px;
+$corner-radius-m: 8px;
+$corner-radius-l: 16px;
+$corner-radius-xl: 24px;
 
 // Speed / Duration Definitions
 
@@ -246,14 +332,10 @@ $motion-easing-easeinout: cubic-bezier(
 
 // Movement Definitions
 
-$motion-movement-s: rem(
-    8px
-); // Used in animations involving parts of a component
-$motion-movement-m: rem(16px); // Used in animations of smaller components
-$motion-movement-l: rem(24px); // Used in animations of larger components
-$motion-movement-xl: rem(
-    32px
-); // Used in animations involving the largest components
+$motion-movement-s: 8px; // Used in animations involving parts of a component
+$motion-movement-m: 16px; // Used in animations of smaller components
+$motion-movement-l: 24px; // Used in animations of larger components
+$motion-movement-xl: 32px; // Used in animations involving the largest components
 
 // Delay Definitions
 
@@ -301,3 +383,9 @@ $radio-after-top: rem(6px);
 $radio-after-left: rem(6px);
 
 // END: CONSTANTS
+
+// Breakpoints
+$large-screen-size: 1200px;
+$medium-screen-size: 900px;
+$small-screen-size: 600px;
+$xsmall-screen-size: 0;

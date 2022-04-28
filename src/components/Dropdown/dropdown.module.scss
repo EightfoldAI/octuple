@@ -1,5 +1,6 @@
 .main-wrapper {
     display: inline-block;
+    white-space: nowrap;
 
     .dropdown-wrapper {
         background: var(--background-color);
@@ -9,6 +10,7 @@
         transition: all $motion-duration-fast $motion-easing-easeout;
         min-width: 280px;
         opacity: 0;
+        white-space: normal;
 
         &.open {
             animation: slideUpIn $motion-duration-extra-fast
@@ -29,33 +31,5 @@
             pointer-events: none;
             cursor: auto;
         }
-    }
-}
-
-@keyframes slideUpIn {
-    0% {
-        transform: scaleY(0.8);
-        transform-origin: 0 0;
-        opacity: 0;
-    }
-
-    100% {
-        transform: scaleY(1);
-        transform-origin: 0 0;
-        opacity: 1;
-    }
-}
-
-@keyframes slideUpOut {
-    0% {
-        transform: scaleY(1);
-        transform-origin: 0 0;
-        opacity: 1;
-    }
-
-    100% {
-        transform: scaleY(0.8);
-        transform-origin: 0 0;
-        opacity: 0;
     }
 }

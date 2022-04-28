@@ -1,4 +1,4 @@
-.tabWrap {
+.tab-wrap {
     --bg: var(--background-color);
     --label: var(--text-secondary-color);
     --active-label: var(--primary-color);
@@ -46,7 +46,11 @@
             cursor: not-allowed;
         }
 
-        .tabIndicator {
+        &.inverse {
+            --active-label: var(--text-inverse-color);
+        }
+
+        .tab-indicator {
             position: absolute;
             z-index: 1;
             height: $space-xxxs;
@@ -74,7 +78,7 @@
         .tab {
             padding: $space-l $space-m;
 
-            .tabIndicator {
+            .tab-indicator {
                 height: $space-xxs;
             }
         }
@@ -100,7 +104,7 @@
                 border-radius: 0 $space-l-fitted $space-l-fitted 0;
             }
 
-            .tabIndicator {
+            .tab-indicator {
                 display: none;
             }
         }

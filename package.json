@@ -1,19 +1,24 @@
 {
     "name": "@eightfold.ai/octuple",
-    "version": "0.0.7",
+    "version": "0.0.15",
     "license": "MIT",
     "main": "lib/octuple.js",
     "types": "lib/octuple.d.ts",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/EightfoldAI/octuple"
+    },
     "scripts": {
         "storybook": "start-storybook -p 2022",
         "build-storybook": "rm -rf dist && mkdir dist && build-storybook -o dist",
         "build": "rm -rf lib && npm run lint && webpack --config webpack.prod.js --mode production",
         "details": "webpack --config webpack.dev.js --mode development --stats-error-details",
-        "analyze": "webpack --config webpack.dev.js --mode development --json > stats.json",
+        "analyze": "webpack --config webpack.dev.js --mode production --json > stats.json",
         "prepublish": "yarn build",
         "test": "jest",
         "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
         "format": "prettier --write \"**/*.+(js|jsx|ts|tsx|json|css|scss|md)\"",
+        "chromatic": "chromatic --exit-zero-on-changes",
         "prepare": "husky install && install-peers",
         "lint-staged": "lint-staged",
         "release": "standard-version",
@@ -66,6 +71,7 @@
         "@storybook/addon-interactions": "6.5.0-alpha.47",
         "@storybook/addon-links": "6.5.0-alpha.47",
         "@storybook/addon-postcss": "2.0.0",
+        "@storybook/addon-storyshots": "^6.4.22",
         "@storybook/addon-viewport": "6.5.0-alpha.47",
         "@storybook/addons": "6.5.0-alpha.47",
         "@storybook/builder-webpack5": "6.5.0-alpha.47",
@@ -97,10 +103,11 @@
         "browserslist": "4.18.1",
         "camelcase": "6.2.1",
         "case-sensitive-paths-webpack-plugin": "2.4.0",
+        "chromatic": "^6.5.4",
         "clean-webpack-plugin": "3.0.0",
         "copy-webpack-plugin": "6.0.1",
         "css-loader": "6.5.1",
-        "css-minimizer-webpack-plugin": "3.2.0",
+        "css-minimizer-webpack-plugin": "3.4.1",
         "cssnano": "4.1.10",
         "dotenv": "10.0.0",
         "dotenv-expand": "5.1.0",
@@ -121,11 +128,12 @@
         "install-peers": "1.0.3",
         "install-peers-cli": "2.2.0",
         "jest": "27.4.3",
+        "jest-localstorage-mock": "2.4.19",
         "jest-matchmedia-mock": "1.1.0",
         "jest-resolve": "27.4.2",
         "jest-watch-typeahead": "1.0.0",
         "lint-staged": "12.3.6",
-        "mini-css-extract-plugin": "2.4.5",
+        "mini-css-extract-plugin": "2.6.0",
         "postcss": "8.4.4",
         "postcss-flexbugs-fixes": "5.0.2",
         "postcss-loader": "6.2.1",
@@ -169,12 +177,9 @@
         "roots": [
             "<rootDir>/src"
         ],
-        "collectCoverageFrom": [
-            "src/**/*.{js,jsx,ts,tsx}",
-            "!src/**/*.d.ts"
-        ],
         "setupFiles": [
-            "react-app-polyfill/jsdom"
+            "react-app-polyfill/jsdom",
+            "jest-localstorage-mock"
         ],
         "setupFilesAfterEnv": [],
         "testMatch": [
@@ -212,7 +217,14 @@
             "jest-watch-typeahead/filename",
             "jest-watch-typeahead/testname"
         ],
-        "resetMocks": true
+        "resetMocks": false,
+        "collectCoverage": true,
+        "collectCoverageFrom": [
+            "src/**/*.{js,jsx,ts,tsx}",
+            "!src/**/*.d.ts",
+            "!src/**/*.stories.{js,jsx,ts,tsx}",
+            "!src/**/*.types.{js,ts}"
+        ]
     },
     "babel": {
         "presets": [
@@ -226,5 +238,9 @@
         "*.+(js|jsx|ts|tsx|json|css|scss|md)": [
             "prettier --write"
         ]
+    },
+    "engines": {
+        "node": ">=16.14.0 < 16.15",
+        "npm": ">=8.5.0 < 8.6"
     }
 }

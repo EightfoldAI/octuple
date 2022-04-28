@@ -1,7 +1,7 @@
 import React, { FC, useState } from 'react';
 import { ButtonSize, DefaultButton } from '../../Button';
 import { Icon, IconName } from '../../Icon/index';
-import { InputWidth, TextAreaProps, TextInputTheme } from '../index';
+import { TextInputWidth, TextAreaProps, TextInputTheme } from '../index';
 import { Tooltip } from '../../Tooltip';
 import { useDebounce } from '../../../hooks/useDebounce';
 import { classNames, uniqueId } from '../../../shared/utilities';
@@ -16,7 +16,7 @@ export const TextArea: FC<TextAreaProps> = ({
     disabled = false,
     enableExpand = false,
     id,
-    inputWidth = InputWidth.fitContent,
+    inputWidth = TextInputWidth.fitContent,
     label,
     labelIconButtonProps,
     maxlength,
@@ -42,13 +42,13 @@ export const TextArea: FC<TextAreaProps> = ({
         styles.textArea,
         { [styles.textAreaNoExpand]: !enableExpand },
         { [styles.dark]: theme === TextInputTheme.dark },
-        { [styles.inputStretch]: inputWidth === InputWidth.fill },
+        { [styles.inputStretch]: inputWidth === TextInputWidth.fill },
     ]);
 
     const textAreaWrapperClassNames: string = classNames([
         styles.inputWrapper,
         {
-            [styles.inputStretch]: inputWidth === InputWidth.fill,
+            [styles.inputStretch]: inputWidth === TextInputWidth.fill,
         },
     ]);
 

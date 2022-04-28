@@ -54,3 +54,15 @@ export interface ThemeOptions {
      */
     customTheme?: OcBaseTheme;
 }
+
+export type Variables = Record<string, Color>;
+
+export interface IGetStyle {
+    themeName: ThemeName;
+    light: boolean;
+    variables: Variables;
+}
+
+export interface IRegisterTheme extends IGetStyle {
+    styleNode: HTMLStyleElement;
+}

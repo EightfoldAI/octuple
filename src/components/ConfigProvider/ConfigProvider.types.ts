@@ -1,8 +1,9 @@
-import { ThemeOptions } from './Theming';
+import { IRegisterTheme, ThemeOptions } from './Theming';
 
 export interface IConfigContext {
     themeOptions: ThemeOptions;
     setThemeOptions: (themeOptions: ThemeOptions) => void;
+    registeredTheme?: IRegisterTheme;
 }
 
 export interface ConfigProviderProps {
