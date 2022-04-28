@@ -8,7 +8,7 @@ import React, {
 import { classNames, stopPropagation } from '../../shared/utilities';
 import { PanelProps, PanelRef, PanelSize } from './';
 import { IconName } from '../Icon';
-import { DefaultButton } from '../Button';
+import { NeutralButton } from '../Button';
 import { Portal } from '../Portal';
 import { useScrollLock } from '../../hooks/useScrollLock';
 
@@ -114,7 +114,7 @@ export const Panel = React.forwardRef<PanelRef, PanelProps>(
             <div className={headerClasses}>
                 <div>{title}</div>
                 {closable && (
-                    <DefaultButton
+                    <NeutralButton
                         icon={closeIcon}
                         ariaLabel={'Close'}
                         onClick={onClose}
