@@ -56,7 +56,7 @@ describe('Panel', () => {
         });
         wrapper.find('.panelBackdrop').at(0).simulate('click');
 
-        wrapper.find('.buttonDefault').at(0).simulate('click');
+        wrapper.find('.buttonNeutral').at(0).simulate('click');
         expect(onClose).toHaveBeenCalledTimes(2);
 
         wrapper.setProps({
