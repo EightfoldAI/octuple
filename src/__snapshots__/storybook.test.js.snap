@@ -966,6 +966,101 @@ Array [
 ]
 `;
 
+exports[`Storyshots Button Two State 1`] = `
+Array [
+  <h1>
+    Two State Button
+  </h1>,
+  <p>
+    Note: Like Toggle, Two State buttons require the
+     
+    <code>
+      toggle
+    </code>
+     attribute in addition to
+     
+    <code>
+      checked
+    </code>
+    . Two State button's visual state is different than a basic Toggle button.
+  </p>,
+  <button
+    aria-checked={false}
+    aria-disabled={false}
+    aria-label="Two State Button"
+    aria-pressed={false}
+    className="button twoStateButton"
+    defaultChecked={false}
+    disabled={false}
+    onClick={[Function]}
+    type="button"
+  >
+    <span>
+      <span
+        aria-hidden={false}
+        className="icon iconWrapper"
+        role="presentation"
+      >
+        <svg
+          role="presentation"
+          style={
+            Object {
+              "height": "20px",
+              "width": "20px",
+            }
+          }
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"
+            style={
+              Object {
+                "fill": "currentColor",
+              }
+            }
+          />
+        </svg>
+      </span>
+      <span
+        className=""
+      >
+        Two State Button
+      </span>
+      <span
+        className="counter"
+      >
+        8
+      </span>
+      <span
+        aria-hidden={false}
+        className="icon iconWrapper"
+        role="presentation"
+      >
+        <svg
+          role="presentation"
+          style={
+            Object {
+              "height": "20px",
+              "width": "20px",
+            }
+          }
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"
+            style={
+              Object {
+                "fill": "currentColor",
+              }
+            }
+          />
+        </svg>
+      </span>
+    </span>
+  </button>,
+]
+`;
+
 exports[`Storyshots ConfigProvider Theming 1`] = `
 <div
   className="theme-blue"
@@ -3765,6 +3860,650 @@ Array [
     </svg>
   </span>,
 ]
+`;
+
+exports[`Storyshots InfoBar Default 1`] = `
+<div>
+  <h1>
+    InfoBars
+  </h1>
+  <div
+    style={
+      Object {
+        "display": "flex",
+        "flexDirection": "column",
+        "gap": "16px",
+      }
+    }
+  >
+    <div
+      className="infoBar disruptive"
+      role="presentation"
+    >
+      <span
+        aria-hidden={false}
+        className="icon iconWrapper"
+        role="presentation"
+      >
+        <svg
+          role="presentation"
+          style={
+            Object {
+              "height": "20px",
+              "width": "20px",
+            }
+          }
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M13,9H11V7H13M13,17H11V11H13M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z"
+            style={
+              Object {
+                "fill": "currentColor",
+              }
+            }
+          />
+        </svg>
+      </span>
+      <div
+        className="message body2"
+      >
+        Body2 is used inside here.
+      </div>
+    </div>
+    <div
+      className="infoBar warning"
+      role="presentation"
+    >
+      <span
+        aria-hidden={false}
+        className="icon iconWrapper"
+        role="presentation"
+      >
+        <svg
+          role="presentation"
+          style={
+            Object {
+              "height": "20px",
+              "width": "20px",
+            }
+          }
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M13 14H11V9H13M13 18H11V16H13M1 21H23L12 2L1 21Z"
+            style={
+              Object {
+                "fill": "currentColor",
+              }
+            }
+          />
+        </svg>
+      </span>
+      <div
+        className="message body2"
+      >
+        Body2 is used inside here.
+      </div>
+    </div>
+    <div
+      className="infoBar positive"
+      role="presentation"
+    >
+      <span
+        aria-hidden={false}
+        className="icon iconWrapper"
+        role="presentation"
+      >
+        <svg
+          role="presentation"
+          style={
+            Object {
+              "height": "20px",
+              "width": "20px",
+            }
+          }
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M12 2C6.5 2 2 6.5 2 12S6.5 22 12 22 22 17.5 22 12 17.5 2 12 2M10 17L5 12L6.41 10.59L10 14.17L17.59 6.58L19 8L10 17Z"
+            style={
+              Object {
+                "fill": "currentColor",
+              }
+            }
+          />
+        </svg>
+      </span>
+      <div
+        className="message body2"
+      >
+        Body2 is used inside here.
+      </div>
+    </div>
+    <div
+      className="infoBar neutral"
+      role="presentation"
+    >
+      <span
+        aria-hidden={false}
+        className="icon iconWrapper"
+        role="presentation"
+      >
+        <svg
+          role="presentation"
+          style={
+            Object {
+              "height": "20px",
+              "width": "20px",
+            }
+          }
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M13,9H11V7H13M13,17H11V11H13M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z"
+            style={
+              Object {
+                "fill": "currentColor",
+              }
+            }
+          />
+        </svg>
+      </span>
+      <div
+        className="message body2"
+      >
+        Body2 is used inside here.
+      </div>
+    </div>
+  </div>
+  <h1>
+    InfoBars (closable)
+  </h1>
+  <div
+    style={
+      Object {
+        "display": "flex",
+        "flexDirection": "column",
+        "gap": "16px",
+      }
+    }
+  >
+    <div
+      className="infoBar disruptive"
+      role="presentation"
+    >
+      <span
+        aria-hidden={false}
+        className="icon iconWrapper"
+        role="presentation"
+      >
+        <svg
+          role="presentation"
+          style={
+            Object {
+              "height": "20px",
+              "width": "20px",
+            }
+          }
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M13,9H11V7H13M13,17H11V11H13M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z"
+            style={
+              Object {
+                "fill": "currentColor",
+              }
+            }
+          />
+        </svg>
+      </span>
+      <div
+        className="message body2"
+      >
+        Body2 is used inside here.
+      </div>
+      <button
+        aria-disabled={false}
+        aria-label="Close"
+        className="button buttonNeutral"
+        defaultChecked={false}
+        disabled={false}
+      >
+        <span
+          aria-hidden={false}
+          className="icon iconWrapper"
+          role="presentation"
+        >
+          <svg
+            role="presentation"
+            style={
+              Object {
+                "height": "20px",
+                "width": "20px",
+              }
+            }
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"
+              style={
+                Object {
+                  "fill": "currentColor",
+                }
+              }
+            />
+          </svg>
+        </span>
+      </button>
+    </div>
+    <div
+      className="infoBar warning"
+      role="presentation"
+    >
+      <span
+        aria-hidden={false}
+        className="icon iconWrapper"
+        role="presentation"
+      >
+        <svg
+          role="presentation"
+          style={
+            Object {
+              "height": "20px",
+              "width": "20px",
+            }
+          }
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M13 14H11V9H13M13 18H11V16H13M1 21H23L12 2L1 21Z"
+            style={
+              Object {
+                "fill": "currentColor",
+              }
+            }
+          />
+        </svg>
+      </span>
+      <div
+        className="message body2"
+      >
+        Body2 is used inside here.
+      </div>
+      <button
+        aria-disabled={false}
+        aria-label="Close"
+        className="button buttonNeutral"
+        defaultChecked={false}
+        disabled={false}
+      >
+        <span
+          aria-hidden={false}
+          className="icon iconWrapper"
+          role="presentation"
+        >
+          <svg
+            role="presentation"
+            style={
+              Object {
+                "height": "20px",
+                "width": "20px",
+              }
+            }
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"
+              style={
+                Object {
+                  "fill": "currentColor",
+                }
+              }
+            />
+          </svg>
+        </span>
+      </button>
+    </div>
+    <div
+      className="infoBar positive"
+      role="presentation"
+    >
+      <span
+        aria-hidden={false}
+        className="icon iconWrapper"
+        role="presentation"
+      >
+        <svg
+          role="presentation"
+          style={
+            Object {
+              "height": "20px",
+              "width": "20px",
+            }
+          }
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M12 2C6.5 2 2 6.5 2 12S6.5 22 12 22 22 17.5 22 12 17.5 2 12 2M10 17L5 12L6.41 10.59L10 14.17L17.59 6.58L19 8L10 17Z"
+            style={
+              Object {
+                "fill": "currentColor",
+              }
+            }
+          />
+        </svg>
+      </span>
+      <div
+        className="message body2"
+      >
+        Body2 is used inside here.
+      </div>
+      <button
+        aria-disabled={false}
+        aria-label="Close"
+        className="button buttonNeutral"
+        defaultChecked={false}
+        disabled={false}
+      >
+        <span
+          aria-hidden={false}
+          className="icon iconWrapper"
+          role="presentation"
+        >
+          <svg
+            role="presentation"
+            style={
+              Object {
+                "height": "20px",
+                "width": "20px",
+              }
+            }
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"
+              style={
+                Object {
+                  "fill": "currentColor",
+                }
+              }
+            />
+          </svg>
+        </span>
+      </button>
+    </div>
+    <div
+      className="infoBar neutral"
+      role="presentation"
+    >
+      <span
+        aria-hidden={false}
+        className="icon iconWrapper"
+        role="presentation"
+      >
+        <svg
+          role="presentation"
+          style={
+            Object {
+              "height": "20px",
+              "width": "20px",
+            }
+          }
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M13,9H11V7H13M13,17H11V11H13M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z"
+            style={
+              Object {
+                "fill": "currentColor",
+              }
+            }
+          />
+        </svg>
+      </span>
+      <div
+        className="message body2"
+      >
+        Body2 is used inside here.
+      </div>
+      <button
+        aria-disabled={false}
+        aria-label="Close"
+        className="button buttonNeutral"
+        defaultChecked={false}
+        disabled={false}
+      >
+        <span
+          aria-hidden={false}
+          className="icon iconWrapper"
+          role="presentation"
+        >
+          <svg
+            role="presentation"
+            style={
+              Object {
+                "height": "20px",
+                "width": "20px",
+              }
+            }
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"
+              style={
+                Object {
+                  "fill": "currentColor",
+                }
+              }
+            />
+          </svg>
+        </span>
+      </button>
+    </div>
+  </div>
+  <h1>
+    InfoBars (button)
+  </h1>
+  <div
+    style={
+      Object {
+        "display": "flex",
+        "flexDirection": "column",
+        "gap": "16px",
+      }
+    }
+  >
+    <div
+      className="infoBar disruptive"
+      role="presentation"
+    >
+      <span
+        aria-hidden={false}
+        className="icon iconWrapper"
+        role="presentation"
+      >
+        <svg
+          role="presentation"
+          style={
+            Object {
+              "height": "20px",
+              "width": "20px",
+            }
+          }
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M13,9H11V7H13M13,17H11V11H13M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z"
+            style={
+              Object {
+                "fill": "currentColor",
+              }
+            }
+          />
+        </svg>
+      </span>
+      <div
+        className="message body2"
+      >
+        Body2 is used inside here.
+      </div>
+      <button
+        aria-disabled={false}
+        className="button buttonNeutral"
+        defaultChecked={false}
+        disabled={false}
+      >
+        <span
+          className=""
+        >
+          Action
+        </span>
+      </button>
+    </div>
+    <div
+      className="infoBar warning"
+      role="presentation"
+    >
+      <span
+        aria-hidden={false}
+        className="icon iconWrapper"
+        role="presentation"
+      >
+        <svg
+          role="presentation"
+          style={
+            Object {
+              "height": "20px",
+              "width": "20px",
+            }
+          }
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M13 14H11V9H13M13 18H11V16H13M1 21H23L12 2L1 21Z"
+            style={
+              Object {
+                "fill": "currentColor",
+              }
+            }
+          />
+        </svg>
+      </span>
+      <div
+        className="message body2"
+      >
+        Body2 is used inside here.
+      </div>
+      <button
+        aria-disabled={false}
+        className="button buttonNeutral"
+        defaultChecked={false}
+        disabled={false}
+      >
+        <span
+          className=""
+        >
+          Action
+        </span>
+      </button>
+    </div>
+    <div
+      className="infoBar positive"
+      role="presentation"
+    >
+      <span
+        aria-hidden={false}
+        className="icon iconWrapper"
+        role="presentation"
+      >
+        <svg
+          role="presentation"
+          style={
+            Object {
+              "height": "20px",
+              "width": "20px",
+            }
+          }
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M12 2C6.5 2 2 6.5 2 12S6.5 22 12 22 22 17.5 22 12 17.5 2 12 2M10 17L5 12L6.41 10.59L10 14.17L17.59 6.58L19 8L10 17Z"
+            style={
+              Object {
+                "fill": "currentColor",
+              }
+            }
+          />
+        </svg>
+      </span>
+      <div
+        className="message body2"
+      >
+        Body2 is used inside here.
+      </div>
+      <button
+        aria-disabled={false}
+        className="button buttonNeutral"
+        defaultChecked={false}
+        disabled={false}
+      >
+        <span
+          className=""
+        >
+          Action
+        </span>
+      </button>
+    </div>
+    <div
+      className="infoBar neutral"
+      role="presentation"
+    >
+      <span
+        aria-hidden={false}
+        className="icon iconWrapper"
+        role="presentation"
+      >
+        <svg
+          role="presentation"
+          style={
+            Object {
+              "height": "20px",
+              "width": "20px",
+            }
+          }
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M13,9H11V7H13M13,17H11V11H13M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z"
+            style={
+              Object {
+                "fill": "currentColor",
+              }
+            }
+          />
+        </svg>
+      </span>
+      <div
+        className="message body2"
+      >
+        Body2 is used inside here.
+      </div>
+      <button
+        aria-disabled={false}
+        className="button buttonNeutral"
+        defaultChecked={false}
+        disabled={false}
+      >
+        <span
+          className=""
+        >
+          Action
+        </span>
+      </button>
+    </div>
+  </div>
+</div>
 `;
 
 exports[`Storyshots List Default 1`] = `
@@ -8697,6 +9436,105 @@ Array [
   <br />,
   <br />,
 ]
+`;
+
+exports[`Storyshots Snackbar Default 1`] = `
+<div>
+  <h1>
+    Snackbar
+  </h1>
+  <button
+    aria-disabled={false}
+    className="button buttonDefault buttonPadding3"
+    defaultChecked={false}
+    disabled={false}
+    onClick={[Function]}
+  >
+    <span
+      className="button3"
+    >
+      Serve snack top center
+    </span>
+  </button>
+  <button
+    aria-disabled={false}
+    className="button buttonDefault buttonPadding3"
+    defaultChecked={false}
+    disabled={false}
+    onClick={[Function]}
+  >
+    <span
+      className="button3"
+    >
+      Serve snack top left
+    </span>
+  </button>
+  <button
+    aria-disabled={false}
+    className="button buttonDefault buttonPadding3"
+    defaultChecked={false}
+    disabled={false}
+    onClick={[Function]}
+  >
+    <span
+      className="button3"
+    >
+      Serve snack top right
+    </span>
+  </button>
+  <button
+    aria-disabled={false}
+    className="button buttonDefault buttonPadding3"
+    defaultChecked={false}
+    disabled={false}
+    onClick={[Function]}
+  >
+    <span
+      className="button3"
+    >
+      Serve snack bottom center
+    </span>
+  </button>
+  <button
+    aria-disabled={false}
+    className="button buttonDefault buttonPadding3"
+    defaultChecked={false}
+    disabled={false}
+    onClick={[Function]}
+  >
+    <span
+      className="button3"
+    >
+      Serve snack bottom left
+    </span>
+  </button>
+  <button
+    aria-disabled={false}
+    className="button buttonDefault buttonPadding3"
+    defaultChecked={false}
+    disabled={false}
+    onClick={[Function]}
+  >
+    <span
+      className="button3"
+    >
+      Serve snack bottom right
+    </span>
+  </button>
+  <button
+    aria-disabled={false}
+    className="button buttonDefault buttonPadding3"
+    defaultChecked={false}
+    disabled={false}
+    onClick={[Function]}
+  >
+    <span
+      className="button3"
+    >
+      Serve snack with action
+    </span>
+  </button>
+</div>
 `;
 
 exports[`Storyshots Tabs Default 1`] = `

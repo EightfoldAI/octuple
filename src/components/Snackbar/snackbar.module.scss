@@ -1,47 +1,12 @@
 .snackbar {
-    --snack-color: var(--grey-color-70);
-    display: flex;
     box-shadow: $shadow-object-l;
-    border-radius: $space-xxs;
-    padding: $space-m;
+    border: none;
+    border-left: solid $space-xs var(--info-color);
     min-width: 21vw;
     max-width: min(42vw, 640px);
-    color: var(--snack-color);
-    border-left: solid $space-xs var(--snack-color);
-    background-color: var(--background-color);
-    gap: $space-m;
     animation: slideUpIn $motion-duration-extra-fast $motion-easing-easeinout 0s
         forwards;
     margin-bottom: $space-s;
-
-    &.neutral {
-        --snack-color: var(--grey-color-70);
-    }
-
-    &.positive {
-        --snack-color: var(--green-color-70);
-    }
-
-    &.warning {
-        --snack-color: var(--orange-color-70);
-    }
-
-    &.disruptive {
-        --snack-color: var(--disruptive-color-70);
-    }
-
-    .icon {
-        color: inherit;
-    }
-
-    .message {
-        flex: 1;
-        color: inherit;
-    }
-
-    .buttons-container {
-        padding: $space-m;
-    }
 }
 
 .snackbar-container {
