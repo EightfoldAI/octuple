@@ -18,7 +18,7 @@ export const Snackbar: FC<SnackbarProps> = ({
     closeButtonProps,
 }) => {
     const snackbarClasses: string = classNames([
-        styles.snackbars,
+        styles.snackbar,
         className,
         { [styles.neutral]: type === SnackbarType.neutral },
         { [styles.positive]: type === SnackbarType.positive },
