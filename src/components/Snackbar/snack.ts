@@ -20,8 +20,8 @@ export const serve = (props: SnackbarProps): void => {
         cancelable: false,
         detail: {
             position: DEFAULT_POSITION,
-            id,
             ...props,
+            id,
         },
     });
     document.dispatchEvent(serveSnackEvent);

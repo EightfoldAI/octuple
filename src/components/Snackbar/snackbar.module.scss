@@ -4,8 +4,8 @@
     box-shadow: $shadow-object-l;
     border-radius: $space-xxs;
     padding: $space-m;
-    min-width: 320px;
-    max-width: 640px;
+    min-width: 21vw;
+    max-width: min(42vw, 640px);
     color: var(--snack-color);
     border-left: solid $space-xs var(--snack-color);
     background-color: var(--background-color);
