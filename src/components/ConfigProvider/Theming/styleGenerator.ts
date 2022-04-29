@@ -112,6 +112,14 @@ export function getStyle(themeOptions: ThemeOptions): IGetStyle {
         variables[`info-color`] = theme.infoColor;
     }
 
+    // ================= Border Radius ==================
+    if (theme.styles?.global?.borderRadius) {
+        variables[`border-radius`] = theme.styles.global.borderRadius;
+    }
+    if (theme.styles?.button?.borderRadius) {
+        variables[`button-border-radius`] = theme.styles.button.borderRadius;
+    }
+
     return {
         variables,
         light: themePrimaryColor.isLight(),

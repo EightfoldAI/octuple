@@ -52,7 +52,7 @@
     --text-color: var(--text-inverse-color);
     background-color: inherit;
     border: 2px solid rgba(var(--button-primary-default-border-color), 0.01);
-    border-radius: $corner-radius-s;
+    border-radius: var(--button-border-radius);
     cursor: pointer;
     display: inline-block;
     transition: all $motion-duration-extra-fast $motion-easing-easeinout 0s;

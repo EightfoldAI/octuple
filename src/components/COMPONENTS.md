@@ -45,7 +45,7 @@ import { classNames } from '../../shared/utilities';
 import styles from 'component.module.scss';
 
 export const Component: FC<ComponentProps> = ({
-    className,
+    classNames,
     style,
     // How to set defaults for props
     type = ComponentType.base,
@@ -54,7 +54,7 @@ export const Component: FC<ComponentProps> = ({
     // Combining class names can be done using the classNames utility
     const componentClasses: string = classNames([
         styles.componentWrapper,
-        className,
+        classNames,
         // Conditional classes can also be handled as follows
         { [styles.active]: type === ComponentType.base }
     ]);
@@ -112,7 +112,7 @@ export interface ComponentProps {
      * Custom class name
      * @default null
      */
-    className?: string;
+    classNames?: string;
     /**
      * Style of the component
      * @default null

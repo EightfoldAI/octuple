@@ -3,6 +3,7 @@ import { registerTheme } from './Theming/styleGenerator';
 import { ConfigProviderProps, IConfigContext } from './ConfigProvider.types';
 import { IRegisterTheme, ThemeOptions } from './Theming';
 import { useFontSize } from '../../hooks/useFontSize';
+import { useTheme } from '../../hooks/useTheme';
 
 const ConfigContext = createContext<Partial<IConfigContext>>({});
 
@@ -24,6 +25,10 @@ const ConfigProvider: FC<ConfigProviderProps> = ({
         variableName: '--font-size',
     });
 
+    const [theme, setTheme] = useTheme({
+        themeName: 'theme-blue',
+    });
+
     useEffect(() => {
         if (themeOptions) {
             setRegisteredTheme(
@@ -33,6 +38,7 @@ const ConfigProvider: FC<ConfigProviderProps> = ({
                 })
             );
         }
+        setTheme(themeOptions.name);
         setFontSize(DEFAULT_FONT_SIZE);
     }, [themeOptions]);
 
@@ -44,7 +50,7 @@ const ConfigProvider: FC<ConfigProviderProps> = ({
                 registeredTheme,
             }}
         >
-            <div className={`theme-${themeOptions.name}`}>{children}</div>
+            <div>{children}</div>
         </ConfigContext.Provider>
     );
 };

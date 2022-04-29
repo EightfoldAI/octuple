@@ -12,13 +12,16 @@ export interface UseFontSizeProps {
 /**
  * Set the CSS variable in the <html> node
  */
-const applyPropToDocument = (variableName: string, storedFontSize: string) =>
+const applyPropToDocument = (
+    variableName: string,
+    storedFontSize: string
+): void =>
     document.documentElement.style.setProperty(variableName, storedFontSize);
 
 /**
  * Retrieve the CSS variable value from the <html> node
  */
-const getDocumentProp = (variableName: string) =>
+const getDocumentProp = (variableName: string): string =>
     document.documentElement.style.getPropertyValue(variableName);
 
 /**
@@ -29,7 +32,10 @@ export const useFontSize = ({
     storageKey = 'f_s',
     initialSize = '20px',
     variableName = '--font-size',
-}: UseFontSizeProps = {}) => {
+}: UseFontSizeProps = {}): [
+    string | number,
+    React.Dispatch<string | number>
+] => {
     /**
      * Create a state connected to the localStorage.
      * This is necessary to consistently store
@@ -47,18 +53,21 @@ export const useFontSize = ({
      * - If a font size is already stored in the localStorage, set it as CSS variable
      * - Return the stored value as the state value.
      */
-    function init(initialValue: string) {
+    function init(initialValue: string): string {
         if (!hasWindow()) return initialValue;
         if (storedFontSize) applyPropToDocument(variableName, storedFontSize);
         return storedFontSize || getDocumentProp(variableName);
     }
 
     /**
-     * The reducer function, that we'll use in out components
+     * The reducer function, that we'll use in our components
      * to update the font size with user interactions.
-     * It set the new value for the CSS variable and save it as the state.
+     * It sets the new value for the CSS variable and save it as the state.
      */
-    function reducer(_state: string, newFont: string | number) {
+    function reducer(
+        _state: string,
+        newFont: string | number
+    ): string | number {
         const newSize = `${newFont}px`;
         applyPropToDocument(variableName, newSize);
         storeFontSize(newSize);
