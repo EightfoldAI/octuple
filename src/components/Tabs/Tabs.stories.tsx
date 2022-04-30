@@ -14,6 +14,14 @@ const tabs = [1, 2, 3, 4].map((i) => ({
     ...(i === 4 ? { disabled: true } : {}),
 }));
 
+const badgeTabs = [1, 2, 3, 4].map((i) => ({
+    value: `tab${i}`,
+    label: `Tab ${i}`,
+    ariaLabel: `Tab ${i}`,
+    badgeContent: i,
+    ...(i === 4 ? { disabled: true } : {}),
+}));
+
 const iconTabs = [1, 2, 3, 4].map((i) => ({
     value: `tab${i}`,
     icon: IconName.mdiCardsHeart,
@@ -41,6 +49,12 @@ export const Default = () => (
         <p>Default Tabs</p>
         <Tabs onChange={_tabClicked} activeTab={'tab1'}>
             {tabs.map((tab) => (
+                <Tab key={tab.value} {...tab} />
+            ))}
+        </Tabs>
+        <p>Tabs with badge</p>
+        <Tabs onChange={_tabClicked} activeTab={'tab1'}>
+            {badgeTabs.map((tab) => (
                 <Tab key={tab.value} {...tab} />
             ))}
         </Tabs>
@@ -76,6 +90,16 @@ export const Small = () => (
             variant={TabVariant.small}
         >
             {tabs.map((tab) => (
+                <Tab key={tab.value} {...tab} />
+            ))}
+        </Tabs>
+        <p>Tabs with badge</p>
+        <Tabs
+            onChange={_tabClicked}
+            activeTab={'tab1'}
+            variant={TabVariant.small}
+        >
+            {badgeTabs.map((tab) => (
                 <Tab key={tab.value} {...tab} />
             ))}
         </Tabs>
@@ -127,6 +151,16 @@ export const Pill = () => (
             variant={TabVariant.pill}
         >
             {tabs.map((tab) => (
+                <Tab key={tab.value} {...tab} />
+            ))}
+        </Tabs>
+        <p>Tabs with badge</p>
+        <Tabs
+            onChange={_tabClicked}
+            activeTab={'tab1'}
+            variant={TabVariant.pill}
+        >
+            {badgeTabs.map((tab) => (
                 <Tab key={tab.value} {...tab} />
             ))}
         </Tabs>

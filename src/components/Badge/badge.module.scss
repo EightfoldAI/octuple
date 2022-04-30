@@ -1,0 +1,14 @@
+.badge {
+    --bg: var(--grey-color-20);
+    --label: var(--grey-color-80);
+    background-color: var(--bg);
+    color: var(--label);
+    border-radius: $space-m;
+    width: fit-content;
+    padding: 0 $space-xxs;
+
+    &.active {
+        --bg: var(--primary-color-20);
+        --label: var(--primary-color);
+    }
+}

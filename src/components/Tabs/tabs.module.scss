@@ -1,7 +1,7 @@
 .tab-wrap {
     --label: var(--text-secondary-color);
     --active-label: var(--primary-color);
-    --active-bg: var(--background-color);
+    --active-bg: transparent;
     --hover-label: var(--primary-color);
     --hover-bg: var(--background-color);
     --indicator: var(--primary-color);
@@ -62,6 +62,10 @@
             font-weight: $text-font-weight-semibold;
             font-size: $text-font-size-3;
             white-space: nowrap;
+        }
+
+        .badge {
+            margin-left: $space-xs;
         }
 
         .icon + .label:not(:empty) {

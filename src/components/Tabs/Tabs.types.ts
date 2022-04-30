@@ -50,6 +50,10 @@ export interface TabProps {
      * The tab is disabled.
      */
     disabled?: boolean;
+    /**
+     * Content of the badge
+     */
+    badgeContent?: React.ReactNode;
 }
 
 export interface TabsProps {
