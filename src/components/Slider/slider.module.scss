@@ -1,0 +1,95 @@
+.slider-container {
+    // Represents the diaeter of the thumb slider and the overall height of the slider.
+    $slider-height: 24px;
+    $track-height: 5px;
+    $vertical-center: #{($slider-height / 2) - ($track-height / 2)};
+
+    --slider-default-range-color: var(--primary-color-70);
+    --slider-default-track-color: var(--grey-color-50);
+    --slider-default-value-text-color: var(--text-primary-color);
+    --slider-default-thumb-color: var(--background-color);
+    --slider-default-thumb-box-shadow-color: var(--grey-color-60);
+
+    .slider {
+        position: relative;
+        height: $slider-height;
+    }
+
+    .slider-track,
+    .slider-range {
+        position: absolute;
+        top: $vertical-center;
+        left: 0;
+    }
+
+    .slider-track,
+    .slider-range {
+        border-radius: 3px;
+        height: $track-height;
+    }
+
+    .slider-track {
+        background-color: var(--slider-default-track-color);
+        width: 100%;
+    }
+
+    .slider-range {
+        background-color: var(--slider-default-range-color);
+    }
+
+    .slider-value {
+        color: var(--slider-default-value-text-color);
+        font-size: 16px;
+    }
+
+    /* Removing the default appearance */
+    .thumb,
+    .thumb::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    .thumb {
+        display: block;
+        width: 100%;
+        pointer-events: none;
+        position: absolute;
+        top: $vertical-center;
+        height: 0;
+        outline: none;
+    }
+
+    /* For Chrome browsers */
+    .thumb::-webkit-slider-thumb {
+        background-color: var(--slider-default-thumb-color);
+        border: none;
+        border-radius: 50%;
+        box-shadow: 0 0 1px 1px var(--slider-default-thumb-box-shadow-color);
+        cursor: pointer;
+        height: $slider-height;
+        width: $slider-height;
+        margin-top: 4px;
+        pointer-events: all;
+        position: relative;
+    }
+
+    /* For Firefox browsers */
+    .thumb::-moz-range-thumb {
+        background-color: var(--slider-default-thumb-color);
+        border: none;
+        border-radius: 50%;
+        box-shadow: 0 0 1px 1px var(--slider-default-thumb-box-shadow-color);
+        cursor: pointer;
+        height: $slider-height;
+        width: $slider-height;
+        margin-top: 4px;
+        pointer-events: all;
+        position: relative;
+    }
+}
+
+.slider-disabled {
+    .slider {
+        opacity: 0.5;
+    }
+}
