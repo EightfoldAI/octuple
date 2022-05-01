@@ -13,6 +13,10 @@
 
 from the project root folder, you can run:
 
+### `yarn install`
+
+Installs the necessary dependencies for development and building. Must be run before other commands.
+
 ### `yarn storybook`
 
 Runs the app in the development mode.
