@@ -129,7 +129,6 @@
         "html-webpack-plugin": "5.5.0",
         "husky": "7.0.4",
         "icomoon-react": "^3.0.0",
-        "identity-obj-proxy": "3.0.0",
         "install-peers": "1.0.3",
         "install-peers-cli": "2.2.0",
         "jest": "27.4.3",
@@ -209,7 +208,7 @@
         "modulePaths": [],
         "moduleNameMapper": {
             "^react-native$": "react-native-web",
-            "^.+\\.module\\.(css|sass|scss)$": "identity-obj-proxy"
+            "^.+\\.module\\.(css|sass|scss)$": "<rootDir>/config/jest/identity-obj-proxy-revised.js"
         },
         "moduleFileExtensions": [
             "web.js",
