@@ -1,0 +1,90 @@
+$sliderWidth: 200px;
+
+.sliderContainer {
+    display: block;
+    position: relative;
+    width: $sliderWidth;
+}
+
+.slider {
+    position: relative;
+}
+
+.sliderTrack,
+.sliderRange,
+.sliderValue {
+    position: absolute;
+}
+
+.sliderTrack,
+.sliderRange {
+    border-radius: 3px;
+    height: 5px;
+}
+
+.sliderTrack {
+    background-color: #ced4da;
+    width: 100%;
+    z-index: 1;
+}
+
+.sliderRange {
+    background-color: #9fe5e1;
+    z-index: 2;
+}
+
+.sliderValue {
+    color: #666;
+    font-size: 12px;
+    margin-top: 20px;
+}
+
+.sliderValue {
+    left: 6px;
+}
+
+/* Removing the default appearance */
+.thumb,
+.thumb::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.thumb {
+    pointer-events: none;
+    position: absolute;
+    height: 0;
+    width: $sliderWidth;
+    outline: none;
+
+    // TODO: eliminate usage of z-index
+    z-index: 4;
+}
+
+/* For Chrome browsers */
+.thumb::-webkit-slider-thumb {
+    background-color: #f1f5f7;
+    border: none;
+    border-radius: 50%;
+    box-shadow: 0 0 1px 1px #ced4da;
+    cursor: pointer;
+    height: 18px;
+    width: 18px;
+    margin-top: 4px;
+    pointer-events: all;
+    position: relative;
+}
+
+/* For Firefox browsers */
+.thumb::-moz-range-thumb {
+    background-color: #f1f5f7;
+    border: none;
+    border-radius: 50%;
+    box-shadow: 0 0 1px 1px #ced4da;
+    cursor: pointer;
+    height: 18px;
+    width: 18px;
+    margin-top: 4px;
+    pointer-events: all;
+    position: relative;
+}
