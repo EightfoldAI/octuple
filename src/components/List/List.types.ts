@@ -19,13 +19,13 @@ export interface ListProps<T> {
      */
     rowKey?: (item: T) => Key | keyof T;
     /**
-     * Custom class for the list container
+     * Custom classes for the list container
      */
-    className?: string;
+    classNames?: string;
     /**
-     * Custom class for list item
+     * Custom classes for list item
      */
-    itemClassName?: string;
+    itemClassNames?: string;
     /**
      * Style of list container
      */

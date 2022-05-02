@@ -7,9 +7,9 @@ export const Menu: FC<MenuProps> = ({
     items,
     onChange,
     disruptive = false,
-    className,
+    classNames,
     style,
-    itemClassName,
+    itemClassNames,
     itemStyle,
     header,
     footer,
@@ -29,9 +29,9 @@ export const Menu: FC<MenuProps> = ({
         <List<MenuItem>
             items={items}
             renderItem={getDefaultButton}
-            className={className}
+            classNames={classNames}
             style={style}
-            itemClassName={itemClassName}
+            itemClassNames={itemClassNames}
             itemStyle={itemStyle}
             header={header}
             footer={footer}

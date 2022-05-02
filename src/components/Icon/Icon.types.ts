@@ -21,7 +21,7 @@ export interface IconProps extends MdiIconProps {
     /**
      * The icon class names.
      */
-    className?: string;
+    classNames?: string;
     /**
      * The icon color.
      */

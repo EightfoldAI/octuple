@@ -12,18 +12,17 @@ export const SearchBox: FC<SearchBoxProps> = ({
     allowDisabledFocus = false,
     ariaLabel,
     autoFocus = false,
-    className,
+    classNames,
     clearButtonAriaLabel,
     disabled = false,
     iconProps,
     iconButtonProps = {
         allowDisabledFocus: false,
         disabled: false,
-        icon: IconName.mdiMagnify,
+        iconProps: { path: IconName.mdiMagnify },
     },
     inputWidth = TextInputWidth.fitContent,
-    label,
-    labelIconButtonProps,
+    labelProps,
     maxlength,
     minlength,
     name,
@@ -43,15 +42,14 @@ export const SearchBox: FC<SearchBoxProps> = ({
             allowDisabledFocus={allowDisabledFocus}
             ariaLabel={ariaLabel}
             autoFocus={autoFocus}
-            className={className}
+            classNames={classNames}
             clearButtonAriaLabel={clearButtonAriaLabel}
             disabled={disabled}
             htmlType="search"
             iconProps={iconProps}
             iconButtonProps={iconButtonProps}
             inputWidth={inputWidth}
-            label={label}
-            labelIconButtonProps={labelIconButtonProps}
+            labelProps={labelProps}
             maxlength={maxlength}
             minlength={minlength}
             name={name}

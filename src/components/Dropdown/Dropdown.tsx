@@ -2,7 +2,7 @@ import React, { cloneElement, FC, useEffect, useRef, useState } from 'react';
 import { DropdownProps } from './Dropdown.types';
 import { autoUpdate, shift, useFloating } from '@floating-ui/react-dom';
 import { offset as fOffset } from '@floating-ui/core';
-import { classNames, uniqueId } from '../../shared/utilities';
+import { mergeClasses, uniqueId } from '../../shared/utilities';
 import { useOnClickOutside } from '../../hooks/useOnClickOutside';
 
 import styles from './dropdown.module.scss';
@@ -17,9 +17,9 @@ const ANIMATION_DURATION = 200;
 
 export const Dropdown: FC<DropdownProps> = ({
     trigger = 'click',
-    className,
+    classNames,
     style,
-    dropdownClassName,
+    dropdownClassNames,
     dropdownStyle,
     children,
     placement = 'bottom-start',
@@ -80,19 +80,19 @@ export const Dropdown: FC<DropdownProps> = ({
         );
     }, [refs.reference, refs.floating, update]);
 
-    const dropdownClasses: string = classNames([
-        dropdownClassName,
+    const dropdownClasses: string = mergeClasses([
+        dropdownClassNames,
         styles.dropdownWrapper,
         { [styles.open]: visible },
         { [styles.close]: closing },
     ]);
 
-    const mainWrapperClasses: string = classNames([
-        className,
+    const mainWrapperClasses: string = mergeClasses([
+        classNames,
         styles.mainWrapper,
     ]);
 
-    const referenceWrapperClasses: string = classNames([
+    const referenceWrapperClasses: string = mergeClasses([
         styles.referenceWrapper,
         { [styles.disabled]: false },
     ]);

@@ -1,0 +1,76 @@
+.field-label {
+    padding-bottom: $space-xxxs;
+
+    &.large {
+        padding-bottom: $space-xs;
+    }
+
+    &.medium {
+        padding-bottom: $space-xxxs;
+    }
+
+    &.small {
+        padding-bottom: $space-xxxs;
+    }
+
+    .text-style {
+        color: var(--text-primary-color);
+        font-family: 'Source Sans Pro', sans-serif;
+
+        &.large {
+            font-size: $text-font-size-5;
+            font-weight: $text-font-weight-semibold;
+            line-height: $text-line-height-3;
+        }
+
+        &.medium {
+            font-size: $text-font-size-3;
+            font-weight: $text-font-weight-semibold;
+            line-height: $text-line-height-2;
+        }
+
+        &.small {
+            font-size: $text-font-size-2;
+            font-weight: $text-font-weight-semibold;
+            line-height: $text-line-height-1;
+        }
+    }
+}
+
+.field-label-icon-button {
+    display: inline-block;
+    margin-left: 4px;
+    position: relative;
+    top: 2px;
+    vertical-align: top;
+
+    &.large {
+        margin-left: 8px;
+        top: 4px;
+    }
+
+    &.medium {
+        margin-left: 4px;
+        top: 2px;
+    }
+
+    &.small {
+        margin-left: 4px;
+        top: 2px;
+    }
+
+    .label-icon-button {
+        border-radius: 100%;
+        box-sizing: border-box;
+        border-width: 1px;
+        padding: 0;
+
+        &:active,
+        &:focus-visible {
+            background-color: transparent;
+            outline: 2px solid var(--primary-color-40);
+            outline-offset: -2px;
+            padding: 0;
+        }
+    }
+}

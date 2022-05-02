@@ -1,11 +1,11 @@
 import React, { FC } from 'react';
-import { classNames } from '../../../shared/utilities';
+import { mergeClasses } from '../../../shared/utilities';
 import { TabProps } from '../Tabs.types';
 import { useTabs } from '../Tabs.context';
 import { Flipped } from 'react-flip-toolkit';
 
 import styles from '../tabs.module.scss';
-import { Icon, IconName } from '../../Icon';
+import { Icon } from '../../Icon';
 import { useConfig } from '../../ConfigProvider';
 
 export const Tab: FC<TabProps> = ({
@@ -23,14 +23,14 @@ export const Tab: FC<TabProps> = ({
 
     const { registeredTheme: { light = false } = {} } = useConfig();
 
-    const tabClassName: string = classNames([
+    const tabClassName: string = mergeClasses([
         styles.tab,
         { [styles.active]: isActive },
         { [styles.inverse]: light },
     ]);
 
     const getIcon = (): JSX.Element => (
-        <Icon path={icon} className={styles.icon} />
+        <Icon path={icon} classNames={styles.icon} />
     );
 
     const getLabel = (): JSX.Element => (

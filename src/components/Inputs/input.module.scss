@@ -289,53 +289,6 @@
         }
     }
 
-    .field-label {
-        padding-bottom: $space-xxxs;
-
-        .info-button-style {
-            align-items: center;
-            color: var(--grey-color-80);
-            font-size: $icon-font-size-material-s;
-            line-height: $text-line-height-2;
-            text-align: center;
-
-            &:hover {
-                color: var(--grey-color-60);
-            }
-        }
-
-        .text-style {
-            color: var(--text-primary-color);
-            font-family: 'Source Sans Pro', sans-serif;
-            font-size: $text-font-size-3;
-            font-weight: $text-font-weight-semibold;
-            line-height: $text-line-height-2;
-        }
-    }
-
-    .field-label-icon-button {
-        display: inline-block;
-        margin-left: 4px;
-        position: relative;
-        top: 2px;
-        vertical-align: top;
-
-        .label-icon-button {
-            border-radius: 100%;
-            box-sizing: border-box;
-            border-width: 1px;
-            padding: 0;
-
-            &:active,
-            &:focus-visible {
-                background-color: transparent;
-                outline: 2px solid var(--primary-color-40);
-                outline-offset: -2px;
-                padding: 0;
-            }
-        }
-    }
-
     .text-area {
         background-color: var(--background-color);
         border: 1px solid --border-color;

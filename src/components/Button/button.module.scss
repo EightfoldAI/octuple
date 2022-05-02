@@ -125,6 +125,30 @@
         }
     }
 
+    &.icon-left {
+        span {
+            transform: none;
+        }
+    }
+
+    &.icon-right {
+        span {
+            transform: scaleX(-1);
+        }
+
+        &.left {
+            span {
+                justify-content: right;
+            }
+        }
+
+        &.right {
+            span {
+                justify-content: left;
+            }
+        }
+    }
+
     &:disabled,
     &.disabled {
         opacity: $disabled-alpha-value;
