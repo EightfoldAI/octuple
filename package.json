@@ -12,6 +12,7 @@
         "analyze": "webpack --config webpack.dev.js --mode production --json > stats.json",
         "prepublish": "yarn build",
         "test": "jest",
+        "test:update": "jest --updateSnapshot",
         "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
         "format": "prettier --write \"**/*.+(js|jsx|ts|tsx|json|css|scss|md)\"",
         "prepare": "husky install && install-peers",
