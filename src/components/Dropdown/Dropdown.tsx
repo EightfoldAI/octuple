@@ -25,7 +25,7 @@ export const Dropdown: FC<DropdownProps> = ({
     placement = 'bottom-start',
     overlay,
     offset = 0,
-    positionStrategy = 'fixed',
+    positionStrategy = 'absolute',
     onVisibleChange,
 }) => {
     const mainWrapperRef = useRef<HTMLDivElement>(null);
@@ -69,7 +69,7 @@ export const Dropdown: FC<DropdownProps> = ({
 
     useEffect(() => {
         if (!refs.reference.current || !refs.floating.current) {
-            return null;
+            return () => {};
         }
 
         // Only call this when the floating element is rendered
