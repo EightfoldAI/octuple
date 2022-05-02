@@ -13,13 +13,15 @@ export const MatchScore: FC<MatchScoreProps> = ({
     const matchScoreClasses = classNames(className, styles.matchScoreContainer);
     return (
         <div className={matchScoreClasses}>
-            {getArrayOfSize(Math.min(Math.floor(score), absTotal)).map(() => (
-                <MatchScoreCircle fill="full" />
-            ))}
+            {getArrayOfSize(Math.min(Math.floor(score), absTotal)).map(
+                (_val, index) => (
+                    <MatchScoreCircle fill="full" key={index} />
+                )
+            )}
             {Math.floor(score) !== score && <MatchScoreCircle fill="half" />}
             {getArrayOfSize(Math.max(Math.floor(absTotal - score), 0)).map(
-                () => (
-                    <MatchScoreCircle />
+                (_val, index) => (
+                    <MatchScoreCircle key={index} />
                 )
             )}
             {!hideLabel && (

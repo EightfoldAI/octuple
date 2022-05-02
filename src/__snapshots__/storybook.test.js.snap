@@ -3642,6 +3642,34 @@ exports[`Storyshots ConfigProvider Theming 1`] = `
       </button>
     </div>
   </div>
+  <br />
+  <br />
+  <div
+    className="matchScoreContainer"
+  >
+    <div
+      className="matchScoreCircle full  "
+    />
+    <div
+      className="matchScoreCircle full  "
+    />
+    <div
+      className="matchScoreCircle full  "
+    />
+    <div
+      className="matchScoreCircle   "
+    />
+    <div
+      className="matchScoreCircle   "
+    />
+    <p
+      className="label"
+    >
+      3
+      /
+      5
+    </p>
+  </div>
 </div>
 `;
 
