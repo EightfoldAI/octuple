@@ -9,10 +9,12 @@ export const Badge: FC<BadgeProps> = ({
     className,
     style,
     children,
+    disruptive,
 }) => {
     const badgeClasses: string = classNames([
         styles.badge,
         'header6',
+        { [styles.disruptive]: disruptive },
         className,
         { [styles.active]: active },
     ]);

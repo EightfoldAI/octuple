@@ -10,5 +10,10 @@
     &.active {
         --bg: var(--primary-color-20);
         --label: var(--primary-color);
+
+        &.disruptive {
+            --bg: var(--disruptive-color-20);
+            --label: var(--disruptive-color);
+        }
     }
 }

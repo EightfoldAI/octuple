@@ -4,7 +4,11 @@ export interface BadgeProps {
     /**
      * Badge is in an active state or not
      */
-    active: boolean;
+    active?: boolean;
+    /**
+     * If badge is disruptive or not
+     */
+    disruptive?: boolean;
     /**
      * Custom badge className
      */
