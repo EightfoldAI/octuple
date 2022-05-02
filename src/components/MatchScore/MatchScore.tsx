@@ -8,16 +8,12 @@ export const MatchScore: FC<MatchScoreProps> = ({
     score = 0,
     total = 5,
     hideLabel = false,
+    ariaLabel = 'score',
 }) => {
-    const absTotal = Math.abs(total);
+    const absTotal: number = Math.abs(total);
     const matchScoreClasses = classNames(className, styles.matchScoreContainer);
     return (
-        <div
-            className={matchScoreClasses}
-            role="progressbar"
-            aria-valuenow={score}
-            aria-valuemax={total}
-        >
+        <div className={matchScoreClasses} aria-label={ariaLabel}>
             {getArrayOfSize(Math.min(Math.floor(score), absTotal)).map(
                 (_val, index) => (
                     <MatchScoreCircle fill="full" key={index} />
