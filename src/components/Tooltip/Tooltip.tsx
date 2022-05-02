@@ -53,7 +53,7 @@ export const Tooltip: FC<TooltipProps> = ({
 
     useEffect(() => {
         if (!refs.reference.current || !refs.floating.current) {
-            return null;
+            return () => {};
         }
 
         // Only call this when the floating element is rendered
@@ -67,6 +67,9 @@ export const Tooltip: FC<TooltipProps> = ({
     const toggle: Function =
         (show: boolean): Function =>
         (): void => {
+            if (!content) {
+                return;
+            }
             timeout && clearTimeout(timeout);
             timeout = setTimeout(
                 () => {

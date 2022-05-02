@@ -29,7 +29,7 @@ export interface ITabsContext {
     onTabClick: OnChangeHandler;
 }
 
-export interface TabProps {
+export interface TabProps extends React.ButtonHTMLAttributes<any> {
     /**
      * The value of the tab.
      */
@@ -50,6 +50,10 @@ export interface TabProps {
      * The tab is disabled.
      */
     disabled?: boolean;
+    /**
+     * Content of the badge
+     */
+    badgeContent?: React.ReactNode;
 }
 
 export interface TabsProps {

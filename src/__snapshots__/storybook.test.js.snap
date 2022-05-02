@@ -1,5 +1,109 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Storyshots Badge Default 1`] = `
+Array [
+  <h2>
+    Badge
+  </h2>,
+  <div
+    style={
+      Object {
+        "display": "flex",
+        "flexDirection": "column",
+        "gap": "8px",
+      }
+    }
+  >
+    <span
+      className="badge header6"
+    >
+      1
+    </span>
+    <span
+      className="badge header6"
+    >
+      2
+    </span>
+    <span
+      className="badge header6"
+    >
+      100
+    </span>
+    <span
+      className="badge header6"
+    >
+      1000
+    </span>
+  </div>,
+  <h2>
+    Badge (active)
+  </h2>,
+  <div
+    style={
+      Object {
+        "display": "flex",
+        "flexDirection": "column",
+        "gap": "8px",
+      }
+    }
+  >
+    <span
+      className="badge header6 active"
+    >
+      1
+    </span>
+    <span
+      className="badge header6 active"
+    >
+      2
+    </span>
+    <span
+      className="badge header6 active"
+    >
+      100
+    </span>
+    <span
+      className="badge header6 active"
+    >
+      1000
+    </span>
+  </div>,
+  <h2>
+    Badge disruptive (active)
+  </h2>,
+  <div
+    style={
+      Object {
+        "display": "flex",
+        "flexDirection": "column",
+        "gap": "8px",
+      }
+    }
+  >
+    <span
+      className="badge header6 disruptive active"
+    >
+      1
+    </span>
+    <span
+      className="badge header6 disruptive active"
+    >
+      2
+    </span>
+    <span
+      className="badge header6 disruptive active"
+    >
+      100
+    </span>
+    <span
+      className="badge header6 disruptive active"
+    >
+      1000
+    </span>
+  </div>,
+]
+`;
+
 exports[`Storyshots Button Default 1`] = `
 Array [
   <h1>
@@ -3420,7 +3524,7 @@ exports[`Storyshots ConfigProvider Theming 1`] = `
       >
         <span
           aria-hidden={false}
-          className="icon iconWrapper"
+          className="iconWrapper"
           role="presentation"
         >
           <svg
@@ -3459,7 +3563,7 @@ exports[`Storyshots ConfigProvider Theming 1`] = `
       >
         <span
           aria-hidden={false}
-          className="icon iconWrapper"
+          className="iconWrapper"
           role="presentation"
         >
           <svg
@@ -3492,7 +3596,7 @@ exports[`Storyshots ConfigProvider Theming 1`] = `
       >
         <span
           aria-hidden={false}
-          className="icon iconWrapper"
+          className="iconWrapper"
           role="presentation"
         >
           <svg
@@ -3526,7 +3630,7 @@ exports[`Storyshots ConfigProvider Theming 1`] = `
       >
         <span
           aria-hidden={false}
-          className="icon iconWrapper"
+          className="iconWrapper"
           role="presentation"
         >
           <svg
@@ -4552,7 +4656,7 @@ exports[`Storyshots InfoBar Default 1`] = `
 </div>
 `;
 
-exports[`Storyshots Label Input 1`] = `
+exports[`Storyshots Label Sizes 1`] = `
 Array [
   <h1>
     Labels
@@ -9915,6 +10019,95 @@ Array [
     </div>
   </div>,
   <p>
+    Tabs with badge
+  </p>,
+  <div>
+    <div
+      className="tabWrap"
+      role="tablist"
+    >
+      <button
+        aria-label="Tab 1"
+        aria-selected={true}
+        className="tab active"
+        onClick={[Function]}
+        role="tab"
+      >
+        <span
+          className="label"
+        >
+          Tab 1
+        </span>
+        <div
+          className="tabIndicator"
+          data-flip-config="{\\"translate\\":true,\\"scale\\":true,\\"opacity\\":true}"
+          data-flip-id="tabIndicator"
+          data-portal-key="portal"
+        />
+        <span
+          className="badge header6 badge active"
+        >
+          1
+        </span>
+      </button>
+      <button
+        aria-label="Tab 2"
+        aria-selected={false}
+        className="tab"
+        onClick={[Function]}
+        role="tab"
+      >
+        <span
+          className="label"
+        >
+          Tab 2
+        </span>
+        <span
+          className="badge header6 badge"
+        >
+          2
+        </span>
+      </button>
+      <button
+        aria-label="Tab 3"
+        aria-selected={false}
+        className="tab"
+        onClick={[Function]}
+        role="tab"
+      >
+        <span
+          className="label"
+        >
+          Tab 3
+        </span>
+        <span
+          className="badge header6 badge"
+        >
+          3
+        </span>
+      </button>
+      <button
+        aria-label="Tab 4"
+        aria-selected={false}
+        className="tab"
+        disabled={true}
+        onClick={[Function]}
+        role="tab"
+      >
+        <span
+          className="label"
+        >
+          Tab 4
+        </span>
+        <span
+          className="badge header6 badge"
+        >
+          4
+        </span>
+      </button>
+    </div>
+  </div>,
+  <p>
     Icon Tabs
   </p>,
   <div>
@@ -9931,7 +10124,7 @@ Array [
       >
         <span
           aria-hidden={false}
-          className="icon iconWrapper"
+          className="iconWrapper"
           role="presentation"
         >
           <svg
@@ -9970,7 +10163,7 @@ Array [
       >
         <span
           aria-hidden={false}
-          className="icon iconWrapper"
+          className="iconWrapper"
           role="presentation"
         >
           <svg
@@ -10003,7 +10196,7 @@ Array [
       >
         <span
           aria-hidden={false}
-          className="icon iconWrapper"
+          className="iconWrapper"
           role="presentation"
         >
           <svg
@@ -10037,7 +10230,7 @@ Array [
       >
         <span
           aria-hidden={false}
-          className="icon iconWrapper"
+          className="iconWrapper"
           role="presentation"
         >
           <svg
@@ -10080,7 +10273,7 @@ Array [
       >
         <span
           aria-hidden={false}
-          className="icon iconWrapper"
+          className="iconWrapper"
           role="presentation"
         >
           <svg
@@ -10124,7 +10317,7 @@ Array [
       >
         <span
           aria-hidden={false}
-          className="icon iconWrapper"
+          className="iconWrapper"
           role="presentation"
         >
           <svg
@@ -10162,7 +10355,7 @@ Array [
       >
         <span
           aria-hidden={false}
-          className="icon iconWrapper"
+          className="iconWrapper"
           role="presentation"
         >
           <svg
@@ -10201,7 +10394,7 @@ Array [
       >
         <span
           aria-hidden={false}
-          className="icon iconWrapper"
+          className="iconWrapper"
           role="presentation"
         >
           <svg
@@ -10467,6 +10660,95 @@ Array [
     </div>
   </div>,
   <p>
+    Tabs with badge
+  </p>,
+  <div>
+    <div
+      className="tabWrap pill"
+      role="tablist"
+    >
+      <button
+        aria-label="Tab 1"
+        aria-selected={true}
+        className="tab active"
+        onClick={[Function]}
+        role="tab"
+      >
+        <span
+          className="label"
+        >
+          Tab 1
+        </span>
+        <div
+          className="tabIndicator"
+          data-flip-config="{\\"translate\\":true,\\"scale\\":true,\\"opacity\\":true}"
+          data-flip-id="tabIndicator"
+          data-portal-key="portal"
+        />
+        <span
+          className="badge header6 badge active"
+        >
+          1
+        </span>
+      </button>
+      <button
+        aria-label="Tab 2"
+        aria-selected={false}
+        className="tab"
+        onClick={[Function]}
+        role="tab"
+      >
+        <span
+          className="label"
+        >
+          Tab 2
+        </span>
+        <span
+          className="badge header6 badge"
+        >
+          2
+        </span>
+      </button>
+      <button
+        aria-label="Tab 3"
+        aria-selected={false}
+        className="tab"
+        onClick={[Function]}
+        role="tab"
+      >
+        <span
+          className="label"
+        >
+          Tab 3
+        </span>
+        <span
+          className="badge header6 badge"
+        >
+          3
+        </span>
+      </button>
+      <button
+        aria-label="Tab 4"
+        aria-selected={false}
+        className="tab"
+        disabled={true}
+        onClick={[Function]}
+        role="tab"
+      >
+        <span
+          className="label"
+        >
+          Tab 4
+        </span>
+        <span
+          className="badge header6 badge"
+        >
+          4
+        </span>
+      </button>
+    </div>
+  </div>,
+  <p>
     Icon Tabs
   </p>,
   <div>
@@ -10483,7 +10765,7 @@ Array [
       >
         <span
           aria-hidden={false}
-          className="icon iconWrapper"
+          className="iconWrapper"
           role="presentation"
         >
           <svg
@@ -10522,7 +10804,7 @@ Array [
       >
         <span
           aria-hidden={false}
-          className="icon iconWrapper"
+          className="iconWrapper"
           role="presentation"
         >
           <svg
@@ -10555,7 +10837,7 @@ Array [
       >
         <span
           aria-hidden={false}
-          className="icon iconWrapper"
+          className="iconWrapper"
           role="presentation"
         >
           <svg
@@ -10589,7 +10871,7 @@ Array [
       >
         <span
           aria-hidden={false}
-          className="icon iconWrapper"
+          className="iconWrapper"
           role="presentation"
         >
           <svg
@@ -10632,7 +10914,7 @@ Array [
       >
         <span
           aria-hidden={false}
-          className="icon iconWrapper"
+          className="iconWrapper"
           role="presentation"
         >
           <svg
@@ -10676,7 +10958,7 @@ Array [
       >
         <span
           aria-hidden={false}
-          className="icon iconWrapper"
+          className="iconWrapper"
           role="presentation"
         >
           <svg
@@ -10714,7 +10996,7 @@ Array [
       >
         <span
           aria-hidden={false}
-          className="icon iconWrapper"
+          className="iconWrapper"
           role="presentation"
         >
           <svg
@@ -10753,7 +11035,7 @@ Array [
       >
         <span
           aria-hidden={false}
-          className="icon iconWrapper"
+          className="iconWrapper"
           role="presentation"
         >
           <svg
@@ -10859,6 +11141,95 @@ Array [
     </div>
   </div>,
   <p>
+    Tabs with badge
+  </p>,
+  <div>
+    <div
+      className="tabWrap small"
+      role="tablist"
+    >
+      <button
+        aria-label="Tab 1"
+        aria-selected={true}
+        className="tab active"
+        onClick={[Function]}
+        role="tab"
+      >
+        <span
+          className="label"
+        >
+          Tab 1
+        </span>
+        <div
+          className="tabIndicator"
+          data-flip-config="{\\"translate\\":true,\\"scale\\":true,\\"opacity\\":true}"
+          data-flip-id="tabIndicator"
+          data-portal-key="portal"
+        />
+        <span
+          className="badge header6 badge active"
+        >
+          1
+        </span>
+      </button>
+      <button
+        aria-label="Tab 2"
+        aria-selected={false}
+        className="tab"
+        onClick={[Function]}
+        role="tab"
+      >
+        <span
+          className="label"
+        >
+          Tab 2
+        </span>
+        <span
+          className="badge header6 badge"
+        >
+          2
+        </span>
+      </button>
+      <button
+        aria-label="Tab 3"
+        aria-selected={false}
+        className="tab"
+        onClick={[Function]}
+        role="tab"
+      >
+        <span
+          className="label"
+        >
+          Tab 3
+        </span>
+        <span
+          className="badge header6 badge"
+        >
+          3
+        </span>
+      </button>
+      <button
+        aria-label="Tab 4"
+        aria-selected={false}
+        className="tab"
+        disabled={true}
+        onClick={[Function]}
+        role="tab"
+      >
+        <span
+          className="label"
+        >
+          Tab 4
+        </span>
+        <span
+          className="badge header6 badge"
+        >
+          4
+        </span>
+      </button>
+    </div>
+  </div>,
+  <p>
     Icon Tabs
   </p>,
   <div>
@@ -10875,7 +11246,7 @@ Array [
       >
         <span
           aria-hidden={false}
-          className="icon iconWrapper"
+          className="iconWrapper"
           role="presentation"
         >
           <svg
@@ -10914,7 +11285,7 @@ Array [
       >
         <span
           aria-hidden={false}
-          className="icon iconWrapper"
+          className="iconWrapper"
           role="presentation"
         >
           <svg
@@ -10947,7 +11318,7 @@ Array [
       >
         <span
           aria-hidden={false}
-          className="icon iconWrapper"
+          className="iconWrapper"
           role="presentation"
         >
           <svg
@@ -10981,7 +11352,7 @@ Array [
       >
         <span
           aria-hidden={false}
-          className="icon iconWrapper"
+          className="iconWrapper"
           role="presentation"
         >
           <svg
@@ -11024,7 +11395,7 @@ Array [
       >
         <span
           aria-hidden={false}
-          className="icon iconWrapper"
+          className="iconWrapper"
           role="presentation"
         >
           <svg
@@ -11068,7 +11439,7 @@ Array [
       >
         <span
           aria-hidden={false}
-          className="icon iconWrapper"
+          className="iconWrapper"
           role="presentation"
         >
           <svg
@@ -11106,7 +11477,7 @@ Array [
       >
         <span
           aria-hidden={false}
-          className="icon iconWrapper"
+          className="iconWrapper"
           role="presentation"
         >
           <svg
@@ -11145,7 +11516,7 @@ Array [
       >
         <span
           aria-hidden={false}
-          className="icon iconWrapper"
+          className="iconWrapper"
           role="presentation"
         >
           <svg
