@@ -12,7 +12,12 @@ export const MatchScore: FC<MatchScoreProps> = ({
     const absTotal = Math.abs(total);
     const matchScoreClasses = classNames(className, styles.matchScoreContainer);
     return (
-        <div className={matchScoreClasses}>
+        <div
+            className={matchScoreClasses}
+            role="progressbar"
+            aria-valuenow={score}
+            aria-valuemax={total}
+        >
             {getArrayOfSize(Math.min(Math.floor(score), absTotal)).map(
                 (_val, index) => (
                     <MatchScoreCircle fill="full" key={index} />

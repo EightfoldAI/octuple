@@ -3645,7 +3645,10 @@ exports[`Storyshots ConfigProvider Theming 1`] = `
   <br />
   <br />
   <div
+    aria-valuemax={5}
+    aria-valuenow={3}
     className="matchScoreContainer"
+    role="progressbar"
   >
     <div
       className="matchScoreCircle full  "
@@ -4777,7 +4780,10 @@ Array [
 exports[`Storyshots MatchScore Default 1`] = `
 <div>
   <div
+    aria-valuemax={5}
+    aria-valuenow={0}
     className="matchScoreContainer"
+    role="progressbar"
   >
     <div
       className="matchScoreCircle   "
@@ -4804,7 +4810,10 @@ exports[`Storyshots MatchScore Default 1`] = `
   </div>
   <br />
   <div
+    aria-valuemax={5}
+    aria-valuenow={0.5}
     className="matchScoreContainer"
+    role="progressbar"
   >
     <div
       className="matchScoreCircle   half"
@@ -4831,7 +4840,10 @@ exports[`Storyshots MatchScore Default 1`] = `
   </div>
   <br />
   <div
+    aria-valuemax={5}
+    aria-valuenow={1}
     className="matchScoreContainer"
+    role="progressbar"
   >
     <div
       className="matchScoreCircle full  "
@@ -4858,7 +4870,10 @@ exports[`Storyshots MatchScore Default 1`] = `
   </div>
   <br />
   <div
+    aria-valuemax={5}
+    aria-valuenow={1.5}
     className="matchScoreContainer"
+    role="progressbar"
   >
     <div
       className="matchScoreCircle full  "
@@ -4885,7 +4900,10 @@ exports[`Storyshots MatchScore Default 1`] = `
   </div>
   <br />
   <div
+    aria-valuemax={5}
+    aria-valuenow={2}
     className="matchScoreContainer"
+    role="progressbar"
   >
     <div
       className="matchScoreCircle full  "
@@ -4912,7 +4930,10 @@ exports[`Storyshots MatchScore Default 1`] = `
   </div>
   <br />
   <div
+    aria-valuemax={5}
+    aria-valuenow={2.5}
     className="matchScoreContainer"
+    role="progressbar"
   >
     <div
       className="matchScoreCircle full  "
@@ -4939,7 +4960,10 @@ exports[`Storyshots MatchScore Default 1`] = `
   </div>
   <br />
   <div
+    aria-valuemax={5}
+    aria-valuenow={3}
     className="matchScoreContainer"
+    role="progressbar"
   >
     <div
       className="matchScoreCircle full  "
@@ -4966,7 +4990,10 @@ exports[`Storyshots MatchScore Default 1`] = `
   </div>
   <br />
   <div
+    aria-valuemax={5}
+    aria-valuenow={3.5}
     className="matchScoreContainer"
+    role="progressbar"
   >
     <div
       className="matchScoreCircle full  "
@@ -4993,7 +5020,10 @@ exports[`Storyshots MatchScore Default 1`] = `
   </div>
   <br />
   <div
+    aria-valuemax={5}
+    aria-valuenow={4}
     className="matchScoreContainer"
+    role="progressbar"
   >
     <div
       className="matchScoreCircle full  "
@@ -5020,7 +5050,10 @@ exports[`Storyshots MatchScore Default 1`] = `
   </div>
   <br />
   <div
+    aria-valuemax={5}
+    aria-valuenow={4.5}
     className="matchScoreContainer"
+    role="progressbar"
   >
     <div
       className="matchScoreCircle full  "
@@ -5047,7 +5080,10 @@ exports[`Storyshots MatchScore Default 1`] = `
   </div>
   <br />
   <div
+    aria-valuemax={5}
+    aria-valuenow={5}
     className="matchScoreContainer"
+    role="progressbar"
   >
     <div
       className="matchScoreCircle full  "
@@ -5074,7 +5110,10 @@ exports[`Storyshots MatchScore Default 1`] = `
   </div>
   <br />
   <div
+    aria-valuemax={5}
+    aria-valuenow={20}
     className="matchScoreContainer"
+    role="progressbar"
   >
     <div
       className="matchScoreCircle full  "
@@ -5105,7 +5144,10 @@ exports[`Storyshots MatchScore Default 1`] = `
 exports[`Storyshots MatchScore Without Label 1`] = `
 <div>
   <div
+    aria-valuemax={5}
+    aria-valuenow={0}
     className="matchScoreContainer"
+    role="progressbar"
   >
     <div
       className="matchScoreCircle   "
@@ -5125,7 +5167,10 @@ exports[`Storyshots MatchScore Without Label 1`] = `
   </div>
   <br />
   <div
+    aria-valuemax={5}
+    aria-valuenow={0.5}
     className="matchScoreContainer"
+    role="progressbar"
   >
     <div
       className="matchScoreCircle   half"
@@ -5145,7 +5190,10 @@ exports[`Storyshots MatchScore Without Label 1`] = `
   </div>
   <br />
   <div
+    aria-valuemax={5}
+    aria-valuenow={1}
     className="matchScoreContainer"
+    role="progressbar"
   >
     <div
       className="matchScoreCircle full  "
@@ -5165,7 +5213,10 @@ exports[`Storyshots MatchScore Without Label 1`] = `
   </div>
   <br />
   <div
+    aria-valuemax={5}
+    aria-valuenow={1.5}
     className="matchScoreContainer"
+    role="progressbar"
   >
     <div
       className="matchScoreCircle full  "
@@ -5185,7 +5236,10 @@ exports[`Storyshots MatchScore Without Label 1`] = `
   </div>
   <br />
   <div
+    aria-valuemax={5}
+    aria-valuenow={2}
     className="matchScoreContainer"
+    role="progressbar"
   >
     <div
       className="matchScoreCircle full  "
@@ -5205,7 +5259,10 @@ exports[`Storyshots MatchScore Without Label 1`] = `
   </div>
   <br />
   <div
+    aria-valuemax={5}
+    aria-valuenow={2.5}
     className="matchScoreContainer"
+    role="progressbar"
   >
     <div
       className="matchScoreCircle full  "
@@ -5225,7 +5282,10 @@ exports[`Storyshots MatchScore Without Label 1`] = `
   </div>
   <br />
   <div
+    aria-valuemax={5}
+    aria-valuenow={3}
     className="matchScoreContainer"
+    role="progressbar"
   >
     <div
       className="matchScoreCircle full  "
@@ -5245,7 +5305,10 @@ exports[`Storyshots MatchScore Without Label 1`] = `
   </div>
   <br />
   <div
+    aria-valuemax={5}
+    aria-valuenow={3.5}
     className="matchScoreContainer"
+    role="progressbar"
   >
     <div
       className="matchScoreCircle full  "
@@ -5265,7 +5328,10 @@ exports[`Storyshots MatchScore Without Label 1`] = `
   </div>
   <br />
   <div
+    aria-valuemax={5}
+    aria-valuenow={4}
     className="matchScoreContainer"
+    role="progressbar"
   >
     <div
       className="matchScoreCircle full  "
@@ -5285,7 +5351,10 @@ exports[`Storyshots MatchScore Without Label 1`] = `
   </div>
   <br />
   <div
+    aria-valuemax={5}
+    aria-valuenow={4.5}
     className="matchScoreContainer"
+    role="progressbar"
   >
     <div
       className="matchScoreCircle full  "
@@ -5305,7 +5374,10 @@ exports[`Storyshots MatchScore Without Label 1`] = `
   </div>
   <br />
   <div
+    aria-valuemax={5}
+    aria-valuenow={5}
     className="matchScoreContainer"
+    role="progressbar"
   >
     <div
       className="matchScoreCircle full  "
@@ -5325,7 +5397,10 @@ exports[`Storyshots MatchScore Without Label 1`] = `
   </div>
   <br />
   <div
+    aria-valuemax={5}
+    aria-valuenow={20}
     className="matchScoreContainer"
+    role="progressbar"
   >
     <div
       className="matchScoreCircle full  "
