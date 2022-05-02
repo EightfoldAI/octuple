@@ -4,9 +4,11 @@ import { TabProps } from '../Tabs.types';
 import { useTabs } from '../Tabs.context';
 import { Flipped } from 'react-flip-toolkit';
 
-import styles from '../tabs.module.scss';
-import { Icon, IconName } from '../../Icon';
+import { Icon } from '../../Icon';
 import { useConfig } from '../../ConfigProvider';
+import { Badge } from '../../Badge';
+
+import styles from '../tabs.module.scss';
 
 export const Tab: FC<TabProps> = ({
     value,
@@ -14,6 +16,8 @@ export const Tab: FC<TabProps> = ({
     icon,
     disabled,
     ariaLabel,
+    badgeContent,
+    ...rest
 }) => {
     const { onTabClick, currentActiveTab } = useTabs();
 
@@ -29,22 +33,29 @@ export const Tab: FC<TabProps> = ({
         { [styles.inverse]: light },
     ]);
 
-    const getIcon = (): JSX.Element => (
-        <Icon path={icon} className={styles.icon} />
-    );
+    const getIcon = (): JSX.Element =>
+        iconExists && <Icon path={icon} className={styles.icon} />;
 
-    const getLabel = (): JSX.Element => (
-        <span className={styles.label}>{label}</span>
-    );
+    const getLabel = (): JSX.Element =>
+        labelExists && <span className={styles.label}>{label}</span>;
 
-    const getTabIndicator = (): JSX.Element => (
-        <Flipped flipId="tabIndicator">
-            <div className={styles.tabIndicator} />
-        </Flipped>
-    );
+    const getTabIndicator = (): JSX.Element =>
+        isActive && (
+            <Flipped flipId="tabIndicator">
+                <div className={styles.tabIndicator} />
+            </Flipped>
+        );
+
+    const getBadge = (): JSX.Element =>
+        !!badgeContent && (
+            <Badge active={isActive} className={styles.badge}>
+                {badgeContent}
+            </Badge>
+        );
 
     return (
         <button
+            {...rest}
             className={tabClassName}
             aria-label={ariaLabel}
             aria-selected={isActive}
@@ -52,9 +63,10 @@ export const Tab: FC<TabProps> = ({
             disabled={disabled}
             onClick={(e) => onTabClick(value, e)}
         >
-            {iconExists && getIcon()}
-            {labelExists && getLabel()}
-            {isActive && getTabIndicator()}
+            {getIcon()}
+            {getLabel()}
+            {getTabIndicator()}
+            {getBadge()}
         </button>
     );
 };
