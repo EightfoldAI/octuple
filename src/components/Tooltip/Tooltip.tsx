@@ -67,6 +67,9 @@ export const Tooltip: FC<TooltipProps> = ({
     const toggle: Function =
         (show: boolean): Function =>
         (): void => {
+            if (!content) {
+                return;
+            }
             timeout && clearTimeout(timeout);
             timeout = setTimeout(
                 () => {
