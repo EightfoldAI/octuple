@@ -17,6 +17,7 @@ export const Tab: FC<TabProps> = ({
     disabled,
     ariaLabel,
     badgeContent,
+    ...rest
 }) => {
     const { onTabClick, currentActiveTab } = useTabs();
 
@@ -54,6 +55,7 @@ export const Tab: FC<TabProps> = ({
 
     return (
         <button
+            {...rest}
             className={tabClassName}
             aria-label={ariaLabel}
             aria-selected={isActive}

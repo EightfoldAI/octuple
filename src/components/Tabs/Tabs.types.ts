@@ -29,7 +29,7 @@ export interface ITabsContext {
     onTabClick: OnChangeHandler;
 }
 
-export interface TabProps {
+export interface TabProps extends React.ButtonHTMLAttributes<any> {
     /**
      * The value of the tab.
      */
