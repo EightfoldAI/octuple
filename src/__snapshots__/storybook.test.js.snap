@@ -9,6 +9,40 @@ Array [
     style={
       Object {
         "display": "flex",
+        "flexDirection": "column",
+        "gap": "8px",
+      }
+    }
+  >
+    <span
+      className="badge header6"
+    >
+      1
+    </span>
+    <span
+      className="badge header6"
+    >
+      2
+    </span>
+    <span
+      className="badge header6"
+    >
+      100
+    </span>
+    <span
+      className="badge header6"
+    >
+      1000
+    </span>
+  </div>,
+  <h2>
+    Badge (active)
+  </h2>,
+  <div
+    style={
+      Object {
+        "display": "flex",
+        "flexDirection": "column",
         "gap": "8px",
       }
     }
@@ -16,12 +50,55 @@ Array [
     <span
       className="badge header6 active"
     >
-      8
+      1
     </span>
     <span
-      className="badge header6"
+      className="badge header6 active"
     >
-      10
+      2
+    </span>
+    <span
+      className="badge header6 active"
+    >
+      100
+    </span>
+    <span
+      className="badge header6 active"
+    >
+      1000
+    </span>
+  </div>,
+  <h2>
+    Badge disruptive (active)
+  </h2>,
+  <div
+    style={
+      Object {
+        "display": "flex",
+        "flexDirection": "column",
+        "gap": "8px",
+      }
+    }
+  >
+    <span
+      className="badge header6 disruptive active"
+    >
+      1
+    </span>
+    <span
+      className="badge header6 disruptive active"
+    >
+      2
+    </span>
+    <span
+      className="badge header6 disruptive active"
+    >
+      100
+    </span>
+    <span
+      className="badge header6 disruptive active"
+    >
+      1000
     </span>
   </div>,
 ]
