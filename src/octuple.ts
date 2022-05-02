@@ -44,6 +44,8 @@ import { Tabs, Tab, TabVariant } from './components/Tabs';
 
 import { Tooltip, TooltipTheme } from './components/Tooltip';
 
+import { MatchScore } from './components/MatchScore';
+
 import { Panel, PanelPlacement, PanelSize } from './components/Panel';
 
 import { Portal } from './components/Portal';
@@ -73,6 +75,7 @@ export {
     InfoBar,
     InfoBarType,
     List,
+    MatchScore,
     Menu,
     Modal,
     ModalSize,

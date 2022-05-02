@@ -9,7 +9,7 @@ import { Tab, Tabs, TabVariant } from '../Tabs';
 import { IconName } from '../Icon';
 import { CompactPicker } from 'react-color';
 import { ConfigProvider, OcThemeNames, useConfig } from './';
-import { MatchScore } from '../MatchScore/MatchScore';
+import { MatchScore } from '../MatchScore';
 
 export default {
     title: 'ConfigProvider',

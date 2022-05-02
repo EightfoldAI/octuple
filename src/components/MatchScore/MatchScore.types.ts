@@ -1,4 +1,4 @@
-export type MatchScoreProps = {
+export interface MatchScoreProps {
     /**
      * The input class names.
      */
@@ -18,4 +18,6 @@ export type MatchScoreProps = {
      * Flag for hiding the lavel display.
      */
     hideLabel?: boolean;
-};
+}
+
+export type FillType = 'empty' | 'full' | 'half';

@@ -1,6 +1,6 @@
 $indicator-size: 12px;
 
-.matchScoreContainer {
+.match-score-container {
     display: flex;
     align-items: center;
     .label {
@@ -9,7 +9,7 @@ $indicator-size: 12px;
         color: var(--primary-color-60);
         font-weight: $text-font-weight-semibold;
     }
-    .matchScoreCircle {
+    .match-score-circle {
         border: 1px solid var(--primary-color-60);
         box-sizing: border-box;
         height: $indicator-size;

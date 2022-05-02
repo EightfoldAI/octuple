@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import styles from './matchScore.module.scss';
 import { classNames } from '../../shared/utilities';
-import { MatchScoreProps } from './MatchScore.types';
+import { FillType, MatchScoreProps } from './MatchScore.types';
 
 export const MatchScore: FC<MatchScoreProps> = ({
     className,
@@ -40,14 +40,12 @@ export const MatchScore: FC<MatchScoreProps> = ({
 
 const getArrayOfSize = (n: number) => Array.from(Array(n));
 
-const MatchScoreCircle = ({
-    fill = 'empty',
-}: {
-    fill?: 'empty' | 'full' | 'half';
-}) => (
+const MatchScoreCircle = ({ fill = 'empty' }: { fill?: FillType }) => (
     <div
-        className={`${styles.matchScoreCircle} ${
-            fill === 'full' ? styles.full : ''
-        }  ${fill === 'half' ? styles.half : ''}`}
+        className={classNames([
+            styles.matchScoreCircle,
+            { [styles.full]: fill === 'full' },
+            { [styles.half]: fill === 'half' },
+        ])}
     />
 );
