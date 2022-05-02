@@ -53,7 +53,7 @@ export const Tooltip: FC<TooltipProps> = ({
 
     useEffect(() => {
         if (!refs.reference.current || !refs.floating.current) {
-            return null;
+            return () => {};
         }
 
         // Only call this when the floating element is rendered
