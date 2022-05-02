@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.17](https://github.com/EightfoldAI/octuple/compare/v0.0.16...v0.0.17) (2022-05-02)
+
+### Features
+
+-   adds octuple badge, use badge in tabs ([#89](https://github.com/EightfoldAI/octuple/issues/89)) ([81f6fa5](https://github.com/EightfoldAI/octuple/commits/81f6fa596848ba041f163bf2ec71a1b989b3522a))
+-   change menu item value to type any ([#93](https://github.com/EightfoldAI/octuple/issues/93)) ([b5cff2e](https://github.com/EightfoldAI/octuple/commits/b5cff2e6b808c3ddbf8b14b7e8461dca20ab5dc8))
+
+### Bug Fixes
+
+-   button: fixes button height and min width in flex layouts ([#95](https://github.com/EightfoldAI/octuple/issues/95)) ([0ba62c0](https://github.com/EightfoldAI/octuple/commits/0ba62c0adbd1c8d0a3c5df805d368f9bc1d86b21))
+-   dropdown: fix memory leak in dropdowns, change position strategy to absolute ([#90](https://github.com/EightfoldAI/octuple/issues/90)) ([25de4bf](https://github.com/EightfoldAI/octuple/commits/25de4bfd78afa2dae2731bb7ff84910e719b1322))
+-   tooltip: dont show tooltip if no content ([#94](https://github.com/EightfoldAI/octuple/issues/94)) ([13f6a2e](https://github.com/EightfoldAI/octuple/commits/13f6a2e70e8efa6529240e24508dc564a6bec327))
+
 ### [0.0.16](https://github.com/EightfoldAI/octuple/compare/v0.0.15...v0.0.16) (2022-04-28)
 
 ### Features
