@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { BadgeProps } from './Badge.Types';
+import { BadgeProps } from './Badge.types';
 import { classNames } from '../../shared/utilities';
 
 import styles from './badge.module.scss';
