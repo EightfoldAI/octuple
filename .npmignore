@@ -7,6 +7,8 @@ src
 
 .storybook/
 .vscode/
+.husky/
+.github/
 
 LICENSE
 MANIFEST
@@ -20,6 +22,7 @@ webpack.prod.js
 yarn.lock
 yarn-debug.log*
 yarn-error.log*
+commitlint.config.js
 
 .eslintignore
 .eslintrc.js
