@@ -3651,19 +3651,19 @@ exports[`Storyshots ConfigProvider Theming 1`] = `
     role="progressbar"
   >
     <div
-      className="matchScoreCircle full  "
+      className="matchScoreCircle full"
     />
     <div
-      className="matchScoreCircle full  "
+      className="matchScoreCircle full"
     />
     <div
-      className="matchScoreCircle full  "
+      className="matchScoreCircle full"
     />
     <div
-      className="matchScoreCircle   "
+      className="matchScoreCircle"
     />
     <div
-      className="matchScoreCircle   "
+      className="matchScoreCircle"
     />
     <p
       className="label"
@@ -4786,19 +4786,19 @@ exports[`Storyshots MatchScore Default 1`] = `
     role="progressbar"
   >
     <div
-      className="matchScoreCircle   "
+      className="matchScoreCircle"
     />
     <div
-      className="matchScoreCircle   "
+      className="matchScoreCircle"
     />
     <div
-      className="matchScoreCircle   "
+      className="matchScoreCircle"
     />
     <div
-      className="matchScoreCircle   "
+      className="matchScoreCircle"
     />
     <div
-      className="matchScoreCircle   "
+      className="matchScoreCircle"
     />
     <p
       className="label"
@@ -4816,19 +4816,19 @@ exports[`Storyshots MatchScore Default 1`] = `
     role="progressbar"
   >
     <div
-      className="matchScoreCircle   half"
+      className="matchScoreCircle half"
     />
     <div
-      className="matchScoreCircle   "
+      className="matchScoreCircle"
     />
     <div
-      className="matchScoreCircle   "
+      className="matchScoreCircle"
     />
     <div
-      className="matchScoreCircle   "
+      className="matchScoreCircle"
     />
     <div
-      className="matchScoreCircle   "
+      className="matchScoreCircle"
     />
     <p
       className="label"
@@ -4846,19 +4846,19 @@ exports[`Storyshots MatchScore Default 1`] = `
     role="progressbar"
   >
     <div
-      className="matchScoreCircle full  "
+      className="matchScoreCircle full"
     />
     <div
-      className="matchScoreCircle   "
+      className="matchScoreCircle"
     />
     <div
-      className="matchScoreCircle   "
+      className="matchScoreCircle"
     />
     <div
-      className="matchScoreCircle   "
+      className="matchScoreCircle"
     />
     <div
-      className="matchScoreCircle   "
+      className="matchScoreCircle"
     />
     <p
       className="label"
@@ -4876,19 +4876,19 @@ exports[`Storyshots MatchScore Default 1`] = `
     role="progressbar"
   >
     <div
-      className="matchScoreCircle full  "
+      className="matchScoreCircle full"
     />
     <div
-      className="matchScoreCircle   half"
+      className="matchScoreCircle half"
     />
     <div
-      className="matchScoreCircle   "
+      className="matchScoreCircle"
     />
     <div
-      className="matchScoreCircle   "
+      className="matchScoreCircle"
     />
     <div
-      className="matchScoreCircle   "
+      className="matchScoreCircle"
     />
     <p
       className="label"
@@ -4906,19 +4906,19 @@ exports[`Storyshots MatchScore Default 1`] = `
     role="progressbar"
   >
     <div
-      className="matchScoreCircle full  "
+      className="matchScoreCircle full"
     />
     <div
-      className="matchScoreCircle full  "
+      className="matchScoreCircle full"
     />
     <div
-      className="matchScoreCircle   "
+      className="matchScoreCircle"
     />
     <div
-      className="matchScoreCircle   "
+      className="matchScoreCircle"
     />
     <div
-      className="matchScoreCircle   "
+      className="matchScoreCircle"
     />
     <p
       className="label"
@@ -4936,19 +4936,19 @@ exports[`Storyshots MatchScore Default 1`] = `
     role="progressbar"
   >
     <div
-      className="matchScoreCircle full  "
+      className="matchScoreCircle full"
     />
     <div
-      className="matchScoreCircle full  "
+      className="matchScoreCircle full"
     />
     <div
-      className="matchScoreCircle   half"
+      className="matchScoreCircle half"
     />
     <div
-      className="matchScoreCircle   "
+      className="matchScoreCircle"
     />
     <div
-      className="matchScoreCircle   "
+      className="matchScoreCircle"
     />
     <p
       className="label"
@@ -4966,19 +4966,19 @@ exports[`Storyshots MatchScore Default 1`] = `
     role="progressbar"
   >
     <div
-      className="matchScoreCircle full  "
+      className="matchScoreCircle full"
     />
     <div
-      className="matchScoreCircle full  "
+      className="matchScoreCircle full"
     />
     <div
-      className="matchScoreCircle full  "
+      className="matchScoreCircle full"
     />
     <div
-      className="matchScoreCircle   "
+      className="matchScoreCircle"
     />
     <div
-      className="matchScoreCircle   "
+      className="matchScoreCircle"
     />
     <p
       className="label"
@@ -4996,19 +4996,19 @@ exports[`Storyshots MatchScore Default 1`] = `
     role="progressbar"
   >
     <div
-      className="matchScoreCircle full  "
+      className="matchScoreCircle full"
     />
     <div
-      className="matchScoreCircle full  "
+      className="matchScoreCircle full"
     />
     <div
-      className="matchScoreCircle full  "
+      className="matchScoreCircle full"
     />
     <div
-      className="matchScoreCircle   half"
+      className="matchScoreCircle half"
     />
     <div
-      className="matchScoreCircle   "
+      className="matchScoreCircle"
     />
     <p
       className="label"
@@ -5026,19 +5026,19 @@ exports[`Storyshots MatchScore Default 1`] = `
     role="progressbar"
   >
     <div
-      className="matchScoreCircle full  "
+      className="matchScoreCircle full"
     />
     <div
-      className="matchScoreCircle full  "
+      className="matchScoreCircle full"
     />
     <div
-      className="matchScoreCircle full  "
+      className="matchScoreCircle full"
     />
     <div
-      className="matchScoreCircle full  "
+      className="matchScoreCircle full"
     />
     <div
-      className="matchScoreCircle   "
+      className="matchScoreCircle"
     />
     <p
       className="label"
@@ -5056,19 +5056,19 @@ exports[`Storyshots MatchScore Default 1`] = `
     role="progressbar"
   >
     <div
-      className="matchScoreCircle full  "
+      className="matchScoreCircle full"
     />
     <div
-      className="matchScoreCircle full  "
+      className="matchScoreCircle full"
     />
     <div
-      className="matchScoreCircle full  "
+      className="matchScoreCircle full"
     />
     <div
-      className="matchScoreCircle full  "
+      className="matchScoreCircle full"
     />
     <div
-      className="matchScoreCircle   half"
+      className="matchScoreCircle half"
     />
     <p
       className="label"
@@ -5086,19 +5086,19 @@ exports[`Storyshots MatchScore Default 1`] = `
     role="progressbar"
   >
     <div
-      className="matchScoreCircle full  "
+      className="matchScoreCircle full"
     />
     <div
-      className="matchScoreCircle full  "
+      className="matchScoreCircle full"
     />
     <div
-      className="matchScoreCircle full  "
+      className="matchScoreCircle full"
     />
     <div
-      className="matchScoreCircle full  "
+      className="matchScoreCircle full"
     />
     <div
-      className="matchScoreCircle full  "
+      className="matchScoreCircle full"
     />
     <p
       className="label"
@@ -5116,19 +5116,19 @@ exports[`Storyshots MatchScore Default 1`] = `
     role="progressbar"
   >
     <div
-      className="matchScoreCircle full  "
+      className="matchScoreCircle full"
     />
     <div
-      className="matchScoreCircle full  "
+      className="matchScoreCircle full"
     />
     <div
-      className="matchScoreCircle full  "
+      className="matchScoreCircle full"
     />
     <div
-      className="matchScoreCircle full  "
+      className="matchScoreCircle full"
     />
     <div
-      className="matchScoreCircle full  "
+      className="matchScoreCircle full"
     />
     <p
       className="label"
@@ -5150,19 +5150,19 @@ exports[`Storyshots MatchScore Without Label 1`] = `
     role="progressbar"
   >
     <div
-      className="matchScoreCircle   "
+      className="matchScoreCircle"
     />
     <div
-      className="matchScoreCircle   "
+      className="matchScoreCircle"
     />
     <div
-      className="matchScoreCircle   "
+      className="matchScoreCircle"
     />
     <div
-      className="matchScoreCircle   "
+      className="matchScoreCircle"
     />
     <div
-      className="matchScoreCircle   "
+      className="matchScoreCircle"
     />
   </div>
   <br />
@@ -5173,19 +5173,19 @@ exports[`Storyshots MatchScore Without Label 1`] = `
     role="progressbar"
   >
     <div
-      className="matchScoreCircle   half"
+      className="matchScoreCircle half"
     />
     <div
-      className="matchScoreCircle   "
+      className="matchScoreCircle"
     />
     <div
-      className="matchScoreCircle   "
+      className="matchScoreCircle"
     />
     <div
-      className="matchScoreCircle   "
+      className="matchScoreCircle"
     />
     <div
-      className="matchScoreCircle   "
+      className="matchScoreCircle"
     />
   </div>
   <br />
@@ -5196,19 +5196,19 @@ exports[`Storyshots MatchScore Without Label 1`] = `
     role="progressbar"
   >
     <div
-      className="matchScoreCircle full  "
+      className="matchScoreCircle full"
     />
     <div
-      className="matchScoreCircle   "
+      className="matchScoreCircle"
     />
     <div
-      className="matchScoreCircle   "
+      className="matchScoreCircle"
     />
     <div
-      className="matchScoreCircle   "
+      className="matchScoreCircle"
     />
     <div
-      className="matchScoreCircle   "
+      className="matchScoreCircle"
     />
   </div>
   <br />
@@ -5219,19 +5219,19 @@ exports[`Storyshots MatchScore Without Label 1`] = `
     role="progressbar"
   >
     <div
-      className="matchScoreCircle full  "
+      className="matchScoreCircle full"
     />
     <div
-      className="matchScoreCircle   half"
+      className="matchScoreCircle half"
     />
     <div
-      className="matchScoreCircle   "
+      className="matchScoreCircle"
     />
     <div
-      className="matchScoreCircle   "
+      className="matchScoreCircle"
     />
     <div
-      className="matchScoreCircle   "
+      className="matchScoreCircle"
     />
   </div>
   <br />
@@ -5242,19 +5242,19 @@ exports[`Storyshots MatchScore Without Label 1`] = `
     role="progressbar"
   >
     <div
-      className="matchScoreCircle full  "
+      className="matchScoreCircle full"
     />
     <div
-      className="matchScoreCircle full  "
+      className="matchScoreCircle full"
     />
     <div
-      className="matchScoreCircle   "
+      className="matchScoreCircle"
     />
     <div
-      className="matchScoreCircle   "
+      className="matchScoreCircle"
     />
     <div
-      className="matchScoreCircle   "
+      className="matchScoreCircle"
     />
   </div>
   <br />
@@ -5265,19 +5265,19 @@ exports[`Storyshots MatchScore Without Label 1`] = `
     role="progressbar"
   >
     <div
-      className="matchScoreCircle full  "
+      className="matchScoreCircle full"
     />
     <div
-      className="matchScoreCircle full  "
+      className="matchScoreCircle full"
     />
     <div
-      className="matchScoreCircle   half"
+      className="matchScoreCircle half"
     />
     <div
-      className="matchScoreCircle   "
+      className="matchScoreCircle"
     />
     <div
-      className="matchScoreCircle   "
+      className="matchScoreCircle"
     />
   </div>
   <br />
@@ -5288,19 +5288,19 @@ exports[`Storyshots MatchScore Without Label 1`] = `
     role="progressbar"
   >
     <div
-      className="matchScoreCircle full  "
+      className="matchScoreCircle full"
     />
     <div
-      className="matchScoreCircle full  "
+      className="matchScoreCircle full"
     />
     <div
-      className="matchScoreCircle full  "
+      className="matchScoreCircle full"
     />
     <div
-      className="matchScoreCircle   "
+      className="matchScoreCircle"
     />
     <div
-      className="matchScoreCircle   "
+      className="matchScoreCircle"
     />
   </div>
   <br />
@@ -5311,19 +5311,19 @@ exports[`Storyshots MatchScore Without Label 1`] = `
     role="progressbar"
   >
     <div
-      className="matchScoreCircle full  "
+      className="matchScoreCircle full"
     />
     <div
-      className="matchScoreCircle full  "
+      className="matchScoreCircle full"
     />
     <div
-      className="matchScoreCircle full  "
+      className="matchScoreCircle full"
     />
     <div
-      className="matchScoreCircle   half"
+      className="matchScoreCircle half"
     />
     <div
-      className="matchScoreCircle   "
+      className="matchScoreCircle"
     />
   </div>
   <br />
@@ -5334,19 +5334,19 @@ exports[`Storyshots MatchScore Without Label 1`] = `
     role="progressbar"
   >
     <div
-      className="matchScoreCircle full  "
+      className="matchScoreCircle full"
     />
     <div
-      className="matchScoreCircle full  "
+      className="matchScoreCircle full"
     />
     <div
-      className="matchScoreCircle full  "
+      className="matchScoreCircle full"
     />
     <div
-      className="matchScoreCircle full  "
+      className="matchScoreCircle full"
     />
     <div
-      className="matchScoreCircle   "
+      className="matchScoreCircle"
     />
   </div>
   <br />
@@ -5357,19 +5357,19 @@ exports[`Storyshots MatchScore Without Label 1`] = `
     role="progressbar"
   >
     <div
-      className="matchScoreCircle full  "
+      className="matchScoreCircle full"
     />
     <div
-      className="matchScoreCircle full  "
+      className="matchScoreCircle full"
     />
     <div
-      className="matchScoreCircle full  "
+      className="matchScoreCircle full"
     />
     <div
-      className="matchScoreCircle full  "
+      className="matchScoreCircle full"
     />
     <div
-      className="matchScoreCircle   half"
+      className="matchScoreCircle half"
     />
   </div>
   <br />
@@ -5380,19 +5380,19 @@ exports[`Storyshots MatchScore Without Label 1`] = `
     role="progressbar"
   >
     <div
-      className="matchScoreCircle full  "
+      className="matchScoreCircle full"
     />
     <div
-      className="matchScoreCircle full  "
+      className="matchScoreCircle full"
     />
     <div
-      className="matchScoreCircle full  "
+      className="matchScoreCircle full"
     />
     <div
-      className="matchScoreCircle full  "
+      className="matchScoreCircle full"
     />
     <div
-      className="matchScoreCircle full  "
+      className="matchScoreCircle full"
     />
   </div>
   <br />
@@ -5403,19 +5403,19 @@ exports[`Storyshots MatchScore Without Label 1`] = `
     role="progressbar"
   >
     <div
-      className="matchScoreCircle full  "
+      className="matchScoreCircle full"
     />
     <div
-      className="matchScoreCircle full  "
+      className="matchScoreCircle full"
     />
     <div
-      className="matchScoreCircle full  "
+      className="matchScoreCircle full"
     />
     <div
-      className="matchScoreCircle full  "
+      className="matchScoreCircle full"
     />
     <div
-      className="matchScoreCircle full  "
+      className="matchScoreCircle full"
     />
   </div>
 </div>
