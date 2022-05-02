@@ -50,7 +50,6 @@
         "@mdi/react": "1.5.0",
         "bodymovin": "4.13.0",
         "lottie-web": "5.8.1",
-        "progressbar.js": "^1.1.0",
         "react-flip-toolkit": "7.0.13"
     },
     "peerDependencies": {
