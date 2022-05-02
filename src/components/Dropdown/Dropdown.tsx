@@ -1,4 +1,4 @@
-import React, { cloneElement, FC, useEffect, useRef, useState } from 'react';
+import React, { cloneElement, FC, useEffect, useState } from 'react';
 import { DropdownProps } from './Dropdown.types';
 import { autoUpdate, shift, useFloating } from '@floating-ui/react-dom';
 import { offset as fOffset } from '@floating-ui/core';
@@ -28,21 +28,11 @@ export const Dropdown: FC<DropdownProps> = ({
     positionStrategy = 'absolute',
     onVisibleChange,
 }) => {
-    const mainWrapperRef = useRef<HTMLDivElement>(null);
     const [visible, setVisible] = useState<boolean>(false);
     const [closing, setClosing] = useState<boolean>(false);
     const [dropdownId] = useState<string>(uniqueId('dropdown-'));
     let timeout: ReturnType<typeof setTimeout>;
-    const {
-        x,
-        y,
-        reference,
-        floating,
-        strategy,
-        update,
-        refs,
-        middlewareData: { arrow: { x: arrowX, y: arrowY } = {} },
-    } = useFloating({
+    const { x, y, reference, floating, strategy, update, refs } = useFloating({
         placement,
         strategy: positionStrategy,
         middleware: [fOffset(offset), shift()],
@@ -61,7 +51,7 @@ export const Dropdown: FC<DropdownProps> = ({
             );
         };
 
-    useOnClickOutside(mainWrapperRef, toggle(false));
+    useOnClickOutside(refs.reference, toggle(false), visible);
 
     useEffect(() => {
         onVisibleChange?.(visible);
@@ -131,7 +121,7 @@ export const Dropdown: FC<DropdownProps> = ({
         );
 
     return (
-        <div ref={mainWrapperRef} className={mainWrapperClasses} style={style}>
+        <div className={mainWrapperClasses} style={style}>
             {getReference()}
             {getDropdown()}
         </div>
