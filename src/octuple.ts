@@ -1,3 +1,5 @@
+import { Badge } from './components/Badge';
+
 import {
     ButtonShape,
     ButtonSize,
@@ -57,6 +59,7 @@ import { useOnClickOutside } from './hooks/useOnClickOutside';
 import { useScrollLock } from './hooks/useScrollLock';
 
 export {
+    Badge,
     ButtonShape,
     ButtonSize,
     ButtonTextAlign,
