@@ -4007,6 +4007,578 @@ Array [
 ]
 `;
 
+exports[`Storyshots MatchScore Default 1`] = `
+<div>
+  <div
+    className="matchScoreContainer"
+  >
+    <div
+      className="matchScoreCircle   "
+    />
+    <div
+      className="matchScoreCircle   "
+    />
+    <div
+      className="matchScoreCircle   "
+    />
+    <div
+      className="matchScoreCircle   "
+    />
+    <div
+      className="matchScoreCircle   "
+    />
+    <p
+      className="label"
+    >
+      0
+      /
+      5
+    </p>
+  </div>
+  <br />
+  <div
+    className="matchScoreContainer"
+  >
+    <div
+      className="matchScoreCircle   half"
+    />
+    <div
+      className="matchScoreCircle   "
+    />
+    <div
+      className="matchScoreCircle   "
+    />
+    <div
+      className="matchScoreCircle   "
+    />
+    <div
+      className="matchScoreCircle   "
+    />
+    <p
+      className="label"
+    >
+      0.5
+      /
+      5
+    </p>
+  </div>
+  <br />
+  <div
+    className="matchScoreContainer"
+  >
+    <div
+      className="matchScoreCircle full  "
+    />
+    <div
+      className="matchScoreCircle   "
+    />
+    <div
+      className="matchScoreCircle   "
+    />
+    <div
+      className="matchScoreCircle   "
+    />
+    <div
+      className="matchScoreCircle   "
+    />
+    <p
+      className="label"
+    >
+      1
+      /
+      5
+    </p>
+  </div>
+  <br />
+  <div
+    className="matchScoreContainer"
+  >
+    <div
+      className="matchScoreCircle full  "
+    />
+    <div
+      className="matchScoreCircle   half"
+    />
+    <div
+      className="matchScoreCircle   "
+    />
+    <div
+      className="matchScoreCircle   "
+    />
+    <div
+      className="matchScoreCircle   "
+    />
+    <p
+      className="label"
+    >
+      1.5
+      /
+      5
+    </p>
+  </div>
+  <br />
+  <div
+    className="matchScoreContainer"
+  >
+    <div
+      className="matchScoreCircle full  "
+    />
+    <div
+      className="matchScoreCircle full  "
+    />
+    <div
+      className="matchScoreCircle   "
+    />
+    <div
+      className="matchScoreCircle   "
+    />
+    <div
+      className="matchScoreCircle   "
+    />
+    <p
+      className="label"
+    >
+      2
+      /
+      5
+    </p>
+  </div>
+  <br />
+  <div
+    className="matchScoreContainer"
+  >
+    <div
+      className="matchScoreCircle full  "
+    />
+    <div
+      className="matchScoreCircle full  "
+    />
+    <div
+      className="matchScoreCircle   half"
+    />
+    <div
+      className="matchScoreCircle   "
+    />
+    <div
+      className="matchScoreCircle   "
+    />
+    <p
+      className="label"
+    >
+      2.5
+      /
+      5
+    </p>
+  </div>
+  <br />
+  <div
+    className="matchScoreContainer"
+  >
+    <div
+      className="matchScoreCircle full  "
+    />
+    <div
+      className="matchScoreCircle full  "
+    />
+    <div
+      className="matchScoreCircle full  "
+    />
+    <div
+      className="matchScoreCircle   "
+    />
+    <div
+      className="matchScoreCircle   "
+    />
+    <p
+      className="label"
+    >
+      3
+      /
+      5
+    </p>
+  </div>
+  <br />
+  <div
+    className="matchScoreContainer"
+  >
+    <div
+      className="matchScoreCircle full  "
+    />
+    <div
+      className="matchScoreCircle full  "
+    />
+    <div
+      className="matchScoreCircle full  "
+    />
+    <div
+      className="matchScoreCircle   half"
+    />
+    <div
+      className="matchScoreCircle   "
+    />
+    <p
+      className="label"
+    >
+      3.5
+      /
+      5
+    </p>
+  </div>
+  <br />
+  <div
+    className="matchScoreContainer"
+  >
+    <div
+      className="matchScoreCircle full  "
+    />
+    <div
+      className="matchScoreCircle full  "
+    />
+    <div
+      className="matchScoreCircle full  "
+    />
+    <div
+      className="matchScoreCircle full  "
+    />
+    <div
+      className="matchScoreCircle   "
+    />
+    <p
+      className="label"
+    >
+      4
+      /
+      5
+    </p>
+  </div>
+  <br />
+  <div
+    className="matchScoreContainer"
+  >
+    <div
+      className="matchScoreCircle full  "
+    />
+    <div
+      className="matchScoreCircle full  "
+    />
+    <div
+      className="matchScoreCircle full  "
+    />
+    <div
+      className="matchScoreCircle full  "
+    />
+    <div
+      className="matchScoreCircle   half"
+    />
+    <p
+      className="label"
+    >
+      4.5
+      /
+      5
+    </p>
+  </div>
+  <br />
+  <div
+    className="matchScoreContainer"
+  >
+    <div
+      className="matchScoreCircle full  "
+    />
+    <div
+      className="matchScoreCircle full  "
+    />
+    <div
+      className="matchScoreCircle full  "
+    />
+    <div
+      className="matchScoreCircle full  "
+    />
+    <div
+      className="matchScoreCircle full  "
+    />
+    <p
+      className="label"
+    >
+      5
+      /
+      5
+    </p>
+  </div>
+  <br />
+  <div
+    className="matchScoreContainer"
+  >
+    <div
+      className="matchScoreCircle full  "
+    />
+    <div
+      className="matchScoreCircle full  "
+    />
+    <div
+      className="matchScoreCircle full  "
+    />
+    <div
+      className="matchScoreCircle full  "
+    />
+    <div
+      className="matchScoreCircle full  "
+    />
+    <p
+      className="label"
+    >
+      20
+      /
+      5
+    </p>
+  </div>
+</div>
+`;
+
+exports[`Storyshots MatchScore Without Label 1`] = `
+<div>
+  <div
+    className="matchScoreContainer"
+  >
+    <div
+      className="matchScoreCircle   "
+    />
+    <div
+      className="matchScoreCircle   "
+    />
+    <div
+      className="matchScoreCircle   "
+    />
+    <div
+      className="matchScoreCircle   "
+    />
+    <div
+      className="matchScoreCircle   "
+    />
+  </div>
+  <br />
+  <div
+    className="matchScoreContainer"
+  >
+    <div
+      className="matchScoreCircle   half"
+    />
+    <div
+      className="matchScoreCircle   "
+    />
+    <div
+      className="matchScoreCircle   "
+    />
+    <div
+      className="matchScoreCircle   "
+    />
+    <div
+      className="matchScoreCircle   "
+    />
+  </div>
+  <br />
+  <div
+    className="matchScoreContainer"
+  >
+    <div
+      className="matchScoreCircle full  "
+    />
+    <div
+      className="matchScoreCircle   "
+    />
+    <div
+      className="matchScoreCircle   "
+    />
+    <div
+      className="matchScoreCircle   "
+    />
+    <div
+      className="matchScoreCircle   "
+    />
+  </div>
+  <br />
+  <div
+    className="matchScoreContainer"
+  >
+    <div
+      className="matchScoreCircle full  "
+    />
+    <div
+      className="matchScoreCircle   half"
+    />
+    <div
+      className="matchScoreCircle   "
+    />
+    <div
+      className="matchScoreCircle   "
+    />
+    <div
+      className="matchScoreCircle   "
+    />
+  </div>
+  <br />
+  <div
+    className="matchScoreContainer"
+  >
+    <div
+      className="matchScoreCircle full  "
+    />
+    <div
+      className="matchScoreCircle full  "
+    />
+    <div
+      className="matchScoreCircle   "
+    />
+    <div
+      className="matchScoreCircle   "
+    />
+    <div
+      className="matchScoreCircle   "
+    />
+  </div>
+  <br />
+  <div
+    className="matchScoreContainer"
+  >
+    <div
+      className="matchScoreCircle full  "
+    />
+    <div
+      className="matchScoreCircle full  "
+    />
+    <div
+      className="matchScoreCircle   half"
+    />
+    <div
+      className="matchScoreCircle   "
+    />
+    <div
+      className="matchScoreCircle   "
+    />
+  </div>
+  <br />
+  <div
+    className="matchScoreContainer"
+  >
+    <div
+      className="matchScoreCircle full  "
+    />
+    <div
+      className="matchScoreCircle full  "
+    />
+    <div
+      className="matchScoreCircle full  "
+    />
+    <div
+      className="matchScoreCircle   "
+    />
+    <div
+      className="matchScoreCircle   "
+    />
+  </div>
+  <br />
+  <div
+    className="matchScoreContainer"
+  >
+    <div
+      className="matchScoreCircle full  "
+    />
+    <div
+      className="matchScoreCircle full  "
+    />
+    <div
+      className="matchScoreCircle full  "
+    />
+    <div
+      className="matchScoreCircle   half"
+    />
+    <div
+      className="matchScoreCircle   "
+    />
+  </div>
+  <br />
+  <div
+    className="matchScoreContainer"
+  >
+    <div
+      className="matchScoreCircle full  "
+    />
+    <div
+      className="matchScoreCircle full  "
+    />
+    <div
+      className="matchScoreCircle full  "
+    />
+    <div
+      className="matchScoreCircle full  "
+    />
+    <div
+      className="matchScoreCircle   "
+    />
+  </div>
+  <br />
+  <div
+    className="matchScoreContainer"
+  >
+    <div
+      className="matchScoreCircle full  "
+    />
+    <div
+      className="matchScoreCircle full  "
+    />
+    <div
+      className="matchScoreCircle full  "
+    />
+    <div
+      className="matchScoreCircle full  "
+    />
+    <div
+      className="matchScoreCircle   half"
+    />
+  </div>
+  <br />
+  <div
+    className="matchScoreContainer"
+  >
+    <div
+      className="matchScoreCircle full  "
+    />
+    <div
+      className="matchScoreCircle full  "
+    />
+    <div
+      className="matchScoreCircle full  "
+    />
+    <div
+      className="matchScoreCircle full  "
+    />
+    <div
+      className="matchScoreCircle full  "
+    />
+  </div>
+  <br />
+  <div
+    className="matchScoreContainer"
+  >
+    <div
+      className="matchScoreCircle full  "
+    />
+    <div
+      className="matchScoreCircle full  "
+    />
+    <div
+      className="matchScoreCircle full  "
+    />
+    <div
+      className="matchScoreCircle full  "
+    />
+    <div
+      className="matchScoreCircle full  "
+    />
+  </div>
+</div>
+`;
+
 exports[`Storyshots Menu Menus 1`] = `
 Array [
   <p>

@@ -9,6 +9,7 @@ import { Tab, Tabs, TabVariant } from '../Tabs';
 import { IconName } from '../Icon';
 import { CompactPicker } from 'react-color';
 import { ConfigProvider, OcThemeNames, useConfig } from './';
+import { MatchScore } from '../MatchScore/MatchScore';
 
 export default {
     title: 'ConfigProvider',
@@ -193,6 +194,9 @@ const ThemedComponents = () => {
                     <Tab key={tab.value} {...tab} />
                 ))}
             </Tabs>
+            <br />
+            <br />
+            <MatchScore score={3} />
         </>
     );
 };
