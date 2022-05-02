@@ -6,6 +6,7 @@ import { Flipped } from 'react-flip-toolkit';
 
 import styles from '../tabs.module.scss';
 import { Icon, IconName } from '../../Icon';
+import { useConfig } from '../../ConfigProvider';
 
 export const Tab: FC<TabProps> = ({
     value,
@@ -20,9 +21,12 @@ export const Tab: FC<TabProps> = ({
     const labelExists: boolean = !!label;
     const isActive: boolean = value === currentActiveTab;
 
+    const { registeredTheme: { light = false } = {} } = useConfig();
+
     const tabClassName: string = classNames([
         styles.tab,
         { [styles.active]: isActive },
+        { [styles.inverse]: light },
     ]);
 
     const getIcon = (): JSX.Element => (

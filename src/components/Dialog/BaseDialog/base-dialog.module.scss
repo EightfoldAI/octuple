@@ -1,0 +1,32 @@
+.dialog-backdrop {
+    @include backdrop;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .dialog {
+        position: absolute;
+        padding: $space-l-fitted;
+        background: var(--background-color);
+        border-radius: $corner-radius-m;
+        box-shadow: $shadow-object-l;
+        opacity: 0;
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+    }
+
+    &.visible {
+        visibility: visible;
+        opacity: 1;
+        pointer-events: auto;
+
+        .dialog {
+            animation: scaleIn $motion-duration-extra-fast
+                $motion-easing-easeinout 0s forwards;
+        }
+    }
+}

@@ -8,6 +8,7 @@ import {
     NeutralButton,
     PrimaryButton,
     SecondaryButton,
+    TwoStateButton,
 } from './components/Button';
 
 import { ConfigProvider } from './components/ConfigProvider';
@@ -22,6 +23,8 @@ import { List } from './components/List';
 
 import { Menu } from './components/Menu';
 
+import { Modal, ModalSize } from './components/Modal';
+
 import { Pill, PillSize, PillType } from './components/Pills';
 
 import {
@@ -32,6 +35,10 @@ import {
     TextInputTheme,
     TextInputWidth,
 } from './components/Inputs';
+
+import { InfoBar, InfoBarType } from './components/InfoBar';
+
+import { SnackbarContainer, Snackbar, snack } from './components/Snackbar';
 
 import { Tabs, Tab, TabVariant } from './components/Tabs';
 
@@ -44,6 +51,10 @@ import { Portal } from './components/Portal';
 import { useBoolean } from './hooks/useBoolean';
 
 import { useMatchMedia } from './hooks/useMatchMedia';
+
+import { useOnClickOutside } from './hooks/useOnClickOutside';
+
+import { useScrollLock } from './hooks/useScrollLock';
 
 export {
     ButtonShape,
@@ -59,8 +70,12 @@ export {
     Icon,
     IconName,
     IconSize,
+    InfoBar,
+    InfoBarType,
     List,
     Menu,
+    Modal,
+    ModalSize,
     NeutralButton,
     Panel,
     PanelPlacement,
@@ -72,6 +87,9 @@ export {
     PrimaryButton,
     SearchBox,
     SecondaryButton,
+    snack,
+    Snackbar,
+    SnackbarContainer,
     Tabs,
     Tab,
     TabVariant,
@@ -82,6 +100,9 @@ export {
     TextInputWidth,
     Tooltip,
     TooltipTheme,
+    TwoStateButton,
     useBoolean,
     useMatchMedia,
+    useOnClickOutside,
+    useScrollLock,
 };

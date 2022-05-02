@@ -8,8 +8,9 @@ import React, {
 import { classNames, stopPropagation } from '../../shared/utilities';
 import { PanelProps, PanelRef, PanelSize } from './';
 import { IconName } from '../Icon';
-import { DefaultButton } from '../Button';
+import { NeutralButton } from '../Button';
 import { Portal } from '../Portal';
+import { useScrollLock } from '../../hooks/useScrollLock';
 
 import styles from './panel.module.scss';
 
@@ -55,6 +56,7 @@ export const Panel = React.forwardRef<PanelRef, PanelProps>(
         const containerRef = useRef<HTMLDivElement>(null);
         const parentPanel = useContext<PanelRef>(PanelContext);
         const [internalPush, setPush] = useState<boolean>(false);
+        const { lockScroll, unlockScroll } = useScrollLock(parent);
 
         const panelBackdropClasses: string = classNames([
             styles.panelBackdrop,
@@ -93,6 +95,12 @@ export const Panel = React.forwardRef<PanelRef, PanelProps>(
                 } else {
                     parentPanel.pull();
                 }
+            } else {
+                if (visible) {
+                    lockScroll();
+                } else {
+                    unlockScroll();
+                }
             }
             if (autoFocus) {
                 setTimeout(() => {
@@ -106,7 +114,7 @@ export const Panel = React.forwardRef<PanelRef, PanelProps>(
             <div className={headerClasses}>
                 <div>{title}</div>
                 {closable && (
-                    <DefaultButton
+                    <NeutralButton
                         icon={closeIcon}
                         ariaLabel={'Close'}
                         onClick={onClose}

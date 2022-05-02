@@ -10,7 +10,7 @@ export default {
 export const Default = () => {
     const [visible, setVisible] = useState<Record<string, boolean>>({});
     return (
-        <>
+        <div style={{ height: '1000px' }}>
             <h1>Panel (small)</h1>
             <PrimaryButton
                 text={'Open panel'}
@@ -111,6 +111,14 @@ export const Default = () => {
             <Panel
                 title={'This is a title'}
                 visible={visible.medium}
+                footer={
+                    <div>
+                        <PrimaryButton
+                            text={'Close'}
+                            onClick={() => setVisible({})}
+                        />
+                    </div>
+                }
                 size={PanelSize.medium}
                 onClose={() => setVisible({})}
             />
@@ -213,6 +221,6 @@ export const Default = () => {
                 size={PanelSize.small}
                 placement={'top'}
             />
-        </>
+        </div>
     );
 };

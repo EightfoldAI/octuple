@@ -2,6 +2,38 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.16](https://github.com/EightfoldAI/octuple/compare/v0.0.15...v0.0.16) (2022-04-28)
+
+### Features
+
+-   adds octuple info bars ([#84](https://github.com/EightfoldAI/octuple/issues/84)) ([3ef3840](https://github.com/EightfoldAI/octuple/commits/3ef3840944a9c4a7e258644fc632ecc470650658))
+-   adds octuple snackbar component ([#81](https://github.com/EightfoldAI/octuple/issues/81)) ([6559c78](https://github.com/EightfoldAI/octuple/commits/6559c78308417cff306ef7a19f17399f6b17768e))
+-   button: adds two state button component ([#80](https://github.com/EightfoldAI/octuple/issues/80)) ([3ea58e3](https://github.com/EightfoldAI/octuple/commits/3ea58e35a7f3efa58c44647cad10af8784e9a542))
+
+### Bug Fixes
+
+-   modal scrollbar only if content is scrollable ([#78](https://github.com/EightfoldAI/octuple/issues/78)) ([e72ffb8](https://github.com/EightfoldAI/octuple/commits/e72ffb8ce2506bbf5d540f00220b701e2ff259c8))
+-   panel: footer not sticking to the bottom ([#83](https://github.com/EightfoldAI/octuple/issues/83)) ([e31a070](https://github.com/EightfoldAI/octuple/commits/e31a070fe1ccbcc30f42de4ec9d53190fab78626))
+-   tabs: remove background from tabs ([#85](https://github.com/EightfoldAI/octuple/issues/85)) ([4ddb663](https://github.com/EightfoldAI/octuple/commits/4ddb6630a6de32f8c62b679957af09a041e41b27))
+
+### [0.0.15](https://github.com/EightfoldAI/octuple/compare/v0.0.14...v0.0.15) (2022-04-20)
+
+### Features
+
+-   adds octuples modal component, handle mobile view in dialog ([#65](https://github.com/EightfoldAI/octuple/issues/65)) ([3dfd43f](https://github.com/EightfoldAI/octuple/commits/3dfd43f9763e44026de4e7f0a98928b083610db9))
+
+### [0.0.14](https://github.com/EightfoldAI/octuple/compare/v0.0.13...v0.0.14) (2022-04-19)
+
+### Bug Fixes
+
+-   button: move unreferenced global style into the module ([#74](https://github.com/EightfoldAI/octuple/issues/74)) ([3f87bcd](https://github.com/EightfoldAI/octuple/commits/3f87bcd7b9c612a3bcd103a9899a9f812d27d6cd))
+
+### [0.0.13](https://github.com/EightfoldAI/octuple/compare/v0.0.12...v0.0.13) (2022-04-19)
+
+### Features
+
+-   handle inverse themes in config provider ([#67](https://github.com/EightfoldAI/octuple/issues/67)) ([a8ac667](https://github.com/EightfoldAI/octuple/commits/a8ac667cc2e4f19f5fc68d31ad2a3b5f06badd4f))
+
 ### [0.0.12](https://github.com/EightfoldAI/octuple/compare/v0.0.11...v0.0.12) (2022-04-13)
 
 ### Bug Fixes

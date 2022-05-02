@@ -1,0 +1,43 @@
+.snackbar {
+    box-shadow: $shadow-object-l;
+    border: none;
+    border-left: solid $space-xs var(--info-color);
+    min-width: 21vw;
+    max-width: min(42vw, 640px);
+    animation: slideUpIn $motion-duration-extra-fast $motion-easing-easeinout 0s
+        forwards;
+    margin-bottom: $space-s;
+}
+
+.snackbar-container {
+    position: fixed;
+    z-index: $z-index-500;
+
+    &.top-center,
+    &.bottom-center {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    &.top-center,
+    &.top-left,
+    &.top-right {
+        top: $space-m;
+    }
+
+    &.bottom-center,
+    &.bottom-left,
+    &.bottom-right {
+        bottom: $space-m;
+    }
+
+    &.top-left,
+    &.bottom-left {
+        left: $space-m;
+    }
+
+    &.top-right,
+    &.bottom-right {
+        right: $space-m;
+    }
+}
