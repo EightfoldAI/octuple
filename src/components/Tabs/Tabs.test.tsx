@@ -31,7 +31,7 @@ describe('Panel', () => {
 
     beforeEach(() => {
         wrapper = mount(
-            <Tabs onChange={tabClick} activeTab={'tab1'}>
+            <Tabs onChange={tabClick} value={'tab1'}>
                 {tabs.map((tab) => (
                     <Tab key={tab.value} {...tab} />
                 ))}
@@ -42,7 +42,7 @@ describe('Panel', () => {
     test('tabs snapshot', () => {
         expect(
             create(
-                <Tabs onChange={tabClick} activeTab={'tab1'}>
+                <Tabs onChange={tabClick} value={'tab1'}>
                     {tabs.map((tab) => (
                         <Tab key={tab.value} {...tab} />
                     ))}

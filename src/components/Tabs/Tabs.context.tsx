@@ -8,16 +8,14 @@ import {
 
 const TabsContext = createContext<Partial<ITabsContext>>({});
 
-const TabsProvider = ({ children, onChange, activeTab }: TabsContextProps) => {
-    const [currentActiveTab, setCurrentActiveTab] =
-        useState<TabValue>(activeTab);
+const TabsProvider = ({ children, onChange, value }: TabsContextProps) => {
+    const [currentActiveTab, setCurrentActiveTab] = useState<TabValue>(value);
 
     useEffect(() => {
-        setCurrentActiveTab(activeTab);
-    }, [activeTab]);
+        setCurrentActiveTab(value);
+    }, [value]);
 
     const onTabClick = (value: TabValue, e: SelectTabEvent) => {
-        setCurrentActiveTab(value);
         onChange(value, e);
     };
 
