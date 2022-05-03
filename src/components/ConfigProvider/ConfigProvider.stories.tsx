@@ -164,32 +164,28 @@ const ThemedComponents = () => {
             </div>
             <br />
             <br />
-            <Tabs onChange={click} activeTab={'tab1'}>
+            <Tabs onChange={click} value={'tab1'}>
                 {tabs.map((tab) => (
                     <Tab key={tab.value} {...tab} />
                 ))}
             </Tabs>
             <br />
             <br />
-            <Tabs onChange={click} activeTab={'tab1'}>
+            <Tabs onChange={click} value={'tab1'}>
                 {iconTabs.map((tab) => (
                     <Tab key={tab.value} {...tab} />
                 ))}
             </Tabs>
             <br />
             <br />
-            <Tabs
-                onChange={click}
-                activeTab={'tab1'}
-                variant={TabVariant.small}
-            >
+            <Tabs onChange={click} value={'tab1'} variant={TabVariant.small}>
                 {tabs.map((tab) => (
                     <Tab key={tab.value} {...tab} />
                 ))}
             </Tabs>
             <br />
             <br />
-            <Tabs onChange={click} activeTab={'tab1'} variant={TabVariant.pill}>
+            <Tabs onChange={click} value={'tab1'} variant={TabVariant.pill}>
                 {tabs.map((tab) => (
                     <Tab key={tab.value} {...tab} />
                 ))}
