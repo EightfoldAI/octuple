@@ -47,7 +47,19 @@ jobs:
         uses: slackapi/slack-github-action@v1.18.0
         with:
           channel-id: C03E7BKR9MF
-          slack-message: "Release ${{ steps.changelog_reader.outputs.version }} \n ${{ steps.slack-prepare.outputs.commit-message }}"
+          payload: |
+            {
+              "text": "Release ${{ steps.changelog_reader.outputs.version }}",
+              "blocks": [
+                {
+                  "type": "section",
+                  "text": {
+                    "type": "mrkdwn",
+                    "text": "${{ steps.slack-prepare.outputs.commit-message }}"
+                  }
+                }
+              ]
+            }
         env:
           SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
   lint:
