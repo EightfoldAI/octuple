@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { InfoBarsProps, InfoBarType } from './InfoBar.types';
 import { Icon, IconName } from '../Icon';
-import { classNames } from '../../shared/utilities';
+import { mergeClasses } from '../../shared/utilities';
 import { NeutralButton } from '../Button';
 
 import styles from './infoBar.module.scss';
@@ -13,22 +13,22 @@ export const InfoBar: FC<InfoBarsProps> = ({
     closable,
     onClose,
     style,
-    className,
+    classNames,
     closeIcon = IconName.mdiClose,
     closeButtonProps,
     actionButtonProps,
     role = 'presentation',
 }) => {
-    const infoBarClasses: string = classNames([
+    const infoBarClasses: string = mergeClasses([
         styles.infoBar,
-        className,
+        classNames,
         { [styles.neutral]: type === InfoBarType.neutral },
         { [styles.positive]: type === InfoBarType.positive },
         { [styles.warning]: type === InfoBarType.warning },
         { [styles.disruptive]: type === InfoBarType.disruptive },
     ]);
 
-    const messageClasses: string = classNames([styles.message, 'body2']);
+    const messageClasses: string = mergeClasses([styles.message, 'body2']);
 
     const getIconName = (): IconName => {
         if (icon) {
@@ -47,12 +47,12 @@ export const InfoBar: FC<InfoBarsProps> = ({
 
     return (
         <div className={infoBarClasses} style={style} role={role}>
-            <Icon path={getIconName()} className={styles.icon} />
+            <Icon path={getIconName()} classNames={styles.icon} />
             <div className={messageClasses}>{content}</div>
             {actionButtonProps && <NeutralButton {...actionButtonProps} />}
             {closable && (
                 <NeutralButton
-                    icon={closeIcon}
+                    iconProps={{ path: closeIcon }}
                     ariaLabel={'Close'}
                     onClick={onClose}
                     {...closeButtonProps}

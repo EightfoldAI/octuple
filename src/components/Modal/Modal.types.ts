@@ -20,9 +20,9 @@ export interface ModalProps
     /**
      * Custom class for the modal wrapper
      */
-    modalWrapperClassName?: string;
+    modalWrapperClassNames?: string;
     /**
      * Custom class for the modal
      */
-    modalClassName?: string;
+    modalClassNames?: string;
 }

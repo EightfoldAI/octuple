@@ -7,7 +7,7 @@ import {
 import { Portal } from '../Portal';
 import { Snackbar } from './Snackbar';
 import { eat, SNACK_EVENTS } from './snack';
-import { classNames } from '../../shared/utilities';
+import { mergeClasses } from '../../shared/utilities';
 
 import styles from './snackbar.module.scss';
 
@@ -54,7 +54,7 @@ export const SnackbarContainer: FC<SnackbarContainerProps> = ({
         Object.keys(positionToClassMap).map((position: SnackbarPosition) => (
             <div
                 key={position}
-                className={classNames([
+                className={mergeClasses([
                     styles.snackbarContainer,
                     positionToClassMap[position],
                 ])}

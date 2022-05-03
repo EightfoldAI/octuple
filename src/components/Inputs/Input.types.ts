@@ -1,6 +1,7 @@
 import React from 'react';
 import { Placement, Strategy } from '@floating-ui/react-dom';
-import { IconName } from '../Icon';
+import { IconName, IconProps } from '../Icon';
+import { LabelProps } from '../Label';
 import { TooltipTheme } from '../Tooltip';
 
 export enum TextInputTheme {
@@ -18,55 +19,19 @@ export enum TextInputShape {
     Pill = 'pill',
 }
 
-export interface InputIconProps {
+export interface InputIconProps extends Omit<IconProps, 'path'> {
     /**
      * The icon img alt text.
      */
     alt?: string;
     /**
-     * The icon is aria-hidden.
-     * @default false
+     * The optional icon svg path name.
      */
-    ariaHidden?: boolean;
-    /**
-     * The icon color.
-     */
-    color?: string;
-    /**
-     * The icon description.
-     */
-    description?: string;
-    /**
-     * The icon is horizontal.
-     * @default false
-     */
-    horizontal?: boolean;
-    /**
-     * The icon id.
-     */
-    id?: string;
+    path?: IconName;
     /**
      * The icon image source url.
      */
     imageSrc?: string;
-    /**
-     * The icon svg path name.
-     */
-    path?: IconName;
-    /**
-     * The icon is rotated.
-     * @default 0
-     */
-    rotate?: number;
-    /**
-     * The icon title.
-     */
-    title?: string;
-    /**
-     * The icon is vertical.
-     * @default false
-     */
-    vertical?: boolean;
 }
 
 export interface InputIconButtonProps {
@@ -96,9 +61,9 @@ export interface InputIconButtonProps {
      */
     htmlType?: 'button' | 'submit' | 'reset';
     /**
-     * The input button icon path.
+     * The input button icon props.
      */
-    icon?: IconName;
+    iconProps?: IconProps;
     /**
      * The input icon button id.
      */
@@ -125,13 +90,9 @@ export interface InputLabelIconButtonProps {
      */
     disabled?: boolean;
     /**
-     * The label icon button path.
+     * The label icon button props.
      */
-    icon?: IconName;
-    /**
-     * The label icon button color.
-     */
-    iconColor?: string;
+    iconProps?: IconProps;
     /**
      * The label icon button id.
      */
@@ -232,7 +193,7 @@ export interface InputProps {
     /**
      * The input class names.
      */
-    className?: string;
+    classNames?: string;
     /**
      * The input clear button aria label text.
      */
@@ -264,13 +225,9 @@ export interface InputProps {
      */
     imageSource?: string;
     /**
-     * The input label text.
+     * The input label props.
      */
-    label?: string;
-    /**
-     * The input label icon button props.
-     */
-    labelIconButtonProps?: InputLabelIconButtonProps;
+    labelProps?: LabelProps;
     /**
      * The input maxlength.
      */

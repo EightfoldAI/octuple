@@ -1,5 +1,6 @@
 import React, { FC, Ref } from 'react';
 import {
+    ButtonIconAlign,
     ButtonShape,
     ButtonSize,
     ButtonTextAlign,
@@ -8,27 +9,27 @@ import {
     InternalButtonProps,
     SplitButton,
 } from './';
-import { Icon, IconName, IconSize } from '../Icon';
+import { Icon, IconSize } from '../Icon';
 import { Breakpoints, useMatchMedia } from '../../hooks/useMatchMedia';
-import { classNames } from '../../shared/utilities';
+import { mergeClasses } from '../../shared/utilities';
 
 import styles from './button.module.scss';
 
 export const BaseButton: FC<InternalButtonProps> = React.forwardRef(
     (
         {
+            alignIcon = ButtonIconAlign.Left,
             alignText = ButtonTextAlign.Center,
             allowDisabledFocus = false,
             ariaLabel,
             buttonWidth = ButtonWidth.fitContent,
             checked = false,
-            className,
+            classNames,
             disabled = false,
             disruptive = false,
             dropShadow = false,
             htmlType,
-            icon,
-            iconColor,
+            iconProps,
             id,
             onClick,
             onContextMenu,
@@ -51,11 +52,11 @@ export const BaseButton: FC<InternalButtonProps> = React.forwardRef(
         const smallScreenActive: boolean = useMatchMedia(Breakpoints.Small);
         const xSmallScreenActive: boolean = useMatchMedia(Breakpoints.XSmall);
 
-        const iconExists: boolean = !!icon;
+        const iconExists: boolean = !!iconProps;
         const textExists: boolean = !!text;
 
-        const buttonBaseSharedClassNames: string = classNames([
-            className,
+        const buttonBaseSharedClassNames: string = mergeClasses([
+            classNames,
             {
                 [styles.buttonPadding3]:
                     size === ButtonSize.Flex && largeScreenActive,
@@ -80,16 +81,24 @@ export const BaseButton: FC<InternalButtonProps> = React.forwardRef(
             { [styles.dark]: theme === ButtonTheme.dark },
         ]);
 
-        const buttonBaseClassNames: string = classNames([
+        const buttonBaseClassNames: string = mergeClasses([
             buttonBaseSharedClassNames,
             { [styles.buttonStretch]: buttonWidth === ButtonWidth.fill },
             { [styles.splitLeft]: split },
             { [styles.left]: alignText === ButtonTextAlign.Left },
             { [styles.right]: alignText === ButtonTextAlign.Right },
+            {
+                [styles.iconLeft]:
+                    iconExists && alignIcon === ButtonIconAlign.Left,
+            },
+            {
+                [styles.iconRight]:
+                    iconExists && alignIcon === ButtonIconAlign.Right,
+            },
             { [styles.disabled]: allowDisabledFocus || disabled },
         ]);
 
-        const buttonTextClassNames: string = classNames([
+        const buttonTextClassNames: string = mergeClasses([
             { [styles.button3]: size === ButtonSize.Flex && largeScreenActive },
             {
                 [styles.button2]:
@@ -126,11 +135,10 @@ export const BaseButton: FC<InternalButtonProps> = React.forwardRef(
             return iconSize;
         };
 
-        const getButtonIcon = (icon: IconName): JSX.Element => (
+        const getButtonIcon = (): JSX.Element => (
             <Icon
-                className={styles.icon}
-                color={iconColor}
-                path={icon}
+                {...iconProps}
+                classNames={styles.icon}
                 size={getButtonIconSize()}
             />
         );
@@ -161,10 +169,10 @@ export const BaseButton: FC<InternalButtonProps> = React.forwardRef(
                     style={style}
                     type={htmlType}
                 >
-                    {iconExists && !textExists && getButtonIcon(icon)}
+                    {iconExists && !textExists && getButtonIcon()}
                     {iconExists && textExists && (
                         <span>
-                            {getButtonIcon(icon)}
+                            {getButtonIcon()}
                             {getButtonText(buttonTextClassNames, text)}
                         </span>
                     )}
@@ -173,10 +181,10 @@ export const BaseButton: FC<InternalButtonProps> = React.forwardRef(
                 {split && (
                     <SplitButton
                         {...splitButtonProps}
-                        className={
+                        classNames={
                             buttonBaseSharedClassNames +
                             ' ' +
-                            splitButtonProps?.className
+                            splitButtonProps?.classNames
                         }
                         checked={splitButtonChecked}
                         disruptive={disruptive}

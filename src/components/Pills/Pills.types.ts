@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { IconName } from '../Icon';
+import { IconProps } from '../Icon';
 import { OcThemeNames } from '../ConfigProvider';
 import { ButtonProps } from '../Button';
 
@@ -20,7 +20,7 @@ export enum PillSize {
  */
 export type closeButtonProps = Omit<
     ButtonProps,
-    'icon' | 'onClick' | 'size' | 'className'
+    'icon' | 'onClick' | 'size' | 'classNames'
 >;
 
 /**
@@ -28,7 +28,7 @@ export type closeButtonProps = Omit<
  */
 export type pillButtonProps = Omit<
     ButtonProps,
-    'onClick' | 'size' | 'className'
+    'onClick' | 'size' | 'classNames'
 >;
 
 export interface PillProps {
@@ -48,7 +48,7 @@ export interface PillProps {
     /**
      * Icon shown before the label
      */
-    icon?: IconName;
+    iconProps?: IconProps;
     /**
      * Type of the pill
      * @default PillType.default
