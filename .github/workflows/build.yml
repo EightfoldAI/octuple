@@ -39,7 +39,7 @@ jobs:
       - name: Prepare slack message
         id: slack-prepare
         run: |
-          COMMIT_MESSAGE="${{ steps.changelog_reader.outputs.version }}"
+          COMMIT_MESSAGE="${{ steps.changelog_reader.outputs.changes }}"
           COMMIT_MESSAGE="$(echo "$COMMIT_MESSAGE" | sed -z 's/\n/\\n/g')"
           echo "::set-output name=commit-message::${COMMIT_MESSAGE}"
       - name: Post to Slack channel
