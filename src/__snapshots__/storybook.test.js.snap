@@ -3524,7 +3524,7 @@ exports[`Storyshots ConfigProvider Theming 1`] = `
       >
         <span
           aria-hidden={false}
-          className="iconWrapper"
+          className="icon iconWrapper"
           role="presentation"
         >
           <svg
@@ -3563,7 +3563,7 @@ exports[`Storyshots ConfigProvider Theming 1`] = `
       >
         <span
           aria-hidden={false}
-          className="iconWrapper"
+          className="icon iconWrapper"
           role="presentation"
         >
           <svg
@@ -3596,7 +3596,7 @@ exports[`Storyshots ConfigProvider Theming 1`] = `
       >
         <span
           aria-hidden={false}
-          className="iconWrapper"
+          className="icon iconWrapper"
           role="presentation"
         >
           <svg
@@ -3630,7 +3630,7 @@ exports[`Storyshots ConfigProvider Theming 1`] = `
       >
         <span
           aria-hidden={false}
-          className="iconWrapper"
+          className="icon iconWrapper"
           role="presentation"
         >
           <svg
@@ -10749,7 +10749,7 @@ Array [
       >
         <span
           aria-hidden={false}
-          className="iconWrapper"
+          className="icon iconWrapper"
           role="presentation"
         >
           <svg
@@ -10788,7 +10788,7 @@ Array [
       >
         <span
           aria-hidden={false}
-          className="iconWrapper"
+          className="icon iconWrapper"
           role="presentation"
         >
           <svg
@@ -10821,7 +10821,7 @@ Array [
       >
         <span
           aria-hidden={false}
-          className="iconWrapper"
+          className="icon iconWrapper"
           role="presentation"
         >
           <svg
@@ -10855,7 +10855,7 @@ Array [
       >
         <span
           aria-hidden={false}
-          className="iconWrapper"
+          className="icon iconWrapper"
           role="presentation"
         >
           <svg
@@ -10898,7 +10898,7 @@ Array [
       >
         <span
           aria-hidden={false}
-          className="iconWrapper"
+          className="icon iconWrapper"
           role="presentation"
         >
           <svg
@@ -10942,7 +10942,7 @@ Array [
       >
         <span
           aria-hidden={false}
-          className="iconWrapper"
+          className="icon iconWrapper"
           role="presentation"
         >
           <svg
@@ -10980,7 +10980,7 @@ Array [
       >
         <span
           aria-hidden={false}
-          className="iconWrapper"
+          className="icon iconWrapper"
           role="presentation"
         >
           <svg
@@ -11019,7 +11019,7 @@ Array [
       >
         <span
           aria-hidden={false}
-          className="iconWrapper"
+          className="icon iconWrapper"
           role="presentation"
         >
           <svg
@@ -11390,7 +11390,7 @@ Array [
       >
         <span
           aria-hidden={false}
-          className="iconWrapper"
+          className="icon iconWrapper"
           role="presentation"
         >
           <svg
@@ -11429,7 +11429,7 @@ Array [
       >
         <span
           aria-hidden={false}
-          className="iconWrapper"
+          className="icon iconWrapper"
           role="presentation"
         >
           <svg
@@ -11462,7 +11462,7 @@ Array [
       >
         <span
           aria-hidden={false}
-          className="iconWrapper"
+          className="icon iconWrapper"
           role="presentation"
         >
           <svg
@@ -11496,7 +11496,7 @@ Array [
       >
         <span
           aria-hidden={false}
-          className="iconWrapper"
+          className="icon iconWrapper"
           role="presentation"
         >
           <svg
@@ -11539,7 +11539,7 @@ Array [
       >
         <span
           aria-hidden={false}
-          className="iconWrapper"
+          className="icon iconWrapper"
           role="presentation"
         >
           <svg
@@ -11583,7 +11583,7 @@ Array [
       >
         <span
           aria-hidden={false}
-          className="iconWrapper"
+          className="icon iconWrapper"
           role="presentation"
         >
           <svg
@@ -11621,7 +11621,7 @@ Array [
       >
         <span
           aria-hidden={false}
-          className="iconWrapper"
+          className="icon iconWrapper"
           role="presentation"
         >
           <svg
@@ -11660,7 +11660,7 @@ Array [
       >
         <span
           aria-hidden={false}
-          className="iconWrapper"
+          className="icon iconWrapper"
           role="presentation"
         >
           <svg
@@ -11871,7 +11871,7 @@ Array [
       >
         <span
           aria-hidden={false}
-          className="iconWrapper"
+          className="icon iconWrapper"
           role="presentation"
         >
           <svg
@@ -11910,7 +11910,7 @@ Array [
       >
         <span
           aria-hidden={false}
-          className="iconWrapper"
+          className="icon iconWrapper"
           role="presentation"
         >
           <svg
@@ -11943,7 +11943,7 @@ Array [
       >
         <span
           aria-hidden={false}
-          className="iconWrapper"
+          className="icon iconWrapper"
           role="presentation"
         >
           <svg
@@ -11977,7 +11977,7 @@ Array [
       >
         <span
           aria-hidden={false}
-          className="iconWrapper"
+          className="icon iconWrapper"
           role="presentation"
         >
           <svg
@@ -12020,7 +12020,7 @@ Array [
       >
         <span
           aria-hidden={false}
-          className="iconWrapper"
+          className="icon iconWrapper"
           role="presentation"
         >
           <svg
@@ -12064,7 +12064,7 @@ Array [
       >
         <span
           aria-hidden={false}
-          className="iconWrapper"
+          className="icon iconWrapper"
           role="presentation"
         >
           <svg
@@ -12102,7 +12102,7 @@ Array [
       >
         <span
           aria-hidden={false}
-          className="iconWrapper"
+          className="icon iconWrapper"
           role="presentation"
         >
           <svg
@@ -12141,7 +12141,7 @@ Array [
       >
         <span
           aria-hidden={false}
-          className="iconWrapper"
+          className="icon iconWrapper"
           role="presentation"
         >
           <svg
