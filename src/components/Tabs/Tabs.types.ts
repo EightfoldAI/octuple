@@ -21,7 +21,7 @@ export enum TabVariant {
 export interface TabsContextProps {
     children: React.ReactNode;
     onChange: OnChangeHandler;
-    activeTab?: TabValue;
+    value?: TabValue;
 }
 
 export interface ITabsContext {
@@ -31,7 +31,7 @@ export interface ITabsContext {
 
 export interface TabProps extends React.ButtonHTMLAttributes<any> {
     /**
-     * The value of the tab.
+     * Active value of the tab.
      */
     value: TabValue;
     /**
@@ -64,7 +64,7 @@ export interface TabsProps {
     /**
      * The default tab to select
      */
-    activeTab?: TabValue;
+    value?: TabValue;
     /**
      * Callback called on click of a tab
      * @param value {TabValue}

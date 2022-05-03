@@ -31,7 +31,7 @@ describe('Panel', () => {
 
     beforeEach(() => {
         wrapper = mount(
-            <Tabs onChange={tabClick} activeTab={'tab1'}>
+            <Tabs onChange={tabClick} value={'tab1'}>
                 {tabs.map((tab) => (
                     <Tab key={tab.value} {...tab} />
                 ))}
@@ -42,7 +42,7 @@ describe('Panel', () => {
     test('tabs snapshot', () => {
         expect(
             create(
-                <Tabs onChange={tabClick} activeTab={'tab1'}>
+                <Tabs onChange={tabClick} value={'tab1'}>
                     {tabs.map((tab) => (
                         <Tab key={tab.value} {...tab} />
                     ))}
@@ -59,6 +59,16 @@ describe('Panel', () => {
         wrapper.find('.tab').at(2).simulate('click');
         expect(tabClick).toHaveBeenCalledTimes(1);
         expect(tabClick).toHaveBeenCalledWith('tab3', expect.any(Object));
+    });
+
+    test('setting value changes tab', async () => {
+        wrapper = mount(
+            <Tabs onChange={tabClick} value={'tab3'}>
+                {tabs.map((tab) => (
+                    <Tab key={tab.value} {...tab} />
+                ))}
+            </Tabs>
+        );
         expect(wrapper.find('.tab').at(2).hasClass('active')).toEqual(true);
     });
 });

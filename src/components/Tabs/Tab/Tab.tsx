@@ -34,7 +34,7 @@ export const Tab: FC<TabProps> = ({
     ]);
 
     const getIcon = (): JSX.Element =>
-        iconExists && <Icon path={icon} className={styles.icon} />;
+        iconExists && <Icon path={icon} classNames={styles.icon} />;
 
     const getLabel = (): JSX.Element =>
         labelExists && <span className={styles.label}>{label}</span>;
