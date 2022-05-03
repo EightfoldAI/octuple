@@ -7,9 +7,9 @@ import {
     ButtonWidth,
     TwoStateButtonProps,
 } from '../';
-import { Icon, IconName, IconSize } from '../../Icon';
+import { Icon, IconSize } from '../../Icon';
 import { Breakpoints, useMatchMedia } from '../../../hooks/useMatchMedia';
-import { classNames } from '../../../shared/utilities';
+import { mergeClasses } from '../../../shared/utilities';
 
 import styles from '../button.module.scss';
 
@@ -20,16 +20,14 @@ export const TwoStateButton: FC<TwoStateButtonProps> = React.forwardRef(
             allowDisabledFocus = false,
             ariaLabel,
             buttonWidth = ButtonWidth.fitContent,
-            className,
+            classNames,
             checked = false,
             counter,
             disabled = false,
             disruptive = false,
             dropShadow = false,
-            iconOne,
-            iconOneColor,
-            iconTwo,
-            iconTwoColor,
+            iconOneProps,
+            iconTwoProps,
             id,
             onClick,
             shape = ButtonShape.Rectangle,
@@ -49,12 +47,12 @@ export const TwoStateButton: FC<TwoStateButtonProps> = React.forwardRef(
         const xSmallScreenActive: boolean = useMatchMedia(Breakpoints.XSmall);
 
         const counterExists: boolean = !!counter;
-        const iconOneExists: boolean = !!iconOne;
-        const iconTwoExists: boolean = !!iconTwo;
+        const iconOneExists: boolean = !!iconOneProps;
+        const iconTwoExists: boolean = !!iconTwoProps;
         const textExists: boolean = !!text;
 
-        const twoStateButtonClassNames: string = classNames([
-            className,
+        const twoStateButtonClassNames: string = mergeClasses([
+            classNames,
             styles.button,
             styles.twoStateButton,
             { [styles.checked]: checked },
@@ -86,7 +84,7 @@ export const TwoStateButton: FC<TwoStateButtonProps> = React.forwardRef(
             { [styles.dark]: theme === ButtonTheme.dark },
         ]);
 
-        const buttonTextClassNames: string = classNames([
+        const buttonTextClassNames: string = mergeClasses([
             { [styles.button3]: size === ButtonSize.Flex && largeScreenActive },
             {
                 [styles.button2]:
@@ -102,7 +100,7 @@ export const TwoStateButton: FC<TwoStateButtonProps> = React.forwardRef(
             { [styles.button3]: size === ButtonSize.Small },
         ]);
 
-        const counterClassNames: string = classNames([
+        const counterClassNames: string = mergeClasses([
             styles.counter,
             buttonTextClassNames,
         ]);
@@ -128,11 +126,10 @@ export const TwoStateButton: FC<TwoStateButtonProps> = React.forwardRef(
             return iconSize;
         };
 
-        const getButtonIcon = (icon: IconName, color: string): JSX.Element => (
+        const getButtonIcon = (position: string): JSX.Element => (
             <Icon
-                className={styles.icon}
-                color={color}
-                path={icon}
+                {...(position === 'left' ? iconOneProps : iconTwoProps)}
+                classNames={styles.icon}
                 size={getButtonIconSize()}
             />
         );
@@ -163,14 +160,14 @@ export const TwoStateButton: FC<TwoStateButtonProps> = React.forwardRef(
                 type="button"
             >
                 <span>
-                    {iconOneExists && getButtonIcon(iconOne, iconOneColor)}
+                    {iconOneExists && getButtonIcon('left')}
                     {textExists && getButtonText(buttonTextClassNames, text)}
                     {counterExists && (
                         <span className={counterClassNames}>
                             {counter.toLocaleString()}
                         </span>
                     )}
-                    {iconTwoExists && getButtonIcon(iconTwo, iconTwoColor)}
+                    {iconTwoExists && getButtonIcon('right')}
                 </span>
             </button>
         );

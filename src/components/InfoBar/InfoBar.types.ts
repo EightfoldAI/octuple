@@ -31,9 +31,9 @@ export interface InfoBarsProps {
      */
     style?: React.CSSProperties;
     /**
-     * Custom classname for the infoBar
+     * Custom classnames for the infoBar
      */
-    className?: string;
+    classNames?: string;
     /**
      * If the infoBar is closable or not
      */

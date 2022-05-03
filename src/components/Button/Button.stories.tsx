@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
 import {
+    ButtonIconAlign,
     ButtonShape,
     ButtonSize,
     ButtonTextAlign,
@@ -29,7 +30,7 @@ export const Primary = () => (
         <p>Default Flex</p>
         <PrimaryButton
             ariaLabel="Primary Button"
-            icon={IconName.mdiCardsHeart}
+            iconProps={{ path: IconName.mdiCardsHeart }}
             onClick={_alertClicked}
             text="Primary Button"
         />
@@ -40,7 +41,7 @@ export const Primary = () => (
             <PrimaryButton
                 ariaLabel="Primary Button"
                 buttonWidth={ButtonWidth.fill}
-                icon={IconName.mdiCardsHeart}
+                iconProps={{ path: IconName.mdiCardsHeart }}
                 onClick={_alertClicked}
                 text="Primary Button"
             />
@@ -68,16 +69,27 @@ export const Primary = () => (
         <p>Icon only</p>
         <PrimaryButton
             ariaLabel="Primary Button"
-            icon={IconName.mdiCardsHeart}
+            iconProps={{ path: IconName.mdiCardsHeart }}
             onClick={_alertClicked}
             size={ButtonSize.Large}
         />
         <br />
         <br />
-        <p>Text + Icon</p>
+        <p>Text + Left Icon</p>
         <PrimaryButton
             ariaLabel="Primary Button"
-            icon={IconName.mdiCardsHeart}
+            iconProps={{ path: IconName.mdiCardsHeart }}
+            onClick={_alertClicked}
+            size={ButtonSize.Large}
+            text="Primary Button"
+        />
+        <br />
+        <br />
+        <p>Text + Right Icon</p>
+        <PrimaryButton
+            alignIcon={ButtonIconAlign.Right}
+            ariaLabel="Primary Button"
+            iconProps={{ path: IconName.mdiCardsHeart }}
             onClick={_alertClicked}
             size={ButtonSize.Large}
             text="Primary Button"
@@ -120,7 +132,7 @@ export const Secondary = () => (
         <p>Icon only</p>
         <SecondaryButton
             ariaLabel="Secondary Button"
-            icon={IconName.mdiCardsHeart}
+            iconProps={{ path: IconName.mdiCardsHeart }}
             onClick={_alertClicked}
             size={ButtonSize.Large}
         />
@@ -129,7 +141,7 @@ export const Secondary = () => (
         <p>Text + Icon</p>
         <SecondaryButton
             ariaLabel="Secondary Button"
-            icon={IconName.mdiCardsHeart}
+            iconProps={{ path: IconName.mdiCardsHeart }}
             onClick={_alertClicked}
             size={ButtonSize.Large}
             text="Secondary Button"
@@ -173,7 +185,7 @@ export const Default = () => (
         <p>Icon only</p>
         <DefaultButton
             ariaLabel="Default Button"
-            icon={IconName.mdiCardsHeart}
+            iconProps={{ path: IconName.mdiCardsHeart }}
             onClick={_alertClicked}
             size={ButtonSize.Large}
         />
@@ -182,7 +194,7 @@ export const Default = () => (
         <p>Text + Icon</p>
         <DefaultButton
             ariaLabel="Default Button"
-            icon={IconName.mdiCardsHeart}
+            iconProps={{ path: IconName.mdiCardsHeart }}
             onClick={_alertClicked}
             size={ButtonSize.Large}
             text="Default Button"
@@ -226,7 +238,7 @@ export const Neutral = () => (
         <p>Icon only</p>
         <NeutralButton
             ariaLabel="Neutral Button"
-            icon={IconName.mdiCardsHeart}
+            iconProps={{ path: IconName.mdiCardsHeart }}
             onClick={_alertClicked}
             size={ButtonSize.Large}
         />
@@ -235,7 +247,7 @@ export const Neutral = () => (
         <p>Text + Icon</p>
         <NeutralButton
             ariaLabel="Neutral Button"
-            icon={IconName.mdiCardsHeart}
+            iconProps={{ path: IconName.mdiCardsHeart }}
             onClick={_alertClicked}
             size={ButtonSize.Large}
             text="Neutral Button"
@@ -302,7 +314,11 @@ export const Toggle: FC<ExampleProps> = ({ checked }) => {
                 <PrimaryButton
                     ariaLabel="Primary Button"
                     checked={skill1Added || checked}
-                    icon={skill1Added ? IconName.mdiMinus : IconName.mdiPlus}
+                    iconProps={{
+                        path: skill1Added
+                            ? IconName.mdiMinus
+                            : IconName.mdiPlus,
+                    }}
                     onClick={set1Added}
                     size={ButtonSize.Medium}
                     text="Primary Button"
@@ -313,7 +329,11 @@ export const Toggle: FC<ExampleProps> = ({ checked }) => {
                 <SecondaryButton
                     ariaLabel="Secondary Button"
                     checked={skill2Added || checked}
-                    icon={skill2Added ? IconName.mdiMinus : IconName.mdiPlus}
+                    iconProps={{
+                        path: skill2Added
+                            ? IconName.mdiMinus
+                            : IconName.mdiPlus,
+                    }}
                     onClick={set2Added}
                     size={ButtonSize.Medium}
                     text="Secondary Button"
@@ -324,7 +344,11 @@ export const Toggle: FC<ExampleProps> = ({ checked }) => {
                 <DefaultButton
                     ariaLabel="Default Button"
                     checked={skill3Added || checked}
-                    icon={skill3Added ? IconName.mdiMinus : IconName.mdiPlus}
+                    iconProps={{
+                        path: skill3Added
+                            ? IconName.mdiMinus
+                            : IconName.mdiPlus,
+                    }}
                     onClick={set3Added}
                     size={ButtonSize.Medium}
                     text="Default Button"
@@ -335,7 +359,11 @@ export const Toggle: FC<ExampleProps> = ({ checked }) => {
                 <NeutralButton
                     ariaLabel="Neutral Button"
                     checked={skill4Added || checked}
-                    icon={skill4Added ? IconName.mdiMinus : IconName.mdiPlus}
+                    iconProps={{
+                        path: skill4Added
+                            ? IconName.mdiMinus
+                            : IconName.mdiPlus,
+                    }}
                     onClick={set4Added}
                     size={ButtonSize.Medium}
                     text="Neutral Button"
@@ -361,10 +389,12 @@ export const TwoState: FC<ExampleProps> = ({ checked }) => {
                 ariaLabel="Two State Button"
                 checked={isToggled || checked}
                 counter={8}
-                iconOne={IconName.mdiCardsHeart}
-                iconTwo={
-                    isToggled ? IconName.mdiChevronUp : IconName.mdiChevronDown
-                }
+                iconOneProps={{ path: IconName.mdiCardsHeart }}
+                iconTwoProps={{
+                    path: isToggled
+                        ? IconName.mdiChevronUp
+                        : IconName.mdiChevronDown,
+                }}
                 onClick={setToggled}
                 text="Two State Button"
                 toggle

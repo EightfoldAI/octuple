@@ -153,7 +153,7 @@ Array [
   <button
     aria-disabled={false}
     aria-label="Default Button"
-    className="button buttonDefault buttonPadding1"
+    className="button buttonDefault buttonPadding1 iconLeft"
     defaultChecked={false}
     disabled={false}
     onClick={[Function]}
@@ -192,7 +192,7 @@ Array [
   <button
     aria-disabled={false}
     aria-label="Default Button"
-    className="button buttonDefault buttonPadding1"
+    className="button buttonDefault buttonPadding1 iconLeft"
     defaultChecked={false}
     disabled={false}
     onClick={[Function]}
@@ -301,7 +301,7 @@ Array [
   <button
     aria-disabled={false}
     aria-label="Neutral Button"
-    className="button buttonNeutral buttonPadding1"
+    className="button buttonNeutral buttonPadding1 iconLeft"
     defaultChecked={false}
     disabled={false}
     onClick={[Function]}
@@ -340,7 +340,7 @@ Array [
   <button
     aria-disabled={false}
     aria-label="Neutral Button"
-    className="button buttonNeutral buttonPadding1"
+    className="button buttonNeutral buttonPadding1 iconLeft"
     defaultChecked={false}
     disabled={false}
     onClick={[Function]}
@@ -392,7 +392,7 @@ Array [
   <button
     aria-disabled={false}
     aria-label="Primary Button"
-    className="button buttonPrimary"
+    className="button buttonPrimary iconLeft"
     defaultChecked={false}
     disabled={false}
     onClick={[Function]}
@@ -445,7 +445,7 @@ Array [
     <button
       aria-disabled={false}
       aria-label="Primary Button"
-      className="button buttonPrimary buttonStretch"
+      className="button buttonPrimary buttonStretch iconLeft"
       defaultChecked={false}
       disabled={false}
       onClick={[Function]}
@@ -529,7 +529,7 @@ Array [
   <button
     aria-disabled={false}
     aria-label="Primary Button"
-    className="button buttonPrimary buttonPadding1"
+    className="button buttonPrimary buttonPadding1 iconLeft"
     defaultChecked={false}
     disabled={false}
     onClick={[Function]}
@@ -563,12 +563,58 @@ Array [
   <br />,
   <br />,
   <p>
-    Text + Icon
+    Text + Left Icon
   </p>,
   <button
     aria-disabled={false}
     aria-label="Primary Button"
-    className="button buttonPrimary buttonPadding1"
+    className="button buttonPrimary buttonPadding1 iconLeft"
+    defaultChecked={false}
+    disabled={false}
+    onClick={[Function]}
+  >
+    <span>
+      <span
+        aria-hidden={false}
+        className="icon iconWrapper"
+        role="presentation"
+      >
+        <svg
+          role="presentation"
+          style={
+            Object {
+              "height": "24px",
+              "width": "24px",
+            }
+          }
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"
+            style={
+              Object {
+                "fill": "currentColor",
+              }
+            }
+          />
+        </svg>
+      </span>
+      <span
+        className="button1"
+      >
+        Primary Button
+      </span>
+    </span>
+  </button>,
+  <br />,
+  <br />,
+  <p>
+    Text + Right Icon
+  </p>,
+  <button
+    aria-disabled={false}
+    aria-label="Primary Button"
+    className="button buttonPrimary buttonPadding1 iconRight"
     defaultChecked={false}
     disabled={false}
     onClick={[Function]}
@@ -677,7 +723,7 @@ Array [
   <button
     aria-disabled={false}
     aria-label="Secondary Button"
-    className="button buttonSecondary buttonPadding1"
+    className="button buttonSecondary buttonPadding1 iconLeft"
     defaultChecked={false}
     disabled={false}
     onClick={[Function]}
@@ -716,7 +762,7 @@ Array [
   <button
     aria-disabled={false}
     aria-label="Secondary Button"
-    className="button buttonSecondary buttonPadding1"
+    className="button buttonSecondary buttonPadding1 iconLeft"
     defaultChecked={false}
     disabled={false}
     onClick={[Function]}
@@ -804,7 +850,7 @@ Array [
     <button
       aria-disabled={false}
       aria-label="Split Button"
-      className="referenceWrapper button buttonPrimary splitLeft"
+      className="button buttonPrimary splitLeft"
       defaultChecked={false}
       disabled={false}
       onClick={[Function]}
@@ -819,7 +865,7 @@ Array [
       aria-checked={false}
       aria-disabled={false}
       aria-pressed={false}
-      className="referenceWrapper button buttonPrimary undefined splitButton splitRight"
+      className="button buttonPrimary undefined splitButton splitRight"
       defaultChecked={false}
       disabled={false}
       onClick={[Function]}
@@ -887,7 +933,7 @@ Array [
       aria-disabled={false}
       aria-label="Primary Button"
       aria-pressed={false}
-      className="button buttonPrimary buttonPadding2"
+      className="button buttonPrimary buttonPadding2 iconLeft"
       defaultChecked={false}
       disabled={false}
       onClick={[Function]}
@@ -938,7 +984,7 @@ Array [
       aria-disabled={false}
       aria-label="Secondary Button"
       aria-pressed={false}
-      className="button buttonSecondary buttonPadding2"
+      className="button buttonSecondary buttonPadding2 iconLeft"
       defaultChecked={false}
       disabled={false}
       onClick={[Function]}
@@ -983,7 +1029,7 @@ Array [
       aria-disabled={false}
       aria-label="Default Button"
       aria-pressed={false}
-      className="button buttonDefault buttonPadding2"
+      className="button buttonDefault buttonPadding2 iconLeft"
       defaultChecked={false}
       disabled={false}
       onClick={[Function]}
@@ -1028,7 +1074,7 @@ Array [
       aria-disabled={false}
       aria-label="Neutral Button"
       aria-pressed={false}
-      className="button buttonNeutral buttonPadding2"
+      className="button buttonNeutral buttonPadding2 iconLeft"
       defaultChecked={false}
       disabled={false}
       onClick={[Function]}
@@ -3121,7 +3167,7 @@ exports[`Storyshots ConfigProvider Theming 1`] = `
     <button
       aria-disabled={false}
       aria-label="Primary Button"
-      className="button buttonPrimary buttonPadding1"
+      className="button buttonPrimary buttonPadding1 iconLeft"
       defaultChecked={false}
       disabled={false}
       onClick={[Function]}
@@ -3155,7 +3201,7 @@ exports[`Storyshots ConfigProvider Theming 1`] = `
     <button
       aria-disabled={false}
       aria-label="Primary Button"
-      className="button buttonPrimary buttonPadding1"
+      className="button buttonPrimary buttonPadding1 iconLeft"
       defaultChecked={false}
       disabled={false}
       onClick={[Function]}
@@ -3221,7 +3267,7 @@ exports[`Storyshots ConfigProvider Theming 1`] = `
     <button
       aria-disabled={false}
       aria-label="Secondary Button"
-      className="button buttonSecondary buttonPadding1"
+      className="button buttonSecondary buttonPadding1 iconLeft"
       defaultChecked={false}
       disabled={false}
       onClick={[Function]}
@@ -3255,7 +3301,7 @@ exports[`Storyshots ConfigProvider Theming 1`] = `
     <button
       aria-disabled={false}
       aria-label="Secondary Button"
-      className="button buttonSecondary buttonPadding1"
+      className="button buttonSecondary buttonPadding1 iconLeft"
       defaultChecked={false}
       disabled={false}
       onClick={[Function]}
@@ -3321,7 +3367,7 @@ exports[`Storyshots ConfigProvider Theming 1`] = `
     <button
       aria-disabled={false}
       aria-label="Default Button"
-      className="button buttonDefault buttonPadding1"
+      className="button buttonDefault buttonPadding1 iconLeft"
       defaultChecked={false}
       disabled={false}
       onClick={[Function]}
@@ -3355,7 +3401,7 @@ exports[`Storyshots ConfigProvider Theming 1`] = `
     <button
       aria-disabled={false}
       aria-label="Default Button"
-      className="button buttonDefault buttonPadding1"
+      className="button buttonDefault buttonPadding1 iconLeft"
       defaultChecked={false}
       disabled={false}
       onClick={[Function]}
@@ -3478,7 +3524,7 @@ exports[`Storyshots ConfigProvider Theming 1`] = `
       >
         <span
           aria-hidden={false}
-          className="icon iconWrapper"
+          className="iconWrapper"
           role="presentation"
         >
           <svg
@@ -3517,7 +3563,7 @@ exports[`Storyshots ConfigProvider Theming 1`] = `
       >
         <span
           aria-hidden={false}
-          className="icon iconWrapper"
+          className="iconWrapper"
           role="presentation"
         >
           <svg
@@ -3550,7 +3596,7 @@ exports[`Storyshots ConfigProvider Theming 1`] = `
       >
         <span
           aria-hidden={false}
-          className="icon iconWrapper"
+          className="iconWrapper"
           role="presentation"
         >
           <svg
@@ -3584,7 +3630,7 @@ exports[`Storyshots ConfigProvider Theming 1`] = `
       >
         <span
           aria-hidden={false}
-          className="icon iconWrapper"
+          className="iconWrapper"
           role="presentation"
         >
           <svg
@@ -3836,7 +3882,7 @@ Array [
         aria-disabled={false}
         aria-expanded={false}
         aria-haspopup={true}
-        className="referenceWrapper button buttonDefault"
+        className="button buttonDefault"
         defaultChecked={false}
         disabled={false}
         onClick={[Function]}
@@ -3856,7 +3902,7 @@ Array [
         aria-disabled={false}
         aria-expanded={false}
         aria-haspopup={true}
-        className="referenceWrapper button buttonDefault"
+        className="button buttonDefault"
         defaultChecked={false}
         disabled={false}
         onMouseEnter={[Function]}
@@ -4199,7 +4245,7 @@ exports[`Storyshots InfoBar Default 1`] = `
       <button
         aria-disabled={false}
         aria-label="Close"
-        className="button buttonNeutral"
+        className="button buttonNeutral iconLeft"
         defaultChecked={false}
         disabled={false}
       >
@@ -4267,7 +4313,7 @@ exports[`Storyshots InfoBar Default 1`] = `
       <button
         aria-disabled={false}
         aria-label="Close"
-        className="button buttonNeutral"
+        className="button buttonNeutral iconLeft"
         defaultChecked={false}
         disabled={false}
       >
@@ -4335,7 +4381,7 @@ exports[`Storyshots InfoBar Default 1`] = `
       <button
         aria-disabled={false}
         aria-label="Close"
-        className="button buttonNeutral"
+        className="button buttonNeutral iconLeft"
         defaultChecked={false}
         disabled={false}
       >
@@ -4403,7 +4449,7 @@ exports[`Storyshots InfoBar Default 1`] = `
       <button
         aria-disabled={false}
         aria-label="Close"
-        className="button buttonNeutral"
+        className="button buttonNeutral iconLeft"
         defaultChecked={false}
         disabled={false}
       >
@@ -4637,6 +4683,266 @@ exports[`Storyshots InfoBar Default 1`] = `
     </div>
   </div>
 </div>
+`;
+
+exports[`Storyshots Label Sizes 1`] = `
+Array [
+  <h1>
+    Labels
+  </h1>,
+  <p>
+    Large
+  </p>,
+  <div
+    className="fieldLabel large"
+  >
+    <label
+      className="textStyle large"
+    >
+      Label
+    </label>
+    <span
+      className="fieldLabelIconButton large"
+    >
+      <div
+        className="referenceWrapper"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+      >
+        <button
+          aria-disabled={false}
+          className="labelIconButton button buttonDefault buttonPadding3 iconLeft"
+          defaultChecked={false}
+          disabled={false}
+        >
+          <span
+            aria-hidden={false}
+            className="icon iconWrapper"
+            role="presentation"
+          >
+            <svg
+              role="presentation"
+              style={
+                Object {
+                  "height": "16px",
+                  "width": "16px",
+                }
+              }
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M13,9H11V7H13M13,17H11V11H13M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z"
+                style={
+                  Object {
+                    "fill": "currentColor",
+                  }
+                }
+              />
+            </svg>
+          </span>
+        </button>
+      </div>
+      <div
+        aria-hidden={true}
+        className="tooltip top"
+        role="tooltip"
+        style={
+          Object {
+            "left": "",
+            "position": "absolute",
+            "top": "",
+          }
+        }
+        tabIndex={0}
+      >
+        A tooltip
+        <div
+          className="arrow"
+          style={
+            Object {
+              "bottom": "-4px",
+              "left": "",
+              "position": "absolute",
+              "top": "",
+            }
+          }
+        />
+      </div>
+    </span>
+  </div>,
+  <br />,
+  <br />,
+  <p>
+    Medium
+  </p>,
+  <div
+    className="fieldLabel medium"
+  >
+    <label
+      className="textStyle medium"
+    >
+      Label
+    </label>
+    <span
+      className="fieldLabelIconButton medium"
+    >
+      <div
+        className="referenceWrapper"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+      >
+        <button
+          aria-disabled={false}
+          className="labelIconButton button buttonDefault buttonPadding3 iconLeft"
+          defaultChecked={false}
+          disabled={false}
+        >
+          <span
+            aria-hidden={false}
+            className="icon iconWrapper"
+            role="presentation"
+          >
+            <svg
+              role="presentation"
+              style={
+                Object {
+                  "height": "16px",
+                  "width": "16px",
+                }
+              }
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M13,9H11V7H13M13,17H11V11H13M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z"
+                style={
+                  Object {
+                    "fill": "currentColor",
+                  }
+                }
+              />
+            </svg>
+          </span>
+        </button>
+      </div>
+      <div
+        aria-hidden={true}
+        className="tooltip top"
+        role="tooltip"
+        style={
+          Object {
+            "left": "",
+            "position": "absolute",
+            "top": "",
+          }
+        }
+        tabIndex={0}
+      >
+        A tooltip
+        <div
+          className="arrow"
+          style={
+            Object {
+              "bottom": "-4px",
+              "left": "",
+              "position": "absolute",
+              "top": "",
+            }
+          }
+        />
+      </div>
+    </span>
+  </div>,
+  <br />,
+  <br />,
+  <p>
+    Small
+  </p>,
+  <div
+    className="fieldLabel small"
+  >
+    <label
+      className="textStyle small"
+    >
+      Label
+    </label>
+    <span
+      className="fieldLabelIconButton small"
+    >
+      <div
+        className="referenceWrapper"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+      >
+        <button
+          aria-disabled={false}
+          className="labelIconButton button buttonDefault buttonPadding3 iconLeft"
+          defaultChecked={false}
+          disabled={false}
+        >
+          <span
+            aria-hidden={false}
+            className="icon iconWrapper"
+            role="presentation"
+          >
+            <svg
+              role="presentation"
+              style={
+                Object {
+                  "height": "16px",
+                  "width": "16px",
+                }
+              }
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M13,9H11V7H13M13,17H11V11H13M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z"
+                style={
+                  Object {
+                    "fill": "currentColor",
+                  }
+                }
+              />
+            </svg>
+          </span>
+        </button>
+      </div>
+      <div
+        aria-hidden={true}
+        className="tooltip top"
+        role="tooltip"
+        style={
+          Object {
+            "left": "",
+            "position": "absolute",
+            "top": "",
+          }
+        }
+        tabIndex={0}
+      >
+        A tooltip
+        <div
+          className="arrow"
+          style={
+            Object {
+              "bottom": "-4px",
+              "left": "",
+              "position": "absolute",
+              "top": "",
+            }
+          }
+        />
+      </div>
+    </span>
+  </div>,
+  <br />,
+  <br />,
+]
 `;
 
 exports[`Storyshots List Default 1`] = `
@@ -5488,7 +5794,7 @@ Array [
       aria-disabled={false}
       aria-expanded={false}
       aria-haspopup={true}
-      className="referenceWrapper button buttonDefault"
+      className="button buttonDefault"
       defaultChecked={false}
       disabled={false}
       onClick={[Function]}
@@ -5514,7 +5820,7 @@ Array [
       aria-disabled={false}
       aria-expanded={false}
       aria-haspopup={true}
-      className="referenceWrapper button buttonDefault buttonDisruptive"
+      className="button buttonDefault buttonDisruptive"
       defaultChecked={false}
       disabled={false}
       onClick={[Function]}
@@ -5899,7 +6205,7 @@ Array [
         <button
           aria-disabled={false}
           aria-label="Close"
-          className="closeButton button buttonDefault buttonPadding2"
+          className="closeButton button buttonDefault buttonPadding2 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -5946,7 +6252,7 @@ Array [
         <button
           aria-disabled={false}
           aria-label="Close"
-          className="closeButton button buttonDefault buttonPadding2"
+          className="closeButton button buttonDefault buttonPadding2 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -5993,7 +6299,7 @@ Array [
         <button
           aria-disabled={false}
           aria-label="Close"
-          className="closeButton button buttonDefault buttonPadding2"
+          className="closeButton button buttonDefault buttonPadding2 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -6040,7 +6346,7 @@ Array [
         <button
           aria-disabled={false}
           aria-label="Close"
-          className="closeButton button buttonDefault buttonPadding2"
+          className="closeButton button buttonDefault buttonPadding2 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -6087,7 +6393,7 @@ Array [
         <button
           aria-disabled={false}
           aria-label="Close"
-          className="closeButton button buttonDefault buttonPadding2"
+          className="closeButton button buttonDefault buttonPadding2 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -6134,7 +6440,7 @@ Array [
         <button
           aria-disabled={false}
           aria-label="Close"
-          className="closeButton button buttonDefault buttonPadding2"
+          className="closeButton button buttonDefault buttonPadding2 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -6181,7 +6487,7 @@ Array [
         <button
           aria-disabled={false}
           aria-label="Close"
-          className="closeButton button buttonDefault buttonPadding2"
+          className="closeButton button buttonDefault buttonPadding2 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -6228,7 +6534,7 @@ Array [
         <button
           aria-disabled={false}
           aria-label="Close"
-          className="closeButton button buttonDefault buttonPadding2"
+          className="closeButton button buttonDefault buttonPadding2 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -6607,7 +6913,7 @@ Array [
         <button
           aria-disabled={false}
           aria-label="Thumbs up"
-          className="button button buttonDefault buttonPadding2"
+          className="button button buttonDefault buttonPadding2 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -6661,7 +6967,7 @@ Array [
         <button
           aria-disabled={false}
           aria-label="Thumbs up"
-          className="button button buttonDefault buttonPadding2"
+          className="button button buttonDefault buttonPadding2 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -6715,7 +7021,7 @@ Array [
         <button
           aria-disabled={false}
           aria-label="Thumbs up"
-          className="button button buttonDefault buttonPadding2"
+          className="button button buttonDefault buttonPadding2 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -6769,7 +7075,7 @@ Array [
         <button
           aria-disabled={false}
           aria-label="Thumbs up"
-          className="button button buttonDefault buttonPadding2"
+          className="button button buttonDefault buttonPadding2 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -6823,7 +7129,7 @@ Array [
         <button
           aria-disabled={false}
           aria-label="Thumbs up"
-          className="button button buttonDefault buttonPadding2"
+          className="button button buttonDefault buttonPadding2 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -6877,7 +7183,7 @@ Array [
         <button
           aria-disabled={false}
           aria-label="Thumbs up"
-          className="button button buttonDefault buttonPadding2"
+          className="button button buttonDefault buttonPadding2 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -6931,7 +7237,7 @@ Array [
         <button
           aria-disabled={false}
           aria-label="Thumbs up"
-          className="button button buttonDefault buttonPadding2"
+          className="button button buttonDefault buttonPadding2 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -6985,7 +7291,7 @@ Array [
         <button
           aria-disabled={false}
           aria-label="Thumbs up"
-          className="button button buttonDefault buttonPadding2"
+          className="button button buttonDefault buttonPadding2 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -7188,7 +7494,7 @@ Array [
         <button
           aria-disabled={false}
           aria-label="Close"
-          className="closeButton button buttonDefault buttonPadding3"
+          className="closeButton button buttonDefault buttonPadding3 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -7235,7 +7541,7 @@ Array [
         <button
           aria-disabled={false}
           aria-label="Close"
-          className="closeButton button buttonDefault buttonPadding3"
+          className="closeButton button buttonDefault buttonPadding3 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -7282,7 +7588,7 @@ Array [
         <button
           aria-disabled={false}
           aria-label="Close"
-          className="closeButton button buttonDefault buttonPadding3"
+          className="closeButton button buttonDefault buttonPadding3 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -7329,7 +7635,7 @@ Array [
         <button
           aria-disabled={false}
           aria-label="Close"
-          className="closeButton button buttonDefault buttonPadding3"
+          className="closeButton button buttonDefault buttonPadding3 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -7376,7 +7682,7 @@ Array [
         <button
           aria-disabled={false}
           aria-label="Close"
-          className="closeButton button buttonDefault buttonPadding3"
+          className="closeButton button buttonDefault buttonPadding3 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -7423,7 +7729,7 @@ Array [
         <button
           aria-disabled={false}
           aria-label="Close"
-          className="closeButton button buttonDefault buttonPadding3"
+          className="closeButton button buttonDefault buttonPadding3 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -7470,7 +7776,7 @@ Array [
         <button
           aria-disabled={false}
           aria-label="Close"
-          className="closeButton button buttonDefault buttonPadding3"
+          className="closeButton button buttonDefault buttonPadding3 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -7517,7 +7823,7 @@ Array [
         <button
           aria-disabled={false}
           aria-label="Close"
-          className="closeButton button buttonDefault buttonPadding3"
+          className="closeButton button buttonDefault buttonPadding3 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -7896,7 +8202,7 @@ Array [
         <button
           aria-disabled={false}
           aria-label="Thumbs up"
-          className="button button buttonDefault buttonPadding3"
+          className="button button buttonDefault buttonPadding3 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -7950,7 +8256,7 @@ Array [
         <button
           aria-disabled={false}
           aria-label="Thumbs up"
-          className="button button buttonDefault buttonPadding3"
+          className="button button buttonDefault buttonPadding3 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -8004,7 +8310,7 @@ Array [
         <button
           aria-disabled={false}
           aria-label="Thumbs up"
-          className="button button buttonDefault buttonPadding3"
+          className="button button buttonDefault buttonPadding3 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -8058,7 +8364,7 @@ Array [
         <button
           aria-disabled={false}
           aria-label="Thumbs up"
-          className="button button buttonDefault buttonPadding3"
+          className="button button buttonDefault buttonPadding3 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -8112,7 +8418,7 @@ Array [
         <button
           aria-disabled={false}
           aria-label="Thumbs up"
-          className="button button buttonDefault buttonPadding3"
+          className="button button buttonDefault buttonPadding3 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -8166,7 +8472,7 @@ Array [
         <button
           aria-disabled={false}
           aria-label="Thumbs up"
-          className="button button buttonDefault buttonPadding3"
+          className="button button buttonDefault buttonPadding3 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -8220,7 +8526,7 @@ Array [
         <button
           aria-disabled={false}
           aria-label="Thumbs up"
-          className="button button buttonDefault buttonPadding3"
+          className="button button buttonDefault buttonPadding3 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -8274,7 +8580,7 @@ Array [
         <button
           aria-disabled={false}
           aria-label="Thumbs up"
-          className="button button buttonDefault buttonPadding3"
+          className="button button buttonDefault buttonPadding3 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -8477,7 +8783,7 @@ Array [
         <button
           aria-disabled={false}
           aria-label="Close"
-          className="closeButton button buttonDefault buttonPadding3"
+          className="closeButton button buttonDefault buttonPadding3 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -8524,7 +8830,7 @@ Array [
         <button
           aria-disabled={false}
           aria-label="Close"
-          className="closeButton button buttonDefault buttonPadding3"
+          className="closeButton button buttonDefault buttonPadding3 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -8571,7 +8877,7 @@ Array [
         <button
           aria-disabled={false}
           aria-label="Close"
-          className="closeButton button buttonDefault buttonPadding3"
+          className="closeButton button buttonDefault buttonPadding3 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -8618,7 +8924,7 @@ Array [
         <button
           aria-disabled={false}
           aria-label="Close"
-          className="closeButton button buttonDefault buttonPadding3"
+          className="closeButton button buttonDefault buttonPadding3 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -8665,7 +8971,7 @@ Array [
         <button
           aria-disabled={false}
           aria-label="Close"
-          className="closeButton button buttonDefault buttonPadding3"
+          className="closeButton button buttonDefault buttonPadding3 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -8712,7 +9018,7 @@ Array [
         <button
           aria-disabled={false}
           aria-label="Close"
-          className="closeButton button buttonDefault buttonPadding3"
+          className="closeButton button buttonDefault buttonPadding3 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -8759,7 +9065,7 @@ Array [
         <button
           aria-disabled={false}
           aria-label="Close"
-          className="closeButton button buttonDefault buttonPadding3"
+          className="closeButton button buttonDefault buttonPadding3 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -8806,7 +9112,7 @@ Array [
         <button
           aria-disabled={false}
           aria-label="Close"
-          className="closeButton button buttonDefault buttonPadding3"
+          className="closeButton button buttonDefault buttonPadding3 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -9185,7 +9491,7 @@ Array [
         <button
           aria-disabled={false}
           aria-label="Thumbs up"
-          className="button button buttonDefault buttonPadding3"
+          className="button button buttonDefault buttonPadding3 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -9239,7 +9545,7 @@ Array [
         <button
           aria-disabled={false}
           aria-label="Thumbs up"
-          className="button button buttonDefault buttonPadding3"
+          className="button button buttonDefault buttonPadding3 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -9293,7 +9599,7 @@ Array [
         <button
           aria-disabled={false}
           aria-label="Thumbs up"
-          className="button button buttonDefault buttonPadding3"
+          className="button button buttonDefault buttonPadding3 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -9347,7 +9653,7 @@ Array [
         <button
           aria-disabled={false}
           aria-label="Thumbs up"
-          className="button button buttonDefault buttonPadding3"
+          className="button button buttonDefault buttonPadding3 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -9401,7 +9707,7 @@ Array [
         <button
           aria-disabled={false}
           aria-label="Thumbs up"
-          className="button button buttonDefault buttonPadding3"
+          className="button button buttonDefault buttonPadding3 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -9455,7 +9761,7 @@ Array [
         <button
           aria-disabled={false}
           aria-label="Thumbs up"
-          className="button button buttonDefault buttonPadding3"
+          className="button button buttonDefault buttonPadding3 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -9509,7 +9815,7 @@ Array [
         <button
           aria-disabled={false}
           aria-label="Thumbs up"
-          className="button button buttonDefault buttonPadding3"
+          className="button button buttonDefault buttonPadding3 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -9563,7 +9869,7 @@ Array [
         <button
           aria-disabled={false}
           aria-label="Thumbs up"
-          className="button button buttonDefault buttonPadding3"
+          className="button button buttonDefault buttonPadding3 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -9630,10 +9936,10 @@ Array [
       className="inputWrapper inputStretch"
     >
       <div
-        className="fieldLabel"
+        className="fieldLabel medium"
       >
         <label
-          className="textStyle"
+          className="textStyle medium"
         >
           Label
         </label>
@@ -9652,7 +9958,7 @@ Array [
       />
       <button
         aria-disabled={false}
-        className="iconButton leftIcon button buttonDefault buttonPadding2"
+        className="iconButton leftIcon button buttonDefault buttonPadding2 iconLeft"
         defaultChecked={false}
         disabled={false}
       >
@@ -9696,15 +10002,15 @@ Array [
       className="inputWrapper"
     >
       <div
-        className="fieldLabel"
+        className="fieldLabel medium"
       >
         <label
-          className="textStyle"
+          className="textStyle medium"
         >
           Label
         </label>
         <span
-          className="fieldLabelIconButton"
+          className="fieldLabelIconButton medium"
         >
           <div
             className="referenceWrapper"
@@ -9715,7 +10021,7 @@ Array [
           >
             <button
               aria-disabled={false}
-              className="labelIconButton button buttonDefault buttonPadding3"
+              className="labelIconButton button buttonDefault buttonPadding3 iconLeft"
               defaultChecked={false}
               disabled={false}
               onClick={[Function]}
@@ -9818,7 +10124,7 @@ Array [
       </div>
       <button
         aria-disabled={false}
-        className="iconButton leftIcon button buttonDefault buttonPadding2"
+        className="iconButton leftIcon button buttonDefault buttonPadding2 iconLeft"
         defaultChecked={false}
         disabled={false}
         onClick={[Function]}
@@ -9863,10 +10169,10 @@ Array [
       className="inputWrapper"
     >
       <div
-        className="fieldLabel"
+        className="fieldLabel medium"
       >
         <label
-          className="textStyle"
+          className="textStyle medium"
         >
           Label
         </label>
@@ -9892,7 +10198,7 @@ Array [
       </div>
       <button
         aria-disabled={false}
-        className="iconButton leftIcon button buttonDefault buttonPadding2"
+        className="iconButton leftIcon button buttonDefault buttonPadding2 iconLeft"
         defaultChecked={false}
         disabled={false}
         onClick={[Function]}
@@ -9937,10 +10243,10 @@ Array [
       className="inputWrapper inputStretch"
     >
       <div
-        className="fieldLabel"
+        className="fieldLabel medium"
       >
         <label
-          className="textStyle"
+          className="textStyle medium"
         >
           Label
         </label>
@@ -9959,7 +10265,7 @@ Array [
       />
       <button
         aria-disabled={false}
-        className="iconButton leftIcon button buttonDefault buttonPadding2"
+        className="iconButton leftIcon button buttonDefault buttonPadding2 iconLeft"
         defaultChecked={false}
         disabled={false}
         onClick={[Function]}
@@ -10004,10 +10310,10 @@ Array [
       className="inputWrapper"
     >
       <div
-        className="fieldLabel"
+        className="fieldLabel medium"
       >
         <label
-          className="textStyle"
+          className="textStyle medium"
         >
           Label
         </label>
@@ -10055,7 +10361,7 @@ Array [
       </div>
       <button
         aria-disabled={false}
-        className="iconButton leftIcon button buttonDefault buttonPadding2"
+        className="iconButton leftIcon button buttonDefault buttonPadding2 iconLeft"
         defaultChecked={false}
         disabled={false}
         onClick={[Function]}
@@ -10100,10 +10406,10 @@ Array [
       className="inputWrapper"
     >
       <div
-        className="fieldLabel"
+        className="fieldLabel medium"
       >
         <label
-          className="textStyle"
+          className="textStyle medium"
         >
           Label
         </label>
@@ -10129,7 +10435,7 @@ Array [
       </div>
       <button
         aria-disabled={false}
-        className="iconButton leftIcon button buttonDefault buttonPadding2"
+        className="iconButton leftIcon button buttonDefault buttonPadding2 iconLeft"
         defaultChecked={false}
         disabled={false}
         onClick={[Function]}
@@ -10443,7 +10749,7 @@ Array [
       >
         <span
           aria-hidden={false}
-          className="icon iconWrapper"
+          className="iconWrapper"
           role="presentation"
         >
           <svg
@@ -10482,7 +10788,7 @@ Array [
       >
         <span
           aria-hidden={false}
-          className="icon iconWrapper"
+          className="iconWrapper"
           role="presentation"
         >
           <svg
@@ -10515,7 +10821,7 @@ Array [
       >
         <span
           aria-hidden={false}
-          className="icon iconWrapper"
+          className="iconWrapper"
           role="presentation"
         >
           <svg
@@ -10549,7 +10855,7 @@ Array [
       >
         <span
           aria-hidden={false}
-          className="icon iconWrapper"
+          className="iconWrapper"
           role="presentation"
         >
           <svg
@@ -10592,7 +10898,7 @@ Array [
       >
         <span
           aria-hidden={false}
-          className="icon iconWrapper"
+          className="iconWrapper"
           role="presentation"
         >
           <svg
@@ -10636,7 +10942,7 @@ Array [
       >
         <span
           aria-hidden={false}
-          className="icon iconWrapper"
+          className="iconWrapper"
           role="presentation"
         >
           <svg
@@ -10674,7 +10980,7 @@ Array [
       >
         <span
           aria-hidden={false}
-          className="icon iconWrapper"
+          className="iconWrapper"
           role="presentation"
         >
           <svg
@@ -10713,7 +11019,7 @@ Array [
       >
         <span
           aria-hidden={false}
-          className="icon iconWrapper"
+          className="iconWrapper"
           role="presentation"
         >
           <svg
@@ -11084,7 +11390,7 @@ Array [
       >
         <span
           aria-hidden={false}
-          className="icon iconWrapper"
+          className="iconWrapper"
           role="presentation"
         >
           <svg
@@ -11123,7 +11429,7 @@ Array [
       >
         <span
           aria-hidden={false}
-          className="icon iconWrapper"
+          className="iconWrapper"
           role="presentation"
         >
           <svg
@@ -11156,7 +11462,7 @@ Array [
       >
         <span
           aria-hidden={false}
-          className="icon iconWrapper"
+          className="iconWrapper"
           role="presentation"
         >
           <svg
@@ -11190,7 +11496,7 @@ Array [
       >
         <span
           aria-hidden={false}
-          className="icon iconWrapper"
+          className="iconWrapper"
           role="presentation"
         >
           <svg
@@ -11233,7 +11539,7 @@ Array [
       >
         <span
           aria-hidden={false}
-          className="icon iconWrapper"
+          className="iconWrapper"
           role="presentation"
         >
           <svg
@@ -11277,7 +11583,7 @@ Array [
       >
         <span
           aria-hidden={false}
-          className="icon iconWrapper"
+          className="iconWrapper"
           role="presentation"
         >
           <svg
@@ -11315,7 +11621,7 @@ Array [
       >
         <span
           aria-hidden={false}
-          className="icon iconWrapper"
+          className="iconWrapper"
           role="presentation"
         >
           <svg
@@ -11354,7 +11660,7 @@ Array [
       >
         <span
           aria-hidden={false}
-          className="icon iconWrapper"
+          className="iconWrapper"
           role="presentation"
         >
           <svg
@@ -11565,7 +11871,7 @@ Array [
       >
         <span
           aria-hidden={false}
-          className="icon iconWrapper"
+          className="iconWrapper"
           role="presentation"
         >
           <svg
@@ -11604,7 +11910,7 @@ Array [
       >
         <span
           aria-hidden={false}
-          className="icon iconWrapper"
+          className="iconWrapper"
           role="presentation"
         >
           <svg
@@ -11637,7 +11943,7 @@ Array [
       >
         <span
           aria-hidden={false}
-          className="icon iconWrapper"
+          className="iconWrapper"
           role="presentation"
         >
           <svg
@@ -11671,7 +11977,7 @@ Array [
       >
         <span
           aria-hidden={false}
-          className="icon iconWrapper"
+          className="iconWrapper"
           role="presentation"
         >
           <svg
@@ -11714,7 +12020,7 @@ Array [
       >
         <span
           aria-hidden={false}
-          className="icon iconWrapper"
+          className="iconWrapper"
           role="presentation"
         >
           <svg
@@ -11758,7 +12064,7 @@ Array [
       >
         <span
           aria-hidden={false}
-          className="icon iconWrapper"
+          className="iconWrapper"
           role="presentation"
         >
           <svg
@@ -11796,7 +12102,7 @@ Array [
       >
         <span
           aria-hidden={false}
-          className="icon iconWrapper"
+          className="iconWrapper"
           role="presentation"
         >
           <svg
@@ -11835,7 +12141,7 @@ Array [
       >
         <span
           aria-hidden={false}
-          className="icon iconWrapper"
+          className="iconWrapper"
           role="presentation"
         >
           <svg
@@ -12036,10 +12342,10 @@ Array [
     className="inputWrapper inputStretch"
   >
     <div
-      className="fieldLabel"
+      className="fieldLabel medium"
     >
       <label
-        className="textStyle"
+        className="textStyle medium"
       >
         Label
       </label>
@@ -12066,15 +12372,15 @@ Array [
     className="inputWrapper"
   >
     <div
-      className="fieldLabel"
+      className="fieldLabel medium"
     >
       <label
-        className="textStyle"
+        className="textStyle medium"
       >
         Label
       </label>
       <span
-        className="fieldLabelIconButton"
+        className="fieldLabelIconButton medium"
       >
         <div
           className="referenceWrapper"
@@ -12085,7 +12391,7 @@ Array [
         >
           <button
             aria-disabled={false}
-            className="labelIconButton button buttonDefault buttonPadding3"
+            className="labelIconButton button buttonDefault buttonPadding3 iconLeft"
             defaultChecked={false}
             disabled={false}
             onClick={[Function]}
@@ -12167,10 +12473,10 @@ Array [
     className="inputWrapper"
   >
     <div
-      className="fieldLabel"
+      className="fieldLabel medium"
     >
       <label
-        className="textStyle"
+        className="textStyle medium"
       >
         Label
       </label>
@@ -12230,10 +12536,10 @@ Array [
     className="inputWrapper inputStretch"
   >
     <div
-      className="fieldLabel"
+      className="fieldLabel medium"
     >
       <label
-        className="textStyle"
+        className="textStyle medium"
       >
         Label
       </label>
@@ -12259,15 +12565,15 @@ Array [
     className="inputWrapper"
   >
     <div
-      className="fieldLabel"
+      className="fieldLabel medium"
     >
       <label
-        className="textStyle"
+        className="textStyle medium"
       >
         Label
       </label>
       <span
-        className="fieldLabelIconButton"
+        className="fieldLabelIconButton medium"
       >
         <div
           className="referenceWrapper"
@@ -12278,7 +12584,7 @@ Array [
         >
           <button
             aria-disabled={false}
-            className="labelIconButton button buttonDefault buttonPadding3"
+            className="labelIconButton button buttonDefault buttonPadding3 iconLeft"
             defaultChecked={false}
             disabled={false}
             onClick={[Function]}
@@ -12388,10 +12694,10 @@ Array [
     className="inputWrapper"
   >
     <div
-      className="fieldLabel"
+      className="fieldLabel medium"
     >
       <label
-        className="textStyle"
+        className="textStyle medium"
       >
         Label
       </label>
@@ -12424,10 +12730,10 @@ Array [
     className="inputWrapper"
   >
     <div
-      className="fieldLabel"
+      className="fieldLabel medium"
     >
       <label
-        className="textStyle"
+        className="textStyle medium"
       >
         Label
       </label>
@@ -12445,7 +12751,7 @@ Array [
     />
     <button
       aria-disabled={false}
-      className="iconButton leftIcon button buttonDefault buttonPadding2"
+      className="iconButton leftIcon button buttonDefault buttonPadding2 iconLeft"
       defaultChecked={false}
       disabled={false}
       onClick={[Function]}
@@ -12486,10 +12792,10 @@ Array [
     className="inputWrapper"
   >
     <div
-      className="fieldLabel"
+      className="fieldLabel medium"
     >
       <label
-        className="textStyle"
+        className="textStyle medium"
       >
         Label
       </label>
@@ -12536,7 +12842,7 @@ Array [
     </div>
     <button
       aria-disabled={false}
-      className="iconButton leftIcon button buttonDefault buttonPadding2"
+      className="iconButton leftIcon button buttonDefault buttonPadding2 iconLeft"
       defaultChecked={false}
       disabled={false}
       onClick={[Function]}
@@ -12577,10 +12883,10 @@ Array [
     className="inputWrapper inputStretch"
   >
     <div
-      className="fieldLabel"
+      className="fieldLabel medium"
     >
       <label
-        className="textStyle"
+        className="textStyle medium"
       >
         Label
       </label>
@@ -12606,10 +12912,10 @@ Array [
     className="inputWrapper"
   >
     <div
-      className="fieldLabel"
+      className="fieldLabel medium"
     >
       <label
-        className="textStyle"
+        className="textStyle medium"
       >
         Label
       </label>
@@ -12664,10 +12970,10 @@ Array [
     className="inputWrapper"
   >
     <div
-      className="fieldLabel"
+      className="fieldLabel medium"
     >
       <label
-        className="textStyle"
+        className="textStyle medium"
       >
         Label
       </label>
@@ -12700,10 +13006,10 @@ Array [
     className="inputWrapper"
   >
     <div
-      className="fieldLabel"
+      className="fieldLabel medium"
     >
       <label
-        className="textStyle"
+        className="textStyle medium"
       >
         Label
       </label>
@@ -12721,7 +13027,7 @@ Array [
     />
     <button
       aria-disabled={false}
-      className="iconButton leftIcon button buttonDefault buttonPadding2"
+      className="iconButton leftIcon button buttonDefault buttonPadding2 iconLeft"
       defaultChecked={false}
       disabled={false}
       onClick={[Function]}
@@ -12762,10 +13068,10 @@ Array [
     className="inputWrapper"
   >
     <div
-      className="fieldLabel"
+      className="fieldLabel medium"
     >
       <label
-        className="textStyle"
+        className="textStyle medium"
       >
         Label
       </label>
@@ -12812,7 +13118,7 @@ Array [
     </div>
     <button
       aria-disabled={false}
-      className="iconButton leftIcon button buttonDefault buttonPadding2"
+      className="iconButton leftIcon button buttonDefault buttonPadding2 iconLeft"
       defaultChecked={false}
       disabled={false}
       onClick={[Function]}

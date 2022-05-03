@@ -1,45 +1,48 @@
 import React, { FC } from 'react';
 import { ModalProps, ModalSize } from './Modal.types';
-import { classNames } from '../../shared/utilities';
+import { mergeClasses } from '../../shared/utilities';
 import { BaseDialog } from '../Dialog/BaseDialog/BaseDialog';
 
 import styles from './modal.module.scss';
 
 export const Modal: FC<ModalProps> = ({
     size = ModalSize.medium,
-    headerClassName,
-    bodyClassName,
-    actionsClassName,
-    modalClassName,
-    modalWrapperClassName,
+    headerClassNames,
+    bodyClassNames,
+    actionsClassNames,
+    modalClassNames,
+    modalWrapperClassNames,
     ...rest
 }) => {
-    const modalClasses: string = classNames([
+    const modalClasses: string = mergeClasses([
         styles.modal,
-        modalClassName,
+        modalClassNames,
         { [styles.small]: size === ModalSize.small },
         { [styles.medium]: size === ModalSize.medium },
         { [styles.large]: size === ModalSize.large },
         { [styles.fullscreen]: size === ModalSize.fullscreen },
     ]);
 
-    const headerClasses: string = classNames([styles.header, headerClassName]);
+    const headerClasses: string = mergeClasses([
+        styles.header,
+        headerClassNames,
+    ]);
 
-    const bodyClasses: string = classNames([styles.body, bodyClassName]);
+    const bodyClasses: string = mergeClasses([styles.body, bodyClassNames]);
 
-    const actionsClasses: string = classNames([
+    const actionsClasses: string = mergeClasses([
         styles.footer,
-        actionsClassName,
+        actionsClassNames,
     ]);
 
     return (
         <BaseDialog
             {...rest}
-            dialogWrapperClassName={modalWrapperClassName}
-            dialogClassName={modalClasses}
-            headerClassName={headerClasses}
-            bodyClassName={bodyClasses}
-            actionsClassName={actionsClasses}
+            dialogWrapperClassNames={modalWrapperClassNames}
+            dialogClassNames={modalClasses}
+            headerClassNames={headerClasses}
+            bodyClassNames={bodyClasses}
+            actionsClassNames={actionsClasses}
         />
     );
 };

@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { PillProps, PillSize, PillType } from './Pills.types';
-import { classNames } from '../../shared/utilities';
+import { mergeClasses } from '../../shared/utilities';
 import { Icon, IconName, IconSize } from '../Icon';
 
 import styles from './pills.module.scss';
@@ -9,7 +9,7 @@ import { ButtonSize, DefaultButton } from '../Button';
 export const Pill: FC<PillProps> = ({
     color,
     label,
-    icon,
+    iconProps,
     theme = 'blue',
     onClose,
     onClick,
@@ -28,12 +28,12 @@ export const Pill: FC<PillProps> = ({
         [PillSize.Medium, IconSize.Small],
         [PillSize.Small, IconSize.XSmall],
     ]);
-    const labelClassName: string = classNames([
+    const labelClassName: string = mergeClasses([
         styles.label,
         { [styles.medium]: size === PillSize.Medium },
         { [styles.small]: size === PillSize.Small },
     ]);
-    const tagClassName: string = classNames([
+    const tagClassName: string = mergeClasses([
         styles.tagPills,
         { [styles.red]: theme === 'red' },
         { [styles.orange]: theme === 'orange' },
@@ -46,11 +46,11 @@ export const Pill: FC<PillProps> = ({
     ]);
     return (
         <div className={tagClassName} style={{ color }}>
-            {icon && (
+            {iconProps && (
                 <Icon
-                    path={icon}
+                    {...iconProps}
                     size={pillSizeToIconSizeMap.get(size)}
-                    className={styles.icon}
+                    classNames={styles.icon}
                 />
             )}
             <span className={labelClassName}>{label}</span>
@@ -59,16 +59,16 @@ export const Pill: FC<PillProps> = ({
                     {...pillButtonProps}
                     onClick={onClick}
                     size={pillSizeToButtonSizeMap.get(size)}
-                    className={styles.button}
+                    classNames={styles.button}
                 />
             )}
             {type === PillType.closable && (
                 <DefaultButton
                     {...closeButtonProps}
-                    icon={IconName.mdiClose}
+                    iconProps={{ path: IconName.mdiClose }}
                     onClick={onClose}
                     size={pillSizeToButtonSizeMap.get(size)}
-                    className={styles.closeButton}
+                    classNames={styles.closeButton}
                 />
             )}
         </div>

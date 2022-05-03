@@ -2,7 +2,7 @@ import React, { FC, useEffect } from 'react';
 import { BaseDialogProps } from './BaseDialog.types';
 import { Portal } from '../../Portal';
 import {
-    classNames,
+    mergeClasses,
     stopPropagation,
     uniqueId,
 } from '../../../shared/utilities';
@@ -22,27 +22,33 @@ export const BaseDialog: FC<BaseDialogProps> = ({
     width,
     zIndex,
     header,
-    headerClassName,
+    headerClassNames,
     body,
-    bodyClassName,
+    bodyClassNames,
     actions,
-    actionsClassName,
-    dialogWrapperClassName,
-    dialogClassName,
+    actionsClassNames,
+    dialogWrapperClassNames,
+    dialogClassNames,
 }) => {
     const labelId = uniqueId('dialog-label-');
 
     const { lockScroll, unlockScroll } = useScrollLock(parent);
 
-    const dialogBackdropClasses: string = classNames([
+    const dialogBackdropClasses: string = mergeClasses([
         styles.dialogBackdrop,
-        dialogWrapperClassName,
+        dialogWrapperClassNames,
         { [styles.visible]: visible },
     ]);
 
-    const dialogClasses: string = classNames([styles.dialog, dialogClassName]);
+    const dialogClasses: string = mergeClasses([
+        styles.dialog,
+        dialogClassNames,
+    ]);
 
-    const headerClasses: string = classNames([styles.header, headerClassName]);
+    const headerClasses: string = mergeClasses([
+        styles.header,
+        headerClassNames,
+    ]);
 
     const dialogStyle: React.CSSProperties = {
         zIndex,
@@ -76,10 +82,13 @@ export const BaseDialog: FC<BaseDialogProps> = ({
             >
                 <div className={headerClasses}>
                     <span id={labelId}>{header}</span>
-                    <NeutralButton icon={IconName.mdiClose} onClick={onClose} />
+                    <NeutralButton
+                        iconProps={{ path: IconName.mdiClose }}
+                        onClick={onClose}
+                    />
                 </div>
-                <div className={bodyClassName}>{body}</div>
-                {actions && <div className={actionsClassName}>{actions}</div>}
+                <div className={bodyClassNames}>{body}</div>
+                {actions && <div className={actionsClassNames}>{actions}</div>}
             </div>
         </div>
     );

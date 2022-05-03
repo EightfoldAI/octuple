@@ -46,9 +46,9 @@ export interface TooltipProps {
      */
     openDelay?: number;
     /**
-     * Custom class name for Tooltip's popper
+     * Custom class names for Tooltip's popper
      */
-    className?: string;
+    classNames?: string;
     /**
      * Positioning strategy for the tooltip
      * @default absolute

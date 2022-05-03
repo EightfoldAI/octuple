@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { classNames } from '../../shared/utilities';
+import { mergeClasses } from '../../shared/utilities';
 import { Icon as MdiIcon } from '@mdi/react';
 import { IconProps, IconSize } from './index';
 
@@ -7,7 +7,7 @@ import styles from './icon.module.scss';
 
 export const Icon: FC<IconProps> = ({
     ariaHidden = false,
-    className,
+    classNames,
     color,
     description,
     horizontal,
@@ -20,7 +20,10 @@ export const Icon: FC<IconProps> = ({
     title,
     vertical,
 }) => {
-    const iconClassNames: string = classNames([className, styles.iconWrapper]);
+    const iconClassNames: string = mergeClasses([
+        classNames,
+        styles.iconWrapper,
+    ]);
 
     return (
         <span

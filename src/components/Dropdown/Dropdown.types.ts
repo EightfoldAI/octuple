@@ -20,9 +20,9 @@ export interface DropdownProps {
      */
     disabled?: boolean;
     /**
-     * Class name of the main wrapper
+     * Class names of the main wrapper
      */
-    className?: string;
+    classNames?: string;
     /**
      * Style of the main wrapper
      */
@@ -43,9 +43,9 @@ export interface DropdownProps {
      */
     offset?: number;
     /**
-     * Custom dropdown class name
+     * Custom dropdown class names
      */
-    dropdownClassName?: string;
+    dropdownClassNames?: string;
     /**
      * Dropdown custom style
      */

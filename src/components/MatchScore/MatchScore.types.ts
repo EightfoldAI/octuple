@@ -2,7 +2,7 @@ export interface MatchScoreProps {
     /**
      * The input class names.
      */
-    className?: string;
+    classNames?: string;
 
     /**
      * The score value, like 2, 3.5, etc.
