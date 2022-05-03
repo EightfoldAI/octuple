@@ -44,7 +44,7 @@ jobs:
           echo "::set-output name=commit-message::${COMMIT_MESSAGE}"
       - name: Post to Slack channel
         id: slack
-        uses: slackapi/slack-github-action@v1.16.0
+        uses: slackapi/slack-github-action@v1.18.0
         with:
           channel-id: C03E7BKR9MF
           payload: |
