@@ -73,18 +73,18 @@ export const Component: FC<ComponentProps> = ({
 Defining a scss module
 
 -   Create a file called `/src/components/Component/component.module.scss`
--   Use camel case for the class names, they are easier to reference in the component
+-   Use kebab case for the class names, they can be referenced in the component using camel case.
 
 For eg: `styles.componentWrapper` as apposed to `styles['component-wrapper']`
 
 ```scss
-.componentWrapper {
+.component-wrapper {
 
   &.active {
     ...
   }
 
-  .componentChild {
+  .component-child {
     ...
   }
 }
