@@ -1,17 +1,20 @@
 import React, { FC } from 'react';
 import styles from './matchScore.module.scss';
-import { classNames } from '../../shared/utilities';
+import { mergeClasses } from '../../shared/utilities';
 import { FillType, MatchScoreProps } from './MatchScore.types';
 
 export const MatchScore: FC<MatchScoreProps> = ({
-    className,
+    classNames,
     score = 0,
     total = 5,
     hideLabel = false,
     ariaLabel = 'score',
 }) => {
     const absTotal: number = Math.abs(total);
-    const matchScoreClasses = classNames(className, styles.matchScoreContainer);
+    const matchScoreClasses = mergeClasses(
+        classNames,
+        styles.matchScoreContainer
+    );
     return (
         <div className={matchScoreClasses} aria-label={ariaLabel}>
             {getArrayOfSize(Math.min(Math.floor(score), absTotal)).map(
@@ -38,7 +41,7 @@ const getArrayOfSize = (n: number) => Array.from(Array(n));
 
 const MatchScoreCircle = ({ fill = 'empty' }: { fill?: FillType }) => (
     <div
-        className={classNames([
+        className={mergeClasses([
             styles.matchScoreCircle,
             { [styles.full]: fill === 'full' },
             { [styles.half]: fill === 'half' },

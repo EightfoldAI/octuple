@@ -106,13 +106,13 @@ const ThemedComponents = () => {
                     ariaLabel="Primary Button"
                     onClick={click}
                     size={ButtonSize.Large}
-                    icon={IconName.mdiCardsHeart}
+                    iconProps={{ path: IconName.mdiCardsHeart }}
                 />
                 <PrimaryButton
                     ariaLabel="Primary Button"
                     onClick={click}
                     size={ButtonSize.Large}
-                    icon={IconName.mdiCardsHeart}
+                    iconProps={{ path: IconName.mdiCardsHeart }}
                     text="Primary Button"
                 />
             </div>
@@ -127,7 +127,7 @@ const ThemedComponents = () => {
                 />
                 <SecondaryButton
                     ariaLabel="Secondary Button"
-                    icon={IconName.mdiCardsHeart}
+                    iconProps={{ path: IconName.mdiCardsHeart }}
                     onClick={click}
                     size={ButtonSize.Large}
                 />
@@ -136,7 +136,7 @@ const ThemedComponents = () => {
                     onClick={click}
                     size={ButtonSize.Large}
                     text="Secondary Button"
-                    icon={IconName.mdiCardsHeart}
+                    iconProps={{ path: IconName.mdiCardsHeart }}
                 />
             </div>
             <br />
@@ -150,13 +150,13 @@ const ThemedComponents = () => {
                 />
                 <DefaultButton
                     ariaLabel="Default Button"
-                    icon={IconName.mdiCardsHeart}
+                    iconProps={{ path: IconName.mdiCardsHeart }}
                     onClick={click}
                     size={ButtonSize.Large}
                 />
                 <DefaultButton
                     ariaLabel="Default Button"
-                    icon={IconName.mdiCardsHeart}
+                    iconProps={{ path: IconName.mdiCardsHeart }}
                     onClick={click}
                     size={ButtonSize.Large}
                     text="Default Button"

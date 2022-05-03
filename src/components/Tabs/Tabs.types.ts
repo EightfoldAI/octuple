@@ -72,9 +72,9 @@ export interface TabsProps {
      */
     onChange?: OnChangeHandler;
     /**
-     * Custom class that can be applied on tabs container
+     * Custom classes that can be applied on tabs container
      */
-    className?: string;
+    classNames?: string;
     /**
      * Css properties top be applied on tabs container
      */

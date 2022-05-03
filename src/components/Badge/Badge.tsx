@@ -1,21 +1,21 @@
 import React, { FC } from 'react';
 import { BadgeProps } from './Badge.types';
-import { classNames } from '../../shared/utilities';
+import { mergeClasses } from '../../shared/utilities';
 
 import styles from './badge.module.scss';
 
 export const Badge: FC<BadgeProps> = ({
     active,
-    className,
+    classNames,
     style,
     children,
     disruptive,
 }) => {
-    const badgeClasses: string = classNames([
+    const badgeClasses: string = mergeClasses([
         styles.badge,
         'header6',
         { [styles.disruptive]: disruptive },
-        className,
+        classNames,
         { [styles.active]: active },
     ]);
     return (

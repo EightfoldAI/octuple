@@ -10,9 +10,9 @@ export interface BadgeProps {
      */
     disruptive?: boolean;
     /**
-     * Custom badge className
+     * Custom badge classNames
      */
-    className?: string;
+    classNames?: string;
     /**
      * Custom badge style
      */

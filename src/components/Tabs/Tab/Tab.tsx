@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { classNames } from '../../../shared/utilities';
+import { mergeClasses } from '../../../shared/utilities';
 import { TabProps } from '../Tabs.types';
 import { useTabs } from '../Tabs.context';
 import { Flipped } from 'react-flip-toolkit';
@@ -27,7 +27,7 @@ export const Tab: FC<TabProps> = ({
 
     const { registeredTheme: { light = false } = {} } = useConfig();
 
-    const tabClassName: string = classNames([
+    const tabClassName: string = mergeClasses([
         styles.tab,
         { [styles.active]: isActive },
         { [styles.inverse]: light },
@@ -48,7 +48,7 @@ export const Tab: FC<TabProps> = ({
 
     const getBadge = (): JSX.Element =>
         !!badgeContent && (
-            <Badge active={isActive} className={styles.badge}>
+            <Badge active={isActive} classNames={styles.badge}>
                 {badgeContent}
             </Badge>
         );

@@ -9,7 +9,7 @@ import {
 } from '../';
 import { Icon, IconName, IconSize } from '../../Icon';
 import { Breakpoints, useMatchMedia } from '../../../hooks/useMatchMedia';
-import { classNames } from '../../../shared/utilities';
+import { mergeClasses } from '../../../shared/utilities';
 
 import styles from '../button.module.scss';
 
@@ -19,13 +19,12 @@ export const SplitButton: FC<SplitButtonProps> = React.forwardRef(
             alignText = ButtonTextAlign.Center,
             allowDisabledFocus = false,
             ariaLabel,
-            className,
+            classNames,
             checked = false,
             disabled = false,
             disruptive = false,
             dropShadow = false,
-            icon,
-            iconColor,
+            iconProps,
             id,
             onClick,
             shape = ButtonShape.Rectangle,
@@ -43,8 +42,8 @@ export const SplitButton: FC<SplitButtonProps> = React.forwardRef(
         const smallScreenActive: boolean = useMatchMedia(Breakpoints.Small);
         const xSmallScreenActive: boolean = useMatchMedia(Breakpoints.XSmall);
 
-        const splitButtonClassNames: string = classNames([
-            className,
+        const splitButtonClassNames: string = mergeClasses([
+            classNames,
             styles.splitButton,
             {
                 [styles.buttonPadding3]:
@@ -74,7 +73,7 @@ export const SplitButton: FC<SplitButtonProps> = React.forwardRef(
             { [styles.dark]: theme === ButtonTheme.dark },
         ]);
 
-        const splitDividerClassNames: string = classNames([
+        const splitDividerClassNames: string = mergeClasses([
             styles.splitDivider,
             {
                 [styles.splitDividerSmall]:
@@ -134,11 +133,15 @@ export const SplitButton: FC<SplitButtonProps> = React.forwardRef(
             return iconSize;
         };
 
-        const getButtonIcon = (icon: IconName): JSX.Element => (
+        const getButtonIcon = (): JSX.Element => (
             <Icon
-                className={styles.icon}
-                color={iconColor}
-                path={icon}
+                {...iconProps}
+                classNames={styles.icon}
+                path={
+                    iconProps?.path || checked
+                        ? IconName.mdiChevronDown
+                        : IconName.mdiChevronUp
+                }
                 size={getButtonIconSize()}
             />
         );
@@ -159,11 +162,7 @@ export const SplitButton: FC<SplitButtonProps> = React.forwardRef(
                 style={style}
                 type="button"
             >
-                {getButtonIcon(
-                    icon || checked
-                        ? IconName.mdiChevronDown
-                        : IconName.mdiChevronUp
-                )}
+                {getButtonIcon()}
                 <span
                     className={splitDividerClassNames}
                     aria-hidden="true"
