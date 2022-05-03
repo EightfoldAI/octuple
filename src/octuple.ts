@@ -21,6 +21,8 @@ import { Dropdown } from './components/Dropdown';
 
 import { Icon, IconName, IconSize } from './components/Icon';
 
+import { Label, LabelSize } from './components/Label';
+
 import { List } from './components/List';
 
 import { Menu } from './components/Menu';
@@ -77,6 +79,8 @@ export {
     IconSize,
     InfoBar,
     InfoBarType,
+    Label,
+    LabelSize,
     List,
     MatchScore,
     Menu,
