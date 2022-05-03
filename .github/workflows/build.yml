@@ -46,7 +46,7 @@ jobs:
         id: slack
         uses: slackapi/slack-github-action@v1.16.0
         with:
-          channel-id: 'octuple-publish-alerts'
+          channel-id: '#octuple-publish-alerts'
           payload: |
             {
               "text": "Release ${{ steps.changelog_reader.outputs.version }}",
