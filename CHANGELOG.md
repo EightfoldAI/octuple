@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.0.0](https://github.com/EightfoldAI/octuple/compare/v0.0.17...v1.0.0) (2022-05-03)
+
+### ⚠ BREAKING CHANGES
+
+-   classnames and icon props must be updated to match latest
+
+-   fix: match score: updates references and classname prop
+
+### Features
+
+-   add match score component 🟢 🟢 🟢 ⚪️ ⚪️ ([#92](https://github.com/EightfoldAI/octuple/issues/92)) ([99f07ec](https://github.com/EightfoldAI/octuple/commits/99f07ec4179f22c05163b8d2da6263eaf2c99b76))
+-   props: normalize label, classnames, button alignment and iconprops ([#97](https://github.com/EightfoldAI/octuple/issues/97)) ([5b3456a](https://github.com/EightfoldAI/octuple/commits/5b3456a322b977210f580383fb2e74e042e1fb31))
+
+### Bug Fixes
+
+-   tabs: use tab value to set the current active tab([#100](https://github.com/EightfoldAI/octuple/issues/100)) ([5e0ec1f](https://github.com/EightfoldAI/octuple/commits/5e0ec1f8962ab4a615e7c6f145d16fd4411c92ee))
+
 ### [0.0.17](https://github.com/EightfoldAI/octuple/compare/v0.0.16...v0.0.17) (2022-05-02)
 
 ### Features
