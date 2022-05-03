@@ -18,18 +18,18 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: ${{ env.NODE_VERSION }}
-      - name: Load cached node_modules
-        uses: actions/cache@v3
-        with:
-          path: node_modules
-          key: node_modules-${{ hashFiles('yarn.lock') }}
-      - run: yarn
-      - run: yarn test
-      - name: Upload code coverage
-        uses: codecov/codecov-action@v2
-        with:
-          token: ${{ secrets.CODECOV_TOKEN }}
-          fail_ci_if_error: true
+#      - name: Load cached node_modules
+#        uses: actions/cache@v3
+#        with:
+#          path: node_modules
+#          key: node_modules-${{ hashFiles('yarn.lock') }}
+#      - run: yarn
+#      - run: yarn test
+#      - name: Upload code coverage
+#        uses: codecov/codecov-action@v2
+#        with:
+#          token: ${{ secrets.CODECOV_TOKEN }}
+#          fail_ci_if_error: true
       - name: Get Changelog Entry
         id: changelog_reader
         uses: artlaman/conventional-changelog-reader-action@v1.1.0
