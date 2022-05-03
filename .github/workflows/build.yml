@@ -44,26 +44,26 @@ jobs:
           prerelease: ${{ steps.changelog_reader.outputs.status == 'prereleased' }}
           allowUpdates: true
           token: ${{ secrets.GITHUB_TOKEN }}
-        - name: Post to Slack channel
-          id: slack
-          uses: slackapi/slack-github-action@v1.16.0
-          with:
-            channel-id: 'octuple-publish-alerts'
-            payload: |
-              {
-                "text": "Release ${{ steps.changelog_reader.outputs.version }}",
-                "blocks": [
-                  {
-                    "type": "section",
-                    "text": {
-                      "type": "mrkdwn",
-                      "text": "${{ steps.changelog_reader.outputs.changes }}"
-                    }
+      - name: Post to Slack channel
+        id: slack
+        uses: slackapi/slack-github-action@v1.16.0
+        with:
+          channel-id: 'octuple-publish-alerts'
+          payload: |
+            {
+              "text": "Release ${{ steps.changelog_reader.outputs.version }}",
+              "blocks": [
+                {
+                  "type": "section",
+                  "text": {
+                    "type": "mrkdwn",
+                    "text": "${{ steps.changelog_reader.outputs.changes }}"
                   }
-                ]
-              }
-          env:
-            SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+                }
+              ]
+            }
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
   lint:
     runs-on: ubuntu-latest
     steps:
