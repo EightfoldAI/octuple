@@ -15,7 +15,7 @@ exports[`Panel tabs snapshot 1`] = `
     >
       <span
         aria-hidden={false}
-        className="iconWrapper"
+        className="icon iconWrapper"
         role="presentation"
       >
         <svg
@@ -59,7 +59,7 @@ exports[`Panel tabs snapshot 1`] = `
     >
       <span
         aria-hidden={false}
-        className="iconWrapper"
+        className="icon iconWrapper"
         role="presentation"
       >
         <svg
@@ -97,7 +97,7 @@ exports[`Panel tabs snapshot 1`] = `
     >
       <span
         aria-hidden={false}
-        className="iconWrapper"
+        className="icon iconWrapper"
         role="presentation"
       >
         <svg
@@ -136,7 +136,7 @@ exports[`Panel tabs snapshot 1`] = `
     >
       <span
         aria-hidden={false}
-        className="iconWrapper"
+        className="icon iconWrapper"
         role="presentation"
       >
         <svg

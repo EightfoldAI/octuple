@@ -1,4 +1,4 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useEffect, useState } from 'react';
 import {
     TabsContextProps,
     ITabsContext,
@@ -8,12 +8,14 @@ import {
 
 const TabsContext = createContext<Partial<ITabsContext>>({});
 
-const TabsProvider = ({ children, onChange, activeTab }: TabsContextProps) => {
-    const [currentActiveTab, setCurrentActiveTab] =
-        useState<TabValue>(activeTab);
+const TabsProvider = ({ children, onChange, value }: TabsContextProps) => {
+    const [currentActiveTab, setCurrentActiveTab] = useState<TabValue>(value);
+
+    useEffect(() => {
+        setCurrentActiveTab(value);
+    }, [value]);
 
     const onTabClick = (value: TabValue, e: SelectTabEvent) => {
-        setCurrentActiveTab(value);
         onChange(value, e);
     };
 
