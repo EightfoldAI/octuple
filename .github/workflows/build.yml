@@ -36,6 +36,12 @@ jobs:
         with:
           version: 0.0.17
           path: ./CHANGELOG.md
+      - name: Prepare slack message
+        id: slack-prepare
+        run: |
+          COMMIT_MESSAGE="${{ steps.changelog_reader.outputs.version }}"
+          COMMIT_MESSAGE="$(echo "$COMMIT_MESSAGE" | sed -z 's/\n/\\n/g')"
+          echo "::set-output name=commit-message::${COMMIT_MESSAGE}"
       - name: Post to Slack channel
         id: slack
         uses: slackapi/slack-github-action@v1.16.0
@@ -49,7 +55,7 @@ jobs:
                   "type": "section",
                   "text": {
                     "type": "mrkdwn",
-                    "text": "${{ steps.changelog_reader.outputs.changes }}"
+                    "text": "${{ steps.slack-prepare.outputs.commit-message }}"
                   }
                 }
               ]
