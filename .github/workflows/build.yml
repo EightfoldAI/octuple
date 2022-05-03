@@ -30,6 +30,40 @@ jobs:
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
           fail_ci_if_error: true
+      - name: Get Changelog Entry
+        id: changelog_reader
+        uses: artlaman/conventional-changelog-reader-action@v1.1.0
+        with:
+          version: 0.0.17
+          path: ./CHANGELOG.md
+      - name: Create/update release
+        uses: ncipollo/release-action@v1
+        with:
+          name: Release ${{ steps.changelog_reader.outputs.version }}
+          body: ${{ steps.changelog_reader.outputs.changes }}
+          prerelease: ${{ steps.changelog_reader.outputs.status == 'prereleased' }}
+          allowUpdates: true
+          token: ${{ secrets.GITHUB_TOKEN }}
+        - name: Post to Slack channel
+          id: slack
+          uses: slackapi/slack-github-action@v1.16.0
+          with:
+            channel-id: 'octuple-publish-alerts'
+            payload: |
+              {
+                "text": "Release ${{ steps.changelog_reader.outputs.version }}",
+                "blocks": [
+                  {
+                    "type": "section",
+                    "text": {
+                      "type": "mrkdwn",
+                      "text": "${{ steps.changelog_reader.outputs.changes }}"
+                    }
+                  }
+                ]
+              }
+          env:
+            SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
   lint:
     runs-on: ubuntu-latest
     steps:
