@@ -46,7 +46,7 @@ jobs:
         id: slack
         uses: slackapi/slack-github-action@v1.16.0
         with:
-          channel-id: 'C03E7BKR9MF'
+          channel-id: C03E7BKR9MF
           payload: |
             {
               "text": "Release ${{ steps.changelog_reader.outputs.version }}",
