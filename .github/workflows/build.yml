@@ -18,52 +18,38 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: ${{ env.NODE_VERSION }}
-      - name: Load cached node_modules
-        uses: actions/cache@v3
-        with:
-          path: node_modules
-          key: node_modules-${{ hashFiles('yarn.lock') }}
-      - run: yarn
-      - run: yarn test
-      - name: Upload code coverage
-        uses: codecov/codecov-action@v2
-        with:
-          token: ${{ secrets.CODECOV_TOKEN }}
-          fail_ci_if_error: true
+#      - name: Load cached node_modules
+#        uses: actions/cache@v3
+#        with:
+#          path: node_modules
+#          key: node_modules-${{ hashFiles('yarn.lock') }}
+#      - run: yarn
+#      - run: yarn test
+#      - name: Upload code coverage
+#        uses: codecov/codecov-action@v2
+#        with:
+#          token: ${{ secrets.CODECOV_TOKEN }}
+#          fail_ci_if_error: true
       - name: Get Changelog Entry
         id: changelog_reader
         uses: artlaman/conventional-changelog-reader-action@v1.1.0
         with:
           version: 0.0.17
           path: ./CHANGELOG.md
-      - name: Create/update release
-        uses: ncipollo/release-action@v1
+      - name: Prepare slack message
+        id: slack-prepare
+        run: |
+          COMMIT_MESSAGE="${{ steps.changelog_reader.outputs.changes }}"
+          COMMIT_MESSAGE="$(echo "$COMMIT_MESSAGE" | sed -z 's/\n/\\n/g')"
+          echo "::set-output name=commit-message::${COMMIT_MESSAGE}"
+      - name: Post to Slack channel
+        id: slack
+        uses: slackapi/slack-github-action@v1.18.0
         with:
-          name: Release ${{ steps.changelog_reader.outputs.version }}
-          body: ${{ steps.changelog_reader.outputs.changes }}
-          prerelease: ${{ steps.changelog_reader.outputs.status == 'prereleased' }}
-          allowUpdates: true
-          token: ${{ secrets.GITHUB_TOKEN }}
-        - name: Post to Slack channel
-          id: slack
-          uses: slackapi/slack-github-action@v1.16.0
-          with:
-            channel-id: 'octuple-publish-alerts'
-            payload: |
-              {
-                "text": "Release ${{ steps.changelog_reader.outputs.version }}",
-                "blocks": [
-                  {
-                    "type": "section",
-                    "text": {
-                      "type": "mrkdwn",
-                      "text": "${{ steps.changelog_reader.outputs.changes }}"
-                    }
-                  }
-                ]
-              }
-          env:
-            SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+          slack-message: "Hello world"
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+          SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
   lint:
     runs-on: ubuntu-latest
     steps:
