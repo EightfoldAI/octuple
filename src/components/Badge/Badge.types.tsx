@@ -1,7 +1,7 @@
 import React from 'react';
 import { OcBaseProps } from '../OcBase';
 
-export interface BadgeProps extends OcBaseProps {
+export interface BadgeProps extends OcBaseProps<HTMLSpanElement> {
     /**
      * Badge is in an active state or not
      */
