@@ -46,7 +46,19 @@ jobs:
         id: slack
         uses: slackapi/slack-github-action@v1.18.0
         with:
-          slack-message: "Hello world"
+          payload: |
+            {
+              "text": "Release ${{ steps.changelog_reader.outputs.version }}",
+              "blocks": [
+                {
+                  "type": "section",
+                  "text": {
+                    "type": "mrkdwn",
+                    "text": "${{ steps.slack-prepare.outputs.commit-message }}"
+                  }
+                }
+              ]
+            }
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
           SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
