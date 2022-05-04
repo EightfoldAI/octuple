@@ -6,6 +6,7 @@ import {
     ButtonTextAlign,
     ButtonTheme,
     ButtonWidth,
+    ButtonIconAlign,
     DefaultButton,
     NeutralButton,
     PrimaryButton,
@@ -62,6 +63,7 @@ import { useScrollLock } from './hooks/useScrollLock';
 
 export {
     Badge,
+    ButtonIconAlign,
     ButtonShape,
     ButtonSize,
     ButtonTextAlign,
