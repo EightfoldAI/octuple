@@ -41,6 +41,12 @@ jobs:
         uses: LoveToKnow/slackify-markdown-action@v1.0.0
         with:
           text: ${{ steps.changelog_reader.outputs.changes }}
+      - name: Prepare slack message
+        id: slack-prepare
+        run: |
+          COMMIT_MESSAGE="${{ steps.slack_md_converter.outputs.text }}"
+          COMMIT_MESSAGE="$(echo "$COMMIT_MESSAGE" | sed -z 's/\n/\\n/g')"
+          echo "::set-output name=commit-message::${COMMIT_MESSAGE}"
       - name: Post to Slack channel
         id: slack
         uses: slackapi/slack-github-action@v1.18.0
@@ -60,7 +66,7 @@ jobs:
                   "type": "section",
                   "text": {
                     "type": "mrkdwn",
-                    "text": "${{ steps.slack_md_converter.outputs.text }}"
+                    "text": "${{ steps.slack-prepare.outputs.commit-message }}"
                   }
                 }
               ]
