@@ -44,12 +44,8 @@ jobs:
           echo "::set-output name=commit-message::${COMMIT_MESSAGE}"
       - name: Post to Slack channel
         id: slack
-        uses: slackapi/slack-github-action@v1.19.0
-        with:
-          slack-message: "Hello world"
-        env:
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-          SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
+        run: |
+          curl -X POST -H 'Content-type: application/json' --data '{"text":"Hello, World!"}' ${{ secrets.SLACK_WEBHOOK_URL }}
   lint:
     runs-on: ubuntu-latest
     steps:
