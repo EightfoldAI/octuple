@@ -1,6 +1,7 @@
 import React from 'react';
+import { OcBaseProps } from '../OcBase';
 
-export interface BadgeProps {
+export interface BadgeProps extends OcBaseProps {
     /**
      * Badge is in an active state or not
      */
@@ -9,12 +10,4 @@ export interface BadgeProps {
      * If badge is disruptive or not
      */
     disruptive?: boolean;
-    /**
-     * Custom badge classNames
-     */
-    classNames?: string;
-    /**
-     * Custom badge style
-     */
-    style?: React.CSSProperties;
 }
