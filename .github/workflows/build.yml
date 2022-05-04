@@ -46,7 +46,6 @@ jobs:
         id: slack
         uses: slackapi/slack-github-action@v1.19.0
         with:
-          channel-id: C03E7BKR9MF
           payload: |
             {
               "text": "Release ${{ steps.changelog_reader.outputs.version }}",
@@ -61,7 +60,8 @@ jobs:
               ]
             }
         env:
-          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+          SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
   lint:
     runs-on: ubuntu-latest
     steps:
