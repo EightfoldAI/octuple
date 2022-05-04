@@ -36,32 +36,37 @@ jobs:
         with:
           version: 0.0.17
           path: ./CHANGELOG.md
-      - name: Prepare slack message
-        id: slack-prepare
-        run: |
-          COMMIT_MESSAGE="${{ steps.changelog_reader.outputs.changes }}"
-          COMMIT_MESSAGE="$(echo "$COMMIT_MESSAGE" | sed -z 's/\n/\\n/g')"
-          echo "::set-output name=commit-message::${COMMIT_MESSAGE}"
+      - name: Slack Markdown Converter
+        id: slack_md_converter
+        uses: LoveToKnow/slackify-markdown-action@v1.0.0
+        with:
+          text: ${{ steps.changelog_reader.outputs.changes }}
       - name: Post to Slack channel
         id: slack
         uses: slackapi/slack-github-action@v1.18.0
         with:
+          channel-id: C03EQD3HA5N
           payload: |
             {
-              "text": "Release ${{ steps.changelog_reader.outputs.version }}",
               "blocks": [
+                {
+                    "type": "header",
+                    "text": {
+                        "type": "plain_text",
+                        "text": "Release ${{ steps.changelog_reader.outputs.version }}"
+                    }
+                },
                 {
                   "type": "section",
                   "text": {
                     "type": "mrkdwn",
-                    "text": "${{ steps.slack-prepare.outputs.commit-message }}"
+                    "text": "${{ steps.slack_md_converter.outputs.text }}"
                   }
                 }
               ]
             }
         env:
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-          SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
   lint:
     runs-on: ubuntu-latest
     steps:
