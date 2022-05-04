@@ -42,31 +42,30 @@ jobs:
         with:
           text: ${{ steps.changelog_reader.outputs.changes }}
       - name: Prepare slack message
-        id: slack-prepare
+        id: slack_prepare
         run: |
-          COMMIT_MESSAGE="${{ steps.slack_md_converter.outputs.text }}"
-          COMMIT_MESSAGE="$(echo "$COMMIT_MESSAGE" | sed -z 's/\n/\\n/g')"
-          echo "::set-output name=commit-message::${COMMIT_MESSAGE}"
+          CHANGE_LOG="${{ steps.slack_md_converter.outputs.text }}"
+          CHANGE_LOG="$(echo "$CHANGE_LOG" | sed -z 's/\n/\\n/g')"
+          echo "::set-output name=changelog::${CHANGE_LOG}"
       - name: Post to Slack channel
-        id: slack
-        uses: slackapi/slack-github-action@v1.18.0
+        uses: slackapi/slack-github-action@v1.19.0
         with:
           channel-id: C03EQD3HA5N
           payload: |
             {
               "blocks": [
                 {
-                    "type": "header",
-                    "text": {
-                        "type": "plain_text",
-                        "text": "Release ${{ steps.changelog_reader.outputs.version }}"
-                    }
+                  "type": "header",
+                  "text": {
+                    "type": "plain_text",
+                    "text": "📦 Release ${{ steps.changelog_reader.outputs.version }}"
+                  }
                 },
                 {
                   "type": "section",
                   "text": {
                     "type": "mrkdwn",
-                    "text": "${{ steps.slack-prepare.outputs.commit-message }}"
+                    "text": "${{ steps.slack_prepare.outputs.changelog }}"
                   }
                 }
               ]
