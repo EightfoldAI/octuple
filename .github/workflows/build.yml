@@ -81,7 +81,7 @@ jobs:
                         "text": "📦 Go to Release",
                         "emoji": true
                     },
-                    "url": "https://github.com/EightfoldAI/octuple/releases/tag/v${{ steps.changelog_reader.outputs.version }}",
+                    "url": "https://github.com/EightfoldAI/octuple/releases/tag/v${{ steps.changelog_reader.outputs.version }}"
                   }
                 }
               ]
