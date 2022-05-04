@@ -57,7 +57,7 @@ jobs:
                 {
                   "type": "header",
                   "text": {
-                    "type": "plain_text",
+                    "type": "mrkdwn",
                     "text": "<github.com/EightfoldAI/octuple/releases/tag/v${{ steps.changelog_reader.outputs.version }}|📦 Release ${{ steps.changelog_reader.outputs.version }}>"
                   }
                 },
