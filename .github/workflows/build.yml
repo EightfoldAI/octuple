@@ -18,76 +18,18 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: ${{ env.NODE_VERSION }}
-#      - name: Load cached node_modules
-#        uses: actions/cache@v3
-#        with:
-#          path: node_modules
-#          key: node_modules-${{ hashFiles('yarn.lock') }}
-#      - run: yarn
-#      - run: yarn test
-#      - name: Upload code coverage
-#        uses: codecov/codecov-action@v2
-#        with:
-#          token: ${{ secrets.CODECOV_TOKEN }}
-#          fail_ci_if_error: true
-      - name: Get Changelog Entry
-        id: changelog_reader
-        uses: artlaman/conventional-changelog-reader-action@v1.1.0
+      - name: Load cached node_modules
+        uses: actions/cache@v3
         with:
-          version: 1.0.0
-          path: ./CHANGELOG.md
-      - name: Slack Markdown Converter
-        id: slack_md_converter
-        uses: LoveToKnow/slackify-markdown-action@v1.0.0
+          path: node_modules
+          key: node_modules-${{ hashFiles('yarn.lock') }}
+      - run: yarn
+      - run: yarn test
+      - name: Upload code coverage
+        uses: codecov/codecov-action@v2
         with:
-          text: ${{ steps.changelog_reader.outputs.changes }}
-      - name: Prepare slack message
-        id: slack_prepare
-        run: |
-          CHANGE_LOG="${{ steps.slack_md_converter.outputs.text }}"
-          CHANGE_LOG="$(echo "$CHANGE_LOG" | sed -z 's/\n/\\n/g')"
-          echo "::set-output name=changelog::${CHANGE_LOG}"
-      - name: Post to Slack channel
-        uses: slackapi/slack-github-action@v1.19.0
-        with:
-          channel-id: C03EQD3HA5N
-          payload: |
-            {
-              "blocks": [
-                {
-                  "type": "header",
-                  "text": {
-                    "type": "plain_text",
-                    "text": "📦 Release ${{ steps.changelog_reader.outputs.version }}"
-                  }
-                },
-                {
-                  "type": "section",
-                  "text": {
-                    "type": "mrkdwn",
-                    "text": "${{ steps.slack_prepare.outputs.changelog }}"
-                  }
-                },
-                {
-                  "type": "section",
-                  "text": {
-                    "type": "mrkdwn",
-                    "text": " "
-                  },
-                  "accessory": {
-                    "type": "button",
-                    "text": {
-                        "type": "plain_text",
-                        "text": "📦 Go to Release",
-                        "emoji": true
-                    },
-                    "url": "https://github.com/EightfoldAI/octuple/releases/tag/v${{ steps.changelog_reader.outputs.version }}"
-                  }
-                }
-              ]
-            }
-        env:
-          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+          token: ${{ secrets.CODECOV_TOKEN }}
+          fail_ci_if_error: true
   lint:
     runs-on: ubuntu-latest
     steps:

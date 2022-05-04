@@ -83,6 +83,22 @@ jobs:
                     "type": "mrkdwn",
                     "text": "${{ steps.slack_prepare.outputs.changelog }}"
                   }
+                },
+                {
+                  "type": "section",
+                  "text": {
+                    "type": "mrkdwn",
+                    "text": " "
+                  },
+                  "accessory": {
+                    "type": "button",
+                    "text": {
+                        "type": "plain_text",
+                        "text": "📦 Go to Release",
+                        "emoji": true
+                    },
+                    "url": "https://github.com/EightfoldAI/octuple/releases/tag/v${{ steps.changelog_reader.outputs.version }}"
+                  }
                 }
               ]
             }
