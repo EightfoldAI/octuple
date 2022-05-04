@@ -10,7 +10,6 @@ on:
 
 env:
   NODE_VERSION: 16
-  SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -46,7 +45,7 @@ jobs:
       - name: Post to Slack channel
         id: slack
         run: |
-          curl -X POST -H 'Content-type: application/json' --data '{"text":"Hello, World!"}' "$SLACK_WEBHOOK_URL"
+          curl -X POST -H 'Content-type: application/json' --data '{"text":"Hello, World!"}' "${{ secrets.SLACK_WEBHOOK_URL }}"
   lint:
     runs-on: ubuntu-latest
     steps:
