@@ -1,6 +1,5 @@
 import React, { FC } from 'react';
 import { RadioButtonProps } from '../';
-import { RadioButton } from './RadioButton';
 import { RadioGroupProvider } from './RadioGroup.context';
 export const RadioGroup: FC<RadioButtonProps> = (props) => {
     const { activeRadioButton, onChange, children } = props;

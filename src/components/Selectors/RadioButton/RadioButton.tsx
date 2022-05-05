@@ -1,6 +1,6 @@
-import React, { FC, useState } from 'react';
+import React, { FC } from 'react';
 import { RadioButtonProps } from '../';
-import { classNames } from '../../../shared/utilities';
+import { mergeClasses } from '../../../shared/utilities';
 import { useRadioGroup } from './RadioGroup.context';
 
 import styles from './radio.module.scss';
@@ -16,7 +16,7 @@ export const RadioButton: FC<RadioButtonProps> = ({
     const { onRadioButtonClick, currentRadioButton } = useRadioGroup();
     const isActive: boolean = value === currentRadioButton;
 
-    const radioButtonClassNames: string = classNames([
+    const radioButtonClassNames: string = mergeClasses([
         styles.radioButton,
         { [styles.disabled]: disabled },
     ]);
@@ -31,7 +31,7 @@ export const RadioButton: FC<RadioButtonProps> = ({
                 name={name}
                 type={'radio'}
                 value={value}
-                onChange={(e) => onRadioButtonClick(value, e)}
+                onClick={(e) => onRadioButtonClick(value, e)}
                 readOnly
             />
             <label

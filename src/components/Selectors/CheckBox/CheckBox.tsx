@@ -1,6 +1,6 @@
 import React, { FC, useState } from 'react';
 import { CheckBoxProps } from '../';
-import { classNames } from '../../../shared/utilities';
+import { mergeClasses } from '../../../shared/utilities';
 
 import styles from './checkbox.module.scss';
 
@@ -16,7 +16,7 @@ export const CheckBox: FC<CheckBoxProps> = ({
 }) => {
     const [isChecked, setIsChecked] = useState<boolean>(checked);
 
-    const checkBoxCheckClassNames: string = classNames([
+    const checkBoxCheckClassNames: string = mergeClasses([
         styles.checkmark,
         { [styles.disabled]: disabled },
     ]);
