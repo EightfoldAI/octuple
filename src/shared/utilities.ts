@@ -12,7 +12,7 @@ type Mapping = Record<string, unknown>;
 /**
  *  ArgumentArray (used by classNames).
  */
-interface ArgumentArray extends Array<Argument> {}
+export interface ArgumentArray extends Array<Argument> {}
 
 /**
  *  Argument represented as a Value, Mapping or ArgumentArray (used by classNames).

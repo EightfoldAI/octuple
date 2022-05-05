@@ -1,6 +1,6 @@
 import { OcBaseProps } from '../OcBase';
 
-export interface MatchScoreProps extends OcBaseProps<HTMLDivElement> {
+export interface MatchScoreProps extends OcBaseProps<{}> {
     /**
      * The score value, like 2, 3.5, etc.
      */

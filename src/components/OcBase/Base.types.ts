@@ -9,4 +9,6 @@ export interface OcBaseProps<T> extends HTMLAttributes<T> {
      * Unique id used to target element for testing
      */
     'data-test-id'?: string;
+
+    ref?: React.Ref<T>;
 }
