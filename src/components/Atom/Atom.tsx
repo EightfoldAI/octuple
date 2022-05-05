@@ -8,10 +8,7 @@ interface AtomProps<T> extends OcBaseProps<T> {
 }
 
 export const Atom = React.forwardRef(
-    (
-        { of, children, classes = [], ...props }: AtomProps<HTMLElement>,
-        ref?: React.Ref<any>
-    ): JSX.Element => {
+    ({ of, children, classes = [], ...props }, ref): JSX.Element => {
         const computedClassName = mergeClasses(classes);
         return React.createElement(
             of,
@@ -19,4 +16,4 @@ export const Atom = React.forwardRef(
             children
         );
     }
-);
+) as <T>(props: AtomProps<T> & { ref?: React.Ref<unknown> }) => JSX.Element;

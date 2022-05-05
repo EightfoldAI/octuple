@@ -15,7 +15,7 @@ export const MatchScore: FC<MatchScoreProps> = ({
 }) => {
     const absTotal: number = Math.abs(total);
     return (
-        <Atom
+        <Atom<HTMLDivElement>
             of="div"
             ref={ref}
             {...rest}
