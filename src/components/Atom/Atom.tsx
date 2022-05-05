@@ -5,6 +5,7 @@ import { OcBaseProps } from '../OcBase';
 interface AtomProps<T> extends OcBaseProps<T> {
     of: keyof HTMLElementTagNameMap;
     classes: ArgumentArray;
+    children?: React.ReactNode | React.ReactNode[];
 }
 
 export const Atom = React.forwardRef(

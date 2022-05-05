@@ -1,6 +1,5 @@
-import React, { HTMLAttributes } from 'react';
-
-export interface OcBaseProps<T> extends HTMLAttributes<T> {
+import React from 'react';
+export interface OcBaseProps<T> {
     /**
      * Custom classnames of the component
      */

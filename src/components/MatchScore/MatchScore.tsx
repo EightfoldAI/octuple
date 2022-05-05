@@ -10,14 +10,12 @@ export const MatchScore: FC<MatchScoreProps> = ({
     total = 5,
     hideLabel = false,
     ariaLabel = 'score',
-    ref,
     ...rest
 }) => {
     const absTotal: number = Math.abs(total);
     return (
         <Atom<HTMLDivElement>
             of="div"
-            ref={ref}
             {...rest}
             classes={[classNames, styles.matchScoreContainer]}
             aria-label={ariaLabel}
