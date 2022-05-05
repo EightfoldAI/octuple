@@ -10,7 +10,7 @@ export type SnackbarPosition =
 
 export type SnackbarType = InfoBarType;
 
-export interface SnackbarProps extends InfoBarsProps {
+export interface SnackbarProps extends Omit<InfoBarsProps, 'onClick'> {
     /**
      * Unique id of the snackbar
      */

@@ -1,6 +1,6 @@
 import React, { FC, useState } from 'react';
 import { ButtonSize, DefaultButton } from '../../Button';
-import { Icon, IconName, IconSize } from '../../Icon/index';
+import { Icon, IconName, IconSize } from '../../Icon';
 import { Label } from '../../Label';
 import {
     TextInputWidth,
@@ -41,6 +41,7 @@ export const TextInput: FC<TextInputProps> = ({
     theme = TextInputTheme.light,
     value,
     waitInterval = 10,
+    ...rest
 }) => {
     const [clearButtonShown, setClearButtonShown] = useState<boolean>(false);
     const [inputId] = useState<string>(uniqueId(id || 'input-'));
@@ -132,6 +133,7 @@ export const TextInput: FC<TextInputProps> = ({
         <div className={textInputWrapperClassNames}>
             {labelProps && <Label {...labelProps} />}
             <input
+                {...rest}
                 aria-label={ariaLabel}
                 autoFocus={autoFocus}
                 className={textInputClassNames}

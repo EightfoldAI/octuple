@@ -1,5 +1,5 @@
 import React, { FC, useState } from 'react';
-import { Icon, IconName } from '../../Icon/index';
+import { Icon, IconName } from '../../Icon';
 import { Label } from '../../Label';
 import { TextInputWidth, TextAreaProps, TextInputTheme } from '../index';
 import { useDebounce } from '../../../hooks/useDebounce';
@@ -32,6 +32,7 @@ export const TextArea: FC<TextAreaProps> = ({
     theme = TextInputTheme.light,
     value,
     waitInterval = 10,
+    ...rest
 }) => {
     const [textAreaId] = useState<string>(uniqueId(id || 'textarea-'));
 
@@ -66,6 +67,7 @@ export const TextArea: FC<TextAreaProps> = ({
         <div className={textAreaWrapperClassNames}>
             {labelProps && <Label {...labelProps} />}
             <textarea
+                {...rest}
                 aria-disabled={allowDisabledFocus}
                 aria-label={ariaLabel}
                 autoFocus={autoFocus}

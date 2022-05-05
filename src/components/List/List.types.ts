@@ -1,9 +1,10 @@
 import { Key, ReactNode } from 'react';
 import * as React from 'react';
+import { OcBaseProps } from '../OcBase';
 
 export type ItemLayout = 'horizontal' | 'vertical';
 
-export interface ListProps<T> {
+export interface ListProps<T> extends OcBaseProps<HTMLDivElement> {
     /**
      * Array off items
      */
@@ -19,17 +20,9 @@ export interface ListProps<T> {
      */
     rowKey?: (item: T) => Key | keyof T;
     /**
-     * Custom classes for the list container
-     */
-    classNames?: string;
-    /**
      * Custom classes for list item
      */
     itemClassNames?: string;
-    /**
-     * Style of list container
-     */
-    style?: React.CSSProperties;
     /**
      * Style of the item
      */

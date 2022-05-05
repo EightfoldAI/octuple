@@ -10,6 +10,7 @@ export const Badge: FC<BadgeProps> = ({
     style,
     children,
     disruptive,
+    ...rest
 }) => {
     const badgeClasses: string = mergeClasses([
         styles.badge,
@@ -19,7 +20,7 @@ export const Badge: FC<BadgeProps> = ({
         { [styles.active]: active },
     ]);
     return (
-        <span className={badgeClasses} style={style}>
+        <span className={badgeClasses} style={style} {...rest}>
             {children}
         </span>
     );

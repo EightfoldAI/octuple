@@ -3,6 +3,7 @@ import { Placement, Strategy } from '@floating-ui/react-dom';
 import { IconName, IconProps } from '../Icon';
 import { LabelProps } from '../Label';
 import { TooltipTheme } from '../Tooltip';
+import { OcBaseProps } from '../OcBase';
 
 export enum TextInputTheme {
     light = 'light',
@@ -127,14 +128,15 @@ export interface InputLabelIconButtonProps {
     toolTipPositionStrategy?: Strategy;
 }
 
-export interface SearchBoxProps extends Omit<InputProps, 'htmlType'> {
+export interface SearchBoxProps
+    extends Omit<InputProps<HTMLInputElement>, 'htmlType'> {
     /**
      * The search box value.
      */
     value?: string;
 }
 
-export interface TextAreaProps extends InputProps {
+export interface TextAreaProps extends InputProps<HTMLTextAreaElement> {
     /**
      * The text area is expandable.
      * @default false
@@ -157,7 +159,7 @@ export interface TextAreaProps extends InputProps {
     textAreaRows?: number;
 }
 
-export interface TextInputProps extends InputProps {
+export interface TextInputProps extends InputProps<HTMLInputElement> {
     /**
      * The input html type.
      * @default 'text'
@@ -175,7 +177,11 @@ export interface TextInputProps extends InputProps {
     required?: boolean;
 }
 
-export interface InputProps {
+export interface InputProps<T>
+    extends Omit<
+        OcBaseProps<T>,
+        'onChange' | 'onFocus' | 'onBlur' | 'onKeyDown'
+    > {
     /**
      * Allows focus on the input when it's disabled.
      * @default false
@@ -190,10 +196,6 @@ export interface InputProps {
      * @default false
      */
     autoFocus?: boolean;
-    /**
-     * The input class names.
-     */
-    classNames?: string;
     /**
      * The input clear button aria label text.
      */
@@ -267,10 +269,6 @@ export interface InputProps {
      * @default TextInputShape.Rectangle
      */
     shape?: TextInputShape;
-    /**
-     * Style of the input.
-     */
-    style?: React.CSSProperties;
     /**
      * Theme of the input.
      * @default TextInputTheme.light

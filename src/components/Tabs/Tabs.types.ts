@@ -1,5 +1,7 @@
 import * as React from 'react';
 import { IconName } from '../Icon';
+import { OcBaseProps } from '../OcBase';
+import { Ref } from 'react';
 
 export type SelectTabEvent<E = HTMLElement> =
     | React.MouseEvent<E>
@@ -29,7 +31,7 @@ export interface ITabsContext {
     onTabClick: OnChangeHandler;
 }
 
-export interface TabProps extends React.ButtonHTMLAttributes<any> {
+export interface TabProps extends OcBaseProps<HTMLButtonElement> {
     /**
      * Active value of the tab.
      */
@@ -56,7 +58,7 @@ export interface TabProps extends React.ButtonHTMLAttributes<any> {
     badgeContent?: React.ReactNode;
 }
 
-export interface TabsProps {
+export interface TabsProps extends Omit<OcBaseProps<HTMLElement>, 'onChange'> {
     /**
      * List of Tab element
      */
@@ -72,14 +74,6 @@ export interface TabsProps {
      */
     onChange?: OnChangeHandler;
     /**
-     * Custom classes that can be applied on tabs container
-     */
-    classNames?: string;
-    /**
-     * Css properties top be applied on tabs container
-     */
-    style?: React.CSSProperties;
-    /**
      * Variant of the tab
      * @default default
      */
@@ -89,4 +83,8 @@ export interface TabsProps {
      * @default false
      */
     scrollable?: boolean;
+    /**
+     * Ref of the tabs
+     */
+    ref?: Ref<HTMLDivElement>;
 }
