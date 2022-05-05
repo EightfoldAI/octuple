@@ -9,9 +9,9 @@ export const CheckBox: FC<CheckBoxProps> = ({
     checked = false,
     defaultChecked,
     disabled = false,
-    id,
     name,
     value = '',
+    id = `checkbox-${value}-${Math.random().toString(36).slice(2)}`,
     onChange,
 }) => {
     const [isChecked, setIsChecked] = useState<boolean>(checked);
@@ -33,20 +33,18 @@ export const CheckBox: FC<CheckBoxProps> = ({
                 defaultChecked={defaultChecked}
                 disabled={disabled}
                 id={id}
-                onChange={onChange}
+                onChange={onChange ? onChange : toggleChecked}
                 name={name}
                 type={'checkbox'}
                 value={value}
                 readOnly
             />
-            <label className={value === '' ? styles.labelNoValue : ''}>
-                <span
-                    className={checkBoxCheckClassNames}
-                    onClick={toggleChecked}
-                ></span>
-                <span className={styles.selectorLabel} onClick={toggleChecked}>
-                    {value}
-                </span>
+            <label
+                htmlFor={id}
+                className={value === '' ? styles.labelNoValue : ''}
+            >
+                <span className={checkBoxCheckClassNames}></span>
+                <span className={styles.selectorLabel}>{value}</span>
             </label>
         </div>
     );

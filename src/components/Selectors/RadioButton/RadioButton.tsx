@@ -1,6 +1,7 @@
 import React, { FC, useState } from 'react';
 import { RadioButtonProps } from '../';
 import { classNames } from '../../../shared/utilities';
+import { useRadioGroup } from './RadioGroup.context';
 
 import styles from './radio.module.scss';
 
@@ -8,44 +9,36 @@ export const RadioButton: FC<RadioButtonProps> = ({
     ariaLabel,
     checked = false,
     disabled = false,
-    id,
-    index,
-    forRadioGroup,
     name,
     value = '',
-    onChange,
-    updateRadioGroup,
+    id = `radiobox-${value}-${Math.random().toString(36).slice(2)}`,
 }) => {
-    const [isChecked, setIsChecked] = useState<boolean>(checked);
+    const { onRadioButtonClick, currentRadioButton } = useRadioGroup();
+    const isActive: boolean = value === currentRadioButton;
 
     const radioButtonClassNames: string = classNames([
         styles.radioButton,
         { [styles.disabled]: disabled },
     ]);
 
-    const toggleChecked = (): void => {
-        if (!disabled && forRadioGroup) updateRadioGroup(index);
-        else if (!disabled) setIsChecked(!isChecked);
-    };
-
     return (
         <div className={styles.selector}>
             <input
                 aria-label={ariaLabel}
-                checked={forRadioGroup ? checked : isChecked}
+                checked={isActive ? isActive : checked}
                 disabled={disabled}
                 id={id}
                 name={name}
-                onChange={onChange}
                 type={'radio'}
                 value={value}
+                onChange={(e) => onRadioButtonClick(value, e)}
                 readOnly
             />
-            <label className={value === '' ? styles.labelNoValue : ''}>
-                <span
-                    className={radioButtonClassNames}
-                    onClick={toggleChecked}
-                ></span>
+            <label
+                htmlFor={id}
+                className={value === '' ? styles.labelNoValue : ''}
+            >
+                <span className={radioButtonClassNames}></span>
                 <span className={styles.selectorLabel}>{value}</span>
             </label>
         </div>

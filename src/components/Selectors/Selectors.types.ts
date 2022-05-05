@@ -1,5 +1,27 @@
 import React from 'react';
 
+export type SelectRadioButtonEvent<E = HTMLElement> =
+    | React.MouseEvent<E>
+    | React.KeyboardEvent<E>;
+
+export type RadioButtonChecked = string | number;
+
+export type OnChangeHandler = (
+    value: RadioButtonChecked,
+    event: SelectRadioButtonEvent
+) => void;
+
+export interface RadioGroupContextProps {
+    children: React.ReactNode;
+    onChange: OnChangeHandler;
+    activeRadioButton?: RadioButtonChecked;
+}
+
+export interface IRadioButtonsContext {
+    currentRadioButton: RadioButtonChecked;
+    onRadioButtonClick: OnChangeHandler;
+}
+
 export interface CheckBoxProps {
     /**
      * Allows focus on the checkbox when it's disabled.
@@ -50,6 +72,10 @@ export interface CheckBoxProps {
 
 export interface RadioButtonProps {
     /**
+     * The default radio button to select
+     */
+    activeRadioButton?: RadioButtonChecked;
+    /**
      * The input aria label text.
      */
     ariaLabel?: string;
@@ -92,6 +118,5 @@ export interface RadioButtonProps {
     /**
      * The radio button onChange event handler.
      */
-    onChange?: React.ChangeEventHandler<HTMLInputElement>;
-    updateRadioGroup?: Function;
+    onChange?: OnChangeHandler;
 }
