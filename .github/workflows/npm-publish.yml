@@ -6,7 +6,7 @@ on:
       - 'v*'
 
 env:
-  NODE_VERSION: 16
+  NODE_VERSION: 16.14.2
 jobs:
   build:
     runs-on: ubuntu-latest
