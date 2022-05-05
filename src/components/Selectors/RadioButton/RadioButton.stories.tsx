@@ -8,7 +8,7 @@ export default {
 };
 
 export const Radio = () => {
-    const radioGroupItems = [1, 2, 3, 4].map((i) => ({
+    const radioGroupItems = [1, 2, 3].map((i) => ({
         value: `Radio${i}`,
         name: 'group',
     }));
