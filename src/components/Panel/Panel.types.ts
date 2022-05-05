@@ -1,6 +1,7 @@
 import React from 'react';
 import { IconName } from '../Icon';
 import { ButtonProps } from '../Button';
+import { OcBaseProps } from '../OcBase';
 
 export enum PanelSize {
     small = 'small',
@@ -21,7 +22,7 @@ type EventType =
 
 export type CloseButtonProps = Omit<ButtonProps, 'onClick' | 'icon'>;
 
-export interface PanelProps {
+export interface PanelProps extends Omit<OcBaseProps<HTMLElement>, 'title'> {
     /**
      * Autofocus on the panel on visible
      * @default true

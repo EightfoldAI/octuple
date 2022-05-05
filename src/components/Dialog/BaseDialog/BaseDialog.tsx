@@ -1,4 +1,4 @@
-import React, { FC, useEffect } from 'react';
+import React, { FC, Ref, useEffect } from 'react';
 import { BaseDialogProps } from './BaseDialog.types';
 import { Portal } from '../../Portal';
 import {
@@ -12,85 +12,95 @@ import { useScrollLock } from '../../../hooks/useScrollLock';
 
 import styles from './base-dialog.module.scss';
 
-export const BaseDialog: FC<BaseDialogProps> = ({
-    parent = document.body,
-    visible,
-    onClose,
-    maskClosable = true,
-    onVisibleChange,
-    height,
-    width,
-    zIndex,
-    header,
-    headerClassNames,
-    body,
-    bodyClassNames,
-    actions,
-    actionsClassNames,
-    dialogWrapperClassNames,
-    dialogClassNames,
-}) => {
-    const labelId = uniqueId('dialog-label-');
+export const BaseDialog: FC<BaseDialogProps> = React.forwardRef(
+    (
+        {
+            parent = document.body,
+            visible,
+            onClose,
+            maskClosable = true,
+            onVisibleChange,
+            height,
+            width,
+            zIndex,
+            header,
+            headerClassNames,
+            body,
+            bodyClassNames,
+            actions,
+            actionsClassNames,
+            dialogWrapperClassNames,
+            dialogClassNames,
+            ...rest
+        },
+        ref: Ref<HTMLDivElement>
+    ) => {
+        const labelId = uniqueId('dialog-label-');
 
-    const { lockScroll, unlockScroll } = useScrollLock(parent);
+        const { lockScroll, unlockScroll } = useScrollLock(parent);
 
-    const dialogBackdropClasses: string = mergeClasses([
-        styles.dialogBackdrop,
-        dialogWrapperClassNames,
-        { [styles.visible]: visible },
-    ]);
+        const dialogBackdropClasses: string = mergeClasses([
+            styles.dialogBackdrop,
+            dialogWrapperClassNames,
+            { [styles.visible]: visible },
+        ]);
 
-    const dialogClasses: string = mergeClasses([
-        styles.dialog,
-        dialogClassNames,
-    ]);
+        const dialogClasses: string = mergeClasses([
+            styles.dialog,
+            dialogClassNames,
+        ]);
 
-    const headerClasses: string = mergeClasses([
-        styles.header,
-        headerClassNames,
-    ]);
+        const headerClasses: string = mergeClasses([
+            styles.header,
+            headerClassNames,
+        ]);
 
-    const dialogStyle: React.CSSProperties = {
-        zIndex,
-        height,
-        width,
-    };
+        const dialogStyle: React.CSSProperties = {
+            zIndex,
+            height,
+            width,
+        };
 
-    useEffect(() => {
-        onVisibleChange?.(visible);
-        if (visible) {
-            lockScroll();
-        } else {
-            unlockScroll();
-        }
-    }, [visible]);
+        useEffect(() => {
+            onVisibleChange?.(visible);
+            if (visible) {
+                lockScroll();
+            } else {
+                unlockScroll();
+            }
+        }, [visible]);
 
-    const getDialog = (): JSX.Element => (
-        <div
-            role="dialog"
-            aria-modal={true}
-            aria-labelledby={labelId}
-            className={dialogBackdropClasses}
-            onClick={(e: React.MouseEvent<HTMLDivElement>) => {
-                maskClosable && onClose?.(e);
-            }}
-        >
+        const getDialog = (): JSX.Element => (
             <div
-                className={dialogClasses}
-                style={dialogStyle}
-                onClick={stopPropagation}
+                {...rest}
+                ref={ref}
+                role="dialog"
+                aria-modal={true}
+                aria-labelledby={labelId}
+                className={dialogBackdropClasses}
+                onClick={(e: React.MouseEvent<HTMLDivElement>) => {
+                    maskClosable && onClose?.(e);
+                }}
             >
-                <div className={headerClasses}>
-                    <span id={labelId}>{header}</span>
-                    <NeutralButton
-                        iconProps={{ path: IconName.mdiClose }}
-                        onClick={onClose}
-                    />
+                <div
+                    className={dialogClasses}
+                    style={dialogStyle}
+                    onClick={stopPropagation}
+                >
+                    <div className={headerClasses}>
+                        <span id={labelId}>{header}</span>
+                        <NeutralButton
+                            iconProps={{ path: IconName.mdiClose }}
+                            onClick={onClose}
+                        />
+                    </div>
+                    <div className={bodyClassNames}>{body}</div>
+                    {actions && (
+                        <div className={actionsClassNames}>{actions}</div>
+                    )}
                 </div>
-                <div className={bodyClassNames}>{body}</div>
-                {actions && <div className={actionsClassNames}>{actions}</div>}
             </div>
-        </div>
-    );
-    return <Portal getContainer={() => parent}>{getDialog()}</Portal>;
-};
+        );
+        return <Portal getContainer={() => parent}>{getDialog()}</Portal>;
+    }
+);

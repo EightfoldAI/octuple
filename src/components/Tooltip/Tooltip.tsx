@@ -26,6 +26,7 @@ export const Tooltip: FC<TooltipProps> = ({
     hideAfter = 0,
     tabIndex = 0,
     positionStrategy = 'absolute',
+    ...rest
 }) => {
     const tooltipSide: string = placement.split('-')?.[0];
     const [visible, setVisible] = useState<boolean>(false);
@@ -128,6 +129,7 @@ export const Tooltip: FC<TooltipProps> = ({
                 {children}
             </div>
             <div
+                {...rest}
                 role="tooltip"
                 aria-hidden={!visible}
                 ref={floating}

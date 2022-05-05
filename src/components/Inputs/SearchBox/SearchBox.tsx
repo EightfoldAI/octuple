@@ -36,9 +36,11 @@ export const SearchBox: FC<SearchBoxProps> = ({
     theme = TextInputTheme.light,
     value,
     waitInterval = 500,
+    ...rest
 }) => (
     <form role="search">
         <TextInput
+            {...rest}
             allowDisabledFocus={allowDisabledFocus}
             ariaLabel={ariaLabel}
             autoFocus={autoFocus}

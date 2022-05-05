@@ -136,7 +136,6 @@ describe('Snackbar', () => {
             });
             await new Promise((r) => setTimeout(r, 300));
             const actionButton = wrapper.queryByRole('button');
-            console.log(actionButton);
             const event = createEvent.click(actionButton);
             fireEvent(actionButton, event);
             expect(onClick).toBeCalled();
