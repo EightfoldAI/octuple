@@ -18,6 +18,7 @@ export const List = <T extends any>({
     listType = 'ul',
     role,
     itemRole,
+    ...rest
 }: ListProps<T>) => {
     const containerClasses: string = mergeClasses([
         styles.listContainer,
@@ -54,7 +55,7 @@ export const List = <T extends any>({
         items.map((item: T, index) => getItem(item, index));
 
     return (
-        <div className={classNames} style={style}>
+        <div {...rest} className={classNames} style={style}>
             {getHeader()}
             {listType === 'ul' && (
                 <ul role={role} className={containerClasses}>

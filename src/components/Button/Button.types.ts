@@ -1,5 +1,6 @@
 import React, { Ref } from 'react';
 import { IconProps } from '../Icon';
+import { OcBaseProps } from '../OcBase';
 
 export enum ButtonIconAlign {
     Left = 'left',
@@ -52,7 +53,7 @@ export interface InternalButtonProps extends ButtonProps {
     ref?: Ref<HTMLButtonElement>;
 }
 
-export type NativeButtonProps = Omit<React.ButtonHTMLAttributes<any>, 'type'>;
+export type NativeButtonProps = Omit<OcBaseProps<HTMLButtonElement>, 'type'>;
 
 export interface SplitButtonProps
     extends Omit<

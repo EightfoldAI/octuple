@@ -848,7 +848,10 @@ Array [
     className="mainWrapper"
   >
     <button
+      aria-controls="dropdown-1"
       aria-disabled={false}
+      aria-expanded={false}
+      aria-haspopup={true}
       aria-label="Split Button"
       className="button buttonPrimary splitLeft"
       defaultChecked={false}
@@ -3446,6 +3449,7 @@ exports[`Storyshots ConfigProvider Theming 1`] = `
     <div
       className="tabWrap"
       role="tablist"
+      value="tab1"
     >
       <button
         aria-label="Tab 1"
@@ -3514,6 +3518,7 @@ exports[`Storyshots ConfigProvider Theming 1`] = `
     <div
       className="tabWrap"
       role="tablist"
+      value="tab1"
     >
       <button
         aria-label="Tab 1"
@@ -3662,6 +3667,7 @@ exports[`Storyshots ConfigProvider Theming 1`] = `
     <div
       className="tabWrap small"
       role="tablist"
+      value="tab1"
     >
       <button
         aria-label="Tab 1"
@@ -3730,6 +3736,7 @@ exports[`Storyshots ConfigProvider Theming 1`] = `
     <div
       className="tabWrap pill"
       role="tablist"
+      value="tab1"
     >
       <button
         aria-label="Tab 1"
@@ -10581,6 +10588,7 @@ Array [
     <div
       className="tabWrap"
       role="tablist"
+      value="tab1"
     >
       <button
         aria-label="Tab 1"
@@ -10650,6 +10658,7 @@ Array [
     <div
       className="tabWrap"
       role="tablist"
+      value="tab1"
     >
       <button
         aria-label="Tab 1"
@@ -10739,6 +10748,7 @@ Array [
     <div
       className="tabWrap"
       role="tablist"
+      value="tab1"
     >
       <button
         aria-label="Tab 1"
@@ -10888,6 +10898,7 @@ Array [
     <div
       className="tabWrap"
       role="tablist"
+      value="tab1"
     >
       <button
         aria-label="Tab 1"
@@ -11064,6 +11075,7 @@ Array [
       <div
         className="tabWrap scrollable"
         role="tablist"
+        value="tab1"
       >
         <button
           aria-label="Tab 1"
@@ -11222,6 +11234,7 @@ Array [
     <div
       className="tabWrap pill"
       role="tablist"
+      value="tab1"
     >
       <button
         aria-label="Tab 1"
@@ -11291,6 +11304,7 @@ Array [
     <div
       className="tabWrap pill"
       role="tablist"
+      value="tab1"
     >
       <button
         aria-label="Tab 1"
@@ -11380,6 +11394,7 @@ Array [
     <div
       className="tabWrap pill"
       role="tablist"
+      value="tab1"
     >
       <button
         aria-label="Tab 1"
@@ -11529,6 +11544,7 @@ Array [
     <div
       className="tabWrap pill"
       role="tablist"
+      value="tab1"
     >
       <button
         aria-label="Tab 1"
@@ -11703,6 +11719,7 @@ Array [
     <div
       className="tabWrap small"
       role="tablist"
+      value="tab1"
     >
       <button
         aria-label="Tab 1"
@@ -11772,6 +11789,7 @@ Array [
     <div
       className="tabWrap small"
       role="tablist"
+      value="tab1"
     >
       <button
         aria-label="Tab 1"
@@ -11861,6 +11879,7 @@ Array [
     <div
       className="tabWrap small"
       role="tablist"
+      value="tab1"
     >
       <button
         aria-label="Tab 1"
@@ -12010,6 +12029,7 @@ Array [
     <div
       className="tabWrap small"
       role="tablist"
+      value="tab1"
     >
       <button
         aria-label="Tab 1"
@@ -12186,6 +12206,7 @@ Array [
       <div
         className="tabWrap small scrollable"
         role="tablist"
+        value="tab1"
       >
         <button
           aria-label="Tab 1"

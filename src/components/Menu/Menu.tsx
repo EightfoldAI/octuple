@@ -14,12 +14,13 @@ export const Menu: FC<MenuProps> = ({
     header,
     footer,
     listType,
+    ...rest
 }) => {
     const getDefaultButton = (item: MenuItem): JSX.Element => (
         <DefaultButton
+            {...item}
             alignText={ButtonTextAlign.Left}
             buttonWidth={ButtonWidth.fill}
-            {...item}
             disruptive={disruptive}
             onClick={() => onChange(item.value)}
         />
@@ -27,6 +28,7 @@ export const Menu: FC<MenuProps> = ({
 
     return (
         <List<MenuItem>
+            {...rest}
             items={items}
             renderItem={getDefaultButton}
             classNames={classNames}
