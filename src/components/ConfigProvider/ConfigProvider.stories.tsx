@@ -9,6 +9,7 @@ import { Tab, Tabs, TabVariant } from '../Tabs';
 import { IconName } from '../Icon';
 import { CompactPicker } from 'react-color';
 import { ConfigProvider, OcThemeNames, useConfig } from './';
+import { MatchScore } from '../MatchScore';
 
 export default {
     title: 'ConfigProvider',
@@ -105,13 +106,13 @@ const ThemedComponents = () => {
                     ariaLabel="Primary Button"
                     onClick={click}
                     size={ButtonSize.Large}
-                    icon={IconName.mdiCardsHeart}
+                    iconProps={{ path: IconName.mdiCardsHeart }}
                 />
                 <PrimaryButton
                     ariaLabel="Primary Button"
                     onClick={click}
                     size={ButtonSize.Large}
-                    icon={IconName.mdiCardsHeart}
+                    iconProps={{ path: IconName.mdiCardsHeart }}
                     text="Primary Button"
                 />
             </div>
@@ -126,7 +127,7 @@ const ThemedComponents = () => {
                 />
                 <SecondaryButton
                     ariaLabel="Secondary Button"
-                    icon={IconName.mdiCardsHeart}
+                    iconProps={{ path: IconName.mdiCardsHeart }}
                     onClick={click}
                     size={ButtonSize.Large}
                 />
@@ -135,7 +136,7 @@ const ThemedComponents = () => {
                     onClick={click}
                     size={ButtonSize.Large}
                     text="Secondary Button"
-                    icon={IconName.mdiCardsHeart}
+                    iconProps={{ path: IconName.mdiCardsHeart }}
                 />
             </div>
             <br />
@@ -149,13 +150,13 @@ const ThemedComponents = () => {
                 />
                 <DefaultButton
                     ariaLabel="Default Button"
-                    icon={IconName.mdiCardsHeart}
+                    iconProps={{ path: IconName.mdiCardsHeart }}
                     onClick={click}
                     size={ButtonSize.Large}
                 />
                 <DefaultButton
                     ariaLabel="Default Button"
-                    icon={IconName.mdiCardsHeart}
+                    iconProps={{ path: IconName.mdiCardsHeart }}
                     onClick={click}
                     size={ButtonSize.Large}
                     text="Default Button"
@@ -163,36 +164,35 @@ const ThemedComponents = () => {
             </div>
             <br />
             <br />
-            <Tabs onChange={click} activeTab={'tab1'}>
+            <Tabs onChange={click} value={'tab1'}>
                 {tabs.map((tab) => (
                     <Tab key={tab.value} {...tab} />
                 ))}
             </Tabs>
             <br />
             <br />
-            <Tabs onChange={click} activeTab={'tab1'}>
+            <Tabs onChange={click} value={'tab1'}>
                 {iconTabs.map((tab) => (
                     <Tab key={tab.value} {...tab} />
                 ))}
             </Tabs>
             <br />
             <br />
-            <Tabs
-                onChange={click}
-                activeTab={'tab1'}
-                variant={TabVariant.small}
-            >
+            <Tabs onChange={click} value={'tab1'} variant={TabVariant.small}>
                 {tabs.map((tab) => (
                     <Tab key={tab.value} {...tab} />
                 ))}
             </Tabs>
             <br />
             <br />
-            <Tabs onChange={click} activeTab={'tab1'} variant={TabVariant.pill}>
+            <Tabs onChange={click} value={'tab1'} variant={TabVariant.pill}>
                 {tabs.map((tab) => (
                     <Tab key={tab.value} {...tab} />
                 ))}
             </Tabs>
+            <br />
+            <br />
+            <MatchScore score={3} />
         </>
     );
 };

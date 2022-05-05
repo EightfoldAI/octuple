@@ -7,7 +7,7 @@ import {
     offset as fOffset,
 } from '@floating-ui/react-dom';
 import { TooltipProps, TooltipTheme } from './Tooltip.types';
-import { classNames } from '../../shared/utilities';
+import { mergeClasses } from '../../shared/utilities';
 
 import styles from './tooltip.module.scss';
 
@@ -21,11 +21,12 @@ export const Tooltip: FC<TooltipProps> = ({
     placement = 'bottom',
     disabled,
     visibleArrow = true,
-    className,
+    classNames,
     openDelay = 0,
     hideAfter = 0,
     tabIndex = 0,
     positionStrategy = 'absolute',
+    ...rest
 }) => {
     const tooltipSide: string = placement.split('-')?.[0];
     const [visible, setVisible] = useState<boolean>(false);
@@ -53,7 +54,7 @@ export const Tooltip: FC<TooltipProps> = ({
 
     useEffect(() => {
         if (!refs.reference.current || !refs.floating.current) {
-            return null;
+            return () => {};
         }
 
         // Only call this when the floating element is rendered
@@ -67,6 +68,9 @@ export const Tooltip: FC<TooltipProps> = ({
     const toggle: Function =
         (show: boolean): Function =>
         (): void => {
+            if (!content) {
+                return;
+            }
             timeout && clearTimeout(timeout);
             timeout = setTimeout(
                 () => {
@@ -76,8 +80,8 @@ export const Tooltip: FC<TooltipProps> = ({
             );
         };
 
-    const tooltipClasses: string = classNames([
-        className,
+    const tooltipClasses: string = mergeClasses([
+        classNames,
         styles.tooltip,
         { [styles.visible]: visible },
         { [styles.dark]: theme === TooltipTheme.dark },
@@ -87,7 +91,7 @@ export const Tooltip: FC<TooltipProps> = ({
         { [styles.right]: tooltipSide === 'right' },
     ]);
 
-    const referenceWrapperClasses: string = classNames([
+    const referenceWrapperClasses: string = mergeClasses([
         styles.referenceWrapper,
         { [styles.disabled]: disabled },
     ]);
@@ -125,6 +129,7 @@ export const Tooltip: FC<TooltipProps> = ({
                 {children}
             </div>
             <div
+                {...rest}
                 role="tooltip"
                 aria-hidden={!visible}
                 ref={floating}

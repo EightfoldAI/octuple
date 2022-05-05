@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Tabs, Tab, TabVariant, TabValue } from './';
 import { IconName } from '../Icon';
 
@@ -11,6 +11,14 @@ const tabs = [1, 2, 3, 4].map((i) => ({
     value: `tab${i}`,
     label: `Tab ${i}`,
     ariaLabel: `Tab ${i}`,
+    ...(i === 4 ? { disabled: true } : {}),
+}));
+
+const badgeTabs = [1, 2, 3, 4].map((i) => ({
+    value: `tab${i}`,
+    label: `Tab ${i}`,
+    ariaLabel: `Tab ${i}`,
+    badgeContent: i,
     ...(i === 4 ? { disabled: true } : {}),
 }));
 
@@ -36,123 +44,218 @@ const scrollableTabs = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((i) => ({
     ...(i === 4 ? { disabled: true } : {}),
 }));
 
-export const Default = () => (
-    <>
-        <p>Default Tabs</p>
-        <Tabs onChange={_tabClicked} activeTab={'tab1'}>
-            {tabs.map((tab) => (
-                <Tab key={tab.value} {...tab} />
-            ))}
-        </Tabs>
-        <p>Icon Tabs</p>
-        <Tabs onChange={_tabClicked} activeTab={'tab1'}>
-            {iconTabs.map((tab) => (
-                <Tab key={tab.value} {...tab} />
-            ))}
-        </Tabs>
-        <p>Icon Label Tabs</p>
-        <Tabs onChange={_tabClicked} activeTab={'tab1'}>
-            {iconLabelTabs.map((tab) => (
-                <Tab key={tab.value} {...tab} />
-            ))}
-        </Tabs>
-        <p>Scrollable tabs</p>
-        <div style={{ maxWidth: '500px' }}>
-            <Tabs onChange={_tabClicked} activeTab={'tab1'} scrollable>
-                {scrollableTabs.map((tab) => (
-                    <Tab key={tab.value} {...tab} />
-                ))}
-            </Tabs>
-        </div>
-    </>
-);
+export const Default = () => {
+    const [activeTabs, setActiveTabs] = useState({
+        defaultTab: 'tab1',
+        defaultTabBadge: 'tab1',
+        iconTab: 'tab1',
+        iconLabelTab: 'tab1',
+        scrollableTab: 'tab1',
+    });
 
-export const Small = () => (
-    <>
-        <p>Default Tabs</p>
-        <Tabs
-            onChange={_tabClicked}
-            activeTab={'tab1'}
-            variant={TabVariant.small}
-        >
-            {tabs.map((tab) => (
-                <Tab key={tab.value} {...tab} />
-            ))}
-        </Tabs>
-        <p>Icon Tabs</p>
-        <Tabs
-            onChange={_tabClicked}
-            activeTab={'tab1'}
-            variant={TabVariant.small}
-        >
-            {iconTabs.map((tab) => (
-                <Tab key={tab.value} {...tab} />
-            ))}
-        </Tabs>
-        <p>Icon Label Tabs</p>
-        <Tabs
-            onChange={_tabClicked}
-            activeTab={'tab1'}
-            variant={TabVariant.small}
-        >
-            {iconLabelTabs.map((tab) => (
-                <Tab key={tab.value} {...tab} />
-            ))}
-        </Tabs>
-        <p>Scrollable tabs</p>
-        <div style={{ maxWidth: '500px' }}>
+    return (
+        <>
+            <p>Default Tabs</p>
             <Tabs
-                onChange={_tabClicked}
-                activeTab={'tab1'}
-                variant={TabVariant.small}
-                scrollable
+                onChange={(tab) =>
+                    setActiveTabs({ ...activeTabs, defaultTab: tab })
+                }
+                value={activeTabs.defaultTab}
             >
-                {scrollableTabs.map((tab) => (
+                {tabs.map((tab) => (
                     <Tab key={tab.value} {...tab} />
                 ))}
             </Tabs>
-        </div>
-    </>
-);
+            <p>Tabs with badge</p>
+            <Tabs
+                onChange={(tab) =>
+                    setActiveTabs({ ...activeTabs, defaultTabBadge: tab })
+                }
+                value={activeTabs.defaultTabBadge}
+            >
+                {badgeTabs.map((tab) => (
+                    <Tab key={tab.value} {...tab} />
+                ))}
+            </Tabs>
+            <p>Icon Tabs</p>
+            <Tabs
+                onChange={(tab) =>
+                    setActiveTabs({ ...activeTabs, iconTab: tab })
+                }
+                value={activeTabs.iconTab}
+            >
+                {iconTabs.map((tab) => (
+                    <Tab key={tab.value} {...tab} />
+                ))}
+            </Tabs>
+            <p>Icon Label Tabs</p>
+            <Tabs
+                onChange={(tab) =>
+                    setActiveTabs({ ...activeTabs, iconLabelTab: tab })
+                }
+                value={activeTabs.iconLabelTab}
+            >
+                {iconLabelTabs.map((tab) => (
+                    <Tab key={tab.value} {...tab} />
+                ))}
+            </Tabs>
+            <p>Scrollable tabs</p>
+            <div style={{ maxWidth: '500px' }}>
+                <Tabs
+                    onChange={(tab) =>
+                        setActiveTabs({ ...activeTabs, scrollableTab: tab })
+                    }
+                    value={activeTabs.scrollableTab}
+                    scrollable
+                >
+                    {scrollableTabs.map((tab) => (
+                        <Tab key={tab.value} {...tab} />
+                    ))}
+                </Tabs>
+            </div>
+        </>
+    );
+};
 
-export const Pill = () => (
-    <>
-        <h3>
-            <b>Experimental (do not use in production)</b>
-        </h3>
-        <p>Default Tabs</p>
-        <Tabs
-            onChange={_tabClicked}
-            activeTab={'tab1'}
-            variant={TabVariant.pill}
-        >
-            {tabs.map((tab) => (
-                <Tab key={tab.value} {...tab} />
-            ))}
-        </Tabs>
-        <p>Icon Tabs</p>
-        <Tabs
-            onChange={_tabClicked}
-            activeTab={'tab1'}
-            variant={TabVariant.pill}
-        >
-            {iconTabs.map((tab) => (
-                <Tab key={tab.value} {...tab} />
-            ))}
-        </Tabs>
-        <p>Icon Label Tabs</p>
-        <Tabs
-            onChange={_tabClicked}
-            activeTab={'tab1'}
-            variant={TabVariant.pill}
-        >
-            {iconLabelTabs.map((tab) => (
-                <Tab key={tab.value} {...tab} />
-            ))}
-        </Tabs>
-    </>
-);
+export const Small = () => {
+    const [activeTabs, setActiveTabs] = useState({
+        defaultTab: 'tab1',
+        defaultTabBadge: 'tab1',
+        iconTab: 'tab1',
+        iconLabelTab: 'tab1',
+        scrollableTab: 'tab1',
+    });
 
-function _tabClicked(tab: TabValue): void {
-    console.log(tab);
-}
+    return (
+        <>
+            <p>Default Tabs</p>
+            <Tabs
+                onChange={(tab) =>
+                    setActiveTabs({ ...activeTabs, defaultTab: tab })
+                }
+                value={activeTabs.defaultTab}
+                variant={TabVariant.small}
+            >
+                {tabs.map((tab) => (
+                    <Tab key={tab.value} {...tab} />
+                ))}
+            </Tabs>
+            <p>Tabs with badge</p>
+            <Tabs
+                onChange={(tab) =>
+                    setActiveTabs({ ...activeTabs, defaultTabBadge: tab })
+                }
+                value={activeTabs.defaultTabBadge}
+                variant={TabVariant.small}
+            >
+                {badgeTabs.map((tab) => (
+                    <Tab key={tab.value} {...tab} />
+                ))}
+            </Tabs>
+            <p>Icon Tabs</p>
+            <Tabs
+                onChange={(tab) =>
+                    setActiveTabs({ ...activeTabs, iconTab: tab })
+                }
+                value={activeTabs.iconTab}
+                variant={TabVariant.small}
+            >
+                {iconTabs.map((tab) => (
+                    <Tab key={tab.value} {...tab} />
+                ))}
+            </Tabs>
+            <p>Icon Label Tabs</p>
+            <Tabs
+                onChange={(tab) =>
+                    setActiveTabs({ ...activeTabs, iconLabelTab: tab })
+                }
+                value={activeTabs.iconLabelTab}
+                variant={TabVariant.small}
+            >
+                {iconLabelTabs.map((tab) => (
+                    <Tab key={tab.value} {...tab} />
+                ))}
+            </Tabs>
+            <p>Scrollable tabs</p>
+            <div style={{ maxWidth: '500px' }}>
+                <Tabs
+                    onChange={(tab) =>
+                        setActiveTabs({ ...activeTabs, scrollableTab: tab })
+                    }
+                    value={activeTabs.scrollableTab}
+                    variant={TabVariant.small}
+                    scrollable
+                >
+                    {scrollableTabs.map((tab) => (
+                        <Tab key={tab.value} {...tab} />
+                    ))}
+                </Tabs>
+            </div>
+        </>
+    );
+};
+
+export const Pill = () => {
+    const [activeTabs, setActiveTabs] = useState({
+        defaultTab: 'tab1',
+        defaultTabBadge: 'tab1',
+        iconTab: 'tab1',
+        iconLabelTab: 'tab1',
+        scrollableTab: 'tab1',
+    });
+    return (
+        <>
+            <h3>
+                <b>Experimental (do not use in production)</b>
+            </h3>
+            <p>Default Tabs</p>
+            <Tabs
+                onChange={(tab) =>
+                    setActiveTabs({ ...activeTabs, defaultTab: tab })
+                }
+                value={activeTabs.defaultTab}
+                variant={TabVariant.pill}
+            >
+                {tabs.map((tab) => (
+                    <Tab key={tab.value} {...tab} />
+                ))}
+            </Tabs>
+            <p>Tabs with badge</p>
+            <Tabs
+                onChange={(tab) =>
+                    setActiveTabs({ ...activeTabs, defaultTabBadge: tab })
+                }
+                value={activeTabs.defaultTabBadge}
+                variant={TabVariant.pill}
+            >
+                {badgeTabs.map((tab) => (
+                    <Tab key={tab.value} {...tab} />
+                ))}
+            </Tabs>
+            <p>Icon Tabs</p>
+            <Tabs
+                onChange={(tab) =>
+                    setActiveTabs({ ...activeTabs, iconTab: tab })
+                }
+                value={activeTabs.iconTab}
+                variant={TabVariant.pill}
+            >
+                {iconTabs.map((tab) => (
+                    <Tab key={tab.value} {...tab} />
+                ))}
+            </Tabs>
+            <p>Icon Label Tabs</p>
+            <Tabs
+                onChange={(tab) =>
+                    setActiveTabs({ ...activeTabs, iconLabelTab: tab })
+                }
+                value={activeTabs.iconLabelTab}
+                variant={TabVariant.pill}
+            >
+                {iconLabelTabs.map((tab) => (
+                    <Tab key={tab.value} {...tab} />
+                ))}
+            </Tabs>
+        </>
+    );
+};

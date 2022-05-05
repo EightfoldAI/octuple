@@ -1,5 +1,11 @@
 import React, { Ref } from 'react';
-import { IconName } from '../Icon';
+import { IconProps } from '../Icon';
+import { OcBaseProps } from '../OcBase';
+
+export enum ButtonIconAlign {
+    Left = 'left',
+    Right = 'right',
+}
 
 export enum ButtonTextAlign {
     Center = 'center',
@@ -47,7 +53,7 @@ export interface InternalButtonProps extends ButtonProps {
     ref?: Ref<HTMLButtonElement>;
 }
 
-export type NativeButtonProps = Omit<React.ButtonHTMLAttributes<any>, 'type'>;
+export type NativeButtonProps = Omit<OcBaseProps<HTMLButtonElement>, 'type'>;
 
 export interface SplitButtonProps
     extends Omit<
@@ -59,8 +65,7 @@ export interface TwoStateButtonProps
     extends Omit<
         InternalButtonProps,
         | 'htmlType'
-        | 'icon'
-        | 'iconColor'
+        | 'iconProps'
         | 'onContextMenu'
         | 'split'
         | 'splitButtonProps'
@@ -70,17 +75,17 @@ export interface TwoStateButtonProps
      */
     counter?: number;
     /**
-     * The button icon 1.
+     * The button icon 1 props.
      */
-    iconOne?: IconName;
+    iconOneProps?: IconProps;
     /**
      * The button icon 1 color.
      */
     iconOneColor?: string;
     /**
-     * The button icon 2.
+     * The button icon 2 props.
      */
-    iconTwo?: IconName;
+    iconTwoProps?: IconProps;
     /**
      * The button icon 2 color.
      */
@@ -93,14 +98,19 @@ export interface ButtonProps extends NativeButtonProps {
      */
     allowDisabledFocus?: boolean;
     /**
-     * The button aria-label text.
+     * The button icon alignment.
+     * @default ButtonIconAlign.Left
      */
-    ariaLabel?: string;
+    alignIcon?: ButtonIconAlign;
     /**
      * The button text alignment.
      * @default ButtonTextAlign.Center
      */
     alignText?: ButtonTextAlign;
+    /**
+     * The button aria-label text.
+     */
+    ariaLabel?: string;
     /**
      * The button width type
      * @default fitContent
@@ -113,7 +123,7 @@ export interface ButtonProps extends NativeButtonProps {
     /**
      * The button class names.
      */
-    className?: string;
+    classNames?: string;
     /**
      * The button disabled state.
      * @default false
@@ -134,13 +144,9 @@ export interface ButtonProps extends NativeButtonProps {
      */
     htmlType?: 'button' | 'submit' | 'reset';
     /**
-     * The button icon.
+     * The button icon props.
      */
-    icon?: IconName;
-    /**
-     * The button icon color.
-     */
-    iconColor?: string;
+    iconProps?: IconProps;
     /**
      * The button id.
      */

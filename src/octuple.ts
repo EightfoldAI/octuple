@@ -1,9 +1,12 @@
+import { Badge } from './components/Badge';
+
 import {
     ButtonShape,
     ButtonSize,
     ButtonTextAlign,
     ButtonTheme,
     ButtonWidth,
+    ButtonIconAlign,
     DefaultButton,
     NeutralButton,
     PrimaryButton,
@@ -18,6 +21,8 @@ import { Dialog, DialogSize } from './components/Dialog';
 import { Dropdown } from './components/Dropdown';
 
 import { Icon, IconName, IconSize } from './components/Icon';
+
+import { Label, LabelSize } from './components/Label';
 
 import { List } from './components/List';
 
@@ -36,16 +41,15 @@ import {
     TextInputWidth,
 } from './components/Inputs';
 
-import {
-    SnackbarContainer,
-    Snackbar,
-    SnackbarType,
-    snack,
-} from './components/Snackbar';
+import { InfoBar, InfoBarType } from './components/InfoBar';
+
+import { SnackbarContainer, Snackbar, snack } from './components/Snackbar';
 
 import { Tabs, Tab, TabVariant } from './components/Tabs';
 
 import { Tooltip, TooltipTheme } from './components/Tooltip';
+
+import { MatchScore } from './components/MatchScore';
 
 import { Panel, PanelPlacement, PanelSize } from './components/Panel';
 
@@ -60,6 +64,8 @@ import { useOnClickOutside } from './hooks/useOnClickOutside';
 import { useScrollLock } from './hooks/useScrollLock';
 
 export {
+    Badge,
+    ButtonIconAlign,
     ButtonShape,
     ButtonSize,
     ButtonTextAlign,
@@ -73,7 +79,12 @@ export {
     Icon,
     IconName,
     IconSize,
+    InfoBar,
+    InfoBarType,
+    Label,
+    LabelSize,
     List,
+    MatchScore,
     Menu,
     Modal,
     ModalSize,
@@ -91,7 +102,6 @@ export {
     snack,
     Snackbar,
     SnackbarContainer,
-    SnackbarType,
     Tabs,
     Tab,
     TabVariant,

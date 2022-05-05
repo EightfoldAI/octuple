@@ -1,5 +1,7 @@
 import * as React from 'react';
 import { IconName } from '../Icon';
+import { OcBaseProps } from '../OcBase';
+import { Ref } from 'react';
 
 export type SelectTabEvent<E = HTMLElement> =
     | React.MouseEvent<E>
@@ -21,7 +23,7 @@ export enum TabVariant {
 export interface TabsContextProps {
     children: React.ReactNode;
     onChange: OnChangeHandler;
-    activeTab?: TabValue;
+    value?: TabValue;
 }
 
 export interface ITabsContext {
@@ -29,9 +31,9 @@ export interface ITabsContext {
     onTabClick: OnChangeHandler;
 }
 
-export interface TabProps {
+export interface TabProps extends OcBaseProps<HTMLButtonElement> {
     /**
-     * The value of the tab.
+     * Active value of the tab.
      */
     value: TabValue;
     /**
@@ -50,9 +52,13 @@ export interface TabProps {
      * The tab is disabled.
      */
     disabled?: boolean;
+    /**
+     * Content of the badge
+     */
+    badgeContent?: React.ReactNode;
 }
 
-export interface TabsProps {
+export interface TabsProps extends Omit<OcBaseProps<HTMLElement>, 'onChange'> {
     /**
      * List of Tab element
      */
@@ -60,21 +66,13 @@ export interface TabsProps {
     /**
      * The default tab to select
      */
-    activeTab?: TabValue;
+    value?: TabValue;
     /**
      * Callback called on click of a tab
      * @param value {TabValue}
      * @param event {SelectTabEvent}
      */
     onChange?: OnChangeHandler;
-    /**
-     * Custom class that can be applied on tabs container
-     */
-    className?: string;
-    /**
-     * Css properties top be applied on tabs container
-     */
-    style?: React.CSSProperties;
     /**
      * Variant of the tab
      * @default default
@@ -85,4 +83,8 @@ export interface TabsProps {
      * @default false
      */
     scrollable?: boolean;
+    /**
+     * Ref of the tabs
+     */
+    ref?: Ref<HTMLDivElement>;
 }

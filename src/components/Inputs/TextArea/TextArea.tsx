@@ -1,10 +1,9 @@
 import React, { FC, useState } from 'react';
-import { ButtonSize, DefaultButton } from '../../Button';
-import { Icon, IconName } from '../../Icon/index';
+import { Icon, IconName } from '../../Icon';
+import { Label } from '../../Label';
 import { TextInputWidth, TextAreaProps, TextInputTheme } from '../index';
-import { Tooltip } from '../../Tooltip';
 import { useDebounce } from '../../../hooks/useDebounce';
-import { classNames, uniqueId } from '../../../shared/utilities';
+import { mergeClasses, uniqueId } from '../../../shared/utilities';
 
 import styles from '../input.module.scss';
 
@@ -12,13 +11,12 @@ export const TextArea: FC<TextAreaProps> = ({
     allowDisabledFocus = false,
     ariaLabel,
     autoFocus = false,
-    className,
+    classNames,
     disabled = false,
     enableExpand = false,
     id,
     inputWidth = TextInputWidth.fitContent,
-    label,
-    labelIconButtonProps,
+    labelProps,
     maxlength,
     minlength,
     name,
@@ -34,18 +32,19 @@ export const TextArea: FC<TextAreaProps> = ({
     theme = TextInputTheme.light,
     value,
     waitInterval = 10,
+    ...rest
 }) => {
     const [textAreaId] = useState<string>(uniqueId(id || 'textarea-'));
 
-    const textAreaClassNames: string = classNames([
-        className,
+    const textAreaClassNames: string = mergeClasses([
+        classNames,
         styles.textArea,
         { [styles.textAreaNoExpand]: !enableExpand },
         { [styles.dark]: theme === TextInputTheme.dark },
         { [styles.inputStretch]: inputWidth === TextInputWidth.fill },
     ]);
 
-    const textAreaWrapperClassNames: string = classNames([
+    const textAreaWrapperClassNames: string = mergeClasses([
         styles.inputWrapper,
         {
             [styles.inputStretch]: inputWidth === TextInputWidth.fill,
@@ -66,48 +65,9 @@ export const TextArea: FC<TextAreaProps> = ({
 
     return (
         <div className={textAreaWrapperClassNames}>
-            <div className={styles.fieldLabel}>
-                {label && (
-                    <label className={styles.textStyle} htmlFor={name}>
-                        {label}
-                    </label>
-                )}
-                {labelIconButtonProps?.show && (
-                    <span className={styles.fieldLabelIconButton}>
-                        <Tooltip
-                            content={labelIconButtonProps.toolTipContent}
-                            placement={
-                                labelIconButtonProps?.toolTipPlacement || 'top'
-                            }
-                            positionStrategy={
-                                labelIconButtonProps.toolTipPositionStrategy
-                            }
-                            theme={labelIconButtonProps.toolTipTheme}
-                        >
-                            <DefaultButton
-                                allowDisabledFocus={
-                                    labelIconButtonProps.allowDisabledFocus
-                                }
-                                ariaLabel={labelIconButtonProps.ariaLabel}
-                                className={styles.labelIconButton}
-                                disabled={labelIconButtonProps.disabled}
-                                icon={
-                                    labelIconButtonProps?.icon ||
-                                    IconName.mdiInformation
-                                }
-                                iconColor={labelIconButtonProps.iconColor}
-                                onClick={
-                                    !labelIconButtonProps.allowDisabledFocus
-                                        ? labelIconButtonProps.onClick
-                                        : null
-                                }
-                                size={ButtonSize.Small}
-                            />
-                        </Tooltip>
-                    </span>
-                )}
-            </div>
+            {labelProps && <Label {...labelProps} />}
             <textarea
+                {...rest}
                 aria-disabled={allowDisabledFocus}
                 aria-label={ariaLabel}
                 autoFocus={autoFocus}
@@ -131,7 +91,7 @@ export const TextArea: FC<TextAreaProps> = ({
             />
             {enableExpand && (
                 <Icon
-                    className={styles.textAreaResizeIcon}
+                    classNames={styles.textAreaResizeIcon}
                     path={IconName.mdiResizeBottomRight}
                 />
             )}

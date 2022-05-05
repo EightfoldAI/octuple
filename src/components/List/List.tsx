@@ -1,6 +1,6 @@
 import React, { Key } from 'react';
 import { ListProps } from './List.types';
-import { classNames } from '../../shared/utilities';
+import { mergeClasses } from '../../shared/utilities';
 
 import styles from './list.module.scss';
 
@@ -11,20 +11,21 @@ export const List = <T extends any>({
     renderItem,
     rowKey,
     header,
-    className,
+    classNames,
     style,
-    itemClassName,
+    itemClassNames,
     itemStyle,
     listType = 'ul',
     role,
     itemRole,
+    ...rest
 }: ListProps<T>) => {
-    const containerClasses: string = classNames([
+    const containerClasses: string = mergeClasses([
         styles.listContainer,
         { [styles.vertical]: layout === 'vertical' },
     ]);
 
-    const itemClasses: string = classNames([styles.listItem, itemClassName]);
+    const itemClasses: string = mergeClasses([styles.listItem, itemClassNames]);
 
     const getHeader = (): JSX.Element => <>{header}</>;
 
@@ -54,7 +55,7 @@ export const List = <T extends any>({
         items.map((item: T, index) => getItem(item, index));
 
     return (
-        <div className={className} style={style}>
+        <div {...rest} className={classNames} style={style}>
             {getHeader()}
             {listType === 'ul' && (
                 <ul role={role} className={containerClasses}>

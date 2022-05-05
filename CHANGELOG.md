@@ -2,6 +2,56 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.1.0](https://github.com/EightfoldAI/octuple/compare/v1.0.0...v1.1.0) (2022-05-05)
+
+### Features
+
+-   abstract out common component props as oc base props, add ability to forward ref ([#106](https://github.com/EightfoldAI/octuple/issues/106)) ([f9c6f1b](https://github.com/EightfoldAI/octuple/commits/f9c6f1b601ac9a5aafba6b3e6b7783ac3265cb5c))
+
+## [1.0.0](https://github.com/EightfoldAI/octuple/compare/v0.0.17...v1.0.0) (2022-05-03)
+
+### ⚠ BREAKING CHANGES
+
+-   classnames and icon props must be updated to match latest
+
+-   fix: match score: updates references and classname prop
+
+### Features
+
+-   add match score component 🟢 🟢 🟢 ⚪️ ⚪️ ([#92](https://github.com/EightfoldAI/octuple/issues/92)) ([99f07ec](https://github.com/EightfoldAI/octuple/commits/99f07ec4179f22c05163b8d2da6263eaf2c99b76))
+-   props: normalize label, classnames, button alignment and iconprops ([#97](https://github.com/EightfoldAI/octuple/issues/97)) ([5b3456a](https://github.com/EightfoldAI/octuple/commits/5b3456a322b977210f580383fb2e74e042e1fb31))
+
+### Bug Fixes
+
+-   tabs: use tab value to set the current active tab([#100](https://github.com/EightfoldAI/octuple/issues/100)) ([5e0ec1f](https://github.com/EightfoldAI/octuple/commits/5e0ec1f8962ab4a615e7c6f145d16fd4411c92ee))
+
+### [0.0.17](https://github.com/EightfoldAI/octuple/compare/v0.0.16...v0.0.17) (2022-05-02)
+
+### Features
+
+-   adds octuple badge, use badge in tabs ([#89](https://github.com/EightfoldAI/octuple/issues/89)) ([81f6fa5](https://github.com/EightfoldAI/octuple/commits/81f6fa596848ba041f163bf2ec71a1b989b3522a))
+-   change menu item value to type any ([#93](https://github.com/EightfoldAI/octuple/issues/93)) ([b5cff2e](https://github.com/EightfoldAI/octuple/commits/b5cff2e6b808c3ddbf8b14b7e8461dca20ab5dc8))
+
+### Bug Fixes
+
+-   button: fixes button height and min width in flex layouts ([#95](https://github.com/EightfoldAI/octuple/issues/95)) ([0ba62c0](https://github.com/EightfoldAI/octuple/commits/0ba62c0adbd1c8d0a3c5df805d368f9bc1d86b21))
+-   dropdown: fix memory leak in dropdowns, change position strategy to absolute ([#90](https://github.com/EightfoldAI/octuple/issues/90)) ([25de4bf](https://github.com/EightfoldAI/octuple/commits/25de4bfd78afa2dae2731bb7ff84910e719b1322))
+-   tooltip: dont show tooltip if no content ([#94](https://github.com/EightfoldAI/octuple/issues/94)) ([13f6a2e](https://github.com/EightfoldAI/octuple/commits/13f6a2e70e8efa6529240e24508dc564a6bec327))
+
+### [0.0.16](https://github.com/EightfoldAI/octuple/compare/v0.0.15...v0.0.16) (2022-04-28)
+
+### Features
+
+-   adds octuple info bars ([#84](https://github.com/EightfoldAI/octuple/issues/84)) ([3ef3840](https://github.com/EightfoldAI/octuple/commits/3ef3840944a9c4a7e258644fc632ecc470650658))
+-   adds octuple snackbar component ([#81](https://github.com/EightfoldAI/octuple/issues/81)) ([6559c78](https://github.com/EightfoldAI/octuple/commits/6559c78308417cff306ef7a19f17399f6b17768e))
+-   button: adds two state button component ([#80](https://github.com/EightfoldAI/octuple/issues/80)) ([3ea58e3](https://github.com/EightfoldAI/octuple/commits/3ea58e35a7f3efa58c44647cad10af8784e9a542))
+
+### Bug Fixes
+
+-   modal scrollbar only if content is scrollable ([#78](https://github.com/EightfoldAI/octuple/issues/78)) ([e72ffb8](https://github.com/EightfoldAI/octuple/commits/e72ffb8ce2506bbf5d540f00220b701e2ff259c8))
+-   panel: footer not sticking to the bottom ([#83](https://github.com/EightfoldAI/octuple/issues/83)) ([e31a070](https://github.com/EightfoldAI/octuple/commits/e31a070fe1ccbcc30f42de4ec9d53190fab78626))
+-   tabs: remove background from tabs ([#85](https://github.com/EightfoldAI/octuple/issues/85)) ([4ddb663](https://github.com/EightfoldAI/octuple/commits/4ddb6630a6de32f8c62b679957af09a041e41b27))
+
 ### [0.0.15](https://github.com/EightfoldAI/octuple/compare/v0.0.14...v0.0.15) (2022-04-20)
 
 ### Features

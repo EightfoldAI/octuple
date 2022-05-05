@@ -1,10 +1,9 @@
 .tab-wrap {
-    --bg: var(--background-color);
     --label: var(--text-secondary-color);
     --active-label: var(--primary-color);
-    --active-bg: var(--background-color);
+    --active-bg: transparent;
     --hover-label: var(--primary-color);
-    --hover-bg: var(--background-color);
+    --hover-bg: transparent;
     --indicator: var(--primary-color);
     --border: var(--primary-color);
     display: flex;
@@ -20,7 +19,6 @@
         cursor: pointer;
         padding: $space-s $space-m;
         color: var(--label);
-        background-color: var(---bg);
         align-items: center;
         justify-content: center;
         position: relative;
@@ -64,6 +62,10 @@
             font-weight: $text-font-weight-semibold;
             font-size: $text-font-size-3;
             white-space: nowrap;
+        }
+
+        .badge {
+            margin-left: $space-xs;
         }
 
         .icon + .label:not(:empty) {

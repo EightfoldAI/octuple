@@ -7,19 +7,20 @@ export const Menu: FC<MenuProps> = ({
     items,
     onChange,
     disruptive = false,
-    className,
+    classNames,
     style,
-    itemClassName,
+    itemClassNames,
     itemStyle,
     header,
     footer,
     listType,
+    ...rest
 }) => {
     const getDefaultButton = (item: MenuItem): JSX.Element => (
         <DefaultButton
+            {...item}
             alignText={ButtonTextAlign.Left}
             buttonWidth={ButtonWidth.fill}
-            {...item}
             disruptive={disruptive}
             onClick={() => onChange(item.value)}
         />
@@ -27,11 +28,12 @@ export const Menu: FC<MenuProps> = ({
 
     return (
         <List<MenuItem>
+            {...rest}
             items={items}
             renderItem={getDefaultButton}
-            className={className}
+            classNames={classNames}
             style={style}
-            itemClassName={itemClassName}
+            itemClassNames={itemClassNames}
             itemStyle={itemStyle}
             header={header}
             footer={footer}

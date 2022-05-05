@@ -66,7 +66,7 @@ export const Pills = () => (
                         label={theme}
                         theme={theme}
                         key={theme}
-                        icon={IconName.mdiInformationOutline}
+                        iconProps={{ path: IconName.mdiInformationOutline }}
                     />
                 ))}
             </div>
@@ -84,7 +84,7 @@ export const Pills = () => (
                         key={theme}
                         type={PillType.withButton}
                         pillButtonProps={{
-                            icon: IconName.mdiThumbUpOutline,
+                            iconProps: { path: IconName.mdiThumbUpOutline },
                             text: '2',
                             ariaLabel: 'Thumbs up',
                         }}
@@ -146,7 +146,7 @@ export const Pills = () => (
                         label={theme}
                         theme={theme}
                         key={theme}
-                        icon={IconName.mdiInformationOutline}
+                        iconProps={{ path: IconName.mdiInformationOutline }}
                         size={PillSize.Medium}
                     />
                 ))}
@@ -166,7 +166,7 @@ export const Pills = () => (
                         type={PillType.withButton}
                         size={PillSize.Medium}
                         pillButtonProps={{
-                            icon: IconName.mdiThumbUpOutline,
+                            iconProps: { path: IconName.mdiThumbUpOutline },
                             text: '2',
                             ariaLabel: 'Thumbs up',
                         }}
@@ -227,7 +227,7 @@ export const Pills = () => (
                         label={theme}
                         theme={theme}
                         key={theme}
-                        icon={IconName.mdiInformationOutline}
+                        iconProps={{ path: IconName.mdiInformationOutline }}
                         size={PillSize.Small}
                     />
                 ))}
@@ -247,7 +247,7 @@ export const Pills = () => (
                         type={PillType.withButton}
                         size={PillSize.Small}
                         pillButtonProps={{
-                            icon: IconName.mdiThumbUpOutline,
+                            iconProps: { path: IconName.mdiThumbUpOutline },
                             text: '2',
                             ariaLabel: 'Thumbs up',
                         }}

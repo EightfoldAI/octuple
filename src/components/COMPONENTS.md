@@ -40,21 +40,21 @@ Create a file called `/src/components/Component/Component.tsx`
 ```tsx
 import React, { FC } from 'react';
 import { ComponentProps, ComponentType } from './Component.types';
-import { classNames } from '../../shared/utilities';
+import { mergeClasses } from '../../shared/utilities';
 
 import styles from 'component.module.scss';
 
 export const Component: FC<ComponentProps> = ({
-    className,
+    classNames,
     style,
     // How to set defaults for props
     type = ComponentType.base,
     ...
 }) => {
-    // Combining class names can be done using the classNames utility
-    const componentClasses: string = classNames([
+    // Combining class names can be done using the mergeClasses utility
+    const componentClasses: string = mergeClasses([
         styles.componentWrapper,
-        className,
+        classNames,
         // Conditional classes can also be handled as follows
         { [styles.active]: type === ComponentType.base }
     ]);
@@ -73,18 +73,18 @@ export const Component: FC<ComponentProps> = ({
 Defining a scss module
 
 -   Create a file called `/src/components/Component/component.module.scss`
--   Use camel case for the class names, they are easier to reference in the component
+-   Use kebab case for the class names, they can be referenced in the component using camel case.
 
 For eg: `styles.componentWrapper` as apposed to `styles['component-wrapper']`
 
 ```scss
-.componentWrapper {
+.component-wrapper {
 
   &.active {
     ...
   }
 
-  .componentChild {
+  .component-child {
     ...
   }
 }
@@ -109,10 +109,10 @@ export interface ComponentProps {
      */
     children: React.ReactNode;
     /**
-     * Custom class name
+     * Custom class names
      * @default null
      */
-    className?: string;
+    classNames?: string;
     /**
      * Style of the component
      * @default null

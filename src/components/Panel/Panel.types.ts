@@ -1,6 +1,7 @@
 import React from 'react';
 import { IconName } from '../Icon';
 import { ButtonProps } from '../Button';
+import { OcBaseProps } from '../OcBase';
 
 export enum PanelSize {
     small = 'small',
@@ -21,7 +22,7 @@ type EventType =
 
 export type CloseButtonProps = Omit<ButtonProps, 'onClick' | 'icon'>;
 
-export interface PanelProps {
+export interface PanelProps extends Omit<OcBaseProps<HTMLElement>, 'title'> {
     /**
      * Autofocus on the panel on visible
      * @default true
@@ -60,21 +61,21 @@ export interface PanelProps {
      */
     push?: boolean;
     /**
-     * Custom class for the panel wrapper
+     * Custom classes for the panel wrapper
      */
-    panelWrapperClassName?: string;
+    panelWrapperClassNames?: string;
     /**
-     * Custom class for the panel
+     * Custom classes for the panel
      */
-    panelClassName?: string;
+    panelClassNames?: string;
     /**
-     * Custom class for the header
+     * Custom classes for the header
      */
-    headerClassName?: string;
+    headerClassNames?: string;
     /**
-     * Custom class for the body
+     * Custom classes for the body
      */
-    bodyClassName?: string;
+    bodyClassNames?: string;
     /**
      * The title of the panel
      */
@@ -115,9 +116,9 @@ export interface PanelProps {
      */
     footer?: React.ReactNode;
     /**
-     * Custom class for the footer
+     * Custom classes for the footer
      */
-    footerClassName?: string;
+    footerClassNames?: string;
     /**
      * Content of the body
      */

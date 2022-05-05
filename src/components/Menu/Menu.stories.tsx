@@ -17,17 +17,47 @@ const Overlay = (disruptive: boolean) => (
         disruptive={disruptive}
         items={[
             {
-                icon: IconName.mdiCalendar,
+                iconProps: { path: IconName.mdiCalendar },
                 text: 'Date',
                 value: 'date 1',
             },
             {
-                icon: IconName.mdiThumbUpOutline,
+                iconProps: { path: IconName.mdiThumbUpOutline },
                 text: 'Thumbs up',
                 value: 'date 1',
             },
             {
-                icon: IconName.mdiSchool,
+                iconProps: { path: IconName.mdiSchool },
+                text: 'School',
+                value: 'date 1',
+            },
+            {
+                iconProps: { path: IconName.mdiCalendar },
+                text: 'Date',
+                value: 'date 1',
+            },
+            {
+                iconProps: { path: IconName.mdiThumbUpOutline },
+                text: 'Thumbs up',
+                value: 'date 1',
+            },
+            {
+                iconProps: { path: IconName.mdiSchool },
+                text: 'School',
+                value: 'date 1',
+            },
+            {
+                iconProps: { path: IconName.mdiCalendar },
+                text: 'Date',
+                value: 'date 1',
+            },
+            {
+                iconProps: { path: IconName.mdiThumbUpOutline },
+                text: 'Thumbs up',
+                value: 'date 1',
+            },
+            {
+                iconProps: { path: IconName.mdiSchool },
                 text: 'School',
                 value: 'date 1',
             },

@@ -1,12 +1,13 @@
 import React from 'react';
 import {
+    snack,
     Snackbar,
     SnackbarContainer,
     SnackbarPosition,
     SnackbarType,
-    snack,
 } from './';
 import { ButtonSize, DefaultButton } from '../Button';
+import { InfoBarType } from '../InfoBar';
 
 export default {
     title: 'Snackbar',
@@ -25,11 +26,11 @@ export const Default = () => {
         'bottom-right',
     ];
 
-    const snackbarTypes: SnackbarType[] = [
-        SnackbarType.disruptive,
-        SnackbarType.warning,
-        SnackbarType.positive,
-        SnackbarType.neutral,
+    const snackbarTypes: InfoBarType[] = [
+        InfoBarType.disruptive,
+        InfoBarType.warning,
+        InfoBarType.positive,
+        InfoBarType.neutral,
     ];
 
     const serveSnacks = (position: SnackbarPosition) => {

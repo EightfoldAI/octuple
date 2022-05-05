@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { Ref } from 'react';
+import { OcBaseProps } from '../../OcBase';
 
 type EventType =
     | React.KeyboardEvent<HTMLDivElement>
     | React.MouseEvent<HTMLDivElement | HTMLButtonElement>;
 
-export interface BaseDialogProps {
+export interface BaseDialogProps
+    extends Omit<OcBaseProps<HTMLDivElement>, 'classNames'> {
     /**
      * Dialog is visible or not
      */
@@ -25,25 +27,25 @@ export interface BaseDialogProps {
      */
     onVisibleChange?: (visible: boolean) => void;
     /**
-     * Custom class for the dialog wrapper
+     * Custom classes for the dialog wrapper
      */
-    dialogWrapperClassName?: string;
+    dialogWrapperClassNames?: string;
     /**
-     * Custom class for the dialog
+     * Custom classes for the dialog
      */
-    dialogClassName?: string;
+    dialogClassNames?: string;
     /**
-     * Custom class for the header
+     * Custom classes for the header
      */
-    headerClassName?: string;
+    headerClassNames?: string;
     /**
-     * Custom class for the body
+     * Custom classes for the body
      */
-    bodyClassName?: string;
+    bodyClassNames?: string;
     /**
-     * Custom class for the actions wrapper
+     * Custom classes for the actions wrapper
      */
-    actionsClassName?: string;
+    actionsClassNames?: string;
     /**
      * The header of the dialog
      */
@@ -73,4 +75,8 @@ export interface BaseDialogProps {
      * @default HTMLBodyElement
      */
     parent?: HTMLDivElement | HTMLBodyElement;
+    /**
+     * Ref for the dialog element
+     */
+    ref?: Ref<HTMLDivElement>;
 }

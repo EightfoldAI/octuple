@@ -5,10 +5,10 @@ import React, {
     useRef,
     useState,
 } from 'react';
-import { classNames, stopPropagation } from '../../shared/utilities';
+import { mergeClasses, stopPropagation } from '../../shared/utilities';
 import { PanelProps, PanelRef, PanelSize } from './';
 import { IconName } from '../Icon';
-import { DefaultButton } from '../Button';
+import { NeutralButton } from '../Button';
 import { Portal } from '../Portal';
 import { useScrollLock } from '../../hooks/useScrollLock';
 
@@ -42,13 +42,14 @@ export const Panel = React.forwardRef<PanelRef, PanelProps>(
             closeIcon = IconName.mdiClose,
             push = true,
             parent = document.body,
-            panelWrapperClassName,
-            panelClassName,
-            headerClassName,
-            bodyClassName,
-            footerClassName,
+            panelWrapperClassNames,
+            panelClassNames,
+            headerClassNames,
+            bodyClassNames,
+            footerClassNames,
             closeButtonProps,
             autoFocus = true,
+            ...rest
         },
         ref
     ) => {
@@ -58,15 +59,15 @@ export const Panel = React.forwardRef<PanelRef, PanelProps>(
         const [internalPush, setPush] = useState<boolean>(false);
         const { lockScroll, unlockScroll } = useScrollLock(parent);
 
-        const panelBackdropClasses: string = classNames([
+        const panelBackdropClasses: string = mergeClasses([
             styles.panelBackdrop,
-            panelWrapperClassName,
+            panelWrapperClassNames,
             { [styles.visible]: visible },
         ]);
 
-        const panelClasses: string = classNames([
+        const panelClasses: string = mergeClasses([
             styles.panel,
-            panelClassName,
+            panelClassNames,
             { [styles.right]: placement === 'right' },
             { [styles.left]: placement === 'left' },
             { [styles.bottom]: placement === 'bottom' },
@@ -76,16 +77,16 @@ export const Panel = React.forwardRef<PanelRef, PanelProps>(
             { [styles.small]: size === PanelSize.small },
         ]);
 
-        const bodyClasses: string = classNames([styles.body, bodyClassName]);
+        const bodyClasses: string = mergeClasses([styles.body, bodyClassNames]);
 
-        const footerClasses: string = classNames([
+        const footerClasses: string = mergeClasses([
             styles.footer,
-            footerClassName,
+            footerClassNames,
         ]);
 
-        const headerClasses: string = classNames([
+        const headerClasses: string = mergeClasses([
             styles.header,
-            headerClassName,
+            headerClassNames,
         ]);
 
         useEffect(() => {
@@ -114,8 +115,8 @@ export const Panel = React.forwardRef<PanelRef, PanelProps>(
             <div className={headerClasses}>
                 <div>{title}</div>
                 {closable && (
-                    <DefaultButton
-                        icon={closeIcon}
+                    <NeutralButton
+                        iconProps={{ path: closeIcon }}
                         ariaLabel={'Close'}
                         onClick={onClose}
                         {...closeButtonProps}
@@ -181,6 +182,7 @@ export const Panel = React.forwardRef<PanelRef, PanelProps>(
         const getPanel = (): JSX.Element => (
             <PanelContext.Provider value={operations}>
                 <div
+                    {...rest}
                     tabIndex={-1}
                     ref={containerRef}
                     className={panelBackdropClasses}

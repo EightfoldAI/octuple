@@ -55,6 +55,7 @@
     border-radius: $corner-radius-s;
     cursor: pointer;
     display: inline-block;
+    min-width: max-content;
     transition: all $motion-duration-extra-fast $motion-easing-easeinout 0s;
     white-space: nowrap;
 
@@ -124,6 +125,30 @@
         }
     }
 
+    &.icon-left {
+        span {
+            transform: none;
+        }
+    }
+
+    &.icon-right {
+        span {
+            transform: scaleX(-1);
+        }
+
+        &.left {
+            span {
+                justify-content: right;
+            }
+        }
+
+        &.right {
+            span {
+                justify-content: left;
+            }
+        }
+    }
+
     &:disabled,
     &.disabled {
         opacity: $disabled-alpha-value;
@@ -142,6 +167,7 @@
     font-weight: $text-font-weight-semibold;
     font-size: $text-font-size-5;
     line-height: $text-line-height-3;
+    max-height: 44px;
 
     &.counter {
         font-size: $text-font-size-4;
@@ -162,6 +188,7 @@
     font-weight: $text-font-weight-semibold;
     font-size: $text-font-size-3;
     line-height: $text-line-height-2;
+    max-height: 36px;
 
     &.counter {
         font-size: $text-font-size-2;
@@ -183,6 +210,7 @@
     font-weight: $text-font-weight-semibold;
     font-size: $text-font-size-2;
     line-height: $text-line-height-1;
+    max-height: 28px;
 
     &.counter {
         font-size: $text-font-size-1;

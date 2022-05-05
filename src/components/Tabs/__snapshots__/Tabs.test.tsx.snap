@@ -5,6 +5,7 @@ exports[`Panel tabs snapshot 1`] = `
   <div
     className="tabWrap"
     role="tablist"
+    value="tab1"
   >
     <button
       aria-label="Tab 1"

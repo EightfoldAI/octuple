@@ -1,15 +1,15 @@
 import React, { FC, useState } from 'react';
 import { ButtonSize, DefaultButton } from '../../Button';
-import { Icon, IconName, IconSize } from '../../Icon/index';
+import { Icon, IconName, IconSize } from '../../Icon';
+import { Label } from '../../Label';
 import {
     TextInputWidth,
     TextInputProps,
     TextInputShape,
     TextInputTheme,
 } from '../index';
-import { Tooltip } from '../../Tooltip';
 import { useDebounce } from '../../../hooks/useDebounce';
-import { classNames, uniqueId } from '../../../shared/utilities';
+import { mergeClasses, uniqueId } from '../../../shared/utilities';
 
 import styles from '../input.module.scss';
 
@@ -17,7 +17,7 @@ export const TextInput: FC<TextInputProps> = ({
     allowDisabledFocus = false,
     ariaLabel,
     autoFocus = false,
-    className,
+    classNames,
     clearButtonAriaLabel,
     disabled = false,
     htmlType = 'text',
@@ -25,8 +25,7 @@ export const TextInput: FC<TextInputProps> = ({
     iconButtonProps,
     id,
     inputWidth = TextInputWidth.fitContent,
-    label,
-    labelIconButtonProps,
+    labelProps,
     maxlength,
     minlength,
     name,
@@ -42,23 +41,24 @@ export const TextInput: FC<TextInputProps> = ({
     theme = TextInputTheme.light,
     value,
     waitInterval = 10,
+    ...rest
 }) => {
     const [clearButtonShown, setClearButtonShown] = useState<boolean>(false);
     const [inputId] = useState<string>(uniqueId(id || 'input-'));
     const inputField: HTMLElement = document.getElementById(inputId);
 
-    const iconClassNames: string = classNames([
+    const iconClassNames: string = mergeClasses([
         styles.iconWrapper,
         styles.leftIcon,
     ]);
 
-    const iconButtonClassNames: string = classNames([
+    const iconButtonClassNames: string = mergeClasses([
         styles.iconButton,
         styles.leftIcon,
     ]);
 
-    const textInputClassNames: string = classNames([
-        className,
+    const textInputClassNames: string = mergeClasses([
+        classNames,
         {
             [styles.withIcon]:
                 !!iconProps?.path && shape === TextInputShape.Rectangle,
@@ -104,7 +104,7 @@ export const TextInput: FC<TextInputProps> = ({
         },
     ]);
 
-    const textInputWrapperClassNames: string = classNames([
+    const textInputWrapperClassNames: string = mergeClasses([
         styles.inputWrapper,
         {
             [styles.inputStretch]: inputWidth === TextInputWidth.fill,
@@ -131,48 +131,9 @@ export const TextInput: FC<TextInputProps> = ({
 
     return (
         <div className={textInputWrapperClassNames}>
-            <div className={styles.fieldLabel}>
-                {label && (
-                    <label className={styles.textStyle} htmlFor={name}>
-                        {label}
-                    </label>
-                )}
-                {labelIconButtonProps?.show && (
-                    <span className={styles.fieldLabelIconButton}>
-                        <Tooltip
-                            content={labelIconButtonProps.toolTipContent}
-                            placement={
-                                labelIconButtonProps.toolTipPlacement || 'top'
-                            }
-                            positionStrategy={
-                                labelIconButtonProps.toolTipPositionStrategy
-                            }
-                            theme={labelIconButtonProps.toolTipTheme}
-                        >
-                            <DefaultButton
-                                allowDisabledFocus={
-                                    labelIconButtonProps.allowDisabledFocus
-                                }
-                                ariaLabel={labelIconButtonProps.ariaLabel}
-                                className={styles.labelIconButton}
-                                disabled={labelIconButtonProps.disabled}
-                                icon={
-                                    labelIconButtonProps.icon ||
-                                    IconName.mdiInformation
-                                }
-                                iconColor={labelIconButtonProps.iconColor}
-                                onClick={
-                                    !labelIconButtonProps.allowDisabledFocus
-                                        ? labelIconButtonProps.onClick
-                                        : null
-                                }
-                                size={ButtonSize.Small}
-                            />
-                        </Tooltip>
-                    </span>
-                )}
-            </div>
+            {labelProps && <Label {...labelProps} />}
             <input
+                {...rest}
                 aria-label={ariaLabel}
                 autoFocus={autoFocus}
                 className={textInputClassNames}
@@ -215,15 +176,8 @@ export const TextInput: FC<TextInputProps> = ({
                 <div className={iconClassNames}>
                     {iconProps.path && !iconProps.imageSrc && (
                         <Icon
-                            ariaHidden={iconProps.ariaHidden}
-                            color={iconProps.color}
-                            description={iconProps.description}
-                            horizontal={iconProps.horizontal}
-                            id={iconProps.id}
+                            {...iconProps}
                             path={iconProps.path}
-                            rotate={iconProps.rotate}
-                            title={iconProps.title}
-                            vertical={iconProps.vertical}
                             size={IconSize.Medium}
                         />
                     )}
@@ -242,9 +196,9 @@ export const TextInput: FC<TextInputProps> = ({
                     allowDisabledFocus={iconButtonProps.allowDisabledFocus}
                     ariaLabel={iconButtonProps.ariaLabel}
                     checked={iconButtonProps.checked}
-                    className={iconButtonClassNames}
+                    classNames={iconButtonClassNames}
                     disabled={iconButtonProps.disabled}
-                    icon={iconButtonProps.icon}
+                    iconProps={{ path: iconButtonProps.iconProps.path }}
                     id={iconButtonProps.id}
                     onClick={iconButtonProps.onClick}
                     size={ButtonSize.Medium}
@@ -255,9 +209,9 @@ export const TextInput: FC<TextInputProps> = ({
                 <DefaultButton
                     allowDisabledFocus={allowDisabledFocus}
                     ariaLabel={clearButtonAriaLabel}
-                    className={styles.clearIconButton}
+                    classNames={styles.clearIconButton}
                     disabled={disabled}
-                    icon={IconName.mdiClose}
+                    iconProps={{ path: IconName.mdiClose }}
                     onClick={!allowDisabledFocus ? handleOnClear : null}
                     size={ButtonSize.Small}
                 />

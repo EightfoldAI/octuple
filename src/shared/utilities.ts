@@ -24,7 +24,7 @@ type Argument = Value | Mapping | ArgumentArray;
  *  @param {ArgumentArray} args - ClassName input.
  *  @returns {string} - a concatenated string of class names.
  */
-export function classNames(...args: ArgumentArray): string {
+export function mergeClasses(...args: ArgumentArray): string {
     const hasOwn: (v: PropertyKey) => boolean = {}.hasOwnProperty;
     let classes = [];
     for (let i: number = 0; i < args.length; i++) {
@@ -35,7 +35,7 @@ export function classNames(...args: ArgumentArray): string {
             classes.push(arg);
         } else if (Array.isArray(arg)) {
             if (arg.length) {
-                const inner = classNames.apply(null, arg);
+                const inner = mergeClasses.apply(null, arg);
                 if (inner) {
                     classes.push(inner);
                 }

@@ -1,60 +1,69 @@
-import React, { FC } from 'react';
+import React, { FC, Ref } from 'react';
 import { DialogProps, DialogSize } from './Dialog.types';
-import { classNames } from '../../shared/utilities';
+import { mergeClasses } from '../../shared/utilities';
 import { DefaultButton, PrimaryButton } from '../Button';
 import { BaseDialog } from './BaseDialog/BaseDialog';
 
 import styles from './dialog.module.scss';
 
-export const Dialog: FC<DialogProps> = ({
-    parent = document.body,
-    size = DialogSize.medium,
-    headerClassName,
-    bodyClassName,
-    actionsClassName,
-    dialogClassName,
-    okButtonProps,
-    cancelButtonProps,
-    onOk,
-    onCancel,
-    ...rest
-}) => {
-    const dialogClasses: string = classNames([
-        styles.dialog,
-        dialogClassName,
-        { [styles.small]: size === DialogSize.small },
-        { [styles.medium]: size === DialogSize.medium },
-    ]);
+export const Dialog: FC<DialogProps> = React.forwardRef(
+    (
+        {
+            parent = document.body,
+            size = DialogSize.medium,
+            headerClassNames,
+            bodyClassNames,
+            actionsClassNames,
+            dialogClassNames,
+            okButtonProps,
+            cancelButtonProps,
+            onOk,
+            onCancel,
+            ...rest
+        },
+        ref: Ref<HTMLDivElement>
+    ) => {
+        const dialogClasses: string = mergeClasses([
+            styles.dialog,
+            dialogClassNames,
+            { [styles.small]: size === DialogSize.small },
+            { [styles.medium]: size === DialogSize.medium },
+        ]);
 
-    const headerClasses: string = classNames([styles.header, headerClassName]);
+        const headerClasses: string = mergeClasses([
+            styles.header,
+            headerClassNames,
+        ]);
 
-    const bodyClasses: string = classNames([styles.body, bodyClassName]);
+        const bodyClasses: string = mergeClasses([styles.body, bodyClassNames]);
 
-    const actionClasses: string = classNames([
-        styles.actions,
-        actionsClassName,
-    ]);
+        const actionClasses: string = mergeClasses([
+            styles.actions,
+            actionsClassNames,
+        ]);
 
-    return (
-        <BaseDialog
-            {...rest}
-            dialogClassName={dialogClasses}
-            headerClassName={headerClasses}
-            bodyClassName={bodyClasses}
-            actionsClassName={actionClasses}
-            actions={
-                <>
-                    {cancelButtonProps && (
-                        <DefaultButton
-                            {...cancelButtonProps}
-                            onClick={onCancel}
-                        />
-                    )}
-                    {okButtonProps && (
-                        <PrimaryButton {...okButtonProps} onClick={onOk} />
-                    )}
-                </>
-            }
-        />
-    );
-};
+        return (
+            <BaseDialog
+                {...rest}
+                ref={ref}
+                dialogClassNames={dialogClasses}
+                headerClassNames={headerClasses}
+                bodyClassNames={bodyClasses}
+                actionsClassNames={actionClasses}
+                actions={
+                    <>
+                        {cancelButtonProps && (
+                            <DefaultButton
+                                {...cancelButtonProps}
+                                onClick={onCancel}
+                            />
+                        )}
+                        {okButtonProps && (
+                            <PrimaryButton {...okButtonProps} onClick={onOk} />
+                        )}
+                    </>
+                }
+            />
+        );
+    }
+);
