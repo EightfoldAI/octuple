@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, Ref } from 'react';
 import { mergeClasses } from '../../../shared/utilities';
 import { TabProps } from '../Tabs.types';
 import { useTabs } from '../Tabs.context';
@@ -10,63 +10,61 @@ import { Badge } from '../../Badge';
 
 import styles from '../tabs.module.scss';
 
-export const Tab: FC<TabProps> = ({
-    value,
-    label,
-    icon,
-    disabled,
-    ariaLabel,
-    badgeContent,
-    ...rest
-}) => {
-    const { onTabClick, currentActiveTab } = useTabs();
+export const Tab: FC<TabProps> = React.forwardRef(
+    (
+        { value, label, icon, disabled, ariaLabel, badgeContent, ...rest },
+        ref: Ref<HTMLButtonElement>
+    ) => {
+        const { onTabClick, currentActiveTab } = useTabs();
 
-    const iconExists: boolean = !!icon;
-    const labelExists: boolean = !!label;
-    const isActive: boolean = value === currentActiveTab;
+        const iconExists: boolean = !!icon;
+        const labelExists: boolean = !!label;
+        const isActive: boolean = value === currentActiveTab;
 
-    const { registeredTheme: { light = false } = {} } = useConfig();
+        const { registeredTheme: { light = false } = {} } = useConfig();
 
-    const tabClassName: string = mergeClasses([
-        styles.tab,
-        { [styles.active]: isActive },
-        { [styles.inverse]: light },
-    ]);
+        const tabClassName: string = mergeClasses([
+            styles.tab,
+            { [styles.active]: isActive },
+            { [styles.inverse]: light },
+        ]);
 
-    const getIcon = (): JSX.Element =>
-        iconExists && <Icon path={icon} classNames={styles.icon} />;
+        const getIcon = (): JSX.Element =>
+            iconExists && <Icon path={icon} classNames={styles.icon} />;
 
-    const getLabel = (): JSX.Element =>
-        labelExists && <span className={styles.label}>{label}</span>;
+        const getLabel = (): JSX.Element =>
+            labelExists && <span className={styles.label}>{label}</span>;
 
-    const getTabIndicator = (): JSX.Element =>
-        isActive && (
-            <Flipped flipId="tabIndicator">
-                <div className={styles.tabIndicator} />
-            </Flipped>
+        const getTabIndicator = (): JSX.Element =>
+            isActive && (
+                <Flipped flipId="tabIndicator">
+                    <div className={styles.tabIndicator} />
+                </Flipped>
+            );
+
+        const getBadge = (): JSX.Element =>
+            !!badgeContent && (
+                <Badge active={isActive} classNames={styles.badge}>
+                    {badgeContent}
+                </Badge>
+            );
+
+        return (
+            <button
+                {...rest}
+                ref={ref}
+                className={tabClassName}
+                aria-label={ariaLabel}
+                aria-selected={isActive}
+                role="tab"
+                disabled={disabled}
+                onClick={(e) => onTabClick(value, e)}
+            >
+                {getIcon()}
+                {getLabel()}
+                {getTabIndicator()}
+                {getBadge()}
+            </button>
         );
-
-    const getBadge = (): JSX.Element =>
-        !!badgeContent && (
-            <Badge active={isActive} classNames={styles.badge}>
-                {badgeContent}
-            </Badge>
-        );
-
-    return (
-        <button
-            {...rest}
-            className={tabClassName}
-            aria-label={ariaLabel}
-            aria-selected={isActive}
-            role="tab"
-            disabled={disabled}
-            onClick={(e) => onTabClick(value, e)}
-        >
-            {getIcon()}
-            {getLabel()}
-            {getTabIndicator()}
-            {getBadge()}
-        </button>
-    );
-};
+    }
+);

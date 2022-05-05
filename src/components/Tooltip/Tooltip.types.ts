@@ -1,16 +1,13 @@
 import { Placement, Strategy } from '@floating-ui/react-dom';
 import React from 'react';
+import { OcBaseProps } from '../OcBase';
 
 export enum TooltipTheme {
     light = 'light',
     dark = 'dark',
 }
 
-export interface TooltipProps {
-    /**
-     * Element the tooltip needs to be shown on
-     */
-    children: React.ReactNode;
+export interface TooltipProps extends OcBaseProps<HTMLDivElement> {
     /**
      * Content to show on the tooltip
      */
@@ -45,10 +42,6 @@ export interface TooltipProps {
      * @default 0
      */
     openDelay?: number;
-    /**
-     * Custom class names for Tooltip's popper
-     */
-    classNames?: string;
     /**
      * Positioning strategy for the tooltip
      * @default absolute

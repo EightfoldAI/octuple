@@ -61,8 +61,8 @@ export const SnackbarContainer: FC<SnackbarContainerProps> = ({
             >
                 {getPositionSnacks(position).map((snack) => (
                     <Snackbar
-                        key={snack.id}
                         {...snack}
+                        key={snack.id}
                         onClose={() => {
                             eat(snack.id);
                             snack.onClose?.();
