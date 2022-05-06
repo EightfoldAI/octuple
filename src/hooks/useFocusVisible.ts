@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 // A TypeScript + React Hooks version of: https://github.com/WICG/focus-visible
 
 export const useFocusVisible = (): boolean => {
-    const [hadKeyboardEvent, setHadKeyboardEvent] = useState(false);
+    const [hadKeyboardEvent, setHadKeyboardEvent] = useState<boolean>(false);
 
     useEffect(() => {
         const onPointerDown = (): void => {

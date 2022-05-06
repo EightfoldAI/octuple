@@ -1,3 +1,0 @@
-interface Navigator {
-    userLanguage: string;
-}

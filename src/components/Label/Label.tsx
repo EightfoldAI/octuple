@@ -17,7 +17,7 @@ export const Label: FC<LabelProps> = ({
     text,
     ...rest
 }) => {
-    const htmlDir = useCanvasDirection();
+    const htmlDir: string = useCanvasDirection();
 
     const sizeClassNames: string = mergeClasses([
         { [styles.large]: size === LabelSize.Large },

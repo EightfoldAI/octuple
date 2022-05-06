@@ -11,15 +11,23 @@ import { IRegisterTheme, ThemeOptions } from './Theming';
 import { useFocusVisible } from '../../hooks/useFocusVisible';
 import { useFontSize } from '../../hooks/useFontSize';
 
-const ConfigContext = createContext<Partial<IConfigContext>>({});
+const ConfigContext: React.Context<Partial<IConfigContext>> = createContext<
+    Partial<IConfigContext>
+>({});
 
-const DEFAULT_THEME = 'blue';
-const DEFAULT_FONT_SIZE = 16;
+const DEFAULT_THEME: string = 'blue';
+const DEFAULT_FONT_SIZE: number = 16;
+
+const DEFAULT_FOCUS_VISIBLE: boolean = true;
+const DEFAULT_FOCUS_VISIBLE_ELEMENT: HTMLElement = document.documentElement;
+const FOCUS_VISIBLE_CLASSNAME: string = 'focus-visible';
 
 const ConfigProvider: FC<ConfigProviderProps> = ({
     children,
-    focusVisible = false,
-    focusVisibleElement = document.documentElement,
+    focusVisibleOptions = {
+        focusVisible: DEFAULT_FOCUS_VISIBLE,
+        focusVisibleElement: DEFAULT_FOCUS_VISIBLE_ELEMENT,
+    },
     themeOptions: defaultThemeOptions,
 }) => {
     const [themeOptions, setThemeOptions] =
@@ -33,8 +41,7 @@ const ConfigProvider: FC<ConfigProviderProps> = ({
         variableName: '--font-size',
     });
 
-    const isFocusVisible = useFocusVisible();
-    const focusVisibleClassName: string = 'focus-visible';
+    const isFocusVisible: boolean = useFocusVisible();
 
     useEffect(() => {
         if (themeOptions) {
@@ -48,27 +55,36 @@ const ConfigProvider: FC<ConfigProviderProps> = ({
         setFontSize(DEFAULT_FONT_SIZE);
     }, [themeOptions]);
 
-    const handleFocusVisible = useCallback((): void => {
-        if (
-            isFocusVisible &&
-            !focusVisibleElement?.classList.contains(focusVisibleClassName)
-        ) {
-            focusVisibleElement.classList.add(focusVisibleClassName);
-        } else {
+    const handleFocusVisible = useCallback(
+        (focusVisibleElement: HTMLElement): void => {
             if (
-                focusVisibleElement?.classList.contains(focusVisibleClassName)
+                isFocusVisible &&
+                !focusVisibleElement?.classList.contains(
+                    FOCUS_VISIBLE_CLASSNAME
+                )
             ) {
-                focusVisibleElement.classList.remove(focusVisibleClassName);
-                if (focusVisibleElement.classList.length === 0) {
-                    focusVisibleElement.removeAttribute('class');
+                focusVisibleElement?.classList.add(FOCUS_VISIBLE_CLASSNAME);
+            } else {
+                if (
+                    focusVisibleElement?.classList.contains(
+                        FOCUS_VISIBLE_CLASSNAME
+                    )
+                ) {
+                    focusVisibleElement?.classList.remove(
+                        FOCUS_VISIBLE_CLASSNAME
+                    );
+                    if (focusVisibleElement?.classList.length === 0) {
+                        focusVisibleElement?.removeAttribute('class');
+                    }
                 }
             }
-        }
-    }, [isFocusVisible]);
+        },
+        [isFocusVisible]
+    );
 
     useEffect(() => {
-        if (focusVisible) {
-            handleFocusVisible();
+        if (focusVisibleOptions?.focusVisible) {
+            handleFocusVisible(focusVisibleOptions.focusVisibleElement);
         }
     }, [handleFocusVisible]);
 

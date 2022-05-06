@@ -203,7 +203,10 @@ export const Theming = () => {
             themeOptions={{
                 name: 'blue',
             }}
-            focusVisible
+            focusVisibleOptions={{
+                focusVisible: true,
+                focusVisibleElement: document.getElementById('root'),
+            }}
         >
             <ThemedComponents />
         </ConfigProvider>

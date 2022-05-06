@@ -1,4 +1,5 @@
 import { IRegisterTheme, ThemeOptions } from './Theming';
+import { FocusVisibleOptions } from './A11y';
 
 export interface IConfigContext {
     themeOptions: ThemeOptions;
@@ -13,13 +14,8 @@ export interface ConfigProviderProps {
      */
     themeOptions?: ThemeOptions;
     /**
-     * Enables keyboard modality styles
-     * @default false
+     * Options for keyboard modality styles
+     * @default { focusVisible: false, focusVisibleElement: document.documentElement }
      */
-    focusVisible?: boolean;
-    /**
-     * Determines the target element to add the `is-focus-visible` className
-     * @default document.documentElement
-     */
-    focusVisibleElement?: HTMLElement;
+    focusVisibleOptions?: FocusVisibleOptions;
 }

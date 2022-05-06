@@ -539,19 +539,19 @@
 :global(.focus-visible) {
     .button {
         &:focus-visible {
-            outline-width: 4px;
-            outline-offset: -4px;
+            outline-width: $focus-visible-outline-width;
+            outline-offset: $focus-visible-outline-offset-inner;
         }
     }
 
     .two-state-button {
         &:focus-visible {
-            outline-width: 4px;
-            outline-offset: -4px;
+            outline-width: $focus-visible-outline-width;
+            outline-offset: $focus-visible-outline-offset-inner;
 
             &.checked {
-                outline-width: 4px;
-                outline-offset: -4px;
+                outline-width: $focus-visible-outline-width;
+                outline-offset: $focus-visible-outline-offset-inner;
             }
         }
     }
