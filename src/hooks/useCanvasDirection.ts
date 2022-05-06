@@ -52,7 +52,7 @@ export const useCanvasDirection = (lang?: string): string => {
 
     useEffect((): void => {
         getDirection(
-            lang !== '' && isValidLangFormat(lang)
+            isValidLangFormat(lang)
                 ? lang
                 : window?.navigator?.userLanguage || window?.navigator?.language
         );

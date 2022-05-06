@@ -24,7 +24,7 @@ describe('useCanvasDirection', () => {
         expect(result.current).toBe(rtl);
     });
 
-    it('returns rtl', () => {
+    it('returns rtl for he lang', () => {
         document.documentElement.lang = 'he-HE';
 
         const { result, rerender } = renderHook(() => useCanvasDirection());
@@ -35,8 +35,8 @@ describe('useCanvasDirection', () => {
         expect(result.current).toBe(rtl);
     });
 
-    it('returns rtl', () => {
-        document.documentElement.dir = 'ar-SA';
+    it('returns rtl for ar lang', () => {
+        document.documentElement.lang = 'ar-SA';
 
         const { result, rerender } = renderHook(() => useCanvasDirection());
         const rtl = result.current;
@@ -46,8 +46,8 @@ describe('useCanvasDirection', () => {
         expect(result.current).toBe(rtl);
     });
 
-    it('returns ltr', () => {
-        document.documentElement.dir = 'pt-BR';
+    it('returns ltr for pt lang', () => {
+        document.documentElement.lang = 'pt-BR';
 
         const { result, rerender } = renderHook(() => useCanvasDirection());
         const ltr = result.current;
@@ -57,8 +57,8 @@ describe('useCanvasDirection', () => {
         expect(result.current).toBe(ltr);
     });
 
-    it('returns ltr', () => {
-        document.documentElement.dir = 'en';
+    it('returns ltr en lang', () => {
+        document.documentElement.lang = 'en';
 
         const { result, rerender } = renderHook(() => useCanvasDirection());
         const ltr = result.current;
@@ -68,8 +68,19 @@ describe('useCanvasDirection', () => {
         expect(result.current).toBe(ltr);
     });
 
-    it('returns ltr', () => {
+    it('returns ltr by default', () => {
         const { result, rerender } = renderHook(() => useCanvasDirection());
+        const ltr = result.current;
+
+        rerender();
+
+        expect(result.current).toBe(ltr);
+    });
+
+    it('returns ltr if lang param is not valid', () => {
+        const { result, rerender } = renderHook(() =>
+            useCanvasDirection('somestring')
+        );
         const ltr = result.current;
 
         rerender();
