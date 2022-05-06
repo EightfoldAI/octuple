@@ -37,6 +37,7 @@ export const SecondaryButton: FC<ButtonProps> = React.forwardRef(
             style,
             toggle,
             buttonWidth,
+            ...rest
         },
         ref: Ref<HTMLButtonElement>
     ) => {
@@ -49,6 +50,7 @@ export const SecondaryButton: FC<ButtonProps> = React.forwardRef(
 
         return (
             <BaseButton
+                {...rest}
                 ref={ref}
                 alignIcon={alignIcon}
                 alignText={alignText}

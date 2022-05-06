@@ -1,6 +1,7 @@
 import { ButtonProps } from '../Button';
 import { Placement, Strategy } from '@floating-ui/react-dom';
 import { TooltipTheme } from '../Tooltip';
+import { OcBaseProps } from '../OcBase';
 
 export enum LabelSize {
     Large = 'large',
@@ -48,7 +49,7 @@ export interface LabelIconButtonProps
     toolTipPositionStrategy?: Strategy;
 }
 
-export interface LabelProps {
+export interface LabelProps extends OcBaseProps<HTMLDivElement> {
     /**
      * The label class names.
      */

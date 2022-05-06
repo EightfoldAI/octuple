@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { Ref } from 'react';
+import { OcBaseProps } from '../../OcBase';
 
 type EventType =
     | React.KeyboardEvent<HTMLDivElement>
     | React.MouseEvent<HTMLDivElement | HTMLButtonElement>;
 
-export interface BaseDialogProps {
+export interface BaseDialogProps
+    extends Omit<OcBaseProps<HTMLDivElement>, 'classNames'> {
     /**
      * Dialog is visible or not
      */
@@ -73,4 +75,8 @@ export interface BaseDialogProps {
      * @default HTMLBodyElement
      */
     parent?: HTMLDivElement | HTMLBodyElement;
+    /**
+     * Ref for the dialog element
+     */
+    ref?: Ref<HTMLDivElement>;
 }

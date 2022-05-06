@@ -1,6 +1,6 @@
-import React from 'react';
 import { IconName } from '../Icon';
 import { ButtonProps } from '../Button';
+import { OcBaseProps } from '../OcBase';
 
 export type CloseButtonProps = Omit<ButtonProps, 'onClick' | 'icon'>;
 
@@ -11,7 +11,7 @@ export enum InfoBarType {
     disruptive = 'disruptive',
 }
 
-export interface InfoBarsProps {
+export interface InfoBarsProps extends OcBaseProps<HTMLDivElement> {
     /**
      * Content of the info bar
      */
@@ -26,14 +26,6 @@ export interface InfoBarsProps {
      * @default IconName.mdiInformation | IconName.mdiCheckCircle | IconName.mdiAlert
      */
     icon?: IconName;
-    /**
-     * Custom style for the infoBar
-     */
-    style?: React.CSSProperties;
-    /**
-     * Custom classnames for the infoBar
-     */
-    classNames?: string;
     /**
      * If the infoBar is closable or not
      */

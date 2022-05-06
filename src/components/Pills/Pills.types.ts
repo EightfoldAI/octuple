@@ -2,6 +2,7 @@ import * as React from 'react';
 import { IconProps } from '../Icon';
 import { OcThemeNames } from '../ConfigProvider';
 import { ButtonProps } from '../Button';
+import { OcBaseProps } from '../OcBase';
 
 export enum PillType {
     default = 'default',
@@ -31,7 +32,7 @@ export type pillButtonProps = Omit<
     'onClick' | 'size' | 'classNames'
 >;
 
-export interface PillProps {
+export interface PillProps extends OcBaseProps<HTMLElement> {
     /**
      * Label of the pill
      */

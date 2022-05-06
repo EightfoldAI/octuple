@@ -1,9 +1,6 @@
-export interface MatchScoreProps {
-    /**
-     * The input class names.
-     */
-    classNames?: string;
+import { OcBaseProps } from '../OcBase';
 
+export interface MatchScoreProps extends OcBaseProps<HTMLDivElement> {
     /**
      * The score value, like 2, 3.5, etc.
      */

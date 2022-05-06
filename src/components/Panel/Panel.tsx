@@ -49,6 +49,7 @@ export const Panel = React.forwardRef<PanelRef, PanelProps>(
             footerClassNames,
             closeButtonProps,
             autoFocus = true,
+            ...rest
         },
         ref
     ) => {
@@ -181,6 +182,7 @@ export const Panel = React.forwardRef<PanelRef, PanelProps>(
         const getPanel = (): JSX.Element => (
             <PanelContext.Provider value={operations}>
                 <div
+                    {...rest}
                     tabIndex={-1}
                     ref={containerRef}
                     className={panelBackdropClasses}

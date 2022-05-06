@@ -15,6 +15,7 @@ export const Label: FC<LabelProps> = ({
     labelIconButtonProps,
     size = LabelSize.Medium,
     text,
+    ...rest
 }) => {
     const htmlDir = useCanvasDirection();
 
@@ -37,7 +38,7 @@ export const Label: FC<LabelProps> = ({
         sizeClassNames,
     ]);
     return (
-        <div className={labelClassNames}>
+        <div {...rest} className={labelClassNames}>
             {text && (
                 <label className={labelTextClassNames} htmlFor={htmlFor}>
                     {colon && htmlDir === 'rtl' && ':'}
