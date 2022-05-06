@@ -25,8 +25,13 @@ export const CheckBox: FC<CheckBoxProps> = ({
         if (!disabled) setIsChecked(!isChecked);
     };
 
+    const handleKeyDown = (event: React.KeyboardEvent) => {
+        if (event.key !== 'Tab') event.preventDefault();
+        if (event.key === 'Enter' || event.key === ' ') toggleChecked();
+    };
+
     return (
-        <div className={styles.selector}>
+        <div className={styles.selector} tabIndex={0} onKeyDown={handleKeyDown}>
             <input
                 aria-label={ariaLabel}
                 checked={isChecked}

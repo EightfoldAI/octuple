@@ -22,7 +22,7 @@ export const RadioButton: FC<RadioButtonProps> = ({
     ]);
 
     return (
-        <div className={styles.selector}>
+        <div className={styles.selector} tabIndex={0}>
             <input
                 aria-label={ariaLabel}
                 checked={isActive ? isActive : checked}

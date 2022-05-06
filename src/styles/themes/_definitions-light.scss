@@ -289,10 +289,10 @@ $button-spacer-small: 4px;
 $button-padding-vertical-default-small: 6px;
 $button-padding-horizontal-default-small: 2px;
 
-$selector-margin-bottom: rem(15px);
-$selector-outline-offset: rem(1px);
-$label-no-value-margin-bottom: rem(15px);
-$selector-label-margin-left: rem(28px);
+$selector-margin-bottom: 15px;
+$selector-outline-offset: 1px;
+$label-no-value-margin-bottom: 15px;
+$selector-label-margin-left: 28px;
 
 // Corner-radius Definitions
 
@@ -365,22 +365,22 @@ $all-backdrops: rgba(0, 0, 0, 0.5);
 
 // Sizing
 
-$selector-input-width: rem(18px);
-$selector-input-height: rem(18px);
-$checkmark-after-width: rem(7px);
-$checkmark-height: rem(22px);
-$checkmark-width: rem(22px);
-$radio-height: rem(22px);
-$radio-width: rem(22px);
-$radio-after-width: rem(6px);
-$radio-after-height: rem(6px);
+$selector-input-width: 18px;
+$selector-input-height: 18px;
+$checkmark-after-width: 7px;
+$checkmark-height: 22px;
+$checkmark-width: 22px;
+$radio-height: 22px;
+$radio-width: 22px;
+$radio-after-width: 6px;
+$radio-after-height: 6px;
 
 // Positioning
 
-$checkmark-after-left: rem(5px);
-$checkmark-after-top: rem(0px);
-$radio-after-top: rem(6px);
-$radio-after-left: rem(6px);
+$checkmark-after-left: 5px;
+$checkmark-after-top: 0px;
+$radio-after-top: 6px;
+$radio-after-left: 6px;
 
 // END: CONSTANTS
 

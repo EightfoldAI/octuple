@@ -30,7 +30,8 @@
                     border: $space-xxxs solid var(--primary-color);
                 }
 
-                &:focus {
+                &:focus,
+                &:focus-visible {
                     outline: none;
                 }
 
@@ -46,7 +47,8 @@
                 border: $space-xxxs solid var(--primary-color-60);
             }
 
-            &:focus {
+            &:focus,
+            &:focus-visible {
                 outline: $space-xxxs solid var(--primary-color-50);
             }
 
@@ -80,7 +82,8 @@
                 border: $space-xxxs solid var(--grey-color-70);
             }
 
-            &:focus {
+            &:focus,
+            &:focus-visible {
                 outline: none;
                 border: $space-xxxs solid var(--grey-color-70);
             }
@@ -94,7 +97,8 @@
             border: $space-xxxs solid var(--primary-color-60);
         }
 
-        &:focus {
+        &:focus,
+        &:focus-visible {
             outline: $space-xxxs solid var(--primary-color-50);
             border: $space-xxxs solid var(--primary-color);
         }
