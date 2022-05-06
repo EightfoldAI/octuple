@@ -54,6 +54,11 @@ export interface LabelProps {
      */
     classNames?: string;
     /**
+     * Sets whether to display `:` after label text.
+     * @default false
+     */
+    colon?: boolean;
+    /**
      * The label element name.
      */
     htmlFor?: string;

@@ -1,7 +1,14 @@
-import React, { createContext, FC, useEffect, useState } from 'react';
+import React, {
+    createContext,
+    FC,
+    useCallback,
+    useEffect,
+    useState,
+} from 'react';
 import { registerTheme } from './Theming/styleGenerator';
 import { ConfigProviderProps, IConfigContext } from './ConfigProvider.types';
 import { IRegisterTheme, ThemeOptions } from './Theming';
+import { useFocusVisible } from '../../hooks/useFocusVisible';
 import { useFontSize } from '../../hooks/useFontSize';
 
 const ConfigContext = createContext<Partial<IConfigContext>>({});
@@ -11,6 +18,8 @@ const DEFAULT_FONT_SIZE = 16;
 
 const ConfigProvider: FC<ConfigProviderProps> = ({
     children,
+    focusVisible = false,
+    focusVisibleElement = document.documentElement,
     themeOptions: defaultThemeOptions,
 }) => {
     const [themeOptions, setThemeOptions] =
@@ -24,6 +33,9 @@ const ConfigProvider: FC<ConfigProviderProps> = ({
         variableName: '--font-size',
     });
 
+    const isFocusVisible = useFocusVisible();
+    const focusVisibleClassName: string = 'focus-visible';
+
     useEffect(() => {
         if (themeOptions) {
             setRegisteredTheme(
@@ -35,6 +47,30 @@ const ConfigProvider: FC<ConfigProviderProps> = ({
         }
         setFontSize(DEFAULT_FONT_SIZE);
     }, [themeOptions]);
+
+    const handleFocusVisible = useCallback((): void => {
+        if (
+            isFocusVisible &&
+            !focusVisibleElement?.classList.contains(focusVisibleClassName)
+        ) {
+            focusVisibleElement.classList.add(focusVisibleClassName);
+        } else {
+            if (
+                focusVisibleElement?.classList.contains(focusVisibleClassName)
+            ) {
+                focusVisibleElement.classList.remove(focusVisibleClassName);
+                if (focusVisibleElement.classList.length === 0) {
+                    focusVisibleElement.removeAttribute('class');
+                }
+            }
+        }
+    }, [isFocusVisible]);
+
+    useEffect(() => {
+        if (focusVisible) {
+            handleFocusVisible();
+        }
+    }, [handleFocusVisible]);
 
     return (
         <ConfigContext.Provider
