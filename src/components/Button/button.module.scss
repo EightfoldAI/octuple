@@ -155,7 +155,7 @@
         cursor: not-allowed;
     }
 
-    &:focus-visible {
+    &:focus {
         outline: 2px solid var(--button-focus-outline-color);
         outline-offset: -2px;
     }
@@ -296,7 +296,7 @@
         outline-color: var(--button-active-outline-color);
     }
 
-    &:focus-visible {
+    &:focus {
         background-color: var(--button-focus-background-color);
         color: var(--button-focus-foreground-color);
         outline-color: var(--button-focus-outline-color);
@@ -318,7 +318,7 @@
         border-color: var(--disruptive-color-80);
     }
 
-    &:focus-visible {
+    &:focus {
         outline-color: var(--disruptive-color-80);
     }
 }
@@ -340,7 +340,7 @@
         outline-color: var(--disruptive-color-80);
     }
 
-    &:focus-visible {
+    &:focus {
         color: var(--disruptive-color-80);
         outline-color: var(--disruptive-color-80);
     }
@@ -364,7 +364,7 @@
         outline-color: var(--button-active-background-color);
     }
 
-    &:focus-visible {
+    &:focus {
         background-color: var(--button-focus-background-color);
         color: var(--button-focus-foreground-color);
         outline-color: var(--button-focus-outline-color);
@@ -389,7 +389,7 @@
         outline-color: var(--disruptive-color-10);
     }
 
-    &:focus-visible {
+    &:focus {
         background-color: var(--disruptive-color-10);
         color: var(--disruptive-color-80);
         outline-color: var(--disruptive-color-80);
@@ -414,7 +414,7 @@
         outline-color: var(--grey-color-10);
     }
 
-    &:focus-visible {
+    &:focus {
         background-color: var(--grey-color-10);
         color: var(--text-secondary-color);
         outline-color: var(--grey-color-80);
@@ -519,7 +519,7 @@
         }
     }
 
-    &:focus-visible {
+    &:focus {
         background-color: var(--button-two-state-focus-background-color);
         color: var(--button-two-state-focus-foreground-color);
         outline: 1px solid var(--button-two-state-focus-outline-color);
@@ -532,6 +532,27 @@
 
         .counter {
             background-color: var(--button-counter-focus-background-color);
+        }
+    }
+}
+
+:global(.focus-visible) {
+    .button {
+        &:focus-visible {
+            outline-width: $focus-visible-outline-width;
+            outline-offset: $focus-visible-outline-offset-inner;
+        }
+    }
+
+    .two-state-button {
+        &:focus-visible {
+            outline-width: $focus-visible-outline-width;
+            outline-offset: $focus-visible-outline-offset-inner;
+
+            &.checked {
+                outline-width: $focus-visible-outline-width;
+                outline-offset: $focus-visible-outline-offset-inner;
+            }
         }
     }
 }
