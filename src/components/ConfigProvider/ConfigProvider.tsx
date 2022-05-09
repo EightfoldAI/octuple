@@ -1,14 +1,8 @@
-import React, {
-    createContext,
-    FC,
-    useCallback,
-    useEffect,
-    useState,
-} from 'react';
+import React, { createContext, FC, useEffect, useState } from 'react';
 import { registerTheme } from './Theming/styleGenerator';
 import { ConfigProviderProps, IConfigContext } from './ConfigProvider.types';
 import { IRegisterTheme, ThemeOptions } from './Theming';
-import { useFocusVisible } from '../../hooks/useFocusVisible';
+import { useFocusVisibleClassName } from '../../hooks/useFocusVisibleClassName';
 import { useFontSize } from '../../hooks/useFontSize';
 
 const ConfigContext: React.Context<Partial<IConfigContext>> = createContext<
@@ -20,7 +14,6 @@ const DEFAULT_FONT_SIZE: number = 16;
 
 const DEFAULT_FOCUS_VISIBLE: boolean = true;
 const DEFAULT_FOCUS_VISIBLE_ELEMENT: HTMLElement = document.documentElement;
-const FOCUS_VISIBLE_CLASSNAME: string = 'focus-visible';
 
 const ConfigProvider: FC<ConfigProviderProps> = ({
     children,
@@ -41,7 +34,12 @@ const ConfigProvider: FC<ConfigProviderProps> = ({
         variableName: '--font-size',
     });
 
-    const isFocusVisible: boolean = useFocusVisible();
+    if (focusVisibleOptions?.focusVisible) {
+        useFocusVisibleClassName(
+            focusVisibleOptions?.focusVisible,
+            focusVisibleOptions?.focusVisibleElement
+        );
+    }
 
     useEffect(() => {
         if (themeOptions) {
@@ -54,39 +52,6 @@ const ConfigProvider: FC<ConfigProviderProps> = ({
         }
         setFontSize(DEFAULT_FONT_SIZE);
     }, [themeOptions]);
-
-    const handleFocusVisible = useCallback(
-        (focusVisibleElement: HTMLElement): void => {
-            if (
-                isFocusVisible &&
-                !focusVisibleElement?.classList.contains(
-                    FOCUS_VISIBLE_CLASSNAME
-                )
-            ) {
-                focusVisibleElement?.classList.add(FOCUS_VISIBLE_CLASSNAME);
-            } else {
-                if (
-                    focusVisibleElement?.classList.contains(
-                        FOCUS_VISIBLE_CLASSNAME
-                    )
-                ) {
-                    focusVisibleElement?.classList.remove(
-                        FOCUS_VISIBLE_CLASSNAME
-                    );
-                    if (focusVisibleElement?.classList.length === 0) {
-                        focusVisibleElement?.removeAttribute('class');
-                    }
-                }
-            }
-        },
-        [isFocusVisible]
-    );
-
-    useEffect(() => {
-        if (focusVisibleOptions?.focusVisible) {
-            handleFocusVisible(focusVisibleOptions.focusVisibleElement);
-        }
-    }, [handleFocusVisible]);
 
     return (
         <ConfigContext.Provider
