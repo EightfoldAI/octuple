@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
 export enum Breakpoints {
     Large = '(min-width: 1200px)',
@@ -16,13 +16,16 @@ export const useMatchMedia = (breakpoint: Breakpoints): boolean => {
     const [threshold, setThreshold] = useState<boolean>(
         window.matchMedia(breakpoint).matches
     );
+    const handleMatchMedia = useCallback((e: MediaQueryListEvent) => {
+        setThreshold(e.matches);
+    }, []);
     useEffect((): void => {
         window
             .matchMedia(breakpoint)
-            .addEventListener('change', (e) => setThreshold(e.matches));
+            .addEventListener('change', handleMatchMedia);
         return window
             .matchMedia(breakpoint)
-            .removeEventListener('change', (e) => setThreshold(e.matches));
-    }, []);
+            .removeEventListener('change', handleMatchMedia);
+    }, [handleMatchMedia]);
     return threshold;
 };
