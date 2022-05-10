@@ -15,7 +15,7 @@ export interface ConfigProviderProps {
     themeOptions?: ThemeOptions;
     /**
      * Options for keyboard modality styles
-     * @default { focusVisible: false, focusVisibleElement: document.documentElement }
+     * @default { focusVisible: true, focusVisibleElement: document.documentElement }
      */
     focusVisibleOptions?: FocusVisibleOptions;
 }
