@@ -31,7 +31,7 @@ export const CheckBox: FC<CheckBoxProps> = ({
     };
 
     return (
-        <div className={styles.selector} tabIndex={0} onKeyDown={handleKeyDown}>
+        <div className={styles.selector} onKeyDown={handleKeyDown}>
             <input
                 aria-label={ariaLabel}
                 checked={isChecked}
@@ -40,6 +40,7 @@ export const CheckBox: FC<CheckBoxProps> = ({
                 id={id}
                 onChange={onChange ? onChange : toggleChecked}
                 name={name}
+                tabIndex={-1}
                 type={'checkbox'}
                 value={value}
                 readOnly
@@ -48,7 +49,7 @@ export const CheckBox: FC<CheckBoxProps> = ({
                 htmlFor={id}
                 className={value === '' ? styles.labelNoValue : ''}
             >
-                <span className={checkBoxCheckClassNames}></span>
+                <span className={checkBoxCheckClassNames} tabIndex={0}></span>
                 <span className={styles.selectorLabel}>{value}</span>
             </label>
         </div>

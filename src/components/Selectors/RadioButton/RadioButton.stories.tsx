@@ -21,11 +21,11 @@ export const Radio = () => {
             <h2>Label Radio Button</h2>
             <RadioButton checked={true} value="Label" />
             <h2>Radio Button Groups</h2>
-            <RadioGroup onChange={_radioClicked} activeRadioButton={'Radio1'}>
-                {radioGroupItems.map((item) => (
-                    <RadioButton key={item.value} {...item} />
-                ))}
-            </RadioGroup>
+            <RadioGroup
+                onChange={_radioClicked}
+                activeRadioButton={'Radio1'}
+                radioGroupItems={radioGroupItems}
+            />
         </>
     );
 };

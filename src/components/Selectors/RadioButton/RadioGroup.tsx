@@ -1,15 +1,61 @@
-import React, { FC } from 'react';
-import { RadioButtonProps } from '../';
+import React, { FC, useEffect, useState } from 'react';
+import { RadioButton, RadioButtonProps } from '../';
 import { RadioGroupProvider } from './RadioGroup.context';
 export const RadioGroup: FC<RadioButtonProps> = (props) => {
-    const { activeRadioButton, onChange, children } = props;
+    let { activeRadioButton, onChange, radioGroupItems } = props;
+    const [radioGroupValues, setRadioGroupValues] = useState([]);
+    const [radioIndex, setRadioIndex] = useState(
+        radioGroupValues.indexOf(activeRadioButton)
+    );
+    const [tabClicked, setTabClicked] = useState(false);
+
+    const handleKeyDown = (event: React.KeyboardEvent) => {
+        let indexOfRadio = radioIndex;
+        if (event.key === 'Tab') setTabClicked(true);
+        if (tabClicked) {
+            if (event.key === 'ArrowDown' || event.key === 'ArrowRight') {
+                if (indexOfRadio + 2 > radioGroupValues.length)
+                    indexOfRadio = 0;
+                else indexOfRadio++;
+                activeRadioButton = radioGroupValues[indexOfRadio];
+            }
+            if (event.key === 'ArrowUp' || event.key === 'ArrowLeft') {
+                if (indexOfRadio - 1 < 0)
+                    indexOfRadio = radioGroupValues.length - 1;
+                else indexOfRadio--;
+                activeRadioButton = radioGroupValues[indexOfRadio];
+            }
+        }
+        setRadioIndex(indexOfRadio);
+    };
+
+    const getRadioGroupValues = () => {
+        let radioGroupValues: (string | number)[] = [];
+        radioGroupItems.map((item: RadioButtonProps) => {
+            radioGroupValues.push(item.value);
+        });
+        return radioGroupValues;
+    };
+
+    useEffect(() => {
+        setRadioGroupValues(getRadioGroupValues());
+        setRadioIndex(radioGroupValues.indexOf(activeRadioButton));
+    }, []);
 
     return (
         <RadioGroupProvider
             onChange={onChange}
-            activeRadioButton={activeRadioButton}
+            activeRadioButton={radioGroupValues[radioIndex]}
         >
-            <div>{children}</div>
+            <div onKeyDown={handleKeyDown}>
+                {radioGroupItems.map((item: RadioButtonProps) => (
+                    <RadioButton
+                        key={item.value}
+                        {...item}
+                        activeRadioButton={radioGroupValues[radioIndex]}
+                    />
+                ))}
+            </div>
         </RadioGroupProvider>
     );
 };

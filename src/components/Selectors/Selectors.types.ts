@@ -74,7 +74,7 @@ export interface RadioButtonProps {
     /**
      * The default radio button to select
      */
-    activeRadioButton?: RadioButtonChecked;
+    activeRadioButton?: RadioButtonChecked | string;
     /**
      * The input aria label text.
      */
@@ -119,4 +119,8 @@ export interface RadioButtonProps {
      * The radio button onChange event handler.
      */
     onChange?: OnChangeHandler;
+    /**
+     * The radio buttons in the radio group.
+     */
+    radioGroupItems?: any;
 }
