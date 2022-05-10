@@ -16,19 +16,16 @@ export const useMatchMedia = (breakpoint: Breakpoints): boolean => {
     const [threshold, setThreshold] = useState<boolean>(
         window.matchMedia(breakpoint).matches
     );
-    const handleMatchMedia = useCallback(
-        (e: MediaQueryListEvent) => {
-            setThreshold(e.matches);
-        },
-        [threshold]
-    );
+    const handleMatchMedia = useCallback((e: MediaQueryListEvent) => {
+        setThreshold(e.matches);
+    }, []);
     useEffect((): void => {
         window
             .matchMedia(breakpoint)
-            .addEventListener('change', (e) => handleMatchMedia(e));
+            .addEventListener('change', handleMatchMedia);
         return window
             .matchMedia(breakpoint)
-            .removeEventListener('change', (e) => handleMatchMedia(e));
+            .removeEventListener('change', handleMatchMedia);
     }, [handleMatchMedia]);
     return threshold;
 };
