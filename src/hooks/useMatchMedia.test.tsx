@@ -11,32 +11,41 @@ describe('useMatchMedia', () => {
     });
     beforeAll(() => {
         matchMedia = new MatchMediaMock();
+        jest.useFakeTimers();
     });
-    it('is large screen', () => {
-        window.resizeTo(1920, 1080);
+    it('is large screen', async () => {
         const { result } = renderHook(() => useMatchMedia(Breakpoints.Large));
         const largeMq = result.current;
-        expect(largeMq).toBe(true);
+        window.resizeTo(1920, 1080);
+        setTimeout(() => {
+            expect(largeMq).toBe(true);
+        }, 10);
     });
 
     it('is medium screen', () => {
         window.resizeTo(1024, 768);
         const { result } = renderHook(() => useMatchMedia(Breakpoints.Medium));
         const mediumMq = result.current;
-        expect(mediumMq).toBe(true);
+        setTimeout(() => {
+            expect(mediumMq).toBe(true);
+        }, 10);
     });
 
     it('is small screen', () => {
         window.resizeTo(640, 480);
         const { result } = renderHook(() => useMatchMedia(Breakpoints.Small));
         const smallMq = result.current;
-        expect(smallMq).toBe(true);
+        setTimeout(() => {
+            expect(smallMq).toBe(true);
+        }, 10);
     });
 
     it('is extra small screen', () => {
         window.resizeTo(320, 480);
         const { result } = renderHook(() => useMatchMedia(Breakpoints.XSmall));
         const xSmallMq = result.current;
-        expect(xSmallMq).toBe(true);
+        setTimeout(() => {
+            expect(xSmallMq).toBe(true);
+        }, 10);
     });
 });
