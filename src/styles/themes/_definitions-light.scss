@@ -301,6 +301,12 @@ $corner-radius-m: 8px;
 $corner-radius-l: 16px;
 $corner-radius-xl: 24px;
 
+// Focus visible Definitions
+
+$focus-visible-outline-width: 4px;
+$focus-visible-outline-offset-inner: -4px;
+$focus-visible-outline-offset-outer: 2px;
+
 // Speed / Duration Definitions
 
 $motion-duration-extra-fast: 200ms; // Smallest UI objects like buttons (hover effect), tooltips, etc.
