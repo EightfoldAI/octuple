@@ -115,13 +115,13 @@ Array [
   <button
     aria-disabled={false}
     aria-label="Default Button"
-    className="button buttonDefault buttonPadding1"
+    className="button buttonDefault buttonSize1"
     defaultChecked={false}
     disabled={false}
     onClick={[Function]}
   >
     <span
-      className="button1"
+      className="buttonText1"
     >
       Default Button
     </span>
@@ -134,13 +134,13 @@ Array [
   <button
     aria-disabled={false}
     aria-label="Default Button"
-    className="button buttonDefault buttonPadding1 pillShape dropShadow"
+    className="button buttonDefault buttonSize1 pillShape dropShadow"
     defaultChecked={false}
     disabled={false}
     onClick={[Function]}
   >
     <span
-      className="button1"
+      className="buttonText1"
     >
       Default Button
     </span>
@@ -153,7 +153,7 @@ Array [
   <button
     aria-disabled={false}
     aria-label="Default Button"
-    className="button buttonDefault buttonPadding1 iconLeft"
+    className="button buttonDefault buttonSize1 iconLeft"
     defaultChecked={false}
     disabled={false}
     onClick={[Function]}
@@ -192,7 +192,7 @@ Array [
   <button
     aria-disabled={false}
     aria-label="Default Button"
-    className="button buttonDefault buttonPadding1 iconLeft"
+    className="button buttonDefault buttonSize1 iconLeft"
     defaultChecked={false}
     disabled={false}
     onClick={[Function]}
@@ -224,7 +224,7 @@ Array [
         </svg>
       </span>
       <span
-        className="button1"
+        className="buttonText1"
       >
         Default Button
       </span>
@@ -238,13 +238,13 @@ Array [
   <button
     aria-disabled={false}
     aria-label="Default Button"
-    className="button buttonDefault buttonDisruptive buttonPadding1"
+    className="button buttonDefault buttonDisruptive buttonSize1"
     defaultChecked={false}
     disabled={false}
     onClick={[Function]}
   >
     <span
-      className="button1"
+      className="buttonText1"
     >
       Default Button
     </span>
@@ -263,13 +263,13 @@ Array [
   <button
     aria-disabled={false}
     aria-label="Neutral Button"
-    className="button buttonNeutral buttonPadding1"
+    className="button buttonNeutral buttonSize1"
     defaultChecked={false}
     disabled={false}
     onClick={[Function]}
   >
     <span
-      className="button1"
+      className="buttonText1"
     >
       Neutral Button
     </span>
@@ -282,13 +282,13 @@ Array [
   <button
     aria-disabled={false}
     aria-label="Neutral Button"
-    className="button buttonNeutral buttonPadding1 pillShape dropShadow"
+    className="button buttonNeutral buttonSize1 pillShape dropShadow"
     defaultChecked={false}
     disabled={false}
     onClick={[Function]}
   >
     <span
-      className="button1"
+      className="buttonText1"
     >
       Neutral Button
     </span>
@@ -301,7 +301,7 @@ Array [
   <button
     aria-disabled={false}
     aria-label="Neutral Button"
-    className="button buttonNeutral buttonPadding1 iconLeft"
+    className="button buttonNeutral buttonSize1 iconLeft"
     defaultChecked={false}
     disabled={false}
     onClick={[Function]}
@@ -340,7 +340,7 @@ Array [
   <button
     aria-disabled={false}
     aria-label="Neutral Button"
-    className="button buttonNeutral buttonPadding1 iconLeft"
+    className="button buttonNeutral buttonSize1 iconLeft"
     defaultChecked={false}
     disabled={false}
     onClick={[Function]}
@@ -372,7 +372,7 @@ Array [
         </svg>
       </span>
       <span
-        className="button1"
+        className="buttonText1"
       >
         Neutral Button
       </span>
@@ -491,13 +491,13 @@ Array [
   <button
     aria-disabled={false}
     aria-label="Primary Button"
-    className="button buttonPrimary buttonPadding1"
+    className="button buttonPrimary buttonSize1"
     defaultChecked={false}
     disabled={false}
     onClick={[Function]}
   >
     <span
-      className="button1"
+      className="buttonText1"
     >
       Primary Button
     </span>
@@ -510,13 +510,13 @@ Array [
   <button
     aria-disabled={false}
     aria-label="Primary Button"
-    className="button buttonPrimary buttonPadding1 pillShape"
+    className="button buttonPrimary buttonSize1 pillShape"
     defaultChecked={false}
     disabled={false}
     onClick={[Function]}
   >
     <span
-      className="button1"
+      className="buttonText1"
     >
       Primary Button
     </span>
@@ -529,7 +529,7 @@ Array [
   <button
     aria-disabled={false}
     aria-label="Primary Button"
-    className="button buttonPrimary buttonPadding1 iconLeft"
+    className="button buttonPrimary buttonSize1 iconLeft"
     defaultChecked={false}
     disabled={false}
     onClick={[Function]}
@@ -568,7 +568,7 @@ Array [
   <button
     aria-disabled={false}
     aria-label="Primary Button"
-    className="button buttonPrimary buttonPadding1 iconLeft"
+    className="button buttonPrimary buttonSize1 iconLeft"
     defaultChecked={false}
     disabled={false}
     onClick={[Function]}
@@ -600,7 +600,7 @@ Array [
         </svg>
       </span>
       <span
-        className="button1"
+        className="buttonText1"
       >
         Primary Button
       </span>
@@ -614,7 +614,7 @@ Array [
   <button
     aria-disabled={false}
     aria-label="Primary Button"
-    className="button buttonPrimary buttonPadding1 iconRight"
+    className="button buttonPrimary buttonSize1 iconRight"
     defaultChecked={false}
     disabled={false}
     onClick={[Function]}
@@ -646,7 +646,7 @@ Array [
         </svg>
       </span>
       <span
-        className="button1"
+        className="buttonText1"
       >
         Primary Button
       </span>
@@ -660,13 +660,13 @@ Array [
   <button
     aria-disabled={false}
     aria-label="Primary Button"
-    className="button buttonPrimary buttonPrimaryDisruptive buttonPadding1"
+    className="button buttonPrimary buttonPrimaryDisruptive buttonSize1"
     defaultChecked={false}
     disabled={false}
     onClick={[Function]}
   >
     <span
-      className="button1"
+      className="buttonText1"
     >
       Primary Button
     </span>
@@ -685,13 +685,13 @@ Array [
   <button
     aria-disabled={false}
     aria-label="Secondary Button"
-    className="button buttonSecondary buttonPadding1"
+    className="button buttonSecondary buttonSize1"
     defaultChecked={false}
     disabled={false}
     onClick={[Function]}
   >
     <span
-      className="button1"
+      className="buttonText1"
     >
       Secondary Button
     </span>
@@ -704,13 +704,13 @@ Array [
   <button
     aria-disabled={false}
     aria-label="Secondary Button"
-    className="button buttonSecondary buttonPadding1 pillShape"
+    className="button buttonSecondary buttonSize1 pillShape"
     defaultChecked={false}
     disabled={false}
     onClick={[Function]}
   >
     <span
-      className="button1"
+      className="buttonText1"
     >
       Secondary Button
     </span>
@@ -723,7 +723,7 @@ Array [
   <button
     aria-disabled={false}
     aria-label="Secondary Button"
-    className="button buttonSecondary buttonPadding1 iconLeft"
+    className="button buttonSecondary buttonSize1 iconLeft"
     defaultChecked={false}
     disabled={false}
     onClick={[Function]}
@@ -762,7 +762,7 @@ Array [
   <button
     aria-disabled={false}
     aria-label="Secondary Button"
-    className="button buttonSecondary buttonPadding1 iconLeft"
+    className="button buttonSecondary buttonSize1 iconLeft"
     defaultChecked={false}
     disabled={false}
     onClick={[Function]}
@@ -794,7 +794,7 @@ Array [
         </svg>
       </span>
       <span
-        className="button1"
+        className="buttonText1"
       >
         Secondary Button
       </span>
@@ -808,13 +808,13 @@ Array [
   <button
     aria-disabled={false}
     aria-label="Secondary Button"
-    className="button buttonSecondary buttonSecondaryDisruptive buttonPadding1"
+    className="button buttonSecondary buttonSecondaryDisruptive buttonSize1"
     defaultChecked={false}
     disabled={false}
     onClick={[Function]}
   >
     <span
-      className="button1"
+      className="buttonText1"
     >
       Secondary Button
     </span>
@@ -936,7 +936,7 @@ Array [
       aria-disabled={false}
       aria-label="Primary Button"
       aria-pressed={false}
-      className="button buttonPrimary buttonPadding2 iconLeft"
+      className="button buttonPrimary buttonSize2 iconLeft"
       defaultChecked={false}
       disabled={false}
       onClick={[Function]}
@@ -968,7 +968,7 @@ Array [
           </svg>
         </span>
         <span
-          className="button2"
+          className="buttonText2"
         >
           Primary Button
         </span>
@@ -987,7 +987,7 @@ Array [
       aria-disabled={false}
       aria-label="Secondary Button"
       aria-pressed={false}
-      className="button buttonSecondary buttonPadding2 iconLeft"
+      className="button buttonSecondary buttonSize2 iconLeft"
       defaultChecked={false}
       disabled={false}
       onClick={[Function]}
@@ -1019,7 +1019,7 @@ Array [
           </svg>
         </span>
         <span
-          className="button2"
+          className="buttonText2"
         >
           Secondary Button
         </span>
@@ -1032,7 +1032,7 @@ Array [
       aria-disabled={false}
       aria-label="Default Button"
       aria-pressed={false}
-      className="button buttonDefault buttonPadding2 iconLeft"
+      className="button buttonDefault buttonSize2 iconLeft"
       defaultChecked={false}
       disabled={false}
       onClick={[Function]}
@@ -1064,7 +1064,7 @@ Array [
           </svg>
         </span>
         <span
-          className="button2"
+          className="buttonText2"
         >
           Default Button
         </span>
@@ -1077,7 +1077,7 @@ Array [
       aria-disabled={false}
       aria-label="Neutral Button"
       aria-pressed={false}
-      className="button buttonNeutral buttonPadding2 iconLeft"
+      className="button buttonNeutral buttonSize2 iconLeft"
       defaultChecked={false}
       disabled={false}
       onClick={[Function]}
@@ -1109,7 +1109,7 @@ Array [
           </svg>
         </span>
         <span
-          className="button2"
+          className="buttonText2"
         >
           Neutral Button
         </span>
@@ -3156,13 +3156,13 @@ exports[`Storyshots ConfigProvider Theming 1`] = `
     <button
       aria-disabled={false}
       aria-label="Primary Button"
-      className="button buttonPrimary buttonPadding1"
+      className="button buttonPrimary buttonSize1"
       defaultChecked={false}
       disabled={false}
       onClick={[Function]}
     >
       <span
-        className="button1"
+        className="buttonText1"
       >
         Primary Button
       </span>
@@ -3170,7 +3170,7 @@ exports[`Storyshots ConfigProvider Theming 1`] = `
     <button
       aria-disabled={false}
       aria-label="Primary Button"
-      className="button buttonPrimary buttonPadding1 iconLeft"
+      className="button buttonPrimary buttonSize1 iconLeft"
       defaultChecked={false}
       disabled={false}
       onClick={[Function]}
@@ -3204,7 +3204,7 @@ exports[`Storyshots ConfigProvider Theming 1`] = `
     <button
       aria-disabled={false}
       aria-label="Primary Button"
-      className="button buttonPrimary buttonPadding1 iconLeft"
+      className="button buttonPrimary buttonSize1 iconLeft"
       defaultChecked={false}
       disabled={false}
       onClick={[Function]}
@@ -3236,7 +3236,7 @@ exports[`Storyshots ConfigProvider Theming 1`] = `
           </svg>
         </span>
         <span
-          className="button1"
+          className="buttonText1"
         >
           Primary Button
         </span>
@@ -3256,13 +3256,13 @@ exports[`Storyshots ConfigProvider Theming 1`] = `
     <button
       aria-disabled={false}
       aria-label="Secondary Button"
-      className="button buttonSecondary buttonPadding1"
+      className="button buttonSecondary buttonSize1"
       defaultChecked={false}
       disabled={false}
       onClick={[Function]}
     >
       <span
-        className="button1"
+        className="buttonText1"
       >
         Secondary Button
       </span>
@@ -3270,7 +3270,7 @@ exports[`Storyshots ConfigProvider Theming 1`] = `
     <button
       aria-disabled={false}
       aria-label="Secondary Button"
-      className="button buttonSecondary buttonPadding1 iconLeft"
+      className="button buttonSecondary buttonSize1 iconLeft"
       defaultChecked={false}
       disabled={false}
       onClick={[Function]}
@@ -3304,7 +3304,7 @@ exports[`Storyshots ConfigProvider Theming 1`] = `
     <button
       aria-disabled={false}
       aria-label="Secondary Button"
-      className="button buttonSecondary buttonPadding1 iconLeft"
+      className="button buttonSecondary buttonSize1 iconLeft"
       defaultChecked={false}
       disabled={false}
       onClick={[Function]}
@@ -3336,7 +3336,7 @@ exports[`Storyshots ConfigProvider Theming 1`] = `
           </svg>
         </span>
         <span
-          className="button1"
+          className="buttonText1"
         >
           Secondary Button
         </span>
@@ -3356,13 +3356,13 @@ exports[`Storyshots ConfigProvider Theming 1`] = `
     <button
       aria-disabled={false}
       aria-label="Default Button"
-      className="button buttonDefault buttonPadding1"
+      className="button buttonDefault buttonSize1"
       defaultChecked={false}
       disabled={false}
       onClick={[Function]}
     >
       <span
-        className="button1"
+        className="buttonText1"
       >
         Default Button
       </span>
@@ -3370,7 +3370,7 @@ exports[`Storyshots ConfigProvider Theming 1`] = `
     <button
       aria-disabled={false}
       aria-label="Default Button"
-      className="button buttonDefault buttonPadding1 iconLeft"
+      className="button buttonDefault buttonSize1 iconLeft"
       defaultChecked={false}
       disabled={false}
       onClick={[Function]}
@@ -3404,7 +3404,7 @@ exports[`Storyshots ConfigProvider Theming 1`] = `
     <button
       aria-disabled={false}
       aria-label="Default Button"
-      className="button buttonDefault buttonPadding1 iconLeft"
+      className="button buttonDefault buttonSize1 iconLeft"
       defaultChecked={false}
       disabled={false}
       onClick={[Function]}
@@ -3436,7 +3436,7 @@ exports[`Storyshots ConfigProvider Theming 1`] = `
           </svg>
         </span>
         <span
-          className="button1"
+          className="buttonText1"
         >
           Default Button
         </span>
@@ -4720,7 +4720,7 @@ Array [
       >
         <button
           aria-disabled={false}
-          className="labelIconButton button buttonDefault buttonPadding3 iconLeft"
+          className="labelIconButton button buttonDefault buttonSize3 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -4804,7 +4804,7 @@ Array [
       >
         <button
           aria-disabled={false}
-          className="labelIconButton button buttonDefault buttonPadding3 iconLeft"
+          className="labelIconButton button buttonDefault buttonSize3 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -4888,7 +4888,7 @@ Array [
       >
         <button
           aria-disabled={false}
-          className="labelIconButton button buttonDefault buttonPadding3 iconLeft"
+          className="labelIconButton button buttonDefault buttonSize3 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -6212,7 +6212,7 @@ Array [
         <button
           aria-disabled={false}
           aria-label="Close"
-          className="closeButton button buttonDefault buttonPadding2 iconLeft"
+          className="closeButton button buttonDefault buttonSize2 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -6259,7 +6259,7 @@ Array [
         <button
           aria-disabled={false}
           aria-label="Close"
-          className="closeButton button buttonDefault buttonPadding2 iconLeft"
+          className="closeButton button buttonDefault buttonSize2 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -6306,7 +6306,7 @@ Array [
         <button
           aria-disabled={false}
           aria-label="Close"
-          className="closeButton button buttonDefault buttonPadding2 iconLeft"
+          className="closeButton button buttonDefault buttonSize2 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -6353,7 +6353,7 @@ Array [
         <button
           aria-disabled={false}
           aria-label="Close"
-          className="closeButton button buttonDefault buttonPadding2 iconLeft"
+          className="closeButton button buttonDefault buttonSize2 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -6400,7 +6400,7 @@ Array [
         <button
           aria-disabled={false}
           aria-label="Close"
-          className="closeButton button buttonDefault buttonPadding2 iconLeft"
+          className="closeButton button buttonDefault buttonSize2 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -6447,7 +6447,7 @@ Array [
         <button
           aria-disabled={false}
           aria-label="Close"
-          className="closeButton button buttonDefault buttonPadding2 iconLeft"
+          className="closeButton button buttonDefault buttonSize2 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -6494,7 +6494,7 @@ Array [
         <button
           aria-disabled={false}
           aria-label="Close"
-          className="closeButton button buttonDefault buttonPadding2 iconLeft"
+          className="closeButton button buttonDefault buttonSize2 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -6541,7 +6541,7 @@ Array [
         <button
           aria-disabled={false}
           aria-label="Close"
-          className="closeButton button buttonDefault buttonPadding2 iconLeft"
+          className="closeButton button buttonDefault buttonSize2 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -6920,7 +6920,7 @@ Array [
         <button
           aria-disabled={false}
           aria-label="Thumbs up"
-          className="button button buttonDefault buttonPadding2 iconLeft"
+          className="button button buttonDefault buttonSize2 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -6951,7 +6951,7 @@ Array [
               </svg>
             </span>
             <span
-              className="button2"
+              className="buttonText2"
             >
               2
             </span>
@@ -6974,7 +6974,7 @@ Array [
         <button
           aria-disabled={false}
           aria-label="Thumbs up"
-          className="button button buttonDefault buttonPadding2 iconLeft"
+          className="button button buttonDefault buttonSize2 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -7005,7 +7005,7 @@ Array [
               </svg>
             </span>
             <span
-              className="button2"
+              className="buttonText2"
             >
               2
             </span>
@@ -7028,7 +7028,7 @@ Array [
         <button
           aria-disabled={false}
           aria-label="Thumbs up"
-          className="button button buttonDefault buttonPadding2 iconLeft"
+          className="button button buttonDefault buttonSize2 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -7059,7 +7059,7 @@ Array [
               </svg>
             </span>
             <span
-              className="button2"
+              className="buttonText2"
             >
               2
             </span>
@@ -7082,7 +7082,7 @@ Array [
         <button
           aria-disabled={false}
           aria-label="Thumbs up"
-          className="button button buttonDefault buttonPadding2 iconLeft"
+          className="button button buttonDefault buttonSize2 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -7113,7 +7113,7 @@ Array [
               </svg>
             </span>
             <span
-              className="button2"
+              className="buttonText2"
             >
               2
             </span>
@@ -7136,7 +7136,7 @@ Array [
         <button
           aria-disabled={false}
           aria-label="Thumbs up"
-          className="button button buttonDefault buttonPadding2 iconLeft"
+          className="button button buttonDefault buttonSize2 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -7167,7 +7167,7 @@ Array [
               </svg>
             </span>
             <span
-              className="button2"
+              className="buttonText2"
             >
               2
             </span>
@@ -7190,7 +7190,7 @@ Array [
         <button
           aria-disabled={false}
           aria-label="Thumbs up"
-          className="button button buttonDefault buttonPadding2 iconLeft"
+          className="button button buttonDefault buttonSize2 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -7221,7 +7221,7 @@ Array [
               </svg>
             </span>
             <span
-              className="button2"
+              className="buttonText2"
             >
               2
             </span>
@@ -7244,7 +7244,7 @@ Array [
         <button
           aria-disabled={false}
           aria-label="Thumbs up"
-          className="button button buttonDefault buttonPadding2 iconLeft"
+          className="button button buttonDefault buttonSize2 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -7275,7 +7275,7 @@ Array [
               </svg>
             </span>
             <span
-              className="button2"
+              className="buttonText2"
             >
               2
             </span>
@@ -7298,7 +7298,7 @@ Array [
         <button
           aria-disabled={false}
           aria-label="Thumbs up"
-          className="button button buttonDefault buttonPadding2 iconLeft"
+          className="button button buttonDefault buttonSize2 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -7329,7 +7329,7 @@ Array [
               </svg>
             </span>
             <span
-              className="button2"
+              className="buttonText2"
             >
               2
             </span>
@@ -7501,7 +7501,7 @@ Array [
         <button
           aria-disabled={false}
           aria-label="Close"
-          className="closeButton button buttonDefault buttonPadding3 iconLeft"
+          className="closeButton button buttonDefault buttonSize3 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -7548,7 +7548,7 @@ Array [
         <button
           aria-disabled={false}
           aria-label="Close"
-          className="closeButton button buttonDefault buttonPadding3 iconLeft"
+          className="closeButton button buttonDefault buttonSize3 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -7595,7 +7595,7 @@ Array [
         <button
           aria-disabled={false}
           aria-label="Close"
-          className="closeButton button buttonDefault buttonPadding3 iconLeft"
+          className="closeButton button buttonDefault buttonSize3 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -7642,7 +7642,7 @@ Array [
         <button
           aria-disabled={false}
           aria-label="Close"
-          className="closeButton button buttonDefault buttonPadding3 iconLeft"
+          className="closeButton button buttonDefault buttonSize3 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -7689,7 +7689,7 @@ Array [
         <button
           aria-disabled={false}
           aria-label="Close"
-          className="closeButton button buttonDefault buttonPadding3 iconLeft"
+          className="closeButton button buttonDefault buttonSize3 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -7736,7 +7736,7 @@ Array [
         <button
           aria-disabled={false}
           aria-label="Close"
-          className="closeButton button buttonDefault buttonPadding3 iconLeft"
+          className="closeButton button buttonDefault buttonSize3 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -7783,7 +7783,7 @@ Array [
         <button
           aria-disabled={false}
           aria-label="Close"
-          className="closeButton button buttonDefault buttonPadding3 iconLeft"
+          className="closeButton button buttonDefault buttonSize3 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -7830,7 +7830,7 @@ Array [
         <button
           aria-disabled={false}
           aria-label="Close"
-          className="closeButton button buttonDefault buttonPadding3 iconLeft"
+          className="closeButton button buttonDefault buttonSize3 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -8209,7 +8209,7 @@ Array [
         <button
           aria-disabled={false}
           aria-label="Thumbs up"
-          className="button button buttonDefault buttonPadding3 iconLeft"
+          className="button button buttonDefault buttonSize3 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -8240,7 +8240,7 @@ Array [
               </svg>
             </span>
             <span
-              className="button3"
+              className="buttonText3"
             >
               2
             </span>
@@ -8263,7 +8263,7 @@ Array [
         <button
           aria-disabled={false}
           aria-label="Thumbs up"
-          className="button button buttonDefault buttonPadding3 iconLeft"
+          className="button button buttonDefault buttonSize3 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -8294,7 +8294,7 @@ Array [
               </svg>
             </span>
             <span
-              className="button3"
+              className="buttonText3"
             >
               2
             </span>
@@ -8317,7 +8317,7 @@ Array [
         <button
           aria-disabled={false}
           aria-label="Thumbs up"
-          className="button button buttonDefault buttonPadding3 iconLeft"
+          className="button button buttonDefault buttonSize3 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -8348,7 +8348,7 @@ Array [
               </svg>
             </span>
             <span
-              className="button3"
+              className="buttonText3"
             >
               2
             </span>
@@ -8371,7 +8371,7 @@ Array [
         <button
           aria-disabled={false}
           aria-label="Thumbs up"
-          className="button button buttonDefault buttonPadding3 iconLeft"
+          className="button button buttonDefault buttonSize3 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -8402,7 +8402,7 @@ Array [
               </svg>
             </span>
             <span
-              className="button3"
+              className="buttonText3"
             >
               2
             </span>
@@ -8425,7 +8425,7 @@ Array [
         <button
           aria-disabled={false}
           aria-label="Thumbs up"
-          className="button button buttonDefault buttonPadding3 iconLeft"
+          className="button button buttonDefault buttonSize3 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -8456,7 +8456,7 @@ Array [
               </svg>
             </span>
             <span
-              className="button3"
+              className="buttonText3"
             >
               2
             </span>
@@ -8479,7 +8479,7 @@ Array [
         <button
           aria-disabled={false}
           aria-label="Thumbs up"
-          className="button button buttonDefault buttonPadding3 iconLeft"
+          className="button button buttonDefault buttonSize3 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -8510,7 +8510,7 @@ Array [
               </svg>
             </span>
             <span
-              className="button3"
+              className="buttonText3"
             >
               2
             </span>
@@ -8533,7 +8533,7 @@ Array [
         <button
           aria-disabled={false}
           aria-label="Thumbs up"
-          className="button button buttonDefault buttonPadding3 iconLeft"
+          className="button button buttonDefault buttonSize3 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -8564,7 +8564,7 @@ Array [
               </svg>
             </span>
             <span
-              className="button3"
+              className="buttonText3"
             >
               2
             </span>
@@ -8587,7 +8587,7 @@ Array [
         <button
           aria-disabled={false}
           aria-label="Thumbs up"
-          className="button button buttonDefault buttonPadding3 iconLeft"
+          className="button button buttonDefault buttonSize3 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -8618,7 +8618,7 @@ Array [
               </svg>
             </span>
             <span
-              className="button3"
+              className="buttonText3"
             >
               2
             </span>
@@ -8790,7 +8790,7 @@ Array [
         <button
           aria-disabled={false}
           aria-label="Close"
-          className="closeButton button buttonDefault buttonPadding3 iconLeft"
+          className="closeButton button buttonDefault buttonSize3 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -8837,7 +8837,7 @@ Array [
         <button
           aria-disabled={false}
           aria-label="Close"
-          className="closeButton button buttonDefault buttonPadding3 iconLeft"
+          className="closeButton button buttonDefault buttonSize3 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -8884,7 +8884,7 @@ Array [
         <button
           aria-disabled={false}
           aria-label="Close"
-          className="closeButton button buttonDefault buttonPadding3 iconLeft"
+          className="closeButton button buttonDefault buttonSize3 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -8931,7 +8931,7 @@ Array [
         <button
           aria-disabled={false}
           aria-label="Close"
-          className="closeButton button buttonDefault buttonPadding3 iconLeft"
+          className="closeButton button buttonDefault buttonSize3 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -8978,7 +8978,7 @@ Array [
         <button
           aria-disabled={false}
           aria-label="Close"
-          className="closeButton button buttonDefault buttonPadding3 iconLeft"
+          className="closeButton button buttonDefault buttonSize3 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -9025,7 +9025,7 @@ Array [
         <button
           aria-disabled={false}
           aria-label="Close"
-          className="closeButton button buttonDefault buttonPadding3 iconLeft"
+          className="closeButton button buttonDefault buttonSize3 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -9072,7 +9072,7 @@ Array [
         <button
           aria-disabled={false}
           aria-label="Close"
-          className="closeButton button buttonDefault buttonPadding3 iconLeft"
+          className="closeButton button buttonDefault buttonSize3 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -9119,7 +9119,7 @@ Array [
         <button
           aria-disabled={false}
           aria-label="Close"
-          className="closeButton button buttonDefault buttonPadding3 iconLeft"
+          className="closeButton button buttonDefault buttonSize3 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -9498,7 +9498,7 @@ Array [
         <button
           aria-disabled={false}
           aria-label="Thumbs up"
-          className="button button buttonDefault buttonPadding3 iconLeft"
+          className="button button buttonDefault buttonSize3 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -9529,7 +9529,7 @@ Array [
               </svg>
             </span>
             <span
-              className="button3"
+              className="buttonText3"
             >
               2
             </span>
@@ -9552,7 +9552,7 @@ Array [
         <button
           aria-disabled={false}
           aria-label="Thumbs up"
-          className="button button buttonDefault buttonPadding3 iconLeft"
+          className="button button buttonDefault buttonSize3 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -9583,7 +9583,7 @@ Array [
               </svg>
             </span>
             <span
-              className="button3"
+              className="buttonText3"
             >
               2
             </span>
@@ -9606,7 +9606,7 @@ Array [
         <button
           aria-disabled={false}
           aria-label="Thumbs up"
-          className="button button buttonDefault buttonPadding3 iconLeft"
+          className="button button buttonDefault buttonSize3 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -9637,7 +9637,7 @@ Array [
               </svg>
             </span>
             <span
-              className="button3"
+              className="buttonText3"
             >
               2
             </span>
@@ -9660,7 +9660,7 @@ Array [
         <button
           aria-disabled={false}
           aria-label="Thumbs up"
-          className="button button buttonDefault buttonPadding3 iconLeft"
+          className="button button buttonDefault buttonSize3 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -9691,7 +9691,7 @@ Array [
               </svg>
             </span>
             <span
-              className="button3"
+              className="buttonText3"
             >
               2
             </span>
@@ -9714,7 +9714,7 @@ Array [
         <button
           aria-disabled={false}
           aria-label="Thumbs up"
-          className="button button buttonDefault buttonPadding3 iconLeft"
+          className="button button buttonDefault buttonSize3 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -9745,7 +9745,7 @@ Array [
               </svg>
             </span>
             <span
-              className="button3"
+              className="buttonText3"
             >
               2
             </span>
@@ -9768,7 +9768,7 @@ Array [
         <button
           aria-disabled={false}
           aria-label="Thumbs up"
-          className="button button buttonDefault buttonPadding3 iconLeft"
+          className="button button buttonDefault buttonSize3 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -9799,7 +9799,7 @@ Array [
               </svg>
             </span>
             <span
-              className="button3"
+              className="buttonText3"
             >
               2
             </span>
@@ -9822,7 +9822,7 @@ Array [
         <button
           aria-disabled={false}
           aria-label="Thumbs up"
-          className="button button buttonDefault buttonPadding3 iconLeft"
+          className="button button buttonDefault buttonSize3 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -9853,7 +9853,7 @@ Array [
               </svg>
             </span>
             <span
-              className="button3"
+              className="buttonText3"
             >
               2
             </span>
@@ -9876,7 +9876,7 @@ Array [
         <button
           aria-disabled={false}
           aria-label="Thumbs up"
-          className="button button buttonDefault buttonPadding3 iconLeft"
+          className="button button buttonDefault buttonSize3 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -9907,7 +9907,7 @@ Array [
               </svg>
             </span>
             <span
-              className="button3"
+              className="buttonText3"
             >
               2
             </span>
@@ -9965,7 +9965,7 @@ Array [
       />
       <button
         aria-disabled={false}
-        className="iconButton leftIcon button buttonDefault buttonPadding2 iconLeft"
+        className="iconButton leftIcon button buttonDefault buttonSize2 iconLeft"
         defaultChecked={false}
         disabled={false}
       >
@@ -10028,7 +10028,7 @@ Array [
           >
             <button
               aria-disabled={false}
-              className="labelIconButton button buttonDefault buttonPadding3 iconLeft"
+              className="labelIconButton button buttonDefault buttonSize3 iconLeft"
               defaultChecked={false}
               disabled={false}
               onClick={[Function]}
@@ -10131,7 +10131,7 @@ Array [
       </div>
       <button
         aria-disabled={false}
-        className="iconButton leftIcon button buttonDefault buttonPadding2 iconLeft"
+        className="iconButton leftIcon button buttonDefault buttonSize2 iconLeft"
         defaultChecked={false}
         disabled={false}
         onClick={[Function]}
@@ -10205,7 +10205,7 @@ Array [
       </div>
       <button
         aria-disabled={false}
-        className="iconButton leftIcon button buttonDefault buttonPadding2 iconLeft"
+        className="iconButton leftIcon button buttonDefault buttonSize2 iconLeft"
         defaultChecked={false}
         disabled={false}
         onClick={[Function]}
@@ -10272,7 +10272,7 @@ Array [
       />
       <button
         aria-disabled={false}
-        className="iconButton leftIcon button buttonDefault buttonPadding2 iconLeft"
+        className="iconButton leftIcon button buttonDefault buttonSize2 iconLeft"
         defaultChecked={false}
         disabled={false}
         onClick={[Function]}
@@ -10368,7 +10368,7 @@ Array [
       </div>
       <button
         aria-disabled={false}
-        className="iconButton leftIcon button buttonDefault buttonPadding2 iconLeft"
+        className="iconButton leftIcon button buttonDefault buttonSize2 iconLeft"
         defaultChecked={false}
         disabled={false}
         onClick={[Function]}
@@ -10442,7 +10442,7 @@ Array [
       </div>
       <button
         aria-disabled={false}
-        className="iconButton leftIcon button buttonDefault buttonPadding2 iconLeft"
+        className="iconButton leftIcon button buttonDefault buttonSize2 iconLeft"
         defaultChecked={false}
         disabled={false}
         onClick={[Function]}
@@ -10487,91 +10487,91 @@ exports[`Storyshots Snackbar Default 1`] = `
   </h1>
   <button
     aria-disabled={false}
-    className="button buttonDefault buttonPadding3"
+    className="button buttonDefault buttonSize3"
     defaultChecked={false}
     disabled={false}
     onClick={[Function]}
   >
     <span
-      className="button3"
+      className="buttonText3"
     >
       Serve snack top center
     </span>
   </button>
   <button
     aria-disabled={false}
-    className="button buttonDefault buttonPadding3"
+    className="button buttonDefault buttonSize3"
     defaultChecked={false}
     disabled={false}
     onClick={[Function]}
   >
     <span
-      className="button3"
+      className="buttonText3"
     >
       Serve snack top left
     </span>
   </button>
   <button
     aria-disabled={false}
-    className="button buttonDefault buttonPadding3"
+    className="button buttonDefault buttonSize3"
     defaultChecked={false}
     disabled={false}
     onClick={[Function]}
   >
     <span
-      className="button3"
+      className="buttonText3"
     >
       Serve snack top right
     </span>
   </button>
   <button
     aria-disabled={false}
-    className="button buttonDefault buttonPadding3"
+    className="button buttonDefault buttonSize3"
     defaultChecked={false}
     disabled={false}
     onClick={[Function]}
   >
     <span
-      className="button3"
+      className="buttonText3"
     >
       Serve snack bottom center
     </span>
   </button>
   <button
     aria-disabled={false}
-    className="button buttonDefault buttonPadding3"
+    className="button buttonDefault buttonSize3"
     defaultChecked={false}
     disabled={false}
     onClick={[Function]}
   >
     <span
-      className="button3"
+      className="buttonText3"
     >
       Serve snack bottom left
     </span>
   </button>
   <button
     aria-disabled={false}
-    className="button buttonDefault buttonPadding3"
+    className="button buttonDefault buttonSize3"
     defaultChecked={false}
     disabled={false}
     onClick={[Function]}
   >
     <span
-      className="button3"
+      className="buttonText3"
     >
       Serve snack bottom right
     </span>
   </button>
   <button
     aria-disabled={false}
-    className="button buttonDefault buttonPadding3"
+    className="button buttonDefault buttonSize3"
     defaultChecked={false}
     disabled={false}
     onClick={[Function]}
   >
     <span
-      className="button3"
+      className="buttonText3"
     >
       Serve snack with action
     </span>
@@ -12412,7 +12412,7 @@ Array [
         >
           <button
             aria-disabled={false}
-            className="labelIconButton button buttonDefault buttonPadding3 iconLeft"
+            className="labelIconButton button buttonDefault buttonSize3 iconLeft"
             defaultChecked={false}
             disabled={false}
             onClick={[Function]}
@@ -12605,7 +12605,7 @@ Array [
         >
           <button
             aria-disabled={false}
-            className="labelIconButton button buttonDefault buttonPadding3 iconLeft"
+            className="labelIconButton button buttonDefault buttonSize3 iconLeft"
             defaultChecked={false}
             disabled={false}
             onClick={[Function]}
@@ -12772,7 +12772,7 @@ Array [
     />
     <button
       aria-disabled={false}
-      className="iconButton leftIcon button buttonDefault buttonPadding2 iconLeft"
+      className="iconButton leftIcon button buttonDefault buttonSize2 iconLeft"
       defaultChecked={false}
       disabled={false}
       onClick={[Function]}
@@ -12863,7 +12863,7 @@ Array [
     </div>
     <button
       aria-disabled={false}
-      className="iconButton leftIcon button buttonDefault buttonPadding2 iconLeft"
+      className="iconButton leftIcon button buttonDefault buttonSize2 iconLeft"
       defaultChecked={false}
       disabled={false}
       onClick={[Function]}
@@ -13048,7 +13048,7 @@ Array [
     />
     <button
       aria-disabled={false}
-      className="iconButton leftIcon button buttonDefault buttonPadding2 iconLeft"
+      className="iconButton leftIcon button buttonDefault buttonSize2 iconLeft"
       defaultChecked={false}
       disabled={false}
       onClick={[Function]}
@@ -13139,7 +13139,7 @@ Array [
     </div>
     <button
       aria-disabled={false}
-      className="iconButton leftIcon button buttonDefault buttonPadding2 iconLeft"
+      className="iconButton leftIcon button buttonDefault buttonSize2 iconLeft"
       defaultChecked={false}
       disabled={false}
       onClick={[Function]}
@@ -13205,13 +13205,13 @@ exports[`Storyshots Tooltip Base 1`] = `
       <button
         aria-disabled={false}
         aria-label="Light bottom"
-        className="button buttonPrimary buttonPadding2"
+        className="button buttonPrimary buttonSize2"
         defaultChecked={false}
         disabled={false}
         onClick={[Function]}
       >
         <span
-          className="button2"
+          className="buttonText2"
         >
           Light bottom
         </span>
@@ -13252,13 +13252,13 @@ exports[`Storyshots Tooltip Base 1`] = `
       <button
         aria-disabled={false}
         aria-label="Dark bottom"
-        className="button buttonPrimary buttonPadding2"
+        className="button buttonPrimary buttonSize2"
         defaultChecked={false}
         disabled={false}
         onClick={[Function]}
       >
         <span
-          className="button2"
+          className="buttonText2"
         >
           Dark bottom
         </span>
@@ -13309,13 +13309,13 @@ exports[`Storyshots Tooltip Base 1`] = `
       <button
         aria-disabled={false}
         aria-label="Light top"
-        className="button buttonPrimary buttonPadding2"
+        className="button buttonPrimary buttonSize2"
         defaultChecked={false}
         disabled={false}
         onClick={[Function]}
       >
         <span
-          className="button2"
+          className="buttonText2"
         >
           Light top
         </span>
@@ -13357,13 +13357,13 @@ exports[`Storyshots Tooltip Base 1`] = `
       <button
         aria-disabled={false}
         aria-label="Dark top"
-        className="button buttonPrimary buttonPadding2"
+        className="button buttonPrimary buttonSize2"
         defaultChecked={false}
         disabled={false}
         onClick={[Function]}
       >
         <span
-          className="button2"
+          className="buttonText2"
         >
           Dark top
         </span>
@@ -13415,13 +13415,13 @@ exports[`Storyshots Tooltip Base 1`] = `
       <button
         aria-disabled={false}
         aria-label="Light right"
-        className="button buttonPrimary buttonPadding2"
+        className="button buttonPrimary buttonSize2"
         defaultChecked={false}
         disabled={false}
         onClick={[Function]}
       >
         <span
-          className="button2"
+          className="buttonText2"
         >
           Light right
         </span>
@@ -13462,13 +13462,13 @@ exports[`Storyshots Tooltip Base 1`] = `
       <button
         aria-disabled={false}
         aria-label="Dark right"
-        className="button buttonPrimary buttonPadding2"
+        className="button buttonPrimary buttonSize2"
         defaultChecked={false}
         disabled={false}
         onClick={[Function]}
       >
         <span
-          className="button2"
+          className="buttonText2"
         >
           Dark right
         </span>
@@ -13519,13 +13519,13 @@ exports[`Storyshots Tooltip Base 1`] = `
       <button
         aria-disabled={false}
         aria-label="Light left"
-        className="button buttonPrimary buttonPadding2"
+        className="button buttonPrimary buttonSize2"
         defaultChecked={false}
         disabled={false}
         onClick={[Function]}
       >
         <span
-          className="button2"
+          className="buttonText2"
         >
           Light left
         </span>
@@ -13567,13 +13567,13 @@ exports[`Storyshots Tooltip Base 1`] = `
       <button
         aria-disabled={false}
         aria-label="Dark left"
-        className="button buttonPrimary buttonPadding2"
+        className="button buttonPrimary buttonSize2"
         defaultChecked={false}
         disabled={false}
         onClick={[Function]}
       >
         <span
-          className="button2"
+          className="buttonText2"
         >
           Dark left
         </span>

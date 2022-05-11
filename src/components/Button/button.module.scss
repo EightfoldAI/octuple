@@ -55,6 +55,7 @@
     border-radius: $corner-radius-s;
     cursor: pointer;
     display: inline-block;
+    min-height: max-content;
     min-width: max-content;
     transition: all $motion-duration-extra-fast $motion-easing-easeinout 0s;
     white-space: nowrap;
@@ -65,15 +66,15 @@
         flex-direction: row;
     }
 
-    .icon + .button1:not(:empty) {
+    .icon + .button-text-1:not(:empty) {
         margin-left: $button-spacer-large;
     }
 
-    .icon + .button2:not(:empty) {
+    .icon + .button-text-2:not(:empty) {
         margin-left: $button-spacer-medium;
     }
 
-    .icon + .button3:not(:empty) {
+    .icon + .button-text-3:not(:empty) {
         margin-left: $button-spacer-small;
     }
 
@@ -161,13 +162,12 @@
     }
 }
 
-.button1 {
+.button-text-1 {
     // Button 1 (Mobile L)
     font-family: 'Source Sans Pro', sans-serif;
     font-weight: $text-font-weight-semibold;
     font-size: $text-font-size-5;
     line-height: $text-line-height-3;
-    max-height: 44px;
 
     &.counter {
         font-size: $text-font-size-4;
@@ -182,13 +182,12 @@
     }
 }
 
-.button2 {
+.button-text-2 {
     // Button 2 (Mobile M, Desktop L)
     font-family: 'Source Sans Pro', sans-serif;
     font-weight: $text-font-weight-semibold;
     font-size: $text-font-size-3;
     line-height: $text-line-height-2;
-    max-height: 36px;
 
     &.counter {
         font-size: $text-font-size-2;
@@ -204,13 +203,12 @@
     }
 }
 
-.button3 {
+.button-text-3 {
     // Button 3 (Desktop M)
     font-family: 'Source Sans Pro', sans-serif;
     font-weight: $text-font-weight-semibold;
     font-size: $text-font-size-2;
     line-height: $text-line-height-1;
-    max-height: 28px;
 
     &.counter {
         font-size: $text-font-size-1;
@@ -226,32 +224,35 @@
     }
 }
 
-.button-padding-1 {
+.button-size-1 {
+    height: 44px;
     padding: $button-padding-vertical-large $button-padding-horizontal-large;
 }
 
-.button-padding-1-default,
-.button-padding-1-neutral {
+.button-size-1-default,
+.button-size-1-neutral {
     padding: $button-padding-vertical-default-large
         $button-padding-horizontal-default-large;
 }
 
-.button-padding-2 {
+.button-size-2 {
+    height: 36px;
     padding: $button-padding-vertical-medium $button-padding-horizontal-medium;
 }
 
-.button-padding-2-default,
-.button-padding-2-neutral {
+.button-size-2-default,
+.button-size-2-neutral {
     padding: $button-padding-vertical-default-medium
         $button-padding-horizontal-default-medium;
 }
 
-.button-padding-3 {
+.button-size-3 {
+    height: 28px;
     padding: $button-padding-vertical-small $button-padding-horizontal-small;
 }
 
-.button-padding-3-default,
-.button-padding-3-neutral {
+.button-size-3-default,
+.button-size-3-neutral {
     padding: $button-padding-vertical-default-small
         $button-padding-horizontal-default-small;
 }
