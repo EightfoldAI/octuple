@@ -46,24 +46,24 @@ export const SplitButton: FC<SplitButtonProps> = React.forwardRef(
             classNames,
             styles.splitButton,
             {
-                [styles.buttonPadding3]:
+                [styles.buttonSize3]:
                     size === ButtonSize.Flex && largeScreenActive,
             },
             {
-                [styles.buttonPadding2]:
+                [styles.buttonSize2]:
                     size === ButtonSize.Flex && mediumScreenActive,
             },
             {
-                [styles.buttonPadding2]:
+                [styles.buttonSize2]:
                     size === ButtonSize.Flex && smallScreenActive,
             },
             {
-                [styles.buttonPadding1]:
+                [styles.buttonSize1]:
                     size === ButtonSize.Flex && xSmallScreenActive,
             },
-            { [styles.buttonPadding1]: size === ButtonSize.Large },
-            { [styles.buttonPadding2]: size === ButtonSize.Medium },
-            { [styles.buttonPadding3]: size === ButtonSize.Small },
+            { [styles.buttonSize1]: size === ButtonSize.Large },
+            { [styles.buttonSize2]: size === ButtonSize.Medium },
+            { [styles.buttonSize3]: size === ButtonSize.Small },
             { [styles.pillShape]: shape === ButtonShape.Pill },
             { [styles.dropShadow]: dropShadow },
             { [styles.splitRight]: split },
