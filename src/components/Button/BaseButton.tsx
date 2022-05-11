@@ -58,24 +58,24 @@ export const BaseButton: FC<InternalButtonProps> = React.forwardRef(
         const buttonBaseSharedClassNames: string = mergeClasses([
             classNames,
             {
-                [styles.buttonPadding3]:
+                [styles.buttonSize3]:
                     size === ButtonSize.Flex && largeScreenActive,
             },
             {
-                [styles.buttonPadding2]:
+                [styles.buttonSize2]:
                     size === ButtonSize.Flex && mediumScreenActive,
             },
             {
-                [styles.buttonPadding2]:
+                [styles.buttonSize2]:
                     size === ButtonSize.Flex && smallScreenActive,
             },
             {
-                [styles.buttonPadding1]:
+                [styles.buttonSize1]:
                     size === ButtonSize.Flex && xSmallScreenActive,
             },
-            { [styles.buttonPadding1]: size === ButtonSize.Large },
-            { [styles.buttonPadding2]: size === ButtonSize.Medium },
-            { [styles.buttonPadding3]: size === ButtonSize.Small },
+            { [styles.buttonSize1]: size === ButtonSize.Large },
+            { [styles.buttonSize2]: size === ButtonSize.Medium },
+            { [styles.buttonSize3]: size === ButtonSize.Small },
             { [styles.pillShape]: shape === ButtonShape.Pill },
             { [styles.dropShadow]: dropShadow },
             { [styles.dark]: theme === ButtonTheme.dark },
@@ -99,19 +99,25 @@ export const BaseButton: FC<InternalButtonProps> = React.forwardRef(
         ]);
 
         const buttonTextClassNames: string = mergeClasses([
-            { [styles.button3]: size === ButtonSize.Flex && largeScreenActive },
             {
-                [styles.button2]:
+                [styles.buttonText3]:
+                    size === ButtonSize.Flex && largeScreenActive,
+            },
+            {
+                [styles.buttonText2]:
                     size === ButtonSize.Flex && mediumScreenActive,
             },
-            { [styles.button2]: size === ButtonSize.Flex && smallScreenActive },
             {
-                [styles.button1]:
+                [styles.buttonText2]:
+                    size === ButtonSize.Flex && smallScreenActive,
+            },
+            {
+                [styles.buttonText1]:
                     size === ButtonSize.Flex && xSmallScreenActive,
             },
-            { [styles.button1]: size === ButtonSize.Large },
-            { [styles.button2]: size === ButtonSize.Medium },
-            { [styles.button3]: size === ButtonSize.Small },
+            { [styles.buttonText1]: size === ButtonSize.Large },
+            { [styles.buttonText2]: size === ButtonSize.Medium },
+            { [styles.buttonText3]: size === ButtonSize.Small },
         ]);
 
         const getButtonIconSize = (): IconSize => {
