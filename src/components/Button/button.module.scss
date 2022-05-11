@@ -229,32 +229,14 @@
     padding: $button-padding-vertical-large $button-padding-horizontal-large;
 }
 
-.button-size-1-default,
-.button-size-1-neutral {
-    padding: $button-padding-vertical-default-large
-        $button-padding-horizontal-default-large;
-}
-
 .button-size-2 {
     height: 36px;
     padding: $button-padding-vertical-medium $button-padding-horizontal-medium;
 }
 
-.button-size-2-default,
-.button-size-2-neutral {
-    padding: $button-padding-vertical-default-medium
-        $button-padding-horizontal-default-medium;
-}
-
 .button-size-3 {
     height: 28px;
     padding: $button-padding-vertical-small $button-padding-horizontal-small;
-}
-
-.button-size-3-default,
-.button-size-3-neutral {
-    padding: $button-padding-vertical-default-small
-        $button-padding-horizontal-default-small;
 }
 
 .button-primary {
