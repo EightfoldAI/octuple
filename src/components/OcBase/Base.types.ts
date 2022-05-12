@@ -1,5 +1,5 @@
 import React from 'react';
-export interface OcBaseProps<T> {
+export type OcBaseProps<T> = {
     /**
      * Custom classnames of the component
      */
@@ -10,4 +10,4 @@ export interface OcBaseProps<T> {
     'data-test-id'?: string;
 
     ref?: React.Ref<T>;
-}
+};

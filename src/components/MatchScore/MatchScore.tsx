@@ -17,7 +17,7 @@ export const MatchScore: FC<MatchScoreProps> = React.forwardRef(
     ) => {
         const absTotal: number = Math.abs(total);
         return (
-            <Atom<HTMLDivElement>
+            <Atom<{}, HTMLDivElement>
                 {...rest}
                 aria-label={ariaLabel}
                 of="div"
