@@ -19,6 +19,7 @@ export const Icon: FC<IconProps> = ({
     spin,
     title,
     vertical,
+    'data-test-id': dataTestId,
 }) => {
     const iconClassNames: string = mergeClasses([
         classNames,
@@ -27,6 +28,7 @@ export const Icon: FC<IconProps> = ({
 
     return (
         <span
+            data-test-id={dataTestId}
             aria-hidden={ariaHidden}
             className={iconClassNames}
             id={id}
