@@ -1,4 +1,5 @@
 import { IRegisterTheme, ThemeOptions } from './Theming';
+import { FocusVisibleOptions } from './A11y';
 
 export interface IConfigContext {
     themeOptions: ThemeOptions;
@@ -12,4 +13,9 @@ export interface ConfigProviderProps {
      * @default { name: 'blue', useSystemTheme: false, customTheme: null }
      */
     themeOptions?: ThemeOptions;
+    /**
+     * Options for keyboard modality styles
+     * @default { focusVisible: true, focusVisibleElement: document.documentElement }
+     */
+    focusVisibleOptions?: FocusVisibleOptions;
 }

@@ -1,6 +1,6 @@
 {
     "name": "@eightfold.ai/octuple",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "license": "MIT",
     "main": "lib/octuple.js",
     "types": "lib/octuple.d.ts",
@@ -172,6 +172,7 @@
         "webpack-dev-server": "4.6.0",
         "webpack-manifest-plugin": "4.0.2",
         "webpack-virtual-modules": "0.4.2",
+        "window-resizeto": "0.0.2",
         "workbox-webpack-plugin": "6.4.1"
     },
     "jest": {
@@ -182,7 +183,9 @@
             "react-app-polyfill/jsdom",
             "jest-localstorage-mock"
         ],
-        "setupFilesAfterEnv": [],
+        "setupFilesAfterEnv": [
+            "window-resizeto/polyfill"
+        ],
         "testMatch": [
             "<rootDir>/src/**/__tests__/**/*.{js,jsx,ts,tsx}",
             "<rootDir>/src/**/*.{spec,test}.{js,jsx,ts,tsx}"

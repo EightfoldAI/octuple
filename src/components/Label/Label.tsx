@@ -3,18 +3,22 @@ import { ButtonSize, DefaultButton } from '../Button';
 import { IconName } from '../Icon/index';
 import { LabelProps, LabelSize } from './index';
 import { Tooltip } from '../Tooltip';
+import { useCanvasDirection } from '../../hooks/useCanvasDirection';
 import { mergeClasses } from '../../shared/utilities';
 
 import styles from './label.module.scss';
 
 export const Label: FC<LabelProps> = ({
     classNames,
+    colon = false,
     htmlFor,
     labelIconButtonProps,
     size = LabelSize.Medium,
     text,
     ...rest
 }) => {
+    const htmlDir: string = useCanvasDirection();
+
     const sizeClassNames: string = mergeClasses([
         { [styles.large]: size === LabelSize.Large },
         { [styles.medium]: size === LabelSize.Medium },
@@ -37,7 +41,9 @@ export const Label: FC<LabelProps> = ({
         <div {...rest} className={labelClassNames}>
             {text && (
                 <label className={labelTextClassNames} htmlFor={htmlFor}>
+                    {colon && htmlDir === 'rtl' && ':'}
                     {text}
+                    {colon && htmlDir === 'ltr' && ':'}
                 </label>
             )}
             {labelIconButtonProps?.show && (

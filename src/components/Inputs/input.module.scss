@@ -11,6 +11,7 @@
         color: var(--grey-color-60);
         font-family: 'Source Sans Pro', sans-serif;
         font-size: $text-font-size-3;
+        line-height: $text-line-height-1;
         min-width: 320px;
         padding: $space-xs calc($space-xxl + 4px) $space-xs $space-xs;
 
@@ -153,7 +154,7 @@
             }
         }
 
-        &:focus-visible {
+        &:focus {
             outline: 2px solid var(--primary-color-40);
             outline-offset: -2px;
         }
@@ -216,8 +217,7 @@
         }
 
         &:active,
-        &:focus,
-        &:focus-visible {
+        &:focus {
             background-color: var(--background-color);
             padding: $button-padding-vertical-small $space-xxs;
 
@@ -236,7 +236,7 @@
             }
         }
 
-        &:focus-visible {
+        &:focus {
             outline: 2px solid var(--primary-color-40);
             outline-offset: -2px;
         }
@@ -263,7 +263,7 @@
         }
 
         &:active,
-        &:focus-visible {
+        &:focus {
             background-color: transparent;
             outline: 2px solid var(--primary-color-40);
             outline-offset: -2px;
@@ -271,11 +271,6 @@
             svg {
                 color: var(--grey-color-80);
             }
-        }
-
-        &:focus-visible {
-            outline: 2px solid var(--primary-color-40);
-            outline-offset: -2px;
         }
     }
 
@@ -309,7 +304,7 @@
             resize: none;
         }
 
-        &:focus-visible {
+        &:focus {
             outline: 2px solid var(--primary-color-40);
             outline-offset: -2px;
         }
@@ -327,6 +322,39 @@
 
     &.input-stretch {
         width: 100%;
+    }
+}
+
+:global(.focus-visible) {
+    .input-wrapper {
+        input[type='search'],
+        input[type='text'] {
+            &:focus-visible {
+                outline-width: $focus-visible-outline-width;
+                outline-offset: $focus-visible-outline-offset-inner;
+            }
+        }
+
+        .icon-button {
+            &:focus-visible {
+                outline-width: $focus-visible-outline-width;
+                outline-offset: $focus-visible-outline-offset-inner;
+            }
+        }
+
+        .clear-icon-button {
+            &:focus-visible {
+                outline-width: $focus-visible-outline-width;
+                outline-offset: $focus-visible-outline-offset-inner;
+            }
+        }
+
+        .text-area {
+            &:focus-visible {
+                outline-width: $focus-visible-outline-width;
+                outline-offset: $focus-visible-outline-offset-inner;
+            }
+        }
     }
 }
 

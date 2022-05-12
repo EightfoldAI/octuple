@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.1.0](https://github.com/EightfoldAI/octuple/compare/v1.0.0...v1.1.0) (2022-05-05)
+
+### Features
+
+-   abstract out common component props as oc base props, add ability to forward ref ([#106](https://github.com/EightfoldAI/octuple/issues/106)) ([f9c6f1b](https://github.com/EightfoldAI/octuple/commits/f9c6f1b601ac9a5aafba6b3e6b7783ac3265cb5c))
+
 ## [1.0.0](https://github.com/EightfoldAI/octuple/compare/v0.0.17...v1.0.0) (2022-05-03)
 
 ### ⚠ BREAKING CHANGES
