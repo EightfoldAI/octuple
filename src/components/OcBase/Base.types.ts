@@ -9,5 +9,7 @@ export type OcBaseProps<T> = {
      */
     'data-test-id'?: string;
 
+    style?: React.CSSProperties;
+
     ref?: React.Ref<T>;
 };

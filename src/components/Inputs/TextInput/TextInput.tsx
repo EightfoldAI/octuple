@@ -12,6 +12,7 @@ import { useDebounce } from '../../../hooks/useDebounce';
 import { mergeClasses, uniqueId } from '../../../shared/utilities';
 
 import styles from '../input.module.scss';
+import { Atom } from '../../Atom';
 
 export const TextInput: FC<TextInputProps> = ({
     allowDisabledFocus = false,
@@ -47,17 +48,14 @@ export const TextInput: FC<TextInputProps> = ({
     const [inputId] = useState<string>(uniqueId(id || 'input-'));
     const inputField: HTMLElement = document.getElementById(inputId);
 
-    const iconClassNames: string = mergeClasses([
-        styles.iconWrapper,
-        styles.leftIcon,
-    ]);
+    const iconClasses = [styles.iconWrapper, styles.leftIcon];
 
     const iconButtonClassNames: string = mergeClasses([
         styles.iconButton,
         styles.leftIcon,
     ]);
 
-    const textInputClassNames: string = mergeClasses([
+    const textInputClasses = [
         classNames,
         {
             [styles.withIcon]:
@@ -102,14 +100,14 @@ export const TextInput: FC<TextInputProps> = ({
         {
             [styles.inputStretch]: inputWidth === TextInputWidth.fill,
         },
-    ]);
+    ];
 
-    const textInputWrapperClassNames: string = mergeClasses([
+    const textInputWrapperClasses = [
         styles.inputWrapper,
         {
             [styles.inputStretch]: inputWidth === TextInputWidth.fill,
         },
-    ]);
+    ];
 
     const handleOnClear = (_event: React.MouseEvent) => {
         _event.preventDefault();
@@ -130,13 +128,19 @@ export const TextInput: FC<TextInputProps> = ({
     );
 
     return (
-        <div className={textInputWrapperClassNames}>
+        <Atom of="div" classes={textInputWrapperClasses}>
             {labelProps && <Label {...labelProps} />}
-            <input
+            <Atom<
+                React.DetailedHTMLProps<
+                    React.InputHTMLAttributes<HTMLInputElement>,
+                    HTMLInputElement
+                >
+            >
+                of="input"
+                classes={textInputClasses}
                 {...rest}
                 aria-label={ariaLabel}
                 autoFocus={autoFocus}
-                className={textInputClassNames}
                 disabled={disabled}
                 id={inputId}
                 maxLength={maxlength}
@@ -173,7 +177,7 @@ export const TextInput: FC<TextInputProps> = ({
                 value={value}
             />
             {iconProps && (
-                <div className={iconClassNames}>
+                <Atom of="div" classes={iconClasses}>
                     {iconProps.path && !iconProps.imageSrc && (
                         <Icon
                             {...iconProps}
@@ -189,7 +193,7 @@ export const TextInput: FC<TextInputProps> = ({
                             src={iconProps.imageSrc}
                         />
                     )}
-                </div>
+                </Atom>
             )}
             {iconButtonProps && (
                 <DefaultButton
@@ -216,6 +220,6 @@ export const TextInput: FC<TextInputProps> = ({
                     size={ButtonSize.Small}
                 />
             )}
-        </div>
+        </Atom>
     );
 };
