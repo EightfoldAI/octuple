@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.2.0](https://github.com/EightfoldAI/octuple/compare/v1.1.0...v1.2.0) (2022-05-13)
+
+### Features
+
+-   accessibility and i18n: adds keyboard focus, canvas direction support ([#109](https://github.com/EightfoldAI/octuple/issues/109)) ([c6704b3](https://github.com/EightfoldAI/octuple/commits/c6704b36db85c6c3ecd1f27f1a5f8e486ce987ff))
+-   adds octuple spinner component ([#114](https://github.com/EightfoldAI/octuple/issues/114)) ([702931d](https://github.com/EightfoldAI/octuple/commits/702931d45d8101bfc37d938dbe01aabea0e4f6f3))
+
+### Bug Fixes
+
+-   button: ensures the height of buttons and clarifies class names ([#112](https://github.com/EightfoldAI/octuple/issues/112)) ([882b3fd](https://github.com/EightfoldAI/octuple/commits/882b3fdcdced40202bb959e6bb99fc9c2a5f4566))
+-   text input: adds line height to text input to prevent descenders from clipping ([#113](https://github.com/EightfoldAI/octuple/issues/113)) ([362dc1b](https://github.com/EightfoldAI/octuple/commits/362dc1b557736c6a94a5bfaaf8d3f9cf89ae7459))
+
 ## [1.1.0](https://github.com/EightfoldAI/octuple/compare/v1.0.0...v1.1.0) (2022-05-05)
 
 ### Features
