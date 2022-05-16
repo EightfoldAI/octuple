@@ -205,7 +205,7 @@ export const TextInput: FC<TextInputProps> = ({
                     htmlType={iconButtonProps.htmlType}
                 />
             )}
-            {clearButtonShown && (
+            {clearButtonShown && !numbersOnly && htmlType !== 'number' && (
                 <DefaultButton
                     allowDisabledFocus={allowDisabledFocus}
                     ariaLabel={clearButtonAriaLabel}
