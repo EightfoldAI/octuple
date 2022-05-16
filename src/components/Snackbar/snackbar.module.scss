@@ -8,10 +8,19 @@
     animation: slideUpIn $motion-duration-extra-fast $motion-easing-easeinout 0s
         forwards;
     margin-bottom: $space-s;
+
+    @media (max-width: $small-screen-size) {
+        max-width: 90vw;
+    }
+
+    @media (min-width: $small-screen-size) and (max-width: $medium-screen-size) {
+        max-width: min(80vw, 640px);
+    }
 }
 
 .snackbar-container {
     position: fixed;
+    width: fit-content;
     z-index: $z-index-500;
 
     &.top-center,

@@ -45,6 +45,8 @@ import { InfoBar, InfoBarType } from './components/InfoBar';
 
 import { SnackbarContainer, Snackbar, snack } from './components/Snackbar';
 
+import { Spinner, SpinnerSize } from './components/Spinner';
+
 import { Tabs, Tab, TabVariant } from './components/Tabs';
 
 import { Tooltip, TooltipTheme } from './components/Tooltip';
@@ -102,6 +104,8 @@ export {
     snack,
     Snackbar,
     SnackbarContainer,
+    Spinner,
+    SpinnerSize,
     Tabs,
     Tab,
     TabVariant,
