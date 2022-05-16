@@ -9,7 +9,11 @@ import {
     TextInputTheme,
 } from '../index';
 import { useDebounce } from '../../../hooks/useDebounce';
-import { mergeClasses, uniqueId } from '../../../shared/utilities';
+import {
+    ArgumentArray,
+    mergeClasses,
+    uniqueId,
+} from '../../../shared/utilities';
 
 import styles from '../input.module.scss';
 import { Atom } from '../../Atom';
@@ -48,14 +52,14 @@ export const TextInput: FC<TextInputProps> = ({
     const [inputId] = useState<string>(uniqueId(id || 'input-'));
     const inputField: HTMLElement = document.getElementById(inputId);
 
-    const iconClasses = [styles.iconWrapper, styles.leftIcon];
+    const iconClasses: ArgumentArray = [styles.iconWrapper, styles.leftIcon];
 
     const iconButtonClassNames: string = mergeClasses([
         styles.iconButton,
         styles.leftIcon,
     ]);
 
-    const textInputClasses = [
+    const textInputClasses: ArgumentArray = [
         classNames,
         {
             [styles.withIcon]:
@@ -102,7 +106,7 @@ export const TextInput: FC<TextInputProps> = ({
         },
     ];
 
-    const textInputWrapperClasses = [
+    const textInputWrapperClasses: ArgumentArray = [
         styles.inputWrapper,
         {
             [styles.inputStretch]: inputWidth === TextInputWidth.fill,

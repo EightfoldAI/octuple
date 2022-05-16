@@ -6,7 +6,7 @@ type AtomProps<T = {}, U = React.Ref<any>> = T &
     OcBaseProps<U> & {
         of: keyof HTMLElementTagNameMap;
         classes: ArgumentArray;
-        children?: any;
+        children?: React.ReactNode;
     };
 
 export const Atom = React.forwardRef(
