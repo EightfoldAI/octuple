@@ -126,7 +126,7 @@ export const TextInput: FC<TextInputProps> = ({
         ) => {
             const { target } = _event;
 
-            onChange(_event);
+            onChange;
 
             if (target?.value.length === 0 && clearButtonShown) {
                 setClearButtonShown(false);
