@@ -4767,6 +4767,7 @@ Array [
           className="labelIconButton button buttonDefault buttonSize3 iconLeft"
           defaultChecked={false}
           disabled={false}
+          onClick={[Function]}
         >
           <span
             aria-hidden={false}
@@ -4851,6 +4852,7 @@ Array [
           className="labelIconButton button buttonDefault buttonSize3 iconLeft"
           defaultChecked={false}
           disabled={false}
+          onClick={[Function]}
         >
           <span
             aria-hidden={false}
@@ -4935,6 +4937,7 @@ Array [
           className="labelIconButton button buttonDefault buttonSize3 iconLeft"
           defaultChecked={false}
           disabled={false}
+          onClick={[Function]}
         >
           <span
             aria-hidden={false}
