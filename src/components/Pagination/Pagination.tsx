@@ -55,7 +55,7 @@ export const Pagination: FC<PaginationProps> = React.forwardRef(
 
             setTotal(total);
 
-            setCurrentPage(_currentPage ? _currentPage : 1);
+            setCurrentPage(_currentPage || 1);
         });
 
         const previous = (): void => {
@@ -65,7 +65,7 @@ export const Pagination: FC<PaginationProps> = React.forwardRef(
             setCurrentPage(newVal);
 
             if (newVal !== oldVal) {
-                onCurrentChange && onCurrentChange(newVal);
+                onCurrentChange?.(newVal);
             }
         };
 
@@ -76,7 +76,7 @@ export const Pagination: FC<PaginationProps> = React.forwardRef(
             setCurrentPage(newVal);
 
             if (newVal !== oldVal) {
-                onCurrentChange && onCurrentChange(newVal);
+                onCurrentChange?.(newVal);
             }
         };
 
@@ -98,7 +98,7 @@ export const Pagination: FC<PaginationProps> = React.forwardRef(
             setCurrentPage(page);
 
             if (oldVal !== _currentPage) {
-                onCurrentChange && onCurrentChange(_currentPage);
+                onCurrentChange?.(_currentPage);
             }
         };
 
@@ -108,7 +108,7 @@ export const Pagination: FC<PaginationProps> = React.forwardRef(
             setCurrentPage(val);
 
             if (oldVal !== val) {
-                onCurrentChange && onCurrentChange(val);
+                onCurrentChange?.(val);
             }
         };
 
@@ -207,7 +207,7 @@ export const Pagination: FC<PaginationProps> = React.forwardRef(
                     <DefaultButton
                         classNames={styles.paginationButton}
                         key="previous"
-                        disabled={_currentPage <= 1 ? true : false}
+                        disabled={_currentPage <= 1}
                         iconProps={{
                             path: IconName.mdiChevronLeft,
                         }}
@@ -229,8 +229,6 @@ export const Pagination: FC<PaginationProps> = React.forwardRef(
                         key="next"
                         disabled={
                             _currentPage === getPageCount() || _pageCount === 0
-                                ? true
-                                : false
                         }
                         iconProps={{
                             path: IconName.mdiChevronRight,

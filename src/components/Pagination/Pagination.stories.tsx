@@ -15,7 +15,7 @@ export const Paging = () => {
                 <Pagination total={50} />
             </div>
             <div>
-                <p>When you have more than 7 pages</p>
+                <p>When you have more than 10 pages</p>
                 <Pagination total={1000} />
             </div>
             <h1>Dots</h1>
