@@ -17,7 +17,14 @@ const SHORT_LIST_THRESHOLD: number = 10;
 
 export const Pager: FC<PagerProps> = React.forwardRef(
     (
-        { currentPage = 1, onCurrentChange, pageCount, ...rest },
+        {
+            currentPage = 1,
+            onCurrentChange,
+            pageCount,
+            quickNextIconButtonAriaLabel,
+            quickPreviousIconButtonAriaLabel,
+            ...rest
+        },
         ref: Ref<HTMLUListElement>
     ) => {
         const [_pagers, setPagers] = useState<number[]>([0]);
@@ -133,6 +140,7 @@ export const Pager: FC<PagerProps> = React.forwardRef(
                     pageCount > SHORT_LIST_THRESHOLD && (
                         <li>
                             <DefaultButton
+                                ariaLabel={quickPreviousIconButtonAriaLabel}
                                 classNames={mergeClasses([
                                     styles.paginationButton,
                                     'quickprevious',
@@ -180,6 +188,7 @@ export const Pager: FC<PagerProps> = React.forwardRef(
                     pageCount > SHORT_LIST_THRESHOLD && (
                         <li>
                             <DefaultButton
+                                ariaLabel={quickNextIconButtonAriaLabel}
                                 classNames={mergeClasses([
                                     styles.paginationButton,
                                     'quicknext',

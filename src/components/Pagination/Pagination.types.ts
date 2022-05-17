@@ -30,6 +30,11 @@ export interface PaginationProps extends OcBaseProps<HTMLElement> {
      */
     currentPage?: number;
     /**
+     * Pagination dots mode.
+     * @default false
+     */
+    dots?: boolean;
+    /**
      * The 'Go to' text string.
      * @default 'Go to'
      */
@@ -39,6 +44,11 @@ export interface PaginationProps extends OcBaseProps<HTMLElement> {
      * @default {PaginationLayoutOptions.Previous, PaginationLayoutOptions.Pager, PaginationLayoutOptions.Next}
      */
     layout?: PaginationLayoutOptions[];
+    /**
+     * The next icon button aria-label string.
+     * @default 'Next'
+     */
+    nextIconButtonAriaLabel?: string;
     /**
      * The Pagination onCurrentChange event.
      */
@@ -57,6 +67,11 @@ export interface PaginationProps extends OcBaseProps<HTMLElement> {
      */
     pageSize?: number;
     /**
+     * The page size button aria-label string.
+     * @default 'Selected page size'
+     */
+    pageSizeButtonAriaLabel?: string;
+    /**
      * The Pagination pageSizes array.
      * @default {[10, 20, 30, 40, 50, 100]}
      */
@@ -67,10 +82,20 @@ export interface PaginationProps extends OcBaseProps<HTMLElement> {
      */
     pageSizeText?: string;
     /**
-     * Pagination dots mode.
-     * @default false
+     * The previous icon button aria-label string.
+     * @default 'Previous'
      */
-    dots?: boolean;
+    previousIconButtonAriaLabel?: string;
+    /**
+     * The quick next icon button aria-label string.
+     * @default 'Next 5'
+     */
+    quickNextIconButtonAriaLabel?: string;
+    /**
+     * The quick previous icon button aria-label string.
+     * @default 'Previous 5'
+     */
+    quickPreviousIconButtonAriaLabel?: string;
     /**
      * The Pagination total number of pages.
      */
