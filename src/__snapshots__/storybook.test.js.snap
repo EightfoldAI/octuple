@@ -5971,6 +5971,1200 @@ Array [
 ]
 `;
 
+exports[`Storyshots Pagination Paging 1`] = `
+Array [
+  <h1>
+    Basic
+  </h1>,
+  <div>
+    <p>
+      When you have few pages
+    </p>
+    <div
+      className="pagination"
+    >
+      <span />
+      <button
+        aria-disabled={false}
+        className="paginationButton button buttonDefault buttonSize3 iconLeft disabled"
+        defaultChecked={false}
+        disabled={true}
+        onClick={[Function]}
+      >
+        <span
+          aria-hidden={false}
+          className="icon iconWrapper"
+          role="presentation"
+        >
+          <svg
+            role="presentation"
+            style={
+              Object {
+                "height": "16px",
+                "width": "16px",
+              }
+            }
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z"
+              style={
+                Object {
+                  "fill": "currentColor",
+                }
+              }
+            />
+          </svg>
+        </span>
+      </button>
+      <ul
+        className="pager"
+      >
+        <li>
+          <button
+            aria-checked={true}
+            aria-disabled={false}
+            aria-pressed={true}
+            className="paginationButton active button buttonDefault buttonSize3"
+            defaultChecked={true}
+            disabled={false}
+            onClick={[Function]}
+          >
+            <span
+              className="buttonText3"
+            >
+              1
+            </span>
+          </button>
+        </li>
+        <li>
+          <button
+            aria-checked={false}
+            aria-disabled={false}
+            aria-pressed={false}
+            className="paginationButton button buttonDefault buttonSize3"
+            defaultChecked={false}
+            disabled={false}
+            onClick={[Function]}
+          >
+            <span
+              className="buttonText3"
+            >
+              0
+            </span>
+          </button>
+        </li>
+        <li>
+          <button
+            aria-checked={false}
+            aria-disabled={false}
+            aria-pressed={false}
+            className="paginationButton button buttonDefault buttonSize3"
+            defaultChecked={false}
+            disabled={false}
+            onClick={[Function]}
+          >
+            <span
+              className="buttonText3"
+            >
+              5
+            </span>
+          </button>
+        </li>
+      </ul>
+      <button
+        aria-disabled={false}
+        className="paginationButton button buttonDefault buttonSize3 iconLeft"
+        defaultChecked={false}
+        disabled={false}
+        onClick={[Function]}
+      >
+        <span
+          aria-hidden={false}
+          className="icon iconWrapper"
+          role="presentation"
+        >
+          <svg
+            role="presentation"
+            style={
+              Object {
+                "height": "16px",
+                "width": "16px",
+              }
+            }
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
+              style={
+                Object {
+                  "fill": "currentColor",
+                }
+              }
+            />
+          </svg>
+        </span>
+      </button>
+    </div>
+  </div>,
+  <div>
+    <p>
+      When you have more than 7 pages
+    </p>
+    <div
+      className="pagination"
+    >
+      <span />
+      <button
+        aria-disabled={false}
+        className="paginationButton button buttonDefault buttonSize3 iconLeft disabled"
+        defaultChecked={false}
+        disabled={true}
+        onClick={[Function]}
+      >
+        <span
+          aria-hidden={false}
+          className="icon iconWrapper"
+          role="presentation"
+        >
+          <svg
+            role="presentation"
+            style={
+              Object {
+                "height": "16px",
+                "width": "16px",
+              }
+            }
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z"
+              style={
+                Object {
+                  "fill": "currentColor",
+                }
+              }
+            />
+          </svg>
+        </span>
+      </button>
+      <ul
+        className="pager"
+      >
+        <li>
+          <button
+            aria-checked={true}
+            aria-disabled={false}
+            aria-pressed={true}
+            className="paginationButton active button buttonDefault buttonSize3"
+            defaultChecked={true}
+            disabled={false}
+            onClick={[Function]}
+          >
+            <span
+              className="buttonText3"
+            >
+              1
+            </span>
+          </button>
+        </li>
+        <li>
+          <button
+            aria-checked={false}
+            aria-disabled={false}
+            aria-pressed={false}
+            className="paginationButton button buttonDefault buttonSize3"
+            defaultChecked={false}
+            disabled={false}
+            onClick={[Function]}
+          >
+            <span
+              className="buttonText3"
+            >
+              0
+            </span>
+          </button>
+        </li>
+        <li>
+          <button
+            aria-disabled={false}
+            className="paginationButton quicknext button buttonDefault buttonSize3 iconLeft"
+            defaultChecked={false}
+            disabled={false}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onMouseEnter={[Function]}
+            onMouseLeave={[Function]}
+          >
+            <span
+              aria-hidden={false}
+              className="icon iconWrapper"
+              role="presentation"
+            >
+              <svg
+                role="presentation"
+                style={
+                  Object {
+                    "height": "16px",
+                    "width": "16px",
+                  }
+                }
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M16,12A2,2 0 0,1 18,10A2,2 0 0,1 20,12A2,2 0 0,1 18,14A2,2 0 0,1 16,12M10,12A2,2 0 0,1 12,10A2,2 0 0,1 14,12A2,2 0 0,1 12,14A2,2 0 0,1 10,12M4,12A2,2 0 0,1 6,10A2,2 0 0,1 8,12A2,2 0 0,1 6,14A2,2 0 0,1 4,12Z"
+                  style={
+                    Object {
+                      "fill": "currentColor",
+                    }
+                  }
+                />
+              </svg>
+            </span>
+          </button>
+        </li>
+        <li>
+          <button
+            aria-checked={false}
+            aria-disabled={false}
+            aria-pressed={false}
+            className="paginationButton button buttonDefault buttonSize3"
+            defaultChecked={false}
+            disabled={false}
+            onClick={[Function]}
+          >
+            <span
+              className="buttonText3"
+            >
+              100
+            </span>
+          </button>
+        </li>
+      </ul>
+      <button
+        aria-disabled={false}
+        className="paginationButton button buttonDefault buttonSize3 iconLeft"
+        defaultChecked={false}
+        disabled={false}
+        onClick={[Function]}
+      >
+        <span
+          aria-hidden={false}
+          className="icon iconWrapper"
+          role="presentation"
+        >
+          <svg
+            role="presentation"
+            style={
+              Object {
+                "height": "16px",
+                "width": "16px",
+              }
+            }
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
+              style={
+                Object {
+                  "fill": "currentColor",
+                }
+              }
+            />
+          </svg>
+        </span>
+      </button>
+    </div>
+  </div>,
+  <h1>
+    Dots
+  </h1>,
+  <div>
+    <div
+      className="pagination dots"
+    >
+      <span />
+      <button
+        aria-disabled={false}
+        className="paginationButton button buttonDefault buttonSize3 iconLeft disabled"
+        defaultChecked={false}
+        disabled={true}
+        onClick={[Function]}
+      >
+        <span
+          aria-hidden={false}
+          className="icon iconWrapper"
+          role="presentation"
+        >
+          <svg
+            role="presentation"
+            style={
+              Object {
+                "height": "16px",
+                "width": "16px",
+              }
+            }
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z"
+              style={
+                Object {
+                  "fill": "currentColor",
+                }
+              }
+            />
+          </svg>
+        </span>
+      </button>
+      <ul
+        className="pager"
+      >
+        <li>
+          <button
+            aria-checked={true}
+            aria-disabled={false}
+            aria-pressed={true}
+            className="paginationButton active button buttonDefault buttonSize3"
+            defaultChecked={true}
+            disabled={false}
+            onClick={[Function]}
+          >
+            <span
+              className="buttonText3"
+            >
+              1
+            </span>
+          </button>
+        </li>
+        <li>
+          <button
+            aria-checked={false}
+            aria-disabled={false}
+            aria-pressed={false}
+            className="paginationButton button buttonDefault buttonSize3"
+            defaultChecked={false}
+            disabled={false}
+            onClick={[Function]}
+          >
+            <span
+              className="buttonText3"
+            >
+              0
+            </span>
+          </button>
+        </li>
+        <li>
+          <button
+            aria-checked={false}
+            aria-disabled={false}
+            aria-pressed={false}
+            className="paginationButton button buttonDefault buttonSize3"
+            defaultChecked={false}
+            disabled={false}
+            onClick={[Function]}
+          >
+            <span
+              className="buttonText3"
+            >
+              5
+            </span>
+          </button>
+        </li>
+      </ul>
+      <button
+        aria-disabled={false}
+        className="paginationButton button buttonDefault buttonSize3 iconLeft"
+        defaultChecked={false}
+        disabled={false}
+        onClick={[Function]}
+      >
+        <span
+          aria-hidden={false}
+          className="icon iconWrapper"
+          role="presentation"
+        >
+          <svg
+            role="presentation"
+            style={
+              Object {
+                "height": "16px",
+                "width": "16px",
+              }
+            }
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
+              style={
+                Object {
+                  "fill": "currentColor",
+                }
+              }
+            />
+          </svg>
+        </span>
+      </button>
+    </div>
+  </div>,
+  <h1>
+    Total Item Count
+  </h1>,
+  <div>
+    <div
+      className="pagination"
+    >
+      <span
+        className="total"
+      >
+        1000 Total
+      </span>
+      <button
+        aria-disabled={false}
+        className="paginationButton button buttonDefault buttonSize3 iconLeft disabled"
+        defaultChecked={false}
+        disabled={true}
+        onClick={[Function]}
+      >
+        <span
+          aria-hidden={false}
+          className="icon iconWrapper"
+          role="presentation"
+        >
+          <svg
+            role="presentation"
+            style={
+              Object {
+                "height": "16px",
+                "width": "16px",
+              }
+            }
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z"
+              style={
+                Object {
+                  "fill": "currentColor",
+                }
+              }
+            />
+          </svg>
+        </span>
+      </button>
+      <ul
+        className="pager"
+      >
+        <li>
+          <button
+            aria-checked={true}
+            aria-disabled={false}
+            aria-pressed={true}
+            className="paginationButton active button buttonDefault buttonSize3"
+            defaultChecked={true}
+            disabled={false}
+            onClick={[Function]}
+          >
+            <span
+              className="buttonText3"
+            >
+              1
+            </span>
+          </button>
+        </li>
+        <li>
+          <button
+            aria-checked={false}
+            aria-disabled={false}
+            aria-pressed={false}
+            className="paginationButton button buttonDefault buttonSize3"
+            defaultChecked={false}
+            disabled={false}
+            onClick={[Function]}
+          >
+            <span
+              className="buttonText3"
+            >
+              0
+            </span>
+          </button>
+        </li>
+        <li>
+          <button
+            aria-disabled={false}
+            className="paginationButton quicknext button buttonDefault buttonSize3 iconLeft"
+            defaultChecked={false}
+            disabled={false}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onMouseEnter={[Function]}
+            onMouseLeave={[Function]}
+          >
+            <span
+              aria-hidden={false}
+              className="icon iconWrapper"
+              role="presentation"
+            >
+              <svg
+                role="presentation"
+                style={
+                  Object {
+                    "height": "16px",
+                    "width": "16px",
+                  }
+                }
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M16,12A2,2 0 0,1 18,10A2,2 0 0,1 20,12A2,2 0 0,1 18,14A2,2 0 0,1 16,12M10,12A2,2 0 0,1 12,10A2,2 0 0,1 14,12A2,2 0 0,1 12,14A2,2 0 0,1 10,12M4,12A2,2 0 0,1 6,10A2,2 0 0,1 8,12A2,2 0 0,1 6,14A2,2 0 0,1 4,12Z"
+                  style={
+                    Object {
+                      "fill": "currentColor",
+                    }
+                  }
+                />
+              </svg>
+            </span>
+          </button>
+        </li>
+        <li>
+          <button
+            aria-checked={false}
+            aria-disabled={false}
+            aria-pressed={false}
+            className="paginationButton button buttonDefault buttonSize3"
+            defaultChecked={false}
+            disabled={false}
+            onClick={[Function]}
+          >
+            <span
+              className="buttonText3"
+            >
+              100
+            </span>
+          </button>
+        </li>
+      </ul>
+      <button
+        aria-disabled={false}
+        className="paginationButton button buttonDefault buttonSize3 iconLeft"
+        defaultChecked={false}
+        disabled={false}
+        onClick={[Function]}
+      >
+        <span
+          aria-hidden={false}
+          className="icon iconWrapper"
+          role="presentation"
+        >
+          <svg
+            role="presentation"
+            style={
+              Object {
+                "height": "16px",
+                "width": "16px",
+              }
+            }
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
+              style={
+                Object {
+                  "fill": "currentColor",
+                }
+              }
+            />
+          </svg>
+        </span>
+      </button>
+    </div>
+  </div>,
+  <h1>
+    Change Page Size
+  </h1>,
+  <div>
+    <div
+      className="pagination"
+    >
+      <span
+        className="sizes"
+      >
+        <div
+          className="mainWrapper"
+        >
+          <button
+            aria-controls="dropdown-32"
+            aria-disabled={false}
+            aria-expanded={false}
+            aria-haspopup={true}
+            className="button buttonDefault buttonSize3 iconLeft"
+            defaultChecked={false}
+            disabled={false}
+            onClick={[Function]}
+          >
+            <span>
+              <span
+                aria-hidden={false}
+                className="icon iconWrapper"
+                role="presentation"
+              >
+                <svg
+                  role="presentation"
+                  style={
+                    Object {
+                      "height": "16px",
+                      "width": "16px",
+                    }
+                  }
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M7.41,15.41L12,10.83L16.59,15.41L18,14L12,8L6,14L7.41,15.41Z"
+                    style={
+                      Object {
+                        "fill": "currentColor",
+                      }
+                    }
+                  />
+                </svg>
+              </span>
+              <span
+                className="buttonText3"
+              >
+                page/100
+              </span>
+            </span>
+          </button>
+        </div>
+      </span>
+      <span />
+      <button
+        aria-disabled={false}
+        className="paginationButton button buttonDefault buttonSize3 iconLeft disabled"
+        defaultChecked={false}
+        disabled={true}
+        onClick={[Function]}
+      >
+        <span
+          aria-hidden={false}
+          className="icon iconWrapper"
+          role="presentation"
+        >
+          <svg
+            role="presentation"
+            style={
+              Object {
+                "height": "16px",
+                "width": "16px",
+              }
+            }
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z"
+              style={
+                Object {
+                  "fill": "currentColor",
+                }
+              }
+            />
+          </svg>
+        </span>
+      </button>
+      <ul
+        className="pager"
+      >
+        <li>
+          <button
+            aria-checked={true}
+            aria-disabled={false}
+            aria-pressed={true}
+            className="paginationButton active button buttonDefault buttonSize3"
+            defaultChecked={true}
+            disabled={false}
+            onClick={[Function]}
+          >
+            <span
+              className="buttonText3"
+            >
+              1
+            </span>
+          </button>
+        </li>
+        <li>
+          <button
+            aria-checked={false}
+            aria-disabled={false}
+            aria-pressed={false}
+            className="paginationButton button buttonDefault buttonSize3"
+            defaultChecked={false}
+            disabled={false}
+            onClick={[Function]}
+          >
+            <span
+              className="buttonText3"
+            >
+              0
+            </span>
+          </button>
+        </li>
+        <li>
+          <button
+            aria-disabled={false}
+            className="paginationButton quicknext button buttonDefault buttonSize3 iconLeft"
+            defaultChecked={false}
+            disabled={false}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onMouseEnter={[Function]}
+            onMouseLeave={[Function]}
+          >
+            <span
+              aria-hidden={false}
+              className="icon iconWrapper"
+              role="presentation"
+            >
+              <svg
+                role="presentation"
+                style={
+                  Object {
+                    "height": "16px",
+                    "width": "16px",
+                  }
+                }
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M16,12A2,2 0 0,1 18,10A2,2 0 0,1 20,12A2,2 0 0,1 18,14A2,2 0 0,1 16,12M10,12A2,2 0 0,1 12,10A2,2 0 0,1 14,12A2,2 0 0,1 12,14A2,2 0 0,1 10,12M4,12A2,2 0 0,1 6,10A2,2 0 0,1 8,12A2,2 0 0,1 6,14A2,2 0 0,1 4,12Z"
+                  style={
+                    Object {
+                      "fill": "currentColor",
+                    }
+                  }
+                />
+              </svg>
+            </span>
+          </button>
+        </li>
+        <li>
+          <button
+            aria-checked={false}
+            aria-disabled={false}
+            aria-pressed={false}
+            className="paginationButton button buttonDefault buttonSize3"
+            defaultChecked={false}
+            disabled={false}
+            onClick={[Function]}
+          >
+            <span
+              className="buttonText3"
+            >
+              10
+            </span>
+          </button>
+        </li>
+      </ul>
+      <button
+        aria-disabled={false}
+        className="paginationButton button buttonDefault buttonSize3 iconLeft"
+        defaultChecked={false}
+        disabled={false}
+        onClick={[Function]}
+      >
+        <span
+          aria-hidden={false}
+          className="icon iconWrapper"
+          role="presentation"
+        >
+          <svg
+            role="presentation"
+            style={
+              Object {
+                "height": "16px",
+                "width": "16px",
+              }
+            }
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
+              style={
+                Object {
+                  "fill": "currentColor",
+                }
+              }
+            />
+          </svg>
+        </span>
+      </button>
+    </div>
+  </div>,
+  <h1>
+    Jump To
+  </h1>,
+  <div>
+    <div
+      className="pagination"
+    >
+      <span />
+      <button
+        aria-disabled={false}
+        className="paginationButton button buttonDefault buttonSize3 iconLeft"
+        defaultChecked={false}
+        disabled={false}
+        onClick={[Function]}
+      >
+        <span
+          aria-hidden={false}
+          className="icon iconWrapper"
+          role="presentation"
+        >
+          <svg
+            role="presentation"
+            style={
+              Object {
+                "height": "16px",
+                "width": "16px",
+              }
+            }
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z"
+              style={
+                Object {
+                  "fill": "currentColor",
+                }
+              }
+            />
+          </svg>
+        </span>
+      </button>
+      <ul
+        className="pager"
+      >
+        <li>
+          <button
+            aria-checked={false}
+            aria-disabled={false}
+            aria-pressed={false}
+            className="paginationButton button buttonDefault buttonSize3"
+            defaultChecked={false}
+            disabled={false}
+            onClick={[Function]}
+          >
+            <span
+              className="buttonText3"
+            >
+              1
+            </span>
+          </button>
+        </li>
+        <li>
+          <button
+            aria-checked={false}
+            aria-disabled={false}
+            aria-pressed={false}
+            className="paginationButton button buttonDefault buttonSize3"
+            defaultChecked={false}
+            disabled={false}
+            onClick={[Function]}
+          >
+            <span
+              className="buttonText3"
+            >
+              0
+            </span>
+          </button>
+        </li>
+        <li>
+          <button
+            aria-checked={false}
+            aria-disabled={false}
+            aria-pressed={false}
+            className="paginationButton button buttonDefault buttonSize3"
+            defaultChecked={false}
+            disabled={false}
+            onClick={[Function]}
+          >
+            <span
+              className="buttonText3"
+            >
+              10
+            </span>
+          </button>
+        </li>
+      </ul>
+      <button
+        aria-disabled={false}
+        className="paginationButton button buttonDefault buttonSize3 iconLeft"
+        defaultChecked={false}
+        disabled={false}
+        onClick={[Function]}
+      >
+        <span
+          aria-hidden={false}
+          className="icon iconWrapper"
+          role="presentation"
+        >
+          <svg
+            role="presentation"
+            style={
+              Object {
+                "height": "16px",
+                "width": "16px",
+              }
+            }
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
+              style={
+                Object {
+                  "fill": "currentColor",
+                }
+              }
+            />
+          </svg>
+        </span>
+      </button>
+      <span
+        className="jump"
+      >
+        <div
+          className="inputWrapper"
+        >
+          <input
+            autoFocus={false}
+            className="editor"
+            defaultValue={5}
+            disabled={false}
+            id="input-33"
+            minLength={1}
+            onChange={[Function]}
+            required={false}
+            role="textbox"
+            tabIndex={0}
+            type="number"
+          />
+        </div>
+      </span>
+    </div>
+  </div>,
+  <h1>
+    All Combined
+  </h1>,
+  <div>
+    <div
+      className="pagination"
+    >
+      <span
+        className="sizes"
+      >
+        <div
+          className="mainWrapper"
+        >
+          <button
+            aria-controls="dropdown-34"
+            aria-disabled={false}
+            aria-expanded={false}
+            aria-haspopup={true}
+            className="button buttonDefault buttonSize3 iconLeft"
+            defaultChecked={false}
+            disabled={false}
+            onClick={[Function]}
+          >
+            <span>
+              <span
+                aria-hidden={false}
+                className="icon iconWrapper"
+                role="presentation"
+              >
+                <svg
+                  role="presentation"
+                  style={
+                    Object {
+                      "height": "16px",
+                      "width": "16px",
+                    }
+                  }
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M7.41,15.41L12,10.83L16.59,15.41L18,14L12,8L6,14L7.41,15.41Z"
+                    style={
+                      Object {
+                        "fill": "currentColor",
+                      }
+                    }
+                  />
+                </svg>
+              </span>
+              <span
+                className="buttonText3"
+              >
+                page/100
+              </span>
+            </span>
+          </button>
+        </div>
+      </span>
+      <span
+        className="total"
+      >
+        400 Total
+      </span>
+      <button
+        aria-disabled={false}
+        className="paginationButton button buttonDefault buttonSize3 iconLeft"
+        defaultChecked={false}
+        disabled={false}
+        onClick={[Function]}
+      >
+        <span
+          aria-hidden={false}
+          className="icon iconWrapper"
+          role="presentation"
+        >
+          <svg
+            role="presentation"
+            style={
+              Object {
+                "height": "16px",
+                "width": "16px",
+              }
+            }
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z"
+              style={
+                Object {
+                  "fill": "currentColor",
+                }
+              }
+            />
+          </svg>
+        </span>
+      </button>
+      <ul
+        className="pager"
+      >
+        <li>
+          <button
+            aria-checked={false}
+            aria-disabled={false}
+            aria-pressed={false}
+            className="paginationButton button buttonDefault buttonSize3"
+            defaultChecked={false}
+            disabled={false}
+            onClick={[Function]}
+          >
+            <span
+              className="buttonText3"
+            >
+              1
+            </span>
+          </button>
+        </li>
+        <li>
+          <button
+            aria-checked={false}
+            aria-disabled={false}
+            aria-pressed={false}
+            className="paginationButton button buttonDefault buttonSize3"
+            defaultChecked={false}
+            disabled={false}
+            onClick={[Function]}
+          >
+            <span
+              className="buttonText3"
+            >
+              0
+            </span>
+          </button>
+        </li>
+        <li>
+          <button
+            aria-checked={true}
+            aria-disabled={false}
+            aria-pressed={true}
+            className="paginationButton active button buttonDefault buttonSize3"
+            defaultChecked={true}
+            disabled={false}
+            onClick={[Function]}
+          >
+            <span
+              className="buttonText3"
+            >
+              4
+            </span>
+          </button>
+        </li>
+      </ul>
+      <button
+        aria-disabled={false}
+        className="paginationButton button buttonDefault buttonSize3 iconLeft disabled"
+        defaultChecked={false}
+        disabled={true}
+        onClick={[Function]}
+      >
+        <span
+          aria-hidden={false}
+          className="icon iconWrapper"
+          role="presentation"
+        >
+          <svg
+            role="presentation"
+            style={
+              Object {
+                "height": "16px",
+                "width": "16px",
+              }
+            }
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
+              style={
+                Object {
+                  "fill": "currentColor",
+                }
+              }
+            />
+          </svg>
+        </span>
+      </button>
+      <span
+        className="jump"
+      >
+        <div
+          className="inputWrapper"
+        >
+          <input
+            autoFocus={false}
+            className="editor"
+            defaultValue={4}
+            disabled={false}
+            id="input-35"
+            minLength={1}
+            onChange={[Function]}
+            required={false}
+            role="textbox"
+            tabIndex={0}
+            type="number"
+          />
+        </div>
+      </span>
+    </div>
+  </div>,
+]
+`;
+
 exports[`Storyshots Panel Default 1`] = `
 <div
   style={
