@@ -214,6 +214,7 @@ export const Pagination: FC<PaginationProps> = React.forwardRef(
                         key="previous"
                         disabled={_currentPage <= 1}
                         iconProps={{
+                            role: 'presentation',
                             path: IconName.mdiChevronLeft,
                         }}
                         onClick={previous}
@@ -243,6 +244,7 @@ export const Pagination: FC<PaginationProps> = React.forwardRef(
                             _currentPage === getPageCount() || _pageCount === 0
                         }
                         iconProps={{
+                            role: 'presentation',
                             path: IconName.mdiChevronRight,
                         }}
                         onClick={() => next()}

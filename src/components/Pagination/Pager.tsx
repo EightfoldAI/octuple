@@ -146,6 +146,7 @@ export const Pager: FC<PagerProps> = React.forwardRef(
                                     'quickprevious',
                                 ])}
                                 iconProps={{
+                                    role: 'presentation',
                                     path: _quickPreviousActive
                                         ? IconName.mdiChevronDoubleLeft
                                         : IconName.mdiDotsHorizontal,
@@ -194,6 +195,7 @@ export const Pager: FC<PagerProps> = React.forwardRef(
                                     'quicknext',
                                 ])}
                                 iconProps={{
+                                    role: 'presentation',
                                     path: _quickNextActive
                                         ? IconName.mdiChevronDoubleRight
                                         : IconName.mdiDotsHorizontal,
