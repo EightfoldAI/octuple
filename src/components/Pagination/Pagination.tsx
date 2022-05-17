@@ -138,17 +138,14 @@ export const Pagination: FC<PaginationProps> = React.forwardRef(
 
         const Overlay = (pageSizes?: number[]) => {
             const getItems = (): MenuItem[] => {
-                const sizes = pageSizes.map((item?: number, idx?: number) => {
-                    return {
-                        rowkey: idx,
-                        text:
-                            htmlDir === 'ltr'
-                                ? `${item}/${pageSizeText}`
-                                : `${pageSizeText}/${item}`,
-                        value: item,
-                    };
-                });
-                return sizes;
+                return pageSizes.map((item?: number, idx?: number) => ({
+                    rowkey: idx,
+                    text:
+                        htmlDir === 'ltr'
+                            ? `${item} / ${pageSizeText}`
+                            : `${pageSizeText} / ${item}`,
+                    value: item,
+                }));
             };
             return <Menu onChange={onSizeChangeHandler} items={getItems()} />;
         };
@@ -187,8 +184,8 @@ export const Pagination: FC<PaginationProps> = React.forwardRef(
                                 size={ButtonSize.Small}
                                 text={
                                     htmlDir === 'ltr'
-                                        ? `${_pageSize}/${pageSizeText}`
-                                        : `${pageSizeText}/${_pageSize}`
+                                        ? `${_pageSize} / ${pageSizeText}`
+                                        : `${pageSizeText} / ${_pageSize}`
                                 }
                             />
                         </Dropdown>

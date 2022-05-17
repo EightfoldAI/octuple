@@ -6,6 +6,15 @@ import { mergeClasses } from '../../shared/utilities';
 
 import styles from './pagination.module.scss';
 
+/** Represents the number of pages from each edge of the list before we show quick buttons. */
+const EDGE_BUFFER_THRESHOLD: number = 5;
+
+/** Represents that only 7 list items (pages) are visible at any given time. */
+const PAGER_COUNT: number = 7;
+
+/** Represents a list too short to display meaningful quick buttons. */
+const SHORT_LIST_THRESHOLD: number = 10;
+
 export const Pager: FC<PagerProps> = React.forwardRef(
     (
         { currentPage = 1, onCurrentChange, pageCount, ...rest },
@@ -29,10 +38,7 @@ export const Pager: FC<PagerProps> = React.forwardRef(
              * The pageCount is greater than 10.
              * Keeping the quick buttons meaningful.
              */
-            if (pageCount > 10) {
-                /** Represents that only 7 pages are visible at any given time. */
-                const pagerCount: number = 7;
-
+            if (pageCount > SHORT_LIST_THRESHOLD) {
                 /**
                  * The visible items in the array use a basic threshold.
                  * e.g. [1 << 4 5 [6] 7 8 >> 100] where 6 is the currentPage
@@ -41,8 +47,10 @@ export const Pager: FC<PagerProps> = React.forwardRef(
                  * the 5 items between the two quick buttons they must represent
                  * the correct position in the array.
                  */
-                const afterQuickPrevious: boolean = currentPage > 5;
-                const beforeQuickNext: boolean = currentPage < pageCount - 5;
+                const afterQuickPrevious: boolean =
+                    currentPage > EDGE_BUFFER_THRESHOLD;
+                const beforeQuickNext: boolean =
+                    currentPage < pageCount - EDGE_BUFFER_THRESHOLD;
 
                 /**
                  * The currentPage number is greater than the quick previous
@@ -52,11 +60,12 @@ export const Pager: FC<PagerProps> = React.forwardRef(
                  * Only the quick previous button is visible.
                  */
                 if (afterQuickPrevious && !beforeQuickNext) {
-                    const startPage = pageCount - (pagerCount - 2);
+                    const startPage = pageCount - (PAGER_COUNT - 2);
 
                     for (let i: number = startPage; i < pageCount; ++i) {
                         array.push(i);
                     }
+
                     /**
                      * The currentPage number is less than the quick previous and
                      * the quick next thresholds (near the beginning of the list).
@@ -65,9 +74,10 @@ export const Pager: FC<PagerProps> = React.forwardRef(
                      * Only the quick next button is visible.
                      */
                 } else if (!afterQuickPrevious && beforeQuickNext) {
-                    for (let i: number = 2; i < pagerCount; ++i) {
+                    for (let i: number = 2; i < PAGER_COUNT; ++i) {
                         array.push(i);
                     }
+
                     /**
                      * The currentPage number is greater than the quick previous and
                      * less than the quick next thresholds (in the middle of the list).
@@ -75,7 +85,7 @@ export const Pager: FC<PagerProps> = React.forwardRef(
                      * position in the visible array. Both quick buttons are visible.
                      */
                 } else if (afterQuickPrevious && beforeQuickNext) {
-                    const offset = Math.floor(pagerCount / 2) - 1;
+                    const offset = Math.floor(PAGER_COUNT / 2) - 1;
 
                     for (
                         let i: number = currentPage - offset;
@@ -119,27 +129,36 @@ export const Pager: FC<PagerProps> = React.forwardRef(
                         />
                     </li>
                 )}
-                {currentPage > 5 && pageCount > 10 && (
-                    <li>
-                        <DefaultButton
-                            classNames={mergeClasses([
-                                styles.paginationButton,
-                                'quickprevious',
-                            ])}
-                            iconProps={{
-                                path: _quickPreviousActive
-                                    ? IconName.mdiChevronDoubleLeft
-                                    : IconName.mdiDotsHorizontal,
-                            }}
-                            onBlur={() => setQuickPreviousActive(false)}
-                            onFocus={() => setQuickPreviousActive(true)}
-                            onMouseEnter={() => setQuickPreviousActive(true)}
-                            onMouseLeave={() => setQuickPreviousActive(false)}
-                            onClick={() => onCurrentChange(currentPage - 5)}
-                            size={ButtonSize.Small}
-                        />
-                    </li>
-                )}
+                {currentPage > EDGE_BUFFER_THRESHOLD &&
+                    pageCount > SHORT_LIST_THRESHOLD && (
+                        <li>
+                            <DefaultButton
+                                classNames={mergeClasses([
+                                    styles.paginationButton,
+                                    'quickprevious',
+                                ])}
+                                iconProps={{
+                                    path: _quickPreviousActive
+                                        ? IconName.mdiChevronDoubleLeft
+                                        : IconName.mdiDotsHorizontal,
+                                }}
+                                onBlur={() => setQuickPreviousActive(false)}
+                                onFocus={() => setQuickPreviousActive(true)}
+                                onMouseEnter={() =>
+                                    setQuickPreviousActive(true)
+                                }
+                                onMouseLeave={() =>
+                                    setQuickPreviousActive(false)
+                                }
+                                onClick={() =>
+                                    onCurrentChange(
+                                        currentPage - EDGE_BUFFER_THRESHOLD
+                                    )
+                                }
+                                size={ButtonSize.Small}
+                            />
+                        </li>
+                    )}
                 {_pagers?.map((pager, idx) => {
                     return (
                         <li key={idx}>
@@ -157,27 +176,32 @@ export const Pager: FC<PagerProps> = React.forwardRef(
                         </li>
                     );
                 })}
-                {currentPage < pageCount - 5 && pageCount > 10 && (
-                    <li>
-                        <DefaultButton
-                            classNames={mergeClasses([
-                                styles.paginationButton,
-                                'quicknext',
-                            ])}
-                            iconProps={{
-                                path: _quickNextActive
-                                    ? IconName.mdiChevronDoubleRight
-                                    : IconName.mdiDotsHorizontal,
-                            }}
-                            onBlur={() => setQuickNextActive(false)}
-                            onFocus={() => setQuickNextActive(true)}
-                            onMouseEnter={() => setQuickNextActive(true)}
-                            onMouseLeave={() => setQuickNextActive(false)}
-                            onClick={() => onCurrentChange(currentPage + 5)}
-                            size={ButtonSize.Small}
-                        />
-                    </li>
-                )}
+                {currentPage < pageCount - EDGE_BUFFER_THRESHOLD &&
+                    pageCount > SHORT_LIST_THRESHOLD && (
+                        <li>
+                            <DefaultButton
+                                classNames={mergeClasses([
+                                    styles.paginationButton,
+                                    'quicknext',
+                                ])}
+                                iconProps={{
+                                    path: _quickNextActive
+                                        ? IconName.mdiChevronDoubleRight
+                                        : IconName.mdiDotsHorizontal,
+                                }}
+                                onBlur={() => setQuickNextActive(false)}
+                                onFocus={() => setQuickNextActive(true)}
+                                onMouseEnter={() => setQuickNextActive(true)}
+                                onMouseLeave={() => setQuickNextActive(false)}
+                                onClick={() =>
+                                    onCurrentChange(
+                                        currentPage + EDGE_BUFFER_THRESHOLD
+                                    )
+                                }
+                                size={ButtonSize.Small}
+                            />
+                        </li>
+                    )}
                 {pageCount > 1 && (
                     <li>
                         <DefaultButton
