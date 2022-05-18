@@ -1,12 +1,11 @@
 import React, { FC, useEffect, useState } from 'react';
 import { RadioButton, RadioButtonProps } from '../';
 import { RadioGroupProvider } from './RadioGroup.context';
+
 export const RadioGroup: FC<RadioButtonProps> = (props) => {
     let { activeRadioButton, onChange, radioGroupItems } = props;
     const [radioGroupValues, setRadioGroupValues] = useState([]);
-    const [radioIndex, setRadioIndex] = useState(
-        radioGroupValues.indexOf(activeRadioButton)
-    );
+    const [radioIndex, setRadioIndex] = useState(0);
     const [tabClicked, setTabClicked] = useState(false);
 
     const handleKeyDown = (event: React.KeyboardEvent) => {
@@ -38,8 +37,9 @@ export const RadioGroup: FC<RadioButtonProps> = (props) => {
     };
 
     useEffect(() => {
+        const index = radioGroupValues.indexOf(activeRadioButton);
         setRadioGroupValues(getRadioGroupValues());
-        setRadioIndex(radioGroupValues.indexOf(activeRadioButton));
+        setRadioIndex(index >= 0 ? index : 0);
     }, []);
 
     return (

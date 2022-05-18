@@ -1,6 +1,6 @@
 import React, { FC, useEffect } from 'react';
 import { RadioButtonProps } from '../';
-import { mergeClasses } from '../../../shared/utilities';
+import { mergeClasses, generateId } from '../../../shared/utilities';
 import { useRadioGroup } from './RadioGroup.context';
 
 import styles from './radio.module.scss';
@@ -12,7 +12,7 @@ export const RadioButton: FC<RadioButtonProps> = ({
     disabled = false,
     name,
     value = '',
-    id = `radiobox-${value}-${Math.random().toString(36).slice(2)}`,
+    id = generateId(),
 }) => {
     const { onRadioButtonClick, currentRadioButton } = useRadioGroup();
     const isActive: boolean = value === currentRadioButton;

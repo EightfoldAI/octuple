@@ -1,6 +1,6 @@
 import React, { FC, useState } from 'react';
 import { CheckBoxProps } from '../';
-import { mergeClasses } from '../../../shared/utilities';
+import { mergeClasses, generateId } from '../../../shared/utilities';
 
 import styles from './checkbox.module.scss';
 
@@ -11,7 +11,7 @@ export const CheckBox: FC<CheckBoxProps> = ({
     disabled = false,
     name,
     value = '',
-    id = `checkbox-${value}-${Math.random().toString(36).slice(2)}`,
+    id = generateId(),
     onChange,
 }) => {
     const [isChecked, setIsChecked] = useState<boolean>(checked);
