@@ -5989,6 +5989,7 @@ Array [
       <span />
       <button
         aria-disabled={false}
+        aria-label="Previous"
         className="paginationButton button buttonDefault buttonSize3 iconLeft disabled"
         defaultChecked={false}
         disabled={true}
@@ -6077,6 +6078,7 @@ Array [
       </ul>
       <button
         aria-disabled={false}
+        aria-label="Next"
         className="paginationButton button buttonDefault buttonSize3 iconLeft"
         defaultChecked={false}
         disabled={false}
@@ -6112,7 +6114,7 @@ Array [
   </div>,
   <div>
     <p>
-      When you have more than 7 pages
+      When you have more than 10 pages
     </p>
     <div
       className="pagination"
@@ -6120,6 +6122,7 @@ Array [
       <span />
       <button
         aria-disabled={false}
+        aria-label="Previous"
         className="paginationButton button buttonDefault buttonSize3 iconLeft disabled"
         defaultChecked={false}
         disabled={true}
@@ -6191,6 +6194,7 @@ Array [
         <li>
           <button
             aria-disabled={false}
+            aria-label="Next 5"
             className="paginationButton quicknext button buttonDefault buttonSize3 iconLeft"
             defaultChecked={false}
             disabled={false}
@@ -6247,6 +6251,7 @@ Array [
       </ul>
       <button
         aria-disabled={false}
+        aria-label="Next"
         className="paginationButton button buttonDefault buttonSize3 iconLeft"
         defaultChecked={false}
         disabled={false}
@@ -6290,6 +6295,7 @@ Array [
       <span />
       <button
         aria-disabled={false}
+        aria-label="Previous"
         className="paginationButton button buttonDefault buttonSize3 iconLeft disabled"
         defaultChecked={false}
         disabled={true}
@@ -6378,6 +6384,7 @@ Array [
       </ul>
       <button
         aria-disabled={false}
+        aria-label="Next"
         className="paginationButton button buttonDefault buttonSize3 iconLeft"
         defaultChecked={false}
         disabled={false}
@@ -6425,6 +6432,7 @@ Array [
       </span>
       <button
         aria-disabled={false}
+        aria-label="Previous"
         className="paginationButton button buttonDefault buttonSize3 iconLeft disabled"
         defaultChecked={false}
         disabled={true}
@@ -6496,6 +6504,7 @@ Array [
         <li>
           <button
             aria-disabled={false}
+            aria-label="Next 5"
             className="paginationButton quicknext button buttonDefault buttonSize3 iconLeft"
             defaultChecked={false}
             disabled={false}
@@ -6552,6 +6561,7 @@ Array [
       </ul>
       <button
         aria-disabled={false}
+        aria-label="Next"
         className="paginationButton button buttonDefault buttonSize3 iconLeft"
         defaultChecked={false}
         disabled={false}
@@ -6603,6 +6613,7 @@ Array [
             aria-disabled={false}
             aria-expanded={false}
             aria-haspopup={true}
+            aria-label="Selected page size"
             className="button buttonDefault buttonSize3 iconLeft"
             defaultChecked={false}
             disabled={false}
@@ -6637,7 +6648,7 @@ Array [
               <span
                 className="buttonText3"
               >
-                page/100
+                page / 100
               </span>
             </span>
           </button>
@@ -6646,6 +6657,7 @@ Array [
       <span />
       <button
         aria-disabled={false}
+        aria-label="Previous"
         className="paginationButton button buttonDefault buttonSize3 iconLeft disabled"
         defaultChecked={false}
         disabled={true}
@@ -6716,45 +6728,6 @@ Array [
         </li>
         <li>
           <button
-            aria-disabled={false}
-            className="paginationButton quicknext button buttonDefault buttonSize3 iconLeft"
-            defaultChecked={false}
-            disabled={false}
-            onBlur={[Function]}
-            onClick={[Function]}
-            onFocus={[Function]}
-            onMouseEnter={[Function]}
-            onMouseLeave={[Function]}
-          >
-            <span
-              aria-hidden={false}
-              className="icon iconWrapper"
-              role="presentation"
-            >
-              <svg
-                role="presentation"
-                style={
-                  Object {
-                    "height": "16px",
-                    "width": "16px",
-                  }
-                }
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M16,12A2,2 0 0,1 18,10A2,2 0 0,1 20,12A2,2 0 0,1 18,14A2,2 0 0,1 16,12M10,12A2,2 0 0,1 12,10A2,2 0 0,1 14,12A2,2 0 0,1 12,14A2,2 0 0,1 10,12M4,12A2,2 0 0,1 6,10A2,2 0 0,1 8,12A2,2 0 0,1 6,14A2,2 0 0,1 4,12Z"
-                  style={
-                    Object {
-                      "fill": "currentColor",
-                    }
-                  }
-                />
-              </svg>
-            </span>
-          </button>
-        </li>
-        <li>
-          <button
             aria-checked={false}
             aria-disabled={false}
             aria-pressed={false}
@@ -6773,6 +6746,7 @@ Array [
       </ul>
       <button
         aria-disabled={false}
+        aria-label="Next"
         className="paginationButton button buttonDefault buttonSize3 iconLeft"
         defaultChecked={false}
         disabled={false}
@@ -6816,6 +6790,7 @@ Array [
       <span />
       <button
         aria-disabled={false}
+        aria-label="Previous"
         className="paginationButton button buttonDefault buttonSize3 iconLeft"
         defaultChecked={false}
         disabled={false}
@@ -6904,6 +6879,7 @@ Array [
       </ul>
       <button
         aria-disabled={false}
+        aria-label="Next"
         className="paginationButton button buttonDefault buttonSize3 iconLeft"
         defaultChecked={false}
         disabled={false}
@@ -6976,6 +6952,7 @@ Array [
             aria-disabled={false}
             aria-expanded={false}
             aria-haspopup={true}
+            aria-label="Selected page size"
             className="button buttonDefault buttonSize3 iconLeft"
             defaultChecked={false}
             disabled={false}
@@ -7010,7 +6987,7 @@ Array [
               <span
                 className="buttonText3"
               >
-                page/100
+                page / 100
               </span>
             </span>
           </button>
@@ -7023,6 +7000,7 @@ Array [
       </span>
       <button
         aria-disabled={false}
+        aria-label="Previous"
         className="paginationButton button buttonDefault buttonSize3 iconLeft"
         defaultChecked={false}
         disabled={false}
@@ -7111,6 +7089,7 @@ Array [
       </ul>
       <button
         aria-disabled={false}
+        aria-label="Next"
         className="paginationButton button buttonDefault buttonSize3 iconLeft disabled"
         defaultChecked={false}
         disabled={true}
