@@ -123,4 +123,5 @@ export interface RadioButtonProps {
      * The radio buttons in the radio group.
      */
     radioGroupItems?: any;
+    setActiveRadioButton?: Function;
 }

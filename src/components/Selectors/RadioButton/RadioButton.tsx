@@ -13,10 +13,14 @@ export const RadioButton: FC<RadioButtonProps> = ({
     name,
     value = '',
     id = generateId(),
+    setActiveRadioButton = () => {},
 }) => {
     const { onRadioButtonClick, currentRadioButton } = useRadioGroup();
     const isActive: boolean = value === currentRadioButton;
 
+    const updateActiveRadioButton = (value: string | number) => {
+        setActiveRadioButton(value);
+    };
     useEffect(() => {
         if (onRadioButtonClick) onRadioButtonClick(activeRadioButton, null);
     }, [activeRadioButton]);
@@ -37,7 +41,10 @@ export const RadioButton: FC<RadioButtonProps> = ({
                 tabIndex={-1}
                 type={'radio'}
                 value={value}
-                onClick={(e) => onRadioButtonClick(value, e)}
+                onClick={(e) => {
+                    updateActiveRadioButton(value);
+                    onRadioButtonClick(value, e);
+                }}
                 readOnly
             />
             <label

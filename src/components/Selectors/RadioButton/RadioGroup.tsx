@@ -36,11 +36,17 @@ export const RadioGroup: FC<RadioButtonProps> = (props) => {
         return radioGroupValues;
     };
 
+    const setActiveRadioButton = (value: string | number) => {
+        activeRadioButton = value;
+        const index = radioGroupValues.indexOf(activeRadioButton);
+        setRadioIndex(index >= 0 ? index : 0);
+    };
+
     useEffect(() => {
         const index = radioGroupValues.indexOf(activeRadioButton);
         setRadioGroupValues(getRadioGroupValues());
         setRadioIndex(index >= 0 ? index : 0);
-    }, []);
+    }, [activeRadioButton]);
 
     return (
         <RadioGroupProvider
@@ -53,6 +59,7 @@ export const RadioGroup: FC<RadioButtonProps> = (props) => {
                         key={item.value}
                         {...item}
                         activeRadioButton={radioGroupValues[radioIndex]}
+                        setActiveRadioButton={setActiveRadioButton}
                     />
                 ))}
             </div>
