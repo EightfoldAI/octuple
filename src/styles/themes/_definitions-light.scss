@@ -1,9 +1,3 @@
-$font-size: var(--font-size);
-
-html {
-    font-size: $font-size;
-}
-
 // BEGIN: VARIABLE COLOR DEFINITIONS
 
 $color-background1-red: var(--red-color-10);
@@ -186,30 +180,30 @@ $divider-line-color: var(--grey-color-40);
 
 // Typography Definitions
 
-$text-font-size-1: rem(12px);
-$text-font-size-2: rem(14px);
-$text-font-size-3: rem(16px);
-$text-font-size-4: rem(18px);
-$text-font-size-5: rem(20px);
-$text-font-size-6: rem(24px);
-$text-font-size-7: rem(32px);
-$text-font-size-8: rem(40px);
-$text-font-size-9: rem(56px);
-$text-font-size-10: rem(64px);
-$text-font-size-11: rem(80px);
-$text-font-size-12: rem(96px);
+$text-font-size-1: 12px;
+$text-font-size-2: 14px;
+$text-font-size-3: 16px;
+$text-font-size-4: 18px;
+$text-font-size-5: 20px;
+$text-font-size-6: 24px;
+$text-font-size-7: 32px;
+$text-font-size-8: 40px;
+$text-font-size-9: 56px;
+$text-font-size-10: 64px;
+$text-font-size-11: 80px;
+$text-font-size-12: 96px;
 
-$text-line-height-1: rem(16px);
-$text-line-height-2: rem(20px);
-$text-line-height-3: rem(24px);
-$text-line-height-4: rem(28px);
-$text-line-height-5: rem(32px);
-$text-line-height-6: rem(40px);
-$text-line-height-7: rem(48px);
-$text-line-height-8: rem(64px);
-$text-line-height-9: rem(72px);
-$text-line-height-10: rem(96px);
-$text-line-height-11: rem(112px);
+$text-line-height-1: 16px;
+$text-line-height-2: 20px;
+$text-line-height-3: 24px;
+$text-line-height-4: 28px;
+$text-line-height-5: 32px;
+$text-line-height-6: 40px;
+$text-line-height-7: 48px;
+$text-line-height-8: 64px;
+$text-line-height-9: 72px;
+$text-line-height-10: 96px;
+$text-line-height-11: 112px;
 
 $text-font-weight-extra-light: 200;
 $text-font-weight-light: 300;
@@ -218,17 +212,17 @@ $text-font-weight-semibold: 600;
 $text-font-weight-bold: 700;
 $text-font-weight-black: 900;
 
-$text-letter-spacing-xs: -0.01rem;
-$text-letter-spacing-s: -0.015rem;
-$text-letter-spacing-m: -0.02rem;
-$text-letter-spacing-l: -0.03rem;
+$text-letter-spacing-xs: -0.16px;
+$text-letter-spacing-s: -0.24px;
+$text-letter-spacing-m: -0.32px;
+$text-letter-spacing-l: -0.48px;
 
 // Icon Definitions
 
-$icon-font-size-material-xs: rem(14px);
-$icon-font-size-material-s: rem(16px);
-$icon-font-size-material-m: rem(20px);
-$icon-font-size-material-l: rem(24px);
+$icon-font-size-material-xs: 14px;
+$icon-font-size-material-s: 16px;
+$icon-font-size-material-m: 20px;
+$icon-font-size-material-l: 24px;
 
 // Gradient Definitions
 
