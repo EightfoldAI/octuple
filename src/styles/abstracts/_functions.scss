@@ -95,7 +95,3 @@ $px-only: false !default;
 @mixin baseline($zoom: 100%) {
     font-size: _divide($zoom, 16px) * $baseline;
 }
-
-html {
-    @include baseline;
-}
