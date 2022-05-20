@@ -23,10 +23,6 @@ export interface AccordionProps extends AccordionBaseProps {
      * Accordion Summary
      */
     summary: React.ReactNode | string;
-    /**
-     * children to represent Accordion body
-     */
-    children: React.ReactNode;
 }
 
 export interface AccordionSummaryProps extends AccordionBaseProps {

@@ -53,36 +53,38 @@ export const AccordionBody: FC<AccordionBodyProps> = ({
     );
 };
 
-export const Accordion: FC<AccordionProps> = ({
-    expanded = false,
-    onAccordionChange,
-    classNames,
-    summary,
-    expandIconProps = { path: IconName.mdiChevronDown },
-    children,
-}) => {
-    const [isExpanded, setIsExpanded] = useState<boolean>(expanded);
+export const Accordion: FC<AccordionProps> = React.forwardRef(
+    ({
+        expanded = false,
+        onAccordionChange,
+        classNames,
+        summary,
+        expandIconProps = { path: IconName.mdiChevronDown },
+        children,
+    }) => {
+        const [isExpanded, setIsExpanded] = useState<boolean>(expanded);
 
-    const toggleAccordion = (expand: boolean): void => {
-        setIsExpanded(expand);
-        onAccordionChange?.(expand);
-    };
+        const toggleAccordion = (expand: boolean): void => {
+            setIsExpanded(expand);
+            onAccordionChange?.(expand);
+        };
 
-    const accordionContainerStyle: string = mergeClasses(
-        styles.accordionContainer,
-        classNames
-    );
+        const accordionContainerStyle: string = mergeClasses(
+            styles.accordionContainer,
+            classNames
+        );
 
-    return (
-        <div className={accordionContainerStyle}>
-            <AccordionSummary
-                expandIconProps={expandIconProps}
-                onClick={() => toggleAccordion(!isExpanded)}
-                expanded={isExpanded}
-            >
-                {summary}
-            </AccordionSummary>
-            <AccordionBody expanded={isExpanded}>{children}</AccordionBody>
-        </div>
-    );
-};
+        return (
+            <div className={accordionContainerStyle}>
+                <AccordionSummary
+                    expandIconProps={expandIconProps}
+                    onClick={() => toggleAccordion(!isExpanded)}
+                    expanded={isExpanded}
+                >
+                    {summary}
+                </AccordionSummary>
+                <AccordionBody expanded={isExpanded}>{children}</AccordionBody>
+            </div>
+        );
+    }
+);
