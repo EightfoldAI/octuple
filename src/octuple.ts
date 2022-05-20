@@ -20,6 +20,8 @@ import { Dialog, DialogSize } from './components/Dialog';
 
 import { Dropdown } from './components/Dropdown';
 
+import { Icomoon, IcomoonProvider, IcomoonSize } from './components/Icomoon';
+
 import { Icon, IconName, IconSize } from './components/Icon';
 
 import { Label, LabelSize } from './components/Label';
@@ -80,6 +82,9 @@ export {
     Dialog,
     DialogSize,
     Dropdown,
+    Icomoon,
+    IcomoonProvider,
+    IcomoonSize,
     Icon,
     IconName,
     IconSize,
