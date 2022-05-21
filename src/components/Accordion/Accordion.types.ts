@@ -25,11 +25,6 @@ export interface AccordionProps extends AccordionBaseProps {
     summary: React.ReactNode | string;
 }
 
-export interface AccordionSummaryProps extends AccordionBaseProps {
-    /**
-     * Callback called on click of the accordion summary
-     */
-    onClick?: React.MouseEventHandler<HTMLButtonElement>;
-}
+export interface AccordionSummaryProps extends AccordionBaseProps {}
 
 export interface AccordionBodyProps extends AccordionBaseProps {}

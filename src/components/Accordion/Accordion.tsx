@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react';
+import React, { FC, useCallback, useState } from 'react';
 
 import { mergeClasses } from '../../shared/utilities';
 
@@ -12,6 +12,7 @@ export const AccordionSummary: FC<AccordionSummaryProps> = ({
     expandIconProps,
     expanded,
     onClick,
+    id,
 }) => {
     const iconStyles: string = mergeClasses([
         styles.accordionIcon,
@@ -19,22 +20,37 @@ export const AccordionSummary: FC<AccordionSummaryProps> = ({
         { [styles.expandedIcon]: expanded },
     ]);
 
+    // to handle enter press on accordion header
+    const handleKeyDown = useCallback(
+        (event) => {
+            if (event.key === 'Enter' && onClick) {
+                onClick(event);
+            }
+        },
+        [onClick]
+    );
+
     return (
-        <button
+        <div
+            aria-expanded={expanded}
+            aria-controls={`${id}-content`}
             className={styles.accordionSummary}
             onClick={onClick}
-            aria-disabled={false}
+            onKeyDown={handleKeyDown}
+            id={`${id}-header`}
             role="button"
+            tabIndex={0}
         >
             {children}
             <Icon classNames={iconStyles} {...expandIconProps} />
-        </button>
+        </div>
     );
 };
 
 export const AccordionBody: FC<AccordionBodyProps> = ({
     children,
     expanded,
+    id,
 }) => {
     const accordionBodyContainerStyles: string = mergeClasses(
         styles.accordionBodyContainer,
@@ -47,7 +63,12 @@ export const AccordionBody: FC<AccordionBodyProps> = ({
     );
 
     return (
-        <div className={accordionBodyContainerStyles}>
+        <div
+            aria-labelledby={`${id}-header`}
+            className={accordionBodyContainerStyles}
+            id={`${id}-content`}
+            role="region"
+        >
             <div className={accordionBodyStyles}>{children}</div>
         </div>
     );
@@ -61,6 +82,7 @@ export const Accordion: FC<AccordionProps> = React.forwardRef(
         summary,
         expandIconProps = { path: IconName.mdiChevronDown },
         children,
+        id,
     }) => {
         const [isExpanded, setIsExpanded] = useState<boolean>(expanded);
 
@@ -80,10 +102,13 @@ export const Accordion: FC<AccordionProps> = React.forwardRef(
                     expandIconProps={expandIconProps}
                     onClick={() => toggleAccordion(!isExpanded)}
                     expanded={isExpanded}
+                    id={id}
                 >
                     {summary}
                 </AccordionSummary>
-                <AccordionBody expanded={isExpanded}>{children}</AccordionBody>
+                <AccordionBody id={id} expanded={isExpanded}>
+                    {children}
+                </AccordionBody>
             </div>
         );
     }

@@ -23,10 +23,15 @@
     }
 
     .accordion-summary {
+        cursor: pointer;
         display: flex;
         justify-content: space-between;
         padding: $space-m $space-l;
         width: 100%;
+
+        &:focus-visible {
+            outline-color: var(--button-primary-focus-border-color);
+        }
 
         .accordion-icon {
             transition: transform $motion-duration-fast;
