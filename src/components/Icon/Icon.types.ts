@@ -9,11 +9,11 @@ export enum IconSize {
     XSmall = '14px',
 }
 
-export interface IconProps extends OcBaseProps<HTMLSpanElement>, MdiIconProps {
+export interface IconProps extends OcBaseProps<HTMLSpanElement> {
     /**
      * The icon svg path name.
      */
-    path: IconName;
+    path?: IconName;
     /**
      * The icon is aria-hidden.
      * @default false
@@ -65,4 +65,8 @@ export interface IconProps extends OcBaseProps<HTMLSpanElement>, MdiIconProps {
      * @default false
      */
     vertical?: boolean;
+    /**
+     * Name of the icon as defined in icomoon app
+     */
+    icomoonIconName?: string;
 }
