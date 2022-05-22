@@ -1,6 +1,7 @@
 import React from 'react';
 import { ButtonTextAlign, ButtonWidth, DefaultButton } from '../Button';
 import { Dropdown } from './';
+import { IconName } from '../Icon';
 
 export default {
     title: 'Dropdown',
@@ -28,15 +29,16 @@ export const Dropdowns = () => (
     <>
         <h2>Dropdown</h2>
         <div style={{ display: 'flex', gap: '20%' }}>
-            <Dropdown overlay={Overlay()}>
-                <DefaultButton text={'Click bottom start'} />
-            </Dropdown>
+            <Dropdown overlay={Overlay()}>Click bottom start</Dropdown>
             <Dropdown
                 overlay={Overlay()}
                 trigger="hover"
                 placement="bottom-end"
+                iconProps={{
+                    path: IconName.mdiChevronDown,
+                }}
             >
-                <DefaultButton text={'Hover bottom end'} />
+                Hover bottom end
             </Dropdown>
         </div>
     </>

@@ -1,4 +1,4 @@
-import React, { cloneElement, FC, useEffect, useState } from 'react';
+import React, { FC, useCallback, useEffect, useRef, useState } from 'react';
 import { DropdownProps } from './Dropdown.types';
 import { autoUpdate, shift, useFloating } from '@floating-ui/react-dom';
 import { offset as fOffset } from '@floating-ui/core';
@@ -6,11 +6,18 @@ import { mergeClasses, uniqueId } from '../../shared/utilities';
 import { useOnClickOutside } from '../../hooks/useOnClickOutside';
 
 import styles from './dropdown.module.scss';
+import { Icon } from '../Icon';
 
-const TRIGGER_TO_HANDLER_MAP = {
+const TRIGGER_TO_HANDLER_MAP_ON_ENTER = {
     click: 'onClick',
     hover: 'onMouseEnter',
     contextmenu: 'onContextMenu',
+};
+
+const TRIGGER_TO_HANDLER_MAP_ON_LEAVE = {
+    click: '',
+    hover: 'onMouseLeave',
+    contextmenu: '',
 };
 
 const ANIMATION_DURATION = 200;
@@ -27,10 +34,12 @@ export const Dropdown: FC<DropdownProps> = ({
     offset = 0,
     positionStrategy = 'absolute',
     onVisibleChange,
+    iconProps,
 }) => {
     const [visible, setVisible] = useState<boolean>(false);
     const [closing, setClosing] = useState<boolean>(false);
     const [dropdownId] = useState<string>(uniqueId('dropdown-'));
+
     let timeout: ReturnType<typeof setTimeout>;
     const { x, y, reference, floating, strategy, update, refs } = useFloating({
         placement,
@@ -70,6 +79,27 @@ export const Dropdown: FC<DropdownProps> = ({
         );
     }, [refs.reference, refs.floating, update]);
 
+    const onHoverElementFocus = useCallback((e) => {
+        if (
+            refs.reference.current instanceof Element &&
+            refs.reference.current?.contains(e.target)
+        ) {
+            return toggle(true)();
+        }
+        return toggle(false)();
+    }, []);
+
+    // To show dropdown on focus in of element
+    useEffect(() => {
+        if (trigger === 'hover') {
+            document.addEventListener('focusin', onHoverElementFocus);
+        }
+
+        return () => {
+            document.removeEventListener('focusout', onHoverElementFocus);
+        };
+    }, [trigger]);
+
     const dropdownClasses: string = mergeClasses([
         dropdownClassNames,
         styles.dropdownWrapper,
@@ -87,6 +117,12 @@ export const Dropdown: FC<DropdownProps> = ({
         { [styles.disabled]: false },
     ]);
 
+    const iconClassNames = mergeClasses([
+        styles.iconStyle,
+        { [styles.visible]: visible },
+        { [styles.hidden]: !visible },
+    ]);
+
     const dropdownStyles: React.CSSProperties = {
         ...dropdownStyle,
         position: strategy,
@@ -94,16 +130,33 @@ export const Dropdown: FC<DropdownProps> = ({
         left: x ?? '',
     };
 
+    const referenceProps: object = {
+        ...{ [TRIGGER_TO_HANDLER_MAP_ON_ENTER[trigger]]: toggle(true) },
+    };
+
+    let containerProps = {};
+
+    if (TRIGGER_TO_HANDLER_MAP_ON_LEAVE[trigger]) {
+        containerProps = {
+            [TRIGGER_TO_HANDLER_MAP_ON_LEAVE[trigger]]: toggle(false),
+        };
+    }
+
     const getReference = (): JSX.Element => {
-        const child = React.Children.only(children) as React.ReactElement<any>;
-        return cloneElement(child, {
-            ...{ [TRIGGER_TO_HANDLER_MAP[trigger]]: toggle(true) },
-            ref: reference,
-            className: referenceWrapperClasses,
-            'aria-controls': dropdownId,
-            'aria-expanded': visible,
-            'aria-haspopup': true,
-        });
+        return (
+            <button
+                className={referenceWrapperClasses}
+                aria-controls={dropdownId}
+                aria-expanded={visible}
+                aria-haspopup={true}
+                {...referenceProps}
+            >
+                {children}
+                {iconProps && (
+                    <Icon classNames={iconClassNames} {...iconProps} />
+                )}
+            </button>
+        );
     };
 
     const getDropdown = (): JSX.Element =>
@@ -121,7 +174,12 @@ export const Dropdown: FC<DropdownProps> = ({
         );
 
     return (
-        <div className={mainWrapperClasses} style={style}>
+        <div
+            className={mainWrapperClasses}
+            style={style}
+            ref={reference}
+            {...containerProps}
+        >
             {getReference()}
             {getDropdown()}
         </div>
