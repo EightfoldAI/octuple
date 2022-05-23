@@ -1,0 +1,149 @@
+.pagination {
+    --pager-button-active-foreground-color: var(--text-inverse-color);
+    --pager-button-active-outline-color: var(--primary-color-70);
+    --pager-button-active-background-color: var(--primary-color-70);
+    padding: $space-xxs 0;
+
+    span,
+    .pagination-button {
+        display: inline-block;
+        vertical-align: top;
+        box-sizing: border-box;
+    }
+
+    .pagination-button {
+        &:active,
+        &.active {
+            color: var(--pager-button-active-foreground-color);
+            background-color: var(--pager-button-active-background-color);
+            border-color: var(--pager-button-active-outline-color);
+
+            svg {
+                color: var(--pager-button-active-foreground-color);
+            }
+        }
+    }
+
+    .sizes {
+        display: none;
+        margin: 0 $space-xs;
+    }
+
+    .jump {
+        box-sizing: border-box;
+        display: none;
+        font-size: $text-font-size-2;
+        height: 28px;
+        line-height: $text-line-height-4;
+        margin: 0 0 0 $space-xs;
+        vertical-align: top;
+
+        .editor {
+            box-sizing: border-box;
+            height: 28px;
+            min-width: unset;
+            margin: 0 0 0 $space-xs;
+            padding-left: $space-xxs;
+            width: 72px;
+        }
+    }
+
+    .total {
+        box-sizing: border-box;
+        display: none;
+        font-size: $text-font-size-2;
+        height: 28px;
+        line-height: $text-line-height-4;
+        margin: 0 $space-xs 0 0;
+        min-width: 28px;
+        vertical-align: top;
+    }
+
+    .pager {
+        user-select: none;
+        list-style: none;
+        display: inline-block;
+        vertical-align: top;
+        padding: 0;
+        margin: 0;
+
+        li {
+            padding: 0 $space-xxxs;
+            vertical-align: top;
+            display: inline-block;
+            box-sizing: border-box;
+            text-align: center;
+            margin: 0;
+        }
+    }
+
+    &.dots {
+        span {
+            vertical-align: middle;
+        }
+
+        .pagination-button {
+            border-radius: 100%;
+            height: 24px;
+            min-height: 24px;
+            min-width: 24px;
+            padding: 0;
+            width: 24px;
+            vertical-align: middle;
+
+            span,
+            svg {
+                font-size: $text-font-size-2;
+                line-height: 24px;
+            }
+
+            svg {
+                margin-top: $space-xxs;
+            }
+        }
+
+        .jump {
+            height: 24px;
+            line-height: 24px;
+            vertical-align: middle;
+
+            .editor {
+                font-size: $text-font-size-2;
+                height: 24px;
+                width: 56px;
+            }
+        }
+
+        .pager {
+            vertical-align: middle;
+
+            li {
+                vertical-align: middle;
+            }
+        }
+
+        .total {
+            height: 24px;
+            line-height: 24px;
+            margin: 0 $space-xs 0 0;
+            min-width: 24px;
+            vertical-align: middle;
+        }
+    }
+}
+
+@media (min-width: $small-screen-size) {
+    .pagination {
+        .jump {
+            display: inline-flex;
+        }
+
+        .sizes {
+            display: inline-block;
+        }
+
+        .total {
+            display: inline-block;
+        }
+    }
+}

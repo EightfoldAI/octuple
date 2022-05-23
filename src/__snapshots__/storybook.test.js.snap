@@ -115,13 +115,13 @@ Array [
   <button
     aria-disabled={false}
     aria-label="Default Button"
-    className="button buttonDefault buttonPadding1"
+    className="button buttonDefault buttonSize1"
     defaultChecked={false}
     disabled={false}
     onClick={[Function]}
   >
     <span
-      className="button1"
+      className="buttonText1"
     >
       Default Button
     </span>
@@ -134,13 +134,13 @@ Array [
   <button
     aria-disabled={false}
     aria-label="Default Button"
-    className="button buttonDefault buttonPadding1 pillShape dropShadow"
+    className="button buttonDefault buttonSize1 pillShape dropShadow"
     defaultChecked={false}
     disabled={false}
     onClick={[Function]}
   >
     <span
-      className="button1"
+      className="buttonText1"
     >
       Default Button
     </span>
@@ -153,7 +153,7 @@ Array [
   <button
     aria-disabled={false}
     aria-label="Default Button"
-    className="button buttonDefault buttonPadding1 iconLeft"
+    className="button buttonDefault buttonSize1 iconLeft"
     defaultChecked={false}
     disabled={false}
     onClick={[Function]}
@@ -192,7 +192,7 @@ Array [
   <button
     aria-disabled={false}
     aria-label="Default Button"
-    className="button buttonDefault buttonPadding1 iconLeft"
+    className="button buttonDefault buttonSize1 iconLeft"
     defaultChecked={false}
     disabled={false}
     onClick={[Function]}
@@ -224,7 +224,7 @@ Array [
         </svg>
       </span>
       <span
-        className="button1"
+        className="buttonText1"
       >
         Default Button
       </span>
@@ -238,13 +238,13 @@ Array [
   <button
     aria-disabled={false}
     aria-label="Default Button"
-    className="button buttonDefault buttonDisruptive buttonPadding1"
+    className="button buttonDefault buttonDisruptive buttonSize1"
     defaultChecked={false}
     disabled={false}
     onClick={[Function]}
   >
     <span
-      className="button1"
+      className="buttonText1"
     >
       Default Button
     </span>
@@ -263,13 +263,13 @@ Array [
   <button
     aria-disabled={false}
     aria-label="Neutral Button"
-    className="button buttonNeutral buttonPadding1"
+    className="button buttonNeutral buttonSize1"
     defaultChecked={false}
     disabled={false}
     onClick={[Function]}
   >
     <span
-      className="button1"
+      className="buttonText1"
     >
       Neutral Button
     </span>
@@ -282,13 +282,13 @@ Array [
   <button
     aria-disabled={false}
     aria-label="Neutral Button"
-    className="button buttonNeutral buttonPadding1 pillShape dropShadow"
+    className="button buttonNeutral buttonSize1 pillShape dropShadow"
     defaultChecked={false}
     disabled={false}
     onClick={[Function]}
   >
     <span
-      className="button1"
+      className="buttonText1"
     >
       Neutral Button
     </span>
@@ -301,7 +301,7 @@ Array [
   <button
     aria-disabled={false}
     aria-label="Neutral Button"
-    className="button buttonNeutral buttonPadding1 iconLeft"
+    className="button buttonNeutral buttonSize1 iconLeft"
     defaultChecked={false}
     disabled={false}
     onClick={[Function]}
@@ -340,7 +340,7 @@ Array [
   <button
     aria-disabled={false}
     aria-label="Neutral Button"
-    className="button buttonNeutral buttonPadding1 iconLeft"
+    className="button buttonNeutral buttonSize1 iconLeft"
     defaultChecked={false}
     disabled={false}
     onClick={[Function]}
@@ -372,7 +372,7 @@ Array [
         </svg>
       </span>
       <span
-        className="button1"
+        className="buttonText1"
       >
         Neutral Button
       </span>
@@ -491,13 +491,13 @@ Array [
   <button
     aria-disabled={false}
     aria-label="Primary Button"
-    className="button buttonPrimary buttonPadding1"
+    className="button buttonPrimary buttonSize1"
     defaultChecked={false}
     disabled={false}
     onClick={[Function]}
   >
     <span
-      className="button1"
+      className="buttonText1"
     >
       Primary Button
     </span>
@@ -510,13 +510,13 @@ Array [
   <button
     aria-disabled={false}
     aria-label="Primary Button"
-    className="button buttonPrimary buttonPadding1 pillShape"
+    className="button buttonPrimary buttonSize1 pillShape"
     defaultChecked={false}
     disabled={false}
     onClick={[Function]}
   >
     <span
-      className="button1"
+      className="buttonText1"
     >
       Primary Button
     </span>
@@ -529,7 +529,7 @@ Array [
   <button
     aria-disabled={false}
     aria-label="Primary Button"
-    className="button buttonPrimary buttonPadding1 iconLeft"
+    className="button buttonPrimary buttonSize1 iconLeft"
     defaultChecked={false}
     disabled={false}
     onClick={[Function]}
@@ -568,7 +568,7 @@ Array [
   <button
     aria-disabled={false}
     aria-label="Primary Button"
-    className="button buttonPrimary buttonPadding1 iconLeft"
+    className="button buttonPrimary buttonSize1 iconLeft"
     defaultChecked={false}
     disabled={false}
     onClick={[Function]}
@@ -600,7 +600,7 @@ Array [
         </svg>
       </span>
       <span
-        className="button1"
+        className="buttonText1"
       >
         Primary Button
       </span>
@@ -614,7 +614,7 @@ Array [
   <button
     aria-disabled={false}
     aria-label="Primary Button"
-    className="button buttonPrimary buttonPadding1 iconRight"
+    className="button buttonPrimary buttonSize1 iconRight"
     defaultChecked={false}
     disabled={false}
     onClick={[Function]}
@@ -646,7 +646,7 @@ Array [
         </svg>
       </span>
       <span
-        className="button1"
+        className="buttonText1"
       >
         Primary Button
       </span>
@@ -660,13 +660,13 @@ Array [
   <button
     aria-disabled={false}
     aria-label="Primary Button"
-    className="button buttonPrimary buttonPrimaryDisruptive buttonPadding1"
+    className="button buttonPrimary buttonPrimaryDisruptive buttonSize1"
     defaultChecked={false}
     disabled={false}
     onClick={[Function]}
   >
     <span
-      className="button1"
+      className="buttonText1"
     >
       Primary Button
     </span>
@@ -685,13 +685,13 @@ Array [
   <button
     aria-disabled={false}
     aria-label="Secondary Button"
-    className="button buttonSecondary buttonPadding1"
+    className="button buttonSecondary buttonSize1"
     defaultChecked={false}
     disabled={false}
     onClick={[Function]}
   >
     <span
-      className="button1"
+      className="buttonText1"
     >
       Secondary Button
     </span>
@@ -704,13 +704,13 @@ Array [
   <button
     aria-disabled={false}
     aria-label="Secondary Button"
-    className="button buttonSecondary buttonPadding1 pillShape"
+    className="button buttonSecondary buttonSize1 pillShape"
     defaultChecked={false}
     disabled={false}
     onClick={[Function]}
   >
     <span
-      className="button1"
+      className="buttonText1"
     >
       Secondary Button
     </span>
@@ -723,7 +723,7 @@ Array [
   <button
     aria-disabled={false}
     aria-label="Secondary Button"
-    className="button buttonSecondary buttonPadding1 iconLeft"
+    className="button buttonSecondary buttonSize1 iconLeft"
     defaultChecked={false}
     disabled={false}
     onClick={[Function]}
@@ -762,7 +762,7 @@ Array [
   <button
     aria-disabled={false}
     aria-label="Secondary Button"
-    className="button buttonSecondary buttonPadding1 iconLeft"
+    className="button buttonSecondary buttonSize1 iconLeft"
     defaultChecked={false}
     disabled={false}
     onClick={[Function]}
@@ -794,7 +794,7 @@ Array [
         </svg>
       </span>
       <span
-        className="button1"
+        className="buttonText1"
       >
         Secondary Button
       </span>
@@ -808,13 +808,13 @@ Array [
   <button
     aria-disabled={false}
     aria-label="Secondary Button"
-    className="button buttonSecondary buttonSecondaryDisruptive buttonPadding1"
+    className="button buttonSecondary buttonSecondaryDisruptive buttonSize1"
     defaultChecked={false}
     disabled={false}
     onClick={[Function]}
   >
     <span
-      className="button1"
+      className="buttonText1"
     >
       Secondary Button
     </span>
@@ -936,7 +936,7 @@ Array [
       aria-disabled={false}
       aria-label="Primary Button"
       aria-pressed={false}
-      className="button buttonPrimary buttonPadding2 iconLeft"
+      className="button buttonPrimary buttonSize2 iconLeft"
       defaultChecked={false}
       disabled={false}
       onClick={[Function]}
@@ -968,7 +968,7 @@ Array [
           </svg>
         </span>
         <span
-          className="button2"
+          className="buttonText2"
         >
           Primary Button
         </span>
@@ -987,7 +987,7 @@ Array [
       aria-disabled={false}
       aria-label="Secondary Button"
       aria-pressed={false}
-      className="button buttonSecondary buttonPadding2 iconLeft"
+      className="button buttonSecondary buttonSize2 iconLeft"
       defaultChecked={false}
       disabled={false}
       onClick={[Function]}
@@ -1019,7 +1019,7 @@ Array [
           </svg>
         </span>
         <span
-          className="button2"
+          className="buttonText2"
         >
           Secondary Button
         </span>
@@ -1032,7 +1032,7 @@ Array [
       aria-disabled={false}
       aria-label="Default Button"
       aria-pressed={false}
-      className="button buttonDefault buttonPadding2 iconLeft"
+      className="button buttonDefault buttonSize2 iconLeft"
       defaultChecked={false}
       disabled={false}
       onClick={[Function]}
@@ -1064,7 +1064,7 @@ Array [
           </svg>
         </span>
         <span
-          className="button2"
+          className="buttonText2"
         >
           Default Button
         </span>
@@ -1077,7 +1077,7 @@ Array [
       aria-disabled={false}
       aria-label="Neutral Button"
       aria-pressed={false}
-      className="button buttonNeutral buttonPadding2 iconLeft"
+      className="button buttonNeutral buttonSize2 iconLeft"
       defaultChecked={false}
       disabled={false}
       onClick={[Function]}
@@ -1109,7 +1109,7 @@ Array [
           </svg>
         </span>
         <span
-          className="button2"
+          className="buttonText2"
         >
           Neutral Button
         </span>
@@ -3316,13 +3316,13 @@ exports[`Storyshots ConfigProvider Theming 1`] = `
     <button
       aria-disabled={false}
       aria-label="Primary Button"
-      className="button buttonPrimary buttonPadding1"
+      className="button buttonPrimary buttonSize1"
       defaultChecked={false}
       disabled={false}
       onClick={[Function]}
     >
       <span
-        className="button1"
+        className="buttonText1"
       >
         Primary Button
       </span>
@@ -3330,7 +3330,7 @@ exports[`Storyshots ConfigProvider Theming 1`] = `
     <button
       aria-disabled={false}
       aria-label="Primary Button"
-      className="button buttonPrimary buttonPadding1 iconLeft"
+      className="button buttonPrimary buttonSize1 iconLeft"
       defaultChecked={false}
       disabled={false}
       onClick={[Function]}
@@ -3364,7 +3364,7 @@ exports[`Storyshots ConfigProvider Theming 1`] = `
     <button
       aria-disabled={false}
       aria-label="Primary Button"
-      className="button buttonPrimary buttonPadding1 iconLeft"
+      className="button buttonPrimary buttonSize1 iconLeft"
       defaultChecked={false}
       disabled={false}
       onClick={[Function]}
@@ -3396,7 +3396,7 @@ exports[`Storyshots ConfigProvider Theming 1`] = `
           </svg>
         </span>
         <span
-          className="button1"
+          className="buttonText1"
         >
           Primary Button
         </span>
@@ -3416,13 +3416,13 @@ exports[`Storyshots ConfigProvider Theming 1`] = `
     <button
       aria-disabled={false}
       aria-label="Secondary Button"
-      className="button buttonSecondary buttonPadding1"
+      className="button buttonSecondary buttonSize1"
       defaultChecked={false}
       disabled={false}
       onClick={[Function]}
     >
       <span
-        className="button1"
+        className="buttonText1"
       >
         Secondary Button
       </span>
@@ -3430,7 +3430,7 @@ exports[`Storyshots ConfigProvider Theming 1`] = `
     <button
       aria-disabled={false}
       aria-label="Secondary Button"
-      className="button buttonSecondary buttonPadding1 iconLeft"
+      className="button buttonSecondary buttonSize1 iconLeft"
       defaultChecked={false}
       disabled={false}
       onClick={[Function]}
@@ -3464,7 +3464,7 @@ exports[`Storyshots ConfigProvider Theming 1`] = `
     <button
       aria-disabled={false}
       aria-label="Secondary Button"
-      className="button buttonSecondary buttonPadding1 iconLeft"
+      className="button buttonSecondary buttonSize1 iconLeft"
       defaultChecked={false}
       disabled={false}
       onClick={[Function]}
@@ -3496,7 +3496,7 @@ exports[`Storyshots ConfigProvider Theming 1`] = `
           </svg>
         </span>
         <span
-          className="button1"
+          className="buttonText1"
         >
           Secondary Button
         </span>
@@ -3516,13 +3516,13 @@ exports[`Storyshots ConfigProvider Theming 1`] = `
     <button
       aria-disabled={false}
       aria-label="Default Button"
-      className="button buttonDefault buttonPadding1"
+      className="button buttonDefault buttonSize1"
       defaultChecked={false}
       disabled={false}
       onClick={[Function]}
     >
       <span
-        className="button1"
+        className="buttonText1"
       >
         Default Button
       </span>
@@ -3530,7 +3530,7 @@ exports[`Storyshots ConfigProvider Theming 1`] = `
     <button
       aria-disabled={false}
       aria-label="Default Button"
-      className="button buttonDefault buttonPadding1 iconLeft"
+      className="button buttonDefault buttonSize1 iconLeft"
       defaultChecked={false}
       disabled={false}
       onClick={[Function]}
@@ -3564,7 +3564,7 @@ exports[`Storyshots ConfigProvider Theming 1`] = `
     <button
       aria-disabled={false}
       aria-label="Default Button"
-      className="button buttonDefault buttonPadding1 iconLeft"
+      className="button buttonDefault buttonSize1 iconLeft"
       defaultChecked={false}
       disabled={false}
       onClick={[Function]}
@@ -3596,7 +3596,7 @@ exports[`Storyshots ConfigProvider Theming 1`] = `
           </svg>
         </span>
         <span
-          className="button1"
+          className="buttonText1"
         >
           Default Button
         </span>
@@ -3988,6 +3988,50 @@ exports[`Storyshots ConfigProvider Theming 1`] = `
       5
     </p>
   </div>
+  <br />
+  <br />
+  <span
+    aria-hidden={false}
+    className="spinner iconWrapper"
+    role="presentation"
+  >
+    <svg
+      role="presentation"
+      style={
+        Object {
+          "height": "48px",
+          "width": "48px",
+        }
+      }
+      viewBox="0 0 24 24"
+    >
+      <style>
+        @keyframes spin { to { transform: rotate(360deg) } }
+      </style>
+      <g
+        style={
+          Object {
+            "animation": "spin linear 0.8s infinite",
+            "transformOrigin": "center",
+          }
+        }
+      >
+        <path
+          d="M12,4V2A10,10 0 0,0 2,12H4A8,8 0 0,1 12,4Z"
+          style={
+            Object {
+              "fill": "currentColor",
+            }
+          }
+        />
+        <rect
+          fill="transparent"
+          height="24"
+          width="24"
+        />
+      </g>
+    </svg>
+  </span>
 </div>
 `;
 
@@ -4880,9 +4924,10 @@ Array [
       >
         <button
           aria-disabled={false}
-          className="labelIconButton button buttonDefault buttonPadding3 iconLeft"
+          className="labelIconButton button buttonDefault buttonSize3 iconLeft"
           defaultChecked={false}
           disabled={false}
+          onClick={[Function]}
         >
           <span
             aria-hidden={false}
@@ -4964,9 +5009,10 @@ Array [
       >
         <button
           aria-disabled={false}
-          className="labelIconButton button buttonDefault buttonPadding3 iconLeft"
+          className="labelIconButton button buttonDefault buttonSize3 iconLeft"
           defaultChecked={false}
           disabled={false}
+          onClick={[Function]}
         >
           <span
             aria-hidden={false}
@@ -5048,9 +5094,10 @@ Array [
       >
         <button
           aria-disabled={false}
-          className="labelIconButton button buttonDefault buttonPadding3 iconLeft"
+          className="labelIconButton button buttonDefault buttonSize3 iconLeft"
           defaultChecked={false}
           disabled={false}
+          onClick={[Function]}
         >
           <span
             aria-hidden={false}
@@ -6087,6 +6134,1179 @@ Array [
 ]
 `;
 
+exports[`Storyshots Pagination Paging 1`] = `
+Array [
+  <h1>
+    Basic
+  </h1>,
+  <div>
+    <p>
+      When you have few pages
+    </p>
+    <div
+      className="pagination"
+    >
+      <span />
+      <button
+        aria-disabled={false}
+        aria-label="Previous"
+        className="paginationButton button buttonDefault buttonSize3 iconLeft disabled"
+        defaultChecked={false}
+        disabled={true}
+        onClick={[Function]}
+      >
+        <span
+          aria-hidden={false}
+          className="icon iconWrapper"
+          role="presentation"
+        >
+          <svg
+            role="presentation"
+            style={
+              Object {
+                "height": "16px",
+                "width": "16px",
+              }
+            }
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z"
+              style={
+                Object {
+                  "fill": "currentColor",
+                }
+              }
+            />
+          </svg>
+        </span>
+      </button>
+      <ul
+        className="pager"
+      >
+        <li>
+          <button
+            aria-checked={true}
+            aria-disabled={false}
+            aria-pressed={true}
+            className="paginationButton active button buttonDefault buttonSize3"
+            defaultChecked={true}
+            disabled={false}
+            onClick={[Function]}
+          >
+            <span
+              className="buttonText3"
+            >
+              1
+            </span>
+          </button>
+        </li>
+        <li>
+          <button
+            aria-checked={false}
+            aria-disabled={false}
+            aria-pressed={false}
+            className="paginationButton button buttonDefault buttonSize3"
+            defaultChecked={false}
+            disabled={false}
+            onClick={[Function]}
+          >
+            <span
+              className="buttonText3"
+            >
+              0
+            </span>
+          </button>
+        </li>
+        <li>
+          <button
+            aria-checked={false}
+            aria-disabled={false}
+            aria-pressed={false}
+            className="paginationButton button buttonDefault buttonSize3"
+            defaultChecked={false}
+            disabled={false}
+            onClick={[Function]}
+          >
+            <span
+              className="buttonText3"
+            >
+              5
+            </span>
+          </button>
+        </li>
+      </ul>
+      <button
+        aria-disabled={false}
+        aria-label="Next"
+        className="paginationButton button buttonDefault buttonSize3 iconLeft"
+        defaultChecked={false}
+        disabled={false}
+        onClick={[Function]}
+      >
+        <span
+          aria-hidden={false}
+          className="icon iconWrapper"
+          role="presentation"
+        >
+          <svg
+            role="presentation"
+            style={
+              Object {
+                "height": "16px",
+                "width": "16px",
+              }
+            }
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
+              style={
+                Object {
+                  "fill": "currentColor",
+                }
+              }
+            />
+          </svg>
+        </span>
+      </button>
+    </div>
+  </div>,
+  <div>
+    <p>
+      When you have more than 10 pages
+    </p>
+    <div
+      className="pagination"
+    >
+      <span />
+      <button
+        aria-disabled={false}
+        aria-label="Previous"
+        className="paginationButton button buttonDefault buttonSize3 iconLeft disabled"
+        defaultChecked={false}
+        disabled={true}
+        onClick={[Function]}
+      >
+        <span
+          aria-hidden={false}
+          className="icon iconWrapper"
+          role="presentation"
+        >
+          <svg
+            role="presentation"
+            style={
+              Object {
+                "height": "16px",
+                "width": "16px",
+              }
+            }
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z"
+              style={
+                Object {
+                  "fill": "currentColor",
+                }
+              }
+            />
+          </svg>
+        </span>
+      </button>
+      <ul
+        className="pager"
+      >
+        <li>
+          <button
+            aria-checked={true}
+            aria-disabled={false}
+            aria-pressed={true}
+            className="paginationButton active button buttonDefault buttonSize3"
+            defaultChecked={true}
+            disabled={false}
+            onClick={[Function]}
+          >
+            <span
+              className="buttonText3"
+            >
+              1
+            </span>
+          </button>
+        </li>
+        <li>
+          <button
+            aria-checked={false}
+            aria-disabled={false}
+            aria-pressed={false}
+            className="paginationButton button buttonDefault buttonSize3"
+            defaultChecked={false}
+            disabled={false}
+            onClick={[Function]}
+          >
+            <span
+              className="buttonText3"
+            >
+              0
+            </span>
+          </button>
+        </li>
+        <li>
+          <button
+            aria-disabled={false}
+            aria-label="Next 5"
+            className="paginationButton quicknext button buttonDefault buttonSize3 iconLeft"
+            defaultChecked={false}
+            disabled={false}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onMouseEnter={[Function]}
+            onMouseLeave={[Function]}
+          >
+            <span
+              aria-hidden={false}
+              className="icon iconWrapper"
+              role="presentation"
+            >
+              <svg
+                role="presentation"
+                style={
+                  Object {
+                    "height": "16px",
+                    "width": "16px",
+                  }
+                }
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M16,12A2,2 0 0,1 18,10A2,2 0 0,1 20,12A2,2 0 0,1 18,14A2,2 0 0,1 16,12M10,12A2,2 0 0,1 12,10A2,2 0 0,1 14,12A2,2 0 0,1 12,14A2,2 0 0,1 10,12M4,12A2,2 0 0,1 6,10A2,2 0 0,1 8,12A2,2 0 0,1 6,14A2,2 0 0,1 4,12Z"
+                  style={
+                    Object {
+                      "fill": "currentColor",
+                    }
+                  }
+                />
+              </svg>
+            </span>
+          </button>
+        </li>
+        <li>
+          <button
+            aria-checked={false}
+            aria-disabled={false}
+            aria-pressed={false}
+            className="paginationButton button buttonDefault buttonSize3"
+            defaultChecked={false}
+            disabled={false}
+            onClick={[Function]}
+          >
+            <span
+              className="buttonText3"
+            >
+              100
+            </span>
+          </button>
+        </li>
+      </ul>
+      <button
+        aria-disabled={false}
+        aria-label="Next"
+        className="paginationButton button buttonDefault buttonSize3 iconLeft"
+        defaultChecked={false}
+        disabled={false}
+        onClick={[Function]}
+      >
+        <span
+          aria-hidden={false}
+          className="icon iconWrapper"
+          role="presentation"
+        >
+          <svg
+            role="presentation"
+            style={
+              Object {
+                "height": "16px",
+                "width": "16px",
+              }
+            }
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
+              style={
+                Object {
+                  "fill": "currentColor",
+                }
+              }
+            />
+          </svg>
+        </span>
+      </button>
+    </div>
+  </div>,
+  <h1>
+    Dots
+  </h1>,
+  <div>
+    <div
+      className="pagination dots"
+    >
+      <span />
+      <button
+        aria-disabled={false}
+        aria-label="Previous"
+        className="paginationButton button buttonDefault buttonSize3 iconLeft disabled"
+        defaultChecked={false}
+        disabled={true}
+        onClick={[Function]}
+      >
+        <span
+          aria-hidden={false}
+          className="icon iconWrapper"
+          role="presentation"
+        >
+          <svg
+            role="presentation"
+            style={
+              Object {
+                "height": "16px",
+                "width": "16px",
+              }
+            }
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z"
+              style={
+                Object {
+                  "fill": "currentColor",
+                }
+              }
+            />
+          </svg>
+        </span>
+      </button>
+      <ul
+        className="pager"
+      >
+        <li>
+          <button
+            aria-checked={true}
+            aria-disabled={false}
+            aria-pressed={true}
+            className="paginationButton active button buttonDefault buttonSize3"
+            defaultChecked={true}
+            disabled={false}
+            onClick={[Function]}
+          >
+            <span
+              className="buttonText3"
+            >
+              1
+            </span>
+          </button>
+        </li>
+        <li>
+          <button
+            aria-checked={false}
+            aria-disabled={false}
+            aria-pressed={false}
+            className="paginationButton button buttonDefault buttonSize3"
+            defaultChecked={false}
+            disabled={false}
+            onClick={[Function]}
+          >
+            <span
+              className="buttonText3"
+            >
+              0
+            </span>
+          </button>
+        </li>
+        <li>
+          <button
+            aria-checked={false}
+            aria-disabled={false}
+            aria-pressed={false}
+            className="paginationButton button buttonDefault buttonSize3"
+            defaultChecked={false}
+            disabled={false}
+            onClick={[Function]}
+          >
+            <span
+              className="buttonText3"
+            >
+              5
+            </span>
+          </button>
+        </li>
+      </ul>
+      <button
+        aria-disabled={false}
+        aria-label="Next"
+        className="paginationButton button buttonDefault buttonSize3 iconLeft"
+        defaultChecked={false}
+        disabled={false}
+        onClick={[Function]}
+      >
+        <span
+          aria-hidden={false}
+          className="icon iconWrapper"
+          role="presentation"
+        >
+          <svg
+            role="presentation"
+            style={
+              Object {
+                "height": "16px",
+                "width": "16px",
+              }
+            }
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
+              style={
+                Object {
+                  "fill": "currentColor",
+                }
+              }
+            />
+          </svg>
+        </span>
+      </button>
+    </div>
+  </div>,
+  <h1>
+    Total Item Count
+  </h1>,
+  <div>
+    <div
+      className="pagination"
+    >
+      <span
+        className="total"
+      >
+        1000 Total
+      </span>
+      <button
+        aria-disabled={false}
+        aria-label="Previous"
+        className="paginationButton button buttonDefault buttonSize3 iconLeft disabled"
+        defaultChecked={false}
+        disabled={true}
+        onClick={[Function]}
+      >
+        <span
+          aria-hidden={false}
+          className="icon iconWrapper"
+          role="presentation"
+        >
+          <svg
+            role="presentation"
+            style={
+              Object {
+                "height": "16px",
+                "width": "16px",
+              }
+            }
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z"
+              style={
+                Object {
+                  "fill": "currentColor",
+                }
+              }
+            />
+          </svg>
+        </span>
+      </button>
+      <ul
+        className="pager"
+      >
+        <li>
+          <button
+            aria-checked={true}
+            aria-disabled={false}
+            aria-pressed={true}
+            className="paginationButton active button buttonDefault buttonSize3"
+            defaultChecked={true}
+            disabled={false}
+            onClick={[Function]}
+          >
+            <span
+              className="buttonText3"
+            >
+              1
+            </span>
+          </button>
+        </li>
+        <li>
+          <button
+            aria-checked={false}
+            aria-disabled={false}
+            aria-pressed={false}
+            className="paginationButton button buttonDefault buttonSize3"
+            defaultChecked={false}
+            disabled={false}
+            onClick={[Function]}
+          >
+            <span
+              className="buttonText3"
+            >
+              0
+            </span>
+          </button>
+        </li>
+        <li>
+          <button
+            aria-disabled={false}
+            aria-label="Next 5"
+            className="paginationButton quicknext button buttonDefault buttonSize3 iconLeft"
+            defaultChecked={false}
+            disabled={false}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onMouseEnter={[Function]}
+            onMouseLeave={[Function]}
+          >
+            <span
+              aria-hidden={false}
+              className="icon iconWrapper"
+              role="presentation"
+            >
+              <svg
+                role="presentation"
+                style={
+                  Object {
+                    "height": "16px",
+                    "width": "16px",
+                  }
+                }
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M16,12A2,2 0 0,1 18,10A2,2 0 0,1 20,12A2,2 0 0,1 18,14A2,2 0 0,1 16,12M10,12A2,2 0 0,1 12,10A2,2 0 0,1 14,12A2,2 0 0,1 12,14A2,2 0 0,1 10,12M4,12A2,2 0 0,1 6,10A2,2 0 0,1 8,12A2,2 0 0,1 6,14A2,2 0 0,1 4,12Z"
+                  style={
+                    Object {
+                      "fill": "currentColor",
+                    }
+                  }
+                />
+              </svg>
+            </span>
+          </button>
+        </li>
+        <li>
+          <button
+            aria-checked={false}
+            aria-disabled={false}
+            aria-pressed={false}
+            className="paginationButton button buttonDefault buttonSize3"
+            defaultChecked={false}
+            disabled={false}
+            onClick={[Function]}
+          >
+            <span
+              className="buttonText3"
+            >
+              100
+            </span>
+          </button>
+        </li>
+      </ul>
+      <button
+        aria-disabled={false}
+        aria-label="Next"
+        className="paginationButton button buttonDefault buttonSize3 iconLeft"
+        defaultChecked={false}
+        disabled={false}
+        onClick={[Function]}
+      >
+        <span
+          aria-hidden={false}
+          className="icon iconWrapper"
+          role="presentation"
+        >
+          <svg
+            role="presentation"
+            style={
+              Object {
+                "height": "16px",
+                "width": "16px",
+              }
+            }
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
+              style={
+                Object {
+                  "fill": "currentColor",
+                }
+              }
+            />
+          </svg>
+        </span>
+      </button>
+    </div>
+  </div>,
+  <h1>
+    Change Page Size
+  </h1>,
+  <div>
+    <div
+      className="pagination"
+    >
+      <span
+        className="sizes"
+      >
+        <div
+          className="mainWrapper"
+        >
+          <button
+            aria-controls="dropdown-32"
+            aria-disabled={false}
+            aria-expanded={false}
+            aria-haspopup={true}
+            aria-label="Selected page size"
+            className="button buttonDefault buttonSize3 iconLeft"
+            defaultChecked={false}
+            disabled={false}
+            onClick={[Function]}
+          >
+            <span>
+              <span
+                aria-hidden={false}
+                className="icon iconWrapper"
+                role="presentation"
+              >
+                <svg
+                  role="presentation"
+                  style={
+                    Object {
+                      "height": "16px",
+                      "width": "16px",
+                    }
+                  }
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M7.41,15.41L12,10.83L16.59,15.41L18,14L12,8L6,14L7.41,15.41Z"
+                    style={
+                      Object {
+                        "fill": "currentColor",
+                      }
+                    }
+                  />
+                </svg>
+              </span>
+              <span
+                className="buttonText3"
+              >
+                page / 100
+              </span>
+            </span>
+          </button>
+        </div>
+      </span>
+      <span />
+      <button
+        aria-disabled={false}
+        aria-label="Previous"
+        className="paginationButton button buttonDefault buttonSize3 iconLeft disabled"
+        defaultChecked={false}
+        disabled={true}
+        onClick={[Function]}
+      >
+        <span
+          aria-hidden={false}
+          className="icon iconWrapper"
+          role="presentation"
+        >
+          <svg
+            role="presentation"
+            style={
+              Object {
+                "height": "16px",
+                "width": "16px",
+              }
+            }
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z"
+              style={
+                Object {
+                  "fill": "currentColor",
+                }
+              }
+            />
+          </svg>
+        </span>
+      </button>
+      <ul
+        className="pager"
+      >
+        <li>
+          <button
+            aria-checked={true}
+            aria-disabled={false}
+            aria-pressed={true}
+            className="paginationButton active button buttonDefault buttonSize3"
+            defaultChecked={true}
+            disabled={false}
+            onClick={[Function]}
+          >
+            <span
+              className="buttonText3"
+            >
+              1
+            </span>
+          </button>
+        </li>
+        <li>
+          <button
+            aria-checked={false}
+            aria-disabled={false}
+            aria-pressed={false}
+            className="paginationButton button buttonDefault buttonSize3"
+            defaultChecked={false}
+            disabled={false}
+            onClick={[Function]}
+          >
+            <span
+              className="buttonText3"
+            >
+              0
+            </span>
+          </button>
+        </li>
+        <li>
+          <button
+            aria-checked={false}
+            aria-disabled={false}
+            aria-pressed={false}
+            className="paginationButton button buttonDefault buttonSize3"
+            defaultChecked={false}
+            disabled={false}
+            onClick={[Function]}
+          >
+            <span
+              className="buttonText3"
+            >
+              10
+            </span>
+          </button>
+        </li>
+      </ul>
+      <button
+        aria-disabled={false}
+        aria-label="Next"
+        className="paginationButton button buttonDefault buttonSize3 iconLeft"
+        defaultChecked={false}
+        disabled={false}
+        onClick={[Function]}
+      >
+        <span
+          aria-hidden={false}
+          className="icon iconWrapper"
+          role="presentation"
+        >
+          <svg
+            role="presentation"
+            style={
+              Object {
+                "height": "16px",
+                "width": "16px",
+              }
+            }
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
+              style={
+                Object {
+                  "fill": "currentColor",
+                }
+              }
+            />
+          </svg>
+        </span>
+      </button>
+    </div>
+  </div>,
+  <h1>
+    Jump To
+  </h1>,
+  <div>
+    <div
+      className="pagination"
+    >
+      <span />
+      <button
+        aria-disabled={false}
+        aria-label="Previous"
+        className="paginationButton button buttonDefault buttonSize3 iconLeft"
+        defaultChecked={false}
+        disabled={false}
+        onClick={[Function]}
+      >
+        <span
+          aria-hidden={false}
+          className="icon iconWrapper"
+          role="presentation"
+        >
+          <svg
+            role="presentation"
+            style={
+              Object {
+                "height": "16px",
+                "width": "16px",
+              }
+            }
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z"
+              style={
+                Object {
+                  "fill": "currentColor",
+                }
+              }
+            />
+          </svg>
+        </span>
+      </button>
+      <ul
+        className="pager"
+      >
+        <li>
+          <button
+            aria-checked={false}
+            aria-disabled={false}
+            aria-pressed={false}
+            className="paginationButton button buttonDefault buttonSize3"
+            defaultChecked={false}
+            disabled={false}
+            onClick={[Function]}
+          >
+            <span
+              className="buttonText3"
+            >
+              1
+            </span>
+          </button>
+        </li>
+        <li>
+          <button
+            aria-checked={false}
+            aria-disabled={false}
+            aria-pressed={false}
+            className="paginationButton button buttonDefault buttonSize3"
+            defaultChecked={false}
+            disabled={false}
+            onClick={[Function]}
+          >
+            <span
+              className="buttonText3"
+            >
+              0
+            </span>
+          </button>
+        </li>
+        <li>
+          <button
+            aria-checked={false}
+            aria-disabled={false}
+            aria-pressed={false}
+            className="paginationButton button buttonDefault buttonSize3"
+            defaultChecked={false}
+            disabled={false}
+            onClick={[Function]}
+          >
+            <span
+              className="buttonText3"
+            >
+              10
+            </span>
+          </button>
+        </li>
+      </ul>
+      <button
+        aria-disabled={false}
+        aria-label="Next"
+        className="paginationButton button buttonDefault buttonSize3 iconLeft"
+        defaultChecked={false}
+        disabled={false}
+        onClick={[Function]}
+      >
+        <span
+          aria-hidden={false}
+          className="icon iconWrapper"
+          role="presentation"
+        >
+          <svg
+            role="presentation"
+            style={
+              Object {
+                "height": "16px",
+                "width": "16px",
+              }
+            }
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
+              style={
+                Object {
+                  "fill": "currentColor",
+                }
+              }
+            />
+          </svg>
+        </span>
+      </button>
+      <span
+        className="jump"
+      >
+        <div
+          className="inputWrapper"
+        >
+          <input
+            autoFocus={false}
+            className="editor"
+            defaultValue={5}
+            disabled={false}
+            id="input-33"
+            minLength={1}
+            onChange={[Function]}
+            required={false}
+            role="textbox"
+            tabIndex={0}
+            type="number"
+          />
+        </div>
+      </span>
+    </div>
+  </div>,
+  <h1>
+    All Combined
+  </h1>,
+  <div>
+    <div
+      className="pagination"
+    >
+      <span
+        className="sizes"
+      >
+        <div
+          className="mainWrapper"
+        >
+          <button
+            aria-controls="dropdown-34"
+            aria-disabled={false}
+            aria-expanded={false}
+            aria-haspopup={true}
+            aria-label="Selected page size"
+            className="button buttonDefault buttonSize3 iconLeft"
+            defaultChecked={false}
+            disabled={false}
+            onClick={[Function]}
+          >
+            <span>
+              <span
+                aria-hidden={false}
+                className="icon iconWrapper"
+                role="presentation"
+              >
+                <svg
+                  role="presentation"
+                  style={
+                    Object {
+                      "height": "16px",
+                      "width": "16px",
+                    }
+                  }
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M7.41,15.41L12,10.83L16.59,15.41L18,14L12,8L6,14L7.41,15.41Z"
+                    style={
+                      Object {
+                        "fill": "currentColor",
+                      }
+                    }
+                  />
+                </svg>
+              </span>
+              <span
+                className="buttonText3"
+              >
+                page / 100
+              </span>
+            </span>
+          </button>
+        </div>
+      </span>
+      <span
+        className="total"
+      >
+        400 Total
+      </span>
+      <button
+        aria-disabled={false}
+        aria-label="Previous"
+        className="paginationButton button buttonDefault buttonSize3 iconLeft"
+        defaultChecked={false}
+        disabled={false}
+        onClick={[Function]}
+      >
+        <span
+          aria-hidden={false}
+          className="icon iconWrapper"
+          role="presentation"
+        >
+          <svg
+            role="presentation"
+            style={
+              Object {
+                "height": "16px",
+                "width": "16px",
+              }
+            }
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z"
+              style={
+                Object {
+                  "fill": "currentColor",
+                }
+              }
+            />
+          </svg>
+        </span>
+      </button>
+      <ul
+        className="pager"
+      >
+        <li>
+          <button
+            aria-checked={false}
+            aria-disabled={false}
+            aria-pressed={false}
+            className="paginationButton button buttonDefault buttonSize3"
+            defaultChecked={false}
+            disabled={false}
+            onClick={[Function]}
+          >
+            <span
+              className="buttonText3"
+            >
+              1
+            </span>
+          </button>
+        </li>
+        <li>
+          <button
+            aria-checked={false}
+            aria-disabled={false}
+            aria-pressed={false}
+            className="paginationButton button buttonDefault buttonSize3"
+            defaultChecked={false}
+            disabled={false}
+            onClick={[Function]}
+          >
+            <span
+              className="buttonText3"
+            >
+              0
+            </span>
+          </button>
+        </li>
+        <li>
+          <button
+            aria-checked={true}
+            aria-disabled={false}
+            aria-pressed={true}
+            className="paginationButton active button buttonDefault buttonSize3"
+            defaultChecked={true}
+            disabled={false}
+            onClick={[Function]}
+          >
+            <span
+              className="buttonText3"
+            >
+              4
+            </span>
+          </button>
+        </li>
+      </ul>
+      <button
+        aria-disabled={false}
+        aria-label="Next"
+        className="paginationButton button buttonDefault buttonSize3 iconLeft disabled"
+        defaultChecked={false}
+        disabled={true}
+        onClick={[Function]}
+      >
+        <span
+          aria-hidden={false}
+          className="icon iconWrapper"
+          role="presentation"
+        >
+          <svg
+            role="presentation"
+            style={
+              Object {
+                "height": "16px",
+                "width": "16px",
+              }
+            }
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
+              style={
+                Object {
+                  "fill": "currentColor",
+                }
+              }
+            />
+          </svg>
+        </span>
+      </button>
+      <span
+        className="jump"
+      >
+        <div
+          className="inputWrapper"
+        >
+          <input
+            autoFocus={false}
+            className="editor"
+            defaultValue={4}
+            disabled={false}
+            id="input-35"
+            minLength={1}
+            onChange={[Function]}
+            required={false}
+            role="textbox"
+            tabIndex={0}
+            type="number"
+          />
+        </div>
+      </span>
+    </div>
+  </div>,
+]
+`;
+
 exports[`Storyshots Panel Default 1`] = `
 <div
   style={
@@ -6372,7 +7592,7 @@ Array [
         <button
           aria-disabled={false}
           aria-label="Close"
-          className="closeButton button buttonDefault buttonPadding2 iconLeft"
+          className="closeButton button buttonDefault buttonSize2 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -6419,7 +7639,7 @@ Array [
         <button
           aria-disabled={false}
           aria-label="Close"
-          className="closeButton button buttonDefault buttonPadding2 iconLeft"
+          className="closeButton button buttonDefault buttonSize2 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -6466,7 +7686,7 @@ Array [
         <button
           aria-disabled={false}
           aria-label="Close"
-          className="closeButton button buttonDefault buttonPadding2 iconLeft"
+          className="closeButton button buttonDefault buttonSize2 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -6513,7 +7733,7 @@ Array [
         <button
           aria-disabled={false}
           aria-label="Close"
-          className="closeButton button buttonDefault buttonPadding2 iconLeft"
+          className="closeButton button buttonDefault buttonSize2 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -6560,7 +7780,7 @@ Array [
         <button
           aria-disabled={false}
           aria-label="Close"
-          className="closeButton button buttonDefault buttonPadding2 iconLeft"
+          className="closeButton button buttonDefault buttonSize2 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -6607,7 +7827,7 @@ Array [
         <button
           aria-disabled={false}
           aria-label="Close"
-          className="closeButton button buttonDefault buttonPadding2 iconLeft"
+          className="closeButton button buttonDefault buttonSize2 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -6654,7 +7874,7 @@ Array [
         <button
           aria-disabled={false}
           aria-label="Close"
-          className="closeButton button buttonDefault buttonPadding2 iconLeft"
+          className="closeButton button buttonDefault buttonSize2 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -6701,7 +7921,7 @@ Array [
         <button
           aria-disabled={false}
           aria-label="Close"
-          className="closeButton button buttonDefault buttonPadding2 iconLeft"
+          className="closeButton button buttonDefault buttonSize2 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -7080,7 +8300,7 @@ Array [
         <button
           aria-disabled={false}
           aria-label="Thumbs up"
-          className="button button buttonDefault buttonPadding2 iconLeft"
+          className="button button buttonDefault buttonSize2 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -7111,7 +8331,7 @@ Array [
               </svg>
             </span>
             <span
-              className="button2"
+              className="buttonText2"
             >
               2
             </span>
@@ -7134,7 +8354,7 @@ Array [
         <button
           aria-disabled={false}
           aria-label="Thumbs up"
-          className="button button buttonDefault buttonPadding2 iconLeft"
+          className="button button buttonDefault buttonSize2 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -7165,7 +8385,7 @@ Array [
               </svg>
             </span>
             <span
-              className="button2"
+              className="buttonText2"
             >
               2
             </span>
@@ -7188,7 +8408,7 @@ Array [
         <button
           aria-disabled={false}
           aria-label="Thumbs up"
-          className="button button buttonDefault buttonPadding2 iconLeft"
+          className="button button buttonDefault buttonSize2 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -7219,7 +8439,7 @@ Array [
               </svg>
             </span>
             <span
-              className="button2"
+              className="buttonText2"
             >
               2
             </span>
@@ -7242,7 +8462,7 @@ Array [
         <button
           aria-disabled={false}
           aria-label="Thumbs up"
-          className="button button buttonDefault buttonPadding2 iconLeft"
+          className="button button buttonDefault buttonSize2 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -7273,7 +8493,7 @@ Array [
               </svg>
             </span>
             <span
-              className="button2"
+              className="buttonText2"
             >
               2
             </span>
@@ -7296,7 +8516,7 @@ Array [
         <button
           aria-disabled={false}
           aria-label="Thumbs up"
-          className="button button buttonDefault buttonPadding2 iconLeft"
+          className="button button buttonDefault buttonSize2 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -7327,7 +8547,7 @@ Array [
               </svg>
             </span>
             <span
-              className="button2"
+              className="buttonText2"
             >
               2
             </span>
@@ -7350,7 +8570,7 @@ Array [
         <button
           aria-disabled={false}
           aria-label="Thumbs up"
-          className="button button buttonDefault buttonPadding2 iconLeft"
+          className="button button buttonDefault buttonSize2 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -7381,7 +8601,7 @@ Array [
               </svg>
             </span>
             <span
-              className="button2"
+              className="buttonText2"
             >
               2
             </span>
@@ -7404,7 +8624,7 @@ Array [
         <button
           aria-disabled={false}
           aria-label="Thumbs up"
-          className="button button buttonDefault buttonPadding2 iconLeft"
+          className="button button buttonDefault buttonSize2 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -7435,7 +8655,7 @@ Array [
               </svg>
             </span>
             <span
-              className="button2"
+              className="buttonText2"
             >
               2
             </span>
@@ -7458,7 +8678,7 @@ Array [
         <button
           aria-disabled={false}
           aria-label="Thumbs up"
-          className="button button buttonDefault buttonPadding2 iconLeft"
+          className="button button buttonDefault buttonSize2 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -7489,7 +8709,7 @@ Array [
               </svg>
             </span>
             <span
-              className="button2"
+              className="buttonText2"
             >
               2
             </span>
@@ -7661,7 +8881,7 @@ Array [
         <button
           aria-disabled={false}
           aria-label="Close"
-          className="closeButton button buttonDefault buttonPadding3 iconLeft"
+          className="closeButton button buttonDefault buttonSize3 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -7708,7 +8928,7 @@ Array [
         <button
           aria-disabled={false}
           aria-label="Close"
-          className="closeButton button buttonDefault buttonPadding3 iconLeft"
+          className="closeButton button buttonDefault buttonSize3 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -7755,7 +8975,7 @@ Array [
         <button
           aria-disabled={false}
           aria-label="Close"
-          className="closeButton button buttonDefault buttonPadding3 iconLeft"
+          className="closeButton button buttonDefault buttonSize3 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -7802,7 +9022,7 @@ Array [
         <button
           aria-disabled={false}
           aria-label="Close"
-          className="closeButton button buttonDefault buttonPadding3 iconLeft"
+          className="closeButton button buttonDefault buttonSize3 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -7849,7 +9069,7 @@ Array [
         <button
           aria-disabled={false}
           aria-label="Close"
-          className="closeButton button buttonDefault buttonPadding3 iconLeft"
+          className="closeButton button buttonDefault buttonSize3 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -7896,7 +9116,7 @@ Array [
         <button
           aria-disabled={false}
           aria-label="Close"
-          className="closeButton button buttonDefault buttonPadding3 iconLeft"
+          className="closeButton button buttonDefault buttonSize3 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -7943,7 +9163,7 @@ Array [
         <button
           aria-disabled={false}
           aria-label="Close"
-          className="closeButton button buttonDefault buttonPadding3 iconLeft"
+          className="closeButton button buttonDefault buttonSize3 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -7990,7 +9210,7 @@ Array [
         <button
           aria-disabled={false}
           aria-label="Close"
-          className="closeButton button buttonDefault buttonPadding3 iconLeft"
+          className="closeButton button buttonDefault buttonSize3 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -8369,7 +9589,7 @@ Array [
         <button
           aria-disabled={false}
           aria-label="Thumbs up"
-          className="button button buttonDefault buttonPadding3 iconLeft"
+          className="button button buttonDefault buttonSize3 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -8400,7 +9620,7 @@ Array [
               </svg>
             </span>
             <span
-              className="button3"
+              className="buttonText3"
             >
               2
             </span>
@@ -8423,7 +9643,7 @@ Array [
         <button
           aria-disabled={false}
           aria-label="Thumbs up"
-          className="button button buttonDefault buttonPadding3 iconLeft"
+          className="button button buttonDefault buttonSize3 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -8454,7 +9674,7 @@ Array [
               </svg>
             </span>
             <span
-              className="button3"
+              className="buttonText3"
             >
               2
             </span>
@@ -8477,7 +9697,7 @@ Array [
         <button
           aria-disabled={false}
           aria-label="Thumbs up"
-          className="button button buttonDefault buttonPadding3 iconLeft"
+          className="button button buttonDefault buttonSize3 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -8508,7 +9728,7 @@ Array [
               </svg>
             </span>
             <span
-              className="button3"
+              className="buttonText3"
             >
               2
             </span>
@@ -8531,7 +9751,7 @@ Array [
         <button
           aria-disabled={false}
           aria-label="Thumbs up"
-          className="button button buttonDefault buttonPadding3 iconLeft"
+          className="button button buttonDefault buttonSize3 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -8562,7 +9782,7 @@ Array [
               </svg>
             </span>
             <span
-              className="button3"
+              className="buttonText3"
             >
               2
             </span>
@@ -8585,7 +9805,7 @@ Array [
         <button
           aria-disabled={false}
           aria-label="Thumbs up"
-          className="button button buttonDefault buttonPadding3 iconLeft"
+          className="button button buttonDefault buttonSize3 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -8616,7 +9836,7 @@ Array [
               </svg>
             </span>
             <span
-              className="button3"
+              className="buttonText3"
             >
               2
             </span>
@@ -8639,7 +9859,7 @@ Array [
         <button
           aria-disabled={false}
           aria-label="Thumbs up"
-          className="button button buttonDefault buttonPadding3 iconLeft"
+          className="button button buttonDefault buttonSize3 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -8670,7 +9890,7 @@ Array [
               </svg>
             </span>
             <span
-              className="button3"
+              className="buttonText3"
             >
               2
             </span>
@@ -8693,7 +9913,7 @@ Array [
         <button
           aria-disabled={false}
           aria-label="Thumbs up"
-          className="button button buttonDefault buttonPadding3 iconLeft"
+          className="button button buttonDefault buttonSize3 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -8724,7 +9944,7 @@ Array [
               </svg>
             </span>
             <span
-              className="button3"
+              className="buttonText3"
             >
               2
             </span>
@@ -8747,7 +9967,7 @@ Array [
         <button
           aria-disabled={false}
           aria-label="Thumbs up"
-          className="button button buttonDefault buttonPadding3 iconLeft"
+          className="button button buttonDefault buttonSize3 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -8778,7 +9998,7 @@ Array [
               </svg>
             </span>
             <span
-              className="button3"
+              className="buttonText3"
             >
               2
             </span>
@@ -8950,7 +10170,7 @@ Array [
         <button
           aria-disabled={false}
           aria-label="Close"
-          className="closeButton button buttonDefault buttonPadding3 iconLeft"
+          className="closeButton button buttonDefault buttonSize3 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -8997,7 +10217,7 @@ Array [
         <button
           aria-disabled={false}
           aria-label="Close"
-          className="closeButton button buttonDefault buttonPadding3 iconLeft"
+          className="closeButton button buttonDefault buttonSize3 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -9044,7 +10264,7 @@ Array [
         <button
           aria-disabled={false}
           aria-label="Close"
-          className="closeButton button buttonDefault buttonPadding3 iconLeft"
+          className="closeButton button buttonDefault buttonSize3 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -9091,7 +10311,7 @@ Array [
         <button
           aria-disabled={false}
           aria-label="Close"
-          className="closeButton button buttonDefault buttonPadding3 iconLeft"
+          className="closeButton button buttonDefault buttonSize3 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -9138,7 +10358,7 @@ Array [
         <button
           aria-disabled={false}
           aria-label="Close"
-          className="closeButton button buttonDefault buttonPadding3 iconLeft"
+          className="closeButton button buttonDefault buttonSize3 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -9185,7 +10405,7 @@ Array [
         <button
           aria-disabled={false}
           aria-label="Close"
-          className="closeButton button buttonDefault buttonPadding3 iconLeft"
+          className="closeButton button buttonDefault buttonSize3 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -9232,7 +10452,7 @@ Array [
         <button
           aria-disabled={false}
           aria-label="Close"
-          className="closeButton button buttonDefault buttonPadding3 iconLeft"
+          className="closeButton button buttonDefault buttonSize3 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -9279,7 +10499,7 @@ Array [
         <button
           aria-disabled={false}
           aria-label="Close"
-          className="closeButton button buttonDefault buttonPadding3 iconLeft"
+          className="closeButton button buttonDefault buttonSize3 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -9658,7 +10878,7 @@ Array [
         <button
           aria-disabled={false}
           aria-label="Thumbs up"
-          className="button button buttonDefault buttonPadding3 iconLeft"
+          className="button button buttonDefault buttonSize3 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -9689,7 +10909,7 @@ Array [
               </svg>
             </span>
             <span
-              className="button3"
+              className="buttonText3"
             >
               2
             </span>
@@ -9712,7 +10932,7 @@ Array [
         <button
           aria-disabled={false}
           aria-label="Thumbs up"
-          className="button button buttonDefault buttonPadding3 iconLeft"
+          className="button button buttonDefault buttonSize3 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -9743,7 +10963,7 @@ Array [
               </svg>
             </span>
             <span
-              className="button3"
+              className="buttonText3"
             >
               2
             </span>
@@ -9766,7 +10986,7 @@ Array [
         <button
           aria-disabled={false}
           aria-label="Thumbs up"
-          className="button button buttonDefault buttonPadding3 iconLeft"
+          className="button button buttonDefault buttonSize3 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -9797,7 +11017,7 @@ Array [
               </svg>
             </span>
             <span
-              className="button3"
+              className="buttonText3"
             >
               2
             </span>
@@ -9820,7 +11040,7 @@ Array [
         <button
           aria-disabled={false}
           aria-label="Thumbs up"
-          className="button button buttonDefault buttonPadding3 iconLeft"
+          className="button button buttonDefault buttonSize3 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -9851,7 +11071,7 @@ Array [
               </svg>
             </span>
             <span
-              className="button3"
+              className="buttonText3"
             >
               2
             </span>
@@ -9874,7 +11094,7 @@ Array [
         <button
           aria-disabled={false}
           aria-label="Thumbs up"
-          className="button button buttonDefault buttonPadding3 iconLeft"
+          className="button button buttonDefault buttonSize3 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -9905,7 +11125,7 @@ Array [
               </svg>
             </span>
             <span
-              className="button3"
+              className="buttonText3"
             >
               2
             </span>
@@ -9928,7 +11148,7 @@ Array [
         <button
           aria-disabled={false}
           aria-label="Thumbs up"
-          className="button button buttonDefault buttonPadding3 iconLeft"
+          className="button button buttonDefault buttonSize3 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -9959,7 +11179,7 @@ Array [
               </svg>
             </span>
             <span
-              className="button3"
+              className="buttonText3"
             >
               2
             </span>
@@ -9982,7 +11202,7 @@ Array [
         <button
           aria-disabled={false}
           aria-label="Thumbs up"
-          className="button button buttonDefault buttonPadding3 iconLeft"
+          className="button button buttonDefault buttonSize3 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -10013,7 +11233,7 @@ Array [
               </svg>
             </span>
             <span
-              className="button3"
+              className="buttonText3"
             >
               2
             </span>
@@ -10036,7 +11256,7 @@ Array [
         <button
           aria-disabled={false}
           aria-label="Thumbs up"
-          className="button button buttonDefault buttonPadding3 iconLeft"
+          className="button button buttonDefault buttonSize3 iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -10067,7 +11287,7 @@ Array [
               </svg>
             </span>
             <span
-              className="button3"
+              className="buttonText3"
             >
               2
             </span>
@@ -10282,7 +11502,7 @@ Array [
       />
       <button
         aria-disabled={false}
-        className="iconButton leftIcon button buttonDefault buttonPadding2 iconLeft"
+        className="iconButton leftIcon button buttonDefault buttonSize2 iconLeft"
         defaultChecked={false}
         disabled={false}
       >
@@ -10345,7 +11565,7 @@ Array [
           >
             <button
               aria-disabled={false}
-              className="labelIconButton button buttonDefault buttonPadding3 iconLeft"
+              className="labelIconButton button buttonDefault buttonSize3 iconLeft"
               defaultChecked={false}
               disabled={false}
               onClick={[Function]}
@@ -10448,7 +11668,7 @@ Array [
       </div>
       <button
         aria-disabled={false}
-        className="iconButton leftIcon button buttonDefault buttonPadding2 iconLeft"
+        className="iconButton leftIcon button buttonDefault buttonSize2 iconLeft"
         defaultChecked={false}
         disabled={false}
         onClick={[Function]}
@@ -10522,7 +11742,7 @@ Array [
       </div>
       <button
         aria-disabled={false}
-        className="iconButton leftIcon button buttonDefault buttonPadding2 iconLeft"
+        className="iconButton leftIcon button buttonDefault buttonSize2 iconLeft"
         defaultChecked={false}
         disabled={false}
         onClick={[Function]}
@@ -10589,7 +11809,7 @@ Array [
       />
       <button
         aria-disabled={false}
-        className="iconButton leftIcon button buttonDefault buttonPadding2 iconLeft"
+        className="iconButton leftIcon button buttonDefault buttonSize2 iconLeft"
         defaultChecked={false}
         disabled={false}
         onClick={[Function]}
@@ -10685,7 +11905,7 @@ Array [
       </div>
       <button
         aria-disabled={false}
-        className="iconButton leftIcon button buttonDefault buttonPadding2 iconLeft"
+        className="iconButton leftIcon button buttonDefault buttonSize2 iconLeft"
         defaultChecked={false}
         disabled={false}
         onClick={[Function]}
@@ -10759,7 +11979,7 @@ Array [
       </div>
       <button
         aria-disabled={false}
-        className="iconButton leftIcon button buttonDefault buttonPadding2 iconLeft"
+        className="iconButton leftIcon button buttonDefault buttonSize2 iconLeft"
         defaultChecked={false}
         disabled={false}
         onClick={[Function]}
@@ -10804,96 +12024,239 @@ exports[`Storyshots Snackbar Default 1`] = `
   </h1>
   <button
     aria-disabled={false}
-    className="button buttonDefault buttonPadding3"
+    className="button buttonDefault buttonSize3"
     defaultChecked={false}
     disabled={false}
     onClick={[Function]}
   >
     <span
-      className="button3"
+      className="buttonText3"
     >
       Serve snack top center
     </span>
   </button>
   <button
     aria-disabled={false}
-    className="button buttonDefault buttonPadding3"
+    className="button buttonDefault buttonSize3"
     defaultChecked={false}
     disabled={false}
     onClick={[Function]}
   >
     <span
-      className="button3"
+      className="buttonText3"
     >
       Serve snack top left
     </span>
   </button>
   <button
     aria-disabled={false}
-    className="button buttonDefault buttonPadding3"
+    className="button buttonDefault buttonSize3"
     defaultChecked={false}
     disabled={false}
     onClick={[Function]}
   >
     <span
-      className="button3"
+      className="buttonText3"
     >
       Serve snack top right
     </span>
   </button>
   <button
     aria-disabled={false}
-    className="button buttonDefault buttonPadding3"
+    className="button buttonDefault buttonSize3"
     defaultChecked={false}
     disabled={false}
     onClick={[Function]}
   >
     <span
-      className="button3"
+      className="buttonText3"
     >
       Serve snack bottom center
     </span>
   </button>
   <button
     aria-disabled={false}
-    className="button buttonDefault buttonPadding3"
+    className="button buttonDefault buttonSize3"
     defaultChecked={false}
     disabled={false}
     onClick={[Function]}
   >
     <span
-      className="button3"
+      className="buttonText3"
     >
       Serve snack bottom left
     </span>
   </button>
   <button
     aria-disabled={false}
-    className="button buttonDefault buttonPadding3"
+    className="button buttonDefault buttonSize3"
     defaultChecked={false}
     disabled={false}
     onClick={[Function]}
   >
     <span
-      className="button3"
+      className="buttonText3"
     >
       Serve snack bottom right
     </span>
   </button>
   <button
     aria-disabled={false}
-    className="button buttonDefault buttonPadding3"
+    className="button buttonDefault buttonSize3"
     defaultChecked={false}
     disabled={false}
     onClick={[Function]}
   >
     <span
-      className="button3"
+      className="buttonText3"
     >
       Serve snack with action
     </span>
   </button>
 </div>
+`;
+
+exports[`Storyshots Spinner Default 1`] = `
+Array [
+  <h1>
+    Spinner
+  </h1>,
+  <p>
+    Small
+  </p>,
+  <span
+    aria-hidden={false}
+    className="spinner iconWrapper"
+    role="presentation"
+  >
+    <svg
+      role="presentation"
+      style={
+        Object {
+          "height": "30px",
+          "width": "30px",
+        }
+      }
+      viewBox="0 0 24 24"
+    >
+      <style>
+        @keyframes spin { to { transform: rotate(360deg) } }
+      </style>
+      <g
+        style={
+          Object {
+            "animation": "spin linear 0.8s infinite",
+            "transformOrigin": "center",
+          }
+        }
+      >
+        <path
+          d="M12,4V2A10,10 0 0,0 2,12H4A8,8 0 0,1 12,4Z"
+          style={
+            Object {
+              "fill": "currentColor",
+            }
+          }
+        />
+        <rect
+          fill="transparent"
+          height="24"
+          width="24"
+        />
+      </g>
+    </svg>
+  </span>,
+  <p>
+    Default
+  </p>,
+  <span
+    aria-hidden={false}
+    className="spinner iconWrapper"
+    role="presentation"
+  >
+    <svg
+      role="presentation"
+      style={
+        Object {
+          "height": "48px",
+          "width": "48px",
+        }
+      }
+      viewBox="0 0 24 24"
+    >
+      <style>
+        @keyframes spin { to { transform: rotate(360deg) } }
+      </style>
+      <g
+        style={
+          Object {
+            "animation": "spin linear 0.8s infinite",
+            "transformOrigin": "center",
+          }
+        }
+      >
+        <path
+          d="M12,4V2A10,10 0 0,0 2,12H4A8,8 0 0,1 12,4Z"
+          style={
+            Object {
+              "fill": "currentColor",
+            }
+          }
+        />
+        <rect
+          fill="transparent"
+          height="24"
+          width="24"
+        />
+      </g>
+    </svg>
+  </span>,
+  <p>
+    Large
+  </p>,
+  <span
+    aria-hidden={false}
+    className="spinner iconWrapper"
+    role="presentation"
+  >
+    <svg
+      role="presentation"
+      style={
+        Object {
+          "height": "64px",
+          "width": "64px",
+        }
+      }
+      viewBox="0 0 24 24"
+    >
+      <style>
+        @keyframes spin { to { transform: rotate(360deg) } }
+      </style>
+      <g
+        style={
+          Object {
+            "animation": "spin linear 0.8s infinite",
+            "transformOrigin": "center",
+          }
+        }
+      >
+        <path
+          d="M12,4V2A10,10 0 0,0 2,12H4A8,8 0 0,1 12,4Z"
+          style={
+            Object {
+              "fill": "currentColor",
+            }
+          }
+        />
+        <rect
+          fill="transparent"
+          height="24"
+          width="24"
+        />
+      </g>
+    </svg>
+  </span>,
+]
 `;
 
 exports[`Storyshots Tabs Default 1`] = `
@@ -12729,7 +14092,7 @@ Array [
         >
           <button
             aria-disabled={false}
-            className="labelIconButton button buttonDefault buttonPadding3 iconLeft"
+            className="labelIconButton button buttonDefault buttonSize3 iconLeft"
             defaultChecked={false}
             disabled={false}
             onClick={[Function]}
@@ -12922,7 +14285,7 @@ Array [
         >
           <button
             aria-disabled={false}
-            className="labelIconButton button buttonDefault buttonPadding3 iconLeft"
+            className="labelIconButton button buttonDefault buttonSize3 iconLeft"
             defaultChecked={false}
             disabled={false}
             onClick={[Function]}
@@ -13089,7 +14452,7 @@ Array [
     />
     <button
       aria-disabled={false}
-      className="iconButton leftIcon button buttonDefault buttonPadding2 iconLeft"
+      className="iconButton leftIcon button buttonDefault buttonSize2 iconLeft"
       defaultChecked={false}
       disabled={false}
       onClick={[Function]}
@@ -13180,7 +14543,7 @@ Array [
     </div>
     <button
       aria-disabled={false}
-      className="iconButton leftIcon button buttonDefault buttonPadding2 iconLeft"
+      className="iconButton leftIcon button buttonDefault buttonSize2 iconLeft"
       defaultChecked={false}
       disabled={false}
       onClick={[Function]}
@@ -13365,7 +14728,7 @@ Array [
     />
     <button
       aria-disabled={false}
-      className="iconButton leftIcon button buttonDefault buttonPadding2 iconLeft"
+      className="iconButton leftIcon button buttonDefault buttonSize2 iconLeft"
       defaultChecked={false}
       disabled={false}
       onClick={[Function]}
@@ -13456,7 +14819,7 @@ Array [
     </div>
     <button
       aria-disabled={false}
-      className="iconButton leftIcon button buttonDefault buttonPadding2 iconLeft"
+      className="iconButton leftIcon button buttonDefault buttonSize2 iconLeft"
       defaultChecked={false}
       disabled={false}
       onClick={[Function]}
@@ -13522,13 +14885,13 @@ exports[`Storyshots Tooltip Base 1`] = `
       <button
         aria-disabled={false}
         aria-label="Light bottom"
-        className="button buttonPrimary buttonPadding2"
+        className="button buttonPrimary buttonSize2"
         defaultChecked={false}
         disabled={false}
         onClick={[Function]}
       >
         <span
-          className="button2"
+          className="buttonText2"
         >
           Light bottom
         </span>
@@ -13569,13 +14932,13 @@ exports[`Storyshots Tooltip Base 1`] = `
       <button
         aria-disabled={false}
         aria-label="Dark bottom"
-        className="button buttonPrimary buttonPadding2"
+        className="button buttonPrimary buttonSize2"
         defaultChecked={false}
         disabled={false}
         onClick={[Function]}
       >
         <span
-          className="button2"
+          className="buttonText2"
         >
           Dark bottom
         </span>
@@ -13626,13 +14989,13 @@ exports[`Storyshots Tooltip Base 1`] = `
       <button
         aria-disabled={false}
         aria-label="Light top"
-        className="button buttonPrimary buttonPadding2"
+        className="button buttonPrimary buttonSize2"
         defaultChecked={false}
         disabled={false}
         onClick={[Function]}
       >
         <span
-          className="button2"
+          className="buttonText2"
         >
           Light top
         </span>
@@ -13674,13 +15037,13 @@ exports[`Storyshots Tooltip Base 1`] = `
       <button
         aria-disabled={false}
         aria-label="Dark top"
-        className="button buttonPrimary buttonPadding2"
+        className="button buttonPrimary buttonSize2"
         defaultChecked={false}
         disabled={false}
         onClick={[Function]}
       >
         <span
-          className="button2"
+          className="buttonText2"
         >
           Dark top
         </span>
@@ -13732,13 +15095,13 @@ exports[`Storyshots Tooltip Base 1`] = `
       <button
         aria-disabled={false}
         aria-label="Light right"
-        className="button buttonPrimary buttonPadding2"
+        className="button buttonPrimary buttonSize2"
         defaultChecked={false}
         disabled={false}
         onClick={[Function]}
       >
         <span
-          className="button2"
+          className="buttonText2"
         >
           Light right
         </span>
@@ -13779,13 +15142,13 @@ exports[`Storyshots Tooltip Base 1`] = `
       <button
         aria-disabled={false}
         aria-label="Dark right"
-        className="button buttonPrimary buttonPadding2"
+        className="button buttonPrimary buttonSize2"
         defaultChecked={false}
         disabled={false}
         onClick={[Function]}
       >
         <span
-          className="button2"
+          className="buttonText2"
         >
           Dark right
         </span>
@@ -13836,13 +15199,13 @@ exports[`Storyshots Tooltip Base 1`] = `
       <button
         aria-disabled={false}
         aria-label="Light left"
-        className="button buttonPrimary buttonPadding2"
+        className="button buttonPrimary buttonSize2"
         defaultChecked={false}
         disabled={false}
         onClick={[Function]}
       >
         <span
-          className="button2"
+          className="buttonText2"
         >
           Light left
         </span>
@@ -13884,13 +15247,13 @@ exports[`Storyshots Tooltip Base 1`] = `
       <button
         aria-disabled={false}
         aria-label="Dark left"
-        className="button buttonPrimary buttonPadding2"
+        className="button buttonPrimary buttonSize2"
         defaultChecked={false}
         disabled={false}
         onClick={[Function]}
       >
         <span
-          className="button2"
+          className="buttonText2"
         >
           Dark left
         </span>

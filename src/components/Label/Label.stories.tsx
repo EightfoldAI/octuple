@@ -15,6 +15,7 @@ export const Sizes = () => (
                 show: true,
                 toolTipContent: 'A tooltip',
                 toolTipPlacement: 'top',
+                onClick: () => _alertClicked(),
             }}
             size={LabelSize.Large}
             text="Label"
@@ -27,6 +28,7 @@ export const Sizes = () => (
                 show: true,
                 toolTipContent: 'A tooltip',
                 toolTipPlacement: 'top',
+                onClick: () => _alertClicked(),
             }}
             size={LabelSize.Medium}
             text="Label"
@@ -39,6 +41,7 @@ export const Sizes = () => (
                 show: true,
                 toolTipContent: 'A tooltip',
                 toolTipPlacement: 'top',
+                onClick: () => _alertClicked(),
             }}
             size={LabelSize.Small}
             text="Label"

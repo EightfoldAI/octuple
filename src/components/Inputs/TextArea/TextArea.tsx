@@ -60,7 +60,7 @@ export const TextArea: FC<TextAreaProps> = ({
     const triggerChange = (
         _event?: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>
     ) => {
-        onChange;
+        onChange && onChange(_event);
     };
 
     return (

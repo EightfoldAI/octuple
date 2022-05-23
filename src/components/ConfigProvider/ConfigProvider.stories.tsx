@@ -10,6 +10,7 @@ import { IconName } from '../Icon';
 import { CompactPicker } from 'react-color';
 import { ConfigProvider, OcThemeNames, useConfig } from './';
 import { MatchScore } from '../MatchScore';
+import { Spinner } from '../Spinner';
 
 export default {
     title: 'ConfigProvider',
@@ -193,6 +194,9 @@ const ThemedComponents = () => {
             <br />
             <br />
             <MatchScore score={3} />
+            <br />
+            <br />
+            <Spinner />
         </>
     );
 };

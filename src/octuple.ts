@@ -30,6 +30,8 @@ import { Menu } from './components/Menu';
 
 import { Modal, ModalSize } from './components/Modal';
 
+import { Pagination, PaginationLayoutOptions } from './components/Pagination';
+
 import { Pill, PillSize, PillType } from './components/Pills';
 
 import {
@@ -44,6 +46,8 @@ import {
 import { InfoBar, InfoBarType } from './components/InfoBar';
 
 import { SnackbarContainer, Snackbar, snack } from './components/Snackbar';
+
+import { Spinner, SpinnerSize } from './components/Spinner';
 
 import { Tabs, Tab, TabVariant } from './components/Tabs';
 
@@ -89,6 +93,8 @@ export {
     Modal,
     ModalSize,
     NeutralButton,
+    Pagination,
+    PaginationLayoutOptions,
     Panel,
     PanelPlacement,
     PanelSize,
@@ -102,6 +108,8 @@ export {
     snack,
     Snackbar,
     SnackbarContainer,
+    Spinner,
+    SpinnerSize,
     Tabs,
     Tab,
     TabVariant,
