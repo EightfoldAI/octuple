@@ -75,16 +75,18 @@ export const Stack: FC<StackProps> = React.forwardRef(
         ]);
 
         return (
-            <div ref={ref} className={stackClassName} {...rest}>
+            <div
+                ref={ref}
+                className={stackClassName}
+                style={{
+                    alignItems: align,
+                    justifyContent: justify,
+                    flexWrap: wrap,
+                    ...style,
+                }}
+                {...rest}
+            >
                 {children}
-                <div
-                    style={{
-                        alignItems: align,
-                        justifyContent: justify,
-                        flexWrap: wrap,
-                        ...style,
-                    }}
-                ></div>
             </div>
         );
     }

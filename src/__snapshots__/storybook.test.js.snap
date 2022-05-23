@@ -10582,6 +10582,14 @@ exports[`Storyshots Snackbar Default 1`] = `
 exports[`Storyshots Stack Default 1`] = `
 <div
   className="stack horizontal m"
+  style={
+    Object {
+      "alignItems": undefined,
+      "backgroundColor": "aquamarine",
+      "flexWrap": undefined,
+      "justifyContent": undefined,
+    }
+  }
 >
   <div
     style={
@@ -10607,16 +10615,6 @@ exports[`Storyshots Stack Default 1`] = `
         "backgroundColor": "mediumpurple",
         "height": "200px",
         "width": "200px",
-      }
-    }
-  />
-  <div
-    style={
-      Object {
-        "alignItems": undefined,
-        "backgroundColor": "aquamarine",
-        "flexWrap": undefined,
-        "justifyContent": undefined,
       }
     }
   />
@@ -10626,6 +10624,14 @@ exports[`Storyshots Stack Default 1`] = `
 exports[`Storyshots Stack Horizontal 1`] = `
 <div
   className="stack vertical l"
+  style={
+    Object {
+      "alignItems": undefined,
+      "backgroundColor": "aquamarine",
+      "flexWrap": undefined,
+      "justifyContent": undefined,
+    }
+  }
 >
   <div
     style={
@@ -10651,16 +10657,6 @@ exports[`Storyshots Stack Horizontal 1`] = `
         "backgroundColor": "mediumpurple",
         "height": "200px",
         "width": "200px",
-      }
-    }
-  />
-  <div
-    style={
-      Object {
-        "alignItems": undefined,
-        "backgroundColor": "aquamarine",
-        "flexWrap": undefined,
-        "justifyContent": undefined,
       }
     }
   />
@@ -10670,6 +10666,13 @@ exports[`Storyshots Stack Horizontal 1`] = `
 exports[`Storyshots Stack Responsive 1`] = `
 <div
   className="stack vertical l"
+  style={
+    Object {
+      "alignItems": undefined,
+      "flexWrap": undefined,
+      "justifyContent": undefined,
+    }
+  }
 >
   <div
     style={
@@ -10695,15 +10698,6 @@ exports[`Storyshots Stack Responsive 1`] = `
         "backgroundColor": "mediumpurple",
         "height": "200px",
         "width": "200px",
-      }
-    }
-  />
-  <div
-    style={
-      Object {
-        "alignItems": undefined,
-        "flexWrap": undefined,
-        "justifyContent": undefined,
       }
     }
   />
