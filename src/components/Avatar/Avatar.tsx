@@ -17,45 +17,38 @@ export const AVATAR_CLASS_SET = [
     styles.bluegreen,
 ];
 
-const AvatarFallback: FC<AvatarFallbackProps> = ({
-    children,
-    classNames,
-    style,
-    ref,
-}) => {
-    const avatarClasses: string = mergeClasses([
-        styles.wrapperStyle,
-        classNames,
-        AVATAR_CLASS_SET[
-            Math.floor(Math.random() * 100) % AVATAR_CLASS_SET.length
-        ],
-    ]);
+const AvatarFallback: FC<AvatarFallbackProps> = React.forwardRef(
+    ({ children, classNames, style }, ref: Ref<HTMLDivElement>) => {
+        const avatarClasses: string = mergeClasses([
+            styles.wrapperStyle,
+            classNames,
+            AVATAR_CLASS_SET[
+                Math.floor(Math.random() * 100) % AVATAR_CLASS_SET.length
+            ],
+        ]);
 
-    return (
-        <div ref={ref} className={avatarClasses} style={style}>
-            {children}
-        </div>
-    );
-};
+        return (
+            <div ref={ref} className={avatarClasses} style={style}>
+                {children}
+            </div>
+        );
+    }
+);
 
-const AvatarIcon: FC<AvatarIconProps> = ({
-    iconProps,
-    fontSize,
-    classNames,
-    style,
-    ref,
-}) => {
-    const wrapperClasses: string = mergeClasses([
-        styles.wrapperStyle,
-        classNames,
-    ]);
+const AvatarIcon: FC<AvatarIconProps> = React.forwardRef(
+    ({ iconProps, fontSize, classNames, style }, ref: Ref<HTMLDivElement>) => {
+        const wrapperClasses: string = mergeClasses([
+            styles.wrapperStyle,
+            classNames,
+        ]);
 
-    return (
-        <div ref={ref} className={wrapperClasses} style={style}>
-            <Icon size={fontSize} {...iconProps} />
-        </div>
-    );
-};
+        return (
+            <div ref={ref} className={wrapperClasses} style={style}>
+                <Icon size={fontSize} {...iconProps} />
+            </div>
+        );
+    }
+);
 
 export const Avatar: FC<AvatarProps> = React.forwardRef(
     (
@@ -74,24 +67,8 @@ export const Avatar: FC<AvatarProps> = React.forwardRef(
     ) => {
         const imageClasses: string = mergeClasses([
             styles.imageStyle,
-            classNames,
             { [styles.roundImage]: type === 'round' },
         ]);
-
-        if (src) {
-            return (
-                <div ref={ref}>
-                    <img
-                        src={src}
-                        className={imageClasses}
-                        alt={alt}
-                        width={size}
-                        height={size}
-                        style={style}
-                    />
-                </div>
-            );
-        }
 
         const wrapperContainerStyle: React.CSSProperties = {
             width: size,
@@ -101,6 +78,24 @@ export const Avatar: FC<AvatarProps> = React.forwardRef(
             fontSize: fontSize,
             ...style,
         };
+
+        if (src) {
+            return (
+                <div
+                    ref={ref}
+                    style={wrapperContainerStyle}
+                    className={classNames}
+                >
+                    <img
+                        src={src}
+                        className={imageClasses}
+                        alt={alt}
+                        width={size}
+                        height={size}
+                    />
+                </div>
+            );
+        }
 
         if (iconProps) {
             return (
