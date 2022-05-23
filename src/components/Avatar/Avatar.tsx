@@ -1,4 +1,4 @@
-import React, { Children, FC } from 'react';
+import React, { Ref, FC } from 'react';
 
 // Styles:
 import styles from './avatar.module.scss';
@@ -21,6 +21,7 @@ const AvatarFallback: FC<AvatarFallbackProps> = ({
     children,
     classNames,
     style,
+    ref,
 }) => {
     const avatarClasses: string = mergeClasses([
         styles.wrapperStyle,
@@ -31,7 +32,7 @@ const AvatarFallback: FC<AvatarFallbackProps> = ({
     ]);
 
     return (
-        <div className={avatarClasses} style={style}>
+        <div ref={ref} className={avatarClasses} style={style}>
             {children}
         </div>
     );
@@ -42,6 +43,7 @@ const AvatarIcon: FC<AvatarIconProps> = ({
     fontSize,
     classNames,
     style,
+    ref,
 }) => {
     const wrapperClasses: string = mergeClasses([
         styles.wrapperStyle,
@@ -49,24 +51,27 @@ const AvatarIcon: FC<AvatarIconProps> = ({
     ]);
 
     return (
-        <div className={wrapperClasses} style={style}>
-            <Icon size={`${fontSize}px`} {...iconProps} />
+        <div ref={ref} className={wrapperClasses} style={style}>
+            <Icon size={fontSize} {...iconProps} />
         </div>
     );
 };
 
 export const Avatar: FC<AvatarProps> = React.forwardRef(
-    ({
-        classNames,
-        src,
-        alt,
-        size = 32,
-        type = 'square',
-        style = {},
-        fontSize = 18,
-        iconProps,
-        children,
-    }) => {
+    (
+        {
+            classNames,
+            src,
+            alt,
+            size = '32px',
+            type = 'square',
+            style = {},
+            fontSize = '18px',
+            iconProps,
+            children,
+        },
+        ref: Ref<HTMLDivElement>
+    ) => {
         const imageClasses: string = mergeClasses([
             styles.imageStyle,
             classNames,
@@ -75,23 +80,25 @@ export const Avatar: FC<AvatarProps> = React.forwardRef(
 
         if (src) {
             return (
-                <img
-                    src={src}
-                    className={imageClasses}
-                    alt={alt}
-                    width={size}
-                    height={size}
-                    style={style}
-                />
+                <div ref={ref}>
+                    <img
+                        src={src}
+                        className={imageClasses}
+                        alt={alt}
+                        width={size}
+                        height={size}
+                        style={style}
+                    />
+                </div>
             );
         }
 
         const wrapperContainerStyle: React.CSSProperties = {
-            width: `${size}px`,
-            height: `${size}px`,
-            minWidth: `${size}px`,
-            minHeight: `${size}px`,
-            fontSize: `${fontSize}px`,
+            width: size,
+            height: size,
+            minWidth: size,
+            minHeight: size,
+            fontSize: fontSize,
             ...style,
         };
 
@@ -102,6 +109,7 @@ export const Avatar: FC<AvatarProps> = React.forwardRef(
                     classNames={imageClasses}
                     style={wrapperContainerStyle}
                     fontSize={fontSize}
+                    ref={ref}
                 />
             );
         }
@@ -110,6 +118,7 @@ export const Avatar: FC<AvatarProps> = React.forwardRef(
             <AvatarFallback
                 classNames={imageClasses}
                 style={wrapperContainerStyle}
+                ref={ref}
             >
                 {children}
             </AvatarFallback>

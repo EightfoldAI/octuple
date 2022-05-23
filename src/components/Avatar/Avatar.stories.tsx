@@ -21,12 +21,12 @@ const iconProps = {
 export const Default = () => (
     <>
         <h2>Avatar</h2>
-        <Avatar {...imageProps} size={40} />
+        <Avatar {...imageProps} size="40px" />
         <br />
         <h2>Avatar Fallback</h2>
         <div style={{ display: 'flex', flexDirection: 'row', gap: '8px' }}>
             {fallbackTexts.map((fallbackText) => (
-                <Avatar key={fallbackText} size={40}>
+                <Avatar key={fallbackText} size="40px">
                     {fallbackText}
                 </Avatar>
             ))}
@@ -35,7 +35,7 @@ export const Default = () => (
         <h2>Avatar Icons</h2>
         <div style={{ display: 'flex', flexDirection: 'row', gap: '8px' }}>
             <Avatar
-                size={40}
+                size="40px"
                 iconProps={iconProps}
                 style={{
                     backgroundColor: 'grey',
@@ -43,12 +43,12 @@ export const Default = () => (
             />
         </div>
         <h2>Round Avatar</h2>
-        <Avatar {...imageProps} size={40} type="round" />
+        <Avatar {...imageProps} size="40px" type="round" />
         <br />
         <h2>Round Avatar Fallback</h2>
         <div style={{ display: 'flex', flexDirection: 'row', gap: '8px' }}>
             {fallbackTexts.map((fallbackText) => (
-                <Avatar key={fallbackText} size={40} type="round">
+                <Avatar key={fallbackText} size="40px" type="round">
                     {fallbackText}
                 </Avatar>
             ))}
@@ -57,7 +57,7 @@ export const Default = () => (
         <h2>Round Avatar Icons</h2>
         <div style={{ display: 'flex', flexDirection: 'row', gap: '8px' }}>
             <Avatar
-                size={40}
+                size="40px"
                 iconProps={iconProps}
                 type="round"
                 style={{
