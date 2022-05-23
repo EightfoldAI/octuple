@@ -1,4 +1,5 @@
 import { IconName } from './mdi';
+import { IconProps as MdiIconProps } from '@mdi/react/dist/IconProps';
 import { OcBaseProps } from '../OcBase';
 
 export enum IconSize {
@@ -8,7 +9,9 @@ export enum IconSize {
     XSmall = '14px',
 }
 
-export interface IconProps extends OcBaseProps<HTMLSpanElement> {
+export interface IconProps
+    extends OcBaseProps<HTMLSpanElement>,
+        Omit<MdiIconProps, 'path'> {
     /**
      * The icon svg path name.
      */
