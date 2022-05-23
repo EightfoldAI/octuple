@@ -1,0 +1,111 @@
+.stack {
+    display: flex;
+    width: fit-content;
+
+    &.inline {
+        display: inline-flex;
+    }
+
+    &.full-width {
+        width: 100%;
+    }
+
+    &.vertical {
+        flex-direction: column;
+        &.xxxl {
+            > * + * {
+                margin-top: $space-xxxl;
+            }
+        }
+        &.xxl {
+            > * + * {
+                margin-top: $space-xxl;
+            }
+        }
+        &.xl {
+            > * + * {
+                margin-top: $space-xl;
+            }
+        }
+        &.l {
+            > * + * {
+                margin-top: $space-l;
+            }
+        }
+        &.m {
+            > * + * {
+                margin-top: $space-m;
+            }
+        }
+        &.s {
+            > * + * {
+                margin-top: $space-s;
+            }
+        }
+        &.xs {
+            > * + * {
+                margin-top: $space-xs;
+            }
+        }
+        &.xxs {
+            > * + * {
+                margin-top: $space-xxs;
+            }
+        }
+        &.xxxs {
+            > * + * {
+                margin-top: $space-xxxs;
+            }
+        }
+    }
+
+    &.horizontal {
+        flex-direction: row;
+
+        &.xxxl {
+            > * + * {
+                margin-left: $space-xxxl;
+            }
+        }
+        &.xxl {
+            > * + * {
+                margin-left: $space-xxl;
+            }
+        }
+        &.xl {
+            > * + * {
+                margin-left: $space-xl;
+            }
+        }
+        &.l {
+            > * + * {
+                margin-left: $space-l;
+            }
+        }
+        &.m {
+            > * + * {
+                margin-left: $space-m;
+            }
+        }
+        &.s {
+            > * + * {
+                margin-left: $space-s;
+            }
+        }
+        &.xs {
+            > * + * {
+                margin-left: $space-xs;
+            }
+        }
+        &.xxs {
+            > * + * {
+                margin-left: $space-xxs;
+            }
+        }
+        &.xxxs {
+            > * + * {
+                margin-left: $space-xxxs;
+            }
+        }
+    }
+}

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Breakpoints } from '../../hooks/useMatchMedia';
 import { Stack } from './Stack';
 
 export default {
@@ -7,18 +8,104 @@ export default {
 };
 
 export const Default = () => (
-    <Stack direction="vertical" gap={2} >
-        <div style={{ height: "100px", width: "100px", backgroundColor: "red" }} />
-        <div style={{ height: "100px", width: "100px", backgroundColor: "red" }} />
-        <div style={{ height: "100px", width: "100px", backgroundColor: "red" }} />
+    <Stack gap="m" style={{ backgroundColor: 'aquamarine' }}>
+        <div
+            style={{
+                height: '200px',
+                width: '200px',
+                backgroundColor: 'mediumpurple',
+            }}
+        />
+        <div
+            style={{
+                height: '200px',
+                width: '200px',
+                backgroundColor: 'mediumpurple',
+            }}
+        />
+        <div
+            style={{
+                height: '200px',
+                width: '200px',
+                backgroundColor: 'mediumpurple',
+            }}
+        />
     </Stack>
-)
-
+);
 
 export const Horizontal = () => (
-    <Stack direction="horizontal" gap={2} >
-        <div style={{ height: "100px", width: "100px", backgroundColor: "red" }} />
-        <div style={{ height: "100px", width: "100px", backgroundColor: "red" }} />
-        <div style={{ height: "100px", width: "100px", backgroundColor: "red" }} />
+    <Stack
+        direction="vertical"
+        gap="l"
+        style={{ backgroundColor: 'aquamarine' }}
+    >
+        <div
+            style={{
+                height: '200px',
+                width: '200px',
+                backgroundColor: 'mediumpurple',
+            }}
+        />
+        <div
+            style={{
+                height: '200px',
+                width: '200px',
+                backgroundColor: 'mediumpurple',
+            }}
+        />
+        <div
+            style={{
+                height: '200px',
+                width: '200px',
+                backgroundColor: 'mediumpurple',
+            }}
+        />
     </Stack>
-)
+);
+
+export const Responsive = () => (
+    <Stack
+        direction="vertical"
+        gap="l"
+        breakpoints={{
+            xsmall: {
+                gap: 'xxxs',
+                direction: 'vertical',
+            },
+            small: {
+                gap: 's',
+                direction: 'vertical',
+            },
+            medium: {
+                gap: 'xl',
+                direction: 'horizontal',
+            },
+            large: {
+                gap: 'xxxl',
+                direction: 'horizontal',
+            },
+        }}
+    >
+        <div
+            style={{
+                height: '200px',
+                width: '200px',
+                backgroundColor: 'mediumpurple',
+            }}
+        />
+        <div
+            style={{
+                height: '200px',
+                width: '200px',
+                backgroundColor: 'mediumpurple',
+            }}
+        />
+        <div
+            style={{
+                height: '200px',
+                width: '200px',
+                backgroundColor: 'mediumpurple',
+            }}
+        />
+    </Stack>
+);

@@ -1,8 +1,20 @@
 import { OcBaseProps } from '../OcBase';
 
-export type StackDirection = "vertical" | "horizontal"
+export type StackDirection = 'vertical' | 'horizontal';
 
-export interface StackProps extends OcBaseProps<HTMLDivElement> {
+export type StackGap =
+    | 'xxxs'
+    | 'xxs'
+    | 'xs'
+    | 's'
+    | 'm'
+    | 'l'
+    | 'xl'
+    | 'xxl'
+    | 'xxl'
+    | 'xxxl';
+
+type StackIntrinsicProps = {
     /**
      * Direction type - horizontal or vertical
      */
@@ -11,16 +23,50 @@ export interface StackProps extends OcBaseProps<HTMLDivElement> {
     /**
      * Space between the child elements
      */
-    gap?: number;
+    gap?: StackGap;
 
-    wrap?: "wrap" | "nowrap" | "wrap-reverse";
+    /**
+     * Wrap behaviour for the stack
+     */
+    wrap?: 'wrap' | 'nowrap' | 'wrap-reverse';
 
+    /**
+     * Enable stack as an inline element
+     */
     inline?: boolean;
 
-    justify?: string;
-
+    /**
+     * Assigns the stack 100% width
+     */
     fullWidth?: boolean;
 
-    align?: string;
-}
+    /**
+     * Align Items
+     */
+    align?:
+        | 'stretch'
+        | 'center'
+        | 'flex-start'
+        | 'flex-end'
+        | 'baseline'
+        | 'initial'
+        | 'inherit';
 
+    /**
+     * Justify Content
+     */
+    justify?:
+        | 'flex-start'
+        | 'flex-end'
+        | 'center'
+        | 'space-between'
+        | 'space-around'
+        | 'space-evenly';
+};
+
+export type StackBreakpoint = 'xsmall' | 'small' | 'medium' | 'large';
+export interface StackProps
+    extends StackIntrinsicProps,
+        OcBaseProps<HTMLDivElement> {
+    breakpoints?: Record<StackBreakpoint, StackIntrinsicProps>;
+}

@@ -1,52 +1,93 @@
-
 import React, { FC, Ref } from 'react';
 import styles from './stack.module.scss';
 import { mergeClasses } from '../../shared/utilities';
-import { StackProps } from './Stack.types';
+import { StackBreakpoint, StackProps } from './Stack.types';
+import { useMatchMedia } from '../../octuple';
+import { Breakpoints } from '../../hooks/useMatchMedia';
 
 export const Stack: FC<StackProps> = React.forwardRef(
     (
         {
-            fullWidth,
-            direction,
-            justify,
-            inline,
-            align,
-            wrap,
-            gap,
+            fullWidth: defaultFullWidth,
+            direction: defaultDirection = 'horizontal',
+            justify: defaultJustify,
+            inline: defaultInline,
+            align: defaultAlign,
+            wrap: defaultWrap,
+            gap: defaultGap,
+            style = {},
             classNames,
+            breakpoints = {},
             children,
             ...rest
         },
         ref: Ref<HTMLDivElement>
     ) => {
+        const xSmallScreenActive: boolean = useMatchMedia(Breakpoints.XSmall);
+        const smallScreenActive: boolean = useMatchMedia(Breakpoints.Small);
+        const mediumScreenActive: boolean = useMatchMedia(Breakpoints.Medium);
+        const largeScreenActive: boolean = useMatchMedia(Breakpoints.Large);
 
-        const styles = {
-            ...(fullWidth ? { width: "100%" } : {}),
-            display: inline ? "inline-flex" : "flex",
-            justifyContent: justify,
-            alignItems: align,
-            flexWrap: wrap,
-            flexDirection: direction === "vertical" ? "column" : "row",
-            "> * + *":
-                direction === "vertical"
-                    ? {
-                        marginTop: `{{space.${gap}}}`,
-                        marginInlineStart: 0,
-                    }
-                    : {
-                        marginLeft: `{{space.${gap}}}`,
-                    },
+        const breakPointConfigurationList: Array<[StackBreakpoint, boolean]> = [
+            ['large', largeScreenActive],
+            ['medium', mediumScreenActive],
+            ['small', smallScreenActive],
+            ['xsmall', xSmallScreenActive],
+        ];
+
+        const activeBreakPointStackPropsIndex =
+            breakPointConfigurationList.findIndex((breakPointConfiguration) => {
+                return breakPointConfiguration[1];
+            });
+
+        const activeBreakPointStackProps =
+            breakpoints[
+                breakPointConfigurationList[activeBreakPointStackPropsIndex][0]
+            ] || {};
+
+        const resolvedStackIntrinsicProps = {
+            ...{
+                fullWidth: defaultFullWidth,
+                direction: defaultDirection,
+                justify: defaultJustify,
+                inline: defaultInline,
+                align: defaultAlign,
+                wrap: defaultWrap,
+                gap: defaultGap,
+            },
+            ...activeBreakPointStackProps,
         };
 
+        console.log(
+            xSmallScreenActive,
+            smallScreenActive,
+            mediumScreenActive,
+            largeScreenActive
+        );
+
+        const { fullWidth, direction, justify, inline, align, wrap, gap } =
+            resolvedStackIntrinsicProps;
+
+        const stackClassName: string = mergeClasses([
+            styles.stack,
+            { [styles.inline]: inline },
+            { [styles.fullWidth]: fullWidth },
+            { [styles.vertical]: direction === 'vertical' },
+            { [styles.horizontal]: direction === 'horizontal' },
+            styles[gap],
+        ]);
+
         return (
-            <div
-                ref={ref}
-                // @ts-ignore
-                style={styles}
-                {...rest}
-            >
+            <div ref={ref} className={stackClassName} {...rest}>
                 {children}
+                <div
+                    style={{
+                        alignItems: align,
+                        justifyContent: justify,
+                        flexWrap: wrap,
+                        ...style,
+                    }}
+                ></div>
             </div>
         );
     }
