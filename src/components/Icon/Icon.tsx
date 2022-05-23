@@ -32,7 +32,7 @@ export const Icon: FC<IconProps> = ({
         styles.iconWrapper,
     ]);
 
-    const IconComponent = icomoonIconName ? (
+    const iconComponent = icomoonIconName ? (
         <IcomoonReact
             iconSet={icomoonIconSet}
             size={size}
@@ -62,7 +62,7 @@ export const Icon: FC<IconProps> = ({
             id={id}
             role={role}
         >
-            {IconComponent}
+            {iconComponent}
         </span>
     );
 };
