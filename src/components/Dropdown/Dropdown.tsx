@@ -1,12 +1,18 @@
-import React, { FC, useCallback, useEffect, useRef, useState } from 'react';
+import React, {
+    FC,
+    useCallback,
+    useEffect,
+    cloneElement,
+    useState,
+} from 'react';
 import { DropdownProps } from './Dropdown.types';
 import { autoUpdate, shift, useFloating } from '@floating-ui/react-dom';
 import { offset as fOffset } from '@floating-ui/core';
 import { mergeClasses, uniqueId } from '../../shared/utilities';
 import { useOnClickOutside } from '../../hooks/useOnClickOutside';
+import { Icon } from '../Icon';
 
 import styles from './dropdown.module.scss';
-import { Icon } from '../Icon';
 
 const TRIGGER_TO_HANDLER_MAP_ON_ENTER = {
     click: 'onClick',
@@ -17,6 +23,12 @@ const TRIGGER_TO_HANDLER_MAP_ON_ENTER = {
 const TRIGGER_TO_HANDLER_MAP_ON_LEAVE = {
     click: '',
     hover: 'onMouseLeave',
+    contextmenu: '',
+};
+
+const ACCESSIBILITY_EVENTS_MAP = {
+    click: 'click',
+    hover: 'focusin',
     contextmenu: '',
 };
 
@@ -91,12 +103,19 @@ export const Dropdown: FC<DropdownProps> = ({
 
     // To show dropdown on focus in of element
     useEffect(() => {
-        if (trigger === 'hover') {
-            document.addEventListener('focusin', onHoverElementFocus);
+        if (!ACCESSIBILITY_EVENTS_MAP[trigger]) {
+            return null;
         }
+        document.addEventListener(
+            ACCESSIBILITY_EVENTS_MAP[trigger],
+            onHoverElementFocus
+        );
 
         return () => {
-            document.removeEventListener('focusout', onHoverElementFocus);
+            document.removeEventListener(
+                ACCESSIBILITY_EVENTS_MAP[trigger],
+                onHoverElementFocus
+            );
         };
     }, [trigger]);
 
