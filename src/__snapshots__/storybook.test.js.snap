@@ -857,6 +857,8 @@ Array [
       defaultChecked={false}
       disabled={false}
       onClick={[Function]}
+      role="button"
+      tabindex="0"
     >
       <span
         className=""
@@ -3937,6 +3939,8 @@ Array [
         defaultChecked={false}
         disabled={false}
         onClick={[Function]}
+        role="button"
+        tabindex="0"
       >
         <span
           className=""
@@ -3947,23 +3951,49 @@ Array [
     </div>
     <div
       className="mainWrapper"
+      onMouseLeave={[Function]}
     >
-      <button
+      <div
         aria-controls="dropdown-5"
-        aria-disabled={false}
         aria-expanded={false}
         aria-haspopup={true}
-        className="button buttonDefault"
-        defaultChecked={false}
-        disabled={false}
+        className="referenceWrapper"
         onMouseEnter={[Function]}
+        role="button"
+        style={
+          Object {
+            "display": "flex",
+          }
+        }
+        tabindex="0"
       >
+        Hover bottom end
         <span
-          className=""
+          aria-hidden={false}
+          className="iconWrapper"
+          role="presentation"
         >
-          Hover bottom end
+          <svg
+            role="presentation"
+            style={
+              Object {
+                "height": "20px",
+                "width": "20px",
+              }
+            }
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"
+              style={
+                Object {
+                  "fill": "currentColor",
+                }
+              }
+            />
+          </svg>
         </span>
-      </button>
+      </div>
     </div>
   </div>,
 ]
@@ -5852,6 +5882,8 @@ Array [
       defaultChecked={false}
       disabled={false}
       onClick={[Function]}
+      role="button"
+      tabindex="0"
     >
       <span
         className=""
@@ -5878,6 +5910,8 @@ Array [
       defaultChecked={false}
       disabled={false}
       onClick={[Function]}
+      role="button"
+      tabindex="0"
     >
       <span
         className=""
@@ -6618,6 +6652,8 @@ Array [
             defaultChecked={false}
             disabled={false}
             onClick={[Function]}
+            role="button"
+            tabindex="0"
           >
             <span>
               <span
@@ -6957,6 +6993,8 @@ Array [
             defaultChecked={false}
             disabled={false}
             onClick={[Function]}
+            role="button"
+            tabindex="0"
           >
             <span>
               <span
