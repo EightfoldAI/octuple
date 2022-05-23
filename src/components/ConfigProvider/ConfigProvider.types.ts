@@ -5,7 +5,7 @@ export interface IConfigContext {
     themeOptions: ThemeOptions;
     setThemeOptions: (themeOptions: ThemeOptions) => void;
     registeredTheme?: IRegisterTheme;
-    icomoonIconSet?: object | null;
+    icomoonIconSet?: Object;
 }
 
 export interface ConfigProviderProps {

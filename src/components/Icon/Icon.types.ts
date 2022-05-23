@@ -1,5 +1,4 @@
 import { IconName } from './mdi';
-import { IconProps as MdiIconProps } from '@mdi/react/dist/IconProps';
 import { OcBaseProps } from '../OcBase';
 
 export enum IconSize {
