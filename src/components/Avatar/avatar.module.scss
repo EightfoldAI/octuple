@@ -1,7 +1,55 @@
-.profile-image-fallback {
+.wrapper-style {
     align-items: center;
     display: flex;
     justify-content: center;
+
+    &.disruptive {
+        background-color: var(--disruptive-color-20);
+        border: solid 1px var(--disruptive-color-30);
+        color: var(--disruptive-color);
+    }
+
+    &.grey {
+        background-color: var(--grey-color-20);
+        border: solid 1px var(--grey-color-30);
+        color: var(--grey-color);
+    }
+
+    &.blue {
+        background-color: var(--blue-color-20);
+        border: solid 1px var(--blue-color-30);
+        color: var(--blue-color);
+    }
+
+    &.orange {
+        background-color: var(--orange-color-20);
+        border: solid 1px var(--orange-color-30);
+        color: var(--orange-color);
+    }
+
+    &.green {
+        background-color: var(--green-color-20);
+        border: solid 1px var(--green-color-30);
+        color: var(--green-color);
+    }
+
+    &.violet {
+        background-color: var(--violet-color-20);
+        border: solid 1px var(--violet-color-30);
+        color: var(--violet-color);
+    }
+
+    &.yellow {
+        background-color: var(--yellow-color-20);
+        border: solid 1px var(--yellow-color-30);
+        color: var(--yellow-color);
+    }
+
+    &.bluegreen {
+        background-color: var(--bluegreen-color-20);
+        border: solid 1px var(--bluegreen-color-30);
+        color: var(--bluegreen-color);
+    }
 }
 
 .round-image {
@@ -11,4 +59,5 @@
 .image-style {
     height: 32px;
     width: 32px;
+    object-fit: cover;
 }

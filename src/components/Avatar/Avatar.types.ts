@@ -1,23 +1,8 @@
 import React from 'react';
+import { IconProps } from '../Icon';
 import { OcBaseProps } from '../OcBase';
 
-export interface ImageProps {
-    /**
-     * Image source
-     */
-    src: string;
-    /**
-     * Image alt text
-     */
-    alt: string;
-}
-
 interface BaseAvatarProps extends OcBaseProps<HTMLSpanElement> {
-    /**
-     * Fallback image name
-     * @default ''
-     */
-    fallbackText?: string;
     /**
      * Avatar size
      * @default 32
@@ -30,21 +15,27 @@ interface BaseAvatarProps extends OcBaseProps<HTMLSpanElement> {
     fontSize?: number;
     /**
      * Type of avatar style
+     * @default 'square'
      */
     type?: 'round' | 'square';
 }
 
+export interface AvatarIconProps extends BaseAvatarProps {
+    /**
+     * Icon Props
+     */
+    iconProps?: IconProps;
+}
+
 export interface AvatarFallbackProps extends BaseAvatarProps {}
 
-export interface AvatarProps extends BaseAvatarProps {
+export interface AvatarProps extends BaseAvatarProps, AvatarIconProps {
     /**
-     * Image Props
-     * @default {}
+     * Image source
      */
-    imageProps?: ImageProps;
+    src?: string;
     /**
-     * Should support fallback
-     * @default false
+     * Image alt text
      */
-    supportFallback?: boolean;
+    alt?: string;
 }
