@@ -40,18 +40,4 @@
             cursor: auto;
         }
     }
-
-    .icon-style {
-        transition: all $motion-duration-fast $motion-easing-easeout;
-
-        &.visible {
-            animation: rotateX $motion-duration-extra-fast
-                $motion-easing-easeinout 0s forwards;
-        }
-
-        &.hidden {
-            animation: inverseRotateX $motion-duration-extra-fast
-                $motion-easing-easeinout 0s forwards;
-        }
-    }
 }

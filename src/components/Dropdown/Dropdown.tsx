@@ -27,7 +27,7 @@ const TRIGGER_TO_HANDLER_MAP_ON_LEAVE = {
 };
 
 const ACCESSIBILITY_EVENTS_MAP = {
-    click: 'click',
+    click: '',
     hover: 'focusin',
     contextmenu: '',
 };
@@ -46,7 +46,6 @@ export const Dropdown: FC<DropdownProps> = ({
     offset = 0,
     positionStrategy = 'absolute',
     onVisibleChange,
-    iconProps,
 }) => {
     const [visible, setVisible] = useState<boolean>(false);
     const [closing, setClosing] = useState<boolean>(false);
@@ -131,26 +130,11 @@ export const Dropdown: FC<DropdownProps> = ({
         styles.mainWrapper,
     ]);
 
-    const referenceWrapperClasses: string = mergeClasses([
-        styles.referenceWrapper,
-        { [styles.disabled]: false },
-    ]);
-
-    const iconClassNames = mergeClasses([
-        styles.iconStyle,
-        { [styles.visible]: visible },
-        { [styles.hidden]: !visible },
-    ]);
-
     const dropdownStyles: React.CSSProperties = {
         ...dropdownStyle,
         position: strategy,
         top: y ?? '',
         left: x ?? '',
-    };
-
-    const referenceProps: object = {
-        ...{ [TRIGGER_TO_HANDLER_MAP_ON_ENTER[trigger]]: toggle(true) },
     };
 
     let containerProps = {};
@@ -162,20 +146,23 @@ export const Dropdown: FC<DropdownProps> = ({
     }
 
     const getReference = (): JSX.Element => {
-        return (
-            <button
-                className={referenceWrapperClasses}
-                aria-controls={dropdownId}
-                aria-expanded={visible}
-                aria-haspopup={true}
-                {...referenceProps}
-            >
-                {children}
-                {iconProps && (
-                    <Icon classNames={iconClassNames} {...iconProps} />
-                )}
-            </button>
-        );
+        const child = React.Children.only(children) as React.ReactElement<any>;
+        const referenceWrapperClasses: string = mergeClasses([
+            styles.referenceWrapper,
+            // Add any classnames added to the reference element
+            { [child.props.className]: child.props.className },
+            { [styles.disabled]: false },
+        ]);
+        return cloneElement(child, {
+            ...{ [TRIGGER_TO_HANDLER_MAP_ON_ENTER[trigger]]: toggle(true) },
+            ref: reference,
+            className: referenceWrapperClasses,
+            'aria-controls': dropdownId,
+            'aria-expanded': visible,
+            'aria-haspopup': true,
+            role: 'button',
+            tabindex: '0',
+        });
     };
 
     const getDropdown = (): JSX.Element =>

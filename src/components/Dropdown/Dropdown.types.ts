@@ -1,6 +1,5 @@
 import { Placement, Strategy } from '@floating-ui/react-dom';
 import React from 'react';
-import { IconProps } from '../Icon';
 
 export interface DropdownProps {
     /**
@@ -51,8 +50,4 @@ export interface DropdownProps {
      * Dropdown custom style
      */
     dropdownStyle?: React.CSSProperties;
-    /**
-     * dropdown icon props
-     */
-    iconProps?: IconProps;
 }
