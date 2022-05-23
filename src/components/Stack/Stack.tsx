@@ -41,9 +41,13 @@ export const Stack: FC<StackProps> = React.forwardRef(
             });
 
         const activeBreakPointStackProps =
-            breakpoints[
-                breakPointConfigurationList[activeBreakPointStackPropsIndex][0]
-            ] || {};
+            activeBreakPointStackPropsIndex > -1
+                ? breakpoints[
+                      breakPointConfigurationList[
+                          activeBreakPointStackPropsIndex
+                      ][0]
+                  ]
+                : {};
 
         const resolvedStackIntrinsicProps = {
             ...{
@@ -55,7 +59,7 @@ export const Stack: FC<StackProps> = React.forwardRef(
                 wrap: defaultWrap,
                 gap: defaultGap,
             },
-            ...activeBreakPointStackProps,
+            ...(activeBreakPointStackProps || {}),
         };
 
         console.log(

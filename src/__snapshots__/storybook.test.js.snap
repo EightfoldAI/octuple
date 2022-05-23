@@ -10579,6 +10579,137 @@ exports[`Storyshots Snackbar Default 1`] = `
 </div>
 `;
 
+exports[`Storyshots Stack Default 1`] = `
+<div
+  className="stack horizontal m"
+>
+  <div
+    style={
+      Object {
+        "backgroundColor": "mediumpurple",
+        "height": "200px",
+        "width": "200px",
+      }
+    }
+  />
+  <div
+    style={
+      Object {
+        "backgroundColor": "mediumpurple",
+        "height": "200px",
+        "width": "200px",
+      }
+    }
+  />
+  <div
+    style={
+      Object {
+        "backgroundColor": "mediumpurple",
+        "height": "200px",
+        "width": "200px",
+      }
+    }
+  />
+  <div
+    style={
+      Object {
+        "alignItems": undefined,
+        "backgroundColor": "aquamarine",
+        "flexWrap": undefined,
+        "justifyContent": undefined,
+      }
+    }
+  />
+</div>
+`;
+
+exports[`Storyshots Stack Horizontal 1`] = `
+<div
+  className="stack vertical l"
+>
+  <div
+    style={
+      Object {
+        "backgroundColor": "mediumpurple",
+        "height": "200px",
+        "width": "200px",
+      }
+    }
+  />
+  <div
+    style={
+      Object {
+        "backgroundColor": "mediumpurple",
+        "height": "200px",
+        "width": "200px",
+      }
+    }
+  />
+  <div
+    style={
+      Object {
+        "backgroundColor": "mediumpurple",
+        "height": "200px",
+        "width": "200px",
+      }
+    }
+  />
+  <div
+    style={
+      Object {
+        "alignItems": undefined,
+        "backgroundColor": "aquamarine",
+        "flexWrap": undefined,
+        "justifyContent": undefined,
+      }
+    }
+  />
+</div>
+`;
+
+exports[`Storyshots Stack Responsive 1`] = `
+<div
+  className="stack vertical l"
+>
+  <div
+    style={
+      Object {
+        "backgroundColor": "mediumpurple",
+        "height": "200px",
+        "width": "200px",
+      }
+    }
+  />
+  <div
+    style={
+      Object {
+        "backgroundColor": "mediumpurple",
+        "height": "200px",
+        "width": "200px",
+      }
+    }
+  />
+  <div
+    style={
+      Object {
+        "backgroundColor": "mediumpurple",
+        "height": "200px",
+        "width": "200px",
+      }
+    }
+  />
+  <div
+    style={
+      Object {
+        "alignItems": undefined,
+        "flexWrap": undefined,
+        "justifyContent": undefined,
+      }
+    }
+  />
+</div>
+`;
+
 exports[`Storyshots Tabs Default 1`] = `
 Array [
   <p>

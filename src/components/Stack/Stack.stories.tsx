@@ -1,5 +1,4 @@
 import React from 'react';
-import { Breakpoints } from '../../hooks/useMatchMedia';
 import { Stack } from './Stack';
 
 export default {
