@@ -51,7 +51,11 @@ export const RadioButton: FC<RadioButtonProps> = ({
                 htmlFor={id}
                 className={value === '' ? styles.labelNoValue : ''}
             >
-                <span className={radioButtonClassNames} tabIndex={0}></span>
+                <span
+                    id={`${id}-custom-radio`}
+                    className={radioButtonClassNames}
+                    tabIndex={0}
+                ></span>
                 <span className={styles.selectorLabel}>{value}</span>
             </label>
         </div>

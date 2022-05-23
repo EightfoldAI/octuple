@@ -1,6 +1,7 @@
 import React, { FC, useEffect, useState } from 'react';
 import { RadioButton, RadioButtonProps } from '../';
 import { RadioGroupProvider } from './RadioGroup.context';
+import { generateId } from '../../../shared/utilities';
 
 export const RadioGroup: FC<RadioButtonProps> = (props) => {
     let { activeRadioButton, onChange, radioGroupItems } = props;
@@ -10,28 +11,38 @@ export const RadioGroup: FC<RadioButtonProps> = (props) => {
 
     const handleKeyDown = (event: React.KeyboardEvent) => {
         let indexOfRadio = radioIndex;
-        if (event.key === 'Tab') setTabClicked(true);
-        if (tabClicked) {
-            if (event.key === 'ArrowDown' || event.key === 'ArrowRight') {
-                if (indexOfRadio + 2 > radioGroupValues.length)
-                    indexOfRadio = 0;
-                else indexOfRadio++;
-                activeRadioButton = radioGroupValues[indexOfRadio];
-            }
-            if (event.key === 'ArrowUp' || event.key === 'ArrowLeft') {
-                if (indexOfRadio - 1 < 0)
-                    indexOfRadio = radioGroupValues.length - 1;
-                else indexOfRadio--;
-                activeRadioButton = radioGroupValues[indexOfRadio];
-            }
+        if (event.key === 'ArrowDown' || event.key === 'ArrowRight') {
+            if (indexOfRadio + 2 > radioGroupValues.length) indexOfRadio = 0;
+            else indexOfRadio++;
+            activeRadioButton = radioGroupValues[indexOfRadio];
+        }
+        if (event.key === 'ArrowUp' || event.key === 'ArrowLeft') {
+            if (indexOfRadio - 1 < 0)
+                indexOfRadio = radioGroupValues.length - 1;
+            else indexOfRadio--;
+            activeRadioButton = radioGroupValues[indexOfRadio];
         }
         setRadioIndex(indexOfRadio);
+        const radioOnFocus = document.getElementById(
+            `${radioGroupItems[indexOfRadio].id}-custom-radio`
+        );
+        radioOnFocus.focus();
+        radioOnFocus.tabIndex = 0;
+        radioGroupItems.forEach((item: RadioButtonProps, idx: number) => {
+            if (idx !== indexOfRadio) {
+                const currentRadio = document.getElementById(
+                    `${item.id}-custom-radio`
+                );
+                currentRadio.tabIndex = -1;
+            }
+        });
     };
 
     const getRadioGroupValues = () => {
         let radioGroupValues: (string | number)[] = [];
         radioGroupItems.map((item: RadioButtonProps) => {
             radioGroupValues.push(item.value);
+            item.id = generateId();
         });
         return radioGroupValues;
     };
