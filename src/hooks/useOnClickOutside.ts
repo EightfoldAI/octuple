@@ -1,4 +1,4 @@
-import { RefObject, useEffect } from 'react';
+import { RefObject, useCallback, useEffect } from 'react';
 
 /**
  * Helper hook for detecting clicks outside the ref element
@@ -11,19 +11,19 @@ export const useOnClickOutside = (
     handler: (event: MouseEvent) => void,
     visible: boolean = true
 ): void => {
-    const listener = (event: MouseEvent): void => {
+    const listener = useCallback((event: MouseEvent): void => {
         if (ref?.current?.contains(event.target)) {
             return;
         }
         handler(event);
-    };
+    }, []);
 
-    const removeEventListeners = () => {
+    const removeEventListeners = (): void => {
         document.removeEventListener('mousedown', listener);
         document.removeEventListener('touchstart', listener);
     };
 
-    const addEventListeners = () => {
+    const addEventListeners = (): void => {
         document.addEventListener('mousedown', listener);
         document.addEventListener('touchstart', listener);
     };
