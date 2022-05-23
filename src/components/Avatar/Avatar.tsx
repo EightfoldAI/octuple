@@ -54,7 +54,6 @@ const AvatarFallback: FC<AvatarFallbackProps> = ({
     onClick,
     classNames,
     fontSize = 18,
-    type,
 }) => {
     const avatarColors = AVATAR_COLORS;
 
@@ -74,12 +73,7 @@ const AvatarFallback: FC<AvatarFallbackProps> = ({
     const firstTwoWordsInName = wordsInName.slice(0, 2);
     const initials = firstTwoWordsInName.map((word) => word[0]).join('');
 
-    const avatarStyle = mergeClasses([
-        styles.imageStyle,
-        styles.profileImageFallback,
-        { [styles.roundImage]: type },
-        classNames,
-    ]);
+    const avatarStyle = mergeClasses([styles.profileImageFallback, classNames]);
 
     return (
         <div className={avatarStyle} onClick={onClick} style={divStyle}>
@@ -101,7 +95,7 @@ export const Avatar: FC<AvatarProps> = (props) => {
     const imageStyle = mergeClasses([
         styles.imageStyle,
         classNames,
-        { [styles.roundImage]: type },
+        { [styles.roundImage]: type === 'round' },
     ]);
 
     if (imageSouce) {
@@ -117,7 +111,7 @@ export const Avatar: FC<AvatarProps> = (props) => {
         );
     }
     if (supportFallback) {
-        return <AvatarFallback {...props} />;
+        return <AvatarFallback {...props} classNames={imageStyle} />;
     }
     return null;
 };
