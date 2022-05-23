@@ -62,13 +62,6 @@ export const Stack: FC<StackProps> = React.forwardRef(
             ...(activeBreakPointStackProps || {}),
         };
 
-        console.log(
-            xSmallScreenActive,
-            smallScreenActive,
-            mediumScreenActive,
-            largeScreenActive
-        );
-
         const { fullWidth, direction, justify, inline, align, wrap, gap } =
             resolvedStackIntrinsicProps;
 
