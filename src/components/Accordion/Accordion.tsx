@@ -1,4 +1,4 @@
-import React, { FC, useCallback, useState } from 'react';
+import React, { FC, Ref, useCallback, useState } from 'react';
 
 import { mergeClasses } from '../../shared/utilities';
 
@@ -75,15 +75,18 @@ export const AccordionBody: FC<AccordionBodyProps> = ({
 };
 
 export const Accordion: FC<AccordionProps> = React.forwardRef(
-    ({
-        expanded = false,
-        onAccordionChange,
-        classNames,
-        summary,
-        expandIconProps = { path: IconName.mdiChevronDown },
-        children,
-        id,
-    }) => {
+    (
+        {
+            expanded = false,
+            onAccordionChange,
+            classNames,
+            summary,
+            expandIconProps = { path: IconName.mdiChevronDown },
+            children,
+            id,
+        },
+        ref: Ref<HTMLDivElement>
+    ) => {
         const [isExpanded, setIsExpanded] = useState<boolean>(expanded);
 
         const toggleAccordion = (expand: boolean): void => {
@@ -97,7 +100,7 @@ export const Accordion: FC<AccordionProps> = React.forwardRef(
         );
 
         return (
-            <div className={accordionContainerStyle}>
+            <div className={accordionContainerStyle} ref={ref}>
                 <AccordionSummary
                     expandIconProps={expandIconProps}
                     onClick={() => toggleAccordion(!isExpanded)}
