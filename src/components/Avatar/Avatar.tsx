@@ -20,7 +20,7 @@ export const AVATAR_CLASS_SET = [
 const AvatarFallback: FC<AvatarFallbackProps> = ({
     children,
     classNames,
-    style = {},
+    style,
 }) => {
     const avatarClasses: string = mergeClasses([
         styles.wrapperStyle,
@@ -32,7 +32,7 @@ const AvatarFallback: FC<AvatarFallbackProps> = ({
 
     return (
         <div className={avatarClasses} style={style}>
-            <span>{children}</span>
+            {children}
         </div>
     );
 };
@@ -41,7 +41,7 @@ const AvatarIcon: FC<AvatarIconProps> = ({
     iconProps,
     fontSize,
     classNames,
-    style = {},
+    style,
 }) => {
     const wrapperClasses: string = mergeClasses([
         styles.wrapperStyle,
@@ -55,61 +55,64 @@ const AvatarIcon: FC<AvatarIconProps> = ({
     );
 };
 
-export const Avatar: FC<AvatarProps> = ({
-    classNames,
-    src,
-    alt,
-    size = 32,
-    type = 'square',
-    style = {},
-    fontSize = 18,
-    iconProps,
-    children,
-}) => {
-    const imageClasses: string = mergeClasses([
-        styles.imageStyle,
+export const Avatar: FC<AvatarProps> = React.forwardRef(
+    ({
         classNames,
-        { [styles.roundImage]: type === 'round' },
-    ]);
+        src,
+        alt,
+        size = 32,
+        type = 'square',
+        style = {},
+        fontSize = 18,
+        iconProps,
+        children,
+    }) => {
+        const imageClasses: string = mergeClasses([
+            styles.imageStyle,
+            classNames,
+            { [styles.roundImage]: type === 'round' },
+        ]);
 
-    if (src) {
+        if (src) {
+            return (
+                <img
+                    src={src}
+                    className={imageClasses}
+                    alt={alt}
+                    width={size}
+                    height={size}
+                    style={style}
+                />
+            );
+        }
+
+        const wrapperContainerStyle: React.CSSProperties = {
+            width: `${size}px`,
+            height: `${size}px`,
+            minWidth: `${size}px`,
+            minHeight: `${size}px`,
+            fontSize: `${fontSize}px`,
+            ...style,
+        };
+
+        if (iconProps) {
+            return (
+                <AvatarIcon
+                    iconProps={iconProps}
+                    classNames={imageClasses}
+                    style={wrapperContainerStyle}
+                    fontSize={fontSize}
+                />
+            );
+        }
+
         return (
-            <img
-                src={src}
-                className={imageClasses}
-                alt={alt}
-                width={size}
-                height={size}
-                style={style}
-            />
-        );
-    }
-
-    const wrapperContainerStyle: Object = {
-        width: `${size}px`,
-        height: `${size}px`,
-        minWidth: `${size}px`,
-        minHeight: `${size}px`,
-        fontSize: `${fontSize}px`,
-        ...style,
-    };
-
-    if (iconProps) {
-        return (
-            <AvatarIcon
-                iconProps={iconProps}
+            <AvatarFallback
                 classNames={imageClasses}
                 style={wrapperContainerStyle}
-                fontSize={fontSize}
-            />
+            >
+                {children}
+            </AvatarFallback>
         );
     }
-
-    return (
-        <AvatarFallback classNames={imageClasses} style={wrapperContainerStyle}>
-            {children}
-        </AvatarFallback>
-    );
-};
-
-export default Avatar;
+);
