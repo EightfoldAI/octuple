@@ -22,6 +22,7 @@ const ConfigProvider: FC<ConfigProviderProps> = ({
         focusVisibleElement: DEFAULT_FOCUS_VISIBLE_ELEMENT,
     },
     themeOptions: defaultThemeOptions,
+    icomoonIconSet = {},
 }) => {
     const [themeOptions, setThemeOptions] =
         useState<ThemeOptions>(defaultThemeOptions);
@@ -59,6 +60,7 @@ const ConfigProvider: FC<ConfigProviderProps> = ({
                 themeOptions,
                 setThemeOptions,
                 registeredTheme,
+                icomoonIconSet,
             }}
         >
             <div className={`theme-${themeOptions.name}`}>{children}</div>
