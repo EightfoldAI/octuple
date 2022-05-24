@@ -1,0 +1,17 @@
+.nav-list-container {
+    background: #ffffff;
+    box-shadow: $shadow-object-l;
+    border-radius: 4px;
+    max-width: 540px;
+    min-width: 300px;
+    .group {
+        padding: $space-l;
+        width: 180px;
+        h3 {
+            margin: 0;
+        }
+        p {
+            margin: 0;
+        }
+    }
+}
