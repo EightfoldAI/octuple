@@ -20,9 +20,7 @@ export default {
                                 of choices to the person using the app.
                             </p>
                         </section>
-                        <br />
                         <hr />
-                        <br />
                         <section>
                             <Stories includePrimary />
                         </section>

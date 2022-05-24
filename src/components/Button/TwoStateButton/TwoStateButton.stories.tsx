@@ -28,9 +28,7 @@ export default {
                                 is different than a basic Toggle button.
                             </p>
                         </section>
-                        <br />
                         <hr />
-                        <br />
                         <section>
                             <Stories includePrimary />
                         </section>
@@ -42,7 +40,7 @@ export default {
     argTypes: {
         buttonWidth: {
             options: [ButtonWidth.fitContent, ButtonWidth.fill],
-            control: { type: 'select' },
+            control: { type: 'inline-radio' },
         },
         onClick: {
             action: 'click',

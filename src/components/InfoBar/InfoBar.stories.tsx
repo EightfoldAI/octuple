@@ -23,9 +23,7 @@ export default {
                                 of a section.
                             </p>
                         </section>
-                        <br />
                         <hr />
-                        <br />
                         <section>
                             <Stories includePrimary />
                         </section>

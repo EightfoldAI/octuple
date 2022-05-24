@@ -1,7 +1,7 @@
 import React from 'react';
 import { Stories } from '@storybook/addon-docs';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { TextArea, TextInputWidth } from '../index';
+import { TextArea, TextInputTheme, TextInputWidth } from '../index';
 
 export default {
     title: 'Text Area',
@@ -51,9 +51,7 @@ export default {
                                 </li>
                             </ul>
                         </section>
-                        <br />
                         <hr />
-                        <br />
                         <section>
                             <Stories includePrimary />
                         </section>
@@ -62,41 +60,58 @@ export default {
             ),
         },
     },
+    argTypes: {
+        inputWidth: {
+            options: [TextInputWidth.fitContent, TextInputWidth.fill],
+            control: { type: 'select' },
+        },
+        onBlur: {
+            action: 'blur',
+        },
+        onChange: {
+            action: 'change',
+        },
+        onFocus: {
+            action: 'focus',
+        },
+        onKeyDown: {
+            action: 'keydown',
+        },
+    },
 } as ComponentMeta<typeof TextArea>;
 
-export const Text_Areas: ComponentStory<typeof TextArea> = () => {
-    return (
-        <>
-            <h1>Text Areas</h1>
-            <p>Text Area No Expand Stretch (Rectangle)</p>
-            <TextArea
-                labelProps={{ text: 'Label' }}
-                inputWidth={TextInputWidth.fill}
-            />
-            <br />
-            <br />
-            <p>Text Area No Expand With Icon Button (Rectangle)</p>
-            <TextArea
-                labelProps={{
-                    labelIconButtonProps: {
-                        show: true,
-                        toolTipContent: 'A tooltip',
-                        toolTipPlacement: 'top',
-                        onClick: _alertClicked,
-                    },
-                    text: 'Label',
-                }}
-            />
-            <br />
-            <br />
-            <p>Text Area with expand (Rectangle)</p>
-            <TextArea labelProps={{ text: 'Label' }} enableExpand={true} />
-            <br />
-            <br />
-        </>
-    );
-};
+const Text_Area_Story: ComponentStory<typeof TextArea> = (args) => (
+    <TextArea {...args} />
+);
 
-function _alertClicked(): void {
-    alert('Clicked');
-}
+export const Text_Area = Text_Area_Story.bind({});
+
+Text_Area.args = {
+    allowDisabledFocus: false,
+    ariaLabel: 'Sample text',
+    autoFocus: false,
+    classNames: 'my-textarea-class',
+    disabled: false,
+    enableExpand: true,
+    htmlType: 'text',
+    id: 'myTextAreaId',
+    inputWidth: TextInputWidth.fitContent,
+    labelProps: {
+        labelIconButtonProps: {
+            show: true,
+            toolTipContent: 'tooltip',
+        },
+        text: 'Label',
+    },
+    maxlength: 300,
+    minlength: 0,
+    name: 'myTextArea',
+    placeholder: 'Placeholder text',
+    required: false,
+    style: {},
+    textAreaCols: 50,
+    textAreaRows: 5,
+    theme: TextInputTheme.light,
+    value: '',
+    waitInterval: 500,
+};

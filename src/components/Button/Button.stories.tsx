@@ -106,9 +106,7 @@ export default {
                                 <b>splitButtonChecked</b>.
                             </p>
                         </section>
-                        <br />
                         <hr />
-                        <br />
                         <section>
                             <Stories includePrimary />
                         </section>
@@ -120,7 +118,7 @@ export default {
     argTypes: {
         alignIcon: {
             options: [ButtonIconAlign.Left, ButtonIconAlign.Right],
-            control: { type: 'select' },
+            control: { type: 'inline-radio' },
         },
         alignText: {
             options: [
@@ -128,15 +126,15 @@ export default {
                 ButtonTextAlign.Left,
                 ButtonTextAlign.Right,
             ],
-            control: { type: 'select' },
+            control: { type: 'radio' },
         },
         buttonWidth: {
             options: [ButtonWidth.fitContent, ButtonWidth.fill],
-            control: { type: 'select' },
+            control: { type: 'inline-radio' },
         },
         htmlType: {
             options: ['button', 'submit', 'reset'],
-            control: { type: 'select' },
+            control: { type: 'radio' },
         },
         onClick: {
             action: 'click',
@@ -146,7 +144,7 @@ export default {
         },
         shape: {
             options: [ButtonShape.Rectangle, ButtonShape.Pill],
-            control: { type: 'select' },
+            control: { type: 'inline-radio' },
         },
         size: {
             options: [

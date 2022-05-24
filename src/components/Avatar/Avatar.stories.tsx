@@ -19,9 +19,7 @@ export default {
                                 characters.
                             </p>
                         </section>
-                        <br />
                         <hr />
-                        <br />
                         <section>
                             <Stories includePrimary />
                         </section>

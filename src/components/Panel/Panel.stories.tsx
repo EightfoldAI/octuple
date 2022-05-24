@@ -98,9 +98,7 @@ export default {
                                 </li>
                             </ul>
                         </section>
-                        <br />
                         <hr />
-                        <br />
                         <section>
                             <Stories includePrimary />
                         </section>

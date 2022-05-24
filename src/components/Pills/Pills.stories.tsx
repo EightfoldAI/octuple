@@ -20,9 +20,7 @@ export default {
                                 attribute.
                             </p>
                         </section>
-                        <br />
                         <hr />
-                        <br />
                         <section>
                             <Stories includePrimary />
                         </section>

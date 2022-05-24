@@ -17,9 +17,7 @@ export default {
                                 page, use pagination.
                             </p>
                         </section>
-                        <br />
                         <hr />
-                        <br />
                         <section>
                             <Stories includePrimary />
                         </section>
