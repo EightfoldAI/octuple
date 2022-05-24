@@ -33,7 +33,7 @@ export const Dropdowns = () => {
             <h2>Dropdown</h2>
             <div style={{ display: 'flex', gap: '20%' }}>
                 <Dropdown overlay={Overlay()}>
-                    <DefaultButton text={'Click bottom start'} />
+                    <DefaultButton text={'Click button start'} />
                 </Dropdown>
                 <Dropdown
                     overlay={Overlay()}
@@ -42,12 +42,27 @@ export const Dropdowns = () => {
                     onVisibleChange={(isVisible) => setVisibility(isVisible)}
                 >
                     <div style={{ display: 'flex' }}>
-                        Hover bottom end
+                        Hover div
                         <Icon
                             path={IconName.mdiChevronDown}
                             rotate={visible ? 180 : 0}
                         />
                     </div>
+                </Dropdown>
+                <Dropdown
+                    overlay={Overlay()}
+                    placement="bottom-end"
+                    onVisibleChange={(isVisible) => setVisibility(isVisible)}
+                >
+                    <div style={{ display: 'flex' }}>Click div</div>
+                </Dropdown>
+                <Dropdown
+                    overlay={Overlay()}
+                    placement="bottom-end"
+                    trigger="contextmenu"
+                    onVisibleChange={(isVisible) => setVisibility(isVisible)}
+                >
+                    <div style={{ display: 'flex' }}>Contextmenu div</div>
                 </Dropdown>
             </div>
         </>

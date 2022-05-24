@@ -1,17 +1,16 @@
 import React, {
     FC,
-    useCallback,
     useEffect,
     cloneElement,
     useState,
+    SyntheticEvent,
 } from 'react';
 import { DropdownProps } from './Dropdown.types';
 import { autoUpdate, shift, useFloating } from '@floating-ui/react-dom';
 import { offset as fOffset } from '@floating-ui/core';
 import { mergeClasses, uniqueId } from '../../shared/utilities';
 import { useOnClickOutside } from '../../hooks/useOnClickOutside';
-import { Icon } from '../Icon';
-
+import { useAccessibility } from '../../hooks/useAccessibility';
 import styles from './dropdown.module.scss';
 
 const TRIGGER_TO_HANDLER_MAP_ON_ENTER = {
@@ -26,11 +25,7 @@ const TRIGGER_TO_HANDLER_MAP_ON_LEAVE = {
     contextmenu: '',
 };
 
-const ACCESSIBILITY_EVENTS_MAP = {
-    click: '',
-    hover: 'focusin',
-    contextmenu: '',
-};
+const PREVENT_DEFAULT_TRIGGERS = ['contextmenu'];
 
 const ANIMATION_DURATION = 200;
 
@@ -46,6 +41,7 @@ export const Dropdown: FC<DropdownProps> = ({
     offset = 0,
     positionStrategy = 'absolute',
     onVisibleChange,
+    disabled,
 }) => {
     const [visible, setVisible] = useState<boolean>(false);
     const [closing, setClosing] = useState<boolean>(false);
@@ -60,7 +56,10 @@ export const Dropdown: FC<DropdownProps> = ({
 
     const toggle: Function =
         (show: boolean): Function =>
-        (): void => {
+        (e: SyntheticEvent): void => {
+            if (PREVENT_DEFAULT_TRIGGERS.includes(trigger)) {
+                e.preventDefault();
+            }
             setClosing(!show);
             timeout && clearTimeout(timeout);
             timeout = setTimeout(
@@ -90,34 +89,7 @@ export const Dropdown: FC<DropdownProps> = ({
         );
     }, [refs.reference, refs.floating, update]);
 
-    const onHoverElementFocus = useCallback((e) => {
-        if (
-            refs.reference.current instanceof Element &&
-            refs.reference.current?.contains(e.target)
-        ) {
-            return toggle(true)();
-        }
-        return toggle(false)();
-    }, []);
-
-    // To show dropdown on focus in of element
-    useEffect(() => {
-        if (!ACCESSIBILITY_EVENTS_MAP[trigger]) {
-            return null;
-        }
-        document.addEventListener(
-            ACCESSIBILITY_EVENTS_MAP[trigger],
-            onHoverElementFocus
-        );
-
-        return () => {
-            document.removeEventListener(
-                ACCESSIBILITY_EVENTS_MAP[trigger],
-                onHoverElementFocus
-            );
-        };
-    }, [trigger]);
-
+    useAccessibility(trigger, refs.reference, toggle(true), toggle(false));
     const dropdownClasses: string = mergeClasses([
         dropdownClassNames,
         styles.dropdownWrapper,
@@ -151,7 +123,7 @@ export const Dropdown: FC<DropdownProps> = ({
             styles.referenceWrapper,
             // Add any classnames added to the reference element
             { [child.props.className]: child.props.className },
-            { [styles.disabled]: false },
+            { [styles.disabled]: disabled },
         ]);
         return cloneElement(child, {
             ...{ [TRIGGER_TO_HANDLER_MAP_ON_ENTER[trigger]]: toggle(true) },
@@ -161,7 +133,7 @@ export const Dropdown: FC<DropdownProps> = ({
             'aria-expanded': visible,
             'aria-haspopup': true,
             role: 'button',
-            tabindex: '0',
+            tabIndex: '0',
         });
     };
 
