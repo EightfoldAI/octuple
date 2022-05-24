@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.4.0](https://github.com/EightfoldAI/octuple/compare/v1.3.0...v1.4.0) (2022-05-24)
+
+### Features
+
+-   added avatar component ([#131](https://github.com/EightfoldAI/octuple/issues/131)) ([3f12842](https://github.com/EightfoldAI/octuple/commits/3f128427b6b8d819f18ae2cb5876994fe3c0f30e))
+-   added support for icomoon icons ([#129](https://github.com/EightfoldAI/octuple/issues/129)) ([637f986](https://github.com/EightfoldAI/octuple/commits/637f986f6887fd360f55b22021bad8451b9494ee))
+
+### Bug Fixes
+
+-   click on menu item not working intermittently ([#128](https://github.com/EightfoldAI/octuple/issues/128)) ([d4d52a4](https://github.com/EightfoldAI/octuple/commits/d4d52a4868857a5440ee26cb0b0428a468a9fccc))
+
 ## [1.3.0](https://github.com/EightfoldAI/octuple/compare/v1.2.0...v1.3.0) (2022-05-19)
 
 ### Features
