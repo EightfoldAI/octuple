@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.5.1](https://github.com/EightfoldAI/octuple/compare/v1.5.0...v1.5.1) (2022-05-24)
+
+### Bug Fixes
+
+-   exports: adds stack and selectors to exports ([#139](https://github.com/EightfoldAI/octuple/issues/139)) ([a209f3b](https://github.com/EightfoldAI/octuple/commits/a209f3ba2eca8e8a7a673e8bec17e1fefbc8344d))
+
 ## [1.5.0](https://github.com/EightfoldAI/octuple/compare/v1.4.0...v1.5.0) (2022-05-24)
 
 ### Features
