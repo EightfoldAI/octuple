@@ -1,11 +1,12 @@
 import React, { FC, Ref, useCallback, useState } from 'react';
 
-import { mergeClasses } from '../../shared/utilities';
+import { mergeClasses, uniqueId } from '../../shared/utilities';
 
 import { AccordionProps, AccordionSummaryProps, AccordionBodyProps } from './';
+import { Icon, IconName } from '../Icon';
+import { eventKeys } from '../../shared/eventKeys';
 
 import styles from './accordion.module.scss';
-import { Icon, IconName } from '../Icon';
 
 export const AccordionSummary: FC<AccordionSummaryProps> = ({
     children,
@@ -23,9 +24,7 @@ export const AccordionSummary: FC<AccordionSummaryProps> = ({
     // to handle enter press on accordion header
     const handleKeyDown = useCallback(
         (event) => {
-            if (event.key === 'Enter' && onClick) {
-                onClick(event);
-            }
+            event.key === eventKeys.ENTER && onClick?.(event);
         },
         [onClick]
     );
@@ -83,7 +82,7 @@ export const Accordion: FC<AccordionProps> = React.forwardRef(
             summary,
             expandIconProps = { path: IconName.mdiChevronDown },
             children,
-            id,
+            id = uniqueId('dropdown-'),
         },
         ref: Ref<HTMLDivElement>
     ) => {

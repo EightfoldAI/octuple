@@ -45,7 +45,7 @@ export const Default = () => {
         <>
             <h2>Single Accordion</h2>
             <div style={{ width: '500px' }}>
-                <Accordion summary={'Accordion Header'} id="single-accordion">
+                <Accordion summary={'Accordion Header'}>
                     <div>
                         Body 2 text used here. Bottom bars are sticky sections
                         that can be used to highlight a few actions that are out
