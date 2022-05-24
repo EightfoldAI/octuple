@@ -18,6 +18,8 @@ import {
     TwoStateButton,
 } from './components/Button';
 
+import { CheckBox, CheckBoxGroup } from './components/Selectors';
+
 import { ConfigProvider } from './components/ConfigProvider';
 
 import { Dialog, DialogSize } from './components/Dialog';
@@ -55,6 +57,8 @@ import { SnackbarContainer, Snackbar, snack } from './components/Snackbar';
 
 import { Spinner, SpinnerSize } from './components/Spinner';
 
+import { Stack } from './components/Stack';
+
 import { Tabs, Tab, TabVariant } from './components/Tabs';
 
 import { Tooltip, TooltipTheme } from './components/Tooltip';
@@ -64,6 +68,8 @@ import { MatchScore } from './components/MatchScore';
 import { Panel, PanelPlacement, PanelSize } from './components/Panel';
 
 import { Portal } from './components/Portal';
+
+import { RadioButton, RadioGroup } from './components/Selectors';
 
 import { useBoolean } from './hooks/useBoolean';
 
@@ -83,6 +89,8 @@ export {
     ButtonTextAlign,
     ButtonTheme,
     ButtonWidth,
+    CheckBox,
+    CheckBoxGroup,
     ConfigProvider,
     DefaultButton,
     Dialog,
@@ -112,6 +120,8 @@ export {
     PillType,
     Portal,
     PrimaryButton,
+    RadioButton,
+    RadioGroup,
     SearchBox,
     SecondaryButton,
     snack,
@@ -119,6 +129,7 @@ export {
     SnackbarContainer,
     Spinner,
     SpinnerSize,
+    Stack,
     Tabs,
     Tab,
     TabVariant,
