@@ -12976,6 +12976,349 @@ Array [
 ]
 `;
 
+exports[`Storyshots Stack Default 1`] = `
+<div
+  className="stack horizontal m"
+  style={
+    Object {
+      "alignItems": undefined,
+      "backgroundColor": "aquamarine",
+      "flexWrap": undefined,
+      "justifyContent": undefined,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "backgroundColor": "mediumpurple",
+        "height": "200px",
+        "width": "200px",
+      }
+    }
+  />
+  <div
+    style={
+      Object {
+        "backgroundColor": "mediumpurple",
+        "height": "200px",
+        "width": "200px",
+      }
+    }
+  />
+  <div
+    style={
+      Object {
+        "backgroundColor": "mediumpurple",
+        "height": "200px",
+        "width": "200px",
+      }
+    }
+  />
+</div>
+`;
+
+exports[`Storyshots Stack Horizontal 1`] = `
+<div
+  className="stack vertical l"
+  style={
+    Object {
+      "alignItems": undefined,
+      "backgroundColor": "aquamarine",
+      "flexWrap": undefined,
+      "justifyContent": undefined,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "backgroundColor": "mediumpurple",
+        "height": "200px",
+        "width": "200px",
+      }
+    }
+  />
+  <div
+    style={
+      Object {
+        "backgroundColor": "mediumpurple",
+        "height": "200px",
+        "width": "200px",
+      }
+    }
+  />
+  <div
+    style={
+      Object {
+        "backgroundColor": "mediumpurple",
+        "height": "200px",
+        "width": "200px",
+      }
+    }
+  />
+</div>
+`;
+
+exports[`Storyshots Stack Responsive 1`] = `
+<div
+  className="stack vertical l"
+  style={
+    Object {
+      "alignItems": undefined,
+      "flexWrap": undefined,
+      "justifyContent": undefined,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "backgroundColor": "mediumpurple",
+        "height": "200px",
+        "width": "200px",
+      }
+    }
+  />
+  <div
+    style={
+      Object {
+        "backgroundColor": "mediumpurple",
+        "height": "200px",
+        "width": "200px",
+      }
+    }
+  />
+  <div
+    style={
+      Object {
+        "backgroundColor": "mediumpurple",
+        "height": "200px",
+        "width": "200px",
+      }
+    }
+  />
+</div>
+`;
+
+exports[`Storyshots Stack Sample Nav List 1`] = `
+<div
+  className="stack navListContainer horizontal undefined"
+  style={
+    Object {
+      "alignItems": undefined,
+      "flexWrap": "wrap",
+      "justifyContent": undefined,
+    }
+  }
+>
+  <div
+    className="stack group vertical m"
+    style={
+      Object {
+        "alignItems": undefined,
+        "flexWrap": undefined,
+        "justifyContent": undefined,
+      }
+    }
+  >
+    <h3>
+      Title
+    </h3>
+    <div
+      className="stack vertical xs"
+      style={
+        Object {
+          "alignItems": undefined,
+          "flexWrap": undefined,
+          "justifyContent": undefined,
+        }
+      }
+    >
+      <p>
+        subheading
+      </p>
+      <p>
+        subheading
+      </p>
+    </div>
+  </div>
+  <div
+    className="stack group vertical m"
+    style={
+      Object {
+        "alignItems": undefined,
+        "flexWrap": undefined,
+        "justifyContent": undefined,
+      }
+    }
+  >
+    <h3>
+      Title
+    </h3>
+    <div
+      className="stack vertical xs"
+      style={
+        Object {
+          "alignItems": undefined,
+          "flexWrap": undefined,
+          "justifyContent": undefined,
+        }
+      }
+    >
+      <p>
+        subheading
+      </p>
+      <p>
+        subheading
+      </p>
+      <p>
+        subheading
+      </p>
+      <p>
+        subheading
+      </p>
+    </div>
+  </div>
+  <div
+    className="stack group vertical m"
+    style={
+      Object {
+        "alignItems": undefined,
+        "flexWrap": undefined,
+        "justifyContent": undefined,
+      }
+    }
+  >
+    <h3>
+      Title
+    </h3>
+    <div
+      className="stack vertical xs"
+      style={
+        Object {
+          "alignItems": undefined,
+          "flexWrap": undefined,
+          "justifyContent": undefined,
+        }
+      }
+    >
+      <p>
+        subheading
+      </p>
+      <p>
+        subheading
+      </p>
+    </div>
+  </div>
+  <div
+    className="stack group vertical m"
+    style={
+      Object {
+        "alignItems": undefined,
+        "flexWrap": undefined,
+        "justifyContent": undefined,
+      }
+    }
+  >
+    <h3>
+      Title
+    </h3>
+    <div
+      className="stack vertical xs"
+      style={
+        Object {
+          "alignItems": undefined,
+          "flexWrap": undefined,
+          "justifyContent": undefined,
+        }
+      }
+    >
+      <p>
+        subheading
+      </p>
+      <p>
+        subheading
+      </p>
+      <p>
+        subheading
+      </p>
+    </div>
+  </div>
+  <div
+    className="stack group vertical m"
+    style={
+      Object {
+        "alignItems": undefined,
+        "flexWrap": undefined,
+        "justifyContent": undefined,
+      }
+    }
+  >
+    <h3>
+      Title
+    </h3>
+    <div
+      className="stack vertical xs"
+      style={
+        Object {
+          "alignItems": undefined,
+          "flexWrap": undefined,
+          "justifyContent": undefined,
+        }
+      }
+    >
+      <p>
+        subheading
+      </p>
+      <p>
+        subheading
+      </p>
+      <p>
+        subheading
+      </p>
+      <p>
+        subheading
+      </p>
+    </div>
+  </div>
+  <div
+    className="stack group vertical m"
+    style={
+      Object {
+        "alignItems": undefined,
+        "flexWrap": undefined,
+        "justifyContent": undefined,
+      }
+    }
+  >
+    <h3>
+      Title
+    </h3>
+    <div
+      className="stack vertical xs"
+      style={
+        Object {
+          "alignItems": undefined,
+          "flexWrap": undefined,
+          "justifyContent": undefined,
+        }
+      }
+    >
+      <p>
+        subheading
+      </p>
+      <p>
+        subheading
+      </p>
+      <p>
+        subheading
+      </p>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`Storyshots Tabs Default 1`] = `
 Array [
   <p>
