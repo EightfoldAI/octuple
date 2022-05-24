@@ -7,7 +7,6 @@ export const RadioGroup: FC<RadioButtonProps> = (props) => {
     let { activeRadioButton, onChange, radioGroupItems } = props;
     const [radioGroupValues, setRadioGroupValues] = useState([]);
     const [radioIndex, setRadioIndex] = useState(0);
-    const [tabClicked, setTabClicked] = useState(false);
 
     const handleKeyDown = (event: React.KeyboardEvent) => {
         let indexOfRadio = radioIndex;
@@ -42,7 +41,7 @@ export const RadioGroup: FC<RadioButtonProps> = (props) => {
         let radioGroupValues: (string | number)[] = [];
         radioGroupItems.map((item: RadioButtonProps) => {
             radioGroupValues.push(item.value);
-            item.id = generateId();
+            item.id = item.id || generateId();
         });
         return radioGroupValues;
     };

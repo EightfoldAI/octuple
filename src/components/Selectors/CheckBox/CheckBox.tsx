@@ -11,9 +11,10 @@ export const CheckBox: FC<CheckBoxProps> = ({
     disabled = false,
     name,
     value = '',
-    id = generateId(),
+    id,
     onChange,
 }) => {
+    const [checkBoxId] = useState<string>(id || generateId());
     const [isChecked, setIsChecked] = useState<boolean>(checked);
 
     const checkBoxCheckClassNames: string = mergeClasses([
@@ -37,7 +38,7 @@ export const CheckBox: FC<CheckBoxProps> = ({
                 checked={isChecked}
                 defaultChecked={defaultChecked}
                 disabled={disabled}
-                id={id}
+                id={checkBoxId}
                 onChange={onChange ? onChange : toggleChecked}
                 name={name}
                 tabIndex={-1}
@@ -46,7 +47,7 @@ export const CheckBox: FC<CheckBoxProps> = ({
                 readOnly
             />
             <label
-                htmlFor={id}
+                htmlFor={checkBoxId}
                 className={value === '' ? styles.labelNoValue : ''}
             >
                 <span className={checkBoxCheckClassNames} tabIndex={0}></span>

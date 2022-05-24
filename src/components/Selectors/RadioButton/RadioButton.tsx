@@ -1,4 +1,4 @@
-import React, { FC, useEffect } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import { RadioButtonProps } from '../';
 import { mergeClasses, generateId } from '../../../shared/utilities';
 import { useRadioGroup } from './RadioGroup.context';
@@ -12,9 +12,10 @@ export const RadioButton: FC<RadioButtonProps> = ({
     disabled = false,
     name,
     value = '',
-    id = generateId(),
+    id,
     setActiveRadioButton = () => {},
 }) => {
+    const [radioButtonId] = useState<string>(id || generateId());
     const { onRadioButtonClick, currentRadioButton } = useRadioGroup();
     const isActive: boolean = value === currentRadioButton;
 
@@ -36,7 +37,7 @@ export const RadioButton: FC<RadioButtonProps> = ({
                 aria-label={ariaLabel}
                 checked={isActive ? isActive : checked}
                 disabled={disabled}
-                id={id}
+                id={radioButtonId}
                 name={name}
                 tabIndex={-1}
                 type={'radio'}
@@ -48,11 +49,11 @@ export const RadioButton: FC<RadioButtonProps> = ({
                 readOnly
             />
             <label
-                htmlFor={id}
+                htmlFor={radioButtonId}
                 className={value === '' ? styles.labelNoValue : ''}
             >
                 <span
-                    id={`${id}-custom-radio`}
+                    id={`${radioButtonId}-custom-radio`}
                     className={radioButtonClassNames}
                     tabIndex={0}
                 ></span>

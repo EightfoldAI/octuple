@@ -11,15 +11,16 @@ export const Radio = () => {
     const radioGroupItems = [1, 2, 3].map((i) => ({
         value: `Radio${i}`,
         name: 'group',
+        id: `oea2exk-${i}`,
     }));
 
     return (
         <>
             <h1>Radio Buttons</h1>
             <h2>Default Radio Button</h2>
-            <RadioButton checked={true} />
+            <RadioButton checked={true} id="asdfasdf" />
             <h2>Label Radio Button</h2>
-            <RadioButton checked={true} value="Label" />
+            <RadioButton checked={true} value="Label" id="zxcvzxcv" />
             <h2>Radio Button Groups</h2>
             <RadioGroup
                 onChange={_radioClicked}
