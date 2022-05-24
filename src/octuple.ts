@@ -30,7 +30,7 @@ import { Menu } from './components/Menu';
 
 import { Modal, ModalSize } from './components/Modal';
 
-import { Navlink, StackOrder } from './components/Navlink';
+import { Link } from './components/Link';
 
 import { Pagination, PaginationLayoutOptions } from './components/Pagination';
 
@@ -94,7 +94,7 @@ export {
     Menu,
     Modal,
     ModalSize,
-    Navlink,
+    Link,
     NeutralButton,
     Pagination,
     PaginationLayoutOptions,
@@ -113,7 +113,6 @@ export {
     SnackbarContainer,
     Spinner,
     SpinnerSize,
-    StackOrder,
     Tabs,
     Tab,
     TabVariant,

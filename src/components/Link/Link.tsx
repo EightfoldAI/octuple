@@ -1,19 +1,18 @@
 import React, { Ref, FC } from 'react';
 
-import { StackOrder, NavlinkProps, LinkTarget } from './Navlink.types';
+import { LinkProps } from './Link.types';
 import { mergeClasses } from '../../shared/utilities';
 
 import styles from './navlink.module.scss';
 
-export const Navlink: FC<NavlinkProps> = React.forwardRef(
+export const Link: FC<LinkProps> = React.forwardRef(
     (
         {
-            stackOrder = StackOrder.row,
-            url,
+            stackOrder = 'row',
+            href,
             classNames,
             children,
-            target = LinkTarget.self,
-            onClick,
+            target = '_self',
             variant = 'default',
             style,
         },
@@ -22,17 +21,16 @@ export const Navlink: FC<NavlinkProps> = React.forwardRef(
         const linkClasses: string = mergeClasses([
             styles.linkStyle,
             classNames,
-            { [styles.column]: stackOrder === StackOrder.column },
+            { [styles.column]: stackOrder === 'column' },
             { [styles.primary]: variant === 'primary' },
         ]);
 
         return (
             <a
                 ref={ref}
-                href={url}
+                href={href}
                 className={linkClasses}
                 target={target}
-                onClick={onClick}
                 style={style}
             >
                 {children}
