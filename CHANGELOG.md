@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.5.0](https://github.com/EightfoldAI/octuple/compare/v1.4.0...v1.5.0) (2022-05-24)
+
+### Features
+
+-   add <Stack> ... </Stack> ([#132](https://github.com/EightfoldAI/octuple/issues/132)) ([57e3ee7](https://github.com/EightfoldAI/octuple/commits/57e3ee7a5e8c2f52ecb162f7a1f5c6ef8c3e5e4c))
+-   add Accordion component ([#126](https://github.com/EightfoldAI/octuple/issues/126)) ([9b9e7fe](https://github.com/EightfoldAI/octuple/commits/9b9e7fe670ddeedd40472f0b294fdc3cf69e6bf3))
+-   add checkbox and radio button components ([#56](https://github.com/EightfoldAI/octuple/issues/56)) ([80bc310](https://github.com/EightfoldAI/octuple/commits/80bc310df554a7b0527dcf6403f2e31e0f6801d7))
+-   added link component ([#135](https://github.com/EightfoldAI/octuple/issues/135)) ([b9ecc0f](https://github.com/EightfoldAI/octuple/commits/b9ecc0f09033e011a7b78121f584af5209f430b8))
+
+### Bug Fixes
+
+-   button: fixes bugs in split and toggle buttons ([#133](https://github.com/EightfoldAI/octuple/issues/133)) ([b28024d](https://github.com/EightfoldAI/octuple/commits/b28024dcb8d99e6e3ba9c36d45f97782cbb1911d))
+
 ## [1.4.0](https://github.com/EightfoldAI/octuple/compare/v1.3.0...v1.4.0) (2022-05-24)
 
 ### Features
