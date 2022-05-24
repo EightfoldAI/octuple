@@ -1,3 +1,7 @@
+import { Accordion } from './components/Accordion';
+
+import { Avatar } from './components/Avatar';
+
 import { Badge } from './components/Badge';
 
 import {
@@ -23,6 +27,8 @@ import { Dropdown } from './components/Dropdown';
 import { Icon, IconName, IconSize } from './components/Icon';
 
 import { Label, LabelSize } from './components/Label';
+
+import { Link } from './components/Link';
 
 import { List } from './components/List';
 
@@ -68,6 +74,8 @@ import { useOnClickOutside } from './hooks/useOnClickOutside';
 import { useScrollLock } from './hooks/useScrollLock';
 
 export {
+    Accordion,
+    Avatar,
     Badge,
     ButtonIconAlign,
     ButtonShape,
@@ -87,6 +95,7 @@ export {
     InfoBarType,
     Label,
     LabelSize,
+    Link,
     List,
     MatchScore,
     Menu,

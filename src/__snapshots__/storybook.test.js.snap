@@ -1,5 +1,842 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Storyshots Accordion Default 1`] = `
+Array [
+  <h2>
+    Single Accordion
+  </h2>,
+  <div
+    style={
+      Object {
+        "width": "500px",
+      }
+    }
+  >
+    <div
+      className="accordionContainer"
+    >
+      <div
+        aria-controls="single-accordion-content"
+        aria-expanded={false}
+        className="accordionSummary"
+        id="single-accordion-header"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        role="button"
+        tabIndex={0}
+      >
+        Accordion Header
+        <span
+          aria-hidden={false}
+          className="accordionIcon iconWrapper"
+          role="presentation"
+        >
+          <svg
+            role="presentation"
+            style={
+              Object {
+                "height": "20px",
+                "width": "20px",
+              }
+            }
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"
+              style={
+                Object {
+                  "fill": "currentColor",
+                }
+              }
+            />
+          </svg>
+        </span>
+      </div>
+      <div
+        aria-labelledby="single-accordion-header"
+        className="accordionBodyContainer"
+        id="single-accordion-content"
+        role="region"
+      >
+        <div
+          className="accordionBody showBorderTop"
+        >
+          <div>
+            Body 2 text used here. Bottom bars are sticky sections that can be used to highlight a few actions that are out of the view to be displayed inside the view. For example, if there's a very long form with Save and Cancel buttons at the bottom, we can use the bottom bar to show those two buttons in the view. We are making these bars to be flexible in height and also allowing any component to be added inside for now, to understand use cases from the team.
+             
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  <br />,
+  <br />,
+  <h2>
+    Accordion Notifications List Vertical
+  </h2>,
+  <div>
+    <div
+      style={
+        Object {
+          "paddingLeft": "16px",
+        }
+      }
+    >
+      <h2>
+        Header
+      </h2>
+    </div>
+    <ul
+      className="listContainer vertical"
+    >
+      <li
+        className="listItem"
+        style={
+          Object {
+            "padding": "8px 16px",
+          }
+        }
+      >
+        <div
+          className="accordionContainer"
+        >
+          <div
+            aria-controls="1-content"
+            aria-expanded={false}
+            className="accordionSummary"
+            id="1-header"
+            onClick={[Function]}
+            onKeyDown={[Function]}
+            role="button"
+            tabIndex={0}
+          >
+            <div
+              style={
+                Object {
+                  "alignItems": "center",
+                  "display": "flex",
+                }
+              }
+            >
+              <span
+                aria-hidden={false}
+                className="iconWrapper"
+                role="presentation"
+              >
+                <svg
+                  role="presentation"
+                  style={
+                    Object {
+                      "height": "20px",
+                      "width": "20px",
+                    }
+                  }
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M12 2C6.5 2 2 6.5 2 12S6.5 22 12 22 22 17.5 22 12 17.5 2 12 2M12 20C7.59 20 4 16.41 4 12S7.59 4 12 4 20 7.59 20 12 16.41 20 12 20M16.59 7.58L10 14.17L7.41 11.59L6 13L10 17L18 9L16.59 7.58Z"
+                    style={
+                      Object {
+                        "fill": "green",
+                      }
+                    }
+                  />
+                </svg>
+              </span>
+              <div
+                style={
+                  Object {
+                    "margin": "0 12px 0 5px",
+                  }
+                }
+              >
+                Notification testing
+              </div>
+              <span
+                className="badge header6 active"
+              >
+                2
+              </span>
+            </div>
+            <span
+              aria-hidden={false}
+              className="accordionIcon iconWrapper"
+              role="presentation"
+            >
+              <svg
+                role="presentation"
+                style={
+                  Object {
+                    "height": "20px",
+                    "width": "20px",
+                  }
+                }
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"
+                  style={
+                    Object {
+                      "fill": "currentColor",
+                    }
+                  }
+                />
+              </svg>
+            </span>
+          </div>
+          <div
+            aria-labelledby="1-header"
+            className="accordionBodyContainer"
+            id="1-content"
+            role="region"
+          >
+            <div
+              className="accordionBody showBorderTop"
+            >
+              Body 2 text used here. Bottom bars are sticky sections that
+        can be used to highlight a few actions that are out of the
+        view to be displayed inside the view. For example, if
+        there's a very long form with Save and Cancel buttons at the
+        bottom, we can use the bottom bar to show those two buttons
+        in the view. We are making these bars to be flexible in
+        height and also allowing any component to be
+            </div>
+          </div>
+        </div>
+      </li>
+      <li
+        className="listItem"
+        style={
+          Object {
+            "padding": "8px 16px",
+          }
+        }
+      >
+        <div
+          className="accordionContainer"
+        >
+          <div
+            aria-controls="2-content"
+            aria-expanded={false}
+            className="accordionSummary"
+            id="2-header"
+            onClick={[Function]}
+            onKeyDown={[Function]}
+            role="button"
+            tabIndex={0}
+          >
+            <div
+              style={
+                Object {
+                  "alignItems": "center",
+                  "display": "flex",
+                }
+              }
+            >
+              <span
+                aria-hidden={false}
+                className="iconWrapper"
+                role="presentation"
+              >
+                <svg
+                  role="presentation"
+                  style={
+                    Object {
+                      "height": "20px",
+                      "width": "20px",
+                    }
+                  }
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M12 2C6.5 2 2 6.5 2 12S6.5 22 12 22 22 17.5 22 12 17.5 2 12 2M12 20C7.59 20 4 16.41 4 12S7.59 4 12 4 20 7.59 20 12 16.41 20 12 20M16.59 7.58L10 14.17L7.41 11.59L6 13L10 17L18 9L16.59 7.58Z"
+                    style={
+                      Object {
+                        "fill": "green",
+                      }
+                    }
+                  />
+                </svg>
+              </span>
+              <div
+                style={
+                  Object {
+                    "margin": "0 12px 0 5px",
+                  }
+                }
+              >
+                Notification testing
+              </div>
+              <span
+                className="badge header6 active"
+              >
+                12
+              </span>
+            </div>
+            <span
+              aria-hidden={false}
+              className="accordionIcon iconWrapper"
+              role="presentation"
+            >
+              <svg
+                role="presentation"
+                style={
+                  Object {
+                    "height": "20px",
+                    "width": "20px",
+                  }
+                }
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"
+                  style={
+                    Object {
+                      "fill": "currentColor",
+                    }
+                  }
+                />
+              </svg>
+            </span>
+          </div>
+          <div
+            aria-labelledby="2-header"
+            className="accordionBodyContainer"
+            id="2-content"
+            role="region"
+          >
+            <div
+              className="accordionBody showBorderTop"
+            >
+              Body 2 text used here. Bottom bars are sticky sections that
+        can be used to highlight a few actions that are out of the
+        view to be displayed inside the view. For example, if
+        there's a very long form with Save and Cancel buttons at the
+        bottom, we can use the bottom bar to show those two buttons
+        in the view. We are making these bars to be flexible in
+        height and also allowing any component to be
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+    <div
+      style={
+        Object {
+          "paddingLeft": "16px",
+        }
+      }
+    >
+      <h3>
+        Footer
+      </h3>
+    </div>
+  </div>,
+  <br />,
+  <br />,
+  <h2>
+    Accordion Notifications List Horizontal
+  </h2>,
+  <div>
+    <div
+      style={
+        Object {
+          "paddingLeft": "16px",
+        }
+      }
+    >
+      <h2>
+        Header
+      </h2>
+    </div>
+    <ul
+      className="listContainer"
+    >
+      <li
+        className="listItem"
+        style={
+          Object {
+            "padding": "8px",
+          }
+        }
+      >
+        <div
+          className="accordionContainer"
+        >
+          <div
+            aria-controls="1-content"
+            aria-expanded={false}
+            className="accordionSummary"
+            id="1-header"
+            onClick={[Function]}
+            onKeyDown={[Function]}
+            role="button"
+            tabIndex={0}
+          >
+            <div
+              style={
+                Object {
+                  "alignItems": "center",
+                  "display": "flex",
+                }
+              }
+            >
+              <span
+                aria-hidden={false}
+                className="iconWrapper"
+                role="presentation"
+              >
+                <svg
+                  role="presentation"
+                  style={
+                    Object {
+                      "height": "20px",
+                      "width": "20px",
+                    }
+                  }
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M12 2C6.5 2 2 6.5 2 12S6.5 22 12 22 22 17.5 22 12 17.5 2 12 2M12 20C7.59 20 4 16.41 4 12S7.59 4 12 4 20 7.59 20 12 16.41 20 12 20M16.59 7.58L10 14.17L7.41 11.59L6 13L10 17L18 9L16.59 7.58Z"
+                    style={
+                      Object {
+                        "fill": "green",
+                      }
+                    }
+                  />
+                </svg>
+              </span>
+              <div
+                style={
+                  Object {
+                    "margin": "0 12px 0 5px",
+                  }
+                }
+              >
+                Notification testing
+              </div>
+              <span
+                className="badge header6 active"
+              >
+                2
+              </span>
+            </div>
+            <span
+              aria-hidden={false}
+              className="accordionIcon iconWrapper"
+              role="presentation"
+            >
+              <svg
+                role="presentation"
+                style={
+                  Object {
+                    "height": "20px",
+                    "width": "20px",
+                  }
+                }
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"
+                  style={
+                    Object {
+                      "fill": "currentColor",
+                    }
+                  }
+                />
+              </svg>
+            </span>
+          </div>
+          <div
+            aria-labelledby="1-header"
+            className="accordionBodyContainer"
+            id="1-content"
+            role="region"
+          >
+            <div
+              className="accordionBody showBorderTop"
+            >
+              Body 2 text used here. Bottom bars are sticky sections that
+        can be used to highlight a few actions that are out of the
+        view to be displayed inside the view. For example, if
+        there's a very long form with Save and Cancel buttons at the
+        bottom, we can use the bottom bar to show those two buttons
+        in the view. We are making these bars to be flexible in
+        height and also allowing any component to be
+            </div>
+          </div>
+        </div>
+      </li>
+      <li
+        className="listItem"
+        style={
+          Object {
+            "padding": "8px",
+          }
+        }
+      >
+        <div
+          className="accordionContainer"
+        >
+          <div
+            aria-controls="2-content"
+            aria-expanded={false}
+            className="accordionSummary"
+            id="2-header"
+            onClick={[Function]}
+            onKeyDown={[Function]}
+            role="button"
+            tabIndex={0}
+          >
+            <div
+              style={
+                Object {
+                  "alignItems": "center",
+                  "display": "flex",
+                }
+              }
+            >
+              <span
+                aria-hidden={false}
+                className="iconWrapper"
+                role="presentation"
+              >
+                <svg
+                  role="presentation"
+                  style={
+                    Object {
+                      "height": "20px",
+                      "width": "20px",
+                    }
+                  }
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M12 2C6.5 2 2 6.5 2 12S6.5 22 12 22 22 17.5 22 12 17.5 2 12 2M12 20C7.59 20 4 16.41 4 12S7.59 4 12 4 20 7.59 20 12 16.41 20 12 20M16.59 7.58L10 14.17L7.41 11.59L6 13L10 17L18 9L16.59 7.58Z"
+                    style={
+                      Object {
+                        "fill": "green",
+                      }
+                    }
+                  />
+                </svg>
+              </span>
+              <div
+                style={
+                  Object {
+                    "margin": "0 12px 0 5px",
+                  }
+                }
+              >
+                Notification testing
+              </div>
+              <span
+                className="badge header6 active"
+              >
+                12
+              </span>
+            </div>
+            <span
+              aria-hidden={false}
+              className="accordionIcon iconWrapper"
+              role="presentation"
+            >
+              <svg
+                role="presentation"
+                style={
+                  Object {
+                    "height": "20px",
+                    "width": "20px",
+                  }
+                }
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"
+                  style={
+                    Object {
+                      "fill": "currentColor",
+                    }
+                  }
+                />
+              </svg>
+            </span>
+          </div>
+          <div
+            aria-labelledby="2-header"
+            className="accordionBodyContainer"
+            id="2-content"
+            role="region"
+          >
+            <div
+              className="accordionBody showBorderTop"
+            >
+              Body 2 text used here. Bottom bars are sticky sections that
+        can be used to highlight a few actions that are out of the
+        view to be displayed inside the view. For example, if
+        there's a very long form with Save and Cancel buttons at the
+        bottom, we can use the bottom bar to show those two buttons
+        in the view. We are making these bars to be flexible in
+        height and also allowing any component to be
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+    <div
+      style={
+        Object {
+          "paddingLeft": "16px",
+        }
+      }
+    >
+      <h3>
+        Footer
+      </h3>
+    </div>
+  </div>,
+]
+`;
+
+exports[`Storyshots Avatar Default 1`] = `
+Array [
+  <h2>
+    Avatar
+  </h2>,
+  <div
+    style={
+      Object {
+        "fontSize": "18px",
+        "height": "40px",
+        "minHeight": "40px",
+        "minWidth": "40px",
+        "width": "40px",
+      }
+    }
+  >
+    <img
+      alt="random profile image"
+      className="imageStyle"
+      height="40px"
+      src="https://images.pexels.com/photos/771742/pexels-photo-771742.jpeg"
+      width="40px"
+    />
+  </div>,
+  <br />,
+  <h2>
+    Avatar Fallback
+  </h2>,
+  <div
+    style={
+      Object {
+        "display": "flex",
+        "flexDirection": "row",
+        "gap": "8px",
+      }
+    }
+  >
+    <div
+      className="wrapperStyle imageStyle green"
+      style={
+        Object {
+          "fontSize": "18px",
+          "height": "40px",
+          "minHeight": "40px",
+          "minWidth": "40px",
+          "width": "40px",
+        }
+      }
+    >
+      JD
+    </div>
+    <div
+      className="wrapperStyle imageStyle green"
+      style={
+        Object {
+          "fontSize": "18px",
+          "height": "40px",
+          "minHeight": "40px",
+          "minWidth": "40px",
+          "width": "40px",
+        }
+      }
+    >
+      AB
+    </div>
+  </div>,
+  <br />,
+  <h2>
+    Avatar Icons
+  </h2>,
+  <div
+    style={
+      Object {
+        "display": "flex",
+        "flexDirection": "row",
+        "gap": "8px",
+      }
+    }
+  >
+    <div
+      className="wrapperStyle imageStyle"
+      style={
+        Object {
+          "backgroundColor": "grey",
+          "fontSize": "18px",
+          "height": "40px",
+          "minHeight": "40px",
+          "minWidth": "40px",
+          "width": "40px",
+        }
+      }
+    >
+      <span
+        aria-hidden={false}
+        className="iconWrapper"
+        role="presentation"
+      >
+        <svg
+          role="presentation"
+          style={
+            Object {
+              "height": "18px",
+              "width": "18px",
+            }
+          }
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M21,19V20H3V19L5,17V11C5,7.9 7.03,5.17 10,4.29C10,4.19 10,4.1 10,4A2,2 0 0,1 12,2A2,2 0 0,1 14,4C14,4.1 14,4.19 14,4.29C16.97,5.17 19,7.9 19,11V17L21,19M14,21A2,2 0 0,1 12,23A2,2 0 0,1 10,21"
+            style={
+              Object {
+                "fill": "currentColor",
+              }
+            }
+          />
+        </svg>
+      </span>
+    </div>
+  </div>,
+  <h2>
+    Round Avatar
+  </h2>,
+  <div
+    style={
+      Object {
+        "fontSize": "18px",
+        "height": "40px",
+        "minHeight": "40px",
+        "minWidth": "40px",
+        "width": "40px",
+      }
+    }
+  >
+    <img
+      alt="random profile image"
+      className="imageStyle roundImage"
+      height="40px"
+      src="https://images.pexels.com/photos/771742/pexels-photo-771742.jpeg"
+      width="40px"
+    />
+  </div>,
+  <br />,
+  <h2>
+    Round Avatar Fallback
+  </h2>,
+  <div
+    style={
+      Object {
+        "display": "flex",
+        "flexDirection": "row",
+        "gap": "8px",
+      }
+    }
+  >
+    <div
+      className="wrapperStyle imageStyle roundImage green"
+      style={
+        Object {
+          "fontSize": "18px",
+          "height": "40px",
+          "minHeight": "40px",
+          "minWidth": "40px",
+          "width": "40px",
+        }
+      }
+    >
+      JD
+    </div>
+    <div
+      className="wrapperStyle imageStyle roundImage green"
+      style={
+        Object {
+          "fontSize": "18px",
+          "height": "40px",
+          "minHeight": "40px",
+          "minWidth": "40px",
+          "width": "40px",
+        }
+      }
+    >
+      AB
+    </div>
+  </div>,
+  <br />,
+  <h2>
+    Round Avatar Icons
+  </h2>,
+  <div
+    style={
+      Object {
+        "display": "flex",
+        "flexDirection": "row",
+        "gap": "8px",
+      }
+    }
+  >
+    <div
+      className="wrapperStyle imageStyle roundImage"
+      style={
+        Object {
+          "backgroundColor": "grey",
+          "fontSize": "18px",
+          "height": "40px",
+          "minHeight": "40px",
+          "minWidth": "40px",
+          "width": "40px",
+        }
+      }
+    >
+      <span
+        aria-hidden={false}
+        className="iconWrapper"
+        role="presentation"
+      >
+        <svg
+          role="presentation"
+          style={
+            Object {
+              "height": "18px",
+              "width": "18px",
+            }
+          }
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M21,19V20H3V19L5,17V11C5,7.9 7.03,5.17 10,4.29C10,4.19 10,4.1 10,4A2,2 0 0,1 12,2A2,2 0 0,1 14,4C14,4.1 14,4.19 14,4.29C16.97,5.17 19,7.9 19,11V17L21,19M14,21A2,2 0 0,1 12,23A2,2 0 0,1 10,21"
+            style={
+              Object {
+                "fill": "currentColor",
+              }
+            }
+          />
+        </svg>
+      </span>
+    </div>
+  </div>,
+]
+`;
+
 exports[`Storyshots Badge Default 1`] = `
 Array [
   <h2>
@@ -857,6 +1694,8 @@ Array [
       defaultChecked={false}
       disabled={false}
       onClick={[Function]}
+      role="button"
+      tabIndex="0"
     >
       <span
         className=""
@@ -890,7 +1729,7 @@ Array [
           viewBox="0 0 24 24"
         >
           <path
-            d="M7.41,15.41L12,10.83L16.59,15.41L18,14L12,8L6,14L7.41,15.41Z"
+            d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"
             style={
               Object {
                 "fill": "currentColor",
@@ -1148,66 +1987,76 @@ Array [
     onClick={[Function]}
     type="button"
   >
-    <span>
+    <span
+      className="twoStateButtonContent"
+    >
       <span
-        aria-hidden={false}
-        className="icon iconWrapper"
-        role="presentation"
+        className="column columnOne"
       >
-        <svg
+        <span
+          aria-hidden={false}
+          className="icon iconWrapper"
           role="presentation"
-          style={
-            Object {
-              "height": "20px",
-              "width": "20px",
-            }
-          }
-          viewBox="0 0 24 24"
         >
-          <path
-            d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"
+          <svg
+            role="presentation"
             style={
               Object {
-                "fill": "currentColor",
+                "height": "20px",
+                "width": "20px",
               }
             }
-          />
-        </svg>
-      </span>
-      <span
-        className=""
-      >
-        Two State Button
-      </span>
-      <span
-        className="counter"
-      >
-        8
-      </span>
-      <span
-        aria-hidden={false}
-        className="icon iconWrapper"
-        role="presentation"
-      >
-        <svg
-          role="presentation"
-          style={
-            Object {
-              "height": "20px",
-              "width": "20px",
-            }
-          }
-          viewBox="0 0 24 24"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"
+              style={
+                Object {
+                  "fill": "currentColor",
+                }
+              }
+            />
+          </svg>
+        </span>
+        <span
+          className=""
         >
-          <path
-            d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"
+          Two State Button
+        </span>
+        <span
+          className="badge header6 counter"
+        >
+          8
+        </span>
+      </span>
+      <span
+        className="column"
+      >
+        <span
+          aria-hidden={false}
+          className="icon iconWrapper"
+          role="presentation"
+        >
+          <svg
+            role="presentation"
             style={
               Object {
-                "fill": "currentColor",
+                "height": "20px",
+                "width": "20px",
               }
             }
-          />
-        </svg>
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"
+              style={
+                Object {
+                  "fill": "currentColor",
+                }
+              }
+            />
+          </svg>
+        </span>
       </span>
     </span>
   </button>,
@@ -4102,33 +4951,101 @@ Array [
         defaultChecked={false}
         disabled={false}
         onClick={[Function]}
+        role="button"
+        tabIndex="0"
       >
         <span
           className=""
         >
-          Click bottom start
+          Click button start
         </span>
       </button>
     </div>
     <div
       className="mainWrapper"
+      onMouseLeave={[Function]}
     >
-      <button
+      <div
         aria-controls="dropdown-5"
-        aria-disabled={false}
         aria-expanded={false}
         aria-haspopup={true}
-        className="button buttonDefault"
-        defaultChecked={false}
-        disabled={false}
+        className="referenceWrapper"
         onMouseEnter={[Function]}
+        role="button"
+        style={
+          Object {
+            "display": "flex",
+          }
+        }
+        tabIndex="0"
       >
+        Hover div
         <span
-          className=""
+          aria-hidden={false}
+          className="iconWrapper"
+          role="presentation"
         >
-          Hover bottom end
+          <svg
+            role="presentation"
+            style={
+              Object {
+                "height": "20px",
+                "width": "20px",
+              }
+            }
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"
+              style={
+                Object {
+                  "fill": "currentColor",
+                }
+              }
+            />
+          </svg>
         </span>
-      </button>
+      </div>
+    </div>
+    <div
+      className="mainWrapper"
+    >
+      <div
+        aria-controls="dropdown-6"
+        aria-expanded={false}
+        aria-haspopup={true}
+        className="referenceWrapper"
+        onClick={[Function]}
+        role="button"
+        style={
+          Object {
+            "display": "flex",
+          }
+        }
+        tabIndex="0"
+      >
+        Click div
+      </div>
+    </div>
+    <div
+      className="mainWrapper"
+    >
+      <div
+        aria-controls="dropdown-7"
+        aria-expanded={false}
+        aria-haspopup={true}
+        className="referenceWrapper"
+        onContextMenu={[Function]}
+        role="button"
+        style={
+          Object {
+            "display": "flex",
+          }
+        }
+        tabIndex="0"
+      >
+        Contextmenu div
+      </div>
     </div>
   </div>,
 ]
@@ -6128,7 +7045,7 @@ Array [
     className="mainWrapper"
   >
     <button
-      aria-controls="dropdown-25"
+      aria-controls="dropdown-27"
       aria-disabled={false}
       aria-expanded={false}
       aria-haspopup={true}
@@ -6136,6 +7053,8 @@ Array [
       defaultChecked={false}
       disabled={false}
       onClick={[Function]}
+      role="button"
+      tabIndex="0"
     >
       <span
         className=""
@@ -6154,7 +7073,7 @@ Array [
     className="mainWrapper"
   >
     <button
-      aria-controls="dropdown-26"
+      aria-controls="dropdown-28"
       aria-disabled={false}
       aria-expanded={false}
       aria-haspopup={true}
@@ -6162,6 +7081,8 @@ Array [
       defaultChecked={false}
       disabled={false}
       onClick={[Function]}
+      role="button"
+      tabIndex="0"
     >
       <span
         className=""
@@ -6893,7 +7814,7 @@ Array [
           className="mainWrapper"
         >
           <button
-            aria-controls="dropdown-32"
+            aria-controls="dropdown-34"
             aria-disabled={false}
             aria-expanded={false}
             aria-haspopup={true}
@@ -6902,6 +7823,8 @@ Array [
             defaultChecked={false}
             disabled={false}
             onClick={[Function]}
+            role="button"
+            tabIndex="0"
           >
             <span>
               <span
@@ -7206,7 +8129,7 @@ Array [
             className="editor"
             defaultValue={5}
             disabled={false}
-            id="input-33"
+            id="input-35"
             minLength={1}
             onChange={[Function]}
             required={false}
@@ -7232,7 +8155,7 @@ Array [
           className="mainWrapper"
         >
           <button
-            aria-controls="dropdown-34"
+            aria-controls="dropdown-36"
             aria-disabled={false}
             aria-expanded={false}
             aria-haspopup={true}
@@ -7241,6 +8164,8 @@ Array [
             defaultChecked={false}
             disabled={false}
             onClick={[Function]}
+            role="button"
+            tabIndex="0"
           >
             <span>
               <span
@@ -7416,7 +8341,7 @@ Array [
             className="editor"
             defaultValue={4}
             disabled={false}
-            id="input-35"
+            id="input-37"
             minLength={1}
             onChange={[Function]}
             required={false}
@@ -11628,7 +12553,7 @@ Array [
         autoFocus={false}
         className="withIconButton inputStretch"
         disabled={false}
-        id="input-6"
+        id="input-8"
         onChange={[Function]}
         placeholder="Search"
         required={false}
@@ -11765,7 +12690,7 @@ Array [
         autoFocus={false}
         className="withIcon withIconButton withIconAndIconButton"
         disabled={false}
-        id="input-7"
+        id="input-9"
         onChange={[Function]}
         placeholder="Search"
         required={false}
@@ -11861,7 +12786,7 @@ Array [
         autoFocus={false}
         className="withImageIcon withIconButton withIconAndIconButton"
         disabled={false}
-        id="input-8"
+        id="input-10"
         onChange={[Function]}
         placeholder="Search"
         required={false}
@@ -11935,7 +12860,7 @@ Array [
         autoFocus={false}
         className="pillShape pillShapeWithIconButton inputStretch"
         disabled={false}
-        id="input-9"
+        id="input-11"
         onChange={[Function]}
         placeholder="Search"
         required={false}
@@ -12002,7 +12927,7 @@ Array [
         autoFocus={false}
         className="pillShape pillShapeWithIcon pillShapeWithIconButton pillShapeWithIconAndIconButton"
         disabled={false}
-        id="input-10"
+        id="input-12"
         onChange={[Function]}
         placeholder="Search"
         required={false}
@@ -12098,7 +13023,7 @@ Array [
         autoFocus={false}
         className="pillShape pillShapeWithImageIcon pillShapeWithIconButton pillShapeWithIconAndIconButton"
         disabled={false}
-        id="input-11"
+        id="input-13"
         onChange={[Function]}
         placeholder="Search"
         required={false}
@@ -12393,6 +13318,349 @@ Array [
     </svg>
   </span>,
 ]
+`;
+
+exports[`Storyshots Stack Default 1`] = `
+<div
+  className="stack horizontal m"
+  style={
+    Object {
+      "alignItems": undefined,
+      "backgroundColor": "aquamarine",
+      "flexWrap": undefined,
+      "justifyContent": undefined,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "backgroundColor": "mediumpurple",
+        "height": "200px",
+        "width": "200px",
+      }
+    }
+  />
+  <div
+    style={
+      Object {
+        "backgroundColor": "mediumpurple",
+        "height": "200px",
+        "width": "200px",
+      }
+    }
+  />
+  <div
+    style={
+      Object {
+        "backgroundColor": "mediumpurple",
+        "height": "200px",
+        "width": "200px",
+      }
+    }
+  />
+</div>
+`;
+
+exports[`Storyshots Stack Horizontal 1`] = `
+<div
+  className="stack vertical l"
+  style={
+    Object {
+      "alignItems": undefined,
+      "backgroundColor": "aquamarine",
+      "flexWrap": undefined,
+      "justifyContent": undefined,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "backgroundColor": "mediumpurple",
+        "height": "200px",
+        "width": "200px",
+      }
+    }
+  />
+  <div
+    style={
+      Object {
+        "backgroundColor": "mediumpurple",
+        "height": "200px",
+        "width": "200px",
+      }
+    }
+  />
+  <div
+    style={
+      Object {
+        "backgroundColor": "mediumpurple",
+        "height": "200px",
+        "width": "200px",
+      }
+    }
+  />
+</div>
+`;
+
+exports[`Storyshots Stack Responsive 1`] = `
+<div
+  className="stack vertical l"
+  style={
+    Object {
+      "alignItems": undefined,
+      "flexWrap": undefined,
+      "justifyContent": undefined,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "backgroundColor": "mediumpurple",
+        "height": "200px",
+        "width": "200px",
+      }
+    }
+  />
+  <div
+    style={
+      Object {
+        "backgroundColor": "mediumpurple",
+        "height": "200px",
+        "width": "200px",
+      }
+    }
+  />
+  <div
+    style={
+      Object {
+        "backgroundColor": "mediumpurple",
+        "height": "200px",
+        "width": "200px",
+      }
+    }
+  />
+</div>
+`;
+
+exports[`Storyshots Stack Sample Nav List 1`] = `
+<div
+  className="stack navListContainer horizontal undefined"
+  style={
+    Object {
+      "alignItems": undefined,
+      "flexWrap": "wrap",
+      "justifyContent": undefined,
+    }
+  }
+>
+  <div
+    className="stack group vertical m"
+    style={
+      Object {
+        "alignItems": undefined,
+        "flexWrap": undefined,
+        "justifyContent": undefined,
+      }
+    }
+  >
+    <h3>
+      Title
+    </h3>
+    <div
+      className="stack vertical xs"
+      style={
+        Object {
+          "alignItems": undefined,
+          "flexWrap": undefined,
+          "justifyContent": undefined,
+        }
+      }
+    >
+      <p>
+        subheading
+      </p>
+      <p>
+        subheading
+      </p>
+    </div>
+  </div>
+  <div
+    className="stack group vertical m"
+    style={
+      Object {
+        "alignItems": undefined,
+        "flexWrap": undefined,
+        "justifyContent": undefined,
+      }
+    }
+  >
+    <h3>
+      Title
+    </h3>
+    <div
+      className="stack vertical xs"
+      style={
+        Object {
+          "alignItems": undefined,
+          "flexWrap": undefined,
+          "justifyContent": undefined,
+        }
+      }
+    >
+      <p>
+        subheading
+      </p>
+      <p>
+        subheading
+      </p>
+      <p>
+        subheading
+      </p>
+      <p>
+        subheading
+      </p>
+    </div>
+  </div>
+  <div
+    className="stack group vertical m"
+    style={
+      Object {
+        "alignItems": undefined,
+        "flexWrap": undefined,
+        "justifyContent": undefined,
+      }
+    }
+  >
+    <h3>
+      Title
+    </h3>
+    <div
+      className="stack vertical xs"
+      style={
+        Object {
+          "alignItems": undefined,
+          "flexWrap": undefined,
+          "justifyContent": undefined,
+        }
+      }
+    >
+      <p>
+        subheading
+      </p>
+      <p>
+        subheading
+      </p>
+    </div>
+  </div>
+  <div
+    className="stack group vertical m"
+    style={
+      Object {
+        "alignItems": undefined,
+        "flexWrap": undefined,
+        "justifyContent": undefined,
+      }
+    }
+  >
+    <h3>
+      Title
+    </h3>
+    <div
+      className="stack vertical xs"
+      style={
+        Object {
+          "alignItems": undefined,
+          "flexWrap": undefined,
+          "justifyContent": undefined,
+        }
+      }
+    >
+      <p>
+        subheading
+      </p>
+      <p>
+        subheading
+      </p>
+      <p>
+        subheading
+      </p>
+    </div>
+  </div>
+  <div
+    className="stack group vertical m"
+    style={
+      Object {
+        "alignItems": undefined,
+        "flexWrap": undefined,
+        "justifyContent": undefined,
+      }
+    }
+  >
+    <h3>
+      Title
+    </h3>
+    <div
+      className="stack vertical xs"
+      style={
+        Object {
+          "alignItems": undefined,
+          "flexWrap": undefined,
+          "justifyContent": undefined,
+        }
+      }
+    >
+      <p>
+        subheading
+      </p>
+      <p>
+        subheading
+      </p>
+      <p>
+        subheading
+      </p>
+      <p>
+        subheading
+      </p>
+    </div>
+  </div>
+  <div
+    className="stack group vertical m"
+    style={
+      Object {
+        "alignItems": undefined,
+        "flexWrap": undefined,
+        "justifyContent": undefined,
+      }
+    }
+  >
+    <h3>
+      Title
+    </h3>
+    <div
+      className="stack vertical xs"
+      style={
+        Object {
+          "alignItems": undefined,
+          "flexWrap": undefined,
+          "justifyContent": undefined,
+        }
+      }
+    >
+      <p>
+        subheading
+      </p>
+      <p>
+        subheading
+      </p>
+      <p>
+        subheading
+      </p>
+    </div>
+  </div>
+</div>
 `;
 
 exports[`Storyshots Tabs Default 1`] = `
@@ -14193,7 +15461,7 @@ Array [
       className="textArea textAreaNoExpand inputStretch"
       cols={50}
       disabled={false}
-      id="textarea-12"
+      id="textarea-14"
       onChange={[Function]}
       required={false}
       rows={5}
@@ -14294,7 +15562,7 @@ Array [
       className="textArea textAreaNoExpand"
       cols={50}
       disabled={false}
-      id="textarea-13"
+      id="textarea-15"
       onChange={[Function]}
       required={false}
       rows={5}
@@ -14324,7 +15592,7 @@ Array [
       className="textArea"
       cols={50}
       disabled={false}
-      id="textarea-14"
+      id="textarea-16"
       onChange={[Function]}
       required={false}
       rows={5}
@@ -14385,7 +15653,7 @@ Array [
       autoFocus={false}
       className="inputStretch"
       disabled={false}
-      id="input-15"
+      id="input-17"
       onChange={[Function]}
       required={false}
       role="textbox"
@@ -14485,7 +15753,7 @@ Array [
       autoFocus={false}
       className="withIcon"
       disabled={false}
-      id="input-16"
+      id="input-18"
       onChange={[Function]}
       required={false}
       role="textbox"
@@ -14543,7 +15811,7 @@ Array [
       autoFocus={false}
       className="withImageIcon"
       disabled={false}
-      id="input-17"
+      id="input-19"
       onChange={[Function]}
       required={false}
       role="textbox"
@@ -14579,7 +15847,7 @@ Array [
       autoFocus={false}
       className="withIconButton"
       disabled={false}
-      id="input-18"
+      id="input-20"
       onChange={[Function]}
       required={false}
       role="textbox"
@@ -14641,7 +15909,7 @@ Array [
       autoFocus={false}
       className="withIcon withIconButton withIconAndIconButton"
       disabled={false}
-      id="input-19"
+      id="input-21"
       onChange={[Function]}
       required={false}
       role="textbox"
@@ -14732,7 +16000,7 @@ Array [
       autoFocus={false}
       className="pillShape inputStretch"
       disabled={false}
-      id="input-20"
+      id="input-22"
       onChange={[Function]}
       required={false}
       role="textbox"
@@ -14761,7 +16029,7 @@ Array [
       autoFocus={false}
       className="pillShape pillShapeWithIcon"
       disabled={false}
-      id="input-21"
+      id="input-23"
       onChange={[Function]}
       required={false}
       role="textbox"
@@ -14819,7 +16087,7 @@ Array [
       autoFocus={false}
       className="pillShape pillShapeWithImageIcon"
       disabled={false}
-      id="input-22"
+      id="input-24"
       onChange={[Function]}
       required={false}
       role="textbox"
@@ -14855,7 +16123,7 @@ Array [
       autoFocus={false}
       className="pillShape pillShapeWithIconButton"
       disabled={false}
-      id="input-23"
+      id="input-25"
       onChange={[Function]}
       required={false}
       role="textbox"
@@ -14917,7 +16185,7 @@ Array [
       autoFocus={false}
       className="pillShape pillShapeWithIcon pillShapeWithIconButton pillShapeWithIconAndIconButton"
       disabled={false}
-      id="input-24"
+      id="input-26"
       onChange={[Function]}
       required={false}
       role="textbox"

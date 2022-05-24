@@ -15797,6 +15797,11 @@ storybook-addon-state@1.0.3:
   resolved "https://registry.yarnpkg.com/storybook-addon-state/-/storybook-addon-state-1.0.3.tgz#f7657c7acfb2ac2adcbdccdd2ba6d95ebddd90a7"
   integrity sha512-0lpedSYu2xIlq4QK/8YH4Cuj6vt2p8iRCcJBb4JFxyLZ6RAMHFFkf072BKl4WrU1LfLq3/7SD4snvxRoTjvsvw==
 
+storybook-css-modules@^1.0.5:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/storybook-css-modules/-/storybook-css-modules-1.0.5.tgz#77d8ff1565049a5ec290a9d3aa08d017800d29ae"
+  integrity sha512-c5jrYC9xQN86d4Kk0A8vPzSsZpkh3C3cJ+MDNeVOR3XlOcUmtJpeUl1C0Ne4Sza//Fu9cHqKpfFTfhhsCWtH9g==
+
 stream-browserify@^2.0.1:
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/stream-browserify/-/stream-browserify-2.0.2.tgz#87521d38a44aa7ee91ce1cd2a47df0cb49dd660b"
