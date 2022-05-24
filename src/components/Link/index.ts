@@ -1,2 +1,2 @@
-export * from './Navlink.types';
-export * from './Navlink';
+export * from './Link.types';
+export * from './Link';

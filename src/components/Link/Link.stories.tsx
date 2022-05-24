@@ -1,6 +1,6 @@
 import React from 'react';
 import { Icon, IconName } from '../Icon';
-import { Link } from '.';
+import { Link } from './';
 
 export default {
     title: 'Link',
