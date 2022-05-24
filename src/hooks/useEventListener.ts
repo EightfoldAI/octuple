@@ -42,7 +42,7 @@ export const useEventListener = (
 
     useEffect(() => {
         // Use window if no element is passed, otherwise default to null in SSR
-        const element = target && getElement(target);
+        const element = getElement(target);
         // Make sure element supports addEventListener
         const isSupported = element && element.addEventListener;
 

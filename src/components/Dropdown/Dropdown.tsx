@@ -70,7 +70,7 @@ export const Dropdown: FC<DropdownProps> = ({
             );
         };
 
-    useOnClickOutside(refs.reference, toggle(false), visible);
+    useOnClickOutside(refs.floating, toggle(false), visible);
 
     useEffect(() => {
         onVisibleChange?.(visible);
