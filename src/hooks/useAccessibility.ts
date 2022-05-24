@@ -1,5 +1,4 @@
 import { useCallback, RefObject, useEffect } from 'react';
-import { Target, useEventListener } from './useEventListener';
 
 const ACCESSIBILITY_EVENTS_MAP = {
     click: 'keydown',
@@ -13,7 +12,7 @@ export const useAccessibility = (
     onEnter: () => void,
     onLeave: () => void
 ) => {
-    const triggerEvent = ACCESSIBILITY_EVENTS_MAP[trigger];
+    const triggerEvent: string = ACCESSIBILITY_EVENTS_MAP[trigger];
     const handleAccessibility = useCallback(
         (e) => {
             if (ref.current?.contains?.(e.target)) {

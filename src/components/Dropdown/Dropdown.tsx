@@ -109,14 +109,6 @@ export const Dropdown: FC<DropdownProps> = ({
         left: x ?? '',
     };
 
-    let containerProps = {};
-
-    if (TRIGGER_TO_HANDLER_MAP_ON_LEAVE[trigger]) {
-        containerProps = {
-            [TRIGGER_TO_HANDLER_MAP_ON_LEAVE[trigger]]: toggle(false),
-        };
-    }
-
     const getReference = (): JSX.Element => {
         const child = React.Children.only(children) as React.ReactElement<any>;
         const referenceWrapperClasses: string = mergeClasses([
@@ -156,7 +148,9 @@ export const Dropdown: FC<DropdownProps> = ({
             className={mainWrapperClasses}
             style={style}
             ref={reference}
-            {...containerProps}
+            {...(TRIGGER_TO_HANDLER_MAP_ON_LEAVE[trigger]
+                ? { [TRIGGER_TO_HANDLER_MAP_ON_LEAVE[trigger]]: toggle(false) }
+                : {})}
         >
             {getReference()}
             {getDropdown()}
