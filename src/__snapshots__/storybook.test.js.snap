@@ -6200,6 +6200,96 @@ Array [
 ]
 `;
 
+exports[`Storyshots Link Default 1`] = `
+Array [
+  <h2>
+    Link
+  </h2>,
+  <a
+    className="linkStyle"
+    href="https://www.twitter.com"
+    target="_self"
+  >
+    Twitter
+  </a>,
+  <h2>
+    Primary Link Stacked Columnwise
+  </h2>,
+  <a
+    className="linkStyle primary"
+    href="https://www.facebook.com"
+    style={
+      Object {
+        "maxWidth": "100px",
+      }
+    }
+    target="_self"
+  >
+    <span
+      aria-hidden={false}
+      className="iconWrapper"
+      role="presentation"
+    >
+      <svg
+        role="presentation"
+        style={
+          Object {
+            "height": "20px",
+            "width": "20px",
+          }
+        }
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M12,4A4,4 0 0,1 16,8A4,4 0 0,1 12,12A4,4 0 0,1 8,8A4,4 0 0,1 12,4M12,14C16.42,14 20,15.79 20,18V20H4V18C4,15.79 7.58,14 12,14Z"
+          style={
+            Object {
+              "fill": "currentColor",
+            }
+          }
+        />
+      </svg>
+    </span>
+    User Profile
+  </a>,
+  <h2>
+    Link with default behavior disabled
+  </h2>,
+  <a
+    className="linkStyle"
+    href="https://www.facebook.com"
+    target="_self"
+  >
+    <span
+      aria-hidden={false}
+      className="iconWrapper"
+      role="presentation"
+    >
+      <svg
+        role="presentation"
+        style={
+          Object {
+            "height": "20px",
+            "width": "20px",
+          }
+        }
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M12,4A4,4 0 0,1 16,8A4,4 0 0,1 12,12A4,4 0 0,1 8,8A4,4 0 0,1 12,4M12,14C16.42,14 20,15.79 20,18V20H4V18C4,15.79 7.58,14 12,14Z"
+          style={
+            Object {
+              "fill": "currentColor",
+            }
+          }
+        />
+      </svg>
+    </span>
+    User Profile
+  </a>,
+]
+`;
+
 exports[`Storyshots List Default 1`] = `
 Array [
   <h1>
