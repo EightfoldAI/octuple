@@ -7,6 +7,7 @@ import {
     ButtonWidth,
     TwoStateButtonProps,
 } from '../';
+import { Badge } from '../../Badge';
 import { Icon, IconSize } from '../../Icon';
 import { Breakpoints, useMatchMedia } from '../../../hooks/useMatchMedia';
 import { mergeClasses } from '../../../shared/utilities';
@@ -106,7 +107,7 @@ export const TwoStateButton: FC<TwoStateButtonProps> = React.forwardRef(
             { [styles.buttonText3]: size === ButtonSize.Small },
         ]);
 
-        const counterClassNames: string = mergeClasses([
+        const badgeClassNames: string = mergeClasses([
             styles.counter,
             buttonTextClassNames,
         ]);
@@ -165,15 +166,20 @@ export const TwoStateButton: FC<TwoStateButtonProps> = React.forwardRef(
                 style={style}
                 type="button"
             >
-                <span>
-                    {iconOneExists && getButtonIcon('left')}
-                    {textExists && getButtonText(buttonTextClassNames, text)}
-                    {counterExists && (
-                        <span className={counterClassNames}>
-                            {counter.toLocaleString()}
-                        </span>
-                    )}
-                    {iconTwoExists && getButtonIcon('right')}
+                <span className={styles.twoStateButtonContent}>
+                    <span className={styles.column + ' ' + styles.columnOne}>
+                        {iconOneExists && getButtonIcon('left')}
+                        {textExists &&
+                            getButtonText(buttonTextClassNames, text)}
+                        {counterExists && (
+                            <Badge classNames={badgeClassNames}>
+                                {counter.toLocaleString()}
+                            </Badge>
+                        )}
+                    </span>
+                    <span className={styles.column}>
+                        {iconTwoExists && getButtonIcon('right')}
+                    </span>
                 </span>
             </button>
         );

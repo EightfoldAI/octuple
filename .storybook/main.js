@@ -9,6 +9,7 @@ module.exports = {
         '@storybook/addon-essentials',
         '@storybook/addon-interactions',
         '@storybook/addon-links',
+        'storybook-css-modules',
     ],
     staticDirs: ['../public/assets'],
     framework: '@storybook/react',
