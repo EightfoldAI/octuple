@@ -1,4 +1,6 @@
 import React from 'react';
+import { Stories } from '@storybook/addon-docs';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
 import {
     snack,
     Snackbar,
@@ -10,11 +12,37 @@ import { ButtonSize, DefaultButton } from '../Button';
 import { InfoBarType } from '../InfoBar';
 
 export default {
-    title: 'Snackbar',
-    component: Snackbar,
-};
+    title: 'Snack Bar',
+    parameters: {
+        docs: {
+            page: (): JSX.Element => (
+                <main>
+                    <article>
+                        <section>
+                            <h1>Snack Bar</h1>
+                            <p>
+                                Snack bars are a type of component we can use to
+                                provide quick responses back to someone. There
+                                are two different types of snackbars;
+                                auto-dismissable and user-dismissable. Depending
+                                on the context of the response, they provide a
+                                call-to-action for people to act upon.{' '}
+                            </p>
+                        </section>
+                        <br />
+                        <hr />
+                        <br />
+                        <section>
+                            <Stories includePrimary />
+                        </section>
+                    </article>
+                </main>
+            ),
+        },
+    },
+} as ComponentMeta<typeof Snackbar>;
 
-export const Default = () => {
+export const Snack_Bars: ComponentStory<typeof Snackbar> = () => {
     let snackIndex = 1;
 
     const snackbarPositions: SnackbarPosition[] = [
@@ -48,7 +76,7 @@ export const Default = () => {
 
     return (
         <div>
-            <h1>Snackbar</h1>
+            <h1>Snack Bars</h1>
             {snackbarPositions.map((position) => (
                 <DefaultButton
                     key={position}

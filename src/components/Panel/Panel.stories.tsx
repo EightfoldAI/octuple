@@ -1,13 +1,117 @@
 import React, { useState } from 'react';
+import { Stories } from '@storybook/addon-docs';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Panel, PanelSize } from './';
 import { PrimaryButton } from '../Button';
 
 export default {
     title: 'Panel',
-    component: Panel,
-};
+    parameters: {
+        docs: {
+            page: (): JSX.Element => (
+                <main>
+                    <article>
+                        <section>
+                            <h1>Panels</h1>
+                            <p>
+                                Panels are overlays that contain supplementary
+                                content and are used for complex creation, edit,
+                                or management experiences. For example, viewing
+                                details about an item in a list or editing
+                                settings.
+                            </p>
+                            <h2>Best practices</h2>
+                            <h3>Layout</h3>
+                            <ul>
+                                <li>
+                                    Use for self-contained experiences where
+                                    someone doesn't need to interact with the
+                                    app view to complete the task.
+                                </li>
+                                <li>
+                                    Consider how the panel and its contained
+                                    contents will scale across responsive web
+                                    breakpoints.
+                                </li>
+                            </ul>
+                            <h3>Header</h3>
+                            <ul>
+                                <li>
+                                    Include a close button in the top-right
+                                    corner.
+                                </li>
+                                <li>Lock the title to the top of the panel.</li>
+                                <li>
+                                    The header can contain a variety of
+                                    components. Components are stacked under the
+                                    main title, locked to the top, and push
+                                    content down.
+                                </li>
+                            </ul>
+                            <h3>Body</h3>
+                            <ul>
+                                <li>
+                                    The body is a flexible container that can
+                                    house a wide variety of components, content,
+                                    and formatting.
+                                </li>
+                                <li>Content can scroll.</li>
+                            </ul>
+                            <h3>Footer</h3>
+                            <ul>
+                                <li>
+                                    Standard footers include primary and
+                                    secondary buttons to confirm or cancel the
+                                    changes or task.
+                                </li>
+                                <li>
+                                    Read-only panels may contain a single Close
+                                    button.
+                                </li>
+                                <li>
+                                    Lock the footer to the bottom of the panel.
+                                </li>
+                            </ul>
+                            <h2>Content</h2>
+                            <h2>Title</h2>
+                            <ul>
+                                <li>
+                                    Titles should explain the panel content in
+                                    clear, concise, and specific terms.
+                                </li>
+                                <li>
+                                    Use sentence-style capitalization—only
+                                    capitalize the first word.
+                                </li>
+                                <li>
+                                    Don't put a period at the end of the title.
+                                </li>
+                            </ul>
+                            <h2>Button labels</h2>
+                            <ul>
+                                <li>
+                                    Be concise. Limit labels to one or two
+                                    words. Usually a single verb is best.
+                                    Include a noun if there's any room for
+                                    interpretation about what the verb means.
+                                    For example, “Save” or “Save settings.”
+                                </li>
+                            </ul>
+                        </section>
+                        <br />
+                        <hr />
+                        <br />
+                        <section>
+                            <Stories includePrimary />
+                        </section>
+                    </article>
+                </main>
+            ),
+        },
+    },
+} as ComponentMeta<typeof Panel>;
 
-export const Default = () => {
+export const Panels: ComponentStory<typeof Panel> = () => {
     const [visible, setVisible] = useState<Record<string, boolean>>({});
     return (
         <div style={{ height: '1000px' }}>

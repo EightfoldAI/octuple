@@ -1,12 +1,36 @@
 import React from 'react';
+import { Stories } from '@storybook/addon-docs';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Pagination, PaginationLayoutOptions } from './index';
 
 export default {
     title: 'Pagination',
-    component: Pagination,
-};
+    parameters: {
+        docs: {
+            page: (): JSX.Element => (
+                <main>
+                    <article>
+                        <section>
+                            <h1>Pagination</h1>
+                            <p>
+                                If you have too much data to display in one
+                                page, use pagination.
+                            </p>
+                        </section>
+                        <br />
+                        <hr />
+                        <br />
+                        <section>
+                            <Stories includePrimary />
+                        </section>
+                    </article>
+                </main>
+            ),
+        },
+    },
+} as ComponentMeta<typeof Pagination>;
 
-export const Paging = () => {
+export const Paging_Types: ComponentStory<typeof Pagination> = () => {
     return (
         <>
             <h1>Basic</h1>

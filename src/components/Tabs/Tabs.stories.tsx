@@ -1,11 +1,48 @@
 import React, { useState } from 'react';
-import { Tabs, Tab, TabVariant, TabValue } from './';
+import { Stories } from '@storybook/addon-docs';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { Tabs, Tab, TabVariant } from './';
 import { IconName } from '../Icon';
 
 export default {
     title: 'Tabs',
-    component: Tabs,
-};
+    parameters: {
+        docs: {
+            page: (): JSX.Element => (
+                <main>
+                    <article>
+                        <section>
+                            <h1>Tabs</h1>
+                            <p>
+                                Tabs are used for navigating frequently
+                                accessed, distinct content categories. Tabs
+                                allow for navigation between two or more content
+                                views and relies on text headers to articulate
+                                the different sections of content.
+                            </p>
+                            <ul>
+                                <li>
+                                    Tapping on a item navigates to that section
+                                    content.
+                                </li>
+                                <li>
+                                    Tabs use a combination of icons and text or
+                                    just icons to articulate section content.
+                                </li>
+                            </ul>
+                        </section>
+                        <br />
+                        <hr />
+                        <br />
+                        <section>
+                            <Stories includePrimary />
+                        </section>
+                    </article>
+                </main>
+            ),
+        },
+    },
+} as ComponentMeta<typeof Tabs>;
 
 const tabs = [1, 2, 3, 4].map((i) => ({
     value: `tab${i}`,
@@ -44,7 +81,7 @@ const scrollableTabs = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((i) => ({
     ...(i === 4 ? { disabled: true } : {}),
 }));
 
-export const Default = () => {
+export const Default: ComponentStory<typeof Tabs> = () => {
     const [activeTabs, setActiveTabs] = useState({
         defaultTab: 'tab1',
         defaultTabBadge: 'tab1',
@@ -117,7 +154,7 @@ export const Default = () => {
     );
 };
 
-export const Small = () => {
+export const Small: ComponentStory<typeof Tabs> = () => {
     const [activeTabs, setActiveTabs] = useState({
         defaultTab: 'tab1',
         defaultTabBadge: 'tab1',
@@ -195,7 +232,7 @@ export const Small = () => {
     );
 };
 
-export const Pill = () => {
+export const Pill: ComponentStory<typeof Tabs> = () => {
     const [activeTabs, setActiveTabs] = useState({
         defaultTab: 'tab1',
         defaultTabBadge: 'tab1',

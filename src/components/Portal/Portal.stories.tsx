@@ -1,12 +1,36 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useRef } from 'react';
+import { Stories } from '@storybook/addon-docs';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Portal } from './';
 
 export default {
     title: 'Portal',
-    component: Portal,
-};
+    parameters: {
+        docs: {
+            page: (): JSX.Element => (
+                <main>
+                    <article>
+                        <section>
+                            <h1>Portal</h1>
+                            <p>
+                                A Portal allows to render children outside of
+                                their parent.
+                            </p>
+                        </section>
+                        <br />
+                        <hr />
+                        <br />
+                        <section>
+                            <Stories includePrimary />
+                        </section>
+                    </article>
+                </main>
+            ),
+        },
+    },
+} as ComponentMeta<typeof Portal>;
 
-export const Default = () => {
+export const Default: ComponentStory<typeof Portal> = () => {
     const containerRef = useRef<HTMLDivElement>(null);
 
     return (

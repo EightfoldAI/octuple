@@ -1,408 +1,285 @@
-import React, { FC } from 'react';
+import React from 'react';
+import { Stories } from '@storybook/addon-docs';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
 import {
+    BaseButton,
     ButtonIconAlign,
     ButtonShape,
     ButtonSize,
     ButtonTextAlign,
+    ButtonTheme,
     ButtonWidth,
     DefaultButton,
     NeutralButton,
     PrimaryButton,
     SecondaryButton,
-    TwoStateButton,
-} from './index';
-import { Dropdown } from '../Dropdown/Dropdown';
+} from './';
 import { IconName } from '../Icon';
-import { useBoolean } from '../../hooks/useBoolean';
-
-interface ExampleProps {
-    checked?: boolean;
-}
 
 export default {
     title: 'Button',
-    component: PrimaryButton,
-};
+    parameters: {
+        docs: {
+            page: (): JSX.Element => (
+                <main>
+                    <article>
+                        <section>
+                            <h1>Buttons</h1>
+                            <p>
+                                Buttons give people a way to trigger an action.
+                                They're typically found in forms, dialog panels,
+                                and dialogs. Some buttons are specialized for
+                                particular tasks, such as navigation, repeated
+                                actions, or presenting menus.
+                            </p>
+                            <h2>Best practices</h2>
+                            <h3>Layout</h3>
+                            <ul>
+                                <li>
+                                    For dialog boxes and panels, where people
+                                    are moving through a sequence of screens,
+                                    right-align buttons with the container.
+                                </li>
+                                <li>
+                                    For single-page forms and focused tasks,
+                                    left-align buttons with the container.
+                                </li>
+                                <li>
+                                    Always place the primary button on the left,
+                                    the secondary button just to the right of
+                                    it.
+                                </li>
+                                <li>
+                                    Show only one primary button that inherits
+                                    theme color at rest state. If there are more
+                                    than two buttons with equal priority, all
+                                    buttons should have neutral backgrounds.
+                                </li>
+                                <li>
+                                    Don't use a button to navigate to another
+                                    place; use a link instead. The exception is
+                                    in a wizard where "Back" and "Next" buttons
+                                    may be used.
+                                </li>
+                                <li>
+                                    Don't place the default focus on a button
+                                    that destroys data. Instead, place the
+                                    default focus on the button that performs
+                                    the "safe act" and retains the content (such
+                                    as "Save") or cancels the action (such as
+                                    "Cancel").
+                                </li>
+                            </ul>
+                            <h3>Content</h3>
+                            <ul>
+                                <li>
+                                    Use sentence-style capitalization—only
+                                    capitalize the first word.
+                                </li>
+                                <li>
+                                    Make sure it's clear what will happen when
+                                    people interact with the button. Be concise;
+                                    usually a single verb is best. Include a
+                                    noun if there is any room for interpretation
+                                    about what the verb means. For example,
+                                    "Delete folder" or "Create account".
+                                </li>
+                            </ul>
+                            <h3>Toggle Button</h3>
+                            <p>
+                                A toggle button may be used to show or hide
+                                something and/or toggle its own icon.
+                            </p>
+                            <p>
+                                Toggle buttons require the <b>toggle</b> and{' '}
+                                <b>checked</b> attributes
+                            </p>
+                            <h3>Split Button</h3>
+                            <p>
+                                A split button enables someone to take one of
+                                several related actions, one being dominant and
+                                rest being displayed in a menu.
+                            </p>
+                            <p>
+                                Split buttons require the <b>onContextMenu</b>,{' '}
+                                <b>split</b> attributes in addition to{' '}
+                                <b>splitButtonChecked</b>.
+                            </p>
+                        </section>
+                        <br />
+                        <hr />
+                        <br />
+                        <section>
+                            <Stories includePrimary />
+                        </section>
+                    </article>
+                </main>
+            ),
+        },
+    },
+    argTypes: {
+        alignIcon: {
+            options: [ButtonIconAlign.Left, ButtonIconAlign.Right],
+            control: { type: 'select' },
+        },
+        alignText: {
+            options: [
+                ButtonTextAlign.Center,
+                ButtonTextAlign.Left,
+                ButtonTextAlign.Right,
+            ],
+            control: { type: 'select' },
+        },
+        buttonWidth: {
+            options: [ButtonWidth.fitContent, ButtonWidth.fill],
+            control: { type: 'select' },
+        },
+        htmlType: {
+            options: ['button', 'submit', 'reset'],
+            control: { type: 'select' },
+        },
+        onClick: {
+            action: 'click',
+        },
+        onContextMenu: {
+            action: 'contextmenu',
+        },
+        shape: {
+            options: [ButtonShape.Rectangle, ButtonShape.Pill],
+            control: { type: 'select' },
+        },
+        size: {
+            options: [
+                ButtonSize.Flex,
+                ButtonSize.Large,
+                ButtonSize.Medium,
+                ButtonSize.Small,
+            ],
+            control: { type: 'select' },
+        },
+    },
+} as ComponentMeta<typeof BaseButton>;
 
-export const Primary = () => (
-    <>
-        <h1>Primary</h1>
-        <p>Default Flex</p>
-        <PrimaryButton
-            ariaLabel="Primary Button"
-            iconProps={{ path: IconName.mdiCardsHeart }}
-            onClick={_alertClicked}
-            text="Primary Button"
-        />
-        <br />
-        <br />
-        <p>Default Flex (Fill)</p>
-        <div style={{ width: '50%' }}>
-            <PrimaryButton
-                ariaLabel="Primary Button"
-                buttonWidth={ButtonWidth.fill}
-                iconProps={{ path: IconName.mdiCardsHeart }}
-                onClick={_alertClicked}
-                text="Primary Button"
-            />
-        </div>
-        <br />
-        <p>Text only</p>
-        <PrimaryButton
-            ariaLabel="Primary Button"
-            onClick={_alertClicked}
-            size={ButtonSize.Large}
-            text="Primary Button"
-        />
-        <br />
-        <br />
-        <p>Text only (Pill)</p>
-        <PrimaryButton
-            ariaLabel="Primary Button"
-            onClick={_alertClicked}
-            size={ButtonSize.Large}
-            shape={ButtonShape.Pill}
-            text="Primary Button"
-        />
-        <br />
-        <br />
-        <p>Icon only</p>
-        <PrimaryButton
-            ariaLabel="Primary Button"
-            iconProps={{ path: IconName.mdiCardsHeart }}
-            onClick={_alertClicked}
-            size={ButtonSize.Large}
-        />
-        <br />
-        <br />
-        <p>Text + Left Icon</p>
-        <PrimaryButton
-            ariaLabel="Primary Button"
-            iconProps={{ path: IconName.mdiCardsHeart }}
-            onClick={_alertClicked}
-            size={ButtonSize.Large}
-            text="Primary Button"
-        />
-        <br />
-        <br />
-        <p>Text + Right Icon</p>
-        <PrimaryButton
-            alignIcon={ButtonIconAlign.Right}
-            ariaLabel="Primary Button"
-            iconProps={{ path: IconName.mdiCardsHeart }}
-            onClick={_alertClicked}
-            size={ButtonSize.Large}
-            text="Primary Button"
-        />
-        <br />
-        <br />
-        <p>Disruptive</p>
-        <PrimaryButton
-            ariaLabel="Primary Button"
-            disruptive
-            onClick={_alertClicked}
-            size={ButtonSize.Large}
-            text="Primary Button"
-        />
-    </>
+const Primary_Button_Story: ComponentStory<typeof PrimaryButton> = (args) => (
+    <PrimaryButton {...args} />
 );
 
-export const Secondary = () => (
-    <>
-        <h1>Secondary</h1>
-        <p>Text only</p>
-        <SecondaryButton
-            ariaLabel="Secondary Button"
-            onClick={_alertClicked}
-            size={ButtonSize.Large}
-            text="Secondary Button"
-        />
-        <br />
-        <br />
-        <p>Text only (Pill)</p>
-        <SecondaryButton
-            ariaLabel="Secondary Button"
-            onClick={_alertClicked}
-            shape={ButtonShape.Pill}
-            size={ButtonSize.Large}
-            text="Secondary Button"
-        />
-        <br />
-        <br />
-        <p>Icon only</p>
-        <SecondaryButton
-            ariaLabel="Secondary Button"
-            iconProps={{ path: IconName.mdiCardsHeart }}
-            onClick={_alertClicked}
-            size={ButtonSize.Large}
-        />
-        <br />
-        <br />
-        <p>Text + Icon</p>
-        <SecondaryButton
-            ariaLabel="Secondary Button"
-            iconProps={{ path: IconName.mdiCardsHeart }}
-            onClick={_alertClicked}
-            size={ButtonSize.Large}
-            text="Secondary Button"
-        />
-        <br />
-        <br />
-        <p>Disruptive</p>
-        <SecondaryButton
-            ariaLabel="Secondary Button"
-            disruptive
-            onClick={_alertClicked}
-            size={ButtonSize.Large}
-            text="Secondary Button"
-        />
-    </>
+export const Primary = Primary_Button_Story.bind({});
+
+const Secondary_Button_Story: ComponentStory<typeof SecondaryButton> = (
+    args
+) => <SecondaryButton {...args} />;
+
+export const Secondary = Secondary_Button_Story.bind({});
+
+const Default_Button_Story: ComponentStory<typeof DefaultButton> = (args) => (
+    <DefaultButton {...args} />
 );
 
-export const Default = () => (
-    <>
-        <h1>Default Button</h1>
-        <p>Text only</p>
-        <DefaultButton
-            ariaLabel="Default Button"
-            onClick={_alertClicked}
-            size={ButtonSize.Large}
-            text="Default Button"
-        />
-        <br />
-        <br />
-        <p>Text only (Pill)</p>
-        <DefaultButton
-            ariaLabel="Default Button"
-            dropShadow
-            onClick={_alertClicked}
-            shape={ButtonShape.Pill}
-            size={ButtonSize.Large}
-            text="Default Button"
-        />
-        <br />
-        <br />
-        <p>Icon only</p>
-        <DefaultButton
-            ariaLabel="Default Button"
-            iconProps={{ path: IconName.mdiCardsHeart }}
-            onClick={_alertClicked}
-            size={ButtonSize.Large}
-        />
-        <br />
-        <br />
-        <p>Text + Icon</p>
-        <DefaultButton
-            ariaLabel="Default Button"
-            iconProps={{ path: IconName.mdiCardsHeart }}
-            onClick={_alertClicked}
-            size={ButtonSize.Large}
-            text="Default Button"
-        />
-        <br />
-        <br />
-        <p>Disruptive</p>
-        <DefaultButton
-            ariaLabel="Default Button"
-            disruptive
-            onClick={_alertClicked}
-            size={ButtonSize.Large}
-            text="Default Button"
-        />
-    </>
+export const Default = Default_Button_Story.bind({});
+
+const Neutral_Button_Story: ComponentStory<typeof NeutralButton> = (args) => (
+    <NeutralButton {...args} />
 );
 
-export const Neutral = () => (
-    <>
-        <h1>Neutral Button</h1>
-        <p>Text only</p>
-        <NeutralButton
-            ariaLabel="Neutral Button"
-            onClick={_alertClicked}
-            size={ButtonSize.Large}
-            text="Neutral Button"
-        />
-        <br />
-        <br />
-        <p>Text only (Pill)</p>
-        <NeutralButton
-            ariaLabel="Neutral Button"
-            dropShadow
-            onClick={_alertClicked}
-            shape={ButtonShape.Pill}
-            size={ButtonSize.Large}
-            text="Neutral Button"
-        />
-        <br />
-        <br />
-        <p>Icon only</p>
-        <NeutralButton
-            ariaLabel="Neutral Button"
-            iconProps={{ path: IconName.mdiCardsHeart }}
-            onClick={_alertClicked}
-            size={ButtonSize.Large}
-        />
-        <br />
-        <br />
-        <p>Text + Icon</p>
-        <NeutralButton
-            ariaLabel="Neutral Button"
-            iconProps={{ path: IconName.mdiCardsHeart }}
-            onClick={_alertClicked}
-            size={ButtonSize.Large}
-            text="Neutral Button"
-        />
-    </>
+export const Neutral = Neutral_Button_Story.bind({});
+
+const Toggle_Button_Story: ComponentStory<typeof PrimaryButton> = (args) => (
+    <PrimaryButton {...args} />
 );
 
-export const Split: FC<ExampleProps> = ({ checked }) => {
-    const [menuShown, { toggle: setMenuShown }] = useBoolean(false);
-    return (
-        <>
-            <h1>Split Button</h1>
-            <p>
-                Note: Split buttons require the <code>onContextMenu</code>,{' '}
-                <code>split</code> attributes in addition to{' '}
-                <code>splitButtonChecked</code>.
-            </p>
-            <Dropdown
-                overlay={
-                    <div>
-                        <DefaultButton
-                            alignText={ButtonTextAlign.Left}
-                            buttonWidth={ButtonWidth.fill}
-                        />
-                        <DefaultButton
-                            alignText={ButtonTextAlign.Left}
-                            buttonWidth={ButtonWidth.fill}
-                        />
-                        <DefaultButton
-                            alignText={ButtonTextAlign.Left}
-                            buttonWidth={ButtonWidth.fill}
-                        />
-                    </div>
-                }
-                trigger="contextmenu"
-                onVisibleChange={setMenuShown}
-            >
-                <PrimaryButton
-                    ariaLabel="Split Button"
-                    onClick={_alertClicked}
-                    onContextMenu={setMenuShown}
-                    split
-                    splitButtonChecked={menuShown || checked}
-                    text="Split Button"
-                />
-            </Dropdown>
-        </>
-    );
+export const Toggle = Toggle_Button_Story.bind({});
+
+const Split_Button_Story: ComponentStory<typeof PrimaryButton> = (args) => (
+    <PrimaryButton {...args} />
+);
+
+export const Split = Split_Button_Story.bind({});
+
+const buttonArgs: Object = {
+    alignIcon: ButtonIconAlign.Left,
+    alignText: ButtonTextAlign.Center,
+    allowDisabledFocus: false,
+    ariaLabel: 'Button',
+    buttonWidth: ButtonWidth.fitContent,
+    checked: false,
+    classNames: 'my-btn-class',
+    'data-test-id': 'my-btn-test-id',
+    disabled: false,
+    disruptive: false,
+    dropShadow: false,
+    htmlType: 'button',
+    iconProps: {
+        path: IconName.mdiCardsHeart,
+        ariaHidden: true,
+        classNames: 'my-btn-icon',
+        id: 'myButtonIcon',
+        role: 'presentation',
+        rotate: 0,
+        spin: false,
+        vertical: false,
+        'data-test-id': 'myButtonIconTestId',
+    },
+    id: 'myButton',
+    shape: ButtonShape.Rectangle,
+    size: ButtonSize.Flex,
+    split: false,
+    splitButtonChecked: false,
+    style: {},
+    text: 'Button',
+    theme: ButtonTheme.light,
+    toggle: false,
 };
 
-export const Toggle: FC<ExampleProps> = ({ checked }) => {
-    const [skill1Added, { toggle: set1Added }] = useBoolean(false);
-    const [skill2Added, { toggle: set2Added }] = useBoolean(false);
-    const [skill3Added, { toggle: set3Added }] = useBoolean(false);
-    const [skill4Added, { toggle: set4Added }] = useBoolean(false);
-    return (
-        <>
-            <h1>Toggle With Text + Icon</h1>
-            <p>
-                Note: Toggle buttons require the <code>toggle</code> attribute
-                in addition to <code>checked</code>.
-            </p>
-            <span style={{ marginRight: 16 }}>
-                <PrimaryButton
-                    ariaLabel="Primary Button"
-                    checked={skill1Added || checked}
-                    iconProps={{
-                        path: skill1Added
-                            ? IconName.mdiMinus
-                            : IconName.mdiPlus,
-                    }}
-                    onClick={set1Added}
-                    size={ButtonSize.Medium}
-                    text="Primary Button"
-                    toggle
-                />
-            </span>
-            <span style={{ marginRight: 16 }}>
-                <SecondaryButton
-                    ariaLabel="Secondary Button"
-                    checked={skill2Added || checked}
-                    iconProps={{
-                        path: skill2Added
-                            ? IconName.mdiMinus
-                            : IconName.mdiPlus,
-                    }}
-                    onClick={set2Added}
-                    size={ButtonSize.Medium}
-                    text="Secondary Button"
-                    toggle
-                />
-            </span>
-            <span>
-                <DefaultButton
-                    ariaLabel="Default Button"
-                    checked={skill3Added || checked}
-                    iconProps={{
-                        path: skill3Added
-                            ? IconName.mdiMinus
-                            : IconName.mdiPlus,
-                    }}
-                    onClick={set3Added}
-                    size={ButtonSize.Medium}
-                    text="Default Button"
-                    toggle
-                />
-            </span>
-            <span>
-                <NeutralButton
-                    ariaLabel="Neutral Button"
-                    checked={skill4Added || checked}
-                    iconProps={{
-                        path: skill4Added
-                            ? IconName.mdiMinus
-                            : IconName.mdiPlus,
-                    }}
-                    onClick={set4Added}
-                    size={ButtonSize.Medium}
-                    text="Neutral Button"
-                    toggle
-                />
-            </span>
-        </>
-    );
+Primary.args = {
+    ...buttonArgs,
+    ariaLabel: 'Primary Button',
+    text: 'Primary Button',
 };
 
-export const TwoState: FC<ExampleProps> = ({ checked }) => {
-    const [isToggled, { toggle: setToggled }] = useBoolean(false);
-    return (
-        <>
-            <h1>Two State Button</h1>
-            <p>
-                Note: Like Toggle, Two State buttons require the{' '}
-                <code>toggle</code> attribute in addition to{' '}
-                <code>checked</code>. Two State button's visual state is
-                different than a basic Toggle button.
-            </p>
-            <TwoStateButton
-                ariaLabel="Two State Button"
-                checked={isToggled || checked}
-                counter={8}
-                iconOneProps={{ path: IconName.mdiCardsHeart }}
-                iconTwoProps={{
-                    path: isToggled
-                        ? IconName.mdiChevronUp
-                        : IconName.mdiChevronDown,
-                }}
-                onClick={setToggled}
-                text="Two State Button"
-                toggle
-            />
-        </>
-    );
+Secondary.args = {
+    ...buttonArgs,
+    ariaLabel: 'Secondary Button',
+    text: 'Secondary Button',
 };
 
-function _alertClicked(): void {
-    alert('Clicked');
-}
+Default.args = {
+    ...buttonArgs,
+    ariaLabel: 'Default Button',
+    text: 'Default Button',
+};
+
+Neutral.args = {
+    ...buttonArgs,
+    ariaLabel: 'Neutral Button',
+    text: 'Neutral Button',
+};
+
+Toggle.args = {
+    ...buttonArgs,
+    alignIcon: ButtonIconAlign.Right,
+    ariaLabel: 'Toggle Button',
+    checked: false,
+    iconProps: {
+        path: IconName.mdiChevronDown,
+        ariaHidden: true,
+        classNames: 'my-btn-icon',
+        id: 'myButtonIcon',
+        role: 'presentation',
+        rotate: 0,
+        spin: false,
+        vertical: false,
+        'data-test-id': 'myButtonIconTestId',
+    },
+    text: 'Toggle Button',
+    toggle: true,
+};
+
+Split.args = {
+    ...buttonArgs,
+    ariaLabel: 'Split Button',
+    iconProps: null,
+    split: true,
+    splitButtonChecked: false,
+    text: 'Split Button',
+};

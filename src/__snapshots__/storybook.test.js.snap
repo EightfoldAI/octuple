@@ -837,11 +837,12 @@ Array [
 ]
 `;
 
-exports[`Storyshots Badge Default 1`] = `
+exports[`Storyshots Badge Badges 1`] = `
 Array [
   <h2>
     Badge
   </h2>,
+  <p />,
   <div
     style={
       Object {
@@ -942,70 +943,31 @@ Array [
 `;
 
 exports[`Storyshots Button Default 1`] = `
-Array [
-  <h1>
-    Default Button
-  </h1>,
-  <p>
-    Text only
-  </p>,
-  <button
-    aria-disabled={false}
-    aria-label="Default Button"
-    className="button buttonDefault buttonSize1"
-    defaultChecked={false}
-    disabled={false}
-    onClick={[Function]}
-  >
+<button
+  aria-disabled={false}
+  aria-label="Default Button"
+  className="my-btn-class button buttonDefault iconLeft"
+  data-test-id="my-btn-test-id"
+  defaultChecked={false}
+  disabled={false}
+  id="myButton"
+  style={Object {}}
+  type="button"
+>
+  <span>
     <span
-      className="buttonText1"
-    >
-      Default Button
-    </span>
-  </button>,
-  <br />,
-  <br />,
-  <p>
-    Text only (Pill)
-  </p>,
-  <button
-    aria-disabled={false}
-    aria-label="Default Button"
-    className="button buttonDefault buttonSize1 pillShape dropShadow"
-    defaultChecked={false}
-    disabled={false}
-    onClick={[Function]}
-  >
-    <span
-      className="buttonText1"
-    >
-      Default Button
-    </span>
-  </button>,
-  <br />,
-  <br />,
-  <p>
-    Icon only
-  </p>,
-  <button
-    aria-disabled={false}
-    aria-label="Default Button"
-    className="button buttonDefault buttonSize1 iconLeft"
-    defaultChecked={false}
-    disabled={false}
-    onClick={[Function]}
-  >
-    <span
-      aria-hidden={false}
+      aria-hidden={true}
       className="icon iconWrapper"
+      data-test-id="myButtonIconTestId"
+      id="myButtonIcon"
       role="presentation"
     >
       <svg
         role="presentation"
         style={
           Object {
-            "height": "24px",
-            "width": "24px",
+            "height": "20px",
+            "width": "20px",
           }
         }
         viewBox="0 0 24 24"
@@ -1020,140 +982,41 @@ Array [
         />
       </svg>
     </span>
-  </button>,
-  <br />,
-  <br />,
-  <p>
-    Text + Icon
-  </p>,
-  <button
-    aria-disabled={false}
-    aria-label="Default Button"
-    className="button buttonDefault buttonSize1 iconLeft"
-    defaultChecked={false}
-    disabled={false}
-    onClick={[Function]}
-  >
-    <span>
-      <span
-        aria-hidden={false}
-        className="icon iconWrapper"
-        role="presentation"
-      >
-        <svg
-          role="presentation"
-          style={
-            Object {
-              "height": "24px",
-              "width": "24px",
-            }
-          }
-          viewBox="0 0 24 24"
-        >
-          <path
-            d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"
-            style={
-              Object {
-                "fill": "currentColor",
-              }
-            }
-          />
-        </svg>
-      </span>
-      <span
-        className="buttonText1"
-      >
-        Default Button
-      </span>
-    </span>
-  </button>,
-  <br />,
-  <br />,
-  <p>
-    Disruptive
-  </p>,
-  <button
-    aria-disabled={false}
-    aria-label="Default Button"
-    className="button buttonDefault buttonDisruptive buttonSize1"
-    defaultChecked={false}
-    disabled={false}
-    onClick={[Function]}
-  >
     <span
-      className="buttonText1"
+      className=""
     >
       Default Button
     </span>
-  </button>,
-]
+  </span>
+</button>
 `;
 
 exports[`Storyshots Button Neutral 1`] = `
-Array [
-  <h1>
-    Neutral Button
-  </h1>,
-  <p>
-    Text only
-  </p>,
-  <button
-    aria-disabled={false}
-    aria-label="Neutral Button"
-    className="button buttonNeutral buttonSize1"
-    defaultChecked={false}
-    disabled={false}
-    onClick={[Function]}
-  >
+<button
+  aria-disabled={false}
+  aria-label="Neutral Button"
+  className="my-btn-class button buttonNeutral iconLeft"
+  data-test-id="my-btn-test-id"
+  defaultChecked={false}
+  disabled={false}
+  id="myButton"
+  style={Object {}}
+  type="button"
+>
+  <span>
     <span
-      className="buttonText1"
-    >
-      Neutral Button
-    </span>
-  </button>,
-  <br />,
-  <br />,
-  <p>
-    Text only (Pill)
-  </p>,
-  <button
-    aria-disabled={false}
-    aria-label="Neutral Button"
-    className="button buttonNeutral buttonSize1 pillShape dropShadow"
-    defaultChecked={false}
-    disabled={false}
-    onClick={[Function]}
-  >
-    <span
-      className="buttonText1"
-    >
-      Neutral Button
-    </span>
-  </button>,
-  <br />,
-  <br />,
-  <p>
-    Icon only
-  </p>,
-  <button
-    aria-disabled={false}
-    aria-label="Neutral Button"
-    className="button buttonNeutral buttonSize1 iconLeft"
-    defaultChecked={false}
-    disabled={false}
-    onClick={[Function]}
-  >
-    <span
-      aria-hidden={false}
+      aria-hidden={true}
       className="icon iconWrapper"
+      data-test-id="myButtonIconTestId"
+      id="myButtonIcon"
       role="presentation"
     >
       <svg
         role="presentation"
         style={
           Object {
-            "height": "24px",
-            "width": "24px",
+            "height": "20px",
+            "width": "20px",
           }
         }
         viewBox="0 0 24 24"
@@ -1168,220 +1031,41 @@ Array [
         />
       </svg>
     </span>
-  </button>,
-  <br />,
-  <br />,
-  <p>
-    Text + Icon
-  </p>,
-  <button
-    aria-disabled={false}
-    aria-label="Neutral Button"
-    className="button buttonNeutral buttonSize1 iconLeft"
-    defaultChecked={false}
-    disabled={false}
-    onClick={[Function]}
-  >
-    <span>
-      <span
-        aria-hidden={false}
-        className="icon iconWrapper"
-        role="presentation"
-      >
-        <svg
-          role="presentation"
-          style={
-            Object {
-              "height": "24px",
-              "width": "24px",
-            }
-          }
-          viewBox="0 0 24 24"
-        >
-          <path
-            d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"
-            style={
-              Object {
-                "fill": "currentColor",
-              }
-            }
-          />
-        </svg>
-      </span>
-      <span
-        className="buttonText1"
-      >
-        Neutral Button
-      </span>
+    <span
+      className=""
+    >
+      Neutral Button
     </span>
-  </button>,
-]
+  </span>
+</button>
 `;
 
 exports[`Storyshots Button Primary 1`] = `
-Array [
-  <h1>
-    Primary
-  </h1>,
-  <p>
-    Default Flex
-  </p>,
-  <button
-    aria-disabled={false}
-    aria-label="Primary Button"
-    className="button buttonPrimary iconLeft"
-    defaultChecked={false}
-    disabled={false}
-    onClick={[Function]}
-  >
-    <span>
-      <span
-        aria-hidden={false}
-        className="icon iconWrapper"
-        role="presentation"
-      >
-        <svg
-          role="presentation"
-          style={
-            Object {
-              "height": "20px",
-              "width": "20px",
-            }
-          }
-          viewBox="0 0 24 24"
-        >
-          <path
-            d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"
-            style={
-              Object {
-                "fill": "currentColor",
-              }
-            }
-          />
-        </svg>
-      </span>
-      <span
-        className=""
-      >
-        Primary Button
-      </span>
-    </span>
-  </button>,
-  <br />,
-  <br />,
-  <p>
-    Default Flex (Fill)
-  </p>,
-  <div
-    style={
-      Object {
-        "width": "50%",
-      }
-    }
-  >
-    <button
-      aria-disabled={false}
-      aria-label="Primary Button"
-      className="button buttonPrimary buttonStretch iconLeft"
-      defaultChecked={false}
-      disabled={false}
-      onClick={[Function]}
-    >
-      <span>
-        <span
-          aria-hidden={false}
-          className="icon iconWrapper"
-          role="presentation"
-        >
-          <svg
-            role="presentation"
-            style={
-              Object {
-                "height": "20px",
-                "width": "20px",
-              }
-            }
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"
-              style={
-                Object {
-                  "fill": "currentColor",
-                }
-              }
-            />
-          </svg>
-        </span>
-        <span
-          className=""
-        >
-          Primary Button
-        </span>
-      </span>
-    </button>
-  </div>,
-  <br />,
-  <p>
-    Text only
-  </p>,
-  <button
-    aria-disabled={false}
-    aria-label="Primary Button"
-    className="button buttonPrimary buttonSize1"
-    defaultChecked={false}
-    disabled={false}
-    onClick={[Function]}
-  >
+<button
+  aria-disabled={false}
+  aria-label="Primary Button"
+  className="my-btn-class button buttonPrimary iconLeft"
+  data-test-id="my-btn-test-id"
+  defaultChecked={false}
+  disabled={false}
+  id="myButton"
+  style={Object {}}
+  type="button"
+>
+  <span>
     <span
-      className="buttonText1"
-    >
-      Primary Button
-    </span>
-  </button>,
-  <br />,
-  <br />,
-  <p>
-    Text only (Pill)
-  </p>,
-  <button
-    aria-disabled={false}
-    aria-label="Primary Button"
-    className="button buttonPrimary buttonSize1 pillShape"
-    defaultChecked={false}
-    disabled={false}
-    onClick={[Function]}
-  >
-    <span
-      className="buttonText1"
-    >
-      Primary Button
-    </span>
-  </button>,
-  <br />,
-  <br />,
-  <p>
-    Icon only
-  </p>,
-  <button
-    aria-disabled={false}
-    aria-label="Primary Button"
-    className="button buttonPrimary buttonSize1 iconLeft"
-    defaultChecked={false}
-    disabled={false}
-    onClick={[Function]}
-  >
-    <span
-      aria-hidden={false}
+      aria-hidden={true}
       className="icon iconWrapper"
+      data-test-id="myButtonIconTestId"
+      id="myButtonIcon"
       role="presentation"
     >
       <svg
         role="presentation"
         style={
           Object {
-            "height": "24px",
-            "width": "24px",
+            "height": "20px",
+            "width": "20px",
           }
         }
         viewBox="0 0 24 24"
@@ -1396,186 +1080,41 @@ Array [
         />
       </svg>
     </span>
-  </button>,
-  <br />,
-  <br />,
-  <p>
-    Text + Left Icon
-  </p>,
-  <button
-    aria-disabled={false}
-    aria-label="Primary Button"
-    className="button buttonPrimary buttonSize1 iconLeft"
-    defaultChecked={false}
-    disabled={false}
-    onClick={[Function]}
-  >
-    <span>
-      <span
-        aria-hidden={false}
-        className="icon iconWrapper"
-        role="presentation"
-      >
-        <svg
-          role="presentation"
-          style={
-            Object {
-              "height": "24px",
-              "width": "24px",
-            }
-          }
-          viewBox="0 0 24 24"
-        >
-          <path
-            d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"
-            style={
-              Object {
-                "fill": "currentColor",
-              }
-            }
-          />
-        </svg>
-      </span>
-      <span
-        className="buttonText1"
-      >
-        Primary Button
-      </span>
-    </span>
-  </button>,
-  <br />,
-  <br />,
-  <p>
-    Text + Right Icon
-  </p>,
-  <button
-    aria-disabled={false}
-    aria-label="Primary Button"
-    className="button buttonPrimary buttonSize1 iconRight"
-    defaultChecked={false}
-    disabled={false}
-    onClick={[Function]}
-  >
-    <span>
-      <span
-        aria-hidden={false}
-        className="icon iconWrapper"
-        role="presentation"
-      >
-        <svg
-          role="presentation"
-          style={
-            Object {
-              "height": "24px",
-              "width": "24px",
-            }
-          }
-          viewBox="0 0 24 24"
-        >
-          <path
-            d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"
-            style={
-              Object {
-                "fill": "currentColor",
-              }
-            }
-          />
-        </svg>
-      </span>
-      <span
-        className="buttonText1"
-      >
-        Primary Button
-      </span>
-    </span>
-  </button>,
-  <br />,
-  <br />,
-  <p>
-    Disruptive
-  </p>,
-  <button
-    aria-disabled={false}
-    aria-label="Primary Button"
-    className="button buttonPrimary buttonPrimaryDisruptive buttonSize1"
-    defaultChecked={false}
-    disabled={false}
-    onClick={[Function]}
-  >
     <span
-      className="buttonText1"
+      className=""
     >
       Primary Button
     </span>
-  </button>,
-]
+  </span>
+</button>
 `;
 
 exports[`Storyshots Button Secondary 1`] = `
-Array [
-  <h1>
-    Secondary
-  </h1>,
-  <p>
-    Text only
-  </p>,
-  <button
-    aria-disabled={false}
-    aria-label="Secondary Button"
-    className="button buttonSecondary buttonSize1"
-    defaultChecked={false}
-    disabled={false}
-    onClick={[Function]}
-  >
+<button
+  aria-disabled={false}
+  aria-label="Secondary Button"
+  className="my-btn-class button buttonSecondary iconLeft"
+  data-test-id="my-btn-test-id"
+  defaultChecked={false}
+  disabled={false}
+  id="myButton"
+  style={Object {}}
+  type="button"
+>
+  <span>
     <span
-      className="buttonText1"
-    >
-      Secondary Button
-    </span>
-  </button>,
-  <br />,
-  <br />,
-  <p>
-    Text only (Pill)
-  </p>,
-  <button
-    aria-disabled={false}
-    aria-label="Secondary Button"
-    className="button buttonSecondary buttonSize1 pillShape"
-    defaultChecked={false}
-    disabled={false}
-    onClick={[Function]}
-  >
-    <span
-      className="buttonText1"
-    >
-      Secondary Button
-    </span>
-  </button>,
-  <br />,
-  <br />,
-  <p>
-    Icon only
-  </p>,
-  <button
-    aria-disabled={false}
-    aria-label="Secondary Button"
-    className="button buttonSecondary buttonSize1 iconLeft"
-    defaultChecked={false}
-    disabled={false}
-    onClick={[Function]}
-  >
-    <span
-      aria-hidden={false}
+      aria-hidden={true}
       className="icon iconWrapper"
+      data-test-id="myButtonIconTestId"
+      id="myButtonIcon"
       role="presentation"
     >
       <svg
         role="presentation"
         style={
           Object {
-            "height": "24px",
-            "width": "24px",
+            "height": "20px",
+            "width": "20px",
           }
         }
         viewBox="0 0 24 24"
@@ -1590,470 +1129,128 @@ Array [
         />
       </svg>
     </span>
-  </button>,
-  <br />,
-  <br />,
-  <p>
-    Text + Icon
-  </p>,
-  <button
-    aria-disabled={false}
-    aria-label="Secondary Button"
-    className="button buttonSecondary buttonSize1 iconLeft"
-    defaultChecked={false}
-    disabled={false}
-    onClick={[Function]}
-  >
-    <span>
-      <span
-        aria-hidden={false}
-        className="icon iconWrapper"
-        role="presentation"
-      >
-        <svg
-          role="presentation"
-          style={
-            Object {
-              "height": "24px",
-              "width": "24px",
-            }
-          }
-          viewBox="0 0 24 24"
-        >
-          <path
-            d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"
-            style={
-              Object {
-                "fill": "currentColor",
-              }
-            }
-          />
-        </svg>
-      </span>
-      <span
-        className="buttonText1"
-      >
-        Secondary Button
-      </span>
-    </span>
-  </button>,
-  <br />,
-  <br />,
-  <p>
-    Disruptive
-  </p>,
-  <button
-    aria-disabled={false}
-    aria-label="Secondary Button"
-    className="button buttonSecondary buttonSecondaryDisruptive buttonSize1"
-    defaultChecked={false}
-    disabled={false}
-    onClick={[Function]}
-  >
     <span
-      className="buttonText1"
+      className=""
     >
       Secondary Button
     </span>
-  </button>,
-]
+  </span>
+</button>
 `;
 
 exports[`Storyshots Button Split 1`] = `
 Array [
-  <h1>
-    Split Button
-  </h1>,
-  <p>
-    Note: Split buttons require the 
-    <code>
-      onContextMenu
-    </code>
-    ,
-     
-    <code>
-      split
-    </code>
-     attributes in addition to
-     
-    <code>
-      splitButtonChecked
-    </code>
-    .
-  </p>,
-  <div
-    className="mainWrapper"
+  <button
+    aria-disabled={false}
+    aria-label="Split Button"
+    className="my-btn-class button buttonPrimary splitLeft"
+    data-test-id="my-btn-test-id"
+    defaultChecked={false}
+    disabled={false}
+    id="myButton"
+    style={Object {}}
+    type="button"
   >
-    <button
-      aria-controls="dropdown-1"
-      aria-disabled={false}
-      aria-expanded={false}
-      aria-haspopup={true}
-      aria-label="Split Button"
-      className="button buttonPrimary splitLeft"
-      defaultChecked={false}
-      disabled={false}
-      onClick={[Function]}
-      role="button"
-      tabIndex="0"
+    <span
+      className=""
     >
-      <span
-        className=""
-      >
-        Split Button
-      </span>
-    </button>
-    <button
-      aria-checked={false}
-      aria-disabled={false}
-      aria-pressed={false}
-      className="button buttonPrimary undefined splitButton splitRight"
-      defaultChecked={false}
-      disabled={false}
-      onClick={[Function]}
-      type="button"
-    >
-      <span
-        aria-hidden={false}
-        className="icon iconWrapper"
-        role="presentation"
-      >
-        <svg
-          role="presentation"
-          style={
-            Object {
-              "height": "20px",
-              "width": "20px",
-            }
-          }
-          viewBox="0 0 24 24"
-        >
-          <path
-            d="M7.41,15.41L12,10.83L16.59,15.41L18,14L12,8L6,14L7.41,15.41Z"
-            style={
-              Object {
-                "fill": "currentColor",
-              }
-            }
-          />
-        </svg>
-      </span>
-      <span
-        aria-hidden="true"
-        className="splitDivider splitDividerPrimary"
-      />
-    </button>
-  </div>,
-]
-`;
-
-exports[`Storyshots Button Toggle 1`] = `
-Array [
-  <h1>
-    Toggle With Text + Icon
-  </h1>,
-  <p>
-    Note: Toggle buttons require the 
-    <code>
-      toggle
-    </code>
-     attribute in addition to 
-    <code>
-      checked
-    </code>
-    .
-  </p>,
-  <span
-    style={
-      Object {
-        "marginRight": 16,
-      }
-    }
-  >
-    <button
-      aria-checked={false}
-      aria-disabled={false}
-      aria-label="Primary Button"
-      aria-pressed={false}
-      className="button buttonPrimary buttonSize2 iconLeft"
-      defaultChecked={false}
-      disabled={false}
-      onClick={[Function]}
-    >
-      <span>
-        <span
-          aria-hidden={false}
-          className="icon iconWrapper"
-          role="presentation"
-        >
-          <svg
-            role="presentation"
-            style={
-              Object {
-                "height": "20px",
-                "width": "20px",
-              }
-            }
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z"
-              style={
-                Object {
-                  "fill": "currentColor",
-                }
-              }
-            />
-          </svg>
-        </span>
-        <span
-          className="buttonText2"
-        >
-          Primary Button
-        </span>
-      </span>
-    </button>
-  </span>,
-  <span
-    style={
-      Object {
-        "marginRight": 16,
-      }
-    }
-  >
-    <button
-      aria-checked={false}
-      aria-disabled={false}
-      aria-label="Secondary Button"
-      aria-pressed={false}
-      className="button buttonSecondary buttonSize2 iconLeft"
-      defaultChecked={false}
-      disabled={false}
-      onClick={[Function]}
-    >
-      <span>
-        <span
-          aria-hidden={false}
-          className="icon iconWrapper"
-          role="presentation"
-        >
-          <svg
-            role="presentation"
-            style={
-              Object {
-                "height": "20px",
-                "width": "20px",
-              }
-            }
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z"
-              style={
-                Object {
-                  "fill": "currentColor",
-                }
-              }
-            />
-          </svg>
-        </span>
-        <span
-          className="buttonText2"
-        >
-          Secondary Button
-        </span>
-      </span>
-    </button>
-  </span>,
-  <span>
-    <button
-      aria-checked={false}
-      aria-disabled={false}
-      aria-label="Default Button"
-      aria-pressed={false}
-      className="button buttonDefault buttonSize2 iconLeft"
-      defaultChecked={false}
-      disabled={false}
-      onClick={[Function]}
-    >
-      <span>
-        <span
-          aria-hidden={false}
-          className="icon iconWrapper"
-          role="presentation"
-        >
-          <svg
-            role="presentation"
-            style={
-              Object {
-                "height": "20px",
-                "width": "20px",
-              }
-            }
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z"
-              style={
-                Object {
-                  "fill": "currentColor",
-                }
-              }
-            />
-          </svg>
-        </span>
-        <span
-          className="buttonText2"
-        >
-          Default Button
-        </span>
-      </span>
-    </button>
-  </span>,
-  <span>
-    <button
-      aria-checked={false}
-      aria-disabled={false}
-      aria-label="Neutral Button"
-      aria-pressed={false}
-      className="button buttonNeutral buttonSize2 iconLeft"
-      defaultChecked={false}
-      disabled={false}
-      onClick={[Function]}
-    >
-      <span>
-        <span
-          aria-hidden={false}
-          className="icon iconWrapper"
-          role="presentation"
-        >
-          <svg
-            role="presentation"
-            style={
-              Object {
-                "height": "20px",
-                "width": "20px",
-              }
-            }
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z"
-              style={
-                Object {
-                  "fill": "currentColor",
-                }
-              }
-            />
-          </svg>
-        </span>
-        <span
-          className="buttonText2"
-        >
-          Neutral Button
-        </span>
-      </span>
-    </button>
-  </span>,
-]
-`;
-
-exports[`Storyshots Button Two State 1`] = `
-Array [
-  <h1>
-    Two State Button
-  </h1>,
-  <p>
-    Note: Like Toggle, Two State buttons require the
-     
-    <code>
-      toggle
-    </code>
-     attribute in addition to
-     
-    <code>
-      checked
-    </code>
-    . Two State button's visual state is different than a basic Toggle button.
-  </p>,
+      Split Button
+    </span>
+  </button>,
   <button
     aria-checked={false}
     aria-disabled={false}
-    aria-label="Two State Button"
     aria-pressed={false}
-    className="button twoStateButton"
+    className="my-btn-class button buttonPrimary undefined splitButton splitRight"
     defaultChecked={false}
     disabled={false}
-    onClick={[Function]}
     type="button"
   >
-    <span>
-      <span
-        aria-hidden={false}
-        className="icon iconWrapper"
+    <span
+      aria-hidden={false}
+      className="icon iconWrapper"
+      role="presentation"
+    >
+      <svg
         role="presentation"
+        style={
+          Object {
+            "height": "20px",
+            "width": "20px",
+          }
+        }
+        viewBox="0 0 24 24"
       >
-        <svg
-          role="presentation"
+        <path
+          d="M7.41,15.41L12,10.83L16.59,15.41L18,14L12,8L6,14L7.41,15.41Z"
           style={
             Object {
-              "height": "20px",
-              "width": "20px",
+              "fill": "currentColor",
             }
           }
-          viewBox="0 0 24 24"
-        >
-          <path
-            d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"
-            style={
-              Object {
-                "fill": "currentColor",
-              }
-            }
-          />
-        </svg>
-      </span>
-      <span
-        className=""
-      >
-        Two State Button
-      </span>
-      <span
-        className="counter"
-      >
-        8
-      </span>
-      <span
-        aria-hidden={false}
-        className="icon iconWrapper"
-        role="presentation"
-      >
-        <svg
-          role="presentation"
-          style={
-            Object {
-              "height": "20px",
-              "width": "20px",
-            }
-          }
-          viewBox="0 0 24 24"
-        >
-          <path
-            d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"
-            style={
-              Object {
-                "fill": "currentColor",
-              }
-            }
-          />
-        </svg>
-      </span>
+        />
+      </svg>
     </span>
+    <span
+      aria-hidden="true"
+      className="splitDivider splitDividerPrimary"
+    />
   </button>,
 ]
 `;
 
-exports[`Storyshots ConfigProvider Theming 1`] = `
+exports[`Storyshots Button Toggle 1`] = `
+<button
+  aria-checked={false}
+  aria-disabled={false}
+  aria-label="Toggle Button"
+  aria-pressed={false}
+  className="my-btn-class button buttonPrimary iconRight"
+  data-test-id="my-btn-test-id"
+  defaultChecked={false}
+  disabled={false}
+  id="myButton"
+  style={Object {}}
+  type="button"
+>
+  <span>
+    <span
+      aria-hidden={true}
+      className="icon iconWrapper"
+      data-test-id="myButtonIconTestId"
+      id="myButtonIcon"
+      role="presentation"
+    >
+      <svg
+        role="presentation"
+        style={
+          Object {
+            "height": "20px",
+            "width": "20px",
+          }
+        }
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"
+          style={
+            Object {
+              "fill": "currentColor",
+            }
+          }
+        />
+      </svg>
+    </span>
+    <span
+      className=""
+    >
+      Toggle Button
+    </span>
+  </span>
+</button>
+`;
+
+exports[`Storyshots Config Provider Theming 1`] = `
 <div
   className="theme-blue"
 >
@@ -4714,41 +3911,36 @@ exports[`Storyshots ConfigProvider Theming 1`] = `
 </div>
 `;
 
-exports[`Storyshots Dialog Default 1`] = `
-Array [
-  <h1>
-    Dialog (medium)
-  </h1>,
-  <button
-    aria-disabled={false}
-    className="button buttonPrimary"
-    defaultChecked={false}
-    disabled={false}
-    onClick={[Function]}
+exports[`Storyshots Dialog Medium 1`] = `
+<button
+  aria-disabled={false}
+  className="button buttonPrimary"
+  defaultChecked={false}
+  disabled={false}
+  onClick={[Function]}
+>
+  <span
+    className=""
   >
-    <span
-      className=""
-    >
-      Open dialog
-    </span>
-  </button>,
-  <h1>
-    Dialog (small)
-  </h1>,
-  <button
-    aria-disabled={false}
-    className="button buttonPrimary"
-    defaultChecked={false}
-    disabled={false}
-    onClick={[Function]}
+    Open dialog
+  </span>
+</button>
+`;
+
+exports[`Storyshots Dialog Small 1`] = `
+<button
+  aria-disabled={false}
+  className="button buttonPrimary"
+  defaultChecked={false}
+  disabled={false}
+  onClick={[Function]}
+>
+  <span
+    className=""
   >
-    <span
-      className=""
-    >
-      Open dialog
-    </span>
-  </button>,
-]
+    Open dialog
+  </span>
+</button>
 `;
 
 exports[`Storyshots Dropdown Dropdowns 1`] = `
@@ -4768,7 +3960,7 @@ Array [
       className="mainWrapper"
     >
       <button
-        aria-controls="dropdown-4"
+        aria-controls="dropdown-3"
         aria-disabled={false}
         aria-expanded={false}
         aria-haspopup={true}
@@ -4791,7 +3983,7 @@ Array [
       onMouseLeave={[Function]}
     >
       <div
-        aria-controls="dropdown-5"
+        aria-controls="dropdown-4"
         aria-expanded={false}
         aria-haspopup={true}
         className="referenceWrapper"
@@ -4836,7 +4028,7 @@ Array [
       className="mainWrapper"
     >
       <div
-        aria-controls="dropdown-6"
+        aria-controls="dropdown-5"
         aria-expanded={false}
         aria-haspopup={true}
         className="referenceWrapper"
@@ -4856,7 +4048,7 @@ Array [
       className="mainWrapper"
     >
       <div
-        aria-controls="dropdown-7"
+        aria-controls="dropdown-6"
         aria-expanded={false}
         aria-haspopup={true}
         className="referenceWrapper"
@@ -5118,651 +4310,363 @@ Array [
 ]
 `;
 
-exports[`Storyshots InfoBar Default 1`] = `
-<div>
-  <h1>
-    InfoBars
-  </h1>
-  <div
-    style={
-      Object {
-        "display": "flex",
-        "flexDirection": "column",
-        "gap": "16px",
-      }
-    }
+exports[`Storyshots Info Bar Disruptive 1`] = `
+<div
+  className="infoBar my-info-bar-class disruptive"
+  role="presentation"
+  style={Object {}}
+>
+  <span
+    aria-hidden={false}
+    className="icon iconWrapper"
+    role="presentation"
   >
-    <div
-      className="infoBar disruptive"
+    <svg
       role="presentation"
-    >
-      <span
-        aria-hidden={false}
-        className="icon iconWrapper"
-        role="presentation"
-      >
-        <svg
-          role="presentation"
-          style={
-            Object {
-              "height": "20px",
-              "width": "20px",
-            }
-          }
-          viewBox="0 0 24 24"
-        >
-          <path
-            d="M13,9H11V7H13M13,17H11V11H13M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z"
-            style={
-              Object {
-                "fill": "currentColor",
-              }
-            }
-          />
-        </svg>
-      </span>
-      <div
-        className="message body2"
-      >
-        Body2 is used inside here.
-      </div>
-    </div>
-    <div
-      className="infoBar warning"
-      role="presentation"
-    >
-      <span
-        aria-hidden={false}
-        className="icon iconWrapper"
-        role="presentation"
-      >
-        <svg
-          role="presentation"
-          style={
-            Object {
-              "height": "20px",
-              "width": "20px",
-            }
-          }
-          viewBox="0 0 24 24"
-        >
-          <path
-            d="M13 14H11V9H13M13 18H11V16H13M1 21H23L12 2L1 21Z"
-            style={
-              Object {
-                "fill": "currentColor",
-              }
-            }
-          />
-        </svg>
-      </span>
-      <div
-        className="message body2"
-      >
-        Body2 is used inside here.
-      </div>
-    </div>
-    <div
-      className="infoBar positive"
-      role="presentation"
-    >
-      <span
-        aria-hidden={false}
-        className="icon iconWrapper"
-        role="presentation"
-      >
-        <svg
-          role="presentation"
-          style={
-            Object {
-              "height": "20px",
-              "width": "20px",
-            }
-          }
-          viewBox="0 0 24 24"
-        >
-          <path
-            d="M12 2C6.5 2 2 6.5 2 12S6.5 22 12 22 22 17.5 22 12 17.5 2 12 2M10 17L5 12L6.41 10.59L10 14.17L17.59 6.58L19 8L10 17Z"
-            style={
-              Object {
-                "fill": "currentColor",
-              }
-            }
-          />
-        </svg>
-      </span>
-      <div
-        className="message body2"
-      >
-        Body2 is used inside here.
-      </div>
-    </div>
-    <div
-      className="infoBar neutral"
-      role="presentation"
-    >
-      <span
-        aria-hidden={false}
-        className="icon iconWrapper"
-        role="presentation"
-      >
-        <svg
-          role="presentation"
-          style={
-            Object {
-              "height": "20px",
-              "width": "20px",
-            }
-          }
-          viewBox="0 0 24 24"
-        >
-          <path
-            d="M13,9H11V7H13M13,17H11V11H13M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z"
-            style={
-              Object {
-                "fill": "currentColor",
-              }
-            }
-          />
-        </svg>
-      </span>
-      <div
-        className="message body2"
-      >
-        Body2 is used inside here.
-      </div>
-    </div>
-  </div>
-  <h1>
-    InfoBars (closable)
-  </h1>
-  <div
-    style={
-      Object {
-        "display": "flex",
-        "flexDirection": "column",
-        "gap": "16px",
+      style={
+        Object {
+          "height": "20px",
+          "width": "20px",
+        }
       }
-    }
-  >
-    <div
-      className="infoBar disruptive"
-      role="presentation"
+      viewBox="0 0 24 24"
     >
-      <span
-        aria-hidden={false}
-        className="icon iconWrapper"
-        role="presentation"
-      >
-        <svg
-          role="presentation"
-          style={
-            Object {
-              "height": "20px",
-              "width": "20px",
-            }
+      <path
+        d="M13,9H11V7H13M13,17H11V11H13M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z"
+        style={
+          Object {
+            "fill": "currentColor",
           }
-          viewBox="0 0 24 24"
-        >
-          <path
-            d="M13,9H11V7H13M13,17H11V11H13M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z"
-            style={
-              Object {
-                "fill": "currentColor",
-              }
-            }
-          />
-        </svg>
-      </span>
-      <div
-        className="message body2"
-      >
-        Body2 is used inside here.
-      </div>
-      <button
-        aria-disabled={false}
-        aria-label="Close"
-        className="button buttonNeutral iconLeft"
-        defaultChecked={false}
-        disabled={false}
-      >
-        <span
-          aria-hidden={false}
-          className="icon iconWrapper"
-          role="presentation"
-        >
-          <svg
-            role="presentation"
-            style={
-              Object {
-                "height": "20px",
-                "width": "20px",
-              }
-            }
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"
-              style={
-                Object {
-                  "fill": "currentColor",
-                }
-              }
-            />
-          </svg>
-        </span>
-      </button>
-    </div>
-    <div
-      className="infoBar warning"
-      role="presentation"
-    >
-      <span
-        aria-hidden={false}
-        className="icon iconWrapper"
-        role="presentation"
-      >
-        <svg
-          role="presentation"
-          style={
-            Object {
-              "height": "20px",
-              "width": "20px",
-            }
-          }
-          viewBox="0 0 24 24"
-        >
-          <path
-            d="M13 14H11V9H13M13 18H11V16H13M1 21H23L12 2L1 21Z"
-            style={
-              Object {
-                "fill": "currentColor",
-              }
-            }
-          />
-        </svg>
-      </span>
-      <div
-        className="message body2"
-      >
-        Body2 is used inside here.
-      </div>
-      <button
-        aria-disabled={false}
-        aria-label="Close"
-        className="button buttonNeutral iconLeft"
-        defaultChecked={false}
-        disabled={false}
-      >
-        <span
-          aria-hidden={false}
-          className="icon iconWrapper"
-          role="presentation"
-        >
-          <svg
-            role="presentation"
-            style={
-              Object {
-                "height": "20px",
-                "width": "20px",
-              }
-            }
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"
-              style={
-                Object {
-                  "fill": "currentColor",
-                }
-              }
-            />
-          </svg>
-        </span>
-      </button>
-    </div>
-    <div
-      className="infoBar positive"
-      role="presentation"
-    >
-      <span
-        aria-hidden={false}
-        className="icon iconWrapper"
-        role="presentation"
-      >
-        <svg
-          role="presentation"
-          style={
-            Object {
-              "height": "20px",
-              "width": "20px",
-            }
-          }
-          viewBox="0 0 24 24"
-        >
-          <path
-            d="M12 2C6.5 2 2 6.5 2 12S6.5 22 12 22 22 17.5 22 12 17.5 2 12 2M10 17L5 12L6.41 10.59L10 14.17L17.59 6.58L19 8L10 17Z"
-            style={
-              Object {
-                "fill": "currentColor",
-              }
-            }
-          />
-        </svg>
-      </span>
-      <div
-        className="message body2"
-      >
-        Body2 is used inside here.
-      </div>
-      <button
-        aria-disabled={false}
-        aria-label="Close"
-        className="button buttonNeutral iconLeft"
-        defaultChecked={false}
-        disabled={false}
-      >
-        <span
-          aria-hidden={false}
-          className="icon iconWrapper"
-          role="presentation"
-        >
-          <svg
-            role="presentation"
-            style={
-              Object {
-                "height": "20px",
-                "width": "20px",
-              }
-            }
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"
-              style={
-                Object {
-                  "fill": "currentColor",
-                }
-              }
-            />
-          </svg>
-        </span>
-      </button>
-    </div>
-    <div
-      className="infoBar neutral"
-      role="presentation"
-    >
-      <span
-        aria-hidden={false}
-        className="icon iconWrapper"
-        role="presentation"
-      >
-        <svg
-          role="presentation"
-          style={
-            Object {
-              "height": "20px",
-              "width": "20px",
-            }
-          }
-          viewBox="0 0 24 24"
-        >
-          <path
-            d="M13,9H11V7H13M13,17H11V11H13M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z"
-            style={
-              Object {
-                "fill": "currentColor",
-              }
-            }
-          />
-        </svg>
-      </span>
-      <div
-        className="message body2"
-      >
-        Body2 is used inside here.
-      </div>
-      <button
-        aria-disabled={false}
-        aria-label="Close"
-        className="button buttonNeutral iconLeft"
-        defaultChecked={false}
-        disabled={false}
-      >
-        <span
-          aria-hidden={false}
-          className="icon iconWrapper"
-          role="presentation"
-        >
-          <svg
-            role="presentation"
-            style={
-              Object {
-                "height": "20px",
-                "width": "20px",
-              }
-            }
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"
-              style={
-                Object {
-                  "fill": "currentColor",
-                }
-              }
-            />
-          </svg>
-        </span>
-      </button>
-    </div>
-  </div>
-  <h1>
-    InfoBars (button)
-  </h1>
+        }
+      />
+    </svg>
+  </span>
   <div
-    style={
-      Object {
-        "display": "flex",
-        "flexDirection": "column",
-        "gap": "16px",
-      }
-    }
+    className="message body2"
   >
-    <div
-      className="infoBar disruptive"
-      role="presentation"
-    >
-      <span
-        aria-hidden={false}
-        className="icon iconWrapper"
-        role="presentation"
-      >
-        <svg
-          role="presentation"
-          style={
-            Object {
-              "height": "20px",
-              "width": "20px",
-            }
-          }
-          viewBox="0 0 24 24"
-        >
-          <path
-            d="M13,9H11V7H13M13,17H11V11H13M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z"
-            style={
-              Object {
-                "fill": "currentColor",
-              }
-            }
-          />
-        </svg>
-      </span>
-      <div
-        className="message body2"
-      >
-        Body2 is used inside here.
-      </div>
-      <button
-        aria-disabled={false}
-        className="button buttonNeutral"
-        defaultChecked={false}
-        disabled={false}
-      >
-        <span
-          className=""
-        >
-          Action
-        </span>
-      </button>
-    </div>
-    <div
-      className="infoBar warning"
-      role="presentation"
-    >
-      <span
-        aria-hidden={false}
-        className="icon iconWrapper"
-        role="presentation"
-      >
-        <svg
-          role="presentation"
-          style={
-            Object {
-              "height": "20px",
-              "width": "20px",
-            }
-          }
-          viewBox="0 0 24 24"
-        >
-          <path
-            d="M13 14H11V9H13M13 18H11V16H13M1 21H23L12 2L1 21Z"
-            style={
-              Object {
-                "fill": "currentColor",
-              }
-            }
-          />
-        </svg>
-      </span>
-      <div
-        className="message body2"
-      >
-        Body2 is used inside here.
-      </div>
-      <button
-        aria-disabled={false}
-        className="button buttonNeutral"
-        defaultChecked={false}
-        disabled={false}
-      >
-        <span
-          className=""
-        >
-          Action
-        </span>
-      </button>
-    </div>
-    <div
-      className="infoBar positive"
-      role="presentation"
-    >
-      <span
-        aria-hidden={false}
-        className="icon iconWrapper"
-        role="presentation"
-      >
-        <svg
-          role="presentation"
-          style={
-            Object {
-              "height": "20px",
-              "width": "20px",
-            }
-          }
-          viewBox="0 0 24 24"
-        >
-          <path
-            d="M12 2C6.5 2 2 6.5 2 12S6.5 22 12 22 22 17.5 22 12 17.5 2 12 2M10 17L5 12L6.41 10.59L10 14.17L17.59 6.58L19 8L10 17Z"
-            style={
-              Object {
-                "fill": "currentColor",
-              }
-            }
-          />
-        </svg>
-      </span>
-      <div
-        className="message body2"
-      >
-        Body2 is used inside here.
-      </div>
-      <button
-        aria-disabled={false}
-        className="button buttonNeutral"
-        defaultChecked={false}
-        disabled={false}
-      >
-        <span
-          className=""
-        >
-          Action
-        </span>
-      </button>
-    </div>
-    <div
-      className="infoBar neutral"
-      role="presentation"
-    >
-      <span
-        aria-hidden={false}
-        className="icon iconWrapper"
-        role="presentation"
-      >
-        <svg
-          role="presentation"
-          style={
-            Object {
-              "height": "20px",
-              "width": "20px",
-            }
-          }
-          viewBox="0 0 24 24"
-        >
-          <path
-            d="M13,9H11V7H13M13,17H11V11H13M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z"
-            style={
-              Object {
-                "fill": "currentColor",
-              }
-            }
-          />
-        </svg>
-      </span>
-      <div
-        className="message body2"
-      >
-        Body2 is used inside here.
-      </div>
-      <button
-        aria-disabled={false}
-        className="button buttonNeutral"
-        defaultChecked={false}
-        disabled={false}
-      >
-        <span
-          className=""
-        >
-          Action
-        </span>
-      </button>
-    </div>
+    Body2 is used inside here.
   </div>
+  <button
+    aria-disabled={false}
+    aria-label="Action"
+    className="my-action-btn-class button buttonNeutral"
+    data-test-id="my-action-btn-test-id"
+    defaultChecked={false}
+    disabled={false}
+    id="myActionButton"
+  >
+    <span
+      className=""
+    >
+      Action
+    </span>
+  </button>
+  <button
+    aria-disabled={false}
+    aria-label="Close"
+    className="my-close-btn-class button buttonNeutral iconLeft"
+    data-test-id="my-close-btn-test-id"
+    defaultChecked={false}
+    disabled={false}
+    id="myCloseButton"
+  >
+    <span
+      aria-hidden={false}
+      className="icon iconWrapper"
+      role="presentation"
+    >
+      <svg
+        role="presentation"
+        style={
+          Object {
+            "height": "20px",
+            "width": "20px",
+          }
+        }
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"
+          style={
+            Object {
+              "fill": "currentColor",
+            }
+          }
+        />
+      </svg>
+    </span>
+  </button>
 </div>
 `;
 
-exports[`Storyshots Label Sizes 1`] = `
+exports[`Storyshots Info Bar Neutral 1`] = `
+<div
+  className="infoBar my-info-bar-class neutral"
+  role="presentation"
+  style={Object {}}
+>
+  <span
+    aria-hidden={false}
+    className="icon iconWrapper"
+    role="presentation"
+  >
+    <svg
+      role="presentation"
+      style={
+        Object {
+          "height": "20px",
+          "width": "20px",
+        }
+      }
+      viewBox="0 0 24 24"
+    >
+      <path
+        d="M13,9H11V7H13M13,17H11V11H13M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z"
+        style={
+          Object {
+            "fill": "currentColor",
+          }
+        }
+      />
+    </svg>
+  </span>
+  <div
+    className="message body2"
+  >
+    Body2 is used inside here.
+  </div>
+  <button
+    aria-disabled={false}
+    aria-label="Action"
+    className="my-action-btn-class button buttonNeutral"
+    data-test-id="my-action-btn-test-id"
+    defaultChecked={false}
+    disabled={false}
+    id="myActionButton"
+  >
+    <span
+      className=""
+    >
+      Action
+    </span>
+  </button>
+  <button
+    aria-disabled={false}
+    aria-label="Close"
+    className="my-close-btn-class button buttonNeutral iconLeft"
+    data-test-id="my-close-btn-test-id"
+    defaultChecked={false}
+    disabled={false}
+    id="myCloseButton"
+  >
+    <span
+      aria-hidden={false}
+      className="icon iconWrapper"
+      role="presentation"
+    >
+      <svg
+        role="presentation"
+        style={
+          Object {
+            "height": "20px",
+            "width": "20px",
+          }
+        }
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"
+          style={
+            Object {
+              "fill": "currentColor",
+            }
+          }
+        />
+      </svg>
+    </span>
+  </button>
+</div>
+`;
+
+exports[`Storyshots Info Bar Positive 1`] = `
+<div
+  className="infoBar my-info-bar-class positive"
+  role="presentation"
+  style={Object {}}
+>
+  <span
+    aria-hidden={false}
+    className="icon iconWrapper"
+    role="presentation"
+  >
+    <svg
+      role="presentation"
+      style={
+        Object {
+          "height": "20px",
+          "width": "20px",
+        }
+      }
+      viewBox="0 0 24 24"
+    >
+      <path
+        d="M12 2C6.5 2 2 6.5 2 12S6.5 22 12 22 22 17.5 22 12 17.5 2 12 2M10 17L5 12L6.41 10.59L10 14.17L17.59 6.58L19 8L10 17Z"
+        style={
+          Object {
+            "fill": "currentColor",
+          }
+        }
+      />
+    </svg>
+  </span>
+  <div
+    className="message body2"
+  >
+    Body2 is used inside here.
+  </div>
+  <button
+    aria-disabled={false}
+    aria-label="Action"
+    className="my-action-btn-class button buttonNeutral"
+    data-test-id="my-action-btn-test-id"
+    defaultChecked={false}
+    disabled={false}
+    id="myActionButton"
+  >
+    <span
+      className=""
+    >
+      Action
+    </span>
+  </button>
+  <button
+    aria-disabled={false}
+    aria-label="Close"
+    className="my-close-btn-class button buttonNeutral iconLeft"
+    data-test-id="my-close-btn-test-id"
+    defaultChecked={false}
+    disabled={false}
+    id="myCloseButton"
+  >
+    <span
+      aria-hidden={false}
+      className="icon iconWrapper"
+      role="presentation"
+    >
+      <svg
+        role="presentation"
+        style={
+          Object {
+            "height": "20px",
+            "width": "20px",
+          }
+        }
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"
+          style={
+            Object {
+              "fill": "currentColor",
+            }
+          }
+        />
+      </svg>
+    </span>
+  </button>
+</div>
+`;
+
+exports[`Storyshots Info Bar Warning 1`] = `
+<div
+  className="infoBar my-info-bar-class warning"
+  role="presentation"
+  style={Object {}}
+>
+  <span
+    aria-hidden={false}
+    className="icon iconWrapper"
+    role="presentation"
+  >
+    <svg
+      role="presentation"
+      style={
+        Object {
+          "height": "20px",
+          "width": "20px",
+        }
+      }
+      viewBox="0 0 24 24"
+    >
+      <path
+        d="M13,13H11V7H13M13,17H11V15H13M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z"
+        style={
+          Object {
+            "fill": "currentColor",
+          }
+        }
+      />
+    </svg>
+  </span>
+  <div
+    className="message body2"
+  >
+    Body2 is used inside here.
+  </div>
+  <button
+    aria-disabled={false}
+    aria-label="Action"
+    className="my-action-btn-class button buttonNeutral"
+    data-test-id="my-action-btn-test-id"
+    defaultChecked={false}
+    disabled={false}
+    id="myActionButton"
+  >
+    <span
+      className=""
+    >
+      Action
+    </span>
+  </button>
+  <button
+    aria-disabled={false}
+    aria-label="Close"
+    className="my-close-btn-class button buttonNeutral iconLeft"
+    data-test-id="my-close-btn-test-id"
+    defaultChecked={false}
+    disabled={false}
+    id="myCloseButton"
+  >
+    <span
+      aria-hidden={false}
+      className="icon iconWrapper"
+      role="presentation"
+    >
+      <svg
+        role="presentation"
+        style={
+          Object {
+            "height": "20px",
+            "width": "20px",
+          }
+        }
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"
+          style={
+            Object {
+              "fill": "currentColor",
+            }
+          }
+        />
+      </svg>
+    </span>
+  </button>
+</div>
+`;
+
+exports[`Storyshots Label Labels 1`] = `
 Array [
   <h1>
     Labels
@@ -6025,7 +4929,7 @@ Array [
 ]
 `;
 
-exports[`Storyshots List Default 1`] = `
+exports[`Storyshots List Lists 1`] = `
 Array [
   <h1>
     List vertical
@@ -6265,7 +5169,7 @@ Array [
 ]
 `;
 
-exports[`Storyshots MatchScore Default 1`] = `
+exports[`Storyshots Match Score Default 1`] = `
 <div>
   <div
     aria-label="score"
@@ -6605,7 +5509,7 @@ exports[`Storyshots MatchScore Default 1`] = `
 </div>
 `;
 
-exports[`Storyshots MatchScore Without Label 1`] = `
+exports[`Storyshots Match Score Without Label 1`] = `
 <div>
   <div
     aria-label="score"
@@ -6870,7 +5774,7 @@ Array [
     className="mainWrapper"
   >
     <button
-      aria-controls="dropdown-27"
+      aria-controls="dropdown-26"
       aria-disabled={false}
       aria-expanded={false}
       aria-haspopup={true}
@@ -6898,7 +5802,7 @@ Array [
     className="mainWrapper"
   >
     <button
-      aria-controls="dropdown-28"
+      aria-controls="dropdown-27"
       aria-disabled={false}
       aria-expanded={false}
       aria-haspopup={true}
@@ -6919,7 +5823,7 @@ Array [
 ]
 `;
 
-exports[`Storyshots Modal Default 1`] = `
+exports[`Storyshots Modal Modals 1`] = `
 Array [
   <h1>
     Modal (large)
@@ -7004,7 +5908,7 @@ Array [
 ]
 `;
 
-exports[`Storyshots Pagination Paging 1`] = `
+exports[`Storyshots Pagination Paging Types 1`] = `
 Array [
   <h1>
     Basic
@@ -7639,7 +6543,7 @@ Array [
           className="mainWrapper"
         >
           <button
-            aria-controls="dropdown-34"
+            aria-controls="dropdown-33"
             aria-disabled={false}
             aria-expanded={false}
             aria-haspopup={true}
@@ -7954,7 +6858,7 @@ Array [
             className="editor"
             defaultValue={5}
             disabled={false}
-            id="input-35"
+            id="input-34"
             minLength={1}
             onChange={[Function]}
             required={false}
@@ -7980,7 +6884,7 @@ Array [
           className="mainWrapper"
         >
           <button
-            aria-controls="dropdown-36"
+            aria-controls="dropdown-35"
             aria-disabled={false}
             aria-expanded={false}
             aria-haspopup={true}
@@ -8166,7 +7070,7 @@ Array [
             className="editor"
             defaultValue={4}
             disabled={false}
-            id="input-37"
+            id="input-36"
             minLength={1}
             onChange={[Function]}
             required={false}
@@ -8181,7 +7085,7 @@ Array [
 ]
 `;
 
-exports[`Storyshots Panel Default 1`] = `
+exports[`Storyshots Panel Panels 1`] = `
 <div
   style={
     Object {
@@ -12182,7 +11086,7 @@ Array [
 ]
 `;
 
-exports[`Storyshots Search Box Search 1`] = `
+exports[`Storyshots Search Box Search Box 1`] = `
 Array [
   <h1>
     Search Boxes
@@ -12194,22 +11098,13 @@ Array [
     role="search"
   >
     <div
-      className="inputWrapper inputStretch"
+      className="inputWrapper"
     >
-      <div
-        className="fieldLabel medium"
-      >
-        <label
-          className="textStyle medium"
-        >
-          Label
-        </label>
-      </div>
       <input
         autoFocus={false}
-        className="withIconButton inputStretch"
+        className="withIconButton"
         disabled={false}
-        id="input-8"
+        id="input-7"
         onChange={[Function]}
         placeholder="Search"
         required={false}
@@ -12346,7 +11241,7 @@ Array [
         autoFocus={false}
         className="withIcon withIconButton withIconAndIconButton"
         disabled={false}
-        id="input-9"
+        id="input-8"
         onChange={[Function]}
         placeholder="Search"
         required={false}
@@ -12442,7 +11337,7 @@ Array [
         autoFocus={false}
         className="withImageIcon withIconButton withIconAndIconButton"
         disabled={false}
-        id="input-10"
+        id="input-9"
         onChange={[Function]}
         placeholder="Search"
         required={false}
@@ -12516,7 +11411,7 @@ Array [
         autoFocus={false}
         className="pillShape pillShapeWithIconButton inputStretch"
         disabled={false}
-        id="input-11"
+        id="input-10"
         onChange={[Function]}
         placeholder="Search"
         required={false}
@@ -12583,7 +11478,7 @@ Array [
         autoFocus={false}
         className="pillShape pillShapeWithIcon pillShapeWithIconButton pillShapeWithIconAndIconButton"
         disabled={false}
-        id="input-12"
+        id="input-11"
         onChange={[Function]}
         placeholder="Search"
         required={false}
@@ -12679,7 +11574,7 @@ Array [
         autoFocus={false}
         className="pillShape pillShapeWithImageIcon pillShapeWithIconButton pillShapeWithIconAndIconButton"
         disabled={false}
-        id="input-13"
+        id="input-12"
         onChange={[Function]}
         placeholder="Search"
         required={false}
@@ -12734,10 +11629,10 @@ Array [
 ]
 `;
 
-exports[`Storyshots Snackbar Default 1`] = `
+exports[`Storyshots Snack Bar Snack Bars 1`] = `
 <div>
   <h1>
-    Snackbar
+    Snack Bars
   </h1>
   <button
     aria-disabled={false}
@@ -12833,10 +11728,10 @@ exports[`Storyshots Snackbar Default 1`] = `
 </div>
 `;
 
-exports[`Storyshots Spinner Default 1`] = `
+exports[`Storyshots Spinner Spinners 1`] = `
 Array [
   <h1>
-    Spinner
+    Spinners
   </h1>,
   <p>
     Small
@@ -14748,7 +13643,7 @@ Array [
 ]
 `;
 
-exports[`Storyshots Text Area Area 1`] = `
+exports[`Storyshots Text Area Text Areas 1`] = `
 Array [
   <h1>
     Text Areas
@@ -14774,7 +13669,7 @@ Array [
       className="textArea textAreaNoExpand inputStretch"
       cols={50}
       disabled={false}
-      id="textarea-14"
+      id="textarea-13"
       onChange={[Function]}
       required={false}
       rows={5}
@@ -14875,7 +13770,7 @@ Array [
       className="textArea textAreaNoExpand"
       cols={50}
       disabled={false}
-      id="textarea-15"
+      id="textarea-14"
       onChange={[Function]}
       required={false}
       rows={5}
@@ -14905,7 +13800,7 @@ Array [
       className="textArea"
       cols={50}
       disabled={false}
-      id="textarea-16"
+      id="textarea-15"
       onChange={[Function]}
       required={false}
       rows={5}
@@ -14942,7 +13837,7 @@ Array [
 ]
 `;
 
-exports[`Storyshots Text Input Input 1`] = `
+exports[`Storyshots Text Input Text Inputs 1`] = `
 Array [
   <h1>
     Text Inputs
@@ -14966,7 +13861,7 @@ Array [
       autoFocus={false}
       className="inputStretch"
       disabled={false}
-      id="input-17"
+      id="input-16"
       onChange={[Function]}
       required={false}
       role="textbox"
@@ -15066,7 +13961,7 @@ Array [
       autoFocus={false}
       className="withIcon"
       disabled={false}
-      id="input-18"
+      id="input-17"
       onChange={[Function]}
       required={false}
       role="textbox"
@@ -15124,7 +14019,7 @@ Array [
       autoFocus={false}
       className="withImageIcon"
       disabled={false}
-      id="input-19"
+      id="input-18"
       onChange={[Function]}
       required={false}
       role="textbox"
@@ -15160,7 +14055,7 @@ Array [
       autoFocus={false}
       className="withIconButton"
       disabled={false}
-      id="input-20"
+      id="input-19"
       onChange={[Function]}
       required={false}
       role="textbox"
@@ -15222,7 +14117,7 @@ Array [
       autoFocus={false}
       className="withIcon withIconButton withIconAndIconButton"
       disabled={false}
-      id="input-21"
+      id="input-20"
       onChange={[Function]}
       required={false}
       role="textbox"
@@ -15313,7 +14208,7 @@ Array [
       autoFocus={false}
       className="pillShape inputStretch"
       disabled={false}
-      id="input-22"
+      id="input-21"
       onChange={[Function]}
       required={false}
       role="textbox"
@@ -15342,7 +14237,7 @@ Array [
       autoFocus={false}
       className="pillShape pillShapeWithIcon"
       disabled={false}
-      id="input-23"
+      id="input-22"
       onChange={[Function]}
       required={false}
       role="textbox"
@@ -15400,7 +14295,7 @@ Array [
       autoFocus={false}
       className="pillShape pillShapeWithImageIcon"
       disabled={false}
-      id="input-24"
+      id="input-23"
       onChange={[Function]}
       required={false}
       role="textbox"
@@ -15436,7 +14331,7 @@ Array [
       autoFocus={false}
       className="pillShape pillShapeWithIconButton"
       disabled={false}
-      id="input-25"
+      id="input-24"
       onChange={[Function]}
       required={false}
       role="textbox"
@@ -15498,7 +14393,7 @@ Array [
       autoFocus={false}
       className="pillShape pillShapeWithIcon pillShapeWithIconButton pillShapeWithIconAndIconButton"
       disabled={false}
-      id="input-26"
+      id="input-25"
       onChange={[Function]}
       required={false}
       role="textbox"
@@ -15573,7 +14468,7 @@ Array [
 ]
 `;
 
-exports[`Storyshots Tooltip Base 1`] = `
+exports[`Storyshots Tooltip Tooltips 1`] = `
 <div
   style={
     Object {
@@ -16004,4 +14899,86 @@ exports[`Storyshots Tooltip Base 1`] = `
     </div>
   </div>
 </div>
+`;
+
+exports[`Storyshots Two State Button Two State Button 1`] = `
+<button
+  aria-checked={false}
+  aria-disabled={false}
+  aria-label="Two State Button"
+  aria-pressed={false}
+  className="my-two-state-btn-class button twoStateButton"
+  defaultChecked={false}
+  disabled={false}
+  id="myTwoStateButton"
+  style={Object {}}
+  type="button"
+>
+  <span>
+    <span
+      aria-hidden={true}
+      className="icon iconWrapper"
+      data-test-id="myTwoStateButtonIconOneTestId"
+      id="myTwoStateButtonIconOne"
+      role="presentation"
+    >
+      <svg
+        role="presentation"
+        style={
+          Object {
+            "height": "20px",
+            "width": "20px",
+          }
+        }
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"
+          style={
+            Object {
+              "fill": "currentColor",
+            }
+          }
+        />
+      </svg>
+    </span>
+    <span
+      className=""
+    >
+      Two State Button
+    </span>
+    <span
+      className="counter"
+    >
+      8
+    </span>
+    <span
+      aria-hidden={true}
+      className="icon iconWrapper"
+      data-test-id="myTwoStateButtonIconTwoTestId"
+      id="myTwoStateButtonIconTwo"
+      role="presentation"
+    >
+      <svg
+        role="presentation"
+        style={
+          Object {
+            "height": "20px",
+            "width": "20px",
+          }
+        }
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"
+          style={
+            Object {
+              "fill": "currentColor",
+            }
+          }
+        />
+      </svg>
+    </span>
+  </span>
+</button>
 `;

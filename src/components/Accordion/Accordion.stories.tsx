@@ -1,4 +1,6 @@
 import React from 'react';
+import { Stories } from '@storybook/addon-docs';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Badge } from '../Badge';
 import { List } from '../List';
 import { Icon, IconName } from '../Icon';
@@ -6,8 +8,31 @@ import { Accordion } from './';
 
 export default {
     title: 'Accordion',
-    component: Accordion,
-};
+    parameters: {
+        docs: {
+            page: (): JSX.Element => (
+                <main>
+                    <article>
+                        <section>
+                            <h1>Accordion</h1>
+                            <p>
+                                Accordions display a list of high-level options
+                                that can expand/collapse to reveal more
+                                information.
+                            </p>
+                        </section>
+                        <br />
+                        <hr />
+                        <br />
+                        <section>
+                            <Stories includePrimary />
+                        </section>
+                    </article>
+                </main>
+            ),
+        },
+    },
+} as ComponentMeta<typeof Accordion>;
 
 const accordionSummary = (count: number) => (
     <div style={{ display: 'flex', alignItems: 'center' }}>
@@ -42,7 +67,7 @@ const listItems = [
     },
 ];
 
-export const Default = () => {
+export const Default: ComponentStory<typeof Accordion> = () => {
     return (
         <>
             <h2>Single Accordion</h2>

@@ -1,11 +1,36 @@
 import React from 'react';
+import { Stories } from '@storybook/addon-docs';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { IconName } from '../Icon';
 import { Avatar } from './';
 
 export default {
     title: 'Avatar',
-    component: Avatar,
-};
+    parameters: {
+        docs: {
+            page: (): JSX.Element => (
+                <main>
+                    <article>
+                        <section>
+                            <h1>Avatar</h1>
+                            <p>
+                                Avatars may be used to represent people or
+                                objects and supports images, Icons, or
+                                characters.
+                            </p>
+                        </section>
+                        <br />
+                        <hr />
+                        <br />
+                        <section>
+                            <Stories includePrimary />
+                        </section>
+                    </article>
+                </main>
+            ),
+        },
+    },
+} as ComponentMeta<typeof Avatar>;
 
 const imageProps = {
     src: 'https://images.pexels.com/photos/771742/pexels-photo-771742.jpeg',
@@ -18,7 +43,7 @@ const iconProps = {
     path: IconName.mdiBell,
 };
 
-export const Default = () => (
+export const Default: ComponentStory<typeof Avatar> = () => (
     <>
         <h2>Avatar</h2>
         <Avatar {...imageProps} size="40px" />

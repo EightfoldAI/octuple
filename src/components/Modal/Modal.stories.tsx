@@ -1,13 +1,82 @@
 import React, { useState } from 'react';
+import { Stories } from '@storybook/addon-docs';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Modal, ModalSize } from './';
 import { DefaultButton, PrimaryButton } from '../Button';
 
 export default {
     title: 'Modal',
     component: Modal,
-};
+    parameters: {
+        docs: {
+            page: (): JSX.Element => (
+                <main>
+                    <article>
+                        <section>
+                            <h1>Modals</h1>
+                            <p>
+                                Modals are temporary pop-ups that take focus
+                                from the page or app and require people to
+                                interact with them. Unlike a dialog box
+                                (Dialog), a modal should be used for hosting
+                                lengthy content, such as privacy statements or
+                                license agreements, or for asking people to
+                                perform complex or multiple actions, such as
+                                changing settings.
+                            </p>
+                            <h2>Best practices</h2>
+                            <h3>Layout</h3>
+                            <ul>
+                                <li>
+                                    Use a variable width with a minimum width of
+                                    288 pixels.
+                                </li>
+                                <li>
+                                    Use a variable height with a minimum height
+                                    of 172 pixels.
+                                </li>
+                                <li>
+                                    Center vertically and horizontally in the
+                                    available space.
+                                </li>
+                                <li>
+                                    Always have at least one focusable element
+                                    inside a modal.
+                                </li>
+                                <li>
+                                    Disruptive modals should be used very
+                                    sparingly, only when it's critical for
+                                    people to make a choice or provide
+                                    information before they can proceed.
+                                </li>
+                                <li>
+                                    Provide a clear way for people to dismiss
+                                    the control, such as a Close button, which
+                                    should always go in the upper right corner.
+                                </li>
+                            </ul>
+                            <h3>Content</h3>
+                            <ul>
+                                <li>
+                                    Use sentence-style capitalization—only
+                                    capitalize the first word.
+                                </li>
+                            </ul>
+                        </section>
+                        <br />
+                        <hr />
+                        <br />
+                        <section>
+                            <Stories includePrimary />
+                        </section>
+                    </article>
+                </main>
+            ),
+        },
+    },
+} as ComponentMeta<typeof Modal>;
 
-export const Default = () => {
+export const Modals: ComponentStory<typeof Modal> = () => {
     const [visible, setVisible] = useState<Record<string, boolean>>({});
     return (
         <>

@@ -1,4 +1,6 @@
 import React from 'react';
+import { Stories } from '@storybook/addon-docs';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Menu } from './';
 import { IconName } from '../Icon';
 import { Dropdown } from '../Dropdown';
@@ -6,8 +8,30 @@ import { DefaultButton } from '../Button';
 
 export default {
     title: 'Menu',
-    component: Menu,
-};
+    parameters: {
+        docs: {
+            page: (): JSX.Element => (
+                <main>
+                    <article>
+                        <section>
+                            <h1>Menu</h1>
+                            <p>
+                                A Menu is a component that offers a grouped list
+                                of choices to the person using the app.
+                            </p>
+                        </section>
+                        <br />
+                        <hr />
+                        <br />
+                        <section>
+                            <Stories includePrimary />
+                        </section>
+                    </article>
+                </main>
+            ),
+        },
+    },
+} as ComponentMeta<typeof Menu>;
 
 const Overlay = (disruptive: boolean) => (
     <Menu
@@ -65,18 +89,20 @@ const Overlay = (disruptive: boolean) => (
     />
 );
 
-export const Menus = () => (
-    <>
-        <p>Menu</p>
-        <Dropdown overlay={Overlay(false)}>
-            <DefaultButton text={'Menu dropdown'} />
-        </Dropdown>
-        <br />
-        <br />
-        <br />
-        <p>Menu (disruptive)</p>
-        <Dropdown overlay={Overlay(true)}>
-            <DefaultButton text={'Menu dropdown'} disruptive />
-        </Dropdown>
-    </>
-);
+export const Menus: ComponentStory<typeof Menu> = () => {
+    return (
+        <>
+            <p>Menu</p>
+            <Dropdown overlay={Overlay(false)}>
+                <DefaultButton text={'Menu dropdown'} />
+            </Dropdown>
+            <br />
+            <br />
+            <br />
+            <p>Menu (disruptive)</p>
+            <Dropdown overlay={Overlay(true)}>
+                <DefaultButton text={'Menu dropdown'} disruptive />
+            </Dropdown>
+        </>
+    );
+};

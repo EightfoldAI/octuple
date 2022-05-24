@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+import React, { FC, useState } from 'react';
+import { Stories } from '@storybook/addon-docs';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
 import {
     ButtonSize,
     DefaultButton,
@@ -13,11 +15,38 @@ import { MatchScore } from '../MatchScore';
 import { Spinner } from '../Spinner';
 
 export default {
-    title: 'ConfigProvider',
-    component: ConfigProvider,
-};
+    title: 'Config Provider',
+    parameters: {
+        docs: {
+            page: (): JSX.Element => (
+                <main>
+                    <article>
+                        <section>
+                            <h1>Config Provider</h1>
+                            <p>
+                                Config provider is a utility that applies
+                                contextual theming to its child components.
+                                Themes can be applied to your entire app, to
+                                specific subtrees, or to individual components.
+                                By default, components use a blue theme. It also
+                                provides mouse vs. keyboard detection to improve
+                                accessibility.
+                            </p>
+                        </section>
+                        <br />
+                        <hr />
+                        <br />
+                        <section>
+                            <Stories includePrimary />
+                        </section>
+                    </article>
+                </main>
+            ),
+        },
+    },
+} as ComponentMeta<typeof ConfigProvider>;
 
-const ThemedComponents = () => {
+const ThemedComponents: FC = () => {
     const [customColor, setCustomColor] = useState<string>('');
     const { themeOptions, setThemeOptions } = useConfig();
     const themes: OcThemeNames[] = [
@@ -201,7 +230,7 @@ const ThemedComponents = () => {
     );
 };
 
-export const Theming = () => {
+export const Theming: ComponentStory<typeof ConfigProvider> = ({}) => {
     return (
         <ConfigProvider
             themeOptions={{
