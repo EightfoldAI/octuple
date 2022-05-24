@@ -1,0 +1,15 @@
+.link-style {
+    align-items: center;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    font-size: 14px;
+
+    &.column {
+        flex-direction: column;
+    }
+
+    &.primary {
+        color: var(--primary-color);
+    }
+}

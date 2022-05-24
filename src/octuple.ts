@@ -30,6 +30,8 @@ import { Menu } from './components/Menu';
 
 import { Modal, ModalSize } from './components/Modal';
 
+import { Navlink, StackOrder } from './components/Navlink';
+
 import { Pagination, PaginationLayoutOptions } from './components/Pagination';
 
 import { Pill, PillSize, PillType } from './components/Pills';
@@ -92,6 +94,7 @@ export {
     Menu,
     Modal,
     ModalSize,
+    Navlink,
     NeutralButton,
     Pagination,
     PaginationLayoutOptions,
@@ -110,6 +113,7 @@ export {
     SnackbarContainer,
     Spinner,
     SpinnerSize,
+    StackOrder,
     Tabs,
     Tab,
     TabVariant,
