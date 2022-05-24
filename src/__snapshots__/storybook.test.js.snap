@@ -1225,23 +1225,24 @@ Array [
   <div
     className="selector"
     onKeyDown={[Function]}
-    tabIndex={0}
   >
     <input
       checked={true}
       disabled={false}
-      id="checkbox--1afn9dwewng"
+      id="py8vg9w"
       onChange={[Function]}
       readOnly={true}
+      tabIndex={-1}
       type="checkbox"
       value=""
     />
     <label
       className="labelNoValue"
-      htmlFor="checkbox--1afn9dwewng"
+      htmlFor="py8vg9w"
     >
       <span
         className="checkmark"
+        tabIndex={0}
       />
       <span
         className="selectorLabel"
@@ -1256,23 +1257,24 @@ Array [
   <div
     className="selector"
     onKeyDown={[Function]}
-    tabIndex={0}
   >
     <input
       checked={true}
       disabled={false}
-      id="checkbox-Label-7ahmi6e0vwp"
+      id="fwi59lj"
       onChange={[Function]}
       readOnly={true}
+      tabIndex={-1}
       type="checkbox"
       value="Label"
     />
     <label
       className=""
-      htmlFor="checkbox-Label-7ahmi6e0vwp"
+      htmlFor="fwi59lj"
     >
       <span
         className="checkmark"
+        tabIndex={0}
       />
       <span
         className="selectorLabel"
@@ -1287,24 +1289,25 @@ Array [
   <div
     className="selector"
     onKeyDown={[Function]}
-    tabIndex={0}
   >
     <input
       checked={true}
       disabled={false}
-      id="checkbox-First-xsk0fkqpprh"
+      id="p2mvi5w"
       name="group"
       onChange={[Function]}
       readOnly={true}
+      tabIndex={-1}
       type="checkbox"
       value="First"
     />
     <label
       className=""
-      htmlFor="checkbox-First-xsk0fkqpprh"
+      htmlFor="p2mvi5w"
     >
       <span
         className="checkmark"
+        tabIndex={0}
       />
       <span
         className="selectorLabel"
@@ -1316,24 +1319,25 @@ Array [
   <div
     className="selector"
     onKeyDown={[Function]}
-    tabIndex={0}
   >
     <input
       checked={true}
       disabled={false}
-      id="checkbox-Second-32swj4ibucy"
+      id="gb2dgvt"
       name="group"
       onChange={[Function]}
       readOnly={true}
+      tabIndex={-1}
       type="checkbox"
       value="Second"
     />
     <label
       className=""
-      htmlFor="checkbox-Second-32swj4ibucy"
+      htmlFor="gb2dgvt"
     >
       <span
         className="checkmark"
+        tabIndex={0}
       />
       <span
         className="selectorLabel"
@@ -1345,24 +1349,25 @@ Array [
   <div
     className="selector"
     onKeyDown={[Function]}
-    tabIndex={0}
   >
     <input
       checked={true}
       disabled={false}
-      id="checkbox-Third-ow3ewvsq6y"
+      id="mntekt6"
       name="group"
       onChange={[Function]}
       readOnly={true}
+      tabIndex={-1}
       type="checkbox"
       value="Third"
     />
     <label
       className=""
-      htmlFor="checkbox-Third-ow3ewvsq6y"
+      htmlFor="mntekt6"
     >
       <span
         className="checkmark"
+        tabIndex={0}
       />
       <span
         className="selectorLabel"
@@ -4127,6 +4132,125 @@ Array [
     </div>
   </div>,
 ]
+`;
+
+exports[`Storyshots Icon Icomoon Icons 1`] = `
+<div
+  className="theme-blue"
+>
+  <h1>
+    Icons
+  </h1>
+  <p>
+    X-Small
+  </p>
+  <span
+    aria-hidden={false}
+    className="iconWrapper"
+    role="presentation"
+  >
+    <svg
+      className=""
+      height="14px"
+      role="presentation"
+      style={
+        Object {
+          "display": "inline-block",
+          "verticalAlign": "middle",
+        }
+      }
+      viewBox="0 0 1024 1024"
+      width="14px"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M864 0c88.364 0 160 71.634 160 160 0 36.020-11.91 69.258-32 96l-64 64-224-224 64-64c26.742-20.090 59.978-32 96-32zM64 736l-64 288 288-64 592-592-224-224-592 592zM715.578 363.578l-448 448-55.156-55.156 448-448 55.156 55.156z"
+        style={
+          Object {
+            "fill": undefined,
+          }
+        }
+      />
+    </svg>
+  </span>
+  <br />
+  <p>
+    Large
+  </p>
+  <span
+    aria-hidden={false}
+    className="iconWrapper"
+    role="presentation"
+  >
+    <svg
+      className=""
+      height="24px"
+      role="presentation"
+      style={
+        Object {
+          "display": "inline-block",
+          "verticalAlign": "middle",
+        }
+      }
+      viewBox="0 0 1024 1024"
+      width="24px"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M864 0c88.364 0 160 71.634 160 160 0 36.020-11.91 69.258-32 96l-64 64-224-224 64-64c26.742-20.090 59.978-32 96-32zM64 736l-64 288 288-64 592-592-224-224-592 592zM715.578 363.578l-448 448-55.156-55.156 448-448 55.156 55.156z"
+        style={
+          Object {
+            "fill": undefined,
+          }
+        }
+      />
+    </svg>
+  </span>
+  <br />
+  <p>
+    Multicolor Icon
+  </p>
+  <span
+    aria-hidden={false}
+    className="iconWrapper"
+    role="presentation"
+  >
+    <svg
+      className=""
+      height="24px"
+      role="presentation"
+      style={
+        Object {
+          "display": "inline-block",
+          "verticalAlign": "middle",
+        }
+      }
+      viewBox="0 0 1024 1024"
+      width="24px"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M102.4 153.6v716.8h241.912v-139.999h79.375v139.999h241.912v-716.8h-563.2zM181.777 233.867h81.268v78.399h-81.268v-78.399zM344.312 233.867h79.375v78.399h-79.375v-78.399zM504.955 233.867h81.267v78.399h-81.267v-78.399zM181.777 392.532h81.268v80.269h-81.268v-80.269zM344.312 392.532h79.375v80.269h-79.375v-80.269zM504.955 392.532h81.267v80.269h-81.267v-80.269zM181.777 551.201h81.268v80.266h-81.268v-80.266zM344.312 551.201h79.375v80.266h-79.375v-80.266zM504.955 551.201h81.267v80.266h-81.267v-80.266zM181.777 711.734h81.268v78.4h-81.268v-78.4zM504.955 711.734h81.267v78.4h-81.267v-78.4z"
+        fill="rgb(80, 206, 225)"
+        style={
+          Object {
+            "fill": undefined,
+          }
+        }
+      />
+      <path
+        d="M598.536 358.4h108.529c14.303 0 26.501 5.478 36.598 16.435 10.936 10.112 16.404 22.333 16.404 36.662v54.359h108.531c14.303 0 26.501 5.478 36.598 16.435 10.936 10.115 16.404 22.756 16.404 37.926v295.821c0 15.171-5.468 28.234-16.404 39.191-10.097 10.115-22.295 15.171-36.598 15.171h-431.596c-14.303 0-26.921-5.056-37.86-15.171-10.094-10.957-15.142-24.020-15.142-39.191v-295.821c0-15.171 5.048-27.812 15.142-37.926 10.939-10.957 23.557-16.435 37.86-16.435h108.531v-54.359c0-14.328 5.046-26.55 15.142-36.662 10.936-10.957 23.557-16.435 37.86-16.435zM707.064 465.856v-54.359h-108.529v54.359h108.529z"
+        fill="rgb(20, 109, 166)"
+        opacity={0.6}
+        style={
+          Object {
+            "fill": undefined,
+          }
+        }
+      />
+    </svg>
+  </span>
+</div>
 `;
 
 exports[`Storyshots Icon Icons 1`] = `
@@ -11318,23 +11442,25 @@ Array [
   </h2>,
   <div
     className="selector"
-    tabIndex={0}
   >
     <input
       checked={true}
       disabled={false}
-      id="radiobox--vq2gg4euk4"
+      id="8xriiml"
       onClick={[Function]}
       readOnly={true}
+      tabIndex={-1}
       type="radio"
       value=""
     />
     <label
       className="labelNoValue"
-      htmlFor="radiobox--vq2gg4euk4"
+      htmlFor="8xriiml"
     >
       <span
         className="radioButton"
+        id="8xriiml-custom-radio"
+        tabIndex={0}
       />
       <span
         className="selectorLabel"
@@ -11348,23 +11474,25 @@ Array [
   </h2>,
   <div
     className="selector"
-    tabIndex={0}
   >
     <input
       checked={true}
       disabled={false}
-      id="radiobox-Label-9rkcpkegooq"
+      id="xrq75ek"
       onClick={[Function]}
       readOnly={true}
+      tabIndex={-1}
       type="radio"
       value="Label"
     />
     <label
       className=""
-      htmlFor="radiobox-Label-9rkcpkegooq"
+      htmlFor="xrq75ek"
     >
       <span
         className="radioButton"
+        id="xrq75ek-custom-radio"
+        tabIndex={0}
       />
       <span
         className="selectorLabel"
@@ -11376,27 +11504,31 @@ Array [
   <h2>
     Radio Button Groups
   </h2>,
-  <div>
+  <div
+    onKeyDown={[Function]}
+  >
     <div
       className="selector"
-      tabIndex={0}
     >
       <input
-        checked={true}
+        checked={false}
         disabled={false}
-        id="radiobox-Radio1-pxqaokqkwaf"
+        id="gpd86i5"
         name="group"
         onClick={[Function]}
         readOnly={true}
+        tabIndex={-1}
         type="radio"
         value="Radio1"
       />
       <label
         className=""
-        htmlFor="radiobox-Radio1-pxqaokqkwaf"
+        htmlFor="gpd86i5"
       >
         <span
           className="radioButton"
+          id="gpd86i5-custom-radio"
+          tabIndex={0}
         />
         <span
           className="selectorLabel"
@@ -11407,24 +11539,26 @@ Array [
     </div>
     <div
       className="selector"
-      tabIndex={0}
     >
       <input
         checked={false}
         disabled={false}
-        id="radiobox-Radio2-sgdo7hx1it"
+        id="s6ocn4w"
         name="group"
         onClick={[Function]}
         readOnly={true}
+        tabIndex={-1}
         type="radio"
         value="Radio2"
       />
       <label
         className=""
-        htmlFor="radiobox-Radio2-sgdo7hx1it"
+        htmlFor="s6ocn4w"
       >
         <span
           className="radioButton"
+          id="s6ocn4w-custom-radio"
+          tabIndex={0}
         />
         <span
           className="selectorLabel"
@@ -11435,24 +11569,26 @@ Array [
     </div>
     <div
       className="selector"
-      tabIndex={0}
     >
       <input
         checked={false}
         disabled={false}
-        id="radiobox-Radio3-8ppe0iidv6"
+        id="75cch3w"
         name="group"
         onClick={[Function]}
         readOnly={true}
+        tabIndex={-1}
         type="radio"
         value="Radio3"
       />
       <label
         className=""
-        htmlFor="radiobox-Radio3-8ppe0iidv6"
+        htmlFor="75cch3w"
       >
         <span
           className="radioButton"
+          id="75cch3w-custom-radio"
+          tabIndex={0}
         />
         <span
           className="selectorLabel"

@@ -9,8 +9,10 @@ describe('RadioButton', () => {
     /*
      * Functionality Tests
      */
-    test('label renders', () => {
+    test('Checkbox renders', () => {
         const wrapper = mount(<CheckBox checked={true} />);
-        expect(wrapper.containsMatchingElement(<CheckBox />)).toEqual(true);
+        expect(
+            wrapper.containsMatchingElement(<CheckBox checked={true} />)
+        ).toEqual(true);
     });
 });
