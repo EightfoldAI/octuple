@@ -1182,7 +1182,7 @@ Array [
         viewBox="0 0 24 24"
       >
         <path
-          d="M7.41,15.41L12,10.83L16.59,15.41L18,14L12,8L6,14L7.41,15.41Z"
+          d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"
           style={
             Object {
               "fill": "currentColor",
@@ -4926,6 +4926,96 @@ Array [
   </div>,
   <br />,
   <br />,
+]
+`;
+
+exports[`Storyshots Link Default 1`] = `
+Array [
+  <h2>
+    Link
+  </h2>,
+  <a
+    className="linkStyle"
+    href="https://www.twitter.com"
+    target="_self"
+  >
+    Twitter
+  </a>,
+  <h2>
+    Primary Link Stacked Columnwise
+  </h2>,
+  <a
+    className="linkStyle primary"
+    href="https://www.facebook.com"
+    style={
+      Object {
+        "maxWidth": "100px",
+      }
+    }
+    target="_self"
+  >
+    <span
+      aria-hidden={false}
+      className="iconWrapper"
+      role="presentation"
+    >
+      <svg
+        role="presentation"
+        style={
+          Object {
+            "height": "20px",
+            "width": "20px",
+          }
+        }
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M12,4A4,4 0 0,1 16,8A4,4 0 0,1 12,12A4,4 0 0,1 8,8A4,4 0 0,1 12,4M12,14C16.42,14 20,15.79 20,18V20H4V18C4,15.79 7.58,14 12,14Z"
+          style={
+            Object {
+              "fill": "currentColor",
+            }
+          }
+        />
+      </svg>
+    </span>
+    User Profile
+  </a>,
+  <h2>
+    Link with default behavior disabled
+  </h2>,
+  <a
+    className="linkStyle"
+    href="https://www.facebook.com"
+    target="_self"
+  >
+    <span
+      aria-hidden={false}
+      className="iconWrapper"
+      role="presentation"
+    >
+      <svg
+        role="presentation"
+        style={
+          Object {
+            "height": "20px",
+            "width": "20px",
+          }
+        }
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M12,4A4,4 0 0,1 16,8A4,4 0 0,1 12,12A4,4 0 0,1 8,8A4,4 0 0,1 12,4M12,14C16.42,14 20,15.79 20,18V20H4V18C4,15.79 7.58,14 12,14Z"
+          style={
+            Object {
+              "fill": "currentColor",
+            }
+          }
+        />
+      </svg>
+    </span>
+    User Profile
+  </a>,
 ]
 `;
 
@@ -15257,70 +15347,80 @@ exports[`Storyshots Two State Button Two State Button 1`] = `
   style={Object {}}
   type="button"
 >
-  <span>
+  <span
+    className="twoStateButtonContent"
+  >
     <span
-      aria-hidden={true}
-      className="icon iconWrapper"
-      data-test-id="myTwoStateButtonIconOneTestId"
-      id="myTwoStateButtonIconOne"
-      role="presentation"
+      className="column columnOne"
     >
-      <svg
+      <span
+        aria-hidden={true}
+        className="icon iconWrapper"
+        data-test-id="myTwoStateButtonIconOneTestId"
+        id="myTwoStateButtonIconOne"
         role="presentation"
-        style={
-          Object {
-            "height": "20px",
-            "width": "20px",
-          }
-        }
-        viewBox="0 0 24 24"
       >
-        <path
-          d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"
+        <svg
+          role="presentation"
           style={
             Object {
-              "fill": "currentColor",
+              "height": "20px",
+              "width": "20px",
             }
           }
-        />
-      </svg>
-    </span>
-    <span
-      className=""
-    >
-      Two State Button
-    </span>
-    <span
-      className="counter"
-    >
-      8
-    </span>
-    <span
-      aria-hidden={true}
-      className="icon iconWrapper"
-      data-test-id="myTwoStateButtonIconTwoTestId"
-      id="myTwoStateButtonIconTwo"
-      role="presentation"
-    >
-      <svg
-        role="presentation"
-        style={
-          Object {
-            "height": "20px",
-            "width": "20px",
-          }
-        }
-        viewBox="0 0 24 24"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"
+            style={
+              Object {
+                "fill": "currentColor",
+              }
+            }
+          />
+        </svg>
+      </span>
+      <span
+        className=""
       >
-        <path
-          d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"
+        Two State Button
+      </span>
+      <span
+        className="badge header6 counter"
+      >
+        8
+      </span>
+    </span>
+    <span
+      className="column"
+    >
+      <span
+        aria-hidden={true}
+        className="icon iconWrapper"
+        data-test-id="myTwoStateButtonIconTwoTestId"
+        id="myTwoStateButtonIconTwo"
+        role="presentation"
+      >
+        <svg
+          role="presentation"
           style={
             Object {
-              "fill": "currentColor",
+              "height": "20px",
+              "width": "20px",
             }
           }
-        />
-      </svg>
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"
+            style={
+              Object {
+                "fill": "currentColor",
+              }
+            }
+          />
+        </svg>
+      </span>
     </span>
   </span>
 </button>
