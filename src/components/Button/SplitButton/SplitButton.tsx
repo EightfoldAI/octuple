@@ -139,8 +139,8 @@ export const SplitButton: FC<SplitButtonProps> = React.forwardRef(
                 classNames={styles.icon}
                 path={
                     iconProps?.path || checked
-                        ? IconName.mdiChevronDown
-                        : IconName.mdiChevronUp
+                        ? IconName.mdiChevronUp
+                        : IconName.mdiChevronDown
                 }
                 size={getButtonIconSize()}
             />

@@ -159,10 +159,10 @@ export const BaseButton: FC<InternalButtonProps> = React.forwardRef(
         );
 
         return (
-            <>
+            <span className={styles.buttonWrapper}>
                 <button
-                    {...rest}
                     ref={ref}
+                    {...rest}
                     aria-checked={toggle ? !!checked : undefined}
                     aria-disabled={allowDisabledFocus}
                     aria-label={ariaLabel}
@@ -207,7 +207,7 @@ export const BaseButton: FC<InternalButtonProps> = React.forwardRef(
                         type={type}
                     />
                 )}
-            </>
+            </span>
         );
     }
 );
