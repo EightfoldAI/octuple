@@ -151,41 +151,37 @@ export const TwoStateButton: FC<TwoStateButtonProps> = React.forwardRef(
         );
 
         return (
-            <span className={styles.buttonWrapper}>
-                <button
-                    {...rest}
-                    ref={ref}
-                    aria-checked={toggle ? !!checked : undefined}
-                    aria-disabled={allowDisabledFocus}
-                    aria-label={ariaLabel}
-                    aria-pressed={toggle ? !!checked : undefined}
-                    defaultChecked={checked}
-                    disabled={disabled}
-                    className={twoStateButtonClassNames}
-                    id={id}
-                    onClick={!allowDisabledFocus ? onClick : null}
-                    style={style}
-                    type="button"
-                >
-                    <span className={styles.twoStateButtonContent}>
-                        <span
-                            className={styles.column + ' ' + styles.columnOne}
-                        >
-                            {iconOneExists && getButtonIcon('left')}
-                            {textExists &&
-                                getButtonText(buttonTextClassNames, text)}
-                            {counterExists && (
-                                <Badge classNames={badgeClassNames}>
-                                    {counter.toLocaleString()}
-                                </Badge>
-                            )}
-                        </span>
-                        <span className={styles.column}>
-                            {iconTwoExists && getButtonIcon('right')}
-                        </span>
+            <button
+                {...rest}
+                ref={ref}
+                aria-checked={toggle ? !!checked : undefined}
+                aria-disabled={allowDisabledFocus}
+                aria-label={ariaLabel}
+                aria-pressed={toggle ? !!checked : undefined}
+                defaultChecked={checked}
+                disabled={disabled}
+                className={twoStateButtonClassNames}
+                id={id}
+                onClick={!allowDisabledFocus ? onClick : null}
+                style={style}
+                type="button"
+            >
+                <span className={styles.twoStateButtonContent}>
+                    <span className={styles.column + ' ' + styles.columnOne}>
+                        {iconOneExists && getButtonIcon('left')}
+                        {textExists &&
+                            getButtonText(buttonTextClassNames, text)}
+                        {counterExists && (
+                            <Badge classNames={badgeClassNames}>
+                                {counter.toLocaleString()}
+                            </Badge>
+                        )}
                     </span>
-                </button>
-            </span>
+                    <span className={styles.column}>
+                        {iconTwoExists && getButtonIcon('right')}
+                    </span>
+                </span>
+            </button>
         );
     }
 );

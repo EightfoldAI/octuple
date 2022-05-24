@@ -159,7 +159,7 @@ export const BaseButton: FC<InternalButtonProps> = React.forwardRef(
         );
 
         return (
-            <span className={styles.buttonWrapper}>
+            <>
                 <button
                     ref={ref}
                     {...rest}
@@ -207,7 +207,7 @@ export const BaseButton: FC<InternalButtonProps> = React.forwardRef(
                         type={type}
                     />
                 )}
-            </span>
+            </>
         );
     }
 );
