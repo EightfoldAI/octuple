@@ -1,5 +1,6 @@
 import { IconName } from './mdi';
 import { IconProps as MdiIconProps } from '@mdi/react/dist/IconProps';
+import { OcBaseProps } from '../OcBase';
 
 export enum IconSize {
     Large = '24px',
@@ -8,20 +9,18 @@ export enum IconSize {
     XSmall = '14px',
 }
 
-export interface IconProps extends MdiIconProps {
+export interface IconProps
+    extends OcBaseProps<HTMLSpanElement>,
+        Omit<MdiIconProps, 'path'> {
     /**
      * The icon svg path name.
      */
-    path: IconName;
+    path?: IconName;
     /**
      * The icon is aria-hidden.
      * @default false
      */
     ariaHidden?: boolean;
-    /**
-     * The icon class names.
-     */
-    classNames?: string;
     /**
      * The icon color.
      */
@@ -53,7 +52,7 @@ export interface IconProps extends MdiIconProps {
      * The icon size.
      * @default IconSize.Medium
      */
-    size?: IconSize;
+    size?: IconSize | string;
     /**
      * The icon spin animation timer in milliseconds, seconds.
      * @default false
@@ -68,4 +67,8 @@ export interface IconProps extends MdiIconProps {
      * @default false
      */
     vertical?: boolean;
+    /**
+     * Name of the icon as defined in icomoon app
+     */
+    icomoonIconName?: string;
 }

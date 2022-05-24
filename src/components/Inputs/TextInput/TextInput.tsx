@@ -124,7 +124,15 @@ export const TextInput: FC<TextInputProps> = ({
         (
             _event?: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>
         ) => {
-            onChange;
+            const { target } = _event;
+
+            onChange && onChange(_event);
+
+            if (target?.value.length === 0 && clearButtonShown) {
+                setClearButtonShown(false);
+            } else if (!clearButtonShown) {
+                setClearButtonShown(true);
+            }
         },
         waitInterval
     );
@@ -142,25 +150,7 @@ export const TextInput: FC<TextInputProps> = ({
                 maxLength={maxlength}
                 minLength={minlength}
                 name={name}
-                onChange={
-                    !allowDisabledFocus
-                        ? (
-                              _event?: React.ChangeEvent<
-                                  HTMLTextAreaElement | HTMLInputElement
-                              >
-                          ) => {
-                              handleChange;
-                              if (
-                                  _event.target.value.length === 0 &&
-                                  clearButtonShown
-                              ) {
-                                  setClearButtonShown(false);
-                              } else if (!clearButtonShown) {
-                                  setClearButtonShown(true);
-                              }
-                          }
-                        : null
-                }
+                onChange={!allowDisabledFocus ? handleChange : null}
                 onBlur={!allowDisabledFocus ? onBlur : null}
                 onFocus={!allowDisabledFocus ? onFocus : null}
                 onKeyDown={!allowDisabledFocus ? onKeyDown : null}
@@ -205,7 +195,7 @@ export const TextInput: FC<TextInputProps> = ({
                     htmlType={iconButtonProps.htmlType}
                 />
             )}
-            {clearButtonShown && (
+            {clearButtonShown && !numbersOnly && htmlType !== 'number' && (
                 <DefaultButton
                     allowDisabledFocus={allowDisabledFocus}
                     ariaLabel={clearButtonAriaLabel}

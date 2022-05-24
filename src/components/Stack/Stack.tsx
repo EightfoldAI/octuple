@@ -27,7 +27,6 @@ export const Stack: FC<StackProps> = React.forwardRef(
         const smallScreenActive: boolean = useMatchMedia(Breakpoints.Small);
         const mediumScreenActive: boolean = useMatchMedia(Breakpoints.Medium);
         const largeScreenActive: boolean = useMatchMedia(Breakpoints.Large);
-        console.log(classNames);
         const breakPointConfigurationList: Array<[StackBreakpoint, boolean]> = [
             ['large', largeScreenActive],
             ['medium', mediumScreenActive],

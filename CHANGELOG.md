@@ -2,6 +2,43 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.4.0](https://github.com/EightfoldAI/octuple/compare/v1.3.0...v1.4.0) (2022-05-24)
+
+### Features
+
+-   added avatar component ([#131](https://github.com/EightfoldAI/octuple/issues/131)) ([3f12842](https://github.com/EightfoldAI/octuple/commits/3f128427b6b8d819f18ae2cb5876994fe3c0f30e))
+-   added support for icomoon icons ([#129](https://github.com/EightfoldAI/octuple/issues/129)) ([637f986](https://github.com/EightfoldAI/octuple/commits/637f986f6887fd360f55b22021bad8451b9494ee))
+
+### Bug Fixes
+
+-   click on menu item not working intermittently ([#128](https://github.com/EightfoldAI/octuple/issues/128)) ([d4d52a4](https://github.com/EightfoldAI/octuple/commits/d4d52a4868857a5440ee26cb0b0428a468a9fccc))
+
+## [1.3.0](https://github.com/EightfoldAI/octuple/compare/v1.2.0...v1.3.0) (2022-05-19)
+
+### Features
+
+-   pagination: adds pagination component ([#121](https://github.com/EightfoldAI/octuple/issues/121)) ([dd8fa43](https://github.com/EightfoldAI/octuple/commits/dd8fa438f81a286a7860bd5d55d11a9370b310fa))
+
+### Bug Fixes
+
+-   button: use root inverse text color instead of local variable ([#119](https://github.com/EightfoldAI/octuple/issues/119)) ([95f2c12](https://github.com/EightfoldAI/octuple/commits/95f2c1245279045dd40bedfa50aa962733186898))
+-   input: fixes onchange handler of inputs ([#120](https://github.com/EightfoldAI/octuple/issues/120)) ([e5158e3](https://github.com/EightfoldAI/octuple/commits/e5158e381fe34ba98b596567964bf6184ea93647))
+-   pixel baseline: removes rem calculations ([#124](https://github.com/EightfoldAI/octuple/issues/124)) ([2739633](https://github.com/EightfoldAI/octuple/commits/27396335937f95ffa99fead987ea2fdb4f447720))
+-   snackbar: handle snackbar width on different screen sizes ([#116](https://github.com/EightfoldAI/octuple/issues/116)) ([c1b8d6c](https://github.com/EightfoldAI/octuple/commits/c1b8d6cac2a04216ea94d080628e50ddfabb8691))
+-   text input: hides clear button for number inputs ([#118](https://github.com/EightfoldAI/octuple/issues/118)) ([2738e1d](https://github.com/EightfoldAI/octuple/commits/2738e1d0ac86556943f45a89e551d506c0215119))
+
+## [1.2.0](https://github.com/EightfoldAI/octuple/compare/v1.1.0...v1.2.0) (2022-05-13)
+
+### Features
+
+-   accessibility and i18n: adds keyboard focus, canvas direction support ([#109](https://github.com/EightfoldAI/octuple/issues/109)) ([c6704b3](https://github.com/EightfoldAI/octuple/commits/c6704b36db85c6c3ecd1f27f1a5f8e486ce987ff))
+-   adds octuple spinner component ([#114](https://github.com/EightfoldAI/octuple/issues/114)) ([702931d](https://github.com/EightfoldAI/octuple/commits/702931d45d8101bfc37d938dbe01aabea0e4f6f3))
+
+### Bug Fixes
+
+-   button: ensures the height of buttons and clarifies class names ([#112](https://github.com/EightfoldAI/octuple/issues/112)) ([882b3fd](https://github.com/EightfoldAI/octuple/commits/882b3fdcdced40202bb959e6bb99fc9c2a5f4566))
+-   text input: adds line height to text input to prevent descenders from clipping ([#113](https://github.com/EightfoldAI/octuple/issues/113)) ([362dc1b](https://github.com/EightfoldAI/octuple/commits/362dc1b557736c6a94a5bfaaf8d3f9cf89ae7459))
+
 ## [1.1.0](https://github.com/EightfoldAI/octuple/compare/v1.0.0...v1.1.0) (2022-05-05)
 
 ### Features
