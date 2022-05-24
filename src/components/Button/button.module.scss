@@ -59,7 +59,7 @@
     transition: all $motion-duration-extra-fast $motion-easing-easeinout 0s;
     white-space: nowrap;
 
-    span {
+    span:not(.column):not(.counter) {
         align-items: center;
         display: flex;
         flex-direction: row;
@@ -86,17 +86,23 @@
             0 2px 8px rgba(15, 20, 31, 0.16);
     }
 
-    &.button-stretch {
-        width: 100%;
-
-        span {
-            justify-content: center;
-        }
-    }
-
     &.split-left {
         border-bottom-right-radius: 0;
         border-top-right-radius: 0;
+
+        &.button-stretch {
+            &.button-size-1 {
+                width: calc(100% - 52px);
+            }
+
+            &.button-size-2 {
+                width: calc(100% - 44px);
+            }
+
+            &.button-size-3 {
+                width: calc(100% - 36px);
+            }
+        }
     }
 
     &.split-right {
@@ -466,9 +472,27 @@
 
     .counter {
         background-color: var(--button-counter-default-background-color);
-        border-radius: 50%;
-        display: inline;
+        display: inline-block;
+        padding: 0 $space-xxs;
         text-align: center;
+        width: fit-content;
+    }
+
+    .two-state-button-content {
+        columns: 2;
+        flex-direction: column;
+
+        .column {
+            display: flex;
+        }
+    }
+
+    &.button-stretch {
+        .two-state-button-content {
+            .column-one {
+                width: calc(100% - 20px);
+            }
+        }
     }
 
     &:hover {
@@ -540,12 +564,14 @@
 }
 
 .dark {
-    .button {
-        background-color: inherit;
+    .button-wrapper {
+        .button {
+            background-color: inherit;
 
-        &.drop-shadow {
-            box-shadow: 0 1px 2px rgba(15, 20, 31, 0.12),
-                0 2px 8px rgba(15, 20, 31, 0.16);
+            &.drop-shadow {
+                box-shadow: 0 1px 2px rgba(15, 20, 31, 0.12),
+                    0 2px 8px rgba(15, 20, 31, 0.16);
+            }
         }
     }
 }
