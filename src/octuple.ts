@@ -28,6 +28,8 @@ import { Icon, IconName, IconSize } from './components/Icon';
 
 import { Label, LabelSize } from './components/Label';
 
+import { Link } from './components/Link';
+
 import { List } from './components/List';
 
 import { Menu } from './components/Menu';
@@ -93,6 +95,7 @@ export {
     InfoBarType,
     Label,
     LabelSize,
+    Link,
     List,
     MatchScore,
     Menu,
