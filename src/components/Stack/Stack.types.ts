@@ -68,5 +68,5 @@ export type StackBreakpoint = 'xsmall' | 'small' | 'medium' | 'large';
 export interface StackProps
     extends StackIntrinsicProps,
         OcBaseProps<HTMLDivElement> {
-    breakpoints?: Record<StackBreakpoint, StackIntrinsicProps>;
+    breakpoints?: Partial<Record<StackBreakpoint, StackIntrinsicProps>>;
 }

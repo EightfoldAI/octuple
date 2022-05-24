@@ -1,5 +1,6 @@
 import React from 'react';
 import { Stack } from './Stack';
+import styles from './stack.stories.module.scss';
 
 export default {
     title: 'Stack',
@@ -106,5 +107,67 @@ export const Responsive = () => (
                 backgroundColor: 'mediumpurple',
             }}
         />
+    </Stack>
+);
+
+export const SampleNavList = () => (
+    <Stack
+        direction="horizontal"
+        classNames={styles.navListContainer}
+        wrap="wrap"
+        breakpoints={{
+            small: {
+                direction: 'vertical',
+            },
+        }}
+    >
+        <Stack direction="vertical" gap="m" classNames={styles.group}>
+            <h3>Title</h3>
+            <Stack direction="vertical" gap="xs">
+                <p>subheading</p>
+                <p>subheading</p>
+            </Stack>
+        </Stack>
+        <Stack direction="vertical" gap="m" classNames={styles.group}>
+            <h3>Title</h3>
+            <Stack direction="vertical" gap="xs">
+                <p>subheading</p>
+                <p>subheading</p>
+                <p>subheading</p>
+                <p>subheading</p>
+            </Stack>
+        </Stack>
+        <Stack direction="vertical" gap="m" classNames={styles.group}>
+            <h3>Title</h3>
+            <Stack direction="vertical" gap="xs">
+                <p>subheading</p>
+                <p>subheading</p>
+            </Stack>
+        </Stack>
+        <Stack direction="vertical" gap="m" classNames={styles.group}>
+            <h3>Title</h3>
+            <Stack direction="vertical" gap="xs">
+                <p>subheading</p>
+                <p>subheading</p>
+                <p>subheading</p>
+            </Stack>
+        </Stack>
+        <Stack direction="vertical" gap="m" classNames={styles.group}>
+            <h3>Title</h3>
+            <Stack direction="vertical" gap="xs">
+                <p>subheading</p>
+                <p>subheading</p>
+                <p>subheading</p>
+                <p>subheading</p>
+            </Stack>
+        </Stack>
+        <Stack direction="vertical" gap="m" classNames={styles.group}>
+            <h3>Title</h3>
+            <Stack direction="vertical" gap="xs">
+                <p>subheading</p>
+                <p>subheading</p>
+                <p>subheading</p>
+            </Stack>
+        </Stack>
     </Stack>
 );
