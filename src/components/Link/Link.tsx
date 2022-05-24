@@ -3,7 +3,7 @@ import React, { Ref, FC } from 'react';
 import { LinkProps } from './Link.types';
 import { mergeClasses } from '../../shared/utilities';
 
-import styles from './navlink.module.scss';
+import styles from './link.module.scss';
 
 export const Link: FC<LinkProps> = React.forwardRef(
     (
