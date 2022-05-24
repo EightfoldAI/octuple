@@ -1,3 +1,7 @@
+import { Accordion } from './components/Accordion';
+
+import { Avatar } from './components/Avatar';
+
 import { Badge } from './components/Badge';
 
 import {
@@ -68,6 +72,8 @@ import { useOnClickOutside } from './hooks/useOnClickOutside';
 import { useScrollLock } from './hooks/useScrollLock';
 
 export {
+    Accordion,
+    Avatar,
     Badge,
     ButtonIconAlign,
     ButtonShape,

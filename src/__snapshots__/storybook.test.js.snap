@@ -1,5 +1,842 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Storyshots Accordion Default 1`] = `
+Array [
+  <h2>
+    Single Accordion
+  </h2>,
+  <div
+    style={
+      Object {
+        "width": "500px",
+      }
+    }
+  >
+    <div
+      className="accordionContainer"
+    >
+      <div
+        aria-controls="single-accordion-content"
+        aria-expanded={false}
+        className="accordionSummary"
+        id="single-accordion-header"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        role="button"
+        tabIndex={0}
+      >
+        Accordion Header
+        <span
+          aria-hidden={false}
+          className="accordionIcon iconWrapper"
+          role="presentation"
+        >
+          <svg
+            role="presentation"
+            style={
+              Object {
+                "height": "20px",
+                "width": "20px",
+              }
+            }
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"
+              style={
+                Object {
+                  "fill": "currentColor",
+                }
+              }
+            />
+          </svg>
+        </span>
+      </div>
+      <div
+        aria-labelledby="single-accordion-header"
+        className="accordionBodyContainer"
+        id="single-accordion-content"
+        role="region"
+      >
+        <div
+          className="accordionBody showBorderTop"
+        >
+          <div>
+            Body 2 text used here. Bottom bars are sticky sections that can be used to highlight a few actions that are out of the view to be displayed inside the view. For example, if there's a very long form with Save and Cancel buttons at the bottom, we can use the bottom bar to show those two buttons in the view. We are making these bars to be flexible in height and also allowing any component to be added inside for now, to understand use cases from the team.
+             
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  <br />,
+  <br />,
+  <h2>
+    Accordion Notifications List Vertical
+  </h2>,
+  <div>
+    <div
+      style={
+        Object {
+          "paddingLeft": "16px",
+        }
+      }
+    >
+      <h2>
+        Header
+      </h2>
+    </div>
+    <ul
+      className="listContainer vertical"
+    >
+      <li
+        className="listItem"
+        style={
+          Object {
+            "padding": "8px 16px",
+          }
+        }
+      >
+        <div
+          className="accordionContainer"
+        >
+          <div
+            aria-controls="1-content"
+            aria-expanded={false}
+            className="accordionSummary"
+            id="1-header"
+            onClick={[Function]}
+            onKeyDown={[Function]}
+            role="button"
+            tabIndex={0}
+          >
+            <div
+              style={
+                Object {
+                  "alignItems": "center",
+                  "display": "flex",
+                }
+              }
+            >
+              <span
+                aria-hidden={false}
+                className="iconWrapper"
+                role="presentation"
+              >
+                <svg
+                  role="presentation"
+                  style={
+                    Object {
+                      "height": "20px",
+                      "width": "20px",
+                    }
+                  }
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M12 2C6.5 2 2 6.5 2 12S6.5 22 12 22 22 17.5 22 12 17.5 2 12 2M12 20C7.59 20 4 16.41 4 12S7.59 4 12 4 20 7.59 20 12 16.41 20 12 20M16.59 7.58L10 14.17L7.41 11.59L6 13L10 17L18 9L16.59 7.58Z"
+                    style={
+                      Object {
+                        "fill": "green",
+                      }
+                    }
+                  />
+                </svg>
+              </span>
+              <div
+                style={
+                  Object {
+                    "margin": "0 12px 0 5px",
+                  }
+                }
+              >
+                Notification testing
+              </div>
+              <span
+                className="badge header6 active"
+              >
+                2
+              </span>
+            </div>
+            <span
+              aria-hidden={false}
+              className="accordionIcon iconWrapper"
+              role="presentation"
+            >
+              <svg
+                role="presentation"
+                style={
+                  Object {
+                    "height": "20px",
+                    "width": "20px",
+                  }
+                }
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"
+                  style={
+                    Object {
+                      "fill": "currentColor",
+                    }
+                  }
+                />
+              </svg>
+            </span>
+          </div>
+          <div
+            aria-labelledby="1-header"
+            className="accordionBodyContainer"
+            id="1-content"
+            role="region"
+          >
+            <div
+              className="accordionBody showBorderTop"
+            >
+              Body 2 text used here. Bottom bars are sticky sections that
+        can be used to highlight a few actions that are out of the
+        view to be displayed inside the view. For example, if
+        there's a very long form with Save and Cancel buttons at the
+        bottom, we can use the bottom bar to show those two buttons
+        in the view. We are making these bars to be flexible in
+        height and also allowing any component to be
+            </div>
+          </div>
+        </div>
+      </li>
+      <li
+        className="listItem"
+        style={
+          Object {
+            "padding": "8px 16px",
+          }
+        }
+      >
+        <div
+          className="accordionContainer"
+        >
+          <div
+            aria-controls="2-content"
+            aria-expanded={false}
+            className="accordionSummary"
+            id="2-header"
+            onClick={[Function]}
+            onKeyDown={[Function]}
+            role="button"
+            tabIndex={0}
+          >
+            <div
+              style={
+                Object {
+                  "alignItems": "center",
+                  "display": "flex",
+                }
+              }
+            >
+              <span
+                aria-hidden={false}
+                className="iconWrapper"
+                role="presentation"
+              >
+                <svg
+                  role="presentation"
+                  style={
+                    Object {
+                      "height": "20px",
+                      "width": "20px",
+                    }
+                  }
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M12 2C6.5 2 2 6.5 2 12S6.5 22 12 22 22 17.5 22 12 17.5 2 12 2M12 20C7.59 20 4 16.41 4 12S7.59 4 12 4 20 7.59 20 12 16.41 20 12 20M16.59 7.58L10 14.17L7.41 11.59L6 13L10 17L18 9L16.59 7.58Z"
+                    style={
+                      Object {
+                        "fill": "green",
+                      }
+                    }
+                  />
+                </svg>
+              </span>
+              <div
+                style={
+                  Object {
+                    "margin": "0 12px 0 5px",
+                  }
+                }
+              >
+                Notification testing
+              </div>
+              <span
+                className="badge header6 active"
+              >
+                12
+              </span>
+            </div>
+            <span
+              aria-hidden={false}
+              className="accordionIcon iconWrapper"
+              role="presentation"
+            >
+              <svg
+                role="presentation"
+                style={
+                  Object {
+                    "height": "20px",
+                    "width": "20px",
+                  }
+                }
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"
+                  style={
+                    Object {
+                      "fill": "currentColor",
+                    }
+                  }
+                />
+              </svg>
+            </span>
+          </div>
+          <div
+            aria-labelledby="2-header"
+            className="accordionBodyContainer"
+            id="2-content"
+            role="region"
+          >
+            <div
+              className="accordionBody showBorderTop"
+            >
+              Body 2 text used here. Bottom bars are sticky sections that
+        can be used to highlight a few actions that are out of the
+        view to be displayed inside the view. For example, if
+        there's a very long form with Save and Cancel buttons at the
+        bottom, we can use the bottom bar to show those two buttons
+        in the view. We are making these bars to be flexible in
+        height and also allowing any component to be
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+    <div
+      style={
+        Object {
+          "paddingLeft": "16px",
+        }
+      }
+    >
+      <h3>
+        Footer
+      </h3>
+    </div>
+  </div>,
+  <br />,
+  <br />,
+  <h2>
+    Accordion Notifications List Horizontal
+  </h2>,
+  <div>
+    <div
+      style={
+        Object {
+          "paddingLeft": "16px",
+        }
+      }
+    >
+      <h2>
+        Header
+      </h2>
+    </div>
+    <ul
+      className="listContainer"
+    >
+      <li
+        className="listItem"
+        style={
+          Object {
+            "padding": "8px",
+          }
+        }
+      >
+        <div
+          className="accordionContainer"
+        >
+          <div
+            aria-controls="1-content"
+            aria-expanded={false}
+            className="accordionSummary"
+            id="1-header"
+            onClick={[Function]}
+            onKeyDown={[Function]}
+            role="button"
+            tabIndex={0}
+          >
+            <div
+              style={
+                Object {
+                  "alignItems": "center",
+                  "display": "flex",
+                }
+              }
+            >
+              <span
+                aria-hidden={false}
+                className="iconWrapper"
+                role="presentation"
+              >
+                <svg
+                  role="presentation"
+                  style={
+                    Object {
+                      "height": "20px",
+                      "width": "20px",
+                    }
+                  }
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M12 2C6.5 2 2 6.5 2 12S6.5 22 12 22 22 17.5 22 12 17.5 2 12 2M12 20C7.59 20 4 16.41 4 12S7.59 4 12 4 20 7.59 20 12 16.41 20 12 20M16.59 7.58L10 14.17L7.41 11.59L6 13L10 17L18 9L16.59 7.58Z"
+                    style={
+                      Object {
+                        "fill": "green",
+                      }
+                    }
+                  />
+                </svg>
+              </span>
+              <div
+                style={
+                  Object {
+                    "margin": "0 12px 0 5px",
+                  }
+                }
+              >
+                Notification testing
+              </div>
+              <span
+                className="badge header6 active"
+              >
+                2
+              </span>
+            </div>
+            <span
+              aria-hidden={false}
+              className="accordionIcon iconWrapper"
+              role="presentation"
+            >
+              <svg
+                role="presentation"
+                style={
+                  Object {
+                    "height": "20px",
+                    "width": "20px",
+                  }
+                }
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"
+                  style={
+                    Object {
+                      "fill": "currentColor",
+                    }
+                  }
+                />
+              </svg>
+            </span>
+          </div>
+          <div
+            aria-labelledby="1-header"
+            className="accordionBodyContainer"
+            id="1-content"
+            role="region"
+          >
+            <div
+              className="accordionBody showBorderTop"
+            >
+              Body 2 text used here. Bottom bars are sticky sections that
+        can be used to highlight a few actions that are out of the
+        view to be displayed inside the view. For example, if
+        there's a very long form with Save and Cancel buttons at the
+        bottom, we can use the bottom bar to show those two buttons
+        in the view. We are making these bars to be flexible in
+        height and also allowing any component to be
+            </div>
+          </div>
+        </div>
+      </li>
+      <li
+        className="listItem"
+        style={
+          Object {
+            "padding": "8px",
+          }
+        }
+      >
+        <div
+          className="accordionContainer"
+        >
+          <div
+            aria-controls="2-content"
+            aria-expanded={false}
+            className="accordionSummary"
+            id="2-header"
+            onClick={[Function]}
+            onKeyDown={[Function]}
+            role="button"
+            tabIndex={0}
+          >
+            <div
+              style={
+                Object {
+                  "alignItems": "center",
+                  "display": "flex",
+                }
+              }
+            >
+              <span
+                aria-hidden={false}
+                className="iconWrapper"
+                role="presentation"
+              >
+                <svg
+                  role="presentation"
+                  style={
+                    Object {
+                      "height": "20px",
+                      "width": "20px",
+                    }
+                  }
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M12 2C6.5 2 2 6.5 2 12S6.5 22 12 22 22 17.5 22 12 17.5 2 12 2M12 20C7.59 20 4 16.41 4 12S7.59 4 12 4 20 7.59 20 12 16.41 20 12 20M16.59 7.58L10 14.17L7.41 11.59L6 13L10 17L18 9L16.59 7.58Z"
+                    style={
+                      Object {
+                        "fill": "green",
+                      }
+                    }
+                  />
+                </svg>
+              </span>
+              <div
+                style={
+                  Object {
+                    "margin": "0 12px 0 5px",
+                  }
+                }
+              >
+                Notification testing
+              </div>
+              <span
+                className="badge header6 active"
+              >
+                12
+              </span>
+            </div>
+            <span
+              aria-hidden={false}
+              className="accordionIcon iconWrapper"
+              role="presentation"
+            >
+              <svg
+                role="presentation"
+                style={
+                  Object {
+                    "height": "20px",
+                    "width": "20px",
+                  }
+                }
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"
+                  style={
+                    Object {
+                      "fill": "currentColor",
+                    }
+                  }
+                />
+              </svg>
+            </span>
+          </div>
+          <div
+            aria-labelledby="2-header"
+            className="accordionBodyContainer"
+            id="2-content"
+            role="region"
+          >
+            <div
+              className="accordionBody showBorderTop"
+            >
+              Body 2 text used here. Bottom bars are sticky sections that
+        can be used to highlight a few actions that are out of the
+        view to be displayed inside the view. For example, if
+        there's a very long form with Save and Cancel buttons at the
+        bottom, we can use the bottom bar to show those two buttons
+        in the view. We are making these bars to be flexible in
+        height and also allowing any component to be
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+    <div
+      style={
+        Object {
+          "paddingLeft": "16px",
+        }
+      }
+    >
+      <h3>
+        Footer
+      </h3>
+    </div>
+  </div>,
+]
+`;
+
+exports[`Storyshots Avatar Default 1`] = `
+Array [
+  <h2>
+    Avatar
+  </h2>,
+  <div
+    style={
+      Object {
+        "fontSize": "18px",
+        "height": "40px",
+        "minHeight": "40px",
+        "minWidth": "40px",
+        "width": "40px",
+      }
+    }
+  >
+    <img
+      alt="random profile image"
+      className="imageStyle"
+      height="40px"
+      src="https://images.pexels.com/photos/771742/pexels-photo-771742.jpeg"
+      width="40px"
+    />
+  </div>,
+  <br />,
+  <h2>
+    Avatar Fallback
+  </h2>,
+  <div
+    style={
+      Object {
+        "display": "flex",
+        "flexDirection": "row",
+        "gap": "8px",
+      }
+    }
+  >
+    <div
+      className="wrapperStyle imageStyle green"
+      style={
+        Object {
+          "fontSize": "18px",
+          "height": "40px",
+          "minHeight": "40px",
+          "minWidth": "40px",
+          "width": "40px",
+        }
+      }
+    >
+      JD
+    </div>
+    <div
+      className="wrapperStyle imageStyle green"
+      style={
+        Object {
+          "fontSize": "18px",
+          "height": "40px",
+          "minHeight": "40px",
+          "minWidth": "40px",
+          "width": "40px",
+        }
+      }
+    >
+      AB
+    </div>
+  </div>,
+  <br />,
+  <h2>
+    Avatar Icons
+  </h2>,
+  <div
+    style={
+      Object {
+        "display": "flex",
+        "flexDirection": "row",
+        "gap": "8px",
+      }
+    }
+  >
+    <div
+      className="wrapperStyle imageStyle"
+      style={
+        Object {
+          "backgroundColor": "grey",
+          "fontSize": "18px",
+          "height": "40px",
+          "minHeight": "40px",
+          "minWidth": "40px",
+          "width": "40px",
+        }
+      }
+    >
+      <span
+        aria-hidden={false}
+        className="iconWrapper"
+        role="presentation"
+      >
+        <svg
+          role="presentation"
+          style={
+            Object {
+              "height": "18px",
+              "width": "18px",
+            }
+          }
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M21,19V20H3V19L5,17V11C5,7.9 7.03,5.17 10,4.29C10,4.19 10,4.1 10,4A2,2 0 0,1 12,2A2,2 0 0,1 14,4C14,4.1 14,4.19 14,4.29C16.97,5.17 19,7.9 19,11V17L21,19M14,21A2,2 0 0,1 12,23A2,2 0 0,1 10,21"
+            style={
+              Object {
+                "fill": "currentColor",
+              }
+            }
+          />
+        </svg>
+      </span>
+    </div>
+  </div>,
+  <h2>
+    Round Avatar
+  </h2>,
+  <div
+    style={
+      Object {
+        "fontSize": "18px",
+        "height": "40px",
+        "minHeight": "40px",
+        "minWidth": "40px",
+        "width": "40px",
+      }
+    }
+  >
+    <img
+      alt="random profile image"
+      className="imageStyle roundImage"
+      height="40px"
+      src="https://images.pexels.com/photos/771742/pexels-photo-771742.jpeg"
+      width="40px"
+    />
+  </div>,
+  <br />,
+  <h2>
+    Round Avatar Fallback
+  </h2>,
+  <div
+    style={
+      Object {
+        "display": "flex",
+        "flexDirection": "row",
+        "gap": "8px",
+      }
+    }
+  >
+    <div
+      className="wrapperStyle imageStyle roundImage green"
+      style={
+        Object {
+          "fontSize": "18px",
+          "height": "40px",
+          "minHeight": "40px",
+          "minWidth": "40px",
+          "width": "40px",
+        }
+      }
+    >
+      JD
+    </div>
+    <div
+      className="wrapperStyle imageStyle roundImage green"
+      style={
+        Object {
+          "fontSize": "18px",
+          "height": "40px",
+          "minHeight": "40px",
+          "minWidth": "40px",
+          "width": "40px",
+        }
+      }
+    >
+      AB
+    </div>
+  </div>,
+  <br />,
+  <h2>
+    Round Avatar Icons
+  </h2>,
+  <div
+    style={
+      Object {
+        "display": "flex",
+        "flexDirection": "row",
+        "gap": "8px",
+      }
+    }
+  >
+    <div
+      className="wrapperStyle imageStyle roundImage"
+      style={
+        Object {
+          "backgroundColor": "grey",
+          "fontSize": "18px",
+          "height": "40px",
+          "minHeight": "40px",
+          "minWidth": "40px",
+          "width": "40px",
+        }
+      }
+    >
+      <span
+        aria-hidden={false}
+        className="iconWrapper"
+        role="presentation"
+      >
+        <svg
+          role="presentation"
+          style={
+            Object {
+              "height": "18px",
+              "width": "18px",
+            }
+          }
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M21,19V20H3V19L5,17V11C5,7.9 7.03,5.17 10,4.29C10,4.19 10,4.1 10,4A2,2 0 0,1 12,2A2,2 0 0,1 14,4C14,4.1 14,4.19 14,4.29C16.97,5.17 19,7.9 19,11V17L21,19M14,21A2,2 0 0,1 12,23A2,2 0 0,1 10,21"
+            style={
+              Object {
+                "fill": "currentColor",
+              }
+            }
+          />
+        </svg>
+      </span>
+    </div>
+  </div>,
+]
+`;
+
 exports[`Storyshots Badge Default 1`] = `
 Array [
   <h2>
@@ -857,6 +1694,8 @@ Array [
       defaultChecked={false}
       disabled={false}
       onClick={[Function]}
+      role="button"
+      tabIndex="0"
     >
       <span
         className=""
@@ -3937,36 +4776,223 @@ Array [
         defaultChecked={false}
         disabled={false}
         onClick={[Function]}
+        role="button"
+        tabIndex="0"
       >
         <span
           className=""
         >
-          Click bottom start
+          Click button start
         </span>
       </button>
     </div>
     <div
       className="mainWrapper"
+      onMouseLeave={[Function]}
     >
-      <button
+      <div
         aria-controls="dropdown-5"
-        aria-disabled={false}
         aria-expanded={false}
         aria-haspopup={true}
-        className="button buttonDefault"
-        defaultChecked={false}
-        disabled={false}
+        className="referenceWrapper"
         onMouseEnter={[Function]}
+        role="button"
+        style={
+          Object {
+            "display": "flex",
+          }
+        }
+        tabIndex="0"
       >
+        Hover div
         <span
-          className=""
+          aria-hidden={false}
+          className="iconWrapper"
+          role="presentation"
         >
-          Hover bottom end
+          <svg
+            role="presentation"
+            style={
+              Object {
+                "height": "20px",
+                "width": "20px",
+              }
+            }
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"
+              style={
+                Object {
+                  "fill": "currentColor",
+                }
+              }
+            />
+          </svg>
         </span>
-      </button>
+      </div>
+    </div>
+    <div
+      className="mainWrapper"
+    >
+      <div
+        aria-controls="dropdown-6"
+        aria-expanded={false}
+        aria-haspopup={true}
+        className="referenceWrapper"
+        onClick={[Function]}
+        role="button"
+        style={
+          Object {
+            "display": "flex",
+          }
+        }
+        tabIndex="0"
+      >
+        Click div
+      </div>
+    </div>
+    <div
+      className="mainWrapper"
+    >
+      <div
+        aria-controls="dropdown-7"
+        aria-expanded={false}
+        aria-haspopup={true}
+        className="referenceWrapper"
+        onContextMenu={[Function]}
+        role="button"
+        style={
+          Object {
+            "display": "flex",
+          }
+        }
+        tabIndex="0"
+      >
+        Contextmenu div
+      </div>
     </div>
   </div>,
 ]
+`;
+
+exports[`Storyshots Icon Icomoon Icons 1`] = `
+<div
+  className="theme-blue"
+>
+  <h1>
+    Icons
+  </h1>
+  <p>
+    X-Small
+  </p>
+  <span
+    aria-hidden={false}
+    className="iconWrapper"
+    role="presentation"
+  >
+    <svg
+      className=""
+      height="14px"
+      role="presentation"
+      style={
+        Object {
+          "display": "inline-block",
+          "verticalAlign": "middle",
+        }
+      }
+      viewBox="0 0 1024 1024"
+      width="14px"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M864 0c88.364 0 160 71.634 160 160 0 36.020-11.91 69.258-32 96l-64 64-224-224 64-64c26.742-20.090 59.978-32 96-32zM64 736l-64 288 288-64 592-592-224-224-592 592zM715.578 363.578l-448 448-55.156-55.156 448-448 55.156 55.156z"
+        style={
+          Object {
+            "fill": undefined,
+          }
+        }
+      />
+    </svg>
+  </span>
+  <br />
+  <p>
+    Large
+  </p>
+  <span
+    aria-hidden={false}
+    className="iconWrapper"
+    role="presentation"
+  >
+    <svg
+      className=""
+      height="24px"
+      role="presentation"
+      style={
+        Object {
+          "display": "inline-block",
+          "verticalAlign": "middle",
+        }
+      }
+      viewBox="0 0 1024 1024"
+      width="24px"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M864 0c88.364 0 160 71.634 160 160 0 36.020-11.91 69.258-32 96l-64 64-224-224 64-64c26.742-20.090 59.978-32 96-32zM64 736l-64 288 288-64 592-592-224-224-592 592zM715.578 363.578l-448 448-55.156-55.156 448-448 55.156 55.156z"
+        style={
+          Object {
+            "fill": undefined,
+          }
+        }
+      />
+    </svg>
+  </span>
+  <br />
+  <p>
+    Multicolor Icon
+  </p>
+  <span
+    aria-hidden={false}
+    className="iconWrapper"
+    role="presentation"
+  >
+    <svg
+      className=""
+      height="24px"
+      role="presentation"
+      style={
+        Object {
+          "display": "inline-block",
+          "verticalAlign": "middle",
+        }
+      }
+      viewBox="0 0 1024 1024"
+      width="24px"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M102.4 153.6v716.8h241.912v-139.999h79.375v139.999h241.912v-716.8h-563.2zM181.777 233.867h81.268v78.399h-81.268v-78.399zM344.312 233.867h79.375v78.399h-79.375v-78.399zM504.955 233.867h81.267v78.399h-81.267v-78.399zM181.777 392.532h81.268v80.269h-81.268v-80.269zM344.312 392.532h79.375v80.269h-79.375v-80.269zM504.955 392.532h81.267v80.269h-81.267v-80.269zM181.777 551.201h81.268v80.266h-81.268v-80.266zM344.312 551.201h79.375v80.266h-79.375v-80.266zM504.955 551.201h81.267v80.266h-81.267v-80.266zM181.777 711.734h81.268v78.4h-81.268v-78.4zM504.955 711.734h81.267v78.4h-81.267v-78.4z"
+        fill="rgb(80, 206, 225)"
+        style={
+          Object {
+            "fill": undefined,
+          }
+        }
+      />
+      <path
+        d="M598.536 358.4h108.529c14.303 0 26.501 5.478 36.598 16.435 10.936 10.112 16.404 22.333 16.404 36.662v54.359h108.531c14.303 0 26.501 5.478 36.598 16.435 10.936 10.115 16.404 22.756 16.404 37.926v295.821c0 15.171-5.468 28.234-16.404 39.191-10.097 10.115-22.295 15.171-36.598 15.171h-431.596c-14.303 0-26.921-5.056-37.86-15.171-10.094-10.957-15.142-24.020-15.142-39.191v-295.821c0-15.171 5.048-27.812 15.142-37.926 10.939-10.957 23.557-16.435 37.86-16.435h108.531v-54.359c0-14.328 5.046-26.55 15.142-36.662 10.936-10.957 23.557-16.435 37.86-16.435zM707.064 465.856v-54.359h-108.529v54.359h108.529z"
+        fill="rgb(20, 109, 166)"
+        opacity={0.6}
+        style={
+          Object {
+            "fill": undefined,
+          }
+        }
+      />
+    </svg>
+  </span>
+</div>
 `;
 
 exports[`Storyshots Icon Icons 1`] = `
@@ -5844,7 +6870,7 @@ Array [
     className="mainWrapper"
   >
     <button
-      aria-controls="dropdown-25"
+      aria-controls="dropdown-27"
       aria-disabled={false}
       aria-expanded={false}
       aria-haspopup={true}
@@ -5852,6 +6878,8 @@ Array [
       defaultChecked={false}
       disabled={false}
       onClick={[Function]}
+      role="button"
+      tabIndex="0"
     >
       <span
         className=""
@@ -5870,7 +6898,7 @@ Array [
     className="mainWrapper"
   >
     <button
-      aria-controls="dropdown-26"
+      aria-controls="dropdown-28"
       aria-disabled={false}
       aria-expanded={false}
       aria-haspopup={true}
@@ -5878,6 +6906,8 @@ Array [
       defaultChecked={false}
       disabled={false}
       onClick={[Function]}
+      role="button"
+      tabIndex="0"
     >
       <span
         className=""
@@ -6609,7 +7639,7 @@ Array [
           className="mainWrapper"
         >
           <button
-            aria-controls="dropdown-32"
+            aria-controls="dropdown-34"
             aria-disabled={false}
             aria-expanded={false}
             aria-haspopup={true}
@@ -6618,6 +7648,8 @@ Array [
             defaultChecked={false}
             disabled={false}
             onClick={[Function]}
+            role="button"
+            tabIndex="0"
           >
             <span>
               <span
@@ -6922,7 +7954,7 @@ Array [
             className="editor"
             defaultValue={5}
             disabled={false}
-            id="input-33"
+            id="input-35"
             minLength={1}
             onChange={[Function]}
             required={false}
@@ -6948,7 +7980,7 @@ Array [
           className="mainWrapper"
         >
           <button
-            aria-controls="dropdown-34"
+            aria-controls="dropdown-36"
             aria-disabled={false}
             aria-expanded={false}
             aria-haspopup={true}
@@ -6957,6 +7989,8 @@ Array [
             defaultChecked={false}
             disabled={false}
             onClick={[Function]}
+            role="button"
+            tabIndex="0"
           >
             <span>
               <span
@@ -7132,7 +8166,7 @@ Array [
             className="editor"
             defaultValue={4}
             disabled={false}
-            id="input-35"
+            id="input-37"
             minLength={1}
             onChange={[Function]}
             required={false}
@@ -11175,7 +12209,7 @@ Array [
         autoFocus={false}
         className="withIconButton inputStretch"
         disabled={false}
-        id="input-6"
+        id="input-8"
         onChange={[Function]}
         placeholder="Search"
         required={false}
@@ -11312,7 +12346,7 @@ Array [
         autoFocus={false}
         className="withIcon withIconButton withIconAndIconButton"
         disabled={false}
-        id="input-7"
+        id="input-9"
         onChange={[Function]}
         placeholder="Search"
         required={false}
@@ -11408,7 +12442,7 @@ Array [
         autoFocus={false}
         className="withImageIcon withIconButton withIconAndIconButton"
         disabled={false}
-        id="input-8"
+        id="input-10"
         onChange={[Function]}
         placeholder="Search"
         required={false}
@@ -11482,7 +12516,7 @@ Array [
         autoFocus={false}
         className="pillShape pillShapeWithIconButton inputStretch"
         disabled={false}
-        id="input-9"
+        id="input-11"
         onChange={[Function]}
         placeholder="Search"
         required={false}
@@ -11549,7 +12583,7 @@ Array [
         autoFocus={false}
         className="pillShape pillShapeWithIcon pillShapeWithIconButton pillShapeWithIconAndIconButton"
         disabled={false}
-        id="input-10"
+        id="input-12"
         onChange={[Function]}
         placeholder="Search"
         required={false}
@@ -11645,7 +12679,7 @@ Array [
         autoFocus={false}
         className="pillShape pillShapeWithImageIcon pillShapeWithIconButton pillShapeWithIconAndIconButton"
         disabled={false}
-        id="input-11"
+        id="input-13"
         onChange={[Function]}
         placeholder="Search"
         required={false}
@@ -13740,7 +14774,7 @@ Array [
       className="textArea textAreaNoExpand inputStretch"
       cols={50}
       disabled={false}
-      id="textarea-12"
+      id="textarea-14"
       onChange={[Function]}
       required={false}
       rows={5}
@@ -13841,7 +14875,7 @@ Array [
       className="textArea textAreaNoExpand"
       cols={50}
       disabled={false}
-      id="textarea-13"
+      id="textarea-15"
       onChange={[Function]}
       required={false}
       rows={5}
@@ -13871,7 +14905,7 @@ Array [
       className="textArea"
       cols={50}
       disabled={false}
-      id="textarea-14"
+      id="textarea-16"
       onChange={[Function]}
       required={false}
       rows={5}
@@ -13932,7 +14966,7 @@ Array [
       autoFocus={false}
       className="inputStretch"
       disabled={false}
-      id="input-15"
+      id="input-17"
       onChange={[Function]}
       required={false}
       role="textbox"
@@ -14032,7 +15066,7 @@ Array [
       autoFocus={false}
       className="withIcon"
       disabled={false}
-      id="input-16"
+      id="input-18"
       onChange={[Function]}
       required={false}
       role="textbox"
@@ -14090,7 +15124,7 @@ Array [
       autoFocus={false}
       className="withImageIcon"
       disabled={false}
-      id="input-17"
+      id="input-19"
       onChange={[Function]}
       required={false}
       role="textbox"
@@ -14126,7 +15160,7 @@ Array [
       autoFocus={false}
       className="withIconButton"
       disabled={false}
-      id="input-18"
+      id="input-20"
       onChange={[Function]}
       required={false}
       role="textbox"
@@ -14188,7 +15222,7 @@ Array [
       autoFocus={false}
       className="withIcon withIconButton withIconAndIconButton"
       disabled={false}
-      id="input-19"
+      id="input-21"
       onChange={[Function]}
       required={false}
       role="textbox"
@@ -14279,7 +15313,7 @@ Array [
       autoFocus={false}
       className="pillShape inputStretch"
       disabled={false}
-      id="input-20"
+      id="input-22"
       onChange={[Function]}
       required={false}
       role="textbox"
@@ -14308,7 +15342,7 @@ Array [
       autoFocus={false}
       className="pillShape pillShapeWithIcon"
       disabled={false}
-      id="input-21"
+      id="input-23"
       onChange={[Function]}
       required={false}
       role="textbox"
@@ -14366,7 +15400,7 @@ Array [
       autoFocus={false}
       className="pillShape pillShapeWithImageIcon"
       disabled={false}
-      id="input-22"
+      id="input-24"
       onChange={[Function]}
       required={false}
       role="textbox"
@@ -14402,7 +15436,7 @@ Array [
       autoFocus={false}
       className="pillShape pillShapeWithIconButton"
       disabled={false}
-      id="input-23"
+      id="input-25"
       onChange={[Function]}
       required={false}
       role="textbox"
@@ -14464,7 +15498,7 @@ Array [
       autoFocus={false}
       className="pillShape pillShapeWithIcon pillShapeWithIconButton pillShapeWithIconAndIconButton"
       disabled={false}
-      id="input-24"
+      id="input-26"
       onChange={[Function]}
       required={false}
       role="textbox"

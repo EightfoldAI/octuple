@@ -27,8 +27,13 @@
     }
 
     .reference-wrapper {
-        display: inline-block;
+        display: flex;
         cursor: pointer;
+        padding: $space-xs;
+
+        &:focus-visible {
+            outline: $space-xxxs solid var(--primary-color-80);
+        }
 
         &.disabled {
             pointer-events: none;
