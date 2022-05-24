@@ -27,6 +27,7 @@ const listItems = [
         bottom, we can use the bottom bar to show those two buttons
         in the view. We are making these bars to be flexible in
         height and also allowing any component to be`,
+        id: '1',
     },
     {
         summary: accordionSummary(12),
@@ -37,6 +38,7 @@ const listItems = [
         bottom, we can use the bottom bar to show those two buttons
         in the view. We are making these bars to be flexible in
         height and also allowing any component to be`,
+        id: '2',
     },
 ];
 
@@ -45,7 +47,7 @@ export const Default = () => {
         <>
             <h2>Single Accordion</h2>
             <div style={{ width: '500px' }}>
-                <Accordion summary={'Accordion Header'}>
+                <Accordion summary={'Accordion Header'} id="single-accordion">
                     <div>
                         Body 2 text used here. Bottom bars are sticky sections
                         that can be used to highlight a few actions that are out
@@ -65,7 +67,9 @@ export const Default = () => {
             <List
                 items={listItems}
                 renderItem={(item) => (
-                    <Accordion summary={item.summary}>{item.body}</Accordion>
+                    <Accordion summary={item.summary} id={item.id}>
+                        {item.body}
+                    </Accordion>
                 )}
                 header={
                     <div style={{ paddingLeft: '16px' }}>
@@ -85,7 +89,9 @@ export const Default = () => {
             <List
                 items={listItems}
                 renderItem={(item) => (
-                    <Accordion summary={item.summary}>{item.body}</Accordion>
+                    <Accordion summary={item.summary} id={item.id}>
+                        {item.body}
+                    </Accordion>
                 )}
                 header={
                     <div style={{ paddingLeft: '16px' }}>

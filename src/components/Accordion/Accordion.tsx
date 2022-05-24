@@ -82,7 +82,7 @@ export const Accordion: FC<AccordionProps> = React.forwardRef(
             summary,
             expandIconProps = { path: IconName.mdiChevronDown },
             children,
-            id = uniqueId('dropdown-'),
+            id = uniqueId('accordion-'),
         },
         ref: Ref<HTMLDivElement>
     ) => {
