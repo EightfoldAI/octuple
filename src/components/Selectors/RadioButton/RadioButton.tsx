@@ -44,7 +44,7 @@ export const RadioButton: FC<RadioButtonProps> = ({
                 value={value}
                 onClick={(e) => {
                     updateActiveRadioButton(value);
-                    onRadioButtonClick(value, e);
+                    onRadioButtonClick?.(value, e);
                 }}
                 readOnly
             />
