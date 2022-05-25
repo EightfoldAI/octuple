@@ -17,9 +17,8 @@ export default {
                                 their parent.
                             </p>
                         </section>
-                        <hr />
                         <section>
-                            <Stories includePrimary />
+                            <Stories includePrimary title="" />
                         </section>
                     </article>
                 </main>

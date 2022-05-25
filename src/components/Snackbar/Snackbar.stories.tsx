@@ -29,9 +29,8 @@ export default {
                                 call-to-action for people to act upon.{' '}
                             </p>
                         </section>
-                        <hr />
                         <section>
-                            <Stories includePrimary />
+                            <Stories includePrimary title="" />
                         </section>
                     </article>
                 </main>

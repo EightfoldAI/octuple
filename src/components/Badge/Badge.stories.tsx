@@ -19,9 +19,8 @@ export default {
                                 count.
                             </p>
                         </section>
-                        <hr />
                         <section>
-                            <Stories includePrimary />
+                            <Stories includePrimary title="" />
                         </section>
                     </article>
                 </main>

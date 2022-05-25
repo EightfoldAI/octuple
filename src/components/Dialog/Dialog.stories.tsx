@@ -131,9 +131,8 @@ export default {
                                 </li>
                             </ul>
                         </section>
-                        <hr />
                         <section>
-                            <Stories includePrimary />
+                            <Stories includePrimary title="" />
                         </section>
                     </article>
                 </main>

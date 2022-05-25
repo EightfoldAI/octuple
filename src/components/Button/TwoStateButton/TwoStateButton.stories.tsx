@@ -28,9 +28,8 @@ export default {
                                 is different than a basic Toggle button.
                             </p>
                         </section>
-                        <hr />
                         <section>
-                            <Stories includePrimary />
+                            <Stories includePrimary title="" />
                         </section>
                     </article>
                 </main>

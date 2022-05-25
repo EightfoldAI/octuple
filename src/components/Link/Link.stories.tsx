@@ -45,39 +45,75 @@ export default {
                                 </li>
                             </ul>
                         </section>
-                        <hr />
                         <section>
-                            <Stories includePrimary />
+                            <Stories includePrimary title="" />
                         </section>
                     </article>
                 </main>
             ),
         },
     },
+    argTypes: {
+        variant: {
+            options: ['default', 'primary'],
+            control: { type: 'inline-radio' },
+        },
+        onClick: {
+            action: 'click',
+        },
+    },
 } as ComponentMeta<typeof Link>;
 
-export const Default: ComponentStory<typeof Link> = () => (
-    <>
-        <h2>Link</h2>
+const Default_Story: ComponentStory<typeof Link> = (args) => <Link {...args} />;
 
-        <Link href="https://www.twitter.com">Twitter</Link>
+export const Default = Default_Story.bind({});
 
-        <h2>Primary Link Stacked Columnwise</h2>
-        <Link
-            href="https://www.facebook.com"
-            variant="primary"
-            style={{ maxWidth: '100px' }}
-        >
-            <Icon path={IconName.mdiAccount} />
-            User Profile
-        </Link>
-        <h2>Link with default behavior disabled</h2>
-        <Link
-            href="https://www.facebook.com"
-            onClick={(e) => e.preventDefault()}
-        >
-            <Icon path={IconName.mdiAccount} />
-            User Profile
-        </Link>
-    </>
+const Primary_Story: ComponentStory<typeof Link> = (args) => <Link {...args} />;
+
+export const Primary = Primary_Story.bind({});
+
+const Default_Disabled_Story: ComponentStory<typeof Link> = (args) => (
+    <Link {...args} />
 );
+
+export const Default_Disabled = Default_Disabled_Story.bind({});
+
+const linkArgs: Object = {
+    href: 'https://www.twitter.com',
+    classNames: 'my-link-class',
+    children: 'Twitter',
+    target: '_self',
+    variant: 'default',
+    style: {},
+};
+
+Default.args = {
+    ...linkArgs,
+};
+
+Primary.args = {
+    ...linkArgs,
+    href: 'https://www.facebook.com',
+    variant: 'primary',
+    style: {
+        maxWidth: '100px',
+    },
+    children: (
+        <>
+            <Icon path={IconName.mdiAccount} />
+            User Profile
+        </>
+    ),
+};
+
+Default_Disabled.args = {
+    ...linkArgs,
+    href: 'https://www.facebook.com',
+    onClick: (e: React.MouseEvent) => e.preventDefault(),
+    children: (
+        <>
+            <Icon path={IconName.mdiAccount} />
+            User Profile
+        </>
+    ),
+};
