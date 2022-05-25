@@ -1,4 +1,5 @@
 import React from 'react';
+import { OcBaseProps } from '../OcBase';
 
 export type SelectRadioButtonEvent<E = HTMLElement> =
     | React.MouseEvent<E>
@@ -22,7 +23,7 @@ export interface IRadioButtonsContext {
     onRadioButtonClick: OnChangeHandler;
 }
 
-export interface CheckBoxProps {
+export interface CheckBoxProps extends OcBaseProps<HTMLInputElement> {
     /**
      * Allows focus on the checkbox when it's disabled.
      */
@@ -35,10 +36,6 @@ export interface CheckBoxProps {
      * The input checkbox checked value.
      */
     checked?: boolean;
-    /**
-     * The checkbox class names.
-     */
-    className?: string;
     /**
      * The input checkbox default checked value.
      */
@@ -70,7 +67,8 @@ export interface CheckBoxProps {
     onChange?: React.ChangeEventHandler<HTMLInputElement>;
 }
 
-export interface RadioButtonProps {
+export interface RadioButtonProps
+    extends Omit<OcBaseProps<HTMLElement>, 'onChange'> {
     /**
      * The default radio button to select
      */

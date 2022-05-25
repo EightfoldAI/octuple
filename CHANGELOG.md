@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.5.3](https://github.com/EightfoldAI/octuple/compare/v1.5.2...v1.5.3) (2022-05-25)
+
+### Bug Fixes
+
+-   extend RadioButtonProps and CheckBoxProps to OcBaseProps ([#143](https://github.com/EightfoldAI/octuple/issues/143)) ([08e9696](https://github.com/EightfoldAI/octuple/commits/08e969600a36c420ed12f3bb60b0cc48d65f947d))
+-   remove classname prop from CheckBoxProps ([#144](https://github.com/EightfoldAI/octuple/issues/144)) ([bdce5c3](https://github.com/EightfoldAI/octuple/commits/bdce5c3c25e9f9486661ccf6b49eca8663ffdb06))
+
+### [1.5.2](https://github.com/EightfoldAI/octuple/compare/v1.5.1...v1.5.2) (2022-05-24)
+
 ### [1.5.1](https://github.com/EightfoldAI/octuple/compare/v1.5.0...v1.5.1) (2022-05-24)
 
 ### Bug Fixes
