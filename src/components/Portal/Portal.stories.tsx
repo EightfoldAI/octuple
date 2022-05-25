@@ -27,16 +27,18 @@ export default {
     },
 } as ComponentMeta<typeof Portal>;
 
-export const Default: ComponentStory<typeof Portal> = () => {
+const Portal_Story: ComponentStory<typeof Portal> = (args) => {
     const containerRef = useRef<HTMLDivElement>(null);
-
     return (
         <>
-            <h1>Portal</h1>
             <div ref={containerRef}></div>
-            <Portal getContainer={() => containerRef.current}>
-                Hello i was portaled
-            </Portal>
+            <Portal getContainer={() => containerRef.current} {...args} />
         </>
     );
+};
+
+export const Default = Portal_Story.bind({});
+
+Default.args = {
+    children: <>Hello i was portaled</>,
 };

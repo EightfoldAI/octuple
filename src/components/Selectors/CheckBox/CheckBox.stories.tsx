@@ -69,10 +69,47 @@ export default {
             ),
         },
     },
+    argTypes: {
+        checked: {
+            defaultValue: true,
+            control: { type: 'boolean' },
+        },
+        defaultChecked: {
+            defaultValue: false,
+            control: { type: 'boolean' },
+        },
+    },
 } as ComponentMeta<typeof CheckBox>;
 
-export const Box = () => {
-    const checkboxGroupItems = [
+const CheckBox_Story: ComponentStory<typeof CheckBox> = (args) => (
+    <CheckBox checked={true} {...args} />
+);
+
+export const Check_Box = CheckBox_Story.bind({});
+
+const CheckBoxGroup_Story: ComponentStory<typeof CheckBox> = (args) => (
+    <CheckBoxGroup {...args} />
+);
+
+export const Check_Box_Group = CheckBoxGroup_Story.bind({});
+
+const checkBoxArgs: Object = {
+    allowDisabledFocus: false,
+    ariaLabel: 'Label',
+    classNames: 'my-checkbox-class',
+    disabled: false,
+    name: 'myCheckBoxName',
+    value: 'Label',
+    id: 'myCheckBoxId',
+};
+
+Check_Box.args = {
+    ...checkBoxArgs,
+};
+
+Check_Box_Group.args = {
+    ...checkBoxArgs,
+    items: [
         {
             checked: true,
             name: 'group',
@@ -91,46 +128,5 @@ export const Box = () => {
             value: 'Third',
             id: 'test-3',
         },
-    ];
-
-    return (
-        <>
-            <h1>Check Boxes</h1>
-            <h2>Default Check Box</h2>
-            <CheckBox checked={true} id="test-4" />
-            <h2>Label Check Box</h2>
-            <CheckBox checked={true} value="Label" id="test-5" />
-            <h2>Check Box Groups</h2>
-            <CheckBoxGroup items={checkboxGroupItems} />
-        </>
-    );
+    ],
 };
-
-const checkBoxArgs: Object = {
-    allowDisabledFocus: false,
-    ariaLabel: 'CheckBox',
-    checked: false,
-    defaultChecked: false,
-    disabled: false,
-    name: 'myCheckBoxName',
-    value: '',
-    id: 'myCheckBoxId',
-};
-
-// Primary.args = {
-//     ...buttonArgs,
-//     ariaLabel: 'Primary Button',
-//     text: 'Primary Button',
-// };
-
-// Secondary.args = {
-//     ...buttonArgs,
-//     ariaLabel: 'Secondary Button',
-//     text: 'Secondary Button',
-// };
-
-// Default.args = {
-//     ...buttonArgs,
-//     ariaLabel: 'Default Button',
-//     text: 'Default Button',
-// };

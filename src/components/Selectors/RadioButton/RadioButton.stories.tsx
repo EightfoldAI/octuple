@@ -96,32 +96,46 @@ export default {
             ),
         },
     },
+    argTypes: {
+        onChange: {
+            action: 'change',
+        },
+    },
 } as ComponentMeta<typeof RadioButton>;
 
-export const Radio = () => {
-    const radioGroupItems = [1, 2, 3].map((i) => ({
+const RadioButton_Story: ComponentStory<typeof RadioButton> = (args) => (
+    <RadioButton {...args} />
+);
+
+export const Radio_Button = RadioButton_Story.bind({});
+
+const RadioGroup_Story: ComponentStory<typeof RadioButton> = (args) => (
+    <RadioGroup {...args} />
+);
+
+export const Radio_Group = RadioGroup_Story.bind({});
+
+const radioButtonArgs: Object = {
+    allowDisabledFocus: false,
+    ariaLabel: 'Label',
+    checked: true,
+    classNames: 'my-radiobutton-class',
+    disabled: false,
+    name: 'myRadioButtonName',
+    value: 'Label',
+    id: 'myRadioButtonId',
+};
+
+Radio_Button.args = {
+    ...radioButtonArgs,
+};
+
+Radio_Group.args = {
+    ...radioButtonArgs,
+    activeRadioButton: 'Radio1',
+    radioGroupItems: [1, 2, 3].map((i) => ({
         value: `Radio${i}`,
         name: 'group',
         id: `oea2exk-${i}`,
-    }));
-
-    return (
-        <>
-            <h1>Radio Buttons</h1>
-            <h2>Default Radio Button</h2>
-            <RadioButton checked={true} id="asdfasdf" />
-            <h2>Label Radio Button</h2>
-            <RadioButton checked={true} value="Label" id="zxcvzxcv" />
-            <h2>Radio Button Groups</h2>
-            <RadioGroup
-                onChange={_radioClicked}
-                activeRadioButton={'Radio1'}
-                radioGroupItems={radioGroupItems}
-            />
-        </>
-    );
+    })),
 };
-
-function _radioClicked(radio: RadioButtonChecked): void {
-    console.log(radio);
-}

@@ -64,17 +64,8 @@ export default {
             options: [TextInputWidth.fitContent, TextInputWidth.fill],
             control: { type: 'select' },
         },
-        onBlur: {
-            action: 'blur',
-        },
-        onChange: {
-            action: 'change',
-        },
-        onFocus: {
-            action: 'focus',
-        },
-        onKeyDown: {
-            action: 'keydown',
+        value: {
+            control: { type: 'text' },
         },
     },
 } as ComponentMeta<typeof TextArea>;
@@ -111,6 +102,5 @@ Text_Area.args = {
     textAreaCols: 50,
     textAreaRows: 5,
     theme: TextInputTheme.light,
-    value: '',
-    waitInterval: 500,
+    waitInterval: 10,
 };

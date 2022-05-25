@@ -101,21 +101,12 @@ export default {
             options: [TextInputWidth.fitContent, TextInputWidth.fill],
             control: { type: 'select' },
         },
-        onBlur: {
-            action: 'blur',
-        },
-        onChange: {
-            action: 'change',
-        },
-        onFocus: {
-            action: 'focus',
-        },
-        onKeyDown: {
-            action: 'keydown',
-        },
         shape: {
             options: [TextInputShape.Rectangle, TextInputShape.Pill],
             control: { type: 'select' },
+        },
+        value: {
+            control: { type: 'text' },
         },
     },
 } as ComponentMeta<typeof SearchBox>;
@@ -158,6 +149,5 @@ Search_Box.args = {
     shape: TextInputShape.Rectangle,
     style: {},
     theme: TextInputTheme.light,
-    value: '',
-    waitInterval: 500,
+    waitInterval: 10,
 };
