@@ -37,10 +37,6 @@ export interface CheckBoxProps extends OcBaseProps<HTMLInputElement> {
      */
     checked?: boolean;
     /**
-     * The checkbox class names.
-     */
-    className?: string;
-    /**
      * The input checkbox default checked value.
      */
     defaultChecked?: boolean;
