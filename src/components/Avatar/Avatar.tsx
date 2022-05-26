@@ -97,11 +97,13 @@ export const Avatar: FC<AvatarProps> = React.forwardRef(
             );
         }
 
+        const wrapperClasses: string = mergeClasses([classNames, imageClasses]);
+
         if (iconProps) {
             return (
                 <AvatarIcon
                     iconProps={iconProps}
-                    classNames={imageClasses}
+                    classNames={wrapperClasses}
                     style={wrapperContainerStyle}
                     fontSize={fontSize}
                     ref={ref}
@@ -111,7 +113,7 @@ export const Avatar: FC<AvatarProps> = React.forwardRef(
 
         return (
             <AvatarFallback
-                classNames={imageClasses}
+                classNames={wrapperClasses}
                 style={wrapperContainerStyle}
                 ref={ref}
             >
