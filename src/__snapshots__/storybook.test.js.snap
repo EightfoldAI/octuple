@@ -1074,6 +1074,98 @@ exports[`Storyshots Button Toggle 1`] = `
 </button>
 `;
 
+exports[`Storyshots Button Two State Button 1`] = `
+<button
+  aria-checked={false}
+  aria-disabled={false}
+  aria-label="Two State Button"
+  aria-pressed={false}
+  className="my-two-state-btn-class button twoStateButton"
+  defaultChecked={false}
+  disabled={false}
+  id="myTwoStateButton"
+  style={Object {}}
+  type="button"
+>
+  <span
+    className="twoStateButtonContent"
+  >
+    <span
+      className="column columnOne"
+    >
+      <span
+        aria-hidden={true}
+        className="icon iconWrapper"
+        data-test-id="myTwoStateButtonIconOneTestId"
+        id="myTwoStateButtonIconOne"
+        role="presentation"
+      >
+        <svg
+          role="presentation"
+          style={
+            Object {
+              "height": "20px",
+              "width": "20px",
+            }
+          }
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"
+            style={
+              Object {
+                "fill": "currentColor",
+              }
+            }
+          />
+        </svg>
+      </span>
+      <span
+        className=""
+      >
+        Two State Button
+      </span>
+      <span
+        className="badge header6 counter"
+      >
+        8
+      </span>
+    </span>
+    <span
+      className="column"
+    >
+      <span
+        aria-hidden={true}
+        className="icon iconWrapper"
+        data-test-id="myTwoStateButtonIconTwoTestId"
+        id="myTwoStateButtonIconTwo"
+        role="presentation"
+      >
+        <svg
+          role="presentation"
+          style={
+            Object {
+              "height": "20px",
+              "width": "20px",
+            }
+          }
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"
+            style={
+              Object {
+                "fill": "currentColor",
+              }
+            }
+          />
+        </svg>
+      </span>
+    </span>
+  </span>
+</button>
+`;
+
 exports[`Storyshots Check Box Check Box 1`] = `
 <div
   className="selector"
@@ -4476,6 +4568,469 @@ exports[`Storyshots Info Bar Warning 1`] = `
 </div>
 `;
 
+exports[`Storyshots Input Search Box 1`] = `
+<form
+  role="search"
+>
+  <div
+    className="inputWrapper"
+  >
+    <div
+      className="fieldLabel medium"
+    >
+      <label
+        className="textStyle medium"
+      >
+        Label
+      </label>
+      <span
+        className="fieldLabelIconButton medium"
+      >
+        <div
+          className="referenceWrapper"
+          onBlur={[Function]}
+          onFocus={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+        >
+          <button
+            aria-disabled={false}
+            className="labelIconButton button buttonDefault buttonSize3 iconLeft"
+            defaultChecked={false}
+            disabled={false}
+          >
+            <span
+              aria-hidden={false}
+              className="icon iconWrapper"
+              role="presentation"
+            >
+              <svg
+                role="presentation"
+                style={
+                  Object {
+                    "height": "16px",
+                    "width": "16px",
+                  }
+                }
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M13,9H11V7H13M13,17H11V11H13M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z"
+                  style={
+                    Object {
+                      "fill": "currentColor",
+                    }
+                  }
+                />
+              </svg>
+            </span>
+          </button>
+        </div>
+        <div
+          aria-hidden={true}
+          className="tooltip top"
+          role="tooltip"
+          style={
+            Object {
+              "left": "",
+              "position": "absolute",
+              "top": "",
+            }
+          }
+          tabIndex={0}
+        >
+          tooltip
+          <div
+            className="arrow"
+            style={
+              Object {
+                "bottom": "-4px",
+                "left": "",
+                "position": "absolute",
+                "top": "",
+              }
+            }
+          />
+        </div>
+      </span>
+    </div>
+    <input
+      aria-label="Search"
+      autoFocus={false}
+      className="my-searchbox-class withIcon withIconButton withIconAndIconButton"
+      disabled={false}
+      id="mySearchBoxId5"
+      maxLength={100}
+      minLength={0}
+      name="mySearchBox"
+      onChange={[Function]}
+      placeholder="Search"
+      required={false}
+      role="textbox"
+      style={Object {}}
+      tabIndex={0}
+      type="search"
+    />
+    <div
+      className="iconWrapper leftIcon"
+    >
+      <span
+        aria-hidden={false}
+        className="iconWrapper"
+        role="presentation"
+      >
+        <svg
+          role="presentation"
+          style={
+            Object {
+              "height": "20px",
+              "width": "20px",
+            }
+          }
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"
+            style={
+              Object {
+                "fill": "red",
+              }
+            }
+          />
+        </svg>
+      </span>
+    </div>
+    <button
+      aria-disabled={false}
+      className="iconButton leftIcon button buttonDefault buttonSize2 iconLeft"
+      defaultChecked={false}
+      disabled={false}
+    >
+      <span
+        aria-hidden={false}
+        className="icon iconWrapper"
+        role="presentation"
+      >
+        <svg
+          role="presentation"
+          style={
+            Object {
+              "height": "20px",
+              "width": "20px",
+            }
+          }
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z"
+            style={
+              Object {
+                "fill": "currentColor",
+              }
+            }
+          />
+        </svg>
+      </span>
+    </button>
+  </div>
+</form>
+`;
+
+exports[`Storyshots Input Text Area 1`] = `
+<div
+  className="inputWrapper"
+>
+  <div
+    className="fieldLabel medium"
+  >
+    <label
+      className="textStyle medium"
+    >
+      Label
+    </label>
+    <span
+      className="fieldLabelIconButton medium"
+    >
+      <div
+        className="referenceWrapper"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+      >
+        <button
+          aria-disabled={false}
+          className="labelIconButton button buttonDefault buttonSize3 iconLeft"
+          defaultChecked={false}
+          disabled={false}
+        >
+          <span
+            aria-hidden={false}
+            className="icon iconWrapper"
+            role="presentation"
+          >
+            <svg
+              role="presentation"
+              style={
+                Object {
+                  "height": "16px",
+                  "width": "16px",
+                }
+              }
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M13,9H11V7H13M13,17H11V11H13M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z"
+                style={
+                  Object {
+                    "fill": "currentColor",
+                  }
+                }
+              />
+            </svg>
+          </span>
+        </button>
+      </div>
+      <div
+        aria-hidden={true}
+        className="tooltip top"
+        role="tooltip"
+        style={
+          Object {
+            "left": "",
+            "position": "absolute",
+            "top": "",
+          }
+        }
+        tabIndex={0}
+      >
+        tooltip
+        <div
+          className="arrow"
+          style={
+            Object {
+              "bottom": "-4px",
+              "left": "",
+              "position": "absolute",
+              "top": "",
+            }
+          }
+        />
+      </div>
+    </span>
+  </div>
+  <textarea
+    aria-disabled={false}
+    aria-label="Sample text"
+    autoFocus={false}
+    className="my-textarea-class textArea"
+    cols={50}
+    disabled={false}
+    htmltype="text"
+    id="myTextAreaId6"
+    maxLength={300}
+    minLength={0}
+    name="myTextArea"
+    onChange={[Function]}
+    placeholder="Placeholder text"
+    required={false}
+    rows={5}
+    style={Object {}}
+    tabIndex={0}
+  />
+  <span
+    aria-hidden={false}
+    className="textAreaResizeIcon iconWrapper"
+    role="presentation"
+  >
+    <svg
+      role="presentation"
+      style={
+        Object {
+          "height": "20px",
+          "width": "20px",
+        }
+      }
+      viewBox="0 0 24 24"
+    >
+      <path
+        d="M22,22H20V20H22V22M22,18H20V16H22V18M18,22H16V20H18V22M18,18H16V16H18V18M14,22H12V20H14V22M22,14H20V12H22V14Z"
+        style={
+          Object {
+            "fill": "currentColor",
+          }
+        }
+      />
+    </svg>
+  </span>
+</div>
+`;
+
+exports[`Storyshots Input Text Input 1`] = `
+<div
+  className="inputWrapper"
+>
+  <div
+    className="fieldLabel medium"
+  >
+    <label
+      className="textStyle medium"
+    >
+      Label
+    </label>
+    <span
+      className="fieldLabelIconButton medium"
+    >
+      <div
+        className="referenceWrapper"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+      >
+        <button
+          aria-disabled={false}
+          className="labelIconButton button buttonDefault buttonSize3 iconLeft"
+          defaultChecked={false}
+          disabled={false}
+        >
+          <span
+            aria-hidden={false}
+            className="icon iconWrapper"
+            role="presentation"
+          >
+            <svg
+              role="presentation"
+              style={
+                Object {
+                  "height": "16px",
+                  "width": "16px",
+                }
+              }
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M13,9H11V7H13M13,17H11V11H13M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z"
+                style={
+                  Object {
+                    "fill": "currentColor",
+                  }
+                }
+              />
+            </svg>
+          </span>
+        </button>
+      </div>
+      <div
+        aria-hidden={true}
+        className="tooltip top"
+        role="tooltip"
+        style={
+          Object {
+            "left": "",
+            "position": "absolute",
+            "top": "",
+          }
+        }
+        tabIndex={0}
+      >
+        tooltip
+        <div
+          className="arrow"
+          style={
+            Object {
+              "bottom": "-4px",
+              "left": "",
+              "position": "absolute",
+              "top": "",
+            }
+          }
+        />
+      </div>
+    </span>
+  </div>
+  <input
+    aria-label="Sample text"
+    autoFocus={false}
+    className="my-textinput-class withIcon withIconButton withIconAndIconButton"
+    disabled={false}
+    htmltype="text"
+    id="myTextInputId7"
+    maxLength={100}
+    minLength={0}
+    name="myTextInput"
+    onChange={[Function]}
+    placeholder="Placeholder text"
+    required={false}
+    role="textbox"
+    style={Object {}}
+    tabIndex={0}
+    type="text"
+  />
+  <div
+    className="iconWrapper leftIcon"
+  >
+    <span
+      aria-hidden={false}
+      className="iconWrapper"
+      role="presentation"
+    >
+      <svg
+        role="presentation"
+        style={
+          Object {
+            "height": "20px",
+            "width": "20px",
+          }
+        }
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"
+          style={
+            Object {
+              "fill": "red",
+            }
+          }
+        />
+      </svg>
+    </span>
+  </div>
+  <button
+    aria-disabled={false}
+    className="iconButton leftIcon button buttonDefault buttonSize2 iconLeft"
+    defaultChecked={false}
+    disabled={false}
+  >
+    <span
+      aria-hidden={false}
+      className="icon iconWrapper"
+      role="presentation"
+    >
+      <svg
+        role="presentation"
+        style={
+          Object {
+            "height": "20px",
+            "width": "20px",
+          }
+        }
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M14,12V19.88C14.04,20.18 13.94,20.5 13.71,20.71C13.32,21.1 12.69,21.1 12.3,20.71L10.29,18.7C10.06,18.47 9.96,18.16 10,17.87V12H9.97L4.21,4.62C3.87,4.19 3.95,3.56 4.38,3.22C4.57,3.08 4.78,3 5,3V3H19V3C19.22,3 19.43,3.08 19.62,3.22C20.05,3.56 20.13,4.19 19.79,4.62L14.03,12H14Z"
+          style={
+            Object {
+              "fill": "currentColor",
+            }
+          }
+        />
+      </svg>
+    </span>
+  </button>
+</div>
+`;
+
 exports[`Storyshots Label Labels 1`] = `
 <div
   className="fieldLabel medium my-label-class"
@@ -7749,174 +8304,6 @@ exports[`Storyshots Radio Button Radio Group 1`] = `
 </div>
 `;
 
-exports[`Storyshots Search Box Search Box 1`] = `
-<form
-  role="search"
->
-  <div
-    className="inputWrapper"
-  >
-    <div
-      className="fieldLabel medium"
-    >
-      <label
-        className="textStyle medium"
-      >
-        Label
-      </label>
-      <span
-        className="fieldLabelIconButton medium"
-      >
-        <div
-          className="referenceWrapper"
-          onBlur={[Function]}
-          onFocus={[Function]}
-          onMouseEnter={[Function]}
-          onMouseLeave={[Function]}
-        >
-          <button
-            aria-disabled={false}
-            className="labelIconButton button buttonDefault buttonSize3 iconLeft"
-            defaultChecked={false}
-            disabled={false}
-          >
-            <span
-              aria-hidden={false}
-              className="icon iconWrapper"
-              role="presentation"
-            >
-              <svg
-                role="presentation"
-                style={
-                  Object {
-                    "height": "16px",
-                    "width": "16px",
-                  }
-                }
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M13,9H11V7H13M13,17H11V11H13M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z"
-                  style={
-                    Object {
-                      "fill": "currentColor",
-                    }
-                  }
-                />
-              </svg>
-            </span>
-          </button>
-        </div>
-        <div
-          aria-hidden={true}
-          className="tooltip top"
-          role="tooltip"
-          style={
-            Object {
-              "left": "",
-              "position": "absolute",
-              "top": "",
-            }
-          }
-          tabIndex={0}
-        >
-          tooltip
-          <div
-            className="arrow"
-            style={
-              Object {
-                "bottom": "-4px",
-                "left": "",
-                "position": "absolute",
-                "top": "",
-              }
-            }
-          />
-        </div>
-      </span>
-    </div>
-    <input
-      aria-label="Search"
-      autoFocus={false}
-      className="my-searchbox-class withIcon withIconButton withIconAndIconButton"
-      disabled={false}
-      id="mySearchBoxId5"
-      maxLength={100}
-      minLength={0}
-      name="mySearchBox"
-      onChange={[Function]}
-      placeholder="Search"
-      required={false}
-      role="textbox"
-      style={Object {}}
-      tabIndex={0}
-      type="search"
-    />
-    <div
-      className="iconWrapper leftIcon"
-    >
-      <span
-        aria-hidden={false}
-        className="iconWrapper"
-        role="presentation"
-      >
-        <svg
-          role="presentation"
-          style={
-            Object {
-              "height": "20px",
-              "width": "20px",
-            }
-          }
-          viewBox="0 0 24 24"
-        >
-          <path
-            d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"
-            style={
-              Object {
-                "fill": "red",
-              }
-            }
-          />
-        </svg>
-      </span>
-    </div>
-    <button
-      aria-disabled={false}
-      className="iconButton leftIcon button buttonDefault buttonSize2 iconLeft"
-      defaultChecked={false}
-      disabled={false}
-    >
-      <span
-        aria-hidden={false}
-        className="icon iconWrapper"
-        role="presentation"
-      >
-        <svg
-          role="presentation"
-          style={
-            Object {
-              "height": "20px",
-              "width": "20px",
-            }
-          }
-          viewBox="0 0 24 24"
-        >
-          <path
-            d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z"
-            style={
-              Object {
-                "fill": "currentColor",
-              }
-            }
-          />
-        </svg>
-      </span>
-    </button>
-  </div>
-</form>
-`;
-
 exports[`Storyshots Snack Bar Closable 1`] = `
 <button
   aria-disabled={false}
@@ -9546,301 +9933,6 @@ exports[`Storyshots Tabs With Badge 1`] = `
 </div>
 `;
 
-exports[`Storyshots Text Area Text Area 1`] = `
-<div
-  className="inputWrapper"
->
-  <div
-    className="fieldLabel medium"
-  >
-    <label
-      className="textStyle medium"
-    >
-      Label
-    </label>
-    <span
-      className="fieldLabelIconButton medium"
-    >
-      <div
-        className="referenceWrapper"
-        onBlur={[Function]}
-        onFocus={[Function]}
-        onMouseEnter={[Function]}
-        onMouseLeave={[Function]}
-      >
-        <button
-          aria-disabled={false}
-          className="labelIconButton button buttonDefault buttonSize3 iconLeft"
-          defaultChecked={false}
-          disabled={false}
-        >
-          <span
-            aria-hidden={false}
-            className="icon iconWrapper"
-            role="presentation"
-          >
-            <svg
-              role="presentation"
-              style={
-                Object {
-                  "height": "16px",
-                  "width": "16px",
-                }
-              }
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M13,9H11V7H13M13,17H11V11H13M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z"
-                style={
-                  Object {
-                    "fill": "currentColor",
-                  }
-                }
-              />
-            </svg>
-          </span>
-        </button>
-      </div>
-      <div
-        aria-hidden={true}
-        className="tooltip top"
-        role="tooltip"
-        style={
-          Object {
-            "left": "",
-            "position": "absolute",
-            "top": "",
-          }
-        }
-        tabIndex={0}
-      >
-        tooltip
-        <div
-          className="arrow"
-          style={
-            Object {
-              "bottom": "-4px",
-              "left": "",
-              "position": "absolute",
-              "top": "",
-            }
-          }
-        />
-      </div>
-    </span>
-  </div>
-  <textarea
-    aria-disabled={false}
-    aria-label="Sample text"
-    autoFocus={false}
-    className="my-textarea-class textArea"
-    cols={50}
-    disabled={false}
-    htmltype="text"
-    id="myTextAreaId6"
-    maxLength={300}
-    minLength={0}
-    name="myTextArea"
-    onChange={[Function]}
-    placeholder="Placeholder text"
-    required={false}
-    rows={5}
-    style={Object {}}
-    tabIndex={0}
-  />
-  <span
-    aria-hidden={false}
-    className="textAreaResizeIcon iconWrapper"
-    role="presentation"
-  >
-    <svg
-      role="presentation"
-      style={
-        Object {
-          "height": "20px",
-          "width": "20px",
-        }
-      }
-      viewBox="0 0 24 24"
-    >
-      <path
-        d="M22,22H20V20H22V22M22,18H20V16H22V18M18,22H16V20H18V22M18,18H16V16H18V18M14,22H12V20H14V22M22,14H20V12H22V14Z"
-        style={
-          Object {
-            "fill": "currentColor",
-          }
-        }
-      />
-    </svg>
-  </span>
-</div>
-`;
-
-exports[`Storyshots Text Input Text Input 1`] = `
-<div
-  className="inputWrapper"
->
-  <div
-    className="fieldLabel medium"
-  >
-    <label
-      className="textStyle medium"
-    >
-      Label
-    </label>
-    <span
-      className="fieldLabelIconButton medium"
-    >
-      <div
-        className="referenceWrapper"
-        onBlur={[Function]}
-        onFocus={[Function]}
-        onMouseEnter={[Function]}
-        onMouseLeave={[Function]}
-      >
-        <button
-          aria-disabled={false}
-          className="labelIconButton button buttonDefault buttonSize3 iconLeft"
-          defaultChecked={false}
-          disabled={false}
-        >
-          <span
-            aria-hidden={false}
-            className="icon iconWrapper"
-            role="presentation"
-          >
-            <svg
-              role="presentation"
-              style={
-                Object {
-                  "height": "16px",
-                  "width": "16px",
-                }
-              }
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M13,9H11V7H13M13,17H11V11H13M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z"
-                style={
-                  Object {
-                    "fill": "currentColor",
-                  }
-                }
-              />
-            </svg>
-          </span>
-        </button>
-      </div>
-      <div
-        aria-hidden={true}
-        className="tooltip top"
-        role="tooltip"
-        style={
-          Object {
-            "left": "",
-            "position": "absolute",
-            "top": "",
-          }
-        }
-        tabIndex={0}
-      >
-        tooltip
-        <div
-          className="arrow"
-          style={
-            Object {
-              "bottom": "-4px",
-              "left": "",
-              "position": "absolute",
-              "top": "",
-            }
-          }
-        />
-      </div>
-    </span>
-  </div>
-  <input
-    aria-label="Sample text"
-    autoFocus={false}
-    className="my-textinput-class withIcon withIconButton withIconAndIconButton"
-    disabled={false}
-    htmltype="text"
-    id="myTextInputId7"
-    maxLength={100}
-    minLength={0}
-    name="myTextInput"
-    onChange={[Function]}
-    placeholder="Placeholder text"
-    required={false}
-    role="textbox"
-    style={Object {}}
-    tabIndex={0}
-    type="text"
-  />
-  <div
-    className="iconWrapper leftIcon"
-  >
-    <span
-      aria-hidden={false}
-      className="iconWrapper"
-      role="presentation"
-    >
-      <svg
-        role="presentation"
-        style={
-          Object {
-            "height": "20px",
-            "width": "20px",
-          }
-        }
-        viewBox="0 0 24 24"
-      >
-        <path
-          d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"
-          style={
-            Object {
-              "fill": "red",
-            }
-          }
-        />
-      </svg>
-    </span>
-  </div>
-  <button
-    aria-disabled={false}
-    className="iconButton leftIcon button buttonDefault buttonSize2 iconLeft"
-    defaultChecked={false}
-    disabled={false}
-  >
-    <span
-      aria-hidden={false}
-      className="icon iconWrapper"
-      role="presentation"
-    >
-      <svg
-        role="presentation"
-        style={
-          Object {
-            "height": "20px",
-            "width": "20px",
-          }
-        }
-        viewBox="0 0 24 24"
-      >
-        <path
-          d="M14,12V19.88C14.04,20.18 13.94,20.5 13.71,20.71C13.32,21.1 12.69,21.1 12.3,20.71L10.29,18.7C10.06,18.47 9.96,18.16 10,17.87V12H9.97L4.21,4.62C3.87,4.19 3.95,3.56 4.38,3.22C4.57,3.08 4.78,3 5,3V3H19V3C19.22,3 19.43,3.08 19.62,3.22C20.05,3.56 20.13,4.19 19.79,4.62L14.03,12H14Z"
-          style={
-            Object {
-              "fill": "currentColor",
-            }
-          }
-        />
-      </svg>
-    </span>
-  </button>
-</div>
-`;
-
 exports[`Storyshots Tooltip Tooltips 1`] = `
 Array [
   <div
@@ -9890,96 +9982,4 @@ Array [
     />
   </div>,
 ]
-`;
-
-exports[`Storyshots Two State Button Two State Button 1`] = `
-<button
-  aria-checked={false}
-  aria-disabled={false}
-  aria-label="Two State Button"
-  aria-pressed={false}
-  className="my-two-state-btn-class button twoStateButton"
-  defaultChecked={false}
-  disabled={false}
-  id="myTwoStateButton"
-  style={Object {}}
-  type="button"
->
-  <span
-    className="twoStateButtonContent"
-  >
-    <span
-      className="column columnOne"
-    >
-      <span
-        aria-hidden={true}
-        className="icon iconWrapper"
-        data-test-id="myTwoStateButtonIconOneTestId"
-        id="myTwoStateButtonIconOne"
-        role="presentation"
-      >
-        <svg
-          role="presentation"
-          style={
-            Object {
-              "height": "20px",
-              "width": "20px",
-            }
-          }
-          viewBox="0 0 24 24"
-        >
-          <path
-            d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"
-            style={
-              Object {
-                "fill": "currentColor",
-              }
-            }
-          />
-        </svg>
-      </span>
-      <span
-        className=""
-      >
-        Two State Button
-      </span>
-      <span
-        className="badge header6 counter"
-      >
-        8
-      </span>
-    </span>
-    <span
-      className="column"
-    >
-      <span
-        aria-hidden={true}
-        className="icon iconWrapper"
-        data-test-id="myTwoStateButtonIconTwoTestId"
-        id="myTwoStateButtonIconTwo"
-        role="presentation"
-      >
-        <svg
-          role="presentation"
-          style={
-            Object {
-              "height": "20px",
-              "width": "20px",
-            }
-          }
-          viewBox="0 0 24 24"
-        >
-          <path
-            d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"
-            style={
-              Object {
-                "fill": "currentColor",
-              }
-            }
-          />
-        </svg>
-      </span>
-    </span>
-  </span>
-</button>
 `;

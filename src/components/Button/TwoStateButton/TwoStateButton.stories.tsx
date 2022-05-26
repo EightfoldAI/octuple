@@ -13,7 +13,7 @@ import {
 import { IconName } from '../../Icon';
 
 export default {
-    title: 'Two State Button',
+    title: 'Button',
     parameters: {
         docs: {
             page: (): JSX.Element => (

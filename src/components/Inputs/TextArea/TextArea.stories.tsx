@@ -4,7 +4,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { TextArea, TextInputTheme, TextInputWidth } from '../index';
 
 export default {
-    title: 'Text Area',
+    title: 'Input',
     parameters: {
         docs: {
             page: (): JSX.Element => (

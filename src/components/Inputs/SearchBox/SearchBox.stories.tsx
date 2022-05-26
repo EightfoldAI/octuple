@@ -10,7 +10,7 @@ import {
 } from '../index';
 
 export default {
-    title: 'Search Box',
+    title: 'Input',
     parameters: {
         docs: {
             page: (): JSX.Element => (

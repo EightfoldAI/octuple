@@ -10,7 +10,7 @@ import {
 } from '../index';
 
 export default {
-    title: 'Text Input',
+    title: 'Input',
     parameters: {
         docs: {
             page: (): JSX.Element => (
