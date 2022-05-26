@@ -29,12 +29,6 @@ export default {
             ),
         },
     },
-    argTypes: {
-        expanded: {
-            defaultValue: false,
-            control: { type: 'boolean' },
-        },
-    },
 } as ComponentMeta<typeof Accordion>;
 
 const accordionSummary = (count: number) => (
@@ -45,7 +39,11 @@ const accordionSummary = (count: number) => (
     </div>
 );
 
-const listItems = [
+const listItems: {
+    summary: JSX.Element;
+    body: string;
+    id: string;
+}[] = [
     {
         summary: accordionSummary(2),
         body: `Body 2 text used here. Bottom bars are sticky sections that
@@ -112,7 +110,6 @@ Single.args = {
 
 const listArgs: Object = {
     items: listItems,
-    expanded: false,
     footer: (
         <>
             <div style={{ paddingLeft: '16px' }}>
@@ -121,19 +118,7 @@ const listArgs: Object = {
         </>
     ),
     layout: 'vertical',
-    renderItem: (item: {
-        summary:
-            | boolean
-            | React.ReactChild
-            | React.ReactFragment
-            | React.ReactPortal;
-        id: string;
-        body:
-            | boolean
-            | React.ReactChild
-            | React.ReactFragment
-            | React.ReactPortal;
-    }) => (
+    renderItem: (item: { summary: JSX.Element; body: string; id: string }) => (
         <Accordion summary={item.summary} id={item.id}>
             {item.body}
         </Accordion>
