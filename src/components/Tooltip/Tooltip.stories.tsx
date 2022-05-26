@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React from 'react';
 import { Stories } from '@storybook/addon-docs';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { ButtonSize, PrimaryButton } from '../Button';
@@ -94,112 +94,60 @@ export default {
             ),
         },
     },
+    argTypes: {
+        placement: {
+            options: [
+                'top',
+                'right',
+                'bottom',
+                'left',
+                'top-start',
+                'top-end',
+                'right-start',
+                'right-end',
+                'bottom-start',
+                'bottom-end',
+                'left-start',
+                'left-end',
+            ],
+            control: { type: 'select' },
+        },
+        positionStrategy: {
+            options: ['absolute', 'fixed'],
+            control: { type: 'inline-radio' },
+        },
+        theme: {
+            options: ['light', 'dark'],
+            control: { type: 'inline-radio' },
+        },
+    },
 } as ComponentMeta<typeof Tooltip>;
 
-const Wrapper: FC = ({ children }) => (
-    <div
-        style={{
-            display: 'flex',
-            marginBottom: '16px',
-            justifyContent: 'space-around',
-        }}
-    >
-        {children}
-    </div>
+const Tooltip_Story: ComponentStory<typeof Tooltip> = (args) => (
+    <Tooltip {...args} />
 );
 
-export const Tooltips: ComponentStory<typeof Tooltip> = () => (
-    <div style={{ margin: 'auto', maxWidth: '60%', marginTop: '50px' }}>
-        <Wrapper>
-            <Tooltip content={'Light tooltip'}>
-                <PrimaryButton
-                    ariaLabel="Light bottom"
-                    onClick={_alertClicked}
-                    size={ButtonSize.Medium}
-                    text="Light bottom"
-                />
-            </Tooltip>
-            <Tooltip content={'Dark tooltip'} theme={TooltipTheme.dark}>
-                <PrimaryButton
-                    ariaLabel="Dark bottom"
-                    onClick={_alertClicked}
-                    size={ButtonSize.Medium}
-                    text="Dark bottom"
-                />
-            </Tooltip>
-        </Wrapper>
-        <Wrapper>
-            <Tooltip content={'Light tooltip'} placement={'top'}>
-                <PrimaryButton
-                    ariaLabel="Light top"
-                    onClick={_alertClicked}
-                    size={ButtonSize.Medium}
-                    text="Light top"
-                />
-            </Tooltip>
-            <Tooltip
-                content={'Dark tooltip'}
-                placement={'top'}
-                theme={TooltipTheme.dark}
-            >
-                <PrimaryButton
-                    ariaLabel="Dark top"
-                    onClick={_alertClicked}
-                    size={ButtonSize.Medium}
-                    text="Dark top"
-                />
-            </Tooltip>
-        </Wrapper>
-        <Wrapper>
-            <Tooltip content={'Light tooltip'} placement={'right'}>
-                <PrimaryButton
-                    ariaLabel="Light right"
-                    onClick={_alertClicked}
-                    size={ButtonSize.Medium}
-                    text="Light right"
-                />
-            </Tooltip>
-            <Tooltip
-                content={'Dark tooltip'}
-                placement={'right'}
-                theme={TooltipTheme.dark}
-            >
-                <PrimaryButton
-                    ariaLabel="Dark right"
-                    onClick={_alertClicked}
-                    size={ButtonSize.Medium}
-                    text="Dark right"
-                />
-            </Tooltip>
-        </Wrapper>
-        <Wrapper>
-            <Tooltip
-                content="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
-                placement={'left'}
-            >
-                <PrimaryButton
-                    ariaLabel="Light left"
-                    onClick={_alertClicked}
-                    size={ButtonSize.Medium}
-                    text="Light left"
-                />
-            </Tooltip>
-            <Tooltip
-                content={
-                    "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
-                }
-                placement={'left'}
-                theme={TooltipTheme.dark}
-            >
-                <PrimaryButton
-                    ariaLabel="Dark left"
-                    onClick={_alertClicked}
-                    size={ButtonSize.Medium}
-                    text="Dark left"
-                />
-            </Tooltip>
-        </Wrapper>
-    </div>
-);
+export const Tooltips = Tooltip_Story.bind({});
 
-function _alertClicked(): void {}
+Tooltips.args = {
+    offset: 8,
+    theme: TooltipTheme.light,
+    content: 'This is a Tooltip.',
+    placement: 'bottom',
+    disabled: false,
+    visibleArrow: true,
+    classNames: 'my-tooltip-class',
+    openDelay: 0,
+    hideAfter: 0,
+    tabIndex: 0,
+    positionStrategy: 'absolute',
+    children: (
+        <>
+            <PrimaryButton
+                ariaLabel="Show Tooltip"
+                size={ButtonSize.Medium}
+                text="Show Tooltip"
+            />
+        </>
+    ),
+};

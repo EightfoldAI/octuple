@@ -139,6 +139,12 @@ export default {
             ),
         },
     },
+    argTypes: {
+        size: {
+            options: [DialogSize.medium, DialogSize.small],
+            control: { type: 'inline-radio' },
+        },
+    },
 } as ComponentMeta<typeof Dialog>;
 
 const Medium_Story: ComponentStory<typeof Dialog> = (args) => {
@@ -167,6 +173,7 @@ const Small_Story: ComponentStory<typeof Dialog> = (args) => {
     return (
         <>
             <PrimaryButton
+                disruptive={args.okButtonProps.disruptive}
                 text={'Open dialog'}
                 onClick={() => setVisible(true)}
             />
@@ -184,6 +191,7 @@ const Small_Story: ComponentStory<typeof Dialog> = (args) => {
 export const Small = Small_Story.bind({});
 
 const dialogArgs: Object = {
+    size: DialogSize.medium,
     actionsClassNames: 'my-dialog-actions-class',
     body: 'Body 2 which is at 16px font size is used here in the body section of the dialog. The dialog body text can wrap to multiple lines.',
     bodyClassNames: 'my-dialog-body-class',
@@ -197,8 +205,10 @@ const dialogArgs: Object = {
     },
     'data-test-id': 'my-dialog-test-id',
     dialogClassNames: 'my-dialog-class',
+    dialogWrapperClassNames: 'my-dialog-wrapper-class',
     header: 'Header 4 used in this dialog',
     headerClassNames: 'my-dialog-header-class',
+    maskClosable: false,
     okButtonProps: {
         ariaLabel: 'OK',
         classNames: 'my-ok-btn-class',
@@ -208,7 +218,6 @@ const dialogArgs: Object = {
         text: 'OK',
     },
     parent: document.body,
-    size: DialogSize.medium,
     zIndex: 1000,
 };
 
@@ -218,6 +227,7 @@ Medium.args = {
 
 Small.args = {
     ...dialogArgs,
+    size: DialogSize.small,
     cancelButtonProps: {
         ariaLabel: 'Cancel',
         classNames: 'my-cancel-btn-class',
@@ -236,5 +246,4 @@ Small.args = {
         id: 'myAcceptButton',
         text: 'Accept',
     },
-    size: DialogSize.small,
 };

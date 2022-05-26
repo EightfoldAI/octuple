@@ -50,62 +50,31 @@ export default {
     },
 } as ComponentMeta<typeof MatchScore>;
 
-export const Default: ComponentStory<typeof MatchScore> = () => {
-    return (
-        <div>
-            <MatchScore score={0} />
-            <br />
-            <MatchScore score={0.5} />
-            <br />
-            <MatchScore score={1} />
-            <br />
-            <MatchScore score={1.5} />
-            <br />
-            <MatchScore score={2} />
-            <br />
-            <MatchScore score={2.5} />
-            <br />
-            <MatchScore score={3} />
-            <br />
-            <MatchScore score={3.5} />
-            <br />
-            <MatchScore score={4} />
-            <br />
-            <MatchScore score={4.5} />
-            <br />
-            <MatchScore score={5} />
-            <br />
-            <MatchScore score={20} />
-        </div>
-    );
+const Default_Story: ComponentStory<typeof MatchScore> = (args) => (
+    <MatchScore {...args} />
+);
+
+export const Default = Default_Story.bind({});
+
+const Without_Label_Story: ComponentStory<typeof MatchScore> = (args) => (
+    <MatchScore {...args} />
+);
+
+export const Without_Label = Without_Label_Story.bind({});
+
+const matchScoreArgs: Object = {
+    classNames: 'my-match-score-class',
+    score: 3,
+    total: 5,
+    hideLabel: false,
+    ariaLabel: 'score',
 };
 
-export const Without_Label: ComponentStory<typeof MatchScore> = () => {
-    return (
-        <div>
-            <MatchScore score={0} hideLabel />
-            <br />
-            <MatchScore score={0.5} hideLabel />
-            <br />
-            <MatchScore score={1} hideLabel />
-            <br />
-            <MatchScore score={1.5} hideLabel />
-            <br />
-            <MatchScore score={2} hideLabel />
-            <br />
-            <MatchScore score={2.5} hideLabel />
-            <br />
-            <MatchScore score={3} hideLabel />
-            <br />
-            <MatchScore score={3.5} hideLabel />
-            <br />
-            <MatchScore score={4} hideLabel />
-            <br />
-            <MatchScore score={4.5} hideLabel />
-            <br />
-            <MatchScore score={5} hideLabel />
-            <br />
-            <MatchScore score={20} hideLabel />
-        </div>
-    );
+Default.args = {
+    ...matchScoreArgs,
+};
+
+Without_Label.args = {
+    ...matchScoreArgs,
+    hideLabel: true,
 };

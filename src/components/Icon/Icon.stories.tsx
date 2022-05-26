@@ -78,40 +78,82 @@ export default {
             ),
         },
     },
+    argTypes: {
+        path: {
+            options: IconName,
+            control: { type: 'select' },
+        },
+        size: {
+            options: [
+                IconSize.Large,
+                IconSize.Medium,
+                IconSize.Small,
+                IconSize.XSmall,
+            ],
+            control: { type: 'select' },
+        },
+    },
 } as ComponentMeta<typeof Icon>;
 
-export const Icons: ComponentStory<typeof Icon> = () => (
-    <>
-        <h1>Icons</h1>
-        <p>X-Small</p>
-        <Icon path={IconName.mdiCardsHeart} size={IconSize.XSmall} />
-        <br />
-        <p>Small</p>
-        <Icon path={IconName.mdiCardsHeart} size={IconSize.Small} />
-        <br />
-        <p>Medium</p>
-        <Icon path={IconName.mdiCardsHeart} />
-        <br />
-        <p>Large</p>
-        <Icon path={IconName.mdiCardsHeart} size={IconSize.Large} />
-    </>
-);
+const Basic_Story: ComponentStory<typeof Icon> = (args) => <Icon {...args} />;
 
-export const IcomoonIcons: ComponentStory<typeof Icon> = () => (
+export const Basic = Basic_Story.bind({});
+
+const Icomoon_Story: ComponentStory<typeof Icon> = (args) => (
     <ConfigProvider
         icomoonIconSet={iconSet}
         themeOptions={{
             name: 'blue',
         }}
     >
-        <h1>Icons</h1>
-        <p>X-Small</p>
-        <Icon icomoonIconName="pencil" size={IconSize.XSmall} />
-        <br />
-        <p>Large</p>
-        <Icon icomoonIconName="pencil" size={IconSize.Large} />
-        <br />
-        <p>Multicolor Icon</p>
-        <Icon icomoonIconName="CareerHub" size={IconSize.Large} />
+        <Icon {...args} />
     </ConfigProvider>
 );
+
+export const Icomoon = Icomoon_Story.bind({});
+
+const Icomoon_Multicolor_Story: ComponentStory<typeof Icon> = (args) => (
+    <ConfigProvider
+        icomoonIconSet={iconSet}
+        themeOptions={{
+            name: 'blue',
+        }}
+    >
+        <Icon {...args} />
+    </ConfigProvider>
+);
+
+export const Icomoon_Multicolor = Icomoon_Multicolor_Story.bind({});
+
+const iconArgs: Object = {
+    path: IconName.mdiCardsHeart,
+    ariaHidden: false,
+    classNames: 'my-icon-class',
+    description: 'My icon description.',
+    horizontal: false,
+    id: 'myIconId',
+    role: 'presentation',
+    rotate: 0,
+    size: IconSize.Medium,
+    spin: false,
+    title: 'My icon title.',
+    vertical: false,
+    'data-test-id': 'myIconTestId',
+};
+
+Basic.args = {
+    ...iconArgs,
+    color: '#000000',
+};
+
+Icomoon.args = {
+    ...iconArgs,
+    color: '#000000',
+    icomoonIconName: 'pencil',
+};
+
+Icomoon_Multicolor.args = {
+    ...iconArgs,
+    size: IconSize.Large,
+    icomoonIconName: 'CareerHub',
+};

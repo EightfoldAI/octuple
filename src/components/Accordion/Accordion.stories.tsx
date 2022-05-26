@@ -29,6 +29,12 @@ export default {
             ),
         },
     },
+    argTypes: {
+        expanded: {
+            defaultValue: false,
+            control: { type: 'boolean' },
+        },
+    },
 } as ComponentMeta<typeof Accordion>;
 
 const accordionSummary = (count: number) => (
@@ -64,70 +70,98 @@ const listItems = [
     },
 ];
 
-export const Default: ComponentStory<typeof Accordion> = () => {
-    return (
+const Single_Story: ComponentStory<typeof Accordion> = (args) => (
+    <Accordion {...args} />
+);
+
+export const Single = Single_Story.bind({});
+
+const List_Vertical_Story: ComponentStory<typeof List> = (args) => (
+    <List {...args} />
+);
+
+export const List_Vertical = List_Vertical_Story.bind({});
+
+const List_Horizontal_Story: ComponentStory<typeof List> = (args) => (
+    <List {...args} />
+);
+
+export const List_Horizontal = List_Horizontal_Story.bind({});
+
+Single.args = {
+    children: (
         <>
-            <h2>Single Accordion</h2>
-            <div style={{ width: '500px' }}>
-                <Accordion summary={'Accordion Header'} id="single-accordion">
-                    <div>
-                        Body 2 text used here. Bottom bars are sticky sections
-                        that can be used to highlight a few actions that are out
-                        of the view to be displayed inside the view. For
-                        example, if there's a very long form with Save and
-                        Cancel buttons at the bottom, we can use the bottom bar
-                        to show those two buttons in the view. We are making
-                        these bars to be flexible in height and also allowing
-                        any component to be added inside for now, to understand
-                        use cases from the team.{' '}
-                    </div>
-                </Accordion>
+            <div style={{ height: '80px' }}>
+                Body 2 text used here. Bottom bars are sticky sections that can
+                be used to highlight a few actions that are out of the view to
+                be displayed inside the view. For example, if there's a very
+                long form with Save and Cancel buttons at the bottom, we can use
+                the bottom bar to show those two buttons in the view. We are
+                making these bars to be flexible in height and also allowing any
+                component to be added inside for now, to understand use cases
+                from the team.
             </div>
-            <br />
-            <br />
-            <h2>Accordion Notifications List Vertical</h2>
-            <List
-                items={listItems}
-                renderItem={(item) => (
-                    <Accordion summary={item.summary} id={item.id}>
-                        {item.body}
-                    </Accordion>
-                )}
-                header={
-                    <div style={{ paddingLeft: '16px' }}>
-                        <h2>Header</h2>
-                    </div>
-                }
-                footer={
-                    <div style={{ paddingLeft: '16px' }}>
-                        <h3>Footer</h3>
-                    </div>
-                }
-                itemStyle={{ padding: '8px 16px' }}
-            />
-            <br />
-            <br />
-            <h2>Accordion Notifications List Horizontal</h2>
-            <List
-                items={listItems}
-                renderItem={(item) => (
-                    <Accordion summary={item.summary} id={item.id}>
-                        {item.body}
-                    </Accordion>
-                )}
-                header={
-                    <div style={{ paddingLeft: '16px' }}>
-                        <h2>Header</h2>
-                    </div>
-                }
-                footer={
-                    <div style={{ paddingLeft: '16px' }}>
-                        <h3>Footer</h3>
-                    </div>
-                }
-                layout="horizontal"
-                itemStyle={{ padding: '8px' }}
-            />
         </>
-    );
+    ),
+    id: 'myAccordionId',
+    expandIconProps: {
+        path: IconName.mdiChevronDown,
+    },
+    summary: 'Accordion Header',
+};
+
+const listArgs: Object = {
+    items: listItems,
+    expanded: false,
+    footer: (
+        <>
+            <div style={{ paddingLeft: '16px' }}>
+                <h3>Footer</h3>
+            </div>
+        </>
+    ),
+    layout: 'vertical',
+    renderItem: (item: {
+        summary:
+            | boolean
+            | React.ReactChild
+            | React.ReactFragment
+            | React.ReactPortal;
+        id: string;
+        body:
+            | boolean
+            | React.ReactChild
+            | React.ReactFragment
+            | React.ReactPortal;
+    }) => (
+        <Accordion summary={item.summary} id={item.id}>
+            {item.body}
+        </Accordion>
+    ),
+    header: (
+        <>
+            <div style={{ paddingLeft: '16px' }}>
+                <h2>Header</h2>
+            </div>
+        </>
+    ),
+    classNames: 'my-list-class',
+    style: {},
+    itemClassNames: 'my-list-item-class',
+    itemStyle: {
+        padding: '8px 16px',
+    },
+    listType: 'ul',
+};
+
+List_Vertical.args = {
+    ...listArgs,
+};
+
+List_Horizontal.args = {
+    ...listArgs,
+    layout: 'horizontal',
+    itemStyle: {
+        padding: '8px',
+    },
 };

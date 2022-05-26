@@ -1,9 +1,15 @@
 import React, { useState } from 'react';
 import { Stories } from '@storybook/addon-docs';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { ButtonTextAlign, ButtonWidth, DefaultButton } from '../Button';
+import {
+    ButtonIconAlign,
+    ButtonTextAlign,
+    ButtonWidth,
+    DefaultButton,
+} from '../Button';
 import { Icon, IconName } from '../Icon';
 import { Dropdown } from './';
+import { List } from '../List';
 
 export default {
     title: 'Dropdown',
@@ -71,65 +77,119 @@ export default {
             ),
         },
     },
+    argTypes: {
+        trigger: {
+            options: ['click', 'hover', 'contextmenu'],
+            control: { type: 'radio' },
+        },
+        placement: {
+            options: [
+                'top',
+                'right',
+                'bottom',
+                'left',
+                'top-start',
+                'top-end',
+                'right-start',
+                'right-end',
+                'bottom-start',
+                'bottom-end',
+                'left-start',
+                'left-end',
+            ],
+            control: { type: 'select' },
+        },
+        positionStrategy: {
+            options: ['absolute', 'fixed'],
+            control: { type: 'inline-radio' },
+        },
+    },
 } as ComponentMeta<typeof Dropdown>;
 
+interface User {
+    name: string;
+    icon: IconName;
+}
+
+const sampleList: User[] = [1, 2, 3, 4, 5].map((i) => ({
+    name: `User profile ${i}`,
+    icon: IconName.mdiAccount,
+}));
+
 const Overlay = () => (
-    <div>
-        <DefaultButton
-            alignText={ButtonTextAlign.Left}
-            buttonWidth={ButtonWidth.fill}
-        />
-        <DefaultButton
-            alignText={ButtonTextAlign.Left}
-            buttonWidth={ButtonWidth.fill}
-        />
-        <DefaultButton
-            alignText={ButtonTextAlign.Left}
-            buttonWidth={ButtonWidth.fill}
-        />
-    </div>
+    <List<User>
+        items={sampleList}
+        renderItem={(item) => (
+            <DefaultButton
+                text={item.name}
+                alignText={ButtonTextAlign.Left}
+                buttonWidth={ButtonWidth.fill}
+                iconProps={{
+                    path: item.icon,
+                }}
+            />
+        )}
+    />
 );
 
-export const Dropdowns: ComponentStory<typeof Dropdown> = () => {
+const Dropdown_Button_Story: ComponentStory<typeof Dropdown> = (args) => {
     const [visible, setVisibility] = useState(false);
-
     return (
-        <>
-            <h2>Dropdown</h2>
-            <div style={{ display: 'flex', gap: '20%' }}>
-                <Dropdown overlay={Overlay()}>
-                    <DefaultButton text={'Click button start'} />
-                </Dropdown>
-                <Dropdown
-                    overlay={Overlay()}
-                    trigger="hover"
-                    placement="bottom-end"
-                    onVisibleChange={(isVisible) => setVisibility(isVisible)}
-                >
-                    <div style={{ display: 'flex' }}>
-                        Hover div
-                        <Icon
-                            path={IconName.mdiChevronDown}
-                            rotate={visible ? 180 : 0}
-                        />
-                    </div>
-                </Dropdown>
-                <Dropdown
-                    overlay={Overlay()}
-                    placement="bottom-end"
-                    onVisibleChange={(isVisible) => setVisibility(isVisible)}
-                >
-                    <div style={{ display: 'flex' }}>Click div</div>
-                </Dropdown>
-                <Dropdown
-                    overlay={Overlay()}
-                    placement="bottom-end"
-                    trigger="contextmenu"
-                    onVisibleChange={(isVisible) => setVisibility(isVisible)}
-                >
-                    <div style={{ display: 'flex' }}>Contextmenu div</div>
-                </Dropdown>
-            </div>
-        </>
+        <Dropdown
+            {...args}
+            onVisibleChange={(isVisible) => setVisibility(isVisible)}
+        >
+            <DefaultButton
+                alignIcon={ButtonIconAlign.Right}
+                text={'Click button start'}
+                iconProps={{
+                    path: IconName.mdiChevronDown,
+                    rotate: visible ? 180 : 0,
+                }}
+            />
+        </Dropdown>
     );
+};
+
+export const Dropdown_Button = Dropdown_Button_Story.bind({});
+
+const Dropdown_Div_Story: ComponentStory<typeof Dropdown> = (args) => {
+    const [visible, setVisibility] = useState(false);
+    return (
+        <Dropdown
+            {...args}
+            onVisibleChange={(isVisible) => setVisibility(isVisible)}
+        >
+            <div style={{ display: 'flex' }}>
+                <code>HTMLDivElement</code>
+                <Icon
+                    path={IconName.mdiChevronDown}
+                    rotate={visible ? 180 : 0}
+                />
+            </div>
+        </Dropdown>
+    );
+};
+
+export const Dropdown_Div = Dropdown_Div_Story.bind({});
+
+const dropdownArgs: Object = {
+    trigger: 'click',
+    classNames: 'my-dropdown-class',
+    style: {},
+    dropdownClassNames: 'my-dropdown-class',
+    dropdownStyle: {},
+    placement: 'bottom-start',
+    overlay: Overlay(),
+    offset: 0,
+    positionStrategy: 'absolute',
+    disabled: false,
+};
+
+Dropdown_Button.args = {
+    ...dropdownArgs,
+};
+
+Dropdown_Div.args = {
+    ...dropdownArgs,
 };

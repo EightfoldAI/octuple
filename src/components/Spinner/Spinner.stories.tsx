@@ -67,18 +67,25 @@ export default {
             ),
         },
     },
+    argTypes: {
+        size: {
+            options: [
+                SpinnerSize.Default,
+                SpinnerSize.Large,
+                SpinnerSize.Small,
+            ],
+            control: { type: 'select' },
+        },
+    },
 } as ComponentMeta<typeof Spinner>;
 
-export const Spinners: ComponentStory<typeof Spinner> = () => {
-    return (
-        <>
-            <h1>Spinners</h1>
-            <p>Small</p>
-            <Spinner size={SpinnerSize.Small} />
-            <p>Default</p>
-            <Spinner />
-            <p>Large</p>
-            <Spinner size={SpinnerSize.Large} />
-        </>
-    );
+const Spinner_Story: ComponentStory<typeof Spinner> = (args) => (
+    <Spinner {...args} />
+);
+
+export const Default = Spinner_Story.bind({});
+
+Default.args = {
+    size: SpinnerSize.Default,
+    classNames: 'my-spinner-class',
 };

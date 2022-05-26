@@ -90,11 +90,15 @@ export default {
     argTypes: {
         inputWidth: {
             options: [TextInputWidth.fitContent, TextInputWidth.fill],
-            control: { type: 'select' },
+            control: { type: 'inline-radio' },
         },
         shape: {
             options: [TextInputShape.Rectangle, TextInputShape.Pill],
-            control: { type: 'select' },
+            control: { type: 'inline-radio' },
+        },
+        theme: {
+            options: ['light', 'dark'],
+            control: { type: 'inline-radio' },
         },
         value: {
             control: { type: 'text' },
@@ -115,7 +119,7 @@ Text_Input.args = {
     classNames: 'my-textinput-class',
     clearButtonAriaLabel: 'Clear',
     disabled: false,
-    htmlType: 'text',
+    htmltype: 'text',
     iconProps: {
         path: IconName.mdiCardsHeart,
         color: 'red',

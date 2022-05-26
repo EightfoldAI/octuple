@@ -52,53 +52,30 @@ export default {
             ),
         },
     },
+    argTypes: {
+        size: {
+            options: [LabelSize.Large, LabelSize.Medium, LabelSize.Small],
+            control: { type: 'radio' },
+        },
+    },
 } as ComponentMeta<typeof Label>;
 
-export const Labels: ComponentStory<typeof Label> = () => {
-    return (
-        <>
-            <h1>Labels</h1>
-            <p>Large</p>
-            <Label
-                labelIconButtonProps={{
-                    show: true,
-                    toolTipContent: 'A tooltip',
-                    toolTipPlacement: 'top',
-                    onClick: () => _alertClicked(),
-                }}
-                size={LabelSize.Large}
-                text="Label"
-            />
-            <br />
-            <br />
-            <p>Medium</p>
-            <Label
-                labelIconButtonProps={{
-                    show: true,
-                    toolTipContent: 'A tooltip',
-                    toolTipPlacement: 'top',
-                    onClick: () => _alertClicked(),
-                }}
-                size={LabelSize.Medium}
-                text="Label"
-            />
-            <br />
-            <br />
-            <p>Small</p>
-            <Label
-                labelIconButtonProps={{
-                    show: true,
-                    toolTipContent: 'A tooltip',
-                    toolTipPlacement: 'top',
-                    onClick: () => _alertClicked(),
-                }}
-                size={LabelSize.Small}
-                text="Label"
-            />
-            <br />
-            <br />
-        </>
-    );
+const Label_Story: ComponentStory<typeof Label> = (args) => <Label {...args} />;
+
+export const Labels = Label_Story.bind({});
+
+Labels.args = {
+    text: 'This is a label',
+    size: LabelSize.Medium,
+    labelIconButtonProps: {
+        show: true,
+        toolTipContent: 'A tooltip',
+        toolTipPlacement: 'right',
+        onClick: () => _alertClicked(),
+    },
+    classNames: 'my-label-class',
+    colon: false,
+    htmlFor: '',
 };
 
 function _alertClicked(): void {

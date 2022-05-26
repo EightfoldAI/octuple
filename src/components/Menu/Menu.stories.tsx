@@ -30,12 +30,9 @@ export default {
     },
 } as ComponentMeta<typeof Menu>;
 
-const Overlay = (disruptive: boolean) => (
+const Overlay = (args: any) => (
     <Menu
-        onChange={(item) => {
-            console.log(item);
-        }}
-        disruptive={disruptive}
+        {...args}
         items={[
             {
                 iconProps: { path: IconName.mdiCalendar },
@@ -83,23 +80,25 @@ const Overlay = (disruptive: boolean) => (
                 value: 'date 1',
             },
         ]}
+        onChange={(item) => {
+            console.log(item);
+        }}
     />
 );
 
-export const Menus: ComponentStory<typeof Menu> = () => {
-    return (
-        <>
-            <p>Menu</p>
-            <Dropdown overlay={Overlay(false)}>
-                <DefaultButton text={'Menu dropdown'} />
-            </Dropdown>
-            <br />
-            <br />
-            <br />
-            <p>Menu (disruptive)</p>
-            <Dropdown overlay={Overlay(true)}>
-                <DefaultButton text={'Menu dropdown'} disruptive />
-            </Dropdown>
-        </>
-    );
+const Menu_Story: ComponentStory<typeof Menu> = (args) => (
+    <Dropdown overlay={Overlay(args)}>
+        <DefaultButton disruptive={args.disruptive} text={'Menu dropdown'} />
+    </Dropdown>
+);
+
+export const Menus = Menu_Story.bind({});
+
+Menus.args = {
+    disruptive: false,
+    classNames: 'my-menu-class',
+    style: {},
+    itemClassNames: 'my-menu-item-class',
+    itemStyle: {},
+    listType: 'ul',
 };

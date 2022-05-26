@@ -1,15 +1,10 @@
 import React from 'react';
 import { Stories } from '@storybook/addon-docs';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import {
-    snack,
-    Snackbar,
-    SnackbarContainer,
-    SnackbarPosition,
-    SnackbarType,
-} from './';
+import { snack, Snackbar, SnackbarContainer } from './';
 import { ButtonSize, DefaultButton } from '../Button';
 import { InfoBarType } from '../InfoBar';
+import { IconName } from '../Icon';
 
 export default {
     title: 'Snack Bar',
@@ -37,68 +32,96 @@ export default {
             ),
         },
     },
+    argTypes: {
+        position: {
+            options: [
+                'top-center',
+                'top-left',
+                'top-right',
+                'bottom-center',
+                'bottom-left',
+                'bottom-right',
+            ],
+            control: { type: 'select' },
+        },
+        type: {
+            options: [
+                InfoBarType.disruptive,
+                InfoBarType.warning,
+                InfoBarType.positive,
+                InfoBarType.neutral,
+            ],
+            control: { type: 'select' },
+        },
+    },
 } as ComponentMeta<typeof Snackbar>;
 
-export const Snack_Bars: ComponentStory<typeof Snackbar> = () => {
-    let snackIndex = 1;
+const Default_Story: ComponentStory<typeof Snackbar> = (args) => (
+    <>
+        <DefaultButton
+            text="Serve snack"
+            onClick={() => snack.serve({ ...args })}
+            size={ButtonSize.Small}
+        />
+        <SnackbarContainer />
+    </>
+);
 
-    const snackbarPositions: SnackbarPosition[] = [
-        'top-center',
-        'top-left',
-        'top-right',
-        'bottom-center',
-        'bottom-left',
-        'bottom-right',
-    ];
+export const Default = Default_Story.bind({});
 
-    const snackbarTypes: InfoBarType[] = [
-        InfoBarType.disruptive,
-        InfoBarType.warning,
-        InfoBarType.positive,
-        InfoBarType.neutral,
-    ];
+const Closable_Story: ComponentStory<typeof Snackbar> = (args) => (
+    <>
+        <DefaultButton
+            text="Serve closable snack"
+            onClick={() => snack.serve({ ...args })}
+            size={ButtonSize.Small}
+        />
+        <SnackbarContainer />
+    </>
+);
 
-    const serveSnacks = (position: SnackbarPosition) => {
-        const type: SnackbarType =
-            snackbarTypes[Math.floor(Math.random() * snackbarTypes.length)];
-        snack.serve({
-            content:
-                'Body 2 is used in this snackbar. This should be straight forward but can wrap up to two lines if needed.',
-            type,
-            position,
-            closable: !Math.round(Math.random()),
-        });
-        snackIndex += 1;
-    };
+export const Closable = Closable_Story.bind({});
 
-    return (
-        <div>
-            <h1>Snack Bars</h1>
-            {snackbarPositions.map((position) => (
-                <DefaultButton
-                    key={position}
-                    text={`Serve snack ${position.split('-').join(' ')}`}
-                    onClick={() => serveSnacks(position)}
-                    size={ButtonSize.Small}
-                />
-            ))}
-            <DefaultButton
-                text={`Serve snack with action`}
-                onClick={() => {
-                    snack.serve({
-                        content:
-                            'Body 2 is used in this snackbar. This should be straight forward but can wrap up to two lines if needed.',
-                        actionButtonProps: {
-                            text: 'Action',
-                            onClick: () => {
-                                console.log('hi i was clicked');
-                            },
-                        },
-                    });
-                }}
-                size={ButtonSize.Small}
-            />
-            <SnackbarContainer />
-        </div>
-    );
+const With_Action_Story: ComponentStory<typeof Snackbar> = (args) => (
+    <>
+        <DefaultButton
+            text="Serve snack with action"
+            onClick={() => snack.serve({ ...args })}
+            size={ButtonSize.Small}
+        />
+        <SnackbarContainer />
+    </>
+);
+
+export const With_Action = With_Action_Story.bind({});
+
+const snackArgs: Object = {
+    position: 'top-center',
+    type: 'neutral',
+    closable: false,
+    icon: IconName.mdiInformation,
+    closeIcon: IconName.mdiClose,
+    content:
+        'Body 2 is used in this snackbar. This should be straight forward but can wrap up to two lines if needed.',
+    id: 'mySnackId',
+};
+
+Default.args = {
+    ...snackArgs,
+    duration: 3000,
+};
+
+Closable.args = {
+    ...snackArgs,
+    closable: true,
+    closeButtonProps: {
+        ariaLabel: 'Close',
+    },
+};
+
+With_Action.args = {
+    ...snackArgs,
+    actionButtonProps: {
+        text: 'Action',
+    },
 };

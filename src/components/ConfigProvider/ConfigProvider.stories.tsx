@@ -13,6 +13,18 @@ import { CompactPicker } from 'react-color';
 import { ConfigProvider, OcThemeNames, useConfig } from './';
 import { MatchScore } from '../MatchScore';
 import { Spinner } from '../Spinner';
+import { Stack } from '../Stack';
+
+const theme: OcThemeNames[] = [
+    'red',
+    'orange',
+    'yellow',
+    'green',
+    'bluegreen',
+    'blue',
+    'violet',
+    'grey',
+];
 
 export default {
     title: 'Config Provider',
@@ -62,7 +74,6 @@ const ThemedComponents: FC = () => {
         ariaLabel: `Tab ${i}`,
         ...(i === 4 ? { disabled: true } : {}),
     }));
-
     const iconTabs = [1, 2, 3, 4].map((i) => ({
         value: `tab${i}`,
         icon: IconName.mdiCardsHeart,
@@ -71,8 +82,8 @@ const ThemedComponents: FC = () => {
     }));
 
     return (
-        <>
-            <h1>
+        <Stack direction="vertical" gap="xxl">
+            <h1 style={{ marginBottom: 0 }}>
                 Selected Theme:
                 <span
                     style={{
@@ -84,8 +95,8 @@ const ThemedComponents: FC = () => {
                     {themeOptions.name}
                 </span>
             </h1>
-            <div style={{ display: 'flex', alignItems: 'flex-start' }}>
-                <div style={{ marginRight: '40px' }}>
+            <Stack direction="horizontal" gap="m" style={{ marginTop: 0 }}>
+                <div>
                     <p>Predefined</p>
                     <select
                         value={themeOptions.name}
@@ -103,12 +114,11 @@ const ThemedComponents: FC = () => {
                         ))}
                     </select>
                 </div>
-                <br />
                 <div>
                     <p>Custom</p>
                     <CompactPicker
                         color={customColor}
-                        onChange={(color) => {
+                        onChange={async (color) => {
                             setThemeOptions({
                                 name: 'custom',
                                 customTheme: {
@@ -119,128 +129,108 @@ const ThemedComponents: FC = () => {
                         }}
                     />
                 </div>
-            </div>
-            <br />
-            <br />
-            <div style={{ display: 'flex', gap: '16px' }}>
+            </Stack>
+            <Stack direction="horizontal" gap="m">
                 <PrimaryButton
                     ariaLabel="Primary Button"
-                    onClick={click}
-                    size={ButtonSize.Large}
+                    size={ButtonSize.Small}
                     text="Primary Button"
                 />
                 <PrimaryButton
                     ariaLabel="Primary Button"
-                    onClick={click}
-                    size={ButtonSize.Large}
+                    size={ButtonSize.Small}
                     iconProps={{ path: IconName.mdiCardsHeart }}
                 />
                 <PrimaryButton
                     ariaLabel="Primary Button"
-                    onClick={click}
-                    size={ButtonSize.Large}
+                    size={ButtonSize.Small}
                     iconProps={{ path: IconName.mdiCardsHeart }}
                     text="Primary Button"
                 />
-            </div>
-            <br />
-            <br />
-            <div style={{ display: 'flex', gap: '16px' }}>
+            </Stack>
+            <Stack direction="horizontal" gap="m">
                 <SecondaryButton
                     ariaLabel="Secondary Button"
-                    onClick={click}
-                    size={ButtonSize.Large}
+                    size={ButtonSize.Small}
                     text="Secondary Button"
                 />
                 <SecondaryButton
                     ariaLabel="Secondary Button"
                     iconProps={{ path: IconName.mdiCardsHeart }}
-                    onClick={click}
-                    size={ButtonSize.Large}
+                    size={ButtonSize.Small}
                 />
                 <SecondaryButton
                     ariaLabel="Secondary Button"
-                    onClick={click}
-                    size={ButtonSize.Large}
+                    size={ButtonSize.Small}
                     text="Secondary Button"
                     iconProps={{ path: IconName.mdiCardsHeart }}
                 />
-            </div>
-            <br />
-            <br />
-            <div style={{ display: 'flex', gap: '16px' }}>
+            </Stack>
+            <Stack direction="horizontal" gap="m">
                 <DefaultButton
                     ariaLabel="Default Button"
-                    onClick={click}
-                    size={ButtonSize.Large}
+                    size={ButtonSize.Small}
                     text="Default Button"
                 />
                 <DefaultButton
                     ariaLabel="Default Button"
                     iconProps={{ path: IconName.mdiCardsHeart }}
-                    onClick={click}
-                    size={ButtonSize.Large}
+                    size={ButtonSize.Small}
                 />
                 <DefaultButton
                     ariaLabel="Default Button"
                     iconProps={{ path: IconName.mdiCardsHeart }}
-                    onClick={click}
-                    size={ButtonSize.Large}
+                    size={ButtonSize.Small}
                     text="Default Button"
                 />
-            </div>
-            <br />
-            <br />
-            <Tabs onChange={click} value={'tab1'}>
+            </Stack>
+            <Tabs value={'tab1'}>
                 {tabs.map((tab) => (
                     <Tab key={tab.value} {...tab} />
                 ))}
             </Tabs>
-            <br />
-            <br />
-            <Tabs onChange={click} value={'tab1'}>
+            <Tabs value={'tab1'}>
                 {iconTabs.map((tab) => (
                     <Tab key={tab.value} {...tab} />
                 ))}
             </Tabs>
-            <br />
-            <br />
-            <Tabs onChange={click} value={'tab1'} variant={TabVariant.small}>
+            <Tabs value={'tab1'} variant={TabVariant.small}>
                 {tabs.map((tab) => (
                     <Tab key={tab.value} {...tab} />
                 ))}
             </Tabs>
-            <br />
-            <br />
-            <Tabs onChange={click} value={'tab1'} variant={TabVariant.pill}>
+            <Tabs value={'tab1'} variant={TabVariant.pill}>
                 {tabs.map((tab) => (
                     <Tab key={tab.value} {...tab} />
                 ))}
             </Tabs>
-            <br />
-            <br />
             <MatchScore score={3} />
-            <br />
-            <br />
             <Spinner />
-        </>
+        </Stack>
     );
 };
 
-export const Theming: ComponentStory<typeof ConfigProvider> = ({}) => {
+const DEFAULT_FOCUS_VISIBLE: boolean = true;
+const DEFAULT_FOCUS_VISIBLE_ELEMENT: HTMLElement = document.documentElement;
+
+const Theming_Story: ComponentStory<typeof ConfigProvider> = (args) => {
     return (
-        <ConfigProvider
-            themeOptions={{
-                name: 'blue',
-            }}
-            focusVisibleOptions={{
-                focusVisible: true,
-                focusVisibleElement: document.getElementById('root'),
-            }}
-        >
+        <ConfigProvider {...args}>
             <ThemedComponents />
         </ConfigProvider>
     );
 };
 
-function click(): void {}
+export const Theming = Theming_Story.bind({});
+
+Theming.args = {
+    focusVisibleOptions: {
+        focusVisible: DEFAULT_FOCUS_VISIBLE,
+        focusVisibleElement: DEFAULT_FOCUS_VISIBLE_ELEMENT,
+    },
+    themeOptions: {
+        name: 'blue',
+    },
+    icomoonIconSet: {},
+    children: <ThemedComponents />,
+};

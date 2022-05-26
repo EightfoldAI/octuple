@@ -29,40 +29,43 @@ export default {
     },
 } as ComponentMeta<typeof Badge>;
 
-const badges = [1, 2, 100, 1000];
+const Badge_Default_Story: ComponentStory<typeof Badge> = (args) => (
+    <Badge {...args} />
+);
 
-export const Badges: ComponentStory<typeof Badge> = () => {
-    return (
-        <>
-            <h2>Badge</h2>
-            <p></p>
-            <div
-                style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}
-            >
-                {badges.map((badge) => (
-                    <Badge key={badge}>{badge}</Badge>
-                ))}
-            </div>
-            <h2>Badge (active)</h2>
-            <div
-                style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}
-            >
-                {badges.map((badge) => (
-                    <Badge key={badge} active={true}>
-                        {badge}
-                    </Badge>
-                ))}
-            </div>
-            <h2>Badge disruptive (active)</h2>
-            <div
-                style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}
-            >
-                {badges.map((badge) => (
-                    <Badge key={badge} active={true} disruptive={true}>
-                        {badge}
-                    </Badge>
-                ))}
-            </div>
-        </>
-    );
+export const Badge_Default = Badge_Default_Story.bind({});
+
+const Badge_Active_Story: ComponentStory<typeof Badge> = (args) => (
+    <Badge {...args} />
+);
+
+export const Badge_Active = Badge_Active_Story.bind({});
+
+const Badge_Disruptive_Story: ComponentStory<typeof Badge> = (args) => (
+    <Badge {...args} />
+);
+
+export const Badge_Disruptive = Badge_Disruptive_Story.bind({});
+
+const badgeArgs: Object = {
+    active: false,
+    classNames: 'my-badge-class',
+    style: {},
+    children: '8',
+    disruptive: false,
+};
+
+Badge_Default.args = {
+    ...badgeArgs,
+};
+
+Badge_Active.args = {
+    ...badgeArgs,
+    active: true,
+};
+
+Badge_Disruptive.args = {
+    ...badgeArgs,
+    active: true,
+    disruptive: true,
 };

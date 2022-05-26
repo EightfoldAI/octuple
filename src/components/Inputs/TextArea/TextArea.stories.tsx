@@ -62,7 +62,11 @@ export default {
     argTypes: {
         inputWidth: {
             options: [TextInputWidth.fitContent, TextInputWidth.fill],
-            control: { type: 'select' },
+            control: { type: 'inline-radio' },
+        },
+        theme: {
+            options: ['light', 'dark'],
+            control: { type: 'inline-radio' },
         },
         value: {
             control: { type: 'text' },
@@ -83,7 +87,7 @@ Text_Area.args = {
     classNames: 'my-textarea-class',
     disabled: false,
     enableExpand: true,
-    htmlType: 'text',
+    htmltype: 'text',
     id: 'myTextAreaId',
     inputWidth: TextInputWidth.fitContent,
     labelProps: {

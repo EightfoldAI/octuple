@@ -51,7 +51,11 @@ export default {
                 ButtonSize.Medium,
                 ButtonSize.Small,
             ],
-            control: { type: 'select' },
+            control: { type: 'radio' },
+        },
+        theme: {
+            options: ['light', 'dark'],
+            control: { type: 'inline-radio' },
         },
     },
 } as ComponentMeta<typeof BaseButton>;
