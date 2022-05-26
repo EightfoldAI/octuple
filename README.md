@@ -24,6 +24,8 @@ It represents a collection of assets, utilities, and React components for buildi
 -   Creates visual consistency across products, channels, and (potentially siloed) departments.
 -   Serves as an educational tool and reference for junior-level designers and content contributors.
 
+Visit the Octuple [Storybook site](https://eightfoldai.github.io/octuple.github.io/).
+
 ## Changelog
 
 You can view the complete list of additions, fixes, and changes in the [change log](https://github.com/EightfoldAI/octuple/blob/main/CHANGELOG.md)
