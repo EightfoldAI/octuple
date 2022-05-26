@@ -21,7 +21,7 @@ const RadioGroupProvider = ({
         e: SelectRadioButtonEvent
     ) => {
         setCurrentRadioButton(value);
-        onChange(value, e);
+        onChange?.(value, e);
     };
 
     return (
