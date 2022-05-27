@@ -31,7 +31,7 @@ const ConfigProvider: FC<ConfigProviderProps> = ({
         {} as IRegisterTheme
     );
 
-    const [fontSize, setFontSize] = useFontSize({
+    const [, setFontSize] = useFontSize({
         variableName: '--font-size',
     });
 
@@ -51,7 +51,7 @@ const ConfigProvider: FC<ConfigProviderProps> = ({
                 })
             );
         }
-        setFontSize(DEFAULT_FONT_SIZE);
+        setFontSize(themeOptions?.customTheme?.fontSize || DEFAULT_FONT_SIZE);
     }, [themeOptions]);
 
     return (
@@ -63,7 +63,7 @@ const ConfigProvider: FC<ConfigProviderProps> = ({
                 icomoonIconSet,
             }}
         >
-            <div className={`theme-${themeOptions.name}`}>{children}</div>
+            {children}
         </ConfigContext.Provider>
     );
 };

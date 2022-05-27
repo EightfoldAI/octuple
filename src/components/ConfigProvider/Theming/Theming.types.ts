@@ -25,6 +25,7 @@ export interface OcBaseTheme {
     warningColor?: Color;
     infoColor?: Color;
     errorColor?: Color;
+    fontSize?: string;
 }
 
 export interface OcTheme extends OcBaseTheme {
