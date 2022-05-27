@@ -5,6 +5,7 @@ import styles from './avatar.module.scss';
 import { AvatarProps, AvatarFallbackProps, AvatarIconProps } from './';
 import { mergeClasses } from '../../shared/utilities';
 import { Icon } from '../Icon';
+import { useMemo } from '@storybook/addons';
 
 export const AVATAR_CLASS_SET = [
     styles.disruptive,
@@ -19,12 +20,15 @@ export const AVATAR_CLASS_SET = [
 
 const AvatarFallback: FC<AvatarFallbackProps> = React.forwardRef(
     ({ children, classNames, style }, ref: Ref<HTMLDivElement>) => {
+        const colorSetIndex = useMemo(
+            () => Math.floor(Math.random() * 100) % AVATAR_CLASS_SET.length,
+            []
+        );
+
         const avatarClasses: string = mergeClasses([
             styles.wrapperStyle,
             classNames,
-            AVATAR_CLASS_SET[
-                Math.floor(Math.random() * 100) % AVATAR_CLASS_SET.length
-            ],
+            AVATAR_CLASS_SET[colorSetIndex],
         ]);
 
         return (
