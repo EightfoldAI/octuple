@@ -112,6 +112,11 @@ export function getStyle(themeOptions: ThemeOptions): IGetStyle {
         variables[`info-color`] = theme.infoColor;
     }
 
+    // ================= Font Size ==================
+    if (theme.fontSize) {
+        variables[`font-size`] = `${theme.fontSize}px`;
+    }
+
     return {
         variables,
         light: themePrimaryColor.isLight(),

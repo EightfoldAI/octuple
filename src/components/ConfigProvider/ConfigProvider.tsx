@@ -3,14 +3,12 @@ import { registerTheme } from './Theming/styleGenerator';
 import { ConfigProviderProps, IConfigContext } from './ConfigProvider.types';
 import { IRegisterTheme, ThemeOptions } from './Theming';
 import { useFocusVisibleClassName } from '../../hooks/useFocusVisibleClassName';
-import { useFontSize } from '../../hooks/useFontSize';
 
 const ConfigContext: React.Context<Partial<IConfigContext>> = createContext<
     Partial<IConfigContext>
 >({});
 
 const DEFAULT_THEME: string = 'blue';
-const DEFAULT_FONT_SIZE: number = 16;
 
 const DEFAULT_FOCUS_VISIBLE: boolean = true;
 const DEFAULT_FOCUS_VISIBLE_ELEMENT: HTMLElement = document.documentElement;
@@ -31,10 +29,6 @@ const ConfigProvider: FC<ConfigProviderProps> = ({
         {} as IRegisterTheme
     );
 
-    const [, setFontSize] = useFontSize({
-        variableName: '--font-size',
-    });
-
     if (focusVisibleOptions?.focusVisible) {
         useFocusVisibleClassName(
             focusVisibleOptions?.focusVisible,
@@ -51,7 +45,6 @@ const ConfigProvider: FC<ConfigProviderProps> = ({
                 })
             );
         }
-        setFontSize(themeOptions?.customTheme?.fontSize || DEFAULT_FONT_SIZE);
     }, [themeOptions]);
 
     return (
