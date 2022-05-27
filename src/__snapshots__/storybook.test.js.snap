@@ -617,7 +617,7 @@ exports[`Storyshots Avatar Avatar Default 1`] = `
 
 exports[`Storyshots Avatar Avatar Fallback 1`] = `
 <div
-  className="wrapperStyle imageStyle roundImage green"
+  className="wrapperStyle my-avatar-class imageStyle roundImage green"
   style={
     Object {
       "fontSize": "18px",
@@ -634,7 +634,7 @@ exports[`Storyshots Avatar Avatar Fallback 1`] = `
 
 exports[`Storyshots Avatar Avatar Icon 1`] = `
 <div
-  className="wrapperStyle imageStyle"
+  className="wrapperStyle my-avatar-class imageStyle"
   style={
     Object {
       "backgroundColor": "grey",
@@ -699,7 +699,7 @@ exports[`Storyshots Avatar Avatar Round 1`] = `
 
 exports[`Storyshots Avatar Avatar Round Icon 1`] = `
 <div
-  className="wrapperStyle imageStyle roundImage"
+  className="wrapperStyle my-avatar-class imageStyle roundImage"
   style={
     Object {
       "backgroundColor": "grey",
