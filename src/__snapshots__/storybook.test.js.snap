@@ -1298,10 +1298,1944 @@ Array [
 
 exports[`Storyshots Config Provider Theming 1`] = `
 <div
-  className="theme-blue"
+  className="stack vertical xxl"
+  style={
+    Object {
+      "alignItems": undefined,
+      "flexWrap": undefined,
+      "justifyContent": undefined,
+    }
+  }
 >
+  <h1
+    style={
+      Object {
+        "marginBottom": 0,
+      }
+    }
+  >
+    Selected Theme:
+    <span
+      style={
+        Object {
+          "color": "var(--primary-color)",
+          "marginLeft": "4px",
+          "textTransform": "capitalize",
+        }
+      }
+    >
+      blue
+    </span>
+  </h1>
   <div
-    className="stack vertical xxl"
+    className="stack horizontal m"
+    style={
+      Object {
+        "alignItems": undefined,
+        "flexWrap": undefined,
+        "justifyContent": undefined,
+        "marginTop": 0,
+      }
+    }
+  >
+    <div>
+      <p>
+        Predefined
+      </p>
+      <select
+        onChange={[Function]}
+        style={
+          Object {
+            "fontSize": "1rem",
+          }
+        }
+        value="blue"
+      >
+        <option
+          value="red"
+        >
+          red
+        </option>
+        <option
+          value="orange"
+        >
+          orange
+        </option>
+        <option
+          value="yellow"
+        >
+          yellow
+        </option>
+        <option
+          value="green"
+        >
+          green
+        </option>
+        <option
+          value="bluegreen"
+        >
+          bluegreen
+        </option>
+        <option
+          value="blue"
+        >
+          blue
+        </option>
+        <option
+          value="violet"
+        >
+          violet
+        </option>
+        <option
+          value="grey"
+        >
+          grey
+        </option>
+      </select>
+    </div>
+    <div>
+      <p>
+        Custom
+      </p>
+      <div
+        style={
+          Object {
+            "display": "inline-block",
+            "position": "relative",
+          }
+        }
+      >
+        <div
+          style={
+            Object {
+              "MozBorderRadius": 2,
+              "MozBoxShadow": "0 2px 10px rgba(0,0,0,.12), 0 2px 5px rgba(0,0,0,.16)",
+              "OBorderRadius": 2,
+              "OBoxShadow": "0 2px 10px rgba(0,0,0,.12), 0 2px 5px rgba(0,0,0,.16)",
+              "WebkitBorderRadius": 2,
+              "WebkitBoxShadow": "0 2px 10px rgba(0,0,0,.12), 0 2px 5px rgba(0,0,0,.16)",
+              "background": "#fff",
+              "borderRadius": 2,
+              "bottom": "0px",
+              "boxShadow": "0 2px 10px rgba(0,0,0,.12), 0 2px 5px rgba(0,0,0,.16)",
+              "left": "0px",
+              "msBorderRadius": 2,
+              "msBoxShadow": "0 2px 10px rgba(0,0,0,.12), 0 2px 5px rgba(0,0,0,.16)",
+              "position": "absolute",
+              "right": "0px",
+              "top": "0px",
+            }
+          }
+        />
+        <div
+          style={
+            Object {
+              "position": "relative",
+            }
+          }
+        >
+          <div
+            className="compact-picker "
+            style={
+              Object {
+                "boxSizing": "initial",
+                "paddingLeft": "5px",
+                "paddingTop": "5px",
+                "width": "240px",
+              }
+            }
+          >
+            <div>
+              <span
+                onBlur={[Function]}
+                onFocus={[Function]}
+              >
+                <div
+                  onClick={[Function]}
+                  onKeyDown={[Function]}
+                  style={
+                    Object {
+                      "background": "#4D4D4D",
+                      "cursor": "pointer",
+                      "float": "left",
+                      "height": "15px",
+                      "marginBottom": "5px",
+                      "marginRight": "5px",
+                      "outline": "none",
+                      "position": "relative",
+                      "width": "15px",
+                    }
+                  }
+                  tabIndex={0}
+                  title="#4D4D4D"
+                >
+                  <div
+                    style={
+                      Object {
+                        "MozBorderRadius": "50%",
+                        "OBorderRadius": "50%",
+                        "WebkitBorderRadius": "50%",
+                        "background": "#fff",
+                        "borderRadius": "50%",
+                        "bottom": "5px",
+                        "left": "5px",
+                        "msBorderRadius": "50%",
+                        "opacity": "0",
+                        "position": "absolute",
+                        "right": "5px",
+                        "top": "5px",
+                      }
+                    }
+                  />
+                </div>
+              </span>
+              <span
+                onBlur={[Function]}
+                onFocus={[Function]}
+              >
+                <div
+                  onClick={[Function]}
+                  onKeyDown={[Function]}
+                  style={
+                    Object {
+                      "background": "#999999",
+                      "cursor": "pointer",
+                      "float": "left",
+                      "height": "15px",
+                      "marginBottom": "5px",
+                      "marginRight": "5px",
+                      "outline": "none",
+                      "position": "relative",
+                      "width": "15px",
+                    }
+                  }
+                  tabIndex={0}
+                  title="#999999"
+                >
+                  <div
+                    style={
+                      Object {
+                        "MozBorderRadius": "50%",
+                        "OBorderRadius": "50%",
+                        "WebkitBorderRadius": "50%",
+                        "background": "#000",
+                        "borderRadius": "50%",
+                        "bottom": "5px",
+                        "left": "5px",
+                        "msBorderRadius": "50%",
+                        "opacity": "0",
+                        "position": "absolute",
+                        "right": "5px",
+                        "top": "5px",
+                      }
+                    }
+                  />
+                </div>
+              </span>
+              <span
+                onBlur={[Function]}
+                onFocus={[Function]}
+              >
+                <div
+                  onClick={[Function]}
+                  onKeyDown={[Function]}
+                  style={
+                    Object {
+                      "MozBoxShadow": "inset 0 0 0 1px #ddd",
+                      "OBoxShadow": "inset 0 0 0 1px #ddd",
+                      "WebkitBoxShadow": "inset 0 0 0 1px #ddd",
+                      "background": "#FFFFFF",
+                      "boxShadow": "inset 0 0 0 1px #ddd",
+                      "cursor": "pointer",
+                      "float": "left",
+                      "height": "15px",
+                      "marginBottom": "5px",
+                      "marginRight": "5px",
+                      "msBoxShadow": "inset 0 0 0 1px #ddd",
+                      "outline": "none",
+                      "position": "relative",
+                      "width": "15px",
+                    }
+                  }
+                  tabIndex={0}
+                  title="#FFFFFF"
+                >
+                  <div
+                    style={
+                      Object {
+                        "MozBorderRadius": "50%",
+                        "OBorderRadius": "50%",
+                        "WebkitBorderRadius": "50%",
+                        "background": "#000",
+                        "borderRadius": "50%",
+                        "bottom": "5px",
+                        "left": "5px",
+                        "msBorderRadius": "50%",
+                        "opacity": "0",
+                        "position": "absolute",
+                        "right": "5px",
+                        "top": "5px",
+                      }
+                    }
+                  />
+                </div>
+              </span>
+              <span
+                onBlur={[Function]}
+                onFocus={[Function]}
+              >
+                <div
+                  onClick={[Function]}
+                  onKeyDown={[Function]}
+                  style={
+                    Object {
+                      "background": "#F44E3B",
+                      "cursor": "pointer",
+                      "float": "left",
+                      "height": "15px",
+                      "marginBottom": "5px",
+                      "marginRight": "5px",
+                      "outline": "none",
+                      "position": "relative",
+                      "width": "15px",
+                    }
+                  }
+                  tabIndex={0}
+                  title="#F44E3B"
+                >
+                  <div
+                    style={
+                      Object {
+                        "MozBorderRadius": "50%",
+                        "OBorderRadius": "50%",
+                        "WebkitBorderRadius": "50%",
+                        "background": "#fff",
+                        "borderRadius": "50%",
+                        "bottom": "5px",
+                        "left": "5px",
+                        "msBorderRadius": "50%",
+                        "opacity": "0",
+                        "position": "absolute",
+                        "right": "5px",
+                        "top": "5px",
+                      }
+                    }
+                  />
+                </div>
+              </span>
+              <span
+                onBlur={[Function]}
+                onFocus={[Function]}
+              >
+                <div
+                  onClick={[Function]}
+                  onKeyDown={[Function]}
+                  style={
+                    Object {
+                      "background": "#FE9200",
+                      "cursor": "pointer",
+                      "float": "left",
+                      "height": "15px",
+                      "marginBottom": "5px",
+                      "marginRight": "5px",
+                      "outline": "none",
+                      "position": "relative",
+                      "width": "15px",
+                    }
+                  }
+                  tabIndex={0}
+                  title="#FE9200"
+                >
+                  <div
+                    style={
+                      Object {
+                        "MozBorderRadius": "50%",
+                        "OBorderRadius": "50%",
+                        "WebkitBorderRadius": "50%",
+                        "background": "#000",
+                        "borderRadius": "50%",
+                        "bottom": "5px",
+                        "left": "5px",
+                        "msBorderRadius": "50%",
+                        "opacity": "0",
+                        "position": "absolute",
+                        "right": "5px",
+                        "top": "5px",
+                      }
+                    }
+                  />
+                </div>
+              </span>
+              <span
+                onBlur={[Function]}
+                onFocus={[Function]}
+              >
+                <div
+                  onClick={[Function]}
+                  onKeyDown={[Function]}
+                  style={
+                    Object {
+                      "background": "#FCDC00",
+                      "cursor": "pointer",
+                      "float": "left",
+                      "height": "15px",
+                      "marginBottom": "5px",
+                      "marginRight": "5px",
+                      "outline": "none",
+                      "position": "relative",
+                      "width": "15px",
+                    }
+                  }
+                  tabIndex={0}
+                  title="#FCDC00"
+                >
+                  <div
+                    style={
+                      Object {
+                        "MozBorderRadius": "50%",
+                        "OBorderRadius": "50%",
+                        "WebkitBorderRadius": "50%",
+                        "background": "#000",
+                        "borderRadius": "50%",
+                        "bottom": "5px",
+                        "left": "5px",
+                        "msBorderRadius": "50%",
+                        "opacity": "0",
+                        "position": "absolute",
+                        "right": "5px",
+                        "top": "5px",
+                      }
+                    }
+                  />
+                </div>
+              </span>
+              <span
+                onBlur={[Function]}
+                onFocus={[Function]}
+              >
+                <div
+                  onClick={[Function]}
+                  onKeyDown={[Function]}
+                  style={
+                    Object {
+                      "background": "#DBDF00",
+                      "cursor": "pointer",
+                      "float": "left",
+                      "height": "15px",
+                      "marginBottom": "5px",
+                      "marginRight": "5px",
+                      "outline": "none",
+                      "position": "relative",
+                      "width": "15px",
+                    }
+                  }
+                  tabIndex={0}
+                  title="#DBDF00"
+                >
+                  <div
+                    style={
+                      Object {
+                        "MozBorderRadius": "50%",
+                        "OBorderRadius": "50%",
+                        "WebkitBorderRadius": "50%",
+                        "background": "#000",
+                        "borderRadius": "50%",
+                        "bottom": "5px",
+                        "left": "5px",
+                        "msBorderRadius": "50%",
+                        "opacity": "0",
+                        "position": "absolute",
+                        "right": "5px",
+                        "top": "5px",
+                      }
+                    }
+                  />
+                </div>
+              </span>
+              <span
+                onBlur={[Function]}
+                onFocus={[Function]}
+              >
+                <div
+                  onClick={[Function]}
+                  onKeyDown={[Function]}
+                  style={
+                    Object {
+                      "background": "#A4DD00",
+                      "cursor": "pointer",
+                      "float": "left",
+                      "height": "15px",
+                      "marginBottom": "5px",
+                      "marginRight": "5px",
+                      "outline": "none",
+                      "position": "relative",
+                      "width": "15px",
+                    }
+                  }
+                  tabIndex={0}
+                  title="#A4DD00"
+                >
+                  <div
+                    style={
+                      Object {
+                        "MozBorderRadius": "50%",
+                        "OBorderRadius": "50%",
+                        "WebkitBorderRadius": "50%",
+                        "background": "#000",
+                        "borderRadius": "50%",
+                        "bottom": "5px",
+                        "left": "5px",
+                        "msBorderRadius": "50%",
+                        "opacity": "0",
+                        "position": "absolute",
+                        "right": "5px",
+                        "top": "5px",
+                      }
+                    }
+                  />
+                </div>
+              </span>
+              <span
+                onBlur={[Function]}
+                onFocus={[Function]}
+              >
+                <div
+                  onClick={[Function]}
+                  onKeyDown={[Function]}
+                  style={
+                    Object {
+                      "background": "#68CCCA",
+                      "cursor": "pointer",
+                      "float": "left",
+                      "height": "15px",
+                      "marginBottom": "5px",
+                      "marginRight": "5px",
+                      "outline": "none",
+                      "position": "relative",
+                      "width": "15px",
+                    }
+                  }
+                  tabIndex={0}
+                  title="#68CCCA"
+                >
+                  <div
+                    style={
+                      Object {
+                        "MozBorderRadius": "50%",
+                        "OBorderRadius": "50%",
+                        "WebkitBorderRadius": "50%",
+                        "background": "#000",
+                        "borderRadius": "50%",
+                        "bottom": "5px",
+                        "left": "5px",
+                        "msBorderRadius": "50%",
+                        "opacity": "0",
+                        "position": "absolute",
+                        "right": "5px",
+                        "top": "5px",
+                      }
+                    }
+                  />
+                </div>
+              </span>
+              <span
+                onBlur={[Function]}
+                onFocus={[Function]}
+              >
+                <div
+                  onClick={[Function]}
+                  onKeyDown={[Function]}
+                  style={
+                    Object {
+                      "background": "#73D8FF",
+                      "cursor": "pointer",
+                      "float": "left",
+                      "height": "15px",
+                      "marginBottom": "5px",
+                      "marginRight": "5px",
+                      "outline": "none",
+                      "position": "relative",
+                      "width": "15px",
+                    }
+                  }
+                  tabIndex={0}
+                  title="#73D8FF"
+                >
+                  <div
+                    style={
+                      Object {
+                        "MozBorderRadius": "50%",
+                        "OBorderRadius": "50%",
+                        "WebkitBorderRadius": "50%",
+                        "background": "#000",
+                        "borderRadius": "50%",
+                        "bottom": "5px",
+                        "left": "5px",
+                        "msBorderRadius": "50%",
+                        "opacity": "0",
+                        "position": "absolute",
+                        "right": "5px",
+                        "top": "5px",
+                      }
+                    }
+                  />
+                </div>
+              </span>
+              <span
+                onBlur={[Function]}
+                onFocus={[Function]}
+              >
+                <div
+                  onClick={[Function]}
+                  onKeyDown={[Function]}
+                  style={
+                    Object {
+                      "background": "#AEA1FF",
+                      "cursor": "pointer",
+                      "float": "left",
+                      "height": "15px",
+                      "marginBottom": "5px",
+                      "marginRight": "5px",
+                      "outline": "none",
+                      "position": "relative",
+                      "width": "15px",
+                    }
+                  }
+                  tabIndex={0}
+                  title="#AEA1FF"
+                >
+                  <div
+                    style={
+                      Object {
+                        "MozBorderRadius": "50%",
+                        "OBorderRadius": "50%",
+                        "WebkitBorderRadius": "50%",
+                        "background": "#000",
+                        "borderRadius": "50%",
+                        "bottom": "5px",
+                        "left": "5px",
+                        "msBorderRadius": "50%",
+                        "opacity": "0",
+                        "position": "absolute",
+                        "right": "5px",
+                        "top": "5px",
+                      }
+                    }
+                  />
+                </div>
+              </span>
+              <span
+                onBlur={[Function]}
+                onFocus={[Function]}
+              >
+                <div
+                  onClick={[Function]}
+                  onKeyDown={[Function]}
+                  style={
+                    Object {
+                      "background": "#FDA1FF",
+                      "cursor": "pointer",
+                      "float": "left",
+                      "height": "15px",
+                      "marginBottom": "5px",
+                      "marginRight": "5px",
+                      "outline": "none",
+                      "position": "relative",
+                      "width": "15px",
+                    }
+                  }
+                  tabIndex={0}
+                  title="#FDA1FF"
+                >
+                  <div
+                    style={
+                      Object {
+                        "MozBorderRadius": "50%",
+                        "OBorderRadius": "50%",
+                        "WebkitBorderRadius": "50%",
+                        "background": "#000",
+                        "borderRadius": "50%",
+                        "bottom": "5px",
+                        "left": "5px",
+                        "msBorderRadius": "50%",
+                        "opacity": "0",
+                        "position": "absolute",
+                        "right": "5px",
+                        "top": "5px",
+                      }
+                    }
+                  />
+                </div>
+              </span>
+              <span
+                onBlur={[Function]}
+                onFocus={[Function]}
+              >
+                <div
+                  onClick={[Function]}
+                  onKeyDown={[Function]}
+                  style={
+                    Object {
+                      "background": "#333333",
+                      "cursor": "pointer",
+                      "float": "left",
+                      "height": "15px",
+                      "marginBottom": "5px",
+                      "marginRight": "5px",
+                      "outline": "none",
+                      "position": "relative",
+                      "width": "15px",
+                    }
+                  }
+                  tabIndex={0}
+                  title="#333333"
+                >
+                  <div
+                    style={
+                      Object {
+                        "MozBorderRadius": "50%",
+                        "OBorderRadius": "50%",
+                        "WebkitBorderRadius": "50%",
+                        "background": "#fff",
+                        "borderRadius": "50%",
+                        "bottom": "5px",
+                        "left": "5px",
+                        "msBorderRadius": "50%",
+                        "opacity": "0",
+                        "position": "absolute",
+                        "right": "5px",
+                        "top": "5px",
+                      }
+                    }
+                  />
+                </div>
+              </span>
+              <span
+                onBlur={[Function]}
+                onFocus={[Function]}
+              >
+                <div
+                  onClick={[Function]}
+                  onKeyDown={[Function]}
+                  style={
+                    Object {
+                      "background": "#808080",
+                      "cursor": "pointer",
+                      "float": "left",
+                      "height": "15px",
+                      "marginBottom": "5px",
+                      "marginRight": "5px",
+                      "outline": "none",
+                      "position": "relative",
+                      "width": "15px",
+                    }
+                  }
+                  tabIndex={0}
+                  title="#808080"
+                >
+                  <div
+                    style={
+                      Object {
+                        "MozBorderRadius": "50%",
+                        "OBorderRadius": "50%",
+                        "WebkitBorderRadius": "50%",
+                        "background": "#000",
+                        "borderRadius": "50%",
+                        "bottom": "5px",
+                        "left": "5px",
+                        "msBorderRadius": "50%",
+                        "opacity": "0",
+                        "position": "absolute",
+                        "right": "5px",
+                        "top": "5px",
+                      }
+                    }
+                  />
+                </div>
+              </span>
+              <span
+                onBlur={[Function]}
+                onFocus={[Function]}
+              >
+                <div
+                  onClick={[Function]}
+                  onKeyDown={[Function]}
+                  style={
+                    Object {
+                      "background": "#cccccc",
+                      "cursor": "pointer",
+                      "float": "left",
+                      "height": "15px",
+                      "marginBottom": "5px",
+                      "marginRight": "5px",
+                      "outline": "none",
+                      "position": "relative",
+                      "width": "15px",
+                    }
+                  }
+                  tabIndex={0}
+                  title="#cccccc"
+                >
+                  <div
+                    style={
+                      Object {
+                        "MozBorderRadius": "50%",
+                        "OBorderRadius": "50%",
+                        "WebkitBorderRadius": "50%",
+                        "background": "#000",
+                        "borderRadius": "50%",
+                        "bottom": "5px",
+                        "left": "5px",
+                        "msBorderRadius": "50%",
+                        "opacity": "0",
+                        "position": "absolute",
+                        "right": "5px",
+                        "top": "5px",
+                      }
+                    }
+                  />
+                </div>
+              </span>
+              <span
+                onBlur={[Function]}
+                onFocus={[Function]}
+              >
+                <div
+                  onClick={[Function]}
+                  onKeyDown={[Function]}
+                  style={
+                    Object {
+                      "background": "#D33115",
+                      "cursor": "pointer",
+                      "float": "left",
+                      "height": "15px",
+                      "marginBottom": "5px",
+                      "marginRight": "5px",
+                      "outline": "none",
+                      "position": "relative",
+                      "width": "15px",
+                    }
+                  }
+                  tabIndex={0}
+                  title="#D33115"
+                >
+                  <div
+                    style={
+                      Object {
+                        "MozBorderRadius": "50%",
+                        "OBorderRadius": "50%",
+                        "WebkitBorderRadius": "50%",
+                        "background": "#fff",
+                        "borderRadius": "50%",
+                        "bottom": "5px",
+                        "left": "5px",
+                        "msBorderRadius": "50%",
+                        "opacity": "0",
+                        "position": "absolute",
+                        "right": "5px",
+                        "top": "5px",
+                      }
+                    }
+                  />
+                </div>
+              </span>
+              <span
+                onBlur={[Function]}
+                onFocus={[Function]}
+              >
+                <div
+                  onClick={[Function]}
+                  onKeyDown={[Function]}
+                  style={
+                    Object {
+                      "background": "#E27300",
+                      "cursor": "pointer",
+                      "float": "left",
+                      "height": "15px",
+                      "marginBottom": "5px",
+                      "marginRight": "5px",
+                      "outline": "none",
+                      "position": "relative",
+                      "width": "15px",
+                    }
+                  }
+                  tabIndex={0}
+                  title="#E27300"
+                >
+                  <div
+                    style={
+                      Object {
+                        "MozBorderRadius": "50%",
+                        "OBorderRadius": "50%",
+                        "WebkitBorderRadius": "50%",
+                        "background": "#000",
+                        "borderRadius": "50%",
+                        "bottom": "5px",
+                        "left": "5px",
+                        "msBorderRadius": "50%",
+                        "opacity": "0",
+                        "position": "absolute",
+                        "right": "5px",
+                        "top": "5px",
+                      }
+                    }
+                  />
+                </div>
+              </span>
+              <span
+                onBlur={[Function]}
+                onFocus={[Function]}
+              >
+                <div
+                  onClick={[Function]}
+                  onKeyDown={[Function]}
+                  style={
+                    Object {
+                      "background": "#FCC400",
+                      "cursor": "pointer",
+                      "float": "left",
+                      "height": "15px",
+                      "marginBottom": "5px",
+                      "marginRight": "5px",
+                      "outline": "none",
+                      "position": "relative",
+                      "width": "15px",
+                    }
+                  }
+                  tabIndex={0}
+                  title="#FCC400"
+                >
+                  <div
+                    style={
+                      Object {
+                        "MozBorderRadius": "50%",
+                        "OBorderRadius": "50%",
+                        "WebkitBorderRadius": "50%",
+                        "background": "#000",
+                        "borderRadius": "50%",
+                        "bottom": "5px",
+                        "left": "5px",
+                        "msBorderRadius": "50%",
+                        "opacity": "0",
+                        "position": "absolute",
+                        "right": "5px",
+                        "top": "5px",
+                      }
+                    }
+                  />
+                </div>
+              </span>
+              <span
+                onBlur={[Function]}
+                onFocus={[Function]}
+              >
+                <div
+                  onClick={[Function]}
+                  onKeyDown={[Function]}
+                  style={
+                    Object {
+                      "background": "#B0BC00",
+                      "cursor": "pointer",
+                      "float": "left",
+                      "height": "15px",
+                      "marginBottom": "5px",
+                      "marginRight": "5px",
+                      "outline": "none",
+                      "position": "relative",
+                      "width": "15px",
+                    }
+                  }
+                  tabIndex={0}
+                  title="#B0BC00"
+                >
+                  <div
+                    style={
+                      Object {
+                        "MozBorderRadius": "50%",
+                        "OBorderRadius": "50%",
+                        "WebkitBorderRadius": "50%",
+                        "background": "#000",
+                        "borderRadius": "50%",
+                        "bottom": "5px",
+                        "left": "5px",
+                        "msBorderRadius": "50%",
+                        "opacity": "0",
+                        "position": "absolute",
+                        "right": "5px",
+                        "top": "5px",
+                      }
+                    }
+                  />
+                </div>
+              </span>
+              <span
+                onBlur={[Function]}
+                onFocus={[Function]}
+              >
+                <div
+                  onClick={[Function]}
+                  onKeyDown={[Function]}
+                  style={
+                    Object {
+                      "background": "#68BC00",
+                      "cursor": "pointer",
+                      "float": "left",
+                      "height": "15px",
+                      "marginBottom": "5px",
+                      "marginRight": "5px",
+                      "outline": "none",
+                      "position": "relative",
+                      "width": "15px",
+                    }
+                  }
+                  tabIndex={0}
+                  title="#68BC00"
+                >
+                  <div
+                    style={
+                      Object {
+                        "MozBorderRadius": "50%",
+                        "OBorderRadius": "50%",
+                        "WebkitBorderRadius": "50%",
+                        "background": "#000",
+                        "borderRadius": "50%",
+                        "bottom": "5px",
+                        "left": "5px",
+                        "msBorderRadius": "50%",
+                        "opacity": "0",
+                        "position": "absolute",
+                        "right": "5px",
+                        "top": "5px",
+                      }
+                    }
+                  />
+                </div>
+              </span>
+              <span
+                onBlur={[Function]}
+                onFocus={[Function]}
+              >
+                <div
+                  onClick={[Function]}
+                  onKeyDown={[Function]}
+                  style={
+                    Object {
+                      "background": "#16A5A5",
+                      "cursor": "pointer",
+                      "float": "left",
+                      "height": "15px",
+                      "marginBottom": "5px",
+                      "marginRight": "5px",
+                      "outline": "none",
+                      "position": "relative",
+                      "width": "15px",
+                    }
+                  }
+                  tabIndex={0}
+                  title="#16A5A5"
+                >
+                  <div
+                    style={
+                      Object {
+                        "MozBorderRadius": "50%",
+                        "OBorderRadius": "50%",
+                        "WebkitBorderRadius": "50%",
+                        "background": "#fff",
+                        "borderRadius": "50%",
+                        "bottom": "5px",
+                        "left": "5px",
+                        "msBorderRadius": "50%",
+                        "opacity": "0",
+                        "position": "absolute",
+                        "right": "5px",
+                        "top": "5px",
+                      }
+                    }
+                  />
+                </div>
+              </span>
+              <span
+                onBlur={[Function]}
+                onFocus={[Function]}
+              >
+                <div
+                  onClick={[Function]}
+                  onKeyDown={[Function]}
+                  style={
+                    Object {
+                      "background": "#009CE0",
+                      "cursor": "pointer",
+                      "float": "left",
+                      "height": "15px",
+                      "marginBottom": "5px",
+                      "marginRight": "5px",
+                      "outline": "none",
+                      "position": "relative",
+                      "width": "15px",
+                    }
+                  }
+                  tabIndex={0}
+                  title="#009CE0"
+                >
+                  <div
+                    style={
+                      Object {
+                        "MozBorderRadius": "50%",
+                        "OBorderRadius": "50%",
+                        "WebkitBorderRadius": "50%",
+                        "background": "#fff",
+                        "borderRadius": "50%",
+                        "bottom": "5px",
+                        "left": "5px",
+                        "msBorderRadius": "50%",
+                        "opacity": "0",
+                        "position": "absolute",
+                        "right": "5px",
+                        "top": "5px",
+                      }
+                    }
+                  />
+                </div>
+              </span>
+              <span
+                onBlur={[Function]}
+                onFocus={[Function]}
+              >
+                <div
+                  onClick={[Function]}
+                  onKeyDown={[Function]}
+                  style={
+                    Object {
+                      "background": "#7B64FF",
+                      "cursor": "pointer",
+                      "float": "left",
+                      "height": "15px",
+                      "marginBottom": "5px",
+                      "marginRight": "5px",
+                      "outline": "none",
+                      "position": "relative",
+                      "width": "15px",
+                    }
+                  }
+                  tabIndex={0}
+                  title="#7B64FF"
+                >
+                  <div
+                    style={
+                      Object {
+                        "MozBorderRadius": "50%",
+                        "OBorderRadius": "50%",
+                        "WebkitBorderRadius": "50%",
+                        "background": "#fff",
+                        "borderRadius": "50%",
+                        "bottom": "5px",
+                        "left": "5px",
+                        "msBorderRadius": "50%",
+                        "opacity": "0",
+                        "position": "absolute",
+                        "right": "5px",
+                        "top": "5px",
+                      }
+                    }
+                  />
+                </div>
+              </span>
+              <span
+                onBlur={[Function]}
+                onFocus={[Function]}
+              >
+                <div
+                  onClick={[Function]}
+                  onKeyDown={[Function]}
+                  style={
+                    Object {
+                      "background": "#FA28FF",
+                      "cursor": "pointer",
+                      "float": "left",
+                      "height": "15px",
+                      "marginBottom": "5px",
+                      "marginRight": "5px",
+                      "outline": "none",
+                      "position": "relative",
+                      "width": "15px",
+                    }
+                  }
+                  tabIndex={0}
+                  title="#FA28FF"
+                >
+                  <div
+                    style={
+                      Object {
+                        "MozBorderRadius": "50%",
+                        "OBorderRadius": "50%",
+                        "WebkitBorderRadius": "50%",
+                        "background": "#fff",
+                        "borderRadius": "50%",
+                        "bottom": "5px",
+                        "left": "5px",
+                        "msBorderRadius": "50%",
+                        "opacity": "0",
+                        "position": "absolute",
+                        "right": "5px",
+                        "top": "5px",
+                      }
+                    }
+                  />
+                </div>
+              </span>
+              <span
+                onBlur={[Function]}
+                onFocus={[Function]}
+              >
+                <div
+                  onClick={[Function]}
+                  onKeyDown={[Function]}
+                  style={
+                    Object {
+                      "background": "#000000",
+                      "cursor": "pointer",
+                      "float": "left",
+                      "height": "15px",
+                      "marginBottom": "5px",
+                      "marginRight": "5px",
+                      "outline": "none",
+                      "position": "relative",
+                      "width": "15px",
+                    }
+                  }
+                  tabIndex={0}
+                  title="#000000"
+                >
+                  <div
+                    style={
+                      Object {
+                        "MozBorderRadius": "50%",
+                        "OBorderRadius": "50%",
+                        "WebkitBorderRadius": "50%",
+                        "background": "#fff",
+                        "borderRadius": "50%",
+                        "bottom": "5px",
+                        "left": "5px",
+                        "msBorderRadius": "50%",
+                        "opacity": "1",
+                        "position": "absolute",
+                        "right": "5px",
+                        "top": "5px",
+                      }
+                    }
+                  />
+                </div>
+              </span>
+              <span
+                onBlur={[Function]}
+                onFocus={[Function]}
+              >
+                <div
+                  onClick={[Function]}
+                  onKeyDown={[Function]}
+                  style={
+                    Object {
+                      "background": "#666666",
+                      "cursor": "pointer",
+                      "float": "left",
+                      "height": "15px",
+                      "marginBottom": "5px",
+                      "marginRight": "5px",
+                      "outline": "none",
+                      "position": "relative",
+                      "width": "15px",
+                    }
+                  }
+                  tabIndex={0}
+                  title="#666666"
+                >
+                  <div
+                    style={
+                      Object {
+                        "MozBorderRadius": "50%",
+                        "OBorderRadius": "50%",
+                        "WebkitBorderRadius": "50%",
+                        "background": "#fff",
+                        "borderRadius": "50%",
+                        "bottom": "5px",
+                        "left": "5px",
+                        "msBorderRadius": "50%",
+                        "opacity": "0",
+                        "position": "absolute",
+                        "right": "5px",
+                        "top": "5px",
+                      }
+                    }
+                  />
+                </div>
+              </span>
+              <span
+                onBlur={[Function]}
+                onFocus={[Function]}
+              >
+                <div
+                  onClick={[Function]}
+                  onKeyDown={[Function]}
+                  style={
+                    Object {
+                      "background": "#B3B3B3",
+                      "cursor": "pointer",
+                      "float": "left",
+                      "height": "15px",
+                      "marginBottom": "5px",
+                      "marginRight": "5px",
+                      "outline": "none",
+                      "position": "relative",
+                      "width": "15px",
+                    }
+                  }
+                  tabIndex={0}
+                  title="#B3B3B3"
+                >
+                  <div
+                    style={
+                      Object {
+                        "MozBorderRadius": "50%",
+                        "OBorderRadius": "50%",
+                        "WebkitBorderRadius": "50%",
+                        "background": "#000",
+                        "borderRadius": "50%",
+                        "bottom": "5px",
+                        "left": "5px",
+                        "msBorderRadius": "50%",
+                        "opacity": "0",
+                        "position": "absolute",
+                        "right": "5px",
+                        "top": "5px",
+                      }
+                    }
+                  />
+                </div>
+              </span>
+              <span
+                onBlur={[Function]}
+                onFocus={[Function]}
+              >
+                <div
+                  onClick={[Function]}
+                  onKeyDown={[Function]}
+                  style={
+                    Object {
+                      "background": "#9F0500",
+                      "cursor": "pointer",
+                      "float": "left",
+                      "height": "15px",
+                      "marginBottom": "5px",
+                      "marginRight": "5px",
+                      "outline": "none",
+                      "position": "relative",
+                      "width": "15px",
+                    }
+                  }
+                  tabIndex={0}
+                  title="#9F0500"
+                >
+                  <div
+                    style={
+                      Object {
+                        "MozBorderRadius": "50%",
+                        "OBorderRadius": "50%",
+                        "WebkitBorderRadius": "50%",
+                        "background": "#fff",
+                        "borderRadius": "50%",
+                        "bottom": "5px",
+                        "left": "5px",
+                        "msBorderRadius": "50%",
+                        "opacity": "0",
+                        "position": "absolute",
+                        "right": "5px",
+                        "top": "5px",
+                      }
+                    }
+                  />
+                </div>
+              </span>
+              <span
+                onBlur={[Function]}
+                onFocus={[Function]}
+              >
+                <div
+                  onClick={[Function]}
+                  onKeyDown={[Function]}
+                  style={
+                    Object {
+                      "background": "#C45100",
+                      "cursor": "pointer",
+                      "float": "left",
+                      "height": "15px",
+                      "marginBottom": "5px",
+                      "marginRight": "5px",
+                      "outline": "none",
+                      "position": "relative",
+                      "width": "15px",
+                    }
+                  }
+                  tabIndex={0}
+                  title="#C45100"
+                >
+                  <div
+                    style={
+                      Object {
+                        "MozBorderRadius": "50%",
+                        "OBorderRadius": "50%",
+                        "WebkitBorderRadius": "50%",
+                        "background": "#fff",
+                        "borderRadius": "50%",
+                        "bottom": "5px",
+                        "left": "5px",
+                        "msBorderRadius": "50%",
+                        "opacity": "0",
+                        "position": "absolute",
+                        "right": "5px",
+                        "top": "5px",
+                      }
+                    }
+                  />
+                </div>
+              </span>
+              <span
+                onBlur={[Function]}
+                onFocus={[Function]}
+              >
+                <div
+                  onClick={[Function]}
+                  onKeyDown={[Function]}
+                  style={
+                    Object {
+                      "background": "#FB9E00",
+                      "cursor": "pointer",
+                      "float": "left",
+                      "height": "15px",
+                      "marginBottom": "5px",
+                      "marginRight": "5px",
+                      "outline": "none",
+                      "position": "relative",
+                      "width": "15px",
+                    }
+                  }
+                  tabIndex={0}
+                  title="#FB9E00"
+                >
+                  <div
+                    style={
+                      Object {
+                        "MozBorderRadius": "50%",
+                        "OBorderRadius": "50%",
+                        "WebkitBorderRadius": "50%",
+                        "background": "#000",
+                        "borderRadius": "50%",
+                        "bottom": "5px",
+                        "left": "5px",
+                        "msBorderRadius": "50%",
+                        "opacity": "0",
+                        "position": "absolute",
+                        "right": "5px",
+                        "top": "5px",
+                      }
+                    }
+                  />
+                </div>
+              </span>
+              <span
+                onBlur={[Function]}
+                onFocus={[Function]}
+              >
+                <div
+                  onClick={[Function]}
+                  onKeyDown={[Function]}
+                  style={
+                    Object {
+                      "background": "#808900",
+                      "cursor": "pointer",
+                      "float": "left",
+                      "height": "15px",
+                      "marginBottom": "5px",
+                      "marginRight": "5px",
+                      "outline": "none",
+                      "position": "relative",
+                      "width": "15px",
+                    }
+                  }
+                  tabIndex={0}
+                  title="#808900"
+                >
+                  <div
+                    style={
+                      Object {
+                        "MozBorderRadius": "50%",
+                        "OBorderRadius": "50%",
+                        "WebkitBorderRadius": "50%",
+                        "background": "#fff",
+                        "borderRadius": "50%",
+                        "bottom": "5px",
+                        "left": "5px",
+                        "msBorderRadius": "50%",
+                        "opacity": "0",
+                        "position": "absolute",
+                        "right": "5px",
+                        "top": "5px",
+                      }
+                    }
+                  />
+                </div>
+              </span>
+              <span
+                onBlur={[Function]}
+                onFocus={[Function]}
+              >
+                <div
+                  onClick={[Function]}
+                  onKeyDown={[Function]}
+                  style={
+                    Object {
+                      "background": "#194D33",
+                      "cursor": "pointer",
+                      "float": "left",
+                      "height": "15px",
+                      "marginBottom": "5px",
+                      "marginRight": "5px",
+                      "outline": "none",
+                      "position": "relative",
+                      "width": "15px",
+                    }
+                  }
+                  tabIndex={0}
+                  title="#194D33"
+                >
+                  <div
+                    style={
+                      Object {
+                        "MozBorderRadius": "50%",
+                        "OBorderRadius": "50%",
+                        "WebkitBorderRadius": "50%",
+                        "background": "#fff",
+                        "borderRadius": "50%",
+                        "bottom": "5px",
+                        "left": "5px",
+                        "msBorderRadius": "50%",
+                        "opacity": "0",
+                        "position": "absolute",
+                        "right": "5px",
+                        "top": "5px",
+                      }
+                    }
+                  />
+                </div>
+              </span>
+              <span
+                onBlur={[Function]}
+                onFocus={[Function]}
+              >
+                <div
+                  onClick={[Function]}
+                  onKeyDown={[Function]}
+                  style={
+                    Object {
+                      "background": "#0C797D",
+                      "cursor": "pointer",
+                      "float": "left",
+                      "height": "15px",
+                      "marginBottom": "5px",
+                      "marginRight": "5px",
+                      "outline": "none",
+                      "position": "relative",
+                      "width": "15px",
+                    }
+                  }
+                  tabIndex={0}
+                  title="#0C797D"
+                >
+                  <div
+                    style={
+                      Object {
+                        "MozBorderRadius": "50%",
+                        "OBorderRadius": "50%",
+                        "WebkitBorderRadius": "50%",
+                        "background": "#fff",
+                        "borderRadius": "50%",
+                        "bottom": "5px",
+                        "left": "5px",
+                        "msBorderRadius": "50%",
+                        "opacity": "0",
+                        "position": "absolute",
+                        "right": "5px",
+                        "top": "5px",
+                      }
+                    }
+                  />
+                </div>
+              </span>
+              <span
+                onBlur={[Function]}
+                onFocus={[Function]}
+              >
+                <div
+                  onClick={[Function]}
+                  onKeyDown={[Function]}
+                  style={
+                    Object {
+                      "background": "#0062B1",
+                      "cursor": "pointer",
+                      "float": "left",
+                      "height": "15px",
+                      "marginBottom": "5px",
+                      "marginRight": "5px",
+                      "outline": "none",
+                      "position": "relative",
+                      "width": "15px",
+                    }
+                  }
+                  tabIndex={0}
+                  title="#0062B1"
+                >
+                  <div
+                    style={
+                      Object {
+                        "MozBorderRadius": "50%",
+                        "OBorderRadius": "50%",
+                        "WebkitBorderRadius": "50%",
+                        "background": "#fff",
+                        "borderRadius": "50%",
+                        "bottom": "5px",
+                        "left": "5px",
+                        "msBorderRadius": "50%",
+                        "opacity": "0",
+                        "position": "absolute",
+                        "right": "5px",
+                        "top": "5px",
+                      }
+                    }
+                  />
+                </div>
+              </span>
+              <span
+                onBlur={[Function]}
+                onFocus={[Function]}
+              >
+                <div
+                  onClick={[Function]}
+                  onKeyDown={[Function]}
+                  style={
+                    Object {
+                      "background": "#653294",
+                      "cursor": "pointer",
+                      "float": "left",
+                      "height": "15px",
+                      "marginBottom": "5px",
+                      "marginRight": "5px",
+                      "outline": "none",
+                      "position": "relative",
+                      "width": "15px",
+                    }
+                  }
+                  tabIndex={0}
+                  title="#653294"
+                >
+                  <div
+                    style={
+                      Object {
+                        "MozBorderRadius": "50%",
+                        "OBorderRadius": "50%",
+                        "WebkitBorderRadius": "50%",
+                        "background": "#fff",
+                        "borderRadius": "50%",
+                        "bottom": "5px",
+                        "left": "5px",
+                        "msBorderRadius": "50%",
+                        "opacity": "0",
+                        "position": "absolute",
+                        "right": "5px",
+                        "top": "5px",
+                      }
+                    }
+                  />
+                </div>
+              </span>
+              <span
+                onBlur={[Function]}
+                onFocus={[Function]}
+              >
+                <div
+                  onClick={[Function]}
+                  onKeyDown={[Function]}
+                  style={
+                    Object {
+                      "background": "#AB149E",
+                      "cursor": "pointer",
+                      "float": "left",
+                      "height": "15px",
+                      "marginBottom": "5px",
+                      "marginRight": "5px",
+                      "outline": "none",
+                      "position": "relative",
+                      "width": "15px",
+                    }
+                  }
+                  tabIndex={0}
+                  title="#AB149E"
+                >
+                  <div
+                    style={
+                      Object {
+                        "MozBorderRadius": "50%",
+                        "OBorderRadius": "50%",
+                        "WebkitBorderRadius": "50%",
+                        "background": "#fff",
+                        "borderRadius": "50%",
+                        "bottom": "5px",
+                        "left": "5px",
+                        "msBorderRadius": "50%",
+                        "opacity": "0",
+                        "position": "absolute",
+                        "right": "5px",
+                        "top": "5px",
+                      }
+                    }
+                  />
+                </div>
+              </span>
+              <div
+                style={
+                  Object {
+                    "clear": "both",
+                  }
+                }
+              />
+            </div>
+            <div
+              className="flexbox-fix"
+              style={
+                Object {
+                  "display": "flex",
+                  "paddingBottom": "6px",
+                  "paddingRight": "5px",
+                  "position": "relative",
+                }
+              }
+            >
+              <div
+                style={
+                  Object {
+                    "background": "#000000",
+                    "height": "9px",
+                    "left": "5px",
+                    "position": "absolute",
+                    "top": "6px",
+                    "width": "9px",
+                  }
+                }
+              />
+              <div
+                style={
+                  Object {
+                    "MozBoxFlex": "6",
+                    "WebkitBoxFlex": "6",
+                    "WebkitFlex": "6",
+                    "flex": "6",
+                    "msFlex": "6",
+                    "position": "relative",
+                  }
+                }
+              >
+                <input
+                  id="rc-editable-input-1"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  onKeyDown={[Function]}
+                  spellCheck="false"
+                  style={
+                    Object {
+                      "background": "none",
+                      "border": "none",
+                      "color": "#333",
+                      "fontSize": "12px",
+                      "height": "16px",
+                      "outline": "none",
+                      "padding": "0px",
+                      "paddingLeft": "20%",
+                      "width": "80%",
+                    }
+                  }
+                  value="#000000"
+                />
+                <label
+                  htmlFor="rc-editable-input-1"
+                  onMouseDown={[Function]}
+                  style={
+                    Object {
+                      "display": "none",
+                    }
+                  }
+                >
+                  hex
+                </label>
+              </div>
+              <div
+                style={
+                  Object {
+                    "MozBoxFlex": "3",
+                    "WebkitBoxFlex": "3",
+                    "WebkitFlex": "3",
+                    "flex": "3",
+                    "msFlex": "3",
+                    "position": "relative",
+                  }
+                }
+              >
+                <input
+                  id="rc-editable-input-2"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  onKeyDown={[Function]}
+                  spellCheck="false"
+                  style={
+                    Object {
+                      "background": "none",
+                      "border": "none",
+                      "color": "#333",
+                      "fontSize": "12px",
+                      "height": "16px",
+                      "outline": "none",
+                      "padding": "0px",
+                      "paddingLeft": "30%",
+                      "width": "70%",
+                    }
+                  }
+                  value="0"
+                />
+                <label
+                  htmlFor="rc-editable-input-2"
+                  onMouseDown={[Function]}
+                  style={
+                    Object {
+                      "color": "#999",
+                      "fontSize": "12px",
+                      "left": "0px",
+                      "lineHeight": "16px",
+                      "position": "absolute",
+                      "textTransform": "uppercase",
+                      "top": "3px",
+                    }
+                  }
+                >
+                  r
+                </label>
+              </div>
+              <div
+                style={
+                  Object {
+                    "MozBoxFlex": "3",
+                    "WebkitBoxFlex": "3",
+                    "WebkitFlex": "3",
+                    "flex": "3",
+                    "msFlex": "3",
+                    "position": "relative",
+                  }
+                }
+              >
+                <input
+                  id="rc-editable-input-3"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  onKeyDown={[Function]}
+                  spellCheck="false"
+                  style={
+                    Object {
+                      "background": "none",
+                      "border": "none",
+                      "color": "#333",
+                      "fontSize": "12px",
+                      "height": "16px",
+                      "outline": "none",
+                      "padding": "0px",
+                      "paddingLeft": "30%",
+                      "width": "70%",
+                    }
+                  }
+                  value="0"
+                />
+                <label
+                  htmlFor="rc-editable-input-3"
+                  onMouseDown={[Function]}
+                  style={
+                    Object {
+                      "color": "#999",
+                      "fontSize": "12px",
+                      "left": "0px",
+                      "lineHeight": "16px",
+                      "position": "absolute",
+                      "textTransform": "uppercase",
+                      "top": "3px",
+                    }
+                  }
+                >
+                  g
+                </label>
+              </div>
+              <div
+                style={
+                  Object {
+                    "MozBoxFlex": "3",
+                    "WebkitBoxFlex": "3",
+                    "WebkitFlex": "3",
+                    "flex": "3",
+                    "msFlex": "3",
+                    "position": "relative",
+                  }
+                }
+              >
+                <input
+                  id="rc-editable-input-4"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  onKeyDown={[Function]}
+                  spellCheck="false"
+                  style={
+                    Object {
+                      "background": "none",
+                      "border": "none",
+                      "color": "#333",
+                      "fontSize": "12px",
+                      "height": "16px",
+                      "outline": "none",
+                      "padding": "0px",
+                      "paddingLeft": "30%",
+                      "width": "70%",
+                    }
+                  }
+                  value="0"
+                />
+                <label
+                  htmlFor="rc-editable-input-4"
+                  onMouseDown={[Function]}
+                  style={
+                    Object {
+                      "color": "#999",
+                      "fontSize": "12px",
+                      "left": "0px",
+                      "lineHeight": "16px",
+                      "position": "absolute",
+                      "textTransform": "uppercase",
+                      "top": "3px",
+                    }
+                  }
+                >
+                  b
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="stack horizontal m"
     style={
       Object {
         "alignItems": undefined,
@@ -1310,2642 +3244,704 @@ exports[`Storyshots Config Provider Theming 1`] = `
       }
     }
   >
-    <h1
-      style={
-        Object {
-          "marginBottom": 0,
-        }
-      }
+    <button
+      aria-disabled={false}
+      aria-label="Primary Button"
+      className="button buttonPrimary buttonSize3"
+      defaultChecked={false}
+      disabled={false}
     >
-      Selected Theme:
       <span
-        style={
-          Object {
-            "color": "var(--primary-color)",
-            "marginLeft": "4px",
-            "textTransform": "capitalize",
-          }
-        }
+        className="buttonText3"
       >
-        blue
+        Primary Button
       </span>
-    </h1>
-    <div
-      className="stack horizontal m"
-      style={
-        Object {
-          "alignItems": undefined,
-          "flexWrap": undefined,
-          "justifyContent": undefined,
-          "marginTop": 0,
-        }
-      }
+    </button>
+    <button
+      aria-disabled={false}
+      aria-label="Primary Button"
+      className="button buttonPrimary buttonSize3 iconLeft"
+      defaultChecked={false}
+      disabled={false}
     >
-      <div>
-        <p>
-          Predefined
-        </p>
-        <select
-          onChange={[Function]}
-          style={
-            Object {
-              "fontSize": "1rem",
-            }
-          }
-          value="blue"
-        >
-          <option
-            value="red"
-          >
-            red
-          </option>
-          <option
-            value="orange"
-          >
-            orange
-          </option>
-          <option
-            value="yellow"
-          >
-            yellow
-          </option>
-          <option
-            value="green"
-          >
-            green
-          </option>
-          <option
-            value="bluegreen"
-          >
-            bluegreen
-          </option>
-          <option
-            value="blue"
-          >
-            blue
-          </option>
-          <option
-            value="violet"
-          >
-            violet
-          </option>
-          <option
-            value="grey"
-          >
-            grey
-          </option>
-        </select>
-      </div>
-      <div>
-        <p>
-          Custom
-        </p>
-        <div
-          style={
-            Object {
-              "display": "inline-block",
-              "position": "relative",
-            }
-          }
-        >
-          <div
-            style={
-              Object {
-                "MozBorderRadius": 2,
-                "MozBoxShadow": "0 2px 10px rgba(0,0,0,.12), 0 2px 5px rgba(0,0,0,.16)",
-                "OBorderRadius": 2,
-                "OBoxShadow": "0 2px 10px rgba(0,0,0,.12), 0 2px 5px rgba(0,0,0,.16)",
-                "WebkitBorderRadius": 2,
-                "WebkitBoxShadow": "0 2px 10px rgba(0,0,0,.12), 0 2px 5px rgba(0,0,0,.16)",
-                "background": "#fff",
-                "borderRadius": 2,
-                "bottom": "0px",
-                "boxShadow": "0 2px 10px rgba(0,0,0,.12), 0 2px 5px rgba(0,0,0,.16)",
-                "left": "0px",
-                "msBorderRadius": 2,
-                "msBoxShadow": "0 2px 10px rgba(0,0,0,.12), 0 2px 5px rgba(0,0,0,.16)",
-                "position": "absolute",
-                "right": "0px",
-                "top": "0px",
-              }
-            }
-          />
-          <div
-            style={
-              Object {
-                "position": "relative",
-              }
-            }
-          >
-            <div
-              className="compact-picker "
-              style={
-                Object {
-                  "boxSizing": "initial",
-                  "paddingLeft": "5px",
-                  "paddingTop": "5px",
-                  "width": "240px",
-                }
-              }
-            >
-              <div>
-                <span
-                  onBlur={[Function]}
-                  onFocus={[Function]}
-                >
-                  <div
-                    onClick={[Function]}
-                    onKeyDown={[Function]}
-                    style={
-                      Object {
-                        "background": "#4D4D4D",
-                        "cursor": "pointer",
-                        "float": "left",
-                        "height": "15px",
-                        "marginBottom": "5px",
-                        "marginRight": "5px",
-                        "outline": "none",
-                        "position": "relative",
-                        "width": "15px",
-                      }
-                    }
-                    tabIndex={0}
-                    title="#4D4D4D"
-                  >
-                    <div
-                      style={
-                        Object {
-                          "MozBorderRadius": "50%",
-                          "OBorderRadius": "50%",
-                          "WebkitBorderRadius": "50%",
-                          "background": "#fff",
-                          "borderRadius": "50%",
-                          "bottom": "5px",
-                          "left": "5px",
-                          "msBorderRadius": "50%",
-                          "opacity": "0",
-                          "position": "absolute",
-                          "right": "5px",
-                          "top": "5px",
-                        }
-                      }
-                    />
-                  </div>
-                </span>
-                <span
-                  onBlur={[Function]}
-                  onFocus={[Function]}
-                >
-                  <div
-                    onClick={[Function]}
-                    onKeyDown={[Function]}
-                    style={
-                      Object {
-                        "background": "#999999",
-                        "cursor": "pointer",
-                        "float": "left",
-                        "height": "15px",
-                        "marginBottom": "5px",
-                        "marginRight": "5px",
-                        "outline": "none",
-                        "position": "relative",
-                        "width": "15px",
-                      }
-                    }
-                    tabIndex={0}
-                    title="#999999"
-                  >
-                    <div
-                      style={
-                        Object {
-                          "MozBorderRadius": "50%",
-                          "OBorderRadius": "50%",
-                          "WebkitBorderRadius": "50%",
-                          "background": "#000",
-                          "borderRadius": "50%",
-                          "bottom": "5px",
-                          "left": "5px",
-                          "msBorderRadius": "50%",
-                          "opacity": "0",
-                          "position": "absolute",
-                          "right": "5px",
-                          "top": "5px",
-                        }
-                      }
-                    />
-                  </div>
-                </span>
-                <span
-                  onBlur={[Function]}
-                  onFocus={[Function]}
-                >
-                  <div
-                    onClick={[Function]}
-                    onKeyDown={[Function]}
-                    style={
-                      Object {
-                        "MozBoxShadow": "inset 0 0 0 1px #ddd",
-                        "OBoxShadow": "inset 0 0 0 1px #ddd",
-                        "WebkitBoxShadow": "inset 0 0 0 1px #ddd",
-                        "background": "#FFFFFF",
-                        "boxShadow": "inset 0 0 0 1px #ddd",
-                        "cursor": "pointer",
-                        "float": "left",
-                        "height": "15px",
-                        "marginBottom": "5px",
-                        "marginRight": "5px",
-                        "msBoxShadow": "inset 0 0 0 1px #ddd",
-                        "outline": "none",
-                        "position": "relative",
-                        "width": "15px",
-                      }
-                    }
-                    tabIndex={0}
-                    title="#FFFFFF"
-                  >
-                    <div
-                      style={
-                        Object {
-                          "MozBorderRadius": "50%",
-                          "OBorderRadius": "50%",
-                          "WebkitBorderRadius": "50%",
-                          "background": "#000",
-                          "borderRadius": "50%",
-                          "bottom": "5px",
-                          "left": "5px",
-                          "msBorderRadius": "50%",
-                          "opacity": "0",
-                          "position": "absolute",
-                          "right": "5px",
-                          "top": "5px",
-                        }
-                      }
-                    />
-                  </div>
-                </span>
-                <span
-                  onBlur={[Function]}
-                  onFocus={[Function]}
-                >
-                  <div
-                    onClick={[Function]}
-                    onKeyDown={[Function]}
-                    style={
-                      Object {
-                        "background": "#F44E3B",
-                        "cursor": "pointer",
-                        "float": "left",
-                        "height": "15px",
-                        "marginBottom": "5px",
-                        "marginRight": "5px",
-                        "outline": "none",
-                        "position": "relative",
-                        "width": "15px",
-                      }
-                    }
-                    tabIndex={0}
-                    title="#F44E3B"
-                  >
-                    <div
-                      style={
-                        Object {
-                          "MozBorderRadius": "50%",
-                          "OBorderRadius": "50%",
-                          "WebkitBorderRadius": "50%",
-                          "background": "#fff",
-                          "borderRadius": "50%",
-                          "bottom": "5px",
-                          "left": "5px",
-                          "msBorderRadius": "50%",
-                          "opacity": "0",
-                          "position": "absolute",
-                          "right": "5px",
-                          "top": "5px",
-                        }
-                      }
-                    />
-                  </div>
-                </span>
-                <span
-                  onBlur={[Function]}
-                  onFocus={[Function]}
-                >
-                  <div
-                    onClick={[Function]}
-                    onKeyDown={[Function]}
-                    style={
-                      Object {
-                        "background": "#FE9200",
-                        "cursor": "pointer",
-                        "float": "left",
-                        "height": "15px",
-                        "marginBottom": "5px",
-                        "marginRight": "5px",
-                        "outline": "none",
-                        "position": "relative",
-                        "width": "15px",
-                      }
-                    }
-                    tabIndex={0}
-                    title="#FE9200"
-                  >
-                    <div
-                      style={
-                        Object {
-                          "MozBorderRadius": "50%",
-                          "OBorderRadius": "50%",
-                          "WebkitBorderRadius": "50%",
-                          "background": "#000",
-                          "borderRadius": "50%",
-                          "bottom": "5px",
-                          "left": "5px",
-                          "msBorderRadius": "50%",
-                          "opacity": "0",
-                          "position": "absolute",
-                          "right": "5px",
-                          "top": "5px",
-                        }
-                      }
-                    />
-                  </div>
-                </span>
-                <span
-                  onBlur={[Function]}
-                  onFocus={[Function]}
-                >
-                  <div
-                    onClick={[Function]}
-                    onKeyDown={[Function]}
-                    style={
-                      Object {
-                        "background": "#FCDC00",
-                        "cursor": "pointer",
-                        "float": "left",
-                        "height": "15px",
-                        "marginBottom": "5px",
-                        "marginRight": "5px",
-                        "outline": "none",
-                        "position": "relative",
-                        "width": "15px",
-                      }
-                    }
-                    tabIndex={0}
-                    title="#FCDC00"
-                  >
-                    <div
-                      style={
-                        Object {
-                          "MozBorderRadius": "50%",
-                          "OBorderRadius": "50%",
-                          "WebkitBorderRadius": "50%",
-                          "background": "#000",
-                          "borderRadius": "50%",
-                          "bottom": "5px",
-                          "left": "5px",
-                          "msBorderRadius": "50%",
-                          "opacity": "0",
-                          "position": "absolute",
-                          "right": "5px",
-                          "top": "5px",
-                        }
-                      }
-                    />
-                  </div>
-                </span>
-                <span
-                  onBlur={[Function]}
-                  onFocus={[Function]}
-                >
-                  <div
-                    onClick={[Function]}
-                    onKeyDown={[Function]}
-                    style={
-                      Object {
-                        "background": "#DBDF00",
-                        "cursor": "pointer",
-                        "float": "left",
-                        "height": "15px",
-                        "marginBottom": "5px",
-                        "marginRight": "5px",
-                        "outline": "none",
-                        "position": "relative",
-                        "width": "15px",
-                      }
-                    }
-                    tabIndex={0}
-                    title="#DBDF00"
-                  >
-                    <div
-                      style={
-                        Object {
-                          "MozBorderRadius": "50%",
-                          "OBorderRadius": "50%",
-                          "WebkitBorderRadius": "50%",
-                          "background": "#000",
-                          "borderRadius": "50%",
-                          "bottom": "5px",
-                          "left": "5px",
-                          "msBorderRadius": "50%",
-                          "opacity": "0",
-                          "position": "absolute",
-                          "right": "5px",
-                          "top": "5px",
-                        }
-                      }
-                    />
-                  </div>
-                </span>
-                <span
-                  onBlur={[Function]}
-                  onFocus={[Function]}
-                >
-                  <div
-                    onClick={[Function]}
-                    onKeyDown={[Function]}
-                    style={
-                      Object {
-                        "background": "#A4DD00",
-                        "cursor": "pointer",
-                        "float": "left",
-                        "height": "15px",
-                        "marginBottom": "5px",
-                        "marginRight": "5px",
-                        "outline": "none",
-                        "position": "relative",
-                        "width": "15px",
-                      }
-                    }
-                    tabIndex={0}
-                    title="#A4DD00"
-                  >
-                    <div
-                      style={
-                        Object {
-                          "MozBorderRadius": "50%",
-                          "OBorderRadius": "50%",
-                          "WebkitBorderRadius": "50%",
-                          "background": "#000",
-                          "borderRadius": "50%",
-                          "bottom": "5px",
-                          "left": "5px",
-                          "msBorderRadius": "50%",
-                          "opacity": "0",
-                          "position": "absolute",
-                          "right": "5px",
-                          "top": "5px",
-                        }
-                      }
-                    />
-                  </div>
-                </span>
-                <span
-                  onBlur={[Function]}
-                  onFocus={[Function]}
-                >
-                  <div
-                    onClick={[Function]}
-                    onKeyDown={[Function]}
-                    style={
-                      Object {
-                        "background": "#68CCCA",
-                        "cursor": "pointer",
-                        "float": "left",
-                        "height": "15px",
-                        "marginBottom": "5px",
-                        "marginRight": "5px",
-                        "outline": "none",
-                        "position": "relative",
-                        "width": "15px",
-                      }
-                    }
-                    tabIndex={0}
-                    title="#68CCCA"
-                  >
-                    <div
-                      style={
-                        Object {
-                          "MozBorderRadius": "50%",
-                          "OBorderRadius": "50%",
-                          "WebkitBorderRadius": "50%",
-                          "background": "#000",
-                          "borderRadius": "50%",
-                          "bottom": "5px",
-                          "left": "5px",
-                          "msBorderRadius": "50%",
-                          "opacity": "0",
-                          "position": "absolute",
-                          "right": "5px",
-                          "top": "5px",
-                        }
-                      }
-                    />
-                  </div>
-                </span>
-                <span
-                  onBlur={[Function]}
-                  onFocus={[Function]}
-                >
-                  <div
-                    onClick={[Function]}
-                    onKeyDown={[Function]}
-                    style={
-                      Object {
-                        "background": "#73D8FF",
-                        "cursor": "pointer",
-                        "float": "left",
-                        "height": "15px",
-                        "marginBottom": "5px",
-                        "marginRight": "5px",
-                        "outline": "none",
-                        "position": "relative",
-                        "width": "15px",
-                      }
-                    }
-                    tabIndex={0}
-                    title="#73D8FF"
-                  >
-                    <div
-                      style={
-                        Object {
-                          "MozBorderRadius": "50%",
-                          "OBorderRadius": "50%",
-                          "WebkitBorderRadius": "50%",
-                          "background": "#000",
-                          "borderRadius": "50%",
-                          "bottom": "5px",
-                          "left": "5px",
-                          "msBorderRadius": "50%",
-                          "opacity": "0",
-                          "position": "absolute",
-                          "right": "5px",
-                          "top": "5px",
-                        }
-                      }
-                    />
-                  </div>
-                </span>
-                <span
-                  onBlur={[Function]}
-                  onFocus={[Function]}
-                >
-                  <div
-                    onClick={[Function]}
-                    onKeyDown={[Function]}
-                    style={
-                      Object {
-                        "background": "#AEA1FF",
-                        "cursor": "pointer",
-                        "float": "left",
-                        "height": "15px",
-                        "marginBottom": "5px",
-                        "marginRight": "5px",
-                        "outline": "none",
-                        "position": "relative",
-                        "width": "15px",
-                      }
-                    }
-                    tabIndex={0}
-                    title="#AEA1FF"
-                  >
-                    <div
-                      style={
-                        Object {
-                          "MozBorderRadius": "50%",
-                          "OBorderRadius": "50%",
-                          "WebkitBorderRadius": "50%",
-                          "background": "#000",
-                          "borderRadius": "50%",
-                          "bottom": "5px",
-                          "left": "5px",
-                          "msBorderRadius": "50%",
-                          "opacity": "0",
-                          "position": "absolute",
-                          "right": "5px",
-                          "top": "5px",
-                        }
-                      }
-                    />
-                  </div>
-                </span>
-                <span
-                  onBlur={[Function]}
-                  onFocus={[Function]}
-                >
-                  <div
-                    onClick={[Function]}
-                    onKeyDown={[Function]}
-                    style={
-                      Object {
-                        "background": "#FDA1FF",
-                        "cursor": "pointer",
-                        "float": "left",
-                        "height": "15px",
-                        "marginBottom": "5px",
-                        "marginRight": "5px",
-                        "outline": "none",
-                        "position": "relative",
-                        "width": "15px",
-                      }
-                    }
-                    tabIndex={0}
-                    title="#FDA1FF"
-                  >
-                    <div
-                      style={
-                        Object {
-                          "MozBorderRadius": "50%",
-                          "OBorderRadius": "50%",
-                          "WebkitBorderRadius": "50%",
-                          "background": "#000",
-                          "borderRadius": "50%",
-                          "bottom": "5px",
-                          "left": "5px",
-                          "msBorderRadius": "50%",
-                          "opacity": "0",
-                          "position": "absolute",
-                          "right": "5px",
-                          "top": "5px",
-                        }
-                      }
-                    />
-                  </div>
-                </span>
-                <span
-                  onBlur={[Function]}
-                  onFocus={[Function]}
-                >
-                  <div
-                    onClick={[Function]}
-                    onKeyDown={[Function]}
-                    style={
-                      Object {
-                        "background": "#333333",
-                        "cursor": "pointer",
-                        "float": "left",
-                        "height": "15px",
-                        "marginBottom": "5px",
-                        "marginRight": "5px",
-                        "outline": "none",
-                        "position": "relative",
-                        "width": "15px",
-                      }
-                    }
-                    tabIndex={0}
-                    title="#333333"
-                  >
-                    <div
-                      style={
-                        Object {
-                          "MozBorderRadius": "50%",
-                          "OBorderRadius": "50%",
-                          "WebkitBorderRadius": "50%",
-                          "background": "#fff",
-                          "borderRadius": "50%",
-                          "bottom": "5px",
-                          "left": "5px",
-                          "msBorderRadius": "50%",
-                          "opacity": "0",
-                          "position": "absolute",
-                          "right": "5px",
-                          "top": "5px",
-                        }
-                      }
-                    />
-                  </div>
-                </span>
-                <span
-                  onBlur={[Function]}
-                  onFocus={[Function]}
-                >
-                  <div
-                    onClick={[Function]}
-                    onKeyDown={[Function]}
-                    style={
-                      Object {
-                        "background": "#808080",
-                        "cursor": "pointer",
-                        "float": "left",
-                        "height": "15px",
-                        "marginBottom": "5px",
-                        "marginRight": "5px",
-                        "outline": "none",
-                        "position": "relative",
-                        "width": "15px",
-                      }
-                    }
-                    tabIndex={0}
-                    title="#808080"
-                  >
-                    <div
-                      style={
-                        Object {
-                          "MozBorderRadius": "50%",
-                          "OBorderRadius": "50%",
-                          "WebkitBorderRadius": "50%",
-                          "background": "#000",
-                          "borderRadius": "50%",
-                          "bottom": "5px",
-                          "left": "5px",
-                          "msBorderRadius": "50%",
-                          "opacity": "0",
-                          "position": "absolute",
-                          "right": "5px",
-                          "top": "5px",
-                        }
-                      }
-                    />
-                  </div>
-                </span>
-                <span
-                  onBlur={[Function]}
-                  onFocus={[Function]}
-                >
-                  <div
-                    onClick={[Function]}
-                    onKeyDown={[Function]}
-                    style={
-                      Object {
-                        "background": "#cccccc",
-                        "cursor": "pointer",
-                        "float": "left",
-                        "height": "15px",
-                        "marginBottom": "5px",
-                        "marginRight": "5px",
-                        "outline": "none",
-                        "position": "relative",
-                        "width": "15px",
-                      }
-                    }
-                    tabIndex={0}
-                    title="#cccccc"
-                  >
-                    <div
-                      style={
-                        Object {
-                          "MozBorderRadius": "50%",
-                          "OBorderRadius": "50%",
-                          "WebkitBorderRadius": "50%",
-                          "background": "#000",
-                          "borderRadius": "50%",
-                          "bottom": "5px",
-                          "left": "5px",
-                          "msBorderRadius": "50%",
-                          "opacity": "0",
-                          "position": "absolute",
-                          "right": "5px",
-                          "top": "5px",
-                        }
-                      }
-                    />
-                  </div>
-                </span>
-                <span
-                  onBlur={[Function]}
-                  onFocus={[Function]}
-                >
-                  <div
-                    onClick={[Function]}
-                    onKeyDown={[Function]}
-                    style={
-                      Object {
-                        "background": "#D33115",
-                        "cursor": "pointer",
-                        "float": "left",
-                        "height": "15px",
-                        "marginBottom": "5px",
-                        "marginRight": "5px",
-                        "outline": "none",
-                        "position": "relative",
-                        "width": "15px",
-                      }
-                    }
-                    tabIndex={0}
-                    title="#D33115"
-                  >
-                    <div
-                      style={
-                        Object {
-                          "MozBorderRadius": "50%",
-                          "OBorderRadius": "50%",
-                          "WebkitBorderRadius": "50%",
-                          "background": "#fff",
-                          "borderRadius": "50%",
-                          "bottom": "5px",
-                          "left": "5px",
-                          "msBorderRadius": "50%",
-                          "opacity": "0",
-                          "position": "absolute",
-                          "right": "5px",
-                          "top": "5px",
-                        }
-                      }
-                    />
-                  </div>
-                </span>
-                <span
-                  onBlur={[Function]}
-                  onFocus={[Function]}
-                >
-                  <div
-                    onClick={[Function]}
-                    onKeyDown={[Function]}
-                    style={
-                      Object {
-                        "background": "#E27300",
-                        "cursor": "pointer",
-                        "float": "left",
-                        "height": "15px",
-                        "marginBottom": "5px",
-                        "marginRight": "5px",
-                        "outline": "none",
-                        "position": "relative",
-                        "width": "15px",
-                      }
-                    }
-                    tabIndex={0}
-                    title="#E27300"
-                  >
-                    <div
-                      style={
-                        Object {
-                          "MozBorderRadius": "50%",
-                          "OBorderRadius": "50%",
-                          "WebkitBorderRadius": "50%",
-                          "background": "#000",
-                          "borderRadius": "50%",
-                          "bottom": "5px",
-                          "left": "5px",
-                          "msBorderRadius": "50%",
-                          "opacity": "0",
-                          "position": "absolute",
-                          "right": "5px",
-                          "top": "5px",
-                        }
-                      }
-                    />
-                  </div>
-                </span>
-                <span
-                  onBlur={[Function]}
-                  onFocus={[Function]}
-                >
-                  <div
-                    onClick={[Function]}
-                    onKeyDown={[Function]}
-                    style={
-                      Object {
-                        "background": "#FCC400",
-                        "cursor": "pointer",
-                        "float": "left",
-                        "height": "15px",
-                        "marginBottom": "5px",
-                        "marginRight": "5px",
-                        "outline": "none",
-                        "position": "relative",
-                        "width": "15px",
-                      }
-                    }
-                    tabIndex={0}
-                    title="#FCC400"
-                  >
-                    <div
-                      style={
-                        Object {
-                          "MozBorderRadius": "50%",
-                          "OBorderRadius": "50%",
-                          "WebkitBorderRadius": "50%",
-                          "background": "#000",
-                          "borderRadius": "50%",
-                          "bottom": "5px",
-                          "left": "5px",
-                          "msBorderRadius": "50%",
-                          "opacity": "0",
-                          "position": "absolute",
-                          "right": "5px",
-                          "top": "5px",
-                        }
-                      }
-                    />
-                  </div>
-                </span>
-                <span
-                  onBlur={[Function]}
-                  onFocus={[Function]}
-                >
-                  <div
-                    onClick={[Function]}
-                    onKeyDown={[Function]}
-                    style={
-                      Object {
-                        "background": "#B0BC00",
-                        "cursor": "pointer",
-                        "float": "left",
-                        "height": "15px",
-                        "marginBottom": "5px",
-                        "marginRight": "5px",
-                        "outline": "none",
-                        "position": "relative",
-                        "width": "15px",
-                      }
-                    }
-                    tabIndex={0}
-                    title="#B0BC00"
-                  >
-                    <div
-                      style={
-                        Object {
-                          "MozBorderRadius": "50%",
-                          "OBorderRadius": "50%",
-                          "WebkitBorderRadius": "50%",
-                          "background": "#000",
-                          "borderRadius": "50%",
-                          "bottom": "5px",
-                          "left": "5px",
-                          "msBorderRadius": "50%",
-                          "opacity": "0",
-                          "position": "absolute",
-                          "right": "5px",
-                          "top": "5px",
-                        }
-                      }
-                    />
-                  </div>
-                </span>
-                <span
-                  onBlur={[Function]}
-                  onFocus={[Function]}
-                >
-                  <div
-                    onClick={[Function]}
-                    onKeyDown={[Function]}
-                    style={
-                      Object {
-                        "background": "#68BC00",
-                        "cursor": "pointer",
-                        "float": "left",
-                        "height": "15px",
-                        "marginBottom": "5px",
-                        "marginRight": "5px",
-                        "outline": "none",
-                        "position": "relative",
-                        "width": "15px",
-                      }
-                    }
-                    tabIndex={0}
-                    title="#68BC00"
-                  >
-                    <div
-                      style={
-                        Object {
-                          "MozBorderRadius": "50%",
-                          "OBorderRadius": "50%",
-                          "WebkitBorderRadius": "50%",
-                          "background": "#000",
-                          "borderRadius": "50%",
-                          "bottom": "5px",
-                          "left": "5px",
-                          "msBorderRadius": "50%",
-                          "opacity": "0",
-                          "position": "absolute",
-                          "right": "5px",
-                          "top": "5px",
-                        }
-                      }
-                    />
-                  </div>
-                </span>
-                <span
-                  onBlur={[Function]}
-                  onFocus={[Function]}
-                >
-                  <div
-                    onClick={[Function]}
-                    onKeyDown={[Function]}
-                    style={
-                      Object {
-                        "background": "#16A5A5",
-                        "cursor": "pointer",
-                        "float": "left",
-                        "height": "15px",
-                        "marginBottom": "5px",
-                        "marginRight": "5px",
-                        "outline": "none",
-                        "position": "relative",
-                        "width": "15px",
-                      }
-                    }
-                    tabIndex={0}
-                    title="#16A5A5"
-                  >
-                    <div
-                      style={
-                        Object {
-                          "MozBorderRadius": "50%",
-                          "OBorderRadius": "50%",
-                          "WebkitBorderRadius": "50%",
-                          "background": "#fff",
-                          "borderRadius": "50%",
-                          "bottom": "5px",
-                          "left": "5px",
-                          "msBorderRadius": "50%",
-                          "opacity": "0",
-                          "position": "absolute",
-                          "right": "5px",
-                          "top": "5px",
-                        }
-                      }
-                    />
-                  </div>
-                </span>
-                <span
-                  onBlur={[Function]}
-                  onFocus={[Function]}
-                >
-                  <div
-                    onClick={[Function]}
-                    onKeyDown={[Function]}
-                    style={
-                      Object {
-                        "background": "#009CE0",
-                        "cursor": "pointer",
-                        "float": "left",
-                        "height": "15px",
-                        "marginBottom": "5px",
-                        "marginRight": "5px",
-                        "outline": "none",
-                        "position": "relative",
-                        "width": "15px",
-                      }
-                    }
-                    tabIndex={0}
-                    title="#009CE0"
-                  >
-                    <div
-                      style={
-                        Object {
-                          "MozBorderRadius": "50%",
-                          "OBorderRadius": "50%",
-                          "WebkitBorderRadius": "50%",
-                          "background": "#fff",
-                          "borderRadius": "50%",
-                          "bottom": "5px",
-                          "left": "5px",
-                          "msBorderRadius": "50%",
-                          "opacity": "0",
-                          "position": "absolute",
-                          "right": "5px",
-                          "top": "5px",
-                        }
-                      }
-                    />
-                  </div>
-                </span>
-                <span
-                  onBlur={[Function]}
-                  onFocus={[Function]}
-                >
-                  <div
-                    onClick={[Function]}
-                    onKeyDown={[Function]}
-                    style={
-                      Object {
-                        "background": "#7B64FF",
-                        "cursor": "pointer",
-                        "float": "left",
-                        "height": "15px",
-                        "marginBottom": "5px",
-                        "marginRight": "5px",
-                        "outline": "none",
-                        "position": "relative",
-                        "width": "15px",
-                      }
-                    }
-                    tabIndex={0}
-                    title="#7B64FF"
-                  >
-                    <div
-                      style={
-                        Object {
-                          "MozBorderRadius": "50%",
-                          "OBorderRadius": "50%",
-                          "WebkitBorderRadius": "50%",
-                          "background": "#fff",
-                          "borderRadius": "50%",
-                          "bottom": "5px",
-                          "left": "5px",
-                          "msBorderRadius": "50%",
-                          "opacity": "0",
-                          "position": "absolute",
-                          "right": "5px",
-                          "top": "5px",
-                        }
-                      }
-                    />
-                  </div>
-                </span>
-                <span
-                  onBlur={[Function]}
-                  onFocus={[Function]}
-                >
-                  <div
-                    onClick={[Function]}
-                    onKeyDown={[Function]}
-                    style={
-                      Object {
-                        "background": "#FA28FF",
-                        "cursor": "pointer",
-                        "float": "left",
-                        "height": "15px",
-                        "marginBottom": "5px",
-                        "marginRight": "5px",
-                        "outline": "none",
-                        "position": "relative",
-                        "width": "15px",
-                      }
-                    }
-                    tabIndex={0}
-                    title="#FA28FF"
-                  >
-                    <div
-                      style={
-                        Object {
-                          "MozBorderRadius": "50%",
-                          "OBorderRadius": "50%",
-                          "WebkitBorderRadius": "50%",
-                          "background": "#fff",
-                          "borderRadius": "50%",
-                          "bottom": "5px",
-                          "left": "5px",
-                          "msBorderRadius": "50%",
-                          "opacity": "0",
-                          "position": "absolute",
-                          "right": "5px",
-                          "top": "5px",
-                        }
-                      }
-                    />
-                  </div>
-                </span>
-                <span
-                  onBlur={[Function]}
-                  onFocus={[Function]}
-                >
-                  <div
-                    onClick={[Function]}
-                    onKeyDown={[Function]}
-                    style={
-                      Object {
-                        "background": "#000000",
-                        "cursor": "pointer",
-                        "float": "left",
-                        "height": "15px",
-                        "marginBottom": "5px",
-                        "marginRight": "5px",
-                        "outline": "none",
-                        "position": "relative",
-                        "width": "15px",
-                      }
-                    }
-                    tabIndex={0}
-                    title="#000000"
-                  >
-                    <div
-                      style={
-                        Object {
-                          "MozBorderRadius": "50%",
-                          "OBorderRadius": "50%",
-                          "WebkitBorderRadius": "50%",
-                          "background": "#fff",
-                          "borderRadius": "50%",
-                          "bottom": "5px",
-                          "left": "5px",
-                          "msBorderRadius": "50%",
-                          "opacity": "1",
-                          "position": "absolute",
-                          "right": "5px",
-                          "top": "5px",
-                        }
-                      }
-                    />
-                  </div>
-                </span>
-                <span
-                  onBlur={[Function]}
-                  onFocus={[Function]}
-                >
-                  <div
-                    onClick={[Function]}
-                    onKeyDown={[Function]}
-                    style={
-                      Object {
-                        "background": "#666666",
-                        "cursor": "pointer",
-                        "float": "left",
-                        "height": "15px",
-                        "marginBottom": "5px",
-                        "marginRight": "5px",
-                        "outline": "none",
-                        "position": "relative",
-                        "width": "15px",
-                      }
-                    }
-                    tabIndex={0}
-                    title="#666666"
-                  >
-                    <div
-                      style={
-                        Object {
-                          "MozBorderRadius": "50%",
-                          "OBorderRadius": "50%",
-                          "WebkitBorderRadius": "50%",
-                          "background": "#fff",
-                          "borderRadius": "50%",
-                          "bottom": "5px",
-                          "left": "5px",
-                          "msBorderRadius": "50%",
-                          "opacity": "0",
-                          "position": "absolute",
-                          "right": "5px",
-                          "top": "5px",
-                        }
-                      }
-                    />
-                  </div>
-                </span>
-                <span
-                  onBlur={[Function]}
-                  onFocus={[Function]}
-                >
-                  <div
-                    onClick={[Function]}
-                    onKeyDown={[Function]}
-                    style={
-                      Object {
-                        "background": "#B3B3B3",
-                        "cursor": "pointer",
-                        "float": "left",
-                        "height": "15px",
-                        "marginBottom": "5px",
-                        "marginRight": "5px",
-                        "outline": "none",
-                        "position": "relative",
-                        "width": "15px",
-                      }
-                    }
-                    tabIndex={0}
-                    title="#B3B3B3"
-                  >
-                    <div
-                      style={
-                        Object {
-                          "MozBorderRadius": "50%",
-                          "OBorderRadius": "50%",
-                          "WebkitBorderRadius": "50%",
-                          "background": "#000",
-                          "borderRadius": "50%",
-                          "bottom": "5px",
-                          "left": "5px",
-                          "msBorderRadius": "50%",
-                          "opacity": "0",
-                          "position": "absolute",
-                          "right": "5px",
-                          "top": "5px",
-                        }
-                      }
-                    />
-                  </div>
-                </span>
-                <span
-                  onBlur={[Function]}
-                  onFocus={[Function]}
-                >
-                  <div
-                    onClick={[Function]}
-                    onKeyDown={[Function]}
-                    style={
-                      Object {
-                        "background": "#9F0500",
-                        "cursor": "pointer",
-                        "float": "left",
-                        "height": "15px",
-                        "marginBottom": "5px",
-                        "marginRight": "5px",
-                        "outline": "none",
-                        "position": "relative",
-                        "width": "15px",
-                      }
-                    }
-                    tabIndex={0}
-                    title="#9F0500"
-                  >
-                    <div
-                      style={
-                        Object {
-                          "MozBorderRadius": "50%",
-                          "OBorderRadius": "50%",
-                          "WebkitBorderRadius": "50%",
-                          "background": "#fff",
-                          "borderRadius": "50%",
-                          "bottom": "5px",
-                          "left": "5px",
-                          "msBorderRadius": "50%",
-                          "opacity": "0",
-                          "position": "absolute",
-                          "right": "5px",
-                          "top": "5px",
-                        }
-                      }
-                    />
-                  </div>
-                </span>
-                <span
-                  onBlur={[Function]}
-                  onFocus={[Function]}
-                >
-                  <div
-                    onClick={[Function]}
-                    onKeyDown={[Function]}
-                    style={
-                      Object {
-                        "background": "#C45100",
-                        "cursor": "pointer",
-                        "float": "left",
-                        "height": "15px",
-                        "marginBottom": "5px",
-                        "marginRight": "5px",
-                        "outline": "none",
-                        "position": "relative",
-                        "width": "15px",
-                      }
-                    }
-                    tabIndex={0}
-                    title="#C45100"
-                  >
-                    <div
-                      style={
-                        Object {
-                          "MozBorderRadius": "50%",
-                          "OBorderRadius": "50%",
-                          "WebkitBorderRadius": "50%",
-                          "background": "#fff",
-                          "borderRadius": "50%",
-                          "bottom": "5px",
-                          "left": "5px",
-                          "msBorderRadius": "50%",
-                          "opacity": "0",
-                          "position": "absolute",
-                          "right": "5px",
-                          "top": "5px",
-                        }
-                      }
-                    />
-                  </div>
-                </span>
-                <span
-                  onBlur={[Function]}
-                  onFocus={[Function]}
-                >
-                  <div
-                    onClick={[Function]}
-                    onKeyDown={[Function]}
-                    style={
-                      Object {
-                        "background": "#FB9E00",
-                        "cursor": "pointer",
-                        "float": "left",
-                        "height": "15px",
-                        "marginBottom": "5px",
-                        "marginRight": "5px",
-                        "outline": "none",
-                        "position": "relative",
-                        "width": "15px",
-                      }
-                    }
-                    tabIndex={0}
-                    title="#FB9E00"
-                  >
-                    <div
-                      style={
-                        Object {
-                          "MozBorderRadius": "50%",
-                          "OBorderRadius": "50%",
-                          "WebkitBorderRadius": "50%",
-                          "background": "#000",
-                          "borderRadius": "50%",
-                          "bottom": "5px",
-                          "left": "5px",
-                          "msBorderRadius": "50%",
-                          "opacity": "0",
-                          "position": "absolute",
-                          "right": "5px",
-                          "top": "5px",
-                        }
-                      }
-                    />
-                  </div>
-                </span>
-                <span
-                  onBlur={[Function]}
-                  onFocus={[Function]}
-                >
-                  <div
-                    onClick={[Function]}
-                    onKeyDown={[Function]}
-                    style={
-                      Object {
-                        "background": "#808900",
-                        "cursor": "pointer",
-                        "float": "left",
-                        "height": "15px",
-                        "marginBottom": "5px",
-                        "marginRight": "5px",
-                        "outline": "none",
-                        "position": "relative",
-                        "width": "15px",
-                      }
-                    }
-                    tabIndex={0}
-                    title="#808900"
-                  >
-                    <div
-                      style={
-                        Object {
-                          "MozBorderRadius": "50%",
-                          "OBorderRadius": "50%",
-                          "WebkitBorderRadius": "50%",
-                          "background": "#fff",
-                          "borderRadius": "50%",
-                          "bottom": "5px",
-                          "left": "5px",
-                          "msBorderRadius": "50%",
-                          "opacity": "0",
-                          "position": "absolute",
-                          "right": "5px",
-                          "top": "5px",
-                        }
-                      }
-                    />
-                  </div>
-                </span>
-                <span
-                  onBlur={[Function]}
-                  onFocus={[Function]}
-                >
-                  <div
-                    onClick={[Function]}
-                    onKeyDown={[Function]}
-                    style={
-                      Object {
-                        "background": "#194D33",
-                        "cursor": "pointer",
-                        "float": "left",
-                        "height": "15px",
-                        "marginBottom": "5px",
-                        "marginRight": "5px",
-                        "outline": "none",
-                        "position": "relative",
-                        "width": "15px",
-                      }
-                    }
-                    tabIndex={0}
-                    title="#194D33"
-                  >
-                    <div
-                      style={
-                        Object {
-                          "MozBorderRadius": "50%",
-                          "OBorderRadius": "50%",
-                          "WebkitBorderRadius": "50%",
-                          "background": "#fff",
-                          "borderRadius": "50%",
-                          "bottom": "5px",
-                          "left": "5px",
-                          "msBorderRadius": "50%",
-                          "opacity": "0",
-                          "position": "absolute",
-                          "right": "5px",
-                          "top": "5px",
-                        }
-                      }
-                    />
-                  </div>
-                </span>
-                <span
-                  onBlur={[Function]}
-                  onFocus={[Function]}
-                >
-                  <div
-                    onClick={[Function]}
-                    onKeyDown={[Function]}
-                    style={
-                      Object {
-                        "background": "#0C797D",
-                        "cursor": "pointer",
-                        "float": "left",
-                        "height": "15px",
-                        "marginBottom": "5px",
-                        "marginRight": "5px",
-                        "outline": "none",
-                        "position": "relative",
-                        "width": "15px",
-                      }
-                    }
-                    tabIndex={0}
-                    title="#0C797D"
-                  >
-                    <div
-                      style={
-                        Object {
-                          "MozBorderRadius": "50%",
-                          "OBorderRadius": "50%",
-                          "WebkitBorderRadius": "50%",
-                          "background": "#fff",
-                          "borderRadius": "50%",
-                          "bottom": "5px",
-                          "left": "5px",
-                          "msBorderRadius": "50%",
-                          "opacity": "0",
-                          "position": "absolute",
-                          "right": "5px",
-                          "top": "5px",
-                        }
-                      }
-                    />
-                  </div>
-                </span>
-                <span
-                  onBlur={[Function]}
-                  onFocus={[Function]}
-                >
-                  <div
-                    onClick={[Function]}
-                    onKeyDown={[Function]}
-                    style={
-                      Object {
-                        "background": "#0062B1",
-                        "cursor": "pointer",
-                        "float": "left",
-                        "height": "15px",
-                        "marginBottom": "5px",
-                        "marginRight": "5px",
-                        "outline": "none",
-                        "position": "relative",
-                        "width": "15px",
-                      }
-                    }
-                    tabIndex={0}
-                    title="#0062B1"
-                  >
-                    <div
-                      style={
-                        Object {
-                          "MozBorderRadius": "50%",
-                          "OBorderRadius": "50%",
-                          "WebkitBorderRadius": "50%",
-                          "background": "#fff",
-                          "borderRadius": "50%",
-                          "bottom": "5px",
-                          "left": "5px",
-                          "msBorderRadius": "50%",
-                          "opacity": "0",
-                          "position": "absolute",
-                          "right": "5px",
-                          "top": "5px",
-                        }
-                      }
-                    />
-                  </div>
-                </span>
-                <span
-                  onBlur={[Function]}
-                  onFocus={[Function]}
-                >
-                  <div
-                    onClick={[Function]}
-                    onKeyDown={[Function]}
-                    style={
-                      Object {
-                        "background": "#653294",
-                        "cursor": "pointer",
-                        "float": "left",
-                        "height": "15px",
-                        "marginBottom": "5px",
-                        "marginRight": "5px",
-                        "outline": "none",
-                        "position": "relative",
-                        "width": "15px",
-                      }
-                    }
-                    tabIndex={0}
-                    title="#653294"
-                  >
-                    <div
-                      style={
-                        Object {
-                          "MozBorderRadius": "50%",
-                          "OBorderRadius": "50%",
-                          "WebkitBorderRadius": "50%",
-                          "background": "#fff",
-                          "borderRadius": "50%",
-                          "bottom": "5px",
-                          "left": "5px",
-                          "msBorderRadius": "50%",
-                          "opacity": "0",
-                          "position": "absolute",
-                          "right": "5px",
-                          "top": "5px",
-                        }
-                      }
-                    />
-                  </div>
-                </span>
-                <span
-                  onBlur={[Function]}
-                  onFocus={[Function]}
-                >
-                  <div
-                    onClick={[Function]}
-                    onKeyDown={[Function]}
-                    style={
-                      Object {
-                        "background": "#AB149E",
-                        "cursor": "pointer",
-                        "float": "left",
-                        "height": "15px",
-                        "marginBottom": "5px",
-                        "marginRight": "5px",
-                        "outline": "none",
-                        "position": "relative",
-                        "width": "15px",
-                      }
-                    }
-                    tabIndex={0}
-                    title="#AB149E"
-                  >
-                    <div
-                      style={
-                        Object {
-                          "MozBorderRadius": "50%",
-                          "OBorderRadius": "50%",
-                          "WebkitBorderRadius": "50%",
-                          "background": "#fff",
-                          "borderRadius": "50%",
-                          "bottom": "5px",
-                          "left": "5px",
-                          "msBorderRadius": "50%",
-                          "opacity": "0",
-                          "position": "absolute",
-                          "right": "5px",
-                          "top": "5px",
-                        }
-                      }
-                    />
-                  </div>
-                </span>
-                <div
-                  style={
-                    Object {
-                      "clear": "both",
-                    }
-                  }
-                />
-              </div>
-              <div
-                className="flexbox-fix"
-                style={
-                  Object {
-                    "display": "flex",
-                    "paddingBottom": "6px",
-                    "paddingRight": "5px",
-                    "position": "relative",
-                  }
-                }
-              >
-                <div
-                  style={
-                    Object {
-                      "background": "#000000",
-                      "height": "9px",
-                      "left": "5px",
-                      "position": "absolute",
-                      "top": "6px",
-                      "width": "9px",
-                    }
-                  }
-                />
-                <div
-                  style={
-                    Object {
-                      "MozBoxFlex": "6",
-                      "WebkitBoxFlex": "6",
-                      "WebkitFlex": "6",
-                      "flex": "6",
-                      "msFlex": "6",
-                      "position": "relative",
-                    }
-                  }
-                >
-                  <input
-                    id="rc-editable-input-1"
-                    onBlur={[Function]}
-                    onChange={[Function]}
-                    onKeyDown={[Function]}
-                    spellCheck="false"
-                    style={
-                      Object {
-                        "background": "none",
-                        "border": "none",
-                        "color": "#333",
-                        "fontSize": "12px",
-                        "height": "16px",
-                        "outline": "none",
-                        "padding": "0px",
-                        "paddingLeft": "20%",
-                        "width": "80%",
-                      }
-                    }
-                    value="#000000"
-                  />
-                  <label
-                    htmlFor="rc-editable-input-1"
-                    onMouseDown={[Function]}
-                    style={
-                      Object {
-                        "display": "none",
-                      }
-                    }
-                  >
-                    hex
-                  </label>
-                </div>
-                <div
-                  style={
-                    Object {
-                      "MozBoxFlex": "3",
-                      "WebkitBoxFlex": "3",
-                      "WebkitFlex": "3",
-                      "flex": "3",
-                      "msFlex": "3",
-                      "position": "relative",
-                    }
-                  }
-                >
-                  <input
-                    id="rc-editable-input-2"
-                    onBlur={[Function]}
-                    onChange={[Function]}
-                    onKeyDown={[Function]}
-                    spellCheck="false"
-                    style={
-                      Object {
-                        "background": "none",
-                        "border": "none",
-                        "color": "#333",
-                        "fontSize": "12px",
-                        "height": "16px",
-                        "outline": "none",
-                        "padding": "0px",
-                        "paddingLeft": "30%",
-                        "width": "70%",
-                      }
-                    }
-                    value="0"
-                  />
-                  <label
-                    htmlFor="rc-editable-input-2"
-                    onMouseDown={[Function]}
-                    style={
-                      Object {
-                        "color": "#999",
-                        "fontSize": "12px",
-                        "left": "0px",
-                        "lineHeight": "16px",
-                        "position": "absolute",
-                        "textTransform": "uppercase",
-                        "top": "3px",
-                      }
-                    }
-                  >
-                    r
-                  </label>
-                </div>
-                <div
-                  style={
-                    Object {
-                      "MozBoxFlex": "3",
-                      "WebkitBoxFlex": "3",
-                      "WebkitFlex": "3",
-                      "flex": "3",
-                      "msFlex": "3",
-                      "position": "relative",
-                    }
-                  }
-                >
-                  <input
-                    id="rc-editable-input-3"
-                    onBlur={[Function]}
-                    onChange={[Function]}
-                    onKeyDown={[Function]}
-                    spellCheck="false"
-                    style={
-                      Object {
-                        "background": "none",
-                        "border": "none",
-                        "color": "#333",
-                        "fontSize": "12px",
-                        "height": "16px",
-                        "outline": "none",
-                        "padding": "0px",
-                        "paddingLeft": "30%",
-                        "width": "70%",
-                      }
-                    }
-                    value="0"
-                  />
-                  <label
-                    htmlFor="rc-editable-input-3"
-                    onMouseDown={[Function]}
-                    style={
-                      Object {
-                        "color": "#999",
-                        "fontSize": "12px",
-                        "left": "0px",
-                        "lineHeight": "16px",
-                        "position": "absolute",
-                        "textTransform": "uppercase",
-                        "top": "3px",
-                      }
-                    }
-                  >
-                    g
-                  </label>
-                </div>
-                <div
-                  style={
-                    Object {
-                      "MozBoxFlex": "3",
-                      "WebkitBoxFlex": "3",
-                      "WebkitFlex": "3",
-                      "flex": "3",
-                      "msFlex": "3",
-                      "position": "relative",
-                    }
-                  }
-                >
-                  <input
-                    id="rc-editable-input-4"
-                    onBlur={[Function]}
-                    onChange={[Function]}
-                    onKeyDown={[Function]}
-                    spellCheck="false"
-                    style={
-                      Object {
-                        "background": "none",
-                        "border": "none",
-                        "color": "#333",
-                        "fontSize": "12px",
-                        "height": "16px",
-                        "outline": "none",
-                        "padding": "0px",
-                        "paddingLeft": "30%",
-                        "width": "70%",
-                      }
-                    }
-                    value="0"
-                  />
-                  <label
-                    htmlFor="rc-editable-input-4"
-                    onMouseDown={[Function]}
-                    style={
-                      Object {
-                        "color": "#999",
-                        "fontSize": "12px",
-                        "left": "0px",
-                        "lineHeight": "16px",
-                        "position": "absolute",
-                        "textTransform": "uppercase",
-                        "top": "3px",
-                      }
-                    }
-                  >
-                    b
-                  </label>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div
-      className="stack horizontal m"
-      style={
-        Object {
-          "alignItems": undefined,
-          "flexWrap": undefined,
-          "justifyContent": undefined,
-        }
-      }
-    >
-      <button
-        aria-disabled={false}
-        aria-label="Primary Button"
-        className="button buttonPrimary buttonSize3"
-        defaultChecked={false}
-        disabled={false}
-      >
-        <span
-          className="buttonText3"
-        >
-          Primary Button
-        </span>
-      </button>
-      <button
-        aria-disabled={false}
-        aria-label="Primary Button"
-        className="button buttonPrimary buttonSize3 iconLeft"
-        defaultChecked={false}
-        disabled={false}
-      >
-        <span
-          aria-hidden={false}
-          className="icon iconWrapper"
-          role="presentation"
-        >
-          <svg
-            role="presentation"
-            style={
-              Object {
-                "height": "16px",
-                "width": "16px",
-              }
-            }
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"
-              style={
-                Object {
-                  "fill": "currentColor",
-                }
-              }
-            />
-          </svg>
-        </span>
-      </button>
-      <button
-        aria-disabled={false}
-        aria-label="Primary Button"
-        className="button buttonPrimary buttonSize3 iconLeft"
-        defaultChecked={false}
-        disabled={false}
-      >
-        <span>
-          <span
-            aria-hidden={false}
-            className="icon iconWrapper"
-            role="presentation"
-          >
-            <svg
-              role="presentation"
-              style={
-                Object {
-                  "height": "16px",
-                  "width": "16px",
-                }
-              }
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"
-                style={
-                  Object {
-                    "fill": "currentColor",
-                  }
-                }
-              />
-            </svg>
-          </span>
-          <span
-            className="buttonText3"
-          >
-            Primary Button
-          </span>
-        </span>
-      </button>
-    </div>
-    <div
-      className="stack horizontal m"
-      style={
-        Object {
-          "alignItems": undefined,
-          "flexWrap": undefined,
-          "justifyContent": undefined,
-        }
-      }
-    >
-      <button
-        aria-disabled={false}
-        aria-label="Secondary Button"
-        className="button buttonSecondary buttonSize3"
-        defaultChecked={false}
-        disabled={false}
-      >
-        <span
-          className="buttonText3"
-        >
-          Secondary Button
-        </span>
-      </button>
-      <button
-        aria-disabled={false}
-        aria-label="Secondary Button"
-        className="button buttonSecondary buttonSize3 iconLeft"
-        defaultChecked={false}
-        disabled={false}
-      >
-        <span
-          aria-hidden={false}
-          className="icon iconWrapper"
-          role="presentation"
-        >
-          <svg
-            role="presentation"
-            style={
-              Object {
-                "height": "16px",
-                "width": "16px",
-              }
-            }
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"
-              style={
-                Object {
-                  "fill": "currentColor",
-                }
-              }
-            />
-          </svg>
-        </span>
-      </button>
-      <button
-        aria-disabled={false}
-        aria-label="Secondary Button"
-        className="button buttonSecondary buttonSize3 iconLeft"
-        defaultChecked={false}
-        disabled={false}
-      >
-        <span>
-          <span
-            aria-hidden={false}
-            className="icon iconWrapper"
-            role="presentation"
-          >
-            <svg
-              role="presentation"
-              style={
-                Object {
-                  "height": "16px",
-                  "width": "16px",
-                }
-              }
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"
-                style={
-                  Object {
-                    "fill": "currentColor",
-                  }
-                }
-              />
-            </svg>
-          </span>
-          <span
-            className="buttonText3"
-          >
-            Secondary Button
-          </span>
-        </span>
-      </button>
-    </div>
-    <div
-      className="stack horizontal m"
-      style={
-        Object {
-          "alignItems": undefined,
-          "flexWrap": undefined,
-          "justifyContent": undefined,
-        }
-      }
-    >
-      <button
-        aria-disabled={false}
-        aria-label="Default Button"
-        className="button buttonDefault buttonSize3"
-        defaultChecked={false}
-        disabled={false}
-      >
-        <span
-          className="buttonText3"
-        >
-          Default Button
-        </span>
-      </button>
-      <button
-        aria-disabled={false}
-        aria-label="Default Button"
-        className="button buttonDefault buttonSize3 iconLeft"
-        defaultChecked={false}
-        disabled={false}
-      >
-        <span
-          aria-hidden={false}
-          className="icon iconWrapper"
-          role="presentation"
-        >
-          <svg
-            role="presentation"
-            style={
-              Object {
-                "height": "16px",
-                "width": "16px",
-              }
-            }
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"
-              style={
-                Object {
-                  "fill": "currentColor",
-                }
-              }
-            />
-          </svg>
-        </span>
-      </button>
-      <button
-        aria-disabled={false}
-        aria-label="Default Button"
-        className="button buttonDefault buttonSize3 iconLeft"
-        defaultChecked={false}
-        disabled={false}
-      >
-        <span>
-          <span
-            aria-hidden={false}
-            className="icon iconWrapper"
-            role="presentation"
-          >
-            <svg
-              role="presentation"
-              style={
-                Object {
-                  "height": "16px",
-                  "width": "16px",
-                }
-              }
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"
-                style={
-                  Object {
-                    "fill": "currentColor",
-                  }
-                }
-              />
-            </svg>
-          </span>
-          <span
-            className="buttonText3"
-          >
-            Default Button
-          </span>
-        </span>
-      </button>
-    </div>
-    <div>
-      <div
-        className="tabWrap"
-        role="tablist"
-        value="tab1"
-      >
-        <button
-          aria-label="Tab 1"
-          aria-selected={true}
-          className="tab active"
-          onClick={[Function]}
-          role="tab"
-        >
-          <span
-            className="label"
-          >
-            Tab 1
-          </span>
-          <div
-            className="tabIndicator"
-            data-flip-config="{\\"translate\\":true,\\"scale\\":true,\\"opacity\\":true}"
-            data-flip-id="tabIndicator"
-            data-portal-key="portal"
-          />
-        </button>
-        <button
-          aria-label="Tab 2"
-          aria-selected={false}
-          className="tab"
-          onClick={[Function]}
-          role="tab"
-        >
-          <span
-            className="label"
-          >
-            Tab 2
-          </span>
-        </button>
-        <button
-          aria-label="Tab 3"
-          aria-selected={false}
-          className="tab"
-          onClick={[Function]}
-          role="tab"
-        >
-          <span
-            className="label"
-          >
-            Tab 3
-          </span>
-        </button>
-        <button
-          aria-label="Tab 4"
-          aria-selected={false}
-          className="tab"
-          disabled={true}
-          onClick={[Function]}
-          role="tab"
-        >
-          <span
-            className="label"
-          >
-            Tab 4
-          </span>
-        </button>
-      </div>
-    </div>
-    <div>
-      <div
-        className="tabWrap"
-        role="tablist"
-        value="tab1"
-      >
-        <button
-          aria-label="Tab 1"
-          aria-selected={true}
-          className="tab active"
-          onClick={[Function]}
-          role="tab"
-        >
-          <span
-            aria-hidden={false}
-            className="icon iconWrapper"
-            role="presentation"
-          >
-            <svg
-              role="presentation"
-              style={
-                Object {
-                  "height": "20px",
-                  "width": "20px",
-                }
-              }
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"
-                style={
-                  Object {
-                    "fill": "currentColor",
-                  }
-                }
-              />
-            </svg>
-          </span>
-          <div
-            className="tabIndicator"
-            data-flip-config="{\\"translate\\":true,\\"scale\\":true,\\"opacity\\":true}"
-            data-flip-id="tabIndicator"
-            data-portal-key="portal"
-          />
-        </button>
-        <button
-          aria-label="Tab 2"
-          aria-selected={false}
-          className="tab"
-          onClick={[Function]}
-          role="tab"
-        >
-          <span
-            aria-hidden={false}
-            className="icon iconWrapper"
-            role="presentation"
-          >
-            <svg
-              role="presentation"
-              style={
-                Object {
-                  "height": "20px",
-                  "width": "20px",
-                }
-              }
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"
-                style={
-                  Object {
-                    "fill": "currentColor",
-                  }
-                }
-              />
-            </svg>
-          </span>
-        </button>
-        <button
-          aria-label="Tab 3"
-          aria-selected={false}
-          className="tab"
-          onClick={[Function]}
-          role="tab"
-        >
-          <span
-            aria-hidden={false}
-            className="icon iconWrapper"
-            role="presentation"
-          >
-            <svg
-              role="presentation"
-              style={
-                Object {
-                  "height": "20px",
-                  "width": "20px",
-                }
-              }
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"
-                style={
-                  Object {
-                    "fill": "currentColor",
-                  }
-                }
-              />
-            </svg>
-          </span>
-        </button>
-        <button
-          aria-label="Tab 4"
-          aria-selected={false}
-          className="tab"
-          disabled={true}
-          onClick={[Function]}
-          role="tab"
-        >
-          <span
-            aria-hidden={false}
-            className="icon iconWrapper"
-            role="presentation"
-          >
-            <svg
-              role="presentation"
-              style={
-                Object {
-                  "height": "20px",
-                  "width": "20px",
-                }
-              }
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"
-                style={
-                  Object {
-                    "fill": "currentColor",
-                  }
-                }
-              />
-            </svg>
-          </span>
-        </button>
-      </div>
-    </div>
-    <div>
-      <div
-        className="tabWrap small"
-        role="tablist"
-        value="tab1"
-      >
-        <button
-          aria-label="Tab 1"
-          aria-selected={true}
-          className="tab active"
-          onClick={[Function]}
-          role="tab"
-        >
-          <span
-            className="label"
-          >
-            Tab 1
-          </span>
-          <div
-            className="tabIndicator"
-            data-flip-config="{\\"translate\\":true,\\"scale\\":true,\\"opacity\\":true}"
-            data-flip-id="tabIndicator"
-            data-portal-key="portal"
-          />
-        </button>
-        <button
-          aria-label="Tab 2"
-          aria-selected={false}
-          className="tab"
-          onClick={[Function]}
-          role="tab"
-        >
-          <span
-            className="label"
-          >
-            Tab 2
-          </span>
-        </button>
-        <button
-          aria-label="Tab 3"
-          aria-selected={false}
-          className="tab"
-          onClick={[Function]}
-          role="tab"
-        >
-          <span
-            className="label"
-          >
-            Tab 3
-          </span>
-        </button>
-        <button
-          aria-label="Tab 4"
-          aria-selected={false}
-          className="tab"
-          disabled={true}
-          onClick={[Function]}
-          role="tab"
-        >
-          <span
-            className="label"
-          >
-            Tab 4
-          </span>
-        </button>
-      </div>
-    </div>
-    <div>
-      <div
-        className="tabWrap pill"
-        role="tablist"
-        value="tab1"
-      >
-        <button
-          aria-label="Tab 1"
-          aria-selected={true}
-          className="tab active"
-          onClick={[Function]}
-          role="tab"
-        >
-          <span
-            className="label"
-          >
-            Tab 1
-          </span>
-          <div
-            className="tabIndicator"
-            data-flip-config="{\\"translate\\":true,\\"scale\\":true,\\"opacity\\":true}"
-            data-flip-id="tabIndicator"
-            data-portal-key="portal"
-          />
-        </button>
-        <button
-          aria-label="Tab 2"
-          aria-selected={false}
-          className="tab"
-          onClick={[Function]}
-          role="tab"
-        >
-          <span
-            className="label"
-          >
-            Tab 2
-          </span>
-        </button>
-        <button
-          aria-label="Tab 3"
-          aria-selected={false}
-          className="tab"
-          onClick={[Function]}
-          role="tab"
-        >
-          <span
-            className="label"
-          >
-            Tab 3
-          </span>
-        </button>
-        <button
-          aria-label="Tab 4"
-          aria-selected={false}
-          className="tab"
-          disabled={true}
-          onClick={[Function]}
-          role="tab"
-        >
-          <span
-            className="label"
-          >
-            Tab 4
-          </span>
-        </button>
-      </div>
-    </div>
-    <div
-      aria-label="score"
-      className="matchScoreContainer"
-    >
-      <div
-        className="matchScoreCircle full"
-      />
-      <div
-        className="matchScoreCircle full"
-      />
-      <div
-        className="matchScoreCircle full"
-      />
-      <div
-        className="matchScoreCircle"
-      />
-      <div
-        className="matchScoreCircle"
-      />
-      <p
-        className="label"
-      >
-        3
-        /
-        5
-      </p>
-    </div>
-    <span
-      aria-hidden={false}
-      className="spinner iconWrapper"
-      role="presentation"
-    >
-      <svg
+      <span
+        aria-hidden={false}
+        className="icon iconWrapper"
         role="presentation"
-        style={
-          Object {
-            "height": "48px",
-            "width": "48px",
-          }
-        }
-        viewBox="0 0 24 24"
       >
-        <style>
-          @keyframes spin { to { transform: rotate(360deg) } }
-        </style>
-        <g
+        <svg
+          role="presentation"
           style={
             Object {
-              "animation": "spin linear 0.8s infinite",
-              "transformOrigin": "center",
+              "height": "16px",
+              "width": "16px",
             }
           }
+          viewBox="0 0 24 24"
         >
           <path
-            d="M12,4V2A10,10 0 0,0 2,12H4A8,8 0 0,1 12,4Z"
+            d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"
             style={
               Object {
                 "fill": "currentColor",
               }
             }
           />
-          <rect
-            fill="transparent"
-            height="24"
-            width="24"
-          />
-        </g>
-      </svg>
-    </span>
+        </svg>
+      </span>
+    </button>
+    <button
+      aria-disabled={false}
+      aria-label="Primary Button"
+      className="button buttonPrimary buttonSize3 iconLeft"
+      defaultChecked={false}
+      disabled={false}
+    >
+      <span>
+        <span
+          aria-hidden={false}
+          className="icon iconWrapper"
+          role="presentation"
+        >
+          <svg
+            role="presentation"
+            style={
+              Object {
+                "height": "16px",
+                "width": "16px",
+              }
+            }
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"
+              style={
+                Object {
+                  "fill": "currentColor",
+                }
+              }
+            />
+          </svg>
+        </span>
+        <span
+          className="buttonText3"
+        >
+          Primary Button
+        </span>
+      </span>
+    </button>
   </div>
+  <div
+    className="stack horizontal m"
+    style={
+      Object {
+        "alignItems": undefined,
+        "flexWrap": undefined,
+        "justifyContent": undefined,
+      }
+    }
+  >
+    <button
+      aria-disabled={false}
+      aria-label="Secondary Button"
+      className="button buttonSecondary buttonSize3"
+      defaultChecked={false}
+      disabled={false}
+    >
+      <span
+        className="buttonText3"
+      >
+        Secondary Button
+      </span>
+    </button>
+    <button
+      aria-disabled={false}
+      aria-label="Secondary Button"
+      className="button buttonSecondary buttonSize3 iconLeft"
+      defaultChecked={false}
+      disabled={false}
+    >
+      <span
+        aria-hidden={false}
+        className="icon iconWrapper"
+        role="presentation"
+      >
+        <svg
+          role="presentation"
+          style={
+            Object {
+              "height": "16px",
+              "width": "16px",
+            }
+          }
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"
+            style={
+              Object {
+                "fill": "currentColor",
+              }
+            }
+          />
+        </svg>
+      </span>
+    </button>
+    <button
+      aria-disabled={false}
+      aria-label="Secondary Button"
+      className="button buttonSecondary buttonSize3 iconLeft"
+      defaultChecked={false}
+      disabled={false}
+    >
+      <span>
+        <span
+          aria-hidden={false}
+          className="icon iconWrapper"
+          role="presentation"
+        >
+          <svg
+            role="presentation"
+            style={
+              Object {
+                "height": "16px",
+                "width": "16px",
+              }
+            }
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"
+              style={
+                Object {
+                  "fill": "currentColor",
+                }
+              }
+            />
+          </svg>
+        </span>
+        <span
+          className="buttonText3"
+        >
+          Secondary Button
+        </span>
+      </span>
+    </button>
+  </div>
+  <div
+    className="stack horizontal m"
+    style={
+      Object {
+        "alignItems": undefined,
+        "flexWrap": undefined,
+        "justifyContent": undefined,
+      }
+    }
+  >
+    <button
+      aria-disabled={false}
+      aria-label="Default Button"
+      className="button buttonDefault buttonSize3"
+      defaultChecked={false}
+      disabled={false}
+    >
+      <span
+        className="buttonText3"
+      >
+        Default Button
+      </span>
+    </button>
+    <button
+      aria-disabled={false}
+      aria-label="Default Button"
+      className="button buttonDefault buttonSize3 iconLeft"
+      defaultChecked={false}
+      disabled={false}
+    >
+      <span
+        aria-hidden={false}
+        className="icon iconWrapper"
+        role="presentation"
+      >
+        <svg
+          role="presentation"
+          style={
+            Object {
+              "height": "16px",
+              "width": "16px",
+            }
+          }
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"
+            style={
+              Object {
+                "fill": "currentColor",
+              }
+            }
+          />
+        </svg>
+      </span>
+    </button>
+    <button
+      aria-disabled={false}
+      aria-label="Default Button"
+      className="button buttonDefault buttonSize3 iconLeft"
+      defaultChecked={false}
+      disabled={false}
+    >
+      <span>
+        <span
+          aria-hidden={false}
+          className="icon iconWrapper"
+          role="presentation"
+        >
+          <svg
+            role="presentation"
+            style={
+              Object {
+                "height": "16px",
+                "width": "16px",
+              }
+            }
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"
+              style={
+                Object {
+                  "fill": "currentColor",
+                }
+              }
+            />
+          </svg>
+        </span>
+        <span
+          className="buttonText3"
+        >
+          Default Button
+        </span>
+      </span>
+    </button>
+  </div>
+  <div>
+    <div
+      className="tabWrap"
+      role="tablist"
+      value="tab1"
+    >
+      <button
+        aria-label="Tab 1"
+        aria-selected={true}
+        className="tab active"
+        onClick={[Function]}
+        role="tab"
+      >
+        <span
+          className="label"
+        >
+          Tab 1
+        </span>
+        <div
+          className="tabIndicator"
+          data-flip-config="{\\"translate\\":true,\\"scale\\":true,\\"opacity\\":true}"
+          data-flip-id="tabIndicator"
+          data-portal-key="portal"
+        />
+      </button>
+      <button
+        aria-label="Tab 2"
+        aria-selected={false}
+        className="tab"
+        onClick={[Function]}
+        role="tab"
+      >
+        <span
+          className="label"
+        >
+          Tab 2
+        </span>
+      </button>
+      <button
+        aria-label="Tab 3"
+        aria-selected={false}
+        className="tab"
+        onClick={[Function]}
+        role="tab"
+      >
+        <span
+          className="label"
+        >
+          Tab 3
+        </span>
+      </button>
+      <button
+        aria-label="Tab 4"
+        aria-selected={false}
+        className="tab"
+        disabled={true}
+        onClick={[Function]}
+        role="tab"
+      >
+        <span
+          className="label"
+        >
+          Tab 4
+        </span>
+      </button>
+    </div>
+  </div>
+  <div>
+    <div
+      className="tabWrap"
+      role="tablist"
+      value="tab1"
+    >
+      <button
+        aria-label="Tab 1"
+        aria-selected={true}
+        className="tab active"
+        onClick={[Function]}
+        role="tab"
+      >
+        <span
+          aria-hidden={false}
+          className="icon iconWrapper"
+          role="presentation"
+        >
+          <svg
+            role="presentation"
+            style={
+              Object {
+                "height": "20px",
+                "width": "20px",
+              }
+            }
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"
+              style={
+                Object {
+                  "fill": "currentColor",
+                }
+              }
+            />
+          </svg>
+        </span>
+        <div
+          className="tabIndicator"
+          data-flip-config="{\\"translate\\":true,\\"scale\\":true,\\"opacity\\":true}"
+          data-flip-id="tabIndicator"
+          data-portal-key="portal"
+        />
+      </button>
+      <button
+        aria-label="Tab 2"
+        aria-selected={false}
+        className="tab"
+        onClick={[Function]}
+        role="tab"
+      >
+        <span
+          aria-hidden={false}
+          className="icon iconWrapper"
+          role="presentation"
+        >
+          <svg
+            role="presentation"
+            style={
+              Object {
+                "height": "20px",
+                "width": "20px",
+              }
+            }
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"
+              style={
+                Object {
+                  "fill": "currentColor",
+                }
+              }
+            />
+          </svg>
+        </span>
+      </button>
+      <button
+        aria-label="Tab 3"
+        aria-selected={false}
+        className="tab"
+        onClick={[Function]}
+        role="tab"
+      >
+        <span
+          aria-hidden={false}
+          className="icon iconWrapper"
+          role="presentation"
+        >
+          <svg
+            role="presentation"
+            style={
+              Object {
+                "height": "20px",
+                "width": "20px",
+              }
+            }
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"
+              style={
+                Object {
+                  "fill": "currentColor",
+                }
+              }
+            />
+          </svg>
+        </span>
+      </button>
+      <button
+        aria-label="Tab 4"
+        aria-selected={false}
+        className="tab"
+        disabled={true}
+        onClick={[Function]}
+        role="tab"
+      >
+        <span
+          aria-hidden={false}
+          className="icon iconWrapper"
+          role="presentation"
+        >
+          <svg
+            role="presentation"
+            style={
+              Object {
+                "height": "20px",
+                "width": "20px",
+              }
+            }
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"
+              style={
+                Object {
+                  "fill": "currentColor",
+                }
+              }
+            />
+          </svg>
+        </span>
+      </button>
+    </div>
+  </div>
+  <div>
+    <div
+      className="tabWrap small"
+      role="tablist"
+      value="tab1"
+    >
+      <button
+        aria-label="Tab 1"
+        aria-selected={true}
+        className="tab active"
+        onClick={[Function]}
+        role="tab"
+      >
+        <span
+          className="label"
+        >
+          Tab 1
+        </span>
+        <div
+          className="tabIndicator"
+          data-flip-config="{\\"translate\\":true,\\"scale\\":true,\\"opacity\\":true}"
+          data-flip-id="tabIndicator"
+          data-portal-key="portal"
+        />
+      </button>
+      <button
+        aria-label="Tab 2"
+        aria-selected={false}
+        className="tab"
+        onClick={[Function]}
+        role="tab"
+      >
+        <span
+          className="label"
+        >
+          Tab 2
+        </span>
+      </button>
+      <button
+        aria-label="Tab 3"
+        aria-selected={false}
+        className="tab"
+        onClick={[Function]}
+        role="tab"
+      >
+        <span
+          className="label"
+        >
+          Tab 3
+        </span>
+      </button>
+      <button
+        aria-label="Tab 4"
+        aria-selected={false}
+        className="tab"
+        disabled={true}
+        onClick={[Function]}
+        role="tab"
+      >
+        <span
+          className="label"
+        >
+          Tab 4
+        </span>
+      </button>
+    </div>
+  </div>
+  <div>
+    <div
+      className="tabWrap pill"
+      role="tablist"
+      value="tab1"
+    >
+      <button
+        aria-label="Tab 1"
+        aria-selected={true}
+        className="tab active"
+        onClick={[Function]}
+        role="tab"
+      >
+        <span
+          className="label"
+        >
+          Tab 1
+        </span>
+        <div
+          className="tabIndicator"
+          data-flip-config="{\\"translate\\":true,\\"scale\\":true,\\"opacity\\":true}"
+          data-flip-id="tabIndicator"
+          data-portal-key="portal"
+        />
+      </button>
+      <button
+        aria-label="Tab 2"
+        aria-selected={false}
+        className="tab"
+        onClick={[Function]}
+        role="tab"
+      >
+        <span
+          className="label"
+        >
+          Tab 2
+        </span>
+      </button>
+      <button
+        aria-label="Tab 3"
+        aria-selected={false}
+        className="tab"
+        onClick={[Function]}
+        role="tab"
+      >
+        <span
+          className="label"
+        >
+          Tab 3
+        </span>
+      </button>
+      <button
+        aria-label="Tab 4"
+        aria-selected={false}
+        className="tab"
+        disabled={true}
+        onClick={[Function]}
+        role="tab"
+      >
+        <span
+          className="label"
+        >
+          Tab 4
+        </span>
+      </button>
+    </div>
+  </div>
+  <div
+    aria-label="score"
+    className="matchScoreContainer"
+  >
+    <div
+      className="matchScoreCircle full"
+    />
+    <div
+      className="matchScoreCircle full"
+    />
+    <div
+      className="matchScoreCircle full"
+    />
+    <div
+      className="matchScoreCircle"
+    />
+    <div
+      className="matchScoreCircle"
+    />
+    <p
+      className="label"
+    >
+      3
+      /
+      5
+    </p>
+  </div>
+  <span
+    aria-hidden={false}
+    className="spinner iconWrapper"
+    role="presentation"
+  >
+    <svg
+      role="presentation"
+      style={
+        Object {
+          "height": "48px",
+          "width": "48px",
+        }
+      }
+      viewBox="0 0 24 24"
+    >
+      <style>
+        @keyframes spin { to { transform: rotate(360deg) } }
+      </style>
+      <g
+        style={
+          Object {
+            "animation": "spin linear 0.8s infinite",
+            "transformOrigin": "center",
+          }
+        }
+      >
+        <path
+          d="M12,4V2A10,10 0 0,0 2,12H4A8,8 0 0,1 12,4Z"
+          style={
+            Object {
+              "fill": "currentColor",
+            }
+          }
+        />
+        <rect
+          fill="transparent"
+          height="24"
+          width="24"
+        />
+      </g>
+    </svg>
+  </span>
 </div>
 `;
 
@@ -4126,90 +4122,82 @@ exports[`Storyshots Icon Basic 1`] = `
 `;
 
 exports[`Storyshots Icon Icomoon 1`] = `
-<div
-  className="theme-blue"
+<span
+  aria-hidden={false}
+  className="my-icon-class iconWrapper"
+  data-test-id="myIconTestId"
+  id="myIconId"
+  role="presentation"
 >
-  <span
-    aria-hidden={false}
-    className="my-icon-class iconWrapper"
-    data-test-id="myIconTestId"
-    id="myIconId"
+  <svg
+    className=""
+    height="20px"
     role="presentation"
+    style={
+      Object {
+        "display": "inline-block",
+        "verticalAlign": "middle",
+      }
+    }
+    viewBox="0 0 1024 1024"
+    width="20px"
+    xmlns="http://www.w3.org/2000/svg"
   >
-    <svg
-      className=""
-      height="20px"
-      role="presentation"
+    <path
+      d="M864 0c88.364 0 160 71.634 160 160 0 36.020-11.91 69.258-32 96l-64 64-224-224 64-64c26.742-20.090 59.978-32 96-32zM64 736l-64 288 288-64 592-592-224-224-592 592zM715.578 363.578l-448 448-55.156-55.156 448-448 55.156 55.156z"
       style={
         Object {
-          "display": "inline-block",
-          "verticalAlign": "middle",
+          "fill": "#000000",
         }
       }
-      viewBox="0 0 1024 1024"
-      width="20px"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="M864 0c88.364 0 160 71.634 160 160 0 36.020-11.91 69.258-32 96l-64 64-224-224 64-64c26.742-20.090 59.978-32 96-32zM64 736l-64 288 288-64 592-592-224-224-592 592zM715.578 363.578l-448 448-55.156-55.156 448-448 55.156 55.156z"
-        style={
-          Object {
-            "fill": "#000000",
-          }
-        }
-      />
-    </svg>
-  </span>
-</div>
+    />
+  </svg>
+</span>
 `;
 
 exports[`Storyshots Icon Icomoon Multicolor 1`] = `
-<div
-  className="theme-blue"
+<span
+  aria-hidden={false}
+  className="my-icon-class iconWrapper"
+  data-test-id="myIconTestId"
+  id="myIconId"
+  role="presentation"
 >
-  <span
-    aria-hidden={false}
-    className="my-icon-class iconWrapper"
-    data-test-id="myIconTestId"
-    id="myIconId"
+  <svg
+    className=""
+    height="24px"
     role="presentation"
+    style={
+      Object {
+        "display": "inline-block",
+        "verticalAlign": "middle",
+      }
+    }
+    viewBox="0 0 1024 1024"
+    width="24px"
+    xmlns="http://www.w3.org/2000/svg"
   >
-    <svg
-      className=""
-      height="24px"
-      role="presentation"
+    <path
+      d="M102.4 153.6v716.8h241.912v-139.999h79.375v139.999h241.912v-716.8h-563.2zM181.777 233.867h81.268v78.399h-81.268v-78.399zM344.312 233.867h79.375v78.399h-79.375v-78.399zM504.955 233.867h81.267v78.399h-81.267v-78.399zM181.777 392.532h81.268v80.269h-81.268v-80.269zM344.312 392.532h79.375v80.269h-79.375v-80.269zM504.955 392.532h81.267v80.269h-81.267v-80.269zM181.777 551.201h81.268v80.266h-81.268v-80.266zM344.312 551.201h79.375v80.266h-79.375v-80.266zM504.955 551.201h81.267v80.266h-81.267v-80.266zM181.777 711.734h81.268v78.4h-81.268v-78.4zM504.955 711.734h81.267v78.4h-81.267v-78.4z"
+      fill="rgb(80, 206, 225)"
       style={
         Object {
-          "display": "inline-block",
-          "verticalAlign": "middle",
+          "fill": undefined,
         }
       }
-      viewBox="0 0 1024 1024"
-      width="24px"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="M102.4 153.6v716.8h241.912v-139.999h79.375v139.999h241.912v-716.8h-563.2zM181.777 233.867h81.268v78.399h-81.268v-78.399zM344.312 233.867h79.375v78.399h-79.375v-78.399zM504.955 233.867h81.267v78.399h-81.267v-78.399zM181.777 392.532h81.268v80.269h-81.268v-80.269zM344.312 392.532h79.375v80.269h-79.375v-80.269zM504.955 392.532h81.267v80.269h-81.267v-80.269zM181.777 551.201h81.268v80.266h-81.268v-80.266zM344.312 551.201h79.375v80.266h-79.375v-80.266zM504.955 551.201h81.267v80.266h-81.267v-80.266zM181.777 711.734h81.268v78.4h-81.268v-78.4zM504.955 711.734h81.267v78.4h-81.267v-78.4z"
-        fill="rgb(80, 206, 225)"
-        style={
-          Object {
-            "fill": undefined,
-          }
+    />
+    <path
+      d="M598.536 358.4h108.529c14.303 0 26.501 5.478 36.598 16.435 10.936 10.112 16.404 22.333 16.404 36.662v54.359h108.531c14.303 0 26.501 5.478 36.598 16.435 10.936 10.115 16.404 22.756 16.404 37.926v295.821c0 15.171-5.468 28.234-16.404 39.191-10.097 10.115-22.295 15.171-36.598 15.171h-431.596c-14.303 0-26.921-5.056-37.86-15.171-10.094-10.957-15.142-24.020-15.142-39.191v-295.821c0-15.171 5.048-27.812 15.142-37.926 10.939-10.957 23.557-16.435 37.86-16.435h108.531v-54.359c0-14.328 5.046-26.55 15.142-36.662 10.936-10.957 23.557-16.435 37.86-16.435zM707.064 465.856v-54.359h-108.529v54.359h108.529z"
+      fill="rgb(20, 109, 166)"
+      opacity={0.6}
+      style={
+        Object {
+          "fill": undefined,
         }
-      />
-      <path
-        d="M598.536 358.4h108.529c14.303 0 26.501 5.478 36.598 16.435 10.936 10.112 16.404 22.333 16.404 36.662v54.359h108.531c14.303 0 26.501 5.478 36.598 16.435 10.936 10.115 16.404 22.756 16.404 37.926v295.821c0 15.171-5.468 28.234-16.404 39.191-10.097 10.115-22.295 15.171-36.598 15.171h-431.596c-14.303 0-26.921-5.056-37.86-15.171-10.094-10.957-15.142-24.020-15.142-39.191v-295.821c0-15.171 5.048-27.812 15.142-37.926 10.939-10.957 23.557-16.435 37.86-16.435h108.531v-54.359c0-14.328 5.046-26.55 15.142-36.662 10.936-10.957 23.557-16.435 37.86-16.435zM707.064 465.856v-54.359h-108.529v54.359h108.529z"
-        fill="rgb(20, 109, 166)"
-        opacity={0.6}
-        style={
-          Object {
-            "fill": undefined,
-          }
-        }
-      />
-    </svg>
-  </span>
-</div>
+      }
+    />
+  </svg>
+</span>
 `;
 
 exports[`Storyshots Info Bar Disruptive 1`] = `
