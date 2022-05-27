@@ -1,11 +1,10 @@
-import React, { Ref, FC } from 'react';
+import React, { Ref, FC, useMemo } from 'react';
 
 // Styles:
 import styles from './avatar.module.scss';
 import { AvatarProps, AvatarFallbackProps, AvatarIconProps } from './';
 import { mergeClasses } from '../../shared/utilities';
 import { Icon } from '../Icon';
-import { useMemo } from '@storybook/addons';
 
 export const AVATAR_CLASS_SET = [
     styles.disruptive,
