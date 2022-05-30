@@ -1,4 +1,4 @@
-import React, { FC, Ref, useRef, useState } from 'react';
+import React, { FC, Ref, useEffect, useRef, useState } from 'react';
 import { generateId, mergeClasses } from '../../../shared/utilities';
 import { CheckboxProps } from './Checkbox.types';
 
@@ -26,6 +26,10 @@ export const CheckBox: FC<CheckboxProps> = React.forwardRef(
         const [isChecked, setIsChecked] = useState<boolean>(
             defaultChecked || checked
         );
+
+        useEffect(() => {
+            setIsChecked(checked);
+        }, [checked]);
 
         const checkboxWrapperClassNames: string = mergeClasses([
             styles.selector,

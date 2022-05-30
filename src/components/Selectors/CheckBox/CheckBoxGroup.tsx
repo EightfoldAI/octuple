@@ -27,10 +27,10 @@ export const CheckBoxGroup: FC<CheckboxGroupProps> = ({
             {items.map((item) => (
                 <CheckBox
                     {...item}
-                    checked={value.includes(item.value)}
+                    checked={value?.includes(item.value)}
                     key={item.value}
                     onChange={() => {
-                        const optionIndex = value.indexOf(item.value);
+                        const optionIndex = value?.indexOf(item.value);
                         const newValue = [...value];
                         if (optionIndex === -1) {
                             newValue.push(item.value);

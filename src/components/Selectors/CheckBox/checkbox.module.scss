@@ -2,7 +2,6 @@
     display: flex;
     position: relative;
     width: fit-content;
-    vertical-align: baseline;
 
     input {
         position: absolute;
@@ -158,17 +157,14 @@
 
     label {
         display: flex;
-        align-items: flex-start;
-        cursor: pointer;
-        position: relative;
-        user-select: none;
-        vertical-align: baseline;
+        align-items: center;
+        margin-bottom: 0;
+        font-weight: $text-font-weight-regular;
     }
 
     .selector-label {
         margin-left: $space-xs;
-        font-size: medium;
-        margin-top: $space-xxxs;
+        font-size: $text-font-weight-regular;
     }
 }
 
