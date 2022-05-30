@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { CheckBox } from './CheckBox';
-import { generateId, mergeClasses } from '../../../shared/utilities';
+import { mergeClasses } from '../../../shared/utilities';
 import { CheckboxGroupProps } from './Checkbox.types';
 
 import styles from './checkbox.module.scss';
@@ -28,7 +28,6 @@ export const CheckBoxGroup: FC<CheckboxGroupProps> = ({
                 <CheckBox
                     {...item}
                     checked={value.includes(item.value)}
-                    id={item.id || generateId()}
                     key={item.value}
                     onChange={() => {
                         const optionIndex = value.indexOf(item.value);
