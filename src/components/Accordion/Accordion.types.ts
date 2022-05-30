@@ -24,35 +24,13 @@ export interface AccordionProps extends AccordionBaseProps {
      */
     summary: React.ReactNode | string;
     /**
-     * Header Classnames
-     * @default ''
+     * Accordion Header Props
      */
-    headerClasses?: string;
+    headerProps?: AccordionSummaryProps;
     /**
-     * Body Classnames
-     * @default ''
+     * Accordion Body Props
      */
-    bodyClasses?: string;
-    /**
-     * Header Styles
-     * @default {}
-     */
-    headerStyles?: Object;
-    /**
-     * Body Styles
-     * @default {}
-     */
-    bodyStyles?: Object;
-    /**
-     * Header data test ID
-     * @default ''
-     */
-    headerTestId?: string;
-    /**
-     * Body data test ID
-     * @default ''
-     */
-    bodyTestId?: string;
+    bodyProps?: AccordionBodyProps;
 }
 
 export interface AccordionSummaryProps extends AccordionBaseProps {}

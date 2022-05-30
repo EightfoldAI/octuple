@@ -14,9 +14,8 @@ export const AccordionSummary: FC<AccordionSummaryProps> = ({
     expanded,
     onClick,
     classNames,
-    style,
     id,
-    'data-test-id': dataTestId,
+    ...rest
 }) => {
     const iconStyles: string = mergeClasses([
         styles.accordionIcon,
@@ -43,8 +42,7 @@ export const AccordionSummary: FC<AccordionSummaryProps> = ({
             id={`${id}-header`}
             role="button"
             tabIndex={0}
-            style={style}
-            data-test-id={dataTestId}
+            {...rest}
         >
             {children}
             <Icon classNames={iconStyles} {...expandIconProps} />
@@ -57,8 +55,7 @@ export const AccordionBody: FC<AccordionBodyProps> = ({
     expanded,
     classNames,
     id,
-    'data-test-id': dataTestId,
-    style,
+    ...rest
 }) => {
     const accordionBodyContainerStyles: string = mergeClasses(
         styles.accordionBodyContainer,
@@ -77,8 +74,7 @@ export const AccordionBody: FC<AccordionBodyProps> = ({
             className={accordionBodyContainerStyles}
             id={`${id}-content`}
             role="region"
-            style={style}
-            data-test-id={dataTestId}
+            {...rest}
         >
             <div className={accordionBodyStyles}>{children}</div>
         </div>
@@ -95,14 +91,9 @@ export const Accordion: FC<AccordionProps> = React.forwardRef(
             expandIconProps = { path: IconName.mdiChevronDown },
             children,
             id = uniqueId('accordion-'),
-            bodyClasses,
-            headerClasses,
-            style,
-            'data-test-id': dataTestId,
-            headerStyles,
-            bodyStyles,
-            headerTestId,
-            bodyTestId,
+            headerProps,
+            bodyProps,
+            ...rest
         },
         ref: Ref<HTMLDivElement>
     ) => {
@@ -119,30 +110,17 @@ export const Accordion: FC<AccordionProps> = React.forwardRef(
         );
 
         return (
-            <div
-                className={accordionContainerStyle}
-                ref={ref}
-                data-test-id={dataTestId}
-                style={style}
-            >
+            <div className={accordionContainerStyle} ref={ref} {...rest}>
                 <AccordionSummary
                     expandIconProps={expandIconProps}
                     onClick={() => toggleAccordion(!isExpanded)}
                     expanded={isExpanded}
                     id={id}
-                    classNames={headerClasses}
-                    style={headerStyles}
-                    data-test-id={headerTestId}
+                    {...headerProps}
                 >
                     {summary}
                 </AccordionSummary>
-                <AccordionBody
-                    id={id}
-                    expanded={isExpanded}
-                    classNames={bodyClasses}
-                    style={bodyStyles}
-                    data-test-id={bodyTestId}
-                >
+                <AccordionBody id={id} expanded={isExpanded} {...bodyProps}>
                     {children}
                 </AccordionBody>
             </div>
