@@ -1168,21 +1168,18 @@ exports[`Storyshots Button Two State Button 1`] = `
 
 exports[`Storyshots Check Box Check Box 1`] = `
 <div
-  className="selector"
-  onKeyDown={[Function]}
+  className="selector my-checkbox-class"
 >
   <input
     aria-label="Label"
     checked={true}
-    defaultChecked={false}
     disabled={false}
     id="myCheckBoxId"
     name="myCheckBoxName"
     onChange={[Function]}
     readOnly={true}
-    tabIndex={-1}
     type="checkbox"
-    value="Label"
+    value="label"
   />
   <label
     className=""
@@ -1190,7 +1187,6 @@ exports[`Storyshots Check Box Check Box 1`] = `
   >
     <span
       className="checkmark"
-      tabIndex={0}
     />
     <span
       className="selectorLabel"
@@ -1202,19 +1198,20 @@ exports[`Storyshots Check Box Check Box 1`] = `
 `;
 
 exports[`Storyshots Check Box Check Box Group 1`] = `
-Array [
+<div
+  className="checkboxGroup"
+  role="group"
+>
   <div
     className="selector"
-    onKeyDown={[Function]}
   >
     <input
-      checked={true}
+      checked={false}
       disabled={false}
       id="test-1"
       name="group"
       onChange={[Function]}
       readOnly={true}
-      tabIndex={-1}
       type="checkbox"
       value="First"
     />
@@ -1224,7 +1221,6 @@ Array [
     >
       <span
         className="checkmark"
-        tabIndex={0}
       />
       <span
         className="selectorLabel"
@@ -1232,19 +1228,17 @@ Array [
         First
       </span>
     </label>
-  </div>,
+  </div>
   <div
     className="selector"
-    onKeyDown={[Function]}
   >
     <input
-      checked={true}
+      checked={false}
       disabled={false}
       id="test-2"
       name="group"
       onChange={[Function]}
       readOnly={true}
-      tabIndex={-1}
       type="checkbox"
       value="Second"
     />
@@ -1254,7 +1248,6 @@ Array [
     >
       <span
         className="checkmark"
-        tabIndex={0}
       />
       <span
         className="selectorLabel"
@@ -1262,19 +1255,17 @@ Array [
         Second
       </span>
     </label>
-  </div>,
+  </div>
   <div
     className="selector"
-    onKeyDown={[Function]}
   >
     <input
-      checked={true}
+      checked={false}
       disabled={false}
       id="test-3"
       name="group"
       onChange={[Function]}
       readOnly={true}
-      tabIndex={-1}
       type="checkbox"
       value="Third"
     />
@@ -1284,7 +1275,6 @@ Array [
     >
       <span
         className="checkmark"
-        tabIndex={0}
       />
       <span
         className="selectorLabel"
@@ -1292,8 +1282,8 @@ Array [
         Third
       </span>
     </label>
-  </div>,
-]
+  </div>
+</div>
 `;
 
 exports[`Storyshots Config Provider Theming 1`] = `
