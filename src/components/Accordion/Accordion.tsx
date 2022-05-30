@@ -59,13 +59,13 @@ export const AccordionBody: FC<AccordionBodyProps> = ({
 }) => {
     const accordionBodyContainerStyles: string = mergeClasses(
         styles.accordionBodyContainer,
-        { [styles.show]: expanded },
-        classNames
+        { [styles.show]: expanded }
     );
 
     const accordionBodyStyles: string = mergeClasses(
         styles.accordionBody,
-        styles.showBorderTop
+        styles.showBorderTop,
+        classNames
     );
 
     return (
