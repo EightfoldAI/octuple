@@ -33,6 +33,26 @@ export interface AccordionProps extends AccordionBaseProps {
      * @default ''
      */
     bodyClasses?: string;
+    /**
+     * Header Styles
+     * @default {}
+     */
+    headerStyles?: Object;
+    /**
+     * Body Styles
+     * @default {}
+     */
+    bodyStyles?: Object;
+    /**
+     * Header data test ID
+     * @default ''
+     */
+    headerTestId?: string;
+    /**
+     * Body data test ID
+     * @default ''
+     */
+    bodyTestId?: string;
 }
 
 export interface AccordionSummaryProps extends AccordionBaseProps {}
