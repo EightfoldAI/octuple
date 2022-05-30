@@ -1,125 +1,158 @@
 .selector {
-    margin-bottom: $selector-margin-bottom;
-    flex-shrink: 1;
-    position: relative;
     display: flex;
-    text-overflow: elipses;
+    position: relative;
+    width: fit-content;
     vertical-align: baseline;
 
     input {
         position: absolute;
-        background: none;
         opacity: 0;
-        height: $selector-input-width;
-        width: $selector-input-height;
-        top: $space-xxxs;
-        left: $space-xxxs;
+        height: 100%;
+        width: 100%;
         cursor: pointer;
+        z-index: 1;
+
+        &[disabled] {
+            cursor: default;
+
+            & + label {
+                .checkmark {
+                    opacity: 50%;
+                }
+            }
+
+            &:focus,
+            &:focus-visible + label {
+                .checkmark {
+                    outline: none;
+                    border: $space-xxxs solid var(--grey-color-70);
+                }
+            }
+
+            &:hover + label {
+                .checkmark {
+                    border: $space-xxxs solid var(--grey-color-70);
+                }
+            }
+
+            &:active + label {
+                .checkmark {
+                    border: $space-xxxs solid var(--grey-color-70);
+                }
+            }
+        }
+
+        & + label {
+            .checkmark {
+                height: $checkmark-height;
+                width: $checkmark-width;
+                position: relative;
+                top: 0;
+                left: 0;
+                border-radius: $corner-radius-s;
+                border: $space-xxxs solid var(--grey-color-70);
+                transition: all $motion-duration-extra-fast $motion-ease-in-back
+                    $motion-delay-s;
+
+                &:after {
+                    content: '';
+                    position: absolute;
+                    left: $checkmark-after-left;
+                    top: $checkmark-after-top;
+                    width: $checkmark-after-width;
+                    height: $icon-font-size-material-xs;
+                    border: solid white;
+                    border-width: 0 $space-xxxs $space-xxxs 0;
+                    opacity: 0;
+                    transform: rotate(45deg) scale(0);
+                    display: block;
+                    transition: all $motion-duration-extra-fast
+                        $motion-ease-in-back $motion-delay-s;
+                }
+            }
+        }
+
+        &:focus,
+        &:focus-visible + label {
+            .checkmark {
+                border: $space-xxxs solid var(--primary-color);
+                outline: $space-xxxs solid var(--primary-color-50);
+                outline-offset: $selector-outline-offset;
+            }
+        }
+
+        &:hover + label {
+            .checkmark {
+                border: $space-xxxs solid var(--primary-color-60);
+            }
+        }
     }
 
-    input:checked + label {
-        .checkmark {
-            background-color: var(--primary-color);
-            border: $space-xxxs solid var(--primary-color);
+    input:checked {
+        &[disabled] {
+            cursor: default;
 
-            &.disabled {
-                opacity: 50%;
+            &:focus,
+            &:focus-visible + label {
+                .checkmark {
+                    outline: none;
+                }
+            }
 
-                &:hover {
+            &:hover + label {
+                .checkmark {
                     background-color: var(--primary-color);
                     border: $space-xxxs solid var(--primary-color);
                 }
+            }
 
-                &:focus,
-                &:focus-visible {
-                    outline: none;
-                }
-
-                &:active {
+            &:active + label {
+                .checkmark {
                     transform: none;
                     background-color: var(--primary-color);
                     border: $space-xxxs solid var(--primary-color);
                 }
             }
+        }
 
-            &:hover {
-                background-color: var(--primary-color-60);
-                border: $space-xxxs solid var(--primary-color-60);
+        & + label {
+            transition: all $motion-duration-extra-fast $motion-ease-out-back
+                $motion-delay-s;
+
+            .checkmark {
+                background-color: var(--primary-color);
+                border: $space-xxxs solid var(--primary-color);
             }
 
-            &:focus,
-            &:focus-visible {
+            .checkmark:after {
+                opacity: 1;
+                transform: rotate(45deg) scale(1);
+                transition: all $motion-duration-extra-fast
+                    $motion-ease-out-back $motion-delay-s;
+            }
+        }
+
+        &:focus,
+        &:focus-visible + label {
+            .checkmark {
                 outline: $space-xxxs solid var(--primary-color-50);
                 outline-offset: $selector-outline-offset;
             }
+        }
 
-            &:active {
+        &:active + label {
+            .checkmark {
                 transform: scale(0.98);
                 background-color: var(--primary-color-80);
                 border: $space-xxxs solid var(--primary-color-80);
             }
+        }
 
-            &:after {
-                left: $checkmark-after-left;
-                top: $checkmark-after-top;
-                width: $checkmark-after-width;
-                height: $icon-font-size-material-xs;
-                border: solid white;
-                border-width: 0 $space-xxxs $space-xxxs 0;
-                -webkit-transform: rotate(45deg);
-                -ms-transform: rotate(45deg);
-                transform: rotate(45deg);
-                display: block;
+        &:hover + label {
+            .checkmark {
+                background-color: var(--primary-color-60);
+                border: $space-xxxs solid var(--primary-color-60);
             }
-        }
-    }
-
-    .checkmark {
-        height: $checkmark-height;
-        width: $checkmark-width;
-        position: absolute;
-        left: 0;
-        border-radius: $corner-radius-s;
-        cursor: pointer;
-        border: $space-xxxs solid var(--grey-color-70);
-
-        &.disabled {
-            opacity: 50%;
-
-            &:hover {
-                border: $space-xxxs solid var(--grey-color-70);
-            }
-
-            &:focus,
-            &:focus-visible {
-                outline: none;
-                border: $space-xxxs solid var(--grey-color-70);
-            }
-
-            &:active {
-                border: $space-xxxs solid var(--grey-color-70);
-            }
-        }
-
-        &:hover {
-            border: $space-xxxs solid var(--primary-color-60);
-        }
-
-        &:focus,
-        &:focus-visible {
-            border: $space-xxxs solid var(--primary-color);
-            outline: $space-xxxs solid var(--primary-color-50);
-            outline-offset: $selector-outline-offset;
-        }
-
-        &:active {
-            border: $space-xxxs solid var(--primary-color-80);
-        }
-
-        &:after {
-            content: '';
-            position: absolute;
-            display: none;
         }
     }
 
@@ -133,9 +166,15 @@
     }
 
     .selector-label {
-        margin-left: $selector-label-margin-left;
+        margin-left: $space-xs;
         font-size: medium;
         margin-top: $space-xxxs;
+    }
+}
+
+.checkbox-group {
+    .selector {
+        margin-bottom: $space-m;
     }
 }
 

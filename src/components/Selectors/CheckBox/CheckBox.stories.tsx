@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Stories } from '@storybook/addon-docs';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { CheckBox, CheckBoxGroup } from '../index';
+import { CheckBox, CheckBoxGroup } from '../';
+import { CheckboxValueType } from './Checkbox.types';
 
 export default {
     title: 'Check Box',
@@ -74,10 +75,6 @@ export default {
             defaultValue: true,
             control: { type: 'boolean' },
         },
-        defaultChecked: {
-            defaultValue: false,
-            control: { type: 'boolean' },
-        },
     },
 } as ComponentMeta<typeof CheckBox>;
 
@@ -87,9 +84,16 @@ const CheckBox_Story: ComponentStory<typeof CheckBox> = (args) => (
 
 export const Check_Box = CheckBox_Story.bind({});
 
-const CheckBoxGroup_Story: ComponentStory<typeof CheckBox> = (args) => (
-    <CheckBoxGroup {...args} />
-);
+const CheckBoxGroup_Story: ComponentStory<typeof CheckBoxGroup> = (args) => {
+    const [selected, setSelected] = useState<CheckboxValueType[]>([]);
+    return (
+        <CheckBoxGroup
+            {...args}
+            value={selected}
+            onChange={(newSelected) => setSelected([...newSelected])}
+        />
+    );
+};
 
 export const Check_Box_Group = CheckBoxGroup_Story.bind({});
 
@@ -99,8 +103,10 @@ const checkBoxArgs: Object = {
     classNames: 'my-checkbox-class',
     disabled: false,
     name: 'myCheckBoxName',
-    value: 'Label',
+    value: 'label',
+    label: 'Label',
     id: 'myCheckBoxId',
+    defaultChecked: false,
 };
 
 Check_Box.args = {
@@ -108,24 +114,25 @@ Check_Box.args = {
 };
 
 Check_Box_Group.args = {
-    ...checkBoxArgs,
+    value: ['First'],
+    defaultChecked: ['First'],
     items: [
         {
-            checked: true,
             name: 'group',
             value: 'First',
+            label: 'First',
             id: 'test-1',
         },
         {
-            checked: true,
             name: 'group',
             value: 'Second',
+            label: 'Second',
             id: 'test-2',
         },
         {
-            checked: true,
             name: 'group',
             value: 'Third',
+            label: 'Third',
             id: 'test-3',
         },
     ],

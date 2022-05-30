@@ -23,50 +23,6 @@ export interface IRadioButtonsContext {
     onRadioButtonClick: OnChangeHandler;
 }
 
-export interface CheckBoxProps extends OcBaseProps<HTMLInputElement> {
-    /**
-     * Allows focus on the checkbox when it's disabled.
-     */
-    allowDisabledFocus?: boolean;
-    /**
-     * The input checkbox aria-label text.
-     */
-    ariaLabel?: string;
-    /**
-     * The input checkbox checked value.
-     */
-    checked?: boolean;
-    /**
-     * The input checkbox default checked value.
-     */
-    defaultChecked?: boolean;
-    /**
-     * The checkbox disabled state.
-     * @default false
-     */
-    disabled?: boolean;
-    /**
-     * The checkbox id.
-     */
-    id?: string;
-    /**
-     * The array of items for the radio group.
-     */
-    items?: Array<CheckBoxProps>;
-    /**
-     * The checkbox input name.
-     */
-    name?: string;
-    /**
-     * The check box value.
-     */
-    value?: string;
-    /**
-     * The checkbox onChange event handler.
-     */
-    onChange?: React.ChangeEventHandler<HTMLInputElement>;
-}
-
 export interface RadioButtonProps
     extends Omit<OcBaseProps<HTMLElement>, 'onChange'> {
     /**

@@ -1,5 +1,5 @@
 .selector {
-    margin-bottom: $selector-margin-bottom;
+    margin-bottom: $space-m;
     flex-shrink: 1;
     position: relative;
     display: flex;
@@ -130,7 +130,7 @@
     }
 
     .selector-label {
-        margin-left: $selector-label-margin-left;
+        margin-left: $space-xl;
         font-size: medium;
         margin-top: $space-xxxs;
     }

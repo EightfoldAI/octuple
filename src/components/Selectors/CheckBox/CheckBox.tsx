@@ -1,58 +1,75 @@
-import React, { FC, useState } from 'react';
-import { CheckBoxProps } from '../';
-import { mergeClasses, generateId } from '../../../shared/utilities';
+import React, { FC, Ref, useRef, useState } from 'react';
+import { generateId, mergeClasses } from '../../../shared/utilities';
+import { CheckboxProps } from './Checkbox.types';
 
 import styles from './checkbox.module.scss';
 
-export const CheckBox: FC<CheckBoxProps> = ({
-    ariaLabel,
-    checked = false,
-    defaultChecked,
-    disabled = false,
-    name,
-    value = '',
-    id,
-    onChange,
-}) => {
-    const [checkBoxId] = useState<string>(id || generateId());
-    const [isChecked, setIsChecked] = useState<boolean>(checked);
+export const CheckBox: FC<CheckboxProps> = React.forwardRef(
+    (
+        {
+            ariaLabel,
+            checked = false,
+            defaultChecked,
+            disabled = false,
+            name,
+            value,
+            id,
+            onChange,
+            label,
+            classNames,
+            style,
+            'data-test-id': dataTestId,
+        },
+        ref: Ref<HTMLInputElement>
+    ) => {
+        const checkBoxId = useRef<string>(id || generateId());
+        const [isChecked, setIsChecked] = useState<boolean>(
+            defaultChecked || checked
+        );
 
-    const checkBoxCheckClassNames: string = mergeClasses([
-        styles.checkmark,
-        { [styles.disabled]: disabled },
-    ]);
+        const checkboxWrapperClassNames: string = mergeClasses([
+            styles.selector,
+            classNames,
+        ]);
 
-    const toggleChecked = (): void => {
-        if (!disabled) setIsChecked(!isChecked);
-    };
+        const checkBoxCheckClassNames: string = mergeClasses([
+            styles.checkmark,
+        ]);
 
-    const handleKeyDown = (event: React.KeyboardEvent) => {
-        if (event.key !== 'Tab') event.preventDefault();
-        if (event.key === 'Enter' || event.key === ' ') toggleChecked();
-    };
+        const labelClassNames: string = mergeClasses([
+            { [styles.labelNoValue]: value === '' },
+        ]);
 
-    return (
-        <div className={styles.selector} onKeyDown={handleKeyDown}>
-            <input
-                aria-label={ariaLabel}
-                checked={isChecked}
-                defaultChecked={defaultChecked}
-                disabled={disabled}
-                id={checkBoxId}
-                onChange={onChange ? onChange : toggleChecked}
-                name={name}
-                tabIndex={-1}
-                type={'checkbox'}
-                value={value}
-                readOnly
-            />
-            <label
-                htmlFor={checkBoxId}
-                className={value === '' ? styles.labelNoValue : ''}
+        const toggleChecked = (
+            e: React.ChangeEvent<HTMLInputElement>
+        ): void => {
+            setIsChecked(e.target.checked);
+            onChange?.(e);
+        };
+
+        return (
+            <div
+                className={checkboxWrapperClassNames}
+                style={style}
+                data-test-id={dataTestId}
             >
-                <span className={checkBoxCheckClassNames} tabIndex={0}></span>
-                <span className={styles.selectorLabel}>{value}</span>
-            </label>
-        </div>
-    );
-};
+                <input
+                    ref={ref}
+                    aria-label={ariaLabel}
+                    checked={isChecked}
+                    disabled={disabled}
+                    id={checkBoxId.current}
+                    onChange={toggleChecked}
+                    name={name}
+                    type={'checkbox'}
+                    value={value}
+                    readOnly
+                />
+                <label htmlFor={checkBoxId.current} className={labelClassNames}>
+                    <span className={checkBoxCheckClassNames} />
+                    <span className={styles.selectorLabel}>{label}</span>
+                </label>
+            </div>
+        );
+    }
+);
