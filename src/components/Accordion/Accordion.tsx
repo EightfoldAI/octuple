@@ -13,9 +13,11 @@ export const AccordionSummary: FC<AccordionSummaryProps> = ({
     expandIconProps,
     expanded,
     onClick,
+    classNames,
     id,
 }) => {
     const iconStyles: string = mergeClasses([
+        classNames,
         styles.accordionIcon,
         // Conditional classes can also be handled as follows
         { [styles.expandedIcon]: expanded },
@@ -49,9 +51,11 @@ export const AccordionSummary: FC<AccordionSummaryProps> = ({
 export const AccordionBody: FC<AccordionBodyProps> = ({
     children,
     expanded,
+    classNames,
     id,
 }) => {
     const accordionBodyContainerStyles: string = mergeClasses(
+        classNames,
         styles.accordionBodyContainer,
         { [styles.show]: expanded }
     );
@@ -83,6 +87,8 @@ export const Accordion: FC<AccordionProps> = React.forwardRef(
             expandIconProps = { path: IconName.mdiChevronDown },
             children,
             id = uniqueId('accordion-'),
+            bodyClasses,
+            headerClasses,
         },
         ref: Ref<HTMLDivElement>
     ) => {
@@ -105,10 +111,15 @@ export const Accordion: FC<AccordionProps> = React.forwardRef(
                     onClick={() => toggleAccordion(!isExpanded)}
                     expanded={isExpanded}
                     id={id}
+                    classNames={headerClasses}
                 >
                     {summary}
                 </AccordionSummary>
-                <AccordionBody id={id} expanded={isExpanded}>
+                <AccordionBody
+                    id={id}
+                    expanded={isExpanded}
+                    classNames={bodyClasses}
+                >
                     {children}
                 </AccordionBody>
             </div>
