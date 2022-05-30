@@ -12,6 +12,7 @@ export const CheckBoxGroup: FC<CheckboxGroupProps> = ({
     classNames,
     'data-test-id': dataTestId,
     style,
+    ariaLabel,
 }) => {
     const checkboxGroupClassNames = mergeClasses([
         styles.checkboxGroup,
@@ -23,6 +24,8 @@ export const CheckBoxGroup: FC<CheckboxGroupProps> = ({
             className={checkboxGroupClassNames}
             data-test-id={dataTestId}
             style={style}
+            role="group"
+            aria-label={ariaLabel}
         >
             {items.map((item) => (
                 <CheckBox

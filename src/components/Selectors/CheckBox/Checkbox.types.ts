@@ -46,6 +46,10 @@ export interface CheckboxProps extends OcBaseProps<HTMLInputElement> {
 export interface CheckboxGroupProps
     extends Omit<OcBaseProps<HTMLInputElement>, 'defaultChecked' | 'onChange'> {
     /**
+     * Aria label for the checkbox group
+     */
+    ariaLabel?: string;
+    /**
      * The array of items for the radio group.
      */
     items?: CheckboxProps[];
