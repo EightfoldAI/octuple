@@ -17,11 +17,15 @@ export const AccordionSummary: FC<AccordionSummaryProps> = ({
     id,
     ...rest
 }) => {
+    const headerClassnames = mergeClasses([
+        styles.accordionSummary,
+        classNames,
+    ]);
+
     const iconStyles: string = mergeClasses([
         styles.accordionIcon,
         // Conditional classes can also be handled as follows
         { [styles.expandedIcon]: expanded },
-        classNames,
     ]);
 
     // to handle enter press on accordion header
@@ -36,7 +40,7 @@ export const AccordionSummary: FC<AccordionSummaryProps> = ({
         <div
             aria-expanded={expanded}
             aria-controls={`${id}-content`}
-            className={styles.accordionSummary}
+            className={headerClassnames}
             onClick={onClick}
             onKeyDown={handleKeyDown}
             id={`${id}-header`}
