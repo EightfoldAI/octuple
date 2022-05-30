@@ -283,10 +283,8 @@ $button-spacer-small: 4px;
 $button-padding-vertical-default-small: 6px;
 $button-padding-horizontal-default-small: 2px;
 
-$selector-margin-bottom: 15px;
 $selector-outline-offset: 1px;
 $label-no-value-margin-bottom: 15px;
-$selector-label-margin-left: 28px;
 
 // Corner-radius Definitions
 
@@ -329,6 +327,8 @@ $motion-easing-easeinout: cubic-bezier(
     0.58,
     1
 ); // The primary easing curve. Used for any core animation not entering/exiting the screen or a component
+$motion-ease-in-back: cubic-bezier(0.12, 0.4, 0.29, 1.46);
+$motion-ease-out-back: cubic-bezier(0.71, -0.46, 0.88, 0.6);
 
 // Movement Definitions
 

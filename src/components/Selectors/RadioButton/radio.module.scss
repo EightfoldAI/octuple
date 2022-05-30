@@ -1,20 +1,15 @@
 .selector {
-    margin-bottom: $selector-margin-bottom;
-    flex-shrink: 1;
-    position: relative;
     display: flex;
-    text-overflow: elipses;
-    vertical-align: baseline;
+    position: relative;
+    width: fit-content;
 
     input {
         position: absolute;
-        background: none;
         opacity: 0;
-        height: $selector-input-width;
-        width: $selector-input-height;
-        top: $space-xxxs;
-        left: $space-xxxs;
+        height: 100%;
+        width: 100%;
         cursor: pointer;
+        z-index: 1;
     }
 
     input:checked + label {
@@ -60,19 +55,17 @@
 
             &:after {
                 display: block;
-                background: white;
+                background: var(--white-color);
             }
         }
     }
 
     .radio-button {
         position: absolute;
-        left: 0;
         height: $radio-height;
         width: $radio-width;
         border-radius: 50%;
-        background-color: white;
-        cursor: pointer;
+        background-color: var(--white-color);
         border: $space-xxxs solid var(--grey-color-70);
 
         &.disabled {
@@ -130,9 +123,15 @@
     }
 
     .selector-label {
-        margin-left: $selector-label-margin-left;
+        margin-left: $space-xl;
         font-size: medium;
         margin-top: $space-xxxs;
+    }
+}
+
+.radio-group {
+    .selector {
+        margin-bottom: $space-m;
     }
 }
 

@@ -109,7 +109,7 @@ const RadioButton_Story: ComponentStory<typeof RadioButton> = (args) => (
 
 export const Radio_Button = RadioButton_Story.bind({});
 
-const RadioGroup_Story: ComponentStory<typeof RadioButton> = (args) => (
+const RadioGroup_Story: ComponentStory<typeof RadioGroup> = (args) => (
     <RadioGroup {...args} />
 );
 
@@ -118,7 +118,7 @@ export const Radio_Group = RadioGroup_Story.bind({});
 const radioButtonArgs: Object = {
     allowDisabledFocus: false,
     ariaLabel: 'Label',
-    checked: true,
+    checked: false,
     classNames: 'my-radiobutton-class',
     disabled: false,
     name: 'myRadioButtonName',
@@ -131,9 +131,8 @@ Radio_Button.args = {
 };
 
 Radio_Group.args = {
-    ...radioButtonArgs,
-    activeRadioButton: 'Radio1',
-    radioGroupItems: [1, 2, 3].map((i) => ({
+    defaultValue: 'Radio1',
+    items: [1, 2, 3].map((i) => ({
         value: `Radio${i}`,
         name: 'group',
         id: `oea2exk-${i}`,
