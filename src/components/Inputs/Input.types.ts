@@ -179,6 +179,17 @@ export interface TextInputProps extends InputProps<HTMLInputElement> {
      * @default false
      */
     required?: boolean;
+
+    /**
+     * The input required attribute.
+     * @default false
+     */
+    clearable?: boolean;
+
+    /**
+     * onclear event handler.
+     */
+    onClear?: React.MouseEventHandler<Element>;
 }
 
 export interface InputProps<T>

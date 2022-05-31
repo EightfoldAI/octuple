@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import { ButtonSize, DefaultButton } from '../../Button';
 import { Icon, IconName, IconSize } from '../../Icon';
 import { Label } from '../../Label';
@@ -32,6 +32,7 @@ export const TextInput: FC<TextInputProps> = ({
     numbersOnly = false,
     onBlur,
     onChange,
+    onClear,
     onFocus,
     onKeyDown,
     placeholder,
@@ -41,9 +42,10 @@ export const TextInput: FC<TextInputProps> = ({
     theme = TextInputTheme.light,
     value,
     waitInterval = 10,
+    clearable = true,
     ...rest
 }) => {
-    const [clearButtonShown, setClearButtonShown] = useState<boolean>(false);
+    const [clearButtonShown, _setClearButtonShown] = useState<boolean>(false);
     const [inputId] = useState<string>(uniqueId(id || 'input-'));
     const inputField: HTMLElement = document.getElementById(inputId);
 
@@ -51,6 +53,19 @@ export const TextInput: FC<TextInputProps> = ({
         styles.iconWrapper,
         styles.leftIcon,
     ]);
+
+    useEffect(() => {
+        if (value !== undefined && value.toString().length > 0) {
+            return setClearButtonShown(true);
+        }
+        setClearButtonShown(false);
+    }, [value]);
+
+    const setClearButtonShown = (showClear: boolean) => {
+        return !clearable
+            ? _setClearButtonShown(false)
+            : _setClearButtonShown(showClear);
+    };
 
     const iconButtonClassNames: string = mergeClasses([
         styles.iconButton,
@@ -117,6 +132,7 @@ export const TextInput: FC<TextInputProps> = ({
         if (!!inputField) {
             (inputField as HTMLInputElement).value = '';
         }
+        onClear?.(_event);
         setClearButtonShown(false);
     };
 
