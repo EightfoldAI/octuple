@@ -15,6 +15,7 @@ export const RadioButton: FC<RadioButtonProps> = React.forwardRef(
             value = '',
             id,
             onChange,
+            label,
         },
         ref: Ref<HTMLInputElement>
     ) => {
@@ -66,10 +67,10 @@ export const RadioButton: FC<RadioButtonProps> = React.forwardRef(
                     className={labelClassNames}
                 >
                     <span
-                        id={`${radioButtonId}-custom-radio`}
+                        id={`${radioButtonId.current}-custom-radio`}
                         className={radioButtonClassNames}
                     />
-                    <span className={styles.selectorLabel}>{value}</span>
+                    <span className={styles.selectorLabel}>{label}</span>
                 </label>
             </div>
         );

@@ -1,4 +1,4 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useEffect, useState } from 'react';
 import {
     IRadioButtonsContext,
     RadioButtonValue,
@@ -12,18 +12,8 @@ const RadioGroupProvider = ({
     onChange,
     value,
 }: RadioGroupContextProps) => {
-    const [currentGroupValue, setCurrentGroupValue] =
-        useState<RadioButtonValue>(value);
-
-    const onGroupChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setCurrentGroupValue(e.target.value);
-        onChange?.(e);
-    };
-
     return (
-        <RadioGroupContext.Provider
-            value={{ onChange: onGroupChange, value: currentGroupValue }}
-        >
+        <RadioGroupContext.Provider value={{ onChange, value }}>
             {children}
         </RadioGroupContext.Provider>
     );

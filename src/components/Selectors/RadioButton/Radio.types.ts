@@ -36,6 +36,10 @@ export interface RadioButtonProps extends OcBaseProps<HTMLInputElement> {
      */
     value?: RadioButtonValue;
     /**
+     * Label of the radio button
+     */
+    label?: string | React.ReactNode;
+    /**
      * The radio button onChange event handler.
      */
     onChange?: React.ChangeEventHandler<HTMLInputElement>;
@@ -49,7 +53,7 @@ export interface RadioGroupProps extends OcBaseProps<HTMLDivElement> {
     /**
      * The input radio default selected value.
      */
-    defaultValue?: RadioButtonValue;
+    value?: RadioButtonValue;
     /**
      * The array of items for the radio group.
      */
