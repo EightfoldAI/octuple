@@ -11,14 +11,14 @@
         &.show {
             max-height: 500px;
         }
+    }
 
-        .accordion-body {
-            margin: 0 $space-l;
-            padding: $space-m 0;
+    .accordion-body {
+        margin: 0 $space-l;
+        padding: $space-m 0;
 
-            &.show-border-top {
-                border-top: 1px solid var(--grey-color-20);
-            }
+        &.show-border-top {
+            border-top: 1px solid var(--grey-color-20);
         }
     }
 
@@ -32,13 +32,13 @@
         &:focus-visible {
             outline-color: var(--button-primary-focus-border-color);
         }
+    }
 
-        .accordion-icon {
-            transition: transform $motion-duration-fast;
+    .accordion-icon {
+        transition: transform $motion-duration-fast;
 
-            &.expanded-icon {
-                transform: rotate(180deg);
-            }
+        &.expanded-icon {
+            transform: rotate(180deg);
         }
     }
 }

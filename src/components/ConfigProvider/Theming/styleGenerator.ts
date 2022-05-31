@@ -112,6 +112,11 @@ export function getStyle(themeOptions: ThemeOptions): IGetStyle {
         variables[`info-color`] = theme.infoColor;
     }
 
+    // ================= Font Size ==================
+    if (theme.fontSize) {
+        variables[`font-size`] = `${theme.fontSize}px`;
+    }
+
     return {
         variables,
         light: themePrimaryColor.isLight(),
@@ -130,11 +135,10 @@ function getContainer(option: Options): Element {
 
 export function injectCSS(
     variables: Variables,
-    themeName: string,
     option: Options = {}
 ): HTMLStyleElement {
     const css = `
-          .theme-${themeName} {
+          :root {
             ${Object.keys(variables)
                 .map((key) => `--${key}: ${variables[key]};`)
                 .join('\n')}
@@ -167,7 +171,7 @@ export function injectCSS(
 
 export function registerTheme(themeOptions: ThemeOptions): IRegisterTheme {
     const { themeName, light, variables } = getStyle(themeOptions);
-    const styleNode: HTMLStyleElement = injectCSS(variables, themeName);
+    const styleNode: HTMLStyleElement = injectCSS(variables);
     return {
         themeName,
         light,

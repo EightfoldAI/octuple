@@ -118,10 +118,9 @@ export const stopPropagation = (e: React.MouseEvent<any>) =>
 /**
  * Get unique id
  */
-export const generateId = ((): ((prefix?: string) => string) => {
-    return (prefix?: string): string =>
-        `${prefix}${Math.random().toString(36).substring(2, 9)}`;
-})();
+export const generateId = (prefix?: string) => {
+    return `${prefix ?? ''}${Math.random().toString(36).substring(2, 9)}`;
+};
 
 /**
  * Utility to determine the visibility of an element.

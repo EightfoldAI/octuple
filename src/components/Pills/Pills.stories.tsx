@@ -1,12 +1,51 @@
 import React from 'react';
+import { Stories } from '@storybook/addon-docs';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Pill, PillSize, PillType } from './';
 import { OcThemeNames } from '../ConfigProvider';
-import { Icon, IconName, IconSize } from '../Icon';
+import { IconName } from '../Icon';
+import { Stack } from '../Stack';
 
 export default {
     title: 'Pill',
-    component: Pill,
-};
+    parameters: {
+        docs: {
+            page: (): JSX.Element => (
+                <main>
+                    <article>
+                        <section>
+                            <h1>Pills</h1>
+                            <p>
+                                Pills should be used when representing an input,
+                                as a way to filter content, or to represent an
+                                attribute.
+                            </p>
+                        </section>
+                        <section>
+                            <Stories includePrimary title="" />
+                        </section>
+                    </article>
+                </main>
+            ),
+        },
+    },
+    argTypes: {
+        onClick: {
+            action: 'click',
+        },
+        onClose: {
+            action: 'close',
+        },
+        size: {
+            options: [PillSize.Large, PillSize.Medium, PillSize.Small],
+            control: { type: 'radio' },
+        },
+        type: {
+            options: [PillType.default, PillType.closable, PillType.withButton],
+            control: { type: 'radio' },
+        },
+    },
+} as ComponentMeta<typeof Pill>;
 
 const themes: OcThemeNames[] = [
     'red',
@@ -19,241 +58,77 @@ const themes: OcThemeNames[] = [
     'grey',
 ];
 
-export const Pills = () => (
-    <>
-        <h2>Pills ({PillSize.Large})</h2>
-        <div style={{ display: 'flex', gap: '30px' }}>
-            <div
-                style={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    gap: '16px',
-                }}
-            >
-                {themes.map((theme) => (
-                    <Pill label={theme} theme={theme} key={theme} />
-                ))}
-            </div>
-
-            <div
-                style={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    gap: '16px',
-                }}
-            >
-                {themes.map((theme) => (
-                    <Pill
-                        label={theme}
-                        theme={theme}
-                        key={theme}
-                        type={PillType.closable}
-                        closeButtonProps={{
-                            ariaLabel: 'Close',
-                        }}
-                    />
-                ))}
-            </div>
-            <div
-                style={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    gap: '16px',
-                }}
-            >
-                {themes.map((theme) => (
-                    <Pill
-                        label={theme}
-                        theme={theme}
-                        key={theme}
-                        iconProps={{ path: IconName.mdiInformationOutline }}
-                    />
-                ))}
-            </div>
-            <div
-                style={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    gap: '16px',
-                }}
-            >
-                {themes.map((theme) => (
-                    <Pill
-                        label={theme}
-                        theme={theme}
-                        key={theme}
-                        type={PillType.withButton}
-                        pillButtonProps={{
-                            iconProps: { path: IconName.mdiThumbUpOutline },
-                            text: '2',
-                            ariaLabel: 'Thumbs up',
-                        }}
-                    />
-                ))}
-            </div>
-        </div>
-        <br />
-        <br />
-        <br />
-        <h2>Pills ({PillSize.Medium})</h2>
-        <div style={{ display: 'flex', gap: '30px' }}>
-            <div
-                style={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    gap: '16px',
-                }}
-            >
-                {themes.map((theme) => (
-                    <Pill
-                        label={theme}
-                        theme={theme}
-                        key={theme}
-                        size={PillSize.Medium}
-                    />
-                ))}
-            </div>
-
-            <div
-                style={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    gap: '16px',
-                }}
-            >
-                {themes.map((theme) => (
-                    <Pill
-                        label={theme}
-                        theme={theme}
-                        key={theme}
-                        size={PillSize.Medium}
-                        type={PillType.closable}
-                        closeButtonProps={{
-                            ariaLabel: 'Close',
-                        }}
-                    />
-                ))}
-            </div>
-            <div
-                style={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    gap: '16px',
-                }}
-            >
-                {themes.map((theme) => (
-                    <Pill
-                        label={theme}
-                        theme={theme}
-                        key={theme}
-                        iconProps={{ path: IconName.mdiInformationOutline }}
-                        size={PillSize.Medium}
-                    />
-                ))}
-            </div>
-            <div
-                style={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    gap: '16px',
-                }}
-            >
-                {themes.map((theme) => (
-                    <Pill
-                        label={theme}
-                        theme={theme}
-                        key={theme}
-                        type={PillType.withButton}
-                        size={PillSize.Medium}
-                        pillButtonProps={{
-                            iconProps: { path: IconName.mdiThumbUpOutline },
-                            text: '2',
-                            ariaLabel: 'Thumbs up',
-                        }}
-                    />
-                ))}
-            </div>
-        </div>
-        <br />
-        <br />
-        <br />
-        <h2>Pills ({PillSize.Small})</h2>
-        <div style={{ display: 'flex', gap: '30px' }}>
-            <div
-                style={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    gap: '16px',
-                }}
-            >
-                {themes.map((theme) => (
-                    <Pill
-                        label={theme}
-                        theme={theme}
-                        key={theme}
-                        size={PillSize.Small}
-                    />
-                ))}
-            </div>
-            <div
-                style={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    gap: '16px',
-                }}
-            >
-                {themes.map((theme) => (
-                    <Pill
-                        label={theme}
-                        theme={theme}
-                        key={theme}
-                        size={PillSize.Small}
-                        type={PillType.closable}
-                        closeButtonProps={{
-                            ariaLabel: 'Close',
-                        }}
-                    />
-                ))}
-            </div>
-            <div
-                style={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    gap: '16px',
-                }}
-            >
-                {themes.map((theme) => (
-                    <Pill
-                        label={theme}
-                        theme={theme}
-                        key={theme}
-                        iconProps={{ path: IconName.mdiInformationOutline }}
-                        size={PillSize.Small}
-                    />
-                ))}
-            </div>
-            <div
-                style={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    gap: '16px',
-                }}
-            >
-                {themes.map((theme) => (
-                    <Pill
-                        label={theme}
-                        theme={theme}
-                        key={theme}
-                        type={PillType.withButton}
-                        size={PillSize.Small}
-                        pillButtonProps={{
-                            iconProps: { path: IconName.mdiThumbUpOutline },
-                            text: '2',
-                            ariaLabel: 'Thumbs up',
-                        }}
-                    />
-                ))}
-            </div>
-        </div>
-    </>
+const Default_Story: ComponentStory<typeof Pill> = (args) => (
+    <Stack direction="vertical" gap="l">
+        {themes.map((theme) => (
+            <Pill {...args} label={theme} theme={theme} key={theme} />
+        ))}
+    </Stack>
 );
+
+export const Default = Default_Story.bind({});
+
+const With_Icon_Story: ComponentStory<typeof Pill> = (args) => (
+    <Stack direction="vertical" gap="l">
+        {themes.map((theme) => (
+            <Pill {...args} label={theme} theme={theme} key={theme} />
+        ))}
+    </Stack>
+);
+
+export const With_Icon = With_Icon_Story.bind({});
+
+const Closable_Story: ComponentStory<typeof Pill> = (args) => (
+    <Stack direction="vertical" gap="l">
+        {themes.map((theme) => (
+            <Pill {...args} label={theme} theme={theme} key={theme} />
+        ))}
+    </Stack>
+);
+
+export const Closable = Closable_Story.bind({});
+
+const With_Button_Story: ComponentStory<typeof Pill> = (args) => (
+    <Stack direction="vertical" gap="l">
+        {themes.map((theme) => (
+            <Pill {...args} label={theme} theme={theme} key={theme} />
+        ))}
+    </Stack>
+);
+
+export const With_Button = With_Button_Story.bind({});
+
+const pillArgs: Object = {
+    size: PillSize.Large,
+    type: PillType.default,
+    label: 'Pill label',
+    closeButtonProps: {
+        ariaLabel: 'Close',
+    },
+    pillButtonProps: {
+        iconProps: { path: IconName.mdiThumbUpOutline },
+        text: '2',
+        ariaLabel: 'Thumbs up',
+    },
+};
+
+Default.args = {
+    ...pillArgs,
+};
+
+With_Icon.args = {
+    ...pillArgs,
+    iconProps: {
+        path: IconName.mdiInformationOutline,
+    },
+};
+
+Closable.args = {
+    ...pillArgs,
+    type: PillType.closable,
+};
+
+With_Button.args = {
+    ...pillArgs,
+    type: PillType.withButton,
+};

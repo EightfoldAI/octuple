@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.7.0](https://github.com/EightfoldAI/octuple/compare/v1.6.0...v1.7.0) (2022-05-31)
+
+### Bug Fixes
+
+-   forward classNames to tab component ([#157](https://github.com/EightfoldAI/octuple/issues/157)) ([bb032ac](https://github.com/EightfoldAI/octuple/commits/bb032acf4a801bf2f57a8c9d7b5c04590ec7db16))
+-   improve usability of checkbox, checkbox group, radio and radio group component ([#156](https://github.com/EightfoldAI/octuple/issues/156)) ([7369636](https://github.com/EightfoldAI/octuple/commits/736963614e8b0a311a70e8e953fd6b1bdcf79c9f))
+
+## [1.6.0](https://github.com/EightfoldAI/octuple/compare/v1.5.3...v1.6.0) (2022-05-30)
+
+### Features
+
+-   config provider: move css variables to root selector, make base font size configurable ([#150](https://github.com/EightfoldAI/octuple/issues/150)) ([db84a9b](https://github.com/EightfoldAI/octuple/commits/db84a9b50b44550f68c187e70c8e62d07733f0f7))
+-   storybook: adds storybook controls and documentation ([#147](https://github.com/EightfoldAI/octuple/issues/147)) ([2ab1362](https://github.com/EightfoldAI/octuple/commits/2ab1362ec2ea3a8dc0361132d8126a51b5701ca8))
+
+### Bug Fixes
+
+-   modal: fix styling of modal header ([#149](https://github.com/EightfoldAI/octuple/issues/149)) ([10fc5d6](https://github.com/EightfoldAI/octuple/commits/10fc5d61bdc49b48e374c5ca2a61b6acdcc0ecaa))
+-   selectors: adds null check to radio button onchange event ([#145](https://github.com/EightfoldAI/octuple/issues/145)) ([499c4f5](https://github.com/EightfoldAI/octuple/commits/499c4f5d96eba1f878e7113bfd792731d3aaa548))
+
 ### [1.5.3](https://github.com/EightfoldAI/octuple/compare/v1.5.2...v1.5.3) (2022-05-25)
 
 ### Bug Fixes

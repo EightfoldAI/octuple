@@ -1,44 +1,24 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useEffect, useState } from 'react';
 import {
-    RadioGroupContextProps,
     IRadioButtonsContext,
-    RadioButtonChecked,
-    SelectRadioButtonEvent,
-} from '../Selectors.types';
+    RadioButtonValue,
+    RadioGroupContextProps,
+} from './Radio.types';
 
-const RadioGroupContext = createContext<Partial<IRadioButtonsContext>>({});
+const RadioGroupContext = createContext<Partial<IRadioButtonsContext>>(null);
 
 const RadioGroupProvider = ({
     children,
     onChange,
-    activeRadioButton,
+    value,
 }: RadioGroupContextProps) => {
-    const [currentRadioButton, setCurrentRadioButton] =
-        useState<RadioButtonChecked>(activeRadioButton);
-
-    const onRadioButtonClick = (
-        value: RadioButtonChecked,
-        e: SelectRadioButtonEvent
-    ) => {
-        setCurrentRadioButton(value);
-        onChange?.(value, e);
-    };
-
     return (
-        <RadioGroupContext.Provider
-            value={{ onRadioButtonClick, currentRadioButton }}
-        >
+        <RadioGroupContext.Provider value={{ onChange, value }}>
             {children}
         </RadioGroupContext.Provider>
     );
 };
 
-const useRadioGroup = () => {
-    const context = React.useContext(RadioGroupContext);
-    if (context === undefined) {
-        throw new Error('RadioButton component must be used within RadioGroup');
-    }
-    return context;
-};
+const useRadioGroup = () => React.useContext(RadioGroupContext);
 
 export { RadioGroupProvider, useRadioGroup };

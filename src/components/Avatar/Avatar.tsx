@@ -1,4 +1,4 @@
-import React, { Ref, FC } from 'react';
+import React, { Ref, FC, useMemo } from 'react';
 
 // Styles:
 import styles from './avatar.module.scss';
@@ -19,12 +19,15 @@ export const AVATAR_CLASS_SET = [
 
 const AvatarFallback: FC<AvatarFallbackProps> = React.forwardRef(
     ({ children, classNames, style }, ref: Ref<HTMLDivElement>) => {
+        const colorSetIndex = useMemo(
+            () => Math.floor(Math.random() * 100) % AVATAR_CLASS_SET.length,
+            []
+        );
+
         const avatarClasses: string = mergeClasses([
             styles.wrapperStyle,
             classNames,
-            AVATAR_CLASS_SET[
-                Math.floor(Math.random() * 100) % AVATAR_CLASS_SET.length
-            ],
+            AVATAR_CLASS_SET[colorSetIndex],
         ]);
 
         return (
@@ -97,11 +100,13 @@ export const Avatar: FC<AvatarProps> = React.forwardRef(
             );
         }
 
+        const wrapperClasses: string = mergeClasses([classNames, imageClasses]);
+
         if (iconProps) {
             return (
                 <AvatarIcon
                     iconProps={iconProps}
-                    classNames={imageClasses}
+                    classNames={wrapperClasses}
                     style={wrapperContainerStyle}
                     fontSize={fontSize}
                     ref={ref}
@@ -111,7 +116,7 @@ export const Avatar: FC<AvatarProps> = React.forwardRef(
 
         return (
             <AvatarFallback
-                classNames={imageClasses}
+                classNames={wrapperClasses}
                 style={wrapperContainerStyle}
                 ref={ref}
             >
