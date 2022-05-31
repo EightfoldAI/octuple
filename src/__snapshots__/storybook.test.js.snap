@@ -1199,7 +1199,13 @@ exports[`Storyshots Check Box Check Box 1`] = `
 
 exports[`Storyshots Check Box Check Box Group 1`] = `
 <div
+  checked={true}
   className="checkboxGroup"
+  defaultChecked={
+    Array [
+      "First",
+    ]
+  }
   role="group"
 >
   <div
@@ -8157,13 +8163,12 @@ exports[`Storyshots Radio Button Radio Button 1`] = `
 >
   <input
     aria-label="Label"
-    checked={true}
+    checked={false}
     disabled={false}
     id="myRadioButtonId"
     name="myRadioButtonName"
-    onClick={[Function]}
+    onChange={[Function]}
     readOnly={true}
-    tabIndex={-1}
     type="radio"
     value="Label"
   />
@@ -8174,7 +8179,6 @@ exports[`Storyshots Radio Button Radio Button 1`] = `
     <span
       className="radioButton"
       id="myRadioButtonId-custom-radio"
-      tabIndex={0}
     />
     <span
       className="selectorLabel"
@@ -8187,19 +8191,20 @@ exports[`Storyshots Radio Button Radio Button 1`] = `
 
 exports[`Storyshots Radio Button Radio Group 1`] = `
 <div
-  onKeyDown={[Function]}
+  aria-label="Radio Group"
+  className="radioGroup"
+  role="group"
 >
   <div
     className="selector"
   >
     <input
-      checked={false}
+      checked={true}
       disabled={false}
       id="oea2exk-1"
       name="group"
-      onClick={[Function]}
+      onChange={[Function]}
       readOnly={true}
-      tabIndex={-1}
       type="radio"
       value="Radio1"
     />
@@ -8210,7 +8215,6 @@ exports[`Storyshots Radio Button Radio Group 1`] = `
       <span
         className="radioButton"
         id="oea2exk-1-custom-radio"
-        tabIndex={0}
       />
       <span
         className="selectorLabel"
@@ -8227,9 +8231,8 @@ exports[`Storyshots Radio Button Radio Group 1`] = `
       disabled={false}
       id="oea2exk-2"
       name="group"
-      onClick={[Function]}
+      onChange={[Function]}
       readOnly={true}
-      tabIndex={-1}
       type="radio"
       value="Radio2"
     />
@@ -8240,7 +8243,6 @@ exports[`Storyshots Radio Button Radio Group 1`] = `
       <span
         className="radioButton"
         id="oea2exk-2-custom-radio"
-        tabIndex={0}
       />
       <span
         className="selectorLabel"
@@ -8257,9 +8259,8 @@ exports[`Storyshots Radio Button Radio Group 1`] = `
       disabled={false}
       id="oea2exk-3"
       name="group"
-      onClick={[Function]}
+      onChange={[Function]}
       readOnly={true}
-      tabIndex={-1}
       type="radio"
       value="Radio3"
     />
@@ -8270,7 +8271,6 @@ exports[`Storyshots Radio Button Radio Group 1`] = `
       <span
         className="radioButton"
         id="oea2exk-3-custom-radio"
-        tabIndex={0}
       />
       <span
         className="selectorLabel"
