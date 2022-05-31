@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { hasWindow } from '../shared/utilities';
+import { canUseDom } from '../shared/utilities';
 
 import { useEventListener } from './useEventListener';
 
@@ -19,7 +19,7 @@ export const useLocalStorage = (key: string, initialValue?: unknown) => {
      * initial value until it gets hydrated in the client.
      */
     const loadStoredValue = () => {
-        if (!hasWindow()) return initialValue;
+        if (!canUseDom()) return initialValue;
 
         try {
             const item = window.localStorage.getItem(key);
@@ -45,7 +45,7 @@ export const useLocalStorage = (key: string, initialValue?: unknown) => {
      * update the local state to notify the component about the change
      */
     const setValue = (value: unknown) => {
-        if (!hasWindow()) {
+        if (!canUseDom()) {
             console.warn(
                 `#useLocalStorage: impossible to set the localStorage “${key}” inside a no-client context.`
             );

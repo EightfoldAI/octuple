@@ -1,7 +1,7 @@
-import { hasWindow } from './utilities';
+import { canUseDom } from './utilities';
 
-describe('hasWindow', () => {
+describe('canUseDom', () => {
     test('should return true when the function is called in the browser', () => {
-        expect(hasWindow()).toBe(true);
+        expect(canUseDom()).toBe(true);
     });
 });

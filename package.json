@@ -48,9 +48,14 @@
     "dependencies": {
         "@floating-ui/react-dom": "0.6.0",
         "@mdi/react": "1.5.0",
+        "@types/react-is": "17.0.3",
+        "@types/shallowequal": "1.1.1",
         "bodymovin": "4.13.0",
         "lottie-web": "5.8.1",
-        "react-flip-toolkit": "7.0.13"
+        "react-flip-toolkit": "7.0.13",
+        "react-is": "18.1.0",
+        "resize-observer-polyfill": "1.5.1",
+        "shallowequal": "1.1.0"
     },
     "peerDependencies": {
         "@types/react": "17.0.39",

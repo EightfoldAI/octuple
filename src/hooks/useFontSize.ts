@@ -1,5 +1,5 @@
 import { useReducer } from 'react';
-import { hasWindow } from '../shared/utilities';
+import { canUseDom } from '../shared/utilities';
 
 import { useLocalStorage } from './useLocalStorage';
 
@@ -48,7 +48,7 @@ export const useFontSize = ({
      * - Return the stored value as the state value.
      */
     function init(initialValue: string) {
-        if (!hasWindow()) return initialValue;
+        if (!canUseDom()) return initialValue;
         if (storedFontSize) applyPropToDocument(variableName, storedFontSize);
         return storedFontSize || getDocumentProp(variableName);
     }
