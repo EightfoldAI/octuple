@@ -20,13 +20,6 @@
                 }
             }
 
-            &:focus-visible + label {
-                .radio-button {
-                    outline: none;
-                    border: $space-xxxs solid var(--grey-color-70);
-                }
-            }
-
             &:hover + label {
                 .radio-button {
                     border: $space-xxxs solid var(--grey-color-70);
@@ -75,13 +68,6 @@
             }
         }
 
-        &:focus-visible + label {
-            .radio-button {
-                outline: $space-xxxs solid var(--primary-color-50);
-                border: $space-xxxs solid var(--primary-color);
-            }
-        }
-
         &:active + label {
             .radio-button {
                 border: $space-xxxs solid var(--primary-color-80);
@@ -97,12 +83,6 @@
                 .radio-button {
                     background-color: var(--primary-color);
                     border: $space-xxxs solid var(--primary-color);
-                }
-            }
-
-            &:focus-visible + label {
-                .radio-button {
-                    outline: none;
                 }
             }
 
@@ -140,12 +120,6 @@
             }
         }
 
-        &:focus-visible + label {
-            .radio-button {
-                outline: $space-xxxs solid var(--primary-color-50);
-            }
-        }
-
         &:active + label {
             .radio-button {
                 transform: scale(0.98);
@@ -165,6 +139,42 @@
     .selector-label {
         margin-left: $space-xs;
         font-size: $text-font-weight-regular;
+    }
+}
+
+:global(.focus-visible) {
+    input[type='radio'] {
+        &:checked {
+            &:focus-visible + label {
+                .radio-button {
+                    outline: $space-xxxs solid var(--primary-color-50);
+                }
+            }
+        }
+
+        &:focus-visible + label {
+            .radio-button {
+                outline: $space-xxxs solid var(--primary-color-50);
+                border: $space-xxxs solid var(--primary-color);
+            }
+        }
+
+        &[disabled] {
+            &:checked {
+                &:focus-visible + label {
+                    .radio-button {
+                        outline: none;
+                    }
+                }
+            }
+
+            &:focus-visible + label {
+                .radio-button {
+                    outline: none;
+                    border: $space-xxxs solid var(--grey-color-70);
+                }
+            }
+        }
     }
 }
 

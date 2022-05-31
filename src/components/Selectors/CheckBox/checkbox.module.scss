@@ -20,13 +20,6 @@
                 }
             }
 
-            &:focus-visible + label {
-                .checkmark {
-                    outline: none;
-                    border: $space-xxxs solid var(--grey-color-70);
-                }
-            }
-
             &:hover + label {
                 .checkmark {
                     border: $space-xxxs solid var(--grey-color-70);
@@ -70,14 +63,6 @@
             }
         }
 
-        &:focus-visible + label {
-            .checkmark {
-                border: $space-xxxs solid var(--primary-color);
-                outline: $space-xxxs solid var(--primary-color-50);
-                outline-offset: $selector-outline-offset;
-            }
-        }
-
         &:hover + label {
             .checkmark {
                 border: $space-xxxs solid var(--primary-color-60);
@@ -94,12 +79,6 @@
     input:checked {
         &[disabled] {
             cursor: default;
-
-            &:focus-visible + label {
-                .checkmark {
-                    outline: none;
-                }
-            }
 
             &:hover + label {
                 .checkmark {
@@ -134,13 +113,6 @@
             }
         }
 
-        &:focus-visible + label {
-            .checkmark {
-                outline: $space-xxxs solid var(--primary-color-50);
-                outline-offset: $selector-outline-offset;
-            }
-        }
-
         &:active + label {
             .checkmark {
                 transform: scale(0.98);
@@ -167,6 +139,44 @@
     .selector-label {
         margin-left: $space-xs;
         font-size: $text-font-weight-regular;
+    }
+}
+
+:global(.focus-visible) {
+    input[type='checkbox'] {
+        &:checked {
+            &:focus-visible + label {
+                .checkmark {
+                    outline: $space-xxxs solid var(--primary-color-50);
+                    outline-offset: $selector-outline-offset;
+                }
+            }
+        }
+
+        &:focus-visible + label {
+            .checkmark {
+                border: $space-xxxs solid var(--primary-color);
+                outline: $space-xxxs solid var(--primary-color-50);
+                outline-offset: $selector-outline-offset;
+            }
+        }
+
+        &[disabled] {
+            &:checked {
+                &:focus-visible + label {
+                    .checkmark {
+                        outline: none;
+                    }
+                }
+            }
+
+            &:focus-visible + label {
+                .checkmark {
+                    outline: none;
+                    border: $space-xxxs solid var(--grey-color-70);
+                }
+            }
+        }
     }
 }
 
