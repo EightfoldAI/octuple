@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.7.0](https://github.com/EightfoldAI/octuple/compare/v1.6.0...v1.7.0) (2022-05-31)
+
+### Bug Fixes
+
+-   forward classNames to tab component ([#157](https://github.com/EightfoldAI/octuple/issues/157)) ([bb032ac](https://github.com/EightfoldAI/octuple/commits/bb032acf4a801bf2f57a8c9d7b5c04590ec7db16))
+-   improve usability of checkbox, checkbox group, radio and radio group component ([#156](https://github.com/EightfoldAI/octuple/issues/156)) ([7369636](https://github.com/EightfoldAI/octuple/commits/736963614e8b0a311a70e8e953fd6b1bdcf79c9f))
+
 ## [1.6.0](https://github.com/EightfoldAI/octuple/compare/v1.5.3...v1.6.0) (2022-05-30)
 
 ### Features
