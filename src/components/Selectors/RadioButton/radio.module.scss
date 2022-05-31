@@ -20,7 +20,6 @@
                 }
             }
 
-            &:focus + label,
             &:focus-visible + label {
                 .radio-button {
                     outline: none;
@@ -76,7 +75,6 @@
             }
         }
 
-        &:focus + label,
         &:focus-visible + label {
             .radio-button {
                 outline: $space-xxxs solid var(--primary-color-50);
@@ -102,7 +100,6 @@
                 }
             }
 
-            &:focus + label,
             &:focus-visible + label {
                 .radio-button {
                     outline: none;
@@ -143,7 +140,6 @@
             }
         }
 
-        &:focus + label,
         &:focus-visible + label {
             .radio-button {
                 outline: $space-xxxs solid var(--primary-color-50);

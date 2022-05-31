@@ -367,20 +367,21 @@ $all-backdrops: rgba(0, 0, 0, 0.5);
 
 $selector-input-width: 18px;
 $selector-input-height: 18px;
-$checkmark-after-width: 7px;
-$checkmark-height: 22px;
-$checkmark-width: 22px;
-$radio-height: 22px;
-$radio-width: 22px;
+$checkmark-after-width: 6px;
+$checkmark-after-height: 12px;
+$checkmark-height: 18px;
+$checkmark-width: 18px;
+$radio-height: 20px;
+$radio-width: 20px;
 $radio-after-width: 6px;
 $radio-after-height: 6px;
 
 // Positioning
 
-$checkmark-after-left: 5px;
+$checkmark-after-left: 4px;
 $checkmark-after-top: 0px;
-$radio-after-top: 6px;
-$radio-after-left: 6px;
+$radio-after-top: 5px;
+$radio-after-left: 5px;
 
 // END: CONSTANTS
 
