@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC, Ref, useState } from 'react';
 import { Stories } from '@storybook/addon-docs';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { IconName } from '../Icon';
@@ -28,6 +28,103 @@ export const Options_Disabled: T = Basic_Story.bind({});
 export const With_Clear: T = Basic_Story.bind({});
 export const Filterable: T = Basic_Story.bind({});
 export const Multiple: T = Basic_Story.bind({});
+
+const usAllStates = [
+    'Alabama',
+    'Alaska',
+    'Arizona',
+    'Arkansas',
+    'California',
+    'Colorado',
+    'Connecticut',
+    'Delaware',
+    'Florida',
+    'Georgia',
+    'Hawaii',
+    'Idaho',
+    'Illinois',
+    'Indiana',
+    'Iowa',
+    'Kansas',
+    'Kentucky',
+    'Louisiana',
+    'Maine',
+    'Maryland',
+    'Massachusetts',
+    'Michigan',
+    'Minnesota',
+    'Mississippi',
+    'Missouri',
+    'Montana',
+    'Nebraska',
+    'Nevada',
+    'New Hampshire',
+    'New Jersey',
+    'New Mexico',
+    'New York',
+    'North Carolina',
+    'North Dakota',
+    'Ohio',
+    'Oklahoma',
+    'Oregon',
+    'Pennsylvania',
+    'Rhode Island',
+    'South Carolina',
+    'South Dakota',
+    'Tennessee',
+    'Texas',
+    'Utah',
+    'Vermont',
+    'Virginia',
+    'Washington',
+    'West Virginia',
+    'Wisconsin',
+    'Wyoming',
+];
+
+const DynamicSelect: FC<SelectProps> = React.forwardRef(
+    ({ ...rest }, _ref: Ref<HTMLDivElement>) => {
+        let timer: any;
+        const [usStates, setUsStates] = useState([]);
+        const [isLoading, setIsLoading] = useState(false);
+        const loadUsStates = (searchString: string) => {
+            console.log('async', searchString);
+            setIsLoading(true);
+            if (timer) {
+                clearTimeout(timer);
+            }
+            timer = setTimeout(() => {
+                const filtered = usAllStates.filter((state) =>
+                    state.toLowerCase().includes(searchString.toLowerCase())
+                );
+                const options: SelectOption[] = filtered.map((state) => {
+                    return {
+                        text: state,
+                        value: state,
+                    };
+                });
+                console.log('async2', filtered);
+                setUsStates(options);
+                setIsLoading(false);
+            }, 2000);
+        };
+        return (
+            <Select
+                {...rest}
+                filterable={true}
+                isLoading={isLoading}
+                loadOptions={loadUsStates}
+                options={usStates}
+            ></Select>
+        );
+    }
+);
+
+const Dynamic_Story: ComponentStory<typeof Select> = (args) => (
+    <DynamicSelect {...args}></DynamicSelect>
+);
+
+export const Dynamic: T = Dynamic_Story.bind({});
 
 const defaultOptions: SelectOption[] = [
     {
@@ -121,4 +218,9 @@ Multiple.args = {
     ...Basic.args,
     filterable: true,
     multiple: true,
+};
+
+Dynamic.args = {
+    ...Basic.args,
+    clearable: true,
 };

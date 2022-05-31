@@ -41,4 +41,16 @@ export interface SelectProps extends OcBaseProps<HTMLSelectElement> {
      * @default false
      */
     multiple?: boolean;
+
+    /**
+     * select multiple.
+     * @default false
+     */
+    loadOptions?: (inputValue: string) => void;
+
+    /**
+     * select multiple.
+     * @default false
+     */
+    isLoading?: boolean;
 }

@@ -1,4 +1,4 @@
-import React, { Ref, FC, useState } from 'react';
+import React, { Ref, FC, useState, useEffect } from 'react';
 
 // Styles:
 import { Dropdown, ToggleState } from '../Dropdown';
@@ -30,6 +30,8 @@ export const Select: FC<SelectProps> = React.forwardRef(
             clearable = false,
             filterable = false,
             multiple = false,
+            loadOptions,
+            isLoading = false,
         } = rest;
         const [visible, setVisibility] = useState(false);
         const [defaultValueShown, setDefaultValueShown] = useState(false);
@@ -42,6 +44,13 @@ export const Select: FC<SelectProps> = React.forwardRef(
         const [selectedOptions, setSelectedOptions] = useState<SelectOption[]>(
             []
         );
+
+        useEffect(() => {
+            console.log('came here', options, searchQuery);
+            if (!isLoading) {
+                setFilteredOptions(options);
+            }
+        }, [JSON.stringify(options)]);
 
         const onOptionChange = (option: SelectOption) => {
             setSearchQuery('');
@@ -67,13 +76,13 @@ export const Select: FC<SelectProps> = React.forwardRef(
             setSelectedOption(option);
         };
 
-        const onClear = () => {
+        const onInputClear = () => {
             setSearchQuery('');
             setFilteredOptions(options);
             setSelectedOption({ text: '', value: '' });
         };
 
-        const onChange = (
+        const onInputChange = (
             event: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>
         ) => {
             const { target } = event;
@@ -83,7 +92,11 @@ export const Select: FC<SelectProps> = React.forwardRef(
                     option.value.toLowerCase().includes(value)
                 );
                 setSearchQuery(target.value);
-                setFilteredOptions(filteredOptions);
+                if (loadOptions) {
+                    loadOptions(target.value);
+                } else {
+                    setFilteredOptions(filteredOptions);
+                }
             } else {
                 setFilteredOptions(options);
             }
@@ -94,6 +107,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
             changes: Partial<ToggleState>
         ) => {
             if (multiple) {
+                //
                 return {
                     visible: true,
                     closing: false,
@@ -149,8 +163,8 @@ export const Select: FC<SelectProps> = React.forwardRef(
                             }
                             role="button"
                             disabled={disabled}
-                            onClear={onClear}
-                            onChange={onChange}
+                            onClear={onInputClear}
+                            onChange={onInputChange}
                             clearable={clearable}
                         />
                     ) : (
@@ -160,7 +174,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
                             value={selectedOption?.text}
                             role="button"
                             disabled={disabled}
-                            onClear={onClear}
+                            onClear={onInputClear}
                             clearable={clearable}
                         />
                     )}
