@@ -16,6 +16,8 @@ export const RadioButton: FC<RadioButtonProps> = React.forwardRef(
             id,
             onChange,
             label,
+            style,
+            'data-test-id': dataTestId,
         },
         ref: Ref<HTMLInputElement>
     ) => {
@@ -49,7 +51,11 @@ export const RadioButton: FC<RadioButtonProps> = React.forwardRef(
         };
 
         return (
-            <div className={styles.selector}>
+            <div
+                className={styles.selector}
+                data-test-id={dataTestId}
+                style={style}
+            >
                 <input
                     ref={ref}
                     aria-label={ariaLabel}
