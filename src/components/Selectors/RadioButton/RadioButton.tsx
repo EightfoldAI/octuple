@@ -29,7 +29,6 @@ export const RadioButton: FC<RadioButtonProps> = React.forwardRef(
 
         const radioButtonClassNames: string = mergeClasses([
             styles.radioButton,
-            { [styles.disabled]: disabled },
         ]);
 
         const labelClassNames: string = mergeClasses([
