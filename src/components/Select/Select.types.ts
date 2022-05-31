@@ -10,17 +10,23 @@ export interface SelectProps extends OcBaseProps<HTMLSelectElement> {
      * Default Value
      * @default ''
      */
-    defaultValue?: string,
+    defaultValue?: string;
 
     /**
      * Default options
      * @default ''
      */
-    options?: SelectOption[],
+    options?: SelectOption[];
 
     /**
      * The select disabled state.
      * @default false
      */
     disabled?: boolean;
+
+    /**
+     * clearable.
+     * @default false
+     */
+    clearable?: boolean;
 }

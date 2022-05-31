@@ -18,15 +18,15 @@ export default {
 } as ComponentMeta<typeof Select>;
 
 const Select_Basic_Story: ComponentStory<typeof Select> = (args) => (
-    <Select {...args}>
-    </Select>
+    <Select {...args}></Select>
 );
 
-export type T = ComponentStory<React.FC<SelectProps>>
-export const Select_Basic: T  = Select_Basic_Story.bind({});
+export type T = ComponentStory<React.FC<SelectProps>>;
+export const Select_Basic: T = Select_Basic_Story.bind({});
 export const Select_With_DefaultValue: T = Select_Basic_Story.bind({});
 export const Select_Disabled: T = Select_Basic_Story.bind({});
 export const Select_With_Option_Disabled: T = Select_Basic_Story.bind({});
+export const Select_With_Clear: T = Select_Basic_Story.bind({});
 
 const defaultOptions: SelectOption[] = [
     {
@@ -90,12 +90,12 @@ Select_Basic.args = {
 Select_With_DefaultValue.args = {
     ...Select_Basic.args,
     defaultValue: 'date 2',
-}
+};
 
 Select_Disabled.args = {
     ...Select_With_DefaultValue.args,
     disabled: true,
-}
+};
 
 Select_With_Option_Disabled.args = {
     ...Select_Basic.args,
@@ -106,6 +106,11 @@ Select_With_Option_Disabled.args = {
             value: 'option1',
             disabled: true,
         },
-        ...defaultOptions
-    ]
-}
+        ...defaultOptions,
+    ],
+};
+
+Select_With_Clear.args = {
+    ...Select_With_DefaultValue.args,
+    clearable: true,
+};

@@ -11,41 +11,44 @@ import { SelectOption, SelectProps } from './Select.types';
 
 const Options = (props: SelectProps, onOptionChange: Function) => {
     const { options } = props;
-    return (<Menu
-        items={options}
-        onChange={(value) => {
-            const option = options.find(option => option.value === value);
-            onOptionChange(option);
-        }}
-    />)
+    return (
+        <Menu
+            items={options}
+            onChange={(value) => {
+                const option = options.find((option) => option.value === value);
+                onOptionChange(option);
+            }}
+        />
+    );
 };
 
 export const Select: FC<SelectProps> = React.forwardRef(
-    (
-        {
-            options = [],
-            ...rest
-        },
-        _ref: Ref<HTMLButtonElement>
-    ) => {
-        const { defaultValue, disabled } = rest;
+    ({ options = [], ...rest }, _ref: Ref<HTMLButtonElement>) => {
+        const { defaultValue, disabled, clearable = false } = rest;
         const [visible, setVisibility] = useState(false);
-        const [selectedOption, setSelectedOption] = useState<SelectOption>({text: '', value: ''});
+        const [defaultValueShown, setDefaultValueShown] = useState(false);
+        const [selectedOption, setSelectedOption] = useState<SelectOption>({
+            text: '',
+            value: '',
+        });
         const onOptionChange = (item: any) => {
-            setSelectedOption(item)
-        }
+            setSelectedOption(item);
+        };
 
         const onClear = () => {
-            setSelectedOption({text: '', value: ''});
-        }
-        if(!selectedOption.value && defaultValue) {
-            const defaultOption = options.find(option => option.value === defaultValue);
+            setSelectedOption({ text: '', value: '' });
+        };
+        if (defaultValue && !defaultValueShown) {
+            const defaultOption = options.find(
+                (option) => option.value === defaultValue
+            );
             setSelectedOption(defaultOption);
+            setDefaultValueShown(true);
         }
         return (
             <Dropdown
                 onVisibleChange={(isVisible) => setVisibility(isVisible)}
-                overlay={Options({options, ...rest}, onOptionChange)}
+                overlay={Options({ options, ...rest }, onOptionChange)}
                 trigger="click"
                 classNames="my-dropdown-class"
                 dropdownClassNames="my-dropdown-class"
@@ -54,12 +57,13 @@ export const Select: FC<SelectProps> = React.forwardRef(
                 disabled={false}
             >
                 <TextInput
-                    placeholder='Select'
+                    placeholder="Select"
                     aria-readonly={true}
                     value={selectedOption.text}
                     role="button"
                     disabled={disabled}
                     onClear={onClear}
+                    clearable={clearable}
                 />
             </Dropdown>
         );
