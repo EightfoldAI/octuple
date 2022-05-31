@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Stories } from '@storybook/addon-docs';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { RadioButton, RadioGroup } from '../index';
-import { RadioButtonChecked } from '../Selectors.types';
+import {
+    CheckboxValueType,
+    RadioButton,
+    RadioButtonValue,
+    RadioGroup,
+} from '../index';
 
 export default {
     title: 'Radio Button',
@@ -109,16 +113,26 @@ const RadioButton_Story: ComponentStory<typeof RadioButton> = (args) => (
 
 export const Radio_Button = RadioButton_Story.bind({});
 
-const RadioGroup_Story: ComponentStory<typeof RadioButton> = (args) => (
-    <RadioGroup {...args} />
-);
+const RadioGroup_Story: ComponentStory<typeof RadioGroup> = (args) => {
+    const [selected, setSelected] = useState<RadioButtonValue>(args.value);
+    return (
+        <RadioGroup
+            {...args}
+            value={selected}
+            onChange={(e) => {
+                setSelected(e.target.value);
+            }}
+        />
+    );
+};
 
 export const Radio_Group = RadioGroup_Story.bind({});
 
 const radioButtonArgs: Object = {
     allowDisabledFocus: false,
     ariaLabel: 'Label',
-    checked: true,
+    label: 'Label',
+    checked: false,
     classNames: 'my-radiobutton-class',
     disabled: false,
     name: 'myRadioButtonName',
@@ -131,10 +145,11 @@ Radio_Button.args = {
 };
 
 Radio_Group.args = {
-    ...radioButtonArgs,
-    activeRadioButton: 'Radio1',
-    radioGroupItems: [1, 2, 3].map((i) => ({
+    ariaLabel: 'Radio Group',
+    value: 'Radio1',
+    items: [1, 2, 3].map((i) => ({
         value: `Radio${i}`,
+        label: `Radio${i}`,
         name: 'group',
         id: `oea2exk-${i}`,
     })),

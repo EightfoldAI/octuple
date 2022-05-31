@@ -1,26 +1,47 @@
-import React, { FC } from 'react';
-import { CheckBoxProps } from '../';
+import React, { FC, Ref } from 'react';
 import { CheckBox } from './CheckBox';
-import { generateId } from '../../../shared/utilities';
+import { mergeClasses } from '../../../shared/utilities';
+import { CheckboxGroupProps } from './Checkbox.types';
 
-export const CheckBoxGroup: FC<CheckBoxProps> = ({
-    defaultChecked = true,
-    items,
-    onChange,
-}) => {
-    return (
-        <>
-            {items.map((item, index) => (
-                <CheckBox
-                    ariaLabel={item.ariaLabel}
-                    checked={item.checked ? item.checked : defaultChecked}
-                    id={item.id || generateId()}
-                    key={index}
-                    name={item.name}
-                    value={item.value}
-                    onChange={onChange}
-                />
-            ))}
-        </>
-    );
-};
+import styles from './checkbox.module.scss';
+
+export const CheckBoxGroup: FC<CheckboxGroupProps> = React.forwardRef(
+    (
+        { items = [], onChange, value, classNames, style, ariaLabel, ...rest },
+        ref: Ref<HTMLDivElement>
+    ) => {
+        const checkboxGroupClassNames = mergeClasses([
+            styles.checkboxGroup,
+            classNames,
+        ]);
+
+        return (
+            <div
+                className={checkboxGroupClassNames}
+                style={style}
+                role="group"
+                aria-label={ariaLabel}
+                ref={ref}
+                {...rest}
+            >
+                {items.map((item) => (
+                    <CheckBox
+                        {...item}
+                        checked={value?.includes(item.value)}
+                        key={item.value}
+                        onChange={() => {
+                            const optionIndex = value?.indexOf(item.value);
+                            const newValue = [...value];
+                            if (optionIndex === -1) {
+                                newValue.push(item.value);
+                            } else {
+                                newValue.splice(optionIndex, 1);
+                            }
+                            onChange?.(newValue);
+                        }}
+                    />
+                ))}
+            </div>
+        );
+    }
+);

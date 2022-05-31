@@ -21,3 +21,9 @@
     height: 100%;
     opacity: 0;
 }
+
+@mixin text-overflow {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
