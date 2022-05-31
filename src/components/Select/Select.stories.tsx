@@ -17,62 +17,58 @@ export default {
     },
 } as ComponentMeta<typeof Select>;
 
-const Select_Basic_Story: ComponentStory<typeof Select> = (args) => (
+const Basic_Story: ComponentStory<typeof Select> = (args) => (
     <Select {...args}></Select>
 );
 
 export type T = ComponentStory<React.FC<SelectProps>>;
-export const Select_Basic: T = Select_Basic_Story.bind({});
-export const Select_With_DefaultValue: T = Select_Basic_Story.bind({});
-export const Select_Disabled: T = Select_Basic_Story.bind({});
-export const Select_With_Option_Disabled: T = Select_Basic_Story.bind({});
-export const Select_With_Clear: T = Select_Basic_Story.bind({});
+export const Basic: T = Basic_Story.bind({});
+export const With_DefaultValue: T = Basic_Story.bind({});
+export const Disabled: T = Basic_Story.bind({});
+export const With_Option_Disabled: T = Basic_Story.bind({});
+export const With_Clear: T = Basic_Story.bind({});
+export const With_Filterable: T = Basic_Story.bind({});
 
 const defaultOptions: SelectOption[] = [
     {
-        iconProps: { path: IconName.mdiCalendar },
-        text: 'Date',
-        value: 'date 1',
-    },
-    {
         iconProps: { path: IconName.mdiThumbUpOutline },
         text: 'Thumbs up',
-        value: 'date 2',
+        value: 'thumbsup',
     },
     {
         iconProps: { path: IconName.mdiSchool },
         text: 'School',
-        value: 'date 3',
+        value: 'school',
     },
     {
         iconProps: { path: IconName.mdiCalendar },
         text: 'Date',
-        value: 'date 4',
+        value: 'date',
     },
     {
-        iconProps: { path: IconName.mdiThumbUpOutline },
-        text: 'Thumbs up',
-        value: 'date 5',
+        iconProps: { path: IconName.mdiAccount },
+        text: 'Account',
+        value: 'account',
     },
     {
-        iconProps: { path: IconName.mdiSchool },
-        text: 'School',
-        value: 'date 6',
+        iconProps: { path: IconName.mdiAccountHardHat },
+        text: 'Hat',
+        value: 'hat',
     },
     {
-        iconProps: { path: IconName.mdiCalendar },
-        text: 'Date',
-        value: 'date 7',
+        iconProps: { path: IconName.mdiAccountTie },
+        text: 'Tie',
+        value: 'tie',
     },
     {
-        iconProps: { path: IconName.mdiThumbUpOutline },
-        text: 'Thumbs up',
-        value: 'date 8',
+        iconProps: { path: IconName.mdiCalendarAlert },
+        text: 'Date alert',
+        value: 'datealert',
     },
     {
-        iconProps: { path: IconName.mdiSchool },
-        text: 'School',
-        value: 'date 9',
+        iconProps: { path: IconName.mdiBell },
+        text: 'Bell',
+        value: 'bell',
     },
 ];
 const SelectArgs: SelectProps = {
@@ -83,22 +79,22 @@ const SelectArgs: SelectProps = {
     options: defaultOptions,
 };
 
-Select_Basic.args = {
+Basic.args = {
     ...SelectArgs,
 };
 
-Select_With_DefaultValue.args = {
-    ...Select_Basic.args,
+With_DefaultValue.args = {
+    ...Basic.args,
     defaultValue: 'date 2',
 };
 
-Select_Disabled.args = {
-    ...Select_With_DefaultValue.args,
+Disabled.args = {
+    ...With_DefaultValue.args,
     disabled: true,
 };
 
-Select_With_Option_Disabled.args = {
-    ...Select_Basic.args,
+With_Option_Disabled.args = {
+    ...Basic.args,
     options: [
         {
             iconProps: { path: IconName.mdiShare },
@@ -110,7 +106,13 @@ Select_With_Option_Disabled.args = {
     ],
 };
 
-Select_With_Clear.args = {
-    ...Select_With_DefaultValue.args,
+With_Clear.args = {
+    ...With_DefaultValue.args,
+    clearable: true,
+};
+
+With_Filterable.args = {
+    ...Basic.args,
+    filterable: true,
     clearable: true,
 };
