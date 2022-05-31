@@ -35,4 +35,10 @@ export interface SelectProps extends OcBaseProps<HTMLSelectElement> {
      * @default false
      */
     filterable?: boolean;
+
+    /**
+     * select multiple.
+     * @default false
+     */
+    multiple?: boolean;
 }

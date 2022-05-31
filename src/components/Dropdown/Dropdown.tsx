@@ -5,7 +5,7 @@ import React, {
     useState,
     SyntheticEvent,
 } from 'react';
-import { DropdownProps } from './Dropdown.types';
+import { DropdownProps, ToggleState } from './Dropdown.types';
 import { autoUpdate, shift, useFloating } from '@floating-ui/react-dom';
 import { offset as fOffset } from '@floating-ui/core';
 import { mergeClasses, uniqueId } from '../../shared/utilities';
@@ -41,6 +41,7 @@ export const Dropdown: FC<DropdownProps> = ({
     offset = 0,
     positionStrategy = 'absolute',
     onVisibleChange,
+    onToggle,
     disabled,
 }) => {
     const [visible, setVisible] = useState<boolean>(false);
@@ -55,16 +56,23 @@ export const Dropdown: FC<DropdownProps> = ({
     });
 
     const toggle: Function =
-        (show: boolean): Function =>
+        (
+            show: boolean,
+            onToggle = (_: any, changes: Partial<ToggleState>) => changes
+        ): Function =>
         (e: SyntheticEvent): void => {
+            const newState = onToggle(
+                { closing, visible },
+                { closing: !show, visible: show }
+            );
             if (PREVENT_DEFAULT_TRIGGERS.includes(trigger)) {
                 e.preventDefault();
             }
-            setClosing(!show);
+            setClosing(newState.closing);
             timeout && clearTimeout(timeout);
             timeout = setTimeout(
                 () => {
-                    setVisible(show);
+                    setVisible(newState.visible);
                 },
                 !show ? ANIMATION_DURATION : 0
             );
@@ -136,7 +144,7 @@ export const Dropdown: FC<DropdownProps> = ({
                 style={dropdownStyles}
                 className={dropdownClasses}
                 tabIndex={0}
-                onClick={toggle(false)}
+                onClick={toggle(false, onToggle)}
                 id={dropdownId}
             >
                 {overlay}
@@ -149,7 +157,12 @@ export const Dropdown: FC<DropdownProps> = ({
             style={style}
             ref={reference}
             {...(TRIGGER_TO_HANDLER_MAP_ON_LEAVE[trigger]
-                ? { [TRIGGER_TO_HANDLER_MAP_ON_LEAVE[trigger]]: toggle(false) }
+                ? {
+                      [TRIGGER_TO_HANDLER_MAP_ON_LEAVE[trigger]]: toggle(
+                          false,
+                          onToggle
+                      ),
+                  }
                 : {})}
         >
             {getReference()}

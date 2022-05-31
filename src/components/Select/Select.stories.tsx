@@ -3,7 +3,6 @@ import { Stories } from '@storybook/addon-docs';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { IconName } from '../Icon';
 import { Select } from './';
-import { Option } from './Select';
 import { SelectOption, SelectProps } from './Select.types';
 
 export default {
@@ -25,9 +24,10 @@ export type T = ComponentStory<React.FC<SelectProps>>;
 export const Basic: T = Basic_Story.bind({});
 export const With_DefaultValue: T = Basic_Story.bind({});
 export const Disabled: T = Basic_Story.bind({});
-export const With_Option_Disabled: T = Basic_Story.bind({});
+export const Options_Disabled: T = Basic_Story.bind({});
 export const With_Clear: T = Basic_Story.bind({});
-export const With_Filterable: T = Basic_Story.bind({});
+export const Filterable: T = Basic_Story.bind({});
+export const Multiple: T = Basic_Story.bind({});
 
 const defaultOptions: SelectOption[] = [
     {
@@ -85,7 +85,7 @@ Basic.args = {
 
 With_DefaultValue.args = {
     ...Basic.args,
-    defaultValue: 'date 2',
+    defaultValue: 'school',
 };
 
 Disabled.args = {
@@ -93,7 +93,7 @@ Disabled.args = {
     disabled: true,
 };
 
-With_Option_Disabled.args = {
+Options_Disabled.args = {
     ...Basic.args,
     options: [
         {
@@ -111,8 +111,14 @@ With_Clear.args = {
     clearable: true,
 };
 
-With_Filterable.args = {
+Filterable.args = {
     ...Basic.args,
     filterable: true,
     clearable: true,
+};
+
+Multiple.args = {
+    ...Basic.args,
+    filterable: true,
+    multiple: true,
 };
