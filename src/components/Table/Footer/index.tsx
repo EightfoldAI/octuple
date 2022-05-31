@@ -3,7 +3,7 @@ import Summary from './Summary';
 import SummaryContext from './SummaryContext';
 import { FooterProps } from './Footer.types';
 
-import styles from './Table.module.scss';
+import styles from '../table.module.scss';
 
 function Footer<RecordType>({
     children,

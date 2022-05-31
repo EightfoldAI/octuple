@@ -13,7 +13,7 @@ import StickyContext from '../Context/StickyContext';
 import HoverContext from '../Context/HoverContext';
 import PerfContext from '../Context/PerfContext';
 
-import styles from './Table.module.scss';
+import styles from '../table.module.scss';
 
 /** Check if cell is in hover range */
 function inHoverRange(
@@ -236,7 +236,7 @@ function Cell<RecordType extends DefaultRecordType>(
             { [styles.tableCellFixRightFirst]: firstFixRight && supportSticky },
             { [styles.tableCellFixRightLast]: lastFixRight && supportSticky },
             { [styles.tableCellEllipsis]: ellipsis },
-            { [styles.tableCellWithAppend]: appendNode },
+            { ['table-cell-with-append']: appendNode },
             {
                 [styles.tableCellFixSticky]:
                     (isFixLeft || isFixRight) && isSticky && supportSticky,

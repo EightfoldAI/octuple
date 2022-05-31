@@ -60,7 +60,7 @@ import StickyContext from './Context/StickyContext';
 import ExpandedRowContext from './Context/ExpandedRowContext';
 import { EXPAND_COLUMN } from './constant';
 
-import styles from './Table.module.scss';
+import styles from './table.module.scss';
 
 // Used for conditions cache
 const EMPTY_DATA: any[] = [];
@@ -696,19 +696,20 @@ function Table<RecordType extends DefaultRecordType>(
         <div
             className={mergeClasses([
                 classNames,
+                styles.dropShadow,
                 { [styles.tableRtl]: direction === 'rtl' },
                 { [styles.tablePingLeft]: pingedLeft },
                 { [styles.tablePingRight]: pingedRight },
-                { [styles.tableLayoutFixed]: tableLayout === 'fixed' },
-                { [styles.tableFixedHeader]: fixHeader },
+                { ['table-layout-fixed']: tableLayout === 'fixed' },
+                { ['table-fixed-header']: fixHeader },
                 { [styles.tableFixedColumn]: fixColumn },
-                { [styles.tableScrollHorizontal]: horizonScroll },
+                { ['table-scroll-horizontal']: horizonScroll },
                 {
-                    [styles.tableHasFixLeft]:
+                    ['table-has-fix-left']:
                         flattenColumns[0] && flattenColumns[0].fixed,
                 },
                 {
-                    [styles.tableHasFixRight]:
+                    ['table-has-fix-right']:
                         flattenColumns[flattenColumns.length - 1] &&
                         flattenColumns[flattenColumns.length - 1].fixed ===
                             'right',
@@ -729,7 +730,7 @@ function Table<RecordType extends DefaultRecordType>(
                         {title(mergedData)}
                     </Panel>
                 )}
-                <div className={styles.tableContainer}>{groupTableNode}</div>
+                <div className={styles.table}>{groupTableNode}</div>
                 {footer && (
                     <Panel classNames={styles.tableFooter}>
                         {footer(mergedData)}

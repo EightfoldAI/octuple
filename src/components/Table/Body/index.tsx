@@ -19,7 +19,7 @@ import PerfContext from '../Context/PerfContext';
 import MeasureRow from './MeasureRow';
 import { BodyProps } from './Body.types';
 
-import styles from './Table.module.scss';
+import styles from '../table.module.scss';
 
 function Body<RecordType>({
     data,
@@ -112,7 +112,7 @@ function Body<RecordType>({
         const columnsKey = getColumnsKey(flattenColumns);
 
         return (
-            <WrapperComponent classNames={styles.tableTbody}>
+            <WrapperComponent classNames={'table-tbody'}>
                 {/* Measure body column width with additional hidden col */}
                 {measureColumnWidth && (
                     <MeasureRow

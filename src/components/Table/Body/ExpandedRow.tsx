@@ -4,7 +4,7 @@ import Cell from '../Cell';
 import TableContext from '../Context/TableContext';
 import ExpandedRowContext from '../Context/ExpandedRowContext';
 
-import styles from './Table.module.scss';
+import styles from '../table.module.scss';
 
 function ExpandedRow({
     children,

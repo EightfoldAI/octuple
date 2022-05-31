@@ -2,7 +2,7 @@ import { useMemo } from 'react';
 import { canUseDom } from '../../../shared/utilities';
 import type { TableSticky } from '../Table.types';
 
-import styles from './Table.module.scss';
+import styles from '../table.module.scss';
 
 // fix ssr render
 const defaultContainer = canUseDom() ? window : null;

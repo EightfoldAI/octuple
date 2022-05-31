@@ -2,7 +2,7 @@ import React from 'react';
 import { mergeClasses } from '../../../shared/utilities';
 import type { RenderExpandIconProps, Key, GetRowKey } from '../Table.types';
 
-import styles from './Table.module.scss';
+import styles from '../table.module.scss';
 
 export function renderExpandIcon<RecordType>({
     record,

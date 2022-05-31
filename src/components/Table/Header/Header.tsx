@@ -4,8 +4,6 @@ import { HeaderProps } from './Header.types';
 import HeaderRow from './HeaderRow';
 import TableContext from '../Context/TableContext';
 
-import styles from './Table.module.scss';
-
 function parseHeaderRows<RecordType>(
     rootColumns: ColumnsType<RecordType>
 ): CellType<RecordType>[][] {
@@ -95,7 +93,7 @@ function Header<RecordType>({
     const thComponent = getComponent(['header', 'cell'], 'th');
 
     return (
-        <WrapperComponent className={styles.tableThead}>
+        <WrapperComponent className={'table-thead'}>
             {rows.map((row, rowIndex) => {
                 const rowNode = (
                     <HeaderRow

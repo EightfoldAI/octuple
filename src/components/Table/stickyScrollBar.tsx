@@ -11,7 +11,7 @@ import { mergeClasses } from '../../shared/utilities';
 import { getOffset } from '../../shared/utilities';
 import { useLayoutState } from './Hooks/useFrame';
 
-import styles from './Table.module.scss';
+import styles from './table.module.scss';
 
 const StickyScrollBar: React.ForwardRefRenderFunction<
     unknown,

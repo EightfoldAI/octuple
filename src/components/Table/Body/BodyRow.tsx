@@ -8,7 +8,7 @@ import type { ColumnType } from '../Table.types';
 import { BodyRowProps } from './Body.types';
 import ExpandedRow from './ExpandedRow';
 
-import styles from './Table.module.scss';
+import styles from '../table.module.scss';
 
 function BodyRow<RecordType extends { children?: readonly RecordType[] }>(
     props: BodyRowProps<RecordType>
@@ -98,7 +98,7 @@ function BodyRow<RecordType extends { children?: readonly RecordType[] }>(
             data-row-key={rowKey}
             classNames={mergeClasses([
                 classNames,
-                styles.tableRow,
+                'table-row',
                 `table-row-level-${indent}`,
                 computeRowClassName,
                 additionalProps && additionalProps.className,

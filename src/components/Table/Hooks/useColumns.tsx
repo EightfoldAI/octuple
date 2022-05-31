@@ -13,7 +13,7 @@ import type {
 import { INTERNAL_COL_DEFINE } from '../Utilities/legacyUtil';
 import { EXPAND_COLUMN } from '../constant';
 
-import styles from './Table.module.scss';
+import styles from '../table.module.scss';
 
 export function convertChildrenToColumns<RecordType>(
     children: React.ReactNode

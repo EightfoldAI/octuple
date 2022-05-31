@@ -13,7 +13,7 @@ import type { ColumnsType, ColumnType } from '../Table.types';
 import { FixedHeaderProps } from './FixedHolder.types';
 import TableContext from '../Context/TableContext';
 
-import styles from './Table.module.scss';
+import styles from '../table.module.scss';
 
 function useColumnWidth(colWidths: readonly number[], columCount: number) {
     return useMemo(() => {

@@ -3,8 +3,6 @@ import ResizeObserver from '../../../shared/ResizeObserver';
 import MeasureCell from './MeasureCell';
 import { MeasureRowProps } from './Body.types';
 
-import styles from './Table.module.scss';
-
 export default function MeasureRow({
     columnsKey,
     onColumnResize,
@@ -12,7 +10,7 @@ export default function MeasureRow({
     return (
         <tr
             aria-hidden="true"
-            className={styles.tableMeasureRow}
+            className={'table-measure-row'}
             style={{ height: 0, fontSize: 0 }}
         >
             <ResizeObserver.Collection
