@@ -10,106 +10,152 @@
         width: 100%;
         cursor: pointer;
         z-index: 1;
+
+        &[disabled] {
+            cursor: default;
+
+            & + label {
+                .radio-button {
+                    opacity: 50%;
+                }
+            }
+
+            &:focus + label,
+            &:focus-visible + label {
+                .radio-button {
+                    outline: none;
+                    border: $space-xxxs solid var(--grey-color-70);
+                }
+            }
+
+            &:hover + label {
+                .radio-button {
+                    border: $space-xxxs solid var(--grey-color-70);
+                }
+            }
+
+            &:active + label {
+                .radio-button {
+                    border: $space-xxxs solid var(--grey-color-70);
+                }
+            }
+        }
+
+        & + label {
+            .radio-button {
+                position: relative;
+                height: $radio-height;
+                width: $radio-width;
+                border-radius: 50%;
+                background-color: var(--white-color);
+                border: $space-xxxs solid var(--grey-color-70);
+                transition: all $motion-duration-extra-fast $motion-ease-in-back
+                    $motion-delay-s;
+
+                &:after {
+                    top: $radio-after-top;
+                    left: $radio-after-left;
+                    width: $radio-after-width;
+                    height: $radio-after-height;
+                    border-radius: 50%;
+                    background-color: var(--primary-color);
+                    content: '';
+                    position: absolute;
+                    transform: scale(0);
+                    opacity: 0;
+                    display: block;
+                    transition: all $motion-duration-extra-fast
+                        $motion-ease-in-back $motion-delay-s;
+                }
+            }
+        }
+
+        &:hover + label {
+            .radio-button {
+                border: $space-xxxs solid var(--primary-color-60);
+            }
+        }
+
+        &:focus + label,
+        &:focus-visible + label {
+            .radio-button {
+                outline: $space-xxxs solid var(--primary-color-50);
+                border: $space-xxxs solid var(--primary-color);
+            }
+        }
+
+        &:active + label {
+            .radio-button {
+                border: $space-xxxs solid var(--primary-color-80);
+            }
+        }
     }
 
-    input:checked + label {
-        .radio-button {
-            background-color: var(--primary-color);
-            border: $space-xxxs solid var(--primary-color);
+    input:checked {
+        &[disabled] {
+            cursor: default;
 
-            &.disabled {
-                opacity: 50%;
-
-                &:hover {
+            &:hover + label {
+                .radio-button {
                     background-color: var(--primary-color);
                     border: $space-xxxs solid var(--primary-color);
                 }
+            }
 
-                &:focus,
-                &:focus-visible {
+            &:focus + label,
+            &:focus-visible + label {
+                .radio-button {
                     outline: none;
                 }
+            }
 
-                &:active {
+            &:active + label {
+                .radio-button {
                     transform: none;
                     background-color: var(--primary-color);
                     border: $space-xxxs solid var(--primary-color);
                 }
             }
+        }
 
-            &:hover {
+        & + label {
+            transition: all $motion-duration-extra-fast $motion-ease-out-back
+                $motion-delay-s;
+
+            .radio-button {
+                background-color: var(--primary-color);
+                border: $space-xxxs solid var(--primary-color);
+            }
+
+            .radio-button:after {
+                opacity: 1;
+                background: var(--white-color);
+                transform: scale(1);
+                transition: all $motion-duration-extra-fast
+                    $motion-ease-out-back $motion-delay-s;
+            }
+        }
+
+        &:hover + label {
+            .radio-button {
                 background-color: var(--primary-color-60);
                 border: $space-xxxs solid var(--primary-color-60);
             }
+        }
 
-            &:focus,
-            &:focus-visible {
+        &:focus + label,
+        &:focus-visible + label {
+            .radio-button {
                 outline: $space-xxxs solid var(--primary-color-50);
             }
+        }
 
-            &:active {
+        &:active + label {
+            .radio-button {
                 transform: scale(0.98);
                 background-color: var(--primary-color-80);
                 border: $space-xxxs solid var(--primary-color-80);
             }
-
-            &:after {
-                display: block;
-                background: var(--white-color);
-            }
-        }
-    }
-
-    .radio-button {
-        position: relative;
-        height: $radio-height;
-        width: $radio-width;
-        border-radius: 50%;
-        background-color: var(--white-color);
-        border: $space-xxxs solid var(--grey-color-70);
-
-        &.disabled {
-            opacity: 50%;
-
-            &:hover {
-                border: $space-xxxs solid var(--grey-color-70);
-            }
-
-            &:focus,
-            &:focus-visible {
-                outline: none;
-                border: $space-xxxs solid var(--grey-color-70);
-            }
-
-            &:active {
-                border: $space-xxxs solid var(--grey-color-70);
-            }
-        }
-
-        &:hover {
-            border: $space-xxxs solid var(--primary-color-60);
-        }
-
-        &:focus,
-        &:focus-visible {
-            outline: $space-xxxs solid var(--primary-color-50);
-            border: $space-xxxs solid var(--primary-color);
-        }
-
-        &:active {
-            border: $space-xxxs solid var(--primary-color-80);
-        }
-
-        &:after {
-            top: $radio-after-top;
-            left: $radio-after-left;
-            width: $radio-after-width;
-            height: $radio-after-height;
-            border-radius: 50%;
-            background-color: var(--primary-color);
-            content: '';
-            position: absolute;
-            display: none;
         }
     }
 

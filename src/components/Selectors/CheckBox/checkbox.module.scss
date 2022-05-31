@@ -20,7 +20,7 @@
                 }
             }
 
-            &:focus,
+            &:focus + label,
             &:focus-visible + label {
                 .checkmark {
                     outline: none;
@@ -71,7 +71,7 @@
             }
         }
 
-        &:focus,
+        &:focus + label,
         &:focus-visible + label {
             .checkmark {
                 border: $space-xxxs solid var(--primary-color);
@@ -85,13 +85,19 @@
                 border: $space-xxxs solid var(--primary-color-60);
             }
         }
+
+        &:active + label {
+            .checkmark {
+                border: $space-xxxs solid var(--primary-color-80);
+            }
+        }
     }
 
     input:checked {
         &[disabled] {
             cursor: default;
 
-            &:focus,
+            &:focus + label,
             &:focus-visible + label {
                 .checkmark {
                     outline: none;
@@ -131,7 +137,7 @@
             }
         }
 
-        &:focus,
+        &:focus + label,
         &:focus-visible + label {
             .checkmark {
                 outline: $space-xxxs solid var(--primary-color-50);
