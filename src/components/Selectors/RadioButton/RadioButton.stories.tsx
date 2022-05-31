@@ -114,7 +114,7 @@ const RadioButton_Story: ComponentStory<typeof RadioButton> = (args) => (
 export const Radio_Button = RadioButton_Story.bind({});
 
 const RadioGroup_Story: ComponentStory<typeof RadioGroup> = (args) => {
-    const [selected, setSelected] = useState<RadioButtonValue>('Radio1');
+    const [selected, setSelected] = useState<RadioButtonValue>(args.value);
     return (
         <RadioGroup
             {...args}
@@ -145,6 +145,8 @@ Radio_Button.args = {
 };
 
 Radio_Group.args = {
+    ariaLabel: 'Radio Group',
+    value: 'Radio1',
     items: [1, 2, 3].map((i) => ({
         value: `Radio${i}`,
         label: `Radio${i}`,
