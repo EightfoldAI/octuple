@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.0.0](https://github.com/EightfoldAI/octuple/compare/v1.7.1...v2.0.0) (2022-06-01)
+
+### Features
+
+-   theme 2 for dialog, modal, infobar, snackbar and dropdown ([#162](https://github.com/EightfoldAI/octuple/issues/162)) ([e99251d](https://github.com/EightfoldAI/octuple/commits/e99251d5460032f0167b9ff7f1c55ec8edf868f2))
+
+### Bug Fixes
+
+-   pass classnames to icons in base button ([#159](https://github.com/EightfoldAI/octuple/issues/159)) ([bcfb1a6](https://github.com/EightfoldAI/octuple/commits/bcfb1a66b0110b9e7f2ac9df579cf63596e7c249))
+
 ### [1.7.1](https://github.com/EightfoldAI/octuple/compare/v1.7.0...v1.7.1) (2022-06-01)
 
 ### Bug Fixes
