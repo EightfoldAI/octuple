@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.7.1](https://github.com/EightfoldAI/octuple/compare/v1.7.0...v1.7.1) (2022-06-01)
+
+### Bug Fixes
+
+-   button: update default color scheme to use primary ([#158](https://github.com/EightfoldAI/octuple/issues/158)) ([a8af8d9](https://github.com/EightfoldAI/octuple/commits/a8af8d91772e02a9ab298c9bc2ee5e1ac4c3dc6d))
+
 ## [1.7.0](https://github.com/EightfoldAI/octuple/compare/v1.6.0...v1.7.0) (2022-05-31)
 
 ### Bug Fixes
