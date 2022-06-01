@@ -1,29 +1,32 @@
 .info-bar {
-    --info-color: var(--grey-color-70);
+    --info-color: var(--grey-color-10);
+    --bg-color: var(--grey-color-70);
     display: flex;
-    border-radius: $space-xxs;
+    border-radius: $corner-radius-xl;
     padding: $space-m;
     width: 100%;
     color: var(--info-color);
-    border: solid 1px var(--info-color);
-    border-left: solid $space-xs var(--info-color);
-    background-color: var(--background-color);
+    background-color: var(--bg-color);
     gap: $space-m;
 
     &.neutral {
         --info-color: var(--grey-color-70);
+        --bg-color: var(--grey-color-10);
     }
 
     &.positive {
         --info-color: var(--green-color-70);
+        --bg-color: var(--green-color-10);
     }
 
     &.warning {
         --info-color: var(--orange-color-70);
+        --bg-color: var(--orange-color-10);
     }
 
     &.disruptive {
         --info-color: var(--disruptive-color-70);
+        --bg-color: var(--disruptive-color-10);
     }
 
     .icon {

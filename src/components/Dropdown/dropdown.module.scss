@@ -22,7 +22,7 @@
     background: var(--background-color);
     padding: $space-xs;
     box-shadow: $shadow-object-m;
-    border-radius: $space-xxs;
+    border-radius: $corner-radius-xl;
     transition: all $motion-duration-fast $motion-easing-easeout;
     min-width: 280px;
     opacity: 0;
