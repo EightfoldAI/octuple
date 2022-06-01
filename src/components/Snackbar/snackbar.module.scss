@@ -2,12 +2,12 @@
     align-items: center;
     box-shadow: $shadow-object-l;
     border: none;
-    border-left: solid $space-xs var(--info-color);
     min-width: 21vw;
     max-width: min(42vw, 640px);
     animation: slideUpIn $motion-duration-extra-fast $motion-easing-easeinout 0s
         forwards;
     margin-bottom: $space-s;
+    background-color: var(--white-color);
 
     @media (max-width: $small-screen-size) {
         max-width: 90vw;
