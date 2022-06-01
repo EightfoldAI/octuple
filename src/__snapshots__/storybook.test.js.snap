@@ -781,7 +781,7 @@ exports[`Storyshots Button Default 1`] = `
   <span>
     <span
       aria-hidden={true}
-      className="icon iconWrapper"
+      className="icon my-btn-icon iconWrapper"
       data-test-id="myButtonIconTestId"
       id="myButtonIcon"
       role="presentation"
@@ -830,7 +830,7 @@ exports[`Storyshots Button Neutral 1`] = `
   <span>
     <span
       aria-hidden={true}
-      className="icon iconWrapper"
+      className="icon my-btn-icon iconWrapper"
       data-test-id="myButtonIconTestId"
       id="myButtonIcon"
       role="presentation"
@@ -879,7 +879,7 @@ exports[`Storyshots Button Primary 1`] = `
   <span>
     <span
       aria-hidden={true}
-      className="icon iconWrapper"
+      className="icon my-btn-icon iconWrapper"
       data-test-id="myButtonIconTestId"
       id="myButtonIcon"
       role="presentation"
@@ -928,7 +928,7 @@ exports[`Storyshots Button Secondary 1`] = `
   <span>
     <span
       aria-hidden={true}
-      className="icon iconWrapper"
+      className="icon my-btn-icon iconWrapper"
       data-test-id="myButtonIconTestId"
       id="myButtonIcon"
       role="presentation"
@@ -1040,7 +1040,7 @@ exports[`Storyshots Button Toggle 1`] = `
   <span>
     <span
       aria-hidden={true}
-      className="icon iconWrapper"
+      className="icon my-btn-icon iconWrapper"
       data-test-id="myButtonIconTestId"
       id="myButtonIcon"
       role="presentation"
