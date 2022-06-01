@@ -1,20 +1,20 @@
 .button {
-    --button-default-foreground-color: var(--primary-color-70);
-    --button-hover-foreground-color: var(--primary-color-70);
+    --button-default-foreground-color: var(--primary-color);
+    --button-hover-foreground-color: var(--primary-color);
     --button-focus-foreground-color: var(--primary-color-80);
     --button-active-foreground-color: var(--primary-color-80);
     --button-visited-foreground-color: var(--primary-color-80);
-    --button-default-outline-color: var(--primary-color-70);
+    --button-default-outline-color: var(--primary-color);
     --button-hover-outline-color: var(--primary-color-60);
     --button-focus-outline-color: var(--primary-color-80);
     --button-active-outline-color: var(--primary-color-80);
     --button-visited-outline-color: var(--primary-color-80);
-    --button-primary-default-background-color: var(--primary-color-70);
+    --button-primary-default-background-color: var(--primary-color);
     --button-primary-hover-background-color: var(--primary-color-60);
     --button-primary-focus-background-color: var(--primary-color-80);
     --button-primary-active-background-color: var(--primary-color-80);
     --button-primary-visited-background-color: var(--primary-color-80);
-    --button-primary-default-border-color: var(--primary-color-70);
+    --button-primary-default-border-color: var(--primary-color);
     --button-primary-hover-border-color: var(--primary-color-60);
     --button-primary-focus-border-color: var(--primary-color-80);
     --button-primary-active-border-color: var(--primary-color-80);
@@ -26,7 +26,7 @@
     --button-visited-background-color: var(--primary-color-10);
     --button-hover-variant-background-color: var(--primary-color-20);
     --button-two-state-default-foreground-color: var(--grey-color-70);
-    --button-two-state-hover-foreground-color: var(--primary-color-70);
+    --button-two-state-hover-foreground-color: var(--primary-color);
     --button-two-state-focus-foreground-color: var(--primary-color-80);
     --button-two-state-checked-foreground-color: var(--primary-color-80);
     --button-two-state-active-foreground-color: var(--primary-color-80);
@@ -45,10 +45,10 @@
     --button-counter-visited-background-color: var(--primary-color-10);
     --button-two-state-default-outline-color: var(--grey-color-70);
     --button-two-state-hover-outline-color: var(--primary-color-60);
-    --button-two-state-checked-outline-color: var(--primary-color-70);
+    --button-two-state-checked-outline-color: var(--primary-color);
     --button-two-state-focus-outline-color: var(--primary-color-40);
-    --button-two-state-active-outline-color: var(--primary-color-70);
-    --button-two-state-visited-outline-color: var(--primary-color-70);
+    --button-two-state-active-outline-color: var(--primary-color);
+    --button-two-state-visited-outline-color: var(--primary-color);
     background-color: inherit;
     border: 2px solid rgba(var(--button-primary-default-border-color), 0.01);
     border-radius: $corner-radius-s;
