@@ -1,5 +1,4 @@
 import React, { FC, Ref, useState } from 'react';
-import { Stories } from '@storybook/addon-docs';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { IconName } from '../Icon';
 import { Select } from './';
@@ -16,18 +15,38 @@ export default {
     },
 } as ComponentMeta<typeof Select>;
 
-const Basic_Story: ComponentStory<typeof Select> = (args) => (
-    <Select {...args}></Select>
+const Wrapper: FC<SelectProps> = React.forwardRef(
+    ({ ...rest }, _ref: Ref<HTMLDivElement>) => {
+        return (
+            <div
+                style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    width: '200px',
+                    height: '200px',
+                    margin: '0 auto',
+                }}
+            >
+                <Select {...rest}></Select>
+            </div>
+        );
+    }
 );
 
-export type T = ComponentStory<React.FC<SelectProps>>;
-export const Basic: T = Basic_Story.bind({});
-export const With_DefaultValue: T = Basic_Story.bind({});
-export const Disabled: T = Basic_Story.bind({});
-export const Options_Disabled: T = Basic_Story.bind({});
-export const With_Clear: T = Basic_Story.bind({});
-export const Filterable: T = Basic_Story.bind({});
-export const Multiple: T = Basic_Story.bind({});
+const Basic_Story: ComponentStory<typeof Select> = (args) => (
+    <div>
+        <Wrapper {...args}></Wrapper>
+    </div>
+);
+
+export type SelectStory = ComponentStory<React.FC<SelectProps>>;
+export const Basic: SelectStory = Basic_Story.bind({});
+export const With_DefaultValue: SelectStory = Basic_Story.bind({});
+export const Disabled: SelectStory = Basic_Story.bind({});
+export const Options_Disabled: SelectStory = Basic_Story.bind({});
+export const With_Clear: SelectStory = Basic_Story.bind({});
+export const Filterable: SelectStory = Basic_Story.bind({});
+export const Multiple: SelectStory = Basic_Story.bind({});
 
 const usAllStates = [
     'Alabama',
@@ -124,7 +143,7 @@ const Dynamic_Story: ComponentStory<typeof Select> = (args) => (
     <DynamicSelect {...args}></DynamicSelect>
 );
 
-export const Dynamic: T = Dynamic_Story.bind({});
+export const Dynamic: SelectStory = Dynamic_Story.bind({});
 
 const defaultOptions: SelectOption[] = [
     {

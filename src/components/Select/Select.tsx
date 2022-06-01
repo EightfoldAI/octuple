@@ -2,13 +2,14 @@ import React, { Ref, FC, useState, useEffect } from 'react';
 
 // Styles:
 import { Dropdown, ToggleState } from '../Dropdown';
-import { ButtonIconAlign, DefaultButton } from '../Button';
-import { IconName } from '../Icon';
-import { Props } from '@storybook/addon-docs';
 import { Menu } from '../Menu';
-import { SearchBox, TextInput } from '../Inputs';
+import { TextInput, TextInputWidth } from '../Inputs';
 import { SelectOption, SelectProps } from './Select.types';
 import { Pill, PillSize } from '../Pills';
+import { IconName } from '../Icon';
+import { mergeClasses } from '../../shared/utilities';
+
+import styles from './select.module.scss';
 
 const Options = (options: SelectOption[], onOptionChange: Function) => {
     return (
@@ -32,6 +33,8 @@ export const Select: FC<SelectProps> = React.forwardRef(
             multiple = false,
             loadOptions,
             isLoading = false,
+            classNames,
+            style,
         } = rest;
         const [visible, setVisibility] = useState(false);
         const [defaultValueShown, setDefaultValueShown] = useState(false);
@@ -46,10 +49,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
         );
 
         useEffect(() => {
-            console.log('came here', options, searchQuery);
-            if (!isLoading) {
-                setFilteredOptions(options);
-            }
+            setFilteredOptions(options);
         }, [JSON.stringify(options)]);
 
         const onOptionChange = (option: SelectOption) => {
@@ -127,8 +127,14 @@ export const Select: FC<SelectProps> = React.forwardRef(
             }
             setDefaultValueShown(true);
         }
+
+        const componentClasses: string = mergeClasses([
+            styles.selectWrapper,
+            classNames,
+        ]);
+
         return (
-            <>
+            <div className={componentClasses} style={style}>
                 {multiple ? (
                     <div>
                         {selectedOptions.map((option) => (
@@ -146,8 +152,8 @@ export const Select: FC<SelectProps> = React.forwardRef(
                     onToggle={onDropdownToggle}
                     overlay={Options(filteredOptions, onOptionChange)}
                     trigger="click"
-                    classNames="my-dropdown-class"
-                    dropdownClassNames="my-dropdown-class"
+                    classNames={styles.selectDropdownMainWrapper}
+                    dropdownClassNames={styles.myDropdownClass}
                     placement="bottom-start"
                     positionStrategy="absolute"
                     disabled={false}
@@ -166,6 +172,12 @@ export const Select: FC<SelectProps> = React.forwardRef(
                             onClear={onInputClear}
                             onChange={onInputChange}
                             clearable={clearable}
+                            inputWidth={TextInputWidth.fill}
+                            iconProps={{
+                                path: IconName.mdiMenuDown,
+                                rotate: visible ? 180 : 0,
+                            }}
+                            classNames={styles.selectInputFit}
                         />
                     ) : (
                         <TextInput
@@ -176,10 +188,16 @@ export const Select: FC<SelectProps> = React.forwardRef(
                             disabled={disabled}
                             onClear={onInputClear}
                             clearable={clearable}
+                            inputWidth={TextInputWidth.fill}
+                            iconProps={{
+                                path: IconName.mdiMenuDown,
+                                rotate: visible ? 180 : 0,
+                            }}
+                            classNames={styles.selectInputFit}
                         />
                     )}
                 </Dropdown>
-            </>
+            </div>
         );
     }
 );
