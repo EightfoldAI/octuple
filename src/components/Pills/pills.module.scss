@@ -4,7 +4,7 @@
     --hover-bg: var(--blue-color-30);
     --hover-label: var(--text-primary-color);
     padding: $space-xxs $space-s;
-    border-radius: $corner-radius-l;
+    border-radius: $corner-radius-m;
     transition: all $motion-duration-extra-fast $motion-easing-easeinout 0s;
     background: var(--bg);
     color: var(--label);
