@@ -160,6 +160,16 @@ All notable changes to this project will be documented in this file. See [standa
 -   fixed search event persist issue ([#169](https://github.com/EightfoldAI/octuple/issues/169)) ([55c99df](https://github.com/EightfoldAI/octuple/commits/55c99dfe1aff29e6e91b1995b8c516086db061ff))
 -   handle onScrollLock cleanly, dialog to render inside parent element ([#168](https://github.com/EightfoldAI/octuple/issues/168)) ([e9a5f0e](https://github.com/EightfoldAI/octuple/commits/e9a5f0e23d2de336aa2bca64c319b20003ab8c7d))
 
+## [2.0.0](https://github.com/EightfoldAI/octuple/compare/v1.7.1...v2.0.0) (2022-06-01)
+
+### Features
+
+-   theme 2 for dialog, modal, infobar, snackbar and dropdown ([#162](https://github.com/EightfoldAI/octuple/issues/162)) ([e99251d](https://github.com/EightfoldAI/octuple/commits/e99251d5460032f0167b9ff7f1c55ec8edf868f2))
+
+### Bug Fixes
+
+-   pass classnames to icons in base button ([#159](https://github.com/EightfoldAI/octuple/issues/159)) ([bcfb1a6](https://github.com/EightfoldAI/octuple/commits/bcfb1a66b0110b9e7f2ac9df579cf63596e7c249))
+
 ### [1.7.2](https://github.com/EightfoldAI/octuple/compare/v1.7.1...v1.7.2) (2022-06-02)
 
 ### Bug Fixes
