@@ -119,7 +119,6 @@ export const Dropdown: FC<DropdownProps> = ({
         ]);
         return cloneElement(child, {
             ...{ [TRIGGER_TO_HANDLER_MAP_ON_ENTER[trigger]]: toggle(true) },
-            ref: reference,
             className: referenceWrapperClasses,
             'aria-controls': dropdownId,
             'aria-expanded': visible,
@@ -136,7 +135,6 @@ export const Dropdown: FC<DropdownProps> = ({
                 style={dropdownStyles}
                 className={dropdownClasses}
                 tabIndex={0}
-                onClick={toggle(false)}
                 id={dropdownId}
             >
                 {overlay}
