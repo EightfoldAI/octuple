@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.7.2](https://github.com/EightfoldAI/octuple/compare/v1.7.1...v1.7.2) (2022-06-02)
+
+### Bug Fixes
+
+-   pass classnames to icons in base button ([#159](https://github.com/EightfoldAI/octuple/issues/159)) ([bcfb1a6](https://github.com/EightfoldAI/octuple/commits/bcfb1a66b0110b9e7f2ac9df579cf63596e7c249))
+
 ### [1.7.1](https://github.com/EightfoldAI/octuple/compare/v1.7.0...v1.7.1) (2022-06-01)
 
 ### Bug Fixes
