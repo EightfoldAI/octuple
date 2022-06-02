@@ -136,7 +136,7 @@ export const Dropdown: FC<DropdownProps> = ({
                 style={dropdownStyles}
                 className={dropdownClasses}
                 tabIndex={0}
-                onClick={shouldCloseOnClick && toggle(false)}
+                onClick={shouldCloseOnClick ? toggle(false) : null}
                 id={dropdownId}
             >
                 {overlay}
