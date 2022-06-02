@@ -294,4 +294,10 @@ export interface InputProps<T>
      * @default 10
      */
     waitInterval?: number;
+
+    /**
+     * input readonly.
+     * @default false
+     */
+    readonly?: boolean;
 }

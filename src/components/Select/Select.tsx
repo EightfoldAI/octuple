@@ -244,7 +244,7 @@ export const Select: FC<SelectProps> = ({ options = [], ...rest }) => {
                 {filterable ? (
                     <TextInput
                         placeholder="Select"
-                        aria-readonly={false}
+                        readonly={false}
                         value={
                             selectedOption?.text && !dropdownVisible
                                 ? selectedOption.text
@@ -265,7 +265,7 @@ export const Select: FC<SelectProps> = ({ options = [], ...rest }) => {
                 ) : (
                     <TextInput
                         placeholder="Select"
-                        aria-readonly={true}
+                        readonly={true}
                         value={selectedOption?.text}
                         role="button"
                         disabled={disabled}

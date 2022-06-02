@@ -37,6 +37,7 @@ export const TextInput: FC<TextInputProps> = ({
     onKeyDown,
     placeholder,
     required = false,
+    readonly = false,
     shape = TextInputShape.Rectangle,
     style,
     theme = TextInputTheme.light,
@@ -177,6 +178,7 @@ export const TextInput: FC<TextInputProps> = ({
                 tabIndex={0}
                 type={numbersOnly ? 'number' : htmlType}
                 value={value}
+                readOnly={readonly}
             />
             {iconProps && (
                 <div className={iconClassNames}>
