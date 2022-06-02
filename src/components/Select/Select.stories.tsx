@@ -15,23 +15,21 @@ export default {
     },
 } as ComponentMeta<typeof Select>;
 
-const Wrapper: FC<SelectProps> = React.forwardRef(
-    ({ ...rest }, _ref: Ref<HTMLDivElement>) => {
-        return (
-            <div
-                style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    width: '200px',
-                    height: '200px',
-                    margin: '0 auto',
-                }}
-            >
-                <Select {...rest}></Select>
-            </div>
-        );
-    }
-);
+const Wrapper: FC<SelectProps> = ({ ...rest }) => {
+    return (
+        <div
+            style={{
+                display: 'flex',
+                alignItems: 'center',
+                width: '200px',
+                height: '200px',
+                margin: '0 auto',
+            }}
+        >
+            <Select {...rest}></Select>
+        </div>
+    );
+};
 
 const Basic_Story: ComponentStory<typeof Select> = (args) => (
     <div>
@@ -102,43 +100,40 @@ const usAllStates = [
     'Wyoming',
 ];
 
-const DynamicSelect: FC<SelectProps> = React.forwardRef(
-    ({ ...rest }, _ref: Ref<HTMLDivElement>) => {
-        let timer: any;
-        const [usStates, setUsStates] = useState([]);
-        const [isLoading, setIsLoading] = useState(false);
-        const loadUsStates = (searchString: string) => {
-            console.log('async', searchString);
-            setIsLoading(true);
-            if (timer) {
-                clearTimeout(timer);
-            }
-            timer = setTimeout(() => {
-                const filtered = usAllStates.filter((state) =>
-                    state.toLowerCase().includes(searchString.toLowerCase())
-                );
-                const options: SelectOption[] = filtered.map((state) => {
-                    return {
-                        text: state,
-                        value: state,
-                    };
-                });
-                console.log('async2', filtered);
-                setUsStates(options);
-                setIsLoading(false);
-            }, 2000);
-        };
-        return (
-            <Select
-                {...rest}
-                filterable={true}
-                isLoading={isLoading}
-                loadOptions={loadUsStates}
-                options={usStates}
-            ></Select>
-        );
-    }
-);
+const DynamicSelect: FC<SelectProps> = () => {
+    let timer: any;
+    const [usStates, setUsStates] = useState([]);
+    const [isLoading, setIsLoading] = useState(false);
+    const loadUsStates = (searchString: string) => {
+        console.log('async', searchString);
+        setIsLoading(true);
+        if (timer) {
+            clearTimeout(timer);
+        }
+        timer = setTimeout(() => {
+            const filtered = usAllStates.filter((state) =>
+                state.toLowerCase().includes(searchString.toLowerCase())
+            );
+            const options: SelectOption[] = filtered.map((state) => {
+                return {
+                    text: state,
+                    value: state,
+                };
+            });
+            console.log('async2', filtered);
+            setUsStates(options);
+            setIsLoading(false);
+        }, 2000);
+    };
+    return (
+        <Select
+            filterable={true}
+            isLoading={isLoading}
+            loadOptions={loadUsStates}
+            options={usStates}
+        ></Select>
+    );
+};
 
 const Dynamic_Story: ComponentStory<typeof Select> = (args) => (
     <DynamicSelect {...args}></DynamicSelect>
