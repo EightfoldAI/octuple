@@ -42,6 +42,7 @@ export const Dropdown: FC<DropdownProps> = ({
     positionStrategy = 'absolute',
     onVisibleChange,
     disabled,
+    closeOnDropdownClick = true,
 }) => {
     const [visible, setVisible] = useState<boolean>(false);
     const [closing, setClosing] = useState<boolean>(false);
@@ -119,7 +120,6 @@ export const Dropdown: FC<DropdownProps> = ({
         ]);
         return cloneElement(child, {
             ...{ [TRIGGER_TO_HANDLER_MAP_ON_ENTER[trigger]]: toggle(true) },
-            ref: reference,
             className: referenceWrapperClasses,
             'aria-controls': dropdownId,
             'aria-expanded': visible,
@@ -136,7 +136,7 @@ export const Dropdown: FC<DropdownProps> = ({
                 style={dropdownStyles}
                 className={dropdownClasses}
                 tabIndex={0}
-                onClick={toggle(false)}
+                onClick={closeOnDropdownClick ? toggle(false) : null}
                 id={dropdownId}
             >
                 {overlay}
