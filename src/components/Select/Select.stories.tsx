@@ -47,6 +47,7 @@ export const Options_Disabled: SelectStory = Basic_Story.bind({});
 export const With_Clear: SelectStory = Basic_Story.bind({});
 export const Filterable: SelectStory = Basic_Story.bind({});
 export const Multiple: SelectStory = Basic_Story.bind({});
+export const Multiple_With_NoFilter: SelectStory = Basic_Story.bind({});
 
 const usAllStates = [
     'Alabama',
@@ -147,11 +148,6 @@ export const Dynamic: SelectStory = Dynamic_Story.bind({});
 
 const defaultOptions: SelectOption[] = [
     {
-        iconProps: { path: IconName.mdiThumbUpOutline },
-        text: 'Thumbs up',
-        value: 'thumbsup',
-    },
-    {
         iconProps: { path: IconName.mdiSchool },
         text: 'School',
         value: 'school',
@@ -160,6 +156,11 @@ const defaultOptions: SelectOption[] = [
         iconProps: { path: IconName.mdiCalendar },
         text: 'Date',
         value: 'date',
+    },
+    {
+        iconProps: { path: IconName.mdiFlagVariant },
+        text: 'Supercalifragilisticexpialidocious',
+        value: 'verylarge',
     },
     {
         iconProps: { path: IconName.mdiAccount },
@@ -236,6 +237,13 @@ Filterable.args = {
 Multiple.args = {
     ...Basic.args,
     filterable: true,
+    multiple: true,
+    clearable: true,
+};
+
+Multiple_With_NoFilter.args = {
+    ...Basic.args,
+    filterable: false,
     multiple: true,
 };
 

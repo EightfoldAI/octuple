@@ -1,5 +1,6 @@
 .select-wrapper {
     width: 100%;
+    position: relative;
 
     .my-dropdown-class {
         width: 400px;
@@ -9,5 +10,28 @@
     }
     .select-input-fit {
         min-width: unset !important;
+    }
+
+    .multi-select-pills {
+        position: absolute;
+        z-index: 1;
+        left: 26px;
+        top: 6px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .multi-select-pill {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 80px;
+        display: inline-block;
+    }
+
+    .selected-option {
+        background-color: var(--button-active-background-color);
+        color: var(--button-active-foreground-color);
     }
 }
