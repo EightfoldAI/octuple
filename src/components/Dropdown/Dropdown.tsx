@@ -42,7 +42,7 @@ export const Dropdown: FC<DropdownProps> = ({
     positionStrategy = 'absolute',
     onVisibleChange,
     disabled,
-    shouldCloseOnClick = true,
+    closeOnDropdownClick = true,
 }) => {
     const [visible, setVisible] = useState<boolean>(false);
     const [closing, setClosing] = useState<boolean>(false);
@@ -136,7 +136,7 @@ export const Dropdown: FC<DropdownProps> = ({
                 style={dropdownStyles}
                 className={dropdownClasses}
                 tabIndex={0}
-                onClick={shouldCloseOnClick ? toggle(false) : null}
+                onClick={closeOnDropdownClick ? toggle(false) : null}
                 id={dropdownId}
             >
                 {overlay}

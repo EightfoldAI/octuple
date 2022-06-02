@@ -54,5 +54,5 @@ export interface DropdownProps {
      * Should close dropdown on body click
      * @default true
      */
-    shouldCloseOnClick?: boolean;
+    closeOnDropdownClick?: boolean;
 }
