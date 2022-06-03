@@ -184,6 +184,7 @@ const dropdownArgs: Object = {
     offset: 0,
     positionStrategy: 'absolute',
     disabled: false,
+    closeOnDropdownClick: true,
 };
 
 Dropdown_Button.args = {

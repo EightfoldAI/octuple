@@ -32,6 +32,10 @@ export const Icon: FC<IconProps> = ({
         styles.iconWrapper,
     ]);
 
+    if (!icomoonIconName && !path) {
+        return null;
+    }
+
     const iconComponent = icomoonIconName ? (
         <IcomoonReact
             iconSet={icomoonIconSet}

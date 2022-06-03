@@ -13,8 +13,15 @@ export const AccordionSummary: FC<AccordionSummaryProps> = ({
     expandIconProps,
     expanded,
     onClick,
+    classNames,
     id,
+    ...rest
 }) => {
+    const headerClassnames = mergeClasses([
+        styles.accordionSummary,
+        classNames,
+    ]);
+
     const iconStyles: string = mergeClasses([
         styles.accordionIcon,
         // Conditional classes can also be handled as follows
@@ -33,12 +40,13 @@ export const AccordionSummary: FC<AccordionSummaryProps> = ({
         <div
             aria-expanded={expanded}
             aria-controls={`${id}-content`}
-            className={styles.accordionSummary}
+            className={headerClassnames}
             onClick={onClick}
             onKeyDown={handleKeyDown}
             id={`${id}-header`}
             role="button"
             tabIndex={0}
+            {...rest}
         >
             {children}
             <Icon classNames={iconStyles} {...expandIconProps} />
@@ -49,7 +57,9 @@ export const AccordionSummary: FC<AccordionSummaryProps> = ({
 export const AccordionBody: FC<AccordionBodyProps> = ({
     children,
     expanded,
+    classNames,
     id,
+    ...rest
 }) => {
     const accordionBodyContainerStyles: string = mergeClasses(
         styles.accordionBodyContainer,
@@ -58,7 +68,8 @@ export const AccordionBody: FC<AccordionBodyProps> = ({
 
     const accordionBodyStyles: string = mergeClasses(
         styles.accordionBody,
-        styles.showBorderTop
+        styles.showBorderTop,
+        classNames
     );
 
     return (
@@ -67,6 +78,7 @@ export const AccordionBody: FC<AccordionBodyProps> = ({
             className={accordionBodyContainerStyles}
             id={`${id}-content`}
             role="region"
+            {...rest}
         >
             <div className={accordionBodyStyles}>{children}</div>
         </div>
@@ -83,6 +95,9 @@ export const Accordion: FC<AccordionProps> = React.forwardRef(
             expandIconProps = { path: IconName.mdiChevronDown },
             children,
             id = uniqueId('accordion-'),
+            headerProps,
+            bodyProps,
+            ...rest
         },
         ref: Ref<HTMLDivElement>
     ) => {
@@ -99,16 +114,17 @@ export const Accordion: FC<AccordionProps> = React.forwardRef(
         );
 
         return (
-            <div className={accordionContainerStyle} ref={ref}>
+            <div className={accordionContainerStyle} ref={ref} {...rest}>
                 <AccordionSummary
                     expandIconProps={expandIconProps}
                     onClick={() => toggleAccordion(!isExpanded)}
                     expanded={isExpanded}
                     id={id}
+                    {...headerProps}
                 >
                     {summary}
                 </AccordionSummary>
-                <AccordionBody id={id} expanded={isExpanded}>
+                <AccordionBody id={id} expanded={isExpanded} {...bodyProps}>
                     {children}
                 </AccordionBody>
             </div>

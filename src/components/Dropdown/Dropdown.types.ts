@@ -55,4 +55,9 @@ export interface DropdownProps {
      * Dropdown custom style
      */
     dropdownStyle?: React.CSSProperties;
+    /**
+     * Should close dropdown on body click
+     * @default true
+     */
+    closeOnDropdownClick?: boolean;
 }

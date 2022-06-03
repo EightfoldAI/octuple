@@ -781,7 +781,7 @@ exports[`Storyshots Button Default 1`] = `
   <span>
     <span
       aria-hidden={true}
-      className="icon iconWrapper"
+      className="icon my-btn-icon iconWrapper"
       data-test-id="myButtonIconTestId"
       id="myButtonIcon"
       role="presentation"
@@ -830,7 +830,7 @@ exports[`Storyshots Button Neutral 1`] = `
   <span>
     <span
       aria-hidden={true}
-      className="icon iconWrapper"
+      className="icon my-btn-icon iconWrapper"
       data-test-id="myButtonIconTestId"
       id="myButtonIcon"
       role="presentation"
@@ -879,7 +879,7 @@ exports[`Storyshots Button Primary 1`] = `
   <span>
     <span
       aria-hidden={true}
-      className="icon iconWrapper"
+      className="icon my-btn-icon iconWrapper"
       data-test-id="myButtonIconTestId"
       id="myButtonIcon"
       role="presentation"
@@ -928,7 +928,7 @@ exports[`Storyshots Button Secondary 1`] = `
   <span>
     <span
       aria-hidden={true}
-      className="icon iconWrapper"
+      className="icon my-btn-icon iconWrapper"
       data-test-id="myButtonIconTestId"
       id="myButtonIcon"
       role="presentation"
@@ -1040,7 +1040,7 @@ exports[`Storyshots Button Toggle 1`] = `
   <span>
     <span
       aria-hidden={true}
-      className="icon iconWrapper"
+      className="icon my-btn-icon iconWrapper"
       data-test-id="myButtonIconTestId"
       id="myButtonIcon"
       role="presentation"
@@ -1168,21 +1168,18 @@ exports[`Storyshots Button Two State Button 1`] = `
 
 exports[`Storyshots Check Box Check Box 1`] = `
 <div
-  className="selector"
-  onKeyDown={[Function]}
+  className="selector my-checkbox-class"
 >
   <input
     aria-label="Label"
     checked={true}
-    defaultChecked={false}
     disabled={false}
     id="myCheckBoxId"
     name="myCheckBoxName"
     onChange={[Function]}
     readOnly={true}
-    tabIndex={-1}
     type="checkbox"
-    value="Label"
+    value="label"
   />
   <label
     className=""
@@ -1190,7 +1187,6 @@ exports[`Storyshots Check Box Check Box 1`] = `
   >
     <span
       className="checkmark"
-      tabIndex={0}
     />
     <span
       className="selectorLabel"
@@ -1202,19 +1198,26 @@ exports[`Storyshots Check Box Check Box 1`] = `
 `;
 
 exports[`Storyshots Check Box Check Box Group 1`] = `
-Array [
+<div
+  checked={true}
+  className="checkboxGroup"
+  defaultChecked={
+    Array [
+      "First",
+    ]
+  }
+  role="group"
+>
   <div
     className="selector"
-    onKeyDown={[Function]}
   >
     <input
-      checked={true}
+      checked={false}
       disabled={false}
       id="test-1"
       name="group"
       onChange={[Function]}
       readOnly={true}
-      tabIndex={-1}
       type="checkbox"
       value="First"
     />
@@ -1224,7 +1227,6 @@ Array [
     >
       <span
         className="checkmark"
-        tabIndex={0}
       />
       <span
         className="selectorLabel"
@@ -1232,19 +1234,17 @@ Array [
         First
       </span>
     </label>
-  </div>,
+  </div>
   <div
     className="selector"
-    onKeyDown={[Function]}
   >
     <input
-      checked={true}
+      checked={false}
       disabled={false}
       id="test-2"
       name="group"
       onChange={[Function]}
       readOnly={true}
-      tabIndex={-1}
       type="checkbox"
       value="Second"
     />
@@ -1254,7 +1254,6 @@ Array [
     >
       <span
         className="checkmark"
-        tabIndex={0}
       />
       <span
         className="selectorLabel"
@@ -1262,19 +1261,17 @@ Array [
         Second
       </span>
     </label>
-  </div>,
+  </div>
   <div
     className="selector"
-    onKeyDown={[Function]}
   >
     <input
-      checked={true}
+      checked={false}
       disabled={false}
       id="test-3"
       name="group"
       onChange={[Function]}
       readOnly={true}
-      tabIndex={-1}
       type="checkbox"
       value="Third"
     />
@@ -1284,7 +1281,6 @@ Array [
     >
       <span
         className="checkmark"
-        tabIndex={0}
       />
       <span
         className="selectorLabel"
@@ -1292,8 +1288,8 @@ Array [
         Third
       </span>
     </label>
-  </div>,
-]
+  </div>
+</div>
 `;
 
 exports[`Storyshots Config Provider Theming 1`] = `
@@ -3942,6 +3938,187 @@ exports[`Storyshots Config Provider Theming 1`] = `
       </g>
     </svg>
   </span>
+  <div
+    className="checkboxGroup"
+    defaultChecked={
+      Array [
+        "First",
+      ]
+    }
+    role="group"
+  >
+    <div
+      className="selector"
+    >
+      <input
+        checked={true}
+        disabled={false}
+        id="test-1"
+        name="group"
+        onChange={[Function]}
+        readOnly={true}
+        type="checkbox"
+        value="First"
+      />
+      <label
+        className=""
+        htmlFor="test-1"
+      >
+        <span
+          className="checkmark"
+        />
+        <span
+          className="selectorLabel"
+        >
+          First
+        </span>
+      </label>
+    </div>
+    <div
+      className="selector"
+    >
+      <input
+        checked={false}
+        disabled={false}
+        id="test-2"
+        name="group"
+        onChange={[Function]}
+        readOnly={true}
+        type="checkbox"
+        value="Second"
+      />
+      <label
+        className=""
+        htmlFor="test-2"
+      >
+        <span
+          className="checkmark"
+        />
+        <span
+          className="selectorLabel"
+        >
+          Second
+        </span>
+      </label>
+    </div>
+    <div
+      className="selector"
+    >
+      <input
+        checked={false}
+        disabled={false}
+        id="test-3"
+        name="group"
+        onChange={[Function]}
+        readOnly={true}
+        type="checkbox"
+        value="Third"
+      />
+      <label
+        className=""
+        htmlFor="test-3"
+      >
+        <span
+          className="checkmark"
+        />
+        <span
+          className="selectorLabel"
+        >
+          Third
+        </span>
+      </label>
+    </div>
+  </div>
+  <div
+    aria-label="Radio Group"
+    className="radioGroup"
+    role="group"
+  >
+    <div
+      className="selector"
+    >
+      <input
+        checked={true}
+        disabled={false}
+        id="oea2exk-1"
+        name="group"
+        onChange={[Function]}
+        readOnly={true}
+        type="radio"
+        value="Radio1"
+      />
+      <label
+        className=""
+        htmlFor="oea2exk-1"
+      >
+        <span
+          className="radioButton"
+          id="oea2exk-1-custom-radio"
+        />
+        <span
+          className="selectorLabel"
+        >
+          Radio1
+        </span>
+      </label>
+    </div>
+    <div
+      className="selector"
+    >
+      <input
+        checked={false}
+        disabled={false}
+        id="oea2exk-2"
+        name="group"
+        onChange={[Function]}
+        readOnly={true}
+        type="radio"
+        value="Radio2"
+      />
+      <label
+        className=""
+        htmlFor="oea2exk-2"
+      >
+        <span
+          className="radioButton"
+          id="oea2exk-2-custom-radio"
+        />
+        <span
+          className="selectorLabel"
+        >
+          Radio2
+        </span>
+      </label>
+    </div>
+    <div
+      className="selector"
+    >
+      <input
+        checked={false}
+        disabled={false}
+        id="oea2exk-3"
+        name="group"
+        onChange={[Function]}
+        readOnly={true}
+        type="radio"
+        value="Radio3"
+      />
+      <label
+        className=""
+        htmlFor="oea2exk-3"
+      >
+        <span
+          className="radioButton"
+          id="oea2exk-3-custom-radio"
+        />
+        <span
+          className="selectorLabel"
+        >
+          Radio3
+        </span>
+      </label>
+    </div>
+  </div>
 </div>
 `;
 
@@ -8171,13 +8348,12 @@ exports[`Storyshots Radio Button Radio Button 1`] = `
 >
   <input
     aria-label="Label"
-    checked={true}
+    checked={false}
     disabled={false}
     id="myRadioButtonId"
     name="myRadioButtonName"
-    onClick={[Function]}
+    onChange={[Function]}
     readOnly={true}
-    tabIndex={-1}
     type="radio"
     value="Label"
   />
@@ -8188,7 +8364,6 @@ exports[`Storyshots Radio Button Radio Button 1`] = `
     <span
       className="radioButton"
       id="myRadioButtonId-custom-radio"
-      tabIndex={0}
     />
     <span
       className="selectorLabel"
@@ -8201,19 +8376,20 @@ exports[`Storyshots Radio Button Radio Button 1`] = `
 
 exports[`Storyshots Radio Button Radio Group 1`] = `
 <div
-  onKeyDown={[Function]}
+  aria-label="Radio Group"
+  className="radioGroup"
+  role="group"
 >
   <div
     className="selector"
   >
     <input
-      checked={false}
+      checked={true}
       disabled={false}
       id="oea2exk-1"
       name="group"
-      onClick={[Function]}
+      onChange={[Function]}
       readOnly={true}
-      tabIndex={-1}
       type="radio"
       value="Radio1"
     />
@@ -8224,7 +8400,6 @@ exports[`Storyshots Radio Button Radio Group 1`] = `
       <span
         className="radioButton"
         id="oea2exk-1-custom-radio"
-        tabIndex={0}
       />
       <span
         className="selectorLabel"
@@ -8241,9 +8416,8 @@ exports[`Storyshots Radio Button Radio Group 1`] = `
       disabled={false}
       id="oea2exk-2"
       name="group"
-      onClick={[Function]}
+      onChange={[Function]}
       readOnly={true}
-      tabIndex={-1}
       type="radio"
       value="Radio2"
     />
@@ -8254,7 +8428,6 @@ exports[`Storyshots Radio Button Radio Group 1`] = `
       <span
         className="radioButton"
         id="oea2exk-2-custom-radio"
-        tabIndex={0}
       />
       <span
         className="selectorLabel"
@@ -8271,9 +8444,8 @@ exports[`Storyshots Radio Button Radio Group 1`] = `
       disabled={false}
       id="oea2exk-3"
       name="group"
-      onClick={[Function]}
+      onChange={[Function]}
       readOnly={true}
-      tabIndex={-1}
       type="radio"
       value="Radio3"
     />
@@ -8284,7 +8456,6 @@ exports[`Storyshots Radio Button Radio Group 1`] = `
       <span
         className="radioButton"
         id="oea2exk-3-custom-radio"
-        tabIndex={0}
       />
       <span
         className="selectorLabel"

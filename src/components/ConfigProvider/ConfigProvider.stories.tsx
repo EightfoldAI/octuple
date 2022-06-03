@@ -14,6 +14,7 @@ import { ConfigProvider, OcThemeNames, useConfig } from './';
 import { MatchScore } from '../MatchScore';
 import { Spinner } from '../Spinner';
 import { Stack } from '../Stack';
+import { CheckBoxGroup, CheckboxValueType, RadioGroup } from '../Selectors';
 
 const theme: OcThemeNames[] = [
     'red',
@@ -206,6 +207,44 @@ const ThemedComponents: FC = () => {
             </Tabs>
             <MatchScore score={3} />
             <Spinner />
+            <CheckBoxGroup
+                {...{
+                    value: ['First'],
+                    defaultChecked: ['First'],
+                    items: [
+                        {
+                            name: 'group',
+                            value: 'First',
+                            label: 'First',
+                            id: 'test-1',
+                        },
+                        {
+                            name: 'group',
+                            value: 'Second',
+                            label: 'Second',
+                            id: 'test-2',
+                        },
+                        {
+                            name: 'group',
+                            value: 'Third',
+                            label: 'Third',
+                            id: 'test-3',
+                        },
+                    ],
+                }}
+            />
+            <RadioGroup
+                {...{
+                    ariaLabel: 'Radio Group',
+                    value: 'Radio1',
+                    items: [1, 2, 3].map((i) => ({
+                        value: `Radio${i}`,
+                        label: `Radio${i}`,
+                        name: 'group',
+                        id: `oea2exk-${i}`,
+                    })),
+                }}
+            />
         </Stack>
     );
 };
