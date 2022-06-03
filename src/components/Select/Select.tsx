@@ -220,7 +220,6 @@ export const Select: FC<SelectProps> = React.forwardRef(
                 path: IconName.mdiMenuDown,
                 rotate: dropdownVisible ? 180 : 0,
             },
-            disabled: false,
             onClear: onInputClear,
             ...textInputProps,
         };
@@ -234,9 +233,6 @@ export const Select: FC<SelectProps> = React.forwardRef(
             >
                 {showPills() ? getPills() : null}
                 <Dropdown
-                    trigger="click"
-                    placement="bottom-start"
-                    positionStrategy="absolute"
                     {...dropdownProps}
                     onVisibleChange={(isVisible) =>
                         onDropdownVisibilityChange(isVisible)
