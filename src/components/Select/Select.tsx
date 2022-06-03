@@ -56,7 +56,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
         {
             options = [],
             defaultValue,
-            disabled,
+            disabled = false,
             clearable = false,
             filterable = false,
             multiple = false,

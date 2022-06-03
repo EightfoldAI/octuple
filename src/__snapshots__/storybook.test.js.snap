@@ -8310,8 +8310,7 @@ exports[`Storyshots Select Basic 1`] = `
     }
   >
     <div
-      className="selectWrapper my-Select-class"
-      style={Object {}}
+      className="selectWrapper"
     >
       <div
         className="selectDropdownMainWrapper mainWrapper"
@@ -8387,8 +8386,7 @@ exports[`Storyshots Select Disabled 1`] = `
     }
   >
     <div
-      className="selectWrapper my-Select-class"
-      style={Object {}}
+      className="selectWrapper"
     >
       <div
         className="selectDropdownMainWrapper mainWrapper"
@@ -8402,7 +8400,7 @@ exports[`Storyshots Select Disabled 1`] = `
             aria-haspopup={true}
             autoFocus={false}
             className="selectInput withIcon inputStretch"
-            disabled={true}
+            disabled={false}
             id="input-21"
             onChange={[Function]}
             onClick={[Function]}
@@ -8412,7 +8410,7 @@ exports[`Storyshots Select Disabled 1`] = `
             role="textbox"
             tabIndex={0}
             type="text"
-            value="School"
+            value=""
           />
           <div
             className="iconWrapper leftIcon"
@@ -8525,8 +8523,7 @@ exports[`Storyshots Select Filterable 1`] = `
     }
   >
     <div
-      className="selectWrapper my-Select-class"
-      style={Object {}}
+      className="selectWrapper"
     >
       <div
         className="selectDropdownMainWrapper mainWrapper"
@@ -8539,17 +8536,18 @@ exports[`Storyshots Select Filterable 1`] = `
             aria-expanded={false}
             aria-haspopup={true}
             autoFocus={false}
-            className="selectInputFilterable withIcon inputStretch"
+            className="selectInput withIcon inputStretch"
             disabled={false}
             id="input-25"
             onChange={[Function]}
             onClick={[Function]}
             placeholder="Select"
-            readOnly={false}
+            readOnly={true}
             required={false}
             role="textbox"
             tabIndex={0}
             type="text"
+            value=""
           />
           <div
             className="iconWrapper leftIcon"
@@ -8601,8 +8599,7 @@ exports[`Storyshots Select Multiple 1`] = `
     }
   >
     <div
-      className="selectWrapper my-Select-class"
-      style={Object {}}
+      className="selectWrapper"
     >
       <div
         className="selectDropdownMainWrapper mainWrapper"
@@ -8615,17 +8612,18 @@ exports[`Storyshots Select Multiple 1`] = `
             aria-expanded={false}
             aria-haspopup={true}
             autoFocus={false}
-            className="selectInputFilterable withIcon inputStretch"
+            className="selectInput withIcon inputStretch"
             disabled={false}
             id="input-27"
             onChange={[Function]}
             onClick={[Function]}
             placeholder="Select"
-            readOnly={false}
+            readOnly={true}
             required={false}
             role="textbox"
             tabIndex={0}
             type="text"
+            value=""
           />
           <div
             className="iconWrapper leftIcon"
@@ -8677,8 +8675,7 @@ exports[`Storyshots Select Multiple With No Filter 1`] = `
     }
   >
     <div
-      className="selectWrapper my-Select-class"
-      style={Object {}}
+      className="selectWrapper"
     >
       <div
         className="selectDropdownMainWrapper mainWrapper"
@@ -8754,8 +8751,7 @@ exports[`Storyshots Select Options Disabled 1`] = `
     }
   >
     <div
-      className="selectWrapper my-Select-class"
-      style={Object {}}
+      className="selectWrapper"
     >
       <div
         className="selectDropdownMainWrapper mainWrapper"
@@ -8831,8 +8827,7 @@ exports[`Storyshots Select With Clear 1`] = `
     }
   >
     <div
-      className="selectWrapper my-Select-class"
-      style={Object {}}
+      className="selectWrapper"
     >
       <div
         className="selectDropdownMainWrapper mainWrapper"
@@ -8856,7 +8851,7 @@ exports[`Storyshots Select With Clear 1`] = `
             role="textbox"
             tabIndex={0}
             type="text"
-            value="School"
+            value=""
           />
           <div
             className="iconWrapper leftIcon"
@@ -8908,8 +8903,7 @@ exports[`Storyshots Select With Default Value 1`] = `
     }
   >
     <div
-      className="selectWrapper my-Select-class"
-      style={Object {}}
+      className="selectWrapper"
     >
       <div
         className="selectDropdownMainWrapper mainWrapper"
@@ -8933,7 +8927,7 @@ exports[`Storyshots Select With Default Value 1`] = `
             role="textbox"
             tabIndex={0}
             type="text"
-            value="School"
+            value=""
           />
           <div
             className="iconWrapper leftIcon"
