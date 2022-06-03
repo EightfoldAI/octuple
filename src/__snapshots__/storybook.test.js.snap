@@ -8468,74 +8468,73 @@ exports[`Storyshots Radio Button Radio Group 1`] = `
 `;
 
 exports[`Storyshots Select Basic 1`] = `
-<div>
-  <div
-    style={
-      Object {
-        "alignItems": "center",
-        "display": "flex",
-        "height": "200px",
-        "margin": "0 auto",
-        "width": "200px",
-      }
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "display": "flex",
+      "height": "200px",
+      "margin": "0 auto",
+      "width": "200px",
     }
+  }
+>
+  <div
+    className="selectWrapper octuple-select-class"
+    data-test-id="octuple-select-test-id"
+    style={Object {}}
   >
     <div
-      className="selectWrapper octuple-select-class"
-      style={Object {}}
+      className="selectDropdownMainWrapper mainWrapper"
     >
       <div
-        className="selectDropdownMainWrapper mainWrapper"
+        className="inputWrapper inputStretch"
       >
+        <input
+          aria-controls="dropdown-18"
+          aria-expanded={false}
+          aria-haspopup={true}
+          autoFocus={false}
+          className="selectInput withIcon inputStretch"
+          disabled={false}
+          id="input-19"
+          onChange={[Function]}
+          onClick={[Function]}
+          placeholder="Select"
+          readOnly={true}
+          required={false}
+          role="textbox"
+          tabIndex={0}
+          type="text"
+        />
         <div
-          className="inputWrapper inputStretch"
+          className="iconWrapper leftIcon"
         >
-          <input
-            aria-controls="dropdown-18"
-            aria-expanded={false}
-            aria-haspopup={true}
-            autoFocus={false}
-            className="selectInput withIcon inputStretch"
-            disabled={false}
-            id="input-19"
-            onChange={[Function]}
-            onClick={[Function]}
-            placeholder="Select"
-            readOnly={true}
-            required={false}
-            role="textbox"
-            tabIndex={0}
-            type="text"
-          />
-          <div
-            className="iconWrapper leftIcon"
+          <span
+            aria-hidden={false}
+            className="iconWrapper"
+            role="presentation"
           >
-            <span
-              aria-hidden={false}
-              className="iconWrapper"
+            <svg
               role="presentation"
+              style={
+                Object {
+                  "height": "20px",
+                  "width": "20px",
+                }
+              }
+              viewBox="0 0 24 24"
             >
-              <svg
-                role="presentation"
+              <path
+                d="M7,10L12,15L17,10H7Z"
                 style={
                   Object {
-                    "height": "20px",
-                    "width": "20px",
+                    "fill": "currentColor",
                   }
                 }
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M7,10L12,15L17,10H7Z"
-                  style={
-                    Object {
-                      "fill": "currentColor",
-                    }
-                  }
-                />
-              </svg>
-            </span>
-          </div>
+              />
+            </svg>
+          </span>
         </div>
       </div>
     </div>
@@ -8544,74 +8543,73 @@ exports[`Storyshots Select Basic 1`] = `
 `;
 
 exports[`Storyshots Select Disabled 1`] = `
-<div>
-  <div
-    style={
-      Object {
-        "alignItems": "center",
-        "display": "flex",
-        "height": "200px",
-        "margin": "0 auto",
-        "width": "200px",
-      }
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "display": "flex",
+      "height": "200px",
+      "margin": "0 auto",
+      "width": "200px",
     }
+  }
+>
+  <div
+    className="selectWrapper octuple-select-class"
+    data-test-id="octuple-select-test-id"
+    style={Object {}}
   >
     <div
-      className="selectWrapper octuple-select-class"
-      style={Object {}}
+      className="selectDropdownMainWrapper mainWrapper"
     >
       <div
-        className="selectDropdownMainWrapper mainWrapper"
+        className="inputWrapper inputStretch"
       >
+        <input
+          aria-controls="dropdown-20"
+          aria-expanded={false}
+          aria-haspopup={true}
+          autoFocus={false}
+          className="selectInput withIcon inputStretch"
+          disabled={true}
+          id="input-21"
+          onChange={[Function]}
+          onClick={[Function]}
+          placeholder="Select"
+          readOnly={true}
+          required={false}
+          role="textbox"
+          tabIndex={0}
+          type="text"
+        />
         <div
-          className="inputWrapper inputStretch"
+          className="iconWrapper leftIcon"
         >
-          <input
-            aria-controls="dropdown-20"
-            aria-expanded={false}
-            aria-haspopup={true}
-            autoFocus={false}
-            className="selectInput withIcon inputStretch"
-            disabled={true}
-            id="input-21"
-            onChange={[Function]}
-            onClick={[Function]}
-            placeholder="Select"
-            readOnly={true}
-            required={false}
-            role="textbox"
-            tabIndex={0}
-            type="text"
-          />
-          <div
-            className="iconWrapper leftIcon"
+          <span
+            aria-hidden={false}
+            className="iconWrapper"
+            role="presentation"
           >
-            <span
-              aria-hidden={false}
-              className="iconWrapper"
+            <svg
               role="presentation"
+              style={
+                Object {
+                  "height": "20px",
+                  "width": "20px",
+                }
+              }
+              viewBox="0 0 24 24"
             >
-              <svg
-                role="presentation"
+              <path
+                d="M7,10L12,15L17,10H7Z"
                 style={
                   Object {
-                    "height": "20px",
-                    "width": "20px",
+                    "fill": "currentColor",
                   }
                 }
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M7,10L12,15L17,10H7Z"
-                  style={
-                    Object {
-                      "fill": "currentColor",
-                    }
-                  }
-                />
-              </svg>
-            </span>
-          </div>
+              />
+            </svg>
+          </span>
         </div>
       </div>
     </div>
@@ -8621,59 +8619,71 @@ exports[`Storyshots Select Disabled 1`] = `
 
 exports[`Storyshots Select Dynamic 1`] = `
 <div
-  className="selectWrapper"
+  style={
+    Object {
+      "alignItems": "center",
+      "display": "flex",
+      "height": "200px",
+      "margin": "0 auto",
+      "width": "200px",
+    }
+  }
 >
   <div
-    className="selectDropdownMainWrapper mainWrapper"
+    className="selectWrapper"
   >
     <div
-      className="inputWrapper inputStretch"
+      className="selectDropdownMainWrapper mainWrapper"
     >
-      <input
-        aria-controls="dropdown-22"
-        aria-expanded={false}
-        aria-haspopup={true}
-        autoFocus={false}
-        className="selectInputFilterable withIcon inputStretch"
-        disabled={false}
-        id="input-23"
-        onChange={[Function]}
-        onClick={[Function]}
-        placeholder="Select"
-        readOnly={false}
-        required={false}
-        role="textbox"
-        tabIndex={0}
-        type="text"
-      />
       <div
-        className="iconWrapper leftIcon"
+        className="inputWrapper inputStretch"
       >
-        <span
-          aria-hidden={false}
-          className="iconWrapper"
-          role="presentation"
+        <input
+          aria-controls="dropdown-22"
+          aria-expanded={false}
+          aria-haspopup={true}
+          autoFocus={false}
+          className="selectInputFilterable withIcon inputStretch"
+          disabled={false}
+          id="input-23"
+          onChange={[Function]}
+          onClick={[Function]}
+          placeholder="Select"
+          readOnly={false}
+          required={false}
+          role="textbox"
+          tabIndex={0}
+          type="text"
+        />
+        <div
+          className="iconWrapper leftIcon"
         >
-          <svg
+          <span
+            aria-hidden={false}
+            className="iconWrapper"
             role="presentation"
-            style={
-              Object {
-                "height": "20px",
-                "width": "20px",
-              }
-            }
-            viewBox="0 0 24 24"
           >
-            <path
-              d="M7,10L12,15L17,10H7Z"
+            <svg
+              role="presentation"
               style={
                 Object {
-                  "fill": "currentColor",
+                  "height": "20px",
+                  "width": "20px",
                 }
               }
-            />
-          </svg>
-        </span>
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M7,10L12,15L17,10H7Z"
+                style={
+                  Object {
+                    "fill": "currentColor",
+                  }
+                }
+              />
+            </svg>
+          </span>
+        </div>
       </div>
     </div>
   </div>
@@ -8681,74 +8691,73 @@ exports[`Storyshots Select Dynamic 1`] = `
 `;
 
 exports[`Storyshots Select Filterable 1`] = `
-<div>
-  <div
-    style={
-      Object {
-        "alignItems": "center",
-        "display": "flex",
-        "height": "200px",
-        "margin": "0 auto",
-        "width": "200px",
-      }
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "display": "flex",
+      "height": "200px",
+      "margin": "0 auto",
+      "width": "200px",
     }
+  }
+>
+  <div
+    className="selectWrapper octuple-select-class"
+    data-test-id="octuple-select-test-id"
+    style={Object {}}
   >
     <div
-      className="selectWrapper octuple-select-class"
-      style={Object {}}
+      className="selectDropdownMainWrapper mainWrapper"
     >
       <div
-        className="selectDropdownMainWrapper mainWrapper"
+        className="inputWrapper inputStretch"
       >
+        <input
+          aria-controls="dropdown-24"
+          aria-expanded={false}
+          aria-haspopup={true}
+          autoFocus={false}
+          className="selectInputFilterable withIcon inputStretch"
+          disabled={false}
+          id="input-25"
+          onChange={[Function]}
+          onClick={[Function]}
+          placeholder="Select"
+          readOnly={false}
+          required={false}
+          role="textbox"
+          tabIndex={0}
+          type="text"
+        />
         <div
-          className="inputWrapper inputStretch"
+          className="iconWrapper leftIcon"
         >
-          <input
-            aria-controls="dropdown-24"
-            aria-expanded={false}
-            aria-haspopup={true}
-            autoFocus={false}
-            className="selectInputFilterable withIcon inputStretch"
-            disabled={false}
-            id="input-25"
-            onChange={[Function]}
-            onClick={[Function]}
-            placeholder="Select"
-            readOnly={false}
-            required={false}
-            role="textbox"
-            tabIndex={0}
-            type="text"
-          />
-          <div
-            className="iconWrapper leftIcon"
+          <span
+            aria-hidden={false}
+            className="iconWrapper"
+            role="presentation"
           >
-            <span
-              aria-hidden={false}
-              className="iconWrapper"
+            <svg
               role="presentation"
+              style={
+                Object {
+                  "height": "20px",
+                  "width": "20px",
+                }
+              }
+              viewBox="0 0 24 24"
             >
-              <svg
-                role="presentation"
+              <path
+                d="M7,10L12,15L17,10H7Z"
                 style={
                   Object {
-                    "height": "20px",
-                    "width": "20px",
+                    "fill": "currentColor",
                   }
                 }
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M7,10L12,15L17,10H7Z"
-                  style={
-                    Object {
-                      "fill": "currentColor",
-                    }
-                  }
-                />
-              </svg>
-            </span>
-          </div>
+              />
+            </svg>
+          </span>
         </div>
       </div>
     </div>
@@ -8757,74 +8766,73 @@ exports[`Storyshots Select Filterable 1`] = `
 `;
 
 exports[`Storyshots Select Multiple 1`] = `
-<div>
-  <div
-    style={
-      Object {
-        "alignItems": "center",
-        "display": "flex",
-        "height": "200px",
-        "margin": "0 auto",
-        "width": "200px",
-      }
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "display": "flex",
+      "height": "200px",
+      "margin": "0 auto",
+      "width": "200px",
     }
+  }
+>
+  <div
+    className="selectWrapper octuple-select-class"
+    data-test-id="octuple-select-test-id"
+    style={Object {}}
   >
     <div
-      className="selectWrapper octuple-select-class"
-      style={Object {}}
+      className="selectDropdownMainWrapper mainWrapper"
     >
       <div
-        className="selectDropdownMainWrapper mainWrapper"
+        className="inputWrapper inputStretch"
       >
+        <input
+          aria-controls="dropdown-26"
+          aria-expanded={false}
+          aria-haspopup={true}
+          autoFocus={false}
+          className="selectInputFilterable withIcon inputStretch"
+          disabled={false}
+          id="input-27"
+          onChange={[Function]}
+          onClick={[Function]}
+          placeholder="Select"
+          readOnly={false}
+          required={false}
+          role="textbox"
+          tabIndex={0}
+          type="text"
+        />
         <div
-          className="inputWrapper inputStretch"
+          className="iconWrapper leftIcon"
         >
-          <input
-            aria-controls="dropdown-26"
-            aria-expanded={false}
-            aria-haspopup={true}
-            autoFocus={false}
-            className="selectInputFilterable withIcon inputStretch"
-            disabled={false}
-            id="input-27"
-            onChange={[Function]}
-            onClick={[Function]}
-            placeholder="Select"
-            readOnly={false}
-            required={false}
-            role="textbox"
-            tabIndex={0}
-            type="text"
-          />
-          <div
-            className="iconWrapper leftIcon"
+          <span
+            aria-hidden={false}
+            className="iconWrapper"
+            role="presentation"
           >
-            <span
-              aria-hidden={false}
-              className="iconWrapper"
+            <svg
               role="presentation"
+              style={
+                Object {
+                  "height": "20px",
+                  "width": "20px",
+                }
+              }
+              viewBox="0 0 24 24"
             >
-              <svg
-                role="presentation"
+              <path
+                d="M7,10L12,15L17,10H7Z"
                 style={
                   Object {
-                    "height": "20px",
-                    "width": "20px",
+                    "fill": "currentColor",
                   }
                 }
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M7,10L12,15L17,10H7Z"
-                  style={
-                    Object {
-                      "fill": "currentColor",
-                    }
-                  }
-                />
-              </svg>
-            </span>
-          </div>
+              />
+            </svg>
+          </span>
         </div>
       </div>
     </div>
@@ -8833,74 +8841,73 @@ exports[`Storyshots Select Multiple 1`] = `
 `;
 
 exports[`Storyshots Select Multiple With No Filter 1`] = `
-<div>
-  <div
-    style={
-      Object {
-        "alignItems": "center",
-        "display": "flex",
-        "height": "200px",
-        "margin": "0 auto",
-        "width": "200px",
-      }
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "display": "flex",
+      "height": "200px",
+      "margin": "0 auto",
+      "width": "200px",
     }
+  }
+>
+  <div
+    className="selectWrapper octuple-select-class"
+    data-test-id="octuple-select-test-id"
+    style={Object {}}
   >
     <div
-      className="selectWrapper octuple-select-class"
-      style={Object {}}
+      className="selectDropdownMainWrapper mainWrapper"
     >
       <div
-        className="selectDropdownMainWrapper mainWrapper"
+        className="inputWrapper inputStretch"
       >
+        <input
+          aria-controls="dropdown-28"
+          aria-expanded={false}
+          aria-haspopup={true}
+          autoFocus={false}
+          className="selectInput withIcon inputStretch"
+          disabled={false}
+          id="input-29"
+          onChange={[Function]}
+          onClick={[Function]}
+          placeholder="Select"
+          readOnly={true}
+          required={false}
+          role="textbox"
+          tabIndex={0}
+          type="text"
+        />
         <div
-          className="inputWrapper inputStretch"
+          className="iconWrapper leftIcon"
         >
-          <input
-            aria-controls="dropdown-28"
-            aria-expanded={false}
-            aria-haspopup={true}
-            autoFocus={false}
-            className="selectInput withIcon inputStretch"
-            disabled={false}
-            id="input-29"
-            onChange={[Function]}
-            onClick={[Function]}
-            placeholder="Select"
-            readOnly={true}
-            required={false}
-            role="textbox"
-            tabIndex={0}
-            type="text"
-          />
-          <div
-            className="iconWrapper leftIcon"
+          <span
+            aria-hidden={false}
+            className="iconWrapper"
+            role="presentation"
           >
-            <span
-              aria-hidden={false}
-              className="iconWrapper"
+            <svg
               role="presentation"
+              style={
+                Object {
+                  "height": "20px",
+                  "width": "20px",
+                }
+              }
+              viewBox="0 0 24 24"
             >
-              <svg
-                role="presentation"
+              <path
+                d="M7,10L12,15L17,10H7Z"
                 style={
                   Object {
-                    "height": "20px",
-                    "width": "20px",
+                    "fill": "currentColor",
                   }
                 }
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M7,10L12,15L17,10H7Z"
-                  style={
-                    Object {
-                      "fill": "currentColor",
-                    }
-                  }
-                />
-              </svg>
-            </span>
-          </div>
+              />
+            </svg>
+          </span>
         </div>
       </div>
     </div>
@@ -8909,74 +8916,73 @@ exports[`Storyshots Select Multiple With No Filter 1`] = `
 `;
 
 exports[`Storyshots Select Options Disabled 1`] = `
-<div>
-  <div
-    style={
-      Object {
-        "alignItems": "center",
-        "display": "flex",
-        "height": "200px",
-        "margin": "0 auto",
-        "width": "200px",
-      }
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "display": "flex",
+      "height": "200px",
+      "margin": "0 auto",
+      "width": "200px",
     }
+  }
+>
+  <div
+    className="selectWrapper octuple-select-class"
+    data-test-id="octuple-select-test-id"
+    style={Object {}}
   >
     <div
-      className="selectWrapper octuple-select-class"
-      style={Object {}}
+      className="selectDropdownMainWrapper mainWrapper"
     >
       <div
-        className="selectDropdownMainWrapper mainWrapper"
+        className="inputWrapper inputStretch"
       >
+        <input
+          aria-controls="dropdown-30"
+          aria-expanded={false}
+          aria-haspopup={true}
+          autoFocus={false}
+          className="selectInput withIcon inputStretch"
+          disabled={false}
+          id="input-31"
+          onChange={[Function]}
+          onClick={[Function]}
+          placeholder="Select"
+          readOnly={true}
+          required={false}
+          role="textbox"
+          tabIndex={0}
+          type="text"
+        />
         <div
-          className="inputWrapper inputStretch"
+          className="iconWrapper leftIcon"
         >
-          <input
-            aria-controls="dropdown-30"
-            aria-expanded={false}
-            aria-haspopup={true}
-            autoFocus={false}
-            className="selectInput withIcon inputStretch"
-            disabled={false}
-            id="input-31"
-            onChange={[Function]}
-            onClick={[Function]}
-            placeholder="Select"
-            readOnly={true}
-            required={false}
-            role="textbox"
-            tabIndex={0}
-            type="text"
-          />
-          <div
-            className="iconWrapper leftIcon"
+          <span
+            aria-hidden={false}
+            className="iconWrapper"
+            role="presentation"
           >
-            <span
-              aria-hidden={false}
-              className="iconWrapper"
+            <svg
               role="presentation"
+              style={
+                Object {
+                  "height": "20px",
+                  "width": "20px",
+                }
+              }
+              viewBox="0 0 24 24"
             >
-              <svg
-                role="presentation"
+              <path
+                d="M7,10L12,15L17,10H7Z"
                 style={
                   Object {
-                    "height": "20px",
-                    "width": "20px",
+                    "fill": "currentColor",
                   }
                 }
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M7,10L12,15L17,10H7Z"
-                  style={
-                    Object {
-                      "fill": "currentColor",
-                    }
-                  }
-                />
-              </svg>
-            </span>
-          </div>
+              />
+            </svg>
+          </span>
         </div>
       </div>
     </div>
@@ -8985,74 +8991,73 @@ exports[`Storyshots Select Options Disabled 1`] = `
 `;
 
 exports[`Storyshots Select With Clear 1`] = `
-<div>
-  <div
-    style={
-      Object {
-        "alignItems": "center",
-        "display": "flex",
-        "height": "200px",
-        "margin": "0 auto",
-        "width": "200px",
-      }
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "display": "flex",
+      "height": "200px",
+      "margin": "0 auto",
+      "width": "200px",
     }
+  }
+>
+  <div
+    className="selectWrapper octuple-select-class"
+    data-test-id="octuple-select-test-id"
+    style={Object {}}
   >
     <div
-      className="selectWrapper octuple-select-class"
-      style={Object {}}
+      className="selectDropdownMainWrapper mainWrapper"
     >
       <div
-        className="selectDropdownMainWrapper mainWrapper"
+        className="inputWrapper inputStretch"
       >
+        <input
+          aria-controls="dropdown-32"
+          aria-expanded={false}
+          aria-haspopup={true}
+          autoFocus={false}
+          className="selectInput withIcon inputStretch"
+          disabled={false}
+          id="input-33"
+          onChange={[Function]}
+          onClick={[Function]}
+          placeholder="Select"
+          readOnly={true}
+          required={false}
+          role="textbox"
+          tabIndex={0}
+          type="text"
+        />
         <div
-          className="inputWrapper inputStretch"
+          className="iconWrapper leftIcon"
         >
-          <input
-            aria-controls="dropdown-32"
-            aria-expanded={false}
-            aria-haspopup={true}
-            autoFocus={false}
-            className="selectInput withIcon inputStretch"
-            disabled={false}
-            id="input-33"
-            onChange={[Function]}
-            onClick={[Function]}
-            placeholder="Select"
-            readOnly={true}
-            required={false}
-            role="textbox"
-            tabIndex={0}
-            type="text"
-          />
-          <div
-            className="iconWrapper leftIcon"
+          <span
+            aria-hidden={false}
+            className="iconWrapper"
+            role="presentation"
           >
-            <span
-              aria-hidden={false}
-              className="iconWrapper"
+            <svg
               role="presentation"
+              style={
+                Object {
+                  "height": "20px",
+                  "width": "20px",
+                }
+              }
+              viewBox="0 0 24 24"
             >
-              <svg
-                role="presentation"
+              <path
+                d="M7,10L12,15L17,10H7Z"
                 style={
                   Object {
-                    "height": "20px",
-                    "width": "20px",
+                    "fill": "currentColor",
                   }
                 }
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M7,10L12,15L17,10H7Z"
-                  style={
-                    Object {
-                      "fill": "currentColor",
-                    }
-                  }
-                />
-              </svg>
-            </span>
-          </div>
+              />
+            </svg>
+          </span>
         </div>
       </div>
     </div>
@@ -9061,74 +9066,73 @@ exports[`Storyshots Select With Clear 1`] = `
 `;
 
 exports[`Storyshots Select With Default Value 1`] = `
-<div>
-  <div
-    style={
-      Object {
-        "alignItems": "center",
-        "display": "flex",
-        "height": "200px",
-        "margin": "0 auto",
-        "width": "200px",
-      }
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "display": "flex",
+      "height": "200px",
+      "margin": "0 auto",
+      "width": "200px",
     }
+  }
+>
+  <div
+    className="selectWrapper octuple-select-class"
+    data-test-id="octuple-select-test-id"
+    style={Object {}}
   >
     <div
-      className="selectWrapper octuple-select-class"
-      style={Object {}}
+      className="selectDropdownMainWrapper mainWrapper"
     >
       <div
-        className="selectDropdownMainWrapper mainWrapper"
+        className="inputWrapper inputStretch"
       >
+        <input
+          aria-controls="dropdown-34"
+          aria-expanded={false}
+          aria-haspopup={true}
+          autoFocus={false}
+          className="selectInput withIcon inputStretch"
+          disabled={false}
+          id="input-35"
+          onChange={[Function]}
+          onClick={[Function]}
+          placeholder="Select"
+          readOnly={true}
+          required={false}
+          role="textbox"
+          tabIndex={0}
+          type="text"
+        />
         <div
-          className="inputWrapper inputStretch"
+          className="iconWrapper leftIcon"
         >
-          <input
-            aria-controls="dropdown-34"
-            aria-expanded={false}
-            aria-haspopup={true}
-            autoFocus={false}
-            className="selectInput withIcon inputStretch"
-            disabled={false}
-            id="input-35"
-            onChange={[Function]}
-            onClick={[Function]}
-            placeholder="Select"
-            readOnly={true}
-            required={false}
-            role="textbox"
-            tabIndex={0}
-            type="text"
-          />
-          <div
-            className="iconWrapper leftIcon"
+          <span
+            aria-hidden={false}
+            className="iconWrapper"
+            role="presentation"
           >
-            <span
-              aria-hidden={false}
-              className="iconWrapper"
+            <svg
               role="presentation"
+              style={
+                Object {
+                  "height": "20px",
+                  "width": "20px",
+                }
+              }
+              viewBox="0 0 24 24"
             >
-              <svg
-                role="presentation"
+              <path
+                d="M7,10L12,15L17,10H7Z"
                 style={
                   Object {
-                    "height": "20px",
-                    "width": "20px",
+                    "fill": "currentColor",
                   }
                 }
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M7,10L12,15L17,10H7Z"
-                  style={
-                    Object {
-                      "fill": "currentColor",
-                    }
-                  }
-                />
-              </svg>
-            </span>
-          </div>
+              />
+            </svg>
+          </span>
         </div>
       </div>
     </div>

@@ -3,6 +3,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { IconName } from '../Icon';
 import { Select } from './';
 import { SelectOption, SelectProps } from './Select.types';
+import { Stories } from '@storybook/addon-docs';
 
 const defaultOptions: SelectOption[] = [
     {
@@ -49,11 +50,34 @@ const defaultOptions: SelectOption[] = [
 
 export default {
     title: 'Select',
-    parameters: {},
+    parameters: {
+        docs: {
+            page: (): JSX.Element => (
+                <main>
+                    <article>
+                        <section>
+                            <h1>Select</h1>
+                            <p>
+                                Basic select component which supports searching,
+                                multi select
+                            </p>
+                        </section>
+                        <section>
+                            <Stories includePrimary title="" />
+                        </section>
+                    </article>
+                </main>
+            ),
+        },
+    },
     argTypes: {
-        type: {
-            options: ['round', 'square'],
-            control: { type: 'inline-radio' },
+        filterable: {
+            defaultValue: false,
+            control: { type: 'boolean' },
+        },
+        multiple: {
+            defaultValue: false,
+            control: { type: 'boolean' },
         },
     },
 } as ComponentMeta<typeof Select>;
