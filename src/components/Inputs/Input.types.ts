@@ -181,8 +181,9 @@ export interface TextInputProps extends InputProps<HTMLInputElement> {
     required?: boolean;
 
     /**
-     * The input required attribute.
-     * @default false
+     * option to show the clear input button.
+     * default is true for backward compatibility
+     * @default true
      */
     clearable?: boolean;
 

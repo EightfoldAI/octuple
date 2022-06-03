@@ -61,7 +61,7 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
         ]);
 
         useEffect(() => {
-            if (value !== undefined && value.toString().length > 0) {
+            if (value?.toString()?.length > 0) {
                 return setClearButtonShown(true);
             }
             setClearButtonShown(false);

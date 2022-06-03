@@ -1,7 +1,6 @@
-import { Placement, Strategy } from '@floating-ui/react-dom';
 import React from 'react';
+import { Placement, Strategy } from '@floating-ui/react-dom';
 
-export type ToggleState = { visible: boolean; closing: boolean };
 export interface DropdownProps {
     /**
      * The trigger mode that opens the dropdown
@@ -13,13 +12,10 @@ export interface DropdownProps {
      */
     onVisibleChange?: (visible: boolean) => void;
     /**
-     * Callback called when the visibility of the dropdown changes
+     * Callback to
      * @param visible {boolean}
      */
-    onToggle?: (
-        currentState: ToggleState,
-        changes: Partial<ToggleState>
-    ) => ToggleState;
+    beforeToggleStateChange?: (show: boolean) => boolean;
     /**
      * The dropdown content
      */

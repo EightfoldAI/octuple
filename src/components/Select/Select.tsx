@@ -1,115 +1,85 @@
 import React, { FC, useState, useEffect, Ref } from 'react';
 
 import { mergeClasses } from '../../shared/utilities';
-import { Dropdown, ToggleState } from '../Dropdown';
+import { Dropdown } from '../Dropdown';
 import { Menu } from '../Menu';
-import { TextInput, TextInputWidth } from '../Inputs';
-import { SelectOption, SelectProps } from './Select.types';
-import { Pill, PillSize } from '../Pills';
+import { TextInput, TextInputProps, TextInputWidth } from '../Inputs';
+import { Pill, PillProps, PillSize } from '../Pills';
 import { IconName } from '../Icon';
+import { SelectOption, SelectProps } from './Select.types';
 
 import styles from './select.module.scss';
-
-const Options = ({
-    options,
-    onOptionChange,
-    multiple,
-    selectedOptions,
-    selectedOption,
-}: any) => {
-    const updated = options.map((option: any) => {
-        if (multiple) {
-            const selected = selectedOptions.some(
-                (selectedOption: any) => selectedOption.value === option.value
-            );
-            if (selected) {
-                return {
-                    ...option,
-                    classNames: styles.selectedOption,
-                };
-            }
-            return option;
-        }
-        return {
-            ...option,
-            classNames:
-                selectedOption.value === option.value
-                    ? styles.selectedOption
-                    : '',
-        };
-    });
-    return (
-        <Menu
-            items={updated}
-            onChange={(value) => {
-                const option = updated.find(
-                    (option: any) => option.value === value
-                );
-                onOptionChange(option);
-            }}
-        />
-    );
-};
 
 export const Select: FC<SelectProps> = React.forwardRef(
     (
         {
-            options = [],
+            options: _options = [],
             defaultValue,
-            disabled = false,
-            clearable = false,
             filterable = false,
             multiple = false,
+            textInputProps = {},
+            dropdownProps = {},
+            pillProps = {},
+            menuProps = {},
             loadOptions,
             classNames,
             style,
         },
         ref: Ref<HTMLDivElement>
     ) => {
-        const [dropdownVisible, setDropdownVisibility] = useState(false);
-        const [defaultValueShown, setDefaultValueShown] = useState(false);
-        const [selectedOption, setSelectedOption] = useState<SelectOption>({
-            text: '',
-            value: '',
-        });
-        const [filteredOptions, setFilteredOptions] = useState(options);
-        const [searchQuery, setSearchQuery] = useState('');
-        const [selectedOptions, setSelectedOptions] = useState<SelectOption[]>(
-            []
+        const [dropdownVisible, setDropdownVisibility] =
+            useState<boolean>(false);
+        const [options, setOptions] = useState<SelectOption[]>(
+            _options.map((option) => ({
+                selected: false,
+                hideOption: false,
+                ...option,
+            }))
         );
-        useEffect(() => {
-            setOptions(options);
-        }, [JSON.stringify(options)]);
+        const [searchQuery, setSearchQuery] = useState<string>('');
+        // useEffect(() => {
+        //     // setOptions(options);
+        // }, [JSON.stringify(options)]);
 
-        const onOptionChange = (option: SelectOption) => {
+        useEffect(() => {
+            setOptions(
+                options.map((opt) => ({
+                    ...opt,
+                    selected:
+                        (defaultValue && opt.value === defaultValue) ||
+                        opt.selected,
+                }))
+            );
+        }, [defaultValue]);
+
+        const toggleOption = (option: SelectOption) => {
             setSearchQuery('');
-            if (multiple) {
-                const index = selectedOptions.findIndex(
-                    (selectedOption) => selectedOption.value === option.value
-                );
-                if (index > -1) {
-                    const selectionOptionsSet: { [key: string]: SelectOption } =
-                        selectedOptions.reduce((acc, opt) => {
-                            return {
-                                ...acc,
-                                [opt.value]: opt,
-                            };
-                        }, {});
-                    delete selectionOptionsSet[option.value];
-                    return setSelectedOptions(
-                        Object.values(selectionOptionsSet)
-                    );
-                }
-                return setSelectedOptions([...selectedOptions, option]);
-            } else {
-                setSelectedOption(option);
-            }
+            setOptions(
+                options.map((opt) => {
+                    const defaultState = multiple ? opt.selected : false;
+                    const selected =
+                        opt.value === option.value
+                            ? !opt.selected
+                            : defaultState;
+                    return {
+                        ...opt,
+                        selected: selected,
+                    };
+                })
+            );
         };
 
         const onInputClear = () => {
-            setSearchQuery('');
-            setOptions(options);
-            setSelectedOption({ text: '', value: '' });
+            if (filterable && dropdownVisible) {
+                setSearchQuery('');
+            } else {
+                setOptions(
+                    options.map((opt) => ({
+                        ...opt,
+                        selected: false,
+                    }))
+                );
+            }
         };
 
         const onInputChange = (
@@ -118,170 +88,173 @@ export const Select: FC<SelectProps> = React.forwardRef(
             const { target } = event;
             if (target?.value) {
                 const value = target.value.toLowerCase();
-                const filteredOptions = options.filter((option) =>
-                    option.value.toLowerCase().includes(value)
-                );
                 setSearchQuery(target.value);
                 if (loadOptions) {
                     loadOptions(target.value);
                 } else {
-                    setOptions(filteredOptions);
+                    setOptions(
+                        options.map((option) => ({
+                            ...option,
+                            hideOption: !option.text
+                                .toLowerCase()
+                                .includes(value),
+                        }))
+                    );
                 }
             } else {
                 setSearchQuery('');
-                setOptions(options);
+                setOptions(
+                    options.map((option) => ({ ...option, hideOption: false }))
+                );
             }
         };
 
-        const setOptions = (options: SelectOption[]) => {
-            setFilteredOptions(
-                options.map((option) => {
-                    if (multiple) {
-                        const selected = selectedOptions.some(
-                            (selectedOption) =>
-                                selectedOption.value === option.value
-                        );
-                        if (selected) {
-                            return {
-                                ...option,
-                                classNames: styles.selectedOption,
-                            };
-                        }
-                        return option;
-                    }
-                    return {
-                        ...option,
-                        classNames:
-                            selectedOption.value === option.value
-                                ? styles.selectedOption
-                                : '',
-                    };
-                })
-            );
-        };
-
-        const onDropdownToggle = (
-            current: ToggleState,
-            changes: Partial<ToggleState>
-        ) => {
+        const beforeToggleStateChange = (show: boolean) => {
             if (multiple) {
-                //
-                return {
-                    visible: true,
-                    closing: false,
-                };
+                return true;
             }
-            return { ...current, ...changes };
+            return show;
         };
 
-        if (defaultValue && !defaultValueShown) {
-            const defaultOption = options.find(
-                (option) => option.value === defaultValue
-            );
-            if (multiple) {
-                setSelectedOptions([...selectedOptions, defaultOption]);
-            } else {
-                setSelectedOption(defaultOption);
-            }
-            setDefaultValueShown(true);
-        }
+        const dropdownWrapperClasses: string = mergeClasses([
+            dropdownProps.classNames,
+            styles.selectDropdownMainWrapper,
+        ]);
+
+        const dropdownMenuOverlayClasses: string = mergeClasses([
+            dropdownProps.dropdownClassNames,
+            styles.selectDropdownOverlay,
+        ]);
+
+        const pillClasses: string = mergeClasses([
+            pillProps.classNames,
+            styles.multiSelectPill,
+        ]);
 
         const componentClasses: string = mergeClasses([
             styles.selectWrapper,
             classNames,
         ]);
 
-        const selectedPills = () => {
-            const firstOption = selectedOptions[0];
-            const moreOptionsCount = selectedOptions.length - 1;
-            const hidePills =
-                selectedOptions.length === 0 || (filterable && dropdownVisible);
-            return !hidePills ? (
+        const showPills = () => {
+            const selected = options.filter((opt) => opt.selected);
+            const selectedCount = selected.length;
+            const moreOptionsCount = selectedCount - 1;
+            const showPills =
+                selectedCount !== 0 && !(filterable && dropdownVisible);
+            return showPills && multiple;
+        };
+
+        const getPills = () => {
+            const selected = options.filter((opt) => opt.selected);
+            const selectedCount = selected.length;
+            const moreOptionsCount = selectedCount - 1;
+            const showPills =
+                selectedCount !== 0 && !(filterable && dropdownVisible);
+            const SelectedPill = (props: PillProps) => (
+                <Pill {...props} theme={'bluegreen'} size={PillSize.Small} />
+            );
+            return (
                 <div className={styles.multiSelectPills}>
-                    <Pill
-                        label={firstOption.text}
-                        theme={'bluegreen'}
-                        closeButtonProps={{ ariaLabel: 'Close' }}
-                        size={PillSize.Small}
-                        classNames={styles.multiSelectPill}
+                    <SelectedPill
+                        label={selected[0].text}
+                        classNames={pillClasses}
                     />
                     {moreOptionsCount ? (
-                        <Pill
+                        <SelectedPill
                             label={'+' + moreOptionsCount}
-                            theme={'bluegreen'}
-                            closeButtonProps={{ ariaLabel: 'Close' }}
                             size={PillSize.Small}
                         />
                     ) : null}
                 </div>
-            ) : null;
+            );
         };
 
         const onDropdownVisibilityChange = (isVisible: boolean) => {
             setDropdownVisibility(isVisible);
             setSearchQuery('');
-            setOptions(options);
+            setOptions(
+                options.map((option) => ({ ...option, hideOption: false }))
+            );
+        };
+
+        const OptionMenu = ({ options }: { options: SelectOption[] }) => {
+            const filteredOptions = options.filter(
+                (option) => !option.hideOption
+            );
+            const updatedItems: SelectOption[] = filteredOptions.map(
+                ({ hideOption, ...option }) => ({
+                    ...option,
+                    classNames: option.selected ? styles.selectedOption : '',
+                })
+            );
+            return (
+                <Menu
+                    {...menuProps}
+                    items={updatedItems}
+                    onChange={(value) => {
+                        const option = updatedItems.find(
+                            (option) => option.value === value
+                        );
+                        toggleOption(option);
+                    }}
+                />
+            );
+        };
+
+        const getSelectedOptionText = () => {
+            if (showPills()) {
+                return undefined;
+            }
+            const selectedOption = options.find((option) => option.selected);
+            return selectedOption?.text;
+        };
+
+        const selectInputProps: TextInputProps = {
+            placeholder: 'Select',
+            clearable: false,
+            inputWidth: TextInputWidth.fill,
+            iconProps: {
+                path: IconName.mdiMenuDown,
+                rotate: dropdownVisible ? 180 : 0,
+            },
+            disabled: false,
+            onClear: onInputClear,
+            ...textInputProps,
         };
 
         return (
             <div className={componentClasses} style={style} ref={ref}>
-                {multiple ? selectedPills() : null}
+                {showPills() ? getPills() : null}
                 <Dropdown
+                    trigger="click"
+                    placement="bottom-start"
+                    positionStrategy="absolute"
+                    {...dropdownProps}
                     onVisibleChange={(isVisible) =>
                         onDropdownVisibilityChange(isVisible)
                     }
-                    onToggle={onDropdownToggle}
-                    overlay={
-                        <Options
-                            options={filteredOptions}
-                            onOptionChange={onOptionChange}
-                            multiple={multiple}
-                            selectedOption={selectedOption}
-                            selectedOptions={selectedOptions}
-                        />
-                    }
-                    trigger="click"
-                    classNames={styles.selectDropdownMainWrapper}
-                    dropdownClassNames={styles.myDropdownClass}
-                    placement="bottom-start"
-                    positionStrategy="absolute"
-                    disabled={false}
+                    beforeToggleStateChange={beforeToggleStateChange}
+                    overlay={<OptionMenu options={options} />}
+                    classNames={dropdownWrapperClasses}
+                    dropdownClassNames={dropdownMenuOverlayClasses}
                 >
                     {filterable ? (
                         <TextInput
-                            placeholder="Select"
-                            readonly={false}
+                            {...selectInputProps}
                             value={
-                                selectedOption?.text && !dropdownVisible
-                                    ? selectedOption.text
+                                getSelectedOptionText() && !dropdownVisible
+                                    ? getSelectedOptionText()
                                     : undefined
                             }
-                            role="button"
-                            disabled={disabled}
-                            onClear={onInputClear}
                             onChange={onInputChange}
-                            clearable={clearable}
-                            inputWidth={TextInputWidth.fill}
-                            iconProps={{
-                                path: IconName.mdiMenuDown,
-                                rotate: dropdownVisible ? 180 : 0,
-                            }}
                             classNames={styles.selectInputFilterable}
                         />
                     ) : (
                         <TextInput
-                            placeholder="Select"
+                            {...selectInputProps}
                             readonly={true}
-                            value={selectedOption?.text}
-                            role="button"
-                            disabled={disabled}
-                            onClear={onInputClear}
-                            clearable={clearable}
-                            inputWidth={TextInputWidth.fill}
-                            iconProps={{
-                                path: IconName.mdiMenuDown,
-                                rotate: dropdownVisible ? 180 : 0,
-                            }}
+                            value={getSelectedOptionText()}
                             classNames={styles.selectInput}
                         />
                     )}

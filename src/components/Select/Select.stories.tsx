@@ -1,4 +1,4 @@
-import React, { FC, Ref, useState } from 'react';
+import React, { FC, useState } from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { IconName } from '../Icon';
 import { Select } from './';
@@ -105,7 +105,6 @@ const DynamicSelect: FC<SelectProps> = () => {
     const [usStates, setUsStates] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const loadUsStates = (searchString: string) => {
-        console.log('async', searchString);
         setIsLoading(true);
         if (timer) {
             clearTimeout(timer);
@@ -120,7 +119,6 @@ const DynamicSelect: FC<SelectProps> = () => {
                     value: state,
                 };
             });
-            console.log('async2', filtered);
             setUsStates(options);
             setIsLoading(false);
         }, 2000);
@@ -184,9 +182,8 @@ const defaultOptions: SelectOption[] = [
     },
 ];
 const SelectArgs: SelectProps = {
-    children: 'JD',
-    classNames: 'my-Select-class',
-    'data-test-id': 'my-Select-test-id',
+    classNames: 'octuple-select-class',
+    'data-test-id': 'octuple-select-test-id',
     style: {},
     options: defaultOptions,
 };
@@ -202,7 +199,10 @@ With_DefaultValue.args = {
 
 Disabled.args = {
     ...With_DefaultValue.args,
-    disabled: true,
+    textInputProps: {
+        ...With_DefaultValue.args.textInputProps,
+        disabled: true,
+    },
 };
 
 Options_Disabled.args = {
@@ -220,29 +220,45 @@ Options_Disabled.args = {
 
 With_Clear.args = {
     ...With_DefaultValue.args,
-    clearable: true,
+    textInputProps: {
+        ...With_DefaultValue.args.textInputProps,
+        clearable: true,
+    },
 };
 
 Filterable.args = {
     ...Basic.args,
     filterable: true,
-    clearable: true,
+    textInputProps: {
+        ...Basic.args.textInputProps,
+        clearable: true,
+    },
 };
 
 Multiple.args = {
     ...Basic.args,
     filterable: true,
     multiple: true,
-    clearable: true,
+    textInputProps: {
+        ...Basic.args.textInputProps,
+        clearable: true,
+    },
 };
 
 Multiple_With_NoFilter.args = {
     ...Basic.args,
     filterable: false,
     multiple: true,
+    textInputProps: {
+        ...Basic.args.textInputProps,
+        clearable: true,
+    },
 };
 
 Dynamic.args = {
     ...Basic.args,
-    clearable: true,
+    textInputProps: {
+        ...Basic.args.textInputProps,
+        clearable: true,
+    },
 };

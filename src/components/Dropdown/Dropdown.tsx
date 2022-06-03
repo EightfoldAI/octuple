@@ -5,7 +5,7 @@ import React, {
     useState,
     SyntheticEvent,
 } from 'react';
-import { DropdownProps, ToggleState } from './Dropdown.types';
+import { DropdownProps } from './Dropdown.types';
 import { autoUpdate, shift, useFloating } from '@floating-ui/react-dom';
 import { offset as fOffset } from '@floating-ui/core';
 import { mergeClasses, uniqueId } from '../../shared/utilities';
@@ -41,7 +41,7 @@ export const Dropdown: FC<DropdownProps> = ({
     offset = 0,
     positionStrategy = 'absolute',
     onVisibleChange,
-    onToggle,
+    beforeToggleStateChange,
     disabled,
 }) => {
     const [visible, setVisible] = useState<boolean>(false);
@@ -58,21 +58,19 @@ export const Dropdown: FC<DropdownProps> = ({
     const toggle: Function =
         (
             show: boolean,
-            onToggle = (_: any, changes: Partial<ToggleState>) => changes
+            beforeToggleStateChange = (show: boolean) => show
         ): Function =>
         (e: SyntheticEvent): void => {
-            const newState = onToggle(
-                { closing, visible },
-                { closing: !show, visible: show }
-            );
+            // to control the toggle behaviour
+            const updatedShow = beforeToggleStateChange(show);
             if (PREVENT_DEFAULT_TRIGGERS.includes(trigger)) {
                 e.preventDefault();
             }
-            setClosing(newState.closing);
+            setClosing(!updatedShow);
             timeout && clearTimeout(timeout);
             timeout = setTimeout(
                 () => {
-                    setVisible(newState.visible);
+                    setVisible(updatedShow);
                 },
                 !show ? ANIMATION_DURATION : 0
             );
@@ -144,7 +142,7 @@ export const Dropdown: FC<DropdownProps> = ({
                 style={dropdownStyles}
                 className={dropdownClasses}
                 tabIndex={0}
-                onClick={toggle(false, onToggle)}
+                onClick={toggle(false, beforeToggleStateChange)}
                 id={dropdownId}
             >
                 {overlay}
@@ -160,7 +158,7 @@ export const Dropdown: FC<DropdownProps> = ({
                 ? {
                       [TRIGGER_TO_HANDLER_MAP_ON_LEAVE[trigger]]: toggle(
                           false,
-                          onToggle
+                          beforeToggleStateChange
                       ),
                   }
                 : {})}

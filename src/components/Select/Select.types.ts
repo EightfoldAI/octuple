@@ -1,9 +1,13 @@
-import { Ref } from 'react';
-import { IconProps } from '../Icon';
-import { MenuItem } from '../Menu';
+import { DropdownProps } from '../Dropdown';
+import { TextInputProps } from '../Inputs';
+import { MenuItem, MenuProps } from '../Menu';
 import { OcBaseProps } from '../OcBase';
+import { PillProps } from '../Pills';
 
-export interface SelectOption extends MenuItem {}
+export interface SelectOption extends MenuItem {
+    selected?: boolean;
+    hideOption?: boolean;
+}
 
 export interface SelectProps extends OcBaseProps<HTMLSelectElement> {
     /**
@@ -19,38 +23,56 @@ export interface SelectProps extends OcBaseProps<HTMLSelectElement> {
     options?: SelectOption[];
 
     /**
-     * The select disabled state.
-     * @default false
-     */
-    disabled?: boolean;
-
-    /**
      * clearable.
      * @default false
      */
     clearable?: boolean;
 
     /**
-     * clearable.
+     * enable filtering/searching on the options
      * @default false
      */
     filterable?: boolean;
 
     /**
-     * select multiple.
+     * in case of multiple select.
      * @default false
      */
     multiple?: boolean;
 
     /**
-     * select multiple.
+     * for async loading options.
      * @default false
      */
     loadOptions?: (inputValue: string) => void;
 
     /**
-     * select multiple.
+     * applicable in case of loadOptions. pass true when the loading is in progress.
      * @default false
      */
     isLoading?: boolean;
+
+    /**
+     * select input props.
+     * @default {}
+     */
+    textInputProps?: TextInputProps;
+
+    /**
+     * dropdown and overlay props.
+     * @default {}
+     */
+    dropdownProps?: DropdownProps;
+
+    /**
+     * pill props. applicable in case of multiple: true.
+     * @default {}
+     */
+    pillProps?: PillProps;
+
+    /**
+     * dropdown menu props.
+     * @default {}
+     */
+    menuProps?: MenuProps;
 }
