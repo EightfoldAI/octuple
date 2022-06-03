@@ -9,6 +9,7 @@ import { IconName } from '../Icon';
 import { SelectOption, SelectProps } from './Select.types';
 
 import styles from './select.module.scss';
+import { Spinner } from '../Spinner';
 
 export const Select: FC<SelectProps> = React.forwardRef(
     (
@@ -22,8 +23,11 @@ export const Select: FC<SelectProps> = React.forwardRef(
             pillProps = {},
             menuProps = {},
             loadOptions,
+            isLoading,
+            spinner = <Spinner />,
             classNames,
             style,
+            'data-test-id': dataTestId,
         },
         ref: Ref<HTMLDivElement>
     ) => {
@@ -37,36 +41,42 @@ export const Select: FC<SelectProps> = React.forwardRef(
             }))
         );
         const [searchQuery, setSearchQuery] = useState<string>('');
-        // useEffect(() => {
-        //     // setOptions(options);
-        // }, [JSON.stringify(options)]);
 
         useEffect(() => {
+            const selected = options.filter((option) => option.selected);
             setOptions(
-                options.map((opt) => ({
-                    ...opt,
-                    selected:
-                        (defaultValue && opt.value === defaultValue) ||
-                        opt.selected,
+                _options.map((option) => ({
+                    selected: !!selected.find(
+                        (opt) => opt.value === option.value
+                    ),
+                    hideOption: false,
+                    ...option,
                 }))
             );
+        }, [isLoading]);
+
+        useEffect(() => {
+            const updatedOptions = options.map((opt) => ({
+                ...opt,
+                selected:
+                    (defaultValue && opt.value === defaultValue) ||
+                    opt.selected,
+            }));
+            setOptions(updatedOptions);
         }, [defaultValue]);
 
         const toggleOption = (option: SelectOption) => {
             setSearchQuery('');
-            setOptions(
-                options.map((opt) => {
-                    const defaultState = multiple ? opt.selected : false;
-                    const selected =
-                        opt.value === option.value
-                            ? !opt.selected
-                            : defaultState;
-                    return {
-                        ...opt,
-                        selected: selected,
-                    };
-                })
-            );
+            const updatedOptions = options.map((opt) => {
+                const defaultState = multiple ? opt.selected : false;
+                const selected =
+                    opt.value === option.value ? !opt.selected : defaultState;
+                return {
+                    ...opt,
+                    selected: selected,
+                };
+            });
+            setOptions(updatedOptions);
         };
 
         const onInputClear = () => {
@@ -82,25 +92,20 @@ export const Select: FC<SelectProps> = React.forwardRef(
             }
         };
 
-        const onInputChange = (
-            event: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>
-        ) => {
+        const onInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
             const { target } = event;
-            if (target?.value) {
-                const value = target.value.toLowerCase();
-                setSearchQuery(target.value);
-                if (loadOptions) {
-                    loadOptions(target.value);
-                } else {
-                    setOptions(
-                        options.map((option) => ({
-                            ...option,
-                            hideOption: !option.text
-                                .toLowerCase()
-                                .includes(value),
-                        }))
-                    );
-                }
+            const value = target?.value?.toLowerCase();
+            setSearchQuery(value);
+            if (loadOptions) {
+                return loadOptions(value);
+            }
+            if (value) {
+                setOptions(
+                    options.map((option) => ({
+                        ...option,
+                        hideOption: !option.text.toLowerCase().includes(value),
+                    }))
+                );
             } else {
                 setSearchQuery('');
                 setOptions(
@@ -139,7 +144,6 @@ export const Select: FC<SelectProps> = React.forwardRef(
         const showPills = () => {
             const selected = options.filter((opt) => opt.selected);
             const selectedCount = selected.length;
-            const moreOptionsCount = selectedCount - 1;
             const showPills =
                 selectedCount !== 0 && !(filterable && dropdownVisible);
             return showPills && multiple;
@@ -149,8 +153,6 @@ export const Select: FC<SelectProps> = React.forwardRef(
             const selected = options.filter((opt) => opt.selected);
             const selectedCount = selected.length;
             const moreOptionsCount = selectedCount - 1;
-            const showPills =
-                selectedCount !== 0 && !(filterable && dropdownVisible);
             const SelectedPill = (props: PillProps) => (
                 <Pill {...props} theme={'bluegreen'} size={PillSize.Small} />
             );
@@ -224,7 +226,12 @@ export const Select: FC<SelectProps> = React.forwardRef(
         };
 
         return (
-            <div className={componentClasses} style={style} ref={ref}>
+            <div
+                className={componentClasses}
+                style={style}
+                ref={ref}
+                data-test-id={dataTestId}
+            >
                 {showPills() ? getPills() : null}
                 <Dropdown
                     trigger="click"
@@ -235,7 +242,9 @@ export const Select: FC<SelectProps> = React.forwardRef(
                         onDropdownVisibilityChange(isVisible)
                     }
                     beforeToggleStateChange={beforeToggleStateChange}
-                    overlay={<OptionMenu options={options} />}
+                    overlay={
+                        isLoading ? spinner : <OptionMenu options={options} />
+                    }
                     classNames={dropdownWrapperClasses}
                     dropdownClassNames={dropdownMenuOverlayClasses}
                 >

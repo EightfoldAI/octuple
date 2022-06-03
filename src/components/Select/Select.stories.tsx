@@ -4,141 +4,6 @@ import { IconName } from '../Icon';
 import { Select } from './';
 import { SelectOption, SelectProps } from './Select.types';
 
-export default {
-    title: 'Select',
-    parameters: {},
-    argTypes: {
-        type: {
-            options: ['round', 'square'],
-            control: { type: 'inline-radio' },
-        },
-    },
-} as ComponentMeta<typeof Select>;
-
-const Wrapper: FC<SelectProps> = ({ ...rest }) => {
-    return (
-        <div
-            style={{
-                display: 'flex',
-                alignItems: 'center',
-                width: '200px',
-                height: '200px',
-                margin: '0 auto',
-            }}
-        >
-            <Select {...rest}></Select>
-        </div>
-    );
-};
-
-const Basic_Story: ComponentStory<typeof Select> = (args) => (
-    <div>
-        <Wrapper {...args}></Wrapper>
-    </div>
-);
-
-export type SelectStory = ComponentStory<React.FC<SelectProps>>;
-export const Basic: SelectStory = Basic_Story.bind({});
-export const With_DefaultValue: SelectStory = Basic_Story.bind({});
-export const Disabled: SelectStory = Basic_Story.bind({});
-export const Options_Disabled: SelectStory = Basic_Story.bind({});
-export const With_Clear: SelectStory = Basic_Story.bind({});
-export const Filterable: SelectStory = Basic_Story.bind({});
-export const Multiple: SelectStory = Basic_Story.bind({});
-export const Multiple_With_NoFilter: SelectStory = Basic_Story.bind({});
-
-const usAllStates = [
-    'Alabama',
-    'Alaska',
-    'Arizona',
-    'Arkansas',
-    'California',
-    'Colorado',
-    'Connecticut',
-    'Delaware',
-    'Florida',
-    'Georgia',
-    'Hawaii',
-    'Idaho',
-    'Illinois',
-    'Indiana',
-    'Iowa',
-    'Kansas',
-    'Kentucky',
-    'Louisiana',
-    'Maine',
-    'Maryland',
-    'Massachusetts',
-    'Michigan',
-    'Minnesota',
-    'Mississippi',
-    'Missouri',
-    'Montana',
-    'Nebraska',
-    'Nevada',
-    'New Hampshire',
-    'New Jersey',
-    'New Mexico',
-    'New York',
-    'North Carolina',
-    'North Dakota',
-    'Ohio',
-    'Oklahoma',
-    'Oregon',
-    'Pennsylvania',
-    'Rhode Island',
-    'South Carolina',
-    'South Dakota',
-    'Tennessee',
-    'Texas',
-    'Utah',
-    'Vermont',
-    'Virginia',
-    'Washington',
-    'West Virginia',
-    'Wisconsin',
-    'Wyoming',
-];
-
-const DynamicSelect: FC<SelectProps> = () => {
-    let timer: any;
-    const [usStates, setUsStates] = useState([]);
-    const [isLoading, setIsLoading] = useState(false);
-    const loadUsStates = (searchString: string) => {
-        setIsLoading(true);
-        if (timer) {
-            clearTimeout(timer);
-        }
-        timer = setTimeout(() => {
-            const filtered = usAllStates.filter((state) =>
-                state.toLowerCase().includes(searchString.toLowerCase())
-            );
-            const options: SelectOption[] = filtered.map((state) => {
-                return {
-                    text: state,
-                    value: state,
-                };
-            });
-            setUsStates(options);
-            setIsLoading(false);
-        }, 2000);
-    };
-    return (
-        <Select
-            filterable={true}
-            isLoading={isLoading}
-            loadOptions={loadUsStates}
-            options={usStates}
-        ></Select>
-    );
-};
-
-const Dynamic_Story: ComponentStory<typeof Select> = (args) => (
-    <DynamicSelect {...args}></DynamicSelect>
-);
-
-export const Dynamic: SelectStory = Dynamic_Story.bind({});
-
 const defaultOptions: SelectOption[] = [
     {
         iconProps: { path: IconName.mdiSchool },
@@ -181,6 +46,87 @@ const defaultOptions: SelectOption[] = [
         value: 'bell',
     },
 ];
+
+export default {
+    title: 'Select',
+    parameters: {},
+    argTypes: {
+        type: {
+            options: ['round', 'square'],
+            control: { type: 'inline-radio' },
+        },
+    },
+} as ComponentMeta<typeof Select>;
+
+const Wrapper: FC<SelectProps> = ({ children }) => {
+    return (
+        <div
+            style={{
+                display: 'flex',
+                alignItems: 'center',
+                width: '200px',
+                height: '200px',
+                margin: '0 auto',
+            }}
+        >
+            {children}
+        </div>
+    );
+};
+
+const DynamicSelect: FC<SelectProps> = () => {
+    let timer: any;
+    const [options, setOptions] = useState([]);
+    const [isLoading, setIsLoading] = useState(false);
+    const loadOptions = (searchString: string) => {
+        setIsLoading(true);
+        if (timer) {
+            clearTimeout(timer);
+        }
+        timer = setTimeout(() => {
+            const filtered = defaultOptions.filter((option) =>
+                option.text.toLowerCase().includes(searchString.toLowerCase())
+            );
+            const options: SelectOption[] = filtered;
+            setOptions(options);
+            setIsLoading(false);
+        }, 2000);
+    };
+    return (
+        <Select
+            filterable={true}
+            isLoading={isLoading}
+            loadOptions={loadOptions}
+            options={options}
+        ></Select>
+    );
+};
+
+const Basic_Story: ComponentStory<typeof Select> = (args) => (
+    <>
+        <Wrapper>
+            <Select {...args}></Select>
+        </Wrapper>
+    </>
+);
+
+const Dynamic_Story: ComponentStory<typeof Select> = (args) => (
+    <Wrapper>
+        <DynamicSelect {...args}></DynamicSelect>
+    </Wrapper>
+);
+
+export type SelectStory = ComponentStory<React.FC<SelectProps>>;
+export const Basic: SelectStory = Basic_Story.bind({});
+export const With_DefaultValue: SelectStory = Basic_Story.bind({});
+export const Disabled: SelectStory = Basic_Story.bind({});
+export const Options_Disabled: SelectStory = Basic_Story.bind({});
+export const With_Clear: SelectStory = Basic_Story.bind({});
+export const Filterable: SelectStory = Basic_Story.bind({});
+export const Multiple: SelectStory = Basic_Story.bind({});
+export const Multiple_With_NoFilter: SelectStory = Basic_Story.bind({});
+export const Dynamic: SelectStory = Dynamic_Story.bind({});
+
 const SelectArgs: SelectProps = {
     classNames: 'octuple-select-class',
     'data-test-id': 'octuple-select-test-id',
@@ -194,7 +140,7 @@ Basic.args = {
 
 With_DefaultValue.args = {
     ...Basic.args,
-    defaultValue: 'school',
+    defaultValue: 'hat',
 };
 
 Disabled.args = {

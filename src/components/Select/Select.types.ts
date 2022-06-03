@@ -1,8 +1,10 @@
+import React from 'react';
 import { DropdownProps } from '../Dropdown';
 import { TextInputProps } from '../Inputs';
 import { MenuItem, MenuProps } from '../Menu';
 import { OcBaseProps } from '../OcBase';
 import { PillProps } from '../Pills';
+import { SpinnerProps } from '../Spinner';
 
 export interface SelectOption extends MenuItem {
     selected?: boolean;
@@ -75,4 +77,10 @@ export interface SelectProps extends OcBaseProps<HTMLSelectElement> {
      * @default {}
      */
     menuProps?: MenuProps;
+
+    /**
+     * loading spinner props.
+     * @default {}
+     */
+    spinner?: React.ReactNode;
 }
