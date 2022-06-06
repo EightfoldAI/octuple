@@ -9,7 +9,7 @@
 }
 
 @mixin backdrop {
-    position: absolute;
+    position: fixed;
     background-color: $all-backdrops;
     top: 0;
     right: 0;

@@ -30,6 +30,14 @@
         }
     }
 
+    &.x-large {
+        width: min(85vw, 1500px);
+
+        @media (max-width: $small-screen-size) {
+            width: 95vw;
+        }
+    }
+
     &.fullscreen {
         width: 100%;
         height: 100%;
