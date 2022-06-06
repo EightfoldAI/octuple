@@ -1,24 +1,16 @@
-import { act, renderHook } from '@testing-library/react-hooks';
+import { renderHook } from '@testing-library/react-hooks';
 
 import { useScrollLock } from './useScrollLock';
+import { useState } from 'react';
 
 describe('useScrollLock hook', () => {
     it('set overflow to hidden and reset', () => {
-        const { result } = renderHook(() =>
-            useScrollLock(document.documentElement)
-        );
-        const { unlockScroll, lockScroll } = result.current;
-
-        act(() => {
-            lockScroll();
+        renderHook(() => {
+            const [visible, setVisible] = useState<boolean>(false);
+            useScrollLock(document.documentElement, visible);
+            expect(document.documentElement.style.overflow).toBe('hidden');
+            setVisible(false);
+            expect(document.documentElement.style.overflow).toBe('');
         });
-
-        expect(document.documentElement.style.overflow).toBe('hidden');
-
-        act(() => {
-            unlockScroll();
-        });
-
-        expect(document.documentElement.style.overflow).toBe('');
     });
 });
