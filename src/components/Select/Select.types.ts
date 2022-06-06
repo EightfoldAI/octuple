@@ -1,6 +1,6 @@
 import React from 'react';
 import { DropdownProps } from '../Dropdown';
-import { TextInputProps } from '../Inputs';
+import { TextInputProps, TextInputWidth } from '../Inputs';
 import { MenuItem, MenuProps } from '../Menu';
 import { OcBaseProps } from '../OcBase';
 import { PillProps } from '../Pills';
@@ -17,6 +17,12 @@ export interface SelectProps extends OcBaseProps<HTMLSelectElement> {
      * @default ''
      */
     defaultValue?: string;
+
+    /**
+     * Width of the tooltip
+     * @default fitContent
+     */
+    inputWidth?: TextInputWidth;
 
     /**
      * Default options

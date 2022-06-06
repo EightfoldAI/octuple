@@ -15,6 +15,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
     (
         {
             options: _options = [],
+            inputWidth = TextInputWidth.fill,
             defaultValue,
             filterable = false,
             multiple = false,
@@ -215,7 +216,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
         const selectInputProps: TextInputProps = {
             placeholder: 'Select',
             clearable: false,
-            inputWidth: TextInputWidth.fill,
+            inputWidth: inputWidth,
             iconProps: {
                 path: IconName.mdiMenuDown,
                 rotate: dropdownVisible ? 180 : 0,
