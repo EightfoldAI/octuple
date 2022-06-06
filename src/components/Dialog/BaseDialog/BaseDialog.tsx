@@ -37,7 +37,7 @@ export const BaseDialog: FC<BaseDialogProps> = React.forwardRef(
     ) => {
         const labelId = uniqueId('dialog-label-');
 
-        const { lockScroll, unlockScroll } = useScrollLock(parent);
+        useScrollLock(parent, visible);
 
         const dialogBackdropClasses: string = mergeClasses([
             styles.dialogBackdrop,
@@ -63,11 +63,6 @@ export const BaseDialog: FC<BaseDialogProps> = React.forwardRef(
 
         useEffect(() => {
             onVisibleChange?.(visible);
-            if (visible) {
-                lockScroll();
-            } else {
-                unlockScroll();
-            }
         }, [visible]);
 
         const getDialog = (): JSX.Element => (
