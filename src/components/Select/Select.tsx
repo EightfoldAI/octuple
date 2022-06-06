@@ -9,7 +9,7 @@ import { IconName } from '../Icon';
 import { SelectOption, SelectProps } from './Select.types';
 
 import styles from './select.module.scss';
-import { Spinner } from '../Spinner';
+import { Spinner, SpinnerSize } from '../Spinner';
 
 export const Select: FC<SelectProps> = React.forwardRef(
     (
@@ -24,7 +24,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
             menuProps = {},
             loadOptions,
             isLoading,
-            spinner = <Spinner />,
+            spinner = <Spinner size={SpinnerSize.Small} />,
             classNames,
             style,
             'data-test-id': dataTestId,
