@@ -5,6 +5,8 @@ type EventType =
     | React.KeyboardEvent<HTMLDivElement>
     | React.MouseEvent<HTMLDivElement | HTMLButtonElement>;
 
+type Strategy = 'absolute' | 'fixed';
+
 export interface BaseDialogProps
     extends Omit<OcBaseProps<HTMLDivElement>, 'classNames'> {
     /**
@@ -70,6 +72,11 @@ export interface BaseDialogProps
      * Custom zIndex for the dialog
      */
     zIndex?: number;
+    /**
+     * Positioning strategy for the dialog
+     * @default absolute
+     */
+    positionStrategy?: Strategy;
     /**
      * Element to which to attach the modal to
      * @default HTMLBodyElement

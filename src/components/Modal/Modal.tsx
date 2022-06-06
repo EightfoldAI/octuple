@@ -24,6 +24,7 @@ export const Modal: FC<ModalProps> = React.forwardRef(
             { [styles.small]: size === ModalSize.small },
             { [styles.medium]: size === ModalSize.medium },
             { [styles.large]: size === ModalSize.large },
+            { [styles.xLarge]: size === ModalSize.xLarge },
             { [styles.fullscreen]: size === ModalSize.fullscreen },
         ]);
 

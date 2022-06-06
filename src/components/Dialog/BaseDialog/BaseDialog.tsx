@@ -31,13 +31,15 @@ export const BaseDialog: FC<BaseDialogProps> = React.forwardRef(
             actionsClassNames,
             dialogWrapperClassNames,
             dialogClassNames,
+            positionStrategy = 'absolute',
+            style,
             ...rest
         },
         ref: Ref<HTMLDivElement>
     ) => {
         const labelId = uniqueId('dialog-label-');
 
-        const { lockScroll, unlockScroll } = useScrollLock(parent);
+        useScrollLock(parent, visible);
 
         const dialogBackdropClasses: string = mergeClasses([
             styles.dialogBackdrop,
@@ -55,6 +57,11 @@ export const BaseDialog: FC<BaseDialogProps> = React.forwardRef(
             headerClassNames,
         ]);
 
+        const dialogBackdropStyle: React.CSSProperties = {
+            position: positionStrategy,
+            ...style,
+        };
+
         const dialogStyle: React.CSSProperties = {
             zIndex,
             height,
@@ -63,11 +70,6 @@ export const BaseDialog: FC<BaseDialogProps> = React.forwardRef(
 
         useEffect(() => {
             onVisibleChange?.(visible);
-            if (visible) {
-                lockScroll();
-            } else {
-                unlockScroll();
-            }
         }, [visible]);
 
         const getDialog = (): JSX.Element => (
@@ -77,6 +79,7 @@ export const BaseDialog: FC<BaseDialogProps> = React.forwardRef(
                 role="dialog"
                 aria-modal={true}
                 aria-labelledby={labelId}
+                style={dialogBackdropStyle}
                 className={dialogBackdropClasses}
                 onClick={(e: React.MouseEvent<HTMLDivElement>) => {
                     maskClosable && onClose?.(e);
