@@ -5774,6 +5774,22 @@ exports[`Storyshots Modal Small 1`] = `
 </button>
 `;
 
+exports[`Storyshots Modal X Large 1`] = `
+<button
+  aria-disabled={false}
+  className="button buttonPrimary"
+  defaultChecked={false}
+  disabled={false}
+  onClick={[Function]}
+>
+  <span
+    className=""
+  >
+    Open modal
+  </span>
+</button>
+`;
+
 exports[`Storyshots Pagination All Combined 1`] = `
 <div
   className="my-pagination-class pagination"
@@ -5786,7 +5802,7 @@ exports[`Storyshots Pagination All Combined 1`] = `
       className="mainWrapper"
     >
       <button
-        aria-controls="dropdown-14"
+        aria-controls="dropdown-15"
         aria-disabled={false}
         aria-expanded={false}
         aria-haspopup={true}
@@ -5972,7 +5988,7 @@ exports[`Storyshots Pagination All Combined 1`] = `
         className="editor"
         defaultValue={4}
         disabled={false}
-        id="input-15"
+        id="input-16"
         minLength={1}
         onChange={[Function]}
         required={false}
@@ -6301,7 +6317,7 @@ exports[`Storyshots Pagination Change Page Size 1`] = `
       className="mainWrapper"
     >
       <button
-        aria-controls="dropdown-16"
+        aria-controls="dropdown-17"
         aria-disabled={false}
         aria-expanded={false}
         aria-haspopup={true}
@@ -6747,7 +6763,7 @@ exports[`Storyshots Pagination Jump To 1`] = `
         className="editor"
         defaultValue={5}
         disabled={false}
-        id="input-17"
+        id="input-18"
         minLength={1}
         onChange={[Function]}
         required={false}

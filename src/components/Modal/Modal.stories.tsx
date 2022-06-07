@@ -81,6 +81,10 @@ export default {
             ],
             control: { type: 'select' },
         },
+        positionStrategy: {
+            options: ['absolute', 'fixed'],
+            control: { type: 'inline-radio' },
+        },
     },
 } as ComponentMeta<typeof Modal>;
 
@@ -140,6 +144,25 @@ const Large_Story: ComponentStory<typeof Modal> = (args) => {
 };
 
 export const Large = Large_Story.bind({});
+
+const XLarge_Story: ComponentStory<typeof Modal> = (args) => {
+    const [visible, setVisible] = useState<boolean>(false);
+    return (
+        <>
+            <PrimaryButton
+                text={'Open modal'}
+                onClick={() => setVisible(true)}
+            />
+            <Modal
+                {...args}
+                onClose={() => setVisible(false)}
+                visible={visible}
+            />
+        </>
+    );
+};
+
+export const XLarge = XLarge_Story.bind({});
 
 const Fullscreen_Story: ComponentStory<typeof Modal> = (args) => {
     const [visible, setVisible] = useState<boolean>(false);
@@ -203,6 +226,8 @@ const modalArgs: Object = {
     modalWrapperClassNames: 'my-modal-wrapper-class',
     parent: document.body,
     zIndex: 1000,
+    maskClosable: false,
+    positionStrategy: 'absolute',
 };
 
 Small.args = {
@@ -217,6 +242,11 @@ Medium.args = {
 Large.args = {
     ...modalArgs,
     size: ModalSize.large,
+};
+
+XLarge.args = {
+    ...modalArgs,
+    size: ModalSize.xLarge,
 };
 
 Fullscreen.args = {
