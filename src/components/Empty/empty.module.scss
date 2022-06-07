@@ -1,0 +1,40 @@
+.empty {
+    margin: 0 8px;
+    font-size: $text-font-size-2;
+    line-height: $text-line-height-3;
+    text-align: center;
+
+    .empty-image {
+        height: 100px;
+        margin-bottom: 8px;
+
+        img {
+            height: 100%;
+        }
+
+        svg {
+            height: 100%;
+            margin: auto;
+        }
+    }
+
+    .empty-description {
+        font-size: $text-font-size-2;
+        line-height: $text-line-height-3;
+        text-align: center;
+    }
+
+    .empty-footer {
+        margin-top: 16px;
+    }
+
+    &-default {
+        margin: 32px 0;
+
+        .empty-image {
+            height: 40px;
+        }
+    }
+}
+
+@import './rtl';

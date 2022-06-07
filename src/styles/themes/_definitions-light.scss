@@ -390,3 +390,62 @@ $large-screen-size: 1200px;
 $medium-screen-size: 900px;
 $small-screen-size: 600px;
 $xsmall-screen-size: 0;
+
+// Table
+$table-bg: var(--background-color);
+$table-header-bg: var(--background-color);
+$table-header-color: var(--text-primary-color);
+$table-header-sort-bg: var(--background-color);
+$table-body-sort-bg: var(--background-color);
+$table-row-hover-bg: var(--grey-color-10);
+$table-selected-row-color: inherit;
+$table-selected-row-bg: var(--grey-color-10);
+$table-body-selected-sort-bg: var(--grey-color-10);
+$table-selected-row-hover-bg: var(--grey-color-10);
+$table-expanded-row-bg: var(--grey-color-10);
+$table-padding-vertical: 16px;
+$table-padding-horizontal: 16px;
+$table-padding-vertical-md: calc($table-padding-vertical * 3 / 4);
+$table-padding-horizontal-md: calc($table-padding-horizontal / 2);
+$table-padding-vertical-sm: calc($table-padding-vertical / 2);
+$table-padding-horizontal-sm: calc($table-padding-horizontal / 2);
+$table-border-color: var(--grey-color-20);
+$table-border-width-base: 1px;
+$table-border-radius-base: 8px;
+$table-border-style-base: 'solid';
+$table-box-shadow-base: 0 1px 2px rgba(15, 20, 31, 0.08),
+    0 2px 8px rgba(15, 20, 31, 0.08);
+$table-footer-bg: var(--background-color);
+$table-footer-color: var(--text-primary-color);
+$table-header-bg-sm: $table-header-bg;
+$table-font-size: $text-font-size-2;
+$table-font-size-md: $table-font-size;
+$table-font-size-sm: $table-font-size;
+$table-header-cell-split-color: var(--grey-color-20);
+
+// Sorter
+$table-header-sort-active-bg: var(--grey-color-10);
+$table-fixed-header-sort-active-bg: $table-header-sort-active-bg;
+
+// Filter
+$table-header-filter-active-bg: var(--grey-color-10);
+$table-filter-btns-bg: inherit;
+$table-filter-dropdown-bg: var(--background-color);
+$table-expand-icon-bg: var(--background-color);
+$table-selection-column-width: 32px;
+
+// Sticky
+$table-sticky-scroll-bar-bg: transparent;
+$table-sticky-scroll-bar-radius: 8px;
+
+// Tree
+// ---
+$tree-bg: var(--background-color);
+$tree-border-color: var(--grey-color-20);
+$tree-border-radius-base: 8px;
+$tree-title-height: 24px;
+$tree-child-padding: 18px;
+$tree-directory-selected-color: var(--white-color);
+$tree-directory-selected-bg: var(--primary-color);
+$tree-node-hover-bg: var(--grey-color-10);
+$tree-node-selected-bg: var(--primary-color);

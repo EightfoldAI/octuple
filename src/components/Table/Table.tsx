@@ -1,852 +1,590 @@
-import React, {
-    memo,
-    useCallback,
-    useEffect,
-    useMemo,
-    useRef,
-    useState,
-} from 'react';
-import {
-    getTargetScrollBarSize,
-    isStyleSupport,
-    isVisible,
-} from '../../shared/utilities';
-import pickAttrs from '../../shared/pickAttrs';
+import React, { ReactNode } from 'react';
 import { mergeClasses } from '../../shared/utilities';
-import shallowEqual from 'shallowequal';
-import ResizeObserver, { SizeInfo } from '../../shared/ResizeObserver';
-import ColumnGroup from './sugar/ColumnGroup';
-import Column from './sugar/Column';
-import Header from './Header/Header';
+import omit from '../../shared/omit';
+import OcTable, { Summary } from './Internal';
+import type { OcTableProps } from './Internal/OcTable.types';
+import { convertChildrenToColumns } from './Internal/Hooks/useColumns';
+import { Spinner, SpinnerSize } from '../Spinner';
+import { Pagination } from '../Pagination';
+import usePagination, {
+    DEFAULT_PAGE_SIZE,
+    getPaginationParam,
+} from './Hooks/usePagination';
+import useLazyKVMap from './Hooks/useLazyKVMap';
+import type { Breakpoint } from '../../shared/responsiveObserve';
 import type {
-    CustomizeComponent,
-    CustomizeScrollBody,
-    DefaultRecordType,
-    ExpandableType,
-    GetComponent,
+    ChangeEventInfo,
     GetRowKey,
-    Key,
-    MemoTableContentProps,
-    TableComponents,
-    TableLayout,
+    ColumnType,
+    SorterResult,
+    ExpandableConfig,
+    ExpandType,
+    TableAction,
     TableProps,
-    TriggerEventHandler,
+    FilterValue,
 } from './Table.types';
-import TableContext from './Context/TableContext';
-import BodyContext from './Context/BodyContext';
-import Body from './Body';
-import useColumns from './Hooks/useColumns';
-import { useLayoutState, useTimeoutLock } from './Hooks/useFrame';
-import {
-    getPathValue,
-    mergeObject,
-    validateValue,
-    getColumnsKey,
-} from './Utilities/valueUtil';
-import ResizeContext from './Context/ResizeContext';
-import useStickyOffsets from './Hooks/useStickyOffsets';
-import ColGroup from './ColGroup';
-import { getExpandableProps } from './Utilities/legacyUtil';
-import Panel from './Panel';
-import Footer, { FooterComponents } from './Footer';
-import { findAllChildrenKeys, renderExpandIcon } from './Utilities/expandUtil';
-import { getCellFixedInfo } from './Utilities/fixUtil';
-import StickyScrollBar from './stickyScrollBar';
-import useSticky from './Hooks/useSticky';
-import FixedHolder from './FixedHolder';
-import type { SummaryProps } from './Footer/Footer.types';
-import Summary from './Footer/Summary';
-import StickyContext from './Context/StickyContext';
-import ExpandedRowContext from './Context/ExpandedRowContext';
-import { EXPAND_COLUMN } from './constant';
+import { EMPTY_LIST, ColumnsType, TablePaginationConfig } from './Table.types';
+import useSelection, {
+    SELECTION_ALL,
+    SELECTION_COLUMN,
+    SELECTION_INVERT,
+    SELECTION_NONE,
+} from './Hooks/useSelection';
+import type { SortState } from './Hooks/useSorter';
+import useSorter, { getSortData } from './Hooks/useSorter';
+import type { FilterState } from './Hooks/useFilter';
+import useFilter, { getFilterData } from './Hooks/useFilter';
+import useTitleColumns from './Hooks/useTitleColumns';
+import renderExpandIcon from './ExpandIcon';
+import scrollTo from '../../shared/scrollTo';
+import SizeContext from './Internal/Context/SizeContext';
+import Column from './Internal/Column';
+import ColumnGroup from './Internal/ColumnGroup';
+import useBreakpoint from '../../hooks/useBreakpoint';
+import { useCanvasDirection } from '../../hooks/useCanvasDirection';
+import { Empty } from '../Empty/index';
 
-import styles from './table.module.scss';
+import styles from './Styles/table.module.scss';
 
-// Used for conditions cache
-const EMPTY_DATA: any[] = [];
+export { ColumnsType, TablePaginationConfig };
 
-// Used for customize scroll
-const EMPTY_SCROLL_TARGET: Object = {};
-
-export const INTERNAL_HOOKS = 'oc-table-internal-hook';
-
-const MemoTableContent = memo<MemoTableContentProps>(
-    ({ children }) => children as React.ReactElement,
-
-    (prev, next) => {
-        if (!shallowEqual(prev.props, next.props)) {
-            return false;
-        }
-
-        // No additional render when pinged status change.
-        // This is not a bug.
-        return (
-            prev.pingLeft !== next.pingLeft || prev.pingRight !== next.pingRight
-        );
-    }
-);
-
-function Table<RecordType extends DefaultRecordType>(
-    props: TableProps<RecordType>
+function InternalTable<RecordType extends object = any>(
+    props: TableProps<RecordType>,
+    ref: React.MutableRefObject<HTMLDivElement>
 ) {
     const {
         classNames,
-        rowClassName,
         style,
-        data,
-        rowKey,
-        scroll,
-        tableLayout,
-        direction,
-
-        // Additional Part
-        title,
-        footer,
-        summary,
-
-        // Customize
-        id,
-        showHeader,
-        components,
+        size: customizeSize,
+        bordered,
+        dataSource,
+        filterConfirmText,
+        filterResetText,
+        filterEmptyText,
+        filterCheckallText,
+        filterSearchPlaceholderText,
         emptyText,
-        onRow,
-        onHeaderRow,
-
-        // Internal
-        internalHooks,
-        transformColumns,
-        internalRefs,
-
-        sticky,
+        selectNoneText,
+        selectInvertText,
+        selectionAllText,
+        expandText,
+        collapseText,
+        triggerDescText,
+        triggerAscText,
+        cancelSortText,
+        pagination,
+        rowSelection,
+        rowKey,
+        rowClassName,
+        columns,
+        children,
+        childrenColumnName: legacyChildrenColumnName,
+        onChange,
+        getPopupContainer,
+        loading,
+        expandIcon,
+        expandable,
+        expandedRowRender,
+        expandIconColumnIndex,
+        indentSize,
+        scroll,
+        sortDirections,
+        showSorterTooltip = true,
     } = props;
 
-    const mergedData = data || EMPTY_DATA;
-    const hasData = !!mergedData.length;
-
-    // ==================== Customize =====================
-    const mergedComponents = useMemo(
-        () => mergeObject<TableComponents<RecordType>>(components, {}),
-        [components]
+    const baseColumns = React.useMemo(
+        () =>
+            columns ||
+            (convertChildrenToColumns(children) as ColumnsType<RecordType>),
+        [columns, children]
+    );
+    const needResponsive = React.useMemo(
+        () => baseColumns.some((col: ColumnType<RecordType>) => col.responsive),
+        [baseColumns]
     );
 
-    const getComponent = useCallback<GetComponent>(
-        (path, defaultComponent) =>
-            getPathValue<CustomizeComponent, TableComponents<RecordType>>(
-                mergedComponents,
-                path
-            ) || defaultComponent,
-        [mergedComponents]
-    );
+    const screens = useBreakpoint(needResponsive);
 
-    const getRowKey = useMemo<GetRowKey<RecordType>>(() => {
+    const mergedColumns = React.useMemo(() => {
+        const matched = new Set(
+            Object.keys(screens).filter((m: Breakpoint) => screens[m])
+        );
+
+        return baseColumns.filter(
+            (c) =>
+                !c.responsive ||
+                c.responsive.some((r: Breakpoint) => matched.has(r))
+        );
+    }, [baseColumns, screens]);
+
+    const tableProps = omit(props, [
+        'classNames',
+        'style',
+        'columns',
+    ]) as TableProps<RecordType>;
+
+    const size = React.useContext(SizeContext);
+    const htmlDir: string = useCanvasDirection();
+    const mergedSize = customizeSize || size;
+    const rawData: readonly RecordType[] = dataSource || EMPTY_LIST;
+
+    const mergedExpandable: ExpandableConfig<RecordType> = {
+        childrenColumnName: legacyChildrenColumnName,
+        expandIconColumnIndex,
+        ...expandable,
+    };
+    const { childrenColumnName = 'children' } = mergedExpandable;
+
+    const expandType: ExpandType = React.useMemo<ExpandType>(() => {
+        if (rawData.some((item) => (item as any)?.[childrenColumnName])) {
+            return 'nest';
+        }
+
+        if (expandedRowRender || (expandable && expandable.expandedRowRender)) {
+            return 'row';
+        }
+
+        return null;
+    }, [rawData]);
+
+    const internalRefs = {
+        body: React.useRef<HTMLDivElement>(),
+    };
+
+    // ============================ RowKey ============================
+    const getRowKey = React.useMemo<GetRowKey<RecordType>>(() => {
         if (typeof rowKey === 'function') {
             return rowKey;
         }
-        return (record: RecordType) => {
-            const key = record && record[rowKey];
-            return key;
-        };
+
+        return (record: RecordType) => (record as any)?.[rowKey as string];
     }, [rowKey]);
 
-    // ====================== Expand ======================
-    const expandableConfig = getExpandableProps(props);
-
-    const {
-        expandIcon,
-        expandedRowKeys,
-        defaultExpandedRowKeys,
-        defaultExpandAllRows,
-        expandedRowRender,
-        onExpand,
-        onExpandedRowsChange,
-        expandRowByClick,
-        rowExpandable,
-        expandIconColumnIndex,
-        expandedRowClassName,
+    const [getRecordByKey] = useLazyKVMap(
+        rawData,
         childrenColumnName,
-        indentSize,
-    } = expandableConfig;
-
-    const mergedExpandIcon = expandIcon || renderExpandIcon;
-    const mergedChildrenColumnName = childrenColumnName || 'children';
-    const expandableType = useMemo<ExpandableType>(() => {
-        if (expandedRowRender) {
-            return 'row';
-        }
-        /* eslint-disable no-underscore-dangle */
-        /**
-         * Fix https://github.com/ant-design/ant-design/issues/21154
-         * This is a workaround to not to break current behavior.
-         * We can remove follow code after final release.
-         *
-         * To other developer:
-         *  Do not use `__PARENT_RENDER_ICON__` in prod since we will remove this when refactor
-         */
-        if (
-            (props.expandable &&
-                internalHooks === INTERNAL_HOOKS &&
-                (props.expandable as any).__PARENT_RENDER_ICON__) ||
-            mergedData.some(
-                (record) =>
-                    record &&
-                    typeof record === 'object' &&
-                    record[mergedChildrenColumnName]
-            )
-        ) {
-            return 'nest';
-        }
-        /* eslint-enable */
-        return false;
-    }, [!!expandedRowRender, mergedData]);
-
-    const [innerExpandedKeys, setInnerExpandedKeys] = useState(() => {
-        if (defaultExpandedRowKeys) {
-            return defaultExpandedRowKeys;
-        }
-        if (defaultExpandAllRows) {
-            return findAllChildrenKeys<RecordType>(
-                mergedData,
-                getRowKey,
-                mergedChildrenColumnName
-            );
-        }
-        return [];
-    });
-    const mergedExpandedKeys = useMemo(
-        () => new Set(expandedRowKeys || innerExpandedKeys || []),
-        [expandedRowKeys, innerExpandedKeys]
+        getRowKey
     );
 
-    const onTriggerExpand: TriggerEventHandler<RecordType> = useCallback(
-        (record: RecordType) => {
-            const key = getRowKey(record, mergedData.indexOf(record));
+    // ============================ Events =============================
+    const changeEventInfo: Partial<ChangeEventInfo<RecordType>> = {};
 
-            let newExpandedKeys: Key[];
-            const hasKey = mergedExpandedKeys.has(key);
-            if (hasKey) {
-                mergedExpandedKeys.delete(key);
-                newExpandedKeys = [...mergedExpandedKeys];
-            } else {
-                newExpandedKeys = [...mergedExpandedKeys, key];
-            }
-
-            setInnerExpandedKeys(newExpandedKeys);
-            if (onExpand) {
-                onExpand(!hasKey, record);
-            }
-            if (onExpandedRowsChange) {
-                onExpandedRowsChange(newExpandedKeys);
-            }
-        },
-        [
-            getRowKey,
-            mergedExpandedKeys,
-            mergedData,
-            onExpand,
-            onExpandedRowsChange,
-        ]
-    );
-
-    // ====================== Column ======================
-    const [componentWidth, setComponentWidth] = useState(0);
-
-    const [columns, flattenColumns] = useColumns(
-        {
-            ...props,
-            ...expandableConfig,
-            expandable: !!expandedRowRender,
-            expandedKeys: mergedExpandedKeys,
-            getRowKey,
-            onTriggerExpand,
-            expandIcon: mergedExpandIcon,
-            expandIconColumnIndex,
-            direction,
-        },
-        internalHooks === INTERNAL_HOOKS ? transformColumns : null
-    );
-
-    const columnContext = useMemo(
-        () => ({
-            columns,
-            flattenColumns,
-        }),
-        [columns, flattenColumns]
-    );
-
-    // ====================== Scroll ======================
-    const fullTableRef = useRef<HTMLDivElement>();
-    const scrollHeaderRef = useRef<HTMLDivElement>();
-    const scrollBodyRef = useRef<HTMLDivElement>();
-    const scrollSummaryRef = useRef<HTMLDivElement>();
-    const [pingedLeft, setPingedLeft] = useState(false);
-    const [pingedRight, setPingedRight] = useState(false);
-    const [colsWidths, updateColsWidths] = useLayoutState(
-        new Map<React.Key, number>()
-    );
-
-    // Convert map to number width
-    const colsKeys = getColumnsKey(flattenColumns);
-    const pureColWidths = colsKeys.map((columnKey) =>
-        colsWidths.get(columnKey)
-    );
-    const colWidths = useMemo(() => pureColWidths, [pureColWidths.join('_')]);
-    const stickyOffsets = useStickyOffsets(
-        colWidths,
-        flattenColumns.length,
-        direction
-    );
-    const fixHeader = scroll && validateValue(scroll.y);
-    const horizonScroll =
-        (scroll && validateValue(scroll.x)) || Boolean(expandableConfig.fixed);
-    const fixColumn =
-        horizonScroll && flattenColumns.some(({ fixed }) => fixed);
-
-    // Sticky
-    const stickyRef = useRef<{ setScrollLeft: (left: number) => void }>();
-    const {
-        isSticky,
-        offsetHeader,
-        offsetSummary,
-        offsetScroll,
-        stickyClassName,
-        container,
-    } = useSticky(sticky);
-
-    // Footer (Fix footer must fixed header)
-    const summaryNode = summary?.(mergedData);
-    const fixFooter =
-        (fixHeader || isSticky) &&
-        React.isValidElement(summaryNode) &&
-        summaryNode.type === Summary &&
-        (summaryNode.props as SummaryProps).fixed;
-
-    // Scroll
-    let scrollXStyle: React.CSSProperties;
-    let scrollYStyle: React.CSSProperties;
-    let scrollTableStyle: React.CSSProperties;
-
-    if (fixHeader) {
-        scrollYStyle = {
-            overflowY: 'scroll',
-            maxHeight: scroll.y,
+    const triggerOnChange = (
+        info: Partial<ChangeEventInfo<RecordType>>,
+        action: TableAction,
+        reset: boolean = false
+    ) => {
+        const changeInfo = {
+            ...changeEventInfo,
+            ...info,
         };
-    }
 
-    if (horizonScroll) {
-        scrollXStyle = { overflowX: 'auto' };
-        // When no vertical scrollbar, should hide it
-        if (!fixHeader) {
-            scrollYStyle = { overflowY: 'hidden' };
-        }
-        scrollTableStyle = {
-            width: scroll?.x === true ? 'auto' : scroll?.x,
-            minWidth: '100%',
-        };
-    }
+        if (reset) {
+            changeEventInfo.resetPagination!();
 
-    const onColumnResize = useCallback(
-        (columnKey: React.Key, width: number) => {
-            if (isVisible(fullTableRef.current)) {
-                updateColsWidths((widths) => {
-                    if (widths.get(columnKey) !== width) {
-                        const newWidths = new Map(widths);
-                        newWidths.set(columnKey, width);
-                        return newWidths;
-                    }
-                    return widths;
-                });
+            // Reset event param
+            if (changeInfo.pagination!.current) {
+                changeInfo.pagination!.current = 1;
             }
-        },
-        []
-    );
 
-    const [setScrollTarget, getScrollTarget] = useTimeoutLock(null);
-
-    function forceScroll(
-        scrollLeft: number,
-        target: HTMLDivElement | ((left: number) => void)
-    ) {
-        if (!target) {
-            return;
-        }
-        if (typeof target === 'function') {
-            target(scrollLeft);
-        } else if (target.scrollLeft !== scrollLeft) {
-            // eslint-disable-next-line no-param-reassign
-            target.scrollLeft = scrollLeft;
-        }
-    }
-
-    const onScroll = ({
-        currentTarget,
-        scrollLeft,
-    }: {
-        currentTarget: HTMLElement;
-        scrollLeft?: number;
-    }) => {
-        const isRTL = direction === 'rtl';
-        const mergedScrollLeft =
-            typeof scrollLeft === 'number'
-                ? scrollLeft
-                : currentTarget.scrollLeft;
-
-        const compareTarget = currentTarget || EMPTY_SCROLL_TARGET;
-        if (!getScrollTarget() || getScrollTarget() === compareTarget) {
-            setScrollTarget(compareTarget);
-
-            forceScroll(mergedScrollLeft, scrollHeaderRef.current);
-            forceScroll(mergedScrollLeft, scrollBodyRef.current);
-            forceScroll(mergedScrollLeft, scrollSummaryRef.current);
-            forceScroll(mergedScrollLeft, stickyRef.current?.setScrollLeft);
-        }
-
-        if (currentTarget) {
-            const { scrollWidth, clientWidth } = currentTarget;
-            // There is no space to scroll
-            if (scrollWidth === clientWidth) {
-                return;
-            }
-            if (isRTL) {
-                setPingedLeft(-mergedScrollLeft < scrollWidth - clientWidth);
-                setPingedRight(-mergedScrollLeft > 0);
-            } else {
-                setPingedLeft(mergedScrollLeft > 0);
-                setPingedRight(mergedScrollLeft < scrollWidth - clientWidth);
+            // Trigger pagination events
+            if (pagination) {
+                pagination.onCurrentChange?.(changeInfo.pagination!.current!);
+                pagination.onSizeChange?.(changeInfo.pagination!.pageSize!);
             }
         }
-    };
 
-    const triggerOnScroll = () => {
-        if (horizonScroll && scrollBodyRef.current) {
-            onScroll({
-                currentTarget: scrollBodyRef.current,
-            } as React.UIEvent<HTMLDivElement>);
-        } else {
-            setPingedLeft(false);
-            setPingedRight(false);
-        }
-    };
-
-    const onFullTableResize = ({ width }: SizeInfo) => {
-        if (width !== componentWidth) {
-            triggerOnScroll();
-            setComponentWidth(
-                fullTableRef.current ? fullTableRef.current.offsetWidth : width
-            );
-        }
-    };
-
-    // Sync scroll bar when init or `horizonScroll`, `data` and `columns.length` changed
-    const mounted = useRef(false);
-    useEffect(() => {
-        // onFullTableResize will be trigger once when ResizeObserver is mounted
-        // This will reduce one duplicated triggerOnScroll time
-        if (mounted.current) {
-            triggerOnScroll();
-        }
-    }, [horizonScroll, data, columns.length]);
-    useEffect(() => {
-        mounted.current = true;
-    }, []);
-
-    // ===================== Effects ======================
-    const [scrollbarSize, setScrollbarSize] = useState(0);
-    const [supportSticky, setSupportSticky] = useState(true); // Only IE not support, we mark as support first
-
-    useEffect(() => {
-        setScrollbarSize(getTargetScrollBarSize(scrollBodyRef.current).width);
-        setSupportSticky(isStyleSupport('position', 'sticky'));
-    }, []);
-
-    // ================== INTERNAL HOOKS ==================
-    useEffect(() => {
-        if (internalHooks === INTERNAL_HOOKS && internalRefs) {
-            internalRefs.body.current = scrollBodyRef.current;
-        }
-    });
-
-    // ====================== Render ======================
-    const TableComponent = getComponent(['table'], 'table');
-
-    // Table layout
-    const mergedTableLayout = useMemo<TableLayout>(() => {
-        if (tableLayout) {
-            return tableLayout;
-        }
-        // When scroll.x is max-content, no need to fix table layout
-        // it's width should stretch out to fit content
-        if (fixColumn) {
-            return scroll?.x === 'max-content' ? 'auto' : 'fixed';
-        }
         if (
-            fixHeader ||
-            isSticky ||
-            flattenColumns.some(({ ellipsis }) => ellipsis)
+            scroll &&
+            scroll.scrollToFirstRowOnChange !== false &&
+            internalRefs.body.current
         ) {
-            return 'fixed';
-        }
-        return 'auto';
-    }, [fixHeader, fixColumn, flattenColumns, tableLayout, isSticky]);
-
-    let groupTableNode: React.ReactNode;
-
-    // Header props
-    const headerProps = {
-        colWidths,
-        columCount: flattenColumns.length,
-        stickyOffsets,
-        onHeaderRow,
-        fixHeader,
-        scroll,
-    };
-
-    // Empty
-    const emptyNode: React.ReactNode = useMemo(() => {
-        if (hasData) {
-            return null;
-        }
-
-        if (typeof emptyText === 'function') {
-            return emptyText();
-        }
-        return emptyText;
-    }, [hasData, emptyText]);
-
-    // Body
-    const bodyTable = (
-        <Body
-            data={mergedData}
-            measureColumnWidth={fixHeader || horizonScroll || isSticky}
-            expandedKeys={mergedExpandedKeys}
-            rowExpandable={rowExpandable}
-            getRowKey={getRowKey}
-            onRow={onRow}
-            emptyNode={emptyNode}
-            childrenColumnName={mergedChildrenColumnName}
-        />
-    );
-
-    const bodyColGroup = (
-        <ColGroup
-            colWidths={flattenColumns.map(({ width }) => width)}
-            columns={flattenColumns}
-        />
-    );
-
-    const customizeScrollBody = getComponent([
-        'body',
-    ]) as CustomizeScrollBody<RecordType>;
-
-    if (fixHeader || isSticky) {
-        // Fixed Header
-        let bodyContent: React.ReactNode;
-
-        if (typeof customizeScrollBody === 'function') {
-            bodyContent = customizeScrollBody(mergedData, {
-                scrollbarSize,
-                ref: scrollBodyRef,
-                onScroll,
+            scrollTo(0, {
+                getContainer: () => internalRefs.body.current!,
             });
-
-            headerProps.colWidths = flattenColumns.map(({ width }, index) => {
-                const colWidth =
-                    index === columns.length - 1
-                        ? (width as number) - scrollbarSize
-                        : width;
-                if (typeof colWidth === 'number' && !Number.isNaN(colWidth)) {
-                    return colWidth;
-                }
-                return 0;
-            }) as number[];
-        } else {
-            bodyContent = (
-                <div
-                    style={{
-                        ...scrollXStyle,
-                        ...scrollYStyle,
-                    }}
-                    onScroll={onScroll}
-                    ref={scrollBodyRef}
-                    className={styles.tableBody}
-                >
-                    <TableComponent
-                        style={{
-                            ...scrollTableStyle,
-                            tableLayout: mergedTableLayout,
-                        }}
-                    >
-                        {bodyColGroup}
-                        {bodyTable}
-                        {!fixFooter && summaryNode && (
-                            <Footer
-                                stickyOffsets={stickyOffsets}
-                                flattenColumns={flattenColumns}
-                            >
-                                {summaryNode}
-                            </Footer>
-                        )}
-                    </TableComponent>
-                </div>
-            );
         }
 
-        // Fixed holder share the props
-        const fixedHolderProps = {
-            noData: !mergedData.length,
-            maxContentScroll: horizonScroll && scroll.x === 'max-content',
-            ...headerProps,
-            ...columnContext,
-            direction,
-            stickyClassName,
-            onScroll,
-        };
-
-        groupTableNode = (
-            <>
-                {/* Header Table */}
-                {showHeader !== false && (
-                    <FixedHolder
-                        {...fixedHolderProps}
-                        stickyTopOffset={offsetHeader}
-                        classNames={styles.tableHeader}
-                        ref={scrollHeaderRef}
-                    >
-                        {(fixedHolderPassProps) => (
-                            <>
-                                <Header {...fixedHolderPassProps} />
-                                {fixFooter === 'top' && (
-                                    <Footer {...fixedHolderPassProps}>
-                                        {summaryNode}
-                                    </Footer>
-                                )}
-                            </>
-                        )}
-                    </FixedHolder>
-                )}
-
-                {/* Body Table */}
-                {bodyContent}
-
-                {/* Summary Table */}
-                {fixFooter && fixFooter !== 'top' && (
-                    <FixedHolder
-                        {...fixedHolderProps}
-                        stickyBottomOffset={offsetSummary}
-                        classNames={styles.tableSummary}
-                        ref={scrollSummaryRef}
-                    >
-                        {(fixedHolderPassProps) => (
-                            <Footer {...fixedHolderPassProps}>
-                                {summaryNode}
-                            </Footer>
-                        )}
-                    </FixedHolder>
-                )}
-
-                {isSticky && (
-                    <StickyScrollBar
-                        ref={stickyRef}
-                        offsetScroll={offsetScroll}
-                        scrollBodyRef={scrollBodyRef}
-                        onScroll={onScroll}
-                        container={container}
-                    />
-                )}
-            </>
+        onChange?.(
+            changeInfo.pagination!,
+            changeInfo.filters!,
+            changeInfo.sorter!,
+            {
+                currentDataSource: getFilterData(
+                    getSortData(
+                        rawData,
+                        changeInfo.sorterStates!,
+                        childrenColumnName
+                    ),
+                    changeInfo.filterStates!
+                ),
+                action,
+            }
         );
-    } else {
-        // Unique table
-        groupTableNode = (
-            <div
-                style={{
-                    ...scrollXStyle,
-                    ...scrollYStyle,
-                }}
-                className={styles.tableContent}
-                onScroll={onScroll}
-                ref={scrollBodyRef}
-            >
-                <TableComponent
-                    style={{
-                        ...scrollTableStyle,
-                        tableLayout: mergedTableLayout,
-                    }}
-                >
-                    {bodyColGroup}
-                    {showHeader !== false && (
-                        <Header {...headerProps} {...columnContext} />
-                    )}
-                    {bodyTable}
-                    {summaryNode && (
-                        <Footer
-                            stickyOffsets={stickyOffsets}
-                            flattenColumns={flattenColumns}
-                        >
-                            {summaryNode}
-                        </Footer>
-                    )}
-                </TableComponent>
-            </div>
+    };
+
+    // ============================ Sorter =============================
+    const onSorterChange = (
+        sorter: SorterResult<RecordType> | SorterResult<RecordType>[],
+        sorterStates: SortState<RecordType>[]
+    ) => {
+        triggerOnChange(
+            {
+                sorter,
+                sorterStates,
+            },
+            'sort',
+            false
         );
-    }
-
-    const ariaProps = pickAttrs(props, { aria: true, data: true });
-
-    let fullTable = (
-        <div
-            className={mergeClasses([
-                classNames,
-                styles.dropShadow,
-                { [styles.tableRtl]: direction === 'rtl' },
-                { [styles.tablePingLeft]: pingedLeft },
-                { [styles.tablePingRight]: pingedRight },
-                { ['table-layout-fixed']: tableLayout === 'fixed' },
-                { ['table-fixed-header']: fixHeader },
-                { [styles.tableFixedColumn]: fixColumn },
-                { ['table-scroll-horizontal']: horizonScroll },
-                {
-                    ['table-has-fix-left']:
-                        flattenColumns[0] && flattenColumns[0].fixed,
-                },
-                {
-                    ['table-has-fix-right']:
-                        flattenColumns[flattenColumns.length - 1] &&
-                        flattenColumns[flattenColumns.length - 1].fixed ===
-                            'right',
-                },
-            ])}
-            style={style}
-            id={id}
-            ref={fullTableRef}
-            {...ariaProps}
-        >
-            <MemoTableContent
-                pingLeft={pingedLeft}
-                pingRight={pingedRight}
-                props={{ ...props, stickyOffsets, mergedExpandedKeys }}
-            >
-                {title && (
-                    <Panel classNames={styles.tableTitle}>
-                        {title(mergedData)}
-                    </Panel>
-                )}
-                <div className={styles.table}>{groupTableNode}</div>
-                {footer && (
-                    <Panel classNames={styles.tableFooter}>
-                        {footer(mergedData)}
-                    </Panel>
-                )}
-            </MemoTableContent>
-        </div>
+    };
+    const [transformSorterColumns, sortStates, sorterTitleProps, getSorters] =
+        useSorter<RecordType>({
+            cancelSortText,
+            mergedColumns,
+            onSorterChange,
+            sortDirections: sortDirections || ['ascend', 'descend'],
+            triggerAscText,
+            triggerDescText,
+            showSorterTooltip,
+        });
+    const sortedData = React.useMemo(
+        () => getSortData(rawData, sortStates, childrenColumnName),
+        [rawData, sortStates]
     );
 
-    if (horizonScroll) {
-        fullTable = (
-            <ResizeObserver onResize={onFullTableResize}>
-                {fullTable}
-            </ResizeObserver>
+    changeEventInfo.sorter = getSorters();
+    changeEventInfo.sorterStates = sortStates;
+
+    // ============================ Filter ============================
+    const onFilterChange = (
+        filters: Record<string, FilterValue>,
+        filterStates: FilterState<RecordType>[]
+    ) => {
+        triggerOnChange(
+            {
+                filters,
+                filterStates,
+            },
+            'filter',
+            true
         );
+    };
+
+    const [transformFilterColumns, filterStates, getFilters] =
+        useFilter<RecordType>({
+            mergedColumns,
+            filterConfirmText,
+            filterResetText,
+            filterEmptyText,
+            filterCheckallText,
+            filterSearchPlaceholderText,
+            onFilterChange,
+            getPopupContainer,
+        });
+    const mergedData = getFilterData(sortedData, filterStates);
+
+    changeEventInfo.filters = getFilters();
+    changeEventInfo.filterStates = filterStates;
+
+    // ============================ Column ============================
+    const columnTitleProps = React.useMemo(
+        () => ({
+            ...sorterTitleProps,
+        }),
+        [sorterTitleProps]
+    );
+    const [transformTitleColumns] = useTitleColumns(columnTitleProps);
+
+    // ========================== Pagination ==========================
+    const onPaginationChange = (pageSize: number) => {
+        triggerOnChange(
+            {
+                pagination: {
+                    ...changeEventInfo.pagination,
+                    pageSize,
+                },
+            },
+            'paginate'
+        );
+    };
+
+    const [mergedPagination, resetPagination] = usePagination(
+        mergedData.length,
+        pagination,
+        onPaginationChange
+    );
+
+    changeEventInfo.pagination =
+        pagination === false
+            ? {}
+            : getPaginationParam(pagination, mergedPagination);
+
+    changeEventInfo.resetPagination = resetPagination;
+
+    // ============================= Data =============================
+    const pageData = React.useMemo<RecordType[]>(() => {
+        if (pagination === false || !mergedPagination.pageSize) {
+            return mergedData;
+        }
+
+        const {
+            currentPage = 1,
+            total,
+            pageSize = DEFAULT_PAGE_SIZE,
+        } = mergedPagination;
+
+        // Dynamic table data
+        if (mergedData.length < total!) {
+            if (mergedData.length > pageSize) {
+                return mergedData.slice(
+                    (currentPage - 1) * pageSize,
+                    currentPage * pageSize
+                );
+            }
+            return mergedData;
+        }
+
+        return mergedData.slice(
+            (currentPage - 1) * pageSize,
+            currentPage * pageSize
+        );
+    }, [
+        !!pagination,
+        mergedData,
+        mergedPagination && mergedPagination.currentPage,
+        mergedPagination && mergedPagination.pageSize,
+        mergedPagination && mergedPagination.total,
+    ]);
+
+    // ========================== Selections ==========================
+    const [transformSelectionColumns, selectedKeySet] =
+        useSelection<RecordType>(rowSelection, {
+            data: mergedData,
+            emptyText,
+            pageData,
+            getRowKey,
+            getRecordByKey,
+            expandType,
+            childrenColumnName,
+            getPopupContainer,
+            selectionAllText,
+            selectInvertText,
+            selectNoneText,
+        });
+
+    const internalRowClassName = (
+        record: RecordType,
+        index: number,
+        indent: number
+    ) => {
+        let mergedRowClassName;
+        if (typeof rowClassName === 'function') {
+            mergedRowClassName = mergeClasses([
+                rowClassName(record, index, indent),
+            ]);
+        } else {
+            mergedRowClassName = mergeClasses([rowClassName]);
+        }
+
+        return mergeClasses(
+            {
+                [styles.tableRowSelected]: selectedKeySet.has(
+                    getRowKey(record, index)
+                ),
+            },
+            mergedRowClassName
+        );
+    };
+
+    // ========================== Expandable ==========================
+
+    (mergedExpandable as any).__PARENT_RENDER_ICON__ =
+        mergedExpandable.expandIcon;
+
+    // Customize expandable icon
+    mergedExpandable.expandIcon =
+        mergedExpandable.expandIcon ||
+        expandIcon ||
+        renderExpandIcon(expandText, collapseText);
+
+    // Adjust expand icon index, no overwrite expandIconColumnIndex if set.
+    if (
+        expandType === 'nest' &&
+        mergedExpandable.expandIconColumnIndex === undefined
+    ) {
+        mergedExpandable.expandIconColumnIndex = rowSelection ? 1 : 0;
+    } else if (mergedExpandable.expandIconColumnIndex! > 0 && rowSelection) {
+        mergedExpandable.expandIconColumnIndex! -= 1;
     }
 
-    const TableContextValue = useMemo(
-        () => ({
-            getComponent,
-            scrollbarSize,
-            direction,
-            fixedInfoList: flattenColumns.map((_, colIndex) =>
-                getCellFixedInfo(
-                    colIndex,
-                    colIndex,
-                    flattenColumns,
-                    stickyOffsets,
-                    direction
+    // Indent size
+    if (typeof mergedExpandable.indentSize !== 'number') {
+        mergedExpandable.indentSize =
+            typeof indentSize === 'number' ? indentSize : 15;
+    }
+
+    // ============================ Render ============================
+    const transformColumns = React.useCallback(
+        (innerColumns: ColumnsType<RecordType>): ColumnsType<RecordType> =>
+            transformTitleColumns(
+                transformSelectionColumns(
+                    transformFilterColumns(transformSorterColumns(innerColumns))
                 )
             ),
-            isSticky,
-        }),
         [
-            getComponent,
-            scrollbarSize,
-            direction,
-            flattenColumns,
-            stickyOffsets,
-            direction,
-            isSticky,
+            transformSorterColumns,
+            transformFilterColumns,
+            transformSelectionColumns,
         ]
     );
 
-    const BodyContextValue = useMemo(
-        () => ({
-            ...columnContext,
-            tableLayout: mergedTableLayout,
-            rowClassName,
-            expandedRowClassName,
-            expandIcon: mergedExpandIcon,
-            expandableType,
-            expandRowByClick,
-            expandedRowRender,
-            onTriggerExpand,
-            expandIconColumnIndex,
-            indentSize,
-        }),
-        [
-            columnContext,
-            mergedTableLayout,
-            rowClassName,
-            expandedRowClassName,
-            mergedExpandIcon,
-            expandableType,
-            expandRowByClick,
-            expandedRowRender,
-            onTriggerExpand,
-            expandIconColumnIndex,
-            indentSize,
-        ]
-    );
+    let topPaginationNode: React.ReactNode;
+    let bottomPaginationNode: React.ReactNode;
+    if (pagination !== false && mergedPagination?.total) {
+        let paginationSize: TablePaginationConfig['pageSize'];
+        if (mergedPagination.pageSize) {
+            paginationSize = mergedPagination.pageSize;
+        } else {
+            paginationSize = undefined;
+        }
 
-    const ExpandedRowContextValue = useMemo(
-        () => ({
-            componentWidth,
-            fixHeader,
-            fixColumn,
-            horizonScroll,
-        }),
-        [componentWidth, fixHeader, fixColumn, horizonScroll]
-    );
+        const renderPagination = (position: string) => (
+            <Pagination
+                {...mergedPagination}
+                classNames={mergeClasses([
+                    styles.tablePagination,
+                    {
+                        [styles.tablePaginationLeft]:
+                            position.indexOf('left') !== -1,
+                    },
+                    {
+                        [styles.tablePaginationCenter]:
+                            position.indexOf('center') !== -1,
+                    },
+                    {
+                        [styles.tablePaginationRight]:
+                            position.indexOf('right') !== -1,
+                    },
+                    mergedPagination.className,
+                ])}
+                pageSize={paginationSize}
+            />
+        );
+        const defaultPosition = htmlDir === 'rtl' ? 'left' : 'right';
+        const { position } = mergedPagination;
+        if (position !== null && Array.isArray(position)) {
+            const topPos = position.find((p) => p.indexOf('top') !== -1);
+            const bottomPos = position.find((p) => p.indexOf('bottom') !== -1);
+            const isDisable = position.every((p) => `${p}` === 'none');
+            if (!topPos && !bottomPos && !isDisable) {
+                bottomPaginationNode = renderPagination(defaultPosition);
+            }
+            if (topPos) {
+                topPaginationNode = renderPagination(
+                    topPos!.toLowerCase().replace('top', '')
+                );
+            }
+            if (bottomPos) {
+                bottomPaginationNode = renderPagination(
+                    bottomPos!.toLowerCase().replace('bottom', '')
+                );
+            }
+        } else {
+            bottomPaginationNode = renderPagination(defaultPosition);
+        }
+    }
 
-    const ResizeContextValue = useMemo(
-        () => ({ onColumnResize }),
-        [onColumnResize]
-    );
+    if (typeof loading === 'boolean') {
+        return <Spinner size={SpinnerSize.Large} />;
+    } else if (typeof loading === 'object') {
+        return <Spinner size={SpinnerSize.Large} />;
+    }
 
+    const renderEmpty = (): ReactNode => {
+        return <Empty />;
+    };
+
+    const wrapperClassNames: string = mergeClasses([
+        styles.tableWrapper,
+        { [styles.tableWrapperRtl]: htmlDir === 'rtl' },
+        classNames,
+    ]);
     return (
-        <StickyContext.Provider value={supportSticky}>
-            <TableContext.Provider value={TableContextValue}>
-                <BodyContext.Provider value={BodyContextValue}>
-                    <ExpandedRowContext.Provider
-                        value={ExpandedRowContextValue}
-                    >
-                        <ResizeContext.Provider value={ResizeContextValue}>
-                            {fullTable}
-                        </ResizeContext.Provider>
-                    </ExpandedRowContext.Provider>
-                </BodyContext.Provider>
-            </TableContext.Provider>
-        </StickyContext.Provider>
+        <div ref={ref} className={wrapperClassNames} style={style}>
+            {topPaginationNode}
+            <OcTable<RecordType>
+                {...tableProps}
+                columns={mergedColumns as OcTableProps<RecordType>['columns']}
+                direction={htmlDir}
+                expandable={mergedExpandable}
+                classNames={mergeClasses([
+                    styles.table,
+                    { [styles.tableMedium]: mergedSize === 'medium' },
+                    { [styles.tableSmall]: mergedSize === 'small' },
+                    { [styles.tableBordered]: bordered },
+                    { [styles.tableEmpty]: rawData.length === 0 },
+                ])}
+                data={pageData}
+                rowKey={getRowKey}
+                rowClassName={internalRowClassName}
+                emptyText={emptyText || renderEmpty()}
+                transformColumns={
+                    transformColumns as OcTableProps<RecordType>['transformColumns']
+                }
+            />
+            {bottomPaginationNode}
+        </div>
     );
 }
 
-Table.EXPAND_COLUMN = EXPAND_COLUMN;
+const ForwardTable = React.forwardRef(InternalTable) as <
+    RecordType extends object = any
+>(
+    props: React.PropsWithChildren<TableProps<RecordType>> & {
+        ref?: React.Ref<HTMLDivElement>;
+    }
+) => React.ReactElement;
 
-Table.Column = Column;
+type InternalTableType = typeof ForwardTable;
 
-Table.ColumnGroup = ColumnGroup;
+interface TableInterface extends InternalTableType {
+    defaultProps?: Partial<TableProps<any>>;
+    SELECTION_COLUMN: typeof SELECTION_COLUMN;
+    EXPAND_COLUMN: typeof OcTable.EXPAND_COLUMN;
+    SELECTION_ALL: 'SELECT_ALL';
+    SELECTION_INVERT: 'SELECT_INVERT';
+    SELECTION_NONE: 'SELECT_NONE';
+    Column: typeof Column;
+    ColumnGroup: typeof ColumnGroup;
+    Summary: typeof Summary;
+}
 
-Table.Summary = FooterComponents;
+const Table = ForwardTable as TableInterface;
 
 Table.defaultProps = {
+    filterConfirmText: 'OK',
+    filterResetText: 'Reset',
+    filterEmptyText: 'No filters',
+    filterCheckallText: 'Select all items',
+    filterSearchPlaceholderText: 'Search in filters',
+    emptyText: 'No data',
+    selectInvertText: 'Invert current page',
+    selectNoneText: 'Clear all data',
+    selectionAllText: 'Select all data',
+    expandText: 'Expand row',
+    collapseText: 'Collapse row',
+    triggerDescText: 'Click to sort descending',
+    triggerAscText: 'Click to sort ascending',
+    cancelSortText: 'Click to cancel sorting',
     rowKey: 'key',
-    emptyText: () => 'Nothing to see here.',
 };
+
+Table.SELECTION_COLUMN = SELECTION_COLUMN;
+Table.EXPAND_COLUMN = OcTable.EXPAND_COLUMN;
+Table.SELECTION_ALL = SELECTION_ALL;
+Table.SELECTION_INVERT = SELECTION_INVERT;
+Table.SELECTION_NONE = SELECTION_NONE;
+Table.Column = Column;
+Table.ColumnGroup = ColumnGroup;
+Table.Summary = Summary;
 
 export default Table;

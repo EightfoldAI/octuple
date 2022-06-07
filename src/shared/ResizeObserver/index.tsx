@@ -3,7 +3,7 @@ import toArray from '../toArray';
 import SingleObserver from './SingleObserver';
 import { Collection } from './Collection';
 
-const INTERNAL_PREFIX_KEY = 'rc-observer-key';
+const INTERNAL_PREFIX_KEY = 'oc-observer-key';
 
 export interface SizeInfo {
     width: number;

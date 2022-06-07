@@ -1,0 +1,486 @@
+$text-color: var(--text-primary-color);
+$line-height-base: 1.5715;
+$table-border-color: var(--grey-color-20);
+$table-background-color: var(--background-color);
+$table-background-alternate-color: var(--grey-color-10);
+$vertical-padding: 16px;
+$horizontal-padding: 16px;
+$border-width: 1px;
+$border-color: var(--grey-color-20);
+$border-active-color: var(--primary-color);
+$border: $border-width solid $border-color;
+$cell-padding: $vertical-padding $horizontal-padding;
+$cell-margin: -$vertical-padding -$horizontal-padding;
+
+@mixin tableBorder() {
+    border: $border;
+    border-radius: 8px;
+    box-shadow: 0 1px 2px rgba(15, 20, 31, 0.08),
+        0 2px 8px rgba(15, 20, 31, 0.08);
+}
+
+@mixin scrollBars() {
+    -ms-overflow-style: none;
+
+    &::-webkit-scrollbar {
+        background-color: transparent;
+        height: 16px;
+        width: 16px;
+    }
+
+    &::-webkit-scrollbar-corner {
+        background-color: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: transparent;
+    }
+
+    &::-webkit-scrollbar-track {
+        -webkit-box-shadow: none;
+        background-color: transparent;
+    }
+
+    @supports (overflow: overlay) {
+        overflow: overlay;
+
+        &:focus-within,
+        &:focus-visible,
+        &:hover,
+        &:hover:focus {
+            &::-webkit-scrollbar {
+                display: block;
+                height: 16px;
+                width: 16px;
+            }
+
+            &::-webkit-scrollbar-button {
+                display: none;
+            }
+
+            &::-webkit-scrollbar-corner {
+                background-color: transparent;
+            }
+
+            &::-webkit-scrollbar-track {
+                background-color: transparent;
+            }
+
+            &::-webkit-scrollbar-track-piece {
+                background-color: transparent;
+            }
+
+            &::-webkit-scrollbar-thumb {
+                background-color: transparent;
+                border: 5px solid transparent;
+                border-radius: 24px;
+                box-shadow: 4px 0px 0px 4px rgba(105, 113, 127, 0.7) inset;
+            }
+        }
+    }
+
+    @supports not (overflow: overlay) {
+        overflow: auto;
+
+        &:focus-within,
+        &:focus-visible,
+        &:hover,
+        &:hover:focus {
+            -ms-overflow-style: none;
+            scrollbar-width: thin;
+
+            &::-webkit-scrollbar {
+                background-color: $table-background-color;
+                height: 16px;
+                width: 16px;
+            }
+
+            &::-webkit-scrollbar-corner {
+                background-color: $table-background-color;
+                border: 1px solid $table-background-color;
+                border-bottom-right-radius: 8px;
+            }
+
+            &::-webkit-scrollbar-thumb {
+                background-color: transparent;
+                border: 5px solid transparent;
+                border-radius: 24px;
+                box-shadow: 4px 0px 0px 4px rgba(105, 113, 127, 0.7) inset;
+            }
+
+            &::-webkit-scrollbar-track {
+                -webkit-box-shadow: none;
+                background-color: $table-background-color;
+            }
+        }
+    }
+}
+
+.table {
+    @include tableBorder();
+    position: relative;
+    box-sizing: border-box;
+    color: var(--text-primary-color);
+    font-size: $table-font-size;
+    line-height: $line-height-base;
+
+    div:first-of-type {
+        @include scrollBars();
+    }
+
+    &-rtl {
+        direction: rtl;
+    }
+
+    // ================= Global =================
+    table {
+        width: 100%;
+        border-spacing: 0px;
+        border-radius: 8px;
+    }
+
+    th,
+    td {
+        position: relative;
+        box-sizing: border-box;
+        padding: 0;
+
+        padding: $cell-padding;
+        white-space: normal;
+        word-break: break-word;
+        border: $border;
+        border-top: 0;
+        border-left: 0;
+        transition: box-shadow 0.3s;
+
+        &.table-rtl {
+            border-right: 0;
+            border-left: $border;
+        }
+    }
+
+    // ================== Cell ==================
+    &-cell {
+        background-color: $table-background-color;
+
+        &-fix-left,
+        &-fix-right {
+            z-index: 1;
+        }
+
+        &-fix-right:last-child:not(&-fix-sticky) {
+            border-right-color: transparent;
+        }
+
+        &.table-rtl {
+            &-fix-right:last-child {
+                border-right-color: $border-color;
+            }
+            &-fix-left:last-child {
+                border-left-color: transparent;
+            }
+        }
+
+        &-fix-left-first {
+            &.table-rtl {
+                box-shadow: 1px 0 0 $border-color;
+            }
+        }
+
+        &-fix-left-first:after,
+        &-fix-left-last:after {
+            position: absolute;
+            top: 0;
+            right: -1px;
+            bottom: -1px;
+            width: 20px;
+            transform: translateX(100%);
+            transition: box-shadow 0.3s;
+            content: '';
+            pointer-events: none;
+        }
+
+        &-fix-right-first,
+        &-fix-right-last {
+            box-shadow: -1px 0 0 $border-color;
+
+            &.table-rtl {
+                box-shadow: none;
+            }
+
+            &:after {
+                position: absolute;
+                top: 0;
+                bottom: -1px;
+                left: -1px;
+                width: 20px;
+                transform: translateX(-100%);
+                transition: box-shadow 0.3s;
+                content: '';
+                pointer-events: none;
+            }
+        }
+
+        &-ellipsis {
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+
+            &.table-cell-fix-left-first,
+            &.table-cell-fix-left-last,
+            &.table-cell-fix-right-first &.table-cell-fix-right-last {
+                overflow: visible;
+
+                .table-cell-content {
+                    display: block;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+            }
+        }
+
+        &:last-of-type {
+            border-right: none;
+        }
+
+        &-row-hover {
+            background-color: $table-background-alternate-color;
+
+            &:first-of-type {
+                &:before {
+                    border-left: 2px solid $border-active-color;
+                }
+            }
+
+            &:last-of-type {
+                &:before {
+                    border-right: 2px solid $border-active-color;
+                    width: calc(100% - 1px);
+                }
+            }
+
+            &:before {
+                border-bottom: 2px solid $border-active-color;
+                border-top: 2px solid $border-active-color;
+                content: '';
+                height: calc(100% + 1px);
+                left: 0;
+                pointer-events: none;
+                position: absolute;
+                top: 0;
+                width: calc(100% + 1px);
+                z-index: 2;
+            }
+        }
+    }
+
+    &-ping-left {
+        .table-cell-fix-left-first:after,
+        .table-cell-fix-left-last:after {
+            box-shadow: inset 32px 0 8px -32px rgba(15, 20, 31, 0.08);
+        }
+    }
+
+    &-ping-right {
+        .table-cell-fix-right-first:after,
+        .table-cell-fix-right-last:after {
+            box-shadow: inset -32px 0 8px -32px rgba(15, 20, 31, 0.08);
+        }
+    }
+
+    // ================= Expand =================
+    &-expand-icon-col {
+        width: 60px;
+    }
+
+    &-row-expand-icon-cell {
+        text-align: center;
+    }
+
+    // ================= Header =================
+    thead {
+        td,
+        th {
+            text-align: center;
+        }
+
+        tr:first-of-type {
+            th:first-of-type {
+                border-top-left-radius: 8px;
+            }
+
+            th:last-of-type {
+                border-top-right-radius: 8px;
+                border-right: none;
+            }
+
+            th.table-cell-scrollbar {
+                background-color: $table-background-color;
+                border-right: 1px solid $table-background-color;
+                border-left: 1px solid $table-background-color;
+                border-top-right-radius: 8px;
+
+                &:after {
+                    position: absolute;
+                    top: 0;
+                    bottom: 0;
+                    left: -1px;
+                    width: 1px;
+                    content: '';
+
+                    &.table-rtl {
+                        right: -1px;
+                        left: auto;
+                    }
+                }
+            }
+        }
+    }
+
+    &-header {
+        color: var(--text-primary-color);
+    }
+
+    // ================= Empty ==================
+    &-placeholder {
+        text-align: center;
+    }
+
+    // ================== Body ==================
+    tbody {
+        tr {
+            &:nth-child(odd) {
+                td {
+                    background-color: $table-background-alternate-color;
+                }
+            }
+
+            &:last-of-type {
+                td {
+                    border-bottom: none;
+                }
+            }
+        }
+    }
+
+    &-content {
+        color: var(--text-primary-color);
+    }
+
+    &-body {
+        @include scrollBars();
+    }
+
+    &-fixed-column &-body:after {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 1;
+        content: '';
+    }
+
+    // ================= Expand =================
+    &-expanded-row {
+        .table-cell {
+            box-shadow: inset 0 15px 17px -7px $table-background-alternate-color;
+        }
+
+        &-fixed {
+            box-sizing: border-box;
+            margin: $cell-margin;
+            margin-right: -$horizontal-padding - 2 * $border-width;
+            padding: $cell-padding;
+
+            &:after {
+                position: absolute;
+                top: 0;
+                right: 1px;
+                bottom: 0;
+                width: 0;
+                content: '';
+            }
+        }
+    }
+
+    &-row-expand-icon {
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        color: #aaa;
+        line-height: 16px;
+        text-align: center;
+        vertical-align: middle;
+        border: 1px solid currentColor;
+        cursor: pointer;
+
+        &.table-row-expanded:after {
+            content: '-';
+        }
+
+        &.table-row-collapsed:after {
+            content: '+';
+        }
+
+        &.table-row-spaced {
+            visibility: hidden;
+        }
+    }
+
+    // ================= Title ==================
+    &-title {
+        padding: $cell-padding;
+        border: $border;
+        border-bottom: 0;
+    }
+
+    // ================= Footer =================
+    &-footer {
+        padding: $cell-padding;
+        border: $border;
+        border-top: 0;
+    }
+
+    tfoot {
+        td {
+            background-color: $table-background-color;
+        }
+    }
+
+    &-summary {
+        border-top: $border;
+        border-left: $border;
+    }
+
+    &-sticky {
+        &-holder {
+            position: sticky;
+            z-index: 2;
+        }
+        &-scroll {
+            position: sticky;
+            bottom: 0;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            border-top: 1px solid #f3f3f3;
+            opacity: 0.6;
+            transition: transform 0.1s ease-in 0s;
+            &:hover {
+                transform: scaleY(1.2);
+                transform-origin: center bottom;
+            }
+            &-bar {
+                height: 8px;
+                background-color: #bbb;
+                border-radius: 4px;
+                &:hover {
+                    background-color: #999;
+                }
+                &-active {
+                    background-color: #999;
+                }
+            }
+        }
+    }
+}

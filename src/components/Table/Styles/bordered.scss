@@ -1,0 +1,128 @@
+@import './size';
+
+$table-border: 1px solid $table-border-color;
+
+.table.table-bordered {
+    > .table-title {
+        border: $table-border;
+        border-bottom: 0;
+    }
+
+    > .table-container {
+        border-left: $table-border;
+
+        > .table-content,
+        > .table-header,
+        > .table-body,
+        > .table-summary {
+            > table {
+                > thead > tr > th,
+                > tbody > tr > td,
+                > tfoot > tr > th,
+                > tfoot > tr > td {
+                    border-right: $table-border;
+                }
+                > thead {
+                    > tr:not(:last-child) > th {
+                        border-bottom: 1px solid $table-border-color;
+                    }
+
+                    > tr > th {
+                        &::before {
+                            background-color: transparent !important;
+                        }
+                    }
+                }
+
+                // Fixed right should provides additional border
+                > thead > tr,
+                > tbody > tr,
+                > tfoot > tr {
+                    > .table-cell-fix-right-first::after {
+                        border-right: $table-border;
+                    }
+                }
+            }
+
+            // ========================== Expandable ==========================
+            > table > tbody > tr > td {
+                > .table-expanded-row-fixed {
+                    margin: -$table-padding-vertical
+                        (-$table-padding-horizontal - 1);
+
+                    &::after {
+                        position: absolute;
+                        top: 0;
+                        right: 1px;
+                        bottom: 0;
+                        border-right: $table-border;
+                        content: '';
+                    }
+                }
+            }
+        }
+
+        > .table-content,
+        > .table-header {
+            > table {
+                border-top: $table-border;
+            }
+        }
+    }
+
+    &.table-scroll-horizontal {
+        > .table-container > .table-body {
+            > table > tbody {
+                > tr.table-expanded-row,
+                > tr.table-placeholder {
+                    > td {
+                        border-right: 0;
+                    }
+                }
+            }
+        }
+    }
+
+    &.table-middle {
+        > .table-container {
+            > .table-content,
+            > .table-body {
+                > table > tbody > tr > td {
+                    > .table-expanded-row-fixed {
+                        margin: -$table-padding-vertical-md
+                            (-$table-padding-horizontal-md - 1);
+                    }
+                }
+            }
+        }
+    }
+
+    &.table-small {
+        > .table-container {
+            > .table-content,
+            > .table-body {
+                > table > tbody > tr > td {
+                    > .table-expanded-row-fixed {
+                        margin: -$table-padding-vertical-sm
+                            (-$table-padding-horizontal-sm - 1);
+                    }
+                }
+            }
+        }
+    }
+
+    > .table-footer {
+        border: $table-border;
+        border-top: 0;
+    }
+}
+
+.table-cell {
+    .table-container:first-child {
+        border-top: 0;
+    }
+
+    &-scrollbar:not([rowspan]) {
+        box-shadow: 0 1px 0 1px $table-header-bg;
+    }
+}

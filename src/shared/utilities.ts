@@ -161,7 +161,7 @@ export const isVisible = (
  * @param styleName the name of the style.
  * @returns {boolean}
  */
-export const isStyleNameSupport = (styleName: string | string[]): boolean => {
+const isStyleNameSupport = (styleName: string | string[]): boolean => {
     if (canUseDom() && window.document.documentElement) {
         const styleNameList = Array.isArray(styleName)
             ? styleName
@@ -180,7 +180,7 @@ export const isStyleNameSupport = (styleName: string | string[]): boolean => {
  * @param value - The value of the style
  * @returns {boolean}
  */
-export const isStyleValueSupport = (styleName: string, value: any): boolean => {
+const isStyleValueSupport = (styleName: string, value: any): boolean => {
     if (!isStyleNameSupport(styleName)) {
         return false;
     }
@@ -192,7 +192,7 @@ export const isStyleValueSupport = (styleName: string, value: any): boolean => {
 };
 
 /**
- * Utility to determine if the browser supprts a given style name and/or its value.
+ * Utility to determine if the browser supports a given style name and/or its value.
  * Takes a single styleName string or an array.
  * @param styleName - Name of the style.
  * @param styleValue - Value of the style.
