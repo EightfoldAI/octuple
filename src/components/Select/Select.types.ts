@@ -52,7 +52,7 @@ export interface SelectProps extends OcBaseProps<HTMLSelectElement> {
      * Callback called when options are selected/unselected
      * @param options {SelectOption[]}
      */
-    onChange?: (options: SelectOption[]) => void;
+    onOptionsChange?: (options: SelectOption[]) => void;
 
     /**
      * for async loading options.

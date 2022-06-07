@@ -79,7 +79,7 @@ export default {
             defaultValue: false,
             control: { type: 'boolean' },
         },
-        onChange: {
+        onOptionsChange: {
             action: 'click',
         },
     },

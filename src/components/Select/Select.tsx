@@ -29,7 +29,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
             classNames,
             style,
             placeholder = 'Select',
-            onChange,
+            onOptionsChange,
             'data-test-id': dataTestId,
         },
         ref: Ref<HTMLDivElement>
@@ -65,7 +65,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
         }, [isLoading]);
 
         useEffect(() => {
-            onChange?.(getSelectedOptions());
+            onOptionsChange?.(getSelectedOptions());
         }, [getSelectedOptions().join('')]);
 
         useEffect(() => {
