@@ -79,6 +79,9 @@ export default {
             defaultValue: false,
             control: { type: 'boolean' },
         },
+        onChange: {
+            action: 'click',
+        },
     },
 } as ComponentMeta<typeof Select>;
 

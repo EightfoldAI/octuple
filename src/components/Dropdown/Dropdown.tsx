@@ -41,7 +41,7 @@ export const Dropdown: FC<DropdownProps> = ({
     offset = 0,
     positionStrategy = 'absolute',
     onVisibleChange,
-    beforeToggleStateChange,
+    showDropdown,
     disabled,
     closeOnDropdownClick = true,
 }) => {
@@ -57,13 +57,10 @@ export const Dropdown: FC<DropdownProps> = ({
     });
 
     const toggle: Function =
-        (
-            show: boolean,
-            beforeToggleStateChange = (show: boolean) => show
-        ): Function =>
+        (show: boolean, showDropdown = (show: boolean) => show): Function =>
         (e: SyntheticEvent): void => {
             // to control the toggle behaviour
-            const updatedShow = beforeToggleStateChange(show);
+            const updatedShow = showDropdown(show);
             if (PREVENT_DEFAULT_TRIGGERS.includes(trigger)) {
                 e.preventDefault();
             }
@@ -143,9 +140,7 @@ export const Dropdown: FC<DropdownProps> = ({
                 className={dropdownClasses}
                 tabIndex={0}
                 onClick={
-                    closeOnDropdownClick
-                        ? toggle(false, beforeToggleStateChange)
-                        : null
+                    closeOnDropdownClick ? toggle(false, showDropdown) : null
                 }
                 id={dropdownId}
             >
@@ -162,7 +157,7 @@ export const Dropdown: FC<DropdownProps> = ({
                 ? {
                       [TRIGGER_TO_HANDLER_MAP_ON_LEAVE[trigger]]: toggle(
                           false,
-                          beforeToggleStateChange
+                          showDropdown
                       ),
                   }
                 : {})}

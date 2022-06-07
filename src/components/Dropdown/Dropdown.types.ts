@@ -12,10 +12,12 @@ export interface DropdownProps {
      */
     onVisibleChange?: (visible: boolean) => void;
     /**
-     * Callback to
-     * @param visible {boolean}
+     * Callback to control the show/hide behavior of the dropdown.
+     * triggered before the visible change
+     * @param show {boolean}
+     * @returns true or false.
      */
-    beforeToggleStateChange?: (show: boolean) => boolean;
+    showDropdown?: (show: boolean) => boolean;
     /**
      * The dropdown content
      */

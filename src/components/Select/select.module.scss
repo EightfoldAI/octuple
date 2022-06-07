@@ -13,10 +13,6 @@
         min-width: unset !important;
     }
 
-    .select-input-filterable {
-        min-width: unset !important;
-    }
-
     .multi-select-pills {
         position: absolute;
         z-index: 1;
@@ -28,16 +24,14 @@
     }
 
     .multi-select-pill {
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
+        @include text-overflow;
         width: 80px;
         text-align: center;
         display: inline-block;
     }
 
     .selected-option {
-        background-color: var(--button-active-background-color);
-        color: var(--button-active-foreground-color);
+        background-color: var(--primary-color-10);
+        color: var(--primary-color-80);
     }
 }

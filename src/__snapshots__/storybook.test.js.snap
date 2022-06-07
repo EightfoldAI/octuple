@@ -8643,7 +8643,7 @@ exports[`Storyshots Select Dynamic 1`] = `
           aria-expanded={false}
           aria-haspopup={true}
           autoFocus={false}
-          className="selectInputFilterable withIcon inputStretch"
+          className="withIcon inputStretch"
           disabled={false}
           id="input-23"
           onChange={[Function]}
@@ -8652,6 +8652,11 @@ exports[`Storyshots Select Dynamic 1`] = `
           readOnly={false}
           required={false}
           role="textbox"
+          style={
+            Object {
+              "minWidth": "unset",
+            }
+          }
           tabIndex={0}
           type="text"
         />
@@ -8718,7 +8723,7 @@ exports[`Storyshots Select Filterable 1`] = `
           aria-expanded={false}
           aria-haspopup={true}
           autoFocus={false}
-          className="selectInputFilterable withIcon inputStretch"
+          className="withIcon inputStretch"
           disabled={false}
           id="input-25"
           onChange={[Function]}
@@ -8727,6 +8732,11 @@ exports[`Storyshots Select Filterable 1`] = `
           readOnly={false}
           required={false}
           role="textbox"
+          style={
+            Object {
+              "minWidth": "unset",
+            }
+          }
           tabIndex={0}
           type="text"
         />
@@ -8793,7 +8803,7 @@ exports[`Storyshots Select Multiple 1`] = `
           aria-expanded={false}
           aria-haspopup={true}
           autoFocus={false}
-          className="selectInputFilterable withIcon inputStretch"
+          className="withIcon inputStretch"
           disabled={false}
           id="input-27"
           onChange={[Function]}
@@ -8802,6 +8812,11 @@ exports[`Storyshots Select Multiple 1`] = `
           readOnly={false}
           required={false}
           role="textbox"
+          style={
+            Object {
+              "minWidth": "unset",
+            }
+          }
           tabIndex={0}
           type="text"
         />
