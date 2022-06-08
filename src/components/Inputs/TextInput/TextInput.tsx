@@ -120,7 +120,7 @@ export const TextInput: FC<TextInputProps> = ({
         setClearButtonShown(false);
     };
 
-    const handleChange = useDebounce<React.ChangeEvent<HTMLInputElement>>(
+    const debouncedChange = useDebounce<React.ChangeEvent<HTMLInputElement>>(
         (
             _event?: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>
         ) => {
@@ -136,6 +136,13 @@ export const TextInput: FC<TextInputProps> = ({
         },
         waitInterval
     );
+
+    // We need to persist the syntheticevent object, as useDebounce uses a timeout function internally
+    // Reference: https://reactjs.org/docs/legacy-event-pooling.html
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        e.persist();
+        debouncedChange(e);
+    };
 
     return (
         <div className={textInputWrapperClassNames}>
