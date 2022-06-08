@@ -144,6 +144,10 @@ export default {
             options: [DialogSize.medium, DialogSize.small],
             control: { type: 'inline-radio' },
         },
+        positionStrategy: {
+            options: ['absolute', 'fixed'],
+            control: { type: 'inline-radio' },
+        },
     },
 } as ComponentMeta<typeof Dialog>;
 
@@ -208,7 +212,7 @@ const dialogArgs: Object = {
     dialogWrapperClassNames: 'my-dialog-wrapper-class',
     header: 'Header 4 used in this dialog',
     headerClassNames: 'my-dialog-header-class',
-    maskClosable: false,
+    maskClosable: true,
     okButtonProps: {
         ariaLabel: 'OK',
         classNames: 'my-ok-btn-class',
@@ -219,6 +223,7 @@ const dialogArgs: Object = {
     },
     parent: document.body,
     zIndex: 1000,
+    positionStrategy: 'absolute',
 };
 
 Medium.args = {
