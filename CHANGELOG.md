@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.8.0](https://github.com/EightfoldAI/octuple/compare/v1.7.2...v1.8.0) (2022-06-08)
+
+### Bug Fixes
+
+-   fixed search event persist issue ([#169](https://github.com/EightfoldAI/octuple/issues/169)) ([55c99df](https://github.com/EightfoldAI/octuple/commits/55c99dfe1aff29e6e91b1995b8c516086db061ff))
+-   handle onScrollLock cleanly, dialog to render inside parent element ([#168](https://github.com/EightfoldAI/octuple/issues/168)) ([e9a5f0e](https://github.com/EightfoldAI/octuple/commits/e9a5f0e23d2de336aa2bca64c319b20003ab8c7d))
+
 ### [1.7.2](https://github.com/EightfoldAI/octuple/compare/v1.7.1...v1.7.2) (2022-06-02)
 
 ### Bug Fixes
