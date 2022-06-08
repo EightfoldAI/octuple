@@ -44,6 +44,7 @@ export const TextInput: FC<TextInputProps> = ({
     ...rest
 }) => {
     const [clearButtonShown, setClearButtonShown] = useState<boolean>(false);
+    const [inputValue, setInputValue] = useState<string | number>(value);
     const [inputId] = useState<string>(uniqueId(id || 'input-'));
     const inputField: HTMLElement = document.getElementById(inputId);
 
@@ -117,10 +118,11 @@ export const TextInput: FC<TextInputProps> = ({
         if (!!inputField) {
             (inputField as HTMLInputElement).value = '';
         }
+        setInputValue('');
         setClearButtonShown(false);
     };
 
-    const handleChange = useDebounce<React.ChangeEvent<HTMLInputElement>>(
+    const debouncedChange = useDebounce<React.ChangeEvent<HTMLInputElement>>(
         (
             _event?: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>
         ) => {
@@ -136,6 +138,12 @@ export const TextInput: FC<TextInputProps> = ({
         },
         waitInterval
     );
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        e.persist();
+        setInputValue(e?.target?.value);
+        debouncedChange(e);
+    };
 
     return (
         <div className={textInputWrapperClassNames}>
@@ -160,7 +168,7 @@ export const TextInput: FC<TextInputProps> = ({
                 style={style}
                 tabIndex={0}
                 type={numbersOnly ? 'number' : htmlType}
-                value={value}
+                value={inputValue}
             />
             {iconProps && (
                 <div className={iconClassNames}>
