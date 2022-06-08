@@ -136,7 +136,11 @@ export interface SearchBoxProps
     value?: string;
 }
 
-export interface TextAreaProps extends InputProps<HTMLTextAreaElement> {
+export interface TextAreaProps
+    extends Omit<
+        InputProps<HTMLTextAreaElement>,
+        'clearButtonAriaLabel' | 'iconProps' | 'iconButtonProps' | 'shape'
+    > {
     /**
      * The text area is expandable.
      * @default false
@@ -222,10 +226,6 @@ export interface InputProps<T>
      * @default fitContent
      */
     inputWidth?: TextInputWidth;
-    /**
-     * The input icon img element source.
-     */
-    imageSource?: string;
     /**
      * The input label props.
      */

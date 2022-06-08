@@ -3,14 +3,12 @@ import { registerTheme } from './Theming/styleGenerator';
 import { ConfigProviderProps, IConfigContext } from './ConfigProvider.types';
 import { IRegisterTheme, ThemeOptions } from './Theming';
 import { useFocusVisibleClassName } from '../../hooks/useFocusVisibleClassName';
-import { useFontSize } from '../../hooks/useFontSize';
 
 const ConfigContext: React.Context<Partial<IConfigContext>> = createContext<
     Partial<IConfigContext>
 >({});
 
 const DEFAULT_THEME: string = 'blue';
-const DEFAULT_FONT_SIZE: number = 16;
 
 const DEFAULT_FOCUS_VISIBLE: boolean = true;
 const DEFAULT_FOCUS_VISIBLE_ELEMENT: HTMLElement = document.documentElement;
@@ -22,6 +20,7 @@ const ConfigProvider: FC<ConfigProviderProps> = ({
         focusVisibleElement: DEFAULT_FOCUS_VISIBLE_ELEMENT,
     },
     themeOptions: defaultThemeOptions,
+    icomoonIconSet = {},
 }) => {
     const [themeOptions, setThemeOptions] =
         useState<ThemeOptions>(defaultThemeOptions);
@@ -29,10 +28,6 @@ const ConfigProvider: FC<ConfigProviderProps> = ({
     const [registeredTheme, setRegisteredTheme] = useState<IRegisterTheme>(
         {} as IRegisterTheme
     );
-
-    const [fontSize, setFontSize] = useFontSize({
-        variableName: '--font-size',
-    });
 
     if (focusVisibleOptions?.focusVisible) {
         useFocusVisibleClassName(
@@ -50,7 +45,6 @@ const ConfigProvider: FC<ConfigProviderProps> = ({
                 })
             );
         }
-        setFontSize(DEFAULT_FONT_SIZE);
     }, [themeOptions]);
 
     return (
@@ -59,9 +53,10 @@ const ConfigProvider: FC<ConfigProviderProps> = ({
                 themeOptions,
                 setThemeOptions,
                 registeredTheme,
+                icomoonIconSet,
             }}
         >
-            <div className={`theme-${themeOptions.name}`}>{children}</div>
+            {children}
         </ConfigContext.Provider>
     );
 };

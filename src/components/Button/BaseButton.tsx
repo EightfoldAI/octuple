@@ -144,7 +144,7 @@ export const BaseButton: FC<InternalButtonProps> = React.forwardRef(
         const getButtonIcon = (): JSX.Element => (
             <Icon
                 {...iconProps}
-                classNames={styles.icon}
+                classNames={mergeClasses([styles.icon, iconProps.classNames])}
                 size={getButtonIconSize()}
             />
         );
@@ -161,8 +161,8 @@ export const BaseButton: FC<InternalButtonProps> = React.forwardRef(
         return (
             <>
                 <button
-                    {...rest}
                     ref={ref}
+                    {...rest}
                     aria-checked={toggle ? !!checked : undefined}
                     aria-disabled={allowDisabledFocus}
                     aria-label={ariaLabel}

@@ -1,0 +1,44 @@
+.accordion-container {
+    border: 1px solid var(--grey-color-20);
+    border-radius: $corner-radius-s;
+
+    .accordion-body-container {
+        box-sizing: border-box;
+        max-height: 0;
+        overflow-y: auto;
+        transition: all $motion-duration-fast $motion-easing-easeout;
+
+        &.show {
+            max-height: 500px;
+        }
+    }
+
+    .accordion-body {
+        margin: 0 $space-l;
+        padding: $space-m 0;
+
+        &.show-border-top {
+            border-top: 1px solid var(--grey-color-20);
+        }
+    }
+
+    .accordion-summary {
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        padding: $space-m $space-l;
+        width: 100%;
+
+        &:focus-visible {
+            outline-color: var(--button-primary-focus-border-color);
+        }
+    }
+
+    .accordion-icon {
+        transition: transform $motion-duration-fast;
+
+        &.expanded-icon {
+            transform: rotate(180deg);
+        }
+    }
+}

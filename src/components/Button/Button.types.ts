@@ -64,10 +64,12 @@ export interface SplitButtonProps
 export interface TwoStateButtonProps
     extends Omit<
         InternalButtonProps,
+        | 'alignIcon'
         | 'htmlType'
         | 'iconProps'
         | 'onContextMenu'
         | 'split'
+        | 'splitButtonChecked'
         | 'splitButtonProps'
     > {
     /**
@@ -79,17 +81,9 @@ export interface TwoStateButtonProps
      */
     iconOneProps?: IconProps;
     /**
-     * The button icon 1 color.
-     */
-    iconOneColor?: string;
-    /**
      * The button icon 2 props.
      */
     iconTwoProps?: IconProps;
-    /**
-     * The button icon 2 color.
-     */
-    iconTwoColor?: string;
 }
 
 export interface ButtonProps extends NativeButtonProps {

@@ -2,6 +2,109 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.8.0](https://github.com/EightfoldAI/octuple/compare/v1.7.2...v1.8.0) (2022-06-08)
+
+### Bug Fixes
+
+-   fixed search event persist issue ([#169](https://github.com/EightfoldAI/octuple/issues/169)) ([55c99df](https://github.com/EightfoldAI/octuple/commits/55c99dfe1aff29e6e91b1995b8c516086db061ff))
+-   handle onScrollLock cleanly, dialog to render inside parent element ([#168](https://github.com/EightfoldAI/octuple/issues/168)) ([e9a5f0e](https://github.com/EightfoldAI/octuple/commits/e9a5f0e23d2de336aa2bca64c319b20003ab8c7d))
+
+### [1.7.2](https://github.com/EightfoldAI/octuple/compare/v1.7.1...v1.7.2) (2022-06-02)
+
+### Bug Fixes
+
+-   pass classnames to icons in base button ([#159](https://github.com/EightfoldAI/octuple/issues/159)) ([bcfb1a6](https://github.com/EightfoldAI/octuple/commits/bcfb1a66b0110b9e7f2ac9df579cf63596e7c249))
+
+### [1.7.1](https://github.com/EightfoldAI/octuple/compare/v1.7.0...v1.7.1) (2022-06-01)
+
+### Bug Fixes
+
+-   button: update default color scheme to use primary ([#158](https://github.com/EightfoldAI/octuple/issues/158)) ([a8af8d9](https://github.com/EightfoldAI/octuple/commits/a8af8d91772e02a9ab298c9bc2ee5e1ac4c3dc6d))
+
+## [1.7.0](https://github.com/EightfoldAI/octuple/compare/v1.6.0...v1.7.0) (2022-05-31)
+
+### Bug Fixes
+
+-   forward classNames to tab component ([#157](https://github.com/EightfoldAI/octuple/issues/157)) ([bb032ac](https://github.com/EightfoldAI/octuple/commits/bb032acf4a801bf2f57a8c9d7b5c04590ec7db16))
+-   improve usability of checkbox, checkbox group, radio and radio group component ([#156](https://github.com/EightfoldAI/octuple/issues/156)) ([7369636](https://github.com/EightfoldAI/octuple/commits/736963614e8b0a311a70e8e953fd6b1bdcf79c9f))
+
+## [1.6.0](https://github.com/EightfoldAI/octuple/compare/v1.5.3...v1.6.0) (2022-05-30)
+
+### Features
+
+-   config provider: move css variables to root selector, make base font size configurable ([#150](https://github.com/EightfoldAI/octuple/issues/150)) ([db84a9b](https://github.com/EightfoldAI/octuple/commits/db84a9b50b44550f68c187e70c8e62d07733f0f7))
+-   storybook: adds storybook controls and documentation ([#147](https://github.com/EightfoldAI/octuple/issues/147)) ([2ab1362](https://github.com/EightfoldAI/octuple/commits/2ab1362ec2ea3a8dc0361132d8126a51b5701ca8))
+
+### Bug Fixes
+
+-   modal: fix styling of modal header ([#149](https://github.com/EightfoldAI/octuple/issues/149)) ([10fc5d6](https://github.com/EightfoldAI/octuple/commits/10fc5d61bdc49b48e374c5ca2a61b6acdcc0ecaa))
+-   selectors: adds null check to radio button onchange event ([#145](https://github.com/EightfoldAI/octuple/issues/145)) ([499c4f5](https://github.com/EightfoldAI/octuple/commits/499c4f5d96eba1f878e7113bfd792731d3aaa548))
+
+### [1.5.3](https://github.com/EightfoldAI/octuple/compare/v1.5.2...v1.5.3) (2022-05-25)
+
+### Bug Fixes
+
+-   extend RadioButtonProps and CheckBoxProps to OcBaseProps ([#143](https://github.com/EightfoldAI/octuple/issues/143)) ([08e9696](https://github.com/EightfoldAI/octuple/commits/08e969600a36c420ed12f3bb60b0cc48d65f947d))
+-   remove classname prop from CheckBoxProps ([#144](https://github.com/EightfoldAI/octuple/issues/144)) ([bdce5c3](https://github.com/EightfoldAI/octuple/commits/bdce5c3c25e9f9486661ccf6b49eca8663ffdb06))
+
+### [1.5.2](https://github.com/EightfoldAI/octuple/compare/v1.5.1...v1.5.2) (2022-05-24)
+
+### [1.5.1](https://github.com/EightfoldAI/octuple/compare/v1.5.0...v1.5.1) (2022-05-24)
+
+### Bug Fixes
+
+-   exports: adds stack and selectors to exports ([#139](https://github.com/EightfoldAI/octuple/issues/139)) ([a209f3b](https://github.com/EightfoldAI/octuple/commits/a209f3ba2eca8e8a7a673e8bec17e1fefbc8344d))
+
+## [1.5.0](https://github.com/EightfoldAI/octuple/compare/v1.4.0...v1.5.0) (2022-05-24)
+
+### Features
+
+-   add <Stack> ... </Stack> ([#132](https://github.com/EightfoldAI/octuple/issues/132)) ([57e3ee7](https://github.com/EightfoldAI/octuple/commits/57e3ee7a5e8c2f52ecb162f7a1f5c6ef8c3e5e4c))
+-   add Accordion component ([#126](https://github.com/EightfoldAI/octuple/issues/126)) ([9b9e7fe](https://github.com/EightfoldAI/octuple/commits/9b9e7fe670ddeedd40472f0b294fdc3cf69e6bf3))
+-   add checkbox and radio button components ([#56](https://github.com/EightfoldAI/octuple/issues/56)) ([80bc310](https://github.com/EightfoldAI/octuple/commits/80bc310df554a7b0527dcf6403f2e31e0f6801d7))
+-   added link component ([#135](https://github.com/EightfoldAI/octuple/issues/135)) ([b9ecc0f](https://github.com/EightfoldAI/octuple/commits/b9ecc0f09033e011a7b78121f584af5209f430b8))
+
+### Bug Fixes
+
+-   button: fixes bugs in split and toggle buttons ([#133](https://github.com/EightfoldAI/octuple/issues/133)) ([b28024d](https://github.com/EightfoldAI/octuple/commits/b28024dcb8d99e6e3ba9c36d45f97782cbb1911d))
+
+## [1.4.0](https://github.com/EightfoldAI/octuple/compare/v1.3.0...v1.4.0) (2022-05-24)
+
+### Features
+
+-   added avatar component ([#131](https://github.com/EightfoldAI/octuple/issues/131)) ([3f12842](https://github.com/EightfoldAI/octuple/commits/3f128427b6b8d819f18ae2cb5876994fe3c0f30e))
+-   added support for icomoon icons ([#129](https://github.com/EightfoldAI/octuple/issues/129)) ([637f986](https://github.com/EightfoldAI/octuple/commits/637f986f6887fd360f55b22021bad8451b9494ee))
+
+### Bug Fixes
+
+-   click on menu item not working intermittently ([#128](https://github.com/EightfoldAI/octuple/issues/128)) ([d4d52a4](https://github.com/EightfoldAI/octuple/commits/d4d52a4868857a5440ee26cb0b0428a468a9fccc))
+
+## [1.3.0](https://github.com/EightfoldAI/octuple/compare/v1.2.0...v1.3.0) (2022-05-19)
+
+### Features
+
+-   pagination: adds pagination component ([#121](https://github.com/EightfoldAI/octuple/issues/121)) ([dd8fa43](https://github.com/EightfoldAI/octuple/commits/dd8fa438f81a286a7860bd5d55d11a9370b310fa))
+
+### Bug Fixes
+
+-   button: use root inverse text color instead of local variable ([#119](https://github.com/EightfoldAI/octuple/issues/119)) ([95f2c12](https://github.com/EightfoldAI/octuple/commits/95f2c1245279045dd40bedfa50aa962733186898))
+-   input: fixes onchange handler of inputs ([#120](https://github.com/EightfoldAI/octuple/issues/120)) ([e5158e3](https://github.com/EightfoldAI/octuple/commits/e5158e381fe34ba98b596567964bf6184ea93647))
+-   pixel baseline: removes rem calculations ([#124](https://github.com/EightfoldAI/octuple/issues/124)) ([2739633](https://github.com/EightfoldAI/octuple/commits/27396335937f95ffa99fead987ea2fdb4f447720))
+-   snackbar: handle snackbar width on different screen sizes ([#116](https://github.com/EightfoldAI/octuple/issues/116)) ([c1b8d6c](https://github.com/EightfoldAI/octuple/commits/c1b8d6cac2a04216ea94d080628e50ddfabb8691))
+-   text input: hides clear button for number inputs ([#118](https://github.com/EightfoldAI/octuple/issues/118)) ([2738e1d](https://github.com/EightfoldAI/octuple/commits/2738e1d0ac86556943f45a89e551d506c0215119))
+
+## [1.2.0](https://github.com/EightfoldAI/octuple/compare/v1.1.0...v1.2.0) (2022-05-13)
+
+### Features
+
+-   accessibility and i18n: adds keyboard focus, canvas direction support ([#109](https://github.com/EightfoldAI/octuple/issues/109)) ([c6704b3](https://github.com/EightfoldAI/octuple/commits/c6704b36db85c6c3ecd1f27f1a5f8e486ce987ff))
+-   adds octuple spinner component ([#114](https://github.com/EightfoldAI/octuple/issues/114)) ([702931d](https://github.com/EightfoldAI/octuple/commits/702931d45d8101bfc37d938dbe01aabea0e4f6f3))
+
+### Bug Fixes
+
+-   button: ensures the height of buttons and clarifies class names ([#112](https://github.com/EightfoldAI/octuple/issues/112)) ([882b3fd](https://github.com/EightfoldAI/octuple/commits/882b3fdcdced40202bb959e6bb99fc9c2a5f4566))
+-   text input: adds line height to text input to prevent descenders from clipping ([#113](https://github.com/EightfoldAI/octuple/issues/113)) ([362dc1b](https://github.com/EightfoldAI/octuple/commits/362dc1b557736c6a94a5bfaaf8d3f9cf89ae7459))
+
 ## [1.1.0](https://github.com/EightfoldAI/octuple/compare/v1.0.0...v1.1.0) (2022-05-05)
 
 ### Features
