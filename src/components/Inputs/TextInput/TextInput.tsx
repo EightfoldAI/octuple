@@ -139,6 +139,7 @@ export const TextInput: FC<TextInputProps> = ({
         waitInterval
     );
 
+    // We need to persist the syntheticevent object, as useDebounce uses a timeout function internally
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         e.persist();
         setInputValue(e?.target?.value);
