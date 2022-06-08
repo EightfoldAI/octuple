@@ -8507,13 +8507,13 @@ exports[`Storyshots Select Basic 1`] = `
         className="inputWrapper inputStretch"
       >
         <input
-          aria-controls="dropdown-18"
+          aria-controls="dropdown-19"
           aria-expanded={false}
           aria-haspopup={true}
           autoFocus={false}
           className="selectInput withIcon inputStretch"
           disabled={false}
-          id="input-19"
+          id="input-20"
           onChange={[Function]}
           onClick={[Function]}
           placeholder="Select"
@@ -8582,13 +8582,13 @@ exports[`Storyshots Select Disabled 1`] = `
         className="inputWrapper inputStretch"
       >
         <input
-          aria-controls="dropdown-20"
+          aria-controls="dropdown-21"
           aria-expanded={false}
           aria-haspopup={true}
           autoFocus={false}
           className="selectInput withIcon inputStretch"
           disabled={true}
-          id="input-21"
+          id="input-22"
           onChange={[Function]}
           onClick={[Function]}
           placeholder="Select"
@@ -8655,13 +8655,13 @@ exports[`Storyshots Select Dynamic 1`] = `
         className="inputWrapper inputStretch"
       >
         <input
-          aria-controls="dropdown-22"
+          aria-controls="dropdown-23"
           aria-expanded={false}
           aria-haspopup={true}
           autoFocus={false}
           className="withIcon inputStretch"
           disabled={false}
-          id="input-23"
+          id="input-24"
           onChange={[Function]}
           onClick={[Function]}
           placeholder="Select"
@@ -8735,13 +8735,13 @@ exports[`Storyshots Select Filterable 1`] = `
         className="inputWrapper inputStretch"
       >
         <input
-          aria-controls="dropdown-24"
+          aria-controls="dropdown-25"
           aria-expanded={false}
           aria-haspopup={true}
           autoFocus={false}
           className="withIcon inputStretch"
           disabled={false}
-          id="input-25"
+          id="input-26"
           onChange={[Function]}
           onClick={[Function]}
           placeholder="Select"
@@ -8815,13 +8815,13 @@ exports[`Storyshots Select Multiple 1`] = `
         className="inputWrapper inputStretch"
       >
         <input
-          aria-controls="dropdown-26"
+          aria-controls="dropdown-27"
           aria-expanded={false}
           aria-haspopup={true}
           autoFocus={false}
           className="withIcon inputStretch"
           disabled={false}
-          id="input-27"
+          id="input-28"
           onChange={[Function]}
           onClick={[Function]}
           placeholder="Select"
@@ -8895,13 +8895,13 @@ exports[`Storyshots Select Multiple With No Filter 1`] = `
         className="inputWrapper inputStretch"
       >
         <input
-          aria-controls="dropdown-28"
+          aria-controls="dropdown-29"
           aria-expanded={false}
           aria-haspopup={true}
           autoFocus={false}
           className="selectInput withIcon inputStretch"
           disabled={false}
-          id="input-29"
+          id="input-30"
           onChange={[Function]}
           onClick={[Function]}
           placeholder="Select"
@@ -8970,13 +8970,13 @@ exports[`Storyshots Select Options Disabled 1`] = `
         className="inputWrapper inputStretch"
       >
         <input
-          aria-controls="dropdown-30"
+          aria-controls="dropdown-31"
           aria-expanded={false}
           aria-haspopup={true}
           autoFocus={false}
           className="selectInput withIcon inputStretch"
           disabled={false}
-          id="input-31"
+          id="input-32"
           onChange={[Function]}
           onClick={[Function]}
           placeholder="Select"
@@ -9045,13 +9045,13 @@ exports[`Storyshots Select With Clear 1`] = `
         className="inputWrapper inputStretch"
       >
         <input
-          aria-controls="dropdown-32"
+          aria-controls="dropdown-33"
           aria-expanded={false}
           aria-haspopup={true}
           autoFocus={false}
           className="selectInput withIcon inputStretch"
           disabled={false}
-          id="input-33"
+          id="input-34"
           onChange={[Function]}
           onClick={[Function]}
           placeholder="Select"
@@ -9120,13 +9120,13 @@ exports[`Storyshots Select With Default Value 1`] = `
         className="inputWrapper inputStretch"
       >
         <input
-          aria-controls="dropdown-34"
+          aria-controls="dropdown-35"
           aria-expanded={false}
           aria-haspopup={true}
           autoFocus={false}
           className="selectInput withIcon inputStretch"
           disabled={false}
-          id="input-35"
+          id="input-36"
           onChange={[Function]}
           onClick={[Function]}
           placeholder="Select"
