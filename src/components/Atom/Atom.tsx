@@ -1,8 +1,8 @@
-import React, { ForwardRefExoticComponent, RefAttributes } from 'react';
+import React from 'react';
 import { ArgumentArray, mergeClasses } from '../../shared/utilities';
 import { OcBaseProps } from '../OcBase';
 
-type AtomProps<T = {}, U = React.Ref<any>> = T &
+type AtomProps<T = {}, U = React.Ref<any>> = Omit<T, 'children'> &
     OcBaseProps<U> & {
         of: keyof HTMLElementTagNameMap;
         classes: ArgumentArray;
@@ -18,6 +18,4 @@ export const Atom = React.forwardRef(
             children
         );
     }
-) as <T, U = any>(
-    props: Omit<AtomProps<T, U>, 'ref'> & { ref?: React.Ref<U> }
-) => JSX.Element;
+) as <T, U = any>(props: AtomProps<T, U>) => JSX.Element;

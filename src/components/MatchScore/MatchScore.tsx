@@ -11,6 +11,7 @@ export const MatchScore: FC<MatchScoreProps> = React.forwardRef(
             total = 5,
             hideLabel = false,
             ariaLabel = 'score',
+            children,
             ...rest
         },
         ref
@@ -52,6 +53,7 @@ const getArrayOfSize = (n: number) => Array.from(Array(n));
 const MatchScoreCircle = ({ fill = 'empty' }: { fill?: FillType }) => (
     <Atom
         of="div"
+        ref={1 as any}
         classes={[
             styles.matchScoreCircle,
             { [styles.full]: fill === 'full' },
