@@ -57,7 +57,7 @@ export const Panel = React.forwardRef<PanelRef, PanelProps>(
         const containerRef = useRef<HTMLDivElement>(null);
         const parentPanel = useContext<PanelRef>(PanelContext);
         const [internalPush, setPush] = useState<boolean>(false);
-        const { lockScroll, unlockScroll } = useScrollLock(parent);
+        useScrollLock(parent, visible);
 
         const panelBackdropClasses: string = mergeClasses([
             styles.panelBackdrop,
@@ -95,12 +95,6 @@ export const Panel = React.forwardRef<PanelRef, PanelProps>(
                     parentPanel.push();
                 } else {
                     parentPanel.pull();
-                }
-            } else {
-                if (visible) {
-                    lockScroll();
-                } else {
-                    unlockScroll();
                 }
             }
             if (autoFocus) {

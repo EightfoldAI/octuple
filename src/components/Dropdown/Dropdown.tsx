@@ -1,17 +1,31 @@
-import React, { cloneElement, FC, useEffect, useState } from 'react';
+import React, {
+    FC,
+    useEffect,
+    cloneElement,
+    useState,
+    SyntheticEvent,
+} from 'react';
 import { DropdownProps } from './Dropdown.types';
 import { autoUpdate, shift, useFloating } from '@floating-ui/react-dom';
 import { offset as fOffset } from '@floating-ui/core';
 import { mergeClasses, uniqueId } from '../../shared/utilities';
 import { useOnClickOutside } from '../../hooks/useOnClickOutside';
-
+import { useAccessibility } from '../../hooks/useAccessibility';
 import styles from './dropdown.module.scss';
 
-const TRIGGER_TO_HANDLER_MAP = {
+const TRIGGER_TO_HANDLER_MAP_ON_ENTER = {
     click: 'onClick',
     hover: 'onMouseEnter',
     contextmenu: 'onContextMenu',
 };
+
+const TRIGGER_TO_HANDLER_MAP_ON_LEAVE = {
+    click: '',
+    hover: 'onMouseLeave',
+    contextmenu: '',
+};
+
+const PREVENT_DEFAULT_TRIGGERS = ['contextmenu'];
 
 const ANIMATION_DURATION = 200;
 
@@ -27,10 +41,13 @@ export const Dropdown: FC<DropdownProps> = ({
     offset = 0,
     positionStrategy = 'absolute',
     onVisibleChange,
+    disabled,
+    closeOnDropdownClick = true,
 }) => {
     const [visible, setVisible] = useState<boolean>(false);
     const [closing, setClosing] = useState<boolean>(false);
     const [dropdownId] = useState<string>(uniqueId('dropdown-'));
+
     let timeout: ReturnType<typeof setTimeout>;
     const { x, y, reference, floating, strategy, update, refs } = useFloating({
         placement,
@@ -40,7 +57,10 @@ export const Dropdown: FC<DropdownProps> = ({
 
     const toggle: Function =
         (show: boolean): Function =>
-        (): void => {
+        (e: SyntheticEvent): void => {
+            if (PREVENT_DEFAULT_TRIGGERS.includes(trigger)) {
+                e.preventDefault();
+            }
             setClosing(!show);
             timeout && clearTimeout(timeout);
             timeout = setTimeout(
@@ -51,7 +71,7 @@ export const Dropdown: FC<DropdownProps> = ({
             );
         };
 
-    useOnClickOutside(refs.reference, toggle(false), visible);
+    useOnClickOutside(refs.floating, toggle(false), visible);
 
     useEffect(() => {
         onVisibleChange?.(visible);
@@ -70,6 +90,7 @@ export const Dropdown: FC<DropdownProps> = ({
         );
     }, [refs.reference, refs.floating, update]);
 
+    useAccessibility(trigger, refs.reference, toggle(true), toggle(false));
     const dropdownClasses: string = mergeClasses([
         dropdownClassNames,
         styles.dropdownWrapper,
@@ -82,11 +103,6 @@ export const Dropdown: FC<DropdownProps> = ({
         styles.mainWrapper,
     ]);
 
-    const referenceWrapperClasses: string = mergeClasses([
-        styles.referenceWrapper,
-        { [styles.disabled]: false },
-    ]);
-
     const dropdownStyles: React.CSSProperties = {
         ...dropdownStyle,
         position: strategy,
@@ -96,13 +112,20 @@ export const Dropdown: FC<DropdownProps> = ({
 
     const getReference = (): JSX.Element => {
         const child = React.Children.only(children) as React.ReactElement<any>;
+        const referenceWrapperClasses: string = mergeClasses([
+            styles.referenceWrapper,
+            // Add any classnames added to the reference element
+            { [child.props.className]: child.props.className },
+            { [styles.disabled]: disabled },
+        ]);
         return cloneElement(child, {
-            ...{ [TRIGGER_TO_HANDLER_MAP[trigger]]: toggle(true) },
-            ref: reference,
+            ...{ [TRIGGER_TO_HANDLER_MAP_ON_ENTER[trigger]]: toggle(true) },
             className: referenceWrapperClasses,
             'aria-controls': dropdownId,
             'aria-expanded': visible,
             'aria-haspopup': true,
+            role: 'button',
+            tabIndex: '0',
         });
     };
 
@@ -113,7 +136,7 @@ export const Dropdown: FC<DropdownProps> = ({
                 style={dropdownStyles}
                 className={dropdownClasses}
                 tabIndex={0}
-                onClick={toggle(false)}
+                onClick={closeOnDropdownClick ? toggle(false) : null}
                 id={dropdownId}
             >
                 {overlay}
@@ -121,7 +144,14 @@ export const Dropdown: FC<DropdownProps> = ({
         );
 
     return (
-        <div className={mainWrapperClasses} style={style}>
+        <div
+            className={mainWrapperClasses}
+            style={style}
+            ref={reference}
+            {...(TRIGGER_TO_HANDLER_MAP_ON_LEAVE[trigger]
+                ? { [TRIGGER_TO_HANDLER_MAP_ON_LEAVE[trigger]]: toggle(false) }
+                : {})}
+        >
             {getReference()}
             {getDropdown()}
         </div>

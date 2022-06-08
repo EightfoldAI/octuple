@@ -122,14 +122,29 @@ export const TextInput: FC<TextInputProps> = ({
         setClearButtonShown(false);
     };
 
-    const handleChange = useDebounce<React.ChangeEvent<HTMLInputElement>>(
+    const debouncedChange = useDebounce<React.ChangeEvent<HTMLInputElement>>(
         (
             _event?: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>
         ) => {
-            onChange;
+            const { target } = _event;
+
+            onChange?.(_event);
+
+            if (target?.value.length === 0 && clearButtonShown) {
+                setClearButtonShown(false);
+            } else if (!clearButtonShown) {
+                setClearButtonShown(true);
+            }
         },
         waitInterval
     );
+
+    // We need to persist the syntheticevent object, as useDebounce uses a timeout function internally
+    // Reference: https://reactjs.org/docs/legacy-event-pooling.html
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        e.persist();
+        debouncedChange(e);
+    };
 
     return (
         <Atom of="div" classes={textInputWrapperClasses}>
@@ -150,25 +165,7 @@ export const TextInput: FC<TextInputProps> = ({
                 maxLength={maxlength}
                 minLength={minlength}
                 name={name}
-                onChange={
-                    !allowDisabledFocus
-                        ? (
-                              _event?: React.ChangeEvent<
-                                  HTMLTextAreaElement | HTMLInputElement
-                              >
-                          ) => {
-                              handleChange;
-                              if (
-                                  _event.target.value.length === 0 &&
-                                  clearButtonShown
-                              ) {
-                                  setClearButtonShown(false);
-                              } else if (!clearButtonShown) {
-                                  setClearButtonShown(true);
-                              }
-                          }
-                        : null
-                }
+                onChange={!allowDisabledFocus ? handleChange : null}
                 onBlur={!allowDisabledFocus ? onBlur : null}
                 onFocus={!allowDisabledFocus ? onFocus : null}
                 onKeyDown={!allowDisabledFocus ? onKeyDown : null}
@@ -213,7 +210,7 @@ export const TextInput: FC<TextInputProps> = ({
                     htmlType={iconButtonProps.htmlType}
                 />
             )}
-            {clearButtonShown && (
+            {clearButtonShown && !numbersOnly && htmlType !== 'number' && (
                 <DefaultButton
                     allowDisabledFocus={allowDisabledFocus}
                     ariaLabel={clearButtonAriaLabel}

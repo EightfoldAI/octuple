@@ -12,7 +12,16 @@ import styles from '../tabs.module.scss';
 
 export const Tab: FC<TabProps> = React.forwardRef(
     (
-        { value, label, icon, disabled, ariaLabel, badgeContent, ...rest },
+        {
+            value,
+            label,
+            icon,
+            disabled,
+            ariaLabel,
+            badgeContent,
+            classNames,
+            ...rest
+        },
         ref: Ref<HTMLButtonElement>
     ) => {
         const { onTabClick, currentActiveTab } = useTabs();
@@ -27,6 +36,7 @@ export const Tab: FC<TabProps> = React.forwardRef(
             styles.tab,
             { [styles.active]: isActive },
             { [styles.inverse]: light },
+            classNames,
         ]);
 
         const getIcon = (): JSX.Element =>

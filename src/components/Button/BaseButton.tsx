@@ -11,7 +11,7 @@ import {
 } from './';
 import { Icon, IconSize } from '../Icon';
 import { Breakpoints, useMatchMedia } from '../../hooks/useMatchMedia';
-import { ArgumentArray } from '../../shared/utilities';
+import { ArgumentArray, mergeClasses } from '../../shared/utilities';
 
 import styles from './button.module.scss';
 import { Atom } from '../Atom';
@@ -145,7 +145,7 @@ export const BaseButton: FC<InternalButtonProps> = React.forwardRef(
         const getButtonIcon = (): JSX.Element => (
             <Icon
                 {...iconProps}
-                classNames={styles.icon}
+                classNames={mergeClasses([styles.icon, iconProps.classNames])}
                 size={getButtonIconSize()}
             />
         );
@@ -168,6 +168,7 @@ export const BaseButton: FC<InternalButtonProps> = React.forwardRef(
                     {...rest}
                     of="div"
                     ref={ref}
+                    {...rest}
                     aria-checked={toggle ? !!checked : undefined}
                     aria-disabled={allowDisabledFocus}
                     aria-label={ariaLabel}
