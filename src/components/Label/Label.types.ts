@@ -31,7 +31,7 @@ export interface LabelIconButtonProps
     /**
      * Content to show on the tooltip
      */
-    toolTipContent?: React.ReactNode | string;
+    toolTipContent?: React.ReactNode;
     /**
      * Theme of the tooltip
      * @default light
