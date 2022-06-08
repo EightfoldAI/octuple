@@ -44,7 +44,6 @@ export const TextInput: FC<TextInputProps> = ({
     ...rest
 }) => {
     const [clearButtonShown, setClearButtonShown] = useState<boolean>(false);
-    const [inputValue, setInputValue] = useState<string | number>(value);
     const [inputId] = useState<string>(uniqueId(id || 'input-'));
     const inputField: HTMLElement = document.getElementById(inputId);
 
@@ -118,7 +117,6 @@ export const TextInput: FC<TextInputProps> = ({
         if (!!inputField) {
             (inputField as HTMLInputElement).value = '';
         }
-        setInputValue('');
         setClearButtonShown(false);
     };
 
@@ -142,7 +140,6 @@ export const TextInput: FC<TextInputProps> = ({
     // We need to persist the syntheticevent object, as useDebounce uses a timeout function internally
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         e.persist();
-        setInputValue(e?.target?.value);
         debouncedChange(e);
     };
 
@@ -169,7 +166,7 @@ export const TextInput: FC<TextInputProps> = ({
                 style={style}
                 tabIndex={0}
                 type={numbersOnly ? 'number' : htmlType}
-                value={inputValue}
+                value={value}
             />
             {iconProps && (
                 <div className={iconClassNames}>
