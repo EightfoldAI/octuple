@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.8.1](https://github.com/EightfoldAI/octuple/compare/v1.8.0...v1.8.1) (2022-06-10)
+
+### Bug Fixes
+
+-   modal: make position strategy fixed by default ([#171](https://github.com/EightfoldAI/octuple/issues/171)) ([98c7af5](https://github.com/EightfoldAI/octuple/commits/98c7af58ef68a99815e7ddab279b0e478aa5b71a))
+
 ## [1.8.0](https://github.com/EightfoldAI/octuple/compare/v1.7.2...v1.8.0) (2022-06-08)
 
 ### Bug Fixes
