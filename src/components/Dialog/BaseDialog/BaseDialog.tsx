@@ -31,7 +31,7 @@ export const BaseDialog: FC<BaseDialogProps> = React.forwardRef(
             actionsClassNames,
             dialogWrapperClassNames,
             dialogClassNames,
-            positionStrategy = 'absolute',
+            positionStrategy = 'fixed',
             style,
             ...rest
         },
