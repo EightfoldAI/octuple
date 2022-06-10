@@ -151,6 +151,11 @@ export const Select: FC<SelectProps> = React.forwardRef(
             styles.multiSelectPill,
         ]);
 
+        const countPillClasses: string = mergeClasses([
+            pillProps.classNames,
+            styles.multiSelectCount,
+        ]);
+
         const componentClasses: string = mergeClasses([
             styles.selectWrapper,
             classNames,
@@ -182,6 +187,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
                     {moreOptionsCount ? (
                         <Pill
                             label={'+' + moreOptionsCount}
+                            classNames={countPillClasses}
                             theme={'bluegreen'}
                             size={PillSize.Small}
                             {...pillProps}

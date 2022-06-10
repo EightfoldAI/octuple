@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react';
+import React, { FC, useState, useRef } from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { IconName } from '../Icon';
 import { Select } from './';
@@ -89,11 +89,7 @@ const Wrapper: FC<SelectProps> = ({ children }) => {
     return (
         <div
             style={{
-                display: 'flex',
-                alignItems: 'center',
                 width: '200px',
-                height: '200px',
-                margin: '0 auto',
             }}
         >
             {children}
@@ -102,15 +98,15 @@ const Wrapper: FC<SelectProps> = ({ children }) => {
 };
 
 const DynamicSelect: FC<SelectProps> = () => {
-    let timer: any;
+    const timer = useRef<ReturnType<typeof setTimeout>>(null);
     const [options, setOptions] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const loadOptions = (searchString: string) => {
         setIsLoading(true);
-        if (timer) {
-            clearTimeout(timer);
+        if (timer.current) {
+            clearTimeout(timer.current);
         }
-        timer = setTimeout(() => {
+        timer.current = setTimeout(() => {
             const filtered = defaultOptions.filter((option) =>
                 option.text.toLowerCase().includes(searchString.toLowerCase())
             );
