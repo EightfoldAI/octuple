@@ -8360,7 +8360,7 @@ exports[`Storyshots Portal Default 1`] = `<div />`;
 
 exports[`Storyshots Radio Button Radio Button 1`] = `
 <div
-  className="selector"
+  className="selector my-radiobutton-class"
 >
   <input
     aria-label="Label"
