@@ -9,14 +9,9 @@ import {
     TextInputTheme,
 } from '../index';
 import { useDebounce } from '../../../hooks/useDebounce';
-import {
-    ArgumentArray,
-    mergeClasses,
-    uniqueId,
-} from '../../../shared/utilities';
+import { mergeClasses, uniqueId } from '../../../shared/utilities';
 
 import styles from '../input.module.scss';
-import { Atom } from '../../Atom';
 
 export const TextInput: FC<TextInputProps> = ({
     allowDisabledFocus = false,
@@ -55,14 +50,17 @@ export const TextInput: FC<TextInputProps> = ({
     const [inputId] = useState<string>(uniqueId(id || 'input-'));
     const inputField: HTMLElement = document.getElementById(inputId);
 
-    const iconClasses: ArgumentArray = [styles.iconWrapper, styles.leftIcon];
+    const iconClassNames: string = mergeClasses([
+        styles.iconWrapper,
+        styles.leftIcon,
+    ]);
 
     const iconButtonClassNames: string = mergeClasses([
         styles.iconButton,
         styles.leftIcon,
     ]);
 
-    const textInputClasses: ArgumentArray = [
+    const textInputClassNames: string = mergeClasses([
         classNames,
         {
             [styles.withIcon]:
@@ -107,14 +105,14 @@ export const TextInput: FC<TextInputProps> = ({
         {
             [styles.inputStretch]: inputWidth === TextInputWidth.fill,
         },
-    ];
+    ]);
 
-    const textInputWrapperClasses: ArgumentArray = [
+    const textInputWrapperClassNames: string = mergeClasses([
         styles.inputWrapper,
         {
             [styles.inputStretch]: inputWidth === TextInputWidth.fill,
         },
-    ];
+    ]);
 
     useEffect(() => {
         if (value?.toString()?.length > 0) {
@@ -164,19 +162,13 @@ export const TextInput: FC<TextInputProps> = ({
     };
 
     return (
-        <Atom of="div" classes={textInputWrapperClasses}>
+        <div className={textInputWrapperClassNames}>
             {labelProps && <Label {...labelProps} />}
-            <Atom<
-                React.DetailedHTMLProps<
-                    React.InputHTMLAttributes<HTMLInputElement>,
-                    HTMLInputElement
-                >
-            >
-                of="input"
-                classes={textInputClasses}
+            <input
                 {...rest}
                 aria-label={ariaLabel}
                 autoFocus={autoFocus}
+                className={textInputClassNames}
                 disabled={disabled}
                 id={inputId}
                 maxLength={maxlength}
@@ -196,7 +188,7 @@ export const TextInput: FC<TextInputProps> = ({
                 readOnly={readonly}
             />
             {iconProps && (
-                <Atom of="div" classes={iconClasses}>
+                <div className={iconClassNames}>
                     {iconProps.path && !iconProps.imageSrc && (
                         <Icon
                             {...iconProps}
@@ -212,7 +204,7 @@ export const TextInput: FC<TextInputProps> = ({
                             src={iconProps.imageSrc}
                         />
                     )}
-                </Atom>
+                </div>
             )}
             {iconButtonProps && (
                 <DefaultButton
@@ -239,6 +231,6 @@ export const TextInput: FC<TextInputProps> = ({
                     size={ButtonSize.Small}
                 />
             )}
-        </Atom>
+        </div>
     );
 };

@@ -1,5 +1,6 @@
-import React from 'react';
-export type OcBaseProps<T> = {
+import React, { HTMLAttributes } from 'react';
+
+export interface OcBaseProps<T> extends HTMLAttributes<T> {
     /**
      * Custom classnames of the component
      */
@@ -8,8 +9,4 @@ export type OcBaseProps<T> = {
      * Unique id used to target element for testing
      */
     'data-test-id'?: string;
-
-    style?: React.CSSProperties;
-
-    ref?: React.Ref<T>;
-};
+}

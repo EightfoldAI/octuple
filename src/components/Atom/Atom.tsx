@@ -1,13 +1,6 @@
 import React from 'react';
-import { ArgumentArray, mergeClasses } from '../../shared/utilities';
-import { OcBaseProps } from '../OcBase';
-
-type AtomProps<T = {}, U = React.Ref<any>> = Omit<T, 'children'> &
-    OcBaseProps<U> & {
-        of: keyof HTMLElementTagNameMap;
-        classes: ArgumentArray;
-        children?: React.ReactNode;
-    };
+import { mergeClasses } from '../../shared/utilities';
+import { AtomProps } from './Atom.types';
 
 export const Atom = React.forwardRef(
     ({ of, children, classes = [], ...props }, ref): JSX.Element => {

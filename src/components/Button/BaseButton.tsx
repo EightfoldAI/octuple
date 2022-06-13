@@ -11,10 +11,9 @@ import {
 } from './';
 import { Icon, IconSize } from '../Icon';
 import { Breakpoints, useMatchMedia } from '../../hooks/useMatchMedia';
-import { ArgumentArray, mergeClasses } from '../../shared/utilities';
+import { mergeClasses } from '../../shared/utilities';
 
 import styles from './button.module.scss';
-import { Atom } from '../Atom';
 
 export const BaseButton: FC<InternalButtonProps> = React.forwardRef(
     (
@@ -56,7 +55,7 @@ export const BaseButton: FC<InternalButtonProps> = React.forwardRef(
         const iconExists: boolean = !!iconProps;
         const textExists: boolean = !!text;
 
-        const buttonBaseSharedClassNames: ArgumentArray = [
+        const buttonBaseSharedClassNames: string = mergeClasses([
             classNames,
             {
                 [styles.buttonSize3]:
@@ -80,9 +79,9 @@ export const BaseButton: FC<InternalButtonProps> = React.forwardRef(
             { [styles.pillShape]: shape === ButtonShape.Pill },
             { [styles.dropShadow]: dropShadow },
             { [styles.dark]: theme === ButtonTheme.dark },
-        ];
+        ]);
 
-        const buttonBaseClasses: ArgumentArray = [
+        const buttonBaseClassNames: string = mergeClasses([
             buttonBaseSharedClassNames,
             { [styles.buttonStretch]: buttonWidth === ButtonWidth.fill },
             { [styles.splitLeft]: split },
@@ -97,9 +96,9 @@ export const BaseButton: FC<InternalButtonProps> = React.forwardRef(
                     iconExists && alignIcon === ButtonIconAlign.Right,
             },
             { [styles.disabled]: allowDisabledFocus || disabled },
-        ];
+        ]);
 
-        const buttonTextClasses: ArgumentArray = [
+        const buttonTextClassNames: string = mergeClasses([
             {
                 [styles.buttonText3]:
                     size === ButtonSize.Flex && largeScreenActive,
@@ -119,7 +118,7 @@ export const BaseButton: FC<InternalButtonProps> = React.forwardRef(
             { [styles.buttonText1]: size === ButtonSize.Large },
             { [styles.buttonText2]: size === ButtonSize.Medium },
             { [styles.buttonText3]: size === ButtonSize.Small },
-        ];
+        ]);
 
         const getButtonIconSize = (): IconSize => {
             let iconSize: IconSize;
@@ -151,22 +150,17 @@ export const BaseButton: FC<InternalButtonProps> = React.forwardRef(
         );
 
         const getButtonText = (
-            buttonTextClasses: ArgumentArray,
+            buttonTextClassNames: string,
             text: string
         ): JSX.Element => (
-            <Atom of="span" classes={buttonTextClasses}>
+            <span className={buttonTextClassNames}>
                 {text ? text : 'Button'}
-            </Atom>
+            </span>
         );
 
         return (
             <>
-                <Atom<
-                    React.ButtonHTMLAttributes<HTMLButtonElement>,
-                    HTMLButtonElement
-                >
-                    {...rest}
-                    of="button"
+                <button
                     ref={ref}
                     {...rest}
                     aria-checked={toggle ? !!checked : undefined}
@@ -175,7 +169,7 @@ export const BaseButton: FC<InternalButtonProps> = React.forwardRef(
                     aria-pressed={toggle ? !!checked : undefined}
                     defaultChecked={checked}
                     disabled={disabled}
-                    classes={buttonBaseClasses}
+                    className={buttonBaseClassNames}
                     id={id}
                     onClick={!allowDisabledFocus ? onClick : null}
                     style={style}
@@ -185,11 +179,11 @@ export const BaseButton: FC<InternalButtonProps> = React.forwardRef(
                     {iconExists && textExists && (
                         <span>
                             {getButtonIcon()}
-                            {getButtonText(buttonTextClasses, text)}
+                            {getButtonText(buttonTextClassNames, text)}
                         </span>
                     )}
-                    {!iconExists && getButtonText(buttonTextClasses, text)}
-                </Atom>
+                    {!iconExists && getButtonText(buttonTextClassNames, text)}
+                </button>
                 {split && (
                     <SplitButton
                         {...splitButtonProps}

@@ -1,7 +1,7 @@
 import React, { FC, Ref } from 'react';
 import styles from './matchScore.module.scss';
+import { mergeClasses } from '../../shared/utilities';
 import { FillType, MatchScoreProps } from './MatchScore.types';
-import { Atom } from '../Atom';
 
 export const MatchScore: FC<MatchScoreProps> = React.forwardRef(
     (
@@ -11,19 +11,21 @@ export const MatchScore: FC<MatchScoreProps> = React.forwardRef(
             total = 5,
             hideLabel = false,
             ariaLabel = 'score',
-            children,
             ...rest
         },
-        ref
+        ref: Ref<HTMLDivElement>
     ) => {
         const absTotal: number = Math.abs(total);
+        const matchScoreClasses = mergeClasses(
+            classNames,
+            styles.matchScoreContainer
+        );
         return (
-            <Atom<{}, HTMLDivElement>
+            <div
                 {...rest}
-                aria-label={ariaLabel}
-                of="div"
                 ref={ref}
-                classes={[classNames, styles.matchScoreContainer]}
+                className={matchScoreClasses}
+                aria-label={ariaLabel}
             >
                 {getArrayOfSize(Math.min(Math.floor(score), absTotal)).map(
                     (_val, index) => (
@@ -43,7 +45,7 @@ export const MatchScore: FC<MatchScoreProps> = React.forwardRef(
                         {score}/{absTotal}
                     </p>
                 )}
-            </Atom>
+            </div>
         );
     }
 );
@@ -51,13 +53,11 @@ export const MatchScore: FC<MatchScoreProps> = React.forwardRef(
 const getArrayOfSize = (n: number) => Array.from(Array(n));
 
 const MatchScoreCircle = ({ fill = 'empty' }: { fill?: FillType }) => (
-    <Atom
-        of="div"
-        ref={1 as any}
-        classes={[
+    <div
+        className={mergeClasses([
             styles.matchScoreCircle,
             { [styles.full]: fill === 'full' },
             { [styles.half]: fill === 'half' },
-        ]}
+        ])}
     />
 );
