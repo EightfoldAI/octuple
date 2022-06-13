@@ -38,7 +38,7 @@ export const TextInput: FC<TextInputProps> = ({
     placeholder,
     required = false,
     readonly = false,
-    shape = TextInputShape.Rectangle,
+    shape = TextInputShape.Pill,
     style,
     theme = TextInputTheme.light,
     value,

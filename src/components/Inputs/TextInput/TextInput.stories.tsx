@@ -144,7 +144,7 @@ Text_Input.args = {
     numbersOnly: false,
     placeholder: 'Placeholder text',
     required: false,
-    shape: TextInputShape.Rectangle,
+    shape: TextInputShape.Pill,
     style: {},
     theme: TextInputTheme.light,
     waitInterval: 10,

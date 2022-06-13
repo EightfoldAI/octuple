@@ -278,7 +278,7 @@ export interface InputProps<T>
     placeholder?: string;
     /**
      * Shape of the input.
-     * @default TextInputShape.Rectangle
+     * @default TextInputShape.Pill
      */
     shape?: TextInputShape;
     /**

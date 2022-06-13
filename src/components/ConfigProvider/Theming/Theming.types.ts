@@ -16,6 +16,7 @@ export type ThemeName = OcThemeNames | OcCustomThemeName;
 
 export interface OcBaseTheme {
     primaryColor?: Color;
+    accentColor?: Color;
     disruptiveColor?: Color;
     textColor?: Color;
     textColorSecondary?: Color;
@@ -39,9 +40,15 @@ export interface ThemeOptions {
     /**
      * Name of the theme.
      * @type {OcCustomThemeName|OcThemeNames}
-     * @default blue
+     * @default bluegreen
      */
     name?: ThemeName;
+    /**
+     * Name of accent theme.
+     * @type {OcCustomThemeName|OcThemeNames}
+     * @default blue
+     */
+    accentName?: ThemeName;
     /**
      * Use system theme or not
      * @default false

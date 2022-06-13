@@ -31,7 +31,7 @@ export const TwoStateButton: FC<TwoStateButtonProps> = React.forwardRef(
             iconTwoProps,
             id,
             onClick,
-            shape = ButtonShape.Rectangle,
+            shape = ButtonShape.Pill,
             size = ButtonSize.Flex,
             style,
             text,

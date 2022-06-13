@@ -31,7 +31,7 @@ export const SearchBox: FC<SearchBoxProps> = ({
     onFocus,
     onKeyDown,
     placeholder = 'Search',
-    shape = TextInputShape.Rectangle,
+    shape = TextInputShape.Pill,
     style,
     theme = TextInputTheme.light,
     value,

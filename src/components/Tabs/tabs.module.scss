@@ -5,7 +5,6 @@
     --hover-label: var(--primary-color);
     --hover-bg: transparent;
     --indicator: var(--primary-color);
-    --border: var(--primary-color);
     display: flex;
 
     &.scrollable {
@@ -87,24 +86,19 @@
     }
 
     &.pill {
-        --label: var(--primary-color);
-        --active-label: var(--background-color);
-        --active-bg: var(--primary-color);
+        --label: var(--text-secondary-color);
+        --active-label: var(--primary-color);
+        --active-bg: var(--accent-color-20);
         --hover-label: var(--primary-color);
+        width: fit-content;
+        background-color: var(--grey-color-10);
+        border-radius: $corner-radius-xl;
+        padding: $space-xs;
 
         .tab {
             padding: $space-xs $space-m;
-            border: $space-xxxs solid var(--border);
             border-right: none;
-
-            &:first-child {
-                border-radius: $space-l-fitted 0 0 $space-l-fitted;
-            }
-
-            &:last-child {
-                border-right: $space-xxxs solid var(--border);
-                border-radius: 0 $space-l-fitted $space-l-fitted 0;
-            }
+            border-radius: $corner-radius-xl;
 
             .tab-indicator {
                 display: none;

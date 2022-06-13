@@ -40,10 +40,17 @@ export function getStyle(themeOptions: ThemeOptions): IGetStyle {
     };
 
     const themeName: ThemeName = themeOptions.name;
+    const accentThemeName: ThemeName = themeOptions.accentName;
 
     const theme: OcTheme = {
         ...themeDefaults,
-        ...OcThemes?.[themeOptions.name as OcThemeNames],
+        ...OcThemes?.[themeName as OcThemeNames],
+        ...themeOptions.customTheme,
+    };
+
+    const accentTheme: OcTheme = {
+        ...themeDefaults,
+        ...OcThemes?.[accentThemeName as OcThemeNames],
         ...themeOptions.customTheme,
     };
 
@@ -53,10 +60,22 @@ export function getStyle(themeOptions: ThemeOptions): IGetStyle {
         variables[`primary-color`] = theme.primaryColor;
     }
 
+    // ================ Use existing palette ================
+    if (accentTheme.palette) {
+        fillColor([...accentTheme.palette].reverse(), 'accent-color');
+        variables[`accent-color`] = accentTheme.primaryColor;
+    }
+
     // ================ Custom primary palette ================
     if (themeOptions.customTheme?.primaryColor) {
         generatePalette(theme.primaryColor, 'primary-color');
         variables[`primary-color`] = theme.primaryColor;
+    }
+
+    // ================ Custom accent palette ================
+    if (themeOptions.customTheme?.accentColor) {
+        generatePalette(theme.accentColor, 'accent-color');
+        variables[`accent-color`] = theme.accentColor;
     }
 
     // ================ Disruptive palette ================
