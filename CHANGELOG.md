@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.9.0](https://github.com/EightfoldAI/octuple/compare/v1.8.1...v1.9.0) (2022-06-13)
+
+### Features
+
+-   adds select component ([#155](https://github.com/EightfoldAI/octuple/issues/155)) ([2dc3bd7](https://github.com/EightfoldAI/octuple/commits/2dc3bd7835da49a26adb16c6b1e75a8e1dcf1146))
+
+### Bug Fixes
+
+-   tooltip: allow pointer events when tooltip is disabled ([#172](https://github.com/EightfoldAI/octuple/issues/172)) ([c99e226](https://github.com/EightfoldAI/octuple/commits/c99e2264ed57f8988eff1343440cc473ef136680))
+
 ### [1.8.1](https://github.com/EightfoldAI/octuple/compare/v1.8.0...v1.8.1) (2022-06-10)
 
 ### Bug Fixes
