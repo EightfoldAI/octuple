@@ -179,6 +179,18 @@ export interface TextInputProps extends InputProps<HTMLInputElement> {
      * @default false
      */
     required?: boolean;
+
+    /**
+     * option to show the clear input button.
+     * default is true for backward compatibility
+     * @default true
+     */
+    clearable?: boolean;
+
+    /**
+     * onclear event handler.
+     */
+    onClear?: React.MouseEventHandler<Element>;
 }
 
 export interface InputProps<T>
@@ -283,4 +295,10 @@ export interface InputProps<T>
      * @default 10
      */
     waitInterval?: number;
+
+    /**
+     * input readonly.
+     * @default false
+     */
+    readonly?: boolean;
 }
