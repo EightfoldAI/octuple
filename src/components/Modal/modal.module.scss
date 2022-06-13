@@ -53,7 +53,8 @@
     .body {
         display: flex;
         flex-direction: column;
-        overflow-y: scroll;
+        overflow-y: auto;
+        overflow-x: hidden;
         flex: 1;
         line-height: normal;
     }
