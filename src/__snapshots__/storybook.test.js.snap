@@ -4753,6 +4753,7 @@ exports[`Storyshots Input Search Box 1`] = `
       >
         <div
           className="referenceWrapper"
+          id="4fzzzxj"
           onBlur={[Function]}
           onFocus={[Function]}
           onMouseEnter={[Function]}
@@ -4790,32 +4791,6 @@ exports[`Storyshots Input Search Box 1`] = `
               </svg>
             </span>
           </button>
-        </div>
-        <div
-          aria-hidden={true}
-          className="tooltip top"
-          role="tooltip"
-          style={
-            Object {
-              "left": "",
-              "position": "absolute",
-              "top": "",
-            }
-          }
-          tabIndex={0}
-        >
-          tooltip
-          <div
-            className="arrow"
-            style={
-              Object {
-                "bottom": "-4px",
-                "left": "",
-                "position": "absolute",
-                "top": "",
-              }
-            }
-          />
         </div>
       </span>
     </div>
@@ -4919,6 +4894,7 @@ exports[`Storyshots Input Text Area 1`] = `
     >
       <div
         className="referenceWrapper"
+        id="4fzzzxj"
         onBlur={[Function]}
         onFocus={[Function]}
         onMouseEnter={[Function]}
@@ -4956,32 +4932,6 @@ exports[`Storyshots Input Text Area 1`] = `
             </svg>
           </span>
         </button>
-      </div>
-      <div
-        aria-hidden={true}
-        className="tooltip top"
-        role="tooltip"
-        style={
-          Object {
-            "left": "",
-            "position": "absolute",
-            "top": "",
-          }
-        }
-        tabIndex={0}
-      >
-        tooltip
-        <div
-          className="arrow"
-          style={
-            Object {
-              "bottom": "-4px",
-              "left": "",
-              "position": "absolute",
-              "top": "",
-            }
-          }
-        />
       </div>
     </span>
   </div>
@@ -5049,6 +4999,7 @@ exports[`Storyshots Input Text Input 1`] = `
     >
       <div
         className="referenceWrapper"
+        id="4fzzzxj"
         onBlur={[Function]}
         onFocus={[Function]}
         onMouseEnter={[Function]}
@@ -5086,32 +5037,6 @@ exports[`Storyshots Input Text Input 1`] = `
             </svg>
           </span>
         </button>
-      </div>
-      <div
-        aria-hidden={true}
-        className="tooltip top"
-        role="tooltip"
-        style={
-          Object {
-            "left": "",
-            "position": "absolute",
-            "top": "",
-          }
-        }
-        tabIndex={0}
-      >
-        tooltip
-        <div
-          className="arrow"
-          style={
-            Object {
-              "bottom": "-4px",
-              "left": "",
-              "position": "absolute",
-              "top": "",
-            }
-          }
-        />
       </div>
     </span>
   </div>
@@ -5213,6 +5138,7 @@ exports[`Storyshots Label Labels 1`] = `
   >
     <div
       className="referenceWrapper"
+      id="4fzzzxj"
       onBlur={[Function]}
       onFocus={[Function]}
       onMouseEnter={[Function]}
@@ -5251,31 +5177,6 @@ exports[`Storyshots Label Labels 1`] = `
           </svg>
         </span>
       </button>
-    </div>
-    <div
-      aria-hidden={true}
-      className="tooltip right"
-      role="tooltip"
-      style={
-        Object {
-          "left": "",
-          "position": "absolute",
-          "top": "",
-        }
-      }
-      tabIndex={0}
-    >
-      A tooltip
-      <div
-        className="arrow"
-        style={
-          Object {
-            "left": "-4px",
-            "position": "absolute",
-            "top": "",
-          }
-        }
-      />
     </div>
   </span>
 </div>
@@ -10765,52 +10666,26 @@ exports[`Storyshots Tabs With Badge 1`] = `
 `;
 
 exports[`Storyshots Tooltip Tooltips 1`] = `
-Array [
-  <div
-    className="referenceWrapper"
-    onBlur={[Function]}
-    onFocus={[Function]}
-    onMouseEnter={[Function]}
-    onMouseLeave={[Function]}
+<div
+  className="referenceWrapper"
+  id="4fzzzxj"
+  onBlur={[Function]}
+  onFocus={[Function]}
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
+>
+  <button
+    aria-disabled={false}
+    aria-label="Show Tooltip"
+    className="button buttonPrimary buttonSize2"
+    defaultChecked={false}
+    disabled={false}
   >
-    <button
-      aria-disabled={false}
-      aria-label="Show Tooltip"
-      className="button buttonPrimary buttonSize2"
-      defaultChecked={false}
-      disabled={false}
+    <span
+      className="buttonText2"
     >
-      <span
-        className="buttonText2"
-      >
-        Show Tooltip
-      </span>
-    </button>
-  </div>,
-  <div
-    aria-hidden={true}
-    className="my-tooltip-class tooltip bottom"
-    role="tooltip"
-    style={
-      Object {
-        "left": "",
-        "position": "absolute",
-        "top": "",
-      }
-    }
-    tabIndex={0}
-  >
-    This is a Tooltip.
-    <div
-      className="arrow"
-      style={
-        Object {
-          "left": "",
-          "position": "absolute",
-          "top": "-4px",
-        }
-      }
-    />
-  </div>,
-]
+      Show Tooltip
+    </span>
+  </button>
+</div>
 `;
