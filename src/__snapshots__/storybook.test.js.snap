@@ -8487,10 +8487,6 @@ exports[`Storyshots Select Basic 1`] = `
 <div
   style={
     Object {
-      "alignItems": "center",
-      "display": "flex",
-      "height": "200px",
-      "margin": "0 auto",
       "width": "200px",
     }
   }
@@ -8562,10 +8558,6 @@ exports[`Storyshots Select Disabled 1`] = `
 <div
   style={
     Object {
-      "alignItems": "center",
-      "display": "flex",
-      "height": "200px",
-      "margin": "0 auto",
       "width": "200px",
     }
   }
@@ -8637,10 +8629,6 @@ exports[`Storyshots Select Dynamic 1`] = `
 <div
   style={
     Object {
-      "alignItems": "center",
-      "display": "flex",
-      "height": "200px",
-      "margin": "0 auto",
       "width": "200px",
     }
   }
@@ -8715,10 +8703,6 @@ exports[`Storyshots Select Filterable 1`] = `
 <div
   style={
     Object {
-      "alignItems": "center",
-      "display": "flex",
-      "height": "200px",
-      "margin": "0 auto",
       "width": "200px",
     }
   }
@@ -8795,10 +8779,6 @@ exports[`Storyshots Select Multiple 1`] = `
 <div
   style={
     Object {
-      "alignItems": "center",
-      "display": "flex",
-      "height": "200px",
-      "margin": "0 auto",
       "width": "200px",
     }
   }
@@ -8875,10 +8855,6 @@ exports[`Storyshots Select Multiple With No Filter 1`] = `
 <div
   style={
     Object {
-      "alignItems": "center",
-      "display": "flex",
-      "height": "200px",
-      "margin": "0 auto",
       "width": "200px",
     }
   }
@@ -8950,10 +8926,6 @@ exports[`Storyshots Select Options Disabled 1`] = `
 <div
   style={
     Object {
-      "alignItems": "center",
-      "display": "flex",
-      "height": "200px",
-      "margin": "0 auto",
       "width": "200px",
     }
   }
@@ -9025,10 +8997,6 @@ exports[`Storyshots Select With Clear 1`] = `
 <div
   style={
     Object {
-      "alignItems": "center",
-      "display": "flex",
-      "height": "200px",
-      "margin": "0 auto",
       "width": "200px",
     }
   }
@@ -9100,10 +9068,6 @@ exports[`Storyshots Select With Default Value 1`] = `
 <div
   style={
     Object {
-      "alignItems": "center",
-      "display": "flex",
-      "height": "200px",
-      "margin": "0 auto",
       "width": "200px",
     }
   }
