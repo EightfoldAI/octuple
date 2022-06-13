@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.9.1](https://github.com/EightfoldAI/octuple/compare/v1.9.0...v1.9.1) (2022-06-13)
+
+### Bug Fixes
+
+-   modal: disable scroll in body on x axis ([#173](https://github.com/EightfoldAI/octuple/issues/173)) ([d6f38df](https://github.com/EightfoldAI/octuple/commits/d6f38dfdde99abfc6892a631f34c0cc2d92a4a0b))
+
 ## [1.9.0](https://github.com/EightfoldAI/octuple/compare/v1.8.1...v1.9.0) (2022-06-13)
 
 ### Features
