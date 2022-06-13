@@ -40,6 +40,7 @@ export const Pill: FC<PillProps> = React.forwardRef(
         ]);
         const tagClassName: string = mergeClasses([
             styles.tagPills,
+            rest.classNames,
             { [styles.red]: theme === 'red' },
             { [styles.orange]: theme === 'orange' },
             { [styles.yellow]: theme === 'yellow' },
