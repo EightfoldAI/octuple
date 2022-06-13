@@ -11,7 +11,7 @@ export interface TooltipProps extends OcBaseProps<HTMLDivElement> {
     /**
      * Content to show on the tooltip
      */
-    content: React.ReactNode | string;
+    content: React.ReactNode;
     /**
      * Theme of the tooltip
      * @default light
