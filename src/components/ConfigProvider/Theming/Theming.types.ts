@@ -40,13 +40,13 @@ export interface ThemeOptions {
     /**
      * Name of the theme.
      * @type {OcCustomThemeName|OcThemeNames}
-     * @default bluegreen
+     * @default blue
      */
     name?: ThemeName;
     /**
      * Name of accent theme.
      * @type {OcCustomThemeName|OcThemeNames}
-     * @default blue
+     * @default bluegreen
      */
     accentName?: ThemeName;
     /**

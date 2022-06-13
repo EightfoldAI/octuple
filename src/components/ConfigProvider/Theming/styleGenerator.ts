@@ -54,13 +54,13 @@ export function getStyle(themeOptions: ThemeOptions): IGetStyle {
         ...themeOptions.customTheme,
     };
 
-    // ================ Use existing palette ================
+    // ================ Use existing primary palette ================
     if (theme.palette) {
         fillColor([...theme.palette].reverse(), 'primary-color');
         variables[`primary-color`] = theme.primaryColor;
     }
 
-    // ================ Use existing palette ================
+    // ================ Use existing accent palette ================
     if (accentTheme.palette) {
         fillColor([...accentTheme.palette].reverse(), 'accent-color');
         variables[`accent-color`] = accentTheme.primaryColor;
