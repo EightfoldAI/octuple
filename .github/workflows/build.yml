@@ -4,9 +4,11 @@ on:
   push:
     branches:
       - main
+      - main-next
   pull_request:
     branches:
       - main
+      - main-next
 
 env:
   NODE_VERSION: 16.14.2
