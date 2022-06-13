@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Ref } from 'react';
 import { Placement, Strategy } from '@floating-ui/react-dom';
 import { IconName, IconProps } from '../Icon';
 import { LabelProps } from '../Label';
@@ -110,7 +110,7 @@ export interface InputLabelIconButtonProps {
     /**
      * Content to show on the tooltip
      */
-    toolTipContent?: React.ReactNode | string;
+    toolTipContent?: React.ReactNode;
     /**
      * Theme of the tooltip
      * @default light
@@ -147,6 +147,10 @@ export interface TextAreaProps
      */
     enableExpand?: boolean;
     /**
+     * The text area component ref.
+     */
+    ref?: Ref<HTMLTextAreaElement>;
+    /**
      * The text area required attribute.
      * @default false
      */
@@ -165,6 +169,12 @@ export interface TextAreaProps
 
 export interface TextInputProps extends InputProps<HTMLInputElement> {
     /**
+     * option to show the clear input button.
+     * default is true for backward compatibility
+     * @default true
+     */
+    clearable?: boolean;
+    /**
      * The input html type.
      * @default 'text'
      */
@@ -174,6 +184,14 @@ export interface TextInputProps extends InputProps<HTMLInputElement> {
      * @default false
      */
     numbersOnly?: boolean;
+    /**
+     * onclear event handler.
+     */
+    onClear?: React.MouseEventHandler<Element>;
+    /**
+     * The input component ref.
+     */
+    ref?: Ref<HTMLInputElement>;
     /**
      * The input required attribute.
      * @default false
@@ -283,4 +301,10 @@ export interface InputProps<T>
      * @default 10
      */
     waitInterval?: number;
+
+    /**
+     * input readonly.
+     * @default false
+     */
+    readonly?: boolean;
 }

@@ -53,6 +53,8 @@ import {
 
 import { InfoBar, InfoBarType } from './components/InfoBar';
 
+import { Select } from './components/Select';
+
 import { SnackbarContainer, Snackbar, snack } from './components/Snackbar';
 
 import { Spinner, SpinnerSize } from './components/Spinner';
@@ -122,6 +124,7 @@ export {
     PrimaryButton,
     RadioButton,
     RadioGroup,
+    Select,
     SearchBox,
     SecondaryButton,
     snack,

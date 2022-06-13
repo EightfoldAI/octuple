@@ -41,6 +41,7 @@ export const Dropdown: FC<DropdownProps> = ({
     offset = 0,
     positionStrategy = 'absolute',
     onVisibleChange,
+    showDropdown,
     disabled,
     closeOnDropdownClick = true,
 }) => {
@@ -56,16 +57,18 @@ export const Dropdown: FC<DropdownProps> = ({
     });
 
     const toggle: Function =
-        (show: boolean): Function =>
+        (show: boolean, showDropdown = (show: boolean) => show): Function =>
         (e: SyntheticEvent): void => {
+            // to control the toggle behaviour
+            const updatedShow = showDropdown(show);
             if (PREVENT_DEFAULT_TRIGGERS.includes(trigger)) {
                 e.preventDefault();
             }
-            setClosing(!show);
+            setClosing(!updatedShow);
             timeout && clearTimeout(timeout);
             timeout = setTimeout(
                 () => {
-                    setVisible(show);
+                    setVisible(updatedShow);
                 },
                 !show ? ANIMATION_DURATION : 0
             );
@@ -136,7 +139,9 @@ export const Dropdown: FC<DropdownProps> = ({
                 style={dropdownStyles}
                 className={dropdownClasses}
                 tabIndex={0}
-                onClick={closeOnDropdownClick ? toggle(false) : null}
+                onClick={
+                    closeOnDropdownClick ? toggle(false, showDropdown) : null
+                }
                 id={dropdownId}
             >
                 {overlay}
@@ -149,7 +154,12 @@ export const Dropdown: FC<DropdownProps> = ({
             style={style}
             ref={reference}
             {...(TRIGGER_TO_HANDLER_MAP_ON_LEAVE[trigger]
-                ? { [TRIGGER_TO_HANDLER_MAP_ON_LEAVE[trigger]]: toggle(false) }
+                ? {
+                      [TRIGGER_TO_HANDLER_MAP_ON_LEAVE[trigger]]: toggle(
+                          false,
+                          showDropdown
+                      ),
+                  }
                 : {})}
         >
             {getReference()}

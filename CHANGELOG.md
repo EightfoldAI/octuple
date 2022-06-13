@@ -2,6 +2,35 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.9.1](https://github.com/EightfoldAI/octuple/compare/v1.9.0...v1.9.1) (2022-06-13)
+
+### Bug Fixes
+
+-   modal: disable scroll in body on x axis ([#173](https://github.com/EightfoldAI/octuple/issues/173)) ([d6f38df](https://github.com/EightfoldAI/octuple/commits/d6f38dfdde99abfc6892a631f34c0cc2d92a4a0b))
+
+## [1.9.0](https://github.com/EightfoldAI/octuple/compare/v1.8.1...v1.9.0) (2022-06-13)
+
+### Features
+
+-   adds select component ([#155](https://github.com/EightfoldAI/octuple/issues/155)) ([2dc3bd7](https://github.com/EightfoldAI/octuple/commits/2dc3bd7835da49a26adb16c6b1e75a8e1dcf1146))
+
+### Bug Fixes
+
+-   tooltip: allow pointer events when tooltip is disabled ([#172](https://github.com/EightfoldAI/octuple/issues/172)) ([c99e226](https://github.com/EightfoldAI/octuple/commits/c99e2264ed57f8988eff1343440cc473ef136680))
+
+### [1.8.1](https://github.com/EightfoldAI/octuple/compare/v1.8.0...v1.8.1) (2022-06-10)
+
+### Bug Fixes
+
+-   modal: make position strategy fixed by default ([#171](https://github.com/EightfoldAI/octuple/issues/171)) ([98c7af5](https://github.com/EightfoldAI/octuple/commits/98c7af58ef68a99815e7ddab279b0e478aa5b71a))
+
+## [1.8.0](https://github.com/EightfoldAI/octuple/compare/v1.7.2...v1.8.0) (2022-06-08)
+
+### Bug Fixes
+
+-   fixed search event persist issue ([#169](https://github.com/EightfoldAI/octuple/issues/169)) ([55c99df](https://github.com/EightfoldAI/octuple/commits/55c99dfe1aff29e6e91b1995b8c516086db061ff))
+-   handle onScrollLock cleanly, dialog to render inside parent element ([#168](https://github.com/EightfoldAI/octuple/issues/168)) ([e9a5f0e](https://github.com/EightfoldAI/octuple/commits/e9a5f0e23d2de336aa2bca64c319b20003ab8c7d))
+
 ### [1.7.2](https://github.com/EightfoldAI/octuple/compare/v1.7.1...v1.7.2) (2022-06-02)
 
 ### Bug Fixes
