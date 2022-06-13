@@ -16,6 +16,7 @@ export const RadioButton: FC<RadioButtonProps> = React.forwardRef(
             id,
             onChange,
             label,
+            classNames,
             style,
             'data-test-id': dataTestId,
         },
@@ -29,6 +30,11 @@ export const RadioButton: FC<RadioButtonProps> = React.forwardRef(
 
         const radioButtonClassNames: string = mergeClasses([
             styles.radioButton,
+        ]);
+
+        const selectorClassNames: string = mergeClasses([
+            styles.selector,
+            classNames,
         ]);
 
         const labelClassNames: string = mergeClasses([
@@ -51,7 +57,7 @@ export const RadioButton: FC<RadioButtonProps> = React.forwardRef(
 
         return (
             <div
-                className={styles.selector}
+                className={selectorClassNames}
                 data-test-id={dataTestId}
                 style={style}
             >
