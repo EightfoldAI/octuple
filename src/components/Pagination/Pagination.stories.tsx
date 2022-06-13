@@ -177,5 +177,5 @@ All_Combined.args = {
     ],
     pageSize: 100,
     pageSizes: [100, 200, 300, 400],
-    total: 1,
+    total: 400,
 };
