@@ -112,7 +112,7 @@ function Body<RecordType>({
         const columnsKey = getColumnsKey(flattenColumns);
 
         return (
-            <WrapperComponent classNames={'table-tbody'}>
+            <WrapperComponent className={'table-tbody'}>
                 {/* Measure body column width with additional hidden col */}
                 {measureColumnWidth && (
                     <MeasureRow

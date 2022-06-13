@@ -42,7 +42,7 @@ export default function renderSwitcherIcon(
         return null;
     }
 
-    const switcherCls = 'switcher-icon';
+    const switcherCls = styles.treeSwitcherIcon;
 
     const switcher =
         typeof switcherIcon === 'function'

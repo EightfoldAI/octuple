@@ -26,7 +26,6 @@ export interface BodyContextProps<RecordType = DefaultRecordType> {
     expandedRowRender: ExpandedRowRender<RecordType>;
     expandIcon: RenderExpandIcon<RecordType>;
     onTriggerExpand: TriggerEventHandler<RecordType>;
-    expandIconColumnIndex: number;
 }
 
 const BodyContext = createContext<BodyContextProps>(null);

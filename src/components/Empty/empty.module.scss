@@ -5,7 +5,7 @@
     text-align: center;
 
     .empty-image {
-        height: 100px;
+        height: 200px;
         margin-bottom: 8px;
 
         img {
@@ -18,10 +18,19 @@
         }
     }
 
-    .empty-description {
-        font-size: $text-font-size-2;
-        line-height: $text-line-height-3;
+    .empty-title {
+        font-size: $text-font-size-5;
+        line-height: $text-line-height-6;
         text-align: center;
+    }
+
+    .empty-description {
+        color: $text-color-secondary;
+        font-size: $text-font-size-2;
+        line-height: $text-line-height-2;
+        margin: 0 auto;
+        text-align: center;
+        width: 200px;
     }
 
     .empty-footer {
@@ -32,7 +41,7 @@
         margin: 32px 0;
 
         .empty-image {
-            height: 40px;
+            height: 200px;
         }
     }
 }

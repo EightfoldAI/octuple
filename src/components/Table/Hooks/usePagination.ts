@@ -2,7 +2,7 @@ import { useState } from 'react';
 import type { PaginationProps } from '../../pagination';
 import type { TablePaginationConfig } from '../Table.types';
 
-export const DEFAULT_PAGE_SIZE = 10;
+export const DEFAULT_PAGE_SIZE: number = 10;
 
 export function getPaginationParam(
     pagination: TablePaginationConfig | boolean | undefined,
@@ -12,6 +12,7 @@ export function getPaginationParam(
         currentPage: mergedPagination.currentPage,
         pageSize: mergedPagination.pageSize,
     };
+
     const paginationObj =
         pagination && typeof pagination === 'object' ? pagination : {};
 
@@ -46,7 +47,7 @@ function extendsObject<T extends Object>(...list: T[]) {
 export default function usePagination(
     total: number,
     pagination: TablePaginationConfig | false | undefined,
-    onChange: (pageSize: number) => void
+    onChange: (currentPage: number, pageSize: number) => void
 ): [TablePaginationConfig, () => void] {
     const { total: paginationTotal = 0, ...paginationObj } =
         pagination && typeof pagination === 'object' ? pagination : {};
@@ -55,12 +56,8 @@ export default function usePagination(
         currentPage?: number;
         pageSize?: number;
     }>(() => ({
-        currentPage:
-            'defaultCurrent' in paginationObj ? paginationObj.currentPage : 1,
-        pageSize:
-            'defaultPageSize' in paginationObj
-                ? paginationObj.pageSize
-                : DEFAULT_PAGE_SIZE,
+        currentPage: paginationObj.currentPage,
+        pageSize: paginationObj.pageSize,
     }));
 
     // ============ Basic Pagination Config ============
@@ -83,29 +80,31 @@ export default function usePagination(
 
     const refreshPagination = (currentPage?: number, pageSize?: number) => {
         setInnerPagination({
-            currentPage: currentPage ?? 1,
-            pageSize: pageSize || mergedPagination.pageSize,
+            currentPage: currentPage,
+            pageSize: pageSize,
         });
     };
 
     const onInternalCurrentChange: PaginationProps['onCurrentChange'] = (
         currentPage: number
     ) => {
-        if (pagination) {
-            pagination.onCurrentChange?.(currentPage);
-        }
-        refreshPagination(currentPage);
-        onChange(currentPage || mergedPagination?.currentPage!);
+        mergedPagination.onCurrentChange?.(mergedPagination?.currentPage);
+        refreshPagination(currentPage, mergedPagination?.pageSize);
+        onChange(
+            currentPage || mergedPagination?.currentPage!,
+            mergedPagination?.pageSize
+        );
     };
 
     const onInternalSizeChange: PaginationProps['onSizeChange'] = (
         pageSize: number
     ) => {
-        if (pagination) {
-            pagination.onSizeChange?.(pageSize);
-        }
-        refreshPagination(pageSize);
-        onChange(pageSize || mergedPagination?.pageSize!);
+        mergedPagination.onSizeChange?.(mergedPagination?.pageSize);
+        refreshPagination(mergedPagination?.currentPage, pageSize);
+        onChange(
+            mergedPagination?.currentPage,
+            pageSize || mergedPagination?.pageSize!
+        );
     };
 
     if (pagination === false) {

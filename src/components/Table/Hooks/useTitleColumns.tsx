@@ -1,4 +1,4 @@
-import React from 'react';
+import { useCallback } from 'react';
 import type {
     TransformColumns,
     ColumnTitleProps,
@@ -29,7 +29,7 @@ function fillTitle<RecordType>(
 export default function useTitleColumns<RecordType>(
     columnTitleProps: ColumnTitleProps<RecordType>
 ): [TransformColumns<RecordType>] {
-    const filledColumns = React.useCallback(
+    const filledColumns = useCallback(
         (columns: ColumnsType<RecordType>) =>
             fillTitle(columns, columnTitleProps),
         [columnTitleProps]

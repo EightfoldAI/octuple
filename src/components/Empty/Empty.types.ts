@@ -2,24 +2,28 @@ import { OcBaseProps } from '../OcBase';
 
 export interface EmptyProps extends OcBaseProps<HTMLDivElement> {
     /**
-     * The empty component style.
+     * The empty component children.
      */
-    style?: React.CSSProperties;
+    children?: React.ReactNode;
     /**
-     * The empty component image style.
+     * The empty component description
      */
-    imageStyle?: React.CSSProperties;
+    description?: string;
     /**
      * The empty component image.
      * @default { DefaultEmptyImg }
      */
     image?: React.ReactNode;
     /**
-     * The empty component description
+     * The empty component image style.
      */
-    description?: string;
+    imageStyle?: React.CSSProperties;
     /**
-     * The empty component children.
+     * The empty component style.
      */
-    children?: React.ReactNode;
+    style?: React.CSSProperties;
+    /**
+     * The empty component title
+     */
+    title?: string;
 }

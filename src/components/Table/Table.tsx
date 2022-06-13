@@ -1,4 +1,11 @@
-import React, { ReactNode } from 'react';
+import React, {
+    forwardRef,
+    ReactNode,
+    useCallback,
+    useContext,
+    useMemo,
+    useRef,
+} from 'react';
 import { mergeClasses } from '../../shared/utilities';
 import omit from '../../shared/omit';
 import OcTable, { Summary } from './Internal';
@@ -64,6 +71,7 @@ function InternalTable<RecordType extends object = any>(
         filterCheckallText,
         filterSearchPlaceholderText,
         emptyText,
+        emptyTextDetails,
         selectNoneText,
         selectInvertText,
         selectionAllText,
@@ -78,34 +86,30 @@ function InternalTable<RecordType extends object = any>(
         rowClassName,
         columns,
         children,
-        childrenColumnName: legacyChildrenColumnName,
         onChange,
         getPopupContainer,
         loading,
-        expandIcon,
         expandable,
-        expandedRowRender,
-        expandIconColumnIndex,
         indentSize,
         scroll,
         sortDirections,
         showSorterTooltip = true,
     } = props;
 
-    const baseColumns = React.useMemo(
+    const baseColumns = useMemo(
         () =>
             columns ||
             (convertChildrenToColumns(children) as ColumnsType<RecordType>),
         [columns, children]
     );
-    const needResponsive = React.useMemo(
+    const needResponsive = useMemo(
         () => baseColumns.some((col: ColumnType<RecordType>) => col.responsive),
         [baseColumns]
     );
 
     const screens = useBreakpoint(needResponsive);
 
-    const mergedColumns = React.useMemo(() => {
+    const mergedColumns = useMemo(() => {
         const matched = new Set(
             Object.keys(screens).filter((m: Breakpoint) => screens[m])
         );
@@ -123,24 +127,23 @@ function InternalTable<RecordType extends object = any>(
         'columns',
     ]) as TableProps<RecordType>;
 
-    const size = React.useContext(SizeContext);
+    const size = useContext(SizeContext);
     const htmlDir: string = useCanvasDirection();
     const mergedSize = customizeSize || size;
     const rawData: readonly RecordType[] = dataSource || EMPTY_LIST;
 
     const mergedExpandable: ExpandableConfig<RecordType> = {
-        childrenColumnName: legacyChildrenColumnName,
-        expandIconColumnIndex,
         ...expandable,
     };
+
     const { childrenColumnName = 'children' } = mergedExpandable;
 
-    const expandType: ExpandType = React.useMemo<ExpandType>(() => {
+    const expandType: ExpandType = useMemo<ExpandType>(() => {
         if (rawData.some((item) => (item as any)?.[childrenColumnName])) {
             return 'nest';
         }
 
-        if (expandedRowRender || (expandable && expandable.expandedRowRender)) {
+        if (expandable?.expandedRowRender) {
             return 'row';
         }
 
@@ -148,11 +151,11 @@ function InternalTable<RecordType extends object = any>(
     }, [rawData]);
 
     const internalRefs = {
-        body: React.useRef<HTMLDivElement>(),
+        body: useRef<HTMLDivElement>(),
     };
 
     // ============================ RowKey ============================
-    const getRowKey = React.useMemo<GetRowKey<RecordType>>(() => {
+    const getRowKey = useMemo<GetRowKey<RecordType>>(() => {
         if (typeof rowKey === 'function') {
             return rowKey;
         }
@@ -183,13 +186,15 @@ function InternalTable<RecordType extends object = any>(
             changeEventInfo.resetPagination!();
 
             // Reset event param
-            if (changeInfo.pagination!.current) {
-                changeInfo.pagination!.current = 1;
+            if (changeInfo.pagination!.currentPage) {
+                changeInfo.pagination!.currentPage = 1;
             }
 
             // Trigger pagination events
             if (pagination) {
-                pagination.onCurrentChange?.(changeInfo.pagination!.current!);
+                pagination.onCurrentChange?.(
+                    changeInfo.pagination!.currentPage!
+                );
                 pagination.onSizeChange?.(changeInfo.pagination!.pageSize!);
             }
         }
@@ -246,7 +251,7 @@ function InternalTable<RecordType extends object = any>(
             triggerDescText,
             showSorterTooltip,
         });
-    const sortedData = React.useMemo(
+    const sortedData = useMemo(
         () => getSortData(rawData, sortStates, childrenColumnName),
         [rawData, sortStates]
     );
@@ -286,7 +291,7 @@ function InternalTable<RecordType extends object = any>(
     changeEventInfo.filterStates = filterStates;
 
     // ============================ Column ============================
-    const columnTitleProps = React.useMemo(
+    const columnTitleProps = useMemo(
         () => ({
             ...sorterTitleProps,
         }),
@@ -295,11 +300,12 @@ function InternalTable<RecordType extends object = any>(
     const [transformTitleColumns] = useTitleColumns(columnTitleProps);
 
     // ========================== Pagination ==========================
-    const onPaginationChange = (pageSize: number) => {
+    const onPaginationChange = (currentPage: number, pageSize: number) => {
         triggerOnChange(
             {
                 pagination: {
                     ...changeEventInfo.pagination,
+                    currentPage,
                     pageSize,
                 },
             },
@@ -321,7 +327,7 @@ function InternalTable<RecordType extends object = any>(
     changeEventInfo.resetPagination = resetPagination;
 
     // ============================= Data =============================
-    const pageData = React.useMemo<RecordType[]>(() => {
+    const pageData = useMemo<RecordType[]>(() => {
         if (pagination === false || !mergedPagination.pageSize) {
             return mergedData;
         }
@@ -350,9 +356,9 @@ function InternalTable<RecordType extends object = any>(
     }, [
         !!pagination,
         mergedData,
-        mergedPagination && mergedPagination.currentPage,
-        mergedPagination && mergedPagination.pageSize,
-        mergedPagination && mergedPagination.total,
+        mergedPagination?.currentPage,
+        mergedPagination?.pageSize,
+        mergedPagination?.total,
     ]);
 
     // ========================== Selections ==========================
@@ -360,6 +366,7 @@ function InternalTable<RecordType extends object = any>(
         useSelection<RecordType>(rowSelection, {
             data: mergedData,
             emptyText,
+            emptyTextDetails,
             pageData,
             getRowKey,
             getRecordByKey,
@@ -397,24 +404,7 @@ function InternalTable<RecordType extends object = any>(
 
     // ========================== Expandable ==========================
 
-    (mergedExpandable as any).__PARENT_RENDER_ICON__ =
-        mergedExpandable.expandIcon;
-
-    // Customize expandable icon
-    mergedExpandable.expandIcon =
-        mergedExpandable.expandIcon ||
-        expandIcon ||
-        renderExpandIcon(expandText, collapseText);
-
-    // Adjust expand icon index, no overwrite expandIconColumnIndex if set.
-    if (
-        expandType === 'nest' &&
-        mergedExpandable.expandIconColumnIndex === undefined
-    ) {
-        mergedExpandable.expandIconColumnIndex = rowSelection ? 1 : 0;
-    } else if (mergedExpandable.expandIconColumnIndex! > 0 && rowSelection) {
-        mergedExpandable.expandIconColumnIndex! -= 1;
-    }
+    mergedExpandable.expandIcon = renderExpandIcon(expandText, collapseText);
 
     // Indent size
     if (typeof mergedExpandable.indentSize !== 'number') {
@@ -423,7 +413,7 @@ function InternalTable<RecordType extends object = any>(
     }
 
     // ============================ Render ============================
-    const transformColumns = React.useCallback(
+    const transformColumns = useCallback(
         (innerColumns: ColumnsType<RecordType>): ColumnsType<RecordType> =>
             transformTitleColumns(
                 transformSelectionColumns(
@@ -499,8 +489,20 @@ function InternalTable<RecordType extends object = any>(
         return <Spinner size={SpinnerSize.Large} />;
     }
 
-    const renderEmpty = (): ReactNode => {
-        return <Empty />;
+    const renderEmpty = (
+        emptyText: ReactNode,
+        emptyTextDetails?: string
+    ): ReactNode => {
+        if (typeof emptyText === 'string') {
+            if (emptyTextDetails) {
+                return (
+                    <Empty title={emptyText} description={emptyTextDetails} />
+                );
+            }
+            return <Empty title={emptyText} />;
+        } else {
+            return emptyText;
+        }
     };
 
     const wrapperClassNames: string = mergeClasses([
@@ -526,7 +528,7 @@ function InternalTable<RecordType extends object = any>(
                 data={pageData}
                 rowKey={getRowKey}
                 rowClassName={internalRowClassName}
-                emptyText={emptyText || renderEmpty()}
+                emptyText={renderEmpty(emptyText, emptyTextDetails)}
                 transformColumns={
                     transformColumns as OcTableProps<RecordType>['transformColumns']
                 }
@@ -536,7 +538,7 @@ function InternalTable<RecordType extends object = any>(
     );
 }
 
-const ForwardTable = React.forwardRef(InternalTable) as <
+const ForwardTable = forwardRef(InternalTable) as <
     RecordType extends object = any
 >(
     props: React.PropsWithChildren<TableProps<RecordType>> & {
@@ -566,7 +568,9 @@ Table.defaultProps = {
     filterEmptyText: 'No filters',
     filterCheckallText: 'Select all items',
     filterSearchPlaceholderText: 'Search in filters',
-    emptyText: 'No data',
+    emptyText: 'Short Message Here',
+    emptyTextDetails:
+        'More detail on how might the user be able to get around this',
     selectInvertText: 'Invert current page',
     selectNoneText: 'Clear all data',
     selectionAllText: 'Select all data',

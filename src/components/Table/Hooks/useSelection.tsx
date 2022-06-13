@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useState, useCallback, useMemo } from 'react';
 import { convertDataToEntities } from '../../Tree/Internal/utils/treeUtil';
 import { conductCheck } from '../../Tree/Internal/utils/conductUtil';
@@ -44,6 +44,7 @@ interface UseSelectionConfig<RecordType> {
     expandType: ExpandType;
     childrenColumnName: string;
     emptyText: React.ReactNode | (() => React.ReactNode);
+    emptyTextDetails?: string;
     selectionAllText: string;
     selectInvertText: string;
     selectNoneText: string;
@@ -93,10 +94,6 @@ export default function useSelection<RecordType>(
         getCheckboxProps,
         onChange: onSelectionChange,
         onSelect,
-        onSelectAll,
-        onSelectInvert,
-        onSelectNone,
-        onSelectMultiple,
         columnWidth: selectionColWidth,
         type: selectionType,
         selections,
@@ -128,7 +125,7 @@ export default function useSelection<RecordType>(
     );
 
     // ======================== Caches ========================
-    const preserveRecordsRef = React.useRef(new Map<Key, RecordType>());
+    const preserveRecordsRef = useRef(new Map<Key, RecordType>());
 
     const updatePreserveRecordsCache = useCallback(
         (keys: Key[]) => {
@@ -152,7 +149,7 @@ export default function useSelection<RecordType>(
     );
 
     // Update cache with selectedKeys
-    React.useEffect(() => {
+    useEffect(() => {
         updatePreserveRecordsCache(mergedSelectedKeys);
     }, [mergedSelectedKeys]);
 
@@ -222,7 +219,7 @@ export default function useSelection<RecordType>(
     const [lastSelectedKey, setLastSelectedKey] = useState<Key | null>(null);
 
     // Reset if rowSelection reset
-    React.useEffect(() => {
+    useEffect(() => {
         if (!rowSelection) {
             setMergedSelectedKeys(EMPTY_LIST);
         }
@@ -333,10 +330,6 @@ export default function useSelection<RecordType>(
                         });
 
                         const keys = Array.from(keySet);
-                        if (onSelectInvert) {
-                            onSelectInvert(keys);
-                        }
-
                         setSelectedKeys(keys);
                     },
                 };
@@ -346,7 +339,6 @@ export default function useSelection<RecordType>(
                     key: 'none',
                     value: selectNoneText,
                     onSelect() {
-                        onSelectNone?.();
                         setSelectedKeys(
                             Array.from(derivedSelectedKeySet).filter((key) => {
                                 const checkProps = checkboxPropsMap.get(key);
@@ -363,7 +355,6 @@ export default function useSelection<RecordType>(
         derivedSelectedKeySet,
         pageData,
         getRowKey,
-        onSelectInvert,
         setSelectedKeys,
     ]);
 
@@ -405,13 +396,6 @@ export default function useSelection<RecordType>(
                 }
 
                 const keys = Array.from(keySet);
-
-                onSelectAll?.(
-                    !checkedCurrentAll,
-                    keys.map((k) => getRecordByKey(k)),
-                    changeKeys.map((k) => getRecordByKey(k))
-                );
-
                 setSelectedKeys(keys);
             };
 
@@ -506,6 +490,7 @@ export default function useSelection<RecordType>(
                             <RadioButton
                                 {...checkboxPropsMap.get(key)}
                                 checked={checked}
+                                name={'oc-table-radio-group'}
                                 classNames={styles.selectionRadiobutton}
                                 onClick={(e) => e.stopPropagation()}
                                 onChange={(event) => {
@@ -596,16 +581,6 @@ export default function useSelection<RecordType>(
                                         }
 
                                         const keys = Array.from(keySet);
-                                        onSelectMultiple?.(
-                                            !checked,
-                                            keys.map((recordKey) =>
-                                                getRecordByKey(recordKey)
-                                            ),
-                                            changedKeys.map((recordKey) =>
-                                                getRecordByKey(recordKey)
-                                            )
-                                        );
-
                                         setSelectedKeys(keys);
                                     } else {
                                         // Single record selected
@@ -771,7 +746,6 @@ export default function useSelection<RecordType>(
             expandType,
             lastSelectedKey,
             checkboxPropsMap,
-            onSelectMultiple,
             triggerSingleSelection,
             isCheckboxDisabled,
         ]

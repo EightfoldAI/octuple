@@ -1,3 +1,7 @@
+$border-width: 1px;
+$border-color: var(--grey-color-20);
+$border: $border-width solid $border-color;
+
 @mixin clearfix() {
     &::before {
         display: table;
@@ -38,4 +42,10 @@
     &:active {
         color: var(--primary-color-80);
     }
+}
+
+@mixin table-border() {
+    border: $table-border;
+    border-radius: $table-border-radius;
+    box-shadow: $table-box-shadow;
 }

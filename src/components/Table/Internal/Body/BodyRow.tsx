@@ -39,7 +39,6 @@ function BodyRow<RecordType extends { children?: readonly RecordType[] }>(
         indentSize,
         expandIcon,
         expandedRowRender,
-        expandIconColumnIndex,
     } = useContext(BodyContext);
     const [expandRended, setExpandRended] = useState(false);
 
@@ -96,7 +95,7 @@ function BodyRow<RecordType extends { children?: readonly RecordType[] }>(
         <RowComponent
             {...additionalProps}
             data-row-key={rowKey}
-            classNames={mergeClasses([
+            className={mergeClasses([
                 classNames,
                 'table-row',
                 `table-row-level-${indent}`,
@@ -121,10 +120,7 @@ function BodyRow<RecordType extends { children?: readonly RecordType[] }>(
 
                 // ============= Used for nest expandable =============
                 let appendCellNode: React.ReactNode;
-                if (
-                    colIndex === (expandIconColumnIndex || 0) &&
-                    nestExpandable
-                ) {
+                if (colIndex === 0 && nestExpandable) {
                     appendCellNode = (
                         <>
                             <span

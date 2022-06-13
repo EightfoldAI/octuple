@@ -62,7 +62,7 @@ describe('Util', () => {
 
     it('convertTreeToData - case2', () => {
         const treeData = [
-            { key: 'rc', title: 'RC' },
+            { key: 'oc', title: 'OC' },
             {
                 key: 'tree',
                 title: 'Tree',

@@ -1,0 +1,1096 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TreeNode Props className 1`] = `
+<div
+  class="tree"
+  role="tree"
+>
+  <div>
+    <input
+      aria-label="for screen reader"
+      style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0; border: 0px; padding: 0px; margin: 0px;"
+      tabindex="0"
+      value=""
+    />
+  </div>
+  <div
+    aria-hidden="true"
+    class="treeTreenode"
+    style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden;"
+  >
+    <div
+      class="treeIndent"
+    >
+      <div
+        class="treeIndentUnit"
+      />
+    </div>
+  </div>
+  <div
+    class=""
+    style="position: relative;"
+  >
+    <div
+      class="virtual-list-holder"
+    >
+      <div>
+        <div
+          class="virtual-list-holder-inner"
+          style="display: flex; flex-direction: column;"
+        >
+          <div
+            aria-grabbed="false"
+            class="treeTreenode tree-treenode-switcher-open"
+            draggable="false"
+          >
+            <span
+              aria-hidden="true"
+              class="treeIndent"
+            />
+            <span
+              class="treeSwitcher tree-switcher_open"
+            />
+            <span
+              class="treeNodeContentWrapper treeNodeContentWrapper-open"
+              title="---"
+            >
+              <span
+                class="treeIconEle tree-icon__open"
+              />
+              <span
+                class="treeTitle"
+              >
+                ---
+              </span>
+            </span>
+          </div>
+          <div
+            aria-grabbed="false"
+            class="tree-node-cls treeTreenode tree-treenode-switcher-open"
+            draggable="false"
+          >
+            <span
+              aria-hidden="true"
+              class="treeIndent"
+            >
+              <span
+                class="treeIndentUnit treeIndentUnit-start"
+              />
+            </span>
+            <span
+              class="treeSwitcher tree-switcher_open"
+            />
+            <span
+              class="treeNodeContentWrapper treeNodeContentWrapper-open"
+              title="---"
+            >
+              <span
+                class="treeIconEle tree-icon__open"
+              />
+              <span
+                class="treeTitle"
+              >
+                ---
+              </span>
+            </span>
+          </div>
+          <div
+            aria-grabbed="false"
+            class="treeTreenode tree-treenode-switcher-open tree-treenode-leaf-last"
+            draggable="false"
+          >
+            <span
+              aria-hidden="true"
+              class="treeIndent"
+            >
+              <span
+                class="treeIndentUnit treeIndentUnit-start"
+              />
+              <span
+                class="treeIndentUnit treeIndentUnit-start"
+              />
+            </span>
+            <span
+              class="treeSwitcher treeSwitcherNoop"
+            />
+            <span
+              class="treeNodeContentWrapper treeNodeContentWrapper-normal"
+              title="---"
+            >
+              <span
+                class="treeIconEle tree-icon__docu"
+              />
+              <span
+                class="treeTitle"
+              >
+                ---
+              </span>
+            </span>
+          </div>
+          <div
+            aria-grabbed="false"
+            class="treeTreenode tree-treenode-switcher-open tree-treenode-leaf-last"
+            draggable="false"
+          >
+            <span
+              aria-hidden="true"
+              class="treeIndent"
+            >
+              <span
+                class="treeIndentUnit treeIndentUnit-start"
+              />
+            </span>
+            <span
+              class="treeSwitcher treeSwitcherNoop"
+            />
+            <span
+              class="treeNodeContentWrapper treeNodeContentWrapper-normal"
+              title="---"
+            >
+              <span
+                class="treeIconEle tree-icon__docu"
+              />
+              <span
+                class="treeTitle"
+              >
+                ---
+              </span>
+            </span>
+          </div>
+          <div
+            aria-grabbed="false"
+            class="treeTreenode tree-treenode-switcher-open tree-treenode-leaf-last"
+            draggable="false"
+          >
+            <span
+              aria-hidden="true"
+              class="treeIndent"
+            />
+            <span
+              class="treeSwitcher treeSwitcherNoop"
+            />
+            <span
+              class="treeNodeContentWrapper treeNodeContentWrapper-normal"
+              title="---"
+            >
+              <span
+                class="treeIconEle tree-icon__docu"
+              />
+              <span
+                class="treeTitle"
+              >
+                ---
+              </span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TreeNode Props customize icon component 1`] = `
+<div
+  class="tree"
+  role="tree"
+>
+  <div>
+    <input
+      aria-label="for screen reader"
+      style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0; border: 0px; padding: 0px; margin: 0px;"
+      tabindex="0"
+      value=""
+    />
+  </div>
+  <div
+    aria-hidden="true"
+    class="treeTreenode"
+    style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden;"
+  >
+    <div
+      class="treeIndent"
+    >
+      <div
+        class="treeIndentUnit"
+      />
+    </div>
+  </div>
+  <div
+    class=""
+    style="position: relative;"
+  >
+    <div
+      class="virtual-list-holder"
+    >
+      <div>
+        <div
+          class="virtual-list-holder-inner"
+          style="display: flex; flex-direction: column;"
+        >
+          <div
+            aria-grabbed="false"
+            class="treeTreenode tree-treenode-switcher-open tree-treenode-leaf-last"
+            draggable="false"
+          >
+            <span
+              aria-hidden="true"
+              class="treeIndent"
+            />
+            <span
+              class="treeSwitcher treeSwitcherNoop"
+            />
+            <span
+              class="treeNodeContentWrapper treeNodeContentWrapper-normal"
+              title="---"
+            >
+              <span
+                class="treeIconEle treeIconCustomize"
+              >
+                <span
+                  class="cust-icon"
+                />
+              </span>
+              <span
+                class="treeTitle"
+              >
+                ---
+              </span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TreeNode Props customize icon element 1`] = `
+<div
+  class="tree"
+  role="tree"
+>
+  <div>
+    <input
+      aria-label="for screen reader"
+      style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0; border: 0px; padding: 0px; margin: 0px;"
+      tabindex="0"
+      value=""
+    />
+  </div>
+  <div
+    aria-hidden="true"
+    class="treeTreenode"
+    style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden;"
+  >
+    <div
+      class="treeIndent"
+    >
+      <div
+        class="treeIndentUnit"
+      />
+    </div>
+  </div>
+  <div
+    class=""
+    style="position: relative;"
+  >
+    <div
+      class="virtual-list-holder"
+    >
+      <div>
+        <div
+          class="virtual-list-holder-inner"
+          style="display: flex; flex-direction: column;"
+        >
+          <div
+            aria-grabbed="false"
+            class="treeTreenode tree-treenode-switcher-open tree-treenode-leaf-last"
+            draggable="false"
+          >
+            <span
+              aria-hidden="true"
+              class="treeIndent"
+            />
+            <span
+              class="treeSwitcher treeSwitcherNoop"
+            />
+            <span
+              class="treeNodeContentWrapper treeNodeContentWrapper-normal"
+              title="---"
+            >
+              <span
+                class="treeIconEle treeIconCustomize"
+              >
+                <span
+                  class="cust-icon"
+                />
+              </span>
+              <span
+                class="treeTitle"
+              >
+                ---
+              </span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TreeNode Props customize icon hide icon 1`] = `
+<div
+  class="tree"
+  role="tree"
+>
+  <div>
+    <input
+      aria-label="for screen reader"
+      style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0; border: 0px; padding: 0px; margin: 0px;"
+      tabindex="0"
+      value=""
+    />
+  </div>
+  <div
+    aria-hidden="true"
+    class="treeTreenode"
+    style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden;"
+  >
+    <div
+      class="treeIndent"
+    >
+      <div
+        class="treeIndentUnit"
+      />
+    </div>
+  </div>
+  <div
+    class=""
+    style="position: relative;"
+  >
+    <div
+      class="virtual-list-holder"
+    >
+      <div>
+        <div
+          class="virtual-list-holder-inner"
+          style="display: flex; flex-direction: column;"
+        >
+          <div
+            aria-grabbed="false"
+            class="treeTreenode tree-treenode-switcher-open tree-treenode-leaf-last"
+            draggable="false"
+          >
+            <span
+              aria-hidden="true"
+              class="treeIndent"
+            />
+            <span
+              class="treeSwitcher treeSwitcherNoop"
+            />
+            <span
+              class="treeNodeContentWrapper treeNodeContentWrapper-normal"
+              title="---"
+            >
+              <span
+                class="treeTitle"
+              >
+                ---
+              </span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TreeNode Props data and aria props renders aria attributes on li 1`] = `
+<div
+  class="tree"
+  role="tree"
+>
+  <div>
+    <input
+      aria-label="for screen reader"
+      style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0; border: 0px; padding: 0px; margin: 0px;"
+      tabindex="0"
+      value=""
+    />
+  </div>
+  <div
+    aria-hidden="true"
+    class="treeTreenode"
+    style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden;"
+  >
+    <div
+      class="treeIndent"
+    >
+      <div
+        class="treeIndentUnit"
+      />
+    </div>
+  </div>
+  <div
+    class=""
+    style="position: relative;"
+  >
+    <div
+      class="virtual-list-holder"
+    >
+      <div>
+        <div
+          class="virtual-list-holder-inner"
+          style="display: flex; flex-direction: column;"
+        >
+          <div
+            aria-grabbed="false"
+            aria-label="0-0"
+            class="treeTreenode tree-treenode-switcher-open"
+            draggable="false"
+          >
+            <span
+              aria-hidden="true"
+              class="treeIndent"
+            />
+            <span
+              class="treeSwitcher tree-switcher_open"
+            />
+            <span
+              class="treeNodeContentWrapper treeNodeContentWrapper-open"
+              title="---"
+            >
+              <span
+                class="treeIconEle tree-icon__open"
+              />
+              <span
+                class="treeTitle"
+              >
+                ---
+              </span>
+            </span>
+          </div>
+          <div
+            aria-grabbed="false"
+            aria-label="0-0-0"
+            class="tree-node-cls treeTreenode tree-treenode-switcher-open"
+            draggable="false"
+          >
+            <span
+              aria-hidden="true"
+              class="treeIndent"
+            >
+              <span
+                class="treeIndentUnit treeIndentUnit-start"
+              />
+            </span>
+            <span
+              class="treeSwitcher tree-switcher_open"
+            />
+            <span
+              class="treeNodeContentWrapper treeNodeContentWrapper-open"
+              title="---"
+            >
+              <span
+                class="treeIconEle tree-icon__open"
+              />
+              <span
+                class="treeTitle"
+              >
+                ---
+              </span>
+            </span>
+          </div>
+          <div
+            aria-grabbed="false"
+            aria-label="0-0-0-0"
+            class="treeTreenode tree-treenode-switcher-open tree-treenode-leaf-last"
+            draggable="false"
+          >
+            <span
+              aria-hidden="true"
+              class="treeIndent"
+            >
+              <span
+                class="treeIndentUnit treeIndentUnit-start"
+              />
+              <span
+                class="treeIndentUnit treeIndentUnit-start"
+              />
+            </span>
+            <span
+              class="treeSwitcher treeSwitcherNoop"
+            />
+            <span
+              class="treeNodeContentWrapper treeNodeContentWrapper-normal"
+              title="---"
+            >
+              <span
+                class="treeIconEle tree-icon__docu"
+              />
+              <span
+                class="treeTitle"
+              >
+                ---
+              </span>
+            </span>
+          </div>
+          <div
+            aria-grabbed="false"
+            aria-label="0-0-1"
+            class="treeTreenode tree-treenode-switcher-open tree-treenode-leaf-last"
+            draggable="false"
+          >
+            <span
+              aria-hidden="true"
+              class="treeIndent"
+            >
+              <span
+                class="treeIndentUnit treeIndentUnit-start"
+              />
+            </span>
+            <span
+              class="treeSwitcher treeSwitcherNoop"
+            />
+            <span
+              class="treeNodeContentWrapper treeNodeContentWrapper-normal"
+              title="---"
+            >
+              <span
+                class="treeIconEle tree-icon__docu"
+              />
+              <span
+                class="treeTitle"
+              >
+                ---
+              </span>
+            </span>
+          </div>
+          <div
+            aria-grabbed="false"
+            aria-label="0-1"
+            class="treeTreenode tree-treenode-switcher-open tree-treenode-leaf-last"
+            draggable="false"
+          >
+            <span
+              aria-hidden="true"
+              class="treeIndent"
+            />
+            <span
+              class="treeSwitcher treeSwitcherNoop"
+            />
+            <span
+              class="treeNodeContentWrapper treeNodeContentWrapper-normal"
+              title="---"
+            >
+              <span
+                class="treeIconEle tree-icon__docu"
+              />
+              <span
+                class="treeTitle"
+              >
+                ---
+              </span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TreeNode Props data and aria props renders data attributes on li 1`] = `
+<div
+  class="tree"
+  role="tree"
+>
+  <div>
+    <input
+      aria-label="for screen reader"
+      style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0; border: 0px; padding: 0px; margin: 0px;"
+      tabindex="0"
+      value=""
+    />
+  </div>
+  <div
+    aria-hidden="true"
+    class="treeTreenode"
+    style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden;"
+  >
+    <div
+      class="treeIndent"
+    >
+      <div
+        class="treeIndentUnit"
+      />
+    </div>
+  </div>
+  <div
+    class=""
+    style="position: relative;"
+  >
+    <div
+      class="virtual-list-holder"
+    >
+      <div>
+        <div
+          class="virtual-list-holder-inner"
+          style="display: flex; flex-direction: column;"
+        >
+          <div
+            aria-grabbed="false"
+            class="treeTreenode tree-treenode-switcher-open"
+            data-test="0-0"
+            draggable="false"
+          >
+            <span
+              aria-hidden="true"
+              class="treeIndent"
+            />
+            <span
+              class="treeSwitcher tree-switcher_open"
+            />
+            <span
+              class="treeNodeContentWrapper treeNodeContentWrapper-open"
+              title="---"
+            >
+              <span
+                class="treeIconEle tree-icon__open"
+              />
+              <span
+                class="treeTitle"
+              >
+                ---
+              </span>
+            </span>
+          </div>
+          <div
+            aria-grabbed="false"
+            class="tree-node-cls treeTreenode tree-treenode-switcher-open"
+            data-test="0-0-0"
+            draggable="false"
+          >
+            <span
+              aria-hidden="true"
+              class="treeIndent"
+            >
+              <span
+                class="treeIndentUnit treeIndentUnit-start"
+              />
+            </span>
+            <span
+              class="treeSwitcher tree-switcher_open"
+            />
+            <span
+              class="treeNodeContentWrapper treeNodeContentWrapper-open"
+              title="---"
+            >
+              <span
+                class="treeIconEle tree-icon__open"
+              />
+              <span
+                class="treeTitle"
+              >
+                ---
+              </span>
+            </span>
+          </div>
+          <div
+            aria-grabbed="false"
+            class="treeTreenode tree-treenode-switcher-open tree-treenode-leaf-last"
+            data-test="0-0-0-0"
+            draggable="false"
+          >
+            <span
+              aria-hidden="true"
+              class="treeIndent"
+            >
+              <span
+                class="treeIndentUnit treeIndentUnit-start"
+              />
+              <span
+                class="treeIndentUnit treeIndentUnit-start"
+              />
+            </span>
+            <span
+              class="treeSwitcher treeSwitcherNoop"
+            />
+            <span
+              class="treeNodeContentWrapper treeNodeContentWrapper-normal"
+              title="---"
+            >
+              <span
+                class="treeIconEle tree-icon__docu"
+              />
+              <span
+                class="treeTitle"
+              >
+                ---
+              </span>
+            </span>
+          </div>
+          <div
+            aria-grabbed="false"
+            class="treeTreenode tree-treenode-switcher-open tree-treenode-leaf-last"
+            data-test="0-0-1"
+            draggable="false"
+          >
+            <span
+              aria-hidden="true"
+              class="treeIndent"
+            >
+              <span
+                class="treeIndentUnit treeIndentUnit-start"
+              />
+            </span>
+            <span
+              class="treeSwitcher treeSwitcherNoop"
+            />
+            <span
+              class="treeNodeContentWrapper treeNodeContentWrapper-normal"
+              title="---"
+            >
+              <span
+                class="treeIconEle tree-icon__docu"
+              />
+              <span
+                class="treeTitle"
+              >
+                ---
+              </span>
+            </span>
+          </div>
+          <div
+            aria-grabbed="false"
+            class="treeTreenode tree-treenode-switcher-open tree-treenode-leaf-last"
+            data-test="0-1"
+            draggable="false"
+          >
+            <span
+              aria-hidden="true"
+              class="treeIndent"
+            />
+            <span
+              class="treeSwitcher treeSwitcherNoop"
+            />
+            <span
+              class="treeNodeContentWrapper treeNodeContentWrapper-normal"
+              title="---"
+            >
+              <span
+                class="treeIconEle tree-icon__docu"
+              />
+              <span
+                class="treeTitle"
+              >
+                ---
+              </span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TreeNode Props isLeaf 1`] = `
+<div
+  class="tree"
+  role="tree"
+>
+  <div>
+    <input
+      aria-label="for screen reader"
+      style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0; border: 0px; padding: 0px; margin: 0px;"
+      tabindex="0"
+      value=""
+    />
+  </div>
+  <div
+    aria-hidden="true"
+    class="treeTreenode"
+    style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden;"
+  >
+    <div
+      class="treeIndent"
+    >
+      <div
+        class="treeIndentUnit"
+      />
+    </div>
+  </div>
+  <div
+    class=""
+    style="position: relative;"
+  >
+    <div
+      class="virtual-list-holder"
+    >
+      <div>
+        <div
+          class="virtual-list-holder-inner"
+          style="display: flex; flex-direction: column;"
+        >
+          <div
+            aria-grabbed="false"
+            class="treeTreenode tree-treenode-leaf-last"
+            draggable="false"
+          >
+            <span
+              aria-hidden="true"
+              class="treeIndent"
+            />
+            <span
+              class="treeSwitcher treeSwitcherNoop"
+            />
+            <span
+              class="treeNodeContentWrapper treeNodeContentWrapper-normal"
+              title="---"
+            >
+              <span
+                class="treeTitle"
+              >
+                ---
+              </span>
+            </span>
+          </div>
+          <div
+            aria-grabbed="false"
+            class="treeTreenode tree-treenode-leaf-last"
+            draggable="false"
+          >
+            <span
+              aria-hidden="true"
+              class="treeIndent"
+            >
+              <span
+                class="treeIndentUnit treeIndentUnit-start treeIndentUnit-end"
+              />
+            </span>
+            <span
+              class="treeSwitcher treeSwitcherNoop"
+            />
+            <span
+              class="treeNodeContentWrapper treeNodeContentWrapper-normal"
+              title="---"
+            >
+              <span
+                class="treeTitle"
+              >
+                ---
+              </span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TreeNode Props isLeaf 2`] = `
+<div
+  class="tree"
+  role="tree"
+>
+  <div>
+    <input
+      aria-label="for screen reader"
+      style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0; border: 0px; padding: 0px; margin: 0px;"
+      tabindex="0"
+      value=""
+    />
+  </div>
+  <div
+    aria-hidden="true"
+    class="treeTreenode"
+    style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden;"
+  >
+    <div
+      class="treeIndent"
+    >
+      <div
+        class="treeIndentUnit"
+      />
+    </div>
+  </div>
+  <div
+    class=""
+    style="position: relative;"
+  >
+    <div
+      class="virtual-list-holder"
+    >
+      <div>
+        <div
+          class="virtual-list-holder-inner"
+          style="display: flex; flex-direction: column;"
+        >
+          <div
+            aria-grabbed="false"
+            class="treeTreenode tree-treenode-leaf-last"
+            draggable="false"
+          >
+            <span
+              aria-hidden="true"
+              class="treeIndent"
+            />
+            <span
+              class="treeSwitcher treeSwitcherNoop"
+            />
+            <span
+              class="treeNodeContentWrapper treeNodeContentWrapper-normal"
+              title="---"
+            >
+              <span
+                class="treeIconEle tree-icon__docu"
+              />
+              <span
+                class="treeTitle"
+              >
+                ---
+              </span>
+            </span>
+          </div>
+          <div
+            aria-grabbed="false"
+            class="treeTreenode tree-treenode-leaf-last"
+            draggable="false"
+          >
+            <span
+              aria-hidden="true"
+              class="treeIndent"
+            >
+              <span
+                class="treeIndentUnit treeIndentUnit-start treeIndentUnit-end"
+              />
+            </span>
+            <span
+              class="treeSwitcher treeSwitcherNoop"
+            />
+            <span
+              class="treeNodeContentWrapper treeNodeContentWrapper-normal"
+              title="---"
+            >
+              <span
+                class="treeIconEle tree-icon__docu"
+              />
+              <span
+                class="treeTitle"
+              >
+                ---
+              </span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TreeNode Props isLeaf 3`] = `
+<div
+  class="tree"
+  role="tree"
+>
+  <div>
+    <input
+      aria-label="for screen reader"
+      style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0; border: 0px; padding: 0px; margin: 0px;"
+      tabindex="0"
+      value=""
+    />
+  </div>
+  <div
+    aria-hidden="true"
+    class="treeTreenode"
+    style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden;"
+  >
+    <div
+      class="treeIndent"
+    >
+      <div
+        class="treeIndentUnit"
+      />
+    </div>
+  </div>
+  <div
+    class=""
+    style="position: relative;"
+  >
+    <div
+      class="virtual-list-holder"
+    >
+      <div>
+        <div
+          class="virtual-list-holder-inner"
+          style="display: flex; flex-direction: column;"
+        >
+          <div
+            aria-grabbed="false"
+            class="treeTreenode tree-treenode-switcher-open tree-treenode-leaf-last"
+            draggable="false"
+          >
+            <span
+              aria-hidden="true"
+              class="treeIndent"
+            />
+            <span
+              class="treeSwitcher tree-switcher_open"
+            />
+            <span
+              class="treeNodeContentWrapper treeNodeContentWrapper-open"
+              title="---"
+            >
+              <span
+                class="treeIconEle tree-icon__open"
+              />
+              <span
+                class="treeTitle"
+              >
+                ---
+              </span>
+            </span>
+          </div>
+          <div
+            aria-grabbed="false"
+            class="treeTreenode tree-treenode-switcher-open tree-treenode-leaf-last"
+            draggable="false"
+          >
+            <span
+              aria-hidden="true"
+              class="treeIndent"
+            >
+              <span
+                class="treeIndentUnit treeIndentUnit-start treeIndentUnit-end"
+              />
+            </span>
+            <span
+              class="treeSwitcher tree-switcher_open"
+            />
+            <span
+              class="treeNodeContentWrapper treeNodeContentWrapper-open"
+              title="---"
+            >
+              <span
+                class="treeIconEle tree-icon__open"
+              />
+              <span
+                class="treeTitle"
+              >
+                ---
+              </span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

@@ -1,5 +1,3 @@
-@import './size';
-@import './bordered';
 @import './mixins';
 
 $table-header-icon-color: #bfbfbf;
@@ -7,7 +5,6 @@ $table-header-icon-color-hover: darken($table-header-icon-color, 10%);
 $table-sticky-zindex: 3;
 $table-sticky-scroll-bar-active-bg: fade($table-sticky-scroll-bar-bg, 80%);
 $table-filter-dropdown-max-height: 264px;
-$line-height-base: 1.5715;
 $shadow-color: rgba(0, 0, 0, 0.15);
 
 .table-wrapper {
@@ -21,20 +18,26 @@ $shadow-color: rgba(0, 0, 0, 0.15);
     position: relative;
     font-size: $table-font-size;
     background: $table-bg;
-    border-radius: $table-border-radius-base;
 
     table {
         width: 100%;
         text-align: left;
-        border-radius: $table-border-radius-base $table-border-radius-base 0 0;
         border-collapse: separate;
         border-spacing: 0;
     }
 
-    &-thead > tr > th,
-    &-tbody > tr > td,
-    tfoot > tr > th,
-    tfoot > tr > td {
+    &-thead tr {
+        &:first-of-type {
+            th {
+                font-size: $table-header-font-size;
+            }
+        }
+    }
+
+    &-thead tr th,
+    &-tbody tr td,
+    tfoot tr th,
+    tfoot tr td {
         position: relative;
         padding: $table-padding-vertical $table-padding-horizontal;
         overflow-wrap: break-word;
@@ -65,32 +68,34 @@ $shadow-color: rgba(0, 0, 0, 0.15);
     }
 
     &-title {
+        background: $table-header-bg;
+        color: $table-header-color;
+        font-size: $text-font-size-5;
+        line-height: $text-line-height-4;
         padding: $table-padding-vertical $table-padding-horizontal;
     }
 
     &-footer {
-        padding: $table-padding-vertical $table-padding-horizontal;
-        color: $table-footer-color;
         background: $table-footer-bg;
+        color: $table-footer-color;
+        padding: $table-padding-vertical $table-padding-horizontal;
     }
 
     &-thead {
-        > tr {
-            > th {
+        tr {
+            th {
                 position: relative;
                 color: $table-header-color;
                 font-weight: 500;
                 text-align: left;
                 background: $table-header-bg;
-                border-bottom: $table-border-width-base $table-border-style-base
-                    $table-border-color;
                 transition: background 0.3s ease;
 
                 &[colspan]:not([colspan='1']) {
                     text-align: center;
                 }
 
-                &:not(:last-child):not(.table-selection-column):not(.table-row-expand-icon-cell):not([colspan])::before {
+                &:not(:last-child):not(.table-selection-column):not(.table-row-expand-icon-cell):not([colspan]):before {
                     position: absolute;
                     top: 50%;
                     right: 0;
@@ -104,7 +109,7 @@ $shadow-color: rgba(0, 0, 0, 0.15);
             }
         }
 
-        > tr:not(:last-child) > th {
+        tr:not(:last-child) > th {
             &[colspan] {
                 border-bottom: 0;
             }
@@ -112,15 +117,12 @@ $shadow-color: rgba(0, 0, 0, 0.15);
     }
 
     &-tbody {
-        > tr {
-            > td {
-                border-bottom: $table-border-width-base $table-border-style-base
-                    $table-border-color;
+        tr {
+            td {
                 transition: background 0.3s;
 
-                // ========================= Nest Table ===========================
-                > .table-wrapper:only-child,
-                > .table-expanded-row-fixed > .table-wrapper:only-child {
+                .table-wrapper:only-child,
+                .table-expanded-row-fixed > .table-wrapper:only-child {
                     .table {
                         margin: -$table-padding-vertical -$table-padding-horizontal -$table-padding-vertical
                             (
@@ -140,19 +142,19 @@ $shadow-color: rgba(0, 0, 0, 0.15);
                 }
             }
 
-            &.table-row:hover > td,
-            > td.table-cell-row-hover {
+            &.table-row:hover td,
+            td.table-cell-row-hover {
                 background: $table-row-hover-bg;
             }
 
             &.table-row-selected {
-                > td {
+                td {
                     background: $table-selected-row-bg;
                     border-color: rgba(0, 0, 0, 0.03);
                 }
 
                 &:hover {
-                    > td {
+                    td {
                         background: $table-selected-row-hover-bg;
                     }
                 }
@@ -161,18 +163,18 @@ $shadow-color: rgba(0, 0, 0, 0.15);
     }
 
     &-summary {
+        box-shadow: 0 -1px $table-border-color;
         position: relative;
         z-index: 2;
-        background: $table-bg;
 
         div {
-            box-shadow: 0 -$table-border-width-base 0 $table-border-color;
+            box-shadow: 0 -$table-border-width 0 $table-border-color;
         }
 
-        > tr {
-            > th,
-            > td {
-                border-bottom: $table-border-width-base $table-border-style-base
+        tr {
+            th,
+            td {
+                border-bottom: $table-border-width $table-border-style
                     $table-border-color;
             }
         }
@@ -184,7 +186,7 @@ $shadow-color: rgba(0, 0, 0, 0.15);
         margin: 16px 0;
         row-gap: $space-xs;
 
-        > * {
+        * {
             flex: none;
         }
 
@@ -209,7 +211,7 @@ $shadow-color: rgba(0, 0, 0, 0.15);
         &:hover {
             background: $table-header-sort-active-bg;
 
-            &::before {
+            &:before {
                 background-color: transparent !important;
             }
         }
@@ -227,7 +229,7 @@ $shadow-color: rgba(0, 0, 0, 0.15);
     &-thead th.table-column-sort {
         background: $table-header-sort-bg;
 
-        &::before {
+        &:before {
             background-color: transparent !important;
         }
     }
@@ -250,7 +252,7 @@ $shadow-color: rgba(0, 0, 0, 0.15);
         align-items: center;
         justify-content: space-between;
 
-        &::after {
+        &:after {
             position: absolute;
             top: 0;
             right: 0;
@@ -263,7 +265,7 @@ $shadow-color: rgba(0, 0, 0, 0.15);
     }
 
     &-column-sorter {
-        margin-left: 4px;
+        margin-left: 8px;
         color: $table-header-icon-color;
         font-size: 0;
         transition: color 0.3s;
@@ -276,7 +278,7 @@ $shadow-color: rgba(0, 0, 0, 0.15);
 
         &-up,
         &-down {
-            font-size: 11px;
+            font-size: 14px;
 
             &.active {
                 color: var(--primary-color);
@@ -305,7 +307,7 @@ $shadow-color: rgba(0, 0, 0, 0.15);
         padding: 0 4px;
         color: $table-header-icon-color;
         font-size: $table-font-size-sm;
-        border-radius: $table-border-radius-base;
+        border-radius: $table-border-radius;
         cursor: pointer;
         transition: all 0.3s;
 
@@ -320,29 +322,6 @@ $shadow-color: rgba(0, 0, 0, 0.15);
     }
 
     &-filter-dropdown {
-        @include reset-component();
-
-        min-width: 120px;
-        background-color: $table-filter-dropdown-bg;
-        border-radius: $table-border-radius-base;
-        box-shadow: $table-box-shadow-base;
-
-        .dropdown-menu {
-            max-height: $table-filter-dropdown-max-height;
-            overflow-x: hidden;
-            border: 0;
-            box-shadow: none;
-
-            &:empty::after {
-                display: block;
-                padding: 8px 0;
-                opacity: $disabled-alpha-value;
-                font-size: $table-font-size-sm;
-                text-align: center;
-                content: 'Not Found';
-            }
-        }
-
         &-tree {
             padding: 8px 8px 0;
 
@@ -360,8 +339,8 @@ $shadow-color: rgba(0, 0, 0, 0.15);
 
         &-search {
             padding: 8px;
-            border-bottom: $table-border-width-base $table-border-color
-                $table-border-style-base;
+            border-bottom: $table-border-width $table-border-color
+                $table-border-style;
 
             &-input {
                 input {
@@ -398,7 +377,7 @@ $shadow-color: rgba(0, 0, 0, 0.15);
             padding: 7px 8px;
             overflow: hidden;
             background-color: $table-filter-btns-bg;
-            border-top: $table-border-width-base $table-border-style-base
+            border-top: $table-border-width $table-border-style
                 $table-border-color;
         }
     }
@@ -431,14 +410,14 @@ $shadow-color: rgba(0, 0, 0, 0.15);
     }
 
     table tr th {
-        &.table-selection-column::after {
+        &.table-selection-column:after {
             background-color: transparent !important;
         }
     }
 
     .selection-checkbox,
     .selection-radiobutton {
-        margin: 0 $space-m;
+        margin: 0 16px;
         label {
             span {
                 margin-left: 0;
@@ -472,11 +451,13 @@ $shadow-color: rgba(0, 0, 0, 0.15);
     }
 
     &-expand-icon-col {
-        width: 48px;
+        width: 84px;
     }
 
     &-row-expand-icon-cell {
-        text-align: center;
+        align-items: center;
+        display: flex;
+        justify-content: center;
     }
 
     &-row-indent {
@@ -486,74 +467,65 @@ $shadow-color: rgba(0, 0, 0, 0.15);
 
     &-row-expand-icon {
         @include operation-unit();
-        $expand-icon-size: ceil(
-                (($table-font-size-sm * 1.4 - $table-border-width-base * 3) / 2)
-            ) * 2 + $table-border-width-base * 3;
 
         position: relative;
         display: inline-flex;
         float: left;
         box-sizing: border-box;
-        width: $expand-icon-size;
-        height: $expand-icon-size;
+        width: 18px;
+        height: 18px;
         padding: 0;
+        margin: 0 16px;
         color: inherit;
-        line-height: ceil(
-                (($table-font-size-sm * 1.4 - $table-border-width-base * 3) / 2)
-            ) * 2 + $table-border-width-base * 3;
+        line-height: 18px;
         background: $table-expand-icon-bg;
-        border: $table-border-width-base $table-border-style-base
-            $table-border-color;
-        border-radius: $table-border-radius-base;
+        border: 2px $table-border-style var(--grey-color-70);
+        border-radius: 4px;
         outline: none;
-        transform: scale((unit(22) / unit($expand-icon-size)));
+        transform: scale((unit(22) / unit(18)));
         transition: all 0.3s;
         user-select: none;
 
         &:focus,
         &:hover,
         &:active {
-            border-color: currentcolor;
+            border-color: var(--primary-color);
         }
 
-        &::before,
-        &::after {
+        &:before,
+        &:after {
             position: absolute;
             background: currentcolor;
             transition: transform 0.3s ease-out;
             content: '';
         }
 
-        &::before {
-            top: ceil(
-                (($table-font-size-sm * 1.4 - $table-border-width-base * 3) / 2)
-            );
+        &:before {
+            top: 6px;
             right: 3px;
             left: 3px;
-            height: $table-border-width-base;
+            height: 2px;
         }
 
-        &::after {
+        &:after {
             top: 3px;
             bottom: 3px;
-            left: ceil(
-                (($table-font-size-sm * 1.4 - $table-border-width-base * 3) / 2)
-            );
-            width: $table-border-width-base;
+            left: 6px;
+            width: 2px;
             transform: rotate(90deg);
         }
 
-        &-collapsed::before {
+        &-collapsed:before {
             transform: rotate(-180deg);
         }
 
-        &-collapsed::after {
+        &-collapsed:after {
             transform: rotate(0deg);
         }
 
         &-spaced {
-            &::before,
-            &::after {
+            &:before,
+            &:after {
                 display: none;
                 content: none;
             }
@@ -563,20 +535,8 @@ $shadow-color: rgba(0, 0, 0, 0.15);
         }
 
         .table-row-indent + & {
-            margin-top: (
-                    (
-                            $table-font-size * $line-height-base -
-                                $table-border-width-base * 3
-                        ) / 2
-                ) -
-                ceil(
-                    (
-                        (
-                                $table-font-size-sm * 1.4 -
-                                    $table-border-width-base * 3
-                            ) / 2
-                    )
-                );
+            margin-top: (($table-font-size * $table-line-height - 2 * 3) / 2) -
+                ceil((($table-font-size-sm * 1.4 - 2 * 3) / 2));
             margin-right: $space-xs;
         }
     }
@@ -585,7 +545,7 @@ $shadow-color: rgba(0, 0, 0, 0.15);
         &.table-expanded-row {
             &,
             &:hover {
-                > td {
+                td {
                     background: $table-expanded-row-bg;
                 }
             }
@@ -603,10 +563,10 @@ $shadow-color: rgba(0, 0, 0, 0.15);
         &:last-of-type {
             td {
                 &:first-of-type {
-                    border-bottom-left-radius: $table-border-radius-base;
+                    border-bottom-left-radius: $table-border-radius;
                 }
                 &:last-of-type {
-                    border-bottom-right-radius: $table-border-radius-base;
+                    border-bottom-right-radius: $table-border-radius;
                 }
             }
         }
@@ -618,17 +578,15 @@ $shadow-color: rgba(0, 0, 0, 0.15);
         padding: $table-padding-vertical $table-padding-horizontal;
     }
 
-    &-tbody > tr {
+    &-tbody tr {
         &.table-placeholder {
             text-align: center;
+
+            &:nth-child(odd) td {
+                background-color: $table-bg;
+            }
             .table-empty & {
                 opacity: $disabled-alpha-value;
-            }
-
-            &:hover {
-                > td {
-                    background: $table-bg;
-                }
             }
         }
     }
@@ -640,8 +598,8 @@ $shadow-color: rgba(0, 0, 0, 0.15);
         background: $table-bg;
     }
 
-    &-cell-fix-left-first::after,
-    &-cell-fix-left-last::after {
+    &-cell-fix-left-first:after,
+    &-cell-fix-left-last:after {
         position: absolute;
         top: 0;
         right: 0;
@@ -653,8 +611,8 @@ $shadow-color: rgba(0, 0, 0, 0.15);
         pointer-events: none;
     }
 
-    &-cell-fix-right-first::after,
-    &-cell-fix-right-last::after {
+    &-cell-fix-right-first:after,
+    &-cell-fix-right-last:after {
         position: absolute;
         top: 0;
         bottom: -1px;
@@ -667,8 +625,8 @@ $shadow-color: rgba(0, 0, 0, 0.15);
     }
 
     .table-container {
-        &::before,
-        &::after {
+        &:before,
+        &:after {
             position: absolute;
             top: 0;
             bottom: 0;
@@ -679,11 +637,11 @@ $shadow-color: rgba(0, 0, 0, 0.15);
             pointer-events: none;
         }
 
-        &::before {
+        &:before {
             left: 0;
         }
 
-        &::after {
+        &:after {
             right: 0;
         }
     }
@@ -692,17 +650,17 @@ $shadow-color: rgba(0, 0, 0, 0.15);
         &:not(.table-has-fix-left) .table-container {
             position: relative;
 
-            &::before {
+            &:before {
                 box-shadow: inset 10px 0 8px -8px darken($shadow-color, 5%);
             }
         }
 
-        .table-cell-fix-left-first::after,
-        .table-cell-fix-left-last::after {
+        .table-cell-fix-left-first:after,
+        .table-cell-fix-left-last:after {
             box-shadow: inset 10px 0 8px -8px darken($shadow-color, 5%);
         }
 
-        .table-cell-fix-left-last::before {
+        .table-cell-fix-left-last:before {
             background-color: transparent !important;
         }
     }
@@ -711,13 +669,13 @@ $shadow-color: rgba(0, 0, 0, 0.15);
         &:not(.table-has-fix-right) .table-container {
             position: relative;
 
-            &::after {
+            &:after {
                 box-shadow: inset -10px 0 8px -8px darken($shadow-color, 5%);
             }
         }
 
-        .table-cell-fix-right-first::after,
-        .table-cell-fix-right-last::after {
+        .table-cell-fix-right-first:after,
+        .table-cell-fix-right-last:after {
             box-shadow: inset -10px 0 8px -8px darken($shadow-color, 5%);
         }
     }
@@ -763,18 +721,19 @@ $shadow-color: rgba(0, 0, 0, 0.15);
 @media all and (-ms-high-contrast: none) {
     .table {
         &-ping-left {
-            .table-cell-fix-left-last::after {
+            .table-cell-fix-left-last:after {
                 box-shadow: none !important;
             }
         }
 
         &-ping-right {
-            .table-cell-fix-right-first::after {
+            .table-cell-fix-right-first:after {
                 box-shadow: none !important;
             }
         }
     }
 }
 
-@import './radius';
+@import './size';
+@import './bordered';
 @import './rtl';

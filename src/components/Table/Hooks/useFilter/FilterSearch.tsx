@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { TextInput } from '../../../Inputs';
 import { IconName } from '../../../Icon';
 import type { FilterSearchType } from '../../Table.types';
@@ -6,14 +6,12 @@ import type { FilterSearchType } from '../../Table.types';
 import styles from '../../Styles/table.module.scss';
 
 interface FilterSearchProps {
-    value: string;
     onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
     filterSearch: FilterSearchType;
     filterSearchPlaceholderText: string;
 }
 
-const FilterSearch: React.FC<FilterSearchProps> = ({
-    value,
+const FilterSearch: FC<FilterSearchProps> = ({
     onChange,
     filterSearch,
     filterSearchPlaceholderText,
@@ -29,8 +27,7 @@ const FilterSearch: React.FC<FilterSearchProps> = ({
                 }}
                 placeholder={filterSearchPlaceholderText}
                 onChange={onChange}
-                value={value}
-                className={styles.tableFilterDropdownSearchInput}
+                classNames={styles.tableFilterDropdownSearchInput}
             />
         </div>
     );

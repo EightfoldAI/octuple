@@ -300,12 +300,10 @@ export function convertDataToEntities(
         externalGetKey?: ExternalGetKey;
         childrenPropName?: string;
         fieldNames?: FieldNames;
-    } = {},
-    /** @deprecated Use `config.externalGetKey` instead */
-    legacyExternalGetKey?: ExternalGetKey
+    } = {}
 ) {
     // Init config
-    const mergedExternalGetKey = externalGetKey || legacyExternalGetKey;
+    const mergedExternalGetKey = externalGetKey;
 
     const posEntities = {};
     const keyEntities = {};

@@ -41,12 +41,7 @@ export interface ColumnFilterItem {
 }
 
 export interface ColumnTitleProps<RecordType> {
-    /** @deprecated Please use `sorterColumns` instead. */
-    sortOrder?: SortOrder;
-    /** @deprecated Please use `sorterColumns` instead. */
-    sortColumn?: ColumnType<RecordType>;
     sortColumns?: { column: ColumnType<RecordType>; order: SortOrder }[];
-
     filters?: Record<string, string[]>;
 }
 
@@ -98,7 +93,6 @@ export interface ColumnType<RecordType>
     filterMultiple?: boolean;
     filteredValue?: FilterValue | null;
     defaultFilteredValue?: FilterValue | null;
-    filterIcon?: React.ReactNode | ((filtered: boolean) => React.ReactNode);
     filterMode?: 'menu' | 'tree';
     filterSearch?: FilterSearchType;
     onFilter?: (
@@ -147,22 +141,6 @@ export interface TableRowSelection<T> {
         record: T
     ) => Partial<Omit<CheckboxProps, 'checked' | 'defaultChecked'>>;
     onSelect?: SelectionSelectFn<T>;
-    /** @deprecated This function is deprecated and should use `onChange` instead */
-    onSelectMultiple?: (
-        selected: boolean,
-        selectedRows: T[],
-        changeRows: T[]
-    ) => void;
-    /** @deprecated This function is deprecated and should use `onChange` instead */
-    onSelectAll?: (
-        selected: boolean,
-        selectedRows: T[],
-        changeRows: T[]
-    ) => void;
-    /** @deprecated This function is deprecated and should use `onChange` instead */
-    onSelectInvert?: (selectedRowKeys: Key[]) => void;
-    /** @deprecated This function is deprecated and should use `onChange` instead */
-    onSelectNone?: () => void;
     selections?: INTERNAL_SELECTION_ITEM[] | boolean;
     hideSelectAll?: boolean;
     fixed?: FixedType;
@@ -213,7 +191,7 @@ export const EMPTY_LIST: any[] = [];
 
 export interface ChangeEventInfo<RecordType> {
     pagination: {
-        current?: number;
+        currentPage?: number;
         pageSize?: number;
         total?: number;
     };
@@ -243,6 +221,7 @@ export interface TableProps<RecordType>
     filterCheckallText?: string;
     filterSearchPlaceholderText?: string;
     emptyText?: React.ReactNode | (() => React.ReactNode);
+    emptyTextDetails?: string;
     selectNoneText?: string;
     selectInvertText?: string;
     selectionAllText?: string;

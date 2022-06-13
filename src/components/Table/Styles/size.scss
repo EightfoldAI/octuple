@@ -1,12 +1,14 @@
 .table {
     font-size: $table-font-size;
 
-    .table-title,
-    .table-footer,
-    .table-thead > tr > th,
-    .table-tbody > tr > td,
-    tfoot > tr > th,
-    tfoot > tr > td {
+    thead tr th,
+    tbody tr td,
+    tfoot tr th,
+    tfoot tr td {
+        padding: $table-padding-vertical $table-padding-horizontal;
+    }
+
+    .table-title {
         padding: $table-padding-vertical $table-padding-horizontal;
     }
 
@@ -34,15 +36,17 @@
         padding-inline-start: 0;
     }
 
-    &.table-medium {
+    &-medium {
         font-size: $table-font-size-md;
 
-        .table-title,
-        .table-footer,
-        .table-thead > tr > th,
-        .table-tbody > tr > td,
-        tfoot > tr > th,
-        tfoot > tr > td {
+        thead tr th,
+        tbody tr td,
+        tfoot tr th,
+        tfoot tr td {
+            padding: $table-padding-vertical-md $table-padding-horizontal-md;
+        }
+
+        .table-title {
             padding: $table-padding-vertical-md $table-padding-horizontal-md;
         }
 
@@ -71,15 +75,21 @@
         }
     }
 
-    &.table-small {
+    &-small {
         font-size: $table-font-size-sm;
 
-        .table-title,
-        .table-footer,
-        .table-thead > tr > th,
-        .table-tbody > tr > td,
-        tfoot > tr > th,
-        tfoot > tr > td {
+        thead tr th,
+        tbody tr td,
+        tfoot tr th,
+        tfoot tr td {
+            padding: $table-padding-vertical-sm $table-padding-horizontal-sm;
+        }
+
+        .table-title {
+            padding: $table-padding-vertical-sm $table-padding-horizontal-sm;
+        }
+
+        .table-footer {
             padding: $table-padding-vertical-sm $table-padding-horizontal-sm;
         }
 

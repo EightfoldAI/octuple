@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo, useState } from 'react';
 import { mergeClasses } from '../../../shared/utilities';
 import { eventKeys } from '../../../shared/eventKeys';
 import type {
@@ -13,14 +13,14 @@ import type {
     ColumnGroupType,
 } from '../Table.types';
 import type { TooltipProps } from '../../Tooltip';
-import { Tooltip } from '../../Tooltip';
+import { Tooltip, TooltipTheme } from '../../Tooltip';
 import { getColumnKey, getColumnPos, renderColumnTitle } from '../utlities';
 import { Icon, IconName, IconSize } from '../../Icon';
 
 import styles from '../Styles/table.module.scss';
 
-const ASCEND = 'ascend';
-const DESCEND = 'descend';
+const ASCEND: SortOrder = 'ascend';
+const DESCEND: SortOrder = 'descend';
 
 function getMultiplePriority<RecordType>(
     column: ColumnType<RecordType>
@@ -153,7 +153,7 @@ function injectSorter<RecordType>(
                 <Icon
                     classNames={mergeClasses([
                         styles.tableColumnSorterUp,
-                        { active: sorterOrder === ASCEND },
+                        { [styles.active]: sorterOrder === ASCEND },
                     ])}
                     path={IconName.mdiChevronUp}
                     size={IconSize.Small}
@@ -165,7 +165,7 @@ function injectSorter<RecordType>(
                 <Icon
                     classNames={mergeClasses([
                         styles.tableColumnSorterDown,
-                        { active: sorterOrder === DESCEND },
+                        { [styles.active]: sorterOrder === DESCEND },
                     ])}
                     path={IconName.mdiChevronDown}
                     size={IconSize.Small}
@@ -211,7 +211,9 @@ function injectSorter<RecordType>(
                         </div>
                     );
                     return showSorterTooltip ? (
-                        <Tooltip {...tooltipProps}>{renderSortTitle}</Tooltip>
+                        <Tooltip {...tooltipProps} theme={TooltipTheme.dark}>
+                            {renderSortTitle}
+                        </Tooltip>
                     ) : (
                         renderSortTitle
                     );
@@ -412,11 +414,11 @@ export default function useFilterSorter<RecordType>({
     ColumnTitleProps<RecordType>,
     () => SorterResult<RecordType> | SorterResult<RecordType>[]
 ] {
-    const [sortStates, setSortStates] = React.useState<SortState<RecordType>[]>(
+    const [sortStates, setSortStates] = useState<SortState<RecordType>[]>(
         collectSortStates(mergedColumns, true)
     );
 
-    const mergedSorterStates = React.useMemo(() => {
+    const mergedSorterStates = useMemo(() => {
         let validate = true;
         const collectedStates = collectSortStates(mergedColumns, false);
 
@@ -462,7 +464,7 @@ export default function useFilterSorter<RecordType>({
     }, [mergedColumns, sortStates]);
 
     // Get render columns title required props
-    const columnTitleSorterProps = React.useMemo<
+    const columnTitleSorterProps = useMemo<
         ColumnTitleProps<RecordType>
     >((): any => {
         const sortColumns = mergedSorterStates.map(({ column, sortOrder }) => ({

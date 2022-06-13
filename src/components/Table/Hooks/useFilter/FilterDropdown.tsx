@@ -1,7 +1,12 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { mergeClasses } from '../../../../shared/utilities';
 import isEqual from 'lodash/isEqual';
-import { ButtonSize, DefaultButton, PrimaryButton } from '../../../Button';
+import {
+    ButtonSize,
+    DefaultButton,
+    NeutralButton,
+    PrimaryButton,
+} from '../../../Button';
 import { Menu } from '../../../Menu';
 import type { MenuProps } from '../../../Menu';
 import Tree from '../../../Tree';
@@ -21,7 +26,8 @@ import FilterSearch from './FilterSearch';
 import type { FilterState } from '.';
 import { flattenKeys } from '.';
 import useSyncState from '../../../../hooks/useSyncState';
-import { Icon, IconName, IconSize } from '../../../Icon';
+import { IconName, IconSize } from '../../../Icon';
+import { List, ItemLayout } from '../../../List';
 import { useCanvasDirection } from '../../../../hooks/useCanvasDirection';
 
 import styles from '../../Styles/table.module.scss';
@@ -139,7 +145,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
         filterResetToDefaultFilteredValue,
         defaultFilteredValue,
     } = column;
-    const [visible, setVisible] = React.useState(false);
+    const [visible, setVisible] = useState(false);
 
     const filtered: boolean = !!(
         filterState &&
@@ -178,7 +184,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
         }
     };
 
-    React.useEffect(() => {
+    useEffect(() => {
         if (!visible) {
             return;
         }
@@ -187,7 +193,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
 
     // ====================== Open Keys ======================
     // const [openKeys, setOpenKeys] = React.useState<string[]>([]);
-    const openRef = React.useRef<number>();
+    const openRef = useRef<number>();
     // const onOpenChange = (keys: string[]) => {
     //   openRef.current = window.setTimeout(() => {
     //     setOpenKeys(keys);
@@ -196,7 +202,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
     const onMenuClick = () => {
         window.clearTimeout(openRef.current);
     };
-    React.useEffect(
+    useEffect(
         () => () => {
             window.clearTimeout(openRef.current);
         },
@@ -204,13 +210,13 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
     );
 
     // search in tree mode column filter
-    const [searchValue, setSearchValue] = React.useState('');
+    const [searchValue, setSearchValue] = useState('');
     const onSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { value } = e.target;
         setSearchValue(value);
     };
     // clear search value after close filter dropdown
-    React.useEffect(() => {
+    useEffect(() => {
         if (!visible) {
             setSearchValue('');
         }
@@ -354,7 +360,6 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
                             filterSearchPlaceholderText={
                                 filterSearchPlaceholderText
                             }
-                            value={searchValue}
                             onChange={onSearch}
                         />
                         <div className={styles.tableFilterDropdownTree}>
@@ -368,9 +373,8 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
                                         styles.tableFilterDropdownCheckall
                                     }
                                     onChange={onCheckAll}
-                                >
-                                    {filterCheckallText}
-                                </CheckBox>
+                                    label={filterCheckallText}
+                                />
                             ) : null}
                             <Tree
                                 checkable
@@ -409,7 +413,6 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
                         filterSearchPlaceholderText={
                             filterSearchPlaceholderText
                         }
-                        value={searchValue}
                         onChange={onSearch}
                     />
                     <Menu
@@ -465,15 +468,6 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
         </FilterDropdownMenuWrapper>
     );
 
-    let filterIcon: React.ReactNode;
-    if (typeof column.filterIcon === 'function') {
-        filterIcon = column.filterIcon(filtered);
-    } else if (column.filterIcon) {
-        filterIcon = column.filterIcon;
-    } else {
-        filterIcon = <Icon path={IconName.mdiFilter} size={IconSize.Small} />;
-    }
-
     const htmlDir: string = useCanvasDirection();
 
     return (
@@ -484,20 +478,22 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
                 trigger="click"
                 onVisibleChange={onVisibleChange}
                 placement={htmlDir === 'rtl' ? 'bottom-end' : 'bottom-start'}
+                positionStrategy="absolute"
             >
-                <span
-                    role="button"
-                    tabIndex={-1}
+                <NeutralButton
                     className={mergeClasses([
                         styles.tableFilterTrigger,
-                        { active: filtered },
+                        { [styles.active]: filtered },
                     ])}
+                    iconProps={{
+                        path: IconName.mdiFilter,
+                        size: IconSize.Small,
+                    }}
                     onClick={(e) => {
                         e.stopPropagation();
                     }}
-                >
-                    {filterIcon}
-                </span>
+                    size={ButtonSize.Small}
+                />
             </Dropdown>
         </div>
     );

@@ -46,7 +46,6 @@ import {
 import ResizeContext from './Context/ResizeContext';
 import useStickyOffsets from './Hooks/useStickyOffsets';
 import ColGroup from './ColGroup';
-import { getExpandableProps } from './Utilities/legacyUtil';
 import Panel from './Panel';
 import Footer, { FooterComponents } from './Footer';
 import { findAllChildrenKeys, renderExpandIcon } from './Utilities/expandUtil';
@@ -144,7 +143,7 @@ function OcTable<RecordType extends DefaultRecordType>(
     }, [rowKey]);
 
     // ====================== Expand ======================
-    const expandableConfig = getExpandableProps(props);
+    const expandableConfig = props.expandable;
 
     const {
         expandIcon,
@@ -156,7 +155,6 @@ function OcTable<RecordType extends DefaultRecordType>(
         onExpandedRowsChange,
         expandRowByClick,
         rowExpandable,
-        expandIconColumnIndex,
         expandedRowClassName,
         childrenColumnName,
         indentSize,
@@ -252,7 +250,6 @@ function OcTable<RecordType extends DefaultRecordType>(
             getRowKey,
             onTriggerExpand,
             expandIcon: mergedExpandIcon,
-            expandIconColumnIndex,
             direction,
         },
         transformColumns
@@ -682,6 +679,7 @@ function OcTable<RecordType extends DefaultRecordType>(
         <div
             className={mergeClasses([
                 classNames,
+                styles.table,
                 { [styles.tableRtl]: direction === 'rtl' },
                 { [styles.tablePingLeft]: pingedLeft },
                 { [styles.tablePingRight]: pingedRight },
@@ -715,7 +713,7 @@ function OcTable<RecordType extends DefaultRecordType>(
                         {title(mergedData)}
                     </Panel>
                 )}
-                <div className={styles.table}>{groupTableNode}</div>
+                <div className={styles.tableContainer}>{groupTableNode}</div>
                 {footer && (
                     <Panel classNames={styles.tableFooter}>
                         {footer(mergedData)}
@@ -771,7 +769,6 @@ function OcTable<RecordType extends DefaultRecordType>(
             expandRowByClick,
             expandedRowRender,
             onTriggerExpand,
-            expandIconColumnIndex,
             indentSize,
         }),
         [
@@ -784,7 +781,6 @@ function OcTable<RecordType extends DefaultRecordType>(
             expandRowByClick,
             expandedRowRender,
             onTriggerExpand,
-            expandIconColumnIndex,
             indentSize,
         ]
     );

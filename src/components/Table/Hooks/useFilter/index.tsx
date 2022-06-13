@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback, useMemo, useState } from 'react';
 import type {
     TransformColumns,
     ColumnsType,
@@ -234,11 +234,11 @@ function useFilter<RecordType>({
     FilterState<RecordType>[],
     () => Record<string, FilterValue | null>
 ] {
-    const [filterStates, setFilterStates] = React.useState<
-        FilterState<RecordType>[]
-    >(collectFilterStates(mergedColumns, true));
+    const [filterStates, setFilterStates] = useState<FilterState<RecordType>[]>(
+        collectFilterStates(mergedColumns, true)
+    );
 
-    const mergedFilterStates = React.useMemo(() => {
+    const mergedFilterStates = useMemo(() => {
         const collectedStates = collectFilterStates(mergedColumns, false);
         let filteredKeysIsAllNotControlled = true;
         let filteredKeysIsAllControlled = true;
@@ -258,7 +258,7 @@ function useFilter<RecordType>({
         return collectedStates;
     }, [mergedColumns, filterStates]);
 
-    const getFilters = React.useCallback(
+    const getFilters = useCallback(
         () => generateFilterInfo(mergedFilterStates),
         [mergedFilterStates]
     );

@@ -1,5 +1,5 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import Enzyme, { mount } from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import MockList from '../mock';
 import Filler from '../Filler';

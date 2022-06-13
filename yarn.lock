@@ -1573,6 +1573,11 @@
   resolved "https://registry.yarnpkg.com/@floating-ui/core/-/core-0.6.1.tgz#aed861a1b6dbebadf14a9dd829ba67f4f3ae795c"
   integrity sha512-Y30eVMcZva8o84c0HcXAtDO4BEzPJMvF6+B7x7urL2xbAqVsGJhojOyHLaoQHQYjb6OkqRq5kO+zeySycQwKqg==
 
+"@floating-ui/core@^0.7.2":
+  version "0.7.2"
+  resolved "https://registry.yarnpkg.com/@floating-ui/core/-/core-0.7.2.tgz#f7af9613d080dc29360e77c970965b79b524d45a"
+  integrity sha512-FRVAkSNU/vGXLIsgbggcs70GkXKEOXgBBbNpYPNHSaKsCAMMd00NrjbtKTesxkdv9xm9N3+XiDlcFGY6WnatBg==
+
 "@floating-ui/dom@^0.4.0":
   version "0.4.1"
   resolved "https://registry.yarnpkg.com/@floating-ui/dom/-/dom-0.4.1.tgz#3e164482d7f036527f65a794bdf054d2cc44fcbf"
@@ -1580,12 +1585,36 @@
   dependencies:
     "@floating-ui/core" "^0.6.1"
 
+"@floating-ui/dom@^0.5.1":
+  version "0.5.2"
+  resolved "https://registry.yarnpkg.com/@floating-ui/dom/-/dom-0.5.2.tgz#908f3febbfc0d6696d70921616ec194fe07af183"
+  integrity sha512-z1DnEa7F3d8Fm/eXSbii8UEGpcjZGkQaYYUI0WpEVgD3vBfebDW8j/3ysusxonuMexoigA+A3b/fYH7sEqiwyg==
+  dependencies:
+    "@floating-ui/core" "^0.7.2"
+
+"@floating-ui/react-dom-interactions@0.6.3":
+  version "0.6.3"
+  resolved "https://registry.yarnpkg.com/@floating-ui/react-dom-interactions/-/react-dom-interactions-0.6.3.tgz#895c52cb06bf5ea73c00f1074c75b0535e0046bc"
+  integrity sha512-xvbGEtBtA7JaEngnHQjROArv2onRp3oJIpb4+bEN5EGJf0hBYDY0vD8vFGPz/5TQwN++hb6icOB1QwdOnffMzw==
+  dependencies:
+    "@floating-ui/react-dom" "^0.7.1"
+    aria-hidden "^1.1.3"
+    use-isomorphic-layout-effect "^1.1.1"
+
 "@floating-ui/react-dom@0.6.0":
   version "0.6.0"
   resolved "https://registry.yarnpkg.com/@floating-ui/react-dom/-/react-dom-0.6.0.tgz#e58abf75bec1eac01f0adfff1454106bf9d3dd50"
   integrity sha512-/dF+jpAUtoonjs2lO0F+miqEQlzA9XJGOxWBiJsq/COhK2kz7XzryyJdxfaNEH+RN63vRs9osDolOJXlst50hg==
   dependencies:
     "@floating-ui/dom" "^0.4.0"
+    use-isomorphic-layout-effect "^1.1.1"
+
+"@floating-ui/react-dom@^0.7.1":
+  version "0.7.1"
+  resolved "https://registry.yarnpkg.com/@floating-ui/react-dom/-/react-dom-0.7.1.tgz#e0eb57cb05c7762d4c904bfbae73148684578d66"
+  integrity sha512-Dd7e8AupUjzcjeGf1g3EItf/QRtEWKF5GGyEs5WA5n3zlHvEgZ4XrZM6ANhUnzgE3pUQAaXkcXLnibgFp1YBRw==
+  dependencies:
+    "@floating-ui/dom" "^0.5.1"
     use-isomorphic-layout-effect "^1.1.1"
 
 "@gar/promisify@^1.0.1":
@@ -3769,6 +3798,13 @@
   dependencies:
     "@types/react" "*"
 
+"@types/react-window@1.8.2":
+  version "1.8.2"
+  resolved "https://registry.yarnpkg.com/@types/react-window/-/react-window-1.8.2.tgz#a5a6b2762ce73ffaab7911ee1397cf645f2459fe"
+  integrity sha512-gP1xam68Wc4ZTAee++zx6pTdDAH08rAkQrWm4B4F/y6hhmlT9Mgx2q8lTCXnrPHXsr15XjRN9+K2DLKcz44qEQ==
+  dependencies:
+    "@types/react" "*"
+
 "@types/react@*":
   version "17.0.39"
   resolved "https://registry.yarnpkg.com/@types/react/-/react-17.0.39.tgz#d0f4cde092502a6db00a1cded6e6bf2abb7633ce"
@@ -4712,6 +4748,13 @@ argparse@^2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/argparse/-/argparse-2.0.1.tgz#246f50f3ca78a3240f6c997e8a9bd1eac49e4b38"
   integrity sha512-8+9WqebbFzpX9OR+Wa6O29asIogeRMzcGtAINdpMHHyAg10f05aSFVBbcEqGf/PXw1EjAZ+q2/bEBg3DvurK3Q==
+
+aria-hidden@^1.1.3:
+  version "1.1.3"
+  resolved "https://registry.yarnpkg.com/aria-hidden/-/aria-hidden-1.1.3.tgz#bb48de18dc84787a3c6eee113709c473c64ec254"
+  integrity sha512-RhVWFtKH5BiGMycI72q2RAFMLQi8JP9bLuQXgR5a8Znp7P5KOIADSJeyfI8PCVxLEp067B2HbP5JIiI/PXIZeA==
+  dependencies:
+    tslib "^1.0.0"
 
 aria-query@^4.2.2:
   version "4.2.2"
@@ -11707,6 +11750,11 @@ memfs@^3.1.2, memfs@^3.2.0, memfs@^3.2.2, memfs@^3.4.1:
   dependencies:
     fs-monkey "1.0.3"
 
+"memoize-one@>=3.1.1 <6":
+  version "5.2.1"
+  resolved "https://registry.yarnpkg.com/memoize-one/-/memoize-one-5.2.1.tgz#8337aa3c4335581839ec01c3d594090cebe8f00e"
+  integrity sha512-zYiwtZUcYyXKo/np96AGZAckk+FWWsUdJ3cHGGmld7+AhvcWmQyGCYUh1hc4Q/pkOhb65dQR/pqCyK0cOaHz4Q==
+
 memoizerific@^1.11.3:
   version "1.11.3"
   resolved "https://registry.yarnpkg.com/memoizerific/-/memoizerific-1.11.3.tgz#7c87a4646444c32d75438570905f2dbd1b1a805a"
@@ -12002,6 +12050,11 @@ mkdirp@^0.5.1, mkdirp@^0.5.3, mkdirp@^0.5.5, mkdirp@~0.5.1:
   integrity sha512-NKmAlESf6jMGym1++R0Ra7wvhV+wFW63FaSOFPwRahvea0gMUcGUhVeAg/0BC0wiv9ih5NYPB1Wn1UEI1/L+xQ==
   dependencies:
     minimist "^1.2.5"
+
+mockdate@3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/mockdate/-/mockdate-3.0.0.tgz#2901b0deaab4b73072ec799de412d36c903543ec"
+  integrity sha512-asiMT839yFv38PHV9Rm4cBLnrRXlRmcddvuzdKvXygxN2Cw+d96cmMPNJ4JXIHkV/EghuJ9fNG/qzotmLsWDOg==
 
 modify-values@^1.0.0:
   version "1.0.1"
@@ -14472,6 +14525,14 @@ react-textarea-autosize@^7.1.0:
     "@babel/runtime" "^7.1.2"
     prop-types "^15.6.0"
 
+react-window@1.8.5:
+  version "1.8.5"
+  resolved "https://registry.yarnpkg.com/react-window/-/react-window-1.8.5.tgz#a56b39307e79979721021f5d06a67742ecca52d1"
+  integrity sha512-HeTwlNa37AFa8MDZFZOKcNEkuF2YflA0hpGPiTT9vR7OawEt+GZbfM6wqkBahD3D3pUjIabQYzsnY/BSJbgq6Q==
+  dependencies:
+    "@babel/runtime" "^7.0.0"
+    memoize-one ">=3.1.1 <6"
+
 react@>=16.9.0:
   version "18.1.0"
   resolved "https://registry.yarnpkg.com/react/-/react-18.1.0.tgz#6f8620382decb17fdc5cc223a115e2adbf104890"
@@ -16621,7 +16682,7 @@ tslib@2.1.0:
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-2.1.0.tgz#da60860f1c2ecaa5703ab7d39bc05b6bf988b97a"
   integrity sha512-hcVC3wYEziELGGmEEXue7D75zbwIIVUMWAVbHItGPx0ziyXxrOMQx4rQEVEV45Ut/1IotuEvwqPopzIOkDMf0A==
 
-tslib@^1.8.1, tslib@^1.9.3:
+tslib@^1.0.0, tslib@^1.8.1, tslib@^1.9.3:
   version "1.14.1"
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.14.1.tgz#cf2d38bdc34a134bcaf1091c41f6619e2f672d00"
   integrity sha512-Xni35NKzjgMrwevysHTCArtLDpPvye8zV/0E4EyYn43P7/7qvQwPh9BGkHewbMulVntbigmcT7rdX3BNo9wRJg==

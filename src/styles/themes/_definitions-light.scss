@@ -405,22 +405,25 @@ $table-selected-row-hover-bg: var(--grey-color-10);
 $table-expanded-row-bg: var(--grey-color-10);
 $table-padding-vertical: 16px;
 $table-padding-horizontal: 16px;
-$table-padding-vertical-md: calc($table-padding-vertical * 3 / 4);
-$table-padding-horizontal-md: calc($table-padding-horizontal / 2);
-$table-padding-vertical-sm: calc($table-padding-vertical / 2);
-$table-padding-horizontal-sm: calc($table-padding-horizontal / 2);
+$table-padding-vertical-md: 12px;
+$table-padding-horizontal-md: 8px;
+$table-padding-vertical-sm: 8px;
+$table-padding-horizontal-sm: 8px;
 $table-border-color: var(--grey-color-20);
-$table-border-width-base: 1px;
-$table-border-radius-base: 8px;
-$table-border-style-base: 'solid';
-$table-box-shadow-base: 0 1px 2px rgba(15, 20, 31, 0.08),
+$table-border-width: 1px;
+$table-border-radius: 8px;
+$table-border-style: solid;
+$table-border: $table-border-width $table-border-style $table-border-color;
+$table-box-shadow: 0 1px 2px rgba(15, 20, 31, 0.08),
     0 2px 8px rgba(15, 20, 31, 0.08);
 $table-footer-bg: var(--background-color);
 $table-footer-color: var(--text-primary-color);
 $table-header-bg-sm: $table-header-bg;
+$table-header-font-size: $text-font-size-3;
 $table-font-size: $text-font-size-2;
 $table-font-size-md: $table-font-size;
 $table-font-size-sm: $table-font-size;
+$table-line-height: 1.5715;
 $table-header-cell-split-color: var(--grey-color-20);
 
 // Sorter

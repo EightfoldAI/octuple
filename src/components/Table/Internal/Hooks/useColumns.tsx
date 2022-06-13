@@ -119,7 +119,6 @@ function useColumns<RecordType>(
         onTriggerExpand,
         expandIcon,
         rowExpandable,
-        expandIconColumnIndex,
         direction,
         expandRowByClick,
         columnWidth,
@@ -133,7 +132,6 @@ function useColumns<RecordType>(
         onTriggerExpand: TriggerEventHandler<RecordType>;
         expandIcon?: RenderExpandIcon<RecordType>;
         rowExpandable?: (record: RecordType) => boolean;
-        expandIconColumnIndex?: number;
         direction?: string;
         expandRowByClick?: boolean;
         columnWidth?: number | string;
@@ -155,7 +153,7 @@ function useColumns<RecordType>(
 
             // >>> Insert expand column if not exist
             if (!cloneColumns.includes(EXPAND_COLUMN)) {
-                const expandColIndex = expandIconColumnIndex || 0;
+                const expandColIndex = 0;
                 if (expandColIndex >= 0) {
                     cloneColumns.splice(expandColIndex, 0, EXPAND_COLUMN);
                 }
@@ -171,12 +169,9 @@ function useColumns<RecordType>(
             const prevColumn = baseColumns[expandColumnIndex];
 
             let fixedColumn: FixedType | null;
-            if ((fixed === 'left' || fixed) && !expandIconColumnIndex) {
+            if (fixed === 'left' || fixed) {
                 fixedColumn = 'left';
-            } else if (
-                (fixed === 'right' || fixed) &&
-                expandIconColumnIndex === baseColumns.length
-            ) {
+            } else if (fixed === 'right' || fixed) {
                 fixedColumn = 'right';
             } else {
                 fixedColumn = prevColumn ? prevColumn.fixed : null;

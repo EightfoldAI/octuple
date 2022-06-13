@@ -13,11 +13,12 @@ interface EmptyType extends React.FC<EmptyProps> {
 }
 
 export const Empty: EmptyType = ({
-    classNames,
-    image = defaultEmptyImg,
-    description,
     children,
+    classNames,
+    description,
+    image = defaultEmptyImg,
     imageStyle,
+    title,
     ...restProps
 }) => {
     const htmlDir: string = useCanvasDirection();
@@ -43,6 +44,7 @@ export const Empty: EmptyType = ({
             <div className={styles.emptyImage} style={imageStyle}>
                 {imageNode}
             </div>
+            {title && <div className={styles.emptyTitle}>{title}</div>}
             {description && (
                 <div className={styles.emptyDescription}>{description}</div>
             )}

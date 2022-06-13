@@ -1,4 +1,4 @@
-import React from 'react';
+import { useRef } from 'react';
 import type { Key, GetRowKey } from '../Table.types';
 
 interface MapCache<RecordType> {
@@ -13,7 +13,7 @@ export default function useLazyKVMap<RecordType>(
     childrenColumnName: string,
     getRowKey: GetRowKey<RecordType>
 ) {
-    const mapCacheRef = React.useRef<MapCache<RecordType>>({});
+    const mapCacheRef = useRef<MapCache<RecordType>>({});
 
     function dig(
         records: readonly RecordType[],

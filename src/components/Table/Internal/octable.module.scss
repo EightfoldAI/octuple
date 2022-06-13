@@ -12,13 +12,6 @@ $border: $border-width solid $border-color;
 $cell-padding: $vertical-padding $horizontal-padding;
 $cell-margin: -$vertical-padding -$horizontal-padding;
 
-@mixin tableBorder() {
-    border: $border;
-    border-radius: 8px;
-    box-shadow: 0 1px 2px rgba(15, 20, 31, 0.08),
-        0 2px 8px rgba(15, 20, 31, 0.08);
-}
-
 @mixin scrollBars() {
     -ms-overflow-style: none;
 
@@ -117,22 +110,16 @@ $cell-margin: -$vertical-padding -$horizontal-padding;
 }
 
 .table {
-    @include tableBorder();
     position: relative;
     box-sizing: border-box;
     color: var(--text-primary-color);
     font-size: $table-font-size;
     line-height: $line-height-base;
 
-    div:first-of-type {
-        @include scrollBars();
-    }
-
     &-rtl {
         direction: rtl;
     }
 
-    // ================= Global =================
     table {
         width: 100%;
         border-spacing: 0px;
@@ -143,12 +130,9 @@ $cell-margin: -$vertical-padding -$horizontal-padding;
     td {
         position: relative;
         box-sizing: border-box;
-        padding: 0;
-
         padding: $cell-padding;
         white-space: normal;
         word-break: break-word;
-        border: $border;
         border-top: 0;
         border-left: 0;
         transition: box-shadow 0.3s;
@@ -159,7 +143,6 @@ $cell-margin: -$vertical-padding -$horizontal-padding;
         }
     }
 
-    // ================== Cell ==================
     &-cell {
         background-color: $table-background-color;
 
@@ -221,10 +204,18 @@ $cell-margin: -$vertical-padding -$horizontal-padding;
             }
         }
 
-        &-ellipsis {
+        &.table-cell-ellipsis {
             overflow: hidden;
             white-space: nowrap;
             text-overflow: ellipsis;
+
+            div:first-of-type {
+                display: block;
+                overflow-x: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                word-break: keep-all;
+            }
 
             &.table-cell-fix-left-first,
             &.table-cell-fix-left-last,
@@ -255,7 +246,7 @@ $cell-margin: -$vertical-padding -$horizontal-padding;
             &:last-of-type {
                 &:before {
                     border-right: 2px solid $border-active-color;
-                    width: calc(100% - 1px);
+                    width: 100%;
                 }
             }
 
@@ -263,12 +254,12 @@ $cell-margin: -$vertical-padding -$horizontal-padding;
                 border-bottom: 2px solid $border-active-color;
                 border-top: 2px solid $border-active-color;
                 content: '';
-                height: calc(100% + 1px);
+                height: 100%;
                 left: 0;
                 pointer-events: none;
                 position: absolute;
                 top: 0;
-                width: calc(100% + 1px);
+                width: calc(100% + 2px);
                 z-index: 2;
             }
         }
@@ -288,23 +279,27 @@ $cell-margin: -$vertical-padding -$horizontal-padding;
         }
     }
 
-    // ================= Expand =================
     &-expand-icon-col {
-        width: 60px;
+        width: 84px;
     }
 
     &-row-expand-icon-cell {
-        text-align: center;
+        align-items: center;
+        display: flex;
+        justify-content: center;
     }
 
-    // ================= Header =================
     thead {
         td,
         th {
-            text-align: center;
+            text-align: left;
         }
 
         tr:first-of-type {
+            th {
+                font-size: $table-header-font-size;
+            }
+
             th:first-of-type {
                 border-top-left-radius: 8px;
             }
@@ -341,12 +336,14 @@ $cell-margin: -$vertical-padding -$horizontal-padding;
         color: var(--text-primary-color);
     }
 
-    // ================= Empty ==================
     &-placeholder {
+        &:nth-child(odd) td {
+            background-color: $table-bg !important;
+        }
+
         text-align: center;
     }
 
-    // ================== Body ==================
     tbody {
         tr {
             &:nth-child(odd) {
@@ -363,7 +360,12 @@ $cell-margin: -$vertical-padding -$horizontal-padding;
         }
     }
 
+    &-container {
+        color: var(--text-primary-color);
+    }
+
     &-content {
+        @include scrollBars();
         color: var(--text-primary-color);
     }
 
@@ -427,18 +429,26 @@ $cell-margin: -$vertical-padding -$horizontal-padding;
         }
     }
 
-    // ================= Title ==================
     &-title {
+        background: $table-header-bg;
+        color: $table-header-color;
+        font-size: $text-font-size-5;
+        line-height: $text-line-height-4;
         padding: $cell-padding;
-        border: $border;
-        border-bottom: 0;
+        border-bottom: $border;
+        border-top-left-radius: $table-border-radius;
+        border-top-right-radius: $table-border-radius;
     }
 
-    // ================= Footer =================
     &-footer {
+        background: $table-footer-bg;
+        color: $table-footer-color;
+        font-size: $text-font-size-5;
+        line-height: $text-line-height-4;
         padding: $cell-padding;
-        border: $border;
-        border-top: 0;
+        border-top: $border;
+        border-bottom-left-radius: $table-border-radius;
+        border-bottom-right-radius: $table-border-radius;
     }
 
     tfoot {
@@ -448,14 +458,15 @@ $cell-margin: -$vertical-padding -$horizontal-padding;
     }
 
     &-summary {
-        border-top: $border;
-        border-left: $border;
+        box-shadow: 0 -1px $table-border-color;
+        position: relative;
+        z-index: 2;
     }
 
     &-sticky {
         &-holder {
             position: sticky;
-            z-index: 2;
+            z-index: 3;
         }
         &-scroll {
             position: sticky;

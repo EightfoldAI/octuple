@@ -1,8 +1,292 @@
 @import './mixin';
 @import './directory';
 
+$tree-node-padding: ($space-xs / 2);
+$tree-node-hightlight-color: inherit;
+
 .tree {
-    @include treeFn();
+    @include reset-component();
+    background: var(--background-color);
+    border-radius: $tree-border-radius-base;
+    transition: background-color 0.3s;
+
+    &-focused:not(:hover):not(&-active-focused) {
+        background: var(--primary-color);
+    }
+
+    // =================== Virtual List ===================
+    &-list-holder-inner {
+        align-items: flex-start;
+    }
+
+    &.tree-block-node {
+        .tree-list-holder-inner {
+            align-items: stretch;
+
+            // >>> Title
+            .tree-node-content-wrapper {
+                flex: auto;
+            }
+
+            // >>> Drag
+            .tree.dragging {
+                position: relative;
+
+                &:after {
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    bottom: $tree-node-padding;
+                    left: 0;
+                    border: 1px solid var(--primary-color);
+                    opacity: 0;
+                    animation: tree-node-fx-do-not-use 0.3s;
+                    animation-play-state: running;
+                    animation-fill-mode: forwards;
+                    content: '';
+                    pointer-events: none;
+                }
+            }
+        }
+    }
+
+    // ===================== TreeNode =====================
+    .tree {
+        display: flex;
+        align-items: flex-start;
+        padding: 0 0 $tree-node-padding 0;
+        outline: none;
+
+        // Disabled
+        &-disabled {
+            // >>> Title
+            .tree-node-content-wrapper {
+                opacity: $disabled-alpha-value;
+                cursor: not-allowed;
+
+                &:hover {
+                    background: transparent;
+                }
+            }
+        }
+
+        &-active .tree-node-content-wrapper {
+            background: $tree-node-hover-bg;
+        }
+
+        &:not(&-disabled).filter-node .tree-title {
+            color: $tree-node-hightlight-color;
+            font-weight: 500;
+        }
+    }
+
+    // >>> Indent
+    &-indent {
+        align-self: stretch;
+        white-space: nowrap;
+        user-select: none;
+
+        &-unit {
+            display: inline-block;
+            width: $tree-title-height;
+        }
+    }
+
+    // >>> Drag Handler
+    &-draggable-icon {
+        width: $tree-title-height;
+        line-height: $tree-title-height;
+        text-align: center;
+        opacity: 0.2;
+        transition: opacity 0.3s;
+
+        .tree:hover & {
+            opacity: 0.45;
+        }
+    }
+
+    // >>> Switcher
+    &-switcher {
+        .tree-switcher-icon,
+        .tree-select-tree-switcher-icon {
+            display: inline-block;
+            font-size: 10px;
+            vertical-align: baseline;
+
+            svg {
+                transition: transform 0.3s;
+            }
+        }
+
+        position: relative;
+        flex: none;
+        align-self: stretch;
+        width: $tree-title-height;
+        margin: 0;
+        line-height: $tree-title-height;
+        text-align: center;
+        cursor: pointer;
+        user-select: none;
+
+        &-noop {
+            cursor: default;
+        }
+
+        &_close {
+            .tree-switcher-icon {
+                svg {
+                    transform: rotate(-90deg);
+                }
+            }
+        }
+
+        &-loading-icon {
+            color: var(--primary-color);
+        }
+
+        &-leaf-line {
+            position: relative;
+            z-index: 1;
+            display: inline-block;
+            width: 100%;
+            height: 100%;
+            &:before {
+                position: absolute;
+                top: 0;
+                right: 12px;
+                bottom: -$tree-node-padding;
+                margin-left: -1px;
+                border-right: 1px solid #d9d9d9;
+                content: ' ';
+            }
+
+            &:after {
+                position: absolute;
+                width: $tree-title-height - 14px;
+                height: $tree-title-height - 10px;
+                border-bottom: 1px solid #d9d9d9;
+                content: ' ';
+            }
+        }
+    }
+
+    // >>> Checkbox
+    &-checkbox {
+        top: initial;
+        margin: (($tree-title-height - 24) / 2) 8px 0 0;
+    }
+
+    // >>> Title
+    & &-node-content-wrapper {
+        position: relative;
+        z-index: auto;
+        min-height: $tree-title-height;
+        margin: 0;
+        padding: 0 4px;
+        color: inherit;
+        line-height: $tree-title-height;
+        background: transparent;
+        border-radius: $tree-border-radius-base;
+        cursor: pointer;
+        transition: all 0.3s, border 0s, line-height 0s, box-shadow 0s;
+
+        &:hover {
+            background-color: $tree-node-hover-bg;
+        }
+
+        &.tree-node-selected {
+            background-color: $tree-node-selected-bg;
+        }
+
+        // Icon
+        .tree-iconEle {
+            display: inline-block;
+            width: $tree-title-height;
+            height: $tree-title-height;
+            line-height: $tree-title-height;
+            text-align: center;
+            vertical-align: top;
+
+            &:empty {
+                display: none;
+            }
+        }
+    }
+
+    &-unselectable &-node-content-wrapper:hover {
+        background-color: transparent;
+    }
+
+    // ==================== Draggable =====================
+    &-node-content-wrapper {
+        line-height: $tree-title-height;
+        user-select: none;
+
+        @include drop-indicator();
+    }
+
+    .tree.drop-container {
+        > [draggable] {
+            box-shadow: 0 0 0 2px var(--primary-color);
+        }
+    }
+
+    // ==================== Show Line =====================
+    &-show-line {
+        // ================ Indent lines ================
+        .tree-indent {
+            &-unit {
+                position: relative;
+                height: 100%;
+
+                &:before {
+                    position: absolute;
+                    top: 0;
+                    right: ($tree-title-height / 2);
+                    bottom: -$tree-node-padding;
+                    border-right: 1px solid $tree-border-color;
+                    content: '';
+                }
+
+                &-end {
+                    &:before {
+                        display: none;
+                    }
+                }
+            }
+        }
+
+        // ============== Cover Background ==============
+        .tree-switcher {
+            background: var(--background-color);
+
+            &-line-icon {
+                vertical-align: -0.15em;
+            }
+        }
+    }
+
+    &-leaf-last {
+        .tree-switcher {
+            &-leaf-line {
+                &:before {
+                    top: auto !important;
+                    bottom: auto !important;
+                    height: $tree-title-height - 10px !important;
+                }
+            }
+        }
+    }
+}
+
+@keyframes tree-node-fx-do-not-use {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
 }
 
 @import './rtl';

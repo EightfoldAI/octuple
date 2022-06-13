@@ -141,33 +141,6 @@ export type GetComponent = (
 // =================== Expand ===================
 export type ExpandableType = false | 'row' | 'nest';
 
-export interface LegacyExpandableProps<RecordType> {
-    /** @deprecated Use `expandable.expandedRowKeys` instead */
-    expandedRowKeys?: Key[];
-    /** @deprecated Use `expandable.defaultExpandedRowKeys` instead */
-    defaultExpandedRowKeys?: Key[];
-    /** @deprecated Use `expandable.expandedRowRender` instead */
-    expandedRowRender?: ExpandedRowRender<RecordType>;
-    /** @deprecated Use `expandable.expandRowByClick` instead */
-    expandRowByClick?: boolean;
-    /** @deprecated Use `expandable.expandIcon` instead */
-    expandIcon?: RenderExpandIcon<RecordType>;
-    /** @deprecated Use `expandable.onExpand` instead */
-    onExpand?: (expanded: boolean, record: RecordType) => void;
-    /** @deprecated Use `expandable.onExpandedRowsChange` instead */
-    onExpandedRowsChange?: (expandedKeys: Key[]) => void;
-    /** @deprecated Use `expandable.defaultExpandAllRows` instead */
-    defaultExpandAllRows?: boolean;
-    /** @deprecated Use `expandable.indentSize` instead */
-    indentSize?: number;
-    /** @deprecated Use `expandable.expandIconColumnIndex` instead */
-    expandIconColumnIndex?: number;
-    /** @deprecated Use `expandable.expandedRowClassName` instead */
-    expandedRowClassName?: RowClassName<RecordType>;
-    /** @deprecated Use `expandable.childrenColumnName` instead */
-    childrenColumnName?: string;
-}
-
 export type ExpandedRowRender<ValueType> = (
     record: ValueType,
     index: number,
@@ -196,8 +169,6 @@ export interface ExpandableConfig<RecordType> {
     onExpandedRowsChange?: (expandedKeys: readonly Key[]) => void;
     defaultExpandAllRows?: boolean;
     indentSize?: number;
-    /** @deprecated Please use `EXPAND_COLUMN` in `columns` directly */
-    expandIconColumnIndex?: number;
     showExpandColumn?: boolean;
     expandedRowClassName?: RowClassName<RecordType>;
     childrenColumnName?: string;
@@ -240,8 +211,7 @@ export interface MemoTableContentProps {
     props: any;
 }
 
-export interface OcTableProps<RecordType = unknown>
-    extends Omit<LegacyExpandableProps<RecordType>, 'showExpandColumn'> {
+export interface OcTableProps<RecordType = unknown> {
     classNames?: string;
     style?: React.CSSProperties;
     children?: React.ReactNode;

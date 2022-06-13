@@ -82,12 +82,9 @@ function Cell<RecordType extends DefaultRecordType>(
         align,
         rowType,
         isSticky,
-
-        // Hover
         hovering,
         onHover,
-    }: // MISC
-    InternalCellProps<RecordType>,
+    }: InternalCellProps<RecordType>,
     ref: React.Ref<any>
 ): React.ReactElement {
     const perfRecord = useContext(PerfContext);
@@ -180,7 +177,6 @@ function Cell<RecordType extends DefaultRecordType>(
     }
     if (isFixRight) {
         fixedStyle.position = 'sticky';
-
         fixedStyle.right = fixRight as number;
     }
 
