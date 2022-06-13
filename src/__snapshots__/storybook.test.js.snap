@@ -637,7 +637,7 @@ exports[`Storyshots Avatar Avatar Icon 1`] = `
   className="wrapperStyle my-avatar-class imageStyle"
   style={
     Object {
-      "backgroundColor": "grey",
+      "backgroundColor": "var(--accent-color-20)",
       "fontSize": "18px",
       "height": "40px",
       "minHeight": "40px",
@@ -702,7 +702,7 @@ exports[`Storyshots Avatar Avatar Round Icon 1`] = `
   className="wrapperStyle my-avatar-class imageStyle roundImage"
   style={
     Object {
-      "backgroundColor": "grey",
+      "backgroundColor": "var(--accent-color-20)",
       "fontSize": "18px",
       "height": "40px",
       "minHeight": "40px",
@@ -770,7 +770,7 @@ exports[`Storyshots Button Default 1`] = `
 <button
   aria-disabled={false}
   aria-label="Default Button"
-  className="my-btn-class button buttonDefault iconLeft"
+  className="my-btn-class button buttonDefault pillShape iconLeft"
   data-test-id="my-btn-test-id"
   defaultChecked={false}
   disabled={false}
@@ -819,7 +819,7 @@ exports[`Storyshots Button Neutral 1`] = `
 <button
   aria-disabled={false}
   aria-label="Neutral Button"
-  className="my-btn-class button buttonNeutral iconLeft"
+  className="my-btn-class button buttonNeutral pillShape iconLeft"
   data-test-id="my-btn-test-id"
   defaultChecked={false}
   disabled={false}
@@ -868,7 +868,7 @@ exports[`Storyshots Button Primary 1`] = `
 <button
   aria-disabled={false}
   aria-label="Primary Button"
-  className="my-btn-class button buttonPrimary iconLeft"
+  className="my-btn-class button buttonPrimary pillShape iconLeft"
   data-test-id="my-btn-test-id"
   defaultChecked={false}
   disabled={false}
@@ -917,7 +917,7 @@ exports[`Storyshots Button Secondary 1`] = `
 <button
   aria-disabled={false}
   aria-label="Secondary Button"
-  className="my-btn-class button buttonSecondary iconLeft"
+  className="my-btn-class button buttonSecondary pillShape iconLeft"
   data-test-id="my-btn-test-id"
   defaultChecked={false}
   disabled={false}
@@ -967,7 +967,7 @@ Array [
   <button
     aria-disabled={false}
     aria-label="Split Button"
-    className="my-btn-class button buttonPrimary splitLeft"
+    className="my-btn-class button buttonPrimary pillShape splitLeft"
     data-test-id="my-btn-test-id"
     defaultChecked={false}
     disabled={false}
@@ -985,7 +985,7 @@ Array [
     aria-checked={false}
     aria-disabled={false}
     aria-pressed={false}
-    className="my-btn-class button buttonPrimary undefined splitButton splitRight"
+    className="my-btn-class button buttonPrimary pillShape undefined splitButton pillShape splitRight"
     defaultChecked={false}
     disabled={false}
     type="button"
@@ -1029,7 +1029,7 @@ exports[`Storyshots Button Toggle 1`] = `
   aria-disabled={false}
   aria-label="Toggle Button"
   aria-pressed={false}
-  className="my-btn-class button buttonPrimary iconRight"
+  className="my-btn-class button buttonPrimary pillShape iconRight"
   data-test-id="my-btn-test-id"
   defaultChecked={false}
   disabled={false}
@@ -1080,7 +1080,7 @@ exports[`Storyshots Button Two State Button 1`] = `
   aria-disabled={false}
   aria-label="Two State Button"
   aria-pressed={false}
-  className="my-two-state-btn-class button twoStateButton"
+  className="my-two-state-btn-class button twoStateButton pillShape"
   defaultChecked={false}
   disabled={false}
   id="myTwoStateButton"
@@ -3243,7 +3243,7 @@ exports[`Storyshots Config Provider Theming 1`] = `
     <button
       aria-disabled={false}
       aria-label="Primary Button"
-      className="button buttonPrimary buttonSize3"
+      className="button buttonPrimary buttonSize3 pillShape"
       defaultChecked={false}
       disabled={false}
     >
@@ -3256,7 +3256,7 @@ exports[`Storyshots Config Provider Theming 1`] = `
     <button
       aria-disabled={false}
       aria-label="Primary Button"
-      className="button buttonPrimary buttonSize3 iconLeft"
+      className="button buttonPrimary buttonSize3 pillShape iconLeft"
       defaultChecked={false}
       disabled={false}
     >
@@ -3289,7 +3289,7 @@ exports[`Storyshots Config Provider Theming 1`] = `
     <button
       aria-disabled={false}
       aria-label="Primary Button"
-      className="button buttonPrimary buttonSize3 iconLeft"
+      className="button buttonPrimary buttonSize3 pillShape iconLeft"
       defaultChecked={false}
       disabled={false}
     >
@@ -3340,7 +3340,7 @@ exports[`Storyshots Config Provider Theming 1`] = `
     <button
       aria-disabled={false}
       aria-label="Secondary Button"
-      className="button buttonSecondary buttonSize3"
+      className="button buttonSecondary buttonSize3 pillShape"
       defaultChecked={false}
       disabled={false}
     >
@@ -3353,7 +3353,7 @@ exports[`Storyshots Config Provider Theming 1`] = `
     <button
       aria-disabled={false}
       aria-label="Secondary Button"
-      className="button buttonSecondary buttonSize3 iconLeft"
+      className="button buttonSecondary buttonSize3 pillShape iconLeft"
       defaultChecked={false}
       disabled={false}
     >
@@ -3386,7 +3386,7 @@ exports[`Storyshots Config Provider Theming 1`] = `
     <button
       aria-disabled={false}
       aria-label="Secondary Button"
-      className="button buttonSecondary buttonSize3 iconLeft"
+      className="button buttonSecondary buttonSize3 pillShape iconLeft"
       defaultChecked={false}
       disabled={false}
     >
@@ -3437,7 +3437,7 @@ exports[`Storyshots Config Provider Theming 1`] = `
     <button
       aria-disabled={false}
       aria-label="Default Button"
-      className="button buttonDefault buttonSize3"
+      className="button buttonDefault buttonSize3 pillShape"
       defaultChecked={false}
       disabled={false}
     >
@@ -3450,7 +3450,7 @@ exports[`Storyshots Config Provider Theming 1`] = `
     <button
       aria-disabled={false}
       aria-label="Default Button"
-      className="button buttonDefault buttonSize3 iconLeft"
+      className="button buttonDefault buttonSize3 pillShape iconLeft"
       defaultChecked={false}
       disabled={false}
     >
@@ -3483,7 +3483,7 @@ exports[`Storyshots Config Provider Theming 1`] = `
     <button
       aria-disabled={false}
       aria-label="Default Button"
-      className="button buttonDefault buttonSize3 iconLeft"
+      className="button buttonDefault buttonSize3 pillShape iconLeft"
       defaultChecked={false}
       disabled={false}
     >
@@ -4125,7 +4125,7 @@ exports[`Storyshots Config Provider Theming 1`] = `
 exports[`Storyshots Dialog Medium 1`] = `
 <button
   aria-disabled={false}
-  className="button buttonPrimary"
+  className="button buttonPrimary pillShape"
   defaultChecked={false}
   disabled={false}
   onClick={[Function]}
@@ -4141,7 +4141,7 @@ exports[`Storyshots Dialog Medium 1`] = `
 exports[`Storyshots Dialog Small 1`] = `
 <button
   aria-disabled={false}
-  className="button buttonPrimary buttonPrimaryDisruptive"
+  className="button buttonPrimary buttonPrimaryDisruptive pillShape"
   defaultChecked={false}
   disabled={false}
   onClick={[Function]}
@@ -4164,7 +4164,7 @@ exports[`Storyshots Dropdown Dropdown Button 1`] = `
     aria-disabled={false}
     aria-expanded={false}
     aria-haspopup={true}
-    className="button buttonDefault iconRight"
+    className="button buttonDefault pillShape iconRight"
     defaultChecked={false}
     disabled={false}
     onClick={[Function]}
@@ -4416,7 +4416,7 @@ exports[`Storyshots Info Bar Disruptive 1`] = `
   <button
     aria-disabled={false}
     aria-label="Action"
-    className="my-action-btn-class button buttonNeutral"
+    className="my-action-btn-class button buttonNeutral pillShape"
     data-test-id="my-action-btn-test-id"
     defaultChecked={false}
     disabled={false}
@@ -4431,7 +4431,7 @@ exports[`Storyshots Info Bar Disruptive 1`] = `
   <button
     aria-disabled={false}
     aria-label="Close"
-    className="my-close-btn-class button buttonNeutral iconLeft"
+    className="my-close-btn-class button buttonNeutral pillShape iconLeft"
     data-test-id="my-close-btn-test-id"
     defaultChecked={false}
     disabled={false}
@@ -4505,7 +4505,7 @@ exports[`Storyshots Info Bar Neutral 1`] = `
   <button
     aria-disabled={false}
     aria-label="Action"
-    className="my-action-btn-class button buttonNeutral"
+    className="my-action-btn-class button buttonNeutral pillShape"
     data-test-id="my-action-btn-test-id"
     defaultChecked={false}
     disabled={false}
@@ -4520,7 +4520,7 @@ exports[`Storyshots Info Bar Neutral 1`] = `
   <button
     aria-disabled={false}
     aria-label="Close"
-    className="my-close-btn-class button buttonNeutral iconLeft"
+    className="my-close-btn-class button buttonNeutral pillShape iconLeft"
     data-test-id="my-close-btn-test-id"
     defaultChecked={false}
     disabled={false}
@@ -4594,7 +4594,7 @@ exports[`Storyshots Info Bar Positive 1`] = `
   <button
     aria-disabled={false}
     aria-label="Action"
-    className="my-action-btn-class button buttonNeutral"
+    className="my-action-btn-class button buttonNeutral pillShape"
     data-test-id="my-action-btn-test-id"
     defaultChecked={false}
     disabled={false}
@@ -4609,7 +4609,7 @@ exports[`Storyshots Info Bar Positive 1`] = `
   <button
     aria-disabled={false}
     aria-label="Close"
-    className="my-close-btn-class button buttonNeutral iconLeft"
+    className="my-close-btn-class button buttonNeutral pillShape iconLeft"
     data-test-id="my-close-btn-test-id"
     defaultChecked={false}
     disabled={false}
@@ -4683,7 +4683,7 @@ exports[`Storyshots Info Bar Warning 1`] = `
   <button
     aria-disabled={false}
     aria-label="Action"
-    className="my-action-btn-class button buttonNeutral"
+    className="my-action-btn-class button buttonNeutral pillShape"
     data-test-id="my-action-btn-test-id"
     defaultChecked={false}
     disabled={false}
@@ -4698,7 +4698,7 @@ exports[`Storyshots Info Bar Warning 1`] = `
   <button
     aria-disabled={false}
     aria-label="Close"
-    className="my-close-btn-class button buttonNeutral iconLeft"
+    className="my-close-btn-class button buttonNeutral pillShape iconLeft"
     data-test-id="my-close-btn-test-id"
     defaultChecked={false}
     disabled={false}
@@ -4760,7 +4760,7 @@ exports[`Storyshots Input Search Box 1`] = `
         >
           <button
             aria-disabled={false}
-            className="labelIconButton button buttonDefault buttonSize3 iconLeft"
+            className="labelIconButton button buttonDefault buttonSize3 pillShape iconLeft"
             defaultChecked={false}
             disabled={false}
           >
@@ -4822,7 +4822,7 @@ exports[`Storyshots Input Search Box 1`] = `
     <input
       aria-label="Search"
       autoFocus={false}
-      className="my-searchbox-class withIcon withIconButton withIconAndIconButton"
+      className="my-searchbox-class pillShape pillShapeWithIcon pillShapeWithIconButton pillShapeWithIconAndIconButton"
       disabled={false}
       id="mySearchBoxId5"
       maxLength={100}
@@ -4868,7 +4868,7 @@ exports[`Storyshots Input Search Box 1`] = `
     </div>
     <button
       aria-disabled={false}
-      className="iconButton leftIcon button buttonDefault buttonSize2 iconLeft"
+      className="iconButton leftIcon button buttonDefault buttonSize2 pillShape iconLeft"
       defaultChecked={false}
       disabled={false}
     >
@@ -4926,7 +4926,7 @@ exports[`Storyshots Input Text Area 1`] = `
       >
         <button
           aria-disabled={false}
-          className="labelIconButton button buttonDefault buttonSize3 iconLeft"
+          className="labelIconButton button buttonDefault buttonSize3 pillShape iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -5056,7 +5056,7 @@ exports[`Storyshots Input Text Input 1`] = `
       >
         <button
           aria-disabled={false}
-          className="labelIconButton button buttonDefault buttonSize3 iconLeft"
+          className="labelIconButton button buttonDefault buttonSize3 pillShape iconLeft"
           defaultChecked={false}
           disabled={false}
         >
@@ -5118,7 +5118,7 @@ exports[`Storyshots Input Text Input 1`] = `
   <input
     aria-label="Sample text"
     autoFocus={false}
-    className="my-textinput-class withIcon withIconButton withIconAndIconButton"
+    className="my-textinput-class pillShape pillShapeWithIcon pillShapeWithIconButton pillShapeWithIconAndIconButton"
     disabled={false}
     htmltype="text"
     id="myTextInputId7"
@@ -5165,7 +5165,7 @@ exports[`Storyshots Input Text Input 1`] = `
   </div>
   <button
     aria-disabled={false}
-    className="iconButton leftIcon button buttonDefault buttonSize2 iconLeft"
+    className="iconButton leftIcon button buttonDefault buttonSize2 pillShape iconLeft"
     defaultChecked={false}
     disabled={false}
   >
@@ -5220,7 +5220,7 @@ exports[`Storyshots Label Labels 1`] = `
     >
       <button
         aria-disabled={false}
-        className="labelIconButton button buttonDefault buttonSize3 iconLeft"
+        className="labelIconButton button buttonDefault buttonSize3 pillShape iconLeft"
         defaultChecked={false}
         disabled={false}
         onClick={[Function]}
@@ -5680,7 +5680,7 @@ exports[`Storyshots Menu Menus 1`] = `
     aria-disabled={false}
     aria-expanded={false}
     aria-haspopup={true}
-    className="button buttonDefault"
+    className="button buttonDefault pillShape"
     defaultChecked={false}
     disabled={false}
     onClick={[Function]}
@@ -5699,7 +5699,7 @@ exports[`Storyshots Menu Menus 1`] = `
 exports[`Storyshots Modal Fullscreen 1`] = `
 <button
   aria-disabled={false}
-  className="button buttonPrimary"
+  className="button buttonPrimary pillShape"
   defaultChecked={false}
   disabled={false}
   onClick={[Function]}
@@ -5715,7 +5715,7 @@ exports[`Storyshots Modal Fullscreen 1`] = `
 exports[`Storyshots Modal Large 1`] = `
 <button
   aria-disabled={false}
-  className="button buttonPrimary"
+  className="button buttonPrimary pillShape"
   defaultChecked={false}
   disabled={false}
   onClick={[Function]}
@@ -5731,7 +5731,7 @@ exports[`Storyshots Modal Large 1`] = `
 exports[`Storyshots Modal Medium 1`] = `
 <button
   aria-disabled={false}
-  className="button buttonPrimary"
+  className="button buttonPrimary pillShape"
   defaultChecked={false}
   disabled={false}
   onClick={[Function]}
@@ -5747,7 +5747,7 @@ exports[`Storyshots Modal Medium 1`] = `
 exports[`Storyshots Modal Scrollable 1`] = `
 <button
   aria-disabled={false}
-  className="button buttonPrimary"
+  className="button buttonPrimary pillShape"
   defaultChecked={false}
   disabled={false}
   onClick={[Function]}
@@ -5763,7 +5763,7 @@ exports[`Storyshots Modal Scrollable 1`] = `
 exports[`Storyshots Modal Small 1`] = `
 <button
   aria-disabled={false}
-  className="button buttonPrimary"
+  className="button buttonPrimary pillShape"
   defaultChecked={false}
   disabled={false}
   onClick={[Function]}
@@ -5779,7 +5779,7 @@ exports[`Storyshots Modal Small 1`] = `
 exports[`Storyshots Modal X Large 1`] = `
 <button
   aria-disabled={false}
-  className="button buttonPrimary"
+  className="button buttonPrimary pillShape"
   defaultChecked={false}
   disabled={false}
   onClick={[Function]}
@@ -5809,7 +5809,7 @@ exports[`Storyshots Pagination All Combined 1`] = `
         aria-expanded={false}
         aria-haspopup={true}
         aria-label="Selected page size"
-        className="button buttonDefault buttonSize3 iconLeft"
+        className="button buttonDefault buttonSize3 pillShape iconLeft"
         defaultChecked={false}
         disabled={false}
         onClick={[Function]}
@@ -5859,7 +5859,7 @@ exports[`Storyshots Pagination All Combined 1`] = `
   <button
     aria-disabled={false}
     aria-label="Previous"
-    className="paginationButton button buttonDefault buttonSize3 iconLeft"
+    className="paginationButton button buttonDefault buttonSize3 pillShape iconLeft"
     defaultChecked={false}
     disabled={false}
     onClick={[Function]}
@@ -5898,7 +5898,7 @@ exports[`Storyshots Pagination All Combined 1`] = `
         aria-checked={false}
         aria-disabled={false}
         aria-pressed={false}
-        className="paginationButton button buttonDefault buttonSize3"
+        className="paginationButton button buttonDefault buttonSize3 pillShape"
         defaultChecked={false}
         disabled={false}
         onClick={[Function]}
@@ -5915,7 +5915,7 @@ exports[`Storyshots Pagination All Combined 1`] = `
         aria-checked={false}
         aria-disabled={false}
         aria-pressed={false}
-        className="paginationButton button buttonDefault buttonSize3"
+        className="paginationButton button buttonDefault buttonSize3 pillShape"
         defaultChecked={false}
         disabled={false}
         onClick={[Function]}
@@ -5932,7 +5932,7 @@ exports[`Storyshots Pagination All Combined 1`] = `
         aria-checked={true}
         aria-disabled={false}
         aria-pressed={true}
-        className="paginationButton active button buttonDefault buttonSize3"
+        className="paginationButton active button buttonDefault buttonSize3 pillShape"
         defaultChecked={true}
         disabled={false}
         onClick={[Function]}
@@ -5948,7 +5948,7 @@ exports[`Storyshots Pagination All Combined 1`] = `
   <button
     aria-disabled={false}
     aria-label="Next"
-    className="paginationButton button buttonDefault buttonSize3 iconLeft disabled"
+    className="paginationButton button buttonDefault buttonSize3 pillShape iconLeft disabled"
     defaultChecked={false}
     disabled={true}
     onClick={[Function]}
@@ -5987,7 +5987,7 @@ exports[`Storyshots Pagination All Combined 1`] = `
     >
       <input
         autoFocus={false}
-        className="editor"
+        className="editor pillShape"
         defaultValue={4}
         disabled={false}
         id="input-16"
@@ -6013,7 +6013,7 @@ exports[`Storyshots Pagination Basic Few 1`] = `
   <button
     aria-disabled={false}
     aria-label="Previous"
-    className="paginationButton button buttonDefault buttonSize3 iconLeft disabled"
+    className="paginationButton button buttonDefault buttonSize3 pillShape iconLeft disabled"
     defaultChecked={false}
     disabled={true}
     onClick={[Function]}
@@ -6052,7 +6052,7 @@ exports[`Storyshots Pagination Basic Few 1`] = `
         aria-checked={true}
         aria-disabled={false}
         aria-pressed={true}
-        className="paginationButton active button buttonDefault buttonSize3"
+        className="paginationButton active button buttonDefault buttonSize3 pillShape"
         defaultChecked={true}
         disabled={false}
         onClick={[Function]}
@@ -6069,7 +6069,7 @@ exports[`Storyshots Pagination Basic Few 1`] = `
         aria-checked={false}
         aria-disabled={false}
         aria-pressed={false}
-        className="paginationButton button buttonDefault buttonSize3"
+        className="paginationButton button buttonDefault buttonSize3 pillShape"
         defaultChecked={false}
         disabled={false}
         onClick={[Function]}
@@ -6086,7 +6086,7 @@ exports[`Storyshots Pagination Basic Few 1`] = `
         aria-checked={false}
         aria-disabled={false}
         aria-pressed={false}
-        className="paginationButton button buttonDefault buttonSize3"
+        className="paginationButton button buttonDefault buttonSize3 pillShape"
         defaultChecked={false}
         disabled={false}
         onClick={[Function]}
@@ -6102,7 +6102,7 @@ exports[`Storyshots Pagination Basic Few 1`] = `
   <button
     aria-disabled={false}
     aria-label="Next"
-    className="paginationButton button buttonDefault buttonSize3 iconLeft"
+    className="paginationButton button buttonDefault buttonSize3 pillShape iconLeft"
     defaultChecked={false}
     disabled={false}
     onClick={[Function]}
@@ -6145,7 +6145,7 @@ exports[`Storyshots Pagination Basic Many 1`] = `
   <button
     aria-disabled={false}
     aria-label="Previous"
-    className="paginationButton button buttonDefault buttonSize3 iconLeft disabled"
+    className="paginationButton button buttonDefault buttonSize3 pillShape iconLeft disabled"
     defaultChecked={false}
     disabled={true}
     onClick={[Function]}
@@ -6184,7 +6184,7 @@ exports[`Storyshots Pagination Basic Many 1`] = `
         aria-checked={true}
         aria-disabled={false}
         aria-pressed={true}
-        className="paginationButton active button buttonDefault buttonSize3"
+        className="paginationButton active button buttonDefault buttonSize3 pillShape"
         defaultChecked={true}
         disabled={false}
         onClick={[Function]}
@@ -6201,7 +6201,7 @@ exports[`Storyshots Pagination Basic Many 1`] = `
         aria-checked={false}
         aria-disabled={false}
         aria-pressed={false}
-        className="paginationButton button buttonDefault buttonSize3"
+        className="paginationButton button buttonDefault buttonSize3 pillShape"
         defaultChecked={false}
         disabled={false}
         onClick={[Function]}
@@ -6217,7 +6217,7 @@ exports[`Storyshots Pagination Basic Many 1`] = `
       <button
         aria-disabled={false}
         aria-label="Next 5"
-        className="paginationButton quicknext button buttonDefault buttonSize3 iconLeft"
+        className="paginationButton quicknext button buttonDefault buttonSize3 pillShape iconLeft"
         defaultChecked={false}
         disabled={false}
         onBlur={[Function]}
@@ -6258,7 +6258,7 @@ exports[`Storyshots Pagination Basic Many 1`] = `
         aria-checked={false}
         aria-disabled={false}
         aria-pressed={false}
-        className="paginationButton button buttonDefault buttonSize3"
+        className="paginationButton button buttonDefault buttonSize3 pillShape"
         defaultChecked={false}
         disabled={false}
         onClick={[Function]}
@@ -6274,7 +6274,7 @@ exports[`Storyshots Pagination Basic Many 1`] = `
   <button
     aria-disabled={false}
     aria-label="Next"
-    className="paginationButton button buttonDefault buttonSize3 iconLeft"
+    className="paginationButton button buttonDefault buttonSize3 pillShape iconLeft"
     defaultChecked={false}
     disabled={false}
     onClick={[Function]}
@@ -6325,7 +6325,7 @@ exports[`Storyshots Pagination Change Page Size 1`] = `
         aria-expanded={false}
         aria-haspopup={true}
         aria-label="Selected page size"
-        className="button buttonDefault buttonSize3 iconLeft"
+        className="button buttonDefault buttonSize3 pillShape iconLeft"
         defaultChecked={false}
         disabled={false}
         onClick={[Function]}
@@ -6371,7 +6371,7 @@ exports[`Storyshots Pagination Change Page Size 1`] = `
   <button
     aria-disabled={false}
     aria-label="Previous"
-    className="paginationButton button buttonDefault buttonSize3 iconLeft disabled"
+    className="paginationButton button buttonDefault buttonSize3 pillShape iconLeft disabled"
     defaultChecked={false}
     disabled={true}
     onClick={[Function]}
@@ -6410,7 +6410,7 @@ exports[`Storyshots Pagination Change Page Size 1`] = `
         aria-checked={true}
         aria-disabled={false}
         aria-pressed={true}
-        className="paginationButton active button buttonDefault buttonSize3"
+        className="paginationButton active button buttonDefault buttonSize3 pillShape"
         defaultChecked={true}
         disabled={false}
         onClick={[Function]}
@@ -6427,7 +6427,7 @@ exports[`Storyshots Pagination Change Page Size 1`] = `
         aria-checked={false}
         aria-disabled={false}
         aria-pressed={false}
-        className="paginationButton button buttonDefault buttonSize3"
+        className="paginationButton button buttonDefault buttonSize3 pillShape"
         defaultChecked={false}
         disabled={false}
         onClick={[Function]}
@@ -6444,7 +6444,7 @@ exports[`Storyshots Pagination Change Page Size 1`] = `
         aria-checked={false}
         aria-disabled={false}
         aria-pressed={false}
-        className="paginationButton button buttonDefault buttonSize3"
+        className="paginationButton button buttonDefault buttonSize3 pillShape"
         defaultChecked={false}
         disabled={false}
         onClick={[Function]}
@@ -6460,7 +6460,7 @@ exports[`Storyshots Pagination Change Page Size 1`] = `
   <button
     aria-disabled={false}
     aria-label="Next"
-    className="paginationButton button buttonDefault buttonSize3 iconLeft"
+    className="paginationButton button buttonDefault buttonSize3 pillShape iconLeft"
     defaultChecked={false}
     disabled={false}
     onClick={[Function]}
@@ -6503,7 +6503,7 @@ exports[`Storyshots Pagination Dots 1`] = `
   <button
     aria-disabled={false}
     aria-label="Previous"
-    className="paginationButton button buttonDefault buttonSize3 iconLeft disabled"
+    className="paginationButton button buttonDefault buttonSize3 pillShape iconLeft disabled"
     defaultChecked={false}
     disabled={true}
     onClick={[Function]}
@@ -6542,7 +6542,7 @@ exports[`Storyshots Pagination Dots 1`] = `
         aria-checked={true}
         aria-disabled={false}
         aria-pressed={true}
-        className="paginationButton active button buttonDefault buttonSize3"
+        className="paginationButton active button buttonDefault buttonSize3 pillShape"
         defaultChecked={true}
         disabled={false}
         onClick={[Function]}
@@ -6559,7 +6559,7 @@ exports[`Storyshots Pagination Dots 1`] = `
         aria-checked={false}
         aria-disabled={false}
         aria-pressed={false}
-        className="paginationButton button buttonDefault buttonSize3"
+        className="paginationButton button buttonDefault buttonSize3 pillShape"
         defaultChecked={false}
         disabled={false}
         onClick={[Function]}
@@ -6576,7 +6576,7 @@ exports[`Storyshots Pagination Dots 1`] = `
         aria-checked={false}
         aria-disabled={false}
         aria-pressed={false}
-        className="paginationButton button buttonDefault buttonSize3"
+        className="paginationButton button buttonDefault buttonSize3 pillShape"
         defaultChecked={false}
         disabled={false}
         onClick={[Function]}
@@ -6592,7 +6592,7 @@ exports[`Storyshots Pagination Dots 1`] = `
   <button
     aria-disabled={false}
     aria-label="Next"
-    className="paginationButton button buttonDefault buttonSize3 iconLeft"
+    className="paginationButton button buttonDefault buttonSize3 pillShape iconLeft"
     defaultChecked={false}
     disabled={false}
     onClick={[Function]}
@@ -6635,7 +6635,7 @@ exports[`Storyshots Pagination Jump To 1`] = `
   <button
     aria-disabled={false}
     aria-label="Previous"
-    className="paginationButton button buttonDefault buttonSize3 iconLeft"
+    className="paginationButton button buttonDefault buttonSize3 pillShape iconLeft"
     defaultChecked={false}
     disabled={false}
     onClick={[Function]}
@@ -6674,7 +6674,7 @@ exports[`Storyshots Pagination Jump To 1`] = `
         aria-checked={false}
         aria-disabled={false}
         aria-pressed={false}
-        className="paginationButton button buttonDefault buttonSize3"
+        className="paginationButton button buttonDefault buttonSize3 pillShape"
         defaultChecked={false}
         disabled={false}
         onClick={[Function]}
@@ -6691,7 +6691,7 @@ exports[`Storyshots Pagination Jump To 1`] = `
         aria-checked={false}
         aria-disabled={false}
         aria-pressed={false}
-        className="paginationButton button buttonDefault buttonSize3"
+        className="paginationButton button buttonDefault buttonSize3 pillShape"
         defaultChecked={false}
         disabled={false}
         onClick={[Function]}
@@ -6708,7 +6708,7 @@ exports[`Storyshots Pagination Jump To 1`] = `
         aria-checked={false}
         aria-disabled={false}
         aria-pressed={false}
-        className="paginationButton button buttonDefault buttonSize3"
+        className="paginationButton button buttonDefault buttonSize3 pillShape"
         defaultChecked={false}
         disabled={false}
         onClick={[Function]}
@@ -6724,7 +6724,7 @@ exports[`Storyshots Pagination Jump To 1`] = `
   <button
     aria-disabled={false}
     aria-label="Next"
-    className="paginationButton button buttonDefault buttonSize3 iconLeft"
+    className="paginationButton button buttonDefault buttonSize3 pillShape iconLeft"
     defaultChecked={false}
     disabled={false}
     onClick={[Function]}
@@ -6763,7 +6763,7 @@ exports[`Storyshots Pagination Jump To 1`] = `
     >
       <input
         autoFocus={false}
-        className="editor"
+        className="editor pillShape"
         defaultValue={5}
         disabled={false}
         id="input-18"
@@ -6793,7 +6793,7 @@ exports[`Storyshots Pagination Total Item Count 1`] = `
   <button
     aria-disabled={false}
     aria-label="Previous"
-    className="paginationButton button buttonDefault buttonSize3 iconLeft disabled"
+    className="paginationButton button buttonDefault buttonSize3 pillShape iconLeft disabled"
     defaultChecked={false}
     disabled={true}
     onClick={[Function]}
@@ -6832,7 +6832,7 @@ exports[`Storyshots Pagination Total Item Count 1`] = `
         aria-checked={true}
         aria-disabled={false}
         aria-pressed={true}
-        className="paginationButton active button buttonDefault buttonSize3"
+        className="paginationButton active button buttonDefault buttonSize3 pillShape"
         defaultChecked={true}
         disabled={false}
         onClick={[Function]}
@@ -6849,7 +6849,7 @@ exports[`Storyshots Pagination Total Item Count 1`] = `
         aria-checked={false}
         aria-disabled={false}
         aria-pressed={false}
-        className="paginationButton button buttonDefault buttonSize3"
+        className="paginationButton button buttonDefault buttonSize3 pillShape"
         defaultChecked={false}
         disabled={false}
         onClick={[Function]}
@@ -6865,7 +6865,7 @@ exports[`Storyshots Pagination Total Item Count 1`] = `
       <button
         aria-disabled={false}
         aria-label="Next 5"
-        className="paginationButton quicknext button buttonDefault buttonSize3 iconLeft"
+        className="paginationButton quicknext button buttonDefault buttonSize3 pillShape iconLeft"
         defaultChecked={false}
         disabled={false}
         onBlur={[Function]}
@@ -6906,7 +6906,7 @@ exports[`Storyshots Pagination Total Item Count 1`] = `
         aria-checked={false}
         aria-disabled={false}
         aria-pressed={false}
-        className="paginationButton button buttonDefault buttonSize3"
+        className="paginationButton button buttonDefault buttonSize3 pillShape"
         defaultChecked={false}
         disabled={false}
         onClick={[Function]}
@@ -6922,7 +6922,7 @@ exports[`Storyshots Pagination Total Item Count 1`] = `
   <button
     aria-disabled={false}
     aria-label="Next"
-    className="paginationButton button buttonDefault buttonSize3 iconLeft"
+    className="paginationButton button buttonDefault buttonSize3 pillShape iconLeft"
     defaultChecked={false}
     disabled={false}
     onClick={[Function]}
@@ -6959,7 +6959,7 @@ exports[`Storyshots Pagination Total Item Count 1`] = `
 exports[`Storyshots Panel Bottom 1`] = `
 <button
   aria-disabled={false}
-  className="button buttonPrimary"
+  className="button buttonPrimary pillShape"
   defaultChecked={false}
   disabled={false}
   onClick={[Function]}
@@ -6975,7 +6975,7 @@ exports[`Storyshots Panel Bottom 1`] = `
 exports[`Storyshots Panel Large 1`] = `
 <button
   aria-disabled={false}
-  className="button buttonPrimary"
+  className="button buttonPrimary pillShape"
   defaultChecked={false}
   disabled={false}
   onClick={[Function]}
@@ -6991,7 +6991,7 @@ exports[`Storyshots Panel Large 1`] = `
 exports[`Storyshots Panel Left 1`] = `
 <button
   aria-disabled={false}
-  className="button buttonPrimary"
+  className="button buttonPrimary pillShape"
   defaultChecked={false}
   disabled={false}
   onClick={[Function]}
@@ -7007,7 +7007,7 @@ exports[`Storyshots Panel Left 1`] = `
 exports[`Storyshots Panel Medium 1`] = `
 <button
   aria-disabled={false}
-  className="button buttonPrimary"
+  className="button buttonPrimary pillShape"
   defaultChecked={false}
   disabled={false}
   onClick={[Function]}
@@ -7023,7 +7023,7 @@ exports[`Storyshots Panel Medium 1`] = `
 exports[`Storyshots Panel Small 1`] = `
 <button
   aria-disabled={false}
-  className="button buttonPrimary"
+  className="button buttonPrimary pillShape"
   defaultChecked={false}
   disabled={false}
   onClick={[Function]}
@@ -7039,7 +7039,7 @@ exports[`Storyshots Panel Small 1`] = `
 exports[`Storyshots Panel Stacked 1`] = `
 <button
   aria-disabled={false}
-  className="button buttonPrimary"
+  className="button buttonPrimary pillShape"
   defaultChecked={false}
   disabled={false}
   onClick={[Function]}
@@ -7055,7 +7055,7 @@ exports[`Storyshots Panel Stacked 1`] = `
 exports[`Storyshots Panel Top 1`] = `
 <button
   aria-disabled={false}
-  className="button buttonPrimary"
+  className="button buttonPrimary pillShape"
   defaultChecked={false}
   disabled={false}
   onClick={[Function]}
@@ -7095,7 +7095,7 @@ exports[`Storyshots Pill Closable 1`] = `
     <button
       aria-disabled={false}
       aria-label="Close"
-      className="closeButton button buttonDefault buttonSize2 iconLeft"
+      className="closeButton button buttonDefault buttonSize2 pillShape iconLeft"
       defaultChecked={false}
       disabled={false}
     >
@@ -7142,7 +7142,7 @@ exports[`Storyshots Pill Closable 1`] = `
     <button
       aria-disabled={false}
       aria-label="Close"
-      className="closeButton button buttonDefault buttonSize2 iconLeft"
+      className="closeButton button buttonDefault buttonSize2 pillShape iconLeft"
       defaultChecked={false}
       disabled={false}
     >
@@ -7189,7 +7189,7 @@ exports[`Storyshots Pill Closable 1`] = `
     <button
       aria-disabled={false}
       aria-label="Close"
-      className="closeButton button buttonDefault buttonSize2 iconLeft"
+      className="closeButton button buttonDefault buttonSize2 pillShape iconLeft"
       defaultChecked={false}
       disabled={false}
     >
@@ -7236,7 +7236,7 @@ exports[`Storyshots Pill Closable 1`] = `
     <button
       aria-disabled={false}
       aria-label="Close"
-      className="closeButton button buttonDefault buttonSize2 iconLeft"
+      className="closeButton button buttonDefault buttonSize2 pillShape iconLeft"
       defaultChecked={false}
       disabled={false}
     >
@@ -7283,7 +7283,7 @@ exports[`Storyshots Pill Closable 1`] = `
     <button
       aria-disabled={false}
       aria-label="Close"
-      className="closeButton button buttonDefault buttonSize2 iconLeft"
+      className="closeButton button buttonDefault buttonSize2 pillShape iconLeft"
       defaultChecked={false}
       disabled={false}
     >
@@ -7330,7 +7330,7 @@ exports[`Storyshots Pill Closable 1`] = `
     <button
       aria-disabled={false}
       aria-label="Close"
-      className="closeButton button buttonDefault buttonSize2 iconLeft"
+      className="closeButton button buttonDefault buttonSize2 pillShape iconLeft"
       defaultChecked={false}
       disabled={false}
     >
@@ -7377,7 +7377,7 @@ exports[`Storyshots Pill Closable 1`] = `
     <button
       aria-disabled={false}
       aria-label="Close"
-      className="closeButton button buttonDefault buttonSize2 iconLeft"
+      className="closeButton button buttonDefault buttonSize2 pillShape iconLeft"
       defaultChecked={false}
       disabled={false}
     >
@@ -7424,7 +7424,7 @@ exports[`Storyshots Pill Closable 1`] = `
     <button
       aria-disabled={false}
       aria-label="Close"
-      className="closeButton button buttonDefault buttonSize2 iconLeft"
+      className="closeButton button buttonDefault buttonSize2 pillShape iconLeft"
       defaultChecked={false}
       disabled={false}
     >
@@ -7611,7 +7611,7 @@ exports[`Storyshots Pill With Button 1`] = `
     <button
       aria-disabled={false}
       aria-label="Thumbs up"
-      className="button button buttonDefault buttonSize2 iconLeft"
+      className="button button buttonDefault buttonSize2 pillShape iconLeft"
       defaultChecked={false}
       disabled={false}
     >
@@ -7665,7 +7665,7 @@ exports[`Storyshots Pill With Button 1`] = `
     <button
       aria-disabled={false}
       aria-label="Thumbs up"
-      className="button button buttonDefault buttonSize2 iconLeft"
+      className="button button buttonDefault buttonSize2 pillShape iconLeft"
       defaultChecked={false}
       disabled={false}
     >
@@ -7719,7 +7719,7 @@ exports[`Storyshots Pill With Button 1`] = `
     <button
       aria-disabled={false}
       aria-label="Thumbs up"
-      className="button button buttonDefault buttonSize2 iconLeft"
+      className="button button buttonDefault buttonSize2 pillShape iconLeft"
       defaultChecked={false}
       disabled={false}
     >
@@ -7773,7 +7773,7 @@ exports[`Storyshots Pill With Button 1`] = `
     <button
       aria-disabled={false}
       aria-label="Thumbs up"
-      className="button button buttonDefault buttonSize2 iconLeft"
+      className="button button buttonDefault buttonSize2 pillShape iconLeft"
       defaultChecked={false}
       disabled={false}
     >
@@ -7827,7 +7827,7 @@ exports[`Storyshots Pill With Button 1`] = `
     <button
       aria-disabled={false}
       aria-label="Thumbs up"
-      className="button button buttonDefault buttonSize2 iconLeft"
+      className="button button buttonDefault buttonSize2 pillShape iconLeft"
       defaultChecked={false}
       disabled={false}
     >
@@ -7881,7 +7881,7 @@ exports[`Storyshots Pill With Button 1`] = `
     <button
       aria-disabled={false}
       aria-label="Thumbs up"
-      className="button button buttonDefault buttonSize2 iconLeft"
+      className="button button buttonDefault buttonSize2 pillShape iconLeft"
       defaultChecked={false}
       disabled={false}
     >
@@ -7935,7 +7935,7 @@ exports[`Storyshots Pill With Button 1`] = `
     <button
       aria-disabled={false}
       aria-label="Thumbs up"
-      className="button button buttonDefault buttonSize2 iconLeft"
+      className="button button buttonDefault buttonSize2 pillShape iconLeft"
       defaultChecked={false}
       disabled={false}
     >
@@ -7989,7 +7989,7 @@ exports[`Storyshots Pill With Button 1`] = `
     <button
       aria-disabled={false}
       aria-label="Thumbs up"
-      className="button button buttonDefault buttonSize2 iconLeft"
+      className="button button buttonDefault buttonSize2 pillShape iconLeft"
       defaultChecked={false}
       disabled={false}
     >
@@ -8507,7 +8507,7 @@ exports[`Storyshots Select Basic 1`] = `
           aria-expanded={false}
           aria-haspopup={true}
           autoFocus={false}
-          className="selectInput withIcon inputStretch"
+          className="selectInput pillShape pillShapeWithIcon inputStretch"
           disabled={false}
           id="input-20"
           onChange={[Function]}
@@ -8578,7 +8578,7 @@ exports[`Storyshots Select Disabled 1`] = `
           aria-expanded={false}
           aria-haspopup={true}
           autoFocus={false}
-          className="selectInput withIcon inputStretch"
+          className="selectInput pillShape pillShapeWithIcon inputStretch"
           disabled={true}
           id="input-22"
           onChange={[Function]}
@@ -8647,7 +8647,7 @@ exports[`Storyshots Select Dynamic 1`] = `
           aria-expanded={false}
           aria-haspopup={true}
           autoFocus={false}
-          className="withIcon inputStretch"
+          className="pillShape pillShapeWithIcon inputStretch"
           disabled={false}
           id="input-24"
           onChange={[Function]}
@@ -8723,7 +8723,7 @@ exports[`Storyshots Select Filterable 1`] = `
           aria-expanded={false}
           aria-haspopup={true}
           autoFocus={false}
-          className="withIcon inputStretch"
+          className="pillShape pillShapeWithIcon inputStretch"
           disabled={false}
           id="input-26"
           onChange={[Function]}
@@ -8799,7 +8799,7 @@ exports[`Storyshots Select Multiple 1`] = `
           aria-expanded={false}
           aria-haspopup={true}
           autoFocus={false}
-          className="withIcon inputStretch"
+          className="pillShape pillShapeWithIcon inputStretch"
           disabled={false}
           id="input-28"
           onChange={[Function]}
@@ -8875,7 +8875,7 @@ exports[`Storyshots Select Multiple With No Filter 1`] = `
           aria-expanded={false}
           aria-haspopup={true}
           autoFocus={false}
-          className="selectInput withIcon inputStretch"
+          className="selectInput pillShape pillShapeWithIcon inputStretch"
           disabled={false}
           id="input-30"
           onChange={[Function]}
@@ -8946,7 +8946,7 @@ exports[`Storyshots Select Options Disabled 1`] = `
           aria-expanded={false}
           aria-haspopup={true}
           autoFocus={false}
-          className="selectInput withIcon inputStretch"
+          className="selectInput pillShape pillShapeWithIcon inputStretch"
           disabled={false}
           id="input-32"
           onChange={[Function]}
@@ -9017,7 +9017,7 @@ exports[`Storyshots Select With Clear 1`] = `
           aria-expanded={false}
           aria-haspopup={true}
           autoFocus={false}
-          className="selectInput withIcon inputStretch"
+          className="selectInput pillShape pillShapeWithIcon inputStretch"
           disabled={false}
           id="input-34"
           onChange={[Function]}
@@ -9088,7 +9088,7 @@ exports[`Storyshots Select With Default Value 1`] = `
           aria-expanded={false}
           aria-haspopup={true}
           autoFocus={false}
-          className="selectInput withIcon inputStretch"
+          className="selectInput pillShape pillShapeWithIcon inputStretch"
           disabled={false}
           id="input-36"
           onChange={[Function]}
@@ -9138,7 +9138,7 @@ exports[`Storyshots Select With Default Value 1`] = `
 exports[`Storyshots Snack Bar Closable 1`] = `
 <button
   aria-disabled={false}
-  className="button buttonDefault buttonSize3"
+  className="button buttonDefault buttonSize3 pillShape"
   defaultChecked={false}
   disabled={false}
   onClick={[Function]}
@@ -9154,7 +9154,7 @@ exports[`Storyshots Snack Bar Closable 1`] = `
 exports[`Storyshots Snack Bar Default 1`] = `
 <button
   aria-disabled={false}
-  className="button buttonDefault buttonSize3"
+  className="button buttonDefault buttonSize3 pillShape"
   defaultChecked={false}
   disabled={false}
   onClick={[Function]}
@@ -9170,7 +9170,7 @@ exports[`Storyshots Snack Bar Default 1`] = `
 exports[`Storyshots Snack Bar With Action 1`] = `
 <button
   aria-disabled={false}
-  className="button buttonDefault buttonSize3"
+  className="button buttonDefault buttonSize3 pillShape"
   defaultChecked={false}
   disabled={false}
   onClick={[Function]}
@@ -10776,7 +10776,7 @@ Array [
     <button
       aria-disabled={false}
       aria-label="Show Tooltip"
-      className="button buttonPrimary buttonSize2"
+      className="button buttonPrimary buttonSize2 pillShape"
       defaultChecked={false}
       disabled={false}
     >
