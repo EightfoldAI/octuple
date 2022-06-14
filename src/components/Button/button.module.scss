@@ -1,29 +1,7 @@
 .button {
     --button-default-foreground-color: var(--primary-color);
-    --button-hover-foreground-color: var(--primary-color);
-    --button-focus-foreground-color: var(--primary-color-80);
-    --button-active-foreground-color: var(--primary-color-80);
-    --button-visited-foreground-color: var(--primary-color-80);
-    --button-hover-outline-color: var(--primary-color-60);
     --button-focus-outline-color: var(--blueviolet-color-50);
-    --button-active-outline-color: var(--primary-color-80);
-    --button-visited-outline-color: var(--primary-color-80);
-    --button-primary-default-background-color: var(--accent-color-20);
-    --button-primary-hover-background-color: var(--accent-color-10);
-    --button-primary-focus-background-color: var(--primary-color-80);
-    --button-primary-active-background-color: var(--accent-color-30);
-    --button-primary-visited-background-color: var(--primary-color-80);
     --button-primary-default-border-color: var(--primary-color);
-    --button-primary-hover-border-color: var(--primary-color-60);
-    --button-primary-focus-border-color: var(--primary-color-80);
-    --button-primary-active-border-color: var(--primary-color-80);
-    --button-primary-visited-border-color: var(--primary-color-80);
-    --button-default-background-color: var(--white-color);
-    --button-hover-background-color: var(--primary-color-10);
-    --button-focus-background-color: var(--primary-color-10);
-    --button-active-background-color: var(--primary-color-10);
-    --button-visited-background-color: var(--primary-color-10);
-    --button-hover-variant-background-color: var(--primary-color-20);
     --button-two-state-default-foreground-color: var(--grey-color-70);
     --button-two-state-hover-foreground-color: var(--primary-color);
     --button-two-state-focus-foreground-color: var(--primary-color-80);
@@ -49,7 +27,6 @@
     --button-two-state-active-outline-color: var(--primary-color);
     --button-two-state-visited-outline-color: var(--primary-color);
     background-color: inherit;
-    border: 2px solid rgba(var(--button-primary-default-border-color), 0.01);
     border-radius: $corner-radius-s;
     cursor: pointer;
     display: inline-block;
@@ -244,22 +221,17 @@
 }
 
 .button-primary {
-    background-color: var(--button-primary-default-background-color);
-    border-color: var(--button-primary-default-border-color);
-    color: var(--primary-color-80);
+    --bg: var(--accent-color-20);
+    --color: var(--primary-color-80);
+    color: var(--color);
+    background-color: var(--bg);
 
     &:hover {
-        background-color: var(--button-primary-hover-background-color);
-        border-color: var(--button-primary-hover-border-color);
+        --bg: var(--accent-color-10);
     }
 
     &:active {
-        background-color: var(--button-primary-active-background-color);
-        border-color: var(--button-primary-active-border-color);
-    }
-
-    &:focus-visible {
-        outline-color: var(--button-primary-focus-border-color);
+        --bg: var(--accent-color-30);
     }
 }
 
@@ -282,45 +254,34 @@
 }
 
 .button-primary-disruptive {
-    background-color: var(--disruptive-color-70);
-    border-color: var(--disruptive-color-70);
-    color: var(--text-inverse-color);
+    --bg: var(--disruptive-color-20);
+    --color: var(--disruptive-color-80);
+    color: var(--color);
+    background-color: var(--bg);
 
     &:hover {
-        background-color: var(--disruptive-color-60);
-        border-color: var(--disruptive-color-60);
+        --bg: var(--disruptive-color-10);
     }
 
     &:active {
-        background-color: var(--disruptive-color-80);
-        border-color: var(--disruptive-color-80);
-    }
-
-    &:focus {
-        outline-color: var(--disruptive-color-80);
+        --bg: var(--disruptive-color-30);
     }
 }
 
 .button-secondary-disruptive {
-    color: var(--disruptive-color-70);
-    background-color: var(--white-color);
-    outline: var(--disruptive-color-70) solid 2px;
-    outline-offset: -2px;
+    --bg: transparent;
+    --color: var(--disruptive-color-70);
+    color: var(--color);
+    background-color: var(--bg);
+    outline: var(--disruptive-color-70) solid 1px;
+    outline-offset: -1px;
 
     &:hover {
-        background-color: var(--disruptive-color-10);
-        color: var(--disruptive-color-70);
-        outline-color: var(--disruptive-color-70);
+        --bg: var(--disruptive-color-10);
     }
 
     &:active {
-        color: var(--disruptive-color-80);
-        outline-color: var(--disruptive-color-80);
-    }
-
-    &:focus {
-        color: var(--disruptive-color-80);
-        outline-color: var(--disruptive-color-80);
+        --bg: var(--disruptive-color-20);
     }
 }
 
@@ -368,30 +329,19 @@
 }
 
 .button-neutral {
-    --outline: var(--accent-color-60);
     --bg: var(--grey-color-10);
-    --color: var(--primary-color);
+    --color: var(--grey-color-70);
     color: var(--color);
     background-color: var(--bg);
     outline: transparent solid 2px;
     outline-offset: -2px;
 
     &:hover {
-        background-color: var(--grey-color-20);
-        color: var(--text-secondary-color);
-        outline-color: var(--grey-color-20);
+        --bg: transparent;
     }
 
     &:active {
-        background-color: var(--grey-color-10);
-        color: var(--text-secondary-color);
-        outline-color: var(--grey-color-10);
-    }
-
-    &:focus {
-        background-color: var(--grey-color-10);
-        color: var(--text-secondary-color);
-        outline-color: var(--grey-color-80);
+        --bg: var(--grey-color-20);
     }
 }
 
