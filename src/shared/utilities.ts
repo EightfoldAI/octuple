@@ -20,6 +20,15 @@ interface ArgumentArray extends Array<Argument> {}
 type Argument = Value | Mapping | ArgumentArray;
 
 /**
+ * Conditionally wrapped component props.
+ */
+type ConditonalWrapperProps = {
+    children: React.ReactElement;
+    condition?: boolean;
+    wrapper: (children: React.ReactElement) => JSX.Element;
+};
+
+/**
  *  Generates a string of class names.
  *  @param {ArgumentArray} args - ClassName input.
  *  @returns {string} - a concatenated string of class names.
@@ -113,3 +122,14 @@ export const stopPropagation = (e: React.MouseEvent<any>) =>
 export const generateId = (prefix?: string) => {
     return `${prefix ?? ''}${Math.random().toString(36).substring(2, 9)}`;
 };
+
+/**
+ * Simple React component for conditionally wrapping children
+ * @param ConditonalWrapperProps
+ * @returns A conditionally wrapped element
+ */
+export const ConditionalWrapper: React.FC<ConditonalWrapperProps> = ({
+    condition,
+    wrapper,
+    children,
+}) => (condition ? wrapper(children) : children);

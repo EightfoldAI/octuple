@@ -23,6 +23,11 @@ export interface TooltipProps extends OcBaseProps<HTMLDivElement> {
      */
     placement?: Placement;
     /**
+     * If the tooltip is portaled
+     * @default false
+     */
+    portal?: boolean;
+    /**
      * To disable the tooltip
      * @default false
      */
