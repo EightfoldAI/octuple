@@ -6877,7 +6877,7 @@ exports[`Storyshots Pagination Change Page Size 1`] = `
           <span
             className="buttonText3"
           >
-            page / 100
+            page / 1000
           </span>
         </span>
       </button>
@@ -6955,30 +6955,13 @@ exports[`Storyshots Pagination Change Page Size 1`] = `
         </span>
       </button>
     </li>
-    <li>
-      <button
-        aria-checked={false}
-        aria-disabled={false}
-        aria-pressed={false}
-        className="paginationButton button buttonDefault buttonSize3"
-        defaultChecked={false}
-        disabled={false}
-        onClick={[Function]}
-      >
-        <span
-          className="buttonText3"
-        >
-          10
-        </span>
-      </button>
-    </li>
   </ul>
   <button
     aria-disabled={false}
     aria-label="Next"
-    className="paginationButton button buttonDefault buttonSize3 iconLeft"
+    className="paginationButton button buttonDefault buttonSize3 iconLeft disabled"
     defaultChecked={false}
-    disabled={false}
+    disabled={true}
     onClick={[Function]}
   >
     <span
