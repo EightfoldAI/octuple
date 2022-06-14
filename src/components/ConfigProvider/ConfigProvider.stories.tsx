@@ -59,16 +59,7 @@ export default {
 const ThemedComponents: FC = () => {
     const [customColor, setCustomColor] = useState<string>('');
     const { themeOptions, setThemeOptions } = useConfig();
-    const themes: OcThemeNames[] = [
-        'red',
-        'orange',
-        'yellow',
-        'green',
-        'bluegreen',
-        'blue',
-        'violet',
-        'grey',
-    ];
+    const themes: OcThemeNames[] = theme;
     const tabs = [1, 2, 3, 4].map((i) => ({
         value: `tab${i}`,
         label: `Tab ${i}`,
