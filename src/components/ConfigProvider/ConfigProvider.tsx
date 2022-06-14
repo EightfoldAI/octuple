@@ -9,7 +9,7 @@ const ConfigContext: React.Context<Partial<IConfigContext>> = createContext<
 >({});
 
 const DEFAULT_THEME: string = 'blue';
-const DEFAULT_ACCENT_THEME: string = 'bluegreen';
+const DEFAULT_ACCENT_THEME: string = 'blueGreen';
 
 const DEFAULT_FOCUS_VISIBLE: boolean = true;
 const DEFAULT_FOCUS_VISIBLE_ELEMENT: HTMLElement = document.documentElement;

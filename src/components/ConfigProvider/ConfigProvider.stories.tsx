@@ -14,18 +14,7 @@ import { ConfigProvider, OcThemeNames, useConfig } from './';
 import { MatchScore } from '../MatchScore';
 import { Spinner } from '../Spinner';
 import { Stack } from '../Stack';
-import { CheckBoxGroup, CheckboxValueType, RadioGroup } from '../Selectors';
-
-const theme: OcThemeNames[] = [
-    'red',
-    'orange',
-    'yellow',
-    'green',
-    'bluegreen',
-    'blue',
-    'violet',
-    'grey',
-];
+import { CheckBoxGroup, RadioGroup } from '../Selectors';
 
 export default {
     title: 'Config Provider',
@@ -61,12 +50,16 @@ const ThemedComponents: FC = () => {
     const { themeOptions, setThemeOptions } = useConfig();
     const themes: OcThemeNames[] = [
         'red',
+        'redOrange',
         'orange',
         'yellow',
+        'yellowGreen',
         'green',
-        'bluegreen',
+        'blueGreen',
         'blue',
+        'blueViolet',
         'violet',
+        'violetRed',
         'grey',
     ];
     const tabs = [1, 2, 3, 4].map((i) => ({

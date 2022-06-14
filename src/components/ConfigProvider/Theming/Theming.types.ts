@@ -4,12 +4,16 @@ export type OcCustomThemeName = string;
 
 export type OcThemeNames =
     | 'red'
+    | 'redOrange'
     | 'orange'
     | 'yellow'
+    | 'yellowGreen'
     | 'green'
-    | 'bluegreen'
+    | 'blueGreen'
     | 'blue'
+    | 'blueViolet'
     | 'violet'
+    | 'violetRed'
     | 'grey';
 
 export type ThemeName = OcThemeNames | OcCustomThemeName;
@@ -46,7 +50,7 @@ export interface ThemeOptions {
     /**
      * Name of accent theme.
      * @type {OcCustomThemeName|OcThemeNames}
-     * @default bluegreen
+     * @default blueGreen
      */
     accentName?: ThemeName;
     /**
