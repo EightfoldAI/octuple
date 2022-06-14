@@ -26,6 +26,8 @@ import { Dialog, DialogSize } from './components/Dialog';
 
 import { Dropdown } from './components/Dropdown';
 
+import { Empty, EmptyMode } from './components/Empty';
+
 import { Icon, IconName, IconSize } from './components/Icon';
 
 import { Label, LabelSize } from './components/Label';
@@ -98,6 +100,8 @@ export {
     Dialog,
     DialogSize,
     Dropdown,
+    Empty,
+    EmptyMode,
     Icon,
     IconName,
     IconSize,
