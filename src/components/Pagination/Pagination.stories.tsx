@@ -16,6 +16,14 @@ export default {
                                 If you have too much data to display in one
                                 page, use pagination.
                             </p>
+                            <p>
+                                The total number of pages is a required prop as
+                                it's used to determine the visibility of the
+                                paginaiton and its elements. Be sure to track
+                                the total number of pages at any given time and
+                                send this information dynamically to the
+                                component.
+                            </p>
                         </section>
                         <section>
                             <Stories includePrimary title="" />
