@@ -109,8 +109,8 @@ export const Pagination: FC<PaginationProps> = React.forwardRef(
 
             setCurrentPage(page);
 
-            if (oldVal !== _currentPage) {
-                onCurrentChange?.(_currentPage);
+            if (oldVal !== page) {
+                onCurrentChange?.(page);
             }
         };
 
