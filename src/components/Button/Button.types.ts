@@ -115,9 +115,9 @@ export interface ButtonProps extends NativeButtonProps {
      */
     classNames?: string;
     /**
-     * The button counter number.
+     * The button counter string.
      */
-    counter?: number;
+    counter?: string;
     /**
      * The button disabled state.
      * @default false

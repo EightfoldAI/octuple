@@ -244,7 +244,7 @@ Primary.args = {
 Counter.args = {
     ...buttonArgs,
     ariaLabel: 'Primary Button',
-    counter: 8,
+    counter: '8',
     text: 'Primary Button',
 };
 
@@ -291,7 +291,7 @@ Toggle_With_Counter.args = {
     alignIcon: ButtonIconAlign.Right,
     ariaLabel: 'Toggle Button',
     checked: false,
-    counter: 8,
+    counter: '8',
     iconProps: {
         path: IconName.mdiChevronDown,
         ariaHidden: true,
@@ -319,7 +319,7 @@ Split.args = {
 Split_With_Counter.args = {
     ...buttonArgs,
     ariaLabel: 'Split Button',
-    counter: 8,
+    counter: '8',
     iconProps: null,
     split: true,
     splitButtonChecked: false,

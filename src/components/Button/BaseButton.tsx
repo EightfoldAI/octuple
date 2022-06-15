@@ -164,9 +164,7 @@ export const BaseButton: FC<InternalButtonProps> = React.forwardRef(
             <span className={buttonTextClassNames}>
                 {text ? text : 'Button'}
                 {counterExists && (
-                    <Badge classNames={badgeClassNames}>
-                        {counter.toLocaleString()}
-                    </Badge>
+                    <Badge classNames={badgeClassNames}>{counter}</Badge>
                 )}
             </span>
         );
@@ -190,9 +188,7 @@ export const BaseButton: FC<InternalButtonProps> = React.forwardRef(
                 >
                     {iconExists && !textExists && getButtonIcon()}
                     {counterExists && !textExists && (
-                        <Badge classNames={badgeClassNames}>
-                            {counter.toLocaleString()}
-                        </Badge>
+                        <Badge classNames={badgeClassNames}>{counter}</Badge>
                     )}
                     {iconExists && textExists && (
                         <span>
