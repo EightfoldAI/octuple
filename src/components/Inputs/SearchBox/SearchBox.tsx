@@ -33,7 +33,7 @@ export const SearchBox: FC<SearchBoxProps> = React.forwardRef(
             onFocus,
             onKeyDown,
             placeholder = 'Search',
-            shape = TextInputShape.Rectangle,
+            shape = TextInputShape.Pill,
             style,
             theme = TextInputTheme.light,
             value,

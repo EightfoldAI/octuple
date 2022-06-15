@@ -371,7 +371,7 @@ $all-backdrops: rgba(0, 0, 0, 0.5);
 $selector-input-width: 18px;
 $selector-input-height: 18px;
 $checkmark-after-width: 6px;
-$checkmark-after-height: 12px;
+$checkmark-after-height: 10px;
 $checkmark-height: 18px;
 $checkmark-width: 18px;
 $radio-height: 20px;
@@ -382,7 +382,7 @@ $radio-after-height: 6px;
 // Positioning
 
 $checkmark-after-left: 4px;
-$checkmark-after-top: 0px;
+$checkmark-after-top: 0.5px;
 $radio-after-top: 5px;
 $radio-after-left: 5px;
 
