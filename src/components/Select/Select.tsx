@@ -180,7 +180,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
                     <Pill
                         label={selected[0].text}
                         classNames={pillClasses}
-                        theme={'bluegreen'}
+                        theme={'blueGreen'}
                         size={PillSize.Small}
                         {...pillProps}
                     />
@@ -188,7 +188,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
                         <Pill
                             label={'+' + moreOptionsCount}
                             classNames={countPillClasses}
-                            theme={'bluegreen'}
+                            theme={'blueGreen'}
                             size={PillSize.Small}
                             {...pillProps}
                         />
