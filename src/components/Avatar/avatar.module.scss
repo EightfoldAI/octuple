@@ -3,52 +3,51 @@
     display: flex;
     justify-content: center;
 
+<<<<<<< HEAD
     &.red {
         background-color: var(--red-color-20);
         border: solid 1px var(--red-color-30);
         color: var(--red-color);
+=======
+    &.disruptive {
+        background-color: var(--disruptive-color-60);
+        color: var(--text-inverse-color);
+>>>>>>> 3d53a6f (feat: theme 2 color palette, default button & input shape to pull, styles for selectors, tabs, buttons, accordion & match score (#174))
     }
 
     &.grey {
-        background-color: var(--grey-color-20);
-        border: solid 1px var(--grey-color-30);
-        color: var(--grey-color);
+        background-color: var(--grey-color-60);
+        color: var(--text-inverse-color);
     }
 
     &.blue {
-        background-color: var(--blue-color-20);
-        border: solid 1px var(--blue-color-30);
-        color: var(--blue-color);
+        background-color: var(--blue-color-60);
+        color: var(--text-inverse-color);
     }
 
     &.orange {
-        background-color: var(--orange-color-20);
-        border: solid 1px var(--orange-color-30);
-        color: var(--orange-color);
+        background-color: var(--orange-color-60);
+        color: var(--text-inverse-color);
     }
 
     &.green {
-        background-color: var(--green-color-20);
-        border: solid 1px var(--green-color-30);
-        color: var(--green-color);
+        background-color: var(--green-color-60);
+        color: var(--text-inverse-color);
     }
 
     &.violet {
-        background-color: var(--violet-color-20);
-        border: solid 1px var(--violet-color-30);
-        color: var(--violet-color);
+        background-color: var(--violet-color-60);
+        color: var(--text-inverse-color);
     }
 
     &.yellow {
-        background-color: var(--yellow-color-20);
-        border: solid 1px var(--yellow-color-30);
-        color: var(--yellow-color);
+        background-color: var(--yellow-color-60);
+        color: var(--text-inverse-color);
     }
 
     &.bluegreen {
-        background-color: var(--bluegreen-color-20);
-        border: solid 1px var(--bluegreen-color-30);
-        color: var(--bluegreen-color);
+        background-color: var(--bluegreen-color-60);
+        color: var(--text-inverse-color);
     }
 }
 

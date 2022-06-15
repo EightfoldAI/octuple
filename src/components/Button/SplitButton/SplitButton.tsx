@@ -27,7 +27,7 @@ export const SplitButton: FC<SplitButtonProps> = React.forwardRef(
             iconProps,
             id,
             onClick,
-            shape = ButtonShape.Rectangle,
+            shape = ButtonShape.Pill,
             size = ButtonSize.Flex,
             split,
             style,

@@ -264,7 +264,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
                             label={selected[0].text}
                             onClose={() => toggleOption(selected[0])}
                             size={selectSizeToPillSizeMap.get(size)}
-                            theme={'bluegreen'}
+                            theme={'blueGreen'}
                             type={PillType.closable}
                             {...pillProps}
                         />
@@ -273,8 +273,8 @@ export const Select: FC<SelectProps> = React.forwardRef(
                         <Pill
                             classNames={countPillClasses}
                             label={'+' + moreOptionsCount}
+                            theme={'blueGreen'}
                             size={selectSizeToPillSizeMap.get(size)}
-                            theme={'bluegreen'}
                             {...pillProps}
                         />
                     ) : null}

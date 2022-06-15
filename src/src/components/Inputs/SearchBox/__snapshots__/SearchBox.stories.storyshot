@@ -28,7 +28,7 @@ exports[`Storyshots Input Search Box 1`] = `
         >
           <button
             aria-disabled={false}
-            className="label-icon-button button button-default button-size3 icon-left"
+            className="label-icon-button button button-default button-size3 pill-shape icon-left"
             defaultChecked={false}
             disabled={false}
           >
@@ -67,7 +67,7 @@ exports[`Storyshots Input Search Box 1`] = `
       <input
         aria-label="Search"
         autoFocus={false}
-        className="my-searchbox-class with-icon with-icon-button with-icon-and-icon-button left-icon clear-not-visible"
+        className="my-searchbox-class pill-shape pill-shape-with-icon pill-shape-with-icon-button pill-shape-with-icon-and-icon-button left-icon clear-not-visible"
         disabled={false}
         id="mySearchBoxId6"
         maxLength={100}
@@ -113,7 +113,7 @@ exports[`Storyshots Input Search Box 1`] = `
       </div>
       <button
         aria-disabled={false}
-        className="icon-button left-icon button button-default icon-left"
+        className="icon-button left-icon button button-default pill-shape icon-left"
         defaultChecked={false}
         disabled={false}
       >

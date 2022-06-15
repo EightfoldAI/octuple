@@ -27,7 +27,7 @@ exports[`Storyshots Pill Closable 1`] = `
     <button
       aria-disabled={false}
       aria-label="Close"
-      className="close-button button button-default button-size2 icon-left"
+      className="close-button button button-default button-size2 pill-shape icon-left"
       defaultChecked={false}
       disabled={false}
     >
@@ -74,7 +74,7 @@ exports[`Storyshots Pill Closable 1`] = `
     <button
       aria-disabled={false}
       aria-label="Close"
-      className="close-button button button-default button-size2 icon-left"
+      className="close-button button button-default button-size2 pill-shape icon-left"
       defaultChecked={false}
       disabled={false}
     >
@@ -121,7 +121,7 @@ exports[`Storyshots Pill Closable 1`] = `
     <button
       aria-disabled={false}
       aria-label="Close"
-      className="close-button button button-default button-size2 icon-left"
+      className="close-button button button-default button-size2 pill-shape icon-left"
       defaultChecked={false}
       disabled={false}
     >
@@ -168,7 +168,7 @@ exports[`Storyshots Pill Closable 1`] = `
     <button
       aria-disabled={false}
       aria-label="Close"
-      className="close-button button button-default button-size2 icon-left"
+      className="close-button button button-default button-size2 pill-shape icon-left"
       defaultChecked={false}
       disabled={false}
     >
@@ -210,12 +210,12 @@ exports[`Storyshots Pill Closable 1`] = `
     <span
       className="label"
     >
-      bluegreen
+      blueGreen
     </span>
     <button
       aria-disabled={false}
       aria-label="Close"
-      className="close-button button button-default button-size2 icon-left"
+      className="close-button button button-default button-size2 pill-shape icon-left"
       defaultChecked={false}
       disabled={false}
     >
@@ -262,7 +262,7 @@ exports[`Storyshots Pill Closable 1`] = `
     <button
       aria-disabled={false}
       aria-label="Close"
-      className="close-button button button-default button-size2 icon-left"
+      className="close-button button button-default button-size2 pill-shape icon-left"
       defaultChecked={false}
       disabled={false}
     >
@@ -309,7 +309,7 @@ exports[`Storyshots Pill Closable 1`] = `
     <button
       aria-disabled={false}
       aria-label="Close"
-      className="close-button button button-default button-size2 icon-left"
+      className="close-button button button-default button-size2 pill-shape icon-left"
       defaultChecked={false}
       disabled={false}
     >
@@ -356,7 +356,7 @@ exports[`Storyshots Pill Closable 1`] = `
     <button
       aria-disabled={false}
       aria-label="Close"
-      className="close-button button button-default button-size2 icon-left"
+      className="close-button button button-default button-size2 pill-shape icon-left"
       defaultChecked={false}
       disabled={false}
     >
@@ -468,7 +468,7 @@ exports[`Storyshots Pill Default 1`] = `
     <span
       className="label"
     >
-      bluegreen
+      blueGreen
     </span>
   </div>
   <div
@@ -543,7 +543,7 @@ exports[`Storyshots Pill With Button 1`] = `
     <button
       aria-disabled={false}
       aria-label="Thumbs up"
-      className="button button button-default button-size2 icon-left"
+      className="button button button-default button-size2 pill-shape icon-left"
       defaultChecked={false}
       disabled={false}
     >
@@ -597,7 +597,7 @@ exports[`Storyshots Pill With Button 1`] = `
     <button
       aria-disabled={false}
       aria-label="Thumbs up"
-      className="button button button-default button-size2 icon-left"
+      className="button button button-default button-size2 pill-shape icon-left"
       defaultChecked={false}
       disabled={false}
     >
@@ -651,7 +651,7 @@ exports[`Storyshots Pill With Button 1`] = `
     <button
       aria-disabled={false}
       aria-label="Thumbs up"
-      className="button button button-default button-size2 icon-left"
+      className="button button button-default button-size2 pill-shape icon-left"
       defaultChecked={false}
       disabled={false}
     >
@@ -705,7 +705,7 @@ exports[`Storyshots Pill With Button 1`] = `
     <button
       aria-disabled={false}
       aria-label="Thumbs up"
-      className="button button button-default button-size2 icon-left"
+      className="button button button-default button-size2 pill-shape icon-left"
       defaultChecked={false}
       disabled={false}
     >
@@ -754,12 +754,12 @@ exports[`Storyshots Pill With Button 1`] = `
     <span
       className="label"
     >
-      bluegreen
+      blueGreen
     </span>
     <button
       aria-disabled={false}
       aria-label="Thumbs up"
-      className="button button button-default button-size2 icon-left"
+      className="button button button-default button-size2 pill-shape icon-left"
       defaultChecked={false}
       disabled={false}
     >
@@ -813,7 +813,7 @@ exports[`Storyshots Pill With Button 1`] = `
     <button
       aria-disabled={false}
       aria-label="Thumbs up"
-      className="button button button-default button-size2 icon-left"
+      className="button button button-default button-size2 pill-shape icon-left"
       defaultChecked={false}
       disabled={false}
     >
@@ -867,7 +867,7 @@ exports[`Storyshots Pill With Button 1`] = `
     <button
       aria-disabled={false}
       aria-label="Thumbs up"
-      className="button button button-default button-size2 icon-left"
+      className="button button button-default button-size2 pill-shape icon-left"
       defaultChecked={false}
       disabled={false}
     >
@@ -921,7 +921,7 @@ exports[`Storyshots Pill With Button 1`] = `
     <button
       aria-disabled={false}
       aria-label="Thumbs up"
-      className="button button button-default button-size2 icon-left"
+      className="button button button-default button-size2 pill-shape icon-left"
       defaultChecked={false}
       disabled={false}
     >
@@ -1165,7 +1165,7 @@ exports[`Storyshots Pill With Icon 1`] = `
     <span
       className="label"
     >
-      bluegreen
+      blueGreen
     </span>
   </div>
   <div

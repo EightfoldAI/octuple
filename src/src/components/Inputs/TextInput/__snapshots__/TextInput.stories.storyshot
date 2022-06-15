@@ -25,7 +25,7 @@ exports[`Storyshots Input Text Input 1`] = `
       >
         <button
           aria-disabled={false}
-          className="label-icon-button button button-default button-size3 icon-left"
+          className="label-icon-button button button-default button-size3 pill-shape icon-left"
           defaultChecked={false}
           disabled={false}
         >
@@ -64,7 +64,7 @@ exports[`Storyshots Input Text Input 1`] = `
     <input
       aria-label="Sample text"
       autoFocus={false}
-      className="my-textinput-class with-icon with-icon-button with-icon-and-icon-button left-icon clear-not-visible"
+      className="my-textinput-class pill-shape pill-shape-with-icon pill-shape-with-icon-button pill-shape-with-icon-and-icon-button left-icon clear-not-visible"
       disabled={false}
       htmltype="text"
       id="myTextInputId8"
@@ -111,7 +111,7 @@ exports[`Storyshots Input Text Input 1`] = `
     </div>
     <button
       aria-disabled={false}
-      className="icon-button left-icon button button-default icon-left"
+      className="icon-button left-icon button button-default pill-shape icon-left"
       defaultChecked={false}
       disabled={false}
     >

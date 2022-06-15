@@ -46,7 +46,7 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
             placeholder,
             required = false,
             readonly = false,
-            shape = TextInputShape.Rectangle,
+            shape = TextInputShape.Pill,
             size = TextInputSize.Flex,
             style,
             theme = TextInputTheme.light,
