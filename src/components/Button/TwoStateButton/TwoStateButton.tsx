@@ -173,7 +173,7 @@ export const TwoStateButton: FC<TwoStateButtonProps> = React.forwardRef(
                             getButtonText(buttonTextClassNames, text)}
                         {counterExists && (
                             <Badge classNames={badgeClassNames}>
-                                {counter.toLocaleString()}
+                                {counter}
                             </Badge>
                         )}
                     </span>
