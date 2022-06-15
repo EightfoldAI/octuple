@@ -10,7 +10,7 @@ import {
 import { Tab, Tabs, TabVariant } from '../Tabs';
 import { IconName } from '../Icon';
 import { CompactPicker } from 'react-color';
-import { ConfigProvider, OcThemeNames, useConfig } from './';
+import { ConfigProvider, OcThemeNames, ThemeOptions, useConfig } from './';
 import { MatchScore } from '../MatchScore';
 import { Spinner } from '../Spinner';
 import { Stack } from '../Stack';
@@ -289,7 +289,24 @@ Theming.args = {
     },
     themeOptions: {
         name: 'blue',
-    },
+        customTheme: {
+            tabsTheme: {
+                label: '--text-secondary-color',
+                activeLabel: '--primary-color',
+                activeBackground: 'transparent',
+                hoverLabel: '--primary-color',
+                hoverBackground: 'transparent',
+                indicatorColor: '--primary-color',
+                smallActiveBackground: '--violet-color-20',
+                smallHoverBackground: '--violet-color-30',
+                pillLabel: '--violetred-color-70',
+                pillActiveLabel: '--violetred-color',
+                pillActiveBackground: '--violetred-color-20',
+                pillHoverLabel: '--violetred-color',
+                pillBackground: '--violetred-color-10',
+            },
+        },
+    } as ThemeOptions,
     icomoonIconSet: {},
     children: <ThemedComponents />,
 };

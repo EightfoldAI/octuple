@@ -766,6 +766,60 @@ exports[`Storyshots Badge Badge Disruptive 1`] = `
 </span>
 `;
 
+exports[`Storyshots Button Counter 1`] = `
+<button
+  aria-disabled={false}
+  aria-label="Primary Button"
+  className="my-btn-class button buttonPrimary pillShape iconLeft"
+  data-test-id="my-btn-test-id"
+  defaultChecked={false}
+  disabled={false}
+  id="myButton"
+  style={Object {}}
+  type="button"
+>
+  <span>
+    <span
+      aria-hidden={true}
+      className="icon my-btn-icon iconWrapper"
+      data-test-id="myButtonIconTestId"
+      id="myButtonIcon"
+      role="presentation"
+    >
+      <svg
+        role="presentation"
+        style={
+          Object {
+            "height": "20px",
+            "width": "20px",
+          }
+        }
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"
+          style={
+            Object {
+              "fill": "currentColor",
+            }
+          }
+        />
+      </svg>
+    </span>
+    <span
+      className=""
+    >
+      Primary Button
+      <span
+        className="badge header6 counter"
+      >
+        8
+      </span>
+    </span>
+  </span>
+</button>
+`;
+
 exports[`Storyshots Button Default 1`] = `
 <button
   aria-disabled={false}
@@ -1023,6 +1077,72 @@ Array [
 ]
 `;
 
+exports[`Storyshots Button Split With Counter 1`] = `
+Array [
+  <button
+    aria-disabled={false}
+    aria-label="Split Button"
+    className="my-btn-class button buttonPrimary pillShape splitLeft"
+    data-test-id="my-btn-test-id"
+    defaultChecked={false}
+    disabled={false}
+    id="myButton"
+    style={Object {}}
+    type="button"
+  >
+    <span
+      className=""
+    >
+      Split Button
+      <span
+        className="badge header6 counter"
+      >
+        8
+      </span>
+    </span>
+  </button>,
+  <button
+    aria-checked={false}
+    aria-disabled={false}
+    aria-pressed={false}
+    className="my-btn-class button buttonPrimary pillShape undefined splitButton pillShape splitRight"
+    defaultChecked={false}
+    disabled={false}
+    type="button"
+  >
+    <span
+      aria-hidden={false}
+      className="icon iconWrapper"
+      role="presentation"
+    >
+      <svg
+        role="presentation"
+        style={
+          Object {
+            "height": "20px",
+            "width": "20px",
+          }
+        }
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"
+          style={
+            Object {
+              "fill": "currentColor",
+            }
+          }
+        />
+      </svg>
+    </span>
+    <span
+      aria-hidden="true"
+      className="splitDivider splitDividerPrimary"
+    />
+  </button>,
+]
+`;
+
 exports[`Storyshots Button Toggle 1`] = `
 <button
   aria-checked={false}
@@ -1069,6 +1189,62 @@ exports[`Storyshots Button Toggle 1`] = `
       className=""
     >
       Toggle Button
+    </span>
+  </span>
+</button>
+`;
+
+exports[`Storyshots Button Toggle With Counter 1`] = `
+<button
+  aria-checked={false}
+  aria-disabled={false}
+  aria-label="Toggle Button"
+  aria-pressed={false}
+  className="my-btn-class button buttonPrimary pillShape iconRight"
+  data-test-id="my-btn-test-id"
+  defaultChecked={false}
+  disabled={false}
+  id="myButton"
+  style={Object {}}
+  type="button"
+>
+  <span>
+    <span
+      aria-hidden={true}
+      className="icon my-btn-icon iconWrapper"
+      data-test-id="myButtonIconTestId"
+      id="myButtonIcon"
+      role="presentation"
+    >
+      <svg
+        role="presentation"
+        style={
+          Object {
+            "height": "20px",
+            "width": "20px",
+          }
+        }
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"
+          style={
+            Object {
+              "fill": "currentColor",
+            }
+          }
+        />
+      </svg>
+    </span>
+    <span
+      className=""
+    >
+      Toggle Button
+      <span
+        className="badge header6 counter"
+      >
+        8
+      </span>
     </span>
   </span>
 </button>
@@ -6129,6 +6305,505 @@ exports[`Storyshots Dropdown Dropdown Div 1`] = `
 </div>
 `;
 
+exports[`Storyshots Empty Custom Image 1`] = `
+<div
+  className="empty"
+  style={Object {}}
+>
+  <div
+    className="emptyImage"
+    style={Object {}}
+  >
+    <span
+      aria-hidden={false}
+      className="iconWrapper"
+      role="presentation"
+    >
+      <svg
+        role="presentation"
+        style={
+          Object {
+            "height": "200px",
+            "width": "200px",
+          }
+        }
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M22.61,19L13.53,9.91C14.46,7.57 14,4.81 12.09,2.91C9.79,0.61 6.21,0.4 3.66,2.26L7.5,6.11L6.08,7.5L2.25,3.69C0.39,6.23 0.6,9.82 2.9,12.11C4.76,13.97 7.47,14.46 9.79,13.59L18.9,22.7C19.29,23.09 19.92,23.09 20.31,22.7L22.61,20.4C23,20 23,19.39 22.61,19M19.61,20.59L10.15,11.13C9.54,11.58 8.86,11.85 8.15,11.95C6.79,12.15 5.36,11.74 4.32,10.7C3.37,9.76 2.93,8.5 3,7.26L6.09,10.35L10.33,6.11L7.24,3C8.5,2.95 9.73,3.39 10.68,4.33C11.76,5.41 12.17,6.9 11.92,8.29C11.8,9 11.5,9.66 11.04,10.25L20.5,19.7L19.61,20.59Z"
+          style={
+            Object {
+              "fill": "#8ED0FA",
+            }
+          }
+        />
+      </svg>
+    </span>
+  </div>
+  <div
+    className="emptyTitle"
+  >
+    Short Message Here
+  </div>
+  <div
+    className="emptyDescription"
+  >
+    More detail on how might the user be able to get around this
+  </div>
+</div>
+`;
+
+exports[`Storyshots Empty Empty Messages 1`] = `
+<div
+  className="empty"
+  style={Object {}}
+>
+  <div
+    className="emptyImage"
+  >
+    <svg
+      className="empty-messages-image-default"
+      fill="none"
+      height="184"
+      viewBox="0 0 200 184"
+      width="200"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M39.0718 177.839C21.8078 171.861 3.66074 162.325 0.510726 150.175C-2.63929 138.025 9.18787 123.359 24.8068 115.637C40.5358 108.029 59.9069 107.449 71.9662 102.257C83.9156 96.9498 88.5731 86.9309 99.9189 77.9985C111.265 69.066 129.299 61.2199 140.372 64.9517C151.555 68.798 155.648 84.2069 164.716 96.6426C173.785 109.078 187.68 118.625 194.904 131.657C202.237 144.804 202.768 161.422 189.061 166.219C175.355 171.016 147.3 163.877 128.36 165.625C109.569 167.288 99.7624 177.823 86.4541 181.955C73.2954 186.004 56.4854 183.734 39.0718 177.839Z"
+        fill="#EBF7FF"
+      />
+      <path
+        d="M131.098 145.069C125.349 140.58 119.665 136.448 116.52 133.384C116.016 132.893 115.288 132.671 114.598 132.81C35.5718 148.779 -9.97428 65.6821 65.669 27.1035C65.7558 27.0592 65.8525 27.0185 65.9449 26.9875C142.983 1.22162 204.241 81.5443 135.362 124.844C134.772 125.214 134.381 125.876 134.381 126.572L134.381 143.483C134.381 145.166 132.424 146.105 131.098 145.069Z"
+        fill="white"
+        stroke="#8ED0FA"
+        stroke-width="6"
+      />
+      <path
+        d="M66.3926 86.6624C70.9586 86.6624 74.3926 82.703 74.3926 78.1624C74.3926 73.6217 70.9586 69.6624 66.3926 69.6624C61.8266 69.6624 58.3926 73.6217 58.3926 78.1624C58.3926 82.703 61.8266 86.6624 66.3926 86.6624Z"
+        fill="#B0F3FE"
+        stroke="#B0F3FE"
+        stroke-width="4"
+      />
+      <path
+        d="M94.3926 86.6624C98.9586 86.6624 102.393 82.703 102.393 78.1624C102.393 73.6217 98.9586 69.6624 94.3926 69.6624C89.8266 69.6624 86.3926 73.6217 86.3926 78.1624C86.3926 82.703 89.8266 86.6624 94.3926 86.6624Z"
+        fill="#B0F3FE"
+        stroke="#B0F3FE"
+        stroke-width="4"
+      />
+      <path
+        d="M122.393 86.6624C126.959 86.6624 130.393 82.703 130.393 78.1624C130.393 73.6217 126.959 69.6624 122.393 69.6624C117.827 69.6624 114.393 73.6217 114.393 78.1624C114.393 82.703 117.827 86.6624 122.393 86.6624Z"
+        fill="#B0F3FE"
+        stroke="#B0F3FE"
+        stroke-width="4"
+      />
+    </svg>
+  </div>
+  <div
+    className="emptyTitle"
+  >
+    Short Message Here
+  </div>
+  <div
+    className="emptyDescription"
+  >
+    More detail on how might the user be able to get around this
+  </div>
+</div>
+`;
+
+exports[`Storyshots Empty Error State 1`] = `
+<div
+  className="empty"
+  style={Object {}}
+>
+  <div
+    className="emptyImage"
+  >
+    <svg
+      className="server-error-image-default"
+      fill="none"
+      height="185"
+      viewBox="0 0 200 185"
+      width="200"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M39.0718 178.839C21.8078 172.861 3.66074 163.325 0.510726 151.175C-2.63929 139.025 9.18787 124.359 24.8068 116.637C40.5358 109.029 59.9069 108.449 71.9662 103.257C83.9156 97.9498 88.5731 87.9309 99.9189 78.9985C111.265 70.066 129.299 62.2199 140.372 65.9517C151.555 69.798 155.648 85.2069 164.716 97.6426C173.785 110.078 187.68 119.625 194.904 132.657C202.237 145.804 202.768 162.422 189.061 167.219C175.355 172.016 147.3 164.877 128.36 166.625C109.569 168.288 99.7624 178.823 86.4541 182.955C73.2954 187.004 56.4854 184.734 39.0718 178.839Z"
+        fill="#EBF7FF"
+      />
+      <path
+        d="M49.2784 101.405C39.3247 57.4604 105.676 18.8428 136.863 78.7671C196.578 76.1036 191.934 156.002 145.489 158L107.668 158L46.6243 158C12.7837 158 0.841885 104.068 49.2784 101.405Z"
+        fill="white"
+        stroke="#8ED0FA"
+        stroke-width="6"
+      />
+      <path
+        d="M76.0193 103.097L82.4167 109.495L86.6594 105.252L80.2619 98.8548L76.0193 103.097ZM82.4167 108.081L76.38 114.117L80.6226 118.36L86.6594 112.323L82.4167 108.081ZM82.4167 109.495C82.0262 109.104 82.0262 108.471 82.4167 108.081L86.6594 112.323C88.612 110.371 88.612 107.205 86.6594 105.252L82.4167 109.495Z"
+        fill="#8ED0FA"
+      />
+      <path
+        d="M128.572 114.117L122.175 107.72L117.932 111.963L124.33 118.36L128.572 114.117ZM122.175 109.134L128.212 103.097L123.969 98.8548L117.932 104.892L122.175 109.134ZM122.175 107.72C122.566 108.111 122.566 108.744 122.175 109.134L117.932 104.892C115.98 106.844 115.98 110.01 117.932 111.963L122.175 107.72Z"
+        fill="#8ED0FA"
+      />
+      <path
+        d="M102 142C107.192 142 111 137.516 111 132.5C111 127.484 107.192 123 102 123C96.8079 123 93 127.484 93 132.5C93 137.516 96.8079 142 102 142Z"
+        fill="#B0F3FE"
+        stroke="#B0F3FE"
+        stroke-width="6"
+      />
+      <path
+        d="M161 68C166.192 68 170 63.5161 170 58.5C170 53.4839 166.192 49 161 49C155.808 49 152 53.4839 152 58.5C152 63.5161 155.808 68 161 68Z"
+        stroke="#B0F3FE"
+        stroke-width="6"
+      />
+      <path
+        d="M55 22C60.1921 22 64 17.5161 64 12.5C64 7.48391 60.1921 3 55 3C49.8079 3 46 7.48391 46 12.5C46 17.5161 49.8079 22 55 22Z"
+        stroke="#B0F3FE"
+        stroke-width="6"
+      />
+      <ellipse
+        cx="108"
+        cy="29.5"
+        fill="#B0F3FE"
+        rx="6"
+        ry="6.5"
+      />
+      <ellipse
+        cx="28"
+        cy="89.5"
+        fill="#B0F3FE"
+        rx="6"
+        ry="6.5"
+      />
+      <line
+        stroke="#B0F3FE"
+        stroke-width="6"
+        strokeLinecap="round"
+        x1="161.334"
+        x2="148.606"
+        y1="11.6067"
+        y2="24.3346"
+      />
+      <line
+        stroke="#B0F3FE"
+        stroke-width="6"
+        strokeLinecap="round"
+        x1="161.335"
+        x2="148.608"
+        y1="24.3345"
+        y2="11.6065"
+      />
+      <line
+        stroke="#B0F3FE"
+        stroke-width="6"
+        strokeLinecap="round"
+        x1="31.334"
+        x2="18.6061"
+        y1="38.6067"
+        y2="51.3346"
+      />
+      <line
+        stroke="#B0F3FE"
+        stroke-width="6"
+        strokeLinecap="round"
+        x1="31.3355"
+        x2="18.6076"
+        y1="51.3345"
+        y2="38.6065"
+      />
+    </svg>
+  </div>
+  <div
+    className="emptyTitle"
+  >
+    Short Message Here
+  </div>
+  <div
+    className="emptyDescription"
+  >
+    More detail on how might the user be able to get around this
+  </div>
+</div>
+`;
+
+exports[`Storyshots Empty No Data 1`] = `
+<div
+  className="empty"
+  style={Object {}}
+>
+  <div
+    className="emptyImage"
+  >
+    <svg
+      className="empty-data-image-default"
+      fill="none"
+      height="184"
+      viewBox="0 0 200 184"
+      width="200"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M39.0718 177.839C21.8078 171.861 3.66074 162.325 0.510726 150.175C-2.63929 138.025 9.18787 123.359 24.8068 115.637C40.5358 108.029 59.9069 107.449 71.9662 102.257C83.9156 96.9498 88.5731 86.9309 99.9189 77.9985C111.265 69.066 129.299 61.2199 140.372 64.9517C151.555 68.798 155.648 84.2069 164.716 96.6426C173.785 109.078 187.68 118.625 194.904 131.657C202.237 144.804 202.768 161.422 189.061 166.219C175.355 171.016 147.3 163.877 128.36 165.625C109.569 167.288 99.7624 177.823 86.4541 181.955C73.2954 186.004 56.4854 183.734 39.0718 177.839Z"
+        fill="#EBF7FF"
+      />
+      <path
+        d="M26 108L38.5 59H160.5L174 108V154H26V108Z"
+        fill="white"
+      />
+      <path
+        clipRule="evenodd"
+        d="M118.495 108.258C118.495 117.504 110.214 123.333 99.9993 123.333C89.7843 123.333 81.5034 117.504 81.5034 108.258C81.5034 107.958 81.5121 105.994 81.5293 105.698H46.666L60.2683 72.6258C60.8547 71.0563 62.4813 70 64.3116 70H135.687C137.517 70 139.144 71.0563 139.73 72.6258L153.333 105.698H118.469C118.487 105.994 118.495 107.958 118.495 108.258Z"
+        fill="#B0F3FE"
+        fillRule="evenodd"
+      />
+      <path
+        clipRule="evenodd"
+        d="M152.505 59.9999L47.4938 60.0006C43.6128 60.0006 40.0926 62.6542 38.7909 66.7166L27.5922 101.666L74.0905 101.666C78.722 101.666 83.0934 103.873 86.0399 107.654L92.9658 116.542C96.6469 121.266 103.355 121.266 107.037 116.542L113.962 107.654C116.909 103.873 121.28 101.666 125.912 101.666L172.408 101.666L161.208 66.7158C159.906 62.6534 156.386 59.9999 152.505 59.9999ZM173.651 108.333L125.912 108.333C123.217 108.333 120.638 109.615 118.876 111.876L111.95 120.763C105.729 128.747 94.2733 128.747 88.0518 120.763L81.126 111.876C79.3647 109.615 76.7854 108.333 74.0906 108.333L26.3492 108.333L26.3493 143.333C26.3493 148.934 30.548 153.333 35.5634 153.333L164.436 153.333C169.452 153.333 173.65 148.934 173.651 143.333L173.651 108.333ZM47.4937 53.3339L152.505 53.3333C159.195 53.3332 165.081 57.8972 167.226 64.5898L180 104.454L180 143.333C180 152.46 173.105 159.999 164.436 159.999L35.5635 160C26.8946 160 20.0001 152.46 20 143.333L20 104.454L32.7731 64.5908C34.9176 57.898 40.804 53.334 47.4937 53.3339Z"
+        fill="#8ED0FA"
+        fillRule="evenodd"
+      />
+      <rect
+        fill="#B0F3FE"
+        height="40"
+        rx="6.66667"
+        width="13.3333"
+        x="93.334"
+      />
+      <rect
+        fill="#B0F3FE"
+        height="40"
+        rx="6.66667"
+        transform="rotate(-30 46.666 6.66675)"
+        width="13.3333"
+        x="46.666"
+        y="6.66675"
+      />
+      <rect
+        fill="#B0F3FE"
+        height="40"
+        rx="6.66667"
+        transform="rotate(30 141.666 0)"
+        width="13.3333"
+        x="141.666"
+      />
+    </svg>
+  </div>
+  <div
+    className="emptyTitle"
+  >
+    Short Message Here
+  </div>
+  <div
+    className="emptyDescription"
+  >
+    More detail on how might the user be able to get around this
+  </div>
+</div>
+`;
+
+exports[`Storyshots Empty No Search Results 1`] = `
+<div
+  className="empty"
+  style={Object {}}
+>
+  <div
+    className="emptyImage"
+  >
+    <svg
+      className="empty-search-image-default"
+      fill="none"
+      height="184"
+      viewBox="0 0 200 184"
+      width="200"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M39.0718 177.839C21.8078 171.861 3.66074 162.325 0.510726 150.175C-2.63929 138.025 9.18787 123.359 24.8068 115.637C40.5358 108.029 59.9069 107.449 71.9662 102.257C83.9156 96.9498 88.5731 86.9309 99.9189 77.9985C111.265 69.066 129.299 61.2199 140.372 64.9517C151.555 68.798 155.648 84.2069 164.716 96.6426C173.785 109.078 187.68 118.625 194.904 131.657C202.237 144.804 202.768 161.422 189.061 166.219C175.355 171.016 147.3 163.877 128.36 165.625C109.569 167.288 99.7624 177.823 86.4541 181.955C73.2954 186.004 56.4854 183.734 39.0718 177.839Z"
+        fill="#EBF7FF"
+      />
+      <path
+        d="M183 91C188.192 91 192 86.5161 192 81.5C192 76.4839 188.192 72 183 72C177.808 72 174 76.4839 174 81.5C174 86.5161 177.808 91 183 91Z"
+        stroke="#B0F3FE"
+        stroke-width="6"
+      />
+      <circle
+        cx="139"
+        cy="47"
+        fill="#B0F3FE"
+        r="5"
+      />
+      <rect
+        fill="#B0F3FE"
+        height="10"
+        rx="5"
+        width="20"
+        x="148"
+        y="42"
+      />
+      <rect
+        fill="#B0F3FE"
+        height="10"
+        rx="5"
+        width="30"
+        x="10"
+        y="83"
+      />
+      <path
+        d="M111.824 36.9412C130.569 55.6864 130.569 86.0783 111.824 104.823C93.0788 123.569 62.6869 123.569 43.9417 104.823C25.1965 86.0783 25.1965 55.6864 43.9417 36.9412C62.6869 18.196 93.0788 18.196 111.824 36.9412Z"
+        fill="white"
+      />
+      <path
+        d="M127.38 131.693C124.256 128.569 124.256 123.504 127.38 120.38C130.504 117.256 135.57 117.256 138.694 120.38L155.664 137.35C158.789 140.475 158.789 145.54 155.664 148.664C152.54 151.788 147.475 151.788 144.351 148.664L127.38 131.693Z"
+        fill="white"
+      />
+      <path
+        d="M125.26 118.259L118.189 111.187M111.824 36.9412C130.569 55.6864 130.569 86.0783 111.824 104.823C93.0788 123.569 62.6869 123.569 43.9417 104.823C25.1965 86.0783 25.1965 55.6864 43.9417 36.9412C62.6869 18.196 93.0788 18.196 111.824 36.9412ZM155.664 148.664C152.54 151.788 147.475 151.788 144.351 148.664L127.38 131.693C124.256 128.569 124.256 123.504 127.38 120.38C130.504 117.256 135.57 117.256 138.694 120.38L155.664 137.35C158.789 140.475 158.789 145.54 155.664 148.664Z"
+        stroke="#8ED0FA"
+        stroke-width="6"
+        strokeLinecap="round"
+      />
+      <path
+        d="M56.3926 96.6624C60.9586 96.6624 64.3926 92.703 64.3926 88.1624C64.3926 83.6217 60.9586 79.6624 56.3926 79.6624C51.8266 79.6624 48.3926 83.6217 48.3926 88.1624C48.3926 92.703 51.8266 96.6624 56.3926 96.6624Z"
+        fill="#B0F3FE"
+        stroke="#B0F3FE"
+        stroke-width="4"
+      />
+    </svg>
+  </div>
+  <div
+    className="emptyTitle"
+  >
+    Short Message Here
+  </div>
+  <div
+    className="emptyDescription"
+  >
+    More detail on how might the user be able to get around this
+  </div>
+</div>
+`;
+
+exports[`Storyshots Empty Tasks Complete 1`] = `
+<div
+  className="empty"
+  style={Object {}}
+>
+  <div
+    className="emptyImage"
+  >
+    <svg
+      className="tasks-complete-image-default"
+      fill="none"
+      height="184"
+      viewBox="0 0 200 184"
+      width="200"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M39.0718 177.839C21.8078 171.861 3.66074 162.325 0.510726 150.175C-2.63929 138.025 9.18787 123.359 24.8068 115.637C40.5358 108.029 59.9069 107.449 71.9662 102.257C83.9156 96.9498 88.5731 86.9309 99.9189 77.9985C111.265 69.066 129.299 61.2199 140.372 64.9517C151.555 68.798 155.648 84.2069 164.716 96.6426C173.785 109.078 187.68 118.625 194.904 131.657C202.237 144.804 202.768 161.422 189.061 166.219C175.355 171.016 147.3 163.877 128.36 165.625C109.569 167.288 99.7624 177.823 86.4541 181.955C73.2954 186.004 56.4854 183.734 39.0718 177.839Z"
+        fill="#EBF7FF"
+      />
+      <path
+        d="M180 98C185.192 98 189 93.5161 189 88.5C189 83.4839 185.192 79 180 79C174.808 79 171 83.4839 171 88.5C171 93.5161 174.808 98 180 98Z"
+        stroke="#B0F3FE"
+        stroke-width="6"
+      />
+      <circle
+        cx="139"
+        cy="47"
+        fill="#B0F3FE"
+        r="5"
+      />
+      <path
+        d="M56.3926 96.6624C60.9586 96.6624 64.3926 92.703 64.3926 88.1624C64.3926 83.6217 60.9586 79.6624 56.3926 79.6624C51.8266 79.6624 48.3926 83.6217 48.3926 88.1624C48.3926 92.703 51.8266 96.6624 56.3926 96.6624Z"
+        fill="#B0F3FE"
+        stroke="#B0F3FE"
+        stroke-width="4"
+      />
+      <circle
+        cx="98"
+        cy="79"
+        fill="white"
+        r="60"
+        stroke="#8ED0FA"
+        stroke-width="6"
+        strokeLinecap="round"
+      />
+      <path
+        d="M80.9802 73.3685C79.5239 72.0567 77.2649 72.1574 75.9346 73.5935C74.6043 75.0295 74.7064 77.2571 76.1627 78.569L92.971 93.7098C95.0099 95.5463 98.1725 95.4053 100.035 93.3948C100.113 93.3094 100.113 93.3094 100.188 93.2217L124.175 64.7735C125.436 63.2779 125.228 61.0574 123.712 59.8139C122.195 58.5703 119.943 58.7747 118.682 60.2703L96.1309 87.0162L80.9802 73.3685Z"
+        fill="#B0F3FE"
+      />
+      <path
+        d="M16 26C21.1921 26 25 21.5161 25 16.5C25 11.4839 21.1921 7 16 7C10.8079 7 7 11.4839 7 16.5C7 21.5161 10.8079 26 16 26Z"
+        stroke="#B0F3FE"
+        stroke-width="6"
+      />
+      <ellipse
+        cx="38"
+        cy="35.5"
+        fill="#B0F3FE"
+        rx="6"
+        ry="6.5"
+      />
+      <ellipse
+        cx="171"
+        cy="35.5"
+        fill="#B0F3FE"
+        rx="6"
+        ry="6.5"
+      />
+      <line
+        stroke="#B0F3FE"
+        stroke-width="6"
+        strokeLinecap="round"
+        x1="160"
+        x2="142"
+        y1="13"
+        y2="13"
+      />
+      <line
+        stroke="#B0F3FE"
+        stroke-width="6"
+        strokeLinecap="round"
+        x1="151"
+        x2="151"
+        y1="22"
+        y2="4"
+      />
+      <line
+        stroke="#B0F3FE"
+        stroke-width="6"
+        strokeLinecap="round"
+        x1="31"
+        x2="13"
+        y1="87"
+        y2="87"
+      />
+      <line
+        stroke="#B0F3FE"
+        stroke-width="6"
+        strokeLinecap="round"
+        x1="22"
+        x2="22"
+        y1="96"
+        y2="78"
+      />
+    </svg>
+  </div>
+  <div
+    className="emptyTitle"
+  >
+    Short Message Here
+  </div>
+  <div
+    className="emptyDescription"
+  >
+    More detail on how might the user be able to get around this
+  </div>
+</div>
+`;
+
 exports[`Storyshots Icon Basic 1`] = `
 <span
   aria-hidden={false}
@@ -6138,7 +6813,7 @@ exports[`Storyshots Icon Basic 1`] = `
   role="presentation"
 >
   <svg
-    aria-labelledby="icon_labelledby_33 icon_describedby_33"
+    aria-labelledby="icon_labelledby_37 icon_describedby_37"
     style={
       Object {
         "height": "20px",
@@ -6148,12 +6823,12 @@ exports[`Storyshots Icon Basic 1`] = `
     viewBox="0 0 24 24"
   >
     <title
-      id="icon_labelledby_33"
+      id="icon_labelledby_37"
     >
       My icon title.
     </title>
     <desc
-      id="icon_describedby_33"
+      id="icon_describedby_37"
     >
       My icon description.
     </desc>
@@ -6624,6 +7299,7 @@ exports[`Storyshots Input Search Box 1`] = `
       >
         <div
           className="referenceWrapper"
+          id="4fzzzxj"
           onBlur={[Function]}
           onFocus={[Function]}
           onMouseEnter={[Function]}
@@ -6661,32 +7337,6 @@ exports[`Storyshots Input Search Box 1`] = `
               </svg>
             </span>
           </button>
-        </div>
-        <div
-          aria-hidden={true}
-          className="tooltip top"
-          role="tooltip"
-          style={
-            Object {
-              "left": "",
-              "position": "absolute",
-              "top": "",
-            }
-          }
-          tabIndex={0}
-        >
-          tooltip
-          <div
-            className="arrow"
-            style={
-              Object {
-                "bottom": "-4px",
-                "left": "",
-                "position": "absolute",
-                "top": "",
-              }
-            }
-          />
         </div>
       </span>
     </div>
@@ -6790,6 +7440,7 @@ exports[`Storyshots Input Text Area 1`] = `
     >
       <div
         className="referenceWrapper"
+        id="4fzzzxj"
         onBlur={[Function]}
         onFocus={[Function]}
         onMouseEnter={[Function]}
@@ -6827,32 +7478,6 @@ exports[`Storyshots Input Text Area 1`] = `
             </svg>
           </span>
         </button>
-      </div>
-      <div
-        aria-hidden={true}
-        className="tooltip top"
-        role="tooltip"
-        style={
-          Object {
-            "left": "",
-            "position": "absolute",
-            "top": "",
-          }
-        }
-        tabIndex={0}
-      >
-        tooltip
-        <div
-          className="arrow"
-          style={
-            Object {
-              "bottom": "-4px",
-              "left": "",
-              "position": "absolute",
-              "top": "",
-            }
-          }
-        />
       </div>
     </span>
   </div>
@@ -6920,6 +7545,7 @@ exports[`Storyshots Input Text Input 1`] = `
     >
       <div
         className="referenceWrapper"
+        id="4fzzzxj"
         onBlur={[Function]}
         onFocus={[Function]}
         onMouseEnter={[Function]}
@@ -6957,32 +7583,6 @@ exports[`Storyshots Input Text Input 1`] = `
             </svg>
           </span>
         </button>
-      </div>
-      <div
-        aria-hidden={true}
-        className="tooltip top"
-        role="tooltip"
-        style={
-          Object {
-            "left": "",
-            "position": "absolute",
-            "top": "",
-          }
-        }
-        tabIndex={0}
-      >
-        tooltip
-        <div
-          className="arrow"
-          style={
-            Object {
-              "bottom": "-4px",
-              "left": "",
-              "position": "absolute",
-              "top": "",
-            }
-          }
-        />
       </div>
     </span>
   </div>
@@ -7084,6 +7684,7 @@ exports[`Storyshots Label Labels 1`] = `
   >
     <div
       className="referenceWrapper"
+      id="4fzzzxj"
       onBlur={[Function]}
       onFocus={[Function]}
       onMouseEnter={[Function]}
@@ -7122,31 +7723,6 @@ exports[`Storyshots Label Labels 1`] = `
           </svg>
         </span>
       </button>
-    </div>
-    <div
-      aria-hidden={true}
-      className="tooltip right"
-      role="tooltip"
-      style={
-        Object {
-          "left": "",
-          "position": "absolute",
-          "top": "",
-        }
-      }
-      tabIndex={0}
-    >
-      A tooltip
-      <div
-        className="arrow"
-        style={
-          Object {
-            "left": "-4px",
-            "position": "absolute",
-            "top": "",
-          }
-        }
-      />
     </div>
   </span>
 </div>
@@ -8232,7 +8808,7 @@ exports[`Storyshots Pagination Change Page Size 1`] = `
           <span
             className="buttonText3"
           >
-            page / 100
+            page / 1000
           </span>
         </span>
       </button>
@@ -8310,30 +8886,13 @@ exports[`Storyshots Pagination Change Page Size 1`] = `
         </span>
       </button>
     </li>
-    <li>
-      <button
-        aria-checked={false}
-        aria-disabled={false}
-        aria-pressed={false}
-        className="paginationButton button buttonDefault buttonSize3 pillShape"
-        defaultChecked={false}
-        disabled={false}
-        onClick={[Function]}
-      >
-        <span
-          className="buttonText3"
-        >
-          10
-        </span>
-      </button>
-    </li>
   </ul>
   <button
     aria-disabled={false}
     aria-label="Next"
-    className="paginationButton button buttonDefault buttonSize3 pillShape iconLeft"
+    className="paginationButton button buttonDefault buttonSize3 pillShape iconLeft disabled"
     defaultChecked={false}
-    disabled={false}
+    disabled={true}
     onClick={[Function]}
   >
     <span
@@ -10231,7 +10790,7 @@ exports[`Storyshots Portal Default 1`] = `<div />`;
 
 exports[`Storyshots Radio Button Radio Button 1`] = `
 <div
-  className="selector"
+  className="selector my-radiobutton-class"
 >
   <input
     aria-label="Label"
@@ -12636,52 +13195,26 @@ exports[`Storyshots Tabs With Badge 1`] = `
 `;
 
 exports[`Storyshots Tooltip Tooltips 1`] = `
-Array [
-  <div
-    className="referenceWrapper"
-    onBlur={[Function]}
-    onFocus={[Function]}
-    onMouseEnter={[Function]}
-    onMouseLeave={[Function]}
+<div
+  className="referenceWrapper"
+  id="4fzzzxj"
+  onBlur={[Function]}
+  onFocus={[Function]}
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
+>
+  <button
+    aria-disabled={false}
+    aria-label="Show Tooltip"
+    className="button buttonPrimary buttonSize2 pillShape"
+    defaultChecked={false}
+    disabled={false}
   >
-    <button
-      aria-disabled={false}
-      aria-label="Show Tooltip"
-      className="button buttonPrimary buttonSize2 pillShape"
-      defaultChecked={false}
-      disabled={false}
+    <span
+      className="buttonText2"
     >
-      <span
-        className="buttonText2"
-      >
-        Show Tooltip
-      </span>
-    </button>
-  </div>,
-  <div
-    aria-hidden={true}
-    className="my-tooltip-class tooltip bottom"
-    role="tooltip"
-    style={
-      Object {
-        "left": "",
-        "position": "absolute",
-        "top": "",
-      }
-    }
-    tabIndex={0}
-  >
-    This is a Tooltip.
-    <div
-      className="arrow"
-      style={
-        Object {
-          "left": "",
-          "position": "absolute",
-          "top": "-4px",
-        }
-      }
-    />
-  </div>,
-]
+      Show Tooltip
+    </span>
+  </button>
+</div>
 `;

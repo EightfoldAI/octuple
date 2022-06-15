@@ -133,3 +133,9 @@ export const ConditionalWrapper: React.FC<ConditonalWrapperProps> = ({
     wrapper,
     children,
 }) => (condition ? wrapper(children) : children);
+
+export const convertToKebabCase = (str: string) =>
+    str.replace(
+        /[A-Z]+(?![a-z])|[A-Z]/g,
+        ($, ofs) => (ofs ? '-' : '') + $.toLowerCase()
+    );
