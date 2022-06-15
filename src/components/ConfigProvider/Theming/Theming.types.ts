@@ -35,6 +35,12 @@ export interface OcBaseTheme {
 
 export interface OcTheme extends OcBaseTheme {
     /**
+     * Name of accent theme.
+     * @type {OcCustomThemeName|OcThemeNames}
+     * @default blueGreen
+     */
+    accentName?: ThemeName;
+    /**
      * Predefined color palette
      */
     palette: Color[];
@@ -47,12 +53,6 @@ export interface ThemeOptions {
      * @default blue
      */
     name?: ThemeName;
-    /**
-     * Name of accent theme.
-     * @type {OcCustomThemeName|OcThemeNames}
-     * @default blueGreen
-     */
-    accentName?: ThemeName;
     /**
      * Use system theme or not
      * @default false

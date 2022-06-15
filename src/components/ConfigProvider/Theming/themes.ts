@@ -12,8 +12,9 @@ export const themeDefaults: OcBaseTheme = {
     fontSize: 16,
 };
 
-export const red: OcTheme = Object.freeze({
-    primaryColor: '#993838',
+export const red: OcTheme = {
+    primaryColor: '#6C2222',
+    accentName: 'violetRed',
     ...themeDefaults,
     palette: [
         '#0A0202',
@@ -27,10 +28,11 @@ export const red: OcTheme = Object.freeze({
         '#FFC6C6',
         '#FFEFEF',
     ],
-});
+};
 
 export const redOrange: OcTheme = {
-    primaryColor: '#A54D2C',
+    primaryColor: '#78351A',
+    accentName: 'red',
     ...themeDefaults,
     palette: [
         '#1F0C03',
@@ -47,7 +49,8 @@ export const redOrange: OcTheme = {
 };
 
 export const orange: OcTheme = {
-    primaryColor: '#9D6309',
+    primaryColor: '#6C4500',
+    accentName: 'redOrange',
     ...themeDefaults,
     palette: [
         '#0A0700',
@@ -64,7 +67,8 @@ export const orange: OcTheme = {
 };
 
 export const yellow: OcTheme = {
-    primaryColor: '#857600',
+    primaryColor: '#5C5500',
+    accentName: 'orange',
     ...themeDefaults,
     palette: [
         '#0A0A00',
@@ -81,7 +85,8 @@ export const yellow: OcTheme = {
 };
 
 export const yellowGreen: OcTheme = {
-    primaryColor: '#6D6F00',
+    primaryColor: '#525400',
+    accentName: 'yellow',
     ...themeDefaults,
     palette: [
         '#131300',
@@ -98,7 +103,8 @@ export const yellowGreen: OcTheme = {
 };
 
 export const green: OcTheme = {
-    primaryColor: '#2B715F',
+    primaryColor: '#1B5143',
+    accentName: 'yellowGreen',
     ...themeDefaults,
     palette: [
         '#030A08',
@@ -115,7 +121,8 @@ export const green: OcTheme = {
 };
 
 export const blueGreen: OcTheme = {
-    primaryColor: '#0B7B8B',
+    primaryColor: '#025966',
+    accentName: 'green',
     ...themeDefaults,
     palette: [
         '#00090A',
@@ -132,7 +139,8 @@ export const blueGreen: OcTheme = {
 };
 
 export const blue: OcTheme = {
-    primaryColor: '#146DA6',
+    primaryColor: '#054D7B',
+    accentName: 'blueGreen',
     ...themeDefaults,
     palette: [
         '#00060A',
@@ -149,7 +157,8 @@ export const blue: OcTheme = {
 };
 
 export const blueViolet: OcTheme = {
-    primaryColor: '#414996',
+    primaryColor: '#2B3271',
+    accentName: 'blue',
     ...themeDefaults,
     palette: [
         '#090B1F',
@@ -166,7 +175,8 @@ export const blueViolet: OcTheme = {
 };
 
 export const violet: OcTheme = {
-    primaryColor: '#7E3A77',
+    primaryColor: '#5D2156',
+    accentName: 'blueViolet',
     ...themeDefaults,
     palette: [
         '#060106',
@@ -183,7 +193,8 @@ export const violet: OcTheme = {
 };
 
 export const violetRed: OcTheme = {
-    primaryColor: '#943D71',
+    primaryColor: '#702853',
+    accentName: 'violet',
     ...themeDefaults,
     palette: [
         '#1F0816',
@@ -200,7 +211,8 @@ export const violetRed: OcTheme = {
 };
 
 export const grey: OcTheme = {
-    primaryColor: '#4F5666',
+    primaryColor: '#343C4C',
+    accentName: 'grey',
     ...themeDefaults,
     palette: [
         '#05070A',

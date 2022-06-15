@@ -46,7 +46,8 @@ export default {
 } as ComponentMeta<typeof ConfigProvider>;
 
 const ThemedComponents: FC = () => {
-    const [customColor, setCustomColor] = useState<string>('');
+    const [customPrimaryColor, setCustomPrimaryColor] = useState<string>('');
+    const [customAccentColor, setCustomAccentColor] = useState<string>('');
     const { themeOptions, setThemeOptions } = useConfig();
     const themes: OcThemeNames[] = [
         'red',
@@ -86,7 +87,16 @@ const ThemedComponents: FC = () => {
                         color: 'var(--primary-color)',
                     }}
                 >
-                    {themeOptions.name}
+                    Primary |
+                </span>
+                <span
+                    style={{
+                        textTransform: 'capitalize',
+                        marginLeft: '4px',
+                        color: 'var(--accent-color-30)',
+                    }}
+                >
+                    Accent
                 </span>
             </h1>
             <Stack direction="horizontal" gap="m" style={{ marginTop: 0 }}>
@@ -109,17 +119,34 @@ const ThemedComponents: FC = () => {
                     </select>
                 </div>
                 <div>
-                    <p>Custom</p>
+                    <p>Custom Primary</p>
                     <CompactPicker
-                        color={customColor}
+                        color={customPrimaryColor}
                         onChange={async (color) => {
                             setThemeOptions({
                                 name: 'custom',
                                 customTheme: {
                                     primaryColor: color.hex,
+                                    accentColor: customAccentColor,
                                 },
                             });
-                            setCustomColor(color.hex);
+                            setCustomPrimaryColor(color.hex);
+                        }}
+                    />
+                </div>
+                <div>
+                    <p>Custom Accent</p>
+                    <CompactPicker
+                        color={customAccentColor}
+                        onChange={async (color) => {
+                            setThemeOptions({
+                                name: 'custom',
+                                customTheme: {
+                                    primaryColor: customPrimaryColor,
+                                    accentColor: color.hex,
+                                },
+                            });
+                            setCustomAccentColor(color.hex);
                         }}
                     />
                 </div>

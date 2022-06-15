@@ -9,7 +9,7 @@
     --primary-color-80: #054d7b;
     --primary-color-90: #002a47;
     --primary-color-100: #00060a;
-    --primary-color: #146da6;
+    --primary-color: #054d7b;
     --accent-color-10: #ebfdff;
     --accent-color-20: #b0f3fe;
     --accent-color-30: #7be4f4;
@@ -20,7 +20,7 @@
     --accent-color-80: #025966;
     --accent-color-90: #00333b;
     --accent-color-100: #00090a;
-    --accent-color: #0b7b8b;
+    --accent-color: #025966;
     --disruptive-color-10: #ffefef;
     --disruptive-color-20: #ffc6c6;
     --disruptive-color-30: #ffa3a3;
@@ -31,7 +31,7 @@
     --disruptive-color-80: #6c2222;
     --disruptive-color-90: #3b1010;
     --disruptive-color-100: #0a0202;
-    --disruptive-color: #993838;
+    --disruptive-color: #6c2222;
     --red-color-10: #ffefef;
     --red-color-20: #ffc6c6;
     --red-color-30: #ffa3a3;
@@ -42,7 +42,7 @@
     --red-color-80: #6c2222;
     --red-color-90: #3b1010;
     --red-color-100: #0a0202;
-    --red-color: #993838;
+    --red-color: #6c2222;
     --redorange-color-10: #fff2ed;
     --redorange-color-20: #ffd1bd;
     --redorange-color-30: #ffb396;
@@ -53,7 +53,7 @@
     --redorange-color-80: #78351a;
     --redorange-color-90: #4c1f0c;
     --redorange-color-100: #1f0c03;
-    --redorange-color: #a54d2c;
+    --redorange-color: #78351a;
     --orange-color-10: #fff8eb;
     --orange-color-20: #ffe3b0;
     --orange-color-30: #ffcd78;
@@ -64,7 +64,7 @@
     --orange-color-80: #6c4500;
     --orange-color-90: #3b2600;
     --orange-color-100: #0a0700;
-    --orange-color: #9d6309;
+    --orange-color: #6c4500;
     --yellow-color-10: #ffffeb;
     --yellow-color-20: #fff89c;
     --yellow-color-30: #ffe44e;
@@ -75,7 +75,7 @@
     --yellow-color-80: #5c5500;
     --yellow-color-90: #333100;
     --yellow-color-100: #0a0a00;
-    --yellow-color: #857600;
+    --yellow-color: #5c5500;
     --yellowgreen-color-10: #fdfeeb;
     --yellowgreen-color-20: #f3f5b0;
     --yellowgreen-color-30: #e2e575;
@@ -86,7 +86,7 @@
     --yellowgreen-color-80: #525400;
     --yellowgreen-color-90: #343500;
     --yellowgreen-color-100: #131300;
-    --yellowgreen-color: #6d6f00;
+    --yellowgreen-color: #525400;
     --green-color-10: #f0fefa;
     --green-color-20: #b9f4e4;
     --green-color-30: #8ce1ca;
@@ -97,7 +97,7 @@
     --green-color-80: #1b5143;
     --green-color-90: #0e2e26;
     --green-color-100: #030a08;
-    --green-color: #2b715f;
+    --green-color: #1b5143;
     --bluegreen-color-10: #ebfdff;
     --bluegreen-color-20: #b0f3fe;
     --bluegreen-color-30: #7be4f4;
@@ -108,7 +108,7 @@
     --bluegreen-color-80: #025966;
     --bluegreen-color-90: #00333b;
     --bluegreen-color-100: #00090a;
-    --bluegreen-color: #0b7b8b;
+    --bluegreen-color: #025966;
     --blue-color-10: #ebf7ff;
     --blue-color-20: #bce4ff;
     --blue-color-30: #8ed0fa;
@@ -119,7 +119,7 @@
     --blue-color-80: #054d7b;
     --blue-color-90: #002a47;
     --blue-color-100: #00060a;
-    --blue-color: #146da6;
+    --blue-color: #054d7b;
     --blueviolet-color-10: #f1f2ff;
     --blueviolet-color-20: #cacffc;
     --blueviolet-color-30: #a9b0f5;
@@ -130,7 +130,7 @@
     --blueviolet-color-80: #2b3271;
     --blueviolet-color-90: #191d4a;
     --blueviolet-color-100: #090b1f;
-    --blueviolet-color: #414996;
+    --blueviolet-color: #2b3271;
     --violet-color-10: #fbf6fb;
     --violet-color-20: #ead3e8;
     --violet-color-30: #d8b1d4;
@@ -141,7 +141,7 @@
     --violet-color-80: #5d2156;
     --violet-color-90: #350e31;
     --violet-color-100: #060106;
-    --violet-color: #7e3a77;
+    --violet-color: #5d2156;
     --violetred-color-10: #fff0f9;
     --violetred-color-20: #fcc8e7;
     --violetred-color-30: #f3a5d4;
@@ -152,7 +152,7 @@
     --violetred-color-80: #702853;
     --violetred-color-90: #491635;
     --violetred-color-100: #1f0816;
-    --violetred-color: #943d71;
+    --violetred-color: #702853;
     --grey-color-10: #f6f7f8;
     --grey-color-20: #d9dce1;
     --grey-color-30: #bdc1c9;
@@ -163,7 +163,7 @@
     --grey-color-80: #343c4c;
     --grey-color-90: #1a212e;
     --grey-color-100: #05070a;
-    --grey-color: #4f5666;
+    --grey-color: #343c4c;
     --background-color: #fff;
     --border-color: #bec2ca;
     --text-primary-color: #1a212e;

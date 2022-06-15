@@ -40,7 +40,6 @@ export function getStyle(themeOptions: ThemeOptions): IGetStyle {
     };
 
     const themeName: ThemeName = themeOptions.name;
-    const accentThemeName: ThemeName = themeOptions.accentName;
 
     const theme: OcTheme = {
         ...themeDefaults,
@@ -49,9 +48,7 @@ export function getStyle(themeOptions: ThemeOptions): IGetStyle {
     };
 
     const accentTheme: OcTheme = {
-        ...themeDefaults,
-        ...OcThemes?.[accentThemeName as OcThemeNames],
-        ...themeOptions.customTheme,
+        ...OcThemes?.[theme.accentName as OcThemeNames],
     };
 
     // ================ Use existing primary palette ================
