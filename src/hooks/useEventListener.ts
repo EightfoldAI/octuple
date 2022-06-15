@@ -3,7 +3,7 @@
  * to accept multiple events with the same handler and listener options
  */
 import { useEffect, useRef } from 'react';
-import { hasWindow } from '../shared/utilities';
+import { canUseDom } from '../shared/utilities';
 
 export type Events = string | string[];
 export type Target =
@@ -20,7 +20,7 @@ const getElement = (target: Target) => {
 export const useEventListener = (
     events: Events,
     handler: EventListener,
-    target: Target = hasWindow() ? window : null,
+    target: Target = canUseDom() ? window : null,
     options?: boolean | AddEventListenerOptions
 ): void => {
     // Create a list of events if a single string is passed
