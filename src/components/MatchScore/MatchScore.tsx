@@ -17,6 +17,7 @@ export const MatchScore: FC<MatchScoreProps> = React.forwardRef(
         ref: Ref<HTMLDivElement>
     ) => {
         const absTotal: number = Math.abs(total);
+        const matchScoreLabelClasses = mergeClasses(styles.label, 'body2');
         return (
             <Atom<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>
                 of="div"
@@ -39,7 +40,7 @@ export const MatchScore: FC<MatchScoreProps> = React.forwardRef(
                     )
                 )}
                 {!hideLabel && (
-                    <p className={styles.label}>
+                    <p className={matchScoreLabelClasses}>
                         {score}/{absTotal}
                     </p>
                 )}

@@ -44,20 +44,36 @@ export function getStyle(themeOptions: ThemeOptions): IGetStyle {
 
     const theme: OcTheme = {
         ...themeDefaults,
-        ...OcThemes?.[themeOptions.name as OcThemeNames],
+        ...OcThemes?.[themeName as OcThemeNames],
         ...themeOptions.customTheme,
     };
 
-    // ================ Use existing palette ================
+    const accentTheme: OcTheme = {
+        ...OcThemes?.[theme.accentName as OcThemeNames],
+    };
+
+    // ================ Use existing primary palette ================
     if (theme.palette) {
         fillColor([...theme.palette].reverse(), 'primary-color');
         variables[`primary-color`] = theme.primaryColor;
+    }
+
+    // ================ Use existing accent palette ================
+    if (accentTheme.palette) {
+        fillColor([...accentTheme.palette].reverse(), 'accent-color');
+        variables[`accent-color`] = accentTheme.primaryColor;
     }
 
     // ================ Custom primary palette ================
     if (themeOptions.customTheme?.primaryColor) {
         generatePalette(theme.primaryColor, 'primary-color');
         variables[`primary-color`] = theme.primaryColor;
+    }
+
+    // ================ Custom accent palette ================
+    if (themeOptions.customTheme?.accentColor) {
+        generatePalette(theme.accentColor, 'accent-color');
+        variables[`accent-color`] = theme.accentColor;
     }
 
     // ================ Disruptive palette ================

@@ -150,7 +150,7 @@ Search_Box.args = {
     minlength: 0,
     name: 'mySearchBox',
     placeholder: 'Search',
-    shape: TextInputShape.Rectangle,
+    shape: TextInputShape.Pill,
     style: {},
     theme: TextInputTheme.light,
     waitInterval: 10,
