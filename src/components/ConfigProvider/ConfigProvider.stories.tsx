@@ -96,7 +96,7 @@ const ThemedComponents: FC = () => {
                         color: 'var(--accent-color-30)',
                     }}
                 >
-                    Accent
+                    | Accent
                 </span>
             </h1>
             <Stack direction="horizontal" gap="m" style={{ marginTop: 0 }}>
