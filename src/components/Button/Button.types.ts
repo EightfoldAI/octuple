@@ -155,7 +155,7 @@ export interface ButtonProps extends NativeButtonProps {
     onContextMenu?: React.MouseEventHandler<HTMLButtonElement>;
     /**
      * Shape of the button.
-     * @default ButtonShape.Rectangle
+     * @default ButtonShape.Pill
      */
     shape?: ButtonShape;
     /**

@@ -39,7 +39,6 @@
                 height: $radio-height;
                 width: $radio-width;
                 border-radius: 50%;
-                background-color: var(--white-color);
                 border: $space-xxxs solid var(--grey-color-70);
                 transition: all $motion-duration-extra-fast $motion-ease-in-back
                     $motion-delay-s;
@@ -50,7 +49,7 @@
                     width: $radio-after-width;
                     height: $radio-after-height;
                     border-radius: 50%;
-                    background-color: var(--primary-color);
+                    border: solid 2px var(--primary-color);
                     content: '';
                     position: absolute;
                     transform: scale(0);
@@ -64,13 +63,15 @@
 
         &:hover + label {
             .radio-button {
-                border: $space-xxxs solid var(--primary-color-60);
+                background-color: var(--accent-color-20);
+                border: $space-xxxs solid var(--primary-color);
             }
         }
 
         &:active + label {
             .radio-button {
-                border: $space-xxxs solid var(--primary-color-80);
+                background-color: var(--accent-color-30);
+                border: $space-xxxs solid var(--primary-color);
             }
         }
     }
@@ -78,21 +79,6 @@
     input:checked {
         &[disabled] {
             cursor: default;
-
-            &:hover + label {
-                .radio-button {
-                    background-color: var(--primary-color);
-                    border: $space-xxxs solid var(--primary-color);
-                }
-            }
-
-            &:active + label {
-                .radio-button {
-                    transform: none;
-                    background-color: var(--primary-color);
-                    border: $space-xxxs solid var(--primary-color);
-                }
-            }
         }
 
         & + label {
@@ -100,13 +86,12 @@
                 $motion-delay-s;
 
             .radio-button {
-                background-color: var(--primary-color);
+                background-color: var(--accent-color-30);
                 border: $space-xxxs solid var(--primary-color);
             }
 
             .radio-button:after {
                 opacity: 1;
-                background: var(--white-color);
                 transform: scale(1);
                 transition: all $motion-duration-extra-fast
                     $motion-ease-out-back $motion-delay-s;
@@ -115,16 +100,16 @@
 
         &:hover + label {
             .radio-button {
-                background-color: var(--primary-color-60);
-                border: $space-xxxs solid var(--primary-color-60);
+                background-color: var(--accent-color-20);
+                border: $space-xxxs solid var(--primary-color);
             }
         }
 
         &:active + label {
             .radio-button {
                 transform: scale(0.98);
-                background-color: var(--primary-color-80);
-                border: $space-xxxs solid var(--primary-color-80);
+                background-color: var(--accent-color-10);
+                border: $space-xxxs solid var(--primary-color);
             }
         }
     }

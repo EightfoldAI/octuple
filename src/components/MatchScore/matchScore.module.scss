@@ -3,13 +3,17 @@ $indicator-size: 12px;
 .match-score-container {
     display: flex;
     align-items: center;
+
     .label {
         margin: 0;
         margin-left: $space-xxs;
-        color: var(--primary-color-60);
-        font-weight: $text-font-weight-semibold;
+        color: var(--primary-color-70);
     }
+
     .match-score-circle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
         border: 1px solid var(--primary-color-60);
         box-sizing: border-box;
         height: $indicator-size;
@@ -18,16 +22,23 @@ $indicator-size: 12px;
         margin-right: $space-xxs;
 
         &.full {
-            background: var(--primary-color-60);
+            background: var(--accent-color-30);
         }
 
         &.half {
-            background: var(--primary-color-60);
+            background: var(--accent-color-30);
             background: linear-gradient(
                 to right,
-                var(--primary-color-60) 50%,
+                var(--accent-color-30) 50%,
                 transparent 50%
             );
+
+            &:after {
+                content: '';
+                height: $indicator-size;
+                width: 1px;
+                background: var(--primary-color-60);
+            }
         }
     }
 }

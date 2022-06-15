@@ -20,6 +20,7 @@ export const MatchScore: FC<MatchScoreProps> = React.forwardRef(
             classNames,
             styles.matchScoreContainer
         );
+        const matchScoreLabelClasses = mergeClasses(styles.label, 'body2');
         return (
             <div
                 {...rest}
@@ -41,7 +42,7 @@ export const MatchScore: FC<MatchScoreProps> = React.forwardRef(
                     )
                 )}
                 {!hideLabel && (
-                    <p className={styles.label}>
+                    <p className={matchScoreLabelClasses}>
                         {score}/{absTotal}
                     </p>
                 )}

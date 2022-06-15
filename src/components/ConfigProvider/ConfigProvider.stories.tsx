@@ -14,18 +14,7 @@ import { ConfigProvider, OcThemeNames, useConfig } from './';
 import { MatchScore } from '../MatchScore';
 import { Spinner } from '../Spinner';
 import { Stack } from '../Stack';
-import { CheckBoxGroup, CheckboxValueType, RadioGroup } from '../Selectors';
-
-const theme: OcThemeNames[] = [
-    'red',
-    'orange',
-    'yellow',
-    'green',
-    'bluegreen',
-    'blue',
-    'violet',
-    'grey',
-];
+import { CheckBoxGroup, RadioGroup } from '../Selectors';
 
 export default {
     title: 'Config Provider',
@@ -57,9 +46,23 @@ export default {
 } as ComponentMeta<typeof ConfigProvider>;
 
 const ThemedComponents: FC = () => {
-    const [customColor, setCustomColor] = useState<string>('');
+    const [customPrimaryColor, setCustomPrimaryColor] = useState<string>('');
+    const [customAccentColor, setCustomAccentColor] = useState<string>('');
     const { themeOptions, setThemeOptions } = useConfig();
-    const themes: OcThemeNames[] = theme;
+    const themes: OcThemeNames[] = [
+        'red',
+        'redOrange',
+        'orange',
+        'yellow',
+        'yellowGreen',
+        'green',
+        'blueGreen',
+        'blue',
+        'blueViolet',
+        'violet',
+        'violetRed',
+        'grey',
+    ];
     const tabs = [1, 2, 3, 4].map((i) => ({
         value: `tab${i}`,
         label: `Tab ${i}`,
@@ -84,7 +87,16 @@ const ThemedComponents: FC = () => {
                         color: 'var(--primary-color)',
                     }}
                 >
-                    {themeOptions.name}
+                    Primary |
+                </span>
+                <span
+                    style={{
+                        textTransform: 'capitalize',
+                        marginLeft: '4px',
+                        color: 'var(--accent-color-30)',
+                    }}
+                >
+                    | Accent
                 </span>
             </h1>
             <Stack direction="horizontal" gap="m" style={{ marginTop: 0 }}>
@@ -107,17 +119,34 @@ const ThemedComponents: FC = () => {
                     </select>
                 </div>
                 <div>
-                    <p>Custom</p>
+                    <p>Custom Primary</p>
                     <CompactPicker
-                        color={customColor}
+                        color={customPrimaryColor}
                         onChange={async (color) => {
                             setThemeOptions({
                                 name: 'custom',
                                 customTheme: {
                                     primaryColor: color.hex,
+                                    accentColor: customAccentColor,
                                 },
                             });
-                            setCustomColor(color.hex);
+                            setCustomPrimaryColor(color.hex);
+                        }}
+                    />
+                </div>
+                <div>
+                    <p>Custom Accent</p>
+                    <CompactPicker
+                        color={customAccentColor}
+                        onChange={async (color) => {
+                            setThemeOptions({
+                                name: 'custom',
+                                customTheme: {
+                                    primaryColor: customPrimaryColor,
+                                    accentColor: color.hex,
+                                },
+                            });
+                            setCustomAccentColor(color.hex);
                         }}
                     />
                 </div>
