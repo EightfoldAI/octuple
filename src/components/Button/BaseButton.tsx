@@ -36,7 +36,7 @@ export const BaseButton: FC<InternalButtonProps> = React.forwardRef(
             id,
             onClick,
             onContextMenu,
-            shape = ButtonShape.Rectangle,
+            shape = ButtonShape.Pill,
             size = ButtonSize.Flex,
             split,
             splitButtonChecked = false,

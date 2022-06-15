@@ -30,7 +30,7 @@ export const NeutralButton: FC<ButtonProps> = React.forwardRef(
             onClick,
             text,
             theme,
-            shape = ButtonShape.Rectangle,
+            shape = ButtonShape.Pill,
             size = ButtonSize.Flex,
             split,
             splitButtonProps,
