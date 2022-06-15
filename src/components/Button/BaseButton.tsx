@@ -10,6 +10,7 @@ import {
     SplitButton,
 } from './';
 import { Icon, IconSize } from '../Icon';
+import { Badge } from '../Badge';
 import { Breakpoints, useMatchMedia } from '../../hooks/useMatchMedia';
 import { mergeClasses } from '../../shared/utilities';
 
@@ -25,6 +26,7 @@ export const BaseButton: FC<InternalButtonProps> = React.forwardRef(
             buttonWidth = ButtonWidth.fitContent,
             checked = false,
             classNames,
+            counter,
             disabled = false,
             disruptive = false,
             dropShadow = false,
@@ -52,6 +54,7 @@ export const BaseButton: FC<InternalButtonProps> = React.forwardRef(
         const smallScreenActive: boolean = useMatchMedia(Breakpoints.Small);
         const xSmallScreenActive: boolean = useMatchMedia(Breakpoints.XSmall);
 
+        const counterExists: boolean = !!counter;
         const iconExists: boolean = !!iconProps;
         const textExists: boolean = !!text;
 
@@ -120,6 +123,11 @@ export const BaseButton: FC<InternalButtonProps> = React.forwardRef(
             { [styles.buttonText3]: size === ButtonSize.Small },
         ]);
 
+        const badgeClassNames: string = mergeClasses([
+            styles.counter,
+            buttonTextClassNames,
+        ]);
+
         const getButtonIconSize = (): IconSize => {
             let iconSize: IconSize;
             if (size === ButtonSize.Flex && largeScreenActive) {
@@ -149,12 +157,15 @@ export const BaseButton: FC<InternalButtonProps> = React.forwardRef(
             />
         );
 
-        const getButtonText = (
+        const getButtonContent = (
             buttonTextClassNames: string,
             text: string
         ): JSX.Element => (
             <span className={buttonTextClassNames}>
                 {text ? text : 'Button'}
+                {counterExists && (
+                    <Badge classNames={badgeClassNames}>{counter}</Badge>
+                )}
             </span>
         );
 
@@ -176,13 +187,17 @@ export const BaseButton: FC<InternalButtonProps> = React.forwardRef(
                     type={htmlType}
                 >
                     {iconExists && !textExists && getButtonIcon()}
+                    {counterExists && !textExists && (
+                        <Badge classNames={badgeClassNames}>{counter}</Badge>
+                    )}
                     {iconExists && textExists && (
                         <span>
                             {getButtonIcon()}
-                            {getButtonText(buttonTextClassNames, text)}
+                            {getButtonContent(buttonTextClassNames, text)}
                         </span>
                     )}
-                    {!iconExists && getButtonText(buttonTextClassNames, text)}
+                    {!iconExists &&
+                        getButtonContent(buttonTextClassNames, text)}
                 </button>
                 {split && (
                     <SplitButton
