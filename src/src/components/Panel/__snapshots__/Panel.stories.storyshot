@@ -3,7 +3,7 @@
 exports[`Storyshots Panel Bottom 1`] = `
 <button
   aria-disabled={false}
-  className="button button-primary"
+  className="button button-primary pill-shape"
   defaultChecked={false}
   disabled={false}
   onClick={[Function]}
@@ -19,7 +19,7 @@ exports[`Storyshots Panel Bottom 1`] = `
 exports[`Storyshots Panel Large 1`] = `
 <button
   aria-disabled={false}
-  className="button button-primary"
+  className="button button-primary pill-shape"
   defaultChecked={false}
   disabled={false}
   onClick={[Function]}
@@ -35,7 +35,7 @@ exports[`Storyshots Panel Large 1`] = `
 exports[`Storyshots Panel Left 1`] = `
 <button
   aria-disabled={false}
-  className="button button-primary"
+  className="button button-primary pill-shape"
   defaultChecked={false}
   disabled={false}
   onClick={[Function]}
@@ -51,7 +51,7 @@ exports[`Storyshots Panel Left 1`] = `
 exports[`Storyshots Panel Medium 1`] = `
 <button
   aria-disabled={false}
-  className="button button-primary"
+  className="button button-primary pill-shape"
   defaultChecked={false}
   disabled={false}
   onClick={[Function]}
@@ -67,7 +67,7 @@ exports[`Storyshots Panel Medium 1`] = `
 exports[`Storyshots Panel Small 1`] = `
 <button
   aria-disabled={false}
-  className="button button-primary"
+  className="button button-primary pill-shape"
   defaultChecked={false}
   disabled={false}
   onClick={[Function]}
@@ -83,7 +83,7 @@ exports[`Storyshots Panel Small 1`] = `
 exports[`Storyshots Panel Stacked 1`] = `
 <button
   aria-disabled={false}
-  className="button button-primary"
+  className="button button-primary pill-shape"
   defaultChecked={false}
   disabled={false}
   onClick={[Function]}
@@ -99,7 +99,7 @@ exports[`Storyshots Panel Stacked 1`] = `
 exports[`Storyshots Panel Top 1`] = `
 <button
   aria-disabled={false}
-  className="button button-primary"
+  className="button button-primary pill-shape"
   defaultChecked={false}
   disabled={false}
   onClick={[Function]}

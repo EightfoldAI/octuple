@@ -98,9 +98,7 @@
 
         .tab {
             padding: $space-xs $space-m;
-            border: $space-xxxs solid var(--border);
-            border-right: none;
-            border-radius: $space-l-fitted;
+            border-radius: $corner-radius-xl;;
 
             &.active {
                 box-shadow: $shadow-object-xs;

@@ -18,6 +18,7 @@ export const AccordionSummary: FC<AccordionSummaryProps> = ({
 }) => {
     const headerClassnames = mergeClasses([
         styles.accordionSummary,
+        'header4',
         classNames,
     ]);
 
@@ -68,6 +69,7 @@ export const AccordionBody: FC<AccordionBodyProps> = ({
     const accordionBodyStyles: string = mergeClasses(
         styles.accordionBody,
         styles.showBorderTop,
+        'body2',
         classNames
     );
 
