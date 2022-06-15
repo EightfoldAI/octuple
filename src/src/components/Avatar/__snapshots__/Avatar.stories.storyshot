@@ -62,7 +62,7 @@ exports[`Storyshots Avatar Avatar Icon 1`] = `
   className="wrapper-style my-avatar-class image-style"
   style={
     Object {
-      "backgroundColor": "grey",
+      "backgroundColor": "var(--accent-color-20)",
       "fontSize": "18px",
       "height": "40px",
       "minHeight": "40px",
@@ -127,7 +127,7 @@ exports[`Storyshots Avatar Avatar Round Icon 1`] = `
   className="wrapper-style my-avatar-class image-style round-image"
   style={
     Object {
-      "backgroundColor": "grey",
+      "backgroundColor": "var(--accent-color-20)",
       "fontSize": "18px",
       "height": "40px",
       "minHeight": "40px",

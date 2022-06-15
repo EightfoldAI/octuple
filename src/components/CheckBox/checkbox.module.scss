@@ -52,7 +52,7 @@
                     top: $checkmark-after-top;
                     width: $checkmark-after-width;
                     height: $checkmark-after-height;
-                    border: solid white;
+                    border: solid var(--primary-color);
                     border-width: 0 $space-xxxs $space-xxxs 0;
                     opacity: 0;
                     transform: rotate(45deg) scale(0);
@@ -65,13 +65,15 @@
 
         &:hover + label {
             .checkmark {
-                border: $space-xxxs solid var(--primary-color-60);
+                border: $space-xxxs solid var(--primary-color);
+                background-color: var(--accent-color-10);
             }
         }
 
         &:active + label {
             .checkmark {
-                border: $space-xxxs solid var(--primary-color-80);
+                border: $space-xxxs solid var(--primary-color);
+                background-color: var(--accent-color-30);
             }
         }
     }
@@ -79,21 +81,6 @@
     input:checked {
         &[disabled] {
             cursor: default;
-
-            &:hover + label {
-                .checkmark {
-                    background-color: var(--primary-color);
-                    border: $space-xxxs solid var(--primary-color);
-                }
-            }
-
-            &:active + label {
-                .checkmark {
-                    transform: none;
-                    background-color: var(--primary-color);
-                    border: $space-xxxs solid var(--primary-color);
-                }
-            }
         }
 
         & + label {
@@ -101,12 +88,13 @@
                 $motion-delay-s;
 
             .checkmark {
-                background-color: var(--primary-color);
+                background-color: var(--accent-color-30);
                 border: $space-xxxs solid var(--primary-color);
             }
 
             .checkmark:after {
                 opacity: 1;
+                border-color: var(--primary-color);
                 transform: rotate(45deg) scale(1);
                 transition: all $motion-duration-extra-fast
                     $motion-ease-out-back $motion-delay-s;
@@ -116,14 +104,14 @@
         &:active + label {
             .checkmark {
                 transform: scale(0.98);
-                background-color: var(--primary-color-80);
+                background-color: var(--accent-color-10);
                 border: $space-xxxs solid var(--primary-color-80);
             }
         }
 
         &:hover + label {
             .checkmark {
-                background-color: var(--primary-color-60);
+                background-color: var(--accent-color-20);
                 border: $space-xxxs solid var(--primary-color-60);
             }
         }

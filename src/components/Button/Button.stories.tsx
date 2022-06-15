@@ -244,7 +244,7 @@ const buttonArgs: Object = {
         'data-test-id': 'myButtonIconTestId',
     },
     id: 'myButton',
-    shape: ButtonShape.Rectangle,
+    shape: ButtonShape.Pill,
     size: ButtonSize.Flex,
     split: false,
     splitButtonChecked: false,

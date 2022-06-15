@@ -33,7 +33,7 @@ exports[`Storyshots Accordion List Horizontal 1`] = `
         <div
           aria-controls="1-content"
           aria-expanded={false}
-          className="accordion-summary"
+          className="accordion-summary header4"
           id="1-header"
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -121,7 +121,7 @@ exports[`Storyshots Accordion List Horizontal 1`] = `
           role="region"
         >
           <div
-            className="accordion-body show-border-top"
+            className="accordion-body show-border-top body2"
           >
             Body 2 text used here. Bottom bars are sticky sections that
         can be used to highlight a few actions that are out of the
@@ -148,7 +148,7 @@ exports[`Storyshots Accordion List Horizontal 1`] = `
         <div
           aria-controls="2-content"
           aria-expanded={false}
-          className="accordion-summary"
+          className="accordion-summary header4"
           id="2-header"
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -236,7 +236,7 @@ exports[`Storyshots Accordion List Horizontal 1`] = `
           role="region"
         >
           <div
-            className="accordion-body show-border-top"
+            className="accordion-body show-border-top body2"
           >
             Body 2 text used here. Bottom bars are sticky sections that
         can be used to highlight a few actions that are out of the
@@ -297,7 +297,7 @@ exports[`Storyshots Accordion List Vertical 1`] = `
         <div
           aria-controls="1-content"
           aria-expanded={false}
-          className="accordion-summary"
+          className="accordion-summary header4"
           id="1-header"
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -385,7 +385,7 @@ exports[`Storyshots Accordion List Vertical 1`] = `
           role="region"
         >
           <div
-            className="accordion-body show-border-top"
+            className="accordion-body show-border-top body2"
           >
             Body 2 text used here. Bottom bars are sticky sections that
         can be used to highlight a few actions that are out of the
@@ -412,7 +412,7 @@ exports[`Storyshots Accordion List Vertical 1`] = `
         <div
           aria-controls="2-content"
           aria-expanded={false}
-          className="accordion-summary"
+          className="accordion-summary header4"
           id="2-header"
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -500,7 +500,7 @@ exports[`Storyshots Accordion List Vertical 1`] = `
           role="region"
         >
           <div
-            className="accordion-body show-border-top"
+            className="accordion-body show-border-top body2"
           >
             Body 2 text used here. Bottom bars are sticky sections that
         can be used to highlight a few actions that are out of the
@@ -535,7 +535,7 @@ exports[`Storyshots Accordion Single 1`] = `
   <div
     aria-controls="myAccordionId-content"
     aria-expanded={false}
-    className="accordion-summary"
+    className="accordion-summary header4"
     id="myAccordionId-header"
     onClick={[Function]}
     onKeyDown={[Function]}
@@ -576,7 +576,7 @@ exports[`Storyshots Accordion Single 1`] = `
     role="region"
   >
     <div
-      className="accordion-body show-border-top"
+      className="accordion-body show-border-top body2"
     >
       <div
         style={

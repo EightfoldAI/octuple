@@ -12,32 +12,52 @@ export const themeDefaults: OcBaseTheme = {
     fontSize: 16,
 };
 
-export const red: OcTheme = Object.freeze({
-    primaryColor: '#993838',
+export const red: OcTheme = {
+    primaryColor: '#6C2222',
+    accentName: 'violetRed',
     ...themeDefaults,
     palette: [
         '#0A0202',
         '#3B1010',
         '#6C2222', //AAA ✅ (11.11:1) with $grey0 text
         '#993838', //AAA ✅ (7.05:1) with $grey0 text
-        '#C15151', //AA ✔️️ (4.59:1) with $grey0 text
+        '#C45353', //AA ✔️️ (4.59:1) with $grey0 text
         '#E46F6F',
         '#F48686', //AA ✔️ (6.61:1) with $grey90 text
         '#FFA3A3', //AAA ✅ (8.47:1) with $grey90 text
         '#FFC6C6',
         '#FFEFEF',
     ],
-});
+};
+
+export const redOrange: OcTheme = {
+    primaryColor: '#78351A',
+    accentName: 'red',
+    ...themeDefaults,
+    palette: [
+        '#1F0C03',
+        '#4C1F0C',
+        '#78351A',
+        '#A54D2C',
+        '#D26743',
+        '#F8845F',
+        '#FF9977',
+        '#FFB396',
+        '#FFD1BD',
+        '#FFF2ED',
+    ],
+};
 
 export const orange: OcTheme = {
-    primaryColor: '#9D6309',
+    primaryColor: '#6C4500',
+    accentName: 'redOrange',
     ...themeDefaults,
     palette: [
         '#0A0700',
         '#3B2600',
         '#6C4500', //AAA ✅ (8.43:1) with $grey0 text
         '#9D6309', //AA ✔️️ (4.97:1) with $grey0 text
-        '#C97E19', //AA ✔️ (4.98:1) with $grey90 text
+        '#CE811A', //AA ✔️ (4.98:1) with $grey90 text
         '#F29D31', //AAA ✅ (7.41:1) with $grey90 text
         '#FFB650', //AAA ✅ (9.26:1) with $grey90 text
         '#FFCD78', //AAA ✅ (10.95:1) with $grey90 text
@@ -47,14 +67,15 @@ export const orange: OcTheme = {
 };
 
 export const yellow: OcTheme = {
-    primaryColor: '#857600',
+    primaryColor: '#5C5500',
+    accentName: 'orange',
     ...themeDefaults,
     palette: [
         '#0A0A00',
         '#333100',
         '#5C5500', //AAA ✅ (7.62:1) with $grey0 text
         '#857600', //AA ✔️️ (4.57:1) with $grey0 text
-        '#A88F00', //AA ✔️️ (5.07:1) with $grey90 text
+        '#AD9300', //AA ✔️️ (5.07:1) with $grey90 text
         '#D6AD00', //AAA ✅️ (7.56:1) with $grey90 text
         '#F1C40F', // AAA ✅ (9.71:1) with $grey90 text
         '#FFE44E', // AAA ✅ (12.65:1) with $grey90 text
@@ -63,8 +84,27 @@ export const yellow: OcTheme = {
     ],
 };
 
+export const yellowGreen: OcTheme = {
+    primaryColor: '#525400',
+    accentName: 'yellow',
+    ...themeDefaults,
+    palette: [
+        '#131300',
+        '#343500',
+        '#525400',
+        '#6D6F00',
+        '#858707',
+        '#ABAE1F',
+        '#CACD46',
+        '#E2E575',
+        '#F3F5B0',
+        '#FDFEEB',
+    ],
+};
+
 export const green: OcTheme = {
-    primaryColor: '#2B715F',
+    primaryColor: '#1B5143',
+    accentName: 'yellowGreen',
     ...themeDefaults,
     palette: [
         '#030A08',
@@ -80,8 +120,9 @@ export const green: OcTheme = {
     ],
 };
 
-export const bluegreen: OcTheme = {
-    primaryColor: '#0B7B8B',
+export const blueGreen: OcTheme = {
+    primaryColor: '#025966',
+    accentName: 'green',
     ...themeDefaults,
     palette: [
         '#00090A',
@@ -98,7 +139,8 @@ export const bluegreen: OcTheme = {
 };
 
 export const blue: OcTheme = {
-    primaryColor: '#146DA6',
+    primaryColor: '#054D7B',
+    accentName: 'blueGreen',
     ...themeDefaults,
     palette: [
         '#00060A',
@@ -114,8 +156,27 @@ export const blue: OcTheme = {
     ],
 };
 
+export const blueViolet: OcTheme = {
+    primaryColor: '#2B3271',
+    accentName: 'blue',
+    ...themeDefaults,
+    palette: [
+        '#090B1F',
+        '#191D4A',
+        '#2B3271',
+        '#414996',
+        '#5962B7',
+        '#757ED6',
+        '#8C95E8',
+        '#A9B0F5',
+        '#CACFFC',
+        '#F1F2FF',
+    ],
+};
+
 export const violet: OcTheme = {
-    primaryColor: '#7E3A77',
+    primaryColor: '#5D2156',
+    accentName: 'blueViolet',
     ...themeDefaults,
     palette: [
         '#060106',
@@ -131,8 +192,27 @@ export const violet: OcTheme = {
     ],
 };
 
+export const violetRed: OcTheme = {
+    primaryColor: '#702853',
+    accentName: 'violet',
+    ...themeDefaults,
+    palette: [
+        '#1F0816',
+        '#491635',
+        '#702853',
+        '#943D71',
+        '#B5548E',
+        '#D36FAB',
+        '#E688C0',
+        '#F3A5D4',
+        '#FCC8E7',
+        '#FFF0F9',
+    ],
+};
+
 export const grey: OcTheme = {
-    primaryColor: '#4F5666',
+    primaryColor: '#343C4C',
+    accentName: 'grey',
     ...themeDefaults,
     palette: [
         '#05070A',
@@ -150,12 +230,16 @@ export const grey: OcTheme = {
 
 const themes: Record<OcThemeNames, OcTheme> = {
     red,
+    redOrange,
     orange,
     yellow,
+    yellowGreen,
     green,
-    bluegreen,
+    blueGreen,
     blue,
+    blueViolet,
     violet,
+    violetRed,
     grey,
 };
 

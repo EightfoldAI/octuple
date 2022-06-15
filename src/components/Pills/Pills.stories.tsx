@@ -57,7 +57,7 @@ const themes: OcThemeNames[] = [
     'orange',
     'yellow',
     'green',
-    'bluegreen',
+    'blueGreen',
     'blue',
     'violet',
     'grey',
