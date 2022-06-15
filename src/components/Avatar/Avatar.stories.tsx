@@ -102,7 +102,7 @@ Avatar_Icon.args = {
         path: IconName.mdiBell,
     },
     style: {
-        backgroundColor: 'grey',
+        backgroundColor: 'var(--accent-color-20)',
     },
 };
 
@@ -119,7 +119,7 @@ Avatar_Round_Icon.args = {
         path: IconName.mdiBell,
     },
     style: {
-        backgroundColor: 'grey',
+        backgroundColor: 'var(--accent-color-20)',
     },
     type: 'round',
 };

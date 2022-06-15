@@ -45,7 +45,7 @@ export const Pill: FC<PillProps> = React.forwardRef(
             { [styles.orange]: theme === 'orange' },
             { [styles.yellow]: theme === 'yellow' },
             { [styles.green]: theme === 'green' },
-            { [styles.bluegreen]: theme === 'bluegreen' },
+            { [styles.bluegreen]: theme === 'blueGreen' },
             { [styles.blue]: theme === 'blue' },
             { [styles.violet]: theme === 'violet' },
             { [styles.grey]: theme === 'grey' },
