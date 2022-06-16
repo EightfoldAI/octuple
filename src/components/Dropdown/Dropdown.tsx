@@ -38,7 +38,7 @@ export const Dropdown: FC<DropdownProps> = ({
     children,
     placement = 'bottom-start',
     overlay,
-    offset = 0,
+    offset = 4,
     positionStrategy = 'absolute',
     onVisibleChange,
     showDropdown,
