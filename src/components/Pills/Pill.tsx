@@ -42,12 +42,16 @@ export const Pill: FC<PillProps> = React.forwardRef(
             styles.tagPills,
             rest.classNames,
             { [styles.red]: theme === 'red' },
+            { [styles.redOrange]: theme === 'redOrange' },
             { [styles.orange]: theme === 'orange' },
             { [styles.yellow]: theme === 'yellow' },
+            { [styles.yellowGreen]: theme === 'yellowGreen' },
             { [styles.green]: theme === 'green' },
-            { [styles.bluegreen]: theme === 'blueGreen' },
+            { [styles.blueGreen]: theme === 'blueGreen' },
             { [styles.blue]: theme === 'blue' },
+            { [styles.blueViolet]: theme === 'blueViolet' },
             { [styles.violet]: theme === 'violet' },
+            { [styles.violetRed]: theme === 'violetRed' },
             { [styles.grey]: theme === 'grey' },
         ]);
         return (

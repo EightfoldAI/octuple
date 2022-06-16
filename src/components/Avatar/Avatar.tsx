@@ -7,14 +7,17 @@ import { mergeClasses } from '../../shared/utilities';
 import { Icon } from '../Icon';
 
 export const AVATAR_CLASS_SET = [
-    styles.disruptive,
-    styles.grey,
-    styles.blue,
+    styles.red,
     styles.orange,
-    styles.green,
-    styles.violet,
+    styles.redOrange,
     styles.yellow,
-    styles.bluegreen,
+    styles.yellowGreen,
+    styles.green,
+    styles.blueGreen,
+    styles.blue,
+    styles.violet,
+    styles.violetRed,
+    styles.grey,
 ];
 
 const AvatarFallback: FC<AvatarFallbackProps> = React.forwardRef(
