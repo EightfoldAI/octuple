@@ -21,6 +21,7 @@ export const SecondaryButton: FC<ButtonProps> = React.forwardRef(
             ariaLabel,
             checked = false,
             classNames,
+            counter,
             disabled = false,
             disruptive = false,
             dropShadow = false,
@@ -58,6 +59,7 @@ export const SecondaryButton: FC<ButtonProps> = React.forwardRef(
                 ariaLabel={ariaLabel}
                 checked={checked}
                 classNames={buttonClassNames}
+                counter={counter}
                 disabled={disabled}
                 disruptive={disruptive}
                 dropShadow={dropShadow}

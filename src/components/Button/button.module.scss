@@ -138,7 +138,7 @@
     }
 
     &.icon-right {
-        span {
+        span:not(.counter) {
             transform: scaleX(-1);
         }
 
@@ -155,15 +155,39 @@
         }
     }
 
+    .counter {
+        background-color: var(--button-counter-default-background-color);
+        display: inline-block;
+        padding: 0 $space-xxs;
+        text-align: center;
+        width: fit-content;
+    }
+
     &:disabled,
     &.disabled {
         opacity: $disabled-alpha-value;
         cursor: not-allowed;
     }
 
+    &:hover {
+        .counter {
+            background-color: var(--button-counter-hover-background-color);
+        }
+    }
+
+    &:active {
+        .counter {
+            background-color: var(--button-counter-active-background-color);
+        }
+    }
+
     &:focus {
         outline: 2px solid var(--button-focus-outline-color);
         outline-offset: -2px;
+
+        .counter {
+            background-color: var(--button-counter-focus-background-color);
+        }
     }
 }
 
@@ -178,8 +202,7 @@
         font-size: $text-font-size-4;
         height: 24px;
         line-height: 24px;
-        margin: 0 $space-xs;
-        width: 24px;
+        margin-left: $space-xs;
     }
 
     &.open-sans {
@@ -198,9 +221,7 @@
         font-size: $text-font-size-2;
         height: 18px;
         line-height: 18px;
-        margin: 0 $space-xs;
-        padding-left: 1px;
-        width: 18px;
+        margin-left: $space-xs;
     }
 
     &.open-sans {
@@ -219,9 +240,7 @@
         font-size: $text-font-size-1;
         height: 16px;
         line-height: 16px;
-        margin: 0 $space-xxs;
-        padding-left: 0;
-        width: 16px;
+        margin-left: $space-xxs;
     }
 
     &.open-sans {
@@ -473,9 +492,26 @@
     .counter {
         background-color: var(--button-counter-default-background-color);
         display: inline-block;
-        padding: 0 $space-xxs;
         text-align: center;
         width: fit-content;
+    }
+
+    .button-text-1 {
+        &.counter {
+            margin: 0 $space-xs;
+        }
+    }
+
+    .button-text-2 {
+        &.counter {
+            margin: 0 $space-xs;
+        }
+    }
+
+    .button-text-3 {
+        &.counter {
+            margin: 0 $space-xxs;
+        }
     }
 
     .two-state-button-content {

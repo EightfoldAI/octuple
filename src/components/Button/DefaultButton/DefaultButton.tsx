@@ -21,6 +21,7 @@ export const DefaultButton: FC<ButtonProps> = React.forwardRef(
             ariaLabel,
             checked = false,
             classNames,
+            counter,
             disabled = false,
             dropShadow = false,
             htmlType,
@@ -58,6 +59,7 @@ export const DefaultButton: FC<ButtonProps> = React.forwardRef(
                 ariaLabel={ariaLabel}
                 checked={checked}
                 classNames={buttonClassNames}
+                counter={counter}
                 disabled={disabled}
                 dropShadow={dropShadow}
                 htmlType={htmlType}

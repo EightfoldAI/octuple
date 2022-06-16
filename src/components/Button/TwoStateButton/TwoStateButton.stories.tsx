@@ -67,7 +67,7 @@ const Two_State_Button_Story: ComponentStory<typeof TwoStateButton> = (
 export const Two_State_Button = Two_State_Button_Story.bind({});
 
 Two_State_Button.args = {
-    counter: 8,
+    counter: '8',
     alignText: ButtonTextAlign.Center,
     allowDisabledFocus: false,
     ariaLabel: 'Two State Button',

@@ -73,10 +73,6 @@ export interface TwoStateButtonProps
         | 'splitButtonProps'
     > {
     /**
-     * The button counter number.
-     */
-    counter?: number;
-    /**
      * The button icon 1 props.
      */
     iconOneProps?: IconProps;
@@ -118,6 +114,10 @@ export interface ButtonProps extends NativeButtonProps {
      * The button class names.
      */
     classNames?: string;
+    /**
+     * The button counter string.
+     */
+    counter?: string;
     /**
      * The button disabled state.
      * @default false
