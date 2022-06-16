@@ -12,7 +12,7 @@ export interface MenuItem
 export enum MenuType {
     disruptive = 'disruptive',
     default = 'default',
-    neutral = 'Neutral',
+    neutral = 'neutral',
 }
 
 export interface MenuProps
