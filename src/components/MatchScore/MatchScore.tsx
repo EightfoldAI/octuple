@@ -17,10 +17,6 @@ export const MatchScore: FC<MatchScoreProps> = React.forwardRef(
         ref: Ref<HTMLDivElement>
     ) => {
         const absTotal: number = Math.abs(total);
-        const matchScoreClasses = mergeClasses(
-            classNames,
-            styles.matchScoreContainer
-        );
         return (
             <Atom<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>
                 of="div"
