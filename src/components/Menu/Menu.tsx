@@ -1,12 +1,18 @@
 import React, { FC } from 'react';
-import { MenuItem, MenuProps } from './Menu.types';
+import { MenuItem, MenuProps, MenuType } from './Menu.types';
 import { List } from '../List';
-import { ButtonTextAlign, ButtonWidth, DefaultButton } from '../Button';
+import {
+    ButtonSize,
+    ButtonTextAlign,
+    ButtonWidth,
+    DefaultButton,
+    NeutralButton,
+} from '../Button';
 
 export const Menu: FC<MenuProps> = ({
     items,
     onChange,
-    disruptive = false,
+    type = MenuType.neutral,
     classNames,
     style,
     itemClassNames,
@@ -21,16 +27,34 @@ export const Menu: FC<MenuProps> = ({
             {...item}
             alignText={ButtonTextAlign.Left}
             buttonWidth={ButtonWidth.fill}
-            disruptive={disruptive}
+            size={ButtonSize.Medium}
+            disruptive={type === MenuType.disruptive}
             onClick={() => onChange(item.value)}
         />
     );
+
+    const getNeutralButton = (item: MenuItem): JSX.Element => (
+        <NeutralButton
+            {...item}
+            alignText={ButtonTextAlign.Left}
+            buttonWidth={ButtonWidth.fill}
+            size={ButtonSize.Medium}
+            onClick={() => onChange(item.value)}
+        />
+    );
+
+    const getMenuItem = (item: MenuItem) => {
+        if (type === MenuType.neutral) {
+            return getNeutralButton(item);
+        }
+        return getDefaultButton(item);
+    };
 
     return (
         <List<MenuItem>
             {...rest}
             items={items}
-            renderItem={getDefaultButton}
+            renderItem={getMenuItem}
             classNames={classNames}
             style={style}
             itemClassNames={itemClassNames}
