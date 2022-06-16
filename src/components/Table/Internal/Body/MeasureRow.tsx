@@ -1,5 +1,5 @@
 import React from 'react';
-import ResizeObserver from '../../../../shared/ResizeObserver';
+import { ResizeObserver } from '../../../../shared/ResizeObserver/ResizeObserver';
 import MeasureCell from './MeasureCell';
 import { MeasureRowProps } from './Body.types';
 

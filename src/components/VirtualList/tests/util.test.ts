@@ -3,7 +3,13 @@ import { getIndexByStartLoc, findListDiffIndex } from '../utils/algorithmUtil';
 describe('Util', () => {
     describe('Algorithm', () => {
         describe('getIndexByStartLoc', () => {
-            function test(name, min, max, start, expectList) {
+            function test(
+                name: string,
+                min: number,
+                max: number,
+                start: number,
+                expectList: number[]
+            ) {
                 it(name, () => {
                     const len = max - min + 1;
                     const renderList = new Array(len)
@@ -35,7 +41,7 @@ describe('Util', () => {
 
         describe('findListDiff', () => {
             describe('remove', () => {
-                function test(name, length, diff) {
+                function test(name: string, length: number, diff: number) {
                     it(name, () => {
                         const originList = new Array(length)
                             .fill(null)
@@ -62,13 +68,13 @@ describe('Util', () => {
             });
 
             describe('add', () => {
-                function test(name, length, diff) {
+                function test(name: string, length: number, diff: number) {
                     it(name, () => {
                         const originList = new Array(length)
                             .fill(null)
                             .map((_, index) => index);
                         const targetList = originList.slice();
-                        targetList.splice(diff, 0, 'NEW_ITEM');
+                        targetList.splice(diff, 0, parseInt('NEW_ITEM', 10));
 
                         expect(
                             findListDiffIndex(

@@ -5,7 +5,7 @@ import type { TableSticky } from '../OcTable.types';
 import styles from '../octable.module.scss';
 
 // fix ssr render
-const defaultContainer = canUseDom() ? window : null;
+const defaultContainer = canUseDom ? window : null;
 
 /** Sticky header hooks */
 export default function useSticky(sticky: boolean | TableSticky): {

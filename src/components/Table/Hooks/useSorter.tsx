@@ -211,7 +211,11 @@ function injectSorter<RecordType>(
                         </div>
                     );
                     return showSorterTooltip ? (
-                        <Tooltip {...tooltipProps} theme={TooltipTheme.dark}>
+                        <Tooltip
+                            {...tooltipProps}
+                            id={'sortTip'}
+                            theme={TooltipTheme.dark}
+                        >
                             {renderSortTitle}
                         </Tooltip>
                     ) : (

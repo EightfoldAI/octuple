@@ -7,7 +7,7 @@ import React, {
     useRef,
 } from 'react';
 import { mergeClasses } from '../../shared/utilities';
-import omit from '../../shared/omit';
+import { omit } from '../../shared/omit';
 import OcTable, { Summary } from './Internal';
 import type { OcTableProps } from './Internal/OcTable.types';
 import { convertChildrenToColumns } from './Internal/Hooks/useColumns';
@@ -21,14 +21,15 @@ import useLazyKVMap from './Hooks/useLazyKVMap';
 import type { Breakpoint } from '../../shared/responsiveObserve';
 import type {
     ChangeEventInfo,
-    GetRowKey,
+    ColumnGroupType,
     ColumnType,
-    SorterResult,
     ExpandableConfig,
     ExpandType,
+    FilterValue,
+    GetRowKey,
+    SorterResult,
     TableAction,
     TableProps,
-    FilterValue,
 } from './Table.types';
 import { EMPTY_LIST, ColumnsType, TablePaginationConfig } from './Table.types';
 import useSelection, {
@@ -47,9 +48,9 @@ import scrollTo from '../../shared/scrollTo';
 import SizeContext from './Internal/Context/SizeContext';
 import Column from './Internal/Column';
 import ColumnGroup from './Internal/ColumnGroup';
-import useBreakpoint from '../../hooks/useBreakpoint';
+import { useBreakpoint } from '../../hooks/useBreakpoint';
 import { useCanvasDirection } from '../../hooks/useCanvasDirection';
-import { Empty } from '../Empty/index';
+import { Empty, EmptyMode } from '../Empty/index';
 
 import styles from './Styles/table.module.scss';
 
@@ -96,20 +97,24 @@ function InternalTable<RecordType extends object = any>(
         showSorterTooltip = true,
     } = props;
 
-    const baseColumns = useMemo(
+    const baseColumns: ColumnsType<RecordType> = useMemo(
         () =>
             columns ||
             (convertChildrenToColumns(children) as ColumnsType<RecordType>),
         [columns, children]
     );
-    const needResponsive = useMemo(
+    const needResponsive: boolean = useMemo(
         () => baseColumns.some((col: ColumnType<RecordType>) => col.responsive),
         [baseColumns]
     );
 
-    const screens = useBreakpoint(needResponsive);
+    const screens: Partial<Record<Breakpoint, boolean>> =
+        useBreakpoint(needResponsive);
 
-    const mergedColumns = useMemo(() => {
+    const mergedColumns: (
+        | ColumnGroupType<RecordType>
+        | ColumnType<RecordType>
+    )[] = useMemo(() => {
         const matched = new Set(
             Object.keys(screens).filter((m: Breakpoint) => screens[m])
         );
@@ -457,6 +462,7 @@ function InternalTable<RecordType extends object = any>(
                     mergedPagination.className,
                 ])}
                 pageSize={paginationSize}
+                total={mergedPagination?.total}
             />
         );
         const defaultPosition = htmlDir === 'rtl' ? 'left' : 'right';
@@ -496,10 +502,14 @@ function InternalTable<RecordType extends object = any>(
         if (typeof emptyText === 'string') {
             if (emptyTextDetails) {
                 return (
-                    <Empty title={emptyText} description={emptyTextDetails} />
+                    <Empty
+                        title={emptyText}
+                        description={emptyTextDetails}
+                        mode={EmptyMode.data}
+                    />
                 );
             }
-            return <Empty title={emptyText} />;
+            return <Empty title={emptyText} mode={EmptyMode.data} />;
         } else {
             return emptyText;
         }

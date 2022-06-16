@@ -11,7 +11,7 @@ import type { CheckboxProps } from '../Selectors';
 import type { PaginationProps } from '../Pagination';
 import type { Breakpoint } from '../../shared/responsiveObserve';
 import type { INTERNAL_SELECTION_ITEM } from './Hooks/useSelection';
-import { tuple } from '../../shared/type';
+import { tuple } from '../../shared/types';
 import { FilterState } from './Hooks/useFilter';
 import { SortState } from './Hooks/useSorter';
 import { SpinnerProps } from '../Spinner';
@@ -181,8 +181,9 @@ type TablePaginationPosition =
     | 'bottomCenter'
     | 'bottomRight';
 
-export interface TablePaginationConfig extends PaginationProps {
+export interface TablePaginationConfig extends Omit<PaginationProps, 'total'> {
     position?: TablePaginationPosition[];
+    total?: number;
 }
 
 // =================== Table ===================
@@ -193,7 +194,7 @@ export interface ChangeEventInfo<RecordType> {
     pagination: {
         currentPage?: number;
         pageSize?: number;
-        total?: number;
+        total: number;
     };
     filters: Record<string, FilterValue | null>;
     sorter: SorterResult<RecordType> | SorterResult<RecordType>[];

@@ -1,11 +1,11 @@
-export function isWindow(obj: any) {
+export const isWindow = (obj: any): boolean => {
     return obj !== null && obj !== undefined && obj === obj.window;
-}
+};
 
-export default function getScroll(
+export const getScroll = (
     target: HTMLElement | Window | Document | null,
     top: boolean
-): number {
+): number => {
     if (typeof window === 'undefined') {
         return 0;
     }
@@ -23,4 +23,4 @@ export default function getScroll(
             .documentElement?.[method];
     }
     return result;
-}
+};

@@ -8,7 +8,7 @@ import {
     TreeNodeState,
 } from './OcTree.types';
 import { mergeClasses } from '../../../shared/utilities';
-import pickAttrs from '../../../shared/pickAttrs';
+import { pickAttrs } from '../../../shared/pickAttrs';
 import { TreeContext } from './contextTypes';
 import Indent from './Indent';
 import { convertNodePropsToEventData } from './utils/treeUtil';

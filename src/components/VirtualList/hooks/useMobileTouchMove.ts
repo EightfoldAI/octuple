@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import useLayoutEffect from '../../../hooks/useLayoutEffect';
+import { useLayoutEffect } from '../../../hooks/useLayoutEffect';
 
 const SMOOTH_PTG = 14 / 15;
 

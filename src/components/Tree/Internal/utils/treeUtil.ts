@@ -1,5 +1,5 @@
 import React from 'react';
-import omit from '../../../../shared/omit';
+import { omit } from '../../../../shared/omit';
 import toArray from '../../../../shared/toArray';
 import {
     DataNode,

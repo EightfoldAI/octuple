@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useReducer } from 'react';
 
-export default function useForceUpdate() {
-    const [, forceUpdate] = React.useReducer((x) => x + 1, 0);
+export const useForceUpdate: () => React.DispatchWithoutAction = () => {
+    const [, forceUpdate] = useReducer((x) => x + 1, 0);
     return forceUpdate;
-}
+};

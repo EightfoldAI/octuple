@@ -19,15 +19,14 @@ const eventsName = `onCopy onCut onPaste onCompositionEnd onCompositionStart onC
     onDurationChange onEmptied onEncrypted onEnded onError onLoadedData onLoadedMetadata
     onLoadStart onPause onPlay onPlaying onProgress onRateChange onSeeked onSeeking onStalled onSuspend onTimeUpdate onVolumeChange onWaiting onLoad onError`;
 
-const propList = `${attributes} ${eventsName}`.split(/[\s\n]+/);
+const propList: string[] = `${attributes} ${eventsName}`.split(/[\s\n]+/);
 
-/* eslint-enable max-len */
-const ariaPrefix = 'aria-';
-const dataPrefix = 'data-';
+const ariaPrefix: string = 'aria-';
+const dataPrefix: string = 'data-';
 
-function match(key: string, prefix: string) {
+const match = (key: string, prefix: string): boolean => {
     return key.indexOf(prefix) === 0;
-}
+};
 
 export interface PickConfig {
     aria?: boolean;
@@ -40,10 +39,10 @@ export interface PickConfig {
  * @param props Passed props
  * @param ariaOnly boolean | { aria?: boolean; data?: boolean; attr?: boolean; } filter config
  */
-export default function pickAttrs(
+export const pickAttrs = (
     props: object,
     ariaOnly: boolean | PickConfig = false
-) {
+) => {
     let mergedConfig: PickConfig;
     if (ariaOnly === false) {
         mergedConfig = {
@@ -75,4 +74,4 @@ export default function pickAttrs(
         }
     });
     return attrs;
-}
+};

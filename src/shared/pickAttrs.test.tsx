@@ -1,8 +1,8 @@
-import pickAttrs from './pickAttrs';
+import { pickAttrs } from './pickAttrs';
 
 describe('pickAttrs', () => {
     const originProps = {
-        onClick: () => {},
+        onClick: Function,
         checked: true,
         'data-my': 1,
         'aria-this': 2,
@@ -12,7 +12,7 @@ describe('pickAttrs', () => {
 
     it('default', () => {
         expect(pickAttrs(originProps)).toEqual({
-            onClick: null,
+            onClick: Function,
             checked: true,
             'data-my': 1,
             'aria-this': 2,
@@ -29,7 +29,7 @@ describe('pickAttrs', () => {
 
     it('attr only', () => {
         expect(pickAttrs(originProps, { attr: true })).toEqual({
-            onClick: null,
+            onClick: Function,
             checked: true,
             role: 'button',
         });

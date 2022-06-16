@@ -17,7 +17,7 @@ import useDiffItem from './Hooks/useDiffItem';
 import useFrameWheel from './Hooks/useFrameWheel';
 import useMobileTouchMove from './Hooks/useMobileTouchMove';
 import useOriginScroll from './Hooks/useOriginScroll';
-import useLayoutEffect from '../../hooks/useLayoutEffect';
+import { useLayoutEffect } from '../../hooks/useLayoutEffect';
 
 export function RawList<T>(props: ListProps<T>, ref: React.Ref<ListRef>) {
     const {

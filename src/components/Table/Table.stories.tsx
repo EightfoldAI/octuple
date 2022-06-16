@@ -6,7 +6,7 @@ import { Stack } from '../Stack';
 import { Avatar } from '../Avatar';
 import Table from './index';
 import type { ColumnsType } from './Table.types';
-import ResizeObserver from '../../shared/ResizeObserver';
+import { ResizeObserver } from '../../shared/ResizeObserver/ResizeObserver';
 import { VariableSizeGrid as Grid } from 'react-window';
 import { mergeClasses } from '../../shared/utilities';
 import { PaginationLayoutOptions } from '../Pagination';
@@ -625,11 +625,7 @@ const ellipsisTooltipCols: ColumnsType<DataType> = [
             showTitle: false,
         },
         render: (location: string) => (
-            <Tooltip
-                content={location}
-                placement="bottom-start"
-                theme={TooltipTheme.dark}
-            >
+            <Tooltip content={location} portal theme={TooltipTheme.dark}>
                 {location}
             </Tooltip>
         ),
@@ -643,11 +639,7 @@ const ellipsisTooltipCols: ColumnsType<DataType> = [
             showTitle: false,
         },
         render: (location: string) => (
-            <Tooltip
-                content={location}
-                placement="bottom-start"
-                theme={TooltipTheme.dark}
-            >
+            <Tooltip content={location} portal theme={TooltipTheme.dark}>
                 {location}
             </Tooltip>
         ),
@@ -661,11 +653,7 @@ const ellipsisTooltipCols: ColumnsType<DataType> = [
             showTitle: false,
         },
         render: (location: string) => (
-            <Tooltip
-                content={location}
-                placement="bottom-start"
-                theme={TooltipTheme.dark}
-            >
+            <Tooltip content={location} portal theme={TooltipTheme.dark}>
                 {location}
             </Tooltip>
         ),
@@ -679,11 +667,7 @@ const ellipsisTooltipCols: ColumnsType<DataType> = [
             showTitle: false,
         },
         render: (location: string) => (
-            <Tooltip
-                content={location}
-                placement="bottom-start"
-                theme={TooltipTheme.dark}
-            >
+            <Tooltip content={location} portal theme={TooltipTheme.dark}>
                 {location}
             </Tooltip>
         ),
@@ -697,11 +681,7 @@ const ellipsisTooltipCols: ColumnsType<DataType> = [
             showTitle: false,
         },
         render: (location: string) => (
-            <Tooltip
-                content={location}
-                placement="bottom-start"
-                theme={TooltipTheme.dark}
-            >
+            <Tooltip content={location} portal theme={TooltipTheme.dark}>
                 {location}
             </Tooltip>
         ),
@@ -715,11 +695,7 @@ const ellipsisTooltipCols: ColumnsType<DataType> = [
             showTitle: false,
         },
         render: (location: string) => (
-            <Tooltip
-                content={location}
-                placement="bottom-start"
-                theme={TooltipTheme.dark}
-            >
+            <Tooltip content={location} portal theme={TooltipTheme.dark}>
                 {location}
             </Tooltip>
         ),

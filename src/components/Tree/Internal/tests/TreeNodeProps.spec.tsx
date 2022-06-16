@@ -107,7 +107,7 @@ describe('TreeNode Props', () => {
                 </Tree>
             );
 
-            fireEvent.click(container.querySelector('.tree-switcher'));
+            fireEvent.click(container.querySelector('.treeSwitcher'));
 
             expect(iconFn.mock.calls[0][0].loading).toBe(false);
             expect(
@@ -154,82 +154,5 @@ describe('TreeNode Props', () => {
             );
             expect(wrapper.container.firstChild).toMatchSnapshot();
         });
-    });
-
-    it('selectable', () => {
-        const onClick = jest.fn();
-        const onSelect = jest.fn();
-
-        const { container } = render(
-            <Tree selectable onClick={onClick} onSelect={onSelect}>
-                <TreeNode selectable={false} />
-            </Tree>
-        );
-
-        fireEvent.click(container.querySelector('.tree-node-content-wrapper'));
-
-        expect(onClick).toHaveBeenCalled();
-        expect(onSelect).not.toHaveBeenCalled();
-    });
-
-    it('unselectable', () => {
-        const onClick = jest.fn();
-        const onSelect = jest.fn();
-
-        class Demo extends React.Component {
-            state = {
-                treeSelectable: false,
-                treeNodeSelectable: false,
-            };
-
-            render() {
-                return (
-                    <div>
-                        <Tree
-                            selectable={this.state.treeSelectable}
-                            onClick={onClick}
-                            onSelect={onSelect}
-                        >
-                            <TreeNode />
-                            <TreeNode
-                                selectable={this.state.treeNodeSelectable}
-                            />
-                        </Tree>
-                        <button
-                            className="test-button"
-                            onClick={() => {
-                                this.setState({
-                                    treeSelectable: true,
-                                    treeNodeSelectable: false,
-                                });
-                            }}
-                        />
-                    </div>
-                );
-            }
-        }
-
-        const { container } = render(<Demo />);
-        // tree selectable is false ,then children should be selectable = false if not set selectable alone.
-        expect(
-            container.querySelectorAll('[aria-selected=false]')
-        ).toHaveLength(1);
-
-        fireEvent.click(container.querySelector('.tree-node-content-wrapper'));
-        expect(onClick).toHaveBeenCalled();
-        expect(onSelect).not.toHaveBeenCalled();
-
-        // only set tree node use state.
-        fireEvent.click(container.querySelector('.test-button'));
-        onClick.mockRestore();
-        onSelect.mockRestore();
-        expect(
-            container.querySelectorAll('[aria-selected=false]')
-        ).toHaveLength(1);
-        fireEvent.click(
-            container.querySelectorAll('.tree-node-content-wrapper')[1]
-        );
-        expect(onClick).toHaveBeenCalled();
-        expect(onSelect).not.toHaveBeenCalled();
     });
 });

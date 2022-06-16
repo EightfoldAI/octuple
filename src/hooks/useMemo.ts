@@ -1,15 +1,19 @@
-import * as React from 'react';
+import React from 'react';
 
 interface Cache<Value, Condition> {
     condition?: Condition;
     value?: Value;
 }
 
-export default function useMemo<Value, Condition = any[]>(
+export const useMemo: <Value, Condition = any[]>(
     getValue: () => Value,
     condition: Condition,
     shouldUpdate: (prev: Condition, next: Condition) => boolean
-) {
+) => Value = <Value, Condition = any[]>(
+    getValue: () => Value,
+    condition: Condition,
+    shouldUpdate: (prev: Condition, next: Condition) => boolean
+): Value => {
     const cacheRef = React.useRef<Cache<Value, Condition>>({});
 
     if (
@@ -21,4 +25,4 @@ export default function useMemo<Value, Condition = any[]>(
     }
 
     return cacheRef.current.value;
-}
+};

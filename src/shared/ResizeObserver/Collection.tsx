@@ -1,5 +1,5 @@
 import React, { createContext, useCallback, useContext, useRef } from 'react';
-import type { SizeInfo } from '.';
+import type { SizeInfo } from './ResizeObserver';
 
 type onCollectionResize = (
     size: SizeInfo,
@@ -7,7 +7,8 @@ type onCollectionResize = (
     data: any
 ) => void;
 
-export const CollectionContext = createContext<onCollectionResize>(null);
+export const CollectionContext: React.Context<onCollectionResize> =
+    createContext<onCollectionResize>(null);
 
 export interface ResizeInfo {
     size: SizeInfo;
@@ -24,16 +25,22 @@ export interface CollectionProps {
 /**
  * Collect all the resize event from children ResizeObserver
  */
-export function Collection({ children, onBatchResize }: CollectionProps) {
-    const resizeIdRef = useRef(0);
-    const resizeInfosRef = useRef<ResizeInfo[]>([]);
+export const Collection = ({
+    children,
+    onBatchResize,
+}: CollectionProps): JSX.Element => {
+    const resizeIdRef: React.MutableRefObject<number> = useRef(0);
+    const resizeInfosRef: React.MutableRefObject<ResizeInfo[]> = useRef<
+        ResizeInfo[]
+    >([]);
 
-    const onCollectionResize = useContext(CollectionContext);
+    const onCollectionResize: onCollectionResize =
+        useContext(CollectionContext);
 
-    const onResize = useCallback<onCollectionResize>(
+    const onResize: onCollectionResize = useCallback<onCollectionResize>(
         (size, element, data) => {
             resizeIdRef.current += 1;
-            const currentId = resizeIdRef.current;
+            const currentId: number = resizeIdRef.current;
 
             resizeInfosRef.current.push({
                 size,
@@ -59,4 +66,4 @@ export function Collection({ children, onBatchResize }: CollectionProps) {
             {children}
         </CollectionContext.Provider>
     );
-}
+};

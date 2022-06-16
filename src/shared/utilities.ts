@@ -23,7 +23,16 @@ interface ArgumentArray extends Array<Argument> {}
 type Argument = Value | Mapping | ArgumentArray;
 
 /**
- *  Utility that generates a string of class names.
+ * Conditionally wrapped component props.
+ */
+type ConditonalWrapperProps = {
+    children: React.ReactElement;
+    condition?: boolean;
+    wrapper: (children: React.ReactElement) => JSX.Element;
+};
+
+/**
+ *  Generates a string of class names.
  *  @param {ArgumentArray} args - ClassName input.
  *  @returns {string} - a concatenated string of class names.
  */
@@ -326,3 +335,14 @@ export const findDOMNode = <T = Element | Text>(
     }
     return ReactDOM.findDOMNode(node) as unknown as T;
 };
+
+/**
+ * Simple React component for conditionally wrapping children
+ * @param ConditonalWrapperProps
+ * @returns A conditionally wrapped element
+ */
+export const ConditionalWrapper: React.FC<ConditonalWrapperProps> = ({
+    condition,
+    wrapper,
+    children,
+}) => (condition ? wrapper(children) : children);

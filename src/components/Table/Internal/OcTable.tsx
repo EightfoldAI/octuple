@@ -11,10 +11,13 @@ import {
     isStyleSupport,
     isVisible,
 } from '../../../shared/utilities';
-import pickAttrs from '../../../shared/pickAttrs';
+import { pickAttrs } from '../../../shared/pickAttrs';
 import { mergeClasses } from '../../../shared/utilities';
 import shallowEqual from 'shallowequal';
-import ResizeObserver, { SizeInfo } from '../../../shared/ResizeObserver';
+import {
+    ResizeObserver,
+    SizeInfo,
+} from '../../../shared/ResizeObserver/ResizeObserver';
 import ColumnGroup from './ColumnGroup';
 import Column from './Column';
 import Header from './Header/Header';
@@ -66,8 +69,6 @@ const EMPTY_DATA: any[] = [];
 
 // Used for customize scroll
 const EMPTY_SCROLL_TARGET: Object = {};
-
-export const INTERNAL_HOOKS = 'oc-table-internal-hook';
 
 const MemoTableContent = memo<MemoTableContentProps>(
     ({ children }) => children as React.ReactElement,
@@ -336,7 +337,7 @@ function OcTable<RecordType extends DefaultRecordType>(
 
     const onColumnResize = useCallback(
         (columnKey: React.Key, width: number) => {
-            if (isVisible(fullTableRef.current)) {
+            if (isVisible?.(fullTableRef.current)) {
                 updateColsWidths((widths) => {
                     if (widths.get(columnKey) !== width) {
                         const newWidths = new Map(widths);
@@ -444,8 +445,8 @@ function OcTable<RecordType extends DefaultRecordType>(
     const [supportSticky, setSupportSticky] = useState(true); // Only IE not support, we mark as support first
 
     useEffect(() => {
-        setScrollbarSize(getTargetScrollBarSize(scrollBodyRef.current).width);
-        setSupportSticky(isStyleSupport('position', 'sticky'));
+        setScrollbarSize(getTargetScrollBarSize?.(scrollBodyRef.current).width);
+        setSupportSticky(isStyleSupport?.('position', 'sticky'));
     }, []);
 
     // ====================== Render ======================
@@ -677,7 +678,7 @@ function OcTable<RecordType extends DefaultRecordType>(
 
     let fullTable = (
         <div
-            className={mergeClasses([
+            className={mergeClasses?.([
                 classNames,
                 styles.table,
                 { [styles.tableRtl]: direction === 'rtl' },

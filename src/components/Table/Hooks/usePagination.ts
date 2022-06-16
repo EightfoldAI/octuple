@@ -11,6 +11,7 @@ export function getPaginationParam(
     const param: any = {
         currentPage: mergedPagination.currentPage,
         pageSize: mergedPagination.pageSize,
+        total: mergedPagination.total,
     };
 
     const paginationObj =
@@ -47,7 +48,7 @@ function extendsObject<T extends Object>(...list: T[]) {
 export default function usePagination(
     total: number,
     pagination: TablePaginationConfig | false | undefined,
-    onChange: (currentPage: number, pageSize: number) => void
+    onChange: (currentPage: number, pageSize: number, total: number) => void
 ): [TablePaginationConfig, () => void] {
     const { total: paginationTotal = 0, ...paginationObj } =
         pagination && typeof pagination === 'object' ? pagination : {};
@@ -55,9 +56,11 @@ export default function usePagination(
     const [innerPagination, setInnerPagination] = useState<{
         currentPage?: number;
         pageSize?: number;
+        total?: number;
     }>(() => ({
         currentPage: paginationObj.currentPage,
         pageSize: paginationObj.pageSize,
+        total: paginationTotal,
     }));
 
     // ============ Basic Pagination Config ============
@@ -78,10 +81,15 @@ export default function usePagination(
         mergedPagination.currentPage = maxPage || 1;
     }
 
-    const refreshPagination = (currentPage?: number, pageSize?: number) => {
+    const refreshPagination = (
+        currentPage?: number,
+        pageSize?: number,
+        total?: number
+    ) => {
         setInnerPagination({
             currentPage: currentPage,
             pageSize: pageSize,
+            total: total,
         });
     };
 
@@ -89,10 +97,15 @@ export default function usePagination(
         currentPage: number
     ) => {
         mergedPagination.onCurrentChange?.(mergedPagination?.currentPage);
-        refreshPagination(currentPage, mergedPagination?.pageSize);
+        refreshPagination(
+            currentPage,
+            mergedPagination?.pageSize,
+            mergedPagination?.total
+        );
         onChange(
             currentPage || mergedPagination?.currentPage!,
-            mergedPagination?.pageSize
+            mergedPagination?.pageSize,
+            mergedPagination?.total
         );
     };
 
@@ -100,10 +113,15 @@ export default function usePagination(
         pageSize: number
     ) => {
         mergedPagination.onSizeChange?.(mergedPagination?.pageSize);
-        refreshPagination(mergedPagination?.currentPage, pageSize);
+        refreshPagination(
+            mergedPagination?.currentPage,
+            pageSize,
+            mergedPagination?.total
+        );
         onChange(
             mergedPagination?.currentPage,
-            pageSize || mergedPagination?.pageSize!
+            pageSize || mergedPagination?.pageSize!,
+            mergedPagination?.total
         );
     };
 
@@ -116,6 +134,7 @@ export default function usePagination(
             ...mergedPagination,
             onCurrentChange: onInternalCurrentChange,
             onSizeChange: onInternalSizeChange,
+            total: mergedPagination.total,
         },
         refreshPagination,
     ];

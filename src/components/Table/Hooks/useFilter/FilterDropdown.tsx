@@ -25,7 +25,7 @@ import FilterDropdownMenuWrapper from './FilterWrapper';
 import FilterSearch from './FilterSearch';
 import type { FilterState } from '.';
 import { flattenKeys } from '.';
-import useSyncState from '../../../../hooks/useSyncState';
+import { useSyncState } from '../../../../hooks/useSyncState';
 import { IconName, IconSize } from '../../../Icon';
 import { List, ItemLayout } from '../../../List';
 import { useCanvasDirection } from '../../../../hooks/useCanvasDirection';
@@ -372,6 +372,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
                                     classNames={
                                         styles.tableFilterDropdownCheckall
                                     }
+                                    id={'filterCheckBox'}
                                     onChange={onCheckAll}
                                     label={filterCheckallText}
                                 />

@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.10.0](https://github.com/EightfoldAI/octuple/compare/v1.9.1...v1.10.0) (2022-06-14)
+
+### Features
+
+-   empty: adds empty state component ([#180](https://github.com/EightfoldAI/octuple/issues/180)) ([9927e96](https://github.com/EightfoldAI/octuple/commits/9927e96641c014159c41c161da8d33707675cddb))
+-   tooltip: adds portal prop to tooltips ([#179](https://github.com/EightfoldAI/octuple/issues/179)) ([e48479a](https://github.com/EightfoldAI/octuple/commits/e48479a8b0f5c8eac3439a322a6ee4a991edac26))
+
+### Bug Fixes
+
+-   inputs: adds forward ref support, adjusts default wait interval ([#177](https://github.com/EightfoldAI/octuple/issues/177)) ([996f8d6](https://github.com/EightfoldAI/octuple/commits/996f8d62f8dd28030f5fd41ce81434e24c6ae3a9))
+-   pagination: enables page size and jumper controls and hides elements via total ([#178](https://github.com/EightfoldAI/octuple/issues/178)) ([d8de579](https://github.com/EightfoldAI/octuple/commits/d8de57926f4c2029a1e7379d40293cecd37aafc5))
+-   radio button: add classnames prop to radio button ([#176](https://github.com/EightfoldAI/octuple/issues/176)) ([3810d9a](https://github.com/EightfoldAI/octuple/commits/3810d9a5d77d4effb6c6b0d71cbadf6fcbf1baca))
+
 ### [1.9.1](https://github.com/EightfoldAI/octuple/compare/v1.9.0...v1.9.1) (2022-06-13)
 
 ### Bug Fixes

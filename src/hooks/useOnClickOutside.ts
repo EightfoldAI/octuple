@@ -11,12 +11,15 @@ export const useOnClickOutside = (
     handler: (event: MouseEvent) => void,
     visible: boolean = true
 ): void => {
-    const listener = useCallback((event: MouseEvent): void => {
-        if (ref?.current?.contains(event.target)) {
-            return;
-        }
-        handler(event);
-    }, []);
+    const listener: (event: MouseEvent) => void = useCallback(
+        (event: MouseEvent): void => {
+            if (ref?.current?.contains(event.target)) {
+                return;
+            }
+            handler(event);
+        },
+        []
+    );
 
     const removeEventListeners = (): void => {
         document.removeEventListener('mousedown', listener);

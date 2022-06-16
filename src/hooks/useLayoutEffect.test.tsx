@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
-import useLayoutEffect from './useLayoutEffect';
+import { useLayoutEffect } from './useLayoutEffect';
 
 describe('useLayoutEffect', () => {
     const FC = (props: { defaultValue: string }) => {

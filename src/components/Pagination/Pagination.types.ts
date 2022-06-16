@@ -98,8 +98,9 @@ export interface PaginationProps extends OcBaseProps<HTMLElement> {
     quickPreviousIconButtonAriaLabel?: string;
     /**
      * The Pagination total number of pages.
+     * @default 1
      */
-    total?: number;
+    total: number;
     /**
      * The 'Total' text string.
      * @default 'Total'

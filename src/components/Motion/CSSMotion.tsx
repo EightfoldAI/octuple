@@ -12,7 +12,7 @@ import type {
 } from './Motion.types';
 import { STATUS_NONE, STEP_PREPARE, STEP_START } from './Motion.types';
 import useStatus from './Hooks/useStatus';
-import DomWrapper from './DomWrapper';
+import { DomWrapper } from '../../shared/DomWrapper';
 import { isActive } from './Hooks/useStepQueue';
 
 export type CSSMotionConfig =

@@ -131,50 +131,6 @@ describe('Util', () => {
             ]);
         });
 
-        it('with string externalGetKey', () => {
-            const entities = convertDataToEntities(
-                [
-                    {
-                        key: 'parent',
-                        notKey: 'let it be',
-                        children: [
-                            { key: 0, notKey: 'penny lane' },
-                            { key: 1, notKey: 'please please me' },
-                        ],
-                    },
-                ],
-                undefined,
-                'notKey'
-            );
-            expect(Object.keys(entities.keyEntities).sort()).toEqual([
-                'let it be',
-                'penny lane',
-                'please please me',
-            ]);
-        });
-
-        it('with function externalGetKey', () => {
-            const entities = convertDataToEntities(
-                [
-                    {
-                        key: 'parent',
-                        notKey: 'let it be',
-                        children: [
-                            { key: 0, notKey: 'penny lane' },
-                            { key: 1, notKey: 'please please me' },
-                        ],
-                    },
-                ],
-                undefined,
-                (entity) => entity.notKey
-            );
-            expect(Object.keys(entities.keyEntities).sort()).toEqual([
-                'let it be',
-                'penny lane',
-                'please please me',
-            ]);
-        });
-
         it('with childrenPropName', () => {
             const entities = convertDataToEntities(
                 [
@@ -320,27 +276,6 @@ describe('Util', () => {
                 );
                 expect(checkedKeys).toEqual([]);
                 expect(halfCheckedKeys).toEqual([]);
-            });
-
-            describe('not exist', () => {
-                const errorSpy = spyError();
-
-                it('works', () => {
-                    const tree = genTree();
-                    const { keyEntities } = convertDataToEntities(
-                        convertTreeToData(tree.props.children)
-                    );
-                    const { checkedKeys, halfCheckedKeys } = conductCheck(
-                        ['notExist'],
-                        true,
-                        keyEntities
-                    );
-                    expect(errorSpy()).toHaveBeenCalledWith(
-                        "Warning: Tree missing follow keys: 'notExist'"
-                    );
-                    expect(checkedKeys).toEqual([]);
-                    expect(halfCheckedKeys).toEqual([]);
-                });
             });
         });
 
@@ -546,20 +481,6 @@ describe('Util', () => {
 
         const keys1 = getDragChildrenKeys('111', keyEntities);
         expect(keys1.sort()).toEqual(['222', '333'].sort());
-    });
-
-    it('parseCheckedKeys warning', () => {
-        const errorSpy = jest
-            .spyOn(console, 'error')
-            .mockImplementation(() => {});
-
-        expect(parseCheckedKeys(233)).toBe(null);
-
-        expect(errorSpy).toHaveBeenCalledWith(
-            'Warning: `checkedKeys` is not an array or an object'
-        );
-
-        errorSpy.mockRestore();
     });
 
     describe('flatten treeNode', () => {

@@ -21,7 +21,7 @@ export default function useLazyKVMap<RecordType>(
     ): void {
         records.forEach((record, index) => {
             const rowKey = getRowKey(record, index);
-            kvMap.set(rowKey, record);
+            kvMap?.set(rowKey, record);
 
             if (
                 record &&

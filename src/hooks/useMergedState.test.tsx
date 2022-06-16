@@ -1,9 +1,10 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import useMergedState from './useMergedState';
+import { useMergedState } from './useMergedState';
 
 describe('useMergedState', () => {
-    const FC = (value: any, defaultValue: any) => {
+    const FC = (props: { value?: string; defaultValue?: string }) => {
+        const { value, defaultValue } = props;
         const [val, setVal] = useMergedState(null, { value, defaultValue });
         return (
             <input

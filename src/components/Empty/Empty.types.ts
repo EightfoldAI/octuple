@@ -1,5 +1,13 @@
 import { OcBaseProps } from '../OcBase';
 
+export enum EmptyMode {
+    data = 'data',
+    messages = 'messages',
+    tasks = 'tasks',
+    search = 'search',
+    error = 'error',
+}
+
 export interface EmptyProps extends OcBaseProps<HTMLDivElement> {
     /**
      * The empty component children.
@@ -10,8 +18,11 @@ export interface EmptyProps extends OcBaseProps<HTMLDivElement> {
      */
     description?: string;
     /**
+     * The empty component mode
+     */
+    mode?: EmptyMode;
+    /**
      * The empty component image.
-     * @default { DefaultEmptyImg }
      */
     image?: React.ReactNode;
     /**

@@ -222,7 +222,7 @@ function Cell<RecordType extends DefaultRecordType>(
         ...additionalProps,
         colSpan: mergedColSpan !== 1 ? mergedColSpan : null,
         rowSpan: mergedRowSpan !== 1 ? mergedRowSpan : null,
-        className: mergeClasses([
+        className: mergeClasses?.([
             styles.tableCell,
             classNames,
             { [styles.tableCellFixLeft]: isFixLeft && supportSticky },

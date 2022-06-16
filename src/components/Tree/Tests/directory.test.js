@@ -43,14 +43,14 @@ describe('Directory Tree', () => {
 
             wrapper
                 .find(TreeNode)
-                .find('.tree-node-content-wrapper')
+                .find('.treeNodeContentWrapper')
                 .at(0)
                 .simulate('click');
             expect(wrapper.render()).toMatchSnapshot();
             jest.runAllTimers();
             wrapper
                 .find(TreeNode)
-                .find('.tree-node-content-wrapper')
+                .find('.treeNodeContentWrapper')
                 .at(0)
                 .simulate('click');
             expect(wrapper.render()).toMatchSnapshot();
@@ -61,14 +61,14 @@ describe('Directory Tree', () => {
 
             wrapper
                 .find(TreeNode)
-                .find('.tree-node-content-wrapper')
+                .find('.treeNodeContentWrapper')
                 .at(0)
                 .simulate('doubleClick');
             expect(wrapper.render()).toMatchSnapshot();
             jest.runAllTimers();
             wrapper
                 .find(TreeNode)
-                .find('.tree-node-content-wrapper')
+                .find('.treeNodeContentWrapper')
                 .at(0)
                 .simulate('doubleClick');
             expect(wrapper.render()).toMatchSnapshot();
@@ -109,7 +109,7 @@ describe('Directory Tree', () => {
 
                     wrapper
                         .find(TreeNode)
-                        .find('.tree-node-content-wrapper')
+                        .find('.treeNodeContentWrapper')
                         .at(0)
                         .simulate(action);
                     jest.runAllTimers();
@@ -184,7 +184,7 @@ describe('Directory Tree', () => {
 
         wrapper
             .find(TreeNode)
-            .find('.tree-node-content-wrapper')
+            .find('.treeNodeContentWrapper')
             .at(0)
             .simulate('click');
         expect(onSelect.mock.calls[0][1].selected).toBeTruthy();
@@ -193,7 +193,7 @@ describe('Directory Tree', () => {
         // Click twice should keep selected
         wrapper
             .find(TreeNode)
-            .find('.tree-node-content-wrapper')
+            .find('.treeNodeContentWrapper')
             .at(0)
             .simulate('click');
         expect(onSelect.mock.calls[1][1].selected).toBeTruthy();
@@ -206,7 +206,7 @@ describe('Directory Tree', () => {
 
         wrapper
             .find(TreeNode)
-            .find('.tree-node-content-wrapper')
+            .find('.treeNodeContentWrapper')
             .at(1)
             .simulate('click');
         expect(wrapper.render()).toMatchSnapshot();
@@ -219,7 +219,7 @@ describe('Directory Tree', () => {
 
         wrapper
             .find(TreeNode)
-            .find('.tree-node-content-wrapper')
+            .find('.treeNodeContentWrapper')
             .at(4)
             .simulate('click');
         expect(wrapper.render()).toMatchSnapshot();
@@ -235,74 +235,10 @@ describe('Directory Tree', () => {
         const wrapper = mount(createTree({ onDoubleClick }));
         wrapper
             .find(TreeNode)
-            .find('.tree-node-content-wrapper')
+            .find('.treeNodeContentWrapper')
             .at(0)
             .simulate('doubleclick');
         expect(onDoubleClick).toBeCalled();
-    });
-
-    it('should not expand tree now when pressing ctrl', () => {
-        const onExpand = jest.fn();
-        const onSelect = jest.fn();
-        const wrapper = mount(createTree({ onExpand, onSelect }));
-        wrapper
-            .find(TreeNode)
-            .find('.tree-node-content-wrapper')
-            .at(0)
-            .simulate('click', { ctrlKey: true });
-        expect(onExpand).not.toHaveBeenCalled();
-        expect(onSelect).toHaveBeenCalledWith(
-            ['0-0'],
-            expect.objectContaining({
-                event: 'select',
-                nativeEvent: expect.anything(),
-            })
-        );
-    });
-
-    it('should not expand tree now when click leaf node', () => {
-        const onExpand = jest.fn();
-        const onSelect = jest.fn();
-        const wrapper = mount(
-            createTree({
-                onExpand,
-                onSelect,
-                defaultExpandAll: true,
-                treeData: [
-                    {
-                        key: '0-0-0',
-                        title: 'Folder',
-                        children: [
-                            {
-                                title: 'Folder2',
-                                key: '0-0-1',
-                                children: [
-                                    {
-                                        title: 'File',
-                                        key: '0-0-2',
-                                        isLeaf: true,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                ],
-            })
-        );
-        wrapper
-            .find(TreeNode)
-            .last()
-            .find('.tree-node-content-wrapper')
-            .at(0)
-            .simulate('click');
-        expect(onExpand).not.toHaveBeenCalled();
-        expect(onSelect).toHaveBeenCalledWith(
-            ['0-0-2'],
-            expect.objectContaining({
-                event: 'select',
-                nativeEvent: expect.anything(),
-            })
-        );
     });
 
     it('ref support', () => {

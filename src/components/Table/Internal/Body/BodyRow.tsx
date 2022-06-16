@@ -95,7 +95,7 @@ function BodyRow<RecordType extends { children?: readonly RecordType[] }>(
         <RowComponent
             {...additionalProps}
             data-row-key={rowKey}
-            className={mergeClasses([
+            className={mergeClasses?.([
                 classNames,
                 'table-row',
                 `table-row-level-${indent}`,
@@ -181,7 +181,7 @@ function BodyRow<RecordType extends { children?: readonly RecordType[] }>(
         expandRowNode = (
             <ExpandedRow
                 expanded={expanded}
-                classNames={mergeClasses([
+                classNames={mergeClasses?.([
                     styles.tableExpandedRow,
                     `table-expanded-row-level-${indent + 1}`,
                     computedExpandedRowClassName,

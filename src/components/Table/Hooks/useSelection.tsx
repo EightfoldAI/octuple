@@ -9,7 +9,7 @@ import type {
 } from '../../Tree/Internal/OcTree.types';
 import { INTERNAL_COL_DEFINE } from '../Internal';
 import type { FixedType } from '../Internal/OcTable.types';
-import useMergedState from '../../../hooks/useMergedState';
+import { useMergedState } from '../../../hooks/useMergedState';
 import type { CheckboxProps } from '../../Selectors';
 import { CheckBox, RadioButton } from '../../Selectors';
 import { Dropdown } from '../../Dropdown';
@@ -466,6 +466,7 @@ export default function useSelection<RecordType>(
                                     : allDisabledAndChecked
                             }
                             classNames={styles.selectionCheckbox}
+                            id={'selectCheckBox'}
                             onChange={onSelectAllChange}
                             disabled={flattedData.length === 0 || allDisabled}
                         />
@@ -492,6 +493,7 @@ export default function useSelection<RecordType>(
                                 checked={checked}
                                 name={'oc-table-radio-group'}
                                 classNames={styles.selectionRadiobutton}
+                                id={'selectRadioButton'}
                                 onClick={(e) => e.stopPropagation()}
                                 onChange={(event) => {
                                     if (!keySet.has(key)) {
@@ -521,6 +523,7 @@ export default function useSelection<RecordType>(
                                 {...checkboxProps}
                                 checked={checked}
                                 classNames={styles.selectionCheckbox}
+                                id={'selectCheckBox'}
                                 onClick={(e) => e.stopPropagation()}
                                 onChange={(nativeEvent: any) => {
                                     const { shiftKey } = nativeEvent;

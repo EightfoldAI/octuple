@@ -4,19 +4,19 @@ import { StrictMode } from 'react';
 import { act } from 'react-dom/test-utils';
 import type { RenderOptions } from '@testing-library/react';
 import { render } from '@testing-library/react';
-import { _rs as onLibResize } from '../shared/ResizeObserver/utils/observerUtil';
+import { _rs as onLibResize } from '../shared/ResizeObserver/Utils/observerUtil';
 
-export function setMockDate(dateString = '2022-09-07T03:30:07.795') {
+export function setMockDate(dateString = '2022-09-07T03:30:07.795'): void {
     MockDate.set(dateString);
 }
 
-export function resetMockDate() {
+export function resetMockDate(): void {
     MockDate.reset();
 }
 
 const globalTimeout = global.setTimeout;
 
-export const sleep = async (timeout = 0) => {
+export const sleep = async (timeout = 0): Promise<void> => {
     await act(async () => {
         await new Promise((resolve) => {
             globalTimeout(resolve, timeout);
@@ -31,10 +31,11 @@ const customRender = (
 
 export { customRender as render };
 
-export const triggerResize = (target: Element) => {
-    const originGetBoundingClientRect = target.getBoundingClientRect;
+export const triggerResize = (target: Element): void => {
+    const originGetBoundingClientRect: () => DOMRect =
+        target.getBoundingClientRect;
 
-    target.getBoundingClientRect = () =>
+    target.getBoundingClientRect = (): DOMRect =>
         ({ width: 510, height: 903 } as DOMRect);
     onLibResize([{ target } as ResizeObserverEntry]);
 

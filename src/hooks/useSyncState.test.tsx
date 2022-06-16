@@ -1,6 +1,9 @@
 import React from 'react';
-import { mount } from 'enzyme';
-import useSyncState from './useSyncState';
+import Enzyme, { mount } from 'enzyme';
+import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
+import { useSyncState } from './useSyncState';
+
+Enzyme.configure({ adapter: new Adapter() });
 
 describe('Table', () => {
     it('useSyncState', () => {

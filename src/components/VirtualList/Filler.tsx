@@ -1,6 +1,6 @@
 import React from 'react';
 import { FillerProps } from './VirtualList.types';
-import ResizeObserver from '../../shared/ResizeObserver';
+import { ResizeObserver } from '../../shared/ResizeObserver/ResizeObserver';
 import { mergeClasses } from '../../shared/utilities';
 
 /**

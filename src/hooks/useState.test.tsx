@@ -47,32 +47,4 @@ describe('useState', () => {
             done();
         }, 50);
     });
-
-    // This test no need in React 18 anymore
-    it.skip('throw', (done) => {
-        const errorSpy = jest.spyOn(console, 'error');
-
-        const Demo = (): any => {
-            const [val, setValue] = useState(0);
-
-            React.useEffect(
-                () => () => {
-                    setTimeout(() => {
-                        setValue(1);
-                    }, 0);
-                },
-                []
-            );
-
-            return null;
-        };
-
-        const { unmount } = render(<Demo />);
-        unmount();
-
-        setTimeout(() => {
-            expect(errorSpy).toHaveBeenCalled();
-            done();
-        }, 50);
-    });
 });

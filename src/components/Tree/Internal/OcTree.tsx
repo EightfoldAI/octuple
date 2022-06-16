@@ -7,7 +7,7 @@ import {
     OcTreeState,
 } from './OcTree.types';
 import { eventKeys } from '../../../shared/eventKeys';
-import pickAttrs from '../../../shared/pickAttrs';
+import { pickAttrs } from '../../../shared/pickAttrs';
 import { mergeClasses } from '../../../shared/utilities';
 import {
     TreeContext,

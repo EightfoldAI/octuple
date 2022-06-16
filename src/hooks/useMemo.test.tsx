@@ -1,12 +1,8 @@
-import * as React from 'react';
+import React from 'react';
 import { render } from '@testing-library/react';
-import useMemo from './useMemo';
+import { useMemo } from './useMemo';
 
-declare global {
-    let disableUseId: boolean;
-}
-
-disableUseId = false;
+let disableUseId = false;
 
 jest.mock('react', () => {
     const react = jest.requireActual('react');
@@ -22,7 +18,8 @@ jest.mock('react', () => {
 
 describe('hooks', () => {
     it('useMemo', () => {
-        const FC = (open: any, data: any) => {
+        const FC = (props: { open: any; data: any }) => {
+            const { open, data } = props;
             const memoData = useMemo(
                 () => data,
                 [open, data],

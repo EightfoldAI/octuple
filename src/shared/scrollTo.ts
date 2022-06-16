@@ -1,5 +1,5 @@
 import raf from './raf';
-import getScroll, { isWindow } from './getScroll';
+import { getScroll, isWindow } from './getScroll';
 import { easeInOutCubic } from './easings';
 
 interface ScrollToOptions {

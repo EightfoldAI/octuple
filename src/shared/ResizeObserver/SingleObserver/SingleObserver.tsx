@@ -7,11 +7,11 @@ import React, {
     useMemo,
     useRef,
 } from 'react';
-import { composeRef } from '../../../shared/ref';
-import { findDOMNode } from '../../../shared/utilities';
-import { observe, unobserve } from '../utils/observerUtil';
-import type { ResizeObserverProps } from '..';
-import DomWrapper from './DomWrapper';
+import { composeRef } from '../../ref';
+import { findDOMNode } from '../../utilities';
+import { observe, unobserve } from '../Utils/observerUtil';
+import type { ResizeObserverProps } from '../ResizeObserver';
+import { DomWrapper } from '../../DomWrapper';
 import { CollectionContext } from '../Collection';
 
 export interface SingleObserverProps extends ResizeObserverProps {
@@ -20,7 +20,7 @@ export interface SingleObserverProps extends ResizeObserverProps {
         | ((ref: React.RefObject<Element>) => React.ReactElement);
 }
 
-export default function SingleObserver(props: SingleObserverProps) {
+export function SingleObserver(props: SingleObserverProps): JSX.Element {
     const { children, disabled } = props;
     const elementRef = useRef<Element>(null);
     const wrapperRef = useRef<DomWrapper>(null);
@@ -108,7 +108,8 @@ export default function SingleObserver(props: SingleObserverProps) {
     // Dynamic observe
     useEffect(() => {
         const currentElement: HTMLElement =
-            findDOMNode(elementRef.current) || findDOMNode(wrapperRef.current);
+            findDOMNode?.(elementRef.current) ||
+            findDOMNode?.(wrapperRef.current);
 
         if (currentElement && !disabled) {
             observe(currentElement, onInternalResize);

@@ -2,7 +2,7 @@ import React from 'react';
 import Enzyme, { mount } from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import Table from '..';
-import { sleep, render } from '../../../tests/utils';
+import { render } from '../../../tests/Utilities';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -88,32 +88,6 @@ describe('Table', () => {
         wrapper.setProps({ columns: newColumns });
 
         expect(wrapper.find('th').text()).toEqual('Title');
-    });
-
-    it('loading with Spin', async () => {
-        const loading = {
-            spinning: false,
-            delay: 500,
-        };
-        const wrapper = mount(<Table loading={loading} />);
-        expect(wrapper.find('.spin')).toHaveLength(0);
-        expect(
-            wrapper.find('.table-placeholder').hostNodes().text()
-        ).not.toEqual('');
-
-        loading.spinning = true;
-        wrapper.setProps({ loading });
-        expect(wrapper.find('.spin')).toHaveLength(0);
-        await sleep(500);
-        wrapper.update();
-        expect(wrapper.find('.spin')).toHaveLength(1);
-    });
-
-    it('support loading tip', async () => {
-        const wrapper = mount(<Table loading={{ tip: 'loading...' }} />);
-        await sleep(500);
-        wrapper.update();
-        expect(wrapper.find('.spin')).toHaveLength(1);
     });
 
     it('renders custom components correctly when it changes', () => {
@@ -234,9 +208,12 @@ describe('Table', () => {
             { title: 'age', dataKey: 'age', ellipsis: { showTitle: false } },
         ];
         const wrapper = mount(<Table columns={columns} dataSource={data} />);
-        wrapper.find('td').forEach((td) => {
-            expect(td.hasClass('table-cell-ellipsis')).toBeTruthy();
-        });
+        wrapper
+            .find('table-tbody')
+            .find('td')
+            .forEach((td) => {
+                expect(td.hasClass('table-cell-ellipsis')).toBeTruthy();
+            });
     });
 
     it('not renders ellipsis origin html title', () => {

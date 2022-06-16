@@ -13,11 +13,26 @@ export const responsiveMap: BreakpointMap = {
 };
 
 type SubscribeFunc = (screens: ScreenMap) => void;
-const subscribers = new Map<Number, SubscribeFunc>();
-let subUid = -1;
-let screens = {};
+const subscribers: Map<Number, SubscribeFunc> = new Map<
+    Number,
+    SubscribeFunc
+>();
+let subUid: number = -1;
+let screens: {} = {};
 
-const responsiveObserve = {
+export const responsiveObserve: {
+    matchHandlers: {
+        [prop: string]: {
+            mql: MediaQueryList;
+            listener: (this: MediaQueryList, ev: MediaQueryListEvent) => any;
+        };
+    };
+    dispatch(pointMap: ScreenMap): boolean;
+    subscribe(func: SubscribeFunc): number;
+    unsubscribe(token: number): void;
+    unregister(): void;
+    register(): void;
+} = {
     matchHandlers: {} as {
         [prop: string]: {
             mql: MediaQueryList;
@@ -26,7 +41,7 @@ const responsiveObserve = {
                 | null;
         };
     },
-    dispatch(pointMap: ScreenMap) {
+    dispatch(pointMap: ScreenMap): boolean {
         screens = pointMap;
         subscribers.forEach((func) => func(screens));
         return subscribers.size >= 1;
@@ -38,28 +53,28 @@ const responsiveObserve = {
         func(screens);
         return subUid;
     },
-    unsubscribe(token: number) {
+    unsubscribe(token: number): void {
         subscribers.delete(token);
         if (!subscribers.size) this.unregister();
     },
-    unregister() {
-        Object.keys(responsiveMap).forEach((screen: Breakpoint) => {
+    unregister(): void {
+        Object.keys(responsiveMap).forEach((screen: Breakpoint): void => {
             const matchMediaQuery = responsiveMap[screen];
             const handler = this.matchHandlers[matchMediaQuery];
             handler?.mql.removeListener(handler?.listener);
         });
         subscribers.clear();
     },
-    register() {
-        Object.keys(responsiveMap).forEach((screen: Breakpoint) => {
+    register(): void {
+        Object.keys(responsiveMap).forEach((screen: Breakpoint): void => {
             const matchMediaQuery = responsiveMap[screen];
-            const listener = ({ matches }: { matches: boolean }) => {
+            const listener = ({ matches }: { matches: boolean }): void => {
                 this.dispatch({
                     ...screens,
                     [screen]: matches,
                 });
             };
-            const mql = window.matchMedia(matchMediaQuery);
+            const mql: MediaQueryList = window.matchMedia(matchMediaQuery);
             mql.addListener(listener);
             this.matchHandlers[matchMediaQuery] = {
                 mql,
@@ -70,5 +85,3 @@ const responsiveObserve = {
         });
     },
 };
-
-export default responsiveObserve;

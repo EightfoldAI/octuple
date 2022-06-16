@@ -120,6 +120,10 @@ export default {
             options: ['light', 'dark'],
             control: { type: 'inline-radio' },
         },
+        portal: {
+            options: [true, false],
+            control: { type: 'inline-radio' },
+        },
     },
 } as ComponentMeta<typeof Tooltip>;
 
@@ -141,6 +145,7 @@ Tooltips.args = {
     hideAfter: 0,
     tabIndex: 0,
     positionStrategy: 'absolute',
+    portal: false,
     children: (
         <>
             <PrimaryButton

@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import ResizeObserver from '../../../../shared/ResizeObserver';
+import { ResizeObserver } from '../../../../shared/ResizeObserver/ResizeObserver';
 import { MeasureCellProps } from './Body.types';
 
 export default function MeasureCell({
