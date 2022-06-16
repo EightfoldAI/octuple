@@ -4,14 +4,14 @@ import { TabsProvider } from '../Tabs.context';
 import { AnimatedTabs } from './AnimatedTabs';
 
 export const Tabs: FC<TabsProps> = React.forwardRef(
-    (props, ref: Ref<HTMLDivElement>) => {
-        const { value, onChange, children } = props;
-        return (
-            <TabsProvider onChange={onChange} value={value}>
-                <AnimatedTabs {...props} ref={ref}>
-                    {children}
-                </AnimatedTabs>
-            </TabsProvider>
-        );
-    }
+  (props, ref: Ref<HTMLDivElement>) => {
+    const { value, onChange, children } = props;
+    return (
+      <TabsProvider onChange={onChange} value={value}>
+        <AnimatedTabs {...props} ref={ref}>
+          {children}
+        </AnimatedTabs>
+      </TabsProvider>
+    );
+  }
 );

@@ -1,114 +1,112 @@
 .tab-wrap {
-    --label: var(--text-secondary-color);
-    --active-label: var(--primary-color);
-    --active-bg: transparent;
-    --hover-label: var(--primary-color);
-    --hover-bg: transparent;
-    --indicator: var(--primary-color);
-    --border: var(--primary-color);
-    display: flex;
+  --label: var(--text-secondary-color);
+  --active-label: var(--primary-color);
+  --active-bg: transparent;
+  --hover-label: var(--primary-color);
+  --hover-bg: transparent;
+  --indicator: var(--primary-color);
+  --border: var(--primary-color);
+  display: flex;
 
-    &.scrollable {
-        overflow-x: scroll;
-        @include no-scrollbars;
+  &.scrollable {
+    overflow-x: scroll;
+    @include no-scrollbars;
+  }
+
+  .tab {
+    display: flex;
+    border: none;
+    cursor: pointer;
+    padding: $space-s $space-m;
+    color: var(--label);
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    transition: background-color $motion-duration-fast $motion-easing-easeout 0s;
+
+    &:hover,
+    &:focus {
+      color: var(--hover-label);
+      background: var(--hover-bg);
+      transition: all $motion-duration-fast $motion-easing-easeout 0s;
     }
+
+    &.active {
+      color: var(--active-label);
+      background-color: var(--active-bg);
+      transition: transform $motion-duration-fast $motion-easing-easeout 0s;
+    }
+
+    &:disabled {
+      opacity: $disabled-alpha-value;
+      cursor: not-allowed;
+    }
+
+    &.inverse {
+      --active-label: var(--text-inverse-color);
+    }
+
+    .tab-indicator {
+      position: absolute;
+      z-index: 1;
+      height: $space-xxxs;
+      bottom: 0;
+      width: calc(100% - #{$space-xl});
+      background: var(--indicator);
+      border-radius: $space-xxs $space-xxs 0 0;
+    }
+
+    .label {
+      font-weight: $text-font-weight-semibold;
+      font-size: $text-font-size-3;
+      white-space: nowrap;
+    }
+
+    .badge {
+      margin-left: $space-xs;
+    }
+
+    .icon + .label:not(:empty) {
+      margin-left: $space-xs;
+    }
+  }
+
+  &.small {
+    --active-bg: var(--primary-color-10);
+    --hover-bg: var(--primary-color-10);
 
     .tab {
-        display: flex;
-        border: none;
-        cursor: pointer;
-        padding: $space-s $space-m;
-        color: var(--label);
-        align-items: center;
-        justify-content: center;
-        position: relative;
-        transition: background-color $motion-duration-fast
-            $motion-easing-easeout 0s;
+      padding: $space-l $space-m;
 
-        &:hover,
-        &:focus {
-            color: var(--hover-label);
-            background: var(--hover-bg);
-            transition: all $motion-duration-fast $motion-easing-easeout 0s;
-        }
-
-        &.active {
-            color: var(--active-label);
-            background-color: var(--active-bg);
-            transition: transform $motion-duration-fast $motion-easing-easeout
-                0s;
-        }
-
-        &:disabled {
-            opacity: $disabled-alpha-value;
-            cursor: not-allowed;
-        }
-
-        &.inverse {
-            --active-label: var(--text-inverse-color);
-        }
-
-        .tab-indicator {
-            position: absolute;
-            z-index: 1;
-            height: $space-xxxs;
-            bottom: 0;
-            width: calc(100% - #{$space-xl});
-            background: var(--indicator);
-            border-radius: $space-xxs $space-xxs 0 0;
-        }
-
-        .label {
-            font-weight: $text-font-weight-semibold;
-            font-size: $text-font-size-3;
-            white-space: nowrap;
-        }
-
-        .badge {
-            margin-left: $space-xs;
-        }
-
-        .icon + .label:not(:empty) {
-            margin-left: $space-xs;
-        }
+      .tab-indicator {
+        height: $space-xxs;
+      }
     }
+  }
 
-    &.small {
-        --active-bg: var(--primary-color-10);
-        --hover-bg: var(--primary-color-10);
+  &.pill {
+    --label: var(--primary-color);
+    --active-label: var(--background-color);
+    --active-bg: var(--primary-color);
+    --hover-label: var(--primary-color);
 
-        .tab {
-            padding: $space-l $space-m;
+    .tab {
+      padding: $space-xs $space-m;
+      border: $space-xxxs solid var(--border);
+      border-right: none;
 
-            .tab-indicator {
-                height: $space-xxs;
-            }
-        }
+      &:first-child {
+        border-radius: $space-l-fitted 0 0 $space-l-fitted;
+      }
+
+      &:last-child {
+        border-right: $space-xxxs solid var(--border);
+        border-radius: 0 $space-l-fitted $space-l-fitted 0;
+      }
+
+      .tab-indicator {
+        display: none;
+      }
     }
-
-    &.pill {
-        --label: var(--primary-color);
-        --active-label: var(--background-color);
-        --active-bg: var(--primary-color);
-        --hover-label: var(--primary-color);
-
-        .tab {
-            padding: $space-xs $space-m;
-            border: $space-xxxs solid var(--border);
-            border-right: none;
-
-            &:first-child {
-                border-radius: $space-l-fitted 0 0 $space-l-fitted;
-            }
-
-            &:last-child {
-                border-right: $space-xxxs solid var(--border);
-                border-radius: 0 $space-l-fitted $space-l-fitted 0;
-            }
-
-            .tab-indicator {
-                display: none;
-            }
-        }
-    }
+  }
 }

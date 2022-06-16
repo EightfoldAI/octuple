@@ -23,9 +23,9 @@ type Argument = Value | Mapping | ArgumentArray;
  * Conditionally wrapped component props.
  */
 type ConditonalWrapperProps = {
-    children: React.ReactElement;
-    condition?: boolean;
-    wrapper: (children: React.ReactElement) => JSX.Element;
+  children: React.ReactElement;
+  condition?: boolean;
+  wrapper: (children: React.ReactElement) => JSX.Element;
 };
 
 /**
@@ -34,34 +34,34 @@ type ConditonalWrapperProps = {
  *  @returns {string} - a concatenated string of class names.
  */
 export function mergeClasses(...args: ArgumentArray): string {
-    const hasOwn: (v: PropertyKey) => boolean = {}.hasOwnProperty;
-    let classes = [];
-    for (let i: number = 0; i < args.length; i++) {
-        const arg: any = args[i];
-        if (!arg) continue;
-        const argType = typeof arg;
-        if (argType === 'string' || argType === 'number') {
-            classes.push(arg);
-        } else if (Array.isArray(arg)) {
-            if (arg.length) {
-                const inner = mergeClasses.apply(null, arg);
-                if (inner) {
-                    classes.push(inner);
-                }
-            }
-        } else if (argType === 'object') {
-            if (arg.toString === Object.prototype.toString) {
-                for (var key in arg) {
-                    if (hasOwn.call(arg, key) && arg[key]) {
-                        classes.push(key);
-                    }
-                }
-            } else {
-                classes.push(arg.toString());
-            }
+  const hasOwn: (v: PropertyKey) => boolean = {}.hasOwnProperty;
+  let classes = [];
+  for (let i: number = 0; i < args.length; i++) {
+    const arg: any = args[i];
+    if (!arg) continue;
+    const argType = typeof arg;
+    if (argType === 'string' || argType === 'number') {
+      classes.push(arg);
+    } else if (Array.isArray(arg)) {
+      if (arg.length) {
+        const inner = mergeClasses.apply(null, arg);
+        if (inner) {
+          classes.push(inner);
         }
+      }
+    } else if (argType === 'object') {
+      if (arg.toString === Object.prototype.toString) {
+        for (var key in arg) {
+          if (hasOwn.call(arg, key) && arg[key]) {
+            classes.push(key);
+          }
+        }
+      } else {
+        classes.push(arg.toString());
+      }
     }
-    return classes.join(' ');
+  }
+  return classes.join(' ');
 }
 
 /**
@@ -71,25 +71,25 @@ export function mergeClasses(...args: ArgumentArray): string {
  * @returns a debounced function that resolves to a value after certain amount of time. Or never resolves if terminated.
  */
 export function debounce<A = unknown, R = void>(
-    fn: (args: A) => R,
-    ms: number
+  fn: (args: A) => R,
+  ms: number
 ): [(args: A) => Promise<R>, () => void] {
-    let timer: NodeJS.Timeout;
+  let timer: NodeJS.Timeout;
 
-    const debouncedFunc = (args: A): Promise<R> =>
-        new Promise((resolve) => {
-            if (timer) {
-                clearTimeout(timer);
-            }
+  const debouncedFunc = (args: A): Promise<R> =>
+    new Promise((resolve) => {
+      if (timer) {
+        clearTimeout(timer);
+      }
 
-            timer = setTimeout(() => {
-                resolve(fn(args));
-            }, ms);
-        });
+      timer = setTimeout(() => {
+        resolve(fn(args));
+      }, ms);
+    });
 
-    const teardown = () => clearTimeout(timer);
+  const teardown = () => clearTimeout(timer);
 
-    return [debouncedFunc, teardown];
+  return [debouncedFunc, teardown];
 }
 
 /**
@@ -97,8 +97,8 @@ export function debounce<A = unknown, R = void>(
  * @param prefix The sting prefix
  */
 export const uniqueId = ((): ((prefix: string) => string) => {
-    let counter: number = 0;
-    return (prefix: string): string => `${prefix}${++counter}`;
+  let counter: number = 0;
+  return (prefix: string): string => `${prefix}${++counter}`;
 })();
 
 /**
@@ -106,7 +106,7 @@ export const uniqueId = ((): ((prefix: string) => string) => {
  * @returns {boolean}
  */
 export const hasWindow = (): boolean => {
-    return typeof window !== 'undefined';
+  return typeof window !== 'undefined';
 };
 
 /**
@@ -114,13 +114,13 @@ export const hasWindow = (): boolean => {
  * @param e {React.MouseEvent}
  */
 export const stopPropagation = (e: React.MouseEvent<any>) =>
-    e.stopPropagation();
+  e.stopPropagation();
 
 /**
  * Get unique id
  */
 export const generateId = (prefix?: string) => {
-    return `${prefix ?? ''}${Math.random().toString(36).substring(2, 9)}`;
+  return `${prefix ?? ''}${Math.random().toString(36).substring(2, 9)}`;
 };
 
 /**
@@ -129,7 +129,7 @@ export const generateId = (prefix?: string) => {
  * @returns A conditionally wrapped element
  */
 export const ConditionalWrapper: React.FC<ConditonalWrapperProps> = ({
-    condition,
-    wrapper,
-    children,
+  condition,
+  wrapper,
+  children,
 }) => (condition ? wrapper(children) : children);

@@ -1,365 +1,364 @@
 .input-wrapper {
-    position: relative;
-    width: fit-content;
+  position: relative;
+  width: fit-content;
 
-    input[type='search'],
-    input[type='text'] {
-        background-color: var(--background-color);
-        border: 1px solid var(--border-color);
-        border-radius: $corner-radius-s;
-        box-sizing: border-box;
-        color: var(--grey-color-60);
-        font-family: 'Source Sans Pro', sans-serif;
-        font-size: $text-font-size-3;
-        line-height: $text-line-height-1;
-        min-width: 320px;
-        padding: $space-xs calc($space-xxl + 4px) $space-xs $space-xs;
+  input[type='search'],
+  input[type='text'] {
+    background-color: var(--background-color);
+    border: 1px solid var(--border-color);
+    border-radius: $corner-radius-s;
+    box-sizing: border-box;
+    color: var(--grey-color-60);
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: $text-font-size-3;
+    line-height: $text-line-height-1;
+    min-width: 320px;
+    padding: $space-xs calc($space-xxl + 4px) $space-xs $space-xs;
 
-        &::-webkit-search-cancel-button {
-            -webkit-appearance: none;
-        }
-
-        &.with-icon {
-            padding: $space-xs calc($space-xxl + 4px) $space-xs $space-xl;
-        }
-
-        &.with-image-icon {
-            padding: $space-xs calc($space-xxl + 4px) $space-xs
-                calc($space-xl + 4px);
-        }
-
-        &.with-icon-button {
-            padding-left: $space-xl;
-        }
-
-        &.with-icon-and-icon-button {
-            padding-left: $space-xxxl;
-        }
-
-        &:hover {
-            border-color: var(--grey-color-60);
-        }
-
-        &:hover ~ .icon-button {
-            background-color: transparent;
-            border-color: transparent;
-
-            svg {
-                color: var(--grey-color-80);
-            }
-        }
-
-        &:hover ~ .text-style {
-            color: var(--text-primary-color);
-        }
-
-        &:active ~ .icon-button {
-            background-color: transparent;
-            border-color: transparent;
-
-            svg {
-                color: var(--grey-color-80);
-            }
-        }
-
-        &:active ~ .text-style {
-            color: var(--text-primary-color);
-        }
-
-        &:focus ~ .icon-button {
-            background-color: transparent;
-            border-color: transparent;
-
-            svg {
-                color: var(--grey-color-80);
-            }
-        }
-
-        &:focus ~ .text-style {
-            color: var(--text-primary-color);
-        }
-
-        &:disabled {
-            border-color: var(--grey-color-30);
-            color: var(--grey-color-30);
-        }
-
-        &:disabled ~ .icon-button {
-            background-color: transparent;
-            border-color: transparent;
-
-            svg {
-                color: var(--grey-color-30);
-            }
-        }
-
-        &:disabled ~ .text-style {
-            color: var(--grey-color-30);
-        }
-
-        &:disabled::placeholder {
-            color: var(--grey-color-30);
-        }
-
-        &.pill-shape {
-            border-color: transparent;
-            border-radius: $corner-radius-xl;
-            box-shadow: 0 1px 2px rgba(15, 20, 31, 0.12),
-                0 2px 8px rgba(15, 20, 31, 0.16);
-            padding: $space-xs $space-s;
-        }
-
-        &.pill-shape-with-icon {
-            padding: $space-xs $space-s $space-xs $space-xl;
-        }
-
-        &.pill-shape-with-image-icon {
-            padding: $space-xs $space-s $space-xs calc($space-xl + 4px);
-        }
-
-        &.pill-shape-with-icon-button {
-            padding: $space-xs $space-s $space-xs $space-xl;
-        }
-
-        &.pill-shape-with-icon-and-icon-button {
-            padding: $space-xs $space-s $space-xs $space-xxxl;
-        }
-
-        &.pill-shape-with-icon-button ~ .icon-button {
-            &.left-icon {
-                border-bottom-left-radius: 50%;
-                border-top-left-radius: 50%;
-            }
-
-            &.right-icon {
-                border-bottom-right-radius: 50%;
-                border-top-right-radius: 50%;
-            }
-        }
-
-        &.pill-shape-with-icon-button ~ .clear-icon-button {
-            border-bottom-right-radius: 50%;
-            border-top-right-radius: 50%;
-        }
-
-        &.pill-shape-with-icon-and-icon-button ~ .icon-button {
-            &.left-icon {
-                border-bottom-left-radius: inherit;
-                border-top-left-radius: inherit;
-            }
-
-            &.right-icon {
-                border-bottom-right-radius: inherit;
-                border-top-right-radius: inherit;
-            }
-        }
-
-        &:focus {
-            outline: 2px solid var(--primary-color-40);
-            outline-offset: -2px;
-        }
-
-        &.input-stretch {
-            width: 100%;
-        }
+    &::-webkit-search-cancel-button {
+      -webkit-appearance: none;
     }
 
-    .icon-wrapper {
-        bottom: 0;
-        height: 36px;
-        position: absolute;
-        width: 36px;
-
-        &.left-icon {
-            left: 4px;
-        }
-
-        &.right-icon {
-            right: 4px;
-        }
-
-        span {
-            padding: 8px 4px;
-        }
-
-        img {
-            display: inline-block;
-            height: 100%;
-            padding: 3px 3px;
-            max-width: 30px;
-            vertical-align: middle;
-        }
-
-        svg {
-            color: var(--grey-color-60);
-        }
+    &.with-icon {
+      padding: $space-xs calc($space-xxl + 4px) $space-xs $space-xl;
     }
 
-    .icon-button {
-        background-color: var(--background-color);
-        bottom: 1px;
-        color: var(--grey-color-60);
-        height: 34px;
-        padding: $button-padding-vertical-small $space-xxs;
-        position: absolute;
-        transition: none;
-
-        &.left-icon {
-            left: 2px;
-        }
-
-        &.right-icon {
-            right: 2px;
-        }
-
-        svg {
-            color: var(--grey-color-60);
-        }
-
-        &:active,
-        &:focus {
-            background-color: var(--background-color);
-            padding: $button-padding-vertical-small $space-xxs;
-
-            svg {
-                color: var(--grey-color-60);
-            }
-        }
-
-        &:hover {
-            background-color: var(--background-color);
-            padding: $button-padding-vertical-small $space-xxs;
-            outline-color: transparent;
-
-            svg {
-                color: var(--grey-color-80);
-            }
-        }
-
-        &:focus {
-            outline: 2px solid var(--primary-color-40);
-            outline-offset: -2px;
-        }
+    &.with-image-icon {
+      padding: $space-xs calc($space-xxl + 4px) $space-xs calc($space-xl + 4px);
     }
 
-    .clear-icon-button {
-        background-color: transparent;
-        bottom: 1px;
-        color: var(--grey-color-60);
-        height: 35px;
-        position: absolute;
-        right: 1px;
-        transition: none;
-        width: 35px;
-
-        &:hover {
-            background-color: transparent;
-            color: var(--grey-color-80);
-            outline-color: transparent;
-
-            svg {
-                color: var(--grey-color-80);
-            }
-        }
-
-        &:active,
-        &:focus {
-            background-color: transparent;
-            outline: 2px solid var(--primary-color-40);
-            outline-offset: -2px;
-
-            svg {
-                color: var(--grey-color-80);
-            }
-        }
+    &.with-icon-button {
+      padding-left: $space-xl;
     }
 
-    .icon-wrapper:not(:empty) + .icon-button {
-        &.left-icon {
-            left: $space-xl;
-        }
-
-        &.right-icon {
-            right: $space-xl;
-        }
+    &.with-icon-and-icon-button {
+      padding-left: $space-xxxl;
     }
 
-    .text-area {
-        background-color: var(--background-color);
-        border: 1px solid var(--border-color);
-        border-radius: $corner-radius-s;
-        box-sizing: border-box;
-        color: var(--grey-color-60);
-        font-family: 'Source Sans Pro', sans-serif;
-        font-size: $text-font-size-3;
-        min-height: 64px;
-        min-width: 320px;
-        padding: $space-xs;
-
-        &::-webkit-resizer {
-            display: none;
-        }
-
-        &.text-area-no-expand {
-            resize: none;
-        }
-
-        &:focus {
-            outline: 2px solid var(--primary-color-40);
-            outline-offset: -2px;
-        }
-
-        &.input-stretch {
-            width: 100%;
-        }
+    &:hover {
+      border-color: var(--grey-color-60);
     }
 
-    .text-area-resize-icon {
-        position: absolute;
-        bottom: 8px;
-        right: 4px;
+    &:hover ~ .icon-button {
+      background-color: transparent;
+      border-color: transparent;
+
+      svg {
+        color: var(--grey-color-80);
+      }
+    }
+
+    &:hover ~ .text-style {
+      color: var(--text-primary-color);
+    }
+
+    &:active ~ .icon-button {
+      background-color: transparent;
+      border-color: transparent;
+
+      svg {
+        color: var(--grey-color-80);
+      }
+    }
+
+    &:active ~ .text-style {
+      color: var(--text-primary-color);
+    }
+
+    &:focus ~ .icon-button {
+      background-color: transparent;
+      border-color: transparent;
+
+      svg {
+        color: var(--grey-color-80);
+      }
+    }
+
+    &:focus ~ .text-style {
+      color: var(--text-primary-color);
+    }
+
+    &:disabled {
+      border-color: var(--grey-color-30);
+      color: var(--grey-color-30);
+    }
+
+    &:disabled ~ .icon-button {
+      background-color: transparent;
+      border-color: transparent;
+
+      svg {
+        color: var(--grey-color-30);
+      }
+    }
+
+    &:disabled ~ .text-style {
+      color: var(--grey-color-30);
+    }
+
+    &:disabled::placeholder {
+      color: var(--grey-color-30);
+    }
+
+    &.pill-shape {
+      border-color: transparent;
+      border-radius: $corner-radius-xl;
+      box-shadow: 0 1px 2px rgba(15, 20, 31, 0.12),
+        0 2px 8px rgba(15, 20, 31, 0.16);
+      padding: $space-xs $space-s;
+    }
+
+    &.pill-shape-with-icon {
+      padding: $space-xs $space-s $space-xs $space-xl;
+    }
+
+    &.pill-shape-with-image-icon {
+      padding: $space-xs $space-s $space-xs calc($space-xl + 4px);
+    }
+
+    &.pill-shape-with-icon-button {
+      padding: $space-xs $space-s $space-xs $space-xl;
+    }
+
+    &.pill-shape-with-icon-and-icon-button {
+      padding: $space-xs $space-s $space-xs $space-xxxl;
+    }
+
+    &.pill-shape-with-icon-button ~ .icon-button {
+      &.left-icon {
+        border-bottom-left-radius: 50%;
+        border-top-left-radius: 50%;
+      }
+
+      &.right-icon {
+        border-bottom-right-radius: 50%;
+        border-top-right-radius: 50%;
+      }
+    }
+
+    &.pill-shape-with-icon-button ~ .clear-icon-button {
+      border-bottom-right-radius: 50%;
+      border-top-right-radius: 50%;
+    }
+
+    &.pill-shape-with-icon-and-icon-button ~ .icon-button {
+      &.left-icon {
+        border-bottom-left-radius: inherit;
+        border-top-left-radius: inherit;
+      }
+
+      &.right-icon {
+        border-bottom-right-radius: inherit;
+        border-top-right-radius: inherit;
+      }
+    }
+
+    &:focus {
+      outline: 2px solid var(--primary-color-40);
+      outline-offset: -2px;
     }
 
     &.input-stretch {
-        width: 100%;
+      width: 100%;
     }
+  }
+
+  .icon-wrapper {
+    bottom: 0;
+    height: 36px;
+    position: absolute;
+    width: 36px;
+
+    &.left-icon {
+      left: 4px;
+    }
+
+    &.right-icon {
+      right: 4px;
+    }
+
+    span {
+      padding: 8px 4px;
+    }
+
+    img {
+      display: inline-block;
+      height: 100%;
+      padding: 3px 3px;
+      max-width: 30px;
+      vertical-align: middle;
+    }
+
+    svg {
+      color: var(--grey-color-60);
+    }
+  }
+
+  .icon-button {
+    background-color: var(--background-color);
+    bottom: 1px;
+    color: var(--grey-color-60);
+    height: 34px;
+    padding: $button-padding-vertical-small $space-xxs;
+    position: absolute;
+    transition: none;
+
+    &.left-icon {
+      left: 2px;
+    }
+
+    &.right-icon {
+      right: 2px;
+    }
+
+    svg {
+      color: var(--grey-color-60);
+    }
+
+    &:active,
+    &:focus {
+      background-color: var(--background-color);
+      padding: $button-padding-vertical-small $space-xxs;
+
+      svg {
+        color: var(--grey-color-60);
+      }
+    }
+
+    &:hover {
+      background-color: var(--background-color);
+      padding: $button-padding-vertical-small $space-xxs;
+      outline-color: transparent;
+
+      svg {
+        color: var(--grey-color-80);
+      }
+    }
+
+    &:focus {
+      outline: 2px solid var(--primary-color-40);
+      outline-offset: -2px;
+    }
+  }
+
+  .clear-icon-button {
+    background-color: transparent;
+    bottom: 1px;
+    color: var(--grey-color-60);
+    height: 35px;
+    position: absolute;
+    right: 1px;
+    transition: none;
+    width: 35px;
+
+    &:hover {
+      background-color: transparent;
+      color: var(--grey-color-80);
+      outline-color: transparent;
+
+      svg {
+        color: var(--grey-color-80);
+      }
+    }
+
+    &:active,
+    &:focus {
+      background-color: transparent;
+      outline: 2px solid var(--primary-color-40);
+      outline-offset: -2px;
+
+      svg {
+        color: var(--grey-color-80);
+      }
+    }
+  }
+
+  .icon-wrapper:not(:empty) + .icon-button {
+    &.left-icon {
+      left: $space-xl;
+    }
+
+    &.right-icon {
+      right: $space-xl;
+    }
+  }
+
+  .text-area {
+    background-color: var(--background-color);
+    border: 1px solid var(--border-color);
+    border-radius: $corner-radius-s;
+    box-sizing: border-box;
+    color: var(--grey-color-60);
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: $text-font-size-3;
+    min-height: 64px;
+    min-width: 320px;
+    padding: $space-xs;
+
+    &::-webkit-resizer {
+      display: none;
+    }
+
+    &.text-area-no-expand {
+      resize: none;
+    }
+
+    &:focus {
+      outline: 2px solid var(--primary-color-40);
+      outline-offset: -2px;
+    }
+
+    &.input-stretch {
+      width: 100%;
+    }
+  }
+
+  .text-area-resize-icon {
+    position: absolute;
+    bottom: 8px;
+    right: 4px;
+  }
+
+  &.input-stretch {
+    width: 100%;
+  }
 }
 
 :global(.focus-visible) {
-    .input-wrapper {
-        input[type='search'],
-        input[type='text'] {
-            &:focus-visible {
-                outline-width: $focus-visible-outline-width;
-                outline-offset: $focus-visible-outline-offset-inner;
-            }
-        }
-
-        .icon-button {
-            &:focus-visible {
-                outline-width: $focus-visible-outline-width;
-                outline-offset: $focus-visible-outline-offset-inner;
-            }
-        }
-
-        .clear-icon-button {
-            &:focus-visible {
-                outline-width: $focus-visible-outline-width;
-                outline-offset: $focus-visible-outline-offset-inner;
-            }
-        }
-
-        .text-area {
-            &:focus-visible {
-                outline-width: $focus-visible-outline-width;
-                outline-offset: $focus-visible-outline-offset-inner;
-            }
-        }
+  .input-wrapper {
+    input[type='search'],
+    input[type='text'] {
+      &:focus-visible {
+        outline-width: $focus-visible-outline-width;
+        outline-offset: $focus-visible-outline-offset-inner;
+      }
     }
+
+    .icon-button {
+      &:focus-visible {
+        outline-width: $focus-visible-outline-width;
+        outline-offset: $focus-visible-outline-offset-inner;
+      }
+    }
+
+    .clear-icon-button {
+      &:focus-visible {
+        outline-width: $focus-visible-outline-width;
+        outline-offset: $focus-visible-outline-offset-inner;
+      }
+    }
+
+    .text-area {
+      &:focus-visible {
+        outline-width: $focus-visible-outline-width;
+        outline-offset: $focus-visible-outline-offset-inner;
+      }
+    }
+  }
 }
 
 .dark {
-    .input-wrapper {
-        position: relative;
-    }
+  .input-wrapper {
+    position: relative;
+  }
 }

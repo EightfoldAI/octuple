@@ -1,10 +1,10 @@
 import { useCallback, useEffect, useState } from 'react';
 
 export enum Breakpoints {
-    Large = '(min-width: 1200px)',
-    Medium = '(min-width: 900px)',
-    Small = '(min-width: 600px)',
-    XSmall = '(min-width: 0)',
+  Large = '(min-width: 1200px)',
+  Medium = '(min-width: 900px)',
+  Small = '(min-width: 600px)',
+  XSmall = '(min-width: 0)',
 }
 
 /**
@@ -13,19 +13,17 @@ export enum Breakpoints {
  * @returns a boolean determining if the threshold viewport size has been hit.
  */
 export const useMatchMedia = (breakpoint: Breakpoints): boolean => {
-    const [threshold, setThreshold] = useState<boolean>(
-        window.matchMedia(breakpoint).matches
-    );
-    const handleMatchMedia = useCallback((e: MediaQueryListEvent) => {
-        setThreshold(e.matches);
-    }, []);
-    useEffect((): void => {
-        window
-            .matchMedia(breakpoint)
-            .addEventListener('change', handleMatchMedia);
-        return window
-            .matchMedia(breakpoint)
-            .removeEventListener('change', handleMatchMedia);
-    }, [handleMatchMedia]);
-    return threshold;
+  const [threshold, setThreshold] = useState<boolean>(
+    window.matchMedia(breakpoint).matches
+  );
+  const handleMatchMedia = useCallback((e: MediaQueryListEvent) => {
+    setThreshold(e.matches);
+  }, []);
+  useEffect((): void => {
+    window.matchMedia(breakpoint).addEventListener('change', handleMatchMedia);
+    return window
+      .matchMedia(breakpoint)
+      .removeEventListener('change', handleMatchMedia);
+  }, [handleMatchMedia]);
+  return threshold;
 };

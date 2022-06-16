@@ -8,24 +8,23 @@ Enzyme.configure({ adapter: new Adapter() });
 jest.useFakeTimers();
 
 describe('useDebounce', () => {
-    let func: jest.Mock;
-    let debouncedFunc: Function;
+  let func: jest.Mock;
+  let debouncedFunc: Function;
 
-    beforeEach(() => {
-        func = jest.fn();
-        debouncedFunc = renderHook(() => useDebounce(func, 1000)).result
-            .current;
+  beforeEach(() => {
+    func = jest.fn();
+    debouncedFunc = renderHook(() => useDebounce(func, 1000)).result.current;
+  });
+
+  it('initialized value in first render', () => {
+    for (let i = 0; i < 100; i++) {
+      debouncedFunc();
+    }
+
+    act(() => {
+      jest.runAllTimers();
     });
 
-    it('initialized value in first render', () => {
-        for (let i = 0; i < 100; i++) {
-            debouncedFunc();
-        }
-
-        act(() => {
-            jest.runAllTimers();
-        });
-
-        expect(func).toBeCalledTimes(1);
-    });
+    expect(func).toBeCalledTimes(1);
+  });
 });

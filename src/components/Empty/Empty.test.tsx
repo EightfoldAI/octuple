@@ -6,11 +6,11 @@ import { Empty } from './';
 Enzyme.configure({ adapter: new Adapter() });
 
 describe('Empty', () => {
-    /*
-     * Functionality Tests
-     */
-    test('empty renders', () => {
-        const wrapper = mount(<Empty description="Test" />);
-        expect(wrapper.containsMatchingElement(<Empty />)).toEqual(true);
-    });
+  /*
+   * Functionality Tests
+   */
+  test('empty renders', () => {
+    const wrapper = mount(<Empty description="Test" />);
+    expect(wrapper.containsMatchingElement(<Empty />)).toEqual(true);
+  });
 });

@@ -1,33 +1,33 @@
 $indicator-size: 12px;
 
 .match-score-container {
-    display: flex;
-    align-items: center;
-    .label {
-        margin: 0;
-        margin-left: $space-xxs;
-        color: var(--primary-color-60);
-        font-weight: $text-font-weight-semibold;
-    }
-    .match-score-circle {
-        border: 1px solid var(--primary-color-60);
-        box-sizing: border-box;
-        height: $indicator-size;
-        width: $indicator-size;
-        border-radius: 50%;
-        margin-right: $space-xxs;
+  display: flex;
+  align-items: center;
+  .label {
+    margin: 0;
+    margin-left: $space-xxs;
+    color: var(--primary-color-60);
+    font-weight: $text-font-weight-semibold;
+  }
+  .match-score-circle {
+    border: 1px solid var(--primary-color-60);
+    box-sizing: border-box;
+    height: $indicator-size;
+    width: $indicator-size;
+    border-radius: 50%;
+    margin-right: $space-xxs;
 
-        &.full {
-            background: var(--primary-color-60);
-        }
-
-        &.half {
-            background: var(--primary-color-60);
-            background: linear-gradient(
-                to right,
-                var(--primary-color-60) 50%,
-                transparent 50%
-            );
-        }
+    &.full {
+      background: var(--primary-color-60);
     }
+
+    &.half {
+      background: var(--primary-color-60);
+      background: linear-gradient(
+        to right,
+        var(--primary-color-60) 50%,
+        transparent 50%
+      );
+    }
+  }
 }
