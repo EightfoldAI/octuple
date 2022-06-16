@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.11.0](https://github.com/EightfoldAI/octuple/compare/v1.10.0...v1.11.0) (2022-06-16)
+
+### Features
+
+-   add neutral menu type, add default dropdown offset ([#189](https://github.com/EightfoldAI/octuple/issues/189)) ([e70b338](https://github.com/EightfoldAI/octuple/commits/e70b338953a15694f92488d42b88487d5d710793))
+-   button: adds counter badge support to all buttons ([#187](https://github.com/EightfoldAI/octuple/issues/187)) ([45eaec1](https://github.com/EightfoldAI/octuple/commits/45eaec1f04d9a8bf212bd0c776c50e5bfbfaab74))
+
+### Bug Fixes
+
+-   pagination: ensure jumper applies current page ([#182](https://github.com/EightfoldAI/octuple/issues/182)) ([16d26fa](https://github.com/EightfoldAI/octuple/commits/16d26fa6b593ba77b79be33fe813f3532379d3a8))
+
 ## [1.10.0](https://github.com/EightfoldAI/octuple/compare/v1.9.1...v1.10.0) (2022-06-14)
 
 ### Features
