@@ -3871,7 +3871,7 @@ exports[`Storyshots Config Provider Theming 1`] = `
   </div>
   <div
     aria-label="score"
-    className="matchScoreContainer"
+    className="matchScoreContainer oct-component"
   >
     <div
       className="matchScoreCircle full"
@@ -6021,7 +6021,7 @@ exports[`Storyshots List Vertical 1`] = `
 exports[`Storyshots Match Score Default 1`] = `
 <div
   aria-label="score"
-  className="my-match-score-class matchScoreContainer"
+  className="my-match-score-class matchScoreContainer oct-component"
 >
   <div
     className="matchScoreCircle full"
@@ -6051,7 +6051,7 @@ exports[`Storyshots Match Score Default 1`] = `
 exports[`Storyshots Match Score Without Label 1`] = `
 <div
   aria-label="score"
-  className="my-match-score-class matchScoreContainer"
+  className="my-match-score-class matchScoreContainer oct-component"
 >
   <div
     className="matchScoreCircle full"
