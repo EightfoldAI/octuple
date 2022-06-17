@@ -1,5 +1,5 @@
 import scrollTo from './scrollTo';
-import { sleep } from '../tests/Utilities';
+import { sleep } from '../../tests/Utilities';
 
 describe('Test ScrollTo function', () => {
     let dateNowMock: jest.SpyInstance<number, []>;

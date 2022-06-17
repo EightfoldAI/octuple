@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react';
 import { ColGroupProps } from './OcTable.types';
-import { INTERNAL_COL_DEFINE } from './Utilities/legacyUtil';
+import { INTERNAL_COL_DEFINE } from './constant';
 
 function ColGroup<RecordType>({
     colWidths,

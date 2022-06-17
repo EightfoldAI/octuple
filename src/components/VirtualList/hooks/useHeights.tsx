@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from 'react';
-import { findDOMNode } from '../../../shared/utilities';
-import raf from '../../../shared/raf';
+import { findDOMNode } from '../../../shared/utilities/findDOMNode';
+import raf from '../../../shared/utilities/raf';
 import type { GetKey } from '../VirtualList.types';
 import CacheMap from '../Utils/CacheMap';
 

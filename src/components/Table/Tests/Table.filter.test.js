@@ -2,7 +2,7 @@ import React from 'react';
 import Enzyme, { mount } from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import Table from '..';
-import Tooltip from '../../Tooltip';
+import { Tooltip } from '../../Tooltip';
 
 Enzyme.configure({ adapter: new Adapter() });
 

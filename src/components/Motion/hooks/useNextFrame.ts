@@ -1,5 +1,5 @@
 import React from 'react';
-import raf from '../../../shared/raf';
+import raf from '../../../shared/utilities/raf';
 
 export default (): [
     (callback: (info: { isCanceled: () => boolean }) => void) => void,

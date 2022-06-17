@@ -7,7 +7,7 @@ import React, {
     useRef,
 } from 'react';
 import { mergeClasses } from '../../shared/utilities';
-import { omit } from '../../shared/omit';
+import { omit } from '../../shared/utilities/omit';
 import OcTable, { Summary } from './Internal';
 import type { OcTableProps } from './Internal/OcTable.types';
 import { convertChildrenToColumns } from './Internal/Hooks/useColumns';
@@ -18,7 +18,7 @@ import usePagination, {
     getPaginationParam,
 } from './Hooks/usePagination';
 import useLazyKVMap from './Hooks/useLazyKVMap';
-import type { Breakpoint } from '../../shared/responsiveObserve';
+import type { Breakpoint } from '../../shared/utilities/responsiveObserve';
 import type {
     ChangeEventInfo,
     ColumnGroupType,
@@ -44,7 +44,7 @@ import type { FilterState } from './Hooks/useFilter';
 import useFilter, { getFilterData } from './Hooks/useFilter';
 import useTitleColumns from './Hooks/useTitleColumns';
 import renderExpandIcon from './ExpandIcon';
-import scrollTo from '../../shared/scrollTo';
+import scrollTo from '../../shared/utilities/scrollTo';
 import SizeContext from './Internal/Context/SizeContext';
 import Column from './Internal/Column';
 import ColumnGroup from './Internal/ColumnGroup';

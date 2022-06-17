@@ -1,5 +1,5 @@
 import React from 'react';
-import raf from '../../../shared/raf';
+import raf from '../../../shared/utilities/raf';
 import type { GetKey, ScrollTo } from '../VirtualList.types';
 import type CacheMap from '../Utils/CacheMap';
 

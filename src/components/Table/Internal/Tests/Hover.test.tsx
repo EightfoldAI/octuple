@@ -1,7 +1,7 @@
 import React from 'react';
 import Enzyme, { mount } from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
-import OcTable from '../';
+import OcTable from '..';
 import type { OcTableProps } from '../OcTable.types';
 
 Enzyme.configure({ adapter: new Adapter() });

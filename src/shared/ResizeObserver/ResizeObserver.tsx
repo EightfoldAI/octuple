@@ -1,5 +1,5 @@
 import React from 'react';
-import toArray from '../toArray';
+import toArray from '../utilities/toArray';
 import { SingleObserver } from './SingleObserver/SingleObserver';
 import { Collection } from './Collection';
 

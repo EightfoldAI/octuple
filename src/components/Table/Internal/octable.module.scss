@@ -382,7 +382,6 @@ $cell-margin: -$vertical-padding -$horizontal-padding;
         content: '';
     }
 
-    // ================= Expand =================
     &-expanded-row {
         .table-cell {
             box-shadow: inset 0 15px 17px -7px $table-background-alternate-color;

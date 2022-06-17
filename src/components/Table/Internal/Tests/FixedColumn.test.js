@@ -2,7 +2,7 @@ import React from 'react';
 import Enzyme, { mount } from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import { act } from 'react-dom/test-utils';
-import OcTable from '../';
+import OcTable from '..';
 import { ResizeObserver } from '../../../../shared/ResizeObserver/ResizeObserver';
 
 Enzyme.configure({ adapter: new Adapter() });

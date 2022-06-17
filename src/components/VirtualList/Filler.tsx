@@ -1,7 +1,7 @@
 import React from 'react';
 import { FillerProps } from './VirtualList.types';
 import { ResizeObserver } from '../../shared/ResizeObserver/ResizeObserver';
-import { mergeClasses } from '../../shared/utilities';
+import { mergeClasses } from '../../shared/utilities/mergeClasses';
 
 /**
  * Fill component to provided the scroll content real height.

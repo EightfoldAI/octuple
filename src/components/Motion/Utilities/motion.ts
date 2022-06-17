@@ -1,5 +1,5 @@
 import { canUseDom } from '../../../shared/utilities';
-import { MotionName } from '../CSSMotion';
+import { MotionName } from '../CSSMotion.types';
 
 // ================= Transition =================
 // Event wrapper. Copy from react source code

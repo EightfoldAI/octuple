@@ -2,6 +2,7 @@ import React from 'react';
 import Enzyme, { render } from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import Table from '../index';
+import type { FixedType } from '../Internal/OcTable.types';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -22,14 +23,14 @@ const columnsFixed = [
         width: 100,
         dataIndex: 'name',
         key: 'name',
-        fixed: 'left',
+        fixed: 'left' as FixedType,
     },
     {
         title: 'Age',
         width: 100,
         dataIndex: 'age',
         key: 'age',
-        fixed: 'left',
+        fixed: 'left' as FixedType,
     },
     { title: 'Column 1', dataIndex: 'address', key: '1' },
     { title: 'Column 2', dataIndex: 'address', key: '2' },
@@ -42,8 +43,8 @@ const columnsFixed = [
     {
         title: 'Action',
         key: 'address',
-        fixed: 'right',
         width: 100,
+        fixed: 'right' as FixedType,
     },
 ];
 
@@ -73,7 +74,7 @@ describe('Table', () => {
                 dataSource={[]}
                 columns={columns}
                 pagination={false}
-                locale={{ emptyText: 'custom empty text' }}
+                emptyText={'custom empty text'}
             />
         );
         expect(wrapper).toMatchSnapshot();

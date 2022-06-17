@@ -6,9 +6,9 @@ import React, {
     useState,
 } from 'react';
 import { StickyScrollBarProps } from './OcTable.types';
-import { getScrollBarSize } from '../../../shared/utilities';
-import { mergeClasses } from '../../../shared/utilities';
-import { getOffset } from '../../../shared/utilities';
+import { getScrollBarSize } from '../../../shared/utilities/getScrollBarSize';
+import { mergeClasses } from '../../../shared/utilities/mergeClasses';
+import { getOffset } from '../../../shared/utilities/css';
 import { useLayoutState } from './Hooks/useFrame';
 
 import styles from './octable.module.scss';
@@ -91,7 +91,7 @@ const StickyScrollBar: React.ForwardRefRenderFunction<
         const currentClientOffset =
             container === window
                 ? document.documentElement.scrollTop + window.innerHeight
-                : getOffset(container).top +
+                : getOffset(container as HTMLElement).top +
                   (container as HTMLElement).clientHeight;
 
         if (

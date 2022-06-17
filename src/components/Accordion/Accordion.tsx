@@ -4,7 +4,7 @@ import { mergeClasses, uniqueId } from '../../shared/utilities';
 
 import { AccordionProps, AccordionSummaryProps, AccordionBodyProps } from './';
 import { Icon, IconName } from '../Icon';
-import { eventKeys } from '../../shared/eventKeys';
+import { eventKeys } from '../../shared/utilities/eventKeys';
 
 import styles from './accordion.module.scss';
 

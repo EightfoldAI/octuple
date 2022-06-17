@@ -1,7 +1,7 @@
 import React from 'react';
 import Enzyme, { mount } from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
-import OcTable, { INTERNAL_COL_DEFINE } from '../';
+import OcTable, { INTERNAL_COL_DEFINE } from '..';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -844,7 +844,7 @@ describe('Table.Basic', () => {
                 expect(wrapper.render()).toMatchSnapshot();
             });
 
-            // Used for antd to check if is expand column
+            // Used to check if is expand column
             // We'd better to move selection into table also
             it('internal columnType', () => {
                 let existExpandColumn = false;

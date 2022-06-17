@@ -1,7 +1,10 @@
 import React from 'react';
-import { mergeClasses } from '../../../shared/utilities';
+import { mergeClasses } from '../../../shared/utilities/mergeClasses';
 import type { OcTreeNodeProps, SwitcherIcon } from '../Tree.types';
-import { isValidElement, cloneElement } from '../../../shared/reactNode';
+import {
+    isValidElement,
+    cloneElement,
+} from '../../../shared/utilities/reactNode';
 import { Icon, IconName, IconSize } from '../../Icon';
 import { Spinner, SpinnerSize } from '../../Spinner';
 

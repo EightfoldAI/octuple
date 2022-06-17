@@ -1,11 +1,7 @@
-/* eslint-disable import/first */
-jest.mock('../../../shared/scrollTo');
-
 import React from 'react';
 import Enzyme, { mount } from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import Table from '../index';
-import scrollTo from '../../../shared/scrollTo';
 
 Enzyme.configure({ adapter: new Adapter() });
 

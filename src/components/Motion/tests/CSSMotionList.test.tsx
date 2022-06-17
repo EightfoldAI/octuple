@@ -3,7 +3,7 @@ import { mergeClasses } from '../../../shared/utilities';
 import { act } from 'react-dom/test-utils';
 import { render, fireEvent } from '@testing-library/react';
 import { genCSSMotionList } from '../CSSMotionList';
-import type { CSSMotionListProps } from '../CSSMotionList';
+import type { CSSMotionListProps } from '../CSSMotion.types';
 import { genCSSMotion } from '../CSSMotion';
 
 describe('CSSMotionList', () => {

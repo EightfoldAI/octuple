@@ -1,5 +1,5 @@
 import type * as React from 'react';
-import { useMemo } from '../hooks/useMemo';
+import { useMemo } from '../../hooks/useMemo';
 
 export const fillRef = <T>(ref: React.Ref<T>, node: T): void => {
     if (typeof ref === 'function') {

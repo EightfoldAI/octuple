@@ -493,7 +493,7 @@ describe('Table.rowSelection', () => {
             expect(onChange).toHaveBeenCalledWith(['Jack'], [{ name: 'Jack' }]);
         });
 
-        it('selectedRows ant selectedKeys should keep sync in initial state', () => {
+        it('selectedRows and selectedKeys should keep sync in initial state', () => {
             const dataSource = [
                 { name: 'Jack' },
                 { name: 'Tom' },

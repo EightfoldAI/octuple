@@ -1,100 +1,14 @@
 import React from 'react';
 import { useRef } from 'react';
-import { findDOMNode } from '../../shared/utilities';
-import { fillRef } from '../../shared/ref';
-import { mergeClasses } from '../../shared/utilities';
-import { getTransitionName, supportTransition } from './Util/motion';
-import type {
-    MotionStatus,
-    MotionEventHandler,
-    MotionEndEventHandler,
-    MotionPrepareEventHandler,
-} from './Motion.types';
-import { STATUS_NONE, STEP_PREPARE, STEP_START } from './Motion.types';
-import useStatus from './Hooks/useStatus';
-import { DomWrapper } from '../../shared/DomWrapper';
+import { findDOMNode } from '../../shared/utilities/findDOMNode';
+import { fillRef } from '../../shared/utilities/ref';
+import { mergeClasses } from '../../shared/utilities/mergeClasses';
+import { getTransitionName, supportTransition } from './Utilities/motion';
+import type { CSSMotionConfig, CSSMotionProps } from './CSSMotion.types';
+import { STATUS_NONE, STEP_PREPARE, STEP_START } from './CSSMotion.types';
+import { useStatus } from './Hooks/useStatus';
+import { DomWrapper } from '../../shared/utilities/domWrapper';
 import { isActive } from './Hooks/useStepQueue';
-
-export type CSSMotionConfig =
-    | boolean
-    | {
-          transitionSupport?: boolean;
-      };
-
-export type MotionName =
-    | string
-    | {
-          appear?: string;
-          enter?: string;
-          leave?: string;
-          appearActive?: string;
-          enterActive?: string;
-          leaveActive?: string;
-      };
-
-export interface CSSMotionProps {
-    motionName?: MotionName;
-    visible?: boolean;
-    motionAppear?: boolean;
-    motionEnter?: boolean;
-    motionLeave?: boolean;
-    motionLeaveImmediately?: boolean;
-    motionDeadline?: number;
-    /**
-     * Create element in view even the element is invisible.
-     * Will patch `display: none` style on it.
-     */
-    forceRender?: boolean;
-    /**
-     * Remove element when motion end. This will not work when `forceRender` is set.
-     */
-    removeOnLeave?: boolean;
-    leavedClassName?: string;
-    /** @private Used by CSSMotionList. Do not use in your production. */
-    eventProps?: object;
-
-    // Prepare groups
-    onAppearPrepare?: MotionPrepareEventHandler;
-    onEnterPrepare?: MotionPrepareEventHandler;
-    onLeavePrepare?: MotionPrepareEventHandler;
-
-    // Normal motion groups
-    onAppearStart?: MotionEventHandler;
-    onEnterStart?: MotionEventHandler;
-    onLeaveStart?: MotionEventHandler;
-
-    onAppearActive?: MotionEventHandler;
-    onEnterActive?: MotionEventHandler;
-    onLeaveActive?: MotionEventHandler;
-
-    onAppearEnd?: MotionEndEventHandler;
-    onEnterEnd?: MotionEndEventHandler;
-    onLeaveEnd?: MotionEndEventHandler;
-
-    // Special
-    /** This will always trigger after final visible changed. Even if no motion configured. */
-    onVisibleChanged?: (visible: boolean) => void;
-
-    internalRef?: React.Ref<any>;
-
-    children?: (
-        props: {
-            visible?: boolean;
-            className?: string;
-            style?: React.CSSProperties;
-            [key: string]: any;
-        },
-        ref: (node: any) => void
-    ) => React.ReactElement;
-}
-
-export interface CSSMotionState {
-    status?: MotionStatus;
-    statusActive?: boolean;
-    newStatus?: boolean;
-    statusStyle?: React.CSSProperties;
-    prevProps?: CSSMotionProps;
-}
 
 /**
  * `transitionSupport` is used for none transition test case.

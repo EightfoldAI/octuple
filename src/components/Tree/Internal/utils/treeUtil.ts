@@ -1,6 +1,6 @@
 import React from 'react';
-import { omit } from '../../../../shared/omit';
-import toArray from '../../../../shared/toArray';
+import { omit } from '../../../../shared/utilities/omit';
+import toArray from '../../../../shared/utilities/toArray';
 import {
     DataNode,
     FlattenNode,

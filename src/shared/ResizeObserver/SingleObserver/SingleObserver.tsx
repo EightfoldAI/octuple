@@ -7,11 +7,11 @@ import React, {
     useMemo,
     useRef,
 } from 'react';
-import { composeRef } from '../../ref';
-import { findDOMNode } from '../../utilities';
+import { composeRef } from '../../utilities/ref';
+import { findDOMNode } from '../../utilities/findDOMNode';
 import { observe, unobserve } from '../Utils/observerUtil';
 import type { ResizeObserverProps } from '../ResizeObserver';
-import { DomWrapper } from '../../DomWrapper';
+import { DomWrapper } from '../../utilities/domWrapper';
 import { CollectionContext } from '../Collection';
 
 export interface SingleObserverProps extends ResizeObserverProps {

@@ -1,8 +1,8 @@
 import React from 'react';
 import { act } from 'react-dom/test-utils';
-import { mergeClasses } from '../../../shared/utilities';
+import { mergeClasses } from '../../../shared/utilities/mergeClasses';
 import { render, fireEvent } from '@testing-library/react';
-import type { CSSMotionProps } from '../CSSMotion';
+import type { CSSMotionProps } from '../CSSMotion.types';
 import RefCSSMotion, { genCSSMotion } from '../CSSMotion';
 import ReactDOM from 'react-dom';
 

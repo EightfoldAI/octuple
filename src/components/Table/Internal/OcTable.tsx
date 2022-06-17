@@ -6,13 +6,11 @@ import React, {
     useRef,
     useState,
 } from 'react';
-import {
-    getTargetScrollBarSize,
-    isStyleSupport,
-    isVisible,
-} from '../../../shared/utilities';
-import { pickAttrs } from '../../../shared/pickAttrs';
-import { mergeClasses } from '../../../shared/utilities';
+import { isStyleSupport } from '../../../shared/utilities/styleChecker';
+import { getTargetScrollBarSize } from '../../../shared/utilities/getScrollBarSize';
+import { isVisible } from '../../../shared/utilities/isVisible';
+import { pickAttrs } from '../../../shared/utilities/pickAttrs';
+import { mergeClasses } from '../../../shared/utilities/mergeClasses';
 import shallowEqual from 'shallowequal';
 import {
     ResizeObserver,

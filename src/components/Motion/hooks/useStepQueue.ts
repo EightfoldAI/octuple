@@ -1,13 +1,13 @@
 import React from 'react';
 import useState from '../../../hooks/useState';
-import type { StepStatus, MotionStatus } from '../Motion.types';
+import type { StepStatus, MotionStatus } from '../CSSMotion.types';
 import {
     STEP_PREPARE,
     STEP_ACTIVE,
     STEP_START,
     STEP_ACTIVATED,
     STEP_NONE,
-} from '../Motion.types';
+} from '../CSSMotion.types';
 import useNextFrame from './useNextFrame';
 import useIsomorphicLayoutEffect from './useIsomorphicLayoutEffect';
 

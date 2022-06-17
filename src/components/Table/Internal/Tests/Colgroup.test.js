@@ -1,7 +1,7 @@
 import React from 'react';
 import Enzyme, { mount } from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
-import OcTable, { INTERNAL_COL_DEFINE } from '../';
+import OcTable, { INTERNAL_COL_DEFINE } from '..';
 
 Enzyme.configure({ adapter: new Adapter() });
 

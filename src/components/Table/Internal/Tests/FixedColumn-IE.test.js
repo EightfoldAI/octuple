@@ -4,8 +4,8 @@ import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import { act } from 'react-dom/test-utils';
 import { spyElementPrototype } from './utils/domHook';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { isStyleSupport } from '../../../../shared/utilities';
-import OcTable from '../';
+import { isStyleSupport } from '../../../../shared/utilities/styleChecker';
+import OcTable from '..';
 import { ResizeObserver } from '../../../../shared/ResizeObserver/ResizeObserver';
 
 Enzyme.configure({ adapter: new Adapter() });

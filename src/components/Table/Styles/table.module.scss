@@ -1,11 +1,10 @@
 @import './mixins';
 
-$table-header-icon-color: #bfbfbf;
-$table-header-icon-color-hover: darken($table-header-icon-color, 10%);
+$table-header-icon-color: var(--primary-color);
+$table-header-icon-color-hover: var(--primary-color-80);
 $table-sticky-zindex: 3;
-$table-sticky-scroll-bar-active-bg: fade($table-sticky-scroll-bar-bg, 80%);
+$table-sticky-scroll-bar-active-bg: transparent;
 $table-filter-dropdown-max-height: 264px;
-$shadow-color: rgba(0, 0, 0, 0.15);
 
 .table-wrapper {
     clear: both;
@@ -291,7 +290,7 @@ $shadow-color: rgba(0, 0, 0, 0.15);
     }
 
     &-column-sorters:hover &-column-sorter {
-        color: darken($table-header-icon-color, 10%);
+        color: $table-header-icon-color-hover;
     }
 
     &-filter-column {
@@ -651,13 +650,13 @@ $shadow-color: rgba(0, 0, 0, 0.15);
             position: relative;
 
             &:before {
-                box-shadow: inset 10px 0 8px -8px darken($shadow-color, 5%);
+                box-shadow: inset 32px 0 8px -32px rgba(15, 20, 31, 0.08);
             }
         }
 
         .table-cell-fix-left-first:after,
         .table-cell-fix-left-last:after {
-            box-shadow: inset 10px 0 8px -8px darken($shadow-color, 5%);
+            box-shadow: inset 32px 0 8px -32px rgba(15, 20, 31, 0.08);
         }
 
         .table-cell-fix-left-last:before {
@@ -670,13 +669,13 @@ $shadow-color: rgba(0, 0, 0, 0.15);
             position: relative;
 
             &:after {
-                box-shadow: inset -10px 0 8px -8px darken($shadow-color, 5%);
+                box-shadow: inset -32px 0 8px -32px rgba(15, 20, 31, 0.08);
             }
         }
 
         .table-cell-fix-right-first:after,
         .table-cell-fix-right-last:after {
-            box-shadow: inset -10px 0 8px -8px darken($shadow-color, 5%);
+            box-shadow: inset -32px 0 8px -32px rgba(15, 20, 31, 0.08);
         }
     }
 

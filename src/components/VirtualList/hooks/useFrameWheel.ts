@@ -1,5 +1,5 @@
 import { useRef } from 'react';
-import raf from '../../../shared/raf';
+import raf from '../../../shared/utilities/raf';
 import isFF from '../Utils/isFirefox';
 import useOriginScroll from './useOriginScroll';
 

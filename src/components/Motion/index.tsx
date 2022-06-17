@@ -1,6 +1,11 @@
-import CSSMotion, { CSSMotionProps } from './CSSMotion';
-import CSSMotionList, { CSSMotionListProps } from './CSSMotionList';
-import { MotionEventHandler, MotionEndEventHandler } from './Motion.types';
+import CSSMotion from './CSSMotion';
+import CSSMotionList from './CSSMotionList';
+import {
+    CSSMotionProps,
+    CSSMotionListProps,
+    MotionEventHandler,
+    MotionEndEventHandler,
+} from './CSSMotion.types';
 
 export {
     CSSMotionProps,

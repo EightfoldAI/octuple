@@ -100,43 +100,6 @@ describe('Table', () => {
         expect(wrapper.find('tbody').props().id).toBe('wrapper2');
     });
 
-    it('props#columnsPageRange and props#columnsPageSize do not warn anymore', () => {
-        const data = [
-            {
-                key: '1',
-                age: 32,
-            },
-            {
-                key: '2',
-                age: 42,
-            },
-        ];
-
-        const errorSpy = jest
-            .spyOn(console, 'error')
-            .mockImplementation(() => {});
-
-        const columnsPageRange = jest.fn();
-        const columnsPageSize = jest.fn();
-        mount(
-            <Table
-                dataSource={data}
-                rowkey="key"
-                columnsPageRange={columnsPageRange}
-                columnsPageSize={columnsPageSize}
-            >
-                <Column title="Age" dataIndex="age" key="age" />
-            </Table>
-        );
-
-        expect(errorSpy).not.toHaveBeenCalledWith(
-            '`columnsPageRange` and `columnsPageSize` are removed, please use fixed columns instead, see: https://u.ant.design/fixed-columns.'
-        );
-
-        expect(columnsPageRange).not.toHaveBeenCalled();
-        expect(columnsPageSize).not.toHaveBeenCalled();
-    });
-
     it('support onHeaderCell', () => {
         const onClick = jest.fn();
         const wrapper = mount(

@@ -1,6 +1,6 @@
 import React, { useMemo, useState } from 'react';
 import { mergeClasses } from '../../../shared/utilities';
-import { eventKeys } from '../../../shared/eventKeys';
+import { eventKeys } from '../../../shared/utilities/eventKeys';
 import type {
     TransformColumns,
     ColumnsType,

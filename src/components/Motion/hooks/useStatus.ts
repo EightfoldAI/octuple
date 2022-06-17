@@ -9,20 +9,20 @@ import {
     STEP_PREPARE,
     STEP_START,
     STEP_ACTIVE,
-} from '../Motion.types';
+} from '../CSSMotion.types';
 import type {
     MotionStatus,
     MotionEventHandler,
     MotionEvent,
     MotionPrepareEventHandler,
     StepStatus,
-} from '../Motion.types';
-import type { CSSMotionProps } from '../CSSMotion';
+} from '../CSSMotion.types';
+import type { CSSMotionProps } from '../CSSMotion.types';
 import useStepQueue, { DoStep, SkipStep, isActive } from './useStepQueue';
 import useDomMotionEvents from './useDomMotionEvents';
 import useIsomorphicLayoutEffect from './useIsomorphicLayoutEffect';
 
-export default function useStatus(
+export const useStatus = (
     supportMotion: boolean,
     visible: boolean,
     getElement: () => HTMLElement,
@@ -46,7 +46,7 @@ export default function useStatus(
         onLeaveEnd,
         onVisibleChanged,
     }: CSSMotionProps
-): [MotionStatus, StepStatus, React.CSSProperties, boolean] {
+): [MotionStatus, StepStatus, React.CSSProperties, boolean] => {
     // Used for outer render usage to avoid `visible: false & status: none` to render nothing
     const [asyncVisible, setAsyncVisible] = useState<boolean>();
     const [status, setStatus] = useState<MotionStatus>(STATUS_NONE);
@@ -242,4 +242,4 @@ export default function useStatus(
     }
 
     return [status, step, mergedStyle, asyncVisible ?? visible];
-}
+};

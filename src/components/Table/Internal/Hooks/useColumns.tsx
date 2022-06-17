@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import toArray from '../../../../shared/toArray';
+import toArray from '../../../../shared/utilities/toArray';
 import type {
     ColumnsType,
     ColumnType,
@@ -10,7 +10,7 @@ import type {
     RenderExpandIcon,
     ColumnGroupType,
 } from '../OcTable.types';
-import { INTERNAL_COL_DEFINE } from '../Utilities/legacyUtil';
+import { INTERNAL_COL_DEFINE } from '../constant';
 import { EXPAND_COLUMN } from '../constant';
 
 import styles from '../octable.module.scss';

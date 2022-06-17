@@ -1,8 +1,7 @@
-/* eslint-disable react/no-multi-comp */
 import React from 'react';
 import Enzyme, { render, mount } from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
-import { eventKeys } from '../../../shared/eventKeys';
+import { eventKeys } from '../../../shared/utilities/eventKeys';
 import Table from '../index';
 
 Enzyme.configure({ adapter: new Adapter() });

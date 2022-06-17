@@ -5,7 +5,7 @@ import {
     ScrollBarState,
 } from './VirtualList.types';
 import { mergeClasses } from '../../shared/utilities';
-import raf from '../../shared/raf';
+import raf from '../../shared/utilities/raf';
 
 function getPageY(e: React.MouseEvent | MouseEvent | TouchEvent) {
     return 'touches' in e ? e.touches[0].pageY : e.pageY;

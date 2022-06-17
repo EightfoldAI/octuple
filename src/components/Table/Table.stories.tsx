@@ -8,7 +8,7 @@ import Table from './index';
 import type { ColumnsType } from './Table.types';
 import { ResizeObserver } from '../../shared/ResizeObserver/ResizeObserver';
 import { VariableSizeGrid as Grid } from 'react-window';
-import { mergeClasses } from '../../shared/utilities';
+import { mergeClasses } from '../../shared/utilities/mergeClasses';
 import { PaginationLayoutOptions } from '../Pagination';
 import { Tooltip, TooltipTheme } from '../Tooltip';
 
