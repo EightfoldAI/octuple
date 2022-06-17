@@ -32,7 +32,12 @@ export default (
     callback: (
         step: StepStatus
     ) => Promise<void> | void | typeof SkipStep | typeof DoStep
-): [() => void, StepStatus] => {
+): ((
+    status: MotionStatus,
+    callback: (
+        step: StepStatus
+    ) => Promise<void> | void | typeof SkipStep | typeof DoStep
+) => [() => void, StepStatus]) => {
     const [step, setStep] = useState<StepStatus>(STEP_NONE);
 
     const [nextFrame, cancelNextFrame] = useNextFrame();

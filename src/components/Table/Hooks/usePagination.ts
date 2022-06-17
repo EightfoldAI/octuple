@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import type { PaginationProps } from '../../pagination';
+import type { PaginationProps } from '../../pagination/Pagination.types';
 import type { TablePaginationConfig } from '../Table.types';
 
 export const DEFAULT_PAGE_SIZE: number = 10;

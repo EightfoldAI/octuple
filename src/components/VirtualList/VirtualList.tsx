@@ -218,7 +218,7 @@ export function RawList<T>(props: ListProps<T>, ref: React.Ref<ListRef>) {
         useVirtual,
         isScrollAtTop,
         isScrollAtBottom,
-        (offsetY) => {
+        (offsetY: number) => {
             syncScrollTop((top) => {
                 const newTop = top + offsetY;
                 return newTop;
@@ -227,14 +227,18 @@ export function RawList<T>(props: ListProps<T>, ref: React.Ref<ListRef>) {
     );
 
     // Mobile touch move
-    useMobileTouchMove(useVirtual, componentRef, (deltaY, smoothOffset) => {
-        if (originScroll(deltaY, smoothOffset)) {
-            return false;
-        }
+    useMobileTouchMove(
+        useVirtual,
+        componentRef,
+        (deltaY: number, smoothOffset: boolean) => {
+            if (originScroll(deltaY, smoothOffset)) {
+                return false;
+            }
 
-        onRawWheel({ preventDefault() {}, deltaY } as WheelEvent);
-        return true;
-    });
+            onRawWheel({ preventDefault() {}, deltaY } as WheelEvent);
+            return true;
+        }
+    );
 
     useLayoutEffect(() => {
         // Firefox only

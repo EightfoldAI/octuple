@@ -6,7 +6,7 @@ import type {
     OcTableProps,
 } from './Internal/OcTable.types';
 import { GetRowKey, ExpandableConfig } from './Internal/OcTable.types';
-import type { TooltipProps } from '../tooltip';
+import type { TooltipProps } from '../tooltip/Tooltip.types';
 import type { CheckboxProps } from '../Selectors';
 import type { PaginationProps } from '../Pagination';
 import type { Breakpoint } from '../../shared/utilities/responsiveObserve';

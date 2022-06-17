@@ -22,7 +22,31 @@ import useStepQueue, { DoStep, SkipStep, isActive } from './useStepQueue';
 import useDomMotionEvents from './useDomMotionEvents';
 import useIsomorphicLayoutEffect from './useIsomorphicLayoutEffect';
 
-export const useStatus = (
+export const useStatus: (
+    supportMotion: boolean,
+    visible: boolean,
+    getElement: () => HTMLElement,
+    {
+        motionEnter,
+        motionAppear,
+        motionLeave,
+        motionDeadline,
+        motionLeaveImmediately,
+        onAppearPrepare,
+        onEnterPrepare,
+        onLeavePrepare,
+        onAppearStart,
+        onEnterStart,
+        onLeaveStart,
+        onAppearActive,
+        onEnterActive,
+        onLeaveActive,
+        onAppearEnd,
+        onEnterEnd,
+        onLeaveEnd,
+        onVisibleChanged,
+    }: CSSMotionProps
+) => [MotionStatus, StepStatus, React.CSSProperties, boolean] = (
     supportMotion: boolean,
     visible: boolean,
     getElement: () => HTMLElement,
