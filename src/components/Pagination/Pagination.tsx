@@ -58,7 +58,7 @@ export const Pagination: FC<PaginationProps> = React.forwardRef(
                 pageSizes.indexOf(pageSize) > -1 ? pageSize : pageSizes[0]
             );
             jumpToPage?.(currentPage);
-        }, []);
+        }, [total]);
 
         const previous = (): void => {
             const oldVal: number = _currentPage;
