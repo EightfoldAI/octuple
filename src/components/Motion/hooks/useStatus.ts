@@ -1,6 +1,6 @@
 import React from 'react';
 import { useRef, useEffect } from 'react';
-import useSafeState from '../../../hooks/useState';
+import { useSafeState } from '../../../hooks/useState';
 import {
     STATUS_APPEAR,
     STATUS_NONE,
@@ -11,16 +11,16 @@ import {
     STEP_ACTIVE,
 } from '../CSSMotion.types';
 import type {
+    CSSMotionProps,
     MotionStatus,
     MotionEventHandler,
     MotionEvent,
     MotionPrepareEventHandler,
     StepStatus,
 } from '../CSSMotion.types';
-import type { CSSMotionProps } from '../CSSMotion.types';
 import { DoStep, SkipStep, isActive, useStepQueue } from './useStepQueue';
-import useDomMotionEvents from './useDomMotionEvents';
-import useIsomorphicLayoutEffect from './useIsomorphicLayoutEffect';
+import { useDomMotionEvents } from './useDomMotionEvents';
+import { useIsomorphicLayoutEffect } from './useIsomorphicLayoutEffect';
 
 export const useStatus = (
     supportMotion: boolean,

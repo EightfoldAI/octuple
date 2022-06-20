@@ -1,5 +1,5 @@
 import React from 'react';
-import useSafeState from '../../../hooks/useState';
+import { useSafeState } from '../../../hooks/useState';
 import type { StepStatus, MotionStatus } from '../CSSMotion.types';
 import {
     STEP_PREPARE,
@@ -8,8 +8,8 @@ import {
     STEP_ACTIVATED,
     STEP_NONE,
 } from '../CSSMotion.types';
-import useNextFrame from './useNextFrame';
-import useIsomorphicLayoutEffect from './useIsomorphicLayoutEffect';
+import { useNextFrame } from './useNextFrame';
+import { useIsomorphicLayoutEffect } from './useIsomorphicLayoutEffect';
 
 const STEP_QUEUE: StepStatus[] = [
     STEP_PREPARE,

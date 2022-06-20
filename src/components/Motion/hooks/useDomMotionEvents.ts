@@ -3,7 +3,7 @@ import { useRef } from 'react';
 import { animationEndName, transitionEndName } from '../Utilities/motion';
 import type { MotionEvent } from '../CSSMotion.types';
 
-export default (
+export const useDomMotionEvents = (
     callback: (event: MotionEvent) => void
 ): [(element: HTMLElement) => void, (element: HTMLElement) => void] => {
     const cacheElementRef = useRef<HTMLElement>();

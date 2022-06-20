@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef } from 'react';
-import useState from './useState';
+import { useSafeState } from './useState';
 
 /**
  * Similar to `useState` but will use props value if provided.
@@ -23,7 +23,7 @@ export const useMergedState: <T, R = T>(
     }
 ): [R, (value: T, ignoreDestroy?: boolean) => void] => {
     const { defaultValue, value, onChange, postState } = option || {};
-    const [innerValue, setInnerValue] = useState<T>(() => {
+    const [innerValue, setInnerValue] = useSafeState<T>(() => {
         if (value !== undefined) {
             return value;
         }

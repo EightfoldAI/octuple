@@ -1,7 +1,7 @@
 import React from 'react';
 import raf from '../../../shared/utilities/raf';
 
-export default (): [
+export const useNextFrame = (): [
     (callback: (info: { isCanceled: () => boolean }) => void) => void,
     () => void
 ] => {

@@ -1,13 +1,13 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
-import useState from './useState';
+import { useSafeState } from './useState';
 
-describe('useState', () => {
+describe('useSafeState', () => {
     it('not throw', (done) => {
         const errorSpy = jest.spyOn(console, 'error');
 
         const Demo = () => {
-            const [val, setValue] = useState(0);
+            const [val, setValue] = useSafeState(0);
 
             React.useEffect(
                 () => () => {
