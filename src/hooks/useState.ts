@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import * as React from 'react';
 
 type Updater<T> = T | ((prevValue: T) => T);
 
@@ -22,7 +22,7 @@ export default function useSafeState<T>(
     const destroyRef: React.MutableRefObject<boolean> = React.useRef(false);
     const [value, setValue] = React.useState(defaultValue);
 
-    useEffect(() => {
+    React.useEffect(() => {
         destroyRef.current = false;
 
         return () => {
