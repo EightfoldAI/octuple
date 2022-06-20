@@ -1,6 +1,6 @@
 import React from 'react';
 import { useRef, useEffect } from 'react';
-import useState from '../../../hooks/useState';
+import useSafeState from '../../../hooks/useState';
 import {
     STATUS_APPEAR,
     STATUS_NONE,
@@ -48,9 +48,11 @@ export const useStatus = (
     }: CSSMotionProps
 ): [MotionStatus, StepStatus, React.CSSProperties, boolean] => {
     // Used for outer render usage to avoid `visible: false & status: none` to render nothing
-    const [asyncVisible, setAsyncVisible] = useState<boolean>();
-    const [status, setStatus] = useState<MotionStatus>(STATUS_NONE);
-    const [style, setStyle] = useState<React.CSSProperties | undefined>(null);
+    const [asyncVisible, setAsyncVisible] = useSafeState<boolean>();
+    const [status, setStatus] = useSafeState<MotionStatus>(STATUS_NONE);
+    const [style, setStyle] = useSafeState<React.CSSProperties | undefined>(
+        null
+    );
 
     const mountedRef = useRef(false);
     const deadlineRef = useRef(null);

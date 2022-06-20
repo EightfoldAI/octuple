@@ -1,5 +1,5 @@
 import React from 'react';
-import useState from '../../../hooks/useState';
+import useSafeState from '../../../hooks/useState';
 import type { StepStatus, MotionStatus } from '../CSSMotion.types';
 import {
     STEP_PREPARE,
@@ -33,7 +33,7 @@ export const useStepQueue = (
         step: StepStatus
     ) => Promise<void> | void | typeof SkipStep | typeof DoStep
 ): [() => void, StepStatus] => {
-    const [step, setStep] = useState<StepStatus>(STEP_NONE);
+    const [step, setStep] = useSafeState<StepStatus>(STEP_NONE);
 
     const [nextFrame, cancelNextFrame] = useNextFrame();
 
