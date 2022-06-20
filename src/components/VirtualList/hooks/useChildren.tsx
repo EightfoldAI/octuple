@@ -9,7 +9,7 @@ export default function useChildren<T>(
     setNodeRef: (item: T, element: HTMLElement) => void,
     renderFunc: RenderFunc<T>,
     { getKey }: SharedConfig<T>
-): JSX.Element[] {
+) {
     return list.slice(startIndex, endIndex + 1).map((item, index) => {
         const eleIndex = startIndex + index;
         const node = renderFunc(item, eleIndex, {
