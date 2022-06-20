@@ -6,9 +6,9 @@ import { mergeClasses } from '../../shared/utilities/mergeClasses';
 import { getTransitionName, supportTransition } from './Utilities/motion';
 import type { CSSMotionConfig, CSSMotionProps } from './CSSMotion.types';
 import { STATUS_NONE, STEP_PREPARE, STEP_START } from './CSSMotion.types';
-import { useStatus } from './Hooks/useStatus';
+import * as useStatus from './Hooks/useStatus';
 import { DomWrapper } from '../../shared/utilities/domWrapper';
-import { isActive } from './Hooks/useStepQueue';
+import * as useStepQueue from './Hooks/useStepQueue';
 
 /**
  * `transitionSupport` is used for none transition test case.
@@ -62,12 +62,8 @@ export function genCSSMotion(
             }
         }
 
-        const [status, statusStep, statusStyle, mergedVisible] = useStatus(
-            supportMotion,
-            visible,
-            getDomElement,
-            props
-        );
+        const [status, statusStep, statusStyle, mergedVisible] =
+            useStatus.default(supportMotion, visible, getDomElement, props);
 
         // Record whether content has rendered
         // Will return null for un-rendered even when `removeOnLeave={false}`
@@ -114,7 +110,7 @@ export function genCSSMotion(
             let statusSuffix: string;
             if (statusStep === STEP_PREPARE) {
                 statusSuffix = 'prepare';
-            } else if (isActive(statusStep)) {
+            } else if (useStepQueue.isActive(statusStep)) {
                 statusSuffix = 'active';
             } else if (statusStep === STEP_START) {
                 statusSuffix = 'start';

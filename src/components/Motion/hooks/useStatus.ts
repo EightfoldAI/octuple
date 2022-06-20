@@ -18,11 +18,11 @@ import type {
     StepStatus,
 } from '../CSSMotion.types';
 import type { CSSMotionProps } from '../CSSMotion.types';
-import useStepQueue, { DoStep, SkipStep, isActive } from './useStepQueue';
+import * as useStepQueue from './useStepQueue';
 import useDomMotionEvents from './useDomMotionEvents';
 import useIsomorphicLayoutEffect from './useIsomorphicLayoutEffect';
 
-export const useStatus = (
+export default function useStatus(
     supportMotion: boolean,
     visible: boolean,
     getElement: () => HTMLElement,
@@ -46,7 +46,7 @@ export const useStatus = (
         onLeaveEnd,
         onVisibleChanged,
     }: CSSMotionProps
-): [MotionStatus, StepStatus, React.CSSProperties, boolean] => {
+): [MotionStatus, StepStatus, React.CSSProperties, boolean] {
     // Used for outer render usage to avoid `visible: false & status: none` to render nothing
     const [asyncVisible, setAsyncVisible] = useState<boolean>();
     const [status, setStatus] = useState<MotionStatus>(STATUS_NONE);
@@ -125,12 +125,12 @@ export const useStatus = (
         }
     }, [status]);
 
-    const [startStep, step] = useStepQueue(status, (newStep) => {
+    const [startStep, step] = useStepQueue.default(status, (newStep) => {
         // Only prepare step can be skip
         if (newStep === STEP_PREPARE) {
             const onPrepare = eventHandlers[STEP_PREPARE];
             if (!onPrepare) {
-                return SkipStep;
+                return useStepQueue.SkipStep;
             }
 
             return onPrepare(getDomElement());
@@ -157,10 +157,10 @@ export const useStatus = (
             }
         }
 
-        return DoStep;
+        return useStepQueue.DoStep;
     });
 
-    const active = isActive(step);
+    const active = useStepQueue.isActive(step);
     activeRef.current = active;
 
     // ============================ Status ============================
@@ -242,4 +242,4 @@ export const useStatus = (
     }
 
     return [status, step, mergedStyle, asyncVisible ?? visible];
-};
+}

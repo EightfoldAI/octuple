@@ -7,7 +7,6 @@
         "experimentalDecorators": true,
         "jsx": "react",
         "module": "commonjs",
-        "moduleResolution": "node",
         "noImplicitAny": true,
         "noImplicitReturns": true,
         "noUnusedLocals": false,
