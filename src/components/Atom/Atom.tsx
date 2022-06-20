@@ -4,7 +4,7 @@ import { AtomProps } from './Atom.types';
 
 export const Atom = React.forwardRef(
     ({ of, children, classes = [], ...props }, ref): JSX.Element => {
-        const computedClassName = mergeClasses(classes);
+        const computedClassName = mergeClasses([...classes, 'oct-component']);
         return React.createElement(
             of,
             { ...props, ref, className: computedClassName },
