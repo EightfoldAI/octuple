@@ -51,7 +51,7 @@ module.exports = (_, { mode }) => ({
     },
     plugins: [
         new MiniCssExtractPlugin({
-            filename: 'lib/[name].css',
+            filename: '[name].css',
         }),
     ],
     resolve: {
