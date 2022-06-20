@@ -16,12 +16,7 @@ module.exports = (_, { mode }) => ({
             },
             {
                 test: /\.s[ca]ss|css$/,
-                exclude: [
-                    /node_modules/,
-                    /src\/components\/Motion/,
-                    /src\/components\/VirtualList/,
-                    /src\shared\/ResizeObserver/,
-                ],
+                exclude: /node_modules/,
                 include: path.resolve(__dirname, 'src'),
                 use: [
                     mode === 'production'
