@@ -10,6 +10,7 @@ import {
 import { TinyColor } from '@ctrl/tinycolor';
 import generate from './generate';
 import OcThemes, { themeDefaults } from './themes';
+import { themeGenerator } from './themeGenerator';
 
 const THEME_CONTAINER_ID = 'octuple-theme';
 
@@ -21,7 +22,7 @@ interface Options {
 }
 
 export function getStyle(themeOptions: ThemeOptions): IGetStyle {
-    const variables: Variables = {};
+    let variables: Variables = {};
 
     const fillColor = (
         colorPalettes: string[],
@@ -115,6 +116,14 @@ export function getStyle(themeOptions: ThemeOptions): IGetStyle {
     // ================= Font Size ==================
     if (theme.fontSize) {
         variables[`font-size`] = `${theme.fontSize}px`;
+    }
+
+    // ================= Tabs theme ==================
+    if (theme.tabsTheme) {
+        variables = {
+            ...variables,
+            ...themeGenerator(theme.tabsTheme, 'tab'),
+        };
     }
 
     return {
