@@ -4,7 +4,7 @@ import { StrictMode } from 'react';
 import { act } from 'react-dom/test-utils';
 import type { RenderOptions } from '@testing-library/react';
 import { render } from '@testing-library/react';
-import { _rs as onLibResize } from '../shared/ResizeObserver/Utils/observerUtil';
+import { _rs as onLibResize } from '../shared/ResizeObserver/utils/observerUtil';
 
 export function setMockDate(dateString = '2022-09-07T03:30:07.795'): void {
     MockDate.set(dateString);
