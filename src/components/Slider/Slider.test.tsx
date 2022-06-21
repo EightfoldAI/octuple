@@ -1,7 +1,7 @@
+import React from 'react';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import Enzyme, { mount, ReactWrapper } from 'enzyme';
 import MatchMediaMock from 'jest-matchmedia-mock';
-import React from 'react';
 
 import { Slider } from './';
 

@@ -1,5 +1,5 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react';
 import React from 'react';
+import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 import { Slider } from './';
 
@@ -15,7 +15,7 @@ const Slider_Story: ComponentStory<typeof Slider> = (args) => (
 const sliderArgs: Object = {
     ariaLabel: 'Slider',
     autoFocus: false,
-    className: 'my-slider',
+    classNames: 'my-slider',
     disabled: false,
     id: 'mySliderId',
     min: 100,

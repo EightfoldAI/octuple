@@ -1,24 +1,43 @@
 import React, { FC, useLayoutEffect, useRef, useState } from 'react';
 
 import { mergeClasses } from '../../shared/utilities';
-import styles from './slider.module.scss';
 import { SliderMarker, SliderProps } from './Slider.types';
+import styles from './slider.module.scss';
 
 const thumbDiameter: number = +styles.thumbDiameter;
 const markerWidth: number = +styles.markerWidth;
 
-function asc(a: number, b: number) {
+/**
+ * For use with Array.sort to sort numbers in ascending order.
+ * @param a   The first number for sort comparison.
+ * @param b   The  vsecond number for sort comparison.
+ * @returns   The difference between the numbers.
+ */
+function asc(a: number, b: number): number {
     return a - b;
 }
 
-export function valueToPercent(value: number, min: number, max: number) {
+/**
+ * Provides the percentage representation of the provide value
+ * based upon where it sits between the minimum and maximum value.
+ *
+ * @param value   The value to convert to percentage.
+ * @param min     Minimum possible value.
+ * @param max     Maximum possible value.
+ * @returns       The percentage presentation of the provided value.
+ */
+export function valueToPercent(
+    value: number,
+    min: number,
+    max: number
+): number {
     return ((value - min) * 100) / (max - min);
 }
 
 export const Slider: FC<SliderProps> = ({
     ariaLabel,
     autoFocus = false,
-    className,
+    classNames,
     disabled = false,
     id,
     min = 0,
@@ -30,17 +49,19 @@ export const Slider: FC<SliderProps> = ({
     step = 1,
     value,
 }) => {
-    const isRange = Array.isArray(value);
-    const [values, setValues] = useState(isRange ? value.sort(asc) : [value]);
+    const isRange: boolean = Array.isArray(value);
+    const [values, setValues] = useState<number[]>(
+        isRange ? value.sort(asc) : [value]
+    );
     const railRef = useRef<HTMLDivElement>(null);
     const lowerLabelRef = useRef<HTMLInputElement>(null);
     const upperLabelRef = useRef<HTMLInputElement>(null);
     const trackRef = useRef<HTMLDivElement>(null);
-    let [showMinLabel, setShowMinLabel] = useState(showLabels);
-    let [showMaxLabel, setShowMaxLabel] = useState(showLabels);
+    let [showMinLabel, setShowMinLabel] = useState<boolean>(showLabels);
+    let [showMaxLabel, setShowMaxLabel] = useState<boolean>(showLabels);
     let [markers, setMarkers] = useState<SliderMarker[]>([]);
 
-    function getIdentifier(baseString: string, index: number): string {
+    const getIdentifier = (baseString: string, index: number): string => {
         if (!baseString) {
             return '';
         }
@@ -49,23 +70,23 @@ export const Slider: FC<SliderProps> = ({
             idTokens.push(index);
         }
         return idTokens.join('-');
-    }
+    };
 
-    function handleChange(newVal: number, index: number) {
+    const handleChange = (newVal: number, index: number) => {
         const newValues = [...values];
         newValues.splice(index, 1, newVal);
         newValues.sort(asc);
         setValues(newValues);
         onChange?.(isRange ? [...newValues] : newValues[0]);
-    }
+    };
 
-    function isMarkerActive(markerValue: number): boolean {
+    const isMarkerActive = (markerValue: number): boolean => {
         const markerPct = valueToPercent(markerValue, min, max);
         return isRange
             ? markerPct >= valueToPercent(values[0], min, max) &&
                   markerPct <= valueToPercent(values[1], min, max)
             : markerPct <= valueToPercent(values[0], min, max);
-    }
+    };
 
     const getValueOffset = (
         val: number,
@@ -159,7 +180,7 @@ export const Slider: FC<SliderProps> = ({
                 [styles.sliderDisabled]: disabled,
             })}
         >
-            <div className={mergeClasses(styles.slider, className)}>
+            <div className={mergeClasses(styles.slider, classNames)}>
                 <div ref={railRef} className={styles.sliderRail} />
                 <div ref={trackRef} className={styles.sliderTrack} />
                 {markers.map((mark, index) => {

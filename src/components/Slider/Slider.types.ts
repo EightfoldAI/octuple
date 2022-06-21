@@ -1,3 +1,5 @@
+import { OcBaseProps } from '../OcBase';
+
 export interface SliderMarker {
     /**
      * The step value of the marker.
@@ -25,7 +27,8 @@ export interface SliderProps extends SliderInputProps {
     showMarkers?: boolean;
 }
 
-export interface SliderInputProps {
+export interface SliderInputProps
+    extends Omit<OcBaseProps<HTMLInputElement>, 'onChange' | 'value'> {
     /**
      * The input aria label text.
      */
@@ -35,11 +38,6 @@ export interface SliderInputProps {
      * @default false
      */
     autoFocus?: boolean;
-    /**
-     * The input class names.
-     * NOTE: For range sliders, each input's className will have an index value added.
-     */
-    className?: string;
     /**
      * The input disabled state.
      * @default false
