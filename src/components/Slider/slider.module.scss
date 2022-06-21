@@ -17,7 +17,6 @@ $marker-top: $vertical-center - ($marker-height / 2);
 // Export these values for typescript consumption.
 :export {
     thumbDiameter: strip-units($slider-height);
-    markerWidth: strip-units($marker-width);
 }
 
 .slider-container {

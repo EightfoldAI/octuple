@@ -1,11 +1,11 @@
 import React, { FC, useLayoutEffect, useRef, useState } from 'react';
 
-import { mergeClasses } from '../../shared/utilities';
+import { mergeClasses, visuallyHidden } from '../../shared/utilities';
 import { SliderMarker, SliderProps } from './Slider.types';
 import styles from './slider.module.scss';
 
 const thumbDiameter: number = +styles.thumbDiameter;
-const markerWidth: number = +styles.markerWidth;
+const thumbRadius = thumbDiameter / 2;
 
 /**
  * For use with Array.sort to sort numbers in ascending order.
@@ -88,14 +88,11 @@ export const Slider: FC<SliderProps> = ({
             : markerPct <= valueToPercent(values[0], min, max);
     };
 
-    const getValueOffset = (
-        val: number,
-        valDiameter: number,
-        inputWidth: number
-    ): number => {
-        const valRadius = valDiameter / 2;
+    const getValueOffset = (val: number): number => {
+        const inputWidth = railRef.current?.offsetWidth || 0;
         return (
-            ((val - min) / (max - min)) * (inputWidth - valDiameter) + valRadius
+            ((val - min) / (max - min)) * (inputWidth - thumbDiameter) +
+            thumbRadius
         );
     };
 
@@ -111,11 +108,7 @@ export const Slider: FC<SliderProps> = ({
                           const markVal = min + step * index;
                           return {
                               value: markVal,
-                              offset: `${getValueOffset(
-                                  markVal,
-                                  markerWidth,
-                                  inputWidth
-                              )}px`,
+                              offset: `${getValueOffset(markVal)}px`,
                           };
                       }
                   )
@@ -127,16 +120,8 @@ export const Slider: FC<SliderProps> = ({
             return;
         }
 
-        const lowerThumbOffset = getValueOffset(
-            values[0],
-            thumbDiameter,
-            inputWidth
-        );
-        const upperThumbOffset = getValueOffset(
-            values[1],
-            thumbDiameter,
-            inputWidth
-        );
+        const lowerThumbOffset = getValueOffset(values[0]);
+        const upperThumbOffset = getValueOffset(values[1]);
         const rangeWidth = isRange
             ? upperThumbOffset - lowerThumbOffset
             : lowerThumbOffset;
@@ -184,12 +169,14 @@ export const Slider: FC<SliderProps> = ({
                 <div ref={railRef} className={styles.sliderRail} />
                 <div ref={trackRef} className={styles.sliderTrack} />
                 {markers.map((mark, index) => {
-                    // Omitting the first and last marker based on design.
-                    const isVisuallyHidden =
+                    const isFirstOrLast =
                         index === 0 || index === markers.length - 1;
-
-                    const style = { left: mark.offset };
-                    return isVisuallyHidden ? undefined : (
+                    const style = {
+                        // Hiding the first and last marker based on design.
+                        ...(isFirstOrLast && visuallyHidden),
+                        left: mark.offset,
+                    };
+                    return (
                         <div
                             key={index}
                             className={mergeClasses(styles.railMarker, {
