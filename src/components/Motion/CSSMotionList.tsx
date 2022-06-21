@@ -6,7 +6,7 @@ import {
     CSSMotionListProps,
     CSSMotionListState,
 } from './CSSMotion.types';
-import { supportTransition } from './Utilities/motion';
+import { supportTransition } from './utilities/motion';
 import {
     STATUS_ADD,
     STATUS_KEEP,
@@ -14,7 +14,7 @@ import {
     STATUS_REMOVED,
     diffKeys,
     parseKeys,
-} from './Utilities/diff';
+} from './utilities/diff';
 
 /**
  * Generate a CSSMotionList component with config

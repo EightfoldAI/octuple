@@ -10,13 +10,13 @@ import {
     ScrollStyle,
 } from './VirtualList.types';
 import type { GetKey, SharedConfig } from './VirtualList.types';
-import useChildren from './Hooks/useChildren';
-import useHeights from './Hooks/useHeights';
-import useScrollTo from './Hooks/useScrollTo';
-import useDiffItem from './Hooks/useDiffItem';
-import { useFrameWheel } from './Hooks/useFrameWheel';
-import { useMobileTouchMove } from './Hooks/useMobileTouchMove';
-import { useOriginScroll } from './Hooks/useOriginScroll';
+import useChildren from './hooks/useChildren';
+import useHeights from './hooks/useHeights';
+import useScrollTo from './hooks/useScrollTo';
+import useDiffItem from './hooks/useDiffItem';
+import { useFrameWheel } from './hooks/useFrameWheel';
+import { useMobileTouchMove } from './hooks/useMobileTouchMove';
+import { useOriginScroll } from './hooks/useOriginScroll';
 import { useLayoutEffect } from '../../hooks/useLayoutEffect';
 
 export function RawList<T>(props: ListProps<T>, ref: React.Ref<ListRef>) {

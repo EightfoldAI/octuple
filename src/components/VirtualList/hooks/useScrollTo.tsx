@@ -1,7 +1,7 @@
 import React from 'react';
 import { wrapperRaf } from '../../../shared/utilities/raf';
 import type { GetKey, ScrollTo } from '../VirtualList.types';
-import type CacheMap from '../Utils/CacheMap';
+import type CacheMap from '../utils/CacheMap';
 
 export default function useScrollTo<T>(
     containerRef: React.RefObject<HTMLDivElement>,

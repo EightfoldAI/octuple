@@ -1,7 +1,7 @@
 import React from 'react';
 import Enzyme, { mount } from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
-import List from '../';
+import List from '..';
 
 Enzyme.configure({ adapter: new Adapter() });
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { findListDiffIndex } from '../Utils/algorithmUtil';
+import { findListDiffIndex } from '../utils/algorithmUtil';
 import type { GetKey } from '../VirtualList.types';
 
 export default function useDiffItem<T>(

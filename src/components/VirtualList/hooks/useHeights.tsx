@@ -2,7 +2,7 @@ import React, { useRef, useEffect } from 'react';
 import { findDOMNode } from '../../../shared/utilities/findDOMNode';
 import { wrapperRaf } from '../../../shared/utilities/raf';
 import type { GetKey } from '../VirtualList.types';
-import CacheMap from '../Utils/CacheMap';
+import CacheMap from '../utils/CacheMap';
 
 export default function useHeights<T>(
     getKey: GetKey<T>,
