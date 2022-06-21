@@ -16,7 +16,7 @@ const cleanup = (id: number) => {
     rafIds.delete(id);
 };
 
-export default function wrapperRaf(callback: () => void, times = 1): number {
+export const wrapperRaf = (callback: () => void, times = 1): number => {
     rafUUID += 1;
     const id: number = rafUUID;
 
@@ -41,7 +41,7 @@ export default function wrapperRaf(callback: () => void, times = 1): number {
     callRef(times);
 
     return id;
-}
+};
 
 wrapperRaf.cancel = (id: number): void => {
     const realId: number = rafIds.get(id);

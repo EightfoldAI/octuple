@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from 'react';
 import { findDOMNode } from '../../../shared/utilities/findDOMNode';
-import raf from '../../../shared/utilities/raf';
+import { wrapperRaf } from '../../../shared/utilities/raf';
 import type { GetKey } from '../VirtualList.types';
 import CacheMap from '../Utils/CacheMap';
 
@@ -15,13 +15,13 @@ export default function useHeights<T>(
     const collectRafRef = useRef<number>();
 
     function cancelRaf() {
-        raf.cancel(collectRafRef.current);
+        wrapperRaf.cancel(collectRafRef.current);
     }
 
     function collectHeight() {
         cancelRaf();
 
-        collectRafRef.current = raf(() => {
+        collectRafRef.current = wrapperRaf(() => {
             instanceRef.current.forEach((element, key) => {
                 if (element && element.offsetParent) {
                     const htmlElement = findDOMNode<HTMLElement>(element);

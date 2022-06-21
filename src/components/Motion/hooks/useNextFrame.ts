@@ -1,5 +1,5 @@
 import React from 'react';
-import raf from '../../../shared/utilities/raf';
+import { wrapperRaf } from '../../../shared/utilities/raf';
 
 export const useNextFrame = (): [
     (callback: (info: { isCanceled: () => boolean }) => void) => void,
@@ -8,7 +8,7 @@ export const useNextFrame = (): [
     const nextFrameRef = React.useRef<number>(null);
 
     function cancelNextFrame() {
-        raf.cancel(nextFrameRef.current);
+        wrapperRaf.cancel(nextFrameRef.current);
     }
 
     function nextFrame(
@@ -17,7 +17,7 @@ export const useNextFrame = (): [
     ) {
         cancelNextFrame();
 
-        const nextFrameId = raf(() => {
+        const nextFrameId = wrapperRaf(() => {
             if (delay <= 1) {
                 callback({
                     isCanceled: () => nextFrameId !== nextFrameRef.current,
