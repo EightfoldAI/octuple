@@ -1,7 +1,8 @@
-import * as React from 'react';
+import React from 'react';
 import { IconName } from '../Icon';
 import { OcBaseProps } from '../OcBase';
 import { Ref } from 'react';
+import { Value } from '../ConfigProvider';
 
 export type SelectTabEvent<E = HTMLElement> =
     | React.MouseEvent<E>
@@ -87,4 +88,20 @@ export interface TabsProps extends Omit<OcBaseProps<HTMLElement>, 'onChange'> {
      * Ref of the tabs
      */
     ref?: Ref<HTMLDivElement>;
+}
+
+export interface TabsTheme {
+    label?: Value;
+    activeLabel?: Value;
+    activeBackground?: Value;
+    hoverLabel?: Value;
+    hoverBackground?: Value;
+    indicatorColor?: Value;
+    smallActiveBackground?: Value;
+    smallHoverBackground?: Value;
+    pillLabel?: Value;
+    pillActiveLabel?: Value;
+    pillActiveBackground?: Value;
+    pillHoverLabel?: Value;
+    pillBackground?: Value;
 }

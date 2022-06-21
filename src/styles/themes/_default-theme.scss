@@ -121,4 +121,20 @@
     --white-color: #fff;
     --black-color: #000;
     --font-size: 16px;
+
+    /* ------ Tabs theme ------ */
+    --tab-label: var(--text-secondary-color);
+    --tab-active-label: var(--primary-color);
+    --tab-active-background: transparent;
+    --tab-hover-label: var(--primary-color);
+    --tab-hover-background: transparent;
+    --tab-indicator-color: var(--primary-color);
+    --tab-small-active-background: var(--primary-color-10);
+    --tab-small-hover-background: var(--primary-color-10);
+    --tab-pill-label: var(--text-secondary-color);
+    --tab-pill-active-label: var(--primary-color-80);
+    --tab-pill-active-background: var(--primary-color-10);
+    --tab-pill-hover-label: var(--primary-color);
+    --tab-pill-background: var(--grey-color-10);
+    /* ------ Tabs theme ------ */
 }
