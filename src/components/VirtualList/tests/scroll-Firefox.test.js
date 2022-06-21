@@ -4,7 +4,7 @@ import Enzyme, { mount } from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import { spyElementPrototypes } from './utils/domHook';
 import List from '../VirtualList';
-import { isFF } from '../Utils/isFirefox';
+import { isFF } from '../utils/isFirefox';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -14,7 +14,7 @@ function genData(count) {
         .map((_, index) => ({ id: String(index) }));
 }
 
-jest.mock('../Utils/isFirefox', () => true);
+jest.mock('../utils/isFirefox', () => true);
 
 describe('List.Firefox-Scroll', () => {
     let mockElement;
