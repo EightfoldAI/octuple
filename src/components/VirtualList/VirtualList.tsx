@@ -1,7 +1,7 @@
 import React from 'react';
 import { useRef, useState } from 'react';
 import { mergeClasses } from '../../shared/utilities';
-import { Filler } from './Filler';
+import Filler from './Filler';
 import { ScrollBar } from './ScrollBar';
 import {
     EMPTY_DATA,

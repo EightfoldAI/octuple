@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 import { wrapperRaf } from '../../../shared/utilities/raf';
-import { isFF } from '../utils/isFirefox';
+import isFF from '../utils/isFirefox';
 import { useOriginScroll } from './useOriginScroll';
 
 interface FireFoxDOMMouseScrollEvent {

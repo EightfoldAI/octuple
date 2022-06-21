@@ -4,7 +4,7 @@ import Enzyme, { mount } from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import { spyElementPrototypes } from './utils/domHook';
 import List from '../VirtualList';
-import { isFF } from '../utils/isFirefox';
+import isFF from '../utils/isFirefox';
 
 Enzyme.configure({ adapter: new Adapter() });
 

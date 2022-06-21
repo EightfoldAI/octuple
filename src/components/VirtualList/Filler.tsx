@@ -6,7 +6,7 @@ import { mergeClasses } from '../../shared/utilities/mergeClasses';
 /**
  * Filler component to provide the scroll content real height.
  */
-export const Filler = React.forwardRef(
+const Filler = React.forwardRef(
     (
         { height, offset, children, onInnerResize }: FillerProps,
         ref: React.Ref<HTMLDivElement>
@@ -52,3 +52,7 @@ export const Filler = React.forwardRef(
         );
     }
 );
+
+Filler.displayName = 'Filler';
+
+export default Filler;

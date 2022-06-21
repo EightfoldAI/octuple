@@ -2,7 +2,7 @@ import React from 'react';
 import Enzyme, { mount } from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import MockList from '../mock';
-import { Filler } from '../Filler';
+import Filler from '../Filler';
 
 Enzyme.configure({ adapter: new Adapter() });
 
