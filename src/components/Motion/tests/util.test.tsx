@@ -1,5 +1,5 @@
-import { getTransitionName } from '../utilities/motion';
-import { diffKeys } from '../utilities/diff';
+import { getTransitionName } from '../util/motion';
+import { diffKeys } from '../util/diff';
 
 describe('Util', () => {
     it('getTransitionName', () => {

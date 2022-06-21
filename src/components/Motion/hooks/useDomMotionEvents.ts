@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { useRef } from 'react';
-import { animationEndName, transitionEndName } from '../utilities/motion';
+import { animationEndName, transitionEndName } from '../util/motion';
 import type { MotionEvent } from '../CSSMotion.types';
 
 export const useDomMotionEvents = (

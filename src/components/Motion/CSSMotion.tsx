@@ -3,7 +3,7 @@ import { useRef } from 'react';
 import { findDOMNode } from '../../shared/utilities/findDOMNode';
 import { fillRef } from '../../shared/utilities/ref';
 import { mergeClasses } from '../../shared/utilities/mergeClasses';
-import { getTransitionName, supportTransition } from './utilities/motion';
+import { getTransitionName, supportTransition } from './util/motion';
 import type { CSSMotionConfig, CSSMotionProps } from './CSSMotion.types';
 import { STATUS_NONE, STEP_PREPARE, STEP_START } from './CSSMotion.types';
 import { useStatus } from './hooks/useStatus';

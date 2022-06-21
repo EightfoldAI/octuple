@@ -1,4 +1,4 @@
-import type { KeyObject } from './utilities/diff';
+import type { KeyObject } from './util/diff';
 
 export const MOTION_PROP_NAMES: string[] = [
     'eventProps',
