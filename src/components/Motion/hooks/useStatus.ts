@@ -1,5 +1,4 @@
-import React from 'react';
-import { useRef, useEffect } from 'react';
+import React, { useRef, useEffect } from 'react';
 import { useSafeState } from '../../../hooks/useState';
 import {
     STATUS_APPEAR,

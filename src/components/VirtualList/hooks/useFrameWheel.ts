@@ -1,19 +1,19 @@
 import { useRef } from 'react';
 import { wrapperRaf } from '../../../shared/utilities/raf';
-import isFF from '../Utils/isFirefox';
-import useOriginScroll from './useOriginScroll';
+import { isFF } from '../Utils/isFirefox';
+import { useOriginScroll } from './useOriginScroll';
 
 interface FireFoxDOMMouseScrollEvent {
     detail: number;
     preventDefault: Function;
 }
 
-export default function useFrameWheel(
+export const useFrameWheel = (
     inVirtual: boolean,
     isScrollAtTop: boolean,
     isScrollAtBottom: boolean,
     onWheelDelta: (offset: number) => void
-): [(e: WheelEvent) => void, (e: FireFoxDOMMouseScrollEvent) => void] {
+): [(e: WheelEvent) => void, (e: FireFoxDOMMouseScrollEvent) => void] => {
     const offsetRef = useRef(0);
     const nextFrameRef = useRef<number>(null);
 
@@ -57,4 +57,4 @@ export default function useFrameWheel(
     }
 
     return [onWheel, onFireFoxScroll];
-}
+};

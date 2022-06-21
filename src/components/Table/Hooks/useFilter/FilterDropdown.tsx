@@ -23,11 +23,10 @@ import type {
 } from '../../Table.types';
 import FilterDropdownMenuWrapper from './FilterWrapper';
 import FilterSearch from './FilterSearch';
-import type { FilterState } from '.';
-import { flattenKeys } from '.';
+import type { FilterState } from './index';
+import { flattenKeys } from './index';
 import { useSyncState } from '../../../../hooks/useSyncState';
 import { IconName, IconSize } from '../../../Icon';
-import { List, ItemLayout } from '../../../List';
 import { useCanvasDirection } from '../../../../hooks/useCanvasDirection';
 
 import styles from '../../Styles/table.module.scss';

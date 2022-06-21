@@ -4,9 +4,9 @@ import { ResizeObserver } from '../../shared/ResizeObserver/ResizeObserver';
 import { mergeClasses } from '../../shared/utilities/mergeClasses';
 
 /**
- * Fill component to provided the scroll content real height.
+ * Filler component to provide the scroll content real height.
  */
-const Filler = React.forwardRef(
+export const Filler = React.forwardRef(
     (
         { height, offset, children, onInnerResize }: FillerProps,
         ref: React.Ref<HTMLDivElement>
@@ -52,7 +52,3 @@ const Filler = React.forwardRef(
         );
     }
 );
-
-Filler.displayName = 'Filler';
-
-export default Filler;

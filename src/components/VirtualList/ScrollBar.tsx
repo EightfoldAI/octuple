@@ -11,10 +11,7 @@ function getPageY(e: React.MouseEvent | MouseEvent | TouchEvent) {
     return 'touches' in e ? e.touches[0].pageY : e.pageY;
 }
 
-export default class ScrollBar extends React.Component<
-    ScrollBarProps,
-    ScrollBarState
-> {
+export class ScrollBar extends React.Component<ScrollBarProps, ScrollBarState> {
     moveRaf: number = null;
 
     scrollbarRef = React.createRef<HTMLDivElement>();

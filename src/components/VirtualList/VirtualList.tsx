@@ -1,8 +1,8 @@
 import React from 'react';
 import { useRef, useState } from 'react';
 import { mergeClasses } from '../../shared/utilities';
-import Filler from './Filler';
-import ScrollBar from './ScrollBar';
+import { Filler } from './Filler';
+import { ScrollBar } from './ScrollBar';
 import {
     EMPTY_DATA,
     ListProps,
@@ -14,9 +14,9 @@ import useChildren from './Hooks/useChildren';
 import useHeights from './Hooks/useHeights';
 import useScrollTo from './Hooks/useScrollTo';
 import useDiffItem from './Hooks/useDiffItem';
-import useFrameWheel from './Hooks/useFrameWheel';
-import useMobileTouchMove from './Hooks/useMobileTouchMove';
-import useOriginScroll from './Hooks/useOriginScroll';
+import { useFrameWheel } from './Hooks/useFrameWheel';
+import { useMobileTouchMove } from './Hooks/useMobileTouchMove';
+import { useOriginScroll } from './Hooks/useOriginScroll';
 import { useLayoutEffect } from '../../hooks/useLayoutEffect';
 
 export function RawList<T>(props: ListProps<T>, ref: React.Ref<ListRef>) {
@@ -33,7 +33,7 @@ export function RawList<T>(props: ListProps<T>, ref: React.Ref<ListRef>) {
         component: Component = 'div',
         onScroll,
         onVisibleChange,
-        ...restProps
+        ...rest
     } = props;
 
     // ================================= MISC =================================
@@ -334,7 +334,7 @@ export function RawList<T>(props: ListProps<T>, ref: React.Ref<ListRef>) {
                 position: 'relative',
             }}
             className={mergedClassName}
-            {...restProps}
+            {...rest}
         >
             <Component
                 className={'virtual-list-holder'}

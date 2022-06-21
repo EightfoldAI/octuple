@@ -1,6 +1,9 @@
 import { useRef } from 'react';
 
-export default (isScrollAtTop: boolean, isScrollAtBottom: boolean) => {
+export const useOriginScroll = (
+    isScrollAtTop: boolean,
+    isScrollAtBottom: boolean
+) => {
     // Do lock for a wheel when scrolling
     const lockRef = useRef(false);
     const lockTimeoutRef = useRef(null);

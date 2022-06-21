@@ -3,8 +3,8 @@ import { act } from 'react-dom/test-utils';
 import Enzyme, { mount } from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import { spyElementPrototypes } from './utils/domHook';
-import List from '..';
-import isFF from '../Utils/isFirefox';
+import List from '../VirtualList';
+import { isFF } from '../Utils/isFirefox';
 
 Enzyme.configure({ adapter: new Adapter() });
 

@@ -3,11 +3,11 @@ import { useLayoutEffect } from '../../../hooks/useLayoutEffect';
 
 const SMOOTH_PTG = 14 / 15;
 
-export default function useMobileTouchMove(
+export const useMobileTouchMove = (
     inVirtual: boolean,
     listRef: React.RefObject<HTMLDivElement>,
     callback: (offsetY: number, smoothOffset?: boolean) => boolean
-) {
+) => {
     const touchedRef = useRef(false);
     const touchYRef = useRef(0);
 
@@ -78,4 +78,4 @@ export default function useMobileTouchMove(
             clearInterval(intervalRef.current);
         };
     }, [inVirtual]);
-}
+};
