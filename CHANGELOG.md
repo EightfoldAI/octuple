@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.12.0](https://github.com/EightfoldAI/octuple/compare/v1.11.2...v1.12.0) (2022-06-22)
+
+### Features
+
+-   add Slider component ([#190](https://github.com/EightfoldAI/octuple/issues/190)) ([8c8712d](https://github.com/EightfoldAI/octuple/commits/8c8712db1abbd31d3e408b4e378031949b23d581))
+
+### Bug Fixes
+
+-   interaction bugs in input, accordion and buttons ([#198](https://github.com/EightfoldAI/octuple/issues/198)) ([f5c1246](https://github.com/EightfoldAI/octuple/commits/f5c1246bd4a31ad8c9796a0830820dddd5b2a20b))
+
 ### [1.11.2](https://github.com/EightfoldAI/octuple/compare/v1.11.1...v1.11.2) (2022-06-22)
 
 ### Features
