@@ -1,6 +1,6 @@
 import React, { FC, useState, useEffect, Ref } from 'react';
 
-import { mergeClasses } from '../../shared/utilities/mergeClasses';
+import { mergeClasses } from '../../shared/utilities';
 import { Dropdown } from '../Dropdown';
 import { Menu } from '../Menu';
 import { TextInput, TextInputProps, TextInputWidth } from '../Inputs';

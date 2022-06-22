@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import toArray from './toArray';
+import { toArray } from './';
 
 describe('toArray', () => {
     class UL extends React.Component {

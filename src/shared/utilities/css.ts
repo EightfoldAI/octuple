@@ -111,7 +111,7 @@ export const getClientSize = (): {
  * Utility to get the scroll position.
  * @returns The scroll position.
  */
-export const getScroll = (): {
+export const getScrollPosition = (): {
     scrollLeft: number;
     scrollTop: number;
 } => {

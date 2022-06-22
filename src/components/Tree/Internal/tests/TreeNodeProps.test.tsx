@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
-import Tree, { TreeNode } from '../';
+import Tree, { TreeNode } from '..';
 import { spyConsole } from './util';
 
 describe('TreeNode Props', () => {

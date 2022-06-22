@@ -2,7 +2,7 @@ import React from 'react';
 import Enzyme, { mount } from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import { act } from 'react-dom/test-utils';
-import { spyElementPrototype } from './utils/domHook';
+import { spyElementPrototype } from '../../../../tests/domHook';
 import OcTable, { INTERNAL_COL_DEFINE } from '..';
 import { ResizeObserver } from '../../../../shared/ResizeObserver/ResizeObserver';
 
@@ -36,7 +36,7 @@ describe('Table.FixedHeader', () => {
                 columns={[col1, col2, col3]}
                 data={[{ light: 'bamboo', bamboo: 'light', key: 1 }]}
                 scroll={{ y: 10 }}
-                expandable={{
+                expandableConfig={{
                     expandIcon: () => <div className="expand-icon" />,
                 }}
             />
@@ -108,7 +108,7 @@ describe('Table.FixedHeader', () => {
                 columns={[col1, col2]}
                 data={[{ light: 'bamboo', bamboo: 'light', key: 1 }]}
                 scroll={{ y: 10 }}
-                expandable={{
+                expandableConfig={{
                     expandIcon: () => <div className="expand-icon" />,
                 }}
             />
@@ -146,7 +146,7 @@ describe('Table.FixedHeader', () => {
                     x: true,
                     y: 100,
                 }}
-                expandable={{
+                expandableConfig={{
                     expandIcon: () => <div className="expand-icon" />,
                 }}
             />
@@ -166,7 +166,7 @@ describe('Table.FixedHeader', () => {
                 scroll={{
                     y: 100,
                 }}
-                expandable={{
+                expandableConfig={{
                     expandIcon: () => <div className="expand-icon" />,
                 }}
             />
@@ -189,7 +189,7 @@ describe('Table.FixedHeader', () => {
                 columns={[col1]}
                 data={[{ light: 'bamboo', bamboo: 'light', key: 1 }]}
                 scroll={{ y: 10 }}
-                expandable={{
+                expandableConfig={{
                     expandIcon: () => <div className="expand-icon" />,
                 }}
             />

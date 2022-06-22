@@ -9,9 +9,9 @@ import { GetRowKey, ExpandableConfig } from './Internal/OcTable.types';
 import type { TooltipProps } from '../Tooltip/Tooltip.types';
 import type { CheckboxProps } from '../Selectors';
 import type { PaginationProps } from '../Pagination';
-import type { Breakpoint } from '../../shared/utilities/responsiveObserve';
+import type { Breakpoint } from '../../shared/utilities';
+import { tuple } from '../../shared/utilities';
 import type { INTERNAL_SELECTION_ITEM } from './Hooks/useSelection';
-import { tuple } from '../../shared/utilities/types';
 import { FilterState } from './Hooks/useFilter';
 import { SortState } from './Hooks/useSorter';
 import { SpinnerProps } from '../Spinner';
@@ -210,6 +210,7 @@ export interface TableProps<RecordType>
         OcTableProps<RecordType>,
         'data' | 'columns' | 'scroll' | 'emptyText'
     > {
+    alternateRowColor?: boolean;
     dataSource?: OcTableProps<RecordType>['data'];
     columns?: ColumnsType<RecordType>;
     pagination?: false | TablePaginationConfig;

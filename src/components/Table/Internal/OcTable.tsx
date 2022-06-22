@@ -6,11 +6,13 @@ import React, {
     useRef,
     useState,
 } from 'react';
-import { isStyleSupport } from '../../../shared/utilities/styleChecker';
-import { getTargetScrollBarSize } from '../../../shared/utilities/getScrollBarSize';
-import { isVisible } from '../../../shared/utilities/isVisible';
-import { pickAttrs } from '../../../shared/utilities/pickAttrs';
-import { mergeClasses } from '../../../shared/utilities/mergeClasses';
+import {
+    getTargetScrollBarSize,
+    isStyleSupport,
+    isVisible,
+    mergeClasses,
+    pickAttrs,
+} from '../../../shared/utilities';
 import shallowEqual from 'shallowequal';
 import {
     ResizeObserver,
@@ -47,7 +49,7 @@ import {
 import ResizeContext from './Context/ResizeContext';
 import useStickyOffsets from './Hooks/useStickyOffsets';
 import ColGroup from './ColGroup';
-import Panel from './Panel';
+import { FrameWrapper } from './FrameWrapper/FrameWrapper';
 import Footer, { FooterComponents } from './Footer';
 import { findAllChildrenKeys, renderExpandIcon } from './Utilities/expandUtil';
 import { getCellFixedInfo } from './Utilities/fixUtil';
@@ -142,7 +144,7 @@ function OcTable<RecordType extends DefaultRecordType>(
     }, [rowKey]);
 
     // ====================== Expand ======================
-    const expandableConfig = props.expandable;
+    const expandableConfig = props.expandableConfig;
 
     const {
         expandIcon,
@@ -165,17 +167,16 @@ function OcTable<RecordType extends DefaultRecordType>(
         if (expandedRowRender) {
             return 'row';
         }
+
         /* eslint-disable no-underscore-dangle */
         /**
-         * This is a workaround to not to break current behavior.
-         * We can remove follow code after final release.
-         *
-         * To other developer:
-         *  Do not use `__PARENT_RENDER_ICON__` in prod since we will remove this when refactor
+         * TODO: investigate removal of use `__PARENT_RENDER_ICON__` condition.
+         * This is required to remove the hidden icon button in the first cell
+         * of each row when the row is not expandable in tree mode.
          */
         if (
-            (props.expandable &&
-                (props.expandable as any).__PARENT_RENDER_ICON__) ||
+            (props.expandableConfig &&
+                (props.expandableConfig as any).__PARENT_RENDER_ICON__) ||
             mergedData.some(
                 (record) =>
                     record &&
@@ -186,6 +187,7 @@ function OcTable<RecordType extends DefaultRecordType>(
             return 'nest';
         }
         /* eslint-enable */
+
         return false;
     }, [!!expandedRowRender, mergedData]);
 
@@ -193,6 +195,7 @@ function OcTable<RecordType extends DefaultRecordType>(
         if (defaultExpandedRowKeys) {
             return defaultExpandedRowKeys;
         }
+
         if (defaultExpandAllRows) {
             return findAllChildrenKeys<RecordType>(
                 mergedData,
@@ -200,6 +203,7 @@ function OcTable<RecordType extends DefaultRecordType>(
                 mergedChildrenColumnName
             );
         }
+
         return [];
     });
     const mergedExpandedKeys = useMemo(
@@ -676,8 +680,7 @@ function OcTable<RecordType extends DefaultRecordType>(
 
     let fullTable = (
         <div
-            className={mergeClasses?.([
-                classNames,
+            className={mergeClasses([
                 styles.table,
                 { [styles.tableRtl]: direction === 'rtl' },
                 { [styles.tablePingLeft]: pingedLeft },
@@ -696,6 +699,7 @@ function OcTable<RecordType extends DefaultRecordType>(
                         flattenColumns[flattenColumns.length - 1].fixed ===
                             'right',
                 },
+                classNames,
             ])}
             style={style}
             id={id}
@@ -708,15 +712,15 @@ function OcTable<RecordType extends DefaultRecordType>(
                 props={{ ...props, stickyOffsets, mergedExpandedKeys }}
             >
                 {title && (
-                    <Panel classNames={styles.tableTitle}>
+                    <FrameWrapper classNames={styles.tableTitle}>
                         {title(mergedData)}
-                    </Panel>
+                    </FrameWrapper>
                 )}
                 <div className={styles.tableContainer}>{groupTableNode}</div>
                 {footer && (
-                    <Panel classNames={styles.tableFooter}>
+                    <FrameWrapper classNames={styles.tableFooter}>
                         {footer(mergedData)}
-                    </Panel>
+                    </FrameWrapper>
                 )}
             </MemoTableContent>
         </div>

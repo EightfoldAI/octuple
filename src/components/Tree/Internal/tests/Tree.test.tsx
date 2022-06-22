@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
-import { spyElementPrototypes } from './domHook';
-import Tree, { TreeNode } from '../';
+import { spyElementPrototypes } from '../../../../tests/domHook';
+import Tree, { TreeNode } from '..';
 import { objectMatcher, spyConsole } from './util';
 
 const OPEN_CLASSNAME = 'tree-switcher_open';

@@ -70,7 +70,7 @@ describe('Table.FixedColumn', () => {
                             columns={columns}
                             data={testData}
                             scroll={scroll}
-                            expandable={{
+                            expandableConfig={{
                                 expandIcon: () => (
                                     <div className="expand-icon" />
                                 ),
@@ -123,7 +123,7 @@ describe('Table.FixedColumn', () => {
                     ]}
                     data={[]}
                     scroll={{ x: 'max-content' }}
-                    expandable={{
+                    expandableConfig={{
                         expandIcon: () => <div className="expand-icon" />,
                     }}
                 />
@@ -140,7 +140,7 @@ describe('Table.FixedColumn', () => {
                 data={data}
                 scroll={{ x: true }}
                 style={{ width: 2000 }}
-                expandable={{
+                expandableConfig={{
                     expandIcon: () => <div className="expand-icon" />,
                 }}
             />
@@ -210,7 +210,7 @@ describe('Table.FixedColumn', () => {
             <OcTable
                 columns={myColumns}
                 data={data}
-                expandable={{
+                expandableConfig={{
                     expandIcon: () => <div className="expand-icon" />,
                 }}
             />
@@ -229,7 +229,7 @@ describe('Table.FixedColumn', () => {
                 data={data}
                 direction="rtl"
                 scroll={{ x: 1 }}
-                expandable={{
+                expandableConfig={{
                     expandIcon: () => <div className="expand-icon" />,
                 }}
             />

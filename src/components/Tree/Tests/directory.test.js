@@ -1,14 +1,14 @@
 import React from 'react';
 import Enzyme, { mount, render } from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
-import debounce from 'lodash/debounce';
+import { debounce } from '../../../shared/utilities';
 import Tree from '../index';
 
 Enzyme.configure({ adapter: new Adapter() });
 
 const { DirectoryTree, TreeNode } = Tree;
 
-jest.mock('lodash/debounce');
+jest.mock('../../../shared/utilities/debounce');
 
 describe('Directory Tree', () => {
     debounce.mockImplementation((fn) => fn);

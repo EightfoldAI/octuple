@@ -207,7 +207,7 @@ describe('Table.rowSelection', () => {
     it('fix expand on th left when selection column fixed on the left', () => {
         const wrapper = mount(
             createTable({
-                expandable: {
+                expandableConfig: {
                     expandedRowRender() {
                         return <div />;
                     },
@@ -361,7 +361,7 @@ describe('Table.rowSelection', () => {
                             ],
                         },
                     ],
-                    expandable: {
+                    expandableConfig: {
                         childrenColumnName: 'childList',
                         defaultExpandAllRows: true,
                     },

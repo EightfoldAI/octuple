@@ -18,7 +18,7 @@ describe('Table.Hover', () => {
             <OcTable
                 columns={columns}
                 data={data}
-                expandable={{
+                expandableConfig={{
                     expandIcon: () => <div className="expand-icon" />,
                 }}
                 {...props}

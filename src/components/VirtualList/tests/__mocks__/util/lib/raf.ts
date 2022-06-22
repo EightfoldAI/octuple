@@ -1,9 +1,9 @@
-function raf(callback: Function) {
+function requestAnimationFrame(callback: Function) {
     return setTimeout(callback);
 }
 
-raf.cancel = (id: number) => {
+requestAnimationFrame.cancel = (id: number) => {
     clearTimeout(id);
 };
 
-export default raf;
+export default requestAnimationFrame;

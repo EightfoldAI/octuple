@@ -3,9 +3,8 @@ import { render } from '@testing-library/react';
 import { useMergedState } from './useMergedState';
 
 describe('useMergedState', () => {
-    const FC = (props: { value?: string; defaultValue?: string }) => {
-        const { value, defaultValue } = props;
-        const [val, setVal] = useMergedState(null, { value, defaultValue });
+    const FC = ({ value }: { value: string }) => {
+        const [val, setVal] = useMergedState('empty', { value });
         return (
             <input
                 value={val}
@@ -26,7 +25,7 @@ describe('useMergedState', () => {
     });
 
     it('correct defaultValue', () => {
-        const { container } = render(<FC defaultValue="test" />);
+        const { container } = render(<FC value="test" />);
 
         expect(container.querySelector('input').value).toEqual('test');
     });

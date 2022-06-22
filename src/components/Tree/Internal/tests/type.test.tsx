@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import Tree, { BasicDataNode } from '../';
+import Tree, { BasicDataNode } from '..';
 
 describe('Tree.TypeScript', () => {
     it('fieldNames', () => {

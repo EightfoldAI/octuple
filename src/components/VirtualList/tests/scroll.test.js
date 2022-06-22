@@ -2,7 +2,7 @@ import React from 'react';
 import { act } from 'react-dom/test-utils';
 import Enzyme, { mount } from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
-import { spyElementPrototypes } from './utils/domHook';
+import { spyElementPrototypes } from '../../../tests/domHook';
 import List from '../';
 
 Enzyme.configure({ adapter: new Adapter() });

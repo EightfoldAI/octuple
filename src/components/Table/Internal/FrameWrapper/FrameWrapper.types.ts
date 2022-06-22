@@ -1,6 +1,6 @@
 import React from 'react';
 
-export interface TitleProps {
+export interface FrameWrapperProps {
     classNames: string;
     children: React.ReactNode;
 }

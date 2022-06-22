@@ -3,12 +3,12 @@ $border-color: var(--grey-color-20);
 $border: $border-width solid $border-color;
 
 @mixin clearfix() {
-    &::before {
+    &:before {
         display: table;
         content: '';
     }
 
-    &::after {
+    &:after {
         display: table;
         clear: both;
         content: '';

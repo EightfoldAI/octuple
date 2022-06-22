@@ -6,8 +6,8 @@ import React, {
     useMemo,
     useRef,
 } from 'react';
-import { mergeClasses } from '../../shared/utilities';
-import { omit } from '../../shared/utilities/omit';
+import type { Breakpoint } from '../../shared/utilities';
+import { mergeClasses, omit, scrollTo } from '../../shared/utilities';
 import OcTable, { Summary } from './Internal';
 import type { OcTableProps } from './Internal/OcTable.types';
 import { convertChildrenToColumns } from './Internal/Hooks/useColumns';
@@ -18,7 +18,6 @@ import usePagination, {
     getPaginationParam,
 } from './Hooks/usePagination';
 import useLazyKVMap from './Hooks/useLazyKVMap';
-import type { Breakpoint } from '../../shared/utilities/responsiveObserve';
 import type {
     ChangeEventInfo,
     ColumnGroupType,
@@ -44,7 +43,6 @@ import type { FilterState } from './Hooks/useFilter';
 import useFilter, { getFilterData } from './Hooks/useFilter';
 import useTitleColumns from './Hooks/useTitleColumns';
 import renderExpandIcon from './ExpandIcon';
-import scrollTo from '../../shared/utilities/scrollTo';
 import SizeContext from './Internal/Context/SizeContext';
 import Column from './Internal/Column';
 import ColumnGroup from './Internal/ColumnGroup';
@@ -61,6 +59,7 @@ function InternalTable<RecordType extends object = any>(
     ref: React.MutableRefObject<HTMLDivElement>
 ) {
     const {
+        alternateRowColor = true,
         classNames,
         style,
         size: customizeSize,
@@ -90,7 +89,7 @@ function InternalTable<RecordType extends object = any>(
         onChange,
         getPopupContainer,
         loading,
-        expandable,
+        expandableConfig,
         indentSize,
         scroll,
         sortDirections,
@@ -137,18 +136,18 @@ function InternalTable<RecordType extends object = any>(
     const mergedSize = customizeSize || size;
     const rawData: readonly RecordType[] = dataSource || EMPTY_LIST;
 
-    const mergedExpandable: ExpandableConfig<RecordType> = {
-        ...expandable,
+    const mergedExpandableConfig: ExpandableConfig<RecordType> = {
+        ...expandableConfig,
     };
 
-    const { childrenColumnName = 'children' } = mergedExpandable;
+    const { childrenColumnName = 'children' } = mergedExpandableConfig;
 
     const expandType: ExpandType = useMemo<ExpandType>(() => {
         if (rawData.some((item) => (item as any)?.[childrenColumnName])) {
             return 'nest';
         }
 
-        if (expandable?.expandedRowRender) {
+        if (expandableConfig?.expandedRowRender) {
             return 'row';
         }
 
@@ -409,11 +408,14 @@ function InternalTable<RecordType extends object = any>(
 
     // ========================== Expandable ==========================
 
-    mergedExpandable.expandIcon = renderExpandIcon(expandText, collapseText);
+    mergedExpandableConfig.expandIcon = renderExpandIcon(
+        expandText,
+        collapseText
+    );
 
     // Indent size
-    if (typeof mergedExpandable.indentSize !== 'number') {
-        mergedExpandable.indentSize =
+    if (typeof mergedExpandableConfig.indentSize !== 'number') {
+        mergedExpandableConfig.indentSize =
             typeof indentSize === 'number' ? indentSize : 15;
     }
 
@@ -527,11 +529,13 @@ function InternalTable<RecordType extends object = any>(
                 {...tableProps}
                 columns={mergedColumns as OcTableProps<RecordType>['columns']}
                 direction={htmlDir}
-                expandable={mergedExpandable}
+                expandableConfig={mergedExpandableConfig}
                 classNames={mergeClasses([
                     styles.table,
+                    { [styles.tableRtl]: htmlDir === 'rtl' },
                     { [styles.tableMedium]: mergedSize === 'medium' },
                     { [styles.tableSmall]: mergedSize === 'small' },
+                    { [styles.tableAlternate]: alternateRowColor },
                     { [styles.tableBordered]: bordered },
                     { [styles.tableEmpty]: rawData.length === 0 },
                 ])}

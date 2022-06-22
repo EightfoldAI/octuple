@@ -17,7 +17,7 @@ describe('Table.ColGroup', () => {
         const wrapper = mount(
             <OcTable
                 columns={columns}
-                expandable={{
+                expandableConfig={{
                     expandIcon: () => <div className="expand-icon" />,
                 }}
             />
@@ -38,7 +38,7 @@ describe('Table.ColGroup', () => {
         const wrapper = mount(
             <OcTable
                 columns={columns}
-                expandable={{
+                expandableConfig={{
                     expandIcon: () => <div className="expand-icon" />,
                 }}
             />

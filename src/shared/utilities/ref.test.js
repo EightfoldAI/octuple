@@ -1,7 +1,7 @@
 /* eslint-disable no-eval */
 import React from 'react';
 import { render } from '@testing-library/react';
-import { composeRef, useComposeRef } from './ref';
+import { composeRef, useComposeRef } from './';
 
 describe('ref', () => {
     describe('composeRef', () => {

@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import Tree from '../';
+import Tree from '..';
 import MotionTreeNode from '../MotionTreeNode';
 import { TreeContext } from '../contextTypes';
 import { getMinimumRangeTransitionRange } from '../NodeList';
@@ -10,7 +10,6 @@ jest.mock('../../../Motion', () => {
 
     return {
         ...origin,
-        supportTransition: () => true,
     };
 });
 

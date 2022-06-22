@@ -77,9 +77,6 @@ export function getVendorPrefixedEventName(eventName: string) {
 
 const internalAnimationEndName = getVendorPrefixedEventName('animationend');
 const internalTransitionEndName = getVendorPrefixedEventName('transitionend');
-export const supportTransition = !!(
-    internalAnimationEndName && internalTransitionEndName
-);
 
 export const animationEndName = internalAnimationEndName || 'animationend';
 export const transitionEndName = internalTransitionEndName || 'transitionend';

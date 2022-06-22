@@ -223,9 +223,9 @@ export interface OcTableProps<RecordType = unknown> {
     // Fixed Columns
     scroll?: { x?: number | true | string; y?: number | string };
 
-    // Expandable
+    // expandableConfig
     /** Config expand rows */
-    expandable?: ExpandableConfig<RecordType>;
+    expandableConfig?: ExpandableConfig<RecordType>;
     indentSize?: number;
     rowClassName?: string | RowClassName<RecordType>;
 

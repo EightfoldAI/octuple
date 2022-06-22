@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import toArray from '../../../../shared/utilities/toArray';
+import { toArray } from '../../../../shared/utilities';
 import type {
     ColumnsType,
     ColumnType,

@@ -1,7 +1,6 @@
 import React from 'react';
-import { mergeClasses } from '../../shared/utilities';
+import { debounce, mergeClasses } from '../../shared/utilities';
 import type OcTree from './Internal';
-import debounce from 'lodash/debounce';
 import { conductExpandParent } from './Internal/util';
 import type { EventDataNode, DataNode, Key } from './Internal/OcTree.types';
 import {
@@ -113,12 +112,11 @@ const DirectoryTree: React.ForwardRefRenderFunction<
         }
 
         // Call internal tree expand function
-        treeRef.current!.onNodeExpand(event as any, node);
+        debounce(() => {
+            treeRef.current!.onNodeExpand(event as any, node);
+        }, 200);
     };
 
-    const onDebounceExpand = debounce(expandFolderNode, 200, {
-        leading: true,
-    });
     const onExpand = (
         keys: Key[],
         info: {
@@ -142,7 +140,7 @@ const DirectoryTree: React.ForwardRefRenderFunction<
 
         // Expand the tree
         if (expandAction === 'click') {
-            onDebounceExpand(event, node);
+            expandFolderNode(event, node);
         }
 
         props.onClick?.(event, node);
@@ -156,7 +154,7 @@ const DirectoryTree: React.ForwardRefRenderFunction<
 
         // Expand the tree
         if (expandAction === 'doubleClick') {
-            onDebounceExpand(event, node);
+            expandFolderNode(event, node);
         }
 
         props.onDoubleClick?.(event, node);

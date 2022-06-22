@@ -2,7 +2,7 @@ import React from 'react';
 import Enzyme, { mount } from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import { act } from 'react-dom/test-utils';
-import { spyElementPrototype } from './utils/domHook';
+import { spyElementPrototype } from '../../../../tests/domHook';
 import OcTable from '..';
 
 Enzyme.configure({ adapter: new Adapter() });
@@ -24,7 +24,7 @@ describe('Table.Expand', () => {
         <OcTable
             columns={sampleColumns}
             data={sampleData}
-            expandable={{
+            expandableConfig={{
                 expandIcon: () => <div className="expand-icon" />,
             }}
             {...props}
@@ -39,7 +39,7 @@ describe('Table.Expand', () => {
     it('pass proper parameters to expandedRowRender', () => {
         const rowRender = jest.fn(() => <div>expanded row</div>);
         const expandableProps = (props) => ({
-            expandable: { expandedRowRender: rowRender, ...props },
+            expandableConfig: { expandedRowRender: rowRender, ...props },
         });
         const wrapper = mount(createTable(expandableProps()));
         wrapper.setProps(expandableProps({ expandedRowKeys: [0] }));
@@ -59,7 +59,10 @@ describe('Table.Expand', () => {
             { key: 1, name: 'Jack', age: 28 },
         ];
         const wrapper = mount(
-            createTable({ data, expandable: { defaultExpandAllRows: true } })
+            createTable({
+                data,
+                expandableConfig: { defaultExpandAllRows: true },
+            })
         );
         expect(wrapper.find('tbody tr')).toHaveLength(3);
         expect(wrapper.render()).toMatchSnapshot();
@@ -106,7 +109,7 @@ describe('Table.Expand', () => {
         const wrapper = mount(
             createTable({
                 data,
-                expandable: {
+                expandableConfig: {
                     defaultExpandAllRows: true,
                     childrenColumnName: 'list',
                 },
@@ -149,7 +152,7 @@ describe('Table.Expand', () => {
                     columns,
                     data,
                     scroll: { x: 903 },
-                    expandable: {
+                    expandableConfig: {
                         expandedRowRender,
                         defaultExpandAllRows: true,
                     },
@@ -182,7 +185,7 @@ describe('Table.Expand', () => {
                 columns,
                 data,
                 scroll: { x: 903 },
-                expandable: { expandedRowRender, fixed: true },
+                expandableConfig: { expandedRowRender, fixed: true },
             })
         );
         const wrapper2 = mount(
@@ -190,7 +193,7 @@ describe('Table.Expand', () => {
                 columns,
                 data,
                 scroll: { x: 903 },
-                expandable: {
+                expandableConfig: {
                     expandedRowRender,
                     fixed: true,
                     expandIconColumnIndex: 3,
@@ -216,14 +219,14 @@ describe('Table.Expand', () => {
                 columns,
                 data,
                 scroll: {},
-                expandable: { expandedRowRender, fixed: true },
+                expandableConfig: { expandedRowRender, fixed: true },
             })
         );
         const wrapper2 = mount(
             createTable({
                 columns,
                 data,
-                expandable: { expandedRowRender, fixed: true },
+                expandableConfig: { expandedRowRender, fixed: true },
             })
         );
         expect(wrapper.render()).toMatchSnapshot();
@@ -245,7 +248,7 @@ describe('Table.Expand', () => {
                 columns,
                 data,
                 scroll: { x: 903 },
-                expandable: {
+                expandableConfig: {
                     expandedRowRender,
                     fixed: 'left',
                     expandIconColumnIndex: 1,
@@ -257,7 +260,7 @@ describe('Table.Expand', () => {
                 columns,
                 data,
                 scroll: { x: 903 },
-                expandable: {
+                expandableConfig: {
                     expandedRowRender,
                     fixed: 'right',
                     expandIconColumnIndex: 2,
@@ -282,7 +285,7 @@ describe('Table.Expand', () => {
         it('renders expand icon to the specify column', () => {
             const wrapper = mount(
                 createTable({
-                    expandable: {
+                    expandableConfig: {
                         expandedRowRender,
                         expandIconColumnIndex: 1,
                     },
@@ -295,7 +298,7 @@ describe('Table.Expand', () => {
             const wrapper = mount(
                 createTable({
                     columns: [...sampleColumns, OcTable.EXPAND_COLUMN],
-                    expandable: {
+                    expandableConfig: {
                         expandedRowRender,
                     },
                 })
@@ -312,7 +315,7 @@ describe('Table.Expand', () => {
                         ...sampleColumns,
                         OcTable.EXPAND_COLUMN,
                     ],
-                    expandable: {
+                    expandableConfig: {
                         expandedRowRender,
                     },
                 })
@@ -327,7 +330,7 @@ describe('Table.Expand', () => {
         it('should not render expand icon column when expandIconColumnIndex is negative', () => {
             const wrapper = mount(
                 createTable({
-                    expandable: {
+                    expandableConfig: {
                         expandedRowRender,
                         expandIconColumnIndex: -1,
                     },
@@ -339,7 +342,7 @@ describe('Table.Expand', () => {
         it('showExpandColumn = false', () => {
             const wrapper = mount(
                 createTable({
-                    expandable: {
+                    expandableConfig: {
                         expandedRowRender,
                         showExpandColumn: false,
                     },
@@ -362,7 +365,7 @@ describe('Table.Expand', () => {
         }
         const wrapper = mount(
             createTable({
-                expandable: {
+                expandableConfig: {
                     expandedRowRender,
                     expandIcon: ({ onExpand, record }) => (
                         <CustomExpandIcon onExpand={onExpand} record={record} />
@@ -386,7 +389,7 @@ describe('Table.Expand', () => {
     it('expand rows by defaultExpandedRowKeys', () => {
         const wrapper = mount(
             createTable({
-                expandable: {
+                expandableConfig: {
                     expandedRowRender,
                     defaultExpandedRowKeys: [1],
                 },
@@ -399,7 +402,7 @@ describe('Table.Expand', () => {
     it('controlled by expandedRowKeys', () => {
         const wrapper = mount(
             createTable({
-                expandable: {
+                expandableConfig: {
                     expandedRowRender,
                     expandedRowKeys: [0],
                 },
@@ -420,7 +423,7 @@ describe('Table.Expand', () => {
             .mockReturnValue('expand-row-test-class-name');
         const wrapper = mount(
             createTable({
-                expandable: {
+                expandableConfig: {
                     expandedRowRender,
                     expandedRowKeys: [0],
                     expandedRowClassName,
@@ -435,7 +438,7 @@ describe('Table.Expand', () => {
         const onExpand = jest.fn();
         const wrapper = mount(
             createTable({
-                expandable: {
+                expandableConfig: {
                     expandedRowRender,
                     onExpand,
                 },
@@ -452,7 +455,7 @@ describe('Table.Expand', () => {
         const onExpandedRowsChange = jest.fn();
         const wrapper = mount(
             createTable({
-                expandable: {
+                expandableConfig: {
                     expandedRowRender,
                     onExpandedRowsChange,
                 },
@@ -466,7 +469,7 @@ describe('Table.Expand', () => {
         const onExpand = jest.fn();
         const wrapper = mount(
             createTable({
-                expandable: {
+                expandableConfig: {
                     expandedRowRender,
                     expandRowByClick: true,
                     onExpand,
@@ -480,10 +483,10 @@ describe('Table.Expand', () => {
         expect(onExpand).toHaveBeenCalledWith(false, sampleData[0]);
     });
 
-    it('some row should not expandable', () => {
+    it('some rows should not be expandable', () => {
         const wrapper = mount(
             createTable({
-                expandable: {
+                expandableConfig: {
                     expandedRowRender,
                     rowExpandable: ({ key }) => key === 1,
                 },
@@ -509,7 +512,7 @@ describe('Table.Expand', () => {
             createTable({
                 data,
                 childrenColumnName: 'sub',
-                expandable: { defaultExpandAllRows: true },
+                expandaexpandableConfigble: { defaultExpandAllRows: true },
             })
         );
         expect(wrapper.find('tbody tr')).toHaveLength(1);
@@ -520,7 +523,7 @@ describe('Table.Expand', () => {
         const onExpand = jest.fn();
         const wrapper = mount(
             createTable({
-                expandable: {
+                expandableConfig: {
                     expandedRowRender,
                     expandRowByClick: true,
                     onExpand,
@@ -554,7 +557,7 @@ describe('Table.Expand', () => {
         const onExpand = jest.fn();
         const wrapper = mount(
             createTable({
-                expandable: {
+                expandableConfig: {
                     expandedRowRender,
                     expandRowByClick: true,
                     onExpand,
@@ -575,7 +578,7 @@ describe('Table.Expand', () => {
         const onExpand = jest.fn();
         const wrapper = mount(
             createTable({
-                expandable: {
+                expandableConfig: {
                     expandedRowRender,
                     expandRowByClick: true,
                     onExpand,
@@ -605,7 +608,7 @@ describe('Table.Expand', () => {
         const onExpand = jest.fn();
         const wrapper = mount(
             createTable({
-                expandable: {
+                expandableConfig: {
                     expandedRowRender,
                     expandRowByClick: true,
                     onExpand,

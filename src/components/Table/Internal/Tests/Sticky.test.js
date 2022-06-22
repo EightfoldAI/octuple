@@ -2,7 +2,7 @@ import React from 'react';
 import { act } from 'react-dom/test-utils';
 import Enzyme, { mount } from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
-import { spyElementPrototypes } from './utils/domHook';
+import { spyElementPrototypes } from '../../../../tests/domHook';
 import OcTable from '..';
 
 Enzyme.configure({ adapter: new Adapter() });
@@ -24,7 +24,7 @@ describe('Table.Sticky', () => {
                         columns={[col1, col2]}
                         data={[{ light: 'bamboo', bamboo: 'light', key: 1 }]}
                         sticky
-                        expandable={{
+                        expandableConfig={{
                             expandIcon: () => <div className="expand-icon" />,
                         }}
                         {...props}
@@ -114,7 +114,7 @@ describe('Table.Sticky', () => {
                     { light: 'bamboo', bamboo: 'light', key: 25 },
                     { light: 'bamboo', bamboo: 'light', key: 26 },
                 ]}
-                expandable={{
+                expandableConfig={{
                     expandIcon: () => <div className="expand-icon" />,
                 }}
                 scroll={{
@@ -260,7 +260,7 @@ describe('Table.Sticky', () => {
                                 key: '2',
                             },
                         ]}
-                        expandable={{
+                        expandableConfig={{
                             expandIcon: () => <div className="expand-icon" />,
                         }}
                         sticky
@@ -331,7 +331,7 @@ describe('Table.Sticky', () => {
                                 key: '2',
                             },
                         ]}
-                        expandable={{
+                        expandableConfig={{
                             expandIcon: () => <div className="expand-icon" />,
                         }}
                         sticky
@@ -440,7 +440,7 @@ describe('Table.Sticky', () => {
                     { light: 'bamboo', bamboo: 'light', key: 25 },
                     { light: 'bamboo', bamboo: 'light', key: 26 },
                 ]}
-                expandable={{
+                expandableConfig={{
                     expandIcon: () => <div className="expand-icon" />,
                 }}
                 scroll={{

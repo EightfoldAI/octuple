@@ -22,7 +22,7 @@ describe('Table.Summary', () => {
                 | 'columns'
                 | 'tableLayout'
                 | 'scroll'
-                | 'expandable'
+                | 'expandableConfig'
                 | 'indentSize'
                 | 'rowClassName'
                 | 'title'
@@ -48,7 +48,7 @@ describe('Table.Summary', () => {
             <OcTable
                 columns={columns}
                 data={data}
-                expandable={{
+                expandableConfig={{
                     expandIcon: () => <div className="expand-icon" />,
                 }}
                 {...props}
@@ -79,7 +79,7 @@ describe('Table.Summary', () => {
                     { dataIndex: 'c', width: 30 },
                 ]}
                 data={[{ key: 1, a: 2, b: 3, c: 4 }]}
-                expandable={{
+                expandableConfig={{
                     expandIcon: () => <div className="expand-icon" />,
                 }}
                 summary={() => (
@@ -111,7 +111,7 @@ describe('Table.Summary', () => {
                         { dataIndex: 'c', fixed: 'right', width: 30 },
                     ]}
                     data={[{ key: 1, a: 2, b: 3, c: 4 }]}
-                    expandable={{
+                    expandableConfig={{
                         expandIcon: () => <div className="expand-icon" />,
                     }}
                     scroll={{ x: 100, y: 100 }}

@@ -2,7 +2,7 @@ import React from 'react';
 import Enzyme, { mount } from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import { act } from 'react-dom/test-utils';
-import { spyElementPrototypes } from './utils/domHook';
+import { spyElementPrototypes } from '../../../../tests/domHook';
 import OcTable from '..';
 
 Enzyme.configure({ adapter: new Adapter() });
@@ -19,7 +19,7 @@ describe('Table.Scroll', () => {
             <OcTable
                 columns={columns}
                 data={data}
-                expandable={{
+                expandableConfig={{
                     expandIcon: () => <div className="expand-icon" />,
                 }}
                 {...props}
@@ -111,7 +111,7 @@ describe('Table.Scroll', () => {
                     x: 200,
                     y: 200,
                 }}
-                expandable={{
+                expandableConfig={{
                     expandIcon: () => <div className="expand-icon" />,
                 }}
             />

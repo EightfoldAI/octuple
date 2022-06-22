@@ -69,7 +69,7 @@ describe('Table.expand', () => {
                 indentSize={0}
                 columns={columns}
                 dataSource={data}
-                expandable={{
+                expandableConfig={{
                     expandIcon: () => <div className="expand-icon" />,
                 }}
             />

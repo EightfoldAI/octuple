@@ -27,7 +27,7 @@ describe('Table.Cell', () => {
                                 },
                             },
                         ]}
-                        expandable={{
+                        expandableConfig={{
                             expandIcon: () => <div className="expand-icon" />,
                         }}
                     />
@@ -72,7 +72,7 @@ describe('Table.Cell', () => {
             <OcTable
                 data={[{ key: 'light' }]}
                 columns={getColumns()}
-                expandable={{
+                expandableConfig={{
                     expandIcon: () => <div className="expand-icon" />,
                 }}
             />

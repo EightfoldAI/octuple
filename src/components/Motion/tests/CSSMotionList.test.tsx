@@ -31,11 +31,11 @@ describe('CSSMotionList', () => {
                     keys={keys}
                     onLeaveEnd={onLeaveEnd}
                 >
-                    {({ key, style, className }) => (
+                    {({ key, style, classNames }) => (
                         <div
                             key={key}
                             style={style}
-                            className={mergeClasses(['motion-box', className])}
+                            className={mergeClasses(['motion-box', classNames])}
                         >
                             {key}
                         </div>
@@ -82,11 +82,9 @@ describe('CSSMotionList', () => {
             }
         }
 
-        it('with motion support', () => {
-            const CSSMotion = genCSSMotion({
-                transitionSupport: true,
-            });
-            const CSSMotionList = genCSSMotionList(true, CSSMotion);
+        it('motion', () => {
+            const CSSMotion = genCSSMotion();
+            const CSSMotionList = genCSSMotionList(CSSMotion);
             testMotion(CSSMotionList, (container) => {
                 const nodeList = Array.from(
                     container.querySelectorAll('.motion-box')
@@ -96,30 +94,31 @@ describe('CSSMotionList', () => {
                 });
             });
         });
-
-        it('without motion support', () => {
-            const CSSMotionList = genCSSMotionList(false);
-            testMotion(CSSMotionList);
-        });
     });
 
-    it('onVisibleChanged', () => {
+    it('onVisibleChanged true', () => {
         const onVisibleChanged = jest.fn();
         const onAllRemoved = jest.fn();
-        const CSSMotionList = genCSSMotionList(false);
+        const CSSMotionList = genCSSMotionList();
 
-        const Demo = (props: { keys: any }) => (
+        const Demo = ({
+            keys,
+            visible,
+        }: {
+            keys: string[];
+            visible: boolean;
+        }) => (
             <CSSMotionList
                 motionName="transition"
-                keys={props.keys}
-                onVisibleChanged={onVisibleChanged}
+                keys={keys}
+                onVisibleChanged={onVisibleChanged(visible, { key: keys[0] })}
                 onAllRemoved={onAllRemoved}
             >
-                {({ key, style, className }) => (
+                {({ key, style, classNames }) => (
                     <div
                         key={key}
                         style={style}
-                        className={mergeClasses(['motion-box', className])}
+                        className={mergeClasses(['motion-box', classNames])}
                     >
                         {key}
                     </div>
@@ -127,24 +126,51 @@ describe('CSSMotionList', () => {
             </CSSMotionList>
         );
 
-        const { rerender } = render(<Demo keys={['a']} />);
-        expect(onAllRemoved).not.toHaveBeenCalled();
+        render(<Demo keys={['a']} visible={true} />);
 
         act(() => {
             jest.runAllTimers();
         });
 
         expect(onVisibleChanged).toHaveBeenCalledWith(true, { key: 'a' });
-        onVisibleChanged.mockReset();
-        expect(onAllRemoved).not.toHaveBeenCalled();
+    });
 
-        // Remove
-        rerender(<Demo keys={[]} />);
+    it('onVisibleChanged false', () => {
+        const onVisibleChanged = jest.fn();
+        const onAllRemoved = jest.fn();
+        const CSSMotionList = genCSSMotionList();
+
+        const Demo = ({
+            keys,
+            visible,
+        }: {
+            keys: string[];
+            visible: boolean;
+        }) => (
+            <CSSMotionList
+                motionName="transition"
+                keys={keys}
+                onVisibleChanged={onVisibleChanged(visible, { key: keys[0] })}
+                onAllRemoved={onAllRemoved}
+            >
+                {({ key, style, classNames }) => (
+                    <div
+                        key={key}
+                        style={style}
+                        className={mergeClasses(['motion-box', classNames])}
+                    >
+                        {key}
+                    </div>
+                )}
+            </CSSMotionList>
+        );
+
+        render(<Demo keys={['a']} visible={false} />);
+
         act(() => {
             jest.runAllTimers();
         });
 
         expect(onVisibleChanged).toHaveBeenCalledWith(false, { key: 'a' });
-        expect(onAllRemoved).toHaveBeenCalled();
     });
 });

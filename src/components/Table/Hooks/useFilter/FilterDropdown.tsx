@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { mergeClasses } from '../../../../shared/utilities';
-import isEqual from 'lodash/isEqual';
+import { isEqual } from '@ngard/tiny-isequal';
 import {
     ButtonSize,
     DefaultButton,

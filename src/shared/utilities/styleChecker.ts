@@ -7,7 +7,7 @@ import { canUseDom } from './canUseDom';
  * @returns {boolean}
  */
 const isStyleNameSupport = (styleName: string | string[]): boolean => {
-    if (canUseDom() && window.document.documentElement) {
+    if (canUseDom()) {
         const styleNameList = Array.isArray(styleName)
             ? styleName
             : [styleName];

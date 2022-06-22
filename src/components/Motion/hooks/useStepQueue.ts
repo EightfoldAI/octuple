@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useLayoutEffect } from 'react';
 import { useSafeState } from '../../../hooks/useState';
 import type { StepStatus, MotionStatus } from '../CSSMotion.types';
 import {
@@ -9,7 +9,6 @@ import {
     STEP_NONE,
 } from '../CSSMotion.types';
 import { useNextFrame } from './useNextFrame';
-import { useIsomorphicLayoutEffect } from './useIsomorphicLayoutEffect';
 
 const STEP_QUEUE: StepStatus[] = [
     STEP_PREPARE,
@@ -41,7 +40,7 @@ export const useStepQueue = (
         setStep(STEP_PREPARE, true);
     }
 
-    useIsomorphicLayoutEffect(() => {
+    useLayoutEffect(() => {
         if (step !== STEP_NONE && step !== STEP_ACTIVATED) {
             const index = STEP_QUEUE.indexOf(step);
             const nextStep = STEP_QUEUE[index + 1];

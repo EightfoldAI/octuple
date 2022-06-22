@@ -1,15 +1,13 @@
 import React from 'react';
 import { act } from 'react-dom/test-utils';
-import { mergeClasses } from '../../../shared/utilities/mergeClasses';
+import { mergeClasses } from '../../../shared/utilities';
 import { render, fireEvent } from '@testing-library/react';
 import type { CSSMotionProps } from '../CSSMotion.types';
 import RefCSSMotion, { genCSSMotion } from '../CSSMotion';
 import ReactDOM from 'react-dom';
 
 describe('CSSMotion', () => {
-    const CSSMotion = genCSSMotion({
-        transitionSupport: true,
-    });
+    const CSSMotion = genCSSMotion();
 
     beforeEach(() => {
         jest.useFakeTimers();
@@ -115,10 +113,10 @@ describe('CSSMotion', () => {
                 motionDeadline={233}
                 motionName="bamboo"
             >
-                {({ style, className }) => (
+                {({ style, classNames }) => (
                     <Component
                         style={style}
-                        className={mergeClasses(['motion-box', className])}
+                        className={mergeClasses(['motion-box', classNames])}
                     />
                 )}
             </CSSMotion>

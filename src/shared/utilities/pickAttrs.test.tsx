@@ -1,4 +1,4 @@
-import { pickAttrs } from './pickAttrs';
+import { pickAttrs } from './';
 
 describe('pickAttrs', () => {
     const originProps = {

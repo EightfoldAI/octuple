@@ -12,7 +12,7 @@ describe('Table.Internal', () => {
             <OcTable
                 columns={[{ dataIndex: 'key' }]}
                 data={[{ key: 233 }]}
-                expandable={{
+                expandableConfig={{
                     __PARENT_RENDER_ICON__: true,
                     expandIcon: () => <div className="expand-icon" />,
                 }}

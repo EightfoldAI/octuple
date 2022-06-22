@@ -1,17 +1,17 @@
-import { wrapperRaf } from './raf';
+import { requestAnimationFrameWrapper } from './';
 
-describe('wrapperRaf', () => {
+describe('requestAnimationFrameWrapper', () => {
     it('test Wrapper Raf', (done) => {
         jest.useRealTimers();
 
         let bamboo = false;
-        wrapperRaf(() => {
+        requestAnimationFrameWrapper(() => {
             bamboo = true;
         });
 
         expect(bamboo).toBe(false);
 
-        wrapperRaf(() => {
+        requestAnimationFrameWrapper(() => {
             expect(bamboo).toBe(true);
             done();
         });
@@ -20,11 +20,11 @@ describe('wrapperRaf', () => {
     it('cancel', (done) => {
         let bamboo = false;
 
-        const id = wrapperRaf(() => {
+        const id = requestAnimationFrameWrapper(() => {
             bamboo = true;
         }, 2);
 
-        wrapperRaf.cancel(id);
+        requestAnimationFrameWrapper.cancel(id);
 
         requestAnimationFrame(() => {
             requestAnimationFrame(() => {
@@ -39,7 +39,7 @@ describe('wrapperRaf', () => {
     it('multiple times', (done) => {
         let bamboo = false;
 
-        wrapperRaf(() => {
+        requestAnimationFrameWrapper(() => {
             bamboo = true;
         }, 2);
 

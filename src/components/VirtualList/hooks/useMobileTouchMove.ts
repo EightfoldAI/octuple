@@ -1,7 +1,6 @@
-import React, { useRef } from 'react';
-import { useLayoutEffect } from '../../../hooks/useLayoutEffect';
+import React, { useLayoutEffect, useRef } from 'react';
 
-const SMOOTH_PTG = 14 / 15;
+const SMOOTH_INERTIA_CALC = 14 / 15;
 
 export const useMobileTouchMove = (
     inVirtual: boolean,
@@ -30,9 +29,10 @@ export const useMobileTouchMove = (
             }
 
             // Smooth interval
+            // Simulates scroll inertia effect with a timer
             clearInterval(intervalRef.current);
             intervalRef.current = setInterval(() => {
-                offsetY *= SMOOTH_PTG;
+                offsetY *= SMOOTH_INERTIA_CALC;
 
                 if (!callback(offsetY, true) || Math.abs(offsetY) <= 0.1) {
                     clearInterval(intervalRef.current);

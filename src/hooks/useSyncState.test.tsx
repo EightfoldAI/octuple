@@ -5,7 +5,7 @@ import { useSyncState } from './useSyncState';
 
 Enzyme.configure({ adapter: new Adapter() });
 
-describe('Table', () => {
+describe('Table values are not the previous value', () => {
     it('useSyncState', () => {
         const Test = () => {
             const [getVal, setVal] = useSyncState('light');

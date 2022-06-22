@@ -1,5 +1,5 @@
 import React from 'react';
-import { wrapperRaf } from '../../../shared/utilities/raf';
+import { requestAnimationFrameWrapper } from '../../../shared/utilities';
 import type { GetKey, ScrollTo } from '../VirtualList.types';
 import type CacheMap from '../utils/CacheMap';
 
@@ -23,7 +23,7 @@ export default function useScrollTo<T>(
         }
 
         // Normal scroll logic
-        wrapperRaf.cancel(scrollRef.current);
+        requestAnimationFrameWrapper.cancel(scrollRef.current);
 
         if (typeof arg === 'number') {
             syncScrollTop(arg);
@@ -109,7 +109,7 @@ export default function useScrollTo<T>(
                 }
 
                 // We will retry since element may not sync height as it described
-                scrollRef.current = wrapperRaf(() => {
+                scrollRef.current = requestAnimationFrameWrapper(() => {
                     if (needCollectHeight) {
                         collectHeight();
                     }

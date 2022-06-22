@@ -1,10 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { useForceUpdate } from './useForceUpdate';
-import type {
-    Breakpoint,
-    ScreenMap,
-} from '../shared/utilities/responsiveObserve';
-import { responsiveObserve } from '../shared/utilities/responsiveObserve';
+import type { Breakpoint, ScreenMap } from '../shared/utilities';
+import { responsiveObserve } from '../shared/utilities';
 
 export const useBreakpoint: (refreshOnChange?: boolean) => ScreenMap = (
     refreshOnChange: boolean = true

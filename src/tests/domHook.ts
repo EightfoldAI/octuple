@@ -1,26 +1,34 @@
 const NO_EXIST = { __NOT_EXIST: true };
 
-export function spyElementPrototypes(Element, properties) {
+export type ElementClass = Function;
+export type Property = PropertyDescriptor | Function;
+
+export function spyElementPrototypes<T extends ElementClass>(
+    elementClass: T,
+    properties: Record<string, Property>
+) {
     const propNames = Object.keys(properties);
     const originDescriptors = {};
 
     propNames.forEach((propName) => {
         const originDescriptor = Object.getOwnPropertyDescriptor(
-            Element.prototype,
+            elementClass.prototype,
             propName
         );
-        originDescriptors[propName] = originDescriptor || NO_EXIST;
+        (originDescriptors as any)[propName] = originDescriptor || NO_EXIST;
 
         const spyProp = properties[propName];
 
         if (typeof spyProp === 'function') {
             // If is a function
-            Element.prototype[propName] = function spyFunc(...args) {
+            elementClass.prototype[propName] = function spyFunc(
+                ...args: any[]
+            ) {
                 return spyProp.call(this, originDescriptor, ...args);
             };
         } else {
-            // Otherwise tread as a property
-            Object.defineProperty(Element.prototype, propName, {
+            // Otherwise treat as a property
+            Object.defineProperty(elementClass.prototype, propName, {
                 ...spyProp,
                 set(value) {
                     if (spyProp.set) {
@@ -42,14 +50,14 @@ export function spyElementPrototypes(Element, properties) {
     return {
         mockRestore() {
             propNames.forEach((propName) => {
-                const originDescriptor = originDescriptors[propName];
+                const originDescriptor = (originDescriptors as any)[propName];
                 if (originDescriptor === NO_EXIST) {
-                    delete Element.prototype[propName];
+                    delete elementClass.prototype[propName];
                 } else if (typeof originDescriptor === 'function') {
-                    Element.prototype[propName] = originDescriptor;
+                    elementClass.prototype[propName] = originDescriptor;
                 } else {
                     Object.defineProperty(
-                        Element.prototype,
+                        elementClass.prototype,
                         propName,
                         originDescriptor
                     );
@@ -59,7 +67,11 @@ export function spyElementPrototypes(Element, properties) {
     };
 }
 
-export function spyElementPrototype(Element, propName, property) {
+export function spyElementPrototype(
+    Element: ElementClass,
+    propName: string,
+    property: Property
+) {
     return spyElementPrototypes(Element, {
         [propName]: property,
     });

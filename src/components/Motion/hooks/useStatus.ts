@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useLayoutEffect } from 'react';
 import { useSafeState } from '../../../hooks/useState';
 import {
     STATUS_APPEAR,
@@ -19,10 +19,8 @@ import type {
 } from '../CSSMotion.types';
 import { DoStep, SkipStep, isActive, useStepQueue } from './useStepQueue';
 import { useDomMotionEvents } from './useDomMotionEvents';
-import { useIsomorphicLayoutEffect } from './useIsomorphicLayoutEffect';
 
 export const useStatus = (
-    supportMotion: boolean,
     visible: boolean,
     getElement: () => HTMLElement,
     {
@@ -166,15 +164,11 @@ export const useStatus = (
 
     // ============================ Status ============================
     // Update with new status
-    useIsomorphicLayoutEffect(() => {
+    useLayoutEffect(() => {
         setAsyncVisible(visible);
 
         const isMounted = mountedRef.current;
         mountedRef.current = true;
-
-        if (!supportMotion) {
-            return;
-        }
 
         let nextStatus: MotionStatus;
 

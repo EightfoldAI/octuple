@@ -1,4 +1,4 @@
-import scrollTo from './scrollTo';
+import { scrollTo } from './';
 import { sleep } from '../../tests/Utilities';
 
 describe('Test ScrollTo function', () => {

@@ -35,7 +35,7 @@ export interface PickConfig {
 }
 
 /**
- * Picker props from exist props with filter
+ * Pick specific props from existing props
  * @param props Passed props
  * @param ariaOnly boolean | { aria?: boolean; data?: boolean; attr?: boolean; } filter config
  */

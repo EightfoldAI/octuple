@@ -78,7 +78,7 @@ const MotionTreeNode: React.ForwardRefRenderFunction<
                 onLeaveEnd={onMotionEnd}
             >
                 {(
-                    { className: motionClassName, style: motionStyle },
+                    { classNames: motionClassName, style: motionStyle },
                     motionRef
                 ) => (
                     <div

@@ -4,7 +4,7 @@
         position: relative;
 
         // Hover color
-        &::before {
+        &:before {
             position: absolute;
             top: 0;
             right: 0;
@@ -16,7 +16,7 @@
         }
 
         &:hover {
-            &::before {
+            &:before {
                 background: $tree-node-hover-bg;
             }
         }
@@ -48,8 +48,8 @@
 
         // ============= Selected =============
         &-selected {
-            &:hover::before,
-            &::before {
+            &:hover:before,
+            &:before {
                 background: $tree-directory-selected-bg;
             }
 

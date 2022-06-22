@@ -6,9 +6,11 @@ import React, {
     useMemo,
     useRef,
 } from 'react';
-import { isStyleSupport } from '../../../../shared/utilities/styleChecker';
-import { mergeClasses } from '../../../../shared/utilities/mergeClasses';
-import { fillRef } from '../../../../shared/utilities/ref';
+import {
+    fillRef,
+    isStyleSupport,
+    mergeClasses,
+} from '../../../../shared/utilities';
 import ColGroup from '../ColGroup';
 import type { ColumnsType, ColumnType } from '../OcTable.types';
 import { FixedHeaderProps } from './FixedHolder.types';

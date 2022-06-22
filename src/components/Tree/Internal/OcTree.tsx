@@ -6,9 +6,7 @@ import {
     OcTreeProps,
     OcTreeState,
 } from './OcTree.types';
-import { eventKeys } from '../../../shared/utilities/eventKeys';
-import { pickAttrs } from '../../../shared/utilities/pickAttrs';
-import { mergeClasses } from '../../../shared/utilities/mergeClasses';
+import { eventKeys, mergeClasses, pickAttrs } from '../../../shared/utilities';
 import {
     TreeContext,
     NodeMouseEventHandler,

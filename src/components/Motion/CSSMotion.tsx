@@ -1,32 +1,20 @@
 import React from 'react';
 import { useRef } from 'react';
-import { findDOMNode } from '../../shared/utilities/findDOMNode';
-import { fillRef } from '../../shared/utilities/ref';
-import { mergeClasses } from '../../shared/utilities/mergeClasses';
-import { getTransitionName, supportTransition } from './util/motion';
-import type { CSSMotionConfig, CSSMotionProps } from './CSSMotion.types';
+import {
+    DomWrapper,
+    findDOMNode,
+    fillRef,
+    mergeClasses,
+} from '../../shared/utilities';
+import { getTransitionName } from './util/motion';
+import type { CSSMotionProps } from './CSSMotion.types';
 import { STATUS_NONE, STEP_PREPARE, STEP_START } from './CSSMotion.types';
 import { useStatus } from './hooks/useStatus';
-import { DomWrapper } from '../../shared/utilities/domWrapper';
 import { isActive } from './hooks/useStepQueue';
 
-/**
- * `transitionSupport` is used for none transition test case.
- * Default we use browser transition event support check.
- */
-export function genCSSMotion(
-    config: CSSMotionConfig
-): React.ForwardRefExoticComponent<CSSMotionProps & { ref?: React.Ref<any> }> {
-    let transitionSupport = config;
-
-    if (typeof config === 'object') {
-        ({ transitionSupport } = config);
-    }
-
-    function isSupportTransition(props: CSSMotionProps) {
-        return !!(props.motionName && transitionSupport);
-    }
-
+export function genCSSMotion(): React.ForwardRefExoticComponent<
+    CSSMotionProps & { ref?: React.Ref<any> }
+> {
     const CSSMotion = React.forwardRef<any, CSSMotionProps>((props, ref) => {
         const {
             // Default config
@@ -39,8 +27,6 @@ export function genCSSMotion(
             leavedClassName,
             eventProps,
         } = props;
-
-        const supportMotion = isSupportTransition(props);
 
         // Ref to the react node, it may be a HTMLElement
         const nodeRef = useRef<any>();
@@ -63,7 +49,6 @@ export function genCSSMotion(
         }
 
         const [status, statusStep, statusStyle, mergedVisible] = useStatus(
-            supportMotion,
             visible,
             getDomElement,
             props
@@ -92,7 +77,7 @@ export function genCSSMotion(
         if (!children) {
             // No children
             motionChildren = null;
-        } else if (status === STATUS_NONE || !isSupportTransition(props)) {
+        } else if (status === STATUS_NONE) {
             // Stable children
             if (mergedVisible) {
                 motionChildren = children({ ...mergedProps }, setNodeRef);
@@ -161,4 +146,4 @@ export function genCSSMotion(
     return CSSMotion;
 }
 
-export default genCSSMotion(supportTransition);
+export default genCSSMotion();

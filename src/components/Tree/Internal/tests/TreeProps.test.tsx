@@ -1,7 +1,7 @@
 import React from 'react';
-import { render, fireEvent, act } from '@testing-library/react';
-import Tree, { TreeNode, FieldDataNode } from '../';
-import { objectMatcher, spyConsole, spyError } from './util';
+import { render, fireEvent } from '@testing-library/react';
+import Tree, { TreeNode, FieldDataNode } from '..';
+import { spyConsole, spyError } from './util';
 
 // Promisify timeout to let jest catch works
 function timeoutPromise(delay = 0) {

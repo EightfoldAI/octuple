@@ -6,9 +6,11 @@ import React, {
     useState,
 } from 'react';
 import { StickyScrollBarProps } from './OcTable.types';
-import { getScrollBarSize } from '../../../shared/utilities/getScrollBarSize';
-import { mergeClasses } from '../../../shared/utilities/mergeClasses';
-import { getOffset } from '../../../shared/utilities/css';
+import {
+    getOffset,
+    getScrollBarSize,
+    mergeClasses,
+} from '../../../shared/utilities';
 import { useLayoutState } from './Hooks/useFrame';
 
 import styles from './octable.module.scss';

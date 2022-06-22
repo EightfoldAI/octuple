@@ -1,123 +1,129 @@
 @import './size';
 @import './mixins';
 
-.table {
-    &-bordered {
-        @include table-border();
+.table-wrapper {
+    .table {
+        &-bordered {
+            @include table-border();
 
-        .table-title {
-            border: $table-border;
-            border-bottom: 0;
-        }
-
-        table {
-            border-collapse: separate;
-            border-spacing: 0;
-
-            thead tr th,
-            tbody tr td,
-            tfoot tr th,
-            tfoot tr td {
-                border-right: $table-border-width $table-border-style
-                    $table-border-color;
+            .table-title {
+                border: $table-border;
+                border-bottom: 0;
             }
-            thead {
-                tr th {
-                    border-bottom: 1px solid $table-border-color;
+
+            table {
+                border-collapse: separate;
+                border-spacing: 0;
+
+                thead tr th,
+                tbody tr td,
+                tfoot tr th,
+                tfoot tr td {
+                    border-right: $table-border-width $table-border-style
+                        $table-border-color;
+
+                    &:last-of-type {
+                        border-right: none;
+                    }
+                }
+                thead {
+                    tr th {
+                        border-bottom: $table-border;
+                    }
+
+                    tr th {
+                        &:before {
+                            background-color: transparent !important;
+                        }
+                    }
                 }
 
-                tr th {
-                    &:before {
-                        background-color: transparent !important;
+                // Fixed right should provides additional border
+                thead tr,
+                tbody tr,
+                tfoot tr {
+                    .table-cell-fix-right-first:after {
+                        border-right: $table-border-style;
+                    }
+                }
+
+                tbody {
+                    tr:not(:last-of-type) td {
+                        border-bottom: $table-border;
                     }
                 }
             }
 
-            // Fixed right should provides additional border
-            thead tr,
-            tbody tr,
-            tfoot tr {
-                .table-cell-fix-right-first:after {
-                    border-right: $table-border-style;
+            table tbody tr td {
+                .table-expanded-row-fixed {
+                    margin: -$table-padding-vertical
+                        (-$table-padding-horizontal - 1);
+
+                    &:after {
+                        position: absolute;
+                        top: 0;
+                        right: 1px;
+                        bottom: 0;
+                        border-right: $table-border;
+                        content: '';
+                    }
                 }
             }
 
-            tbody {
-                tr:not(:last-of-type) td {
-                    border-bottom: 1px solid $table-border-color;
-                }
-            }
-        }
-
-        table tbody tr td {
-            .table-expanded-row-fixed {
-                margin: -$table-padding-vertical
-                    (-$table-padding-horizontal - 1);
-
-                &:after {
-                    position: absolute;
-                    top: 0;
-                    right: 1px;
-                    bottom: 0;
-                    border-right: $table-border;
-                    content: '';
-                }
-            }
-        }
-
-        &.table-scroll-horizontal {
-            .table-container .table-body {
-                table tbody {
-                    tr.table-expanded-row,
-                    tr.table-placeholder {
-                        td {
-                            border-right: 0;
+            &.table-scroll-horizontal {
+                .table-container .table-body {
+                    table tbody {
+                        tr.table-expanded-row,
+                        tr.table-placeholder {
+                            td {
+                                border-right: 0;
+                            }
                         }
                     }
                 }
             }
-        }
 
-        &.table-middle {
-            .table-container {
-                .table-content,
-                .table-body {
-                    table tbody tr td {
-                        .table-expanded-row-fixed {
-                            margin: -$table-padding-vertical-md
-                                (-$table-padding-horizontal-md - 1);
+            &.table-middle {
+                .table-container {
+                    .table-content,
+                    .table-body {
+                        table tbody tr td {
+                            .table-expanded-row-fixed {
+                                margin: -$table-padding-vertical-md
+                                    (-$table-padding-horizontal-md - 1);
+                            }
                         }
                     }
                 }
             }
-        }
 
-        &.table-small {
-            .table-container {
-                .table-content,
-                .table-body {
-                    table tbody tr td {
-                        .table-expanded-row-fixed {
-                            margin: -$table-padding-vertical-sm
-                                (-$table-padding-horizontal-sm - 1);
+            &.table-small {
+                .table-container {
+                    .table-content,
+                    .table-body {
+                        table tbody tr td {
+                            .table-expanded-row-fixed {
+                                margin: -$table-padding-vertical-sm
+                                    (-$table-padding-horizontal-sm - 1);
+                            }
                         }
                     }
                 }
             }
-        }
 
-        .table-footer {
-            border: $table-border;
-            border-top: 0;
-        }
-
-        .table-cell {
-            .table-container:first-child {
+            .table-footer {
+                border: $table-border;
                 border-top: 0;
             }
 
-            &-scrollbar:not([rowspan]) {
-                box-shadow: 0 1px 0 1px $table-header-bg;
+            .table-cell {
+                .table-container:first-child {
+                    border-top: 0;
+                }
+
+                &-scrollbar:not([rowspan]) {
+                    box-shadow: 0 1px 0 1px $table-header-background-color;
+                }
             }
         }
     }

@@ -4,7 +4,7 @@ import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import { act } from 'react-dom/test-utils';
 import List from '../';
 import Filler from '../Filler';
-import { spyElementPrototypes } from './utils/domHook';
+import { spyElementPrototypes } from '../../../tests/domHook';
 
 Enzyme.configure({ adapter: new Adapter() });
 

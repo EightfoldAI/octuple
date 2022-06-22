@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, fireEvent, act, createEvent } from '@testing-library/react';
-import { spyElementPrototypes } from './domHook';
-import Tree, { TreeNode } from '../';
+import { spyElementPrototypes } from '../../../../tests/domHook';
+import Tree, { TreeNode } from '..';
 
 const delay = (timeout: number) =>
     new Promise((resolve) => {

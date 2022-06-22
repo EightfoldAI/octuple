@@ -8,7 +8,7 @@ import Table from './index';
 import type { ColumnsType } from './Table.types';
 import { ResizeObserver } from '../../shared/ResizeObserver/ResizeObserver';
 import { VariableSizeGrid as Grid } from 'react-window';
-import { mergeClasses } from '../../shared/utilities/mergeClasses';
+import { mergeClasses } from '../../shared/utilities';
 import { PaginationLayoutOptions } from '../Pagination';
 import { Tooltip, TooltipTheme } from '../Tooltip';
 
@@ -1289,6 +1289,7 @@ export const Virtual_List: FC = () => {
 };
 
 const tableArgs: Object = {
+    alternateRowColor: true,
     bordered: true,
     classNames: 'my-table-class',
     id: 'myTableId',
@@ -1386,7 +1387,7 @@ Selection.args = {
 
 Expandable_Row.args = {
     ...tableArgs,
-    expandable: {
+    expandableConfig: {
         expandedRowRender: (record: DataType) => (
             <p style={{ margin: 0 }}>{record.description}</p>
         ),
@@ -1401,7 +1402,7 @@ Order_Select_And_Expand_Column.args = {
         type: 'checkbox',
         ...rowSelection,
     },
-    expandable: {
+    expandableConfig: {
         expandedRowRender: (record: DataType) => (
             <p style={{ margin: 0 }}>{record.description}</p>
         ),
@@ -1469,7 +1470,7 @@ Tree.args = {
 
 Nested.args = {
     ...tableArgs,
-    expandable: {
+    expandableConfig: {
         expandedRowRender,
     },
 };

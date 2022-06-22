@@ -1,6 +1,6 @@
-import { wrapperRaf } from './raf';
-import { getScroll, isWindow } from './getScroll';
-import { easeInOutCubic } from './easings';
+import { requestAnimationFrameWrapper } from './';
+import { getScroll, isWindow } from './';
+import { easeInOutCubic } from '../../components/Motion/util/easings';
 
 interface ScrollToOptions {
     /** Scroll container, default as window */
@@ -38,10 +38,10 @@ export default function scrollTo(y: number, options: ScrollToOptions = {}) {
             (container as HTMLElement).scrollTop = nextScrollTop;
         }
         if (time < duration) {
-            wrapperRaf(frameFunc);
+            requestAnimationFrameWrapper(frameFunc);
         } else if (typeof callback === 'function') {
             callback();
         }
     };
-    wrapperRaf(frameFunc);
+    requestAnimationFrameWrapper(frameFunc);
 }

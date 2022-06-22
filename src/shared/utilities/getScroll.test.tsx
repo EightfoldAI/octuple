@@ -1,4 +1,4 @@
-import { getScroll } from './getScroll';
+import { getScroll } from './';
 
 describe('getScroll', () => {
     it('getScroll target null', async () => {

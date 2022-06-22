@@ -65,12 +65,6 @@ export type MotionEndEventHandler = (
     event: MotionEvent
 ) => boolean | void;
 
-export type CSSMotionConfig =
-    | boolean
-    | {
-          transitionSupport?: boolean;
-      };
-
 export type MotionName =
     | string
     | {
@@ -146,7 +140,7 @@ export interface CSSMotionProps {
     children?: (
         props: {
             visible?: boolean;
-            className?: string;
+            classNames?: string;
             style?: React.CSSProperties;
             [key: string]: any;
         },

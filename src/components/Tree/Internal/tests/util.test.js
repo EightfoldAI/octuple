@@ -1,10 +1,9 @@
 import React from 'react';
-import Tree, { TreeNode } from '../';
+import Tree, { TreeNode } from '..';
 import {
     convertDataToTree,
     conductExpandParent,
     getDragChildrenKeys,
-    parseCheckedKeys,
 } from '../util';
 import {
     flattenTreeData,
@@ -13,7 +12,7 @@ import {
     getTreeNodeProps,
     traverseDataNodes,
 } from '../utils/treeUtil';
-import { spyConsole, spyError } from './util';
+import { spyConsole } from './util';
 import { conductCheck } from '../utils/conductUtil';
 
 describe('Util', () => {

@@ -1,10 +1,10 @@
-let raf: (callback: FrameRequestCallback) => number = (
+let requestAnimationFrame: (callback: FrameRequestCallback) => number = (
     callback: FrameRequestCallback
 ) => +setTimeout(callback, 16);
 let caf: (num: number) => void = (num: number) => clearTimeout(num);
 
 if (typeof window !== 'undefined' && 'requestAnimationFrame' in window) {
-    raf = (callback: FrameRequestCallback) =>
+    requestAnimationFrame = (callback: FrameRequestCallback) =>
         window.requestAnimationFrame(callback);
     caf = (handle: number) => window.cancelAnimationFrame(handle);
 }
@@ -16,7 +16,10 @@ const cleanup = (id: number) => {
     rafIds.delete(id);
 };
 
-export const wrapperRaf = (callback: () => void, times = 1): number => {
+export const requestAnimationFrameWrapper = (
+    callback: () => void,
+    times = 1
+): number => {
     rafUUID += 1;
     const id: number = rafUUID;
 
@@ -28,12 +31,12 @@ export const wrapperRaf = (callback: () => void, times = 1): number => {
             // Trigger
             callback();
         } else {
-            // Next raf
-            const realId = raf(() => {
+            // Next requestAnimationFrame
+            const realId = requestAnimationFrame(() => {
                 callRef(leftTimes - 1);
             });
 
-            // Bind real raf id
+            // Bind real requestAnimationFrame id
             rafIds.set(id, realId);
         }
     };
@@ -43,7 +46,7 @@ export const wrapperRaf = (callback: () => void, times = 1): number => {
     return id;
 };
 
-wrapperRaf.cancel = (id: number): void => {
+requestAnimationFrameWrapper.cancel = (id: number): void => {
     const realId: number = rafIds.get(id);
     cleanup(realId);
     return caf(realId);

@@ -30,7 +30,7 @@
         }
 
         &.drop-container {
-            > .draggable::after {
+            > .draggable:after {
                 position: absolute;
                 top: 0;
                 right: 0;
@@ -129,7 +129,7 @@
                     position: relative;
                     background: #ccc;
                     border-radius: 3px;
-                    &::after {
+                    &:after {
                         position: absolute;
                         top: 5px;
                         left: 3px;

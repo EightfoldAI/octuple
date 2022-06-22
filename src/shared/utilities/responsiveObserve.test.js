@@ -1,4 +1,4 @@
-import { responsiveMap, responsiveObserve } from './responsiveObserve';
+import { responsiveMap, responsiveObserve } from './';
 
 describe('Test ResponsiveObserve', () => {
     beforeAll(() => {

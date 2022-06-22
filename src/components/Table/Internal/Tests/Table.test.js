@@ -17,7 +17,7 @@ describe('Table.Basic', () => {
             <OcTable
                 columns={columns}
                 data={data}
-                expandable={{
+                expandableConfig={{
                     expandIcon: () => <div className="expand-icon" />,
                 }}
                 {...props}
@@ -120,7 +120,7 @@ describe('Table.Basic', () => {
                 return (
                     <OcTable
                         emptyText={emptyText}
-                        expandable={{
+                        expandableConfig={{
                             expandIcon: () => <div className="expand-icon" />,
                         }}
                     />
@@ -415,7 +415,7 @@ describe('Table.Basic', () => {
             <OcTable
                 columns={columns}
                 data={[{ key: '' }]}
-                expandable={{
+                expandableConfig={{
                     expandIcon: () => <div className="expand-icon" />,
                 }}
             />
@@ -511,7 +511,7 @@ describe('Table.Basic', () => {
                         <OcTable
                             columns={[{ dataIndex: 'key' }]}
                             data={[{ key: 0 }]}
-                            expandable={{
+                            expandableConfig={{
                                 expandIcon: () => (
                                     <div className="expand-icon" />
                                 ),
@@ -815,7 +815,7 @@ describe('Table.Basic', () => {
         expect(
             mount(
                 <OcTable
-                    expandable={{
+                    expandableConfig={{
                         expandIcon: () => <div className="expand-icon" />,
                     }}
                 >
@@ -851,7 +851,7 @@ describe('Table.Basic', () => {
 
                 mount(
                     createTable({
-                        expandable: {
+                        expandableConfig: {
                             expandedRowRender: () => null,
                         },
                         transformColumns: (columns) => {
@@ -880,7 +880,7 @@ describe('Table.Basic', () => {
                     },
                 ]}
                 data={[{ key: 1 }]}
-                expandable={{
+                expandableConfig={{
                     expandIcon: () => <div className="expand-icon" />,
                 }}
             />
@@ -894,7 +894,7 @@ describe('Table.Basic', () => {
                 columns={[{ dataIndex: 'test' }]}
                 components={{ body: { row: (props) => <tr {...props} /> } }}
                 data={[{ test: 'bamboo', key: 'light' }]}
-                expandable={{
+                expandableConfig={{
                     expandIcon: () => <div className="expand-icon" />,
                 }}
             />
@@ -921,7 +921,7 @@ describe('Table.Basic', () => {
                     <OcTable
                         columns={this.state.columns}
                         data={[{ key: 1 }]}
-                        expandable={{
+                        expandableConfig={{
                             expandIcon: () => <div className="expand-icon" />,
                         }}
                     />
@@ -961,7 +961,7 @@ describe('Table.Basic', () => {
                     <>
                         <OcTable
                             data={records}
-                            expandable={{
+                            expandableConfig={{
                                 expandIcon: () => (
                                     <div className="expand-icon" />
                                 ),
@@ -1033,7 +1033,7 @@ describe('Table.Basic', () => {
         const wrapper = mount(
             <OcTable
                 columns={tColumns}
-                expandable={{
+                expandableConfig={{
                     defaultExpandAllRows: true,
                     expandIcon: () => <div className="expand-icon" />,
                 }}
@@ -1066,7 +1066,7 @@ describe('Table.Basic', () => {
         const wrapper = mount(
             <OcTable
                 columns={tColumns}
-                expandable={{
+                expandableConfig={{
                     defaultExpandAllRows: true,
                     expandIcon: () => <div className="expand-icon" />,
                 }}

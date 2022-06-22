@@ -4,8 +4,10 @@ import {
     ScrollBarProps,
     ScrollBarState,
 } from './VirtualList.types';
-import { mergeClasses } from '../../shared/utilities';
-import { wrapperRaf } from '../../shared/utilities/raf';
+import {
+    mergeClasses,
+    requestAnimationFrameWrapper,
+} from '../../shared/utilities';
 
 function getPageY(e: React.MouseEvent | MouseEvent | TouchEvent) {
     return 'touches' in e ? e.touches[0].pageY : e.pageY;
@@ -97,7 +99,7 @@ export class ScrollBar extends React.Component<ScrollBarProps, ScrollBarState> {
             );
         }
 
-        wrapperRaf.cancel(this.moveRaf);
+        requestAnimationFrameWrapper.cancel(this.moveRaf);
     };
 
     // ======================= Thumb =======================
@@ -120,7 +122,7 @@ export class ScrollBar extends React.Component<ScrollBarProps, ScrollBarState> {
         const { dragging, pageY, startTop } = this.state;
         const { onScroll } = this.props;
 
-        wrapperRaf.cancel(this.moveRaf);
+        requestAnimationFrameWrapper.cancel(this.moveRaf);
 
         if (dragging) {
             const offsetY = getPageY(e) - pageY;
@@ -131,7 +133,7 @@ export class ScrollBar extends React.Component<ScrollBarProps, ScrollBarState> {
 
             const ptg = enableHeightRange ? newTop / enableHeightRange : 0;
             const newScrollTop = Math.ceil(ptg * enableScrollRange);
-            this.moveRaf = wrapperRaf(() => {
+            this.moveRaf = requestAnimationFrameWrapper(() => {
                 onScroll(newScrollTop);
             });
         }

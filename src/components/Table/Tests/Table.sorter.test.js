@@ -1,8 +1,10 @@
 import React from 'react';
 import Enzyme, { render, mount } from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
-import { eventKeys } from '../../../shared/utilities/eventKeys';
+import { eventKeys } from '../../../shared/utilities';
 import Table from '../index';
+
+React.useLayoutEffect = React.useEffect;
 
 Enzyme.configure({ adapter: new Adapter() });
 

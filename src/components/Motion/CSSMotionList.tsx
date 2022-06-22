@@ -6,7 +6,6 @@ import {
     CSSMotionListProps,
     CSSMotionListState,
 } from './CSSMotion.types';
-import { supportTransition } from './util/motion';
 import {
     STATUS_ADD,
     STATUS_KEEP,
@@ -18,11 +17,9 @@ import {
 
 /**
  * Generate a CSSMotionList component with config
- * @param transitionSupport No need since CSSMotionList no longer depends on transition support
  * @param CSSMotion CSSMotion component
  */
 export function genCSSMotionList(
-    transitionSupport?: boolean,
     CSSMotion = OriginCSSMotion
 ): React.ComponentClass<CSSMotionListProps> {
     class CSSMotionList extends React.Component<
@@ -63,7 +60,6 @@ export function genCSSMotionList(
             };
         }
 
-        // ZombieJ: Return the count of rest keys. It's safe to refactor if need more info.
         removeKey = (removeKey: React.Key) => {
             const { keyEntities } = this.state;
             const nextKeyEntities = keyEntities.map((entity) => {
@@ -90,23 +86,21 @@ export function genCSSMotionList(
                 children,
                 onVisibleChanged,
                 onAllRemoved,
-                ...restProps
+                ...rest
             } = this.props;
 
             const Component = component || React.Fragment;
-
-            // eslint-disable-next-line @typescript-eslint/no-unused-vars
-            const _transitionSupport = transitionSupport;
-
             const motionProps: CSSMotionProps = {};
+
             MOTION_PROP_NAMES.forEach((prop) => {
-                (motionProps as any)[prop] = (restProps as any)[prop];
-                delete (restProps as any)[prop];
+                (motionProps as any)[prop] = (rest as any)[prop];
+                delete (rest as any)[prop];
             });
-            delete restProps.keys;
+
+            delete rest.keys;
 
             return (
-                <Component {...restProps}>
+                <Component {...rest}>
                     {keyEntities.map(({ status, ...eventProps }) => {
                         const visible =
                             status === STATUS_ADD || status === STATUS_KEEP;
@@ -147,4 +141,4 @@ export function genCSSMotionList(
     return CSSMotionList;
 }
 
-export default genCSSMotionList(supportTransition);
+export default genCSSMotionList();

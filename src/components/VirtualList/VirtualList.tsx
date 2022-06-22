@@ -1,5 +1,4 @@
-import React from 'react';
-import { useRef, useState } from 'react';
+import React, { useLayoutEffect, useRef, useState } from 'react';
 import { mergeClasses } from '../../shared/utilities';
 import Filler from './Filler';
 import { ScrollBar } from './ScrollBar';
@@ -17,7 +16,6 @@ import useDiffItem from './hooks/useDiffItem';
 import { useFrameWheel } from './hooks/useFrameWheel';
 import { useMobileTouchMove } from './hooks/useMobileTouchMove';
 import { useOriginScroll } from './hooks/useOriginScroll';
-import { useLayoutEffect } from '../../hooks/useLayoutEffect';
 
 export function RawList<T>(props: ListProps<T>, ref: React.Ref<ListRef>) {
     const {
