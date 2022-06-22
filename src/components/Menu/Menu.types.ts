@@ -1,13 +1,5 @@
-import { ButtonProps } from '../Button';
 import { ListProps } from '../List';
-
-export interface MenuItem
-    extends Omit<ButtonProps, 'disruptive' | 'onClick' | 'value'> {
-    /**
-     * Value of the menu item
-     */
-    value: any;
-}
+import { MenuItemProps } from './MenuItem/MenuItem.types';
 
 export enum MenuType {
     disruptive = 'disruptive',
@@ -16,7 +8,7 @@ export enum MenuType {
 }
 
 export interface MenuProps
-    extends Omit<ListProps<MenuItem>, 'renderItem' | 'role' | 'itemRole'> {
+    extends Omit<ListProps<MenuItemProps>, 'renderItem' | 'role' | 'itemRole'> {
     /**
      * If menu is disruptive or not
      * @default false

@@ -1,13 +1,8 @@
 import React, { FC } from 'react';
-import { MenuItem, MenuProps, MenuType } from './Menu.types';
+import { MenuProps, MenuType } from './Menu.types';
 import { List } from '../List';
-import {
-    ButtonSize,
-    ButtonTextAlign,
-    ButtonWidth,
-    DefaultButton,
-    NeutralButton,
-} from '../Button';
+import { MenuItem } from './MenuItem/MenuItem';
+import { MenuItemProps } from './MenuItem/MenuItem.types';
 
 export const Menu: FC<MenuProps> = ({
     items,
@@ -21,49 +16,19 @@ export const Menu: FC<MenuProps> = ({
     footer,
     listType,
     ...rest
-}) => {
-    const getDefaultButton = (item: MenuItem): JSX.Element => (
-        <DefaultButton
-            {...item}
-            alignText={ButtonTextAlign.Left}
-            buttonWidth={ButtonWidth.fill}
-            size={ButtonSize.Medium}
-            disruptive={type === MenuType.disruptive}
-            onClick={() => onChange(item.value)}
-        />
-    );
-
-    const getNeutralButton = (item: MenuItem): JSX.Element => (
-        <NeutralButton
-            {...item}
-            alignText={ButtonTextAlign.Left}
-            buttonWidth={ButtonWidth.fill}
-            size={ButtonSize.Medium}
-            onClick={() => onChange(item.value)}
-        />
-    );
-
-    const getMenuItem = (item: MenuItem) => {
-        if (type === MenuType.neutral) {
-            return getNeutralButton(item);
-        }
-        return getDefaultButton(item);
-    };
-
-    return (
-        <List<MenuItem>
-            {...rest}
-            items={items}
-            renderItem={getMenuItem}
-            classNames={classNames}
-            style={style}
-            itemClassNames={itemClassNames}
-            itemStyle={itemStyle}
-            header={header}
-            footer={footer}
-            listType={listType}
-            role="menu"
-            itemRole="menuitem"
-        />
-    );
-};
+}) => (
+    <List<MenuItemProps>
+        {...rest}
+        items={items}
+        renderItem={(props) => <MenuItem {...props} />}
+        classNames={classNames}
+        style={style}
+        itemClassNames={itemClassNames}
+        itemStyle={itemStyle}
+        header={header}
+        footer={footer}
+        listType={listType}
+        role="menu"
+        itemRole="menuitem"
+    />
+);
