@@ -98,11 +98,7 @@
 
         .tab {
             padding: $space-xs $space-m;
-            border-radius: $corner-radius-xl;;
-
-            &.active {
-                box-shadow: $shadow-object-xs;
-            }
+            border-radius: $corner-radius-xl;
 
             .tab-indicator {
                 display: none;
