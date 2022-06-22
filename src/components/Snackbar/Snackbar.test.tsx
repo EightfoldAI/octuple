@@ -17,8 +17,15 @@ describe('Snackbar', () => {
     const content = 'This is a snackbar';
 
     beforeAll(() => {
+        jest.useFakeTimers();
         matchMedia = new MatchMediaMock();
     });
+
+    afterAll(() => {
+        jest.runAllTimers();
+        jest.clearAllTimers();
+    });
+
     afterEach(() => {
         matchMedia.clear();
     });
@@ -27,106 +34,125 @@ describe('Snackbar', () => {
         wrapper = render(<SnackbarContainer />);
     });
 
-    test('test snack.serve', async () => {
+    test('test snack.serve', () => {
         expect(wrapper.queryByText(content)).toBe(null);
-        await act(async () => {
+        act(() => {
             snack.serve({
                 content,
             });
-            await new Promise((r) => setTimeout(r, 300));
-            expect(wrapper.queryByText(content)).not.toBe(null);
-            await new Promise((r) => setTimeout(r, 3200));
-            expect(wrapper.queryByText(content)).toBe(null);
         });
+        expect(wrapper.queryByText(content)).not.toBe(null);
+        act(() => {
+            snack.serve({
+                content,
+            });
+            jest.runAllTimers();
+        });
+        expect(wrapper.queryByText(content)).toBe(null);
     });
 
-    test('test snack.serveNeutral', async () => {
+    test('test snack.serveNeutral', () => {
         expect(wrapper.queryByText(content)).toBe(null);
-        await act(async () => {
+        act(() => {
             snack.serveNeutral({
                 content,
             });
-            await new Promise((r) => setTimeout(r, 300));
-            expect(wrapper.queryByText(content)).not.toBe(null);
-            await new Promise((r) => setTimeout(r, 3200));
-            expect(wrapper.queryByText(content)).toBe(null);
         });
+        expect(wrapper.queryByText(content)).not.toBe(null);
+        act(() => {
+            snack.serveNeutral({
+                content,
+            });
+            jest.runAllTimers();
+        });
+        expect(wrapper.queryByText(content)).toBe(null);
     });
 
-    test('test snack.serveDisruptive', async () => {
+    test('test snack.serveDisruptive', () => {
         expect(wrapper.queryByText(content)).toBe(null);
-        await act(async () => {
+        act(() => {
             snack.serveDisruptive({
                 content,
             });
-            await new Promise((r) => setTimeout(r, 300));
-            expect(wrapper.queryByText(content)).not.toBe(null);
-            await new Promise((r) => setTimeout(r, 3200));
-            expect(wrapper.queryByText(content)).toBe(null);
         });
+        expect(wrapper.queryByText(content)).not.toBe(null);
+
+        act(() => {
+            snack.serveDisruptive({
+                content,
+            });
+            jest.runAllTimers();
+        });
+        expect(wrapper.queryByText(content)).toBe(null);
     });
 
     test('test snack.servePositive', async () => {
         expect(wrapper.queryByText(content)).toBe(null);
-        await act(async () => {
+        act(() => {
             snack.servePositive({
                 content,
             });
-            await new Promise((r) => setTimeout(r, 300));
-            expect(wrapper.queryByText(content)).not.toBe(null);
-            await new Promise((r) => setTimeout(r, 3200));
-            expect(wrapper.queryByText(content)).toBe(null);
         });
+        expect(wrapper.queryByText(content)).not.toBe(null);
+        act(() => {
+            snack.servePositive({
+                content,
+            });
+            jest.runAllTimers();
+        });
+        expect(wrapper.queryByText(content)).toBe(null);
     });
 
     test('test snack.serveWarning', async () => {
-        expect(wrapper.queryByText(content)).toBe(null);
-        await act(async () => {
+        act(() => {
             snack.serveWarning({
                 content,
             });
         });
+        expect(wrapper.queryByText(content)).not.toBe(null);
+        act(() => {
+            snack.serveWarning({
+                content,
+            });
+            jest.runAllTimers();
+        });
+        expect(wrapper.queryByText(content)).toBe(null);
     });
 
-    test('test snack closable', async () => {
+    test('test snack closable', () => {
         expect(wrapper.queryByText(content)).toBe(null);
         const onClose = jest.fn();
-        await act(async () => {
+        act(() => {
             snack.serveWarning({
                 content,
                 closable: true,
                 onClose,
             });
-            await new Promise((r) => setTimeout(r, 300));
-            expect(wrapper.queryByText(content)).not.toBe(null);
-            await new Promise((r) => setTimeout(r, 3200));
-            expect(wrapper.queryByText(content)).not.toBe(null);
-            const closeButton = wrapper.queryByRole('button');
-            const event = createEvent.click(closeButton);
-            fireEvent(closeButton, event);
-            expect(onClose).toBeCalled();
-            expect(wrapper.queryByText(content)).toBe(null);
+            jest.runAllTimers();
         });
+        expect(wrapper.queryByText(content)).not.toBe(null);
+        const closeButton = wrapper.queryByRole('button');
+        const event = createEvent.click(closeButton);
+        fireEvent(closeButton, event);
+        expect(onClose).toBeCalled();
+        expect(wrapper.queryByText(content)).toBe(null);
     });
 
-    test('test snack icon', async () => {
+    test('test snack icon', () => {
         expect(wrapper.queryByText(content)).toBe(null);
-        await act(async () => {
+        act(() => {
             snack.serve({
                 content,
                 icon: IconName.mdiHomeCity,
             });
-            await new Promise((r) => setTimeout(r, 300));
-            expect(wrapper.queryByText(content)).not.toBe(null);
-            await new Promise((r) => setTimeout(r, 3200));
-            expect(wrapper.queryByText(content)).toBe(null);
         });
+        expect(wrapper.queryByText(content)).not.toBe(null);
     });
 
-    test('test snack action', async () => {
+    test('test snack action', () => {
         expect(wrapper.queryByText(content)).toBe(null);
         const onClick = jest.fn();
-        await act(async () => {
+        act(() => {
             snack.serve({
                 content,
                 actionButtonProps: {
@@ -134,13 +160,11 @@ describe('Snackbar', () => {
                     onClick,
                 },
             });
-            await new Promise((r) => setTimeout(r, 300));
-            const actionButton = wrapper.queryByRole('button');
-            const event = createEvent.click(actionButton);
-            fireEvent(actionButton, event);
-            expect(onClick).toBeCalled();
-            await new Promise((r) => setTimeout(r, 3200));
-            expect(wrapper.queryByText(content)).toBe(null);
         });
+        const actionButton = wrapper.queryByRole('button');
+        const event = createEvent.click(actionButton);
+        fireEvent(actionButton, event);
+        expect(onClick).toBeCalled();
+        expect(wrapper.queryByText(content)).toBe(null);
     });
 });
