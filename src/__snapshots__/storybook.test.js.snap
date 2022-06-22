@@ -17,10 +17,10 @@ exports[`Storyshots Accordion List Horizontal 1`] = `
     </h2>
   </div>
   <ul
-    className="listContainer"
+    className="list-container"
   >
     <li
-      className="listItem my-list-item-class"
+      className="list-item my-list-item-class"
       style={
         Object {
           "padding": "8px",
@@ -28,12 +28,12 @@ exports[`Storyshots Accordion List Horizontal 1`] = `
       }
     >
       <div
-        className="accordionContainer"
+        className="accordion-container"
       >
         <div
           aria-controls="1-content"
           aria-expanded={false}
-          className="accordionSummary"
+          className="accordion-summary"
           id="1-header"
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -50,7 +50,7 @@ exports[`Storyshots Accordion List Horizontal 1`] = `
           >
             <span
               aria-hidden={false}
-              className="iconWrapper"
+              className="icon-wrapper"
               role="presentation"
             >
               <svg
@@ -90,7 +90,7 @@ exports[`Storyshots Accordion List Horizontal 1`] = `
           </div>
           <span
             aria-hidden={false}
-            className="accordionIcon iconWrapper"
+            className="accordion-icon icon-wrapper"
             role="presentation"
           >
             <svg
@@ -116,12 +116,12 @@ exports[`Storyshots Accordion List Horizontal 1`] = `
         </div>
         <div
           aria-labelledby="1-header"
-          className="accordionBodyContainer"
+          className="accordion-body-container"
           id="1-content"
           role="region"
         >
           <div
-            className="accordionBody showBorderTop"
+            className="accordion-body show-border-top"
           >
             Body 2 text used here. Bottom bars are sticky sections that
         can be used to highlight a few actions that are out of the
@@ -135,7 +135,7 @@ exports[`Storyshots Accordion List Horizontal 1`] = `
       </div>
     </li>
     <li
-      className="listItem my-list-item-class"
+      className="list-item my-list-item-class"
       style={
         Object {
           "padding": "8px",
@@ -143,12 +143,12 @@ exports[`Storyshots Accordion List Horizontal 1`] = `
       }
     >
       <div
-        className="accordionContainer"
+        className="accordion-container"
       >
         <div
           aria-controls="2-content"
           aria-expanded={false}
-          className="accordionSummary"
+          className="accordion-summary"
           id="2-header"
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -165,7 +165,7 @@ exports[`Storyshots Accordion List Horizontal 1`] = `
           >
             <span
               aria-hidden={false}
-              className="iconWrapper"
+              className="icon-wrapper"
               role="presentation"
             >
               <svg
@@ -205,7 +205,7 @@ exports[`Storyshots Accordion List Horizontal 1`] = `
           </div>
           <span
             aria-hidden={false}
-            className="accordionIcon iconWrapper"
+            className="accordion-icon icon-wrapper"
             role="presentation"
           >
             <svg
@@ -231,12 +231,12 @@ exports[`Storyshots Accordion List Horizontal 1`] = `
         </div>
         <div
           aria-labelledby="2-header"
-          className="accordionBodyContainer"
+          className="accordion-body-container"
           id="2-content"
           role="region"
         >
           <div
-            className="accordionBody showBorderTop"
+            className="accordion-body show-border-top"
           >
             Body 2 text used here. Bottom bars are sticky sections that
         can be used to highlight a few actions that are out of the
@@ -281,10 +281,10 @@ exports[`Storyshots Accordion List Vertical 1`] = `
     </h2>
   </div>
   <ul
-    className="listContainer vertical"
+    className="list-container vertical"
   >
     <li
-      className="listItem my-list-item-class"
+      className="list-item my-list-item-class"
       style={
         Object {
           "padding": "8px 16px",
@@ -292,12 +292,12 @@ exports[`Storyshots Accordion List Vertical 1`] = `
       }
     >
       <div
-        className="accordionContainer"
+        className="accordion-container"
       >
         <div
           aria-controls="1-content"
           aria-expanded={false}
-          className="accordionSummary"
+          className="accordion-summary"
           id="1-header"
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -314,7 +314,7 @@ exports[`Storyshots Accordion List Vertical 1`] = `
           >
             <span
               aria-hidden={false}
-              className="iconWrapper"
+              className="icon-wrapper"
               role="presentation"
             >
               <svg
@@ -354,7 +354,7 @@ exports[`Storyshots Accordion List Vertical 1`] = `
           </div>
           <span
             aria-hidden={false}
-            className="accordionIcon iconWrapper"
+            className="accordion-icon icon-wrapper"
             role="presentation"
           >
             <svg
@@ -380,12 +380,12 @@ exports[`Storyshots Accordion List Vertical 1`] = `
         </div>
         <div
           aria-labelledby="1-header"
-          className="accordionBodyContainer"
+          className="accordion-body-container"
           id="1-content"
           role="region"
         >
           <div
-            className="accordionBody showBorderTop"
+            className="accordion-body show-border-top"
           >
             Body 2 text used here. Bottom bars are sticky sections that
         can be used to highlight a few actions that are out of the
@@ -399,7 +399,7 @@ exports[`Storyshots Accordion List Vertical 1`] = `
       </div>
     </li>
     <li
-      className="listItem my-list-item-class"
+      className="list-item my-list-item-class"
       style={
         Object {
           "padding": "8px 16px",
@@ -407,12 +407,12 @@ exports[`Storyshots Accordion List Vertical 1`] = `
       }
     >
       <div
-        className="accordionContainer"
+        className="accordion-container"
       >
         <div
           aria-controls="2-content"
           aria-expanded={false}
-          className="accordionSummary"
+          className="accordion-summary"
           id="2-header"
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -429,7 +429,7 @@ exports[`Storyshots Accordion List Vertical 1`] = `
           >
             <span
               aria-hidden={false}
-              className="iconWrapper"
+              className="icon-wrapper"
               role="presentation"
             >
               <svg
@@ -469,7 +469,7 @@ exports[`Storyshots Accordion List Vertical 1`] = `
           </div>
           <span
             aria-hidden={false}
-            className="accordionIcon iconWrapper"
+            className="accordion-icon icon-wrapper"
             role="presentation"
           >
             <svg
@@ -495,12 +495,12 @@ exports[`Storyshots Accordion List Vertical 1`] = `
         </div>
         <div
           aria-labelledby="2-header"
-          className="accordionBodyContainer"
+          className="accordion-body-container"
           id="2-content"
           role="region"
         >
           <div
-            className="accordionBody showBorderTop"
+            className="accordion-body show-border-top"
           >
             Body 2 text used here. Bottom bars are sticky sections that
         can be used to highlight a few actions that are out of the
@@ -530,12 +530,12 @@ exports[`Storyshots Accordion List Vertical 1`] = `
 
 exports[`Storyshots Accordion Single 1`] = `
 <div
-  className="accordionContainer"
+  className="accordion-container"
 >
   <div
     aria-controls="myAccordionId-content"
     aria-expanded={false}
-    className="accordionSummary"
+    className="accordion-summary"
     id="myAccordionId-header"
     onClick={[Function]}
     onKeyDown={[Function]}
@@ -545,7 +545,7 @@ exports[`Storyshots Accordion Single 1`] = `
     Accordion Header
     <span
       aria-hidden={false}
-      className="accordionIcon iconWrapper"
+      className="accordion-icon icon-wrapper"
       role="presentation"
     >
       <svg
@@ -571,12 +571,12 @@ exports[`Storyshots Accordion Single 1`] = `
   </div>
   <div
     aria-labelledby="myAccordionId-header"
-    className="accordionBodyContainer"
+    className="accordion-body-container"
     id="myAccordionId-content"
     role="region"
   >
     <div
-      className="accordionBody showBorderTop"
+      className="accordion-body show-border-top"
     >
       <div
         style={
@@ -607,7 +607,7 @@ exports[`Storyshots Avatar Avatar Default 1`] = `
 >
   <img
     alt="random profile image"
-    className="imageStyle"
+    className="image-style"
     height="40px"
     src="https://images.pexels.com/photos/771742/pexels-photo-771742.jpeg"
     width="40px"
@@ -617,7 +617,7 @@ exports[`Storyshots Avatar Avatar Default 1`] = `
 
 exports[`Storyshots Avatar Avatar Fallback 1`] = `
 <div
-  className="wrapperStyle my-avatar-class imageStyle roundImage green"
+  className="wrapper-style my-avatar-class image-style round-image green"
   style={
     Object {
       "fontSize": "18px",
@@ -634,7 +634,7 @@ exports[`Storyshots Avatar Avatar Fallback 1`] = `
 
 exports[`Storyshots Avatar Avatar Icon 1`] = `
 <div
-  className="wrapperStyle my-avatar-class imageStyle"
+  className="wrapper-style my-avatar-class image-style"
   style={
     Object {
       "backgroundColor": "grey",
@@ -648,7 +648,7 @@ exports[`Storyshots Avatar Avatar Icon 1`] = `
 >
   <span
     aria-hidden={false}
-    className="iconWrapper"
+    className="icon-wrapper"
     role="presentation"
   >
     <svg
@@ -689,7 +689,7 @@ exports[`Storyshots Avatar Avatar Round 1`] = `
 >
   <img
     alt="random profile image"
-    className="imageStyle roundImage"
+    className="image-style round-image"
     height="40px"
     src="https://images.pexels.com/photos/771742/pexels-photo-771742.jpeg"
     width="40px"
@@ -699,7 +699,7 @@ exports[`Storyshots Avatar Avatar Round 1`] = `
 
 exports[`Storyshots Avatar Avatar Round Icon 1`] = `
 <div
-  className="wrapperStyle my-avatar-class imageStyle roundImage"
+  className="wrapper-style my-avatar-class image-style round-image"
   style={
     Object {
       "backgroundColor": "grey",
@@ -713,7 +713,7 @@ exports[`Storyshots Avatar Avatar Round Icon 1`] = `
 >
   <span
     aria-hidden={false}
-    className="iconWrapper"
+    className="icon-wrapper"
     role="presentation"
   >
     <svg
@@ -770,7 +770,7 @@ exports[`Storyshots Button Counter 1`] = `
 <button
   aria-disabled={false}
   aria-label="Primary Button"
-  className="my-btn-class button buttonPrimary iconLeft"
+  className="my-btn-class button button-primary icon-left"
   data-test-id="my-btn-test-id"
   defaultChecked={false}
   disabled={false}
@@ -781,7 +781,7 @@ exports[`Storyshots Button Counter 1`] = `
   <span>
     <span
       aria-hidden={true}
-      className="icon my-btn-icon iconWrapper"
+      className="icon my-btn-icon icon-wrapper"
       data-test-id="myButtonIconTestId"
       id="myButtonIcon"
       role="presentation"
@@ -824,7 +824,7 @@ exports[`Storyshots Button Default 1`] = `
 <button
   aria-disabled={false}
   aria-label="Default Button"
-  className="my-btn-class button buttonDefault iconLeft"
+  className="my-btn-class button button-default icon-left"
   data-test-id="my-btn-test-id"
   defaultChecked={false}
   disabled={false}
@@ -835,7 +835,7 @@ exports[`Storyshots Button Default 1`] = `
   <span>
     <span
       aria-hidden={true}
-      className="icon my-btn-icon iconWrapper"
+      className="icon my-btn-icon icon-wrapper"
       data-test-id="myButtonIconTestId"
       id="myButtonIcon"
       role="presentation"
@@ -873,7 +873,7 @@ exports[`Storyshots Button Neutral 1`] = `
 <button
   aria-disabled={false}
   aria-label="Neutral Button"
-  className="my-btn-class button buttonNeutral iconLeft"
+  className="my-btn-class button button-neutral icon-left"
   data-test-id="my-btn-test-id"
   defaultChecked={false}
   disabled={false}
@@ -884,7 +884,7 @@ exports[`Storyshots Button Neutral 1`] = `
   <span>
     <span
       aria-hidden={true}
-      className="icon my-btn-icon iconWrapper"
+      className="icon my-btn-icon icon-wrapper"
       data-test-id="myButtonIconTestId"
       id="myButtonIcon"
       role="presentation"
@@ -922,7 +922,7 @@ exports[`Storyshots Button Primary 1`] = `
 <button
   aria-disabled={false}
   aria-label="Primary Button"
-  className="my-btn-class button buttonPrimary iconLeft"
+  className="my-btn-class button button-primary icon-left"
   data-test-id="my-btn-test-id"
   defaultChecked={false}
   disabled={false}
@@ -933,7 +933,7 @@ exports[`Storyshots Button Primary 1`] = `
   <span>
     <span
       aria-hidden={true}
-      className="icon my-btn-icon iconWrapper"
+      className="icon my-btn-icon icon-wrapper"
       data-test-id="myButtonIconTestId"
       id="myButtonIcon"
       role="presentation"
@@ -971,7 +971,7 @@ exports[`Storyshots Button Secondary 1`] = `
 <button
   aria-disabled={false}
   aria-label="Secondary Button"
-  className="my-btn-class button buttonSecondary iconLeft"
+  className="my-btn-class button button-secondary icon-left"
   data-test-id="my-btn-test-id"
   defaultChecked={false}
   disabled={false}
@@ -982,7 +982,7 @@ exports[`Storyshots Button Secondary 1`] = `
   <span>
     <span
       aria-hidden={true}
-      className="icon my-btn-icon iconWrapper"
+      className="icon my-btn-icon icon-wrapper"
       data-test-id="myButtonIconTestId"
       id="myButtonIcon"
       role="presentation"
@@ -1021,7 +1021,7 @@ Array [
   <button
     aria-disabled={false}
     aria-label="Split Button"
-    className="my-btn-class button buttonPrimary splitLeft"
+    className="my-btn-class button button-primary split-left"
     data-test-id="my-btn-test-id"
     defaultChecked={false}
     disabled={false}
@@ -1039,14 +1039,14 @@ Array [
     aria-checked={false}
     aria-disabled={false}
     aria-pressed={false}
-    className="my-btn-class button buttonPrimary undefined splitButton splitRight"
+    className="my-btn-class button button-primary undefined split-button split-right"
     defaultChecked={false}
     disabled={false}
     type="button"
   >
     <span
       aria-hidden={false}
-      className="icon iconWrapper"
+      className="icon icon-wrapper"
       role="presentation"
     >
       <svg
@@ -1071,7 +1071,7 @@ Array [
     </span>
     <span
       aria-hidden="true"
-      className="splitDivider splitDividerPrimary"
+      className="split-divider split-divider-primary"
     />
   </button>,
 ]
@@ -1082,7 +1082,7 @@ Array [
   <button
     aria-disabled={false}
     aria-label="Split Button"
-    className="my-btn-class button buttonPrimary splitLeft"
+    className="my-btn-class button button-primary split-left"
     data-test-id="my-btn-test-id"
     defaultChecked={false}
     disabled={false}
@@ -1105,14 +1105,14 @@ Array [
     aria-checked={false}
     aria-disabled={false}
     aria-pressed={false}
-    className="my-btn-class button buttonPrimary undefined splitButton splitRight"
+    className="my-btn-class button button-primary undefined split-button split-right"
     defaultChecked={false}
     disabled={false}
     type="button"
   >
     <span
       aria-hidden={false}
-      className="icon iconWrapper"
+      className="icon icon-wrapper"
       role="presentation"
     >
       <svg
@@ -1137,7 +1137,7 @@ Array [
     </span>
     <span
       aria-hidden="true"
-      className="splitDivider splitDividerPrimary"
+      className="split-divider split-divider-primary"
     />
   </button>,
 ]
@@ -1149,7 +1149,7 @@ exports[`Storyshots Button Toggle 1`] = `
   aria-disabled={false}
   aria-label="Toggle Button"
   aria-pressed={false}
-  className="my-btn-class button buttonPrimary iconRight"
+  className="my-btn-class button button-primary icon-right"
   data-test-id="my-btn-test-id"
   defaultChecked={false}
   disabled={false}
@@ -1160,7 +1160,7 @@ exports[`Storyshots Button Toggle 1`] = `
   <span>
     <span
       aria-hidden={true}
-      className="icon my-btn-icon iconWrapper"
+      className="icon my-btn-icon icon-wrapper"
       data-test-id="myButtonIconTestId"
       id="myButtonIcon"
       role="presentation"
@@ -1200,7 +1200,7 @@ exports[`Storyshots Button Toggle With Counter 1`] = `
   aria-disabled={false}
   aria-label="Toggle Button"
   aria-pressed={false}
-  className="my-btn-class button buttonPrimary iconRight"
+  className="my-btn-class button button-primary icon-right"
   data-test-id="my-btn-test-id"
   defaultChecked={false}
   disabled={false}
@@ -1211,7 +1211,7 @@ exports[`Storyshots Button Toggle With Counter 1`] = `
   <span>
     <span
       aria-hidden={true}
-      className="icon my-btn-icon iconWrapper"
+      className="icon my-btn-icon icon-wrapper"
       data-test-id="myButtonIconTestId"
       id="myButtonIcon"
       role="presentation"
@@ -1256,7 +1256,7 @@ exports[`Storyshots Button Two State Button 1`] = `
   aria-disabled={false}
   aria-label="Two State Button"
   aria-pressed={false}
-  className="my-two-state-btn-class button twoStateButton"
+  className="my-two-state-btn-class button two-state-button"
   defaultChecked={false}
   disabled={false}
   id="myTwoStateButton"
@@ -1264,14 +1264,14 @@ exports[`Storyshots Button Two State Button 1`] = `
   type="button"
 >
   <span
-    className="twoStateButtonContent"
+    className="two-state-button-content"
   >
     <span
-      className="column columnOne"
+      className="column column-one"
     >
       <span
         aria-hidden={true}
-        className="icon iconWrapper"
+        className="icon icon-wrapper"
         data-test-id="myTwoStateButtonIconOneTestId"
         id="myTwoStateButtonIconOne"
         role="presentation"
@@ -1312,7 +1312,7 @@ exports[`Storyshots Button Two State Button 1`] = `
     >
       <span
         aria-hidden={true}
-        className="icon iconWrapper"
+        className="icon icon-wrapper"
         data-test-id="myTwoStateButtonIconTwoTestId"
         id="myTwoStateButtonIconTwo"
         role="presentation"
@@ -1365,7 +1365,7 @@ exports[`Storyshots Check Box Check Box 1`] = `
       className="checkmark"
     />
     <span
-      className="selectorLabel"
+      className="selector-label"
     >
       Label
     </span>
@@ -1376,7 +1376,7 @@ exports[`Storyshots Check Box Check Box 1`] = `
 exports[`Storyshots Check Box Check Box Group 1`] = `
 <div
   checked={true}
-  className="checkboxGroup"
+  className="checkbox-group"
   defaultChecked={
     Array [
       "First",
@@ -1405,7 +1405,7 @@ exports[`Storyshots Check Box Check Box Group 1`] = `
         className="checkmark"
       />
       <span
-        className="selectorLabel"
+        className="selector-label"
       >
         First
       </span>
@@ -1432,7 +1432,7 @@ exports[`Storyshots Check Box Check Box Group 1`] = `
         className="checkmark"
       />
       <span
-        className="selectorLabel"
+        className="selector-label"
       >
         Second
       </span>
@@ -1459,7 +1459,7 @@ exports[`Storyshots Check Box Check Box Group 1`] = `
         className="checkmark"
       />
       <span
-        className="selectorLabel"
+        className="selector-label"
       >
         Third
       </span>
@@ -3419,12 +3419,12 @@ exports[`Storyshots Config Provider Theming 1`] = `
     <button
       aria-disabled={false}
       aria-label="Primary Button"
-      className="button buttonPrimary buttonSize3"
+      className="button button-primary button-size3"
       defaultChecked={false}
       disabled={false}
     >
       <span
-        className="buttonText3"
+        className="button-text3"
       >
         Primary Button
       </span>
@@ -3432,13 +3432,13 @@ exports[`Storyshots Config Provider Theming 1`] = `
     <button
       aria-disabled={false}
       aria-label="Primary Button"
-      className="button buttonPrimary buttonSize3 iconLeft"
+      className="button button-primary button-size3 icon-left"
       defaultChecked={false}
       disabled={false}
     >
       <span
         aria-hidden={false}
-        className="icon iconWrapper"
+        className="icon icon-wrapper"
         role="presentation"
       >
         <svg
@@ -3465,14 +3465,14 @@ exports[`Storyshots Config Provider Theming 1`] = `
     <button
       aria-disabled={false}
       aria-label="Primary Button"
-      className="button buttonPrimary buttonSize3 iconLeft"
+      className="button button-primary button-size3 icon-left"
       defaultChecked={false}
       disabled={false}
     >
       <span>
         <span
           aria-hidden={false}
-          className="icon iconWrapper"
+          className="icon icon-wrapper"
           role="presentation"
         >
           <svg
@@ -3496,7 +3496,7 @@ exports[`Storyshots Config Provider Theming 1`] = `
           </svg>
         </span>
         <span
-          className="buttonText3"
+          className="button-text3"
         >
           Primary Button
         </span>
@@ -3516,12 +3516,12 @@ exports[`Storyshots Config Provider Theming 1`] = `
     <button
       aria-disabled={false}
       aria-label="Secondary Button"
-      className="button buttonSecondary buttonSize3"
+      className="button button-secondary button-size3"
       defaultChecked={false}
       disabled={false}
     >
       <span
-        className="buttonText3"
+        className="button-text3"
       >
         Secondary Button
       </span>
@@ -3529,13 +3529,13 @@ exports[`Storyshots Config Provider Theming 1`] = `
     <button
       aria-disabled={false}
       aria-label="Secondary Button"
-      className="button buttonSecondary buttonSize3 iconLeft"
+      className="button button-secondary button-size3 icon-left"
       defaultChecked={false}
       disabled={false}
     >
       <span
         aria-hidden={false}
-        className="icon iconWrapper"
+        className="icon icon-wrapper"
         role="presentation"
       >
         <svg
@@ -3562,14 +3562,14 @@ exports[`Storyshots Config Provider Theming 1`] = `
     <button
       aria-disabled={false}
       aria-label="Secondary Button"
-      className="button buttonSecondary buttonSize3 iconLeft"
+      className="button button-secondary button-size3 icon-left"
       defaultChecked={false}
       disabled={false}
     >
       <span>
         <span
           aria-hidden={false}
-          className="icon iconWrapper"
+          className="icon icon-wrapper"
           role="presentation"
         >
           <svg
@@ -3593,7 +3593,7 @@ exports[`Storyshots Config Provider Theming 1`] = `
           </svg>
         </span>
         <span
-          className="buttonText3"
+          className="button-text3"
         >
           Secondary Button
         </span>
@@ -3613,12 +3613,12 @@ exports[`Storyshots Config Provider Theming 1`] = `
     <button
       aria-disabled={false}
       aria-label="Default Button"
-      className="button buttonDefault buttonSize3"
+      className="button button-default button-size3"
       defaultChecked={false}
       disabled={false}
     >
       <span
-        className="buttonText3"
+        className="button-text3"
       >
         Default Button
       </span>
@@ -3626,13 +3626,13 @@ exports[`Storyshots Config Provider Theming 1`] = `
     <button
       aria-disabled={false}
       aria-label="Default Button"
-      className="button buttonDefault buttonSize3 iconLeft"
+      className="button button-default button-size3 icon-left"
       defaultChecked={false}
       disabled={false}
     >
       <span
         aria-hidden={false}
-        className="icon iconWrapper"
+        className="icon icon-wrapper"
         role="presentation"
       >
         <svg
@@ -3659,14 +3659,14 @@ exports[`Storyshots Config Provider Theming 1`] = `
     <button
       aria-disabled={false}
       aria-label="Default Button"
-      className="button buttonDefault buttonSize3 iconLeft"
+      className="button button-default button-size3 icon-left"
       defaultChecked={false}
       disabled={false}
     >
       <span>
         <span
           aria-hidden={false}
-          className="icon iconWrapper"
+          className="icon icon-wrapper"
           role="presentation"
         >
           <svg
@@ -3690,7 +3690,7 @@ exports[`Storyshots Config Provider Theming 1`] = `
           </svg>
         </span>
         <span
-          className="buttonText3"
+          className="button-text3"
         >
           Default Button
         </span>
@@ -3699,7 +3699,7 @@ exports[`Storyshots Config Provider Theming 1`] = `
   </div>
   <div>
     <div
-      className="tabWrap"
+      className="tab-wrap"
       role="tablist"
       value="tab1"
     >
@@ -3716,7 +3716,7 @@ exports[`Storyshots Config Provider Theming 1`] = `
           Tab 1
         </span>
         <div
-          className="tabIndicator"
+          className="tab-indicator"
           data-flip-config="{\\"translate\\":true,\\"scale\\":true,\\"opacity\\":true}"
           data-flip-id="tabIndicator"
           data-portal-key="portal"
@@ -3766,7 +3766,7 @@ exports[`Storyshots Config Provider Theming 1`] = `
   </div>
   <div>
     <div
-      className="tabWrap"
+      className="tab-wrap"
       role="tablist"
       value="tab1"
     >
@@ -3779,7 +3779,7 @@ exports[`Storyshots Config Provider Theming 1`] = `
       >
         <span
           aria-hidden={false}
-          className="icon iconWrapper"
+          className="icon icon-wrapper"
           role="presentation"
         >
           <svg
@@ -3803,7 +3803,7 @@ exports[`Storyshots Config Provider Theming 1`] = `
           </svg>
         </span>
         <div
-          className="tabIndicator"
+          className="tab-indicator"
           data-flip-config="{\\"translate\\":true,\\"scale\\":true,\\"opacity\\":true}"
           data-flip-id="tabIndicator"
           data-portal-key="portal"
@@ -3818,7 +3818,7 @@ exports[`Storyshots Config Provider Theming 1`] = `
       >
         <span
           aria-hidden={false}
-          className="icon iconWrapper"
+          className="icon icon-wrapper"
           role="presentation"
         >
           <svg
@@ -3851,7 +3851,7 @@ exports[`Storyshots Config Provider Theming 1`] = `
       >
         <span
           aria-hidden={false}
-          className="icon iconWrapper"
+          className="icon icon-wrapper"
           role="presentation"
         >
           <svg
@@ -3885,7 +3885,7 @@ exports[`Storyshots Config Provider Theming 1`] = `
       >
         <span
           aria-hidden={false}
-          className="icon iconWrapper"
+          className="icon icon-wrapper"
           role="presentation"
         >
           <svg
@@ -3913,7 +3913,7 @@ exports[`Storyshots Config Provider Theming 1`] = `
   </div>
   <div>
     <div
-      className="tabWrap small"
+      className="tab-wrap small"
       role="tablist"
       value="tab1"
     >
@@ -3930,7 +3930,7 @@ exports[`Storyshots Config Provider Theming 1`] = `
           Tab 1
         </span>
         <div
-          className="tabIndicator"
+          className="tab-indicator"
           data-flip-config="{\\"translate\\":true,\\"scale\\":true,\\"opacity\\":true}"
           data-flip-id="tabIndicator"
           data-portal-key="portal"
@@ -3980,7 +3980,7 @@ exports[`Storyshots Config Provider Theming 1`] = `
   </div>
   <div>
     <div
-      className="tabWrap pill"
+      className="tab-wrap pill"
       role="tablist"
       value="tab1"
     >
@@ -3997,7 +3997,7 @@ exports[`Storyshots Config Provider Theming 1`] = `
           Tab 1
         </span>
         <div
-          className="tabIndicator"
+          className="tab-indicator"
           data-flip-config="{\\"translate\\":true,\\"scale\\":true,\\"opacity\\":true}"
           data-flip-id="tabIndicator"
           data-portal-key="portal"
@@ -4047,22 +4047,22 @@ exports[`Storyshots Config Provider Theming 1`] = `
   </div>
   <div
     aria-label="score"
-    className="matchScoreContainer oct-component"
+    className="match-score-container oct-component"
   >
     <div
-      className="matchScoreCircle full"
+      className="match-score-circle full"
     />
     <div
-      className="matchScoreCircle full"
+      className="match-score-circle full"
     />
     <div
-      className="matchScoreCircle full"
+      className="match-score-circle full"
     />
     <div
-      className="matchScoreCircle"
+      className="match-score-circle"
     />
     <div
-      className="matchScoreCircle"
+      className="match-score-circle"
     />
     <p
       className="label"
@@ -4074,7 +4074,7 @@ exports[`Storyshots Config Provider Theming 1`] = `
   </div>
   <span
     aria-hidden={false}
-    className="spinner iconWrapper"
+    className="spinner icon-wrapper"
     role="presentation"
   >
     <svg
@@ -4115,7 +4115,7 @@ exports[`Storyshots Config Provider Theming 1`] = `
     </svg>
   </span>
   <div
-    className="checkboxGroup"
+    className="checkbox-group"
     defaultChecked={
       Array [
         "First",
@@ -4144,7 +4144,7 @@ exports[`Storyshots Config Provider Theming 1`] = `
           className="checkmark"
         />
         <span
-          className="selectorLabel"
+          className="selector-label"
         >
           First
         </span>
@@ -4171,7 +4171,7 @@ exports[`Storyshots Config Provider Theming 1`] = `
           className="checkmark"
         />
         <span
-          className="selectorLabel"
+          className="selector-label"
         >
           Second
         </span>
@@ -4198,7 +4198,7 @@ exports[`Storyshots Config Provider Theming 1`] = `
           className="checkmark"
         />
         <span
-          className="selectorLabel"
+          className="selector-label"
         >
           Third
         </span>
@@ -4207,7 +4207,7 @@ exports[`Storyshots Config Provider Theming 1`] = `
   </div>
   <div
     aria-label="Radio Group"
-    className="radioGroup"
+    className="radio-group"
     role="group"
   >
     <div
@@ -4228,11 +4228,11 @@ exports[`Storyshots Config Provider Theming 1`] = `
         htmlFor="oea2exk-1"
       >
         <span
-          className="radioButton"
+          className="radio-button"
           id="oea2exk-1-custom-radio"
         />
         <span
-          className="selectorLabel"
+          className="selector-label"
         >
           Radio1
         </span>
@@ -4256,11 +4256,11 @@ exports[`Storyshots Config Provider Theming 1`] = `
         htmlFor="oea2exk-2"
       >
         <span
-          className="radioButton"
+          className="radio-button"
           id="oea2exk-2-custom-radio"
         />
         <span
-          className="selectorLabel"
+          className="selector-label"
         >
           Radio2
         </span>
@@ -4284,11 +4284,11 @@ exports[`Storyshots Config Provider Theming 1`] = `
         htmlFor="oea2exk-3"
       >
         <span
-          className="radioButton"
+          className="radio-button"
           id="oea2exk-3-custom-radio"
         />
         <span
-          className="selectorLabel"
+          className="selector-label"
         >
           Radio3
         </span>
@@ -4301,7 +4301,7 @@ exports[`Storyshots Config Provider Theming 1`] = `
 exports[`Storyshots Dialog Medium 1`] = `
 <button
   aria-disabled={false}
-  className="button buttonPrimary"
+  className="button button-primary"
   defaultChecked={false}
   disabled={false}
   onClick={[Function]}
@@ -4317,7 +4317,7 @@ exports[`Storyshots Dialog Medium 1`] = `
 exports[`Storyshots Dialog Small 1`] = `
 <button
   aria-disabled={false}
-  className="button buttonPrimary buttonPrimaryDisruptive"
+  className="button button-primary button-primary-disruptive"
   defaultChecked={false}
   disabled={false}
   onClick={[Function]}
@@ -4332,7 +4332,7 @@ exports[`Storyshots Dialog Small 1`] = `
 
 exports[`Storyshots Dropdown Dropdown Button 1`] = `
 <div
-  className="my-dropdown-class mainWrapper"
+  className="my-dropdown-class main-wrapper"
   style={Object {}}
 >
   <button
@@ -4340,7 +4340,7 @@ exports[`Storyshots Dropdown Dropdown Button 1`] = `
     aria-disabled={false}
     aria-expanded={false}
     aria-haspopup={true}
-    className="button buttonDefault iconRight"
+    className="button button-default icon-right"
     defaultChecked={false}
     disabled={false}
     onClick={[Function]}
@@ -4350,7 +4350,7 @@ exports[`Storyshots Dropdown Dropdown Button 1`] = `
     <span>
       <span
         aria-hidden={false}
-        className="icon iconWrapper"
+        className="icon icon-wrapper"
         role="presentation"
       >
         <svg
@@ -4385,14 +4385,14 @@ exports[`Storyshots Dropdown Dropdown Button 1`] = `
 
 exports[`Storyshots Dropdown Dropdown Div 1`] = `
 <div
-  className="my-dropdown-class mainWrapper"
+  className="my-dropdown-class main-wrapper"
   style={Object {}}
 >
   <div
     aria-controls="dropdown-4"
     aria-expanded={false}
     aria-haspopup={true}
-    className="referenceWrapper"
+    className="reference-wrapper"
     onClick={[Function]}
     role="button"
     style={
@@ -4407,7 +4407,7 @@ exports[`Storyshots Dropdown Dropdown Div 1`] = `
     </code>
     <span
       aria-hidden={false}
-      className="iconWrapper"
+      className="icon-wrapper"
       role="presentation"
     >
       <svg
@@ -4440,12 +4440,12 @@ exports[`Storyshots Empty Custom Image 1`] = `
   style={Object {}}
 >
   <div
-    className="emptyImage"
+    className="empty-image"
     style={Object {}}
   >
     <span
       aria-hidden={false}
-      className="iconWrapper"
+      className="icon-wrapper"
       role="presentation"
     >
       <svg
@@ -4470,12 +4470,12 @@ exports[`Storyshots Empty Custom Image 1`] = `
     </span>
   </div>
   <div
-    className="emptyTitle"
+    className="empty-title"
   >
     Short Message Here
   </div>
   <div
-    className="emptyDescription"
+    className="empty-description"
   >
     More detail on how might the user be able to get around this
   </div>
@@ -4488,7 +4488,7 @@ exports[`Storyshots Empty Empty Messages 1`] = `
   style={Object {}}
 >
   <div
-    className="emptyImage"
+    className="empty-image"
   >
     <svg
       className="empty-messages-image-default"
@@ -4529,12 +4529,12 @@ exports[`Storyshots Empty Empty Messages 1`] = `
     </svg>
   </div>
   <div
-    className="emptyTitle"
+    className="empty-title"
   >
     Short Message Here
   </div>
   <div
-    className="emptyDescription"
+    className="empty-description"
   >
     More detail on how might the user be able to get around this
   </div>
@@ -4547,7 +4547,7 @@ exports[`Storyshots Empty Error State 1`] = `
   style={Object {}}
 >
   <div
-    className="emptyImage"
+    className="empty-image"
   >
     <svg
       className="server-error-image-default"
@@ -4644,12 +4644,12 @@ exports[`Storyshots Empty Error State 1`] = `
     </svg>
   </div>
   <div
-    className="emptyTitle"
+    className="empty-title"
   >
     Short Message Here
   </div>
   <div
-    className="emptyDescription"
+    className="empty-description"
   >
     More detail on how might the user be able to get around this
   </div>
@@ -4662,7 +4662,7 @@ exports[`Storyshots Empty No Data 1`] = `
   style={Object {}}
 >
   <div
-    className="emptyImage"
+    className="empty-image"
   >
     <svg
       className="empty-data-image-default"
@@ -4719,12 +4719,12 @@ exports[`Storyshots Empty No Data 1`] = `
     </svg>
   </div>
   <div
-    className="emptyTitle"
+    className="empty-title"
   >
     Short Message Here
   </div>
   <div
-    className="emptyDescription"
+    className="empty-description"
   >
     More detail on how might the user be able to get around this
   </div>
@@ -4737,7 +4737,7 @@ exports[`Storyshots Empty No Search Results 1`] = `
   style={Object {}}
 >
   <div
-    className="emptyImage"
+    className="empty-image"
   >
     <svg
       className="empty-search-image-default"
@@ -4801,12 +4801,12 @@ exports[`Storyshots Empty No Search Results 1`] = `
     </svg>
   </div>
   <div
-    className="emptyTitle"
+    className="empty-title"
   >
     Short Message Here
   </div>
   <div
-    className="emptyDescription"
+    className="empty-description"
   >
     More detail on how might the user be able to get around this
   </div>
@@ -4819,7 +4819,7 @@ exports[`Storyshots Empty Tasks Complete 1`] = `
   style={Object {}}
 >
   <div
-    className="emptyImage"
+    className="empty-image"
   >
     <svg
       className="tasks-complete-image-default"
@@ -4921,12 +4921,12 @@ exports[`Storyshots Empty Tasks Complete 1`] = `
     </svg>
   </div>
   <div
-    className="emptyTitle"
+    className="empty-title"
   >
     Short Message Here
   </div>
   <div
-    className="emptyDescription"
+    className="empty-description"
   >
     More detail on how might the user be able to get around this
   </div>
@@ -4936,7 +4936,7 @@ exports[`Storyshots Empty Tasks Complete 1`] = `
 exports[`Storyshots Icon Basic 1`] = `
 <span
   aria-hidden={false}
-  className="my-icon-class iconWrapper"
+  className="my-icon-class icon-wrapper"
   data-test-id="myIconTestId"
   id="myIconId"
   role="presentation"
@@ -4976,7 +4976,7 @@ exports[`Storyshots Icon Basic 1`] = `
 exports[`Storyshots Icon Icomoon 1`] = `
 <span
   aria-hidden={false}
-  className="my-icon-class iconWrapper"
+  className="my-icon-class icon-wrapper"
   data-test-id="myIconTestId"
   id="myIconId"
   role="presentation"
@@ -5010,7 +5010,7 @@ exports[`Storyshots Icon Icomoon 1`] = `
 exports[`Storyshots Icon Icomoon Multicolor 1`] = `
 <span
   aria-hidden={false}
-  className="my-icon-class iconWrapper"
+  className="my-icon-class icon-wrapper"
   data-test-id="myIconTestId"
   id="myIconId"
   role="presentation"
@@ -5054,13 +5054,13 @@ exports[`Storyshots Icon Icomoon Multicolor 1`] = `
 
 exports[`Storyshots Info Bar Disruptive 1`] = `
 <div
-  className="infoBar my-info-bar-class disruptive"
+  className="info-bar my-info-bar-class disruptive"
   role="presentation"
   style={Object {}}
 >
   <span
     aria-hidden={false}
-    className="icon iconWrapper"
+    className="icon icon-wrapper"
     role="presentation"
   >
     <svg
@@ -5091,7 +5091,7 @@ exports[`Storyshots Info Bar Disruptive 1`] = `
   <button
     aria-disabled={false}
     aria-label="Action"
-    className="my-action-btn-class button buttonNeutral"
+    className="my-action-btn-class button button-neutral"
     data-test-id="my-action-btn-test-id"
     defaultChecked={false}
     disabled={false}
@@ -5106,7 +5106,7 @@ exports[`Storyshots Info Bar Disruptive 1`] = `
   <button
     aria-disabled={false}
     aria-label="Close"
-    className="my-close-btn-class button buttonNeutral iconLeft"
+    className="my-close-btn-class button button-neutral icon-left"
     data-test-id="my-close-btn-test-id"
     defaultChecked={false}
     disabled={false}
@@ -5114,7 +5114,7 @@ exports[`Storyshots Info Bar Disruptive 1`] = `
   >
     <span
       aria-hidden={false}
-      className="icon iconWrapper"
+      className="icon icon-wrapper"
       role="presentation"
     >
       <svg
@@ -5143,13 +5143,13 @@ exports[`Storyshots Info Bar Disruptive 1`] = `
 
 exports[`Storyshots Info Bar Neutral 1`] = `
 <div
-  className="infoBar my-info-bar-class neutral"
+  className="info-bar my-info-bar-class neutral"
   role="presentation"
   style={Object {}}
 >
   <span
     aria-hidden={false}
-    className="icon iconWrapper"
+    className="icon icon-wrapper"
     role="presentation"
   >
     <svg
@@ -5180,7 +5180,7 @@ exports[`Storyshots Info Bar Neutral 1`] = `
   <button
     aria-disabled={false}
     aria-label="Action"
-    className="my-action-btn-class button buttonNeutral"
+    className="my-action-btn-class button button-neutral"
     data-test-id="my-action-btn-test-id"
     defaultChecked={false}
     disabled={false}
@@ -5195,7 +5195,7 @@ exports[`Storyshots Info Bar Neutral 1`] = `
   <button
     aria-disabled={false}
     aria-label="Close"
-    className="my-close-btn-class button buttonNeutral iconLeft"
+    className="my-close-btn-class button button-neutral icon-left"
     data-test-id="my-close-btn-test-id"
     defaultChecked={false}
     disabled={false}
@@ -5203,7 +5203,7 @@ exports[`Storyshots Info Bar Neutral 1`] = `
   >
     <span
       aria-hidden={false}
-      className="icon iconWrapper"
+      className="icon icon-wrapper"
       role="presentation"
     >
       <svg
@@ -5232,13 +5232,13 @@ exports[`Storyshots Info Bar Neutral 1`] = `
 
 exports[`Storyshots Info Bar Positive 1`] = `
 <div
-  className="infoBar my-info-bar-class positive"
+  className="info-bar my-info-bar-class positive"
   role="presentation"
   style={Object {}}
 >
   <span
     aria-hidden={false}
-    className="icon iconWrapper"
+    className="icon icon-wrapper"
     role="presentation"
   >
     <svg
@@ -5269,7 +5269,7 @@ exports[`Storyshots Info Bar Positive 1`] = `
   <button
     aria-disabled={false}
     aria-label="Action"
-    className="my-action-btn-class button buttonNeutral"
+    className="my-action-btn-class button button-neutral"
     data-test-id="my-action-btn-test-id"
     defaultChecked={false}
     disabled={false}
@@ -5284,7 +5284,7 @@ exports[`Storyshots Info Bar Positive 1`] = `
   <button
     aria-disabled={false}
     aria-label="Close"
-    className="my-close-btn-class button buttonNeutral iconLeft"
+    className="my-close-btn-class button button-neutral icon-left"
     data-test-id="my-close-btn-test-id"
     defaultChecked={false}
     disabled={false}
@@ -5292,7 +5292,7 @@ exports[`Storyshots Info Bar Positive 1`] = `
   >
     <span
       aria-hidden={false}
-      className="icon iconWrapper"
+      className="icon icon-wrapper"
       role="presentation"
     >
       <svg
@@ -5321,13 +5321,13 @@ exports[`Storyshots Info Bar Positive 1`] = `
 
 exports[`Storyshots Info Bar Warning 1`] = `
 <div
-  className="infoBar my-info-bar-class warning"
+  className="info-bar my-info-bar-class warning"
   role="presentation"
   style={Object {}}
 >
   <span
     aria-hidden={false}
-    className="icon iconWrapper"
+    className="icon icon-wrapper"
     role="presentation"
   >
     <svg
@@ -5358,7 +5358,7 @@ exports[`Storyshots Info Bar Warning 1`] = `
   <button
     aria-disabled={false}
     aria-label="Action"
-    className="my-action-btn-class button buttonNeutral"
+    className="my-action-btn-class button button-neutral"
     data-test-id="my-action-btn-test-id"
     defaultChecked={false}
     disabled={false}
@@ -5373,7 +5373,7 @@ exports[`Storyshots Info Bar Warning 1`] = `
   <button
     aria-disabled={false}
     aria-label="Close"
-    className="my-close-btn-class button buttonNeutral iconLeft"
+    className="my-close-btn-class button button-neutral icon-left"
     data-test-id="my-close-btn-test-id"
     defaultChecked={false}
     disabled={false}
@@ -5381,7 +5381,7 @@ exports[`Storyshots Info Bar Warning 1`] = `
   >
     <span
       aria-hidden={false}
-      className="icon iconWrapper"
+      className="icon icon-wrapper"
       role="presentation"
     >
       <svg
@@ -5413,21 +5413,21 @@ exports[`Storyshots Input Search Box 1`] = `
   role="search"
 >
   <div
-    className="inputWrapper"
+    className="input-wrapper"
   >
     <div
-      className="fieldLabel medium"
+      className="field-label medium"
     >
       <label
-        className="textStyle medium"
+        className="text-style medium"
       >
         Label
       </label>
       <span
-        className="fieldLabelIconButton medium"
+        className="field-label-icon-button medium"
       >
         <div
-          className="referenceWrapper"
+          className="reference-wrapper"
           id="4fzzzxj"
           onBlur={[Function]}
           onFocus={[Function]}
@@ -5436,13 +5436,13 @@ exports[`Storyshots Input Search Box 1`] = `
         >
           <button
             aria-disabled={false}
-            className="labelIconButton button buttonDefault buttonSize3 iconLeft"
+            className="label-icon-button button button-default button-size3 icon-left"
             defaultChecked={false}
             disabled={false}
           >
             <span
               aria-hidden={false}
-              className="icon iconWrapper"
+              className="icon icon-wrapper"
               role="presentation"
             >
               <svg
@@ -5472,7 +5472,7 @@ exports[`Storyshots Input Search Box 1`] = `
     <input
       aria-label="Search"
       autoFocus={false}
-      className="my-searchbox-class withIcon withIconButton withIconAndIconButton"
+      className="my-searchbox-class with-icon with-icon-button with-icon-and-icon-button"
       disabled={false}
       id="mySearchBoxId5"
       maxLength={100}
@@ -5488,11 +5488,11 @@ exports[`Storyshots Input Search Box 1`] = `
       type="search"
     />
     <div
-      className="iconWrapper leftIcon"
+      className="icon-wrapper left-icon"
     >
       <span
         aria-hidden={false}
-        className="iconWrapper"
+        className="icon-wrapper"
         role="presentation"
       >
         <svg
@@ -5518,13 +5518,13 @@ exports[`Storyshots Input Search Box 1`] = `
     </div>
     <button
       aria-disabled={false}
-      className="iconButton leftIcon button buttonDefault buttonSize2 iconLeft"
+      className="icon-button left-icon button button-default button-size2 icon-left"
       defaultChecked={false}
       disabled={false}
     >
       <span
         aria-hidden={false}
-        className="icon iconWrapper"
+        className="icon icon-wrapper"
         role="presentation"
       >
         <svg
@@ -5554,21 +5554,21 @@ exports[`Storyshots Input Search Box 1`] = `
 
 exports[`Storyshots Input Text Area 1`] = `
 <div
-  className="inputWrapper"
+  className="input-wrapper"
 >
   <div
-    className="fieldLabel medium"
+    className="field-label medium"
   >
     <label
-      className="textStyle medium"
+      className="text-style medium"
     >
       Label
     </label>
     <span
-      className="fieldLabelIconButton medium"
+      className="field-label-icon-button medium"
     >
       <div
-        className="referenceWrapper"
+        className="reference-wrapper"
         id="4fzzzxj"
         onBlur={[Function]}
         onFocus={[Function]}
@@ -5577,13 +5577,13 @@ exports[`Storyshots Input Text Area 1`] = `
       >
         <button
           aria-disabled={false}
-          className="labelIconButton button buttonDefault buttonSize3 iconLeft"
+          className="label-icon-button button button-default button-size3 icon-left"
           defaultChecked={false}
           disabled={false}
         >
           <span
             aria-hidden={false}
-            className="icon iconWrapper"
+            className="icon icon-wrapper"
             role="presentation"
           >
             <svg
@@ -5614,7 +5614,7 @@ exports[`Storyshots Input Text Area 1`] = `
     aria-disabled={false}
     aria-label="Sample text"
     autoFocus={false}
-    className="my-textarea-class textArea"
+    className="my-textarea-class text-area"
     cols={50}
     disabled={false}
     htmltype="text"
@@ -5631,7 +5631,7 @@ exports[`Storyshots Input Text Area 1`] = `
   />
   <span
     aria-hidden={false}
-    className="textAreaResizeIcon iconWrapper"
+    className="text-area-resize-icon icon-wrapper"
     role="presentation"
   >
     <svg
@@ -5659,21 +5659,21 @@ exports[`Storyshots Input Text Area 1`] = `
 
 exports[`Storyshots Input Text Input 1`] = `
 <div
-  className="inputWrapper"
+  className="input-wrapper"
 >
   <div
-    className="fieldLabel medium"
+    className="field-label medium"
   >
     <label
-      className="textStyle medium"
+      className="text-style medium"
     >
       Label
     </label>
     <span
-      className="fieldLabelIconButton medium"
+      className="field-label-icon-button medium"
     >
       <div
-        className="referenceWrapper"
+        className="reference-wrapper"
         id="4fzzzxj"
         onBlur={[Function]}
         onFocus={[Function]}
@@ -5682,13 +5682,13 @@ exports[`Storyshots Input Text Input 1`] = `
       >
         <button
           aria-disabled={false}
-          className="labelIconButton button buttonDefault buttonSize3 iconLeft"
+          className="label-icon-button button button-default button-size3 icon-left"
           defaultChecked={false}
           disabled={false}
         >
           <span
             aria-hidden={false}
-            className="icon iconWrapper"
+            className="icon icon-wrapper"
             role="presentation"
           >
             <svg
@@ -5718,7 +5718,7 @@ exports[`Storyshots Input Text Input 1`] = `
   <input
     aria-label="Sample text"
     autoFocus={false}
-    className="my-textinput-class withIcon withIconButton withIconAndIconButton"
+    className="my-textinput-class with-icon with-icon-button with-icon-and-icon-button"
     disabled={false}
     htmltype="text"
     id="myTextInputId7"
@@ -5735,11 +5735,11 @@ exports[`Storyshots Input Text Input 1`] = `
     type="text"
   />
   <div
-    className="iconWrapper leftIcon"
+    className="icon-wrapper left-icon"
   >
     <span
       aria-hidden={false}
-      className="iconWrapper"
+      className="icon-wrapper"
       role="presentation"
     >
       <svg
@@ -5765,13 +5765,13 @@ exports[`Storyshots Input Text Input 1`] = `
   </div>
   <button
     aria-disabled={false}
-    className="iconButton leftIcon button buttonDefault buttonSize2 iconLeft"
+    className="icon-button left-icon button button-default button-size2 icon-left"
     defaultChecked={false}
     disabled={false}
   >
     <span
       aria-hidden={false}
-      className="icon iconWrapper"
+      className="icon icon-wrapper"
       role="presentation"
     >
       <svg
@@ -5800,19 +5800,19 @@ exports[`Storyshots Input Text Input 1`] = `
 
 exports[`Storyshots Label Labels 1`] = `
 <div
-  className="fieldLabel medium my-label-class"
+  className="field-label medium my-label-class"
 >
   <label
-    className="textStyle medium"
+    className="text-style medium"
     htmlFor=""
   >
     This is a label
   </label>
   <span
-    className="fieldLabelIconButton medium"
+    className="field-label-icon-button medium"
   >
     <div
-      className="referenceWrapper"
+      className="reference-wrapper"
       id="4fzzzxj"
       onBlur={[Function]}
       onFocus={[Function]}
@@ -5821,14 +5821,14 @@ exports[`Storyshots Label Labels 1`] = `
     >
       <button
         aria-disabled={false}
-        className="labelIconButton button buttonDefault buttonSize3 iconLeft"
+        className="label-icon-button button button-default button-size3 icon-left"
         defaultChecked={false}
         disabled={false}
         onClick={[Function]}
       >
         <span
           aria-hidden={false}
-          className="icon iconWrapper"
+          className="icon icon-wrapper"
           role="presentation"
         >
           <svg
@@ -5859,7 +5859,7 @@ exports[`Storyshots Label Labels 1`] = `
 
 exports[`Storyshots Link Default 1`] = `
 <a
-  className="linkStyle my-link-class"
+  className="link-style my-link-class"
   href="https://www.twitter.com"
   style={Object {}}
   target="_self"
@@ -5870,14 +5870,14 @@ exports[`Storyshots Link Default 1`] = `
 
 exports[`Storyshots Link Default Disabled 1`] = `
 <a
-  className="linkStyle my-link-class"
+  className="link-style my-link-class"
   href="https://www.facebook.com"
   style={Object {}}
   target="_self"
 >
   <span
     aria-hidden={false}
-    className="iconWrapper"
+    className="icon-wrapper"
     role="presentation"
   >
     <svg
@@ -5906,7 +5906,7 @@ exports[`Storyshots Link Default Disabled 1`] = `
 
 exports[`Storyshots Link Primary 1`] = `
 <a
-  className="linkStyle my-link-class primary"
+  className="link-style my-link-class primary"
   href="https://www.facebook.com"
   style={
     Object {
@@ -5917,7 +5917,7 @@ exports[`Storyshots Link Primary 1`] = `
 >
   <span
     aria-hidden={false}
-    className="iconWrapper"
+    className="icon-wrapper"
     role="presentation"
   >
     <svg
@@ -5961,11 +5961,11 @@ exports[`Storyshots List Horizontal 1`] = `
     </h2>
   </div>
   <ul
-    className="listContainer"
+    className="list-container"
     role=""
   >
     <li
-      className="listItem my-list-item-class"
+      className="list-item my-list-item-class"
       role=""
       style={
         Object {
@@ -5983,7 +5983,7 @@ exports[`Storyshots List Horizontal 1`] = `
       </div>
     </li>
     <li
-      className="listItem my-list-item-class"
+      className="list-item my-list-item-class"
       role=""
       style={
         Object {
@@ -6001,7 +6001,7 @@ exports[`Storyshots List Horizontal 1`] = `
       </div>
     </li>
     <li
-      className="listItem my-list-item-class"
+      className="list-item my-list-item-class"
       role=""
       style={
         Object {
@@ -6019,7 +6019,7 @@ exports[`Storyshots List Horizontal 1`] = `
       </div>
     </li>
     <li
-      className="listItem my-list-item-class"
+      className="list-item my-list-item-class"
       role=""
       style={
         Object {
@@ -6037,7 +6037,7 @@ exports[`Storyshots List Horizontal 1`] = `
       </div>
     </li>
     <li
-      className="listItem my-list-item-class"
+      className="list-item my-list-item-class"
       role=""
       style={
         Object {
@@ -6086,11 +6086,11 @@ exports[`Storyshots List Vertical 1`] = `
     </h2>
   </div>
   <ul
-    className="listContainer vertical"
+    className="list-container vertical"
     role=""
   >
     <li
-      className="listItem my-list-item-class"
+      className="list-item my-list-item-class"
       role=""
       style={
         Object {
@@ -6108,7 +6108,7 @@ exports[`Storyshots List Vertical 1`] = `
       </div>
     </li>
     <li
-      className="listItem my-list-item-class"
+      className="list-item my-list-item-class"
       role=""
       style={
         Object {
@@ -6126,7 +6126,7 @@ exports[`Storyshots List Vertical 1`] = `
       </div>
     </li>
     <li
-      className="listItem my-list-item-class"
+      className="list-item my-list-item-class"
       role=""
       style={
         Object {
@@ -6144,7 +6144,7 @@ exports[`Storyshots List Vertical 1`] = `
       </div>
     </li>
     <li
-      className="listItem my-list-item-class"
+      className="list-item my-list-item-class"
       role=""
       style={
         Object {
@@ -6162,7 +6162,7 @@ exports[`Storyshots List Vertical 1`] = `
       </div>
     </li>
     <li
-      className="listItem my-list-item-class"
+      className="list-item my-list-item-class"
       role=""
       style={
         Object {
@@ -6197,22 +6197,22 @@ exports[`Storyshots List Vertical 1`] = `
 exports[`Storyshots Match Score Default 1`] = `
 <div
   aria-label="score"
-  className="my-match-score-class matchScoreContainer oct-component"
+  className="my-match-score-class match-score-container oct-component"
 >
   <div
-    className="matchScoreCircle full"
+    className="match-score-circle full"
   />
   <div
-    className="matchScoreCircle full"
+    className="match-score-circle full"
   />
   <div
-    className="matchScoreCircle full"
+    className="match-score-circle full"
   />
   <div
-    className="matchScoreCircle"
+    className="match-score-circle"
   />
   <div
-    className="matchScoreCircle"
+    className="match-score-circle"
   />
   <p
     className="label"
@@ -6227,36 +6227,36 @@ exports[`Storyshots Match Score Default 1`] = `
 exports[`Storyshots Match Score Without Label 1`] = `
 <div
   aria-label="score"
-  className="my-match-score-class matchScoreContainer oct-component"
+  className="my-match-score-class match-score-container oct-component"
 >
   <div
-    className="matchScoreCircle full"
+    className="match-score-circle full"
   />
   <div
-    className="matchScoreCircle full"
+    className="match-score-circle full"
   />
   <div
-    className="matchScoreCircle full"
+    className="match-score-circle full"
   />
   <div
-    className="matchScoreCircle"
+    className="match-score-circle"
   />
   <div
-    className="matchScoreCircle"
+    className="match-score-circle"
   />
 </div>
 `;
 
 exports[`Storyshots Menu Menus 1`] = `
 <div
-  className="mainWrapper"
+  className="main-wrapper"
 >
   <button
     aria-controls="dropdown-8"
     aria-disabled={false}
     aria-expanded={false}
     aria-haspopup={true}
-    className="button buttonDefault"
+    className="button button-default"
     defaultChecked={false}
     disabled={false}
     onClick={[Function]}
@@ -6275,7 +6275,7 @@ exports[`Storyshots Menu Menus 1`] = `
 exports[`Storyshots Modal Fullscreen 1`] = `
 <button
   aria-disabled={false}
-  className="button buttonPrimary"
+  className="button button-primary"
   defaultChecked={false}
   disabled={false}
   onClick={[Function]}
@@ -6291,7 +6291,7 @@ exports[`Storyshots Modal Fullscreen 1`] = `
 exports[`Storyshots Modal Large 1`] = `
 <button
   aria-disabled={false}
-  className="button buttonPrimary"
+  className="button button-primary"
   defaultChecked={false}
   disabled={false}
   onClick={[Function]}
@@ -6307,7 +6307,7 @@ exports[`Storyshots Modal Large 1`] = `
 exports[`Storyshots Modal Medium 1`] = `
 <button
   aria-disabled={false}
-  className="button buttonPrimary"
+  className="button button-primary"
   defaultChecked={false}
   disabled={false}
   onClick={[Function]}
@@ -6323,7 +6323,7 @@ exports[`Storyshots Modal Medium 1`] = `
 exports[`Storyshots Modal Scrollable 1`] = `
 <button
   aria-disabled={false}
-  className="button buttonPrimary"
+  className="button button-primary"
   defaultChecked={false}
   disabled={false}
   onClick={[Function]}
@@ -6339,7 +6339,7 @@ exports[`Storyshots Modal Scrollable 1`] = `
 exports[`Storyshots Modal Small 1`] = `
 <button
   aria-disabled={false}
-  className="button buttonPrimary"
+  className="button button-primary"
   defaultChecked={false}
   disabled={false}
   onClick={[Function]}
@@ -6355,7 +6355,7 @@ exports[`Storyshots Modal Small 1`] = `
 exports[`Storyshots Modal X Large 1`] = `
 <button
   aria-disabled={false}
-  className="button buttonPrimary"
+  className="button button-primary"
   defaultChecked={false}
   disabled={false}
   onClick={[Function]}
@@ -6377,7 +6377,7 @@ exports[`Storyshots Pagination All Combined 1`] = `
     className="sizes"
   >
     <div
-      className="mainWrapper"
+      className="main-wrapper"
     >
       <button
         aria-controls="dropdown-15"
@@ -6385,7 +6385,7 @@ exports[`Storyshots Pagination All Combined 1`] = `
         aria-expanded={false}
         aria-haspopup={true}
         aria-label="Selected page size"
-        className="button buttonDefault buttonSize3 iconLeft"
+        className="button button-default button-size3 icon-left"
         defaultChecked={false}
         disabled={false}
         onClick={[Function]}
@@ -6395,7 +6395,7 @@ exports[`Storyshots Pagination All Combined 1`] = `
         <span>
           <span
             aria-hidden={false}
-            className="icon iconWrapper"
+            className="icon icon-wrapper"
             role="presentation"
           >
             <svg
@@ -6419,7 +6419,7 @@ exports[`Storyshots Pagination All Combined 1`] = `
             </svg>
           </span>
           <span
-            className="buttonText3"
+            className="button-text3"
           >
             page / 100
           </span>
@@ -6435,14 +6435,14 @@ exports[`Storyshots Pagination All Combined 1`] = `
   <button
     aria-disabled={false}
     aria-label="Previous"
-    className="paginationButton button buttonDefault buttonSize3 iconLeft"
+    className="pagination-button button button-default button-size3 icon-left"
     defaultChecked={false}
     disabled={false}
     onClick={[Function]}
   >
     <span
       aria-hidden={false}
-      className="icon iconWrapper"
+      className="icon icon-wrapper"
       role="presentation"
     >
       <svg
@@ -6474,13 +6474,13 @@ exports[`Storyshots Pagination All Combined 1`] = `
         aria-checked={false}
         aria-disabled={false}
         aria-pressed={false}
-        className="paginationButton button buttonDefault buttonSize3"
+        className="pagination-button button button-default button-size3"
         defaultChecked={false}
         disabled={false}
         onClick={[Function]}
       >
         <span
-          className="buttonText3"
+          className="button-text3"
         >
           1
         </span>
@@ -6491,13 +6491,13 @@ exports[`Storyshots Pagination All Combined 1`] = `
         aria-checked={false}
         aria-disabled={false}
         aria-pressed={false}
-        className="paginationButton button buttonDefault buttonSize3"
+        className="pagination-button button button-default button-size3"
         defaultChecked={false}
         disabled={false}
         onClick={[Function]}
       >
         <span
-          className="buttonText3"
+          className="button-text3"
         >
           0
         </span>
@@ -6508,13 +6508,13 @@ exports[`Storyshots Pagination All Combined 1`] = `
         aria-checked={true}
         aria-disabled={false}
         aria-pressed={true}
-        className="paginationButton active button buttonDefault buttonSize3"
+        className="pagination-button active button button-default button-size3"
         defaultChecked={true}
         disabled={false}
         onClick={[Function]}
       >
         <span
-          className="buttonText3"
+          className="button-text3"
         >
           4
         </span>
@@ -6524,14 +6524,14 @@ exports[`Storyshots Pagination All Combined 1`] = `
   <button
     aria-disabled={false}
     aria-label="Next"
-    className="paginationButton button buttonDefault buttonSize3 iconLeft disabled"
+    className="pagination-button button button-default button-size3 icon-left disabled"
     defaultChecked={false}
     disabled={true}
     onClick={[Function]}
   >
     <span
       aria-hidden={false}
-      className="icon iconWrapper"
+      className="icon icon-wrapper"
       role="presentation"
     >
       <svg
@@ -6559,7 +6559,7 @@ exports[`Storyshots Pagination All Combined 1`] = `
     className="jump"
   >
     <div
-      className="inputWrapper"
+      className="input-wrapper"
     >
       <input
         autoFocus={false}
@@ -6589,14 +6589,14 @@ exports[`Storyshots Pagination Basic Few 1`] = `
   <button
     aria-disabled={false}
     aria-label="Previous"
-    className="paginationButton button buttonDefault buttonSize3 iconLeft disabled"
+    className="pagination-button button button-default button-size3 icon-left disabled"
     defaultChecked={false}
     disabled={true}
     onClick={[Function]}
   >
     <span
       aria-hidden={false}
-      className="icon iconWrapper"
+      className="icon icon-wrapper"
       role="presentation"
     >
       <svg
@@ -6628,13 +6628,13 @@ exports[`Storyshots Pagination Basic Few 1`] = `
         aria-checked={true}
         aria-disabled={false}
         aria-pressed={true}
-        className="paginationButton active button buttonDefault buttonSize3"
+        className="pagination-button active button button-default button-size3"
         defaultChecked={true}
         disabled={false}
         onClick={[Function]}
       >
         <span
-          className="buttonText3"
+          className="button-text3"
         >
           1
         </span>
@@ -6645,13 +6645,13 @@ exports[`Storyshots Pagination Basic Few 1`] = `
         aria-checked={false}
         aria-disabled={false}
         aria-pressed={false}
-        className="paginationButton button buttonDefault buttonSize3"
+        className="pagination-button button button-default button-size3"
         defaultChecked={false}
         disabled={false}
         onClick={[Function]}
       >
         <span
-          className="buttonText3"
+          className="button-text3"
         >
           0
         </span>
@@ -6662,13 +6662,13 @@ exports[`Storyshots Pagination Basic Few 1`] = `
         aria-checked={false}
         aria-disabled={false}
         aria-pressed={false}
-        className="paginationButton button buttonDefault buttonSize3"
+        className="pagination-button button button-default button-size3"
         defaultChecked={false}
         disabled={false}
         onClick={[Function]}
       >
         <span
-          className="buttonText3"
+          className="button-text3"
         >
           5
         </span>
@@ -6678,14 +6678,14 @@ exports[`Storyshots Pagination Basic Few 1`] = `
   <button
     aria-disabled={false}
     aria-label="Next"
-    className="paginationButton button buttonDefault buttonSize3 iconLeft"
+    className="pagination-button button button-default button-size3 icon-left"
     defaultChecked={false}
     disabled={false}
     onClick={[Function]}
   >
     <span
       aria-hidden={false}
-      className="icon iconWrapper"
+      className="icon icon-wrapper"
       role="presentation"
     >
       <svg
@@ -6721,14 +6721,14 @@ exports[`Storyshots Pagination Basic Many 1`] = `
   <button
     aria-disabled={false}
     aria-label="Previous"
-    className="paginationButton button buttonDefault buttonSize3 iconLeft disabled"
+    className="pagination-button button button-default button-size3 icon-left disabled"
     defaultChecked={false}
     disabled={true}
     onClick={[Function]}
   >
     <span
       aria-hidden={false}
-      className="icon iconWrapper"
+      className="icon icon-wrapper"
       role="presentation"
     >
       <svg
@@ -6760,13 +6760,13 @@ exports[`Storyshots Pagination Basic Many 1`] = `
         aria-checked={true}
         aria-disabled={false}
         aria-pressed={true}
-        className="paginationButton active button buttonDefault buttonSize3"
+        className="pagination-button active button button-default button-size3"
         defaultChecked={true}
         disabled={false}
         onClick={[Function]}
       >
         <span
-          className="buttonText3"
+          className="button-text3"
         >
           1
         </span>
@@ -6777,13 +6777,13 @@ exports[`Storyshots Pagination Basic Many 1`] = `
         aria-checked={false}
         aria-disabled={false}
         aria-pressed={false}
-        className="paginationButton button buttonDefault buttonSize3"
+        className="pagination-button button button-default button-size3"
         defaultChecked={false}
         disabled={false}
         onClick={[Function]}
       >
         <span
-          className="buttonText3"
+          className="button-text3"
         >
           0
         </span>
@@ -6793,7 +6793,7 @@ exports[`Storyshots Pagination Basic Many 1`] = `
       <button
         aria-disabled={false}
         aria-label="Next 5"
-        className="paginationButton quicknext button buttonDefault buttonSize3 iconLeft"
+        className="pagination-button quicknext button button-default button-size3 icon-left"
         defaultChecked={false}
         disabled={false}
         onBlur={[Function]}
@@ -6804,7 +6804,7 @@ exports[`Storyshots Pagination Basic Many 1`] = `
       >
         <span
           aria-hidden={false}
-          className="icon iconWrapper"
+          className="icon icon-wrapper"
           role="presentation"
         >
           <svg
@@ -6834,13 +6834,13 @@ exports[`Storyshots Pagination Basic Many 1`] = `
         aria-checked={false}
         aria-disabled={false}
         aria-pressed={false}
-        className="paginationButton button buttonDefault buttonSize3"
+        className="pagination-button button button-default button-size3"
         defaultChecked={false}
         disabled={false}
         onClick={[Function]}
       >
         <span
-          className="buttonText3"
+          className="button-text3"
         >
           100
         </span>
@@ -6850,14 +6850,14 @@ exports[`Storyshots Pagination Basic Many 1`] = `
   <button
     aria-disabled={false}
     aria-label="Next"
-    className="paginationButton button buttonDefault buttonSize3 iconLeft"
+    className="pagination-button button button-default button-size3 icon-left"
     defaultChecked={false}
     disabled={false}
     onClick={[Function]}
   >
     <span
       aria-hidden={false}
-      className="icon iconWrapper"
+      className="icon icon-wrapper"
       role="presentation"
     >
       <svg
@@ -6893,7 +6893,7 @@ exports[`Storyshots Pagination Change Page Size 1`] = `
     className="sizes"
   >
     <div
-      className="mainWrapper"
+      className="main-wrapper"
     >
       <button
         aria-controls="dropdown-17"
@@ -6901,7 +6901,7 @@ exports[`Storyshots Pagination Change Page Size 1`] = `
         aria-expanded={false}
         aria-haspopup={true}
         aria-label="Selected page size"
-        className="button buttonDefault buttonSize3 iconLeft"
+        className="button button-default button-size3 icon-left"
         defaultChecked={false}
         disabled={false}
         onClick={[Function]}
@@ -6911,7 +6911,7 @@ exports[`Storyshots Pagination Change Page Size 1`] = `
         <span>
           <span
             aria-hidden={false}
-            className="icon iconWrapper"
+            className="icon icon-wrapper"
             role="presentation"
           >
             <svg
@@ -6935,7 +6935,7 @@ exports[`Storyshots Pagination Change Page Size 1`] = `
             </svg>
           </span>
           <span
-            className="buttonText3"
+            className="button-text3"
           >
             page / 1000
           </span>
@@ -6947,14 +6947,14 @@ exports[`Storyshots Pagination Change Page Size 1`] = `
   <button
     aria-disabled={false}
     aria-label="Previous"
-    className="paginationButton button buttonDefault buttonSize3 iconLeft disabled"
+    className="pagination-button button button-default button-size3 icon-left disabled"
     defaultChecked={false}
     disabled={true}
     onClick={[Function]}
   >
     <span
       aria-hidden={false}
-      className="icon iconWrapper"
+      className="icon icon-wrapper"
       role="presentation"
     >
       <svg
@@ -6986,13 +6986,13 @@ exports[`Storyshots Pagination Change Page Size 1`] = `
         aria-checked={true}
         aria-disabled={false}
         aria-pressed={true}
-        className="paginationButton active button buttonDefault buttonSize3"
+        className="pagination-button active button button-default button-size3"
         defaultChecked={true}
         disabled={false}
         onClick={[Function]}
       >
         <span
-          className="buttonText3"
+          className="button-text3"
         >
           1
         </span>
@@ -7003,13 +7003,13 @@ exports[`Storyshots Pagination Change Page Size 1`] = `
         aria-checked={false}
         aria-disabled={false}
         aria-pressed={false}
-        className="paginationButton button buttonDefault buttonSize3"
+        className="pagination-button button button-default button-size3"
         defaultChecked={false}
         disabled={false}
         onClick={[Function]}
       >
         <span
-          className="buttonText3"
+          className="button-text3"
         >
           0
         </span>
@@ -7019,14 +7019,14 @@ exports[`Storyshots Pagination Change Page Size 1`] = `
   <button
     aria-disabled={false}
     aria-label="Next"
-    className="paginationButton button buttonDefault buttonSize3 iconLeft disabled"
+    className="pagination-button button button-default button-size3 icon-left disabled"
     defaultChecked={false}
     disabled={true}
     onClick={[Function]}
   >
     <span
       aria-hidden={false}
-      className="icon iconWrapper"
+      className="icon icon-wrapper"
       role="presentation"
     >
       <svg
@@ -7062,14 +7062,14 @@ exports[`Storyshots Pagination Dots 1`] = `
   <button
     aria-disabled={false}
     aria-label="Previous"
-    className="paginationButton button buttonDefault buttonSize3 iconLeft disabled"
+    className="pagination-button button button-default button-size3 icon-left disabled"
     defaultChecked={false}
     disabled={true}
     onClick={[Function]}
   >
     <span
       aria-hidden={false}
-      className="icon iconWrapper"
+      className="icon icon-wrapper"
       role="presentation"
     >
       <svg
@@ -7101,13 +7101,13 @@ exports[`Storyshots Pagination Dots 1`] = `
         aria-checked={true}
         aria-disabled={false}
         aria-pressed={true}
-        className="paginationButton active button buttonDefault buttonSize3"
+        className="pagination-button active button button-default button-size3"
         defaultChecked={true}
         disabled={false}
         onClick={[Function]}
       >
         <span
-          className="buttonText3"
+          className="button-text3"
         >
           1
         </span>
@@ -7118,13 +7118,13 @@ exports[`Storyshots Pagination Dots 1`] = `
         aria-checked={false}
         aria-disabled={false}
         aria-pressed={false}
-        className="paginationButton button buttonDefault buttonSize3"
+        className="pagination-button button button-default button-size3"
         defaultChecked={false}
         disabled={false}
         onClick={[Function]}
       >
         <span
-          className="buttonText3"
+          className="button-text3"
         >
           0
         </span>
@@ -7135,13 +7135,13 @@ exports[`Storyshots Pagination Dots 1`] = `
         aria-checked={false}
         aria-disabled={false}
         aria-pressed={false}
-        className="paginationButton button buttonDefault buttonSize3"
+        className="pagination-button button button-default button-size3"
         defaultChecked={false}
         disabled={false}
         onClick={[Function]}
       >
         <span
-          className="buttonText3"
+          className="button-text3"
         >
           5
         </span>
@@ -7151,14 +7151,14 @@ exports[`Storyshots Pagination Dots 1`] = `
   <button
     aria-disabled={false}
     aria-label="Next"
-    className="paginationButton button buttonDefault buttonSize3 iconLeft"
+    className="pagination-button button button-default button-size3 icon-left"
     defaultChecked={false}
     disabled={false}
     onClick={[Function]}
   >
     <span
       aria-hidden={false}
-      className="icon iconWrapper"
+      className="icon icon-wrapper"
       role="presentation"
     >
       <svg
@@ -7194,14 +7194,14 @@ exports[`Storyshots Pagination Jump To 1`] = `
   <button
     aria-disabled={false}
     aria-label="Previous"
-    className="paginationButton button buttonDefault buttonSize3 iconLeft"
+    className="pagination-button button button-default button-size3 icon-left"
     defaultChecked={false}
     disabled={false}
     onClick={[Function]}
   >
     <span
       aria-hidden={false}
-      className="icon iconWrapper"
+      className="icon icon-wrapper"
       role="presentation"
     >
       <svg
@@ -7233,13 +7233,13 @@ exports[`Storyshots Pagination Jump To 1`] = `
         aria-checked={false}
         aria-disabled={false}
         aria-pressed={false}
-        className="paginationButton button buttonDefault buttonSize3"
+        className="pagination-button button button-default button-size3"
         defaultChecked={false}
         disabled={false}
         onClick={[Function]}
       >
         <span
-          className="buttonText3"
+          className="button-text3"
         >
           1
         </span>
@@ -7250,13 +7250,13 @@ exports[`Storyshots Pagination Jump To 1`] = `
         aria-checked={false}
         aria-disabled={false}
         aria-pressed={false}
-        className="paginationButton button buttonDefault buttonSize3"
+        className="pagination-button button button-default button-size3"
         defaultChecked={false}
         disabled={false}
         onClick={[Function]}
       >
         <span
-          className="buttonText3"
+          className="button-text3"
         >
           0
         </span>
@@ -7267,13 +7267,13 @@ exports[`Storyshots Pagination Jump To 1`] = `
         aria-checked={false}
         aria-disabled={false}
         aria-pressed={false}
-        className="paginationButton button buttonDefault buttonSize3"
+        className="pagination-button button button-default button-size3"
         defaultChecked={false}
         disabled={false}
         onClick={[Function]}
       >
         <span
-          className="buttonText3"
+          className="button-text3"
         >
           10
         </span>
@@ -7283,14 +7283,14 @@ exports[`Storyshots Pagination Jump To 1`] = `
   <button
     aria-disabled={false}
     aria-label="Next"
-    className="paginationButton button buttonDefault buttonSize3 iconLeft"
+    className="pagination-button button button-default button-size3 icon-left"
     defaultChecked={false}
     disabled={false}
     onClick={[Function]}
   >
     <span
       aria-hidden={false}
-      className="icon iconWrapper"
+      className="icon icon-wrapper"
       role="presentation"
     >
       <svg
@@ -7318,7 +7318,7 @@ exports[`Storyshots Pagination Jump To 1`] = `
     className="jump"
   >
     <div
-      className="inputWrapper"
+      className="input-wrapper"
     >
       <input
         autoFocus={false}
@@ -7352,14 +7352,14 @@ exports[`Storyshots Pagination Total Item Count 1`] = `
   <button
     aria-disabled={false}
     aria-label="Previous"
-    className="paginationButton button buttonDefault buttonSize3 iconLeft disabled"
+    className="pagination-button button button-default button-size3 icon-left disabled"
     defaultChecked={false}
     disabled={true}
     onClick={[Function]}
   >
     <span
       aria-hidden={false}
-      className="icon iconWrapper"
+      className="icon icon-wrapper"
       role="presentation"
     >
       <svg
@@ -7391,13 +7391,13 @@ exports[`Storyshots Pagination Total Item Count 1`] = `
         aria-checked={true}
         aria-disabled={false}
         aria-pressed={true}
-        className="paginationButton active button buttonDefault buttonSize3"
+        className="pagination-button active button button-default button-size3"
         defaultChecked={true}
         disabled={false}
         onClick={[Function]}
       >
         <span
-          className="buttonText3"
+          className="button-text3"
         >
           1
         </span>
@@ -7408,13 +7408,13 @@ exports[`Storyshots Pagination Total Item Count 1`] = `
         aria-checked={false}
         aria-disabled={false}
         aria-pressed={false}
-        className="paginationButton button buttonDefault buttonSize3"
+        className="pagination-button button button-default button-size3"
         defaultChecked={false}
         disabled={false}
         onClick={[Function]}
       >
         <span
-          className="buttonText3"
+          className="button-text3"
         >
           0
         </span>
@@ -7424,7 +7424,7 @@ exports[`Storyshots Pagination Total Item Count 1`] = `
       <button
         aria-disabled={false}
         aria-label="Next 5"
-        className="paginationButton quicknext button buttonDefault buttonSize3 iconLeft"
+        className="pagination-button quicknext button button-default button-size3 icon-left"
         defaultChecked={false}
         disabled={false}
         onBlur={[Function]}
@@ -7435,7 +7435,7 @@ exports[`Storyshots Pagination Total Item Count 1`] = `
       >
         <span
           aria-hidden={false}
-          className="icon iconWrapper"
+          className="icon icon-wrapper"
           role="presentation"
         >
           <svg
@@ -7465,13 +7465,13 @@ exports[`Storyshots Pagination Total Item Count 1`] = `
         aria-checked={false}
         aria-disabled={false}
         aria-pressed={false}
-        className="paginationButton button buttonDefault buttonSize3"
+        className="pagination-button button button-default button-size3"
         defaultChecked={false}
         disabled={false}
         onClick={[Function]}
       >
         <span
-          className="buttonText3"
+          className="button-text3"
         >
           100
         </span>
@@ -7481,14 +7481,14 @@ exports[`Storyshots Pagination Total Item Count 1`] = `
   <button
     aria-disabled={false}
     aria-label="Next"
-    className="paginationButton button buttonDefault buttonSize3 iconLeft"
+    className="pagination-button button button-default button-size3 icon-left"
     defaultChecked={false}
     disabled={false}
     onClick={[Function]}
   >
     <span
       aria-hidden={false}
-      className="icon iconWrapper"
+      className="icon icon-wrapper"
       role="presentation"
     >
       <svg
@@ -7518,7 +7518,7 @@ exports[`Storyshots Pagination Total Item Count 1`] = `
 exports[`Storyshots Panel Bottom 1`] = `
 <button
   aria-disabled={false}
-  className="button buttonPrimary"
+  className="button button-primary"
   defaultChecked={false}
   disabled={false}
   onClick={[Function]}
@@ -7534,7 +7534,7 @@ exports[`Storyshots Panel Bottom 1`] = `
 exports[`Storyshots Panel Large 1`] = `
 <button
   aria-disabled={false}
-  className="button buttonPrimary"
+  className="button button-primary"
   defaultChecked={false}
   disabled={false}
   onClick={[Function]}
@@ -7550,7 +7550,7 @@ exports[`Storyshots Panel Large 1`] = `
 exports[`Storyshots Panel Left 1`] = `
 <button
   aria-disabled={false}
-  className="button buttonPrimary"
+  className="button button-primary"
   defaultChecked={false}
   disabled={false}
   onClick={[Function]}
@@ -7566,7 +7566,7 @@ exports[`Storyshots Panel Left 1`] = `
 exports[`Storyshots Panel Medium 1`] = `
 <button
   aria-disabled={false}
-  className="button buttonPrimary"
+  className="button button-primary"
   defaultChecked={false}
   disabled={false}
   onClick={[Function]}
@@ -7582,7 +7582,7 @@ exports[`Storyshots Panel Medium 1`] = `
 exports[`Storyshots Panel Small 1`] = `
 <button
   aria-disabled={false}
-  className="button buttonPrimary"
+  className="button button-primary"
   defaultChecked={false}
   disabled={false}
   onClick={[Function]}
@@ -7598,7 +7598,7 @@ exports[`Storyshots Panel Small 1`] = `
 exports[`Storyshots Panel Stacked 1`] = `
 <button
   aria-disabled={false}
-  className="button buttonPrimary"
+  className="button button-primary"
   defaultChecked={false}
   disabled={false}
   onClick={[Function]}
@@ -7614,7 +7614,7 @@ exports[`Storyshots Panel Stacked 1`] = `
 exports[`Storyshots Panel Top 1`] = `
 <button
   aria-disabled={false}
-  className="button buttonPrimary"
+  className="button button-primary"
   defaultChecked={false}
   disabled={false}
   onClick={[Function]}
@@ -7639,7 +7639,7 @@ exports[`Storyshots Pill Closable 1`] = `
   }
 >
   <div
-    className="tagPills red"
+    className="tag-pills red"
     style={
       Object {
         "color": undefined,
@@ -7654,13 +7654,13 @@ exports[`Storyshots Pill Closable 1`] = `
     <button
       aria-disabled={false}
       aria-label="Close"
-      className="closeButton button buttonDefault buttonSize2 iconLeft"
+      className="close-button button button-default button-size2 icon-left"
       defaultChecked={false}
       disabled={false}
     >
       <span
         aria-hidden={false}
-        className="icon iconWrapper"
+        className="icon icon-wrapper"
         role="presentation"
       >
         <svg
@@ -7686,7 +7686,7 @@ exports[`Storyshots Pill Closable 1`] = `
     </button>
   </div>
   <div
-    className="tagPills orange"
+    className="tag-pills orange"
     style={
       Object {
         "color": undefined,
@@ -7701,13 +7701,13 @@ exports[`Storyshots Pill Closable 1`] = `
     <button
       aria-disabled={false}
       aria-label="Close"
-      className="closeButton button buttonDefault buttonSize2 iconLeft"
+      className="close-button button button-default button-size2 icon-left"
       defaultChecked={false}
       disabled={false}
     >
       <span
         aria-hidden={false}
-        className="icon iconWrapper"
+        className="icon icon-wrapper"
         role="presentation"
       >
         <svg
@@ -7733,7 +7733,7 @@ exports[`Storyshots Pill Closable 1`] = `
     </button>
   </div>
   <div
-    className="tagPills yellow"
+    className="tag-pills yellow"
     style={
       Object {
         "color": undefined,
@@ -7748,13 +7748,13 @@ exports[`Storyshots Pill Closable 1`] = `
     <button
       aria-disabled={false}
       aria-label="Close"
-      className="closeButton button buttonDefault buttonSize2 iconLeft"
+      className="close-button button button-default button-size2 icon-left"
       defaultChecked={false}
       disabled={false}
     >
       <span
         aria-hidden={false}
-        className="icon iconWrapper"
+        className="icon icon-wrapper"
         role="presentation"
       >
         <svg
@@ -7780,7 +7780,7 @@ exports[`Storyshots Pill Closable 1`] = `
     </button>
   </div>
   <div
-    className="tagPills green"
+    className="tag-pills green"
     style={
       Object {
         "color": undefined,
@@ -7795,13 +7795,13 @@ exports[`Storyshots Pill Closable 1`] = `
     <button
       aria-disabled={false}
       aria-label="Close"
-      className="closeButton button buttonDefault buttonSize2 iconLeft"
+      className="close-button button button-default button-size2 icon-left"
       defaultChecked={false}
       disabled={false}
     >
       <span
         aria-hidden={false}
-        className="icon iconWrapper"
+        className="icon icon-wrapper"
         role="presentation"
       >
         <svg
@@ -7827,7 +7827,7 @@ exports[`Storyshots Pill Closable 1`] = `
     </button>
   </div>
   <div
-    className="tagPills bluegreen"
+    className="tag-pills bluegreen"
     style={
       Object {
         "color": undefined,
@@ -7842,13 +7842,13 @@ exports[`Storyshots Pill Closable 1`] = `
     <button
       aria-disabled={false}
       aria-label="Close"
-      className="closeButton button buttonDefault buttonSize2 iconLeft"
+      className="close-button button button-default button-size2 icon-left"
       defaultChecked={false}
       disabled={false}
     >
       <span
         aria-hidden={false}
-        className="icon iconWrapper"
+        className="icon icon-wrapper"
         role="presentation"
       >
         <svg
@@ -7874,7 +7874,7 @@ exports[`Storyshots Pill Closable 1`] = `
     </button>
   </div>
   <div
-    className="tagPills blue"
+    className="tag-pills blue"
     style={
       Object {
         "color": undefined,
@@ -7889,13 +7889,13 @@ exports[`Storyshots Pill Closable 1`] = `
     <button
       aria-disabled={false}
       aria-label="Close"
-      className="closeButton button buttonDefault buttonSize2 iconLeft"
+      className="close-button button button-default button-size2 icon-left"
       defaultChecked={false}
       disabled={false}
     >
       <span
         aria-hidden={false}
-        className="icon iconWrapper"
+        className="icon icon-wrapper"
         role="presentation"
       >
         <svg
@@ -7921,7 +7921,7 @@ exports[`Storyshots Pill Closable 1`] = `
     </button>
   </div>
   <div
-    className="tagPills violet"
+    className="tag-pills violet"
     style={
       Object {
         "color": undefined,
@@ -7936,13 +7936,13 @@ exports[`Storyshots Pill Closable 1`] = `
     <button
       aria-disabled={false}
       aria-label="Close"
-      className="closeButton button buttonDefault buttonSize2 iconLeft"
+      className="close-button button button-default button-size2 icon-left"
       defaultChecked={false}
       disabled={false}
     >
       <span
         aria-hidden={false}
-        className="icon iconWrapper"
+        className="icon icon-wrapper"
         role="presentation"
       >
         <svg
@@ -7968,7 +7968,7 @@ exports[`Storyshots Pill Closable 1`] = `
     </button>
   </div>
   <div
-    className="tagPills grey"
+    className="tag-pills grey"
     style={
       Object {
         "color": undefined,
@@ -7983,13 +7983,13 @@ exports[`Storyshots Pill Closable 1`] = `
     <button
       aria-disabled={false}
       aria-label="Close"
-      className="closeButton button buttonDefault buttonSize2 iconLeft"
+      className="close-button button button-default button-size2 icon-left"
       defaultChecked={false}
       disabled={false}
     >
       <span
         aria-hidden={false}
-        className="icon iconWrapper"
+        className="icon icon-wrapper"
         role="presentation"
       >
         <svg
@@ -8029,7 +8029,7 @@ exports[`Storyshots Pill Default 1`] = `
   }
 >
   <div
-    className="tagPills red"
+    className="tag-pills red"
     style={
       Object {
         "color": undefined,
@@ -8043,7 +8043,7 @@ exports[`Storyshots Pill Default 1`] = `
     </span>
   </div>
   <div
-    className="tagPills orange"
+    className="tag-pills orange"
     style={
       Object {
         "color": undefined,
@@ -8057,7 +8057,7 @@ exports[`Storyshots Pill Default 1`] = `
     </span>
   </div>
   <div
-    className="tagPills yellow"
+    className="tag-pills yellow"
     style={
       Object {
         "color": undefined,
@@ -8071,7 +8071,7 @@ exports[`Storyshots Pill Default 1`] = `
     </span>
   </div>
   <div
-    className="tagPills green"
+    className="tag-pills green"
     style={
       Object {
         "color": undefined,
@@ -8085,7 +8085,7 @@ exports[`Storyshots Pill Default 1`] = `
     </span>
   </div>
   <div
-    className="tagPills bluegreen"
+    className="tag-pills bluegreen"
     style={
       Object {
         "color": undefined,
@@ -8099,7 +8099,7 @@ exports[`Storyshots Pill Default 1`] = `
     </span>
   </div>
   <div
-    className="tagPills blue"
+    className="tag-pills blue"
     style={
       Object {
         "color": undefined,
@@ -8113,7 +8113,7 @@ exports[`Storyshots Pill Default 1`] = `
     </span>
   </div>
   <div
-    className="tagPills violet"
+    className="tag-pills violet"
     style={
       Object {
         "color": undefined,
@@ -8127,7 +8127,7 @@ exports[`Storyshots Pill Default 1`] = `
     </span>
   </div>
   <div
-    className="tagPills grey"
+    className="tag-pills grey"
     style={
       Object {
         "color": undefined,
@@ -8155,7 +8155,7 @@ exports[`Storyshots Pill With Button 1`] = `
   }
 >
   <div
-    className="tagPills red"
+    className="tag-pills red"
     style={
       Object {
         "color": undefined,
@@ -8170,14 +8170,14 @@ exports[`Storyshots Pill With Button 1`] = `
     <button
       aria-disabled={false}
       aria-label="Thumbs up"
-      className="button button buttonDefault buttonSize2 iconLeft"
+      className="button button button-default button-size2 icon-left"
       defaultChecked={false}
       disabled={false}
     >
       <span>
         <span
           aria-hidden={false}
-          className="icon iconWrapper"
+          className="icon icon-wrapper"
           role="presentation"
         >
           <svg
@@ -8201,7 +8201,7 @@ exports[`Storyshots Pill With Button 1`] = `
           </svg>
         </span>
         <span
-          className="buttonText2"
+          className="button-text2"
         >
           2
         </span>
@@ -8209,7 +8209,7 @@ exports[`Storyshots Pill With Button 1`] = `
     </button>
   </div>
   <div
-    className="tagPills orange"
+    className="tag-pills orange"
     style={
       Object {
         "color": undefined,
@@ -8224,14 +8224,14 @@ exports[`Storyshots Pill With Button 1`] = `
     <button
       aria-disabled={false}
       aria-label="Thumbs up"
-      className="button button buttonDefault buttonSize2 iconLeft"
+      className="button button button-default button-size2 icon-left"
       defaultChecked={false}
       disabled={false}
     >
       <span>
         <span
           aria-hidden={false}
-          className="icon iconWrapper"
+          className="icon icon-wrapper"
           role="presentation"
         >
           <svg
@@ -8255,7 +8255,7 @@ exports[`Storyshots Pill With Button 1`] = `
           </svg>
         </span>
         <span
-          className="buttonText2"
+          className="button-text2"
         >
           2
         </span>
@@ -8263,7 +8263,7 @@ exports[`Storyshots Pill With Button 1`] = `
     </button>
   </div>
   <div
-    className="tagPills yellow"
+    className="tag-pills yellow"
     style={
       Object {
         "color": undefined,
@@ -8278,14 +8278,14 @@ exports[`Storyshots Pill With Button 1`] = `
     <button
       aria-disabled={false}
       aria-label="Thumbs up"
-      className="button button buttonDefault buttonSize2 iconLeft"
+      className="button button button-default button-size2 icon-left"
       defaultChecked={false}
       disabled={false}
     >
       <span>
         <span
           aria-hidden={false}
-          className="icon iconWrapper"
+          className="icon icon-wrapper"
           role="presentation"
         >
           <svg
@@ -8309,7 +8309,7 @@ exports[`Storyshots Pill With Button 1`] = `
           </svg>
         </span>
         <span
-          className="buttonText2"
+          className="button-text2"
         >
           2
         </span>
@@ -8317,7 +8317,7 @@ exports[`Storyshots Pill With Button 1`] = `
     </button>
   </div>
   <div
-    className="tagPills green"
+    className="tag-pills green"
     style={
       Object {
         "color": undefined,
@@ -8332,14 +8332,14 @@ exports[`Storyshots Pill With Button 1`] = `
     <button
       aria-disabled={false}
       aria-label="Thumbs up"
-      className="button button buttonDefault buttonSize2 iconLeft"
+      className="button button button-default button-size2 icon-left"
       defaultChecked={false}
       disabled={false}
     >
       <span>
         <span
           aria-hidden={false}
-          className="icon iconWrapper"
+          className="icon icon-wrapper"
           role="presentation"
         >
           <svg
@@ -8363,7 +8363,7 @@ exports[`Storyshots Pill With Button 1`] = `
           </svg>
         </span>
         <span
-          className="buttonText2"
+          className="button-text2"
         >
           2
         </span>
@@ -8371,7 +8371,7 @@ exports[`Storyshots Pill With Button 1`] = `
     </button>
   </div>
   <div
-    className="tagPills bluegreen"
+    className="tag-pills bluegreen"
     style={
       Object {
         "color": undefined,
@@ -8386,14 +8386,14 @@ exports[`Storyshots Pill With Button 1`] = `
     <button
       aria-disabled={false}
       aria-label="Thumbs up"
-      className="button button buttonDefault buttonSize2 iconLeft"
+      className="button button button-default button-size2 icon-left"
       defaultChecked={false}
       disabled={false}
     >
       <span>
         <span
           aria-hidden={false}
-          className="icon iconWrapper"
+          className="icon icon-wrapper"
           role="presentation"
         >
           <svg
@@ -8417,7 +8417,7 @@ exports[`Storyshots Pill With Button 1`] = `
           </svg>
         </span>
         <span
-          className="buttonText2"
+          className="button-text2"
         >
           2
         </span>
@@ -8425,7 +8425,7 @@ exports[`Storyshots Pill With Button 1`] = `
     </button>
   </div>
   <div
-    className="tagPills blue"
+    className="tag-pills blue"
     style={
       Object {
         "color": undefined,
@@ -8440,14 +8440,14 @@ exports[`Storyshots Pill With Button 1`] = `
     <button
       aria-disabled={false}
       aria-label="Thumbs up"
-      className="button button buttonDefault buttonSize2 iconLeft"
+      className="button button button-default button-size2 icon-left"
       defaultChecked={false}
       disabled={false}
     >
       <span>
         <span
           aria-hidden={false}
-          className="icon iconWrapper"
+          className="icon icon-wrapper"
           role="presentation"
         >
           <svg
@@ -8471,7 +8471,7 @@ exports[`Storyshots Pill With Button 1`] = `
           </svg>
         </span>
         <span
-          className="buttonText2"
+          className="button-text2"
         >
           2
         </span>
@@ -8479,7 +8479,7 @@ exports[`Storyshots Pill With Button 1`] = `
     </button>
   </div>
   <div
-    className="tagPills violet"
+    className="tag-pills violet"
     style={
       Object {
         "color": undefined,
@@ -8494,14 +8494,14 @@ exports[`Storyshots Pill With Button 1`] = `
     <button
       aria-disabled={false}
       aria-label="Thumbs up"
-      className="button button buttonDefault buttonSize2 iconLeft"
+      className="button button button-default button-size2 icon-left"
       defaultChecked={false}
       disabled={false}
     >
       <span>
         <span
           aria-hidden={false}
-          className="icon iconWrapper"
+          className="icon icon-wrapper"
           role="presentation"
         >
           <svg
@@ -8525,7 +8525,7 @@ exports[`Storyshots Pill With Button 1`] = `
           </svg>
         </span>
         <span
-          className="buttonText2"
+          className="button-text2"
         >
           2
         </span>
@@ -8533,7 +8533,7 @@ exports[`Storyshots Pill With Button 1`] = `
     </button>
   </div>
   <div
-    className="tagPills grey"
+    className="tag-pills grey"
     style={
       Object {
         "color": undefined,
@@ -8548,14 +8548,14 @@ exports[`Storyshots Pill With Button 1`] = `
     <button
       aria-disabled={false}
       aria-label="Thumbs up"
-      className="button button buttonDefault buttonSize2 iconLeft"
+      className="button button button-default button-size2 icon-left"
       defaultChecked={false}
       disabled={false}
     >
       <span>
         <span
           aria-hidden={false}
-          className="icon iconWrapper"
+          className="icon icon-wrapper"
           role="presentation"
         >
           <svg
@@ -8579,7 +8579,7 @@ exports[`Storyshots Pill With Button 1`] = `
           </svg>
         </span>
         <span
-          className="buttonText2"
+          className="button-text2"
         >
           2
         </span>
@@ -8601,7 +8601,7 @@ exports[`Storyshots Pill With Icon 1`] = `
   }
 >
   <div
-    className="tagPills red"
+    className="tag-pills red"
     style={
       Object {
         "color": undefined,
@@ -8610,7 +8610,7 @@ exports[`Storyshots Pill With Icon 1`] = `
   >
     <span
       aria-hidden={false}
-      className="icon iconWrapper"
+      className="icon icon-wrapper"
       role="presentation"
     >
       <svg
@@ -8640,7 +8640,7 @@ exports[`Storyshots Pill With Icon 1`] = `
     </span>
   </div>
   <div
-    className="tagPills orange"
+    className="tag-pills orange"
     style={
       Object {
         "color": undefined,
@@ -8649,7 +8649,7 @@ exports[`Storyshots Pill With Icon 1`] = `
   >
     <span
       aria-hidden={false}
-      className="icon iconWrapper"
+      className="icon icon-wrapper"
       role="presentation"
     >
       <svg
@@ -8679,7 +8679,7 @@ exports[`Storyshots Pill With Icon 1`] = `
     </span>
   </div>
   <div
-    className="tagPills yellow"
+    className="tag-pills yellow"
     style={
       Object {
         "color": undefined,
@@ -8688,7 +8688,7 @@ exports[`Storyshots Pill With Icon 1`] = `
   >
     <span
       aria-hidden={false}
-      className="icon iconWrapper"
+      className="icon icon-wrapper"
       role="presentation"
     >
       <svg
@@ -8718,7 +8718,7 @@ exports[`Storyshots Pill With Icon 1`] = `
     </span>
   </div>
   <div
-    className="tagPills green"
+    className="tag-pills green"
     style={
       Object {
         "color": undefined,
@@ -8727,7 +8727,7 @@ exports[`Storyshots Pill With Icon 1`] = `
   >
     <span
       aria-hidden={false}
-      className="icon iconWrapper"
+      className="icon icon-wrapper"
       role="presentation"
     >
       <svg
@@ -8757,7 +8757,7 @@ exports[`Storyshots Pill With Icon 1`] = `
     </span>
   </div>
   <div
-    className="tagPills bluegreen"
+    className="tag-pills bluegreen"
     style={
       Object {
         "color": undefined,
@@ -8766,7 +8766,7 @@ exports[`Storyshots Pill With Icon 1`] = `
   >
     <span
       aria-hidden={false}
-      className="icon iconWrapper"
+      className="icon icon-wrapper"
       role="presentation"
     >
       <svg
@@ -8796,7 +8796,7 @@ exports[`Storyshots Pill With Icon 1`] = `
     </span>
   </div>
   <div
-    className="tagPills blue"
+    className="tag-pills blue"
     style={
       Object {
         "color": undefined,
@@ -8805,7 +8805,7 @@ exports[`Storyshots Pill With Icon 1`] = `
   >
     <span
       aria-hidden={false}
-      className="icon iconWrapper"
+      className="icon icon-wrapper"
       role="presentation"
     >
       <svg
@@ -8835,7 +8835,7 @@ exports[`Storyshots Pill With Icon 1`] = `
     </span>
   </div>
   <div
-    className="tagPills violet"
+    className="tag-pills violet"
     style={
       Object {
         "color": undefined,
@@ -8844,7 +8844,7 @@ exports[`Storyshots Pill With Icon 1`] = `
   >
     <span
       aria-hidden={false}
-      className="icon iconWrapper"
+      className="icon icon-wrapper"
       role="presentation"
     >
       <svg
@@ -8874,7 +8874,7 @@ exports[`Storyshots Pill With Icon 1`] = `
     </span>
   </div>
   <div
-    className="tagPills grey"
+    className="tag-pills grey"
     style={
       Object {
         "color": undefined,
@@ -8883,7 +8883,7 @@ exports[`Storyshots Pill With Icon 1`] = `
   >
     <span
       aria-hidden={false}
-      className="icon iconWrapper"
+      className="icon icon-wrapper"
       role="presentation"
     >
       <svg
@@ -8937,11 +8937,11 @@ exports[`Storyshots Radio Button Radio Button 1`] = `
     htmlFor="myRadioButtonId"
   >
     <span
-      className="radioButton"
+      className="radio-button"
       id="myRadioButtonId-custom-radio"
     />
     <span
-      className="selectorLabel"
+      className="selector-label"
     >
       Label
     </span>
@@ -8952,7 +8952,7 @@ exports[`Storyshots Radio Button Radio Button 1`] = `
 exports[`Storyshots Radio Button Radio Group 1`] = `
 <div
   aria-label="Radio Group"
-  className="radioGroup"
+  className="radio-group"
   role="group"
 >
   <div
@@ -8973,11 +8973,11 @@ exports[`Storyshots Radio Button Radio Group 1`] = `
       htmlFor="oea2exk-1"
     >
       <span
-        className="radioButton"
+        className="radio-button"
         id="oea2exk-1-custom-radio"
       />
       <span
-        className="selectorLabel"
+        className="selector-label"
       >
         Radio1
       </span>
@@ -9001,11 +9001,11 @@ exports[`Storyshots Radio Button Radio Group 1`] = `
       htmlFor="oea2exk-2"
     >
       <span
-        className="radioButton"
+        className="radio-button"
         id="oea2exk-2-custom-radio"
       />
       <span
-        className="selectorLabel"
+        className="selector-label"
       >
         Radio2
       </span>
@@ -9029,11 +9029,11 @@ exports[`Storyshots Radio Button Radio Group 1`] = `
       htmlFor="oea2exk-3"
     >
       <span
-        className="radioButton"
+        className="radio-button"
         id="oea2exk-3-custom-radio"
       />
       <span
-        className="selectorLabel"
+        className="selector-label"
       >
         Radio3
       </span>
@@ -9051,22 +9051,22 @@ exports[`Storyshots Select Basic 1`] = `
   }
 >
   <div
-    className="selectWrapper octuple-select-class"
+    className="select-wrapper octuple-select-class"
     data-test-id="octuple-select-test-id"
     style={Object {}}
   >
     <div
-      className="selectDropdownMainWrapper mainWrapper"
+      className="select-dropdown-main-wrapper main-wrapper"
     >
       <div
-        className="inputWrapper inputStretch"
+        className="input-wrapper input-stretch"
       >
         <input
           aria-controls="dropdown-19"
           aria-expanded={false}
           aria-haspopup={true}
           autoFocus={false}
-          className="selectInput withIcon inputStretch"
+          className="select-input with-icon input-stretch"
           disabled={false}
           id="input-20"
           onChange={[Function]}
@@ -9079,11 +9079,11 @@ exports[`Storyshots Select Basic 1`] = `
           type="text"
         />
         <div
-          className="iconWrapper leftIcon"
+          className="icon-wrapper left-icon"
         >
           <span
             aria-hidden={false}
-            className="iconWrapper"
+            className="icon-wrapper"
             role="presentation"
           >
             <svg
@@ -9122,22 +9122,22 @@ exports[`Storyshots Select Disabled 1`] = `
   }
 >
   <div
-    className="selectWrapper octuple-select-class"
+    className="select-wrapper octuple-select-class"
     data-test-id="octuple-select-test-id"
     style={Object {}}
   >
     <div
-      className="selectDropdownMainWrapper mainWrapper"
+      className="select-dropdown-main-wrapper main-wrapper"
     >
       <div
-        className="inputWrapper inputStretch"
+        className="input-wrapper input-stretch"
       >
         <input
           aria-controls="dropdown-21"
           aria-expanded={false}
           aria-haspopup={true}
           autoFocus={false}
-          className="selectInput withIcon inputStretch"
+          className="select-input with-icon input-stretch"
           disabled={true}
           id="input-22"
           onChange={[Function]}
@@ -9150,11 +9150,11 @@ exports[`Storyshots Select Disabled 1`] = `
           type="text"
         />
         <div
-          className="iconWrapper leftIcon"
+          className="icon-wrapper left-icon"
         >
           <span
             aria-hidden={false}
-            className="iconWrapper"
+            className="icon-wrapper"
             role="presentation"
           >
             <svg
@@ -9193,20 +9193,20 @@ exports[`Storyshots Select Dynamic 1`] = `
   }
 >
   <div
-    className="selectWrapper"
+    className="select-wrapper"
   >
     <div
-      className="selectDropdownMainWrapper mainWrapper"
+      className="select-dropdown-main-wrapper main-wrapper"
     >
       <div
-        className="inputWrapper inputStretch"
+        className="input-wrapper input-stretch"
       >
         <input
           aria-controls="dropdown-23"
           aria-expanded={false}
           aria-haspopup={true}
           autoFocus={false}
-          className="withIcon inputStretch"
+          className="with-icon input-stretch"
           disabled={false}
           id="input-24"
           onChange={[Function]}
@@ -9224,11 +9224,11 @@ exports[`Storyshots Select Dynamic 1`] = `
           type="text"
         />
         <div
-          className="iconWrapper leftIcon"
+          className="icon-wrapper left-icon"
         >
           <span
             aria-hidden={false}
-            className="iconWrapper"
+            className="icon-wrapper"
             role="presentation"
           >
             <svg
@@ -9267,22 +9267,22 @@ exports[`Storyshots Select Filterable 1`] = `
   }
 >
   <div
-    className="selectWrapper octuple-select-class"
+    className="select-wrapper octuple-select-class"
     data-test-id="octuple-select-test-id"
     style={Object {}}
   >
     <div
-      className="selectDropdownMainWrapper mainWrapper"
+      className="select-dropdown-main-wrapper main-wrapper"
     >
       <div
-        className="inputWrapper inputStretch"
+        className="input-wrapper input-stretch"
       >
         <input
           aria-controls="dropdown-25"
           aria-expanded={false}
           aria-haspopup={true}
           autoFocus={false}
-          className="withIcon inputStretch"
+          className="with-icon input-stretch"
           disabled={false}
           id="input-26"
           onChange={[Function]}
@@ -9300,11 +9300,11 @@ exports[`Storyshots Select Filterable 1`] = `
           type="text"
         />
         <div
-          className="iconWrapper leftIcon"
+          className="icon-wrapper left-icon"
         >
           <span
             aria-hidden={false}
-            className="iconWrapper"
+            className="icon-wrapper"
             role="presentation"
           >
             <svg
@@ -9343,22 +9343,22 @@ exports[`Storyshots Select Multiple 1`] = `
   }
 >
   <div
-    className="selectWrapper octuple-select-class"
+    className="select-wrapper octuple-select-class"
     data-test-id="octuple-select-test-id"
     style={Object {}}
   >
     <div
-      className="selectDropdownMainWrapper mainWrapper"
+      className="select-dropdown-main-wrapper main-wrapper"
     >
       <div
-        className="inputWrapper inputStretch"
+        className="input-wrapper input-stretch"
       >
         <input
           aria-controls="dropdown-27"
           aria-expanded={false}
           aria-haspopup={true}
           autoFocus={false}
-          className="withIcon inputStretch"
+          className="with-icon input-stretch"
           disabled={false}
           id="input-28"
           onChange={[Function]}
@@ -9376,11 +9376,11 @@ exports[`Storyshots Select Multiple 1`] = `
           type="text"
         />
         <div
-          className="iconWrapper leftIcon"
+          className="icon-wrapper left-icon"
         >
           <span
             aria-hidden={false}
-            className="iconWrapper"
+            className="icon-wrapper"
             role="presentation"
           >
             <svg
@@ -9419,22 +9419,22 @@ exports[`Storyshots Select Multiple With No Filter 1`] = `
   }
 >
   <div
-    className="selectWrapper octuple-select-class"
+    className="select-wrapper octuple-select-class"
     data-test-id="octuple-select-test-id"
     style={Object {}}
   >
     <div
-      className="selectDropdownMainWrapper mainWrapper"
+      className="select-dropdown-main-wrapper main-wrapper"
     >
       <div
-        className="inputWrapper inputStretch"
+        className="input-wrapper input-stretch"
       >
         <input
           aria-controls="dropdown-29"
           aria-expanded={false}
           aria-haspopup={true}
           autoFocus={false}
-          className="selectInput withIcon inputStretch"
+          className="select-input with-icon input-stretch"
           disabled={false}
           id="input-30"
           onChange={[Function]}
@@ -9447,11 +9447,11 @@ exports[`Storyshots Select Multiple With No Filter 1`] = `
           type="text"
         />
         <div
-          className="iconWrapper leftIcon"
+          className="icon-wrapper left-icon"
         >
           <span
             aria-hidden={false}
-            className="iconWrapper"
+            className="icon-wrapper"
             role="presentation"
           >
             <svg
@@ -9490,22 +9490,22 @@ exports[`Storyshots Select Options Disabled 1`] = `
   }
 >
   <div
-    className="selectWrapper octuple-select-class"
+    className="select-wrapper octuple-select-class"
     data-test-id="octuple-select-test-id"
     style={Object {}}
   >
     <div
-      className="selectDropdownMainWrapper mainWrapper"
+      className="select-dropdown-main-wrapper main-wrapper"
     >
       <div
-        className="inputWrapper inputStretch"
+        className="input-wrapper input-stretch"
       >
         <input
           aria-controls="dropdown-31"
           aria-expanded={false}
           aria-haspopup={true}
           autoFocus={false}
-          className="selectInput withIcon inputStretch"
+          className="select-input with-icon input-stretch"
           disabled={false}
           id="input-32"
           onChange={[Function]}
@@ -9518,11 +9518,11 @@ exports[`Storyshots Select Options Disabled 1`] = `
           type="text"
         />
         <div
-          className="iconWrapper leftIcon"
+          className="icon-wrapper left-icon"
         >
           <span
             aria-hidden={false}
-            className="iconWrapper"
+            className="icon-wrapper"
             role="presentation"
           >
             <svg
@@ -9561,22 +9561,22 @@ exports[`Storyshots Select With Clear 1`] = `
   }
 >
   <div
-    className="selectWrapper octuple-select-class"
+    className="select-wrapper octuple-select-class"
     data-test-id="octuple-select-test-id"
     style={Object {}}
   >
     <div
-      className="selectDropdownMainWrapper mainWrapper"
+      className="select-dropdown-main-wrapper main-wrapper"
     >
       <div
-        className="inputWrapper inputStretch"
+        className="input-wrapper input-stretch"
       >
         <input
           aria-controls="dropdown-33"
           aria-expanded={false}
           aria-haspopup={true}
           autoFocus={false}
-          className="selectInput withIcon inputStretch"
+          className="select-input with-icon input-stretch"
           disabled={false}
           id="input-34"
           onChange={[Function]}
@@ -9589,11 +9589,11 @@ exports[`Storyshots Select With Clear 1`] = `
           type="text"
         />
         <div
-          className="iconWrapper leftIcon"
+          className="icon-wrapper left-icon"
         >
           <span
             aria-hidden={false}
-            className="iconWrapper"
+            className="icon-wrapper"
             role="presentation"
           >
             <svg
@@ -9632,22 +9632,22 @@ exports[`Storyshots Select With Default Value 1`] = `
   }
 >
   <div
-    className="selectWrapper octuple-select-class"
+    className="select-wrapper octuple-select-class"
     data-test-id="octuple-select-test-id"
     style={Object {}}
   >
     <div
-      className="selectDropdownMainWrapper mainWrapper"
+      className="select-dropdown-main-wrapper main-wrapper"
     >
       <div
-        className="inputWrapper inputStretch"
+        className="input-wrapper input-stretch"
       >
         <input
           aria-controls="dropdown-35"
           aria-expanded={false}
           aria-haspopup={true}
           autoFocus={false}
-          className="selectInput withIcon inputStretch"
+          className="select-input with-icon input-stretch"
           disabled={false}
           id="input-36"
           onChange={[Function]}
@@ -9660,11 +9660,11 @@ exports[`Storyshots Select With Default Value 1`] = `
           type="text"
         />
         <div
-          className="iconWrapper leftIcon"
+          className="icon-wrapper left-icon"
         >
           <span
             aria-hidden={false}
-            className="iconWrapper"
+            className="icon-wrapper"
             role="presentation"
           >
             <svg
@@ -9694,16 +9694,279 @@ exports[`Storyshots Select With Default Value 1`] = `
 </div>
 `;
 
+exports[`Storyshots Slider Range Slider 1`] = `
+<div
+  className="slider-container"
+>
+  <div
+    className="slider my-slider"
+  >
+    <div
+      className="slider-rail"
+    />
+    <div
+      className="slider-track"
+    />
+    <div
+      className="rail-marker"
+      style={
+        Object {
+          "left": "NaNpx",
+        }
+      }
+    />
+    <div
+      className="rail-marker"
+      style={
+        Object {
+          "left": "NaNpx",
+        }
+      }
+    />
+    <div
+      className="rail-marker"
+      style={
+        Object {
+          "left": "NaNpx",
+        }
+      }
+    />
+    <div
+      className="rail-marker"
+      style={
+        Object {
+          "left": "NaNpx",
+        }
+      }
+    />
+    <div
+      className="rail-marker"
+      style={
+        Object {
+          "left": "NaNpx",
+        }
+      }
+    />
+    <div
+      className="rail-marker"
+      style={
+        Object {
+          "left": "NaNpx",
+        }
+      }
+    />
+    <div
+      className="rail-marker"
+      style={
+        Object {
+          "left": "NaNpx",
+        }
+      }
+    />
+    <div
+      className="rail-marker"
+      style={
+        Object {
+          "left": "NaNpx",
+        }
+      }
+    />
+    <div
+      className="rail-marker"
+      style={
+        Object {
+          "left": "NaNpx",
+        }
+      }
+    />
+    <div
+      className="rail-marker"
+      style={
+        Object {
+          "left": "NaNpx",
+        }
+      }
+    />
+    <div
+      className="rail-marker active"
+      style={
+        Object {
+          "left": "NaNpx",
+        }
+      }
+    />
+    <div
+      className="rail-marker active"
+      style={
+        Object {
+          "left": "NaNpx",
+        }
+      }
+    />
+    <div
+      className="rail-marker active"
+      style={
+        Object {
+          "left": "NaNpx",
+        }
+      }
+    />
+    <div
+      className="rail-marker active"
+      style={
+        Object {
+          "left": "NaNpx",
+        }
+      }
+    />
+    <div
+      className="rail-marker active"
+      style={
+        Object {
+          "left": "NaNpx",
+        }
+      }
+    />
+    <div
+      className="rail-marker"
+      style={
+        Object {
+          "left": "NaNpx",
+        }
+      }
+    />
+    <div
+      className="rail-marker"
+      style={
+        Object {
+          "left": "NaNpx",
+        }
+      }
+    />
+    <div
+      className="rail-marker"
+      style={
+        Object {
+          "left": "NaNpx",
+        }
+      }
+    />
+    <div
+      className="rail-marker"
+      style={
+        Object {
+          "left": "NaNpx",
+        }
+      }
+    />
+    <input
+      aria-label="Slider"
+      autoFocus={false}
+      className="thumb"
+      disabled={false}
+      id="mySliderId-0"
+      max={200}
+      min={0}
+      name="mySlider-0"
+      onChange={[Function]}
+      step={10}
+      type="range"
+      value={110}
+    />
+    <input
+      aria-label="Slider"
+      autoFocus={false}
+      className="thumb"
+      disabled={false}
+      id="mySliderId-1"
+      max={200}
+      min={0}
+      name="mySlider-1"
+      onChange={[Function]}
+      step={10}
+      type="range"
+      value={150}
+    />
+  </div>
+  <div
+    className="slider-value label-visible"
+  >
+    110
+  </div>
+  <div
+    className="slider-value label-visible"
+  >
+    150
+  </div>
+  <div
+    className="extremity-label min-label label-visible"
+  >
+    0
+  </div>
+  <div
+    className="extremity-label max-label label-visible"
+  >
+    200
+  </div>
+</div>
+`;
+
+exports[`Storyshots Slider Standard Slider 1`] = `
+<div
+  className="slider-container"
+>
+  <div
+    className="slider my-slider"
+  >
+    <div
+      className="slider-rail"
+    />
+    <div
+      className="slider-track"
+    />
+    <input
+      aria-label="Slider"
+      autoFocus={true}
+      className="thumb"
+      disabled={false}
+      id="mySliderId"
+      max={5}
+      min={1}
+      name="mySlider"
+      onChange={[Function]}
+      step={1}
+      type="range"
+      value={2}
+    />
+  </div>
+  <div
+    className="slider-value"
+  >
+    2
+  </div>
+  <div
+    className="extremity-label min-label"
+  >
+    1
+  </div>
+  <div
+    className="extremity-label max-label"
+  >
+    5
+  </div>
+</div>
+`;
+
 exports[`Storyshots Snack Bar Closable 1`] = `
 <button
   aria-disabled={false}
-  className="button buttonDefault buttonSize3"
+  className="button button-default button-size3"
   defaultChecked={false}
   disabled={false}
   onClick={[Function]}
 >
   <span
-    className="buttonText3"
+    className="button-text3"
   >
     Serve closable snack
   </span>
@@ -9713,13 +9976,13 @@ exports[`Storyshots Snack Bar Closable 1`] = `
 exports[`Storyshots Snack Bar Default 1`] = `
 <button
   aria-disabled={false}
-  className="button buttonDefault buttonSize3"
+  className="button button-default button-size3"
   defaultChecked={false}
   disabled={false}
   onClick={[Function]}
 >
   <span
-    className="buttonText3"
+    className="button-text3"
   >
     Serve snack
   </span>
@@ -9729,13 +9992,13 @@ exports[`Storyshots Snack Bar Default 1`] = `
 exports[`Storyshots Snack Bar With Action 1`] = `
 <button
   aria-disabled={false}
-  className="button buttonDefault buttonSize3"
+  className="button button-default button-size3"
   defaultChecked={false}
   disabled={false}
   onClick={[Function]}
 >
   <span
-    className="buttonText3"
+    className="button-text3"
   >
     Serve snack with action
   </span>
@@ -9745,7 +10008,7 @@ exports[`Storyshots Snack Bar With Action 1`] = `
 exports[`Storyshots Spinner Default 1`] = `
 <span
   aria-hidden={false}
-  className="spinner my-spinner-class iconWrapper"
+  className="spinner my-spinner-class icon-wrapper"
   role="presentation"
 >
   <svg
@@ -9873,7 +10136,7 @@ exports[`Storyshots Stack Responsive 1`] = `
 
 exports[`Storyshots Stack Sample Nav List 1`] = `
 <div
-  className="stack navListContainer horizontal"
+  className="stack nav-list-container horizontal"
   style={
     Object {
       "alignItems": "",
@@ -10134,7 +10397,7 @@ exports[`Storyshots Stack Vertical 1`] = `
 exports[`Storyshots Tabs Default 1`] = `
 <div>
   <div
-    className="tabWrap"
+    className="tab-wrap"
     role="tablist"
     style={Object {}}
     value="tab1"
@@ -10152,7 +10415,7 @@ exports[`Storyshots Tabs Default 1`] = `
         Tab 1
       </span>
       <div
-        className="tabIndicator"
+        className="tab-indicator"
         data-flip-config="{\\"translate\\":true,\\"scale\\":true,\\"opacity\\":true}"
         data-flip-id="tabIndicator"
         data-portal-key="portal"
@@ -10205,7 +10468,7 @@ exports[`Storyshots Tabs Default 1`] = `
 exports[`Storyshots Tabs Icon 1`] = `
 <div>
   <div
-    className="tabWrap"
+    className="tab-wrap"
     role="tablist"
     style={Object {}}
     value="tab1"
@@ -10219,7 +10482,7 @@ exports[`Storyshots Tabs Icon 1`] = `
     >
       <span
         aria-hidden={false}
-        className="icon iconWrapper"
+        className="icon icon-wrapper"
         role="presentation"
       >
         <svg
@@ -10243,7 +10506,7 @@ exports[`Storyshots Tabs Icon 1`] = `
         </svg>
       </span>
       <div
-        className="tabIndicator"
+        className="tab-indicator"
         data-flip-config="{\\"translate\\":true,\\"scale\\":true,\\"opacity\\":true}"
         data-flip-id="tabIndicator"
         data-portal-key="portal"
@@ -10258,7 +10521,7 @@ exports[`Storyshots Tabs Icon 1`] = `
     >
       <span
         aria-hidden={false}
-        className="icon iconWrapper"
+        className="icon icon-wrapper"
         role="presentation"
       >
         <svg
@@ -10291,7 +10554,7 @@ exports[`Storyshots Tabs Icon 1`] = `
     >
       <span
         aria-hidden={false}
-        className="icon iconWrapper"
+        className="icon icon-wrapper"
         role="presentation"
       >
         <svg
@@ -10325,7 +10588,7 @@ exports[`Storyshots Tabs Icon 1`] = `
     >
       <span
         aria-hidden={false}
-        className="icon iconWrapper"
+        className="icon icon-wrapper"
         role="presentation"
       >
         <svg
@@ -10356,7 +10619,7 @@ exports[`Storyshots Tabs Icon 1`] = `
 exports[`Storyshots Tabs Icon Label 1`] = `
 <div>
   <div
-    className="tabWrap"
+    className="tab-wrap"
     role="tablist"
     style={Object {}}
     value="tab1"
@@ -10370,7 +10633,7 @@ exports[`Storyshots Tabs Icon Label 1`] = `
     >
       <span
         aria-hidden={false}
-        className="icon iconWrapper"
+        className="icon icon-wrapper"
         role="presentation"
       >
         <svg
@@ -10399,7 +10662,7 @@ exports[`Storyshots Tabs Icon Label 1`] = `
         Tab 1
       </span>
       <div
-        className="tabIndicator"
+        className="tab-indicator"
         data-flip-config="{\\"translate\\":true,\\"scale\\":true,\\"opacity\\":true}"
         data-flip-id="tabIndicator"
         data-portal-key="portal"
@@ -10414,7 +10677,7 @@ exports[`Storyshots Tabs Icon Label 1`] = `
     >
       <span
         aria-hidden={false}
-        className="icon iconWrapper"
+        className="icon icon-wrapper"
         role="presentation"
       >
         <svg
@@ -10452,7 +10715,7 @@ exports[`Storyshots Tabs Icon Label 1`] = `
     >
       <span
         aria-hidden={false}
-        className="icon iconWrapper"
+        className="icon icon-wrapper"
         role="presentation"
       >
         <svg
@@ -10491,7 +10754,7 @@ exports[`Storyshots Tabs Icon Label 1`] = `
     >
       <span
         aria-hidden={false}
-        className="icon iconWrapper"
+        className="icon icon-wrapper"
         role="presentation"
       >
         <svg
@@ -10527,7 +10790,7 @@ exports[`Storyshots Tabs Icon Label 1`] = `
 exports[`Storyshots Tabs Pill Default 1`] = `
 <div>
   <div
-    className="tabWrap pill"
+    className="tab-wrap pill"
     role="tablist"
     style={Object {}}
     value="tab1"
@@ -10545,7 +10808,7 @@ exports[`Storyshots Tabs Pill Default 1`] = `
         Tab 1
       </span>
       <div
-        className="tabIndicator"
+        className="tab-indicator"
         data-flip-config="{\\"translate\\":true,\\"scale\\":true,\\"opacity\\":true}"
         data-flip-id="tabIndicator"
         data-portal-key="portal"
@@ -10598,7 +10861,7 @@ exports[`Storyshots Tabs Pill Default 1`] = `
 exports[`Storyshots Tabs Pill Icon 1`] = `
 <div>
   <div
-    className="tabWrap pill"
+    className="tab-wrap pill"
     role="tablist"
     style={Object {}}
     value="tab1"
@@ -10612,7 +10875,7 @@ exports[`Storyshots Tabs Pill Icon 1`] = `
     >
       <span
         aria-hidden={false}
-        className="icon iconWrapper"
+        className="icon icon-wrapper"
         role="presentation"
       >
         <svg
@@ -10636,7 +10899,7 @@ exports[`Storyshots Tabs Pill Icon 1`] = `
         </svg>
       </span>
       <div
-        className="tabIndicator"
+        className="tab-indicator"
         data-flip-config="{\\"translate\\":true,\\"scale\\":true,\\"opacity\\":true}"
         data-flip-id="tabIndicator"
         data-portal-key="portal"
@@ -10651,7 +10914,7 @@ exports[`Storyshots Tabs Pill Icon 1`] = `
     >
       <span
         aria-hidden={false}
-        className="icon iconWrapper"
+        className="icon icon-wrapper"
         role="presentation"
       >
         <svg
@@ -10684,7 +10947,7 @@ exports[`Storyshots Tabs Pill Icon 1`] = `
     >
       <span
         aria-hidden={false}
-        className="icon iconWrapper"
+        className="icon icon-wrapper"
         role="presentation"
       >
         <svg
@@ -10718,7 +10981,7 @@ exports[`Storyshots Tabs Pill Icon 1`] = `
     >
       <span
         aria-hidden={false}
-        className="icon iconWrapper"
+        className="icon icon-wrapper"
         role="presentation"
       >
         <svg
@@ -10749,7 +11012,7 @@ exports[`Storyshots Tabs Pill Icon 1`] = `
 exports[`Storyshots Tabs Pill Icon Label 1`] = `
 <div>
   <div
-    className="tabWrap pill"
+    className="tab-wrap pill"
     role="tablist"
     style={Object {}}
     value="tab1"
@@ -10763,7 +11026,7 @@ exports[`Storyshots Tabs Pill Icon Label 1`] = `
     >
       <span
         aria-hidden={false}
-        className="icon iconWrapper"
+        className="icon icon-wrapper"
         role="presentation"
       >
         <svg
@@ -10792,7 +11055,7 @@ exports[`Storyshots Tabs Pill Icon Label 1`] = `
         Tab 1
       </span>
       <div
-        className="tabIndicator"
+        className="tab-indicator"
         data-flip-config="{\\"translate\\":true,\\"scale\\":true,\\"opacity\\":true}"
         data-flip-id="tabIndicator"
         data-portal-key="portal"
@@ -10807,7 +11070,7 @@ exports[`Storyshots Tabs Pill Icon Label 1`] = `
     >
       <span
         aria-hidden={false}
-        className="icon iconWrapper"
+        className="icon icon-wrapper"
         role="presentation"
       >
         <svg
@@ -10845,7 +11108,7 @@ exports[`Storyshots Tabs Pill Icon Label 1`] = `
     >
       <span
         aria-hidden={false}
-        className="icon iconWrapper"
+        className="icon icon-wrapper"
         role="presentation"
       >
         <svg
@@ -10884,7 +11147,7 @@ exports[`Storyshots Tabs Pill Icon Label 1`] = `
     >
       <span
         aria-hidden={false}
-        className="icon iconWrapper"
+        className="icon icon-wrapper"
         role="presentation"
       >
         <svg
@@ -10920,7 +11183,7 @@ exports[`Storyshots Tabs Pill Icon Label 1`] = `
 exports[`Storyshots Tabs Pill With Badge 1`] = `
 <div>
   <div
-    className="tabWrap pill"
+    className="tab-wrap pill"
     role="tablist"
     style={Object {}}
     value="tab1"
@@ -10938,7 +11201,7 @@ exports[`Storyshots Tabs Pill With Badge 1`] = `
         Tab 1
       </span>
       <div
-        className="tabIndicator"
+        className="tab-indicator"
         data-flip-config="{\\"translate\\":true,\\"scale\\":true,\\"opacity\\":true}"
         data-flip-id="tabIndicator"
         data-portal-key="portal"
@@ -11011,7 +11274,7 @@ exports[`Storyshots Tabs Pill With Badge 1`] = `
 exports[`Storyshots Tabs Scrollable 1`] = `
 <div>
   <div
-    className="tabWrap scrollable"
+    className="tab-wrap scrollable"
     role="tablist"
     style={
       Object {
@@ -11033,7 +11296,7 @@ exports[`Storyshots Tabs Scrollable 1`] = `
         Tab 1
       </span>
       <div
-        className="tabIndicator"
+        className="tab-indicator"
         data-flip-config="{\\"translate\\":true,\\"scale\\":true,\\"opacity\\":true}"
         data-flip-id="tabIndicator"
         data-portal-key="portal"
@@ -11164,7 +11427,7 @@ exports[`Storyshots Tabs Scrollable 1`] = `
 exports[`Storyshots Tabs Small 1`] = `
 <div>
   <div
-    className="tabWrap small"
+    className="tab-wrap small"
     role="tablist"
     style={Object {}}
     value="tab1"
@@ -11182,7 +11445,7 @@ exports[`Storyshots Tabs Small 1`] = `
         Tab 1
       </span>
       <div
-        className="tabIndicator"
+        className="tab-indicator"
         data-flip-config="{\\"translate\\":true,\\"scale\\":true,\\"opacity\\":true}"
         data-flip-id="tabIndicator"
         data-portal-key="portal"
@@ -11235,7 +11498,7 @@ exports[`Storyshots Tabs Small 1`] = `
 exports[`Storyshots Tabs With Badge 1`] = `
 <div>
   <div
-    className="tabWrap"
+    className="tab-wrap"
     role="tablist"
     style={Object {}}
     value="tab1"
@@ -11253,7 +11516,7 @@ exports[`Storyshots Tabs With Badge 1`] = `
         Tab 1
       </span>
       <div
-        className="tabIndicator"
+        className="tab-indicator"
         data-flip-config="{\\"translate\\":true,\\"scale\\":true,\\"opacity\\":true}"
         data-flip-id="tabIndicator"
         data-portal-key="portal"
@@ -11325,7 +11588,7 @@ exports[`Storyshots Tabs With Badge 1`] = `
 
 exports[`Storyshots Tooltip Tooltips 1`] = `
 <div
-  className="referenceWrapper"
+  className="reference-wrapper"
   id="4fzzzxj"
   onBlur={[Function]}
   onFocus={[Function]}
@@ -11335,12 +11598,12 @@ exports[`Storyshots Tooltip Tooltips 1`] = `
   <button
     aria-disabled={false}
     aria-label="Show Tooltip"
-    className="button buttonPrimary buttonSize2"
+    className="button button-primary button-size2"
     defaultChecked={false}
     disabled={false}
   >
     <span
-      className="buttonText2"
+      className="button-text2"
     >
       Show Tooltip
     </span>

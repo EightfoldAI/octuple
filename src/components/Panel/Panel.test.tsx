@@ -54,15 +54,15 @@ describe('Panel', () => {
             visible: true,
             onClose,
         });
-        wrapper.find('.panelBackdrop').at(0).simulate('click');
+        wrapper.find('.panel-backdrop').at(0).simulate('click');
 
-        wrapper.find('.buttonNeutral').at(0).simulate('click');
+        wrapper.find('.button-neutral').at(0).simulate('click');
         expect(onClose).toHaveBeenCalledTimes(2);
 
         wrapper.setProps({
             maskClosable: false,
         });
-        wrapper.find('.panelBackdrop').at(0).simulate('click');
+        wrapper.find('.panel-backdrop').at(0).simulate('click');
         expect(onClose).toHaveBeenCalledTimes(2);
     });
 });

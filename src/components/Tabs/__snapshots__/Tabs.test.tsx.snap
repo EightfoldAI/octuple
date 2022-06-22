@@ -3,7 +3,7 @@
 exports[`Panel tabs snapshot 1`] = `
 <div>
   <div
-    className="tabWrap"
+    className="tab-wrap"
     role="tablist"
     value="tab1"
   >
@@ -16,7 +16,7 @@ exports[`Panel tabs snapshot 1`] = `
     >
       <span
         aria-hidden={false}
-        className="icon iconWrapper"
+        className="icon icon-wrapper"
         role="presentation"
       >
         <svg
@@ -45,7 +45,7 @@ exports[`Panel tabs snapshot 1`] = `
         Tab 1
       </span>
       <div
-        className="tabIndicator"
+        className="tab-indicator"
         data-flip-config="{\\"translate\\":true,\\"scale\\":true,\\"opacity\\":true}"
         data-flip-id="tabIndicator"
         data-portal-key="portal"
@@ -60,7 +60,7 @@ exports[`Panel tabs snapshot 1`] = `
     >
       <span
         aria-hidden={false}
-        className="icon iconWrapper"
+        className="icon icon-wrapper"
         role="presentation"
       >
         <svg
@@ -98,7 +98,7 @@ exports[`Panel tabs snapshot 1`] = `
     >
       <span
         aria-hidden={false}
-        className="icon iconWrapper"
+        className="icon icon-wrapper"
         role="presentation"
       >
         <svg
@@ -137,7 +137,7 @@ exports[`Panel tabs snapshot 1`] = `
     >
       <span
         aria-hidden={false}
-        className="icon iconWrapper"
+        className="icon icon-wrapper"
         role="presentation"
       >
         <svg
