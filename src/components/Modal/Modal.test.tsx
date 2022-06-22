@@ -53,8 +53,8 @@ describe('Modal', () => {
             body,
             onClose,
         });
-        wrapper.find('.buttonNeutral').at(0).simulate('click');
-        wrapper.find('.dialogBackdrop').at(0).simulate('click');
+        wrapper.find('.button-neutral').at(0).simulate('click');
+        wrapper.find('.dialog-backdrop').at(0).simulate('click');
 
         expect(onClose).toHaveBeenCalledTimes(2);
 
@@ -62,7 +62,7 @@ describe('Modal', () => {
             maskClosable: false,
         });
 
-        wrapper.find('.dialogBackdrop').at(0).simulate('click');
+        wrapper.find('.dialog-backdrop').at(0).simulate('click');
         expect(onClose).toHaveBeenCalledTimes(2);
     });
 });

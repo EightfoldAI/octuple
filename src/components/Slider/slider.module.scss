@@ -1,0 +1,170 @@
+@function strip-units($number) {
+    @return $number / ($number * 0 + 1);
+}
+
+// Represents the diameter of the thumb slider
+// and the overall height of the slider.
+$slider-height: 28px;
+$label-height: 20px;
+$track-height: 6px;
+$vertical-center: $slider-height / 2;
+$rail-top: $vertical-center - ($track-height / 2);
+
+$marker-height: 6px;
+$marker-width: 6px;
+$marker-top: $vertical-center - ($marker-height / 2);
+
+// Export these values for typescript consumption.
+:export {
+    thumbDiameter: strip-units($slider-height);
+}
+
+.slider-container {
+    --slider-default-track-color: var(--primary-color-60);
+    --slider-default-rail-color: var(--primary-color-10);
+    --slider-default-rail-border-color: var(--primary-color-60);
+    --slider-default-value-text-color: var(--text-secondary-color);
+    --slider-min-max-labels-color: var(--grey-color-60);
+    --slider-default-thumb-color: var(--primary-color);
+    --slider-default-marker-background: var(--white-color);
+
+    position: relative;
+    height: $slider-height + $label-height;
+
+    .slider {
+        position: relative;
+        height: $slider-height;
+    }
+
+    .slider-rail,
+    .slider-track {
+        position: absolute;
+        top: $rail-top;
+        left: 0;
+    }
+
+    .slider-rail,
+    .slider-track {
+        height: $track-height;
+        border-radius: 8px;
+    }
+
+    .slider-rail {
+        background-color: var(--slider-default-rail-color);
+        border: 1px solid var(--slider-default-rail-border-color);
+        width: 100%;
+    }
+
+    .rail-marker {
+        height: $marker-height;
+        width: $marker-width;
+        position: absolute;
+        top: $marker-top;
+        margin-left: calc(($marker-height / 2) * -1);
+        background-color: var(--slider-default-marker-background);
+        border: 1px solid var(--slider-default-rail-border-color);
+
+        &.active {
+            background-color: var(--slider-default-marker-background);
+        }
+    }
+
+    .slider-track {
+        background-color: var(--slider-default-track-color);
+    }
+
+    .slider-value {
+        color: var(--slider-default-value-text-color);
+        font-size: 14px;
+        font-weight: 600;
+        position: absolute;
+        bottom: 0;
+        opacity: 0;
+    }
+
+    .extremity-label {
+        color: var(--slider-min-max-labels-color);
+        font-size: 14px;
+        font-weight: normal;
+        position: absolute;
+        bottom: 0;
+        opacity: 0;
+
+        &.min-label {
+            left: 2px;
+        }
+
+        &.max-label {
+            right: 2px;
+        }
+    }
+
+    .label-visible {
+        opacity: 1;
+    }
+
+    // Removing the default appearance
+    .thumb,
+    .thumb::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    .thumb {
+        display: block;
+        width: 100%;
+        pointer-events: none;
+        position: absolute;
+        top: $rail-top;
+        height: 0;
+    }
+
+    .thumb {
+        &:focus::-webkit-slider-thumb {
+            // TODO: move this to a global mixin, update moz implementation below.
+            outline: 2px solid var(--primary-color-40);
+            outline-offset: 1px;
+        }
+
+        // For Chrome browsers
+        &::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            background-color: var(--slider-default-thumb-color);
+            border: none;
+            border-radius: 50%;
+            box-shadow: $shadow-object-s;
+            cursor: pointer;
+            height: $slider-height;
+            width: $slider-height;
+            margin-top: 4px;
+            pointer-events: all;
+            position: relative;
+        }
+
+        // For Firefox browsers
+        &::-moz-range-thumb {
+            background-color: var(--slider-default-thumb-color);
+            border: none;
+            border-radius: 50%;
+            box-shadow: $shadow-object-s;
+            cursor: pointer;
+            height: $slider-height;
+            width: $slider-height;
+            margin-top: 4px;
+            pointer-events: all;
+            position: relative;
+        }
+
+        &:focus::-moz-range-thumb {
+            // TODO: move this to a global mixin.
+            outline: 2px solid var(--primary-color-40);
+            outline-offset: 1px;
+        }
+    }
+}
+
+.slider-disabled {
+    .slider {
+        opacity: 0.5;
+    }
+}
