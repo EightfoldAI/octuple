@@ -95,9 +95,9 @@ Avatar_Icon.args = {
     iconProps: {
         path: IconName.mdiBell,
     },
-    // style: {
-    //     backgroundColor: 'grey',
-    // },
+    style: {
+        backgroundColor: 'grey',
+    },
 };
 
 Avatar_Round.args = {
@@ -112,9 +112,9 @@ Avatar_Round_Icon.args = {
     iconProps: {
         path: IconName.mdiBell,
     },
-    // style: {
-    //     backgroundColor: 'grey',
-    // },
+    style: {
+        backgroundColor: 'grey',
+    },
     type: 'round',
 };
 
