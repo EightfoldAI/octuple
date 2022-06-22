@@ -20,27 +20,21 @@ describe('useFocusVisibleClassName', () => {
 
     it('uses className when keyboard is active', () => {
         render(<Foo />);
-        screen.debug();
         fireEvent.keyDown(screen.getByTestId('testDiv'), { KeyboardEvent });
         expect(screen.getByTestId('testDiv')).toHaveClass('focus-visible');
-        screen.debug();
     });
 
     it('uses className when keyboard is active, then does not when mouse is active', () => {
         render(<Foo />);
-        screen.debug();
         fireEvent.keyDown(screen.getByTestId('testDiv'), { KeyboardEvent });
         expect(screen.getByTestId('testDiv')).toHaveClass('focus-visible');
         fireEvent.mouseMove(screen.getByTestId('testDiv'), { MouseEvent });
         expect(screen.getByTestId('testDiv')).not.toHaveClass('focus-visible');
-        screen.debug();
     });
 
     it('does not use className when mouse is active', () => {
         render(<Foo />);
-        screen.debug();
         fireEvent.mouseMove(screen.getByTestId('testDiv'), { MouseEvent });
         expect(screen.getByTestId('testDiv')).not.toHaveClass('focus-visible');
-        screen.debug();
     });
 });
