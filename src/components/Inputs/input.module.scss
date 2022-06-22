@@ -13,19 +13,19 @@
         font-size: $text-font-size-3;
         line-height: $text-line-height-1;
         min-width: 320px;
-        padding: $space-xs calc($space-xxl + 4px) $space-xs $space-xs;
+        padding: $space-xs calc(#{$space-xxl} + 4px) $space-xs $space-xs;
 
         &::-webkit-search-cancel-button {
             -webkit-appearance: none;
         }
 
         &.with-icon {
-            padding: $space-xs calc($space-xxl + 4px) $space-xs $space-xl;
+            padding: $space-xs calc(#{$space-xxl} + 4px) $space-xs $space-xl;
         }
 
         &.with-image-icon {
-            padding: $space-xs calc($space-xxl + 4px) $space-xs
-                calc($space-xl + 4px);
+            padding: $space-xs calc(#{$space-xxl} + 4px) $space-xs
+                calc(#{$space-xxl} + 4px);
         }
 
         &.with-icon-button {
@@ -49,7 +49,7 @@
             }
         }
 
-        &:hover ~ .text-style {
+        &:hover {
             color: var(--text-primary-color);
         }
 
@@ -62,7 +62,8 @@
             }
         }
 
-        &:active ~ .text-style {
+        &:active {
+            border-color: var(--grey-color-60);
             color: var(--text-primary-color);
         }
 
@@ -75,7 +76,7 @@
             }
         }
 
-        &:focus ~ .text-style {
+        &:focus {
             color: var(--text-primary-color);
         }
 
@@ -93,7 +94,7 @@
             }
         }
 
-        &:disabled ~ .text-style {
+        &:disabled {
             color: var(--grey-color-30);
         }
 
@@ -114,7 +115,7 @@
         }
 
         &.pill-shape-with-image-icon {
-            padding: $space-xs $space-s $space-xs calc($space-xl + 4px);
+            padding: $space-xs $space-s $space-xs calc(#{$space-xxl} + 4px);
         }
 
         &.pill-shape-with-icon-button {
@@ -152,11 +153,6 @@
                 border-bottom-right-radius: inherit;
                 border-top-right-radius: inherit;
             }
-        }
-
-        &:focus {
-            outline: 2px solid var(--primary-color-40);
-            outline-offset: -2px;
         }
 
         &.input-stretch {
