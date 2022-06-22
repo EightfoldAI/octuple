@@ -20,14 +20,17 @@ describe('Snackbar', () => {
         jest.useFakeTimers();
         matchMedia = new MatchMediaMock();
     });
-    afterEach(() => {
-        matchMedia.clear();
+
+    afterAll(() => {
         jest.runAllTimers();
         jest.clearAllTimers();
     });
 
+    afterEach(() => {
+        matchMedia.clear();
+    });
+
     beforeEach(() => {
-        // jest.useFakeTimers();
         wrapper = render(<SnackbarContainer />);
     });
 
@@ -135,16 +138,16 @@ describe('Snackbar', () => {
         expect(wrapper.queryByText(content)).toBe(null);
     });
 
-    // test('test snack icon', () => {
-    //     expect(wrapper.queryByText(content)).toBe(null);
-    //     act(() => {
-    //         snack.serve({
-    //             content,
-    //             icon: IconName.mdiHomeCity,
-    //         });
-    //     });
-    //     expect(wrapper.q('presentation')).not.toBe(null);
-    // });
+    test('test snack icon', () => {
+        expect(wrapper.queryByText(content)).toBe(null);
+        act(() => {
+            snack.serve({
+                content,
+                icon: IconName.mdiHomeCity,
+            });
+        });
+        expect(wrapper.queryByText(content)).not.toBe(null);
+    });
 
     test('test snack action', () => {
         expect(wrapper.queryByText(content)).toBe(null);
