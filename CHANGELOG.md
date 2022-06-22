@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.11.2](https://github.com/EightfoldAI/octuple/compare/v1.11.1...v1.11.2) (2022-06-22)
+
+### Features
+
+-   add ability to define theme at a component level ([#197](https://github.com/EightfoldAI/octuple/issues/197)) ([11ef3c0](https://github.com/EightfoldAI/octuple/commits/11ef3c0de582f1bc62990e0d1b2ae266fa3a432c))
+
+### Bug Fixes
+
+-   textarea: event persist issue in react 16 ([#199](https://github.com/EightfoldAI/octuple/issues/199)) ([4ea9809](https://github.com/EightfoldAI/octuple/commits/4ea9809de0eac70115597179e1938313b29e92f6))
+
 ### [1.11.1](https://github.com/EightfoldAI/octuple/compare/v1.11.0...v1.11.1) (2022-06-21)
 
 ### Features
