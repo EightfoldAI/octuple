@@ -69,7 +69,7 @@ const Avatar_Round_Icon_Story: ComponentStory<typeof Avatar> = (args) => (
 export const Avatar_Round_Icon = Avatar_Round_Icon_Story.bind({});
 
 const Avatar_Fallback_Story: ComponentStory<typeof Avatar> = (args) => (
-    <Avatar {...args} />
+    <Avatar {...args} hashingFunction={() => 2} />
 );
 
 export const Avatar_Fallback = Avatar_Fallback_Story.bind({});
@@ -95,9 +95,9 @@ Avatar_Icon.args = {
     iconProps: {
         path: IconName.mdiBell,
     },
-    style: {
-        backgroundColor: 'grey',
-    },
+    // style: {
+    //     backgroundColor: 'grey',
+    // },
 };
 
 Avatar_Round.args = {
@@ -112,9 +112,9 @@ Avatar_Round_Icon.args = {
     iconProps: {
         path: IconName.mdiBell,
     },
-    style: {
-        backgroundColor: 'grey',
-    },
+    // style: {
+    //     backgroundColor: 'grey',
+    // },
     type: 'round',
 };
 

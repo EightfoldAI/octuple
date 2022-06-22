@@ -22,6 +22,10 @@ interface BaseAvatarProps extends OcBaseProps<HTMLSpanElement> {
      * Ref of the container div
      */
     ref?: Ref<HTMLDivElement>;
+    /**
+     * Function that returns avatar index
+     */
+    hashingFunction?: () => number;
 }
 
 export interface AvatarIconProps extends BaseAvatarProps {

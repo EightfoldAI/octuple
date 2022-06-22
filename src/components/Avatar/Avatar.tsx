@@ -18,11 +18,16 @@ export const AVATAR_CLASS_SET = [
 ];
 
 const AvatarFallback: FC<AvatarFallbackProps> = React.forwardRef(
-    ({ children, classNames, style }, ref: Ref<HTMLDivElement>) => {
-        const colorSetIndex = useMemo(
-            () => Math.floor(Math.random() * 100) % AVATAR_CLASS_SET.length,
-            []
-        );
+    (
+        { children, classNames, style, hashingFunction },
+        ref: Ref<HTMLDivElement>
+    ) => {
+        const colorSetIndex = useMemo(() => {
+            if (hashingFunction) {
+                return hashingFunction();
+            }
+            return Math.floor(Math.random() * 100) % AVATAR_CLASS_SET.length;
+        }, []);
 
         const avatarClasses: string = mergeClasses([
             styles.wrapperStyle,
@@ -65,6 +70,7 @@ export const Avatar: FC<AvatarProps> = React.forwardRef(
             fontSize = '18px',
             iconProps,
             children,
+            hashingFunction,
         },
         ref: Ref<HTMLDivElement>
     ) => {
@@ -119,6 +125,7 @@ export const Avatar: FC<AvatarProps> = React.forwardRef(
                 classNames={wrapperClasses}
                 style={wrapperContainerStyle}
                 ref={ref}
+                hashingFunction={hashingFunction}
             >
                 {children}
             </AvatarFallback>
