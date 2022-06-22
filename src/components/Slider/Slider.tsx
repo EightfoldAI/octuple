@@ -51,7 +51,7 @@ export const Slider: FC<SliderProps> = ({
 }) => {
     const isRange: boolean = Array.isArray(value);
     const [values, setValues] = useState<number[]>(
-        isRange ? value.sort(asc) : [value]
+        Array.isArray(value) ? value.sort(asc) : [value]
     );
     const railRef = useRef<HTMLDivElement>(null);
     const lowerLabelRef = useRef<HTMLInputElement>(null);
