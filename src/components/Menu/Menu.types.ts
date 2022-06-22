@@ -9,13 +9,19 @@ export interface MenuItem
     value: any;
 }
 
+export enum MenuType {
+    disruptive = 'disruptive',
+    default = 'default',
+    neutral = 'neutral',
+}
+
 export interface MenuProps
     extends Omit<ListProps<MenuItem>, 'renderItem' | 'role' | 'itemRole'> {
     /**
      * If menu is disruptive or not
      * @default false
      */
-    disruptive?: boolean;
+    type?: MenuType;
     /**
      * On change callback when menu item is clicked
      * @param value

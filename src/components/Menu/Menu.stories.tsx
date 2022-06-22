@@ -1,7 +1,7 @@
 import React from 'react';
 import { Stories } from '@storybook/addon-docs';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Menu } from './';
+import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Menu, MenuType } from './';
 import { IconName } from '../Icon';
 import { Dropdown } from '../Dropdown';
 import { DefaultButton } from '../Button';
@@ -88,14 +88,17 @@ const Overlay = (args: any) => (
 
 const Menu_Story: ComponentStory<typeof Menu> = (args) => (
     <Dropdown overlay={Overlay(args)}>
-        <DefaultButton disruptive={args.disruptive} text={'Menu dropdown'} />
+        <DefaultButton
+            disruptive={args.type === MenuType.disruptive}
+            text={'Menu dropdown'}
+        />
     </Dropdown>
 );
 
 export const Menus = Menu_Story.bind({});
 
 Menus.args = {
-    disruptive: false,
+    type: MenuType.neutral,
     classNames: 'my-menu-class',
     style: {},
     itemClassNames: 'my-menu-item-class',

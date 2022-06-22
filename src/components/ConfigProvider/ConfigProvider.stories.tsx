@@ -10,11 +10,11 @@ import {
 import { Tab, Tabs, TabVariant } from '../Tabs';
 import { IconName } from '../Icon';
 import { CompactPicker } from 'react-color';
-import { ConfigProvider, OcThemeNames, useConfig } from './';
+import { ConfigProvider, OcThemeNames, ThemeOptions, useConfig } from './';
 import { MatchScore } from '../MatchScore';
 import { Spinner } from '../Spinner';
 import { Stack } from '../Stack';
-import { CheckBoxGroup, CheckboxValueType, RadioGroup } from '../Selectors';
+import { CheckBoxGroup, RadioGroup } from '../Selectors';
 
 const theme: OcThemeNames[] = [
     'red',
@@ -260,7 +260,24 @@ Theming.args = {
     },
     themeOptions: {
         name: 'blue',
-    },
+        customTheme: {
+            tabsTheme: {
+                label: '--text-secondary-color',
+                activeLabel: '--primary-color',
+                activeBackground: 'transparent',
+                hoverLabel: '--primary-color',
+                hoverBackground: 'transparent',
+                indicatorColor: '--primary-color',
+                smallActiveBackground: '--primary-color-10',
+                smallHoverBackground: '--primary-color-10',
+                pillLabel: '--text-secondary-color',
+                pillActiveLabel: '--primary-color-80',
+                pillActiveBackground: '--primary-color-10',
+                pillHoverLabel: '--primary-color',
+                pillBackground: '--grey-color-10',
+            },
+        },
+    } as ThemeOptions,
     icomoonIconSet: {},
     children: <ThemedComponents />,
 };

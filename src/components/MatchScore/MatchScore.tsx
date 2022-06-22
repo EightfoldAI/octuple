@@ -2,6 +2,7 @@ import React, { FC, Ref } from 'react';
 import styles from './matchScore.module.scss';
 import { mergeClasses } from '../../shared/utilities';
 import { FillType, MatchScoreProps } from './MatchScore.types';
+import { Atom } from '../Atom';
 
 export const MatchScore: FC<MatchScoreProps> = React.forwardRef(
     (
@@ -16,15 +17,12 @@ export const MatchScore: FC<MatchScoreProps> = React.forwardRef(
         ref: Ref<HTMLDivElement>
     ) => {
         const absTotal: number = Math.abs(total);
-        const matchScoreClasses = mergeClasses(
-            classNames,
-            styles.matchScoreContainer
-        );
         return (
-            <div
+            <Atom<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>
+                of="div"
                 {...rest}
                 ref={ref}
-                className={matchScoreClasses}
+                classes={[classNames, styles.matchScoreContainer]}
                 aria-label={ariaLabel}
             >
                 {getArrayOfSize(Math.min(Math.floor(score), absTotal)).map(
@@ -45,7 +43,7 @@ export const MatchScore: FC<MatchScoreProps> = React.forwardRef(
                         {score}/{absTotal}
                     </p>
                 )}
-            </div>
+            </Atom>
         );
     }
 );

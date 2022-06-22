@@ -28,9 +28,15 @@
         justify-content: space-between;
         padding: $space-m $space-l;
         width: 100%;
+        transition: background-color $motion-duration-fast
+            $motion-easing-easeout;
 
         &:focus-visible {
             outline-color: var(--button-primary-focus-border-color);
+        }
+
+        &:hover {
+            background-color: var(--grey-color-10);
         }
     }
 

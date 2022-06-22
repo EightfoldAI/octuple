@@ -2,6 +2,37 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.11.2](https://github.com/EightfoldAI/octuple/compare/v1.11.1...v1.11.2) (2022-06-22)
+
+### Features
+
+-   add ability to define theme at a component level ([#197](https://github.com/EightfoldAI/octuple/issues/197)) ([11ef3c0](https://github.com/EightfoldAI/octuple/commits/11ef3c0de582f1bc62990e0d1b2ae266fa3a432c))
+
+### Bug Fixes
+
+-   textarea: event persist issue in react 16 ([#199](https://github.com/EightfoldAI/octuple/issues/199)) ([4ea9809](https://github.com/EightfoldAI/octuple/commits/4ea9809de0eac70115597179e1938313b29e92f6))
+
+### [1.11.1](https://github.com/EightfoldAI/octuple/compare/v1.11.0...v1.11.1) (2022-06-21)
+
+### Features
+
+-   icon: adds two mdi icons, account eye and its outline variant ([#196](https://github.com/EightfoldAI/octuple/issues/196)) ([f1d744b](https://github.com/EightfoldAI/octuple/commits/f1d744b632e9dc1087a0e18979cc1169c7551201))
+
+### Bug Fixes
+
+-   add total in dependencies to pickup latest changes ([#195](https://github.com/EightfoldAI/octuple/issues/195)) ([11a6d4b](https://github.com/EightfoldAI/octuple/commits/11a6d4b8b198ef5fef157f0c22859a1d1a484a5c))
+
+## [1.11.0](https://github.com/EightfoldAI/octuple/compare/v1.10.0...v1.11.0) (2022-06-16)
+
+### Features
+
+-   add neutral menu type, add default dropdown offset ([#189](https://github.com/EightfoldAI/octuple/issues/189)) ([e70b338](https://github.com/EightfoldAI/octuple/commits/e70b338953a15694f92488d42b88487d5d710793))
+-   button: adds counter badge support to all buttons ([#187](https://github.com/EightfoldAI/octuple/issues/187)) ([45eaec1](https://github.com/EightfoldAI/octuple/commits/45eaec1f04d9a8bf212bd0c776c50e5bfbfaab74))
+
+### Bug Fixes
+
+-   pagination: ensure jumper applies current page ([#182](https://github.com/EightfoldAI/octuple/issues/182)) ([16d26fa](https://github.com/EightfoldAI/octuple/commits/16d26fa6b593ba77b79be33fe813f3532379d3a8))
+
 ## [1.10.0](https://github.com/EightfoldAI/octuple/compare/v1.9.1...v1.10.0) (2022-06-14)
 
 ### Features

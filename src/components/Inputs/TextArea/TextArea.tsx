@@ -55,21 +55,22 @@ export const TextArea: FC<TextAreaProps> = React.forwardRef(
             },
         ]);
 
-        const handleChange = useDebounce<
+        const debouncedChange = useDebounce<
             React.ChangeEvent<HTMLTextAreaElement>
         >(
             (
                 _event?: React.ChangeEvent<
                     HTMLTextAreaElement | HTMLInputElement
                 >
-            ) => triggerChange(_event),
+            ) => onChange?.(_event),
             waitInterval
         );
 
-        const triggerChange = (
-            _event?: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>
-        ) => {
-            onChange && onChange(_event);
+        // We need to persist the syntheticevent object, as useDebounce uses a timeout function internally
+        // Reference: https://reactjs.org/docs/legacy-event-pooling.html
+        const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+            e.persist();
+            debouncedChange(e);
         };
 
         return (
