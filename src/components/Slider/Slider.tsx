@@ -1,4 +1,4 @@
-import React, { FC, useLayoutEffect, useRef, useState } from 'react';
+import React, { FC, useEffect, useLayoutEffect, useRef, useState } from 'react';
 
 import { mergeClasses, visuallyHidden } from '../../shared/utilities';
 import { SliderMarker, SliderProps } from './Slider.types';
@@ -72,14 +72,6 @@ export const Slider: FC<SliderProps> = ({
         return idTokens.join('-');
     };
 
-    const handleChange = (newVal: number, index: number) => {
-        const newValues = [...values];
-        newValues.splice(index, 1, newVal);
-        newValues.sort(asc);
-        setValues(newValues);
-        onChange?.(isRange ? [...newValues] : newValues[0]);
-    };
-
     const isMarkerActive = (markerValue: number): boolean => {
         const markerPct = valueToPercent(markerValue, min, max);
         return isRange
@@ -95,6 +87,17 @@ export const Slider: FC<SliderProps> = ({
             thumbRadius
         );
     };
+
+    const handleChange = (newVal: number, index: number) => {
+        const newValues = [...values];
+        newValues.splice(index, 1, newVal);
+        newValues.sort(asc);
+        setValues(newValues);
+    };
+
+    useEffect(() => {
+        onChange?.(isRange ? [...values] : values[0]);
+    }, [values]);
 
     // Set width of the range to decrease from the left side
     useLayoutEffect(() => {
