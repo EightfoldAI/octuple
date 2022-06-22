@@ -172,21 +172,20 @@ export const Slider: FC<SliderProps> = ({
                 <div ref={railRef} className={styles.sliderRail} />
                 <div ref={trackRef} className={styles.sliderTrack} />
                 {markers.map((mark, index) => {
+                    // Hiding the first and last marker based on design.
                     const isFirstOrLast =
                         index === 0 || index === markers.length - 1;
-                    const style = {
-                        // Hiding the first and last marker based on design.
-                        ...(isFirstOrLast && visuallyHidden),
-                        left: mark.offset,
-                    };
+                    const style = { left: mark.offset };
                     return (
-                        <div
-                            key={index}
-                            className={mergeClasses(styles.railMarker, {
-                                [styles.active]: isMarkerActive(mark.value),
-                            })}
-                            style={style}
-                        />
+                        !isFirstOrLast && (
+                            <div
+                                key={index}
+                                className={mergeClasses(styles.railMarker, {
+                                    [styles.active]: isMarkerActive(mark.value),
+                                })}
+                                style={style}
+                            />
+                        )
                     );
                 })}
                 {values.map((val, index) => (

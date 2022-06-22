@@ -22,7 +22,7 @@ const sliderArgs: Object = {
     max: 200,
     name: 'mySlider',
     onChange: (value: number | number[]) => {
-        console.log(value);
+        // handle change.
     },
 };
 
