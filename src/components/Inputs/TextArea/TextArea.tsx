@@ -1,4 +1,4 @@
-import React, { FC, Ref, useState } from 'react';
+import React, {FC, Ref, useEffect, useState} from 'react';
 import { Icon, IconName } from '../../Icon';
 import { Label } from '../../Label';
 import { TextInputWidth, TextAreaProps, TextInputTheme } from '../index';
@@ -55,6 +55,8 @@ export const TextArea: FC<TextAreaProps> = React.forwardRef(
                 [styles.inputStretch]: inputWidth === TextInputWidth.fill,
             },
         ]);
+
+        useEffect(() => setInputValue(value), [value]);
 
         const debouncedChange = useDebounce<
             React.ChangeEvent<HTMLTextAreaElement>

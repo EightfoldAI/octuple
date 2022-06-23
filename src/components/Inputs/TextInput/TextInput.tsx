@@ -122,6 +122,7 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
         ]);
 
         useEffect(() => {
+            setInputValue(value);
             if (value?.toString()?.length > 0) {
                 return setClearButtonShown(true);
             }
@@ -140,6 +141,7 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
             if (!!inputField) {
                 (inputField as HTMLInputElement).value = '';
             }
+            setInputValue('');
             onClear?.(_event);
             setClearButtonShown(false);
         };
