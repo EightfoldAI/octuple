@@ -9,6 +9,12 @@
         color: var(--disruptive-color);
     }
 
+    &.red {
+        background-color: var(--red-color-20);
+        border: solid 1px var(--red-color-30);
+        color: var(--red-color);
+    }
+
     &.grey {
         background-color: var(--grey-color-20);
         border: solid 1px var(--grey-color-30);
