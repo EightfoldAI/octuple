@@ -107,7 +107,7 @@ describe('TreeNode Props', () => {
                 </Tree>
             );
 
-            fireEvent.click(container.querySelector('.treeSwitcher'));
+            fireEvent.click(container.querySelector('.tree-switcher'));
 
             expect(iconFn.mock.calls[0][0].loading).toBe(false);
             expect(

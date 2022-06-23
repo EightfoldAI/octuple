@@ -30,7 +30,7 @@ describe('Table.Scroll', () => {
     it('renders scroll.x is true', () => {
         const wrapper = mount(createTable({ scroll: { x: 100 } }));
         expect(wrapper.find('table').props().style.width).toEqual(100);
-        expect(wrapper.find('.tableContent').props().style.overflow).toEqual(
+        expect(wrapper.find('.table-content').props().style.overflow).toEqual(
             'overlay'
         );
     });
@@ -42,12 +42,14 @@ describe('Table.Scroll', () => {
 
     it('renders scroll.y is a number', () => {
         const wrapper = mount(createTable({ scroll: { y: 200 } }));
-        expect(wrapper.find('.tableBody').props().style.maxHeight).toEqual(200);
+        expect(wrapper.find('.table-body').props().style.maxHeight).toEqual(
+            200
+        );
     });
 
     it('renders scroll.x and scroll.y are both true', () => {
         const wrapper = mount(createTable({ scroll: { x: 200, y: 200 } }));
-        expect(wrapper.find('.tableBody').props().style.overflow).toEqual(
+        expect(wrapper.find('.table-body').props().style.overflow).toEqual(
             'overlay'
         );
     });
@@ -120,7 +122,7 @@ describe('Table.Scroll', () => {
         jest.runAllTimers();
         // Use `onScroll` directly since simulate not support `currentTarget`
         act(() => {
-            const headerDiv = wrapper.find('.tableHeader').instance();
+            const headerDiv = wrapper.find('.table-header').instance();
 
             const wheelEvent = new WheelEvent('wheel');
             Object.defineProperty(wheelEvent, 'deltaX', {
@@ -136,7 +138,7 @@ describe('Table.Scroll', () => {
 
         act(() => {
             wrapper
-                .find('.tableBody')
+                .find('.table-body')
                 .props()
                 .onScroll({
                     currentTarget: {

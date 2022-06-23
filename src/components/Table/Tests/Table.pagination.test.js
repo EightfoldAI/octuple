@@ -5,7 +5,7 @@ import Table from '../index';
 
 Enzyme.configure({ adapter: new Adapter() });
 
-describe('Table.tablePagination', () => {
+describe('Table.table-pagination', () => {
     beforeAll(() => {
         Object.defineProperty(window, 'matchMedia', {
             writable: true,
@@ -129,7 +129,7 @@ describe('Table.tablePagination', () => {
             dataSource: data.slice(total - 1),
             pagination: { ...paginationProp, total: total - 1 },
         });
-        expect(wrapper.find('.tablePagination')).toHaveLength(2);
+        expect(wrapper.find('.table-pagination')).toHaveLength(2);
     });
 
     it('should preserve table pagination className', () => {
@@ -145,8 +145,8 @@ describe('Table.tablePagination', () => {
                 }}
             />
         );
-        expect(wrapper.find('.tablePagination').prop('className')).toEqual(
-            'tablePagination tablePaginationRight my-pagination pagination'
+        expect(wrapper.find('.table-pagination').prop('className')).toEqual(
+            'table-pagination table-pagination-right my-pagination pagination'
         );
     });
 });

@@ -26,7 +26,7 @@ describe('FieldNames', () => {
             />
         );
 
-        fireEvent.click(container.querySelector('.treeCheckbox'));
+        fireEvent.click(container.querySelector('.tree-checkbox'));
         expect(onCheck).toHaveBeenCalledWith(
             ['parent', 'child'],
             expect.anything()

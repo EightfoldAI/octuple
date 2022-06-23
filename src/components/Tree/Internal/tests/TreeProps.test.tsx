@@ -81,7 +81,9 @@ describe('Tree Props', () => {
 
             expect(container.firstChild).toMatchSnapshot();
 
-            fireEvent.click(container.querySelector('.treeNodeContentWrapper'));
+            fireEvent.click(
+                container.querySelector('.tree-node-content-wrapper')
+            );
 
             expect(handleOnSelect).not.toHaveBeenCalled();
             expect(handleOnCheck).not.toHaveBeenCalled(); // Will test in checkable
@@ -241,7 +243,9 @@ describe('Tree Props', () => {
                 </Tree>
             );
 
-            expect(container.querySelectorAll('.treeCheckbox')).toHaveLength(1);
+            expect(container.querySelectorAll('.tree-checkbox')).toHaveLength(
+                1
+            );
         });
     });
 
@@ -306,7 +310,7 @@ describe('Tree Props', () => {
 
         // Select leaf
         fireEvent.click(
-            container.querySelectorAll('.treeNodeContentWrapper')[1]
+            container.querySelectorAll('.tree-node-content-wrapper')[1]
         );
 
         expect(onClick).toHaveBeenCalledWith(
@@ -335,7 +339,7 @@ describe('Tree Props', () => {
 
         // Select leaf
         fireEvent.doubleClick(
-            container.querySelectorAll('.treeNodeContentWrapper')[1]
+            container.querySelectorAll('.tree-node-content-wrapper')[1]
         );
 
         expect(onClick).not.toHaveBeenCalled();
@@ -365,7 +369,7 @@ describe('Tree Props', () => {
 
         // Select leaf
         fireEvent.contextMenu(
-            container.querySelectorAll('.treeNodeContentWrapper')[1]
+            container.querySelectorAll('.tree-node-content-wrapper')[1]
         );
 
         expect(onClick).not.toHaveBeenCalled();
@@ -383,7 +387,7 @@ describe('Tree Props', () => {
                 </Tree>
             );
 
-            fireEvent.click(container.querySelector('.treeSwitcher'));
+            fireEvent.click(container.querySelector('.tree-switcher'));
             expect(loadData).not.toHaveBeenCalled();
             expect(onLoad).not.toHaveBeenCalled();
         });
@@ -535,12 +539,12 @@ describe('Tree Props', () => {
 
         expect(
             container
-                .querySelectorAll('.treeTitle')[0]
+                .querySelectorAll('.tree-title')[0]
                 .querySelector('.light-span').textContent
         ).toEqual('light');
         expect(
             container
-                .querySelectorAll('.treeTitle')[1]
+                .querySelectorAll('.tree-title')[1]
                 .querySelector('.bamboo-span').textContent
         ).toEqual('bamboo');
     });

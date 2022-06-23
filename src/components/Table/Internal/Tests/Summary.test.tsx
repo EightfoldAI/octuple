@@ -136,25 +136,25 @@ describe('Table.Summary', () => {
         it('fixed', () => {
             const wrapper = getSummaryTable(false);
 
-            expect(wrapper.exists('tfoot.tableSummary')).toBeTruthy();
+            expect(wrapper.exists('tfoot.table-summary')).toBeTruthy();
         });
 
         it('fixed bottom', () => {
             const wrapper = getSummaryTable('bottom');
 
-            expect(wrapper.exists('tfoot.tableSummary')).toBeTruthy();
+            expect(wrapper.exists('tfoot.table-summary')).toBeTruthy();
         });
 
         it('sticky', () => {
             const wrapper = getSummaryTable(true);
 
-            expect(wrapper.exists('div.tableSummary')).toBeTruthy();
+            expect(wrapper.exists('div.table-summary')).toBeTruthy();
         });
 
         it('fixed top', () => {
             const wrapper = getSummaryTable('top');
             expect(
-                wrapper.exists('.tableHeader tfoot.tableSummary')
+                wrapper.exists('.table-header tfoot.table-summary')
             ).toBeTruthy();
         });
     });

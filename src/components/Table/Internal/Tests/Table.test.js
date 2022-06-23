@@ -98,7 +98,7 @@ describe('Table.Basic', () => {
                 createTable({ data: [], emptyText: 'No data' })
             );
             expect(
-                wrapper.find('.tablePlaceholder').hostNodes().text()
+                wrapper.find('.table-placeholder').hostNodes().text()
             ).toEqual('No data');
         });
 
@@ -107,7 +107,7 @@ describe('Table.Basic', () => {
                 createTable({ data: [], emptyText: () => 'No data' })
             );
             expect(
-                wrapper.find('.tablePlaceholder').hostNodes().text()
+                wrapper.find('.table-placeholder').hostNodes().text()
             ).toEqual('No data');
         });
 
@@ -129,7 +129,7 @@ describe('Table.Basic', () => {
             const wrapper = mount(<App />);
             wrapper.update();
             expect(
-                wrapper.find('.tablePlaceholder').hostNodes().text()
+                wrapper.find('.table-placeholder').hostNodes().text()
             ).toEqual('bamboo');
         });
     });
@@ -141,17 +141,19 @@ describe('Table.Basic', () => {
 
     it('renders fixed header correctly', () => {
         const wrapper = mount(createTable({ scroll: { y: 100 } }));
-        expect(wrapper.find('.tableHeader').length).toBeTruthy();
+        expect(wrapper.find('.table-header').length).toBeTruthy();
     });
 
     it('renders title correctly', () => {
         const wrapper = mount(createTable({ title: () => <p>title</p> }));
-        expect(wrapper.find('.tableTitle').hostNodes().text()).toEqual('title');
+        expect(wrapper.find('.table-title').hostNodes().text()).toEqual(
+            'title'
+        );
     });
 
     it('renders footer correctly', () => {
         const wrapper = mount(createTable({ footer: () => <p>footer</p> }));
-        expect(wrapper.find('.tableFooter').hostNodes().text()).toEqual(
+        expect(wrapper.find('.table-footer').hostNodes().text()).toEqual(
             'footer'
         );
     });
@@ -217,7 +219,7 @@ describe('Table.Basic', () => {
         );
 
         wrapper.find('td').forEach((td) => {
-            expect(td.hasClass('tableCellEllipsis')).toBeTruthy();
+            expect(td.hasClass('table-cell-ellipsis')).toBeTruthy();
         });
     });
 
@@ -236,7 +238,7 @@ describe('Table.Basic', () => {
         );
 
         wrapper.find('td').forEach((td) => {
-            expect(td.hasClass('tableCellEllipsis')).toBeTruthy();
+            expect(td.hasClass('table-cell-ellipsis')).toBeTruthy();
         });
     });
 
@@ -1074,21 +1076,21 @@ describe('Table.Basic', () => {
             />
         );
 
-        const trs = wrapper.find('.tableRow');
+        const trs = wrapper.find('.table-row');
 
         trs.forEach((tr, index) => {
-            tr.find('.tableCell').at(0).simulate('mouseEnter');
+            tr.find('.table-cell').at(0).simulate('mouseEnter');
             const currentClassName = wrapper
-                .find('.tableRow')
+                .find('.table-row')
                 .at(index)
-                .find('.tableCell')
+                .find('.table-cell')
                 .at(0)
                 .getElement().props.className;
 
-            expect(currentClassName.includes('tableCellRowHover')).toEqual(
+            expect(currentClassName.includes('table-cell-row-hover')).toEqual(
                 true
             );
-            expect(wrapper.find('.tableCellRowHover')).toHaveLength(1);
+            expect(wrapper.find('.table-cell-row-hover')).toHaveLength(1);
         });
     });
 });

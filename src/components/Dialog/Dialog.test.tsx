@@ -63,10 +63,10 @@ describe('Dialog', () => {
             onCancel,
             onClose,
         });
-        wrapper.find('.buttonPrimary').at(0).simulate('click');
-        wrapper.find('.buttonDefault').at(0).simulate('click');
-        wrapper.find('.buttonNeutral').at(0).simulate('click');
-        wrapper.find('.dialogBackdrop').at(0).simulate('click');
+        wrapper.find('.button-primary').at(0).simulate('click');
+        wrapper.find('.button-default').at(0).simulate('click');
+        wrapper.find('.button-neutral').at(0).simulate('click');
+        wrapper.find('.dialog-backdrop').at(0).simulate('click');
 
         expect(onOk).toHaveBeenCalledTimes(1);
         expect(onCancel).toHaveBeenCalledTimes(1);
@@ -76,7 +76,7 @@ describe('Dialog', () => {
             maskClosable: false,
         });
 
-        wrapper.find('.dialogBackdrop').at(0).simulate('click');
+        wrapper.find('.dialog-backdrop').at(0).simulate('click');
         expect(onClose).toHaveBeenCalledTimes(2);
     });
 });

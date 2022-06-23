@@ -68,7 +68,7 @@ describe('Table.FixedHeader', () => {
         });
 
         expect(
-            wrapper.find('.tableHeader table').props().style.visibility
+            wrapper.find('.table-header table').props().style.visibility
         ).toBeFalsy();
 
         expect();
@@ -152,7 +152,7 @@ describe('Table.FixedHeader', () => {
             />
         );
 
-        expect(wrapper.find('.tableHeader table').props().style).toEqual(
+        expect(wrapper.find('.table-header table').props().style).toEqual(
             expect.objectContaining({ visibility: null })
         );
     });

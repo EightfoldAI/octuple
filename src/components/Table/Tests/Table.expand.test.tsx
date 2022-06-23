@@ -59,7 +59,7 @@ describe('Table.expand', () => {
 
     it('click to expand', () => {
         const wrapper = mount(<Table columns={columns} dataSource={data} />);
-        wrapper.find('.tableRowExpandIcon').last().simulate('click');
+        wrapper.find('.table-row-expand-icon').last().simulate('click');
         expect(wrapper.render()).toMatchSnapshot();
     });
 
@@ -74,7 +74,7 @@ describe('Table.expand', () => {
                 }}
             />
         );
-        const button = wrapper.find('.tableRowExpandIcon').at(0);
+        const button = wrapper.find('.table-row-expand-icon').at(0);
         button.simulate('click');
         expect(
             wrapper.find('.indent-level-1').at(0).prop('style')

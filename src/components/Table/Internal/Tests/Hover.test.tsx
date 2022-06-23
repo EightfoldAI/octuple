@@ -29,10 +29,10 @@ describe('Table.Hover', () => {
     it('basic', () => {
         const wrapper = mount(createTable());
         wrapper.find('tbody td').first().simulate('mouseEnter');
-        expect(wrapper.exists('.tableCellRowHover')).toBeTruthy();
+        expect(wrapper.exists('.table-cell-row-hover')).toBeTruthy();
 
         wrapper.find('tbody td').first().simulate('mouseLeave');
-        expect(wrapper.exists('.tableCellRowHover')).toBeFalsy();
+        expect(wrapper.exists('.table-cell-row-hover')).toBeFalsy();
     });
 
     it('works on shouldCellUpdate', () => {
@@ -50,10 +50,10 @@ describe('Table.Hover', () => {
         );
 
         wrapper.find('tbody td').first().simulate('mouseEnter');
-        expect(wrapper.exists('.tableCellRowHover')).toBeTruthy();
+        expect(wrapper.exists('.table-cell-row-hover')).toBeTruthy();
 
         wrapper.find('tbody td').first().simulate('mouseLeave');
-        expect(wrapper.exists('.tableCellRowHover')).toBeFalsy();
+        expect(wrapper.exists('.table-cell-row-hover')).toBeFalsy();
     });
 
     it('onCell should work', () => {
@@ -83,15 +83,15 @@ describe('Table.Hover', () => {
 
         // Hover 0-0
         wrapper.find('tbody td').at(0).simulate('mouseEnter');
-        expect(wrapper.find('.tableCellRowHover')).toHaveLength(3);
+        expect(wrapper.find('.table-cell-row-hover')).toHaveLength(3);
 
         // Hover 0-1
         wrapper.find('tbody td').at(1).simulate('mouseEnter');
-        expect(wrapper.find('.tableCellRowHover')).toHaveLength(2);
+        expect(wrapper.find('.table-cell-row-hover')).toHaveLength(2);
 
         // Mouse leave
         wrapper.find('tbody td').at(1).simulate('mouseLeave');
-        expect(wrapper.exists('.tableCellRowHover')).toBeFalsy();
+        expect(wrapper.exists('.table-cell-row-hover')).toBeFalsy();
     });
 
     describe('perf', () => {
@@ -113,24 +113,24 @@ describe('Table.Hover', () => {
                 })
             );
 
-            expect(wrapper.exists('.tableCellRowHover')).toBeFalsy();
+            expect(wrapper.exists('.table-cell-row-hover')).toBeFalsy();
 
             // Hover 0-0
             renderTimes = 0;
             wrapper.find('tbody td').at(0).simulate('mouseEnter');
-            expect(wrapper.find('.tableCellRowHover')).toHaveLength(1);
+            expect(wrapper.find('.table-cell-row-hover')).toHaveLength(1);
             expect(renderTimes).toBe(1);
 
             // Hover 0-1
             renderTimes = 0;
             wrapper.find('tbody td').at(1).simulate('mouseEnter');
-            expect(wrapper.find('.tableCellRowHover')).toHaveLength(1);
+            expect(wrapper.find('.table-cell-row-hover')).toHaveLength(1);
             expect(renderTimes).toBe(2);
 
             // Mouse leave
             renderTimes = 0;
             wrapper.find('tbody td').at(1).simulate('mouseLeave');
-            expect(wrapper.exists('.tableCellRowHover')).toBeFalsy();
+            expect(wrapper.exists('.table-cell-row-hover')).toBeFalsy();
             expect(renderTimes).toBe(1);
         });
 
@@ -150,24 +150,24 @@ describe('Table.Hover', () => {
                 })
             );
 
-            expect(wrapper.exists('.tableCellRowHover')).toBeFalsy();
+            expect(wrapper.exists('.table-cell-row-hover')).toBeFalsy();
 
             // Hover 0-0
             renderTimes = 0;
             wrapper.find('tbody td').at(0).simulate('mouseEnter');
-            expect(wrapper.find('.tableCellRowHover')).toHaveLength(1);
+            expect(wrapper.find('.table-cell-row-hover')).toHaveLength(1);
             expect(renderTimes).toBe(0);
 
             // Hover 0-1
             renderTimes = 0;
             wrapper.find('tbody td').at(1).simulate('mouseEnter');
-            expect(wrapper.find('.tableCellRowHover')).toHaveLength(1);
+            expect(wrapper.find('.table-cell-row-hover')).toHaveLength(1);
             expect(renderTimes).toBe(0);
 
             // Mouse leave
             renderTimes = 0;
             wrapper.find('tbody td').at(1).simulate('mouseLeave');
-            expect(wrapper.exists('.tableCellRowHover')).toBeFalsy();
+            expect(wrapper.exists('.table-cell-row-hover')).toBeFalsy();
             expect(renderTimes).toBe(0);
         });
     });

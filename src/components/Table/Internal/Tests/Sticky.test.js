@@ -34,13 +34,13 @@ describe('Table.Sticky', () => {
         };
         const wrapper = mount(<TableDemo />);
 
-        expect(wrapper.find('.tableHeader').last().prop('style')).toEqual({
+        expect(wrapper.find('.table-header').last().prop('style')).toEqual({
             overflow: 'hidden',
             top: 0,
         });
 
-        expect(wrapper.find('.tableHeader').last().prop('className')).toBe(
-            'tableHeader tableStickyHolder'
+        expect(wrapper.find('.table-header').last().prop('className')).toBe(
+            'table-header table-sticky-holder'
         );
 
         wrapper.setProps({
@@ -49,7 +49,7 @@ describe('Table.Sticky', () => {
             },
         });
 
-        expect(wrapper.find('.tableHeader').last().prop('style')).toEqual({
+        expect(wrapper.find('.table-header').last().prop('style')).toEqual({
             overflow: 'hidden',
             top: 10,
         });
@@ -151,7 +151,7 @@ describe('Table.Sticky', () => {
 
         const mockFn = jest.fn();
 
-        wrapper.find('.tableStickyScrollBar').simulate('mousedown', {
+        wrapper.find('.table-sticky-scroll-bar').simulate('mousedown', {
             persist: mockFn,
             preventDefault: mockFn,
             pageX: 0,
@@ -159,7 +159,7 @@ describe('Table.Sticky', () => {
 
         expect(mockFn).toHaveBeenCalledTimes(2);
 
-        expect(wrapper.find('.tableStickyScrollBarActive').length).toBe(1);
+        expect(wrapper.find('.table-sticky-scroll-bar-active').length).toBe(1);
 
         const mousemoveEvent = new Event('mousemove');
 
@@ -173,7 +173,7 @@ describe('Table.Sticky', () => {
             wrapper.update();
         });
 
-        expect(wrapper.find('.tableStickyScrollBar').prop('style')).toEqual({
+        expect(wrapper.find('.table-sticky-scroll-bar').prop('style')).toEqual({
             width: '50px',
             transform: 'translate3d(50.5px, 0, 0)',
         });
@@ -187,7 +187,7 @@ describe('Table.Sticky', () => {
             wrapper.update();
         });
 
-        expect(wrapper.find('.tableStickyScrollBar').prop('style')).toEqual({
+        expect(wrapper.find('.table-sticky-scroll-bar').prop('style')).toEqual({
             width: '50px',
             transform: 'translate3d(0px, 0, 0)',
         });
@@ -201,7 +201,7 @@ describe('Table.Sticky', () => {
             wrapper.update();
         });
 
-        expect(wrapper.find('.tableStickyScrollBarActive').length).toBe(0);
+        expect(wrapper.find('.table-sticky-scroll-bar-active').length).toBe(0);
 
         const mouseupEvent = new Event('mouseup');
 
@@ -274,14 +274,16 @@ describe('Table.Sticky', () => {
         };
         const wrapper = mount(<TableDemo />);
 
-        expect(wrapper.find('.tableCellFixSticky').at(1).prop('style')).toEqual(
-            {
-                position: 'sticky',
-                right: 0,
-            }
-        );
+        expect(
+            wrapper.find('.table-cell-fix-sticky').at(1).prop('style')
+        ).toEqual({
+            position: 'sticky',
+            right: 0,
+        });
 
-        expect(wrapper.find('.tableCellFixSticky').at(1)).not.toBe(undefined);
+        expect(wrapper.find('.table-cell-fix-sticky').at(1)).not.toBe(
+            undefined
+        );
 
         jest.useRealTimers();
     });
@@ -346,12 +348,12 @@ describe('Table.Sticky', () => {
         };
         const wrapper = mount(<TableDemo />);
 
-        expect(wrapper.find('.tableCellFixSticky').at(0).prop('style')).toEqual(
-            {
-                left: 0,
-                position: 'sticky',
-            }
-        );
+        expect(
+            wrapper.find('.table-cell-fix-sticky').at(0).prop('style')
+        ).toEqual({
+            left: 0,
+            position: 'sticky',
+        });
 
         jest.useRealTimers();
     });
@@ -474,7 +476,7 @@ describe('Table.Sticky', () => {
             wrapper.update();
         });
 
-        expect(wrapper.find('.tableStickyScrollBar').prop('style')).toEqual({
+        expect(wrapper.find('.table-sticky-scroll-bar').prop('style')).toEqual({
             width: '50px',
             transform: 'translate3d(50px, 0, 0)',
         });

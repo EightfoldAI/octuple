@@ -189,7 +189,7 @@ describe('Table.rowSelection', () => {
             .at(1)
             .simulate('change', { target: { checked: true } });
         expect(
-            wrapper.find('tbody tr').at(0).hasClass('tableRowSelected')
+            wrapper.find('tbody tr').at(0).hasClass('table-row-selected')
         ).toBe(true);
     });
 
@@ -287,18 +287,18 @@ describe('Table.rowSelection', () => {
                 columns={columns}
                 dataSource={data}
                 rowSelection={{
-                    columnTitle: '多选',
+                    columnTitle: 'title',
                 }}
             />
         );
-        expect(wrapper.find('thead tr th').at(0).text()).toBe('多选');
+        expect(wrapper.find('thead tr th').at(0).text()).toBe('title');
         wrapper.setProps({
             rowSelection: {
                 type: 'radio',
-                columnTitle: '单选',
+                columnTitle: 'title',
             },
         });
-        expect(wrapper.find('thead tr th').at(0).text()).toBe('单选');
+        expect(wrapper.find('thead tr th').at(0).text()).toBe('title');
     });
 
     it('select by checkbox to trigger stopPropagation', () => {

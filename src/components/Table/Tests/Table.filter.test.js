@@ -85,7 +85,7 @@ describe('Table.filter', () => {
             })
         );
 
-        expect(wrapper.find('.tableFilterColumn')).toHaveLength(0);
+        expect(wrapper.find('.table-filter-column')).toHaveLength(0);
     });
 
     it('not show filter icon when filter and filterDropdown is undefined', () => {
@@ -101,7 +101,7 @@ describe('Table.filter', () => {
             })
         );
 
-        expect(wrapper.find('.tableFilterColumn')).toHaveLength(0);
+        expect(wrapper.find('.table-filter-column')).toHaveLength(0);
     });
 
     it('renders filter correctly', () => {

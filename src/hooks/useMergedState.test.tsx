@@ -7,7 +7,7 @@ describe('useMergedState', () => {
         const [val, setVal] = useMergedState('empty', { value });
         return (
             <input
-                value={val}
+                defaultValue={val}
                 onChange={(e) => {
                     setVal(e.target.value);
                 }}

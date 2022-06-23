@@ -5,7 +5,7 @@ import Tree, { TreeNode } from '..';
 import { objectMatcher, spyConsole } from './util';
 
 const OPEN_CLASSNAME = 'tree-switcher_open';
-const CHECKED_CLASSNAME = 'treeCheckboxChecked';
+const CHECKED_CLASSNAME = 'tree-checkbox-checked';
 
 const delay = (timeout = 0) =>
     new Promise((resolve) => {
@@ -60,7 +60,7 @@ describe('Tree Basic', () => {
                 </TreeNode>
             </Tree>
         );
-        expect(container.querySelector('.treeSwitcher')).toBeFalsy();
+        expect(container.querySelector('.tree-switcher')).toBeFalsy();
     });
 
     describe('expanded', () => {
@@ -102,7 +102,7 @@ describe('Tree Basic', () => {
                 </Tree>
             );
 
-            fireEvent.click(container.querySelector('.treeSwitcher'));
+            fireEvent.click(container.querySelector('.tree-switcher'));
             expect(handleExpand).toHaveBeenCalledWith(['0-0'], {
                 expanded: true,
                 node: expect.objectContaining({
@@ -112,7 +112,7 @@ describe('Tree Basic', () => {
                 nativeEvent: expect.anything(),
             });
 
-            fireEvent.click(container.querySelector('.treeSwitcher'));
+            fireEvent.click(container.querySelector('.tree-switcher'));
             expect(handleExpand).toHaveBeenCalledWith([], {
                 expanded: false,
                 node: expect.objectContaining({
@@ -180,12 +180,12 @@ describe('Tree Basic', () => {
                     </TreeNode>
                 </Tree>
             );
-            fireEvent.click(container.querySelector('.treeSwitcher'));
+            fireEvent.click(container.querySelector('.tree-switcher'));
 
             const nodeData00 = { title: 'parent 1', key: '0-0' };
             const nodeData000 = { title: 'leaf 1', key: '0-0-0' };
 
-            fireEvent.click(container.querySelectorAll('.treeCheckbox')[0]);
+            fireEvent.click(container.querySelectorAll('.tree-checkbox')[0]);
             expect(handleCheck).toHaveBeenCalledWith(
                 ['0-0', '0-0-0'],
                 objectMatcher({
@@ -205,7 +205,7 @@ describe('Tree Basic', () => {
                 })
             );
 
-            fireEvent.click(container.querySelectorAll('.treeCheckbox')[1]);
+            fireEvent.click(container.querySelectorAll('.tree-checkbox')[1]);
             expect(handleCheck).toHaveBeenCalledWith(
                 [],
                 objectMatcher({
@@ -237,7 +237,7 @@ describe('Tree Basic', () => {
                     </TreeNode>
                 )
             );
-            fireEvent.click(container.querySelectorAll('.treeCheckbox')[1]);
+            fireEvent.click(container.querySelectorAll('.tree-checkbox')[1]);
 
             rerender(
                 renderTree(
@@ -250,7 +250,9 @@ describe('Tree Basic', () => {
             );
 
             expect(() => {
-                fireEvent.click(container.querySelectorAll('.treeCheckbox')[2]);
+                fireEvent.click(
+                    container.querySelectorAll('.tree-checkbox')[2]
+                );
             }).not.toThrow();
         });
 
@@ -268,7 +270,7 @@ describe('Tree Basic', () => {
                 )
             );
 
-            fireEvent.click(container.querySelectorAll('.treeCheckbox')[1]);
+            fireEvent.click(container.querySelectorAll('.tree-checkbox')[1]);
             rerender(
                 renderTree(
                     <TreeNode title="parent 1" key="0-0">
@@ -278,7 +280,9 @@ describe('Tree Basic', () => {
                 )
             );
             expect(() => {
-                fireEvent.click(container.querySelectorAll('.treeCheckbox')[2]);
+                fireEvent.click(
+                    container.querySelectorAll('.tree-checkbox')[2]
+                );
             }).not.toThrow();
         });
 
@@ -309,12 +313,12 @@ describe('Tree Basic', () => {
                 );
             }
             const { container, rerender } = render(<Test disableCheckbox />);
-            fireEvent.click(container.querySelectorAll('.treeCheckbox')[0]);
+            fireEvent.click(container.querySelectorAll('.tree-checkbox')[0]);
             expect(checkedKeys).toEqual(['0-0']);
 
             rerender(<Test disableCheckbox={false} />);
-            fireEvent.click(container.querySelectorAll('.treeCheckbox')[0]);
-            fireEvent.click(container.querySelectorAll('.treeCheckbox')[0]);
+            fireEvent.click(container.querySelectorAll('.tree-checkbox')[0]);
+            fireEvent.click(container.querySelectorAll('.tree-checkbox')[0]);
             expect(checkedKeys).toEqual(['0-0', '0-0-1', '0-0-2', '0-0-3']);
         });
 
@@ -365,7 +369,7 @@ describe('Tree Basic', () => {
                 }
             }
             const { container } = render(<Test />);
-            fireEvent.click(container.querySelector('.treeCheckbox'));
+            fireEvent.click(container.querySelector('.tree-checkbox'));
 
             expect(container.firstChild).toMatchSnapshot();
         });
@@ -381,7 +385,7 @@ describe('Tree Basic', () => {
                 </Tree>
             );
 
-            fireEvent.click(container.querySelectorAll('.treeCheckbox')[1]);
+            fireEvent.click(container.querySelectorAll('.tree-checkbox')[1]);
 
             expect(onCheck.mock.calls[0][0].sort()).toEqual(['0-0', '0-0-1']);
         });
@@ -442,7 +446,7 @@ describe('Tree Basic', () => {
                 </Tree>
             );
             const nodeContent = container.querySelector(
-                '.treeNodeContentWrapper'
+                '.tree-node-content-wrapper'
             );
 
             fireEvent.click(nodeContent);
@@ -487,12 +491,14 @@ describe('Tree Basic', () => {
                     </TreeNode>
                 </Tree>
             );
-            fireEvent.click(container.querySelector('.treeSwitcher'));
+            fireEvent.click(container.querySelector('.tree-switcher'));
 
             const dataNode1 = { title: 'parent 1', key: '0-0' };
             const dataNode2 = { title: 'leaf 1', key: '0-0-0' };
 
-            fireEvent.click(container.querySelector('.treeNodeContentWrapper'));
+            fireEvent.click(
+                container.querySelector('.tree-node-content-wrapper')
+            );
             expect(handleCheck).toHaveBeenCalledWith(
                 ['0-0', '0-0-0'],
                 objectMatcher({
@@ -510,7 +516,7 @@ describe('Tree Basic', () => {
             );
 
             fireEvent.click(
-                container.querySelectorAll('.treeNodeContentWrapper')[1]
+                container.querySelectorAll('.tree-node-content-wrapper')[1]
             );
             expect(handleCheck).toHaveBeenCalledWith(
                 [],
@@ -540,7 +546,7 @@ describe('Tree Basic', () => {
             </Tree>
         );
         fireEvent.contextMenu(
-            container.querySelector('.treeNodeContentWrapper')
+            container.querySelector('.tree-node-content-wrapper')
         );
         expect(handleRightClick.mock.calls[0][0].node).toEqual(
             expect.objectContaining({
@@ -565,7 +571,7 @@ describe('Tree Basic', () => {
             </Tree>
         );
         fireEvent.contextMenu(
-            container.querySelector('.treeNodeContentWrapper')
+            container.querySelector('.tree-node-content-wrapper')
         );
         expect(onRightClick).toHaveBeenCalled();
         expect(onSelect).not.toHaveBeenCalled();
@@ -582,7 +588,7 @@ describe('Tree Basic', () => {
             </Tree>
         );
         fireEvent.mouseEnter(
-            container.querySelector('.treeNodeContentWrapper')
+            container.querySelector('.tree-node-content-wrapper')
         );
         expect(handleMouseEnter.mock.calls[0][0].node).toEqual(
             expect.objectContaining({
@@ -602,7 +608,7 @@ describe('Tree Basic', () => {
         );
 
         fireEvent.mouseLeave(
-            container.querySelector('.treeNodeContentWrapper')
+            container.querySelector('.tree-node-content-wrapper')
         );
         expect(handleMouseLeave.mock.calls[0][0].node).toEqual(
             expect.objectContaining({
@@ -619,7 +625,7 @@ describe('Tree Basic', () => {
                 <TreeNode title="parent 1" key="0-0" />
             </Tree>
         );
-        fireEvent.click(container.querySelector('.treeSwitcher'));
+        fireEvent.click(container.querySelector('.tree-switcher'));
         expect(loadData).toHaveBeenCalledWith(
             expect.objectContaining({
                 key: '0-0',
@@ -688,11 +694,11 @@ describe('Tree Basic', () => {
 
         const { container } = render(<Demo />);
 
-        fireEvent.click(container.querySelector('.treeCheckbox'));
+        fireEvent.click(container.querySelector('.tree-checkbox'));
         expect(onCheck).toHaveBeenCalledWith([11, 22]);
 
         onCheck.mockReset();
-        fireEvent.click(container.querySelectorAll('.treeCheckbox')[1]);
+        fireEvent.click(container.querySelectorAll('.tree-checkbox')[1]);
         expect(onCheck).toHaveBeenCalledWith([]);
     });
 

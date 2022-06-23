@@ -1,8 +1,14 @@
 import { scrollTo } from './';
 import { sleep } from '../../tests/Utilities';
 
+window.scrollTo = jest.fn();
+
 describe('Test ScrollTo function', () => {
     let dateNowMock: jest.SpyInstance<number, []>;
+
+    afterAll(() => {
+        jest.clearAllMocks();
+    });
 
     beforeEach(() => {
         dateNowMock = jest

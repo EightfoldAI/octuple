@@ -267,8 +267,8 @@ describe('Table.Expand', () => {
                 },
             })
         );
-        expect(wrapper.find('.tableHasFixLeft').length).toBe(0);
-        expect(wrapper2.find('.tableHasFixRight').length).toBe(0);
+        expect(wrapper.find('.table-has-fix-left').length).toBe(1);
+        expect(wrapper2.find('.table-has-fix-right').length).toBe(0);
     });
 
     describe('config expand column index', () => {
@@ -279,7 +279,7 @@ describe('Table.Expand', () => {
                 })
             );
 
-            expect(wrapper.exists('.tableRowExpandIconCell')).toBeFalsy();
+            expect(wrapper.exists('.table-row-expand-icon-cell')).toBeFalsy();
         });
 
         it('renders expand icon to the specify column', () => {
@@ -291,7 +291,9 @@ describe('Table.Expand', () => {
                     },
                 })
             );
-            expect(wrapper.find('.tableRowExpandIconCell').at(1)).toBeTruthy();
+            expect(
+                wrapper.find('.table-row-expand-icon-cell').at(1)
+            ).toBeTruthy();
         });
 
         it('order with EXPAND_COLUMN', () => {
@@ -304,7 +306,9 @@ describe('Table.Expand', () => {
                 })
             );
 
-            expect(wrapper.find('.tableRowExpandIconCell').at(2)).toBeTruthy();
+            expect(
+                wrapper.find('.table-row-expand-icon-cell').at(2)
+            ).toBeTruthy();
         });
 
         it('de-duplicate of EXPAND_COLUMN', () => {
@@ -321,7 +325,9 @@ describe('Table.Expand', () => {
                 })
             );
 
-            expect(wrapper.find('.tableRowExpandIconCell').at(0)).toBeTruthy();
+            expect(
+                wrapper.find('.table-row-expand-icon-cell').at(0)
+            ).toBeTruthy();
             expect(wrapper.find('tbody tr').first().find('td')).toHaveLength(3);
         });
     });
@@ -336,7 +342,7 @@ describe('Table.Expand', () => {
                     },
                 })
             );
-            expect(wrapper.find('.tableRowExpandIconCell').length).toBe(0);
+            expect(wrapper.find('.table-row-expand-icon-cell').length).toBe(0);
         });
 
         it('showExpandColumn = false', () => {
@@ -348,7 +354,7 @@ describe('Table.Expand', () => {
                     },
                 })
             );
-            expect(wrapper.find('.tableRowExpandIconCell').length).toBe(0);
+            expect(wrapper.find('.table-row-expand-icon-cell').length).toBe(0);
         });
     });
 
@@ -396,7 +402,7 @@ describe('Table.Expand', () => {
             })
         );
         expect(wrapper.find('tbody tr')).toHaveLength(3);
-        expect(wrapper.find('.tableExpandedRow').at(2)).toBeTruthy();
+        expect(wrapper.find('.table-expanded-row').at(2)).toBeTruthy();
     });
 
     it('controlled by expandedRowKeys', () => {
@@ -409,12 +415,12 @@ describe('Table.Expand', () => {
             })
         );
         expect(wrapper.find('tbody tr')).toHaveLength(3);
-        expect(wrapper.find('.tableExpandedRow').at(1)).toBeTruthy();
+        expect(wrapper.find('.table-expanded-row').at(1)).toBeTruthy();
 
         wrapper.setProps({ expandedRowKeys: [1] });
         expect(wrapper.find('tbody tr')).toHaveLength(3);
-        expect(wrapper.find('.tableExpandedRow').at(1)).toBeTruthy();
-        expect(wrapper.find('.tableExpandedRow').at(3)).toBeTruthy();
+        expect(wrapper.find('.table-expanded-row').at(1)).toBeTruthy();
+        expect(wrapper.find('.table-expanded-row').at(3)).toBeTruthy();
     });
 
     it('renders expend row class correctly', () => {
@@ -431,7 +437,7 @@ describe('Table.Expand', () => {
             })
         );
 
-        expect(wrapper.find('.expandRowTestClassName').at(1)).toBeTruthy();
+        expect(wrapper.find('.expand-row-test-class-name').at(1)).toBeTruthy();
     });
 
     it('fires expand change event', () => {
@@ -444,10 +450,10 @@ describe('Table.Expand', () => {
                 },
             })
         );
-        wrapper.find('.tableRowExpandIcon').first().simulate('click');
+        wrapper.find('.table-row-expand-icon').first().simulate('click');
         expect(onExpand).toHaveBeenCalledWith(true, sampleData[0]);
 
-        wrapper.find('.tableRowExpandIcon').first().simulate('click');
+        wrapper.find('.table-row-expand-icon').first().simulate('click');
         expect(onExpand).toHaveBeenCalledWith(false, sampleData[0]);
     });
 
@@ -461,7 +467,7 @@ describe('Table.Expand', () => {
                 },
             })
         );
-        wrapper.find('.tableRowExpandIcon').first().simulate('click');
+        wrapper.find('.table-row-expand-icon').first().simulate('click');
         expect(onExpandedRowsChange).toHaveBeenCalledWith([0]);
     });
 
@@ -494,10 +500,10 @@ describe('Table.Expand', () => {
         );
 
         expect(
-            wrapper.find('tbody tr').first().find('.tableRowSpaced')
+            wrapper.find('tbody tr').first().find('.table-row-spaced')
         ).toBeTruthy();
         expect(
-            wrapper.find('tbody tr').last().find('.tableRowCollapsed')
+            wrapper.find('tbody tr').last().find('.table-row-collapsed')
         ).toBeTruthy();
     });
 
@@ -537,18 +543,20 @@ describe('Table.Expand', () => {
                 data,
             })
         );
-        expect(wrapper.find('.tableExpandedRow').length).toBe(0);
+        expect(wrapper.find('.table-expanded-row').length).toBe(0);
         wrapper.find('.custom-expand-icon').first().simulate('click');
         expect(onExpand).toHaveBeenCalledWith(true, data[0]);
         expect(onExpand).toHaveBeenCalledTimes(1);
         expect(
-            wrapper.find('.tableExpandedRow').first().getDOMNode().style.display
+            wrapper.find('.table-expanded-row').first().getDOMNode().style
+                .display
         ).toBe('');
         wrapper.find('.custom-expand-icon').first().simulate('click');
         expect(onExpand).toHaveBeenCalledWith(false, data[0]);
         expect(onExpand).toHaveBeenCalledTimes(2);
         expect(
-            wrapper.find('.tableExpandedRow').first().getDOMNode().style.display
+            wrapper.find('.table-expanded-row').first().getDOMNode().style
+                .display
         ).toBe('none');
     });
 
@@ -565,10 +573,10 @@ describe('Table.Expand', () => {
                 data,
             })
         );
-        wrapper.find('.tableRowExpandIcon').first().simulate('click');
+        wrapper.find('.table-row-expand-icon').first().simulate('click');
         expect(onExpand).toHaveBeenCalledWith(true, data[0]);
         expect(onExpand).toHaveBeenCalledTimes(1);
-        wrapper.find('.tableRowExpandIcon').first().simulate('click');
+        wrapper.find('.table-row-expand-icon').first().simulate('click');
         expect(onExpand).toHaveBeenCalledWith(false, data[0]);
         expect(onExpand).toHaveBeenCalledTimes(2);
     });
@@ -617,7 +625,7 @@ describe('Table.Expand', () => {
                 data,
             })
         );
-        expect(wrapper.find('.tableExpandedRow').length).toBe(0);
+        expect(wrapper.find('.table-expanded-row').length).toBe(0);
     });
 
     it('warning for use `expandedRowRender` and nested table in the same time', () => {

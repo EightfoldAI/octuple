@@ -4,9 +4,12 @@ import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import { eventKeys } from '../../../shared/utilities';
 import Table from '../index';
 
-React.useLayoutEffect = React.useEffect;
-
 Enzyme.configure({ adapter: new Adapter() });
+
+jest.mock('react', () => ({
+    ...jest.requireActual('react'),
+    useLayoutEffect: jest.requireActual('react').useEffect,
+}));
 
 describe('Table.sorter', () => {
     beforeAll(() => {
@@ -128,10 +131,10 @@ describe('Table.sorter', () => {
         ]);
         expect(getNameColumn().prop('aria-sort')).toEqual('descending');
 
-        wrapper.find('.tableColumnSorters').simulate('click');
+        wrapper.find('.table-column-sorters').simulate('click');
         expect(getNameColumn().prop('aria-sort')).toEqual('ascending');
 
-        wrapper.find('.tableColumnSorters').simulate('click');
+        wrapper.find('.table-column-sorters').simulate('click');
         expect(getNameColumn().prop('aria-sort')).toEqual(undefined);
     });
 
@@ -150,7 +153,7 @@ describe('Table.sorter', () => {
         expect(getNameColumn().prop('aria-sort')).toEqual(undefined);
 
         // ascend
-        wrapper.find('.tableColumnSorters').simulate('click');
+        wrapper.find('.table-column-sorters').simulate('click');
         expect(renderedNames(wrapper)).toEqual([
             'Jack',
             'Jerry',
@@ -160,7 +163,7 @@ describe('Table.sorter', () => {
         expect(getNameColumn().prop('aria-sort')).toEqual('ascending');
 
         // descend
-        wrapper.find('.tableColumnSorters').simulate('click');
+        wrapper.find('.table-column-sorters').simulate('click');
         expect(renderedNames(wrapper)).toEqual([
             'Tom',
             'Lucy',
@@ -175,7 +178,7 @@ describe('Table.sorter', () => {
 
         // ascend
         wrapper
-            .find('.tableColumnHasSorters')
+            .find('.table-column-has-sorters')
             .simulate('keydown', { key: eventKeys.ENTER });
         expect(renderedNames(wrapper)).toEqual([
             'Jack',
@@ -186,7 +189,7 @@ describe('Table.sorter', () => {
 
         // descend
         wrapper
-            .find('.tableColumnHasSorters')
+            .find('.table-column-has-sorters')
             .simulate('keydown', { key: eventKeys.ENTER });
         expect(renderedNames(wrapper)).toEqual([
             'Tom',
@@ -288,21 +291,21 @@ describe('Table.sorter', () => {
         const wrapper = mount(createTable({ onChange: handleChange }));
 
         // ascent
-        wrapper.find('.tableColumnSorters').simulate('click');
+        wrapper.find('.table-column-sorters').simulate('click');
         const sorter1 = handleChange.mock.calls[0][2];
         expect(sorter1.column.dataIndex).toBe('name');
         expect(sorter1.order).toBe('ascend');
         expect(sorter1.field).toBe('name');
         expect(sorter1.columnKey).toBe('name');
 
-        wrapper.find('.tableColumnSorters').simulate('click');
+        wrapper.find('.table-column-sorters').simulate('click');
         const sorter2 = handleChange.mock.calls[1][2];
         expect(sorter2.column.dataIndex).toBe('name');
         expect(sorter2.order).toBe('descend');
         expect(sorter2.field).toBe('name');
         expect(sorter2.columnKey).toBe('name');
 
-        wrapper.find('.tableColumnSorters').simulate('click');
+        wrapper.find('.table-column-sorters').simulate('click');
         const sorter3 = handleChange.mock.calls[2][2];
         expect(sorter3.column).toBe(undefined);
         expect(sorter3.order).toBe(undefined);
@@ -370,9 +373,9 @@ describe('Table.sorter', () => {
             <Table columns={columns} dataSource={testData} />
         );
         expect(wrapper.find('.custom-title').text()).toEqual('');
-        wrapper.find('.tableColumnSorters').simulate('click');
+        wrapper.find('.table-column-sorters').simulate('click');
         expect(wrapper.find('.custom-title').text()).toEqual('ascend');
-        wrapper.find('.tableColumnSorters').simulate('click');
+        wrapper.find('.table-column-sorters').simulate('click');
         expect(wrapper.find('.custom-title').text()).toEqual('descend');
     });
 
@@ -400,8 +403,9 @@ describe('Table.sorter', () => {
         );
 
         const getNameColumn = () =>
-            wrapper.find('.tableColumnHasSorters').at(0);
-        const getAgeColumn = () => wrapper.find('.tableColumnHasSorters').at(1);
+            wrapper.find('.table-column-has-sorters').at(0);
+        const getAgeColumn = () =>
+            wrapper.find('.table-column-has-sorters').at(1);
 
         // sort name
         getNameColumn().simulate('click');
@@ -566,13 +570,13 @@ describe('Table.sorter', () => {
         const getNameColumn = () => wrapper.find('th').at(0);
         expect(
             getNameColumn()
-                .find('.tableColumnSorterUp')
+                .find('.table-column-sorter-up')
                 .at(0)
                 .hasClass('active')
         ).toBeFalsy();
         expect(
             getNameColumn()
-                .find('.tableColumnSorterDown')
+                .find('.table-column-sorter-down')
                 .at(0)
                 .hasClass('active')
         ).toBeFalsy();
@@ -582,13 +586,13 @@ describe('Table.sorter', () => {
         getNameColumn().simulate('click');
         expect(
             getNameColumn()
-                .find('.tableColumnSorterUp')
+                .find('.table-column-sorter-up')
                 .at(0)
                 .hasClass('active')
         ).toBeTruthy();
         expect(
             getNameColumn()
-                .find('.tableColumnSorterDown')
+                .find('.table-column-sorter-down')
                 .at(0)
                 .hasClass('active')
         ).toBeFalsy();
@@ -598,13 +602,13 @@ describe('Table.sorter', () => {
         getNameColumn().simulate('click');
         expect(
             getNameColumn()
-                .find('.tableColumnSorterUp')
+                .find('.table-column-sorter-up')
                 .at(0)
                 .hasClass('active')
         ).toBeFalsy();
         expect(
             getNameColumn()
-                .find('.tableColumnSorterDown')
+                .find('.table-column-sorter-down')
                 .at(0)
                 .hasClass('active')
         ).toBeTruthy();
@@ -614,13 +618,13 @@ describe('Table.sorter', () => {
         getNameColumn().simulate('click');
         expect(
             getNameColumn()
-                .find('.tableColumnSorterUp')
+                .find('.table-column-sorter-up')
                 .at(0)
                 .hasClass('active')
         ).toBeFalsy();
         expect(
             getNameColumn()
-                .find('.tableColumnSorterDown')
+                .find('.table-column-sorter-down')
                 .at(0)
                 .hasClass('active')
         ).toBeFalsy();
@@ -818,7 +822,7 @@ describe('Table.sorter', () => {
             />
         );
 
-        expect(wrapper.find('.tableColumnSorterInner')).toHaveLength(0);
+        expect(wrapper.find('.table-column-sorter-inner')).toHaveLength(0);
     });
 
     it('table with sugar column', () => {
@@ -845,7 +849,7 @@ describe('Table.sorter', () => {
 
         wrapper.find('th').first().simulate('click');
 
-        expect(wrapper.find('th.tableColumnSort')).toHaveLength(1);
+        expect(wrapper.find('th.table-column-sort')).toHaveLength(1);
     });
 
     it('surger should support sorterOrder', () => {
@@ -862,10 +866,10 @@ describe('Table.sorter', () => {
         );
 
         expect(
-            wrapper.find('.tableColumnSorterUp').last().hasClass('active')
+            wrapper.find('.table-column-sorter-up').last().hasClass('active')
         ).toBeTruthy();
         expect(
-            wrapper.find('.tableColumnSorterDown').last().hasClass('active')
+            wrapper.find('.table-column-sorter-down').last().hasClass('active')
         ).toBeFalsy();
     });
 
@@ -903,7 +907,7 @@ describe('Table.sorter', () => {
         );
 
         function clickToMatchExpect(index, sorter) {
-            wrapper.find('.tableColumnSorters').at(index).simulate('click');
+            wrapper.find('.table-column-sorters').at(index).simulate('click');
 
             expect(onChange).toHaveBeenCalledWith(
                 expect.anything(),

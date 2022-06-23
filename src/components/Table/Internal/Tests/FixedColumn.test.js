@@ -149,7 +149,7 @@ describe('Table.FixedColumn', () => {
         // Use `onScroll` directly since simulate not support `currentTarget`
         act(() => {
             wrapper
-                .find('.tableContent')
+                .find('.table-content')
                 .props()
                 .onScroll({
                     currentTarget: {
@@ -162,13 +162,13 @@ describe('Table.FixedColumn', () => {
         act(() => {
             wrapper.update();
         });
-        expect(wrapper.find('.tablePingLeft').exists()).toBeTruthy();
-        expect(wrapper.find('.tablePingRight').exists()).toBeTruthy();
+        expect(wrapper.find('.table-ping-left').exists()).toBeTruthy();
+        expect(wrapper.find('.table-ping-right').exists()).toBeTruthy();
 
         // Left
         act(() => {
             wrapper
-                .find('.tableContent')
+                .find('.table-content')
                 .props()
                 .onScroll({
                     currentTarget: {
@@ -181,13 +181,13 @@ describe('Table.FixedColumn', () => {
         act(() => {
             wrapper.update();
         });
-        expect(wrapper.find('.tablePingLeft').exists()).toBeFalsy();
-        expect(wrapper.find('.tablePingRight').exists()).toBeTruthy();
+        expect(wrapper.find('.table-ping-left').exists()).toBeFalsy();
+        expect(wrapper.find('.table-ping-right').exists()).toBeTruthy();
 
         // Right
         act(() => {
             wrapper
-                .find('.tableContent')
+                .find('.table-content')
                 .props()
                 .onScroll({
                     currentTarget: {
@@ -200,8 +200,8 @@ describe('Table.FixedColumn', () => {
         act(() => {
             wrapper.update();
         });
-        expect(wrapper.find('.tablePingLeft').exists()).toBeTruthy();
-        expect(wrapper.find('.tablePingRight').exists()).toBeFalsy();
+        expect(wrapper.find('.table-ping-left').exists()).toBeTruthy();
+        expect(wrapper.find('.table-ping-right').exists()).toBeFalsy();
     });
 
     it('ellipsis will wrap additional dom', () => {
@@ -216,8 +216,10 @@ describe('Table.FixedColumn', () => {
             />
         );
 
-        expect(wrapper.find('tr th').find('.tableCellContent')).toHaveLength(1);
-        expect(wrapper.find('tr td').find('.tableCellContent')).toHaveLength(
+        expect(wrapper.find('tr th').find('.table-cell-content')).toHaveLength(
+            1
+        );
+        expect(wrapper.find('tr td').find('.table-cell-content')).toHaveLength(
             data.length
         );
     });

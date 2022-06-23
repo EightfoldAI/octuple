@@ -1,6 +1,7 @@
 import React from 'react';
 import Enzyme, { mount, render } from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
+import { act } from 'react-dom/test-utils';
 import { debounce } from '../../../shared/utilities';
 import Tree from '../index';
 
@@ -9,6 +10,11 @@ Enzyme.configure({ adapter: new Adapter() });
 const { DirectoryTree, TreeNode } = Tree;
 
 jest.mock('../../../shared/utilities/debounce');
+
+jest.mock('react', () => ({
+    ...jest.requireActual('react'),
+    useLayoutEffect: jest.requireActual('react').useEffect,
+}));
 
 describe('Directory Tree', () => {
     debounce.mockImplementation((fn) => fn);
@@ -41,36 +47,44 @@ describe('Directory Tree', () => {
         it('click', () => {
             const wrapper = mount(createTree());
 
-            wrapper
-                .find(TreeNode)
-                .find('.treeNodeContentWrapper')
-                .at(0)
-                .simulate('click');
+            act(() => {
+                wrapper
+                    .find(TreeNode)
+                    .find('.tree-node-content-wrapper')
+                    .at(0)
+                    .simulate('click');
+            });
             expect(wrapper.render()).toMatchSnapshot();
             jest.runAllTimers();
-            wrapper
-                .find(TreeNode)
-                .find('.treeNodeContentWrapper')
-                .at(0)
-                .simulate('click');
+            act(() => {
+                wrapper
+                    .find(TreeNode)
+                    .find('.tree-node-content-wrapper')
+                    .at(0)
+                    .simulate('click');
+            });
             expect(wrapper.render()).toMatchSnapshot();
         });
 
         it('double click', () => {
             const wrapper = mount(createTree({ expandAction: 'doubleClick' }));
 
-            wrapper
-                .find(TreeNode)
-                .find('.treeNodeContentWrapper')
-                .at(0)
-                .simulate('doubleClick');
+            act(() => {
+                wrapper
+                    .find(TreeNode)
+                    .find('.tree-node-content-wrapper')
+                    .at(0)
+                    .simulate('doubleClick');
+            });
             expect(wrapper.render()).toMatchSnapshot();
             jest.runAllTimers();
-            wrapper
-                .find(TreeNode)
-                .find('.treeNodeContentWrapper')
-                .at(0)
-                .simulate('doubleClick');
+            act(() => {
+                wrapper
+                    .find(TreeNode)
+                    .find('.tree-node-content-wrapper')
+                    .at(0)
+                    .simulate('doubleClick');
+            });
             expect(wrapper.render()).toMatchSnapshot();
         });
 
@@ -107,11 +121,13 @@ describe('Directory Tree', () => {
                         <StateDirTree expandAction={action} />
                     );
 
-                    wrapper
-                        .find(TreeNode)
-                        .find('.treeNodeContentWrapper')
-                        .at(0)
-                        .simulate(action);
+                    act(() => {
+                        wrapper
+                            .find(TreeNode)
+                            .find('.tree-node-content-wrapper')
+                            .at(0)
+                            .simulate(action);
+                    });
                     jest.runAllTimers();
                     expect(wrapper.render()).toMatchSnapshot();
                 });
@@ -157,13 +173,17 @@ describe('Directory Tree', () => {
 
     it('expandedKeys update', () => {
         const wrapper = mount(createTree());
-        wrapper.setProps({ expandedKeys: ['0-1'] });
+        act(() => {
+            wrapper.setProps({ expandedKeys: ['0-1'] });
+        });
         expect(wrapper.render()).toMatchSnapshot();
     });
 
     it('selectedKeys update', () => {
         const wrapper = mount(createTree({ defaultExpandAll: true }));
-        wrapper.setProps({ selectedKeys: ['0-1-0'] });
+        act(() => {
+            wrapper.setProps({ selectedKeys: ['0-1-0'] });
+        });
         expect(wrapper.render()).toMatchSnapshot();
     });
 
@@ -182,20 +202,24 @@ describe('Directory Tree', () => {
             })
         );
 
-        wrapper
-            .find(TreeNode)
-            .find('.treeNodeContentWrapper')
-            .at(0)
-            .simulate('click');
+        act(() => {
+            wrapper
+                .find(TreeNode)
+                .find('.tree-node-content-wrapper')
+                .at(0)
+                .simulate('click');
+        });
         expect(onSelect.mock.calls[0][1].selected).toBeTruthy();
         expect(onSelect.mock.calls[0][1].selectedNodes.length).toBe(1);
 
         // Click twice should keep selected
-        wrapper
-            .find(TreeNode)
-            .find('.treeNodeContentWrapper')
-            .at(0)
-            .simulate('click');
+        act(() => {
+            wrapper
+                .find(TreeNode)
+                .find('.tree-node-content-wrapper')
+                .at(0)
+                .simulate('click');
+        });
         expect(onSelect.mock.calls[1][1].selected).toBeTruthy();
         expect(onSelect.mock.calls[0][0]).toEqual(onSelect.mock.calls[1][0]);
         expect(onSelect.mock.calls[1][1].selectedNodes.length).toBe(1);
@@ -204,11 +228,13 @@ describe('Directory Tree', () => {
         // Ref: https://github.com/facebook/react/blob/master/packages/react-dom/src/test-utils/ReactTestUtils.js#L360
         nativeEventProto.ctrlKey = true;
 
-        wrapper
-            .find(TreeNode)
-            .find('.treeNodeContentWrapper')
-            .at(1)
-            .simulate('click');
+        act(() => {
+            wrapper
+                .find(TreeNode)
+                .find('.tree-node-content-wrapper')
+                .at(1)
+                .simulate('click');
+        });
         expect(wrapper.render()).toMatchSnapshot();
         expect(onSelect.mock.calls[2][0].length).toBe(2);
         expect(onSelect.mock.calls[2][1].selected).toBeTruthy();
@@ -217,11 +243,13 @@ describe('Directory Tree', () => {
         delete nativeEventProto.ctrlKey;
         nativeEventProto.shiftKey = true;
 
-        wrapper
-            .find(TreeNode)
-            .find('.treeNodeContentWrapper')
-            .at(4)
-            .simulate('click');
+        act(() => {
+            wrapper
+                .find(TreeNode)
+                .find('.tree-node-content-wrapper')
+                .at(4)
+                .simulate('click');
+        });
         expect(wrapper.render()).toMatchSnapshot();
         expect(onSelect.mock.calls[3][0].length).toBe(5);
         expect(onSelect.mock.calls[3][1].selected).toBeTruthy();
@@ -233,11 +261,13 @@ describe('Directory Tree', () => {
     it('onDoubleClick', () => {
         const onDoubleClick = jest.fn();
         const wrapper = mount(createTree({ onDoubleClick }));
-        wrapper
-            .find(TreeNode)
-            .find('.treeNodeContentWrapper')
-            .at(0)
-            .simulate('doubleclick');
+        act(() => {
+            wrapper
+                .find(TreeNode)
+                .find('.tree-node-content-wrapper')
+                .at(0)
+                .simulate('doubleclick');
+        });
         expect(onDoubleClick).toBeCalled();
     });
 
