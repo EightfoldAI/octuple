@@ -15,6 +15,7 @@ export const Menu: FC<MenuProps> = ({
     header,
     footer,
     listType,
+    itemProps,
     ...rest
 }) => (
     <List<MenuItemProps>
@@ -29,6 +30,11 @@ export const Menu: FC<MenuProps> = ({
         footer={footer}
         listType={listType}
         role="menu"
-        itemRole="menuitem"
+        itemProps={{
+            role: 'menuitem',
+            tabIndex: 0,
+            onClick: onChange,
+            ...itemProps,
+        }}
     />
 );

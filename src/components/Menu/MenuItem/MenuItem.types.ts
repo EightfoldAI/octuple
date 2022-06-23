@@ -1,8 +1,9 @@
-import { ButtonProps } from '../../Button';
-import { MenuType } from '../Menu.types';
+import { MenuSize, MenuType } from '../Menu.types';
+import { OcBaseProps } from '../../OcBase';
+import { IconProps } from '../../Icon';
 
 export interface MenuItemProps
-    extends Omit<ButtonProps, 'disruptive' | 'onClick' | 'value'> {
+    extends OcBaseProps<Omit<HTMLLIElement, 'type' | 'children'>> {
     /**
      * Value of the menu item
      */
@@ -12,4 +13,11 @@ export interface MenuItemProps
      * @default false
      */
     type?: MenuType;
+    /**
+     * Size of the menu
+     * @default MenuSize.Medium
+     */
+    size?: MenuSize;
+    iconProps?: IconProps;
+    text?: string;
 }

@@ -1,8 +1,13 @@
-import { Key, ReactNode } from 'react';
+import { HTMLAttributes, Key, ReactNode } from 'react';
 import * as React from 'react';
 import { OcBaseProps } from '../OcBase';
 
 export type ItemLayout = 'horizontal' | 'vertical';
+
+export interface ListItemProps<T>
+    extends Omit<HTMLAttributes<HTMLLIElement>, 'onClick'> {
+    onClick?: (item: T) => void;
+}
 
 export interface ListProps<T> extends OcBaseProps<HTMLDivElement> {
     /**
@@ -48,7 +53,7 @@ export interface ListProps<T> extends OcBaseProps<HTMLDivElement> {
      */
     role?: string;
     /**
-     * Role of the list item
+     * List item props
      */
-    itemRole?: string;
+    itemProps?: ListItemProps<T>;
 }

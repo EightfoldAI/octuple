@@ -1,18 +1,66 @@
 .menu-item {
+    --background: transparent;
+    background-color: var(--background);
+    color: var(--label);
     display: flex;
+    align-items: center;
+    gap: $space-xs;
+    border-radius: $space-xxs;
+    cursor: pointer;
+    font-weight: $text-font-weight-semibold;
+    transition: all $motion-duration-extra-fast $motion-easing-easeinout 0s;
 
-    .icon {
+    &.large {
+        height: 48px;
+        padding: $button-padding-vertical-medium
+            $button-padding-horizontal-medium;
     }
 
-    .label {
+    &.medium {
+        height: 44px;
+        padding: $button-padding-vertical-medium
+            $button-padding-horizontal-medium;
+    }
+
+    &.small {
+        height: 40px;
+        padding: $button-padding-vertical-small $button-padding-horizontal-small;
     }
 
     &.primary {
+        --label: var(--primary-color);
+
+        &:active {
+            --background: var(--primary-color-10);
+        }
+
+        &:hover {
+            --background: var(--primary-color-20);
+        }
     }
 
     &.disruptive {
+        --label: var(--disruptive-color);
+
+        &:active {
+            --background: var(--disruptive-color-10);
+        }
+
+        &:hover {
+            --background: var(--disruptive-color-20);
+        }
     }
 
     &.neutral {
+        --active-background: var(--grey-color-10);
+        --label: var(--grey-color-70);
+
+        &:active {
+            --background: var(--grey-color-10);
+        }
+
+        &:hover {
+            --background: var(--grey-color-20);
+        }
     }
 }

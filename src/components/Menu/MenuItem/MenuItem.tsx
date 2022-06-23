@@ -1,49 +1,35 @@
 import React, { FC } from 'react';
-import { MenuType } from '../Menu.types';
 import { MenuItemProps } from './MenuItem.types';
-import {
-    ButtonSize,
-    ButtonTextAlign,
-    ButtonWidth,
-    DefaultButton,
-    NeutralButton,
-} from '../../Button';
+import { MenuType, MenuSize } from '../Menu.types';
 import { Icon } from '../../Icon';
 import { mergeClasses } from '../../../shared/utilities';
 
 import styles from './menuItem.module.scss';
 
 export const MenuItem: FC<MenuItemProps> = ({
-    type,
     iconProps,
     text,
+    type = MenuType.neutral,
+    size = MenuSize.medium,
     classNames,
 }) => {
-    const getDefaultButton = (item: MenuItemProps): JSX.Element => (
-        <DefaultButton
-            {...item}
-            alignText={ButtonTextAlign.Left}
-            buttonWidth={ButtonWidth.fill}
-            size={ButtonSize.Medium}
-            disruptive={type === MenuType.disruptive}
-        />
-    );
+    const menuItemClasses: string = mergeClasses([
+        styles.menuItem,
+        { [styles.small]: size === MenuSize.small },
+        { [styles.medium]: size === MenuSize.medium },
+        { [styles.large]: size === MenuSize.large },
+        { [styles.neutral]: type === MenuType.neutral },
+        { [styles.primary]: type === MenuType.primary },
+        { [styles.disruptive]: type === MenuType.disruptive },
+        classNames,
+    ]);
 
-    const getNeutralButton = (item: MenuItemProps): JSX.Element => (
-        <NeutralButton
-            {...item}
-            alignText={ButtonTextAlign.Left}
-            buttonWidth={ButtonWidth.fill}
-            size={ButtonSize.Medium}
-        />
-    );
-
-    const menuItemClasses: string = mergeClasses([styles.menuItem, classNames]);
+    const labelClasses: string = mergeClasses([styles.label]);
 
     return (
         <span className={menuItemClasses}>
-            <Icon {...iconProps} />
-            <span>{text}</span>
+            {iconProps && <Icon {...iconProps} />}
+            <span className={labelClasses}>{text}</span>
         </span>
     );
 };

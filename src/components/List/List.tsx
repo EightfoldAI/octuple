@@ -17,7 +17,7 @@ export const List = <T extends any>({
     itemStyle,
     listType = 'ul',
     role,
-    itemRole,
+    itemProps,
     ...rest
 }: ListProps<T>) => {
     const containerClasses: string = mergeClasses([
@@ -42,10 +42,11 @@ export const List = <T extends any>({
 
     const getItem = (item: T, index: number): JSX.Element => (
         <li
+            {...itemProps}
+            onClick={() => itemProps?.onClick(item)}
             key={getItemKey(item, index)}
             className={itemClasses}
             style={itemStyle}
-            role={itemRole}
         >
             {renderItem(item)}
         </li>
