@@ -69,7 +69,7 @@ const Avatar_Round_Icon_Story: ComponentStory<typeof Avatar> = (args) => (
 export const Avatar_Round_Icon = Avatar_Round_Icon_Story.bind({});
 
 const Avatar_Fallback_Story: ComponentStory<typeof Avatar> = (args) => (
-    <Avatar {...args} hashingFunction={() => 4} />
+    <Avatar {...args} theme="green" />
 );
 
 export const Avatar_Fallback = Avatar_Fallback_Story.bind({});

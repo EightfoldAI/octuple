@@ -1,4 +1,5 @@
 import { Ref } from 'react';
+import { OcThemeNames } from '../ConfigProvider';
 import { IconProps } from '../Icon';
 import { OcBaseProps } from '../OcBase';
 
@@ -26,6 +27,16 @@ interface BaseAvatarProps extends OcBaseProps<HTMLSpanElement> {
      * Function that returns avatar index
      */
     hashingFunction?: () => number;
+    /**
+     * theme of the fallback avatar
+     * @default ''
+     */
+    theme?: OcThemeNames;
+    /**
+     * Should randomise theme
+     * @default false
+     */
+    randomiseTheme?: boolean;
 }
 
 export interface AvatarIconProps extends BaseAvatarProps {
