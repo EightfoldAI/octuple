@@ -5,7 +5,12 @@ export {
     ColumnsType,
     ColumnType,
     ColumnGroupType,
+    ExpandableConfig,
+    FilterConfirmProps,
+    FilterValue,
+    SorterResult,
     TableProps,
+    TableRowSelection,
 } from './Table.types';
 export { TablePaginationConfig };
 

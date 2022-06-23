@@ -269,7 +269,7 @@ export default function useSelection<RecordType>(
         (key: Key, selected: boolean, keys: Key[], event: Event) => {
             if (onSelect) {
                 const rows = keys.map((k) => getRecordByKey(k));
-                onSelect(getRecordByKey(key), selected, rows, event);
+                onSelect(event, getRecordByKey(key), selected, rows);
             }
 
             setSelectedKeys(keys);

@@ -430,6 +430,26 @@
             width: $table-selection-column-width + 18px;
         }
 
+        &-cell-bordered &-selection-col {
+            width: $table-selection-column-width + 18px;
+        }
+
+        &-header-bordered &-selection-col {
+            width: $table-selection-column-width + 18px;
+        }
+
+        &-inner-bordered &-selection-col {
+            width: $table-selection-column-width + 18px;
+        }
+
+        &-outer-bordered &-selection-col {
+            width: $table-selection-column-width + 18px;
+        }
+
+        &-row-bordered &-selection-col {
+            width: $table-selection-column-width + 18px;
+        }
+
         table tr th,
         table tr td {
             &.table-selection-column {
@@ -527,7 +547,7 @@
             width: 18px;
             height: 18px;
             padding: 0;
-            margin: 0 16px;
+            margin: 2px 16px 0 16px;
             color: inherit;
             line-height: 18px;
             background: $table-expand-icon-background-color;

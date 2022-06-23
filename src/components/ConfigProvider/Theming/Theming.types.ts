@@ -1,4 +1,5 @@
 import { TabsTheme } from '../../Tabs';
+import { NavbarTheme } from '../../Navbar';
 
 export type Value = string;
 
@@ -30,6 +31,7 @@ export interface OcBaseTheme {
     errorColor?: Value;
     fontSize?: number;
     tabsTheme?: TabsTheme;
+    navbarTheme?: NavbarTheme;
 }
 
 export interface OcTheme extends OcBaseTheme {

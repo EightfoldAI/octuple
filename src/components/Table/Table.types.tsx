@@ -41,8 +41,8 @@ export interface ColumnFilterItem {
 }
 
 export interface ColumnTitleProps<RecordType> {
-    sortColumns?: { column: ColumnType<RecordType>; order: SortOrder }[];
     filters?: Record<string, string[]>;
+    sortColumns?: { column: ColumnType<RecordType>; order: SortOrder }[];
 }
 
 export type ColumnTitle<RecordType> =
@@ -59,18 +59,40 @@ export interface FilterConfirmProps {
 }
 
 export interface FilterDropdownProps {
-    setSelectedKeys: (selectedKeys: React.Key[]) => void;
-    selectedKeys: React.Key[];
-    confirm: (param?: FilterConfirmProps) => void;
     clearFilters?: () => void;
+    confirm: (param?: FilterConfirmProps) => void;
     filters?: ColumnFilterItem[];
+    selectedKeys: React.Key[];
+    setSelectedKeys: (selectedKeys: React.Key[]) => void;
     visible: boolean;
 }
 
 export interface ColumnType<RecordType>
     extends Omit<OcColumnType<RecordType>, 'title'> {
-    title?: ColumnTitle<RecordType>;
-    // Sorter
+    defaultFilteredValue?: FilterValue | null;
+    defaultSortOrder?: SortOrder;
+    filtered?: boolean;
+    filteredValue?: FilterValue | null;
+    filterDropdown?:
+        | React.ReactNode
+        | ((props: FilterDropdownProps) => React.ReactNode);
+    filterMode?: 'menu' | 'tree';
+    filterMultiple?: boolean;
+    filters?: ColumnFilterItem[];
+    filterSearch?: FilterSearchType;
+    onFilter?: (
+        value: string | number | boolean,
+        record: RecordType
+    ) => boolean;
+    filterDropdownVisible?: boolean;
+    filterResetToDefaultFilteredValue?: boolean;
+    onFilterDropdownVisibleChange?: (visible: boolean) => void;
+    /**
+     * Determines the breakpoint when the colomn will hide/show
+     */
+    responsive?: Breakpoint[];
+    showSorterTooltip?: boolean | TooltipProps;
+    sortDirections?: SortOrder[];
     sorter?:
         | boolean
         | CompareFn<RecordType>
@@ -80,31 +102,7 @@ export interface ColumnType<RecordType>
               multiple?: number;
           };
     sortOrder?: SortOrder;
-    defaultSortOrder?: SortOrder;
-    sortDirections?: SortOrder[];
-    showSorterTooltip?: boolean | TooltipProps;
-
-    // Filter
-    filtered?: boolean;
-    filters?: ColumnFilterItem[];
-    filterDropdown?:
-        | React.ReactNode
-        | ((props: FilterDropdownProps) => React.ReactNode);
-    filterMultiple?: boolean;
-    filteredValue?: FilterValue | null;
-    defaultFilteredValue?: FilterValue | null;
-    filterMode?: 'menu' | 'tree';
-    filterSearch?: FilterSearchType;
-    onFilter?: (
-        value: string | number | boolean,
-        record: RecordType
-    ) => boolean;
-    filterDropdownVisible?: boolean;
-    onFilterDropdownVisibleChange?: (visible: boolean) => void;
-    filterResetToDefaultFilteredValue?: boolean;
-
-    // Responsive
-    responsive?: Breakpoint[];
+    title?: ColumnTitle<RecordType>;
 }
 
 export interface ColumnGroupType<RecordType>
@@ -119,34 +117,36 @@ export type ColumnsType<RecordType = unknown> = (
 
 export interface SelectionItem {
     key: string;
-    text: React.ReactNode;
     onSelect?: SelectionItemSelectFn;
+    text: React.ReactNode;
 }
 
 export type SelectionSelectFn<T> = (
+    nativeEvent: Event,
     record: T,
     selected: boolean,
-    selectedRows: T[],
-    nativeEvent: Event
+    selectedRows: T[]
 ) => void;
 
 export interface TableRowSelection<T> {
-    /** Keep the selection keys in list even the key not exist in `dataSource` anymore */
-    preserveSelectedRowKeys?: boolean;
-    type?: RowSelectionType;
-    selectedRowKeys?: Key[];
+    checkStrictly?: boolean;
+    columnWidth?: string | number;
+    columnTitle?: string | React.ReactNode;
     defaultSelectedRowKeys?: Key[];
-    onChange?: (selectedRowKeys: Key[], selectedRows: T[]) => void;
+    fixed?: FixedType;
     getCheckboxProps?: (
         record: T
     ) => Partial<Omit<CheckboxProps, 'checked' | 'defaultChecked'>>;
-    onSelect?: SelectionSelectFn<T>;
-    selections?: INTERNAL_SELECTION_ITEM[] | boolean;
     hideSelectAll?: boolean;
-    fixed?: FixedType;
-    columnWidth?: string | number;
-    columnTitle?: string | React.ReactNode;
-    checkStrictly?: boolean;
+    /** Keep the selection keys in list
+     * even the key not exist in `dataSource` anymore
+     **/
+    preserveSelectedRowKeys?: boolean;
+    selectedRowKeys?: Key[];
+    selections?: INTERNAL_SELECTION_ITEM[] | boolean;
+    type?: RowSelectionType;
+    onChange?: (selectedRowKeys: Key[], selectedRows: T[]) => void;
+    onSelect?: SelectionSelectFn<T>;
     renderCell?: (
         value: boolean,
         record: T,
@@ -160,15 +160,15 @@ export type TransformColumns<RecordType> = (
 ) => ColumnsType<RecordType>;
 
 export interface TableCurrentDataSource<RecordType> {
-    currentDataSource: RecordType[];
     action: TableAction;
+    currentDataSource: RecordType[];
 }
 
 export interface SorterResult<RecordType> {
     column?: ColumnType<RecordType>;
-    order?: SortOrder;
-    field?: Key | readonly Key[];
     columnKey?: Key;
+    field?: Key | readonly Key[];
+    order?: SortOrder;
 }
 
 export type GetPopupContainer = (triggerNode: HTMLElement) => HTMLElement;
@@ -211,38 +211,43 @@ export interface TableProps<RecordType>
         'data' | 'columns' | 'scroll' | 'emptyText'
     > {
     alternateRowColor?: boolean;
-    dataSource?: OcTableProps<RecordType>['data'];
-    columns?: ColumnsType<RecordType>;
-    pagination?: false | TablePaginationConfig;
-    loading?: boolean | SpinnerProps;
-    size?: SizeType;
     bordered?: boolean;
-    filterConfirmText?: string;
-    filterResetText?: string;
-    filterEmptyText?: string;
-    filterCheckallText?: string;
-    filterSearchPlaceholderText?: string;
+    cancelSortText?: string;
+    cellBordered?: boolean;
+    collapseText?: string;
+    columns?: ColumnsType<RecordType>;
+    dataSource?: OcTableProps<RecordType>['data'];
     emptyText?: React.ReactNode | (() => React.ReactNode);
     emptyTextDetails?: string;
-    selectNoneText?: string;
-    selectInvertText?: string;
-    selectionAllText?: string;
     expandText?: string;
-    collapseText?: string;
-    triggerDescText?: string;
-    triggerAscText?: string;
-    cancelSortText?: string;
+    innerBordered?: boolean;
+    loading?: boolean | SpinnerProps;
+    pagination?: false | TablePaginationConfig;
+    filterCheckallText?: string;
+    filterConfirmText?: string;
+    filterEmptyText?: string;
+    filterResetText?: string;
+    filterSearchPlaceholderText?: string;
+    getPopupContainer?: GetPopupContainer;
+    headerBordered?: boolean;
     onChange?: (
         pagination: TablePaginationConfig,
         filters: Record<string, FilterValue | null>,
         sorter: SorterResult<RecordType> | SorterResult<RecordType>[],
         extra: TableCurrentDataSource<RecordType>
     ) => void;
+    outerBordered?: boolean;
+    rowBordered?: boolean;
     rowSelection?: TableRowSelection<RecordType>;
-    getPopupContainer?: GetPopupContainer;
     scroll?: OcTableProps<RecordType>['scroll'] & {
         scrollToFirstRowOnChange?: boolean;
     };
-    sortDirections?: SortOrder[];
+    selectionAllText?: string;
+    selectInvertText?: string;
+    selectNoneText?: string;
     showSorterTooltip?: boolean | TooltipProps;
+    size?: SizeType;
+    sortDirections?: SortOrder[];
+    triggerAscText?: string;
+    triggerDescText?: string;
 }

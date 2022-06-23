@@ -21,15 +21,85 @@ export default {
                     <article>
                         <section>
                             <h1>Table</h1>
-                            <p>Docs</p>
+                            <p>
+                                A table displays columns and rows of data.
+                                Specify the <code>dataSource</code> of Table as
+                                an array of data objects.
+                            </p>
                             <h2>Best practices</h2>
                             <h3>Layout</h3>
                             <ul>
-                                <li></li>
+                                <li>
+                                    You may add borders, title and footer for
+                                    table.
+                                </li>
+                                <li>
+                                    There are three sizes: <code>small</code>,{' '}
+                                    <code>medium</code>, and <code>large</code>.
+                                </li>
+                                <li>The header and/or columns may be fixed.</li>
+                                <li>
+                                    Group table head with{' '}
+                                    <code>columns[n].children</code>.
+                                </li>
+                                <li>
+                                    The pagination may be positioned using a
+                                    simple array:{' '}
+                                    <code>['topRight', 'none']</code>, or{' '}
+                                    <code>['none', bottomRight']</code>
+                                </li>
+                                <li>
+                                    Rows may be selectable by marking the first
+                                    column as a selectable via a property in
+                                    your <code>dataSource</code>. You can use{' '}
+                                    <code>rowSelection.type</code> to set
+                                    selection type. Default is{' '}
+                                    <code>checkbox</code>.
+                                </li>
+                                <li>
+                                    Rows may be expandable via the{' '}
+                                    <code>expandableConfig</code> prop.
+                                </li>
+                                <li>
+                                    Ellipsis cell content via setting{' '}
+                                    <code>column.ellipsis</code>. Ellipsis cell
+                                    content via setting{' '}
+                                    <code>column.ellipsis.showTitle</code>, use
+                                    a <code>Tooltip</code> with its{' '}
+                                    <code>portaled</code> prop enabled instead
+                                    of the html title attribute.
+                                </li>
+                                <li>
+                                    Table column title supports{' '}
+                                    <code>colSpan</code> that set in column.
+                                    Table cell supports <code>colSpan</code> and{' '}
+                                    <code>rowSpan</code> that set in render
+                                    return object. When each of them is set to
+                                    0, the cell will not be rendered.
+                                </li>
+                                <li>
+                                    Display tree structure data in Table when
+                                    there is field key children in{' '}
+                                    <code>dataSource</code>, customize{' '}
+                                    <code>childrenColumnName</code> property to
+                                    avoid tree table structure. You can control
+                                    the indent width by setting{' '}
+                                    <code>indentSize</code>.
+                                </li>
+                                <li>Tables may be nested.</li>
+                                <li>
+                                    Set <code>Summary</code> content by{' '}
+                                    <code>summary</code> prop. You can fixed it
+                                    by setting the <code>Table.Summary</code>{' '}
+                                    <code>fixed</code> prop.
+                                </li>
                             </ul>
                             <h3>Content</h3>
                             <ul>
-                                <li></li>
+                                <li>
+                                    Display a collection of structured data.
+                                </li>
+                                <li>Sort, search, paginate, filter data.</li>
                             </ul>
                         </section>
                         <section>
@@ -456,7 +526,7 @@ const basicCols: ColumnsType<DataType> = [
         dataIndex: 'profile',
         render: (text: string[]) => (
             <Stack direction="horizontal" gap="s">
-                <Avatar alt={text[0]} type="round">
+                <Avatar alt={text[0]} theme="green" type="round">
                     {text[1]}
                 </Avatar>
                 <Stack direction="vertical" gap="xxs">
@@ -534,7 +604,7 @@ const ellipsisCols: ColumnsType<DataType> = [
         dataIndex: 'profile',
         render: (text: string[]) => (
             <Stack direction="horizontal" gap="s">
-                <Avatar alt={text[0]} type="round">
+                <Avatar alt={text[0]} theme="green" type="round">
                     {text[1]}
                 </Avatar>
                 <Stack direction="vertical" gap="xxs">
@@ -602,7 +672,7 @@ const ellipsisTooltipCols: ColumnsType<DataType> = [
         dataIndex: 'profile',
         render: (text: string[]) => (
             <Stack direction="horizontal" gap="s">
-                <Avatar alt={text[0]} type="round">
+                <Avatar alt={text[0]} theme="green" type="round">
                     {text[1]}
                 </Avatar>
                 <Stack direction="vertical" gap="xxs">
@@ -712,7 +782,7 @@ const filterCols: ColumnsType<DataType> = [
         dataIndex: 'profile',
         render: (text: string[]) => (
             <Stack direction="horizontal" gap="s">
-                <Avatar alt={text[0]} type="round">
+                <Avatar alt={text[0]} theme="green" type="round">
                     {text[1]}
                 </Avatar>
                 <Stack direction="vertical" gap="xxs">
@@ -767,7 +837,7 @@ const fixedCols: ColumnsType<DataType> = [
         dataIndex: 'profile',
         render: (text: string[]) => (
             <Stack direction="horizontal" gap="s">
-                <Avatar alt={text[0]} type="round">
+                <Avatar alt={text[0]} theme="green" type="round">
                     {text[1]}
                 </Avatar>
                 <Stack direction="vertical" gap="xxs">
@@ -842,7 +912,7 @@ const groupingCols: ColumnsType<DataType> = [
         dataIndex: 'profile',
         render: (text: string[]) => (
             <Stack direction="horizontal" gap="s">
-                <Avatar alt={text[0]} type="round">
+                <Avatar alt={text[0]} theme="green" type="round">
                     {text[1]}
                 </Avatar>
                 <Stack direction="vertical" gap="xxs">
@@ -935,7 +1005,7 @@ const orderSelectAndExpandCols: ColumnsType<DataType> = [
         dataIndex: 'profile',
         render: (text: string[]) => (
             <Stack direction="horizontal" gap="s">
-                <Avatar alt={text[0]} type="round">
+                <Avatar alt={text[0]} theme="green" type="round">
                     {text[1]}
                 </Avatar>
                 <Stack direction="vertical" gap="xxs">
@@ -962,7 +1032,7 @@ const sortCols: ColumnsType<DataType> = [
         dataIndex: 'profile',
         render: (text: string[]) => (
             <Stack direction="horizontal" gap="s">
-                <Avatar alt={text[0]} type="round">
+                <Avatar alt={text[0]} theme="green" type="round">
                     {text[1]}
                 </Avatar>
                 <Stack direction="vertical" gap="xxs">
@@ -1010,7 +1080,7 @@ const responsiveCols: ColumnsType<DataType> = [
         dataIndex: 'profile',
         render: (text: string[]) => (
             <Stack direction="horizontal" gap="s">
-                <Avatar alt={text[0]} type="round">
+                <Avatar alt={text[0]} theme="green" type="round">
                     {text[1]}
                 </Avatar>
                 <Stack direction="vertical" gap="xxs">
@@ -1043,7 +1113,7 @@ const sortMultipleCols: ColumnsType<DataType> = [
         dataIndex: 'profile',
         render: (text: string[]) => (
             <Stack direction="horizontal" gap="s">
-                <Avatar alt={text[0]} type="round">
+                <Avatar alt={text[0]} theme="green" type="round">
                     {text[1]}
                 </Avatar>
                 <Stack direction="vertical" gap="xxs">
@@ -1255,6 +1325,11 @@ const VirtualTable = (props: Parameters<typeof Table>[0]) => {
 
 export const Basic = Table_Base_Story.bind({});
 export const Bordered = Table_Base_Story.bind({});
+export const Cell_Bordered = Table_Base_Story.bind({});
+export const Header_Bordered = Table_Base_Story.bind({});
+export const Inner_Bordered = Table_Base_Story.bind({});
+export const Outer_Bordered = Table_Base_Story.bind({});
+export const Row_Bordered = Table_Base_Story.bind({});
 export const Small = Table_Base_Story.bind({});
 export const Medium = Table_Base_Story.bind({});
 export const Large = Table_Base_Story.bind({});
@@ -1317,6 +1392,36 @@ Basic.args = {
 
 Bordered.args = {
     ...tableArgs,
+};
+
+Cell_Bordered.args = {
+    ...tableArgs,
+    bordered: false,
+    cellBordered: true,
+};
+
+Header_Bordered.args = {
+    ...tableArgs,
+    bordered: false,
+    headerBordered: true,
+};
+
+Inner_Bordered.args = {
+    ...tableArgs,
+    bordered: false,
+    innerBordered: true,
+};
+
+Outer_Bordered.args = {
+    ...tableArgs,
+    bordered: false,
+    outerBordered: true,
+};
+
+Row_Bordered.args = {
+    ...tableArgs,
+    bordered: false,
+    rowBordered: true,
 };
 
 Small.args = {

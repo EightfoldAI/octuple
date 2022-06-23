@@ -60,40 +60,45 @@ function InternalTable<RecordType extends object = any>(
 ) {
     const {
         alternateRowColor = true,
-        classNames,
-        style,
-        size: customizeSize,
         bordered,
+        cancelSortText,
+        cellBordered = false,
+        children,
+        classNames,
+        collapseText,
+        columns,
         dataSource,
-        filterConfirmText,
-        filterResetText,
-        filterEmptyText,
-        filterCheckallText,
-        filterSearchPlaceholderText,
         emptyText,
         emptyTextDetails,
-        selectNoneText,
+        expandableConfig,
+        expandText,
+        filterCheckallText,
+        filterConfirmText,
+        filterEmptyText,
+        filterResetText,
+        filterSearchPlaceholderText,
+        getPopupContainer,
+        headerBordered = false,
+        indentSize,
+        innerBordered = false,
+        loading,
+        onChange,
+        outerBordered = false,
+        pagination,
+        rowBordered = false,
+        rowClassName,
+        rowKey,
+        rowSelection,
+        scroll,
         selectInvertText,
         selectionAllText,
-        expandText,
-        collapseText,
-        triggerDescText,
-        triggerAscText,
-        cancelSortText,
-        pagination,
-        rowSelection,
-        rowKey,
-        rowClassName,
-        columns,
-        children,
-        onChange,
-        getPopupContainer,
-        loading,
-        expandableConfig,
-        indentSize,
-        scroll,
-        sortDirections,
+        selectNoneText,
         showSorterTooltip = true,
+        size: customizeSize,
+        sortDirections,
+        style,
+        triggerAscText,
+        triggerDescText,
     } = props;
 
     const baseColumns: ColumnsType<RecordType> = useMemo(
@@ -537,6 +542,29 @@ function InternalTable<RecordType extends object = any>(
                     { [styles.tableSmall]: mergedSize === 'small' },
                     { [styles.tableAlternate]: alternateRowColor },
                     { [styles.tableBordered]: bordered },
+                    {
+                        [styles.tableCellBordered]:
+                            !bordered &&
+                            !rowBordered &&
+                            !innerBordered &&
+                            cellBordered,
+                    },
+                    {
+                        [styles.tableHeaderBordered]:
+                            !bordered &&
+                            !rowBordered &&
+                            !innerBordered &&
+                            headerBordered,
+                    },
+                    {
+                        [styles.tableInnerBordered]:
+                            !bordered && !rowBordered && innerBordered,
+                    },
+                    { [styles.tableOuterBordered]: !bordered && outerBordered },
+                    {
+                        [styles.tableRowBordered]:
+                            !bordered && !innerBordered && rowBordered,
+                    },
                     { [styles.tableEmpty]: rawData.length === 0 },
                 ])}
                 data={pageData}
