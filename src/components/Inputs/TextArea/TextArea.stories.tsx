@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { Stories } from '@storybook/addon-docs';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { TextArea, TextInputTheme, TextInputWidth } from '../index';
@@ -74,9 +74,10 @@ export default {
     },
 } as ComponentMeta<typeof TextArea>;
 
-const Text_Area_Story: ComponentStory<typeof TextArea> = (args) => (
-    <TextArea {...args} />
-);
+const Text_Area_Story: ComponentStory<typeof TextArea> = (args) => {
+    const [val, setVal] = useState(args.value);
+    return <TextArea {...args} value={val} onChange={(e) => setVal(e.target.value)} />
+};
 
 export const Text_Area = Text_Area_Story.bind({});
 
