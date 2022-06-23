@@ -1,8 +1,9 @@
 import { TabsTheme } from '../../Tabs';
 import { Variables } from './Theming.types';
 import { convertToKebabCase } from '../../../shared/utilities/convertToKebabCase';
+import { NavbarTheme } from '../../Navbar';
 
-export type ComponentTheme = TabsTheme;
+export type ComponentTheme = TabsTheme | NavbarTheme;
 
 export const themeGenerator = (
     theme: ComponentTheme,

@@ -126,6 +126,14 @@ export function getStyle(themeOptions: ThemeOptions): IGetStyle {
         };
     }
 
+    // ================= Navbar theme ==================
+    if (theme.navbarTheme) {
+        variables = {
+            ...variables,
+            ...themeGenerator(theme.navbarTheme, 'navbar'),
+        };
+    }
+
     return {
         variables,
         light: themePrimaryColor.isLight(),
