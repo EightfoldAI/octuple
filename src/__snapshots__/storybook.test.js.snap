@@ -4046,7 +4046,7 @@ exports[`Storyshots Config Provider Theming 1`] = `
     </div>
   </div>
   <div
-    className="navbarContainer"
+    className="navbar-container"
     style={
       Object {
         "position": "relative",
@@ -4054,10 +4054,10 @@ exports[`Storyshots Config Provider Theming 1`] = `
     }
   >
     <div
-      className="navbarContent"
+      className="navbar-content"
     >
       <a
-        className="linkStyle"
+        className="link-style"
         href="/"
         style={
           Object {
@@ -4071,10 +4071,10 @@ exports[`Storyshots Config Provider Theming 1`] = `
       </a>
     </div>
     <div
-      className="navbarContent"
+      className="navbar-content"
     >
       <a
-        className="linkStyle"
+        className="link-style"
         href="https://www.twitter.com"
         style={
           Object {
@@ -4086,7 +4086,7 @@ exports[`Storyshots Config Provider Theming 1`] = `
       >
         <span
           aria-hidden={false}
-          className="iconWrapper"
+          className="icon-wrapper"
           role="presentation"
         >
           <svg
@@ -4111,7 +4111,7 @@ exports[`Storyshots Config Provider Theming 1`] = `
         </span>
       </a>
       <a
-        className="linkStyle"
+        className="link-style"
         href="https://www.facebook.com"
         style={
           Object {
@@ -4123,7 +4123,7 @@ exports[`Storyshots Config Provider Theming 1`] = `
       >
         <span
           aria-hidden={false}
-          className="iconWrapper"
+          className="icon-wrapper"
           role="presentation"
         >
           <svg
@@ -4148,7 +4148,7 @@ exports[`Storyshots Config Provider Theming 1`] = `
         </span>
       </a>
       <a
-        className="linkStyle"
+        className="link-style"
         href="https://www.instagram.com"
         style={
           Object {
@@ -4160,7 +4160,7 @@ exports[`Storyshots Config Provider Theming 1`] = `
       >
         <span
           aria-hidden={false}
-          className="iconWrapper"
+          className="icon-wrapper"
           role="presentation"
         >
           <svg
@@ -6518,13 +6518,13 @@ exports[`Storyshots Navbar Navbar Div 1`] = `
   }
 >
   <div
-    className="navbarContainer"
+    className="navbar-container"
   >
     <div
-      className="navbarContent"
+      className="navbar-content"
     >
       <a
-        className="linkStyle"
+        className="link-style"
         href="https://www.twitter.com"
         style={
           Object {
@@ -6537,7 +6537,7 @@ exports[`Storyshots Navbar Navbar Div 1`] = `
         Twitter
       </a>
       <a
-        className="linkStyle"
+        className="link-style"
         href="https://www.facebook.com"
         style={
           Object {
@@ -6551,16 +6551,16 @@ exports[`Storyshots Navbar Navbar Div 1`] = `
       </a>
     </div>
     <div
-      className="navbarContent"
+      className="navbar-content"
     >
       <div
-        className="mainWrapper"
+        className="main-wrapper"
       >
         <div
           aria-controls="dropdown-15"
           aria-expanded={false}
           aria-haspopup={true}
-          className="referenceWrapper"
+          className="reference-wrapper"
           onClick={[Function]}
           role="button"
           style={
@@ -6583,7 +6583,7 @@ exports[`Storyshots Navbar Navbar Div 1`] = `
           >
             <img
               alt="random profile image"
-              className="imageStyle roundImage"
+              className="image-style round-image"
               height="32px"
               src="https://images.pexels.com/photos/771742/pexels-photo-771742.jpeg"
               width="32px"
@@ -6591,7 +6591,7 @@ exports[`Storyshots Navbar Navbar Div 1`] = `
           </div>
           <span
             aria-hidden={false}
-            className="iconWrapper"
+            className="icon-wrapper"
             role="presentation"
           >
             <svg
