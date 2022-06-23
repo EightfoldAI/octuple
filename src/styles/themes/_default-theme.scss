@@ -140,28 +140,21 @@
 
     /* ------ Navbar theme ------ */
     --navbar-background: var(--primary-color-80);
-    --navbar-text: var(--text-inverse-color);
-    --navbar-icon: var(--navbar-text);
-    --navbar-active-background: var(--navbar-background);
-    --navbar-active-text: var(--navbar-text);
-    --navbar-active-icon: var(--navbar-text);
-    --navbar-search-background: var(--navbar-background);
-    --navbar-search-text: var(--grey-color-40);
-    --navbar-search-border: var(--border-color);
-    --navbar-search-icon: var(--grey-color-40);
-    --navbar-search-placeholder: var(--grey-color-60);
-    --navbar-search-active-background: var(--background-color);
-    --navbar-search-active-text: var(--text-secondary-color);
-    --navbar-search-category-background: var(--grey-color-10);
-    --navbar-search-category-text: var(--grey-color-80);
-    --navbar-search-hover-background: var(--background-color);
-    --navbar-search-hover-text: var(--navbar-background);
-    --navbar-search-hover-icon: var(--navbar-background);
-    --navbar-dropdown-background: var(--background-color);
-    --navbar-dropdown-text: var(--text-secondary-color);
-    --navbar-dropdown-icon: var(--text-secondary-color);
-    --navbar-dropdown-hover-background: var(--background-color);
-    --navbar-dropdown-hover-text: var(--navbar-background);
-    --navbar-dropdown-hover-icon: var(--navbar-background);
+    --navbar-text-color: var(--text-inverse-color);
+    --navbar-hover-background: var(--navbar-background);
+    --navbar-hover-text-color: var(--navbar-text);
     /* ------ Navbar theme ------ */
+
+    /* ------ Searchbar theme ------ */
+    --searchbar-background: var(--navbar-background);
+    --searchbar-color: var(--grey-color-40);
+    --searchbar-border: var(--border-color);
+    --searchbar-icon-color: var(--grey-color-40);
+    --searchbar-placeholder: var(--grey-color-60);
+    --searchbar-active-background: var(--background-color);
+    --searchbar-active-color: var(--text-secondary-color);
+    --searchbar-item-hover-background: var(--background-color);
+    --searchbar-item-hover-color: var(--navbar-background);
+    --searchbar-item-hover-icon-color: var(--navbar-background);
+    /* ------ Searchbar theme ------ */
 }

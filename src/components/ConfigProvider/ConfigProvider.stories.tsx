@@ -318,7 +318,7 @@ Theming.args = {
             },
             navbarTheme: {
                 background: '--primary-color-80',
-                text: '--primary-color-10',
+                textColor: '--primary-color-10',
             },
         },
     } as ThemeOptions,
