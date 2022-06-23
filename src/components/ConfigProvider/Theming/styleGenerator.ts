@@ -126,7 +126,7 @@ export function getStyle(themeOptions: ThemeOptions): IGetStyle {
         };
     }
 
-    // ================= Tabs theme ==================
+    // ================= Navbar theme ==================
     if (theme.navbarTheme) {
         variables = {
             ...variables,
