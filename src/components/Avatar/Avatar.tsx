@@ -8,7 +8,6 @@ import { Icon } from '../Icon';
 
 export const AVATAR_THEME_SET = [
     styles.red,
-    styles.disruptive,
     styles.grey,
     styles.blue,
     styles.orange,
