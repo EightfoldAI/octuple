@@ -535,18 +535,72 @@
                     var(--button-primary-focus-border-color);
             }
         }
+
+        &.button-primary-disruptive {
+            &:focus-visible {
+                outline: $focus-visible-outline-width solid
+                    var(--disruptive-color-80);
+            }
+        }
+
+        &.button-secondary {
+            &:focus-visible {
+                background-color: var(--button-focus-background-color);
+                color: var(--button-focus-foreground-color);
+            }
+        }
+
+        &.button-secondary-disruptive {
+            &:focus-visible {
+                color: var(--disruptive-color-80);
+                outline-color: var(--disruptive-color-80);
+            }
+        }
+
+        &.button-default {
+            &:focus-visible {
+                background-color: var(--button-focus-background-color);
+                color: var(--button-focus-foreground-color);
+            }
+        }
+
+        &.button-disruptive {
+            &:focus-visible {
+                background-color: var(--disruptive-color-10);
+                color: var(--disruptive-color-80);
+                outline-color: var(--disruptive-color-80);
+            }
+        }
+
+        &.button-neutral {
+            &:focus-visible {
+                background-color: var(--grey-color-10);
+                color: var(--text-secondary-color);
+                outline-color: var(--grey-color-80);
+            }
+        }
     }
 
     .two-state-button {
         &:focus-visible {
+            background-color: var(--button-two-state-focus-background-color);
+            color: var(--button-two-state-focus-foreground-color);
             outline-width: $focus-visible-outline-width;
             outline-offset: $focus-visible-outline-offset-inner;
             outline-color: var(--button-focus-outline-color);
 
             &.checked {
+                background-color: var(
+                    --button-two-state-checked-background-color
+                );
+                color: var(--button-two-state-checked-foreground-color);
                 outline-width: $focus-visible-outline-width;
                 outline-offset: $focus-visible-outline-offset-inner;
                 outline-color: var(--button-focus-outline-color);
+            }
+
+            .counter {
+                background-color: var(--button-counter-focus-background-color);
             }
         }
     }
