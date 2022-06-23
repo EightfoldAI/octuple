@@ -1,0 +1,51 @@
+$border-width: 1px;
+$border-color: var(--grey-color-20);
+$border: $border-width solid $border-color;
+
+@mixin clearfix() {
+    &:before {
+        display: table;
+        content: '';
+    }
+
+    &:after {
+        display: table;
+        clear: both;
+        content: '';
+    }
+}
+
+@mixin reset-component() {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    color: var(--text-primary-color);
+    font-size: 14px;
+    font-variant: tabular-nums;
+    line-height: 1.5715;
+    list-style: none;
+    font-feature-settings: 'tnum';
+}
+
+@mixin operation-unit() {
+    color: var(--primary-color);
+    text-decoration: none;
+    outline: none;
+    cursor: pointer;
+    transition: color 0.3s;
+
+    &:focus,
+    &:hover {
+        color: var(--primary-color-80);
+    }
+
+    &:active {
+        color: var(--primary-color-80);
+    }
+}
+
+@mixin table-border() {
+    border: $table-border;
+    border-radius: $table-border-radius;
+    box-shadow: $table-box-shadow;
+}

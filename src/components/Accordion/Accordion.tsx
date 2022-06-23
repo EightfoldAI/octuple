@@ -1,10 +1,9 @@
 import React, { FC, Ref, useCallback, useState } from 'react';
 
-import { mergeClasses, uniqueId } from '../../shared/utilities';
+import { eventKeys, mergeClasses, uniqueId } from '../../shared/utilities';
 
 import { AccordionProps, AccordionSummaryProps, AccordionBodyProps } from './';
 import { Icon, IconName } from '../Icon';
-import { eventKeys } from '../../shared/eventKeys';
 
 import styles from './accordion.module.scss';
 
