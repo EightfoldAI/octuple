@@ -39,6 +39,7 @@ export const TextArea: FC<TextAreaProps> = React.forwardRef(
         ref: Ref<HTMLTextAreaElement>
     ) => {
         const [textAreaId] = useState<string>(uniqueId(id || 'textarea-'));
+        const [inputValue, setInputValue] = useState(value);
 
         const textAreaClassNames: string = mergeClasses([
             classNames,
@@ -70,6 +71,7 @@ export const TextArea: FC<TextAreaProps> = React.forwardRef(
         // Reference: https://reactjs.org/docs/legacy-event-pooling.html
         const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
             e.persist();
+            setInputValue(e.target.value);
             debouncedChange(e);
         };
 
@@ -98,7 +100,7 @@ export const TextArea: FC<TextAreaProps> = React.forwardRef(
                     style={style}
                     rows={textAreaRows}
                     tabIndex={0}
-                    value={value}
+                    value={inputValue}
                 />
                 {enableExpand && (
                     <Icon

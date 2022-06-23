@@ -50,6 +50,8 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
         },
         ref: Ref<HTMLInputElement>
     ) => {
+        const [inputValue, setInputValue] = useState(value);
+
         const [clearButtonShown, _setClearButtonShown] =
             useState<boolean>(false);
         const [inputId] = useState<string>(uniqueId(id || 'input-'));
@@ -167,6 +169,7 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
         // Reference: https://reactjs.org/docs/legacy-event-pooling.html
         const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
             e.persist();
+            setInputValue(e.target.value);
             debouncedChange(e);
         };
 
@@ -194,7 +197,7 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
                     style={style}
                     tabIndex={0}
                     type={numbersOnly ? 'number' : htmlType}
-                    value={value}
+                    value={inputValue}
                     readOnly={readonly}
                 />
                 {iconProps && (
