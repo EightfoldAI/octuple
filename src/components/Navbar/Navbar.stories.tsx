@@ -50,7 +50,7 @@ const Overlay = () => {
     );
 };
 
-const Dropdown_Story = () => {
+const ProfileDropdown = () => {
     const [visible, setVisibility] = useState(false);
     return (
         <Dropdown
@@ -96,7 +96,7 @@ const Navbar_Div_Story: ComponentStory<typeof Navbar> = (args) => {
                     </Link>
                 </NavbarContent>
                 <NavbarContent>
-                    <Dropdown_Story />
+                    <ProfileDropdown />
                 </NavbarContent>
             </Navbar>
         </div>

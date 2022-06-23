@@ -7,5 +7,5 @@ export interface NavbarTheme {
     background?: Value;
     textColor?: Value;
     hoverBackground?: Value;
-    hoverTextColor?: Value;
+    textHoverColor?: Value;
 }
