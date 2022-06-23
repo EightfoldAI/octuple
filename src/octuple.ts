@@ -77,6 +77,21 @@ import { Portal } from './components/Portal';
 
 import { RadioButton, RadioGroup } from './components/Selectors';
 
+import Table, {
+    ColumnGroupType,
+    ColumnType,
+    ColumnsType,
+    ExpandableConfig,
+    FilterConfirmProps,
+    FilterValue,
+    SorterResult,
+    TablePaginationConfig,
+    TableProps,
+    TableRowSelection,
+} from './components/Table/';
+
+import { ResizeObserver } from './shared/ResizeObserver/ResizeObserver';
+
 import { useBoolean } from './hooks/useBoolean';
 
 import { useMatchMedia } from './hooks/useMatchMedia';
@@ -97,6 +112,9 @@ export {
     ButtonWidth,
     CheckBox,
     CheckBoxGroup,
+    ColumnGroupType,
+    ColumnType,
+    ColumnsType,
     ConfigProvider,
     DefaultButton,
     Dialog,
@@ -104,6 +122,9 @@ export {
     Dropdown,
     Empty,
     EmptyMode,
+    ExpandableConfig,
+    FilterConfirmProps,
+    FilterValue,
     Icon,
     IconName,
     IconSize,
@@ -132,15 +153,21 @@ export {
     PrimaryButton,
     RadioButton,
     RadioGroup,
+    ResizeObserver,
     Select,
     SearchBox,
     SecondaryButton,
     snack,
     Snackbar,
     SnackbarContainer,
+    SorterResult,
     Spinner,
     SpinnerSize,
     Stack,
+    Table,
+    TablePaginationConfig,
+    TableProps,
+    TableRowSelection,
     Tabs,
     Tab,
     TabVariant,

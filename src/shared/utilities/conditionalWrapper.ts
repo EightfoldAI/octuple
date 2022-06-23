@@ -1,4 +1,4 @@
-import { ConditonalWrapperProps } from "./utilities.types";
+import { ConditonalWrapperProps } from './utilities.types';
 
 /**
  * Simple React component for conditionally wrapping children
