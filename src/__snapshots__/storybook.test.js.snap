@@ -615,7 +615,24 @@ exports[`Storyshots Avatar Avatar Default 1`] = `
 </div>
 `;
 
-exports[`Storyshots Avatar Avatar Fallback 1`] = `
+exports[`Storyshots Avatar Avatar Fallback Hashing 1`] = `
+<div
+  className="wrapper-style my-avatar-class image-style round-image orange"
+  style={
+    Object {
+      "fontSize": "18px",
+      "height": "40px",
+      "minHeight": "40px",
+      "minWidth": "40px",
+      "width": "40px",
+    }
+  }
+>
+  HF
+</div>
+`;
+
+exports[`Storyshots Avatar Avatar Fallback Theme 1`] = `
 <div
   className="wrapper-style my-avatar-class image-style round-image green"
   style={
