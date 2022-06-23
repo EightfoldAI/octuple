@@ -40,6 +40,8 @@ import { Menu } from './components/Menu';
 
 import { Modal, ModalSize } from './components/Modal';
 
+import { Navbar, NavbarContent } from './components/Navbar';
+
 import { Pagination, PaginationLayoutOptions } from './components/Pagination';
 
 import { Pill, PillSize, PillType } from './components/Pills';
@@ -115,6 +117,8 @@ export {
     Menu,
     Modal,
     ModalSize,
+    Navbar,
+    NavbarContent,
     NeutralButton,
     Pagination,
     PaginationLayoutOptions,
