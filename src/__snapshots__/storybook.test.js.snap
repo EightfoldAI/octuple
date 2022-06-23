@@ -4046,6 +4046,147 @@ exports[`Storyshots Config Provider Theming 1`] = `
     </div>
   </div>
   <div
+    className="navbarContainer"
+    style={
+      Object {
+        "position": "relative",
+      }
+    }
+  >
+    <div
+      className="navbarContent"
+    >
+      <a
+        className="linkStyle"
+        href="/"
+        style={
+          Object {
+            "color": "inherit",
+            "padding": "8px",
+          }
+        }
+        target="_self"
+      >
+        Home
+      </a>
+    </div>
+    <div
+      className="navbarContent"
+    >
+      <a
+        className="linkStyle"
+        href="https://www.twitter.com"
+        style={
+          Object {
+            "color": "inherit",
+            "padding": "8px",
+          }
+        }
+        target="_self"
+      >
+        <span
+          aria-hidden={false}
+          className="iconWrapper"
+          role="presentation"
+        >
+          <svg
+            role="presentation"
+            style={
+              Object {
+                "height": "20px",
+                "width": "20px",
+              }
+            }
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M22.46 6c-.77.35-1.6.58-2.46.69c.88-.53 1.56-1.37 1.88-2.38c-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29c0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15c0 1.49.75 2.81 1.91 3.56c-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07a4.28 4.28 0 0 0 4 2.98a8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21C16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56c.84-.6 1.56-1.36 2.14-2.23Z"
+              style={
+                Object {
+                  "fill": "currentColor",
+                }
+              }
+            />
+          </svg>
+        </span>
+      </a>
+      <a
+        className="linkStyle"
+        href="https://www.facebook.com"
+        style={
+          Object {
+            "color": "inherit",
+            "padding": "8px",
+          }
+        }
+        target="_self"
+      >
+        <span
+          aria-hidden={false}
+          className="iconWrapper"
+          role="presentation"
+        >
+          <svg
+            role="presentation"
+            style={
+              Object {
+                "height": "20px",
+                "width": "20px",
+              }
+            }
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M12 2.04c-5.5 0-10 4.49-10 10.02c0 5 3.66 9.15 8.44 9.9v-7H7.9v-2.9h2.54V9.85c0-2.51 1.49-3.89 3.78-3.89c1.09 0 2.23.19 2.23.19v2.47h-1.26c-1.24 0-1.63.77-1.63 1.56v1.88h2.78l-.45 2.9h-2.33v7a10 10 0 0 0 8.44-9.9c0-5.53-4.5-10.02-10-10.02Z"
+              style={
+                Object {
+                  "fill": "currentColor",
+                }
+              }
+            />
+          </svg>
+        </span>
+      </a>
+      <a
+        className="linkStyle"
+        href="https://www.instagram.com"
+        style={
+          Object {
+            "color": "inherit",
+            "padding": "8px",
+          }
+        }
+        target="_self"
+      >
+        <span
+          aria-hidden={false}
+          className="iconWrapper"
+          role="presentation"
+        >
+          <svg
+            role="presentation"
+            style={
+              Object {
+                "height": "20px",
+                "width": "20px",
+              }
+            }
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8A1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5a5 5 0 0 1-5 5a5 5 0 0 1-5-5a5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3a3 3 0 0 0 3 3a3 3 0 0 0 3-3a3 3 0 0 0-3-3Z"
+              style={
+                Object {
+                  "fill": "currentColor",
+                }
+              }
+            />
+          </svg>
+        </span>
+      </a>
+    </div>
+  </div>
+  <div
     aria-label="score"
     className="match-score-container oct-component"
   >
@@ -4942,7 +5083,7 @@ exports[`Storyshots Icon Basic 1`] = `
   role="presentation"
 >
   <svg
-    aria-labelledby="icon_labelledby_37 icon_describedby_37"
+    aria-labelledby="icon_labelledby_40 icon_describedby_40"
     style={
       Object {
         "height": "20px",
@@ -4952,12 +5093,12 @@ exports[`Storyshots Icon Basic 1`] = `
     viewBox="0 0 24 24"
   >
     <title
-      id="icon_labelledby_37"
+      id="icon_labelledby_40"
     >
       My icon title.
     </title>
     <desc
-      id="icon_describedby_37"
+      id="icon_describedby_40"
     >
       My icon description.
     </desc>
@@ -6368,6 +6509,118 @@ exports[`Storyshots Modal X Large 1`] = `
 </button>
 `;
 
+exports[`Storyshots Navbar Navbar Div 1`] = `
+<div
+  style={
+    Object {
+      "height": "250px",
+    }
+  }
+>
+  <div
+    className="navbarContainer"
+  >
+    <div
+      className="navbarContent"
+    >
+      <a
+        className="linkStyle"
+        href="https://www.twitter.com"
+        style={
+          Object {
+            "color": "inherit",
+            "padding": "8px 20px",
+          }
+        }
+        target="_self"
+      >
+        Twitter
+      </a>
+      <a
+        className="linkStyle"
+        href="https://www.facebook.com"
+        style={
+          Object {
+            "color": "inherit",
+            "padding": "8px 20px",
+          }
+        }
+        target="_self"
+      >
+        Facebook
+      </a>
+    </div>
+    <div
+      className="navbarContent"
+    >
+      <div
+        className="mainWrapper"
+      >
+        <div
+          aria-controls="dropdown-15"
+          aria-expanded={false}
+          aria-haspopup={true}
+          className="referenceWrapper"
+          onClick={[Function]}
+          role="button"
+          style={
+            Object {
+              "display": "flex",
+            }
+          }
+          tabIndex="0"
+        >
+          <div
+            style={
+              Object {
+                "fontSize": "18px",
+                "height": "32px",
+                "minHeight": "32px",
+                "minWidth": "32px",
+                "width": "32px",
+              }
+            }
+          >
+            <img
+              alt="random profile image"
+              className="imageStyle roundImage"
+              height="32px"
+              src="https://images.pexels.com/photos/771742/pexels-photo-771742.jpeg"
+              width="32px"
+            />
+          </div>
+          <span
+            aria-hidden={false}
+            className="iconWrapper"
+            role="presentation"
+          >
+            <svg
+              role="presentation"
+              style={
+                Object {
+                  "height": "20px",
+                  "width": "20px",
+                }
+              }
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"
+                style={
+                  Object {
+                    "fill": "currentColor",
+                  }
+                }
+              />
+            </svg>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`Storyshots Pagination All Combined 1`] = `
 <div
   className="my-pagination-class pagination"
@@ -6380,7 +6633,7 @@ exports[`Storyshots Pagination All Combined 1`] = `
       className="main-wrapper"
     >
       <button
-        aria-controls="dropdown-15"
+        aria-controls="dropdown-16"
         aria-disabled={false}
         aria-expanded={false}
         aria-haspopup={true}
@@ -6566,7 +6819,7 @@ exports[`Storyshots Pagination All Combined 1`] = `
         className="editor"
         defaultValue={4}
         disabled={false}
-        id="input-16"
+        id="input-17"
         minLength={1}
         onChange={[Function]}
         readOnly={false}
@@ -6896,7 +7149,7 @@ exports[`Storyshots Pagination Change Page Size 1`] = `
       className="main-wrapper"
     >
       <button
-        aria-controls="dropdown-17"
+        aria-controls="dropdown-18"
         aria-disabled={false}
         aria-expanded={false}
         aria-haspopup={true}
@@ -7325,7 +7578,7 @@ exports[`Storyshots Pagination Jump To 1`] = `
         className="editor"
         defaultValue={5}
         disabled={false}
-        id="input-18"
+        id="input-19"
         minLength={1}
         onChange={[Function]}
         readOnly={false}
@@ -9062,13 +9315,13 @@ exports[`Storyshots Select Basic 1`] = `
         className="input-wrapper input-stretch"
       >
         <input
-          aria-controls="dropdown-19"
+          aria-controls="dropdown-20"
           aria-expanded={false}
           aria-haspopup={true}
           autoFocus={false}
           className="select-input with-icon input-stretch"
           disabled={false}
-          id="input-20"
+          id="input-21"
           onChange={[Function]}
           onClick={[Function]}
           placeholder="Select"
@@ -9133,13 +9386,13 @@ exports[`Storyshots Select Disabled 1`] = `
         className="input-wrapper input-stretch"
       >
         <input
-          aria-controls="dropdown-21"
+          aria-controls="dropdown-22"
           aria-expanded={false}
           aria-haspopup={true}
           autoFocus={false}
           className="select-input with-icon input-stretch"
           disabled={true}
-          id="input-22"
+          id="input-23"
           onChange={[Function]}
           onClick={[Function]}
           placeholder="Select"
@@ -9202,13 +9455,13 @@ exports[`Storyshots Select Dynamic 1`] = `
         className="input-wrapper input-stretch"
       >
         <input
-          aria-controls="dropdown-23"
+          aria-controls="dropdown-24"
           aria-expanded={false}
           aria-haspopup={true}
           autoFocus={false}
           className="with-icon input-stretch"
           disabled={false}
-          id="input-24"
+          id="input-25"
           onChange={[Function]}
           onClick={[Function]}
           placeholder="Select"
@@ -9278,13 +9531,13 @@ exports[`Storyshots Select Filterable 1`] = `
         className="input-wrapper input-stretch"
       >
         <input
-          aria-controls="dropdown-25"
+          aria-controls="dropdown-26"
           aria-expanded={false}
           aria-haspopup={true}
           autoFocus={false}
           className="with-icon input-stretch"
           disabled={false}
-          id="input-26"
+          id="input-27"
           onChange={[Function]}
           onClick={[Function]}
           placeholder="Select"
@@ -9354,13 +9607,13 @@ exports[`Storyshots Select Multiple 1`] = `
         className="input-wrapper input-stretch"
       >
         <input
-          aria-controls="dropdown-27"
+          aria-controls="dropdown-28"
           aria-expanded={false}
           aria-haspopup={true}
           autoFocus={false}
           className="with-icon input-stretch"
           disabled={false}
-          id="input-28"
+          id="input-29"
           onChange={[Function]}
           onClick={[Function]}
           placeholder="Select"
@@ -9430,13 +9683,13 @@ exports[`Storyshots Select Multiple With No Filter 1`] = `
         className="input-wrapper input-stretch"
       >
         <input
-          aria-controls="dropdown-29"
+          aria-controls="dropdown-30"
           aria-expanded={false}
           aria-haspopup={true}
           autoFocus={false}
           className="select-input with-icon input-stretch"
           disabled={false}
-          id="input-30"
+          id="input-31"
           onChange={[Function]}
           onClick={[Function]}
           placeholder="Select"
@@ -9501,13 +9754,13 @@ exports[`Storyshots Select Options Disabled 1`] = `
         className="input-wrapper input-stretch"
       >
         <input
-          aria-controls="dropdown-31"
+          aria-controls="dropdown-32"
           aria-expanded={false}
           aria-haspopup={true}
           autoFocus={false}
           className="select-input with-icon input-stretch"
           disabled={false}
-          id="input-32"
+          id="input-33"
           onChange={[Function]}
           onClick={[Function]}
           placeholder="Select"
@@ -9572,13 +9825,13 @@ exports[`Storyshots Select With Clear 1`] = `
         className="input-wrapper input-stretch"
       >
         <input
-          aria-controls="dropdown-33"
+          aria-controls="dropdown-34"
           aria-expanded={false}
           aria-haspopup={true}
           autoFocus={false}
           className="select-input with-icon input-stretch"
           disabled={false}
-          id="input-34"
+          id="input-35"
           onChange={[Function]}
           onClick={[Function]}
           placeholder="Select"
@@ -9643,13 +9896,13 @@ exports[`Storyshots Select With Default Value 1`] = `
         className="input-wrapper input-stretch"
       >
         <input
-          aria-controls="dropdown-35"
+          aria-controls="dropdown-36"
           aria-expanded={false}
           aria-haspopup={true}
           autoFocus={false}
           className="select-input with-icon input-stretch"
           disabled={false}
-          id="input-36"
+          id="input-37"
           onChange={[Function]}
           onClick={[Function]}
           placeholder="Select"
