@@ -32,13 +32,21 @@ const AvatarFallback: FC<AvatarFallbackProps> = React.forwardRef(
             if (hashingFunction) {
                 return Math.floor(hashingFunction()) % AVATAR_THEME_SET.length;
             }
-            return 0;
+            return -1;
         }, []);
 
         const avatarClasses: string = mergeClasses([
             styles.wrapperStyle,
             classNames,
-            styles[theme] || AVATAR_THEME_SET[colorSetIndex],
+            { [styles.red]: theme === 'red' },
+            { [styles.orange]: theme === 'orange' },
+            { [styles.yellow]: theme === 'yellow' },
+            { [styles.green]: theme === 'green' },
+            { [styles.bluegreen]: theme === 'bluegreen' },
+            { [styles.blue]: theme === 'blue' },
+            { [styles.violet]: theme === 'violet' },
+            { [styles.grey]: theme === 'grey' },
+            AVATAR_THEME_SET?.[colorSetIndex],
         ]);
 
         return (
