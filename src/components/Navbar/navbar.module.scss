@@ -6,15 +6,12 @@
     flex-direction: row;
     height: 60px;
     justify-content: space-between;
-    padding: 0 20px;
-    position: fixed;
-    top: 0;
+    padding: 0 $space-l-fitted;
     width: 100%;
-    z-index: 1001 !important;
-}
 
-.navbar-content {
-    align-items: center;
-    display: flex;
-    flex-direction: row;
+    .navbar-content {
+        align-items: center;
+        display: flex;
+        flex-direction: row;
+    }
 }

@@ -317,8 +317,8 @@ Theming.args = {
                 pillBackground: '--grey-color-10',
             },
             navbarTheme: {
-                background: '--disruptive-color-80',
-                text: '--disruptive-color-10',
+                background: '--primary-color-80',
+                text: '--primary-color-10',
             },
         },
     } as ThemeOptions,

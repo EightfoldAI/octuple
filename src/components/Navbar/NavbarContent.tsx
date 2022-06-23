@@ -5,10 +5,10 @@ import { mergeClasses } from '../../shared/utilities';
 
 import styles from './navbar.module.scss';
 
-export const Navbar: FC<NavbarProps> = React.forwardRef(
+export const NavbarContent: FC<NavbarProps> = React.forwardRef(
     ({ classNames, children, style }, ref: Ref<HTMLDivElement>) => {
         const containerClasses: string = mergeClasses([
-            styles.navbarContainer,
+            styles.navbarContent,
             classNames,
         ]);
 
