@@ -3,12 +3,6 @@
     display: flex;
     justify-content: center;
 
-    &.disruptive {
-        background-color: var(--disruptive-color-20);
-        border: solid 1px var(--disruptive-color-30);
-        color: var(--disruptive-color);
-    }
-
     &.red {
         background-color: var(--red-color-20);
         border: solid 1px var(--red-color-30);

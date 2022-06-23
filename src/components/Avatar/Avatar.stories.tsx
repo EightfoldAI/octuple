@@ -75,7 +75,7 @@ const Avatar_Fallback_Theme_Story: ComponentStory<typeof Avatar> = (args) => (
 export const Avatar_Fallback_Theme = Avatar_Fallback_Theme_Story.bind({});
 
 const Avatar_Fallback_Hashing_Story: ComponentStory<typeof Avatar> = (args) => (
-    <Avatar {...args} hashingFunction={() => 4} />
+    <Avatar {...args} hashingFunction={() => 3} />
 );
 
 export const Avatar_Fallback_Hashing = Avatar_Fallback_Hashing_Story.bind({});
