@@ -1,0 +1,494 @@
+@mixin scrollBars() {
+    -ms-overflow-style: none;
+
+    &::-webkit-scrollbar {
+        background-color: transparent;
+        height: 16px;
+        width: 16px;
+    }
+
+    &::-webkit-scrollbar-corner {
+        background-color: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: transparent;
+    }
+
+    &::-webkit-scrollbar-track {
+        -webkit-box-shadow: none;
+        background-color: transparent;
+    }
+
+    @supports (overflow: overlay) {
+        overflow: overlay;
+
+        &:focus-within,
+        &:focus-visible,
+        &:hover,
+        &:hover:focus {
+            &::-webkit-scrollbar {
+                display: block;
+                height: 16px;
+                width: 16px;
+            }
+
+            &::-webkit-scrollbar-button {
+                display: none;
+            }
+
+            &::-webkit-scrollbar-corner {
+                background-color: transparent;
+            }
+
+            &::-webkit-scrollbar-track {
+                background-color: transparent;
+            }
+
+            &::-webkit-scrollbar-track-piece {
+                background-color: transparent;
+            }
+
+            &::-webkit-scrollbar-thumb {
+                background-color: transparent;
+                border: 5px solid transparent;
+                border-radius: 24px;
+                box-shadow: 4px 0px 0px 4px rgba(105, 113, 127, 0.7) inset;
+            }
+        }
+    }
+
+    @supports not (overflow: overlay) {
+        overflow: auto;
+
+        &:focus-within,
+        &:focus-visible,
+        &:hover,
+        &:hover:focus {
+            -ms-overflow-style: none;
+            scrollbar-width: thin;
+
+            &::-webkit-scrollbar {
+                background-color: $table-background-color;
+                height: 16px;
+                width: 16px;
+            }
+
+            &::-webkit-scrollbar-corner {
+                background-color: $table-background-color;
+                border: 1px solid $table-background-color;
+                border-bottom-right-radius: $table-border-radius;
+            }
+
+            &::-webkit-scrollbar-thumb {
+                background-color: transparent;
+                border: 5px solid transparent;
+                border-radius: 24px;
+                box-shadow: 4px 0px 0px 4px rgba(105, 113, 127, 0.7) inset;
+            }
+
+            &::-webkit-scrollbar-track {
+                -webkit-box-shadow: none;
+                background-color: $table-background-color;
+            }
+        }
+    }
+}
+
+.table {
+    position: relative;
+    box-sizing: border-box;
+    color: $table-foreground-color;
+    font-size: $table-font-size;
+    line-height: $table-line-height;
+
+    &-rtl {
+        direction: rtl;
+    }
+
+    table {
+        width: 100%;
+        border-spacing: 0px;
+        border-radius: $table-border-radius;
+    }
+
+    th,
+    td {
+        position: relative;
+        box-sizing: border-box;
+        padding: $table-cell-padding;
+        white-space: normal;
+        word-break: break-word;
+        border-top: 0;
+        border-left: 0;
+        transition: box-shadow 0.3s;
+
+        &.table-rtl {
+            border-right: 0;
+            border-left: $table-border;
+        }
+    }
+
+    &-cell {
+        background-color: $table-background-color;
+
+        &-fix-left,
+        &-fix-right {
+            z-index: 1;
+        }
+
+        &-fix-right:last-child:not(&-fix-sticky) {
+            border-right-color: transparent;
+        }
+
+        &.table-rtl {
+            &-fix-right:last-child {
+                border-right-color: $table-border-color;
+            }
+            &-fix-left:last-child {
+                border-left-color: transparent;
+            }
+        }
+
+        &-fix-left-first {
+            &.table-rtl {
+                box-shadow: 1px 0 0 $table-border-color;
+            }
+        }
+
+        &-fix-left-first:after,
+        &-fix-left-last:after {
+            position: absolute;
+            top: 0;
+            right: -1px;
+            bottom: -1px;
+            width: 20px;
+            transform: translateX(100%);
+            transition: box-shadow 0.3s;
+            content: '';
+            pointer-events: none;
+        }
+
+        &-fix-right-first,
+        &-fix-right-last {
+            box-shadow: -1px 0 0 $table-border-color;
+
+            &.table-rtl {
+                box-shadow: none;
+            }
+
+            &:after {
+                position: absolute;
+                top: 0;
+                bottom: -1px;
+                left: -1px;
+                width: 20px;
+                transform: translateX(-100%);
+                transition: box-shadow 0.3s;
+                content: '';
+                pointer-events: none;
+            }
+        }
+
+        &.table-cell-ellipsis {
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+
+            div:first-of-type {
+                display: block;
+                overflow-x: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                word-break: keep-all;
+            }
+
+            &.table-cell-fix-left-first,
+            &.table-cell-fix-left-last,
+            &.table-cell-fix-right-first &.table-cell-fix-right-last {
+                overflow: visible;
+
+                .table-cell-content {
+                    display: block;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+            }
+        }
+
+        &:last-of-type {
+            border-right: none;
+        }
+
+        &-row-hover {
+            background-color: $table-background-alternate-color;
+
+            &:first-of-type {
+                &:before {
+                    border-left: 2px solid $table-border-active-color;
+                }
+            }
+
+            &:last-of-type {
+                &:before {
+                    border-right: 2px solid $table-border-active-color;
+                    width: 100%;
+                }
+            }
+
+            &:before {
+                border-bottom: 2px solid $table-border-active-color;
+                border-top: 2px solid $table-border-active-color;
+                content: '';
+                height: 100%;
+                left: 0;
+                pointer-events: none;
+                position: absolute;
+                top: 0;
+                width: calc(100% + 2px);
+                z-index: 2;
+            }
+        }
+    }
+
+    &-ping-left {
+        .table-cell-fix-left-first:after,
+        .table-cell-fix-left-last:after {
+            box-shadow: $table-fixed-left-box-shadow;
+        }
+    }
+
+    &-ping-right {
+        .table-cell-fix-right-first:after,
+        .table-cell-fix-right-last:after {
+            box-shadow: $table-fixed-right-box-shadow;
+        }
+    }
+
+    &-expand-icon-col {
+        width: 84px;
+    }
+
+    &-row-expand-icon-cell {
+        align-items: center;
+        display: flex;
+        justify-content: center;
+    }
+
+    thead {
+        td,
+        th {
+            text-align: left;
+        }
+
+        tr:first-of-type {
+            th {
+                font-size: $table-header-font-size;
+            }
+
+            th:first-of-type {
+                border-top-left-radius: $table-border-radius;
+            }
+
+            th:last-of-type {
+                border-top-right-radius: $table-border-radius;
+                border-right: none;
+            }
+
+            th.table-cell-scrollbar {
+                background-color: $table-background-color;
+                border-right: 1px solid $table-background-color;
+                border-left: 1px solid $table-background-color;
+                border-top-right-radius: $table-border-radius;
+
+                &:after {
+                    position: absolute;
+                    top: 0;
+                    bottom: 0;
+                    left: -1px;
+                    width: 1px;
+                    content: '';
+
+                    &.table-rtl {
+                        right: -1px;
+                        left: auto;
+                    }
+                }
+            }
+        }
+    }
+
+    &-header {
+        border-top-left-radius: $table-border-radius;
+        border-top-right-radius: $table-border-radius;
+        color: $table-header-foreground-color;
+    }
+
+    &-placeholder {
+        &:nth-child(odd) td {
+            background-color: $table-background-color !important;
+        }
+
+        text-align: center;
+    }
+
+    tbody {
+        tr {
+            &:last-of-type {
+                td {
+                    border-bottom: none;
+                }
+            }
+        }
+    }
+
+    &-alternate {
+        tbody {
+            tr {
+                &:nth-child(odd) {
+                    td {
+                        background-color: $table-background-alternate-color;
+                    }
+                }
+            }
+        }
+    }
+
+    &-container {
+        color: $table-foreground-color;
+    }
+
+    &-content {
+        @include scrollBars();
+
+        color: $table-foreground-color;
+    }
+
+    &-body {
+        @include scrollBars();
+
+        border-bottom-left-radius: $table-border-radius;
+        border-bottom-right-radius: $table-border-radius;
+    }
+
+    &-fixed-column &-body:after {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 1;
+        content: '';
+    }
+
+    &-expanded-row {
+        .table-cell {
+            box-shadow: inset 0 15px 17px -7px $table-background-alternate-color;
+        }
+
+        &-fixed {
+            box-sizing: border-box;
+            margin: $table-cell-margin;
+            margin-right: -$table-padding-horizontal - 2;
+            padding: $table-cell-padding;
+
+            &:after {
+                position: absolute;
+                top: 0;
+                right: 1px;
+                bottom: 0;
+                width: 0;
+                content: '';
+            }
+        }
+    }
+
+    &-row-expand-icon {
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        color: #aaa;
+        line-height: 16px;
+        text-align: center;
+        vertical-align: middle;
+        border: 1px solid currentColor;
+        cursor: pointer;
+
+        &.table-row-expanded:after {
+            content: '-';
+        }
+
+        &.table-row-collapsed:after {
+            content: '+';
+        }
+
+        &.table-row-spaced {
+            visibility: hidden;
+        }
+    }
+
+    &-title {
+        background: $table-header-background-color;
+        color: $table-header-foreground-color;
+        font-size: $table-header-font-size;
+        line-height: $table-header-line-height;
+        padding: $table-cell-padding;
+        border-bottom: $table-border;
+        border-top-left-radius: $table-border-radius;
+        border-top-right-radius: $table-border-radius;
+    }
+
+    &-footer {
+        background: $table-footer-background-color;
+        color: $table-footer-foreground-color;
+        font-size: $table-footer-font-size;
+        line-height: $table-footer-line-height;
+        padding: $table-cell-padding;
+        border-top: $table-border;
+        border-bottom-left-radius: $table-border-radius;
+        border-bottom-right-radius: $table-border-radius;
+    }
+
+    tfoot {
+        td {
+            background-color: $table-background-color;
+        }
+    }
+
+    &-summary {
+        box-shadow: 0 -1px $table-border-color;
+        position: relative;
+        z-index: 2;
+    }
+
+    &-sticky {
+        &-holder {
+            position: sticky;
+            z-index: 3;
+        }
+        &-scroll {
+            position: sticky;
+            bottom: 0;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            border-top: $table-border;
+            opacity: 0.6;
+            transition: transform 0.1s ease-in 0s;
+            &:hover {
+                transform: scaleY(1.2);
+                transform-origin: center bottom;
+            }
+            &-bar {
+                height: 8px;
+                background-color: #bbb;
+                border-radius: 4px;
+                &:hover {
+                    background-color: #999;
+                }
+                &-active {
+                    background-color: #999;
+                }
+            }
+        }
+    }
+}

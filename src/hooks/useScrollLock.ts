@@ -1,19 +1,22 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useCallback, useEffect, useRef } from 'react';
 
 /**
  * Hook to lock scroll on the given element
  * @param element
  * @param shouldLock
  */
-export const useScrollLock = (element: HTMLElement, shouldLock: boolean) => {
-    let originalOverflow = useRef<string>('');
+export const useScrollLock = (
+    element: HTMLElement,
+    shouldLock: boolean
+): void => {
+    let originalOverflow: React.MutableRefObject<string> = useRef<string>('');
 
-    const lockScroll = React.useCallback(() => {
+    const lockScroll = useCallback(() => {
         originalOverflow.current = element.style.overflow;
         element.style.overflow = 'hidden';
     }, []);
 
-    const unlockScroll = React.useCallback(() => {
+    const unlockScroll = useCallback(() => {
         element.style.overflow = originalOverflow.current;
     }, []);
 
