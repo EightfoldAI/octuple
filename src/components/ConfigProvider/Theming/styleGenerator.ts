@@ -126,6 +126,14 @@ export function getStyle(themeOptions: ThemeOptions): IGetStyle {
         };
     }
 
+    // ================= Tabs theme ==================
+    if (theme.navbarTheme) {
+        variables = {
+            ...variables,
+            ...themeGenerator(theme.tabsTheme, 'navbar'),
+        };
+    }
+
     return {
         variables,
         light: themePrimaryColor.isLight(),
