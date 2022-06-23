@@ -8,13 +8,15 @@ import {
     SecondaryButton,
 } from '../Button';
 import { Tab, Tabs, TabVariant } from '../Tabs';
-import { IconName } from '../Icon';
+import { Icon, IconName } from '../Icon';
 import { CompactPicker } from 'react-color';
 import { ConfigProvider, OcThemeNames, ThemeOptions, useConfig } from './';
 import { MatchScore } from '../MatchScore';
 import { Spinner } from '../Spinner';
 import { Stack } from '../Stack';
 import { CheckBoxGroup, RadioGroup } from '../Selectors';
+import { Link } from '../Link';
+import { Navbar, NavbarContent } from '../Navbar';
 
 const theme: OcThemeNames[] = [
     'red',
@@ -196,6 +198,44 @@ const ThemedComponents: FC = () => {
                     <Tab key={tab.value} {...tab} />
                 ))}
             </Tabs>
+            <Navbar style={{ position: 'relative' }}>
+                <NavbarContent>
+                    <Link
+                        href="/"
+                        target="_self"
+                        variant="default"
+                        style={{ padding: '8px', color: 'inherit' }}
+                    >
+                        Home
+                    </Link>
+                </NavbarContent>
+                <NavbarContent>
+                    <Link
+                        href="https://www.twitter.com"
+                        target="_self"
+                        variant="default"
+                        style={{ padding: '8px', color: 'inherit' }}
+                    >
+                        <Icon path={IconName.mdiTwitter} />
+                    </Link>
+                    <Link
+                        href="https://www.facebook.com"
+                        target="_self"
+                        variant="default"
+                        style={{ padding: '8px', color: 'inherit' }}
+                    >
+                        <Icon path={IconName.mdiFacebook} />
+                    </Link>
+                    <Link
+                        href="https://www.instagram.com"
+                        target="_self"
+                        variant="default"
+                        style={{ padding: '8px', color: 'inherit' }}
+                    >
+                        <Icon path={IconName.mdiInstagram} />
+                    </Link>
+                </NavbarContent>
+            </Navbar>
             <MatchScore score={3} />
             <Spinner />
             <CheckBoxGroup
@@ -275,6 +315,10 @@ Theming.args = {
                 pillActiveBackground: '--primary-color-10',
                 pillHoverLabel: '--primary-color',
                 pillBackground: '--grey-color-10',
+            },
+            navbarTheme: {
+                background: '--disruptive-color-80',
+                text: '--disruptive-color-10',
             },
         },
     } as ThemeOptions,

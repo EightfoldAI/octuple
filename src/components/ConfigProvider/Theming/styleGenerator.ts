@@ -130,7 +130,7 @@ export function getStyle(themeOptions: ThemeOptions): IGetStyle {
     if (theme.navbarTheme) {
         variables = {
             ...variables,
-            ...themeGenerator(theme.tabsTheme, 'navbar'),
+            ...themeGenerator(theme.navbarTheme, 'navbar'),
         };
     }
 

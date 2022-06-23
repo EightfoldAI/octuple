@@ -137,4 +137,31 @@
     --tab-pill-hover-label: var(--primary-color);
     --tab-pill-background: var(--grey-color-10);
     /* ------ Tabs theme ------ */
+
+    /* ------ Navbar theme ------ */
+    --navbar-background: var(--primary-color-80);
+    --navbar-text: var(--text-inverse-color);
+    --navbar-icon: var(--text-inverse-color);
+    --navbar-active-background: var(--primary-color-90);
+    --navbar-active-text: var(--primary-color-30);
+    --navbar-active-icon: var(--primary-color-30);
+    --navbar-search-background: var(--primary-color-80);
+    --navbar-search-text: var(--grey-color-40);
+    --navbar-search-active-background: var(--background-color);
+    --navbar-search-border: var(--border-color);
+    --navbar-search-icon: var(--grey-color-40);
+    --navbar-search-placeholder: var(--grey-color-60);
+    --navbar-search-active-text: var(--grey-color-70);
+    --navbar-search-category-name-bg: var(--grey-color-10);
+    --navbar-search-category-name-text: var(--grey-color-80);
+    --navbar-search-hover-background: var(--primary-color-10);
+    --navbar-search-hover-text: var(--primary-color-90);
+    --navbar-search-hover-icon: var(--primary-color-90);
+    --navbar-dropdown-background: var(--background-color);
+    --navbar-dropdown-text: var(--grey-color-70);
+    --navbar-dropdown-icon: var(--primary-color-60);
+    --navbar-dropdown-hover-background: var(--primary-color-10);
+    --navbar-dropdown-hover-text: var(--primary-color-90);
+    --navbar-dropdown-hover-icon: var(--primary-color-90);
+    /* ------ Navbar theme ------ */
 }

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Stories } from '@storybook/addon-docs';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Icon, IconName } from '../Icon';
-import { Navbar } from './';
+import { Navbar, NavbarContent } from './';
 import { Link } from '../Link';
 import { Dropdown } from '../Dropdown';
 import { Avatar } from '../Avatar';
@@ -56,6 +56,7 @@ const Dropdown_Story = () => {
         <Dropdown
             onVisibleChange={(isVisible) => setVisibility(isVisible)}
             overlay={<Overlay />}
+            dropdownStyle={{ color: '#212121' }}
         >
             <div style={{ display: 'flex' }}>
                 <Avatar
@@ -75,16 +76,13 @@ const Dropdown_Story = () => {
 const Navbar_Div_Story: ComponentStory<typeof Navbar> = (args) => {
     return (
         <div style={{ height: '250px' }}>
-            <Navbar
-                {...args}
-                style={{ display: 'flex', justifyContent: 'space-between' }}
-            >
-                <div style={{ display: 'flex' }}>
+            <Navbar {...args}>
+                <NavbarContent>
                     <Link
                         href="https://www.twitter.com"
                         target="_self"
                         variant="default"
-                        style={{ padding: '8px 20px' }}
+                        style={{ padding: '8px 20px', color: 'inherit' }}
                     >
                         Twitter
                     </Link>
@@ -92,14 +90,14 @@ const Navbar_Div_Story: ComponentStory<typeof Navbar> = (args) => {
                         href="https://www.facebook.com"
                         target="_self"
                         variant="default"
-                        style={{ padding: '8px 20px' }}
+                        style={{ padding: '8px 20px', color: 'inherit' }}
                     >
                         Facebook
                     </Link>
-                </div>
-                <div style={{ display: 'flex' }}>
+                </NavbarContent>
+                <NavbarContent>
                     <Dropdown_Story />
-                </div>
+                </NavbarContent>
             </Navbar>
         </div>
     );
