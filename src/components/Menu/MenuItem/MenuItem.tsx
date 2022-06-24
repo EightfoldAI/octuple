@@ -24,12 +24,10 @@ export const MenuItem: FC<MenuItemProps> = ({
         classNames,
     ]);
 
-    const labelClasses: string = mergeClasses([styles.label]);
-
     return (
         <span className={menuItemClasses}>
             {iconProps && <Icon {...iconProps} />}
-            <span className={labelClasses}>{text}</span>
+            <span>{text}</span>
         </span>
     );
 };

@@ -20,4 +20,5 @@ export interface MenuItemProps
     size?: MenuSize;
     iconProps?: IconProps;
     text?: string;
+    disabled?: boolean;
 }
