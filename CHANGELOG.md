@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.14.1](https://github.com/EightfoldAI/octuple/compare/v1.13.0...v1.14.1) (2022-06-24)
+
+### Features
+
+-   table: add table component ([#193](https://github.com/EightfoldAI/octuple/issues/193)) ([427bca7](https://github.com/EightfoldAI/octuple/commits/427bca77438eff26a02a5d13fcfc914f007c51f4))
+
+### Bug Fixes
+
+-   button: removes focus outline and border style when not in keyboard mode ([#205](https://github.com/EightfoldAI/octuple/issues/205)) ([142200e](https://github.com/EightfoldAI/octuple/commits/142200ef8f763dbecbbf0ef4eeb137567cf00aff))
+
 ## [1.14.0](https://github.com/EightfoldAI/octuple/compare/v1.13.0...v1.14.0) (2022-06-24)
 
 ### Features
