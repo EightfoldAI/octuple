@@ -166,9 +166,10 @@ export interface CSSVariables extends React.CSSProperties {
 
     '--button-default-outline-color'?: string;
     '--button-hover-outline-color'?: string;
-    '--button-focus-outline-color'?: string;
     '--button-active-outline-color'?: string;
     '--button-visited-outline-color'?: string;
+
+    '--button-focus-outline-color'?: string;
 
     '--font-size'?: string;
 }
