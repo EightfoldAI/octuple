@@ -63,4 +63,10 @@
             --background: var(--grey-color-20);
         }
     }
+
+    &[disabled] {
+        pointer-events: none;
+        opacity: $disabled-alpha-value;
+        cursor: not-allowed;
+    }
 }

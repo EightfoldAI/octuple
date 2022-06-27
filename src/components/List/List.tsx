@@ -18,6 +18,7 @@ export const List = <T extends any>({
     listType = 'ul',
     role,
     itemProps,
+    getItem,
     ...rest
 }: ListProps<T>) => {
     const containerClasses: string = mergeClasses([
@@ -40,10 +41,9 @@ export const List = <T extends any>({
         return `oc-list-item-${index}`;
     };
 
-    const getItem = (item: T, index: number): JSX.Element => (
+    const _getItem = (item: T, index: number): JSX.Element => (
         <li
             {...itemProps}
-            onClick={() => itemProps?.onClick(item)}
             key={getItemKey(item, index)}
             className={itemClasses}
             style={itemStyle}
@@ -53,7 +53,9 @@ export const List = <T extends any>({
     );
 
     const getItems = (): JSX.Element[] =>
-        items.map((item: T, index) => getItem(item, index));
+        items.map(
+            (item: T, index) => getItem?.(item, index) ?? _getItem(item, index)
+        );
 
     return (
         <div {...rest} className={classNames} style={style}>

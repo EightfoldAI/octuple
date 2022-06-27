@@ -1,7 +1,7 @@
 import React from 'react';
 import { Stories } from '@storybook/addon-docs';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { Menu, MenuType } from './';
+import { Menu, MenuType, MenuVariant } from './';
 import { IconName } from '../Icon';
 import { Dropdown } from '../Dropdown';
 import { DefaultButton } from '../Button';
@@ -28,6 +28,16 @@ export default {
             ),
         },
     },
+    argTypes: {
+        variant: {
+            options: [
+                MenuVariant.neutral,
+                MenuVariant.primary,
+                MenuVariant.disruptive,
+            ],
+            control: { type: 'select' },
+        },
+    },
 } as ComponentMeta<typeof Menu>;
 
 const Overlay = (args: any) => (
@@ -43,6 +53,7 @@ const Overlay = (args: any) => (
                 iconProps: { path: IconName.mdiThumbUpOutline },
                 text: 'Thumbs up',
                 value: 'date 1',
+                disabled: true,
             },
             {
                 iconProps: { path: IconName.mdiSchool },
@@ -88,17 +99,14 @@ const Overlay = (args: any) => (
 
 const Menu_Story: ComponentStory<typeof Menu> = (args) => (
     <Dropdown overlay={Overlay(args)}>
-        <DefaultButton
-            disruptive={args.type === MenuType.disruptive}
-            text={'Menu dropdown'}
-        />
+        <DefaultButton text={'Menu dropdown'} />
     </Dropdown>
 );
 
 export const Menus = Menu_Story.bind({});
 
 Menus.args = {
-    type: MenuType.neutral,
+    variant: MenuVariant.neutral,
     classNames: 'my-menu-class',
     style: {},
     itemClassNames: 'my-menu-item-class',

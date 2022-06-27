@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { MenuProps, MenuType } from './Menu.types';
+import { MenuProps, MenuType, MenuVariant } from './Menu.types';
 import { List } from '../List';
 import { MenuItem } from './MenuItem/MenuItem';
 import { MenuItemProps } from './MenuItem/MenuItem.types';
@@ -7,7 +7,8 @@ import { MenuItemProps } from './MenuItem/MenuItem.types';
 export const Menu: FC<MenuProps> = ({
     items,
     onChange,
-    type = MenuType.neutral,
+    variant = MenuVariant.neutral,
+    type = MenuType.button,
     classNames,
     style,
     itemClassNames,
@@ -17,24 +18,31 @@ export const Menu: FC<MenuProps> = ({
     listType,
     itemProps,
     ...rest
-}) => (
-    <List<MenuItemProps>
-        {...rest}
-        items={items}
-        renderItem={(props) => <MenuItem {...props} />}
-        classNames={classNames}
-        style={style}
-        itemClassNames={itemClassNames}
-        itemStyle={itemStyle}
-        header={header}
-        footer={footer}
-        listType={listType}
-        role="menu"
-        itemProps={{
-            role: 'menuitem',
-            tabIndex: 0,
-            onClick: onChange,
-            ...itemProps,
-        }}
-    />
-);
+}) => {
+    const getListItem = (item: MenuItemProps, index: number): JSX.Element => {
+        switch (type) {
+            case MenuType.button:
+                return (
+                    <MenuItem
+                        key={`oc-menu-item-${index}`}
+                        onClick={onChange}
+                        variant={variant}
+                        {...item}
+                    />
+                );
+        }
+    };
+    return (
+        <List<MenuItemProps>
+            {...rest}
+            items={items}
+            classNames={classNames}
+            style={style}
+            header={header}
+            footer={footer}
+            listType={listType}
+            role="menu"
+            getItem={getListItem}
+        />
+    );
+};

@@ -1,10 +1,14 @@
 import { ListProps } from '../List';
 import { MenuItemProps } from './MenuItem/MenuItem.types';
 
-export enum MenuType {
+export enum MenuVariant {
     disruptive = 'disruptive',
     primary = 'primary',
     neutral = 'neutral',
+}
+
+export enum MenuType {
+    button = 'button',
 }
 
 export enum MenuSize {
@@ -16,8 +20,13 @@ export enum MenuSize {
 export interface MenuProps
     extends Omit<ListProps<MenuItemProps>, 'renderItem' | 'role' | 'itemRole'> {
     /**
-     * If menu is disruptive or not
-     * @default false
+     * Variant of the menu item
+     * @default MenuVariant.neutral
+     */
+    variant?: MenuVariant;
+    /**
+     * Type of the menu
+     * @default MenuType.button
      */
     type?: MenuType;
     /**

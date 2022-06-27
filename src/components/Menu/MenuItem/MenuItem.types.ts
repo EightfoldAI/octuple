@@ -1,4 +1,4 @@
-import { MenuSize, MenuType } from '../Menu.types';
+import { MenuSize, MenuType, MenuVariant } from '../Menu.types';
 import { OcBaseProps } from '../../OcBase';
 import { IconProps } from '../../Icon';
 
@@ -9,8 +9,13 @@ export interface MenuItemProps
      */
     value: any;
     /**
-     * If menu is disruptive or not
-     * @default false
+     * Variant of the menu item
+     * @default MenuVariant.neutral
+     */
+    variant?: MenuVariant;
+    /**
+     * Type of the menu
+     * @default MenuType.button
      */
     type?: MenuType;
     /**
@@ -18,7 +23,21 @@ export interface MenuItemProps
      * @default MenuSize.Medium
      */
     size?: MenuSize;
+    /**
+     * Menu item icon props
+     */
     iconProps?: IconProps;
+    /**
+     * Display label of the menu item
+     */
     text?: string;
+    /**
+     * If menu item is disabled or not
+     */
     disabled?: boolean;
+    /**
+     * On Click handler of the menu item
+     * @param value
+     */
+    onClick?: (value: any) => void;
 }

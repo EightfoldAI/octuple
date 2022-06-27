@@ -4,10 +4,8 @@ import { OcBaseProps } from '../OcBase';
 
 export type ItemLayout = 'horizontal' | 'vertical';
 
-export interface ListItemProps<T>
-    extends Omit<HTMLAttributes<HTMLLIElement>, 'onClick'> {
-    onClick?: (item: T) => void;
-}
+export interface ListItemProps
+    extends Omit<HTMLAttributes<HTMLLIElement>, 'onClick'> {}
 
 export interface ListProps<T> extends OcBaseProps<HTMLDivElement> {
     /**
@@ -18,7 +16,7 @@ export interface ListProps<T> extends OcBaseProps<HTMLDivElement> {
      * Render method for list item
      * @param item
      */
-    renderItem: (item: T) => ReactNode;
+    renderItem?: (item: T) => ReactNode;
     /**
      * Unique key for the item
      * @param item
@@ -49,11 +47,15 @@ export interface ListProps<T> extends OcBaseProps<HTMLDivElement> {
      */
     listType?: 'ul' | 'ol';
     /**
+     * Get custom list item
+     */
+    getItem?: (item: T, index: number) => JSX.Element;
+    /**
      * Role of the list
      */
     role?: string;
     /**
      * List item props
      */
-    itemProps?: ListItemProps<T>;
+    itemProps?: ListItemProps;
 }
