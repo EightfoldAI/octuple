@@ -14,7 +14,7 @@ import { ConfigProvider, OcThemeNames, ThemeOptions, useConfig } from './';
 import { MatchScore } from '../MatchScore';
 import { Spinner } from '../Spinner';
 import { Stack } from '../Stack';
-import { CheckBoxGroup, RadioGroup } from '../Selectors';
+import { CheckBoxGroup, RadioGroup } from '../RadioButton';
 import { Link } from '../Link';
 import { Navbar, NavbarContent } from '../Navbar';
 

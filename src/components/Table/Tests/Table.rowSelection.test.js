@@ -2,7 +2,7 @@ import React from 'react';
 import Enzyme, { mount } from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import Table from '../index';
-import { CheckBox } from '../../Selectors';
+import { CheckBox } from '../../RadioButton';
 
 Enzyme.configure({ adapter: new Adapter() });
 

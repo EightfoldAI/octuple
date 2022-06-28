@@ -11,7 +11,7 @@ import { Menu } from '../../../Menu';
 import type { MenuProps } from '../../../Menu';
 import Tree from '../../../Tree';
 import type { DataNode, EventDataNode } from '../../../Tree';
-import { CheckBox, RadioButton } from '../../../Selectors';
+import { CheckBox, RadioButton } from '../../../RadioButton';
 import { Dropdown } from '../../../Dropdown';
 import { Empty } from '../../../Empty';
 import type {

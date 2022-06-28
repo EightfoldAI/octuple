@@ -1,9 +1,5 @@
-import React, { createContext, useEffect, useState } from 'react';
-import {
-    IRadioButtonsContext,
-    RadioButtonValue,
-    RadioGroupContextProps,
-} from './Radio.types';
+import React, { createContext } from 'react';
+import { IRadioButtonsContext, RadioGroupContextProps } from './';
 
 const RadioGroupContext = createContext<Partial<IRadioButtonsContext>>(null);
 
