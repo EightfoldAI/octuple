@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.14.2](https://github.com/EightfoldAI/octuple/compare/v1.14.1...v1.14.2) (2022-06-28)
+
+### Features
+
+-   add layout type for radiogroup, checkboxgroup ([#207](https://github.com/EightfoldAI/octuple/issues/207)) ([3ecb719](https://github.com/EightfoldAI/octuple/commits/3ecb7192edf3c1767edb1f071d7f49985bc03ba8))
+
+### Bug Fixes
+
+-   tabs: allign first item to the left ([#208](https://github.com/EightfoldAI/octuple/issues/208)) ([daa2175](https://github.com/EightfoldAI/octuple/commits/daa21756884f1c0741d7e61d3b306b3e0daa5896))
+-   update button font sizes and outline colors ([#206](https://github.com/EightfoldAI/octuple/issues/206)) ([2fccac3](https://github.com/EightfoldAI/octuple/commits/2fccac34714049486dd599405da15faa27969186))
+
 ### [1.14.1](https://github.com/EightfoldAI/octuple/compare/v1.13.0...v1.14.1) (2022-06-24)
 
 ### Features
