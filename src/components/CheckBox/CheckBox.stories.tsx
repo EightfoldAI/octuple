@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { Stories } from '@storybook/addon-docs';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { CheckBox, CheckBoxGroup } from '../';
-import { CheckboxValueType } from './Checkbox.types';
+import { CheckBox, CheckBoxGroup, CheckboxValueType } from './';
 
 export default {
     title: 'Check Box',
@@ -75,6 +74,13 @@ export default {
             defaultValue: true,
             control: { type: 'boolean' },
         },
+        onChange: {
+            action: 'change',
+        },
+        layout: {
+            options: ['vertical', 'horizontal'],
+            control: { type: 'radio' },
+        },
     },
 } as ComponentMeta<typeof CheckBox>;
 
@@ -90,7 +96,10 @@ const CheckBoxGroup_Story: ComponentStory<typeof CheckBoxGroup> = (args) => {
         <CheckBoxGroup
             {...args}
             value={selected}
-            onChange={(newSelected) => setSelected([...newSelected])}
+            onChange={(newSelected) => {
+                args.onChange(newSelected);
+                setSelected([...newSelected]);
+            }}
         />
     );
 };
@@ -136,4 +145,5 @@ Check_Box_Group.args = {
             id: 'test-3',
         },
     ],
+    layout: 'vertical',
 };

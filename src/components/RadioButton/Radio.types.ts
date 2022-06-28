@@ -1,5 +1,5 @@
 import React from 'react';
-import { OcBaseProps } from '../../OcBase';
+import { OcBaseProps } from '../OcBase';
 
 export type RadioButtonValue = string | number;
 
@@ -62,4 +62,9 @@ export interface RadioGroupProps extends OcBaseProps<HTMLDivElement> {
      * The radio button onChange event handler.
      */
     onChange?: React.ChangeEventHandler<HTMLInputElement>;
+    /**
+     * Type of layout for the radio group
+     * @default vertical
+     */
+    layout?: 'vertical' | 'horizontal';
 }

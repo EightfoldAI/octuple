@@ -10,8 +10,8 @@ import type {
 import { INTERNAL_COL_DEFINE } from '../Internal';
 import type { FixedType } from '../Internal/OcTable.types';
 import { useMergedState } from '../../../hooks/useMergedState';
-import type { CheckboxProps } from '../../Selectors';
-import { CheckBox, RadioButton } from '../../Selectors';
+import { RadioButton } from '../../RadioButton';
+import { CheckBox, CheckboxProps } from '../../CheckBox';
 import { Dropdown } from '../../Dropdown';
 import { Icon, IconName, IconSize } from '../../Icon';
 import { Menu } from '../../Menu';
