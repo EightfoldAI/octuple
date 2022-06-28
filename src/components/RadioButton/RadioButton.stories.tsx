@@ -1,12 +1,7 @@
 import React, { useState } from 'react';
 import { Stories } from '@storybook/addon-docs';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import {
-    CheckboxValueType,
-    RadioButton,
-    RadioButtonValue,
-    RadioGroup,
-} from '../index';
+import { RadioButton, RadioButtonValue, RadioGroup } from './';
 
 export default {
     title: 'Radio Button',
@@ -104,6 +99,10 @@ export default {
         onChange: {
             action: 'change',
         },
+        layout: {
+            options: ['vertical', 'horizontal'],
+            control: { type: 'radio' },
+        },
     },
 } as ComponentMeta<typeof RadioButton>;
 
@@ -120,6 +119,7 @@ const RadioGroup_Story: ComponentStory<typeof RadioGroup> = (args) => {
             {...args}
             value={selected}
             onChange={(e) => {
+                args.onChange(e);
                 setSelected(e.target.value);
             }}
         />
@@ -153,4 +153,5 @@ Radio_Group.args = {
         name: 'group',
         id: `oea2exk-${i}`,
     })),
+    layout: 'vertical',
 };

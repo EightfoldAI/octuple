@@ -1,6 +1,6 @@
 import React, { FC, Ref, useEffect, useRef, useState } from 'react';
-import { generateId, mergeClasses } from '../../../shared/utilities';
-import { CheckboxProps } from './Checkbox.types';
+import { generateId, mergeClasses } from '../../shared/utilities';
+import { CheckboxProps } from './';
 
 import styles from './checkbox.module.scss';
 
