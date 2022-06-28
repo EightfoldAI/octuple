@@ -1,5 +1,5 @@
 import React from 'react';
-import { OcBaseProps } from '../../OcBase';
+import { OcBaseProps } from '../OcBase';
 
 export type CheckboxValueType = string | number;
 
@@ -62,4 +62,9 @@ export interface CheckboxGroupProps
      * @param checkedValue
      */
     onChange?: (checkedValue: CheckboxValueType[]) => void;
+    /**
+     * Type of layout for the checkbox group
+     * @default vertical
+     */
+    layout?: 'vertical' | 'horizontal';
 }

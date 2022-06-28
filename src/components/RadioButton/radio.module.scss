@@ -179,8 +179,15 @@
 }
 
 .radio-group {
-    .selector {
-        margin-bottom: $space-m;
+    display: flex;
+    gap: $space-m;
+
+    &.vertical {
+        flex-direction: column;
+    }
+
+    &.horizontal {
+        flex-direction: row;
     }
 }
 
