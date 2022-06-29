@@ -230,6 +230,11 @@ export interface TableProps<RecordType>
     filterSearchPlaceholderText?: string;
     getPopupContainer?: GetPopupContainer;
     headerBordered?: boolean;
+    /**
+     * Adds border to the bottom of the header
+     * @default false
+     */
+    headerBottomBordered?: boolean;
     onChange?: (
         pagination: TablePaginationConfig,
         filters: Record<string, FilterValue | null>,
