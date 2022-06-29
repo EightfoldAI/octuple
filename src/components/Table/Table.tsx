@@ -79,6 +79,7 @@ function InternalTable<RecordType extends object = any>(
         filterSearchPlaceholderText,
         getPopupContainer,
         headerBordered = false,
+        headerBottomBordered = false,
         indentSize,
         innerBordered = false,
         loading,
@@ -555,6 +556,14 @@ function InternalTable<RecordType extends object = any>(
                             !rowBordered &&
                             !innerBordered &&
                             headerBordered,
+                    },
+                    {
+                        [styles.tableHeaderBottomBordered]:
+                            !bordered &&
+                            !rowBordered &&
+                            !innerBordered &&
+                            !headerBordered &&
+                            headerBottomBordered,
                     },
                     {
                         [styles.tableInnerBordered]:
