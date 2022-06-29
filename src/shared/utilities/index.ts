@@ -1,5 +1,7 @@
+export * from './addEventListenerWrapper';
 export * from './canUseDom';
 export * from './conditionalWrapper';
+export * from './contains';
 export * from './css';
 export * from './debounce';
 export * from './domWrapper';
@@ -8,6 +10,7 @@ export * from './findDOMNode';
 export * from './generateId';
 export * from './getScroll';
 export * from './getScrollBarSize';
+export * from './isMobile';
 export * from './isVisible';
 export * from './mergeClasses';
 export * from './omit';
