@@ -1,9 +1,10 @@
 import { MenuSize, MenuType, MenuVariant } from '../Menu.types';
 import { OcBaseProps } from '../../OcBase';
 import { IconProps } from '../../Icon';
+import { BadgeProps } from '../../Badge';
 
 export interface MenuItemProps
-    extends OcBaseProps<Omit<HTMLLIElement, 'type' | 'children'>> {
+    extends OcBaseProps<Omit<HTMLButtonElement, 'children'>> {
     /**
      * Value of the menu item
      */
@@ -40,4 +41,17 @@ export interface MenuItemProps
      * @param value
      */
     onClick?: (value: any) => void;
+    /**
+     * The badge counter string.
+     */
+    counter?: string;
+    /**
+     * Badge props
+     */
+    badgeProps?: BadgeProps;
+    /**
+     * If the menu item is active or not
+     * @default false
+     */
+    active?: boolean;
 }

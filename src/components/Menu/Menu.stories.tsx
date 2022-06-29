@@ -48,6 +48,7 @@ const Overlay = (args: any) => (
                 iconProps: { path: IconName.mdiCalendar },
                 text: 'Date',
                 value: 'date 1',
+                counter: '8',
             },
             {
                 iconProps: { path: IconName.mdiThumbUpOutline },

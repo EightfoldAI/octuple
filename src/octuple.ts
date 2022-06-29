@@ -36,7 +36,7 @@ import { Link } from './components/Link';
 
 import { List } from './components/List';
 
-import { Menu } from './components/Menu';
+import { Menu, MenuType, MenuVariant, MenuSize } from './components/Menu';
 
 import { Modal, ModalSize } from './components/Modal';
 
@@ -136,6 +136,9 @@ export {
     List,
     MatchScore,
     Menu,
+    MenuType,
+    MenuVariant,
+    MenuSize,
     Modal,
     ModalSize,
     Navbar,

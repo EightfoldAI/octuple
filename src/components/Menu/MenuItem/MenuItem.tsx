@@ -3,6 +3,7 @@ import { MenuItemProps } from './MenuItem.types';
 import { MenuSize, MenuVariant } from '../Menu.types';
 import { Icon } from '../../Icon';
 import { mergeClasses } from '../../../shared/utilities';
+import { Badge } from '../../Badge';
 
 import styles from './menuItem.module.scss';
 
@@ -15,6 +16,9 @@ export const MenuItem: FC<MenuItemProps> = ({
     onClick,
     tabIndex = 0,
     value,
+    active,
+    counter,
+    badgeProps,
     ...rest
 }) => {
     const menuItemClasses: string = mergeClasses([
@@ -25,19 +29,28 @@ export const MenuItem: FC<MenuItemProps> = ({
         { [styles.neutral]: variant === MenuVariant.neutral },
         { [styles.primary]: variant === MenuVariant.primary },
         { [styles.disruptive]: variant === MenuVariant.disruptive },
+        { [styles.active]: active },
         classNames,
     ]);
 
     return (
-        <li
-            {...rest}
-            onClick={() => onClick(value)}
+        <button
+            onClick={() => onClick?.(value)}
             tabIndex={tabIndex}
             role="menuitem"
             className={menuItemClasses}
+            {...rest}
         >
             {iconProps && <Icon {...iconProps} />}
-            <span>{text}</span>
-        </li>
+            <span className={styles.label}>{text}</span>
+            {counter && (
+                <Badge
+                    disruptive={variant === MenuVariant.disruptive}
+                    {...badgeProps}
+                >
+                    {counter}
+                </Badge>
+            )}
+        </button>
     );
 };

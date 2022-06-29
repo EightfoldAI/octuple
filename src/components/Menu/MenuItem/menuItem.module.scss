@@ -30,24 +30,26 @@
     &.primary {
         --label: var(--primary-color);
 
-        &:active {
-            --background: var(--primary-color-10);
-        }
-
         &:hover {
             --background: var(--primary-color-20);
+        }
+
+        &.active,
+        &:active {
+            --background: var(--primary-color-10);
         }
     }
 
     &.disruptive {
         --label: var(--disruptive-color);
 
-        &:active {
-            --background: var(--disruptive-color-10);
-        }
-
         &:hover {
             --background: var(--disruptive-color-20);
+        }
+
+        &.active,
+        &:active {
+            --background: var(--disruptive-color-10);
         }
     }
 
@@ -55,12 +57,13 @@
         --active-background: var(--grey-color-10);
         --label: var(--grey-color-70);
 
-        &:active {
-            --background: var(--grey-color-10);
-        }
-
         &:hover {
             --background: var(--grey-color-20);
+        }
+
+        &.active,
+        &:active {
+            --background: var(--grey-color-10);
         }
     }
 
@@ -68,5 +71,11 @@
         pointer-events: none;
         opacity: $disabled-alpha-value;
         cursor: not-allowed;
+    }
+
+    .label {
+        flex: 1;
+        display: flex;
+        align-content: flex-start;
     }
 }
