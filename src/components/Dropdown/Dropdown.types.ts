@@ -40,6 +40,11 @@ export interface DropdownProps {
      */
     placement?: Placement;
     /**
+     * If the dropdown is portaled
+     * @default false
+     */
+    portal?: boolean;
+    /**
      * Positioning strategy for the tooltip
      * @default absolute
      */
