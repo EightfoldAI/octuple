@@ -163,6 +163,13 @@
         width: fit-content;
     }
 
+    &.floating {
+        position: fixed;
+        bottom: 40px;
+        right: 40px;
+        z-index: $z-index-400;
+    }
+
     &:disabled,
     &.disabled {
         opacity: $disabled-alpha-value;

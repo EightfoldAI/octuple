@@ -212,6 +212,9 @@ const buttonArgs: Object = {
     disabled: false,
     disruptive: false,
     dropShadow: false,
+    floatingButtonProps: {
+        enabled: false,
+    },
     htmlType: 'button',
     iconProps: {
         path: IconName.mdiCardsHeart,

@@ -40,6 +40,7 @@ export const BaseButton: FC<InternalButtonProps> = React.forwardRef(
             split,
             splitButtonChecked = false,
             splitButtonProps,
+            floatingButtonProps,
             style,
             text,
             theme,
@@ -82,6 +83,7 @@ export const BaseButton: FC<InternalButtonProps> = React.forwardRef(
             { [styles.pillShape]: shape === ButtonShape.Pill },
             { [styles.dropShadow]: dropShadow },
             { [styles.dark]: theme === ButtonTheme.dark },
+            { [styles.floating]: floatingButtonProps?.enabled },
         ]);
 
         const buttonBaseClassNames: string = mergeClasses([
