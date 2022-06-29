@@ -178,7 +178,7 @@ export interface ExpandableConfig<RecordType> {
 }
 
 // =================== Render ===================
-export type PanelRender<RecordType> = (
+export type FrameWrapperRender<RecordType> = (
     data: readonly RecordType[]
 ) => React.ReactNode;
 
@@ -230,8 +230,8 @@ export interface OcTableProps<RecordType = unknown> {
     rowClassName?: string | RowClassName<RecordType>;
 
     // Additional Part
-    title?: PanelRender<RecordType>;
-    footer?: PanelRender<RecordType>;
+    title?: FrameWrapperRender<RecordType>;
+    footer?: FrameWrapperRender<RecordType>;
     summary?: (data: readonly RecordType[]) => React.ReactNode;
 
     // Customize
