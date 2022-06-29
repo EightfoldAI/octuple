@@ -17,14 +17,14 @@ export const DefaultTasksCompleteImg = (): JSX.Element => {
             <path
                 d="M180 98C185.192 98 189 93.5161 189 88.5C189 83.4839 185.192 79 180 79C174.808 79 171 83.4839 171 88.5C171 93.5161 174.808 98 180 98Z"
                 stroke="#B0F3FE"
-                stroke-width="6"
+                strokeWidth="6"
             />
             <circle cx="139" cy="47" r="5" fill="#B0F3FE" />
             <path
                 d="M56.3926 96.6624C60.9586 96.6624 64.3926 92.703 64.3926 88.1624C64.3926 83.6217 60.9586 79.6624 56.3926 79.6624C51.8266 79.6624 48.3926 83.6217 48.3926 88.1624C48.3926 92.703 51.8266 96.6624 56.3926 96.6624Z"
                 fill="#B0F3FE"
                 stroke="#B0F3FE"
-                stroke-width="4"
+                strokeWidth="4"
             />
             <circle
                 cx="98"
@@ -32,7 +32,7 @@ export const DefaultTasksCompleteImg = (): JSX.Element => {
                 r="60"
                 fill="white"
                 stroke="#8ED0FA"
-                stroke-width="6"
+                strokeWidth="6"
                 strokeLinecap="round"
             />
             <path
@@ -42,7 +42,7 @@ export const DefaultTasksCompleteImg = (): JSX.Element => {
             <path
                 d="M16 26C21.1921 26 25 21.5161 25 16.5C25 11.4839 21.1921 7 16 7C10.8079 7 7 11.4839 7 16.5C7 21.5161 10.8079 26 16 26Z"
                 stroke="#B0F3FE"
-                stroke-width="6"
+                strokeWidth="6"
             />
             <ellipse cx="38" cy="35.5" rx="6" ry="6.5" fill="#B0F3FE" />
             <ellipse cx="171" cy="35.5" rx="6" ry="6.5" fill="#B0F3FE" />
@@ -52,7 +52,7 @@ export const DefaultTasksCompleteImg = (): JSX.Element => {
                 x2="142"
                 y2="13"
                 stroke="#B0F3FE"
-                stroke-width="6"
+                strokeWidth="6"
                 strokeLinecap="round"
             />
             <line
@@ -61,7 +61,7 @@ export const DefaultTasksCompleteImg = (): JSX.Element => {
                 x2="151"
                 y2="4"
                 stroke="#B0F3FE"
-                stroke-width="6"
+                strokeWidth="6"
                 strokeLinecap="round"
             />
             <line
@@ -70,7 +70,7 @@ export const DefaultTasksCompleteImg = (): JSX.Element => {
                 x2="13"
                 y2="87"
                 stroke="#B0F3FE"
-                stroke-width="6"
+                strokeWidth="6"
                 strokeLinecap="round"
             />
             <line
@@ -79,7 +79,7 @@ export const DefaultTasksCompleteImg = (): JSX.Element => {
                 x2="22"
                 y2="78"
                 stroke="#B0F3FE"
-                stroke-width="6"
+                strokeWidth="6"
                 strokeLinecap="round"
             />
         </svg>
