@@ -1404,6 +1404,7 @@ Header_Bordered.args = {
     ...tableArgs,
     bordered: false,
     headerBordered: true,
+    headerBottomBordered: false,
 };
 
 Inner_Bordered.args = {
