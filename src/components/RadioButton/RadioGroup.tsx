@@ -1,18 +1,28 @@
 import React, { FC, Ref } from 'react';
-import { RadioButton } from '../';
+import { RadioButtonProps, RadioGroupProps, RadioButton } from './';
 import { RadioGroupProvider } from './RadioGroup.context';
-import { mergeClasses } from '../../../shared/utilities';
-import { RadioButtonProps, RadioGroupProps } from './Radio.types';
+import { mergeClasses } from '../../shared/utilities';
 
 import styles from './radio.module.scss';
 
 export const RadioGroup: FC<RadioGroupProps> = React.forwardRef(
     (
-        { onChange, items, classNames, style, ariaLabel, value, ...rest },
+        {
+            onChange,
+            items,
+            classNames,
+            style,
+            ariaLabel,
+            value,
+            layout = 'vertical',
+            ...rest
+        },
         ref: Ref<HTMLDivElement>
     ) => {
         const radioGroupClasses: string = mergeClasses([
             styles.radioGroup,
+            { [styles.vertical]: layout === 'vertical' },
+            { [styles.horizontal]: layout === 'horizontal' },
             classNames,
         ]);
 

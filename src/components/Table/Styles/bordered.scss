@@ -360,6 +360,16 @@
             }
         }
 
+        &-header-bottom-bordered {
+            table {
+                thead {
+                    tr th {
+                        border-bottom: $table-border;
+                    }
+                }
+            }
+        }
+
         &-inner-bordered {
             .table-title {
                 border: $table-border;

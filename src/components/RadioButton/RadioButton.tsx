@@ -1,6 +1,6 @@
 import React, { FC, Ref, useEffect, useRef, useState } from 'react';
-import { RadioButtonProps } from './Radio.types';
-import { mergeClasses, generateId } from '../../../shared/utilities';
+import { RadioButtonProps } from './';
+import { mergeClasses, generateId } from '../../shared/utilities';
 import { useRadioGroup } from './RadioGroup.context';
 
 import styles from './radio.module.scss';

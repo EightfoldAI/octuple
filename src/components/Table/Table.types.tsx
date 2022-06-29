@@ -6,8 +6,8 @@ import type {
     OcTableProps,
 } from './Internal/OcTable.types';
 import { GetRowKey, ExpandableConfig } from './Internal/OcTable.types';
-import type { TooltipProps } from '../Tooltip/Tooltip.types';
-import type { CheckboxProps } from '../Selectors';
+import type { TooltipProps } from '../Tooltip';
+import type { CheckboxProps } from '../CheckBox';
 import type { PaginationProps } from '../Pagination';
 import type { Breakpoint } from '../../shared/utilities';
 import { tuple } from '../../shared/utilities';
@@ -230,6 +230,11 @@ export interface TableProps<RecordType>
     filterSearchPlaceholderText?: string;
     getPopupContainer?: GetPopupContainer;
     headerBordered?: boolean;
+    /**
+     * Adds border to the bottom of the header
+     * @default false
+     */
+    headerBottomBordered?: boolean;
     onChange?: (
         pagination: TablePaginationConfig,
         filters: Record<string, FilterValue | null>,

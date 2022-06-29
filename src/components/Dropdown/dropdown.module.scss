@@ -2,30 +2,6 @@
     display: inline-block;
     white-space: nowrap;
 
-    .dropdown-wrapper {
-        background: var(--background-color);
-        padding: $space-xs;
-        box-shadow: $shadow-object-m;
-        border-radius: $space-xxs;
-        transition: all $motion-duration-fast $motion-easing-easeout;
-        min-width: 280px;
-        opacity: 0;
-        white-space: normal;
-        z-index: $z-index-400;
-        max-height: 34vh;
-        overflow-y: auto;
-
-        &.open {
-            animation: slideUpIn $motion-duration-extra-fast
-                $motion-easing-easeinout 0s forwards;
-        }
-
-        &.close {
-            animation: slideUpOut $motion-duration-extra-fast
-                $motion-easing-easeinout 0s forwards;
-        }
-    }
-
     .reference-wrapper {
         display: flex;
         cursor: pointer;
@@ -39,5 +15,29 @@
             pointer-events: none;
             cursor: auto;
         }
+    }
+}
+
+.dropdown-wrapper {
+    background: var(--background-color);
+    padding: $space-xs;
+    box-shadow: $shadow-object-m;
+    border-radius: $space-xxs;
+    transition: all $motion-duration-fast $motion-easing-easeout;
+    min-width: 280px;
+    opacity: 0;
+    white-space: normal;
+    z-index: $z-index-400;
+    max-height: 34vh;
+    overflow-y: auto;
+
+    &.open {
+        animation: slideUpIn $motion-duration-extra-fast
+            $motion-easing-easeinout 0s forwards;
+    }
+
+    &.close {
+        animation: slideUpOut $motion-duration-extra-fast
+            $motion-easing-easeinout 0s forwards;
     }
 }
