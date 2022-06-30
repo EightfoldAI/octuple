@@ -1,7 +1,7 @@
 import React from 'react';
 import { Stories } from '@storybook/addon-docs';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { Menu, MenuType, MenuVariant } from './';
+import { Menu, MenuSize, MenuType, MenuVariant } from './';
 import { IconName } from '../Icon';
 import { Dropdown } from '../Dropdown';
 import { DefaultButton } from '../Button';
@@ -35,7 +35,11 @@ export default {
                 MenuVariant.primary,
                 MenuVariant.disruptive,
             ],
-            control: { type: 'select' },
+            control: { type: 'radio' },
+        },
+        size: {
+            options: [MenuSize.small, MenuSize.medium, MenuSize.large],
+            control: { type: 'radio' },
         },
     },
 } as ComponentMeta<typeof Menu>;
@@ -108,6 +112,7 @@ export const Menus = Menu_Story.bind({});
 
 Menus.args = {
     variant: MenuVariant.neutral,
+    size: MenuSize.medium,
     classNames: 'my-menu-class',
     style: {},
     itemClassNames: 'my-menu-item-class',

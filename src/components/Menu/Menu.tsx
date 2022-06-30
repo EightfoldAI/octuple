@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { MenuProps, MenuType, MenuVariant } from './Menu.types';
+import { MenuProps, MenuSize, MenuType, MenuVariant } from './Menu.types';
 import { List } from '../List';
 import { MenuItem } from './MenuItem/MenuItem';
 import { MenuItemProps } from './MenuItem/MenuItem.types';
@@ -9,6 +9,7 @@ export const Menu: FC<MenuProps> = ({
     onChange,
     variant = MenuVariant.neutral,
     type = MenuType.button,
+    size = MenuSize.medium,
     classNames,
     style,
     itemClassNames,
@@ -27,6 +28,7 @@ export const Menu: FC<MenuProps> = ({
                         key={`oc-menu-item-${index}`}
                         onClick={onChange}
                         variant={variant}
+                        size={size}
                         {...item}
                     />
                 );
