@@ -18,6 +18,8 @@ import { RadioGroup } from '../RadioButton';
 import { CheckBoxGroup } from '../CheckBox';
 import { Link } from '../Link';
 import { Navbar, NavbarContent } from '../Navbar';
+import { Dropdown } from '../Dropdown';
+import { Menu, MenuVariant } from '../Menu';
 
 const theme: OcThemeNames[] = [
     'red',
@@ -277,9 +279,52 @@ const ThemedComponents: FC = () => {
                     })),
                 }}
             />
+            <Dropdown overlay={Overlay()} placement="top">
+                <DefaultButton text={'Menu dropdown'} />
+            </Dropdown>
         </Stack>
     );
 };
+
+const Overlay = () => (
+    <Menu
+        {...{
+            variant: MenuVariant.neutral,
+            classNames: 'my-menu-class',
+            style: {},
+            itemClassNames: 'my-menu-item-class',
+            itemStyle: {},
+            listType: 'ul',
+        }}
+        items={[
+            {
+                iconProps: { path: IconName.mdiCalendar },
+                text: 'Date',
+                value: 'date 1',
+                counter: '8',
+            },
+            {
+                iconProps: { path: IconName.mdiThumbUpOutline },
+                text: 'Thumbs up',
+                value: 'date 1',
+                disabled: true,
+            },
+            {
+                iconProps: { path: IconName.mdiSchool },
+                text: 'School',
+                value: 'date 1',
+            },
+            {
+                iconProps: { path: IconName.mdiCalendar },
+                text: 'Date',
+                value: 'date 1',
+            },
+        ]}
+        onChange={(item) => {
+            console.log(item);
+        }}
+    />
+);
 
 const DEFAULT_FOCUS_VISIBLE: boolean = true;
 const DEFAULT_FOCUS_VISIBLE_ELEMENT: HTMLElement = document.documentElement;

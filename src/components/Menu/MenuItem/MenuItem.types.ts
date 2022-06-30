@@ -42,13 +42,9 @@ export interface MenuItemProps
      */
     onClick?: (value: any) => void;
     /**
-     * The badge counter string.
+     * The counter string.
      */
     counter?: string;
-    /**
-     * Badge props
-     */
-    badgeProps?: BadgeProps;
     /**
      * If the menu item is active or not
      * @default false

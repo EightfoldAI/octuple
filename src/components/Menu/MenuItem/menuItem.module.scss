@@ -79,3 +79,31 @@
         align-content: flex-start;
     }
 }
+
+:global(.focus-visible) {
+    .menu-item {
+        &:focus-visible {
+            outline-offset: 1px;
+            outline-width: $space-xxxs;
+            outline-style: solid;
+        }
+
+        &.primary {
+            &:focus-visible {
+                outline-color: var(--primary-color-50);
+            }
+        }
+
+        &.disruptive {
+            &:focus-visible {
+                outline-color: var(--disruptive-color-50);
+            }
+        }
+
+        &.neutral {
+            &:focus-visible {
+                outline-color: var(--grey-color-50);
+            }
+        }
+    }
+}
