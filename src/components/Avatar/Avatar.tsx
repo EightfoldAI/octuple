@@ -8,13 +8,17 @@ import { Icon } from '../Icon';
 
 export const AVATAR_THEME_SET = [
     styles.red,
-    styles.grey,
-    styles.blue,
+    styles.redOrange,
     styles.orange,
-    styles.green,
-    styles.violet,
     styles.yellow,
-    styles.bluegreen,
+    styles.yellowGreen,
+    styles.green,
+    styles.blueGreen,
+    styles.blue,
+    styles.blueViolet,
+    styles.violet,
+    styles.violetRed,
+    styles.grey,
 ];
 
 const AvatarFallback: FC<AvatarFallbackProps> = React.forwardRef(
@@ -38,12 +42,16 @@ const AvatarFallback: FC<AvatarFallbackProps> = React.forwardRef(
             styles.wrapperStyle,
             classNames,
             { [styles.red]: theme === 'red' },
+            { [styles.redOrange]: theme === 'redOrange' },
             { [styles.orange]: theme === 'orange' },
             { [styles.yellow]: theme === 'yellow' },
+            { [styles.yellowGreen]: theme === 'yellowGreen' },
             { [styles.green]: theme === 'green' },
-            { [styles.bluegreen]: theme === 'bluegreen' },
+            { [styles.blueGreen]: theme === 'blueGreen' },
             { [styles.blue]: theme === 'blue' },
+            { [styles.blueViolet]: theme === 'blueViolet' },
             { [styles.violet]: theme === 'violet' },
+            { [styles.violetRed]: theme === 'violetRed' },
             { [styles.grey]: theme === 'grey' },
             AVATAR_THEME_SET?.[colorSetIndex],
         ]);

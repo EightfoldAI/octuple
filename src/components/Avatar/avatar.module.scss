@@ -2,52 +2,54 @@
     align-items: center;
     display: flex;
     justify-content: center;
+    color: var(--text-inverse-color);
 
-<<<<<<< HEAD
     &.red {
-        background-color: var(--red-color-20);
-        border: solid 1px var(--red-color-30);
-        color: var(--red-color);
-=======
-    &.disruptive {
-        background-color: var(--disruptive-color-60);
-        color: var(--text-inverse-color);
->>>>>>> 3d53a6f (feat: theme 2 color palette, default button & input shape to pull, styles for selectors, tabs, buttons, accordion & match score (#174))
-    }
-
-    &.grey {
-        background-color: var(--grey-color-60);
-        color: var(--text-inverse-color);
-    }
-
-    &.blue {
-        background-color: var(--blue-color-60);
-        color: var(--text-inverse-color);
+        background-color: var(--red-color-60);
     }
 
     &.orange {
         background-color: var(--orange-color-60);
-        color: var(--text-inverse-color);
     }
 
-    &.green {
-        background-color: var(--green-color-60);
-        color: var(--text-inverse-color);
-    }
-
-    &.violet {
-        background-color: var(--violet-color-60);
-        color: var(--text-inverse-color);
+    &.red-orange {
+        background-color: var(--redorange-color-60);
     }
 
     &.yellow {
         background-color: var(--yellow-color-60);
-        color: var(--text-inverse-color);
     }
 
-    &.bluegreen {
+    &.yellow-green {
+        background-color: var(--yellowgreen-color-60);
+    }
+
+    &.green {
+        background-color: var(--green-color-60);
+    }
+
+    &.blue-green {
         background-color: var(--bluegreen-color-60);
-        color: var(--text-inverse-color);
+    }
+
+    &.blue {
+        background-color: var(--blue-color-60);
+    }
+
+    &.blue-violet {
+        background-color: var(--blueviolet-color-60);
+    }
+
+    &.violet {
+        background-color: var(--violet-color-60);
+    }
+
+    &.violet-red {
+        background-color: var(--violetred-color-60);
+    }
+
+    &.grey {
+        background-color: var(--grey-color-60);
     }
 }
 
