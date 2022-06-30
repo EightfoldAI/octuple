@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.14.3](https://github.com/EightfoldAI/octuple/compare/v1.14.2...v1.14.3) (2022-06-30)
+
+### Features
+
+-   dropdown: add ability to portal ([#210](https://github.com/EightfoldAI/octuple/issues/210)) ([9a385ca](https://github.com/EightfoldAI/octuple/commits/9a385ca16aae7d8ae02a77b2439340b1e4d93499))
+
+### Bug Fixes
+
+-   table: increase selection column size, add border bottom header prop ([#209](https://github.com/EightfoldAI/octuple/issues/209)) ([2a36bee](https://github.com/EightfoldAI/octuple/commits/2a36beebce09cd58929b6ddc41b0e41b7fba0743))
+
 ### [1.14.2](https://github.com/EightfoldAI/octuple/compare/v1.14.1...v1.14.2) (2022-06-28)
 
 ### Features
