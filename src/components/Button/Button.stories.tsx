@@ -142,7 +142,11 @@ export default {
             action: 'contextmenu',
         },
         shape: {
-            options: [ButtonShape.Rectangle, ButtonShape.Pill],
+            options: [
+                ButtonShape.Rectangle,
+                ButtonShape.Pill,
+                ButtonShape.Round,
+            ],
             control: { type: 'inline-radio' },
         },
         size: {

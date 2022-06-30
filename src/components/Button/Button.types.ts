@@ -28,6 +28,7 @@ export enum ButtonWidth {
 export enum ButtonShape {
     Rectangle = 'rectangle',
     Pill = 'pill',
+    Round = 'round',
 }
 
 export enum ButtonTheme {
