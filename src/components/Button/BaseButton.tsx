@@ -30,6 +30,7 @@ export const BaseButton: FC<InternalButtonProps> = React.forwardRef(
             disabled = false,
             disruptive = false,
             dropShadow = false,
+            floatingButtonProps,
             htmlType,
             iconProps,
             id,
@@ -40,7 +41,6 @@ export const BaseButton: FC<InternalButtonProps> = React.forwardRef(
             split,
             splitButtonChecked = false,
             splitButtonProps,
-            floatingButtonProps,
             style,
             text,
             theme,
@@ -81,7 +81,10 @@ export const BaseButton: FC<InternalButtonProps> = React.forwardRef(
             { [styles.buttonSize2]: size === ButtonSize.Medium },
             { [styles.buttonSize3]: size === ButtonSize.Small },
             { [styles.pillShape]: shape === ButtonShape.Pill },
-            { [styles.roundShape]: shape === ButtonShape.Round },
+            {
+                [styles.roundShape]:
+                    shape === ButtonShape.Round && !split && !textExists,
+            },
             { [styles.dropShadow]: dropShadow },
             { [styles.dark]: theme === ButtonTheme.dark },
             { [styles.floating]: floatingButtonProps?.enabled },

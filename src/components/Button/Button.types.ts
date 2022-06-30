@@ -143,6 +143,10 @@ export interface ButtonProps extends NativeButtonProps {
      */
     dropShadow?: boolean;
     /**
+     * The button is always floating on bottom right corner.
+     */
+    floatingButtonProps?: FloatingButtonProps;
+    /**
      * The button html type.
      */
     htmlType?: 'button' | 'submit' | 'reset';
@@ -202,8 +206,4 @@ export interface ButtonProps extends NativeButtonProps {
      * The button is a toggle button with distinct on and off states.
      */
     toggle?: boolean;
-    /**
-     * The button is always floating on bottom right corner.
-     */
-    floatingButtonProps?: FloatingButtonProps;
 }
