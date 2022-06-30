@@ -28,6 +28,7 @@ export enum ButtonWidth {
 export enum ButtonShape {
     Rectangle = 'rectangle',
     Pill = 'pill',
+    Round = 'round',
 }
 
 export enum ButtonTheme {
@@ -51,6 +52,14 @@ export interface InternalButtonProps extends ButtonProps {
      * Ref of the button
      */
     ref?: Ref<HTMLButtonElement>;
+}
+
+export interface FloatingButtonProps {
+    /**
+     * Determines if the button is floating.
+     * @default false
+     */
+    enabled?: boolean;
 }
 
 export type NativeButtonProps = Omit<OcBaseProps<HTMLButtonElement>, 'type'>;
@@ -133,6 +142,10 @@ export interface ButtonProps extends NativeButtonProps {
      * @default false
      */
     dropShadow?: boolean;
+    /**
+     * The button is always floating on bottom right corner.
+     */
+    floatingButtonProps?: FloatingButtonProps;
     /**
      * The button html type.
      */

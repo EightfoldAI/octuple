@@ -25,6 +25,7 @@ export const SecondaryButton: FC<ButtonProps> = React.forwardRef(
             disabled = false,
             disruptive = false,
             dropShadow = false,
+            floatingButtonProps,
             htmlType,
             iconProps,
             onClick,
@@ -63,6 +64,7 @@ export const SecondaryButton: FC<ButtonProps> = React.forwardRef(
                 disabled={disabled}
                 disruptive={disruptive}
                 dropShadow={dropShadow}
+                floatingButtonProps={floatingButtonProps}
                 htmlType={htmlType}
                 iconProps={iconProps}
                 onClick={onClick}
@@ -74,8 +76,8 @@ export const SecondaryButton: FC<ButtonProps> = React.forwardRef(
                 style={style}
                 text={text}
                 theme={theme}
-                type={ButtonType.Secondary}
                 toggle={toggle}
+                type={ButtonType.Secondary}
                 buttonWidth={buttonWidth}
             />
         );
