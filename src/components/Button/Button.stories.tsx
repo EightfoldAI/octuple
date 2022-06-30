@@ -142,7 +142,11 @@ export default {
             action: 'contextmenu',
         },
         shape: {
-            options: [ButtonShape.Rectangle, ButtonShape.Pill],
+            options: [
+                ButtonShape.Rectangle,
+                ButtonShape.Pill,
+                ButtonShape.Round,
+            ],
             control: { type: 'inline-radio' },
         },
         size: {
@@ -212,6 +216,9 @@ const buttonArgs: Object = {
     disabled: false,
     disruptive: false,
     dropShadow: false,
+    floatingButtonProps: {
+        enabled: false,
+    },
     htmlType: 'button',
     iconProps: {
         path: IconName.mdiCardsHeart,

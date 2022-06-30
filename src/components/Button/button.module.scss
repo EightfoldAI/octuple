@@ -81,6 +81,20 @@
         border-radius: $corner-radius-xl;
     }
 
+    &.round-shape {
+        border-radius: 50%;
+
+        &.button-size-1 {
+            padding: $button-padding-vertical-large;
+        }
+        &.button-size-2 {
+            padding: $button-padding-vertical-medium;
+        }
+        &.button-size-3 {
+            padding: $button-padding-vertical-small;
+        }
+    }
+
     &.drop-shadow {
         box-shadow: 0 1px 2px rgba(15, 20, 31, 0.12),
             0 2px 8px rgba(15, 20, 31, 0.16);
@@ -161,6 +175,13 @@
         padding: 0 $space-xxs;
         text-align: center;
         width: fit-content;
+    }
+
+    &.floating {
+        position: fixed;
+        bottom: 40px;
+        right: 40px;
+        z-index: $z-index-400;
     }
 
     &:disabled,
