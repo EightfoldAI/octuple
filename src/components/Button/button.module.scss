@@ -1,23 +1,6 @@
 .button {
     --button-default-foreground-color: var(--primary-color);
-<<<<<<< HEAD
-    --button-hover-foreground-color: var(--primary-color);
-    --button-focus-foreground-color: var(--primary-color-80);
-    --button-active-foreground-color: var(--primary-color-80);
-    --button-visited-foreground-color: var(--primary-color-80);
-    --button-default-outline-color: var(--primary-color);
-    --button-hover-outline-color: var(--primary-color-60);
-    --button-active-outline-color: var(--primary-color-80);
-    --button-visited-outline-color: var(--primary-color-80);
-    --button-focus-outline-color: var(--primary-color-40);
-    --button-primary-default-background-color: var(--primary-color);
-    --button-primary-hover-background-color: var(--primary-color-60);
-    --button-primary-focus-background-color: var(--primary-color-80);
-    --button-primary-active-background-color: var(--primary-color-80);
-    --button-primary-visited-background-color: var(--primary-color-80);
-=======
     --button-focus-outline-color: var(--blueviolet-color-50);
->>>>>>> 3d53a6f (feat: theme 2 color palette, default button & input shape to pull, styles for selectors, tabs, buttons, accordion & match score (#174))
     --button-primary-default-border-color: var(--primary-color);
     --button-two-state-default-foreground-color: var(--grey-color-70);
     --button-two-state-hover-foreground-color: var(--primary-color);
@@ -279,13 +262,7 @@
     }
 
     &:active {
-<<<<<<< HEAD
-        background-color: var(--button-primary-active-background-color);
-        border-color: var(--button-primary-active-border-color);
-        color: var(--text-inverse-color);
-=======
         --bg: var(--accent-color-30);
->>>>>>> 3d53a6f (feat: theme 2 color palette, default button & input shape to pull, styles for selectors, tabs, buttons, accordion & match score (#174))
     }
 }
 
@@ -303,13 +280,7 @@
     }
 
     &:active {
-<<<<<<< HEAD
-        background-color: var(--button-active-background-color);
-        color: var(--button-active-foreground-color);
-        outline-color: var(--button-active-outline-color);
-=======
         --bg: var(--accent-color-20);
->>>>>>> 3d53a6f (feat: theme 2 color palette, default button & input shape to pull, styles for selectors, tabs, buttons, accordion & match score (#174))
     }
 }
 
@@ -324,12 +295,7 @@
     }
 
     &:active {
-<<<<<<< HEAD
-        background-color: var(--disruptive-color-80);
-        border-color: var(--disruptive-color-80);
-=======
         --bg: var(--disruptive-color-30);
->>>>>>> 3d53a6f (feat: theme 2 color palette, default button & input shape to pull, styles for selectors, tabs, buttons, accordion & match score (#174))
     }
 }
 
@@ -346,12 +312,7 @@
     }
 
     &:active {
-<<<<<<< HEAD
-        color: var(--disruptive-color-80);
-        outline-color: var(--disruptive-color-80);
-=======
         --bg: var(--disruptive-color-20);
->>>>>>> 3d53a6f (feat: theme 2 color palette, default button & input shape to pull, styles for selectors, tabs, buttons, accordion & match score (#174))
     }
 }
 
@@ -365,21 +326,11 @@
     outline-offset: -2px;
 
     &:hover {
-<<<<<<< HEAD
-        background-color: var(--button-hover-variant-background-color);
-        color: var(--button-hover-foreground-color);
-    }
-
-    &:active {
-        background-color: var(--button-active-background-color);
-        color: var(--button-active-foreground-color);
-=======
         --bg: transparent;
     }
 
     &:active {
         --bg: var(--accent-color-20);
->>>>>>> 3d53a6f (feat: theme 2 color palette, default button & input shape to pull, styles for selectors, tabs, buttons, accordion & match score (#174))
     }
 }
 
@@ -409,21 +360,11 @@
     outline-offset: -2px;
 
     &:hover {
-<<<<<<< HEAD
-        background-color: var(--grey-color-10);
-        color: var(--text-secondary-color);
-    }
-
-    &:active {
-        background-color: var(--grey-color-20);
-        color: var(--text-secondary-color);
-=======
         --bg: transparent;
     }
 
     &:active {
         --bg: var(--grey-color-20);
->>>>>>> 3d53a6f (feat: theme 2 color palette, default button & input shape to pull, styles for selectors, tabs, buttons, accordion & match score (#174))
     }
 }
 

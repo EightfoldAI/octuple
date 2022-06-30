@@ -54,12 +54,16 @@ export default {
 
 const themes: OcThemeNames[] = [
     'red',
+    'redOrange',
     'orange',
     'yellow',
+    'yellowGreen',
     'green',
     'blueGreen',
     'blue',
+    'blueViolet',
     'violet',
+    'violetRed',
     'grey',
 ];
 
