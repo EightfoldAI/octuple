@@ -33,6 +33,12 @@
         --hover-bg: var(--red-color-30);
     }
 
+    &.red-orange {
+        --bg: var(--redorange-color-20);
+        --label: var(--redorange-color);
+        --hover-bg: var(--redorange-color-30);
+    }
+
     &.orange {
         --bg: var(--orange-color-20);
         --label: var(--orange-color);
@@ -45,13 +51,19 @@
         --hover-bg: var(--yellow-color-30);
     }
 
+    &.yellow-green {
+        --bg: var(--yellowgreen-color-20);
+        --label: var(--yellowgreen-color);
+        --hover-bg: var(--yellowgreen-color-30);
+    }
+
     &.green {
         --bg: var(--green-color-20);
         --label: var(--green-color);
         --hover-bg: var(--green-color-30);
     }
 
-    &.bluegreen {
+    &.blue-green {
         --bg: var(--bluegreen-color-20);
         --label: var(--bluegreen-color);
         --hover-bg: var(--bluegreen-color-30);
@@ -62,10 +74,21 @@
         --label: var(--blue-color);
     }
 
+    &.blue-violet {
+        --bg: var(--blueviolet-color-20);
+        --label: var(--blueviolet-color);
+    }
+
     &.violet {
         --bg: var(--violet-color-20);
         --label: var(--violet-color);
         --hover-bg: var(--violet-color-30);
+    }
+
+    &.violet-red {
+        --bg: var(--violetred-color-20);
+        --label: var(--violetred-color);
+        --hover-bg: var(--violetred-color-30);
     }
 
     &.grey {
