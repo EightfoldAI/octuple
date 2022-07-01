@@ -1,12 +1,12 @@
 import React from 'react';
 import { DropdownProps } from '../Dropdown';
 import { TextInputProps, TextInputWidth } from '../Inputs';
-import { MenuItem, MenuProps } from '../Menu';
+import { MenuProps } from '../Menu';
 import { OcBaseProps } from '../OcBase';
 import { PillProps } from '../Pills';
-import { SpinnerProps } from '../Spinner';
+import { MenuItemProps } from '../Menu/MenuItem/MenuItem.types';
 
-export interface SelectOption extends MenuItem {
+export interface SelectOption extends MenuItemProps {
     selected?: boolean;
     hideOption?: boolean;
 }

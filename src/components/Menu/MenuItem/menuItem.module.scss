@@ -1,0 +1,109 @@
+.menu-item {
+    --background: transparent;
+    background-color: var(--background);
+    color: var(--label);
+    display: flex;
+    align-items: center;
+    gap: $space-xs;
+    border-radius: $space-xxs;
+    cursor: pointer;
+    font-weight: $text-font-weight-semibold;
+    transition: all $motion-duration-extra-fast $motion-easing-easeinout 0s;
+
+    &.large {
+        height: 48px;
+        padding: $button-padding-vertical-medium
+            $button-padding-horizontal-medium;
+    }
+
+    &.medium {
+        height: 44px;
+        padding: $button-padding-vertical-medium
+            $button-padding-horizontal-medium;
+    }
+
+    &.small {
+        height: 40px;
+        padding: $button-padding-vertical-small $button-padding-horizontal-small;
+    }
+
+    &.primary {
+        --label: var(--primary-color);
+
+        &:hover {
+            --background: var(--primary-color-20);
+        }
+
+        &.active,
+        &:active {
+            --background: var(--primary-color-10);
+        }
+    }
+
+    &.disruptive {
+        --label: var(--disruptive-color);
+
+        &:hover {
+            --background: var(--disruptive-color-20);
+        }
+
+        &.active,
+        &:active {
+            --background: var(--disruptive-color-10);
+        }
+    }
+
+    &.neutral {
+        --active-background: var(--grey-color-10);
+        --label: var(--grey-color-70);
+
+        &:hover {
+            --background: var(--grey-color-20);
+        }
+
+        &.active,
+        &:active {
+            --background: var(--grey-color-10);
+        }
+    }
+
+    &[disabled] {
+        pointer-events: none;
+        opacity: $disabled-alpha-value;
+        cursor: not-allowed;
+    }
+
+    .label {
+        flex: 1;
+        display: flex;
+        align-content: flex-start;
+    }
+}
+
+:global(.focus-visible) {
+    .menu-item {
+        &:focus-visible {
+            outline-offset: 1px;
+            outline-width: $space-xxxs;
+            outline-style: solid;
+        }
+
+        &.primary {
+            &:focus-visible {
+                outline-color: var(--primary-color-50);
+            }
+        }
+
+        &.disruptive {
+            &:focus-visible {
+                outline-color: var(--disruptive-color-50);
+            }
+        }
+
+        &.neutral {
+            &:focus-visible {
+                outline-color: var(--grey-color-50);
+            }
+        }
+    }
+}

@@ -240,6 +240,7 @@ const buttonArgs: Object = {
     text: 'Button',
     theme: ButtonTheme.light,
     toggle: false,
+    counter: 0,
 };
 
 Primary.args = {
