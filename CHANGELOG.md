@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.15.0](https://github.com/EightfoldAI/octuple/compare/v1.14.3...v1.15.0) (2022-07-01)
+
+### Features
+
+-   eng-22373: enable floating buttons ([#212](https://github.com/EightfoldAI/octuple/issues/212)) ([d1ac476](https://github.com/EightfoldAI/octuple/commits/d1ac476302172a387514bfcb4434afc881f06ec6))
+
+### Bug Fixes
+
+-   remove buttons from menu item ([#202](https://github.com/EightfoldAI/octuple/issues/202)) ([305c932](https://github.com/EightfoldAI/octuple/commits/305c932e1ee7e594ec6e856654a3baa97b1b4126))
+
 ### [1.14.3](https://github.com/EightfoldAI/octuple/compare/v1.14.2...v1.14.3) (2022-06-30)
 
 ### Features
