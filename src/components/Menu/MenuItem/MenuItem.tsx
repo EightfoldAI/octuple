@@ -41,7 +41,7 @@ export const MenuItem: FC<MenuItemProps> = ({
         >
             {iconProps && <Icon {...iconProps} />}
             <span className={styles.label}>{text}</span>
-            {counter && <span className={styles.counter}>{counter}</span>}
+            {counter && <span>{counter}</span>}
         </button>
     );
 };
