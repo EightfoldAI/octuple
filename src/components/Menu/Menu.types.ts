@@ -1,27 +1,39 @@
-import { ButtonProps } from '../Button';
 import { ListProps } from '../List';
+import { MenuItemProps } from './MenuItem/MenuItem.types';
 
-export interface MenuItem
-    extends Omit<ButtonProps, 'disruptive' | 'onClick' | 'value'> {
-    /**
-     * Value of the menu item
-     */
-    value: any;
-}
-
-export enum MenuType {
+export enum MenuVariant {
     disruptive = 'disruptive',
-    default = 'default',
+    primary = 'primary',
     neutral = 'neutral',
 }
 
+export enum MenuType {
+    button = 'button',
+}
+
+export enum MenuSize {
+    large = 'large',
+    medium = 'medium',
+    small = 'small',
+}
+
 export interface MenuProps
-    extends Omit<ListProps<MenuItem>, 'renderItem' | 'role' | 'itemRole'> {
+    extends Omit<ListProps<MenuItemProps>, 'renderItem' | 'role' | 'itemRole'> {
     /**
-     * If menu is disruptive or not
-     * @default false
+     * Variant of the menu item
+     * @default MenuVariant.neutral
+     */
+    variant?: MenuVariant;
+    /**
+     * Type of the menu
+     * @default MenuType.button
      */
     type?: MenuType;
+    /**
+     * Size of the menu
+     * @default MenuSize.Medium
+     */
+    size?: MenuSize;
     /**
      * On change callback when menu item is clicked
      * @param value

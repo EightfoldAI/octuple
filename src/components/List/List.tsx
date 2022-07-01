@@ -17,7 +17,8 @@ export const List = <T extends any>({
     itemStyle,
     listType = 'ul',
     role,
-    itemRole,
+    itemProps,
+    getItem,
     ...rest
 }: ListProps<T>) => {
     const containerClasses: string = mergeClasses([
@@ -40,19 +41,21 @@ export const List = <T extends any>({
         return `oc-list-item-${index}`;
     };
 
-    const getItem = (item: T, index: number): JSX.Element => (
+    const _getItem = (item: T, index: number): JSX.Element => (
         <li
+            {...itemProps}
             key={getItemKey(item, index)}
             className={itemClasses}
             style={itemStyle}
-            role={itemRole}
         >
             {renderItem(item)}
         </li>
     );
 
     const getItems = (): JSX.Element[] =>
-        items.map((item: T, index) => getItem(item, index));
+        items.map(
+            (item: T, index) => getItem?.(item, index) ?? _getItem(item, index)
+        );
 
     return (
         <div {...rest} className={classNames} style={style}>
