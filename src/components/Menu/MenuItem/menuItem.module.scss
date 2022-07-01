@@ -5,38 +5,44 @@
     display: flex;
     align-items: center;
     gap: $space-xs;
-    border-radius: $space-xxs;
+    border-radius: $corner-radius-xl;
     cursor: pointer;
     font-weight: $text-font-weight-semibold;
     transition: all $motion-duration-extra-fast $motion-easing-easeinout 0s;
 
     &.large {
-        height: 48px;
+        height: 44px;
+        font-size: $text-font-size-4;
+        line-height: $text-line-height-3;
         padding: $button-padding-vertical-medium
             $button-padding-horizontal-medium;
     }
 
     &.medium {
-        height: 44px;
+        height: 36px;
+        font-size: $text-font-size-3;
+        line-height: $text-line-height-2;
         padding: $button-padding-vertical-medium
             $button-padding-horizontal-medium;
     }
 
     &.small {
-        height: 40px;
+        height: 28px;
+        font-size: $text-font-size-2;
+        line-height: $text-line-height-1;
         padding: $button-padding-vertical-small $button-padding-horizontal-small;
     }
 
     &.primary {
-        --label: var(--primary-color);
+        --label: var(--primary-color-70);
 
         &:hover {
-            --background: var(--primary-color-20);
+            --background: var(--accent-color-10);
         }
 
         &.active,
         &:active {
-            --background: var(--primary-color-10);
+            --background: var(--accent-color-20);
         }
     }
 
@@ -44,12 +50,12 @@
         --label: var(--disruptive-color);
 
         &:hover {
-            --background: var(--disruptive-color-20);
+            --background: var(--disruptive-color-10);
         }
 
         &.active,
         &:active {
-            --background: var(--disruptive-color-10);
+            --background: var(--disruptive-color-20);
         }
     }
 
@@ -58,12 +64,12 @@
         --label: var(--grey-color-70);
 
         &:hover {
-            --background: var(--grey-color-20);
+            --background: var(--grey-color-10);
         }
 
         &.active,
         &:active {
-            --background: var(--grey-color-10);
+            --background: var(--grey-color-20);
         }
     }
 
@@ -83,26 +89,26 @@
 :global(.focus-visible) {
     .menu-item {
         &:focus-visible {
-            outline-offset: 1px;
+            outline-offset: -1px;
             outline-width: $space-xxxs;
             outline-style: solid;
         }
 
         &.primary {
             &:focus-visible {
-                outline-color: var(--primary-color-50);
+                outline-color: var(--blueviolet-color-50);
             }
         }
 
         &.disruptive {
             &:focus-visible {
-                outline-color: var(--disruptive-color-50);
+                outline-color: var(--blueviolet-color-50);
             }
         }
 
         &.neutral {
             &:focus-visible {
-                outline-color: var(--grey-color-50);
+                outline-color: var(--blueviolet-color-50);
             }
         }
     }
