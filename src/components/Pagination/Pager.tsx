@@ -1,8 +1,12 @@
-import React, { FC, useEffect, useCallback, useState, Ref } from 'react';
-import { PagerProps } from './Pagination.types';
-import { ButtonSize, DefaultButton } from '../Button';
-import { IconName } from '../Icon';
-import { mergeClasses } from '../../shared/utilities';
+import React, {FC, useEffect, useCallback, useState, Ref} from 'react';
+import {PagerProps} from './Pagination.types';
+import {
+    ButtonShape,
+    ButtonSize,
+    NeutralButton,
+} from '../Button';
+import {IconName} from '../Icon';
+import {mergeClasses} from '../../shared/utilities';
 
 import styles from './pagination.module.scss';
 
@@ -132,14 +136,15 @@ export const Pager: FC<PagerProps> = React.forwardRef(
                 {pageCount > 0 && (
                     <li>
                         {!simplified ? (
-                            <DefaultButton
+                            <NeutralButton
                                 checked={currentPage === 1}
                                 classNames={mergeClasses([
                                     styles.paginationButton,
-                                    { [styles.active]: currentPage === 1 },
+                                    {[styles.active]: currentPage === 1},
                                 ])}
+                                shape={ButtonShape.Rectangle}
                                 onClick={() => onCurrentChange(1)}
-                                size={ButtonSize.Small}
+                                size={ButtonSize.Medium}
                                 text={'1'.toLocaleString()}
                                 toggle
                             />
@@ -152,12 +157,13 @@ export const Pager: FC<PagerProps> = React.forwardRef(
                     currentPage > EDGE_BUFFER_THRESHOLD &&
                     pageCount > SHORT_LIST_THRESHOLD && (
                         <li>
-                            <DefaultButton
+                            <NeutralButton
                                 ariaLabel={quickPreviousIconButtonAriaLabel}
                                 classNames={mergeClasses([
                                     styles.paginationButton,
                                     'quickprevious',
                                 ])}
+                                shape={ButtonShape.Rectangle}
                                 iconProps={{
                                     role: 'presentation',
                                     path: _quickPreviousActive
@@ -177,7 +183,7 @@ export const Pager: FC<PagerProps> = React.forwardRef(
                                         currentPage - EDGE_BUFFER_THRESHOLD
                                     )
                                 }
-                                size={ButtonSize.Small}
+                                size={ButtonSize.Medium}
                             />
                         </li>
                     )}
@@ -185,17 +191,15 @@ export const Pager: FC<PagerProps> = React.forwardRef(
                     _pagers?.map((pager, idx) => {
                         return (
                             <li key={idx}>
-                                <DefaultButton
+                                <NeutralButton
                                     checked={currentPage === pager}
+                                    shape={ButtonShape.Rectangle}
                                     classNames={mergeClasses([
                                         styles.paginationButton,
-                                        {
-                                            [styles.active]:
-                                                currentPage === pager,
-                                        },
+                                        {[styles.active]: currentPage === pager},
                                     ])}
                                     onClick={() => onCurrentChange(pager)}
-                                    size={ButtonSize.Small}
+                                    size={ButtonSize.Medium}
                                     text={pager.toLocaleString()}
                                     toggle
                                 />
@@ -206,12 +210,13 @@ export const Pager: FC<PagerProps> = React.forwardRef(
                     currentPage < pageCount - EDGE_BUFFER_THRESHOLD &&
                     pageCount > SHORT_LIST_THRESHOLD && (
                         <li>
-                            <DefaultButton
+                            <NeutralButton
                                 ariaLabel={quickNextIconButtonAriaLabel}
                                 classNames={mergeClasses([
                                     styles.paginationButton,
                                     'quicknext',
                                 ])}
+                                shape={ButtonShape.Rectangle}
                                 iconProps={{
                                     role: 'presentation',
                                     path: _quickNextActive
@@ -227,24 +232,22 @@ export const Pager: FC<PagerProps> = React.forwardRef(
                                         currentPage + EDGE_BUFFER_THRESHOLD
                                     )
                                 }
-                                size={ButtonSize.Small}
+                                size={ButtonSize.Medium}
                             />
                         </li>
                     )}
                 {pageCount > 1 && (
                     <li>
                         {!simplified ? (
-                            <DefaultButton
+                            <NeutralButton
+                                shape={ButtonShape.Rectangle}
                                 checked={currentPage === pageCount}
                                 classNames={mergeClasses([
                                     styles.paginationButton,
-                                    {
-                                        [styles.active]:
-                                            currentPage === pageCount,
-                                    },
+                                    {[styles.active]: currentPage === pageCount},
                                 ])}
                                 onClick={() => onCurrentChange(pageCount)}
-                                size={ButtonSize.Small}
+                                size={ButtonSize.Medium}
                                 text={pageCount.toLocaleString()}
                                 toggle
                             />
