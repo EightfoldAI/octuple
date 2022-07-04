@@ -1,8 +1,10 @@
 .pagination {
-    --pager-button-active-foreground-color: var(--text-inverse-color);
-    --pager-button-active-outline-color: var(--primary-color-70);
-    --pager-button-active-background-color: var(--primary-color-70);
+    --pager-button-active-foreground-color: var(--primary-color-70);
+    --pager-button-active-outline-color: var(--accent-color-20);
+    --pager-button-active-background-color: var(--accent-color-20);
     padding: $space-xxs 0;
+    display: flex;
+    align-items: center;
 
     span,
     .pagination-button {
@@ -12,6 +14,10 @@
     }
 
     .pagination-button {
+        &:hover {
+            background: var(--accent-color-10);
+        }
+
         &:active,
         &.active {
             color: var(--pager-button-active-foreground-color);
@@ -22,6 +28,14 @@
                 color: var(--pager-button-active-foreground-color);
             }
         }
+    }
+
+    .pagination-next {
+        margin-left: $space-xxs;
+    }
+
+    .pagination-previous {
+        margin-right: $space-xxs;
     }
 
     .sizes {
@@ -68,7 +82,7 @@
         margin: 0;
 
         li {
-            padding: 0 $space-xxxs;
+            padding: 0 $space-xxs;
             vertical-align: top;
             display: inline-block;
             box-sizing: border-box;
@@ -90,6 +104,8 @@
             padding: 0;
             width: 24px;
             vertical-align: middle;
+            outline: solid 1px var(--accent-color-60);
+            outline-offset: -1px;
 
             span,
             svg {
@@ -99,8 +115,13 @@
             }
 
             svg {
-                margin-top: $space-xxs;
+                margin-top: $space-xxxs;
             }
+        }
+
+        .pagination-next,
+        .pagination-previous {
+            outline-color: transparent;
         }
 
         .jump {
