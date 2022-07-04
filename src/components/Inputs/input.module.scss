@@ -175,6 +175,7 @@
         }
 
         &.pill-shape {
+            border-color: var(--border-color);
             border-radius: $corner-radius-xl;
             padding: $space-xs $space-s;
         }
@@ -780,7 +781,7 @@
     }
 
     .icon-button {
-        background-color: var(--background-color);
+        background-color: transparent;
         bottom: 1px;
         color: var(--grey-color-60);
         height: 34px;
@@ -800,8 +801,9 @@
             color: var(--grey-color-60);
         }
 
-        &:active {
-            background-color: var(--background-color);
+        &:active,
+        &:focus {
+            background-color: transparent;
             padding: $button-padding-vertical-small $space-xxs;
 
             svg {
@@ -810,7 +812,7 @@
         }
 
         &:hover {
-            background-color: var(--background-color);
+            background-color: transparent;
             padding: $button-padding-vertical-small $space-xxs;
             outline-color: transparent;
 

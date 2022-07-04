@@ -1352,7 +1352,7 @@ exports[`Storyshots Table Basic 1`] = `
           aria-expanded={false}
           aria-haspopup={true}
           aria-label="Selected page size"
-          className="button button-default button-size3 pill-shape icon-left"
+          className="button button-neutral button-size2 icon-left"
           defaultChecked={false}
           disabled={false}
           onClick={[Function]}
@@ -1369,8 +1369,8 @@ exports[`Storyshots Table Basic 1`] = `
                 role="presentation"
                 style={
                   Object {
-                    "height": "16px",
-                    "width": "16px",
+                    "height": "20px",
+                    "width": "20px",
                   }
                 }
                 viewBox="0 0 24 24"
@@ -1386,7 +1386,7 @@ exports[`Storyshots Table Basic 1`] = `
               </svg>
             </span>
             <span
-              className="button-text3"
+              className="button-text2"
             >
               page / 10
             </span>
@@ -1402,7 +1402,7 @@ exports[`Storyshots Table Basic 1`] = `
     <button
       aria-disabled={false}
       aria-label="Previous"
-      className="pagination-button button button-default button-size3 pill-shape icon-left disabled"
+      className="pagination-button pagination-previous button button-neutral button-size2 icon-left disabled"
       defaultChecked={false}
       disabled={true}
       onClick={[Function]}
@@ -1416,8 +1416,8 @@ exports[`Storyshots Table Basic 1`] = `
           role="presentation"
           style={
             Object {
-              "height": "16px",
-              "width": "16px",
+              "height": "20px",
+              "width": "20px",
             }
           }
           viewBox="0 0 24 24"
@@ -1441,13 +1441,13 @@ exports[`Storyshots Table Basic 1`] = `
           aria-checked={true}
           aria-disabled={false}
           aria-pressed={true}
-          className="pagination-button active button button-default button-size3 pill-shape"
+          className="pagination-button active button button-neutral button-size2"
           defaultChecked={true}
           disabled={false}
           onClick={[Function]}
         >
           <span
-            className="button-text3"
+            className="button-text2"
           >
             1
           </span>
@@ -1458,13 +1458,13 @@ exports[`Storyshots Table Basic 1`] = `
           aria-checked={false}
           aria-disabled={false}
           aria-pressed={false}
-          className="pagination-button button button-default button-size3 pill-shape"
+          className="pagination-button button button-neutral button-size2"
           defaultChecked={false}
           disabled={false}
           onClick={[Function]}
         >
           <span
-            className="button-text3"
+            className="button-text2"
           >
             0
           </span>
@@ -1475,13 +1475,13 @@ exports[`Storyshots Table Basic 1`] = `
           aria-checked={false}
           aria-disabled={false}
           aria-pressed={false}
-          className="pagination-button button button-default button-size3 pill-shape"
+          className="pagination-button button button-neutral button-size2"
           defaultChecked={false}
           disabled={false}
           onClick={[Function]}
         >
           <span
-            className="button-text3"
+            className="button-text2"
           >
             2
           </span>
@@ -1491,7 +1491,7 @@ exports[`Storyshots Table Basic 1`] = `
     <button
       aria-disabled={false}
       aria-label="Next"
-      className="pagination-button button button-default button-size3 pill-shape icon-left"
+      className="pagination-button pagination-next button button-neutral button-size2 icon-left"
       defaultChecked={false}
       disabled={false}
       onClick={[Function]}
@@ -1505,8 +1505,8 @@ exports[`Storyshots Table Basic 1`] = `
           role="presentation"
           style={
             Object {
-              "height": "16px",
-              "width": "16px",
+              "height": "20px",
+              "width": "20px",
             }
           }
           viewBox="0 0 24 24"
@@ -2904,7 +2904,7 @@ exports[`Storyshots Table Bordered 1`] = `
           aria-expanded={false}
           aria-haspopup={true}
           aria-label="Selected page size"
-          className="button button-default button-size3 pill-shape icon-left"
+          className="button button-neutral button-size2 icon-left"
           defaultChecked={false}
           disabled={false}
           onClick={[Function]}
@@ -2921,8 +2921,8 @@ exports[`Storyshots Table Bordered 1`] = `
                 role="presentation"
                 style={
                   Object {
-                    "height": "16px",
-                    "width": "16px",
+                    "height": "20px",
+                    "width": "20px",
                   }
                 }
                 viewBox="0 0 24 24"
@@ -2938,7 +2938,7 @@ exports[`Storyshots Table Bordered 1`] = `
               </svg>
             </span>
             <span
-              className="button-text3"
+              className="button-text2"
             >
               page / 10
             </span>
@@ -2954,7 +2954,7 @@ exports[`Storyshots Table Bordered 1`] = `
     <button
       aria-disabled={false}
       aria-label="Previous"
-      className="pagination-button button button-default button-size3 pill-shape icon-left disabled"
+      className="pagination-button pagination-previous button button-neutral button-size2 icon-left disabled"
       defaultChecked={false}
       disabled={true}
       onClick={[Function]}
@@ -2968,8 +2968,8 @@ exports[`Storyshots Table Bordered 1`] = `
           role="presentation"
           style={
             Object {
-              "height": "16px",
-              "width": "16px",
+              "height": "20px",
+              "width": "20px",
             }
           }
           viewBox="0 0 24 24"
@@ -2993,13 +2993,13 @@ exports[`Storyshots Table Bordered 1`] = `
           aria-checked={true}
           aria-disabled={false}
           aria-pressed={true}
-          className="pagination-button active button button-default button-size3 pill-shape"
+          className="pagination-button active button button-neutral button-size2"
           defaultChecked={true}
           disabled={false}
           onClick={[Function]}
         >
           <span
-            className="button-text3"
+            className="button-text2"
           >
             1
           </span>
@@ -3010,13 +3010,13 @@ exports[`Storyshots Table Bordered 1`] = `
           aria-checked={false}
           aria-disabled={false}
           aria-pressed={false}
-          className="pagination-button button button-default button-size3 pill-shape"
+          className="pagination-button button button-neutral button-size2"
           defaultChecked={false}
           disabled={false}
           onClick={[Function]}
         >
           <span
-            className="button-text3"
+            className="button-text2"
           >
             0
           </span>
@@ -3027,13 +3027,13 @@ exports[`Storyshots Table Bordered 1`] = `
           aria-checked={false}
           aria-disabled={false}
           aria-pressed={false}
-          className="pagination-button button button-default button-size3 pill-shape"
+          className="pagination-button button button-neutral button-size2"
           defaultChecked={false}
           disabled={false}
           onClick={[Function]}
         >
           <span
-            className="button-text3"
+            className="button-text2"
           >
             2
           </span>
@@ -3043,7 +3043,7 @@ exports[`Storyshots Table Bordered 1`] = `
     <button
       aria-disabled={false}
       aria-label="Next"
-      className="pagination-button button button-default button-size3 pill-shape icon-left"
+      className="pagination-button pagination-next button button-neutral button-size2 icon-left"
       defaultChecked={false}
       disabled={false}
       onClick={[Function]}
@@ -3057,8 +3057,8 @@ exports[`Storyshots Table Bordered 1`] = `
           role="presentation"
           style={
             Object {
-              "height": "16px",
-              "width": "16px",
+              "height": "20px",
+              "width": "20px",
             }
           }
           viewBox="0 0 24 24"
@@ -4456,7 +4456,7 @@ exports[`Storyshots Table Cell Bordered 1`] = `
           aria-expanded={false}
           aria-haspopup={true}
           aria-label="Selected page size"
-          className="button button-default button-size3 pill-shape icon-left"
+          className="button button-neutral button-size2 icon-left"
           defaultChecked={false}
           disabled={false}
           onClick={[Function]}
@@ -4473,8 +4473,8 @@ exports[`Storyshots Table Cell Bordered 1`] = `
                 role="presentation"
                 style={
                   Object {
-                    "height": "16px",
-                    "width": "16px",
+                    "height": "20px",
+                    "width": "20px",
                   }
                 }
                 viewBox="0 0 24 24"
@@ -4490,7 +4490,7 @@ exports[`Storyshots Table Cell Bordered 1`] = `
               </svg>
             </span>
             <span
-              className="button-text3"
+              className="button-text2"
             >
               page / 10
             </span>
@@ -4506,7 +4506,7 @@ exports[`Storyshots Table Cell Bordered 1`] = `
     <button
       aria-disabled={false}
       aria-label="Previous"
-      className="pagination-button button button-default button-size3 pill-shape icon-left disabled"
+      className="pagination-button pagination-previous button button-neutral button-size2 icon-left disabled"
       defaultChecked={false}
       disabled={true}
       onClick={[Function]}
@@ -4520,8 +4520,8 @@ exports[`Storyshots Table Cell Bordered 1`] = `
           role="presentation"
           style={
             Object {
-              "height": "16px",
-              "width": "16px",
+              "height": "20px",
+              "width": "20px",
             }
           }
           viewBox="0 0 24 24"
@@ -4545,13 +4545,13 @@ exports[`Storyshots Table Cell Bordered 1`] = `
           aria-checked={true}
           aria-disabled={false}
           aria-pressed={true}
-          className="pagination-button active button button-default button-size3 pill-shape"
+          className="pagination-button active button button-neutral button-size2"
           defaultChecked={true}
           disabled={false}
           onClick={[Function]}
         >
           <span
-            className="button-text3"
+            className="button-text2"
           >
             1
           </span>
@@ -4562,13 +4562,13 @@ exports[`Storyshots Table Cell Bordered 1`] = `
           aria-checked={false}
           aria-disabled={false}
           aria-pressed={false}
-          className="pagination-button button button-default button-size3 pill-shape"
+          className="pagination-button button button-neutral button-size2"
           defaultChecked={false}
           disabled={false}
           onClick={[Function]}
         >
           <span
-            className="button-text3"
+            className="button-text2"
           >
             0
           </span>
@@ -4579,13 +4579,13 @@ exports[`Storyshots Table Cell Bordered 1`] = `
           aria-checked={false}
           aria-disabled={false}
           aria-pressed={false}
-          className="pagination-button button button-default button-size3 pill-shape"
+          className="pagination-button button button-neutral button-size2"
           defaultChecked={false}
           disabled={false}
           onClick={[Function]}
         >
           <span
-            className="button-text3"
+            className="button-text2"
           >
             2
           </span>
@@ -4595,7 +4595,7 @@ exports[`Storyshots Table Cell Bordered 1`] = `
     <button
       aria-disabled={false}
       aria-label="Next"
-      className="pagination-button button button-default button-size3 pill-shape icon-left"
+      className="pagination-button pagination-next button button-neutral button-size2 icon-left"
       defaultChecked={false}
       disabled={false}
       onClick={[Function]}
@@ -4609,8 +4609,8 @@ exports[`Storyshots Table Cell Bordered 1`] = `
           role="presentation"
           style={
             Object {
-              "height": "16px",
-              "width": "16px",
+              "height": "20px",
+              "width": "20px",
             }
           }
           viewBox="0 0 24 24"
@@ -7492,7 +7492,7 @@ exports[`Storyshots Table Ellipsis 1`] = `
           aria-expanded={false}
           aria-haspopup={true}
           aria-label="Selected page size"
-          className="button button-default button-size3 pill-shape icon-left"
+          className="button button-neutral button-size2 icon-left"
           defaultChecked={false}
           disabled={false}
           onClick={[Function]}
@@ -7509,8 +7509,8 @@ exports[`Storyshots Table Ellipsis 1`] = `
                 role="presentation"
                 style={
                   Object {
-                    "height": "16px",
-                    "width": "16px",
+                    "height": "20px",
+                    "width": "20px",
                   }
                 }
                 viewBox="0 0 24 24"
@@ -7526,7 +7526,7 @@ exports[`Storyshots Table Ellipsis 1`] = `
               </svg>
             </span>
             <span
-              className="button-text3"
+              className="button-text2"
             >
               page / 10
             </span>
@@ -7542,7 +7542,7 @@ exports[`Storyshots Table Ellipsis 1`] = `
     <button
       aria-disabled={false}
       aria-label="Previous"
-      className="pagination-button button button-default button-size3 pill-shape icon-left disabled"
+      className="pagination-button pagination-previous button button-neutral button-size2 icon-left disabled"
       defaultChecked={false}
       disabled={true}
       onClick={[Function]}
@@ -7556,8 +7556,8 @@ exports[`Storyshots Table Ellipsis 1`] = `
           role="presentation"
           style={
             Object {
-              "height": "16px",
-              "width": "16px",
+              "height": "20px",
+              "width": "20px",
             }
           }
           viewBox="0 0 24 24"
@@ -7581,13 +7581,13 @@ exports[`Storyshots Table Ellipsis 1`] = `
           aria-checked={true}
           aria-disabled={false}
           aria-pressed={true}
-          className="pagination-button active button button-default button-size3 pill-shape"
+          className="pagination-button active button button-neutral button-size2"
           defaultChecked={true}
           disabled={false}
           onClick={[Function]}
         >
           <span
-            className="button-text3"
+            className="button-text2"
           >
             1
           </span>
@@ -7598,13 +7598,13 @@ exports[`Storyshots Table Ellipsis 1`] = `
           aria-checked={false}
           aria-disabled={false}
           aria-pressed={false}
-          className="pagination-button button button-default button-size3 pill-shape"
+          className="pagination-button button button-neutral button-size2"
           defaultChecked={false}
           disabled={false}
           onClick={[Function]}
         >
           <span
-            className="button-text3"
+            className="button-text2"
           >
             0
           </span>
@@ -7615,13 +7615,13 @@ exports[`Storyshots Table Ellipsis 1`] = `
           aria-checked={false}
           aria-disabled={false}
           aria-pressed={false}
-          className="pagination-button button button-default button-size3 pill-shape"
+          className="pagination-button button button-neutral button-size2"
           defaultChecked={false}
           disabled={false}
           onClick={[Function]}
         >
           <span
-            className="button-text3"
+            className="button-text2"
           >
             2
           </span>
@@ -7631,7 +7631,7 @@ exports[`Storyshots Table Ellipsis 1`] = `
     <button
       aria-disabled={false}
       aria-label="Next"
-      className="pagination-button button button-default button-size3 pill-shape icon-left"
+      className="pagination-button pagination-next button button-neutral button-size2 icon-left"
       defaultChecked={false}
       disabled={false}
       onClick={[Function]}
@@ -7645,8 +7645,8 @@ exports[`Storyshots Table Ellipsis 1`] = `
           role="presentation"
           style={
             Object {
-              "height": "16px",
-              "width": "16px",
+              "height": "20px",
+              "width": "20px",
             }
           }
           viewBox="0 0 24 24"
@@ -9455,7 +9455,7 @@ exports[`Storyshots Table Ellipsis With Tooltip 1`] = `
           aria-expanded={false}
           aria-haspopup={true}
           aria-label="Selected page size"
-          className="button button-default button-size3 pill-shape icon-right"
+          className="button button-neutral button-size2 icon-right"
           defaultChecked={false}
           disabled={false}
           onClick={[Function]}
@@ -9472,8 +9472,8 @@ exports[`Storyshots Table Ellipsis With Tooltip 1`] = `
                 role="presentation"
                 style={
                   Object {
-                    "height": "16px",
-                    "width": "16px",
+                    "height": "20px",
+                    "width": "20px",
                   }
                 }
                 viewBox="0 0 24 24"
@@ -9489,7 +9489,7 @@ exports[`Storyshots Table Ellipsis With Tooltip 1`] = `
               </svg>
             </span>
             <span
-              className="button-text3"
+              className="button-text2"
             >
               8 / page
             </span>
@@ -9505,7 +9505,7 @@ exports[`Storyshots Table Ellipsis With Tooltip 1`] = `
     <button
       aria-disabled={false}
       aria-label="Previous"
-      className="pagination-button button button-default button-size3 pill-shape icon-left disabled"
+      className="pagination-button pagination-previous button button-neutral button-size2 icon-left disabled"
       defaultChecked={false}
       disabled={true}
       onClick={[Function]}
@@ -9519,8 +9519,8 @@ exports[`Storyshots Table Ellipsis With Tooltip 1`] = `
           role="presentation"
           style={
             Object {
-              "height": "16px",
-              "width": "16px",
+              "height": "20px",
+              "width": "20px",
             }
           }
           viewBox="0 0 24 24"
@@ -9544,13 +9544,13 @@ exports[`Storyshots Table Ellipsis With Tooltip 1`] = `
           aria-checked={true}
           aria-disabled={false}
           aria-pressed={true}
-          className="pagination-button active button button-default button-size3 pill-shape"
+          className="pagination-button active button button-neutral button-size2"
           defaultChecked={true}
           disabled={false}
           onClick={[Function]}
         >
           <span
-            className="button-text3"
+            className="button-text2"
           >
             1
           </span>
@@ -9561,13 +9561,13 @@ exports[`Storyshots Table Ellipsis With Tooltip 1`] = `
           aria-checked={false}
           aria-disabled={false}
           aria-pressed={false}
-          className="pagination-button button button-default button-size3 pill-shape"
+          className="pagination-button button button-neutral button-size2"
           defaultChecked={false}
           disabled={false}
           onClick={[Function]}
         >
           <span
-            className="button-text3"
+            className="button-text2"
           >
             2
           </span>
@@ -9577,7 +9577,7 @@ exports[`Storyshots Table Ellipsis With Tooltip 1`] = `
     <button
       aria-disabled={false}
       aria-label="Next"
-      className="pagination-button button button-default button-size3 pill-shape icon-left"
+      className="pagination-button pagination-next button button-neutral button-size2 icon-left"
       defaultChecked={false}
       disabled={false}
       onClick={[Function]}
@@ -9591,8 +9591,8 @@ exports[`Storyshots Table Ellipsis With Tooltip 1`] = `
           role="presentation"
           style={
             Object {
-              "height": "16px",
-              "width": "16px",
+              "height": "20px",
+              "width": "20px",
             }
           }
           viewBox="0 0 24 24"
@@ -11388,7 +11388,7 @@ exports[`Storyshots Table Expandable Row 1`] = `
           aria-expanded={false}
           aria-haspopup={true}
           aria-label="Selected page size"
-          className="button button-default button-size3 pill-shape icon-left"
+          className="button button-neutral button-size2 icon-left"
           defaultChecked={false}
           disabled={false}
           onClick={[Function]}
@@ -11405,8 +11405,8 @@ exports[`Storyshots Table Expandable Row 1`] = `
                 role="presentation"
                 style={
                   Object {
-                    "height": "16px",
-                    "width": "16px",
+                    "height": "20px",
+                    "width": "20px",
                   }
                 }
                 viewBox="0 0 24 24"
@@ -11422,7 +11422,7 @@ exports[`Storyshots Table Expandable Row 1`] = `
               </svg>
             </span>
             <span
-              className="button-text3"
+              className="button-text2"
             >
               page / 10
             </span>
@@ -11438,7 +11438,7 @@ exports[`Storyshots Table Expandable Row 1`] = `
     <button
       aria-disabled={false}
       aria-label="Previous"
-      className="pagination-button button button-default button-size3 pill-shape icon-left disabled"
+      className="pagination-button pagination-previous button button-neutral button-size2 icon-left disabled"
       defaultChecked={false}
       disabled={true}
       onClick={[Function]}
@@ -11452,8 +11452,8 @@ exports[`Storyshots Table Expandable Row 1`] = `
           role="presentation"
           style={
             Object {
-              "height": "16px",
-              "width": "16px",
+              "height": "20px",
+              "width": "20px",
             }
           }
           viewBox="0 0 24 24"
@@ -11477,13 +11477,13 @@ exports[`Storyshots Table Expandable Row 1`] = `
           aria-checked={true}
           aria-disabled={false}
           aria-pressed={true}
-          className="pagination-button active button button-default button-size3 pill-shape"
+          className="pagination-button active button button-neutral button-size2"
           defaultChecked={true}
           disabled={false}
           onClick={[Function]}
         >
           <span
-            className="button-text3"
+            className="button-text2"
           >
             1
           </span>
@@ -11494,13 +11494,13 @@ exports[`Storyshots Table Expandable Row 1`] = `
           aria-checked={false}
           aria-disabled={false}
           aria-pressed={false}
-          className="pagination-button button button-default button-size3 pill-shape"
+          className="pagination-button button button-neutral button-size2"
           defaultChecked={false}
           disabled={false}
           onClick={[Function]}
         >
           <span
-            className="button-text3"
+            className="button-text2"
           >
             0
           </span>
@@ -11511,13 +11511,13 @@ exports[`Storyshots Table Expandable Row 1`] = `
           aria-checked={false}
           aria-disabled={false}
           aria-pressed={false}
-          className="pagination-button button button-default button-size3 pill-shape"
+          className="pagination-button button button-neutral button-size2"
           defaultChecked={false}
           disabled={false}
           onClick={[Function]}
         >
           <span
-            className="button-text3"
+            className="button-text2"
           >
             2
           </span>
@@ -11527,7 +11527,7 @@ exports[`Storyshots Table Expandable Row 1`] = `
     <button
       aria-disabled={false}
       aria-label="Next"
-      className="pagination-button button button-default button-size3 pill-shape icon-left"
+      className="pagination-button pagination-next button button-neutral button-size2 icon-left"
       defaultChecked={false}
       disabled={false}
       onClick={[Function]}
@@ -11541,8 +11541,8 @@ exports[`Storyshots Table Expandable Row 1`] = `
           role="presentation"
           style={
             Object {
-              "height": "16px",
-              "width": "16px",
+              "height": "20px",
+              "width": "20px",
             }
           }
           viewBox="0 0 24 24"
@@ -12990,7 +12990,7 @@ exports[`Storyshots Table Filter 1`] = `
           aria-expanded={false}
           aria-haspopup={true}
           aria-label="Selected page size"
-          className="button button-default button-size3 pill-shape icon-left"
+          className="button button-neutral button-size2 icon-left"
           defaultChecked={false}
           disabled={false}
           onClick={[Function]}
@@ -13007,8 +13007,8 @@ exports[`Storyshots Table Filter 1`] = `
                 role="presentation"
                 style={
                   Object {
-                    "height": "16px",
-                    "width": "16px",
+                    "height": "20px",
+                    "width": "20px",
                   }
                 }
                 viewBox="0 0 24 24"
@@ -13024,7 +13024,7 @@ exports[`Storyshots Table Filter 1`] = `
               </svg>
             </span>
             <span
-              className="button-text3"
+              className="button-text2"
             >
               page / 10
             </span>
@@ -13040,7 +13040,7 @@ exports[`Storyshots Table Filter 1`] = `
     <button
       aria-disabled={false}
       aria-label="Previous"
-      className="pagination-button button button-default button-size3 pill-shape icon-left disabled"
+      className="pagination-button pagination-previous button button-neutral button-size2 icon-left disabled"
       defaultChecked={false}
       disabled={true}
       onClick={[Function]}
@@ -13054,8 +13054,8 @@ exports[`Storyshots Table Filter 1`] = `
           role="presentation"
           style={
             Object {
-              "height": "16px",
-              "width": "16px",
+              "height": "20px",
+              "width": "20px",
             }
           }
           viewBox="0 0 24 24"
@@ -13079,13 +13079,13 @@ exports[`Storyshots Table Filter 1`] = `
           aria-checked={true}
           aria-disabled={false}
           aria-pressed={true}
-          className="pagination-button active button button-default button-size3 pill-shape"
+          className="pagination-button active button button-neutral button-size2"
           defaultChecked={true}
           disabled={false}
           onClick={[Function]}
         >
           <span
-            className="button-text3"
+            className="button-text2"
           >
             1
           </span>
@@ -13096,13 +13096,13 @@ exports[`Storyshots Table Filter 1`] = `
           aria-checked={false}
           aria-disabled={false}
           aria-pressed={false}
-          className="pagination-button button button-default button-size3 pill-shape"
+          className="pagination-button button button-neutral button-size2"
           defaultChecked={false}
           disabled={false}
           onClick={[Function]}
         >
           <span
-            className="button-text3"
+            className="button-text2"
           >
             0
           </span>
@@ -13113,13 +13113,13 @@ exports[`Storyshots Table Filter 1`] = `
           aria-checked={false}
           aria-disabled={false}
           aria-pressed={false}
-          className="pagination-button button button-default button-size3 pill-shape"
+          className="pagination-button button button-neutral button-size2"
           defaultChecked={false}
           disabled={false}
           onClick={[Function]}
         >
           <span
-            className="button-text3"
+            className="button-text2"
           >
             2
           </span>
@@ -13129,7 +13129,7 @@ exports[`Storyshots Table Filter 1`] = `
     <button
       aria-disabled={false}
       aria-label="Next"
-      className="pagination-button button button-default button-size3 pill-shape icon-left"
+      className="pagination-button pagination-next button button-neutral button-size2 icon-left"
       defaultChecked={false}
       disabled={false}
       onClick={[Function]}
@@ -13143,8 +13143,8 @@ exports[`Storyshots Table Filter 1`] = `
           role="presentation"
           style={
             Object {
-              "height": "16px",
-              "width": "16px",
+              "height": "20px",
+              "width": "20px",
             }
           }
           viewBox="0 0 24 24"
@@ -16357,7 +16357,7 @@ exports[`Storyshots Table Fixed Columns 1`] = `
             aria-expanded={false}
             aria-haspopup={true}
             aria-label="Selected page size"
-            className="button button-default button-size3 pill-shape icon-left"
+            className="button button-neutral button-size2 icon-left"
             defaultChecked={false}
             disabled={false}
             onClick={[Function]}
@@ -16374,8 +16374,8 @@ exports[`Storyshots Table Fixed Columns 1`] = `
                   role="presentation"
                   style={
                     Object {
-                      "height": "16px",
-                      "width": "16px",
+                      "height": "20px",
+                      "width": "20px",
                     }
                   }
                   viewBox="0 0 24 24"
@@ -16391,7 +16391,7 @@ exports[`Storyshots Table Fixed Columns 1`] = `
                 </svg>
               </span>
               <span
-                className="button-text3"
+                className="button-text2"
               >
                 page / 10
               </span>
@@ -16407,7 +16407,7 @@ exports[`Storyshots Table Fixed Columns 1`] = `
       <button
         aria-disabled={false}
         aria-label="Previous"
-        className="pagination-button button button-default button-size3 pill-shape icon-left disabled"
+        className="pagination-button pagination-previous button button-neutral button-size2 icon-left disabled"
         defaultChecked={false}
         disabled={true}
         onClick={[Function]}
@@ -16421,8 +16421,8 @@ exports[`Storyshots Table Fixed Columns 1`] = `
             role="presentation"
             style={
               Object {
-                "height": "16px",
-                "width": "16px",
+                "height": "20px",
+                "width": "20px",
               }
             }
             viewBox="0 0 24 24"
@@ -16446,13 +16446,13 @@ exports[`Storyshots Table Fixed Columns 1`] = `
             aria-checked={true}
             aria-disabled={false}
             aria-pressed={true}
-            className="pagination-button active button button-default button-size3 pill-shape"
+            className="pagination-button active button button-neutral button-size2"
             defaultChecked={true}
             disabled={false}
             onClick={[Function]}
           >
             <span
-              className="button-text3"
+              className="button-text2"
             >
               1
             </span>
@@ -16463,13 +16463,13 @@ exports[`Storyshots Table Fixed Columns 1`] = `
             aria-checked={false}
             aria-disabled={false}
             aria-pressed={false}
-            className="pagination-button button button-default button-size3 pill-shape"
+            className="pagination-button button button-neutral button-size2"
             defaultChecked={false}
             disabled={false}
             onClick={[Function]}
           >
             <span
-              className="button-text3"
+              className="button-text2"
             >
               0
             </span>
@@ -16480,13 +16480,13 @@ exports[`Storyshots Table Fixed Columns 1`] = `
             aria-checked={false}
             aria-disabled={false}
             aria-pressed={false}
-            className="pagination-button button button-default button-size3 pill-shape"
+            className="pagination-button button button-neutral button-size2"
             defaultChecked={false}
             disabled={false}
             onClick={[Function]}
           >
             <span
-              className="button-text3"
+              className="button-text2"
             >
               2
             </span>
@@ -16496,7 +16496,7 @@ exports[`Storyshots Table Fixed Columns 1`] = `
       <button
         aria-disabled={false}
         aria-label="Next"
-        className="pagination-button button button-default button-size3 pill-shape icon-left"
+        className="pagination-button pagination-next button button-neutral button-size2 icon-left"
         defaultChecked={false}
         disabled={false}
         onClick={[Function]}
@@ -16510,8 +16510,8 @@ exports[`Storyshots Table Fixed Columns 1`] = `
             role="presentation"
             style={
               Object {
-                "height": "16px",
-                "width": "16px",
+                "height": "20px",
+                "width": "20px",
               }
             }
             viewBox="0 0 24 24"
@@ -19746,7 +19746,7 @@ exports[`Storyshots Table Fixed Columns And Header 1`] = `
             aria-expanded={false}
             aria-haspopup={true}
             aria-label="Selected page size"
-            className="button button-default button-size3 pill-shape icon-left"
+            className="button button-neutral button-size2 icon-left"
             defaultChecked={false}
             disabled={false}
             onClick={[Function]}
@@ -19763,8 +19763,8 @@ exports[`Storyshots Table Fixed Columns And Header 1`] = `
                   role="presentation"
                   style={
                     Object {
-                      "height": "16px",
-                      "width": "16px",
+                      "height": "20px",
+                      "width": "20px",
                     }
                   }
                   viewBox="0 0 24 24"
@@ -19780,7 +19780,7 @@ exports[`Storyshots Table Fixed Columns And Header 1`] = `
                 </svg>
               </span>
               <span
-                className="button-text3"
+                className="button-text2"
               >
                 page / 10
               </span>
@@ -19796,7 +19796,7 @@ exports[`Storyshots Table Fixed Columns And Header 1`] = `
       <button
         aria-disabled={false}
         aria-label="Previous"
-        className="pagination-button button button-default button-size3 pill-shape icon-left disabled"
+        className="pagination-button pagination-previous button button-neutral button-size2 icon-left disabled"
         defaultChecked={false}
         disabled={true}
         onClick={[Function]}
@@ -19810,8 +19810,8 @@ exports[`Storyshots Table Fixed Columns And Header 1`] = `
             role="presentation"
             style={
               Object {
-                "height": "16px",
-                "width": "16px",
+                "height": "20px",
+                "width": "20px",
               }
             }
             viewBox="0 0 24 24"
@@ -19835,13 +19835,13 @@ exports[`Storyshots Table Fixed Columns And Header 1`] = `
             aria-checked={true}
             aria-disabled={false}
             aria-pressed={true}
-            className="pagination-button active button button-default button-size3 pill-shape"
+            className="pagination-button active button button-neutral button-size2"
             defaultChecked={true}
             disabled={false}
             onClick={[Function]}
           >
             <span
-              className="button-text3"
+              className="button-text2"
             >
               1
             </span>
@@ -19852,13 +19852,13 @@ exports[`Storyshots Table Fixed Columns And Header 1`] = `
             aria-checked={false}
             aria-disabled={false}
             aria-pressed={false}
-            className="pagination-button button button-default button-size3 pill-shape"
+            className="pagination-button button button-neutral button-size2"
             defaultChecked={false}
             disabled={false}
             onClick={[Function]}
           >
             <span
-              className="button-text3"
+              className="button-text2"
             >
               0
             </span>
@@ -19869,13 +19869,13 @@ exports[`Storyshots Table Fixed Columns And Header 1`] = `
             aria-checked={false}
             aria-disabled={false}
             aria-pressed={false}
-            className="pagination-button button button-default button-size3 pill-shape"
+            className="pagination-button button button-neutral button-size2"
             defaultChecked={false}
             disabled={false}
             onClick={[Function]}
           >
             <span
-              className="button-text3"
+              className="button-text2"
             >
               2
             </span>
@@ -19885,7 +19885,7 @@ exports[`Storyshots Table Fixed Columns And Header 1`] = `
       <button
         aria-disabled={false}
         aria-label="Next"
-        className="pagination-button button button-default button-size3 pill-shape icon-left"
+        className="pagination-button pagination-next button button-neutral button-size2 icon-left"
         defaultChecked={false}
         disabled={false}
         onClick={[Function]}
@@ -19899,8 +19899,8 @@ exports[`Storyshots Table Fixed Columns And Header 1`] = `
             role="presentation"
             style={
               Object {
-                "height": "16px",
-                "width": "16px",
+                "height": "20px",
+                "width": "20px",
               }
             }
             viewBox="0 0 24 24"
@@ -21404,7 +21404,7 @@ exports[`Storyshots Table Fixed Header 1`] = `
             aria-expanded={false}
             aria-haspopup={true}
             aria-label="Selected page size"
-            className="button button-default button-size3 pill-shape icon-left"
+            className="button button-neutral button-size2 icon-left"
             defaultChecked={false}
             disabled={false}
             onClick={[Function]}
@@ -21421,8 +21421,8 @@ exports[`Storyshots Table Fixed Header 1`] = `
                   role="presentation"
                   style={
                     Object {
-                      "height": "16px",
-                      "width": "16px",
+                      "height": "20px",
+                      "width": "20px",
                     }
                   }
                   viewBox="0 0 24 24"
@@ -21438,7 +21438,7 @@ exports[`Storyshots Table Fixed Header 1`] = `
                 </svg>
               </span>
               <span
-                className="button-text3"
+                className="button-text2"
               >
                 page / 10
               </span>
@@ -21454,7 +21454,7 @@ exports[`Storyshots Table Fixed Header 1`] = `
       <button
         aria-disabled={false}
         aria-label="Previous"
-        className="pagination-button button button-default button-size3 pill-shape icon-left disabled"
+        className="pagination-button pagination-previous button button-neutral button-size2 icon-left disabled"
         defaultChecked={false}
         disabled={true}
         onClick={[Function]}
@@ -21468,8 +21468,8 @@ exports[`Storyshots Table Fixed Header 1`] = `
             role="presentation"
             style={
               Object {
-                "height": "16px",
-                "width": "16px",
+                "height": "20px",
+                "width": "20px",
               }
             }
             viewBox="0 0 24 24"
@@ -21493,13 +21493,13 @@ exports[`Storyshots Table Fixed Header 1`] = `
             aria-checked={true}
             aria-disabled={false}
             aria-pressed={true}
-            className="pagination-button active button button-default button-size3 pill-shape"
+            className="pagination-button active button button-neutral button-size2"
             defaultChecked={true}
             disabled={false}
             onClick={[Function]}
           >
             <span
-              className="button-text3"
+              className="button-text2"
             >
               1
             </span>
@@ -21510,13 +21510,13 @@ exports[`Storyshots Table Fixed Header 1`] = `
             aria-checked={false}
             aria-disabled={false}
             aria-pressed={false}
-            className="pagination-button button button-default button-size3 pill-shape"
+            className="pagination-button button button-neutral button-size2"
             defaultChecked={false}
             disabled={false}
             onClick={[Function]}
           >
             <span
-              className="button-text3"
+              className="button-text2"
             >
               0
             </span>
@@ -21527,13 +21527,13 @@ exports[`Storyshots Table Fixed Header 1`] = `
             aria-checked={false}
             aria-disabled={false}
             aria-pressed={false}
-            className="pagination-button button button-default button-size3 pill-shape"
+            className="pagination-button button button-neutral button-size2"
             defaultChecked={false}
             disabled={false}
             onClick={[Function]}
           >
             <span
-              className="button-text3"
+              className="button-text2"
             >
               2
             </span>
@@ -21543,7 +21543,7 @@ exports[`Storyshots Table Fixed Header 1`] = `
       <button
         aria-disabled={false}
         aria-label="Next"
-        className="pagination-button button button-default button-size3 pill-shape icon-left"
+        className="pagination-button pagination-next button button-neutral button-size2 icon-left"
         defaultChecked={false}
         disabled={false}
         onClick={[Function]}
@@ -21557,8 +21557,8 @@ exports[`Storyshots Table Fixed Header 1`] = `
             role="presentation"
             style={
               Object {
-                "height": "16px",
-                "width": "16px",
+                "height": "20px",
+                "width": "20px",
               }
             }
             viewBox="0 0 24 24"
@@ -22967,7 +22967,7 @@ exports[`Storyshots Table Header And Footer 1`] = `
           aria-expanded={false}
           aria-haspopup={true}
           aria-label="Selected page size"
-          className="button button-default button-size3 pill-shape icon-left"
+          className="button button-neutral button-size2 icon-left"
           defaultChecked={false}
           disabled={false}
           onClick={[Function]}
@@ -22984,8 +22984,8 @@ exports[`Storyshots Table Header And Footer 1`] = `
                 role="presentation"
                 style={
                   Object {
-                    "height": "16px",
-                    "width": "16px",
+                    "height": "20px",
+                    "width": "20px",
                   }
                 }
                 viewBox="0 0 24 24"
@@ -23001,7 +23001,7 @@ exports[`Storyshots Table Header And Footer 1`] = `
               </svg>
             </span>
             <span
-              className="button-text3"
+              className="button-text2"
             >
               page / 10
             </span>
@@ -23017,7 +23017,7 @@ exports[`Storyshots Table Header And Footer 1`] = `
     <button
       aria-disabled={false}
       aria-label="Previous"
-      className="pagination-button button button-default button-size3 pill-shape icon-left disabled"
+      className="pagination-button pagination-previous button button-neutral button-size2 icon-left disabled"
       defaultChecked={false}
       disabled={true}
       onClick={[Function]}
@@ -23031,8 +23031,8 @@ exports[`Storyshots Table Header And Footer 1`] = `
           role="presentation"
           style={
             Object {
-              "height": "16px",
-              "width": "16px",
+              "height": "20px",
+              "width": "20px",
             }
           }
           viewBox="0 0 24 24"
@@ -23056,13 +23056,13 @@ exports[`Storyshots Table Header And Footer 1`] = `
           aria-checked={true}
           aria-disabled={false}
           aria-pressed={true}
-          className="pagination-button active button button-default button-size3 pill-shape"
+          className="pagination-button active button button-neutral button-size2"
           defaultChecked={true}
           disabled={false}
           onClick={[Function]}
         >
           <span
-            className="button-text3"
+            className="button-text2"
           >
             1
           </span>
@@ -23073,13 +23073,13 @@ exports[`Storyshots Table Header And Footer 1`] = `
           aria-checked={false}
           aria-disabled={false}
           aria-pressed={false}
-          className="pagination-button button button-default button-size3 pill-shape"
+          className="pagination-button button button-neutral button-size2"
           defaultChecked={false}
           disabled={false}
           onClick={[Function]}
         >
           <span
-            className="button-text3"
+            className="button-text2"
           >
             0
           </span>
@@ -23090,13 +23090,13 @@ exports[`Storyshots Table Header And Footer 1`] = `
           aria-checked={false}
           aria-disabled={false}
           aria-pressed={false}
-          className="pagination-button button button-default button-size3 pill-shape"
+          className="pagination-button button button-neutral button-size2"
           defaultChecked={false}
           disabled={false}
           onClick={[Function]}
         >
           <span
-            className="button-text3"
+            className="button-text2"
           >
             2
           </span>
@@ -23106,7 +23106,7 @@ exports[`Storyshots Table Header And Footer 1`] = `
     <button
       aria-disabled={false}
       aria-label="Next"
-      className="pagination-button button button-default button-size3 pill-shape icon-left"
+      className="pagination-button pagination-next button button-neutral button-size2 icon-left"
       defaultChecked={false}
       disabled={false}
       onClick={[Function]}
@@ -23120,8 +23120,8 @@ exports[`Storyshots Table Header And Footer 1`] = `
           role="presentation"
           style={
             Object {
-              "height": "16px",
-              "width": "16px",
+              "height": "20px",
+              "width": "20px",
             }
           }
           viewBox="0 0 24 24"
@@ -24519,7 +24519,7 @@ exports[`Storyshots Table Header Bordered 1`] = `
           aria-expanded={false}
           aria-haspopup={true}
           aria-label="Selected page size"
-          className="button button-default button-size3 pill-shape icon-left"
+          className="button button-neutral button-size2 icon-left"
           defaultChecked={false}
           disabled={false}
           onClick={[Function]}
@@ -24536,8 +24536,8 @@ exports[`Storyshots Table Header Bordered 1`] = `
                 role="presentation"
                 style={
                   Object {
-                    "height": "16px",
-                    "width": "16px",
+                    "height": "20px",
+                    "width": "20px",
                   }
                 }
                 viewBox="0 0 24 24"
@@ -24553,7 +24553,7 @@ exports[`Storyshots Table Header Bordered 1`] = `
               </svg>
             </span>
             <span
-              className="button-text3"
+              className="button-text2"
             >
               page / 10
             </span>
@@ -24569,7 +24569,7 @@ exports[`Storyshots Table Header Bordered 1`] = `
     <button
       aria-disabled={false}
       aria-label="Previous"
-      className="pagination-button button button-default button-size3 pill-shape icon-left disabled"
+      className="pagination-button pagination-previous button button-neutral button-size2 icon-left disabled"
       defaultChecked={false}
       disabled={true}
       onClick={[Function]}
@@ -24583,8 +24583,8 @@ exports[`Storyshots Table Header Bordered 1`] = `
           role="presentation"
           style={
             Object {
-              "height": "16px",
-              "width": "16px",
+              "height": "20px",
+              "width": "20px",
             }
           }
           viewBox="0 0 24 24"
@@ -24608,13 +24608,13 @@ exports[`Storyshots Table Header Bordered 1`] = `
           aria-checked={true}
           aria-disabled={false}
           aria-pressed={true}
-          className="pagination-button active button button-default button-size3 pill-shape"
+          className="pagination-button active button button-neutral button-size2"
           defaultChecked={true}
           disabled={false}
           onClick={[Function]}
         >
           <span
-            className="button-text3"
+            className="button-text2"
           >
             1
           </span>
@@ -24625,13 +24625,13 @@ exports[`Storyshots Table Header Bordered 1`] = `
           aria-checked={false}
           aria-disabled={false}
           aria-pressed={false}
-          className="pagination-button button button-default button-size3 pill-shape"
+          className="pagination-button button button-neutral button-size2"
           defaultChecked={false}
           disabled={false}
           onClick={[Function]}
         >
           <span
-            className="button-text3"
+            className="button-text2"
           >
             0
           </span>
@@ -24642,13 +24642,13 @@ exports[`Storyshots Table Header Bordered 1`] = `
           aria-checked={false}
           aria-disabled={false}
           aria-pressed={false}
-          className="pagination-button button button-default button-size3 pill-shape"
+          className="pagination-button button button-neutral button-size2"
           defaultChecked={false}
           disabled={false}
           onClick={[Function]}
         >
           <span
-            className="button-text3"
+            className="button-text2"
           >
             2
           </span>
@@ -24658,7 +24658,7 @@ exports[`Storyshots Table Header Bordered 1`] = `
     <button
       aria-disabled={false}
       aria-label="Next"
-      className="pagination-button button button-default button-size3 pill-shape icon-left"
+      className="pagination-button pagination-next button button-neutral button-size2 icon-left"
       defaultChecked={false}
       disabled={false}
       onClick={[Function]}
@@ -24672,8 +24672,8 @@ exports[`Storyshots Table Header Bordered 1`] = `
           role="presentation"
           style={
             Object {
-              "height": "16px",
-              "width": "16px",
+              "height": "20px",
+              "width": "20px",
             }
           }
           viewBox="0 0 24 24"
@@ -27783,7 +27783,7 @@ exports[`Storyshots Table Header Grouping 1`] = `
           aria-expanded={false}
           aria-haspopup={true}
           aria-label="Selected page size"
-          className="button button-default button-size3 pill-shape icon-left"
+          className="button button-neutral button-size2 icon-left"
           defaultChecked={false}
           disabled={false}
           onClick={[Function]}
@@ -27800,8 +27800,8 @@ exports[`Storyshots Table Header Grouping 1`] = `
                 role="presentation"
                 style={
                   Object {
-                    "height": "16px",
-                    "width": "16px",
+                    "height": "20px",
+                    "width": "20px",
                   }
                 }
                 viewBox="0 0 24 24"
@@ -27817,7 +27817,7 @@ exports[`Storyshots Table Header Grouping 1`] = `
               </svg>
             </span>
             <span
-              className="button-text3"
+              className="button-text2"
             >
               page / 10
             </span>
@@ -27833,7 +27833,7 @@ exports[`Storyshots Table Header Grouping 1`] = `
     <button
       aria-disabled={false}
       aria-label="Previous"
-      className="pagination-button button button-default button-size3 pill-shape icon-left disabled"
+      className="pagination-button pagination-previous button button-neutral button-size2 icon-left disabled"
       defaultChecked={false}
       disabled={true}
       onClick={[Function]}
@@ -27847,8 +27847,8 @@ exports[`Storyshots Table Header Grouping 1`] = `
           role="presentation"
           style={
             Object {
-              "height": "16px",
-              "width": "16px",
+              "height": "20px",
+              "width": "20px",
             }
           }
           viewBox="0 0 24 24"
@@ -27872,13 +27872,13 @@ exports[`Storyshots Table Header Grouping 1`] = `
           aria-checked={true}
           aria-disabled={false}
           aria-pressed={true}
-          className="pagination-button active button button-default button-size3 pill-shape"
+          className="pagination-button active button button-neutral button-size2"
           defaultChecked={true}
           disabled={false}
           onClick={[Function]}
         >
           <span
-            className="button-text3"
+            className="button-text2"
           >
             1
           </span>
@@ -27889,13 +27889,13 @@ exports[`Storyshots Table Header Grouping 1`] = `
           aria-checked={false}
           aria-disabled={false}
           aria-pressed={false}
-          className="pagination-button button button-default button-size3 pill-shape"
+          className="pagination-button button button-neutral button-size2"
           defaultChecked={false}
           disabled={false}
           onClick={[Function]}
         >
           <span
-            className="button-text3"
+            className="button-text2"
           >
             0
           </span>
@@ -27906,13 +27906,13 @@ exports[`Storyshots Table Header Grouping 1`] = `
           aria-checked={false}
           aria-disabled={false}
           aria-pressed={false}
-          className="pagination-button button button-default button-size3 pill-shape"
+          className="pagination-button button button-neutral button-size2"
           defaultChecked={false}
           disabled={false}
           onClick={[Function]}
         >
           <span
-            className="button-text3"
+            className="button-text2"
           >
             2
           </span>
@@ -27922,7 +27922,7 @@ exports[`Storyshots Table Header Grouping 1`] = `
     <button
       aria-disabled={false}
       aria-label="Next"
-      className="pagination-button button button-default button-size3 pill-shape icon-left"
+      className="pagination-button pagination-next button button-neutral button-size2 icon-left"
       defaultChecked={false}
       disabled={false}
       onClick={[Function]}
@@ -27936,8 +27936,8 @@ exports[`Storyshots Table Header Grouping 1`] = `
           role="presentation"
           style={
             Object {
-              "height": "16px",
-              "width": "16px",
+              "height": "20px",
+              "width": "20px",
             }
           }
           viewBox="0 0 24 24"
@@ -29335,7 +29335,7 @@ exports[`Storyshots Table Inner Bordered 1`] = `
           aria-expanded={false}
           aria-haspopup={true}
           aria-label="Selected page size"
-          className="button button-default button-size3 pill-shape icon-left"
+          className="button button-neutral button-size2 icon-left"
           defaultChecked={false}
           disabled={false}
           onClick={[Function]}
@@ -29352,8 +29352,8 @@ exports[`Storyshots Table Inner Bordered 1`] = `
                 role="presentation"
                 style={
                   Object {
-                    "height": "16px",
-                    "width": "16px",
+                    "height": "20px",
+                    "width": "20px",
                   }
                 }
                 viewBox="0 0 24 24"
@@ -29369,7 +29369,7 @@ exports[`Storyshots Table Inner Bordered 1`] = `
               </svg>
             </span>
             <span
-              className="button-text3"
+              className="button-text2"
             >
               page / 10
             </span>
@@ -29385,7 +29385,7 @@ exports[`Storyshots Table Inner Bordered 1`] = `
     <button
       aria-disabled={false}
       aria-label="Previous"
-      className="pagination-button button button-default button-size3 pill-shape icon-left disabled"
+      className="pagination-button pagination-previous button button-neutral button-size2 icon-left disabled"
       defaultChecked={false}
       disabled={true}
       onClick={[Function]}
@@ -29399,8 +29399,8 @@ exports[`Storyshots Table Inner Bordered 1`] = `
           role="presentation"
           style={
             Object {
-              "height": "16px",
-              "width": "16px",
+              "height": "20px",
+              "width": "20px",
             }
           }
           viewBox="0 0 24 24"
@@ -29424,13 +29424,13 @@ exports[`Storyshots Table Inner Bordered 1`] = `
           aria-checked={true}
           aria-disabled={false}
           aria-pressed={true}
-          className="pagination-button active button button-default button-size3 pill-shape"
+          className="pagination-button active button button-neutral button-size2"
           defaultChecked={true}
           disabled={false}
           onClick={[Function]}
         >
           <span
-            className="button-text3"
+            className="button-text2"
           >
             1
           </span>
@@ -29441,13 +29441,13 @@ exports[`Storyshots Table Inner Bordered 1`] = `
           aria-checked={false}
           aria-disabled={false}
           aria-pressed={false}
-          className="pagination-button button button-default button-size3 pill-shape"
+          className="pagination-button button button-neutral button-size2"
           defaultChecked={false}
           disabled={false}
           onClick={[Function]}
         >
           <span
-            className="button-text3"
+            className="button-text2"
           >
             0
           </span>
@@ -29458,13 +29458,13 @@ exports[`Storyshots Table Inner Bordered 1`] = `
           aria-checked={false}
           aria-disabled={false}
           aria-pressed={false}
-          className="pagination-button button button-default button-size3 pill-shape"
+          className="pagination-button button button-neutral button-size2"
           defaultChecked={false}
           disabled={false}
           onClick={[Function]}
         >
           <span
-            className="button-text3"
+            className="button-text2"
           >
             2
           </span>
@@ -29474,7 +29474,7 @@ exports[`Storyshots Table Inner Bordered 1`] = `
     <button
       aria-disabled={false}
       aria-label="Next"
-      className="pagination-button button button-default button-size3 pill-shape icon-left"
+      className="pagination-button pagination-next button button-neutral button-size2 icon-left"
       defaultChecked={false}
       disabled={false}
       onClick={[Function]}
@@ -29488,8 +29488,8 @@ exports[`Storyshots Table Inner Bordered 1`] = `
           role="presentation"
           style={
             Object {
-              "height": "16px",
-              "width": "16px",
+              "height": "20px",
+              "width": "20px",
             }
           }
           viewBox="0 0 24 24"
@@ -30887,7 +30887,7 @@ exports[`Storyshots Table Large 1`] = `
           aria-expanded={false}
           aria-haspopup={true}
           aria-label="Selected page size"
-          className="button button-default button-size3 pill-shape icon-left"
+          className="button button-neutral button-size2 icon-left"
           defaultChecked={false}
           disabled={false}
           onClick={[Function]}
@@ -30904,8 +30904,8 @@ exports[`Storyshots Table Large 1`] = `
                 role="presentation"
                 style={
                   Object {
-                    "height": "16px",
-                    "width": "16px",
+                    "height": "20px",
+                    "width": "20px",
                   }
                 }
                 viewBox="0 0 24 24"
@@ -30921,7 +30921,7 @@ exports[`Storyshots Table Large 1`] = `
               </svg>
             </span>
             <span
-              className="button-text3"
+              className="button-text2"
             >
               page / 10
             </span>
@@ -30937,7 +30937,7 @@ exports[`Storyshots Table Large 1`] = `
     <button
       aria-disabled={false}
       aria-label="Previous"
-      className="pagination-button button button-default button-size3 pill-shape icon-left disabled"
+      className="pagination-button pagination-previous button button-neutral button-size2 icon-left disabled"
       defaultChecked={false}
       disabled={true}
       onClick={[Function]}
@@ -30951,8 +30951,8 @@ exports[`Storyshots Table Large 1`] = `
           role="presentation"
           style={
             Object {
-              "height": "16px",
-              "width": "16px",
+              "height": "20px",
+              "width": "20px",
             }
           }
           viewBox="0 0 24 24"
@@ -30976,13 +30976,13 @@ exports[`Storyshots Table Large 1`] = `
           aria-checked={true}
           aria-disabled={false}
           aria-pressed={true}
-          className="pagination-button active button button-default button-size3 pill-shape"
+          className="pagination-button active button button-neutral button-size2"
           defaultChecked={true}
           disabled={false}
           onClick={[Function]}
         >
           <span
-            className="button-text3"
+            className="button-text2"
           >
             1
           </span>
@@ -30993,13 +30993,13 @@ exports[`Storyshots Table Large 1`] = `
           aria-checked={false}
           aria-disabled={false}
           aria-pressed={false}
-          className="pagination-button button button-default button-size3 pill-shape"
+          className="pagination-button button button-neutral button-size2"
           defaultChecked={false}
           disabled={false}
           onClick={[Function]}
         >
           <span
-            className="button-text3"
+            className="button-text2"
           >
             0
           </span>
@@ -31010,13 +31010,13 @@ exports[`Storyshots Table Large 1`] = `
           aria-checked={false}
           aria-disabled={false}
           aria-pressed={false}
-          className="pagination-button button button-default button-size3 pill-shape"
+          className="pagination-button button button-neutral button-size2"
           defaultChecked={false}
           disabled={false}
           onClick={[Function]}
         >
           <span
-            className="button-text3"
+            className="button-text2"
           >
             2
           </span>
@@ -31026,7 +31026,7 @@ exports[`Storyshots Table Large 1`] = `
     <button
       aria-disabled={false}
       aria-label="Next"
-      className="pagination-button button button-default button-size3 pill-shape icon-left"
+      className="pagination-button pagination-next button button-neutral button-size2 icon-left"
       defaultChecked={false}
       disabled={false}
       onClick={[Function]}
@@ -31040,8 +31040,8 @@ exports[`Storyshots Table Large 1`] = `
           role="presentation"
           style={
             Object {
-              "height": "16px",
-              "width": "16px",
+              "height": "20px",
+              "width": "20px",
             }
           }
           viewBox="0 0 24 24"
@@ -32439,7 +32439,7 @@ exports[`Storyshots Table Medium 1`] = `
           aria-expanded={false}
           aria-haspopup={true}
           aria-label="Selected page size"
-          className="button button-default button-size3 pill-shape icon-left"
+          className="button button-neutral button-size2 icon-left"
           defaultChecked={false}
           disabled={false}
           onClick={[Function]}
@@ -32456,8 +32456,8 @@ exports[`Storyshots Table Medium 1`] = `
                 role="presentation"
                 style={
                   Object {
-                    "height": "16px",
-                    "width": "16px",
+                    "height": "20px",
+                    "width": "20px",
                   }
                 }
                 viewBox="0 0 24 24"
@@ -32473,7 +32473,7 @@ exports[`Storyshots Table Medium 1`] = `
               </svg>
             </span>
             <span
-              className="button-text3"
+              className="button-text2"
             >
               page / 10
             </span>
@@ -32489,7 +32489,7 @@ exports[`Storyshots Table Medium 1`] = `
     <button
       aria-disabled={false}
       aria-label="Previous"
-      className="pagination-button button button-default button-size3 pill-shape icon-left disabled"
+      className="pagination-button pagination-previous button button-neutral button-size2 icon-left disabled"
       defaultChecked={false}
       disabled={true}
       onClick={[Function]}
@@ -32503,8 +32503,8 @@ exports[`Storyshots Table Medium 1`] = `
           role="presentation"
           style={
             Object {
-              "height": "16px",
-              "width": "16px",
+              "height": "20px",
+              "width": "20px",
             }
           }
           viewBox="0 0 24 24"
@@ -32528,13 +32528,13 @@ exports[`Storyshots Table Medium 1`] = `
           aria-checked={true}
           aria-disabled={false}
           aria-pressed={true}
-          className="pagination-button active button button-default button-size3 pill-shape"
+          className="pagination-button active button button-neutral button-size2"
           defaultChecked={true}
           disabled={false}
           onClick={[Function]}
         >
           <span
-            className="button-text3"
+            className="button-text2"
           >
             1
           </span>
@@ -32545,13 +32545,13 @@ exports[`Storyshots Table Medium 1`] = `
           aria-checked={false}
           aria-disabled={false}
           aria-pressed={false}
-          className="pagination-button button button-default button-size3 pill-shape"
+          className="pagination-button button button-neutral button-size2"
           defaultChecked={false}
           disabled={false}
           onClick={[Function]}
         >
           <span
-            className="button-text3"
+            className="button-text2"
           >
             0
           </span>
@@ -32562,13 +32562,13 @@ exports[`Storyshots Table Medium 1`] = `
           aria-checked={false}
           aria-disabled={false}
           aria-pressed={false}
-          className="pagination-button button button-default button-size3 pill-shape"
+          className="pagination-button button button-neutral button-size2"
           defaultChecked={false}
           disabled={false}
           onClick={[Function]}
         >
           <span
-            className="button-text3"
+            className="button-text2"
           >
             2
           </span>
@@ -32578,7 +32578,7 @@ exports[`Storyshots Table Medium 1`] = `
     <button
       aria-disabled={false}
       aria-label="Next"
-      className="pagination-button button button-default button-size3 pill-shape icon-left"
+      className="pagination-button pagination-next button button-neutral button-size2 icon-left"
       defaultChecked={false}
       disabled={false}
       onClick={[Function]}
@@ -32592,8 +32592,8 @@ exports[`Storyshots Table Medium 1`] = `
           role="presentation"
           style={
             Object {
-              "height": "16px",
-              "width": "16px",
+              "height": "20px",
+              "width": "20px",
             }
           }
           viewBox="0 0 24 24"
@@ -34250,7 +34250,7 @@ exports[`Storyshots Table Nested 1`] = `
           aria-expanded={false}
           aria-haspopup={true}
           aria-label="Selected page size"
-          className="button button-default button-size3 pill-shape icon-left"
+          className="button button-neutral button-size2 icon-left"
           defaultChecked={false}
           disabled={false}
           onClick={[Function]}
@@ -34267,8 +34267,8 @@ exports[`Storyshots Table Nested 1`] = `
                 role="presentation"
                 style={
                   Object {
-                    "height": "16px",
-                    "width": "16px",
+                    "height": "20px",
+                    "width": "20px",
                   }
                 }
                 viewBox="0 0 24 24"
@@ -34284,7 +34284,7 @@ exports[`Storyshots Table Nested 1`] = `
               </svg>
             </span>
             <span
-              className="button-text3"
+              className="button-text2"
             >
               page / 10
             </span>
@@ -34300,7 +34300,7 @@ exports[`Storyshots Table Nested 1`] = `
     <button
       aria-disabled={false}
       aria-label="Previous"
-      className="pagination-button button button-default button-size3 pill-shape icon-left disabled"
+      className="pagination-button pagination-previous button button-neutral button-size2 icon-left disabled"
       defaultChecked={false}
       disabled={true}
       onClick={[Function]}
@@ -34314,8 +34314,8 @@ exports[`Storyshots Table Nested 1`] = `
           role="presentation"
           style={
             Object {
-              "height": "16px",
-              "width": "16px",
+              "height": "20px",
+              "width": "20px",
             }
           }
           viewBox="0 0 24 24"
@@ -34339,13 +34339,13 @@ exports[`Storyshots Table Nested 1`] = `
           aria-checked={true}
           aria-disabled={false}
           aria-pressed={true}
-          className="pagination-button active button button-default button-size3 pill-shape"
+          className="pagination-button active button button-neutral button-size2"
           defaultChecked={true}
           disabled={false}
           onClick={[Function]}
         >
           <span
-            className="button-text3"
+            className="button-text2"
           >
             1
           </span>
@@ -34356,13 +34356,13 @@ exports[`Storyshots Table Nested 1`] = `
           aria-checked={false}
           aria-disabled={false}
           aria-pressed={false}
-          className="pagination-button button button-default button-size3 pill-shape"
+          className="pagination-button button button-neutral button-size2"
           defaultChecked={false}
           disabled={false}
           onClick={[Function]}
         >
           <span
-            className="button-text3"
+            className="button-text2"
           >
             0
           </span>
@@ -34373,13 +34373,13 @@ exports[`Storyshots Table Nested 1`] = `
           aria-checked={false}
           aria-disabled={false}
           aria-pressed={false}
-          className="pagination-button button button-default button-size3 pill-shape"
+          className="pagination-button button button-neutral button-size2"
           defaultChecked={false}
           disabled={false}
           onClick={[Function]}
         >
           <span
-            className="button-text3"
+            className="button-text2"
           >
             2
           </span>
@@ -34389,7 +34389,7 @@ exports[`Storyshots Table Nested 1`] = `
     <button
       aria-disabled={false}
       aria-label="Next"
-      className="pagination-button button button-default button-size3 pill-shape icon-left"
+      className="pagination-button pagination-next button button-neutral button-size2 icon-left"
       defaultChecked={false}
       disabled={false}
       onClick={[Function]}
@@ -34403,8 +34403,8 @@ exports[`Storyshots Table Nested 1`] = `
           role="presentation"
           style={
             Object {
-              "height": "16px",
-              "width": "16px",
+              "height": "20px",
+              "width": "20px",
             }
           }
           viewBox="0 0 24 24"
@@ -36631,7 +36631,7 @@ exports[`Storyshots Table Order Select And Expand Column 1`] = `
           aria-expanded={false}
           aria-haspopup={true}
           aria-label="Selected page size"
-          className="button button-default button-size3 pill-shape icon-left"
+          className="button button-neutral button-size2 icon-left"
           defaultChecked={false}
           disabled={false}
           onClick={[Function]}
@@ -36648,8 +36648,8 @@ exports[`Storyshots Table Order Select And Expand Column 1`] = `
                 role="presentation"
                 style={
                   Object {
-                    "height": "16px",
-                    "width": "16px",
+                    "height": "20px",
+                    "width": "20px",
                   }
                 }
                 viewBox="0 0 24 24"
@@ -36665,7 +36665,7 @@ exports[`Storyshots Table Order Select And Expand Column 1`] = `
               </svg>
             </span>
             <span
-              className="button-text3"
+              className="button-text2"
             >
               page / 10
             </span>
@@ -36681,7 +36681,7 @@ exports[`Storyshots Table Order Select And Expand Column 1`] = `
     <button
       aria-disabled={false}
       aria-label="Previous"
-      className="pagination-button button button-default button-size3 pill-shape icon-left disabled"
+      className="pagination-button pagination-previous button button-neutral button-size2 icon-left disabled"
       defaultChecked={false}
       disabled={true}
       onClick={[Function]}
@@ -36695,8 +36695,8 @@ exports[`Storyshots Table Order Select And Expand Column 1`] = `
           role="presentation"
           style={
             Object {
-              "height": "16px",
-              "width": "16px",
+              "height": "20px",
+              "width": "20px",
             }
           }
           viewBox="0 0 24 24"
@@ -36720,13 +36720,13 @@ exports[`Storyshots Table Order Select And Expand Column 1`] = `
           aria-checked={true}
           aria-disabled={false}
           aria-pressed={true}
-          className="pagination-button active button button-default button-size3 pill-shape"
+          className="pagination-button active button button-neutral button-size2"
           defaultChecked={true}
           disabled={false}
           onClick={[Function]}
         >
           <span
-            className="button-text3"
+            className="button-text2"
           >
             1
           </span>
@@ -36737,13 +36737,13 @@ exports[`Storyshots Table Order Select And Expand Column 1`] = `
           aria-checked={false}
           aria-disabled={false}
           aria-pressed={false}
-          className="pagination-button button button-default button-size3 pill-shape"
+          className="pagination-button button button-neutral button-size2"
           defaultChecked={false}
           disabled={false}
           onClick={[Function]}
         >
           <span
-            className="button-text3"
+            className="button-text2"
           >
             0
           </span>
@@ -36754,13 +36754,13 @@ exports[`Storyshots Table Order Select And Expand Column 1`] = `
           aria-checked={false}
           aria-disabled={false}
           aria-pressed={false}
-          className="pagination-button button button-default button-size3 pill-shape"
+          className="pagination-button button button-neutral button-size2"
           defaultChecked={false}
           disabled={false}
           onClick={[Function]}
         >
           <span
-            className="button-text3"
+            className="button-text2"
           >
             2
           </span>
@@ -36770,7 +36770,7 @@ exports[`Storyshots Table Order Select And Expand Column 1`] = `
     <button
       aria-disabled={false}
       aria-label="Next"
-      className="pagination-button button button-default button-size3 pill-shape icon-left"
+      className="pagination-button pagination-next button button-neutral button-size2 icon-left"
       defaultChecked={false}
       disabled={false}
       onClick={[Function]}
@@ -36784,8 +36784,8 @@ exports[`Storyshots Table Order Select And Expand Column 1`] = `
           role="presentation"
           style={
             Object {
-              "height": "16px",
-              "width": "16px",
+              "height": "20px",
+              "width": "20px",
             }
           }
           viewBox="0 0 24 24"
@@ -38183,7 +38183,7 @@ exports[`Storyshots Table Outer Bordered 1`] = `
           aria-expanded={false}
           aria-haspopup={true}
           aria-label="Selected page size"
-          className="button button-default button-size3 pill-shape icon-left"
+          className="button button-neutral button-size2 icon-left"
           defaultChecked={false}
           disabled={false}
           onClick={[Function]}
@@ -38200,8 +38200,8 @@ exports[`Storyshots Table Outer Bordered 1`] = `
                 role="presentation"
                 style={
                   Object {
-                    "height": "16px",
-                    "width": "16px",
+                    "height": "20px",
+                    "width": "20px",
                   }
                 }
                 viewBox="0 0 24 24"
@@ -38217,7 +38217,7 @@ exports[`Storyshots Table Outer Bordered 1`] = `
               </svg>
             </span>
             <span
-              className="button-text3"
+              className="button-text2"
             >
               page / 10
             </span>
@@ -38233,7 +38233,7 @@ exports[`Storyshots Table Outer Bordered 1`] = `
     <button
       aria-disabled={false}
       aria-label="Previous"
-      className="pagination-button button button-default button-size3 pill-shape icon-left disabled"
+      className="pagination-button pagination-previous button button-neutral button-size2 icon-left disabled"
       defaultChecked={false}
       disabled={true}
       onClick={[Function]}
@@ -38247,8 +38247,8 @@ exports[`Storyshots Table Outer Bordered 1`] = `
           role="presentation"
           style={
             Object {
-              "height": "16px",
-              "width": "16px",
+              "height": "20px",
+              "width": "20px",
             }
           }
           viewBox="0 0 24 24"
@@ -38272,13 +38272,13 @@ exports[`Storyshots Table Outer Bordered 1`] = `
           aria-checked={true}
           aria-disabled={false}
           aria-pressed={true}
-          className="pagination-button active button button-default button-size3 pill-shape"
+          className="pagination-button active button button-neutral button-size2"
           defaultChecked={true}
           disabled={false}
           onClick={[Function]}
         >
           <span
-            className="button-text3"
+            className="button-text2"
           >
             1
           </span>
@@ -38289,13 +38289,13 @@ exports[`Storyshots Table Outer Bordered 1`] = `
           aria-checked={false}
           aria-disabled={false}
           aria-pressed={false}
-          className="pagination-button button button-default button-size3 pill-shape"
+          className="pagination-button button button-neutral button-size2"
           defaultChecked={false}
           disabled={false}
           onClick={[Function]}
         >
           <span
-            className="button-text3"
+            className="button-text2"
           >
             0
           </span>
@@ -38306,13 +38306,13 @@ exports[`Storyshots Table Outer Bordered 1`] = `
           aria-checked={false}
           aria-disabled={false}
           aria-pressed={false}
-          className="pagination-button button button-default button-size3 pill-shape"
+          className="pagination-button button button-neutral button-size2"
           defaultChecked={false}
           disabled={false}
           onClick={[Function]}
         >
           <span
-            className="button-text3"
+            className="button-text2"
           >
             2
           </span>
@@ -38322,7 +38322,7 @@ exports[`Storyshots Table Outer Bordered 1`] = `
     <button
       aria-disabled={false}
       aria-label="Next"
-      className="pagination-button button button-default button-size3 pill-shape icon-left"
+      className="pagination-button pagination-next button button-neutral button-size2 icon-left"
       defaultChecked={false}
       disabled={false}
       onClick={[Function]}
@@ -38336,8 +38336,8 @@ exports[`Storyshots Table Outer Bordered 1`] = `
           role="presentation"
           style={
             Object {
-              "height": "16px",
-              "width": "16px",
+              "height": "20px",
+              "width": "20px",
             }
           }
           viewBox="0 0 24 24"
@@ -38724,7 +38724,7 @@ exports[`Storyshots Table Responsive 1`] = `
           aria-expanded={false}
           aria-haspopup={true}
           aria-label="Selected page size"
-          className="button button-default button-size3 pill-shape icon-left"
+          className="button button-neutral button-size2 icon-left"
           defaultChecked={false}
           disabled={false}
           onClick={[Function]}
@@ -38741,8 +38741,8 @@ exports[`Storyshots Table Responsive 1`] = `
                 role="presentation"
                 style={
                   Object {
-                    "height": "16px",
-                    "width": "16px",
+                    "height": "20px",
+                    "width": "20px",
                   }
                 }
                 viewBox="0 0 24 24"
@@ -38758,7 +38758,7 @@ exports[`Storyshots Table Responsive 1`] = `
               </svg>
             </span>
             <span
-              className="button-text3"
+              className="button-text2"
             >
               page / 10
             </span>
@@ -38774,7 +38774,7 @@ exports[`Storyshots Table Responsive 1`] = `
     <button
       aria-disabled={false}
       aria-label="Previous"
-      className="pagination-button button button-default button-size3 pill-shape icon-left disabled"
+      className="pagination-button pagination-previous button button-neutral button-size2 icon-left disabled"
       defaultChecked={false}
       disabled={true}
       onClick={[Function]}
@@ -38788,8 +38788,8 @@ exports[`Storyshots Table Responsive 1`] = `
           role="presentation"
           style={
             Object {
-              "height": "16px",
-              "width": "16px",
+              "height": "20px",
+              "width": "20px",
             }
           }
           viewBox="0 0 24 24"
@@ -38813,13 +38813,13 @@ exports[`Storyshots Table Responsive 1`] = `
           aria-checked={true}
           aria-disabled={false}
           aria-pressed={true}
-          className="pagination-button active button button-default button-size3 pill-shape"
+          className="pagination-button active button button-neutral button-size2"
           defaultChecked={true}
           disabled={false}
           onClick={[Function]}
         >
           <span
-            className="button-text3"
+            className="button-text2"
           >
             1
           </span>
@@ -38830,13 +38830,13 @@ exports[`Storyshots Table Responsive 1`] = `
           aria-checked={false}
           aria-disabled={false}
           aria-pressed={false}
-          className="pagination-button button button-default button-size3 pill-shape"
+          className="pagination-button button button-neutral button-size2"
           defaultChecked={false}
           disabled={false}
           onClick={[Function]}
         >
           <span
-            className="button-text3"
+            className="button-text2"
           >
             0
           </span>
@@ -38847,13 +38847,13 @@ exports[`Storyshots Table Responsive 1`] = `
           aria-checked={false}
           aria-disabled={false}
           aria-pressed={false}
-          className="pagination-button button button-default button-size3 pill-shape"
+          className="pagination-button button button-neutral button-size2"
           defaultChecked={false}
           disabled={false}
           onClick={[Function]}
         >
           <span
-            className="button-text3"
+            className="button-text2"
           >
             2
           </span>
@@ -38863,7 +38863,7 @@ exports[`Storyshots Table Responsive 1`] = `
     <button
       aria-disabled={false}
       aria-label="Next"
-      className="pagination-button button button-default button-size3 pill-shape icon-left"
+      className="pagination-button pagination-next button button-neutral button-size2 icon-left"
       defaultChecked={false}
       disabled={false}
       onClick={[Function]}
@@ -38877,8 +38877,8 @@ exports[`Storyshots Table Responsive 1`] = `
           role="presentation"
           style={
             Object {
-              "height": "16px",
-              "width": "16px",
+              "height": "20px",
+              "width": "20px",
             }
           }
           viewBox="0 0 24 24"
@@ -40276,7 +40276,7 @@ exports[`Storyshots Table Row Bordered 1`] = `
           aria-expanded={false}
           aria-haspopup={true}
           aria-label="Selected page size"
-          className="button button-default button-size3 pill-shape icon-left"
+          className="button button-neutral button-size2 icon-left"
           defaultChecked={false}
           disabled={false}
           onClick={[Function]}
@@ -40293,8 +40293,8 @@ exports[`Storyshots Table Row Bordered 1`] = `
                 role="presentation"
                 style={
                   Object {
-                    "height": "16px",
-                    "width": "16px",
+                    "height": "20px",
+                    "width": "20px",
                   }
                 }
                 viewBox="0 0 24 24"
@@ -40310,7 +40310,7 @@ exports[`Storyshots Table Row Bordered 1`] = `
               </svg>
             </span>
             <span
-              className="button-text3"
+              className="button-text2"
             >
               page / 10
             </span>
@@ -40326,7 +40326,7 @@ exports[`Storyshots Table Row Bordered 1`] = `
     <button
       aria-disabled={false}
       aria-label="Previous"
-      className="pagination-button button button-default button-size3 pill-shape icon-left disabled"
+      className="pagination-button pagination-previous button button-neutral button-size2 icon-left disabled"
       defaultChecked={false}
       disabled={true}
       onClick={[Function]}
@@ -40340,8 +40340,8 @@ exports[`Storyshots Table Row Bordered 1`] = `
           role="presentation"
           style={
             Object {
-              "height": "16px",
-              "width": "16px",
+              "height": "20px",
+              "width": "20px",
             }
           }
           viewBox="0 0 24 24"
@@ -40365,13 +40365,13 @@ exports[`Storyshots Table Row Bordered 1`] = `
           aria-checked={true}
           aria-disabled={false}
           aria-pressed={true}
-          className="pagination-button active button button-default button-size3 pill-shape"
+          className="pagination-button active button button-neutral button-size2"
           defaultChecked={true}
           disabled={false}
           onClick={[Function]}
         >
           <span
-            className="button-text3"
+            className="button-text2"
           >
             1
           </span>
@@ -40382,13 +40382,13 @@ exports[`Storyshots Table Row Bordered 1`] = `
           aria-checked={false}
           aria-disabled={false}
           aria-pressed={false}
-          className="pagination-button button button-default button-size3 pill-shape"
+          className="pagination-button button button-neutral button-size2"
           defaultChecked={false}
           disabled={false}
           onClick={[Function]}
         >
           <span
-            className="button-text3"
+            className="button-text2"
           >
             0
           </span>
@@ -40399,13 +40399,13 @@ exports[`Storyshots Table Row Bordered 1`] = `
           aria-checked={false}
           aria-disabled={false}
           aria-pressed={false}
-          className="pagination-button button button-default button-size3 pill-shape"
+          className="pagination-button button button-neutral button-size2"
           defaultChecked={false}
           disabled={false}
           onClick={[Function]}
         >
           <span
-            className="button-text3"
+            className="button-text2"
           >
             2
           </span>
@@ -40415,7 +40415,7 @@ exports[`Storyshots Table Row Bordered 1`] = `
     <button
       aria-disabled={false}
       aria-label="Next"
-      className="pagination-button button button-default button-size3 pill-shape icon-left"
+      className="pagination-button pagination-next button button-neutral button-size2 icon-left"
       defaultChecked={false}
       disabled={false}
       onClick={[Function]}
@@ -40429,8 +40429,8 @@ exports[`Storyshots Table Row Bordered 1`] = `
           role="presentation"
           style={
             Object {
-              "height": "16px",
-              "width": "16px",
+              "height": "20px",
+              "width": "20px",
             }
           }
           viewBox="0 0 24 24"
@@ -42385,7 +42385,7 @@ exports[`Storyshots Table Selection 1`] = `
           aria-expanded={false}
           aria-haspopup={true}
           aria-label="Selected page size"
-          className="button button-default button-size3 pill-shape icon-left"
+          className="button button-neutral button-size2 icon-left"
           defaultChecked={false}
           disabled={false}
           onClick={[Function]}
@@ -42402,8 +42402,8 @@ exports[`Storyshots Table Selection 1`] = `
                 role="presentation"
                 style={
                   Object {
-                    "height": "16px",
-                    "width": "16px",
+                    "height": "20px",
+                    "width": "20px",
                   }
                 }
                 viewBox="0 0 24 24"
@@ -42419,7 +42419,7 @@ exports[`Storyshots Table Selection 1`] = `
               </svg>
             </span>
             <span
-              className="button-text3"
+              className="button-text2"
             >
               page / 10
             </span>
@@ -42435,7 +42435,7 @@ exports[`Storyshots Table Selection 1`] = `
     <button
       aria-disabled={false}
       aria-label="Previous"
-      className="pagination-button button button-default button-size3 pill-shape icon-left disabled"
+      className="pagination-button pagination-previous button button-neutral button-size2 icon-left disabled"
       defaultChecked={false}
       disabled={true}
       onClick={[Function]}
@@ -42449,8 +42449,8 @@ exports[`Storyshots Table Selection 1`] = `
           role="presentation"
           style={
             Object {
-              "height": "16px",
-              "width": "16px",
+              "height": "20px",
+              "width": "20px",
             }
           }
           viewBox="0 0 24 24"
@@ -42474,13 +42474,13 @@ exports[`Storyshots Table Selection 1`] = `
           aria-checked={true}
           aria-disabled={false}
           aria-pressed={true}
-          className="pagination-button active button button-default button-size3 pill-shape"
+          className="pagination-button active button button-neutral button-size2"
           defaultChecked={true}
           disabled={false}
           onClick={[Function]}
         >
           <span
-            className="button-text3"
+            className="button-text2"
           >
             1
           </span>
@@ -42491,13 +42491,13 @@ exports[`Storyshots Table Selection 1`] = `
           aria-checked={false}
           aria-disabled={false}
           aria-pressed={false}
-          className="pagination-button button button-default button-size3 pill-shape"
+          className="pagination-button button button-neutral button-size2"
           defaultChecked={false}
           disabled={false}
           onClick={[Function]}
         >
           <span
-            className="button-text3"
+            className="button-text2"
           >
             0
           </span>
@@ -42508,13 +42508,13 @@ exports[`Storyshots Table Selection 1`] = `
           aria-checked={false}
           aria-disabled={false}
           aria-pressed={false}
-          className="pagination-button button button-default button-size3 pill-shape"
+          className="pagination-button button button-neutral button-size2"
           defaultChecked={false}
           disabled={false}
           onClick={[Function]}
         >
           <span
-            className="button-text3"
+            className="button-text2"
           >
             2
           </span>
@@ -42524,7 +42524,7 @@ exports[`Storyshots Table Selection 1`] = `
     <button
       aria-disabled={false}
       aria-label="Next"
-      className="pagination-button button button-default button-size3 pill-shape icon-left"
+      className="pagination-button pagination-next button button-neutral button-size2 icon-left"
       defaultChecked={false}
       disabled={false}
       onClick={[Function]}
@@ -42538,8 +42538,8 @@ exports[`Storyshots Table Selection 1`] = `
           role="presentation"
           style={
             Object {
-              "height": "16px",
-              "width": "16px",
+              "height": "20px",
+              "width": "20px",
             }
           }
           viewBox="0 0 24 24"
@@ -43937,7 +43937,7 @@ exports[`Storyshots Table Small 1`] = `
           aria-expanded={false}
           aria-haspopup={true}
           aria-label="Selected page size"
-          className="button button-default button-size3 pill-shape icon-left"
+          className="button button-neutral button-size2 icon-left"
           defaultChecked={false}
           disabled={false}
           onClick={[Function]}
@@ -43954,8 +43954,8 @@ exports[`Storyshots Table Small 1`] = `
                 role="presentation"
                 style={
                   Object {
-                    "height": "16px",
-                    "width": "16px",
+                    "height": "20px",
+                    "width": "20px",
                   }
                 }
                 viewBox="0 0 24 24"
@@ -43971,7 +43971,7 @@ exports[`Storyshots Table Small 1`] = `
               </svg>
             </span>
             <span
-              className="button-text3"
+              className="button-text2"
             >
               page / 10
             </span>
@@ -43987,7 +43987,7 @@ exports[`Storyshots Table Small 1`] = `
     <button
       aria-disabled={false}
       aria-label="Previous"
-      className="pagination-button button button-default button-size3 pill-shape icon-left disabled"
+      className="pagination-button pagination-previous button button-neutral button-size2 icon-left disabled"
       defaultChecked={false}
       disabled={true}
       onClick={[Function]}
@@ -44001,8 +44001,8 @@ exports[`Storyshots Table Small 1`] = `
           role="presentation"
           style={
             Object {
-              "height": "16px",
-              "width": "16px",
+              "height": "20px",
+              "width": "20px",
             }
           }
           viewBox="0 0 24 24"
@@ -44026,13 +44026,13 @@ exports[`Storyshots Table Small 1`] = `
           aria-checked={true}
           aria-disabled={false}
           aria-pressed={true}
-          className="pagination-button active button button-default button-size3 pill-shape"
+          className="pagination-button active button button-neutral button-size2"
           defaultChecked={true}
           disabled={false}
           onClick={[Function]}
         >
           <span
-            className="button-text3"
+            className="button-text2"
           >
             1
           </span>
@@ -44043,13 +44043,13 @@ exports[`Storyshots Table Small 1`] = `
           aria-checked={false}
           aria-disabled={false}
           aria-pressed={false}
-          className="pagination-button button button-default button-size3 pill-shape"
+          className="pagination-button button button-neutral button-size2"
           defaultChecked={false}
           disabled={false}
           onClick={[Function]}
         >
           <span
-            className="button-text3"
+            className="button-text2"
           >
             0
           </span>
@@ -44060,13 +44060,13 @@ exports[`Storyshots Table Small 1`] = `
           aria-checked={false}
           aria-disabled={false}
           aria-pressed={false}
-          className="pagination-button button button-default button-size3 pill-shape"
+          className="pagination-button button button-neutral button-size2"
           defaultChecked={false}
           disabled={false}
           onClick={[Function]}
         >
           <span
-            className="button-text3"
+            className="button-text2"
           >
             2
           </span>
@@ -44076,7 +44076,7 @@ exports[`Storyshots Table Small 1`] = `
     <button
       aria-disabled={false}
       aria-label="Next"
-      className="pagination-button button button-default button-size3 pill-shape icon-left"
+      className="pagination-button pagination-next button button-neutral button-size2 icon-left"
       defaultChecked={false}
       disabled={false}
       onClick={[Function]}
@@ -44090,8 +44090,8 @@ exports[`Storyshots Table Small 1`] = `
           role="presentation"
           style={
             Object {
-              "height": "16px",
-              "width": "16px",
+              "height": "20px",
+              "width": "20px",
             }
           }
           viewBox="0 0 24 24"
@@ -45567,7 +45567,7 @@ exports[`Storyshots Table Sort 1`] = `
           aria-expanded={false}
           aria-haspopup={true}
           aria-label="Selected page size"
-          className="button button-default button-size3 pill-shape icon-left"
+          className="button button-neutral button-size2 icon-left"
           defaultChecked={false}
           disabled={false}
           onClick={[Function]}
@@ -45584,8 +45584,8 @@ exports[`Storyshots Table Sort 1`] = `
                 role="presentation"
                 style={
                   Object {
-                    "height": "16px",
-                    "width": "16px",
+                    "height": "20px",
+                    "width": "20px",
                   }
                 }
                 viewBox="0 0 24 24"
@@ -45601,7 +45601,7 @@ exports[`Storyshots Table Sort 1`] = `
               </svg>
             </span>
             <span
-              className="button-text3"
+              className="button-text2"
             >
               page / 10
             </span>
@@ -45617,7 +45617,7 @@ exports[`Storyshots Table Sort 1`] = `
     <button
       aria-disabled={false}
       aria-label="Previous"
-      className="pagination-button button button-default button-size3 pill-shape icon-left disabled"
+      className="pagination-button pagination-previous button button-neutral button-size2 icon-left disabled"
       defaultChecked={false}
       disabled={true}
       onClick={[Function]}
@@ -45631,8 +45631,8 @@ exports[`Storyshots Table Sort 1`] = `
           role="presentation"
           style={
             Object {
-              "height": "16px",
-              "width": "16px",
+              "height": "20px",
+              "width": "20px",
             }
           }
           viewBox="0 0 24 24"
@@ -45656,13 +45656,13 @@ exports[`Storyshots Table Sort 1`] = `
           aria-checked={true}
           aria-disabled={false}
           aria-pressed={true}
-          className="pagination-button active button button-default button-size3 pill-shape"
+          className="pagination-button active button button-neutral button-size2"
           defaultChecked={true}
           disabled={false}
           onClick={[Function]}
         >
           <span
-            className="button-text3"
+            className="button-text2"
           >
             1
           </span>
@@ -45673,13 +45673,13 @@ exports[`Storyshots Table Sort 1`] = `
           aria-checked={false}
           aria-disabled={false}
           aria-pressed={false}
-          className="pagination-button button button-default button-size3 pill-shape"
+          className="pagination-button button button-neutral button-size2"
           defaultChecked={false}
           disabled={false}
           onClick={[Function]}
         >
           <span
-            className="button-text3"
+            className="button-text2"
           >
             0
           </span>
@@ -45690,13 +45690,13 @@ exports[`Storyshots Table Sort 1`] = `
           aria-checked={false}
           aria-disabled={false}
           aria-pressed={false}
-          className="pagination-button button button-default button-size3 pill-shape"
+          className="pagination-button button button-neutral button-size2"
           defaultChecked={false}
           disabled={false}
           onClick={[Function]}
         >
           <span
-            className="button-text3"
+            className="button-text2"
           >
             2
           </span>
@@ -45706,7 +45706,7 @@ exports[`Storyshots Table Sort 1`] = `
     <button
       aria-disabled={false}
       aria-label="Next"
-      className="pagination-button button button-default button-size3 pill-shape icon-left"
+      className="pagination-button pagination-next button button-neutral button-size2 icon-left"
       defaultChecked={false}
       disabled={false}
       onClick={[Function]}
@@ -45720,8 +45720,8 @@ exports[`Storyshots Table Sort 1`] = `
           role="presentation"
           style={
             Object {
-              "height": "16px",
-              "width": "16px",
+              "height": "20px",
+              "width": "20px",
             }
           }
           viewBox="0 0 24 24"
@@ -47353,7 +47353,7 @@ exports[`Storyshots Table Sort Multiple 1`] = `
           aria-expanded={false}
           aria-haspopup={true}
           aria-label="Selected page size"
-          className="button button-default button-size3 pill-shape icon-left"
+          className="button button-neutral button-size2 icon-left"
           defaultChecked={false}
           disabled={false}
           onClick={[Function]}
@@ -47370,8 +47370,8 @@ exports[`Storyshots Table Sort Multiple 1`] = `
                 role="presentation"
                 style={
                   Object {
-                    "height": "16px",
-                    "width": "16px",
+                    "height": "20px",
+                    "width": "20px",
                   }
                 }
                 viewBox="0 0 24 24"
@@ -47387,7 +47387,7 @@ exports[`Storyshots Table Sort Multiple 1`] = `
               </svg>
             </span>
             <span
-              className="button-text3"
+              className="button-text2"
             >
               page / 10
             </span>
@@ -47403,7 +47403,7 @@ exports[`Storyshots Table Sort Multiple 1`] = `
     <button
       aria-disabled={false}
       aria-label="Previous"
-      className="pagination-button button button-default button-size3 pill-shape icon-left disabled"
+      className="pagination-button pagination-previous button button-neutral button-size2 icon-left disabled"
       defaultChecked={false}
       disabled={true}
       onClick={[Function]}
@@ -47417,8 +47417,8 @@ exports[`Storyshots Table Sort Multiple 1`] = `
           role="presentation"
           style={
             Object {
-              "height": "16px",
-              "width": "16px",
+              "height": "20px",
+              "width": "20px",
             }
           }
           viewBox="0 0 24 24"
@@ -47442,13 +47442,13 @@ exports[`Storyshots Table Sort Multiple 1`] = `
           aria-checked={true}
           aria-disabled={false}
           aria-pressed={true}
-          className="pagination-button active button button-default button-size3 pill-shape"
+          className="pagination-button active button button-neutral button-size2"
           defaultChecked={true}
           disabled={false}
           onClick={[Function]}
         >
           <span
-            className="button-text3"
+            className="button-text2"
           >
             1
           </span>
@@ -47459,13 +47459,13 @@ exports[`Storyshots Table Sort Multiple 1`] = `
           aria-checked={false}
           aria-disabled={false}
           aria-pressed={false}
-          className="pagination-button button button-default button-size3 pill-shape"
+          className="pagination-button button button-neutral button-size2"
           defaultChecked={false}
           disabled={false}
           onClick={[Function]}
         >
           <span
-            className="button-text3"
+            className="button-text2"
           >
             0
           </span>
@@ -47476,13 +47476,13 @@ exports[`Storyshots Table Sort Multiple 1`] = `
           aria-checked={false}
           aria-disabled={false}
           aria-pressed={false}
-          className="pagination-button button button-default button-size3 pill-shape"
+          className="pagination-button button button-neutral button-size2"
           defaultChecked={false}
           disabled={false}
           onClick={[Function]}
         >
           <span
-            className="button-text3"
+            className="button-text2"
           >
             2
           </span>
@@ -47492,7 +47492,7 @@ exports[`Storyshots Table Sort Multiple 1`] = `
     <button
       aria-disabled={false}
       aria-label="Next"
-      className="pagination-button button button-default button-size3 pill-shape icon-left"
+      className="pagination-button pagination-next button button-neutral button-size2 icon-left"
       defaultChecked={false}
       disabled={false}
       onClick={[Function]}
@@ -47506,8 +47506,8 @@ exports[`Storyshots Table Sort Multiple 1`] = `
           role="presentation"
           style={
             Object {
-              "height": "16px",
-              "width": "16px",
+              "height": "20px",
+              "width": "20px",
             }
           }
           viewBox="0 0 24 24"
@@ -48931,7 +48931,7 @@ exports[`Storyshots Table Summary 1`] = `
           aria-expanded={false}
           aria-haspopup={true}
           aria-label="Selected page size"
-          className="button button-default button-size3 pill-shape icon-left"
+          className="button button-neutral button-size2 icon-left"
           defaultChecked={false}
           disabled={false}
           onClick={[Function]}
@@ -48948,8 +48948,8 @@ exports[`Storyshots Table Summary 1`] = `
                 role="presentation"
                 style={
                   Object {
-                    "height": "16px",
-                    "width": "16px",
+                    "height": "20px",
+                    "width": "20px",
                   }
                 }
                 viewBox="0 0 24 24"
@@ -48965,7 +48965,7 @@ exports[`Storyshots Table Summary 1`] = `
               </svg>
             </span>
             <span
-              className="button-text3"
+              className="button-text2"
             >
               page / 10
             </span>
@@ -48981,7 +48981,7 @@ exports[`Storyshots Table Summary 1`] = `
     <button
       aria-disabled={false}
       aria-label="Previous"
-      className="pagination-button button button-default button-size3 pill-shape icon-left disabled"
+      className="pagination-button pagination-previous button button-neutral button-size2 icon-left disabled"
       defaultChecked={false}
       disabled={true}
       onClick={[Function]}
@@ -48995,8 +48995,8 @@ exports[`Storyshots Table Summary 1`] = `
           role="presentation"
           style={
             Object {
-              "height": "16px",
-              "width": "16px",
+              "height": "20px",
+              "width": "20px",
             }
           }
           viewBox="0 0 24 24"
@@ -49020,13 +49020,13 @@ exports[`Storyshots Table Summary 1`] = `
           aria-checked={true}
           aria-disabled={false}
           aria-pressed={true}
-          className="pagination-button active button button-default button-size3 pill-shape"
+          className="pagination-button active button button-neutral button-size2"
           defaultChecked={true}
           disabled={false}
           onClick={[Function]}
         >
           <span
-            className="button-text3"
+            className="button-text2"
           >
             1
           </span>
@@ -49037,13 +49037,13 @@ exports[`Storyshots Table Summary 1`] = `
           aria-checked={false}
           aria-disabled={false}
           aria-pressed={false}
-          className="pagination-button button button-default button-size3 pill-shape"
+          className="pagination-button button button-neutral button-size2"
           defaultChecked={false}
           disabled={false}
           onClick={[Function]}
         >
           <span
-            className="button-text3"
+            className="button-text2"
           >
             0
           </span>
@@ -49054,13 +49054,13 @@ exports[`Storyshots Table Summary 1`] = `
           aria-checked={false}
           aria-disabled={false}
           aria-pressed={false}
-          className="pagination-button button button-default button-size3 pill-shape"
+          className="pagination-button button button-neutral button-size2"
           defaultChecked={false}
           disabled={false}
           onClick={[Function]}
         >
           <span
-            className="button-text3"
+            className="button-text2"
           >
             2
           </span>
@@ -49070,7 +49070,7 @@ exports[`Storyshots Table Summary 1`] = `
     <button
       aria-disabled={false}
       aria-label="Next"
-      className="pagination-button button button-default button-size3 pill-shape icon-left"
+      className="pagination-button pagination-next button button-neutral button-size2 icon-left"
       defaultChecked={false}
       disabled={false}
       onClick={[Function]}
@@ -49084,8 +49084,8 @@ exports[`Storyshots Table Summary 1`] = `
           role="presentation"
           style={
             Object {
-              "height": "16px",
-              "width": "16px",
+              "height": "20px",
+              "width": "20px",
             }
           }
           viewBox="0 0 24 24"

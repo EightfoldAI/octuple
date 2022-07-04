@@ -25,7 +25,7 @@ exports[`Storyshots Avatar Avatar Default 1`] = `
 
 exports[`Storyshots Avatar Avatar Fallback Hashing 1`] = `
 <div
-  className="wrapper-style my-avatar-class image-style round-image orange"
+  className="wrapper-style my-avatar-class image-style round-image yellow"
   style={
     Object {
       "fontSize": "18px",
