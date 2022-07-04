@@ -1,6 +1,12 @@
 import React, { FC, Ref, useEffect, useState } from 'react';
 import { Pager, PaginationLayoutOptions, PaginationProps } from './index';
-import { ButtonIconAlign, ButtonSize, DefaultButton } from '../Button';
+import {
+    ButtonIconAlign,
+    ButtonShape,
+    ButtonSize,
+    DefaultButton,
+    NeutralButton,
+} from '../Button';
 import { Dropdown } from '../Dropdown';
 import { IconName } from '../Icon';
 import { Menu } from '../Menu';
@@ -194,20 +200,21 @@ export const Pagination: FC<PaginationProps> = React.forwardRef(
                                         overlay={Overlay(_pageSizes)}
                                         onVisibleChange={setToggle}
                                     >
-                                        <DefaultButton
+                                        <NeutralButton
                                             alignIcon={
                                                 htmlDir === 'ltr'
                                                     ? ButtonIconAlign.Right
                                                     : ButtonIconAlign.Left
                                             }
                                             ariaLabel={pageSizeButtonAriaLabel}
+                                            shape={ButtonShape.Rectangle}
                                             iconProps={{
                                                 role: 'presentation',
                                                 path: _toggle
                                                     ? IconName.mdiChevronDown
                                                     : IconName.mdiChevronUp,
                                             }}
-                                            size={ButtonSize.Small}
+                                            size={ButtonSize.Medium}
                                             text={
                                                 htmlDir === 'ltr'
                                                     ? `${_pageSize} / ${pageSizeText}`
@@ -229,9 +236,13 @@ export const Pagination: FC<PaginationProps> = React.forwardRef(
                         )}
                         {layout.includes(PaginationLayoutOptions.Previous) &&
                             moreThanOnePage && (
-                                <DefaultButton
+                                <NeutralButton
                                     ariaLabel={previousIconButtonAriaLabel}
-                                    classNames={styles.paginationButton}
+                                    classNames={mergeClasses([
+                                        styles.paginationButton,
+                                        styles.paginationPrevious,
+                                    ])}
+                                    shape={ButtonShape.Rectangle}
                                     key="previous"
                                     disabled={_currentPage <= 1}
                                     iconProps={{
@@ -239,7 +250,7 @@ export const Pagination: FC<PaginationProps> = React.forwardRef(
                                         path: IconName.mdiChevronLeft,
                                     }}
                                     onClick={previous}
-                                    size={ButtonSize.Small}
+                                    size={ButtonSize.Medium}
                                 />
                             )}
                         {layout.includes(PaginationLayoutOptions.Pager) && (
@@ -258,9 +269,13 @@ export const Pagination: FC<PaginationProps> = React.forwardRef(
                         )}
                         {layout.includes(PaginationLayoutOptions.Next) &&
                             moreThanOnePage && (
-                                <DefaultButton
+                                <NeutralButton
                                     ariaLabel={nextIconButtonAriaLabel}
-                                    classNames={styles.paginationButton}
+                                    classNames={mergeClasses([
+                                        styles.paginationButton,
+                                        styles.paginationNext,
+                                    ])}
+                                    shape={ButtonShape.Rectangle}
                                     key="next"
                                     disabled={
                                         _currentPage === getPageCount() ||
@@ -271,7 +286,7 @@ export const Pagination: FC<PaginationProps> = React.forwardRef(
                                         path: IconName.mdiChevronRight,
                                     }}
                                     onClick={() => next()}
-                                    size={ButtonSize.Small}
+                                    size={ButtonSize.Medium}
                                 />
                             )}
                         {layout.includes(PaginationLayoutOptions.Jumper) &&
