@@ -27,6 +27,11 @@ jobs:
         run: |
           echo ::set-output name=current_version::${GITHUB_REF#refs/tags/v}
         shell: bash
+      - name: Prerelease check
+        id: prerelease_check
+        if: contains(steps.tag_name.outputs.current_version, '-')
+        run: |
+          echo ::set-output name=prerelease::true
       - name: Checkout code
         uses: actions/checkout@v3
       - uses: actions/setup-node@v3
@@ -35,8 +40,14 @@ jobs:
           registry-url: https://registry.npmjs.org/
       - name: Run Yarn
         run: yarn
-      - name: Publish to npm
+      - name: Publish release to npm
+        if: steps.prerelease_check.outputs.prerelease == 'true'
         run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.npm_token }}
+      - name: Publish prerelease to npm
+        if: steps.prerelease_check.outputs.prerelease == 'true'
+        run: npm publish --tag prerelease
         env:
           NODE_AUTH_TOKEN: ${{ secrets.npm_token }}
       - name: Get Changelog Entry
@@ -50,7 +61,7 @@ jobs:
         with:
           name: Release ${{ steps.changelog_reader.outputs.version }}
           body: ${{ steps.changelog_reader.outputs.changes }}
-          prerelease: ${{ steps.changelog_reader.outputs.status == 'prereleased' }}
+          prerelease: ${{ steps.prerelease_check.outputs.prerelease == 'true' }}
           allowUpdates: true
           token: ${{ secrets.GITHUB_TOKEN }}
       - name: Slack Markdown Converter
@@ -106,7 +117,9 @@ jobs:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
           SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
       - run: yarn build-storybook
+        if: steps.prerelease_check.outputs.prerelease != 'true'
       - name: Pushes to another repository
+        if: steps.prerelease_check.outputs.prerelease != 'true'
         uses: cpina/github-action-push-to-another-repository@main
         env:
           API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
