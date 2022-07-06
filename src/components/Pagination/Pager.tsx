@@ -23,6 +23,7 @@ export const Pager: FC<PagerProps> = React.forwardRef(
             pageCount,
             quickNextIconButtonAriaLabel,
             quickPreviousIconButtonAriaLabel,
+            simplified = false,
             ...rest
         },
         ref: Ref<HTMLUListElement>
@@ -120,23 +121,35 @@ export const Pager: FC<PagerProps> = React.forwardRef(
         }, [getVisiblePageRange]);
 
         return (
-            <ul {...rest} ref={ref} className={styles.pager}>
+            <ul
+                {...rest}
+                ref={ref}
+                className={mergeClasses([
+                    styles.pager,
+                    simplified && styles.pageTracker,
+                ])}
+            >
                 {pageCount > 0 && (
                     <li>
-                        <DefaultButton
-                            checked={currentPage === 1}
-                            classNames={mergeClasses([
-                                styles.paginationButton,
-                                { [styles.active]: currentPage === 1 },
-                            ])}
-                            onClick={() => onCurrentChange(1)}
-                            size={ButtonSize.Small}
-                            text={'1'.toLocaleString()}
-                            toggle
-                        />
+                        {!simplified ? (
+                            <DefaultButton
+                                checked={currentPage === 1}
+                                classNames={mergeClasses([
+                                    styles.paginationButton,
+                                    { [styles.active]: currentPage === 1 },
+                                ])}
+                                onClick={() => onCurrentChange(1)}
+                                size={ButtonSize.Small}
+                                text={'1'.toLocaleString()}
+                                toggle
+                            />
+                        ) : (
+                            <span>{`${currentPage.toLocaleString()} of`}</span>
+                        )}
                     </li>
                 )}
-                {currentPage > EDGE_BUFFER_THRESHOLD &&
+                {!simplified &&
+                    currentPage > EDGE_BUFFER_THRESHOLD &&
                     pageCount > SHORT_LIST_THRESHOLD && (
                         <li>
                             <DefaultButton
@@ -168,24 +181,29 @@ export const Pager: FC<PagerProps> = React.forwardRef(
                             />
                         </li>
                     )}
-                {_pagers?.map((pager, idx) => {
-                    return (
-                        <li key={idx}>
-                            <DefaultButton
-                                checked={currentPage === pager}
-                                classNames={mergeClasses([
-                                    styles.paginationButton,
-                                    { [styles.active]: currentPage === pager },
-                                ])}
-                                onClick={() => onCurrentChange(pager)}
-                                size={ButtonSize.Small}
-                                text={pager.toLocaleString()}
-                                toggle
-                            />
-                        </li>
-                    );
-                })}
-                {currentPage < pageCount - EDGE_BUFFER_THRESHOLD &&
+                {!simplified &&
+                    _pagers?.map((pager, idx) => {
+                        return (
+                            <li key={idx}>
+                                <DefaultButton
+                                    checked={currentPage === pager}
+                                    classNames={mergeClasses([
+                                        styles.paginationButton,
+                                        {
+                                            [styles.active]:
+                                                currentPage === pager,
+                                        },
+                                    ])}
+                                    onClick={() => onCurrentChange(pager)}
+                                    size={ButtonSize.Small}
+                                    text={pager.toLocaleString()}
+                                    toggle
+                                />
+                            </li>
+                        );
+                    })}
+                {!simplified &&
+                    currentPage < pageCount - EDGE_BUFFER_THRESHOLD &&
                     pageCount > SHORT_LIST_THRESHOLD && (
                         <li>
                             <DefaultButton
@@ -215,17 +233,24 @@ export const Pager: FC<PagerProps> = React.forwardRef(
                     )}
                 {pageCount > 1 && (
                     <li>
-                        <DefaultButton
-                            checked={currentPage === pageCount}
-                            classNames={mergeClasses([
-                                styles.paginationButton,
-                                { [styles.active]: currentPage === pageCount },
-                            ])}
-                            onClick={() => onCurrentChange(pageCount)}
-                            size={ButtonSize.Small}
-                            text={pageCount.toLocaleString()}
-                            toggle
-                        />
+                        {!simplified ? (
+                            <DefaultButton
+                                checked={currentPage === pageCount}
+                                classNames={mergeClasses([
+                                    styles.paginationButton,
+                                    {
+                                        [styles.active]:
+                                            currentPage === pageCount,
+                                    },
+                                ])}
+                                onClick={() => onCurrentChange(pageCount)}
+                                size={ButtonSize.Small}
+                                text={pageCount.toLocaleString()}
+                                toggle
+                            />
+                        ) : (
+                            <span>{pageCount.toLocaleString()}</span>
+                        )}
                     </li>
                 )}
             </ul>
