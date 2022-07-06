@@ -77,6 +77,11 @@
         }
     }
 
+    .page-tracker {
+        opacity: 50%;
+        padding-top: $space-xxs;
+    }
+
     &.dots {
         span {
             vertical-align: middle;

@@ -90,6 +90,12 @@ const All_Combined_Story: ComponentStory<typeof Pagination> = (args) => (
 
 export const All_Combined = All_Combined_Story.bind({});
 
+const Simplified_Story: ComponentStory<typeof Pagination> = (args) => (
+    <Pagination {...args} />
+);
+
+export const Simplified = Simplified_Story.bind({});
+
 const paginationArgs: Object = {
     classNames: 'my-pagination-class',
     currentPage: 1,
@@ -178,4 +184,14 @@ All_Combined.args = {
     pageSize: 100,
     pageSizes: [100, 200, 300, 400],
     total: 400,
+};
+
+Simplified.args = {
+    ...paginationArgs,
+    layout: [
+        PaginationLayoutOptions.Previous,
+        PaginationLayoutOptions.Pager,
+        PaginationLayoutOptions.Next,
+        PaginationLayoutOptions.Simplified,
+    ],
 };
