@@ -1,5 +1,5 @@
 import { IconName } from '../Icon';
-import { ButtonProps } from '../Button';
+import { ButtonProps, InternalButtonProps } from '../Button';
 import { OcBaseProps } from '../OcBase';
 
 export type CloseButtonProps = Omit<ButtonProps, 'onClick' | 'icon'>;
@@ -17,7 +17,7 @@ export interface PersistentBarsProps extends OcBaseProps<HTMLDivElement> {
     /**
      * Buttons to display on top bar
      */
-    buttonMenuProps?: Array<Object>;
+    buttonMenuProps?: Array<InternalButtonProps>;
     /**
      * Content of the persistent bar
      */

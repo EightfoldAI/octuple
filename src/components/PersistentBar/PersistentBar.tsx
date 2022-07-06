@@ -7,6 +7,7 @@ import {
     DefaultButton,
     SecondaryButton,
     ButtonType,
+    InternalButtonProps,
 } from '../Button';
 import { Pagination, PaginationLayoutOptions } from '../Pagination';
 
@@ -69,6 +70,8 @@ export const PersistentBar: FC<PersistentBarsProps> = React.forwardRef(
             switch (type) {
                 case PersistentBarType.topBarWithText:
                     return IconName.mdiArrowLeft;
+                default:
+                    break;
             }
         };
 
@@ -82,6 +85,8 @@ export const PersistentBar: FC<PersistentBarsProps> = React.forwardRef(
                             <span className={styles.content}>{content}</span>
                         </div>
                     );
+                default:
+                    break;
             }
         };
 
@@ -175,7 +180,7 @@ export const PersistentBar: FC<PersistentBarsProps> = React.forwardRef(
                 role={role}
             >
                 {buttonMenuProps &&
-                    buttonMenuProps.map((button: Object) => {
+                    buttonMenuProps.map((button: InternalButtonProps) => {
                         if (button.type === ButtonType.Secondary) {
                             return (
                                 <SecondaryButton
@@ -183,7 +188,7 @@ export const PersistentBar: FC<PersistentBarsProps> = React.forwardRef(
                                     {...button}
                                 />
                             );
-                        }
+                        } else return null;
                     })}
                 {getBarLayout()}
             </div>
