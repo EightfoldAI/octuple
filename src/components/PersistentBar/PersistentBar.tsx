@@ -71,7 +71,7 @@ export const PersistentBar: FC<PersistentBarsProps> = React.forwardRef(
                 case PersistentBarType.topBarWithText:
                     return IconName.mdiArrowLeft;
                 default:
-                    break;
+                    return null;
             }
         };
 
@@ -86,7 +86,7 @@ export const PersistentBar: FC<PersistentBarsProps> = React.forwardRef(
                         </div>
                     );
                 default:
-                    break;
+                    return null;
             }
         };
 
@@ -167,7 +167,7 @@ export const PersistentBar: FC<PersistentBarsProps> = React.forwardRef(
                         </>
                     );
                 default:
-                    break;
+                    return null;
             }
         };
 
