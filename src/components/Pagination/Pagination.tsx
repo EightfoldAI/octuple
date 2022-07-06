@@ -242,7 +242,8 @@ export const Pagination: FC<PaginationProps> = React.forwardRef(
                                     size={ButtonSize.Small}
                                 />
                             )}
-                        {layout.includes(PaginationLayoutOptions.Pager) && (
+                        {layout.includes(PaginationLayoutOptions.Pager) &&
+                        !layout.includes(PaginationLayoutOptions.Simplified) ? (
                             <Pager
                                 currentPage={_currentPage}
                                 key="pager"
@@ -254,6 +255,20 @@ export const Pagination: FC<PaginationProps> = React.forwardRef(
                                 quickPreviousIconButtonAriaLabel={
                                     quickPreviousIconButtonAriaLabel
                                 }
+                            />
+                        ) : (
+                            <Pager
+                                currentPage={_currentPage}
+                                key="pager"
+                                onCurrentChange={handleCurrentChange}
+                                pageCount={getPageCount()}
+                                quickNextIconButtonAriaLabel={
+                                    quickNextIconButtonAriaLabel
+                                }
+                                quickPreviousIconButtonAriaLabel={
+                                    quickPreviousIconButtonAriaLabel
+                                }
+                                simplified={true}
                             />
                         )}
                         {layout.includes(PaginationLayoutOptions.Next) &&
