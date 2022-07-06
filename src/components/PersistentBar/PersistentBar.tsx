@@ -8,7 +8,7 @@ import {
     SecondaryButton,
     ButtonType,
 } from '../Button';
-import { Pagination } from '../Pagination';
+import { Pagination, PaginationLayoutOptions } from '../Pagination';
 
 import styles from './persistentBar.module.scss';
 
@@ -150,9 +150,17 @@ export const PersistentBar: FC<PersistentBarsProps> = React.forwardRef(
                                 path={getIconName()}
                                 classNames={styles.icon}
                             />
-                            {getTexts()}
+                            <div style={{ textAlign: 'center' }}>
+                                {getTexts()}
+                            </div>
                             <Pagination
                                 total={paginationTotal}
+                                layout={[
+                                    PaginationLayoutOptions.Previous,
+                                    PaginationLayoutOptions.Pager,
+                                    PaginationLayoutOptions.Next,
+                                    PaginationLayoutOptions.Simplified,
+                                ]}
                                 {...paginationArgs}
                             />
                         </>
