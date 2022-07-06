@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.0.1-pre.0](https://github.com/EightfoldAI/octuple/compare/v1.15.0...v2.0.1-pre.0) (2022-07-06)
+
+### Features
+
+-   add all theme2 colors to avatar and pill component ([190ac3d](https://github.com/EightfoldAI/octuple/commits/190ac3daeae040b077286b8e0ddfb8d579e27640))
+-   theme 2 color palette, default button & input shape to pull, styles for selectors, tabs, buttons, accordion & match score ([#174](https://github.com/EightfoldAI/octuple/issues/174)) ([e8a64eb](https://github.com/EightfoldAI/octuple/commits/e8a64eb1e511557f04140987f1290a0116cd8544))
+-   theme 2 for dialog, modal, infobar, snackbar and dropdown ([#162](https://github.com/EightfoldAI/octuple/issues/162)) ([f28cb26](https://github.com/EightfoldAI/octuple/commits/f28cb265fd4d608a32e38bf7cfd50c5cc4067038))
+-   Update incorrect colors for Tabs and Buttons in theme 2 ([#214](https://github.com/EightfoldAI/octuple/issues/214)) ([deb36f4](https://github.com/EightfoldAI/octuple/commits/deb36f4f0ee85702f90d814741ecf9b83c9d0073))
+-   update menu item, pagination and inputs to theme 2 ([#213](https://github.com/EightfoldAI/octuple/issues/213)) ([623e0af](https://github.com/EightfoldAI/octuple/commits/623e0af61c290f64e8dde0ad1b12f0ba7400e6e4))
+
 ## [1.15.0](https://github.com/EightfoldAI/octuple/compare/v1.14.3...v1.15.0) (2022-07-01)
 
 ### Features
