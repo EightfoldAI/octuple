@@ -78,19 +78,8 @@ export const PersistentBar: FC<PersistentBarsProps> = React.forwardRef(
                 case PersistentBarType.topBarWithText:
                     return (
                         <div>
-                            <h4 style={{ margin: '0' }}>{title}</h4>
-                            <span
-                                style={{
-                                    fontFamily: 'Source Sans Pro',
-                                    fontStyle: 'normal',
-                                    fontWeight: '400',
-                                    fontSize: '14px',
-                                    lineHeight: '24px',
-                                    opacity: '50%',
-                                }}
-                            >
-                                {content}
-                            </span>
+                            <h4>{title}</h4>
+                            <span className={styles.content}>{content}</span>
                         </div>
                     );
             }
@@ -106,7 +95,7 @@ export const PersistentBar: FC<PersistentBarsProps> = React.forwardRef(
                                 {actionButtonTwoProps && (
                                     <DefaultButton
                                         {...actionButtonTwoProps}
-                                        style={{ marginRight: '16px' }}
+                                        classNames={styles.DefaultButton}
                                     />
                                 )}
                                 {actionButtonOneProps && (
@@ -150,9 +139,7 @@ export const PersistentBar: FC<PersistentBarsProps> = React.forwardRef(
                                 path={getIconName()}
                                 classNames={styles.icon}
                             />
-                            <div style={{ textAlign: 'center' }}>
-                                {getTexts()}
-                            </div>
+                            <div>{getTexts()}</div>
                             <Pagination
                                 total={paginationTotal}
                                 layout={[
@@ -189,13 +176,14 @@ export const PersistentBar: FC<PersistentBarsProps> = React.forwardRef(
             >
                 {buttonMenuProps &&
                     buttonMenuProps.map((button: Object) => {
-                        if (button.type === ButtonType.Secondary)
+                        if (button.type === ButtonType.Secondary) {
                             return (
                                 <SecondaryButton
                                     iconProps={button.iconProps}
                                     {...button}
                                 />
                             );
+                        }
                     })}
                 {getBarLayout()}
             </div>
