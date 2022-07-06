@@ -1,0 +1,42 @@
+.persistent-bar {
+    --info-color: var(--grey-color-70);
+    display: flex;
+    border-radius: $space-xxs;
+    padding: $space-m;
+    width: 100%;
+    background-color: var(--background-color);
+    gap: $space-m;
+    box-shadow: 0px -4px 16px rgba(0, 0, 0, 0.12);
+
+    &.bottom-with-text {
+        justify-content: space-between;
+    }
+
+    &.bottom-secondary-buttons {
+        justify-content: space-between;
+    }
+
+    &.bottom-left-align {
+        justify-content: start;
+    }
+
+    &.top-button-menu {
+        justify-content: center;
+    }
+
+    &.top-with-text {
+        justify-content: space-between;
+    }
+
+    &.top-pagination {
+        justify-content: center;
+    }
+
+    .icon {
+        color: inherit;
+    }
+
+    .buttons-container {
+        padding: $space-m;
+    }
+}
