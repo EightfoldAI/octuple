@@ -41,7 +41,7 @@ jobs:
       - name: Run Yarn
         run: yarn
       - name: Publish release to npm
-        if: steps.prerelease_check.outputs.prerelease == 'false'
+        if: steps.prerelease_check.outputs.prerelease != 'true'
         run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.npm_token }}
