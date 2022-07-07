@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.15.1-0](https://github.com/EightfoldAI/octuple/compare/v1.15.0...v1.15.1-0) (2022-07-07)
+
+### Bug Fixes
+
+-   export slider component ([#221](https://github.com/EightfoldAI/octuple/issues/221)) ([a048ad2](https://github.com/EightfoldAI/octuple/commits/a048ad29004907df24c38bdbcce308ca2ea90cd9))
+
 ## [1.15.0](https://github.com/EightfoldAI/octuple/compare/v1.14.3...v1.15.0) (2022-07-01)
 
 ### Features
