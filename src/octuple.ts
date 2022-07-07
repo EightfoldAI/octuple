@@ -44,6 +44,8 @@ import { Navbar, NavbarContent } from './components/Navbar';
 
 import { Pagination, PaginationLayoutOptions } from './components/Pagination';
 
+import { PersistentBar, PersistentBarType } from './components/PersistentBar';
+
 import { Pill, PillSize, PillType } from './components/Pills';
 
 import {
@@ -151,6 +153,8 @@ export {
     Panel,
     PanelPlacement,
     PanelSize,
+    PersistentBar,
+    PersistentBarType,
     Pill,
     PillSize,
     PillType,
