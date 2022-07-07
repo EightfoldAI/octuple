@@ -24,6 +24,7 @@ export const DefaultButton: FC<ButtonProps> = React.forwardRef(
             counter,
             disabled = false,
             dropShadow = false,
+            floatingButtonProps,
             htmlType,
             iconProps,
             onClick,
@@ -62,6 +63,7 @@ export const DefaultButton: FC<ButtonProps> = React.forwardRef(
                 counter={counter}
                 disabled={disabled}
                 dropShadow={dropShadow}
+                floatingButtonProps={floatingButtonProps}
                 htmlType={htmlType}
                 iconProps={iconProps}
                 onClick={onClick}
@@ -73,8 +75,8 @@ export const DefaultButton: FC<ButtonProps> = React.forwardRef(
                 style={style}
                 text={text}
                 theme={theme}
-                type={ButtonType.Default}
                 toggle={toggle}
+                type={ButtonType.Default}
                 buttonWidth={buttonWidth}
             />
         );

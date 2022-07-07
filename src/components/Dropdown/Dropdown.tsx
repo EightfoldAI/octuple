@@ -8,10 +8,15 @@ import React, {
 import { DropdownProps } from './Dropdown.types';
 import { autoUpdate, shift, useFloating } from '@floating-ui/react-dom';
 import { offset as fOffset } from '@floating-ui/core';
-import { mergeClasses, uniqueId } from '../../shared/utilities';
+import {
+    ConditionalWrapper,
+    mergeClasses,
+    uniqueId,
+} from '../../shared/utilities';
 import { useOnClickOutside } from '../../hooks/useOnClickOutside';
 import { useAccessibility } from '../../hooks/useAccessibility';
 import styles from './dropdown.module.scss';
+import { FloatingPortal } from '@floating-ui/react-dom-interactions';
 
 const TRIGGER_TO_HANDLER_MAP_ON_ENTER = {
     click: 'onClick',
@@ -37,6 +42,7 @@ export const Dropdown: FC<DropdownProps> = ({
     dropdownStyle,
     children,
     placement = 'bottom-start',
+    portal = false,
     overlay,
     offset = 4,
     positionStrategy = 'absolute',
@@ -163,7 +169,14 @@ export const Dropdown: FC<DropdownProps> = ({
                 : {})}
         >
             {getReference()}
-            {getDropdown()}
+            <ConditionalWrapper
+                condition={portal}
+                wrapper={(children) => (
+                    <FloatingPortal>{children}</FloatingPortal>
+                )}
+            >
+                {getDropdown()}
+            </ConditionalWrapper>
         </div>
     );
 };

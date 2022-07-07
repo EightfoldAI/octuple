@@ -18,7 +18,7 @@ import {
     TwoStateButton,
 } from './components/Button';
 
-import { CheckBox, CheckBoxGroup } from './components/Selectors';
+import { CheckBox, CheckBoxGroup } from './components/CheckBox';
 
 import { ConfigProvider } from './components/ConfigProvider';
 
@@ -36,9 +36,11 @@ import { Link } from './components/Link';
 
 import { List } from './components/List';
 
-import { Menu } from './components/Menu';
+import { Menu, MenuType, MenuVariant, MenuSize } from './components/Menu';
 
 import { Modal, ModalSize } from './components/Modal';
+
+import { Navbar, NavbarContent } from './components/Navbar';
 
 import { Pagination, PaginationLayoutOptions } from './components/Pagination';
 
@@ -73,7 +75,22 @@ import { Panel, PanelPlacement, PanelSize } from './components/Panel';
 
 import { Portal } from './components/Portal';
 
-import { RadioButton, RadioGroup } from './components/Selectors';
+import { RadioButton, RadioGroup } from './components/RadioButton';
+
+import Table, {
+    ColumnGroupType,
+    ColumnType,
+    ColumnsType,
+    ExpandableConfig,
+    FilterConfirmProps,
+    FilterValue,
+    SorterResult,
+    TablePaginationConfig,
+    TableProps,
+    TableRowSelection,
+} from './components/Table/';
+
+import { ResizeObserver } from './shared/ResizeObserver/ResizeObserver';
 
 import { useBoolean } from './hooks/useBoolean';
 
@@ -95,6 +112,9 @@ export {
     ButtonWidth,
     CheckBox,
     CheckBoxGroup,
+    ColumnGroupType,
+    ColumnType,
+    ColumnsType,
     ConfigProvider,
     DefaultButton,
     Dialog,
@@ -102,6 +122,9 @@ export {
     Dropdown,
     Empty,
     EmptyMode,
+    ExpandableConfig,
+    FilterConfirmProps,
+    FilterValue,
     Icon,
     IconName,
     IconSize,
@@ -113,8 +136,13 @@ export {
     List,
     MatchScore,
     Menu,
+    MenuType,
+    MenuVariant,
+    MenuSize,
     Modal,
     ModalSize,
+    Navbar,
+    NavbarContent,
     NeutralButton,
     Pagination,
     PaginationLayoutOptions,
@@ -128,15 +156,21 @@ export {
     PrimaryButton,
     RadioButton,
     RadioGroup,
+    ResizeObserver,
     Select,
     SearchBox,
     SecondaryButton,
     snack,
     Snackbar,
     SnackbarContainer,
+    SorterResult,
     Spinner,
     SpinnerSize,
     Stack,
+    Table,
+    TablePaginationConfig,
+    TableProps,
+    TableRowSelection,
     Tabs,
     Tab,
     TabVariant,

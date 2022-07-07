@@ -91,7 +91,6 @@ const listArgs: Object = {
     itemStyle: { padding: '8px 16px' },
     listType: 'ul',
     role: '',
-    itemRole: '',
 };
 
 Vertical.args = {

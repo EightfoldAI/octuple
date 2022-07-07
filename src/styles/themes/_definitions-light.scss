@@ -163,6 +163,7 @@ $button-hover-outline-color: var(--button-hover-outline-color);
 $button-focus-outline-color: var(--button-focus-outline-color);
 $button-active-outline-color: var(--button-active-outline-color);
 $button-visited-outline-color: var(--button-visited-outline-color);
+$button-focus-outline-color: var(--button-focus-outline-color);
 
 $text-color-primary: var(--grey-color-90);
 $text-color-secondary: var(--grey-color-80);
@@ -204,6 +205,7 @@ $text-line-height-8: 64px;
 $text-line-height-9: 72px;
 $text-line-height-10: 96px;
 $text-line-height-11: 112px;
+$text-line-height-12: 120px;
 
 $text-font-weight-extra-light: 200;
 $text-font-weight-light: 300;
@@ -248,6 +250,7 @@ $shadow-object-xl: 0px 1px 2px rgba(15, 20, 31, 0.12),
     0px 8px 32px rgba(15, 20, 31, 0.16); // Largest UI objects like modal, slide-in panel, etc
 $shadow-panel-right: -1px 0px 2px rgba(15, 20, 31, 0.12),
     -8px 0px 32px rgba(15, 20, 31, 0.16);
+$shadow-panel-behind: 0px -4px 16px rgba(0, 0, 0, 0.12);
 
 // Spacing Definitions
 
@@ -295,8 +298,8 @@ $corner-radius-xl: 24px;
 
 // Focus visible Definitions
 
-$focus-visible-outline-width: 4px;
-$focus-visible-outline-offset-inner: -4px;
+$focus-visible-outline-width: 2px;
+$focus-visible-outline-offset-inner: -2px;
 $focus-visible-outline-offset-outer: 2px;
 
 // Speed / Duration Definitions
@@ -390,3 +393,79 @@ $large-screen-size: 1200px;
 $medium-screen-size: 900px;
 $small-screen-size: 600px;
 $xsmall-screen-size: 0;
+
+// Table
+$table-background-color: var(--table-background-color);
+$table-foreground-color: var(--table-foreground-color);
+$table-background-alternate-color: var(--table-background-alternate-color);
+$table-header-background-color: var(--table-header-background-color);
+$table-header-foreground-color: var(--table-header-foreground-color);
+$table-header-sort-background-color: var(--table-header-sort-background-color);
+$table-header-icon-color: var(--table-header-icon-color);
+$table-header-icon-hover-color: var(--table-header-icon-hover-color);
+$table-body-sort-backgroud-color: var(--table-body-sort-backgroud-color);
+$table-row-hover-background-color: var(--table-row-hover-background-color);
+$table-row-selected-foregroud-color: var(--table-row-selected-foregroud-color);
+$table-row-selected-background-color: var(
+    --table-row-selected-background-color
+);
+$table-row-selected-hover-background-color: var(
+    --table-row-selected-hover-background-color
+);
+$table-row-expanded-background-color: var(
+    --table-row-expanded-background-color
+);
+$table-padding-vertical: var(--table-padding-vertical);
+$table-padding-horizontal: var(--table-padding-horizontal);
+$table-padding-vertical-md: var(--table-padding-vertical-md);
+$table-padding-horizontal-md: var(--table-padding-horizontal-md);
+$table-padding-vertical-sm: var(--table-padding-vertical-sm);
+$table-padding-horizontal-sm: var(--table-padding-horizontal-sm);
+$table-cell-padding: $table-padding-vertical $table-padding-horizontal;
+$table-cell-margin: -$table-padding-vertical -$table-padding-horizontal;
+$table-border-color: var(--table-border-color);
+$table-border-active-color: var(--table-border-active-color);
+$table-border-width: var(--table-border-width);
+$table-border-radius: var(--table-border-radius);
+$table-border-style: var(--table-border-style);
+$table-border: $table-border-width $table-border-style $table-border-color;
+$table-box-shadow: var(--table-box-shadow);
+$table-fixed-left-box-shadow: var(--table-fixed-left-box-shadow);
+$table-fixed-right-box-shadow: var(--table-fixed-right-box-shadow);
+$table-footer-background-color: var(--table-footer-background-color);
+$table-footer-foreground-color: var(--table-footer-foreground-color);
+$table-header-font-size: var(--table-header-font-size);
+$table-header-line-height: var(--table-header-line-height);
+$table-footer-font-size: var(--table-footer-font-size);
+$table-footer-line-height: var(--table-footer-line-height);
+$table-font-size: var(--table-font-size);
+$table-font-size-md: var(--table-font-size-md);
+$table-font-size-sm: var(--table-font-size-sm);
+$table-line-height: var(--table-line-height);
+$table-header-cell-split-color: var(--table-header-cell-split-color);
+$table-header-sort-active-background-color: var(
+    --table-header-sort-active-background-color
+);
+$table-fixed-header-sort-active-background-color: $table-header-sort-active-background-color;
+$table-header-filter-active-background-color: var(
+    --table-header-filter-active-background-color
+);
+$table-header-filter-buttons-background-color: var(
+    --table-header-filter-buttons-background-color
+);
+$table-expand-icon-background-color: var(--table-expand-icon-background-color);
+$table-selection-column-width: var(--table-selection-column-width);
+$table-sticky-scroll-bar-background-color: transparent; // constant
+$table-sticky-scroll-bar-active-background-color: transparent; // constant
+$table-sticky-scroll-bar-radius: $table-border-radius;
+
+// Tree
+$tree-bg: var(--background-color);
+$tree-border-color: var(--grey-color-20);
+$tree-border-radius-base: 8px;
+$tree-title-height: 24px;
+$tree-child-padding: 18px;
+$tree-directory-selected-color: var(--white-color);
+$tree-directory-selected-bg: var(--primary-color);
+$tree-node-hover-bg: var(--grey-color-10);
+$tree-node-selected-bg: var(--primary-color);

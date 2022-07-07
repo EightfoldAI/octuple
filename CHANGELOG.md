@@ -2,6 +2,63 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.15.0](https://github.com/EightfoldAI/octuple/compare/v1.14.3...v1.15.0) (2022-07-01)
+
+### Features
+
+-   eng-22373: enable floating buttons ([#212](https://github.com/EightfoldAI/octuple/issues/212)) ([d1ac476](https://github.com/EightfoldAI/octuple/commits/d1ac476302172a387514bfcb4434afc881f06ec6))
+
+### Bug Fixes
+
+-   remove buttons from menu item ([#202](https://github.com/EightfoldAI/octuple/issues/202)) ([305c932](https://github.com/EightfoldAI/octuple/commits/305c932e1ee7e594ec6e856654a3baa97b1b4126))
+
+### [1.14.3](https://github.com/EightfoldAI/octuple/compare/v1.14.2...v1.14.3) (2022-06-30)
+
+### Features
+
+-   dropdown: add ability to portal ([#210](https://github.com/EightfoldAI/octuple/issues/210)) ([9a385ca](https://github.com/EightfoldAI/octuple/commits/9a385ca16aae7d8ae02a77b2439340b1e4d93499))
+
+### Bug Fixes
+
+-   table: increase selection column size, add border bottom header prop ([#209](https://github.com/EightfoldAI/octuple/issues/209)) ([2a36bee](https://github.com/EightfoldAI/octuple/commits/2a36beebce09cd58929b6ddc41b0e41b7fba0743))
+
+### [1.14.2](https://github.com/EightfoldAI/octuple/compare/v1.14.1...v1.14.2) (2022-06-28)
+
+### Features
+
+-   add layout type for radiogroup, checkboxgroup ([#207](https://github.com/EightfoldAI/octuple/issues/207)) ([3ecb719](https://github.com/EightfoldAI/octuple/commits/3ecb7192edf3c1767edb1f071d7f49985bc03ba8))
+
+### Bug Fixes
+
+-   tabs: allign first item to the left ([#208](https://github.com/EightfoldAI/octuple/issues/208)) ([daa2175](https://github.com/EightfoldAI/octuple/commits/daa21756884f1c0741d7e61d3b306b3e0daa5896))
+-   update button font sizes and outline colors ([#206](https://github.com/EightfoldAI/octuple/issues/206)) ([2fccac3](https://github.com/EightfoldAI/octuple/commits/2fccac34714049486dd599405da15faa27969186))
+
+### [1.14.1](https://github.com/EightfoldAI/octuple/compare/v1.13.0...v1.14.1) (2022-06-24)
+
+### Features
+
+-   table: add table component ([#193](https://github.com/EightfoldAI/octuple/issues/193)) ([427bca7](https://github.com/EightfoldAI/octuple/commits/427bca77438eff26a02a5d13fcfc914f007c51f4))
+
+### Bug Fixes
+
+-   button: removes focus outline and border style when not in keyboard mode ([#205](https://github.com/EightfoldAI/octuple/issues/205)) ([142200e](https://github.com/EightfoldAI/octuple/commits/142200ef8f763dbecbbf0ef4eeb137567cf00aff))
+
+## [1.14.0](https://github.com/EightfoldAI/octuple/compare/v1.13.0...v1.14.0) (2022-06-24)
+
+### Features
+
+-   table: add table component ([#193](https://github.com/EightfoldAI/octuple/issues/193)) ([427bca7](https://github.com/EightfoldAI/octuple/commits/427bca77438eff26a02a5d13fcfc914f007c51f4))
+
+### Bug Fixes
+
+-   button: removes focus outline and border style when not in keyboard mode ([#205](https://github.com/EightfoldAI/octuple/issues/205)) ([142200e](https://github.com/EightfoldAI/octuple/commits/142200ef8f763dbecbbf0ef4eeb137567cf00aff))
+
+## [1.13.0](https://github.com/EightfoldAI/octuple/compare/v1.8.0...v1.13.0) (2022-06-23)
+
+### Features
+
+-   added navbar component ([#201](https://github.com/EightfoldAI/octuple/issues/201)) ([2866410](https://github.com/EightfoldAI/octuple/commits/286641030e28cab1ee47bc060a513c442b88e459))
+
 ## [1.12.0](https://github.com/EightfoldAI/octuple/compare/v1.11.2...v1.12.0) (2022-06-22)
 
 ### Features
