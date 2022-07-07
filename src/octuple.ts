@@ -59,6 +59,8 @@ import { InfoBar, InfoBarType } from './components/InfoBar';
 
 import { Select } from './components/Select';
 
+import { Slider } from './components/Slider';
+
 import { SnackbarContainer, Snackbar, snack } from './components/Snackbar';
 
 import { Spinner, SpinnerSize } from './components/Spinner';
@@ -160,6 +162,7 @@ export {
     Select,
     SearchBox,
     SecondaryButton,
+    Slider,
     snack,
     Snackbar,
     SnackbarContainer,
