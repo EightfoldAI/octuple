@@ -2,6 +2,17 @@
     position: relative;
     width: fit-content;
 
+    input[type='submit'],
+    input[type='reset'] {
+        background: none;
+        color: inherit;
+        border: none;
+        padding: 0;
+        font: inherit;
+        cursor: pointer;
+        outline: inherit;
+    }
+
     input[type='search'],
     input[type='text'] {
         background-color: var(--background-color);

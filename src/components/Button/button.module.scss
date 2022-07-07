@@ -52,10 +52,13 @@
     background-color: inherit;
     border: 2px solid rgba(var(--button-primary-default-border-color), 0.01);
     border-radius: $corner-radius-s;
+    color: inherit;
     cursor: pointer;
     display: inline-block;
     min-height: max-content;
     min-width: max-content;
+    outline: inherit;
+    padding: 0;
     transition: all $motion-duration-extra-fast $motion-easing-easeinout 0s;
     white-space: nowrap;
 
