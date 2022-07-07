@@ -14,6 +14,7 @@ function HeaderRow<RecordType>({
     cellComponent: CellComponent,
     onHeaderRow,
     index,
+    classNames,
 }: RowProps<RecordType>) {
     const { direction } = useContext(TableContext);
 
@@ -47,6 +48,7 @@ function HeaderRow<RecordType>({
                 return (
                     <Cell
                         {...cell}
+                        classNames={classNames}
                         ellipsis={column.ellipsis}
                         align={column.align}
                         component={CellComponent}
