@@ -2,8 +2,6 @@
     --button-default-foreground-color: var(--primary-color);
     --button-focus-outline-color: var(--blueviolet-color-50);
     --button-primary-default-border-color: var(--primary-color);
-    --button-two-state-default-foreground-color: var(--grey-color-70);
-    --button-two-state-hover-foreground-color: var(--primary-color);
     --button-two-state-focus-foreground-color: var(--primary-color-80);
     --button-two-state-checked-foreground-color: var(--primary-color-80);
     --button-two-state-active-foreground-color: var(--primary-color-80);
@@ -423,10 +421,10 @@
 }
 
 .two-state-button {
-    background-color: var(--button-two-state-default-background-color);
-    color: var(--button-two-state-default-foreground-color);
-    outline: var(--button-two-state-default-outline-color) solid 1px;
-    outline-offset: -1px;
+    --bg: var(--grey-color-10);
+    --color: var(--grey-color-70);
+    background-color: var(--bg);
+    color: var(--color);
 
     .counter {
         background-color: var(--button-counter-default-background-color);
@@ -471,9 +469,8 @@
     }
 
     &:hover {
-        background-color: var(--button-two-state-hover-background-color);
-        color: var(--button-two-state-hover-foreground-color);
-        outline-color: var(--button-two-state-hover-outline-color);
+        --bg: var(--green-color-10);
+        --color: var(--accent-color-70);
 
         .counter {
             background-color: var(--button-counter-hover-background-color);
@@ -481,9 +478,8 @@
     }
 
     &:active {
-        background-color: var(--button-two-state-active-background-color);
-        color: var(--button-two-state-active-foreground-color);
-        outline-color: var(--button-two-state-active-outline-color);
+        --bg: var(--green-color-20);
+        --color: var(--accent-color);
 
         .counter {
             background-color: var(--button-counter-active-background-color);
@@ -491,9 +487,8 @@
     }
 
     &.checked {
-        background-color: var(--button-two-state-checked-background-color);
-        color: var(--button-two-state-checked-foreground-color);
-        outline-color: var(--button-two-state-checked-outline-color);
+        --bg: var(--green-color-20);
+        --color: var(--accent-color-80);
 
         .counter {
             background-color: var(--button-counter-checked-background-color);
@@ -560,28 +555,12 @@
                 outline-color: var(--grey-color-80);
             }
         }
-    }
 
-    .two-state-button {
-        &:focus-visible {
-            background-color: var(--button-two-state-focus-background-color);
-            color: var(--button-two-state-focus-foreground-color);
-            outline-width: $focus-visible-outline-width;
-            outline-offset: $focus-visible-outline-offset-inner;
-            outline-color: var(--button-focus-outline-color);
-
-            &.checked {
-                background-color: var(
-                    --button-two-state-checked-background-color
-                );
-                color: var(--button-two-state-checked-foreground-color);
-                outline-width: $focus-visible-outline-width;
+        &.two-state-button {
+            &:focus-visible {
+                outline: $focus-visible-outline-width solid
+                    var(--button-focus-outline-color);
                 outline-offset: $focus-visible-outline-offset-inner;
-                outline-color: var(--button-focus-outline-color);
-            }
-
-            .counter {
-                background-color: var(--button-counter-focus-background-color);
             }
         }
     }
