@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.16.0](https://github.com/EightfoldAI/octuple/compare/v1.15.3...v1.16.0) (2022-07-08)
+
+### Features
+
+-   add persistent bar ([#229](https://github.com/EightfoldAI/octuple/issues/229)) ([c760e07](https://github.com/EightfoldAI/octuple/commits/c760e0756b9cba57e03cced654ee45367a7f0d3b))
+
 ### [1.15.3](https://github.com/EightfoldAI/octuple/compare/v1.15.2...v1.15.3) (2022-07-08)
 
 ### [1.15.2](https://github.com/EightfoldAI/octuple/compare/v1.15.1...v1.15.2) (2022-07-07)
