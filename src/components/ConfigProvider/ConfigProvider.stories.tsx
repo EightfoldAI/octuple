@@ -6,6 +6,7 @@ import {
     DefaultButton,
     PrimaryButton,
     SecondaryButton,
+    TwoStateButton,
 } from '../Button';
 import { Tab, Tabs, TabVariant } from '../Tabs';
 import { Icon, IconName } from '../Icon';
@@ -208,6 +209,63 @@ const ThemedComponents: FC = () => {
                     iconProps={{ path: IconName.mdiCardsHeart }}
                     size={ButtonSize.Small}
                     text="Default Button"
+                />
+            </Stack>
+            <Stack direction="horizontal" gap="m">
+                <TwoStateButton
+                    ariaLabel="Two state button"
+                    size={ButtonSize.Small}
+                    iconOneProps={{
+                        path: IconName.mdiCardsHeart,
+                        ariaHidden: true,
+                        classNames: 'my-two-state-btn-icon-one',
+                        id: 'myTwoStateButtonIconOne',
+                        role: 'presentation',
+                        rotate: 0,
+                        spin: false,
+                        vertical: false,
+                        'data-test-id': 'myTwoStateButtonIconOneTestId',
+                    }}
+                    iconTwoProps={{
+                        path: IconName.mdiChevronDown,
+                        ariaHidden: true,
+                        classNames: 'my-two-state-btn-icon-two',
+                        id: 'myTwoStateButtonIconTwo',
+                        role: 'presentation',
+                        rotate: 0,
+                        spin: false,
+                        vertical: false,
+                        'data-test-id': 'myTwoStateButtonIconTwoTestId',
+                    }}
+                    text="Two state button"
+                />
+                <TwoStateButton
+                    ariaLabel="Two state button"
+                    size={ButtonSize.Small}
+                    text="Two state button checked"
+                    iconOneProps={{
+                        path: IconName.mdiCardsHeart,
+                        ariaHidden: true,
+                        classNames: 'my-two-state-btn-icon-one',
+                        id: 'myTwoStateButtonIconOne',
+                        role: 'presentation',
+                        rotate: 0,
+                        spin: false,
+                        vertical: false,
+                        'data-test-id': 'myTwoStateButtonIconOneTestId',
+                    }}
+                    iconTwoProps={{
+                        path: IconName.mdiChevronDown,
+                        ariaHidden: true,
+                        classNames: 'my-two-state-btn-icon-two',
+                        id: 'myTwoStateButtonIconTwo',
+                        role: 'presentation',
+                        rotate: 0,
+                        spin: false,
+                        vertical: false,
+                        'data-test-id': 'myTwoStateButtonIconTwoTestId',
+                    }}
+                    checked
                 />
             </Stack>
             <Tabs value={'tab1'}>

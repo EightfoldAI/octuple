@@ -100,6 +100,11 @@
             padding: $space-xs $space-m;
             border-radius: $corner-radius-xl;
 
+            &.active {
+                .badge {
+                    --bg: var(--primary-color-10);
+                }
+            }
             .tab-indicator {
                 display: none;
             }
