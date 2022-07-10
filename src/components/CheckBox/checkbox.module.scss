@@ -65,14 +65,14 @@
 
         &:hover + label {
             .checkmark {
-                border: $space-xxxs solid var(--primary-color);
+                border: $space-xxxs solid var(--primary-color-70);
                 background-color: var(--accent-color-10);
             }
         }
 
         &:active + label {
             .checkmark {
-                border: $space-xxxs solid var(--primary-color);
+                border: $space-xxxs solid var(--primary-color-70);
                 background-color: var(--accent-color-30);
             }
         }
@@ -89,12 +89,12 @@
 
             .checkmark {
                 background-color: var(--accent-color-30);
-                border: $space-xxxs solid var(--primary-color);
+                border: $space-xxxs solid var(--primary-color-70);
             }
 
             .checkmark:after {
                 opacity: 1;
-                border-color: var(--primary-color);
+                border-color: var(--primary-color-70);
                 transform: rotate(45deg) scale(1);
                 transition: all $motion-duration-extra-fast
                     $motion-ease-out-back $motion-delay-s;
@@ -105,14 +105,14 @@
             .checkmark {
                 transform: scale(0.98);
                 background-color: var(--accent-color-10);
-                border: $space-xxxs solid var(--primary-color-80);
+                border: $space-xxxs solid var(--primary-color-70);
             }
         }
 
         &:hover + label {
             .checkmark {
                 background-color: var(--accent-color-20);
-                border: $space-xxxs solid var(--primary-color-60);
+                border: $space-xxxs solid var(--primary-color-70);
             }
         }
     }
