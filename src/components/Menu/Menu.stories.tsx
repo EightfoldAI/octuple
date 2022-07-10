@@ -1,8 +1,7 @@
 import React from 'react';
 import { Stories } from '@storybook/addon-docs';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { Menu, MenuSize, MenuType, MenuVariant } from './';
-import { IconName } from '../Icon';
+import { Menu, MenuSize, MenuVariant } from './';
 import { Dropdown } from '../Dropdown';
 import { DefaultButton } from '../Button';
 
@@ -49,49 +48,40 @@ const Overlay = (args: any) => (
         {...args}
         items={[
             {
-                iconProps: { path: IconName.mdiCalendar },
                 text: 'Date',
                 value: 'date 1',
                 counter: '8',
             },
             {
-                iconProps: { path: IconName.mdiThumbUpOutline },
                 text: 'Thumbs up',
                 value: 'date 1',
                 disabled: true,
             },
             {
-                iconProps: { path: IconName.mdiSchool },
                 text: 'School',
                 value: 'date 1',
             },
             {
-                iconProps: { path: IconName.mdiCalendar },
                 text: 'Date',
                 value: 'date 1',
             },
             {
-                iconProps: { path: IconName.mdiThumbUpOutline },
                 text: 'Thumbs up',
                 value: 'date 1',
             },
             {
-                iconProps: { path: IconName.mdiSchool },
                 text: 'School',
                 value: 'date 1',
             },
             {
-                iconProps: { path: IconName.mdiCalendar },
                 text: 'Date',
                 value: 'date 1',
             },
             {
-                iconProps: { path: IconName.mdiThumbUpOutline },
                 text: 'Thumbs up',
                 value: 'date 1',
             },
             {
-                iconProps: { path: IconName.mdiSchool },
                 text: 'School',
                 value: 'date 1',
             },
@@ -115,7 +105,25 @@ Menus.args = {
     size: MenuSize.medium,
     classNames: 'my-menu-class',
     style: {},
+    header: 'Header 4 is used here',
+    subHeader: 'A short description if needed',
     itemClassNames: 'my-menu-item-class',
+    cancelButtonProps: {
+        ariaLabel: 'Cancel',
+        classNames: 'my-cancel-btn-class',
+        'data-test-id': 'my-cancel-btn-test-id',
+        iconProps: null,
+        id: 'myCancelButton',
+        text: 'Cancel',
+    },
+    okButtonProps: {
+        ariaLabel: 'Accept',
+        classNames: 'my-accept-btn-class',
+        'data-test-id': 'my-accept-btn-test-id',
+        iconProps: null,
+        id: 'myAcceptButton',
+        text: 'Accept',
+    },
     itemStyle: {},
     listType: 'ul',
 };

@@ -1,0 +1,11 @@
+.menu-header-container {
+    margin: $space-m $space-s $space-xs;
+}
+
+.menu-footer-container {
+    background: var(--background-color);
+    position: sticky;
+    bottom: 0;
+    border-top: solid 1px var(--border-color);
+    padding: $space-m;
+}

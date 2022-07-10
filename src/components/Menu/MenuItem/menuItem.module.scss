@@ -4,11 +4,20 @@
     color: var(--label);
     display: flex;
     align-items: center;
+    margin: 0 $space-xs 1px $space-xs;
     gap: $space-xs;
     border-radius: $corner-radius-xl;
     cursor: pointer;
     font-weight: $text-font-weight-semibold;
     transition: all $motion-duration-extra-fast $motion-easing-easeinout 0s;
+
+    &:first-child {
+        margin-top: $space-xs;
+    }
+
+    &:last-child {
+        margin-bottom: $space-xs;
+    }
 
     &.large {
         height: 44px;

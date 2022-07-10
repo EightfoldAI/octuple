@@ -40,4 +40,8 @@
         animation: slideUpOut $motion-duration-extra-fast
             $motion-easing-easeinout 0s forwards;
     }
+
+    &.no-padding {
+        padding: 0;
+    }
 }
