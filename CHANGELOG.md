@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.0.1-pre.1](https://github.com/EightfoldAI/octuple/compare/v1.16.0...v2.0.1-pre.1) (2022-07-10)
+
+### Features
+
+-   add all theme2 colors to avatar and pill component ([16d2eda](https://github.com/EightfoldAI/octuple/commits/16d2edab25e0a8ca2da789049f1f6e89ca69985d))
+-   theme 2 color palette, default button & input shape to pull, styles for selectors, tabs, buttons, accordion & match score ([#174](https://github.com/EightfoldAI/octuple/issues/174)) ([bf405e7](https://github.com/EightfoldAI/octuple/commits/bf405e75171df5d82479d485be05bc777acdd28b))
+-   theme 2 for dialog, modal, infobar, snackbar and dropdown ([#162](https://github.com/EightfoldAI/octuple/issues/162)) ([20ba49a](https://github.com/EightfoldAI/octuple/commits/20ba49a5ccbc906152a77ffeb6d3cae12513e2b1))
+-   Update incorrect colors for Tabs and Buttons in theme 2 ([#214](https://github.com/EightfoldAI/octuple/issues/214)) ([46079ac](https://github.com/EightfoldAI/octuple/commits/46079acbbe8d00a044d28f824d0be51e8c016b76))
+-   update menu item, pagination and inputs to theme 2 ([#213](https://github.com/EightfoldAI/octuple/issues/213)) ([e038591](https://github.com/EightfoldAI/octuple/commits/e038591d5147a7a2c15e041e06401ddbaaeadff6))
+
+### Bug Fixes
+
+-   Update checkbox colors to the correct values ([#230](https://github.com/EightfoldAI/octuple/issues/230)) ([f3219a3](https://github.com/EightfoldAI/octuple/commits/f3219a3f63b3615f0528e4131ab9b88df885dbd2)), closes [#162](https://github.com/EightfoldAI/octuple/issues/162) [#174](https://github.com/EightfoldAI/octuple/issues/174)
+-   update two state button to theme 2 ([#226](https://github.com/EightfoldAI/octuple/issues/226)) ([0eeba80](https://github.com/EightfoldAI/octuple/commits/0eeba80f4b7dccda181264f7493171c29cf4e602))
+
 ## [1.16.0](https://github.com/EightfoldAI/octuple/compare/v1.15.3...v1.16.0) (2022-07-08)
 
 ### Features
