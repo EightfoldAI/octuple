@@ -9,7 +9,7 @@ import {
 import { Dropdown } from '../Dropdown';
 import { IconName } from '../Icon';
 import { Menu } from '../Menu';
-import { MenuItemProps } from '../Menu/MenuItem/MenuItem.types';
+import { MenuItemButtonProps } from '../Menu/MenuItem/MenuItem.types';
 import { TextInput, TextInputShape } from '../Inputs';
 import { mergeClasses } from '../../shared/utilities';
 import { useBoolean } from '../../octuple';
@@ -165,7 +165,7 @@ export const Pagination: FC<PaginationProps> = React.forwardRef(
         };
 
         const Overlay = (pageSizes?: number[]) => {
-            const getItems = (): MenuItemProps[] => {
+            const getItems = (): MenuItemButtonProps[] => {
                 return pageSizes.map((item?: number, idx?: number) => ({
                     rowkey: idx,
                     text:

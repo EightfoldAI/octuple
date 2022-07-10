@@ -1,6 +1,6 @@
 import React, { FC, useState } from 'react';
 import { Stories } from '@storybook/addon-docs';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { ComponentMeta, ComponentStory } from '@storybook/react';
 import {
     ButtonSize,
     DefaultButton,
@@ -26,7 +26,7 @@ import { CheckBox, CheckBoxGroup } from '../CheckBox';
 import { Link } from '../Link';
 import { Navbar, NavbarContent } from '../Navbar';
 import { Dropdown } from '../Dropdown';
-import { Menu, MenuVariant } from '../Menu';
+import { Menu, MenuItemType, MenuVariant } from '../Menu';
 
 export default {
     title: 'Config Provider',
