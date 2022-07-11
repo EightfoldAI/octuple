@@ -15,6 +15,7 @@ export const Link: FC<LinkProps> = React.forwardRef(
             variant = 'default',
             style,
             'data-test-id': dataTestId,
+            ...rest
         },
         ref: Ref<HTMLAnchorElement>
     ) => {
@@ -26,6 +27,7 @@ export const Link: FC<LinkProps> = React.forwardRef(
 
         return (
             <a
+                {...rest}
                 ref={ref}
                 href={href}
                 className={linkClasses}

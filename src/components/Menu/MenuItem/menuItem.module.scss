@@ -88,11 +88,22 @@
         cursor: not-allowed;
     }
 
+    &.menu-link {
+        text-decoration: none;
+    }
+
     .label {
         flex: 1;
         display: flex;
         align-content: flex-start;
     }
+}
+
+.menu-item-sub-header {
+    color: var(--grey-color-60);
+    padding: $space-l-fitted $space-xxs $space-s;
+    border-bottom: solid 1px var(--border-color);
+    margin: 0 $space-m $space-xs;
 }
 
 :global(.focus-visible) {

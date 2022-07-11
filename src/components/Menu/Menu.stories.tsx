@@ -1,9 +1,11 @@
 import React from 'react';
 import { Stories } from '@storybook/addon-docs';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { Menu, MenuSize, MenuVariant } from './';
+import { Menu, MenuItemType, MenuSize, MenuVariant } from './';
 import { Dropdown } from '../Dropdown';
 import { DefaultButton } from '../Button';
+import { RadioGroup } from '../RadioButton';
+import { IconName } from '../Icon';
 
 export default {
     title: 'Menu',
@@ -48,6 +50,9 @@ const Overlay = (args: any) => (
         {...args}
         items={[
             {
+                iconProps: {
+                    path: IconName.mdiCalendar,
+                },
                 text: 'Date',
                 value: 'date 1',
                 counter: '8',
@@ -58,32 +63,45 @@ const Overlay = (args: any) => (
                 disabled: true,
             },
             {
-                text: 'School',
-                value: 'date 1',
+                type: MenuItemType.subHeader,
+                text: 'Menu Type links',
             },
             {
-                text: 'Date',
-                value: 'date 1',
+                type: MenuItemType.link,
+                text: 'Twitter link',
+                href: 'https://twitter.com',
+                target: '_blank',
             },
             {
-                text: 'Thumbs up',
-                value: 'date 1',
+                type: MenuItemType.link,
+                text: 'Facebook link',
+                href: 'https://facebook.com',
+                target: '_blank',
             },
             {
-                text: 'School',
-                value: 'date 1',
+                type: MenuItemType.subHeader,
+                text: 'Menu type custom',
             },
             {
-                text: 'Date',
-                value: 'date 1',
-            },
-            {
-                text: 'Thumbs up',
-                value: 'date 1',
-            },
-            {
-                text: 'School',
-                value: 'date 1',
+                type: MenuItemType.custom,
+                render: () => (
+                    <RadioGroup
+                        {...{
+                            ariaLabel: 'Radio Group',
+                            value: 'Radio1',
+                            items: [1, 2, 3].map((i) => ({
+                                value: `Radio${i}`,
+                                label: `Radio${i}`,
+                                name: 'group',
+                                id: `oea2exk-${i}`,
+                            })),
+                            layout: 'vertical',
+                        }}
+                        onChange={(e) => {
+                            args.onChange(e);
+                        }}
+                    />
+                ),
             },
         ]}
         onChange={(item) => {

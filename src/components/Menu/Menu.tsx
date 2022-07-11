@@ -1,8 +1,8 @@
 import React, { FC } from 'react';
-import { MenuProps, MenuSize, MenuType, MenuVariant } from './Menu.types';
+import { MenuItemTypes, MenuProps, MenuSize, MenuVariant } from './Menu.types';
 import { List } from '../List';
 import { MenuItem } from './MenuItem/MenuItem';
-import { MenuItemProps } from './MenuItem/MenuItem.types';
+import { MenuItemType } from './MenuItem/MenuItem.types';
 import { mergeClasses } from '../../shared/utilities';
 import { Stack } from '../Stack';
 import { ButtonSize, NeutralButton, PrimaryButton } from '../Button';
@@ -19,7 +19,6 @@ export const Menu: FC<MenuProps> = ({
     items,
     onChange,
     variant = MenuVariant.neutral,
-    type = MenuType.button,
     size = MenuSize.medium,
     classNames,
     style,
@@ -63,20 +62,19 @@ export const Menu: FC<MenuProps> = ({
         },
     ]);
 
-    const getListItem = (item: MenuItemProps, index: number): JSX.Element => {
-        switch (type) {
-            case MenuType.button:
-                return (
-                    <MenuItem
-                        key={`oc-menu-item-${index}`}
-                        onClick={onChange}
-                        variant={variant}
-                        size={size}
-                        {...item}
-                    />
-                );
-        }
-    };
+    const getListItem = (
+        item: MenuItemTypes,
+        index: number
+    ): React.ReactNode => (
+        <MenuItem
+            key={`oc-menu-item-${index}`}
+            variant={variant}
+            size={size}
+            onClick={onChange}
+            type={item.type ?? MenuItemType.button}
+            {...item}
+        />
+    );
 
     const getHeader = (): JSX.Element =>
         (header || subHeader) && (
@@ -114,7 +112,7 @@ export const Menu: FC<MenuProps> = ({
         );
 
     return (
-        <List<MenuItemProps>
+        <List<MenuItemTypes>
             {...rest}
             items={items}
             classNames={classNames}
