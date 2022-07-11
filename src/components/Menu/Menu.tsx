@@ -71,6 +71,7 @@ export const Menu: FC<MenuProps> = ({
             variant={variant}
             size={size}
             onClick={onChange}
+            onChange={onChange}
             type={item.type ?? MenuItemType.button}
             {...item}
         />

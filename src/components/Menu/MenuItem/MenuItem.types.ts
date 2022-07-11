@@ -99,6 +99,12 @@ export interface MenuItemSubHeaderProps
     text?: string;
 }
 
+export interface IMenuItemRender {
+    value: any;
+    index: number;
+    onChange: (value: any) => void;
+}
+
 export interface MenuItemCustomProps
     extends MenuItemProps,
         OcBaseProps<HTMLDivElement> {
@@ -108,8 +114,6 @@ export interface MenuItemCustomProps
     index?: number;
     /**
      * Method to render custom menu item
-     * @param value
-     * @param index
      */
-    render?: (value: any, index: number) => React.ReactNode;
+    render?: (menuItemRender: IMenuItemRender) => React.ReactNode;
 }

@@ -42,6 +42,9 @@ export default {
             options: [MenuSize.small, MenuSize.medium, MenuSize.large],
             control: { type: 'radio' },
         },
+        onChange: {
+            action: 'click',
+        },
     },
 } as ComponentMeta<typeof Menu>;
 
@@ -84,7 +87,7 @@ const Overlay = (args: any) => (
             },
             {
                 type: MenuItemType.custom,
-                render: () => (
+                render: ({ onChange }) => (
                     <RadioGroup
                         {...{
                             ariaLabel: 'Radio Group',
@@ -97,14 +100,13 @@ const Overlay = (args: any) => (
                             })),
                             layout: 'vertical',
                         }}
-                        onChange={(e) => {
-                            args.onChange(e);
-                        }}
+                        onChange={onChange}
                     />
                 ),
             },
         ]}
         onChange={(item) => {
+            args.onChange(item);
             console.log(item);
         }}
     />
