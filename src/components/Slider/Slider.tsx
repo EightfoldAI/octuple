@@ -1,6 +1,15 @@
-import React, { FC, useEffect, useLayoutEffect, useRef, useState } from 'react';
+import React, {
+    createRef,
+    FC,
+    RefObject,
+    useLayoutEffect,
+    useRef,
+    useState,
+} from 'react';
 
-import { mergeClasses, visuallyHidden } from '../../shared/utilities';
+import { useEffectOnlyOnUpdate } from '../../hooks/useEffectOnlyOnUpdate';
+import { ResizeObserver } from '../../shared/ResizeObserver/ResizeObserver';
+import { mergeClasses } from '../../shared/utilities';
 import { SliderMarker, SliderProps } from './Slider.types';
 import styles from './slider.module.scss';
 
@@ -57,9 +66,19 @@ export const Slider: FC<SliderProps> = ({
     const lowerLabelRef = useRef<HTMLInputElement>(null);
     const upperLabelRef = useRef<HTMLInputElement>(null);
     const trackRef = useRef<HTMLDivElement>(null);
-    let [showMinLabel, setShowMinLabel] = useState<boolean>(showLabels);
-    let [showMaxLabel, setShowMaxLabel] = useState<boolean>(showLabels);
-    let [markers, setMarkers] = useState<SliderMarker[]>([]);
+    const minLabelRef = useRef<HTMLDivElement>(null);
+    const maxLabelRef = useRef<HTMLDivElement>(null);
+    let [markers, setMarkers] = useState<SliderMarker[]>(
+        !showMarkers
+            ? []
+            : [...Array(Math.floor((max - min) / step) + 1)].map(
+                  (_, index) => ({ value: min + step * index })
+              )
+    );
+    const markerRefs = useRef<RefObject<HTMLDivElement>[]>(null);
+    markerRefs.current = markers.map(
+        (_, i) => markerRefs.current?.[i] ?? createRef<HTMLDivElement>()
+    );
 
     const getIdentifier = (baseString: string, index: number): string => {
         if (!baseString) {
@@ -95,33 +114,22 @@ export const Slider: FC<SliderProps> = ({
         setValues(newValues);
     };
 
-    useEffect(() => {
-        onChange?.(isRange ? [...values] : values[0]);
-    }, [values]);
-
-    // Set width of the range to decrease from the left side
-    useLayoutEffect(() => {
+    const updateLayout = () => {
         const inputWidth = railRef.current?.offsetWidth || 0;
-
-        setMarkers(
-            !showMarkers
-                ? []
-                : [...Array(Math.floor((max - min) / step) + 1)].map(
-                      (_, index) => {
-                          const markVal = min + step * index;
-                          return {
-                              value: markVal,
-                              offset: `${getValueOffset(markVal)}px`,
-                          };
-                      }
-                  )
-        );
 
         // Early exit if there is no ref available yet. The DOM has yet to initialize
         // and its not possible to calculate positions.
         if (!railRef.current) {
             return;
         }
+
+        markerRefs.current.forEach((ref, i) => {
+            if (ref.current) {
+                ref.current.style.left = `${getValueOffset(
+                    markers[i].value
+                )}px`;
+            }
+        });
 
         const lowerThumbOffset = getValueOffset(values[0]);
         const upperThumbOffset = getValueOffset(values[1]);
@@ -134,15 +142,17 @@ export const Slider: FC<SliderProps> = ({
         const maxCollisionThumbOffset = isRange
             ? upperThumbOffset
             : lowerThumbOffset;
-        setShowMaxLabel(
+
+        const showMaxLabel =
             showLabels &&
-                inputWidth - maxCollisionThumbOffset >
-                    (maxCollisionLabelRef.current?.offsetWidth || 0) + 15
-        );
-        setShowMinLabel(
+            inputWidth - maxCollisionThumbOffset >
+                (maxCollisionLabelRef.current?.offsetWidth || 0) + 15;
+        maxLabelRef.current.style.opacity = showMaxLabel ? '1' : '0';
+
+        const showMinLabel =
             showLabels &&
-                lowerThumbOffset > lowerLabelRef.current.offsetWidth + 15
-        );
+            lowerThumbOffset > lowerLabelRef.current.offsetWidth + 15;
+        minLabelRef.current.style.opacity = showMinLabel ? '1' : '0';
 
         const lowerLabelOffset = lowerLabelRef.current.offsetWidth / 2;
         lowerLabelRef.current.style.left = `${
@@ -159,93 +169,104 @@ export const Slider: FC<SliderProps> = ({
 
         trackRef.current.style.left = isRange ? `${lowerThumbOffset}px` : '0';
         trackRef.current.style.width = `${rangeWidth}px`;
-    }, values);
+    };
+
+    useEffectOnlyOnUpdate(() => {
+        onChange?.(isRange ? [...values] : values[0]);
+    }, [values]);
+
+    // Set width of the range to decrease from the left side
+    useLayoutEffect(() => {
+        updateLayout();
+    }, [values]);
 
     return (
-        // TODO: implement ResizeObserver to re-render the DOM on resize.
-        <div
-            className={mergeClasses(styles.sliderContainer, {
-                [styles.sliderDisabled]: disabled,
-            })}
-        >
-            <div className={mergeClasses(styles.slider, classNames)}>
-                <div ref={railRef} className={styles.sliderRail} />
-                <div ref={trackRef} className={styles.sliderTrack} />
-                {markers.map((mark, index) => {
-                    // Hiding the first and last marker based on design.
-                    const isFirstOrLast =
-                        index === 0 || index === markers.length - 1;
-                    const style = { left: mark.offset };
-                    return (
-                        !isFirstOrLast && (
-                            <div
-                                key={index}
-                                className={mergeClasses(styles.railMarker, {
-                                    [styles.active]: isMarkerActive(mark.value),
-                                })}
-                                style={style}
-                            />
-                        )
-                    );
+        <ResizeObserver onResize={() => updateLayout()}>
+            <div
+                className={mergeClasses(styles.sliderContainer, {
+                    [styles.sliderDisabled]: disabled,
                 })}
-                {values.map((val, index) => (
-                    <input
-                        aria-label={ariaLabel}
-                        autoFocus={autoFocus && index === 0}
-                        className={styles.thumb}
-                        id={getIdentifier(id, index)}
-                        key={index}
-                        disabled={disabled}
-                        onChange={(event) =>
-                            handleChange(+event.target.value, index)
-                        }
-                        min={min}
-                        max={max}
-                        name={getIdentifier(name, index)}
-                        type="range"
-                        step={step}
-                        value={val}
-                    />
-                ))}
-            </div>
-            <>
-                <div
-                    className={mergeClasses(styles.sliderValue, {
-                        [styles.labelVisible]: showLabels,
+            >
+                <div className={mergeClasses(styles.slider, classNames)}>
+                    <div ref={railRef} className={styles.sliderRail} />
+                    <div ref={trackRef} className={styles.sliderTrack} />
+                    {markers.map((mark, index) => {
+                        // Hiding the first and last marker based on design.
+                        const isFirstOrLast =
+                            index === 0 || index === markers.length - 1;
+                        return (
+                            !isFirstOrLast && (
+                                <div
+                                    key={index}
+                                    className={mergeClasses(styles.railMarker, {
+                                        [styles.active]: isMarkerActive(
+                                            mark.value
+                                        ),
+                                    })}
+                                    ref={markerRefs.current[index]}
+                                />
+                            )
+                        );
                     })}
-                    ref={lowerLabelRef}
-                >
-                    {values[0]}
+                    {values.map((val, index) => (
+                        <input
+                            aria-label={ariaLabel}
+                            autoFocus={autoFocus && index === 0}
+                            className={styles.thumb}
+                            id={getIdentifier(id, index)}
+                            key={index}
+                            disabled={disabled}
+                            onChange={(event) =>
+                                handleChange(+event.target.value, index)
+                            }
+                            min={min}
+                            max={max}
+                            name={getIdentifier(name, index)}
+                            type="range"
+                            step={step}
+                            value={val}
+                        />
+                    ))}
                 </div>
-                {isRange && (
+                <>
                     <div
                         className={mergeClasses(styles.sliderValue, {
                             [styles.labelVisible]: showLabels,
                         })}
-                        ref={upperLabelRef}
+                        ref={lowerLabelRef}
                     >
-                        {values[1]}
+                        {values[0]}
                     </div>
-                )}
-            </>
-            <div
-                className={mergeClasses(
-                    styles.extremityLabel,
-                    styles.minLabel,
-                    { [styles.labelVisible]: showMinLabel }
-                )}
-            >
-                {min}
+                    {isRange && (
+                        <div
+                            className={mergeClasses(styles.sliderValue, {
+                                [styles.labelVisible]: showLabels,
+                            })}
+                            ref={upperLabelRef}
+                        >
+                            {values[1]}
+                        </div>
+                    )}
+                </>
+                <div
+                    ref={minLabelRef}
+                    className={mergeClasses(
+                        styles.extremityLabel,
+                        styles.minLabel
+                    )}
+                >
+                    {min}
+                </div>
+                <div
+                    ref={maxLabelRef}
+                    className={mergeClasses(
+                        styles.extremityLabel,
+                        styles.maxLabel
+                    )}
+                >
+                    {max}
+                </div>
             </div>
-            <div
-                className={mergeClasses(
-                    styles.extremityLabel,
-                    styles.maxLabel,
-                    { [styles.labelVisible]: showMaxLabel }
-                )}
-            >
-                {max}
-            </div>
-        </div>
+        </ResizeObserver>
     );
 };
