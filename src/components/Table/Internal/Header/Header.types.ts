@@ -15,6 +15,7 @@ export interface RowProps<RecordType> {
     cellComponent: CustomizeComponent;
     onHeaderRow: GetComponentProps<readonly ColumnType<RecordType>[]>;
     index: number;
+    classNames?: string;
 }
 
 export interface HeaderProps<RecordType> {
@@ -22,4 +23,5 @@ export interface HeaderProps<RecordType> {
     flattenColumns: readonly ColumnType<RecordType>[];
     stickyOffsets: StickyOffsets;
     onHeaderRow: GetComponentProps<readonly ColumnType<RecordType>[]>;
+    classNames?: string;
 }
