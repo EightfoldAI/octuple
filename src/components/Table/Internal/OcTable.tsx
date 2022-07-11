@@ -113,6 +113,7 @@ function OcTable<RecordType extends DefaultRecordType>(
         onHeaderRow,
         transformColumns,
         sticky,
+        headerClassName,
     } = props;
 
     const mergedData = data || EMPTY_DATA;
@@ -484,6 +485,7 @@ function OcTable<RecordType extends DefaultRecordType>(
         onHeaderRow,
         fixHeader,
         scroll,
+        classNames: headerClassName,
     };
 
     // Empty
@@ -599,7 +601,10 @@ function OcTable<RecordType extends DefaultRecordType>(
                     >
                         {(fixedHolderPassProps) => (
                             <>
-                                <Header {...fixedHolderPassProps} />
+                                <Header
+                                    {...fixedHolderPassProps}
+                                    classNames={headerClassName}
+                                />
                                 {fixFooter === 'top' && (
                                     <Footer {...fixedHolderPassProps}>
                                         {summaryNode}
