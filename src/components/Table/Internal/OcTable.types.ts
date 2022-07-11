@@ -241,6 +241,7 @@ export interface OcTableProps<RecordType = unknown> {
     onRow?: GetComponentProps<RecordType>;
     onHeaderRow?: GetComponentProps<readonly ColumnType<RecordType>[]>;
     emptyText?: React.ReactNode | (() => React.ReactNode);
+    headerClassName?: string;
 
     direction?: string;
 
