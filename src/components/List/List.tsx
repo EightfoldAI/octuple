@@ -52,7 +52,7 @@ export const List = <T extends any>({
         </li>
     );
 
-    const getItems = (): JSX.Element[] =>
+    const getItems = (): React.ReactNode[] =>
         items.map(
             (item: T, index) => getItem?.(item, index) ?? _getItem(item, index)
         );

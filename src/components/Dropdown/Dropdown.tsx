@@ -17,6 +17,7 @@ import { useOnClickOutside } from '../../hooks/useOnClickOutside';
 import { useAccessibility } from '../../hooks/useAccessibility';
 import styles from './dropdown.module.scss';
 import { FloatingPortal } from '@floating-ui/react-dom-interactions';
+import { Menu } from '../Menu';
 
 const TRIGGER_TO_HANDLER_MAP_ON_ENTER = {
     click: 'onClick',
@@ -103,6 +104,8 @@ export const Dropdown: FC<DropdownProps> = ({
     const dropdownClasses: string = mergeClasses([
         dropdownClassNames,
         styles.dropdownWrapper,
+        // Temp hack till we find a better solution
+        { [styles.noPadding]: overlay.type === Menu },
         { [styles.open]: visible },
         { [styles.close]: closing },
     ]);
