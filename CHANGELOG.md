@@ -2,6 +2,44 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.16.0](https://github.com/EightfoldAI/octuple/compare/v1.15.3...v1.16.0) (2022-07-08)
+
+### Features
+
+-   add persistent bar ([#229](https://github.com/EightfoldAI/octuple/issues/229)) ([c760e07](https://github.com/EightfoldAI/octuple/commits/c760e0756b9cba57e03cced654ee45367a7f0d3b))
+
+### [1.15.3](https://github.com/EightfoldAI/octuple/compare/v1.15.2...v1.15.3) (2022-07-08)
+
+### [1.15.2](https://github.com/EightfoldAI/octuple/compare/v1.15.1...v1.15.2) (2022-07-07)
+
+### [1.15.1](https://github.com/EightfoldAI/octuple/compare/v1.15.1-0...v1.15.1) (2022-07-07)
+
+### [1.15.1-0](https://github.com/EightfoldAI/octuple/compare/v1.15.0...v1.15.1-0) (2022-07-07)
+
+### Bug Fixes
+
+-   export slider component ([#221](https://github.com/EightfoldAI/octuple/issues/221)) ([a048ad2](https://github.com/EightfoldAI/octuple/commits/a048ad29004907df24c38bdbcce308ca2ea90cd9))
+
+## [1.15.0](https://github.com/EightfoldAI/octuple/compare/v1.14.3...v1.15.0) (2022-07-01)
+
+### Features
+
+-   eng-22373: enable floating buttons ([#212](https://github.com/EightfoldAI/octuple/issues/212)) ([d1ac476](https://github.com/EightfoldAI/octuple/commits/d1ac476302172a387514bfcb4434afc881f06ec6))
+
+### Bug Fixes
+
+-   remove buttons from menu item ([#202](https://github.com/EightfoldAI/octuple/issues/202)) ([305c932](https://github.com/EightfoldAI/octuple/commits/305c932e1ee7e594ec6e856654a3baa97b1b4126))
+
+### [1.14.3](https://github.com/EightfoldAI/octuple/compare/v1.14.2...v1.14.3) (2022-06-30)
+
+### Features
+
+-   dropdown: add ability to portal ([#210](https://github.com/EightfoldAI/octuple/issues/210)) ([9a385ca](https://github.com/EightfoldAI/octuple/commits/9a385ca16aae7d8ae02a77b2439340b1e4d93499))
+
+### Bug Fixes
+
+-   table: increase selection column size, add border bottom header prop ([#209](https://github.com/EightfoldAI/octuple/issues/209)) ([2a36bee](https://github.com/EightfoldAI/octuple/commits/2a36beebce09cd58929b6ddc41b0e41b7fba0743))
+
 ### [1.14.2](https://github.com/EightfoldAI/octuple/compare/v1.14.1...v1.14.2) (2022-06-28)
 
 ### Features

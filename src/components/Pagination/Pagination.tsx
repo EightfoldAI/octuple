@@ -3,7 +3,8 @@ import { Pager, PaginationLayoutOptions, PaginationProps } from './index';
 import { ButtonIconAlign, ButtonSize, DefaultButton } from '../Button';
 import { Dropdown } from '../Dropdown';
 import { IconName } from '../Icon';
-import { Menu, MenuItem } from '../Menu';
+import { Menu } from '../Menu';
+import { MenuItemProps } from '../Menu/MenuItem/MenuItem.types';
 import { TextInput } from '../Inputs';
 import { mergeClasses } from '../../shared/utilities';
 import { useBoolean } from '../../octuple';
@@ -155,7 +156,7 @@ export const Pagination: FC<PaginationProps> = React.forwardRef(
         };
 
         const Overlay = (pageSizes?: number[]) => {
-            const getItems = (): MenuItem[] => {
+            const getItems = (): MenuItemProps[] => {
                 return pageSizes.map((item?: number, idx?: number) => ({
                     rowkey: idx,
                     text:
@@ -241,7 +242,8 @@ export const Pagination: FC<PaginationProps> = React.forwardRef(
                                     size={ButtonSize.Small}
                                 />
                             )}
-                        {layout.includes(PaginationLayoutOptions.Pager) && (
+                        {layout.includes(PaginationLayoutOptions.Pager) &&
+                        !layout.includes(PaginationLayoutOptions.Simplified) ? (
                             <Pager
                                 currentPage={_currentPage}
                                 key="pager"
@@ -253,6 +255,20 @@ export const Pagination: FC<PaginationProps> = React.forwardRef(
                                 quickPreviousIconButtonAriaLabel={
                                     quickPreviousIconButtonAriaLabel
                                 }
+                            />
+                        ) : (
+                            <Pager
+                                currentPage={_currentPage}
+                                key="pager"
+                                onCurrentChange={handleCurrentChange}
+                                pageCount={getPageCount()}
+                                quickNextIconButtonAriaLabel={
+                                    quickNextIconButtonAriaLabel
+                                }
+                                quickPreviousIconButtonAriaLabel={
+                                    quickPreviousIconButtonAriaLabel
+                                }
+                                simplified={true}
                             />
                         )}
                         {layout.includes(PaginationLayoutOptions.Next) &&

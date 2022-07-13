@@ -1365,6 +1365,7 @@ export const Virtual_List: FC = () => {
 
 const tableArgs: Object = {
     alternateRowColor: true,
+    headerClassName: 'my-header',
     bordered: true,
     classNames: 'my-table-class',
     id: 'myTableId',

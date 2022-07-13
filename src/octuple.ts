@@ -36,13 +36,15 @@ import { Link } from './components/Link';
 
 import { List } from './components/List';
 
-import { Menu } from './components/Menu';
+import { Menu, MenuType, MenuVariant, MenuSize } from './components/Menu';
 
 import { Modal, ModalSize } from './components/Modal';
 
 import { Navbar, NavbarContent } from './components/Navbar';
 
 import { Pagination, PaginationLayoutOptions } from './components/Pagination';
+
+import { PersistentBar, PersistentBarType } from './components/PersistentBar';
 
 import { Pill, PillSize, PillType } from './components/Pills';
 
@@ -58,6 +60,8 @@ import {
 import { InfoBar, InfoBarType } from './components/InfoBar';
 
 import { Select } from './components/Select';
+
+import { Slider } from './components/Slider';
 
 import { SnackbarContainer, Snackbar, snack } from './components/Snackbar';
 
@@ -136,6 +140,9 @@ export {
     List,
     MatchScore,
     Menu,
+    MenuType,
+    MenuVariant,
+    MenuSize,
     Modal,
     ModalSize,
     Navbar,
@@ -146,6 +153,8 @@ export {
     Panel,
     PanelPlacement,
     PanelSize,
+    PersistentBar,
+    PersistentBarType,
     Pill,
     PillSize,
     PillType,
@@ -157,6 +166,7 @@ export {
     Select,
     SearchBox,
     SecondaryButton,
+    Slider,
     snack,
     Snackbar,
     SnackbarContainer,

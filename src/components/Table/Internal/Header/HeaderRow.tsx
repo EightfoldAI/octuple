@@ -5,6 +5,7 @@ import { RowProps } from './Header.types';
 import TableContext from '../Context/TableContext';
 import { getCellFixedInfo } from '../Utilities/fixUtil';
 import { getColumnsKey } from '../Utilities/valueUtil';
+import { mergeClasses } from '../../../../shared/utilities';
 
 function HeaderRow<RecordType>({
     cells,
@@ -14,6 +15,7 @@ function HeaderRow<RecordType>({
     cellComponent: CellComponent,
     onHeaderRow,
     index,
+    classNames,
 }: RowProps<RecordType>) {
     const { direction } = useContext(TableContext);
 
@@ -47,6 +49,7 @@ function HeaderRow<RecordType>({
                 return (
                     <Cell
                         {...cell}
+                        classNames={mergeClasses([cell.classNames, classNames])}
                         ellipsis={column.ellipsis}
                         align={column.align}
                         component={CellComponent}

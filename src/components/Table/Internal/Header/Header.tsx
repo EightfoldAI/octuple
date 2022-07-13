@@ -81,6 +81,7 @@ function Header<RecordType>({
     columns,
     flattenColumns,
     onHeaderRow,
+    classNames,
 }: HeaderProps<RecordType>): React.ReactElement {
     const { getComponent } = useContext(TableContext);
     const rows: CellType<RecordType>[][] = useMemo(
@@ -97,6 +98,7 @@ function Header<RecordType>({
             {rows.map((row, rowIndex) => {
                 const rowNode = (
                     <HeaderRow
+                        classNames={classNames}
                         key={rowIndex}
                         flattenColumns={flattenColumns}
                         cells={row}

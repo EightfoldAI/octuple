@@ -25,6 +25,7 @@ export const PrimaryButton: FC<ButtonProps> = React.forwardRef(
             disabled = false,
             disruptive = false,
             dropShadow = false,
+            floatingButtonProps,
             htmlType,
             iconProps,
             onClick,
@@ -61,10 +62,10 @@ export const PrimaryButton: FC<ButtonProps> = React.forwardRef(
                 checked={checked}
                 classNames={buttonClassNames}
                 counter={counter}
-                splitButtonChecked={splitButtonChecked}
                 disabled={disabled}
                 disruptive={disruptive}
                 dropShadow={dropShadow}
+                floatingButtonProps={floatingButtonProps}
                 htmlType={htmlType}
                 iconProps={iconProps}
                 onClick={onClick}
@@ -72,12 +73,13 @@ export const PrimaryButton: FC<ButtonProps> = React.forwardRef(
                 shape={shape}
                 size={size}
                 split={split}
+                splitButtonChecked={splitButtonChecked}
                 splitButtonProps={splitButtonProps}
                 style={style}
                 text={text}
                 theme={theme}
-                type={ButtonType.Primary}
                 toggle={toggle}
+                type={ButtonType.Primary}
                 buttonWidth={buttonWidth}
             />
         );
