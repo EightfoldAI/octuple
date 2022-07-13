@@ -6,7 +6,7 @@ import DateHeader from './DateHeader';
 import { WEEK_DAY_COUNT } from '../../Utils/dateUtil';
 import { createKeyDownHandler } from '../../Utils/uiUtil';
 
-import styles from '../../picker.module.scss';
+import styles from '../../ocpicker.module.scss';
 
 const DATE_ROW_COUNT: number = 6;
 
@@ -22,6 +22,7 @@ function DatePartial<DateType>(props: DatePartialProps<DateType>) {
         onViewDateChange,
         onPartialChange,
         onSelect,
+        size = 'Small',
     } = props;
 
     operationRef.current = {
@@ -99,6 +100,7 @@ function DatePartial<DateType>(props: DatePartialProps<DateType>) {
                 onYearClick={() => {
                     onPartialChange('year', viewDate);
                 }}
+                size={size}
             />
             <DateBody
                 {...props}
@@ -106,6 +108,7 @@ function DatePartial<DateType>(props: DatePartialProps<DateType>) {
                 value={value}
                 viewDate={viewDate}
                 rowCount={DATE_ROW_COUNT}
+                size={size}
             />
         </div>
     );

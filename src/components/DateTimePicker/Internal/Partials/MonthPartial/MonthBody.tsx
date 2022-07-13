@@ -8,7 +8,14 @@ import PartialBody from '../PartialBody';
 const MONTH_ROW_COUNT: number = 4;
 
 function MonthBody<DateType>(props: MonthBodyProps<DateType>) {
-    const { locale, value, viewDate, generateConfig, monthCellRender } = props;
+    const {
+        locale,
+        value,
+        viewDate,
+        generateConfig,
+        monthCellRender,
+        size = 'Small',
+    } = props;
 
     const { rangedValue, hoverRangedValue } = React.useContext(RangeContext);
 
@@ -60,6 +67,7 @@ function MonthBody<DateType>(props: MonthBodyProps<DateType>) {
                     generateConfig,
                 })
             }
+            size={size}
         />
     );
 }

@@ -1,9 +1,9 @@
 import { isInRange } from '../Utils/dateUtil';
 import type { GenerateConfig } from '../Generate';
-import type { RangeValue, NullableDateType } from '../Picker.types';
+import type { RangeValue, NullableDateType } from '../OcPicker.types';
 import { getValue } from '../Utils/miscUtil';
 
-import styles from '../picker.module.scss';
+import styles from '../ocpicker.module.scss';
 
 export default function useCellClassNames<DateType>({
     generateConfig,

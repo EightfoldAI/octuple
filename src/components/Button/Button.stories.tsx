@@ -36,6 +36,18 @@ export default {
                             <h3>Layout</h3>
                             <ul>
                                 <li>
+                                    There are four button sizes that may be
+                                    specified via the <b>size</b> prop and the{' '}
+                                    <b>ButtonSize</b>: <b>ButtonSize.Flex</b>,{' '}
+                                    <b>ButtonSize.Large</b>,{' '}
+                                    <b>ButtonSize.Medium</b>,{' '}
+                                    <b>ButtonSize.Small</b>.{' '}
+                                    <b>ButtonSize.Flex</b> is the default and
+                                    resizes the button automatically with the
+                                    viewport. To prevent this responsive
+                                    behavior, give the button a size.
+                                </li>
+                                <li>
                                     For dialog boxes and panels, where people
                                     are moving through a sequence of screens,
                                     right-align buttons with the container.

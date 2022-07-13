@@ -1,11 +1,14 @@
-import Picker from './Picker';
-import PickerPartial from './PickerPartial';
-import RangePicker from './RangePicker';
-import type { PickerProps } from './Picker.types';
-import type { PickerPartialProps, RangePickerProps } from './Picker.types';
+import OcPicker from './OcPicker';
+import OcPickerPartial from './OcPickerPartial';
+import OcRangePicker from './OcRangePicker';
+import type { OcPickerProps } from './OcPicker.types';
+import type {
+    OcPickerPartialProps,
+    OcRangePickerProps,
+} from './OcPicker.types';
 
-export { PickerPartial, RangePicker };
+export { OcPickerPartial, OcRangePicker };
 
-export type { PickerProps, PickerPartialProps, RangePickerProps };
+export type { OcPickerProps, OcPickerPartialProps, OcRangePickerProps };
 
-export default Picker;
+export default OcPicker;

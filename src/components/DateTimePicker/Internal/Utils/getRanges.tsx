@@ -1,8 +1,13 @@
 import React from 'react';
-import type { Components, RangeList, Locale } from '../Picker.types';
+import type {
+    Components,
+    DatePickerSize,
+    RangeList,
+    Locale,
+} from '../OcPicker.types';
 import { ButtonSize, DefaultButton, PrimaryButton } from '../../../Button';
 
-import styles from '../picker.module.scss';
+import styles from '../ocpicker.module.scss';
 
 export type RangesProps = {
     rangeList?: RangeList;
@@ -13,6 +18,7 @@ export type RangesProps = {
     okDisabled?: boolean;
     showNow?: boolean;
     locale: Locale;
+    size?: DatePickerSize;
 };
 
 export default function getRanges({
@@ -24,9 +30,16 @@ export default function getRanges({
     okDisabled,
     showNow,
     locale,
+    size = 'Small',
 }: RangesProps) {
     let presetNode: React.ReactNode;
     let okNode: React.ReactNode;
+
+    const datePickerSizeToButtonSizeMap = new Map<typeof size, ButtonSize>([
+        ['Large', ButtonSize.Large],
+        ['Medium', ButtonSize.Medium],
+        ['Small', ButtonSize.Small],
+    ]);
 
     if (rangeList.length) {
         const Item = (components.rangeItem || 'span') as any;
@@ -35,14 +48,14 @@ export default function getRanges({
             <>
                 {rangeList.map(
                     ({ label, onClick, onMouseEnter, onMouseLeave }) => (
-                        <li key={label} className={'picker-preset'}>
+                        <li key={label} className={styles.pickerPreset}>
                             <Item
                                 onClick={onClick}
                                 onMouseEnter={onMouseEnter}
                                 onMouseLeave={onMouseLeave}
-                            >
-                                {label}
-                            </Item>
+                                size={datePickerSizeToButtonSizeMap.get(size)}
+                                text={label}
+                            />
                         </li>
                     )
                 )}
@@ -59,7 +72,7 @@ export default function getRanges({
                     <DefaultButton
                         classNames={'picker-now-btn'}
                         onClick={onNow}
-                        size={ButtonSize.Small}
+                        size={datePickerSizeToButtonSizeMap.get(size)}
                         text={locale.now}
                     />
                 </li>
@@ -71,7 +84,7 @@ export default function getRanges({
                 <PrimaryButton
                     disabled={okDisabled}
                     onClick={onOk as () => void}
-                    size={ButtonSize.Small}
+                    size={datePickerSizeToButtonSizeMap.get(size)}
                     text={locale.ok}
                 />
             </li>

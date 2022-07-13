@@ -1,15 +1,17 @@
 import React, { FC, Ref, useEffect, useState } from 'react';
 import { ButtonSize, DefaultButton } from '../../Button';
 import { Icon, IconName, IconSize } from '../../Icon';
-import { Label } from '../../Label';
+import { Label, LabelSize } from '../../Label';
 import {
     TextInputWidth,
     TextInputProps,
     TextInputShape,
+    TextInputSize,
     TextInputTheme,
 } from '../index';
 import { useDebounce } from '../../../hooks/useDebounce';
 import { mergeClasses, uniqueId } from '../../../shared/utilities';
+import { Breakpoints, useMatchMedia } from '../../../hooks/useMatchMedia';
 
 import styles from '../input.module.scss';
 
@@ -41,6 +43,7 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
             required = false,
             readonly = false,
             shape = TextInputShape.Rectangle,
+            size = TextInputSize.Flex,
             style,
             theme = TextInputTheme.light,
             value,
@@ -50,6 +53,11 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
         },
         ref: Ref<HTMLInputElement>
     ) => {
+        const largeScreenActive: boolean = useMatchMedia(Breakpoints.Large);
+        const mediumScreenActive: boolean = useMatchMedia(Breakpoints.Medium);
+        const smallScreenActive: boolean = useMatchMedia(Breakpoints.Small);
+        const xSmallScreenActive: boolean = useMatchMedia(Breakpoints.XSmall);
+
         const [inputValue, setInputValue] = useState(value);
 
         const [clearButtonShown, _setClearButtonShown] =
@@ -69,6 +77,25 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
 
         const textInputClassNames: string = mergeClasses([
             classNames,
+            {
+                [styles.inputSize3]:
+                    size === TextInputSize.Flex && largeScreenActive,
+            },
+            {
+                [styles.inputSize2]:
+                    size === TextInputSize.Flex && mediumScreenActive,
+            },
+            {
+                [styles.inputSize2]:
+                    size === TextInputSize.Flex && smallScreenActive,
+            },
+            {
+                [styles.inputSize1]:
+                    size === TextInputSize.Flex && xSmallScreenActive,
+            },
+            { [styles.inputSize1]: size === TextInputSize.Large },
+            { [styles.inputSize2]: size === TextInputSize.Medium },
+            { [styles.inputSize3]: size === TextInputSize.Small },
             {
                 [styles.withIcon]:
                     !!iconProps?.path && shape === TextInputShape.Rectangle,
@@ -116,6 +143,25 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
 
         const textInputWrapperClassNames: string = mergeClasses([
             styles.inputWrapper,
+            {
+                [styles.inputSize3]:
+                    size === TextInputSize.Flex && largeScreenActive,
+            },
+            {
+                [styles.inputSize2]:
+                    size === TextInputSize.Flex && mediumScreenActive,
+            },
+            {
+                [styles.inputSize2]:
+                    size === TextInputSize.Flex && smallScreenActive,
+            },
+            {
+                [styles.inputSize1]:
+                    size === TextInputSize.Flex && xSmallScreenActive,
+            },
+            { [styles.inputSize1]: size === TextInputSize.Large },
+            { [styles.inputSize2]: size === TextInputSize.Medium },
+            { [styles.inputSize3]: size === TextInputSize.Small },
             {
                 [styles.inputStretch]: inputWidth === TextInputWidth.fill,
             },
@@ -175,9 +221,63 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
             debouncedChange(e);
         };
 
+        const inputSizeToButtonSizeMap = new Map<TextInputSize, ButtonSize>([
+            [TextInputSize.Flex, ButtonSize.Flex],
+            [TextInputSize.Large, ButtonSize.Large],
+            [TextInputSize.Medium, ButtonSize.Medium],
+            [TextInputSize.Small, ButtonSize.Small],
+        ]);
+
+        const getIconSize = (): IconSize => {
+            let iconSize: IconSize;
+            if (largeScreenActive) {
+                iconSize = IconSize.Small;
+            } else if (mediumScreenActive) {
+                iconSize = IconSize.Medium;
+            } else if (smallScreenActive) {
+                iconSize = IconSize.Medium;
+            } else if (xSmallScreenActive) {
+                iconSize = IconSize.Large;
+            }
+            return iconSize;
+        };
+
+        const inputSizeToIconSizeMap = new Map<TextInputSize, IconSize>([
+            [TextInputSize.Flex, getIconSize()],
+            [TextInputSize.Large, IconSize.Large],
+            [TextInputSize.Medium, IconSize.Medium],
+            [TextInputSize.Small, IconSize.Small],
+        ]);
+
+        const getLabelSize = (): LabelSize => {
+            let labelSize: LabelSize;
+            if (largeScreenActive) {
+                labelSize = LabelSize.Small;
+            } else if (mediumScreenActive) {
+                labelSize = LabelSize.Medium;
+            } else if (smallScreenActive) {
+                labelSize = LabelSize.Medium;
+            } else if (xSmallScreenActive) {
+                labelSize = LabelSize.Large;
+            }
+            return labelSize;
+        };
+
+        const inputSizeToLabelSizeMap = new Map<TextInputSize, LabelSize>([
+            [TextInputSize.Flex, getLabelSize()],
+            [TextInputSize.Large, LabelSize.Large],
+            [TextInputSize.Medium, LabelSize.Medium],
+            [TextInputSize.Small, LabelSize.Small],
+        ]);
+
         return (
             <div className={textInputWrapperClassNames}>
-                {labelProps && <Label {...labelProps} />}
+                {labelProps && (
+                    <Label
+                        size={inputSizeToLabelSizeMap.get(size)}
+                        {...labelProps}
+                    />
+                )}
                 <input
                     {...rest}
                     ref={ref}
@@ -208,7 +308,7 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
                             <Icon
                                 {...iconProps}
                                 path={iconProps.path}
-                                size={IconSize.Medium}
+                                size={inputSizeToIconSizeMap.get(size)}
                             />
                         )}
                         {iconProps.imageSrc && !iconProps.path && (
@@ -231,7 +331,7 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
                         iconProps={{ path: iconButtonProps.iconProps.path }}
                         id={iconButtonProps.id}
                         onClick={iconButtonProps.onClick}
-                        size={ButtonSize.Medium}
+                        size={inputSizeToButtonSizeMap.get(size)}
                         htmlType={iconButtonProps.htmlType}
                     />
                 )}

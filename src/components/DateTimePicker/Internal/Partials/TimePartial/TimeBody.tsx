@@ -5,9 +5,9 @@ import { useMemo } from '../../../../../hooks/useMemo';
 import TimeUnitColumn from './TimeUnitColumn';
 import { leftPad } from '../../Utils/miscUtil';
 import { setTime as utilSetTime } from '../../Utils/timeUtil';
-import { DisabledTimes } from '../../Picker.types';
+import { DisabledTimes } from '../../OcPicker.types';
 
-import styles from '../../picker.module.scss';
+import styles from '../../ocpicker.module.scss';
 
 const shouldUnitsUpdate = (prevUnits: Unit[], nextUnits: Unit[]): boolean => {
     if (prevUnits.length !== nextUnits.length) return true;
@@ -51,9 +51,9 @@ function TimeBody<DateType>(props: TimeBodyProps<DateType>) {
         disabledTime,
         hideDisabledOptions,
         onSelect,
+        size = 'Small',
     } = props;
 
-    // Misc
     const columns: {
         node: React.ReactElement;
         value: number;
@@ -179,7 +179,7 @@ function TimeBody<DateType>(props: TimeBodyProps<DateType>) {
                 );
 
                 const unitLen: number = column.units.length;
-                for (let i = 1; i < unitLen; i += 1) {
+                for (let i: number = 1; i < unitLen; i += 1) {
                     const nextUnit: Unit =
                         column.units[
                             (valueIndex + diff * i + unitLen) % unitLen
@@ -220,7 +220,7 @@ function TimeBody<DateType>(props: TimeBodyProps<DateType>) {
     // Hour
     addColumnNode(
         showHour,
-        <TimeUnitColumn key="hour" />,
+        <TimeUnitColumn key="hour" size={size} />,
         hour,
         hours,
         (num) => {
@@ -231,7 +231,7 @@ function TimeBody<DateType>(props: TimeBodyProps<DateType>) {
     // Minute
     addColumnNode(
         showMinute,
-        <TimeUnitColumn key="minute" />,
+        <TimeUnitColumn key="minute" size={size} />,
         minute,
         minutes,
         (num) => {
@@ -242,7 +242,7 @@ function TimeBody<DateType>(props: TimeBodyProps<DateType>) {
     // Second
     addColumnNode(
         showSecond,
-        <TimeUnitColumn key="second" />,
+        <TimeUnitColumn key="second" size={size} />,
         second,
         seconds,
         (num) => {
@@ -258,7 +258,7 @@ function TimeBody<DateType>(props: TimeBodyProps<DateType>) {
 
     addColumnNode(
         use12Hours === true,
-        <TimeUnitColumn key="12hours" />,
+        <TimeUnitColumn key="12hours" size={size} />,
         PMIndex,
         [
             { label: 'AM', value: 0, disabled: AMDisabled },

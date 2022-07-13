@@ -1,9 +1,15 @@
-import React, {FC, Ref, useEffect, useState} from 'react';
+import React, { FC, Ref, useEffect, useState } from 'react';
 import { Icon, IconName } from '../../Icon';
-import { Label } from '../../Label';
-import { TextInputWidth, TextAreaProps, TextInputTheme } from '../index';
+import { Label, LabelSize } from '../../Label';
+import {
+    TextAreaProps,
+    TextInputSize,
+    TextInputTheme,
+    TextInputWidth,
+} from '../index';
 import { useDebounce } from '../../../hooks/useDebounce';
 import { mergeClasses, uniqueId } from '../../../shared/utilities';
+import { Breakpoints, useMatchMedia } from '../../../hooks/useMatchMedia';
 
 import styles from '../input.module.scss';
 
@@ -28,6 +34,7 @@ export const TextArea: FC<TextAreaProps> = React.forwardRef(
             onKeyDown,
             placeholder,
             required = false,
+            size = TextInputSize.Flex,
             style,
             textAreaCols = 50,
             textAreaRows = 5,
@@ -38,6 +45,11 @@ export const TextArea: FC<TextAreaProps> = React.forwardRef(
         },
         ref: Ref<HTMLTextAreaElement>
     ) => {
+        const largeScreenActive: boolean = useMatchMedia(Breakpoints.Large);
+        const mediumScreenActive: boolean = useMatchMedia(Breakpoints.Medium);
+        const smallScreenActive: boolean = useMatchMedia(Breakpoints.Small);
+        const xSmallScreenActive: boolean = useMatchMedia(Breakpoints.XSmall);
+
         const [textAreaId] = useState<string>(uniqueId(id || 'textarea-'));
         const [inputValue, setInputValue] = useState(value);
 
@@ -51,6 +63,25 @@ export const TextArea: FC<TextAreaProps> = React.forwardRef(
 
         const textAreaWrapperClassNames: string = mergeClasses([
             styles.inputWrapper,
+            {
+                [styles.inputSize3]:
+                    size === TextInputSize.Flex && largeScreenActive,
+            },
+            {
+                [styles.inputSize2]:
+                    size === TextInputSize.Flex && mediumScreenActive,
+            },
+            {
+                [styles.inputSize2]:
+                    size === TextInputSize.Flex && smallScreenActive,
+            },
+            {
+                [styles.inputSize1]:
+                    size === TextInputSize.Flex && xSmallScreenActive,
+            },
+            { [styles.inputSize1]: size === TextInputSize.Large },
+            { [styles.inputSize2]: size === TextInputSize.Medium },
+            { [styles.inputSize3]: size === TextInputSize.Small },
             {
                 [styles.inputStretch]: inputWidth === TextInputWidth.fill,
             },
@@ -77,9 +108,35 @@ export const TextArea: FC<TextAreaProps> = React.forwardRef(
             debouncedChange(e);
         };
 
+        const getLabelSize = (): LabelSize => {
+            let labelSize: LabelSize;
+            if (largeScreenActive) {
+                labelSize = LabelSize.Small;
+            } else if (mediumScreenActive) {
+                labelSize = LabelSize.Medium;
+            } else if (smallScreenActive) {
+                labelSize = LabelSize.Medium;
+            } else if (xSmallScreenActive) {
+                labelSize = LabelSize.Large;
+            }
+            return labelSize;
+        };
+
+        const inputSizeToLabelSizeMap = new Map<TextInputSize, LabelSize>([
+            [TextInputSize.Flex, getLabelSize()],
+            [TextInputSize.Large, LabelSize.Large],
+            [TextInputSize.Medium, LabelSize.Medium],
+            [TextInputSize.Small, LabelSize.Small],
+        ]);
+
         return (
             <div className={textAreaWrapperClassNames}>
-                {labelProps && <Label {...labelProps} />}
+                {labelProps && (
+                    <Label
+                        size={inputSizeToLabelSizeMap.get(size)}
+                        {...labelProps}
+                    />
+                )}
                 <textarea
                     {...rest}
                     ref={ref}

@@ -3,11 +3,13 @@ import { DECADE_COL_COUNT, YearBodyProps } from './Decade.types';
 import { DECADE_DISTANCE_COUNT, DECADE_UNIT_DIFF } from './Decade.types';
 import PartialBody from '../PartialBody';
 
+import styles from '../../ocpicker.module.scss';
+
 const DECADE_ROW_COUNT: number = 4;
 
 function DecadeBody<DateType>(props: YearBodyProps<DateType>) {
     const DECADE_UNIT_DIFF_DES: number = DECADE_UNIT_DIFF - 1;
-    const { viewDate, generateConfig } = props;
+    const { viewDate, generateConfig, size = 'Small' } = props;
 
     const yearNumber: number = generateConfig.getYear(viewDate);
     const decadeYearNumber: number =
@@ -32,10 +34,10 @@ function DecadeBody<DateType>(props: YearBodyProps<DateType>) {
         const endDecadeNumber = startDecadeNumber + DECADE_UNIT_DIFF_DES;
 
         return {
-            [`cell-in-view`]:
+            [styles.pickerCellInView]:
                 startDecadeYear <= startDecadeNumber &&
                 endDecadeNumber <= endDecadeYear,
-            [`cell-selected`]: startDecadeNumber === decadeYearNumber,
+            [styles.pickerCellSelected]: startDecadeNumber === decadeYearNumber,
         };
     };
 
@@ -55,6 +57,7 @@ function DecadeBody<DateType>(props: YearBodyProps<DateType>) {
             getCellDate={(date: DateType, offset: number) =>
                 generateConfig.addYear(date, offset * DECADE_UNIT_DIFF)
             }
+            size={size}
         />
     );
 }

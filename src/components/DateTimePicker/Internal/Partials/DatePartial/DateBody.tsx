@@ -14,12 +14,12 @@ import PartialBody from '../PartialBody';
 function DateBody<DateType>(props: DateBodyProps<DateType>) {
     const {
         generateConfig,
-        prefixColumn,
         locale,
         rowCount,
         viewDate,
         value,
         dateRender,
+        size = 'Small',
     } = props;
 
     const { rangedValue, hoverRangedValue } = React.useContext(RangeContext);
@@ -41,9 +41,6 @@ function DateBody<DateType>(props: DateBodyProps<DateType>) {
             ? generateConfig.locale.getShortWeekDays(locale.locale)
             : []);
 
-    if (prefixColumn) {
-        headerCells.push(<th key="empty" aria-label="empty cell" />);
-    }
     for (let i = 0; i < WEEK_DAY_COUNT; i += 1) {
         headerCells.push(
             <th key={i}>
@@ -56,8 +53,8 @@ function DateBody<DateType>(props: DateBodyProps<DateType>) {
         today,
         value,
         generateConfig,
-        rangedValue: prefixColumn ? null : rangedValue,
-        hoverRangedValue: prefixColumn ? null : hoverRangedValue,
+        rangedValue: rangedValue,
+        hoverRangedValue: hoverRangedValue,
         isSameCell: (current, target) =>
             isSameDate(generateConfig, current, target),
         isInView: (date) => isSameMonth(generateConfig, date, viewDate),
@@ -86,6 +83,7 @@ function DateBody<DateType>(props: DateBodyProps<DateType>) {
                 })
             }
             headerCells={headerCells}
+            size={size}
         />
     );
 }

@@ -1,32 +1,24 @@
 import type { GenerateConfig } from '../Generate';
-import type { PartialMode } from '../Picker.types';
+import type { DatePickerSize, PartialMode } from '../OcPicker.types';
 import { IconName } from '../../../Icon';
 
 export type HeaderProps = {
-    // Icons
     prevIcon?: IconName;
     nextIcon?: IconName;
     superPrevIcon?: IconName;
     superNextIcon?: IconName;
-
-    /** Last one step */
     onPrev?: () => void;
-    /** Next one step */
     onNext?: () => void;
-    /** Last multiple steps */
     onSuperPrev?: () => void;
-    /** Next multiple steps */
     onSuperNext?: () => void;
-
     children?: React.ReactNode;
+    size?: DatePickerSize;
 };
 
 export type PartialBodyProps<DateType> = {
     disabledDate?: (date: DateType) => boolean;
     onSelect: (value: DateType) => void;
     picker?: PartialMode;
-
-    // By partial
     headerCells?: React.ReactNode;
     rowNum: number;
     colNum: number;
@@ -37,8 +29,6 @@ export type PartialBodyProps<DateType> = {
     getCellNode?: (date: DateType) => React.ReactNode;
     titleCell?: (date: DateType) => string;
     generateConfig: GenerateConfig<DateType>;
-
-    // Used for week partial
-    prefixColumn?: (date: DateType) => React.ReactNode;
     rowClassNames?: (date: DateType) => string;
+    size?: DatePickerSize;
 };

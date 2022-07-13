@@ -5,6 +5,7 @@ import {
     SearchBoxProps,
     TextInput,
     TextInputShape,
+    TextInputSize,
     TextInputTheme,
 } from '../index';
 
@@ -34,6 +35,7 @@ export const SearchBox: FC<SearchBoxProps> = React.forwardRef(
             onKeyDown,
             placeholder = 'Search',
             shape = TextInputShape.Rectangle,
+            size = TextInputSize.Flex,
             style,
             theme = TextInputTheme.light,
             value,
@@ -67,6 +69,7 @@ export const SearchBox: FC<SearchBoxProps> = React.forwardRef(
                     onKeyDown={onKeyDown}
                     placeholder={placeholder}
                     shape={shape}
+                    size={size}
                     style={style}
                     theme={theme}
                     value={value}

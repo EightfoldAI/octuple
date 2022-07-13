@@ -65,7 +65,6 @@ const MobilePopupInner = React.forwardRef<PopupInnerRef, MobilePopupInnerProps>(
                     const mergedClassName = mergeClasses([
                         styles.triggerPopup,
                         styles.triggerPopupMobile,
-                        { [styles.triggerPopupHidden]: !visible },
                         popupMotion.motionName,
                         popupClassNames,
                         motionClassNames,

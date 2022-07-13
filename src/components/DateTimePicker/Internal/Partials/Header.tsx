@@ -4,7 +4,7 @@ import PartialContext from '../PartialContext';
 import { ButtonSize, NeutralButton } from '../../../Button';
 import { IconName } from '../../../Icon';
 
-import styles from '../picker.module.scss';
+import styles from '../ocpicker.module.scss';
 
 const HIDDEN_STYLE: React.CSSProperties = {
     visibility: 'hidden',
@@ -20,8 +20,15 @@ export const Header = ({
     onPrev,
     onNext,
     children,
+    size = 'Small',
 }: HeaderProps): JSX.Element => {
     const { hideNextBtn, hidePrevBtn } = React.useContext(PartialContext);
+
+    const datePickerSizeToButtonSizeMap = new Map<typeof size, ButtonSize>([
+        ['Large', ButtonSize.Large],
+        ['Medium', ButtonSize.Medium],
+        ['Small', ButtonSize.Small],
+    ]);
 
     return (
         <div className={styles.pickerHeader}>
@@ -32,7 +39,7 @@ export const Header = ({
                         path: superPrevIcon,
                     }}
                     onClick={onSuperPrev}
-                    size={ButtonSize.Small}
+                    size={datePickerSizeToButtonSizeMap.get(size)}
                     style={hidePrevBtn ? HIDDEN_STYLE : {}}
                 />
             )}
@@ -43,7 +50,7 @@ export const Header = ({
                         path: prevIcon,
                     }}
                     onClick={onPrev}
-                    size={ButtonSize.Small}
+                    size={datePickerSizeToButtonSizeMap.get(size)}
                     style={hidePrevBtn ? HIDDEN_STYLE : {}}
                 />
             )}
@@ -55,7 +62,7 @@ export const Header = ({
                         path: nextIcon,
                     }}
                     onClick={onNext}
-                    size={ButtonSize.Small}
+                    size={datePickerSizeToButtonSizeMap.get(size)}
                     style={hideNextBtn ? HIDDEN_STYLE : {}}
                 />
             )}
@@ -66,7 +73,7 @@ export const Header = ({
                         path: superNextIcon,
                     }}
                     onClick={onSuperNext}
-                    size={ButtonSize.Small}
+                    size={datePickerSizeToButtonSizeMap.get(size)}
                     style={hideNextBtn ? HIDDEN_STYLE : {}}
                 />
             )}

@@ -1,5 +1,5 @@
 import React from 'react';
-import type { RangeValue, PickerMode } from '../Picker.types';
+import type { RangeValue, OcPickerMode } from '../OcPicker.types';
 import type { GenerateConfig } from '../Generate';
 import { getValue, updateValues } from '../Utils/miscUtil';
 import {
@@ -12,7 +12,7 @@ import {
 function getStartEndDistance<DateType>(
     startDate: DateType,
     endDate: DateType,
-    picker: PickerMode,
+    picker: OcPickerMode,
     generateConfig: GenerateConfig<DateType>
 ): 'same' | 'closing' | 'far' {
     const startNext: DateType = getClosingViewDate(
@@ -54,7 +54,7 @@ function getStartEndDistance<DateType>(
 function getRangeViewDate<DateType>(
     values: RangeValue<DateType>,
     index: 0 | 1,
-    picker: PickerMode,
+    picker: OcPickerMode,
     generateConfig: GenerateConfig<DateType>
 ): DateType | null {
     const startDate: DateType = getValue(values, 0);
@@ -91,7 +91,7 @@ export default function useRangeViewDates<DateType>({
     generateConfig,
 }: {
     values: RangeValue<DateType>;
-    picker: PickerMode;
+    picker: OcPickerMode;
     defaultDates: RangeValue<DateType> | undefined;
     generateConfig: GenerateConfig<DateType>;
 }): [

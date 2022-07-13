@@ -1,8 +1,14 @@
+import moment from 'moment';
 import { eventKeys } from '../../../../shared/utilities';
 import { requestAnimationFrameWrapper } from '../../../../shared/utilities';
 import { isVisible } from '../../../../shared/utilities';
+import { DatePickerProps } from '../../DatePicker';
 import type { GenerateConfig } from '../generate';
-import type { CustomFormat, PartialMode, PickerMode } from '../Picker.types';
+import type {
+    CustomFormat,
+    PartialMode,
+    OcPickerMode,
+} from '../OcPicker.types';
 
 const scrollIds: Map<HTMLElement, number> = new Map<HTMLElement, number>();
 
@@ -69,6 +75,7 @@ export type KeyboardConfig = {
     onPageUpDown?: ((diff: number) => void) | null;
     onEnter?: (() => void) | null;
 };
+
 export function createKeyDownHandler(
     event: React.KeyboardEvent<HTMLElement>,
     {
@@ -151,11 +158,19 @@ export function getDefaultFormat<DateType>(
         | CustomFormat<DateType>
         | (string | CustomFormat<DateType>)[]
         | undefined,
-    picker: PickerMode | undefined,
+    picker: OcPickerMode | undefined,
     showTime: boolean | object | undefined,
     use12Hours: boolean | undefined
 ) {
     let mergedFormat = format;
+
+    const weekStartEndFormat: DatePickerProps['format'] = (value) =>
+        `${moment(value).startOf('week').format('YYYY-MM-DD')} to ${moment(
+            value
+        )
+            .endOf('week')
+            .format('YYYY-MM-DD')}`;
+
     if (!mergedFormat) {
         switch (picker) {
             case 'time':
@@ -163,7 +178,8 @@ export function getDefaultFormat<DateType>(
                 break;
 
             case 'week':
-                mergedFormat = 'gggg-wo';
+                mergedFormat =
+                    weekStartEndFormat as unknown as CustomFormat<DateType>;
                 break;
 
             case 'month':
@@ -187,7 +203,7 @@ export function getDefaultFormat<DateType>(
 }
 
 export function getInputSize<DateType>(
-    picker: PickerMode | undefined,
+    picker: OcPickerMode | undefined,
     format: string | CustomFormat<DateType>,
     generateConfig: GenerateConfig<DateType>
 ) {
@@ -199,7 +215,6 @@ export function getInputSize<DateType>(
     return Math.max(defaultSize, length) + 2;
 }
 
-// ===================== Window =====================
 type ClickEventHandler = (event: MouseEvent) => void;
 let globalClickFunc: ClickEventHandler | null = null;
 const clickCallbacks = new Set<ClickEventHandler>();
@@ -270,7 +285,7 @@ const getWeekNextMode = (next: PartialMode): PartialMode => {
 };
 
 export const PickerModeMap: Record<
-    PickerMode,
+    OcPickerMode,
     ((next: PartialMode) => PartialMode) | null
 > = {
     year: getYearNextMode,

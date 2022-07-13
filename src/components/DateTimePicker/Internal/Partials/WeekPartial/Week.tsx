@@ -4,20 +4,10 @@ import { mergeClasses } from '../../../../../shared/utilities';
 import DatePartial from '../DatePartial/Date';
 import { isSameWeek } from '../../Utils/dateUtil';
 
-import styles from '../../picker.module.scss';
+import styles from '../../ocpicker.module.scss';
 
 function WeekPartial<DateType>(props: WeekPartialProps<DateType>) {
-    const { generateConfig, locale, value } = props;
-
-    // Render additional column
-    const prefixColumn = (date: DateType): JSX.Element => (
-        <td
-            key="week"
-            className={mergeClasses([styles.pickerCell, styles.pickerCellWeek])}
-        >
-            {generateConfig.locale.getWeek(locale.locale, date)}
-        </td>
-    );
+    const { generateConfig, locale, value, size = 'Small' } = props;
 
     // Add row classNames
     const rowClassNames = (date: DateType): string =>
@@ -37,11 +27,11 @@ function WeekPartial<DateType>(props: WeekPartialProps<DateType>) {
         <DatePartial
             {...props}
             partialName="week"
-            prefixColumn={prefixColumn}
             rowClassNames={rowClassNames}
             keyboardConfig={{
                 onLeftRight: null,
             }}
+            size={size}
         />
     );
 }

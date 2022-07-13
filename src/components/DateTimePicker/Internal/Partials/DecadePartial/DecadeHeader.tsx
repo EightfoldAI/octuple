@@ -5,7 +5,13 @@ import { DECADE_DISTANCE_COUNT } from './Decade.types';
 import PartialContext from '../../PartialContext';
 
 function DecadeHeader<DateType>(props: YearHeaderProps<DateType>) {
-    const { generateConfig, viewDate, onPrevDecades, onNextDecades } = props;
+    const {
+        generateConfig,
+        viewDate,
+        onPrevDecades,
+        onNextDecades,
+        size = 'Small',
+    } = props;
     const { hideHeader } = React.useContext(PartialContext);
 
     if (hideHeader) {
@@ -22,6 +28,7 @@ function DecadeHeader<DateType>(props: YearHeaderProps<DateType>) {
             {...props}
             onSuperPrev={onPrevDecades}
             onSuperNext={onNextDecades}
+            size={size}
         >
             {startYear}-{endYear}
         </Header>

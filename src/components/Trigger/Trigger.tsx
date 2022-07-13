@@ -153,6 +153,7 @@ export function generateTrigger(
                         this.onDocumentClick
                     );
                 }
+
                 // always hide on mobile
                 if (!this.touchOutsideHandler) {
                     currentDocument =
@@ -164,6 +165,7 @@ export function generateTrigger(
                         this.onDocumentClick
                     );
                 }
+
                 // close popup when trigger type contains 'onContextMenu' and document is scrolling.
                 if (
                     !this.contextMenuOutsideHandler1 &&
@@ -239,7 +241,8 @@ export function generateTrigger(
 
         onFocus = (e: any) => {
             this.fireEvents('onFocus', e);
-            // incase focusin and focusout
+
+            // in case focusin and focusout
             this.clearDelayTimer();
             if (this.isFocusToShow()) {
                 this.focusTime = Date.now();
@@ -297,7 +300,7 @@ export function generateTrigger(
             this.preClickTime = 0;
             this.preTouchTime = 0;
 
-            // Only prevent default when all the action is click.
+            // Only prevent default when all the actions are click.
             if (
                 this.isClickToShow() &&
                 (this.isClickToHide() || this.isBlurToHide()) &&
@@ -489,9 +492,6 @@ export function generateTrigger(
             if (!getPopupContainer) {
                 mountNode = getDocument(this.getRootDomNode()).body;
             } else if (domNode || getPopupContainer.length === 0) {
-                // Compatible for legacy getPopupContainer with domNode argument.
-                // If no need `domNode` argument, will call directly.
-                // https://codesandbox.io/s/eloquent-mclean-ss93m?file=/src/App.js
                 mountNode = getPopupContainer(domNode);
             }
 

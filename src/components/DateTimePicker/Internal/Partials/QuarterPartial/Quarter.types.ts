@@ -1,6 +1,6 @@
 import type { GenerateConfig } from '../../Generate';
-import type { Locale } from '../../Picker.types';
-import type { PartialSharedProps } from '../../Picker.types';
+import type { Locale } from '../../OcPicker.types';
+import type { DatePickerSize, PartialSharedProps } from '../../OcPicker.types';
 
 export const QUARTER_COL_COUNT: number = 4;
 
@@ -10,10 +10,10 @@ export type QuarterHeaderProps<DateType> = {
     viewDate: DateType;
     locale: Locale;
     generateConfig: GenerateConfig<DateType>;
-
     onPrevYear: () => void;
     onNextYear: () => void;
     onYearClick: () => void;
+    size?: DatePickerSize;
 };
 
 export type QuarterBodyProps<DateType> = {
@@ -23,4 +23,5 @@ export type QuarterBodyProps<DateType> = {
     viewDate: DateType;
     disabledDate?: (date: DateType) => boolean;
     onSelect: (value: DateType) => void;
+    size?: DatePickerSize;
 };

@@ -4,7 +4,7 @@ import { mergeClasses } from '../../../../../shared/utilities';
 import { scrollTo, waitElementReady } from '../../Utils/uiUtil';
 import PartialContext from '../../PartialContext';
 
-import styles from '../../picker.module.scss';
+import styles from '../../ocpicker.module.scss';
 
 function TimeUnitColumn(props: TimeUnitColumnProps) {
     const { units, onSelect, value, active, hideDisabledOptions } = props;
@@ -21,7 +21,7 @@ function TimeUnitColumn(props: TimeUnitColumnProps) {
     useLayoutEffect(() => {
         const li: HTMLElement = liRefs.current?.get(value!);
         if (li && open !== false) {
-            scrollTo(ulRef.current!, li.offsetTop, 120);
+            scrollTo(ulRef.current!, li.offsetTop - 8, 120);
         }
     }, [value]);
 
@@ -30,7 +30,7 @@ function TimeUnitColumn(props: TimeUnitColumnProps) {
             const li: HTMLElement = liRefs.current.get(value!);
             if (li) {
                 scrollRef.current = waitElementReady(li, () => {
-                    scrollTo(ulRef.current!, li.offsetTop, 0);
+                    scrollTo(ulRef.current!, li.offsetTop - 8, 0);
                 });
             }
         }

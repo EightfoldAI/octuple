@@ -8,7 +8,7 @@ import YearHeader from './YearHeader';
 import YearBody from './YearBody';
 import { createKeyDownHandler } from '../../Utils/uiUtil';
 
-import styles from '../../picker.module.scss';
+import styles from '../../ocpicker.module.scss';
 
 function YearPartial<DateType>(props: YearPartialProps<DateType>) {
     const {

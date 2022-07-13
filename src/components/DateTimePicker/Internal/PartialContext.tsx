@@ -1,5 +1,5 @@
 import React from 'react';
-import type { OnSelect, PartialMode } from './Picker.types';
+import type { OnSelect, PartialMode } from './OcPicker.types';
 
 export type ContextOperationRefProps = {
     onKeyDown?: (e: React.KeyboardEvent<HTMLElement>) => boolean;
@@ -19,9 +19,6 @@ export type PartialContextProps = {
     hideRanges?: boolean;
     open?: boolean;
     mode?: PartialMode;
-
-    /** Only used for TimePicker and this is a deprecated prop */
-    defaultOpenValue?: any;
 };
 
 const PartialContext = React.createContext<PartialContextProps>({});

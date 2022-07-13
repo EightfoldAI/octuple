@@ -5,7 +5,8 @@
     z-index: 1050;
 
     &-hidden {
-        display: none;
+        opacity: 0;
+        pointer-events: none;
     }
 
     @mixin effect() {

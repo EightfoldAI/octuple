@@ -1,5 +1,5 @@
 import React from 'react';
-import type { RangeValue, PickerMode, Locale } from '../Picker.types';
+import type { RangeValue, OcPickerMode, Locale } from '../OcPicker.types';
 import { getValue } from '../Utils/miscUtil';
 import type { GenerateConfig } from '../Generate';
 import { isSameDate, getQuarter } from '../Utils/dateUtil';
@@ -13,7 +13,7 @@ export default function useRangeDisabled<DateType>(
         disabled,
         generateConfig,
     }: {
-        picker: PickerMode;
+        picker: OcPickerMode;
         selectedValue: RangeValue<DateType>;
         disabledDate?: (date: DateType) => boolean;
         disabled: [boolean, boolean];

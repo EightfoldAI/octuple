@@ -6,7 +6,7 @@ import TimeHeader from './TimeHeader';
 import TimeBody from './TimeBody';
 import { createKeyDownHandler } from '../../Utils/uiUtil';
 
-import styles from '../../picker.module.scss';
+import styles from '../../ocpicker.module.scss';
 
 const countBoolean = (boolList: (boolean | undefined)[]): number =>
     boolList.filter((bool) => bool !== false).length;
@@ -23,6 +23,7 @@ function TimePartial<DateType>(props: TimePartialProps<DateType>) {
         use12Hours = false,
         onSelect,
         value,
+        size = 'Small',
     } = props;
     const bodyOperationRef: React.MutableRefObject<BodyOperationRef> =
         React.useRef<BodyOperationRef>();
@@ -68,11 +69,12 @@ function TimePartial<DateType>(props: TimePartialProps<DateType>) {
                 { [styles.pickerTimePartialActive]: active },
             ])}
         >
-            <TimeHeader {...props} format={format} />
+            <TimeHeader {...props} format={format} size={size} />
             <TimeBody
                 {...props}
                 activeColumnIndex={activeColumnIndex}
                 operationRef={bodyOperationRef}
+                size={size}
             />
         </div>
     );

@@ -7,7 +7,7 @@ import { spyElementPrototypes } from '../../../../tests/domHook';
 import { eventKeys } from '../../../../shared/utilities';
 import moment from 'moment';
 import type { Moment } from 'moment';
-import type { PartialMode, PickerMode } from '../Picker.types';
+import type { PartialMode, OcPickerMode } from '../OcPicker.types';
 import { mount, getMoment, isSame, MomentPicker } from './util/commonUtil';
 import '@testing-library/jest-dom';
 
@@ -176,7 +176,7 @@ describe('Picker.Basic', () => {
     });
 
     describe('picker', () => {
-        const modeList: { picker: PickerMode; componentNames: string[] }[] = [
+        const modeList: { picker: OcPickerMode; componentNames: string[] }[] = [
             {
                 picker: 'year',
                 componentNames: ['YearPartial', 'YearHeader', 'YearBody'],
@@ -330,22 +330,11 @@ describe('Picker.Basic', () => {
                 selected: '.picker-cell-selected',
                 matchDate: '2000-11-11',
             },
-            {
-                name: 'week',
-                picker: 'week',
-                value: '2000-45th',
-                matchDate: '2000-10-29',
-                selected: '.picker-week-partial-row-selected',
-            },
-        ].forEach(({ name, picker, value, matchDate, selected }) => {
+        ].forEach(({ name, value, matchDate, selected }) => {
             it(name, () => {
                 const onChange = jest.fn();
                 const wrapper = mount(
-                    <MomentPicker
-                        onChange={onChange}
-                        picker={picker as any}
-                        allowClear
-                    />
+                    <MomentPicker onChange={onChange} allowClear />
                 );
                 wrapper.openPicker();
                 wrapper.find('input').simulate('focus');
@@ -368,7 +357,7 @@ describe('Picker.Basic', () => {
                 expect(onChange).not.toHaveBeenCalled();
                 wrapper.keyDown(eventKeys.ENTER);
                 expect(
-                    isSame(onChange.mock.calls[0][0], matchDate, picker as any)
+                    isSame(onChange.mock.calls[0][0], matchDate)
                 ).toBeTruthy();
                 expect(wrapper.find(selected).length).toBeTruthy();
                 onChange.mockReset();
@@ -596,7 +585,7 @@ describe('Picker.Basic', () => {
         );
 
         function matchFooter(mode: string) {
-            expect(wrapper.find('.picker-footer').text()).toEqual(mode);
+            expect(wrapper.find('.picker-footer-extra').text()).toEqual(mode);
             expect(
                 renderExtraFooter.mock.calls[
                     renderExtraFooter.mock.calls.length - 1
@@ -808,12 +797,14 @@ describe('Picker.Basic', () => {
         expect(wrapper.render()).toMatchSnapshot();
     });
 
-    it('week picker show correct year', () => {
+    it('week picker show correctly with year', () => {
         const wrapper = mount(
             <MomentPicker value={getMoment('2019-12-31')} picker="week" />
         );
 
-        expect(wrapper.find('input').prop('value')).toEqual('2020-1st');
+        expect(wrapper.find('input').prop('value')).toEqual(
+            '2019-12-29 to 2020-01-04'
+        );
     });
 
     it('click outside should also focus', () => {

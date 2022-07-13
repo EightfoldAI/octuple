@@ -1,9 +1,10 @@
 import type {
+    DatePickerSize,
     Locale,
     NullableDateType,
     PartialSharedProps,
     PartialMode,
-} from '../../Picker.types';
+} from '../../OcPicker.types';
 import type { GenerateConfig } from '../../Generate';
 
 export const YEAR_DECADE_COUNT: number = 10;
@@ -17,10 +18,10 @@ export type YearHeaderProps<DateType> = {
     viewDate: DateType;
     value?: DateType | null;
     generateConfig: GenerateConfig<DateType>;
-
     onPrevDecade: () => void;
     onNextDecade: () => void;
     onDecadeClick: () => void;
+    size?: DatePickerSize;
 };
 
 export type YearBodyProps<DateType> = {
@@ -30,4 +31,5 @@ export type YearBodyProps<DateType> = {
     viewDate: DateType;
     disabledDate?: (date: DateType) => boolean;
     onSelect: (value: DateType) => void;
+    size?: DatePickerSize;
 };

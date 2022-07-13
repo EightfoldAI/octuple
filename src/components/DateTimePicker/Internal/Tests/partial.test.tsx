@@ -3,14 +3,14 @@ import Enzyme from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import MockDate from 'mockdate';
 import moment from 'moment';
-import { spyElementPrototypes } from '../../../../tests/domHook';
+// import { spyElementPrototypes } from '../../../../tests/domHook';
 import {
     mount,
     getMoment,
     isSame,
     MomentPickerPartial,
 } from './Util/commonUtil';
-import enUS from '../locale/en_US';
+import enUS from '../Locale/en_US';
 
 Enzyme.configure({ adapter: new Adapter() });
 

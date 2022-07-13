@@ -1,4 +1,4 @@
-import type { Locale } from '../Picker.types';
+import type { Locale } from '../OcPicker.types';
 
 const locale: Locale = {
     locale: 'en_US',

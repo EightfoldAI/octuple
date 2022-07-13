@@ -4,7 +4,7 @@ import MonthHeader from './MonthHeader';
 import MonthBody from './MonthBody';
 import { createKeyDownHandler } from '../../Utils/uiUtil';
 
-import styles from '../../picker.module.scss';
+import styles from '../../ocpicker.module.scss';
 
 function MonthPartial<DateType>(props: MonthPartialProps<DateType>) {
     const {
@@ -15,6 +15,7 @@ function MonthPartial<DateType>(props: MonthPartialProps<DateType>) {
         viewDate,
         onPartialChange,
         onSelect,
+        size = 'Small',
     } = props;
 
     operationRef.current = {
@@ -66,6 +67,7 @@ function MonthPartial<DateType>(props: MonthPartialProps<DateType>) {
                 onYearClick={() => {
                     onPartialChange('year', viewDate);
                 }}
+                size={size}
             />
             <MonthBody<DateType>
                 {...props}
@@ -73,6 +75,7 @@ function MonthPartial<DateType>(props: MonthPartialProps<DateType>) {
                     onSelect(date, 'mouse');
                     onPartialChange('date', date);
                 }}
+                size={size}
             />
         </div>
     );

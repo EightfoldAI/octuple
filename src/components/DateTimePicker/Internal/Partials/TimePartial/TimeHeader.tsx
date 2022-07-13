@@ -11,10 +11,10 @@ function TimeHeader<DateType>(props: TimeHeaderProps<DateType>) {
         return null;
     }
 
-    const { generateConfig, locale, value, format } = props;
+    const { generateConfig, locale, value, format, size = 'Small' } = props;
 
     return (
-        <Header>
+        <Header size={size}>
             {value
                 ? formatValue(value, {
                       locale,

@@ -1,7 +1,7 @@
 import type { GenerateConfig } from '../../Generate';
-import type { PartialSharedProps } from '../../Picker.types';
+import type { DatePickerSize, PartialSharedProps } from '../../OcPicker.types';
 import type { KeyboardConfig } from '../../Utils/uiUtil';
-import type { Locale } from '../../Picker.types';
+import type { Locale } from '../../OcPicker.types';
 
 export type DateRender<DateType> = (
     currentDate: DateType,
@@ -23,21 +23,18 @@ export type DateHeaderProps<DateType> = {
     value?: DateType | null;
     locale: Locale;
     generateConfig: GenerateConfig<DateType>;
-
     onPrevYear: () => void;
     onNextYear: () => void;
     onPrevMonth: () => void;
     onNextMonth: () => void;
     onYearClick: () => void;
     onMonthClick: () => void;
+    size?: DatePickerSize;
 };
 
 export type DateBodyPassProps<DateType> = {
     dateRender?: DateRender<DateType>;
     disabledDate?: (date: DateType) => boolean;
-
-    // Used for week partial
-    prefixColumn?: (date: DateType) => React.ReactNode;
     rowClassNames?: (date: DateType) => string;
 };
 
@@ -48,4 +45,5 @@ export type DateBodyProps<DateType> = {
     locale: Locale;
     rowCount: number;
     onSelect: (value: DateType) => void;
+    size?: DatePickerSize;
 } & DateBodyPassProps<DateType>;

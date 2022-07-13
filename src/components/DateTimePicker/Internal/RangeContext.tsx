@@ -1,5 +1,5 @@
 import React, { createContext } from 'react';
-import type { NullableDateType, RangeValue } from './Picker.types';
+import type { NullableDateType, RangeValue } from './OcPicker.types';
 
 export type RangeContextProps = {
     /**

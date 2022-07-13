@@ -8,7 +8,7 @@ import PartialBody from '../PartialBody';
 const YEAR_ROW_COUNT: number = 4;
 
 function YearBody<DateType>(props: YearBodyProps<DateType>) {
-    const { value, viewDate, locale, generateConfig } = props;
+    const { value, viewDate, locale, generateConfig, size = 'Small' } = props;
     const { rangedValue, hoverRangedValue } = React.useContext(RangeContext);
 
     const yearNumber: number = generateConfig.getYear(viewDate);
@@ -54,6 +54,7 @@ function YearBody<DateType>(props: YearBodyProps<DateType>) {
                     generateConfig,
                 })
             }
+            size={size}
         />
     );
 }

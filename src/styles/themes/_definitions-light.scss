@@ -300,6 +300,10 @@ $focus-visible-outline-width: 2px;
 $focus-visible-outline-offset-inner: -2px;
 $focus-visible-outline-offset-outer: 2px;
 
+$focus-visible-outline-color: var(--primary-color-40);
+$focus-visible-outline-style: solid;
+$focus-visible-outline-width: 2px;
+
 // Speed / Duration Definitions
 
 $motion-duration-extra-fast: 200ms; // Smallest UI objects like buttons (hover effect), tooltips, etc.
@@ -467,3 +471,92 @@ $tree-directory-selected-color: var(--white-color);
 $tree-directory-selected-bg: var(--primary-color);
 $tree-node-hover-bg: var(--grey-color-10);
 $tree-node-selected-bg: var(--primary-color);
+
+// Picker
+$picker-arrow-size: 8px;
+
+$picker-background-color: var(--picker-background-color);
+$picker-foreground-color: var(--picker-foreground-color);
+
+$picker-border-color: var(--picker-border-color);
+$picker-border-color-active: var(--picker-border-color-active);
+$picker-border-radius: $corner-radius-s;
+$picker-border-style: solid;
+$picker-border-width: 1px;
+$picker-border: $picker-border-width $picker-border-style $picker-border-color;
+
+$picker-box-shadow: 0px 1px 2px rgba(15, 20, 31, 0.12),
+    0px 4px 16px rgba(15, 20, 31, 0.16);
+$picker-cell-background-color: var(--picker-cell-background-color);
+$picker-cell-background-color-active: var(
+    --picker-cell-background-color-active
+);
+$picker-cell-background-color-hover: var(--picker-cell-background-color-hover);
+$picker-cell-border: $picker-border-width $picker-border-style
+    $picker-background-color;
+$picker-cell-border-radius-l: 24px;
+$picker-cell-border-radius-m: 18px;
+$picker-cell-border-radius-s: 14px;
+$picker-cell-foreground-color: var(--picker-cell-foreground-color);
+$picker-cell-foreground-color-active: var(
+    --picker-cell-foreground-color-active
+);
+$picker-cell-foreground-color-hover: var(--picker-cell-foreground-color-hover);
+$picker-cell-height-l: 44px;
+$picker-cell-height-m: 36px;
+$picker-cell-height-s: 28px;
+$picker-cell-width-l: 44px;
+$picker-cell-width-m: 36px;
+$picker-cell-width-s: 28px;
+$picker-cell-year-month-width: 56px;
+$picker-column-background-color: var(--bpicker-column-background-color);
+$picker-column-background-color-active: var(
+    --picker-column-background-color-active
+);
+$picker-column-background-color-hover: var(
+    --picker-column-background-color-hover
+);
+$picker-column-foreground-color: var(--picker-column-foreground-color);
+$picker-column-foreground-color-active: var(
+    --picker-column-foreground-color-active
+);
+$picker-column-foreground-color-hover: var(
+    --picker-column-foreground-color-hover
+);
+$picker-font-size-l: $text-font-size-4;
+$picker-font-size-m: $text-font-size-3;
+$picker-font-size-s: $text-font-size-2;
+$picker-header-cell-foreground-color: var(
+    --picker-header-cell-foreground-color
+);
+$picker-header-height-l: 44px;
+$picker-header-height-m: 36px;
+$picker-header-height-s: 28px;
+$picker-input-active-bar-color: var(--picker-input-active-bar-color);
+$picker-input-background-color: var(--picker-input-background-color);
+$picker-input-border-color-active: var(--picker-input-border-color-active);
+$picker-input-border-color-hover: var(--picker-input-border-color-hover);
+$picker-input-clear-icon-color: var(--picker-input-clear-icon-color);
+$picker-input-clear-icon-color-active: var(
+    --picker-input-clear-icon-color-active
+);
+$picker-input-foreground-color: var(--picker-input-foreground-colo);
+$picker-input-height-m: 36px;
+$picker-input-height-l: 44px;
+$picker-input-height-s: 28px;
+$picker-input-outline-offset: 0 0;
+$picker-input-padding-horizontal-l: $space-s;
+$picker-input-padding-horizontal-m: $space-xs;
+$picker-input-padding-horizontal-s: $space-xs;
+$picker-input-placeholder-color: var(--picker-input-placeholder-color);
+$picker-line-height-l: $text-line-height-5;
+$picker-line-height-m: $text-line-height-4;
+$picker-line-height-s: $text-line-height-3;
+$picker-outline-blur: 0;
+$picker-outline-style: solid;
+$picker-outline-width: 2px;
+$picker-outline-color: var(--picker-outline-color);
+$picker-partial-cell-width: 32px;
+
+// datepicker
+$picker-text-height: 40px;

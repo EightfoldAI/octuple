@@ -8,7 +8,7 @@ import PartialBody from '../PartialBody';
 const QUARTER_ROW_COUNT: number = 1;
 
 function QuarterBody<DateType>(props: QuarterBodyProps<DateType>) {
-    const { locale, value, viewDate, generateConfig } = props;
+    const { locale, value, viewDate, generateConfig, size = 'Small' } = props;
 
     const { rangedValue, hoverRangedValue } = React.useContext(RangeContext);
 
@@ -52,6 +52,7 @@ function QuarterBody<DateType>(props: QuarterBodyProps<DateType>) {
                     generateConfig,
                 })
             }
+            size={size}
         />
     );
 }

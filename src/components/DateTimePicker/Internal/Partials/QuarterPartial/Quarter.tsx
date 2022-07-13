@@ -4,7 +4,7 @@ import QuarterHeader from './QuarterHeader';
 import QuarterBody from './QuarterBody';
 import { createKeyDownHandler } from '../../Utils/uiUtil';
 
-import styles from '../../picker.module.scss';
+import styles from '../../ocpicker.module.scss';
 
 function QuarterPartial<DateType>(props: QuarterPartialProps<DateType>) {
     const {
@@ -15,6 +15,7 @@ function QuarterPartial<DateType>(props: QuarterPartialProps<DateType>) {
         viewDate,
         onPartialChange,
         onSelect,
+        size = 'Small',
     } = props;
 
     operationRef.current = {
@@ -60,12 +61,14 @@ function QuarterPartial<DateType>(props: QuarterPartialProps<DateType>) {
                 onYearClick={() => {
                     onPartialChange('year', viewDate);
                 }}
+                size={size}
             />
             <QuarterBody<DateType>
                 {...props}
                 onSelect={(date) => {
                     onSelect(date, 'mouse');
                 }}
+                size={size}
             />
         </div>
     );

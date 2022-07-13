@@ -10,7 +10,7 @@ import moment from 'moment';
 import type { Wrapper } from './util/commonUtil';
 import { mount, getMoment, isSame, MomentRangePicker } from './util/commonUtil';
 import enUS from '../Locale/en_US';
-import type { PickerMode } from '../Picker.types';
+import type { OcPickerMode } from '../OcPicker.types';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -255,7 +255,9 @@ describe('Picker.Range', () => {
                 />
             );
             wrapper.openPicker();
-            expect(wrapper.find('.picker-footer').text()).toEqual('footer');
+            expect(wrapper.find('.picker-footer-extra').text()).toEqual(
+                'footer'
+            );
             expect(wrapper.find('.picker-header-view').first().text()).toEqual(
                 '1990-1999'
             );
@@ -470,49 +472,6 @@ describe('Picker.Range', () => {
     });
 
     describe('ranges', () => {
-        it('work', () => {
-            const onChange = jest.fn();
-            const wrapper = mount(
-                <MomentRangePicker
-                    ranges={{
-                        test: [
-                            getMoment('1989-11-28'),
-                            getMoment('1990-09-03'),
-                        ],
-                        func: () => [
-                            getMoment('2000-01-01'),
-                            getMoment('2010-11-11'),
-                        ],
-                    }}
-                    onChange={onChange}
-                />
-            );
-
-            let testNode;
-
-            // Basic
-            wrapper.openPicker();
-            testNode = wrapper.find('.picker-ranges li span').first();
-            expect(testNode.text()).toEqual('test');
-            testNode.simulate('click');
-            expect(onChange).toHaveBeenCalledWith(
-                [expect.anything(), expect.anything()],
-                ['1989-11-28', '1990-09-03']
-            );
-            expect(wrapper.isOpen()).toBeFalsy();
-
-            // Function
-            wrapper.openPicker();
-            testNode = wrapper.find('.picker-ranges li span').last();
-            expect(testNode.text()).toEqual('func');
-            testNode.simulate('click');
-            expect(onChange).toHaveBeenCalledWith(
-                [expect.anything(), expect.anything()],
-                ['2000-01-01', '2010-11-11']
-            );
-            expect(wrapper.isOpen()).toBeFalsy();
-        });
-
         it('hover className', () => {
             const wrapper = mount(
                 <MomentRangePicker
@@ -560,37 +519,6 @@ describe('Picker.Range', () => {
     });
 
     describe('defaultPickerValue', () => {
-        it('defaultPickerValue works', () => {
-            const wrapper = mount(
-                <MomentRangePicker
-                    defaultPickerValue={[
-                        getMoment('1989-11-28'),
-                        getMoment('1990-09-03'),
-                    ]}
-                />
-            );
-
-            wrapper.openPicker();
-            expect(
-                wrapper
-                    .find('PickerPartial')
-                    .first()
-                    .find('.picker-header-view')
-                    .text()
-            ).toEqual('Nov1989');
-            wrapper.closePicker();
-
-            wrapper.openPicker(1);
-            expect(
-                wrapper
-                    .find('PickerPartial')
-                    .last()
-                    .find('.picker-header-view')
-                    .text()
-            ).toEqual('Oct1990');
-            wrapper.closePicker(1);
-        });
-
         it('defaultPickerValue with showTime', () => {
             const startDate = getMoment('1982-02-12');
             const endDate = getMoment('1982-02-12');
@@ -1345,7 +1273,7 @@ describe('Picker.Range', () => {
          * Like `2020-12-31` ~ `2020-01-01` is validate in `year` picker.
          */
         const list: {
-            picker: PickerMode;
+            picker: OcPickerMode;
             defaultValue: string[];
             selectCell: string;
             match: string[];
@@ -1354,7 +1282,7 @@ describe('Picker.Range', () => {
                 picker: 'week',
                 defaultValue: ['2020-06-13'],
                 selectCell: '9',
-                match: ['2020-24th'],
+                match: ['2020-06-07 to 2020-06-13'],
             },
             {
                 picker: 'quarter',
@@ -1950,7 +1878,7 @@ describe('Picker.Range', () => {
         expect(wrapper.find('.picker-ok button').props().disabled).toBeTruthy();
 
         wrapper
-            .find('PickerPartial')
+            .find('OcPickerPartial')
             .first()
             .find('.picker-time-partial-column')
             .first()

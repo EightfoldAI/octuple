@@ -1,3 +1,3 @@
-import type { PartialSharedProps } from '../../Picker.types';
+import type { PartialSharedProps } from '../../OcPicker.types';
 
 export type WeekPartialProps<DateType> = PartialSharedProps<DateType>;

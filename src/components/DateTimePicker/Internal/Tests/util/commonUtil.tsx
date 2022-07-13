@@ -1,21 +1,21 @@
 import React from 'react';
 import { mount as originMount, ReactWrapper } from 'enzyme';
 import moment, { Moment, unitOfTime } from 'moment';
-import Picker, { PickerProps, PickerPartial } from '../../';
+import OcPicker, { OcPickerProps, OcPickerPartial } from '../../';
 import momentGenerateConfig from '../../Generate/moment';
 import enUS from '../../Locale/en_US';
 import {
-    PickerBaseProps,
-    PickerDateProps,
-    PickerTimeProps,
-    PickerPartialBaseProps,
-    PickerPartialDateProps,
-    PickerPartialTimeProps,
-    RangePickerBaseProps,
-    RangePickerDateProps,
-    RangePickerTimeProps,
-} from '../../Picker.types';
-import RangePicker from '../../RangePicker';
+    OcPickerBaseProps,
+    OcPickerDateProps,
+    OcPickerTimeProps,
+    OcPickerPartialBaseProps,
+    OcPickerPartialDateProps,
+    OcPickerPartialTimeProps,
+    OcRangePickerBaseProps,
+    OcRangePickerDateProps,
+    OcRangePickerTimeProps,
+} from '../../OcPicker.types';
+import OcRangePicker from '../../OcRangePicker';
 
 const FULL_FORMAT: string = 'YYYY-MM-DD HH:mm:ss';
 
@@ -68,8 +68,8 @@ export function isSame(
 }
 
 interface MomentDefaultProps {
-    locale?: PickerProps<Moment>['locale'];
-    generateConfig?: PickerProps<Moment>['generateConfig'];
+    locale?: OcPickerProps<Moment>['locale'];
+    generateConfig?: OcPickerProps<Moment>['generateConfig'];
 }
 
 type InjectDefaultProps<Props> = Omit<Props, 'locale' | 'generateConfig'> &
@@ -77,16 +77,16 @@ type InjectDefaultProps<Props> = Omit<Props, 'locale' | 'generateConfig'> &
 
 // Moment Picker
 export type MomentPickerProps =
-    | InjectDefaultProps<PickerBaseProps<Moment>>
-    | InjectDefaultProps<PickerDateProps<Moment>>
-    | InjectDefaultProps<PickerTimeProps<Moment>>;
+    | InjectDefaultProps<OcPickerBaseProps<Moment>>
+    | InjectDefaultProps<OcPickerDateProps<Moment>>
+    | InjectDefaultProps<OcPickerTimeProps<Moment>>;
 
 export class MomentPicker extends React.Component<MomentPickerProps> {
-    pickerRef = React.createRef<Picker<Moment>>();
+    pickerRef = React.createRef<OcPicker<Moment>>();
 
     render() {
         return (
-            <Picker<Moment>
+            <OcPicker<Moment>
                 generateConfig={momentGenerateConfig}
                 locale={enUS}
                 ref={this.pickerRef}
@@ -98,12 +98,12 @@ export class MomentPicker extends React.Component<MomentPickerProps> {
 
 // Moment Partial Picker
 export type MomentPickerPartialProps =
-    | InjectDefaultProps<PickerPartialBaseProps<Moment>>
-    | InjectDefaultProps<PickerPartialDateProps<Moment>>
-    | InjectDefaultProps<PickerPartialTimeProps<Moment>>;
+    | InjectDefaultProps<OcPickerPartialBaseProps<Moment>>
+    | InjectDefaultProps<OcPickerPartialDateProps<Moment>>
+    | InjectDefaultProps<OcPickerPartialTimeProps<Moment>>;
 
 export const MomentPickerPartial = (props: MomentPickerPartialProps) => (
-    <PickerPartial<Moment>
+    <OcPickerPartial<Moment>
         generateConfig={momentGenerateConfig}
         locale={enUS}
         {...props}
@@ -112,16 +112,16 @@ export const MomentPickerPartial = (props: MomentPickerPartialProps) => (
 
 // Moment Range Picker
 export type MomentRangePickerProps =
-    | InjectDefaultProps<RangePickerBaseProps<Moment>>
-    | InjectDefaultProps<RangePickerDateProps<Moment>>
-    | InjectDefaultProps<RangePickerTimeProps<Moment>>;
+    | InjectDefaultProps<OcRangePickerBaseProps<Moment>>
+    | InjectDefaultProps<OcRangePickerDateProps<Moment>>
+    | InjectDefaultProps<OcRangePickerTimeProps<Moment>>;
 
 export class MomentRangePicker extends React.Component<MomentRangePickerProps> {
-    rangePickerRef = React.createRef<RangePicker<Moment>>();
+    rangePickerRef = React.createRef<OcRangePicker<Moment>>();
 
     render() {
         return (
-            <RangePicker<Moment>
+            <OcRangePicker<Moment>
                 generateConfig={momentGenerateConfig}
                 locale={enUS}
                 ref={this.rangePickerRef}

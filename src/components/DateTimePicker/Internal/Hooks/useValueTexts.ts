@@ -1,7 +1,7 @@
 import shallowEqual from 'shallowequal';
 import { useMemo } from '../../../../hooks/useMemo';
 import type { GenerateConfig } from '../Generate';
-import type { CustomFormat, Locale } from '../Picker.types';
+import type { CustomFormat, Locale } from '../OcPicker.types';
 import { formatValue } from '../Utils/dateUtil';
 
 export type ValueTextConfig<DateType> = {

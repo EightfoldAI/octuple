@@ -64,34 +64,34 @@ const generateConfig: GenerateConfig<Moment> = {
     isValidate: (date) => date.isValid(),
 
     locale: {
-        getWeekFirstDay: (locale) => {
+        getWeekFirstDay: (locale = 'en_US') => {
             const date: Moment = moment().locale(locale);
             return date.localeData().firstDayOfWeek();
         },
-        getWeekFirstDate: (locale, date) => {
+        getWeekFirstDate: (locale = 'en_US', date) => {
             const clone: Moment = date.clone();
             const result: Moment = clone.locale(locale);
             return result.weekday(0);
         },
-        getWeek: (locale, date) => {
+        getWeek: (locale = 'en_US', date) => {
             const clone: Moment = date.clone();
             const result: Moment = clone.locale(locale);
             return result.week();
         },
-        getShortWeekDays: (locale) => {
+        getShortWeekDays: (locale = 'en_US') => {
             const date: Moment = moment().locale(locale);
             return date.localeData().weekdaysMin();
         },
-        getShortMonths: (locale) => {
+        getShortMonths: (locale = 'en_US') => {
             const date: Moment = moment().locale(locale);
             return date.localeData().monthsShort();
         },
-        format: (locale, date, format) => {
+        format: (locale = 'en_US', date, format) => {
             const clone: Moment = date.clone();
             const result: Moment = clone.locale(locale);
             return result.format(format);
         },
-        parse: (locale, text, formats) => {
+        parse: (locale = 'en_US', text, formats) => {
             const fallbackFormatList: string[] = [];
 
             for (let i = 0; i < formats.length; i += 1) {

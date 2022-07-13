@@ -5,6 +5,13 @@ import { LabelProps } from '../Label';
 import { TooltipTheme } from '../Tooltip';
 import { OcBaseProps } from '../OcBase';
 
+export enum TextInputSize {
+    Flex = 'flex',
+    Large = 'large',
+    Medium = 'medium',
+    Small = 'small',
+}
+
 export enum TextInputTheme {
     light = 'light',
     dark = 'dark',
@@ -288,6 +295,11 @@ export interface InputProps<T>
      */
     shape?: TextInputShape;
     /**
+     * The input size.
+     * @default Flex
+     */
+    size?: TextInputSize;
+    /**
      * Theme of the input.
      * @default TextInputTheme.light
      */
@@ -301,7 +313,6 @@ export interface InputProps<T>
      * @default 10
      */
     waitInterval?: number;
-
     /**
      * input readonly.
      * @default false

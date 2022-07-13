@@ -1,5 +1,7 @@
 import React from 'react';
-import type { PartialMode } from '../Picker.types';
+import type { PartialMode } from '../OcPicker.types';
+
+import styles from '../ocpicker.module.scss';
 
 export const getExtraFooter = (
     mode: PartialMode,
@@ -9,7 +11,5 @@ export const getExtraFooter = (
         return null;
     }
 
-    return (
-        <div className={'picker-footer-extra'}>{renderExtraFooter(mode)}</div>
-    );
+    return renderExtraFooter(mode);
 };

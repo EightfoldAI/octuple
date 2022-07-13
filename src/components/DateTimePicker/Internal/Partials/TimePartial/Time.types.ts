@@ -1,9 +1,10 @@
 import type {
+    DatePickerSize,
     DisabledTimes,
     Locale,
     OnSelect,
     PartialSharedProps,
-} from '../../Picker.types';
+} from '../../OcPicker.types';
 import type { GenerateConfig } from '../../Generate';
 
 export type Unit = {
@@ -18,6 +19,7 @@ export type TimeUnitColumnProps = {
     active?: boolean;
     hideDisabledOptions?: boolean;
     onSelect?: (value: number) => void;
+    size?: DatePickerSize;
 };
 
 export type SharedTimeProps<DateType> = {
@@ -33,6 +35,7 @@ export type SharedTimeProps<DateType> = {
     hideDisabledOptions?: boolean;
     defaultValue?: DateType;
     disabledTime?: (date: DateType) => DisabledTimes;
+    size?: DatePickerSize;
 };
 
 export type TimePartialProps<DateType> = {
@@ -46,6 +49,7 @@ export type TimeHeaderProps<DateType> = {
     locale: Locale;
     generateConfig: GenerateConfig<DateType>;
     format: string;
+    size?: DatePickerSize;
 };
 
 export type BodyOperationRef = {

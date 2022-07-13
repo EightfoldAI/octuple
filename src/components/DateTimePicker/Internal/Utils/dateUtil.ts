@@ -2,10 +2,10 @@ import { DECADE_UNIT_DIFF } from '../Partials/DecadePartial/Decade.types';
 import type {
     PartialMode,
     NullableDateType,
-    PickerMode,
+    OcPickerMode,
     Locale,
     CustomFormat,
-} from '../Picker.types';
+} from '../OcPicker.types';
 import type { GenerateConfig } from '../Generate';
 
 export const WEEK_DAY_COUNT: number = 7;
@@ -197,7 +197,7 @@ export function getWeekStartDate<DateType>(
 
 export function getClosingViewDate<DateType>(
     viewDate: DateType,
-    picker: PickerMode,
+    picker: OcPickerMode,
     generateConfig: GenerateConfig<DateType>,
     offset: number = 1
 ): DateType {

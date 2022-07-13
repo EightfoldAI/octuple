@@ -5,7 +5,7 @@ import PartialContext from '../PartialContext';
 import { getLastDay } from '../Utils/timeUtil';
 import { getCellDateDisabled } from '../Utils/dateUtil';
 
-import styles from '../picker.module.scss';
+import styles from '../ocpicker.module.scss';
 
 export default function PartialBody<DateType>({
     disabledDate,
@@ -13,7 +13,6 @@ export default function PartialBody<DateType>({
     picker,
     rowNum,
     colNum,
-    prefixColumn,
     rowClassNames,
     baseDate,
     getCellClassNames,
@@ -23,6 +22,7 @@ export default function PartialBody<DateType>({
     generateConfig,
     titleCell,
     headerCells,
+    size = 'Small',
 }: PartialBodyProps<DateType>) {
     const { onDateMouseEnter, onDateMouseLeave, mode } =
         React.useContext(PartialContext);
@@ -45,10 +45,6 @@ export default function PartialBody<DateType>({
 
             if (j === 0) {
                 rowStartDate = currentDate;
-
-                if (prefixColumn) {
-                    row.push(prefixColumn(rowStartDate));
-                }
             }
 
             const title: string = titleCell && titleCell(currentDate);
@@ -107,8 +103,15 @@ export default function PartialBody<DateType>({
         );
     }
 
+    const pickerBodyClassNames: string = mergeClasses([
+        styles.pickerBody,
+        { [styles.pickerLarge]: size === 'Large' },
+        { [styles.pickerMedium]: size === 'Medium' },
+        { [styles.pickerSmall]: size === 'Small' },
+    ]);
+
     return (
-        <div className={styles.pickerBody}>
+        <div className={pickerBodyClassNames}>
             <table className={styles.pickerContent}>
                 {headerCells && (
                     <thead>
