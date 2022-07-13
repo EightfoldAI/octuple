@@ -51,6 +51,29 @@ describe('Slider', () => {
         expect(activeMarkers.length).toEqual(2);
     });
 
+    test('should not call onChanges on initial load', () => {
+        const testCtrl = {
+            handleChange: () => {},
+        };
+        const handleChangeSpy = jest
+            .spyOn(testCtrl, 'handleChange')
+            .mockImplementation(() => {});
+
+        wrapper = mount(
+            <Slider
+                min={20}
+                max={40}
+                value={30}
+                showMarkers={true}
+                onChange={testCtrl.handleChange}
+            />
+        );
+        let thumb1 = wrapper.find('input[type="range"]').at(0);
+        expect(handleChangeSpy).toHaveBeenCalledTimes(0);
+        thumb1.simulate('change', { target: { value: 29 } });
+        expect(handleChangeSpy).toHaveBeenCalledTimes(1);
+    });
+
     test('should update values correctly', () => {
         let val = 1;
         wrapper = mount(

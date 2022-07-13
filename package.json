@@ -15,7 +15,7 @@
         "details": "webpack --config webpack.dev.js --mode development --stats-error-details",
         "analyze": "webpack --config webpack.dev.js --mode production --json > stats.json",
         "prepublish": "yarn build",
-        "test": "jest",
+        "test": "jest --collectCoverage=true",
         "test:update": "jest -u",
         "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
         "format": "prettier --write \"**/*.+(js|jsx|ts|tsx|json|css|scss|md)\"",
@@ -242,7 +242,7 @@
             "jest-watch-typeahead/testname"
         ],
         "resetMocks": false,
-        "collectCoverage": true,
+        "collectCoverage": false,
         "collectCoverageFrom": [
             "src/**/*.{js,jsx,ts,tsx}",
             "!src/**/*.d.ts",
