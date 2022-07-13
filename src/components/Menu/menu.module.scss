@@ -1,5 +1,22 @@
 .menu-header-container {
-    margin: $space-m $space-s $space-xs;
+    display: flex;
+    flex: 1;
+
+    &.large {
+        margin: $space-xl $space-xl;
+    }
+
+    &.medium {
+        margin: $space-l $space-l;
+    }
+
+    &.small {
+        margin: $space-m $space-m;
+    }
+
+    .heading {
+        flex: 1;
+    }
 }
 
 .menu-footer-container {
@@ -7,7 +24,18 @@
     position: sticky;
     bottom: 0;
     border-top: solid 1px var(--border-color);
-    padding: $space-m;
+
+    &.large {
+        padding: $space-l;
+    }
+
+    &.medium {
+        padding: $space-m;
+    }
+
+    &.small {
+        padding: $space-s;
+    }
 }
 
 .menu-item-custom {

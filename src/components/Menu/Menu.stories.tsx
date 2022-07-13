@@ -66,6 +66,30 @@ const Overlay = (args: any) => (
                 disabled: true,
             },
             {
+                iconProps: {
+                    path: IconName.mdiCalendar,
+                },
+                text: 'Date',
+                value: 'date 1',
+                counter: '8',
+            },
+            {
+                text: 'Thumbs up',
+                value: 'date 1',
+            },
+            {
+                iconProps: {
+                    path: IconName.mdiCalendar,
+                },
+                text: 'Date',
+                value: 'date 1',
+                counter: '8',
+            },
+            {
+                text: 'Thumbs up',
+                value: 'date 1',
+            },
+            {
                 type: MenuItemType.subHeader,
                 text: 'Menu Type links',
             },

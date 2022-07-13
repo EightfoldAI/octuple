@@ -4,7 +4,6 @@ import {
     MenuItemButtonProps,
     MenuItemCustomProps,
     MenuItemLinkProps,
-    MenuItemProps,
     MenuItemSubHeaderProps,
 } from './MenuItem/MenuItem.types';
 import { ButtonProps } from '../Button';

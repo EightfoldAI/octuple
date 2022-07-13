@@ -5,9 +5,15 @@ import { MenuItem } from './MenuItem/MenuItem';
 import { MenuItemType } from './MenuItem/MenuItem.types';
 import { mergeClasses } from '../../shared/utilities';
 import { Stack } from '../Stack';
-import { ButtonSize, NeutralButton, PrimaryButton } from '../Button';
+import {
+    ButtonShape,
+    ButtonSize,
+    NeutralButton,
+    PrimaryButton,
+} from '../Button';
 
 import styles from './menu.module.scss';
+import { IconName } from '../Icon';
 
 const MENU_SIZE_TO_BUTTON_SIZE_MAP: Record<MenuSize, ButtonSize> = {
     [MenuSize.large]: ButtonSize.Large,
@@ -34,31 +40,24 @@ export const Menu: FC<MenuProps> = ({
     onCancel,
     ...rest
 }) => {
-    const headerContainerClasses: string = mergeClasses([
-        styles.menuHeaderContainer,
-    ]);
-
     const headerClasses: string = mergeClasses([
+        styles.menuHeaderContainer,
         {
             header4: size === MenuSize.large,
-        },
-        {
+            [styles.large]: size === MenuSize.large,
             header5: size === MenuSize.medium,
-        },
-        {
+            [styles.medium]: size === MenuSize.medium,
             header6: size === MenuSize.small,
+            [styles.small]: size === MenuSize.small,
         },
     ]);
 
-    const subHeaderClasses: string = mergeClasses([
+    const footerClasses: string = mergeClasses([
+        styles.menuFooterContainer,
         {
-            body2: size === MenuSize.large,
-        },
-        {
-            body3: size === MenuSize.medium,
-        },
-        {
-            caption: size === MenuSize.small,
+            [styles.large]: size === MenuSize.large,
+            [styles.medium]: size === MenuSize.medium,
+            [styles.small]: size === MenuSize.small,
         },
     ]);
 
@@ -78,13 +77,10 @@ export const Menu: FC<MenuProps> = ({
     );
 
     const getHeader = (): JSX.Element =>
-        (header || subHeader) && (
-            <Stack direction="vertical" classNames={headerContainerClasses}>
-                {header && <span className={headerClasses}>{header}</span>}
-                {subHeader && (
-                    <span className={subHeaderClasses}>{subHeader}</span>
-                )}
-            </Stack>
+        header && (
+            <div className={headerClasses}>
+                <div className={styles.heading}>{header}</div>
+            </div>
         );
 
     const getFooter = (): JSX.Element =>
@@ -93,7 +89,7 @@ export const Menu: FC<MenuProps> = ({
                 gap="s"
                 justify="flex-end"
                 fullWidth
-                classNames={styles.menuFooterContainer}
+                classNames={footerClasses}
             >
                 {cancelButtonProps && (
                     <NeutralButton
