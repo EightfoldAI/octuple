@@ -955,6 +955,7 @@
         background: $picker-input-background-color;
         cursor: pointer;
         opacity: 0;
+        top: 50%;
         transition: opacity $motion-duration-fast, color $motion-duration-fast;
 
         > * {
@@ -966,9 +967,28 @@
             left: 4px;
         }
 
+        &-btn:after {
+            content: '×';
+        }
+
         &:hover {
             color: $picker-input-clear-icon-color-active;
         }
+    }
+
+    &-large &-clear {
+        right: 12px;
+        transform: translateY(-12px);
+    }
+
+    &-medium &-clear {
+        right: 8px;
+        transform: translateY(-7px);
+    }
+
+    &-small &-clear {
+        right: 8px;
+        transform: translateY(-7px);
     }
 
     &-dropdown {
