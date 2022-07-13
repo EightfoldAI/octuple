@@ -5,10 +5,6 @@ export interface SliderMarker {
      * The step value of the marker.
      */
     value: number;
-    /**
-     * The left offset position for the marker. ex: "96px"
-     */
-    offset: string;
 }
 
 export interface SliderProps extends SliderInputProps {
