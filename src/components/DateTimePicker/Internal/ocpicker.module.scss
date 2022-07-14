@@ -956,6 +956,7 @@
         cursor: pointer;
         opacity: 0;
         top: 50%;
+        transform: translateY(-50%);
         transition: opacity $motion-duration-fast, color $motion-duration-fast;
 
         > * {
@@ -974,21 +975,6 @@
         &:hover {
             color: $picker-input-clear-icon-color-active;
         }
-    }
-
-    &-large &-clear {
-        right: 12px;
-        transform: translateY(-12px);
-    }
-
-    &-medium &-clear {
-        right: 8px;
-        transform: translateY(-7px);
-    }
-
-    &-small &-clear {
-        right: 8px;
-        transform: translateY(-7px);
     }
 
     &-dropdown {
@@ -1141,12 +1127,6 @@
                 border-color: $picker-border-color;
             }
         }
-    }
-}
-
-.picker-time-partial-cell {
-    &-disabled {
-        @include disabled();
     }
 }
 
