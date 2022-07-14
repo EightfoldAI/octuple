@@ -1,4 +1,4 @@
-import moment from 'moment';
+import dayjs from 'dayjs';
 import { eventKeys } from '../../../../shared/utilities';
 import { requestAnimationFrameWrapper } from '../../../../shared/utilities';
 import { isVisible } from '../../../../shared/utilities';
@@ -165,9 +165,7 @@ export function getDefaultFormat<DateType>(
     let mergedFormat = format;
 
     const weekStartEndFormat: DatePickerProps['format'] = (value) =>
-        `${moment(value).startOf('week').format('YYYY-MM-DD')} to ${moment(
-            value
-        )
+        `${dayjs(value).startOf('week').format('YYYY-MM-DD')} to ${dayjs(value)
             .endOf('week')
             .format('YYYY-MM-DD')}`;
 

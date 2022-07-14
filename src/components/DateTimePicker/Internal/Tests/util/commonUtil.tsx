@@ -1,8 +1,8 @@
 import React from 'react';
 import { mount as originMount, ReactWrapper } from 'enzyme';
-import moment, { Moment, unitOfTime } from 'moment';
+import dayjs, { Dayjs, OpUnitType } from 'dayjs';
 import OcPicker, { OcPickerProps, OcPickerPartial } from '../../';
-import momentGenerateConfig from '../../Generate/moment';
+import dayjsGenerateConfig from '../../Generate/dayjs';
 import enUS from '../../Locale/en_US';
 import {
     OcPickerBaseProps,
@@ -38,10 +38,10 @@ export const mount = originMount as (
     ...args: Parameters<typeof originMount>
 ) => Wrapper;
 
-export function getMoment(str: string): Moment {
+export function getDayjs(str: string): Dayjs {
     const formatList = [FULL_FORMAT, 'YYYY-MM-DD', 'HH:mm:ss', 'YYYY'];
     for (let i = 0; i < formatList.length; i += 1) {
-        const date = moment(str, formatList[i], true);
+        const date = dayjs(str, formatList[i], true);
         if (date.isValid()) {
             return date;
         }
@@ -50,15 +50,15 @@ export function getMoment(str: string): Moment {
 }
 
 export function isSame(
-    date: Moment | null,
+    date: Dayjs | null,
     dateStr: string,
-    type: unitOfTime.StartOf = 'date'
+    type: OpUnitType = 'date'
 ) {
     if (!date) {
         return false;
     }
 
-    if (date.isSame(getMoment(dateStr), type)) {
+    if (date.isSame(getDayjs(dateStr), type)) {
         return true;
     }
 
@@ -67,27 +67,27 @@ export function isSame(
     );
 }
 
-interface MomentDefaultProps {
-    locale?: OcPickerProps<Moment>['locale'];
-    generateConfig?: OcPickerProps<Moment>['generateConfig'];
+interface DayjsDefaultProps {
+    locale?: OcPickerProps<Dayjs>['locale'];
+    generateConfig?: OcPickerProps<Dayjs>['generateConfig'];
 }
 
 type InjectDefaultProps<Props> = Omit<Props, 'locale' | 'generateConfig'> &
-    MomentDefaultProps;
+    DayjsDefaultProps;
 
-// Moment Picker
-export type MomentPickerProps =
-    | InjectDefaultProps<OcPickerBaseProps<Moment>>
-    | InjectDefaultProps<OcPickerDateProps<Moment>>
-    | InjectDefaultProps<OcPickerTimeProps<Moment>>;
+// Dayjs Picker
+export type DayjsPickerProps =
+    | InjectDefaultProps<OcPickerBaseProps<Dayjs>>
+    | InjectDefaultProps<OcPickerDateProps<Dayjs>>
+    | InjectDefaultProps<OcPickerTimeProps<Dayjs>>;
 
-export class MomentPicker extends React.Component<MomentPickerProps> {
-    pickerRef = React.createRef<OcPicker<Moment>>();
+export class DayjsPicker extends React.Component<DayjsPickerProps> {
+    pickerRef = React.createRef<OcPicker<Dayjs>>();
 
     render() {
         return (
-            <OcPicker<Moment>
-                generateConfig={momentGenerateConfig}
+            <OcPicker<Dayjs>
+                generateConfig={dayjsGenerateConfig}
                 locale={enUS}
                 ref={this.pickerRef}
                 {...this.props}
@@ -96,33 +96,33 @@ export class MomentPicker extends React.Component<MomentPickerProps> {
     }
 }
 
-// Moment Partial Picker
-export type MomentPickerPartialProps =
-    | InjectDefaultProps<OcPickerPartialBaseProps<Moment>>
-    | InjectDefaultProps<OcPickerPartialDateProps<Moment>>
-    | InjectDefaultProps<OcPickerPartialTimeProps<Moment>>;
+// Dayjs Partial Picker
+export type DayjsPickerPartialProps =
+    | InjectDefaultProps<OcPickerPartialBaseProps<Dayjs>>
+    | InjectDefaultProps<OcPickerPartialDateProps<Dayjs>>
+    | InjectDefaultProps<OcPickerPartialTimeProps<Dayjs>>;
 
-export const MomentPickerPartial = (props: MomentPickerPartialProps) => (
-    <OcPickerPartial<Moment>
-        generateConfig={momentGenerateConfig}
+export const DayjsPickerPartial = (props: DayjsPickerPartialProps) => (
+    <OcPickerPartial<Dayjs>
+        generateConfig={dayjsGenerateConfig}
         locale={enUS}
         {...props}
     />
 );
 
-// Moment Range Picker
-export type MomentRangePickerProps =
-    | InjectDefaultProps<OcRangePickerBaseProps<Moment>>
-    | InjectDefaultProps<OcRangePickerDateProps<Moment>>
-    | InjectDefaultProps<OcRangePickerTimeProps<Moment>>;
+// Dayjs Range Picker
+export type DayjsRangePickerProps =
+    | InjectDefaultProps<OcRangePickerBaseProps<Dayjs>>
+    | InjectDefaultProps<OcRangePickerDateProps<Dayjs>>
+    | InjectDefaultProps<OcRangePickerTimeProps<Dayjs>>;
 
-export class MomentRangePicker extends React.Component<MomentRangePickerProps> {
-    rangePickerRef = React.createRef<OcRangePicker<Moment>>();
+export class DayjsRangePicker extends React.Component<DayjsRangePickerProps> {
+    rangePickerRef = React.createRef<OcRangePicker<Dayjs>>();
 
     render() {
         return (
-            <OcRangePicker<Moment>
-                generateConfig={momentGenerateConfig}
+            <OcRangePicker<Dayjs>
+                generateConfig={dayjsGenerateConfig}
                 locale={enUS}
                 ref={this.rangePickerRef}
                 {...this.props}

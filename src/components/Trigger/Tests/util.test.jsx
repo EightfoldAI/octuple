@@ -8,6 +8,22 @@ import MockTrigger from '../mock';
  * We do not need to simulate full position, check offset only.
  */
 describe('Trigger.Util', () => {
+    beforeAll(() => {
+        Object.defineProperty(window, 'matchMedia', {
+            writable: true,
+            value: jest.fn().mockImplementation((query) => ({
+                matches: false,
+                media: query,
+                onchange: null,
+                addListener: jest.fn(), // Deprecated
+                removeListener: jest.fn(), // Deprecated
+                addEventListener: jest.fn(),
+                removeEventListener: jest.fn(),
+                dispatchEvent: jest.fn(),
+            })),
+        });
+    });
+
     describe('getMotion', () => {
         const motion = {
             motionName: 'motion',

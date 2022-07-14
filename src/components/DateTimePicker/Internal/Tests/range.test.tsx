@@ -5,10 +5,10 @@ import MockDate from 'mockdate';
 import { act } from 'react-dom/test-utils';
 import { eventKeys } from '../../../../shared/utilities';
 import { spyElementPrototypes } from '../../../../tests/domHook';
-import type { Moment } from 'moment';
-import moment from 'moment';
+import type { Dayjs } from 'dayjs';
+import dayjs from 'dayjs';
 import type { Wrapper } from './util/commonUtil';
-import { mount, getMoment, isSame, MomentRangePicker } from './util/commonUtil';
+import { mount, getDayjs, isSame, DayjsRangePicker } from './util/commonUtil';
 import enUS from '../Locale/en_US';
 import type { OcPickerMode } from '../OcPicker.types';
 
@@ -114,7 +114,7 @@ describe('Picker.Range', () => {
     }
 
     beforeAll(() => {
-        MockDate.set(getMoment('1990-09-03 00:00:00').toDate());
+        MockDate.set(getDayjs('1990-09-03 00:00:00').toDate());
 
         Object.defineProperty(window, 'matchMedia', {
             writable: true,
@@ -138,10 +138,10 @@ describe('Picker.Range', () => {
     describe('value', () => {
         it('defaultValue', () => {
             const wrapper = mount(
-                <MomentRangePicker
+                <DayjsRangePicker
                     defaultValue={[
-                        getMoment('1989-11-28'),
-                        getMoment('1990-09-03'),
+                        getDayjs('1989-11-28'),
+                        getDayjs('1990-09-03'),
                     ]}
                 />
             );
@@ -151,8 +151,8 @@ describe('Picker.Range', () => {
 
         it('controlled', () => {
             const wrapper = mount(
-                <MomentRangePicker
-                    value={[getMoment('1989-11-28'), getMoment('1990-09-03')]}
+                <DayjsRangePicker
+                    value={[getDayjs('1989-11-28'), getDayjs('1990-09-03')]}
                 />
             );
 
@@ -160,7 +160,7 @@ describe('Picker.Range', () => {
 
             // Update
             wrapper.setProps({
-                value: [getMoment('2000-01-01'), getMoment('2011-12-12')],
+                value: [getDayjs('2000-01-01'), getDayjs('2011-12-12')],
             });
             wrapper.update();
             matchValues(wrapper, '2000-01-01', '2011-12-12');
@@ -170,7 +170,7 @@ describe('Picker.Range', () => {
             const onChange = jest.fn();
             const onCalendarChange = jest.fn();
             const wrapper = mount(
-                <MomentRangePicker
+                <DayjsRangePicker
                     onChange={onChange}
                     onCalendarChange={onCalendarChange}
                 />
@@ -222,11 +222,8 @@ describe('Picker.Range', () => {
 
     it('exchanged value should re-order', () => {
         const wrapper = mount(
-            <MomentRangePicker
-                defaultValue={[
-                    getMoment('1990-09-03'),
-                    getMoment('1989-11-28'),
-                ]}
+            <DayjsRangePicker
+                defaultValue={[getDayjs('1990-09-03'), getDayjs('1989-11-28')]}
             />
         );
         wrapper.update();
@@ -236,7 +233,7 @@ describe('Picker.Range', () => {
 
     describe('view is closed', () => {
         it('year', () => {
-            const wrapper = mount(<MomentRangePicker picker="year" />);
+            const wrapper = mount(<DayjsRangePicker picker="year" />);
             wrapper.openPicker();
             expect(wrapper.exists('.picker-footer')).toBeFalsy();
             expect(wrapper.find('.picker-header-view').first().text()).toEqual(
@@ -249,7 +246,7 @@ describe('Picker.Range', () => {
 
         it('year with footer', () => {
             const wrapper = mount(
-                <MomentRangePicker
+                <DayjsRangePicker
                     renderExtraFooter={() => <p>footer</p>}
                     picker="year"
                 />
@@ -271,7 +268,7 @@ describe('Picker.Range', () => {
         const onChange = jest.fn();
 
         const wrapper = mount(
-            <MomentRangePicker
+            <DayjsRangePicker
                 onChange={onChange}
                 disabledDate={(date) => date.date() === 28}
                 allowClear
@@ -296,9 +293,7 @@ describe('Picker.Range', () => {
     });
 
     it('week picker can not click before start week', () => {
-        const wrapper = mount(
-            <MomentRangePicker picker="week" locale={enUS} />
-        );
+        const wrapper = mount(<DayjsRangePicker picker="week" locale={enUS} />);
         wrapper.openPicker();
         wrapper.selectCell(11);
 
@@ -312,7 +307,7 @@ describe('Picker.Range', () => {
 
     describe('Can not select when start or end first selected', () => {
         it('select end', () => {
-            const wrapper = mount(<MomentRangePicker />);
+            const wrapper = mount(<DayjsRangePicker />);
 
             wrapper.openPicker(1);
             wrapper.selectCell(7);
@@ -323,7 +318,7 @@ describe('Picker.Range', () => {
         });
 
         it('select start', () => {
-            const wrapper = mount(<MomentRangePicker picker="quarter" />);
+            const wrapper = mount(<DayjsRangePicker picker="quarter" />);
 
             wrapper.openPicker(0);
             wrapper.selectCell('Q3');
@@ -334,7 +329,7 @@ describe('Picker.Range', () => {
         });
 
         it('select end', () => {
-            const wrapper = mount(<MomentRangePicker picker="month" />);
+            const wrapper = mount(<DayjsRangePicker picker="month" />);
 
             wrapper.openPicker(1);
             wrapper.selectCell('May');
@@ -346,11 +341,11 @@ describe('Picker.Range', () => {
 
         it('disabled start', () => {
             const wrapper = mount(
-                <MomentRangePicker
+                <DayjsRangePicker
                     disabled={[true, false]}
                     defaultValue={[
-                        getMoment('1990-01-15'),
-                        getMoment('1990-02-15'),
+                        getDayjs('1990-01-15'),
+                        getDayjs('1990-02-15'),
                     ]}
                 />
             );
@@ -365,7 +360,7 @@ describe('Picker.Range', () => {
     it('allowEmpty', () => {
         const onChange = jest.fn();
         const wrapper = mount(
-            <MomentRangePicker
+            <DayjsRangePicker
                 onChange={onChange}
                 allowEmpty={[false, true]}
                 allowClear
@@ -392,7 +387,7 @@ describe('Picker.Range', () => {
     describe('disabled', () => {
         it('basic disabled check', () => {
             const wrapper = mount(
-                <MomentRangePicker disabled={[true, false]} />
+                <DayjsRangePicker disabled={[true, false]} />
             );
             expect(wrapper.find('input').at(0).props().disabled).toBeTruthy();
             expect(wrapper.find('input').at(1).props().disabled).toBeFalsy();
@@ -401,9 +396,9 @@ describe('Picker.Range', () => {
         it('startDate will have disabledDate when endDate is not selectable', () => {
             const onChange = jest.fn();
             const wrapper = mount(
-                <MomentRangePicker
+                <DayjsRangePicker
                     disabled={[false, true]}
-                    defaultValue={[null, getMoment('1990-09-22')]}
+                    defaultValue={[null, getDayjs('1990-09-22')]}
                     onChange={onChange}
                 />
             );
@@ -427,31 +422,31 @@ describe('Picker.Range', () => {
         });
 
         // TODO: Re-enable this test when null value pattern is established.
-        // it('null value with disabled', () => {
-        //     const errSpy = jest
-        //         .spyOn(console, 'error')
-        //         .mockImplementation(() => {});
-        //     mount(
-        //         <MomentRangePicker
-        //             disabled={[false, true]}
-        //             value={[null, null]}
-        //         />
-        //     );
+        it.skip('null value with disabled', () => {
+            const errSpy = jest
+                .spyOn(console, 'error')
+                .mockImplementation(() => {});
+            mount(
+                <DayjsRangePicker
+                    disabled={[false, true]}
+                    value={[null, null]}
+                />
+            );
 
-        //     expect(errSpy).toHaveBeenCalledWith(
-        //         'Warning: `disabled` should not set with empty `value`. You should set `allowEmpty` or `value` instead.'
-        //     );
-        //     errSpy.mockReset();
-        // });
+            expect(errSpy).toHaveBeenCalledWith(
+                'Warning: `disabled` should not set with empty `value`. You should set `allowEmpty` or `value` instead.'
+            );
+            errSpy.mockReset();
+        });
 
         it('clear should trigger change', () => {
             const onChange = jest.fn();
             const wrapper = mount(
-                <MomentRangePicker
+                <DayjsRangePicker
                     disabled={[false, true]}
                     defaultValue={[
-                        getMoment('1990-01-01'),
-                        getMoment('2000-11-11'),
+                        getDayjs('1990-01-01'),
+                        getDayjs('2000-11-11'),
                     ]}
                     onChange={onChange}
                     allowClear
@@ -465,7 +460,7 @@ describe('Picker.Range', () => {
         });
 
         it('not fill when all disabled and no value', () => {
-            const wrapper = mount(<MomentRangePicker disabled />);
+            const wrapper = mount(<DayjsRangePicker disabled />);
             expect(wrapper.find('input').first().props().value).toEqual('');
             expect(wrapper.find('input').last().props().value).toEqual('');
         });
@@ -474,9 +469,9 @@ describe('Picker.Range', () => {
     describe('ranges', () => {
         it('hover className', () => {
             const wrapper = mount(
-                <MomentRangePicker
+                <DayjsRangePicker
                     ranges={{
-                        now: [getMoment('1990-09-11'), getMoment('1990-09-13')],
+                        now: [getDayjs('1990-09-11'), getDayjs('1990-09-13')],
                     }}
                 />
             );
@@ -508,7 +503,7 @@ describe('Picker.Range', () => {
 
     it('placeholder', () => {
         const wrapper = mount(
-            <MomentRangePicker placeholder={['light', 'bamboo']} />
+            <DayjsRangePicker placeholder={['light', 'bamboo']} />
         );
         expect(wrapper.find('input').first().props().placeholder).toEqual(
             'light'
@@ -520,11 +515,11 @@ describe('Picker.Range', () => {
 
     describe('defaultPickerValue', () => {
         it('defaultPickerValue with showTime', () => {
-            const startDate = getMoment('1982-02-12');
-            const endDate = getMoment('1982-02-12');
+            const startDate = getDayjs('1982-02-12');
+            const endDate = getDayjs('1982-02-12');
 
             const wrapper = mount(
-                <MomentRangePicker
+                <DayjsRangePicker
                     defaultPickerValue={[startDate, endDate]}
                     showTime
                 />
@@ -536,11 +531,11 @@ describe('Picker.Range', () => {
         });
 
         it('defaultPickerValue with showTime should works when open partial', () => {
-            const startDate = getMoment('1982-02-12');
-            const endDate = getMoment('1982-02-12');
+            const startDate = getDayjs('1982-02-12');
+            const endDate = getDayjs('1982-02-12');
 
             const wrapper = mount(
-                <MomentRangePicker
+                <DayjsRangePicker
                     defaultValue={[startDate, endDate]}
                     defaultPickerValue={[startDate, endDate]}
                     showTime
@@ -581,10 +576,10 @@ describe('Picker.Range', () => {
         });
 
         it('function call', () => {
-            const ref = React.createRef<MomentRangePicker>();
+            const ref = React.createRef<DayjsRangePicker>();
             mount(
                 <div>
-                    <MomentRangePicker ref={ref} />
+                    <DayjsRangePicker ref={ref} />
                 </div>
             );
 
@@ -597,11 +592,11 @@ describe('Picker.Range', () => {
 
         it('not crash with showTime defaultValue', () => {
             const wrapper = mount(
-                <MomentRangePicker
+                <DayjsRangePicker
                     showTime={{
                         defaultValue: [
-                            getMoment('01:02:03'),
-                            getMoment('05:06:07'),
+                            getDayjs('01:02:03'),
+                            getDayjs('05:06:07'),
                         ],
                     }}
                 />
@@ -617,7 +612,7 @@ describe('Picker.Range', () => {
     });
 
     it('mode is array', () => {
-        const wrapper = mount(<MomentRangePicker mode={['year', 'month']} />);
+        const wrapper = mount(<DayjsRangePicker mode={['year', 'month']} />);
         wrapper.openPicker();
         expect(wrapper.find('.picker-year-partial')).toHaveLength(1);
 
@@ -629,7 +624,7 @@ describe('Picker.Range', () => {
         it('mode', () => {
             const onPartialChange = jest.fn();
             const wrapper = mount(
-                <MomentRangePicker
+                <DayjsRangePicker
                     mode={['month', 'year']}
                     onPartialChange={onPartialChange}
                 />
@@ -655,7 +650,7 @@ describe('Picker.Range', () => {
         it('picker', () => {
             const onPartialChange = jest.fn();
             const wrapper = mount(
-                <MomentRangePicker
+                <DayjsRangePicker
                     picker="month"
                     onPartialChange={onPartialChange}
                 />
@@ -693,7 +688,7 @@ describe('Picker.Range', () => {
         });
 
         it('should render correctly in rtl', () => {
-            const wrapper = mount(<MomentRangePicker direction="rtl" />);
+            const wrapper = mount(<DayjsRangePicker direction="rtl" />);
             expect(wrapper.render()).toMatchSnapshot();
         });
     });
@@ -701,11 +696,8 @@ describe('Picker.Range', () => {
     it('type can not change before start time', () => {
         const onChange = jest.fn();
         const wrapper = mount(
-            <MomentRangePicker
-                defaultValue={[
-                    getMoment('2000-01-15'),
-                    getMoment('2000-01-16'),
-                ]}
+            <DayjsRangePicker
+                defaultValue={[getDayjs('2000-01-15'), getDayjs('2000-01-16')]}
                 onChange={onChange}
             />
         );
@@ -728,9 +720,7 @@ describe('Picker.Range', () => {
     it('should open last when first selected', () => {
         jest.useFakeTimers();
         const onOpenChange = jest.fn();
-        const wrapper = mount(
-            <MomentRangePicker onOpenChange={onOpenChange} />
-        );
+        const wrapper = mount(<DayjsRangePicker onOpenChange={onOpenChange} />);
         expect(wrapper.find('PickerPartial')).toHaveLength(0);
 
         wrapper.openPicker();
@@ -761,7 +751,7 @@ describe('Picker.Range', () => {
         ].forEach(({ picker, start, end, mid }) => {
             it('year', () => {
                 const wrapper = mount(
-                    <MomentRangePicker picker={picker as any} />
+                    <DayjsRangePicker picker={picker as any} />
                 );
                 wrapper.openPicker();
                 wrapper.selectCell(start);
@@ -803,8 +793,8 @@ describe('Picker.Range', () => {
 
         it('range edge className', () => {
             const wrapper = mount(
-                <MomentRangePicker
-                    value={[getMoment('2019-12-20'), getMoment('2019-12-20')]}
+                <DayjsRangePicker
+                    value={[getDayjs('2019-12-20'), getDayjs('2019-12-20')]}
                 />
             );
 
@@ -841,7 +831,7 @@ describe('Picker.Range', () => {
     });
 
     it('should close when user focus out', () => {
-        const wrapper = mount(<MomentRangePicker />);
+        const wrapper = mount(<DayjsRangePicker />);
         wrapper.openPicker();
         wrapper.selectCell(11);
         expect(wrapper.isOpen()).toBeTruthy();
@@ -852,11 +842,8 @@ describe('Picker.Range', () => {
 
     it('icon', () => {
         const wrapper = mount(
-            <MomentRangePicker
-                defaultValue={[
-                    getMoment('1990-09-03'),
-                    getMoment('1990-09-03'),
-                ]}
+            <DayjsRangePicker
+                defaultValue={[getDayjs('1990-09-03'), getDayjs('1990-09-03')]}
                 suffixIcon={<span className="suffix-icon" />}
                 clearIcon={<span className="suffix-icon" />}
                 allowClear
@@ -867,7 +854,7 @@ describe('Picker.Range', () => {
     });
 
     it('block native mouseDown in partial to prevent focus changed', () => {
-        const wrapper = mount(<MomentRangePicker />);
+        const wrapper = mount(<DayjsRangePicker />);
         wrapper.openPicker();
 
         const preventDefault = jest.fn();
@@ -892,7 +879,7 @@ describe('Picker.Range', () => {
         });
 
         it('end date arrow should move partial left', () => {
-            const wrapper = mount(<MomentRangePicker />);
+            const wrapper = mount(<DayjsRangePicker />);
             wrapper.openPicker(1);
             wrapper.update();
             expect(
@@ -906,9 +893,7 @@ describe('Picker.Range', () => {
         jest.useFakeTimers();
 
         const onOpenChange = jest.fn();
-        const wrapper = mount(
-            <MomentRangePicker onOpenChange={onOpenChange} />
-        );
+        const wrapper = mount(<DayjsRangePicker onOpenChange={onOpenChange} />);
         wrapper.openPicker();
         onOpenChange.mockReset();
 
@@ -932,7 +917,7 @@ describe('Picker.Range', () => {
         jest.useFakeTimers();
         const onOpenChange = jest.fn();
         const wrapper = mount(
-            <MomentRangePicker onOpenChange={onOpenChange} open />
+            <DayjsRangePicker onOpenChange={onOpenChange} open />
         );
 
         for (let i = 0; i < 10; i += 1) {
@@ -961,7 +946,7 @@ describe('Picker.Range', () => {
         const onCalendarChange = jest.fn();
         const onOk = jest.fn();
         const wrapper = mount(
-            <MomentRangePicker
+            <DayjsRangePicker
                 showTime
                 onCalendarChange={onCalendarChange}
                 onOk={onOk}
@@ -1001,7 +986,7 @@ describe('Picker.Range', () => {
     it('datetime will reset by blur', () => {
         jest.useFakeTimers();
 
-        const wrapper = mount(<MomentRangePicker showTime />);
+        const wrapper = mount(<DayjsRangePicker showTime />);
         wrapper.openPicker();
         wrapper.selectCell(11);
         wrapper.closePicker();
@@ -1028,54 +1013,45 @@ describe('Picker.Range', () => {
                 picker: 'year',
                 // Default picker value
                 defaultPickerValue: [
-                    getMoment('1990-09-03'),
-                    getMoment('2000-11-28'),
+                    getDayjs('1990-09-03'),
+                    getDayjs('2000-11-28'),
                 ],
                 defaultPickerValueTitle: ['1990-1999', '2000-2009'],
                 // Closing value
-                closingValue: [
-                    getMoment('1989-09-03'),
-                    getMoment('1990-11-28'),
-                ],
+                closingValue: [getDayjs('1989-09-03'), getDayjs('1990-11-28')],
                 closingValueTitle: '1980-1989',
                 // Far away value
-                farValue: [getMoment('1989-09-03'), getMoment('2090-11-28')],
+                farValue: [getDayjs('1989-09-03'), getDayjs('2090-11-28')],
                 farValueTitle: ['1980-1989', '2080-2089'],
             },
             {
                 picker: 'month',
                 // Default picker value
                 defaultPickerValue: [
-                    getMoment('1990-09-03'),
-                    getMoment('2000-11-28'),
+                    getDayjs('1990-09-03'),
+                    getDayjs('2000-11-28'),
                 ],
                 defaultPickerValueTitle: ['1990', '2000'],
                 // Closing value
-                closingValue: [
-                    getMoment('1989-09-03'),
-                    getMoment('1989-10-11'),
-                ],
+                closingValue: [getDayjs('1989-09-03'), getDayjs('1989-10-11')],
                 closingValueTitle: '1989',
                 // Far away value
-                farValue: [getMoment('1989-09-03'), getMoment('2000-10-11')],
+                farValue: [getDayjs('1989-09-03'), getDayjs('2000-10-11')],
                 farValueTitle: ['1989', '1999'],
             },
             {
                 picker: 'date',
                 // Default picker value
                 defaultPickerValue: [
-                    getMoment('1990-09-03'),
-                    getMoment('2000-11-28'),
+                    getDayjs('1990-09-03'),
+                    getDayjs('2000-11-28'),
                 ],
                 defaultPickerValueTitle: ['Sep1990', 'Nov2000'],
                 // Closing value
-                closingValue: [
-                    getMoment('1989-09-03'),
-                    getMoment('1989-10-11'),
-                ],
+                closingValue: [getDayjs('1989-09-03'), getDayjs('1989-10-11')],
                 closingValueTitle: 'Sep1989',
                 // Far away value
-                farValue: [getMoment('1989-09-03'), getMoment('2000-10-11')],
+                farValue: [getDayjs('1989-09-03'), getDayjs('2000-10-11')],
                 farValueTitle: ['Sep1989', 'Sep2000'],
             },
         ].forEach(
@@ -1091,7 +1067,7 @@ describe('Picker.Range', () => {
                 describe(picker, () => {
                     it('defaultPickerValue', () => {
                         const wrapper = mount(
-                            <MomentRangePicker
+                            <DayjsRangePicker
                                 picker={picker as any}
                                 defaultPickerValue={defaultPickerValue as any}
                             />
@@ -1105,7 +1081,7 @@ describe('Picker.Range', () => {
 
                     it('with closing value', () => {
                         const wrapper = mount(
-                            <MomentRangePicker
+                            <DayjsRangePicker
                                 picker={picker as any}
                                 value={closingValue as any}
                             />
@@ -1119,7 +1095,7 @@ describe('Picker.Range', () => {
 
                     it('with far value', () => {
                         const wrapper = mount(
-                            <MomentRangePicker
+                            <DayjsRangePicker
                                 picker={picker as any}
                                 value={farValue as any}
                             />
@@ -1133,7 +1109,7 @@ describe('Picker.Range', () => {
 
                     it('no end date', () => {
                         const wrapper = mount(
-                            <MomentRangePicker
+                            <DayjsRangePicker
                                 picker={picker as any}
                                 value={[closingValue[0], null]}
                             />
@@ -1149,7 +1125,7 @@ describe('Picker.Range', () => {
         );
 
         it('click switch 1 offset', () => {
-            const wrapper = mount(<MomentRangePicker />);
+            const wrapper = mount(<DayjsRangePicker />);
             wrapper.openPicker();
             expect(wrapper.find('.picker-header-view').first().text()).toEqual(
                 'Sep1990'
@@ -1162,7 +1138,7 @@ describe('Picker.Range', () => {
     });
 
     it('change picker should reset mode', () => {
-        const wrapper = mount(<MomentRangePicker picker="date" />);
+        const wrapper = mount(<DayjsRangePicker picker="date" />);
         wrapper.openPicker();
         expect(wrapper.find('DatePartial').length).toBeTruthy();
 
@@ -1177,7 +1153,7 @@ describe('Picker.Range', () => {
             const onChange = jest.fn();
 
             const wrapper = mount(
-                <MomentRangePicker onChange={onChange} showTime />
+                <DayjsRangePicker onChange={onChange} showTime />
             );
             wrapper.openPicker();
             wrapper.selectCell(15);
@@ -1206,7 +1182,7 @@ describe('Picker.Range', () => {
                 const onChange = jest.fn();
 
                 const wrapper = mount(
-                    <MomentRangePicker
+                    <DayjsRangePicker
                         onChange={onChange}
                         picker="time"
                         order={order}
@@ -1236,7 +1212,7 @@ describe('Picker.Range', () => {
     });
 
     it('id', () => {
-        const wrapper = mount(<MomentRangePicker id="bamboo" />);
+        const wrapper = mount(<DayjsRangePicker id="bamboo" />);
         expect(wrapper.find('input').first().props().id).toEqual('bamboo');
     });
 
@@ -1244,7 +1220,7 @@ describe('Picker.Range', () => {
         let range = 'start';
 
         const wrapper = mount(
-            <MomentRangePicker
+            <DayjsRangePicker
                 open
                 dateRender={(date, _, info) => {
                     expect(info.range).toEqual(range);
@@ -1259,7 +1235,7 @@ describe('Picker.Range', () => {
     });
 
     it('should not jump back to current date after select', () => {
-        const wrapper = mount(<MomentRangePicker />);
+        const wrapper = mount(<DayjsRangePicker />);
         wrapper.openPicker();
         wrapper.clickButton('super-prev');
         wrapper.selectCell(3);
@@ -1296,12 +1272,12 @@ describe('Picker.Range', () => {
             it(picker, () => {
                 const onChange = jest.fn();
                 const wrapper = mount(
-                    <MomentRangePicker
+                    <DayjsRangePicker
                         picker={picker}
                         onChange={onChange}
                         defaultValue={[
-                            getMoment(defaultValue[0]),
-                            getMoment(defaultValue[1] || defaultValue[0]),
+                            getDayjs(defaultValue[0]),
+                            getDayjs(defaultValue[1] || defaultValue[0]),
                         ]}
                     />
                 );
@@ -1318,12 +1294,9 @@ describe('Picker.Range', () => {
 
     it('should not disabled when week picker in diff year', () => {
         const wrapper = mount(
-            <MomentRangePicker
+            <DayjsRangePicker
                 picker="week"
-                defaultValue={[
-                    getMoment('2000-12-15'),
-                    getMoment('2021-02-03'),
-                ]}
+                defaultValue={[getDayjs('2000-12-15'), getDayjs('2021-02-03')]}
             />
         );
 
@@ -1335,12 +1308,9 @@ describe('Picker.Range', () => {
 
     it('format', () => {
         const wrapper = mount(
-            <MomentRangePicker
+            <DayjsRangePicker
                 format={['YYYYMMDD', 'YYYY-MM-DD']}
-                defaultValue={[
-                    getMoment('2000-12-15'),
-                    getMoment('2021-02-03'),
-                ]}
+                defaultValue={[getDayjs('2000-12-15'), getDayjs('2021-02-03')]}
             />
         );
 
@@ -1374,16 +1344,13 @@ describe('Picker.Range', () => {
 
     it('custom format', () => {
         const wrapper = mount(
-            <MomentRangePicker
+            <DayjsRangePicker
                 allowClear
                 format={[
-                    (val: Moment) => `custom format:${val.format('YYYYMMDD')}`,
+                    (val: Dayjs) => `custom format:${val.format('YYYYMMDD')}`,
                     'YYYY-MM-DD',
                 ]}
-                defaultValue={[
-                    getMoment('2020-09-17'),
-                    getMoment('2020-10-17'),
-                ]}
+                defaultValue={[getDayjs('2020-09-17'), getDayjs('2020-10-17')]}
             />
         );
 
@@ -1416,7 +1383,7 @@ describe('Picker.Range', () => {
 
     describe('auto open', () => {
         it('empty: start -> end -> close', () => {
-            const wrapper = mount(<MomentRangePicker />);
+            const wrapper = mount(<DayjsRangePicker />);
 
             wrapper.openPicker(0);
             wrapper.inputValue('1990-11-28');
@@ -1431,10 +1398,10 @@ describe('Picker.Range', () => {
         describe('valued: start -> end -> close', () => {
             it('in range', () => {
                 const wrapper = mount(
-                    <MomentRangePicker
+                    <DayjsRangePicker
                         defaultValue={[
-                            getMoment('1989-01-01'),
-                            getMoment('1990-01-01'),
+                            getDayjs('1989-01-01'),
+                            getDayjs('1990-01-01'),
                         ]}
                     />
                 );
@@ -1451,10 +1418,10 @@ describe('Picker.Range', () => {
 
             it('new start is after end', () => {
                 const wrapper = mount(
-                    <MomentRangePicker
+                    <DayjsRangePicker
                         defaultValue={[
-                            getMoment('1989-01-10'),
-                            getMoment('1989-01-15'),
+                            getDayjs('1989-01-10'),
+                            getDayjs('1989-01-15'),
                         ]}
                     />
                 );
@@ -1471,7 +1438,7 @@ describe('Picker.Range', () => {
         });
 
         it('empty: end -> start -> close', () => {
-            const wrapper = mount(<MomentRangePicker />);
+            const wrapper = mount(<DayjsRangePicker />);
 
             wrapper.openPicker(1);
             wrapper.inputValue('1990-11-28', 1);
@@ -1486,10 +1453,10 @@ describe('Picker.Range', () => {
         describe('valued: end -> start -> close', () => {
             it('in range', () => {
                 const wrapper = mount(
-                    <MomentRangePicker
+                    <DayjsRangePicker
                         defaultValue={[
-                            getMoment('1989-01-01'),
-                            getMoment('1990-01-01'),
+                            getDayjs('1989-01-01'),
+                            getDayjs('1990-01-01'),
                         ]}
                     />
                 );
@@ -1506,10 +1473,10 @@ describe('Picker.Range', () => {
 
             it('new end is before start', () => {
                 const wrapper = mount(
-                    <MomentRangePicker
+                    <DayjsRangePicker
                         defaultValue={[
-                            getMoment('1989-01-10'),
-                            getMoment('1989-01-15'),
+                            getDayjs('1989-01-10'),
+                            getDayjs('1989-01-15'),
                         ]}
                     />
                 );
@@ -1527,10 +1494,10 @@ describe('Picker.Range', () => {
 
         it('not change: start not to end', () => {
             const wrapper = mount(
-                <MomentRangePicker
+                <DayjsRangePicker
                     defaultValue={[
-                        getMoment('1989-01-01'),
-                        getMoment('1990-01-01'),
+                        getDayjs('1989-01-01'),
+                        getDayjs('1990-01-01'),
                     ]}
                 />
             );
@@ -1541,51 +1508,51 @@ describe('Picker.Range', () => {
     });
 
     // TODO: Re-enable these tests when first element to be focused is determined.
-    // describe('click at non-input elements', () => {
-    //     it('should focus on the first element by default', () => {
-    //         jest.useFakeTimers();
-    //         const wrapper = mount(<MomentRangePicker />);
-    //         wrapper.find('.picker').simulate('click');
-    //         expect(wrapper.isOpen()).toBeTruthy();
-    //         jest.runAllTimers();
-    //         expect(document.activeElement).toStrictEqual(
-    //             wrapper.find('input').first().getDOMNode()
-    //         );
-    //         jest.useRealTimers();
-    //     });
-    //     it('should focus on the second element if first is disabled', () => {
-    //         jest.useFakeTimers();
-    //         const wrapper = mount(
-    //             <MomentRangePicker disabled={[true, false]} />
-    //         );
-    //         wrapper.find('.picker').simulate('click');
-    //         expect(wrapper.isOpen()).toBeTruthy();
-    //         jest.runAllTimers();
-    //         expect(document.activeElement).toStrictEqual(
-    //             wrapper.find('input').last().getDOMNode()
-    //         );
-    //         jest.useRealTimers();
-    //     });
-    //     it("shouldn't let mousedown blur the input", () => {
-    //         jest.useFakeTimers();
-    //         const preventDefault = jest.fn();
-    //         const wrapper = mount(<MomentRangePicker />, {
-    //             attachTo: document.body,
-    //         });
-    //         wrapper.find('.picker').simulate('click');
-    //         jest.runAllTimers();
-    //         wrapper.find('.picker').simulate('mousedown', {
-    //             preventDefault,
-    //         });
-    //         expect(wrapper.isOpen()).toBeTruthy();
-    //         expect(preventDefault).toHaveBeenCalled();
-    //         jest.useRealTimers();
-    //     });
-    // });
+    describe('click at non-input elements', () => {
+        it.skip('should focus on the first element by default', () => {
+            jest.useFakeTimers();
+            const wrapper = mount(<DayjsRangePicker />);
+            wrapper.find('.picker').simulate('click');
+            expect(wrapper.isOpen()).toBeTruthy();
+            jest.runAllTimers();
+            expect(document.activeElement).toStrictEqual(
+                wrapper.find('input').first().getDOMNode()
+            );
+            jest.useRealTimers();
+        });
+        it.skip('should focus on the second element if first is disabled', () => {
+            jest.useFakeTimers();
+            const wrapper = mount(
+                <DayjsRangePicker disabled={[true, false]} />
+            );
+            wrapper.find('.picker').simulate('click');
+            expect(wrapper.isOpen()).toBeTruthy();
+            jest.runAllTimers();
+            expect(document.activeElement).toStrictEqual(
+                wrapper.find('input').last().getDOMNode()
+            );
+            jest.useRealTimers();
+        });
+        it.skip("shouldn't let mousedown blur the input", () => {
+            jest.useFakeTimers();
+            const preventDefault = jest.fn();
+            const wrapper = mount(<DayjsRangePicker />, {
+                attachTo: document.body,
+            });
+            wrapper.find('.picker').simulate('click');
+            jest.runAllTimers();
+            wrapper.find('.picker').simulate('mousedown', {
+                preventDefault,
+            });
+            expect(wrapper.isOpen()).toBeTruthy();
+            expect(preventDefault).toHaveBeenCalled();
+            jest.useRealTimers();
+        });
+    });
 
     it('partialRender', () => {
         const wrapper = mount(
-            <MomentRangePicker open partialRender={() => <h1>Light</h1>} />
+            <DayjsRangePicker open partialRender={() => <h1>Light</h1>} />
         );
         expect(wrapper.render()).toMatchSnapshot();
     });
@@ -1595,7 +1562,7 @@ describe('Picker.Range', () => {
             const onCalendarChange = jest.fn();
 
             const wrapper = mount(
-                <MomentRangePicker onCalendarChange={onCalendarChange} />
+                <DayjsRangePicker onCalendarChange={onCalendarChange} />
             );
 
             wrapper.openPicker();
@@ -1628,14 +1595,14 @@ describe('Picker.Range', () => {
             jest.useRealTimers();
         });
 
-        const defaultValue: [Moment, Moment] = [
-            getMoment('2020-07-22'),
-            getMoment('2020-08-22'),
+        const defaultValue: [Dayjs, Dayjs] = [
+            getDayjs('2020-07-22'),
+            getDayjs('2020-08-22'),
         ];
 
         it('should restore when leave', () => {
             const wrapper = mount(
-                <MomentRangePicker defaultValue={defaultValue} />
+                <DayjsRangePicker defaultValue={defaultValue} />
             );
 
             // left
@@ -1739,7 +1706,7 @@ describe('Picker.Range', () => {
 
         it('should restore after selecting cell', () => {
             const wrapper = mount(
-                <MomentRangePicker defaultValue={defaultValue} />
+                <DayjsRangePicker defaultValue={defaultValue} />
             );
             // left
             wrapper.openPicker(0);
@@ -1833,10 +1800,10 @@ describe('Picker.Range', () => {
 
         it('should clean hover style when selecting the same value with last value', () => {
             const wrapper = mount(
-                <MomentRangePicker
+                <DayjsRangePicker
                     defaultValue={[
-                        getMoment('2020-07-24'),
-                        getMoment('2020-08-24'),
+                        getDayjs('2020-07-24'),
+                        getDayjs('2020-08-24'),
                     ]}
                 />
             );
@@ -1863,13 +1830,10 @@ describe('Picker.Range', () => {
             return true;
         };
         const wrapper = mount(
-            <MomentRangePicker
+            <DayjsRangePicker
                 showTime
                 disabledDate={disabledDate}
-                defaultValue={[
-                    getMoment('2020-07-24'),
-                    getMoment('2020-08-24'),
-                ]}
+                defaultValue={[getDayjs('2020-07-24'), getDayjs('2020-08-24')]}
             />
         );
 
@@ -1893,7 +1857,7 @@ describe('Picker.Range', () => {
     });
 
     it('partial should keep open when nextValue is empty', () => {
-        const wrapper = mount(<MomentRangePicker />);
+        const wrapper = mount(<DayjsRangePicker />);
 
         wrapper.openPicker(0);
 
@@ -1915,14 +1879,14 @@ describe('Picker.Range', () => {
     });
 
     it('right date partial switch to month should keep in the same year', () => {
-        const wrapper = mount(<MomentRangePicker />);
+        const wrapper = mount(<DayjsRangePicker />);
         wrapper.openPicker(0);
         wrapper.find('.picker-month-btn').last().simulate('click');
         expect(wrapper.find('.picker-year-btn').text()).toEqual('1990');
     });
 
     it('month partial should be disabled', () => {
-        const wrapper = mount(<MomentRangePicker />);
+        const wrapper = mount(<DayjsRangePicker />);
         wrapper.openPicker();
         wrapper.selectCell(15);
 
@@ -1936,7 +1900,7 @@ describe('Picker.Range', () => {
     });
 
     it('default endDate should be relative startDate', () => {
-        const wrapper = mount(<MomentRangePicker showTime />);
+        const wrapper = mount(<DayjsRangePicker showTime />);
         wrapper.openPicker();
 
         wrapper.selectCell(24);
@@ -1949,7 +1913,7 @@ describe('Picker.Range', () => {
     });
 
     it('default startDate should be relative endDate', () => {
-        const wrapper = mount(<MomentRangePicker showTime />);
+        const wrapper = mount(<DayjsRangePicker showTime />);
         wrapper.openPicker(1);
 
         wrapper.selectCell(24);
@@ -1965,7 +1929,7 @@ describe('Picker.Range', () => {
         const handleMouseEnter = jest.fn();
         const handleMouseLeave = jest.fn();
         const wrapper = mount(
-            <MomentRangePicker
+            <DayjsRangePicker
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
             />
@@ -1978,14 +1942,14 @@ describe('Picker.Range', () => {
 
     it('keyboard should not trigger on disabledDate', () => {
         const onCalendarChange = jest.fn();
-        const now = moment();
-        const disabledDate = (current: Moment) => {
+        const now = dayjs();
+        const disabledDate = (current: Dayjs) => {
             return (
                 current.diff(now, 'days') > 1 || current.diff(now, 'days') < -1
             );
         };
         const wrapper = mount(
-            <MomentRangePicker
+            <DayjsRangePicker
                 onCalendarChange={onCalendarChange}
                 disabledDate={disabledDate}
             />
@@ -2006,7 +1970,7 @@ describe('Picker.Range', () => {
 
     it('range picker should have onClick event', () => {
         const handleClick = jest.fn();
-        const wrapper = mount(<MomentRangePicker onClick={handleClick} />);
+        const wrapper = mount(<DayjsRangePicker onClick={handleClick} />);
         wrapper.simulate('click');
         expect(handleClick).toHaveBeenCalled();
     });
@@ -2014,7 +1978,7 @@ describe('Picker.Range', () => {
     it('range picker should have onMouseDown event', () => {
         const handleMouseDown = jest.fn();
         const wrapper = mount(
-            <MomentRangePicker onMouseDown={handleMouseDown} />
+            <DayjsRangePicker onMouseDown={handleMouseDown} />
         );
         wrapper.simulate('mousedown');
         expect(handleMouseDown).toHaveBeenCalled();
@@ -2046,9 +2010,9 @@ describe('Picker.Range', () => {
             },
         });
         const wrapper = mount(
-            <MomentRangePicker
+            <DayjsRangePicker
                 allowClear
-                defaultValue={[moment('1990-09-03'), moment('1989-11-28')]}
+                defaultValue={[dayjs('1990-09-03'), dayjs('1989-11-28')]}
                 clearIcon={<span>X</span>}
                 suffixIcon={<span>O</span>}
             />
@@ -2090,9 +2054,9 @@ describe('Picker.Range', () => {
             },
         });
         const wrapper = mount(
-            <MomentRangePicker
+            <DayjsRangePicker
                 allowClear
-                defaultValue={[moment('1990-09-03'), moment('1989-11-28')]}
+                defaultValue={[dayjs('1990-09-03'), dayjs('1989-11-28')]}
                 clearIcon={<span>X</span>}
                 suffixIcon={<span>O</span>}
             />

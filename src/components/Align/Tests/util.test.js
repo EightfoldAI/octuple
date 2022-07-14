@@ -1,4 +1,4 @@
-import { isSamePoint, monitorResize } from '../util';
+import { isSamePoint, onViewportResize } from '../util';
 import 'resize-observer-polyfill';
 
 let observer;
@@ -78,7 +78,7 @@ describe('util', () => {
         });
     });
 
-    describe('monitorResize', () => {
+    describe('viewportResize', () => {
         let element;
 
         beforeEach(() => {
@@ -101,7 +101,7 @@ describe('util', () => {
 
         it('should defer callback to next frame', async () => {
             const callback = jest.fn();
-            monitorResize(element, callback);
+            onViewportResize(element, callback);
             observer.triggerResize();
             jest.runAllTimers();
             await Promise.resolve();
@@ -110,7 +110,7 @@ describe('util', () => {
 
         it('should skip calling if target is removed already', () => {
             const callback = jest.fn();
-            monitorResize(element, callback);
+            onViewportResize(element, callback);
             element.remove();
             observer.triggerResize();
             jest.runAllTimers();

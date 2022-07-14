@@ -4,10 +4,10 @@ import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import MockDate from 'mockdate';
 import {
     mount,
-    getMoment,
-    MomentRangePicker,
-    MomentPicker,
-    MomentPickerPartial,
+    getDayjs,
+    DayjsRangePicker,
+    DayjsPicker,
+    DayjsPickerPartial,
 } from './Util/commonUtil';
 import '@testing-library/jest-dom';
 
@@ -15,7 +15,7 @@ Enzyme.configure({ adapter: new Adapter() });
 
 describe('Picker.Components', () => {
     beforeAll(() => {
-        MockDate.set(getMoment('1990-09-03 00:00:00').toDate());
+        MockDate.set(getDayjs('1990-09-03 00:00:00').toDate());
 
         Object.defineProperty(window, 'matchMedia', {
             writable: true,
@@ -37,9 +37,9 @@ describe('Picker.Components', () => {
     });
 
     [
-        { name: 'RangePicker', component: MomentRangePicker, ranges: true },
-        { name: 'Picker', component: MomentPicker },
-        { name: 'PickerPartial', component: MomentPickerPartial },
+        { name: 'RangePicker', component: DayjsRangePicker, ranges: true },
+        { name: 'Picker', component: DayjsPicker },
+        { name: 'PickerPartial', component: DayjsPickerPartial },
     ].forEach(({ name, component, ranges }) => {
         it(name, () => {
             const Component = component as any;

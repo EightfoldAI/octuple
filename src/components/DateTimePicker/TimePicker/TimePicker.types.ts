@@ -1,4 +1,4 @@
-import type { Moment } from 'moment';
+import type { Dayjs } from 'dayjs';
 import type {
     PickerTimeProps,
     RangePickerTimeProps,
@@ -10,12 +10,12 @@ export interface TimePickerLocale {
 }
 
 export interface TimeRangePickerProps
-    extends Omit<RangePickerTimeProps<Moment>, 'picker'> {
+    extends Omit<RangePickerTimeProps<Dayjs>, 'picker'> {
     popupClassNames?: string;
 }
 
 export interface TimePickerProps
-    extends Omit<PickerTimeProps<Moment>, 'picker'> {
+    extends Omit<PickerTimeProps<Dayjs>, 'picker'> {
     addon?: () => React.ReactNode;
     popupClassNames?: string;
 }

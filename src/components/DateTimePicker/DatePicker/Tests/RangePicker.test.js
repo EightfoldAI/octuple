@@ -1,5 +1,5 @@
 import React from 'react';
-import moment from 'moment';
+import dayjs from 'dayjs';
 import Enzyme, { mount } from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import DatePicker from '..';
@@ -38,7 +38,7 @@ describe('RangePicker', () => {
     });
 
     it('should not throw error when value is reset to `[]`', () => {
-        const birthday = moment('2000-01-01', 'YYYY-MM-DD');
+        const birthday = dayjs('2000-01-01', 'YYYY-MM-DD');
         const wrapper = mount(
             <RangePicker value={[birthday, birthday]} open />
         );

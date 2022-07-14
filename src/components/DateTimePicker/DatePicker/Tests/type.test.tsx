@@ -1,5 +1,5 @@
 import React from 'react';
-import type { Moment } from 'moment';
+import type { Dayjs } from 'dayjs';
 import Enzyme from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import DatePicker from '..';
@@ -39,7 +39,7 @@ describe('DatePicker.typescript', () => {
 
     it('DatePicker ref methods with forwardRef', () => {
         const MyDatePicker = React.forwardRef(
-            (props, ref: DatePickRef<Moment>) => (
+            (props, ref: DatePickRef<Dayjs>) => (
                 <DatePicker {...props} ref={ref} />
             )
         );
@@ -68,7 +68,7 @@ describe('DatePicker.typescript', () => {
 
     it('RangePicker ref methods with forwardRef', () => {
         const MyRangePicker = React.forwardRef(
-            (props, ref: RangePickerRef<Moment>) => (
+            (props, ref: RangePickerRef<Dayjs>) => (
                 <DatePicker.RangePicker {...props} ref={ref} />
             )
         );

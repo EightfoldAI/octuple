@@ -1,5 +1,5 @@
 import React from 'react';
-import moment from 'moment';
+import dayjs from 'dayjs';
 import Enzyme, { mount, render } from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import DatePicker from '..';
@@ -26,7 +26,7 @@ describe('Picker format by locale', () => {
         });
     });
 
-    const date = moment('2000-01-01', 'YYYY-MM-DD');
+    const date = dayjs('2000-01-01', 'YYYY-MM-DD');
     function matchPicker(name, Picker, props) {
         it(name, () => {
             const wrapper = mount(<Picker value={date} {...props} />);
@@ -43,7 +43,7 @@ describe('Picker format by locale', () => {
 
 describe('MonthPicker and WeekPicker', () => {
     it('render MonthPicker', () => {
-        const birthday = moment('2000-01-01', 'YYYY-MM-DD').locale('en-us');
+        const birthday = dayjs('2000-01-01', 'YYYY-MM-DD').locale('en-us');
         const wrapper = mount(<MonthPicker open />);
         wrapper.setProps({ value: birthday });
         expect(
@@ -52,7 +52,7 @@ describe('MonthPicker and WeekPicker', () => {
     });
 
     it('render WeekPicker', () => {
-        const birthday = moment('2000-01-01', 'YYYY-MM-DD').locale('en-us');
+        const birthday = dayjs('2000-01-01', 'YYYY-MM-DD').locale('en-us');
         const wrapper = mount(<WeekPicker open />);
         wrapper.setProps({ value: birthday });
         expect(

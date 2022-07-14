@@ -1,13 +1,14 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-import { isMobile } from '../../../shared/utilities';
 import Mask from './Mask';
 import type { PopupInnerRef, PopupProps } from './Popup.types';
 import PopupInner from './PopupInner';
 import MobilePopupInner from './MobilePopupInner';
+import { Breakpoints, useMatchMedia } from '../../../hooks/useMatchMedia';
 
 const Popup = React.forwardRef<PopupInnerRef, PopupProps>(
     ({ visible, mobile, ...props }, ref) => {
+        const smallScreenActive: boolean = useMatchMedia(Breakpoints.Small);
         const [innerVisible, serInnerVisible] = useState(visible);
         const [inMobile, setInMobile] = useState(false);
         const cloneProps = { ...props, visible: innerVisible };
@@ -17,7 +18,7 @@ const Popup = React.forwardRef<PopupInnerRef, PopupProps>(
         useEffect(() => {
             serInnerVisible(visible);
             if (visible && mobile) {
-                setInMobile(isMobile());
+                setInMobile(smallScreenActive);
             }
         }, [visible, mobile]);
 

@@ -1,13 +1,13 @@
 import React from 'react';
 import Enzyme from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
-import type { Moment } from 'moment';
+import type { Dayjs } from 'dayjs';
 import {
     mount,
-    getMoment,
+    getDayjs,
     isSame,
-    MomentPicker,
-    MomentRangePicker,
+    DayjsPicker,
+    DayjsRangePicker,
 } from './util/commonUtil';
 
 Enzyme.configure({ adapter: new Adapter() });
@@ -35,25 +35,23 @@ Object.assign(Enzyme.ReactWrapper.prototype, {
 
         const table = this.find('table').at(index);
 
-        table
-            .find('td')
-            .forEach(
-                (td: {
-                    text: () => string;
-                    props: () => {
-                        (): any;
-                        new (): any;
-                        className: string | string[];
-                    };
-                }) => {
-                    if (
-                        td.text() === String(text) &&
-                        td.props().className.includes('-in-view')
-                    ) {
-                        matchCell = td;
-                    }
+        table.find('td').forEach(
+            (td: {
+                text: () => string;
+                props: () => {
+                    (): any;
+                    new (): any;
+                    className: string | string[];
+                };
+            }) => {
+                if (
+                    td.text() === String(text) &&
+                    td.props().className.includes('-in-view')
+                ) {
+                    matchCell = td;
                 }
-            );
+            }
+        );
         if (!matchCell) {
             console.log(table.html());
             throw new Error('Cell not match in picker partial.');
@@ -126,7 +124,7 @@ describe('Picker.DisabledTime', () => {
 
     it('disabledTime on TimePicker', () => {
         const wrapper = mount(
-            <MomentPicker
+            <DayjsPicker
                 open
                 picker="time"
                 disabledTime={() => ({
@@ -145,7 +143,7 @@ describe('Picker.DisabledTime', () => {
 
     it('disabledTime on TimeRangePicker', () => {
         const wrapper = mount(
-            <MomentRangePicker
+            <DayjsRangePicker
                 open
                 picker="time"
                 disabledTime={(_, type) => ({

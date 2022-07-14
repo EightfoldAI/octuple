@@ -69,7 +69,7 @@ describe('element align', () => {
     it('resize', () => {
         const onAlign = jest.fn();
 
-        const wrapper = mount(<Test monitorWindowResize onAlign={onAlign} />);
+        const wrapper = mount(<Test viewportResize onAlign={onAlign} />);
         expect(onAlign).toHaveBeenCalled();
 
         // Window resize
@@ -80,13 +80,13 @@ describe('element align', () => {
 
         // Not listen resize
         onAlign.mockReset();
-        wrapper.setProps({ monitorWindowResize: false });
+        wrapper.setProps({ viewportResize: false });
         window.dispatchEvent(new Event('resize'));
         jest.runAllTimers();
         expect(onAlign).not.toHaveBeenCalled();
 
         // Remove should not crash
-        wrapper.setProps({ monitorWindowResize: true });
+        wrapper.setProps({ viewportResize: true });
         wrapper.unmount();
     });
 
@@ -94,7 +94,7 @@ describe('element align', () => {
         const onAlign = jest.fn();
 
         const wrapper = mount(
-            <Test monitorWindowResize onAlign={onAlign} disabled />
+            <Test viewportResize onAlign={onAlign} disabled />
         );
         expect(onAlign).not.toHaveBeenCalled();
 
@@ -103,7 +103,6 @@ describe('element align', () => {
         expect(onAlign).toHaveBeenCalled();
     });
 
-    // https://github.com/ant-design/ant-design/issues/31717
     it('changing align should trigger onAlign', () => {
         const onAlign = jest.fn();
         const wrapper = mount(
@@ -128,7 +127,7 @@ describe('element align', () => {
         // exactly in this order:
         // * Render <Align> with `onAlign1`.
         // * The callback in useBuffer is queued using setTimeout, to trigger after
-        //   `monitorBufferTime` ms (which even when it's set to 0 is queued and
+        //   `viewportBufferTime` ms (which even when it's set to 0 is queued and
         //   not synchronously executed).
         // * The onAlign prop is changed to `onAlign2`.
         // * The callback from useBuffer is called. The now correct onAlign

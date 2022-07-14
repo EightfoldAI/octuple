@@ -42,7 +42,7 @@
                 .table-wrapper:only-child {
                     .table.table-rtl {
                         margin: -$table-padding-vertical
-                            ($table-padding-horizontal + ceil(14 * 1.4)) -$table-padding-vertical -$table-padding-horizontal;
+                            calc(14 + ceil(14 * 1.4)) -$table-padding-vertical -$table-padding-horizontal;
                     }
                 }
             }

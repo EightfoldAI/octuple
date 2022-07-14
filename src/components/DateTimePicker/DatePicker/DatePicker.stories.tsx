@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import moment from 'moment';
-import type { Moment } from 'moment';
+import dayjs from 'dayjs';
+import type { Dayjs } from 'dayjs';
 import { Stories } from '@storybook/addon-docs';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import DatePicker from './';
@@ -105,7 +105,7 @@ const Single_Picker_Disabled_Story: ComponentStory<typeof DatePicker> = (
             <DatePicker {...args} onChange={onChange} />
             <DatePicker
                 {...args}
-                defaultValue={moment('2015-06-06', dateFormat)}
+                defaultValue={dayjs('2015-06-06', dateFormat)}
             />
         </Stack>
     );
@@ -125,7 +125,7 @@ const Single_Picker_Disabled_Date_and_Time_Story: ComponentStory<
     // eslint-disable-next-line arrow-body-style
     const disabledDate: RangePickerProps['disabledDate'] = (current) => {
         // Can not select days before today and today
-        return current && current < moment().endOf('day');
+        return current && current < dayjs().endOf('day');
     };
 
     const disabledDateTime = () => ({
@@ -140,7 +140,7 @@ const Single_Picker_Disabled_Date_and_Time_Story: ComponentStory<
                 format="YYYY-MM-DD HH:mm:ss"
                 disabledDate={disabledDate}
                 disabledTime={disabledDateTime}
-                showTime={{ defaultValue: moment('00:00:00', 'HH:mm:ss') }}
+                showTime={{ defaultValue: dayjs('00:00:00', 'HH:mm:ss') }}
             />
             <DatePicker {...args} picker="month" disabledDate={disabledDate} />
         </Stack>
@@ -214,8 +214,8 @@ const Range_Picker_Disabled_Story: ComponentStory<typeof RangePicker> = (
             <RangePicker
                 {...args}
                 defaultValue={[
-                    moment('2015-06-06', dateFormat),
-                    moment('2015-06-06', dateFormat),
+                    dayjs('2015-06-06', dateFormat),
+                    dayjs('2015-06-06', dateFormat),
                 ]}
             />
         </Stack>
@@ -236,7 +236,7 @@ const Range_Picker_Disabled_Date_and_Time_Story: ComponentStory<
     // eslint-disable-next-line arrow-body-style
     const disabledDate: RangePickerProps['disabledDate'] = (current) => {
         // Can not select days before today and today
-        return current && current < moment().endOf('day');
+        return current && current < dayjs().endOf('day');
     };
 
     const disabledRangeTime: RangePickerProps['disabledTime'] = (_, type) => {
@@ -264,8 +264,8 @@ const Range_Picker_Disabled_Date_and_Time_Story: ComponentStory<
                 showTime={{
                     hideDisabledOptions: true,
                     defaultValue: [
-                        moment('00:00:00', 'HH:mm:ss'),
-                        moment('11:59:59', 'HH:mm:ss'),
+                        dayjs('00:00:00', 'HH:mm:ss'),
+                        dayjs('11:59:59', 'HH:mm:ss'),
                     ],
                 }}
                 format="YYYY-MM-DD HH:mm:ss"
@@ -289,10 +289,10 @@ const Preset_Ranges_Story: ComponentStory<typeof RangePicker> = (args) => {
             <RangePicker
                 {...args}
                 ranges={{
-                    Today: [moment(), moment()],
+                    Today: [dayjs(), dayjs()],
                     'This Month': [
-                        moment().startOf('month'),
-                        moment().endOf('month'),
+                        dayjs().startOf('month'),
+                        dayjs().endOf('month'),
                     ],
                 }}
                 onChange={onChange}
@@ -300,10 +300,10 @@ const Preset_Ranges_Story: ComponentStory<typeof RangePicker> = (args) => {
             <RangePicker
                 {...args}
                 ranges={{
-                    Today: [moment(), moment()],
+                    Today: [dayjs(), dayjs()],
                     'This Month': [
-                        moment().startOf('month'),
-                        moment().endOf('month'),
+                        dayjs().startOf('month'),
+                        dayjs().endOf('month'),
                     ],
                 }}
                 showTime
@@ -317,13 +317,13 @@ const Preset_Ranges_Story: ComponentStory<typeof RangePicker> = (args) => {
 const Select_Range_By_Day_Limit_Story: ComponentStory<typeof RangePicker> = (
     args
 ) => {
-    type RangeValue = [Moment | null, Moment | null] | null;
+    type RangeValue = [Dayjs | null, Dayjs | null] | null;
 
     const [dates, setDates] = useState<RangeValue>(null);
     const [hackValue, setHackValue] = useState<RangeValue>(null);
     const [value, setValue] = useState<RangeValue>(null);
 
-    const disabledDate = (current: Moment) => {
+    const disabledDate = (current: Dayjs) => {
         if (!dates) {
             return false;
         }
@@ -360,7 +360,7 @@ const monthFormat = 'YYYY/MM';
 const dateFormatList = ['DD/MM/YYYY', 'DD/MM/YY'];
 
 const weekStartEndFormat: DatePickerProps['format'] = (value) =>
-    `${moment(value).startOf('week').format(weekFormat)} to ${moment(value)
+    `${dayjs(value).startOf('week').format(weekFormat)} to ${dayjs(value)
         .endOf('week')
         .format(weekFormat)}`;
 
@@ -372,29 +372,29 @@ const Date_Format_Basic_Story: ComponentStory<typeof DatePicker> = (args) => {
         <Stack direction="vertical" gap="m">
             <DatePicker
                 {...args}
-                defaultValue={moment('2023/01/01', dateFormat)}
+                defaultValue={dayjs('2023/01/01', dateFormat)}
                 format={dateFormat}
             />
             <DatePicker
                 {...args}
-                defaultValue={moment('01/01/2023', dateFormatList[0])}
+                defaultValue={dayjs('01/01/2023', dateFormatList[0])}
                 format={dateFormatList}
             />
             <DatePicker
                 {...args}
-                defaultValue={moment('2023/01', monthFormat)}
+                defaultValue={dayjs('2023/01', monthFormat)}
                 format={monthFormat}
                 picker="month"
             />
             <DatePicker
                 {...args}
-                defaultValue={moment()}
+                defaultValue={dayjs()}
                 format={weekStartEndFormat}
                 picker="week"
             />
             <DatePicker
                 {...args}
-                defaultValue={moment('2023/01/01', dateFormat)}
+                defaultValue={dayjs('2023/01/01', dateFormat)}
                 format={customFormat}
             />
         </Stack>
@@ -405,8 +405,8 @@ const Date_Format_Range_Story: ComponentStory<typeof RangePicker> = (args) => (
     <RangePicker
         {...args}
         defaultValue={[
-            moment('2023/01/01', dateFormat),
-            moment('2023/01/01', dateFormat),
+            dayjs('2023/01/01', dateFormat),
+            dayjs('2023/01/01', dateFormat),
         ]}
         format={dateFormat}
     />

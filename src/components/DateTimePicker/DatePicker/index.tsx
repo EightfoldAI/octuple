@@ -1,5 +1,5 @@
-import type { Moment } from 'moment';
-import momentGenerateConfig from '../Internal/Generate/moment';
+import type { Dayjs } from 'dayjs';
+import dayjsGenerateConfig from '../Internal/Generate/dayjs';
 import type {
     OcPickerDateProps,
     OcPickerProps,
@@ -7,11 +7,11 @@ import type {
 } from '../Internal/OcPicker.types';
 import generatePicker from './Generate/Generate';
 
-export type DatePickerProps = OcPickerProps<Moment>;
-export type MonthPickerProps = Omit<OcPickerDateProps<Moment>, 'picker'>;
-export type WeekPickerProps = Omit<OcPickerDateProps<Moment>, 'picker'>;
-export type RangePickerProps = BaseRangePickerProps<Moment>;
+export type DatePickerProps = OcPickerProps<Dayjs>;
+export type MonthPickerProps = Omit<OcPickerDateProps<Dayjs>, 'picker'>;
+export type WeekPickerProps = Omit<OcPickerDateProps<Dayjs>, 'picker'>;
+export type RangePickerProps = BaseRangePickerProps<Dayjs>;
 
-const DatePicker = generatePicker<Moment>(momentGenerateConfig);
+const DatePicker = generatePicker<Dayjs>(dayjsGenerateConfig);
 
 export default DatePicker;

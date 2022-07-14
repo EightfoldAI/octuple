@@ -40,9 +40,9 @@ export type GenerateConfig<DateType> = {
             formats: string[]
         ) => DateType | null;
 
-        /** A proxy for getting locale with moment or other locale library */
+        /** A proxy for getting locale with dayjs or other locale library */
         getShortWeekDays?: (locale: string) => string[];
-        /** A proxy for getting locale with moment or other locale library */
+        /** A proxy for getting locale with dayjs or other locale library */
         getShortMonths?: (locale: string) => string[];
     };
 };

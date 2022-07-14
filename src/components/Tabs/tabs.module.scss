@@ -21,7 +21,7 @@
         &:first-child {
             padding-left: 0;
             .tab-indicator {
-                width: calc(100% - #{$space-xl / 2});
+                width: calc(100% - clac(#{$space-xl} / 2));
             }
         }
 

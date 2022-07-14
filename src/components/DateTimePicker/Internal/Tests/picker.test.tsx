@@ -5,10 +5,10 @@ import MockDate from 'mockdate';
 import { act } from 'react-dom/test-utils';
 import { spyElementPrototypes } from '../../../../tests/domHook';
 import { eventKeys } from '../../../../shared/utilities';
-import moment from 'moment';
-import type { Moment } from 'moment';
+import dayjs from 'dayjs';
+import type { Dayjs } from 'dayjs';
 import type { PartialMode, OcPickerMode } from '../OcPicker.types';
-import { mount, getMoment, isSame, MomentPicker } from './util/commonUtil';
+import { mount, getDayjs, isSame, DayjsPicker } from './util/commonUtil';
 import '@testing-library/jest-dom';
 
 Enzyme.configure({ adapter: new Adapter() });
@@ -106,23 +106,23 @@ Object.assign(Enzyme.ReactWrapper.prototype, {
     },
 });
 
+Object.defineProperty(window, 'matchMedia', {
+    writable: true,
+    value: jest.fn().mockImplementation((query) => ({
+        matches: false,
+        media: query,
+        onchange: null,
+        addListener: jest.fn(), // Deprecated
+        removeListener: jest.fn(), // Deprecated
+        addEventListener: jest.fn(),
+        removeEventListener: jest.fn(),
+        dispatchEvent: jest.fn(),
+    })),
+});
+
 describe('Picker.Basic', () => {
     beforeAll(() => {
-        MockDate.set(getMoment('1990-09-03 00:00:00').toDate());
-
-        Object.defineProperty(window, 'matchMedia', {
-            writable: true,
-            value: jest.fn().mockImplementation((query) => ({
-                matches: false,
-                media: query,
-                onchange: null,
-                addListener: jest.fn(), // Deprecated
-                removeListener: jest.fn(), // Deprecated
-                addEventListener: jest.fn(),
-                removeEventListener: jest.fn(),
-                dispatchEvent: jest.fn(),
-            })),
-        });
+        MockDate.set(getDayjs('1990-09-03 00:00:00').toDate());
     });
 
     afterAll(() => {
@@ -167,7 +167,7 @@ describe('Picker.Basic', () => {
 
         modeList.forEach(({ mode, componentNames }) => {
             it(mode, () => {
-                const wrapper = mount(<MomentPicker mode={mode} open />);
+                const wrapper = mount(<DayjsPicker mode={mode} open />);
                 componentNames.forEach((componentName) => {
                     expect(wrapper.find(componentName).length).toBeTruthy();
                 });
@@ -210,7 +210,7 @@ describe('Picker.Basic', () => {
         modeList.forEach(({ picker, componentNames }) => {
             it(picker, () => {
                 const wrapper = mount(
-                    <MomentPicker picker={picker as any} open />
+                    <DayjsPicker picker={picker as any} open />
                 );
                 componentNames.forEach((componentName) => {
                     expect(wrapper.find(componentName).length).toBeTruthy();
@@ -222,7 +222,7 @@ describe('Picker.Basic', () => {
     describe('open', () => {
         it('should work', () => {
             const onOpenChange = jest.fn();
-            const wrapper = mount(<MomentPicker onOpenChange={onOpenChange} />);
+            const wrapper = mount(<DayjsPicker onOpenChange={onOpenChange} />);
 
             wrapper.openPicker();
             expect(wrapper.isOpen()).toBeTruthy();
@@ -235,7 +235,7 @@ describe('Picker.Basic', () => {
         });
 
         it('controlled', () => {
-            const wrapper = mount(<MomentPicker open />);
+            const wrapper = mount(<DayjsPicker open />);
             expect(wrapper.isOpen()).toBeTruthy();
 
             wrapper.setProps({ open: false });
@@ -246,7 +246,7 @@ describe('Picker.Basic', () => {
         it('fixed open need repeat trigger onOpenChange', () => {
             jest.useFakeTimers();
             const onOpenChange = jest.fn();
-            mount(<MomentPicker onOpenChange={onOpenChange} open />);
+            mount(<DayjsPicker onOpenChange={onOpenChange} open />);
 
             for (let i = 0; i < 10; i += 1) {
                 const clickEvent = new Event('mousedown');
@@ -265,7 +265,7 @@ describe('Picker.Basic', () => {
         });
 
         it('disabled should not open', () => {
-            const wrapper = mount(<MomentPicker open disabled />);
+            const wrapper = mount(<DayjsPicker open disabled />);
             expect(wrapper.isOpen()).toBeFalsy();
         });
     });
@@ -273,14 +273,14 @@ describe('Picker.Basic', () => {
     describe('value', () => {
         it('defaultValue', () => {
             const wrapper = mount(
-                <MomentPicker defaultValue={getMoment('1989-11-28')} />
+                <DayjsPicker defaultValue={getDayjs('1989-11-28')} />
             );
             expect(wrapper.find('input').prop('value')).toEqual('1989-11-28');
         });
 
         it('uncontrolled', () => {
             const onChange = jest.fn();
-            const wrapper = mount(<MomentPicker onChange={onChange} />);
+            const wrapper = mount(<DayjsPicker onChange={onChange} />);
             wrapper.openPicker();
             wrapper.selectCell(11);
             wrapper.closePicker();
@@ -295,8 +295,8 @@ describe('Picker.Basic', () => {
         it('controlled', () => {
             const onChange = jest.fn();
             const wrapper = mount(
-                <MomentPicker
-                    value={getMoment('2011-11-11')}
+                <DayjsPicker
+                    value={getDayjs('2011-11-11')}
                     onChange={onChange}
                 />
             );
@@ -316,7 +316,7 @@ describe('Picker.Basic', () => {
             expect(wrapper.find('input').prop('value')).toEqual('2011-11-03');
 
             // Raw change value
-            wrapper.setProps({ value: getMoment('1999-09-09') });
+            wrapper.setProps({ value: getDayjs('1999-09-09') });
             wrapper.update();
             expect(wrapper.find('input').prop('value')).toEqual('1999-09-09');
         });
@@ -334,7 +334,7 @@ describe('Picker.Basic', () => {
             it(name, () => {
                 const onChange = jest.fn();
                 const wrapper = mount(
-                    <MomentPicker onChange={onChange} allowClear />
+                    <DayjsPicker onChange={onChange} allowClear />
                 );
                 wrapper.openPicker();
                 wrapper.find('input').simulate('focus');
@@ -398,10 +398,10 @@ describe('Picker.Basic', () => {
         });
 
         it('function call', () => {
-            const ref = React.createRef<MomentPicker>();
+            const ref = React.createRef<DayjsPicker>();
             mount(
                 <div>
-                    <MomentPicker ref={ref} />
+                    <DayjsPicker ref={ref} />
                 </div>
             );
 
@@ -418,7 +418,7 @@ describe('Picker.Basic', () => {
 
             const wrapper = mount(
                 <div>
-                    <MomentPicker onFocus={onFocus} onBlur={onBlur} />
+                    <DayjsPicker onFocus={onFocus} onBlur={onBlur} />
                 </div>
             );
 
@@ -433,7 +433,7 @@ describe('Picker.Basic', () => {
     });
 
     it('block native mouseDown in partial to prevent focus changed', () => {
-        const wrapper = mount(<MomentPicker />);
+        const wrapper = mount(<DayjsPicker />);
         wrapper.openPicker();
 
         const preventDefault = jest.fn();
@@ -470,7 +470,7 @@ describe('Picker.Basic', () => {
                     const onChange = jest.fn();
                     const onPartialChange = jest.fn();
                     const wrapper = mount(
-                        <MomentPicker
+                        <DayjsPicker
                             picker={picker as any}
                             showTime={showTime}
                             onChange={onChange}
@@ -537,7 +537,7 @@ describe('Picker.Basic', () => {
         );
 
         it('date -> year -> date', () => {
-            const wrapper = mount(<MomentPicker />);
+            const wrapper = mount(<DayjsPicker />);
             wrapper.openPicker();
             wrapper.find('.picker-year-btn').simulate('click');
             wrapper.selectCell(1990);
@@ -548,7 +548,7 @@ describe('Picker.Basic', () => {
             const onChange = jest.fn();
             const onOk = jest.fn();
             const wrapper = mount(
-                <MomentPicker picker="time" onChange={onChange} onOk={onOk} />
+                <DayjsPicker picker="time" onChange={onChange} onOk={onOk} />
             );
             wrapper.openPicker();
 
@@ -581,7 +581,7 @@ describe('Picker.Basic', () => {
     it('renderExtraFooter', () => {
         const renderExtraFooter = jest.fn((mode) => <div>{mode}</div>);
         const wrapper = mount(
-            <MomentPicker renderExtraFooter={renderExtraFooter} />
+            <DayjsPicker renderExtraFooter={renderExtraFooter} />
         );
 
         function matchFooter(mode: string) {
@@ -612,7 +612,7 @@ describe('Picker.Basic', () => {
         it('only works on date', () => {
             const onSelect = jest.fn();
             const wrapper = mount(
-                <MomentPicker onSelect={onSelect} showToday />
+                <DayjsPicker onSelect={onSelect} showToday />
             );
             wrapper.openPicker();
             wrapper.find('.picker-today-btn').simulate('click');
@@ -624,7 +624,7 @@ describe('Picker.Basic', () => {
         it('disabled when in disabledDate', () => {
             const onSelect = jest.fn();
             const wrapper = mount(
-                <MomentPicker
+                <DayjsPicker
                     onSelect={onSelect}
                     disabledDate={() => true}
                     showToday
@@ -643,7 +643,7 @@ describe('Picker.Basic', () => {
         ['decade', 'year', 'quarter', 'month', 'week'].forEach((name) => {
             it(`not works on ${name}`, () => {
                 const wrapper = mount(
-                    <MomentPicker picker={name as any} showToday />
+                    <DayjsPicker picker={name as any} showToday />
                 );
                 wrapper.openPicker();
                 expect(wrapper.find('.picker-today-btn').length).toBeFalsy();
@@ -653,8 +653,8 @@ describe('Picker.Basic', () => {
 
     it('icon', () => {
         const wrapper = mount(
-            <MomentPicker
-                defaultValue={getMoment('1990-09-03')}
+            <DayjsPicker
+                defaultValue={getDayjs('1990-09-03')}
                 suffixIcon={<span className="suffix-icon" />}
                 clearIcon={<span className="suffix-icon" />}
                 allowClear
@@ -666,7 +666,7 @@ describe('Picker.Basic', () => {
 
     it('inputRender', () => {
         const wrapper = mount(
-            <MomentPicker inputRender={(props) => <input {...props} />} />
+            <DayjsPicker inputRender={(props) => <input {...props} />} />
         );
 
         expect(wrapper.find('.picker-input').render()).toMatchSnapshot();
@@ -675,9 +675,7 @@ describe('Picker.Basic', () => {
     describe('showNow', () => {
         it('datetime should display now', () => {
             const onSelect = jest.fn();
-            const wrapper = mount(
-                <MomentPicker onSelect={onSelect} showTime />
-            );
+            const wrapper = mount(<DayjsPicker onSelect={onSelect} showTime />);
             wrapper.openPicker();
             wrapper.find('.picker-now button').simulate('click');
 
@@ -692,7 +690,7 @@ describe('Picker.Basic', () => {
 
         it("date shouldn't display now", () => {
             const onSelect = jest.fn();
-            const wrapper = mount(<MomentPicker onSelect={onSelect} />);
+            const wrapper = mount(<DayjsPicker onSelect={onSelect} />);
             wrapper.openPicker();
             expect(wrapper.find('.picker-now button').length).toEqual(0);
         });
@@ -700,7 +698,7 @@ describe('Picker.Basic', () => {
         it("datetime shouldn't display now when showNow is false", () => {
             const onSelect = jest.fn();
             const wrapper = mount(
-                <MomentPicker onSelect={onSelect} showTime showNow={false} />
+                <DayjsPicker onSelect={onSelect} showTime showNow={false} />
             );
             wrapper.openPicker();
             expect(wrapper.find('.picker-now button').length).toEqual(0);
@@ -709,7 +707,7 @@ describe('Picker.Basic', () => {
         it('time should display now', () => {
             const onSelect = jest.fn();
             const wrapper = mount(
-                <MomentPicker onSelect={onSelect} picker="time" />
+                <DayjsPicker onSelect={onSelect} picker="time" />
             );
             wrapper.openPicker();
             wrapper.find('.picker-now button').simulate('click');
@@ -726,7 +724,7 @@ describe('Picker.Basic', () => {
         it("time shouldn't display now when showNow is false", () => {
             const onSelect = jest.fn();
             const wrapper = mount(
-                <MomentPicker
+                <DayjsPicker
                     onSelect={onSelect}
                     picker="time"
                     showNow={false}
@@ -739,10 +737,10 @@ describe('Picker.Basic', () => {
 
     describe('time step', () => {
         it('work with now', () => {
-            MockDate.set(getMoment('1990-09-03 00:09:00').toDate());
+            MockDate.set(getDayjs('1990-09-03 00:09:00').toDate());
             const onSelect = jest.fn();
             const wrapper = mount(
-                <MomentPicker
+                <DayjsPicker
                     onSelect={onSelect}
                     picker="time"
                     minuteStep={10}
@@ -757,22 +755,20 @@ describe('Picker.Basic', () => {
                     'second'
                 )
             ).toBeTruthy();
-            MockDate.set(getMoment('1990-09-03 00:00:00').toDate());
+            MockDate.set(getDayjs('1990-09-03 00:00:00').toDate());
         });
     });
 
     it('pass data- & aria- & role', () => {
         const wrapper = mount(
-            <MomentPicker data-test="233" aria-label="3334" role="search" />
+            <DayjsPicker data-test="233" aria-label="3334" role="search" />
         );
 
         expect(wrapper.render()).toMatchSnapshot();
     });
 
     it('support name & autoComplete prop', () => {
-        const wrapper = mount(
-            <MomentPicker name="bamboo" autoComplete="off" />
-        );
+        const wrapper = mount(<DayjsPicker name="bamboo" autoComplete="off" />);
 
         expect(wrapper.find('input').props()).toMatchObject({
             name: 'bamboo',
@@ -781,7 +777,7 @@ describe('Picker.Basic', () => {
     });
 
     it('blur should reset invalidate text', () => {
-        const wrapper = mount(<MomentPicker />);
+        const wrapper = mount(<DayjsPicker />);
         wrapper.openPicker();
         wrapper.find('input').simulate('change', {
             target: {
@@ -793,13 +789,13 @@ describe('Picker.Basic', () => {
     });
 
     it('should render correctly in rtl', () => {
-        const wrapper = mount(<MomentPicker direction="rtl" allowClear />);
+        const wrapper = mount(<DayjsPicker direction="rtl" allowClear />);
         expect(wrapper.render()).toMatchSnapshot();
     });
 
     it('week picker show correctly with year', () => {
         const wrapper = mount(
-            <MomentPicker value={getMoment('2019-12-31')} picker="week" />
+            <DayjsPicker value={getDayjs('2019-12-31')} picker="week" />
         );
 
         expect(wrapper.find('input').prop('value')).toEqual(
@@ -809,7 +805,7 @@ describe('Picker.Basic', () => {
 
     it('click outside should also focus', () => {
         const onMouseUp = jest.fn();
-        const wrapper = mount(<MomentPicker onMouseUp={onMouseUp} />);
+        const wrapper = mount(<DayjsPicker onMouseUp={onMouseUp} />);
         const inputElement = wrapper
             .find('input')
             .instance() as any as HTMLInputElement;
@@ -823,7 +819,7 @@ describe('Picker.Basic', () => {
     });
 
     it('not open when disabled', () => {
-        const wrapper = mount(<MomentPicker disabled />);
+        const wrapper = mount(<DayjsPicker disabled />);
         wrapper.find('.picker').simulate('mouseUp');
         expect(wrapper.isOpen()).toBeFalsy();
 
@@ -833,7 +829,7 @@ describe('Picker.Basic', () => {
 
     it('close to reset', () => {
         const wrapper = mount(
-            <MomentPicker defaultValue={getMoment('2000-01-01')} />
+            <DayjsPicker defaultValue={getDayjs('2000-01-01')} />
         );
 
         wrapper.openPicker();
@@ -850,10 +846,10 @@ describe('Picker.Basic', () => {
 
     it('switch picker should change format', () => {
         const wrapper = mount(
-            <MomentPicker
+            <DayjsPicker
                 picker="date"
                 showTime
-                defaultValue={getMoment('1999-09-03')}
+                defaultValue={getDayjs('1999-09-03')}
             />
         );
         expect(wrapper.find('input').props().value).toEqual(
@@ -873,13 +869,13 @@ describe('Picker.Basic', () => {
     });
 
     it('id', () => {
-        const wrapper = mount(<MomentPicker id="light" />);
+        const wrapper = mount(<DayjsPicker id="light" />);
         expect(wrapper.find('input').props().id).toEqual('light');
     });
 
     it('dateRender', () => {
         const wrapper = mount(
-            <MomentPicker
+            <DayjsPicker
                 open
                 dateRender={(date) => date.format('YYYY-MM-DD')}
             />
@@ -889,7 +885,7 @@ describe('Picker.Basic', () => {
 
     it('format', () => {
         const wrapper = mount(
-            <MomentPicker format={['YYYYMMDD', 'YYYY-MM-DD']} />
+            <DayjsPicker format={['YYYYMMDD', 'YYYY-MM-DD']} />
         );
         wrapper.openPicker();
         wrapper.find('input').simulate('change', {
@@ -903,11 +899,11 @@ describe('Picker.Basic', () => {
 
     it('custom format', () => {
         const wrapper = mount(
-            <MomentPicker
+            <DayjsPicker
                 allowClear
-                defaultValue={getMoment('2020-09-17')}
+                defaultValue={getDayjs('2020-09-17')}
                 format={[
-                    (val: Moment) => `custom format:${val.format('YYYYMMDD')}`,
+                    (val: Dayjs) => `custom format:${val.format('YYYYMMDD')}`,
                     'YYYY-MM-DD',
                 ]}
             />
@@ -928,13 +924,13 @@ describe('Picker.Basic', () => {
 
     it('partialRender', () => {
         const wrapper = mount(
-            <MomentPicker open partialRender={() => <h1>Light</h1>} />
+            <DayjsPicker open partialRender={() => <h1>Light</h1>} />
         );
         expect(wrapper.render()).toMatchSnapshot();
     });
 
     it('change partial when `picker` changed', () => {
-        const wrapper = mount(<MomentPicker open picker="week" />);
+        const wrapper = mount(<DayjsPicker open picker="week" />);
         expect(wrapper.find('.picker-week-partial').length).toEqual(1);
         wrapper.setProps({ picker: 'month' });
         wrapper.update();
@@ -951,7 +947,7 @@ describe('Picker.Basic', () => {
         });
         it('should restore when leave', () => {
             const wrapper = mount(
-                <MomentPicker open defaultValue={getMoment('2020-07-22')} />
+                <DayjsPicker open defaultValue={getDayjs('2020-07-22')} />
             );
             const cell = wrapper.findCell(24);
             cell.simulate('mouseEnter');
@@ -977,7 +973,7 @@ describe('Picker.Basic', () => {
 
         it('should restore after selecting cell', () => {
             const wrapper = mount(
-                <MomentPicker defaultValue={getMoment('2020-07-22')} />
+                <DayjsPicker defaultValue={getDayjs('2020-07-22')} />
             );
             wrapper.openPicker();
             const cell = wrapper.findCell(24);
@@ -1002,7 +998,7 @@ describe('Picker.Basic', () => {
 
         it('change value when hovering', () => {
             const wrapper = mount(
-                <MomentPicker defaultValue={getMoment('2020-07-22')} />
+                <DayjsPicker defaultValue={getDayjs('2020-07-22')} />
             );
             wrapper.openPicker();
             const cell = wrapper.findCell(24);
@@ -1071,9 +1067,9 @@ describe('Picker.Basic', () => {
         it('work', () => {
             jest.useFakeTimers();
             const wrapper = mount(
-                <MomentPicker
+                <DayjsPicker
                     picker="time"
-                    defaultValue={getMoment('2020-07-22 09:03:28')}
+                    defaultValue={getDayjs('2020-07-22 09:03:28')}
                     open
                 />
             );
@@ -1089,7 +1085,7 @@ describe('Picker.Basic', () => {
     describe('prevent default on keydown', () => {
         it('should open picker partial if no prevent default', () => {
             const keyDown = jest.fn();
-            const wrapper = mount(<MomentPicker onKeyDown={keyDown} />);
+            const wrapper = mount(<DayjsPicker onKeyDown={keyDown} />);
 
             wrapper.closePicker();
             wrapper.keyDown(eventKeys.ENTER);
@@ -1100,7 +1096,7 @@ describe('Picker.Basic', () => {
             const keyDown = jest.fn(({ key }, preventDefault) => {
                 if (key === eventKeys.ENTER) preventDefault();
             });
-            const wrapper = mount(<MomentPicker onKeyDown={keyDown} />);
+            const wrapper = mount(<DayjsPicker onKeyDown={keyDown} />);
 
             wrapper.openPicker();
             expect(wrapper.isOpen()).toBeTruthy();
@@ -1113,88 +1109,88 @@ describe('Picker.Basic', () => {
         });
     });
 
-    // describe('disabledDate', () => {
-    //   function disabledDate(current: Moment) {
-    //     return current <= getMoment('2020-12-28 00:00:00').endOf('day');
-    //   }
-    //   const wrapper = mount(
-    //     <MomentPicker
-    //       open
-    //       defaultValue={getMoment('2020-12-29 12:00:00')}
-    //       disabledDate={disabledDate}
-    //     />,
-    //   );
-    //   // Date Partial
-    //   Array.from({
-    //     length: 31,
-    //   }).forEach((_v, i) => {
-    //     const cell = wrapper.findCell(`${i + 1}`);
-    //     // >= 29
-    //     if (i >= 28) {
-    //       expect(cell.hasClass('picker-cell-disabled')).toBeFalsy();
-    //     } else {
-    //       expect(cell.hasClass('picker-cell-disabled')).toBeTruthy();
-    //     }
-    //   });
-    //   wrapper.find('.picker-month-btn').simulate('click');
-    //   // Month Partial
-    //   Array.from({
-    //     length: 12,
-    //   }).forEach((_v, i) => {
-    //     const cell = wrapper.find('.picker-cell-in-view').at(i);
-    //     // >= 12
-    //     if (i >= 11) {
-    //       expect(cell.hasClass('picker-cell-disabled')).toBeFalsy();
-    //     } else {
-    //       expect(cell.hasClass('picker-cell-disabled')).toBeTruthy();
-    //     }
-    //   });
-    //   wrapper.find('.picker-year-btn').simulate('click');
-    //   // Year Partial
-    //   Array.from({
-    //     length: 10,
-    //   }).forEach((_v, i) => {
-    //     const cell = wrapper.find('.picker-cell-in-view').at(i);
-    //     // >= 2020
-    //     expect(cell.hasClass('picker-cell-disabled')).toBeFalsy();
-    //   });
-    //   // Decade Partial
-    //   Array.from({
-    //     length: 8,
-    //   }).forEach((_v, i) => {
-    //     const cell = wrapper.find('.picker-cell-in-view').at(i);
-    //     // >= 2020
-    //     expect(cell.hasClass('picker-cell-disabled')).toBeFalsy();
-    //   });
+    describe.skip('disabledDate', () => {
+        function disabledDate(current: Dayjs) {
+            return current <= getDayjs('2020-12-28 00:00:00').endOf('day');
+        }
+        const wrapper = mount(
+            <DayjsPicker
+                open
+                defaultValue={getDayjs('2020-12-29 12:00:00')}
+                disabledDate={disabledDate}
+            />
+        );
+        // Date Partial
+        Array.from({
+            length: 31,
+        }).forEach((_v, i) => {
+            const cell = wrapper.findCell(`${i + 1}`);
+            // >= 29
+            if (i >= 28) {
+                expect(cell.hasClass('picker-cell-disabled')).toBeFalsy();
+            } else {
+                expect(cell.hasClass('picker-cell-disabled')).toBeTruthy();
+            }
+        });
+        wrapper.find('.picker-month-btn').simulate('click');
+        // Month Partial
+        Array.from({
+            length: 12,
+        }).forEach((_v, i) => {
+            const cell = wrapper.find('.picker-cell-in-view').at(i);
+            // >= 12
+            if (i >= 11) {
+                expect(cell.hasClass('picker-cell-disabled')).toBeFalsy();
+            } else {
+                expect(cell.hasClass('picker-cell-disabled')).toBeTruthy();
+            }
+        });
+        wrapper.find('.picker-year-btn').simulate('click');
+        // Year Partial
+        Array.from({
+            length: 10,
+        }).forEach((_v, i) => {
+            const cell = wrapper.find('.picker-cell-in-view').at(i);
+            // >= 2020
+            expect(cell.hasClass('picker-cell-disabled')).toBeFalsy();
+        });
+        // Decade Partial
+        Array.from({
+            length: 8,
+        }).forEach((_v, i) => {
+            const cell = wrapper.find('.picker-cell-in-view').at(i);
+            // >= 2020
+            expect(cell.hasClass('picker-cell-disabled')).toBeFalsy();
+        });
 
-    //   const quarterWrapper = mount(
-    //     <MomentPicker
-    //       picker="quarter"
-    //       open
-    //       defaultValue={getMoment('2020-12-29 12:00:00')}
-    //       disabledDate={disabledDate}
-    //     />,
-    //   );
-    //   // quarter Partial
-    //   Array.from({
-    //     length: 4,
-    //   }).forEach((_v, i) => {
-    //     const cell = quarterWrapper.find('.picker-cell-in-view').at(i);
-    //     // >= 4
-    //     if (i >= 3) {
-    //       expect(cell.hasClass('picker-cell-disabled')).toBeFalsy();
-    //     } else {
-    //       expect(cell.hasClass('picker-cell-disabled')).toBeTruthy();
-    //     }
-    //   });
-    // });
+        const quarterWrapper = mount(
+            <DayjsPicker
+                picker="quarter"
+                open
+                defaultValue={getDayjs('2020-12-29 12:00:00')}
+                disabledDate={disabledDate}
+            />
+        );
+        // quarter Partial
+        Array.from({
+            length: 4,
+        }).forEach((_v, i) => {
+            const cell = quarterWrapper.find('.picker-cell-in-view').at(i);
+            // >= 4
+            if (i >= 3) {
+                expect(cell.hasClass('picker-cell-disabled')).toBeFalsy();
+            } else {
+                expect(cell.hasClass('picker-cell-disabled')).toBeTruthy();
+            }
+        });
+    });
 
     it('disabledDate should not crash', () => {
         const wrapper = mount(
-            <MomentPicker open disabledDate={(d) => d.isAfter(Date.now())} />
+            <DayjsPicker open disabledDate={(d) => d.isAfter(Date.now())} />
         );
         wrapper.find('input').simulate('change', {
-            target: { value: moment().add(1, 'year').format('YYYY-MM-DD') },
+            target: { value: dayjs().add(1, 'year').format('YYYY-MM-DD') },
         });
 
         wrapper.find('input').simulate('keyDown', { key: eventKeys.ENTER });

@@ -195,7 +195,7 @@ const PopupInner = forwardRef<PopupInnerRef, PopupInnerProps>((props, ref) => {
                         target={getAlignTarget()}
                         key="popup"
                         ref={alignRef}
-                        monitorWindowResize
+                        viewportResize
                         disabled={alignDisabled}
                         align={align}
                         onAlign={onInternalAlign}

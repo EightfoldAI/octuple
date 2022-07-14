@@ -7,6 +7,22 @@ import { placementAlignMap } from './util';
 import '@testing-library/jest-dom';
 
 describe('Trigger.Basic', () => {
+    beforeAll(() => {
+        Object.defineProperty(window, 'matchMedia', {
+            writable: true,
+            value: jest.fn().mockImplementation((query) => ({
+                matches: false,
+                media: query,
+                onchange: null,
+                addListener: jest.fn(), // Deprecated
+                removeListener: jest.fn(), // Deprecated
+                addEventListener: jest.fn(),
+                removeEventListener: jest.fn(),
+                dispatchEvent: jest.fn(),
+            })),
+        });
+    });
+
     beforeEach(() => {
         jest.useFakeTimers();
     });
@@ -178,65 +194,65 @@ describe('Trigger.Basic', () => {
         });
 
         // TODO: Re-eable test when afterPopupVisibleChange bug is fixed
-        // describe('afterPopupVisibleChange can be triggered', () => {
-        //     it('uncontrolled', () => {
-        //         let triggered = 0;
-        //         const { container } = render(
-        //             <Trigger
-        //                 action={['click']}
-        //                 popupAlign={placementAlignMap.left}
-        //                 afterPopupVisibleChange={() => {
-        //                     triggered = 1;
-        //                 }}
-        //                 popup={<strong>trigger</strong>}
-        //             >
-        //                 <div className="target">click</div>
-        //             </Trigger>
-        //         );
+        describe.skip('afterPopupVisibleChange can be triggered', () => {
+            it('uncontrolled', () => {
+                let triggered = 0;
+                const { container } = render(
+                    <Trigger
+                        action={['click']}
+                        popupAlign={placementAlignMap.left}
+                        afterPopupVisibleChange={() => {
+                            triggered = 1;
+                        }}
+                        popup={<strong>trigger</strong>}
+                    >
+                        <div className="target">click</div>
+                    </Trigger>
+                );
 
-        //         trigger(container, '.target');
-        //         expect(triggered).toBe(1);
-        //     });
+                trigger(container, '.target');
+                expect(triggered).toBe(1);
+            });
 
-        //     it('controlled', () => {
-        //         const demoRef = createRef();
-        //         let triggered = 0;
+            it('controlled', () => {
+                const demoRef = createRef();
+                let triggered = 0;
 
-        //         class Demo extends React.Component {
-        //             state = {
-        //                 visible: false,
-        //             };
+                class Demo extends React.Component {
+                    state = {
+                        visible: false,
+                    };
 
-        //             render() {
-        //                 return (
-        //                     <Trigger
-        //                         popupVisible={this.state.visible}
-        //                         popupAlign={placementAlignMap.left}
-        //                         afterPopupVisibleChange={() => {
-        //                             triggered += 1;
-        //                         }}
-        //                         popup={<strong>trigger</strong>}
-        //                     >
-        //                         <div className="target">click</div>
-        //                     </Trigger>
-        //                 );
-        //             }
-        //         }
+                    render() {
+                        return (
+                            <Trigger
+                                popupVisible={this.state.visible}
+                                popupAlign={placementAlignMap.left}
+                                afterPopupVisibleChange={() => {
+                                    triggered += 1;
+                                }}
+                                popup={<strong>trigger</strong>}
+                            >
+                                <div className="target">click</div>
+                            </Trigger>
+                        );
+                    }
+                }
 
-        //         render(<Demo ref={demoRef} />);
-        //         act(() => {
-        //             demoRef.current.setState({ visible: true });
-        //             jest.runAllTimers();
-        //         });
-        //         expect(triggered).toBe(1);
+                render(<Demo ref={demoRef} />);
+                act(() => {
+                    demoRef.current.setState({ visible: true });
+                    jest.runAllTimers();
+                });
+                expect(triggered).toBe(1);
 
-        //         act(() => {
-        //             demoRef.current.setState({ visible: false });
-        //             jest.runAllTimers();
-        //         });
-        //         expect(triggered).toBe(2);
-        //     });
-        // });
+                act(() => {
+                    demoRef.current.setState({ visible: false });
+                    jest.runAllTimers();
+                });
+                expect(triggered).toBe(2);
+            });
+        });
 
         it('nested action works', () => {
             class Test extends React.Component {
@@ -356,27 +372,29 @@ describe('Trigger.Basic', () => {
             expect(triggerRef.current.getPopupDomNode()).toBeTruthy();
         });
 
-        // TODO: Re-enable test when destroyPopupOnHide bug is fixed
-        // it('set true will destroy tooltip on hide', () => {
-        //     const triggerRef = createRef();
-        //     const { container } = render(
-        //         <Trigger
-        //             ref={triggerRef}
-        //             action={['click']}
-        //             destroyPopupOnHide
-        //             popupAlign={placementAlignMap.topRight}
-        //             popup={<strong>trigger</strong>}
-        //         >
-        //             <div className="target">click</div>
-        //         </Trigger>
-        //     );
+        // TODO: Re-enable test when destroyPopupOnHide bug is fixed.
+        // The dynamically generated inline style x, y position should reset
+        // to something like -9000, -9000, but it's not.
+        it.skip('set true will destroy tooltip on hide', () => {
+            const triggerRef = createRef();
+            const { container } = render(
+                <Trigger
+                    ref={triggerRef}
+                    action={['click']}
+                    destroyPopupOnHide
+                    popupAlign={placementAlignMap.topRight}
+                    popup={<strong>trigger</strong>}
+                >
+                    <div className="target">click</div>
+                </Trigger>
+            );
 
-        //     trigger(container, '.target');
-        //     expect(triggerRef.current.getPopupDomNode()).toBeTruthy();
+            trigger(container, '.target');
+            expect(triggerRef.current.getPopupDomNode()).toBeTruthy();
 
-        //     trigger(container, '.target');
-        //     expect(triggerRef.current.getPopupDomNode()).toBeFalsy();
-        // });
+            trigger(container, '.target');
+            expect(triggerRef.current.getPopupDomNode()).toBeFalsy();
+        });
     });
 
     describe('support autoDestroy', () => {
@@ -675,32 +693,34 @@ describe('Trigger.Basic', () => {
     });
 
     describe('getContainer', () => {
-        // TODO: Re-enable test when bug is fixed
-        // it('not trigger when dom not ready', () => {
-        //     const getPopupContainer = jest.fn((node) => node.parentElement);
+        // TODO: Re-enable test when bug is fixed.
+        // The nested element isn't getting the class from its parent props for whatever reason.
+        // needs to be fixed as a follow-up.
+        it.skip('not trigger when dom not ready', () => {
+            const getPopupContainer = jest.fn((node) => node.parentElement);
 
-        //     function Demo() {
-        //         return (
-        //             <Trigger
-        //                 popupVisible
-        //                 getPopupContainer={getPopupContainer}
-        //                 popup={<strong className="x-content">tooltip2</strong>}
-        //             >
-        //                 <div className="target">click</div>
-        //             </Trigger>
-        //         );
-        //     }
+            function Demo() {
+                return (
+                    <Trigger
+                        popupVisible
+                        getPopupContainer={getPopupContainer}
+                        popup={<strong className="x-content">tooltip2</strong>}
+                    >
+                        <div className="target">click</div>
+                    </Trigger>
+                );
+            }
 
-        //     const { container } = render(<Demo />);
+            const { container } = render(<Demo />);
 
-        //     expect(getPopupContainer).toHaveReturnedTimes(0);
+            expect(getPopupContainer).toHaveReturnedTimes(0);
 
-        //     act(() => jest.runAllTimers());
-        //     expect(getPopupContainer).toHaveReturnedTimes(1);
-        //     expect(getPopupContainer).toHaveBeenCalledWith(
-        //         container.querySelector('.target')
-        //     );
-        // });
+            act(() => jest.runAllTimers());
+            expect(getPopupContainer).toHaveReturnedTimes(1);
+            expect(getPopupContainer).toHaveBeenCalledWith(
+                container.querySelector('.target')
+            );
+        });
 
         it('not trigger when dom no need', () => {
             let triggerTimes = 0;

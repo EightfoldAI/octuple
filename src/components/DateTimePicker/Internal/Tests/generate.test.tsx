@@ -1,15 +1,14 @@
 import MockDate from 'mockdate';
-import momentGenerateConfig from '../Generate/moment';
 import dayjsGenerateConfig from '../Generate/dayjs';
 import dateFnsGenerateConfig from '../Generate/dateFns';
-import { getMoment } from './util/commonUtil';
+import { getDayjs } from './util/commonUtil';
 
 import 'dayjs/locale/zh-cn';
 import type { GenerateConfig } from '../Generate';
 
 describe('Picker.Generate', () => {
     beforeAll(() => {
-        MockDate.set(getMoment('1990-09-03 01:02:03').toDate());
+        MockDate.set(getDayjs('1990-09-03 01:02:03').toDate());
 
         Object.defineProperty(window, 'matchMedia', {
             writable: true,
@@ -31,7 +30,6 @@ describe('Picker.Generate', () => {
     });
 
     const list: { name: string; generateConfig: GenerateConfig<any> }[] = [
-        { name: 'moment', generateConfig: momentGenerateConfig },
         { name: 'dayjs', generateConfig: dayjsGenerateConfig },
         { name: 'date-fns', generateConfig: dateFnsGenerateConfig },
     ];
@@ -294,17 +292,6 @@ describe('Picker.Generate', () => {
                 ).toEqual(50);
             });
         });
-    });
-});
-
-describe('Generate:moment', () => {
-    it('getWeekDay', () => {
-        const now = momentGenerateConfig.getNow();
-        now.locale('zh-cn');
-        expect(now.locale()).toEqual('zh-cn');
-
-        momentGenerateConfig.getWeekDay(now);
-        expect(now.locale()).toEqual('zh-cn');
     });
 });
 

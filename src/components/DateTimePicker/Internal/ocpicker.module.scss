@@ -731,7 +731,7 @@
         }
 
         &-column {
-            @include scrollBars();
+            @include scroll-bars();
 
             background: $picker-column-background-color;
             flex: none;

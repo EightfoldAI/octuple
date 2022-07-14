@@ -1,8 +1,8 @@
-import momentGenerateConfig from '../Generate/moment';
+import dayjsGenerateConfig from '../Generate/dayjs';
 import { getLowerBoundTime, setTime, getLastDay } from '../Utils/timeUtil';
 import { toArray } from '../Utils/miscUtil';
 import { isSameTime, isSameDecade } from '../Utils/dateUtil';
-import { getMoment } from './util/commonUtil';
+import { getDayjs } from './util/commonUtil';
 
 describe('Picker.Util', () => {
     it('toArray', () => {
@@ -16,29 +16,29 @@ describe('Picker.Util', () => {
     it('isSameTime', () => {
         expect(
             isSameTime(
-                momentGenerateConfig,
-                getMoment('2000-01-01'),
-                getMoment('1989-11-28')
+                dayjsGenerateConfig,
+                getDayjs('2000-01-01'),
+                getDayjs('1989-11-28')
             )
         ).toBeTruthy();
 
         expect(
-            isSameTime(momentGenerateConfig, null, getMoment('1989-11-28'))
+            isSameTime(dayjsGenerateConfig, null, getDayjs('1989-11-28'))
         ).toBeFalsy();
 
-        expect(isSameTime(momentGenerateConfig, null, null)).toBeTruthy();
+        expect(isSameTime(dayjsGenerateConfig, null, null)).toBeTruthy();
     });
 
     it('isSameDecade', () => {
-        expect(isSameDecade(momentGenerateConfig, null, null)).toBeTruthy();
+        expect(isSameDecade(dayjsGenerateConfig, null, null)).toBeTruthy();
         expect(
-            isSameDecade(momentGenerateConfig, getMoment('2000-01-02'), null)
+            isSameDecade(dayjsGenerateConfig, getDayjs('2000-01-02'), null)
         ).toBeFalsy();
         expect(
             isSameDecade(
-                momentGenerateConfig,
-                getMoment('1995-01-01'),
-                getMoment('1999-01-01')
+                dayjsGenerateConfig,
+                getDayjs('1995-01-01'),
+                getDayjs('1999-01-01')
             )
         ).toBeTruthy();
     });
@@ -72,22 +72,22 @@ describe('Picker.Util', () => {
     describe('setTime', () => {
         expect(
             isSameTime(
-                momentGenerateConfig,
+                dayjsGenerateConfig,
                 setTime(
-                    momentGenerateConfig,
-                    getMoment('1995-01-01 00:00:00'),
+                    dayjsGenerateConfig,
+                    getDayjs('1995-01-01 00:00:00'),
                     8,
                     7,
                     6
                 ),
-                getMoment('1995-01-01 08:07:06')
+                getDayjs('1995-01-01 08:07:06')
             )
         ).toBeTruthy();
     });
 
     describe('getLastDay', () => {
-        expect(
-            getLastDay(momentGenerateConfig, getMoment('2020-10-01'))
-        ).toEqual('2020-10-31');
+        expect(getLastDay(dayjsGenerateConfig, getDayjs('2020-10-01'))).toEqual(
+            '2020-10-31'
+        );
     });
 });

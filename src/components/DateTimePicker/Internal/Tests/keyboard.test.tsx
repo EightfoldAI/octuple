@@ -6,12 +6,12 @@ import { act } from 'react-dom/test-utils';
 import { eventKeys } from '../../../../shared/utilities';
 import {
     mount,
-    getMoment,
+    getDayjs,
     isSame,
-    MomentPicker,
-    MomentPickerPartial,
+    DayjsPicker,
+    DayjsPickerPartial,
     Wrapper,
-    MomentRangePicker,
+    DayjsRangePicker,
 } from './util/commonUtil';
 import '@testing-library/jest-dom';
 
@@ -118,7 +118,7 @@ describe('Picker.Keyboard', () => {
     }
 
     beforeAll(() => {
-        MockDate.set(getMoment('1990-09-03 00:00:00').toDate());
+        MockDate.set(getDayjs('1990-09-03 00:00:00').toDate());
 
         Object.defineProperty(window, 'matchMedia', {
             writable: true,
@@ -143,7 +143,7 @@ describe('Picker.Keyboard', () => {
         const onChange = jest.fn();
         const onSelect = jest.fn();
         const wrapper = mount(
-            <MomentPicker onSelect={onSelect} onChange={onChange} />
+            <DayjsPicker onSelect={onSelect} onChange={onChange} />
         );
         wrapper.find('input').simulate('focus');
         wrapper.keyDown(eventKeys.ENTER);
@@ -213,7 +213,7 @@ describe('Picker.Keyboard', () => {
 
     it('ESCAPE to cancel', () => {
         const onChange = jest.fn();
-        const wrapper = mount(<MomentPicker onChange={onChange} />);
+        const wrapper = mount(<DayjsPicker onChange={onChange} />);
         wrapper.openPicker();
 
         // Change value
@@ -226,13 +226,13 @@ describe('Picker.Keyboard', () => {
     });
 
     it('any key to open', () => {
-        const wrapper = mount(<MomentPicker />);
+        const wrapper = mount(<DayjsPicker />);
         wrapper.keyDown(eventKeys.KEYA);
         expect(wrapper.isOpen()).toBeTruthy();
     });
 
     it('not change focus to partial', () => {
-        const wrapper = mount(<MomentPicker />);
+        const wrapper = mount(<DayjsPicker />);
         wrapper.openPicker();
 
         // Not change focus
@@ -243,7 +243,7 @@ describe('Picker.Keyboard', () => {
     });
 
     it('Tab into Partial and back to input', () => {
-        const wrapper = mount(<MomentPicker />);
+        const wrapper = mount(<DayjsPicker />);
         wrapper.openPicker();
 
         // Focus Partial
@@ -259,7 +259,7 @@ describe('Picker.Keyboard', () => {
         it('Picker', () => {
             jest.useFakeTimers();
 
-            const wrapper = mount(<MomentPicker showTime />);
+            const wrapper = mount(<DayjsPicker showTime />);
             wrapper.openPicker();
 
             // Focus Partial
@@ -314,7 +314,7 @@ describe('Picker.Keyboard', () => {
                     it(name, () => {
                         const onSelect = jest.fn();
                         const wrapper = mount(
-                            <MomentPickerPartial onSelect={onSelect} showTime />
+                            <DayjsPickerPartial onSelect={onSelect} showTime />
                         );
 
                         // Focus Partial
@@ -391,7 +391,7 @@ describe('Picker.Keyboard', () => {
             });
 
             it('Enter to next view', () => {
-                const wrapper = mount(<MomentPickerPartial />);
+                const wrapper = mount(<DayjsPickerPartial />);
                 wrapper.find('.picker-year-btn').simulate('click');
                 wrapper.find('.picker-decade-btn').simulate('click');
 
@@ -424,7 +424,7 @@ describe('Picker.Keyboard', () => {
     it('time enter will trigger onSelect', () => {
         const onSelect = jest.fn();
         const wrapper = mount(
-            <MomentPickerPartial picker="time" onSelect={onSelect} />
+            <DayjsPickerPartial picker="time" onSelect={onSelect} />
         );
         partialKeyDown(wrapper, eventKeys.ENTER);
         expect(
@@ -437,9 +437,9 @@ describe('Picker.Keyboard', () => {
         it('month', () => {
             const onSelect = jest.fn();
             const wrapper = mount(
-                <MomentPickerPartial
+                <DayjsPickerPartial
                     picker="month"
-                    defaultValue={getMoment('1990-09-03')}
+                    defaultValue={getDayjs('1990-09-03')}
                     onSelect={onSelect}
                 />
             );
@@ -468,9 +468,9 @@ describe('Picker.Keyboard', () => {
         it('quarter', () => {
             const onSelect = jest.fn();
             const wrapper = mount(
-                <MomentPickerPartial
+                <DayjsPickerPartial
                     picker="quarter"
-                    defaultValue={getMoment('1990-09-03')}
+                    defaultValue={getDayjs('1990-09-03')}
                     onSelect={onSelect}
                 />
             );
@@ -499,9 +499,9 @@ describe('Picker.Keyboard', () => {
         it('year', () => {
             const onSelect = jest.fn();
             const wrapper = mount(
-                <MomentPickerPartial
+                <DayjsPickerPartial
                     picker="year"
-                    defaultValue={getMoment('1990-09-03')}
+                    defaultValue={getDayjs('1990-09-03')}
                     onSelect={onSelect}
                 />
             );
@@ -530,9 +530,9 @@ describe('Picker.Keyboard', () => {
         it('decade', () => {
             const onPartialChange = jest.fn();
             const wrapper = mount(
-                <MomentPickerPartial
+                <DayjsPickerPartial
                     mode="decade"
-                    defaultValue={getMoment('1990-09-03')}
+                    defaultValue={getDayjs('1990-09-03')}
                     onPartialChange={onPartialChange}
                 />
             );
@@ -568,7 +568,7 @@ describe('Picker.Keyboard', () => {
             const onCalendarChange = jest.fn();
             const onChange = jest.fn();
             const wrapper = mount(
-                <MomentRangePicker
+                <DayjsRangePicker
                     onCalendarChange={onCalendarChange}
                     onChange={onChange}
                 />
@@ -625,7 +625,7 @@ describe('Picker.Keyboard', () => {
             const onChange = jest.fn();
             const onFocus = jest.fn();
             const wrapper = mount(
-                <MomentRangePicker
+                <DayjsRangePicker
                     onFocus={onFocus}
                     onCalendarChange={onCalendarChange}
                     onChange={onChange}
@@ -643,37 +643,37 @@ describe('Picker.Keyboard', () => {
             expect(wrapper.find('input').first().props().value).toEqual('');
         });
 
-        // TODO: Re-enable test when util supports it
-        // it('move based on current date on first keyboard event', () => {
-        //     jest.useFakeTimers();
-        //     const onCalendarChange = jest.fn();
-        //     const onChange = jest.fn();
-        //     const wrapper = mount(
-        //         <MomentRangePicker
-        //             onCalendarChange={onCalendarChange}
-        //             onChange={onChange}
-        //         />
-        //     );
+        // TODO: Re-enable test when util is implemented
+        it.skip('move based on current date on first keyboard event', () => {
+            jest.useFakeTimers();
+            const onCalendarChange = jest.fn();
+            const onChange = jest.fn();
+            const wrapper = mount(
+                <DayjsRangePicker
+                    onCalendarChange={onCalendarChange}
+                    onChange={onChange}
+                />
+            );
 
-        //     // Start Date
-        //     wrapper.openPicker();
-        //     wrapper
-        //         .find('input')
-        //         .first()
-        //         .simulate('change', { target: { value: '' } });
-        //     wrapper.keyDown(eventKeys.TAB);
-        //     wrapper.keyDown(eventKeys.ARROWRIGHT);
-        //     wrapper.keyDown(eventKeys.ENTER);
-        //     expect(onCalendarChange.mock.calls[0][1]).toEqual([
-        //         '1990-09-04',
-        //         '',
-        //     ]);
-        //     expect(onChange).not.toHaveBeenCalled();
-        // });
+            // Start Date
+            wrapper.openPicker();
+            wrapper
+                .find('input')
+                .first()
+                .simulate('change', { target: { value: '' } });
+            wrapper.keyDown(eventKeys.TAB);
+            wrapper.keyDown(eventKeys.ARROWRIGHT);
+            wrapper.keyDown(eventKeys.ENTER);
+            expect(onCalendarChange.mock.calls[0][1]).toEqual([
+                '1990-09-04',
+                '',
+            ]);
+            expect(onChange).not.toHaveBeenCalled();
+        });
     });
 
     it('enter should prevent default to avoid form submit', () => {
-        const wrapper = mount(<MomentPicker />);
+        const wrapper = mount(<DayjsPicker />);
         const preventDefault = jest.fn();
         wrapper.find('input').simulate('keyDown', {
             key: eventKeys.ENTER,
@@ -683,74 +683,74 @@ describe('Picker.Keyboard', () => {
         expect(preventDefault).toHaveBeenCalled();
     });
 
-    // TODO: Re-enable test when util supports it
-    // describe('keyboard should not trigger on disabledDate', () => {
-    //     it('picker', () => {
-    //         const onChange = jest.fn();
-    //         const onSelect = jest.fn();
-    //         const wrapper = mount(
-    //             <MomentPicker
-    //                 showTime
-    //                 onSelect={onSelect}
-    //                 onChange={onChange}
-    //                 disabledDate={(date) => date.date() % 2 === 0}
-    //             />
-    //         );
-    //         wrapper.find('input').simulate('focus');
-    //         wrapper.keyDown(eventKeys.ENTER);
-    //         wrapper.keyDown(eventKeys.TAB);
-    //         wrapper.keyDown(eventKeys.TAB);
-    //         wrapper.keyDown(eventKeys.ARROWDOWN);
-    //         expect(
-    //             isSame(onSelect.mock.calls[0][0], '1990-09-10')
-    //         ).toBeTruthy();
+    // TODO: Re-enable test when util support is implemented
+    describe('keyboard should not trigger on disabledDate', () => {
+        it.skip('picker', () => {
+            const onChange = jest.fn();
+            const onSelect = jest.fn();
+            const wrapper = mount(
+                <DayjsPicker
+                    showTime
+                    onSelect={onSelect}
+                    onChange={onChange}
+                    disabledDate={(date) => date.date() % 2 === 0}
+                />
+            );
+            wrapper.find('input').simulate('focus');
+            wrapper.keyDown(eventKeys.ENTER);
+            wrapper.keyDown(eventKeys.TAB);
+            wrapper.keyDown(eventKeys.TAB);
+            wrapper.keyDown(eventKeys.ARROWDOWN);
+            expect(
+                isSame(onSelect.mock.calls[0][0], '1990-09-10')
+            ).toBeTruthy();
 
-    //         // Not enter to change
-    //         wrapper.keyDown(eventKeys.ENTER);
-    //         expect(onChange).not.toHaveBeenCalled();
+            // Not enter to change
+            wrapper.keyDown(eventKeys.ENTER);
+            expect(onChange).not.toHaveBeenCalled();
 
-    //         // Not button enabled
-    //         expect(
-    //             wrapper.find('.picker-ok button').props().disabled
-    //         ).toBeTruthy();
+            // Not button enabled
+            expect(
+                wrapper.find('.picker-ok button').props().disabled
+            ).toBeTruthy();
 
-    //         // Another can be enter
-    //         wrapper.keyDown(eventKeys.ARROWRIGHT);
-    //         expect(
-    //             wrapper.find('.picker-ok button').props().disabled
-    //         ).toBeFalsy();
-    //         wrapper.keyDown(eventKeys.ENTER);
-    //         expect(onChange).toHaveBeenCalled();
-    //     });
+            // Another can be enter
+            wrapper.keyDown(eventKeys.ARROWRIGHT);
+            expect(
+                wrapper.find('.picker-ok button').props().disabled
+            ).toBeFalsy();
+            wrapper.keyDown(eventKeys.ENTER);
+            expect(onChange).toHaveBeenCalled();
+        });
 
-    //     it('partial', () => {
-    //         const onChange = jest.fn();
-    //         const onSelect = jest.fn();
-    //         const wrapper = mount(
-    //             <MomentPickerPartial
-    //                 onSelect={onSelect}
-    //                 onChange={onChange}
-    //                 disabledDate={(date) => date.date() % 2 === 0}
-    //             />
-    //         );
+        it.skip('partial', () => {
+            const onChange = jest.fn();
+            const onSelect = jest.fn();
+            const wrapper = mount(
+                <DayjsPickerPartial
+                    onSelect={onSelect}
+                    onChange={onChange}
+                    disabledDate={(date) => date.date() % 2 === 0}
+                />
+            );
 
-    //         wrapper.find('.picker-partial').simulate('focus');
+            wrapper.find('.picker-partial').simulate('focus');
 
-    //         // 9-10 is disabled
-    //         wrapper.keyDown(eventKeys.ARROWDOWN);
-    //         expect(
-    //             isSame(onSelect.mock.calls[0][0], '1990-09-10')
-    //         ).toBeTruthy();
-    //         expect(onChange).not.toHaveBeenCalled();
+            // 9-10 is disabled
+            wrapper.keyDown(eventKeys.ARROWDOWN);
+            expect(
+                isSame(onSelect.mock.calls[0][0], '1990-09-10')
+            ).toBeTruthy();
+            expect(onChange).not.toHaveBeenCalled();
 
-    //         // 9-17 is enabled
-    //         wrapper.keyDown(eventKeys.ARROWDOWN);
-    //         expect(
-    //             isSame(onSelect.mock.calls[1][0], '1990-09-17')
-    //         ).toBeTruthy();
-    //         expect(
-    //             isSame(onChange.mock.calls[0][0], '1990-09-17')
-    //         ).toBeTruthy();
-    //     });
-    // });
+            // 9-17 is enabled
+            wrapper.keyDown(eventKeys.ARROWDOWN);
+            expect(
+                isSame(onSelect.mock.calls[1][0], '1990-09-17')
+            ).toBeTruthy();
+            expect(
+                isSame(onChange.mock.calls[0][0], '1990-09-17')
+            ).toBeTruthy();
+        });
+    });
 });

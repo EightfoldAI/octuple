@@ -51,6 +51,7 @@ interface TriggerState {
     point?: Point;
 }
 
+/** TODO: Refactor to FN component (see more info on line 511)  **/
 export function generateTrigger(
     PortalComponent: any
 ): React.ComponentClass<TriggerProps> {
