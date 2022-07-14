@@ -49,7 +49,7 @@
     // >>> Checkbox
     &-checkbox {
         .tree-rtl {
-            margin: (($tree-title-height - 22) / 2) 0 0 8px;
+            margin: calc(($tree-title-height - 22) / 2) 0 0 8px;
         }
     }
 }
@@ -58,7 +58,7 @@
     // >>> Checkbox
     &-checkbox {
         .tree-select-dropdown-rtl {
-            margin: (($tree-title-height - 22) / 2) 0 0 8px;
+            margin: calc(($tree-title-height - 22) / 2) 0 0 8px;
         }
     }
 }

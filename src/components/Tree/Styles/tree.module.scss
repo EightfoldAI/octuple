@@ -173,7 +173,7 @@ $tree-node-hightlight-color: inherit;
     // >>> Checkbox
     &-checkbox {
         top: initial;
-        margin: (($tree-title-height - 24) / 2) 8px 0 0;
+        margin: calc(($tree-title-height - 24) / 2) 8px 0 0;
     }
 
     // >>> Title
@@ -242,7 +242,7 @@ $tree-node-hightlight-color: inherit;
                 &:before {
                     position: absolute;
                     top: 0;
-                    right: calc(#{$tree-title-height} / 2);
+                    right: calc($tree-title-height / 2);
                     bottom: -$tree-node-padding;
                     border-right: 1px solid $tree-border-color;
                     content: '';
