@@ -1,5 +1,5 @@
 import type { NullableDateType } from '../OcPicker.types';
-import type { GenerateConfig } from '../generate/index';
+import type { GenerateConfig } from '../Generate';
 
 export function setTime<DateType>(
     generateConfig: GenerateConfig<DateType>,

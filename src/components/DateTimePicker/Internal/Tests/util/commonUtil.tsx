@@ -1,7 +1,9 @@
 import React from 'react';
 import { mount as originMount, ReactWrapper } from 'enzyme';
 import dayjs, { Dayjs, OpUnitType } from 'dayjs';
-import OcPicker, { OcPickerProps, OcPickerPartial } from '../../';
+import OcPicker from '../../OcPicker';
+import OcPickerPartial from '../../OcPickerPartial';
+import { OcPickerProps } from '../../OcPicker.types';
 import dayjsGenerateConfig from '../../Generate/dayjs';
 import enUS from '../../Locale/en_US';
 import {
