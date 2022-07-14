@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.17.0](https://github.com/EightfoldAI/octuple/compare/v1.16.0...v1.17.0) (2022-07-14)
+
+### Features
+
+-   add ability to pass custom class to table header ([#224](https://github.com/EightfoldAI/octuple/issues/224)) ([e819423](https://github.com/EightfoldAI/octuple/commits/e819423ff72688bf2597f2e1c6c67683dc8a0a6a))
+-   datepicker: adds date and time picker components ([#233](https://github.com/EightfoldAI/octuple/issues/233)) ([14e652c](https://github.com/EightfoldAI/octuple/commits/14e652c52cffef5922807e24ea5d153a2bbcc30f))
+
+### Bug Fixes
+
+-   datepicker: adds missing module selector ([#235](https://github.com/EightfoldAI/octuple/issues/235)) ([4cf98b0](https://github.com/EightfoldAI/octuple/commits/4cf98b091aa268c0c47ea425ffd656a5f9740405))
+-   prevent slider from firing onChange during init ([#232](https://github.com/EightfoldAI/octuple/issues/232)) ([5616347](https://github.com/EightfoldAI/octuple/commits/5616347496448384494a03b879c9c01fb2c5813e))
+
 ## [1.16.0](https://github.com/EightfoldAI/octuple/compare/v1.15.3...v1.16.0) (2022-07-08)
 
 ### Features
