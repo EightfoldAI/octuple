@@ -5,7 +5,7 @@ import MockDate from 'mockdate';
 import dayjs from 'dayjs';
 import updateLocale from 'dayjs/plugin/updateLocale';
 import { spyElementPrototypes } from '../../../../tests/domHook';
-import { mount, getDayjs, isSame, DayjsPickerPartial } from './Util/commonUtil';
+import { mount, getDayjs, isSame, DayjsPickerPartial } from './util/commonUtil';
 import enUS from '../Locale/en_US';
 
 Enzyme.configure({ adapter: new Adapter() });

@@ -1,7 +1,7 @@
 import MockDate from 'mockdate';
 import dayjsGenerateConfig from '../Generate/dayjs';
 import dateFnsGenerateConfig from '../Generate/dateFns';
-import { getDayjs } from './Util/commonUtil';
+import { getDayjs } from './util/commonUtil';
 
 import 'dayjs/locale/zh-cn';
 import type { GenerateConfig } from '../Generate';

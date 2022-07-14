@@ -7,8 +7,8 @@ import { eventKeys } from '../../../../shared/utilities';
 import { spyElementPrototypes } from '../../../../tests/domHook';
 import type { Dayjs } from 'dayjs';
 import dayjs from 'dayjs';
-import type { Wrapper } from './Util/commonUtil';
-import { mount, getDayjs, isSame, DayjsRangePicker } from './Util/commonUtil';
+import type { Wrapper } from './util/commonUtil';
+import { mount, getDayjs, isSame, DayjsRangePicker } from './util/commonUtil';
 import enUS from '../Locale/en_US';
 import type { OcPickerMode } from '../OcPicker.types';
 
@@ -270,7 +270,7 @@ describe('Picker.Range', () => {
         const wrapper = mount(
             <DayjsRangePicker
                 onChange={onChange}
-                disabledDate={(date) => date.date() === 28}
+                disabledDate={(date: dayjs.Dayjs) => date.date() === 28}
                 allowClear
             />
         );

@@ -1,7 +1,8 @@
 import React from 'react';
 import Enzyme from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
-import { mount, DayjsPicker, DayjsRangePicker } from './Util/commonUtil';
+import { mount, DayjsPicker, DayjsRangePicker } from './util/commonUtil';
+import { RangeType } from '../OcPicker.types';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -122,7 +123,9 @@ describe('Picker.DisabledTime', () => {
                 picker="time"
                 disabledTime={() => ({
                     disabledSeconds: () =>
-                        new Array(59).fill(0).map((_, index) => index),
+                        new Array(59)
+                            .fill(0)
+                            .map((_: any, index: number) => index),
                 })}
             />
         );
@@ -139,7 +142,7 @@ describe('Picker.DisabledTime', () => {
             <DayjsRangePicker
                 open
                 picker="time"
-                disabledTime={(_, type) => ({
+                disabledTime={(_: any, type: RangeType) => ({
                     disabledHours: () =>
                         type === 'start' ? [1, 3, 5] : [2, 4],
                 })}

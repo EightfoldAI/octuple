@@ -8,7 +8,7 @@ import { eventKeys } from '../../../../shared/utilities';
 import dayjs from 'dayjs';
 import type { Dayjs } from 'dayjs';
 import type { PartialMode, OcPickerMode } from '../OcPicker.types';
-import { mount, getDayjs, isSame, DayjsPicker } from './Util/commonUtil';
+import { mount, getDayjs, isSame, DayjsPicker } from './util/commonUtil';
 import '@testing-library/jest-dom';
 
 Enzyme.configure({ adapter: new Adapter() });
@@ -666,7 +666,11 @@ describe('Picker.Basic', () => {
 
     it('inputRender', () => {
         const wrapper = mount(
-            <DayjsPicker inputRender={(props) => <input {...props} />} />
+            <DayjsPicker
+                inputRender={(
+                    props: React.InputHTMLAttributes<HTMLInputElement>
+                ) => <input {...props} />}
+            />
         );
 
         expect(wrapper.find('.picker-input').render()).toMatchSnapshot();
@@ -877,7 +881,7 @@ describe('Picker.Basic', () => {
         const wrapper = mount(
             <DayjsPicker
                 open
-                dateRender={(date) => date.format('YYYY-MM-DD')}
+                dateRender={(date: dayjs.Dayjs) => date.format('YYYY-MM-DD')}
             />
         );
         expect(wrapper.find('tbody td').last().text()).toEqual('1990-10-06');
@@ -1187,7 +1191,10 @@ describe('Picker.Basic', () => {
 
     it('disabledDate should not crash', () => {
         const wrapper = mount(
-            <DayjsPicker open disabledDate={(d) => d.isAfter(Date.now())} />
+            <DayjsPicker
+                open
+                disabledDate={(date: dayjs.Dayjs) => date.isAfter(Date.now())}
+            />
         );
         wrapper.find('input').simulate('change', {
             target: { value: dayjs().add(1, 'year').format('YYYY-MM-DD') },

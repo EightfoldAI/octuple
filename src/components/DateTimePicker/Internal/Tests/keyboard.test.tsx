@@ -12,7 +12,8 @@ import {
     DayjsPickerPartial,
     Wrapper,
     DayjsRangePicker,
-} from './Util/commonUtil';
+} from './util/commonUtil';
+import dayjs from 'dayjs';
 import '@testing-library/jest-dom';
 
 Enzyme.configure({ adapter: new Adapter() });
@@ -693,7 +694,7 @@ describe('Picker.Keyboard', () => {
                     showTime
                     onSelect={onSelect}
                     onChange={onChange}
-                    disabledDate={(date) => date.date() % 2 === 0}
+                    disabledDate={(date: dayjs.Dayjs) => date.date() % 2 === 0}
                 />
             );
             wrapper.find('input').simulate('focus');
@@ -730,7 +731,7 @@ describe('Picker.Keyboard', () => {
                 <DayjsPickerPartial
                     onSelect={onSelect}
                     onChange={onChange}
-                    disabledDate={(date) => date.date() % 2 === 0}
+                    disabledDate={(date: dayjs.Dayjs) => date.date() % 2 === 0}
                 />
             );
 

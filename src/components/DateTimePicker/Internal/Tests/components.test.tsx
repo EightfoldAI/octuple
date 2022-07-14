@@ -8,7 +8,7 @@ import {
     DayjsRangePicker,
     DayjsPicker,
     DayjsPickerPartial,
-} from './Util/commonUtil';
+} from './util/commonUtil';
 import '@testing-library/jest-dom';
 
 Enzyme.configure({ adapter: new Adapter() });

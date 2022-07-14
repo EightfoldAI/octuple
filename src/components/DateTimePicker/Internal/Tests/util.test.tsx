@@ -2,7 +2,7 @@ import dayjsGenerateConfig from '../Generate/dayjs';
 import { getLowerBoundTime, setTime, getLastDay } from '../Utils/timeUtil';
 import { toArray } from '../Utils/miscUtil';
 import { isSameTime, isSameDecade } from '../Utils/dateUtil';
-import { getDayjs } from './Util/commonUtil';
+import { getDayjs } from './util/commonUtil';
 
 describe('Picker.Util', () => {
     it('toArray', () => {
