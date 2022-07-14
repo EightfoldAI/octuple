@@ -25,6 +25,7 @@ export enum TextInputWidth {
 export enum TextInputShape {
     Rectangle = 'rectangle',
     Pill = 'pill',
+    Underline = 'underline',
 }
 
 export interface InputIconProps extends Omit<IconProps, 'path'> {

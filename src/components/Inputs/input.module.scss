@@ -156,6 +156,15 @@
             }
         }
 
+        &.underline {
+            border: none;
+            border-radius: 0;
+
+            &:focus {
+                outline: none;
+            }
+        }
+
         &.input-size-1 {
             font-size: $text-font-size-4;
             height: 44px;
@@ -275,6 +284,45 @@
 
         &.input-stretch {
             width: 100%;
+        }
+    }
+
+    &.underline {
+        &:before {
+            border-bottom: 1px solid var(--border-color);
+            left: 0px;
+            bottom: 0px;
+            content: '';
+            position: absolute;
+            right: 0px;
+            transition: border-bottom-color $motion-duration-extra-fast
+                $motion-easing-easeinout;
+            pointer-events: none;
+        }
+
+        &:after {
+            border-bottom: 1px solid var(--primary-color-60);
+            left: 0px;
+            bottom: 0px;
+            content: '';
+            position: absolute;
+            right: 0px;
+            transform: scaleX(0);
+            transition: transform $motion-duration-extra-fast
+                $motion-easing-easeinout;
+            pointer-events: none;
+        }
+
+        &:hover {
+            &:before {
+                border-color: var(--grey-color-60);
+            }
+        }
+
+        &:focus-within {
+            &:after {
+                transform: scaleX(1) translateX(0px);
+            }
         }
     }
 
@@ -404,9 +452,11 @@
         }
 
         &:focus {
-            outline: $focus-visible-outline-width $focus-visible-outline-style
+            outline: 1px $focus-visible-outline-style
                 $focus-visible-outline-color;
-            outline-offset: $focus-visible-outline-offset-inner;
+            outline-offset: -1px;
+            transition: outline $motion-duration-extra-fast
+                $motion-easing-easeinout;
         }
 
         &:hover {

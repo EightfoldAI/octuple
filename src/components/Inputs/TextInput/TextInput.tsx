@@ -98,21 +98,26 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
             { [styles.inputSize3]: size === TextInputSize.Small },
             {
                 [styles.withIcon]:
-                    !!iconProps?.path && shape === TextInputShape.Rectangle,
+                    (!!iconProps?.path && shape === TextInputShape.Rectangle) ||
+                    shape === TextInputShape.Underline,
             },
             {
                 [styles.withImageIcon]:
-                    !!iconProps?.imageSrc && shape === TextInputShape.Rectangle,
+                    (!!iconProps?.imageSrc &&
+                        shape === TextInputShape.Rectangle) ||
+                    shape === TextInputShape.Underline,
             },
             {
                 [styles.withIconButton]:
-                    !!iconButtonProps && shape === TextInputShape.Rectangle,
+                    (!!iconButtonProps && shape === TextInputShape.Rectangle) ||
+                    shape === TextInputShape.Underline,
             },
             {
                 [styles.withIconAndIconButton]:
-                    !!iconProps &&
-                    !!iconButtonProps &&
-                    shape === TextInputShape.Rectangle,
+                    (!!iconProps &&
+                        !!iconButtonProps &&
+                        shape === TextInputShape.Rectangle) ||
+                    shape === TextInputShape.Underline,
             },
             { [styles.pillShape]: shape === TextInputShape.Pill },
             {
@@ -134,6 +139,9 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
                     shape === TextInputShape.Pill,
             },
             {
+                [styles.underline]: shape === TextInputShape.Underline,
+            },
+            {
                 [styles.dark]: theme === TextInputTheme.dark,
             },
             {
@@ -143,6 +151,9 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
 
         const textInputWrapperClassNames: string = mergeClasses([
             styles.inputWrapper,
+            {
+                [styles.underline]: shape === TextInputShape.Underline,
+            },
             {
                 [styles.inputSize3]:
                     size === TextInputSize.Flex && largeScreenActive,
