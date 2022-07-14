@@ -1,0 +1,21 @@
+@import './mixins';
+
+.picker {
+    &-status-error {
+        input {
+            @include placeholder(var(--disruptive-color-80));
+        }
+
+        border-color: var(--disruptive-color-80);
+        color: var(--disruptive-color-80);
+    }
+
+    &-status-warning {
+        input {
+            @include placeholder(var(--warning-color));
+        }
+
+        border-color: var(--warning-color);
+        color: var(--warning-color);
+    }
+}

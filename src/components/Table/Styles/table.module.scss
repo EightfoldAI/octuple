@@ -343,7 +343,7 @@
             position: relative;
             display: flex;
             align-items: center;
-            margin: -4px (-$table-padding-horizontal / 2) -4px 4px;
+            margin: -4px calc(-#{$table-padding-horizontal} / 2) -4px 4px;
             padding: 0 4px;
             color: $table-header-icon-color;
             font-size: $table-font-size-sm;
@@ -509,7 +509,7 @@
                 cursor: pointer;
                 transition: all 0.3s;
                 margin-inline-start: 100%;
-                padding-inline-start: ($table-padding-horizontal / 4);
+                padding-inline-start: calc(#{$table-padding-horizontal} / 4);
 
                 .icon {
                     color: $table-header-icon-color;
@@ -554,7 +554,7 @@
             border: 2px $table-border-style var(--grey-color-70);
             border-radius: 4px;
             outline: none;
-            transform: scale((unit(22) / unit(18)));
+            transform: scale(unit(22) / unit(18));
             transition: all 0.3s;
             user-select: none;
 
@@ -607,8 +607,8 @@
             }
 
             .table-row-indent + & {
-                margin-top: ((14 * 20 - 2 * 3) / 2) -
-                    ceil(((14 * 1.4 - 2 * 3) / 2));
+                margin-top: calc((14 * 20 - 2 * 3) / 2) -
+                    ceil(calc((14 * 1.4 - 2 * 3) / 2));
                 margin-right: $space-s;
             }
         }

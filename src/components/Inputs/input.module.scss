@@ -13,27 +13,26 @@
         font-size: $text-font-size-3;
         line-height: $text-line-height-1;
         min-width: 320px;
-        padding: $space-xs calc(#{$space-xxl} + 4px) $space-xs $space-xs;
+        padding: $space-xs $space-xl $space-xs $space-m;
 
         &::-webkit-search-cancel-button {
             -webkit-appearance: none;
         }
 
         &.with-icon {
-            padding: $space-xs calc(#{$space-xxl} + 4px) $space-xs $space-xl;
+            padding: $space-xs $space-xl $space-xs $space-xxl;
         }
 
         &.with-image-icon {
-            padding: $space-xs calc(#{$space-xxl} + 4px) $space-xs
-                calc(#{$space-xxl} + 4px);
+            padding: $space-xs $space-xl $space-xs $space-xxl;
         }
 
         &.with-icon-button {
-            padding-left: $space-xl;
+            padding: $space-xs $space-xl $space-xs $space-xl;
         }
 
         &.with-icon-and-icon-button {
-            padding-left: $space-xxxl;
+            padding: $space-xs $space-xxl $space-xs 74px;
         }
 
         &:hover {
@@ -78,6 +77,8 @@
 
         &:focus {
             color: var(--text-primary-color);
+            outline: 2px solid var(--primary-color-40);
+            outline-offset: -2px;
         }
 
         &:disabled {
@@ -111,19 +112,19 @@
         }
 
         &.pill-shape-with-icon {
-            padding: $space-xs $space-s $space-xs $space-xl;
+            padding: $space-xs $space-xl $space-xs $space-xxl;
         }
 
         &.pill-shape-with-image-icon {
-            padding: $space-xs $space-s $space-xs calc(#{$space-xxl} + 4px);
+            padding: $space-xs $space-xl $space-xs $space-xxl;
         }
 
         &.pill-shape-with-icon-button {
-            padding: $space-xs $space-s $space-xs $space-xl;
+            padding: $space-xs $space-xl $space-xs $space-xl;
         }
 
         &.pill-shape-with-icon-and-icon-button {
-            padding: $space-xs $space-s $space-xs $space-xxxl;
+            padding: $space-xs $space-xl $space-xs 74px;
         }
 
         &.pill-shape-with-icon-button ~ .icon-button {
@@ -152,6 +153,123 @@
             &.right-icon {
                 border-bottom-right-radius: inherit;
                 border-top-right-radius: inherit;
+            }
+        }
+
+        &.input-size-1 {
+            font-size: $text-font-size-4;
+            height: 44px;
+            line-height: $text-line-height-5;
+            padding: $space-xs $space-xxl $space-xs $space-m;
+
+            &.with-icon {
+                padding: $space-xs $space-xxl $space-xs 48px;
+            }
+
+            &.with-image-icon {
+                padding: $space-xs $space-xxl $space-xs 48px;
+            }
+
+            &.with-icon-button {
+                padding: $space-xs $space-xxl $space-xs 48px;
+            }
+
+            &.with-icon-and-icon-button {
+                padding: $space-xs $space-xxl $space-xs 84px;
+            }
+
+            &.pill-shape-with-icon {
+                padding: $space-xs $space-xxl $space-xs 48px;
+            }
+
+            &.pill-shape-with-image-icon {
+                padding: $space-xs $space-xxl $space-xs 48px;
+            }
+
+            &.pill-shape-with-icon-button {
+                padding: $space-xs $space-xxl $space-xs 48px;
+            }
+
+            &.pill-shape-with-icon-and-icon-button {
+                padding: $space-xs $space-xxl $space-xs 84px;
+            }
+        }
+
+        &.input-size-2 {
+            font-size: $text-font-size-3;
+            height: 36px;
+            line-height: $text-line-height-4;
+            padding: $space-xs $space-xl $space-xs $space-m;
+
+            &.with-icon {
+                padding: $space-xs $space-xl $space-xs $space-xxl;
+            }
+
+            &.with-image-icon {
+                padding: $space-xs $space-xl $space-xs $space-xxl;
+            }
+
+            &.with-icon-button {
+                padding: $space-xs $space-xl $space-xs $space-xl;
+            }
+
+            &.with-icon-and-icon-button {
+                padding: $space-xs $space-xxl $space-xs 74px;
+            }
+
+            &.pill-shape-with-icon {
+                padding: $space-xs $space-xl $space-xs $space-xxl;
+            }
+
+            &.pill-shape-with-image-icon {
+                padding: $space-xs $space-xl $space-xs $space-xxl;
+            }
+
+            &.pill-shape-with-icon-button {
+                padding: $space-xs $space-xl $space-xs $space-xl;
+            }
+
+            &.pill-shape-with-icon-and-icon-button {
+                padding: $space-xs $space-xl $space-xs 74px;
+            }
+        }
+
+        &.input-size-3 {
+            font-size: $text-font-size-2;
+            height: 28px;
+            line-height: $text-line-height-3;
+            padding: $space-xs $space-l $space-xs $space-s;
+
+            &.with-icon {
+                padding: $space-xs calc(#{$space-l} + 4px) $space-xs $space-xl;
+            }
+
+            &.with-image-icon {
+                padding: $space-xs calc(#{$space-l} + 4px) $space-xs $space-xl;
+            }
+
+            &.with-icon-button {
+                padding: $space-xs calc(#{$space-l} + 4px) $space-xs $space-xl;
+            }
+
+            &.with-icon-and-icon-button {
+                padding: $space-xs calc(#{$space-l} + 4px) $space-xs 60px;
+            }
+
+            &.pill-shape-with-icon {
+                padding: $space-xs calc(#{$space-l} + 4px) $space-xs $space-xl;
+            }
+
+            &.pill-shape-with-image-icon {
+                padding: $space-xs calc(#{$space-l} + 4px) $space-xs $space-xl;
+            }
+
+            &.pill-shape-with-icon-button {
+                padding: $space-xs $space-xl $space-xs $space-xl;
+            }
+
+            &.pill-shape-with-icon-and-icon-button {
+                padding: $space-xs 28px $space-xs 60px;
             }
         }
 
@@ -212,8 +330,7 @@
             color: var(--grey-color-60);
         }
 
-        &:active,
-        &:focus {
+        &:active {
             background-color: var(--background-color);
             padding: $button-padding-vertical-small $space-xxs;
 
@@ -231,11 +348,6 @@
                 color: var(--grey-color-80);
             }
         }
-
-        &:focus {
-            outline: 2px solid var(--primary-color-40);
-            outline-offset: -2px;
-        }
     }
 
     .clear-icon-button {
@@ -248,21 +360,11 @@
         transition: none;
         width: 35px;
 
+        &:active,
         &:hover {
             background-color: transparent;
             color: var(--grey-color-80);
             outline-color: transparent;
-
-            svg {
-                color: var(--grey-color-80);
-            }
-        }
-
-        &:active,
-        &:focus {
-            background-color: transparent;
-            outline: 2px solid var(--primary-color-40);
-            outline-offset: -2px;
 
             svg {
                 color: var(--grey-color-80);
@@ -288,7 +390,8 @@
         color: var(--grey-color-60);
         font-family: 'Source Sans Pro', sans-serif;
         font-size: $text-font-size-3;
-        min-height: 64px;
+        line-height: $text-line-height-4;
+        min-height: calc($text-line-height-4 + 2px + $space-xs * 2);
         min-width: 320px;
         padding: $space-xs;
 
@@ -301,8 +404,13 @@
         }
 
         &:focus {
-            outline: 2px solid var(--primary-color-40);
-            outline-offset: -2px;
+            outline: $focus-visible-outline-width $focus-visible-outline-style
+                $focus-visible-outline-color;
+            outline-offset: $focus-visible-outline-offset-inner;
+        }
+
+        &:hover {
+            border-color: var(--grey-color-60);
         }
 
         &.input-stretch {
@@ -314,6 +422,180 @@
         position: absolute;
         bottom: 8px;
         right: 4px;
+    }
+
+    &.input-size-1 {
+        .icon-wrapper {
+            bottom: 2px;
+            height: 40px;
+            width: 40px;
+
+            &.left-icon {
+                left: 8px;
+            }
+
+            &.right-icon {
+                right: 8px;
+            }
+
+            span {
+                height: 40px;
+            }
+        }
+
+        .icon-button {
+            bottom: 2px;
+            height: 40px;
+
+            &.left-icon {
+                left: 8px;
+            }
+
+            &.right-icon {
+                right: 8px;
+            }
+        }
+
+        .clear-icon-button {
+            bottom: 2px;
+            height: 40px;
+            padding: 12px;
+            right: 2px;
+            width: 40px;
+        }
+
+        .icon-wrapper:not(:empty) + .icon-button {
+            &.left-icon {
+                left: calc($space-xxl + 4px);
+            }
+
+            &.right-icon {
+                right: calc($space-xxl + 4px);
+            }
+        }
+
+        .text-area {
+            font-size: $text-font-size-4;
+            line-height: $text-line-height-5;
+            min-height: calc($text-line-height-5 + 2px + $space-xs * 2);
+        }
+    }
+
+    &.input-size-2 {
+        .icon-wrapper {
+            bottom: 0;
+            height: 36px;
+            width: 36px;
+
+            &.left-icon {
+                left: 8px;
+            }
+
+            &.right-icon {
+                right: 8px;
+            }
+
+            span {
+                height: 36px;
+            }
+        }
+
+        .icon-button {
+            bottom: 1px;
+            height: 34px;
+            padding: $button-padding-vertical-small $space-xxs;
+
+            &.left-icon {
+                left: 4px;
+            }
+
+            &.right-icon {
+                right: 4px;
+            }
+        }
+
+        .clear-icon-button {
+            bottom: 1px;
+            height: 35px;
+            padding: 6px 10px;
+            right: 1px;
+            width: 35px;
+        }
+
+        .icon-wrapper:not(:empty) + .icon-button {
+            &.left-icon {
+                left: $space-xxl;
+            }
+
+            &.right-icon {
+                right: $space-xxl;
+            }
+        }
+
+        .text-area {
+            font-size: $text-font-size-3;
+            line-height: $text-line-height-4;
+            min-height: calc($text-line-height-4 + 2px + $space-xs * 2);
+        }
+    }
+
+    &.input-size-3 {
+        .icon-wrapper {
+            bottom: 2px;
+            height: 24px;
+            width: 24px;
+
+            &.left-icon {
+                left: 4px;
+            }
+
+            &.right-icon {
+                right: 4px;
+            }
+
+            span {
+                height: 24px;
+                padding: 4px;
+            }
+        }
+
+        .icon-button {
+            bottom: 2px;
+            height: 24px;
+            padding: 4px;
+
+            &.left-icon {
+                left: 2px;
+            }
+
+            &.right-icon {
+                right: 2px;
+            }
+        }
+
+        .clear-icon-button {
+            bottom: 2px;
+            height: 24px;
+            padding: 4px;
+            right: 2px;
+            width: 24px;
+        }
+
+        .icon-wrapper:not(:empty) + .icon-button {
+            &.left-icon {
+                left: $space-xl;
+            }
+
+            &.right-icon {
+                right: $space-xl;
+            }
+        }
+
+        .text-area {
+            font-size: $text-font-size-2;
+            line-height: $text-line-height-3;
+            min-height: calc($text-line-height-3 + 2px + $space-xs * 2);
+        }
     }
 
     &.input-stretch {
@@ -333,15 +615,28 @@
 
         .icon-button {
             &:focus-visible {
-                outline-width: $focus-visible-outline-width;
+                background-color: var(--background-color);
+                outline: $focus-visible-outline-width solid
+                    var(--primary-color-40);
                 outline-offset: $focus-visible-outline-offset-inner;
+                padding: $button-padding-vertical-small $space-xxs;
+
+                svg {
+                    color: var(--grey-color-60);
+                }
             }
         }
 
         .clear-icon-button {
             &:focus-visible {
-                outline-width: $focus-visible-outline-width;
+                background-color: transparent;
+                outline: $focus-visible-outline-width solid
+                    var(--primary-color-40);
                 outline-offset: $focus-visible-outline-offset-inner;
+
+                svg {
+                    color: var(--grey-color-80);
+                }
             }
         }
 

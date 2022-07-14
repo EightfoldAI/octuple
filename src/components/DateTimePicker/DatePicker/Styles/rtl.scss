@@ -1,0 +1,232 @@
+@import './mixins';
+@import './partial';
+
+.picker {
+    &-rtl {
+        direction: rtl;
+    }
+
+    &-suffix {
+        .picker-rtl {
+            margin-right: ($space-xs / 2);
+            margin-left: 0;
+        }
+    }
+
+    &-clear {
+        .picker-rtl {
+            right: auto;
+            left: 0;
+        }
+    }
+
+    &-separator {
+        .picker-rtl {
+            transform: rotate(180deg);
+        }
+    }
+
+    &-header {
+        &-view {
+            button {
+                &:not(:first-child) {
+                    .picker-partial-rtl {
+                        margin-right: $space-xs;
+                        margin-left: 0;
+                    }
+                }
+            }
+        }
+    }
+
+    &-range {
+        .picker-clear {
+            .picker-rtl {
+                right: auto;
+                left: $picker-input-padding-horizontal-l;
+            }
+        }
+
+        .picker-active-bar {
+            .picker-rtl {
+                margin-right: $picker-input-padding-horizontal-l;
+                margin-left: 0;
+            }
+        }
+
+        &.picker-small {
+            .picker-active-bar {
+                .picker-rtl {
+                    margin-right: $picker-input-padding-horizontal-s;
+                }
+            }
+        }
+    }
+
+    &-ranges {
+        .picker-dropdown-rtl {
+            text-align: right;
+        }
+
+        .picker-ok {
+            .picker-dropdown-rtl {
+                float: left;
+                margin-right: $space-xs;
+                margin-left: 0;
+            }
+        }
+    }
+
+    &-partial {
+        &-rtl {
+            direction: rtl;
+        }
+    }
+
+    @mixin picker-cell-inner() {
+        position: relative;
+        z-index: 2;
+        display: inline-block;
+        min-width: $picker-partial-cell-height;
+        height: $picker-partial-cell-height;
+        line-height: $picker-partial-cell-height;
+        border-radius: $picker-border-radius;
+        transition: background $motion-duration-fast,
+            border $motion-duration-fast;
+
+        &-in-view.picker-cell-range-start:before {
+            .picker-partial-rtl {
+                right: 50%;
+                left: 0;
+            }
+        }
+
+        &-in-view.picker-cell-range-end:before {
+            .picker-partial-rtl {
+                right: 0;
+                left: 50%;
+            }
+        }
+
+        &-in-view.picker-cell-range-start.picker-cell-range-end:before {
+            .picker-partial-rtl {
+                right: 50%;
+                left: 50%;
+            }
+        }
+
+        .picker-date-partial.picker-cell-in-view.picker-cell-in-range.picker-cell-range-hover-start
+            &:after {
+            .picker-partial-rtl {
+                right: 0;
+                left: -5px - $picker-border-width;
+            }
+        }
+
+        .picker-date-partial.picker-cell-in-view.picker-cell-in-range.picker-cell-range-hover-end
+            &:after {
+            .picker-partial-rtl {
+                right: -5px - $picker-border-width;
+                left: 0;
+            }
+        }
+
+        &-range-hover.picker-cell-range-start:after {
+            .picker-partial-rtl {
+                right: 0;
+                left: 50%;
+            }
+        }
+
+        &-range-hover.picker-cell-range-end:after {
+            .picker-partial-rtl {
+                right: 50%;
+                left: 0;
+            }
+        }
+
+        // range start border-radius
+        &-in-view.picker-cell-range-start:not(&-range-start-single):not(&-range-end) {
+            .picker-partial-rtl {
+                border-radius: 0 $picker-border-radius $picker-border-radius 0;
+            }
+        }
+
+        // range end border-radius
+        &-in-view.picker-cell-range-end:not(&-range-end-single):not(&-range-start) {
+            .picker-partial-rtl {
+                border-radius: $picker-border-radius 0 0 $picker-border-radius;
+            }
+        }
+
+        // Edge start
+        tr
+            > &-in-view.picker-cell-range-hover:not(&-selected):first-child:after,
+        &-in-view.picker-cell-start.picker-cell-range-hover-edge-start.picker-cell-range-hover-edge-start-near-range:after,
+        &-in-view.picker-cell-range-hover-edge-start:not(&-range-hover-edge-start-near-range):after,
+        &-in-view.picker-cell-range-hover-start:after {
+            .picker-partial-rtl {
+                right: 6px;
+                left: 0;
+                border-right: $picker-border-width dashed
+                    $picker-date-hover-range-border-color;
+                border-left: none;
+                border-radius: 0 $picker-border-radius $picker-border-radius 0;
+            }
+        }
+
+        // Edge end
+        tr > &-in-view.picker-cell-range-hover:not(&-selected):last-child:after,
+        &-in-view.picker-cell-end.picker-cell-range-hover-edge-end.picker-cell-range-hover-edge-end-near-range:after,
+        &-in-view.picker-cell-range-hover-edge-end:not(&-range-hover-edge-end-near-range):after,
+        &-in-view.picker-cell-range-hover-end:after {
+            .picker-partial-rtl {
+                right: 0;
+                left: 6px;
+                border-right: none;
+                border-left: $picker-border-width dashed
+                    $picker-date-hover-range-border-color;
+                border-radius: $picker-border-radius 0 0 $picker-border-radius;
+            }
+        }
+
+        tr > &-in-view.picker-cell-range-hover-start:last-child:after,
+        tr > &-in-view.picker-cell-range-hover-end:first-child:after,
+        &-in-view.picker-cell-start.picker-cell-range-hover-edge-start:not(&-range-hover):after,
+        &-in-view.picker-cell-start.picker-cell-range-hover-end.picker-cell-range-hover-edge-start:not(&-range-hover):after,
+        &-in-view.picker-cell-end.picker-cell-range-hover-start.picker-cell-range-hover-edge-end:not(&-range-hover):after,
+        tr
+            > &-in-view.picker-cell-start.picker-cell-range-hover.picker-cell-range-hover-edge-start:last-child:after,
+        tr
+            > &-in-view.picker-cell-end.picker-cell-range-hover.picker-cell-range-hover-edge-end:first-child:after {
+            .picker-partial-rtl {
+                right: 6px;
+                left: 6px;
+                border-right: $picker-border-width dashed
+                    $picker-date-hover-range-border-color;
+                border-left: $picker-border-width dashed
+                    $picker-date-hover-range-border-color;
+                border-radius: $picker-border-radius;
+            }
+        }
+    }
+
+    &-cell {
+        @include picker-cell-inner();
+    }
+
+    &-footer {
+        &-extra {
+            .picker-dropdown-rtl {
+                direction: rtl;
+                text-align: right;
+            }
+        }
+    }
+
+    &-time-partial {
+        .picker-partial-rtl {
+            direction: ltr;
+        }
+    }
+}
