@@ -1,4 +1,4 @@
-import type { GenerateConfig } from './generate';
+import type { GenerateConfig } from './generate/index';
 import type { SharedTimeProps } from './Partials/TimePartial/Time.types';
 import type { DateRender } from './Partials/DatePartial/Date.types';
 import type { MonthCellRender } from './Partials/MonthPartial/Month.types';

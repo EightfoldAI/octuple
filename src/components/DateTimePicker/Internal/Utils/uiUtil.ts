@@ -3,7 +3,7 @@ import { eventKeys } from '../../../../shared/utilities';
 import { requestAnimationFrameWrapper } from '../../../../shared/utilities';
 import { isVisible } from '../../../../shared/utilities';
 import { DatePickerProps } from '../../DatePicker';
-import type { GenerateConfig } from '../generate';
+import type { GenerateConfig } from '../generate/index';
 import type {
     CustomFormat,
     PartialMode,

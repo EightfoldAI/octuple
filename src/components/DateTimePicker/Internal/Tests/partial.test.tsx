@@ -418,7 +418,7 @@ describe('Picker.Partial', () => {
                 <DayjsPickerPartial
                     picker="time"
                     onSelect={onSelect}
-                    disabledDate={(date) => date.hour() === 0}
+                    disabledDate={(date: dayjs.Dayjs) => date.hour() === 0}
                 />
             );
 
@@ -437,7 +437,7 @@ describe('Picker.Partial', () => {
                 <DayjsPickerPartial
                     picker="month"
                     onSelect={onSelect}
-                    disabledDate={(date) => date.month() === 0}
+                    disabledDate={(date: dayjs.Dayjs) => date.month() === 0}
                 />
             );
 
@@ -454,7 +454,7 @@ describe('Picker.Partial', () => {
                 <DayjsPickerPartial
                     picker="year"
                     onSelect={onSelect}
-                    disabledDate={(date) => date.year() === 1990}
+                    disabledDate={(date: dayjs.Dayjs) => date.year() === 1990}
                 />
             );
 
@@ -472,7 +472,9 @@ describe('Picker.Partial', () => {
                     <DayjsPickerPartial
                         mode="decade"
                         onPartialChange={onPartialChange}
-                        disabledDate={(date) => date.year() === 1900}
+                        disabledDate={(date: dayjs.Dayjs) =>
+                            date.year() === 1900
+                        }
                     />
                 );
 
@@ -600,7 +602,7 @@ describe('Picker.Partial', () => {
         const wrapper = mount(
             <DayjsPickerPartial
                 picker="month"
-                monthCellRender={(date) => date.format('YYYY-MM')}
+                monthCellRender={(date: dayjs.Dayjs) => date.format('YYYY-MM')}
             />
         );
 
