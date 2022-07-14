@@ -728,6 +728,10 @@
                 border-radius: $picker-cell-border-radius-m;
                 color: $picker-cell-foreground-color-active;
             }
+
+            &-disabled {
+                opacity: $disabled-alpha-value;
+            }
         }
 
         &-column {
