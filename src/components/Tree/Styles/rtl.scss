@@ -38,7 +38,7 @@
                 &:before {
                     .tree-rtl {
                         right: auto;
-                        left: calc($tree-title-height / 2) - 1px * -1px;
+                        left: -calc($tree-title-height / 2) - 1px;
                         border-right: none;
                         border-left: 1px solid $tree-border-color;
                     }
