@@ -22,6 +22,13 @@ import { CheckBox, CheckBoxGroup } from './components/CheckBox';
 
 import { ConfigProvider } from './components/ConfigProvider';
 
+import DatePicker from './components/DateTimePicker/DatePicker';
+
+import {
+    DatePickerProps,
+    RangePickerProps,
+} from './components/DateTimePicker/DatePicker';
+
 import { Dialog, DialogSize } from './components/Dialog';
 
 import { Dropdown } from './components/Dropdown';
@@ -70,6 +77,8 @@ import { Spinner, SpinnerSize } from './components/Spinner';
 import { Stack } from './components/Stack';
 
 import { Tabs, Tab, TabVariant } from './components/Tabs';
+
+import TimePicker from './components/DateTimePicker/TimePicker/TimePicker';
 
 import { Tooltip, TooltipTheme } from './components/Tooltip';
 
@@ -120,6 +129,8 @@ export {
     ColumnType,
     ColumnsType,
     ConfigProvider,
+    DatePicker,
+    DatePickerProps,
     DefaultButton,
     Dialog,
     DialogSize,
@@ -162,6 +173,7 @@ export {
     PrimaryButton,
     RadioButton,
     RadioGroup,
+    RangePickerProps,
     ResizeObserver,
     Select,
     SearchBox,
@@ -186,6 +198,7 @@ export {
     TextInputShape,
     TextInputTheme,
     TextInputWidth,
+    TimePicker,
     Tooltip,
     TooltipTheme,
     TwoStateButton,
