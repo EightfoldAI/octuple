@@ -8,7 +8,7 @@ import { eventKeys } from '../../../../shared/utilities';
 import dayjs from 'dayjs';
 import type { Dayjs } from 'dayjs';
 import type { PartialMode, OcPickerMode } from '../OcPicker.types';
-import { mount, getDayjs, isSame, DayjsPicker } from './util/commonUtil';
+import { mount, getDayjs, isSame, DayjsPicker } from './Util/commonUtil';
 import '@testing-library/jest-dom';
 
 Enzyme.configure({ adapter: new Adapter() });

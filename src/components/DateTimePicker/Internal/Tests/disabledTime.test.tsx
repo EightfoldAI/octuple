@@ -1,14 +1,7 @@
 import React from 'react';
 import Enzyme from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
-import type { Dayjs } from 'dayjs';
-import {
-    mount,
-    getDayjs,
-    isSame,
-    DayjsPicker,
-    DayjsRangePicker,
-} from './util/commonUtil';
+import { mount, DayjsPicker, DayjsRangePicker } from './Util/commonUtil';
 
 Enzyme.configure({ adapter: new Adapter() });
 

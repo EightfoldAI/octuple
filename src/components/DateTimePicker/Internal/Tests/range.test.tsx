@@ -7,8 +7,8 @@ import { eventKeys } from '../../../../shared/utilities';
 import { spyElementPrototypes } from '../../../../tests/domHook';
 import type { Dayjs } from 'dayjs';
 import dayjs from 'dayjs';
-import type { Wrapper } from './util/commonUtil';
-import { mount, getDayjs, isSame, DayjsRangePicker } from './util/commonUtil';
+import type { Wrapper } from './Util/commonUtil';
+import { mount, getDayjs, isSame, DayjsRangePicker } from './Util/commonUtil';
 import enUS from '../Locale/en_US';
 import type { OcPickerMode } from '../OcPicker.types';
 
