@@ -1,7 +1,12 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import { Stories } from '@storybook/addon-docs';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { TextArea, TextInputTheme, TextInputWidth } from '../index';
+import {
+    TextArea,
+    TextInputSize,
+    TextInputTheme,
+    TextInputWidth,
+} from '../index';
 
 export default {
     title: 'Input',
@@ -21,6 +26,19 @@ export default {
                             <h2>Best practices</h2>
                             <h3>Layout</h3>
                             <ul>
+                                <li>
+                                    There are four text area sizes that may be
+                                    specified via the <b>size</b> prop and the{' '}
+                                    <b>TextInputSize</b>:{' '}
+                                    <b>TextInputSize.Flex</b>,{' '}
+                                    <b>TextInputSize.Large</b>,{' '}
+                                    <b>TextInputSize.Medium</b>,{' '}
+                                    <b>TextInputSize.Small</b>.{' '}
+                                    <b>TextInputSize.Flex</b> is the default and
+                                    resizes the text area automatically with the
+                                    viewport. To prevent this responsive
+                                    behavior, give the text area a size.
+                                </li>
                                 <li>
                                     Use a single line text input component when
                                     short entries are expected.
@@ -64,6 +82,15 @@ export default {
             options: [TextInputWidth.fitContent, TextInputWidth.fill],
             control: { type: 'inline-radio' },
         },
+        size: {
+            options: [
+                TextInputSize.Flex,
+                TextInputSize.Large,
+                TextInputSize.Medium,
+                TextInputSize.Small,
+            ],
+            control: { type: 'radio' },
+        },
         theme: {
             options: ['light', 'dark'],
             control: { type: 'inline-radio' },
@@ -76,7 +103,13 @@ export default {
 
 const Text_Area_Story: ComponentStory<typeof TextArea> = (args) => {
     const [val, setVal] = useState(args.value);
-    return <TextArea {...args} value={val} onChange={(e) => setVal(e.target.value)} />
+    return (
+        <TextArea
+            {...args}
+            value={val}
+            onChange={(e) => setVal(e.target.value)}
+        />
+    );
 };
 
 export const Text_Area = Text_Area_Story.bind({});
@@ -103,6 +136,7 @@ Text_Area.args = {
     name: 'myTextArea',
     placeholder: 'Placeholder text',
     required: false,
+    size: TextInputSize.Flex,
     style: {},
     textAreaCols: 50,
     textAreaRows: 5,

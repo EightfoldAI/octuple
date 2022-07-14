@@ -7,12 +7,12 @@
 $slider-height: 28px;
 $label-height: 20px;
 $track-height: 6px;
-$vertical-center: $slider-height / 2;
-$rail-top: $vertical-center - ($track-height / 2);
+$vertical-center: calc($slider-height / 2);
+$rail-top: $vertical-center - calc($track-height / 2);
 
 $marker-height: 6px;
 $marker-width: 6px;
-$marker-top: $vertical-center - ($marker-height / 2);
+$marker-top: $vertical-center - calc($marker-height / 2);
 
 // Export these values for typescript consumption.
 :export {
@@ -60,7 +60,7 @@ $marker-top: $vertical-center - ($marker-height / 2);
         width: $marker-width;
         position: absolute;
         top: $marker-top;
-        margin-left: calc(($marker-height / 2) * -1);
+        margin-left: calc(calc($marker-height / 2) * -1);
         background-color: var(--slider-default-marker-background);
         border: 1px solid var(--slider-default-rail-border-color);
 
