@@ -38,7 +38,7 @@
                 &:before {
                     .tree-rtl {
                         right: auto;
-                        left: -($tree-title-height / 2) - 1px;
+                        left: calc($tree-title-height / 2) - 1px * -1px;
                         border-right: none;
                         border-left: 1px solid $tree-border-color;
                     }
@@ -49,7 +49,7 @@
     // >>> Checkbox
     &-checkbox {
         .tree-rtl {
-            margin: calc(($tree-title-height - 22) / 2) 0 0 8px;
+            margin: calc((#{$tree-title-height} - 22) / 2) 0 0 8px;
         }
     }
 }
@@ -58,7 +58,7 @@
     // >>> Checkbox
     &-checkbox {
         .tree-select-dropdown-rtl {
-            margin: calc(($tree-title-height - 22) / 2) 0 0 8px;
+            margin: calc((#{$tree-title-height} - 22) / 2) 0 0 8px;
         }
     }
 }
