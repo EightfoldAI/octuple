@@ -1,0 +1,65 @@
+.trigger-popup {
+    &-mask {
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        background-color: rgb(55, 55, 55);
+        background-color: rgba(55, 55, 55, 0.6);
+        height: 100%;
+        filter: alpha(opacity=50);
+        z-index: 1050;
+
+        &-hidden {
+            display: none;
+        }
+    }
+
+    @mixin fade-effect() {
+        animation-duration: 0.3s;
+        animation-fill-mode: both;
+        animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
+    }
+
+    &-fade-enter,
+    &-fade-appear {
+        opacity: 0;
+        @include fade-effect();
+        animation-play-state: paused;
+    }
+
+    &-fade-leave {
+        @include fade-effect();
+        animation-play-state: paused;
+    }
+
+    &-fade-enter &-fade-enter-active,
+    &-fade-appear &-fade-appear-active {
+        animation-name: triggerMaskFadeIn;
+        animation-play-state: running;
+    }
+
+    &-fade-leave &-fade-leave-active {
+        animation-name: dialogFadeOut;
+        animation-play-state: running;
+    }
+
+    @keyframes triggerMaskFadeIn {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+
+    @keyframes dialogFadeOut {
+        0% {
+            opacity: 1;
+        }
+        100% {
+            opacity: 0;
+        }
+    }
+}

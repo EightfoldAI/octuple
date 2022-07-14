@@ -21,6 +21,8 @@ export const eventKeys = {
     ARROWUP: 'ArrowUp',
     ARROWRIGHT: 'ArrowRight',
     ARROWDOWN: 'ArrowDown',
+    PAGEUP: 'PageUp',
+    PAGEDOWN: 'PageDown',
     F13: 'F13',
     NUMPAD0: '0',
     NUMPADDECIMAL: '.',

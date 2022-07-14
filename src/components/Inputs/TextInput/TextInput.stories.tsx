@@ -5,6 +5,7 @@ import { IconName } from '../../Icon';
 import {
     TextInput,
     TextInputShape,
+    TextInputSize,
     TextInputTheme,
     TextInputWidth,
 } from '../index';
@@ -27,6 +28,19 @@ export default {
                             <h2>Best practices</h2>
                             <h3>Layout</h3>
                             <ul>
+                                <li>
+                                    There are four input sizes that may be
+                                    specified via the <b>size</b> prop and the{' '}
+                                    <b>TextInputSize</b>:{' '}
+                                    <b>TextInputSize.Flex</b>,{' '}
+                                    <b>TextInputSize.Large</b>,{' '}
+                                    <b>TextInputSize.Medium</b>,{' '}
+                                    <b>TextInputSize.Small</b>.{' '}
+                                    <b>TextInputSize.Flex</b> is the default and
+                                    resizes the input automatically with the
+                                    viewport. To prevent this responsive
+                                    behavior, give the input a size.
+                                </li>
                                 <li>
                                     Use a multiline text area component when
                                     long entries are expected.
@@ -96,6 +110,15 @@ export default {
             options: [TextInputShape.Rectangle, TextInputShape.Pill],
             control: { type: 'inline-radio' },
         },
+        size: {
+            options: [
+                TextInputSize.Flex,
+                TextInputSize.Large,
+                TextInputSize.Medium,
+                TextInputSize.Small,
+            ],
+            control: { type: 'radio' },
+        },
         theme: {
             options: ['light', 'dark'],
             control: { type: 'inline-radio' },
@@ -108,7 +131,13 @@ export default {
 
 const Text_Input_Story: ComponentStory<typeof TextInput> = (args) => {
     const [val, setVal] = useState(args.value);
-    return <TextInput {...args} value={val} onChange={(e) => setVal(e.target.value)} />
+    return (
+        <TextInput
+            {...args}
+            value={val}
+            onChange={(e) => setVal(e.target.value)}
+        />
+    );
 };
 
 export const Text_Input = Text_Input_Story.bind({});
@@ -146,6 +175,7 @@ Text_Input.args = {
     placeholder: 'Placeholder text',
     required: false,
     shape: TextInputShape.Rectangle,
+    size: TextInputSize.Flex,
     style: {},
     theme: TextInputTheme.light,
     waitInterval: 10,
