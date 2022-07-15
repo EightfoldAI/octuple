@@ -116,7 +116,11 @@ export default {
             control: { type: 'inline-radio' },
         },
         shape: {
-            options: [TextInputShape.Rectangle, TextInputShape.Pill],
+            options: [
+                TextInputShape.Rectangle,
+                TextInputShape.Pill,
+                TextInputShape.Underline,
+            ],
             control: { type: 'inline-radio' },
         },
         size: {
