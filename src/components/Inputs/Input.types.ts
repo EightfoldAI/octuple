@@ -25,6 +25,7 @@ export enum TextInputWidth {
 export enum TextInputShape {
     Rectangle = 'rectangle',
     Pill = 'pill',
+    Underline = 'underline',
 }
 
 export interface InputIconProps extends Omit<IconProps, 'path'> {
@@ -146,7 +147,7 @@ export interface SearchBoxProps
 export interface TextAreaProps
     extends Omit<
         InputProps<HTMLTextAreaElement>,
-        'clearButtonAriaLabel' | 'iconProps' | 'iconButtonProps' | 'shape'
+        'clearButtonAriaLabel' | 'iconProps' | 'iconButtonProps'
     > {
     /**
      * The text area is expandable.
