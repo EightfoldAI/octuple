@@ -147,7 +147,7 @@ export interface SearchBoxProps
 export interface TextAreaProps
     extends Omit<
         InputProps<HTMLTextAreaElement>,
-        'clearButtonAriaLabel' | 'iconProps' | 'iconButtonProps' | 'shape'
+        'clearButtonAriaLabel' | 'iconProps' | 'iconButtonProps'
     > {
     /**
      * The text area is expandable.

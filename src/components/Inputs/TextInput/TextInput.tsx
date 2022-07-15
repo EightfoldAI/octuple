@@ -176,6 +176,9 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
             {
                 [styles.inputStretch]: inputWidth === TextInputWidth.fill,
             },
+            {
+                [styles.disabled]: allowDisabledFocus || disabled,
+            },
         ]);
 
         useEffect(() => {

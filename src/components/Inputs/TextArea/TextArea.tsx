@@ -3,6 +3,7 @@ import { Icon, IconName } from '../../Icon';
 import { Label, LabelSize } from '../../Label';
 import {
     TextAreaProps,
+    TextInputShape,
     TextInputSize,
     TextInputTheme,
     TextInputWidth,
@@ -34,6 +35,7 @@ export const TextArea: FC<TextAreaProps> = React.forwardRef(
             onKeyDown,
             placeholder,
             required = false,
+            shape = TextInputShape.Rectangle,
             size = TextInputSize.Flex,
             style,
             textAreaCols = 50,
@@ -57,12 +59,20 @@ export const TextArea: FC<TextAreaProps> = React.forwardRef(
             classNames,
             styles.textArea,
             { [styles.textAreaNoExpand]: !enableExpand },
+            { [styles.pillShape]: shape === TextInputShape.Pill },
+            {
+                [styles.underline]: shape === TextInputShape.Underline,
+            },
             { [styles.dark]: theme === TextInputTheme.dark },
             { [styles.inputStretch]: inputWidth === TextInputWidth.fill },
         ]);
 
         const textAreaWrapperClassNames: string = mergeClasses([
             styles.inputWrapper,
+            { [styles.pillShape]: shape === TextInputShape.Pill },
+            {
+                [styles.underline]: shape === TextInputShape.Underline,
+            },
             {
                 [styles.inputSize3]:
                     size === TextInputSize.Flex && largeScreenActive,
@@ -84,6 +94,9 @@ export const TextArea: FC<TextAreaProps> = React.forwardRef(
             { [styles.inputSize3]: size === TextInputSize.Small },
             {
                 [styles.inputStretch]: inputWidth === TextInputWidth.fill,
+            },
+            {
+                [styles.disabled]: allowDisabledFocus || disabled,
             },
         ]);
 

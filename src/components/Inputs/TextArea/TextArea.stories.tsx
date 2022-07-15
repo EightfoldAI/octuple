@@ -6,6 +6,7 @@ import {
     TextInputSize,
     TextInputTheme,
     TextInputWidth,
+    TextInputShape,
 } from '../index';
 
 export default {
@@ -80,6 +81,14 @@ export default {
     argTypes: {
         inputWidth: {
             options: [TextInputWidth.fitContent, TextInputWidth.fill],
+            control: { type: 'inline-radio' },
+        },
+        shape: {
+            options: [
+                TextInputShape.Rectangle,
+                TextInputShape.Pill,
+                TextInputShape.Underline,
+            ],
             control: { type: 'inline-radio' },
         },
         size: {
