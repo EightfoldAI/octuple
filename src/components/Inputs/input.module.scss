@@ -66,6 +66,16 @@
             color: var(--text-primary-color);
         }
 
+        &:disabled {
+            opacity: $disabled-alpha-value;
+            cursor: not-allowed;
+        }
+
+        &.read-only {
+            background-color: var(--grey-color-10);
+            color: var(--text-primary-color);
+        }
+
         &:focus ~ .icon-button {
             background-color: transparent;
             border-color: transparent;
@@ -77,13 +87,10 @@
 
         &:focus {
             color: var(--text-primary-color);
-            outline: 2px solid var(--primary-color-40);
-            outline-offset: -2px;
-        }
-
-        &:disabled {
-            border-color: var(--grey-color-30);
-            color: var(--grey-color-30);
+            outline: 1px solid var(--primary-color-40);
+            outline-offset: -1px;
+            transition: outline $motion-duration-extra-fast
+                $motion-easing-easeinout;
         }
 
         &:disabled ~ .icon-button {
@@ -91,23 +98,20 @@
             border-color: transparent;
 
             svg {
-                color: var(--grey-color-30);
+                color: var(--text-primary-color);
             }
         }
 
         &:disabled {
-            color: var(--grey-color-30);
+            color: var(--grey-color-10);
         }
 
         &:disabled::placeholder {
-            color: var(--grey-color-30);
+            color: var(--text-primary-color);
         }
 
         &.pill-shape {
-            border-color: transparent;
             border-radius: $corner-radius-xl;
-            box-shadow: 0 1px 2px rgba(15, 20, 31, 0.12),
-                0 2px 8px rgba(15, 20, 31, 0.16);
             padding: $space-xs $space-s;
         }
 
@@ -153,6 +157,14 @@
             &.right-icon {
                 border-bottom-right-radius: inherit;
                 border-top-right-radius: inherit;
+            }
+        }
+
+        &.underline {
+            border-color: transparent;
+
+            &:focus {
+                outline: none;
             }
         }
 
@@ -275,6 +287,45 @@
 
         &.input-stretch {
             width: 100%;
+        }
+    }
+
+    &.underline {
+        &:before {
+            border-bottom: 1px solid var(--border-color);
+            left: 0px;
+            bottom: 0px;
+            content: '';
+            position: absolute;
+            right: 0px;
+            transition: border-bottom-color $motion-duration-extra-fast
+                $motion-easing-easeinout;
+            pointer-events: none;
+        }
+
+        &:after {
+            border-bottom: 1px solid var(--primary-color-60);
+            left: 0px;
+            bottom: 0px;
+            content: '';
+            position: absolute;
+            right: 0px;
+            transform: scaleX(0);
+            transition: transform $motion-duration-extra-fast
+                $motion-easing-easeinout;
+            pointer-events: none;
+        }
+
+        &:hover {
+            &:before {
+                border-color: var(--grey-color-60);
+            }
+        }
+
+        &:focus-within {
+            &:after {
+                transform: scaleX(1) translateX(0px);
+            }
         }
     }
 
@@ -403,14 +454,39 @@
             resize: none;
         }
 
+        &.pill-shape {
+            border-radius: $corner-radius-xl;
+            padding: $space-xs $space-s;
+        }
+
         &:focus {
-            outline: $focus-visible-outline-width $focus-visible-outline-style
+            outline: 1px $focus-visible-outline-style
                 $focus-visible-outline-color;
-            outline-offset: $focus-visible-outline-offset-inner;
+            outline-offset: -1px;
+            transition: outline $motion-duration-extra-fast
+                $motion-easing-easeinout;
+        }
+
+        &:disabled {
+            opacity: $disabled-alpha-value;
+            cursor: not-allowed;
+        }
+
+        &.read-only {
+            background-color: var(--grey-color-10);
+            color: var(--text-primary-color);
         }
 
         &:hover {
             border-color: var(--grey-color-60);
+        }
+
+        &.underline {
+            border-color: transparent;
+
+            &:focus {
+                outline: none;
+            }
         }
 
         &.input-stretch {
@@ -422,6 +498,24 @@
         position: absolute;
         bottom: 8px;
         right: 4px;
+    }
+
+    &.pill-shape {
+        .text-area-resize-icon {
+            bottom: 14px;
+            right: 10px;
+        }
+    }
+
+    &.disabled {
+        .clear-icon-button,
+        .icon-wrapper,
+        .icon-button,
+        input,
+        textarea {
+            opacity: $disabled-alpha-value;
+            cursor: not-allowed;
+        }
     }
 
     &.input-size-1 {
