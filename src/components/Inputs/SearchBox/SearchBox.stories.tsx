@@ -111,6 +111,10 @@ export default {
         },
     },
     argTypes: {
+        inline: {
+            options: [true, false],
+            control: { type: 'inline-radio' },
+        },
         inputWidth: {
             options: [TextInputWidth.fitContent, TextInputWidth.fill],
             control: { type: 'inline-radio' },
@@ -165,6 +169,7 @@ Search_Box.args = {
         iconProps: { path: IconName.mdiMagnify },
     },
     id: 'mySearchBoxId',
+    inline: false,
     inputWidth: TextInputWidth.fitContent,
     labelProps: {
         labelIconButtonProps: {

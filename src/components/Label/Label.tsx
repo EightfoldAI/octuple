@@ -12,6 +12,7 @@ export const Label: FC<LabelProps> = ({
     classNames,
     colon = false,
     htmlFor,
+    inline = false,
     labelIconButtonProps,
     size = LabelSize.Medium,
     text,
@@ -26,6 +27,9 @@ export const Label: FC<LabelProps> = ({
     ]);
     const labelClassNames: string = mergeClasses([
         styles.fieldLabel,
+        {
+            [styles.inline]: inline,
+        },
         sizeClassNames,
         classNames,
     ]);
