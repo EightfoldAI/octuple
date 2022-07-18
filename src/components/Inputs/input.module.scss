@@ -87,7 +87,8 @@
 
         &:focus {
             color: var(--text-primary-color);
-            outline: 1px solid var(--primary-color-40);
+            outline: 1px $focus-visible-outline-style
+                $focus-visible-outline-color;
             outline-offset: -1px;
             transition: outline $motion-duration-extra-fast
                 $motion-easing-easeinout;
@@ -756,8 +757,8 @@
         .icon-button {
             &:focus-visible {
                 background-color: var(--background-color);
-                outline: $focus-visible-outline-width solid
-                    var(--primary-color-40);
+                outline: $focus-visible-outline-width
+                    $focus-visible-outline-style $focus-visible-outline-color;
                 outline-offset: $focus-visible-outline-offset-inner;
                 padding: $button-padding-vertical-small $space-xxs;
 
@@ -770,8 +771,8 @@
         .clear-icon-button {
             &:focus-visible {
                 background-color: transparent;
-                outline: $focus-visible-outline-width solid
-                    var(--primary-color-40);
+                outline: $focus-visible-outline-width
+                    $focus-visible-outline-style $focus-visible-outline-color;
                 outline-offset: $focus-visible-outline-offset-inner;
 
                 svg {

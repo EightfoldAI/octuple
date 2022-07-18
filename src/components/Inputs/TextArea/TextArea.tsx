@@ -80,6 +80,10 @@ export const TextArea: FC<TextAreaProps> = React.forwardRef(
 
         const textAreaWrapperClassNames: string = mergeClasses([
             styles.inputWrapper,
+            { [styles.pillShape]: shape === TextInputShape.Pill },
+            {
+                [styles.underline]: shape === TextInputShape.Underline,
+            },
             {
                 [styles.inline]: inline,
             },
