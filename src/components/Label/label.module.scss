@@ -35,6 +35,27 @@
             line-height: $text-line-height-1;
         }
     }
+
+    &.inline {
+        display: inline-block;
+        flex-grow: 0;
+        padding-bottom: 0;
+    }
+
+    &.large.inline {
+        margin-right: $space-l;
+        padding-top: $space-s;
+    }
+
+    &.medium.inline {
+        margin-right: $space-m;
+        padding-top: $space-xs;
+    }
+
+    &.small.inline {
+        margin-right: $space-s;
+        padding-top: $space-xxs;
+    }
 }
 
 .field-label-icon-button {
