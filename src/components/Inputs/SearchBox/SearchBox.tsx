@@ -14,11 +14,11 @@ export const SearchBox: FC<SearchBoxProps> = React.forwardRef(
     (
         {
             alignIcon = TextInputIconAlign.Left,
-            clearable = true,
             allowDisabledFocus = false,
             ariaLabel,
             autoFocus = false,
             classNames,
+            clearable = true,
             clearButtonAriaLabel,
             disabled = false,
             iconProps,
