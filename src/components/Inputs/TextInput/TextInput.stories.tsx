@@ -102,6 +102,10 @@ export default {
         },
     },
     argTypes: {
+        inline: {
+            options: [true, false],
+            control: { type: 'inline-radio' },
+        },
         inputWidth: {
             options: [TextInputWidth.fitContent, TextInputWidth.fill],
             control: { type: 'inline-radio' },
@@ -164,6 +168,7 @@ Text_Input.args = {
         iconProps: { path: IconName.mdiFilter },
     },
     id: 'myTextInputId',
+    inline: false,
     inputWidth: TextInputWidth.fitContent,
     labelProps: {
         labelIconButtonProps: {
