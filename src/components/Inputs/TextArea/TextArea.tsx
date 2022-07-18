@@ -24,6 +24,7 @@ export const TextArea: FC<TextAreaProps> = React.forwardRef(
             disabled = false,
             enableExpand = false,
             id,
+            inline = false,
             inputWidth = TextInputWidth.fitContent,
             labelProps,
             maxlength,
@@ -58,6 +59,9 @@ export const TextArea: FC<TextAreaProps> = React.forwardRef(
         const textAreaClassNames: string = mergeClasses([
             classNames,
             styles.textArea,
+            {
+                [styles.inline]: inline,
+            },
             { [styles.textAreaNoExpand]: !enableExpand },
             { [styles.pillShape]: shape === TextInputShape.Pill },
             {
@@ -67,8 +71,18 @@ export const TextArea: FC<TextAreaProps> = React.forwardRef(
             { [styles.inputStretch]: inputWidth === TextInputWidth.fill },
         ]);
 
+        const textAreaGroupClassNames: string = mergeClasses([
+            styles.textAreaGroup,
+            {
+                [styles.inline]: inline,
+            },
+        ]);
+
         const textAreaWrapperClassNames: string = mergeClasses([
             styles.inputWrapper,
+            {
+                [styles.inline]: inline,
+            },
             { [styles.pillShape]: shape === TextInputShape.Pill },
             {
                 [styles.underline]: shape === TextInputShape.Underline,
@@ -146,40 +160,43 @@ export const TextArea: FC<TextAreaProps> = React.forwardRef(
             <div className={textAreaWrapperClassNames}>
                 {labelProps && (
                     <Label
+                        inline={inline}
                         size={inputSizeToLabelSizeMap.get(size)}
                         {...labelProps}
                     />
                 )}
-                <textarea
-                    {...rest}
-                    ref={ref}
-                    aria-disabled={allowDisabledFocus}
-                    aria-label={ariaLabel}
-                    autoFocus={autoFocus}
-                    className={textAreaClassNames}
-                    cols={textAreaCols}
-                    disabled={disabled}
-                    id={textAreaId}
-                    maxLength={maxlength}
-                    minLength={minlength}
-                    name={name}
-                    onChange={!allowDisabledFocus ? handleChange : null}
-                    onBlur={!allowDisabledFocus ? onBlur : null}
-                    onFocus={!allowDisabledFocus ? onFocus : null}
-                    onKeyDown={!allowDisabledFocus ? onKeyDown : null}
-                    placeholder={placeholder}
-                    required={required}
-                    style={style}
-                    rows={textAreaRows}
-                    tabIndex={0}
-                    value={inputValue}
-                />
-                {enableExpand && (
-                    <Icon
-                        classNames={styles.textAreaResizeIcon}
-                        path={IconName.mdiResizeBottomRight}
+                <div className={textAreaGroupClassNames}>
+                    <textarea
+                        {...rest}
+                        ref={ref}
+                        aria-disabled={allowDisabledFocus}
+                        aria-label={ariaLabel}
+                        autoFocus={autoFocus}
+                        className={textAreaClassNames}
+                        cols={textAreaCols}
+                        disabled={disabled}
+                        id={textAreaId}
+                        maxLength={maxlength}
+                        minLength={minlength}
+                        name={name}
+                        onChange={!allowDisabledFocus ? handleChange : null}
+                        onBlur={!allowDisabledFocus ? onBlur : null}
+                        onFocus={!allowDisabledFocus ? onFocus : null}
+                        onKeyDown={!allowDisabledFocus ? onKeyDown : null}
+                        placeholder={placeholder}
+                        required={required}
+                        style={style}
+                        rows={textAreaRows}
+                        tabIndex={0}
+                        value={inputValue}
                     />
-                )}
+                    {enableExpand && (
+                        <Icon
+                            classNames={styles.textAreaResizeIcon}
+                            path={IconName.mdiResizeBottomRight}
+                        />
+                    )}
+                </div>
             </div>
         );
     }

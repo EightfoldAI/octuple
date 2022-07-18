@@ -28,6 +28,7 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
             iconProps,
             iconButtonProps,
             id,
+            inline = false,
             inputWidth = TextInputWidth.fitContent,
             labelProps,
             maxlength,
@@ -98,26 +99,28 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
             { [styles.inputSize3]: size === TextInputSize.Small },
             {
                 [styles.withIcon]:
-                    (!!iconProps?.path && shape === TextInputShape.Rectangle) ||
-                    shape === TextInputShape.Underline,
+                    !!iconProps?.path &&
+                    (shape === TextInputShape.Rectangle ||
+                        shape === TextInputShape.Underline),
             },
             {
                 [styles.withImageIcon]:
-                    (!!iconProps?.imageSrc &&
-                        shape === TextInputShape.Rectangle) ||
-                    shape === TextInputShape.Underline,
+                    !!iconProps?.imageSrc &&
+                    (shape === TextInputShape.Rectangle ||
+                        shape === TextInputShape.Underline),
             },
             {
                 [styles.withIconButton]:
-                    (!!iconButtonProps && shape === TextInputShape.Rectangle) ||
-                    shape === TextInputShape.Underline,
+                    !!iconButtonProps &&
+                    (shape === TextInputShape.Rectangle ||
+                        shape === TextInputShape.Underline),
             },
             {
                 [styles.withIconAndIconButton]:
-                    (!!iconProps &&
-                        !!iconButtonProps &&
-                        shape === TextInputShape.Rectangle) ||
-                    shape === TextInputShape.Underline,
+                    !!iconProps &&
+                    !!iconButtonProps &&
+                    (shape === TextInputShape.Rectangle ||
+                        shape === TextInputShape.Underline),
             },
             { [styles.pillShape]: shape === TextInputShape.Pill },
             {
@@ -149,8 +152,18 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
             },
         ]);
 
+        const textInputGroupClassNames: string = mergeClasses([
+            styles.inputGroup,
+            {
+                [styles.inline]: inline,
+            },
+        ]);
+
         const textInputWrapperClassNames: string = mergeClasses([
             styles.inputWrapper,
+            {
+                [styles.inline]: inline,
+            },
             {
                 [styles.underline]: shape === TextInputShape.Underline,
             },
@@ -288,78 +301,87 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
             <div className={textInputWrapperClassNames}>
                 {labelProps && (
                     <Label
+                        inline={inline}
                         size={inputSizeToLabelSizeMap.get(size)}
                         {...labelProps}
                     />
                 )}
-                <input
-                    {...rest}
-                    ref={ref}
-                    aria-label={ariaLabel}
-                    autoFocus={autoFocus}
-                    className={textInputClassNames}
-                    disabled={disabled}
-                    id={inputId}
-                    maxLength={maxlength}
-                    minLength={minlength}
-                    name={name}
-                    onChange={!allowDisabledFocus ? handleChange : null}
-                    onBlur={!allowDisabledFocus ? onBlur : null}
-                    onFocus={!allowDisabledFocus ? onFocus : null}
-                    onKeyDown={!allowDisabledFocus ? onKeyDown : null}
-                    placeholder={placeholder}
-                    required={required}
-                    role="textbox"
-                    style={style}
-                    tabIndex={0}
-                    type={numbersOnly ? 'number' : htmlType}
-                    value={inputValue}
-                    readOnly={readonly}
-                />
-                {iconProps && (
-                    <div className={iconClassNames}>
-                        {iconProps.path && !iconProps.imageSrc && (
-                            <Icon
-                                {...iconProps}
-                                path={iconProps.path}
-                                size={inputSizeToIconSizeMap.get(size)}
-                            />
-                        )}
-                        {iconProps.imageSrc && !iconProps.path && (
-                            <img
-                                aria-hidden={iconProps.ariaHidden}
-                                alt={iconProps.alt}
-                                id={iconProps.id}
-                                src={iconProps.imageSrc}
-                            />
-                        )}
-                    </div>
-                )}
-                {iconButtonProps && (
-                    <DefaultButton
-                        allowDisabledFocus={iconButtonProps.allowDisabledFocus}
-                        ariaLabel={iconButtonProps.ariaLabel}
-                        checked={iconButtonProps.checked}
-                        classNames={iconButtonClassNames}
-                        disabled={iconButtonProps.disabled}
-                        iconProps={{ path: iconButtonProps.iconProps.path }}
-                        id={iconButtonProps.id}
-                        onClick={iconButtonProps.onClick}
-                        size={inputSizeToButtonSizeMap.get(size)}
-                        htmlType={iconButtonProps.htmlType}
-                    />
-                )}
-                {clearButtonShown && !numbersOnly && htmlType !== 'number' && (
-                    <DefaultButton
-                        allowDisabledFocus={allowDisabledFocus}
-                        ariaLabel={clearButtonAriaLabel}
-                        classNames={styles.clearIconButton}
+                <div className={textInputGroupClassNames}>
+                    <input
+                        {...rest}
+                        ref={ref}
+                        aria-label={ariaLabel}
+                        autoFocus={autoFocus}
+                        className={textInputClassNames}
                         disabled={disabled}
-                        iconProps={{ path: IconName.mdiClose }}
-                        onClick={!allowDisabledFocus ? handleOnClear : null}
-                        size={ButtonSize.Small}
+                        id={inputId}
+                        maxLength={maxlength}
+                        minLength={minlength}
+                        name={name}
+                        onChange={!allowDisabledFocus ? handleChange : null}
+                        onBlur={!allowDisabledFocus ? onBlur : null}
+                        onFocus={!allowDisabledFocus ? onFocus : null}
+                        onKeyDown={!allowDisabledFocus ? onKeyDown : null}
+                        placeholder={placeholder}
+                        required={required}
+                        role="textbox"
+                        style={style}
+                        tabIndex={0}
+                        type={numbersOnly ? 'number' : htmlType}
+                        value={inputValue}
+                        readOnly={readonly}
                     />
-                )}
+                    {iconProps && (
+                        <div className={iconClassNames}>
+                            {iconProps.path && !iconProps.imageSrc && (
+                                <Icon
+                                    {...iconProps}
+                                    path={iconProps.path}
+                                    size={inputSizeToIconSizeMap.get(size)}
+                                />
+                            )}
+                            {iconProps.imageSrc && !iconProps.path && (
+                                <img
+                                    aria-hidden={iconProps.ariaHidden}
+                                    alt={iconProps.alt}
+                                    id={iconProps.id}
+                                    src={iconProps.imageSrc}
+                                />
+                            )}
+                        </div>
+                    )}
+                    {iconButtonProps && (
+                        <DefaultButton
+                            allowDisabledFocus={
+                                iconButtonProps.allowDisabledFocus
+                            }
+                            ariaLabel={iconButtonProps.ariaLabel}
+                            checked={iconButtonProps.checked}
+                            classNames={iconButtonClassNames}
+                            disabled={iconButtonProps.disabled}
+                            iconProps={{ path: iconButtonProps.iconProps.path }}
+                            id={iconButtonProps.id}
+                            onClick={iconButtonProps.onClick}
+                            size={inputSizeToButtonSizeMap.get(size)}
+                            htmlType={iconButtonProps.htmlType}
+                        />
+                    )}
+                    {clearButtonShown &&
+                        !numbersOnly &&
+                        htmlType !== 'number' && (
+                            <DefaultButton
+                                allowDisabledFocus={allowDisabledFocus}
+                                ariaLabel={clearButtonAriaLabel}
+                                classNames={styles.clearIconButton}
+                                disabled={disabled}
+                                iconProps={{ path: IconName.mdiClose }}
+                                onClick={
+                                    !allowDisabledFocus ? handleOnClear : null
+                                }
+                                size={ButtonSize.Small}
+                            />
+                        )}
+                </div>
             </div>
         );
     }

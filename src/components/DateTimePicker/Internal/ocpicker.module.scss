@@ -913,6 +913,11 @@
                     outline: none;
                 }
             }
+
+            &-disabled,
+            &[disabled] {
+                cursor: not-allowed;
+            }
         }
 
         &:hover {
@@ -924,6 +929,11 @@
         &-placeholder {
             input {
                 color: $picker-input-placeholder-color;
+
+                &-disabled,
+                &[disabled] {
+                    @include placeholder($picker-input-foreground-color);
+                }
             }
         }
     }

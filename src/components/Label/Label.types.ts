@@ -64,6 +64,11 @@ export interface LabelProps extends OcBaseProps<HTMLDivElement> {
      */
     htmlFor?: string;
     /**
+     * The label element is inline.
+     * @default false
+     */
+    inline?: boolean;
+    /**
      * The label icon button props.
      */
     labelIconButtonProps?: LabelIconButtonProps;

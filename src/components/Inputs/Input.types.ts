@@ -248,6 +248,11 @@ export interface InputProps<T>
      */
     id?: string;
     /**
+     * The input label is inline.
+     * @default false
+     */
+    inline?: boolean;
+    /**
      * Width of the tooltip
      * @default fitContent
      */
