@@ -3,10 +3,22 @@ import React, { FC, useState, useEffect, Ref } from 'react';
 import { mergeClasses } from '../../shared/utilities';
 import { Dropdown } from '../Dropdown';
 import { Menu } from '../Menu';
-import { TextInput, TextInputProps, TextInputWidth } from '../Inputs';
+import {
+    TextInput,
+    TextInputIconAlign,
+    TextInputProps,
+    TextInputShape,
+    TextInputSize,
+    TextInputWidth,
+} from '../Inputs';
 import { Pill, PillSize } from '../Pills';
 import { IconName } from '../Icon';
-import { SelectOption, SelectProps } from './Select.types';
+import {
+    SelectOption,
+    SelectProps,
+    SelectShape,
+    SelectSize,
+} from './Select.types';
 
 import styles from './select.module.scss';
 import { Spinner, SpinnerSize } from '../Spinner';
@@ -16,6 +28,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
         {
             options: _options = [],
             inputWidth = TextInputWidth.fill,
+            clearable = false,
             defaultValue,
             filterable = false,
             multiple = false,
@@ -27,6 +40,8 @@ export const Select: FC<SelectProps> = React.forwardRef(
             isLoading,
             spinner = <Spinner size={SpinnerSize.Small} />,
             classNames,
+            shape = SelectShape.Rectangle,
+            size = SelectSize.Flex,
             style,
             placeholder = 'Select',
             onOptionsChange,
@@ -129,7 +144,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
             }
         };
 
-        const shopDropdown = (show: boolean) => {
+        const showDropdown = (show: boolean) => {
             if (multiple) {
                 return true;
             }
@@ -241,15 +256,34 @@ export const Select: FC<SelectProps> = React.forwardRef(
 
         const selectInputProps: TextInputProps = {
             placeholder: placeholder,
-            clearable: false,
+            alignIcon: TextInputIconAlign.Right,
+            clearable: clearable,
             inputWidth: inputWidth,
             iconProps: {
-                path: IconName.mdiMenuDown,
+                path: IconName.mdiChevronDown,
                 rotate: dropdownVisible ? 180 : 0,
             },
             onClear: onInputClear,
             ...textInputProps,
         };
+
+        const selectShapeToTextInputShapeMap = new Map<
+            SelectShape,
+            TextInputShape
+        >([
+            [SelectShape.Rectangle, TextInputShape.Rectangle],
+            [SelectShape.Pill, TextInputShape.Pill],
+            [SelectShape.Underline, TextInputShape.Underline],
+        ]);
+
+        const selectSizeToTextInputSizeMap = new Map<SelectSize, TextInputSize>(
+            [
+                [SelectSize.Flex, TextInputSize.Flex],
+                [SelectSize.Large, TextInputSize.Large],
+                [SelectSize.Medium, TextInputSize.Medium],
+                [SelectSize.Small, TextInputSize.Small],
+            ]
+        );
 
         return (
             <div
@@ -264,7 +298,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
                     onVisibleChange={(isVisible) =>
                         onDropdownVisibilityChange(isVisible)
                     }
-                    showDropdown={shopDropdown}
+                    showDropdown={showDropdown}
                     overlay={
                         isLoading ? spinner : <OptionMenu options={options} />
                     }
@@ -274,18 +308,21 @@ export const Select: FC<SelectProps> = React.forwardRef(
                     {filterable ? (
                         <TextInput
                             {...selectInputProps}
+                            shape={selectShapeToTextInputShapeMap.get(shape)}
+                            size={selectSizeToTextInputSizeMap.get(size)}
                             value={
                                 getSelectedOptionText() && !dropdownVisible
                                     ? getSelectedOptionText()
                                     : undefined
                             }
                             onChange={onInputChange}
-                            style={{ minWidth: 'unset' }}
                         />
                     ) : (
                         <TextInput
                             {...selectInputProps}
                             readonly
+                            shape={selectShapeToTextInputShapeMap.get(shape)}
+                            size={selectSizeToTextInputSizeMap.get(size)}
                             value={getSelectedOptionText()}
                             classNames={styles.selectInput}
                         />

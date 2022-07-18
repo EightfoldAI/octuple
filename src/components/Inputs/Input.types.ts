@@ -5,6 +5,11 @@ import { LabelProps } from '../Label';
 import { TooltipTheme } from '../Tooltip';
 import { OcBaseProps } from '../OcBase';
 
+export enum TextInputIconAlign {
+    Left = 'left',
+    Right = 'right',
+}
+
 export enum TextInputSize {
     Flex = 'flex',
     Large = 'large',
@@ -147,7 +152,7 @@ export interface SearchBoxProps
 export interface TextAreaProps
     extends Omit<
         InputProps<HTMLTextAreaElement>,
-        'clearButtonAriaLabel' | 'iconProps' | 'iconButtonProps'
+        'clearButtonAriaLabel' | 'iconProps' | 'iconButtonProps' | 'alignIcon'
     > {
     /**
      * The text area is expandable.
@@ -176,12 +181,6 @@ export interface TextAreaProps
 }
 
 export interface TextInputProps extends InputProps<HTMLInputElement> {
-    /**
-     * option to show the clear input button.
-     * default is true for backward compatibility
-     * @default true
-     */
-    clearable?: boolean;
     /**
      * The input html type.
      * @default 'text'
@@ -212,6 +211,17 @@ export interface InputProps<T>
         OcBaseProps<T>,
         'onChange' | 'onFocus' | 'onBlur' | 'onKeyDown'
     > {
+    /**
+     * The input icon alignment.
+     * @default TextInputIconAlign.Left
+     */
+    alignIcon?: TextInputIconAlign;
+    /**
+     * option to show the clear input button.
+     * default is true for backward compatibility
+     * @default true
+     */
+    clearable?: boolean;
     /**
      * Allows focus on the input when it's disabled.
      * @default false

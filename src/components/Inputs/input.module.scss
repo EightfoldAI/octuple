@@ -11,27 +11,75 @@
         font-family: 'Source Sans Pro', sans-serif;
         font-size: $text-font-size-3;
         line-height: $text-line-height-1;
-        min-width: 320px;
+        min-width: 120px;
         padding: $space-xs $space-xl $space-xs $space-m;
 
         &::-webkit-search-cancel-button {
             -webkit-appearance: none;
         }
 
-        &.with-icon {
-            padding: $space-xs $space-xl $space-xs $space-xxl;
-        }
-
+        &.with-icon,
         &.with-image-icon {
             padding: $space-xs $space-xl $space-xs $space-xxl;
+
+            &.left-icon {
+                padding: $space-xs $space-xl $space-xs $space-xxl;
+            }
+
+            &.right-icon {
+                padding: $space-xs $space-xxl $space-xs $space-xl;
+            }
+
+            &.clear-disabled {
+                &.left-icon {
+                    padding: $space-xs $space-xs $space-xs $space-xxl;
+                }
+
+                &.right-icon {
+                    padding: $space-xs $space-xxl $space-xs $space-xs;
+                }
+            }
         }
 
         &.with-icon-button {
             padding: $space-xs $space-xl $space-xs $space-xl;
+
+            &.left-icon,
+            &.right-icon {
+                padding: $space-xs $space-xl $space-xs $space-xl;
+            }
+
+            &.clear-disabled {
+                &.left-icon {
+                    padding: $space-xs $space-xs $space-xs $space-xl;
+                }
+
+                &.right-icon {
+                    padding: $space-xs $space-xl $space-xs $space-xs;
+                }
+            }
         }
 
         &.with-icon-and-icon-button {
             padding: $space-xs $space-xxl $space-xs 74px;
+
+            &.left-icon {
+                padding: $space-xs $space-xxl $space-xs 74px;
+            }
+
+            &.right-icon {
+                padding: $space-xs 74px $space-xs $space-xxl;
+            }
+
+            &.clear-disabled {
+                &.left-icon {
+                    padding: $space-xs $space-xs $space-xs 74px;
+                }
+
+                &.right-icon {
+                    padding: $space-xs 74px $space-xs $space-xs;
+                }
+            }
         }
 
         &:hover {
@@ -102,10 +150,6 @@
             }
         }
 
-        &:disabled {
-            color: var(--grey-color-10);
-        }
-
         &:disabled::placeholder {
             color: var(--text-primary-color);
         }
@@ -115,20 +159,68 @@
             padding: $space-xs $space-s;
         }
 
-        &.pill-shape-with-icon {
-            padding: $space-xs $space-xl $space-xs $space-xxl;
-        }
-
+        &.pill-shape-with-icon,
         &.pill-shape-with-image-icon {
             padding: $space-xs $space-xl $space-xs $space-xxl;
+
+            &.left-icon {
+                padding: $space-xs $space-xl $space-xs $space-xxl;
+            }
+
+            &.right-icon {
+                padding: $space-xs $space-xxl $space-xs $space-xl;
+            }
+
+            &.clear-disabled {
+                &.left-icon {
+                    padding: $space-xs $space-xs $space-xs $space-xxl;
+                }
+
+                &.right-icon {
+                    padding: $space-xs $space-xxl $space-xs $space-xs;
+                }
+            }
         }
 
         &.pill-shape-with-icon-button {
             padding: $space-xs $space-xl $space-xs $space-xl;
+
+            &.left-icon,
+            &.right-icon {
+                padding: $space-xs $space-xl $space-xs $space-xl;
+            }
+
+            &.clear-disabled {
+                &.left-icon {
+                    padding: $space-xs $space-xs $space-xs $space-xl;
+                }
+
+                &.right-icon {
+                    padding: $space-xs $space-xl $space-xs $space-xs;
+                }
+            }
         }
 
         &.pill-shape-with-icon-and-icon-button {
             padding: $space-xs $space-xl $space-xs 74px;
+
+            &.left-icon {
+                padding: $space-xs $space-xl $space-xs 74px;
+            }
+
+            &.right-icon {
+                padding: $space-xs 74px $space-xs $space-xl;
+            }
+
+            &.clear-disabled {
+                &.left-icon {
+                    padding: $space-xs $space-xs $space-xs 74px;
+                }
+
+                &.right-icon {
+                    padding: $space-xs 74px $space-xs $space-xs;
+                }
+            }
         }
 
         &.pill-shape-with-icon-button ~ .icon-button {
@@ -174,36 +266,96 @@
             line-height: $text-line-height-5;
             padding: $space-xs $space-xxl $space-xs $space-m;
 
-            &.with-icon {
-                padding: $space-xs $space-xxl $space-xs 48px;
-            }
-
-            &.with-image-icon {
-                padding: $space-xs $space-xxl $space-xs 48px;
-            }
-
+            &.with-icon,
+            &.with-image-icon,
             &.with-icon-button {
                 padding: $space-xs $space-xxl $space-xs 48px;
+
+                &.left-icon {
+                    padding: $space-xs $space-xxl $space-xs 48px;
+                }
+
+                &.right-icon {
+                    padding: $space-xs 48px $space-xs $space-xxl;
+                }
+
+                &.clear-disabled {
+                    &.left-icon {
+                        padding: $space-xs $space-xs $space-xs 48px;
+                    }
+
+                    &.right-icon {
+                        padding: $space-xs 48px $space-xs $space-xs;
+                    }
+                }
             }
 
             &.with-icon-and-icon-button {
                 padding: $space-xs $space-xxl $space-xs 84px;
+
+                &.left-icon {
+                    padding: $space-xs $space-xxl $space-xs 84px;
+                }
+
+                &.right-icon {
+                    padding: $space-xs 84px $space-xs $space-xxl;
+                }
+
+                &.clear-disabled {
+                    &.left-icon {
+                        padding: $space-xs $space-xs $space-xs 84px;
+                    }
+
+                    &.right-icon {
+                        padding: $space-xs 84px $space-xs $space-xs;
+                    }
+                }
             }
 
-            &.pill-shape-with-icon {
-                padding: $space-xs $space-xxl $space-xs 48px;
-            }
-
-            &.pill-shape-with-image-icon {
-                padding: $space-xs $space-xxl $space-xs 48px;
-            }
-
+            &.pill-shape-with-icon,
+            &.pill-shape-with-image-icon,
             &.pill-shape-with-icon-button {
                 padding: $space-xs $space-xxl $space-xs 48px;
+
+                &.left-icon {
+                    padding: $space-xs $space-xxl $space-xs 48px;
+                }
+
+                &.right-icon {
+                    padding: $space-xs 48px $space-xs $space-xxl;
+                }
+
+                &.clear-disabled {
+                    &.left-icon {
+                        padding: $space-xs $space-xs $space-xs 48px;
+                    }
+
+                    &.right-icon {
+                        padding: $space-xs 48px $space-xs $space-xs;
+                    }
+                }
             }
 
             &.pill-shape-with-icon-and-icon-button {
                 padding: $space-xs $space-xxl $space-xs 84px;
+
+                &.left-icon {
+                    padding: $space-xs $space-xxl $space-xs 84px;
+                }
+
+                &.right-icon {
+                    padding: $space-xs 84px $space-xs $space-xxl;
+                }
+
+                &.clear-disabled {
+                    &.left-icon {
+                        padding: $space-xs $space-xs $space-xs 84px;
+                    }
+
+                    &.right-icon {
+                        padding: $space-xs 84px $space-xs $space-xs;
+                    }
+                }
             }
         }
 
@@ -213,36 +365,132 @@
             line-height: $text-line-height-4;
             padding: $space-xs $space-xl $space-xs $space-m;
 
-            &.with-icon {
-                padding: $space-xs $space-xl $space-xs $space-xxl;
-            }
-
+            &.with-icon,
             &.with-image-icon {
                 padding: $space-xs $space-xl $space-xs $space-xxl;
+
+                &.left-icon {
+                    padding: $space-xs $space-xl $space-xs $space-xxl;
+                }
+
+                &.right-icon {
+                    padding: $space-xs $space-xxl $space-xs $space-xl;
+                }
+
+                &.clear-disabled {
+                    &.left-icon {
+                        padding: $space-xs $space-xs $space-xs $space-xxl;
+                    }
+
+                    &.right-icon {
+                        padding: $space-xs $space-xxl $space-xs $space-xs;
+                    }
+                }
             }
 
             &.with-icon-button {
                 padding: $space-xs $space-xl $space-xs $space-xl;
+
+                &.left-icon,
+                &.right-icon {
+                    padding: $space-xs $space-xl $space-xs $space-xl;
+                }
+
+                &.clear-disabled {
+                    &.left-icon {
+                        padding: $space-xs $space-xs $space-xs $space-xl;
+                    }
+
+                    &.right-icon {
+                        padding: $space-xs $space-xl $space-xs $space-xs;
+                    }
+                }
             }
 
             &.with-icon-and-icon-button {
                 padding: $space-xs $space-xxl $space-xs 74px;
+
+                &.left-icon {
+                    padding: $space-xs $space-xxl $space-xs 74px;
+                }
+
+                &.right-icon {
+                    padding: $space-xs 74px $space-xs $space-xxl;
+                }
+
+                &.clear-disabled {
+                    &.left-icon {
+                        padding: $space-xs $space-xs $space-xs 74px;
+                    }
+
+                    &.right-icon {
+                        padding: $space-xs 74px $space-xs $space-xs;
+                    }
+                }
             }
 
-            &.pill-shape-with-icon {
-                padding: $space-xs $space-xl $space-xs $space-xxl;
-            }
-
+            &.pill-shape-with-icon,
             &.pill-shape-with-image-icon {
                 padding: $space-xs $space-xl $space-xs $space-xxl;
+
+                &.left-icon {
+                    padding: $space-xs $space-xl $space-xs $space-xxl;
+                }
+
+                &.right-icon {
+                    padding: $space-xs $space-xxl $space-xs $space-xl;
+                }
+
+                &.clear-disabled {
+                    &.left-icon {
+                        padding: $space-xs $space-xs $space-xs $space-xxl;
+                    }
+
+                    &.right-icon {
+                        padding: $space-xs $space-xxl $space-xs $space-xs;
+                    }
+                }
             }
 
             &.pill-shape-with-icon-button {
                 padding: $space-xs $space-xl $space-xs $space-xl;
+
+                &.left-icon,
+                &.right-icon {
+                    padding: $space-xs $space-xl $space-xs $space-xl;
+                }
+
+                &.clear-disabled {
+                    &.left-icon {
+                        padding: $space-xs $space-xs $space-xs $space-xl;
+                    }
+
+                    &.right-icon {
+                        padding: $space-xs $space-xl $space-xs $space-xs;
+                    }
+                }
             }
 
             &.pill-shape-with-icon-and-icon-button {
                 padding: $space-xs $space-xl $space-xs 74px;
+
+                &.left-icon {
+                    padding: $space-xs $space-xl $space-xs 74px;
+                }
+
+                &.right-icon {
+                    padding: $space-xs 74px $space-xs $space-xl;
+                }
+
+                &.clear-disabled {
+                    &.left-icon {
+                        padding: $space-xs $space-xs $space-xs 74px;
+                    }
+
+                    &.right-icon {
+                        padding: $space-xs 74px $space-xs $space-xs;
+                    }
+                }
             }
         }
 
@@ -252,36 +500,118 @@
             line-height: $text-line-height-3;
             padding: $space-xs $space-l $space-xs $space-s;
 
-            &.with-icon {
-                padding: $space-xs calc(#{$space-l} + 4px) $space-xs $space-xl;
-            }
-
-            &.with-image-icon {
-                padding: $space-xs calc(#{$space-l} + 4px) $space-xs $space-xl;
-            }
-
+            &.with-icon,
+            &.with-image-icon,
             &.with-icon-button {
                 padding: $space-xs calc(#{$space-l} + 4px) $space-xs $space-xl;
+
+                &.left-icon {
+                    padding: $space-xs calc(#{$space-l} + 4px) $space-xs
+                        $space-xl;
+                }
+
+                &.right-icon {
+                    padding: $space-xs $space-xl $space-xs
+                        calc(#{$space-l} + 4px);
+                }
+
+                &.clear-disabled {
+                    &.left-icon {
+                        padding: $space-xs $space-xs $space-xs $space-xl;
+                    }
+
+                    &.right-icon {
+                        padding: $space-xs $space-xl $space-xs $space-xs;
+                    }
+                }
             }
 
             &.with-icon-and-icon-button {
                 padding: $space-xs calc(#{$space-l} + 4px) $space-xs 60px;
+
+                &.left-icon {
+                    padding: $space-xs calc(#{$space-l} + 4px) $space-xs 60px;
+                }
+
+                &.right-icon {
+                    padding: $space-xs 60px $space-xs calc(#{$space-l} + 4px);
+                }
+
+                &.clear-disabled {
+                    &.left-icon {
+                        padding: $space-xs $space-xs $space-xs 60px;
+                    }
+
+                    &.right-icon {
+                        padding: $space-xs 60px $space-xs $space-xs;
+                    }
+                }
             }
 
-            &.pill-shape-with-icon {
-                padding: $space-xs calc(#{$space-l} + 4px) $space-xs $space-xl;
-            }
-
+            &.pill-shape-with-icon,
             &.pill-shape-with-image-icon {
                 padding: $space-xs calc(#{$space-l} + 4px) $space-xs $space-xl;
+
+                &.left-icon {
+                    padding: $space-xs calc(#{$space-l} + 4px) $space-xs
+                        $space-xl;
+                }
+
+                &.right-icon {
+                    padding: $space-xs $space-xl $space-xs
+                        calc(#{$space-l} + 4px);
+                }
+
+                &.clear-disabled {
+                    &.left-icon {
+                        padding: $space-xs $space-xs $space-xs $space-xl;
+                    }
+
+                    &.right-icon {
+                        padding: $space-xs $space-xl $space-xs $space-xs;
+                    }
+                }
             }
 
             &.pill-shape-with-icon-button {
                 padding: $space-xs $space-xl $space-xs $space-xl;
+
+                &.left-icon,
+                &.right-icon {
+                    padding: $space-xs $space-xl $space-xs $space-xl;
+                }
+
+                &.clear-disabled {
+                    &.left-icon {
+                        padding: $space-xs $space-xs $space-xs $space-xl;
+                    }
+
+                    &.right-icon {
+                        padding: $space-xs $space-xl $space-xs $space-xs;
+                    }
+                }
             }
 
             &.pill-shape-with-icon-and-icon-button {
                 padding: $space-xs 28px $space-xs 60px;
+
+                &.left-icon {
+                    padding: $space-xs 28px $space-xs 60px;
+                }
+
+                &.right-icon {
+                    padding: $space-xs 60px $space-xs 28px;
+                }
+
+                &.clear-disabled {
+                    &.left-icon {
+                        padding: $space-xs $space-xs $space-xs 60px;
+                    }
+
+                    &.right-icon {
+                        padding: $space-xs 60px $space-xs $space-xs;
+                    }
+                }
             }
         }
 
@@ -368,9 +698,17 @@
         color: var(--grey-color-60);
         height: 35px;
         position: absolute;
-        right: 1px;
+        right: 2px;
         transition: none;
         width: 35px;
+
+        &.left-icon {
+            right: 2px;
+        }
+
+        &.right-icon {
+            left: 2px;
+        }
 
         &:active,
         &:hover {
@@ -482,6 +820,7 @@
     .input-group,
     .text-area-group {
         position: relative;
+        width: fit-content;
 
         &.inline {
             display: flex;
@@ -628,11 +967,11 @@
             width: 36px;
 
             &.left-icon {
-                left: 8px;
+                left: 4px;
             }
 
             &.right-icon {
-                right: 8px;
+                right: 4px;
             }
 
             span {
