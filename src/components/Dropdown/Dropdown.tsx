@@ -80,7 +80,7 @@ export const Dropdown: FC<DropdownProps> = ({
             );
         };
 
-    useOnClickOutside(refs.floating, toggle(false), visible);
+    useOnClickOutside(refs.reference, toggle(false), visible);
 
     useEffect(() => {
         onVisibleChange?.(visible);
@@ -129,6 +129,7 @@ export const Dropdown: FC<DropdownProps> = ({
         ]);
         return cloneElement(child, {
             ...{ [TRIGGER_TO_HANDLER_MAP_ON_ENTER[trigger]]: toggle(true) },
+            onClick: toggle(!visible),
             className: referenceWrapperClasses,
             'aria-controls': dropdownId,
             'aria-expanded': visible,
