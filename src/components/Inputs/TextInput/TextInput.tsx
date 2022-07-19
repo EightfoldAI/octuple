@@ -163,6 +163,7 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
             { [styles.leftIcon]: alignIcon === TextInputIconAlign.Left },
             { [styles.rightIcon]: alignIcon === TextInputIconAlign.Right },
             { [styles.clearDisabled]: !clearable },
+            { [styles.clearNotVisible]: !clearButtonShown },
         ]);
 
         const textInputGroupClassNames: string = mergeClasses([
