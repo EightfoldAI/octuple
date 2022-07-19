@@ -314,7 +314,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
                 );
             } else {
                 return (
-                    <span className={styles.selectMenuEmpty}>{emptyText}</span>
+                    <div className={styles.selectMenuEmpty}>{emptyText}</div>
                 );
             }
         };

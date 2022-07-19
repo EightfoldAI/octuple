@@ -6,7 +6,7 @@
         width: 400px;
 
         .select-spinner {
-            margin: 8px auto;
+            margin: 4px auto;
             position: relative;
         }
     }
@@ -79,6 +79,8 @@
 
 .select-menu-empty {
     color: var(--grey-color-60);
+    margin: 8px auto;
+    position: relative;
 }
 
 .select-tooltip {
