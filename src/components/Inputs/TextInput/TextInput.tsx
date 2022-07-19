@@ -3,6 +3,7 @@ import { ButtonSize, DefaultButton } from '../../Button';
 import { Icon, IconName, IconSize } from '../../Icon';
 import { Label, LabelSize } from '../../Label';
 import {
+    TextInputIconAlign,
     TextInputWidth,
     TextInputProps,
     TextInputShape,
@@ -18,10 +19,12 @@ import styles from '../input.module.scss';
 export const TextInput: FC<TextInputProps> = React.forwardRef(
     (
         {
+            alignIcon = TextInputIconAlign.Left,
             allowDisabledFocus = false,
             ariaLabel,
             autoFocus = false,
             classNames,
+            clearable = true,
             clearButtonAriaLabel,
             disabled = false,
             htmlType = 'text',
@@ -49,7 +52,6 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
             theme = TextInputTheme.light,
             value,
             waitInterval = 10,
-            clearable = true,
             ...rest
         },
         ref: Ref<HTMLInputElement>
@@ -68,12 +70,20 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
 
         const iconClassNames: string = mergeClasses([
             styles.iconWrapper,
-            styles.leftIcon,
+            { [styles.leftIcon]: alignIcon === TextInputIconAlign.Left },
+            { [styles.rightIcon]: alignIcon === TextInputIconAlign.Right },
         ]);
 
         const iconButtonClassNames: string = mergeClasses([
             styles.iconButton,
-            styles.leftIcon,
+            { [styles.leftIcon]: alignIcon === TextInputIconAlign.Left },
+            { [styles.rightIcon]: alignIcon === TextInputIconAlign.Right },
+        ]);
+
+        const clearIconButtonClassNames: string = mergeClasses([
+            styles.clearIconButton,
+            { [styles.leftIcon]: alignIcon === TextInputIconAlign.Left },
+            { [styles.rightIcon]: alignIcon === TextInputIconAlign.Right },
         ]);
 
         const textInputClassNames: string = mergeClasses([
@@ -150,6 +160,9 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
             {
                 [styles.inputStretch]: inputWidth === TextInputWidth.fill,
             },
+            { [styles.leftIcon]: alignIcon === TextInputIconAlign.Left },
+            { [styles.rightIcon]: alignIcon === TextInputIconAlign.Right },
+            { [styles.clearDisabled]: !clearable },
         ]);
 
         const textInputGroupClassNames: string = mergeClasses([
@@ -157,6 +170,8 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
             {
                 [styles.inline]: inline,
             },
+            { [styles.leftIcon]: alignIcon === TextInputIconAlign.Left },
+            { [styles.rightIcon]: alignIcon === TextInputIconAlign.Right },
         ]);
 
         const textInputWrapperClassNames: string = mergeClasses([
@@ -189,6 +204,8 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
             {
                 [styles.inputStretch]: inputWidth === TextInputWidth.fill,
             },
+            { [styles.leftIcon]: alignIcon === TextInputIconAlign.Left },
+            { [styles.rightIcon]: alignIcon === TextInputIconAlign.Right },
             {
                 [styles.disabled]: allowDisabledFocus || disabled,
             },
@@ -366,13 +383,14 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
                             htmlType={iconButtonProps.htmlType}
                         />
                     )}
-                    {clearButtonShown &&
+                    {clearable &&
+                        clearButtonShown &&
                         !numbersOnly &&
                         htmlType !== 'number' && (
                             <DefaultButton
                                 allowDisabledFocus={allowDisabledFocus}
                                 ariaLabel={clearButtonAriaLabel}
-                                classNames={styles.clearIconButton}
+                                classNames={clearIconButtonClassNames}
                                 disabled={disabled}
                                 iconProps={{ path: IconName.mdiClose }}
                                 onClick={
