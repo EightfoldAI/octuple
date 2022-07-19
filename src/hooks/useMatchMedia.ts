@@ -20,12 +20,18 @@ export const useMatchMedia = (breakpoint: Breakpoints): boolean => {
         setThreshold(e.matches);
     }, []);
     useEffect((): void => {
-        window
-            .matchMedia(breakpoint)
-            .addEventListener('change', handleMatchMedia);
-        return window
-            .matchMedia(breakpoint)
-            .removeEventListener('change', handleMatchMedia);
+        if (window.matchMedia(breakpoint)?.addEventListener) {
+            window
+                .matchMedia(breakpoint)
+                .addEventListener('change', handleMatchMedia);
+        } else {
+            window.matchMedia(breakpoint).addListener(handleMatchMedia);
+        }
+        return window.matchMedia(breakpoint)?.removeEventListener
+            ? window
+                  .matchMedia(breakpoint)
+                  .removeEventListener('change', handleMatchMedia)
+            : window.matchMedia(breakpoint).removeListener(handleMatchMedia);
     }, [handleMatchMedia]);
     return threshold;
 };
