@@ -5,18 +5,20 @@
     .select-dropdown-overlay {
         width: 400px;
     }
+
     .select-dropdown-main-wrapper {
         width: 100%;
     }
+
     .select-input {
         cursor: pointer;
-        min-width: unset !important;
     }
 
     .multi-select-pills {
         position: absolute;
         z-index: 1;
-        left: 26px;
+        left: $space-xs;
+        right: $space-xxl;
         top: 6px;
         display: flex;
         flex-direction: row;
@@ -24,15 +26,19 @@
     }
 
     .multi-select-pill {
-        @include text-overflow;
-        width: 80px;
+        max-width: 64px;
         text-align: center;
         display: flex;
         justify-content: center;
+
+        span {
+            @include text-overflow;
+            max-width: 64px;
+        }
     }
 
     .multi-select-count {
-        margin-left: 2.5px;
+        margin-left: $space-xs;
     }
 
     .selected-option {
