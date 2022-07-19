@@ -6,6 +6,19 @@ import { OcBaseProps } from '../OcBase';
 import { PillProps } from '../Pills';
 import { MenuItemProps } from '../Menu/MenuItem/MenuItem.types';
 
+export enum SelectShape {
+    Rectangle = 'rectangle',
+    Pill = 'pill',
+    Underline = 'underline',
+}
+
+export enum SelectSize {
+    Flex = 'flex',
+    Large = 'large',
+    Medium = 'medium',
+    Small = 'small',
+}
+
 export interface SelectOption extends MenuItemProps {
     selected?: boolean;
     hideOption?: boolean;
@@ -89,6 +102,18 @@ export interface SelectProps extends OcBaseProps<HTMLSelectElement> {
      * @default {}
      */
     menuProps?: MenuProps;
+
+    /**
+     * Shape of the select.
+     * @default SelectShape.Rectangle
+     */
+    shape?: SelectShape;
+
+    /**
+     * The select size.
+     * @default Flex
+     */
+    size?: SelectSize;
 
     /**
      * loading spinner props.

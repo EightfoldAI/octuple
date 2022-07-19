@@ -1,6 +1,7 @@
 import React, { FC, Ref } from 'react';
 import { IconName } from '../../Icon';
 import {
+    TextInputIconAlign,
     TextInputWidth,
     SearchBoxProps,
     TextInput,
@@ -12,10 +13,12 @@ import {
 export const SearchBox: FC<SearchBoxProps> = React.forwardRef(
     (
         {
+            alignIcon = TextInputIconAlign.Left,
             allowDisabledFocus = false,
             ariaLabel,
             autoFocus = false,
             classNames,
+            clearable = true,
             clearButtonAriaLabel,
             disabled = false,
             iconProps,
@@ -50,6 +53,8 @@ export const SearchBox: FC<SearchBoxProps> = React.forwardRef(
                 <TextInput
                     {...rest}
                     ref={ref}
+                    alignIcon={alignIcon}
+                    clearable={clearable}
                     allowDisabledFocus={allowDisabledFocus}
                     ariaLabel={ariaLabel}
                     autoFocus={autoFocus}
