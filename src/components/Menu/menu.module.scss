@@ -3,15 +3,15 @@
     flex: 1;
 
     &.large {
-        margin: $space-xl $space-xl;
+        margin: $space-xl $space-xl calc(#{$space-m} + #{$space-xxxs});
     }
 
     &.medium {
-        margin: $space-l $space-l;
+        margin: $space-l $space-l calc(#{$space-s} + #{$space-xxxs});
     }
 
     &.small {
-        margin: $space-m $space-m;
+        margin: $space-m $space-m calc(#{$space-xs} + #{$space-xxxs});
     }
 
     .heading {
@@ -36,8 +36,4 @@
     &.small {
         padding: $space-s;
     }
-}
-
-.menu-item-custom {
-    padding: $space-m;
 }
