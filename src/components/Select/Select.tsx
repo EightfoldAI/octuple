@@ -11,7 +11,7 @@ import {
     TextInputSize,
     TextInputWidth,
 } from '../Inputs';
-import { Pill, PillSize } from '../Pills';
+import { Pill, PillSize, PillType } from '../Pills';
 import { IconName } from '../Icon';
 import {
     SelectOption,
@@ -19,42 +19,56 @@ import {
     SelectShape,
     SelectSize,
 } from './Select.types';
+import { Spinner, SpinnerSize } from '../Spinner';
+import { Breakpoints, useMatchMedia } from '../../hooks/useMatchMedia';
+import { Tooltip, TooltipTheme } from '../Tooltip';
 
 import styles from './select.module.scss';
-import { Spinner, SpinnerSize } from '../Spinner';
 
 export const Select: FC<SelectProps> = React.forwardRef(
     (
         {
-            options: _options = [],
-            inputWidth = TextInputWidth.fill,
+            classNames,
             clearable = false,
             defaultValue,
+            dropdownProps = {},
+            emptyText = 'No match found.',
             filterable = false,
+            inputWidth = TextInputWidth.fill,
+            isLoading,
+            loadOptions,
+            menuProps = {},
             multiple = false,
             textInputProps = {},
-            dropdownProps = {},
+            onOptionsChange,
+            options: _options = [],
             pillProps = {},
-            menuProps = {},
-            loadOptions,
-            isLoading,
-            spinner = <Spinner size={SpinnerSize.Small} />,
-            classNames,
+            placeholder = 'Select',
             shape = SelectShape.Rectangle,
             size = SelectSize.Flex,
+            spinner = (
+                <Spinner
+                    classNames={styles.selectSpinner}
+                    size={SpinnerSize.Small}
+                />
+            ),
             style,
-            placeholder = 'Select',
-            onOptionsChange,
             'data-test-id': dataTestId,
         },
         ref: Ref<HTMLDivElement>
     ) => {
+        const largeScreenActive: boolean = useMatchMedia(Breakpoints.Large);
+        const mediumScreenActive: boolean = useMatchMedia(Breakpoints.Medium);
+        const smallScreenActive: boolean = useMatchMedia(Breakpoints.Small);
+        const xSmallScreenActive: boolean = useMatchMedia(Breakpoints.XSmall);
+
         const [dropdownVisible, setDropdownVisibility] =
             useState<boolean>(false);
         const [options, setOptions] = useState<SelectOption[]>(
-            _options.map((option) => ({
+            _options.map((option: SelectOption, index: number) => ({
                 selected: false,
                 hideOption: false,
+                id: option.text + '-' + index,
                 ...option,
             }))
         );
@@ -62,18 +76,19 @@ export const Select: FC<SelectProps> = React.forwardRef(
 
         const getSelectedOptions = (): SelectOption['value'][] => {
             return options
-                .filter((option) => option.selected)
-                .map((option) => option.value);
+                .filter((option: SelectOption) => option.selected)
+                .map((option: SelectOption) => option.value);
         };
 
         useEffect(() => {
             const selected = options.filter((option) => option.selected);
             setOptions(
-                _options.map((option) => ({
+                _options.map((option: SelectOption, index: number) => ({
                     selected: !!selected.find(
                         (opt) => opt.value === option.value
                     ),
                     hideOption: false,
+                    id: option.text + index,
                     ...option,
                 }))
             );
@@ -173,6 +188,25 @@ export const Select: FC<SelectProps> = React.forwardRef(
 
         const componentClasses: string = mergeClasses([
             styles.selectWrapper,
+            {
+                [styles.selectSize3]:
+                    size === SelectSize.Flex && largeScreenActive,
+            },
+            {
+                [styles.selectSize2]:
+                    size === SelectSize.Flex && mediumScreenActive,
+            },
+            {
+                [styles.selectSize2]:
+                    size === SelectSize.Flex && smallScreenActive,
+            },
+            {
+                [styles.selectSize1]:
+                    size === SelectSize.Flex && xSmallScreenActive,
+            },
+            { [styles.selectSize1]: size === SelectSize.Large },
+            { [styles.selectSize2]: size === SelectSize.Medium },
+            { [styles.selectSize3]: size === SelectSize.Small },
             classNames,
         ]);
 
@@ -186,25 +220,58 @@ export const Select: FC<SelectProps> = React.forwardRef(
             );
         };
 
+        const getPillSize = (): PillSize => {
+            let pillSize: PillSize;
+            if (largeScreenActive) {
+                pillSize = PillSize.Small;
+            } else if (mediumScreenActive) {
+                pillSize = PillSize.Medium;
+            } else if (smallScreenActive) {
+                pillSize = PillSize.Medium;
+            } else if (xSmallScreenActive) {
+                pillSize = PillSize.Large;
+            }
+            return pillSize;
+        };
+
+        const selectSizeToPillSizeMap = new Map<SelectSize, PillSize>([
+            [SelectSize.Flex, getPillSize()],
+            [SelectSize.Large, PillSize.Large],
+            [SelectSize.Medium, PillSize.Medium],
+            [SelectSize.Small, PillSize.Small],
+        ]);
+
+        // TODO: Use ConditionalWrapper using a custom hook to determine when ellipsis is active
+        // Because the option will not yet be rendered this may need to be spoofed in the hook
+        // Also need a better way to determine the number of Pills shown before moreOptionsCount.
         const getPills = () => {
             const selected = options.filter((opt) => opt.selected);
             const selectedCount = selected.length;
             const moreOptionsCount = selectedCount - 1;
             return (
                 <div className={styles.multiSelectPills}>
-                    <Pill
-                        label={selected[0].text}
-                        classNames={pillClasses}
-                        theme={'bluegreen'}
-                        size={PillSize.Small}
-                        {...pillProps}
-                    />
+                    <Tooltip
+                        classNames={styles.selectTooltip}
+                        content={selected[0].text}
+                        theme={TooltipTheme.dark}
+                    >
+                        <Pill
+                            id={selected[0].id}
+                            classNames={pillClasses}
+                            label={selected[0].text}
+                            onClose={() => toggleOption(selected[0])}
+                            size={selectSizeToPillSizeMap.get(size)}
+                            theme={'bluegreen'}
+                            type={PillType.closable}
+                            {...pillProps}
+                        />
+                    </Tooltip>
                     {moreOptionsCount ? (
                         <Pill
-                            label={'+' + moreOptionsCount}
                             classNames={countPillClasses}
+                            label={'+' + moreOptionsCount}
+                            size={selectSizeToPillSizeMap.get(size)}
                             theme={'bluegreen'}
-                            size={PillSize.Small}
                             {...pillProps}
                         />
                     ) : null}
@@ -232,18 +299,24 @@ export const Select: FC<SelectProps> = React.forwardRef(
                     ]),
                 })
             );
-            return (
-                <Menu
-                    {...menuProps}
-                    items={updatedItems}
-                    onChange={(value) => {
-                        const option = updatedItems.find(
-                            (option) => option.value === value
-                        );
-                        toggleOption(option);
-                    }}
-                />
-            );
+            if (filteredOptions.length > 0) {
+                return (
+                    <Menu
+                        {...menuProps}
+                        items={updatedItems}
+                        onChange={(value) => {
+                            const option = updatedItems.find(
+                                (option) => option.value === value
+                            );
+                            toggleOption(option);
+                        }}
+                    />
+                );
+            } else {
+                return (
+                    <div className={styles.selectMenuEmpty}>{emptyText}</div>
+                );
+            }
         };
 
         const getSelectedOptionText = () => {
@@ -255,7 +328,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
         };
 
         const selectInputProps: TextInputProps = {
-            placeholder: placeholder,
+            placeholder: showPills() ? '' : placeholder,
             alignIcon: TextInputIconAlign.Right,
             clearable: clearable,
             inputWidth: inputWidth,

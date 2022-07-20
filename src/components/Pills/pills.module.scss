@@ -22,9 +22,15 @@
             font-size: $text-font-size-3;
         }
 
-        &.small {
+        &.small,
+        &.xsmall {
             font-size: $text-font-size-2;
         }
+    }
+
+    &.xsmall {
+        background: none;
+        border: none;
     }
 
     &.red {
