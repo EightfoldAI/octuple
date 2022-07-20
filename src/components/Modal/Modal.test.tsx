@@ -3,6 +3,7 @@ import MatchMediaMock from 'jest-matchmedia-mock';
 import Enzyme, { mount, ReactWrapper } from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import { Modal } from './Modal';
+import { IconName } from '../Icon';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -64,5 +65,29 @@ describe('Modal', () => {
 
         wrapper.find('.dialog-backdrop').at(0).simulate('click');
         expect(onClose).toHaveBeenCalledTimes(2);
+    });
+
+    test('modal header actions exist', () => {
+        const onClose = jest.fn();
+        wrapper.setProps({
+            visible: true,
+            header,
+            body,
+            actionButtonOneProps: {
+                classNames: 'header-action-button-1',
+                iconProps: { path: IconName.mdiCogOutline },
+            },
+            actionButtonTwoProps: {
+                classNames: 'header-action-button-2',
+                iconProps: { path: IconName.mdiHistory },
+            },
+            actionButtonThreeProps: {
+                classNames: 'header-action-button-3',
+                iconProps: { path: IconName.mdiDatabaseArrowDownOutline },
+            },
+        });
+        expect(wrapper.find('.header-action-button-1').length).toBeTruthy();
+        expect(wrapper.find('.header-action-button-2').length).toBeTruthy();
+        expect(wrapper.find('.header-action-button-3').length).toBeTruthy();
     });
 });
