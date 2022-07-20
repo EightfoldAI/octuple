@@ -37,7 +37,12 @@ export default {
             action: 'close',
         },
         size: {
-            options: [PillSize.Large, PillSize.Medium, PillSize.Small],
+            options: [
+                PillSize.Large,
+                PillSize.Medium,
+                PillSize.Small,
+                PillSize.XSmall,
+            ],
             control: { type: 'radio' },
         },
         type: {

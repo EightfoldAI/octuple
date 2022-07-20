@@ -1,9 +1,14 @@
 .select-wrapper {
-    width: 100%;
     position: relative;
+    width: 100%;
 
     .select-dropdown-overlay {
         width: 400px;
+
+        .select-spinner {
+            margin: 4px auto;
+            position: relative;
+        }
     }
 
     .select-dropdown-main-wrapper {
@@ -15,25 +20,27 @@
     }
 
     .multi-select-pills {
-        position: absolute;
-        z-index: 1;
-        left: $space-xs;
-        right: $space-xxl;
-        top: 6px;
+        align-items: center;
         display: flex;
         flex-direction: row;
-        align-items: center;
+        left: $space-xs;
+        right: $space-xxl;
+        pointer-events: none;
+        position: absolute;
+        top: 6px;
+        z-index: 1;
     }
 
     .multi-select-pill {
-        max-width: 64px;
+        max-width: 96px;
         text-align: center;
         display: flex;
         justify-content: center;
+        pointer-events: all;
 
         span {
             @include text-overflow;
-            max-width: 64px;
+            max-width: 80px;
         }
     }
 
@@ -45,4 +52,37 @@
         background-color: var(--primary-color-10);
         color: var(--primary-color-80);
     }
+
+    &.select-size-1 {
+        .multi-select-pills {
+            top: 7px;
+        }
+    }
+
+    &.select-size-2 {
+        .multi-select-pills {
+            top: 5px;
+        }
+    }
+
+    &.select-size-3 {
+        .multi-select-pills {
+            top: 4px;
+
+            .multi-select-count,
+            .multi-select-pill {
+                padding: 2px 12px;
+            }
+        }
+    }
+}
+
+.select-menu-empty {
+    color: var(--grey-color-60);
+    margin: 10px auto;
+    position: relative;
+}
+
+.select-tooltip {
+    max-width: unset;
 }

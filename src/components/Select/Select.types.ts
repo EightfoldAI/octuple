@@ -22,6 +22,7 @@ export enum SelectSize {
 export interface SelectOption extends MenuItemProps {
     selected?: boolean;
     hideOption?: boolean;
+    id?: string;
 }
 
 export interface SelectProps extends OcBaseProps<HTMLSelectElement> {
@@ -78,6 +79,11 @@ export interface SelectProps extends OcBaseProps<HTMLSelectElement> {
      * @default false
      */
     isLoading?: boolean;
+
+    /**
+     * display text when there are no filtered results.
+     */
+    emptyText?: string;
 
     /**
      * select input props.

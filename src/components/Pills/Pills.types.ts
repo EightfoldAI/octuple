@@ -14,6 +14,7 @@ export enum PillSize {
     Large = 'large',
     Medium = 'medium',
     Small = 'small',
+    XSmall = 'xsmall',
 }
 
 /**

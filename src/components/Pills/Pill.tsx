@@ -27,16 +27,19 @@ export const Pill: FC<PillProps> = React.forwardRef(
             [PillSize.Large, ButtonSize.Medium],
             [PillSize.Medium, ButtonSize.Small],
             [PillSize.Small, ButtonSize.Small],
+            [PillSize.XSmall, ButtonSize.Small],
         ]);
         const pillSizeToIconSizeMap = new Map<PillSize, IconSize>([
             [PillSize.Large, IconSize.Medium],
             [PillSize.Medium, IconSize.Small],
             [PillSize.Small, IconSize.XSmall],
+            [PillSize.XSmall, IconSize.XSmall],
         ]);
         const labelClassName: string = mergeClasses([
             styles.label,
             { [styles.medium]: size === PillSize.Medium },
             { [styles.small]: size === PillSize.Small },
+            { [styles.xsmall]: size === PillSize.XSmall },
         ]);
         const tagClassName: string = mergeClasses([
             styles.tagPills,
@@ -49,6 +52,7 @@ export const Pill: FC<PillProps> = React.forwardRef(
             { [styles.blue]: theme === 'blue' },
             { [styles.violet]: theme === 'violet' },
             { [styles.grey]: theme === 'grey' },
+            { [styles.xsmall]: size === PillSize.XSmall },
         ]);
         return (
             <div {...rest} className={tagClassName} style={{ color }} ref={ref}>
