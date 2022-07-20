@@ -3,6 +3,7 @@ import { Stories } from '@storybook/addon-docs';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Modal, ModalSize } from './';
 import { DefaultButton, PrimaryButton } from '../Button';
+import { IconName } from '../Icon';
 
 export default {
     title: 'Modal',
@@ -214,6 +215,25 @@ const Scrollable_Story: ComponentStory<typeof Modal> = (args) => {
 
 export const Scrollable = Scrollable_Story.bind({});
 
+const Header_Actions_Story: ComponentStory<typeof Modal> = (args) => {
+    const [visible, setVisible] = useState<boolean>(false);
+    return (
+        <>
+            <PrimaryButton
+                text={'Open modal'}
+                onClick={() => setVisible(true)}
+            />
+            <Modal
+                {...args}
+                onClose={() => setVisible(false)}
+                visible={visible}
+            />
+        </>
+    );
+};
+
+export const Header_Actions = Header_Actions_Story.bind({});
+
 const modalArgs: Object = {
     size: ModalSize.small,
     actionsClassNames: 'my-modal-actions-class',
@@ -393,4 +413,20 @@ Scrollable.args = {
             </p>
         </>
     ),
+};
+
+Header_Actions.args = {
+    ...modalArgs,
+    actionButtonOneProps: {
+        iconProps: { path: IconName.mdiCogOutline },
+    },
+    actionButtonTwoProps: {
+        iconProps: {
+            path: IconName.mdiHistory,
+        },
+    },
+    actionButtonThreeProps: {
+        iconProps: { path: IconName.mdiDatabaseArrowDownOutline },
+    },
+    size: ModalSize.medium,
 };
