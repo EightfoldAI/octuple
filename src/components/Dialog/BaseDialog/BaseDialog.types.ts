@@ -1,5 +1,6 @@
 import React, { Ref } from 'react';
 import { OcBaseProps } from '../../OcBase';
+import { ButtonProps } from '../../Button';
 
 type EventType =
     | React.KeyboardEvent<HTMLDivElement>
@@ -9,6 +10,18 @@ type Strategy = 'absolute' | 'fixed';
 
 export interface BaseDialogProps
     extends Omit<OcBaseProps<HTMLDivElement>, 'classNames'> {
+    /**
+     * Props for the first header action button
+     */
+    actionButtonOneProps?: ButtonProps;
+    /**
+     * Props for the second header action button
+     */
+    actionButtonTwoProps?: ButtonProps;
+    /**
+     * Props for the third header action button
+     */
+    actionButtonThreeProps?: ButtonProps;
     /**
      * Dialog is visible or not
      */

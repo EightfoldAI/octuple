@@ -8,6 +8,9 @@ import styles from './modal.module.scss';
 export const Modal: FC<ModalProps> = React.forwardRef(
     (
         {
+            actionButtonOneProps,
+            actionButtonTwoProps,
+            actionButtonThreeProps,
             size = ModalSize.medium,
             headerClassNames,
             bodyClassNames,
@@ -45,6 +48,9 @@ export const Modal: FC<ModalProps> = React.forwardRef(
             <BaseDialog
                 {...rest}
                 ref={ref}
+                actionButtonOneProps={actionButtonOneProps}
+                actionButtonTwoProps={actionButtonTwoProps}
+                actionButtonThreeProps={actionButtonThreeProps}
                 dialogWrapperClassNames={modalWrapperClassNames}
                 dialogClassNames={modalClasses}
                 headerClassNames={headerClasses}
