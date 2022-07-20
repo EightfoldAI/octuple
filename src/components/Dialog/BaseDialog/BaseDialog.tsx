@@ -15,6 +15,9 @@ import styles from './base-dialog.module.scss';
 export const BaseDialog: FC<BaseDialogProps> = React.forwardRef(
     (
         {
+            actionButtonOneProps,
+            actionButtonTwoProps,
+            actionButtonThreeProps,
             parent = document.body,
             visible,
             onClose,
@@ -92,10 +95,21 @@ export const BaseDialog: FC<BaseDialogProps> = React.forwardRef(
                 >
                     <div className={headerClasses}>
                         <span id={labelId}>{header}</span>
-                        <NeutralButton
-                            iconProps={{ path: IconName.mdiClose }}
-                            onClick={onClose}
-                        />
+                        <span className={styles.headerButtons}>
+                            {actionButtonThreeProps && (
+                                <NeutralButton {...actionButtonThreeProps} />
+                            )}
+                            {actionButtonTwoProps && (
+                                <NeutralButton {...actionButtonTwoProps} />
+                            )}
+                            {actionButtonOneProps && (
+                                <NeutralButton {...actionButtonOneProps} />
+                            )}
+                            <NeutralButton
+                                iconProps={{ path: IconName.mdiClose }}
+                                onClick={onClose}
+                            />
+                        </span>
                     </div>
                     <div className={bodyClassNames}>{body}</div>
                     {actions && (
