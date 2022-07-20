@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.0.1-pre.2](https://github.com/EightfoldAI/octuple/compare/v1.17.0...v2.0.1-pre.2) (2022-07-20)
+
+### Features
+
+-   add all theme2 colors to avatar and pill component ([1a29b95](https://github.com/EightfoldAI/octuple/commits/1a29b959ede50160df3ec58219ae8011daa6e87f))
+-   icon: adds mdi "auto-fix" icon ([#236](https://github.com/EightfoldAI/octuple/issues/236)) ([e1b99bb](https://github.com/EightfoldAI/octuple/commits/e1b99bb7f7668717174ea31d927d7bf7203e52ec))
+-   input: add inline prop ([#239](https://github.com/EightfoldAI/octuple/issues/239)) ([e52d79a](https://github.com/EightfoldAI/octuple/commits/e52d79a5ac411dbced3c19dabf618cf8262c189a))
+-   input: add underline variant ([#237](https://github.com/EightfoldAI/octuple/issues/237)) ([553fee7](https://github.com/EightfoldAI/octuple/commits/553fee7ea5512541f1402069b8389751b29c9ece))
+-   modal: add three additional header action button props ([#244](https://github.com/EightfoldAI/octuple/issues/244)) ([60abc1f](https://github.com/EightfoldAI/octuple/commits/60abc1f90ef8e18a277ccf48f8cfed74c84d153f))
+-   theme 2 color palette, default button & input shape to pull, styles for selectors, tabs, buttons, accordion & match score ([#174](https://github.com/EightfoldAI/octuple/issues/174)) ([38cc2fe](https://github.com/EightfoldAI/octuple/commits/38cc2fe182b76014ce4fcba44f0f39555d1ac920))
+-   theme 2 for dialog, modal, infobar, snackbar and dropdown ([#162](https://github.com/EightfoldAI/octuple/issues/162)) ([ba57712](https://github.com/EightfoldAI/octuple/commits/ba577125537c54e7015baa65b3316132d5dc8020))
+-   Update incorrect colors for Tabs and Buttons in theme 2 ([#214](https://github.com/EightfoldAI/octuple/issues/214)) ([897e93b](https://github.com/EightfoldAI/octuple/commits/897e93bd4a1bdfff2994422864486f205543a4fb))
+-   update menu item, pagination and inputs to theme 2 ([#213](https://github.com/EightfoldAI/octuple/issues/213)) ([867a01a](https://github.com/EightfoldAI/octuple/commits/867a01aa0c33d51953f134fac05c81faf6d0895b))
+
+### Bug Fixes
+
+-   select: Move chevron indicator to the right side ([#240](https://github.com/EightfoldAI/octuple/issues/240)) ([e1d3ac0](https://github.com/EightfoldAI/octuple/commits/e1d3ac0071c93a3956a754aa7fc96b63a39b40d4))
+-   toggle hover dropdown on click, fixed dropdown flicker on close ([#238](https://github.com/EightfoldAI/octuple/issues/238)) ([ad9f340](https://github.com/EightfoldAI/octuple/commits/ad9f340558875f9be148d47015d3ecd795a5e838))
+-   Update checkbox colors to the correct values ([#230](https://github.com/EightfoldAI/octuple/issues/230)) ([07f4cdb](https://github.com/EightfoldAI/octuple/commits/07f4cdb4a451f7c047eda04f986bfd51b3d727e6)), closes [#162](https://github.com/EightfoldAI/octuple/issues/162) [#174](https://github.com/EightfoldAI/octuple/issues/174)
+-   update two state button to theme 2 ([#226](https://github.com/EightfoldAI/octuple/issues/226)) ([a9f1a8b](https://github.com/EightfoldAI/octuple/commits/a9f1a8bf7a091ec51d3a2a060b0563c5427dd89e))
+-   usematchmedia: implement addlistener fallback for older browsers ([#241](https://github.com/EightfoldAI/octuple/issues/241)) ([f27b5bc](https://github.com/EightfoldAI/octuple/commits/f27b5bc35fea6b33af841384e85be1e175495245))
+
 ## [1.17.0](https://github.com/EightfoldAI/octuple/compare/v1.16.0...v1.17.0) (2022-07-14)
 
 ### Features
