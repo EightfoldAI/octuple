@@ -9,6 +9,9 @@ import styles from './dialog.module.scss';
 export const Dialog: FC<DialogProps> = React.forwardRef(
     (
         {
+            actionButtonOneProps,
+            actionButtonTwoProps,
+            actionButtonThreeProps,
             parent = document.body,
             size = DialogSize.medium,
             headerClassNames,
@@ -46,6 +49,9 @@ export const Dialog: FC<DialogProps> = React.forwardRef(
             <BaseDialog
                 {...rest}
                 ref={ref}
+                actionButtonOneProps={actionButtonOneProps}
+                actionButtonTwoProps={actionButtonTwoProps}
+                actionButtonThreeProps={actionButtonThreeProps}
                 dialogClassNames={dialogClasses}
                 headerClassNames={headerClasses}
                 bodyClassNames={bodyClasses}
