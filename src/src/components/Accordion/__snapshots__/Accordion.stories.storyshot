@@ -1,0 +1,593 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Accordion List Horizontal 1`] = `
+<div
+  className="my-list-class"
+  style={Object {}}
+>
+  <div
+    style={
+      Object {
+        "paddingLeft": "16px",
+      }
+    }
+  >
+    <h2>
+      Header
+    </h2>
+  </div>
+  <ul
+    className="list-container"
+  >
+    <li
+      className="list-item my-list-item-class"
+      style={
+        Object {
+          "padding": "8px",
+        }
+      }
+    >
+      <div
+        className="accordion-container"
+      >
+        <div
+          aria-controls="1-content"
+          aria-expanded={false}
+          className="accordion-summary"
+          id="1-header"
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          role="button"
+          tabIndex={0}
+        >
+          <div
+            style={
+              Object {
+                "alignItems": "center",
+                "display": "flex",
+              }
+            }
+          >
+            <span
+              aria-hidden={false}
+              className="icon-wrapper"
+              role="presentation"
+            >
+              <svg
+                role="presentation"
+                style={
+                  Object {
+                    "height": "20px",
+                    "width": "20px",
+                  }
+                }
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M12 2C6.5 2 2 6.5 2 12S6.5 22 12 22 22 17.5 22 12 17.5 2 12 2M12 20C7.59 20 4 16.41 4 12S7.59 4 12 4 20 7.59 20 12 16.41 20 12 20M16.59 7.58L10 14.17L7.41 11.59L6 13L10 17L18 9L16.59 7.58Z"
+                  style={
+                    Object {
+                      "fill": "green",
+                    }
+                  }
+                />
+              </svg>
+            </span>
+            <div
+              style={
+                Object {
+                  "margin": "0 12px 0 5px",
+                }
+              }
+            >
+              Notification testing
+            </div>
+            <span
+              className="badge header6 active"
+            >
+              2
+            </span>
+          </div>
+          <span
+            aria-hidden={false}
+            className="accordion-icon icon-wrapper"
+            role="presentation"
+          >
+            <svg
+              role="presentation"
+              style={
+                Object {
+                  "height": "20px",
+                  "width": "20px",
+                }
+              }
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"
+                style={
+                  Object {
+                    "fill": "currentColor",
+                  }
+                }
+              />
+            </svg>
+          </span>
+        </div>
+        <div
+          aria-labelledby="1-header"
+          className="accordion-body-container"
+          id="1-content"
+          role="region"
+        >
+          <div
+            className="accordion-body show-border-top"
+          >
+            Body 2 text used here. Bottom bars are sticky sections that
+        can be used to highlight a few actions that are out of the
+        view to be displayed inside the view. For example, if
+        there's a very long form with Save and Cancel buttons at the
+        bottom, we can use the bottom bar to show those two buttons
+        in the view. We are making these bars to be flexible in
+        height and also allowing any component to be
+          </div>
+        </div>
+      </div>
+    </li>
+    <li
+      className="list-item my-list-item-class"
+      style={
+        Object {
+          "padding": "8px",
+        }
+      }
+    >
+      <div
+        className="accordion-container"
+      >
+        <div
+          aria-controls="2-content"
+          aria-expanded={false}
+          className="accordion-summary"
+          id="2-header"
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          role="button"
+          tabIndex={0}
+        >
+          <div
+            style={
+              Object {
+                "alignItems": "center",
+                "display": "flex",
+              }
+            }
+          >
+            <span
+              aria-hidden={false}
+              className="icon-wrapper"
+              role="presentation"
+            >
+              <svg
+                role="presentation"
+                style={
+                  Object {
+                    "height": "20px",
+                    "width": "20px",
+                  }
+                }
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M12 2C6.5 2 2 6.5 2 12S6.5 22 12 22 22 17.5 22 12 17.5 2 12 2M12 20C7.59 20 4 16.41 4 12S7.59 4 12 4 20 7.59 20 12 16.41 20 12 20M16.59 7.58L10 14.17L7.41 11.59L6 13L10 17L18 9L16.59 7.58Z"
+                  style={
+                    Object {
+                      "fill": "green",
+                    }
+                  }
+                />
+              </svg>
+            </span>
+            <div
+              style={
+                Object {
+                  "margin": "0 12px 0 5px",
+                }
+              }
+            >
+              Notification testing
+            </div>
+            <span
+              className="badge header6 active"
+            >
+              12
+            </span>
+          </div>
+          <span
+            aria-hidden={false}
+            className="accordion-icon icon-wrapper"
+            role="presentation"
+          >
+            <svg
+              role="presentation"
+              style={
+                Object {
+                  "height": "20px",
+                  "width": "20px",
+                }
+              }
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"
+                style={
+                  Object {
+                    "fill": "currentColor",
+                  }
+                }
+              />
+            </svg>
+          </span>
+        </div>
+        <div
+          aria-labelledby="2-header"
+          className="accordion-body-container"
+          id="2-content"
+          role="region"
+        >
+          <div
+            className="accordion-body show-border-top"
+          >
+            Body 2 text used here. Bottom bars are sticky sections that
+        can be used to highlight a few actions that are out of the
+        view to be displayed inside the view. For example, if
+        there's a very long form with Save and Cancel buttons at the
+        bottom, we can use the bottom bar to show those two buttons
+        in the view. We are making these bars to be flexible in
+        height and also allowing any component to be
+          </div>
+        </div>
+      </div>
+    </li>
+  </ul>
+  <div
+    style={
+      Object {
+        "paddingLeft": "16px",
+      }
+    }
+  >
+    <h3>
+      Footer
+    </h3>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Accordion List Vertical 1`] = `
+<div
+  className="my-list-class"
+  style={Object {}}
+>
+  <div
+    style={
+      Object {
+        "paddingLeft": "16px",
+      }
+    }
+  >
+    <h2>
+      Header
+    </h2>
+  </div>
+  <ul
+    className="list-container vertical"
+  >
+    <li
+      className="list-item my-list-item-class"
+      style={
+        Object {
+          "padding": "8px 16px",
+        }
+      }
+    >
+      <div
+        className="accordion-container"
+      >
+        <div
+          aria-controls="1-content"
+          aria-expanded={false}
+          className="accordion-summary"
+          id="1-header"
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          role="button"
+          tabIndex={0}
+        >
+          <div
+            style={
+              Object {
+                "alignItems": "center",
+                "display": "flex",
+              }
+            }
+          >
+            <span
+              aria-hidden={false}
+              className="icon-wrapper"
+              role="presentation"
+            >
+              <svg
+                role="presentation"
+                style={
+                  Object {
+                    "height": "20px",
+                    "width": "20px",
+                  }
+                }
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M12 2C6.5 2 2 6.5 2 12S6.5 22 12 22 22 17.5 22 12 17.5 2 12 2M12 20C7.59 20 4 16.41 4 12S7.59 4 12 4 20 7.59 20 12 16.41 20 12 20M16.59 7.58L10 14.17L7.41 11.59L6 13L10 17L18 9L16.59 7.58Z"
+                  style={
+                    Object {
+                      "fill": "green",
+                    }
+                  }
+                />
+              </svg>
+            </span>
+            <div
+              style={
+                Object {
+                  "margin": "0 12px 0 5px",
+                }
+              }
+            >
+              Notification testing
+            </div>
+            <span
+              className="badge header6 active"
+            >
+              2
+            </span>
+          </div>
+          <span
+            aria-hidden={false}
+            className="accordion-icon icon-wrapper"
+            role="presentation"
+          >
+            <svg
+              role="presentation"
+              style={
+                Object {
+                  "height": "20px",
+                  "width": "20px",
+                }
+              }
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"
+                style={
+                  Object {
+                    "fill": "currentColor",
+                  }
+                }
+              />
+            </svg>
+          </span>
+        </div>
+        <div
+          aria-labelledby="1-header"
+          className="accordion-body-container"
+          id="1-content"
+          role="region"
+        >
+          <div
+            className="accordion-body show-border-top"
+          >
+            Body 2 text used here. Bottom bars are sticky sections that
+        can be used to highlight a few actions that are out of the
+        view to be displayed inside the view. For example, if
+        there's a very long form with Save and Cancel buttons at the
+        bottom, we can use the bottom bar to show those two buttons
+        in the view. We are making these bars to be flexible in
+        height and also allowing any component to be
+          </div>
+        </div>
+      </div>
+    </li>
+    <li
+      className="list-item my-list-item-class"
+      style={
+        Object {
+          "padding": "8px 16px",
+        }
+      }
+    >
+      <div
+        className="accordion-container"
+      >
+        <div
+          aria-controls="2-content"
+          aria-expanded={false}
+          className="accordion-summary"
+          id="2-header"
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          role="button"
+          tabIndex={0}
+        >
+          <div
+            style={
+              Object {
+                "alignItems": "center",
+                "display": "flex",
+              }
+            }
+          >
+            <span
+              aria-hidden={false}
+              className="icon-wrapper"
+              role="presentation"
+            >
+              <svg
+                role="presentation"
+                style={
+                  Object {
+                    "height": "20px",
+                    "width": "20px",
+                  }
+                }
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M12 2C6.5 2 2 6.5 2 12S6.5 22 12 22 22 17.5 22 12 17.5 2 12 2M12 20C7.59 20 4 16.41 4 12S7.59 4 12 4 20 7.59 20 12 16.41 20 12 20M16.59 7.58L10 14.17L7.41 11.59L6 13L10 17L18 9L16.59 7.58Z"
+                  style={
+                    Object {
+                      "fill": "green",
+                    }
+                  }
+                />
+              </svg>
+            </span>
+            <div
+              style={
+                Object {
+                  "margin": "0 12px 0 5px",
+                }
+              }
+            >
+              Notification testing
+            </div>
+            <span
+              className="badge header6 active"
+            >
+              12
+            </span>
+          </div>
+          <span
+            aria-hidden={false}
+            className="accordion-icon icon-wrapper"
+            role="presentation"
+          >
+            <svg
+              role="presentation"
+              style={
+                Object {
+                  "height": "20px",
+                  "width": "20px",
+                }
+              }
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"
+                style={
+                  Object {
+                    "fill": "currentColor",
+                  }
+                }
+              />
+            </svg>
+          </span>
+        </div>
+        <div
+          aria-labelledby="2-header"
+          className="accordion-body-container"
+          id="2-content"
+          role="region"
+        >
+          <div
+            className="accordion-body show-border-top"
+          >
+            Body 2 text used here. Bottom bars are sticky sections that
+        can be used to highlight a few actions that are out of the
+        view to be displayed inside the view. For example, if
+        there's a very long form with Save and Cancel buttons at the
+        bottom, we can use the bottom bar to show those two buttons
+        in the view. We are making these bars to be flexible in
+        height and also allowing any component to be
+          </div>
+        </div>
+      </div>
+    </li>
+  </ul>
+  <div
+    style={
+      Object {
+        "paddingLeft": "16px",
+      }
+    }
+  >
+    <h3>
+      Footer
+    </h3>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Accordion Single 1`] = `
+<div
+  className="accordion-container"
+>
+  <div
+    aria-controls="myAccordionId-content"
+    aria-expanded={false}
+    className="accordion-summary"
+    id="myAccordionId-header"
+    onClick={[Function]}
+    onKeyDown={[Function]}
+    role="button"
+    tabIndex={0}
+  >
+    Accordion Header
+    <span
+      aria-hidden={false}
+      className="accordion-icon icon-wrapper"
+      role="presentation"
+    >
+      <svg
+        role="presentation"
+        style={
+          Object {
+            "height": "20px",
+            "width": "20px",
+          }
+        }
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"
+          style={
+            Object {
+              "fill": "currentColor",
+            }
+          }
+        />
+      </svg>
+    </span>
+  </div>
+  <div
+    aria-labelledby="myAccordionId-header"
+    className="accordion-body-container"
+    id="myAccordionId-content"
+    role="region"
+  >
+    <div
+      className="accordion-body show-border-top"
+    >
+      <div
+        style={
+          Object {
+            "height": "80px",
+          }
+        }
+      >
+        Body 2 text used here. Bottom bars are sticky sections that can be used to highlight a few actions that are out of the view to be displayed inside the view. For example, if there's a very long form with Save and Cancel buttons at the bottom, we can use the bottom bar to show those two buttons in the view. We are making these bars to be flexible in height and also allowing any component to be added inside for now, to understand use cases from the team.
+      </div>
+    </div>
+  </div>
+</div>
+`;
