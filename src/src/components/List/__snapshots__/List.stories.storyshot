@@ -1,0 +1,241 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots List Horizontal 1`] = `
+<div
+  className="my-list-class"
+  style={Object {}}
+>
+  <div
+    style={
+      Object {
+        "paddingLeft": "16px",
+      }
+    }
+  >
+    <h2>
+      Header
+    </h2>
+  </div>
+  <ul
+    className="list-container"
+    role=""
+  >
+    <li
+      className="list-item my-list-item-class"
+      style={
+        Object {
+          "padding": "8px 16px",
+        }
+      }
+    >
+      <div>
+        <p>
+          User 1
+        </p>
+        <div>
+          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+        </div>
+      </div>
+    </li>
+    <li
+      className="list-item my-list-item-class"
+      style={
+        Object {
+          "padding": "8px 16px",
+        }
+      }
+    >
+      <div>
+        <p>
+          User 2
+        </p>
+        <div>
+          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+        </div>
+      </div>
+    </li>
+    <li
+      className="list-item my-list-item-class"
+      style={
+        Object {
+          "padding": "8px 16px",
+        }
+      }
+    >
+      <div>
+        <p>
+          User 3
+        </p>
+        <div>
+          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+        </div>
+      </div>
+    </li>
+    <li
+      className="list-item my-list-item-class"
+      style={
+        Object {
+          "padding": "8px 16px",
+        }
+      }
+    >
+      <div>
+        <p>
+          User 4
+        </p>
+        <div>
+          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+        </div>
+      </div>
+    </li>
+    <li
+      className="list-item my-list-item-class"
+      style={
+        Object {
+          "padding": "8px 16px",
+        }
+      }
+    >
+      <div>
+        <p>
+          User 5
+        </p>
+        <div>
+          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+        </div>
+      </div>
+    </li>
+  </ul>
+  <div
+    style={
+      Object {
+        "paddingLeft": "16px",
+      }
+    }
+  >
+    <h3>
+      Footer
+    </h3>
+  </div>
+</div>
+`;
+
+exports[`Storyshots List Vertical 1`] = `
+<div
+  className="my-list-class"
+  style={Object {}}
+>
+  <div
+    style={
+      Object {
+        "paddingLeft": "16px",
+      }
+    }
+  >
+    <h2>
+      Header
+    </h2>
+  </div>
+  <ul
+    className="list-container vertical"
+    role=""
+  >
+    <li
+      className="list-item my-list-item-class"
+      style={
+        Object {
+          "padding": "8px 16px",
+        }
+      }
+    >
+      <div>
+        <p>
+          User 1
+        </p>
+        <div>
+          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+        </div>
+      </div>
+    </li>
+    <li
+      className="list-item my-list-item-class"
+      style={
+        Object {
+          "padding": "8px 16px",
+        }
+      }
+    >
+      <div>
+        <p>
+          User 2
+        </p>
+        <div>
+          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+        </div>
+      </div>
+    </li>
+    <li
+      className="list-item my-list-item-class"
+      style={
+        Object {
+          "padding": "8px 16px",
+        }
+      }
+    >
+      <div>
+        <p>
+          User 3
+        </p>
+        <div>
+          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+        </div>
+      </div>
+    </li>
+    <li
+      className="list-item my-list-item-class"
+      style={
+        Object {
+          "padding": "8px 16px",
+        }
+      }
+    >
+      <div>
+        <p>
+          User 4
+        </p>
+        <div>
+          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+        </div>
+      </div>
+    </li>
+    <li
+      className="list-item my-list-item-class"
+      style={
+        Object {
+          "padding": "8px 16px",
+        }
+      }
+    >
+      <div>
+        <p>
+          User 5
+        </p>
+        <div>
+          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+        </div>
+      </div>
+    </li>
+  </ul>
+  <div
+    style={
+      Object {
+        "paddingLeft": "16px",
+      }
+    }
+  >
+    <h3>
+      Footer
+    </h3>
+  </div>
+</div>
+`;

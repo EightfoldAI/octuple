@@ -1,0 +1,88 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Link Default 1`] = `
+<a
+  className="link-style my-link-class"
+  href="https://www.twitter.com"
+  style={Object {}}
+  target="_self"
+>
+  Twitter
+</a>
+`;
+
+exports[`Storyshots Link Default Disabled 1`] = `
+<a
+  className="link-style my-link-class"
+  href="https://www.facebook.com"
+  style={Object {}}
+  target="_self"
+>
+  <span
+    aria-hidden={false}
+    className="icon-wrapper"
+    role="presentation"
+  >
+    <svg
+      role="presentation"
+      style={
+        Object {
+          "height": "20px",
+          "width": "20px",
+        }
+      }
+      viewBox="0 0 24 24"
+    >
+      <path
+        d="M12,4A4,4 0 0,1 16,8A4,4 0 0,1 12,12A4,4 0 0,1 8,8A4,4 0 0,1 12,4M12,14C16.42,14 20,15.79 20,18V20H4V18C4,15.79 7.58,14 12,14Z"
+        style={
+          Object {
+            "fill": "currentColor",
+          }
+        }
+      />
+    </svg>
+  </span>
+  User Profile
+</a>
+`;
+
+exports[`Storyshots Link Primary 1`] = `
+<a
+  className="link-style my-link-class primary"
+  href="https://www.facebook.com"
+  style={
+    Object {
+      "maxWidth": "100px",
+    }
+  }
+  target="_self"
+>
+  <span
+    aria-hidden={false}
+    className="icon-wrapper"
+    role="presentation"
+  >
+    <svg
+      role="presentation"
+      style={
+        Object {
+          "height": "20px",
+          "width": "20px",
+        }
+      }
+      viewBox="0 0 24 24"
+    >
+      <path
+        d="M12,4A4,4 0 0,1 16,8A4,4 0 0,1 12,12A4,4 0 0,1 8,8A4,4 0 0,1 12,4M12,14C16.42,14 20,15.79 20,18V20H4V18C4,15.79 7.58,14 12,14Z"
+        style={
+          Object {
+            "fill": "currentColor",
+          }
+        }
+      />
+    </svg>
+  </span>
+  User Profile
+</a>
+`;

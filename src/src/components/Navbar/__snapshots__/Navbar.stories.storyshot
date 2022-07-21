@@ -1,0 +1,113 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Navbar Navbar Div 1`] = `
+<div
+  style={
+    Object {
+      "height": "250px",
+    }
+  }
+>
+  <div
+    className="navbar-container"
+  >
+    <div
+      className="navbar-content"
+    >
+      <a
+        className="link-style"
+        href="https://www.twitter.com"
+        style={
+          Object {
+            "color": "inherit",
+            "padding": "8px 20px",
+          }
+        }
+        target="_self"
+      >
+        Twitter
+      </a>
+      <a
+        className="link-style"
+        href="https://www.facebook.com"
+        style={
+          Object {
+            "color": "inherit",
+            "padding": "8px 20px",
+          }
+        }
+        target="_self"
+      >
+        Facebook
+      </a>
+    </div>
+    <div
+      className="navbar-content"
+    >
+      <div
+        className="main-wrapper"
+      >
+        <div
+          aria-controls="dropdown-17"
+          aria-expanded={false}
+          aria-haspopup={true}
+          className="reference-wrapper"
+          onClick={[Function]}
+          role="button"
+          style={
+            Object {
+              "display": "flex",
+            }
+          }
+          tabIndex="0"
+        >
+          <div
+            style={
+              Object {
+                "fontSize": "18px",
+                "height": "32px",
+                "minHeight": "32px",
+                "minWidth": "32px",
+                "width": "32px",
+              }
+            }
+          >
+            <img
+              alt="random profile image"
+              className="image-style round-image"
+              height="32px"
+              src="https://images.pexels.com/photos/771742/pexels-photo-771742.jpeg"
+              width="32px"
+            />
+          </div>
+          <span
+            aria-hidden={false}
+            className="icon-wrapper"
+            role="presentation"
+          >
+            <svg
+              role="presentation"
+              style={
+                Object {
+                  "height": "20px",
+                  "width": "20px",
+                }
+              }
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"
+                style={
+                  Object {
+                    "fill": "currentColor",
+                  }
+                }
+              />
+            </svg>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
