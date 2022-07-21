@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Dialog Medium 1`] = `
+<button
+  aria-disabled={false}
+  className="button button-primary"
+  defaultChecked={false}
+  disabled={false}
+  onClick={[Function]}
+>
+  <span
+    className=""
+  >
+    Open dialog
+  </span>
+</button>
+`;
+
+exports[`Storyshots Dialog Small 1`] = `
+<button
+  aria-disabled={false}
+  className="button button-primary button-primary-disruptive"
+  defaultChecked={false}
+  disabled={false}
+  onClick={[Function]}
+>
+  <span
+    className=""
+  >
+    Open dialog
+  </span>
+</button>
+`;
