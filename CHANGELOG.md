@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.18.0](https://github.com/EightfoldAI/octuple/compare/v1.17.0...v1.18.0) (2022-07-21)
+
+### Features
+
+-   icon: adds mdi "auto-fix" icon ([#236](https://github.com/EightfoldAI/octuple/issues/236)) ([e1b99bb](https://github.com/EightfoldAI/octuple/commits/e1b99bb7f7668717174ea31d927d7bf7203e52ec))
+-   input: add inline prop ([#239](https://github.com/EightfoldAI/octuple/issues/239)) ([e52d79a](https://github.com/EightfoldAI/octuple/commits/e52d79a5ac411dbced3c19dabf618cf8262c189a))
+-   input: add underline variant ([#237](https://github.com/EightfoldAI/octuple/issues/237)) ([553fee7](https://github.com/EightfoldAI/octuple/commits/553fee7ea5512541f1402069b8389751b29c9ece))
+-   modal: add three additional header action button props ([#244](https://github.com/EightfoldAI/octuple/issues/244)) ([60abc1f](https://github.com/EightfoldAI/octuple/commits/60abc1f90ef8e18a277ccf48f8cfed74c84d153f))
+
+### Bug Fixes
+
+-   select: fixes pills, filtering, empty text, and spinner position ([#243](https://github.com/EightfoldAI/octuple/issues/243)) ([c1bcf24](https://github.com/EightfoldAI/octuple/commits/c1bcf24f47d75d70e1eb74c07a82681de370321a))
+-   select: Move chevron indicator to the right side ([#240](https://github.com/EightfoldAI/octuple/issues/240)) ([e1d3ac0](https://github.com/EightfoldAI/octuple/commits/e1d3ac0071c93a3956a754aa7fc96b63a39b40d4))
+-   toggle hover dropdown on click, fixed dropdown flicker on close ([#238](https://github.com/EightfoldAI/octuple/issues/238)) ([ad9f340](https://github.com/EightfoldAI/octuple/commits/ad9f340558875f9be148d47015d3ecd795a5e838))
+-   usematchmedia: implement addlistener fallback for older browsers ([#241](https://github.com/EightfoldAI/octuple/issues/241)) ([f27b5bc](https://github.com/EightfoldAI/octuple/commits/f27b5bc35fea6b33af841384e85be1e175495245))
+
 ## [1.17.0](https://github.com/EightfoldAI/octuple/compare/v1.16.0...v1.17.0) (2022-07-14)
 
 ### Features
