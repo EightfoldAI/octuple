@@ -4,6 +4,7 @@ import Enzyme, { mount, render } from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import DatePicker from '..';
 import '@testing-library/jest-dom';
+import 'jest-specific-snapshot';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -31,7 +32,9 @@ describe('Picker format by locale', () => {
         it(name, () => {
             const wrapper = mount(<Picker value={date} {...props} />);
 
-            expect(wrapper.render()).toMatchSnapshot();
+            expect(wrapper.render()).toMatchSpecificSnapshot(
+                `./__snapshots__/DatePicker.${name}.shot`
+            );
         });
     }
 
@@ -44,19 +47,21 @@ describe('Picker format by locale', () => {
 describe('MonthPicker and WeekPicker', () => {
     it('render MonthPicker', () => {
         const birthday = dayjs('2000-01-01', 'YYYY-MM-DD').locale('en-us');
-        const wrapper = mount(<MonthPicker open />);
+        const wrapper = mount(<MonthPicker />);
         wrapper.setProps({ value: birthday });
         expect(
             render(wrapper.find('Trigger').instance().getComponent())
-        ).toMatchSnapshot();
+        ).toMatchSpecificSnapshot(
+            './__snapshots__/DatePicker.monthpicker.shot'
+        );
     });
 
     it('render WeekPicker', () => {
         const birthday = dayjs('2000-01-01', 'YYYY-MM-DD').locale('en-us');
-        const wrapper = mount(<WeekPicker open />);
+        const wrapper = mount(<WeekPicker />);
         wrapper.setProps({ value: birthday });
         expect(
             render(wrapper.find('Trigger').instance().getComponent())
-        ).toMatchSnapshot();
+        ).toMatchSpecificSnapshot('./__snapshots__/DatePicker.weekpicker.shot');
     });
 });
