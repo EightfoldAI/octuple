@@ -126,4 +126,10 @@ export interface SelectProps extends OcBaseProps<HTMLSelectElement> {
      * @default {}
      */
     spinner?: React.ReactNode;
+
+    /**
+     * Custom method to filter whether an option should be displayed in the menu.
+     * @default null
+     */
+    filterOption?: (option: any, query: any) => boolean;
 }
