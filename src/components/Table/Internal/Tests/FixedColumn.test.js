@@ -4,6 +4,7 @@ import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import { act } from 'react-dom/test-utils';
 import OcTable from '..';
 import { ResizeObserver } from '../../../../shared/ResizeObserver/ResizeObserver';
+import 'jest-specific-snapshot';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -16,24 +17,7 @@ describe('Table.FixedColumn', () => {
             width: 100,
             fixed: 'left',
         },
-        {
-            title: 'title2',
-            dataIndex: 'b',
-            key: 'b',
-            width: 100,
-            fixed: 'left',
-            ellipsis: true,
-            render: () => <span>1111</span>,
-        },
         { title: 'title3', dataIndex: 'c', key: 'c' },
-        { title: 'title4', dataIndex: 'b', key: 'd' },
-        { title: 'title5', dataIndex: 'b', key: 'e' },
-        { title: 'title6', dataIndex: 'b', key: 'f' },
-        { title: 'title7', dataIndex: 'b', key: 'g' },
-        { title: 'title8', dataIndex: 'b', key: 'h' },
-        { title: 'title9', dataIndex: 'b', key: 'i' },
-        { title: 'title10', dataIndex: 'b', key: 'j' },
-        { title: 'title11', dataIndex: 'b', key: 'k' },
         {
             title: 'title12',
             dataIndex: 'b',
@@ -42,17 +26,7 @@ describe('Table.FixedColumn', () => {
             fixed: 'right',
         },
     ];
-    const data = [
-        { a: '123', b: 'xxxxxxxx', d: 3, key: '1' },
-        { a: 'cdd', b: 'edd12221', d: 3, key: '2' },
-        { a: '133', c: 'edd12221', d: 2, key: '3' },
-        { a: '133', c: 'edd12221', d: 2, key: '4' },
-        { a: '133', c: 'edd12221', d: 2, key: '5' },
-        { a: '133', c: 'edd12221', d: 2, key: '6' },
-        { a: '133', c: 'edd12221', d: 2, key: '7' },
-        { a: '133', c: 'edd12221', d: 2, key: '8' },
-        { a: '133', c: 'edd12221', d: 2, key: '9' },
-    ];
+    const data = [{ a: '123', b: 'xxxxxxxx', d: 3, key: '1' }];
 
     describe('renders correctly', () => {
         [
@@ -60,8 +34,8 @@ describe('Table.FixedColumn', () => {
             { scrollName: 'scrollXY', scroll: { x: 1200, y: 100 } },
         ].forEach(({ scrollName, scroll }) => {
             [
-                { name: 'with data', data },
-                { name: 'without data', data: [] },
+                { name: 'withdata', data },
+                { name: 'withoutdata', data: [] },
             ].forEach(({ name, data: testData }) => {
                 it(`${scrollName} - ${name}`, async () => {
                     jest.useFakeTimers();
@@ -98,7 +72,9 @@ describe('Table.FixedColumn', () => {
                         await Promise.resolve();
                         wrapper.update();
                     });
-                    expect(wrapper.render()).toMatchSnapshot();
+                    expect(wrapper.render()).toMatchSpecificSnapshot(
+                        `./__snapshots__/FixedColumn.render${name}.shot`
+                    );
                     jest.useRealTimers();
                 });
             });
@@ -129,7 +105,9 @@ describe('Table.FixedColumn', () => {
                 />
             );
 
-            expect(wrapper.find('colgroup').render()).toMatchSnapshot();
+            expect(wrapper.find('colgroup').render()).toMatchSpecificSnapshot(
+                './__snapshots__/FixedColumn.colwidth.shot'
+            );
         });
     });
 
@@ -236,6 +214,8 @@ describe('Table.FixedColumn', () => {
                 }}
             />
         );
-        expect(wrapper.render()).toMatchSnapshot();
+        expect(wrapper.render()).toMatchSpecificSnapshot(
+            './__snapshots__/FixedColumn.rtl.shot'
+        );
     });
 });
