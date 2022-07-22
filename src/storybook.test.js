@@ -1,4 +1,6 @@
-import initStoryshots from '@storybook/addon-storyshots';
+import initStoryshots, {
+    multiSnapshotWithOptions,
+} from '@storybook/addon-storyshots';
 
 Object.defineProperty(window, 'matchMedia', {
     writable: true,
@@ -16,4 +18,6 @@ Object.defineProperty(window, 'matchMedia', {
 
 jest.spyOn(global.Math, 'random').mockReturnValue(0.123456789);
 
-initStoryshots();
+initStoryshots({
+    test: multiSnapshotWithOptions(),
+});
