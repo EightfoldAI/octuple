@@ -4,6 +4,7 @@ import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import { act } from 'react-dom/test-utils';
 import { debounce } from '../../../shared/utilities';
 import Tree from '../index';
+import 'jest-specific-snapshot';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -33,11 +34,6 @@ describe('Directory Tree', () => {
             <DirectoryTree {...props}>
                 <TreeNode key="0-0">
                     <TreeNode key="0-0-0" />
-                    <TreeNode key="0-0-1" />
-                </TreeNode>
-                <TreeNode key="0-1">
-                    <TreeNode key="0-1-0" />
-                    <TreeNode key="0-1-1" />
                 </TreeNode>
             </DirectoryTree>
         );
@@ -54,7 +50,9 @@ describe('Directory Tree', () => {
                     .at(0)
                     .simulate('click');
             });
-            expect(wrapper.render()).toMatchSnapshot();
+            expect(wrapper.render()).toMatchSpecificSnapshot(
+                './__snapshots__/directory.expandclick1.shot'
+            );
             jest.runAllTimers();
             act(() => {
                 wrapper
@@ -63,7 +61,9 @@ describe('Directory Tree', () => {
                     .at(0)
                     .simulate('click');
             });
-            expect(wrapper.render()).toMatchSnapshot();
+            expect(wrapper.render()).toMatchSpecificSnapshot(
+                './__snapshots__/directory.expandclick2.shot'
+            );
         });
 
         it('double click', () => {
@@ -76,7 +76,9 @@ describe('Directory Tree', () => {
                     .at(0)
                     .simulate('doubleClick');
             });
-            expect(wrapper.render()).toMatchSnapshot();
+            expect(wrapper.render()).toMatchSpecificSnapshot(
+                './__snapshots__/directory.doubleclick1.shot'
+            );
             jest.runAllTimers();
             act(() => {
                 wrapper
@@ -85,7 +87,9 @@ describe('Directory Tree', () => {
                     .at(0)
                     .simulate('doubleClick');
             });
-            expect(wrapper.render()).toMatchSnapshot();
+            expect(wrapper.render()).toMatchSpecificSnapshot(
+                './__snapshots__/directory.doubleclick2.shot'
+            );
         });
 
         describe('with state control', () => {
@@ -129,7 +133,9 @@ describe('Directory Tree', () => {
                             .simulate(action);
                     });
                     jest.runAllTimers();
-                    expect(wrapper.render()).toMatchSnapshot();
+                    expect(wrapper.render()).toMatchSpecificSnapshot(
+                        `./__snapshots__/directory.statecontrol${action}.shot`
+                    );
                 });
             });
         });
@@ -137,25 +143,20 @@ describe('Directory Tree', () => {
 
     it('defaultExpandAll', () => {
         const wrapper = render(createTree({ defaultExpandAll: true }));
-        expect(wrapper).toMatchSnapshot();
+        expect(wrapper).toMatchSpecificSnapshot(
+            './__snapshots__/directory.defaultexpandall.shot'
+        );
     });
 
-    it('DirectoryTree should expend all when use treeData and defaultExpandAll is true', () => {
+    it('DirectoryTree should expand all when use treeData and defaultExpandAll is true', () => {
         const treeData = [
             {
-                key: '0-0-0',
+                key: '0-0',
                 title: 'Folder',
                 children: [
                     {
-                        title: 'Folder2',
-                        key: '0-0-1',
-                        children: [
-                            {
-                                title: 'File',
-                                key: '0-0-2',
-                                isLeaf: true,
-                            },
-                        ],
+                        key: '0-0-0',
+                        title: 'Folder1',
                     },
                 ],
             },
@@ -163,28 +164,36 @@ describe('Directory Tree', () => {
         const wrapper = render(
             createTree({ defaultExpandAll: true, treeData })
         );
-        expect(wrapper).toMatchSnapshot();
+        expect(wrapper).toMatchSpecificSnapshot(
+            './__snapshots__/directory.expandalldata.shot'
+        );
     });
 
     it('defaultExpandParent', () => {
         const wrapper = render(createTree({ defaultExpandParent: true }));
-        expect(wrapper).toMatchSnapshot();
+        expect(wrapper).toMatchSpecificSnapshot(
+            './__snapshots__/directory.expandparentdefault.shot'
+        );
     });
 
     it('expandedKeys update', () => {
         const wrapper = mount(createTree());
         act(() => {
-            wrapper.setProps({ expandedKeys: ['0-1'] });
+            wrapper.setProps({ expandedKeys: ['0-0'] });
         });
-        expect(wrapper.render()).toMatchSnapshot();
+        expect(wrapper.render()).toMatchSpecificSnapshot(
+            './__snapshots__/directory.expandkeysupdate.shot'
+        );
     });
 
     it('selectedKeys update', () => {
         const wrapper = mount(createTree({ defaultExpandAll: true }));
         act(() => {
-            wrapper.setProps({ selectedKeys: ['0-1-0'] });
+            wrapper.setProps({ selectedKeys: ['0-0-0'] });
         });
-        expect(wrapper.render()).toMatchSnapshot();
+        expect(wrapper.render()).toMatchSpecificSnapshot(
+            './__snapshots__/directory.selectedkeysupdate.shot'
+        );
     });
 
     it('group select', () => {
@@ -235,7 +244,9 @@ describe('Directory Tree', () => {
                 .at(1)
                 .simulate('click');
         });
-        expect(wrapper.render()).toMatchSnapshot();
+        expect(wrapper.render()).toMatchSpecificSnapshot(
+            './__snapshots__/directory.groupselect1.shot'
+        );
         expect(onSelect.mock.calls[2][0].length).toBe(2);
         expect(onSelect.mock.calls[2][1].selected).toBeTruthy();
         expect(onSelect.mock.calls[2][1].selectedNodes.length).toBe(2);
@@ -247,13 +258,15 @@ describe('Directory Tree', () => {
             wrapper
                 .find(TreeNode)
                 .find('.tree-node-content-wrapper')
-                .at(4)
+                .at(1)
                 .simulate('click');
         });
-        expect(wrapper.render()).toMatchSnapshot();
-        expect(onSelect.mock.calls[3][0].length).toBe(5);
-        expect(onSelect.mock.calls[3][1].selected).toBeTruthy();
-        expect(onSelect.mock.calls[3][1].selectedNodes.length).toBe(5);
+        expect(wrapper.render()).toMatchSpecificSnapshot(
+            './__snapshots__/directory.groupselect2.shot'
+        );
+        expect(onSelect.mock.calls[2][0].length).toBe(2);
+        expect(onSelect.mock.calls[2][1].selected).toBeTruthy();
+        expect(onSelect.mock.calls[2][1].selectedNodes.length).toBe(2);
 
         delete nativeEventProto.shiftKey;
     });

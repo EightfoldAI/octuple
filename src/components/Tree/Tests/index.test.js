@@ -2,6 +2,7 @@ import React from 'react';
 import Enzyme, { mount } from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import Tree from '../index';
+import 'jest-specific-snapshot';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -43,7 +44,9 @@ describe('Tree', () => {
                 </TreeNode>
             </Tree>
         );
-        expect(wrapper.render()).toMatchSnapshot();
+        expect(wrapper.render()).toMatchSpecificSnapshot(
+            './__snapshots__/index.treeiconrender.shot'
+        );
     });
 
     it('switcherIcon in Tree should not render at leaf nodes', () => {
@@ -80,7 +83,9 @@ describe('Tree', () => {
                 </TreeNode>
             </Tree>
         );
-        expect(wrapper.render()).toMatchSnapshot();
+        expect(wrapper.render()).toMatchSpecificSnapshot(
+            './__snapshots__/index.switchericonstring.shot'
+        );
     });
 
     it('switcherIcon should be loading icon when loadData', () => {
@@ -96,18 +101,12 @@ describe('Tree', () => {
                 defaultExpandAll
                 loadData={onLoadData}
             >
-                <TreeNode icon="icon">
-                    <TreeNode
-                        id="node1"
-                        title="node1"
-                        icon="icon"
-                        key="0-0-2"
-                    />
-                    <TreeNode id="node2" title="node2" key="0-0-3" />
-                </TreeNode>
+                <TreeNode icon="icon" id="node1" key="0-0" title="node1" />
             </Tree>
         );
-        expect(wrapper.render()).toMatchSnapshot();
+        expect(wrapper.render()).toMatchSpecificSnapshot(
+            './__snapshots__/index.loadingicon.shot'
+        );
     });
 
     it('switcherIcon in Tree could be render prop function', () => {
@@ -145,20 +144,13 @@ describe('Tree', () => {
                 <TreeNode title="parent 1" key="0-0">
                     <TreeNode title="parent 1-0" key="0-0-0">
                         <TreeNode title="leaf" key="0-0-0-0" />
-                        <TreeNode title="leaf" key="0-0-0-1" />
-                        <TreeNode title="leaf" key="0-0-0-2" />
-                    </TreeNode>
-                    <TreeNode title="parent 1-1" key="0-0-1">
-                        <TreeNode title="leaf" key="0-0-1-0" />
-                    </TreeNode>
-                    <TreeNode title="parent 1-2" key="0-0-2">
-                        <TreeNode title="leaf" key="0-0-2-0" />
-                        <TreeNode title="leaf" key="0-0-2-1" />
                     </TreeNode>
                 </TreeNode>
             </Tree>
         );
-        expect(wrapper.render()).toMatchSnapshot();
+        expect(wrapper.render()).toMatchSpecificSnapshot(
+            './__snapshots__/index.showline.shot'
+        );
     });
 
     describe('draggable', () => {

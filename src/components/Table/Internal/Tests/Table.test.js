@@ -2,13 +2,14 @@ import React from 'react';
 import Enzyme, { mount } from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import OcTable, { INTERNAL_COL_DEFINE } from '..';
+import 'jest-specific-snapshot';
 
 Enzyme.configure({ adapter: new Adapter() });
 
 describe('Table.Basic', () => {
     const data = [
-        { key: 'key0', name: 'Lucy' },
-        { key: 'key1', name: 'Jack' },
+        { key: 'key0', name: 'Lola' },
+        { key: 'key1', name: 'Mia' },
     ];
     const createTable = (props) => {
         const columns = [{ title: 'Name', dataIndex: 'name', key: 'name' }];
@@ -32,7 +33,9 @@ describe('Table.Basic', () => {
                     classNames: 'test-class-name',
                 })
             );
-            expect(wrapper.render()).toMatchSnapshot();
+            expect(wrapper.render()).toMatchSpecificSnapshot(
+                './__snapshots__/Table.renderbasic.shot'
+            );
         });
 
         it('RTL', () => {
@@ -42,12 +45,16 @@ describe('Table.Basic', () => {
                     direction: 'rtl',
                 })
             );
-            expect(wrapper.render()).toMatchSnapshot();
+            expect(wrapper.render()).toMatchSpecificSnapshot(
+                './__snapshots__/Table.rtl.shot'
+            );
         });
 
         it('no columns', () => {
             const wrapper = mount(createTable({ columns: [] }));
-            expect(wrapper.render()).toMatchSnapshot();
+            expect(wrapper.render()).toMatchSpecificSnapshot(
+                './__snapshots__/Table.nocols.shot'
+            );
         });
 
         it('column children undefined', () => {
@@ -69,7 +76,9 @@ describe('Table.Basic', () => {
                     ],
                 })
             );
-            expect(wrapper.render()).toMatchSnapshot();
+            expect(wrapper.render()).toMatchSpecificSnapshot(
+                './__snapshots__/Table.colchildrenundefined.shot'
+            );
             expect(wrapper.find('th').at(0).text()).toEqual('Name');
             expect(wrapper.find('th').at(1).text()).toEqual('Age');
         });
@@ -88,7 +97,9 @@ describe('Table.Basic', () => {
                     ],
                 })
             );
-            expect(wrapper.render()).toMatchSnapshot();
+            expect(wrapper.render()).toMatchSpecificSnapshot(
+                './__snapshots__/Table.falseycols.shot'
+            );
         });
     });
 
@@ -183,8 +194,8 @@ describe('Table.Basic', () => {
 
         it('sets by rowKey', () => {
             const wrapper = mount(createTable({ rowKey: 'name' }));
-            expect(wrapper.find('BodyRow').at(0).key()).toBe('Lucy');
-            expect(wrapper.find('BodyRow').at(1).key()).toBe('Jack');
+            expect(wrapper.find('BodyRow').at(0).key()).toBe('Lola');
+            expect(wrapper.find('BodyRow').at(1).key()).toBe('Mia');
         });
 
         it('sets by rowKey function', () => {
@@ -283,7 +294,7 @@ describe('Table.Basic', () => {
         const wrapper = mount(createTable({ columns }));
         wrapper.find('td').forEach((td, index) => {
             expect(td.hasClass('name-class')).toBeTruthy();
-            expect(td.text()).toEqual(['Lucy', 'Jack'][index]);
+            expect(td.text()).toEqual(['Lola', 'Mia'][index]);
         });
 
         expect(wrapper.find('col').props().style).toEqual(
@@ -301,7 +312,7 @@ describe('Table.Basic', () => {
         ];
         const wrapper = mount(createTable({ columns }));
         wrapper.find('td').forEach((td, index) => {
-            expect(td.text()).toEqual(['!!!Lucy!!!', '!!!Jack!!!'][index]);
+            expect(td.text()).toEqual(['!!!Lola!!!', '!!!Mia!!!'][index]);
         });
     });
 
@@ -349,7 +360,7 @@ describe('Table.Basic', () => {
     it('render empty cell if text is empty object', () => {
         const localData = [
             { key: 'key0', name: {} },
-            { key: 'key1', name: 'Jack' },
+            { key: 'key1', name: 'Mia' },
         ];
         const wrapper = mount(createTable({ data: localData }));
         expect(wrapper.find('table td').first().text()).toBe('');
@@ -395,7 +406,9 @@ describe('Table.Basic', () => {
             { key: 'key1', firstName: 'Terry', lastName: 'Garner' },
         ];
         const wrapper = mount(createTable({ columns, data: localData }));
-        expect(wrapper.render()).toMatchSnapshot();
+        expect(wrapper.render()).toMatchSpecificSnapshot(
+            './__snapshots__/Table.rendercolspan.shot'
+        );
     });
 
     it('render with style & className & data-*', () => {
@@ -460,7 +473,9 @@ describe('Table.Basic', () => {
             { key: 'key1', firstName: 'Terry', lastName: 'Garner' },
         ];
         const wrapper = mount(createTable({ columns, data: localData }));
-        expect(wrapper.render()).toMatchSnapshot();
+        expect(wrapper.render()).toMatchSpecificSnapshot(
+            './__snapshots__/Table.renderrowspan.shot'
+        );
     });
 
     it('renders correctly RowClassName as string', () => {
@@ -605,7 +620,9 @@ describe('Table.Basic', () => {
 
         it('renders correctly', () => {
             const wrapper = mount(createTable({ components }));
-            expect(wrapper.render()).toMatchSnapshot();
+            expect(wrapper.render()).toMatchSpecificSnapshot(
+                './__snapshots__/Table.customcomponents.shot'
+            );
         });
 
         it('renders fixed column and header correctly', () => {
@@ -624,7 +641,7 @@ describe('Table.Basic', () => {
                     fixed: 'right',
                 },
             ];
-            const sampleData = [{ key: 0, name: 'Lucy', age: 27, gender: 'F' }];
+            const sampleData = [{ key: 0, name: 'Lola', age: 27, gender: 'F' }];
             const wrapper = mount(
                 createTable({
                     columns,
@@ -633,7 +650,9 @@ describe('Table.Basic', () => {
                     scroll: { x: 100, y: 100 },
                 })
             );
-            expect(wrapper.render()).toMatchSnapshot();
+            expect(wrapper.render()).toMatchSpecificSnapshot(
+                './__snapshots__/Table.renderfixedcolheader.shot'
+            );
         });
 
         describe('scroll content', () => {
@@ -650,7 +669,9 @@ describe('Table.Basic', () => {
                         scroll: { x: 100, y: 100 },
                     })
                 );
-                expect(wrapper.render()).toMatchSnapshot();
+                expect(wrapper.render()).toMatchSpecificSnapshot(
+                    './__snapshots__/Table.scrollcontent.shot'
+                );
             });
 
             it('without scroll', () => {
@@ -827,7 +848,7 @@ describe('Table.Basic', () => {
                     Invalidate Column
                 </OcTable>
             ).render()
-        ).toMatchSnapshot();
+        ).toMatchSpecificSnapshot('./__snapshots__/Table.sugar.shot');
     });
 
     describe('internal api', () => {
@@ -843,7 +864,9 @@ describe('Table.Basic', () => {
                     })
                 );
 
-                expect(wrapper.render()).toMatchSnapshot();
+                expect(wrapper.render()).toMatchSpecificSnapshot(
+                    './__snapshots__/Table.transformcols.shot'
+                );
             });
 
             // Used to check if is expand column

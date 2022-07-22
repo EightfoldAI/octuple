@@ -7,6 +7,7 @@ import updateLocale from 'dayjs/plugin/updateLocale';
 import { spyElementPrototypes } from '../../../../tests/domHook';
 import { mount, getDayjs, isSame, DayjsPickerPartial } from './util/commonUtil';
 import enUS from '../Locale/en_US';
+import 'jest-specific-snapshot';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -563,9 +564,13 @@ describe('Picker.Partial', () => {
         });
     });
 
-    it('should render correctly in rtl', () => {
-        const wrapper = mount(<DayjsPickerPartial direction="rtl" />);
-        expect(wrapper.render()).toMatchSnapshot();
+    it('should render month correctly in rtl', () => {
+        const wrapper = mount(
+            <DayjsPickerPartial mode="month" direction="rtl" />
+        );
+        expect(wrapper.render()).toMatchSpecificSnapshot(
+            './__snapshots__/partial.rtl.shot'
+        );
     });
 
     describe('hideHeader', () => {
@@ -606,7 +611,9 @@ describe('Picker.Partial', () => {
             />
         );
 
-        expect(wrapper.find('tbody').render()).toMatchSnapshot();
+        expect(wrapper.find('tbody').render()).toMatchSpecificSnapshot(
+            './__snapshots__/partial.monthcellrender.shot'
+        );
     });
 
     describe('start weekday should be correct', () => {

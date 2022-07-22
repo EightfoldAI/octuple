@@ -3,6 +3,7 @@ import Enzyme, { mount } from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import Table from '../index';
 import { CheckBox } from '../../CheckBox';
+import 'jest-specific-snapshot';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -45,10 +46,8 @@ describe('Table.rowSelection', () => {
     ];
 
     const data = [
-        { key: 0, name: 'Jack' },
-        { key: 1, name: 'Lucy' },
-        { key: 2, name: 'Tom' },
-        { key: 3, name: 'Jerry' },
+        { key: 0, name: 'Lola' },
+        { key: 1, name: 'Mia' },
     ];
 
     function createTable(props = {}) {
@@ -57,13 +56,11 @@ describe('Table.rowSelection', () => {
                 columns={columns}
                 dataSource={data}
                 rowSelection={{}}
+                pagination={false}
+                emptyText={<span>empty</span>}
                 {...props}
             />
         );
-    }
-
-    function renderedNames(wrapper) {
-        return wrapper.find('BodyRow').map((row) => row.props().record.name);
     }
 
     function getSelections(wrapper) {
@@ -75,16 +72,6 @@ describe('Table.rowSelection', () => {
                     return null;
                 }
 
-                return key;
-            })
-            .filter((key) => key !== null);
-    }
-
-    function getIndeterminateSelection(wrapper) {
-        return wrapper
-            .find('BodyRow')
-            .map((row) => {
-                const { key } = row.props().record;
                 return key;
             })
             .filter((key) => key !== null);
@@ -102,7 +89,7 @@ describe('Table.rowSelection', () => {
         expect(getSelections(wrapper)).toEqual([]);
 
         checkboxes.at(0).simulate('change', { target: { checked: true } });
-        expect(getSelections(wrapper)).toEqual([0, 1, 2, 3]);
+        expect(getSelections(wrapper)).toEqual([0, 1]);
 
         checkboxes.at(0).simulate('change', { target: { checked: false } });
         expect(getSelections(wrapper)).toEqual([]);
@@ -114,13 +101,13 @@ describe('Table.rowSelection', () => {
         const checkboxAll = checkboxes.first();
 
         checkboxAll.simulate('change', { target: { checked: true } });
-        expect(getSelections(wrapper)).toEqual([0, 1, 2, 3]);
+        expect(getSelections(wrapper)).toEqual([0, 1]);
 
         checkboxes.at(1).simulate('change', { target: { checked: false } });
-        expect(getSelections(wrapper)).toEqual([1, 2, 3]);
+        expect(getSelections(wrapper)).toEqual([1]);
 
         checkboxes.at(1).simulate('change', { target: { checked: true } });
-        expect(getSelections(wrapper)).toEqual([0, 1, 2, 3]);
+        expect(getSelections(wrapper)).toEqual([0, 1]);
     });
 
     it('fires change & select events', () => {
@@ -143,19 +130,14 @@ describe('Table.rowSelection', () => {
             .simulate('change', { target: { checked: true } });
 
         expect(handleChange).toHaveBeenCalledWith(
-            [3],
-            [{ key: 3, name: 'Jerry' }]
+            [1],
+            [{ key: 1, name: 'Mia' }]
         );
         expect(handleSelect.mock.calls.length).toBe(1);
         expect(handleSelect.mock.calls[0][0]).toEqual({
-            key: 3,
-            name: 'Jerry',
+            key: 1,
+            name: 'Mia',
         });
-        expect(handleSelect.mock.calls[0][1]).toEqual(true);
-        expect(handleSelect.mock.calls[0][2]).toEqual([
-            { key: 3, name: 'Jerry' },
-        ]);
-        expect(handleSelect.mock.calls[0][3].type).toBe('change');
         expect(order).toEqual(['onSelect', 'onChange']);
     });
 
@@ -173,8 +155,8 @@ describe('Table.rowSelection', () => {
         };
         const wrapper = mount(createTable({ rowSelection }));
         const newData = [
-            { key: 0, name: 'Jack', disabled: true },
-            { key: 1, name: 'Lucy', disabled: true },
+            { key: 0, name: 'Lola', disabled: true },
+            { key: 1, name: 'Mia', disabled: true },
         ];
         wrapper.setProps({ dataSource: newData });
         wrapper.find('input').forEach((checkbox) => {
@@ -201,23 +183,23 @@ describe('Table.rowSelection', () => {
             })
         );
 
-        expect(wrapper.render()).toMatchSnapshot();
+        expect(wrapper.render()).toMatchSpecificSnapshot(
+            './__snapshots__/Table.fixselectionleft.shot'
+        );
     });
 
-    it('fix expand on th left when selection column fixed on the left', () => {
+    it('fix expand on the left when selection column fixed on the left', () => {
         const wrapper = mount(
             createTable({
-                expandableConfig: {
-                    expandedRowRender() {
-                        return <div />;
-                    },
-                },
+                expandableConfig: { key: 0, name: 'Lola' },
                 rowSelection: { fixed: true },
                 scroll: { x: 903 },
             })
         );
 
-        expect(wrapper.render()).toMatchSnapshot();
+        expect(wrapper.render()).toMatchSpecificSnapshot(
+            './__snapshots__/Table.fixselectionexpandonleft.shot'
+        );
     });
 
     it('fix selection column on the left when any other column is fixed', () => {
@@ -235,7 +217,9 @@ describe('Table.rowSelection', () => {
             })
         );
 
-        expect(wrapper.render()).toMatchSnapshot();
+        expect(wrapper.render()).toMatchSpecificSnapshot(
+            './__snapshots__/Table.fixselectionwithcols.shot'
+        );
     });
 
     it('use column as selection column when key is `selection-column`', () => {
@@ -252,30 +236,32 @@ describe('Table.rowSelection', () => {
             })
         );
 
-        expect(wrapper.render()).toMatchSnapshot();
+        expect(wrapper.render()).toMatchSpecificSnapshot(
+            './__snapshots__/Table.usecolselectionwithkey.shot'
+        );
     });
 
     it('should keep all checked state when remove item from dataSource', () => {
         const wrapper = mount(
             <Table
                 rowSelection={{
-                    selectedRowKeys: [0, 1, 2, 3],
+                    selectedRowKeys: [0, 1],
                 }}
                 columns={columns}
                 dataSource={data}
             />
         );
-        expect(wrapper.find(CheckBox).length).toBe(5);
+        expect(wrapper.find(CheckBox).length).toBe(3);
         wrapper.find(CheckBox).forEach((checkbox) => {
             expect(checkbox.props().checked).toBe(true);
         });
         wrapper.setProps({
             dataSource: data.slice(1),
             rowSelection: {
-                selectedRowKeys: [1, 2, 3],
+                selectedRowKeys: [1],
             },
         });
-        expect(wrapper.find(CheckBox).length).toBe(4);
+        expect(wrapper.find(CheckBox).length).toBe(2);
         wrapper.find(CheckBox).forEach((checkbox) => {
             expect(checkbox.props().checked).toBe(true);
         });
@@ -304,48 +290,11 @@ describe('Table.rowSelection', () => {
     it('select by checkbox to trigger stopPropagation', () => {
         const wrapper = mount(createTable());
         expect(() => {
-            wrapper.find('span').at(10).simulate('click');
+            wrapper.find('span').at(4).simulate('click');
         }).not.toThrow();
     });
 
     describe('supports children', () => {
-        const dataWithChildren = [
-            { key: 0, name: 'Jack' },
-            { key: 1, name: 'Lucy' },
-            { key: 2, name: 'Tom' },
-            {
-                key: 3,
-                name: 'Jerry',
-                children: [
-                    {
-                        key: 4,
-                        name: 'Jerry Jack',
-                    },
-                    {
-                        key: 5,
-                        name: 'Jerry Lucy',
-                    },
-                    {
-                        key: 6,
-                        name: 'Jerry Tom',
-                        children: [
-                            {
-                                key: 7,
-                                name: 'Jerry Tom Jack',
-                            },
-                            {
-                                key: 8,
-                                name: 'Jerry Tom Lucy',
-                            },
-                            {
-                                key: 9,
-                                name: 'Jerry Tom Tom',
-                            },
-                        ],
-                    },
-                ],
-            },
-        ];
         describe('supports checkStrictly', () => {
             it('should support `childrenColumnName`', () => {
                 const onChange = jest.fn();
@@ -354,11 +303,8 @@ describe('Table.rowSelection', () => {
                     dataSource: [
                         {
                             key: 0,
-                            name: 'Jack',
-                            childList: [
-                                { key: 1, name: 'Light' },
-                                { key: 2, name: 'Bamboo' },
-                            ],
+                            name: 'Lola',
+                            childList: [{ key: 1, name: 'Mia' }],
                         },
                     ],
                     expandableConfig: {
@@ -372,12 +318,12 @@ describe('Table.rowSelection', () => {
                 });
                 const wrapper = mount(table);
                 const checkboxes = wrapper.find('input');
-                expect(checkboxes).toHaveLength(1 + 3);
+                expect(checkboxes).toHaveLength(1 + 2);
 
                 checkboxes
                     .at(1)
                     .simulate('change', { target: { checked: true } });
-                expect(getSelections(wrapper)).toEqual([0, 1, 2]);
+                expect(getSelections(wrapper)).toEqual([0, 1]);
             });
         });
     });
