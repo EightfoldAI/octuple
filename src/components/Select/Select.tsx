@@ -52,6 +52,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
                     size={SpinnerSize.Small}
                 />
             ),
+            filterOption = null,
             style,
             'data-test-id': dataTestId,
         },
@@ -148,7 +149,9 @@ export const Select: FC<SelectProps> = React.forwardRef(
                 setOptions(
                     options.map((option) => ({
                         ...option,
-                        hideOption: !option.text.toLowerCase().includes(value),
+                        hideOption: filterOption
+                            ? !filterOption(option, value)
+                            : !option.text.toLowerCase().includes(value),
                     }))
                 );
             } else {
