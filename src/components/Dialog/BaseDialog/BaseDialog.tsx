@@ -18,6 +18,8 @@ export const BaseDialog: FC<BaseDialogProps> = React.forwardRef(
             actionButtonOneProps,
             actionButtonTwoProps,
             actionButtonThreeProps,
+            closeButtonProps,
+            closeIcon = IconName.mdiClose,
             parent = document.body,
             visible,
             onClose,
@@ -106,8 +108,10 @@ export const BaseDialog: FC<BaseDialogProps> = React.forwardRef(
                                 <NeutralButton {...actionButtonOneProps} />
                             )}
                             <NeutralButton
-                                iconProps={{ path: IconName.mdiClose }}
+                                ariaLabel={'Close'}
+                                iconProps={{ path: closeIcon }}
                                 onClick={onClose}
+                                {...closeButtonProps}
                             />
                         </span>
                     </div>
