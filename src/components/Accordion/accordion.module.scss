@@ -1,6 +1,7 @@
 .accordion-container {
     border: 1px solid var(--grey-color-20);
     border-radius: $corner-radius-xl;
+    overflow: hidden;
 
     .accordion-body-container {
         box-sizing: border-box;
