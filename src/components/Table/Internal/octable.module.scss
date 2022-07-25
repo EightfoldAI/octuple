@@ -221,7 +221,7 @@
         }
 
         &-row-hover {
-            background-color: $table-background-alternate-color;
+            background-color: $table-row-hover-background-color;
 
             &:first-of-type {
                 &:before {
