@@ -19,7 +19,7 @@ exports[`Storyshots Panel Bottom 1`] = `
 exports[`Storyshots Panel Header Actions 1`] = `
 <button
   aria-disabled={false}
-  className="button button-primary"
+  className="button button-primary pill-shape"
   defaultChecked={false}
   disabled={false}
   onClick={[Function]}
