@@ -25,6 +25,9 @@ const PANEL_WIDTHS: Record<PanelSize, number> = Object.freeze({
 export const Panel = React.forwardRef<PanelRef, PanelProps>(
     (
         {
+            actionButtonOneProps,
+            actionButtonTwoProps,
+            actionButtonThreeProps,
             size = PanelSize.medium,
             visible = false,
             closable = true,
@@ -108,14 +111,25 @@ export const Panel = React.forwardRef<PanelRef, PanelProps>(
         const getHeader = (): JSX.Element => (
             <div className={headerClasses}>
                 <div>{title}</div>
-                {closable && (
-                    <NeutralButton
-                        iconProps={{ path: closeIcon }}
-                        ariaLabel={'Close'}
-                        onClick={onClose}
-                        {...closeButtonProps}
-                    />
-                )}
+                <span className={styles.headerButtons}>
+                    {actionButtonThreeProps && (
+                        <NeutralButton {...actionButtonThreeProps} />
+                    )}
+                    {actionButtonTwoProps && (
+                        <NeutralButton {...actionButtonTwoProps} />
+                    )}
+                    {actionButtonOneProps && (
+                        <NeutralButton {...actionButtonOneProps} />
+                    )}
+                    {closable && (
+                        <NeutralButton
+                            iconProps={{ path: closeIcon }}
+                            ariaLabel={'Close'}
+                            onClick={onClose}
+                            {...closeButtonProps}
+                        />
+                    )}
+                </span>
             </div>
         );
 
