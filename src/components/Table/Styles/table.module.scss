@@ -5,7 +5,7 @@
     --table-foreground-color: var(--text-primary-color);
     --table-background-alternate-color: var(--grey-color-10);
     --table-border-color: var(--grey-color-20);
-    --table-border-active-color: var(--primary-color);
+    --table-border-active-color: transparent;
     --table-header-background-color: var(--background-color);
     --table-header-foreground-color: var(--text-primary-color);
     --table-header-icon-color: var(--primary-color);
@@ -19,9 +19,9 @@
     --table-header-filter-dropdown-background-color: var(--background-color);
     --table-header-filter-buttons-background-color: var(--background-color);
     --table-expand-icon-background-color: var(--background-color);
-    --table-row-hover-background-color: var(--grey-color-10);
+    --table-row-hover-background-color: var(--accent-color-10);
     --table-row-selected-background-color: var(--grey-color-10);
-    --table-row-selected-hover-background-color: var(--grey-color-10);
+    --table-row-selected-hover-background-color: var(--accent-color-10);
     --table-row-selected-foregroud-color: var(--text-primary-color);
     --table-row-expanded-background-color: var(--grey-color-10);
     --table-body-selected-sort-background-color: var(--grey-color-10);
@@ -31,7 +31,7 @@
     --table-border-radius: 8px;
     --table-border-style: solid;
     --table-border-width: 1px;
-    --table-padding-vertical: 16px;
+    --table-padding-vertical: 8px;
     --table-padding-horizontal: 16px;
     --table-padding-vertical-md: 12px;
     --table-padding-horizontal-md: 8px;
@@ -491,6 +491,12 @@
                     &:nth-child(odd) {
                         td {
                             background-color: $table-background-alternate-color;
+                        }
+
+                        &:hover {
+                            td {
+                                background-color: $table-row-hover-background-color;
+                            }
                         }
                     }
                 }
