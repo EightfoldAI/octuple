@@ -346,6 +346,33 @@ const Top_Story: ComponentStory<typeof Panel> = (args) => {
 
 export const Top = Top_Story.bind({});
 
+const Header_Actions_Story: ComponentStory<typeof Panel> = (args) => {
+    const [visible, setVisible] = useState<boolean>(false);
+    return (
+        <>
+            <PrimaryButton
+                text={'Open panel'}
+                onClick={() => setVisible(true)}
+            />
+            <Panel
+                {...args}
+                footer={
+                    <div>
+                        <PrimaryButton
+                            text={'Close'}
+                            onClick={() => setVisible(false)}
+                        />
+                    </div>
+                }
+                visible={visible}
+                onClose={() => setVisible(false)}
+            />
+        </>
+    );
+};
+
+export const Header_Actions = Header_Actions_Story.bind({});
+
 const panelArgs: Object = {
     size: PanelSize.small,
     visible: false,
@@ -466,4 +493,20 @@ Top.args = {
     ...panelArgs,
     size: PanelSize.small,
     placement: 'top',
+};
+
+Header_Actions.args = {
+    ...panelArgs,
+    actionButtonOneProps: {
+        iconProps: { path: IconName.mdiCogOutline },
+    },
+    actionButtonTwoProps: {
+        iconProps: {
+            path: IconName.mdiHistory,
+        },
+    },
+    actionButtonThreeProps: {
+        iconProps: { path: IconName.mdiDatabaseArrowDownOutline },
+    },
+    size: PanelSize.medium,
 };

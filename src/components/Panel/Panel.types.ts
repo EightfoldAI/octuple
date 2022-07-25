@@ -24,6 +24,18 @@ export type CloseButtonProps = Omit<ButtonProps, 'onClick' | 'icon'>;
 
 export interface PanelProps extends Omit<OcBaseProps<HTMLElement>, 'title'> {
     /**
+     * Props for the first header action button
+     */
+    actionButtonOneProps?: ButtonProps;
+    /**
+     * Props for the second header action button
+     */
+    actionButtonTwoProps?: ButtonProps;
+    /**
+     * Props for the third header action button
+     */
+    actionButtonThreeProps?: ButtonProps;
+    /**
      * Autofocus on the panel on visible
      * @default true
      */

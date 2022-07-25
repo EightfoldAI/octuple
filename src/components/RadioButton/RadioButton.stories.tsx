@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Stories } from '@storybook/addon-docs';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { RadioButton, RadioButtonValue, RadioGroup } from './';
+import { Stack } from '../Stack';
 
 export default {
     title: 'Radio Button',
@@ -106,9 +107,23 @@ export default {
     },
 } as ComponentMeta<typeof RadioButton>;
 
-const RadioButton_Story: ComponentStory<typeof RadioButton> = (args) => (
-    <RadioButton {...args} />
-);
+const RadioButton_Story: ComponentStory<typeof RadioButton> = (args) => {
+    const [selected, setSelected] = useState<RadioButtonValue>('label1');
+
+    const radioChangeHandler = (
+        e?: React.ChangeEvent<HTMLInputElement>
+    ): void => {
+        setSelected(e.target.value);
+    };
+
+    return (
+        <RadioButton
+            {...args}
+            checked={selected === 'Label1'}
+            onChange={radioChangeHandler}
+        />
+    );
+};
 
 export const Radio_Button = RadioButton_Story.bind({});
 
@@ -128,6 +143,50 @@ const RadioGroup_Story: ComponentStory<typeof RadioGroup> = (args) => {
 
 export const Radio_Group = RadioGroup_Story.bind({});
 
+const Bespoke_RadioGroup_Story: ComponentStory<typeof RadioButton> = (args) => {
+    const [selected, setSelected] = useState<RadioButtonValue>('label1');
+
+    const radioChangeHandler = (
+        e?: React.ChangeEvent<HTMLInputElement>
+    ): void => {
+        setSelected(e.target.value);
+    };
+
+    return (
+        <Stack direction="vertical" gap="m">
+            <RadioButton
+                {...args}
+                ariaLabel={'Label 1'}
+                checked={selected === 'label1'}
+                id={'myRadioButtonId1'}
+                label={'Label 1'}
+                onChange={radioChangeHandler}
+                value={'label1'}
+            />
+            <RadioButton
+                {...args}
+                ariaLabel={'Label 2'}
+                checked={selected === 'label2'}
+                id={'myRadioButtonId2'}
+                label={'Label 2'}
+                onChange={radioChangeHandler}
+                value={'label2'}
+            />
+            <RadioButton
+                {...args}
+                ariaLabel={'Label 3'}
+                checked={selected === 'label3'}
+                id={'myRadioButtonId3'}
+                label={'Label 3'}
+                onChange={radioChangeHandler}
+                value={'label3'}
+            />
+        </Stack>
+    );
+};
+
+export const Bespoke_Radio_Group = Bespoke_RadioGroup_Story.bind({});
+
 const radioButtonArgs: Object = {
     allowDisabledFocus: false,
     ariaLabel: 'Label',
@@ -136,7 +195,7 @@ const radioButtonArgs: Object = {
     classNames: 'my-radiobutton-class',
     disabled: false,
     name: 'myRadioButtonName',
-    value: 'Label',
+    value: 'Label1',
     id: 'myRadioButtonId',
 };
 
@@ -154,4 +213,9 @@ Radio_Group.args = {
         id: `oea2exk-${i}`,
     })),
     layout: 'vertical',
+};
+
+Bespoke_Radio_Group.args = {
+    ...radioButtonArgs,
+    name: 'roleGroupName',
 };

@@ -1,6 +1,9 @@
 import React, { Ref } from 'react';
 import { OcBaseProps } from '../../OcBase';
 import { ButtonProps } from '../../Button';
+import { IconName } from '../../Icon';
+
+export type CloseButtonProps = Omit<ButtonProps, 'onClick' | 'icon'>;
 
 type EventType =
     | React.KeyboardEvent<HTMLDivElement>
@@ -22,6 +25,14 @@ export interface BaseDialogProps
      * Props for the third header action button
      */
     actionButtonThreeProps?: ButtonProps;
+    /**
+     * Close button extra props
+     */
+    closeButtonProps?: CloseButtonProps;
+    /**
+     * Close icon name
+     */
+    closeIcon?: IconName;
     /**
      * Dialog is visible or not
      */

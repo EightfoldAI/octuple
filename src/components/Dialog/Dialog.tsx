@@ -12,6 +12,8 @@ export const Dialog: FC<DialogProps> = React.forwardRef(
             actionButtonOneProps,
             actionButtonTwoProps,
             actionButtonThreeProps,
+            closeButtonProps,
+            closeIcon,
             parent = document.body,
             size = DialogSize.medium,
             headerClassNames,
@@ -52,6 +54,8 @@ export const Dialog: FC<DialogProps> = React.forwardRef(
                 actionButtonOneProps={actionButtonOneProps}
                 actionButtonTwoProps={actionButtonTwoProps}
                 actionButtonThreeProps={actionButtonThreeProps}
+                closeButtonProps={closeButtonProps}
+                closeIcon={closeIcon}
                 dialogClassNames={dialogClasses}
                 headerClassNames={headerClasses}
                 bodyClassNames={bodyClasses}
