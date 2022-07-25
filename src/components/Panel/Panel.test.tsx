@@ -3,8 +3,7 @@ import Enzyme, { mount, ReactWrapper } from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import MatchMediaMock from 'jest-matchmedia-mock';
 import { Panel } from './';
-import { create } from 'react-test-renderer';
-import { Tab, Tabs } from '../Tabs';
+import { IconName } from '../Icon';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -64,5 +63,26 @@ describe('Panel', () => {
         });
         wrapper.find('.panel-backdrop').at(0).simulate('click');
         expect(onClose).toHaveBeenCalledTimes(2);
+    });
+
+    test('panel header actions exist', () => {
+        wrapper.setProps({
+            visible: true,
+            actionButtonOneProps: {
+                classNames: 'header-action-button-1',
+                iconProps: { path: IconName.mdiCogOutline },
+            },
+            actionButtonTwoProps: {
+                classNames: 'header-action-button-2',
+                iconProps: { path: IconName.mdiHistory },
+            },
+            actionButtonThreeProps: {
+                classNames: 'header-action-button-3',
+                iconProps: { path: IconName.mdiDatabaseArrowDownOutline },
+            },
+        });
+        expect(wrapper.find('.header-action-button-1').length).toBeTruthy();
+        expect(wrapper.find('.header-action-button-2').length).toBeTruthy();
+        expect(wrapper.find('.header-action-button-3').length).toBeTruthy();
     });
 });

@@ -68,6 +68,14 @@
             top: 0;
             display: flex;
             justify-content: space-between;
+
+            &-buttons {
+                align-items: flex-end;
+                align-self: start;
+                height: fit-content;
+                justify-content: right;
+                white-space: nowrap;
+            }
         }
 
         .body {
