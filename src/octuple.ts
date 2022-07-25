@@ -60,6 +60,7 @@ import {
     TextArea,
     TextInput,
     TextInputShape,
+    TextInputSize,
     TextInputTheme,
     TextInputWidth,
 } from './components/Inputs';
@@ -196,6 +197,7 @@ export {
     TextArea,
     TextInput,
     TextInputShape,
+    TextInputSize,
     TextInputTheme,
     TextInputWidth,
     TimePicker,
