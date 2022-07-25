@@ -4100,6 +4100,177 @@ exports[`Storyshots Config Provider Theming 1`] = `
       </span>
     </button>
   </div>
+  <div
+    className="stack horizontal m"
+    style={
+      Object {
+        "alignItems": undefined,
+        "flexWrap": undefined,
+        "justifyContent": undefined,
+      }
+    }
+  >
+    <button
+      aria-disabled={false}
+      aria-label="Two state button"
+      className="button two-state-button button-size3 pill-shape"
+      defaultChecked={false}
+      disabled={false}
+      type="button"
+    >
+      <span
+        className="two-state-button-content"
+      >
+        <span
+          className="column column-one"
+        >
+          <span
+            aria-hidden={true}
+            className="icon icon-wrapper"
+            data-test-id="myTwoStateButtonIconOneTestId"
+            id="myTwoStateButtonIconOne"
+            role="presentation"
+          >
+            <svg
+              role="presentation"
+              style={
+                Object {
+                  "height": "16px",
+                  "width": "16px",
+                }
+              }
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"
+                style={
+                  Object {
+                    "fill": "currentColor",
+                  }
+                }
+              />
+            </svg>
+          </span>
+          <span
+            className="button-text3"
+          >
+            Two state button
+          </span>
+        </span>
+        <span
+          className="column"
+        >
+          <span
+            aria-hidden={true}
+            className="icon icon-wrapper"
+            data-test-id="myTwoStateButtonIconTwoTestId"
+            id="myTwoStateButtonIconTwo"
+            role="presentation"
+          >
+            <svg
+              role="presentation"
+              style={
+                Object {
+                  "height": "16px",
+                  "width": "16px",
+                }
+              }
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"
+                style={
+                  Object {
+                    "fill": "currentColor",
+                  }
+                }
+              />
+            </svg>
+          </span>
+        </span>
+      </span>
+    </button>
+    <button
+      aria-disabled={false}
+      aria-label="Two state button"
+      className="button two-state-button checked button-size3 pill-shape"
+      defaultChecked={true}
+      disabled={false}
+      type="button"
+    >
+      <span
+        className="two-state-button-content"
+      >
+        <span
+          className="column column-one"
+        >
+          <span
+            aria-hidden={true}
+            className="icon icon-wrapper"
+            data-test-id="myTwoStateButtonIconOneTestId"
+            id="myTwoStateButtonIconOne"
+            role="presentation"
+          >
+            <svg
+              role="presentation"
+              style={
+                Object {
+                  "height": "16px",
+                  "width": "16px",
+                }
+              }
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"
+                style={
+                  Object {
+                    "fill": "currentColor",
+                  }
+                }
+              />
+            </svg>
+          </span>
+          <span
+            className="button-text3"
+          >
+            Two state button checked
+          </span>
+        </span>
+        <span
+          className="column"
+        >
+          <span
+            aria-hidden={true}
+            className="icon icon-wrapper"
+            data-test-id="myTwoStateButtonIconTwoTestId"
+            id="myTwoStateButtonIconTwo"
+            role="presentation"
+          >
+            <svg
+              role="presentation"
+              style={
+                Object {
+                  "height": "16px",
+                  "width": "16px",
+                }
+              }
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"
+                style={
+                  Object {
+                    "fill": "currentColor",
+                  }
+                }
+              />
+            </svg>
+          </span>
+        </span>
+      </span>
+    </button>
+  </div>
   <div>
     <div
       className="tab-wrap"
