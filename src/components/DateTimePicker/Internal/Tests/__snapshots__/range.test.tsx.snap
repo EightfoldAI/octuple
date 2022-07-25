@@ -1,3 +1,4510 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:145577dba1cb77972a5e0565200a58ee837b3141b6f735290ec68944383c1fad
-size 147328
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Picker.Range icon 1`] = `
+LoadedCheerio {
+  "0": Node {
+    "attribs": Object {
+      "class": "picker picker-range",
+    },
+    "children": Array [
+      Node {
+        "attribs": Object {
+          "class": "picker-input picker-input-active",
+        },
+        "children": Array [
+          Node {
+            "attribs": Object {
+              "autocomplete": "off",
+              "placeholder": "",
+              "readonly": "",
+              "size": "12",
+              "value": "1990-09-03",
+            },
+            "children": Array [],
+            "name": "input",
+            "namespace": "http://www.w3.org/1999/xhtml",
+            "next": null,
+            "parent": [Circular],
+            "prev": null,
+            "type": "tag",
+            "x-attribsNamespace": Object {
+              "autocomplete": undefined,
+              "placeholder": undefined,
+              "readonly": undefined,
+              "size": undefined,
+              "value": undefined,
+            },
+            "x-attribsPrefix": Object {
+              "autocomplete": undefined,
+              "placeholder": undefined,
+              "readonly": undefined,
+              "size": undefined,
+              "value": undefined,
+            },
+          },
+        ],
+        "name": "div",
+        "namespace": "http://www.w3.org/1999/xhtml",
+        "next": Node {
+          "attribs": Object {
+            "class": "picker-range-separator",
+          },
+          "children": Array [
+            Node {
+              "data": ",",
+              "next": null,
+              "parent": [Circular],
+              "prev": null,
+              "type": "text",
+            },
+          ],
+          "name": "div",
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "next": Node {
+            "attribs": Object {
+              "class": "picker-input",
+            },
+            "children": Array [
+              Node {
+                "attribs": Object {
+                  "autocomplete": "off",
+                  "placeholder": "",
+                  "readonly": "",
+                  "size": "12",
+                  "value": "1990-09-03",
+                },
+                "children": Array [],
+                "name": "input",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": null,
+                "parent": [Circular],
+                "prev": null,
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "autocomplete": undefined,
+                  "placeholder": undefined,
+                  "readonly": undefined,
+                  "size": undefined,
+                  "value": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "autocomplete": undefined,
+                  "placeholder": undefined,
+                  "readonly": undefined,
+                  "size": undefined,
+                  "value": undefined,
+                },
+              },
+            ],
+            "name": "div",
+            "namespace": "http://www.w3.org/1999/xhtml",
+            "next": Node {
+              "attribs": Object {
+                "class": "picker-active-bar",
+                "style": "left: 0px; width: 0px; position: absolute;",
+              },
+              "children": Array [],
+              "name": "div",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": Node {
+                "attribs": Object {
+                  "class": "picker-suffix",
+                },
+                "children": Array [
+                  Node {
+                    "attribs": Object {
+                      "class": "suffix-icon",
+                    },
+                    "children": Array [],
+                    "name": "span",
+                    "namespace": "http://www.w3.org/1999/xhtml",
+                    "next": null,
+                    "parent": [Circular],
+                    "prev": null,
+                    "type": "tag",
+                    "x-attribsNamespace": Object {
+                      "class": undefined,
+                    },
+                    "x-attribsPrefix": Object {
+                      "class": undefined,
+                    },
+                  },
+                ],
+                "name": "span",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": Node {
+                  "attribs": Object {
+                    "class": "picker-clear",
+                  },
+                  "children": Array [
+                    Node {
+                      "attribs": Object {
+                        "class": "suffix-icon",
+                      },
+                      "children": Array [],
+                      "name": "span",
+                      "namespace": "http://www.w3.org/1999/xhtml",
+                      "next": null,
+                      "parent": [Circular],
+                      "prev": null,
+                      "type": "tag",
+                      "x-attribsNamespace": Object {
+                        "class": undefined,
+                      },
+                      "x-attribsPrefix": Object {
+                        "class": undefined,
+                      },
+                    },
+                  ],
+                  "name": "span",
+                  "namespace": "http://www.w3.org/1999/xhtml",
+                  "next": null,
+                  "parent": [Circular],
+                  "prev": [Circular],
+                  "type": "tag",
+                  "x-attribsNamespace": Object {
+                    "class": undefined,
+                  },
+                  "x-attribsPrefix": Object {
+                    "class": undefined,
+                  },
+                },
+                "parent": [Circular],
+                "prev": [Circular],
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "class": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "class": undefined,
+                },
+              },
+              "parent": [Circular],
+              "prev": [Circular],
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "class": undefined,
+                "style": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "class": undefined,
+                "style": undefined,
+              },
+            },
+            "parent": [Circular],
+            "prev": [Circular],
+            "type": "tag",
+            "x-attribsNamespace": Object {
+              "class": undefined,
+            },
+            "x-attribsPrefix": Object {
+              "class": undefined,
+            },
+          },
+          "parent": [Circular],
+          "prev": [Circular],
+          "type": "tag",
+          "x-attribsNamespace": Object {
+            "class": undefined,
+          },
+          "x-attribsPrefix": Object {
+            "class": undefined,
+          },
+        },
+        "parent": [Circular],
+        "prev": null,
+        "type": "tag",
+        "x-attribsNamespace": Object {
+          "class": undefined,
+        },
+        "x-attribsPrefix": Object {
+          "class": undefined,
+        },
+      },
+      Node {
+        "attribs": Object {
+          "class": "picker-range-separator",
+        },
+        "children": Array [
+          Node {
+            "data": ",",
+            "next": null,
+            "parent": [Circular],
+            "prev": null,
+            "type": "text",
+          },
+        ],
+        "name": "div",
+        "namespace": "http://www.w3.org/1999/xhtml",
+        "next": Node {
+          "attribs": Object {
+            "class": "picker-input",
+          },
+          "children": Array [
+            Node {
+              "attribs": Object {
+                "autocomplete": "off",
+                "placeholder": "",
+                "readonly": "",
+                "size": "12",
+                "value": "1990-09-03",
+              },
+              "children": Array [],
+              "name": "input",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": null,
+              "parent": [Circular],
+              "prev": null,
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "autocomplete": undefined,
+                "placeholder": undefined,
+                "readonly": undefined,
+                "size": undefined,
+                "value": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "autocomplete": undefined,
+                "placeholder": undefined,
+                "readonly": undefined,
+                "size": undefined,
+                "value": undefined,
+              },
+            },
+          ],
+          "name": "div",
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "next": Node {
+            "attribs": Object {
+              "class": "picker-active-bar",
+              "style": "left: 0px; width: 0px; position: absolute;",
+            },
+            "children": Array [],
+            "name": "div",
+            "namespace": "http://www.w3.org/1999/xhtml",
+            "next": Node {
+              "attribs": Object {
+                "class": "picker-suffix",
+              },
+              "children": Array [
+                Node {
+                  "attribs": Object {
+                    "class": "suffix-icon",
+                  },
+                  "children": Array [],
+                  "name": "span",
+                  "namespace": "http://www.w3.org/1999/xhtml",
+                  "next": null,
+                  "parent": [Circular],
+                  "prev": null,
+                  "type": "tag",
+                  "x-attribsNamespace": Object {
+                    "class": undefined,
+                  },
+                  "x-attribsPrefix": Object {
+                    "class": undefined,
+                  },
+                },
+              ],
+              "name": "span",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": Node {
+                "attribs": Object {
+                  "class": "picker-clear",
+                },
+                "children": Array [
+                  Node {
+                    "attribs": Object {
+                      "class": "suffix-icon",
+                    },
+                    "children": Array [],
+                    "name": "span",
+                    "namespace": "http://www.w3.org/1999/xhtml",
+                    "next": null,
+                    "parent": [Circular],
+                    "prev": null,
+                    "type": "tag",
+                    "x-attribsNamespace": Object {
+                      "class": undefined,
+                    },
+                    "x-attribsPrefix": Object {
+                      "class": undefined,
+                    },
+                  },
+                ],
+                "name": "span",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": null,
+                "parent": [Circular],
+                "prev": [Circular],
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "class": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "class": undefined,
+                },
+              },
+              "parent": [Circular],
+              "prev": [Circular],
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "class": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "class": undefined,
+              },
+            },
+            "parent": [Circular],
+            "prev": [Circular],
+            "type": "tag",
+            "x-attribsNamespace": Object {
+              "class": undefined,
+              "style": undefined,
+            },
+            "x-attribsPrefix": Object {
+              "class": undefined,
+              "style": undefined,
+            },
+          },
+          "parent": [Circular],
+          "prev": [Circular],
+          "type": "tag",
+          "x-attribsNamespace": Object {
+            "class": undefined,
+          },
+          "x-attribsPrefix": Object {
+            "class": undefined,
+          },
+        },
+        "parent": [Circular],
+        "prev": Node {
+          "attribs": Object {
+            "class": "picker-input picker-input-active",
+          },
+          "children": Array [
+            Node {
+              "attribs": Object {
+                "autocomplete": "off",
+                "placeholder": "",
+                "readonly": "",
+                "size": "12",
+                "value": "1990-09-03",
+              },
+              "children": Array [],
+              "name": "input",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": null,
+              "parent": [Circular],
+              "prev": null,
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "autocomplete": undefined,
+                "placeholder": undefined,
+                "readonly": undefined,
+                "size": undefined,
+                "value": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "autocomplete": undefined,
+                "placeholder": undefined,
+                "readonly": undefined,
+                "size": undefined,
+                "value": undefined,
+              },
+            },
+          ],
+          "name": "div",
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "next": [Circular],
+          "parent": [Circular],
+          "prev": null,
+          "type": "tag",
+          "x-attribsNamespace": Object {
+            "class": undefined,
+          },
+          "x-attribsPrefix": Object {
+            "class": undefined,
+          },
+        },
+        "type": "tag",
+        "x-attribsNamespace": Object {
+          "class": undefined,
+        },
+        "x-attribsPrefix": Object {
+          "class": undefined,
+        },
+      },
+      Node {
+        "attribs": Object {
+          "class": "picker-input",
+        },
+        "children": Array [
+          Node {
+            "attribs": Object {
+              "autocomplete": "off",
+              "placeholder": "",
+              "readonly": "",
+              "size": "12",
+              "value": "1990-09-03",
+            },
+            "children": Array [],
+            "name": "input",
+            "namespace": "http://www.w3.org/1999/xhtml",
+            "next": null,
+            "parent": [Circular],
+            "prev": null,
+            "type": "tag",
+            "x-attribsNamespace": Object {
+              "autocomplete": undefined,
+              "placeholder": undefined,
+              "readonly": undefined,
+              "size": undefined,
+              "value": undefined,
+            },
+            "x-attribsPrefix": Object {
+              "autocomplete": undefined,
+              "placeholder": undefined,
+              "readonly": undefined,
+              "size": undefined,
+              "value": undefined,
+            },
+          },
+        ],
+        "name": "div",
+        "namespace": "http://www.w3.org/1999/xhtml",
+        "next": Node {
+          "attribs": Object {
+            "class": "picker-active-bar",
+            "style": "left: 0px; width: 0px; position: absolute;",
+          },
+          "children": Array [],
+          "name": "div",
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "next": Node {
+            "attribs": Object {
+              "class": "picker-suffix",
+            },
+            "children": Array [
+              Node {
+                "attribs": Object {
+                  "class": "suffix-icon",
+                },
+                "children": Array [],
+                "name": "span",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": null,
+                "parent": [Circular],
+                "prev": null,
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "class": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "class": undefined,
+                },
+              },
+            ],
+            "name": "span",
+            "namespace": "http://www.w3.org/1999/xhtml",
+            "next": Node {
+              "attribs": Object {
+                "class": "picker-clear",
+              },
+              "children": Array [
+                Node {
+                  "attribs": Object {
+                    "class": "suffix-icon",
+                  },
+                  "children": Array [],
+                  "name": "span",
+                  "namespace": "http://www.w3.org/1999/xhtml",
+                  "next": null,
+                  "parent": [Circular],
+                  "prev": null,
+                  "type": "tag",
+                  "x-attribsNamespace": Object {
+                    "class": undefined,
+                  },
+                  "x-attribsPrefix": Object {
+                    "class": undefined,
+                  },
+                },
+              ],
+              "name": "span",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": null,
+              "parent": [Circular],
+              "prev": [Circular],
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "class": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "class": undefined,
+              },
+            },
+            "parent": [Circular],
+            "prev": [Circular],
+            "type": "tag",
+            "x-attribsNamespace": Object {
+              "class": undefined,
+            },
+            "x-attribsPrefix": Object {
+              "class": undefined,
+            },
+          },
+          "parent": [Circular],
+          "prev": [Circular],
+          "type": "tag",
+          "x-attribsNamespace": Object {
+            "class": undefined,
+            "style": undefined,
+          },
+          "x-attribsPrefix": Object {
+            "class": undefined,
+            "style": undefined,
+          },
+        },
+        "parent": [Circular],
+        "prev": Node {
+          "attribs": Object {
+            "class": "picker-range-separator",
+          },
+          "children": Array [
+            Node {
+              "data": ",",
+              "next": null,
+              "parent": [Circular],
+              "prev": null,
+              "type": "text",
+            },
+          ],
+          "name": "div",
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "next": [Circular],
+          "parent": [Circular],
+          "prev": Node {
+            "attribs": Object {
+              "class": "picker-input picker-input-active",
+            },
+            "children": Array [
+              Node {
+                "attribs": Object {
+                  "autocomplete": "off",
+                  "placeholder": "",
+                  "readonly": "",
+                  "size": "12",
+                  "value": "1990-09-03",
+                },
+                "children": Array [],
+                "name": "input",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": null,
+                "parent": [Circular],
+                "prev": null,
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "autocomplete": undefined,
+                  "placeholder": undefined,
+                  "readonly": undefined,
+                  "size": undefined,
+                  "value": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "autocomplete": undefined,
+                  "placeholder": undefined,
+                  "readonly": undefined,
+                  "size": undefined,
+                  "value": undefined,
+                },
+              },
+            ],
+            "name": "div",
+            "namespace": "http://www.w3.org/1999/xhtml",
+            "next": [Circular],
+            "parent": [Circular],
+            "prev": null,
+            "type": "tag",
+            "x-attribsNamespace": Object {
+              "class": undefined,
+            },
+            "x-attribsPrefix": Object {
+              "class": undefined,
+            },
+          },
+          "type": "tag",
+          "x-attribsNamespace": Object {
+            "class": undefined,
+          },
+          "x-attribsPrefix": Object {
+            "class": undefined,
+          },
+        },
+        "type": "tag",
+        "x-attribsNamespace": Object {
+          "class": undefined,
+        },
+        "x-attribsPrefix": Object {
+          "class": undefined,
+        },
+      },
+      Node {
+        "attribs": Object {
+          "class": "picker-active-bar",
+          "style": "left: 0px; width: 0px; position: absolute;",
+        },
+        "children": Array [],
+        "name": "div",
+        "namespace": "http://www.w3.org/1999/xhtml",
+        "next": Node {
+          "attribs": Object {
+            "class": "picker-suffix",
+          },
+          "children": Array [
+            Node {
+              "attribs": Object {
+                "class": "suffix-icon",
+              },
+              "children": Array [],
+              "name": "span",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": null,
+              "parent": [Circular],
+              "prev": null,
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "class": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "class": undefined,
+              },
+            },
+          ],
+          "name": "span",
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "next": Node {
+            "attribs": Object {
+              "class": "picker-clear",
+            },
+            "children": Array [
+              Node {
+                "attribs": Object {
+                  "class": "suffix-icon",
+                },
+                "children": Array [],
+                "name": "span",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": null,
+                "parent": [Circular],
+                "prev": null,
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "class": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "class": undefined,
+                },
+              },
+            ],
+            "name": "span",
+            "namespace": "http://www.w3.org/1999/xhtml",
+            "next": null,
+            "parent": [Circular],
+            "prev": [Circular],
+            "type": "tag",
+            "x-attribsNamespace": Object {
+              "class": undefined,
+            },
+            "x-attribsPrefix": Object {
+              "class": undefined,
+            },
+          },
+          "parent": [Circular],
+          "prev": [Circular],
+          "type": "tag",
+          "x-attribsNamespace": Object {
+            "class": undefined,
+          },
+          "x-attribsPrefix": Object {
+            "class": undefined,
+          },
+        },
+        "parent": [Circular],
+        "prev": Node {
+          "attribs": Object {
+            "class": "picker-input",
+          },
+          "children": Array [
+            Node {
+              "attribs": Object {
+                "autocomplete": "off",
+                "placeholder": "",
+                "readonly": "",
+                "size": "12",
+                "value": "1990-09-03",
+              },
+              "children": Array [],
+              "name": "input",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": null,
+              "parent": [Circular],
+              "prev": null,
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "autocomplete": undefined,
+                "placeholder": undefined,
+                "readonly": undefined,
+                "size": undefined,
+                "value": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "autocomplete": undefined,
+                "placeholder": undefined,
+                "readonly": undefined,
+                "size": undefined,
+                "value": undefined,
+              },
+            },
+          ],
+          "name": "div",
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "next": [Circular],
+          "parent": [Circular],
+          "prev": Node {
+            "attribs": Object {
+              "class": "picker-range-separator",
+            },
+            "children": Array [
+              Node {
+                "data": ",",
+                "next": null,
+                "parent": [Circular],
+                "prev": null,
+                "type": "text",
+              },
+            ],
+            "name": "div",
+            "namespace": "http://www.w3.org/1999/xhtml",
+            "next": [Circular],
+            "parent": [Circular],
+            "prev": Node {
+              "attribs": Object {
+                "class": "picker-input picker-input-active",
+              },
+              "children": Array [
+                Node {
+                  "attribs": Object {
+                    "autocomplete": "off",
+                    "placeholder": "",
+                    "readonly": "",
+                    "size": "12",
+                    "value": "1990-09-03",
+                  },
+                  "children": Array [],
+                  "name": "input",
+                  "namespace": "http://www.w3.org/1999/xhtml",
+                  "next": null,
+                  "parent": [Circular],
+                  "prev": null,
+                  "type": "tag",
+                  "x-attribsNamespace": Object {
+                    "autocomplete": undefined,
+                    "placeholder": undefined,
+                    "readonly": undefined,
+                    "size": undefined,
+                    "value": undefined,
+                  },
+                  "x-attribsPrefix": Object {
+                    "autocomplete": undefined,
+                    "placeholder": undefined,
+                    "readonly": undefined,
+                    "size": undefined,
+                    "value": undefined,
+                  },
+                },
+              ],
+              "name": "div",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": [Circular],
+              "parent": [Circular],
+              "prev": null,
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "class": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "class": undefined,
+              },
+            },
+            "type": "tag",
+            "x-attribsNamespace": Object {
+              "class": undefined,
+            },
+            "x-attribsPrefix": Object {
+              "class": undefined,
+            },
+          },
+          "type": "tag",
+          "x-attribsNamespace": Object {
+            "class": undefined,
+          },
+          "x-attribsPrefix": Object {
+            "class": undefined,
+          },
+        },
+        "type": "tag",
+        "x-attribsNamespace": Object {
+          "class": undefined,
+          "style": undefined,
+        },
+        "x-attribsPrefix": Object {
+          "class": undefined,
+          "style": undefined,
+        },
+      },
+      Node {
+        "attribs": Object {
+          "class": "picker-suffix",
+        },
+        "children": Array [
+          Node {
+            "attribs": Object {
+              "class": "suffix-icon",
+            },
+            "children": Array [],
+            "name": "span",
+            "namespace": "http://www.w3.org/1999/xhtml",
+            "next": null,
+            "parent": [Circular],
+            "prev": null,
+            "type": "tag",
+            "x-attribsNamespace": Object {
+              "class": undefined,
+            },
+            "x-attribsPrefix": Object {
+              "class": undefined,
+            },
+          },
+        ],
+        "name": "span",
+        "namespace": "http://www.w3.org/1999/xhtml",
+        "next": Node {
+          "attribs": Object {
+            "class": "picker-clear",
+          },
+          "children": Array [
+            Node {
+              "attribs": Object {
+                "class": "suffix-icon",
+              },
+              "children": Array [],
+              "name": "span",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": null,
+              "parent": [Circular],
+              "prev": null,
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "class": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "class": undefined,
+              },
+            },
+          ],
+          "name": "span",
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "next": null,
+          "parent": [Circular],
+          "prev": [Circular],
+          "type": "tag",
+          "x-attribsNamespace": Object {
+            "class": undefined,
+          },
+          "x-attribsPrefix": Object {
+            "class": undefined,
+          },
+        },
+        "parent": [Circular],
+        "prev": Node {
+          "attribs": Object {
+            "class": "picker-active-bar",
+            "style": "left: 0px; width: 0px; position: absolute;",
+          },
+          "children": Array [],
+          "name": "div",
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "next": [Circular],
+          "parent": [Circular],
+          "prev": Node {
+            "attribs": Object {
+              "class": "picker-input",
+            },
+            "children": Array [
+              Node {
+                "attribs": Object {
+                  "autocomplete": "off",
+                  "placeholder": "",
+                  "readonly": "",
+                  "size": "12",
+                  "value": "1990-09-03",
+                },
+                "children": Array [],
+                "name": "input",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": null,
+                "parent": [Circular],
+                "prev": null,
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "autocomplete": undefined,
+                  "placeholder": undefined,
+                  "readonly": undefined,
+                  "size": undefined,
+                  "value": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "autocomplete": undefined,
+                  "placeholder": undefined,
+                  "readonly": undefined,
+                  "size": undefined,
+                  "value": undefined,
+                },
+              },
+            ],
+            "name": "div",
+            "namespace": "http://www.w3.org/1999/xhtml",
+            "next": [Circular],
+            "parent": [Circular],
+            "prev": Node {
+              "attribs": Object {
+                "class": "picker-range-separator",
+              },
+              "children": Array [
+                Node {
+                  "data": ",",
+                  "next": null,
+                  "parent": [Circular],
+                  "prev": null,
+                  "type": "text",
+                },
+              ],
+              "name": "div",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": [Circular],
+              "parent": [Circular],
+              "prev": Node {
+                "attribs": Object {
+                  "class": "picker-input picker-input-active",
+                },
+                "children": Array [
+                  Node {
+                    "attribs": Object {
+                      "autocomplete": "off",
+                      "placeholder": "",
+                      "readonly": "",
+                      "size": "12",
+                      "value": "1990-09-03",
+                    },
+                    "children": Array [],
+                    "name": "input",
+                    "namespace": "http://www.w3.org/1999/xhtml",
+                    "next": null,
+                    "parent": [Circular],
+                    "prev": null,
+                    "type": "tag",
+                    "x-attribsNamespace": Object {
+                      "autocomplete": undefined,
+                      "placeholder": undefined,
+                      "readonly": undefined,
+                      "size": undefined,
+                      "value": undefined,
+                    },
+                    "x-attribsPrefix": Object {
+                      "autocomplete": undefined,
+                      "placeholder": undefined,
+                      "readonly": undefined,
+                      "size": undefined,
+                      "value": undefined,
+                    },
+                  },
+                ],
+                "name": "div",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": [Circular],
+                "parent": [Circular],
+                "prev": null,
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "class": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "class": undefined,
+                },
+              },
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "class": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "class": undefined,
+              },
+            },
+            "type": "tag",
+            "x-attribsNamespace": Object {
+              "class": undefined,
+            },
+            "x-attribsPrefix": Object {
+              "class": undefined,
+            },
+          },
+          "type": "tag",
+          "x-attribsNamespace": Object {
+            "class": undefined,
+            "style": undefined,
+          },
+          "x-attribsPrefix": Object {
+            "class": undefined,
+            "style": undefined,
+          },
+        },
+        "type": "tag",
+        "x-attribsNamespace": Object {
+          "class": undefined,
+        },
+        "x-attribsPrefix": Object {
+          "class": undefined,
+        },
+      },
+      Node {
+        "attribs": Object {
+          "class": "picker-clear",
+        },
+        "children": Array [
+          Node {
+            "attribs": Object {
+              "class": "suffix-icon",
+            },
+            "children": Array [],
+            "name": "span",
+            "namespace": "http://www.w3.org/1999/xhtml",
+            "next": null,
+            "parent": [Circular],
+            "prev": null,
+            "type": "tag",
+            "x-attribsNamespace": Object {
+              "class": undefined,
+            },
+            "x-attribsPrefix": Object {
+              "class": undefined,
+            },
+          },
+        ],
+        "name": "span",
+        "namespace": "http://www.w3.org/1999/xhtml",
+        "next": null,
+        "parent": [Circular],
+        "prev": Node {
+          "attribs": Object {
+            "class": "picker-suffix",
+          },
+          "children": Array [
+            Node {
+              "attribs": Object {
+                "class": "suffix-icon",
+              },
+              "children": Array [],
+              "name": "span",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": null,
+              "parent": [Circular],
+              "prev": null,
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "class": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "class": undefined,
+              },
+            },
+          ],
+          "name": "span",
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "next": [Circular],
+          "parent": [Circular],
+          "prev": Node {
+            "attribs": Object {
+              "class": "picker-active-bar",
+              "style": "left: 0px; width: 0px; position: absolute;",
+            },
+            "children": Array [],
+            "name": "div",
+            "namespace": "http://www.w3.org/1999/xhtml",
+            "next": [Circular],
+            "parent": [Circular],
+            "prev": Node {
+              "attribs": Object {
+                "class": "picker-input",
+              },
+              "children": Array [
+                Node {
+                  "attribs": Object {
+                    "autocomplete": "off",
+                    "placeholder": "",
+                    "readonly": "",
+                    "size": "12",
+                    "value": "1990-09-03",
+                  },
+                  "children": Array [],
+                  "name": "input",
+                  "namespace": "http://www.w3.org/1999/xhtml",
+                  "next": null,
+                  "parent": [Circular],
+                  "prev": null,
+                  "type": "tag",
+                  "x-attribsNamespace": Object {
+                    "autocomplete": undefined,
+                    "placeholder": undefined,
+                    "readonly": undefined,
+                    "size": undefined,
+                    "value": undefined,
+                  },
+                  "x-attribsPrefix": Object {
+                    "autocomplete": undefined,
+                    "placeholder": undefined,
+                    "readonly": undefined,
+                    "size": undefined,
+                    "value": undefined,
+                  },
+                },
+              ],
+              "name": "div",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": [Circular],
+              "parent": [Circular],
+              "prev": Node {
+                "attribs": Object {
+                  "class": "picker-range-separator",
+                },
+                "children": Array [
+                  Node {
+                    "data": ",",
+                    "next": null,
+                    "parent": [Circular],
+                    "prev": null,
+                    "type": "text",
+                  },
+                ],
+                "name": "div",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": [Circular],
+                "parent": [Circular],
+                "prev": Node {
+                  "attribs": Object {
+                    "class": "picker-input picker-input-active",
+                  },
+                  "children": Array [
+                    Node {
+                      "attribs": Object {
+                        "autocomplete": "off",
+                        "placeholder": "",
+                        "readonly": "",
+                        "size": "12",
+                        "value": "1990-09-03",
+                      },
+                      "children": Array [],
+                      "name": "input",
+                      "namespace": "http://www.w3.org/1999/xhtml",
+                      "next": null,
+                      "parent": [Circular],
+                      "prev": null,
+                      "type": "tag",
+                      "x-attribsNamespace": Object {
+                        "autocomplete": undefined,
+                        "placeholder": undefined,
+                        "readonly": undefined,
+                        "size": undefined,
+                        "value": undefined,
+                      },
+                      "x-attribsPrefix": Object {
+                        "autocomplete": undefined,
+                        "placeholder": undefined,
+                        "readonly": undefined,
+                        "size": undefined,
+                        "value": undefined,
+                      },
+                    },
+                  ],
+                  "name": "div",
+                  "namespace": "http://www.w3.org/1999/xhtml",
+                  "next": [Circular],
+                  "parent": [Circular],
+                  "prev": null,
+                  "type": "tag",
+                  "x-attribsNamespace": Object {
+                    "class": undefined,
+                  },
+                  "x-attribsPrefix": Object {
+                    "class": undefined,
+                  },
+                },
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "class": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "class": undefined,
+                },
+              },
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "class": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "class": undefined,
+              },
+            },
+            "type": "tag",
+            "x-attribsNamespace": Object {
+              "class": undefined,
+              "style": undefined,
+            },
+            "x-attribsPrefix": Object {
+              "class": undefined,
+              "style": undefined,
+            },
+          },
+          "type": "tag",
+          "x-attribsNamespace": Object {
+            "class": undefined,
+          },
+          "x-attribsPrefix": Object {
+            "class": undefined,
+          },
+        },
+        "type": "tag",
+        "x-attribsNamespace": Object {
+          "class": undefined,
+        },
+        "x-attribsPrefix": Object {
+          "class": undefined,
+        },
+      },
+    ],
+    "name": "div",
+    "namespace": "http://www.w3.org/1999/xhtml",
+    "next": null,
+    "parent": Node {
+      "children": Array [
+        [Circular],
+      ],
+      "name": "root",
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "type": "root",
+    },
+    "prev": null,
+    "type": "tag",
+    "x-attribsNamespace": Object {
+      "class": undefined,
+    },
+    "x-attribsPrefix": Object {
+      "class": undefined,
+    },
+  },
+  "_root": LoadedCheerio {
+    "0": Node {
+      "children": Array [
+        Node {
+          "attribs": Object {},
+          "children": Array [
+            Node {
+              "attribs": Object {},
+              "children": Array [],
+              "name": "head",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": Node {
+                "attribs": Object {},
+                "children": Array [],
+                "name": "body",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": null,
+                "parent": [Circular],
+                "prev": [Circular],
+                "type": "tag",
+                "x-attribsNamespace": Object {},
+                "x-attribsPrefix": Object {},
+              },
+              "parent": [Circular],
+              "prev": null,
+              "type": "tag",
+              "x-attribsNamespace": Object {},
+              "x-attribsPrefix": Object {},
+            },
+            Node {
+              "attribs": Object {},
+              "children": Array [],
+              "name": "body",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": null,
+              "parent": [Circular],
+              "prev": Node {
+                "attribs": Object {},
+                "children": Array [],
+                "name": "head",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": [Circular],
+                "parent": [Circular],
+                "prev": null,
+                "type": "tag",
+                "x-attribsNamespace": Object {},
+                "x-attribsPrefix": Object {},
+              },
+              "type": "tag",
+              "x-attribsNamespace": Object {},
+              "x-attribsPrefix": Object {},
+            },
+          ],
+          "name": "html",
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "next": null,
+          "parent": [Circular],
+          "prev": null,
+          "type": "tag",
+          "x-attribsNamespace": Object {},
+          "x-attribsPrefix": Object {},
+        },
+      ],
+      "name": "root",
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`Picker.Range onPartialChange is array args should render correctly in rtl 1`] = `
+LoadedCheerio {
+  "0": Node {
+    "attribs": Object {
+      "class": "picker picker-range picker-rtl",
+    },
+    "children": Array [
+      Node {
+        "attribs": Object {
+          "class": "picker-input picker-input-active",
+        },
+        "children": Array [
+          Node {
+            "attribs": Object {
+              "autocomplete": "off",
+              "placeholder": "",
+              "readonly": "",
+              "size": "12",
+              "value": "",
+            },
+            "children": Array [],
+            "name": "input",
+            "namespace": "http://www.w3.org/1999/xhtml",
+            "next": null,
+            "parent": [Circular],
+            "prev": null,
+            "type": "tag",
+            "x-attribsNamespace": Object {
+              "autocomplete": undefined,
+              "placeholder": undefined,
+              "readonly": undefined,
+              "size": undefined,
+              "value": undefined,
+            },
+            "x-attribsPrefix": Object {
+              "autocomplete": undefined,
+              "placeholder": undefined,
+              "readonly": undefined,
+              "size": undefined,
+              "value": undefined,
+            },
+          },
+        ],
+        "name": "div",
+        "namespace": "http://www.w3.org/1999/xhtml",
+        "next": Node {
+          "attribs": Object {
+            "class": "picker-range-separator",
+          },
+          "children": Array [
+            Node {
+              "data": ",",
+              "next": null,
+              "parent": [Circular],
+              "prev": null,
+              "type": "text",
+            },
+          ],
+          "name": "div",
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "next": Node {
+            "attribs": Object {
+              "class": "picker-input",
+            },
+            "children": Array [
+              Node {
+                "attribs": Object {
+                  "autocomplete": "off",
+                  "placeholder": "",
+                  "readonly": "",
+                  "size": "12",
+                  "value": "",
+                },
+                "children": Array [],
+                "name": "input",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": null,
+                "parent": [Circular],
+                "prev": null,
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "autocomplete": undefined,
+                  "placeholder": undefined,
+                  "readonly": undefined,
+                  "size": undefined,
+                  "value": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "autocomplete": undefined,
+                  "placeholder": undefined,
+                  "readonly": undefined,
+                  "size": undefined,
+                  "value": undefined,
+                },
+              },
+            ],
+            "name": "div",
+            "namespace": "http://www.w3.org/1999/xhtml",
+            "next": Node {
+              "attribs": Object {
+                "class": "picker-active-bar",
+                "style": "right: 0px; width: 0px; position: absolute;",
+              },
+              "children": Array [],
+              "name": "div",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": null,
+              "parent": [Circular],
+              "prev": [Circular],
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "class": undefined,
+                "style": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "class": undefined,
+                "style": undefined,
+              },
+            },
+            "parent": [Circular],
+            "prev": [Circular],
+            "type": "tag",
+            "x-attribsNamespace": Object {
+              "class": undefined,
+            },
+            "x-attribsPrefix": Object {
+              "class": undefined,
+            },
+          },
+          "parent": [Circular],
+          "prev": [Circular],
+          "type": "tag",
+          "x-attribsNamespace": Object {
+            "class": undefined,
+          },
+          "x-attribsPrefix": Object {
+            "class": undefined,
+          },
+        },
+        "parent": [Circular],
+        "prev": null,
+        "type": "tag",
+        "x-attribsNamespace": Object {
+          "class": undefined,
+        },
+        "x-attribsPrefix": Object {
+          "class": undefined,
+        },
+      },
+      Node {
+        "attribs": Object {
+          "class": "picker-range-separator",
+        },
+        "children": Array [
+          Node {
+            "data": ",",
+            "next": null,
+            "parent": [Circular],
+            "prev": null,
+            "type": "text",
+          },
+        ],
+        "name": "div",
+        "namespace": "http://www.w3.org/1999/xhtml",
+        "next": Node {
+          "attribs": Object {
+            "class": "picker-input",
+          },
+          "children": Array [
+            Node {
+              "attribs": Object {
+                "autocomplete": "off",
+                "placeholder": "",
+                "readonly": "",
+                "size": "12",
+                "value": "",
+              },
+              "children": Array [],
+              "name": "input",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": null,
+              "parent": [Circular],
+              "prev": null,
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "autocomplete": undefined,
+                "placeholder": undefined,
+                "readonly": undefined,
+                "size": undefined,
+                "value": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "autocomplete": undefined,
+                "placeholder": undefined,
+                "readonly": undefined,
+                "size": undefined,
+                "value": undefined,
+              },
+            },
+          ],
+          "name": "div",
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "next": Node {
+            "attribs": Object {
+              "class": "picker-active-bar",
+              "style": "right: 0px; width: 0px; position: absolute;",
+            },
+            "children": Array [],
+            "name": "div",
+            "namespace": "http://www.w3.org/1999/xhtml",
+            "next": null,
+            "parent": [Circular],
+            "prev": [Circular],
+            "type": "tag",
+            "x-attribsNamespace": Object {
+              "class": undefined,
+              "style": undefined,
+            },
+            "x-attribsPrefix": Object {
+              "class": undefined,
+              "style": undefined,
+            },
+          },
+          "parent": [Circular],
+          "prev": [Circular],
+          "type": "tag",
+          "x-attribsNamespace": Object {
+            "class": undefined,
+          },
+          "x-attribsPrefix": Object {
+            "class": undefined,
+          },
+        },
+        "parent": [Circular],
+        "prev": Node {
+          "attribs": Object {
+            "class": "picker-input picker-input-active",
+          },
+          "children": Array [
+            Node {
+              "attribs": Object {
+                "autocomplete": "off",
+                "placeholder": "",
+                "readonly": "",
+                "size": "12",
+                "value": "",
+              },
+              "children": Array [],
+              "name": "input",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": null,
+              "parent": [Circular],
+              "prev": null,
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "autocomplete": undefined,
+                "placeholder": undefined,
+                "readonly": undefined,
+                "size": undefined,
+                "value": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "autocomplete": undefined,
+                "placeholder": undefined,
+                "readonly": undefined,
+                "size": undefined,
+                "value": undefined,
+              },
+            },
+          ],
+          "name": "div",
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "next": [Circular],
+          "parent": [Circular],
+          "prev": null,
+          "type": "tag",
+          "x-attribsNamespace": Object {
+            "class": undefined,
+          },
+          "x-attribsPrefix": Object {
+            "class": undefined,
+          },
+        },
+        "type": "tag",
+        "x-attribsNamespace": Object {
+          "class": undefined,
+        },
+        "x-attribsPrefix": Object {
+          "class": undefined,
+        },
+      },
+      Node {
+        "attribs": Object {
+          "class": "picker-input",
+        },
+        "children": Array [
+          Node {
+            "attribs": Object {
+              "autocomplete": "off",
+              "placeholder": "",
+              "readonly": "",
+              "size": "12",
+              "value": "",
+            },
+            "children": Array [],
+            "name": "input",
+            "namespace": "http://www.w3.org/1999/xhtml",
+            "next": null,
+            "parent": [Circular],
+            "prev": null,
+            "type": "tag",
+            "x-attribsNamespace": Object {
+              "autocomplete": undefined,
+              "placeholder": undefined,
+              "readonly": undefined,
+              "size": undefined,
+              "value": undefined,
+            },
+            "x-attribsPrefix": Object {
+              "autocomplete": undefined,
+              "placeholder": undefined,
+              "readonly": undefined,
+              "size": undefined,
+              "value": undefined,
+            },
+          },
+        ],
+        "name": "div",
+        "namespace": "http://www.w3.org/1999/xhtml",
+        "next": Node {
+          "attribs": Object {
+            "class": "picker-active-bar",
+            "style": "right: 0px; width: 0px; position: absolute;",
+          },
+          "children": Array [],
+          "name": "div",
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "next": null,
+          "parent": [Circular],
+          "prev": [Circular],
+          "type": "tag",
+          "x-attribsNamespace": Object {
+            "class": undefined,
+            "style": undefined,
+          },
+          "x-attribsPrefix": Object {
+            "class": undefined,
+            "style": undefined,
+          },
+        },
+        "parent": [Circular],
+        "prev": Node {
+          "attribs": Object {
+            "class": "picker-range-separator",
+          },
+          "children": Array [
+            Node {
+              "data": ",",
+              "next": null,
+              "parent": [Circular],
+              "prev": null,
+              "type": "text",
+            },
+          ],
+          "name": "div",
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "next": [Circular],
+          "parent": [Circular],
+          "prev": Node {
+            "attribs": Object {
+              "class": "picker-input picker-input-active",
+            },
+            "children": Array [
+              Node {
+                "attribs": Object {
+                  "autocomplete": "off",
+                  "placeholder": "",
+                  "readonly": "",
+                  "size": "12",
+                  "value": "",
+                },
+                "children": Array [],
+                "name": "input",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": null,
+                "parent": [Circular],
+                "prev": null,
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "autocomplete": undefined,
+                  "placeholder": undefined,
+                  "readonly": undefined,
+                  "size": undefined,
+                  "value": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "autocomplete": undefined,
+                  "placeholder": undefined,
+                  "readonly": undefined,
+                  "size": undefined,
+                  "value": undefined,
+                },
+              },
+            ],
+            "name": "div",
+            "namespace": "http://www.w3.org/1999/xhtml",
+            "next": [Circular],
+            "parent": [Circular],
+            "prev": null,
+            "type": "tag",
+            "x-attribsNamespace": Object {
+              "class": undefined,
+            },
+            "x-attribsPrefix": Object {
+              "class": undefined,
+            },
+          },
+          "type": "tag",
+          "x-attribsNamespace": Object {
+            "class": undefined,
+          },
+          "x-attribsPrefix": Object {
+            "class": undefined,
+          },
+        },
+        "type": "tag",
+        "x-attribsNamespace": Object {
+          "class": undefined,
+        },
+        "x-attribsPrefix": Object {
+          "class": undefined,
+        },
+      },
+      Node {
+        "attribs": Object {
+          "class": "picker-active-bar",
+          "style": "right: 0px; width: 0px; position: absolute;",
+        },
+        "children": Array [],
+        "name": "div",
+        "namespace": "http://www.w3.org/1999/xhtml",
+        "next": null,
+        "parent": [Circular],
+        "prev": Node {
+          "attribs": Object {
+            "class": "picker-input",
+          },
+          "children": Array [
+            Node {
+              "attribs": Object {
+                "autocomplete": "off",
+                "placeholder": "",
+                "readonly": "",
+                "size": "12",
+                "value": "",
+              },
+              "children": Array [],
+              "name": "input",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": null,
+              "parent": [Circular],
+              "prev": null,
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "autocomplete": undefined,
+                "placeholder": undefined,
+                "readonly": undefined,
+                "size": undefined,
+                "value": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "autocomplete": undefined,
+                "placeholder": undefined,
+                "readonly": undefined,
+                "size": undefined,
+                "value": undefined,
+              },
+            },
+          ],
+          "name": "div",
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "next": [Circular],
+          "parent": [Circular],
+          "prev": Node {
+            "attribs": Object {
+              "class": "picker-range-separator",
+            },
+            "children": Array [
+              Node {
+                "data": ",",
+                "next": null,
+                "parent": [Circular],
+                "prev": null,
+                "type": "text",
+              },
+            ],
+            "name": "div",
+            "namespace": "http://www.w3.org/1999/xhtml",
+            "next": [Circular],
+            "parent": [Circular],
+            "prev": Node {
+              "attribs": Object {
+                "class": "picker-input picker-input-active",
+              },
+              "children": Array [
+                Node {
+                  "attribs": Object {
+                    "autocomplete": "off",
+                    "placeholder": "",
+                    "readonly": "",
+                    "size": "12",
+                    "value": "",
+                  },
+                  "children": Array [],
+                  "name": "input",
+                  "namespace": "http://www.w3.org/1999/xhtml",
+                  "next": null,
+                  "parent": [Circular],
+                  "prev": null,
+                  "type": "tag",
+                  "x-attribsNamespace": Object {
+                    "autocomplete": undefined,
+                    "placeholder": undefined,
+                    "readonly": undefined,
+                    "size": undefined,
+                    "value": undefined,
+                  },
+                  "x-attribsPrefix": Object {
+                    "autocomplete": undefined,
+                    "placeholder": undefined,
+                    "readonly": undefined,
+                    "size": undefined,
+                    "value": undefined,
+                  },
+                },
+              ],
+              "name": "div",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": [Circular],
+              "parent": [Circular],
+              "prev": null,
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "class": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "class": undefined,
+              },
+            },
+            "type": "tag",
+            "x-attribsNamespace": Object {
+              "class": undefined,
+            },
+            "x-attribsPrefix": Object {
+              "class": undefined,
+            },
+          },
+          "type": "tag",
+          "x-attribsNamespace": Object {
+            "class": undefined,
+          },
+          "x-attribsPrefix": Object {
+            "class": undefined,
+          },
+        },
+        "type": "tag",
+        "x-attribsNamespace": Object {
+          "class": undefined,
+          "style": undefined,
+        },
+        "x-attribsPrefix": Object {
+          "class": undefined,
+          "style": undefined,
+        },
+      },
+    ],
+    "name": "div",
+    "namespace": "http://www.w3.org/1999/xhtml",
+    "next": null,
+    "parent": Node {
+      "children": Array [
+        [Circular],
+      ],
+      "name": "root",
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "type": "root",
+    },
+    "prev": null,
+    "type": "tag",
+    "x-attribsNamespace": Object {
+      "class": undefined,
+    },
+    "x-attribsPrefix": Object {
+      "class": undefined,
+    },
+  },
+  "_root": LoadedCheerio {
+    "0": Node {
+      "children": Array [
+        Node {
+          "attribs": Object {},
+          "children": Array [
+            Node {
+              "attribs": Object {},
+              "children": Array [],
+              "name": "head",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": Node {
+                "attribs": Object {},
+                "children": Array [],
+                "name": "body",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": null,
+                "parent": [Circular],
+                "prev": [Circular],
+                "type": "tag",
+                "x-attribsNamespace": Object {},
+                "x-attribsPrefix": Object {},
+              },
+              "parent": [Circular],
+              "prev": null,
+              "type": "tag",
+              "x-attribsNamespace": Object {},
+              "x-attribsPrefix": Object {},
+            },
+            Node {
+              "attribs": Object {},
+              "children": Array [],
+              "name": "body",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": null,
+              "parent": [Circular],
+              "prev": Node {
+                "attribs": Object {},
+                "children": Array [],
+                "name": "head",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": [Circular],
+                "parent": [Circular],
+                "prev": null,
+                "type": "tag",
+                "x-attribsNamespace": Object {},
+                "x-attribsPrefix": Object {},
+              },
+              "type": "tag",
+              "x-attribsNamespace": Object {},
+              "x-attribsPrefix": Object {},
+            },
+          ],
+          "name": "html",
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "next": null,
+          "parent": [Circular],
+          "prev": null,
+          "type": "tag",
+          "x-attribsNamespace": Object {},
+          "x-attribsPrefix": Object {},
+        },
+      ],
+      "name": "root",
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`Picker.Range partialRender 1`] = `
+LoadedCheerio {
+  "0": Node {
+    "attribs": Object {
+      "class": "picker picker-range",
+    },
+    "children": Array [
+      Node {
+        "attribs": Object {
+          "class": "picker-input picker-input-active",
+        },
+        "children": Array [
+          Node {
+            "attribs": Object {
+              "autocomplete": "off",
+              "placeholder": "",
+              "readonly": "",
+              "size": "12",
+              "value": "",
+            },
+            "children": Array [],
+            "name": "input",
+            "namespace": "http://www.w3.org/1999/xhtml",
+            "next": null,
+            "parent": [Circular],
+            "prev": null,
+            "type": "tag",
+            "x-attribsNamespace": Object {
+              "autocomplete": undefined,
+              "placeholder": undefined,
+              "readonly": undefined,
+              "size": undefined,
+              "value": undefined,
+            },
+            "x-attribsPrefix": Object {
+              "autocomplete": undefined,
+              "placeholder": undefined,
+              "readonly": undefined,
+              "size": undefined,
+              "value": undefined,
+            },
+          },
+        ],
+        "name": "div",
+        "namespace": "http://www.w3.org/1999/xhtml",
+        "next": Node {
+          "attribs": Object {
+            "class": "picker-range-separator",
+          },
+          "children": Array [
+            Node {
+              "data": ",",
+              "next": null,
+              "parent": [Circular],
+              "prev": null,
+              "type": "text",
+            },
+          ],
+          "name": "div",
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "next": Node {
+            "attribs": Object {
+              "class": "picker-input",
+            },
+            "children": Array [
+              Node {
+                "attribs": Object {
+                  "autocomplete": "off",
+                  "placeholder": "",
+                  "readonly": "",
+                  "size": "12",
+                  "value": "",
+                },
+                "children": Array [],
+                "name": "input",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": null,
+                "parent": [Circular],
+                "prev": null,
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "autocomplete": undefined,
+                  "placeholder": undefined,
+                  "readonly": undefined,
+                  "size": undefined,
+                  "value": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "autocomplete": undefined,
+                  "placeholder": undefined,
+                  "readonly": undefined,
+                  "size": undefined,
+                  "value": undefined,
+                },
+              },
+            ],
+            "name": "div",
+            "namespace": "http://www.w3.org/1999/xhtml",
+            "next": Node {
+              "attribs": Object {
+                "class": "picker-active-bar",
+                "style": "left: 0px; width: 0px; position: absolute;",
+              },
+              "children": Array [],
+              "name": "div",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": null,
+              "parent": [Circular],
+              "prev": [Circular],
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "class": undefined,
+                "style": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "class": undefined,
+                "style": undefined,
+              },
+            },
+            "parent": [Circular],
+            "prev": [Circular],
+            "type": "tag",
+            "x-attribsNamespace": Object {
+              "class": undefined,
+            },
+            "x-attribsPrefix": Object {
+              "class": undefined,
+            },
+          },
+          "parent": [Circular],
+          "prev": [Circular],
+          "type": "tag",
+          "x-attribsNamespace": Object {
+            "class": undefined,
+          },
+          "x-attribsPrefix": Object {
+            "class": undefined,
+          },
+        },
+        "parent": [Circular],
+        "prev": null,
+        "type": "tag",
+        "x-attribsNamespace": Object {
+          "class": undefined,
+        },
+        "x-attribsPrefix": Object {
+          "class": undefined,
+        },
+      },
+      Node {
+        "attribs": Object {
+          "class": "picker-range-separator",
+        },
+        "children": Array [
+          Node {
+            "data": ",",
+            "next": null,
+            "parent": [Circular],
+            "prev": null,
+            "type": "text",
+          },
+        ],
+        "name": "div",
+        "namespace": "http://www.w3.org/1999/xhtml",
+        "next": Node {
+          "attribs": Object {
+            "class": "picker-input",
+          },
+          "children": Array [
+            Node {
+              "attribs": Object {
+                "autocomplete": "off",
+                "placeholder": "",
+                "readonly": "",
+                "size": "12",
+                "value": "",
+              },
+              "children": Array [],
+              "name": "input",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": null,
+              "parent": [Circular],
+              "prev": null,
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "autocomplete": undefined,
+                "placeholder": undefined,
+                "readonly": undefined,
+                "size": undefined,
+                "value": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "autocomplete": undefined,
+                "placeholder": undefined,
+                "readonly": undefined,
+                "size": undefined,
+                "value": undefined,
+              },
+            },
+          ],
+          "name": "div",
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "next": Node {
+            "attribs": Object {
+              "class": "picker-active-bar",
+              "style": "left: 0px; width: 0px; position: absolute;",
+            },
+            "children": Array [],
+            "name": "div",
+            "namespace": "http://www.w3.org/1999/xhtml",
+            "next": null,
+            "parent": [Circular],
+            "prev": [Circular],
+            "type": "tag",
+            "x-attribsNamespace": Object {
+              "class": undefined,
+              "style": undefined,
+            },
+            "x-attribsPrefix": Object {
+              "class": undefined,
+              "style": undefined,
+            },
+          },
+          "parent": [Circular],
+          "prev": [Circular],
+          "type": "tag",
+          "x-attribsNamespace": Object {
+            "class": undefined,
+          },
+          "x-attribsPrefix": Object {
+            "class": undefined,
+          },
+        },
+        "parent": [Circular],
+        "prev": Node {
+          "attribs": Object {
+            "class": "picker-input picker-input-active",
+          },
+          "children": Array [
+            Node {
+              "attribs": Object {
+                "autocomplete": "off",
+                "placeholder": "",
+                "readonly": "",
+                "size": "12",
+                "value": "",
+              },
+              "children": Array [],
+              "name": "input",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": null,
+              "parent": [Circular],
+              "prev": null,
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "autocomplete": undefined,
+                "placeholder": undefined,
+                "readonly": undefined,
+                "size": undefined,
+                "value": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "autocomplete": undefined,
+                "placeholder": undefined,
+                "readonly": undefined,
+                "size": undefined,
+                "value": undefined,
+              },
+            },
+          ],
+          "name": "div",
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "next": [Circular],
+          "parent": [Circular],
+          "prev": null,
+          "type": "tag",
+          "x-attribsNamespace": Object {
+            "class": undefined,
+          },
+          "x-attribsPrefix": Object {
+            "class": undefined,
+          },
+        },
+        "type": "tag",
+        "x-attribsNamespace": Object {
+          "class": undefined,
+        },
+        "x-attribsPrefix": Object {
+          "class": undefined,
+        },
+      },
+      Node {
+        "attribs": Object {
+          "class": "picker-input",
+        },
+        "children": Array [
+          Node {
+            "attribs": Object {
+              "autocomplete": "off",
+              "placeholder": "",
+              "readonly": "",
+              "size": "12",
+              "value": "",
+            },
+            "children": Array [],
+            "name": "input",
+            "namespace": "http://www.w3.org/1999/xhtml",
+            "next": null,
+            "parent": [Circular],
+            "prev": null,
+            "type": "tag",
+            "x-attribsNamespace": Object {
+              "autocomplete": undefined,
+              "placeholder": undefined,
+              "readonly": undefined,
+              "size": undefined,
+              "value": undefined,
+            },
+            "x-attribsPrefix": Object {
+              "autocomplete": undefined,
+              "placeholder": undefined,
+              "readonly": undefined,
+              "size": undefined,
+              "value": undefined,
+            },
+          },
+        ],
+        "name": "div",
+        "namespace": "http://www.w3.org/1999/xhtml",
+        "next": Node {
+          "attribs": Object {
+            "class": "picker-active-bar",
+            "style": "left: 0px; width: 0px; position: absolute;",
+          },
+          "children": Array [],
+          "name": "div",
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "next": null,
+          "parent": [Circular],
+          "prev": [Circular],
+          "type": "tag",
+          "x-attribsNamespace": Object {
+            "class": undefined,
+            "style": undefined,
+          },
+          "x-attribsPrefix": Object {
+            "class": undefined,
+            "style": undefined,
+          },
+        },
+        "parent": [Circular],
+        "prev": Node {
+          "attribs": Object {
+            "class": "picker-range-separator",
+          },
+          "children": Array [
+            Node {
+              "data": ",",
+              "next": null,
+              "parent": [Circular],
+              "prev": null,
+              "type": "text",
+            },
+          ],
+          "name": "div",
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "next": [Circular],
+          "parent": [Circular],
+          "prev": Node {
+            "attribs": Object {
+              "class": "picker-input picker-input-active",
+            },
+            "children": Array [
+              Node {
+                "attribs": Object {
+                  "autocomplete": "off",
+                  "placeholder": "",
+                  "readonly": "",
+                  "size": "12",
+                  "value": "",
+                },
+                "children": Array [],
+                "name": "input",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": null,
+                "parent": [Circular],
+                "prev": null,
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "autocomplete": undefined,
+                  "placeholder": undefined,
+                  "readonly": undefined,
+                  "size": undefined,
+                  "value": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "autocomplete": undefined,
+                  "placeholder": undefined,
+                  "readonly": undefined,
+                  "size": undefined,
+                  "value": undefined,
+                },
+              },
+            ],
+            "name": "div",
+            "namespace": "http://www.w3.org/1999/xhtml",
+            "next": [Circular],
+            "parent": [Circular],
+            "prev": null,
+            "type": "tag",
+            "x-attribsNamespace": Object {
+              "class": undefined,
+            },
+            "x-attribsPrefix": Object {
+              "class": undefined,
+            },
+          },
+          "type": "tag",
+          "x-attribsNamespace": Object {
+            "class": undefined,
+          },
+          "x-attribsPrefix": Object {
+            "class": undefined,
+          },
+        },
+        "type": "tag",
+        "x-attribsNamespace": Object {
+          "class": undefined,
+        },
+        "x-attribsPrefix": Object {
+          "class": undefined,
+        },
+      },
+      Node {
+        "attribs": Object {
+          "class": "picker-active-bar",
+          "style": "left: 0px; width: 0px; position: absolute;",
+        },
+        "children": Array [],
+        "name": "div",
+        "namespace": "http://www.w3.org/1999/xhtml",
+        "next": null,
+        "parent": [Circular],
+        "prev": Node {
+          "attribs": Object {
+            "class": "picker-input",
+          },
+          "children": Array [
+            Node {
+              "attribs": Object {
+                "autocomplete": "off",
+                "placeholder": "",
+                "readonly": "",
+                "size": "12",
+                "value": "",
+              },
+              "children": Array [],
+              "name": "input",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": null,
+              "parent": [Circular],
+              "prev": null,
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "autocomplete": undefined,
+                "placeholder": undefined,
+                "readonly": undefined,
+                "size": undefined,
+                "value": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "autocomplete": undefined,
+                "placeholder": undefined,
+                "readonly": undefined,
+                "size": undefined,
+                "value": undefined,
+              },
+            },
+          ],
+          "name": "div",
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "next": [Circular],
+          "parent": [Circular],
+          "prev": Node {
+            "attribs": Object {
+              "class": "picker-range-separator",
+            },
+            "children": Array [
+              Node {
+                "data": ",",
+                "next": null,
+                "parent": [Circular],
+                "prev": null,
+                "type": "text",
+              },
+            ],
+            "name": "div",
+            "namespace": "http://www.w3.org/1999/xhtml",
+            "next": [Circular],
+            "parent": [Circular],
+            "prev": Node {
+              "attribs": Object {
+                "class": "picker-input picker-input-active",
+              },
+              "children": Array [
+                Node {
+                  "attribs": Object {
+                    "autocomplete": "off",
+                    "placeholder": "",
+                    "readonly": "",
+                    "size": "12",
+                    "value": "",
+                  },
+                  "children": Array [],
+                  "name": "input",
+                  "namespace": "http://www.w3.org/1999/xhtml",
+                  "next": null,
+                  "parent": [Circular],
+                  "prev": null,
+                  "type": "tag",
+                  "x-attribsNamespace": Object {
+                    "autocomplete": undefined,
+                    "placeholder": undefined,
+                    "readonly": undefined,
+                    "size": undefined,
+                    "value": undefined,
+                  },
+                  "x-attribsPrefix": Object {
+                    "autocomplete": undefined,
+                    "placeholder": undefined,
+                    "readonly": undefined,
+                    "size": undefined,
+                    "value": undefined,
+                  },
+                },
+              ],
+              "name": "div",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": [Circular],
+              "parent": [Circular],
+              "prev": null,
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "class": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "class": undefined,
+              },
+            },
+            "type": "tag",
+            "x-attribsNamespace": Object {
+              "class": undefined,
+            },
+            "x-attribsPrefix": Object {
+              "class": undefined,
+            },
+          },
+          "type": "tag",
+          "x-attribsNamespace": Object {
+            "class": undefined,
+          },
+          "x-attribsPrefix": Object {
+            "class": undefined,
+          },
+        },
+        "type": "tag",
+        "x-attribsNamespace": Object {
+          "class": undefined,
+          "style": undefined,
+        },
+        "x-attribsPrefix": Object {
+          "class": undefined,
+          "style": undefined,
+        },
+      },
+    ],
+    "name": "div",
+    "namespace": "http://www.w3.org/1999/xhtml",
+    "next": Node {
+      "attribs": Object {},
+      "children": Array [
+        Node {
+          "attribs": Object {
+            "class": "trigger-popup trigger-popup slide-up-enter trigger-popup-placement-bottom-left picker-dropdown-range",
+            "style": "opacity: 0;",
+          },
+          "children": Array [
+            Node {
+              "attribs": Object {
+                "class": "picker-range-wrapper picker-date-range-wrapper",
+                "style": "min-width: 0;",
+              },
+              "children": Array [
+                Node {
+                  "attribs": Object {
+                    "class": "picker-range-arrow",
+                    "style": "left: 0px;",
+                  },
+                  "children": Array [],
+                  "name": "div",
+                  "namespace": "http://www.w3.org/1999/xhtml",
+                  "next": Node {
+                    "attribs": Object {
+                      "class": "picker-partial-container",
+                      "style": "margin-left: 0px;",
+                    },
+                    "children": Array [
+                      Node {
+                        "attribs": Object {},
+                        "children": Array [
+                          Node {
+                            "data": "Light",
+                            "next": null,
+                            "parent": [Circular],
+                            "prev": null,
+                            "type": "text",
+                          },
+                        ],
+                        "name": "h1",
+                        "namespace": "http://www.w3.org/1999/xhtml",
+                        "next": null,
+                        "parent": [Circular],
+                        "prev": null,
+                        "type": "tag",
+                        "x-attribsNamespace": Object {},
+                        "x-attribsPrefix": Object {},
+                      },
+                    ],
+                    "name": "div",
+                    "namespace": "http://www.w3.org/1999/xhtml",
+                    "next": null,
+                    "parent": [Circular],
+                    "prev": [Circular],
+                    "type": "tag",
+                    "x-attribsNamespace": Object {
+                      "class": undefined,
+                      "style": undefined,
+                    },
+                    "x-attribsPrefix": Object {
+                      "class": undefined,
+                      "style": undefined,
+                    },
+                  },
+                  "parent": [Circular],
+                  "prev": null,
+                  "type": "tag",
+                  "x-attribsNamespace": Object {
+                    "class": undefined,
+                    "style": undefined,
+                  },
+                  "x-attribsPrefix": Object {
+                    "class": undefined,
+                    "style": undefined,
+                  },
+                },
+                Node {
+                  "attribs": Object {
+                    "class": "picker-partial-container",
+                    "style": "margin-left: 0px;",
+                  },
+                  "children": Array [
+                    Node {
+                      "attribs": Object {},
+                      "children": Array [
+                        Node {
+                          "data": "Light",
+                          "next": null,
+                          "parent": [Circular],
+                          "prev": null,
+                          "type": "text",
+                        },
+                      ],
+                      "name": "h1",
+                      "namespace": "http://www.w3.org/1999/xhtml",
+                      "next": null,
+                      "parent": [Circular],
+                      "prev": null,
+                      "type": "tag",
+                      "x-attribsNamespace": Object {},
+                      "x-attribsPrefix": Object {},
+                    },
+                  ],
+                  "name": "div",
+                  "namespace": "http://www.w3.org/1999/xhtml",
+                  "next": null,
+                  "parent": [Circular],
+                  "prev": Node {
+                    "attribs": Object {
+                      "class": "picker-range-arrow",
+                      "style": "left: 0px;",
+                    },
+                    "children": Array [],
+                    "name": "div",
+                    "namespace": "http://www.w3.org/1999/xhtml",
+                    "next": [Circular],
+                    "parent": [Circular],
+                    "prev": null,
+                    "type": "tag",
+                    "x-attribsNamespace": Object {
+                      "class": undefined,
+                      "style": undefined,
+                    },
+                    "x-attribsPrefix": Object {
+                      "class": undefined,
+                      "style": undefined,
+                    },
+                  },
+                  "type": "tag",
+                  "x-attribsNamespace": Object {
+                    "class": undefined,
+                    "style": undefined,
+                  },
+                  "x-attribsPrefix": Object {
+                    "class": undefined,
+                    "style": undefined,
+                  },
+                },
+              ],
+              "name": "div",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": null,
+              "parent": [Circular],
+              "prev": null,
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "class": undefined,
+                "style": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "class": undefined,
+                "style": undefined,
+              },
+            },
+          ],
+          "name": "div",
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "next": null,
+          "parent": [Circular],
+          "prev": null,
+          "type": "tag",
+          "x-attribsNamespace": Object {
+            "class": undefined,
+            "style": undefined,
+          },
+          "x-attribsPrefix": Object {
+            "class": undefined,
+            "style": undefined,
+          },
+        },
+      ],
+      "name": "div",
+      "namespace": "http://www.w3.org/1999/xhtml",
+      "next": null,
+      "parent": Node {
+        "children": Array [
+          [Circular],
+          [Circular],
+        ],
+        "name": "root",
+        "next": null,
+        "parent": null,
+        "prev": null,
+        "type": "root",
+      },
+      "prev": [Circular],
+      "type": "tag",
+      "x-attribsNamespace": Object {},
+      "x-attribsPrefix": Object {},
+    },
+    "parent": Node {
+      "children": Array [
+        [Circular],
+        Node {
+          "attribs": Object {},
+          "children": Array [
+            Node {
+              "attribs": Object {
+                "class": "trigger-popup trigger-popup slide-up-enter trigger-popup-placement-bottom-left picker-dropdown-range",
+                "style": "opacity: 0;",
+              },
+              "children": Array [
+                Node {
+                  "attribs": Object {
+                    "class": "picker-range-wrapper picker-date-range-wrapper",
+                    "style": "min-width: 0;",
+                  },
+                  "children": Array [
+                    Node {
+                      "attribs": Object {
+                        "class": "picker-range-arrow",
+                        "style": "left: 0px;",
+                      },
+                      "children": Array [],
+                      "name": "div",
+                      "namespace": "http://www.w3.org/1999/xhtml",
+                      "next": Node {
+                        "attribs": Object {
+                          "class": "picker-partial-container",
+                          "style": "margin-left: 0px;",
+                        },
+                        "children": Array [
+                          Node {
+                            "attribs": Object {},
+                            "children": Array [
+                              Node {
+                                "data": "Light",
+                                "next": null,
+                                "parent": [Circular],
+                                "prev": null,
+                                "type": "text",
+                              },
+                            ],
+                            "name": "h1",
+                            "namespace": "http://www.w3.org/1999/xhtml",
+                            "next": null,
+                            "parent": [Circular],
+                            "prev": null,
+                            "type": "tag",
+                            "x-attribsNamespace": Object {},
+                            "x-attribsPrefix": Object {},
+                          },
+                        ],
+                        "name": "div",
+                        "namespace": "http://www.w3.org/1999/xhtml",
+                        "next": null,
+                        "parent": [Circular],
+                        "prev": [Circular],
+                        "type": "tag",
+                        "x-attribsNamespace": Object {
+                          "class": undefined,
+                          "style": undefined,
+                        },
+                        "x-attribsPrefix": Object {
+                          "class": undefined,
+                          "style": undefined,
+                        },
+                      },
+                      "parent": [Circular],
+                      "prev": null,
+                      "type": "tag",
+                      "x-attribsNamespace": Object {
+                        "class": undefined,
+                        "style": undefined,
+                      },
+                      "x-attribsPrefix": Object {
+                        "class": undefined,
+                        "style": undefined,
+                      },
+                    },
+                    Node {
+                      "attribs": Object {
+                        "class": "picker-partial-container",
+                        "style": "margin-left: 0px;",
+                      },
+                      "children": Array [
+                        Node {
+                          "attribs": Object {},
+                          "children": Array [
+                            Node {
+                              "data": "Light",
+                              "next": null,
+                              "parent": [Circular],
+                              "prev": null,
+                              "type": "text",
+                            },
+                          ],
+                          "name": "h1",
+                          "namespace": "http://www.w3.org/1999/xhtml",
+                          "next": null,
+                          "parent": [Circular],
+                          "prev": null,
+                          "type": "tag",
+                          "x-attribsNamespace": Object {},
+                          "x-attribsPrefix": Object {},
+                        },
+                      ],
+                      "name": "div",
+                      "namespace": "http://www.w3.org/1999/xhtml",
+                      "next": null,
+                      "parent": [Circular],
+                      "prev": Node {
+                        "attribs": Object {
+                          "class": "picker-range-arrow",
+                          "style": "left: 0px;",
+                        },
+                        "children": Array [],
+                        "name": "div",
+                        "namespace": "http://www.w3.org/1999/xhtml",
+                        "next": [Circular],
+                        "parent": [Circular],
+                        "prev": null,
+                        "type": "tag",
+                        "x-attribsNamespace": Object {
+                          "class": undefined,
+                          "style": undefined,
+                        },
+                        "x-attribsPrefix": Object {
+                          "class": undefined,
+                          "style": undefined,
+                        },
+                      },
+                      "type": "tag",
+                      "x-attribsNamespace": Object {
+                        "class": undefined,
+                        "style": undefined,
+                      },
+                      "x-attribsPrefix": Object {
+                        "class": undefined,
+                        "style": undefined,
+                      },
+                    },
+                  ],
+                  "name": "div",
+                  "namespace": "http://www.w3.org/1999/xhtml",
+                  "next": null,
+                  "parent": [Circular],
+                  "prev": null,
+                  "type": "tag",
+                  "x-attribsNamespace": Object {
+                    "class": undefined,
+                    "style": undefined,
+                  },
+                  "x-attribsPrefix": Object {
+                    "class": undefined,
+                    "style": undefined,
+                  },
+                },
+              ],
+              "name": "div",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": null,
+              "parent": [Circular],
+              "prev": null,
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "class": undefined,
+                "style": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "class": undefined,
+                "style": undefined,
+              },
+            },
+          ],
+          "name": "div",
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "next": null,
+          "parent": [Circular],
+          "prev": [Circular],
+          "type": "tag",
+          "x-attribsNamespace": Object {},
+          "x-attribsPrefix": Object {},
+        },
+      ],
+      "name": "root",
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "type": "root",
+    },
+    "prev": null,
+    "type": "tag",
+    "x-attribsNamespace": Object {
+      "class": undefined,
+    },
+    "x-attribsPrefix": Object {
+      "class": undefined,
+    },
+  },
+  "1": Node {
+    "attribs": Object {},
+    "children": Array [
+      Node {
+        "attribs": Object {
+          "class": "trigger-popup trigger-popup slide-up-enter trigger-popup-placement-bottom-left picker-dropdown-range",
+          "style": "opacity: 0;",
+        },
+        "children": Array [
+          Node {
+            "attribs": Object {
+              "class": "picker-range-wrapper picker-date-range-wrapper",
+              "style": "min-width: 0;",
+            },
+            "children": Array [
+              Node {
+                "attribs": Object {
+                  "class": "picker-range-arrow",
+                  "style": "left: 0px;",
+                },
+                "children": Array [],
+                "name": "div",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": Node {
+                  "attribs": Object {
+                    "class": "picker-partial-container",
+                    "style": "margin-left: 0px;",
+                  },
+                  "children": Array [
+                    Node {
+                      "attribs": Object {},
+                      "children": Array [
+                        Node {
+                          "data": "Light",
+                          "next": null,
+                          "parent": [Circular],
+                          "prev": null,
+                          "type": "text",
+                        },
+                      ],
+                      "name": "h1",
+                      "namespace": "http://www.w3.org/1999/xhtml",
+                      "next": null,
+                      "parent": [Circular],
+                      "prev": null,
+                      "type": "tag",
+                      "x-attribsNamespace": Object {},
+                      "x-attribsPrefix": Object {},
+                    },
+                  ],
+                  "name": "div",
+                  "namespace": "http://www.w3.org/1999/xhtml",
+                  "next": null,
+                  "parent": [Circular],
+                  "prev": [Circular],
+                  "type": "tag",
+                  "x-attribsNamespace": Object {
+                    "class": undefined,
+                    "style": undefined,
+                  },
+                  "x-attribsPrefix": Object {
+                    "class": undefined,
+                    "style": undefined,
+                  },
+                },
+                "parent": [Circular],
+                "prev": null,
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "class": undefined,
+                  "style": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "class": undefined,
+                  "style": undefined,
+                },
+              },
+              Node {
+                "attribs": Object {
+                  "class": "picker-partial-container",
+                  "style": "margin-left: 0px;",
+                },
+                "children": Array [
+                  Node {
+                    "attribs": Object {},
+                    "children": Array [
+                      Node {
+                        "data": "Light",
+                        "next": null,
+                        "parent": [Circular],
+                        "prev": null,
+                        "type": "text",
+                      },
+                    ],
+                    "name": "h1",
+                    "namespace": "http://www.w3.org/1999/xhtml",
+                    "next": null,
+                    "parent": [Circular],
+                    "prev": null,
+                    "type": "tag",
+                    "x-attribsNamespace": Object {},
+                    "x-attribsPrefix": Object {},
+                  },
+                ],
+                "name": "div",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": null,
+                "parent": [Circular],
+                "prev": Node {
+                  "attribs": Object {
+                    "class": "picker-range-arrow",
+                    "style": "left: 0px;",
+                  },
+                  "children": Array [],
+                  "name": "div",
+                  "namespace": "http://www.w3.org/1999/xhtml",
+                  "next": [Circular],
+                  "parent": [Circular],
+                  "prev": null,
+                  "type": "tag",
+                  "x-attribsNamespace": Object {
+                    "class": undefined,
+                    "style": undefined,
+                  },
+                  "x-attribsPrefix": Object {
+                    "class": undefined,
+                    "style": undefined,
+                  },
+                },
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "class": undefined,
+                  "style": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "class": undefined,
+                  "style": undefined,
+                },
+              },
+            ],
+            "name": "div",
+            "namespace": "http://www.w3.org/1999/xhtml",
+            "next": null,
+            "parent": [Circular],
+            "prev": null,
+            "type": "tag",
+            "x-attribsNamespace": Object {
+              "class": undefined,
+              "style": undefined,
+            },
+            "x-attribsPrefix": Object {
+              "class": undefined,
+              "style": undefined,
+            },
+          },
+        ],
+        "name": "div",
+        "namespace": "http://www.w3.org/1999/xhtml",
+        "next": null,
+        "parent": [Circular],
+        "prev": null,
+        "type": "tag",
+        "x-attribsNamespace": Object {
+          "class": undefined,
+          "style": undefined,
+        },
+        "x-attribsPrefix": Object {
+          "class": undefined,
+          "style": undefined,
+        },
+      },
+    ],
+    "name": "div",
+    "namespace": "http://www.w3.org/1999/xhtml",
+    "next": null,
+    "parent": Node {
+      "children": Array [
+        Node {
+          "attribs": Object {
+            "class": "picker picker-range",
+          },
+          "children": Array [
+            Node {
+              "attribs": Object {
+                "class": "picker-input picker-input-active",
+              },
+              "children": Array [
+                Node {
+                  "attribs": Object {
+                    "autocomplete": "off",
+                    "placeholder": "",
+                    "readonly": "",
+                    "size": "12",
+                    "value": "",
+                  },
+                  "children": Array [],
+                  "name": "input",
+                  "namespace": "http://www.w3.org/1999/xhtml",
+                  "next": null,
+                  "parent": [Circular],
+                  "prev": null,
+                  "type": "tag",
+                  "x-attribsNamespace": Object {
+                    "autocomplete": undefined,
+                    "placeholder": undefined,
+                    "readonly": undefined,
+                    "size": undefined,
+                    "value": undefined,
+                  },
+                  "x-attribsPrefix": Object {
+                    "autocomplete": undefined,
+                    "placeholder": undefined,
+                    "readonly": undefined,
+                    "size": undefined,
+                    "value": undefined,
+                  },
+                },
+              ],
+              "name": "div",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": Node {
+                "attribs": Object {
+                  "class": "picker-range-separator",
+                },
+                "children": Array [
+                  Node {
+                    "data": ",",
+                    "next": null,
+                    "parent": [Circular],
+                    "prev": null,
+                    "type": "text",
+                  },
+                ],
+                "name": "div",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": Node {
+                  "attribs": Object {
+                    "class": "picker-input",
+                  },
+                  "children": Array [
+                    Node {
+                      "attribs": Object {
+                        "autocomplete": "off",
+                        "placeholder": "",
+                        "readonly": "",
+                        "size": "12",
+                        "value": "",
+                      },
+                      "children": Array [],
+                      "name": "input",
+                      "namespace": "http://www.w3.org/1999/xhtml",
+                      "next": null,
+                      "parent": [Circular],
+                      "prev": null,
+                      "type": "tag",
+                      "x-attribsNamespace": Object {
+                        "autocomplete": undefined,
+                        "placeholder": undefined,
+                        "readonly": undefined,
+                        "size": undefined,
+                        "value": undefined,
+                      },
+                      "x-attribsPrefix": Object {
+                        "autocomplete": undefined,
+                        "placeholder": undefined,
+                        "readonly": undefined,
+                        "size": undefined,
+                        "value": undefined,
+                      },
+                    },
+                  ],
+                  "name": "div",
+                  "namespace": "http://www.w3.org/1999/xhtml",
+                  "next": Node {
+                    "attribs": Object {
+                      "class": "picker-active-bar",
+                      "style": "left: 0px; width: 0px; position: absolute;",
+                    },
+                    "children": Array [],
+                    "name": "div",
+                    "namespace": "http://www.w3.org/1999/xhtml",
+                    "next": null,
+                    "parent": [Circular],
+                    "prev": [Circular],
+                    "type": "tag",
+                    "x-attribsNamespace": Object {
+                      "class": undefined,
+                      "style": undefined,
+                    },
+                    "x-attribsPrefix": Object {
+                      "class": undefined,
+                      "style": undefined,
+                    },
+                  },
+                  "parent": [Circular],
+                  "prev": [Circular],
+                  "type": "tag",
+                  "x-attribsNamespace": Object {
+                    "class": undefined,
+                  },
+                  "x-attribsPrefix": Object {
+                    "class": undefined,
+                  },
+                },
+                "parent": [Circular],
+                "prev": [Circular],
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "class": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "class": undefined,
+                },
+              },
+              "parent": [Circular],
+              "prev": null,
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "class": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "class": undefined,
+              },
+            },
+            Node {
+              "attribs": Object {
+                "class": "picker-range-separator",
+              },
+              "children": Array [
+                Node {
+                  "data": ",",
+                  "next": null,
+                  "parent": [Circular],
+                  "prev": null,
+                  "type": "text",
+                },
+              ],
+              "name": "div",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": Node {
+                "attribs": Object {
+                  "class": "picker-input",
+                },
+                "children": Array [
+                  Node {
+                    "attribs": Object {
+                      "autocomplete": "off",
+                      "placeholder": "",
+                      "readonly": "",
+                      "size": "12",
+                      "value": "",
+                    },
+                    "children": Array [],
+                    "name": "input",
+                    "namespace": "http://www.w3.org/1999/xhtml",
+                    "next": null,
+                    "parent": [Circular],
+                    "prev": null,
+                    "type": "tag",
+                    "x-attribsNamespace": Object {
+                      "autocomplete": undefined,
+                      "placeholder": undefined,
+                      "readonly": undefined,
+                      "size": undefined,
+                      "value": undefined,
+                    },
+                    "x-attribsPrefix": Object {
+                      "autocomplete": undefined,
+                      "placeholder": undefined,
+                      "readonly": undefined,
+                      "size": undefined,
+                      "value": undefined,
+                    },
+                  },
+                ],
+                "name": "div",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": Node {
+                  "attribs": Object {
+                    "class": "picker-active-bar",
+                    "style": "left: 0px; width: 0px; position: absolute;",
+                  },
+                  "children": Array [],
+                  "name": "div",
+                  "namespace": "http://www.w3.org/1999/xhtml",
+                  "next": null,
+                  "parent": [Circular],
+                  "prev": [Circular],
+                  "type": "tag",
+                  "x-attribsNamespace": Object {
+                    "class": undefined,
+                    "style": undefined,
+                  },
+                  "x-attribsPrefix": Object {
+                    "class": undefined,
+                    "style": undefined,
+                  },
+                },
+                "parent": [Circular],
+                "prev": [Circular],
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "class": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "class": undefined,
+                },
+              },
+              "parent": [Circular],
+              "prev": Node {
+                "attribs": Object {
+                  "class": "picker-input picker-input-active",
+                },
+                "children": Array [
+                  Node {
+                    "attribs": Object {
+                      "autocomplete": "off",
+                      "placeholder": "",
+                      "readonly": "",
+                      "size": "12",
+                      "value": "",
+                    },
+                    "children": Array [],
+                    "name": "input",
+                    "namespace": "http://www.w3.org/1999/xhtml",
+                    "next": null,
+                    "parent": [Circular],
+                    "prev": null,
+                    "type": "tag",
+                    "x-attribsNamespace": Object {
+                      "autocomplete": undefined,
+                      "placeholder": undefined,
+                      "readonly": undefined,
+                      "size": undefined,
+                      "value": undefined,
+                    },
+                    "x-attribsPrefix": Object {
+                      "autocomplete": undefined,
+                      "placeholder": undefined,
+                      "readonly": undefined,
+                      "size": undefined,
+                      "value": undefined,
+                    },
+                  },
+                ],
+                "name": "div",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": [Circular],
+                "parent": [Circular],
+                "prev": null,
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "class": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "class": undefined,
+                },
+              },
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "class": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "class": undefined,
+              },
+            },
+            Node {
+              "attribs": Object {
+                "class": "picker-input",
+              },
+              "children": Array [
+                Node {
+                  "attribs": Object {
+                    "autocomplete": "off",
+                    "placeholder": "",
+                    "readonly": "",
+                    "size": "12",
+                    "value": "",
+                  },
+                  "children": Array [],
+                  "name": "input",
+                  "namespace": "http://www.w3.org/1999/xhtml",
+                  "next": null,
+                  "parent": [Circular],
+                  "prev": null,
+                  "type": "tag",
+                  "x-attribsNamespace": Object {
+                    "autocomplete": undefined,
+                    "placeholder": undefined,
+                    "readonly": undefined,
+                    "size": undefined,
+                    "value": undefined,
+                  },
+                  "x-attribsPrefix": Object {
+                    "autocomplete": undefined,
+                    "placeholder": undefined,
+                    "readonly": undefined,
+                    "size": undefined,
+                    "value": undefined,
+                  },
+                },
+              ],
+              "name": "div",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": Node {
+                "attribs": Object {
+                  "class": "picker-active-bar",
+                  "style": "left: 0px; width: 0px; position: absolute;",
+                },
+                "children": Array [],
+                "name": "div",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": null,
+                "parent": [Circular],
+                "prev": [Circular],
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "class": undefined,
+                  "style": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "class": undefined,
+                  "style": undefined,
+                },
+              },
+              "parent": [Circular],
+              "prev": Node {
+                "attribs": Object {
+                  "class": "picker-range-separator",
+                },
+                "children": Array [
+                  Node {
+                    "data": ",",
+                    "next": null,
+                    "parent": [Circular],
+                    "prev": null,
+                    "type": "text",
+                  },
+                ],
+                "name": "div",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": [Circular],
+                "parent": [Circular],
+                "prev": Node {
+                  "attribs": Object {
+                    "class": "picker-input picker-input-active",
+                  },
+                  "children": Array [
+                    Node {
+                      "attribs": Object {
+                        "autocomplete": "off",
+                        "placeholder": "",
+                        "readonly": "",
+                        "size": "12",
+                        "value": "",
+                      },
+                      "children": Array [],
+                      "name": "input",
+                      "namespace": "http://www.w3.org/1999/xhtml",
+                      "next": null,
+                      "parent": [Circular],
+                      "prev": null,
+                      "type": "tag",
+                      "x-attribsNamespace": Object {
+                        "autocomplete": undefined,
+                        "placeholder": undefined,
+                        "readonly": undefined,
+                        "size": undefined,
+                        "value": undefined,
+                      },
+                      "x-attribsPrefix": Object {
+                        "autocomplete": undefined,
+                        "placeholder": undefined,
+                        "readonly": undefined,
+                        "size": undefined,
+                        "value": undefined,
+                      },
+                    },
+                  ],
+                  "name": "div",
+                  "namespace": "http://www.w3.org/1999/xhtml",
+                  "next": [Circular],
+                  "parent": [Circular],
+                  "prev": null,
+                  "type": "tag",
+                  "x-attribsNamespace": Object {
+                    "class": undefined,
+                  },
+                  "x-attribsPrefix": Object {
+                    "class": undefined,
+                  },
+                },
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "class": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "class": undefined,
+                },
+              },
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "class": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "class": undefined,
+              },
+            },
+            Node {
+              "attribs": Object {
+                "class": "picker-active-bar",
+                "style": "left: 0px; width: 0px; position: absolute;",
+              },
+              "children": Array [],
+              "name": "div",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": null,
+              "parent": [Circular],
+              "prev": Node {
+                "attribs": Object {
+                  "class": "picker-input",
+                },
+                "children": Array [
+                  Node {
+                    "attribs": Object {
+                      "autocomplete": "off",
+                      "placeholder": "",
+                      "readonly": "",
+                      "size": "12",
+                      "value": "",
+                    },
+                    "children": Array [],
+                    "name": "input",
+                    "namespace": "http://www.w3.org/1999/xhtml",
+                    "next": null,
+                    "parent": [Circular],
+                    "prev": null,
+                    "type": "tag",
+                    "x-attribsNamespace": Object {
+                      "autocomplete": undefined,
+                      "placeholder": undefined,
+                      "readonly": undefined,
+                      "size": undefined,
+                      "value": undefined,
+                    },
+                    "x-attribsPrefix": Object {
+                      "autocomplete": undefined,
+                      "placeholder": undefined,
+                      "readonly": undefined,
+                      "size": undefined,
+                      "value": undefined,
+                    },
+                  },
+                ],
+                "name": "div",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": [Circular],
+                "parent": [Circular],
+                "prev": Node {
+                  "attribs": Object {
+                    "class": "picker-range-separator",
+                  },
+                  "children": Array [
+                    Node {
+                      "data": ",",
+                      "next": null,
+                      "parent": [Circular],
+                      "prev": null,
+                      "type": "text",
+                    },
+                  ],
+                  "name": "div",
+                  "namespace": "http://www.w3.org/1999/xhtml",
+                  "next": [Circular],
+                  "parent": [Circular],
+                  "prev": Node {
+                    "attribs": Object {
+                      "class": "picker-input picker-input-active",
+                    },
+                    "children": Array [
+                      Node {
+                        "attribs": Object {
+                          "autocomplete": "off",
+                          "placeholder": "",
+                          "readonly": "",
+                          "size": "12",
+                          "value": "",
+                        },
+                        "children": Array [],
+                        "name": "input",
+                        "namespace": "http://www.w3.org/1999/xhtml",
+                        "next": null,
+                        "parent": [Circular],
+                        "prev": null,
+                        "type": "tag",
+                        "x-attribsNamespace": Object {
+                          "autocomplete": undefined,
+                          "placeholder": undefined,
+                          "readonly": undefined,
+                          "size": undefined,
+                          "value": undefined,
+                        },
+                        "x-attribsPrefix": Object {
+                          "autocomplete": undefined,
+                          "placeholder": undefined,
+                          "readonly": undefined,
+                          "size": undefined,
+                          "value": undefined,
+                        },
+                      },
+                    ],
+                    "name": "div",
+                    "namespace": "http://www.w3.org/1999/xhtml",
+                    "next": [Circular],
+                    "parent": [Circular],
+                    "prev": null,
+                    "type": "tag",
+                    "x-attribsNamespace": Object {
+                      "class": undefined,
+                    },
+                    "x-attribsPrefix": Object {
+                      "class": undefined,
+                    },
+                  },
+                  "type": "tag",
+                  "x-attribsNamespace": Object {
+                    "class": undefined,
+                  },
+                  "x-attribsPrefix": Object {
+                    "class": undefined,
+                  },
+                },
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "class": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "class": undefined,
+                },
+              },
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "class": undefined,
+                "style": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "class": undefined,
+                "style": undefined,
+              },
+            },
+          ],
+          "name": "div",
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "next": [Circular],
+          "parent": [Circular],
+          "prev": null,
+          "type": "tag",
+          "x-attribsNamespace": Object {
+            "class": undefined,
+          },
+          "x-attribsPrefix": Object {
+            "class": undefined,
+          },
+        },
+        [Circular],
+      ],
+      "name": "root",
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "type": "root",
+    },
+    "prev": Node {
+      "attribs": Object {
+        "class": "picker picker-range",
+      },
+      "children": Array [
+        Node {
+          "attribs": Object {
+            "class": "picker-input picker-input-active",
+          },
+          "children": Array [
+            Node {
+              "attribs": Object {
+                "autocomplete": "off",
+                "placeholder": "",
+                "readonly": "",
+                "size": "12",
+                "value": "",
+              },
+              "children": Array [],
+              "name": "input",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": null,
+              "parent": [Circular],
+              "prev": null,
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "autocomplete": undefined,
+                "placeholder": undefined,
+                "readonly": undefined,
+                "size": undefined,
+                "value": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "autocomplete": undefined,
+                "placeholder": undefined,
+                "readonly": undefined,
+                "size": undefined,
+                "value": undefined,
+              },
+            },
+          ],
+          "name": "div",
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "next": Node {
+            "attribs": Object {
+              "class": "picker-range-separator",
+            },
+            "children": Array [
+              Node {
+                "data": ",",
+                "next": null,
+                "parent": [Circular],
+                "prev": null,
+                "type": "text",
+              },
+            ],
+            "name": "div",
+            "namespace": "http://www.w3.org/1999/xhtml",
+            "next": Node {
+              "attribs": Object {
+                "class": "picker-input",
+              },
+              "children": Array [
+                Node {
+                  "attribs": Object {
+                    "autocomplete": "off",
+                    "placeholder": "",
+                    "readonly": "",
+                    "size": "12",
+                    "value": "",
+                  },
+                  "children": Array [],
+                  "name": "input",
+                  "namespace": "http://www.w3.org/1999/xhtml",
+                  "next": null,
+                  "parent": [Circular],
+                  "prev": null,
+                  "type": "tag",
+                  "x-attribsNamespace": Object {
+                    "autocomplete": undefined,
+                    "placeholder": undefined,
+                    "readonly": undefined,
+                    "size": undefined,
+                    "value": undefined,
+                  },
+                  "x-attribsPrefix": Object {
+                    "autocomplete": undefined,
+                    "placeholder": undefined,
+                    "readonly": undefined,
+                    "size": undefined,
+                    "value": undefined,
+                  },
+                },
+              ],
+              "name": "div",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": Node {
+                "attribs": Object {
+                  "class": "picker-active-bar",
+                  "style": "left: 0px; width: 0px; position: absolute;",
+                },
+                "children": Array [],
+                "name": "div",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": null,
+                "parent": [Circular],
+                "prev": [Circular],
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "class": undefined,
+                  "style": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "class": undefined,
+                  "style": undefined,
+                },
+              },
+              "parent": [Circular],
+              "prev": [Circular],
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "class": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "class": undefined,
+              },
+            },
+            "parent": [Circular],
+            "prev": [Circular],
+            "type": "tag",
+            "x-attribsNamespace": Object {
+              "class": undefined,
+            },
+            "x-attribsPrefix": Object {
+              "class": undefined,
+            },
+          },
+          "parent": [Circular],
+          "prev": null,
+          "type": "tag",
+          "x-attribsNamespace": Object {
+            "class": undefined,
+          },
+          "x-attribsPrefix": Object {
+            "class": undefined,
+          },
+        },
+        Node {
+          "attribs": Object {
+            "class": "picker-range-separator",
+          },
+          "children": Array [
+            Node {
+              "data": ",",
+              "next": null,
+              "parent": [Circular],
+              "prev": null,
+              "type": "text",
+            },
+          ],
+          "name": "div",
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "next": Node {
+            "attribs": Object {
+              "class": "picker-input",
+            },
+            "children": Array [
+              Node {
+                "attribs": Object {
+                  "autocomplete": "off",
+                  "placeholder": "",
+                  "readonly": "",
+                  "size": "12",
+                  "value": "",
+                },
+                "children": Array [],
+                "name": "input",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": null,
+                "parent": [Circular],
+                "prev": null,
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "autocomplete": undefined,
+                  "placeholder": undefined,
+                  "readonly": undefined,
+                  "size": undefined,
+                  "value": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "autocomplete": undefined,
+                  "placeholder": undefined,
+                  "readonly": undefined,
+                  "size": undefined,
+                  "value": undefined,
+                },
+              },
+            ],
+            "name": "div",
+            "namespace": "http://www.w3.org/1999/xhtml",
+            "next": Node {
+              "attribs": Object {
+                "class": "picker-active-bar",
+                "style": "left: 0px; width: 0px; position: absolute;",
+              },
+              "children": Array [],
+              "name": "div",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": null,
+              "parent": [Circular],
+              "prev": [Circular],
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "class": undefined,
+                "style": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "class": undefined,
+                "style": undefined,
+              },
+            },
+            "parent": [Circular],
+            "prev": [Circular],
+            "type": "tag",
+            "x-attribsNamespace": Object {
+              "class": undefined,
+            },
+            "x-attribsPrefix": Object {
+              "class": undefined,
+            },
+          },
+          "parent": [Circular],
+          "prev": Node {
+            "attribs": Object {
+              "class": "picker-input picker-input-active",
+            },
+            "children": Array [
+              Node {
+                "attribs": Object {
+                  "autocomplete": "off",
+                  "placeholder": "",
+                  "readonly": "",
+                  "size": "12",
+                  "value": "",
+                },
+                "children": Array [],
+                "name": "input",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": null,
+                "parent": [Circular],
+                "prev": null,
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "autocomplete": undefined,
+                  "placeholder": undefined,
+                  "readonly": undefined,
+                  "size": undefined,
+                  "value": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "autocomplete": undefined,
+                  "placeholder": undefined,
+                  "readonly": undefined,
+                  "size": undefined,
+                  "value": undefined,
+                },
+              },
+            ],
+            "name": "div",
+            "namespace": "http://www.w3.org/1999/xhtml",
+            "next": [Circular],
+            "parent": [Circular],
+            "prev": null,
+            "type": "tag",
+            "x-attribsNamespace": Object {
+              "class": undefined,
+            },
+            "x-attribsPrefix": Object {
+              "class": undefined,
+            },
+          },
+          "type": "tag",
+          "x-attribsNamespace": Object {
+            "class": undefined,
+          },
+          "x-attribsPrefix": Object {
+            "class": undefined,
+          },
+        },
+        Node {
+          "attribs": Object {
+            "class": "picker-input",
+          },
+          "children": Array [
+            Node {
+              "attribs": Object {
+                "autocomplete": "off",
+                "placeholder": "",
+                "readonly": "",
+                "size": "12",
+                "value": "",
+              },
+              "children": Array [],
+              "name": "input",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": null,
+              "parent": [Circular],
+              "prev": null,
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "autocomplete": undefined,
+                "placeholder": undefined,
+                "readonly": undefined,
+                "size": undefined,
+                "value": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "autocomplete": undefined,
+                "placeholder": undefined,
+                "readonly": undefined,
+                "size": undefined,
+                "value": undefined,
+              },
+            },
+          ],
+          "name": "div",
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "next": Node {
+            "attribs": Object {
+              "class": "picker-active-bar",
+              "style": "left: 0px; width: 0px; position: absolute;",
+            },
+            "children": Array [],
+            "name": "div",
+            "namespace": "http://www.w3.org/1999/xhtml",
+            "next": null,
+            "parent": [Circular],
+            "prev": [Circular],
+            "type": "tag",
+            "x-attribsNamespace": Object {
+              "class": undefined,
+              "style": undefined,
+            },
+            "x-attribsPrefix": Object {
+              "class": undefined,
+              "style": undefined,
+            },
+          },
+          "parent": [Circular],
+          "prev": Node {
+            "attribs": Object {
+              "class": "picker-range-separator",
+            },
+            "children": Array [
+              Node {
+                "data": ",",
+                "next": null,
+                "parent": [Circular],
+                "prev": null,
+                "type": "text",
+              },
+            ],
+            "name": "div",
+            "namespace": "http://www.w3.org/1999/xhtml",
+            "next": [Circular],
+            "parent": [Circular],
+            "prev": Node {
+              "attribs": Object {
+                "class": "picker-input picker-input-active",
+              },
+              "children": Array [
+                Node {
+                  "attribs": Object {
+                    "autocomplete": "off",
+                    "placeholder": "",
+                    "readonly": "",
+                    "size": "12",
+                    "value": "",
+                  },
+                  "children": Array [],
+                  "name": "input",
+                  "namespace": "http://www.w3.org/1999/xhtml",
+                  "next": null,
+                  "parent": [Circular],
+                  "prev": null,
+                  "type": "tag",
+                  "x-attribsNamespace": Object {
+                    "autocomplete": undefined,
+                    "placeholder": undefined,
+                    "readonly": undefined,
+                    "size": undefined,
+                    "value": undefined,
+                  },
+                  "x-attribsPrefix": Object {
+                    "autocomplete": undefined,
+                    "placeholder": undefined,
+                    "readonly": undefined,
+                    "size": undefined,
+                    "value": undefined,
+                  },
+                },
+              ],
+              "name": "div",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": [Circular],
+              "parent": [Circular],
+              "prev": null,
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "class": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "class": undefined,
+              },
+            },
+            "type": "tag",
+            "x-attribsNamespace": Object {
+              "class": undefined,
+            },
+            "x-attribsPrefix": Object {
+              "class": undefined,
+            },
+          },
+          "type": "tag",
+          "x-attribsNamespace": Object {
+            "class": undefined,
+          },
+          "x-attribsPrefix": Object {
+            "class": undefined,
+          },
+        },
+        Node {
+          "attribs": Object {
+            "class": "picker-active-bar",
+            "style": "left: 0px; width: 0px; position: absolute;",
+          },
+          "children": Array [],
+          "name": "div",
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "next": null,
+          "parent": [Circular],
+          "prev": Node {
+            "attribs": Object {
+              "class": "picker-input",
+            },
+            "children": Array [
+              Node {
+                "attribs": Object {
+                  "autocomplete": "off",
+                  "placeholder": "",
+                  "readonly": "",
+                  "size": "12",
+                  "value": "",
+                },
+                "children": Array [],
+                "name": "input",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": null,
+                "parent": [Circular],
+                "prev": null,
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "autocomplete": undefined,
+                  "placeholder": undefined,
+                  "readonly": undefined,
+                  "size": undefined,
+                  "value": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "autocomplete": undefined,
+                  "placeholder": undefined,
+                  "readonly": undefined,
+                  "size": undefined,
+                  "value": undefined,
+                },
+              },
+            ],
+            "name": "div",
+            "namespace": "http://www.w3.org/1999/xhtml",
+            "next": [Circular],
+            "parent": [Circular],
+            "prev": Node {
+              "attribs": Object {
+                "class": "picker-range-separator",
+              },
+              "children": Array [
+                Node {
+                  "data": ",",
+                  "next": null,
+                  "parent": [Circular],
+                  "prev": null,
+                  "type": "text",
+                },
+              ],
+              "name": "div",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": [Circular],
+              "parent": [Circular],
+              "prev": Node {
+                "attribs": Object {
+                  "class": "picker-input picker-input-active",
+                },
+                "children": Array [
+                  Node {
+                    "attribs": Object {
+                      "autocomplete": "off",
+                      "placeholder": "",
+                      "readonly": "",
+                      "size": "12",
+                      "value": "",
+                    },
+                    "children": Array [],
+                    "name": "input",
+                    "namespace": "http://www.w3.org/1999/xhtml",
+                    "next": null,
+                    "parent": [Circular],
+                    "prev": null,
+                    "type": "tag",
+                    "x-attribsNamespace": Object {
+                      "autocomplete": undefined,
+                      "placeholder": undefined,
+                      "readonly": undefined,
+                      "size": undefined,
+                      "value": undefined,
+                    },
+                    "x-attribsPrefix": Object {
+                      "autocomplete": undefined,
+                      "placeholder": undefined,
+                      "readonly": undefined,
+                      "size": undefined,
+                      "value": undefined,
+                    },
+                  },
+                ],
+                "name": "div",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": [Circular],
+                "parent": [Circular],
+                "prev": null,
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "class": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "class": undefined,
+                },
+              },
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "class": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "class": undefined,
+              },
+            },
+            "type": "tag",
+            "x-attribsNamespace": Object {
+              "class": undefined,
+            },
+            "x-attribsPrefix": Object {
+              "class": undefined,
+            },
+          },
+          "type": "tag",
+          "x-attribsNamespace": Object {
+            "class": undefined,
+            "style": undefined,
+          },
+          "x-attribsPrefix": Object {
+            "class": undefined,
+            "style": undefined,
+          },
+        },
+      ],
+      "name": "div",
+      "namespace": "http://www.w3.org/1999/xhtml",
+      "next": [Circular],
+      "parent": Node {
+        "children": Array [
+          [Circular],
+          [Circular],
+        ],
+        "name": "root",
+        "next": null,
+        "parent": null,
+        "prev": null,
+        "type": "root",
+      },
+      "prev": null,
+      "type": "tag",
+      "x-attribsNamespace": Object {
+        "class": undefined,
+      },
+      "x-attribsPrefix": Object {
+        "class": undefined,
+      },
+    },
+    "type": "tag",
+    "x-attribsNamespace": Object {},
+    "x-attribsPrefix": Object {},
+  },
+  "_root": LoadedCheerio {
+    "0": Node {
+      "children": Array [
+        Node {
+          "attribs": Object {},
+          "children": Array [
+            Node {
+              "attribs": Object {},
+              "children": Array [],
+              "name": "head",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": Node {
+                "attribs": Object {},
+                "children": Array [],
+                "name": "body",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": null,
+                "parent": [Circular],
+                "prev": [Circular],
+                "type": "tag",
+                "x-attribsNamespace": Object {},
+                "x-attribsPrefix": Object {},
+              },
+              "parent": [Circular],
+              "prev": null,
+              "type": "tag",
+              "x-attribsNamespace": Object {},
+              "x-attribsPrefix": Object {},
+            },
+            Node {
+              "attribs": Object {},
+              "children": Array [],
+              "name": "body",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": null,
+              "parent": [Circular],
+              "prev": Node {
+                "attribs": Object {},
+                "children": Array [],
+                "name": "head",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": [Circular],
+                "parent": [Circular],
+                "prev": null,
+                "type": "tag",
+                "x-attribsNamespace": Object {},
+                "x-attribsPrefix": Object {},
+              },
+              "type": "tag",
+              "x-attribsNamespace": Object {},
+              "x-attribsPrefix": Object {},
+            },
+          ],
+          "name": "html",
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "next": null,
+          "parent": [Circular],
+          "prev": null,
+          "type": "tag",
+          "x-attribsNamespace": Object {},
+          "x-attribsPrefix": Object {},
+        },
+      ],
+      "name": "root",
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 2,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
