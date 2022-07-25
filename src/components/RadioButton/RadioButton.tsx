@@ -1,5 +1,5 @@
 import React, { FC, Ref, useEffect, useRef, useState } from 'react';
-import { RadioButtonProps } from './';
+import { RadioButtonProps, RadioButtonValue } from './';
 import { mergeClasses, generateId } from '../../shared/utilities';
 import { useRadioGroup } from './RadioGroup.context';
 
@@ -27,6 +27,8 @@ export const RadioButton: FC<RadioButtonProps> = React.forwardRef(
         const [isActive, setIsActive] = useState<boolean>(
             radioGroupContext?.value === value || checked
         );
+        const [selectedValue, setSelectedValue] =
+            useState<RadioButtonValue>(value);
 
         const radioButtonClassNames: string = mergeClasses([
             styles.radioButton,
@@ -41,6 +43,10 @@ export const RadioButton: FC<RadioButtonProps> = React.forwardRef(
             { [styles.labelNoValue]: value === '' },
         ]);
 
+        // TODO: Follow-up on React issue 24439 https://github.com/facebook/react/issues/24439
+        // Bug: Checked attribute does not update in the dom - Meta folks are planning on
+        // updating this in a future React version, this could be an A11y issue so need
+        // to find a anti-pattern workaround. They closed the bug, but it's definitely still repro.
         useEffect(() => {
             setIsActive(radioGroupContext?.value === value);
         }, [radioGroupContext?.value]);
@@ -49,9 +55,11 @@ export const RadioButton: FC<RadioButtonProps> = React.forwardRef(
             e: React.ChangeEvent<HTMLInputElement>
         ): void => {
             if (!radioGroupContext) {
-                setIsActive(!isActive);
+                setSelectedValue(e.currentTarget.value as RadioButtonValue);
+            } else {
+                radioGroupContext?.onChange?.(e);
             }
-            radioGroupContext?.onChange?.(e);
+
             onChange?.(e);
         };
 
@@ -64,7 +72,11 @@ export const RadioButton: FC<RadioButtonProps> = React.forwardRef(
                 <input
                     ref={ref}
                     aria-label={ariaLabel}
-                    checked={isActive}
+                    checked={
+                        radioGroupContext
+                            ? isActive
+                            : selectedValue === value && checked
+                    }
                     disabled={disabled}
                     id={radioButtonId.current}
                     name={name}
