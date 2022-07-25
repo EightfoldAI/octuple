@@ -1,3 +1,1155 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:396b0276ee1e327648c038cba1c63e4176a03c0054a07de22bdeacdb6a65197a
-size 41584
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TimePicker not render clear icon when allowClear is false 1`] = `
+LoadedCheerio {
+  "0": Node {
+    "attribs": Object {
+      "class": "picker picker-small",
+    },
+    "children": Array [
+      Node {
+        "attribs": Object {
+          "class": "picker-input",
+        },
+        "children": Array [
+          Node {
+            "attribs": Object {
+              "autocomplete": "off",
+              "placeholder": "Select time",
+              "readonly": "",
+              "size": "10",
+              "title": "00:00:00",
+              "value": "00:00:00",
+            },
+            "children": Array [],
+            "name": "input",
+            "namespace": "http://www.w3.org/1999/xhtml",
+            "next": Node {
+              "attribs": Object {
+                "class": "picker-suffix",
+              },
+              "children": Array [
+                Node {
+                  "attribs": Object {
+                    "aria-hidden": "false",
+                    "class": "icon-wrapper",
+                    "role": "presentation",
+                  },
+                  "children": Array [
+                    Node {
+                      "attribs": Object {
+                        "role": "presentation",
+                        "style": "width: 14px; height: 14px;",
+                        "viewBox": "0 0 24 24",
+                      },
+                      "children": Array [
+                        Node {
+                          "attribs": Object {
+                            "d": "M12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22C6.47,22 2,17.5 2,12A10,10 0 0,1 12,2M12.5,7V12.25L17,14.92L16.25,16.15L11,13V7H12.5Z",
+                            "style": "fill: #69717f;",
+                          },
+                          "children": Array [],
+                          "name": "path",
+                          "namespace": "http://www.w3.org/2000/svg",
+                          "next": null,
+                          "parent": [Circular],
+                          "prev": null,
+                          "type": "tag",
+                          "x-attribsNamespace": Object {
+                            "d": undefined,
+                            "style": undefined,
+                          },
+                          "x-attribsPrefix": Object {
+                            "d": undefined,
+                            "style": undefined,
+                          },
+                        },
+                      ],
+                      "name": "svg",
+                      "namespace": "http://www.w3.org/2000/svg",
+                      "next": null,
+                      "parent": [Circular],
+                      "prev": null,
+                      "type": "tag",
+                      "x-attribsNamespace": Object {
+                        "role": undefined,
+                        "style": undefined,
+                        "viewBox": undefined,
+                      },
+                      "x-attribsPrefix": Object {
+                        "role": undefined,
+                        "style": undefined,
+                        "viewBox": undefined,
+                      },
+                    },
+                  ],
+                  "name": "span",
+                  "namespace": "http://www.w3.org/1999/xhtml",
+                  "next": null,
+                  "parent": [Circular],
+                  "prev": null,
+                  "type": "tag",
+                  "x-attribsNamespace": Object {
+                    "aria-hidden": undefined,
+                    "class": undefined,
+                    "role": undefined,
+                  },
+                  "x-attribsPrefix": Object {
+                    "aria-hidden": undefined,
+                    "class": undefined,
+                    "role": undefined,
+                  },
+                },
+              ],
+              "name": "span",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": null,
+              "parent": [Circular],
+              "prev": [Circular],
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "class": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "class": undefined,
+              },
+            },
+            "parent": [Circular],
+            "prev": null,
+            "type": "tag",
+            "x-attribsNamespace": Object {
+              "autocomplete": undefined,
+              "placeholder": undefined,
+              "readonly": undefined,
+              "size": undefined,
+              "title": undefined,
+              "value": undefined,
+            },
+            "x-attribsPrefix": Object {
+              "autocomplete": undefined,
+              "placeholder": undefined,
+              "readonly": undefined,
+              "size": undefined,
+              "title": undefined,
+              "value": undefined,
+            },
+          },
+          Node {
+            "attribs": Object {
+              "class": "picker-suffix",
+            },
+            "children": Array [
+              Node {
+                "attribs": Object {
+                  "aria-hidden": "false",
+                  "class": "icon-wrapper",
+                  "role": "presentation",
+                },
+                "children": Array [
+                  Node {
+                    "attribs": Object {
+                      "role": "presentation",
+                      "style": "width: 14px; height: 14px;",
+                      "viewBox": "0 0 24 24",
+                    },
+                    "children": Array [
+                      Node {
+                        "attribs": Object {
+                          "d": "M12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22C6.47,22 2,17.5 2,12A10,10 0 0,1 12,2M12.5,7V12.25L17,14.92L16.25,16.15L11,13V7H12.5Z",
+                          "style": "fill: #69717f;",
+                        },
+                        "children": Array [],
+                        "name": "path",
+                        "namespace": "http://www.w3.org/2000/svg",
+                        "next": null,
+                        "parent": [Circular],
+                        "prev": null,
+                        "type": "tag",
+                        "x-attribsNamespace": Object {
+                          "d": undefined,
+                          "style": undefined,
+                        },
+                        "x-attribsPrefix": Object {
+                          "d": undefined,
+                          "style": undefined,
+                        },
+                      },
+                    ],
+                    "name": "svg",
+                    "namespace": "http://www.w3.org/2000/svg",
+                    "next": null,
+                    "parent": [Circular],
+                    "prev": null,
+                    "type": "tag",
+                    "x-attribsNamespace": Object {
+                      "role": undefined,
+                      "style": undefined,
+                      "viewBox": undefined,
+                    },
+                    "x-attribsPrefix": Object {
+                      "role": undefined,
+                      "style": undefined,
+                      "viewBox": undefined,
+                    },
+                  },
+                ],
+                "name": "span",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": null,
+                "parent": [Circular],
+                "prev": null,
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "aria-hidden": undefined,
+                  "class": undefined,
+                  "role": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "aria-hidden": undefined,
+                  "class": undefined,
+                  "role": undefined,
+                },
+              },
+            ],
+            "name": "span",
+            "namespace": "http://www.w3.org/1999/xhtml",
+            "next": null,
+            "parent": [Circular],
+            "prev": Node {
+              "attribs": Object {
+                "autocomplete": "off",
+                "placeholder": "Select time",
+                "readonly": "",
+                "size": "10",
+                "title": "00:00:00",
+                "value": "00:00:00",
+              },
+              "children": Array [],
+              "name": "input",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": [Circular],
+              "parent": [Circular],
+              "prev": null,
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "autocomplete": undefined,
+                "placeholder": undefined,
+                "readonly": undefined,
+                "size": undefined,
+                "title": undefined,
+                "value": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "autocomplete": undefined,
+                "placeholder": undefined,
+                "readonly": undefined,
+                "size": undefined,
+                "title": undefined,
+                "value": undefined,
+              },
+            },
+            "type": "tag",
+            "x-attribsNamespace": Object {
+              "class": undefined,
+            },
+            "x-attribsPrefix": Object {
+              "class": undefined,
+            },
+          },
+        ],
+        "name": "div",
+        "namespace": "http://www.w3.org/1999/xhtml",
+        "next": null,
+        "parent": [Circular],
+        "prev": null,
+        "type": "tag",
+        "x-attribsNamespace": Object {
+          "class": undefined,
+        },
+        "x-attribsPrefix": Object {
+          "class": undefined,
+        },
+      },
+    ],
+    "name": "div",
+    "namespace": "http://www.w3.org/1999/xhtml",
+    "next": null,
+    "parent": Node {
+      "children": Array [
+        [Circular],
+      ],
+      "name": "root",
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "type": "root",
+    },
+    "prev": null,
+    "type": "tag",
+    "x-attribsNamespace": Object {
+      "class": undefined,
+    },
+    "x-attribsPrefix": Object {
+      "class": undefined,
+    },
+  },
+  "_root": LoadedCheerio {
+    "0": Node {
+      "children": Array [
+        Node {
+          "attribs": Object {},
+          "children": Array [
+            Node {
+              "attribs": Object {},
+              "children": Array [],
+              "name": "head",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": Node {
+                "attribs": Object {},
+                "children": Array [],
+                "name": "body",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": null,
+                "parent": [Circular],
+                "prev": [Circular],
+                "type": "tag",
+                "x-attribsNamespace": Object {},
+                "x-attribsPrefix": Object {},
+              },
+              "parent": [Circular],
+              "prev": null,
+              "type": "tag",
+              "x-attribsNamespace": Object {},
+              "x-attribsPrefix": Object {},
+            },
+            Node {
+              "attribs": Object {},
+              "children": Array [],
+              "name": "body",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": null,
+              "parent": [Circular],
+              "prev": Node {
+                "attribs": Object {},
+                "children": Array [],
+                "name": "head",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": [Circular],
+                "parent": [Circular],
+                "prev": null,
+                "type": "tag",
+                "x-attribsNamespace": Object {},
+                "x-attribsPrefix": Object {},
+              },
+              "type": "tag",
+              "x-attribsNamespace": Object {},
+              "x-attribsPrefix": Object {},
+            },
+          ],
+          "name": "html",
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "next": null,
+          "parent": [Circular],
+          "prev": null,
+          "type": "tag",
+          "x-attribsNamespace": Object {},
+          "x-attribsPrefix": Object {},
+        },
+      ],
+      "name": "root",
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`TimePicker should support bordered 1`] = `
+LoadedCheerio {
+  "0": Node {
+    "attribs": Object {
+      "class": "picker picker-small picker-borderless",
+    },
+    "children": Array [
+      Node {
+        "attribs": Object {
+          "class": "picker-input",
+        },
+        "children": Array [
+          Node {
+            "attribs": Object {
+              "autocomplete": "off",
+              "placeholder": "Select time",
+              "readonly": "",
+              "size": "10",
+              "title": "00:00:00",
+              "value": "00:00:00",
+            },
+            "children": Array [],
+            "name": "input",
+            "namespace": "http://www.w3.org/1999/xhtml",
+            "next": Node {
+              "attribs": Object {
+                "class": "picker-suffix",
+              },
+              "children": Array [
+                Node {
+                  "attribs": Object {
+                    "aria-hidden": "false",
+                    "class": "icon-wrapper",
+                    "role": "presentation",
+                  },
+                  "children": Array [
+                    Node {
+                      "attribs": Object {
+                        "role": "presentation",
+                        "style": "width: 14px; height: 14px;",
+                        "viewBox": "0 0 24 24",
+                      },
+                      "children": Array [
+                        Node {
+                          "attribs": Object {
+                            "d": "M12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22C6.47,22 2,17.5 2,12A10,10 0 0,1 12,2M12.5,7V12.25L17,14.92L16.25,16.15L11,13V7H12.5Z",
+                            "style": "fill: #69717f;",
+                          },
+                          "children": Array [],
+                          "name": "path",
+                          "namespace": "http://www.w3.org/2000/svg",
+                          "next": null,
+                          "parent": [Circular],
+                          "prev": null,
+                          "type": "tag",
+                          "x-attribsNamespace": Object {
+                            "d": undefined,
+                            "style": undefined,
+                          },
+                          "x-attribsPrefix": Object {
+                            "d": undefined,
+                            "style": undefined,
+                          },
+                        },
+                      ],
+                      "name": "svg",
+                      "namespace": "http://www.w3.org/2000/svg",
+                      "next": null,
+                      "parent": [Circular],
+                      "prev": null,
+                      "type": "tag",
+                      "x-attribsNamespace": Object {
+                        "role": undefined,
+                        "style": undefined,
+                        "viewBox": undefined,
+                      },
+                      "x-attribsPrefix": Object {
+                        "role": undefined,
+                        "style": undefined,
+                        "viewBox": undefined,
+                      },
+                    },
+                  ],
+                  "name": "span",
+                  "namespace": "http://www.w3.org/1999/xhtml",
+                  "next": null,
+                  "parent": [Circular],
+                  "prev": null,
+                  "type": "tag",
+                  "x-attribsNamespace": Object {
+                    "aria-hidden": undefined,
+                    "class": undefined,
+                    "role": undefined,
+                  },
+                  "x-attribsPrefix": Object {
+                    "aria-hidden": undefined,
+                    "class": undefined,
+                    "role": undefined,
+                  },
+                },
+              ],
+              "name": "span",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": Node {
+                "attribs": Object {
+                  "class": "picker-clear",
+                  "role": "button",
+                },
+                "children": Array [
+                  Node {
+                    "attribs": Object {
+                      "aria-hidden": "false",
+                      "class": "icon-wrapper",
+                      "role": "presentation",
+                    },
+                    "children": Array [
+                      Node {
+                        "attribs": Object {
+                          "role": "presentation",
+                          "style": "width: 14px; height: 14px;",
+                          "viewBox": "0 0 24 24",
+                        },
+                        "children": Array [
+                          Node {
+                            "attribs": Object {
+                              "d": "M12,2C17.53,2 22,6.47 22,12C22,17.53 17.53,22 12,22C6.47,22 2,17.53 2,12C2,6.47 6.47,2 12,2M15.59,7L12,10.59L8.41,7L7,8.41L10.59,12L7,15.59L8.41,17L12,13.41L15.59,17L17,15.59L13.41,12L17,8.41L15.59,7Z",
+                              "style": "fill: currentColor;",
+                            },
+                            "children": Array [],
+                            "name": "path",
+                            "namespace": "http://www.w3.org/2000/svg",
+                            "next": null,
+                            "parent": [Circular],
+                            "prev": null,
+                            "type": "tag",
+                            "x-attribsNamespace": Object {
+                              "d": undefined,
+                              "style": undefined,
+                            },
+                            "x-attribsPrefix": Object {
+                              "d": undefined,
+                              "style": undefined,
+                            },
+                          },
+                        ],
+                        "name": "svg",
+                        "namespace": "http://www.w3.org/2000/svg",
+                        "next": null,
+                        "parent": [Circular],
+                        "prev": null,
+                        "type": "tag",
+                        "x-attribsNamespace": Object {
+                          "role": undefined,
+                          "style": undefined,
+                          "viewBox": undefined,
+                        },
+                        "x-attribsPrefix": Object {
+                          "role": undefined,
+                          "style": undefined,
+                          "viewBox": undefined,
+                        },
+                      },
+                    ],
+                    "name": "span",
+                    "namespace": "http://www.w3.org/1999/xhtml",
+                    "next": null,
+                    "parent": [Circular],
+                    "prev": null,
+                    "type": "tag",
+                    "x-attribsNamespace": Object {
+                      "aria-hidden": undefined,
+                      "class": undefined,
+                      "role": undefined,
+                    },
+                    "x-attribsPrefix": Object {
+                      "aria-hidden": undefined,
+                      "class": undefined,
+                      "role": undefined,
+                    },
+                  },
+                ],
+                "name": "span",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": null,
+                "parent": [Circular],
+                "prev": [Circular],
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "class": undefined,
+                  "role": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "class": undefined,
+                  "role": undefined,
+                },
+              },
+              "parent": [Circular],
+              "prev": [Circular],
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "class": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "class": undefined,
+              },
+            },
+            "parent": [Circular],
+            "prev": null,
+            "type": "tag",
+            "x-attribsNamespace": Object {
+              "autocomplete": undefined,
+              "placeholder": undefined,
+              "readonly": undefined,
+              "size": undefined,
+              "title": undefined,
+              "value": undefined,
+            },
+            "x-attribsPrefix": Object {
+              "autocomplete": undefined,
+              "placeholder": undefined,
+              "readonly": undefined,
+              "size": undefined,
+              "title": undefined,
+              "value": undefined,
+            },
+          },
+          Node {
+            "attribs": Object {
+              "class": "picker-suffix",
+            },
+            "children": Array [
+              Node {
+                "attribs": Object {
+                  "aria-hidden": "false",
+                  "class": "icon-wrapper",
+                  "role": "presentation",
+                },
+                "children": Array [
+                  Node {
+                    "attribs": Object {
+                      "role": "presentation",
+                      "style": "width: 14px; height: 14px;",
+                      "viewBox": "0 0 24 24",
+                    },
+                    "children": Array [
+                      Node {
+                        "attribs": Object {
+                          "d": "M12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22C6.47,22 2,17.5 2,12A10,10 0 0,1 12,2M12.5,7V12.25L17,14.92L16.25,16.15L11,13V7H12.5Z",
+                          "style": "fill: #69717f;",
+                        },
+                        "children": Array [],
+                        "name": "path",
+                        "namespace": "http://www.w3.org/2000/svg",
+                        "next": null,
+                        "parent": [Circular],
+                        "prev": null,
+                        "type": "tag",
+                        "x-attribsNamespace": Object {
+                          "d": undefined,
+                          "style": undefined,
+                        },
+                        "x-attribsPrefix": Object {
+                          "d": undefined,
+                          "style": undefined,
+                        },
+                      },
+                    ],
+                    "name": "svg",
+                    "namespace": "http://www.w3.org/2000/svg",
+                    "next": null,
+                    "parent": [Circular],
+                    "prev": null,
+                    "type": "tag",
+                    "x-attribsNamespace": Object {
+                      "role": undefined,
+                      "style": undefined,
+                      "viewBox": undefined,
+                    },
+                    "x-attribsPrefix": Object {
+                      "role": undefined,
+                      "style": undefined,
+                      "viewBox": undefined,
+                    },
+                  },
+                ],
+                "name": "span",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": null,
+                "parent": [Circular],
+                "prev": null,
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "aria-hidden": undefined,
+                  "class": undefined,
+                  "role": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "aria-hidden": undefined,
+                  "class": undefined,
+                  "role": undefined,
+                },
+              },
+            ],
+            "name": "span",
+            "namespace": "http://www.w3.org/1999/xhtml",
+            "next": Node {
+              "attribs": Object {
+                "class": "picker-clear",
+                "role": "button",
+              },
+              "children": Array [
+                Node {
+                  "attribs": Object {
+                    "aria-hidden": "false",
+                    "class": "icon-wrapper",
+                    "role": "presentation",
+                  },
+                  "children": Array [
+                    Node {
+                      "attribs": Object {
+                        "role": "presentation",
+                        "style": "width: 14px; height: 14px;",
+                        "viewBox": "0 0 24 24",
+                      },
+                      "children": Array [
+                        Node {
+                          "attribs": Object {
+                            "d": "M12,2C17.53,2 22,6.47 22,12C22,17.53 17.53,22 12,22C6.47,22 2,17.53 2,12C2,6.47 6.47,2 12,2M15.59,7L12,10.59L8.41,7L7,8.41L10.59,12L7,15.59L8.41,17L12,13.41L15.59,17L17,15.59L13.41,12L17,8.41L15.59,7Z",
+                            "style": "fill: currentColor;",
+                          },
+                          "children": Array [],
+                          "name": "path",
+                          "namespace": "http://www.w3.org/2000/svg",
+                          "next": null,
+                          "parent": [Circular],
+                          "prev": null,
+                          "type": "tag",
+                          "x-attribsNamespace": Object {
+                            "d": undefined,
+                            "style": undefined,
+                          },
+                          "x-attribsPrefix": Object {
+                            "d": undefined,
+                            "style": undefined,
+                          },
+                        },
+                      ],
+                      "name": "svg",
+                      "namespace": "http://www.w3.org/2000/svg",
+                      "next": null,
+                      "parent": [Circular],
+                      "prev": null,
+                      "type": "tag",
+                      "x-attribsNamespace": Object {
+                        "role": undefined,
+                        "style": undefined,
+                        "viewBox": undefined,
+                      },
+                      "x-attribsPrefix": Object {
+                        "role": undefined,
+                        "style": undefined,
+                        "viewBox": undefined,
+                      },
+                    },
+                  ],
+                  "name": "span",
+                  "namespace": "http://www.w3.org/1999/xhtml",
+                  "next": null,
+                  "parent": [Circular],
+                  "prev": null,
+                  "type": "tag",
+                  "x-attribsNamespace": Object {
+                    "aria-hidden": undefined,
+                    "class": undefined,
+                    "role": undefined,
+                  },
+                  "x-attribsPrefix": Object {
+                    "aria-hidden": undefined,
+                    "class": undefined,
+                    "role": undefined,
+                  },
+                },
+              ],
+              "name": "span",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": null,
+              "parent": [Circular],
+              "prev": [Circular],
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "class": undefined,
+                "role": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "class": undefined,
+                "role": undefined,
+              },
+            },
+            "parent": [Circular],
+            "prev": Node {
+              "attribs": Object {
+                "autocomplete": "off",
+                "placeholder": "Select time",
+                "readonly": "",
+                "size": "10",
+                "title": "00:00:00",
+                "value": "00:00:00",
+              },
+              "children": Array [],
+              "name": "input",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": [Circular],
+              "parent": [Circular],
+              "prev": null,
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "autocomplete": undefined,
+                "placeholder": undefined,
+                "readonly": undefined,
+                "size": undefined,
+                "title": undefined,
+                "value": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "autocomplete": undefined,
+                "placeholder": undefined,
+                "readonly": undefined,
+                "size": undefined,
+                "title": undefined,
+                "value": undefined,
+              },
+            },
+            "type": "tag",
+            "x-attribsNamespace": Object {
+              "class": undefined,
+            },
+            "x-attribsPrefix": Object {
+              "class": undefined,
+            },
+          },
+          Node {
+            "attribs": Object {
+              "class": "picker-clear",
+              "role": "button",
+            },
+            "children": Array [
+              Node {
+                "attribs": Object {
+                  "aria-hidden": "false",
+                  "class": "icon-wrapper",
+                  "role": "presentation",
+                },
+                "children": Array [
+                  Node {
+                    "attribs": Object {
+                      "role": "presentation",
+                      "style": "width: 14px; height: 14px;",
+                      "viewBox": "0 0 24 24",
+                    },
+                    "children": Array [
+                      Node {
+                        "attribs": Object {
+                          "d": "M12,2C17.53,2 22,6.47 22,12C22,17.53 17.53,22 12,22C6.47,22 2,17.53 2,12C2,6.47 6.47,2 12,2M15.59,7L12,10.59L8.41,7L7,8.41L10.59,12L7,15.59L8.41,17L12,13.41L15.59,17L17,15.59L13.41,12L17,8.41L15.59,7Z",
+                          "style": "fill: currentColor;",
+                        },
+                        "children": Array [],
+                        "name": "path",
+                        "namespace": "http://www.w3.org/2000/svg",
+                        "next": null,
+                        "parent": [Circular],
+                        "prev": null,
+                        "type": "tag",
+                        "x-attribsNamespace": Object {
+                          "d": undefined,
+                          "style": undefined,
+                        },
+                        "x-attribsPrefix": Object {
+                          "d": undefined,
+                          "style": undefined,
+                        },
+                      },
+                    ],
+                    "name": "svg",
+                    "namespace": "http://www.w3.org/2000/svg",
+                    "next": null,
+                    "parent": [Circular],
+                    "prev": null,
+                    "type": "tag",
+                    "x-attribsNamespace": Object {
+                      "role": undefined,
+                      "style": undefined,
+                      "viewBox": undefined,
+                    },
+                    "x-attribsPrefix": Object {
+                      "role": undefined,
+                      "style": undefined,
+                      "viewBox": undefined,
+                    },
+                  },
+                ],
+                "name": "span",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": null,
+                "parent": [Circular],
+                "prev": null,
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "aria-hidden": undefined,
+                  "class": undefined,
+                  "role": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "aria-hidden": undefined,
+                  "class": undefined,
+                  "role": undefined,
+                },
+              },
+            ],
+            "name": "span",
+            "namespace": "http://www.w3.org/1999/xhtml",
+            "next": null,
+            "parent": [Circular],
+            "prev": Node {
+              "attribs": Object {
+                "class": "picker-suffix",
+              },
+              "children": Array [
+                Node {
+                  "attribs": Object {
+                    "aria-hidden": "false",
+                    "class": "icon-wrapper",
+                    "role": "presentation",
+                  },
+                  "children": Array [
+                    Node {
+                      "attribs": Object {
+                        "role": "presentation",
+                        "style": "width: 14px; height: 14px;",
+                        "viewBox": "0 0 24 24",
+                      },
+                      "children": Array [
+                        Node {
+                          "attribs": Object {
+                            "d": "M12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22C6.47,22 2,17.5 2,12A10,10 0 0,1 12,2M12.5,7V12.25L17,14.92L16.25,16.15L11,13V7H12.5Z",
+                            "style": "fill: #69717f;",
+                          },
+                          "children": Array [],
+                          "name": "path",
+                          "namespace": "http://www.w3.org/2000/svg",
+                          "next": null,
+                          "parent": [Circular],
+                          "prev": null,
+                          "type": "tag",
+                          "x-attribsNamespace": Object {
+                            "d": undefined,
+                            "style": undefined,
+                          },
+                          "x-attribsPrefix": Object {
+                            "d": undefined,
+                            "style": undefined,
+                          },
+                        },
+                      ],
+                      "name": "svg",
+                      "namespace": "http://www.w3.org/2000/svg",
+                      "next": null,
+                      "parent": [Circular],
+                      "prev": null,
+                      "type": "tag",
+                      "x-attribsNamespace": Object {
+                        "role": undefined,
+                        "style": undefined,
+                        "viewBox": undefined,
+                      },
+                      "x-attribsPrefix": Object {
+                        "role": undefined,
+                        "style": undefined,
+                        "viewBox": undefined,
+                      },
+                    },
+                  ],
+                  "name": "span",
+                  "namespace": "http://www.w3.org/1999/xhtml",
+                  "next": null,
+                  "parent": [Circular],
+                  "prev": null,
+                  "type": "tag",
+                  "x-attribsNamespace": Object {
+                    "aria-hidden": undefined,
+                    "class": undefined,
+                    "role": undefined,
+                  },
+                  "x-attribsPrefix": Object {
+                    "aria-hidden": undefined,
+                    "class": undefined,
+                    "role": undefined,
+                  },
+                },
+              ],
+              "name": "span",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": [Circular],
+              "parent": [Circular],
+              "prev": Node {
+                "attribs": Object {
+                  "autocomplete": "off",
+                  "placeholder": "Select time",
+                  "readonly": "",
+                  "size": "10",
+                  "title": "00:00:00",
+                  "value": "00:00:00",
+                },
+                "children": Array [],
+                "name": "input",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": [Circular],
+                "parent": [Circular],
+                "prev": null,
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "autocomplete": undefined,
+                  "placeholder": undefined,
+                  "readonly": undefined,
+                  "size": undefined,
+                  "title": undefined,
+                  "value": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "autocomplete": undefined,
+                  "placeholder": undefined,
+                  "readonly": undefined,
+                  "size": undefined,
+                  "title": undefined,
+                  "value": undefined,
+                },
+              },
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "class": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "class": undefined,
+              },
+            },
+            "type": "tag",
+            "x-attribsNamespace": Object {
+              "class": undefined,
+              "role": undefined,
+            },
+            "x-attribsPrefix": Object {
+              "class": undefined,
+              "role": undefined,
+            },
+          },
+        ],
+        "name": "div",
+        "namespace": "http://www.w3.org/1999/xhtml",
+        "next": null,
+        "parent": [Circular],
+        "prev": null,
+        "type": "tag",
+        "x-attribsNamespace": Object {
+          "class": undefined,
+        },
+        "x-attribsPrefix": Object {
+          "class": undefined,
+        },
+      },
+    ],
+    "name": "div",
+    "namespace": "http://www.w3.org/1999/xhtml",
+    "next": null,
+    "parent": Node {
+      "children": Array [
+        [Circular],
+      ],
+      "name": "root",
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "type": "root",
+    },
+    "prev": null,
+    "type": "tag",
+    "x-attribsNamespace": Object {
+      "class": undefined,
+    },
+    "x-attribsPrefix": Object {
+      "class": undefined,
+    },
+  },
+  "_root": LoadedCheerio {
+    "0": Node {
+      "children": Array [
+        Node {
+          "attribs": Object {},
+          "children": Array [
+            Node {
+              "attribs": Object {},
+              "children": Array [],
+              "name": "head",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": Node {
+                "attribs": Object {},
+                "children": Array [],
+                "name": "body",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": null,
+                "parent": [Circular],
+                "prev": [Circular],
+                "type": "tag",
+                "x-attribsNamespace": Object {},
+                "x-attribsPrefix": Object {},
+              },
+              "parent": [Circular],
+              "prev": null,
+              "type": "tag",
+              "x-attribsNamespace": Object {},
+              "x-attribsPrefix": Object {},
+            },
+            Node {
+              "attribs": Object {},
+              "children": Array [],
+              "name": "body",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": null,
+              "parent": [Circular],
+              "prev": Node {
+                "attribs": Object {},
+                "children": Array [],
+                "name": "head",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": [Circular],
+                "parent": [Circular],
+                "prev": null,
+                "type": "tag",
+                "x-attribsNamespace": Object {},
+                "x-attribsPrefix": Object {},
+              },
+              "type": "tag",
+              "x-attribsNamespace": Object {},
+              "x-attribsPrefix": Object {},
+            },
+          ],
+          "name": "html",
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "next": null,
+          "parent": [Circular],
+          "prev": null,
+          "type": "tag",
+          "x-attribsNamespace": Object {},
+          "x-attribsPrefix": Object {},
+        },
+      ],
+      "name": "root",
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
