@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.19.0](https://github.com/EightfoldAI/octuple/compare/v1.18.0...v1.19.0) (2022-07-25)
+
+### Features
+
+-   added filter options ([#252](https://github.com/EightfoldAI/octuple/issues/252)) ([5d14a7c](https://github.com/EightfoldAI/octuple/commits/5d14a7c749109b1c07e3772e12d97001b5a6caa8))
+
+### Bug Fixes
+
+-   export TextInputSize ([#254](https://github.com/EightfoldAI/octuple/issues/254)) ([04ef8f0](https://github.com/EightfoldAI/octuple/commits/04ef8f004d584c608c214ad183663c0aef5efc12))
+-   radiobutton: multiple radio buttons on the same page doesnt work as intended ([#253](https://github.com/EightfoldAI/octuple/issues/253)) ([664c531](https://github.com/EightfoldAI/octuple/commits/664c5311a8a90f240536a35ca66e47ab6ff4caec))
+
 ## [1.18.0](https://github.com/EightfoldAI/octuple/compare/v1.17.0...v1.18.0) (2022-07-21)
 
 ### Features
