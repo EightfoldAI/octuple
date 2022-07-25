@@ -1,0 +1,1905 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Pill Closable 1`] = `
+<div
+  className="stack vertical l"
+  style={
+    Object {
+      "alignItems": undefined,
+      "flexWrap": undefined,
+      "justifyContent": undefined,
+    }
+  }
+>
+  <div
+    className="tag-pills red"
+    style={
+      Object {
+        "color": undefined,
+      }
+    }
+  >
+    <span
+      className="label"
+    >
+      red
+    </span>
+    <button
+      aria-disabled={false}
+      aria-label="Close"
+      className="close-button button button-default button-size2 pill-shape icon-left"
+      defaultChecked={false}
+      disabled={false}
+    >
+      <span
+        aria-hidden={false}
+        className="icon icon-wrapper"
+        role="presentation"
+      >
+        <svg
+          role="presentation"
+          style={
+            Object {
+              "height": "20px",
+              "width": "20px",
+            }
+          }
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"
+            style={
+              Object {
+                "fill": "currentColor",
+              }
+            }
+          />
+        </svg>
+      </span>
+    </button>
+  </div>
+  <div
+    className="tag-pills red-orange"
+    style={
+      Object {
+        "color": undefined,
+      }
+    }
+  >
+    <span
+      className="label"
+    >
+      redOrange
+    </span>
+    <button
+      aria-disabled={false}
+      aria-label="Close"
+      className="close-button button button-default button-size2 pill-shape icon-left"
+      defaultChecked={false}
+      disabled={false}
+    >
+      <span
+        aria-hidden={false}
+        className="icon icon-wrapper"
+        role="presentation"
+      >
+        <svg
+          role="presentation"
+          style={
+            Object {
+              "height": "20px",
+              "width": "20px",
+            }
+          }
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"
+            style={
+              Object {
+                "fill": "currentColor",
+              }
+            }
+          />
+        </svg>
+      </span>
+    </button>
+  </div>
+  <div
+    className="tag-pills orange"
+    style={
+      Object {
+        "color": undefined,
+      }
+    }
+  >
+    <span
+      className="label"
+    >
+      orange
+    </span>
+    <button
+      aria-disabled={false}
+      aria-label="Close"
+      className="close-button button button-default button-size2 pill-shape icon-left"
+      defaultChecked={false}
+      disabled={false}
+    >
+      <span
+        aria-hidden={false}
+        className="icon icon-wrapper"
+        role="presentation"
+      >
+        <svg
+          role="presentation"
+          style={
+            Object {
+              "height": "20px",
+              "width": "20px",
+            }
+          }
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"
+            style={
+              Object {
+                "fill": "currentColor",
+              }
+            }
+          />
+        </svg>
+      </span>
+    </button>
+  </div>
+  <div
+    className="tag-pills yellow"
+    style={
+      Object {
+        "color": undefined,
+      }
+    }
+  >
+    <span
+      className="label"
+    >
+      yellow
+    </span>
+    <button
+      aria-disabled={false}
+      aria-label="Close"
+      className="close-button button button-default button-size2 pill-shape icon-left"
+      defaultChecked={false}
+      disabled={false}
+    >
+      <span
+        aria-hidden={false}
+        className="icon icon-wrapper"
+        role="presentation"
+      >
+        <svg
+          role="presentation"
+          style={
+            Object {
+              "height": "20px",
+              "width": "20px",
+            }
+          }
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"
+            style={
+              Object {
+                "fill": "currentColor",
+              }
+            }
+          />
+        </svg>
+      </span>
+    </button>
+  </div>
+  <div
+    className="tag-pills yellow-green"
+    style={
+      Object {
+        "color": undefined,
+      }
+    }
+  >
+    <span
+      className="label"
+    >
+      yellowGreen
+    </span>
+    <button
+      aria-disabled={false}
+      aria-label="Close"
+      className="close-button button button-default button-size2 pill-shape icon-left"
+      defaultChecked={false}
+      disabled={false}
+    >
+      <span
+        aria-hidden={false}
+        className="icon icon-wrapper"
+        role="presentation"
+      >
+        <svg
+          role="presentation"
+          style={
+            Object {
+              "height": "20px",
+              "width": "20px",
+            }
+          }
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"
+            style={
+              Object {
+                "fill": "currentColor",
+              }
+            }
+          />
+        </svg>
+      </span>
+    </button>
+  </div>
+  <div
+    className="tag-pills green"
+    style={
+      Object {
+        "color": undefined,
+      }
+    }
+  >
+    <span
+      className="label"
+    >
+      green
+    </span>
+    <button
+      aria-disabled={false}
+      aria-label="Close"
+      className="close-button button button-default button-size2 pill-shape icon-left"
+      defaultChecked={false}
+      disabled={false}
+    >
+      <span
+        aria-hidden={false}
+        className="icon icon-wrapper"
+        role="presentation"
+      >
+        <svg
+          role="presentation"
+          style={
+            Object {
+              "height": "20px",
+              "width": "20px",
+            }
+          }
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"
+            style={
+              Object {
+                "fill": "currentColor",
+              }
+            }
+          />
+        </svg>
+      </span>
+    </button>
+  </div>
+  <div
+    className="tag-pills blue-green"
+    style={
+      Object {
+        "color": undefined,
+      }
+    }
+  >
+    <span
+      className="label"
+    >
+      blueGreen
+    </span>
+    <button
+      aria-disabled={false}
+      aria-label="Close"
+      className="close-button button button-default button-size2 pill-shape icon-left"
+      defaultChecked={false}
+      disabled={false}
+    >
+      <span
+        aria-hidden={false}
+        className="icon icon-wrapper"
+        role="presentation"
+      >
+        <svg
+          role="presentation"
+          style={
+            Object {
+              "height": "20px",
+              "width": "20px",
+            }
+          }
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"
+            style={
+              Object {
+                "fill": "currentColor",
+              }
+            }
+          />
+        </svg>
+      </span>
+    </button>
+  </div>
+  <div
+    className="tag-pills blue"
+    style={
+      Object {
+        "color": undefined,
+      }
+    }
+  >
+    <span
+      className="label"
+    >
+      blue
+    </span>
+    <button
+      aria-disabled={false}
+      aria-label="Close"
+      className="close-button button button-default button-size2 pill-shape icon-left"
+      defaultChecked={false}
+      disabled={false}
+    >
+      <span
+        aria-hidden={false}
+        className="icon icon-wrapper"
+        role="presentation"
+      >
+        <svg
+          role="presentation"
+          style={
+            Object {
+              "height": "20px",
+              "width": "20px",
+            }
+          }
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"
+            style={
+              Object {
+                "fill": "currentColor",
+              }
+            }
+          />
+        </svg>
+      </span>
+    </button>
+  </div>
+  <div
+    className="tag-pills blue-violet"
+    style={
+      Object {
+        "color": undefined,
+      }
+    }
+  >
+    <span
+      className="label"
+    >
+      blueViolet
+    </span>
+    <button
+      aria-disabled={false}
+      aria-label="Close"
+      className="close-button button button-default button-size2 pill-shape icon-left"
+      defaultChecked={false}
+      disabled={false}
+    >
+      <span
+        aria-hidden={false}
+        className="icon icon-wrapper"
+        role="presentation"
+      >
+        <svg
+          role="presentation"
+          style={
+            Object {
+              "height": "20px",
+              "width": "20px",
+            }
+          }
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"
+            style={
+              Object {
+                "fill": "currentColor",
+              }
+            }
+          />
+        </svg>
+      </span>
+    </button>
+  </div>
+  <div
+    className="tag-pills violet"
+    style={
+      Object {
+        "color": undefined,
+      }
+    }
+  >
+    <span
+      className="label"
+    >
+      violet
+    </span>
+    <button
+      aria-disabled={false}
+      aria-label="Close"
+      className="close-button button button-default button-size2 pill-shape icon-left"
+      defaultChecked={false}
+      disabled={false}
+    >
+      <span
+        aria-hidden={false}
+        className="icon icon-wrapper"
+        role="presentation"
+      >
+        <svg
+          role="presentation"
+          style={
+            Object {
+              "height": "20px",
+              "width": "20px",
+            }
+          }
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"
+            style={
+              Object {
+                "fill": "currentColor",
+              }
+            }
+          />
+        </svg>
+      </span>
+    </button>
+  </div>
+  <div
+    className="tag-pills violet-red"
+    style={
+      Object {
+        "color": undefined,
+      }
+    }
+  >
+    <span
+      className="label"
+    >
+      violetRed
+    </span>
+    <button
+      aria-disabled={false}
+      aria-label="Close"
+      className="close-button button button-default button-size2 pill-shape icon-left"
+      defaultChecked={false}
+      disabled={false}
+    >
+      <span
+        aria-hidden={false}
+        className="icon icon-wrapper"
+        role="presentation"
+      >
+        <svg
+          role="presentation"
+          style={
+            Object {
+              "height": "20px",
+              "width": "20px",
+            }
+          }
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"
+            style={
+              Object {
+                "fill": "currentColor",
+              }
+            }
+          />
+        </svg>
+      </span>
+    </button>
+  </div>
+  <div
+    className="tag-pills grey"
+    style={
+      Object {
+        "color": undefined,
+      }
+    }
+  >
+    <span
+      className="label"
+    >
+      grey
+    </span>
+    <button
+      aria-disabled={false}
+      aria-label="Close"
+      className="close-button button button-default button-size2 pill-shape icon-left"
+      defaultChecked={false}
+      disabled={false}
+    >
+      <span
+        aria-hidden={false}
+        className="icon icon-wrapper"
+        role="presentation"
+      >
+        <svg
+          role="presentation"
+          style={
+            Object {
+              "height": "20px",
+              "width": "20px",
+            }
+          }
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"
+            style={
+              Object {
+                "fill": "currentColor",
+              }
+            }
+          />
+        </svg>
+      </span>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Pill Default 1`] = `
+<div
+  className="stack vertical l"
+  style={
+    Object {
+      "alignItems": undefined,
+      "flexWrap": undefined,
+      "justifyContent": undefined,
+    }
+  }
+>
+  <div
+    className="tag-pills red"
+    style={
+      Object {
+        "color": undefined,
+      }
+    }
+  >
+    <span
+      className="label"
+    >
+      red
+    </span>
+  </div>
+  <div
+    className="tag-pills red-orange"
+    style={
+      Object {
+        "color": undefined,
+      }
+    }
+  >
+    <span
+      className="label"
+    >
+      redOrange
+    </span>
+  </div>
+  <div
+    className="tag-pills orange"
+    style={
+      Object {
+        "color": undefined,
+      }
+    }
+  >
+    <span
+      className="label"
+    >
+      orange
+    </span>
+  </div>
+  <div
+    className="tag-pills yellow"
+    style={
+      Object {
+        "color": undefined,
+      }
+    }
+  >
+    <span
+      className="label"
+    >
+      yellow
+    </span>
+  </div>
+  <div
+    className="tag-pills yellow-green"
+    style={
+      Object {
+        "color": undefined,
+      }
+    }
+  >
+    <span
+      className="label"
+    >
+      yellowGreen
+    </span>
+  </div>
+  <div
+    className="tag-pills green"
+    style={
+      Object {
+        "color": undefined,
+      }
+    }
+  >
+    <span
+      className="label"
+    >
+      green
+    </span>
+  </div>
+  <div
+    className="tag-pills blue-green"
+    style={
+      Object {
+        "color": undefined,
+      }
+    }
+  >
+    <span
+      className="label"
+    >
+      blueGreen
+    </span>
+  </div>
+  <div
+    className="tag-pills blue"
+    style={
+      Object {
+        "color": undefined,
+      }
+    }
+  >
+    <span
+      className="label"
+    >
+      blue
+    </span>
+  </div>
+  <div
+    className="tag-pills blue-violet"
+    style={
+      Object {
+        "color": undefined,
+      }
+    }
+  >
+    <span
+      className="label"
+    >
+      blueViolet
+    </span>
+  </div>
+  <div
+    className="tag-pills violet"
+    style={
+      Object {
+        "color": undefined,
+      }
+    }
+  >
+    <span
+      className="label"
+    >
+      violet
+    </span>
+  </div>
+  <div
+    className="tag-pills violet-red"
+    style={
+      Object {
+        "color": undefined,
+      }
+    }
+  >
+    <span
+      className="label"
+    >
+      violetRed
+    </span>
+  </div>
+  <div
+    className="tag-pills grey"
+    style={
+      Object {
+        "color": undefined,
+      }
+    }
+  >
+    <span
+      className="label"
+    >
+      grey
+    </span>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Pill With Button 1`] = `
+<div
+  className="stack vertical l"
+  style={
+    Object {
+      "alignItems": undefined,
+      "flexWrap": undefined,
+      "justifyContent": undefined,
+    }
+  }
+>
+  <div
+    className="tag-pills red"
+    style={
+      Object {
+        "color": undefined,
+      }
+    }
+  >
+    <span
+      className="label"
+    >
+      red
+    </span>
+    <button
+      aria-disabled={false}
+      aria-label="Thumbs up"
+      className="button button button-default button-size2 pill-shape icon-left"
+      defaultChecked={false}
+      disabled={false}
+    >
+      <span>
+        <span
+          aria-hidden={false}
+          className="icon icon-wrapper"
+          role="presentation"
+        >
+          <svg
+            role="presentation"
+            style={
+              Object {
+                "height": "20px",
+                "width": "20px",
+              }
+            }
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M5,9V21H1V9H5M9,21A2,2 0 0,1 7,19V9C7,8.45 7.22,7.95 7.59,7.59L14.17,1L15.23,2.06C15.5,2.33 15.67,2.7 15.67,3.11L15.64,3.43L14.69,8H21C22.11,8 23,8.9 23,10V12C23,12.26 22.95,12.5 22.86,12.73L19.84,19.78C19.54,20.5 18.83,21 18,21H9M9,19H18.03L21,12V10H12.21L13.34,4.68L9,9.03V19Z"
+              style={
+                Object {
+                  "fill": "currentColor",
+                }
+              }
+            />
+          </svg>
+        </span>
+        <span
+          className="button-text2"
+        >
+          2
+        </span>
+      </span>
+    </button>
+  </div>
+  <div
+    className="tag-pills red-orange"
+    style={
+      Object {
+        "color": undefined,
+      }
+    }
+  >
+    <span
+      className="label"
+    >
+      redOrange
+    </span>
+    <button
+      aria-disabled={false}
+      aria-label="Thumbs up"
+      className="button button button-default button-size2 pill-shape icon-left"
+      defaultChecked={false}
+      disabled={false}
+    >
+      <span>
+        <span
+          aria-hidden={false}
+          className="icon icon-wrapper"
+          role="presentation"
+        >
+          <svg
+            role="presentation"
+            style={
+              Object {
+                "height": "20px",
+                "width": "20px",
+              }
+            }
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M5,9V21H1V9H5M9,21A2,2 0 0,1 7,19V9C7,8.45 7.22,7.95 7.59,7.59L14.17,1L15.23,2.06C15.5,2.33 15.67,2.7 15.67,3.11L15.64,3.43L14.69,8H21C22.11,8 23,8.9 23,10V12C23,12.26 22.95,12.5 22.86,12.73L19.84,19.78C19.54,20.5 18.83,21 18,21H9M9,19H18.03L21,12V10H12.21L13.34,4.68L9,9.03V19Z"
+              style={
+                Object {
+                  "fill": "currentColor",
+                }
+              }
+            />
+          </svg>
+        </span>
+        <span
+          className="button-text2"
+        >
+          2
+        </span>
+      </span>
+    </button>
+  </div>
+  <div
+    className="tag-pills orange"
+    style={
+      Object {
+        "color": undefined,
+      }
+    }
+  >
+    <span
+      className="label"
+    >
+      orange
+    </span>
+    <button
+      aria-disabled={false}
+      aria-label="Thumbs up"
+      className="button button button-default button-size2 pill-shape icon-left"
+      defaultChecked={false}
+      disabled={false}
+    >
+      <span>
+        <span
+          aria-hidden={false}
+          className="icon icon-wrapper"
+          role="presentation"
+        >
+          <svg
+            role="presentation"
+            style={
+              Object {
+                "height": "20px",
+                "width": "20px",
+              }
+            }
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M5,9V21H1V9H5M9,21A2,2 0 0,1 7,19V9C7,8.45 7.22,7.95 7.59,7.59L14.17,1L15.23,2.06C15.5,2.33 15.67,2.7 15.67,3.11L15.64,3.43L14.69,8H21C22.11,8 23,8.9 23,10V12C23,12.26 22.95,12.5 22.86,12.73L19.84,19.78C19.54,20.5 18.83,21 18,21H9M9,19H18.03L21,12V10H12.21L13.34,4.68L9,9.03V19Z"
+              style={
+                Object {
+                  "fill": "currentColor",
+                }
+              }
+            />
+          </svg>
+        </span>
+        <span
+          className="button-text2"
+        >
+          2
+        </span>
+      </span>
+    </button>
+  </div>
+  <div
+    className="tag-pills yellow"
+    style={
+      Object {
+        "color": undefined,
+      }
+    }
+  >
+    <span
+      className="label"
+    >
+      yellow
+    </span>
+    <button
+      aria-disabled={false}
+      aria-label="Thumbs up"
+      className="button button button-default button-size2 pill-shape icon-left"
+      defaultChecked={false}
+      disabled={false}
+    >
+      <span>
+        <span
+          aria-hidden={false}
+          className="icon icon-wrapper"
+          role="presentation"
+        >
+          <svg
+            role="presentation"
+            style={
+              Object {
+                "height": "20px",
+                "width": "20px",
+              }
+            }
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M5,9V21H1V9H5M9,21A2,2 0 0,1 7,19V9C7,8.45 7.22,7.95 7.59,7.59L14.17,1L15.23,2.06C15.5,2.33 15.67,2.7 15.67,3.11L15.64,3.43L14.69,8H21C22.11,8 23,8.9 23,10V12C23,12.26 22.95,12.5 22.86,12.73L19.84,19.78C19.54,20.5 18.83,21 18,21H9M9,19H18.03L21,12V10H12.21L13.34,4.68L9,9.03V19Z"
+              style={
+                Object {
+                  "fill": "currentColor",
+                }
+              }
+            />
+          </svg>
+        </span>
+        <span
+          className="button-text2"
+        >
+          2
+        </span>
+      </span>
+    </button>
+  </div>
+  <div
+    className="tag-pills yellow-green"
+    style={
+      Object {
+        "color": undefined,
+      }
+    }
+  >
+    <span
+      className="label"
+    >
+      yellowGreen
+    </span>
+    <button
+      aria-disabled={false}
+      aria-label="Thumbs up"
+      className="button button button-default button-size2 pill-shape icon-left"
+      defaultChecked={false}
+      disabled={false}
+    >
+      <span>
+        <span
+          aria-hidden={false}
+          className="icon icon-wrapper"
+          role="presentation"
+        >
+          <svg
+            role="presentation"
+            style={
+              Object {
+                "height": "20px",
+                "width": "20px",
+              }
+            }
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M5,9V21H1V9H5M9,21A2,2 0 0,1 7,19V9C7,8.45 7.22,7.95 7.59,7.59L14.17,1L15.23,2.06C15.5,2.33 15.67,2.7 15.67,3.11L15.64,3.43L14.69,8H21C22.11,8 23,8.9 23,10V12C23,12.26 22.95,12.5 22.86,12.73L19.84,19.78C19.54,20.5 18.83,21 18,21H9M9,19H18.03L21,12V10H12.21L13.34,4.68L9,9.03V19Z"
+              style={
+                Object {
+                  "fill": "currentColor",
+                }
+              }
+            />
+          </svg>
+        </span>
+        <span
+          className="button-text2"
+        >
+          2
+        </span>
+      </span>
+    </button>
+  </div>
+  <div
+    className="tag-pills green"
+    style={
+      Object {
+        "color": undefined,
+      }
+    }
+  >
+    <span
+      className="label"
+    >
+      green
+    </span>
+    <button
+      aria-disabled={false}
+      aria-label="Thumbs up"
+      className="button button button-default button-size2 pill-shape icon-left"
+      defaultChecked={false}
+      disabled={false}
+    >
+      <span>
+        <span
+          aria-hidden={false}
+          className="icon icon-wrapper"
+          role="presentation"
+        >
+          <svg
+            role="presentation"
+            style={
+              Object {
+                "height": "20px",
+                "width": "20px",
+              }
+            }
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M5,9V21H1V9H5M9,21A2,2 0 0,1 7,19V9C7,8.45 7.22,7.95 7.59,7.59L14.17,1L15.23,2.06C15.5,2.33 15.67,2.7 15.67,3.11L15.64,3.43L14.69,8H21C22.11,8 23,8.9 23,10V12C23,12.26 22.95,12.5 22.86,12.73L19.84,19.78C19.54,20.5 18.83,21 18,21H9M9,19H18.03L21,12V10H12.21L13.34,4.68L9,9.03V19Z"
+              style={
+                Object {
+                  "fill": "currentColor",
+                }
+              }
+            />
+          </svg>
+        </span>
+        <span
+          className="button-text2"
+        >
+          2
+        </span>
+      </span>
+    </button>
+  </div>
+  <div
+    className="tag-pills blue-green"
+    style={
+      Object {
+        "color": undefined,
+      }
+    }
+  >
+    <span
+      className="label"
+    >
+      blueGreen
+    </span>
+    <button
+      aria-disabled={false}
+      aria-label="Thumbs up"
+      className="button button button-default button-size2 pill-shape icon-left"
+      defaultChecked={false}
+      disabled={false}
+    >
+      <span>
+        <span
+          aria-hidden={false}
+          className="icon icon-wrapper"
+          role="presentation"
+        >
+          <svg
+            role="presentation"
+            style={
+              Object {
+                "height": "20px",
+                "width": "20px",
+              }
+            }
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M5,9V21H1V9H5M9,21A2,2 0 0,1 7,19V9C7,8.45 7.22,7.95 7.59,7.59L14.17,1L15.23,2.06C15.5,2.33 15.67,2.7 15.67,3.11L15.64,3.43L14.69,8H21C22.11,8 23,8.9 23,10V12C23,12.26 22.95,12.5 22.86,12.73L19.84,19.78C19.54,20.5 18.83,21 18,21H9M9,19H18.03L21,12V10H12.21L13.34,4.68L9,9.03V19Z"
+              style={
+                Object {
+                  "fill": "currentColor",
+                }
+              }
+            />
+          </svg>
+        </span>
+        <span
+          className="button-text2"
+        >
+          2
+        </span>
+      </span>
+    </button>
+  </div>
+  <div
+    className="tag-pills blue"
+    style={
+      Object {
+        "color": undefined,
+      }
+    }
+  >
+    <span
+      className="label"
+    >
+      blue
+    </span>
+    <button
+      aria-disabled={false}
+      aria-label="Thumbs up"
+      className="button button button-default button-size2 pill-shape icon-left"
+      defaultChecked={false}
+      disabled={false}
+    >
+      <span>
+        <span
+          aria-hidden={false}
+          className="icon icon-wrapper"
+          role="presentation"
+        >
+          <svg
+            role="presentation"
+            style={
+              Object {
+                "height": "20px",
+                "width": "20px",
+              }
+            }
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M5,9V21H1V9H5M9,21A2,2 0 0,1 7,19V9C7,8.45 7.22,7.95 7.59,7.59L14.17,1L15.23,2.06C15.5,2.33 15.67,2.7 15.67,3.11L15.64,3.43L14.69,8H21C22.11,8 23,8.9 23,10V12C23,12.26 22.95,12.5 22.86,12.73L19.84,19.78C19.54,20.5 18.83,21 18,21H9M9,19H18.03L21,12V10H12.21L13.34,4.68L9,9.03V19Z"
+              style={
+                Object {
+                  "fill": "currentColor",
+                }
+              }
+            />
+          </svg>
+        </span>
+        <span
+          className="button-text2"
+        >
+          2
+        </span>
+      </span>
+    </button>
+  </div>
+  <div
+    className="tag-pills blue-violet"
+    style={
+      Object {
+        "color": undefined,
+      }
+    }
+  >
+    <span
+      className="label"
+    >
+      blueViolet
+    </span>
+    <button
+      aria-disabled={false}
+      aria-label="Thumbs up"
+      className="button button button-default button-size2 pill-shape icon-left"
+      defaultChecked={false}
+      disabled={false}
+    >
+      <span>
+        <span
+          aria-hidden={false}
+          className="icon icon-wrapper"
+          role="presentation"
+        >
+          <svg
+            role="presentation"
+            style={
+              Object {
+                "height": "20px",
+                "width": "20px",
+              }
+            }
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M5,9V21H1V9H5M9,21A2,2 0 0,1 7,19V9C7,8.45 7.22,7.95 7.59,7.59L14.17,1L15.23,2.06C15.5,2.33 15.67,2.7 15.67,3.11L15.64,3.43L14.69,8H21C22.11,8 23,8.9 23,10V12C23,12.26 22.95,12.5 22.86,12.73L19.84,19.78C19.54,20.5 18.83,21 18,21H9M9,19H18.03L21,12V10H12.21L13.34,4.68L9,9.03V19Z"
+              style={
+                Object {
+                  "fill": "currentColor",
+                }
+              }
+            />
+          </svg>
+        </span>
+        <span
+          className="button-text2"
+        >
+          2
+        </span>
+      </span>
+    </button>
+  </div>
+  <div
+    className="tag-pills violet"
+    style={
+      Object {
+        "color": undefined,
+      }
+    }
+  >
+    <span
+      className="label"
+    >
+      violet
+    </span>
+    <button
+      aria-disabled={false}
+      aria-label="Thumbs up"
+      className="button button button-default button-size2 pill-shape icon-left"
+      defaultChecked={false}
+      disabled={false}
+    >
+      <span>
+        <span
+          aria-hidden={false}
+          className="icon icon-wrapper"
+          role="presentation"
+        >
+          <svg
+            role="presentation"
+            style={
+              Object {
+                "height": "20px",
+                "width": "20px",
+              }
+            }
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M5,9V21H1V9H5M9,21A2,2 0 0,1 7,19V9C7,8.45 7.22,7.95 7.59,7.59L14.17,1L15.23,2.06C15.5,2.33 15.67,2.7 15.67,3.11L15.64,3.43L14.69,8H21C22.11,8 23,8.9 23,10V12C23,12.26 22.95,12.5 22.86,12.73L19.84,19.78C19.54,20.5 18.83,21 18,21H9M9,19H18.03L21,12V10H12.21L13.34,4.68L9,9.03V19Z"
+              style={
+                Object {
+                  "fill": "currentColor",
+                }
+              }
+            />
+          </svg>
+        </span>
+        <span
+          className="button-text2"
+        >
+          2
+        </span>
+      </span>
+    </button>
+  </div>
+  <div
+    className="tag-pills violet-red"
+    style={
+      Object {
+        "color": undefined,
+      }
+    }
+  >
+    <span
+      className="label"
+    >
+      violetRed
+    </span>
+    <button
+      aria-disabled={false}
+      aria-label="Thumbs up"
+      className="button button button-default button-size2 pill-shape icon-left"
+      defaultChecked={false}
+      disabled={false}
+    >
+      <span>
+        <span
+          aria-hidden={false}
+          className="icon icon-wrapper"
+          role="presentation"
+        >
+          <svg
+            role="presentation"
+            style={
+              Object {
+                "height": "20px",
+                "width": "20px",
+              }
+            }
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M5,9V21H1V9H5M9,21A2,2 0 0,1 7,19V9C7,8.45 7.22,7.95 7.59,7.59L14.17,1L15.23,2.06C15.5,2.33 15.67,2.7 15.67,3.11L15.64,3.43L14.69,8H21C22.11,8 23,8.9 23,10V12C23,12.26 22.95,12.5 22.86,12.73L19.84,19.78C19.54,20.5 18.83,21 18,21H9M9,19H18.03L21,12V10H12.21L13.34,4.68L9,9.03V19Z"
+              style={
+                Object {
+                  "fill": "currentColor",
+                }
+              }
+            />
+          </svg>
+        </span>
+        <span
+          className="button-text2"
+        >
+          2
+        </span>
+      </span>
+    </button>
+  </div>
+  <div
+    className="tag-pills grey"
+    style={
+      Object {
+        "color": undefined,
+      }
+    }
+  >
+    <span
+      className="label"
+    >
+      grey
+    </span>
+    <button
+      aria-disabled={false}
+      aria-label="Thumbs up"
+      className="button button button-default button-size2 pill-shape icon-left"
+      defaultChecked={false}
+      disabled={false}
+    >
+      <span>
+        <span
+          aria-hidden={false}
+          className="icon icon-wrapper"
+          role="presentation"
+        >
+          <svg
+            role="presentation"
+            style={
+              Object {
+                "height": "20px",
+                "width": "20px",
+              }
+            }
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M5,9V21H1V9H5M9,21A2,2 0 0,1 7,19V9C7,8.45 7.22,7.95 7.59,7.59L14.17,1L15.23,2.06C15.5,2.33 15.67,2.7 15.67,3.11L15.64,3.43L14.69,8H21C22.11,8 23,8.9 23,10V12C23,12.26 22.95,12.5 22.86,12.73L19.84,19.78C19.54,20.5 18.83,21 18,21H9M9,19H18.03L21,12V10H12.21L13.34,4.68L9,9.03V19Z"
+              style={
+                Object {
+                  "fill": "currentColor",
+                }
+              }
+            />
+          </svg>
+        </span>
+        <span
+          className="button-text2"
+        >
+          2
+        </span>
+      </span>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Pill With Icon 1`] = `
+<div
+  className="stack vertical l"
+  style={
+    Object {
+      "alignItems": undefined,
+      "flexWrap": undefined,
+      "justifyContent": undefined,
+    }
+  }
+>
+  <div
+    className="tag-pills red"
+    style={
+      Object {
+        "color": undefined,
+      }
+    }
+  >
+    <span
+      aria-hidden={false}
+      className="icon icon-wrapper"
+      role="presentation"
+    >
+      <svg
+        role="presentation"
+        style={
+          Object {
+            "height": "20px",
+            "width": "20px",
+          }
+        }
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z"
+          style={
+            Object {
+              "fill": "currentColor",
+            }
+          }
+        />
+      </svg>
+    </span>
+    <span
+      className="label"
+    >
+      red
+    </span>
+  </div>
+  <div
+    className="tag-pills red-orange"
+    style={
+      Object {
+        "color": undefined,
+      }
+    }
+  >
+    <span
+      aria-hidden={false}
+      className="icon icon-wrapper"
+      role="presentation"
+    >
+      <svg
+        role="presentation"
+        style={
+          Object {
+            "height": "20px",
+            "width": "20px",
+          }
+        }
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z"
+          style={
+            Object {
+              "fill": "currentColor",
+            }
+          }
+        />
+      </svg>
+    </span>
+    <span
+      className="label"
+    >
+      redOrange
+    </span>
+  </div>
+  <div
+    className="tag-pills orange"
+    style={
+      Object {
+        "color": undefined,
+      }
+    }
+  >
+    <span
+      aria-hidden={false}
+      className="icon icon-wrapper"
+      role="presentation"
+    >
+      <svg
+        role="presentation"
+        style={
+          Object {
+            "height": "20px",
+            "width": "20px",
+          }
+        }
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z"
+          style={
+            Object {
+              "fill": "currentColor",
+            }
+          }
+        />
+      </svg>
+    </span>
+    <span
+      className="label"
+    >
+      orange
+    </span>
+  </div>
+  <div
+    className="tag-pills yellow"
+    style={
+      Object {
+        "color": undefined,
+      }
+    }
+  >
+    <span
+      aria-hidden={false}
+      className="icon icon-wrapper"
+      role="presentation"
+    >
+      <svg
+        role="presentation"
+        style={
+          Object {
+            "height": "20px",
+            "width": "20px",
+          }
+        }
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z"
+          style={
+            Object {
+              "fill": "currentColor",
+            }
+          }
+        />
+      </svg>
+    </span>
+    <span
+      className="label"
+    >
+      yellow
+    </span>
+  </div>
+  <div
+    className="tag-pills yellow-green"
+    style={
+      Object {
+        "color": undefined,
+      }
+    }
+  >
+    <span
+      aria-hidden={false}
+      className="icon icon-wrapper"
+      role="presentation"
+    >
+      <svg
+        role="presentation"
+        style={
+          Object {
+            "height": "20px",
+            "width": "20px",
+          }
+        }
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z"
+          style={
+            Object {
+              "fill": "currentColor",
+            }
+          }
+        />
+      </svg>
+    </span>
+    <span
+      className="label"
+    >
+      yellowGreen
+    </span>
+  </div>
+  <div
+    className="tag-pills green"
+    style={
+      Object {
+        "color": undefined,
+      }
+    }
+  >
+    <span
+      aria-hidden={false}
+      className="icon icon-wrapper"
+      role="presentation"
+    >
+      <svg
+        role="presentation"
+        style={
+          Object {
+            "height": "20px",
+            "width": "20px",
+          }
+        }
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z"
+          style={
+            Object {
+              "fill": "currentColor",
+            }
+          }
+        />
+      </svg>
+    </span>
+    <span
+      className="label"
+    >
+      green
+    </span>
+  </div>
+  <div
+    className="tag-pills blue-green"
+    style={
+      Object {
+        "color": undefined,
+      }
+    }
+  >
+    <span
+      aria-hidden={false}
+      className="icon icon-wrapper"
+      role="presentation"
+    >
+      <svg
+        role="presentation"
+        style={
+          Object {
+            "height": "20px",
+            "width": "20px",
+          }
+        }
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z"
+          style={
+            Object {
+              "fill": "currentColor",
+            }
+          }
+        />
+      </svg>
+    </span>
+    <span
+      className="label"
+    >
+      blueGreen
+    </span>
+  </div>
+  <div
+    className="tag-pills blue"
+    style={
+      Object {
+        "color": undefined,
+      }
+    }
+  >
+    <span
+      aria-hidden={false}
+      className="icon icon-wrapper"
+      role="presentation"
+    >
+      <svg
+        role="presentation"
+        style={
+          Object {
+            "height": "20px",
+            "width": "20px",
+          }
+        }
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z"
+          style={
+            Object {
+              "fill": "currentColor",
+            }
+          }
+        />
+      </svg>
+    </span>
+    <span
+      className="label"
+    >
+      blue
+    </span>
+  </div>
+  <div
+    className="tag-pills blue-violet"
+    style={
+      Object {
+        "color": undefined,
+      }
+    }
+  >
+    <span
+      aria-hidden={false}
+      className="icon icon-wrapper"
+      role="presentation"
+    >
+      <svg
+        role="presentation"
+        style={
+          Object {
+            "height": "20px",
+            "width": "20px",
+          }
+        }
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z"
+          style={
+            Object {
+              "fill": "currentColor",
+            }
+          }
+        />
+      </svg>
+    </span>
+    <span
+      className="label"
+    >
+      blueViolet
+    </span>
+  </div>
+  <div
+    className="tag-pills violet"
+    style={
+      Object {
+        "color": undefined,
+      }
+    }
+  >
+    <span
+      aria-hidden={false}
+      className="icon icon-wrapper"
+      role="presentation"
+    >
+      <svg
+        role="presentation"
+        style={
+          Object {
+            "height": "20px",
+            "width": "20px",
+          }
+        }
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z"
+          style={
+            Object {
+              "fill": "currentColor",
+            }
+          }
+        />
+      </svg>
+    </span>
+    <span
+      className="label"
+    >
+      violet
+    </span>
+  </div>
+  <div
+    className="tag-pills violet-red"
+    style={
+      Object {
+        "color": undefined,
+      }
+    }
+  >
+    <span
+      aria-hidden={false}
+      className="icon icon-wrapper"
+      role="presentation"
+    >
+      <svg
+        role="presentation"
+        style={
+          Object {
+            "height": "20px",
+            "width": "20px",
+          }
+        }
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z"
+          style={
+            Object {
+              "fill": "currentColor",
+            }
+          }
+        />
+      </svg>
+    </span>
+    <span
+      className="label"
+    >
+      violetRed
+    </span>
+  </div>
+  <div
+    className="tag-pills grey"
+    style={
+      Object {
+        "color": undefined,
+      }
+    }
+  >
+    <span
+      aria-hidden={false}
+      className="icon icon-wrapper"
+      role="presentation"
+    >
+      <svg
+        role="presentation"
+        style={
+          Object {
+            "height": "20px",
+            "width": "20px",
+          }
+        }
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z"
+          style={
+            Object {
+              "fill": "currentColor",
+            }
+          }
+        />
+      </svg>
+    </span>
+    <span
+      className="label"
+    >
+      grey
+    </span>
+  </div>
+</div>
+`;

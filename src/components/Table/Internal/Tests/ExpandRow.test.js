@@ -4,6 +4,7 @@ import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import { act } from 'react-dom/test-utils';
 import { spyElementPrototype } from '../../../../tests/domHook';
 import OcTable from '..';
+import 'jest-specific-snapshot';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -65,35 +66,36 @@ describe('Table.Expand', () => {
             })
         );
         expect(wrapper.find('tbody tr')).toHaveLength(3);
-        expect(wrapper.render()).toMatchSnapshot();
+        expect(wrapper.render()).toMatchSpecificSnapshot(
+            './__snapshots__/ExpandRow.rendertree.shot'
+        );
     });
 
     it('renders tree row correctly with different children', () => {
         const data = [
             {
                 key: 0,
-                name: 'Lucy',
-                age: 27,
-                children: [{ key: 2, name: 'Jim', age: 1 }],
+                name: 'Lola',
+                age: 15,
+                children: [{ key: 2, name: 'Mia', age: 5 }],
             },
-            { key: 1, name: 'Jack', age: 28 },
-            { key: 2, name: 'Jack', age: 28, children: null },
-            { key: 3, name: 'Jack', age: 28, children: [] },
-            { key: 4, name: 'Jack', age: 28, children: undefined },
-            { key: 5, name: 'Jack', age: 28, children: false },
         ];
         const wrapper = mount(createTable({ data }));
-        expect(wrapper.render()).toMatchSnapshot();
+        expect(wrapper.render()).toMatchSpecificSnapshot(
+            './__snapshots__/ExpandRow.rendertreechildren.shot'
+        );
     });
 
-    it('not use nest when children is invalidate', () => {
+    it('not use nest when children is invalid', () => {
         const data = [
             { key: 2, name: 'Jack', age: 28, children: null },
             { key: 4, name: 'Jack', age: 28, children: undefined },
             { key: 5, name: 'Jack', age: 28, children: false },
         ];
         const wrapper = mount(createTable({ data }));
-        expect(wrapper.render()).toMatchSnapshot();
+        expect(wrapper.render()).toMatchSpecificSnapshot(
+            './__snapshots__/ExpandRow.nonestinvalidchildren.shot'
+        );
     });
 
     it('childrenColumnName', () => {
@@ -116,7 +118,9 @@ describe('Table.Expand', () => {
             })
         );
         expect(wrapper.find('tbody tr')).toHaveLength(3);
-        expect(wrapper.render()).toMatchSnapshot();
+        expect(wrapper.render()).toMatchSpecificSnapshot(
+            './__snapshots__/ExpandRow.childrencolname.shot'
+        );
     });
 
     describe('renders fixed column correctly', () => {
@@ -143,10 +147,7 @@ describe('Table.Expand', () => {
                     fixed: 'right',
                 },
             ];
-            const data = [
-                { key: 0, name: 'Lucy', age: 27, gender: 'F' },
-                { key: 1, name: 'Jack', age: 28, gender: 'M' },
-            ];
+            const data = [{ key: 0, name: 'Lola', age: 15, gender: 'F' }];
             const wrapper = mount(
                 createTable({
                     columns,
@@ -166,7 +167,9 @@ describe('Table.Expand', () => {
                     .onResize({ width: 1128 });
             });
             wrapper.update();
-            expect(wrapper.render()).toMatchSnapshot();
+            expect(wrapper.render()).toMatchSpecificSnapshot(
+                './__snapshots__/ExpandRow.renderfixedcol.shot'
+            );
         });
     });
 
@@ -200,8 +203,12 @@ describe('Table.Expand', () => {
                 },
             })
         );
-        expect(wrapper.render()).toMatchSnapshot();
-        expect(wrapper2.render()).toMatchSnapshot();
+        expect(wrapper.render()).toMatchSpecificSnapshot(
+            './__snapshots__/ExpandRow.expandable1.shot'
+        );
+        expect(wrapper2.render()).toMatchSpecificSnapshot(
+            './__snapshots__/ExpandRow.expandable2.shot'
+        );
     });
 
     it('does not crash if scroll is not set', () => {
@@ -229,8 +236,12 @@ describe('Table.Expand', () => {
                 expandableConfig: { expandedRowRender, fixed: true },
             })
         );
-        expect(wrapper.render()).toMatchSnapshot();
-        expect(wrapper2.render()).toMatchSnapshot();
+        expect(wrapper.render()).toMatchSpecificSnapshot(
+            './__snapshots__/ExpandRow.scrollunset1.shot'
+        );
+        expect(wrapper2.render()).toMatchSpecificSnapshot(
+            './__snapshots__/ExpandRow.scrollunset2.shot'
+        );
     });
 
     it('expandable fix not when expandIconColumnIndex', () => {

@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Menu Menus 1`] = `
+<div
+  className="main-wrapper"
+>
+  <button
+    aria-controls="dropdown-9"
+    aria-disabled={false}
+    aria-expanded={false}
+    aria-haspopup={true}
+    className="button button-default pill-shape"
+    defaultChecked={false}
+    disabled={false}
+    onClick={[Function]}
+    role="button"
+    tabIndex="0"
+  >
+    <span
+      className=""
+    >
+      Menu dropdown
+    </span>
+  </button>
+</div>
+`;

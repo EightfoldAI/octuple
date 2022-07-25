@@ -1,0 +1,110 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Input Text Area 1`] = `
+<div
+  className="input-wrapper"
+>
+  <div
+    className="field-label medium"
+  >
+    <label
+      className="text-style medium"
+    >
+      Label
+    </label>
+    <span
+      className="field-label-icon-button medium"
+    >
+      <div
+        className="reference-wrapper"
+        id="4fzzzxj"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+      >
+        <button
+          aria-disabled={false}
+          className="label-icon-button button button-default button-size3 pill-shape icon-left"
+          defaultChecked={false}
+          disabled={false}
+        >
+          <span
+            aria-hidden={false}
+            className="icon icon-wrapper"
+            role="presentation"
+          >
+            <svg
+              role="presentation"
+              style={
+                Object {
+                  "height": "16px",
+                  "width": "16px",
+                }
+              }
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M13,9H11V7H13M13,17H11V11H13M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z"
+                style={
+                  Object {
+                    "fill": "currentColor",
+                  }
+                }
+              />
+            </svg>
+          </span>
+        </button>
+      </div>
+    </span>
+  </div>
+  <div
+    className="text-area-group"
+  >
+    <textarea
+      aria-disabled={false}
+      aria-label="Sample text"
+      autoFocus={false}
+      className="my-textarea-class text-area"
+      cols={50}
+      disabled={false}
+      htmltype="text"
+      id="myTextAreaId7"
+      maxLength={300}
+      minLength={0}
+      name="myTextArea"
+      onChange={[Function]}
+      placeholder="Placeholder text"
+      required={false}
+      rows={5}
+      style={Object {}}
+      tabIndex={0}
+    />
+    <span
+      aria-hidden={false}
+      className="text-area-resize-icon icon-wrapper"
+      role="presentation"
+    >
+      <svg
+        role="presentation"
+        style={
+          Object {
+            "height": "20px",
+            "width": "20px",
+          }
+        }
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M22,22H20V20H22V22M22,18H20V16H22V18M18,22H16V20H18V22M18,18H16V16H18V18M14,22H12V20H14V22M22,14H20V12H22V14Z"
+          style={
+            Object {
+              "fill": "currentColor",
+            }
+          }
+        />
+      </svg>
+    </span>
+  </div>
+</div>
+`;

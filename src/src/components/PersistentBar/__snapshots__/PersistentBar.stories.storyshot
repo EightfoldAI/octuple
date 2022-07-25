@@ -1,0 +1,623 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Persistent Bar Bottom Bar Buttons On Left 1`] = `
+<div
+  className="persistent-bar my-persistent-bar-class bottom-left-align"
+  role="presentation"
+  style={Object {}}
+>
+  <button
+    aria-disabled={false}
+    aria-label="Default"
+    className="my-default-btn-class button button-default pill-shape"
+    data-test-id="my-default-btn-test-id"
+    defaultChecked={false}
+    disabled={false}
+    id="myDefaultButton"
+  >
+    <span
+      className=""
+    >
+      Default
+    </span>
+  </button>
+  <button
+    aria-disabled={false}
+    aria-label="Default"
+    className="my-default-btn-class button button-default pill-shape"
+    data-test-id="my-default-btn-test-id"
+    defaultChecked={false}
+    disabled={false}
+    id="myDefaultButton"
+  >
+    <span
+      className=""
+    >
+      Default
+    </span>
+  </button>
+  <button
+    aria-disabled={false}
+    aria-label="Primary"
+    className="my-primary-btn-class button button-primary pill-shape"
+    data-test-id="my-primary-btn-test-id"
+    defaultChecked={false}
+    disabled={false}
+    id="myPrimaryButton"
+  >
+    <span
+      className=""
+    >
+      Primary
+    </span>
+  </button>
+</div>
+`;
+
+exports[`Storyshots Persistent Bar Bottom Bar Secondary Buttons 1`] = `
+<div
+  className="persistent-bar my-persistent-bar-class bottom-secondary-buttons"
+  role="presentation"
+  style={Object {}}
+>
+  <button
+    aria-disabled={false}
+    aria-label="Default"
+    className="my-default-btn-class button button-secondary pill-shape"
+    data-test-id="my-default-btn-test-id"
+    defaultChecked={false}
+    disabled={false}
+    id="myDefaultButton"
+  >
+    <span
+      className=""
+    >
+      Default
+    </span>
+  </button>
+  <button
+    aria-disabled={false}
+    aria-label="Default"
+    className="my-default-btn-class button button-secondary pill-shape"
+    data-test-id="my-default-btn-test-id"
+    defaultChecked={false}
+    disabled={false}
+    id="myDefaultButton"
+  >
+    <span
+      className=""
+    >
+      Default
+    </span>
+  </button>
+  <button
+    aria-disabled={false}
+    aria-label="Default"
+    className="my-default-btn-class button button-secondary pill-shape"
+    data-test-id="my-default-btn-test-id"
+    defaultChecked={false}
+    disabled={false}
+    id="myDefaultButton"
+  >
+    <span
+      className=""
+    >
+      Default
+    </span>
+  </button>
+</div>
+`;
+
+exports[`Storyshots Persistent Bar Bottom Bar With Text 1`] = `
+<div
+  className="persistent-bar my-persistent-bar-class bottom-with-text"
+  role="presentation"
+  style={Object {}}
+>
+  <div>
+    <h4>
+      Header 4 as Title:
+    </h4>
+    <span
+      className="content"
+    >
+      Body2 is used for supporting text.
+    </span>
+  </div>
+  <div>
+    <button
+      aria-disabled={false}
+      aria-label="Default"
+      className="-default-button button button-default pill-shape"
+      data-test-id="my-default-btn-test-id"
+      defaultChecked={false}
+      disabled={false}
+      id="myDefaultButton"
+    >
+      <span
+        className=""
+      >
+        Default
+      </span>
+    </button>
+    <button
+      aria-disabled={false}
+      aria-label="Primary"
+      className="my-primary-btn-class button button-primary pill-shape"
+      data-test-id="my-primary-btn-test-id"
+      defaultChecked={false}
+      disabled={false}
+      id="myPrimaryButton"
+    >
+      <span
+        className=""
+      >
+        Primary
+      </span>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Persistent Bar Top Bar Buttons 1`] = `
+<div
+  className="persistent-bar my-persistent-bar-class top-button-menu"
+  role="presentation"
+  style={Object {}}
+>
+  <button
+    aria-disabled={false}
+    aria-label="Save Icon Button"
+    className="button button-secondary pill-shape icon-left"
+    defaultChecked={false}
+    disabled={false}
+    id="myBookmarkButton"
+  >
+    <span
+      aria-hidden={false}
+      className="icon icon-wrapper"
+      role="presentation"
+    >
+      <svg
+        role="presentation"
+        style={
+          Object {
+            "height": "20px",
+            "width": "20px",
+          }
+        }
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M17,3H7A2,2 0 0,0 5,5V21L12,18L19,21V5C19,3.89 18.1,3 17,3Z"
+          style={
+            Object {
+              "fill": "currentColor",
+            }
+          }
+        />
+      </svg>
+    </span>
+  </button>
+  <button
+    aria-disabled={false}
+    aria-label="Secondary"
+    className="my-primary-btn-class button button-secondary pill-shape"
+    data-test-id="my-primary-btn-test-id"
+    defaultChecked={false}
+    disabled={false}
+    id="myPrimaryButton"
+  >
+    <span
+      className=""
+    >
+      Secondary
+    </span>
+  </button>
+  <button
+    aria-disabled={false}
+    aria-label="Secondary"
+    className="my-primary-btn-class button button-secondary pill-shape"
+    data-test-id="my-primary-btn-test-id"
+    defaultChecked={false}
+    disabled={false}
+    id="myPrimaryButton"
+  >
+    <span
+      className=""
+    >
+      Secondary
+    </span>
+  </button>
+  <button
+    aria-disabled={false}
+    aria-label="Secondary"
+    className="my-primary-btn-class button button-secondary pill-shape"
+    data-test-id="my-primary-btn-test-id"
+    defaultChecked={false}
+    disabled={false}
+    id="myPrimaryButton"
+  >
+    <span
+      className=""
+    >
+      Secondary
+    </span>
+  </button>
+  <button
+    aria-disabled={false}
+    aria-label="Secondary"
+    className="my-primary-btn-class button button-secondary pill-shape"
+    data-test-id="my-primary-btn-test-id"
+    defaultChecked={false}
+    disabled={false}
+    id="myPrimaryButton"
+  >
+    <span
+      className=""
+    >
+      Secondary
+    </span>
+  </button>
+  <button
+    aria-disabled={false}
+    aria-label="Secondary"
+    className="my-primary-btn-class button button-secondary pill-shape"
+    data-test-id="my-primary-btn-test-id"
+    defaultChecked={false}
+    disabled={false}
+    id="myPrimaryButton"
+  >
+    <span
+      className=""
+    >
+      Secondary
+    </span>
+  </button>
+  <button
+    aria-disabled={false}
+    aria-label="Save Icon Button"
+    className="button button-secondary pill-shape icon-left"
+    defaultChecked={false}
+    disabled={false}
+    id="myMenuButton"
+  >
+    <span
+      aria-hidden={false}
+      className="icon icon-wrapper"
+      role="presentation"
+    >
+      <svg
+        role="presentation"
+        style={
+          Object {
+            "height": "20px",
+            "width": "20px",
+          }
+        }
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M12,16A2,2 0 0,1 14,18A2,2 0 0,1 12,20A2,2 0 0,1 10,18A2,2 0 0,1 12,16M12,10A2,2 0 0,1 14,12A2,2 0 0,1 12,14A2,2 0 0,1 10,12A2,2 0 0,1 12,10M12,4A2,2 0 0,1 14,6A2,2 0 0,1 12,8A2,2 0 0,1 10,6A2,2 0 0,1 12,4Z"
+          style={
+            Object {
+              "fill": "currentColor",
+            }
+          }
+        />
+      </svg>
+    </span>
+  </button>
+</div>
+`;
+
+exports[`Storyshots Persistent Bar Top Bar Pagination 1`] = `
+<div
+  className="persistent-bar my-persistent-bar-class top-pagination"
+  role="presentation"
+  style={Object {}}
+>
+  <div
+    className="my-pagination-class pagination"
+    data-test-id="myPaginationTestId"
+  >
+    <span />
+    <button
+      aria-disabled={false}
+      aria-label="Previous"
+      className="pagination-button pagination-previous button button-neutral button-size2 icon-left disabled"
+      defaultChecked={false}
+      disabled={true}
+      onClick={[Function]}
+    >
+      <span
+        aria-hidden={false}
+        className="icon icon-wrapper"
+        role="presentation"
+      >
+        <svg
+          role="presentation"
+          style={
+            Object {
+              "height": "20px",
+              "width": "20px",
+            }
+          }
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z"
+            style={
+              Object {
+                "fill": "currentColor",
+              }
+            }
+          />
+        </svg>
+      </span>
+    </button>
+    <ul
+      className="pager"
+    >
+      <li>
+        <button
+          aria-checked={true}
+          aria-disabled={false}
+          aria-pressed={true}
+          className="pagination-button active button button-neutral button-size2"
+          defaultChecked={true}
+          disabled={false}
+          onClick={[Function]}
+        >
+          <span
+            className="button-text2"
+          >
+            1
+          </span>
+        </button>
+      </li>
+      <li>
+        <button
+          aria-checked={false}
+          aria-disabled={false}
+          aria-pressed={false}
+          className="pagination-button button button-neutral button-size2"
+          defaultChecked={false}
+          disabled={false}
+          onClick={[Function]}
+        >
+          <span
+            className="button-text2"
+          >
+            0
+          </span>
+        </button>
+      </li>
+      <li>
+        <button
+          aria-disabled={false}
+          aria-label="Next 5"
+          className="pagination-button quicknext button button-neutral button-size2 icon-left"
+          defaultChecked={false}
+          disabled={false}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+        >
+          <span
+            aria-hidden={false}
+            className="icon icon-wrapper"
+            role="presentation"
+          >
+            <svg
+              role="presentation"
+              style={
+                Object {
+                  "height": "20px",
+                  "width": "20px",
+                }
+              }
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M16,12A2,2 0 0,1 18,10A2,2 0 0,1 20,12A2,2 0 0,1 18,14A2,2 0 0,1 16,12M10,12A2,2 0 0,1 12,10A2,2 0 0,1 14,12A2,2 0 0,1 12,14A2,2 0 0,1 10,12M4,12A2,2 0 0,1 6,10A2,2 0 0,1 8,12A2,2 0 0,1 6,14A2,2 0 0,1 4,12Z"
+                style={
+                  Object {
+                    "fill": "currentColor",
+                  }
+                }
+              />
+            </svg>
+          </span>
+        </button>
+      </li>
+      <li>
+        <button
+          aria-checked={false}
+          aria-disabled={false}
+          aria-pressed={false}
+          className="pagination-button button button-neutral button-size2"
+          defaultChecked={false}
+          disabled={false}
+          onClick={[Function]}
+        >
+          <span
+            className="button-text2"
+          >
+            15
+          </span>
+        </button>
+      </li>
+    </ul>
+    <button
+      aria-disabled={false}
+      aria-label="Next"
+      className="pagination-button pagination-next button button-neutral button-size2 icon-left"
+      defaultChecked={false}
+      disabled={false}
+      onClick={[Function]}
+    >
+      <span
+        aria-hidden={false}
+        className="icon icon-wrapper"
+        role="presentation"
+      >
+        <svg
+          role="presentation"
+          style={
+            Object {
+              "height": "20px",
+              "width": "20px",
+            }
+          }
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
+            style={
+              Object {
+                "fill": "currentColor",
+              }
+            }
+          />
+        </svg>
+      </span>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Persistent Bar Top Bar With Text 1`] = `
+<div
+  className="persistent-bar my-persistent-bar-class top-with-text"
+  role="presentation"
+  style={Object {}}
+>
+  <span
+    aria-hidden={false}
+    className="icon icon-wrapper"
+    role="presentation"
+  >
+    <svg
+      role="presentation"
+      style={
+        Object {
+          "height": "20px",
+          "width": "20px",
+        }
+      }
+      viewBox="0 0 24 24"
+    >
+      <path
+        d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z"
+        style={
+          Object {
+            "fill": "currentColor",
+          }
+        }
+      />
+    </svg>
+  </span>
+  <div>
+    <div>
+      <h4>
+        Header 4 as Title:
+      </h4>
+      <span
+        className="content"
+      >
+        Body2 is used for supporting text.
+      </span>
+    </div>
+  </div>
+  <div
+    className="pagination"
+  >
+    <span />
+    <button
+      aria-disabled={false}
+      aria-label="Previous"
+      className="pagination-button pagination-previous button button-neutral button-size2 icon-left disabled"
+      defaultChecked={false}
+      disabled={true}
+      onClick={[Function]}
+    >
+      <span
+        aria-hidden={false}
+        className="icon icon-wrapper"
+        role="presentation"
+      >
+        <svg
+          role="presentation"
+          style={
+            Object {
+              "height": "20px",
+              "width": "20px",
+            }
+          }
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z"
+            style={
+              Object {
+                "fill": "currentColor",
+              }
+            }
+          />
+        </svg>
+      </span>
+    </button>
+    <ul
+      className="pager page-tracker"
+    >
+      <li>
+        <span>
+          1 of
+        </span>
+      </li>
+      <li>
+        <span>
+          15
+        </span>
+      </li>
+    </ul>
+    <button
+      aria-disabled={false}
+      aria-label="Next"
+      className="pagination-button pagination-next button button-neutral button-size2 icon-left"
+      defaultChecked={false}
+      disabled={false}
+      onClick={[Function]}
+    >
+      <span
+        aria-hidden={false}
+        className="icon icon-wrapper"
+        role="presentation"
+      >
+        <svg
+          role="presentation"
+          style={
+            Object {
+              "height": "20px",
+              "width": "20px",
+            }
+          }
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
+            style={
+              Object {
+                "fill": "currentColor",
+              }
+            }
+          />
+        </svg>
+      </span>
+    </button>
+  </div>
+</div>
+`;

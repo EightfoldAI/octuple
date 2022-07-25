@@ -5,6 +5,7 @@ import dayjs from 'dayjs';
 import React from 'react';
 import DatePicker from '..';
 import '@testing-library/jest-dom';
+import 'jest-specific-snapshot';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -33,7 +34,7 @@ describe('DatePicker', () => {
         MockDate.reset();
     });
 
-    it('prop locale should works', () => {
+    it('prop locale should work', () => {
         const locale = {
             lang: {
                 locale: 'mk',
@@ -70,17 +71,19 @@ describe('DatePicker', () => {
             },
         };
         const birthday = dayjs('2000-01-01', 'YYYY-MM-DD');
-        const wrapper = mount(
-            <DatePicker open locale={locale} value={birthday} />
+        const wrapper = mount(<DatePicker locale={locale} value={birthday} />);
+        expect(wrapper.render()).toMatchSpecificSnapshot(
+            './__snapshots__/DatePicker.locale.shot'
         );
-        expect(wrapper.render()).toMatchSnapshot();
     });
 
     it('disabled date', () => {
         const disabledDate = (current) =>
             current && current < dayjs().endOf('day');
-        const wrapper = mount(<DatePicker disabledDate={disabledDate} open />);
-        expect(wrapper.render()).toMatchSnapshot();
+        const wrapper = mount(<DatePicker disabledDate={disabledDate} />);
+        expect(wrapper.render()).toMatchSpecificSnapshot(
+            './__snapshots__/DatePicker.disableddate.shot'
+        );
     });
 
     it('placeholder', () => {

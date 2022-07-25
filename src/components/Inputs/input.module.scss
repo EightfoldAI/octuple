@@ -3,6 +3,8 @@
     width: fit-content;
 
     input {
+        @include text-overflow;
+
         background-color: var(--background-color);
         border: 1px solid var(--border-color);
         border-radius: $corner-radius-s;
@@ -39,6 +41,12 @@
                     padding: $space-xs $space-xxl $space-xs $space-xs;
                 }
             }
+
+            &.clear-not-visible {
+                &.right-icon {
+                    padding: $space-xs $space-xxl $space-xs $space-xs;
+                }
+            }
         }
 
         &.with-icon-button {
@@ -54,6 +62,12 @@
                     padding: $space-xs $space-xs $space-xs $space-xl;
                 }
 
+                &.right-icon {
+                    padding: $space-xs $space-xl $space-xs $space-xs;
+                }
+            }
+
+            &.clear-not-visible {
                 &.right-icon {
                     padding: $space-xs $space-xl $space-xs $space-xs;
                 }
@@ -76,6 +90,12 @@
                     padding: $space-xs $space-xs $space-xs 74px;
                 }
 
+                &.right-icon {
+                    padding: $space-xs 74px $space-xs $space-xs;
+                }
+            }
+
+            &.clear-not-visible {
                 &.right-icon {
                     padding: $space-xs 74px $space-xs $space-xs;
                 }
@@ -181,6 +201,12 @@
                     padding: $space-xs $space-xxl $space-xs $space-xs;
                 }
             }
+
+            &.clear-not-visible {
+                &.right-icon {
+                    padding: $space-xs $space-xxl $space-xs $space-xs;
+                }
+            }
         }
 
         &.pill-shape-with-icon-button {
@@ -196,6 +222,12 @@
                     padding: $space-xs $space-xs $space-xs $space-xl;
                 }
 
+                &.right-icon {
+                    padding: $space-xs $space-xl $space-xs $space-xs;
+                }
+            }
+
+            &.clear-not-visible {
                 &.right-icon {
                     padding: $space-xs $space-xl $space-xs $space-xs;
                 }
@@ -218,6 +250,12 @@
                     padding: $space-xs $space-xs $space-xs 74px;
                 }
 
+                &.right-icon {
+                    padding: $space-xs 74px $space-xs $space-xs;
+                }
+            }
+
+            &.clear-not-visible {
                 &.right-icon {
                     padding: $space-xs 74px $space-xs $space-xs;
                 }
@@ -289,6 +327,12 @@
                         padding: $space-xs 48px $space-xs $space-xs;
                     }
                 }
+
+                &.clear-not-visible {
+                    &.right-icon {
+                        padding: $space-xs 48px $space-xs $space-xs;
+                    }
+                }
             }
 
             &.with-icon-and-icon-button {
@@ -307,6 +351,12 @@
                         padding: $space-xs $space-xs $space-xs 84px;
                     }
 
+                    &.right-icon {
+                        padding: $space-xs 84px $space-xs $space-xs;
+                    }
+                }
+
+                &.clear-not-visible {
                     &.right-icon {
                         padding: $space-xs 84px $space-xs $space-xs;
                     }
@@ -335,6 +385,12 @@
                         padding: $space-xs 48px $space-xs $space-xs;
                     }
                 }
+
+                &.clear-not-visible {
+                    &.right-icon {
+                        padding: $space-xs 48px $space-xs $space-xs;
+                    }
+                }
             }
 
             &.pill-shape-with-icon-and-icon-button {
@@ -357,6 +413,12 @@
                         padding: $space-xs 84px $space-xs $space-xs;
                     }
                 }
+
+                &.clear-not-visible {
+                    &.right-icon {
+                        padding: $space-xs 84px $space-xs $space-xs;
+                    }
+                }
             }
         }
 
@@ -375,7 +437,7 @@
                 }
 
                 &.right-icon {
-                    padding: $space-xs $space-xxl $space-xs $space-xl;
+                    padding: $space-xs $space-xxl $space-xs $space-xxl;
                 }
 
                 &.clear-disabled {
@@ -383,6 +445,12 @@
                         padding: $space-xs $space-xs $space-xs $space-xxl;
                     }
 
+                    &.right-icon {
+                        padding: $space-xs $space-xxl $space-xs $space-xs;
+                    }
+                }
+
+                &.clear-not-visible {
                     &.right-icon {
                         padding: $space-xs $space-xxl $space-xs $space-xs;
                     }
@@ -406,6 +474,12 @@
                         padding: $space-xs $space-xl $space-xs $space-xs;
                     }
                 }
+
+                &.clear-not-visible {
+                    &.right-icon {
+                        padding: $space-xs $space-xl $space-xs $space-xs;
+                    }
+                }
             }
 
             &.with-icon-and-icon-button {
@@ -424,6 +498,12 @@
                         padding: $space-xs $space-xs $space-xs 74px;
                     }
 
+                    &.right-icon {
+                        padding: $space-xs 74px $space-xs $space-xs;
+                    }
+                }
+
+                &.clear-not-visible {
                     &.right-icon {
                         padding: $space-xs 74px $space-xs $space-xs;
                     }
@@ -451,6 +531,12 @@
                         padding: $space-xs $space-xxl $space-xs $space-xs;
                     }
                 }
+
+                &.clear-not-visible {
+                    &.right-icon {
+                        padding: $space-xs $space-xxl $space-xs $space-xs;
+                    }
+                }
             }
 
             &.pill-shape-with-icon-button {
@@ -466,6 +552,12 @@
                         padding: $space-xs $space-xs $space-xs $space-xl;
                     }
 
+                    &.right-icon {
+                        padding: $space-xs $space-xl $space-xs $space-xs;
+                    }
+                }
+
+                &.clear-not-visible {
                     &.right-icon {
                         padding: $space-xs $space-xl $space-xs $space-xs;
                     }
@@ -488,6 +580,12 @@
                         padding: $space-xs $space-xs $space-xs 74px;
                     }
 
+                    &.right-icon {
+                        padding: $space-xs 74px $space-xs $space-xs;
+                    }
+                }
+
+                &.clear-not-visible {
                     &.right-icon {
                         padding: $space-xs 74px $space-xs $space-xs;
                     }
@@ -525,6 +623,12 @@
                         padding: $space-xs $space-xl $space-xs $space-xs;
                     }
                 }
+
+                &.clear-not-visible {
+                    &.right-icon {
+                        padding: $space-xs $space-xl $space-xs $space-xs;
+                    }
+                }
             }
 
             &.with-icon-and-icon-button {
@@ -543,6 +647,12 @@
                         padding: $space-xs $space-xs $space-xs 60px;
                     }
 
+                    &.right-icon {
+                        padding: $space-xs 60px $space-xs $space-xs;
+                    }
+                }
+
+                &.clear-not-visible {
                     &.right-icon {
                         padding: $space-xs 60px $space-xs $space-xs;
                     }
@@ -572,6 +682,12 @@
                         padding: $space-xs $space-xl $space-xs $space-xs;
                     }
                 }
+
+                &.clear-not-visible {
+                    &.right-icon {
+                        padding: $space-xs $space-xl $space-xs $space-xs;
+                    }
+                }
             }
 
             &.pill-shape-with-icon-button {
@@ -587,6 +703,12 @@
                         padding: $space-xs $space-xs $space-xs $space-xl;
                     }
 
+                    &.right-icon {
+                        padding: $space-xs $space-xl $space-xs $space-xs;
+                    }
+                }
+
+                &.clear-not-visible {
                     &.right-icon {
                         padding: $space-xs $space-xl $space-xs $space-xs;
                     }
@@ -609,6 +731,12 @@
                         padding: $space-xs $space-xs $space-xs 60px;
                     }
 
+                    &.right-icon {
+                        padding: $space-xs 60px $space-xs $space-xs;
+                    }
+                }
+
+                &.clear-not-visible {
                     &.right-icon {
                         padding: $space-xs 60px $space-xs $space-xs;
                     }
@@ -822,7 +950,6 @@
     .input-group,
     .text-area-group {
         position: relative;
-        width: fit-content;
 
         &.inline {
             display: flex;

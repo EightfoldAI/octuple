@@ -149,6 +149,7 @@
         "jest-localstorage-mock": "2.4.19",
         "jest-matchmedia-mock": "1.1.0",
         "jest-resolve": "27.4.2",
+        "jest-specific-snapshot": "5.0.0",
         "jest-watch-typeahead": "1.0.0",
         "lint-staged": "12.3.6",
         "mini-css-extract-plugin": "2.6.0",

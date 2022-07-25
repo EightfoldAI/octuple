@@ -11,6 +11,8 @@ export const Modal: FC<ModalProps> = React.forwardRef(
             actionButtonOneProps,
             actionButtonTwoProps,
             actionButtonThreeProps,
+            closeButtonProps,
+            closeIcon,
             size = ModalSize.medium,
             headerClassNames,
             bodyClassNames,
@@ -51,6 +53,8 @@ export const Modal: FC<ModalProps> = React.forwardRef(
                 actionButtonOneProps={actionButtonOneProps}
                 actionButtonTwoProps={actionButtonTwoProps}
                 actionButtonThreeProps={actionButtonThreeProps}
+                closeButtonProps={closeButtonProps}
+                closeIcon={closeIcon}
                 dialogWrapperClassNames={modalWrapperClassNames}
                 dialogClassNames={modalClasses}
                 headerClassNames={headerClasses}

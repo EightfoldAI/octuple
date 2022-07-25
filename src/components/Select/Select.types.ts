@@ -22,6 +22,7 @@ export enum SelectSize {
 export interface SelectOption extends MenuItemProps {
     selected?: boolean;
     hideOption?: boolean;
+    id?: string;
 }
 
 export interface SelectProps extends OcBaseProps<HTMLSelectElement> {
@@ -80,6 +81,11 @@ export interface SelectProps extends OcBaseProps<HTMLSelectElement> {
     isLoading?: boolean;
 
     /**
+     * display text when there are no filtered results.
+     */
+    emptyText?: string;
+
+    /**
      * select input props.
      * @default {}
      */
@@ -120,4 +126,10 @@ export interface SelectProps extends OcBaseProps<HTMLSelectElement> {
      * @default {}
      */
     spinner?: React.ReactNode;
+
+    /**
+     * Custom method to filter whether an option should be displayed in the menu.
+     * @default null
+     */
+    filterOption?: (option: any, query: any) => boolean;
 }

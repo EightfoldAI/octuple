@@ -1,0 +1,227 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Radio Button Bespoke Radio Group 1`] = `
+<div
+  className="stack vertical m"
+  style={
+    Object {
+      "alignItems": undefined,
+      "flexWrap": undefined,
+      "justifyContent": undefined,
+    }
+  }
+>
+  <div
+    className="selector my-radiobutton-class"
+  >
+    <input
+      aria-label="Label 1"
+      checked={true}
+      disabled={false}
+      id="myRadioButtonId1"
+      name="roleGroupName"
+      onChange={[Function]}
+      readOnly={true}
+      type="radio"
+      value="label1"
+    />
+    <label
+      className=""
+      htmlFor="myRadioButtonId1"
+    >
+      <span
+        className="radio-button"
+        id="myRadioButtonId1-custom-radio"
+      />
+      <span
+        className="selector-label"
+      >
+        Label 1
+      </span>
+    </label>
+  </div>
+  <div
+    className="selector my-radiobutton-class"
+  >
+    <input
+      aria-label="Label 2"
+      checked={false}
+      disabled={false}
+      id="myRadioButtonId2"
+      name="roleGroupName"
+      onChange={[Function]}
+      readOnly={true}
+      type="radio"
+      value="label2"
+    />
+    <label
+      className=""
+      htmlFor="myRadioButtonId2"
+    >
+      <span
+        className="radio-button"
+        id="myRadioButtonId2-custom-radio"
+      />
+      <span
+        className="selector-label"
+      >
+        Label 2
+      </span>
+    </label>
+  </div>
+  <div
+    className="selector my-radiobutton-class"
+  >
+    <input
+      aria-label="Label 3"
+      checked={false}
+      disabled={false}
+      id="myRadioButtonId3"
+      name="roleGroupName"
+      onChange={[Function]}
+      readOnly={true}
+      type="radio"
+      value="label3"
+    />
+    <label
+      className=""
+      htmlFor="myRadioButtonId3"
+    >
+      <span
+        className="radio-button"
+        id="myRadioButtonId3-custom-radio"
+      />
+      <span
+        className="selector-label"
+      >
+        Label 3
+      </span>
+    </label>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Radio Button Radio Button 1`] = `
+<div
+  className="selector my-radiobutton-class"
+>
+  <input
+    aria-label="Label"
+    checked={false}
+    disabled={false}
+    id="myRadioButtonId"
+    name="myRadioButtonName"
+    onChange={[Function]}
+    readOnly={true}
+    type="radio"
+    value="Label1"
+  />
+  <label
+    className=""
+    htmlFor="myRadioButtonId"
+  >
+    <span
+      className="radio-button"
+      id="myRadioButtonId-custom-radio"
+    />
+    <span
+      className="selector-label"
+    >
+      Label
+    </span>
+  </label>
+</div>
+`;
+
+exports[`Storyshots Radio Button Radio Group 1`] = `
+<div
+  aria-label="Radio Group"
+  className="radio-group vertical"
+  role="group"
+>
+  <div
+    className="selector"
+  >
+    <input
+      checked={true}
+      disabled={false}
+      id="oea2exk-1"
+      name="group"
+      onChange={[Function]}
+      readOnly={true}
+      type="radio"
+      value="Radio1"
+    />
+    <label
+      className=""
+      htmlFor="oea2exk-1"
+    >
+      <span
+        className="radio-button"
+        id="oea2exk-1-custom-radio"
+      />
+      <span
+        className="selector-label"
+      >
+        Radio1
+      </span>
+    </label>
+  </div>
+  <div
+    className="selector"
+  >
+    <input
+      checked={false}
+      disabled={false}
+      id="oea2exk-2"
+      name="group"
+      onChange={[Function]}
+      readOnly={true}
+      type="radio"
+      value="Radio2"
+    />
+    <label
+      className=""
+      htmlFor="oea2exk-2"
+    >
+      <span
+        className="radio-button"
+        id="oea2exk-2-custom-radio"
+      />
+      <span
+        className="selector-label"
+      >
+        Radio2
+      </span>
+    </label>
+  </div>
+  <div
+    className="selector"
+  >
+    <input
+      checked={false}
+      disabled={false}
+      id="oea2exk-3"
+      name="group"
+      onChange={[Function]}
+      readOnly={true}
+      type="radio"
+      value="Radio3"
+    />
+    <label
+      className=""
+      htmlFor="oea2exk-3"
+    >
+      <span
+        className="radio-button"
+        id="oea2exk-3-custom-radio"
+      />
+      <span
+        className="selector-label"
+      >
+        Radio3
+      </span>
+    </label>
+  </div>
+</div>
+`;

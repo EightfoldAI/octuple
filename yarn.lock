@@ -10910,7 +10910,7 @@ jest-snapshot@^26.3.0:
     pretty-format "^26.6.2"
     semver "^7.3.2"
 
-jest-snapshot@^27.5.1:
+jest-snapshot@^27.0.2, jest-snapshot@^27.5.1:
   version "27.5.1"
   resolved "https://registry.yarnpkg.com/jest-snapshot/-/jest-snapshot-27.5.1.tgz#b668d50d23d38054a51b42c4039cab59ae6eb6a1"
   integrity sha512-yYykXI5a0I31xX67mgeLw1DZ0bJB+gpq5IpSuCAoyDi0+BhgU/RIrL+RTzDmkNTchvDFWKP8lp+w/42Z3us5sA==
@@ -10937,6 +10937,13 @@ jest-snapshot@^27.5.1:
     natural-compare "^1.4.0"
     pretty-format "^27.5.1"
     semver "^7.3.2"
+
+jest-specific-snapshot@5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/jest-specific-snapshot/-/jest-specific-snapshot-5.0.0.tgz#48f72d5613af7f3e30df75b6b3534db6bab32ea0"
+  integrity sha512-V65vuPxZQExD3tGbv+Du5tbG1E3H3Dq/HFbsCEkPJP27w5vr/nATQJl61Dx5doBfu54OrJak0JaeYVSeZubDKg==
+  dependencies:
+    jest-snapshot "^27.0.2"
 
 jest-specific-snapshot@^4.0.0:
   version "4.0.0"
@@ -16404,9 +16411,9 @@ terser-webpack-plugin@^5.0.3, terser-webpack-plugin@^5.1.3:
     terser "^5.7.2"
 
 terser@^4.1.2, terser@^4.6.3:
-  version "4.8.0"
-  resolved "https://registry.yarnpkg.com/terser/-/terser-4.8.0.tgz#63056343d7c70bb29f3af665865a46fe03a0df17"
-  integrity sha512-EAPipTNeWsb/3wLPeup1tVPaXfIaU68xMnVdPafIL1TV05OhASArYyIfFvnvJCNrR2NIOvDVNNTFRa+Re2MWyw==
+  version "4.8.1"
+  resolved "https://registry.yarnpkg.com/terser/-/terser-4.8.1.tgz#a00e5634562de2239fd404c649051bf6fc21144f"
+  integrity sha512-4GnLC0x667eJG0ewJTa6z/yXrbLGv80D9Ru6HIpCQmO+Q4PfEtBFi0ObSckqwL6VyQv/7ENJieXHo2ANmdQwgw==
   dependencies:
     commander "^2.20.0"
     source-map "~0.6.1"
