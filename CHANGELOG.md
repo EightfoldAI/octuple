@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.19.1](https://github.com/EightfoldAI/octuple/compare/v1.19.0...v1.19.1) (2022-07-26)
+
+### Features
+
+-   tooltip: allow passing custom class and style to tooltip wrapper ([#264](https://github.com/EightfoldAI/octuple/issues/264)) ([4eeb0e4](https://github.com/EightfoldAI/octuple/commits/4eeb0e43ae4b50f657adcdedb8c59a1459bb993a))
+
 ## [1.19.0](https://github.com/EightfoldAI/octuple/compare/v1.18.0...v1.19.0) (2022-07-25)
 
 ### Features
