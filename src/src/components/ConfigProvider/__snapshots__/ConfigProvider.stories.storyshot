@@ -4859,7 +4859,7 @@ exports[`Storyshots Config Provider Theming 1`] = `
           className="checkmark"
         />
         <span
-          className="selector-label"
+          className="selector-label selector-label-end"
         >
           First
         </span>
@@ -4886,7 +4886,7 @@ exports[`Storyshots Config Provider Theming 1`] = `
           className="checkmark"
         />
         <span
-          className="selector-label"
+          className="selector-label selector-label-end"
         >
           Second
         </span>
@@ -4913,12 +4913,37 @@ exports[`Storyshots Config Provider Theming 1`] = `
           className="checkmark"
         />
         <span
-          className="selector-label"
+          className="selector-label selector-label-end"
         >
           Third
         </span>
       </label>
     </div>
+  </div>
+  <div
+    className="selector"
+  >
+    <input
+      checked={false}
+      disabled={false}
+      id="4fzzzxj"
+      onChange={[Function]}
+      readOnly={true}
+      type="checkbox"
+    />
+    <label
+      className=""
+      htmlFor="4fzzzxj"
+    >
+      <span
+        className="checkmark toggle"
+      />
+      <span
+        className="selector-label selector-label-end"
+      >
+        Toggle
+      </span>
+    </label>
   </div>
   <div
     aria-label="Radio Group"
@@ -4947,7 +4972,7 @@ exports[`Storyshots Config Provider Theming 1`] = `
           id="oea2exk-1-custom-radio"
         />
         <span
-          className="selector-label"
+          className="selector-label selector-label-end"
         >
           Radio1
         </span>
@@ -4975,7 +5000,7 @@ exports[`Storyshots Config Provider Theming 1`] = `
           id="oea2exk-2-custom-radio"
         />
         <span
-          className="selector-label"
+          className="selector-label selector-label-end"
         >
           Radio2
         </span>
@@ -5003,7 +5028,7 @@ exports[`Storyshots Config Provider Theming 1`] = `
           id="oea2exk-3-custom-radio"
         />
         <span
-          className="selector-label"
+          className="selector-label selector-label-end"
         >
           Radio3
         </span>

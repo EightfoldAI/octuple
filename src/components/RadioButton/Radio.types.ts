@@ -3,6 +3,11 @@ import { OcBaseProps } from '../OcBase';
 
 export type RadioButtonValue = string | number;
 
+export enum RadioButtonLabelPosition {
+    End = 'end',
+    Start = 'start',
+}
+
 export interface RadioGroupContextProps {
     children: React.ReactNode;
     onChange: React.ChangeEventHandler<HTMLInputElement>;
@@ -36,9 +41,14 @@ export interface RadioButtonProps extends OcBaseProps<HTMLInputElement> {
      */
     value?: RadioButtonValue;
     /**
-     * Label of the radio button
+     * Label of the radio button.
      */
     label?: string | React.ReactNode;
+    /**
+     * The label position of the radio button.
+     * @default RadioButtonLabelPosition.End
+     */
+    labelPosition?: RadioButtonLabelPosition;
     /**
      * The radio button onChange event handler.
      */
@@ -59,12 +69,17 @@ export interface RadioGroupProps extends OcBaseProps<HTMLDivElement> {
      */
     items?: RadioButtonProps[];
     /**
+     * The label position of the radio buttons.
+     * @default RadioButtonLabelPosition.End
+     */
+    labelPosition?: RadioButtonLabelPosition;
+    /**
+     * Type of layout for the radio group.
+     * @default vertical.
+     */
+    layout?: 'vertical' | 'horizontal';
+    /**
      * The radio button onChange event handler.
      */
     onChange?: React.ChangeEventHandler<HTMLInputElement>;
-    /**
-     * Type of layout for the radio group
-     * @default vertical
-     */
-    layout?: 'vertical' | 'horizontal';
 }

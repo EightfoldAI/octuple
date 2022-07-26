@@ -34569,7 +34569,7 @@ exports[`Storyshots Table Order Select And Expand Column 1`] = `
                         className="checkmark"
                       />
                       <span
-                        className="selector-label"
+                        className="selector-label selector-label-end"
                       />
                     </label>
                   </div>
@@ -34700,7 +34700,7 @@ exports[`Storyshots Table Order Select And Expand Column 1`] = `
                       className="checkmark"
                     />
                     <span
-                      className="selector-label"
+                      className="selector-label selector-label-end"
                     />
                   </label>
                 </div>
@@ -34826,7 +34826,7 @@ exports[`Storyshots Table Order Select And Expand Column 1`] = `
                       className="checkmark"
                     />
                     <span
-                      className="selector-label"
+                      className="selector-label selector-label-end"
                     />
                   </label>
                 </div>
@@ -34952,7 +34952,7 @@ exports[`Storyshots Table Order Select And Expand Column 1`] = `
                       className="checkmark"
                     />
                     <span
-                      className="selector-label"
+                      className="selector-label selector-label-end"
                     />
                   </label>
                 </div>
@@ -35078,7 +35078,7 @@ exports[`Storyshots Table Order Select And Expand Column 1`] = `
                       className="checkmark"
                     />
                     <span
-                      className="selector-label"
+                      className="selector-label selector-label-end"
                     />
                   </label>
                 </div>
@@ -35204,7 +35204,7 @@ exports[`Storyshots Table Order Select And Expand Column 1`] = `
                       className="checkmark"
                     />
                     <span
-                      className="selector-label"
+                      className="selector-label selector-label-end"
                     />
                   </label>
                 </div>
@@ -35330,7 +35330,7 @@ exports[`Storyshots Table Order Select And Expand Column 1`] = `
                       className="checkmark"
                     />
                     <span
-                      className="selector-label"
+                      className="selector-label selector-label-end"
                     />
                   </label>
                 </div>
@@ -35456,7 +35456,7 @@ exports[`Storyshots Table Order Select And Expand Column 1`] = `
                       className="checkmark"
                     />
                     <span
-                      className="selector-label"
+                      className="selector-label selector-label-end"
                     />
                   </label>
                 </div>
@@ -35582,7 +35582,7 @@ exports[`Storyshots Table Order Select And Expand Column 1`] = `
                       className="checkmark"
                     />
                     <span
-                      className="selector-label"
+                      className="selector-label selector-label-end"
                     />
                   </label>
                 </div>
@@ -35708,7 +35708,7 @@ exports[`Storyshots Table Order Select And Expand Column 1`] = `
                       className="checkmark"
                     />
                     <span
-                      className="selector-label"
+                      className="selector-label selector-label-end"
                     />
                   </label>
                 </div>
@@ -35834,7 +35834,7 @@ exports[`Storyshots Table Order Select And Expand Column 1`] = `
                       className="checkmark"
                     />
                     <span
-                      className="selector-label"
+                      className="selector-label selector-label-end"
                     />
                   </label>
                 </div>
@@ -35959,7 +35959,7 @@ exports[`Storyshots Table Order Select And Expand Column 1`] = `
                       className="checkmark"
                     />
                     <span
-                      className="selector-label"
+                      className="selector-label selector-label-end"
                     />
                   </label>
                 </div>
@@ -36085,7 +36085,7 @@ exports[`Storyshots Table Order Select And Expand Column 1`] = `
                       className="checkmark"
                     />
                     <span
-                      className="selector-label"
+                      className="selector-label selector-label-end"
                     />
                   </label>
                 </div>
@@ -36211,7 +36211,7 @@ exports[`Storyshots Table Order Select And Expand Column 1`] = `
                       className="checkmark"
                     />
                     <span
-                      className="selector-label"
+                      className="selector-label selector-label-end"
                     />
                   </label>
                 </div>
@@ -36337,7 +36337,7 @@ exports[`Storyshots Table Order Select And Expand Column 1`] = `
                       className="checkmark"
                     />
                     <span
-                      className="selector-label"
+                      className="selector-label selector-label-end"
                     />
                   </label>
                 </div>
@@ -36463,7 +36463,7 @@ exports[`Storyshots Table Order Select And Expand Column 1`] = `
                       className="checkmark"
                     />
                     <span
-                      className="selector-label"
+                      className="selector-label selector-label-end"
                     />
                   </label>
                 </div>
@@ -36589,7 +36589,7 @@ exports[`Storyshots Table Order Select And Expand Column 1`] = `
                       className="checkmark"
                     />
                     <span
-                      className="selector-label"
+                      className="selector-label selector-label-end"
                     />
                   </label>
                 </div>
@@ -40543,7 +40543,7 @@ exports[`Storyshots Table Selection 1`] = `
                         className="checkmark"
                       />
                       <span
-                        className="selector-label"
+                        className="selector-label selector-label-end"
                       />
                     </label>
                   </div>
@@ -40617,7 +40617,7 @@ exports[`Storyshots Table Selection 1`] = `
                       className="checkmark"
                     />
                     <span
-                      className="selector-label"
+                      className="selector-label selector-label-end"
                     />
                   </label>
                 </div>
@@ -40728,7 +40728,7 @@ exports[`Storyshots Table Selection 1`] = `
                       className="checkmark"
                     />
                     <span
-                      className="selector-label"
+                      className="selector-label selector-label-end"
                     />
                   </label>
                 </div>
@@ -40839,7 +40839,7 @@ exports[`Storyshots Table Selection 1`] = `
                       className="checkmark"
                     />
                     <span
-                      className="selector-label"
+                      className="selector-label selector-label-end"
                     />
                   </label>
                 </div>
@@ -40950,7 +40950,7 @@ exports[`Storyshots Table Selection 1`] = `
                       className="checkmark"
                     />
                     <span
-                      className="selector-label"
+                      className="selector-label selector-label-end"
                     />
                   </label>
                 </div>
@@ -41061,7 +41061,7 @@ exports[`Storyshots Table Selection 1`] = `
                       className="checkmark"
                     />
                     <span
-                      className="selector-label"
+                      className="selector-label selector-label-end"
                     />
                   </label>
                 </div>
@@ -41172,7 +41172,7 @@ exports[`Storyshots Table Selection 1`] = `
                       className="checkmark"
                     />
                     <span
-                      className="selector-label"
+                      className="selector-label selector-label-end"
                     />
                   </label>
                 </div>
@@ -41283,7 +41283,7 @@ exports[`Storyshots Table Selection 1`] = `
                       className="checkmark"
                     />
                     <span
-                      className="selector-label"
+                      className="selector-label selector-label-end"
                     />
                   </label>
                 </div>
@@ -41394,7 +41394,7 @@ exports[`Storyshots Table Selection 1`] = `
                       className="checkmark"
                     />
                     <span
-                      className="selector-label"
+                      className="selector-label selector-label-end"
                     />
                   </label>
                 </div>
@@ -41505,7 +41505,7 @@ exports[`Storyshots Table Selection 1`] = `
                       className="checkmark"
                     />
                     <span
-                      className="selector-label"
+                      className="selector-label selector-label-end"
                     />
                   </label>
                 </div>
@@ -41616,7 +41616,7 @@ exports[`Storyshots Table Selection 1`] = `
                       className="checkmark"
                     />
                     <span
-                      className="selector-label"
+                      className="selector-label selector-label-end"
                     />
                   </label>
                 </div>
@@ -41727,7 +41727,7 @@ exports[`Storyshots Table Selection 1`] = `
                       className="checkmark"
                     />
                     <span
-                      className="selector-label"
+                      className="selector-label selector-label-end"
                     />
                   </label>
                 </div>
@@ -41837,7 +41837,7 @@ exports[`Storyshots Table Selection 1`] = `
                       className="checkmark"
                     />
                     <span
-                      className="selector-label"
+                      className="selector-label selector-label-end"
                     />
                   </label>
                 </div>
@@ -41948,7 +41948,7 @@ exports[`Storyshots Table Selection 1`] = `
                       className="checkmark"
                     />
                     <span
-                      className="selector-label"
+                      className="selector-label selector-label-end"
                     />
                   </label>
                 </div>
@@ -42059,7 +42059,7 @@ exports[`Storyshots Table Selection 1`] = `
                       className="checkmark"
                     />
                     <span
-                      className="selector-label"
+                      className="selector-label selector-label-end"
                     />
                   </label>
                 </div>
@@ -42170,7 +42170,7 @@ exports[`Storyshots Table Selection 1`] = `
                       className="checkmark"
                     />
                     <span
-                      className="selector-label"
+                      className="selector-label selector-label-end"
                     />
                   </label>
                 </div>
@@ -42281,7 +42281,7 @@ exports[`Storyshots Table Selection 1`] = `
                       className="checkmark"
                     />
                     <span
-                      className="selector-label"
+                      className="selector-label selector-label-end"
                     />
                   </label>
                 </div>

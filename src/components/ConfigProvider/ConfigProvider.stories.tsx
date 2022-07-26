@@ -16,7 +16,7 @@ import { MatchScore } from '../MatchScore';
 import { Spinner } from '../Spinner';
 import { Stack } from '../Stack';
 import { RadioGroup } from '../RadioButton';
-import { CheckBoxGroup } from '../CheckBox';
+import { CheckBox, CheckBoxGroup } from '../CheckBox';
 import { Link } from '../Link';
 import { Navbar, NavbarContent } from '../Navbar';
 import { Dropdown } from '../Dropdown';
@@ -354,6 +354,7 @@ const ThemedComponents: FC = () => {
                     ],
                 }}
             />
+            <CheckBox label={'Toggle'} toggle />
             <RadioGroup
                 {...{
                     ariaLabel: 'Radio Group',

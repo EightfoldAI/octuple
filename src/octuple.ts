@@ -18,7 +18,11 @@ import {
     TwoStateButton,
 } from './components/Button';
 
-import { CheckBox, CheckBoxGroup } from './components/CheckBox';
+import {
+    CheckBox,
+    CheckBoxGroup,
+    CheckBoxLabelPosition,
+} from './components/CheckBox';
 
 import { ConfigProvider } from './components/ConfigProvider';
 
@@ -89,7 +93,11 @@ import { Panel, PanelPlacement, PanelSize } from './components/Panel';
 
 import { Portal } from './components/Portal';
 
-import { RadioButton, RadioGroup } from './components/RadioButton';
+import {
+    RadioButton,
+    RadioButtonLabelPosition,
+    RadioGroup,
+} from './components/RadioButton';
 
 import Table, {
     ColumnGroupType,
@@ -126,6 +134,7 @@ export {
     ButtonWidth,
     CheckBox,
     CheckBoxGroup,
+    CheckBoxLabelPosition,
     ColumnGroupType,
     ColumnType,
     ColumnsType,

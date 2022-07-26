@@ -101,7 +101,7 @@ LoadedCheerio {
                                                     "namespace": "http://www.w3.org/1999/xhtml",
                                                     "next": Node {
                                                       "attribs": Object {
-                                                        "class": "selector-label",
+                                                        "class": "selector-label selector-label-end",
                                                       },
                                                       "children": Array [],
                                                       "name": "span",
@@ -129,7 +129,7 @@ LoadedCheerio {
                                                   },
                                                   Node {
                                                     "attribs": Object {
-                                                      "class": "selector-label",
+                                                      "class": "selector-label selector-label-end",
                                                     },
                                                     "children": Array [],
                                                     "name": "span",
@@ -209,7 +209,7 @@ LoadedCheerio {
                                                   "namespace": "http://www.w3.org/1999/xhtml",
                                                   "next": Node {
                                                     "attribs": Object {
-                                                      "class": "selector-label",
+                                                      "class": "selector-label selector-label-end",
                                                     },
                                                     "children": Array [],
                                                     "name": "span",
@@ -237,7 +237,7 @@ LoadedCheerio {
                                                 },
                                                 Node {
                                                   "attribs": Object {
-                                                    "class": "selector-label",
+                                                    "class": "selector-label selector-label-end",
                                                   },
                                                   "children": Array [],
                                                   "name": "span",
@@ -443,7 +443,7 @@ LoadedCheerio {
                                                       "namespace": "http://www.w3.org/1999/xhtml",
                                                       "next": Node {
                                                         "attribs": Object {
-                                                          "class": "selector-label",
+                                                          "class": "selector-label selector-label-end",
                                                         },
                                                         "children": Array [],
                                                         "name": "span",
@@ -471,7 +471,7 @@ LoadedCheerio {
                                                     },
                                                     Node {
                                                       "attribs": Object {
-                                                        "class": "selector-label",
+                                                        "class": "selector-label selector-label-end",
                                                       },
                                                       "children": Array [],
                                                       "name": "span",
@@ -551,7 +551,7 @@ LoadedCheerio {
                                                     "namespace": "http://www.w3.org/1999/xhtml",
                                                     "next": Node {
                                                       "attribs": Object {
-                                                        "class": "selector-label",
+                                                        "class": "selector-label selector-label-end",
                                                       },
                                                       "children": Array [],
                                                       "name": "span",
@@ -579,7 +579,7 @@ LoadedCheerio {
                                                   },
                                                   Node {
                                                     "attribs": Object {
-                                                      "class": "selector-label",
+                                                      "class": "selector-label selector-label-end",
                                                     },
                                                     "children": Array [],
                                                     "name": "span",
@@ -956,7 +956,7 @@ LoadedCheerio {
                                                     "namespace": "http://www.w3.org/1999/xhtml",
                                                     "next": Node {
                                                       "attribs": Object {
-                                                        "class": "selector-label",
+                                                        "class": "selector-label selector-label-end",
                                                       },
                                                       "children": Array [],
                                                       "name": "span",
@@ -984,7 +984,7 @@ LoadedCheerio {
                                                   },
                                                   Node {
                                                     "attribs": Object {
-                                                      "class": "selector-label",
+                                                      "class": "selector-label selector-label-end",
                                                     },
                                                     "children": Array [],
                                                     "name": "span",
@@ -1064,7 +1064,7 @@ LoadedCheerio {
                                                   "namespace": "http://www.w3.org/1999/xhtml",
                                                   "next": Node {
                                                     "attribs": Object {
-                                                      "class": "selector-label",
+                                                      "class": "selector-label selector-label-end",
                                                     },
                                                     "children": Array [],
                                                     "name": "span",
@@ -1092,7 +1092,7 @@ LoadedCheerio {
                                                 },
                                                 Node {
                                                   "attribs": Object {
-                                                    "class": "selector-label",
+                                                    "class": "selector-label selector-label-end",
                                                   },
                                                   "children": Array [],
                                                   "name": "span",
@@ -1279,7 +1279,7 @@ LoadedCheerio {
                                                       "namespace": "http://www.w3.org/1999/xhtml",
                                                       "next": Node {
                                                         "attribs": Object {
-                                                          "class": "selector-label",
+                                                          "class": "selector-label selector-label-end",
                                                         },
                                                         "children": Array [],
                                                         "name": "span",
@@ -1307,7 +1307,7 @@ LoadedCheerio {
                                                     },
                                                     Node {
                                                       "attribs": Object {
-                                                        "class": "selector-label",
+                                                        "class": "selector-label selector-label-end",
                                                       },
                                                       "children": Array [],
                                                       "name": "span",
@@ -1387,7 +1387,7 @@ LoadedCheerio {
                                                     "namespace": "http://www.w3.org/1999/xhtml",
                                                     "next": Node {
                                                       "attribs": Object {
-                                                        "class": "selector-label",
+                                                        "class": "selector-label selector-label-end",
                                                       },
                                                       "children": Array [],
                                                       "name": "span",
@@ -1415,7 +1415,7 @@ LoadedCheerio {
                                                   },
                                                   Node {
                                                     "attribs": Object {
-                                                      "class": "selector-label",
+                                                      "class": "selector-label selector-label-end",
                                                     },
                                                     "children": Array [],
                                                     "name": "span",
@@ -1575,7 +1575,7 @@ LoadedCheerio {
                                                       "namespace": "http://www.w3.org/1999/xhtml",
                                                       "next": Node {
                                                         "attribs": Object {
-                                                          "class": "selector-label",
+                                                          "class": "selector-label selector-label-end",
                                                         },
                                                         "children": Array [],
                                                         "name": "span",
@@ -1603,7 +1603,7 @@ LoadedCheerio {
                                                     },
                                                     Node {
                                                       "attribs": Object {
-                                                        "class": "selector-label",
+                                                        "class": "selector-label selector-label-end",
                                                       },
                                                       "children": Array [],
                                                       "name": "span",
@@ -1683,7 +1683,7 @@ LoadedCheerio {
                                                     "namespace": "http://www.w3.org/1999/xhtml",
                                                     "next": Node {
                                                       "attribs": Object {
-                                                        "class": "selector-label",
+                                                        "class": "selector-label selector-label-end",
                                                       },
                                                       "children": Array [],
                                                       "name": "span",
@@ -1711,7 +1711,7 @@ LoadedCheerio {
                                                   },
                                                   Node {
                                                     "attribs": Object {
-                                                      "class": "selector-label",
+                                                      "class": "selector-label selector-label-end",
                                                     },
                                                     "children": Array [],
                                                     "name": "span",
@@ -1898,7 +1898,7 @@ LoadedCheerio {
                                                         "namespace": "http://www.w3.org/1999/xhtml",
                                                         "next": Node {
                                                           "attribs": Object {
-                                                            "class": "selector-label",
+                                                            "class": "selector-label selector-label-end",
                                                           },
                                                           "children": Array [],
                                                           "name": "span",
@@ -1926,7 +1926,7 @@ LoadedCheerio {
                                                       },
                                                       Node {
                                                         "attribs": Object {
-                                                          "class": "selector-label",
+                                                          "class": "selector-label selector-label-end",
                                                         },
                                                         "children": Array [],
                                                         "name": "span",
@@ -2006,7 +2006,7 @@ LoadedCheerio {
                                                       "namespace": "http://www.w3.org/1999/xhtml",
                                                       "next": Node {
                                                         "attribs": Object {
-                                                          "class": "selector-label",
+                                                          "class": "selector-label selector-label-end",
                                                         },
                                                         "children": Array [],
                                                         "name": "span",
@@ -2034,7 +2034,7 @@ LoadedCheerio {
                                                     },
                                                     Node {
                                                       "attribs": Object {
-                                                        "class": "selector-label",
+                                                        "class": "selector-label selector-label-end",
                                                       },
                                                       "children": Array [],
                                                       "name": "span",
@@ -2233,7 +2233,7 @@ LoadedCheerio {
                                                   "namespace": "http://www.w3.org/1999/xhtml",
                                                   "next": Node {
                                                     "attribs": Object {
-                                                      "class": "selector-label",
+                                                      "class": "selector-label selector-label-end",
                                                     },
                                                     "children": Array [],
                                                     "name": "span",
@@ -2261,7 +2261,7 @@ LoadedCheerio {
                                                 },
                                                 Node {
                                                   "attribs": Object {
-                                                    "class": "selector-label",
+                                                    "class": "selector-label selector-label-end",
                                                   },
                                                   "children": Array [],
                                                   "name": "span",
@@ -2341,7 +2341,7 @@ LoadedCheerio {
                                                 "namespace": "http://www.w3.org/1999/xhtml",
                                                 "next": Node {
                                                   "attribs": Object {
-                                                    "class": "selector-label",
+                                                    "class": "selector-label selector-label-end",
                                                   },
                                                   "children": Array [],
                                                   "name": "span",
@@ -2369,7 +2369,7 @@ LoadedCheerio {
                                               },
                                               Node {
                                                 "attribs": Object {
-                                                  "class": "selector-label",
+                                                  "class": "selector-label selector-label-end",
                                                 },
                                                 "children": Array [],
                                                 "name": "span",
@@ -2556,7 +2556,7 @@ LoadedCheerio {
                                                     "namespace": "http://www.w3.org/1999/xhtml",
                                                     "next": Node {
                                                       "attribs": Object {
-                                                        "class": "selector-label",
+                                                        "class": "selector-label selector-label-end",
                                                       },
                                                       "children": Array [],
                                                       "name": "span",
@@ -2584,7 +2584,7 @@ LoadedCheerio {
                                                   },
                                                   Node {
                                                     "attribs": Object {
-                                                      "class": "selector-label",
+                                                      "class": "selector-label selector-label-end",
                                                     },
                                                     "children": Array [],
                                                     "name": "span",
@@ -2664,7 +2664,7 @@ LoadedCheerio {
                                                   "namespace": "http://www.w3.org/1999/xhtml",
                                                   "next": Node {
                                                     "attribs": Object {
-                                                      "class": "selector-label",
+                                                      "class": "selector-label selector-label-end",
                                                     },
                                                     "children": Array [],
                                                     "name": "span",
@@ -2692,7 +2692,7 @@ LoadedCheerio {
                                                 },
                                                 Node {
                                                   "attribs": Object {
-                                                    "class": "selector-label",
+                                                    "class": "selector-label selector-label-end",
                                                   },
                                                   "children": Array [],
                                                   "name": "span",
@@ -2852,7 +2852,7 @@ LoadedCheerio {
                                                     "namespace": "http://www.w3.org/1999/xhtml",
                                                     "next": Node {
                                                       "attribs": Object {
-                                                        "class": "selector-label",
+                                                        "class": "selector-label selector-label-end",
                                                       },
                                                       "children": Array [],
                                                       "name": "span",
@@ -2880,7 +2880,7 @@ LoadedCheerio {
                                                   },
                                                   Node {
                                                     "attribs": Object {
-                                                      "class": "selector-label",
+                                                      "class": "selector-label selector-label-end",
                                                     },
                                                     "children": Array [],
                                                     "name": "span",
@@ -2960,7 +2960,7 @@ LoadedCheerio {
                                                   "namespace": "http://www.w3.org/1999/xhtml",
                                                   "next": Node {
                                                     "attribs": Object {
-                                                      "class": "selector-label",
+                                                      "class": "selector-label selector-label-end",
                                                     },
                                                     "children": Array [],
                                                     "name": "span",
@@ -2988,7 +2988,7 @@ LoadedCheerio {
                                                 },
                                                 Node {
                                                   "attribs": Object {
-                                                    "class": "selector-label",
+                                                    "class": "selector-label selector-label-end",
                                                   },
                                                   "children": Array [],
                                                   "name": "span",
@@ -3175,7 +3175,7 @@ LoadedCheerio {
                                                       "namespace": "http://www.w3.org/1999/xhtml",
                                                       "next": Node {
                                                         "attribs": Object {
-                                                          "class": "selector-label",
+                                                          "class": "selector-label selector-label-end",
                                                         },
                                                         "children": Array [],
                                                         "name": "span",
@@ -3203,7 +3203,7 @@ LoadedCheerio {
                                                     },
                                                     Node {
                                                       "attribs": Object {
-                                                        "class": "selector-label",
+                                                        "class": "selector-label selector-label-end",
                                                       },
                                                       "children": Array [],
                                                       "name": "span",
@@ -3283,7 +3283,7 @@ LoadedCheerio {
                                                     "namespace": "http://www.w3.org/1999/xhtml",
                                                     "next": Node {
                                                       "attribs": Object {
-                                                        "class": "selector-label",
+                                                        "class": "selector-label selector-label-end",
                                                       },
                                                       "children": Array [],
                                                       "name": "span",
@@ -3311,7 +3311,7 @@ LoadedCheerio {
                                                   },
                                                   Node {
                                                     "attribs": Object {
-                                                      "class": "selector-label",
+                                                      "class": "selector-label selector-label-end",
                                                     },
                                                     "children": Array [],
                                                     "name": "span",
@@ -3698,7 +3698,7 @@ LoadedCheerio {
                                                   "namespace": "http://www.w3.org/1999/xhtml",
                                                   "next": Node {
                                                     "attribs": Object {
-                                                      "class": "selector-label",
+                                                      "class": "selector-label selector-label-end",
                                                     },
                                                     "children": Array [],
                                                     "name": "span",
@@ -3726,7 +3726,7 @@ LoadedCheerio {
                                                 },
                                                 Node {
                                                   "attribs": Object {
-                                                    "class": "selector-label",
+                                                    "class": "selector-label selector-label-end",
                                                   },
                                                   "children": Array [],
                                                   "name": "span",
@@ -3806,7 +3806,7 @@ LoadedCheerio {
                                                 "namespace": "http://www.w3.org/1999/xhtml",
                                                 "next": Node {
                                                   "attribs": Object {
-                                                    "class": "selector-label",
+                                                    "class": "selector-label selector-label-end",
                                                   },
                                                   "children": Array [],
                                                   "name": "span",
@@ -3834,7 +3834,7 @@ LoadedCheerio {
                                               },
                                               Node {
                                                 "attribs": Object {
-                                                  "class": "selector-label",
+                                                  "class": "selector-label selector-label-end",
                                                 },
                                                 "children": Array [],
                                                 "name": "span",
@@ -4021,7 +4021,7 @@ LoadedCheerio {
                                                     "namespace": "http://www.w3.org/1999/xhtml",
                                                     "next": Node {
                                                       "attribs": Object {
-                                                        "class": "selector-label",
+                                                        "class": "selector-label selector-label-end",
                                                       },
                                                       "children": Array [],
                                                       "name": "span",
@@ -4049,7 +4049,7 @@ LoadedCheerio {
                                                   },
                                                   Node {
                                                     "attribs": Object {
-                                                      "class": "selector-label",
+                                                      "class": "selector-label selector-label-end",
                                                     },
                                                     "children": Array [],
                                                     "name": "span",
@@ -4129,7 +4129,7 @@ LoadedCheerio {
                                                   "namespace": "http://www.w3.org/1999/xhtml",
                                                   "next": Node {
                                                     "attribs": Object {
-                                                      "class": "selector-label",
+                                                      "class": "selector-label selector-label-end",
                                                     },
                                                     "children": Array [],
                                                     "name": "span",
@@ -4157,7 +4157,7 @@ LoadedCheerio {
                                                 },
                                                 Node {
                                                   "attribs": Object {
-                                                    "class": "selector-label",
+                                                    "class": "selector-label selector-label-end",
                                                   },
                                                   "children": Array [],
                                                   "name": "span",
@@ -4319,7 +4319,7 @@ LoadedCheerio {
                                                     "namespace": "http://www.w3.org/1999/xhtml",
                                                     "next": Node {
                                                       "attribs": Object {
-                                                        "class": "selector-label",
+                                                        "class": "selector-label selector-label-end",
                                                       },
                                                       "children": Array [],
                                                       "name": "span",
@@ -4347,7 +4347,7 @@ LoadedCheerio {
                                                   },
                                                   Node {
                                                     "attribs": Object {
-                                                      "class": "selector-label",
+                                                      "class": "selector-label selector-label-end",
                                                     },
                                                     "children": Array [],
                                                     "name": "span",
@@ -4427,7 +4427,7 @@ LoadedCheerio {
                                                   "namespace": "http://www.w3.org/1999/xhtml",
                                                   "next": Node {
                                                     "attribs": Object {
-                                                      "class": "selector-label",
+                                                      "class": "selector-label selector-label-end",
                                                     },
                                                     "children": Array [],
                                                     "name": "span",
@@ -4455,7 +4455,7 @@ LoadedCheerio {
                                                 },
                                                 Node {
                                                   "attribs": Object {
-                                                    "class": "selector-label",
+                                                    "class": "selector-label selector-label-end",
                                                   },
                                                   "children": Array [],
                                                   "name": "span",
@@ -4642,7 +4642,7 @@ LoadedCheerio {
                                                       "namespace": "http://www.w3.org/1999/xhtml",
                                                       "next": Node {
                                                         "attribs": Object {
-                                                          "class": "selector-label",
+                                                          "class": "selector-label selector-label-end",
                                                         },
                                                         "children": Array [],
                                                         "name": "span",
@@ -4670,7 +4670,7 @@ LoadedCheerio {
                                                     },
                                                     Node {
                                                       "attribs": Object {
-                                                        "class": "selector-label",
+                                                        "class": "selector-label selector-label-end",
                                                       },
                                                       "children": Array [],
                                                       "name": "span",
@@ -4750,7 +4750,7 @@ LoadedCheerio {
                                                     "namespace": "http://www.w3.org/1999/xhtml",
                                                     "next": Node {
                                                       "attribs": Object {
-                                                        "class": "selector-label",
+                                                        "class": "selector-label selector-label-end",
                                                       },
                                                       "children": Array [],
                                                       "name": "span",
@@ -4778,7 +4778,7 @@ LoadedCheerio {
                                                   },
                                                   Node {
                                                     "attribs": Object {
-                                                      "class": "selector-label",
+                                                      "class": "selector-label selector-label-end",
                                                     },
                                                     "children": Array [],
                                                     "name": "span",
@@ -5200,7 +5200,7 @@ LoadedCheerio {
                                                   "namespace": "http://www.w3.org/1999/xhtml",
                                                   "next": Node {
                                                     "attribs": Object {
-                                                      "class": "selector-label",
+                                                      "class": "selector-label selector-label-end",
                                                     },
                                                     "children": Array [],
                                                     "name": "span",
@@ -5228,7 +5228,7 @@ LoadedCheerio {
                                                 },
                                                 Node {
                                                   "attribs": Object {
-                                                    "class": "selector-label",
+                                                    "class": "selector-label selector-label-end",
                                                   },
                                                   "children": Array [],
                                                   "name": "span",
@@ -5308,7 +5308,7 @@ LoadedCheerio {
                                                 "namespace": "http://www.w3.org/1999/xhtml",
                                                 "next": Node {
                                                   "attribs": Object {
-                                                    "class": "selector-label",
+                                                    "class": "selector-label selector-label-end",
                                                   },
                                                   "children": Array [],
                                                   "name": "span",
@@ -5336,7 +5336,7 @@ LoadedCheerio {
                                               },
                                               Node {
                                                 "attribs": Object {
-                                                  "class": "selector-label",
+                                                  "class": "selector-label selector-label-end",
                                                 },
                                                 "children": Array [],
                                                 "name": "span",
@@ -5542,7 +5542,7 @@ LoadedCheerio {
                                                     "namespace": "http://www.w3.org/1999/xhtml",
                                                     "next": Node {
                                                       "attribs": Object {
-                                                        "class": "selector-label",
+                                                        "class": "selector-label selector-label-end",
                                                       },
                                                       "children": Array [],
                                                       "name": "span",
@@ -5570,7 +5570,7 @@ LoadedCheerio {
                                                   },
                                                   Node {
                                                     "attribs": Object {
-                                                      "class": "selector-label",
+                                                      "class": "selector-label selector-label-end",
                                                     },
                                                     "children": Array [],
                                                     "name": "span",
@@ -5650,7 +5650,7 @@ LoadedCheerio {
                                                   "namespace": "http://www.w3.org/1999/xhtml",
                                                   "next": Node {
                                                     "attribs": Object {
-                                                      "class": "selector-label",
+                                                      "class": "selector-label selector-label-end",
                                                     },
                                                     "children": Array [],
                                                     "name": "span",
@@ -5678,7 +5678,7 @@ LoadedCheerio {
                                                 },
                                                 Node {
                                                   "attribs": Object {
-                                                    "class": "selector-label",
+                                                    "class": "selector-label selector-label-end",
                                                   },
                                                   "children": Array [],
                                                   "name": "span",
@@ -6055,7 +6055,7 @@ LoadedCheerio {
                                                   "namespace": "http://www.w3.org/1999/xhtml",
                                                   "next": Node {
                                                     "attribs": Object {
-                                                      "class": "selector-label",
+                                                      "class": "selector-label selector-label-end",
                                                     },
                                                     "children": Array [],
                                                     "name": "span",
@@ -6083,7 +6083,7 @@ LoadedCheerio {
                                                 },
                                                 Node {
                                                   "attribs": Object {
-                                                    "class": "selector-label",
+                                                    "class": "selector-label selector-label-end",
                                                   },
                                                   "children": Array [],
                                                   "name": "span",
@@ -6163,7 +6163,7 @@ LoadedCheerio {
                                                 "namespace": "http://www.w3.org/1999/xhtml",
                                                 "next": Node {
                                                   "attribs": Object {
-                                                    "class": "selector-label",
+                                                    "class": "selector-label selector-label-end",
                                                   },
                                                   "children": Array [],
                                                   "name": "span",
@@ -6191,7 +6191,7 @@ LoadedCheerio {
                                               },
                                               Node {
                                                 "attribs": Object {
-                                                  "class": "selector-label",
+                                                  "class": "selector-label selector-label-end",
                                                 },
                                                 "children": Array [],
                                                 "name": "span",
@@ -6378,7 +6378,7 @@ LoadedCheerio {
                                                     "namespace": "http://www.w3.org/1999/xhtml",
                                                     "next": Node {
                                                       "attribs": Object {
-                                                        "class": "selector-label",
+                                                        "class": "selector-label selector-label-end",
                                                       },
                                                       "children": Array [],
                                                       "name": "span",
@@ -6406,7 +6406,7 @@ LoadedCheerio {
                                                   },
                                                   Node {
                                                     "attribs": Object {
-                                                      "class": "selector-label",
+                                                      "class": "selector-label selector-label-end",
                                                     },
                                                     "children": Array [],
                                                     "name": "span",
@@ -6486,7 +6486,7 @@ LoadedCheerio {
                                                   "namespace": "http://www.w3.org/1999/xhtml",
                                                   "next": Node {
                                                     "attribs": Object {
-                                                      "class": "selector-label",
+                                                      "class": "selector-label selector-label-end",
                                                     },
                                                     "children": Array [],
                                                     "name": "span",
@@ -6514,7 +6514,7 @@ LoadedCheerio {
                                                 },
                                                 Node {
                                                   "attribs": Object {
-                                                    "class": "selector-label",
+                                                    "class": "selector-label selector-label-end",
                                                   },
                                                   "children": Array [],
                                                   "name": "span",
@@ -6674,7 +6674,7 @@ LoadedCheerio {
                                                     "namespace": "http://www.w3.org/1999/xhtml",
                                                     "next": Node {
                                                       "attribs": Object {
-                                                        "class": "selector-label",
+                                                        "class": "selector-label selector-label-end",
                                                       },
                                                       "children": Array [],
                                                       "name": "span",
@@ -6702,7 +6702,7 @@ LoadedCheerio {
                                                   },
                                                   Node {
                                                     "attribs": Object {
-                                                      "class": "selector-label",
+                                                      "class": "selector-label selector-label-end",
                                                     },
                                                     "children": Array [],
                                                     "name": "span",
@@ -6782,7 +6782,7 @@ LoadedCheerio {
                                                   "namespace": "http://www.w3.org/1999/xhtml",
                                                   "next": Node {
                                                     "attribs": Object {
-                                                      "class": "selector-label",
+                                                      "class": "selector-label selector-label-end",
                                                     },
                                                     "children": Array [],
                                                     "name": "span",
@@ -6810,7 +6810,7 @@ LoadedCheerio {
                                                 },
                                                 Node {
                                                   "attribs": Object {
-                                                    "class": "selector-label",
+                                                    "class": "selector-label selector-label-end",
                                                   },
                                                   "children": Array [],
                                                   "name": "span",
@@ -6997,7 +6997,7 @@ LoadedCheerio {
                                                       "namespace": "http://www.w3.org/1999/xhtml",
                                                       "next": Node {
                                                         "attribs": Object {
-                                                          "class": "selector-label",
+                                                          "class": "selector-label selector-label-end",
                                                         },
                                                         "children": Array [],
                                                         "name": "span",
@@ -7025,7 +7025,7 @@ LoadedCheerio {
                                                     },
                                                     Node {
                                                       "attribs": Object {
-                                                        "class": "selector-label",
+                                                        "class": "selector-label selector-label-end",
                                                       },
                                                       "children": Array [],
                                                       "name": "span",
@@ -7105,7 +7105,7 @@ LoadedCheerio {
                                                     "namespace": "http://www.w3.org/1999/xhtml",
                                                     "next": Node {
                                                       "attribs": Object {
-                                                        "class": "selector-label",
+                                                        "class": "selector-label selector-label-end",
                                                       },
                                                       "children": Array [],
                                                       "name": "span",
@@ -7133,7 +7133,7 @@ LoadedCheerio {
                                                   },
                                                   Node {
                                                     "attribs": Object {
-                                                      "class": "selector-label",
+                                                      "class": "selector-label selector-label-end",
                                                     },
                                                     "children": Array [],
                                                     "name": "span",
@@ -7332,7 +7332,7 @@ LoadedCheerio {
                                                 "namespace": "http://www.w3.org/1999/xhtml",
                                                 "next": Node {
                                                   "attribs": Object {
-                                                    "class": "selector-label",
+                                                    "class": "selector-label selector-label-end",
                                                   },
                                                   "children": Array [],
                                                   "name": "span",
@@ -7360,7 +7360,7 @@ LoadedCheerio {
                                               },
                                               Node {
                                                 "attribs": Object {
-                                                  "class": "selector-label",
+                                                  "class": "selector-label selector-label-end",
                                                 },
                                                 "children": Array [],
                                                 "name": "span",
@@ -7440,7 +7440,7 @@ LoadedCheerio {
                                               "namespace": "http://www.w3.org/1999/xhtml",
                                               "next": Node {
                                                 "attribs": Object {
-                                                  "class": "selector-label",
+                                                  "class": "selector-label selector-label-end",
                                                 },
                                                 "children": Array [],
                                                 "name": "span",
@@ -7468,7 +7468,7 @@ LoadedCheerio {
                                             },
                                             Node {
                                               "attribs": Object {
-                                                "class": "selector-label",
+                                                "class": "selector-label selector-label-end",
                                               },
                                               "children": Array [],
                                               "name": "span",
@@ -7655,7 +7655,7 @@ LoadedCheerio {
                                                   "namespace": "http://www.w3.org/1999/xhtml",
                                                   "next": Node {
                                                     "attribs": Object {
-                                                      "class": "selector-label",
+                                                      "class": "selector-label selector-label-end",
                                                     },
                                                     "children": Array [],
                                                     "name": "span",
@@ -7683,7 +7683,7 @@ LoadedCheerio {
                                                 },
                                                 Node {
                                                   "attribs": Object {
-                                                    "class": "selector-label",
+                                                    "class": "selector-label selector-label-end",
                                                   },
                                                   "children": Array [],
                                                   "name": "span",
@@ -7763,7 +7763,7 @@ LoadedCheerio {
                                                 "namespace": "http://www.w3.org/1999/xhtml",
                                                 "next": Node {
                                                   "attribs": Object {
-                                                    "class": "selector-label",
+                                                    "class": "selector-label selector-label-end",
                                                   },
                                                   "children": Array [],
                                                   "name": "span",
@@ -7791,7 +7791,7 @@ LoadedCheerio {
                                               },
                                               Node {
                                                 "attribs": Object {
-                                                  "class": "selector-label",
+                                                  "class": "selector-label selector-label-end",
                                                 },
                                                 "children": Array [],
                                                 "name": "span",
@@ -7951,7 +7951,7 @@ LoadedCheerio {
                                                   "namespace": "http://www.w3.org/1999/xhtml",
                                                   "next": Node {
                                                     "attribs": Object {
-                                                      "class": "selector-label",
+                                                      "class": "selector-label selector-label-end",
                                                     },
                                                     "children": Array [],
                                                     "name": "span",
@@ -7979,7 +7979,7 @@ LoadedCheerio {
                                                 },
                                                 Node {
                                                   "attribs": Object {
-                                                    "class": "selector-label",
+                                                    "class": "selector-label selector-label-end",
                                                   },
                                                   "children": Array [],
                                                   "name": "span",
@@ -8059,7 +8059,7 @@ LoadedCheerio {
                                                 "namespace": "http://www.w3.org/1999/xhtml",
                                                 "next": Node {
                                                   "attribs": Object {
-                                                    "class": "selector-label",
+                                                    "class": "selector-label selector-label-end",
                                                   },
                                                   "children": Array [],
                                                   "name": "span",
@@ -8087,7 +8087,7 @@ LoadedCheerio {
                                               },
                                               Node {
                                                 "attribs": Object {
-                                                  "class": "selector-label",
+                                                  "class": "selector-label selector-label-end",
                                                 },
                                                 "children": Array [],
                                                 "name": "span",
@@ -8274,7 +8274,7 @@ LoadedCheerio {
                                                     "namespace": "http://www.w3.org/1999/xhtml",
                                                     "next": Node {
                                                       "attribs": Object {
-                                                        "class": "selector-label",
+                                                        "class": "selector-label selector-label-end",
                                                       },
                                                       "children": Array [],
                                                       "name": "span",
@@ -8302,7 +8302,7 @@ LoadedCheerio {
                                                   },
                                                   Node {
                                                     "attribs": Object {
-                                                      "class": "selector-label",
+                                                      "class": "selector-label selector-label-end",
                                                     },
                                                     "children": Array [],
                                                     "name": "span",
@@ -8382,7 +8382,7 @@ LoadedCheerio {
                                                   "namespace": "http://www.w3.org/1999/xhtml",
                                                   "next": Node {
                                                     "attribs": Object {
-                                                      "class": "selector-label",
+                                                      "class": "selector-label selector-label-end",
                                                     },
                                                     "children": Array [],
                                                     "name": "span",
@@ -8410,7 +8410,7 @@ LoadedCheerio {
                                                 },
                                                 Node {
                                                   "attribs": Object {
-                                                    "class": "selector-label",
+                                                    "class": "selector-label selector-label-end",
                                                   },
                                                   "children": Array [],
                                                   "name": "span",
@@ -8797,7 +8797,7 @@ LoadedCheerio {
                                                 "namespace": "http://www.w3.org/1999/xhtml",
                                                 "next": Node {
                                                   "attribs": Object {
-                                                    "class": "selector-label",
+                                                    "class": "selector-label selector-label-end",
                                                   },
                                                   "children": Array [],
                                                   "name": "span",
@@ -8825,7 +8825,7 @@ LoadedCheerio {
                                               },
                                               Node {
                                                 "attribs": Object {
-                                                  "class": "selector-label",
+                                                  "class": "selector-label selector-label-end",
                                                 },
                                                 "children": Array [],
                                                 "name": "span",
@@ -8905,7 +8905,7 @@ LoadedCheerio {
                                               "namespace": "http://www.w3.org/1999/xhtml",
                                               "next": Node {
                                                 "attribs": Object {
-                                                  "class": "selector-label",
+                                                  "class": "selector-label selector-label-end",
                                                 },
                                                 "children": Array [],
                                                 "name": "span",
@@ -8933,7 +8933,7 @@ LoadedCheerio {
                                             },
                                             Node {
                                               "attribs": Object {
-                                                "class": "selector-label",
+                                                "class": "selector-label selector-label-end",
                                               },
                                               "children": Array [],
                                               "name": "span",
@@ -9120,7 +9120,7 @@ LoadedCheerio {
                                                   "namespace": "http://www.w3.org/1999/xhtml",
                                                   "next": Node {
                                                     "attribs": Object {
-                                                      "class": "selector-label",
+                                                      "class": "selector-label selector-label-end",
                                                     },
                                                     "children": Array [],
                                                     "name": "span",
@@ -9148,7 +9148,7 @@ LoadedCheerio {
                                                 },
                                                 Node {
                                                   "attribs": Object {
-                                                    "class": "selector-label",
+                                                    "class": "selector-label selector-label-end",
                                                   },
                                                   "children": Array [],
                                                   "name": "span",
@@ -9228,7 +9228,7 @@ LoadedCheerio {
                                                 "namespace": "http://www.w3.org/1999/xhtml",
                                                 "next": Node {
                                                   "attribs": Object {
-                                                    "class": "selector-label",
+                                                    "class": "selector-label selector-label-end",
                                                   },
                                                   "children": Array [],
                                                   "name": "span",
@@ -9256,7 +9256,7 @@ LoadedCheerio {
                                               },
                                               Node {
                                                 "attribs": Object {
-                                                  "class": "selector-label",
+                                                  "class": "selector-label selector-label-end",
                                                 },
                                                 "children": Array [],
                                                 "name": "span",
@@ -9418,7 +9418,7 @@ LoadedCheerio {
                                                   "namespace": "http://www.w3.org/1999/xhtml",
                                                   "next": Node {
                                                     "attribs": Object {
-                                                      "class": "selector-label",
+                                                      "class": "selector-label selector-label-end",
                                                     },
                                                     "children": Array [],
                                                     "name": "span",
@@ -9446,7 +9446,7 @@ LoadedCheerio {
                                                 },
                                                 Node {
                                                   "attribs": Object {
-                                                    "class": "selector-label",
+                                                    "class": "selector-label selector-label-end",
                                                   },
                                                   "children": Array [],
                                                   "name": "span",
@@ -9526,7 +9526,7 @@ LoadedCheerio {
                                                 "namespace": "http://www.w3.org/1999/xhtml",
                                                 "next": Node {
                                                   "attribs": Object {
-                                                    "class": "selector-label",
+                                                    "class": "selector-label selector-label-end",
                                                   },
                                                   "children": Array [],
                                                   "name": "span",
@@ -9554,7 +9554,7 @@ LoadedCheerio {
                                               },
                                               Node {
                                                 "attribs": Object {
-                                                  "class": "selector-label",
+                                                  "class": "selector-label selector-label-end",
                                                 },
                                                 "children": Array [],
                                                 "name": "span",
@@ -9741,7 +9741,7 @@ LoadedCheerio {
                                                     "namespace": "http://www.w3.org/1999/xhtml",
                                                     "next": Node {
                                                       "attribs": Object {
-                                                        "class": "selector-label",
+                                                        "class": "selector-label selector-label-end",
                                                       },
                                                       "children": Array [],
                                                       "name": "span",
@@ -9769,7 +9769,7 @@ LoadedCheerio {
                                                   },
                                                   Node {
                                                     "attribs": Object {
-                                                      "class": "selector-label",
+                                                      "class": "selector-label selector-label-end",
                                                     },
                                                     "children": Array [],
                                                     "name": "span",
@@ -9849,7 +9849,7 @@ LoadedCheerio {
                                                   "namespace": "http://www.w3.org/1999/xhtml",
                                                   "next": Node {
                                                     "attribs": Object {
-                                                      "class": "selector-label",
+                                                      "class": "selector-label selector-label-end",
                                                     },
                                                     "children": Array [],
                                                     "name": "span",
@@ -9877,7 +9877,7 @@ LoadedCheerio {
                                                 },
                                                 Node {
                                                   "attribs": Object {
-                                                    "class": "selector-label",
+                                                    "class": "selector-label selector-label-end",
                                                   },
                                                   "children": Array [],
                                                   "name": "span",
@@ -10509,7 +10509,7 @@ LoadedCheerio {
                                                 "namespace": "http://www.w3.org/1999/xhtml",
                                                 "next": Node {
                                                   "attribs": Object {
-                                                    "class": "selector-label",
+                                                    "class": "selector-label selector-label-end",
                                                   },
                                                   "children": Array [],
                                                   "name": "span",
@@ -10537,7 +10537,7 @@ LoadedCheerio {
                                               },
                                               Node {
                                                 "attribs": Object {
-                                                  "class": "selector-label",
+                                                  "class": "selector-label selector-label-end",
                                                 },
                                                 "children": Array [],
                                                 "name": "span",
@@ -10617,7 +10617,7 @@ LoadedCheerio {
                                               "namespace": "http://www.w3.org/1999/xhtml",
                                               "next": Node {
                                                 "attribs": Object {
-                                                  "class": "selector-label",
+                                                  "class": "selector-label selector-label-end",
                                                 },
                                                 "children": Array [],
                                                 "name": "span",
@@ -10645,7 +10645,7 @@ LoadedCheerio {
                                             },
                                             Node {
                                               "attribs": Object {
-                                                "class": "selector-label",
+                                                "class": "selector-label selector-label-end",
                                               },
                                               "children": Array [],
                                               "name": "span",
@@ -10832,7 +10832,7 @@ LoadedCheerio {
                                                   "namespace": "http://www.w3.org/1999/xhtml",
                                                   "next": Node {
                                                     "attribs": Object {
-                                                      "class": "selector-label",
+                                                      "class": "selector-label selector-label-end",
                                                     },
                                                     "children": Array [],
                                                     "name": "span",
@@ -10860,7 +10860,7 @@ LoadedCheerio {
                                                 },
                                                 Node {
                                                   "attribs": Object {
-                                                    "class": "selector-label",
+                                                    "class": "selector-label selector-label-end",
                                                   },
                                                   "children": Array [],
                                                   "name": "span",
@@ -10940,7 +10940,7 @@ LoadedCheerio {
                                                 "namespace": "http://www.w3.org/1999/xhtml",
                                                 "next": Node {
                                                   "attribs": Object {
-                                                    "class": "selector-label",
+                                                    "class": "selector-label selector-label-end",
                                                   },
                                                   "children": Array [],
                                                   "name": "span",
@@ -10968,7 +10968,7 @@ LoadedCheerio {
                                               },
                                               Node {
                                                 "attribs": Object {
-                                                  "class": "selector-label",
+                                                  "class": "selector-label selector-label-end",
                                                 },
                                                 "children": Array [],
                                                 "name": "span",
@@ -11128,7 +11128,7 @@ LoadedCheerio {
                                                   "namespace": "http://www.w3.org/1999/xhtml",
                                                   "next": Node {
                                                     "attribs": Object {
-                                                      "class": "selector-label",
+                                                      "class": "selector-label selector-label-end",
                                                     },
                                                     "children": Array [],
                                                     "name": "span",
@@ -11156,7 +11156,7 @@ LoadedCheerio {
                                                 },
                                                 Node {
                                                   "attribs": Object {
-                                                    "class": "selector-label",
+                                                    "class": "selector-label selector-label-end",
                                                   },
                                                   "children": Array [],
                                                   "name": "span",
@@ -11236,7 +11236,7 @@ LoadedCheerio {
                                                 "namespace": "http://www.w3.org/1999/xhtml",
                                                 "next": Node {
                                                   "attribs": Object {
-                                                    "class": "selector-label",
+                                                    "class": "selector-label selector-label-end",
                                                   },
                                                   "children": Array [],
                                                   "name": "span",
@@ -11264,7 +11264,7 @@ LoadedCheerio {
                                               },
                                               Node {
                                                 "attribs": Object {
-                                                  "class": "selector-label",
+                                                  "class": "selector-label selector-label-end",
                                                 },
                                                 "children": Array [],
                                                 "name": "span",
@@ -11451,7 +11451,7 @@ LoadedCheerio {
                                                     "namespace": "http://www.w3.org/1999/xhtml",
                                                     "next": Node {
                                                       "attribs": Object {
-                                                        "class": "selector-label",
+                                                        "class": "selector-label selector-label-end",
                                                       },
                                                       "children": Array [],
                                                       "name": "span",
@@ -11479,7 +11479,7 @@ LoadedCheerio {
                                                   },
                                                   Node {
                                                     "attribs": Object {
-                                                      "class": "selector-label",
+                                                      "class": "selector-label selector-label-end",
                                                     },
                                                     "children": Array [],
                                                     "name": "span",
@@ -11559,7 +11559,7 @@ LoadedCheerio {
                                                   "namespace": "http://www.w3.org/1999/xhtml",
                                                   "next": Node {
                                                     "attribs": Object {
-                                                      "class": "selector-label",
+                                                      "class": "selector-label selector-label-end",
                                                     },
                                                     "children": Array [],
                                                     "name": "span",
@@ -11587,7 +11587,7 @@ LoadedCheerio {
                                                 },
                                                 Node {
                                                   "attribs": Object {
-                                                    "class": "selector-label",
+                                                    "class": "selector-label selector-label-end",
                                                   },
                                                   "children": Array [],
                                                   "name": "span",
@@ -11786,7 +11786,7 @@ LoadedCheerio {
                                               "namespace": "http://www.w3.org/1999/xhtml",
                                               "next": Node {
                                                 "attribs": Object {
-                                                  "class": "selector-label",
+                                                  "class": "selector-label selector-label-end",
                                                 },
                                                 "children": Array [],
                                                 "name": "span",
@@ -11814,7 +11814,7 @@ LoadedCheerio {
                                             },
                                             Node {
                                               "attribs": Object {
-                                                "class": "selector-label",
+                                                "class": "selector-label selector-label-end",
                                               },
                                               "children": Array [],
                                               "name": "span",
@@ -11894,7 +11894,7 @@ LoadedCheerio {
                                             "namespace": "http://www.w3.org/1999/xhtml",
                                             "next": Node {
                                               "attribs": Object {
-                                                "class": "selector-label",
+                                                "class": "selector-label selector-label-end",
                                               },
                                               "children": Array [],
                                               "name": "span",
@@ -11922,7 +11922,7 @@ LoadedCheerio {
                                           },
                                           Node {
                                             "attribs": Object {
-                                              "class": "selector-label",
+                                              "class": "selector-label selector-label-end",
                                             },
                                             "children": Array [],
                                             "name": "span",
@@ -12109,7 +12109,7 @@ LoadedCheerio {
                                                 "namespace": "http://www.w3.org/1999/xhtml",
                                                 "next": Node {
                                                   "attribs": Object {
-                                                    "class": "selector-label",
+                                                    "class": "selector-label selector-label-end",
                                                   },
                                                   "children": Array [],
                                                   "name": "span",
@@ -12137,7 +12137,7 @@ LoadedCheerio {
                                               },
                                               Node {
                                                 "attribs": Object {
-                                                  "class": "selector-label",
+                                                  "class": "selector-label selector-label-end",
                                                 },
                                                 "children": Array [],
                                                 "name": "span",
@@ -12217,7 +12217,7 @@ LoadedCheerio {
                                               "namespace": "http://www.w3.org/1999/xhtml",
                                               "next": Node {
                                                 "attribs": Object {
-                                                  "class": "selector-label",
+                                                  "class": "selector-label selector-label-end",
                                                 },
                                                 "children": Array [],
                                                 "name": "span",
@@ -12245,7 +12245,7 @@ LoadedCheerio {
                                             },
                                             Node {
                                               "attribs": Object {
-                                                "class": "selector-label",
+                                                "class": "selector-label selector-label-end",
                                               },
                                               "children": Array [],
                                               "name": "span",
@@ -12405,7 +12405,7 @@ LoadedCheerio {
                                                 "namespace": "http://www.w3.org/1999/xhtml",
                                                 "next": Node {
                                                   "attribs": Object {
-                                                    "class": "selector-label",
+                                                    "class": "selector-label selector-label-end",
                                                   },
                                                   "children": Array [],
                                                   "name": "span",
@@ -12433,7 +12433,7 @@ LoadedCheerio {
                                               },
                                               Node {
                                                 "attribs": Object {
-                                                  "class": "selector-label",
+                                                  "class": "selector-label selector-label-end",
                                                 },
                                                 "children": Array [],
                                                 "name": "span",
@@ -12513,7 +12513,7 @@ LoadedCheerio {
                                               "namespace": "http://www.w3.org/1999/xhtml",
                                               "next": Node {
                                                 "attribs": Object {
-                                                  "class": "selector-label",
+                                                  "class": "selector-label selector-label-end",
                                                 },
                                                 "children": Array [],
                                                 "name": "span",
@@ -12541,7 +12541,7 @@ LoadedCheerio {
                                             },
                                             Node {
                                               "attribs": Object {
-                                                "class": "selector-label",
+                                                "class": "selector-label selector-label-end",
                                               },
                                               "children": Array [],
                                               "name": "span",
@@ -12728,7 +12728,7 @@ LoadedCheerio {
                                                   "namespace": "http://www.w3.org/1999/xhtml",
                                                   "next": Node {
                                                     "attribs": Object {
-                                                      "class": "selector-label",
+                                                      "class": "selector-label selector-label-end",
                                                     },
                                                     "children": Array [],
                                                     "name": "span",
@@ -12756,7 +12756,7 @@ LoadedCheerio {
                                                 },
                                                 Node {
                                                   "attribs": Object {
-                                                    "class": "selector-label",
+                                                    "class": "selector-label selector-label-end",
                                                   },
                                                   "children": Array [],
                                                   "name": "span",
@@ -12836,7 +12836,7 @@ LoadedCheerio {
                                                 "namespace": "http://www.w3.org/1999/xhtml",
                                                 "next": Node {
                                                   "attribs": Object {
-                                                    "class": "selector-label",
+                                                    "class": "selector-label selector-label-end",
                                                   },
                                                   "children": Array [],
                                                   "name": "span",
@@ -12864,7 +12864,7 @@ LoadedCheerio {
                                               },
                                               Node {
                                                 "attribs": Object {
-                                                  "class": "selector-label",
+                                                  "class": "selector-label selector-label-end",
                                                 },
                                                 "children": Array [],
                                                 "name": "span",
@@ -13251,7 +13251,7 @@ LoadedCheerio {
                                               "namespace": "http://www.w3.org/1999/xhtml",
                                               "next": Node {
                                                 "attribs": Object {
-                                                  "class": "selector-label",
+                                                  "class": "selector-label selector-label-end",
                                                 },
                                                 "children": Array [],
                                                 "name": "span",
@@ -13279,7 +13279,7 @@ LoadedCheerio {
                                             },
                                             Node {
                                               "attribs": Object {
-                                                "class": "selector-label",
+                                                "class": "selector-label selector-label-end",
                                               },
                                               "children": Array [],
                                               "name": "span",
@@ -13359,7 +13359,7 @@ LoadedCheerio {
                                             "namespace": "http://www.w3.org/1999/xhtml",
                                             "next": Node {
                                               "attribs": Object {
-                                                "class": "selector-label",
+                                                "class": "selector-label selector-label-end",
                                               },
                                               "children": Array [],
                                               "name": "span",
@@ -13387,7 +13387,7 @@ LoadedCheerio {
                                           },
                                           Node {
                                             "attribs": Object {
-                                              "class": "selector-label",
+                                              "class": "selector-label selector-label-end",
                                             },
                                             "children": Array [],
                                             "name": "span",
@@ -13574,7 +13574,7 @@ LoadedCheerio {
                                                 "namespace": "http://www.w3.org/1999/xhtml",
                                                 "next": Node {
                                                   "attribs": Object {
-                                                    "class": "selector-label",
+                                                    "class": "selector-label selector-label-end",
                                                   },
                                                   "children": Array [],
                                                   "name": "span",
@@ -13602,7 +13602,7 @@ LoadedCheerio {
                                               },
                                               Node {
                                                 "attribs": Object {
-                                                  "class": "selector-label",
+                                                  "class": "selector-label selector-label-end",
                                                 },
                                                 "children": Array [],
                                                 "name": "span",
@@ -13682,7 +13682,7 @@ LoadedCheerio {
                                               "namespace": "http://www.w3.org/1999/xhtml",
                                               "next": Node {
                                                 "attribs": Object {
-                                                  "class": "selector-label",
+                                                  "class": "selector-label selector-label-end",
                                                 },
                                                 "children": Array [],
                                                 "name": "span",
@@ -13710,7 +13710,7 @@ LoadedCheerio {
                                             },
                                             Node {
                                               "attribs": Object {
-                                                "class": "selector-label",
+                                                "class": "selector-label selector-label-end",
                                               },
                                               "children": Array [],
                                               "name": "span",
@@ -13872,7 +13872,7 @@ LoadedCheerio {
                                                 "namespace": "http://www.w3.org/1999/xhtml",
                                                 "next": Node {
                                                   "attribs": Object {
-                                                    "class": "selector-label",
+                                                    "class": "selector-label selector-label-end",
                                                   },
                                                   "children": Array [],
                                                   "name": "span",
@@ -13900,7 +13900,7 @@ LoadedCheerio {
                                               },
                                               Node {
                                                 "attribs": Object {
-                                                  "class": "selector-label",
+                                                  "class": "selector-label selector-label-end",
                                                 },
                                                 "children": Array [],
                                                 "name": "span",
@@ -13980,7 +13980,7 @@ LoadedCheerio {
                                               "namespace": "http://www.w3.org/1999/xhtml",
                                               "next": Node {
                                                 "attribs": Object {
-                                                  "class": "selector-label",
+                                                  "class": "selector-label selector-label-end",
                                                 },
                                                 "children": Array [],
                                                 "name": "span",
@@ -14008,7 +14008,7 @@ LoadedCheerio {
                                             },
                                             Node {
                                               "attribs": Object {
-                                                "class": "selector-label",
+                                                "class": "selector-label selector-label-end",
                                               },
                                               "children": Array [],
                                               "name": "span",
@@ -14195,7 +14195,7 @@ LoadedCheerio {
                                                   "namespace": "http://www.w3.org/1999/xhtml",
                                                   "next": Node {
                                                     "attribs": Object {
-                                                      "class": "selector-label",
+                                                      "class": "selector-label selector-label-end",
                                                     },
                                                     "children": Array [],
                                                     "name": "span",
@@ -14223,7 +14223,7 @@ LoadedCheerio {
                                                 },
                                                 Node {
                                                   "attribs": Object {
-                                                    "class": "selector-label",
+                                                    "class": "selector-label selector-label-end",
                                                   },
                                                   "children": Array [],
                                                   "name": "span",
@@ -14303,7 +14303,7 @@ LoadedCheerio {
                                                 "namespace": "http://www.w3.org/1999/xhtml",
                                                 "next": Node {
                                                   "attribs": Object {
-                                                    "class": "selector-label",
+                                                    "class": "selector-label selector-label-end",
                                                   },
                                                   "children": Array [],
                                                   "name": "span",
@@ -14331,7 +14331,7 @@ LoadedCheerio {
                                               },
                                               Node {
                                                 "attribs": Object {
-                                                  "class": "selector-label",
+                                                  "class": "selector-label selector-label-end",
                                                 },
                                                 "children": Array [],
                                                 "name": "span",
@@ -14728,7 +14728,7 @@ LoadedCheerio {
                                                     "namespace": "http://www.w3.org/1999/xhtml",
                                                     "next": Node {
                                                       "attribs": Object {
-                                                        "class": "selector-label",
+                                                        "class": "selector-label selector-label-end",
                                                       },
                                                       "children": Array [],
                                                       "name": "span",
@@ -14756,7 +14756,7 @@ LoadedCheerio {
                                                   },
                                                   Node {
                                                     "attribs": Object {
-                                                      "class": "selector-label",
+                                                      "class": "selector-label selector-label-end",
                                                     },
                                                     "children": Array [],
                                                     "name": "span",
@@ -14836,7 +14836,7 @@ LoadedCheerio {
                                                   "namespace": "http://www.w3.org/1999/xhtml",
                                                   "next": Node {
                                                     "attribs": Object {
-                                                      "class": "selector-label",
+                                                      "class": "selector-label selector-label-end",
                                                     },
                                                     "children": Array [],
                                                     "name": "span",
@@ -14864,7 +14864,7 @@ LoadedCheerio {
                                                 },
                                                 Node {
                                                   "attribs": Object {
-                                                    "class": "selector-label",
+                                                    "class": "selector-label selector-label-end",
                                                   },
                                                   "children": Array [],
                                                   "name": "span",
@@ -15070,7 +15070,7 @@ LoadedCheerio {
                                                       "namespace": "http://www.w3.org/1999/xhtml",
                                                       "next": Node {
                                                         "attribs": Object {
-                                                          "class": "selector-label",
+                                                          "class": "selector-label selector-label-end",
                                                         },
                                                         "children": Array [],
                                                         "name": "span",
@@ -15098,7 +15098,7 @@ LoadedCheerio {
                                                     },
                                                     Node {
                                                       "attribs": Object {
-                                                        "class": "selector-label",
+                                                        "class": "selector-label selector-label-end",
                                                       },
                                                       "children": Array [],
                                                       "name": "span",
@@ -15178,7 +15178,7 @@ LoadedCheerio {
                                                     "namespace": "http://www.w3.org/1999/xhtml",
                                                     "next": Node {
                                                       "attribs": Object {
-                                                        "class": "selector-label",
+                                                        "class": "selector-label selector-label-end",
                                                       },
                                                       "children": Array [],
                                                       "name": "span",
@@ -15206,7 +15206,7 @@ LoadedCheerio {
                                                   },
                                                   Node {
                                                     "attribs": Object {
-                                                      "class": "selector-label",
+                                                      "class": "selector-label selector-label-end",
                                                     },
                                                     "children": Array [],
                                                     "name": "span",

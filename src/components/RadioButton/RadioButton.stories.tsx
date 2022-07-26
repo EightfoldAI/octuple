@@ -1,7 +1,12 @@
 import React, { useState } from 'react';
 import { Stories } from '@storybook/addon-docs';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { RadioButton, RadioButtonValue, RadioGroup } from './';
+import {
+    RadioButton,
+    RadioButtonLabelPosition,
+    RadioButtonValue,
+    RadioGroup,
+} from './';
 import { Stack } from '../Stack';
 
 export default {
@@ -100,9 +105,16 @@ export default {
         onChange: {
             action: 'change',
         },
+        labelPosition: {
+            options: [
+                RadioButtonLabelPosition.End,
+                RadioButtonLabelPosition.Start,
+            ],
+            control: { type: 'inline-radio' },
+        },
         layout: {
             options: ['vertical', 'horizontal'],
-            control: { type: 'radio' },
+            control: { type: 'inline-radio' },
         },
     },
 } as ComponentMeta<typeof RadioButton>;
@@ -191,6 +203,7 @@ const radioButtonArgs: Object = {
     allowDisabledFocus: false,
     ariaLabel: 'Label',
     label: 'Label',
+    labelPosition: RadioButtonLabelPosition.End,
     checked: false,
     classNames: 'my-radiobutton-class',
     disabled: false,
