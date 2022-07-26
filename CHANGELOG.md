@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.0.1](https://github.com/EightfoldAI/octuple/compare/v1.19.1...v2.0.1) (2022-07-26)
+
+### Features
+
+-   add all theme2 colors to avatar and pill component ([e00d129](https://github.com/EightfoldAI/octuple/commits/e00d1298ef842198f9c106d37b928bf0416327ad))
+-   table: update table hover color, fix accordion hover overflow ([#255](https://github.com/EightfoldAI/octuple/issues/255)) ([2f4a851](https://github.com/EightfoldAI/octuple/commits/2f4a851b96c20c2325999745c4fb17e23114b9cf))
+-   theme 2 color palette, default button & input shape to pull, styles for selectors, tabs, buttons, accordion & match score ([#174](https://github.com/EightfoldAI/octuple/issues/174)) ([286ec69](https://github.com/EightfoldAI/octuple/commits/286ec690769268a63e9b0d38aa214cdf67f6f6e2))
+-   theme 2 for dialog, modal, infobar, snackbar and dropdown ([#162](https://github.com/EightfoldAI/octuple/issues/162)) ([883bc8f](https://github.com/EightfoldAI/octuple/commits/883bc8fe39500c79c2e8ba3ebc63209b6ae0fa42))
+-   Update incorrect colors for Tabs and Buttons in theme 2 ([#214](https://github.com/EightfoldAI/octuple/issues/214)) ([89bdd03](https://github.com/EightfoldAI/octuple/commits/89bdd0397b22ccabe41fd4f949d15e559186e803))
+-   update menu item, pagination and inputs to theme 2 ([#213](https://github.com/EightfoldAI/octuple/issues/213)) ([cb89df6](https://github.com/EightfoldAI/octuple/commits/cb89df6b9972eb2cba0803ad78dcbee88e8d6197))
+
+### Bug Fixes
+
+-   Update checkbox colors to the correct values ([#230](https://github.com/EightfoldAI/octuple/issues/230)) ([14babe6](https://github.com/EightfoldAI/octuple/commits/14babe674e1a8406e46fcbc1b7e3d24ac4ea2977)), closes [#162](https://github.com/EightfoldAI/octuple/issues/162) [#174](https://github.com/EightfoldAI/octuple/issues/174)
+-   update two state button to theme 2 ([#226](https://github.com/EightfoldAI/octuple/issues/226)) ([e42fc18](https://github.com/EightfoldAI/octuple/commits/e42fc18253bf28847ee209842918a82b8bb95853))
+
 ### [1.19.1](https://github.com/EightfoldAI/octuple/compare/v1.19.0...v1.19.1) (2022-07-26)
 
 ### Features
