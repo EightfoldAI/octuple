@@ -62,4 +62,12 @@ export interface TooltipProps extends OcBaseProps<HTMLDivElement> {
      * @default 0
      */
     tabIndex?: number;
+    /**
+     * Wrapper class name
+     */
+    wrapperClassNames?: string;
+    /**
+     * Wrapper style
+     */
+    wrapperStyle?: React.CSSProperties;
 }
