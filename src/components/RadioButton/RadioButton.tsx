@@ -1,9 +1,6 @@
 import React, { FC, Ref, useEffect, useRef, useState } from 'react';
-import {
-    RadioButtonLabelPosition,
-    RadioButtonProps,
-    RadioButtonValue,
-} from './';
+import { RadioButtonProps, RadioButtonValue } from './';
+import { LabelPosition } from '../CheckBox';
 import { mergeClasses, generateId } from '../../shared/utilities';
 import { useRadioGroup } from './RadioGroup.context';
 
@@ -19,7 +16,7 @@ export const RadioButton: FC<RadioButtonProps> = React.forwardRef(
             id,
             name,
             label,
-            labelPosition = RadioButtonLabelPosition.End,
+            labelPosition = LabelPosition.End,
             onChange,
             style,
             value = '',
@@ -51,12 +48,11 @@ export const RadioButton: FC<RadioButtonProps> = React.forwardRef(
         const selectorLabelClassNames: string = mergeClasses([
             styles.selectorLabel,
             {
-                [styles.selectorLabelEnd]:
-                    labelPosition === RadioButtonLabelPosition.End,
+                [styles.selectorLabelEnd]: labelPosition === LabelPosition.End,
             },
             {
                 [styles.selectorLabelStart]:
-                    labelPosition === RadioButtonLabelPosition.Start,
+                    labelPosition === LabelPosition.Start,
             },
         ]);
 
@@ -106,14 +102,14 @@ export const RadioButton: FC<RadioButtonProps> = React.forwardRef(
                     htmlFor={radioButtonId.current}
                     className={labelClassNames}
                 >
-                    {labelPosition == RadioButtonLabelPosition.Start && (
+                    {labelPosition == LabelPosition.Start && (
                         <span className={selectorLabelClassNames}>{label}</span>
                     )}
                     <span
                         id={`${radioButtonId.current}-custom-radio`}
                         className={radioButtonClassNames}
                     />
-                    {labelPosition == RadioButtonLabelPosition.End && (
+                    {labelPosition == LabelPosition.End && (
                         <span className={selectorLabelClassNames}>{label}</span>
                     )}
                 </label>

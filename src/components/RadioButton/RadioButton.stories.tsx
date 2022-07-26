@@ -1,12 +1,8 @@
 import React, { useState } from 'react';
 import { Stories } from '@storybook/addon-docs';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import {
-    RadioButton,
-    RadioButtonLabelPosition,
-    RadioButtonValue,
-    RadioGroup,
-} from './';
+import { RadioButton, RadioButtonValue, RadioGroup } from './';
+import { LabelPosition } from '../CheckBox';
 import { Stack } from '../Stack';
 
 export default {
@@ -106,10 +102,7 @@ export default {
             action: 'change',
         },
         labelPosition: {
-            options: [
-                RadioButtonLabelPosition.End,
-                RadioButtonLabelPosition.Start,
-            ],
+            options: [LabelPosition.End, LabelPosition.Start],
             control: { type: 'inline-radio' },
         },
         layout: {
@@ -203,7 +196,7 @@ const radioButtonArgs: Object = {
     allowDisabledFocus: false,
     ariaLabel: 'Label',
     label: 'Label',
-    labelPosition: RadioButtonLabelPosition.End,
+    labelPosition: LabelPosition.End,
     checked: false,
     classNames: 'my-radiobutton-class',
     disabled: false,

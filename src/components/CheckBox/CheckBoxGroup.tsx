@@ -1,6 +1,6 @@
 import React, { FC, Ref } from 'react';
 import { mergeClasses } from '../../shared/utilities';
-import { CheckBoxLabelPosition, CheckboxGroupProps, CheckBox } from './';
+import { CheckBox, CheckboxGroupProps, LabelPosition } from './';
 
 import styles from './checkbox.module.scss';
 
@@ -10,7 +10,7 @@ export const CheckBoxGroup: FC<CheckboxGroupProps> = React.forwardRef(
             ariaLabel,
             classNames,
             items = [],
-            labelPosition = CheckBoxLabelPosition.End,
+            labelPosition = LabelPosition.End,
             layout = 'vertical',
             onChange,
             style,

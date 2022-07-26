@@ -3,7 +3,7 @@ import { OcBaseProps } from '../OcBase';
 
 export type CheckboxValueType = string | number;
 
-export enum CheckBoxLabelPosition {
+export enum LabelPosition {
     End = 'end',
     Start = 'start',
 }
@@ -40,9 +40,9 @@ export interface CheckboxProps extends OcBaseProps<HTMLInputElement> {
     label?: string | React.ReactNode;
     /**
      * The label position of the checkbox.
-     * @default CheckBoxLabelPosition.End
+     * @default LabelPosition.End
      */
-    labelPosition?: CheckBoxLabelPosition;
+    labelPosition?: LabelPosition;
     /**
      * The checkbox onChange event handler.
      */
@@ -70,9 +70,9 @@ export interface CheckboxGroupProps
     items?: CheckboxProps[];
     /**
      * The label position of the checkboxes.
-     * @default CheckBoxLabelPosition.End
+     * @default LabelPosition.End
      */
-    labelPosition?: CheckBoxLabelPosition;
+    labelPosition?: LabelPosition;
     /**
      * Type of layout for the checkbox group
      * @default vertical

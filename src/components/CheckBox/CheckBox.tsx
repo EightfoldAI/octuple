@@ -1,6 +1,6 @@
 import React, { FC, Ref, useEffect, useRef, useState } from 'react';
 import { generateId, mergeClasses } from '../../shared/utilities';
-import { CheckBoxLabelPosition, CheckboxProps } from './';
+import { CheckboxProps, LabelPosition } from './';
 
 import styles from './checkbox.module.scss';
 
@@ -14,7 +14,7 @@ export const CheckBox: FC<CheckboxProps> = React.forwardRef(
             disabled = false,
             id,
             label,
-            labelPosition = CheckBoxLabelPosition.End,
+            labelPosition = LabelPosition.End,
             name,
             onChange,
             style,
@@ -50,12 +50,11 @@ export const CheckBox: FC<CheckboxProps> = React.forwardRef(
         const selectorLabelClassNames: string = mergeClasses([
             styles.selectorLabel,
             {
-                [styles.selectorLabelEnd]:
-                    labelPosition === CheckBoxLabelPosition.End,
+                [styles.selectorLabelEnd]: labelPosition === LabelPosition.End,
             },
             {
                 [styles.selectorLabelStart]:
-                    labelPosition === CheckBoxLabelPosition.Start,
+                    labelPosition === LabelPosition.Start,
             },
         ]);
 
@@ -85,11 +84,11 @@ export const CheckBox: FC<CheckboxProps> = React.forwardRef(
                     readOnly
                 />
                 <label htmlFor={checkBoxId.current} className={labelClassNames}>
-                    {labelPosition == CheckBoxLabelPosition.Start && (
+                    {labelPosition == LabelPosition.Start && (
                         <span className={selectorLabelClassNames}>{label}</span>
                     )}
                     <span className={checkBoxCheckClassNames} />
-                    {labelPosition == CheckBoxLabelPosition.End && (
+                    {labelPosition == LabelPosition.End && (
                         <span className={selectorLabelClassNames}>{label}</span>
                     )}
                 </label>

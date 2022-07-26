@@ -1,10 +1,6 @@
 import React, { FC, Ref } from 'react';
-import {
-    RadioButtonLabelPosition,
-    RadioButtonProps,
-    RadioGroupProps,
-    RadioButton,
-} from './';
+import { RadioButtonProps, RadioGroupProps, RadioButton } from './';
+import { LabelPosition } from '../CheckBox';
 import { RadioGroupProvider } from './RadioGroup.context';
 import { mergeClasses } from '../../shared/utilities';
 
@@ -16,7 +12,7 @@ export const RadioGroup: FC<RadioGroupProps> = React.forwardRef(
             ariaLabel,
             classNames,
             items,
-            labelPosition = RadioButtonLabelPosition.End,
+            labelPosition = LabelPosition.End,
             layout = 'vertical',
             onChange,
             style,

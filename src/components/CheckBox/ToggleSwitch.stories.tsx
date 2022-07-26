@@ -1,7 +1,7 @@
 import React from 'react';
 import { Stories } from '@storybook/addon-docs';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { CheckBox, CheckBoxLabelPosition } from '.';
+import { CheckBox, LabelPosition } from '.';
 
 export default {
     title: 'Toggle Switch',
@@ -38,7 +38,7 @@ export default {
             action: 'change',
         },
         labelPosition: {
-            options: [CheckBoxLabelPosition.End, CheckBoxLabelPosition.Start],
+            options: [LabelPosition.End, LabelPosition.Start],
             control: { type: 'inline-radio' },
         },
         layout: {
@@ -62,7 +62,7 @@ const checkBoxArgs: Object = {
     name: 'myToggleName',
     value: 'label',
     label: 'Label',
-    labelPosition: CheckBoxLabelPosition.End,
+    labelPosition: LabelPosition.End,
     id: 'myToggleId',
     defaultChecked: false,
     toggle: false,

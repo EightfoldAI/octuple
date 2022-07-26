@@ -1,12 +1,8 @@
 import React from 'react';
 import { OcBaseProps } from '../OcBase';
+import { LabelPosition } from '../CheckBox';
 
 export type RadioButtonValue = string | number;
-
-export enum RadioButtonLabelPosition {
-    End = 'end',
-    Start = 'start',
-}
 
 export interface RadioGroupContextProps {
     children: React.ReactNode;
@@ -46,9 +42,9 @@ export interface RadioButtonProps extends OcBaseProps<HTMLInputElement> {
     label?: string | React.ReactNode;
     /**
      * The label position of the radio button.
-     * @default RadioButtonLabelPosition.End
+     * @default LabelPosition.End
      */
-    labelPosition?: RadioButtonLabelPosition;
+    labelPosition?: LabelPosition;
     /**
      * The radio button onChange event handler.
      */
@@ -70,9 +66,9 @@ export interface RadioGroupProps extends OcBaseProps<HTMLDivElement> {
     items?: RadioButtonProps[];
     /**
      * The label position of the radio buttons.
-     * @default RadioButtonLabelPosition.End
+     * @default LabelPosition.End
      */
-    labelPosition?: RadioButtonLabelPosition;
+    labelPosition?: LabelPosition;
     /**
      * Type of layout for the radio group.
      * @default vertical.
