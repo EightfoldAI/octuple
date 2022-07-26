@@ -181,7 +181,7 @@ export const Slider: FC<SliderProps> = ({
     }, [values]);
 
     return (
-        <ResizeObserver onResize={() => updateLayout()}>
+        <ResizeObserver onResize={updateLayout}>
             <div
                 className={mergeClasses(styles.sliderContainer, {
                     [styles.sliderDisabled]: disabled,
