@@ -33,6 +33,8 @@ export const Tooltip: FC<TooltipProps> = ({
     hideAfter = 0,
     tabIndex = 0,
     positionStrategy = 'absolute',
+    wrapperClassNames,
+    wrapperStyle,
     ...rest
 }) => {
     const tooltipSide: string = placement.split('-')?.[0];
@@ -101,6 +103,7 @@ export const Tooltip: FC<TooltipProps> = ({
 
     const referenceWrapperClasses: string = mergeClasses([
         styles.referenceWrapper,
+        wrapperClassNames,
         { [styles.disabled]: disabled },
     ]);
 
@@ -128,6 +131,7 @@ export const Tooltip: FC<TooltipProps> = ({
         <>
             <div
                 className={referenceWrapperClasses}
+                style={wrapperStyle}
                 id={tooltipId.current}
                 onMouseEnter={toggle(true)}
                 onFocus={toggle(true)}
