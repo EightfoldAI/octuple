@@ -49,6 +49,7 @@
         ]
     },
     "dependencies": {
+        "@eightfold.ai/octuple": "^2.0.1",
         "@floating-ui/react-dom": "0.6.0",
         "@floating-ui/react-dom-interactions": "0.6.3",
         "@mdi/react": "1.5.0",

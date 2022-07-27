@@ -133,10 +133,10 @@ export const Tooltip: FC<TooltipProps> = ({
                 className={referenceWrapperClasses}
                 style={wrapperStyle}
                 id={tooltipId.current}
-                onMouseEnter={toggle(true)}
+                onPointerEnter={toggle(true)}
                 onFocus={toggle(true)}
                 onBlur={toggle(false)}
-                onMouseLeave={toggle(false)}
+                onPointerLeave={toggle(false)}
                 ref={reference}
             >
                 {children}

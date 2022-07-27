@@ -2293,6 +2293,28 @@
   resolved "https://registry.yarnpkg.com/@discoveryjs/json-ext/-/json-ext-0.5.6.tgz#d5e0706cf8c6acd8c6032f8d54070af261bbbb2f"
   integrity sha512-ws57AidsDvREKrZKYffXddNkyaF14iHNHm8VQnZH6t99E8gczjNN0GpvcGny0imC80yQ0tHz1xVUKk/KFQSUyA==
 
+"@eightfold.ai/octuple@^2.0.1":
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/@eightfold.ai/octuple/-/octuple-2.0.1.tgz#5b6e44058e4c96a3240e6bb8d062175bf80bcc6a"
+  integrity sha512-9fXaM1X6GFdq0AWb/M4cgnDB+FKfYCPAPLcQVCI0wl0FA7fI1yWJ8N2eEwriaDU/88XMa0l/Ql5kghNS51ehTA==
+  dependencies:
+    "@floating-ui/react-dom" "0.6.0"
+    "@floating-ui/react-dom-interactions" "0.6.3"
+    "@mdi/react" "1.5.0"
+    "@ngard/tiny-isequal" "1.1.0"
+    "@types/lodash" "4.14.182"
+    "@types/react-is" "17.0.3"
+    "@types/shallowequal" "1.1.1"
+    bodymovin "4.13.0"
+    date-fns "2.28.0"
+    dayjs "1.11.3"
+    dom-align "1.12.3"
+    lottie-web "5.8.1"
+    react-flip-toolkit "7.0.13"
+    react-is "18.1.0"
+    resize-observer-polyfill "1.5.1"
+    shallowequal "1.1.0"
+
 "@eslint/eslintrc@^1.2.0":
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/@eslint/eslintrc/-/eslintrc-1.2.0.tgz#7ce1547a5c46dfe56e1e45c3c9ed18038c721c6a"
