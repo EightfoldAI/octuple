@@ -34,7 +34,7 @@ exports[`Storyshots Radio Button Bespoke Radio Group 1`] = `
         id="myRadioButtonId1-custom-radio"
       />
       <span
-        className="selector-label"
+        className="selector-label selector-label-end"
       >
         Label 1
       </span>
@@ -63,7 +63,7 @@ exports[`Storyshots Radio Button Bespoke Radio Group 1`] = `
         id="myRadioButtonId2-custom-radio"
       />
       <span
-        className="selector-label"
+        className="selector-label selector-label-end"
       >
         Label 2
       </span>
@@ -92,7 +92,7 @@ exports[`Storyshots Radio Button Bespoke Radio Group 1`] = `
         id="myRadioButtonId3-custom-radio"
       />
       <span
-        className="selector-label"
+        className="selector-label selector-label-end"
       >
         Label 3
       </span>
@@ -125,7 +125,7 @@ exports[`Storyshots Radio Button Radio Button 1`] = `
       id="myRadioButtonId-custom-radio"
     />
     <span
-      className="selector-label"
+      className="selector-label selector-label-end"
     >
       Label
     </span>
@@ -161,7 +161,7 @@ exports[`Storyshots Radio Button Radio Group 1`] = `
         id="oea2exk-1-custom-radio"
       />
       <span
-        className="selector-label"
+        className="selector-label selector-label-end"
       >
         Radio1
       </span>
@@ -189,7 +189,7 @@ exports[`Storyshots Radio Button Radio Group 1`] = `
         id="oea2exk-2-custom-radio"
       />
       <span
-        className="selector-label"
+        className="selector-label selector-label-end"
       >
         Radio2
       </span>
@@ -217,7 +217,7 @@ exports[`Storyshots Radio Button Radio Group 1`] = `
         id="oea2exk-3-custom-radio"
       />
       <span
-        className="selector-label"
+        className="selector-label selector-label-end"
       >
         Radio3
       </span>

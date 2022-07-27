@@ -1,6 +1,6 @@
 import React, { FC, Ref, useEffect, useRef, useState } from 'react';
 import { generateId, mergeClasses } from '../../shared/utilities';
-import { CheckboxProps } from './';
+import { CheckboxProps, LabelPosition } from './';
 
 import styles from './checkbox.module.scss';
 
@@ -9,15 +9,17 @@ export const CheckBox: FC<CheckboxProps> = React.forwardRef(
         {
             ariaLabel,
             checked = false,
+            classNames,
             defaultChecked,
             disabled = false,
-            name,
-            value,
             id,
-            onChange,
             label,
-            classNames,
+            labelPosition = LabelPosition.End,
+            name,
+            onChange,
             style,
+            toggle = false,
+            value,
             'data-test-id': dataTestId,
         },
         ref: Ref<HTMLInputElement>
@@ -38,10 +40,20 @@ export const CheckBox: FC<CheckboxProps> = React.forwardRef(
 
         const checkBoxCheckClassNames: string = mergeClasses([
             styles.checkmark,
+            { [styles.toggle]: toggle },
         ]);
 
         const labelClassNames: string = mergeClasses([
             { [styles.labelNoValue]: value === '' },
+        ]);
+
+        const selectorLabelClassNames: string = mergeClasses([
+            styles.selectorLabel,
+            {
+                [styles.selectorLabelEnd]: labelPosition === LabelPosition.End,
+                [styles.selectorLabelStart]:
+                    labelPosition === LabelPosition.Start,
+            },
         ]);
 
         const toggleChecked = (
@@ -70,8 +82,13 @@ export const CheckBox: FC<CheckboxProps> = React.forwardRef(
                     readOnly
                 />
                 <label htmlFor={checkBoxId.current} className={labelClassNames}>
+                    {labelPosition == LabelPosition.Start && (
+                        <span className={selectorLabelClassNames}>{label}</span>
+                    )}
                     <span className={checkBoxCheckClassNames} />
-                    <span className={styles.selectorLabel}>{label}</span>
+                    {labelPosition == LabelPosition.End && (
+                        <span className={selectorLabelClassNames}>{label}</span>
+                    )}
                 </label>
             </div>
         );

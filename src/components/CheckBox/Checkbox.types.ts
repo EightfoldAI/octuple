@@ -3,6 +3,11 @@ import { OcBaseProps } from '../OcBase';
 
 export type CheckboxValueType = string | number;
 
+export enum LabelPosition {
+    End = 'end',
+    Start = 'start',
+}
+
 export interface CheckboxProps extends OcBaseProps<HTMLInputElement> {
     /**
      * Allows focus on the checkbox when it's disabled.
@@ -30,23 +35,33 @@ export interface CheckboxProps extends OcBaseProps<HTMLInputElement> {
      */
     name?: string;
     /**
-     * The checkbox value.
+     * The label of the checkbox.
      */
-    value?: CheckboxValueType;
+    label?: React.ReactNode;
     /**
-     * The label  of the checkbox
+     * The label position of the checkbox.
+     * @default LabelPosition.End
      */
-    label?: string | React.ReactNode;
+    labelPosition?: LabelPosition;
     /**
      * The checkbox onChange event handler.
      */
     onChange?: React.ChangeEventHandler<HTMLInputElement>;
+    /**
+     * The Checkbox UI is toggle.
+     * @default false
+     */
+    toggle?: boolean;
+    /**
+     * The checkbox value.
+     */
+    value?: CheckboxValueType;
 }
 
 export interface CheckboxGroupProps
     extends Omit<OcBaseProps<HTMLInputElement>, 'defaultChecked' | 'onChange'> {
     /**
-     * Aria label for the checkbox group
+     * Aria label for the checkbox group.
      */
     ariaLabel?: string;
     /**
@@ -54,17 +69,22 @@ export interface CheckboxGroupProps
      */
     items?: CheckboxProps[];
     /**
-     * The checkbox value.
+     * The label position of the checkboxes.
+     * @default LabelPosition.End
      */
-    value?: CheckboxValueType[];
-    /**
-     * Callback fired when any item in the checkboxGroup changes
-     * @param checkedValue
-     */
-    onChange?: (checkedValue: CheckboxValueType[]) => void;
+    labelPosition?: LabelPosition;
     /**
      * Type of layout for the checkbox group
      * @default vertical
      */
     layout?: 'vertical' | 'horizontal';
+    /**
+     * Callback fired when any item in the checkboxGroup changes.
+     * @param checkedValue
+     */
+    onChange?: (checkedValue: CheckboxValueType[]) => void;
+    /**
+     * The checkbox value.
+     */
+    value?: CheckboxValueType[];
 }

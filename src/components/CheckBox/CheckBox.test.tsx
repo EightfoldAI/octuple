@@ -6,13 +6,15 @@ import { CheckBox } from './';
 Enzyme.configure({ adapter: new Adapter() });
 
 describe('RadioButton', () => {
-    /*
-     * Functionality Tests
-     */
-    test('Checkbox renders', () => {
+    it('Checkbox renders', () => {
         const wrapper = mount(<CheckBox checked={true} />);
         expect(
             wrapper.containsMatchingElement(<CheckBox checked={true} />)
         ).toEqual(true);
+    });
+
+    it('Checkbox renders as toggle switch', () => {
+        const wrapper = mount(<CheckBox checked={true} toggle />);
+        expect(wrapper.find('.toggle')).toBeTruthy();
     });
 });

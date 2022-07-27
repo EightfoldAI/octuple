@@ -1,19 +1,20 @@
 import React, { FC, Ref } from 'react';
 import { mergeClasses } from '../../shared/utilities';
-import { CheckboxGroupProps, CheckBox } from './';
+import { CheckBox, CheckboxGroupProps, LabelPosition } from './';
 
 import styles from './checkbox.module.scss';
 
 export const CheckBoxGroup: FC<CheckboxGroupProps> = React.forwardRef(
     (
         {
-            items = [],
-            onChange,
-            value,
-            classNames,
-            style,
             ariaLabel,
+            classNames,
+            items = [],
+            labelPosition = LabelPosition.End,
             layout = 'vertical',
+            onChange,
+            style,
+            value,
             ...rest
         },
         ref: Ref<HTMLDivElement>
@@ -39,6 +40,7 @@ export const CheckBoxGroup: FC<CheckboxGroupProps> = React.forwardRef(
                         {...item}
                         checked={value?.includes(item.value)}
                         key={item.value}
+                        labelPosition={labelPosition}
                         onChange={() => {
                             const optionIndex = value?.indexOf(item.value);
                             const newValue = [...value];

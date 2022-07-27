@@ -1,5 +1,6 @@
 import React, { FC, Ref } from 'react';
 import { RadioButtonProps, RadioGroupProps, RadioButton } from './';
+import { LabelPosition } from '../CheckBox';
 import { RadioGroupProvider } from './RadioGroup.context';
 import { mergeClasses } from '../../shared/utilities';
 
@@ -8,13 +9,14 @@ import styles from './radio.module.scss';
 export const RadioGroup: FC<RadioGroupProps> = React.forwardRef(
     (
         {
-            onChange,
-            items,
-            classNames,
-            style,
             ariaLabel,
-            value,
+            classNames,
+            items,
+            labelPosition = LabelPosition.End,
             layout = 'vertical',
+            onChange,
+            style,
+            value,
             ...rest
         },
         ref: Ref<HTMLDivElement>
@@ -37,7 +39,11 @@ export const RadioGroup: FC<RadioGroupProps> = React.forwardRef(
                     {...rest}
                 >
                     {items.map((item: RadioButtonProps) => (
-                        <RadioButton key={item.value} {...item} />
+                        <RadioButton
+                            key={item.value}
+                            labelPosition={labelPosition}
+                            {...item}
+                        />
                     ))}
                 </div>
             </RadioGroupProvider>

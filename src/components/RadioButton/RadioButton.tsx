@@ -1,5 +1,6 @@
 import React, { FC, Ref, useEffect, useRef, useState } from 'react';
 import { RadioButtonProps, RadioButtonValue } from './';
+import { LabelPosition } from '../CheckBox';
 import { mergeClasses, generateId } from '../../shared/utilities';
 import { useRadioGroup } from './RadioGroup.context';
 
@@ -10,14 +11,15 @@ export const RadioButton: FC<RadioButtonProps> = React.forwardRef(
         {
             ariaLabel,
             checked = false,
-            disabled = false,
-            name,
-            value = '',
-            id,
-            onChange,
-            label,
             classNames,
+            disabled = false,
+            id,
+            name,
+            label,
+            labelPosition = LabelPosition.End,
+            onChange,
             style,
+            value = '',
             'data-test-id': dataTestId,
         },
         ref: Ref<HTMLInputElement>
@@ -41,6 +43,14 @@ export const RadioButton: FC<RadioButtonProps> = React.forwardRef(
 
         const labelClassNames: string = mergeClasses([
             { [styles.labelNoValue]: value === '' },
+        ]);
+
+        const selectorLabelClassNames: string = mergeClasses([
+            styles.selectorLabel,
+            {
+                [styles.selectorLabelEnd]: labelPosition === LabelPosition.End,
+                [styles.selectorLabelStart]: labelPosition === LabelPosition.Start,
+            },
         ]);
 
         // TODO: Follow-up on React issue 24439 https://github.com/facebook/react/issues/24439
@@ -89,11 +99,16 @@ export const RadioButton: FC<RadioButtonProps> = React.forwardRef(
                     htmlFor={radioButtonId.current}
                     className={labelClassNames}
                 >
+                    {labelPosition == LabelPosition.Start && (
+                        <span className={selectorLabelClassNames}>{label}</span>
+                    )}
                     <span
                         id={`${radioButtonId.current}-custom-radio`}
                         className={radioButtonClassNames}
                     />
-                    <span className={styles.selectorLabel}>{label}</span>
+                    {labelPosition == LabelPosition.End && (
+                        <span className={selectorLabelClassNames}>{label}</span>
+                    )}
                 </label>
             </div>
         );

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Stories } from '@storybook/addon-docs';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { CheckBox, CheckBoxGroup, CheckboxValueType } from './';
+import { CheckBox, CheckBoxGroup, CheckboxValueType, LabelPosition } from './';
 
 export default {
     title: 'Check Box',
@@ -77,9 +77,13 @@ export default {
         onChange: {
             action: 'change',
         },
+        labelPosition: {
+            options: [LabelPosition.End, LabelPosition.Start],
+            control: { type: 'inline-radio' },
+        },
         layout: {
             options: ['vertical', 'horizontal'],
-            control: { type: 'radio' },
+            control: { type: 'inline-radio' },
         },
     },
 } as ComponentMeta<typeof CheckBox>;
@@ -114,8 +118,10 @@ const checkBoxArgs: Object = {
     name: 'myCheckBoxName',
     value: 'label',
     label: 'Label',
+    labelPosition: LabelPosition.End,
     id: 'myCheckBoxId',
     defaultChecked: false,
+    toggle: false,
 };
 
 Check_Box.args = {

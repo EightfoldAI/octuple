@@ -23,7 +23,7 @@ exports[`Storyshots Check Box Check Box 1`] = `
       className="checkmark"
     />
     <span
-      className="selector-label"
+      className="selector-label selector-label-end"
     >
       Label
     </span>
@@ -63,7 +63,7 @@ exports[`Storyshots Check Box Check Box Group 1`] = `
         className="checkmark"
       />
       <span
-        className="selector-label"
+        className="selector-label selector-label-end"
       >
         First
       </span>
@@ -90,7 +90,7 @@ exports[`Storyshots Check Box Check Box Group 1`] = `
         className="checkmark"
       />
       <span
-        className="selector-label"
+        className="selector-label selector-label-end"
       >
         Second
       </span>
@@ -117,7 +117,7 @@ exports[`Storyshots Check Box Check Box Group 1`] = `
         className="checkmark"
       />
       <span
-        className="selector-label"
+        className="selector-label selector-label-end"
       >
         Third
       </span>

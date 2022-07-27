@@ -122,8 +122,15 @@
     }
 
     .selector-label {
-        margin-left: $space-xs;
         font-size: $text-font-weight-regular;
+
+        &-end {
+            margin-left: $space-xs;
+        }
+
+        &-start {
+            margin-right: $space-xs;
+        }
     }
 }
 

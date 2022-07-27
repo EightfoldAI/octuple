@@ -18,7 +18,7 @@ import {
     TwoStateButton,
 } from './components/Button';
 
-import { CheckBox, CheckBoxGroup } from './components/CheckBox';
+import { CheckBox, CheckBoxGroup, LabelPosition } from './components/CheckBox';
 
 import { ConfigProvider } from './components/ConfigProvider';
 
@@ -147,6 +147,7 @@ export {
     InfoBar,
     InfoBarType,
     Label,
+    LabelPosition,
     LabelSize,
     Link,
     List,
