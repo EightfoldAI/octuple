@@ -37,7 +37,7 @@ export interface CheckboxProps extends OcBaseProps<HTMLInputElement> {
     /**
      * The label of the checkbox.
      */
-    label?: string | React.ReactNode;
+    label?: React.ReactNode;
     /**
      * The label position of the checkbox.
      * @default LabelPosition.End
