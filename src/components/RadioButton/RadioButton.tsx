@@ -49,10 +49,7 @@ export const RadioButton: FC<RadioButtonProps> = React.forwardRef(
             styles.selectorLabel,
             {
                 [styles.selectorLabelEnd]: labelPosition === LabelPosition.End,
-            },
-            {
-                [styles.selectorLabelStart]:
-                    labelPosition === LabelPosition.Start,
+                [styles.selectorLabelStart]: labelPosition === LabelPosition.Start,
             },
         ]);
 
