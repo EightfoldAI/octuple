@@ -39,7 +39,7 @@ export interface RadioButtonProps extends OcBaseProps<HTMLInputElement> {
     /**
      * Label of the radio button.
      */
-    label?: string | React.ReactNode;
+    label?: React.ReactNode;
     /**
      * The label position of the radio button.
      * @default LabelPosition.End
