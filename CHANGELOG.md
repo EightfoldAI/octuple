@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.0.2](https://github.com/EightfoldAI/octuple/compare/v2.0.1...v2.0.2) (2022-07-27)
+
+### Bug Fixes
+
+-   dependabot: removes and upgrades developer dependencies ([#267](https://github.com/EightfoldAI/octuple/issues/267)) ([e082a3d](https://github.com/EightfoldAI/octuple/commits/e082a3d18d33cf68a25b16613c7aed66d317abbb))
+-   slider: fixes slider onresize event hang in react 16 ([#268](https://github.com/EightfoldAI/octuple/issues/268)) ([a03d14f](https://github.com/EightfoldAI/octuple/commits/a03d14faf5a1cdf5a2965347570f2dede98c2693))
+
 ### [2.0.1](https://github.com/EightfoldAI/octuple/compare/v1.19.1...v2.0.1) (2022-07-26)
 
 ### Features
