@@ -51,8 +51,6 @@ export const CheckBox: FC<CheckboxProps> = React.forwardRef(
             styles.selectorLabel,
             {
                 [styles.selectorLabelEnd]: labelPosition === LabelPosition.End,
-            },
-            {
                 [styles.selectorLabelStart]:
                     labelPosition === LabelPosition.Start,
             },
