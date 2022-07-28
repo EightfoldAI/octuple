@@ -151,6 +151,7 @@ Text_Area.args = {
     placeholder: 'Placeholder text',
     required: false,
     size: TextInputSize.Flex,
+    shape: TextInputShape.Pill,
     style: {},
     textAreaCols: 50,
     textAreaRows: 5,

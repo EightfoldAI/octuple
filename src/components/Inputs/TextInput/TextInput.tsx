@@ -89,24 +89,24 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
         const textInputClassNames: string = mergeClasses([
             classNames,
             {
-                [styles.inputSize3]:
+                [styles.inputSmall]:
                     size === TextInputSize.Flex && largeScreenActive,
             },
             {
-                [styles.inputSize2]:
+                [styles.inputMedium]:
                     size === TextInputSize.Flex && mediumScreenActive,
             },
             {
-                [styles.inputSize2]:
+                [styles.inputMedium]:
                     size === TextInputSize.Flex && smallScreenActive,
             },
             {
-                [styles.inputSize1]:
+                [styles.inputLarge]:
                     size === TextInputSize.Flex && xSmallScreenActive,
             },
-            { [styles.inputSize1]: size === TextInputSize.Large },
-            { [styles.inputSize2]: size === TextInputSize.Medium },
-            { [styles.inputSize3]: size === TextInputSize.Small },
+            { [styles.inputLarge]: size === TextInputSize.Large },
+            { [styles.inputMedium]: size === TextInputSize.Medium },
+            { [styles.inputSmall]: size === TextInputSize.Small },
             {
                 [styles.withIcon]:
                     !!iconProps?.path &&
@@ -184,24 +184,24 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
                 [styles.underline]: shape === TextInputShape.Underline,
             },
             {
-                [styles.inputSize3]:
+                [styles.inputSmall]:
                     size === TextInputSize.Flex && largeScreenActive,
             },
             {
-                [styles.inputSize2]:
+                [styles.inputMedium]:
                     size === TextInputSize.Flex && mediumScreenActive,
             },
             {
-                [styles.inputSize2]:
+                [styles.inputMedium]:
                     size === TextInputSize.Flex && smallScreenActive,
             },
             {
-                [styles.inputSize1]:
+                [styles.inputLarge]:
                     size === TextInputSize.Flex && xSmallScreenActive,
             },
-            { [styles.inputSize1]: size === TextInputSize.Large },
-            { [styles.inputSize2]: size === TextInputSize.Medium },
-            { [styles.inputSize3]: size === TextInputSize.Small },
+            { [styles.inputLarge]: size === TextInputSize.Large },
+            { [styles.inputMedium]: size === TextInputSize.Medium },
+            { [styles.inputSmall]: size === TextInputSize.Small },
             {
                 [styles.inputStretch]: inputWidth === TextInputWidth.fill,
             },

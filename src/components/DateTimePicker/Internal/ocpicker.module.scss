@@ -72,8 +72,7 @@
     }
 
     &-focused {
-        outline: 1px $focus-visible-outline-style $focus-visible-outline-color;
-        outline-offset: -1px;
+        border-color: $focus-visible-shadow-color;
     }
 
     &-disabled {
@@ -88,7 +87,7 @@
         box-shadow: $picker-box-shadow;
 
         &-focused {
-            border-color: $picker-border-color-active;
+            border-color: $focus-visible-shadow-color;
         }
 
         &-rtl {
@@ -1257,5 +1256,21 @@
         transform-origin: 100% 100%;
         opacity: 0;
         pointer-events: none;
+    }
+}
+
+:global(.focus-visible) {
+    .picker {
+        &-focused {
+            border-color: transparent;
+            box-shadow: $focus-visible-box-shadow;
+        }
+
+        &-partial {
+            &-focused {
+                border-color: transparent;
+                box-shadow: $focus-visible-box-shadow, $picker-box-shadow;
+            }
+        }
     }
 }

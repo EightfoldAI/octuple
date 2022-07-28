@@ -7,7 +7,7 @@
 
         background-color: var(--background-color);
         border: 1px solid var(--border-color);
-        border-radius: $corner-radius-s;
+        border-radius: $corner-radius-xl;
         box-sizing: border-box;
         color: var(--grey-color-60);
         font-family: 'Source Sans Pro', sans-serif;
@@ -102,10 +102,6 @@
             }
         }
 
-        &:hover {
-            border-color: var(--grey-color-60);
-        }
-
         &:hover ~ .icon-button {
             background-color: transparent;
             border-color: transparent;
@@ -128,11 +124,6 @@
             }
         }
 
-        &:active {
-            border-color: var(--grey-color-60);
-            color: var(--text-primary-color);
-        }
-
         &:disabled {
             opacity: $disabled-alpha-value;
             cursor: not-allowed;
@@ -150,15 +141,6 @@
             svg {
                 color: var(--grey-color-80);
             }
-        }
-
-        &:focus {
-            color: var(--text-primary-color);
-            outline: 1px $focus-visible-outline-style
-                $focus-visible-outline-color;
-            outline-offset: -1px;
-            transition: outline $motion-duration-extra-fast
-                $motion-easing-easeinout;
         }
 
         &:disabled ~ .icon-button {
@@ -293,13 +275,37 @@
 
         &.underline {
             border-color: transparent;
+        }
 
-            &:focus {
-                outline: none;
+        &:active {
+            border-color: var(--grey-color-60);
+            color: var(--text-primary-color);
+
+            &.underline {
+                border-color: transparent;
             }
         }
 
-        &.input-size-1 {
+        &:hover {
+            border-color: var(--grey-color-60);
+
+            &.underline {
+                border-color: transparent;
+            }
+        }
+
+        &:focus {
+            color: var(--text-primary-color);
+            border-color: $focus-visible-shadow-color;
+            transition: border-color $motion-duration-extra-fast
+                $motion-easing-easeinout;
+
+            &.underline {
+                border-color: transparent;
+            }
+        }
+
+        &.input-large {
             font-size: $text-font-size-4;
             height: 44px;
             line-height: $text-line-height-5;
@@ -422,7 +428,7 @@
             }
         }
 
-        &.input-size-2 {
+        &.input-medium {
             font-size: $text-font-size-3;
             height: 36px;
             line-height: $text-line-height-4;
@@ -593,7 +599,7 @@
             }
         }
 
-        &.input-size-3 {
+        &.input-small {
             font-size: $text-font-size-2;
             height: 28px;
             line-height: $text-line-height-3;
@@ -889,11 +895,14 @@
         }
 
         &:focus {
-            outline: 1px $focus-visible-outline-style
-                $focus-visible-outline-color;
-            outline-offset: -1px;
-            transition: outline $motion-duration-extra-fast
+            color: var(--text-primary-color);
+            border-color: $focus-visible-shadow-color;
+            transition: border-color $motion-duration-extra-fast
                 $motion-easing-easeinout;
+
+            &.underline {
+                border-color: transparent;
+            }
         }
 
         &:disabled {
@@ -912,10 +921,6 @@
 
         &.underline {
             border-color: transparent;
-
-            &:focus {
-                outline: none;
-            }
         }
 
         &.inline {
@@ -1032,7 +1037,7 @@
         }
     }
 
-    &.input-size-1 {
+    &.input-large {
         .icon-wrapper {
             bottom: 2px;
             height: 40px;
@@ -1089,7 +1094,7 @@
         }
     }
 
-    &.input-size-2 {
+    &.input-medium {
         .icon-wrapper {
             bottom: 0;
             height: 36px;
@@ -1147,7 +1152,7 @@
         }
     }
 
-    &.input-size-3 {
+    &.input-small {
         .icon-wrapper {
             bottom: 2px;
             height: 24px;
@@ -1213,20 +1218,33 @@
 
 :global(.focus-visible) {
     .input-wrapper {
-        input[type='search'],
-        input[type='text'] {
+        input {
+            &.focus-visible,
             &:focus-visible {
-                outline-width: $focus-visible-outline-width;
-                outline-offset: $focus-visible-outline-offset-inner;
+                border-color: var(--background-color);
+                box-shadow: $focus-visible-box-shadow;
+
+                &.underline {
+                    border-color: transparent;
+                    box-shadow: none;
+                }
+            }
+        }
+
+        &.underline {
+            .input-group,
+            .text-area-group {
+                &:after {
+                    border-bottom-color: $focus-visible-shadow-color;
+                    border-bottom-width: 2px;
+                }
             }
         }
 
         .icon-button {
+            &.focus-visible,
             &:focus-visible {
                 background-color: var(--background-color);
-                outline: $focus-visible-outline-width
-                    $focus-visible-outline-style $focus-visible-outline-color;
-                outline-offset: $focus-visible-outline-offset-inner;
                 padding: $button-padding-vertical-small $space-xxs;
 
                 svg {
@@ -1236,11 +1254,9 @@
         }
 
         .clear-icon-button {
+            &.focus-visible,
             &:focus-visible {
                 background-color: transparent;
-                outline: $focus-visible-outline-width
-                    $focus-visible-outline-style $focus-visible-outline-color;
-                outline-offset: $focus-visible-outline-offset-inner;
 
                 svg {
                     color: var(--grey-color-80);
@@ -1249,9 +1265,15 @@
         }
 
         .text-area {
+            &.focus-visible,
             &:focus-visible {
-                outline-width: $focus-visible-outline-width;
-                outline-offset: $focus-visible-outline-offset-inner;
+                border-color: var(--background-color);
+                box-shadow: $focus-visible-box-shadow;
+
+                &.underline {
+                    border-color: transparent;
+                    box-shadow: none;
+                }
             }
         }
     }

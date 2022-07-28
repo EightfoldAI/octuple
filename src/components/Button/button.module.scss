@@ -1,29 +1,10 @@
 .button {
-    --button-default-foreground-color: var(--primary-color);
-    --button-focus-outline-color: var(--blueviolet-color-50);
-    --button-primary-default-border-color: var(--primary-color);
-    --button-two-state-focus-foreground-color: var(--primary-color-80);
-    --button-two-state-checked-foreground-color: var(--primary-color-80);
-    --button-two-state-active-foreground-color: var(--primary-color-80);
-    --button-two-state-visited-foreground-color: var(--primary-color-80);
-    --button-two-state-default-background-color: var(--white-color);
-    --button-two-state-hover-background-color: var(--white-color);
-    --button-two-state-focus-background-color: var(--white-color);
-    --button-two-state-checked-background-color: var(--primary-color-20);
-    --button-two-state-active-background-color: var(--primary-color-20);
-    --button-two-state-visited-background-color: var(--primary-color-20);
     --button-counter-default-background-color: var(--grey-color-20);
     --button-counter-hover-background-color: var(--primary-color-20);
     --button-counter-checked-background-color: var(--primary-color-10);
     --button-counter-focus-background-color: var(--primary-color-20);
     --button-counter-active-background-color: var(--primary-color-10);
-    --button-counter-visited-background-color: var(--primary-color-10);
-    --button-two-state-default-outline-color: var(--grey-color-70);
-    --button-two-state-hover-outline-color: var(--primary-color-60);
-    --button-two-state-checked-outline-color: var(--primary-color);
-    --button-two-state-focus-outline-color: var(--primary-color-40);
-    --button-two-state-active-outline-color: var(--primary-color);
-    --button-two-state-visited-outline-color: var(--primary-color);
+
     background-color: inherit;
     border-radius: $corner-radius-s;
     cursor: pointer;
@@ -39,15 +20,15 @@
         flex-direction: row;
     }
 
-    .icon + .button-text-1:not(:empty) {
+    .icon + .button-text-large:not(:empty) {
         margin-left: $button-spacer-large;
     }
 
-    .icon + .button-text-2:not(:empty) {
+    .icon + .button-text-medium:not(:empty) {
         margin-left: $button-spacer-medium;
     }
 
-    .icon + .button-text-3:not(:empty) {
+    .icon + .button-text-small:not(:empty) {
         margin-left: $button-spacer-small;
     }
 
@@ -58,20 +39,19 @@
     &.round-shape {
         border-radius: 50%;
 
-        &.button-size-1 {
+        &.button-large {
             padding: $button-padding-vertical-large;
         }
-        &.button-size-2 {
+        &.button-medium {
             padding: $button-padding-vertical-medium;
         }
-        &.button-size-3 {
+        &.button-small {
             padding: $button-padding-vertical-small;
         }
     }
 
     &.drop-shadow {
-        box-shadow: 0 1px 2px rgba(15, 20, 31, 0.12),
-            0 2px 8px rgba(15, 20, 31, 0.16);
+        box-shadow: $shadow-object-s;
     }
 
     &.split-left {
@@ -79,15 +59,15 @@
         border-top-right-radius: 0;
 
         &.button-stretch {
-            &.button-size-1 {
+            &.button-large {
                 width: calc(100% - 52px);
             }
 
-            &.button-size-2 {
+            &.button-medium {
                 width: calc(100% - 44px);
             }
 
-            &.button-size-3 {
+            &.button-small {
                 width: calc(100% - 36px);
             }
         }
@@ -158,6 +138,22 @@
         z-index: $z-index-400;
     }
 
+    &-large {
+        height: 44px;
+        padding: $button-padding-vertical-large $button-padding-horizontal-large;
+    }
+
+    &-medium {
+        height: 36px;
+        padding: $button-padding-vertical-medium
+            $button-padding-horizontal-medium;
+    }
+
+    &-small {
+        height: 28px;
+        padding: $button-padding-vertical-small $button-padding-horizontal-small;
+    }
+
     &:disabled,
     &.disabled {
         opacity: $disabled-alpha-value;
@@ -177,8 +173,7 @@
     }
 }
 
-.button-text-1 {
-    // Button 1 (Mobile L)
+.button-text-large {
     font-family: 'Source Sans Pro', sans-serif;
     font-weight: $text-font-weight-semibold;
     font-size: $text-font-size-4;
@@ -196,8 +191,7 @@
     }
 }
 
-.button-text-2 {
-    // Button 2 (Mobile M, Desktop L)
+.button-text-medium {
     font-family: 'Source Sans Pro', sans-serif;
     font-weight: $text-font-weight-semibold;
     font-size: $text-font-size-3;
@@ -215,8 +209,7 @@
     }
 }
 
-.button-text-3 {
-    // Button 3 (Desktop M)
+.button-text-small {
     font-family: 'Source Sans Pro', sans-serif;
     font-weight: $text-font-weight-semibold;
     font-size: $text-font-size-2;
@@ -232,21 +225,6 @@
     &.open-sans {
         font-family: 'Open Sans', sans-serif;
     }
-}
-
-.button-size-1 {
-    height: 44px;
-    padding: $button-padding-vertical-large $button-padding-horizontal-large;
-}
-
-.button-size-2 {
-    height: 36px;
-    padding: $button-padding-vertical-medium $button-padding-horizontal-medium;
-}
-
-.button-size-3 {
-    height: 28px;
-    padding: $button-padding-vertical-small $button-padding-horizontal-small;
 }
 
 .button-primary {
@@ -265,13 +243,12 @@
 }
 
 .button-secondary {
-    --outline: var(--accent-color-60);
-    --bg: transparent;
+    --border: var(--accent-color-60);
+    --bg: var(--background-color);
     --color: var(--primary-color-70);
     color: var(--color);
     background-color: var(--bg);
-    outline: var(--outline) solid 1px;
-    outline-offset: -1px;
+    border: 1px solid var(--border);
 
     &:hover {
         --bg: var(--accent-color-10);
@@ -298,12 +275,11 @@
 }
 
 .button-secondary-disruptive {
-    --bg: transparent;
+    --bg: var(--background-color);
     --color: var(--disruptive-color-70);
     color: var(--color);
     background-color: var(--bg);
-    outline: var(--disruptive-color-70) solid 1px;
-    outline-offset: -1px;
+    border: 1px solid var(--disruptive-color-70);
 
     &:hover {
         --bg: var(--disruptive-color-10);
@@ -319,11 +295,9 @@
     --color: var(--primary-color-70);
     color: var(--color);
     background-color: var(--bg);
-    outline: transparent solid 2px;
-    outline-offset: -2px;
 
     &:hover {
-        --bg: transparent;
+        --bg: var(--background-color);
     }
 
     &:active {
@@ -334,8 +308,6 @@
 .button-disruptive {
     background-color: var(--white-color);
     color: var(--disruptive-color-70);
-    outline: transparent solid 1px;
-    outline-offset: -1px;
 
     &:hover {
         background-color: var(--disruptive-color-10);
@@ -350,14 +322,12 @@
 
 .button-neutral {
     --bg: var(--grey-color-10);
-    --color: var(--grey-color-70);
+    --color: var(--text-secondary-color);
     color: var(--color);
     background-color: var(--bg);
-    outline: transparent solid 2px;
-    outline-offset: -2px;
 
     &:hover {
-        --bg: transparent;
+        --bg: var(--background-color);
     }
 
     &:active {
@@ -377,7 +347,7 @@
         }
 
         &.split-divider-secondary {
-            background-color: var(--button-default-foreground-color);
+            background-color: var(--primary-color);
         }
 
         &.split-divider-primary-disruptive {
@@ -389,7 +359,7 @@
         }
 
         &.split-divider-default {
-            background-color: var(--button-default-foreground-color);
+            background-color: var(--primary-color);
         }
 
         &.split-divider-disruptive {
@@ -397,7 +367,7 @@
         }
 
         &.split-divider-neutral {
-            background-color: var(--button-default-foreground-color);
+            background-color: var(--primary-color);
         }
     }
 
@@ -433,19 +403,19 @@
         width: fit-content;
     }
 
-    .button-text-1 {
+    .button-text-large {
         &.counter {
             margin: 0 $space-xs;
         }
     }
 
-    .button-text-2 {
+    .button-text-medium {
         &.counter {
             margin: 0 $space-xs;
         }
     }
 
-    .button-text-3 {
+    .button-text-small {
         &.counter {
             margin: 0 $space-xxs;
         }
@@ -498,69 +468,56 @@
 
 :global(.focus-visible) {
     .button {
+        &.focus-visible,
         &:focus-visible {
-            outline-width: $focus-visible-outline-width;
-            outline-offset: $focus-visible-outline-offset-inner;
-            outline-color: var(--button-focus-outline-color);
-        }
+            box-shadow: $focus-visible-box-shadow;
 
-        // Primary button doesn't have an outline. Add one for keyboard focus modality.
-        &.button-primary {
-            &:focus-visible {
-                outline: $focus-visible-outline-width solid
-                    var(--button-primary-focus-border-color);
+            &.drop-shadow {
+                box-shadow: $focus-visible-box-shadow, $shadow-object-s;
             }
-        }
 
-        &.button-primary-disruptive {
-            &:focus-visible {
-                outline: $focus-visible-outline-width solid
-                    var(--disruptive-color-80);
+            .counter {
+                background-color: var(--button-counter-focus-background-color);
             }
         }
 
         &.button-secondary {
+            &.focus-visible,
             &:focus-visible {
-                background-color: var(--button-focus-background-color);
-                color: var(--button-focus-foreground-color);
+                border-color: var(--background-color);
             }
         }
 
         &.button-secondary-disruptive {
+            &.focus-visible,
             &:focus-visible {
                 color: var(--disruptive-color-80);
-                outline-color: var(--disruptive-color-80);
-            }
-        }
-
-        &.button-default {
-            &:focus-visible {
-                background-color: var(--button-focus-background-color);
-                color: var(--button-focus-foreground-color);
             }
         }
 
         &.button-disruptive {
+            &.focus-visible,
             &:focus-visible {
                 background-color: var(--disruptive-color-10);
                 color: var(--disruptive-color-80);
-                outline-color: var(--disruptive-color-80);
             }
         }
 
         &.button-neutral {
+            &.focus-visible,
             &:focus-visible {
                 background-color: var(--grey-color-10);
-                color: var(--text-secondary-color);
-                outline-color: var(--grey-color-80);
+
+                &.drop-shadow {
+                    box-shadow: $focus-visible-box-shadow, $shadow-object-s;
+                }
             }
         }
 
-        &.two-state-button {
+        &.split-left {
+            &.focus-visible,
             &:focus-visible {
-                outline: $focus-visible-outline-width solid
-                    var(--button-focus-outline-color);
-                outline-offset: $focus-visible-outline-offset-inner;
+                margin: 0 2px;
             }
         }
     }
@@ -572,8 +529,7 @@
             background-color: inherit;
 
             &.drop-shadow {
-                box-shadow: 0 1px 2px rgba(15, 20, 31, 0.12),
-                    0 2px 8px rgba(15, 20, 31, 0.16);
+                box-shadow: $shadow-object-s;
             }
         }
     }

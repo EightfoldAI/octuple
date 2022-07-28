@@ -15,6 +15,17 @@ export interface CSSVariables extends React.CSSProperties {
     '--primary-color-90'?: string;
     '--primary-color-100'?: string;
     '--primary-color'?: string;
+    '--accent-color-10'?: string;
+    '--accent-color-20'?: string;
+    '--accent-color-30'?: string;
+    '--accent-color-40'?: string;
+    '--accent-color-50'?: string;
+    '--accent-color-60'?: string;
+    '--accent-color-70'?: string;
+    '--accent-color-80'?: string;
+    '--accent-color-90'?: string;
+    '--accent-color-100'?: string;
+    '--accent-color'?: string;
     '--disruptive-color-10'?: string;
     '--disruptive-color-20'?: string;
     '--disruptive-color-30'?: string;
@@ -92,6 +103,16 @@ export interface CSSVariables extends React.CSSProperties {
     '--blue-color-90'?: string;
     '--blue-color-100'?: string;
     '--blue-color'?: string;
+    '--blueviolet-color-10'?: string;
+    '--blueviolet-color-20'?: string;
+    '--blueviolet-color-30'?: string;
+    '--blueviolet-color-40'?: string;
+    '--blueviolet-color-50'?: string;
+    '--blueviolet-color-60'?: string;
+    '--blueviolet-color-70'?: string;
+    '--blueviolet-color-80'?: string;
+    '--blueviolet-color-90'?: string;
+    '--blueviolet-color-100'?: string;
     '--violet-color-10'?: string;
     '--violet-color-20'?: string;
     '--violet-color-30'?: string;
@@ -103,6 +124,17 @@ export interface CSSVariables extends React.CSSProperties {
     '--violet-color-90'?: string;
     '--violet-color-100'?: string;
     '--violet-color'?: string;
+    '--violetred-color-10'?: string;
+    '--violetred-color-20'?: string;
+    '--violetred-color-30'?: string;
+    '--violetred-color-40'?: string;
+    '--violetred-color-50'?: string;
+    '--violetred-color-60'?: string;
+    '--violetred-color-70'?: string;
+    '--violetred-color-80'?: string;
+    '--violetred-color-90'?: string;
+    '--violetred-color-100'?: string;
+    '--violetred-color'?: string;
     '--grey-color-10'?: string;
     '--grey-color-20'?: string;
     '--grey-color-30'?: string;
@@ -125,51 +157,5 @@ export interface CSSVariables extends React.CSSProperties {
     '--info-color'?: string;
     '--white-color'?: string;
     '--black-color'?: string;
-
-    '--button-primary-default-foreground-color'?: string;
-    '--button-primary-hover-foreground-color'?: string;
-    '--button-primary-focus-foreground-color'?: string;
-    '--button-primary-active-foreground-color'?: string;
-    '--button-primary-visited-foreground-color'?: string;
-
-    '--button-primary-default-background-color'?: string;
-    '--button-primary-hover-background-color'?: string;
-    '--button-primary-focus-background-color'?: string;
-    '--button-primary-active-background-color'?: string;
-    '--button-primary-visited-background-color'?: string;
-
-    '--button-primary-default-border-color'?: string;
-    '--button-primary-hover-border-color'?: string;
-    '--button-primary-focus-border-color'?: string;
-    '--button-primary-active-border-color'?: string;
-    '--button-primary-visited-border-color'?: string;
-
-    '--button-neutral-default-foreground-color'?: string;
-    '--button-neutral-hover-foreground-color'?: string;
-    '--button-neutral-focus-foreground-color'?: string;
-    '--button-neutral-active-foreground-color'?: string;
-    '--button-neutral-visited-foreground-color'?: string;
-
-    '--button-default-foreground-color'?: string;
-    '--button-hover-foreground-color'?: string;
-    '--button-focus-foreground-color'?: string;
-    '--button-active-foreground-color'?: string;
-    '--button-visited-foreground-color'?: string;
-
-    '--button-default-background-color'?: string;
-    '--button-hover-background-color'?: string;
-    '--button-focus-background-color'?: string;
-    '--button-active-background-color'?: string;
-    '--button-visited-background-color'?: string;
-
-    '--button-hover-variant-background-color'?: string;
-
-    '--button-default-outline-color'?: string;
-    '--button-hover-outline-color'?: string;
-    '--button-active-outline-color'?: string;
-    '--button-visited-outline-color'?: string;
-
-    '--button-focus-outline-color'?: string;
-
     '--font-size'?: string;
 }
