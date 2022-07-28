@@ -3,13 +3,13 @@
 exports[`Storyshots Snack Bar Closable 1`] = `
 <button
   aria-disabled={false}
-  className="button button-default button-size3 pill-shape"
+  className="button button-default button-small pill-shape"
   defaultChecked={false}
   disabled={false}
   onClick={[Function]}
 >
   <span
-    className="button-text3"
+    className="button-text-small"
   >
     Serve closable snack
   </span>
@@ -19,13 +19,13 @@ exports[`Storyshots Snack Bar Closable 1`] = `
 exports[`Storyshots Snack Bar Default 1`] = `
 <button
   aria-disabled={false}
-  className="button button-default button-size3 pill-shape"
+  className="button button-default button-small pill-shape"
   defaultChecked={false}
   disabled={false}
   onClick={[Function]}
 >
   <span
-    className="button-text3"
+    className="button-text-small"
   >
     Serve snack
   </span>
@@ -35,13 +35,13 @@ exports[`Storyshots Snack Bar Default 1`] = `
 exports[`Storyshots Snack Bar With Action 1`] = `
 <button
   aria-disabled={false}
-  className="button button-default button-size3 pill-shape"
+  className="button button-default button-small pill-shape"
   defaultChecked={false}
   disabled={false}
   onClick={[Function]}
 >
   <span
-    className="button-text3"
+    className="button-text-small"
   >
     Serve snack with action
   </span>

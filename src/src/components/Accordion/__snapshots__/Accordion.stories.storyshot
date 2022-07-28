@@ -581,7 +581,7 @@ exports[`Storyshots Accordion Single 1`] = `
       <div
         style={
           Object {
-            "height": "80px",
+            "height": "auto",
           }
         }
       >

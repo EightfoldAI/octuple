@@ -1898,12 +1898,12 @@ LoadedCheerio {
                           "aria-checked": "true",
                           "aria-disabled": "false",
                           "aria-pressed": "true",
-                          "class": "pagination-button active button button-neutral button-size2",
+                          "class": "pagination-button active button button-neutral button-medium",
                         },
                         "children": Array [
                           Node {
                             "attribs": Object {
-                              "class": "button-text2",
+                              "class": "button-text-medium",
                             },
                             "children": Array [
                               Node {
@@ -1990,12 +1990,12 @@ LoadedCheerio {
                         "aria-checked": "true",
                         "aria-disabled": "false",
                         "aria-pressed": "true",
-                        "class": "pagination-button active button button-neutral button-size2",
+                        "class": "pagination-button active button button-neutral button-medium",
                       },
                       "children": Array [
                         Node {
                           "attribs": Object {
-                            "class": "button-text2",
+                            "class": "button-text-medium",
                           },
                           "children": Array [
                             Node {
@@ -2121,12 +2121,12 @@ LoadedCheerio {
                         "aria-checked": "true",
                         "aria-disabled": "false",
                         "aria-pressed": "true",
-                        "class": "pagination-button active button button-neutral button-size2",
+                        "class": "pagination-button active button button-neutral button-medium",
                       },
                       "children": Array [
                         Node {
                           "attribs": Object {
-                            "class": "button-text2",
+                            "class": "button-text-medium",
                           },
                           "children": Array [
                             Node {
@@ -2213,12 +2213,12 @@ LoadedCheerio {
                       "aria-checked": "true",
                       "aria-disabled": "false",
                       "aria-pressed": "true",
-                      "class": "pagination-button active button button-neutral button-size2",
+                      "class": "pagination-button active button button-neutral button-medium",
                     },
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "class": "button-text2",
+                          "class": "button-text-medium",
                         },
                         "children": Array [
                           Node {
