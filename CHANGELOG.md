@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.1.0](https://github.com/EightfoldAI/octuple/compare/v2.0.2...v2.1.0) (2022-07-28)
+
+### Features
+
+-   toggle: add toggle switch ([#269](https://github.com/EightfoldAI/octuple/issues/269)) ([b6ecc9d](https://github.com/EightfoldAI/octuple/commits/b6ecc9d217fadf0cd40a05ad2761d7be05affbbe))
+
+### Bug Fixes
+
+-   tooltip: fixes tooltip visibility upon on mouse leave ([#273](https://github.com/EightfoldAI/octuple/issues/273)) ([0314b8c](https://github.com/EightfoldAI/octuple/commits/0314b8c307c7bfdcb20853d09543cecb350416e2))
+
 ### [2.0.2](https://github.com/EightfoldAI/octuple/compare/v2.0.1...v2.0.2) (2022-07-27)
 
 ### Bug Fixes
