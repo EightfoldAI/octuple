@@ -17,7 +17,7 @@ exports[`Storyshots Pagination All Combined 1`] = `
         aria-expanded={false}
         aria-haspopup={true}
         aria-label="Selected page size"
-        className="button button-neutral button-size2 icon-left"
+        className="button button-neutral button-medium icon-left"
         defaultChecked={false}
         disabled={false}
         onClick={[Function]}
@@ -51,7 +51,7 @@ exports[`Storyshots Pagination All Combined 1`] = `
             </svg>
           </span>
           <span
-            className="button-text2"
+            className="button-text-medium"
           >
             page / 100
           </span>
@@ -67,7 +67,7 @@ exports[`Storyshots Pagination All Combined 1`] = `
   <button
     aria-disabled={false}
     aria-label="Previous"
-    className="pagination-button pagination-previous button button-neutral button-size2 icon-left"
+    className="pagination-button pagination-previous button button-neutral button-medium icon-left"
     defaultChecked={false}
     disabled={false}
     onClick={[Function]}
@@ -106,13 +106,13 @@ exports[`Storyshots Pagination All Combined 1`] = `
         aria-checked={false}
         aria-disabled={false}
         aria-pressed={false}
-        className="pagination-button button button-neutral button-size2"
+        className="pagination-button button button-neutral button-medium"
         defaultChecked={false}
         disabled={false}
         onClick={[Function]}
       >
         <span
-          className="button-text2"
+          className="button-text-medium"
         >
           1
         </span>
@@ -123,13 +123,13 @@ exports[`Storyshots Pagination All Combined 1`] = `
         aria-checked={false}
         aria-disabled={false}
         aria-pressed={false}
-        className="pagination-button button button-neutral button-size2"
+        className="pagination-button button button-neutral button-medium"
         defaultChecked={false}
         disabled={false}
         onClick={[Function]}
       >
         <span
-          className="button-text2"
+          className="button-text-medium"
         >
           0
         </span>
@@ -140,13 +140,13 @@ exports[`Storyshots Pagination All Combined 1`] = `
         aria-checked={true}
         aria-disabled={false}
         aria-pressed={true}
-        className="pagination-button active button button-neutral button-size2"
+        className="pagination-button active button button-neutral button-medium"
         defaultChecked={true}
         disabled={false}
         onClick={[Function]}
       >
         <span
-          className="button-text2"
+          className="button-text-medium"
         >
           4
         </span>
@@ -156,7 +156,7 @@ exports[`Storyshots Pagination All Combined 1`] = `
   <button
     aria-disabled={false}
     aria-label="Next"
-    className="pagination-button pagination-next button button-neutral button-size2 icon-left disabled"
+    className="pagination-button pagination-next button button-neutral button-medium icon-left disabled"
     defaultChecked={false}
     disabled={true}
     onClick={[Function]}
@@ -225,7 +225,7 @@ exports[`Storyshots Pagination Basic Few 1`] = `
   <button
     aria-disabled={false}
     aria-label="Previous"
-    className="pagination-button pagination-previous button button-neutral button-size2 icon-left disabled"
+    className="pagination-button pagination-previous button button-neutral button-medium icon-left disabled"
     defaultChecked={false}
     disabled={true}
     onClick={[Function]}
@@ -264,13 +264,13 @@ exports[`Storyshots Pagination Basic Few 1`] = `
         aria-checked={true}
         aria-disabled={false}
         aria-pressed={true}
-        className="pagination-button active button button-neutral button-size2"
+        className="pagination-button active button button-neutral button-medium"
         defaultChecked={true}
         disabled={false}
         onClick={[Function]}
       >
         <span
-          className="button-text2"
+          className="button-text-medium"
         >
           1
         </span>
@@ -281,13 +281,13 @@ exports[`Storyshots Pagination Basic Few 1`] = `
         aria-checked={false}
         aria-disabled={false}
         aria-pressed={false}
-        className="pagination-button button button-neutral button-size2"
+        className="pagination-button button button-neutral button-medium"
         defaultChecked={false}
         disabled={false}
         onClick={[Function]}
       >
         <span
-          className="button-text2"
+          className="button-text-medium"
         >
           0
         </span>
@@ -298,13 +298,13 @@ exports[`Storyshots Pagination Basic Few 1`] = `
         aria-checked={false}
         aria-disabled={false}
         aria-pressed={false}
-        className="pagination-button button button-neutral button-size2"
+        className="pagination-button button button-neutral button-medium"
         defaultChecked={false}
         disabled={false}
         onClick={[Function]}
       >
         <span
-          className="button-text2"
+          className="button-text-medium"
         >
           5
         </span>
@@ -314,7 +314,7 @@ exports[`Storyshots Pagination Basic Few 1`] = `
   <button
     aria-disabled={false}
     aria-label="Next"
-    className="pagination-button pagination-next button button-neutral button-size2 icon-left"
+    className="pagination-button pagination-next button button-neutral button-medium icon-left"
     defaultChecked={false}
     disabled={false}
     onClick={[Function]}
@@ -357,7 +357,7 @@ exports[`Storyshots Pagination Basic Many 1`] = `
   <button
     aria-disabled={false}
     aria-label="Previous"
-    className="pagination-button pagination-previous button button-neutral button-size2 icon-left disabled"
+    className="pagination-button pagination-previous button button-neutral button-medium icon-left disabled"
     defaultChecked={false}
     disabled={true}
     onClick={[Function]}
@@ -396,13 +396,13 @@ exports[`Storyshots Pagination Basic Many 1`] = `
         aria-checked={true}
         aria-disabled={false}
         aria-pressed={true}
-        className="pagination-button active button button-neutral button-size2"
+        className="pagination-button active button button-neutral button-medium"
         defaultChecked={true}
         disabled={false}
         onClick={[Function]}
       >
         <span
-          className="button-text2"
+          className="button-text-medium"
         >
           1
         </span>
@@ -413,13 +413,13 @@ exports[`Storyshots Pagination Basic Many 1`] = `
         aria-checked={false}
         aria-disabled={false}
         aria-pressed={false}
-        className="pagination-button button button-neutral button-size2"
+        className="pagination-button button button-neutral button-medium"
         defaultChecked={false}
         disabled={false}
         onClick={[Function]}
       >
         <span
-          className="button-text2"
+          className="button-text-medium"
         >
           0
         </span>
@@ -429,7 +429,7 @@ exports[`Storyshots Pagination Basic Many 1`] = `
       <button
         aria-disabled={false}
         aria-label="Next 5"
-        className="pagination-button quicknext button button-neutral button-size2 icon-left"
+        className="pagination-button quicknext button button-neutral button-medium icon-left"
         defaultChecked={false}
         disabled={false}
         onBlur={[Function]}
@@ -470,13 +470,13 @@ exports[`Storyshots Pagination Basic Many 1`] = `
         aria-checked={false}
         aria-disabled={false}
         aria-pressed={false}
-        className="pagination-button button button-neutral button-size2"
+        className="pagination-button button button-neutral button-medium"
         defaultChecked={false}
         disabled={false}
         onClick={[Function]}
       >
         <span
-          className="button-text2"
+          className="button-text-medium"
         >
           100
         </span>
@@ -486,7 +486,7 @@ exports[`Storyshots Pagination Basic Many 1`] = `
   <button
     aria-disabled={false}
     aria-label="Next"
-    className="pagination-button pagination-next button button-neutral button-size2 icon-left"
+    className="pagination-button pagination-next button button-neutral button-medium icon-left"
     defaultChecked={false}
     disabled={false}
     onClick={[Function]}
@@ -537,7 +537,7 @@ exports[`Storyshots Pagination Change Page Size 1`] = `
         aria-expanded={false}
         aria-haspopup={true}
         aria-label="Selected page size"
-        className="button button-neutral button-size2 icon-left"
+        className="button button-neutral button-medium icon-left"
         defaultChecked={false}
         disabled={false}
         onClick={[Function]}
@@ -571,7 +571,7 @@ exports[`Storyshots Pagination Change Page Size 1`] = `
             </svg>
           </span>
           <span
-            className="button-text2"
+            className="button-text-medium"
           >
             page / 1000
           </span>
@@ -583,7 +583,7 @@ exports[`Storyshots Pagination Change Page Size 1`] = `
   <button
     aria-disabled={false}
     aria-label="Previous"
-    className="pagination-button pagination-previous button button-neutral button-size2 icon-left disabled"
+    className="pagination-button pagination-previous button button-neutral button-medium icon-left disabled"
     defaultChecked={false}
     disabled={true}
     onClick={[Function]}
@@ -622,13 +622,13 @@ exports[`Storyshots Pagination Change Page Size 1`] = `
         aria-checked={true}
         aria-disabled={false}
         aria-pressed={true}
-        className="pagination-button active button button-neutral button-size2"
+        className="pagination-button active button button-neutral button-medium"
         defaultChecked={true}
         disabled={false}
         onClick={[Function]}
       >
         <span
-          className="button-text2"
+          className="button-text-medium"
         >
           1
         </span>
@@ -639,13 +639,13 @@ exports[`Storyshots Pagination Change Page Size 1`] = `
         aria-checked={false}
         aria-disabled={false}
         aria-pressed={false}
-        className="pagination-button button button-neutral button-size2"
+        className="pagination-button button button-neutral button-medium"
         defaultChecked={false}
         disabled={false}
         onClick={[Function]}
       >
         <span
-          className="button-text2"
+          className="button-text-medium"
         >
           0
         </span>
@@ -655,7 +655,7 @@ exports[`Storyshots Pagination Change Page Size 1`] = `
   <button
     aria-disabled={false}
     aria-label="Next"
-    className="pagination-button pagination-next button button-neutral button-size2 icon-left disabled"
+    className="pagination-button pagination-next button button-neutral button-medium icon-left disabled"
     defaultChecked={false}
     disabled={true}
     onClick={[Function]}
@@ -698,7 +698,7 @@ exports[`Storyshots Pagination Dots 1`] = `
   <button
     aria-disabled={false}
     aria-label="Previous"
-    className="pagination-button pagination-previous button button-neutral button-size2 icon-left disabled"
+    className="pagination-button pagination-previous button button-neutral button-medium icon-left disabled"
     defaultChecked={false}
     disabled={true}
     onClick={[Function]}
@@ -737,13 +737,13 @@ exports[`Storyshots Pagination Dots 1`] = `
         aria-checked={true}
         aria-disabled={false}
         aria-pressed={true}
-        className="pagination-button active button button-neutral button-size2"
+        className="pagination-button active button button-neutral button-medium"
         defaultChecked={true}
         disabled={false}
         onClick={[Function]}
       >
         <span
-          className="button-text2"
+          className="button-text-medium"
         >
           1
         </span>
@@ -754,13 +754,13 @@ exports[`Storyshots Pagination Dots 1`] = `
         aria-checked={false}
         aria-disabled={false}
         aria-pressed={false}
-        className="pagination-button button button-neutral button-size2"
+        className="pagination-button button button-neutral button-medium"
         defaultChecked={false}
         disabled={false}
         onClick={[Function]}
       >
         <span
-          className="button-text2"
+          className="button-text-medium"
         >
           0
         </span>
@@ -771,13 +771,13 @@ exports[`Storyshots Pagination Dots 1`] = `
         aria-checked={false}
         aria-disabled={false}
         aria-pressed={false}
-        className="pagination-button button button-neutral button-size2"
+        className="pagination-button button button-neutral button-medium"
         defaultChecked={false}
         disabled={false}
         onClick={[Function]}
       >
         <span
-          className="button-text2"
+          className="button-text-medium"
         >
           5
         </span>
@@ -787,7 +787,7 @@ exports[`Storyshots Pagination Dots 1`] = `
   <button
     aria-disabled={false}
     aria-label="Next"
-    className="pagination-button pagination-next button button-neutral button-size2 icon-left"
+    className="pagination-button pagination-next button button-neutral button-medium icon-left"
     defaultChecked={false}
     disabled={false}
     onClick={[Function]}
@@ -830,7 +830,7 @@ exports[`Storyshots Pagination Jump To 1`] = `
   <button
     aria-disabled={false}
     aria-label="Previous"
-    className="pagination-button pagination-previous button button-neutral button-size2 icon-left"
+    className="pagination-button pagination-previous button button-neutral button-medium icon-left"
     defaultChecked={false}
     disabled={false}
     onClick={[Function]}
@@ -869,13 +869,13 @@ exports[`Storyshots Pagination Jump To 1`] = `
         aria-checked={false}
         aria-disabled={false}
         aria-pressed={false}
-        className="pagination-button button button-neutral button-size2"
+        className="pagination-button button button-neutral button-medium"
         defaultChecked={false}
         disabled={false}
         onClick={[Function]}
       >
         <span
-          className="button-text2"
+          className="button-text-medium"
         >
           1
         </span>
@@ -886,13 +886,13 @@ exports[`Storyshots Pagination Jump To 1`] = `
         aria-checked={false}
         aria-disabled={false}
         aria-pressed={false}
-        className="pagination-button button button-neutral button-size2"
+        className="pagination-button button button-neutral button-medium"
         defaultChecked={false}
         disabled={false}
         onClick={[Function]}
       >
         <span
-          className="button-text2"
+          className="button-text-medium"
         >
           0
         </span>
@@ -903,13 +903,13 @@ exports[`Storyshots Pagination Jump To 1`] = `
         aria-checked={false}
         aria-disabled={false}
         aria-pressed={false}
-        className="pagination-button button button-neutral button-size2"
+        className="pagination-button button button-neutral button-medium"
         defaultChecked={false}
         disabled={false}
         onClick={[Function]}
       >
         <span
-          className="button-text2"
+          className="button-text-medium"
         >
           10
         </span>
@@ -919,7 +919,7 @@ exports[`Storyshots Pagination Jump To 1`] = `
   <button
     aria-disabled={false}
     aria-label="Next"
-    className="pagination-button pagination-next button button-neutral button-size2 icon-left"
+    className="pagination-button pagination-next button button-neutral button-medium icon-left"
     defaultChecked={false}
     disabled={false}
     onClick={[Function]}
@@ -988,7 +988,7 @@ exports[`Storyshots Pagination Simplified 1`] = `
   <button
     aria-disabled={false}
     aria-label="Previous"
-    className="pagination-button pagination-previous button button-neutral button-size2 icon-left disabled"
+    className="pagination-button pagination-previous button button-neutral button-medium icon-left disabled"
     defaultChecked={false}
     disabled={true}
     onClick={[Function]}
@@ -1036,7 +1036,7 @@ exports[`Storyshots Pagination Simplified 1`] = `
   <button
     aria-disabled={false}
     aria-label="Next"
-    className="pagination-button pagination-next button button-neutral button-size2 icon-left"
+    className="pagination-button pagination-next button button-neutral button-medium icon-left"
     defaultChecked={false}
     disabled={false}
     onClick={[Function]}
@@ -1083,7 +1083,7 @@ exports[`Storyshots Pagination Total Item Count 1`] = `
   <button
     aria-disabled={false}
     aria-label="Previous"
-    className="pagination-button pagination-previous button button-neutral button-size2 icon-left disabled"
+    className="pagination-button pagination-previous button button-neutral button-medium icon-left disabled"
     defaultChecked={false}
     disabled={true}
     onClick={[Function]}
@@ -1122,13 +1122,13 @@ exports[`Storyshots Pagination Total Item Count 1`] = `
         aria-checked={true}
         aria-disabled={false}
         aria-pressed={true}
-        className="pagination-button active button button-neutral button-size2"
+        className="pagination-button active button button-neutral button-medium"
         defaultChecked={true}
         disabled={false}
         onClick={[Function]}
       >
         <span
-          className="button-text2"
+          className="button-text-medium"
         >
           1
         </span>
@@ -1139,13 +1139,13 @@ exports[`Storyshots Pagination Total Item Count 1`] = `
         aria-checked={false}
         aria-disabled={false}
         aria-pressed={false}
-        className="pagination-button button button-neutral button-size2"
+        className="pagination-button button button-neutral button-medium"
         defaultChecked={false}
         disabled={false}
         onClick={[Function]}
       >
         <span
-          className="button-text2"
+          className="button-text-medium"
         >
           0
         </span>
@@ -1155,7 +1155,7 @@ exports[`Storyshots Pagination Total Item Count 1`] = `
       <button
         aria-disabled={false}
         aria-label="Next 5"
-        className="pagination-button quicknext button button-neutral button-size2 icon-left"
+        className="pagination-button quicknext button button-neutral button-medium icon-left"
         defaultChecked={false}
         disabled={false}
         onBlur={[Function]}
@@ -1196,13 +1196,13 @@ exports[`Storyshots Pagination Total Item Count 1`] = `
         aria-checked={false}
         aria-disabled={false}
         aria-pressed={false}
-        className="pagination-button button button-neutral button-size2"
+        className="pagination-button button button-neutral button-medium"
         defaultChecked={false}
         disabled={false}
         onClick={[Function]}
       >
         <span
-          className="button-text2"
+          className="button-text-medium"
         >
           100
         </span>
@@ -1212,7 +1212,7 @@ exports[`Storyshots Pagination Total Item Count 1`] = `
   <button
     aria-disabled={false}
     aria-label="Next"
-    className="pagination-button pagination-next button button-neutral button-size2 icon-left"
+    className="pagination-button pagination-next button button-neutral button-medium icon-left"
     defaultChecked={false}
     disabled={false}
     onClick={[Function]}

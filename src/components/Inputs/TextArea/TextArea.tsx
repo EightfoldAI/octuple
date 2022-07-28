@@ -36,7 +36,7 @@ export const TextArea: FC<TextAreaProps> = React.forwardRef(
             onKeyDown,
             placeholder,
             required = false,
-            shape = TextInputShape.Rectangle,
+            shape = TextInputShape.Pill,
             size = TextInputSize.Flex,
             style,
             textAreaCols = 50,
@@ -92,24 +92,24 @@ export const TextArea: FC<TextAreaProps> = React.forwardRef(
                 [styles.underline]: shape === TextInputShape.Underline,
             },
             {
-                [styles.inputSize3]:
+                [styles.inputSmall]:
                     size === TextInputSize.Flex && largeScreenActive,
             },
             {
-                [styles.inputSize2]:
+                [styles.inputMedium]:
                     size === TextInputSize.Flex && mediumScreenActive,
             },
             {
-                [styles.inputSize2]:
+                [styles.inputMedium]:
                     size === TextInputSize.Flex && smallScreenActive,
             },
             {
-                [styles.inputSize1]:
+                [styles.inputLarge]:
                     size === TextInputSize.Flex && xSmallScreenActive,
             },
-            { [styles.inputSize1]: size === TextInputSize.Large },
-            { [styles.inputSize2]: size === TextInputSize.Medium },
-            { [styles.inputSize3]: size === TextInputSize.Small },
+            { [styles.inputLarge]: size === TextInputSize.Large },
+            { [styles.inputMedium]: size === TextInputSize.Medium },
+            { [styles.inputSmall]: size === TextInputSize.Small },
             {
                 [styles.inputStretch]: inputWidth === TextInputWidth.fill,
             },

@@ -62,24 +62,24 @@ export const BaseButton: FC<InternalButtonProps> = React.forwardRef(
         const buttonBaseSharedClassNames: string = mergeClasses([
             classNames,
             {
-                [styles.buttonSize3]:
+                [styles.buttonSmall]:
                     size === ButtonSize.Flex && largeScreenActive,
             },
             {
-                [styles.buttonSize2]:
+                [styles.buttonMedium]:
                     size === ButtonSize.Flex && mediumScreenActive,
             },
             {
-                [styles.buttonSize2]:
+                [styles.buttonMedium]:
                     size === ButtonSize.Flex && smallScreenActive,
             },
             {
-                [styles.buttonSize1]:
+                [styles.buttonLarge]:
                     size === ButtonSize.Flex && xSmallScreenActive,
             },
-            { [styles.buttonSize1]: size === ButtonSize.Large },
-            { [styles.buttonSize2]: size === ButtonSize.Medium },
-            { [styles.buttonSize3]: size === ButtonSize.Small },
+            { [styles.buttonLarge]: size === ButtonSize.Large },
+            { [styles.buttonMedium]: size === ButtonSize.Medium },
+            { [styles.buttonSmall]: size === ButtonSize.Small },
             { [styles.pillShape]: shape === ButtonShape.Pill },
             {
                 [styles.roundShape]:
@@ -109,24 +109,24 @@ export const BaseButton: FC<InternalButtonProps> = React.forwardRef(
 
         const buttonTextClassNames: string = mergeClasses([
             {
-                [styles.buttonText3]:
+                [styles.buttonTextSmall]:
                     size === ButtonSize.Flex && largeScreenActive,
             },
             {
-                [styles.buttonText2]:
+                [styles.buttonTextMedium]:
                     size === ButtonSize.Flex && mediumScreenActive,
             },
             {
-                [styles.buttonText2]:
+                [styles.buttonTextMedium]:
                     size === ButtonSize.Flex && smallScreenActive,
             },
             {
-                [styles.buttonText1]:
+                [styles.buttonTextLarge]:
                     size === ButtonSize.Flex && xSmallScreenActive,
             },
-            { [styles.buttonText1]: size === ButtonSize.Large },
-            { [styles.buttonText2]: size === ButtonSize.Medium },
-            { [styles.buttonText3]: size === ButtonSize.Small },
+            { [styles.buttonTextLarge]: size === ButtonSize.Large },
+            { [styles.buttonTextMedium]: size === ButtonSize.Medium },
+            { [styles.buttonTextSmall]: size === ButtonSize.Small },
         ]);
 
         const badgeClassNames: string = mergeClasses([

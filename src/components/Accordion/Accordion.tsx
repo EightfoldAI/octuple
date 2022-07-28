@@ -20,6 +20,7 @@ export const AccordionSummary: FC<AccordionSummaryProps> = ({
         styles.accordionSummary,
         'header4',
         classNames,
+        { [styles.accordionSummaryExpanded]: expanded },
     ]);
 
     const iconStyles: string = mergeClasses([

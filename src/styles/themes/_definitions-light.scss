@@ -54,117 +54,6 @@ $color-tertiary-blue: var(--blue-color-60);
 $color-tertiary-violet: var(--violet-color-60);
 $color-tertiary-grey: var(--grey-color-60);
 
-$button-color-primary-active: var(--blue-color-70);
-$button-color-primary-hover: var(--blue-color-60);
-$button-color-primary-pressed: var(--blue-color-80);
-$button-color-primary-focused-border: var(--blue-color-80);
-$button-text__color-primary: var(--text-inverse-color);
-
-$button-color-disruptive-active: var(--disruptive-color-70);
-$button-color-disruptive-hover: var(--disruptive-color-60);
-$button-color-disruptive-pressed: var(--disruptive-color-80);
-$button-color-disruptive-focused-border: var(--disruptive-color-80);
-$button-text__color-disruptive-primary: var(--text-inverse-color);
-$button-text__color-disruptive-secondary: var(--disruptive-color);
-
-$button-color-secondary-active: var(--blue-color-70);
-$button-color-secondary-hover: var(--blue-color-60);
-$button-color-secondary-pressed: var(--blue-color-80);
-$button-color-secondary-focused-border: var(--blue-color-80);
-
-$button-text__color-default: var(--blue-color-70);
-$button-color-default-hover: var(--blue-color-20);
-$button-color-default-pressed: var(--blue-color-10);
-$button-color-default-focused-border: var(--blue-color-80);
-$button-color-default-active: rgba(var(--blue-color-40), 0.01);
-
-$button-text__color-neutral: var(--grey-color-70);
-$button-color-neutral-hover: var(--grey-color-20);
-$button-color-neutral-pressed: var(--grey-color-10);
-$button-color-neutral-focused-border: var(--blue-color-80);
-$button-color-neutral-active: rgba(var(--blue-color-40), 0.01);
-
-$button-primary-default-foreground-color: var(
-    --button-primary-default-foreground-color
-);
-$button-primary-hover-foreground-color: var(
-    --button-primary-hover-foreground-color
-);
-$button-primary-focus-foreground-color: var(
-    --button-primary-focus-foreground-color
-);
-$button-primary-active-foreground-color: var(
-    --button-primary-active-foreground-color
-);
-$button-primary-visited-foreground-color: var(
-    --button-primary-visited-foreground-color
-);
-
-$button-primary-default-background-color: var(
-    --button-primary-default-background-color
-);
-$button-primary-hover-background-color: var(
-    --button-primary-hover-background-color
-);
-$button-primary-focus-background-color: var(
-    --button-primary-focus-background-color
-);
-$button-primary-active-background-color: var(
-    --button-primary-active-background-color
-);
-$button-primary-visited-background-color: var(
-    --button-primary-visited-background-color
-);
-
-$button-primary-default-border-color: var(
-    --button-primary-default-border-color
-);
-$button-primary-hover-border-color: var(--button-primary-hover-border-color);
-$button-primary-focus-border-color: var(--button-primary-focus-border-color);
-$button-primary-active-border-color: var(--button-primary-active-border-color);
-$button-primary-visited-border-color: var(
-    --button-primary-visited-border-color
-);
-
-$button-neutral-default-foreground-color: var(
-    --button-neutral-default-foreground-color
-);
-$button-neutral-hover-foreground-color: var(
-    --button-neutral-hover-foreground-color
-);
-$button-neutral-focus-foreground-color: var(
-    --button-neutral-focus-foreground-color
-);
-$button-neutral-active-foreground-color: var(
-    --button-neutral-active-foreground-color
-);
-$button-neutral-visited-foreground-color: var(
-    --button-neutral-visited-foreground-color
-);
-
-$button-default-foreground-color: var(--button-default-foreground-color);
-$button-hover-foreground-color: var(--button-hover-foreground-color);
-$button-focus-foreground-color: var(--button-focus-foreground-color);
-$button-active-foreground-color: var(--button-active-foreground-color);
-$button-visited-foreground-color: var(--button-visited-foreground-color);
-
-$button-default-background-color: var(--button-default-background-color);
-$button-hover-background-color: var(--button-hover-background-color);
-$button-focus-background-color: var(--button-focus-background-color);
-$button-active-background-color: var(--button-active-background-color);
-$button-visited-background-color: var(--button-visited-background-color);
-
-$button-hover-variant-background-color: var(
-    --button-hover-variant-background-color
-);
-
-$button-default-outline-color: var(--button-default-outline-color);
-$button-hover-outline-color: var(--button-hover-outline-color);
-$button-focus-outline-color: var(--button-focus-outline-color);
-$button-active-outline-color: var(--button-active-outline-color);
-$button-visited-outline-color: var(--button-visited-outline-color);
-$button-focus-outline-color: var(--button-focus-outline-color);
-
 $text-color-primary: var(--grey-color-90);
 $text-color-secondary: var(--grey-color-80);
 
@@ -267,24 +156,15 @@ $space-xxxl: 64px;
 
 $button-padding-vertical-large: 10px;
 $button-padding-horizontal-large: 14px;
-$button-padding-menu-large: 10px;
 $button-spacer-large: 8px;
-$button-padding-vertical-default-large: 10px;
-$button-padding-horizontal-default-large: 2px;
 
 $button-padding-vertical-medium: 8px;
 $button-padding-horizontal-medium: 12px;
-$button-padding-menu-medium: 8px;
 $button-spacer-medium: 6px;
-$button-padding-vertical-default-medium: 8px;
-$button-padding-horizontal-default-medium: 2px;
 
 $button-padding-vertical-small: 6px;
 $button-padding-horizontal-small: 10px;
-$button-padding-menu-small: 4px;
 $button-spacer-small: 4px;
-$button-padding-vertical-default-small: 6px;
-$button-padding-horizontal-default-small: 2px;
 
 $selector-outline-offset: 1px;
 $label-no-value-margin-bottom: 15px;
@@ -298,13 +178,10 @@ $corner-radius-xl: 24px;
 
 // Focus visible Definitions
 
-$focus-visible-outline-width: 2px;
-$focus-visible-outline-offset-inner: -2px;
-$focus-visible-outline-offset-outer: 2px;
-
-$focus-visible-outline-color: var(--primary-color-60);
-$focus-visible-outline-style: solid;
-$focus-visible-outline-width: 2px;
+$focus-visible-shadow-color: var(--blueviolet-color-50);
+$focus-visible-shadow-width: 2px;
+$focus-visible-box-shadow: 0 0 0 $focus-visible-shadow-width
+    $focus-visible-shadow-color;
 
 // Speed / Duration Definitions
 

@@ -32,8 +32,16 @@
         transition: background-color $motion-duration-fast
             $motion-easing-easeout;
 
+        &:focus,
         &:focus-visible {
-            outline-color: var(--button-primary-focus-border-color);
+            outline: none;
+        }
+
+        &-expanded {
+            &:focus,
+            &:focus-visible {
+                outline: none;
+            }
         }
 
         &:hover {
@@ -46,6 +54,25 @@
 
         &.expanded-icon {
             transform: rotate(180deg);
+        }
+    }
+}
+
+:global(.focus-visible) {
+    .accordion-container {
+        .accordion-summary {
+            &.focus-visible,
+            &:focus-visible {
+                border: 2px solid $focus-visible-shadow-color;
+                border-radius: $corner-radius-xl;
+                padding: calc($space-l - 2px);
+
+                &-expanded {
+                    border-radius: 0;
+                    border-top-left-radius: $corner-radius-xl;
+                    border-top-right-radius: $corner-radius-xl;
+                }
+            }
         }
     }
 }
