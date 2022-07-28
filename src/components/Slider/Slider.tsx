@@ -7,7 +7,6 @@ import React, {
     useState,
 } from 'react';
 
-import { useEffectOnlyOnUpdate } from '../../hooks/useEffectOnlyOnUpdate';
 import { ResizeObserver } from '../../shared/ResizeObserver/ResizeObserver';
 import { mergeClasses } from '../../shared/utilities';
 import { SliderMarker, SliderProps } from './Slider.types';
@@ -62,12 +61,18 @@ export const Slider: FC<SliderProps> = ({
     const [values, setValues] = useState<number[]>(
         Array.isArray(value) ? value.sort(asc) : [value]
     );
-    const railRef = useRef<HTMLDivElement>(null);
-    const lowerLabelRef = useRef<HTMLInputElement>(null);
-    const upperLabelRef = useRef<HTMLInputElement>(null);
-    const trackRef = useRef<HTMLDivElement>(null);
-    const minLabelRef = useRef<HTMLDivElement>(null);
-    const maxLabelRef = useRef<HTMLDivElement>(null);
+    const railRef: React.MutableRefObject<HTMLDivElement> =
+        useRef<HTMLDivElement>(null);
+    const lowerLabelRef: React.MutableRefObject<HTMLInputElement> =
+        useRef<HTMLInputElement>(null);
+    const upperLabelRef: React.MutableRefObject<HTMLInputElement> =
+        useRef<HTMLInputElement>(null);
+    const trackRef: React.MutableRefObject<HTMLDivElement> =
+        useRef<HTMLDivElement>(null);
+    const minLabelRef: React.MutableRefObject<HTMLDivElement> =
+        useRef<HTMLDivElement>(null);
+    const maxLabelRef: React.MutableRefObject<HTMLDivElement> =
+        useRef<HTMLDivElement>(null);
     let [markers, setMarkers] = useState<SliderMarker[]>(
         !showMarkers
             ? []
@@ -75,7 +80,8 @@ export const Slider: FC<SliderProps> = ({
                   (_, index) => ({ value: min + step * index })
               )
     );
-    const markerRefs = useRef<RefObject<HTMLDivElement>[]>(null);
+    const markerRefs: React.MutableRefObject<RefObject<HTMLDivElement>[]> =
+        useRef<RefObject<HTMLDivElement>[]>(null);
     markerRefs.current = markers.map(
         (_, i) => markerRefs.current?.[i] ?? createRef<HTMLDivElement>()
     );
@@ -107,14 +113,15 @@ export const Slider: FC<SliderProps> = ({
         );
     };
 
-    const handleChange = (newVal: number, index: number) => {
+    const handleChange = (newVal: number, index: number): void => {
         const newValues = [...values];
         newValues.splice(index, 1, newVal);
         newValues.sort(asc);
         setValues(newValues);
+        onChange?.(isRange ? [...newValues] : newValues[0]);
     };
 
-    const updateLayout = () => {
+    const updateLayout = (): void => {
         const inputWidth = railRef.current?.offsetWidth || 0;
 
         // Early exit if there is no ref available yet. The DOM has yet to initialize
@@ -123,45 +130,49 @@ export const Slider: FC<SliderProps> = ({
             return;
         }
 
-        markerRefs.current.forEach((ref, i) => {
-            if (ref.current) {
-                ref.current.style.left = `${getValueOffset(
-                    markers[i].value
-                )}px`;
+        markerRefs.current.forEach(
+            (ref: React.RefObject<HTMLDivElement>, i: number) => {
+                if (ref.current) {
+                    ref.current.style.left = `${getValueOffset(
+                        markers[i].value
+                    )}px`;
+                }
             }
-        });
+        );
 
-        const lowerThumbOffset = getValueOffset(values[0]);
-        const upperThumbOffset = getValueOffset(values[1]);
-        const rangeWidth = isRange
+        const lowerThumbOffset: number = getValueOffset(values[0]);
+        const upperThumbOffset: number = getValueOffset(values[1]);
+        const rangeWidth: number = isRange
             ? upperThumbOffset - lowerThumbOffset
             : lowerThumbOffset;
 
         // Hide the min/max markers if the value labels would collide.
-        const maxCollisionLabelRef = isRange ? upperLabelRef : lowerLabelRef;
-        const maxCollisionThumbOffset = isRange
+        const maxCollisionLabelRef: React.MutableRefObject<HTMLInputElement> =
+            isRange ? upperLabelRef : lowerLabelRef;
+        const maxCollisionThumbOffset: number = isRange
             ? upperThumbOffset
             : lowerThumbOffset;
 
-        const showMaxLabel =
+        const showMaxLabel: boolean =
             showLabels &&
             inputWidth - maxCollisionThumbOffset >
                 (maxCollisionLabelRef.current?.offsetWidth || 0) + 15;
         maxLabelRef.current.style.opacity = showMaxLabel ? '1' : '0';
 
-        const showMinLabel =
+        const showMinLabel: boolean =
             showLabels &&
             lowerThumbOffset > lowerLabelRef.current.offsetWidth + 15;
         minLabelRef.current.style.opacity = showMinLabel ? '1' : '0';
 
-        const lowerLabelOffset = lowerLabelRef.current.offsetWidth / 2;
+        const lowerLabelOffset: number = lowerLabelRef.current.offsetWidth / 2;
         lowerLabelRef.current.style.left = `${
             lowerThumbOffset - lowerLabelOffset
         }px`;
 
         // upper Label/thumb is only used in range mode.
         if (isRange) {
-            const upperLabelOffset = upperLabelRef.current.offsetWidth / 2;
+            const upperLabelOffset: number =
+                upperLabelRef.current.offsetWidth / 2;
             upperLabelRef.current.style.left = `${
                 upperThumbOffset - upperLabelOffset
             }px`;
@@ -170,10 +181,6 @@ export const Slider: FC<SliderProps> = ({
         trackRef.current.style.left = isRange ? `${lowerThumbOffset}px` : '0';
         trackRef.current.style.width = `${rangeWidth}px`;
     };
-
-    useEffectOnlyOnUpdate(() => {
-        onChange?.(isRange ? [...values] : values[0]);
-    }, [values]);
 
     // Set width of the range to decrease from the left side
     useLayoutEffect(() => {
@@ -190,7 +197,7 @@ export const Slider: FC<SliderProps> = ({
                 <div className={mergeClasses(styles.slider, classNames)}>
                     <div ref={railRef} className={styles.sliderRail} />
                     <div ref={trackRef} className={styles.sliderTrack} />
-                    {markers.map((mark, index) => {
+                    {markers.map((mark: SliderMarker, index: number) => {
                         // Hiding the first and last marker based on design.
                         const isFirstOrLast =
                             index === 0 || index === markers.length - 1;
@@ -208,7 +215,7 @@ export const Slider: FC<SliderProps> = ({
                             )
                         );
                     })}
-                    {values.map((val, index) => (
+                    {values.map((val: number, index: number) => (
                         <input
                             aria-label={ariaLabel}
                             autoFocus={autoFocus && index === 0}
@@ -216,9 +223,9 @@ export const Slider: FC<SliderProps> = ({
                             id={getIdentifier(id, index)}
                             key={index}
                             disabled={disabled}
-                            onChange={(event) =>
-                                handleChange(+event.target.value, index)
-                            }
+                            onChange={(
+                                event: React.ChangeEvent<HTMLInputElement>
+                            ) => handleChange(+event.target.value, index)}
                             min={min}
                             max={max}
                             name={getIdentifier(name, index)}
