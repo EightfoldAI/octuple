@@ -6,8 +6,8 @@ exports[`Storyshots Tooltip Tooltips 1`] = `
   id="4fzzzxj"
   onBlur={[Function]}
   onFocus={[Function]}
-  onMouseEnter={[Function]}
-  onMouseLeave={[Function]}
+  onPointerEnter={[Function]}
+  onPointerLeave={[Function]}
 >
   <button
     aria-disabled={false}
