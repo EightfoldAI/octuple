@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.1.2](https://github.com/EightfoldAI/octuple/compare/v2.1.1...v2.1.2) (2022-07-29)
+
+### Bug Fixes
+
+-   selectors: adds size prop, fixes styles to match the latest ([#275](https://github.com/EightfoldAI/octuple/issues/275)) ([ffa7735](https://github.com/EightfoldAI/octuple/commits/ffa773586f4d105f44bf6bd9e11e33604b0c90c0))
+-   snackbar: increase snackbar z-index to be more than surface elements ([#277](https://github.com/EightfoldAI/octuple/issues/277)) ([40d8840](https://github.com/EightfoldAI/octuple/commits/40d8840c51ad8815f125e9203b3ae1e47deb1675))
+
 ### [2.1.1](https://github.com/EightfoldAI/octuple/compare/v2.1.0...v2.1.1) (2022-07-29)
 
 ### Bug Fixes
