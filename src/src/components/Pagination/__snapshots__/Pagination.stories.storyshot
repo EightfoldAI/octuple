@@ -154,7 +154,7 @@ exports[`Storyshots Pagination All Combined 1`] = `
     </li>
   </ul>
   <button
-    aria-disabled={false}
+    aria-disabled={true}
     aria-label="Next"
     className="pagination-button pagination-next button button-neutral button-medium icon-left disabled"
     defaultChecked={false}
@@ -197,6 +197,7 @@ exports[`Storyshots Pagination All Combined 1`] = `
         className="input-group left-icon"
       >
         <input
+          aria-disabled={false}
           autoFocus={false}
           className="editor pill-shape left-icon clear-not-visible"
           defaultValue={4}
@@ -223,7 +224,7 @@ exports[`Storyshots Pagination Basic Few 1`] = `
 >
   <span />
   <button
-    aria-disabled={false}
+    aria-disabled={true}
     aria-label="Previous"
     className="pagination-button pagination-previous button button-neutral button-medium icon-left disabled"
     defaultChecked={false}
@@ -355,7 +356,7 @@ exports[`Storyshots Pagination Basic Many 1`] = `
 >
   <span />
   <button
-    aria-disabled={false}
+    aria-disabled={true}
     aria-label="Previous"
     className="pagination-button pagination-previous button button-neutral button-medium icon-left disabled"
     defaultChecked={false}
@@ -581,7 +582,7 @@ exports[`Storyshots Pagination Change Page Size 1`] = `
   </span>
   <span />
   <button
-    aria-disabled={false}
+    aria-disabled={true}
     aria-label="Previous"
     className="pagination-button pagination-previous button button-neutral button-medium icon-left disabled"
     defaultChecked={false}
@@ -653,7 +654,7 @@ exports[`Storyshots Pagination Change Page Size 1`] = `
     </li>
   </ul>
   <button
-    aria-disabled={false}
+    aria-disabled={true}
     aria-label="Next"
     className="pagination-button pagination-next button button-neutral button-medium icon-left disabled"
     defaultChecked={false}
@@ -696,7 +697,7 @@ exports[`Storyshots Pagination Dots 1`] = `
 >
   <span />
   <button
-    aria-disabled={false}
+    aria-disabled={true}
     aria-label="Previous"
     className="pagination-button pagination-previous button button-neutral button-medium icon-left disabled"
     defaultChecked={false}
@@ -960,6 +961,7 @@ exports[`Storyshots Pagination Jump To 1`] = `
         className="input-group left-icon"
       >
         <input
+          aria-disabled={false}
           autoFocus={false}
           className="editor pill-shape left-icon clear-not-visible"
           defaultValue={5}
@@ -986,7 +988,7 @@ exports[`Storyshots Pagination Simplified 1`] = `
 >
   <span />
   <button
-    aria-disabled={false}
+    aria-disabled={true}
     aria-label="Previous"
     className="pagination-button pagination-previous button button-neutral button-medium icon-left disabled"
     defaultChecked={false}
@@ -1081,7 +1083,7 @@ exports[`Storyshots Pagination Total Item Count 1`] = `
     1000 Total
   </span>
   <button
-    aria-disabled={false}
+    aria-disabled={true}
     aria-label="Previous"
     className="pagination-button pagination-previous button button-neutral button-medium icon-left disabled"
     defaultChecked={false}

@@ -151,11 +151,11 @@ export const SplitButton: FC<SplitButtonProps> = React.forwardRef(
                 {...rest}
                 ref={ref}
                 aria-checked={split ? !!checked : undefined}
-                aria-disabled={allowDisabledFocus}
+                aria-disabled={disabled}
                 aria-label={ariaLabel}
                 aria-pressed={split ? !!checked : undefined}
                 defaultChecked={checked}
-                disabled={disabled}
+                disabled={!allowDisabledFocus && disabled}
                 className={splitButtonClassNames}
                 id={id}
                 onClick={!allowDisabledFocus ? onClick : null}

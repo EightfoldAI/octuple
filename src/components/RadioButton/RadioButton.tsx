@@ -110,14 +110,14 @@ export const RadioButton: FC<RadioButtonProps> = React.forwardRef(
             >
                 <input
                     ref={ref}
-                    aria-disabled={allowDisabledFocus}
+                    aria-disabled={disabled}
                     aria-label={ariaLabel}
                     checked={
                         radioGroupContext
                             ? isActive
                             : selectedValue === value && checked
                     }
-                    disabled={disabled}
+                    disabled={!allowDisabledFocus && disabled}
                     id={radioButtonId.current}
                     name={name}
                     type={'radio'}

@@ -99,10 +99,10 @@ export const CheckBox: FC<CheckboxProps> = React.forwardRef(
             >
                 <input
                     ref={ref}
-                    aria-disabled={allowDisabledFocus}
+                    aria-disabled={disabled}
                     aria-label={ariaLabel}
                     checked={isChecked}
-                    disabled={disabled}
+                    disabled={!allowDisabledFocus && disabled}
                     id={checkBoxId.current}
                     onChange={!allowDisabledFocus ? toggleChecked : null}
                     name={name}

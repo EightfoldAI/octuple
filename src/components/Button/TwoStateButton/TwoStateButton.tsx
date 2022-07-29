@@ -155,11 +155,11 @@ export const TwoStateButton: FC<TwoStateButtonProps> = React.forwardRef(
                 {...rest}
                 ref={ref}
                 aria-checked={toggle ? !!checked : undefined}
-                aria-disabled={allowDisabledFocus}
+                aria-disabled={disabled}
                 aria-label={ariaLabel}
                 aria-pressed={toggle ? !!checked : undefined}
                 defaultChecked={checked}
-                disabled={disabled}
+                disabled={!allowDisabledFocus && disabled}
                 className={twoStateButtonClassNames}
                 id={id}
                 onClick={!allowDisabledFocus ? onClick : null}

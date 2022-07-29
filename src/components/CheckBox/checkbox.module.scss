@@ -23,36 +23,6 @@
                     }
                 }
             }
-
-            &:hover + label {
-                .checkmark {
-                    border: $space-xxxs solid var(--grey-color-70);
-
-                    &.toggle {
-                        border: $space-xxxs solid var(--grey-color-70);
-
-                        &:after {
-                            background-color: var(--grey-color-70);
-                            border-color: var(--grey-color-70);
-                        }
-                    }
-                }
-            }
-
-            &:active + label {
-                .checkmark {
-                    border: $space-xxxs solid var(--grey-color-70);
-
-                    &.toggle {
-                        border: $space-xxxs solid var(--grey-color-70);
-
-                        &:after {
-                            background-color: var(--grey-color-70);
-                            border-color: var(--grey-color-70);
-                        }
-                    }
-                }
-            }
         }
 
         & + label {
@@ -115,14 +85,14 @@
             }
         }
 
-        &:hover + label {
+        &:not(.disabled):not([disabled]):active + label {
             .checkmark {
                 border: $space-xxxs solid var(--primary-color-70);
-                background-color: var(--accent-color-10);
+                background-color: var(--accent-color-30);
 
                 &.toggle {
                     border: $space-xxxs solid var(--primary-color-70);
-                    background-color: var(--accent-color-10);
+                    background-color: var(--accent-color-30);
 
                     &:after {
                         background-color: var(--primary-color-70);
@@ -132,14 +102,14 @@
             }
         }
 
-        &:active + label {
+        &:not(.disabled):not([disabled]):hover + label {
             .checkmark {
                 border: $space-xxxs solid var(--primary-color-70);
-                background-color: var(--accent-color-30);
+                background-color: var(--accent-color-10);
 
                 &.toggle {
                     border: $space-xxxs solid var(--primary-color-70);
-                    background-color: var(--accent-color-30);
+                    background-color: var(--accent-color-10);
 
                     &:after {
                         background-color: var(--primary-color-70);
@@ -197,7 +167,7 @@
             }
         }
 
-        &:active + label {
+        &:not(.disabled):not([disabled]):active + label {
             .checkmark {
                 transform: scale(0.98);
                 background-color: var(--accent-color-10);
@@ -216,7 +186,7 @@
             }
         }
 
-        &:hover + label {
+        &:not(.disabled):not([disabled]):hover + label {
             .checkmark {
                 background-color: var(--accent-color-20);
                 border: $space-xxxs solid var(--primary-color-70);
@@ -436,36 +406,6 @@
 
                     &.toggle {
                         opacity: 50%;
-                    }
-                }
-            }
-
-            &:hover + label {
-                .checkmark {
-                    border: $space-xxxs solid var(--grey-color-70);
-
-                    &.toggle {
-                        border: $space-xxxs solid var(--grey-color-70);
-
-                        &:after {
-                            background-color: var(--grey-color-70);
-                            border-color: var(--grey-color-70);
-                        }
-                    }
-                }
-            }
-
-            &:active + label {
-                .checkmark {
-                    border: $space-xxxs solid var(--grey-color-70);
-
-                    &.toggle {
-                        border: $space-xxxs solid var(--grey-color-70);
-
-                        &:after {
-                            background-color: var(--grey-color-70);
-                            border-color: var(--grey-color-70);
-                        }
                     }
                 }
             }

@@ -328,10 +328,11 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
                     <input
                         {...rest}
                         ref={ref}
+                        aria-disabled={disabled}
                         aria-label={ariaLabel}
                         autoFocus={autoFocus}
                         className={textInputClassNames}
-                        disabled={disabled}
+                        disabled={!allowDisabledFocus && disabled}
                         id={inputId}
                         maxLength={maxlength}
                         minLength={minlength}

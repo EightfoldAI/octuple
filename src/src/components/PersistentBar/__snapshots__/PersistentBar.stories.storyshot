@@ -323,7 +323,7 @@ exports[`Storyshots Persistent Bar Top Bar Pagination 1`] = `
   >
     <span />
     <button
-      aria-disabled={false}
+      aria-disabled={true}
       aria-label="Previous"
       className="pagination-button pagination-previous button button-neutral button-medium icon-left disabled"
       defaultChecked={false}
@@ -537,7 +537,7 @@ exports[`Storyshots Persistent Bar Top Bar With Text 1`] = `
   >
     <span />
     <button
-      aria-disabled={false}
+      aria-disabled={true}
       aria-label="Previous"
       className="pagination-button pagination-previous button button-neutral button-medium icon-left disabled"
       defaultChecked={false}
