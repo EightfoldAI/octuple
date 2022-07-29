@@ -1,7 +1,7 @@
 import React, { FC, Ref } from 'react';
 import { DialogProps, DialogSize } from './Dialog.types';
 import { mergeClasses } from '../../shared/utilities';
-import { DefaultButton, PrimaryButton } from '../Button';
+import { NeutralButton, PrimaryButton } from '../Button';
 import { BaseDialog } from './BaseDialog/BaseDialog';
 
 import styles from './dialog.module.scss';
@@ -63,7 +63,7 @@ export const Dialog: FC<DialogProps> = React.forwardRef(
                 actions={
                     <>
                         {cancelButtonProps && (
-                            <DefaultButton
+                            <NeutralButton
                                 {...cancelButtonProps}
                                 onClick={onCancel}
                             />

@@ -8,6 +8,13 @@ export enum LabelPosition {
     Start = 'start',
 }
 
+export enum SelectorSize {
+    Flex = 'flex',
+    Large = 'large',
+    Medium = 'medium',
+    Small = 'small',
+}
+
 export interface CheckboxProps extends OcBaseProps<HTMLInputElement> {
     /**
      * Allows focus on the checkbox when it's disabled.
@@ -48,6 +55,11 @@ export interface CheckboxProps extends OcBaseProps<HTMLInputElement> {
      */
     onChange?: React.ChangeEventHandler<HTMLInputElement>;
     /**
+     * The checkbox size.
+     * @default SelectorSize.Medium
+     */
+    size?: SelectorSize;
+    /**
      * The Checkbox UI is toggle.
      * @default false
      */
@@ -61,9 +73,18 @@ export interface CheckboxProps extends OcBaseProps<HTMLInputElement> {
 export interface CheckboxGroupProps
     extends Omit<OcBaseProps<HTMLInputElement>, 'defaultChecked' | 'onChange'> {
     /**
+     * Allows focus on the checkbox group when it's disabled.
+     */
+    allowDisabledFocus?: boolean;
+    /**
      * Aria label for the checkbox group.
      */
     ariaLabel?: string;
+    /**
+     * The checkbox group disabled state.
+     * @default false
+     */
+    disabled?: boolean;
     /**
      * The array of items for the radio group.
      */
@@ -83,6 +104,11 @@ export interface CheckboxGroupProps
      * @param checkedValue
      */
     onChange?: (checkedValue: CheckboxValueType[]) => void;
+    /**
+     * The checkbox size.
+     * @default SelectorSize.Medium
+     */
+    size?: SelectorSize;
     /**
      * The checkbox value.
      */

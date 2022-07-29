@@ -18,7 +18,12 @@ import {
     TwoStateButton,
 } from './components/Button';
 
-import { CheckBox, CheckBoxGroup, LabelPosition } from './components/CheckBox';
+import {
+    CheckBox,
+    CheckBoxGroup,
+    LabelPosition,
+    SelectorSize,
+} from './components/CheckBox';
 
 import { ConfigProvider } from './components/ConfigProvider';
 
@@ -178,6 +183,7 @@ export {
     RangePickerProps,
     ResizeObserver,
     Select,
+    SelectorSize,
     SearchBox,
     SecondaryButton,
     Slider,

@@ -1,14 +1,16 @@
 import React, { FC, Ref, useEffect, useRef, useState } from 'react';
 import { RadioButtonProps, RadioButtonValue } from './';
-import { LabelPosition } from '../CheckBox';
+import { LabelPosition, SelectorSize } from '../CheckBox';
 import { mergeClasses, generateId } from '../../shared/utilities';
 import { useRadioGroup } from './RadioGroup.context';
+import { Breakpoints, useMatchMedia } from '../../hooks/useMatchMedia';
 
 import styles from './radio.module.scss';
 
 export const RadioButton: FC<RadioButtonProps> = React.forwardRef(
     (
         {
+            allowDisabledFocus = false,
             ariaLabel,
             checked = false,
             classNames,
@@ -18,12 +20,18 @@ export const RadioButton: FC<RadioButtonProps> = React.forwardRef(
             label,
             labelPosition = LabelPosition.End,
             onChange,
+            size = SelectorSize.Medium,
             style,
             value = '',
             'data-test-id': dataTestId,
         },
         ref: Ref<HTMLInputElement>
     ) => {
+        const largeScreenActive: boolean = useMatchMedia(Breakpoints.Large);
+        const mediumScreenActive: boolean = useMatchMedia(Breakpoints.Medium);
+        const smallScreenActive: boolean = useMatchMedia(Breakpoints.Small);
+        const xSmallScreenActive: boolean = useMatchMedia(Breakpoints.XSmall);
+
         const radioButtonId = useRef<string>(id || generateId());
         const radioGroupContext = useRadioGroup();
         const [isActive, setIsActive] = useState<boolean>(
@@ -38,7 +46,27 @@ export const RadioButton: FC<RadioButtonProps> = React.forwardRef(
 
         const selectorClassNames: string = mergeClasses([
             styles.selector,
+            {
+                [styles.selectorSmall]:
+                    size === SelectorSize.Flex && largeScreenActive,
+            },
+            {
+                [styles.selectorMedium]:
+                    size === SelectorSize.Flex && mediumScreenActive,
+            },
+            {
+                [styles.selectorMedium]:
+                    size === SelectorSize.Flex && smallScreenActive,
+            },
+            {
+                [styles.selectorLarge]:
+                    size === SelectorSize.Flex && xSmallScreenActive,
+            },
+            { [styles.selectorLarge]: size === SelectorSize.Large },
+            { [styles.selectorMedium]: size === SelectorSize.Medium },
+            { [styles.selectorSmall]: size === SelectorSize.Small },
             classNames,
+            { [styles.disabled]: allowDisabledFocus || disabled },
         ]);
 
         const labelClassNames: string = mergeClasses([
@@ -49,7 +77,8 @@ export const RadioButton: FC<RadioButtonProps> = React.forwardRef(
             styles.selectorLabel,
             {
                 [styles.selectorLabelEnd]: labelPosition === LabelPosition.End,
-                [styles.selectorLabelStart]: labelPosition === LabelPosition.Start,
+                [styles.selectorLabelStart]:
+                    labelPosition === LabelPosition.Start,
             },
         ]);
 
@@ -65,7 +94,7 @@ export const RadioButton: FC<RadioButtonProps> = React.forwardRef(
             e: React.ChangeEvent<HTMLInputElement>
         ): void => {
             if (!radioGroupContext) {
-                setSelectedValue(e.currentTarget.value as RadioButtonValue);
+                setSelectedValue(e.currentTarget?.value as RadioButtonValue);
             } else {
                 radioGroupContext?.onChange?.(e);
             }
@@ -81,6 +110,7 @@ export const RadioButton: FC<RadioButtonProps> = React.forwardRef(
             >
                 <input
                     ref={ref}
+                    aria-disabled={allowDisabledFocus}
                     aria-label={ariaLabel}
                     checked={
                         radioGroupContext
@@ -92,7 +122,7 @@ export const RadioButton: FC<RadioButtonProps> = React.forwardRef(
                     name={name}
                     type={'radio'}
                     value={value}
-                    onChange={toggleChecked}
+                    onChange={!allowDisabledFocus ? toggleChecked : null}
                     readOnly
                 />
                 <label

@@ -1,7 +1,13 @@
 import React, { useState } from 'react';
 import { Stories } from '@storybook/addon-docs';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { CheckBox, CheckBoxGroup, CheckboxValueType, LabelPosition } from './';
+import {
+    CheckBox,
+    CheckBoxGroup,
+    CheckboxValueType,
+    LabelPosition,
+    SelectorSize,
+} from './';
 
 export default {
     title: 'Check Box',
@@ -85,6 +91,15 @@ export default {
             options: ['vertical', 'horizontal'],
             control: { type: 'inline-radio' },
         },
+        size: {
+            options: [
+                SelectorSize.Flex,
+                SelectorSize.Large,
+                SelectorSize.Medium,
+                SelectorSize.Small,
+            ],
+            control: { type: 'radio' },
+        },
     },
 } as ComponentMeta<typeof CheckBox>;
 
@@ -121,6 +136,7 @@ const checkBoxArgs: Object = {
     labelPosition: LabelPosition.End,
     id: 'myCheckBoxId',
     defaultChecked: false,
+    size: SelectorSize.Medium,
     toggle: false,
 };
 
@@ -129,8 +145,10 @@ Check_Box.args = {
 };
 
 Check_Box_Group.args = {
+    allowDisabledFocus: false,
     value: ['First'],
     defaultChecked: ['First'],
+    disabled: false,
     items: [
         {
             name: 'group',
