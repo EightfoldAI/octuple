@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.1.1](https://github.com/EightfoldAI/octuple/compare/v2.1.0...v2.1.1) (2022-07-29)
+
+### Bug Fixes
+
+-   button: fixes secondary button border in safari, cleans up focus visible styles ([#272](https://github.com/EightfoldAI/octuple/issues/272)) ([3370a03](https://github.com/EightfoldAI/octuple/commits/3370a038efe18dcaa5164c656ea10ee0b6d1ece5))
+-   slider: fixes slider onchange event hang in react 16 ([#274](https://github.com/EightfoldAI/octuple/issues/274)) ([2ec21fd](https://github.com/EightfoldAI/octuple/commits/2ec21fd6e9a1f87988c242a404e69ce4214444d5))
+
 ## [2.1.0](https://github.com/EightfoldAI/octuple/compare/v2.0.2...v2.1.0) (2022-07-28)
 
 ### Features
