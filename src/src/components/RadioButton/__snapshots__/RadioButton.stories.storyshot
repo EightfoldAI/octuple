@@ -12,9 +12,10 @@ exports[`Storyshots Radio Button Bespoke Radio Group 1`] = `
   }
 >
   <div
-    className="selector my-radiobutton-class"
+    className="selector selector-medium my-radiobutton-class"
   >
     <input
+      aria-disabled={false}
       aria-label="Label 1"
       checked={true}
       disabled={false}
@@ -41,9 +42,10 @@ exports[`Storyshots Radio Button Bespoke Radio Group 1`] = `
     </label>
   </div>
   <div
-    className="selector my-radiobutton-class"
+    className="selector selector-medium my-radiobutton-class"
   >
     <input
+      aria-disabled={false}
       aria-label="Label 2"
       checked={false}
       disabled={false}
@@ -70,9 +72,10 @@ exports[`Storyshots Radio Button Bespoke Radio Group 1`] = `
     </label>
   </div>
   <div
-    className="selector my-radiobutton-class"
+    className="selector selector-medium my-radiobutton-class"
   >
     <input
+      aria-disabled={false}
       aria-label="Label 3"
       checked={false}
       disabled={false}
@@ -103,9 +106,10 @@ exports[`Storyshots Radio Button Bespoke Radio Group 1`] = `
 
 exports[`Storyshots Radio Button Radio Button 1`] = `
 <div
-  className="selector my-radiobutton-class"
+  className="selector selector-medium my-radiobutton-class"
 >
   <input
+    aria-disabled={false}
     aria-label="Label"
     checked={false}
     disabled={false}
@@ -136,13 +140,14 @@ exports[`Storyshots Radio Button Radio Button 1`] = `
 exports[`Storyshots Radio Button Radio Group 1`] = `
 <div
   aria-label="Radio Group"
-  className="radio-group vertical"
+  className="radio-group vertical radio-group-medium"
   role="group"
 >
   <div
-    className="selector"
+    className="selector selector-medium"
   >
     <input
+      aria-disabled={false}
       checked={true}
       disabled={false}
       id="oea2exk-1"
@@ -168,9 +173,10 @@ exports[`Storyshots Radio Button Radio Group 1`] = `
     </label>
   </div>
   <div
-    className="selector"
+    className="selector selector-medium"
   >
     <input
+      aria-disabled={false}
       checked={false}
       disabled={false}
       id="oea2exk-2"
@@ -196,9 +202,10 @@ exports[`Storyshots Radio Button Radio Group 1`] = `
     </label>
   </div>
   <div
-    className="selector"
+    className="selector selector-medium"
   >
     <input
+      aria-disabled={false}
       checked={false}
       disabled={false}
       id="oea2exk-3"

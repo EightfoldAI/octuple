@@ -63,8 +63,8 @@ describe('Dialog', () => {
             onCancel,
             onClose,
         });
-        wrapper.find('.button-primary').at(0).simulate('click');
-        wrapper.find('.button-default').at(0).simulate('click');
+        wrapper.find('.actions .button-primary').at(0).simulate('click');
+        wrapper.find('.actions .button-neutral').at(0).simulate('click');
         wrapper.find('.button-neutral').at(0).simulate('click');
         wrapper.find('.dialog-backdrop').at(0).simulate('click');
 

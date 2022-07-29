@@ -1,30 +1,58 @@
 import React, { FC, Ref } from 'react';
 import { RadioButtonProps, RadioGroupProps, RadioButton } from './';
-import { LabelPosition } from '../CheckBox';
+import { LabelPosition, SelectorSize } from '../CheckBox';
 import { RadioGroupProvider } from './RadioGroup.context';
 import { mergeClasses } from '../../shared/utilities';
+import { Breakpoints, useMatchMedia } from '../../hooks/useMatchMedia';
 
 import styles from './radio.module.scss';
 
 export const RadioGroup: FC<RadioGroupProps> = React.forwardRef(
     (
         {
+            allowDisabledFocus = false,
             ariaLabel,
             classNames,
+            disabled = false,
             items,
             labelPosition = LabelPosition.End,
             layout = 'vertical',
             onChange,
+            size = SelectorSize.Medium,
             style,
             value,
             ...rest
         },
         ref: Ref<HTMLDivElement>
     ) => {
+        const largeScreenActive: boolean = useMatchMedia(Breakpoints.Large);
+        const mediumScreenActive: boolean = useMatchMedia(Breakpoints.Medium);
+        const smallScreenActive: boolean = useMatchMedia(Breakpoints.Small);
+        const xSmallScreenActive: boolean = useMatchMedia(Breakpoints.XSmall);
+
         const radioGroupClasses: string = mergeClasses([
             styles.radioGroup,
             { [styles.vertical]: layout === 'vertical' },
             { [styles.horizontal]: layout === 'horizontal' },
+            {
+                [styles.radioGroupSmall]:
+                    size === SelectorSize.Flex && largeScreenActive,
+            },
+            {
+                [styles.radioGroupMedium]:
+                    size === SelectorSize.Flex && mediumScreenActive,
+            },
+            {
+                [styles.radioGroupMedium]:
+                    size === SelectorSize.Flex && smallScreenActive,
+            },
+            {
+                [styles.radioGroupLarge]:
+                    size === SelectorSize.Flex && xSmallScreenActive,
+            },
+            { [styles.radioGroupLarge]: size === SelectorSize.Large },
+            { [styles.radioGroupMedium]: size === SelectorSize.Medium },
+            { [styles.radioGroupSmall]: size === SelectorSize.Small },
             classNames,
         ]);
 
@@ -41,8 +69,11 @@ export const RadioGroup: FC<RadioGroupProps> = React.forwardRef(
                     {items.map((item: RadioButtonProps) => (
                         <RadioButton
                             key={item.value}
-                            labelPosition={labelPosition}
+                            allowDisabledFocus={allowDisabledFocus}
+                            disabled={disabled}
                             {...item}
+                            labelPosition={labelPosition}
+                            size={size}
                         />
                     ))}
                 </div>

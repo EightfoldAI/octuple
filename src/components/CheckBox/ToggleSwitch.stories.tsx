@@ -1,7 +1,7 @@
 import React from 'react';
 import { Stories } from '@storybook/addon-docs';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { CheckBox, LabelPosition } from '.';
+import { CheckBox, LabelPosition, SelectorSize } from '.';
 
 export default {
     title: 'Toggle Switch',
@@ -45,6 +45,15 @@ export default {
             options: ['vertical', 'horizontal'],
             control: { type: 'inline-radio' },
         },
+        size: {
+            options: [
+                SelectorSize.Flex,
+                SelectorSize.Large,
+                SelectorSize.Medium,
+                SelectorSize.Small,
+            ],
+            control: { type: 'radio' },
+        },
     },
 } as ComponentMeta<typeof CheckBox>;
 
@@ -65,6 +74,7 @@ const checkBoxArgs: Object = {
     labelPosition: LabelPosition.End,
     id: 'myToggleId',
     defaultChecked: false,
+    size: SelectorSize.Medium,
     toggle: false,
 };
 

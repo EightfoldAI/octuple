@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Stories } from '@storybook/addon-docs';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { RadioButton, RadioButtonValue, RadioGroup } from './';
-import { LabelPosition } from '../CheckBox';
+import { LabelPosition, SelectorSize } from '../CheckBox';
 import { Stack } from '../Stack';
 
 export default {
@@ -109,6 +109,15 @@ export default {
             options: ['vertical', 'horizontal'],
             control: { type: 'inline-radio' },
         },
+        size: {
+            options: [
+                SelectorSize.Flex,
+                SelectorSize.Large,
+                SelectorSize.Medium,
+                SelectorSize.Small,
+            ],
+            control: { type: 'radio' },
+        },
     },
 } as ComponentMeta<typeof RadioButton>;
 
@@ -203,6 +212,7 @@ const radioButtonArgs: Object = {
     name: 'myRadioButtonName',
     value: 'Label1',
     id: 'myRadioButtonId',
+    size: SelectorSize.Medium,
 };
 
 Radio_Button.args = {
@@ -210,7 +220,9 @@ Radio_Button.args = {
 };
 
 Radio_Group.args = {
+    allowDisabledFocus: false,
     ariaLabel: 'Radio Group',
+    disabled: false,
     value: 'Radio1',
     items: [1, 2, 3].map((i) => ({
         value: `Radio${i}`,
@@ -219,6 +231,7 @@ Radio_Group.args = {
         id: `oea2exk-${i}`,
     })),
     layout: 'vertical',
+    size: SelectorSize.Medium,
 };
 
 Bespoke_Radio_Group.args = {

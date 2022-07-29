@@ -2,9 +2,10 @@
 
 exports[`Storyshots Check Box Check Box 1`] = `
 <div
-  className="selector my-checkbox-class"
+  className="selector selector-medium my-checkbox-class"
 >
   <input
+    aria-disabled={false}
     aria-label="Label"
     checked={true}
     disabled={false}
@@ -34,7 +35,7 @@ exports[`Storyshots Check Box Check Box 1`] = `
 exports[`Storyshots Check Box Check Box Group 1`] = `
 <div
   checked={true}
-  className="checkbox-group vertical"
+  className="checkbox-group vertical checkbox-group-medium"
   defaultChecked={
     Array [
       "First",
@@ -43,9 +44,10 @@ exports[`Storyshots Check Box Check Box Group 1`] = `
   role="group"
 >
   <div
-    className="selector"
+    className="selector selector-medium"
   >
     <input
+      aria-disabled={false}
       checked={false}
       disabled={false}
       id="test-1"
@@ -70,9 +72,10 @@ exports[`Storyshots Check Box Check Box Group 1`] = `
     </label>
   </div>
   <div
-    className="selector"
+    className="selector selector-medium"
   >
     <input
+      aria-disabled={false}
       checked={false}
       disabled={false}
       id="test-2"
@@ -97,9 +100,10 @@ exports[`Storyshots Check Box Check Box Group 1`] = `
     </label>
   </div>
   <div
-    className="selector"
+    className="selector selector-medium"
   >
     <input
+      aria-disabled={false}
       checked={false}
       disabled={false}
       id="test-3"

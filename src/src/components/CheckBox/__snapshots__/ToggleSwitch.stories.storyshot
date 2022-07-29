@@ -2,9 +2,10 @@
 
 exports[`Storyshots Toggle Switch Toggle Switch 1`] = `
 <div
-  className="selector my-toggle-class"
+  className="selector selector-medium my-toggle-class"
 >
   <input
+    aria-disabled={false}
     aria-label="Label"
     checked={true}
     disabled={false}

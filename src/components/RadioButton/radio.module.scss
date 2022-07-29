@@ -12,23 +12,11 @@
         z-index: 1;
 
         &[disabled] {
-            cursor: default;
+            cursor: not-allowed;
 
             & + label {
                 .radio-button {
                     opacity: 50%;
-                }
-            }
-
-            &:hover + label {
-                .radio-button {
-                    border: $space-xxxs solid var(--grey-color-70);
-                }
-            }
-
-            &:active + label {
-                .radio-button {
-                    border: $space-xxxs solid var(--grey-color-70);
                 }
             }
         }
@@ -36,49 +24,53 @@
         & + label {
             .radio-button {
                 position: relative;
-                height: $radio-height;
-                width: $radio-width;
+                height: $radio-medium-height;
+                width: $radio-medium-width;
                 border-radius: 50%;
                 border: $space-xxxs solid var(--grey-color-70);
                 transition: all $motion-duration-extra-fast $motion-ease-in-back
                     $motion-delay-s;
 
                 &:after {
-                    top: $radio-after-top;
-                    left: $radio-after-left;
-                    width: $radio-after-width;
-                    height: $radio-after-height;
+                    top: $radio-medium-after-top;
+                    left: $radio-medium-after-left;
+                    width: $radio-medium-after-width;
+                    height: $radio-medium-after-height;
+                    background-color: var(--primary-color-70);
                     border-radius: 50%;
-                    border: solid 2px var(--primary-color);
+                    border: solid 1px var(--primary-color-70);
                     content: '';
                     position: absolute;
                     transform: scale(0);
                     opacity: 0;
                     display: block;
-                    transition: all $motion-duration-extra-fast
-                        $motion-ease-in-back $motion-delay-s;
+                    transition-delay: $motion-delay-s;
+                    transition-duration: $motion-duration-extra-fast;
+                    transition-property: opacity;
+                    transition-property: transform;
+                    transition-timing-function: $motion-ease-in-back;
                 }
             }
         }
 
-        &:hover + label {
+        &:not(.disabled):not([disabled]):hover + label {
             .radio-button {
                 background-color: var(--accent-color-20);
-                border: $space-xxxs solid var(--primary-color);
+                border: $space-xxxs solid var(--primary-color-70);
             }
         }
 
-        &:active + label {
+        &:not(.disabled):not([disabled]):active + label {
             .radio-button {
                 background-color: var(--accent-color-30);
-                border: $space-xxxs solid var(--primary-color);
+                border: $space-xxxs solid var(--primary-color-70);
             }
         }
     }
 
     input:checked {
         &[disabled] {
-            cursor: default;
+            cursor: not-allowed;
         }
 
         & + label {
@@ -87,29 +79,32 @@
 
             .radio-button {
                 background-color: var(--accent-color-30);
-                border: $space-xxxs solid var(--primary-color);
+                border: $space-xxxs solid var(--primary-color-70);
             }
 
             .radio-button:after {
                 opacity: 1;
-                transform: scale(1);
-                transition: all $motion-duration-extra-fast
-                    $motion-ease-out-back $motion-delay-s;
+                transform: scale(0.8);
+                transition-delay: $motion-delay-s;
+                transition-duration: $motion-duration-extra-fast;
+                transition-property: opacity;
+                transition-property: transform;
+                transition-timing-function: $motion-ease-out-back;
             }
         }
 
-        &:hover + label {
+        &:not(.disabled):not([disabled]):hover + label {
             .radio-button {
                 background-color: var(--accent-color-20);
-                border: $space-xxxs solid var(--primary-color);
+                border: $space-xxxs solid var(--primary-color-70);
             }
         }
 
-        &:active + label {
+        &:not(.disabled):not([disabled]):active + label {
             .radio-button {
                 transform: scale(0.98);
                 background-color: var(--accent-color-10);
-                border: $space-xxxs solid var(--primary-color);
+                border: $space-xxxs solid var(--primary-color-70);
             }
         }
     }
@@ -122,14 +117,144 @@
     }
 
     .selector-label {
-        font-size: $text-font-weight-regular;
+        font-size: $text-font-size-2;
 
         &-end {
-            margin-left: $space-xs;
+            margin-left: $space-xxs;
         }
 
         &-start {
-            margin-right: $space-xs;
+            margin-right: $space-xxs;
+        }
+    }
+
+    &-large {
+        input {
+            & + label {
+                .radio-button {
+                    height: $radio-large-height;
+                    width: $radio-large-width;
+
+                    &:after {
+                        top: $radio-large-after-top;
+                        left: $radio-large-after-left;
+                        width: $radio-large-after-width;
+                        height: $radio-large-after-height;
+                    }
+                }
+            }
+        }
+
+        input:checked {
+            & + label {
+                .radio-button:after {
+                    transform: scale(0.8);
+                }
+            }
+        }
+
+        .selector-label {
+            font-size: $text-font-size-3;
+
+            &-end {
+                margin-left: $space-xs;
+            }
+
+            &-start {
+                margin-right: $space-xs;
+            }
+        }
+    }
+
+    &-medium {
+        input {
+            & + label {
+                .radio-button {
+                    height: $radio-medium-height;
+                    width: $radio-medium-width;
+
+                    &:after {
+                        top: $radio-medium-after-top;
+                        left: $radio-medium-after-left;
+                        width: $radio-medium-after-width;
+                        height: $radio-medium-after-height;
+                    }
+                }
+            }
+        }
+
+        input:checked {
+            & + label {
+                .radio-button:after {
+                    transform: scale(0.8);
+                }
+            }
+        }
+
+        .selector-label {
+            font-size: $text-font-size-2;
+
+            &-end {
+                margin-left: $space-xxs;
+            }
+
+            &-start {
+                margin-right: $space-xxs;
+            }
+        }
+    }
+
+    &-small {
+        input {
+            & + label {
+                .radio-button {
+                    height: $radio-small-height;
+                    width: $radio-small-width;
+
+                    &:after {
+                        top: $radio-small-after-top;
+                        left: $radio-small-after-left;
+                        width: $radio-small-after-width;
+                        height: $radio-small-after-height;
+                    }
+                }
+            }
+        }
+
+        input:checked {
+            & + label {
+                .radio-button:after {
+                    transform: scale(0.8);
+                }
+            }
+        }
+
+        .selector-label {
+            font-size: $text-font-size-1;
+
+            &-end {
+                margin-left: $space-xxs;
+            }
+
+            &-start {
+                margin-right: $space-xxs;
+            }
+        }
+    }
+
+    &.disabled {
+        input {
+            cursor: not-allowed;
+
+            & + label {
+                .radio-button {
+                    opacity: 50%;
+                }
+            }
+        }
+
+        input:checked {
+            cursor: not-allowed;
         }
     }
 }
@@ -147,7 +272,7 @@
         &:focus-visible + label {
             .radio-button {
                 outline: $space-xxxs solid var(--primary-color-50);
-                border: $space-xxxs solid var(--primary-color);
+                border: $space-xxxs solid var(--primary-color-70);
             }
         }
 
@@ -168,11 +293,32 @@
             }
         }
     }
+
+    .selector {
+        &.disabled {
+            input {
+                &:checked {
+                    &:focus-visible + label {
+                        .radio-button {
+                            outline: none;
+                        }
+                    }
+                }
+
+                &:focus-visible + label {
+                    .radio-button {
+                        outline: none;
+                        border: $space-xxxs solid var(--grey-color-70);
+                    }
+                }
+            }
+        }
+    }
 }
 
 .radio-group {
     display: flex;
-    gap: $space-m;
+    gap: $space-s;
 
     &.vertical {
         flex-direction: column;
@@ -180,6 +326,18 @@
 
     &.horizontal {
         flex-direction: row;
+    }
+
+    &-large {
+        gap: $space-m;
+    }
+
+    &-medium {
+        gap: $space-s;
+    }
+
+    &-small {
+        gap: $space-xs;
     }
 }
 

@@ -1,12 +1,14 @@
 import React, { FC, Ref, useEffect, useRef, useState } from 'react';
 import { generateId, mergeClasses } from '../../shared/utilities';
-import { CheckboxProps, LabelPosition } from './';
+import { CheckboxProps, LabelPosition, SelectorSize } from './';
+import { Breakpoints, useMatchMedia } from '../../hooks/useMatchMedia';
 
 import styles from './checkbox.module.scss';
 
 export const CheckBox: FC<CheckboxProps> = React.forwardRef(
     (
         {
+            allowDisabledFocus = false,
             ariaLabel,
             checked = false,
             classNames,
@@ -17,6 +19,7 @@ export const CheckBox: FC<CheckboxProps> = React.forwardRef(
             labelPosition = LabelPosition.End,
             name,
             onChange,
+            size = SelectorSize.Medium,
             style,
             toggle = false,
             value,
@@ -24,6 +27,11 @@ export const CheckBox: FC<CheckboxProps> = React.forwardRef(
         },
         ref: Ref<HTMLInputElement>
     ) => {
+        const largeScreenActive: boolean = useMatchMedia(Breakpoints.Large);
+        const mediumScreenActive: boolean = useMatchMedia(Breakpoints.Medium);
+        const smallScreenActive: boolean = useMatchMedia(Breakpoints.Small);
+        const xSmallScreenActive: boolean = useMatchMedia(Breakpoints.XSmall);
+
         const checkBoxId = useRef<string>(id || generateId());
         const [isChecked, setIsChecked] = useState<boolean>(
             defaultChecked || checked
@@ -35,7 +43,27 @@ export const CheckBox: FC<CheckboxProps> = React.forwardRef(
 
         const checkboxWrapperClassNames: string = mergeClasses([
             styles.selector,
+            {
+                [styles.selectorSmall]:
+                    size === SelectorSize.Flex && largeScreenActive,
+            },
+            {
+                [styles.selectorMedium]:
+                    size === SelectorSize.Flex && mediumScreenActive,
+            },
+            {
+                [styles.selectorMedium]:
+                    size === SelectorSize.Flex && smallScreenActive,
+            },
+            {
+                [styles.selectorLarge]:
+                    size === SelectorSize.Flex && xSmallScreenActive,
+            },
+            { [styles.selectorLarge]: size === SelectorSize.Large },
+            { [styles.selectorMedium]: size === SelectorSize.Medium },
+            { [styles.selectorSmall]: size === SelectorSize.Small },
             classNames,
+            { [styles.disabled]: allowDisabledFocus || disabled },
         ]);
 
         const checkBoxCheckClassNames: string = mergeClasses([
@@ -71,11 +99,12 @@ export const CheckBox: FC<CheckboxProps> = React.forwardRef(
             >
                 <input
                     ref={ref}
+                    aria-disabled={disabled}
                     aria-label={ariaLabel}
                     checked={isChecked}
-                    disabled={disabled}
+                    disabled={!allowDisabledFocus && disabled}
                     id={checkBoxId.current}
-                    onChange={toggleChecked}
+                    onChange={!allowDisabledFocus ? toggleChecked : null}
                     name={name}
                     type={'checkbox'}
                     value={value}

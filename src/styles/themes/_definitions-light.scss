@@ -148,7 +148,7 @@ $space-xxs: 4px;
 $space-xs: 8px;
 $space-s: 12px;
 $space-m: 16px;
-$space-l-fitted: 20px;
+$space-ml: 20px;
 $space-l: 24px;
 $space-xl: 32px;
 $space-xxl: 40px;
@@ -171,6 +171,7 @@ $label-no-value-margin-bottom: 15px;
 
 // Corner-radius Definitions
 
+$corner-radius-xs: 2px;
 $corner-radius-s: 4px;
 $corner-radius-m: 8px;
 $corner-radius-l: 16px;
@@ -250,30 +251,66 @@ $all-backdrops: rgba(0, 0, 0, 0.5);
 
 // Sizing
 
-$selector-input-width: 18px;
-$selector-input-height: 18px;
-$checkmark-after-width: 6px;
-$checkmark-after-height: 10px;
-$checkmark-height: 18px;
-$checkmark-width: 18px;
-$radio-height: 20px;
-$radio-width: 20px;
-$radio-after-width: 6px;
-$radio-after-height: 6px;
-$toggle-after-width: 12px;
-$toggle-after-height: 12px;
-$toggle-height: 20px;
-$toggle-width: 40px;
+$checkmark-large-after-width: 8px;
+$checkmark-large-after-height: 14px;
+$checkmark-large-height: 20px;
+$checkmark-large-width: 20px;
+$checkmark-medium-after-width: 6px;
+$checkmark-medium-after-height: 12px;
+$checkmark-medium-height: 16px;
+$checkmark-medium-width: 16px;
+$checkmark-small-after-width: 6px;
+$checkmark-small-after-height: 10px;
+$checkmark-small-height: 14px;
+$checkmark-small-width: 14px;
+$radio-large-height: 20px;
+$radio-large-width: 20px;
+$radio-large-after-width: 6px;
+$radio-large-after-height: 6px;
+$radio-medium-height: 16px;
+$radio-medium-width: 16px;
+$radio-medium-after-width: 4px;
+$radio-medium-after-height: 4px;
+$radio-small-height: 14px;
+$radio-small-width: 14px;
+$radio-small-after-width: 4px;
+$radio-small-after-height: 4px;
+$toggle-large-after-width: 12px;
+$toggle-large-after-height: 12px;
+$toggle-large-height: 20px;
+$toggle-large-width: 40px;
+$toggle-medium-after-width: 8px;
+$toggle-medium-after-height: 8px;
+$toggle-medium-height: 16px;
+$toggle-medium-width: 32px;
+$toggle-small-after-width: 6px;
+$toggle-small-after-height: 6px;
+$toggle-small-height: 12px;
+$toggle-small-width: 24px;
 
 // Positioning
 
-$checkmark-after-left: 4px;
-$checkmark-after-top: 0.5px;
-$radio-after-top: 5px;
-$radio-after-left: 5px;
-$toggle-after-left: 2px;
-$toggle-after-left-checked: 22px;
-$toggle-after-top: 2px;
+$checkmark-large-after-left: 4px;
+$checkmark-large-after-top: -1px;
+$checkmark-medium-after-left: 3px;
+$checkmark-medium-after-top: -1px;
+$checkmark-small-after-left: 2px;
+$checkmark-small-after-top: -1px;
+$radio-large-after-top: 5px;
+$radio-large-after-left: 5px;
+$radio-medium-after-top: 4px;
+$radio-medium-after-left: 4px;
+$radio-small-after-top: 3px;
+$radio-small-after-left: 3px;
+$toggle-large-after-left: 2px;
+$toggle-large-after-left-checked: 22px;
+$toggle-large-after-top: 2px;
+$toggle-medium-after-left: 2px;
+$toggle-medium-after-left-checked: 18px;
+$toggle-medium-after-top: 2px;
+$toggle-small-after-left: 2px;
+$toggle-small-after-left-checked: 12px;
+$toggle-small-after-top: 1px;
 
 // END: CONSTANTS
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { OcBaseProps } from '../OcBase';
-import { LabelPosition } from '../CheckBox';
+import { LabelPosition, SelectorSize } from '../CheckBox';
 
 export type RadioButtonValue = string | number;
 
@@ -16,6 +16,10 @@ export interface IRadioButtonsContext {
 }
 
 export interface RadioButtonProps extends OcBaseProps<HTMLInputElement> {
+    /**
+     * Allows focus on the radio button when it's disabled.
+     */
+    allowDisabledFocus?: boolean;
     /**
      * The input aria label text.
      */
@@ -49,17 +53,26 @@ export interface RadioButtonProps extends OcBaseProps<HTMLInputElement> {
      * The radio button onChange event handler.
      */
     onChange?: React.ChangeEventHandler<HTMLInputElement>;
+    /**
+     * The radio button size.
+     * @default SelectorSize.Medium
+     */
+    size?: SelectorSize;
 }
 
 export interface RadioGroupProps extends OcBaseProps<HTMLDivElement> {
+    /**
+     * Allows focus on the radio group when it's disabled.
+     */
+    allowDisabledFocus?: boolean;
     /**
      * The group aria label text.
      */
     ariaLabel?: string;
     /**
-     * The input radio default selected value.
+     * The boolean for disabling the radio group.
      */
-    value?: RadioButtonValue;
+    disabled?: boolean;
     /**
      * The array of items for the radio group.
      */
@@ -78,4 +91,13 @@ export interface RadioGroupProps extends OcBaseProps<HTMLDivElement> {
      * The radio button onChange event handler.
      */
     onChange?: React.ChangeEventHandler<HTMLInputElement>;
+    /**
+     * The radio group size.
+     * @default SelectorSize.Medium
+     */
+    size?: SelectorSize;
+    /**
+     * The input radio default selected value.
+     */
+    value?: RadioButtonValue;
 }

@@ -4830,7 +4830,7 @@ exports[`Storyshots Config Provider Theming 1`] = `
     </svg>
   </span>
   <div
-    className="checkbox-group vertical"
+    className="checkbox-group vertical checkbox-group-medium"
     defaultChecked={
       Array [
         "First",
@@ -4839,9 +4839,10 @@ exports[`Storyshots Config Provider Theming 1`] = `
     role="group"
   >
     <div
-      className="selector"
+      className="selector selector-medium"
     >
       <input
+        aria-disabled={false}
         checked={true}
         disabled={false}
         id="test-1"
@@ -4866,9 +4867,10 @@ exports[`Storyshots Config Provider Theming 1`] = `
       </label>
     </div>
     <div
-      className="selector"
+      className="selector selector-medium"
     >
       <input
+        aria-disabled={false}
         checked={false}
         disabled={false}
         id="test-2"
@@ -4893,9 +4895,10 @@ exports[`Storyshots Config Provider Theming 1`] = `
       </label>
     </div>
     <div
-      className="selector"
+      className="selector selector-medium"
     >
       <input
+        aria-disabled={false}
         checked={false}
         disabled={false}
         id="test-3"
@@ -4921,9 +4924,10 @@ exports[`Storyshots Config Provider Theming 1`] = `
     </div>
   </div>
   <div
-    className="selector"
+    className="selector selector-medium"
   >
     <input
+      aria-disabled={false}
       checked={false}
       disabled={false}
       id="4fzzzxj"
@@ -4947,13 +4951,14 @@ exports[`Storyshots Config Provider Theming 1`] = `
   </div>
   <div
     aria-label="Radio Group"
-    className="radio-group vertical"
+    className="radio-group vertical radio-group-medium"
     role="group"
   >
     <div
-      className="selector"
+      className="selector selector-medium"
     >
       <input
+        aria-disabled={false}
         checked={true}
         disabled={false}
         id="oea2exk-1"
@@ -4979,9 +4984,10 @@ exports[`Storyshots Config Provider Theming 1`] = `
       </label>
     </div>
     <div
-      className="selector"
+      className="selector selector-medium"
     >
       <input
+        aria-disabled={false}
         checked={false}
         disabled={false}
         id="oea2exk-2"
@@ -5007,9 +5013,10 @@ exports[`Storyshots Config Provider Theming 1`] = `
       </label>
     </div>
     <div
-      className="selector"
+      className="selector selector-medium"
     >
       <input
+        aria-disabled={false}
         checked={false}
         disabled={false}
         id="oea2exk-3"
