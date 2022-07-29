@@ -29,8 +29,8 @@
         "prerelease:minor": "standard-version --release-as minor --prerelease",
         "prerelease:patch": "standard-version --release-as patch --prerelease",
         "prerelease:major": "standard-version --release-as major --prerelease",
-        "prepack": "clean-package",
-        "postpack": "clean-package restore"
+        "prepublishOnly": "clean-package",
+        "postpublish": "clean-package restore"
     },
     "eslintConfig": {
         "extends": [
