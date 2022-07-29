@@ -124,7 +124,7 @@ export interface SelectProps extends OcBaseProps<HTMLSelectElement> {
      * loading spinner props.
      * @default {}
      */
-    spinner?: React.ReactNode;
+    spinner?: React.ReactElement;
 
     /**
      * Custom method to filter whether an option should be displayed in the menu.
