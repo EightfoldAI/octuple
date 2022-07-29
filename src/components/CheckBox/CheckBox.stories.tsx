@@ -170,4 +170,5 @@ Check_Box_Group.args = {
         },
     ],
     layout: 'vertical',
+    size: SelectorSize.Medium,
 };
