@@ -201,6 +201,48 @@ const Bespoke_RadioGroup_Story: ComponentStory<typeof RadioButton> = (args) => {
 
 export const Bespoke_Radio_Group = Bespoke_RadioGroup_Story.bind({});
 
+const RadioButton_With_Custom_Label_Story: ComponentStory<
+    typeof RadioButton
+> = (args) => {
+    const [selected, setSelected] = useState<RadioButtonValue>('label1');
+
+    const radioChangeHandler = (
+        e?: React.ChangeEvent<HTMLInputElement>
+    ): void => {
+        setSelected(e.target.value);
+    };
+
+    return (
+        <RadioButton
+            {...args}
+            checked={selected === 'Label1'}
+            onChange={radioChangeHandler}
+        />
+    );
+};
+
+export const RadioButton_With_Custom_Label =
+    RadioButton_With_Custom_Label_Story.bind({});
+
+const RadioGroup_With_Custom_Label_Story: ComponentStory<typeof RadioGroup> = (
+    args
+) => {
+    const [selected, setSelected] = useState<RadioButtonValue>(args.value);
+    return (
+        <RadioGroup
+            {...args}
+            value={selected}
+            onChange={(e) => {
+                args.onChange(e);
+                setSelected(e.target.value);
+            }}
+        />
+    );
+};
+
+export const RadioGroup_With_Custom_Label =
+    RadioGroup_With_Custom_Label_Story.bind({});
+
 const radioButtonArgs: Object = {
     allowDisabledFocus: false,
     ariaLabel: 'Label',
@@ -237,4 +279,42 @@ Radio_Group.args = {
 Bespoke_Radio_Group.args = {
     ...radioButtonArgs,
     name: 'roleGroupName',
+};
+
+RadioButton_With_Custom_Label.args = {
+    ...radioButtonArgs,
+    label: (
+        <div>
+            <div style={{ fontWeight: 'bold' }}>Line one with some text</div>
+            <div>
+                Line two with some details about the above text. This could be a
+                description or summary of some sort.
+            </div>
+        </div>
+    ),
+};
+
+RadioGroup_With_Custom_Label.args = {
+    allowDisabledFocus: false,
+    ariaLabel: 'Radio Group',
+    disabled: false,
+    value: 'Radio1',
+    items: [1, 2, 3].map((i) => ({
+        value: `Radio${i}`,
+        label: (
+            <div>
+                <div style={{ fontWeight: 'bold' }}>
+                    Line one with some text
+                </div>
+                <div>
+                    Line two with some details about the above text. This could
+                    be a description or summary of some sort.
+                </div>
+            </div>
+        ),
+        name: 'group',
+        id: `oea2exk-${i}`,
+    })),
+    layout: 'vertical',
+    size: SelectorSize.Medium,
 };

@@ -23,13 +23,14 @@
 
         & + label {
             .radio-button {
-                position: relative;
-                height: $radio-medium-height;
-                width: $radio-medium-width;
-                border-radius: 50%;
                 border: $space-xxxs solid var(--grey-color-70);
+                border-radius: 50%;
+                height: $radio-medium-height;
+                min-width: $radio-medium-width;
+                position: relative;
                 transition: all $motion-duration-extra-fast $motion-ease-in-back
                     $motion-delay-s;
+                width: $radio-medium-width;
 
                 &:after {
                     top: $radio-medium-after-top;
@@ -133,6 +134,7 @@
             & + label {
                 .radio-button {
                     height: $radio-large-height;
+                    min-width: $radio-large-width;
                     width: $radio-large-width;
 
                     &:after {
@@ -171,6 +173,7 @@
             & + label {
                 .radio-button {
                     height: $radio-medium-height;
+                    min-width: $radio-medium-width;
                     width: $radio-medium-width;
 
                     &:after {
@@ -209,6 +212,7 @@
             & + label {
                 .radio-button {
                     height: $radio-small-height;
+                    min-width: $radio-small-width;
                     width: $radio-small-width;
 
                     &:after {
