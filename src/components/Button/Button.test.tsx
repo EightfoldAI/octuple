@@ -3,7 +3,13 @@ import Enzyme, { mount } from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import MatchMediaMock from 'jest-matchmedia-mock';
 import { ButtonSize } from './Button.types';
-import { PrimaryButton } from './PrimaryButton/PrimaryButton';
+import {
+    DefaultButton,
+    NeutralButton,
+    PrimaryButton,
+    SecondaryButton,
+    SystemUIButton,
+} from './';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -51,6 +57,31 @@ describe('Button', () => {
         wrapper.find('.button').at(0).simulate('click');
         wrapper.find('.button').at(0).simulate('click');
         expect(testCounter).toEqual(0);
+    });
+
+    it('Button is default', () => {
+        const wrapper = mount(<DefaultButton text="test default" />);
+        expect(wrapper.find('.button-default')).toBeTruthy();
+    });
+
+    it('Button is neutral', () => {
+        const wrapper = mount(<NeutralButton text="test neutral" />);
+        expect(wrapper.find('.button-neutral')).toBeTruthy();
+    });
+
+    it('Button is primary', () => {
+        const wrapper = mount(<PrimaryButton text="test" />);
+        expect(wrapper.find('.button-primary')).toBeTruthy();
+    });
+
+    it('Button is secondary', () => {
+        const wrapper = mount(<SecondaryButton text="test secondary" />);
+        expect(wrapper.find('.button-secondary')).toBeTruthy();
+    });
+
+    it('Button is system ui', () => {
+        const wrapper = mount(<SystemUIButton text="test system ui" />);
+        expect(wrapper.find('.button-system-ui')).toBeTruthy();
     });
 
     it('Button is large', () => {

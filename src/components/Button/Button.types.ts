@@ -41,6 +41,7 @@ export enum ButtonType {
     Neutral = 'neutral',
     Primary = 'primary',
     Secondary = 'secondary',
+    SystemUI = 'systemui',
 }
 
 export interface InternalButtonProps extends ButtonProps {

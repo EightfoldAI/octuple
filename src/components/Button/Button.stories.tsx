@@ -13,6 +13,7 @@ import {
     NeutralButton,
     PrimaryButton,
     SecondaryButton,
+    SystemUIButton,
 } from './';
 import { IconName } from '../Icon';
 
@@ -202,6 +203,12 @@ const Neutral_Button_Story: ComponentStory<typeof NeutralButton> = (args) => (
 
 export const Neutral = Neutral_Button_Story.bind({});
 
+const System_UI_Button_Story: ComponentStory<typeof SystemUIButton> = (
+    args
+) => <SystemUIButton {...args} />;
+
+export const System_UI = System_UI_Button_Story.bind({});
+
 const Toggle_Button_Story: ComponentStory<typeof PrimaryButton> = (args) => (
     <PrimaryButton {...args} />
 );
@@ -272,6 +279,12 @@ Secondary.args = {
     ...buttonArgs,
     ariaLabel: 'Secondary Button',
     text: 'Secondary Button',
+};
+
+System_UI.args = {
+    ...buttonArgs,
+    ariaLabel: 'System UI Button',
+    text: 'System UI Button',
 };
 
 Default.args = {

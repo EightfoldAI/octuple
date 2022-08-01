@@ -106,6 +106,7 @@ export const SplitButton: FC<SplitButtonProps> = React.forwardRef(
             },
             { [styles.splitDividerDefault]: type === ButtonType.Default },
             { [styles.splitDividerNeutral]: type === ButtonType.Neutral },
+            { [styles.splitDividerSystemUi]: type === ButtonType.SystemUI },
             {
                 [styles.splitDividerDisruptive]:
                     type === ButtonType.Default && disruptive,

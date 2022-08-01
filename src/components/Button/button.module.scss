@@ -336,6 +336,21 @@
     }
 }
 
+.button-system-ui {
+    --bg: var(--background-color);
+    --color: var(--grey-color-60);
+    color: var(--color);
+    background-color: var(--bg);
+
+    &:hover {
+        --bg: var(--grey-color-10);
+    }
+
+    &:active {
+        --bg: var(--grey-color-20);
+    }
+}
+
 .split-button {
     position: relative;
 
@@ -349,6 +364,10 @@
 
         &.split-divider-secondary {
             background-color: var(--primary-color-70);
+        }
+
+        &.split-divider-system-ui {
+            background-color: var(--grey-color-70);
         }
 
         &.split-divider-primary-disruptive {
@@ -508,6 +527,17 @@
             &.focus-visible,
             &:focus-visible {
                 background-color: var(--grey-color-10);
+
+                &.drop-shadow {
+                    box-shadow: $focus-visible-box-shadow, $shadow-object-s;
+                }
+            }
+        }
+
+        &.button-system-ui {
+            &.focus-visible,
+            &:focus-visible {
+                background-color: var(--background-color);
 
                 &.drop-shadow {
                     box-shadow: $focus-visible-box-shadow, $shadow-object-s;

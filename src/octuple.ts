@@ -15,6 +15,7 @@ import {
     NeutralButton,
     PrimaryButton,
     SecondaryButton,
+    SystemUIButton,
     TwoStateButton,
 } from './components/Button';
 
@@ -194,6 +195,7 @@ export {
     Spinner,
     SpinnerSize,
     Stack,
+    SystemUIButton,
     Table,
     TablePaginationConfig,
     TableProps,
