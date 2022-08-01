@@ -137,6 +137,52 @@ exports[`Storyshots Radio Button Radio Button 1`] = `
 </div>
 `;
 
+exports[`Storyshots Radio Button Radio Button With Custom Label 1`] = `
+<div
+  className="selector selector-medium my-radiobutton-class"
+>
+  <input
+    aria-disabled={false}
+    aria-label="Label"
+    checked={false}
+    disabled={false}
+    id="myRadioButtonId"
+    name="myRadioButtonName"
+    onChange={[Function]}
+    readOnly={true}
+    type="radio"
+    value="Label1"
+  />
+  <label
+    className=""
+    htmlFor="myRadioButtonId"
+  >
+    <span
+      className="radio-button"
+      id="myRadioButtonId-custom-radio"
+    />
+    <span
+      className="selector-label selector-label-end"
+    >
+      <div>
+        <div
+          style={
+            Object {
+              "fontWeight": "bold",
+            }
+          }
+        >
+          Line one with some text
+        </div>
+        <div>
+          Line two with some details about the above text. This could be a description or summary of some sort.
+        </div>
+      </div>
+    </span>
+  </label>
+</div>
+`;
+
 exports[`Storyshots Radio Button Radio Group 1`] = `
 <div
   aria-label="Radio Group"
@@ -227,6 +273,141 @@ exports[`Storyshots Radio Button Radio Group 1`] = `
         className="selector-label selector-label-end"
       >
         Radio3
+      </span>
+    </label>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Radio Button Radio Group With Custom Label 1`] = `
+<div
+  aria-label="Radio Group"
+  className="radio-group vertical radio-group-medium"
+  role="group"
+>
+  <div
+    className="selector selector-medium"
+  >
+    <input
+      aria-disabled={false}
+      checked={true}
+      disabled={false}
+      id="oea2exk-1"
+      name="group"
+      onChange={[Function]}
+      readOnly={true}
+      type="radio"
+      value="Radio1"
+    />
+    <label
+      className=""
+      htmlFor="oea2exk-1"
+    >
+      <span
+        className="radio-button"
+        id="oea2exk-1-custom-radio"
+      />
+      <span
+        className="selector-label selector-label-end"
+      >
+        <div>
+          <div
+            style={
+              Object {
+                "fontWeight": "bold",
+              }
+            }
+          >
+            Line one with some text
+          </div>
+          <div>
+            Line two with some details about the above text. This could be a description or summary of some sort.
+          </div>
+        </div>
+      </span>
+    </label>
+  </div>
+  <div
+    className="selector selector-medium"
+  >
+    <input
+      aria-disabled={false}
+      checked={false}
+      disabled={false}
+      id="oea2exk-2"
+      name="group"
+      onChange={[Function]}
+      readOnly={true}
+      type="radio"
+      value="Radio2"
+    />
+    <label
+      className=""
+      htmlFor="oea2exk-2"
+    >
+      <span
+        className="radio-button"
+        id="oea2exk-2-custom-radio"
+      />
+      <span
+        className="selector-label selector-label-end"
+      >
+        <div>
+          <div
+            style={
+              Object {
+                "fontWeight": "bold",
+              }
+            }
+          >
+            Line one with some text
+          </div>
+          <div>
+            Line two with some details about the above text. This could be a description or summary of some sort.
+          </div>
+        </div>
+      </span>
+    </label>
+  </div>
+  <div
+    className="selector selector-medium"
+  >
+    <input
+      aria-disabled={false}
+      checked={false}
+      disabled={false}
+      id="oea2exk-3"
+      name="group"
+      onChange={[Function]}
+      readOnly={true}
+      type="radio"
+      value="Radio3"
+    />
+    <label
+      className=""
+      htmlFor="oea2exk-3"
+    >
+      <span
+        className="radio-button"
+        id="oea2exk-3-custom-radio"
+      />
+      <span
+        className="selector-label selector-label-end"
+      >
+        <div>
+          <div
+            style={
+              Object {
+                "fontWeight": "bold",
+              }
+            }
+          >
+            Line one with some text
+          </div>
+          <div>
+            Line two with some details about the above text. This could be a description or summary of some sort.
+          </div>
+        </div>
       </span>
     </label>
   </div>
