@@ -12,14 +12,24 @@ exports[`Storyshots Radio Button Bespoke Radio Group 1`] = `
   }
 >
   <div
-    className="selector my-radiobutton-class"
+    className="field-label medium"
+  >
+    <label
+      className="text-style medium"
+    >
+      Group 1
+    </label>
+  </div>
+  <div
+    className="selector selector-medium my-radiobutton-class"
   >
     <input
+      aria-disabled={false}
       aria-label="Label 1"
       checked={true}
       disabled={false}
-      id="myRadioButtonId1"
-      name="roleGroupName"
+      id="myBespokeRadioGroup1-Id1"
+      name="bespokeGroup1"
       onChange={[Function]}
       readOnly={true}
       type="radio"
@@ -27,28 +37,29 @@ exports[`Storyshots Radio Button Bespoke Radio Group 1`] = `
     />
     <label
       className=""
-      htmlFor="myRadioButtonId1"
+      htmlFor="myBespokeRadioGroup1-Id1"
     >
       <span
         className="radio-button"
-        id="myRadioButtonId1-custom-radio"
+        id="myBespokeRadioGroup1-Id1-custom-radio"
       />
       <span
-        className="selector-label"
+        className="selector-label selector-label-end"
       >
         Label 1
       </span>
     </label>
   </div>
   <div
-    className="selector my-radiobutton-class"
+    className="selector selector-medium my-radiobutton-class"
   >
     <input
+      aria-disabled={false}
       aria-label="Label 2"
       checked={false}
       disabled={false}
-      id="myRadioButtonId2"
-      name="roleGroupName"
+      id="myBespokeRadioGroup1-Id2"
+      name="bespokeGroup1"
       onChange={[Function]}
       readOnly={true}
       type="radio"
@@ -56,28 +67,29 @@ exports[`Storyshots Radio Button Bespoke Radio Group 1`] = `
     />
     <label
       className=""
-      htmlFor="myRadioButtonId2"
+      htmlFor="myBespokeRadioGroup1-Id2"
     >
       <span
         className="radio-button"
-        id="myRadioButtonId2-custom-radio"
+        id="myBespokeRadioGroup1-Id2-custom-radio"
       />
       <span
-        className="selector-label"
+        className="selector-label selector-label-end"
       >
         Label 2
       </span>
     </label>
   </div>
   <div
-    className="selector my-radiobutton-class"
+    className="selector selector-medium my-radiobutton-class"
   >
     <input
+      aria-disabled={false}
       aria-label="Label 3"
       checked={false}
       disabled={false}
-      id="myRadioButtonId3"
-      name="roleGroupName"
+      id="myBespokeRadioGroup1-Id3"
+      name="bespokeGroup1"
       onChange={[Function]}
       readOnly={true}
       type="radio"
@@ -85,14 +97,113 @@ exports[`Storyshots Radio Button Bespoke Radio Group 1`] = `
     />
     <label
       className=""
-      htmlFor="myRadioButtonId3"
+      htmlFor="myBespokeRadioGroup1-Id3"
     >
       <span
         className="radio-button"
-        id="myRadioButtonId3-custom-radio"
+        id="myBespokeRadioGroup1-Id3-custom-radio"
       />
       <span
-        className="selector-label"
+        className="selector-label selector-label-end"
+      >
+        Label 3
+      </span>
+    </label>
+  </div>
+  <div
+    className="field-label medium"
+  >
+    <label
+      className="text-style medium"
+    >
+      Group 2
+    </label>
+  </div>
+  <div
+    className="selector selector-medium my-radiobutton-class"
+  >
+    <input
+      aria-disabled={false}
+      aria-label="Label 1"
+      checked={true}
+      disabled={false}
+      id="myBespokeRadioGroup2-Id1"
+      name="bespokeGroup2"
+      onChange={[Function]}
+      readOnly={true}
+      type="radio"
+      value="label1"
+    />
+    <label
+      className=""
+      htmlFor="myBespokeRadioGroup2-Id1"
+    >
+      <span
+        className="radio-button"
+        id="myBespokeRadioGroup2-Id1-custom-radio"
+      />
+      <span
+        className="selector-label selector-label-end"
+      >
+        Label 1
+      </span>
+    </label>
+  </div>
+  <div
+    className="selector selector-medium my-radiobutton-class"
+  >
+    <input
+      aria-disabled={false}
+      aria-label="Label 2"
+      checked={false}
+      disabled={false}
+      id="myBespokeRadioGroup2-Id2"
+      name="bespokeGroup2"
+      onChange={[Function]}
+      readOnly={true}
+      type="radio"
+      value="label2"
+    />
+    <label
+      className=""
+      htmlFor="myBespokeRadioGroup2-Id2"
+    >
+      <span
+        className="radio-button"
+        id="myBespokeRadioGroup2-Id2-custom-radio"
+      />
+      <span
+        className="selector-label selector-label-end"
+      >
+        Label 2
+      </span>
+    </label>
+  </div>
+  <div
+    className="selector selector-medium my-radiobutton-class"
+  >
+    <input
+      aria-disabled={false}
+      aria-label="Label 3"
+      checked={false}
+      disabled={false}
+      id="myBespokeRadioGroup2-Id3"
+      name="bespokeGroup2"
+      onChange={[Function]}
+      readOnly={true}
+      type="radio"
+      value="label3"
+    />
+    <label
+      className=""
+      htmlFor="myBespokeRadioGroup2-Id3"
+    >
+      <span
+        className="radio-button"
+        id="myBespokeRadioGroup2-Id3-custom-radio"
+      />
+      <span
+        className="selector-label selector-label-end"
       >
         Label 3
       </span>
@@ -103,9 +214,10 @@ exports[`Storyshots Radio Button Bespoke Radio Group 1`] = `
 
 exports[`Storyshots Radio Button Radio Button 1`] = `
 <div
-  className="selector my-radiobutton-class"
+  className="selector selector-medium my-radiobutton-class"
 >
   <input
+    aria-disabled={false}
     aria-label="Label"
     checked={false}
     disabled={false}
@@ -125,9 +237,55 @@ exports[`Storyshots Radio Button Radio Button 1`] = `
       id="myRadioButtonId-custom-radio"
     />
     <span
-      className="selector-label"
+      className="selector-label selector-label-end"
     >
       Label
+    </span>
+  </label>
+</div>
+`;
+
+exports[`Storyshots Radio Button Radio Button With Custom Label 1`] = `
+<div
+  className="selector selector-medium my-radiobutton-class"
+>
+  <input
+    aria-disabled={false}
+    aria-label="Label"
+    checked={false}
+    disabled={false}
+    id="myRadioButtonId"
+    name="myRadioButtonName"
+    onChange={[Function]}
+    readOnly={true}
+    type="radio"
+    value="Label1"
+  />
+  <label
+    className=""
+    htmlFor="myRadioButtonId"
+  >
+    <span
+      className="radio-button"
+      id="myRadioButtonId-custom-radio"
+    />
+    <span
+      className="selector-label selector-label-end"
+    >
+      <div>
+        <div
+          style={
+            Object {
+              "fontWeight": "bold",
+            }
+          }
+        >
+          Line one with some text
+        </div>
+        <div>
+          Line two with some details about the above text. This could be a description or summary of some sort.
+        </div>
+      </div>
     </span>
   </label>
 </div>
@@ -136,17 +294,19 @@ exports[`Storyshots Radio Button Radio Button 1`] = `
 exports[`Storyshots Radio Button Radio Group 1`] = `
 <div
   aria-label="Radio Group"
-  className="radio-group vertical"
+  className="radio-group vertical radio-group-medium"
   role="group"
 >
   <div
-    className="selector"
+    className="selector selector-medium"
   >
     <input
+      aria-disabled={false}
+      aria-label="Radio1"
       checked={true}
       disabled={false}
       id="oea2exk-1"
-      name="group"
+      name="group1"
       onChange={[Function]}
       readOnly={true}
       type="radio"
@@ -161,20 +321,22 @@ exports[`Storyshots Radio Button Radio Group 1`] = `
         id="oea2exk-1-custom-radio"
       />
       <span
-        className="selector-label"
+        className="selector-label selector-label-end"
       >
         Radio1
       </span>
     </label>
   </div>
   <div
-    className="selector"
+    className="selector selector-medium"
   >
     <input
+      aria-disabled={false}
+      aria-label="Radio2"
       checked={false}
       disabled={false}
       id="oea2exk-2"
-      name="group"
+      name="group1"
       onChange={[Function]}
       readOnly={true}
       type="radio"
@@ -189,20 +351,22 @@ exports[`Storyshots Radio Button Radio Group 1`] = `
         id="oea2exk-2-custom-radio"
       />
       <span
-        className="selector-label"
+        className="selector-label selector-label-end"
       >
         Radio2
       </span>
     </label>
   </div>
   <div
-    className="selector"
+    className="selector selector-medium"
   >
     <input
+      aria-disabled={false}
+      aria-label="Radio3"
       checked={false}
       disabled={false}
       id="oea2exk-3"
-      name="group"
+      name="group1"
       onChange={[Function]}
       readOnly={true}
       type="radio"
@@ -217,9 +381,147 @@ exports[`Storyshots Radio Button Radio Group 1`] = `
         id="oea2exk-3-custom-radio"
       />
       <span
-        className="selector-label"
+        className="selector-label selector-label-end"
       >
         Radio3
+      </span>
+    </label>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Radio Button Radio Group With Custom Label 1`] = `
+<div
+  aria-label="Radio Group Custom"
+  className="radio-group vertical radio-group-medium"
+  role="group"
+>
+  <div
+    className="selector selector-medium"
+  >
+    <input
+      aria-disabled={false}
+      aria-label="Radio1"
+      checked={true}
+      disabled={false}
+      id="qgc4gzm-1"
+      name="group3"
+      onChange={[Function]}
+      readOnly={true}
+      type="radio"
+      value="Radio1"
+    />
+    <label
+      className=""
+      htmlFor="qgc4gzm-1"
+    >
+      <span
+        className="radio-button"
+        id="qgc4gzm-1-custom-radio"
+      />
+      <span
+        className="selector-label selector-label-end"
+      >
+        <div>
+          <div
+            style={
+              Object {
+                "fontWeight": "bold",
+              }
+            }
+          >
+            Line one with some text
+          </div>
+          <div>
+            Line two with some details about the above text. This could be a description or summary of some sort.
+          </div>
+        </div>
+      </span>
+    </label>
+  </div>
+  <div
+    className="selector selector-medium"
+  >
+    <input
+      aria-disabled={false}
+      aria-label="Radio2"
+      checked={false}
+      disabled={false}
+      id="qgc4gzm-2"
+      name="group3"
+      onChange={[Function]}
+      readOnly={true}
+      type="radio"
+      value="Radio2"
+    />
+    <label
+      className=""
+      htmlFor="qgc4gzm-2"
+    >
+      <span
+        className="radio-button"
+        id="qgc4gzm-2-custom-radio"
+      />
+      <span
+        className="selector-label selector-label-end"
+      >
+        <div>
+          <div
+            style={
+              Object {
+                "fontWeight": "bold",
+              }
+            }
+          >
+            Line one with some text
+          </div>
+          <div>
+            Line two with some details about the above text. This could be a description or summary of some sort.
+          </div>
+        </div>
+      </span>
+    </label>
+  </div>
+  <div
+    className="selector selector-medium"
+  >
+    <input
+      aria-disabled={false}
+      aria-label="Radio3"
+      checked={false}
+      disabled={false}
+      id="qgc4gzm-3"
+      name="group3"
+      onChange={[Function]}
+      readOnly={true}
+      type="radio"
+      value="Radio3"
+    />
+    <label
+      className=""
+      htmlFor="qgc4gzm-3"
+    >
+      <span
+        className="radio-button"
+        id="qgc4gzm-3-custom-radio"
+      />
+      <span
+        className="selector-label selector-label-end"
+      >
+        <div>
+          <div
+            style={
+              Object {
+                "fontWeight": "bold",
+              }
+            }
+          >
+            Line one with some text
+          </div>
+          <div>
+            Line two with some details about the above text. This could be a description or summary of some sort.
+          </div>
+        </div>
       </span>
     </label>
   </div>
