@@ -3,6 +3,8 @@
 
 .picker {
     @include reset-component();
+    @include input-reset();
+
     @include picker-padding(
         $picker-input-height-m,
         $picker-font-size-m,

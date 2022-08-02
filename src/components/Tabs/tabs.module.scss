@@ -7,6 +7,8 @@
     }
 
     .tab {
+        @include button-reset();
+
         display: flex;
         border: none;
         cursor: pointer;

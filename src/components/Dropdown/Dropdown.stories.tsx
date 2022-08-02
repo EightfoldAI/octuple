@@ -127,6 +127,9 @@ const Overlay = () => (
                 iconProps={{
                     path: item.icon,
                 }}
+                style={{
+                    margin: '4px 0',
+                }}
             />
         )}
     />
