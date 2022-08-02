@@ -273,7 +273,7 @@ Array [
     aria-checked={false}
     aria-disabled={false}
     aria-pressed={false}
-    className="my-btn-class button button-primary pill-shape undefined button split-button pill-shape split-right"
+    className="my-btn-class button button-primary pill-shape undefined split-button pill-shape split-right"
     defaultChecked={false}
     disabled={false}
     type="button"
@@ -339,7 +339,7 @@ Array [
     aria-checked={false}
     aria-disabled={false}
     aria-pressed={false}
-    className="my-btn-class button button-primary pill-shape undefined button split-button pill-shape split-right"
+    className="my-btn-class button button-primary pill-shape undefined split-button pill-shape split-right"
     defaultChecked={false}
     disabled={false}
     type="button"

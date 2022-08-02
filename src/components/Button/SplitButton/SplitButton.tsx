@@ -44,7 +44,6 @@ export const SplitButton: FC<SplitButtonProps> = React.forwardRef(
 
         const splitButtonClassNames: string = mergeClasses([
             classNames,
-            styles.button,
             styles.splitButton,
             {
                 [styles.buttonSmall]:
