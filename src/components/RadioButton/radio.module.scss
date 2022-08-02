@@ -38,6 +38,7 @@
                 position: relative;
                 height: $radio-height;
                 width: $radio-width;
+                min-width: $radio-width;
                 border-radius: 50%;
                 background-color: var(--white-color);
                 border: $space-xxxs solid var(--grey-color-70);
