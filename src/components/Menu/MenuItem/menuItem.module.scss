@@ -1,4 +1,6 @@
 .menu-item {
+    @include button-reset();
+
     --background: transparent;
     background-color: var(--background);
     color: var(--label);
@@ -9,6 +11,7 @@
     cursor: pointer;
     font-weight: $text-font-weight-semibold;
     transition: all $motion-duration-extra-fast $motion-easing-easeinout 0s;
+    margin: 4px 0;
 
     &.large {
         height: 48px;

@@ -306,6 +306,11 @@ $focus-visible-outline-color: var(--primary-color-60);
 $focus-visible-outline-style: solid;
 $focus-visible-outline-width: 2px;
 
+$focus-visible-shadow-color: var(--primary-color-60);
+$focus-visible-shadow-width: 2px;
+$focus-visible-box-shadow: 0 0 0 $focus-visible-shadow-width
+    $focus-visible-shadow-color;
+
 // Speed / Duration Definitions
 
 $motion-duration-extra-fast: 200ms; // Smallest UI objects like buttons (hover effect), tooltips, etc.

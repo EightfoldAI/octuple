@@ -1,4 +1,6 @@
 .selector {
+    @include selector-reset();
+
     display: flex;
     position: relative;
     width: fit-content;
@@ -12,23 +14,11 @@
         z-index: 1;
 
         &[disabled] {
-            cursor: default;
+            cursor: not-allowed;
 
             & + label {
                 .checkmark {
                     opacity: 50%;
-                }
-            }
-
-            &:hover + label {
-                .checkmark {
-                    border: $space-xxxs solid var(--grey-color-70);
-                }
-            }
-
-            &:active + label {
-                .checkmark {
-                    border: $space-xxxs solid var(--grey-color-70);
                 }
             }
         }
@@ -63,13 +53,13 @@
             }
         }
 
-        &:hover + label {
+        &:not(.disabled):not([disabled]):hover + label {
             .checkmark {
                 border: $space-xxxs solid var(--primary-color-60);
             }
         }
 
-        &:active + label {
+        &:not(.disabled):not([disabled]):active + label {
             .checkmark {
                 border: $space-xxxs solid var(--primary-color-80);
             }
@@ -78,22 +68,7 @@
 
     input:checked {
         &[disabled] {
-            cursor: default;
-
-            &:hover + label {
-                .checkmark {
-                    background-color: var(--primary-color);
-                    border: $space-xxxs solid var(--primary-color);
-                }
-            }
-
-            &:active + label {
-                .checkmark {
-                    transform: none;
-                    background-color: var(--primary-color);
-                    border: $space-xxxs solid var(--primary-color);
-                }
-            }
+            cursor: not-allowed;
         }
 
         & + label {
@@ -113,7 +88,7 @@
             }
         }
 
-        &:active + label {
+        &:not(.disabled):not([disabled]):active + label {
             .checkmark {
                 transform: scale(0.98);
                 background-color: var(--primary-color-80);
@@ -121,7 +96,7 @@
             }
         }
 
-        &:hover + label {
+        &:not(.disabled):not([disabled]):hover + label {
             .checkmark {
                 background-color: var(--primary-color-60);
                 border: $space-xxxs solid var(--primary-color-60);
@@ -139,6 +114,22 @@
     .selector-label {
         margin-left: $space-xs;
         font-size: $text-font-weight-regular;
+    }
+
+    &.disabled {
+        input {
+            cursor: not-allowed;
+
+            & + label {
+                .checkmark {
+                    opacity: 50%;
+                }
+            }
+        }
+
+        input:checked {
+            cursor: not-allowed;
+        }
     }
 }
 
@@ -174,6 +165,31 @@
                 .checkmark {
                     outline: none;
                     border: $space-xxxs solid var(--grey-color-70);
+                }
+            }
+        }
+    }
+
+    .selector {
+        &.disabled {
+            input {
+                &:checked {
+                    &:focus-visible + label {
+                        .checkmark {
+                            outline: none;
+
+                            &.toggle {
+                                outline: none;
+                            }
+                        }
+                    }
+                }
+
+                &:focus-visible + label {
+                    .checkmark {
+                        outline: none;
+                        border: $space-xxxs solid var(--grey-color-70);
+                    }
                 }
             }
         }

@@ -123,8 +123,10 @@ Check_Box.args = {
 };
 
 Check_Box_Group.args = {
+    allowDisabledFocus: false,
     value: ['First'],
     defaultChecked: ['First'],
+    disabled: false,
     items: [
         {
             name: 'group',

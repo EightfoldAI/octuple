@@ -21,7 +21,7 @@ exports[`Storyshots Match Score Default 1`] = `
     className="match-score-circle"
   />
   <p
-    className="label"
+    className="label body2"
   >
     3
     /

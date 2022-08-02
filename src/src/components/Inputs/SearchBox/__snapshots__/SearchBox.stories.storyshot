@@ -65,6 +65,7 @@ exports[`Storyshots Input Search Box 1`] = `
       className="input-group left-icon"
     >
       <input
+        aria-disabled={false}
         aria-label="Search"
         autoFocus={false}
         className="my-searchbox-class with-icon with-icon-button with-icon-and-icon-button left-icon clear-not-visible"

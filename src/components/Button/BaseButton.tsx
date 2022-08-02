@@ -181,11 +181,11 @@ export const BaseButton: FC<InternalButtonProps> = React.forwardRef(
                     ref={ref}
                     {...rest}
                     aria-checked={toggle ? !!checked : undefined}
-                    aria-disabled={allowDisabledFocus}
+                    aria-disabled={disabled}
                     aria-label={ariaLabel}
                     aria-pressed={toggle ? !!checked : undefined}
                     defaultChecked={checked}
-                    disabled={disabled}
+                    disabled={!allowDisabledFocus && disabled}
                     className={buttonBaseClassNames}
                     id={id}
                     onClick={!allowDisabledFocus ? onClick : null}

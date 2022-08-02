@@ -21,7 +21,7 @@ exports[`Storyshots Radio Button Bespoke Radio Group 1`] = `
     </label>
   </div>
   <div
-    className="selector selector-medium my-radiobutton-class"
+    className="selector my-radiobutton-class"
   >
     <input
       aria-disabled={false}
@@ -44,14 +44,14 @@ exports[`Storyshots Radio Button Bespoke Radio Group 1`] = `
         id="myBespokeRadioGroup1-Id1-custom-radio"
       />
       <span
-        className="selector-label selector-label-end"
+        className="selector-label"
       >
         Label 1
       </span>
     </label>
   </div>
   <div
-    className="selector selector-medium my-radiobutton-class"
+    className="selector my-radiobutton-class"
   >
     <input
       aria-disabled={false}
@@ -74,14 +74,14 @@ exports[`Storyshots Radio Button Bespoke Radio Group 1`] = `
         id="myBespokeRadioGroup1-Id2-custom-radio"
       />
       <span
-        className="selector-label selector-label-end"
+        className="selector-label"
       >
         Label 2
       </span>
     </label>
   </div>
   <div
-    className="selector selector-medium my-radiobutton-class"
+    className="selector my-radiobutton-class"
   >
     <input
       aria-disabled={false}
@@ -104,7 +104,7 @@ exports[`Storyshots Radio Button Bespoke Radio Group 1`] = `
         id="myBespokeRadioGroup1-Id3-custom-radio"
       />
       <span
-        className="selector-label selector-label-end"
+        className="selector-label"
       >
         Label 3
       </span>
@@ -120,7 +120,7 @@ exports[`Storyshots Radio Button Bespoke Radio Group 1`] = `
     </label>
   </div>
   <div
-    className="selector selector-medium my-radiobutton-class"
+    className="selector my-radiobutton-class"
   >
     <input
       aria-disabled={false}
@@ -143,14 +143,14 @@ exports[`Storyshots Radio Button Bespoke Radio Group 1`] = `
         id="myBespokeRadioGroup2-Id1-custom-radio"
       />
       <span
-        className="selector-label selector-label-end"
+        className="selector-label"
       >
         Label 1
       </span>
     </label>
   </div>
   <div
-    className="selector selector-medium my-radiobutton-class"
+    className="selector my-radiobutton-class"
   >
     <input
       aria-disabled={false}
@@ -173,14 +173,14 @@ exports[`Storyshots Radio Button Bespoke Radio Group 1`] = `
         id="myBespokeRadioGroup2-Id2-custom-radio"
       />
       <span
-        className="selector-label selector-label-end"
+        className="selector-label"
       >
         Label 2
       </span>
     </label>
   </div>
   <div
-    className="selector selector-medium my-radiobutton-class"
+    className="selector my-radiobutton-class"
   >
     <input
       aria-disabled={false}
@@ -203,7 +203,7 @@ exports[`Storyshots Radio Button Bespoke Radio Group 1`] = `
         id="myBespokeRadioGroup2-Id3-custom-radio"
       />
       <span
-        className="selector-label selector-label-end"
+        className="selector-label"
       >
         Label 3
       </span>
@@ -214,7 +214,7 @@ exports[`Storyshots Radio Button Bespoke Radio Group 1`] = `
 
 exports[`Storyshots Radio Button Radio Button 1`] = `
 <div
-  className="selector selector-medium my-radiobutton-class"
+  className="selector my-radiobutton-class"
 >
   <input
     aria-disabled={false}
@@ -237,7 +237,7 @@ exports[`Storyshots Radio Button Radio Button 1`] = `
       id="myRadioButtonId-custom-radio"
     />
     <span
-      className="selector-label selector-label-end"
+      className="selector-label"
     >
       Label
     </span>
@@ -247,7 +247,7 @@ exports[`Storyshots Radio Button Radio Button 1`] = `
 
 exports[`Storyshots Radio Button Radio Button With Custom Label 1`] = `
 <div
-  className="selector selector-medium my-radiobutton-class"
+  className="selector my-radiobutton-class"
 >
   <input
     aria-disabled={false}
@@ -270,7 +270,7 @@ exports[`Storyshots Radio Button Radio Button With Custom Label 1`] = `
       id="myRadioButtonId-custom-radio"
     />
     <span
-      className="selector-label selector-label-end"
+      className="selector-label"
     >
       <div>
         <div
@@ -294,11 +294,11 @@ exports[`Storyshots Radio Button Radio Button With Custom Label 1`] = `
 exports[`Storyshots Radio Button Radio Group 1`] = `
 <div
   aria-label="Radio Group"
-  className="radio-group vertical radio-group-medium"
+  className="radio-group vertical"
   role="group"
 >
   <div
-    className="selector selector-medium"
+    className="selector"
   >
     <input
       aria-disabled={false}
@@ -321,14 +321,14 @@ exports[`Storyshots Radio Button Radio Group 1`] = `
         id="oea2exk-1-custom-radio"
       />
       <span
-        className="selector-label selector-label-end"
+        className="selector-label"
       >
         Radio1
       </span>
     </label>
   </div>
   <div
-    className="selector selector-medium"
+    className="selector"
   >
     <input
       aria-disabled={false}
@@ -351,14 +351,14 @@ exports[`Storyshots Radio Button Radio Group 1`] = `
         id="oea2exk-2-custom-radio"
       />
       <span
-        className="selector-label selector-label-end"
+        className="selector-label"
       >
         Radio2
       </span>
     </label>
   </div>
   <div
-    className="selector selector-medium"
+    className="selector"
   >
     <input
       aria-disabled={false}
@@ -381,7 +381,7 @@ exports[`Storyshots Radio Button Radio Group 1`] = `
         id="oea2exk-3-custom-radio"
       />
       <span
-        className="selector-label selector-label-end"
+        className="selector-label"
       >
         Radio3
       </span>
@@ -393,11 +393,11 @@ exports[`Storyshots Radio Button Radio Group 1`] = `
 exports[`Storyshots Radio Button Radio Group With Custom Label 1`] = `
 <div
   aria-label="Radio Group Custom"
-  className="radio-group vertical radio-group-medium"
+  className="radio-group vertical"
   role="group"
 >
   <div
-    className="selector selector-medium"
+    className="selector"
   >
     <input
       aria-disabled={false}
@@ -420,7 +420,7 @@ exports[`Storyshots Radio Button Radio Group With Custom Label 1`] = `
         id="qgc4gzm-1-custom-radio"
       />
       <span
-        className="selector-label selector-label-end"
+        className="selector-label"
       >
         <div>
           <div
@@ -440,7 +440,7 @@ exports[`Storyshots Radio Button Radio Group With Custom Label 1`] = `
     </label>
   </div>
   <div
-    className="selector selector-medium"
+    className="selector"
   >
     <input
       aria-disabled={false}
@@ -463,7 +463,7 @@ exports[`Storyshots Radio Button Radio Group With Custom Label 1`] = `
         id="qgc4gzm-2-custom-radio"
       />
       <span
-        className="selector-label selector-label-end"
+        className="selector-label"
       >
         <div>
           <div
@@ -483,7 +483,7 @@ exports[`Storyshots Radio Button Radio Group With Custom Label 1`] = `
     </label>
   </div>
   <div
-    className="selector selector-medium"
+    className="selector"
   >
     <input
       aria-disabled={false}
@@ -506,7 +506,7 @@ exports[`Storyshots Radio Button Radio Group With Custom Label 1`] = `
         id="qgc4gzm-3-custom-radio"
       />
       <span
-        className="selector-label selector-label-end"
+        className="selector-label"
       >
         <div>
           <div

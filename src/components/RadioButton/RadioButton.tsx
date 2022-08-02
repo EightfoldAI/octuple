@@ -8,6 +8,7 @@ import styles from './radio.module.scss';
 export const RadioButton: FC<RadioButtonProps> = React.forwardRef(
     (
         {
+            allowDisabledFocus = false,
             ariaLabel,
             checked = false,
             disabled = false,
@@ -37,6 +38,7 @@ export const RadioButton: FC<RadioButtonProps> = React.forwardRef(
         const selectorClassNames: string = mergeClasses([
             styles.selector,
             classNames,
+            { [styles.disabled]: allowDisabledFocus || disabled },
         ]);
 
         const labelClassNames: string = mergeClasses([
@@ -55,7 +57,7 @@ export const RadioButton: FC<RadioButtonProps> = React.forwardRef(
             e: React.ChangeEvent<HTMLInputElement>
         ): void => {
             if (!radioGroupContext) {
-                setSelectedValue(e.currentTarget.value as RadioButtonValue);
+                setSelectedValue(e.currentTarget?.value as RadioButtonValue);
             } else {
                 radioGroupContext?.onChange?.(e);
             }
@@ -71,18 +73,19 @@ export const RadioButton: FC<RadioButtonProps> = React.forwardRef(
             >
                 <input
                     ref={ref}
+                    aria-disabled={disabled}
                     aria-label={ariaLabel}
                     checked={
                         radioGroupContext
                             ? isActive
                             : selectedValue === value && checked
                     }
-                    disabled={disabled}
+                    disabled={!allowDisabledFocus && disabled}
                     id={radioButtonId.current}
                     name={name}
                     type={'radio'}
                     value={value}
-                    onChange={toggleChecked}
+                    onChange={!allowDisabledFocus ? toggleChecked : null}
                     readOnly
                 />
                 <label

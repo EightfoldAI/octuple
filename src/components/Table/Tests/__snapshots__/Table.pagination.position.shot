@@ -915,7 +915,7 @@ LoadedCheerio {
               "namespace": "http://www.w3.org/1999/xhtml",
               "next": Node {
                 "attribs": Object {
-                  "aria-disabled": "false",
+                  "aria-disabled": "true",
                   "aria-label": "Previous",
                   "class": "pagination-button button button-default button-size3 icon-left disabled",
                   "disabled": "",
@@ -1072,7 +1072,7 @@ LoadedCheerio {
                   "namespace": "http://www.w3.org/1999/xhtml",
                   "next": Node {
                     "attribs": Object {
-                      "aria-disabled": "false",
+                      "aria-disabled": "true",
                       "aria-label": "Next",
                       "class": "pagination-button button button-default button-size3 icon-left disabled",
                       "disabled": "",
@@ -1203,7 +1203,7 @@ LoadedCheerio {
             },
             Node {
               "attribs": Object {
-                "aria-disabled": "false",
+                "aria-disabled": "true",
                 "aria-label": "Previous",
                 "class": "pagination-button button button-default button-size3 icon-left disabled",
                 "disabled": "",
@@ -1360,7 +1360,7 @@ LoadedCheerio {
                 "namespace": "http://www.w3.org/1999/xhtml",
                 "next": Node {
                   "attribs": Object {
-                    "aria-disabled": "false",
+                    "aria-disabled": "true",
                     "aria-label": "Next",
                     "class": "pagination-button button button-default button-size3 icon-left disabled",
                     "disabled": "",
@@ -1571,7 +1571,7 @@ LoadedCheerio {
               "namespace": "http://www.w3.org/1999/xhtml",
               "next": Node {
                 "attribs": Object {
-                  "aria-disabled": "false",
+                  "aria-disabled": "true",
                   "aria-label": "Next",
                   "class": "pagination-button button button-default button-size3 icon-left disabled",
                   "disabled": "",
@@ -1671,7 +1671,7 @@ LoadedCheerio {
               "parent": [Circular],
               "prev": Node {
                 "attribs": Object {
-                  "aria-disabled": "false",
+                  "aria-disabled": "true",
                   "aria-label": "Previous",
                   "class": "pagination-button button button-default button-size3 icon-left disabled",
                   "disabled": "",
@@ -1789,7 +1789,7 @@ LoadedCheerio {
             },
             Node {
               "attribs": Object {
-                "aria-disabled": "false",
+                "aria-disabled": "true",
                 "aria-label": "Next",
                 "class": "pagination-button button button-default button-size3 icon-left disabled",
                 "disabled": "",
@@ -1950,7 +1950,7 @@ LoadedCheerio {
                 "parent": [Circular],
                 "prev": Node {
                   "attribs": Object {
-                    "aria-disabled": "false",
+                    "aria-disabled": "true",
                     "aria-label": "Previous",
                     "class": "pagination-button button button-default button-size3 icon-left disabled",
                     "disabled": "",
@@ -2116,7 +2116,7 @@ LoadedCheerio {
             "namespace": "http://www.w3.org/1999/xhtml",
             "next": Node {
               "attribs": Object {
-                "aria-disabled": "false",
+                "aria-disabled": "true",
                 "aria-label": "Previous",
                 "class": "pagination-button button button-default button-size3 icon-left disabled",
                 "disabled": "",
@@ -2273,7 +2273,7 @@ LoadedCheerio {
                 "namespace": "http://www.w3.org/1999/xhtml",
                 "next": Node {
                   "attribs": Object {
-                    "aria-disabled": "false",
+                    "aria-disabled": "true",
                     "aria-label": "Next",
                     "class": "pagination-button button button-default button-size3 icon-left disabled",
                     "disabled": "",
@@ -2404,7 +2404,7 @@ LoadedCheerio {
           },
           Node {
             "attribs": Object {
-              "aria-disabled": "false",
+              "aria-disabled": "true",
               "aria-label": "Previous",
               "class": "pagination-button button button-default button-size3 icon-left disabled",
               "disabled": "",
@@ -2561,7 +2561,7 @@ LoadedCheerio {
               "namespace": "http://www.w3.org/1999/xhtml",
               "next": Node {
                 "attribs": Object {
-                  "aria-disabled": "false",
+                  "aria-disabled": "true",
                   "aria-label": "Next",
                   "class": "pagination-button button button-default button-size3 icon-left disabled",
                   "disabled": "",
@@ -2772,7 +2772,7 @@ LoadedCheerio {
             "namespace": "http://www.w3.org/1999/xhtml",
             "next": Node {
               "attribs": Object {
-                "aria-disabled": "false",
+                "aria-disabled": "true",
                 "aria-label": "Next",
                 "class": "pagination-button button button-default button-size3 icon-left disabled",
                 "disabled": "",
@@ -2872,7 +2872,7 @@ LoadedCheerio {
             "parent": [Circular],
             "prev": Node {
               "attribs": Object {
-                "aria-disabled": "false",
+                "aria-disabled": "true",
                 "aria-label": "Previous",
                 "class": "pagination-button button button-default button-size3 icon-left disabled",
                 "disabled": "",
@@ -2990,7 +2990,7 @@ LoadedCheerio {
           },
           Node {
             "attribs": Object {
-              "aria-disabled": "false",
+              "aria-disabled": "true",
               "aria-label": "Next",
               "class": "pagination-button button button-default button-size3 icon-left disabled",
               "disabled": "",
@@ -3151,7 +3151,7 @@ LoadedCheerio {
               "parent": [Circular],
               "prev": Node {
                 "attribs": Object {
-                  "aria-disabled": "false",
+                  "aria-disabled": "true",
                   "aria-label": "Previous",
                   "class": "pagination-button button button-default button-size3 icon-left disabled",
                   "disabled": "",

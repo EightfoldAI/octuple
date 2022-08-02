@@ -8,9 +8,11 @@ import styles from './radio.module.scss';
 export const RadioGroup: FC<RadioGroupProps> = React.forwardRef(
     (
         {
+            allowDisabledFocus = false,
             onChange,
             items,
             classNames,
+            disabled = false,
             style,
             ariaLabel,
             value,
@@ -37,7 +39,12 @@ export const RadioGroup: FC<RadioGroupProps> = React.forwardRef(
                     {...rest}
                 >
                     {items.map((item: RadioButtonProps) => (
-                        <RadioButton key={item.value} {...item} />
+                        <RadioButton
+                            allowDisabledFocus={allowDisabledFocus}
+                            disabled={disabled}
+                            key={item.value}
+                            {...item}
+                        />
                     ))}
                 </div>
             </RadioGroupProvider>

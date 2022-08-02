@@ -46,9 +46,18 @@ export interface CheckboxProps extends OcBaseProps<HTMLInputElement> {
 export interface CheckboxGroupProps
     extends Omit<OcBaseProps<HTMLInputElement>, 'defaultChecked' | 'onChange'> {
     /**
+     * Allows focus on the checkbox group when it's disabled.
+     */
+    allowDisabledFocus?: boolean;
+    /**
      * Aria label for the checkbox group
      */
     ariaLabel?: string;
+    /**
+     * The checkbox group disabled state.
+     * @default false
+     */
+    disabled?: boolean;
     /**
      * The array of items for the radio group.
      */

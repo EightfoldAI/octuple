@@ -3,7 +3,6 @@ import { Stories } from '@storybook/addon-docs';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Label } from '../Label';
 import { RadioButton, RadioButtonValue, RadioGroup } from './';
-import { LabelPosition, SelectorSize } from '../CheckBox';
 import { Stack } from '../Stack';
 
 export default {
@@ -102,22 +101,9 @@ export default {
         onChange: {
             action: 'change',
         },
-        labelPosition: {
-            options: [LabelPosition.End, LabelPosition.Start],
-            control: { type: 'inline-radio' },
-        },
         layout: {
             options: ['vertical', 'horizontal'],
             control: { type: 'inline-radio' },
-        },
-        size: {
-            options: [
-                SelectorSize.Flex,
-                SelectorSize.Large,
-                SelectorSize.Medium,
-                SelectorSize.Small,
-            ],
-            control: { type: 'radio' },
         },
     },
 } as ComponentMeta<typeof RadioButton>;
@@ -298,9 +284,7 @@ const radioButtonArgs: Object = {
     disabled: false,
     id: 'myRadioButtonId',
     label: 'Label',
-    labelPosition: LabelPosition.End,
     name: 'myRadioButtonName',
-    size: SelectorSize.Medium,
     value: 'Label1',
 };
 
@@ -320,7 +304,6 @@ Radio_Group.args = {
         value: `Radio${i}`,
     })),
     layout: 'vertical',
-    size: SelectorSize.Medium,
     value: 'Radio1',
 };
 
@@ -364,6 +347,5 @@ RadioGroup_With_Custom_Label.args = {
         value: `Radio${i}`,
     })),
     layout: 'vertical',
-    size: SelectorSize.Medium,
     value: 'Radio1',
 };

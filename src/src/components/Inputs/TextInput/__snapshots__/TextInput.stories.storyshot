@@ -62,6 +62,7 @@ exports[`Storyshots Input Text Input 1`] = `
     className="input-group left-icon"
   >
     <input
+      aria-disabled={false}
       aria-label="Sample text"
       autoFocus={false}
       className="my-textinput-class with-icon with-icon-button with-icon-and-icon-button left-icon clear-not-visible"
