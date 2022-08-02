@@ -3,7 +3,7 @@
 exports[`Storyshots Dialog Medium 1`] = `
 <button
   aria-disabled={false}
-  className="button button-primary button pill-shape"
+  className="button button-primary pill-shape"
   defaultChecked={false}
   disabled={false}
   onClick={[Function]}
@@ -19,7 +19,7 @@ exports[`Storyshots Dialog Medium 1`] = `
 exports[`Storyshots Dialog Small 1`] = `
 <button
   aria-disabled={false}
-  className="button button-primary button-primary-disruptive button pill-shape"
+  className="button button-primary button-primary-disruptive pill-shape"
   defaultChecked={false}
   disabled={false}
   onClick={[Function]}

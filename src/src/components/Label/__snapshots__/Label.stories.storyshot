@@ -23,7 +23,7 @@ exports[`Storyshots Label Labels 1`] = `
     >
       <button
         aria-disabled={false}
-        className="label-icon-button button button-default button button-small pill-shape icon-left"
+        className="label-icon-button button button-default button-small pill-shape icon-left"
         defaultChecked={false}
         disabled={false}
         onClick={[Function]}

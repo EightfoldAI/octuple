@@ -3,7 +3,7 @@
 exports[`Storyshots Modal Fullscreen 1`] = `
 <button
   aria-disabled={false}
-  className="button button-primary button pill-shape"
+  className="button button-primary pill-shape"
   defaultChecked={false}
   disabled={false}
   onClick={[Function]}
@@ -19,7 +19,7 @@ exports[`Storyshots Modal Fullscreen 1`] = `
 exports[`Storyshots Modal Header Actions 1`] = `
 <button
   aria-disabled={false}
-  className="button button-primary button pill-shape"
+  className="button button-primary pill-shape"
   defaultChecked={false}
   disabled={false}
   onClick={[Function]}
@@ -35,7 +35,7 @@ exports[`Storyshots Modal Header Actions 1`] = `
 exports[`Storyshots Modal Large 1`] = `
 <button
   aria-disabled={false}
-  className="button button-primary button pill-shape"
+  className="button button-primary pill-shape"
   defaultChecked={false}
   disabled={false}
   onClick={[Function]}
@@ -51,7 +51,7 @@ exports[`Storyshots Modal Large 1`] = `
 exports[`Storyshots Modal Medium 1`] = `
 <button
   aria-disabled={false}
-  className="button button-primary button pill-shape"
+  className="button button-primary pill-shape"
   defaultChecked={false}
   disabled={false}
   onClick={[Function]}
@@ -67,7 +67,7 @@ exports[`Storyshots Modal Medium 1`] = `
 exports[`Storyshots Modal Scrollable 1`] = `
 <button
   aria-disabled={false}
-  className="button button-primary button pill-shape"
+  className="button button-primary pill-shape"
   defaultChecked={false}
   disabled={false}
   onClick={[Function]}
@@ -83,7 +83,7 @@ exports[`Storyshots Modal Scrollable 1`] = `
 exports[`Storyshots Modal Small 1`] = `
 <button
   aria-disabled={false}
-  className="button button-primary button pill-shape"
+  className="button button-primary pill-shape"
   defaultChecked={false}
   disabled={false}
   onClick={[Function]}
@@ -99,7 +99,7 @@ exports[`Storyshots Modal Small 1`] = `
 exports[`Storyshots Modal X Large 1`] = `
 <button
   aria-disabled={false}
-  className="button button-primary button pill-shape"
+  className="button button-primary pill-shape"
   defaultChecked={false}
   disabled={false}
   onClick={[Function]}

@@ -12,7 +12,7 @@ exports[`Storyshots Tooltip Tooltips 1`] = `
   <button
     aria-disabled={false}
     aria-label="Show Tooltip"
-    className="button button-primary button button-medium pill-shape"
+    className="button button-primary button-medium pill-shape"
     defaultChecked={false}
     disabled={false}
   >

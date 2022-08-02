@@ -3822,7 +3822,7 @@ exports[`Storyshots Config Provider Theming 1`] = `
     <button
       aria-disabled={false}
       aria-label="Primary Button"
-      className="button button-primary button button-small pill-shape"
+      className="button button-primary button-small pill-shape"
       defaultChecked={false}
       disabled={false}
     >
@@ -3835,7 +3835,7 @@ exports[`Storyshots Config Provider Theming 1`] = `
     <button
       aria-disabled={false}
       aria-label="Primary Button"
-      className="button button-primary button button-small pill-shape icon-left"
+      className="button button-primary button-small pill-shape icon-left"
       defaultChecked={false}
       disabled={false}
     >
@@ -3868,7 +3868,7 @@ exports[`Storyshots Config Provider Theming 1`] = `
     <button
       aria-disabled={false}
       aria-label="Primary Button"
-      className="button button-primary button button-small pill-shape icon-left"
+      className="button button-primary button-small pill-shape icon-left"
       defaultChecked={false}
       disabled={false}
     >
@@ -3919,7 +3919,7 @@ exports[`Storyshots Config Provider Theming 1`] = `
     <button
       aria-disabled={false}
       aria-label="Secondary Button"
-      className="button button-secondary button button-small pill-shape"
+      className="button button-secondary button-small pill-shape"
       defaultChecked={false}
       disabled={false}
     >
@@ -3932,7 +3932,7 @@ exports[`Storyshots Config Provider Theming 1`] = `
     <button
       aria-disabled={false}
       aria-label="Secondary Button"
-      className="button button-secondary button button-small pill-shape icon-left"
+      className="button button-secondary button-small pill-shape icon-left"
       defaultChecked={false}
       disabled={false}
     >
@@ -3965,7 +3965,7 @@ exports[`Storyshots Config Provider Theming 1`] = `
     <button
       aria-disabled={false}
       aria-label="Secondary Button"
-      className="button button-secondary button button-small pill-shape icon-left"
+      className="button button-secondary button-small pill-shape icon-left"
       defaultChecked={false}
       disabled={false}
     >
@@ -4016,7 +4016,7 @@ exports[`Storyshots Config Provider Theming 1`] = `
     <button
       aria-disabled={false}
       aria-label="Default Button"
-      className="button button-default button button-small pill-shape"
+      className="button button-default button-small pill-shape"
       defaultChecked={false}
       disabled={false}
     >
@@ -4029,7 +4029,7 @@ exports[`Storyshots Config Provider Theming 1`] = `
     <button
       aria-disabled={false}
       aria-label="Default Button"
-      className="button button-default button button-small pill-shape icon-left"
+      className="button button-default button-small pill-shape icon-left"
       defaultChecked={false}
       disabled={false}
     >
@@ -4062,7 +4062,7 @@ exports[`Storyshots Config Provider Theming 1`] = `
     <button
       aria-disabled={false}
       aria-label="Default Button"
-      className="button button-default button button-small pill-shape icon-left"
+      className="button button-default button-small pill-shape icon-left"
       defaultChecked={false}
       disabled={false}
     >
@@ -5050,7 +5050,7 @@ exports[`Storyshots Config Provider Theming 1`] = `
       aria-disabled={false}
       aria-expanded={false}
       aria-haspopup={true}
-      className="button button-default button pill-shape"
+      className="button button-default pill-shape"
       defaultChecked={false}
       disabled={false}
       onClick={[Function]}

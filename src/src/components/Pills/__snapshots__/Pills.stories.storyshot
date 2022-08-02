@@ -27,7 +27,7 @@ exports[`Storyshots Pill Closable 1`] = `
     <button
       aria-disabled={false}
       aria-label="Close"
-      className="close-button button button-default button button-medium pill-shape icon-left"
+      className="close-button button button-default button-medium pill-shape icon-left"
       defaultChecked={false}
       disabled={false}
     >
@@ -74,7 +74,7 @@ exports[`Storyshots Pill Closable 1`] = `
     <button
       aria-disabled={false}
       aria-label="Close"
-      className="close-button button button-default button button-medium pill-shape icon-left"
+      className="close-button button button-default button-medium pill-shape icon-left"
       defaultChecked={false}
       disabled={false}
     >
@@ -121,7 +121,7 @@ exports[`Storyshots Pill Closable 1`] = `
     <button
       aria-disabled={false}
       aria-label="Close"
-      className="close-button button button-default button button-medium pill-shape icon-left"
+      className="close-button button button-default button-medium pill-shape icon-left"
       defaultChecked={false}
       disabled={false}
     >
@@ -168,7 +168,7 @@ exports[`Storyshots Pill Closable 1`] = `
     <button
       aria-disabled={false}
       aria-label="Close"
-      className="close-button button button-default button button-medium pill-shape icon-left"
+      className="close-button button button-default button-medium pill-shape icon-left"
       defaultChecked={false}
       disabled={false}
     >
@@ -215,7 +215,7 @@ exports[`Storyshots Pill Closable 1`] = `
     <button
       aria-disabled={false}
       aria-label="Close"
-      className="close-button button button-default button button-medium pill-shape icon-left"
+      className="close-button button button-default button-medium pill-shape icon-left"
       defaultChecked={false}
       disabled={false}
     >
@@ -262,7 +262,7 @@ exports[`Storyshots Pill Closable 1`] = `
     <button
       aria-disabled={false}
       aria-label="Close"
-      className="close-button button button-default button button-medium pill-shape icon-left"
+      className="close-button button button-default button-medium pill-shape icon-left"
       defaultChecked={false}
       disabled={false}
     >
@@ -309,7 +309,7 @@ exports[`Storyshots Pill Closable 1`] = `
     <button
       aria-disabled={false}
       aria-label="Close"
-      className="close-button button button-default button button-medium pill-shape icon-left"
+      className="close-button button button-default button-medium pill-shape icon-left"
       defaultChecked={false}
       disabled={false}
     >
@@ -356,7 +356,7 @@ exports[`Storyshots Pill Closable 1`] = `
     <button
       aria-disabled={false}
       aria-label="Close"
-      className="close-button button button-default button button-medium pill-shape icon-left"
+      className="close-button button button-default button-medium pill-shape icon-left"
       defaultChecked={false}
       disabled={false}
     >
@@ -403,7 +403,7 @@ exports[`Storyshots Pill Closable 1`] = `
     <button
       aria-disabled={false}
       aria-label="Close"
-      className="close-button button button-default button button-medium pill-shape icon-left"
+      className="close-button button button-default button-medium pill-shape icon-left"
       defaultChecked={false}
       disabled={false}
     >
@@ -450,7 +450,7 @@ exports[`Storyshots Pill Closable 1`] = `
     <button
       aria-disabled={false}
       aria-label="Close"
-      className="close-button button button-default button button-medium pill-shape icon-left"
+      className="close-button button button-default button-medium pill-shape icon-left"
       defaultChecked={false}
       disabled={false}
     >
@@ -497,7 +497,7 @@ exports[`Storyshots Pill Closable 1`] = `
     <button
       aria-disabled={false}
       aria-label="Close"
-      className="close-button button button-default button button-medium pill-shape icon-left"
+      className="close-button button button-default button-medium pill-shape icon-left"
       defaultChecked={false}
       disabled={false}
     >
@@ -544,7 +544,7 @@ exports[`Storyshots Pill Closable 1`] = `
     <button
       aria-disabled={false}
       aria-label="Close"
-      className="close-button button button-default button button-medium pill-shape icon-left"
+      className="close-button button button-default button-medium pill-shape icon-left"
       defaultChecked={false}
       disabled={false}
     >
@@ -787,7 +787,7 @@ exports[`Storyshots Pill With Button 1`] = `
     <button
       aria-disabled={false}
       aria-label="Thumbs up"
-      className="button button button-default button button-medium pill-shape icon-left"
+      className="button button button-default button-medium pill-shape icon-left"
       defaultChecked={false}
       disabled={false}
     >
@@ -841,7 +841,7 @@ exports[`Storyshots Pill With Button 1`] = `
     <button
       aria-disabled={false}
       aria-label="Thumbs up"
-      className="button button button-default button button-medium pill-shape icon-left"
+      className="button button button-default button-medium pill-shape icon-left"
       defaultChecked={false}
       disabled={false}
     >
@@ -895,7 +895,7 @@ exports[`Storyshots Pill With Button 1`] = `
     <button
       aria-disabled={false}
       aria-label="Thumbs up"
-      className="button button button-default button button-medium pill-shape icon-left"
+      className="button button button-default button-medium pill-shape icon-left"
       defaultChecked={false}
       disabled={false}
     >
@@ -949,7 +949,7 @@ exports[`Storyshots Pill With Button 1`] = `
     <button
       aria-disabled={false}
       aria-label="Thumbs up"
-      className="button button button-default button button-medium pill-shape icon-left"
+      className="button button button-default button-medium pill-shape icon-left"
       defaultChecked={false}
       disabled={false}
     >
@@ -1003,7 +1003,7 @@ exports[`Storyshots Pill With Button 1`] = `
     <button
       aria-disabled={false}
       aria-label="Thumbs up"
-      className="button button button-default button button-medium pill-shape icon-left"
+      className="button button button-default button-medium pill-shape icon-left"
       defaultChecked={false}
       disabled={false}
     >
@@ -1057,7 +1057,7 @@ exports[`Storyshots Pill With Button 1`] = `
     <button
       aria-disabled={false}
       aria-label="Thumbs up"
-      className="button button button-default button button-medium pill-shape icon-left"
+      className="button button button-default button-medium pill-shape icon-left"
       defaultChecked={false}
       disabled={false}
     >
@@ -1111,7 +1111,7 @@ exports[`Storyshots Pill With Button 1`] = `
     <button
       aria-disabled={false}
       aria-label="Thumbs up"
-      className="button button button-default button button-medium pill-shape icon-left"
+      className="button button button-default button-medium pill-shape icon-left"
       defaultChecked={false}
       disabled={false}
     >
@@ -1165,7 +1165,7 @@ exports[`Storyshots Pill With Button 1`] = `
     <button
       aria-disabled={false}
       aria-label="Thumbs up"
-      className="button button button-default button button-medium pill-shape icon-left"
+      className="button button button-default button-medium pill-shape icon-left"
       defaultChecked={false}
       disabled={false}
     >
@@ -1219,7 +1219,7 @@ exports[`Storyshots Pill With Button 1`] = `
     <button
       aria-disabled={false}
       aria-label="Thumbs up"
-      className="button button button-default button button-medium pill-shape icon-left"
+      className="button button button-default button-medium pill-shape icon-left"
       defaultChecked={false}
       disabled={false}
     >
@@ -1273,7 +1273,7 @@ exports[`Storyshots Pill With Button 1`] = `
     <button
       aria-disabled={false}
       aria-label="Thumbs up"
-      className="button button button-default button button-medium pill-shape icon-left"
+      className="button button button-default button-medium pill-shape icon-left"
       defaultChecked={false}
       disabled={false}
     >
@@ -1327,7 +1327,7 @@ exports[`Storyshots Pill With Button 1`] = `
     <button
       aria-disabled={false}
       aria-label="Thumbs up"
-      className="button button button-default button button-medium pill-shape icon-left"
+      className="button button button-default button-medium pill-shape icon-left"
       defaultChecked={false}
       disabled={false}
     >
@@ -1381,7 +1381,7 @@ exports[`Storyshots Pill With Button 1`] = `
     <button
       aria-disabled={false}
       aria-label="Thumbs up"
-      className="button button button-default button button-medium pill-shape icon-left"
+      className="button button button-default button-medium pill-shape icon-left"
       defaultChecked={false}
       disabled={false}
     >
