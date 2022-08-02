@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.2.1](https://github.com/EightfoldAI/octuple/compare/v2.1.1...v2.2.1) (2022-08-02)
+
+### Features
+
+-   codesandbox: adds basic codesandbox ci pr build config ([#278](https://github.com/EightfoldAI/octuple/issues/278)) ([a2b363f](https://github.com/EightfoldAI/octuple/commits/a2b363f3407cdd3c07d3c15d8d6f47dc0ce2bbc4))
+-   system ui button: add system ui button ([#280](https://github.com/EightfoldAI/octuple/issues/280)) ([4f79dbe](https://github.com/EightfoldAI/octuple/commits/4f79dbea8f00f651d213e7da976b094bb4770ad4))
+
+### Bug Fixes
+
+-   match score: update logic for filled and half filled scores ([3f8dab5](https://github.com/EightfoldAI/octuple/commits/3f8dab5582af73d59cccb7e9bb8ec040c8c58f84))
+-   radiobutton: fixes width of radio element in flex when layout is constrained ([#279](https://github.com/EightfoldAI/octuple/issues/279)) ([aa1cb92](https://github.com/EightfoldAI/octuple/commits/aa1cb923ce9c2320b7ae91e6dbd19c1cee562875))
+-   selectors: adds size prop, fixes styles to match the latest ([#275](https://github.com/EightfoldAI/octuple/issues/275)) ([ffa7735](https://github.com/EightfoldAI/octuple/commits/ffa773586f4d105f44bf6bd9e11e33604b0c90c0))
+-   snackbar: increase snackbar z-index to be more than surface elements ([#277](https://github.com/EightfoldAI/octuple/issues/277)) ([40d8840](https://github.com/EightfoldAI/octuple/commits/40d8840c51ad8815f125e9203b3ae1e47deb1675))
+
 ## [2.2.0](https://github.com/EightfoldAI/octuple/compare/v2.1.2...v2.2.0) (2022-08-01)
 
 ### Features
