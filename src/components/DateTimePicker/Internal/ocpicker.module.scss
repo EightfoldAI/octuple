@@ -1,6 +1,8 @@
 @import '../DatePicker/Styles/mixins';
 
 .picker {
+    @include input-reset();
+
     border: $picker-border;
     border-radius: $picker-border-radius;
     display: inline-flex;

@@ -9,7 +9,7 @@ exports[`Storyshots Persistent Bar Bottom Bar Buttons On Left 1`] = `
   <button
     aria-disabled={false}
     aria-label="Default"
-    className="my-default-btn-class button button-default pill-shape"
+    className="my-default-btn-class button button-default button pill-shape"
     data-test-id="my-default-btn-test-id"
     defaultChecked={false}
     disabled={false}
@@ -24,7 +24,7 @@ exports[`Storyshots Persistent Bar Bottom Bar Buttons On Left 1`] = `
   <button
     aria-disabled={false}
     aria-label="Default"
-    className="my-default-btn-class button button-default pill-shape"
+    className="my-default-btn-class button button-default button pill-shape"
     data-test-id="my-default-btn-test-id"
     defaultChecked={false}
     disabled={false}
@@ -39,7 +39,7 @@ exports[`Storyshots Persistent Bar Bottom Bar Buttons On Left 1`] = `
   <button
     aria-disabled={false}
     aria-label="Primary"
-    className="my-primary-btn-class button button-primary pill-shape"
+    className="my-primary-btn-class button button-primary button pill-shape"
     data-test-id="my-primary-btn-test-id"
     defaultChecked={false}
     disabled={false}
@@ -63,7 +63,7 @@ exports[`Storyshots Persistent Bar Bottom Bar Secondary Buttons 1`] = `
   <button
     aria-disabled={false}
     aria-label="Default"
-    className="my-default-btn-class button button-secondary pill-shape"
+    className="my-default-btn-class button button-secondary button pill-shape"
     data-test-id="my-default-btn-test-id"
     defaultChecked={false}
     disabled={false}
@@ -78,7 +78,7 @@ exports[`Storyshots Persistent Bar Bottom Bar Secondary Buttons 1`] = `
   <button
     aria-disabled={false}
     aria-label="Default"
-    className="my-default-btn-class button button-secondary pill-shape"
+    className="my-default-btn-class button button-secondary button pill-shape"
     data-test-id="my-default-btn-test-id"
     defaultChecked={false}
     disabled={false}
@@ -93,7 +93,7 @@ exports[`Storyshots Persistent Bar Bottom Bar Secondary Buttons 1`] = `
   <button
     aria-disabled={false}
     aria-label="Default"
-    className="my-default-btn-class button button-secondary pill-shape"
+    className="my-default-btn-class button button-secondary button pill-shape"
     data-test-id="my-default-btn-test-id"
     defaultChecked={false}
     disabled={false}
@@ -128,7 +128,7 @@ exports[`Storyshots Persistent Bar Bottom Bar With Text 1`] = `
     <button
       aria-disabled={false}
       aria-label="Default"
-      className="-default-button button button-default pill-shape"
+      className="-default-button button button-default button pill-shape"
       data-test-id="my-default-btn-test-id"
       defaultChecked={false}
       disabled={false}
@@ -143,7 +143,7 @@ exports[`Storyshots Persistent Bar Bottom Bar With Text 1`] = `
     <button
       aria-disabled={false}
       aria-label="Primary"
-      className="my-primary-btn-class button button-primary pill-shape"
+      className="my-primary-btn-class button button-primary button pill-shape"
       data-test-id="my-primary-btn-test-id"
       defaultChecked={false}
       disabled={false}
@@ -168,7 +168,7 @@ exports[`Storyshots Persistent Bar Top Bar Buttons 1`] = `
   <button
     aria-disabled={false}
     aria-label="Save Icon Button"
-    className="button button-secondary pill-shape icon-left"
+    className="button button-secondary button pill-shape icon-left"
     defaultChecked={false}
     disabled={false}
     id="myBookmarkButton"
@@ -202,7 +202,7 @@ exports[`Storyshots Persistent Bar Top Bar Buttons 1`] = `
   <button
     aria-disabled={false}
     aria-label="Secondary"
-    className="my-primary-btn-class button button-secondary pill-shape"
+    className="my-primary-btn-class button button-secondary button pill-shape"
     data-test-id="my-primary-btn-test-id"
     defaultChecked={false}
     disabled={false}
@@ -217,7 +217,7 @@ exports[`Storyshots Persistent Bar Top Bar Buttons 1`] = `
   <button
     aria-disabled={false}
     aria-label="Secondary"
-    className="my-primary-btn-class button button-secondary pill-shape"
+    className="my-primary-btn-class button button-secondary button pill-shape"
     data-test-id="my-primary-btn-test-id"
     defaultChecked={false}
     disabled={false}
@@ -232,7 +232,7 @@ exports[`Storyshots Persistent Bar Top Bar Buttons 1`] = `
   <button
     aria-disabled={false}
     aria-label="Secondary"
-    className="my-primary-btn-class button button-secondary pill-shape"
+    className="my-primary-btn-class button button-secondary button pill-shape"
     data-test-id="my-primary-btn-test-id"
     defaultChecked={false}
     disabled={false}
@@ -247,7 +247,7 @@ exports[`Storyshots Persistent Bar Top Bar Buttons 1`] = `
   <button
     aria-disabled={false}
     aria-label="Secondary"
-    className="my-primary-btn-class button button-secondary pill-shape"
+    className="my-primary-btn-class button button-secondary button pill-shape"
     data-test-id="my-primary-btn-test-id"
     defaultChecked={false}
     disabled={false}
@@ -262,7 +262,7 @@ exports[`Storyshots Persistent Bar Top Bar Buttons 1`] = `
   <button
     aria-disabled={false}
     aria-label="Secondary"
-    className="my-primary-btn-class button button-secondary pill-shape"
+    className="my-primary-btn-class button button-secondary button pill-shape"
     data-test-id="my-primary-btn-test-id"
     defaultChecked={false}
     disabled={false}
@@ -277,7 +277,7 @@ exports[`Storyshots Persistent Bar Top Bar Buttons 1`] = `
   <button
     aria-disabled={false}
     aria-label="Save Icon Button"
-    className="button button-secondary pill-shape icon-left"
+    className="button button-secondary button pill-shape icon-left"
     defaultChecked={false}
     disabled={false}
     id="myMenuButton"
@@ -325,7 +325,7 @@ exports[`Storyshots Persistent Bar Top Bar Pagination 1`] = `
     <button
       aria-disabled={true}
       aria-label="Previous"
-      className="pagination-button pagination-previous button button-neutral button-medium icon-left disabled"
+      className="pagination-button pagination-previous button button-neutral button button-medium icon-left disabled"
       defaultChecked={false}
       disabled={true}
       onClick={[Function]}
@@ -364,7 +364,7 @@ exports[`Storyshots Persistent Bar Top Bar Pagination 1`] = `
           aria-checked={true}
           aria-disabled={false}
           aria-pressed={true}
-          className="pagination-button active button button-neutral button-medium"
+          className="pagination-button active button button-neutral button button-medium"
           defaultChecked={true}
           disabled={false}
           onClick={[Function]}
@@ -381,7 +381,7 @@ exports[`Storyshots Persistent Bar Top Bar Pagination 1`] = `
           aria-checked={false}
           aria-disabled={false}
           aria-pressed={false}
-          className="pagination-button button button-neutral button-medium"
+          className="pagination-button button button-neutral button button-medium"
           defaultChecked={false}
           disabled={false}
           onClick={[Function]}
@@ -397,7 +397,7 @@ exports[`Storyshots Persistent Bar Top Bar Pagination 1`] = `
         <button
           aria-disabled={false}
           aria-label="Next 5"
-          className="pagination-button quicknext button button-neutral button-medium icon-left"
+          className="pagination-button quicknext button button-neutral button button-medium icon-left"
           defaultChecked={false}
           disabled={false}
           onBlur={[Function]}
@@ -438,7 +438,7 @@ exports[`Storyshots Persistent Bar Top Bar Pagination 1`] = `
           aria-checked={false}
           aria-disabled={false}
           aria-pressed={false}
-          className="pagination-button button button-neutral button-medium"
+          className="pagination-button button button-neutral button button-medium"
           defaultChecked={false}
           disabled={false}
           onClick={[Function]}
@@ -454,7 +454,7 @@ exports[`Storyshots Persistent Bar Top Bar Pagination 1`] = `
     <button
       aria-disabled={false}
       aria-label="Next"
-      className="pagination-button pagination-next button button-neutral button-medium icon-left"
+      className="pagination-button pagination-next button button-neutral button button-medium icon-left"
       defaultChecked={false}
       disabled={false}
       onClick={[Function]}
@@ -539,7 +539,7 @@ exports[`Storyshots Persistent Bar Top Bar With Text 1`] = `
     <button
       aria-disabled={true}
       aria-label="Previous"
-      className="pagination-button pagination-previous button button-neutral button-medium icon-left disabled"
+      className="pagination-button pagination-previous button button-neutral button button-medium icon-left disabled"
       defaultChecked={false}
       disabled={true}
       onClick={[Function]}
@@ -587,7 +587,7 @@ exports[`Storyshots Persistent Bar Top Bar With Text 1`] = `
     <button
       aria-disabled={false}
       aria-label="Next"
-      className="pagination-button pagination-next button button-neutral button-medium icon-left"
+      className="pagination-button pagination-next button button-neutral button button-medium icon-left"
       defaultChecked={false}
       disabled={false}
       onClick={[Function]}

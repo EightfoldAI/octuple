@@ -917,7 +917,7 @@ LoadedCheerio {
                 "attribs": Object {
                   "aria-disabled": "true",
                   "aria-label": "Previous",
-                  "class": "pagination-button pagination-previous button button-neutral button-medium icon-left disabled",
+                  "class": "pagination-button pagination-previous button button-neutral button button-medium icon-left disabled",
                   "disabled": "",
                 },
                 "children": Array [
@@ -1008,7 +1008,7 @@ LoadedCheerio {
                             "aria-checked": "true",
                             "aria-disabled": "false",
                             "aria-pressed": "true",
-                            "class": "pagination-button active button button-neutral button-medium",
+                            "class": "pagination-button active button button-neutral button button-medium",
                           },
                           "children": Array [
                             Node {
@@ -1074,7 +1074,7 @@ LoadedCheerio {
                     "attribs": Object {
                       "aria-disabled": "true",
                       "aria-label": "Next",
-                      "class": "pagination-button pagination-next button button-neutral button-medium icon-left disabled",
+                      "class": "pagination-button pagination-next button button-neutral button button-medium icon-left disabled",
                       "disabled": "",
                     },
                     "children": Array [
@@ -1205,7 +1205,7 @@ LoadedCheerio {
               "attribs": Object {
                 "aria-disabled": "true",
                 "aria-label": "Previous",
-                "class": "pagination-button pagination-previous button button-neutral button-medium icon-left disabled",
+                "class": "pagination-button pagination-previous button button-neutral button button-medium icon-left disabled",
                 "disabled": "",
               },
               "children": Array [
@@ -1296,7 +1296,7 @@ LoadedCheerio {
                           "aria-checked": "true",
                           "aria-disabled": "false",
                           "aria-pressed": "true",
-                          "class": "pagination-button active button button-neutral button-medium",
+                          "class": "pagination-button active button button-neutral button button-medium",
                         },
                         "children": Array [
                           Node {
@@ -1362,7 +1362,7 @@ LoadedCheerio {
                   "attribs": Object {
                     "aria-disabled": "true",
                     "aria-label": "Next",
-                    "class": "pagination-button pagination-next button button-neutral button-medium icon-left disabled",
+                    "class": "pagination-button pagination-next button button-neutral button button-medium icon-left disabled",
                     "disabled": "",
                   },
                   "children": Array [
@@ -1507,7 +1507,7 @@ LoadedCheerio {
                         "aria-checked": "true",
                         "aria-disabled": "false",
                         "aria-pressed": "true",
-                        "class": "pagination-button active button button-neutral button-medium",
+                        "class": "pagination-button active button button-neutral button button-medium",
                       },
                       "children": Array [
                         Node {
@@ -1573,7 +1573,7 @@ LoadedCheerio {
                 "attribs": Object {
                   "aria-disabled": "true",
                   "aria-label": "Next",
-                  "class": "pagination-button pagination-next button button-neutral button-medium icon-left disabled",
+                  "class": "pagination-button pagination-next button button-neutral button button-medium icon-left disabled",
                   "disabled": "",
                 },
                 "children": Array [
@@ -1673,7 +1673,7 @@ LoadedCheerio {
                 "attribs": Object {
                   "aria-disabled": "true",
                   "aria-label": "Previous",
-                  "class": "pagination-button pagination-previous button button-neutral button-medium icon-left disabled",
+                  "class": "pagination-button pagination-previous button button-neutral button button-medium icon-left disabled",
                   "disabled": "",
                 },
                 "children": Array [
@@ -1791,7 +1791,7 @@ LoadedCheerio {
               "attribs": Object {
                 "aria-disabled": "true",
                 "aria-label": "Next",
-                "class": "pagination-button pagination-next button button-neutral button-medium icon-left disabled",
+                "class": "pagination-button pagination-next button button-neutral button button-medium icon-left disabled",
                 "disabled": "",
               },
               "children": Array [
@@ -1884,7 +1884,7 @@ LoadedCheerio {
                           "aria-checked": "true",
                           "aria-disabled": "false",
                           "aria-pressed": "true",
-                          "class": "pagination-button active button button-neutral button-medium",
+                          "class": "pagination-button active button button-neutral button button-medium",
                         },
                         "children": Array [
                           Node {
@@ -1952,7 +1952,7 @@ LoadedCheerio {
                   "attribs": Object {
                     "aria-disabled": "true",
                     "aria-label": "Previous",
-                    "class": "pagination-button pagination-previous button button-neutral button-medium icon-left disabled",
+                    "class": "pagination-button pagination-previous button button-neutral button button-medium icon-left disabled",
                     "disabled": "",
                   },
                   "children": Array [
@@ -2118,7 +2118,7 @@ LoadedCheerio {
               "attribs": Object {
                 "aria-disabled": "true",
                 "aria-label": "Previous",
-                "class": "pagination-button pagination-previous button button-neutral button-medium icon-left disabled",
+                "class": "pagination-button pagination-previous button button-neutral button button-medium icon-left disabled",
                 "disabled": "",
               },
               "children": Array [
@@ -2209,7 +2209,7 @@ LoadedCheerio {
                           "aria-checked": "true",
                           "aria-disabled": "false",
                           "aria-pressed": "true",
-                          "class": "pagination-button active button button-neutral button-medium",
+                          "class": "pagination-button active button button-neutral button button-medium",
                         },
                         "children": Array [
                           Node {
@@ -2275,7 +2275,7 @@ LoadedCheerio {
                   "attribs": Object {
                     "aria-disabled": "true",
                     "aria-label": "Next",
-                    "class": "pagination-button pagination-next button button-neutral button-medium icon-left disabled",
+                    "class": "pagination-button pagination-next button button-neutral button button-medium icon-left disabled",
                     "disabled": "",
                   },
                   "children": Array [
@@ -2406,7 +2406,7 @@ LoadedCheerio {
             "attribs": Object {
               "aria-disabled": "true",
               "aria-label": "Previous",
-              "class": "pagination-button pagination-previous button button-neutral button-medium icon-left disabled",
+              "class": "pagination-button pagination-previous button button-neutral button button-medium icon-left disabled",
               "disabled": "",
             },
             "children": Array [
@@ -2497,7 +2497,7 @@ LoadedCheerio {
                         "aria-checked": "true",
                         "aria-disabled": "false",
                         "aria-pressed": "true",
-                        "class": "pagination-button active button button-neutral button-medium",
+                        "class": "pagination-button active button button-neutral button button-medium",
                       },
                       "children": Array [
                         Node {
@@ -2563,7 +2563,7 @@ LoadedCheerio {
                 "attribs": Object {
                   "aria-disabled": "true",
                   "aria-label": "Next",
-                  "class": "pagination-button pagination-next button button-neutral button-medium icon-left disabled",
+                  "class": "pagination-button pagination-next button button-neutral button button-medium icon-left disabled",
                   "disabled": "",
                 },
                 "children": Array [
@@ -2708,7 +2708,7 @@ LoadedCheerio {
                       "aria-checked": "true",
                       "aria-disabled": "false",
                       "aria-pressed": "true",
-                      "class": "pagination-button active button button-neutral button-medium",
+                      "class": "pagination-button active button button-neutral button button-medium",
                     },
                     "children": Array [
                       Node {
@@ -2774,7 +2774,7 @@ LoadedCheerio {
               "attribs": Object {
                 "aria-disabled": "true",
                 "aria-label": "Next",
-                "class": "pagination-button pagination-next button button-neutral button-medium icon-left disabled",
+                "class": "pagination-button pagination-next button button-neutral button button-medium icon-left disabled",
                 "disabled": "",
               },
               "children": Array [
@@ -2874,7 +2874,7 @@ LoadedCheerio {
               "attribs": Object {
                 "aria-disabled": "true",
                 "aria-label": "Previous",
-                "class": "pagination-button pagination-previous button button-neutral button-medium icon-left disabled",
+                "class": "pagination-button pagination-previous button button-neutral button button-medium icon-left disabled",
                 "disabled": "",
               },
               "children": Array [
@@ -2992,7 +2992,7 @@ LoadedCheerio {
             "attribs": Object {
               "aria-disabled": "true",
               "aria-label": "Next",
-              "class": "pagination-button pagination-next button button-neutral button-medium icon-left disabled",
+              "class": "pagination-button pagination-next button button-neutral button button-medium icon-left disabled",
               "disabled": "",
             },
             "children": Array [
@@ -3085,7 +3085,7 @@ LoadedCheerio {
                         "aria-checked": "true",
                         "aria-disabled": "false",
                         "aria-pressed": "true",
-                        "class": "pagination-button active button button-neutral button-medium",
+                        "class": "pagination-button active button button-neutral button button-medium",
                       },
                       "children": Array [
                         Node {
@@ -3153,7 +3153,7 @@ LoadedCheerio {
                 "attribs": Object {
                   "aria-disabled": "true",
                   "aria-label": "Previous",
-                  "class": "pagination-button pagination-previous button button-neutral button-medium icon-left disabled",
+                  "class": "pagination-button pagination-previous button button-neutral button button-medium icon-left disabled",
                   "disabled": "",
                 },
                 "children": Array [

@@ -61,6 +61,7 @@ export const BaseButton: FC<InternalButtonProps> = React.forwardRef(
 
         const buttonBaseSharedClassNames: string = mergeClasses([
             classNames,
+            styles.button,
             {
                 [styles.buttonSmall]:
                     size === ButtonSize.Flex && largeScreenActive,

@@ -1,4 +1,6 @@
 .select-wrapper {
+    @include select-reset();
+
     position: relative;
     width: 100%;
 

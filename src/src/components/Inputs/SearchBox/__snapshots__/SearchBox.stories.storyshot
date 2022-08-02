@@ -28,7 +28,7 @@ exports[`Storyshots Input Search Box 1`] = `
         >
           <button
             aria-disabled={false}
-            className="label-icon-button button button-default button-small pill-shape icon-left"
+            className="label-icon-button button button-default button button-small pill-shape icon-left"
             defaultChecked={false}
             disabled={false}
           >
@@ -114,7 +114,7 @@ exports[`Storyshots Input Search Box 1`] = `
       </div>
       <button
         aria-disabled={false}
-        className="icon-button left-icon button button-default pill-shape icon-left"
+        className="icon-button left-icon button button-default button pill-shape icon-left"
         defaultChecked={false}
         disabled={false}
       >

@@ -1898,7 +1898,7 @@ LoadedCheerio {
                           "aria-checked": "true",
                           "aria-disabled": "false",
                           "aria-pressed": "true",
-                          "class": "pagination-button active button button-neutral button-medium",
+                          "class": "pagination-button active button button-neutral button button-medium",
                         },
                         "children": Array [
                           Node {
@@ -1990,7 +1990,7 @@ LoadedCheerio {
                         "aria-checked": "true",
                         "aria-disabled": "false",
                         "aria-pressed": "true",
-                        "class": "pagination-button active button button-neutral button-medium",
+                        "class": "pagination-button active button button-neutral button button-medium",
                       },
                       "children": Array [
                         Node {
@@ -2121,7 +2121,7 @@ LoadedCheerio {
                         "aria-checked": "true",
                         "aria-disabled": "false",
                         "aria-pressed": "true",
-                        "class": "pagination-button active button button-neutral button-medium",
+                        "class": "pagination-button active button button-neutral button button-medium",
                       },
                       "children": Array [
                         Node {
@@ -2213,7 +2213,7 @@ LoadedCheerio {
                       "aria-checked": "true",
                       "aria-disabled": "false",
                       "aria-pressed": "true",
-                      "class": "pagination-button active button button-neutral button-medium",
+                      "class": "pagination-button active button button-neutral button button-medium",
                     },
                     "children": Array [
                       Node {
