@@ -116,17 +116,3 @@ jobs:
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
           SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
-      - run: yarn build-storybook
-        if: steps.prerelease_check.outputs.prerelease != 'true'
-      - name: Pushes to another repository
-        if: steps.prerelease_check.outputs.prerelease != 'true'
-        uses: cpina/github-action-push-to-another-repository@main
-        env:
-          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
-        with:
-          source-directory: 'dist'
-          destination-github-username: 'EightfoldAI'
-          destination-repository-name: 'octuple.github.io'
-          user-email: ychhabra@eightfold.ai
-          target-branch: main
-
