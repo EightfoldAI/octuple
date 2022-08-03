@@ -7,6 +7,7 @@ import styles from './checkbox.module.scss';
 export const CheckBox: FC<CheckboxProps> = React.forwardRef(
     (
         {
+            allowDisabledFocus = false,
             ariaLabel,
             checked = false,
             defaultChecked,
@@ -34,6 +35,7 @@ export const CheckBox: FC<CheckboxProps> = React.forwardRef(
         const checkboxWrapperClassNames: string = mergeClasses([
             styles.selector,
             classNames,
+            { [styles.disabled]: allowDisabledFocus || disabled },
         ]);
 
         const checkBoxCheckClassNames: string = mergeClasses([
@@ -59,11 +61,12 @@ export const CheckBox: FC<CheckboxProps> = React.forwardRef(
             >
                 <input
                     ref={ref}
+                    aria-disabled={disabled}
                     aria-label={ariaLabel}
                     checked={isChecked}
-                    disabled={disabled}
+                    disabled={!allowDisabledFocus && disabled}
                     id={checkBoxId.current}
-                    onChange={toggleChecked}
+                    onChange={!allowDisabledFocus ? toggleChecked : null}
                     name={name}
                     type={'checkbox'}
                     value={value}

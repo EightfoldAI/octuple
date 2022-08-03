@@ -2738,7 +2738,7 @@ exports[`Storyshots Config Provider Theming 1`] = `
       className="match-score-circle"
     />
     <p
-      className="label"
+      className="label body2"
     >
       3
       /
@@ -2800,6 +2800,7 @@ exports[`Storyshots Config Provider Theming 1`] = `
       className="selector"
     >
       <input
+        aria-disabled={false}
         checked={true}
         disabled={false}
         id="test-1"
@@ -2827,6 +2828,7 @@ exports[`Storyshots Config Provider Theming 1`] = `
       className="selector"
     >
       <input
+        aria-disabled={false}
         checked={false}
         disabled={false}
         id="test-2"
@@ -2854,6 +2856,7 @@ exports[`Storyshots Config Provider Theming 1`] = `
       className="selector"
     >
       <input
+        aria-disabled={false}
         checked={false}
         disabled={false}
         id="test-3"
@@ -2887,6 +2890,7 @@ exports[`Storyshots Config Provider Theming 1`] = `
       className="selector"
     >
       <input
+        aria-disabled={false}
         checked={true}
         disabled={false}
         id="oea2exk-1"
@@ -2915,6 +2919,7 @@ exports[`Storyshots Config Provider Theming 1`] = `
       className="selector"
     >
       <input
+        aria-disabled={false}
         checked={false}
         disabled={false}
         id="oea2exk-2"
@@ -2943,6 +2948,7 @@ exports[`Storyshots Config Provider Theming 1`] = `
       className="selector"
     >
       <input
+        aria-disabled={false}
         checked={false}
         disabled={false}
         id="oea2exk-3"

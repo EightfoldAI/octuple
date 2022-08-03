@@ -20,8 +20,8 @@ exports[`Storyshots Input Text Input 1`] = `
         id="4fzzzxj"
         onBlur={[Function]}
         onFocus={[Function]}
-        onMouseEnter={[Function]}
-        onMouseLeave={[Function]}
+        onPointerEnter={[Function]}
+        onPointerLeave={[Function]}
       >
         <button
           aria-disabled={false}
@@ -62,6 +62,7 @@ exports[`Storyshots Input Text Input 1`] = `
     className="input-group left-icon"
   >
     <input
+      aria-disabled={false}
       aria-label="Sample text"
       autoFocus={false}
       className="my-textinput-class with-icon with-icon-button with-icon-and-icon-button left-icon clear-not-visible"

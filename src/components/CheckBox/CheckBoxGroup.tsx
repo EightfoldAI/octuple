@@ -7,10 +7,12 @@ import styles from './checkbox.module.scss';
 export const CheckBoxGroup: FC<CheckboxGroupProps> = React.forwardRef(
     (
         {
+            allowDisabledFocus = false,
             items = [],
             onChange,
             value,
             classNames,
+            disabled = false,
             style,
             ariaLabel,
             layout = 'vertical',
@@ -37,7 +39,9 @@ export const CheckBoxGroup: FC<CheckboxGroupProps> = React.forwardRef(
                 {items.map((item) => (
                     <CheckBox
                         {...item}
+                        allowDisabledFocus={allowDisabledFocus}
                         checked={value?.includes(item.value)}
+                        disabled={disabled}
                         key={item.value}
                         onChange={() => {
                             const optionIndex = value?.indexOf(item.value);

@@ -173,12 +173,12 @@ export const TextArea: FC<TextAreaProps> = React.forwardRef(
                     <textarea
                         {...rest}
                         ref={ref}
-                        aria-disabled={allowDisabledFocus}
+                        aria-disabled={disabled}
                         aria-label={ariaLabel}
                         autoFocus={autoFocus}
                         className={textAreaClassNames}
                         cols={textAreaCols}
-                        disabled={disabled}
+                        disabled={!allowDisabledFocus && disabled}
                         id={textAreaId}
                         maxLength={maxlength}
                         minLength={minlength}

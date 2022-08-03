@@ -16,6 +16,10 @@ export interface IRadioButtonsContext {
 
 export interface RadioButtonProps extends OcBaseProps<HTMLInputElement> {
     /**
+     * Allows focus on the radio button when it's disabled.
+     */
+    allowDisabledFocus?: boolean;
+    /**
      * The input aria label text.
      */
     ariaLabel?: string;
@@ -47,9 +51,17 @@ export interface RadioButtonProps extends OcBaseProps<HTMLInputElement> {
 
 export interface RadioGroupProps extends OcBaseProps<HTMLDivElement> {
     /**
+     * Allows focus on the radio group when it's disabled.
+     */
+    allowDisabledFocus?: boolean;
+    /**
      * The group aria label text.
      */
     ariaLabel?: string;
+    /**
+     * The boolean for disabling the radio group.
+     */
+    disabled?: boolean;
     /**
      * The input radio default selected value.
      */

@@ -306,6 +306,11 @@ $focus-visible-outline-color: var(--primary-color-60);
 $focus-visible-outline-style: solid;
 $focus-visible-outline-width: 2px;
 
+$focus-visible-shadow-color: var(--primary-color-60);
+$focus-visible-shadow-width: 2px;
+$focus-visible-box-shadow: 0 0 0 $focus-visible-shadow-width
+    $focus-visible-shadow-color;
+
 // Speed / Duration Definitions
 
 $motion-duration-extra-fast: 200ms; // Smallest UI objects like buttons (hover effect), tooltips, etc.
@@ -360,7 +365,8 @@ $disabled-zero: 0;
 
 $z-index-auto: auto;
 $z-index-top: 99999; //this is a super weapon. use it wisely.
-$z-index-500: 500; //warning and alerts. needs to be on top of all the components
+$z-index-600: 600; //warning and alerts. needs to be on top of all the components
+$z-index-500: 500;
 $z-index-400: 400;
 $z-index-300: 300;
 $z-index-200: 200;

@@ -5,6 +5,7 @@ exports[`Storyshots Check Box Check Box 1`] = `
   className="selector my-checkbox-class"
 >
   <input
+    aria-disabled={false}
     aria-label="Label"
     checked={true}
     disabled={false}
@@ -46,6 +47,7 @@ exports[`Storyshots Check Box Check Box Group 1`] = `
     className="selector"
   >
     <input
+      aria-disabled={false}
       checked={false}
       disabled={false}
       id="test-1"
@@ -73,6 +75,7 @@ exports[`Storyshots Check Box Check Box Group 1`] = `
     className="selector"
   >
     <input
+      aria-disabled={false}
       checked={false}
       disabled={false}
       id="test-2"
@@ -100,6 +103,7 @@ exports[`Storyshots Check Box Check Box Group 1`] = `
     className="selector"
   >
     <input
+      aria-disabled={false}
       checked={false}
       disabled={false}
       id="test-3"

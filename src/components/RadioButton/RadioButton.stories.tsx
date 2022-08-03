@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Stories } from '@storybook/addon-docs';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { Label } from '../Label';
 import { RadioButton, RadioButtonValue, RadioGroup } from './';
 import { Stack } from '../Stack';
 
@@ -102,7 +103,7 @@ export default {
         },
         layout: {
             options: ['vertical', 'horizontal'],
-            control: { type: 'radio' },
+            control: { type: 'inline-radio' },
         },
     },
 } as ComponentMeta<typeof RadioButton>;
@@ -128,15 +129,19 @@ const RadioButton_Story: ComponentStory<typeof RadioButton> = (args) => {
 export const Radio_Button = RadioButton_Story.bind({});
 
 const RadioGroup_Story: ComponentStory<typeof RadioGroup> = (args) => {
-    const [selected, setSelected] = useState<RadioButtonValue>(args.value);
+    const [selected1, setSelected1] = useState<RadioButtonValue>(args.value);
+
+    const radioChangeGroupHandler = (
+        e?: React.ChangeEvent<HTMLInputElement>
+    ): void => {
+        setSelected1(e.target.value);
+    };
+
     return (
         <RadioGroup
             {...args}
-            value={selected}
-            onChange={(e) => {
-                args.onChange(e);
-                setSelected(e.target.value);
-            }}
+            value={selected1}
+            onChange={radioChangeGroupHandler}
         />
     );
 };
@@ -144,6 +149,94 @@ const RadioGroup_Story: ComponentStory<typeof RadioGroup> = (args) => {
 export const Radio_Group = RadioGroup_Story.bind({});
 
 const Bespoke_RadioGroup_Story: ComponentStory<typeof RadioButton> = (args) => {
+    const [selected2a, setSelected2a] = useState<RadioButtonValue>('label1');
+    const [selected2b, setSelected2b] = useState<RadioButtonValue>('label1');
+
+    const radioChangeGroupAHandler = (
+        e?: React.ChangeEvent<HTMLInputElement>
+    ): void => {
+        setSelected2a(e.target.value);
+    };
+
+    const radioChangeGroupBHandler = (
+        e?: React.ChangeEvent<HTMLInputElement>
+    ): void => {
+        setSelected2b(e.target.value);
+    };
+
+    return (
+        <Stack direction="vertical" gap="m">
+            <Label text="Group 1" />
+            <RadioButton
+                {...args}
+                ariaLabel={'Label 1'}
+                checked={selected2a === 'label1'}
+                id={'myBespokeRadioGroup1-Id1'}
+                label={'Label 1'}
+                name={'bespokeGroup1'}
+                onChange={radioChangeGroupAHandler}
+                value={'label1'}
+            />
+            <RadioButton
+                {...args}
+                ariaLabel={'Label 2'}
+                checked={selected2a === 'label2'}
+                id={'myBespokeRadioGroup1-Id2'}
+                label={'Label 2'}
+                name={'bespokeGroup1'}
+                onChange={radioChangeGroupAHandler}
+                value={'label2'}
+            />
+            <RadioButton
+                {...args}
+                ariaLabel={'Label 3'}
+                checked={selected2a === 'label3'}
+                id={'myBespokeRadioGroup1-Id3'}
+                label={'Label 3'}
+                name={'bespokeGroup1'}
+                onChange={radioChangeGroupAHandler}
+                value={'label3'}
+            />
+            <Label text="Group 2" />
+            <RadioButton
+                {...args}
+                ariaLabel={'Label 1'}
+                checked={selected2b === 'label1'}
+                id={'myBespokeRadioGroup2-Id1'}
+                label={'Label 1'}
+                name={'bespokeGroup2'}
+                onChange={radioChangeGroupBHandler}
+                value={'label1'}
+            />
+            <RadioButton
+                {...args}
+                ariaLabel={'Label 2'}
+                checked={selected2b === 'label2'}
+                id={'myBespokeRadioGroup2-Id2'}
+                label={'Label 2'}
+                name={'bespokeGroup2'}
+                onChange={radioChangeGroupBHandler}
+                value={'label2'}
+            />
+            <RadioButton
+                {...args}
+                ariaLabel={'Label 3'}
+                checked={selected2b === 'label3'}
+                id={'myBespokeRadioGroup2-Id3'}
+                label={'Label 3'}
+                name={'bespokeGroup2'}
+                onChange={radioChangeGroupBHandler}
+                value={'label3'}
+            />
+        </Stack>
+    );
+};
+
+export const Bespoke_Radio_Group = Bespoke_RadioGroup_Story.bind({});
+
+const RadioButton_With_Custom_Label_Story: ComponentStory<
+    typeof RadioButton
+> = (args) => {
     const [selected, setSelected] = useState<RadioButtonValue>('label1');
 
     const radioChangeHandler = (
@@ -153,50 +246,46 @@ const Bespoke_RadioGroup_Story: ComponentStory<typeof RadioButton> = (args) => {
     };
 
     return (
-        <Stack direction="vertical" gap="m">
-            <RadioButton
-                {...args}
-                ariaLabel={'Label 1'}
-                checked={selected === 'label1'}
-                id={'myRadioButtonId1'}
-                label={'Label 1'}
-                onChange={radioChangeHandler}
-                value={'label1'}
-            />
-            <RadioButton
-                {...args}
-                ariaLabel={'Label 2'}
-                checked={selected === 'label2'}
-                id={'myRadioButtonId2'}
-                label={'Label 2'}
-                onChange={radioChangeHandler}
-                value={'label2'}
-            />
-            <RadioButton
-                {...args}
-                ariaLabel={'Label 3'}
-                checked={selected === 'label3'}
-                id={'myRadioButtonId3'}
-                label={'Label 3'}
-                onChange={radioChangeHandler}
-                value={'label3'}
-            />
-        </Stack>
+        <RadioButton
+            {...args}
+            checked={selected === 'Label1'}
+            onChange={radioChangeHandler}
+        />
     );
 };
 
-export const Bespoke_Radio_Group = Bespoke_RadioGroup_Story.bind({});
+export const RadioButton_With_Custom_Label =
+    RadioButton_With_Custom_Label_Story.bind({});
+
+const RadioGroup_With_Custom_Label_Story: ComponentStory<typeof RadioGroup> = (
+    args
+) => {
+    const [selected3, setSelected3] = useState<RadioButtonValue>(args.value);
+    return (
+        <RadioGroup
+            {...args}
+            value={selected3}
+            onChange={(e) => {
+                args.onChange(e);
+                setSelected3(e.target.value);
+            }}
+        />
+    );
+};
+
+export const RadioGroup_With_Custom_Label =
+    RadioGroup_With_Custom_Label_Story.bind({});
 
 const radioButtonArgs: Object = {
     allowDisabledFocus: false,
     ariaLabel: 'Label',
-    label: 'Label',
     checked: false,
     classNames: 'my-radiobutton-class',
     disabled: false,
+    id: 'myRadioButtonId',
+    label: 'Label',
     name: 'myRadioButtonName',
     value: 'Label1',
-    id: 'myRadioButtonId',
 };
 
 Radio_Button.args = {
@@ -204,18 +293,59 @@ Radio_Button.args = {
 };
 
 Radio_Group.args = {
+    allowDisabledFocus: false,
     ariaLabel: 'Radio Group',
-    value: 'Radio1',
-    items: [1, 2, 3].map((i) => ({
-        value: `Radio${i}`,
-        label: `Radio${i}`,
-        name: 'group',
+    disabled: false,
+    items: [1, 2, 3].map((i: number) => ({
+        ariaLabel: `Radio${i}`,
         id: `oea2exk-${i}`,
+        label: `Radio${i}`,
+        name: 'group1',
+        value: `Radio${i}`,
     })),
     layout: 'vertical',
+    value: 'Radio1',
 };
 
 Bespoke_Radio_Group.args = {
     ...radioButtonArgs,
-    name: 'roleGroupName',
+};
+
+RadioButton_With_Custom_Label.args = {
+    ...radioButtonArgs,
+    label: (
+        <div>
+            <div style={{ fontWeight: 'bold' }}>Line one with some text</div>
+            <div>
+                Line two with some details about the above text. This could be a
+                description or summary of some sort.
+            </div>
+        </div>
+    ),
+};
+
+RadioGroup_With_Custom_Label.args = {
+    allowDisabledFocus: false,
+    ariaLabel: 'Radio Group Custom',
+    disabled: false,
+    items: [1, 2, 3].map((i: number) => ({
+        ariaLabel: `Radio${i}`,
+        checked: i === 1,
+        id: `qgc4gzm-${i}`,
+        label: (
+            <div>
+                <div style={{ fontWeight: 'bold' }}>
+                    Line one with some text
+                </div>
+                <div>
+                    Line two with some details about the above text. This could
+                    be a description or summary of some sort.
+                </div>
+            </div>
+        ),
+        name: 'group3',
+        value: `Radio${i}`,
+    })),
+    layout: 'vertical',
+    value: 'Radio1',
 };

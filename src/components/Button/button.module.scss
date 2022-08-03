@@ -1,4 +1,6 @@
 .button {
+    @include button-reset();
+
     --button-default-foreground-color: var(--primary-color);
     --button-hover-foreground-color: var(--primary-color);
     --button-focus-foreground-color: var(--primary-color-80);
@@ -296,19 +298,18 @@
 .button-secondary {
     color: var(--button-default-foreground-color);
     background-color: var(--button-default-background-color);
-    outline: var(--button-default-outline-color) solid 1px;
-    outline-offset: -1px;
+    border: 1px solid var(--button-default-outline-color);
 
     &:hover {
         background-color: var(--button-hover-background-color);
         color: var(--button-hover-foreground-color);
-        outline-color: var(--button-hover-outline-color);
+        border-color: var(--button-hover-outline-color);
     }
 
     &:active {
         background-color: var(--button-active-background-color);
         color: var(--button-active-foreground-color);
-        outline-color: var(--button-active-outline-color);
+        border-color: var(--button-active-outline-color);
     }
 }
 
@@ -331,26 +332,23 @@
 .button-secondary-disruptive {
     color: var(--disruptive-color-70);
     background-color: var(--white-color);
-    outline: var(--disruptive-color-70) solid 1px;
-    outline-offset: -1px;
+    border: 1px solid var(--disruptive-color-70);
 
     &:hover {
         background-color: var(--disruptive-color-10);
         color: var(--disruptive-color-70);
-        outline-color: var(--disruptive-color-70);
+        border-color: var(--disruptive-color-70);
     }
 
     &:active {
         color: var(--disruptive-color-80);
-        outline-color: var(--disruptive-color-80);
+        border-color: var(--disruptive-color-80);
     }
 }
 
 .button-default {
     background-color: var(--button-default-background-color);
     color: var(--button-default-foreground-color);
-    outline: transparent solid 1px;
-    outline-offset: -1px;
 
     &:hover {
         background-color: var(--button-hover-variant-background-color);
@@ -366,8 +364,6 @@
 .button-disruptive {
     background-color: var(--white-color);
     color: var(--disruptive-color-70);
-    outline: transparent solid 1px;
-    outline-offset: -1px;
 
     &:hover {
         background-color: var(--disruptive-color-10);
@@ -383,8 +379,6 @@
 .button-neutral {
     background-color: var(--white-color);
     color: var(--text-secondary-color);
-    outline: transparent solid 1px;
-    outline-offset: -1px;
 
     &:hover {
         background-color: var(--grey-color-10);
@@ -455,8 +449,7 @@
 .two-state-button {
     background-color: var(--button-two-state-default-background-color);
     color: var(--button-two-state-default-foreground-color);
-    outline: var(--button-two-state-default-outline-color) solid 1px;
-    outline-offset: -1px;
+    border: 1px solid var(--button-two-state-default-outline-color);
 
     .counter {
         background-color: var(--button-counter-default-background-color);
@@ -503,7 +496,7 @@
     &:hover {
         background-color: var(--button-two-state-hover-background-color);
         color: var(--button-two-state-hover-foreground-color);
-        outline-color: var(--button-two-state-hover-outline-color);
+        border-color: var(--button-two-state-hover-outline-color);
 
         .counter {
             background-color: var(--button-counter-hover-background-color);
@@ -513,7 +506,7 @@
     &:active {
         background-color: var(--button-two-state-active-background-color);
         color: var(--button-two-state-active-foreground-color);
-        outline-color: var(--button-two-state-active-outline-color);
+        border-color: var(--button-two-state-active-outline-color);
 
         .counter {
             background-color: var(--button-counter-active-background-color);
@@ -523,7 +516,7 @@
     &.checked {
         background-color: var(--button-two-state-checked-background-color);
         color: var(--button-two-state-checked-foreground-color);
-        outline-color: var(--button-two-state-checked-outline-color);
+        border-color: var(--button-two-state-checked-outline-color);
 
         .counter {
             background-color: var(--button-counter-checked-background-color);
@@ -534,22 +527,20 @@
 :global(.focus-visible) {
     .button {
         &:focus-visible {
-            outline-width: $focus-visible-outline-width;
-            outline-offset: $focus-visible-outline-offset-inner;
-            outline-color: var(--button-focus-outline-color);
+            box-shadow: $focus-visible-box-shadow;
         }
 
         // Primary button doesn't have an outline. Add one for keyboard focus modality.
         &.button-primary {
             &:focus-visible {
-                outline: $focus-visible-outline-width solid
+                box-shadow: 0 0 0 $focus-visible-shadow-width
                     var(--button-primary-focus-border-color);
             }
         }
 
         &.button-primary-disruptive {
             &:focus-visible {
-                outline: $focus-visible-outline-width solid
+                box-shadow: 0 0 0 $focus-visible-shadow-width
                     var(--disruptive-color-80);
             }
         }
@@ -558,13 +549,14 @@
             &:focus-visible {
                 background-color: var(--button-focus-background-color);
                 color: var(--button-focus-foreground-color);
+                border-color: var(--button-focus-background-color);
             }
         }
 
         &.button-secondary-disruptive {
             &:focus-visible {
                 color: var(--disruptive-color-80);
-                outline-color: var(--disruptive-color-80);
+                border-color: var(--disruptive-color-80);
             }
         }
 
@@ -579,7 +571,7 @@
             &:focus-visible {
                 background-color: var(--disruptive-color-10);
                 color: var(--disruptive-color-80);
-                outline-color: var(--disruptive-color-80);
+                border-color: var(--disruptive-color-80);
             }
         }
 
@@ -587,7 +579,7 @@
             &:focus-visible {
                 background-color: var(--grey-color-10);
                 color: var(--text-secondary-color);
-                outline-color: var(--grey-color-80);
+                border-color: var(--grey-color-80);
             }
         }
     }
@@ -596,18 +588,14 @@
         &:focus-visible {
             background-color: var(--button-two-state-focus-background-color);
             color: var(--button-two-state-focus-foreground-color);
-            outline-width: $focus-visible-outline-width;
-            outline-offset: $focus-visible-outline-offset-inner;
-            outline-color: var(--button-focus-outline-color);
+            box-shadow: $focus-visible-box-shadow;
 
             &.checked {
                 background-color: var(
                     --button-two-state-checked-background-color
                 );
                 color: var(--button-two-state-checked-foreground-color);
-                outline-width: $focus-visible-outline-width;
-                outline-offset: $focus-visible-outline-offset-inner;
-                outline-color: var(--button-focus-outline-color);
+                box-shadow: $focus-visible-box-shadow;
             }
 
             .counter {

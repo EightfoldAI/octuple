@@ -1400,7 +1400,7 @@ exports[`Storyshots Table Basic 1`] = `
       16 Total
     </span>
     <button
-      aria-disabled={false}
+      aria-disabled={true}
       aria-label="Previous"
       className="pagination-button button button-default button-size3 icon-left disabled"
       defaultChecked={false}
@@ -1532,6 +1532,7 @@ exports[`Storyshots Table Basic 1`] = `
           className="input-group left-icon"
         >
           <input
+            aria-disabled={false}
             autoFocus={false}
             className="editor left-icon clear-not-visible"
             defaultValue={1}
@@ -2952,7 +2953,7 @@ exports[`Storyshots Table Bordered 1`] = `
       16 Total
     </span>
     <button
-      aria-disabled={false}
+      aria-disabled={true}
       aria-label="Previous"
       className="pagination-button button button-default button-size3 icon-left disabled"
       defaultChecked={false}
@@ -3084,6 +3085,7 @@ exports[`Storyshots Table Bordered 1`] = `
           className="input-group left-icon"
         >
           <input
+            aria-disabled={false}
             autoFocus={false}
             className="editor left-icon clear-not-visible"
             defaultValue={1}
@@ -4504,7 +4506,7 @@ exports[`Storyshots Table Cell Bordered 1`] = `
       16 Total
     </span>
     <button
-      aria-disabled={false}
+      aria-disabled={true}
       aria-label="Previous"
       className="pagination-button button button-default button-size3 icon-left disabled"
       defaultChecked={false}
@@ -4636,6 +4638,7 @@ exports[`Storyshots Table Cell Bordered 1`] = `
           className="input-group left-icon"
         >
           <input
+            aria-disabled={false}
             autoFocus={false}
             className="editor left-icon clear-not-visible"
             defaultValue={1}
@@ -7540,7 +7543,7 @@ exports[`Storyshots Table Ellipsis 1`] = `
       16 Total
     </span>
     <button
-      aria-disabled={false}
+      aria-disabled={true}
       aria-label="Previous"
       className="pagination-button button button-default button-size3 icon-left disabled"
       defaultChecked={false}
@@ -7672,6 +7675,7 @@ exports[`Storyshots Table Ellipsis 1`] = `
           className="input-group left-icon"
         >
           <input
+            aria-disabled={false}
             autoFocus={false}
             className="editor left-icon clear-not-visible"
             defaultValue={1}
@@ -7976,8 +7980,8 @@ exports[`Storyshots Table Ellipsis With Tooltip 1`] = `
                   id="4fzzzxj"
                   onBlur={[Function]}
                   onFocus={[Function]}
-                  onMouseEnter={[Function]}
-                  onMouseLeave={[Function]}
+                  onPointerEnter={[Function]}
+                  onPointerLeave={[Function]}
                 >
                   Beacon, NY
                 </div>
@@ -7995,8 +7999,8 @@ exports[`Storyshots Table Ellipsis With Tooltip 1`] = `
                   id="4fzzzxj"
                   onBlur={[Function]}
                   onFocus={[Function]}
-                  onMouseEnter={[Function]}
-                  onMouseLeave={[Function]}
+                  onPointerEnter={[Function]}
+                  onPointerLeave={[Function]}
                 >
                   Beacon, NY
                 </div>
@@ -8014,8 +8018,8 @@ exports[`Storyshots Table Ellipsis With Tooltip 1`] = `
                   id="4fzzzxj"
                   onBlur={[Function]}
                   onFocus={[Function]}
-                  onMouseEnter={[Function]}
-                  onMouseLeave={[Function]}
+                  onPointerEnter={[Function]}
+                  onPointerLeave={[Function]}
                 >
                   Beacon, NY
                 </div>
@@ -8033,8 +8037,8 @@ exports[`Storyshots Table Ellipsis With Tooltip 1`] = `
                   id="4fzzzxj"
                   onBlur={[Function]}
                   onFocus={[Function]}
-                  onMouseEnter={[Function]}
-                  onMouseLeave={[Function]}
+                  onPointerEnter={[Function]}
+                  onPointerLeave={[Function]}
                 >
                   Beacon, NY
                 </div>
@@ -8052,8 +8056,8 @@ exports[`Storyshots Table Ellipsis With Tooltip 1`] = `
                   id="4fzzzxj"
                   onBlur={[Function]}
                   onFocus={[Function]}
-                  onMouseEnter={[Function]}
-                  onMouseLeave={[Function]}
+                  onPointerEnter={[Function]}
+                  onPointerLeave={[Function]}
                 >
                   Beacon, NY
                 </div>
@@ -8071,8 +8075,8 @@ exports[`Storyshots Table Ellipsis With Tooltip 1`] = `
                   id="4fzzzxj"
                   onBlur={[Function]}
                   onFocus={[Function]}
-                  onMouseEnter={[Function]}
-                  onMouseLeave={[Function]}
+                  onPointerEnter={[Function]}
+                  onPointerLeave={[Function]}
                 >
                   Beacon, NY
                 </div>
@@ -8169,8 +8173,8 @@ exports[`Storyshots Table Ellipsis With Tooltip 1`] = `
                   id="4fzzzxj"
                   onBlur={[Function]}
                   onFocus={[Function]}
-                  onMouseEnter={[Function]}
-                  onMouseLeave={[Function]}
+                  onPointerEnter={[Function]}
+                  onPointerLeave={[Function]}
                 >
                   Delhi, Delhi
                 </div>
@@ -8188,8 +8192,8 @@ exports[`Storyshots Table Ellipsis With Tooltip 1`] = `
                   id="4fzzzxj"
                   onBlur={[Function]}
                   onFocus={[Function]}
-                  onMouseEnter={[Function]}
-                  onMouseLeave={[Function]}
+                  onPointerEnter={[Function]}
+                  onPointerLeave={[Function]}
                 >
                   Delhi, Delhi
                 </div>
@@ -8207,8 +8211,8 @@ exports[`Storyshots Table Ellipsis With Tooltip 1`] = `
                   id="4fzzzxj"
                   onBlur={[Function]}
                   onFocus={[Function]}
-                  onMouseEnter={[Function]}
-                  onMouseLeave={[Function]}
+                  onPointerEnter={[Function]}
+                  onPointerLeave={[Function]}
                 >
                   Delhi, Delhi
                 </div>
@@ -8226,8 +8230,8 @@ exports[`Storyshots Table Ellipsis With Tooltip 1`] = `
                   id="4fzzzxj"
                   onBlur={[Function]}
                   onFocus={[Function]}
-                  onMouseEnter={[Function]}
-                  onMouseLeave={[Function]}
+                  onPointerEnter={[Function]}
+                  onPointerLeave={[Function]}
                 >
                   Delhi, Delhi
                 </div>
@@ -8245,8 +8249,8 @@ exports[`Storyshots Table Ellipsis With Tooltip 1`] = `
                   id="4fzzzxj"
                   onBlur={[Function]}
                   onFocus={[Function]}
-                  onMouseEnter={[Function]}
-                  onMouseLeave={[Function]}
+                  onPointerEnter={[Function]}
+                  onPointerLeave={[Function]}
                 >
                   Delhi, Delhi
                 </div>
@@ -8264,8 +8268,8 @@ exports[`Storyshots Table Ellipsis With Tooltip 1`] = `
                   id="4fzzzxj"
                   onBlur={[Function]}
                   onFocus={[Function]}
-                  onMouseEnter={[Function]}
-                  onMouseLeave={[Function]}
+                  onPointerEnter={[Function]}
+                  onPointerLeave={[Function]}
                 >
                   Delhi, Delhi
                 </div>
@@ -8362,8 +8366,8 @@ exports[`Storyshots Table Ellipsis With Tooltip 1`] = `
                   id="4fzzzxj"
                   onBlur={[Function]}
                   onFocus={[Function]}
-                  onMouseEnter={[Function]}
-                  onMouseLeave={[Function]}
+                  onPointerEnter={[Function]}
+                  onPointerLeave={[Function]}
                 >
                   New York, NA
                 </div>
@@ -8381,8 +8385,8 @@ exports[`Storyshots Table Ellipsis With Tooltip 1`] = `
                   id="4fzzzxj"
                   onBlur={[Function]}
                   onFocus={[Function]}
-                  onMouseEnter={[Function]}
-                  onMouseLeave={[Function]}
+                  onPointerEnter={[Function]}
+                  onPointerLeave={[Function]}
                 >
                   New York, NA
                 </div>
@@ -8400,8 +8404,8 @@ exports[`Storyshots Table Ellipsis With Tooltip 1`] = `
                   id="4fzzzxj"
                   onBlur={[Function]}
                   onFocus={[Function]}
-                  onMouseEnter={[Function]}
-                  onMouseLeave={[Function]}
+                  onPointerEnter={[Function]}
+                  onPointerLeave={[Function]}
                 >
                   New York, NA
                 </div>
@@ -8419,8 +8423,8 @@ exports[`Storyshots Table Ellipsis With Tooltip 1`] = `
                   id="4fzzzxj"
                   onBlur={[Function]}
                   onFocus={[Function]}
-                  onMouseEnter={[Function]}
-                  onMouseLeave={[Function]}
+                  onPointerEnter={[Function]}
+                  onPointerLeave={[Function]}
                 >
                   New York, NA
                 </div>
@@ -8438,8 +8442,8 @@ exports[`Storyshots Table Ellipsis With Tooltip 1`] = `
                   id="4fzzzxj"
                   onBlur={[Function]}
                   onFocus={[Function]}
-                  onMouseEnter={[Function]}
-                  onMouseLeave={[Function]}
+                  onPointerEnter={[Function]}
+                  onPointerLeave={[Function]}
                 >
                   New York, NA
                 </div>
@@ -8457,8 +8461,8 @@ exports[`Storyshots Table Ellipsis With Tooltip 1`] = `
                   id="4fzzzxj"
                   onBlur={[Function]}
                   onFocus={[Function]}
-                  onMouseEnter={[Function]}
-                  onMouseLeave={[Function]}
+                  onPointerEnter={[Function]}
+                  onPointerLeave={[Function]}
                 >
                   New York, NA
                 </div>
@@ -8555,8 +8559,8 @@ exports[`Storyshots Table Ellipsis With Tooltip 1`] = `
                   id="4fzzzxj"
                   onBlur={[Function]}
                   onFocus={[Function]}
-                  onMouseEnter={[Function]}
-                  onMouseLeave={[Function]}
+                  onPointerEnter={[Function]}
+                  onPointerLeave={[Function]}
                 >
                   Atlanta, GA
                 </div>
@@ -8574,8 +8578,8 @@ exports[`Storyshots Table Ellipsis With Tooltip 1`] = `
                   id="4fzzzxj"
                   onBlur={[Function]}
                   onFocus={[Function]}
-                  onMouseEnter={[Function]}
-                  onMouseLeave={[Function]}
+                  onPointerEnter={[Function]}
+                  onPointerLeave={[Function]}
                 >
                   Atlanta, GA
                 </div>
@@ -8593,8 +8597,8 @@ exports[`Storyshots Table Ellipsis With Tooltip 1`] = `
                   id="4fzzzxj"
                   onBlur={[Function]}
                   onFocus={[Function]}
-                  onMouseEnter={[Function]}
-                  onMouseLeave={[Function]}
+                  onPointerEnter={[Function]}
+                  onPointerLeave={[Function]}
                 >
                   Atlanta, GA
                 </div>
@@ -8612,8 +8616,8 @@ exports[`Storyshots Table Ellipsis With Tooltip 1`] = `
                   id="4fzzzxj"
                   onBlur={[Function]}
                   onFocus={[Function]}
-                  onMouseEnter={[Function]}
-                  onMouseLeave={[Function]}
+                  onPointerEnter={[Function]}
+                  onPointerLeave={[Function]}
                 >
                   Atlanta, GA
                 </div>
@@ -8631,8 +8635,8 @@ exports[`Storyshots Table Ellipsis With Tooltip 1`] = `
                   id="4fzzzxj"
                   onBlur={[Function]}
                   onFocus={[Function]}
-                  onMouseEnter={[Function]}
-                  onMouseLeave={[Function]}
+                  onPointerEnter={[Function]}
+                  onPointerLeave={[Function]}
                 >
                   Atlanta, GA
                 </div>
@@ -8650,8 +8654,8 @@ exports[`Storyshots Table Ellipsis With Tooltip 1`] = `
                   id="4fzzzxj"
                   onBlur={[Function]}
                   onFocus={[Function]}
-                  onMouseEnter={[Function]}
-                  onMouseLeave={[Function]}
+                  onPointerEnter={[Function]}
+                  onPointerLeave={[Function]}
                 >
                   Atlanta, GA
                 </div>
@@ -8748,8 +8752,8 @@ exports[`Storyshots Table Ellipsis With Tooltip 1`] = `
                   id="4fzzzxj"
                   onBlur={[Function]}
                   onFocus={[Function]}
-                  onMouseEnter={[Function]}
-                  onMouseLeave={[Function]}
+                  onPointerEnter={[Function]}
+                  onPointerLeave={[Function]}
                 >
                   San Diego, USA
                 </div>
@@ -8767,8 +8771,8 @@ exports[`Storyshots Table Ellipsis With Tooltip 1`] = `
                   id="4fzzzxj"
                   onBlur={[Function]}
                   onFocus={[Function]}
-                  onMouseEnter={[Function]}
-                  onMouseLeave={[Function]}
+                  onPointerEnter={[Function]}
+                  onPointerLeave={[Function]}
                 >
                   San Diego, USA
                 </div>
@@ -8786,8 +8790,8 @@ exports[`Storyshots Table Ellipsis With Tooltip 1`] = `
                   id="4fzzzxj"
                   onBlur={[Function]}
                   onFocus={[Function]}
-                  onMouseEnter={[Function]}
-                  onMouseLeave={[Function]}
+                  onPointerEnter={[Function]}
+                  onPointerLeave={[Function]}
                 >
                   San Diego, USA
                 </div>
@@ -8805,8 +8809,8 @@ exports[`Storyshots Table Ellipsis With Tooltip 1`] = `
                   id="4fzzzxj"
                   onBlur={[Function]}
                   onFocus={[Function]}
-                  onMouseEnter={[Function]}
-                  onMouseLeave={[Function]}
+                  onPointerEnter={[Function]}
+                  onPointerLeave={[Function]}
                 >
                   San Diego, USA
                 </div>
@@ -8824,8 +8828,8 @@ exports[`Storyshots Table Ellipsis With Tooltip 1`] = `
                   id="4fzzzxj"
                   onBlur={[Function]}
                   onFocus={[Function]}
-                  onMouseEnter={[Function]}
-                  onMouseLeave={[Function]}
+                  onPointerEnter={[Function]}
+                  onPointerLeave={[Function]}
                 >
                   San Diego, USA
                 </div>
@@ -8843,8 +8847,8 @@ exports[`Storyshots Table Ellipsis With Tooltip 1`] = `
                   id="4fzzzxj"
                   onBlur={[Function]}
                   onFocus={[Function]}
-                  onMouseEnter={[Function]}
-                  onMouseLeave={[Function]}
+                  onPointerEnter={[Function]}
+                  onPointerLeave={[Function]}
                 >
                   San Diego, USA
                 </div>
@@ -8941,8 +8945,8 @@ exports[`Storyshots Table Ellipsis With Tooltip 1`] = `
                   id="4fzzzxj"
                   onBlur={[Function]}
                   onFocus={[Function]}
-                  onMouseEnter={[Function]}
-                  onMouseLeave={[Function]}
+                  onPointerEnter={[Function]}
+                  onPointerLeave={[Function]}
                 >
                   Mumbai, Maharashtra
                 </div>
@@ -8960,8 +8964,8 @@ exports[`Storyshots Table Ellipsis With Tooltip 1`] = `
                   id="4fzzzxj"
                   onBlur={[Function]}
                   onFocus={[Function]}
-                  onMouseEnter={[Function]}
-                  onMouseLeave={[Function]}
+                  onPointerEnter={[Function]}
+                  onPointerLeave={[Function]}
                 >
                   Mumbai, Maharashtra
                 </div>
@@ -8979,8 +8983,8 @@ exports[`Storyshots Table Ellipsis With Tooltip 1`] = `
                   id="4fzzzxj"
                   onBlur={[Function]}
                   onFocus={[Function]}
-                  onMouseEnter={[Function]}
-                  onMouseLeave={[Function]}
+                  onPointerEnter={[Function]}
+                  onPointerLeave={[Function]}
                 >
                   Mumbai, Maharashtra
                 </div>
@@ -8998,8 +9002,8 @@ exports[`Storyshots Table Ellipsis With Tooltip 1`] = `
                   id="4fzzzxj"
                   onBlur={[Function]}
                   onFocus={[Function]}
-                  onMouseEnter={[Function]}
-                  onMouseLeave={[Function]}
+                  onPointerEnter={[Function]}
+                  onPointerLeave={[Function]}
                 >
                   Mumbai, Maharashtra
                 </div>
@@ -9017,8 +9021,8 @@ exports[`Storyshots Table Ellipsis With Tooltip 1`] = `
                   id="4fzzzxj"
                   onBlur={[Function]}
                   onFocus={[Function]}
-                  onMouseEnter={[Function]}
-                  onMouseLeave={[Function]}
+                  onPointerEnter={[Function]}
+                  onPointerLeave={[Function]}
                 >
                   Mumbai, Maharashtra
                 </div>
@@ -9036,8 +9040,8 @@ exports[`Storyshots Table Ellipsis With Tooltip 1`] = `
                   id="4fzzzxj"
                   onBlur={[Function]}
                   onFocus={[Function]}
-                  onMouseEnter={[Function]}
-                  onMouseLeave={[Function]}
+                  onPointerEnter={[Function]}
+                  onPointerLeave={[Function]}
                 >
                   Mumbai, Maharashtra
                 </div>
@@ -9134,8 +9138,8 @@ exports[`Storyshots Table Ellipsis With Tooltip 1`] = `
                   id="4fzzzxj"
                   onBlur={[Function]}
                   onFocus={[Function]}
-                  onMouseEnter={[Function]}
-                  onMouseLeave={[Function]}
+                  onPointerEnter={[Function]}
+                  onPointerLeave={[Function]}
                 >
                   Houston, Texas Area
                 </div>
@@ -9153,8 +9157,8 @@ exports[`Storyshots Table Ellipsis With Tooltip 1`] = `
                   id="4fzzzxj"
                   onBlur={[Function]}
                   onFocus={[Function]}
-                  onMouseEnter={[Function]}
-                  onMouseLeave={[Function]}
+                  onPointerEnter={[Function]}
+                  onPointerLeave={[Function]}
                 >
                   Houston, Texas Area
                 </div>
@@ -9172,8 +9176,8 @@ exports[`Storyshots Table Ellipsis With Tooltip 1`] = `
                   id="4fzzzxj"
                   onBlur={[Function]}
                   onFocus={[Function]}
-                  onMouseEnter={[Function]}
-                  onMouseLeave={[Function]}
+                  onPointerEnter={[Function]}
+                  onPointerLeave={[Function]}
                 >
                   Houston, Texas Area
                 </div>
@@ -9191,8 +9195,8 @@ exports[`Storyshots Table Ellipsis With Tooltip 1`] = `
                   id="4fzzzxj"
                   onBlur={[Function]}
                   onFocus={[Function]}
-                  onMouseEnter={[Function]}
-                  onMouseLeave={[Function]}
+                  onPointerEnter={[Function]}
+                  onPointerLeave={[Function]}
                 >
                   Houston, Texas Area
                 </div>
@@ -9210,8 +9214,8 @@ exports[`Storyshots Table Ellipsis With Tooltip 1`] = `
                   id="4fzzzxj"
                   onBlur={[Function]}
                   onFocus={[Function]}
-                  onMouseEnter={[Function]}
-                  onMouseLeave={[Function]}
+                  onPointerEnter={[Function]}
+                  onPointerLeave={[Function]}
                 >
                   Houston, Texas Area
                 </div>
@@ -9229,8 +9233,8 @@ exports[`Storyshots Table Ellipsis With Tooltip 1`] = `
                   id="4fzzzxj"
                   onBlur={[Function]}
                   onFocus={[Function]}
-                  onMouseEnter={[Function]}
-                  onMouseLeave={[Function]}
+                  onPointerEnter={[Function]}
+                  onPointerLeave={[Function]}
                 >
                   Houston, Texas Area
                 </div>
@@ -9327,8 +9331,8 @@ exports[`Storyshots Table Ellipsis With Tooltip 1`] = `
                   id="4fzzzxj"
                   onBlur={[Function]}
                   onFocus={[Function]}
-                  onMouseEnter={[Function]}
-                  onMouseLeave={[Function]}
+                  onPointerEnter={[Function]}
+                  onPointerLeave={[Function]}
                 >
                   Irvine, CA
                 </div>
@@ -9346,8 +9350,8 @@ exports[`Storyshots Table Ellipsis With Tooltip 1`] = `
                   id="4fzzzxj"
                   onBlur={[Function]}
                   onFocus={[Function]}
-                  onMouseEnter={[Function]}
-                  onMouseLeave={[Function]}
+                  onPointerEnter={[Function]}
+                  onPointerLeave={[Function]}
                 >
                   Irvine, CA
                 </div>
@@ -9365,8 +9369,8 @@ exports[`Storyshots Table Ellipsis With Tooltip 1`] = `
                   id="4fzzzxj"
                   onBlur={[Function]}
                   onFocus={[Function]}
-                  onMouseEnter={[Function]}
-                  onMouseLeave={[Function]}
+                  onPointerEnter={[Function]}
+                  onPointerLeave={[Function]}
                 >
                   Irvine, CA
                 </div>
@@ -9384,8 +9388,8 @@ exports[`Storyshots Table Ellipsis With Tooltip 1`] = `
                   id="4fzzzxj"
                   onBlur={[Function]}
                   onFocus={[Function]}
-                  onMouseEnter={[Function]}
-                  onMouseLeave={[Function]}
+                  onPointerEnter={[Function]}
+                  onPointerLeave={[Function]}
                 >
                   Irvine, CA
                 </div>
@@ -9403,8 +9407,8 @@ exports[`Storyshots Table Ellipsis With Tooltip 1`] = `
                   id="4fzzzxj"
                   onBlur={[Function]}
                   onFocus={[Function]}
-                  onMouseEnter={[Function]}
-                  onMouseLeave={[Function]}
+                  onPointerEnter={[Function]}
+                  onPointerLeave={[Function]}
                 >
                   Irvine, CA
                 </div>
@@ -9422,8 +9426,8 @@ exports[`Storyshots Table Ellipsis With Tooltip 1`] = `
                   id="4fzzzxj"
                   onBlur={[Function]}
                   onFocus={[Function]}
-                  onMouseEnter={[Function]}
-                  onMouseLeave={[Function]}
+                  onPointerEnter={[Function]}
+                  onPointerLeave={[Function]}
                 >
                   Irvine, CA
                 </div>
@@ -9503,7 +9507,7 @@ exports[`Storyshots Table Ellipsis With Tooltip 1`] = `
       Total 16
     </span>
     <button
-      aria-disabled={false}
+      aria-disabled={true}
       aria-label="Previous"
       className="pagination-button button button-default button-size3 icon-left disabled"
       defaultChecked={false}
@@ -9619,6 +9623,7 @@ exports[`Storyshots Table Ellipsis With Tooltip 1`] = `
           className="input-group left-icon"
         >
           <input
+            aria-disabled={false}
             autoFocus={false}
             className="editor left-icon clear-not-visible"
             defaultValue={1}
@@ -11436,7 +11441,7 @@ exports[`Storyshots Table Expandable Row 1`] = `
       16 Total
     </span>
     <button
-      aria-disabled={false}
+      aria-disabled={true}
       aria-label="Previous"
       className="pagination-button button button-default button-size3 icon-left disabled"
       defaultChecked={false}
@@ -11568,6 +11573,7 @@ exports[`Storyshots Table Expandable Row 1`] = `
           className="input-group left-icon"
         >
           <input
+            aria-disabled={false}
             autoFocus={false}
             className="editor left-icon clear-not-visible"
             defaultValue={1}
@@ -13038,7 +13044,7 @@ exports[`Storyshots Table Filter 1`] = `
       16 Total
     </span>
     <button
-      aria-disabled={false}
+      aria-disabled={true}
       aria-label="Previous"
       className="pagination-button button button-default button-size3 icon-left disabled"
       defaultChecked={false}
@@ -13170,6 +13176,7 @@ exports[`Storyshots Table Filter 1`] = `
           className="input-group left-icon"
         >
           <input
+            aria-disabled={false}
             autoFocus={false}
             className="editor left-icon clear-not-visible"
             defaultValue={1}
@@ -16405,7 +16412,7 @@ exports[`Storyshots Table Fixed Columns 1`] = `
         16 Total
       </span>
       <button
-        aria-disabled={false}
+        aria-disabled={true}
         aria-label="Previous"
         className="pagination-button button button-default button-size3 icon-left disabled"
         defaultChecked={false}
@@ -16537,6 +16544,7 @@ exports[`Storyshots Table Fixed Columns 1`] = `
             className="input-group left-icon"
           >
             <input
+              aria-disabled={false}
               autoFocus={false}
               className="editor left-icon clear-not-visible"
               defaultValue={1}
@@ -19794,7 +19802,7 @@ exports[`Storyshots Table Fixed Columns And Header 1`] = `
         16 Total
       </span>
       <button
-        aria-disabled={false}
+        aria-disabled={true}
         aria-label="Previous"
         className="pagination-button button button-default button-size3 icon-left disabled"
         defaultChecked={false}
@@ -19926,6 +19934,7 @@ exports[`Storyshots Table Fixed Columns And Header 1`] = `
             className="input-group left-icon"
           >
             <input
+              aria-disabled={false}
               autoFocus={false}
               className="editor left-icon clear-not-visible"
               defaultValue={1}
@@ -21452,7 +21461,7 @@ exports[`Storyshots Table Fixed Header 1`] = `
         16 Total
       </span>
       <button
-        aria-disabled={false}
+        aria-disabled={true}
         aria-label="Previous"
         className="pagination-button button button-default button-size3 icon-left disabled"
         defaultChecked={false}
@@ -21584,6 +21593,7 @@ exports[`Storyshots Table Fixed Header 1`] = `
             className="input-group left-icon"
           >
             <input
+              aria-disabled={false}
               autoFocus={false}
               className="editor left-icon clear-not-visible"
               defaultValue={1}
@@ -23015,7 +23025,7 @@ exports[`Storyshots Table Header And Footer 1`] = `
       16 Total
     </span>
     <button
-      aria-disabled={false}
+      aria-disabled={true}
       aria-label="Previous"
       className="pagination-button button button-default button-size3 icon-left disabled"
       defaultChecked={false}
@@ -23147,6 +23157,7 @@ exports[`Storyshots Table Header And Footer 1`] = `
           className="input-group left-icon"
         >
           <input
+            aria-disabled={false}
             autoFocus={false}
             className="editor left-icon clear-not-visible"
             defaultValue={1}
@@ -24567,7 +24578,7 @@ exports[`Storyshots Table Header Bordered 1`] = `
       16 Total
     </span>
     <button
-      aria-disabled={false}
+      aria-disabled={true}
       aria-label="Previous"
       className="pagination-button button button-default button-size3 icon-left disabled"
       defaultChecked={false}
@@ -24699,6 +24710,7 @@ exports[`Storyshots Table Header Bordered 1`] = `
           className="input-group left-icon"
         >
           <input
+            aria-disabled={false}
             autoFocus={false}
             className="editor left-icon clear-not-visible"
             defaultValue={1}
@@ -27831,7 +27843,7 @@ exports[`Storyshots Table Header Grouping 1`] = `
       16 Total
     </span>
     <button
-      aria-disabled={false}
+      aria-disabled={true}
       aria-label="Previous"
       className="pagination-button button button-default button-size3 icon-left disabled"
       defaultChecked={false}
@@ -27963,6 +27975,7 @@ exports[`Storyshots Table Header Grouping 1`] = `
           className="input-group left-icon"
         >
           <input
+            aria-disabled={false}
             autoFocus={false}
             className="editor left-icon clear-not-visible"
             defaultValue={1}
@@ -29383,7 +29396,7 @@ exports[`Storyshots Table Inner Bordered 1`] = `
       16 Total
     </span>
     <button
-      aria-disabled={false}
+      aria-disabled={true}
       aria-label="Previous"
       className="pagination-button button button-default button-size3 icon-left disabled"
       defaultChecked={false}
@@ -29515,6 +29528,7 @@ exports[`Storyshots Table Inner Bordered 1`] = `
           className="input-group left-icon"
         >
           <input
+            aria-disabled={false}
             autoFocus={false}
             className="editor left-icon clear-not-visible"
             defaultValue={1}
@@ -30935,7 +30949,7 @@ exports[`Storyshots Table Large 1`] = `
       16 Total
     </span>
     <button
-      aria-disabled={false}
+      aria-disabled={true}
       aria-label="Previous"
       className="pagination-button button button-default button-size3 icon-left disabled"
       defaultChecked={false}
@@ -31067,6 +31081,7 @@ exports[`Storyshots Table Large 1`] = `
           className="input-group left-icon"
         >
           <input
+            aria-disabled={false}
             autoFocus={false}
             className="editor left-icon clear-not-visible"
             defaultValue={1}
@@ -32487,7 +32502,7 @@ exports[`Storyshots Table Medium 1`] = `
       16 Total
     </span>
     <button
-      aria-disabled={false}
+      aria-disabled={true}
       aria-label="Previous"
       className="pagination-button button button-default button-size3 icon-left disabled"
       defaultChecked={false}
@@ -32619,6 +32634,7 @@ exports[`Storyshots Table Medium 1`] = `
           className="input-group left-icon"
         >
           <input
+            aria-disabled={false}
             autoFocus={false}
             className="editor left-icon clear-not-visible"
             defaultValue={1}
@@ -34298,7 +34314,7 @@ exports[`Storyshots Table Nested 1`] = `
       16 Total
     </span>
     <button
-      aria-disabled={false}
+      aria-disabled={true}
       aria-label="Previous"
       className="pagination-button button button-default button-size3 icon-left disabled"
       defaultChecked={false}
@@ -34430,6 +34446,7 @@ exports[`Storyshots Table Nested 1`] = `
           className="input-group left-icon"
         >
           <input
+            aria-disabled={false}
             autoFocus={false}
             className="editor left-icon clear-not-visible"
             defaultValue={1}
@@ -34554,6 +34571,7 @@ exports[`Storyshots Table Order Select And Expand Column 1`] = `
                     className="selector selection-checkbox"
                   >
                     <input
+                      aria-disabled={false}
                       checked={false}
                       disabled={false}
                       id="selectCheckBox"
@@ -34685,6 +34703,7 @@ exports[`Storyshots Table Order Select And Expand Column 1`] = `
                   className="selector selection-checkbox"
                 >
                   <input
+                    aria-disabled={false}
                     checked={false}
                     disabled={false}
                     id="selectCheckBox"
@@ -34811,6 +34830,7 @@ exports[`Storyshots Table Order Select And Expand Column 1`] = `
                   className="selector selection-checkbox"
                 >
                   <input
+                    aria-disabled={false}
                     checked={false}
                     disabled={false}
                     id="selectCheckBox"
@@ -34937,6 +34957,7 @@ exports[`Storyshots Table Order Select And Expand Column 1`] = `
                   className="selector selection-checkbox"
                 >
                   <input
+                    aria-disabled={false}
                     checked={false}
                     disabled={false}
                     id="selectCheckBox"
@@ -35060,9 +35081,10 @@ exports[`Storyshots Table Order Select And Expand Column 1`] = `
                 style={Object {}}
               >
                 <div
-                  className="selector selection-checkbox"
+                  className="selector selection-checkbox disabled"
                 >
                   <input
+                    aria-disabled={true}
                     checked={false}
                     disabled={true}
                     id="selectCheckBox"
@@ -35189,6 +35211,7 @@ exports[`Storyshots Table Order Select And Expand Column 1`] = `
                   className="selector selection-checkbox"
                 >
                   <input
+                    aria-disabled={false}
                     checked={false}
                     disabled={false}
                     id="selectCheckBox"
@@ -35315,6 +35338,7 @@ exports[`Storyshots Table Order Select And Expand Column 1`] = `
                   className="selector selection-checkbox"
                 >
                   <input
+                    aria-disabled={false}
                     checked={false}
                     disabled={false}
                     id="selectCheckBox"
@@ -35441,6 +35465,7 @@ exports[`Storyshots Table Order Select And Expand Column 1`] = `
                   className="selector selection-checkbox"
                 >
                   <input
+                    aria-disabled={false}
                     checked={false}
                     disabled={false}
                     id="selectCheckBox"
@@ -35567,6 +35592,7 @@ exports[`Storyshots Table Order Select And Expand Column 1`] = `
                   className="selector selection-checkbox"
                 >
                   <input
+                    aria-disabled={false}
                     checked={false}
                     disabled={false}
                     id="selectCheckBox"
@@ -35693,6 +35719,7 @@ exports[`Storyshots Table Order Select And Expand Column 1`] = `
                   className="selector selection-checkbox"
                 >
                   <input
+                    aria-disabled={false}
                     checked={false}
                     disabled={false}
                     id="selectCheckBox"
@@ -35819,6 +35846,7 @@ exports[`Storyshots Table Order Select And Expand Column 1`] = `
                   className="selector selection-checkbox"
                 >
                   <input
+                    aria-disabled={false}
                     checked={false}
                     disabled={false}
                     id="selectCheckBox"
@@ -35944,6 +35972,7 @@ exports[`Storyshots Table Order Select And Expand Column 1`] = `
                   className="selector selection-checkbox"
                 >
                   <input
+                    aria-disabled={false}
                     checked={false}
                     disabled={false}
                     id="selectCheckBox"
@@ -36070,6 +36099,7 @@ exports[`Storyshots Table Order Select And Expand Column 1`] = `
                   className="selector selection-checkbox"
                 >
                   <input
+                    aria-disabled={false}
                     checked={false}
                     disabled={false}
                     id="selectCheckBox"
@@ -36196,6 +36226,7 @@ exports[`Storyshots Table Order Select And Expand Column 1`] = `
                   className="selector selection-checkbox"
                 >
                   <input
+                    aria-disabled={false}
                     checked={false}
                     disabled={false}
                     id="selectCheckBox"
@@ -36322,6 +36353,7 @@ exports[`Storyshots Table Order Select And Expand Column 1`] = `
                   className="selector selection-checkbox"
                 >
                   <input
+                    aria-disabled={false}
                     checked={false}
                     disabled={false}
                     id="selectCheckBox"
@@ -36448,6 +36480,7 @@ exports[`Storyshots Table Order Select And Expand Column 1`] = `
                   className="selector selection-checkbox"
                 >
                   <input
+                    aria-disabled={false}
                     checked={false}
                     disabled={false}
                     id="selectCheckBox"
@@ -36574,6 +36607,7 @@ exports[`Storyshots Table Order Select And Expand Column 1`] = `
                   className="selector selection-checkbox"
                 >
                   <input
+                    aria-disabled={false}
                     checked={false}
                     disabled={false}
                     id="selectCheckBox"
@@ -36679,7 +36713,7 @@ exports[`Storyshots Table Order Select And Expand Column 1`] = `
       16 Total
     </span>
     <button
-      aria-disabled={false}
+      aria-disabled={true}
       aria-label="Previous"
       className="pagination-button button button-default button-size3 icon-left disabled"
       defaultChecked={false}
@@ -36811,6 +36845,7 @@ exports[`Storyshots Table Order Select And Expand Column 1`] = `
           className="input-group left-icon"
         >
           <input
+            aria-disabled={false}
             autoFocus={false}
             className="editor left-icon clear-not-visible"
             defaultValue={1}
@@ -38231,7 +38266,7 @@ exports[`Storyshots Table Outer Bordered 1`] = `
       16 Total
     </span>
     <button
-      aria-disabled={false}
+      aria-disabled={true}
       aria-label="Previous"
       className="pagination-button button button-default button-size3 icon-left disabled"
       defaultChecked={false}
@@ -38363,6 +38398,7 @@ exports[`Storyshots Table Outer Bordered 1`] = `
           className="input-group left-icon"
         >
           <input
+            aria-disabled={false}
             autoFocus={false}
             className="editor left-icon clear-not-visible"
             defaultValue={1}
@@ -38772,7 +38808,7 @@ exports[`Storyshots Table Responsive 1`] = `
       16 Total
     </span>
     <button
-      aria-disabled={false}
+      aria-disabled={true}
       aria-label="Previous"
       className="pagination-button button button-default button-size3 icon-left disabled"
       defaultChecked={false}
@@ -38904,6 +38940,7 @@ exports[`Storyshots Table Responsive 1`] = `
           className="input-group left-icon"
         >
           <input
+            aria-disabled={false}
             autoFocus={false}
             className="editor left-icon clear-not-visible"
             defaultValue={1}
@@ -40324,7 +40361,7 @@ exports[`Storyshots Table Row Bordered 1`] = `
       16 Total
     </span>
     <button
-      aria-disabled={false}
+      aria-disabled={true}
       aria-label="Previous"
       className="pagination-button button button-default button-size3 icon-left disabled"
       defaultChecked={false}
@@ -40456,6 +40493,7 @@ exports[`Storyshots Table Row Bordered 1`] = `
           className="input-group left-icon"
         >
           <input
+            aria-disabled={false}
             autoFocus={false}
             className="editor left-icon clear-not-visible"
             defaultValue={1}
@@ -40528,6 +40566,7 @@ exports[`Storyshots Table Selection 1`] = `
                     className="selector selection-checkbox"
                   >
                     <input
+                      aria-disabled={false}
                       checked={false}
                       disabled={false}
                       id="selectCheckBox"
@@ -40602,6 +40641,7 @@ exports[`Storyshots Table Selection 1`] = `
                   className="selector selection-checkbox"
                 >
                   <input
+                    aria-disabled={false}
                     checked={false}
                     disabled={false}
                     id="selectCheckBox"
@@ -40713,6 +40753,7 @@ exports[`Storyshots Table Selection 1`] = `
                   className="selector selection-checkbox"
                 >
                   <input
+                    aria-disabled={false}
                     checked={false}
                     disabled={false}
                     id="selectCheckBox"
@@ -40824,6 +40865,7 @@ exports[`Storyshots Table Selection 1`] = `
                   className="selector selection-checkbox"
                 >
                   <input
+                    aria-disabled={false}
                     checked={false}
                     disabled={false}
                     id="selectCheckBox"
@@ -40932,9 +40974,10 @@ exports[`Storyshots Table Selection 1`] = `
                 style={Object {}}
               >
                 <div
-                  className="selector selection-checkbox"
+                  className="selector selection-checkbox disabled"
                 >
                   <input
+                    aria-disabled={true}
                     checked={false}
                     disabled={true}
                     id="selectCheckBox"
@@ -41046,6 +41089,7 @@ exports[`Storyshots Table Selection 1`] = `
                   className="selector selection-checkbox"
                 >
                   <input
+                    aria-disabled={false}
                     checked={false}
                     disabled={false}
                     id="selectCheckBox"
@@ -41157,6 +41201,7 @@ exports[`Storyshots Table Selection 1`] = `
                   className="selector selection-checkbox"
                 >
                   <input
+                    aria-disabled={false}
                     checked={false}
                     disabled={false}
                     id="selectCheckBox"
@@ -41268,6 +41313,7 @@ exports[`Storyshots Table Selection 1`] = `
                   className="selector selection-checkbox"
                 >
                   <input
+                    aria-disabled={false}
                     checked={false}
                     disabled={false}
                     id="selectCheckBox"
@@ -41379,6 +41425,7 @@ exports[`Storyshots Table Selection 1`] = `
                   className="selector selection-checkbox"
                 >
                   <input
+                    aria-disabled={false}
                     checked={false}
                     disabled={false}
                     id="selectCheckBox"
@@ -41490,6 +41537,7 @@ exports[`Storyshots Table Selection 1`] = `
                   className="selector selection-checkbox"
                 >
                   <input
+                    aria-disabled={false}
                     checked={false}
                     disabled={false}
                     id="selectCheckBox"
@@ -41601,6 +41649,7 @@ exports[`Storyshots Table Selection 1`] = `
                   className="selector selection-checkbox"
                 >
                   <input
+                    aria-disabled={false}
                     checked={false}
                     disabled={false}
                     id="selectCheckBox"
@@ -41712,6 +41761,7 @@ exports[`Storyshots Table Selection 1`] = `
                   className="selector selection-checkbox"
                 >
                   <input
+                    aria-disabled={false}
                     checked={false}
                     disabled={false}
                     id="selectCheckBox"
@@ -41822,6 +41872,7 @@ exports[`Storyshots Table Selection 1`] = `
                   className="selector selection-checkbox"
                 >
                   <input
+                    aria-disabled={false}
                     checked={false}
                     disabled={false}
                     id="selectCheckBox"
@@ -41933,6 +41984,7 @@ exports[`Storyshots Table Selection 1`] = `
                   className="selector selection-checkbox"
                 >
                   <input
+                    aria-disabled={false}
                     checked={false}
                     disabled={false}
                     id="selectCheckBox"
@@ -42044,6 +42096,7 @@ exports[`Storyshots Table Selection 1`] = `
                   className="selector selection-checkbox"
                 >
                   <input
+                    aria-disabled={false}
                     checked={false}
                     disabled={false}
                     id="selectCheckBox"
@@ -42155,6 +42208,7 @@ exports[`Storyshots Table Selection 1`] = `
                   className="selector selection-checkbox"
                 >
                   <input
+                    aria-disabled={false}
                     checked={false}
                     disabled={false}
                     id="selectCheckBox"
@@ -42266,6 +42320,7 @@ exports[`Storyshots Table Selection 1`] = `
                   className="selector selection-checkbox"
                 >
                   <input
+                    aria-disabled={false}
                     checked={false}
                     disabled={false}
                     id="selectCheckBox"
@@ -42433,7 +42488,7 @@ exports[`Storyshots Table Selection 1`] = `
       16 Total
     </span>
     <button
-      aria-disabled={false}
+      aria-disabled={true}
       aria-label="Previous"
       className="pagination-button button button-default button-size3 icon-left disabled"
       defaultChecked={false}
@@ -42565,6 +42620,7 @@ exports[`Storyshots Table Selection 1`] = `
           className="input-group left-icon"
         >
           <input
+            aria-disabled={false}
             autoFocus={false}
             className="editor left-icon clear-not-visible"
             defaultValue={1}
@@ -43985,7 +44041,7 @@ exports[`Storyshots Table Small 1`] = `
       16 Total
     </span>
     <button
-      aria-disabled={false}
+      aria-disabled={true}
       aria-label="Previous"
       className="pagination-button button button-default button-size3 icon-left disabled"
       defaultChecked={false}
@@ -44117,6 +44173,7 @@ exports[`Storyshots Table Small 1`] = `
           className="input-group left-icon"
         >
           <input
+            aria-disabled={false}
             autoFocus={false}
             className="editor left-icon clear-not-visible"
             defaultValue={1}
@@ -44201,8 +44258,8 @@ exports[`Storyshots Table Sort 1`] = `
                   id="sortTip"
                   onBlur={[Function]}
                   onFocus={[Function]}
-                  onMouseEnter={[Function]}
-                  onMouseLeave={[Function]}
+                  onPointerEnter={[Function]}
+                  onPointerLeave={[Function]}
                 >
                   <div
                     className="table-column-sorters"
@@ -45615,7 +45672,7 @@ exports[`Storyshots Table Sort 1`] = `
       16 Total
     </span>
     <button
-      aria-disabled={false}
+      aria-disabled={true}
       aria-label="Previous"
       className="pagination-button button button-default button-size3 icon-left disabled"
       defaultChecked={false}
@@ -45747,6 +45804,7 @@ exports[`Storyshots Table Sort 1`] = `
           className="input-group left-icon"
         >
           <input
+            aria-disabled={false}
             autoFocus={false}
             className="editor left-icon clear-not-visible"
             defaultValue={1}
@@ -45811,8 +45869,8 @@ exports[`Storyshots Table Sort Multiple 1`] = `
                   id="sortTip"
                   onBlur={[Function]}
                   onFocus={[Function]}
-                  onMouseEnter={[Function]}
-                  onMouseLeave={[Function]}
+                  onPointerEnter={[Function]}
+                  onPointerLeave={[Function]}
                 >
                   <div
                     className="table-column-sorters"
@@ -45899,8 +45957,8 @@ exports[`Storyshots Table Sort Multiple 1`] = `
                   id="sortTip"
                   onBlur={[Function]}
                   onFocus={[Function]}
-                  onMouseEnter={[Function]}
-                  onMouseLeave={[Function]}
+                  onPointerEnter={[Function]}
+                  onPointerLeave={[Function]}
                 >
                   <div
                     className="table-column-sorters"
@@ -45987,8 +46045,8 @@ exports[`Storyshots Table Sort Multiple 1`] = `
                   id="sortTip"
                   onBlur={[Function]}
                   onFocus={[Function]}
-                  onMouseEnter={[Function]}
-                  onMouseLeave={[Function]}
+                  onPointerEnter={[Function]}
+                  onPointerLeave={[Function]}
                 >
                   <div
                     className="table-column-sorters"
@@ -47401,7 +47459,7 @@ exports[`Storyshots Table Sort Multiple 1`] = `
       16 Total
     </span>
     <button
-      aria-disabled={false}
+      aria-disabled={true}
       aria-label="Previous"
       className="pagination-button button button-default button-size3 icon-left disabled"
       defaultChecked={false}
@@ -47533,6 +47591,7 @@ exports[`Storyshots Table Sort Multiple 1`] = `
           className="input-group left-icon"
         >
           <input
+            aria-disabled={false}
             autoFocus={false}
             className="editor left-icon clear-not-visible"
             defaultValue={1}
@@ -48979,7 +49038,7 @@ exports[`Storyshots Table Summary 1`] = `
       16 Total
     </span>
     <button
-      aria-disabled={false}
+      aria-disabled={true}
       aria-label="Previous"
       className="pagination-button button button-default button-size3 icon-left disabled"
       defaultChecked={false}
@@ -49111,6 +49170,7 @@ exports[`Storyshots Table Summary 1`] = `
           className="input-group left-icon"
         >
           <input
+            aria-disabled={false}
             autoFocus={false}
             className="editor left-icon clear-not-visible"
             defaultValue={1}
