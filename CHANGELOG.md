@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.2.2](https://github.com/EightfoldAI/octuple/compare/v2.2.1...v2.2.2) (2022-08-03)
+
+### Bug Fixes
+
+-   css: scope normalize css reset to octuple components ([#283](https://github.com/EightfoldAI/octuple/issues/283)) ([1eeb0cd](https://github.com/EightfoldAI/octuple/commits/1eeb0cd3673fd03d599dc3aa84c5583fddaa26b2))
+-   radio group: updates story implementation to scope selection states ([#282](https://github.com/EightfoldAI/octuple/issues/282)) ([2ef7609](https://github.com/EightfoldAI/octuple/commits/2ef7609781b21f0682dee5c0a6affe4fe42fe217))
+
 ### [2.2.1](https://github.com/EightfoldAI/octuple/compare/v2.1.1...v2.2.1) (2022-08-02)
 
 ### Features
