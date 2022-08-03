@@ -45,6 +45,9 @@ export default {
             ],
             control: { type: 'check' },
         },
+        onCurrentChange: {
+            action: 'onCurrentChange',
+        },
     },
 } as ComponentMeta<typeof Pagination>;
 

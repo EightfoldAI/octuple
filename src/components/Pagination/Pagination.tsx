@@ -65,6 +65,10 @@ export const Pagination: FC<PaginationProps> = React.forwardRef(
                 pageSizes.indexOf(pageSize) > -1 ? pageSize : pageSizes[0]
             );
             jumpToPage?.(currentPage);
+        }, []);
+
+        useEffect((): void => {
+            setTotal(total);
         }, [total]);
 
         const previous = (): void => {
