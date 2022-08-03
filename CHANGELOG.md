@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.2.3](https://github.com/EightfoldAI/octuple/compare/v2.2.2...v2.2.3) (2022-08-03)
+
+### Bug Fixes
+
+-   pagination: fix onCurrentChange event getting fired on change of total ([#285](https://github.com/EightfoldAI/octuple/issues/285)) ([74456a2](https://github.com/EightfoldAI/octuple/commits/74456a242eb227972ff5491d4c7390f8ec0abc5d))
+
 ### [2.2.2](https://github.com/EightfoldAI/octuple/compare/v2.2.1...v2.2.2) (2022-08-03)
 
 ### Bug Fixes
