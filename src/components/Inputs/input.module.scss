@@ -1257,9 +1257,7 @@
         .clear-icon-button {
             &:focus-visible {
                 background-color: transparent;
-                outline: $focus-visible-outline-width
-                    $focus-visible-outline-style $focus-visible-outline-color;
-                outline-offset: $focus-visible-outline-offset-inner;
+                border-color: $focus-visible-shadow-color;
 
                 svg {
                     color: var(--grey-color-80);
@@ -1269,8 +1267,13 @@
 
         .text-area {
             &:focus-visible {
-                outline-width: $focus-visible-outline-width;
-                outline-offset: $focus-visible-outline-offset-inner;
+                border-color: var(--background-color);
+                box-shadow: $focus-visible-box-shadow;
+
+                &.underline {
+                    border-color: transparent;
+                    box-shadow: none;
+                }
             }
         }
     }
