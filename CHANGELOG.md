@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.2.4](https://github.com/EightfoldAI/octuple/compare/v2.2.3...v2.2.4) (2022-08-04)
+
+### Bug Fixes
+
+-   navbar: apply scoped css resets to navbar component ([#288](https://github.com/EightfoldAI/octuple/issues/288)) ([4a4e60c](https://github.com/EightfoldAI/octuple/commits/4a4e60cd2804dfef7967c48f38f7ef937ef831eb))
+
 ### [2.2.3](https://github.com/EightfoldAI/octuple/compare/v2.2.2...v2.2.3) (2022-08-03)
 
 ### Bug Fixes
