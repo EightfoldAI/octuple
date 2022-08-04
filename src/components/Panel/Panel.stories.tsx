@@ -377,6 +377,7 @@ const panelArgs: Object = {
     size: PanelSize.small,
     visible: false,
     closable: true,
+    bodyPadding: true,
     children: (
         <>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum
@@ -509,6 +510,9 @@ Header_Actions.args = {
     },
     actionButtonThreeProps: {
         iconProps: { path: IconName.mdiDatabaseArrowDownOutline },
+    },
+    headerButtonProps: {
+        iconProps: { path: IconName.mdiArrowLeftThick },
     },
     size: PanelSize.medium,
 };

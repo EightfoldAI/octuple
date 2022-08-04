@@ -75,6 +75,10 @@
             display: flex;
             justify-content: space-between;
 
+            &-button {
+                margin-right: 16px;
+            }
+
             &-buttons {
                 align-items: flex-end;
                 align-self: start;
@@ -100,6 +104,18 @@
             flex-direction: row;
             justify-content: flex-end;
         }
+
+        &.no-body-padding {
+            padding: 0;
+
+            .header {
+                padding: $space-l $space-xl $space-m $space-xl;
+            }
+
+            .footer {
+                padding: $space-m $space-xl $space-l $space-xl;
+            }
+        }
     }
 
     &.visible {
@@ -113,6 +129,10 @@
             .panel {
                 pointer-events: all;
             }
+        }
+
+        &.modeless-mask {
+            pointer-events: auto;
         }
     }
 }

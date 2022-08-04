@@ -239,11 +239,13 @@ const modalArgs: Object = {
     actionsClassNames: 'my-modal-actions-class',
     body: 'Body 2 which is at 16px font size is used here in the body section of the modal. The modal body text can wrap to multiple lines.',
     bodyClassNames: 'my-modal-body-class',
+    bodyPadding: true,
     'data-test-id': 'my-modal-test-id',
     header: 'Header 4 used in this modal',
     headerClassNames: 'my-modal-header-class',
     modalClassNames: 'my-modal-class',
     modalWrapperClassNames: 'my-modal-wrapper-class',
+    overlay: true,
     parent: document.body,
     zIndex: 1000,
     maskClosable: false,
@@ -427,6 +429,9 @@ Header_Actions.args = {
     },
     actionButtonThreeProps: {
         iconProps: { path: IconName.mdiDatabaseArrowDownOutline },
+    },
+    headerButtonProps: {
+        path: IconName.mdiArrowLeftThick,
     },
     size: ModalSize.medium,
 };

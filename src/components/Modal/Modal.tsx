@@ -13,6 +13,7 @@ export const Modal: FC<ModalProps> = React.forwardRef(
             actionButtonThreeProps,
             actionsClassNames,
             bodyClassNames,
+            bodyPadding = true,
             closeButtonProps,
             closeIcon,
             headerButtonProps,
@@ -30,6 +31,7 @@ export const Modal: FC<ModalProps> = React.forwardRef(
     ) => {
         const modalClasses: string = mergeClasses([
             styles.modal,
+            { [styles.noBodyPadding]: bodyPadding === false },
             modalClassNames,
             { [styles.small]: size === ModalSize.small },
             { [styles.medium]: size === ModalSize.medium },
@@ -60,6 +62,7 @@ export const Modal: FC<ModalProps> = React.forwardRef(
                 actionButtonThreeProps={actionButtonThreeProps}
                 actionsClassNames={actionsClasses}
                 bodyClassNames={bodyClasses}
+                bodyPadding={bodyPadding}
                 closeButtonProps={closeButtonProps}
                 closeIcon={closeIcon}
                 dialogClassNames={modalClasses}

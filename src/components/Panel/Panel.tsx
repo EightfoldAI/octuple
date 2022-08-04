@@ -30,6 +30,7 @@ export const Panel = React.forwardRef<PanelRef, PanelProps>(
             actionButtonThreeProps,
             autoFocus = true,
             bodyClassNames,
+            bodyPadding = true,
             children,
             closable = true,
             closeButtonProps,
@@ -44,7 +45,7 @@ export const Panel = React.forwardRef<PanelRef, PanelProps>(
             maskClosable = true,
             onClose = () => {},
             onVisibleChange,
-            overlay,
+            overlay = true,
             zIndex,
             panelClassNames,
             panelStyle,
@@ -70,10 +71,12 @@ export const Panel = React.forwardRef<PanelRef, PanelProps>(
             panelWrapperClassNames,
             { [styles.visible]: visible },
             { [styles.modeless]: overlay === false },
+            { [styles.modelessMask]: overlay === false && maskClosable },
         ]);
 
         const panelClasses: string = mergeClasses([
             styles.panel,
+            { [styles.noBodyPadding]: bodyPadding === false },
             panelClassNames,
             { [styles.right]: placement === 'right' },
             { [styles.left]: placement === 'left' },
@@ -114,14 +117,17 @@ export const Panel = React.forwardRef<PanelRef, PanelProps>(
 
         const getHeader = (): JSX.Element => (
             <div className={headerClasses}>
-                {headerButtonProps && (
-                    <NeutralButton
-                        ariaLabel={'Back'}
-                        iconProps={{ path: headerIcon }}
-                        {...headerButtonProps}
-                    />
-                )}
-                <div>{title}</div>
+                <div>
+                    {headerButtonProps && (
+                        <NeutralButton
+                            ariaLabel={'Back'}
+                            classNames={styles.headerButton}
+                            iconProps={{ path: headerIcon }}
+                            {...headerButtonProps}
+                        />
+                    )}
+                    {title}
+                </div>
                 <span className={styles.headerButtons}>
                     {actionButtonThreeProps && (
                         <NeutralButton {...actionButtonThreeProps} />
@@ -206,7 +212,7 @@ export const Panel = React.forwardRef<PanelRef, PanelProps>(
                     ref={containerRef}
                     className={panelBackdropClasses}
                     onClick={(e: React.MouseEvent<HTMLDivElement>) => {
-                        !overlay || (maskClosable && onClose(e));
+                        maskClosable && onClose(e);
                     }}
                     aria-hidden={!visible}
                 >

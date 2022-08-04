@@ -45,6 +45,11 @@ export interface PanelProps extends Omit<OcBaseProps<HTMLElement>, 'title'> {
      */
     bodyClassNames?: string;
     /**
+     * Enables body padding
+     * @default true
+     */
+    bodyPadding?: boolean;
+    /**
      * Content of the body
      */
     children?: React.ReactNode;

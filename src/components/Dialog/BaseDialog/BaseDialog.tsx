@@ -22,6 +22,7 @@ export const BaseDialog: FC<BaseDialogProps> = React.forwardRef(
             actionsClassNames,
             body,
             bodyClassNames,
+            bodyPadding = true,
             closable = true,
             closeButtonProps,
             closeIcon = IconName.mdiClose,
@@ -55,16 +56,23 @@ export const BaseDialog: FC<BaseDialogProps> = React.forwardRef(
             dialogWrapperClassNames,
             { [styles.visible]: visible },
             { [styles.modeless]: overlay === false },
+            { [styles.modelessMask]: overlay === false && maskClosable },
         ]);
 
         const dialogClasses: string = mergeClasses([
             styles.dialog,
+            { [styles.noBodyPadding]: bodyPadding === false },
             dialogClassNames,
         ]);
 
         const headerClasses: string = mergeClasses([
             styles.header,
             headerClassNames,
+        ]);
+
+        const actionsClasses: string = mergeClasses([
+            styles.footer,
+            actionsClassNames,
         ]);
 
         const dialogBackdropStyle: React.CSSProperties = {
@@ -92,7 +100,7 @@ export const BaseDialog: FC<BaseDialogProps> = React.forwardRef(
                 style={dialogBackdropStyle}
                 className={dialogBackdropClasses}
                 onClick={(e: React.MouseEvent<HTMLDivElement>) => {
-                    !overlay || (maskClosable && onClose?.(e));
+                    maskClosable && onClose?.(e);
                 }}
             >
                 <div
@@ -101,14 +109,17 @@ export const BaseDialog: FC<BaseDialogProps> = React.forwardRef(
                     onClick={stopPropagation}
                 >
                     <div className={headerClasses}>
-                        {headerButtonProps && (
-                            <NeutralButton
-                                ariaLabel={'Back'}
-                                iconProps={{ path: headerIcon }}
-                                {...headerButtonProps}
-                            />
-                        )}
-                        <span id={labelId}>{header}</span>
+                        <span id={labelId}>
+                            {headerButtonProps && (
+                                <NeutralButton
+                                    ariaLabel={'Back'}
+                                    classNames={styles.headerButton}
+                                    iconProps={{ path: headerIcon }}
+                                    {...headerButtonProps}
+                                />
+                            )}
+                            {header}
+                        </span>
                         <span className={styles.headerButtons}>
                             {actionButtonThreeProps && (
                                 <NeutralButton {...actionButtonThreeProps} />
@@ -130,9 +141,7 @@ export const BaseDialog: FC<BaseDialogProps> = React.forwardRef(
                         </span>
                     </div>
                     <div className={bodyClassNames}>{body}</div>
-                    {actions && (
-                        <div className={actionsClassNames}>{actions}</div>
-                    )}
+                    {actions && <div className={actionsClasses}>{actions}</div>}
                 </div>
             </div>
         );

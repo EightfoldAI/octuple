@@ -14,6 +14,7 @@ export const Dialog: FC<DialogProps> = React.forwardRef(
             actionButtonThreeProps,
             actionsClassNames,
             bodyClassNames,
+            bodyPadding = true,
             cancelButtonProps,
             closeButtonProps,
             closeIcon,
@@ -35,6 +36,7 @@ export const Dialog: FC<DialogProps> = React.forwardRef(
     ) => {
         const dialogClasses: string = mergeClasses([
             styles.dialog,
+            { [styles.noBodyPadding]: bodyPadding === false },
             dialogClassNames,
             { [styles.small]: size === DialogSize.small },
             { [styles.medium]: size === DialogSize.medium },
@@ -48,7 +50,7 @@ export const Dialog: FC<DialogProps> = React.forwardRef(
         const bodyClasses: string = mergeClasses([styles.body, bodyClassNames]);
 
         const actionClasses: string = mergeClasses([
-            styles.actions,
+            styles.footer,
             actionsClassNames,
         ]);
 
@@ -74,6 +76,7 @@ export const Dialog: FC<DialogProps> = React.forwardRef(
                 }
                 actionsClassNames={actionClasses}
                 bodyClassNames={bodyClasses}
+                bodyPadding={bodyPadding}
                 closeButtonProps={closeButtonProps}
                 closeIcon={closeIcon}
                 dialogClassNames={dialogClasses}

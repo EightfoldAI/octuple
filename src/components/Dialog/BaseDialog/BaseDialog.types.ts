@@ -42,6 +42,11 @@ export interface BaseDialogProps
      */
     bodyClassNames?: string;
     /**
+     * Enables body padding
+     * @default true
+     */
+    bodyPadding?: boolean;
+    /**
      * Show close button on top right
      * @default true
      */
