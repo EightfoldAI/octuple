@@ -18,26 +18,30 @@ export const BaseDialog: FC<BaseDialogProps> = React.forwardRef(
             actionButtonOneProps,
             actionButtonTwoProps,
             actionButtonThreeProps,
-            closeButtonProps,
-            closeIcon = IconName.mdiClose,
-            parent = document.body,
-            visible,
-            onClose,
-            maskClosable = true,
-            onVisibleChange,
-            height,
-            width,
-            zIndex,
-            header,
-            headerClassNames,
-            body,
-            bodyClassNames,
             actions,
             actionsClassNames,
-            dialogWrapperClassNames,
+            body,
+            bodyClassNames,
+            closable = true,
+            closeButtonProps,
+            closeIcon = IconName.mdiClose,
             dialogClassNames,
+            dialogWrapperClassNames,
+            header,
+            headerButtonProps,
+            headerClassNames,
+            headerIcon = IconName.mdiArrowLeftThick,
+            height,
+            maskClosable = true,
+            onClose,
+            onVisibleChange,
+            overlay = true,
+            parent = document.body,
             positionStrategy = 'fixed',
             style,
+            visible,
+            width,
+            zIndex,
             ...rest
         },
         ref: Ref<HTMLDivElement>
@@ -50,6 +54,7 @@ export const BaseDialog: FC<BaseDialogProps> = React.forwardRef(
             styles.dialogBackdrop,
             dialogWrapperClassNames,
             { [styles.visible]: visible },
+            { [styles.modeless]: overlay === false },
         ]);
 
         const dialogClasses: string = mergeClasses([
@@ -87,7 +92,7 @@ export const BaseDialog: FC<BaseDialogProps> = React.forwardRef(
                 style={dialogBackdropStyle}
                 className={dialogBackdropClasses}
                 onClick={(e: React.MouseEvent<HTMLDivElement>) => {
-                    maskClosable && onClose?.(e);
+                    !overlay || (maskClosable && onClose?.(e));
                 }}
             >
                 <div
@@ -96,6 +101,13 @@ export const BaseDialog: FC<BaseDialogProps> = React.forwardRef(
                     onClick={stopPropagation}
                 >
                     <div className={headerClasses}>
+                        {headerButtonProps && (
+                            <NeutralButton
+                                ariaLabel={'Back'}
+                                iconProps={{ path: headerIcon }}
+                                {...headerButtonProps}
+                            />
+                        )}
                         <span id={labelId}>{header}</span>
                         <span className={styles.headerButtons}>
                             {actionButtonThreeProps && (
@@ -107,12 +119,14 @@ export const BaseDialog: FC<BaseDialogProps> = React.forwardRef(
                             {actionButtonOneProps && (
                                 <NeutralButton {...actionButtonOneProps} />
                             )}
-                            <NeutralButton
-                                ariaLabel={'Close'}
-                                iconProps={{ path: closeIcon }}
-                                onClick={onClose}
-                                {...closeButtonProps}
-                            />
+                            {closable && (
+                                <NeutralButton
+                                    ariaLabel={'Close'}
+                                    iconProps={{ path: closeIcon }}
+                                    onClick={onClose}
+                                    {...closeButtonProps}
+                                />
+                            )}
                         </span>
                     </div>
                     <div className={bodyClassNames}>{body}</div>

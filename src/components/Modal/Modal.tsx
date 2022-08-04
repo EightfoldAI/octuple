@@ -11,14 +11,19 @@ export const Modal: FC<ModalProps> = React.forwardRef(
             actionButtonOneProps,
             actionButtonTwoProps,
             actionButtonThreeProps,
+            actionsClassNames,
+            bodyClassNames,
             closeButtonProps,
             closeIcon,
-            size = ModalSize.medium,
+            headerButtonProps,
             headerClassNames,
-            bodyClassNames,
-            actionsClassNames,
+            headerIcon,
+            height,
             modalClassNames,
             modalWrapperClassNames,
+            overlay,
+            size = ModalSize.medium,
+            width,
             ...rest
         },
         ref: Ref<HTMLDivElement>
@@ -53,13 +58,18 @@ export const Modal: FC<ModalProps> = React.forwardRef(
                 actionButtonOneProps={actionButtonOneProps}
                 actionButtonTwoProps={actionButtonTwoProps}
                 actionButtonThreeProps={actionButtonThreeProps}
+                actionsClassNames={actionsClasses}
+                bodyClassNames={bodyClasses}
                 closeButtonProps={closeButtonProps}
                 closeIcon={closeIcon}
-                dialogWrapperClassNames={modalWrapperClassNames}
                 dialogClassNames={modalClasses}
+                dialogWrapperClassNames={modalWrapperClassNames}
+                headerButtonProps={headerButtonProps}
                 headerClassNames={headerClasses}
-                bodyClassNames={bodyClasses}
-                actionsClassNames={actionsClasses}
+                headerIcon={headerIcon}
+                height={height}
+                overlay={overlay}
+                width={width}
             />
         );
     }

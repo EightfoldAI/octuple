@@ -11,21 +11,21 @@ export enum DialogSize {
 
 export interface DialogProps extends BaseDialogProps {
     /**
-     * Props for the ok button
-     */
-    okButtonProps?: DialogButtonProps;
-    /**
      * Props for the cancel button
      */
     cancelButtonProps?: DialogButtonProps;
     /**
-     * Callback when ok button is clicked
+     * Props for the ok button
      */
-    onOk?: React.MouseEventHandler<HTMLButtonElement>;
+    okButtonProps?: DialogButtonProps;
     /**
      * Callback when cancel button is clicked
      */
     onCancel?: React.MouseEventHandler<HTMLButtonElement>;
+    /**
+     * Callback when ok button is clicked
+     */
+    onOk?: React.MouseEventHandler<HTMLButtonElement>;
     /**
      * Size of the dialog
      * @default medium

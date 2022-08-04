@@ -1,5 +1,11 @@
 .panel-backdrop {
-    @include backdrop;
+    &:not(.modeless) {
+        @include backdrop;
+    }
+
+    &.modeless {
+        @include no-backdrop;
+    }
 
     .panel {
         display: flex;
@@ -100,5 +106,13 @@
         visibility: visible;
         opacity: 1;
         pointer-events: auto;
+
+        &.modeless {
+            pointer-events: none;
+
+            .panel {
+                pointer-events: all;
+            }
+        }
     }
 }

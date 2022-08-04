@@ -26,6 +26,27 @@ export interface BaseDialogProps
      */
     actionButtonThreeProps?: ButtonProps;
     /**
+     * The actions of the dialog
+     */
+    actions?: React.ReactNode;
+    /**
+     * Custom classes for the actions wrapper
+     */
+    actionsClassNames?: string;
+    /**
+     * The body of the dialog
+     */
+    body?: React.ReactNode;
+    /**
+     * Custom classes for the body
+     */
+    bodyClassNames?: string;
+    /**
+     * Show close button on top right
+     * @default true
+     */
+    closable?: boolean;
+    /**
      * Close button extra props
      */
     closeButtonProps?: CloseButtonProps;
@@ -34,9 +55,33 @@ export interface BaseDialogProps
      */
     closeIcon?: IconName;
     /**
-     * Dialog is visible or not
+     * Custom classes for the dialog
      */
-    visible?: boolean;
+    dialogClassNames?: string;
+    /**
+     * Custom classes for the dialog wrapper
+     */
+    dialogWrapperClassNames?: string;
+    /**
+     * The header of the dialog
+     */
+    header?: React.ReactNode;
+    /**
+     * Props for the header button
+     */
+    headerButtonProps?: ButtonProps;
+    /**
+     * Custom classes for the header
+     */
+    headerClassNames?: string;
+    /**
+     * Header icon name
+     */
+    headerIcon?: IconName;
+    /**
+     * Custom height of the dialog
+     */
+    height?: number;
     /**
      * Clicking on mask should close modal or not
      * @default true
@@ -53,61 +98,35 @@ export interface BaseDialogProps
      */
     onVisibleChange?: (visible: boolean) => void;
     /**
-     * Custom classes for the dialog wrapper
+     * Whether the dialog should show the overlay
+     * if false: there will be no overlay.
+     * @default true
      */
-    dialogWrapperClassNames?: string;
-    /**
-     * Custom classes for the dialog
-     */
-    dialogClassNames?: string;
-    /**
-     * Custom classes for the header
-     */
-    headerClassNames?: string;
-    /**
-     * Custom classes for the body
-     */
-    bodyClassNames?: string;
-    /**
-     * Custom classes for the actions wrapper
-     */
-    actionsClassNames?: string;
-    /**
-     * The header of the dialog
-     */
-    header?: React.ReactNode;
-    /**
-     * The body of the dialog
-     */
-    body?: React.ReactNode;
-    /**
-     * The actions of the dialog
-     */
-    actions?: React.ReactNode;
-    /**
-     * Custom width of the dialog
-     */
-    width?: number;
-    /**
-     * Custom height of the dialog
-     */
-    height?: number;
-    /**
-     * Custom zIndex for the dialog
-     */
-    zIndex?: number;
-    /**
-     * Positioning strategy for the dialog
-     * @default absolute
-     */
-    positionStrategy?: Strategy;
+    overlay?: boolean;
     /**
      * Element to which to attach the modal to
      * @default HTMLBodyElement
      */
     parent?: HTMLDivElement | HTMLBodyElement;
     /**
+     * Positioning strategy for the dialog
+     * @default absolute
+     */
+    positionStrategy?: Strategy;
+    /**
      * Ref for the dialog element
      */
     ref?: Ref<HTMLDivElement>;
+    /**
+     * Custom width of the dialog
+     */
+    width?: number;
+    /**
+     * Dialog is visible or not
+     */
+    visible?: boolean;
+    /**
+     * Custom zIndex for the dialog
+     */
+    zIndex?: number;
 }

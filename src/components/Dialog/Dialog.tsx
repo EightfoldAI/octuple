@@ -12,18 +12,23 @@ export const Dialog: FC<DialogProps> = React.forwardRef(
             actionButtonOneProps,
             actionButtonTwoProps,
             actionButtonThreeProps,
+            actionsClassNames,
+            bodyClassNames,
+            cancelButtonProps,
             closeButtonProps,
             closeIcon,
-            parent = document.body,
-            size = DialogSize.medium,
-            headerClassNames,
-            bodyClassNames,
-            actionsClassNames,
             dialogClassNames,
+            headerButtonProps,
+            headerClassNames,
+            headerIcon,
+            height,
             okButtonProps,
-            cancelButtonProps,
             onOk,
             onCancel,
+            overlay,
+            parent = document.body,
+            size = DialogSize.medium,
+            width,
             ...rest
         },
         ref: Ref<HTMLDivElement>
@@ -54,12 +59,6 @@ export const Dialog: FC<DialogProps> = React.forwardRef(
                 actionButtonOneProps={actionButtonOneProps}
                 actionButtonTwoProps={actionButtonTwoProps}
                 actionButtonThreeProps={actionButtonThreeProps}
-                closeButtonProps={closeButtonProps}
-                closeIcon={closeIcon}
-                dialogClassNames={dialogClasses}
-                headerClassNames={headerClasses}
-                bodyClassNames={bodyClasses}
-                actionsClassNames={actionClasses}
                 actions={
                     <>
                         {cancelButtonProps && (
@@ -73,6 +72,17 @@ export const Dialog: FC<DialogProps> = React.forwardRef(
                         )}
                     </>
                 }
+                actionsClassNames={actionClasses}
+                bodyClassNames={bodyClasses}
+                closeButtonProps={closeButtonProps}
+                closeIcon={closeIcon}
+                dialogClassNames={dialogClasses}
+                headerButtonProps={headerButtonProps}
+                headerClassNames={headerClasses}
+                headerIcon={headerIcon}
+                height={height}
+                overlay={overlay}
+                width={width}
             />
         );
     }
