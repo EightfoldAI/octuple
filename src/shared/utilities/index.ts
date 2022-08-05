@@ -10,6 +10,7 @@ export * from './findDOMNode';
 export * from './generateId';
 export * from './getScroll';
 export * from './getScrollBarSize';
+export * from './isNumeric';
 export * from './isVisible';
 export * from './mergeClasses';
 export * from './motion';

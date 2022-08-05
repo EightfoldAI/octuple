@@ -1,0 +1,30 @@
+.layout {
+    &-dark {
+        background: $layout-body-background-dark;
+
+        .layout-nav {
+            background: $layout-nav-background-dark;
+            color: $layout-nav-color-dark;
+        }
+
+        .layout-header {
+            background: $layout-header-background-dark;
+            color: $layout-header-color-dark;
+        }
+
+        .layout-content {
+            background: $layout-content-background-dark;
+            color: $layout-content-color-dark;
+        }
+
+        .layout-aside {
+            background: $layout-aside-background-dark;
+            color: $layout-aside-color-dark;
+        }
+
+        .layout-footer {
+            background: $layout-footer-background-dark;
+            color: $layout-footer-color-dark;
+        }
+    }
+}

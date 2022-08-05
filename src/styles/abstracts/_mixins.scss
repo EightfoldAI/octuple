@@ -288,3 +288,250 @@
     text-overflow: ellipsis;
     white-space: nowrap;
 }
+
+@mixin content-padding($line-height) {
+    padding: calc(#{$line-height} * 0.25) 0;
+
+    // Resets defaults
+    margin-block-end: 0;
+    margin-block-start: 0;
+    margin-inline-end: 0;
+    margin-inline-start: 0;
+}
+
+@mixin content-margin($line-height) {
+    margin: calc(#{$line-height} * 0.25) 0;
+}
+
+/** A set of opinionated styles to be used privately by Octuple components */
+@mixin octuple-chrome {
+    @include button-wrapped-reset();
+    @include input-reset();
+    @include select-reset();
+    @include selector-reset();
+    @include textarea-reset();
+
+    .oc-content {
+        padding: 0 1.6rem;
+    }
+
+    .oc-display {
+        font-style: normal;
+        font-weight: $text-font-weight-light;
+        font-size: $text-font-size-11;
+        line-height: $text-line-height-10;
+        letter-spacing: $text-letter-spacing-l;
+        @include content-padding($text-line-height-10);
+
+        &__large {
+            font-size: $text-font-size-12;
+            line-height: $text-line-height-11;
+            letter-spacing: $text-letter-spacing-l;
+            @include content-padding($text-line-height-11);
+        }
+
+        &__medium {
+            font-size: $text-font-size-11;
+            line-height: $text-line-height-10;
+            letter-spacing: $text-letter-spacing-l;
+            @include content-padding($text-line-height-10);
+        }
+
+        &__small {
+            font-size: $text-font-size-10;
+            line-height: $text-line-height-9;
+            letter-spacing: $text-letter-spacing-m;
+            @include content-padding($text-line-height-9);
+        }
+
+        &__extra-small {
+            font-size: $text-font-size-9;
+            line-height: $text-line-height-8;
+            letter-spacing: $text-letter-spacing-m;
+            @include content-padding($text-line-height-8);
+        }
+    }
+
+    h1,
+    .oc-h1 {
+        font-weight: $text-font-weight-semibold;
+        font-size: $text-font-size-8;
+        line-height: $text-line-height-7;
+        letter-spacing: $text-letter-spacing-m;
+        @include content-padding($text-line-height-7);
+    }
+
+    h2,
+    .oc-h2 {
+        font-weight: $text-font-weight-semibold;
+        font-size: $text-font-size-7;
+        line-height: $text-line-height-6;
+        letter-spacing: $text-letter-spacing-xs;
+        @include content-padding($text-line-height-6);
+    }
+
+    h3,
+    .oc-h3 {
+        font-weight: $text-font-weight-semibold;
+        font-size: $text-font-size-6;
+        line-height: $text-line-height-5;
+        @include content-padding($text-line-height-5);
+    }
+
+    h4,
+    .oc-h4 {
+        font-weight: $text-font-weight-semibold;
+        font-size: $text-font-size-5;
+        line-height: $text-line-height-3;
+        @include content-padding($text-line-height-3);
+    }
+
+    h5,
+    .oc-h5 {
+        font-weight: $text-font-weight-semibold;
+        font-size: $text-font-size-3;
+        line-height: $text-line-height-2;
+        @include content-padding($text-line-height-2);
+    }
+
+    h6,
+    .oc-h6 {
+        font-weight: $text-font-weight-semibold;
+        font-size: $text-font-size-2;
+        line-height: $text-line-height-2;
+        @include content-padding($text-line-height-2);
+    }
+
+    hr,
+    .oc-hr {
+        background-color: $divider-line-color;
+        width: 100%;
+    }
+
+    .oc-subtitle {
+        font-weight: $text-font-weight-semibold;
+        font-size: $text-font-size-6;
+        line-height: $text-line-height-5;
+        letter-spacing: $text-letter-spacing-xs;
+        @include content-padding($text-line-height-5);
+
+        &__large {
+            font-weight: $text-font-weight-light;
+            font-size: $text-font-size-7;
+            line-height: $text-line-height-6;
+            letter-spacing: $text-letter-spacing-s;
+            @include content-padding($text-line-height-6);
+        }
+
+        &__medium {
+            font-weight: $text-font-weight-semibold;
+            font-size: $text-font-size-6;
+            line-height: $text-line-height-5;
+            letter-spacing: $text-letter-spacing-xs;
+            @include content-padding($text-line-height-5);
+        }
+    }
+
+    .oc-pre-display {
+        font-weight: $text-font-weight-semibold;
+        font-size: $text-font-size-5;
+        line-height: $text-line-height-4;
+        text-transform: uppercase;
+        @include content-padding($text-line-height-4);
+    }
+
+    body,
+    p,
+    .oc-content {
+        font-weight: $text-font-weight-regular;
+        font-size: $text-font-size-3;
+        line-height: $text-line-height-3;
+        @include content-padding($text-line-height-3);
+
+        &.semibold {
+            font-weight: $text-font-weight-semibold;
+        }
+
+        a,
+        .oc-link {
+            &__primary {
+                color: var(--primary-color);
+            }
+        }
+
+        &__large {
+            font-size: $text-font-size-4;
+            line-height: $text-line-height-3;
+            @include content-padding($text-line-height-3);
+        }
+
+        &__medium {
+            font-size: $text-font-size-3;
+            line-height: $text-line-height-3;
+            @include content-padding($text-line-height-3);
+        }
+
+        &__small {
+            font-size: $text-font-size-2;
+            line-height: $text-line-height-2;
+            @include content-padding($text-line-height-2);
+        }
+    }
+
+    label,
+    .oc-label {
+        font-weight: $text-font-weight-semibold;
+    }
+
+    caption,
+    .oc-caption {
+        font-weight: $text-font-weight-regular;
+        font-size: $text-font-size-1;
+        line-height: $text-line-height-1;
+        @include content-padding($text-line-height-1);
+    }
+
+    i,
+    .oc-icon {
+        font-family: Material Design Icons;
+        font-size: $icon-font-size-material-m;
+
+        &__large {
+            font-size: $icon-font-size-material-l;
+        }
+
+        &__medium {
+            font-size: $icon-font-size-material-m;
+        }
+
+        &__small {
+            font-size: $icon-font-size-material-s;
+        }
+
+        &__extra-small {
+            font-size: $icon-font-size-material-xs;
+        }
+    }
+
+    /* BEGIN Responsive Styles */
+
+    @media (min-width: 600px) {
+        .oc-content {
+            padding: 0 2.4rem;
+        }
+    }
+
+    @media (min-width: 900px) {
+        .oc-content {
+            padding: 0 2.4rem;
+        }
+    }
+
+    @media (min-width: 1200px) {
+        .oc-content {
+            padding: 0 4rem;
+        }
+    }
+
+    /* END Responsive Styles */
+}

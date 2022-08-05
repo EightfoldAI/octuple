@@ -320,6 +320,28 @@ $medium-screen-size: 900px;
 $small-screen-size: 600px;
 $xsmall-screen-size: 0;
 
+// Layout
+
+$layout-body-background: var(--background-color);
+$layout-header-background: var(--background-color);
+$layout-header-color: var(--text-primary-color);
+$layout-nav-background: var(--background-color);
+$layout-nav-color: var(--text-primary-color);
+$layout-content-background: var(--background-color);
+$layout-content-color: var(--text-primary-color);
+$layout-footer-background: var(--background-color);
+$layout-footer-color: var(--text-primary-color);
+$layout-aside-background: var(--background-color);
+$layout-aside-color: var(--text-primary-color);
+$layout-trigger-background: var(--primary-color);
+$layout-trigger-color: var(--white-color);
+
+$layout-header-height: 80px;
+$layout-nav-height: 60px;
+$layout-trigger-height: 48px;
+$layout-zero-trigger-width: 36px;
+$layout-zero-trigger-height: 42px;
+
 // Table
 $table-background-color: var(--table-background-color);
 $table-foreground-color: var(--table-foreground-color);
