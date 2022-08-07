@@ -1,7 +1,4 @@
 .input-wrapper {
-    @include input-reset();
-    @include textarea-reset();
-
     position: relative;
     width: fit-content;
 
