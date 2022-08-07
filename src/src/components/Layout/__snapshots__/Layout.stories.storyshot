@@ -784,7 +784,7 @@ exports[`Storyshots Layout Fixed Aside 1`] = `
         "minWidth": "200px",
         "overflow": "auto",
         "paddingTop": 60,
-        "position": "fixed",
+        "position": "absolute",
         "top": 0,
         "width": "200px",
       }
@@ -872,7 +872,7 @@ exports[`Storyshots Layout Fixed Navbar 1`] = `
     className="layout-nav"
     style={
       Object {
-        "position": "fixed",
+        "position": "absolute",
         "width": "calc(100% - 32px)",
         "zIndex": 1,
       }
@@ -1300,7 +1300,7 @@ exports[`Storyshots Layout Trigger 1`] = `
     >
       <button
         aria-disabled={false}
-        className="trigger button button-neutral pill-shape icon-left"
+        className="trigger button button-neutral button-large pill-shape icon-left"
         defaultChecked={false}
         disabled={false}
         onClick={[Function]}
@@ -1314,14 +1314,14 @@ exports[`Storyshots Layout Trigger 1`] = `
             role="presentation"
             style={
               Object {
-                "height": "20px",
-                "width": "20px",
+                "height": "24px",
+                "width": "24px",
               }
             }
             viewBox="0 0 24 24"
           >
             <path
-              d="M11.92,19.92L4,12L11.92,4.08L13.33,5.5L7.83,11H22V13H7.83L13.34,18.5L11.92,19.92M4,12V2H2V22H4V12Z"
+              d="M5,13L9,17L7.6,18.42L1.18,12L7.6,5.58L9,7L5,11H21V13H5M21,6V8H11V6H21M21,16V18H11V16H21Z"
               style={
                 Object {
                   "fill": "currentColor",

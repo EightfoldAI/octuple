@@ -4,7 +4,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import Layout from './';
 import { Navbar, NavbarContent } from '../Navbar';
 import { Icon, IconName } from '../Icon';
-import { NeutralButton } from '../Button';
+import { ButtonSize, NeutralButton } from '../Button';
 import { Link } from '../Link';
 import { Dropdown } from '../Dropdown';
 import { Avatar } from '../Avatar';
@@ -249,7 +249,11 @@ export const Basic = Basic_Story.bind({});
 const Fixed_Navbar_Story: ComponentStory<typeof Layout> = (args) => (
     <Layout {...args} style={{ height: '294px' }}>
         <Nav
-            style={{ position: 'fixed', width: 'calc(100% - 32px)', zIndex: 1 }}
+            style={{
+                position: 'absolute',
+                width: 'calc(100% - 32px)',
+                zIndex: 1,
+            }} // Update position selector value to 'fixed', will break docs view in Storybook, so use 'absolute'.
         >
             {getNavBar()}
         </Nav>
@@ -301,7 +305,7 @@ const Fixed_Aside_Story: ComponentStory<typeof Layout> = (args) => (
             style={{
                 border: '1px solid #f6f7f8',
                 overflow: 'auto',
-                position: 'fixed',
+                position: 'absolute', // Update position selector value to 'fixed', will break docs view in Storybook, so use 'absolute'.
                 left: 0,
                 top: 0,
                 bottom: 0,
@@ -596,9 +600,11 @@ const Trigger_Story: ComponentStory<typeof Layout> = (args) => {
                         classNames={'trigger'}
                         iconProps={{
                             path: collapsed
-                                ? IconName.mdiArrowCollapseRight
-                                : IconName.mdiArrowCollapseLeft,
+                                ? IconName.mdiBackBurger
+                                : IconName.mdiBackBurger,
+                            rotate: collapsed ? 180 : 0,
                         }}
+                        size={ButtonSize.Large}
                         onClick={() => setCollapsed(!collapsed)}
                     />
                 </Header>

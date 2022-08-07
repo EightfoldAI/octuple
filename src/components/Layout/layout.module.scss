@@ -115,15 +115,13 @@
         }
 
         &-trigger {
-            position: fixed;
-            bottom: 0;
-            z-index: 1;
             height: $layout-trigger-height;
             color: $layout-trigger-color;
             line-height: $layout-trigger-height;
             text-align: center;
             background: $layout-trigger-background;
             cursor: pointer;
+            padding: $space-s;
             transition: all 0.2s;
         }
 
@@ -143,9 +141,10 @@
                 font-size: ($layout-zero-trigger-width / 2);
                 line-height: $layout-zero-trigger-height;
                 text-align: center;
-                background: $layout-aside-background;
+                background: var(--primary-color);
                 border-radius: 0 $corner-radius-xs $corner-radius-xs 0;
                 cursor: pointer;
+                padding: $space-xxs;
                 transition: background 0.3s ease;
 
                 &:after {

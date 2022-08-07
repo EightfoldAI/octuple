@@ -140,6 +140,32 @@ export const Aside = React.forwardRef<HTMLDivElement, AsideProps>(
             const asideWidth = isNumeric(rawWidth)
                 ? `${rawWidth}px`
                 : String(rawWidth);
+            const menuIcon = {
+                expanded: reverseArrow ? (
+                    <Icon
+                        path={IconName.mdiBackBurger}
+                        size={IconSize.Large}
+                        rotate={180}
+                    />
+                ) : (
+                    <Icon path={IconName.mdiBackBurger} size={IconSize.Large} />
+                ),
+                collapsed: reverseArrow ? (
+                    <Icon
+                        path={IconName.mdiBackBurger}
+                        size={IconSize.Large}
+                        rotate={180}
+                    />
+                ) : (
+                    <Icon
+                        path={IconName.mdiBackBurger}
+                        size={IconSize.Large}
+                        rotate={180}
+                    />
+                ),
+            };
+            const status = collapsed ? 'collapsed' : 'expanded';
+            const defaultTrigger = menuIcon[status];
             const zeroWidthTrigger =
                 parseFloat(String(collapsedWidth || 0)) === 0 ? (
                     <span
@@ -157,43 +183,10 @@ export const Aside = React.forwardRef<HTMLDivElement, AsideProps>(
                         ])}
                         style={zeroWidthTriggerStyle}
                     >
-                        {trigger || (
-                            <Icon
-                                path={IconName.mdiMenu}
-                                size={IconSize.Medium}
-                            />
-                        )}
+                        {defaultTrigger}
                     </span>
                 ) : null;
-            const menuIcon = {
-                expanded: reverseArrow ? (
-                    <Icon
-                        path={IconName.mdiBackBurger}
-                        size={IconSize.Medium}
-                        rotate={180}
-                    />
-                ) : (
-                    <Icon
-                        path={IconName.mdiBackBurger}
-                        size={IconSize.Medium}
-                    />
-                ),
-                collapsed: reverseArrow ? (
-                    <Icon
-                        path={IconName.mdiBackBurger}
-                        size={IconSize.Medium}
-                        rotate={180}
-                    />
-                ) : (
-                    <Icon
-                        path={IconName.mdiBackBurger}
-                        size={IconSize.Medium}
-                        rotate={180}
-                    />
-                ),
-            };
-            const status = collapsed ? 'collapsed' : 'expanded';
-            const defaultTrigger = menuIcon[status];
+
             const triggerDom =
                 trigger !== null
                     ? zeroWidthTrigger || (
@@ -202,7 +195,7 @@ export const Aside = React.forwardRef<HTMLDivElement, AsideProps>(
                               onClick={toggle}
                               style={{ width: asideWidth }}
                           >
-                              {trigger || defaultTrigger}
+                              {defaultTrigger}
                           </div>
                       )
                     : null;
@@ -232,10 +225,10 @@ export const Aside = React.forwardRef<HTMLDivElement, AsideProps>(
                     style={divStyle}
                     ref={ref}
                 >
-                    <div className={styles.layoutAsideChildren}>{children}</div>
                     {collapsible || (below && zeroWidthTrigger)
                         ? triggerDom
                         : null}
+                    <div className={styles.layoutAsideChildren}>{children}</div>
                 </aside>
             );
         };
