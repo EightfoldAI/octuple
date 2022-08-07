@@ -1,6 +1,4 @@
 .selector {
-    @include selector-reset();
-
     display: flex;
     position: relative;
     width: fit-content;
