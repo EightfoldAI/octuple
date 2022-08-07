@@ -11,6 +11,7 @@ import { Aside } from './Aside';
 export {
     AsideProps,
     BasicProps as LayoutProps,
+    FontFamily,
     LayoutTheme,
 } from './Layout.types';
 

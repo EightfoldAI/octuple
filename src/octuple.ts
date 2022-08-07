@@ -41,9 +41,13 @@ import { Dropdown } from './components/Dropdown';
 
 import { Empty, EmptyMode } from './components/Empty';
 
+import Grid, { Col, Row } from './components/Grid';
+
 import { Icon, IconName, IconSize } from './components/Icon';
 
 import { Label, LabelSize } from './components/Label';
+
+import Layout, { FontFamily, LayoutTheme } from './components/Layout';
 
 import { Link } from './components/Link';
 
@@ -132,6 +136,7 @@ export {
     ButtonWidth,
     CheckBox,
     CheckBoxGroup,
+    Col,
     ColumnGroupType,
     ColumnType,
     ColumnsType,
@@ -147,6 +152,8 @@ export {
     ExpandableConfig,
     FilterConfirmProps,
     FilterValue,
+    FontFamily,
+    Grid,
     Icon,
     IconName,
     IconSize,
@@ -155,6 +162,8 @@ export {
     Label,
     LabelPosition,
     LabelSize,
+    Layout,
+    LayoutTheme,
     Link,
     List,
     MatchScore,
@@ -183,6 +192,7 @@ export {
     RadioGroup,
     RangePickerProps,
     ResizeObserver,
+    Row,
     Select,
     SelectorSize,
     SearchBox,
