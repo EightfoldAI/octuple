@@ -7,6 +7,7 @@ export * from './debounce';
 export * from './domWrapper';
 export * from './eventKeys';
 export * from './findDOMNode';
+export * from './flexGapSupported';
 export * from './generateId';
 export * from './getScroll';
 export * from './getScrollBarSize';

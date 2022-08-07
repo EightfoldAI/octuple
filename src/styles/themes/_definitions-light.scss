@@ -66,55 +66,6 @@ $divider-line-color: var(--grey-color-40);
 
 // END: VARIABLE COLOR DEFINITIONS
 
-// BEGIN: CONSTANTS
-
-// Typography Definitions
-
-$text-font-size-1: 12px;
-$text-font-size-2: 14px;
-$text-font-size-3: 16px;
-$text-font-size-4: 18px;
-$text-font-size-5: 20px;
-$text-font-size-6: 24px;
-$text-font-size-7: 32px;
-$text-font-size-8: 40px;
-$text-font-size-9: 56px;
-$text-font-size-10: 64px;
-$text-font-size-11: 80px;
-$text-font-size-12: 96px;
-
-$text-line-height-1: 16px;
-$text-line-height-2: 20px;
-$text-line-height-3: 24px;
-$text-line-height-4: 28px;
-$text-line-height-5: 32px;
-$text-line-height-6: 40px;
-$text-line-height-7: 48px;
-$text-line-height-8: 64px;
-$text-line-height-9: 72px;
-$text-line-height-10: 96px;
-$text-line-height-11: 112px;
-$text-line-height-12: 120px;
-
-$text-font-weight-extra-light: 200;
-$text-font-weight-light: 300;
-$text-font-weight-regular: 400;
-$text-font-weight-semibold: 600;
-$text-font-weight-bold: 700;
-$text-font-weight-black: 900;
-
-$text-letter-spacing-xs: -0.16px;
-$text-letter-spacing-s: -0.24px;
-$text-letter-spacing-m: -0.32px;
-$text-letter-spacing-l: -0.48px;
-
-// Icon Definitions
-
-$icon-font-size-material-xs: 14px;
-$icon-font-size-material-s: 16px;
-$icon-font-size-material-m: 20px;
-$icon-font-size-material-l: 24px;
-
 // Gradient Definitions
 
 $eightfold-logo-gradient: linear-gradient(
@@ -141,184 +92,12 @@ $shadow-panel-right: -1px 0px 2px rgba(15, 20, 31, 0.12),
     -8px 0px 32px rgba(15, 20, 31, 0.16);
 $shadow-panel-behind: 0px -4px 16px rgba(0, 0, 0, 0.12);
 
-// Spacing Definitions
-
-$space-xxxs: 2px;
-$space-xxs: 4px;
-$space-xs: 8px;
-$space-s: 12px;
-$space-m: 16px;
-$space-ml: 20px;
-$space-l: 24px;
-$space-xl: 32px;
-$space-xxl: 40px;
-$space-xxxl: 64px;
-
-$button-padding-vertical-large: 10px;
-$button-padding-horizontal-large: 14px;
-$button-spacer-large: 8px;
-
-$button-padding-vertical-medium: 8px;
-$button-padding-horizontal-medium: 12px;
-$button-spacer-medium: 6px;
-
-$button-padding-vertical-small: 6px;
-$button-padding-horizontal-small: 10px;
-$button-spacer-small: 4px;
-
-$selector-outline-offset: 1px;
-$label-no-value-margin-bottom: 15px;
-
-// Corner-radius Definitions
-
-$corner-radius-xs: 2px;
-$corner-radius-s: 4px;
-$corner-radius-m: 8px;
-$corner-radius-l: 16px;
-$corner-radius-xl: 24px;
-
 // Focus visible Definitions
 
 $focus-visible-shadow-color: var(--blueviolet-color-50);
 $focus-visible-shadow-width: 2px;
 $focus-visible-box-shadow: 0 0 0 $focus-visible-shadow-width
     $focus-visible-shadow-color;
-
-// Speed / Duration Definitions
-
-$motion-duration-extra-fast: 200ms; // Smallest UI objects like buttons (hover effect), tooltips, etc.
-$motion-duration-fast: 400ms; // Small UI object like dialogs, notifications, dropdowns, instructional tooltips, etc.
-$motion-duration-normal: 600ms; // UI objects like card, popover, etc.
-$motion-duration-slow: 800ms; // Large UI objects like alert banners, modals, etc
-$motion-duration-extra-slow: 1000ms; // Largest UI objects like slide-in panels, page transitions, etc.
-
-// Easing Definitions
-
-$motion-easing-easeout: cubic-bezier(
-    0,
-    0,
-    0.58,
-    1
-); // EaseOut is used when an element is appearing on-screen or within a component
-$motion-easing-easein: cubic-bezier(
-    0.42,
-    0,
-    1,
-    1
-); // EaseIn is used when an element is removed from the screen or within a component
-$motion-easing-easeinout: cubic-bezier(
-    0.42,
-    0,
-    0.58,
-    1
-); // The primary easing curve. Used for any core animation not entering/exiting the screen or a component
-$motion-ease-in-back: cubic-bezier(0.12, 0.4, 0.29, 1.46);
-$motion-ease-out-back: cubic-bezier(0.71, -0.46, 0.88, 0.6);
-
-// Movement Definitions
-
-$motion-movement-s: 8px; // Used in animations involving parts of a component
-$motion-movement-m: 16px; // Used in animations of smaller components
-$motion-movement-l: 24px; // Used in animations of larger components
-$motion-movement-xl: 32px; // Used in animations involving the largest components
-
-// Delay Definitions
-
-$motion-delay-s: 80ms; // Used in animations within components
-$motion-delay-m: 120ms; // Used in animations of smaller components
-$motion-delay-l: 160ms; // Used in animations of larger components
-$motion-delay-xl: 200ms; // Used in animations involving multiple components
-
-// Disabled Definitions
-
-$disabled-alpha-value: 0.3;
-$disabled-zero: 0;
-
-// Z-index Definitions
-
-$z-index-auto: auto;
-$z-index-top: 99999; //this is a super weapon. use it wisely.
-$z-index-600: 600; //warning and alerts. needs to be on top of all the components
-$z-index-500: 500;
-$z-index-400: 400;
-$z-index-300: 300;
-$z-index-200: 200;
-$z-index-100: 100; //dropdown menu, tooltip, etc
-$z-index-0: 0;
-$z-index-bottom: -100;
-
-$all-backdrops: rgba(0, 0, 0, 0.5);
-
-// Sizing
-
-$checkmark-large-after-width: 8px;
-$checkmark-large-after-height: 14px;
-$checkmark-large-height: 20px;
-$checkmark-large-width: 20px;
-$checkmark-medium-after-width: 6px;
-$checkmark-medium-after-height: 12px;
-$checkmark-medium-height: 16px;
-$checkmark-medium-width: 16px;
-$checkmark-small-after-width: 6px;
-$checkmark-small-after-height: 10px;
-$checkmark-small-height: 14px;
-$checkmark-small-width: 14px;
-$radio-large-height: 20px;
-$radio-large-width: 20px;
-$radio-large-after-width: 6px;
-$radio-large-after-height: 6px;
-$radio-medium-height: 16px;
-$radio-medium-width: 16px;
-$radio-medium-after-width: 4px;
-$radio-medium-after-height: 4px;
-$radio-small-height: 14px;
-$radio-small-width: 14px;
-$radio-small-after-width: 4px;
-$radio-small-after-height: 4px;
-$toggle-large-after-width: 12px;
-$toggle-large-after-height: 12px;
-$toggle-large-height: 20px;
-$toggle-large-width: 40px;
-$toggle-medium-after-width: 8px;
-$toggle-medium-after-height: 8px;
-$toggle-medium-height: 16px;
-$toggle-medium-width: 32px;
-$toggle-small-after-width: 6px;
-$toggle-small-after-height: 6px;
-$toggle-small-height: 12px;
-$toggle-small-width: 24px;
-
-// Positioning
-
-$checkmark-large-after-left: 4px;
-$checkmark-large-after-top: -1px;
-$checkmark-medium-after-left: 3px;
-$checkmark-medium-after-top: -1px;
-$checkmark-small-after-left: 2px;
-$checkmark-small-after-top: -1px;
-$radio-large-after-top: 5px;
-$radio-large-after-left: 5px;
-$radio-medium-after-top: 4px;
-$radio-medium-after-left: 4px;
-$radio-small-after-top: 3px;
-$radio-small-after-left: 3px;
-$toggle-large-after-left: 2px;
-$toggle-large-after-left-checked: 22px;
-$toggle-large-after-top: 2px;
-$toggle-medium-after-left: 2px;
-$toggle-medium-after-left-checked: 18px;
-$toggle-medium-after-top: 2px;
-$toggle-small-after-left: 2px;
-$toggle-small-after-left-checked: 12px;
-$toggle-small-after-top: 1px;
-
-// END: CONSTANTS
-
-// Breakpoints
-$large-screen-size: 1200px;
-$medium-screen-size: 900px;
-$small-screen-size: 600px;
-$xsmall-screen-size: 0;
 
 // Layout
 
@@ -336,13 +115,8 @@ $layout-aside-color: var(--text-primary-color);
 $layout-trigger-background: var(--primary-color);
 $layout-trigger-color: var(--white-color);
 
-$layout-header-height: 80px;
-$layout-nav-height: 60px;
-$layout-trigger-height: 48px;
-$layout-zero-trigger-width: 36px;
-$layout-zero-trigger-height: 42px;
-
 // Table
+
 $table-background-color: var(--table-background-color);
 $table-foreground-color: var(--table-foreground-color);
 $table-background-alternate-color: var(--table-background-alternate-color);
@@ -363,18 +137,9 @@ $table-row-selected-hover-background-color: var(
 $table-row-expanded-background-color: var(
     --table-row-expanded-background-color
 );
-$table-padding-vertical: var(--table-padding-vertical);
-$table-padding-horizontal: var(--table-padding-horizontal);
-$table-padding-vertical-md: var(--table-padding-vertical-md);
-$table-padding-horizontal-md: var(--table-padding-horizontal-md);
-$table-padding-vertical-sm: var(--table-padding-vertical-sm);
-$table-padding-horizontal-sm: var(--table-padding-horizontal-sm);
-$table-cell-padding: $table-padding-vertical $table-padding-horizontal;
-$table-cell-margin: -$table-padding-vertical -$table-padding-horizontal;
 $table-border-color: var(--table-border-color);
 $table-border-active-color: var(--table-border-active-color);
 $table-border-width: var(--table-border-width);
-$table-border-radius: var(--table-border-radius);
 $table-border-style: var(--table-border-style);
 $table-border: $table-border-width $table-border-style $table-border-color;
 $table-box-shadow: var(--table-box-shadow);
@@ -382,14 +147,6 @@ $table-fixed-left-box-shadow: var(--table-fixed-left-box-shadow);
 $table-fixed-right-box-shadow: var(--table-fixed-right-box-shadow);
 $table-footer-background-color: var(--table-footer-background-color);
 $table-footer-foreground-color: var(--table-footer-foreground-color);
-$table-header-font-size: var(--table-header-font-size);
-$table-header-line-height: var(--table-header-line-height);
-$table-footer-font-size: var(--table-footer-font-size);
-$table-footer-line-height: var(--table-footer-line-height);
-$table-font-size: var(--table-font-size);
-$table-font-size-md: var(--table-font-size-md);
-$table-font-size-sm: var(--table-font-size-sm);
-$table-line-height: var(--table-line-height);
 $table-header-cell-split-color: var(--table-header-cell-split-color);
 $table-header-sort-active-background-color: var(
     --table-header-sort-active-background-color
@@ -402,31 +159,25 @@ $table-header-filter-buttons-background-color: var(
     --table-header-filter-buttons-background-color
 );
 $table-expand-icon-background-color: var(--table-expand-icon-background-color);
-$table-selection-column-width: var(--table-selection-column-width);
 $table-sticky-scroll-bar-background-color: transparent; // constant
 $table-sticky-scroll-bar-active-background-color: transparent; // constant
-$table-sticky-scroll-bar-radius: $table-border-radius;
 
 // Tree
+
 $tree-bg: var(--background-color);
 $tree-border-color: var(--grey-color-20);
-$tree-border-radius-base: 8px;
-$tree-title-height: 24px;
-$tree-child-padding: 18px;
 $tree-directory-selected-color: var(--white-color);
 $tree-directory-selected-bg: var(--primary-color);
 $tree-node-hover-bg: var(--grey-color-10);
 $tree-node-selected-bg: var(--primary-color);
 
 // Picker
-$picker-arrow-size: 8px;
 
 $picker-background-color: var(--picker-background-color);
 $picker-foreground-color: var(--picker-foreground-color);
 
 $picker-border-color: var(--picker-border-color);
 $picker-border-color-active: var(--picker-border-color-active);
-$picker-border-radius: $corner-radius-s;
 $picker-border-style: solid;
 $picker-border-width: 1px;
 $picker-border: $picker-border-width $picker-border-style $picker-border-color;
@@ -440,21 +191,11 @@ $picker-cell-background-color-active: var(
 $picker-cell-background-color-hover: var(--picker-cell-background-color-hover);
 $picker-cell-border: $picker-border-width $picker-border-style
     $picker-background-color;
-$picker-cell-border-radius-l: 24px;
-$picker-cell-border-radius-m: 18px;
-$picker-cell-border-radius-s: 14px;
 $picker-cell-foreground-color: var(--picker-cell-foreground-color);
 $picker-cell-foreground-color-active: var(
     --picker-cell-foreground-color-active
 );
 $picker-cell-foreground-color-hover: var(--picker-cell-foreground-color-hover);
-$picker-cell-height-l: 44px;
-$picker-cell-height-m: 36px;
-$picker-cell-height-s: 28px;
-$picker-cell-width-l: 44px;
-$picker-cell-width-m: 36px;
-$picker-cell-width-s: 28px;
-$picker-cell-year-month-width: 56px;
 $picker-column-background-color: var(--bpicker-column-background-color);
 $picker-column-background-color-active: var(
     --picker-column-background-color-active
@@ -469,15 +210,9 @@ $picker-column-foreground-color-active: var(
 $picker-column-foreground-color-hover: var(
     --picker-column-foreground-color-hover
 );
-$picker-font-size-l: $text-font-size-4;
-$picker-font-size-m: $text-font-size-3;
-$picker-font-size-s: $text-font-size-2;
 $picker-header-cell-foreground-color: var(
     --picker-header-cell-foreground-color
 );
-$picker-header-height-l: 44px;
-$picker-header-height-m: 36px;
-$picker-header-height-s: 28px;
 $picker-input-active-bar-color: var(--picker-input-active-bar-color);
 $picker-input-background-color: var(--picker-input-background-color);
 $picker-input-border-color-active: var(--picker-input-border-color-active);
@@ -487,22 +222,5 @@ $picker-input-clear-icon-color-active: var(
     --picker-input-clear-icon-color-active
 );
 $picker-input-foreground-color: var(--picker-input-foreground-color);
-$picker-input-height-m: 36px;
-$picker-input-height-l: 44px;
-$picker-input-height-s: 28px;
-$picker-input-outline-offset: 0 0;
-$picker-input-padding-horizontal-l: $space-s;
-$picker-input-padding-horizontal-m: $space-xs;
-$picker-input-padding-horizontal-s: $space-xs;
 $picker-input-placeholder-color: var(--picker-input-placeholder-color);
-$picker-line-height-l: $text-line-height-5;
-$picker-line-height-m: $text-line-height-4;
-$picker-line-height-s: $text-line-height-3;
-$picker-outline-blur: 0;
-$picker-outline-style: solid;
-$picker-outline-width: 1px;
 $picker-outline-color: var(--picker-outline-color);
-$picker-partial-cell-width: 32px;
-
-// datepicker
-$picker-text-height: 40px;

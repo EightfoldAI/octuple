@@ -1,0 +1,2346 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Grid Alignment 1`] = `
+Array [
+  <div
+    className="row row-center row-top"
+    style={Object {}}
+  >
+    <div
+      className="col col-2"
+      style={
+        Object {
+          "textAlign": "center",
+        }
+      }
+    >
+      <p
+        style={
+          Object {
+            "background": "var(--primary-color-40)",
+            "border": "2px solid var(--primary-color-70)",
+            "height": "100px",
+          }
+        }
+      >
+        col-2
+      </p>
+    </div>
+    <div
+      className="col col-2"
+      style={
+        Object {
+          "textAlign": "center",
+        }
+      }
+    >
+      <p
+        style={
+          Object {
+            "background": "var(--primary-color-40)",
+            "border": "2px solid var(--primary-color-70)",
+            "height": "50px",
+          }
+        }
+      >
+        col-2
+      </p>
+    </div>
+    <div
+      className="col col-2"
+      style={
+        Object {
+          "textAlign": "center",
+        }
+      }
+    >
+      <p
+        style={
+          Object {
+            "background": "var(--primary-color-40)",
+            "border": "2px solid var(--primary-color-70)",
+            "height": "120px",
+          }
+        }
+      >
+        col-2
+      </p>
+    </div>
+    <div
+      className="col col-2"
+      style={
+        Object {
+          "textAlign": "center",
+        }
+      }
+    >
+      <p
+        style={
+          Object {
+            "background": "var(--primary-color-40)",
+            "border": "2px solid var(--primary-color-70)",
+            "height": "80px",
+          }
+        }
+      >
+        col-2
+      </p>
+    </div>
+  </div>,
+  <div
+    className="row row-space-around row-middle"
+    style={Object {}}
+  >
+    <div
+      className="col col-2"
+      style={
+        Object {
+          "textAlign": "center",
+        }
+      }
+    >
+      <p
+        style={
+          Object {
+            "background": "var(--primary-color-40)",
+            "border": "2px solid var(--primary-color-70)",
+            "height": "100px",
+          }
+        }
+      >
+        col-2
+      </p>
+    </div>
+    <div
+      className="col col-2"
+      style={
+        Object {
+          "textAlign": "center",
+        }
+      }
+    >
+      <p
+        style={
+          Object {
+            "background": "var(--primary-color-40)",
+            "border": "2px solid var(--primary-color-70)",
+            "height": "50px",
+          }
+        }
+      >
+        col-2
+      </p>
+    </div>
+    <div
+      className="col col-2"
+      style={
+        Object {
+          "textAlign": "center",
+        }
+      }
+    >
+      <p
+        style={
+          Object {
+            "background": "var(--primary-color-40)",
+            "border": "2px solid var(--primary-color-70)",
+            "height": "120px",
+          }
+        }
+      >
+        col-2
+      </p>
+    </div>
+    <div
+      className="col col-2"
+      style={
+        Object {
+          "textAlign": "center",
+        }
+      }
+    >
+      <p
+        style={
+          Object {
+            "background": "var(--primary-color-40)",
+            "border": "2px solid var(--primary-color-70)",
+            "height": "80px",
+          }
+        }
+      >
+        col-2
+      </p>
+    </div>
+  </div>,
+  <div
+    className="row row-space-between row-bottom"
+    style={Object {}}
+  >
+    <div
+      className="col col-2"
+      style={
+        Object {
+          "textAlign": "center",
+        }
+      }
+    >
+      <p
+        style={
+          Object {
+            "background": "var(--primary-color-40)",
+            "border": "2px solid var(--primary-color-70)",
+            "height": "100px",
+          }
+        }
+      >
+        col-2
+      </p>
+    </div>
+    <div
+      className="col col-2"
+      style={
+        Object {
+          "textAlign": "center",
+        }
+      }
+    >
+      <p
+        style={
+          Object {
+            "background": "var(--primary-color-40)",
+            "border": "2px solid var(--primary-color-70)",
+            "height": "50px",
+          }
+        }
+      >
+        col-2
+      </p>
+    </div>
+    <div
+      className="col col-2"
+      style={
+        Object {
+          "textAlign": "center",
+        }
+      }
+    >
+      <p
+        style={
+          Object {
+            "background": "var(--primary-color-40)",
+            "border": "2px solid var(--primary-color-70)",
+            "height": "120px",
+          }
+        }
+      >
+        col-2
+      </p>
+    </div>
+    <div
+      className="col col-2"
+      style={
+        Object {
+          "textAlign": "center",
+        }
+      }
+    >
+      <p
+        style={
+          Object {
+            "background": "var(--primary-color-40)",
+            "border": "2px solid var(--primary-color-70)",
+            "height": "80px",
+          }
+        }
+      >
+        col-2
+      </p>
+    </div>
+  </div>,
+]
+`;
+
+exports[`Storyshots Grid Basic 1`] = `
+<div
+  style={
+    Object {
+      "border": "1px solid var(--primary-color-70)",
+    }
+  }
+>
+  <div
+    className="row"
+    style={Object {}}
+  >
+    <div
+      className="col col-6 col-push-6"
+      style={
+        Object {
+          "background": "var(--primary-color-40)",
+          "border": "1px solid var(--primary-color-70)",
+          "padding": "16px 0",
+          "textAlign": "center",
+        }
+      }
+    >
+      col-6 1
+    </div>
+    <div
+      className="col col-6 col-pull-6"
+      style={
+        Object {
+          "background": "var(--primary-color-40)",
+          "border": "1px solid var(--primary-color-70)",
+          "padding": "16px 0",
+          "textAlign": "center",
+        }
+      }
+    >
+      col-6 2
+    </div>
+  </div>
+  <div
+    className="row"
+    style={Object {}}
+  >
+    <div
+      className="col col-4"
+      style={
+        Object {
+          "background": "var(--primary-color-40)",
+          "border": "1px solid var(--primary-color-70)",
+          "padding": "16px 0",
+          "textAlign": "center",
+        }
+      }
+    >
+      col-4
+    </div>
+    <div
+      className="col col-4"
+      style={
+        Object {
+          "background": "var(--primary-color-40)",
+          "border": "1px solid var(--primary-color-70)",
+          "padding": "16px 0",
+          "textAlign": "center",
+        }
+      }
+    >
+      col-4
+    </div>
+    <div
+      className="col col-4"
+      style={
+        Object {
+          "background": "var(--primary-color-40)",
+          "border": "1px solid var(--primary-color-70)",
+          "padding": "16px 0",
+          "textAlign": "center",
+        }
+      }
+    >
+      col-4
+    </div>
+  </div>
+  <div
+    className="row"
+    style={Object {}}
+  >
+    <div
+      className="col col-2"
+      style={
+        Object {
+          "background": "var(--primary-color-40)",
+          "border": "1px solid var(--primary-color-70)",
+          "padding": "16px 0",
+          "textAlign": "center",
+        }
+      }
+    >
+      col-2
+    </div>
+    <div
+      className="col col-2"
+      style={
+        Object {
+          "background": "var(--primary-color-40)",
+          "border": "1px solid var(--primary-color-70)",
+          "padding": "16px 0",
+          "textAlign": "center",
+        }
+      }
+    >
+      col-2
+    </div>
+    <div
+      className="col col-2"
+      style={
+        Object {
+          "background": "var(--primary-color-40)",
+          "border": "1px solid var(--primary-color-70)",
+          "padding": "16px 0",
+          "textAlign": "center",
+        }
+      }
+    >
+      col-2
+    </div>
+    <div
+      className="col col-2"
+      style={
+        Object {
+          "background": "var(--primary-color-40)",
+          "border": "1px solid var(--primary-color-70)",
+          "padding": "16px 0",
+          "textAlign": "center",
+        }
+      }
+    >
+      col-2
+    </div>
+    <div
+      className="col col-2"
+      style={
+        Object {
+          "background": "var(--primary-color-40)",
+          "border": "1px solid var(--primary-color-70)",
+          "padding": "16px 0",
+          "textAlign": "center",
+        }
+      }
+    >
+      col-2
+    </div>
+    <div
+      className="col col-2"
+      style={
+        Object {
+          "background": "var(--primary-color-40)",
+          "border": "1px solid var(--primary-color-70)",
+          "padding": "16px 0",
+          "textAlign": "center",
+        }
+      }
+    >
+      col-2
+    </div>
+  </div>
+  <div
+    className="row"
+    style={Object {}}
+  >
+    <div
+      className="col col-1"
+      style={
+        Object {
+          "background": "var(--primary-color-40)",
+          "border": "1px solid var(--primary-color-70)",
+          "padding": "16px 0",
+          "textAlign": "center",
+        }
+      }
+    >
+      col-1
+    </div>
+    <div
+      className="col col-1"
+      style={
+        Object {
+          "background": "var(--primary-color-40)",
+          "border": "1px solid var(--primary-color-70)",
+          "padding": "16px 0",
+          "textAlign": "center",
+        }
+      }
+    >
+      col-1
+    </div>
+    <div
+      className="col col-1"
+      style={
+        Object {
+          "background": "var(--primary-color-40)",
+          "border": "1px solid var(--primary-color-70)",
+          "padding": "16px 0",
+          "textAlign": "center",
+        }
+      }
+    >
+      col-1
+    </div>
+    <div
+      className="col col-1"
+      style={
+        Object {
+          "background": "var(--primary-color-40)",
+          "border": "1px solid var(--primary-color-70)",
+          "padding": "16px 0",
+          "textAlign": "center",
+        }
+      }
+    >
+      col-1
+    </div>
+    <div
+      className="col col-1"
+      style={
+        Object {
+          "background": "var(--primary-color-40)",
+          "border": "1px solid var(--primary-color-70)",
+          "padding": "16px 0",
+          "textAlign": "center",
+        }
+      }
+    >
+      col-1
+    </div>
+    <div
+      className="col col-1"
+      style={
+        Object {
+          "background": "var(--primary-color-40)",
+          "border": "1px solid var(--primary-color-70)",
+          "padding": "16px 0",
+          "textAlign": "center",
+        }
+      }
+    >
+      col-1
+    </div>
+    <div
+      className="col col-1"
+      style={
+        Object {
+          "background": "var(--primary-color-40)",
+          "border": "1px solid var(--primary-color-70)",
+          "padding": "16px 0",
+          "textAlign": "center",
+        }
+      }
+    >
+      col-1
+    </div>
+    <div
+      className="col col-1"
+      style={
+        Object {
+          "background": "var(--primary-color-40)",
+          "border": "1px solid var(--primary-color-70)",
+          "padding": "16px 0",
+          "textAlign": "center",
+        }
+      }
+    >
+      col-1
+    </div>
+    <div
+      className="col col-1"
+      style={
+        Object {
+          "background": "var(--primary-color-40)",
+          "border": "1px solid var(--primary-color-70)",
+          "padding": "16px 0",
+          "textAlign": "center",
+        }
+      }
+    >
+      col-1
+    </div>
+    <div
+      className="col col-1"
+      style={
+        Object {
+          "background": "var(--primary-color-40)",
+          "border": "1px solid var(--primary-color-70)",
+          "padding": "16px 0",
+          "textAlign": "center",
+        }
+      }
+    >
+      col-1
+    </div>
+    <div
+      className="col col-1"
+      style={
+        Object {
+          "background": "var(--primary-color-40)",
+          "border": "1px solid var(--primary-color-70)",
+          "padding": "16px 0",
+          "textAlign": "center",
+        }
+      }
+    >
+      col-1
+    </div>
+    <div
+      className="col col-1"
+      style={
+        Object {
+          "background": "var(--primary-color-40)",
+          "border": "1px solid var(--primary-color-70)",
+          "padding": "16px 0",
+          "textAlign": "center",
+        }
+      }
+    >
+      col-1
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Grid Column Offset 1`] = `
+<div
+  style={
+    Object {
+      "border": "1px solid var(--primary-color-70)",
+    }
+  }
+>
+  <div
+    className="row"
+    style={Object {}}
+  >
+    <div
+      className="col col-4"
+      style={
+        Object {
+          "background": "var(--primary-color-40)",
+          "border": "1px solid var(--primary-color-70)",
+          "padding": "16px 0",
+          "textAlign": "center",
+        }
+      }
+    >
+      col-4
+    </div>
+    <div
+      className="col col-4 col-offset-4"
+      style={
+        Object {
+          "background": "var(--primary-color-40)",
+          "border": "1px solid var(--primary-color-70)",
+          "padding": "16px 0",
+          "textAlign": "center",
+        }
+      }
+    >
+      col-4 col-offset-4
+    </div>
+  </div>
+  <div
+    className="row"
+    style={Object {}}
+  >
+    <div
+      className="col col-6 col-offset-6"
+      style={
+        Object {
+          "background": "var(--primary-color-40)",
+          "border": "1px solid var(--primary-color-70)",
+          "padding": "16px 0",
+          "textAlign": "center",
+        }
+      }
+    >
+      col-6 col-offset-6
+    </div>
+    <div
+      className="col col-6 col-offset-6"
+      style={
+        Object {
+          "background": "var(--primary-color-40)",
+          "border": "1px solid var(--primary-color-70)",
+          "padding": "16px 0",
+          "textAlign": "center",
+        }
+      }
+    >
+      col-6 col-offset-6
+    </div>
+  </div>
+  <div
+    className="row"
+    style={Object {}}
+  >
+    <div
+      className="col col-6 col-offset-2"
+      style={
+        Object {
+          "background": "var(--primary-color-40)",
+          "border": "1px solid var(--primary-color-70)",
+          "padding": "16px 0",
+          "textAlign": "center",
+        }
+      }
+    >
+      col-6 col-offset-2
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Grid Fill Rest 1`] = `
+<div
+  className="row"
+  style={Object {}}
+>
+  <div
+    className="col"
+    style={
+      Object {
+        "background": "var(--primary-color-40)",
+        "border": "1px solid var(--primary-color-70)",
+        "flex": "0 0 100px",
+        "padding": "16px 0",
+        "textAlign": "center",
+      }
+    }
+  >
+    100px
+  </div>
+  <div
+    className="col"
+    style={
+      Object {
+        "background": "var(--primary-color-40)",
+        "border": "1px solid var(--primary-color-70)",
+        "flex": "auto",
+        "padding": "16px 0",
+        "textAlign": "center",
+      }
+    }
+  >
+    Fill Rest
+  </div>
+</div>
+`;
+
+exports[`Storyshots Grid Grid Sort 1`] = `
+<div
+  style={
+    Object {
+      "border": "1px solid var(--primary-color-70)",
+    }
+  }
+>
+  <div
+    className="row"
+    style={Object {}}
+  >
+    <div
+      className="col col-8 col-push-4"
+      style={
+        Object {
+          "background": "var(--primary-color-40)",
+          "border": "1px solid var(--primary-color-70)",
+          "padding": "16px 0",
+          "textAlign": "center",
+        }
+      }
+    >
+      col-8 col-push-4
+    </div>
+    <div
+      className="col col-4 col-pull-8"
+      style={
+        Object {
+          "background": "var(--primary-color-40)",
+          "border": "1px solid var(--primary-color-70)",
+          "padding": "16px 0",
+          "textAlign": "center",
+        }
+      }
+    >
+      col-4 col-pull-8
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Grid Horizontal Gutter 1`] = `
+<div
+  className="row"
+  style={
+    Object {
+      "marginLeft": -8,
+      "marginRight": -8,
+    }
+  }
+>
+  <div
+    className="col col-3"
+    style={
+      Object {
+        "paddingLeft": 8,
+        "paddingRight": 8,
+        "textAlign": "center",
+      }
+    }
+  >
+    <div
+      style={
+        Object {
+          "background": "var(--primary-color-40)",
+          "border": "2px solid var(--primary-color-70)",
+          "padding": "8px 0",
+        }
+      }
+    >
+      col-3
+    </div>
+  </div>
+  <div
+    className="col col-3"
+    style={
+      Object {
+        "paddingLeft": 8,
+        "paddingRight": 8,
+        "textAlign": "center",
+      }
+    }
+  >
+    <div
+      style={
+        Object {
+          "background": "var(--primary-color-40)",
+          "border": "2px solid var(--primary-color-70)",
+          "padding": "8px 0",
+        }
+      }
+    >
+      col-3
+    </div>
+  </div>
+  <div
+    className="col col-3"
+    style={
+      Object {
+        "paddingLeft": 8,
+        "paddingRight": 8,
+        "textAlign": "center",
+      }
+    }
+  >
+    <div
+      style={
+        Object {
+          "background": "var(--primary-color-40)",
+          "border": "2px solid var(--primary-color-70)",
+          "padding": "8px 0",
+        }
+      }
+    >
+      col-3
+    </div>
+  </div>
+  <div
+    className="col col-3"
+    style={
+      Object {
+        "paddingLeft": 8,
+        "paddingRight": 8,
+        "textAlign": "center",
+      }
+    }
+  >
+    <div
+      style={
+        Object {
+          "background": "var(--primary-color-40)",
+          "border": "2px solid var(--primary-color-70)",
+          "padding": "8px 0",
+        }
+      }
+    >
+      col-3
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Grid Order Normal 1`] = `
+<div
+  className="row"
+  style={Object {}}
+>
+  <div
+    className="col col-3 col-order-4"
+    style={
+      Object {
+        "background": "var(--primary-color-40)",
+        "border": "1px solid var(--primary-color-70)",
+        "padding": "16px 0",
+        "textAlign": "center",
+      }
+    }
+  >
+    1 col-order-4
+  </div>
+  <div
+    className="col col-3 col-order-3"
+    style={
+      Object {
+        "background": "var(--primary-color-40)",
+        "border": "1px solid var(--primary-color-70)",
+        "padding": "16px 0",
+        "textAlign": "center",
+      }
+    }
+  >
+    2 col-order-3
+  </div>
+  <div
+    className="col col-3 col-order-2"
+    style={
+      Object {
+        "background": "var(--primary-color-40)",
+        "border": "1px solid var(--primary-color-70)",
+        "padding": "16px 0",
+        "textAlign": "center",
+      }
+    }
+  >
+    3 col-order-2
+  </div>
+  <div
+    className="col col-3 col-order-1"
+    style={
+      Object {
+        "background": "var(--primary-color-40)",
+        "border": "1px solid var(--primary-color-70)",
+        "padding": "16px 0",
+        "textAlign": "center",
+      }
+    }
+  >
+    4 col-order-1
+  </div>
+</div>
+`;
+
+exports[`Storyshots Grid Order Responsive 1`] = `
+<div
+  className="row"
+  style={Object {}}
+>
+  <div
+    className="col col-3 col-xs-order-1 col-sm-order-2 col-md-order-3 col-lg-order-4"
+    style={
+      Object {
+        "background": "var(--primary-color-40)",
+        "border": "1px solid var(--primary-color-70)",
+        "padding": "16px 0",
+        "textAlign": "center",
+      }
+    }
+  >
+    1 col-order-responsive
+  </div>
+  <div
+    className="col col-3 col-xs-order-2 col-sm-order-1 col-md-order-4 col-lg-order-3"
+    style={
+      Object {
+        "background": "var(--primary-color-40)",
+        "border": "1px solid var(--primary-color-70)",
+        "padding": "16px 0",
+        "textAlign": "center",
+      }
+    }
+  >
+    2 col-order-responsive
+  </div>
+  <div
+    className="col col-3 col-xs-order-3 col-sm-order-4 col-md-order-2 col-lg-order-1"
+    style={
+      Object {
+        "background": "var(--primary-color-40)",
+        "border": "1px solid var(--primary-color-70)",
+        "padding": "16px 0",
+        "textAlign": "center",
+      }
+    }
+  >
+    3 col-order-responsive
+  </div>
+  <div
+    className="col col-3 col-xs-order-4 col-sm-order-3 col-md-order-1 col-lg-order-2"
+    style={
+      Object {
+        "background": "var(--primary-color-40)",
+        "border": "1px solid var(--primary-color-70)",
+        "padding": "16px 0",
+        "textAlign": "center",
+      }
+    }
+  >
+    4 col-order-responsive
+  </div>
+</div>
+`;
+
+exports[`Storyshots Grid Percentage Columns 1`] = `
+<div
+  className="row"
+  style={Object {}}
+>
+  <div
+    className="col"
+    style={
+      Object {
+        "background": "var(--primary-color-40)",
+        "border": "1px solid var(--primary-color-70)",
+        "flex": "2 2 auto",
+        "padding": "16px 0",
+        "textAlign": "center",
+      }
+    }
+  >
+    2 / 5
+  </div>
+  <div
+    className="col"
+    style={
+      Object {
+        "background": "var(--primary-color-40)",
+        "border": "1px solid var(--primary-color-70)",
+        "flex": "3 3 auto",
+        "padding": "16px 0",
+        "textAlign": "center",
+      }
+    }
+  >
+    3 / 5
+  </div>
+</div>
+`;
+
+exports[`Storyshots Grid Playground 1`] = `
+<div
+  className="stack full-width vertical l"
+  style={
+    Object {
+      "alignItems": undefined,
+      "flexWrap": undefined,
+      "justifyContent": "flex-start",
+    }
+  }
+>
+  <span>
+    Horizontal Gutter: 
+  </span>
+  <div
+    style={
+      Object {
+        "width": "50%",
+      }
+    }
+  >
+    <div
+      className="slider-container"
+    >
+      <div
+        className="slider"
+      >
+        <div
+          className="slider-rail"
+        />
+        <div
+          className="slider-track"
+        />
+        <input
+          autoFocus={false}
+          className="thumb"
+          disabled={false}
+          id=""
+          max={5}
+          min={0}
+          name=""
+          onChange={[Function]}
+          step={1}
+          type="range"
+          value={1}
+        />
+      </div>
+      <div
+        className="slider-value"
+      >
+        1
+      </div>
+      <div
+        className="extremity-label min-label"
+      >
+        0
+      </div>
+      <div
+        className="extremity-label max-label"
+      >
+        5
+      </div>
+    </div>
+  </div>
+  <span>
+    Vertical Gutter: 
+  </span>
+  <div
+    style={
+      Object {
+        "width": "50%",
+      }
+    }
+  >
+    <div
+      className="slider-container"
+    >
+      <div
+        className="slider"
+      >
+        <div
+          className="slider-rail"
+        />
+        <div
+          className="slider-track"
+        />
+        <input
+          autoFocus={false}
+          className="thumb"
+          disabled={false}
+          id=""
+          max={5}
+          min={0}
+          name=""
+          onChange={[Function]}
+          step={1}
+          type="range"
+          value={1}
+        />
+      </div>
+      <div
+        className="slider-value"
+      >
+        1
+      </div>
+      <div
+        className="extremity-label min-label"
+      >
+        0
+      </div>
+      <div
+        className="extremity-label max-label"
+      >
+        5
+      </div>
+    </div>
+  </div>
+  <span>
+    Column Count:
+  </span>
+  <div
+    style={
+      Object {
+        "width": "50%",
+      }
+    }
+  >
+    <div
+      className="slider-container"
+    >
+      <div
+        className="slider"
+      >
+        <div
+          className="slider-rail"
+        />
+        <div
+          className="slider-track"
+        />
+        <input
+          autoFocus={false}
+          className="thumb"
+          disabled={false}
+          id=""
+          max={5}
+          min={0}
+          name=""
+          onChange={[Function]}
+          step={1}
+          type="range"
+          value={2}
+        />
+      </div>
+      <div
+        className="slider-value"
+      >
+        2
+      </div>
+      <div
+        className="extremity-label min-label"
+      >
+        0
+      </div>
+      <div
+        className="extremity-label max-label"
+      >
+        5
+      </div>
+    </div>
+  </div>
+  <div
+    className="row"
+    style={
+      Object {
+        "marginBottom": -8,
+        "marginLeft": -8,
+        "marginRight": -8,
+        "marginTop": -8,
+      }
+    }
+  >
+    <div
+      className="col col-3"
+      style={
+        Object {
+          "paddingBottom": 8,
+          "paddingLeft": 8,
+          "paddingRight": 8,
+          "paddingTop": 8,
+          "textAlign": "center",
+        }
+      }
+    >
+      <div
+        style={
+          Object {
+            "background": "var(--primary-color-40)",
+            "border": "2px solid var(--primary-color-70)",
+            "padding": "8px 0",
+          }
+        }
+      >
+        Column
+      </div>
+    </div>
+    <div
+      className="col col-3"
+      style={
+        Object {
+          "paddingBottom": 8,
+          "paddingLeft": 8,
+          "paddingRight": 8,
+          "paddingTop": 8,
+          "textAlign": "center",
+        }
+      }
+    >
+      <div
+        style={
+          Object {
+            "background": "var(--primary-color-40)",
+            "border": "2px solid var(--primary-color-70)",
+            "padding": "8px 0",
+          }
+        }
+      >
+        Column
+      </div>
+    </div>
+    <div
+      className="col col-3"
+      style={
+        Object {
+          "paddingBottom": 8,
+          "paddingLeft": 8,
+          "paddingRight": 8,
+          "paddingTop": 8,
+          "textAlign": "center",
+        }
+      }
+    >
+      <div
+        style={
+          Object {
+            "background": "var(--primary-color-40)",
+            "border": "2px solid var(--primary-color-70)",
+            "padding": "8px 0",
+          }
+        }
+      >
+        Column
+      </div>
+    </div>
+    <div
+      className="col col-3"
+      style={
+        Object {
+          "paddingBottom": 8,
+          "paddingLeft": 8,
+          "paddingRight": 8,
+          "paddingTop": 8,
+          "textAlign": "center",
+        }
+      }
+    >
+      <div
+        style={
+          Object {
+            "background": "var(--primary-color-40)",
+            "border": "2px solid var(--primary-color-70)",
+            "padding": "8px 0",
+          }
+        }
+      >
+        Column
+      </div>
+    </div>
+    <div
+      className="col col-3"
+      style={
+        Object {
+          "paddingBottom": 8,
+          "paddingLeft": 8,
+          "paddingRight": 8,
+          "paddingTop": 8,
+          "textAlign": "center",
+        }
+      }
+    >
+      <div
+        style={
+          Object {
+            "background": "var(--primary-color-40)",
+            "border": "2px solid var(--primary-color-70)",
+            "padding": "8px 0",
+          }
+        }
+      >
+        Column
+      </div>
+    </div>
+    <div
+      className="col col-3"
+      style={
+        Object {
+          "paddingBottom": 8,
+          "paddingLeft": 8,
+          "paddingRight": 8,
+          "paddingTop": 8,
+          "textAlign": "center",
+        }
+      }
+    >
+      <div
+        style={
+          Object {
+            "background": "var(--primary-color-40)",
+            "border": "2px solid var(--primary-color-70)",
+            "padding": "8px 0",
+          }
+        }
+      >
+        Column
+      </div>
+    </div>
+    <div
+      className="col col-3"
+      style={
+        Object {
+          "paddingBottom": 8,
+          "paddingLeft": 8,
+          "paddingRight": 8,
+          "paddingTop": 8,
+          "textAlign": "center",
+        }
+      }
+    >
+      <div
+        style={
+          Object {
+            "background": "var(--primary-color-40)",
+            "border": "2px solid var(--primary-color-70)",
+            "padding": "8px 0",
+          }
+        }
+      >
+        Column
+      </div>
+    </div>
+    <div
+      className="col col-3"
+      style={
+        Object {
+          "paddingBottom": 8,
+          "paddingLeft": 8,
+          "paddingRight": 8,
+          "paddingTop": 8,
+          "textAlign": "center",
+        }
+      }
+    >
+      <div
+        style={
+          Object {
+            "background": "var(--primary-color-40)",
+            "border": "2px solid var(--primary-color-70)",
+            "padding": "8px 0",
+          }
+        }
+      >
+        Column
+      </div>
+    </div>
+  </div>
+  <div>
+    Another Row:
+  </div>
+  <div
+    className="row"
+    style={
+      Object {
+        "marginBottom": -8,
+        "marginLeft": -8,
+        "marginRight": -8,
+        "marginTop": -8,
+      }
+    }
+  >
+    <div
+      className="col col-3"
+      style={
+        Object {
+          "paddingBottom": 8,
+          "paddingLeft": 8,
+          "paddingRight": 8,
+          "paddingTop": 8,
+          "textAlign": "center",
+        }
+      }
+    >
+      <div
+        style={
+          Object {
+            "background": "var(--primary-color-40)",
+            "border": "2px solid var(--primary-color-70)",
+            "padding": "8px 0",
+          }
+        }
+      >
+        Column
+      </div>
+    </div>
+    <div
+      className="col col-3"
+      style={
+        Object {
+          "paddingBottom": 8,
+          "paddingLeft": 8,
+          "paddingRight": 8,
+          "paddingTop": 8,
+          "textAlign": "center",
+        }
+      }
+    >
+      <div
+        style={
+          Object {
+            "background": "var(--primary-color-40)",
+            "border": "2px solid var(--primary-color-70)",
+            "padding": "8px 0",
+          }
+        }
+      >
+        Column
+      </div>
+    </div>
+    <div
+      className="col col-3"
+      style={
+        Object {
+          "paddingBottom": 8,
+          "paddingLeft": 8,
+          "paddingRight": 8,
+          "paddingTop": 8,
+          "textAlign": "center",
+        }
+      }
+    >
+      <div
+        style={
+          Object {
+            "background": "var(--primary-color-40)",
+            "border": "2px solid var(--primary-color-70)",
+            "padding": "8px 0",
+          }
+        }
+      >
+        Column
+      </div>
+    </div>
+    <div
+      className="col col-3"
+      style={
+        Object {
+          "paddingBottom": 8,
+          "paddingLeft": 8,
+          "paddingRight": 8,
+          "paddingTop": 8,
+          "textAlign": "center",
+        }
+      }
+    >
+      <div
+        style={
+          Object {
+            "background": "var(--primary-color-40)",
+            "border": "2px solid var(--primary-color-70)",
+            "padding": "8px 0",
+          }
+        }
+      >
+        Column
+      </div>
+    </div>
+  </div>
+  <pre
+    className="demo-code"
+  >
+    &lt;Row gutter={[16, 16]}&gt;
+  &lt;Col span={6} /&gt;
+  &lt;Col span={6} /&gt;
+  &lt;Col span={6} /&gt;
+  &lt;Col span={6} /&gt;
+
+  &lt;Col span={6} /&gt;
+  &lt;Col span={6} /&gt;
+  &lt;Col span={6} /&gt;
+  &lt;Col span={6} /&gt;
+&lt;/Row&gt;
+  </pre>
+  <pre
+    className="demo-code"
+  >
+    &lt;Row gutter={[16, 16]}&gt;
+  &lt;Col span={6} /&gt;
+  &lt;Col span={6} /&gt;
+  &lt;Col span={6} /&gt;
+  &lt;Col span={6} /&gt;
+&lt;/Row&gt;
+  </pre>
+</div>
+`;
+
+exports[`Storyshots Grid Raw Flex Style 1`] = `
+Array [
+  <div
+    className="row"
+    style={Object {}}
+  >
+    <div
+      className="col"
+      style={
+        Object {
+          "background": "var(--primary-color-40)",
+          "border": "1px solid var(--primary-color-70)",
+          "flex": "1 1 200px",
+          "padding": "16px 0",
+          "textAlign": "center",
+        }
+      }
+    >
+      1 1 200px
+    </div>
+    <div
+      className="col"
+      style={
+        Object {
+          "background": "var(--primary-color-40)",
+          "border": "1px solid var(--primary-color-70)",
+          "flex": "0 1 300px",
+          "padding": "16px 0",
+          "textAlign": "center",
+        }
+      }
+    >
+      0 1 300px
+    </div>
+  </div>,
+  <div
+    className="row row-no-wrap"
+    style={Object {}}
+  >
+    <div
+      className="col"
+      style={
+        Object {
+          "background": "var(--primary-color-40)",
+          "border": "1px solid var(--primary-color-70)",
+          "flex": "none",
+          "minWidth": 0,
+          "padding": "16px 0",
+          "textAlign": "center",
+        }
+      }
+    >
+      <div
+        style={
+          Object {
+            "padding": "0 16px",
+          }
+        }
+      >
+        none
+      </div>
+    </div>
+    <div
+      className="col"
+      style={
+        Object {
+          "background": "var(--primary-color-40)",
+          "border": "1px solid var(--primary-color-70)",
+          "flex": "auto",
+          "minWidth": 0,
+          "padding": "16px 0",
+          "textAlign": "center",
+        }
+      }
+    >
+      auto with no-wrap
+    </div>
+  </div>,
+]
+`;
+
+exports[`Storyshots Grid Responsive 1`] = `
+<div
+  className="row"
+  style={Object {}}
+>
+  <div
+    className="col col-xs-3 col-sm-4 col-md-6 col-lg-2"
+    style={
+      Object {
+        "background": "var(--primary-color-40)",
+        "border": "1px solid var(--primary-color-70)",
+        "padding": "16px 0",
+        "textAlign": "center",
+      }
+    }
+  >
+    Col
+  </div>
+  <div
+    className="col col-xs-6 col-sm-3 col-md-1 col-lg-8"
+    style={
+      Object {
+        "background": "var(--primary-color-40)",
+        "border": "1px solid var(--primary-color-70)",
+        "padding": "16px 0",
+        "textAlign": "center",
+      }
+    }
+  >
+    Col
+  </div>
+  <div
+    className="col col-xs-3 col-sm-5 col-md-5 col-lg-2"
+    style={
+      Object {
+        "background": "var(--primary-color-40)",
+        "border": "1px solid var(--primary-color-70)",
+        "padding": "16px 0",
+        "textAlign": "center",
+      }
+    }
+  >
+    Col
+  </div>
+</div>
+`;
+
+exports[`Storyshots Grid Responsive Gutter 1`] = `
+<div
+  className="row"
+  style={
+    Object {
+      "marginLeft": -16,
+      "marginRight": -16,
+    }
+  }
+>
+  <div
+    className="col col-3"
+    style={
+      Object {
+        "paddingLeft": 16,
+        "paddingRight": 16,
+        "textAlign": "center",
+      }
+    }
+  >
+    <div
+      style={
+        Object {
+          "background": "var(--primary-color-40)",
+          "border": "2px solid var(--primary-color-70)",
+          "padding": "8px 0",
+        }
+      }
+    >
+      col-3
+    </div>
+  </div>
+  <div
+    className="col col-3"
+    style={
+      Object {
+        "paddingLeft": 16,
+        "paddingRight": 16,
+        "textAlign": "center",
+      }
+    }
+  >
+    <div
+      style={
+        Object {
+          "background": "var(--primary-color-40)",
+          "border": "2px solid var(--primary-color-70)",
+          "padding": "8px 0",
+        }
+      }
+    >
+      col-3
+    </div>
+  </div>
+  <div
+    className="col col-3"
+    style={
+      Object {
+        "paddingLeft": 16,
+        "paddingRight": 16,
+        "textAlign": "center",
+      }
+    }
+  >
+    <div
+      style={
+        Object {
+          "background": "var(--primary-color-40)",
+          "border": "2px solid var(--primary-color-70)",
+          "padding": "8px 0",
+        }
+      }
+    >
+      col-3
+    </div>
+  </div>
+  <div
+    className="col col-3"
+    style={
+      Object {
+        "paddingLeft": 16,
+        "paddingRight": 16,
+        "textAlign": "center",
+      }
+    }
+  >
+    <div
+      style={
+        Object {
+          "background": "var(--primary-color-40)",
+          "border": "2px solid var(--primary-color-70)",
+          "padding": "8px 0",
+        }
+      }
+    >
+      col-3
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Grid Typesetting 1`] = `
+<div
+  style={
+    Object {
+      "border": "1px solid var(--primary-color-70)",
+    }
+  }
+>
+  <div
+    className="row row-start"
+    style={Object {}}
+  >
+    <div
+      className="col col-2"
+      style={
+        Object {
+          "background": "var(--primary-color-40)",
+          "border": "1px solid var(--primary-color-70)",
+          "padding": "16px 0",
+          "textAlign": "center",
+        }
+      }
+    >
+      col-2
+    </div>
+    <div
+      className="col col-2"
+      style={
+        Object {
+          "background": "var(--primary-color-40)",
+          "border": "1px solid var(--primary-color-70)",
+          "padding": "16px 0",
+          "textAlign": "center",
+        }
+      }
+    >
+      col-2
+    </div>
+    <div
+      className="col col-2"
+      style={
+        Object {
+          "background": "var(--primary-color-40)",
+          "border": "1px solid var(--primary-color-70)",
+          "padding": "16px 0",
+          "textAlign": "center",
+        }
+      }
+    >
+      col-2
+    </div>
+    <div
+      className="col col-2"
+      style={
+        Object {
+          "background": "var(--primary-color-40)",
+          "border": "1px solid var(--primary-color-70)",
+          "padding": "16px 0",
+          "textAlign": "center",
+        }
+      }
+    >
+      col-2
+    </div>
+  </div>
+  <div
+    className="row row-center"
+    style={Object {}}
+  >
+    <div
+      className="col col-2"
+      style={
+        Object {
+          "background": "var(--primary-color-40)",
+          "border": "1px solid var(--primary-color-70)",
+          "padding": "16px 0",
+          "textAlign": "center",
+        }
+      }
+    >
+      col-2
+    </div>
+    <div
+      className="col col-2"
+      style={
+        Object {
+          "background": "var(--primary-color-40)",
+          "border": "1px solid var(--primary-color-70)",
+          "padding": "16px 0",
+          "textAlign": "center",
+        }
+      }
+    >
+      col-2
+    </div>
+    <div
+      className="col col-2"
+      style={
+        Object {
+          "background": "var(--primary-color-40)",
+          "border": "1px solid var(--primary-color-70)",
+          "padding": "16px 0",
+          "textAlign": "center",
+        }
+      }
+    >
+      col-2
+    </div>
+    <div
+      className="col col-2"
+      style={
+        Object {
+          "background": "var(--primary-color-40)",
+          "border": "1px solid var(--primary-color-70)",
+          "padding": "16px 0",
+          "textAlign": "center",
+        }
+      }
+    >
+      col-2
+    </div>
+  </div>
+  <div
+    className="row row-end"
+    style={Object {}}
+  >
+    <div
+      className="col col-2"
+      style={
+        Object {
+          "background": "var(--primary-color-40)",
+          "border": "1px solid var(--primary-color-70)",
+          "padding": "16px 0",
+          "textAlign": "center",
+        }
+      }
+    >
+      col-2
+    </div>
+    <div
+      className="col col-2"
+      style={
+        Object {
+          "background": "var(--primary-color-40)",
+          "border": "1px solid var(--primary-color-70)",
+          "padding": "16px 0",
+          "textAlign": "center",
+        }
+      }
+    >
+      col-2
+    </div>
+    <div
+      className="col col-2"
+      style={
+        Object {
+          "background": "var(--primary-color-40)",
+          "border": "1px solid var(--primary-color-70)",
+          "padding": "16px 0",
+          "textAlign": "center",
+        }
+      }
+    >
+      col-2
+    </div>
+    <div
+      className="col col-2"
+      style={
+        Object {
+          "background": "var(--primary-color-40)",
+          "border": "1px solid var(--primary-color-70)",
+          "padding": "16px 0",
+          "textAlign": "center",
+        }
+      }
+    >
+      col-2
+    </div>
+  </div>
+  <div
+    className="row row-space-between"
+    style={Object {}}
+  >
+    <div
+      className="col col-2"
+      style={
+        Object {
+          "background": "var(--primary-color-40)",
+          "border": "1px solid var(--primary-color-70)",
+          "padding": "16px 0",
+          "textAlign": "center",
+        }
+      }
+    >
+      col-2
+    </div>
+    <div
+      className="col col-2"
+      style={
+        Object {
+          "background": "var(--primary-color-40)",
+          "border": "1px solid var(--primary-color-70)",
+          "padding": "16px 0",
+          "textAlign": "center",
+        }
+      }
+    >
+      col-2
+    </div>
+    <div
+      className="col col-2"
+      style={
+        Object {
+          "background": "var(--primary-color-40)",
+          "border": "1px solid var(--primary-color-70)",
+          "padding": "16px 0",
+          "textAlign": "center",
+        }
+      }
+    >
+      col-2
+    </div>
+    <div
+      className="col col-2"
+      style={
+        Object {
+          "background": "var(--primary-color-40)",
+          "border": "1px solid var(--primary-color-70)",
+          "padding": "16px 0",
+          "textAlign": "center",
+        }
+      }
+    >
+      col-2
+    </div>
+  </div>
+  <div
+    className="row row-space-around"
+    style={Object {}}
+  >
+    <div
+      className="col col-2"
+      style={
+        Object {
+          "background": "var(--primary-color-40)",
+          "border": "1px solid var(--primary-color-70)",
+          "padding": "16px 0",
+          "textAlign": "center",
+        }
+      }
+    >
+      col-2
+    </div>
+    <div
+      className="col col-2"
+      style={
+        Object {
+          "background": "var(--primary-color-40)",
+          "border": "1px solid var(--primary-color-70)",
+          "padding": "16px 0",
+          "textAlign": "center",
+        }
+      }
+    >
+      col-2
+    </div>
+    <div
+      className="col col-2"
+      style={
+        Object {
+          "background": "var(--primary-color-40)",
+          "border": "1px solid var(--primary-color-70)",
+          "padding": "16px 0",
+          "textAlign": "center",
+        }
+      }
+    >
+      col-2
+    </div>
+    <div
+      className="col col-2"
+      style={
+        Object {
+          "background": "var(--primary-color-40)",
+          "border": "1px solid var(--primary-color-70)",
+          "padding": "16px 0",
+          "textAlign": "center",
+        }
+      }
+    >
+      col-2
+    </div>
+  </div>
+  <div
+    className="row row-space-evenly"
+    style={Object {}}
+  >
+    <div
+      className="col col-2"
+      style={
+        Object {
+          "background": "var(--primary-color-40)",
+          "border": "1px solid var(--primary-color-70)",
+          "padding": "16px 0",
+          "textAlign": "center",
+        }
+      }
+    >
+      col-2
+    </div>
+    <div
+      className="col col-2"
+      style={
+        Object {
+          "background": "var(--primary-color-40)",
+          "border": "1px solid var(--primary-color-70)",
+          "padding": "16px 0",
+          "textAlign": "center",
+        }
+      }
+    >
+      col-2
+    </div>
+    <div
+      className="col col-2"
+      style={
+        Object {
+          "background": "var(--primary-color-40)",
+          "border": "1px solid var(--primary-color-70)",
+          "padding": "16px 0",
+          "textAlign": "center",
+        }
+      }
+    >
+      col-2
+    </div>
+    <div
+      className="col col-2"
+      style={
+        Object {
+          "background": "var(--primary-color-40)",
+          "border": "1px solid var(--primary-color-70)",
+          "padding": "16px 0",
+          "textAlign": "center",
+        }
+      }
+    >
+      col-2
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Grid Use Break Point 1`] = `
+<div
+  className="stack vertical m"
+  style={
+    Object {
+      "alignItems": undefined,
+      "flexWrap": undefined,
+      "justifyContent": undefined,
+    }
+  }
+>
+  <div>
+    Current break point:
+  </div>
+  <div
+    className="stack horizontal l"
+    style={
+      Object {
+        "alignItems": undefined,
+        "flexWrap": undefined,
+        "justifyContent": undefined,
+      }
+    }
+  />
+</div>
+`;
+
+exports[`Storyshots Grid Vertical Gutter 1`] = `
+<div
+  className="row"
+  style={
+    Object {
+      "marginBottom": -8,
+      "marginLeft": -8,
+      "marginRight": -8,
+      "marginTop": -8,
+    }
+  }
+>
+  <div
+    className="col col-3"
+    style={
+      Object {
+        "paddingBottom": 8,
+        "paddingLeft": 8,
+        "paddingRight": 8,
+        "paddingTop": 8,
+        "textAlign": "center",
+      }
+    }
+  >
+    <div
+      style={
+        Object {
+          "background": "var(--primary-color-40)",
+          "border": "2px solid var(--primary-color-70)",
+          "padding": "8px 0",
+        }
+      }
+    >
+      col-3
+    </div>
+  </div>
+  <div
+    className="col col-3"
+    style={
+      Object {
+        "paddingBottom": 8,
+        "paddingLeft": 8,
+        "paddingRight": 8,
+        "paddingTop": 8,
+        "textAlign": "center",
+      }
+    }
+  >
+    <div
+      style={
+        Object {
+          "background": "var(--primary-color-40)",
+          "border": "2px solid var(--primary-color-70)",
+          "padding": "8px 0",
+        }
+      }
+    >
+      col-3
+    </div>
+  </div>
+  <div
+    className="col col-3"
+    style={
+      Object {
+        "paddingBottom": 8,
+        "paddingLeft": 8,
+        "paddingRight": 8,
+        "paddingTop": 8,
+        "textAlign": "center",
+      }
+    }
+  >
+    <div
+      style={
+        Object {
+          "background": "var(--primary-color-40)",
+          "border": "2px solid var(--primary-color-70)",
+          "padding": "8px 0",
+        }
+      }
+    >
+      col-3
+    </div>
+  </div>
+  <div
+    className="col col-3"
+    style={
+      Object {
+        "paddingBottom": 8,
+        "paddingLeft": 8,
+        "paddingRight": 8,
+        "paddingTop": 8,
+        "textAlign": "center",
+      }
+    }
+  >
+    <div
+      style={
+        Object {
+          "background": "var(--primary-color-40)",
+          "border": "2px solid var(--primary-color-70)",
+          "padding": "8px 0",
+        }
+      }
+    >
+      col-3
+    </div>
+  </div>
+  <div
+    className="col col-3"
+    style={
+      Object {
+        "paddingBottom": 8,
+        "paddingLeft": 8,
+        "paddingRight": 8,
+        "paddingTop": 8,
+        "textAlign": "center",
+      }
+    }
+  >
+    <div
+      style={
+        Object {
+          "background": "var(--primary-color-40)",
+          "border": "2px solid var(--primary-color-70)",
+          "padding": "8px 0",
+        }
+      }
+    >
+      col-3
+    </div>
+  </div>
+  <div
+    className="col col-3"
+    style={
+      Object {
+        "paddingBottom": 8,
+        "paddingLeft": 8,
+        "paddingRight": 8,
+        "paddingTop": 8,
+        "textAlign": "center",
+      }
+    }
+  >
+    <div
+      style={
+        Object {
+          "background": "var(--primary-color-40)",
+          "border": "2px solid var(--primary-color-70)",
+          "padding": "8px 0",
+        }
+      }
+    >
+      col-3
+    </div>
+  </div>
+  <div
+    className="col col-3"
+    style={
+      Object {
+        "paddingBottom": 8,
+        "paddingLeft": 8,
+        "paddingRight": 8,
+        "paddingTop": 8,
+        "textAlign": "center",
+      }
+    }
+  >
+    <div
+      style={
+        Object {
+          "background": "var(--primary-color-40)",
+          "border": "2px solid var(--primary-color-70)",
+          "padding": "8px 0",
+        }
+      }
+    >
+      col-3
+    </div>
+  </div>
+  <div
+    className="col col-3"
+    style={
+      Object {
+        "paddingBottom": 8,
+        "paddingLeft": 8,
+        "paddingRight": 8,
+        "paddingTop": 8,
+        "textAlign": "center",
+      }
+    }
+  >
+    <div
+      style={
+        Object {
+          "background": "var(--primary-color-40)",
+          "border": "2px solid var(--primary-color-70)",
+          "padding": "8px 0",
+        }
+      }
+    >
+      col-3
+    </div>
+  </div>
+</div>
+`;
