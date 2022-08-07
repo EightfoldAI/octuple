@@ -1,6 +1,4 @@
 .button {
-    @include button-reset();
-
     --button-counter-default-background-color: var(--grey-color-20);
     --button-counter-hover-background-color: var(--primary-color-20);
     --button-counter-checked-background-color: var(--primary-color-10);
