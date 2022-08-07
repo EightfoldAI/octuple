@@ -1,10 +1,4 @@
 .navbar-container {
-    @include button-wrapped-reset();
-    @include input-reset();
-    @include select-reset();
-    @include selector-reset();
-    @include textarea-reset();
-
     align-items: center;
     background-color: var(--navbar-background);
     color: var(--navbar-text-color);
