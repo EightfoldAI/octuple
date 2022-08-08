@@ -600,7 +600,7 @@ const Playground_Story: FC = () => {
                 <div style={style}>Column</div>
             </Col>
         );
-        colCode += `  <Col span={${24 / colCount}} />\n`;
+        colCode += `  <Col span={${12 / colCount}} />\n`;
     }
 
     return (

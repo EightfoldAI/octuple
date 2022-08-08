@@ -1505,25 +1505,25 @@ exports[`Storyshots Grid Playground 1`] = `
     className="demo-code"
   >
     &lt;Row gutter={[16, 16]}&gt;
-  &lt;Col span={6} /&gt;
-  &lt;Col span={6} /&gt;
-  &lt;Col span={6} /&gt;
-  &lt;Col span={6} /&gt;
+  &lt;Col span={3} /&gt;
+  &lt;Col span={3} /&gt;
+  &lt;Col span={3} /&gt;
+  &lt;Col span={3} /&gt;
 
-  &lt;Col span={6} /&gt;
-  &lt;Col span={6} /&gt;
-  &lt;Col span={6} /&gt;
-  &lt;Col span={6} /&gt;
+  &lt;Col span={3} /&gt;
+  &lt;Col span={3} /&gt;
+  &lt;Col span={3} /&gt;
+  &lt;Col span={3} /&gt;
 &lt;/Row&gt;
   </pre>
   <pre
     className="demo-code"
   >
     &lt;Row gutter={[16, 16]}&gt;
-  &lt;Col span={6} /&gt;
-  &lt;Col span={6} /&gt;
-  &lt;Col span={6} /&gt;
-  &lt;Col span={6} /&gt;
+  &lt;Col span={3} /&gt;
+  &lt;Col span={3} /&gt;
+  &lt;Col span={3} /&gt;
+  &lt;Col span={3} /&gt;
 &lt;/Row&gt;
   </pre>
 </div>
