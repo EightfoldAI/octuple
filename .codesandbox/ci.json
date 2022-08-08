@@ -1,4 +1,8 @@
 {
-    "sandboxes": ["new", "vanilla"],
+    "buildCommand": "build-storybook",
+    "packages": ["storybook"],
+    "publishDirectory": {
+        "storybook": "dist"
+    },
     "node": "16"
 }
