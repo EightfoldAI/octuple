@@ -12,6 +12,7 @@
         "storybook": "start-storybook -p 2022",
         "build-storybook": "rm -rf dist && mkdir dist && build-storybook -o dist",
         "build": "rm -rf lib && npm run lint && webpack --config webpack.prod.js --mode production",
+        "build-ci": "webpack --config webpack.prod.js --mode production && build-storybook",
         "details": "webpack --config webpack.dev.js --mode development --stats-error-details",
         "analyze": "webpack --config webpack.dev.js --mode production --json > stats.json",
         "prepublish": "yarn build",

@@ -1,5 +1,9 @@
 {
-    "buildCommand": "build-storybook",
-    "sandboxes": ["new", "vanilla", "/dist"],
+    "buildCommand": "build-ci",
+    "sandboxes": ["@eightfold.ai/octuple", "/storybook-static"],
+    "publishDirectory": {
+        "@eightfold.ai/octuple": "lib",
+        "/storybook-static": "storybook-static"
+    },
     "node": "16"
 }
