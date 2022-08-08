@@ -1,5 +1,5 @@
 {
     "buildCommand": "build-storybook",
-    "sandboxes": ["new", "vanilla", "/dist"],
+    "sandboxes": ["/dist"],
     "node": "16"
 }
