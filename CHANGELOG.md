@@ -2,6 +2,56 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.2.5](https://github.com/EightfoldAI/octuple/compare/v2.2.4...v2.2.5) (2022-08-07)
+
+### Bug Fixes
+
+-   navbar: revert scoped css resets to navbar component ([#292](https://github.com/EightfoldAI/octuple/issues/292)) ([b3f03e0](https://github.com/EightfoldAI/octuple/commits/b3f03e02453de644a3e68e83175c0647b6d82389))
+
+### [2.2.4](https://github.com/EightfoldAI/octuple/compare/v2.2.3...v2.2.4) (2022-08-04)
+
+### Bug Fixes
+
+-   navbar: apply scoped css resets to navbar component ([#288](https://github.com/EightfoldAI/octuple/issues/288)) ([4a4e60c](https://github.com/EightfoldAI/octuple/commits/4a4e60cd2804dfef7967c48f38f7ef937ef831eb))
+
+### [2.2.3](https://github.com/EightfoldAI/octuple/compare/v2.2.2...v2.2.3) (2022-08-03)
+
+### Bug Fixes
+
+-   pagination: fix onCurrentChange event getting fired on change of total ([#285](https://github.com/EightfoldAI/octuple/issues/285)) ([74456a2](https://github.com/EightfoldAI/octuple/commits/74456a242eb227972ff5491d4c7390f8ec0abc5d))
+
+### [2.2.2](https://github.com/EightfoldAI/octuple/compare/v2.2.1...v2.2.2) (2022-08-03)
+
+### Bug Fixes
+
+-   css: scope normalize css reset to octuple components ([#283](https://github.com/EightfoldAI/octuple/issues/283)) ([1eeb0cd](https://github.com/EightfoldAI/octuple/commits/1eeb0cd3673fd03d599dc3aa84c5583fddaa26b2))
+-   radio group: updates story implementation to scope selection states ([#282](https://github.com/EightfoldAI/octuple/issues/282)) ([2ef7609](https://github.com/EightfoldAI/octuple/commits/2ef7609781b21f0682dee5c0a6affe4fe42fe217))
+
+### [2.2.1](https://github.com/EightfoldAI/octuple/compare/v2.1.1...v2.2.1) (2022-08-02)
+
+### Features
+
+-   codesandbox: adds basic codesandbox ci pr build config ([#278](https://github.com/EightfoldAI/octuple/issues/278)) ([a2b363f](https://github.com/EightfoldAI/octuple/commits/a2b363f3407cdd3c07d3c15d8d6f47dc0ce2bbc4))
+-   system ui button: add system ui button ([#280](https://github.com/EightfoldAI/octuple/issues/280)) ([4f79dbe](https://github.com/EightfoldAI/octuple/commits/4f79dbea8f00f651d213e7da976b094bb4770ad4))
+
+### Bug Fixes
+
+-   match score: update logic for filled and half filled scores ([3f8dab5](https://github.com/EightfoldAI/octuple/commits/3f8dab5582af73d59cccb7e9bb8ec040c8c58f84))
+-   radiobutton: fixes width of radio element in flex when layout is constrained ([#279](https://github.com/EightfoldAI/octuple/issues/279)) ([aa1cb92](https://github.com/EightfoldAI/octuple/commits/aa1cb923ce9c2320b7ae91e6dbd19c1cee562875))
+-   selectors: adds size prop, fixes styles to match the latest ([#275](https://github.com/EightfoldAI/octuple/issues/275)) ([ffa7735](https://github.com/EightfoldAI/octuple/commits/ffa773586f4d105f44bf6bd9e11e33604b0c90c0))
+-   snackbar: increase snackbar z-index to be more than surface elements ([#277](https://github.com/EightfoldAI/octuple/issues/277)) ([40d8840](https://github.com/EightfoldAI/octuple/commits/40d8840c51ad8815f125e9203b3ae1e47deb1675))
+
+## [2.2.0](https://github.com/EightfoldAI/octuple/compare/v2.1.2...v2.2.0) (2022-08-01)
+
+### Features
+
+-   codesandbox: adds basic codesandbox ci pr build config ([#278](https://github.com/EightfoldAI/octuple/issues/278)) ([a2b363f](https://github.com/EightfoldAI/octuple/commits/a2b363f3407cdd3c07d3c15d8d6f47dc0ce2bbc4))
+-   system ui button: add system ui button ([#280](https://github.com/EightfoldAI/octuple/issues/280)) ([4f79dbe](https://github.com/EightfoldAI/octuple/commits/4f79dbea8f00f651d213e7da976b094bb4770ad4))
+
+### Bug Fixes
+
+-   radiobutton: fixes width of radio element in flex when layout is constrained ([#279](https://github.com/EightfoldAI/octuple/issues/279)) ([aa1cb92](https://github.com/EightfoldAI/octuple/commits/aa1cb923ce9c2320b7ae91e6dbd19c1cee562875))
+
 ### [2.1.2](https://github.com/EightfoldAI/octuple/compare/v2.1.1...v2.1.2) (2022-07-29)
 
 ### Bug Fixes
