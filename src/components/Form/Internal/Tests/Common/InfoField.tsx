@@ -1,8 +1,8 @@
-import React from 'react';
-import { Field } from '../../src';
-import type { FieldProps } from '../../src/Field';
+import React, { cloneElement, FC } from 'react';
+import { OcField } from '../../';
+import type { OcFieldProps } from '../../OcForm.types';
 
-interface InfoFieldProps extends FieldProps {
+interface InfoFieldProps extends OcFieldProps {
     children?: React.ReactElement;
 }
 
@@ -13,15 +13,15 @@ export const Input = ({ value = '', ...props }) => (
 /**
  * Return a wrapped Field with meta info
  */
-const InfoField: React.FC<InfoFieldProps> = ({ children, ...props }) => (
-    <Field {...props}>
+const InfoField: FC<InfoFieldProps> = ({ children, ...props }) => (
+    <OcField {...props}>
         {(control, info) => {
             const { errors, warnings, validating } = info;
 
             return (
                 <div>
                     {children ? (
-                        React.cloneElement(children, control)
+                        cloneElement(children, control)
                     ) : (
                         <Input {...control} />
                     )}
@@ -39,7 +39,7 @@ const InfoField: React.FC<InfoFieldProps> = ({ children, ...props }) => (
                 </div>
             );
         }}
-    </Field>
+    </OcField>
 );
 
 export default InfoField;

@@ -1,12 +1,11 @@
-import get from 'rc-util/lib/utils/get';
-import set from 'rc-util/lib/utils/set';
+import { get, set } from '../../../../shared/utilities';
 import type {
-    InternalNamePath,
-    NamePath,
-    Store,
-    StoreValue,
-    EventArgs,
-} from '../interface';
+    InternalOcNamePath,
+    OcNamePath,
+    OcStore,
+    OcStoreValue,
+    OcEventArgs,
+} from '../OcForm.types';
 import { toArray } from './typeUtil';
 import cloneDeep from '../utils/cloneDeep';
 
@@ -17,29 +16,29 @@ import cloneDeep from '../utils/cloneDeep';
  * 123 => [123]
  * ['a', 123] => ['a', 123]
  */
-export function getNamePath(path: NamePath | null): InternalNamePath {
+export function getNamePath(path: OcNamePath | null): InternalOcNamePath {
     return toArray(path);
 }
 
-export function getValue(store: Store, namePath: InternalNamePath) {
+export function getValue(store: OcStore, namePath: InternalOcNamePath) {
     const value = get(store, namePath);
     return value;
 }
 
 export function setValue(
-    store: Store,
-    namePath: InternalNamePath,
-    value: StoreValue,
+    store: OcStore,
+    namePath: InternalOcNamePath,
+    value: OcStoreValue,
     removeIfUndefined = false
-): Store {
+): OcStore {
     const newStore = set(store, namePath, value, removeIfUndefined);
     return newStore;
 }
 
 export function cloneByNamePathList(
-    store: Store,
-    namePathList: InternalNamePath[]
-): Store {
+    store: OcStore,
+    namePathList: InternalOcNamePath[]
+): OcStore {
     let newStore = {};
     namePathList.forEach((namePath) => {
         const value = getValue(store, namePath);
@@ -50,8 +49,8 @@ export function cloneByNamePathList(
 }
 
 export function containsNamePath(
-    namePathList: InternalNamePath[],
-    namePath: InternalNamePath
+    namePathList: InternalOcNamePath[],
+    namePath: InternalOcNamePath
 ) {
     return (
         namePathList &&
@@ -59,7 +58,7 @@ export function containsNamePath(
     );
 }
 
-function isObject(obj: StoreValue) {
+function isObject(obj: OcStoreValue) {
     return (
         typeof obj === 'object' &&
         obj !== null &&
@@ -79,13 +78,13 @@ function internalSetValues<T>(store: T, values: T): T {
     }
 
     Object.keys(values).forEach((key) => {
-        const prevValue = newStore[key];
-        const value = values[key];
+        const prevValue = (newStore as any)[key];
+        const value = (values as any)[key];
 
         // If both are object (but target is not array), we use recursion to set deep value
         const recursive = isObject(prevValue) && isObject(value);
 
-        newStore[key] = recursive
+        (newStore as any)[key] = recursive
             ? internalSetValues(prevValue, value || {})
             : cloneDeep(value); // Clone deep for arrays
     });
@@ -101,8 +100,8 @@ export function setValues<T>(store: T, ...restValues: T[]): T {
 }
 
 export function matchNamePath(
-    namePath: InternalNamePath,
-    changedNamePath: InternalNamePath | null
+    namePath: InternalOcNamePath,
+    changedNamePath: InternalOcNamePath | null
 ) {
     if (
         !namePath ||
@@ -139,8 +138,8 @@ export function isSimilar(source: SimilarObject, target: SimilarObject) {
     const keys = new Set([...sourceKeys, ...targetKeys]);
 
     return [...keys].every((key) => {
-        const sourceValue = source[key];
-        const targetValue = target[key];
+        const sourceValue = (source as any)[key];
+        const targetValue = (target as any)[key];
 
         if (
             typeof sourceValue === 'function' &&
@@ -154,7 +153,7 @@ export function isSimilar(source: SimilarObject, target: SimilarObject) {
 
 export function defaultGetValueFromEvent(
     valuePropName: string,
-    ...args: EventArgs
+    ...args: OcEventArgs
 ) {
     const event = args[0];
     if (
@@ -163,7 +162,7 @@ export function defaultGetValueFromEvent(
         typeof event.target === 'object' &&
         valuePropName in event.target
     ) {
-        return (event.target as HTMLInputElement)[valuePropName];
+        return (event.target as any)[valuePropName];
     }
 
     return event;

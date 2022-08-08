@@ -1,10 +1,13 @@
 /* eslint-disable no-template-curly-in-string, arrow-body-style */
-import { mount } from 'enzyme';
 import React from 'react';
-import type { FormInstance } from '../src';
-import Form from '../src';
+import Enzyme, { mount } from 'enzyme';
+import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
+import type { OcFormInstance } from '../';
+import Form from '../';
 import InfoField, { Input } from './common/InfoField';
 import timeout from './common/timeout';
+
+Enzyme.configure({ adapter: new Adapter() });
 
 describe('Form.Preserve', () => {
     const Demo = ({
@@ -30,7 +33,7 @@ describe('Form.Preserve', () => {
         </Form>
     );
 
-    it('field', async () => {
+    test('field', async () => {
         const onFinish = jest.fn();
         const wrapper = mount(
             <Demo
@@ -53,7 +56,7 @@ describe('Form.Preserve', () => {
         await matchTest(false, { keep: 233, remove: 666 });
     });
 
-    it('form', async () => {
+    test('form', async () => {
         const onFinish = jest.fn();
         const wrapper = mount(
             <Demo
@@ -76,8 +79,8 @@ describe('Form.Preserve', () => {
         await matchTest(false, { keep: 233, remove: 666 });
     });
 
-    it('keep preserve when other field exist the name', async () => {
-        const formRef = React.createRef<FormInstance>();
+    test('keep preserve when other field exist the name', async () => {
+        const formRef = React.createRef<OcFormInstance>();
 
         const KeepDemo = ({
             onFinish,
@@ -89,10 +92,10 @@ describe('Form.Preserve', () => {
             return (
                 <Form
                     ref={formRef}
-                    initialValues={{ test: 'bamboo' }}
+                    initialValues={{ test: 'mia' }}
                     onFinish={onFinish}
                 >
-                    <Form.Field shouldUpdate>
+                    <Form.OcField shouldUpdate>
                         {() => {
                             return (
                                 <>
@@ -106,7 +109,7 @@ describe('Form.Preserve', () => {
                                 </>
                             );
                         }}
-                    </Form.Field>
+                    </Form.OcField>
                 </Form>
             );
         };
@@ -118,11 +121,11 @@ describe('Form.Preserve', () => {
         wrapper
             .find('input')
             .first()
-            .simulate('change', { target: { value: 'light' } });
+            .simulate('change', { target: { value: 'lola' } });
 
         formRef.current.submit();
         await timeout();
-        expect(onFinish).toHaveBeenCalledWith({ test: 'light' });
+        expect(onFinish).toHaveBeenCalledWith({ test: 'lola' });
         onFinish.mockReset();
 
         // Remove preserve should not change the value
@@ -130,10 +133,10 @@ describe('Form.Preserve', () => {
         await timeout();
         formRef.current.submit();
         await timeout();
-        expect(onFinish).toHaveBeenCalledWith({ test: 'light' });
+        expect(onFinish).toHaveBeenCalledWith({ test: 'lola' });
     });
 
-    it('form preserve but field !preserve', async () => {
+    test('form preserve but field !preserve', async () => {
         const onFinish = jest.fn();
         const wrapper = mount(
             <Demo
@@ -157,25 +160,25 @@ describe('Form.Preserve', () => {
     });
 
     describe('Form.List', () => {
-        it('form preserve should not crash', async () => {
-            let form: FormInstance;
+        test('form preserve should not crash', async () => {
+            let form: OcFormInstance;
 
             const wrapper = mount(
                 <Form
-                    initialValues={{ list: ['light', 'bamboo', 'little'] }}
+                    initialValues={{ list: ['lola', 'mia', 'little'] }}
                     preserve={false}
                     ref={(instance) => {
                         form = instance;
                     }}
                 >
-                    <Form.List name="list">
+                    <Form.OcList name="list">
                         {(fields, { remove }) => {
                             return (
                                 <div>
                                     {fields.map((field) => (
-                                        <Form.Field {...field}>
+                                        <Form.OcField {...field}>
                                             <input />
-                                        </Form.Field>
+                                        </Form.OcField>
                                     ))}
                                     <button
                                         type="button"
@@ -186,7 +189,7 @@ describe('Form.Preserve', () => {
                                 </div>
                             );
                         }}
-                    </Form.List>
+                    </Form.OcList>
                 </Form>
             );
 
@@ -194,30 +197,27 @@ describe('Form.Preserve', () => {
             wrapper.update();
 
             expect(form.getFieldsValue()).toEqual({
-                list: ['bamboo', 'little'],
+                list: ['mia', 'little'],
             });
         });
 
-        it('warning when Form.List use preserve', () => {
-            const errorSpy = jest
-                .spyOn(console, 'error')
-                .mockImplementation(() => {});
-            let form: FormInstance;
+        test('when Form.List use preserve', () => {
+            let form: OcFormInstance;
 
             const wrapper = mount(
                 <Form
                     ref={(instance) => {
                         form = instance;
                     }}
-                    initialValues={{ list: ['bamboo'] }}
+                    initialValues={{ list: ['mia'] }}
                 >
-                    <Form.List name="list">
+                    <Form.OcList name="list">
                         {(fields, { remove }) => (
                             <>
                                 {fields.map((field) => (
-                                    <Form.Field {...field} preserve={false}>
+                                    <Form.OcField {...field} preserve={false}>
                                         <input />
-                                    </Form.Field>
+                                    </Form.OcField>
                                 ))}
                                 <button
                                     onClick={() => {
@@ -228,77 +228,71 @@ describe('Form.Preserve', () => {
                                 </button>
                             </>
                         )}
-                    </Form.List>
+                    </Form.OcList>
                 </Form>
             );
-
-            expect(errorSpy).toHaveBeenCalledWith(
-                'Warning: `preserve` should not apply on Form.List fields.'
-            );
-
-            errorSpy.mockRestore();
 
             // Remove should not work
             wrapper.find('button').simulate('click');
             expect(form.getFieldsValue()).toEqual({ list: [] });
         });
 
-        it('multiple level field can use preserve', async () => {
-            let form: FormInstance;
+        test('multiple level field can use preserve', async () => {
+            let form: OcFormInstance;
 
             const wrapper = mount(
                 <Form
-                    initialValues={{ list: [{ type: 'light' }] }}
+                    initialValues={{ list: [{ type: 'lola' }] }}
                     preserve={false}
                     ref={(instance) => {
                         form = instance;
                     }}
                 >
-                    <Form.List name="list">
+                    <Form.OcList name="list">
                         {(fields, { remove }) => {
                             return (
                                 <>
                                     {fields.map((field) => (
                                         <div key={field.key}>
-                                            <Form.Field
+                                            <Form.OcField
                                                 {...field}
                                                 name={[field.name, 'type']}
                                             >
                                                 <Input />
-                                            </Form.Field>
-                                            <Form.Field shouldUpdate>
+                                            </Form.OcField>
+                                            <Form.OcField shouldUpdate>
                                                 {(_, __, { getFieldValue }) =>
                                                     getFieldValue([
                                                         'list',
                                                         field.name,
                                                         'type',
-                                                    ]) === 'light' ? (
-                                                        <Form.Field
+                                                    ]) === 'lola' ? (
+                                                        <Form.OcField
                                                             {...field}
-                                                            key="light"
+                                                            key="lola"
                                                             preserve={false}
                                                             name={[
                                                                 field.name,
-                                                                'light',
+                                                                'lola',
                                                             ]}
                                                         >
                                                             <Input />
-                                                        </Form.Field>
+                                                        </Form.OcField>
                                                     ) : (
-                                                        <Form.Field
+                                                        <Form.OcField
                                                             {...field}
-                                                            key="bamboo"
+                                                            key="mia"
                                                             preserve={false}
                                                             name={[
                                                                 field.name,
-                                                                'bamboo',
+                                                                'mia',
                                                             ]}
                                                         >
                                                             <Input />
-                                                        </Form.Field>
+                                                        </Form.OcField>
                                                     )
                                                 }
-                                            </Form.Field>
+                                            </Form.OcField>
                                         </div>
                                     ))}
                                     <button
@@ -311,11 +305,11 @@ describe('Form.Preserve', () => {
                                 </>
                             );
                         }}
-                    </Form.List>
+                    </Form.OcList>
                 </Form>
             );
 
-            // Change light value
+            // Change lola value
             wrapper
                 .find('input')
                 .last()
@@ -325,16 +319,16 @@ describe('Form.Preserve', () => {
             wrapper
                 .find('input')
                 .first()
-                .simulate('change', { target: { value: 'bamboo' } });
+                .simulate('change', { target: { value: 'mia' } });
 
-            // Change bamboo value
+            // Change mia value
             wrapper
                 .find('input')
                 .last()
                 .simulate('change', { target: { value: '903' } });
 
             expect(form.getFieldsValue()).toEqual({
-                list: [{ type: 'bamboo', bamboo: '903' }],
+                list: [{ type: 'mia', mia: '903' }],
             });
 
             // ============== Remove Test ==============
@@ -344,8 +338,8 @@ describe('Form.Preserve', () => {
         });
     });
 
-    it('nest render props should not clean full store', () => {
-        let form: FormInstance;
+    test('nest render props should not clean full store', () => {
+        let form: OcFormInstance;
 
         const wrapper = mount(
             <Form
@@ -354,70 +348,67 @@ describe('Form.Preserve', () => {
                     form = instance;
                 }}
             >
-                <Form.Field name="light">
+                <Form.OcField name="lola">
                     <input />
-                </Form.Field>
-                <Form.Field shouldUpdate>
+                </Form.OcField>
+                <Form.OcField shouldUpdate>
                     {(_, __, { getFieldValue }) =>
-                        getFieldValue('light') === 'bamboo' ? (
-                            <Form.Field>{() => null}</Form.Field>
+                        getFieldValue('lola') === 'mia' ? (
+                            <Form.OcField>{() => null}</Form.OcField>
                         ) : null
                     }
-                </Form.Field>
+                </Form.OcField>
             </Form>
         );
 
-        wrapper
-            .find('input')
-            .simulate('change', { target: { value: 'bamboo' } });
-        expect(form.getFieldsValue()).toEqual({ light: 'bamboo' });
+        wrapper.find('input').simulate('change', { target: { value: 'mia' } });
+        expect(form.getFieldsValue()).toEqual({ lola: 'mia' });
 
         wrapper
             .find('input')
             .simulate('change', { target: { value: 'little' } });
-        expect(form.getFieldsValue()).toEqual({ light: 'little' });
+        expect(form.getFieldsValue()).toEqual({ lola: 'little' });
 
         wrapper.unmount();
     });
 
-    // https://github.com/ant-design/ant-design/issues/31297
     describe('A -> B -> C should keep trigger refresh', () => {
-        it('shouldUpdate', () => {
+        test('shouldUpdate', () => {
             const DepDemo = () => {
                 const [form] = Form.useForm();
 
                 return (
                     <Form form={form} preserve={false}>
-                        <Form.Field name="name">
+                        <Form.OcField name="name">
                             <Input id="name" placeholder="Username" />
-                        </Form.Field>
+                        </Form.OcField>
 
-                        <Form.Field shouldUpdate>
+                        <Form.OcField shouldUpdate>
                             {() => {
                                 return form.getFieldValue('name') === '1' ? (
-                                    <Form.Field name="password">
+                                    <Form.OcField name="password">
                                         <Input
                                             id="password"
                                             placeholder="Password"
                                         />
-                                    </Form.Field>
+                                    </Form.OcField>
                                 ) : null;
                             }}
-                        </Form.Field>
+                        </Form.OcField>
 
-                        <Form.Field shouldUpdate>
+                        <Form.OcField shouldUpdate>
                             {() => {
                                 const password = form.getFieldValue('password');
                                 return password ? (
-                                    <Form.Field name="password2">
+                                    <Form.OcField name="password2">
                                         <Input
                                             id="password2"
                                             placeholder="Password 2"
                                         />
-                                    </Form.Field>
+                                    </Form.OcField>
                                 ) : null;
                             }}
-                        </Form.Field>
+                        </Form.OcField>
                     </Form>
                 );
             };
@@ -448,42 +439,42 @@ describe('Form.Preserve', () => {
             expect(wrapper.exists('#password2')).toBeFalsy();
         });
 
-        it('dependencies', () => {
+        test('dependencies', () => {
             const DepDemo = () => {
                 const [form] = Form.useForm();
 
                 return (
                     <Form form={form} preserve={false}>
-                        <Form.Field name="name">
+                        <Form.OcField name="name">
                             <Input id="name" placeholder="Username" />
-                        </Form.Field>
+                        </Form.OcField>
 
-                        <Form.Field dependencies={['name']}>
+                        <Form.OcField dependencies={['name']}>
                             {() => {
                                 return form.getFieldValue('name') === '1' ? (
-                                    <Form.Field name="password">
+                                    <Form.OcField name="password">
                                         <Input
                                             id="password"
                                             placeholder="Password"
                                         />
-                                    </Form.Field>
+                                    </Form.OcField>
                                 ) : null;
                             }}
-                        </Form.Field>
+                        </Form.OcField>
 
-                        <Form.Field dependencies={['password']}>
+                        <Form.OcField dependencies={['password']}>
                             {() => {
                                 const password = form.getFieldValue('password');
                                 return password ? (
-                                    <Form.Field name="password2">
+                                    <Form.OcField name="password2">
                                         <Input
                                             id="password2"
                                             placeholder="Password 2"
                                         />
-                                    </Form.Field>
+                                    </Form.OcField>
                                 ) : null;
                             }}
-                        </Form.Field>
+                        </Form.OcField>
                     </Form>
                 );
             };
@@ -515,8 +506,8 @@ describe('Form.Preserve', () => {
         });
     });
 
-    it('should correct calculate preserve state', () => {
-        let instance: FormInstance;
+    test('should correct calculate preserve state', () => {
+        let instance: OcFormInstance;
 
         const VisibleDemo = ({ visible = true }: { visible?: boolean }) => {
             const [form] = Form.useForm();
@@ -524,9 +515,9 @@ describe('Form.Preserve', () => {
 
             return visible ? (
                 <Form form={form}>
-                    <Form.Field name="name">
+                    <Form.OcField name="name">
                         <Input />
-                    </Form.Field>
+                    </Form.OcField>
                 </Form>
             ) : (
                 <div />
@@ -539,12 +530,12 @@ describe('Form.Preserve', () => {
             visible: false,
         });
 
-        instance.setFieldsValue({ name: 'bamboo' });
+        instance.setFieldsValue({ name: 'mia' });
         wrapper.setProps({
             visible: true,
         });
 
-        expect(wrapper.find('input').prop('value')).toEqual('bamboo');
+        expect(wrapper.find('input').prop('value')).toEqual('mia');
     });
 });
 /* eslint-enable no-template-curly-in-string */

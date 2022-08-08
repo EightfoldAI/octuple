@@ -1,17 +1,20 @@
 import React from 'react';
-import { mount } from 'enzyme';
-import Form, { Field } from '../src';
+import Enzyme, { mount } from 'enzyme';
+import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
+import OcForm, { OcField } from '../';
 import timeout from './common/timeout';
 import InfoField, { Input } from './common/InfoField';
 import { changeValue, matchError, getField } from './common';
 
-describe('Form.Dependencies', () => {
-    it('touched', async () => {
+Enzyme.configure({ adapter: new Adapter() });
+
+describe('OcForm.Dependencies', () => {
+    test('touched', async () => {
         let form = null;
 
         const wrapper = mount(
             <div>
-                <Form
+                <OcForm
                     ref={(instance) => {
                         form = instance;
                     }}
@@ -22,7 +25,7 @@ describe('Form.Dependencies', () => {
                         rules={[{ required: true }]}
                         dependencies={['field_1']}
                     />
-                </Form>
+                </OcForm>
             </div>
         );
 
@@ -37,13 +40,13 @@ describe('Form.Dependencies', () => {
     });
 
     describe('initialValue', () => {
-        function test(name, formProps, fieldProps) {
-            it(name, async () => {
+        function testFn(name, formProps, fieldProps) {
+            test(name, async () => {
                 let validated = false;
 
                 const wrapper = mount(
                     <div>
-                        <Form {...formProps}>
+                        <OcForm {...formProps}>
                             <InfoField name="field_1" />
                             <InfoField
                                 name="field_2"
@@ -57,7 +60,7 @@ describe('Form.Dependencies', () => {
                                 dependencies={['field_1']}
                                 {...fieldProps}
                             />
-                        </Form>
+                        </OcForm>
                     </div>
                 );
 
@@ -67,34 +70,34 @@ describe('Form.Dependencies', () => {
             });
         }
 
-        test('form level', { initialValues: { field_2: 'bamboo' } });
-        test('field level', null, { initialValue: 'little' });
+        testFn('form level', { initialValues: { field_2: 'bamboo' } });
+        testFn('field level', null, { initialValue: 'little' });
     });
 
-    it('nest dependencies', async () => {
+    test('nest dependencies', async () => {
         let form = null;
         let rendered = false;
 
         const wrapper = mount(
             <div>
-                <Form
+                <OcForm
                     ref={(instance) => {
                         form = instance;
                     }}
                 >
-                    <Field name="field_1">
+                    <OcField name="field_1">
                         <Input />
-                    </Field>
-                    <Field name="field_2" dependencies={['field_1']}>
+                    </OcField>
+                    <OcField name="field_2" dependencies={['field_1']}>
                         <Input />
-                    </Field>
-                    <Field name="field_3" dependencies={['field_2']}>
+                    </OcField>
+                    <OcField name="field_3" dependencies={['field_2']}>
                         {(control) => {
                             rendered = true;
                             return <Input {...control} />;
                         }}
-                    </Field>
-                </Form>
+                    </OcField>
+                </OcForm>
             </div>
         );
 
@@ -110,11 +113,11 @@ describe('Form.Dependencies', () => {
         expect(rendered).toBeTruthy();
     });
 
-    it('should work when field is dirty', async () => {
+    test('should work when field is dirty', async () => {
         let pass = false;
 
         const wrapper = mount(
-            <Form>
+            <OcForm>
                 <InfoField
                     name="field_1"
                     rules={[
@@ -132,7 +135,7 @@ describe('Form.Dependencies', () => {
 
                 <InfoField name="field_2" />
 
-                <Field shouldUpdate>
+                <OcField shouldUpdate>
                     {(_, __, { resetFields }) => (
                         <button
                             type="button"
@@ -141,8 +144,8 @@ describe('Form.Dependencies', () => {
                             }}
                         />
                     )}
-                </Field>
-            </Form>
+                </OcField>
+            </OcForm>
         );
 
         wrapper.find('form').simulate('submit');
@@ -158,27 +161,27 @@ describe('Form.Dependencies', () => {
         // Should not validate after reset
         pass = false;
         wrapper.find('button').simulate('click');
-        await changeValue(getField(wrapper, 1), 'light');
+        await changeValue(getField(wrapper, 1), 'lola');
         matchError(getField(wrapper, 0), false);
     });
 
-    it('should work as a shortcut when name is not provided', async () => {
+    test('should work as a shortcut when name is not provided', async () => {
         const spy = jest.fn();
         const wrapper = mount(
-            <Form>
-                <Field dependencies={['field_1']}>
+            <OcForm>
+                <OcField dependencies={['field_1']}>
                     {() => {
                         spy();
                         return 'gogogo';
                     }}
-                </Field>
-                <Field name="field_1">
+                </OcField>
+                <OcField name="field_1">
                     <Input />
-                </Field>
-                <Field name="field_2">
+                </OcField>
+                <OcField name="field_2">
                     <Input />
-                </Field>
-            </Form>
+                </OcField>
+            </OcForm>
         );
         expect(spy).toHaveBeenCalledTimes(1);
         await changeValue(getField(wrapper, 2), 'value2');
@@ -202,23 +205,23 @@ describe('Form.Dependencies', () => {
         expect(spy).toHaveBeenCalledTimes(2);
     });
 
-    it("shouldn't work when shouldUpdate is set", async () => {
+    test("shouldn't work when shouldUpdate is set", async () => {
         const spy = jest.fn();
         const wrapper = mount(
-            <Form>
-                <Field dependencies={['field_2']} shouldUpdate={() => true}>
+            <OcForm>
+                <OcField dependencies={['field_2']} shouldUpdate={() => true}>
                     {() => {
                         spy();
                         return 'gogogo';
                     }}
-                </Field>
-                <Field name="field_1">
+                </OcField>
+                <OcField name="field_1">
                     <Input />
-                </Field>
-                <Field name="field_2">
+                </OcField>
+                <OcField name="field_2">
                     <Input />
-                </Field>
-            </Form>
+                </OcField>
+            </OcForm>
         );
         expect(spy).toHaveBeenCalledTimes(1);
         await changeValue(getField(wrapper, 1), 'value1');

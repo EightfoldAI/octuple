@@ -1,20 +1,23 @@
 import React from 'react';
-import { mount } from 'enzyme';
-import Form from '../src';
+import Enzyme, { mount } from 'enzyme';
+import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
+import OcForm from '../';
 import InfoField, { Input } from './common/InfoField';
 import { changeValue } from './common';
 
-describe('Form.ReactStrict', () => {
-    it('should not register twice', async () => {
+Enzyme.configure({ adapter: new Adapter() });
+
+describe('OcForm.ReactStrict', () => {
+    test('should not register twice', async () => {
         const onFieldsChange = jest.fn();
 
         const wrapper = mount(
             <React.StrictMode>
-                <Form name="testForm" onFieldsChange={onFieldsChange}>
+                <OcForm name="testForm" onFieldsChange={onFieldsChange}>
                     <InfoField name="input">
                         <Input />
                     </InfoField>
-                </Form>
+                </OcForm>
             </React.StrictMode>
         );
 

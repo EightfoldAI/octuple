@@ -1,10 +1,10 @@
-import * as React from 'react';
-import type { InternalNamePath } from './interface';
+import React, { createContext } from 'react';
+import type { InternalOcNamePath } from './OcForm.types';
 
-export interface ListContextProps {
-    getKey: (namePath: InternalNamePath) => [React.Key, InternalNamePath];
+export interface OcListContextProps {
+    getKey: (namePath: InternalOcNamePath) => [React.Key, InternalOcNamePath];
 }
 
-const ListContext = React.createContext<ListContextProps | null>(null);
+const OcListContext = createContext<OcListContextProps | null>(null);
 
-export default ListContext;
+export default OcListContext;

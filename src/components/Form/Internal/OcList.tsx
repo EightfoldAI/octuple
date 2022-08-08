@@ -1,92 +1,71 @@
-import * as React from 'react';
+import React, { FC, useContext, useMemo, useRef } from 'react';
 import type {
-    InternalNamePath,
-    NamePath,
-    StoreValue,
-    ValidatorRule,
-    Meta,
-} from './interface';
-import FieldContext from './FieldContext';
-import Field from './Field';
+    InternalOcNamePath,
+    OcListField,
+    OcListOperations,
+    OcListProps,
+    OcStoreValue,
+} from './OcForm.types';
+import OcFieldContext from './OcFieldContext';
+import OcField from './OcField';
 import { move, getNamePath } from './utils/valueUtil';
-import type { ListContextProps } from './ListContext';
-import ListContext from './ListContext';
+import type { OcListContextProps } from './OcListContext';
+import OcListContext from './OcListContext';
 
-export interface ListField {
-    name: number;
-    key: number;
-    isListField: boolean;
-}
-
-export interface ListOperations {
-    add: (defaultValue?: StoreValue, index?: number) => void;
-    remove: (index: number | number[]) => void;
-    move: (from: number, to: number) => void;
-}
-
-export interface ListProps {
-    name: NamePath;
-    rules?: ValidatorRule[];
-    validateTrigger?: string | string[] | false;
-    initialValue?: any[];
-    children?: (
-        fields: ListField[],
-        operations: ListOperations,
-        meta: Meta
-    ) => JSX.Element | React.ReactNode;
-}
-
-const List: React.FunctionComponent<ListProps> = ({
+export const OcList: FC<OcListProps> = ({
     name,
     initialValue,
     children,
     rules,
     validateTrigger,
 }) => {
-    const context = React.useContext(FieldContext);
-    const keyRef = React.useRef({
+    const context = useContext(OcFieldContext);
+    const keyRef = useRef({
         keys: [],
         id: 0,
     });
     const keyManager = keyRef.current;
 
-    const prefixName: InternalNamePath = React.useMemo(() => {
+    const prefixName: InternalOcNamePath = useMemo(() => {
         const parentPrefixName = getNamePath(context.prefixName) || [];
         return [...parentPrefixName, ...getNamePath(name)];
     }, [context.prefixName, name]);
 
-    const fieldContext = React.useMemo(
+    const fieldContext = useMemo(
         () => ({ ...context, prefixName }),
         [context, prefixName]
     );
 
     // List context
-    const listContext = React.useMemo<ListContextProps>(
+    const listContext = useMemo<OcListContextProps>(
         () => ({
-            getKey: (namePath: InternalNamePath) => {
+            getKey: (namePath: InternalOcNamePath) => {
                 const len = prefixName.length;
                 const pathName = namePath[len];
-                return [keyManager.keys[pathName], namePath.slice(len + 1)];
+                return [
+                    (keyManager.keys as any)[pathName],
+                    namePath.slice(len + 1),
+                ];
             },
         }),
         [prefixName]
     );
 
     const shouldUpdate = (
-        prevValue: StoreValue,
-        nextValue: StoreValue,
-        { source }
+        prevValue: OcStoreValue,
+        nextValue: OcStoreValue,
+        props: { source: string }
     ) => {
-        if (source === 'internal') {
+        if (props.source === 'internal') {
             return false;
         }
         return prevValue !== nextValue;
     };
 
     return (
-        <ListContext.Provider value={listContext}>
-            <FieldContext.Provider value={fieldContext}>
-                <Field
+        <OcListContext.Provider value={listContext}>
+            <OcFieldContext.Provider value={fieldContext}>
+                <OcField
                     name={[]}
                     shouldUpdate={shouldUpdate}
                     rules={rules}
@@ -99,13 +78,13 @@ const List: React.FunctionComponent<ListProps> = ({
                         const getNewValue = () => {
                             const values = getFieldValue(
                                 prefixName || []
-                            ) as StoreValue[];
+                            ) as OcStoreValue[];
                             return values || [];
                         };
                         /**
                          * Always get latest value in case user update fields by `form` api.
                          */
-                        const operations: ListOperations = {
+                        const operations: OcListOperations = {
                             add: (defaultValue, index?: number) => {
                                 // Mapping keys
                                 const newValue = getNewValue();
@@ -184,8 +163,8 @@ const List: React.FunctionComponent<ListProps> = ({
                         }
 
                         return children(
-                            (listValue as StoreValue[]).map(
-                                (__, index): ListField => {
+                            (listValue as OcStoreValue[]).map(
+                                (__, index): OcListField => {
                                     let key = keyManager.keys[index];
                                     if (key === undefined) {
                                         keyManager.keys[index] = keyManager.id;
@@ -204,10 +183,8 @@ const List: React.FunctionComponent<ListProps> = ({
                             meta
                         );
                     }}
-                </Field>
-            </FieldContext.Provider>
-        </ListContext.Provider>
+                </OcField>
+            </OcFieldContext.Provider>
+        </OcListContext.Provider>
     );
 };
-
-export default List;

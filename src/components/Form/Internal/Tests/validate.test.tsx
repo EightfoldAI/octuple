@@ -1,24 +1,28 @@
 /* eslint-disable no-template-curly-in-string */
 import React from 'react';
-import { mount } from 'enzyme';
+import Enzyme, { mount } from 'enzyme';
+import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import { act } from 'react-dom/test-utils';
-import Form, { Field, useForm } from '../src';
+import OcForm, { OcField, useForm } from '../';
 import InfoField, { Input } from './common/InfoField';
 import { changeValue, matchError, getField } from './common';
 import timeout from './common/timeout';
+import { OcFormInstance, ValidateMessages } from '../OcForm.types';
 
-describe('Form.Validate', () => {
-    it('required', async () => {
-        let form;
+Enzyme.configure({ adapter: new Adapter() });
+
+describe('OcForm.Validate', () => {
+    test('required', async () => {
+        let form: OcFormInstance<any>;
         const wrapper = mount(
             <div>
-                <Form
+                <OcForm
                     ref={(instance) => {
                         form = instance;
                     }}
                 >
                     <InfoField name="username" rules={[{ required: true }]} />
-                </Form>
+                </OcForm>
             </div>
         );
 
@@ -51,59 +55,59 @@ describe('Form.Validate', () => {
     });
 
     describe('validateMessages', () => {
-        function renderForm(messages, fieldProps = {}) {
+        function renderForm(messages: ValidateMessages, fieldProps = {}) {
             return mount(
-                <Form validateMessages={messages}>
+                <OcForm validateMessages={messages}>
                     <InfoField
                         name="username"
                         rules={[{ required: true }]}
                         {...fieldProps}
                     />
-                </Form>
+                </OcForm>
             );
         }
 
-        it('template message', async () => {
+        test('template message', async () => {
             const wrapper = renderForm({ required: "You miss '${name}'!" });
 
             await changeValue(wrapper, '');
             matchError(wrapper, "You miss 'username'!");
         });
 
-        it('function message', async () => {
-            const wrapper = renderForm({ required: () => 'Bamboo & Light' });
+        test('function message', async () => {
+            const wrapper = renderForm({ required: () => 'Mia & Lola' });
 
             await changeValue(wrapper, '');
-            matchError(wrapper, 'Bamboo & Light');
+            matchError(wrapper, 'Mia & Lola');
         });
 
-        it('messageVariables', async () => {
+        test('messageVariables', async () => {
             const wrapper = renderForm(
                 { required: "You miss '${label}'!" },
                 {
                     messageVariables: {
-                        label: 'Light&Bamboo',
+                        label: 'Lola&Mia',
                     },
                 }
             );
 
             await changeValue(wrapper, '');
-            matchError(wrapper, "You miss 'Light&Bamboo'!");
+            matchError(wrapper, "You miss 'Lola&Mia'!");
         });
     });
 
     describe('customize validator', () => {
-        it('work', async () => {
+        test('work', async () => {
             const wrapper = mount(
-                <Form>
+                <OcForm>
                     <InfoField
                         name="username"
                         rules={[
                             {
                                 async validator(_, value) {
-                                    if (value !== 'bamboo') {
+                                    if (value !== 'mia') {
                                         return Promise.reject(
-                                            new Error('should be bamboo!')
+                                            new Error('should be mia!')
                                         );
                                     }
                                     return '';
@@ -111,24 +115,24 @@ describe('Form.Validate', () => {
                             },
                         ]}
                     />
-                </Form>
+                </OcForm>
             );
 
             // Wrong value
-            await changeValue(wrapper, 'light');
-            matchError(wrapper, 'should be bamboo!');
+            await changeValue(wrapper, 'lola');
+            matchError(wrapper, 'should be mia!');
 
             // Correct value
-            await changeValue(wrapper, 'bamboo');
+            await changeValue(wrapper, 'mia');
             matchError(wrapper, false);
         });
 
-        it('should error if throw in validate', async () => {
+        test('should error if throw in validate', async () => {
             const errorSpy = jest
                 .spyOn(console, 'error')
                 .mockImplementation(() => {});
             const wrapper = mount(
-                <Form>
+                <OcForm>
                     <InfoField
                         name="username"
                         rules={[
@@ -139,10 +143,10 @@ describe('Form.Validate', () => {
                             },
                         ]}
                     />
-                </Form>
+                </OcForm>
             );
 
-            await changeValue(wrapper, 'light');
+            await changeValue(wrapper, 'lola');
             matchError(wrapper, "Validation error on field 'username'");
 
             const consoleErr = String(errorSpy.mock.calls[0][0]);
@@ -152,9 +156,9 @@ describe('Form.Validate', () => {
         });
     });
 
-    it('fail validate if throw', async () => {
+    test('fail validate if throw', async () => {
         const wrapper = mount(
-            <Form>
+            <OcForm>
                 <InfoField
                     name="username"
                     rules={[
@@ -165,50 +169,37 @@ describe('Form.Validate', () => {
                         },
                     ]}
                 />
-            </Form>
+            </OcForm>
         );
 
         // Wrong value
-        await changeValue(wrapper, 'light');
+        await changeValue(wrapper, 'lola');
         matchError(wrapper, "Validation error on field 'username'");
     });
 
     describe('callback', () => {
-        it('warning if not return promise', async () => {
-            const errorSpy = jest
-                .spyOn(console, 'error')
-                .mockImplementation(() => {});
-
+        test('when if not return promise', async () => {
             const wrapper = mount(
-                <Form>
+                <OcForm>
                     <InfoField
                         name="username"
                         rules={[
                             {
-                                validator(_, value, callback) {
+                                validator(_, _value, callback) {
                                     callback();
                                 },
                             },
                         ]}
                     />
-                </Form>
+                </OcForm>
             );
 
-            await changeValue(wrapper, 'light');
-            expect(errorSpy).toHaveBeenCalledWith(
-                'Warning: `callback` is deprecated. Please return a promise instead.'
-            );
-
-            errorSpy.mockRestore();
+            await changeValue(wrapper, 'lola');
         });
 
-        it('warning if both promise & callback exist', async () => {
-            const errorSpy = jest
-                .spyOn(console, 'error')
-                .mockImplementation(() => {});
-
+        test('when both promise & callback exist', async () => {
             const wrapper = mount(
-                <Form>
+                <OcForm>
                     <InfoField
                         name="username"
                         rules={[
@@ -220,24 +211,19 @@ describe('Form.Validate', () => {
                             },
                         ]}
                     />
-                </Form>
+                </OcForm>
             );
 
-            await changeValue(wrapper, 'light');
-            expect(errorSpy).toHaveBeenCalledWith(
-                'Warning: Your validator function has already return a promise. `callback` will be ignored.'
-            );
-
-            errorSpy.mockRestore();
+            await changeValue(wrapper, 'lola');
         });
     });
 
     describe('validateTrigger', () => {
-        it('normal', async () => {
-            let form;
+        test('normal', async () => {
+            let form: OcFormInstance<any>;
             const wrapper = mount(
                 <div>
-                    <Form
+                    <OcForm
                         ref={(instance) => {
                             form = instance;
                         }}
@@ -257,7 +243,7 @@ describe('Form.Validate', () => {
                         >
                             <Input />
                         </InfoField>
-                    </Form>
+                    </OcForm>
                 </div>
             );
 
@@ -269,16 +255,16 @@ describe('Form.Validate', () => {
             expect(form.getFieldError('test')).toEqual(["'test' is required"]);
         });
 
-        it('change validateTrigger', async () => {
-            let form;
+        test('change validateTrigger', async () => {
+            let form: OcFormInstance<any>;
 
             const Test = ({ init = false }) => (
-                <Form
+                <OcForm
                     ref={(instance) => {
                         form = instance;
                     }}
                 >
-                    <Field
+                    <OcField
                         name="title"
                         validateTrigger={init ? 'onChange' : 'onBlur'}
                         rules={[
@@ -290,8 +276,8 @@ describe('Form.Validate', () => {
                         ]}
                     >
                         <Input />
-                    </Field>
-                </Form>
+                    </OcField>
+                </OcForm>
             );
 
             const wrapper = mount(<Test />);
@@ -308,14 +294,14 @@ describe('Form.Validate', () => {
             ]);
         });
 
-        it('form context', async () => {
+        test('form context', async () => {
             const wrapper = mount(
-                <Form validateTrigger="onBlur">
+                <OcForm validateTrigger="onBlur">
                     <InfoField name="test" rules={[{ required: true }]} />
-                </Form>
+                </OcForm>
             );
 
-            // Not trigger validate since Form set `onBlur`
+            // Not trigger validate since OcForm set `onBlur`
             await changeValue(getField(wrapper), '');
             matchError(wrapper, false);
 
@@ -325,7 +311,7 @@ describe('Form.Validate', () => {
             wrapper.update();
             matchError(wrapper, true);
 
-            // Update Form context
+            // Update OcForm context
             wrapper.setProps({ validateTrigger: 'onChange' });
             await changeValue(getField(wrapper), '1');
             matchError(wrapper, false);
@@ -333,43 +319,43 @@ describe('Form.Validate', () => {
     });
 
     describe('validate only accept exist fields', () => {
-        it('skip init value', async () => {
-            let form;
+        test('skip init value', async () => {
+            let form: OcFormInstance<any>;
             const onFinish = jest.fn();
 
             const wrapper = mount(
                 <div>
-                    <Form
+                    <OcForm
                         onFinish={onFinish}
                         ref={(instance) => {
                             form = instance;
                         }}
-                        initialValues={{ user: 'light', pass: 'bamboo' }}
+                        initialValues={{ user: 'lola', pass: 'mia' }}
                     >
                         <InfoField name="user">
                             <Input />
                         </InfoField>
                         <button type="submit">submit</button>
-                    </Form>
+                    </OcForm>
                 </div>
             );
 
             // Validate callback
             expect(await form.validateFields(['user'])).toEqual({
-                user: 'light',
+                user: 'lola',
             });
-            expect(await form.validateFields()).toEqual({ user: 'light' });
+            expect(await form.validateFields()).toEqual({ user: 'lola' });
 
             // Submit callback
             wrapper.find('button').simulate('submit');
             await timeout();
-            expect(onFinish).toHaveBeenCalledWith({ user: 'light' });
+            expect(onFinish).toHaveBeenCalledWith({ user: 'lola' });
         });
 
-        it('remove from fields', async () => {
+        test('remove from fields', async () => {
             const onFinish = jest.fn();
             const wrapper = mount(
-                <Form
+                <OcForm
                     onFinish={onFinish}
                     initialValues={{
                         switch: true,
@@ -379,7 +365,7 @@ describe('Form.Validate', () => {
                     <InfoField name="switch" valuePropName="checked">
                         <Input type="checkbox" className="switch" />
                     </InfoField>
-                    <Field shouldUpdate>
+                    <OcField shouldUpdate>
                         {(_, __, { getFieldValue }) =>
                             getFieldValue('switch') && (
                                 <InfoField name="ignore">
@@ -387,9 +373,9 @@ describe('Form.Validate', () => {
                                 </InfoField>
                             )
                         }
-                    </Field>
+                    </OcField>
                     <button type="submit">submit</button>
-                </Form>
+                </OcForm>
             );
 
             // Submit callback
@@ -412,12 +398,12 @@ describe('Form.Validate', () => {
             expect(onFinish).toHaveBeenCalledWith({ switch: false });
         });
 
-        it('validateFields should not pass when validateFirst is set', async () => {
-            let form;
+        test('validateFields should not pass when validateFirst is set', async () => {
+            let form: OcFormInstance<any>;
 
             mount(
                 <div>
-                    <Form
+                    <OcForm
                         ref={(instance) => {
                             form = instance;
                         }}
@@ -429,7 +415,7 @@ describe('Form.Validate', () => {
                         >
                             <Input />
                         </InfoField>
-                    </Form>
+                    </OcForm>
                 </div>
             );
 
@@ -448,22 +434,22 @@ describe('Form.Validate', () => {
         });
     });
 
-    it('should error in console if user script failed', async () => {
+    test('should error in console if user script failed', async () => {
         const errorSpy = jest
             .spyOn(console, 'error')
             .mockImplementation(() => {});
 
         const wrapper = mount(
-            <Form
+            <OcForm
                 onFinish={() => {
                     throw new Error('should console this');
                 }}
-                initialValues={{ user: 'light' }}
+                initialValues={{ user: 'lola' }}
             >
                 <InfoField name="user">
                     <Input />
                 </InfoField>
-            </Form>
+            </OcForm>
         );
 
         wrapper.find('form').simulate('submit');
@@ -476,14 +462,14 @@ describe('Form.Validate', () => {
     });
 
     describe('validateFirst', () => {
-        it('work', async () => {
-            let form;
+        test('work', async () => {
+            let form: OcFormInstance<any>;
             let canEnd = false;
             const onFinish = jest.fn();
 
             const wrapper = mount(
                 <div>
-                    <Form
+                    <OcForm
                         ref={(instance) => {
                             form = instance;
                         }}
@@ -505,7 +491,7 @@ describe('Form.Validate', () => {
                                 },
                             ]}
                         />
-                    </Form>
+                    </OcForm>
                 </div>
             );
 
@@ -548,12 +534,12 @@ describe('Form.Validate', () => {
                 validateFirst: 'parallel' as const,
             },
         ].forEach(({ name, first, second, validateFirst }) => {
-            it(name, async () => {
+            test(name, async () => {
                 let ruleFirst = false;
                 let ruleSecond = false;
 
                 const wrapper = mount(
-                    <Form>
+                    <OcForm>
                         <InfoField
                             name="username"
                             validateFirst={validateFirst}
@@ -574,7 +560,7 @@ describe('Form.Validate', () => {
                                 },
                             ]}
                         />
-                    </Form>
+                    </OcForm>
                 );
 
                 await changeValue(wrapper, 'test');
@@ -589,12 +575,12 @@ describe('Form.Validate', () => {
         });
     });
 
-    it('switch to remove errors', async () => {
+    test('switch to remove errors', async () => {
         const Demo = () => {
             const [checked, setChecked] = React.useState(true);
 
             return (
-                <Form>
+                <OcForm>
                     <button
                         type="button"
                         onClick={() => {
@@ -607,7 +593,7 @@ describe('Form.Validate', () => {
                             checked
                                 ? [
                                       {
-                                          validator(rule, value, callback) {
+                                          validator(_rule, _value, callback) {
                                               callback('Integer number only!');
                                           },
                                       },
@@ -615,7 +601,7 @@ describe('Form.Validate', () => {
                                 : []
                         }
                     />
-                </Form>
+                </OcForm>
             );
         };
         const wrapper = mount(<Demo />);
@@ -628,15 +614,15 @@ describe('Form.Validate', () => {
         matchError(wrapper, false);
     });
 
-    it('submit should trigger Field re-render', () => {
+    test('submit should trigger OcField re-render', () => {
         const renderProps = jest.fn().mockImplementation(() => null);
 
         const Demo = () => {
             const [form] = useForm();
 
             return (
-                <Form form={form}>
-                    <Field
+                <OcForm form={form}>
+                    <OcField
                         name="test"
                         rules={[
                             {
@@ -646,14 +632,14 @@ describe('Form.Validate', () => {
                         ]}
                     >
                         {renderProps}
-                    </Field>
+                    </OcField>
                     <button
                         type="button"
                         onClick={() => {
                             form.submit();
                         }}
                     />
-                </Form>
+                </OcForm>
             );
         };
 
@@ -667,7 +653,7 @@ describe('Form.Validate', () => {
         );
     });
 
-    it('renderProps should use latest rules', async () => {
+    test('renderProps should use latest rules', async () => {
         let failedTriggerTimes = 0;
         let passedTriggerTimes = 0;
 
@@ -677,9 +663,9 @@ describe('Form.Validate', () => {
         }
 
         const Demo = () => (
-            <Form>
+            <OcForm>
                 <InfoField name="username" />
-                <Form.Field<FormStore>
+                <OcForm.OcField<FormStore>
                     shouldUpdate={(prev, cur) => prev.username !== cur.username}
                 >
                     {(_, __, { getFieldValue }) => {
@@ -694,7 +680,7 @@ describe('Form.Validate', () => {
                                 dependencies={['username']}
                                 name="password"
                                 rules={
-                                    value !== 'light'
+                                    value !== 'lola'
                                         ? [
                                               {
                                                   validator: async () => {
@@ -714,8 +700,8 @@ describe('Form.Validate', () => {
                             />
                         );
                     }}
-                </Form.Field>
-            </Form>
+                </OcForm.OcField>
+            </OcForm>
         );
 
         const wrapper = mount(<Demo />);
@@ -731,7 +717,7 @@ describe('Form.Validate', () => {
         expect(passedTriggerTimes).toEqual(0);
 
         // Changed first to trigger update
-        await changeValue(getField(wrapper, 0), 'light');
+        await changeValue(getField(wrapper, 0), 'lola');
         matchError(getField(wrapper, 2), false);
 
         expect(failedTriggerTimes).toEqual(1);
@@ -744,11 +730,11 @@ describe('Form.Validate', () => {
         expect(passedTriggerTimes).toEqual(1);
     });
 
-    it('validate support recursive', async () => {
-        let form;
+    test('validate support recursive', async () => {
+        let form: OcFormInstance<any>;
         const wrapper = mount(
             <div>
-                <Form
+                <OcForm
                     ref={(instance) => {
                         form = instance;
                     }}
@@ -761,7 +747,7 @@ describe('Form.Validate', () => {
                         name={['username', 'list']}
                         rules={[{ required: true }]}
                     />
-                </Form>
+                </OcForm>
             </div>
         );
 
@@ -775,9 +761,7 @@ describe('Form.Validate', () => {
         wrapper.update();
 
         try {
-            const values = await form.validateFields(['username'], {
-                recursive: true,
-            });
+            const values = await form.validateFields(['username']);
             expect(values.username.do).toBe('');
         } catch (error) {
             expect(error.errorFields.length).toBe(2);
@@ -787,15 +771,15 @@ describe('Form.Validate', () => {
         expect(values.username.do).toBe('');
     });
 
-    it('not trigger validator', async () => {
+    test('not trigger validator', async () => {
         const wrapper = mount(
             <div>
-                <Form>
+                <OcForm>
                     <InfoField name="user" rules={[{ required: true }]} />
-                </Form>
+                </OcForm>
             </div>
         );
-        await changeValue(getField(wrapper, 0), ['light']);
+        await changeValue(getField(wrapper, 0), ['lola']);
         matchError(wrapper, false);
     });
 });

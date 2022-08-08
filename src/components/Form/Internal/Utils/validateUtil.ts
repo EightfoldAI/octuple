@@ -1,12 +1,12 @@
+import React from 'react';
 import RawAsyncValidator from 'async-validator';
-import * as React from 'react';
 import type {
-    InternalNamePath,
-    ValidateOptions,
-    RuleObject,
-    StoreValue,
-    RuleError,
-} from '../interface';
+    InternalOcNamePath,
+    OcValidateOptions,
+    OcRuleObject,
+    OcStoreValue,
+    OcRuleError,
+} from '../OcForm.types';
 import { defaultValidateMessages } from './messages';
 import { setValues } from './valueUtil';
 
@@ -28,16 +28,13 @@ const CODE_LOGIC_ERROR = 'CODE_LOGIC_ERROR';
 
 async function validateRule(
     name: string,
-    value: StoreValue,
-    rule: RuleObject,
-    options: ValidateOptions,
+    value: OcStoreValue,
+    rule: OcRuleObject,
+    options: OcValidateOptions,
     messageVariables?: Record<string, string>
 ): Promise<string[]> {
     const cloneRule = { ...rule };
 
-    // Bug of `async-validator`
-    // https://github.com/react-component/field-form/issues/316
-    // https://github.com/react-component/field-form/issues/313
     delete (cloneRule as any).ruleIndex;
 
     if (cloneRule.validator) {
@@ -53,7 +50,7 @@ async function validateRule(
     }
 
     // We should special handle array validate
-    let subRuleField: RuleObject = null;
+    let subRuleField: OcRuleObject = null;
     if (cloneRule && cloneRule.type === 'array' && cloneRule.defaultField) {
         subRuleField = cloneRule.defaultField;
         delete cloneRule.defaultField;
@@ -78,23 +75,27 @@ async function validateRule(
         );
     } catch (errObj) {
         if (errObj.errors) {
-            result = errObj.errors.map(({ message }, index: number) => {
-                const mergedMessage =
-                    message === CODE_LOGIC_ERROR ? messages.default : message;
+            result = errObj.errors.map(
+                (props: { message: string }, index: number) => {
+                    const mergedMessage =
+                        props.message === CODE_LOGIC_ERROR
+                            ? messages.default
+                            : props.message;
 
-                return React.isValidElement(mergedMessage)
-                    ? // Wrap ReactNode with `key`
-                      React.cloneElement(mergedMessage, {
-                          key: `error_${index}`,
-                      })
-                    : mergedMessage;
-            });
+                    return React.isValidElement(mergedMessage)
+                        ? // Wrap ReactNode with `key`
+                          React.cloneElement(mergedMessage, {
+                              key: `error_${index}`,
+                          })
+                        : mergedMessage;
+                }
+            );
         }
     }
 
     if (!result.length && subRuleField) {
         const subResults: string[][] = await Promise.all(
-            (value as StoreValue[]).map((subValue: StoreValue, i: number) =>
+            (value as OcStoreValue[]).map((subValue: OcStoreValue, i: number) =>
                 validateRule(
                     `${name}.${i}`,
                     subValue,
@@ -116,7 +117,7 @@ async function validateRule(
         ...messageVariables,
     };
 
-    const fillVariableResult = result.map((error) => {
+    const fillVariableResult = result.map((error: any) => {
         if (typeof error === 'string') {
             return replaceMessage(error, kv);
         }
@@ -131,17 +132,17 @@ async function validateRule(
  * But only check one value in a time to avoid namePath validate issue.
  */
 export function validateRules(
-    namePath: InternalNamePath,
-    value: StoreValue,
-    rules: RuleObject[],
-    options: ValidateOptions,
+    namePath: InternalOcNamePath,
+    value: OcStoreValue,
+    rules: OcRuleObject[],
+    options: OcValidateOptions,
     validateFirst: boolean | 'parallel',
     messageVariables?: Record<string, string>
 ) {
     const name = namePath.join('.');
 
     // Fill rule with context
-    const filledRules: RuleObject[] = rules
+    const filledRules: OcRuleObject[] = rules
         .map((currentRule, ruleIndex) => {
             const originValidatorFunc = currentRule.validator;
             const cloneRule = {
@@ -152,8 +153,8 @@ export function validateRules(
             // Replace validator if needed
             if (originValidatorFunc) {
                 cloneRule.validator = (
-                    rule: RuleObject,
-                    val: StoreValue,
+                    rule: OcRuleObject,
+                    val: OcStoreValue,
                     callback: (error?: string) => void
                 ) => {
                     let hasPromise = false;
@@ -212,7 +213,7 @@ export function validateRules(
         );
 
     // Do validate rules
-    let summaryPromise: Promise<RuleError[]>;
+    let summaryPromise: Promise<OcRuleError[]>;
 
     if (validateFirst === true) {
         // >>>>> Validate by serialization
@@ -238,7 +239,7 @@ export function validateRules(
         });
     } else {
         // >>>>> Validate by parallel
-        const rulePromises: Promise<RuleError>[] = filledRules.map((rule) =>
+        const rulePromises: Promise<OcRuleError>[] = filledRules.map((rule) =>
             validateRule(name, value, rule, options, messageVariables).then(
                 (errors) => ({ errors, rule })
             )
@@ -248,10 +249,12 @@ export function validateRules(
             validateFirst
                 ? finishOnFirstFailed(rulePromises)
                 : finishOnAllFailed(rulePromises)
-        ).then((errors: RuleError[]): RuleError[] | Promise<RuleError[]> => {
-            // Always change to rejection for Field to catch
-            return Promise.reject<RuleError[]>(errors);
-        });
+        ).then(
+            (errors: OcRuleError[]): OcRuleError[] | Promise<OcRuleError[]> => {
+                // Always change to rejection for Field to catch
+                return Promise.reject<OcRuleError[]>(errors);
+            }
+        );
     }
 
     // Internal catch error to avoid console error log.
@@ -261,11 +264,11 @@ export function validateRules(
 }
 
 async function finishOnAllFailed(
-    rulePromises: Promise<RuleError>[]
-): Promise<RuleError[]> {
+    rulePromises: Promise<OcRuleError>[]
+): Promise<OcRuleError[]> {
     return Promise.all(rulePromises).then(
-        (errorsList: RuleError[]): RuleError[] | Promise<RuleError[]> => {
-            const errors: RuleError[] = [].concat(...errorsList);
+        (errorsList: OcRuleError[]): OcRuleError[] | Promise<OcRuleError[]> => {
+            const errors: OcRuleError[] = [].concat(...errorsList);
 
             return errors;
         }
@@ -273,8 +276,8 @@ async function finishOnAllFailed(
 }
 
 async function finishOnFirstFailed(
-    rulePromises: Promise<RuleError>[]
-): Promise<RuleError[]> {
+    rulePromises: Promise<OcRuleError>[]
+): Promise<OcRuleError[]> {
     let count = 0;
 
     return new Promise((resolve) => {

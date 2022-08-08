@@ -1,12 +1,16 @@
-import type { FormInstance } from '.';
-import { FieldContext } from '.';
-import { HOOK_MARK } from './OcFieldContext';
-import type { InternalFormInstance, NamePath, Store } from './OcForm.types';
 import { useState, useContext, useEffect, useRef, useMemo } from 'react';
+import type { OcFormInstance } from '.';
+import { OcFieldContext } from '.';
+import { HOOK_MARK } from './OcFieldContext';
+import type {
+    InternalOcFormInstance,
+    OcNamePath,
+    OcStore,
+} from './OcForm.types';
 import { getNamePath, getValue } from './utils/valueUtil';
 
 type ReturnPromise<T> = T extends Promise<infer ValueType> ? ValueType : never;
-type GetGeneric<TForm extends FormInstance> = ReturnPromise<
+type GetGeneric<TForm extends OcFormInstance> = ReturnPromise<
     ReturnType<TForm['validateFields']>
 >;
 
@@ -20,7 +24,7 @@ export function stringify(value: any) {
 
 function useWatch<
     TDependencies1 extends keyof GetGeneric<TForm>,
-    TForm extends FormInstance,
+    TForm extends OcFormInstance,
     TDependencies2 extends keyof GetGeneric<TForm>[TDependencies1],
     TDependencies3 extends keyof GetGeneric<TForm>[TDependencies1][TDependencies2],
     TDependencies4 extends keyof GetGeneric<TForm>[TDependencies1][TDependencies2][TDependencies3]
@@ -36,7 +40,7 @@ function useWatch<
 
 function useWatch<
     TDependencies1 extends keyof GetGeneric<TForm>,
-    TForm extends FormInstance,
+    TForm extends OcFormInstance,
     TDependencies2 extends keyof GetGeneric<TForm>[TDependencies1],
     TDependencies3 extends keyof GetGeneric<TForm>[TDependencies1][TDependencies2]
 >(
@@ -46,7 +50,7 @@ function useWatch<
 
 function useWatch<
     TDependencies1 extends keyof GetGeneric<TForm>,
-    TForm extends FormInstance,
+    TForm extends OcFormInstance,
     TDependencies2 extends keyof GetGeneric<TForm>[TDependencies1]
 >(
     dependencies: [TDependencies1, TDependencies2],
@@ -55,36 +59,36 @@ function useWatch<
 
 function useWatch<
     TDependencies extends keyof GetGeneric<TForm>,
-    TForm extends FormInstance
+    TForm extends OcFormInstance
 >(
     dependencies: TDependencies | [TDependencies],
     form?: TForm
 ): GetGeneric<TForm>[TDependencies];
 
-function useWatch<TForm extends FormInstance>(
+function useWatch<TForm extends OcFormInstance>(
     dependencies: [],
     form?: TForm
 ): GetGeneric<TForm>;
 
-function useWatch<TForm extends FormInstance>(
-    dependencies: NamePath,
+function useWatch<TForm extends OcFormInstance>(
+    dependencies: OcNamePath,
     form?: TForm
 ): any;
 
-function useWatch<ValueType = Store>(
-    dependencies: NamePath,
-    form?: FormInstance
+function useWatch<ValueType = OcStore>(
+    dependencies: OcNamePath,
+    form?: OcFormInstance
 ): ValueType;
 
-function useWatch(dependencies: NamePath = [], form?: FormInstance) {
+function useWatch(dependencies: OcNamePath = [], form?: OcFormInstance) {
     const [value, setValue] = useState<any>();
 
     const valueStr = useMemo(() => stringify(value), [value]);
     const valueStrRef = useRef(valueStr);
     valueStrRef.current = valueStr;
 
-    const fieldContext = useContext(FieldContext);
-    const formInstance = (form as InternalFormInstance) || fieldContext;
+    const fieldContext = useContext(OcFieldContext);
+    const formInstance = (form as InternalOcFormInstance) || fieldContext;
     const isValidForm = formInstance && formInstance._init;
 
     const namePath = getNamePath(dependencies);
@@ -93,8 +97,8 @@ function useWatch(dependencies: NamePath = [], form?: FormInstance) {
 
     useEffect(
         () => {
-            if (isValidForm) {
-                return;
+            if (!isValidForm) {
+                return null;
             }
 
             const { getFieldsValue, getInternalHooks } = formInstance;
@@ -111,7 +115,6 @@ function useWatch(dependencies: NamePath = [], form?: FormInstance) {
                 }
             });
 
-            // TODO: We can improve this perf in future
             const initialValue = getValue(
                 getFieldsValue(),
                 namePathRef.current

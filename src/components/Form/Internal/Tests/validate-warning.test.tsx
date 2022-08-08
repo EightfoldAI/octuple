@@ -1,17 +1,20 @@
 /* eslint-disable no-template-curly-in-string */
 import React from 'react';
-import { mount } from 'enzyme';
-import Form from '../src';
+import Enzyme, { mount } from 'enzyme';
+import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
+import OcForm from '../';
 import InfoField, { Input } from './common/InfoField';
 import { changeValue, matchError } from './common';
-import type { FormInstance, Rule } from '../src/interface';
+import type { OcFormInstance, OcRule } from '../OcForm.types';
 
-describe('Form.WarningValidate', () => {
-    it('required', async () => {
-        let form: FormInstance<any>;
+Enzyme.configure({ adapter: new Adapter() });
+
+describe('OcForm.WarningValidate', () => {
+    test('required', async () => {
+        let form: OcFormInstance<any>;
 
         const wrapper = mount(
-            <Form
+            <OcForm
                 ref={(f) => {
                     form = f;
                 }}
@@ -27,7 +30,7 @@ describe('Form.WarningValidate', () => {
                 >
                     <Input />
                 </InfoField>
-            </Form>
+            </OcForm>
         );
 
         await changeValue(wrapper, '');
@@ -39,10 +42,10 @@ describe('Form.WarningValidate', () => {
         function testValidateFirst(
             name: string,
             validateFirst: boolean | 'parallel',
-            additionalRule?: Rule,
+            additionalRule?: OcRule,
             errorMessage?: string
         ) {
-            it(name, async () => {
+            test(name, async () => {
                 const rules = [
                     additionalRule,
                     {
@@ -61,7 +64,7 @@ describe('Form.WarningValidate', () => {
                 ];
 
                 const wrapper = mount(
-                    <Form>
+                    <OcForm>
                         <InfoField
                             name="name"
                             validateFirst={validateFirst}
@@ -69,7 +72,7 @@ describe('Form.WarningValidate', () => {
                         >
                             <Input />
                         </InfoField>
-                    </Form>
+                    </OcForm>
                 );
 
                 await changeValue(wrapper, 'bamboo');

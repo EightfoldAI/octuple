@@ -1,33 +1,36 @@
 import React from 'react';
-import { mount } from 'enzyme';
-import Form, { FormProvider } from '../src';
+import Enzyme, { mount } from 'enzyme';
+import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
+import OcForm, { OcFormProvider } from '../';
 import InfoField from './common/InfoField';
 import { changeValue, matchError, getField } from './common';
 import timeout from './common/timeout';
 
-describe('Form.Context', () => {
-    it('validateMessages', async () => {
+Enzyme.configure({ adapter: new Adapter() });
+
+describe('OcForm.Context', () => {
+    test('validateMessages', async () => {
         const wrapper = mount(
-            <FormProvider validateMessages={{ required: "I'm global" }}>
-                <Form>
+            <OcFormProvider validateMessages={{ required: "I'm global" }}>
+                <OcForm>
                     <InfoField name="username" rules={[{ required: true }]} />
-                </Form>
-            </FormProvider>
+                </OcForm>
+            </OcFormProvider>
         );
 
         await changeValue(wrapper, '');
         matchError(wrapper, "I'm global");
     });
 
-    it('change event', async () => {
+    test('change event', async () => {
         const onFormChange = jest.fn();
 
         const wrapper = mount(
-            <FormProvider onFormChange={onFormChange}>
-                <Form name="form1">
+            <OcFormProvider onFormChange={onFormChange}>
+                <OcForm name="form1">
                     <InfoField name="username" rules={[{ required: true }]} />
-                </Form>
-            </FormProvider>
+                </OcForm>
+            </OcFormProvider>
         );
 
         await changeValue(getField(wrapper), 'Light');
@@ -52,20 +55,20 @@ describe('Form.Context', () => {
     });
 
     describe('adjust sub form', () => {
-        it('basic', async () => {
+        test('basic', async () => {
             const onFormChange = jest.fn();
 
             const wrapper = mount(
-                <FormProvider onFormChange={onFormChange}>
-                    <Form name="form1" />
-                </FormProvider>
+                <OcFormProvider onFormChange={onFormChange}>
+                    <OcForm name="form1" />
+                </OcFormProvider>
             );
 
             wrapper.setProps({
                 children: (
-                    <Form name="form2">
+                    <OcForm name="form2">
                         <InfoField name="test" />
-                    </Form>
+                    </OcForm>
                 ),
             });
 
@@ -74,21 +77,21 @@ describe('Form.Context', () => {
             expect(Object.keys(forms)).toEqual(['form2']);
         });
 
-        it('multiple context', async () => {
+        test('multiple context', async () => {
             const onFormChange = jest.fn();
 
             const Demo = (changed) => (
-                <FormProvider onFormChange={onFormChange}>
-                    <FormProvider>
+                <OcFormProvider onFormChange={onFormChange}>
+                    <OcFormProvider>
                         {!changed ? (
-                            <Form name="form1" />
+                            <OcForm name="form1" />
                         ) : (
-                            <Form name="form2">
+                            <OcForm name="form2">
                                 <InfoField name="test" />
-                            </Form>
+                            </OcForm>
                         )}
-                    </FormProvider>
-                </FormProvider>
+                    </OcFormProvider>
+                </OcFormProvider>
             );
 
             const wrapper = mount(<Demo />);
@@ -103,23 +106,23 @@ describe('Form.Context', () => {
         });
     });
 
-    it('submit', async () => {
+    test('submit', async () => {
         const onFormFinish = jest.fn();
         let form1;
 
         const wrapper = mount(
             <div>
-                <FormProvider onFormFinish={onFormFinish}>
-                    <Form
+                <OcFormProvider onFormFinish={onFormFinish}>
+                    <OcForm
                         name="form1"
                         ref={(instance) => {
                             form1 = instance;
                         }}
                     >
                         <InfoField name="name" rules={[{ required: true }]} />
-                    </Form>
-                    <Form name="form2" />
-                </FormProvider>
+                    </OcForm>
+                    <OcForm name="form2" />
+                </OcFormProvider>
             </div>
         );
 
@@ -141,10 +144,10 @@ describe('Form.Context', () => {
         );
     });
 
-    it('do nothing if no Provider in use', () => {
+    test('do nothing if no Provider in use', () => {
         const wrapper = mount(
             <div>
-                <Form name="no" />
+                <OcForm name="no" />
             </div>
         );
 

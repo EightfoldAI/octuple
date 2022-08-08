@@ -1,4 +1,4 @@
-function cloneDeep(val) {
+function cloneDeep(val: any): any {
     if (Array.isArray(val)) {
         return cloneArrayDeep(val);
     } else if (typeof val === 'object' && val !== null) {
@@ -7,19 +7,21 @@ function cloneDeep(val) {
     return val;
 }
 
-function cloneObjectDeep(val) {
+function cloneObjectDeep(val: { [x: string]: any }): {
+    [x: string]: any;
+} {
     if (Object.getPrototypeOf(val) === Object.prototype) {
         const res = {};
         for (const key in val) {
-            res[key] = cloneDeep(val[key]);
+            (res as any)[key] = cloneDeep(val[key]);
         }
         return res;
     }
     return val;
 }
 
-function cloneArrayDeep(val) {
-    return val.map((item) => cloneDeep(item));
+function cloneArrayDeep(val: any[]): any[] {
+    return val.map((item: any) => cloneDeep(item));
 }
 
 export default cloneDeep;

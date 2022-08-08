@@ -1,55 +1,62 @@
 import React from 'react';
 import { act } from 'react-dom/test-utils';
-import { mount } from 'enzyme';
 import type { ReactWrapper } from 'enzyme';
-import { resetWarned } from 'rc-util/lib/warning';
-import Form, { Field, List } from '../src';
-import type { FormProps } from '../src';
-import type { ListField, ListOperations, ListProps } from '../src/List';
-import type { FormInstance, Meta } from '../src/interface';
-import ListContext from '../src/ListContext';
+import Enzyme, { mount } from 'enzyme';
+import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
+import OcForm, { OcField, OcList } from '../';
+import type {
+    OcFormInstance,
+    OcFormProps,
+    OcListField,
+    OcListOperations,
+    OcListProps,
+    OcMeta,
+} from '../OcForm.types';
+import OcListContext from '../OcListContext';
 import { Input } from './common/InfoField';
 import { changeValue, getField } from './common';
 import timeout from './common/timeout';
 
-describe('Form.List', () => {
-    let form;
+Enzyme.configure({ adapter: new Adapter() });
+
+describe('OcForm.OcList', () => {
+    let form: OcFormInstance<any>;
 
     function generateForm(
         renderList?: (
-            fields: ListField[],
-            operations: ListOperations,
-            meta: Meta
+            fields: OcListField[],
+            operations: OcListOperations,
+            meta: OcMeta
         ) => JSX.Element | React.ReactNode,
-        formProps?: FormProps,
-        listProps?: Partial<ListProps>
+        formProps?: OcFormProps,
+        listProps?: Partial<OcListProps>
     ): [ReactWrapper, () => ReactWrapper] {
         const wrapper = mount(
             <div>
-                <Form
+                <OcForm
                     ref={(instance) => {
                         form = instance;
                     }}
                     {...formProps}
                 >
-                    <List name="list" {...listProps}>
+                    <OcList name="list" {...listProps}>
                         {renderList}
-                    </List>
-                </Form>
+                    </OcList>
+                </OcForm>
             </div>
         );
 
         return [wrapper, () => getField(wrapper).find('div')];
     }
 
-    it('basic', async () => {
+    test('basic', async () => {
         const [, getList] = generateForm(
             (fields) => (
                 <div>
                     {fields.map((field) => (
-                        <Field {...field}>
+                        <OcField {...field}>
                             <Input />
-                        </Field>
+                        </OcField>
                     ))}
                 </div>
             ),
@@ -60,8 +67,8 @@ describe('Form.List', () => {
             }
         );
 
-        function matchKey(index, key) {
-            expect(getList().find(Field).at(index).key()).toEqual(key);
+        function matchKey(index: number, key: string) {
+            expect(getList().find(OcField).at(index).key()).toEqual(key);
         }
 
         matchKey(0, '0');
@@ -79,47 +86,37 @@ describe('Form.List', () => {
         });
     });
 
-    it('not crash', () => {
+    test('not crash', () => {
         // Empty only
         mount(
-            <Form initialValues={{ list: null }}>
-                <Form.List name="list">{() => null}</Form.List>
-            </Form>
+            <OcForm initialValues={{ list: null }}>
+                <OcForm.OcList name="list">{() => null}</OcForm.OcList>
+            </OcForm>
         );
-
-        // Not a array
-        const errorSpy = jest
-            .spyOn(console, 'error')
-            .mockImplementation(() => {});
-        resetWarned();
         mount(
-            <Form initialValues={{ list: {} }}>
-                <Form.List name="list">{() => null}</Form.List>
-            </Form>
+            <OcForm initialValues={{ list: {} }}>
+                <OcForm.OcList name="list">{() => null}</OcForm.OcList>
+            </OcForm>
         );
-        expect(errorSpy).toHaveBeenCalledWith(
-            "Warning: Current value of 'list' is not an array type."
-        );
-        errorSpy.mockRestore();
     });
 
-    it('operation', async () => {
-        let operation;
+    test('operation', async () => {
+        let operation: OcListOperations;
         const [wrapper, getList] = generateForm((fields, opt) => {
             operation = opt;
             return (
                 <div>
                     {fields.map((field) => (
-                        <Field {...field}>
+                        <OcField {...field}>
                             <Input />
-                        </Field>
+                        </OcField>
                     ))}
                 </div>
             );
         });
 
-        function matchKey(index, key) {
-            expect(getList().find(Field).at(index).key()).toEqual(key);
+        function matchKey(index: number, key: string) {
+            expect(getList().find(OcField).at(index).key()).toEqual(key);
         }
 
         // Add
@@ -136,7 +133,7 @@ describe('Form.List', () => {
         });
 
         wrapper.update();
-        expect(getList().find(Field).length).toEqual(3);
+        expect(getList().find(OcField).length).toEqual(3);
         expect(form.getFieldsValue()).toEqual({
             list: [undefined, '2', undefined],
         });
@@ -219,7 +216,7 @@ describe('Form.List', () => {
             operation.remove(1);
         });
         wrapper.update();
-        expect(getList().find(Field).length).toEqual(2);
+        expect(getList().find(OcField).length).toEqual(2);
         expect(form.getFieldsValue()).toEqual({
             list: [undefined, undefined],
         });
@@ -248,23 +245,23 @@ describe('Form.List', () => {
         matchKey(1, '2');
     });
 
-    it('remove when the param is Array', () => {
-        let operation;
+    test('remove when the param is Array', () => {
+        let operation: OcListOperations;
         const [wrapper, getList] = generateForm((fields, opt) => {
             operation = opt;
             return (
                 <div>
                     {fields.map((field) => (
-                        <Field {...field}>
+                        <OcField {...field}>
                             <Input />
-                        </Field>
+                        </OcField>
                     ))}
                 </div>
             );
         });
 
-        function matchKey(index, key) {
-            expect(getList().find(Field).at(index).key()).toEqual(key);
+        function matchKey(index: number, key: string) {
+            expect(getList().find(OcField).at(index).key()).toEqual(key);
         }
 
         act(() => {
@@ -276,7 +273,7 @@ describe('Form.List', () => {
         });
 
         wrapper.update();
-        expect(getList().find(Field).length).toEqual(2);
+        expect(getList().find(OcField).length).toEqual(2);
 
         // remove empty array
         act(() => {
@@ -302,7 +299,7 @@ describe('Form.List', () => {
         });
 
         wrapper.update();
-        expect(getList().find(Field).length).toEqual(1);
+        expect(getList().find(OcField).length).toEqual(1);
         matchKey(0, '1');
 
         act(() => {
@@ -326,19 +323,16 @@ describe('Form.List', () => {
         matchKey(0, '3');
     });
 
-    it('add when the second param is number', () => {
-        let operation;
-        const errorSpy = jest
-            .spyOn(console, 'error')
-            .mockImplementation(() => {});
+    test('add when the second param is number', () => {
+        let operation: OcListOperations;
         const [wrapper, getList] = generateForm((fields, opt) => {
             operation = opt;
             return (
                 <div>
                     {fields.map((field) => (
-                        <Field {...field}>
+                        <OcField {...field}>
                             <Input />
-                        </Field>
+                        </OcField>
                     ))}
                 </div>
             );
@@ -355,13 +349,8 @@ describe('Form.List', () => {
             operation.add('2', -1);
         });
 
-        expect(errorSpy).toHaveBeenCalledWith(
-            'Warning: The second parameter of the add function should be a valid positive number.'
-        );
-        errorSpy.mockRestore();
-
         wrapper.update();
-        expect(getList().find(Field).length).toEqual(3);
+        expect(getList().find(OcField).length).toEqual(3);
         expect(form.getFieldsValue()).toEqual({
             list: [undefined, '1', '2'],
         });
@@ -374,21 +363,21 @@ describe('Form.List', () => {
         });
 
         wrapper.update();
-        expect(getList().find(Field).length).toEqual(5);
+        expect(getList().find(OcField).length).toEqual(5);
         expect(form.getFieldsValue()).toEqual({
             list: ['0', undefined, '1', '4', '2'],
         });
     });
 
     describe('validate', () => {
-        it('basic', async () => {
+        test('basic', async () => {
             const [, getList] = generateForm(
                 (fields) => (
                     <div>
                         {fields.map((field) => (
-                            <Field {...field} rules={[{ required: true }]}>
+                            <OcField {...field} rules={[{ required: true }]}>
                                 <Input />
-                            </Field>
+                            </OcField>
                         ))}
                     </div>
                 ),
@@ -404,14 +393,14 @@ describe('Form.List', () => {
             ]);
         });
 
-        it('remove should keep error', async () => {
+        test('remove should keep error', async () => {
             const [wrapper, getList] = generateForm(
                 (fields, { remove }) => (
                     <div>
                         {fields.map((field) => (
-                            <Field {...field} rules={[{ required: true }]}>
+                            <OcField {...field} rules={[{ required: true }]}>
                                 <Input />
-                            </Field>
+                            </OcField>
                         ))}
 
                         <button
@@ -442,17 +431,17 @@ describe('Form.List', () => {
             ]);
         });
 
-        it('when param of remove is array', async () => {
+        test('when param of remove is array', async () => {
             const [wrapper, getList] = generateForm(
                 (fields, { remove }) => (
                     <div>
                         {fields.map((field) => (
-                            <Field
+                            <OcField
                                 {...field}
                                 rules={[{ required: true }, { min: 5 }]}
                             >
                                 <Input />
-                            </Field>
+                            </OcField>
                         ))}
 
                         <button
@@ -494,17 +483,17 @@ describe('Form.List', () => {
             expect(wrapper.find('input').props().value).toEqual('test');
         });
 
-        it('when add() second param is number', async () => {
+        test('when add() second param is number', async () => {
             const [wrapper, getList] = generateForm(
                 (fields, { add }) => (
                     <div>
                         {fields.map((field) => (
-                            <Field
+                            <OcField
                                 {...field}
                                 rules={[{ required: true }, { min: 5 }]}
                             >
                                 <Input />
-                            </Field>
+                            </OcField>
                         ))}
 
                         <button
@@ -550,32 +539,17 @@ describe('Form.List', () => {
         });
     });
 
-    it('warning if children is not function', () => {
-        const errorSpy = jest
-            .spyOn(console, 'error')
-            .mockImplementation(() => {});
-
-        generateForm((<div />) as any);
-
-        expect(errorSpy).toHaveBeenCalledWith(
-            'Warning: Form.List only accepts function as children.'
-        );
-
-        errorSpy.mockRestore();
-    });
-
-    // https://github.com/ant-design/ant-design/issues/25584
-    it('preserve should not break list', async () => {
-        let operation;
+    test('preserve should not break list', async () => {
+        let operation: OcListOperations;
         const [wrapper] = generateForm(
             (fields, opt) => {
                 operation = opt;
                 return (
                     <div>
                         {fields.map((field) => (
-                            <Field {...field}>
+                            <OcField {...field}>
                                 <Input />
-                            </Field>
+                            </OcField>
                         ))}
                     </div>
                 );
@@ -605,13 +579,13 @@ describe('Form.List', () => {
         expect(wrapper.find(Input)).toHaveLength(1);
     });
 
-    it('list support validator', async () => {
-        let operation;
-        let currentMeta;
-        let currentValue;
+    test('list support validator', async () => {
+        let operation: OcListOperations;
+        let currentMeta: OcMeta;
+        let currentValue: any;
 
         const [wrapper] = generateForm(
-            (_, opt, meta) => {
+            (_: any, opt: OcListOperations, meta: OcMeta) => {
                 operation = opt;
                 currentMeta = meta;
                 return null;
@@ -620,11 +594,11 @@ describe('Form.List', () => {
             {
                 rules: [
                     {
-                        validator(_, value) {
+                        validator(_: any, value: any) {
                             currentValue = value;
                             return Promise.reject();
                         },
-                        message: 'Bamboo Light',
+                        message: 'Mia Lola',
                     },
                 ],
             }
@@ -637,19 +611,19 @@ describe('Form.List', () => {
         });
 
         expect(currentValue).toEqual([undefined]);
-        expect(currentMeta.errors).toEqual(['Bamboo Light']);
+        expect(currentMeta.errors).toEqual(['Mia Lola']);
     });
 
-    it('Nest list remove should trigger correct onValuesChange', () => {
+    test('Nest list remove should trigger correct onValuesChange', () => {
         const onValuesChange = jest.fn();
 
         const [wrapper] = generateForm(
             (fields, operation) => (
                 <div>
                     {fields.map((field) => (
-                        <Field {...field} name={[field.name, 'first']}>
+                        <OcField {...field} name={[field.name, 'first']}>
                             <Input />
-                        </Field>
+                        </OcField>
                     ))}
                     <button
                         type="button"
@@ -662,29 +636,29 @@ describe('Form.List', () => {
             {
                 onValuesChange,
                 initialValues: {
-                    list: [{ first: 'light' }, { first: 'bamboo' }],
+                    list: [{ first: 'lola' }, { first: 'mia' }],
                 },
             }
         );
 
         wrapper.find('button').simulate('click');
         expect(onValuesChange).toHaveBeenCalledWith(expect.anything(), {
-            list: [{ first: 'light' }],
+            list: [{ first: 'lola' }],
         });
     });
 
     describe('isFieldTouched edge case', () => {
-        it('virtual object', () => {
-            const formRef = React.createRef<FormInstance>();
+        test('virtual object', () => {
+            const formRef = React.createRef<OcFormInstance>();
             const wrapper = mount(
-                <Form ref={formRef}>
-                    <Form.Field name={['user', 'name']}>
+                <OcForm ref={formRef}>
+                    <OcForm.OcField name={['user', 'name']}>
                         <Input />
-                    </Form.Field>
-                    <Form.Field name={['user', 'age']}>
+                    </OcForm.OcField>
+                    <OcForm.OcField name={['user', 'age']}>
                         <Input />
-                    </Form.Field>
-                </Form>
+                    </OcForm.OcField>
+                </OcForm>
             );
 
             // Not changed
@@ -709,19 +683,19 @@ describe('Form.List', () => {
             ).toBeTruthy();
         });
 
-        it('List children change', () => {
+        test('OcList children change', () => {
             const [wrapper] = generateForm(
                 (fields) => (
                     <div>
                         {fields.map((field) => (
-                            <Field {...field}>
+                            <OcField {...field}>
                                 <Input />
-                            </Field>
+                            </OcField>
                         ))}
                     </div>
                 ),
                 {
-                    initialValues: { list: ['light', 'bamboo'] },
+                    initialValues: { list: ['lola', 'mia'] },
                 }
             );
 
@@ -741,13 +715,13 @@ describe('Form.List', () => {
             expect(form.isFieldsTouched(['list'], true)).toBeTruthy();
         });
 
-        it('List self change', () => {
+        test('OcList self change', () => {
             const [wrapper] = generateForm((fields, opt) => (
                 <div>
                     {fields.map((field) => (
-                        <Field {...field}>
+                        <OcField {...field}>
                             <Input />
-                        </Field>
+                        </OcField>
                     ))}
                     <button
                         type="button"
@@ -772,29 +746,29 @@ describe('Form.List', () => {
         });
     });
 
-    it('initialValue', () => {
+    test('initialValue', () => {
         generateForm(
             (fields) => (
                 <div>
                     {fields.map((field) => (
-                        <Field {...field}>
+                        <OcField {...field}>
                             <Input />
-                        </Field>
+                        </OcField>
                     ))}
                 </div>
             ),
             null,
-            { initialValue: ['light', 'bamboo'] }
+            { initialValue: ['lola', 'mia'] }
         );
 
         expect(form.getFieldsValue()).toEqual({
-            list: ['light', 'bamboo'],
+            list: ['lola', 'mia'],
         });
     });
 
-    it('ListContext', () => {
+    test('ListContext', () => {
         const Hooker = ({ field }: any) => {
-            const { getKey } = React.useContext(ListContext);
+            const { getKey } = React.useContext(OcListContext);
             const [key, restPath] = getKey(['list', field.name, 'user']);
 
             return (
@@ -802,9 +776,9 @@ describe('Form.List', () => {
                     <span className="internal-key">{key}</span>
                     <span className="internal-rest">{restPath.join('_')}</span>
 
-                    <Field {...field} name={[field.name, 'user']}>
+                    <OcField {...field} name={[field.name, 'user']}>
                         <Input />
-                    </Field>
+                    </OcField>
                 </>
             );
         };
@@ -819,13 +793,13 @@ describe('Form.List', () => {
             ),
             {
                 initialValues: {
-                    list: [{ user: 'bamboo' }],
+                    list: [{ user: 'mia' }],
                 },
             }
         );
 
         expect(wrapper.find('.internal-key').text()).toEqual('0');
         expect(wrapper.find('.internal-rest').text()).toEqual('user');
-        expect(wrapper.find('input').prop('value')).toEqual('bamboo');
+        expect(wrapper.find('input').prop('value')).toEqual('mia');
     });
 });

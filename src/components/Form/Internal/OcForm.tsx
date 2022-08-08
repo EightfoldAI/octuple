@@ -1,46 +1,22 @@
-import * as React from 'react';
+import React, { useEffect, useImperativeHandle } from 'react';
 import type {
-    Store,
-    FormInstance,
-    FieldData,
-    ValidateMessages,
-    Callbacks,
-    InternalFormInstance,
-} from './interface';
+    InternalOcFormInstance,
+    OcFieldData,
+    OcFormContextProps,
+    OcFormInstance,
+    OcRenderProps,
+    OcStore,
+} from './OcForm.types';
+import { OcFormProps } from './OcForm.types';
 import useForm from './useForm';
-import FieldContext, { HOOK_MARK } from './FieldContext';
-import type { FormContextProps } from './FormContext';
-import FormContext from './FormContext';
+import FieldContext, { HOOK_MARK } from './OcFieldContext';
+import OcFormContext from './OcFormContext';
 import { isSimilar } from './utils/valueUtil';
 
-type BaseFormProps = Omit<
-    React.FormHTMLAttributes<HTMLFormElement>,
-    'onSubmit' | 'children'
->;
-
-type RenderProps = (
-    values: Store,
-    form: FormInstance
-) => JSX.Element | React.ReactNode;
-
-export interface FormProps<Values = any> extends BaseFormProps {
-    initialValues?: Store;
-    form?: FormInstance<Values>;
-    children?: RenderProps | React.ReactNode;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    component?: false | string | React.FC<any> | React.ComponentClass<any>;
-    fields?: FieldData[];
-    name?: string;
-    validateMessages?: ValidateMessages;
-    onValuesChange?: Callbacks<Values>['onValuesChange'];
-    onFieldsChange?: Callbacks<Values>['onFieldsChange'];
-    onFinish?: Callbacks<Values>['onFinish'];
-    onFinishFailed?: Callbacks<Values>['onFinishFailed'];
-    validateTrigger?: string | string[] | false;
-    preserve?: boolean;
-}
-
-const Form: React.ForwardRefRenderFunction<FormInstance, FormProps> = (
+export const OcForm: React.ForwardRefRenderFunction<
+    OcFormInstance,
+    OcFormProps
+> = (
     {
         name,
         initialValues,
@@ -55,11 +31,11 @@ const Form: React.ForwardRefRenderFunction<FormInstance, FormProps> = (
         onFieldsChange,
         onFinish,
         onFinishFailed,
-        ...restProps
-    }: FormProps,
+        ...rest
+    }: OcFormProps,
     ref
 ) => {
-    const formContext: FormContextProps = React.useContext(FormContext);
+    const formContext: OcFormContextProps = React.useContext(OcFormContext);
 
     // We customize handle event since Context will makes all the consumer re-render:
     // https://reactjs.org/docs/context.html#contextprovider
@@ -71,13 +47,13 @@ const Form: React.ForwardRefRenderFunction<FormInstance, FormProps> = (
         setValidateMessages,
         setPreserve,
         destroyForm,
-    } = (formInstance as InternalFormInstance).getInternalHooks(HOOK_MARK);
+    } = (formInstance as InternalOcFormInstance).getInternalHooks(HOOK_MARK);
 
     // Pass ref with form instance
-    React.useImperativeHandle(ref, () => formInstance);
+    useImperativeHandle(ref, () => formInstance);
 
     // Register form into Context
-    React.useEffect(() => {
+    useEffect(() => {
         formContext.registerForm(name, formInstance);
         return () => {
             formContext.unregisterForm(name);
@@ -89,16 +65,17 @@ const Form: React.ForwardRefRenderFunction<FormInstance, FormProps> = (
         ...formContext.validateMessages,
         ...validateMessages,
     });
+
     setCallbacks({
         onValuesChange,
-        onFieldsChange: (changedFields: FieldData[], ...rest) => {
+        onFieldsChange: (changedFields: OcFieldData[], ...rest) => {
             formContext.triggerFormChange(name, changedFields);
 
             if (onFieldsChange) {
                 onFieldsChange(changedFields, ...rest);
             }
         },
-        onFinish: (values: Store) => {
+        onFinish: (values: OcStore) => {
             formContext.triggerFormFinish(name, values);
 
             if (onFinish) {
@@ -107,16 +84,18 @@ const Form: React.ForwardRefRenderFunction<FormInstance, FormProps> = (
         },
         onFinishFailed,
     });
+
     setPreserve(preserve);
 
     // Set initial value, init store value when first mount
     const mountRef = React.useRef(null);
+
     setInitialValues(initialValues, !mountRef.current);
     if (!mountRef.current) {
         mountRef.current = true;
     }
 
-    React.useEffect(
+    useEffect(
         () => destroyForm,
         // eslint-disable-next-line react-hooks/exhaustive-deps
         []
@@ -127,7 +106,7 @@ const Form: React.ForwardRefRenderFunction<FormInstance, FormProps> = (
     const childrenRenderProps = typeof children === 'function';
     if (childrenRenderProps) {
         const values = formInstance.getFieldsValue(true);
-        childrenNode = (children as RenderProps)(values, formInstance);
+        childrenNode = (children as OcRenderProps)(values, formInstance);
     } else {
         childrenNode = children;
     }
@@ -136,8 +115,8 @@ const Form: React.ForwardRefRenderFunction<FormInstance, FormProps> = (
     useSubscribe(!childrenRenderProps);
 
     // Listen if fields provided. We use ref to save prev data here to avoid additional render
-    const prevFieldsRef = React.useRef<FieldData[] | undefined>();
-    React.useEffect(() => {
+    const prevFieldsRef = React.useRef<OcFieldData[] | undefined>();
+    useEffect(() => {
         if (!isSimilar(prevFieldsRef.current || [], fields || [])) {
             formInstance.setFields(fields || []);
         }
@@ -146,7 +125,7 @@ const Form: React.ForwardRefRenderFunction<FormInstance, FormProps> = (
 
     const formContextValue = React.useMemo(
         () => ({
-            ...(formInstance as InternalFormInstance),
+            ...(formInstance as InternalOcFormInstance),
             validateTrigger,
         }),
         [formInstance, validateTrigger]
@@ -164,7 +143,7 @@ const Form: React.ForwardRefRenderFunction<FormInstance, FormProps> = (
 
     return (
         <Component
-            {...restProps}
+            {...rest}
             onSubmit={(event: React.FormEvent<HTMLFormElement>) => {
                 event.preventDefault();
                 event.stopPropagation();
@@ -175,12 +154,10 @@ const Form: React.ForwardRefRenderFunction<FormInstance, FormProps> = (
                 event.preventDefault();
 
                 formInstance.resetFields();
-                restProps.onReset?.(event);
+                rest.onReset?.(event);
             }}
         >
             {wrapperNode}
         </Component>
     );
 };
-
-export default Form;

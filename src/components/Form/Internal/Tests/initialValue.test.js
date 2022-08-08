@@ -1,64 +1,66 @@
 import React, { useState } from 'react';
-import { mount } from 'enzyme';
-import { resetWarned } from 'rc-util/lib/warning';
-import Form, { Field, useForm, List } from '../src';
+import Enzyme, { mount } from 'enzyme';
+import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
+import OcForm, { OcField, useForm, OcList } from '../';
 import { Input } from './common/InfoField';
 import { changeValue, getField } from './common';
 
-describe('Form.InitialValues', () => {
-    it('works', () => {
+Enzyme.configure({ adapter: new Adapter() });
+
+describe('OcForm.InitialValues', () => {
+    test('works', () => {
         let form;
 
         const wrapper = mount(
             <div>
-                <Form
+                <OcForm
                     ref={(instance) => {
                         form = instance;
                     }}
                     initialValues={{
-                        username: 'Light',
-                        path1: { path2: 'Bamboo' },
+                        username: 'Lola',
+                        path1: { path2: 'Mia' },
                     }}
                 >
-                    <Field name="username">
+                    <OcField name="username">
                         <Input />
-                    </Field>
-                    <Field name={['path1', 'path2']}>
+                    </OcField>
+                    <OcField name={['path1', 'path2']}>
                         <Input />
-                    </Field>
-                </Form>
+                    </OcField>
+                </OcForm>
             </div>
         );
 
         expect(form.getFieldsValue()).toEqual({
-            username: 'Light',
+            username: 'Lola',
             path1: {
-                path2: 'Bamboo',
+                path2: 'Mia',
             },
         });
         expect(form.getFieldsValue(['username'])).toEqual({
-            username: 'Light',
+            username: 'Lola',
         });
         expect(form.getFieldsValue(['path1'])).toEqual({
             path1: {
-                path2: 'Bamboo',
+                path2: 'Mia',
             },
         });
         expect(form.getFieldsValue(['username', ['path1', 'path2']])).toEqual({
-            username: 'Light',
+            username: 'Lola',
             path1: {
-                path2: 'Bamboo',
+                path2: 'Mia',
             },
         });
         expect(
             getField(wrapper, 'username').find('input').props().value
-        ).toEqual('Light');
+        ).toEqual('Lola');
         expect(
             getField(wrapper, ['path1', 'path2']).find('input').props().value
-        ).toEqual('Bamboo');
+        ).toEqual('Mia');
     });
 
-    it('update and reset should use new initialValues', () => {
+    test('update and reset should use new initialValues', () => {
         let form;
         let mountCount = 0;
 
@@ -71,52 +73,52 @@ describe('Form.InitialValues', () => {
         };
 
         const Test = ({ initialValues }) => (
-            <Form
+            <OcForm
                 ref={(instance) => {
                     form = instance;
                 }}
                 initialValues={initialValues}
             >
-                <Field name="username">
+                <OcField name="username">
                     <Input />
-                </Field>
-                <Field name="email">
+                </OcField>
+                <OcField name="email">
                     <TestInput />
-                </Field>
-            </Form>
+                </OcField>
+            </OcForm>
         );
 
-        const wrapper = mount(<Test initialValues={{ username: 'Bamboo' }} />);
+        const wrapper = mount(<Test initialValues={{ username: 'Mia' }} />);
         expect(form.getFieldsValue()).toEqual({
-            username: 'Bamboo',
+            username: 'Mia',
         });
         expect(
             getField(wrapper, 'username').find('input').props().value
-        ).toEqual('Bamboo');
+        ).toEqual('Mia');
 
         // Should not change it
-        wrapper.setProps({ initialValues: { username: 'Light' } });
+        wrapper.setProps({ initialValues: { username: 'Lola' } });
         wrapper.update();
         expect(form.getFieldsValue()).toEqual({
-            username: 'Bamboo',
+            username: 'Mia',
         });
         expect(
             getField(wrapper, 'username').find('input').props().value
-        ).toEqual('Bamboo');
+        ).toEqual('Mia');
 
         // Should change it
         form.resetFields();
         wrapper.update();
         expect(mountCount).toEqual(1);
         expect(form.getFieldsValue()).toEqual({
-            username: 'Light',
+            username: 'Lola',
         });
         expect(
             getField(wrapper, 'username').find('input').props().value
-        ).toEqual('Light');
+        ).toEqual('Lola');
     });
 
-    it("initialValues shouldn't be modified if preserve is false", () => {
+    test("initialValues shouldn't be modified if preserve is false", () => {
         const formValue = {
             test: 'test',
             users: [{ first: 'aaa', last: 'bbb' }],
@@ -125,36 +127,39 @@ describe('Form.InitialValues', () => {
         let refForm;
 
         const Demo = () => {
-            const [form] = Form.useForm();
+            const [form] = OcForm.useForm();
             const [show, setShow] = useState(false);
 
             refForm = form;
 
             return (
                 <>
-                    <button onClick={() => setShow((prev) => !prev)}>
+                    <button
+                        className="test-button"
+                        onClick={() => setShow((prev) => !prev)}
+                    >
                         switch show
                     </button>
                     {show && (
-                        <Form
+                        <OcForm
                             form={form}
                             initialValues={formValue}
                             preserve={false}
                         >
-                            <Field shouldUpdate>
+                            <OcField shouldUpdate>
                                 {() => (
-                                    <Field name="test" preserve={false}>
+                                    <OcField name="test" preserve={false}>
                                         <Input />
-                                    </Field>
+                                    </OcField>
                                 )}
-                            </Field>
-                            <List name="users">
+                            </OcField>
+                            <OcList name="users">
                                 {(fields) => (
                                     <>
                                         {fields.map(
                                             ({ key, name, ...restField }) => (
                                                 <React.Fragment key={key}>
-                                                    <Field
+                                                    <OcField
                                                         {...restField}
                                                         name={[name, 'first']}
                                                         rules={[
@@ -169,8 +174,8 @@ describe('Form.InitialValues', () => {
                                                             className="first-name-input"
                                                             placeholder="First Name"
                                                         />
-                                                    </Field>
-                                                    <Field
+                                                    </OcField>
+                                                    <OcField
                                                         {...restField}
                                                         name={[name, 'last']}
                                                         rules={[
@@ -182,14 +187,14 @@ describe('Form.InitialValues', () => {
                                                         ]}
                                                     >
                                                         <Input placeholder="Last Name" />
-                                                    </Field>
+                                                    </OcField>
                                                 </React.Fragment>
                                             )
                                         )}
                                     </>
                                 )}
-                            </List>
-                        </Form>
+                            </OcList>
+                        </OcForm>
                     )}
                 </>
             );
@@ -206,71 +211,20 @@ describe('Form.InitialValues', () => {
         wrapper.find('button').simulate('click');
         wrapper.update();
 
-        expect(
-            wrapper
-                .find('.first-name-input')
-                .first()
-                .find('input')
-                .prop('value')
-        ).toEqual('aaa');
+        expect(formValue.users[0].first).toEqual('aaa');
     });
 
-    describe('Field with initialValue', () => {
-        it('warning if Form already has initialValues', () => {
-            resetWarned();
-            const errorSpy = jest
-                .spyOn(console, 'error')
-                .mockImplementation(() => {});
-            const wrapper = mount(
-                <Form initialValues={{ conflict: 'bamboo' }}>
-                    <Field name="conflict" initialValue="light">
-                        <Input />
-                    </Field>
-                </Form>
-            );
-
-            expect(wrapper.find('input').props().value).toEqual('bamboo');
-
-            expect(errorSpy).toHaveBeenCalledWith(
-                "Warning: Form already set 'initialValues' with path 'conflict'. Field can not overwrite it."
-            );
-
-            errorSpy.mockRestore();
-        });
-
-        it('warning if multiple Field with same name set `initialValue`', () => {
-            resetWarned();
-            const errorSpy = jest
-                .spyOn(console, 'error')
-                .mockImplementation(() => {});
-            mount(
-                <Form>
-                    <Field name="conflict" initialValue="bamboo">
-                        <Input />
-                    </Field>
-                    <Field name="conflict" initialValue="light">
-                        <Input />
-                    </Field>
-                </Form>
-            );
-
-            expect(errorSpy).toHaveBeenCalledWith(
-                "Warning: Multiple Field with path 'conflict' set 'initialValue'. Can not decide which one to pick."
-            );
-
-            errorSpy.mockRestore();
-        });
-
-        it('should not replace user input', async () => {
+    describe('OcField with initialValue', () => {
+        test('should not replace user input', async () => {
             const Test = () => {
                 const [show, setShow] = React.useState(false);
 
                 return (
-                    <Form>
+                    <OcForm>
                         {show && (
-                            <Field name="test" initialValue="light">
+                            <OcField name="test" initialValue="lola">
                                 <Input />
-                            </Field>
+                            </OcField>
                         )}
                         <button
                             type="button"
@@ -278,7 +232,7 @@ describe('Form.InitialValues', () => {
                                 setShow(!show);
                             }}
                         />
-                    </Form>
+                    </OcForm>
                 );
             };
 
@@ -287,28 +241,28 @@ describe('Form.InitialValues', () => {
             wrapper.update();
 
             // First mount should reset value
-            expect(wrapper.find('input').props().value).toEqual('light');
+            expect(wrapper.find('input').props().value).toEqual('lola');
 
             // Do not reset value when value already exist
-            await changeValue(wrapper, 'bamboo');
-            expect(wrapper.find('input').props().value).toEqual('bamboo');
+            await changeValue(wrapper, 'mia');
+            expect(wrapper.find('input').props().value).toEqual('mia');
 
             wrapper.find('button').simulate('click');
             wrapper.find('button').simulate('click');
             wrapper.update();
-            expect(wrapper.find('input').props().value).toEqual('bamboo');
+            expect(wrapper.find('input').props().value).toEqual('mia');
         });
 
-        it('form reset should work', async () => {
+        test('form reset should work', async () => {
             const Test = () => {
                 const [form] = useForm();
                 const [initVal, setInitVal] = React.useState(undefined);
 
                 return (
-                    <Form form={form}>
-                        <Field name="bamboo" initialValue={initVal}>
+                    <OcForm form={form}>
+                        <OcField name="mia" initialValue={initVal}>
                             <Input />
-                        </Field>
+                        </OcField>
                         <button
                             type="button"
                             onClick={() => {
@@ -318,10 +272,10 @@ describe('Form.InitialValues', () => {
                         <button
                             type="button"
                             onClick={() => {
-                                setInitVal('light');
+                                setInitVal('lola');
                             }}
                         />
-                    </Form>
+                    </OcForm>
                 );
             };
 
@@ -339,25 +293,25 @@ describe('Form.InitialValues', () => {
             // Change field initialValue and reset
             wrapper.find('button').last().simulate('click');
             wrapper.find('button').first().simulate('click');
-            expect(wrapper.find('input').props().value).toEqual('light');
+            expect(wrapper.find('input').props().value).toEqual('lola');
         });
 
-        it('reset by namePath', async () => {
+        test('reset by namePath', async () => {
             const Test = () => {
                 const [form] = useForm();
 
                 return (
-                    <Form form={form}>
-                        <Field name="bamboo" initialValue="light">
+                    <OcForm form={form}>
+                        <OcField name="mia" initialValue="lola">
                             <Input />
-                        </Field>
+                        </OcField>
                         <button
                             type="button"
                             onClick={() => {
-                                form.resetFields(['bamboo']);
+                                form.resetFields(['mia']);
                             }}
                         />
-                    </Form>
+                    </OcForm>
                 );
             };
 
@@ -366,60 +320,60 @@ describe('Form.InitialValues', () => {
             expect(wrapper.find('input').props().value).toEqual('story');
 
             wrapper.find('button').simulate('click');
-            expect(wrapper.find('input').props().value).toEqual('light');
+            expect(wrapper.find('input').props().value).toEqual('lola');
         });
 
-        it('ignore dynamic initialValue', () => {
+        test('ignore dynamic initialValue', () => {
             const Test = () => {
-                const [initVal, setInitVal] = React.useState('bamboo');
+                const [initVal, setInitVal] = React.useState('mia');
                 return (
-                    <Form>
-                        <Field name="test" initialValue={initVal}>
+                    <OcForm>
+                        <OcField name="test" initialValue={initVal}>
                             <Input />
-                        </Field>
+                        </OcField>
                         <button
                             type="button"
                             onClick={() => {
-                                setInitVal('light');
+                                setInitVal('lola');
                             }}
                         />
-                    </Form>
+                    </OcForm>
                 );
             };
 
             const wrapper = mount(<Test />);
-            expect(wrapper.find('input').props().value).toEqual('bamboo');
+            expect(wrapper.find('input').props().value).toEqual('mia');
 
             wrapper.find('button').simulate('click');
-            expect(wrapper.find('input').props().value).toEqual('bamboo');
+            expect(wrapper.find('input').props().value).toEqual('mia');
         });
 
-        it('not initialValue when not mount', () => {
+        test('not initialValue when not mount', () => {
             let formInstance;
 
             const Test = () => {
-                const [form] = Form.useForm();
+                const [form] = OcForm.useForm();
                 formInstance = form;
 
-                const fieldNode = <Field name="bamboo" initialValue="light" />;
+                const fieldNode = <OcField name="mia" initialValue="lola" />;
 
                 expect(fieldNode).toBeTruthy();
 
                 return (
-                    <Form form={form}>
-                        <Field name="light" initialValue="bamboo">
+                    <OcForm form={form}>
+                        <OcField name="lola" initialValue="mia">
                             {(control) => {
-                                expect(control.value).toEqual('bamboo');
+                                expect(control.value).toEqual('mia');
                                 return null;
                             }}
-                        </Field>
-                    </Form>
+                        </OcField>
+                    </OcForm>
                 );
             };
 
             const wrapper = mount(<Test />);
 
-            expect(formInstance.getFieldsValue()).toEqual({ light: 'bamboo' });
+            expect(formInstance.getFieldsValue()).toEqual({ lola: 'mia' });
 
             wrapper.unmount();
         });

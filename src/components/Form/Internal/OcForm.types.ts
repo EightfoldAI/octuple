@@ -1,32 +1,135 @@
 import type { ReactElement } from 'react';
 import type { ReducerAction } from './useForm';
 
-export type InternalNamePath = (string | number)[];
-export type NamePath = string | number | InternalNamePath;
+type Validator = (
+    rule: OcRuleObject,
+    value: OcStoreValue,
+    callback: (error?: string) => void
+) => Promise<void | any> | void;
 
-export type StoreValue = any;
-export type Store = Record<string, StoreValue>;
+interface OcBaseRule {
+    warningOnly?: boolean;
+    enum?: OcStoreValue[];
+    len?: number;
+    max?: number;
+    message?: string | ReactElement;
+    min?: number;
+    pattern?: RegExp;
+    required?: boolean;
+    transform?: (value: OcStoreValue) => OcStoreValue;
+    type?: OcRuleType;
+    whitespace?: boolean;
 
-export interface Meta {
+    /** Customize rule level `validateTrigger`. Must be subset of Field `validateTrigger` */
+    validateTrigger?: string | string[];
+}
+
+type OcAggregationRule = OcBaseRule & Partial<OcValidatorRule>;
+
+interface OcArrayRule extends Omit<OcAggregationRule, 'type'> {
+    type: 'array';
+    defaultField?: OcRuleObject;
+}
+
+// >>>>>> Info
+interface OcValueUpdateInfo {
+    type: 'valueUpdate';
+    source: 'internal' | 'external';
+}
+
+interface OcValidateFinishInfo {
+    type: 'validateFinish';
+}
+
+interface OcResetInfo {
+    type: 'reset';
+}
+
+interface OcRemoveInfo {
+    type: 'remove';
+}
+
+interface SetOcFieldInfo {
+    type: 'setField';
+    data: OcFieldData;
+}
+
+interface OcDependenciesUpdateInfo {
+    type: 'dependenciesUpdate';
+    /**
+     * Contains all the related `InternalNamePath[]`.
+     * a <- b <- c : change `a`
+     * relatedFields=[a, b, c]
+     */
+    relatedFields: InternalOcNamePath[];
+}
+
+/** Only return partial when type is not any */
+type RecursiveOcPartial<T> = T extends object
+    ? {
+          [P in keyof T]?: T[P] extends (infer U)[]
+              ? RecursiveOcPartial<U>[]
+              : T[P] extends object
+              ? RecursiveOcPartial<T[P]>
+              : T[P];
+      }
+    : any;
+
+type OcValidateMessage = string | (() => string);
+
+export type OcForms = Record<string, OcFormInstance>;
+
+export interface OcFormChangeInfo {
+    changedFields: OcFieldData[];
+    forms: OcForms;
+}
+
+export interface OcFormFinishInfo {
+    values: OcStore;
+    forms: OcForms;
+}
+
+export interface OcFormProviderProps {
+    validateMessages?: ValidateMessages;
+    onFormChange?: (name: string, info: OcFormChangeInfo) => void;
+    onFormFinish?: (name: string, info: OcFormFinishInfo) => void;
+    children?: React.ReactNode;
+}
+
+export interface OcFormContextProps extends OcFormProviderProps {
+    triggerFormChange: (name: string, changedFields: OcFieldData[]) => void;
+    triggerFormFinish: (name: string, values: OcStore) => void;
+    registerForm: (name: string, form: OcFormInstance) => void;
+    unregisterForm: (name: string) => void;
+}
+
+export type InternalOcNamePath = (string | number)[];
+export type OcNamePath = string | number | InternalOcNamePath;
+
+export type OcStoreValue = any;
+export type OcStore = Record<string, OcStoreValue>;
+
+export interface OcMeta {
     touched: boolean;
     validating: boolean;
     errors: string[];
     warnings: string[];
-    name: InternalNamePath;
+    name: InternalOcNamePath;
 }
 
-export interface InternalFieldData extends Meta {
-    value: StoreValue;
+export interface InternalOcFieldData extends OcMeta {
+    value: OcStoreValue;
 }
 
 /**
  * Used by `setFields` config
  */
-export interface FieldData extends Partial<Omit<InternalFieldData, 'name'>> {
-    name: NamePath;
+export interface OcFieldData
+    extends Partial<Omit<InternalOcFieldData, 'name'>> {
+    name: OcNamePath;
 }
 
-export type RuleType =
+export type OcRuleType =
     | 'string'
     | 'number'
     | 'boolean'
@@ -41,59 +144,29 @@ export type RuleType =
     | 'hex'
     | 'email';
 
-type Validator = (
-    rule: RuleObject,
-    value: StoreValue,
-    callback: (error?: string) => void
-) => Promise<void | any> | void;
+export type OcRuleRender = (form: OcFormInstance) => OcRuleObject;
 
-export type RuleRender = (form: FormInstance) => RuleObject;
-
-export interface ValidatorRule {
+export interface OcValidatorRule {
     warningOnly?: boolean;
     message?: string | ReactElement;
     validator: Validator;
 }
 
-interface BaseRule {
-    warningOnly?: boolean;
-    enum?: StoreValue[];
-    len?: number;
-    max?: number;
-    message?: string | ReactElement;
-    min?: number;
-    pattern?: RegExp;
-    required?: boolean;
-    transform?: (value: StoreValue) => StoreValue;
-    type?: RuleType;
-    whitespace?: boolean;
+export type OcRuleObject = OcAggregationRule | OcArrayRule;
 
-    /** Customize rule level `validateTrigger`. Must be subset of Field `validateTrigger` */
-    validateTrigger?: string | string[];
-}
+export type OcRule = OcRuleObject | OcRuleRender;
 
-type AggregationRule = BaseRule & Partial<ValidatorRule>;
-
-interface ArrayRule extends Omit<AggregationRule, 'type'> {
-    type: 'array';
-    defaultField?: RuleObject;
-}
-
-export type RuleObject = AggregationRule | ArrayRule;
-
-export type Rule = RuleObject | RuleRender;
-
-export interface ValidateErrorEntity<Values = any> {
+export interface OcValidateErrorEntity<Values = any> {
     values: Values;
-    errorFields: { name: InternalNamePath; errors: string[] }[];
+    errorFields: { name: InternalOcNamePath; errors: string[] }[];
     outOfDate: boolean;
 }
 
-export interface FieldEntity {
+export interface OcFieldEntity {
     onStoreChange: (
-        store: Store,
-        namePathList: InternalNamePath[] | null,
-        info: ValuedNotifyInfo
+        store: OcStore,
+        namePathList: InternalOcNamePath[] | null,
+        info: OcValuedNotifyInfo
     ) => void;
     isFieldTouched: () => boolean;
     isFieldDirty: () => boolean;
@@ -101,31 +174,31 @@ export interface FieldEntity {
     isListField: () => boolean;
     isList: () => boolean;
     isPreserve: () => boolean;
-    validateRules: (options?: ValidateOptions) => Promise<RuleError[]>;
-    getMeta: () => Meta;
-    getNamePath: () => InternalNamePath;
+    validateRules: (options?: OcValidateOptions) => Promise<OcRuleError[]>;
+    getMeta: () => OcMeta;
+    getNamePath: () => InternalOcNamePath;
     getErrors: () => string[];
     getWarnings: () => string[];
     props: {
-        name?: NamePath;
-        rules?: Rule[];
-        dependencies?: NamePath[];
+        name?: OcNamePath;
+        rules?: OcRule[];
+        dependencies?: OcNamePath[];
         initialValue?: any;
     };
 }
 
-export interface FieldError {
-    name: InternalNamePath;
+export interface OcFieldError {
+    name: InternalOcNamePath;
     errors: string[];
     warnings: string[];
 }
 
-export interface RuleError {
+export interface OcRuleError {
     errors: string[];
-    rule: RuleObject;
+    rule: OcRuleObject;
 }
 
-export interface ValidateOptions {
+export interface OcValidateOptions {
     triggerName?: string;
     validateMessages?: ValidateMessages;
     /**
@@ -135,136 +208,93 @@ export interface ValidateOptions {
     recursive?: boolean;
 }
 
-export type InternalValidateFields<Values = any> = (
-    nameList?: NamePath[],
-    options?: ValidateOptions
+export type InternalOcValidateFields<Values = any> = (
+    nameList?: OcNamePath[],
+    options?: OcValidateOptions
 ) => Promise<Values>;
+
 export type ValidateFields<Values = any> = (
-    nameList?: NamePath[]
+    nameList?: OcNamePath[]
 ) => Promise<Values>;
 
-// >>>>>> Info
-interface ValueUpdateInfo {
-    type: 'valueUpdate';
-    source: 'internal' | 'external';
-}
+export type OcNotifyInfo =
+    | OcValueUpdateInfo
+    | OcValidateFinishInfo
+    | OcResetInfo
+    | OcRemoveInfo
+    | SetOcFieldInfo
+    | OcDependenciesUpdateInfo;
 
-interface ValidateFinishInfo {
-    type: 'validateFinish';
-}
-
-interface ResetInfo {
-    type: 'reset';
-}
-
-interface RemoveInfo {
-    type: 'remove';
-}
-
-interface SetFieldInfo {
-    type: 'setField';
-    data: FieldData;
-}
-
-interface DependenciesUpdateInfo {
-    type: 'dependenciesUpdate';
-    /**
-     * Contains all the related `InternalNamePath[]`.
-     * a <- b <- c : change `a`
-     * relatedFields=[a, b, c]
-     */
-    relatedFields: InternalNamePath[];
-}
-
-export type NotifyInfo =
-    | ValueUpdateInfo
-    | ValidateFinishInfo
-    | ResetInfo
-    | RemoveInfo
-    | SetFieldInfo
-    | DependenciesUpdateInfo;
-
-export type ValuedNotifyInfo = NotifyInfo & {
-    store: Store;
+export type OcValuedNotifyInfo = OcNotifyInfo & {
+    store: OcStore;
 };
 
-export interface Callbacks<Values = any> {
+export interface OcCallbacks<Values = any> {
     onValuesChange?: (changedValues: any, values: Values) => void;
     onFieldsChange?: (
-        changedFields: FieldData[],
-        allFields: FieldData[]
+        changedFields: OcFieldData[],
+        allFields: OcFieldData[]
     ) => void;
     onFinish?: (values: Values) => void;
-    onFinishFailed?: (errorInfo: ValidateErrorEntity<Values>) => void;
+    onFinishFailed?: (errorInfo: OcValidateErrorEntity<Values>) => void;
 }
 
-export type WatchCallBack = (
-    values: Store,
-    namePathList: InternalNamePath[]
+export type WatchOcCallBack = (
+    values: OcStore,
+    namePathList: InternalOcNamePath[]
 ) => void;
 
-export interface InternalHooks {
+export interface InternalOcHooks {
     dispatch: (action: ReducerAction) => void;
-    initEntityValue: (entity: FieldEntity) => void;
-    registerField: (entity: FieldEntity) => () => void;
+    initEntityValue: (entity: OcFieldEntity) => void;
+    registerField: (entity: OcFieldEntity) => () => void;
     useSubscribe: (subscribable: boolean) => void;
-    setInitialValues: (values: Store, init: boolean) => void;
+    setInitialValues: (values: OcStore, init: boolean) => void;
     destroyForm: () => void;
-    setCallbacks: (callbacks: Callbacks) => void;
-    registerWatch: (callback: WatchCallBack) => () => void;
-    getFields: (namePathList?: InternalNamePath[]) => FieldData[];
+    setCallbacks: (callbacks: OcCallbacks) => void;
+    registerWatch: (callback: WatchOcCallBack) => () => void;
+    getFields: (namePathList?: InternalOcNamePath[]) => OcFieldData[];
     setValidateMessages: (validateMessages: ValidateMessages) => void;
     setPreserve: (preserve?: boolean) => void;
-    getInitialValue: (namePath: InternalNamePath) => StoreValue;
+    getInitialValue: (namePath: InternalOcNamePath) => OcStoreValue;
 }
 
-/** Only return partial when type is not any */
-type RecursivePartial<T> = T extends object
-    ? {
-          [P in keyof T]?: T[P] extends (infer U)[]
-              ? RecursivePartial<U>[]
-              : T[P] extends object
-              ? RecursivePartial<T[P]>
-              : T[P];
-      }
-    : any;
-
-export interface FormInstance<Values = any> {
+export interface OcFormInstance<Values = any> {
     // Origin Form API
-    getFieldValue: (name: NamePath) => StoreValue;
+    getFieldValue: (name: OcNamePath) => OcStoreValue;
     getFieldsValue: (() => Values) &
         ((
-            nameList: NamePath[] | true,
-            filterFunc?: (meta: Meta) => boolean
+            nameList: OcNamePath[] | true,
+            filterFunc?: (meta: OcMeta) => boolean
         ) => any);
-    getFieldError: (name: NamePath) => string[];
-    getFieldsError: (nameList?: NamePath[]) => FieldError[];
-    getFieldWarning: (name: NamePath) => string[];
+    getFieldError: (name: OcNamePath) => string[];
+    getFieldsError: (nameList?: OcNamePath[]) => OcFieldError[];
+    getFieldWarning: (name: OcNamePath) => string[];
     isFieldsTouched: ((
-        nameList?: NamePath[],
+        nameList?: OcNamePath[],
         allFieldsTouched?: boolean
     ) => boolean) &
         ((allFieldsTouched?: boolean) => boolean);
-    isFieldTouched: (name: NamePath) => boolean;
-    isFieldValidating: (name: NamePath) => boolean;
-    isFieldsValidating: (nameList: NamePath[]) => boolean;
-    resetFields: (fields?: NamePath[]) => void;
-    setFields: (fields: FieldData[]) => void;
-    setFieldValue: (name: NamePath, value: any) => void;
-    setFieldsValue: (values: RecursivePartial<Values>) => void;
+    isFieldTouched: (name: OcNamePath) => boolean;
+    isFieldValidating: (name: OcNamePath) => boolean;
+    isFieldsValidating: (nameList: OcNamePath[]) => boolean;
+    resetFields: (fields?: OcNamePath[]) => void;
+    setFields: (fields: OcFieldData[]) => void;
+    setFieldValue: (name: OcNamePath, value: any) => void;
+    setFieldsValue: (values: RecursiveOcPartial<Values>) => void;
     validateFields: ValidateFields<Values>;
 
     // New API
     submit: () => void;
 }
 
-export type InternalFormInstance = Omit<FormInstance, 'validateFields'> & {
-    validateFields: InternalValidateFields;
+export type InternalOcFormInstance = Omit<OcFormInstance, 'validateFields'> & {
+    validateFields: InternalOcValidateFields;
 
     /**
      * Passed by field context props
      */
-    prefixName?: InternalNamePath;
+    prefixName?: InternalOcNamePath;
 
     validateTrigger?: string | string[] | false;
 
@@ -272,60 +302,178 @@ export type InternalFormInstance = Omit<FormInstance, 'validateFields'> & {
      * Form component should register some content into store.
      * We pass the `HOOK_MARK` as key to avoid user call the function.
      */
-    getInternalHooks: (secret: string) => InternalHooks | null;
+    getInternalHooks: (secret: string) => InternalOcHooks | null;
 
     /** @private Internal usage. Do not use it in your production */
     _init?: boolean;
 };
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export type EventArgs = any[];
+export type OcEventArgs = any[];
 
-type ValidateMessage = string | (() => string);
 export interface ValidateMessages {
-    default?: ValidateMessage;
-    required?: ValidateMessage;
-    enum?: ValidateMessage;
-    whitespace?: ValidateMessage;
+    default?: OcValidateMessage;
+    required?: OcValidateMessage;
+    enum?: OcValidateMessage;
+    whitespace?: OcValidateMessage;
     date?: {
-        format?: ValidateMessage;
-        parse?: ValidateMessage;
-        invalid?: ValidateMessage;
+        format?: OcValidateMessage;
+        parse?: OcValidateMessage;
+        invalid?: OcValidateMessage;
     };
     types?: {
-        string?: ValidateMessage;
-        method?: ValidateMessage;
-        array?: ValidateMessage;
-        object?: ValidateMessage;
-        number?: ValidateMessage;
-        date?: ValidateMessage;
-        boolean?: ValidateMessage;
-        integer?: ValidateMessage;
-        float?: ValidateMessage;
-        regexp?: ValidateMessage;
-        email?: ValidateMessage;
-        url?: ValidateMessage;
-        hex?: ValidateMessage;
+        string?: OcValidateMessage;
+        method?: OcValidateMessage;
+        array?: OcValidateMessage;
+        object?: OcValidateMessage;
+        number?: OcValidateMessage;
+        date?: OcValidateMessage;
+        boolean?: OcValidateMessage;
+        integer?: OcValidateMessage;
+        float?: OcValidateMessage;
+        regexp?: OcValidateMessage;
+        email?: OcValidateMessage;
+        url?: OcValidateMessage;
+        hex?: OcValidateMessage;
     };
     string?: {
-        len?: ValidateMessage;
-        min?: ValidateMessage;
-        max?: ValidateMessage;
-        range?: ValidateMessage;
+        len?: OcValidateMessage;
+        min?: OcValidateMessage;
+        max?: OcValidateMessage;
+        range?: OcValidateMessage;
     };
     number?: {
-        len?: ValidateMessage;
-        min?: ValidateMessage;
-        max?: ValidateMessage;
-        range?: ValidateMessage;
+        len?: OcValidateMessage;
+        min?: OcValidateMessage;
+        max?: OcValidateMessage;
+        range?: OcValidateMessage;
     };
     array?: {
-        len?: ValidateMessage;
-        min?: ValidateMessage;
-        max?: ValidateMessage;
-        range?: ValidateMessage;
+        len?: OcValidateMessage;
+        min?: OcValidateMessage;
+        max?: OcValidateMessage;
+        range?: OcValidateMessage;
     };
     pattern?: {
-        mismatch?: ValidateMessage;
+        mismatch?: OcValidateMessage;
     };
+}
+
+export type BaseOcFormProps = Omit<
+    React.FormHTMLAttributes<HTMLFormElement>,
+    'onSubmit' | 'children'
+>;
+
+export type OcRenderProps = (
+    values: OcStore,
+    form: OcFormInstance
+) => JSX.Element | React.ReactNode;
+
+export interface OcFormProps<Values = any> extends BaseOcFormProps {
+    initialValues?: OcStore;
+    form?: OcFormInstance<Values>;
+    children?: OcRenderProps | React.ReactNode;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    component?: false | string | React.FC<any> | React.ComponentClass<any>;
+    fields?: OcFieldData[];
+    name?: string;
+    validateMessages?: ValidateMessages;
+    onValuesChange?: OcCallbacks<Values>['onValuesChange'];
+    onFieldsChange?: OcCallbacks<Values>['onFieldsChange'];
+    onFinish?: OcCallbacks<Values>['onFinish'];
+    onFinishFailed?: OcCallbacks<Values>['onFinishFailed'];
+    validateTrigger?: string | string[] | false;
+    preserve?: boolean;
+}
+
+export type ShouldUpdate<Values = any> =
+    | boolean
+    | ((
+          prevValues: Values,
+          nextValues: Values,
+          info: { source?: string }
+      ) => boolean);
+
+// eslint-disable-next-line @typescript-eslint/consistent-indexed-object-style
+export interface OcChildProps {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    [name: string]: any;
+}
+
+export interface OcListField {
+    name: number;
+    key: number;
+    isListField: boolean;
+}
+
+export interface OcListOperations {
+    add: (defaultValue?: OcStoreValue, index?: number) => void;
+    remove: (index: number | number[]) => void;
+    move: (from: number, to: number) => void;
+}
+
+export interface OcListProps {
+    name: OcNamePath;
+    rules?: OcValidatorRule[];
+    validateTrigger?: string | string[] | false;
+    initialValue?: any[];
+    children?: (
+        fields: OcListField[],
+        operations: OcListOperations,
+        meta: OcMeta
+    ) => JSX.Element | React.ReactNode;
+}
+
+export interface InternalOcFieldProps<Values = any> {
+    children?:
+        | React.ReactElement
+        | ((
+              control: OcChildProps,
+              meta: OcMeta,
+              form: OcFormInstance<Values>
+          ) => React.ReactNode);
+    /**
+     * Set up `dependencies` field.
+     * When dependencies field update and current field is touched,
+     * will trigger validate rules and render.
+     */
+    dependencies?: OcNamePath[];
+    getValueFromEvent?: (...args: OcEventArgs) => OcStoreValue;
+    name?: InternalOcNamePath;
+    normalize?: (
+        value: OcStoreValue,
+        prevValue: OcStoreValue,
+        allValues: OcStore
+    ) => OcStoreValue;
+    rules?: OcRule[];
+    shouldUpdate?: ShouldUpdate<Values>;
+    trigger?: string;
+    validateTrigger?: string | string[] | false;
+    validateFirst?: boolean | 'parallel';
+    valuePropName?: string;
+    getValueProps?: (value: OcStoreValue) => Record<string, unknown>;
+    messageVariables?: Record<string, string>;
+    initialValue?: any;
+    onReset?: () => void;
+    onMetaChange?: (meta: OcMeta & { destroy?: boolean }) => void;
+    preserve?: boolean;
+
+    /** @private Passed by Form.List props. Do not use since it will break by path check. */
+    isListField?: boolean;
+
+    /** @private Passed by Form.List props. Do not use since it will break by path check. */
+    isList?: boolean;
+
+    /** @private Pass context as prop instead of context api
+     *  since class component can not get context in constructor */
+    fieldContext?: InternalOcFormInstance;
+}
+
+export interface OcFieldProps<Values = any>
+    extends Omit<InternalOcFieldProps<Values>, 'name' | 'fieldContext'> {
+    name?: OcNamePath;
+}
+
+export interface OcFieldState {
+    resetCount: number;
 }

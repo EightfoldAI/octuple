@@ -1,32 +1,32 @@
-import * as React from 'react';
+import React from 'react';
 import { HOOK_MARK } from './OcFieldContext';
 import type {
-    Callbacks,
-    FieldData,
-    FieldEntity,
-    FieldError,
-    FormInstance,
-    InternalFieldData,
-    InternalFormInstance,
-    InternalHooks,
-    InternalNamePath,
-    InternalValidateFields,
-    Meta,
-    NamePath,
-    NotifyInfo,
-    RuleError,
-    Store,
-    StoreValue,
-    ValidateErrorEntity,
+    OcCallbacks,
+    OcFieldData,
+    OcFieldEntity,
+    OcFieldError,
+    OcFormInstance,
+    InternalOcFieldData,
+    InternalOcFormInstance,
+    InternalOcHooks,
+    InternalOcNamePath,
+    InternalOcValidateFields,
+    OcMeta,
+    OcNamePath,
+    OcNotifyInfo,
+    OcRuleError,
+    OcStore,
+    OcStoreValue,
+    OcValidateErrorEntity,
     ValidateMessages,
-    ValidateOptions,
-    ValuedNotifyInfo,
-    WatchCallBack,
+    OcValidateOptions,
+    OcValuedNotifyInfo,
+    WatchOcCallBack,
 } from './OcForm.types';
-import { allPromiseFinish } from './utils/asyncUtil';
+import { allPromiseFinish } from './Utils/asyncUtil';
 import cloneDeep from './utils/cloneDeep';
-import { defaultValidateMessages } from './utils/messages';
-import NameMap from './utils/NameMap';
+import { defaultValidateMessages } from './Utils/messages';
+import NameMap from './Utils/NameMap';
 import {
     cloneByNamePathList,
     containsNamePath,
@@ -35,19 +35,19 @@ import {
     matchNamePath,
     setValue,
     setValues,
-} from './utils/valueUtil';
+} from './Utils/valueUtil';
 
-type InvalidateFieldEntity = { INVALIDATE_NAME_PATH: InternalNamePath };
+type InvalidateFieldEntity = { INVALIDATE_NAME_PATH: InternalOcNamePath };
 
 interface UpdateAction {
     type: 'updateValue';
-    namePath: InternalNamePath;
-    value: StoreValue;
+    namePath: InternalOcNamePath;
+    value: OcStoreValue;
 }
 
 interface ValidateAction {
     type: 'validateField';
-    namePath: InternalNamePath;
+    namePath: InternalOcNamePath;
     triggerName: string;
 }
 
@@ -60,25 +60,25 @@ export class FormStore {
 
     private subscribable: boolean = true;
 
-    private store: Store = {};
+    private store: OcStore = {};
 
-    private fieldEntities: FieldEntity[] = [];
+    private fieldEntities: OcFieldEntity[] = [];
 
-    private initialValues: Store = {};
+    private initialValues: OcStore = {};
 
-    private callbacks: Callbacks = {};
+    private callbacks: OcCallbacks = {};
 
     private validateMessages: ValidateMessages = null;
 
     private preserve?: boolean = null;
 
-    private lastValidatePromise: Promise<FieldError[]> = null;
+    private lastValidatePromise: Promise<OcFieldError[]> = null;
 
     constructor(forceRootUpdate: () => void) {
         this.forceRootUpdate = forceRootUpdate;
     }
 
-    public getForm = (): InternalFormInstance => ({
+    public getForm = (): InternalOcFormInstance => ({
         getFieldValue: this.getFieldValue,
         getFieldsValue: this.getFieldsValue,
         getFieldError: this.getFieldError,
@@ -100,7 +100,7 @@ export class FormStore {
     });
 
     // ======================== Internal Hooks ========================
-    private getInternalHooks = (key: string): InternalHooks | null => {
+    private getInternalHooks = (key: string): InternalOcHooks | null => {
         if (key === HOOK_MARK) {
             this.formHooked = true;
 
@@ -136,7 +136,7 @@ export class FormStore {
     /**
      * First time `setInitialValues` should update store with initial value
      */
-    private setInitialValues = (initialValues: Store, init: boolean) => {
+    private setInitialValues = (initialValues: OcStore, init: boolean) => {
         this.initialValues = initialValues || {};
         if (init) {
             let nextStore = setValues({}, initialValues, this.store);
@@ -168,14 +168,14 @@ export class FormStore {
         this.prevWithoutPreserves = prevWithoutPreserves;
     };
 
-    private getInitialValue = (namePath: InternalNamePath) => {
+    private getInitialValue = (namePath: InternalOcNamePath) => {
         const initValue = getValue(this.initialValues, namePath);
 
         // Not cloneDeep when without `namePath`
         return namePath.length ? cloneDeep(initValue) : initValue;
     };
 
-    private setCallbacks = (callbacks: Callbacks) => {
+    private setCallbacks = (callbacks: OcCallbacks) => {
         this.callbacks = callbacks;
     };
 
@@ -188,9 +188,9 @@ export class FormStore {
     };
 
     // ============================= Watch ============================
-    private watchList: WatchCallBack[] = [];
+    private watchList: WatchOcCallBack[] = [];
 
-    private registerWatch: InternalHooks['registerWatch'] = (callback) => {
+    private registerWatch: InternalOcHooks['registerWatch'] = (callback) => {
         this.watchList.push(callback);
 
         return () => {
@@ -198,7 +198,7 @@ export class FormStore {
         };
     };
 
-    private notifyWatch = (namePath: InternalNamePath[] = []) => {
+    private notifyWatch = (namePath: InternalOcNamePath[] = []) => {
         // No need to cost perf when nothing need to watch
         if (this.watchList.length) {
             const values = this.getFieldsValue();
@@ -210,7 +210,7 @@ export class FormStore {
     };
 
     // ============================ Store =============================
-    private updateStore = (nextStore: Store) => {
+    private updateStore = (nextStore: OcStore) => {
         this.store = nextStore;
     };
 
@@ -228,7 +228,7 @@ export class FormStore {
     };
 
     private getFieldsMap = (pure: boolean = false) => {
-        const cache: NameMap<FieldEntity> = new NameMap();
+        const cache: NameMap<OcFieldEntity> = new NameMap();
         this.getFieldEntities(pure).forEach((field) => {
             const namePath = field.getNamePath();
             cache.set(namePath, field);
@@ -237,8 +237,8 @@ export class FormStore {
     };
 
     private getFieldEntitiesForNamePathList = (
-        nameList?: NamePath[]
-    ): (FieldEntity | InvalidateFieldEntity)[] => {
+        nameList?: OcNamePath[]
+    ): (OcFieldEntity | InvalidateFieldEntity)[] => {
         if (!nameList) {
             return this.getFieldEntities(true);
         }
@@ -254,8 +254,8 @@ export class FormStore {
     };
 
     private getFieldsValue = (
-        nameList?: NamePath[] | true,
-        filterFunc?: (meta: Meta) => boolean
+        nameList?: OcNamePath[] | true,
+        filterFunc?: (meta: OcMeta) => boolean
     ) => {
         if (nameList === true && !filterFunc) {
             return this.store;
@@ -265,29 +265,31 @@ export class FormStore {
             Array.isArray(nameList) ? nameList : null
         );
 
-        const filteredNameList: NamePath[] = [];
-        fieldEntities.forEach((entity: FieldEntity | InvalidateFieldEntity) => {
-            const namePath =
-                'INVALIDATE_NAME_PATH' in entity
-                    ? entity.INVALIDATE_NAME_PATH
-                    : entity.getNamePath();
+        const filteredNameList: OcNamePath[] = [];
+        fieldEntities.forEach(
+            (entity: OcFieldEntity | InvalidateFieldEntity) => {
+                const namePath =
+                    'INVALIDATE_NAME_PATH' in entity
+                        ? entity.INVALIDATE_NAME_PATH
+                        : entity.getNamePath();
 
-            // Ignore when it's a list item and not specific the namePath,
-            // since parent field is already take in count
-            if (!nameList && (entity as FieldEntity).isListField?.()) {
-                return;
-            }
+                // Ignore when it's a list item and not specific the namePath,
+                // since parent field is already take in count
+                if (!nameList && (entity as OcFieldEntity).isListField?.()) {
+                    return;
+                }
 
-            if (!filterFunc) {
-                filteredNameList.push(namePath);
-            } else {
-                const meta: Meta =
-                    'getMeta' in entity ? entity.getMeta() : null;
-                if (filterFunc(meta)) {
+                if (!filterFunc) {
                     filteredNameList.push(namePath);
+                } else {
+                    const meta: OcMeta =
+                        'getMeta' in entity ? entity.getMeta() : null;
+                    if (filterFunc(meta)) {
+                        filteredNameList.push(namePath);
+                    }
                 }
             }
-        });
+        );
 
         return cloneByNamePathList(
             this.store,
@@ -295,12 +297,12 @@ export class FormStore {
         );
     };
 
-    private getFieldValue = (name: NamePath) => {
-        const namePath: InternalNamePath = getNamePath(name);
+    private getFieldValue = (name: OcNamePath) => {
+        const namePath: InternalOcNamePath = getNamePath(name);
         return getValue(this.store, namePath);
     };
 
-    private getFieldsError = (nameList?: NamePath[]) => {
+    private getFieldsError = (nameList?: OcNamePath[]) => {
         const fieldEntities = this.getFieldEntitiesForNamePathList(nameList);
 
         return fieldEntities.map((entity, index) => {
@@ -320,21 +322,21 @@ export class FormStore {
         });
     };
 
-    private getFieldError = (name: NamePath): string[] => {
+    private getFieldError = (name: OcNamePath): string[] => {
         const namePath = getNamePath(name);
         const fieldError = this.getFieldsError([namePath])[0];
         return fieldError.errors;
     };
 
-    private getFieldWarning = (name: NamePath): string[] => {
+    private getFieldWarning = (name: OcNamePath): string[] => {
         const namePath = getNamePath(name);
         const fieldError = this.getFieldsError([namePath])[0];
         return fieldError.warnings;
     };
 
-    private isFieldsTouched = (...args) => {
+    private isFieldsTouched = (...args: any[]) => {
         const [arg0, arg1] = args;
-        let namePathList: InternalNamePath[] | null;
+        let namePathList: InternalOcNamePath[] | null;
         let isAllFieldsTouched = false;
 
         if (args.length === 0) {
@@ -353,7 +355,7 @@ export class FormStore {
         }
 
         const fieldEntities = this.getFieldEntities(true);
-        const isFieldTouched = (field: FieldEntity) => field.isFieldTouched();
+        const isFieldTouched = (field: OcFieldEntity) => field.isFieldTouched();
 
         // ===== Will get fully compare when not config namePathList =====
         if (!namePathList) {
@@ -363,7 +365,7 @@ export class FormStore {
         }
 
         // Generate a nest tree for validate
-        const map = new NameMap<FieldEntity[]>();
+        const map = new NameMap<OcFieldEntity[]>();
         namePathList.forEach((shortNamePath) => {
             map.set(shortNamePath, []);
         });
@@ -384,7 +386,7 @@ export class FormStore {
         });
 
         // Check if NameMap value is touched
-        const isNamePathListTouched = (entities: FieldEntity[]) =>
+        const isNamePathListTouched = (entities: OcFieldEntity[]) =>
             entities.some(isFieldTouched);
 
         const namePathListEntities = map.map(({ value }) => value);
@@ -394,11 +396,11 @@ export class FormStore {
             : namePathListEntities.some(isNamePathListTouched);
     };
 
-    private isFieldTouched = (name: NamePath) => {
+    private isFieldTouched = (name: OcNamePath) => {
         return this.isFieldsTouched([name]);
     };
 
-    private isFieldsValidating = (nameList?: NamePath[]) => {
+    private isFieldsValidating = (nameList?: OcNamePath[]) => {
         const fieldEntities = this.getFieldEntities();
         if (!nameList) {
             return fieldEntities.some((testField) =>
@@ -406,7 +408,7 @@ export class FormStore {
             );
         }
 
-        const namePathList: InternalNamePath[] = nameList.map(getNamePath);
+        const namePathList: InternalOcNamePath[] = nameList.map(getNamePath);
         return fieldEntities.some((testField) => {
             const fieldNamePath = testField.getNamePath();
             return (
@@ -416,7 +418,7 @@ export class FormStore {
         });
     };
 
-    private isFieldValidating = (name: NamePath) => {
+    private isFieldValidating = (name: OcNamePath) => {
         return this.isFieldsValidating([name]);
     };
 
@@ -426,14 +428,14 @@ export class FormStore {
      */
     private resetWithFieldInitialValue = (
         info: {
-            entities?: FieldEntity[];
-            namePathList?: InternalNamePath[];
+            entities?: OcFieldEntity[];
+            namePathList?: InternalOcNamePath[];
             /** Skip reset if store exist value. This is only used for field register reset */
             skipExist?: boolean;
         } = {}
     ) => {
         // Create cache
-        const cache: NameMap<Set<{ entity: FieldEntity; value: any }>> =
+        const cache: NameMap<Set<{ entity: OcFieldEntity; value: any }>> =
             new NameMap();
 
         const fieldEntities = this.getFieldEntities(true);
@@ -451,7 +453,7 @@ export class FormStore {
         });
 
         // Reset
-        const resetWithFields = (entities: FieldEntity[]) => {
+        const resetWithFields = (entities: OcFieldEntity[]) => {
             entities.forEach((field) => {
                 const { initialValue } = field.props;
 
@@ -476,7 +478,7 @@ export class FormStore {
             });
         };
 
-        let requiredFieldEntities: FieldEntity[];
+        let requiredFieldEntities: OcFieldEntity[];
         if (info.entities) {
             requiredFieldEntities = info.entities;
         } else if (info.namePathList) {
@@ -497,7 +499,7 @@ export class FormStore {
         resetWithFields(requiredFieldEntities);
     };
 
-    private resetFields = (nameList?: NamePath[]) => {
+    private resetFields = (nameList?: OcNamePath[]) => {
         const prevStore = this.store;
         if (!nameList) {
             this.updateStore(setValues({}, this.initialValues));
@@ -508,7 +510,7 @@ export class FormStore {
         }
 
         // Reset by `nameList`
-        const namePathList: InternalNamePath[] = nameList.map(getNamePath);
+        const namePathList: InternalOcNamePath[] = nameList.map(getNamePath);
         namePathList.forEach((namePath) => {
             const initialValue = this.getInitialValue(namePath);
             this.updateStore(setValue(this.store, namePath, initialValue));
@@ -518,12 +520,12 @@ export class FormStore {
         this.notifyWatch(namePathList);
     };
 
-    private setFields = (fields: FieldData[]) => {
+    private setFields = (fields: OcFieldData[]) => {
         const prevStore = this.store;
 
-        const namePathList: InternalNamePath[] = [];
+        const namePathList: InternalOcNamePath[] = [];
 
-        fields.forEach((fieldData: FieldData) => {
+        fields.forEach((fieldData: OcFieldData) => {
             const { name, errors, ...data } = fieldData;
             const namePath = getNamePath(name);
             namePathList.push(namePath);
@@ -542,24 +544,26 @@ export class FormStore {
         this.notifyWatch(namePathList);
     };
 
-    private getFields = (): InternalFieldData[] => {
+    private getFields = (): InternalOcFieldData[] => {
         const entities = this.getFieldEntities(true);
 
-        const fields = entities.map((field: FieldEntity): InternalFieldData => {
-            const namePath = field.getNamePath();
-            const meta = field.getMeta();
-            const fieldData = {
-                ...meta,
-                name: namePath,
-                value: this.getFieldValue(namePath),
-            };
+        const fields = entities.map(
+            (field: OcFieldEntity): InternalOcFieldData => {
+                const namePath = field.getNamePath();
+                const meta = field.getMeta();
+                const fieldData = {
+                    ...meta,
+                    name: namePath,
+                    value: this.getFieldValue(namePath),
+                };
 
-            Object.defineProperty(fieldData, 'originOcField', {
-                value: true,
-            });
+                Object.defineProperty(fieldData, 'originOcField', {
+                    value: true,
+                });
 
-            return fieldData;
-        });
+                return fieldData;
+            }
+        );
 
         return fields;
     };
@@ -568,7 +572,7 @@ export class FormStore {
     /**
      * This only trigger when a field is on constructor to avoid we get initialValue too late
      */
-    private initEntityValue = (entity: FieldEntity) => {
+    private initEntityValue = (entity: OcFieldEntity) => {
         const { initialValue } = entity.props;
 
         if (initialValue !== undefined) {
@@ -587,7 +591,7 @@ export class FormStore {
         return mergedPreserve ?? true;
     };
 
-    private registerField = (entity: FieldEntity) => {
+    private registerField = (entity: OcFieldEntity) => {
         this.fieldEntities.push(entity);
         const namePath = entity.getNamePath();
         this.notifyWatch([namePath]);
@@ -609,7 +613,7 @@ export class FormStore {
         return (
             isListField?: boolean,
             preserve?: boolean,
-            subNamePath: InternalNamePath = []
+            subNamePath: InternalOcNamePath = []
         ) => {
             this.fieldEntities = this.fieldEntities.filter(
                 (item) => item !== entity
@@ -670,12 +674,12 @@ export class FormStore {
     };
 
     private notifyObservers = (
-        prevStore: Store,
-        namePathList: InternalNamePath[] | null,
-        info: NotifyInfo
+        prevStore: OcStore,
+        namePathList: InternalOcNamePath[] | null,
+        info: OcNotifyInfo
     ) => {
         if (this.subscribable) {
-            const mergedInfo: ValuedNotifyInfo = {
+            const mergedInfo: OcValuedNotifyInfo = {
                 ...info,
                 store: this.getFieldsValue(true),
             };
@@ -692,8 +696,8 @@ export class FormStore {
      * We need delay to trigger validate in case Field is under render props
      */
     private triggerDependenciesUpdate = (
-        prevStore: Store,
-        namePath: InternalNamePath
+        prevStore: OcStore,
+        namePath: InternalOcNamePath
     ) => {
         const childrenFields = this.getDependencyChildrenFields(namePath);
         if (childrenFields.length) {
@@ -708,7 +712,7 @@ export class FormStore {
         return childrenFields;
     };
 
-    private updateValue = (name: NamePath, value: StoreValue) => {
+    private updateValue = (name: OcNamePath, value: OcStoreValue) => {
         const namePath = getNamePath(name);
         const prevStore = this.store;
         this.updateStore(setValue(this.store, namePath, value));
@@ -737,7 +741,7 @@ export class FormStore {
     };
 
     // Let all child Field get update.
-    private setFieldsValue = (store: Store) => {
+    private setFieldsValue = (store: OcStore) => {
         const prevStore = this.store;
 
         if (store) {
@@ -752,7 +756,7 @@ export class FormStore {
         this.notifyWatch();
     };
 
-    private setFieldValue = (name: NamePath, value: any) => {
+    private setFieldValue = (name: OcNamePath, value: any) => {
         this.setFields([
             {
                 name,
@@ -762,12 +766,12 @@ export class FormStore {
     };
 
     private getDependencyChildrenFields = (
-        rootNamePath: InternalNamePath
-    ): InternalNamePath[] => {
-        const children: Set<FieldEntity> = new Set();
-        const childrenFields: InternalNamePath[] = [];
+        rootNamePath: InternalOcNamePath
+    ): InternalOcNamePath[] => {
+        const children: Set<OcFieldEntity> = new Set();
+        const childrenFields: InternalOcNamePath[] = [];
 
-        const dependencies2fields: NameMap<Set<FieldEntity>> = new NameMap();
+        const dependencies2fields: NameMap<Set<OcFieldEntity>> = new NameMap();
 
         /**
          * Generate maps
@@ -787,7 +791,7 @@ export class FormStore {
             });
         });
 
-        const fillChildren = (namePath: InternalNamePath) => {
+        const fillChildren = (namePath: InternalOcNamePath) => {
             const fields = dependencies2fields.get(namePath) || new Set();
             fields.forEach((field) => {
                 if (!children.has(field)) {
@@ -808,8 +812,8 @@ export class FormStore {
     };
 
     private triggerOnFieldsChange = (
-        namePathList: InternalNamePath[],
-        filedErrors?: FieldError[]
+        namePathList: InternalOcNamePath[],
+        filedErrors?: OcFieldError[]
     ) => {
         const { onFieldsChange } = this.callbacks;
 
@@ -832,26 +836,25 @@ export class FormStore {
             }
 
             const changedFields = fields.filter(({ name: fieldName }) =>
-                containsNamePath(namePathList, fieldName as InternalNamePath)
+                containsNamePath(namePathList, fieldName as InternalOcNamePath)
             );
             onFieldsChange(changedFields, fields);
         }
     };
 
-    // =========================== Validate ===========================
-    private validateFields: InternalValidateFields = (
-        nameList?: NamePath[],
-        options?: ValidateOptions
+    private validateFields: InternalOcValidateFields = (
+        nameList?: OcNamePath[],
+        options?: OcValidateOptions
     ) => {
         const provideNameList = !!nameList;
-        const namePathList: InternalNamePath[] | undefined = provideNameList
+        const namePathList: InternalOcNamePath[] | undefined = provideNameList
             ? nameList.map(getNamePath)
             : [];
 
         // Collect result in promise list
-        const promiseList: Promise<FieldError>[] = [];
+        const promiseList: Promise<OcFieldError>[] = [];
 
-        this.getFieldEntities(true).forEach((field: FieldEntity) => {
+        this.getFieldEntities(true).forEach((field: OcFieldEntity) => {
             // Add field if not provide `nameList`
             if (!provideNameList) {
                 namePathList.push(field.getNamePath());
@@ -859,7 +862,6 @@ export class FormStore {
 
             /**
              * Recursive validate if configured.
-             * TODO: perf improvement @zombieJ
              */
             if (options?.recursive && provideNameList) {
                 const namePath = field.getNamePath();
@@ -898,12 +900,12 @@ export class FormStore {
                 // Wrap promise with field
                 promiseList.push(
                     promise
-                        .then<any, RuleError>(() => ({
+                        .then<any, OcRuleError>(() => ({
                             name: fieldNamePath,
                             errors: [],
                             warnings: [],
                         }))
-                        .catch((ruleErrors: RuleError[]) => {
+                        .catch((ruleErrors: OcRuleError[]) => {
                             const mergedErrors: string[] = [];
                             const mergedWarnings: string[] = [];
 
@@ -941,8 +943,8 @@ export class FormStore {
         // Notify fields with rule that validate has finished and need update
         summaryPromise
             .catch((results) => results)
-            .then((results: FieldError[]) => {
-                const resultNamePathList: InternalNamePath[] = results.map(
+            .then((results: OcFieldError[]) => {
+                const resultNamePathList: InternalOcNamePath[] = results.map(
                     ({ name }) => name
                 );
                 this.notifyObservers(this.store, resultNamePathList, {
@@ -951,39 +953,34 @@ export class FormStore {
                 this.triggerOnFieldsChange(resultNamePathList, results);
             });
 
-        const returnPromise: Promise<Store | ValidateErrorEntity | string[]> =
-            summaryPromise
-                .then((): Promise<Store | string[]> => {
-                    if (this.lastValidatePromise === summaryPromise) {
-                        return Promise.resolve(
-                            this.getFieldsValue(namePathList)
-                        );
-                    }
-                    return Promise.reject<string[]>([]);
-                })
-                .catch(
-                    (
-                        results: { name: InternalNamePath; errors: string[] }[]
-                    ) => {
-                        const errorList = results.filter(
-                            (result) => result && result.errors.length
-                        );
-                        return Promise.reject({
-                            values: this.getFieldsValue(namePathList),
-                            errorFields: errorList,
-                            outOfDate:
-                                this.lastValidatePromise !== summaryPromise,
-                        });
-                    }
-                );
+        const returnPromise: Promise<
+            OcStore | OcValidateErrorEntity | string[]
+        > = summaryPromise
+            .then((): Promise<OcStore | string[]> => {
+                if (this.lastValidatePromise === summaryPromise) {
+                    return Promise.resolve(this.getFieldsValue(namePathList));
+                }
+                return Promise.reject<string[]>([]);
+            })
+            .catch(
+                (results: { name: InternalOcNamePath; errors: string[] }[]) => {
+                    const errorList = results.filter(
+                        (result) => result && result.errors.length
+                    );
+                    return Promise.reject({
+                        values: this.getFieldsValue(namePathList),
+                        errorFields: errorList,
+                        outOfDate: this.lastValidatePromise !== summaryPromise,
+                    });
+                }
+            );
 
         // Do not throw in console
-        returnPromise.catch<ValidateErrorEntity>((e) => e);
+        returnPromise.catch<OcValidateErrorEntity>((e) => e);
 
-        return returnPromise as Promise<Store>;
+        return returnPromise as Promise<OcStore>;
     };
 
-    // ============================ Submit ============================
     private submit = () => {
         this.validateFields()
             .then((values) => {
@@ -1007,9 +1004,9 @@ export class FormStore {
 }
 
 function useForm<Values = any>(
-    form?: FormInstance<Values>
-): [FormInstance<Values>] {
-    const formRef = React.useRef<FormInstance>();
+    form?: OcFormInstance<Values>
+): [OcFormInstance<Values>] {
+    const formRef = React.useRef<OcFormInstance>();
     const [, forceUpdate] = React.useState({});
 
     if (!formRef.current) {

@@ -1,10 +1,10 @@
-import { move, isSimilar, setValues } from '../src/utils/valueUtil';
-import NameMap from '../src/utils/NameMap';
-import cloneDeep from '../src/utils/cloneDeep';
+import { move, isSimilar, setValues } from '../Utils/valueUtil';
+import NameMap from '../Utils/NameMap';
+import cloneDeep from '../Utils/cloneDeep';
 
-describe('utils', () => {
+describe('Utils', () => {
     describe('arrayMove', () => {
-        it('move', () => {
+        test('move', () => {
             expect(move([0, 1, 2, 3], 0, 2)).toEqual([1, 2, 0, 3]);
             expect(move([0, 1, 2, 3], 3, 1)).toEqual([0, 3, 1, 2]);
             expect(move([0, 1, 2, 3], 1, 1)).toEqual([0, 1, 2, 3]);
@@ -20,7 +20,7 @@ describe('utils', () => {
         });
     });
     describe('valueUtil', () => {
-        it('isSimilar', () => {
+        test('isSimilar', () => {
             expect(isSimilar(1, 1)).toBeTruthy();
             expect(isSimilar(1, 2)).toBeFalsy();
             expect(isSimilar({}, {})).toBeTruthy();
@@ -33,7 +33,7 @@ describe('utils', () => {
         });
 
         describe('setValues', () => {
-            it('basic', () => {
+            test('basic', () => {
                 expect(setValues({}, { a: 1 }, { b: 2 })).toEqual({
                     a: 1,
                     b: 2,
@@ -41,7 +41,7 @@ describe('utils', () => {
                 expect(setValues([], [123])).toEqual([123]);
             });
 
-            it('Correct handle class instance', () => {
+            test('Correct handle class instance', () => {
                 const out = setValues({}, { a: 1, b: { c: new Date() } });
                 expect(out.a).toEqual(1);
                 expect(out.b.c instanceof Date).toBeTruthy();
@@ -50,13 +50,13 @@ describe('utils', () => {
     });
 
     describe('NameMap', () => {
-        it('update should clean if empty', () => {
+        test('update should clean if empty', () => {
             const map = new NameMap();
-            map.set(['user', 'name'], 'Bamboo');
+            map.set(['user', 'name'], 'Mia');
             map.set(['user', 'age'], 14);
 
             expect(map.toJSON()).toEqual({
-                'user.name': 'Bamboo',
+                'user.name': 'Mia',
                 'user.age': 14,
             });
 
@@ -66,18 +66,18 @@ describe('utils', () => {
             });
 
             expect(map.toJSON()).toEqual({
-                'user.name': 'Bamboo',
+                'user.name': 'Mia',
             });
 
-            map.set(['user', 'name'], 'Light');
+            map.set(['user', 'name'], 'Lola');
             expect(map.toJSON()).toEqual({
-                'user.name': 'Light',
+                'user.name': 'Lola',
             });
         });
     });
 
     describe('clone deep', () => {
-        it('should not deep clone Class', () => {
+        test('should not deep clone Class', () => {
             const data = { a: new Date() };
             const clonedData = cloneDeep(data);
             expect(data.a === clonedData.a).toBeTruthy();

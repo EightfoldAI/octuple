@@ -1,8 +1,8 @@
-import warning from 'rc-util/lib/warning';
-import * as React from 'react';
-import type { InternalFormInstance } from './interface';
+import { createContext } from 'react';
+import { warning } from '../../../shared/utilities';
+import type { InternalOcFormInstance } from './OcForm.types';
 
-export const HOOK_MARK = 'RC_FORM_INTERNAL_HOOKS';
+export const HOOK_MARK = 'OC_FORM_INTERNAL_HOOKS';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const warningFunc: any = () => {
@@ -12,7 +12,7 @@ const warningFunc: any = () => {
     );
 };
 
-const Context = React.createContext<InternalFormInstance>({
+const Context = createContext<InternalOcFormInstance>({
     getFieldValue: warningFunc,
     getFieldsValue: warningFunc,
     getFieldError: warningFunc,

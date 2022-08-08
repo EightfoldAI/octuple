@@ -1,11 +1,11 @@
-import type { FieldError } from '../interface';
+import type { OcFieldError } from '../OcForm.types';
 
 export function allPromiseFinish(
-    promiseList: Promise<FieldError>[]
-): Promise<FieldError[]> {
+    promiseList: Promise<OcFieldError>[]
+): Promise<OcFieldError[]> {
     let hasError = false;
     let count = promiseList.length;
-    const results: FieldError[] = [];
+    const results: OcFieldError[] = [];
 
     if (!promiseList.length) {
         return Promise.resolve([]);

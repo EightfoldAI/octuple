@@ -1,7 +1,7 @@
-import type { InternalNamePath } from '../interface';
+import type { InternalOcNamePath } from '../OcForm.types';
 
 interface KV<T> {
-    key: InternalNamePath;
+    key: InternalOcNamePath;
     value: T;
 }
 
@@ -10,7 +10,7 @@ const SPLIT = '__@field_split__';
 /**
  * Convert name path into string to fast the fetch speed of Map.
  */
-function normalize(namePath: InternalNamePath): string {
+function normalize(namePath: InternalOcNamePath): string {
     return (
         namePath
             .map((cell) => `${typeof cell}:${cell}`)
@@ -25,15 +25,15 @@ function normalize(namePath: InternalNamePath): string {
 class NameMap<T> {
     private kvs = new Map<string, T>();
 
-    public set(key: InternalNamePath, value: T) {
+    public set(key: InternalOcNamePath, value: T) {
         this.kvs.set(normalize(key), value);
     }
 
-    public get(key: InternalNamePath) {
+    public get(key: InternalOcNamePath) {
         return this.kvs.get(normalize(key));
     }
 
-    public update(key: InternalNamePath, updater: (origin: T) => T | null) {
+    public update(key: InternalOcNamePath, updater: (origin: T) => T | null) {
         const origin = this.get(key);
         const next = updater(origin);
 
@@ -44,7 +44,7 @@ class NameMap<T> {
         }
     }
 
-    public delete(key: InternalNamePath) {
+    public delete(key: InternalOcNamePath) {
         this.kvs.delete(normalize(key));
     }
 

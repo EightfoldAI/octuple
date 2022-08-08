@@ -1,53 +1,55 @@
-import { mount } from 'enzyme';
-import { resetWarned } from 'rc-util/lib/warning';
 import React from 'react';
-import Form, { Field, useForm } from '../src';
+import Enzyme, { mount } from 'enzyme';
+import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
+import OcForm, { OcField, useForm } from '../';
 import { changeValue, getField, matchError } from './common';
 import InfoField, { Input } from './common/InfoField';
 import timeout from './common/timeout';
 
-describe('Form.Basic', () => {
+Enzyme.configure({ adapter: new Adapter() });
+
+describe('OcForm.Basic', () => {
     describe('create form', () => {
         function renderContent() {
             return (
                 <div>
-                    <Field name="light">
+                    <OcField name="lola">
                         <Input />
-                    </Field>
-                    <Field name="bamboo">{() => null}</Field>
+                    </OcField>
+                    <OcField name="mia">{() => null}</OcField>
                     <InfoField />
                 </div>
             );
         }
 
-        it('sub component', () => {
-            const wrapper = mount(<Form>{renderContent()}</Form>);
+        test('sub component', () => {
+            const wrapper = mount(<OcForm>{renderContent()}</OcForm>);
             expect(wrapper.find('form')).toBeTruthy();
             expect(wrapper.find('input').length).toBe(2);
         });
 
         describe('component', () => {
-            it('without dom', () => {
+            test('without dom', () => {
                 const wrapper = mount(
-                    <Form component={false}>{renderContent()}</Form>
+                    <OcForm component={false}>{renderContent()}</OcForm>
                 );
                 expect(wrapper.find('form').length).toBe(0);
                 expect(wrapper.find('input').length).toBe(2);
             });
 
-            it('use string', () => {
+            test('use string', () => {
                 const wrapper = mount(
-                    <Form component="pre">{renderContent()}</Form>
+                    <OcForm component="pre">{renderContent()}</OcForm>
                 );
                 expect(wrapper.find('form').length).toBe(0);
                 expect(wrapper.find('pre').length).toBe(1);
                 expect(wrapper.find('input').length).toBe(2);
             });
 
-            it('use component', () => {
+            test('use component', () => {
                 const MyComponent = ({ children }) => <div>{children}</div>;
                 const wrapper = mount(
-                    <Form component={MyComponent}>{renderContent()}</Form>
+                    <OcForm component={MyComponent}>{renderContent()}</OcForm>
                 );
                 expect(wrapper.find('form').length).toBe(0);
                 expect(wrapper.find(MyComponent).length).toBe(1);
@@ -56,40 +58,40 @@ describe('Form.Basic', () => {
         });
 
         describe('render props', () => {
-            it('normal', () => {
-                const wrapper = mount(<Form>{renderContent}</Form>);
+            test('normal', () => {
+                const wrapper = mount(<OcForm>{renderContent}</OcForm>);
                 expect(wrapper.find('form')).toBeTruthy();
                 expect(wrapper.find('input').length).toBe(2);
             });
 
-            it('empty', () => {
-                const wrapper = mount(<Form>{() => null}</Form>);
+            test('empty', () => {
+                const wrapper = mount(<OcForm>{() => null}</OcForm>);
                 expect(wrapper.find('form')).toBeTruthy();
             });
         });
     });
 
-    it('fields touched', async () => {
+    test('fields touched', async () => {
         let form;
 
         const wrapper = mount(
             <div>
-                <Form
+                <OcForm
                     ref={(instance) => {
                         form = instance;
                     }}
                 >
                     <InfoField name="username" />
                     <InfoField name="password" />
-                    <Field>{() => null}</Field>
-                </Form>
+                    <OcField>{() => null}</OcField>
+                </OcForm>
             </div>
         );
 
         expect(form.isFieldsTouched()).toBeFalsy();
         expect(form.isFieldsTouched(['username', 'password'])).toBeFalsy();
 
-        await changeValue(getField(wrapper, 0), 'Bamboo');
+        await changeValue(getField(wrapper, 0), 'Mia');
         expect(form.isFieldsTouched()).toBeTruthy();
         expect(form.isFieldsTouched(['username', 'password'])).toBeTruthy();
         expect(form.isFieldsTouched(true)).toBeFalsy();
@@ -108,32 +110,32 @@ describe('Form.Basic', () => {
 
     describe('reset form', () => {
         function resetTest(name, ...args) {
-            it(name, async () => {
+            test(name, async () => {
                 let form;
                 const onReset = jest.fn();
                 const onMeta = jest.fn();
 
                 const wrapper = mount(
                     <div>
-                        <Form
+                        <OcForm
                             ref={(instance) => {
                                 form = instance;
                             }}
                         >
-                            <Field
+                            <OcField
                                 name="username"
                                 rules={[{ required: true }]}
                                 onReset={onReset}
                                 onMetaChange={onMeta}
                             >
                                 <Input />
-                            </Field>
-                        </Form>
+                            </OcField>
+                        </OcForm>
                     </div>
                 );
 
-                await changeValue(getField(wrapper, 'username'), 'Bamboo');
-                expect(form.getFieldValue('username')).toEqual('Bamboo');
+                await changeValue(getField(wrapper, 'username'), 'Mia');
+                expect(form.getFieldValue('username')).toEqual('Mia');
                 expect(form.getFieldError('username')).toEqual([]);
                 expect(form.isFieldTouched('username')).toBeTruthy();
                 expect(onMeta).toHaveBeenCalledWith(
@@ -197,28 +199,28 @@ describe('Form.Basic', () => {
         resetTest('with field name', ['username']);
         resetTest('without field name');
 
-        it('not affect others', async () => {
+        test('not affect others', async () => {
             let form;
 
             const wrapper = mount(
                 <div>
-                    <Form
+                    <OcForm
                         ref={(instance) => {
                             form = instance;
                         }}
                     >
-                        <Field name="username" rules={[{ required: true }]}>
+                        <OcField name="username" rules={[{ required: true }]}>
                             <Input />
-                        </Field>
+                        </OcField>
 
-                        <Field name="password" rules={[{ required: true }]}>
+                        <OcField name="password" rules={[{ required: true }]}>
                             <Input />
-                        </Field>
-                    </Form>
+                        </OcField>
+                    </OcForm>
                 </div>
             );
 
-            await changeValue(getField(wrapper, 'username'), 'Bamboo');
+            await changeValue(getField(wrapper, 'username'), 'Mia');
             await changeValue(getField(wrapper, 'password'), '');
             form.resetFields(['username']);
 
@@ -232,14 +234,14 @@ describe('Form.Basic', () => {
             expect(form.isFieldTouched('password')).toBeTruthy();
         });
 
-        it('remove Field should trigger onMetaChange', () => {
+        test('remove OcField should trigger onMetaChange', () => {
             const onMetaChange = jest.fn();
             const wrapper = mount(
-                <Form>
-                    <Field name="username" onMetaChange={onMetaChange}>
+                <OcForm>
+                    <OcField name="username" onMetaChange={onMetaChange}>
                         <Input />
-                    </Field>
-                </Form>
+                    </OcField>
+                </OcForm>
             );
 
             wrapper.unmount();
@@ -249,15 +251,15 @@ describe('Form.Basic', () => {
         });
     });
 
-    it('should throw if no Form in use', () => {
+    test('should throw if no OcForm in use', () => {
         const errorSpy = jest
             .spyOn(console, 'error')
             .mockImplementation(() => {});
 
         mount(
-            <Field>
+            <OcField>
                 <Input />
-            </Field>
+            </OcField>
         );
 
         expect(errorSpy).toHaveBeenCalledWith(
@@ -267,88 +269,88 @@ describe('Form.Basic', () => {
         errorSpy.mockRestore();
     });
 
-    it('keep origin input function', async () => {
+    test('keep origin input function', async () => {
         const onChange = jest.fn();
         const onValuesChange = jest.fn();
         const wrapper = mount(
-            <Form onValuesChange={onValuesChange}>
-                <Field name="username">
+            <OcForm onValuesChange={onValuesChange}>
+                <OcField name="username">
                     <Input onChange={onChange} />
-                </Field>
-            </Form>
+                </OcField>
+            </OcForm>
         );
 
-        await changeValue(getField(wrapper), 'Bamboo');
+        await changeValue(getField(wrapper), 'Mia');
         expect(onValuesChange).toHaveBeenCalledWith(
-            { username: 'Bamboo' },
-            { username: 'Bamboo' }
+            { username: 'Mia' },
+            { username: 'Mia' }
         );
         expect(onChange).toHaveBeenCalledWith(
-            expect.objectContaining({ target: { value: 'Bamboo' } })
+            expect.objectContaining({ target: { value: 'Mia' } })
         );
     });
 
-    it('onValuesChange should not return fully value', async () => {
+    test('onValuesChange should not return fully value', async () => {
         const onValuesChange = jest.fn();
 
         const Demo = ({ showField = true }) => (
-            <Form
+            <OcForm
                 onValuesChange={onValuesChange}
-                initialValues={{ light: 'little' }}
+                initialValues={{ lola: 'little' }}
             >
                 {showField && (
-                    <Field name="light">
+                    <OcField name="lola">
                         <Input />
-                    </Field>
+                    </OcField>
                 )}
-                <Field name="bamboo">
+                <OcField name="mia">
                     <Input />
-                </Field>
-            </Form>
+                </OcField>
+            </OcForm>
         );
 
         const wrapper = mount(<Demo />);
-        await changeValue(getField(wrapper, 'bamboo'), 'cute');
+        await changeValue(getField(wrapper, 'mia'), 'cute');
         expect(onValuesChange).toHaveBeenCalledWith(expect.anything(), {
-            light: 'little',
-            bamboo: 'cute',
+            lola: 'little',
+            mia: 'cute',
         });
 
         onValuesChange.mockReset();
         wrapper.setProps({ showField: false });
-        await changeValue(getField(wrapper, 'bamboo'), 'beauty');
+        await changeValue(getField(wrapper, 'mia'), 'little');
         expect(onValuesChange).toHaveBeenCalledWith(expect.anything(), {
-            bamboo: 'beauty',
+            mia: 'little',
         });
     });
-    it('should call onReset fn, when the button is clicked', async () => {
+    test('should call onReset fn, when the button is clicked', async () => {
         const resetFn = jest.fn();
         const wrapper = mount(
-            <Form onReset={resetFn}>
+            <OcForm onReset={resetFn}>
                 <InfoField name={'user'}>
                     <Input />
                 </InfoField>
                 <button type="reset">reset</button>
-            </Form>
+            </OcForm>
         );
-        await changeValue(getField(wrapper), 'Bamboo');
+        await changeValue(getField(wrapper), 'Mia');
         wrapper.find('button').simulate('reset');
         await timeout();
         expect(resetFn).toHaveBeenCalledTimes(1);
         const { value } = wrapper.find('input').props();
         expect(value).toEqual('');
     });
-    it('submit', async () => {
+    test('submit', async () => {
         const onFinish = jest.fn();
         const onFinishFailed = jest.fn();
 
         const wrapper = mount(
-            <Form onFinish={onFinish} onFinishFailed={onFinishFailed}>
+            <OcForm onFinish={onFinish} onFinishFailed={onFinishFailed}>
                 <InfoField name="user" rules={[{ required: true }]}>
                     <Input />
                 </InfoField>
                 <button type="submit">submit</button>
-            </Form>
+            </OcForm>
         );
 
         // Not trigger
@@ -373,52 +375,27 @@ describe('Form.Basic', () => {
         onFinishFailed.mockReset();
 
         // Trigger
-        await changeValue(getField(wrapper), 'Bamboo');
+        await changeValue(getField(wrapper), 'Mia');
         wrapper.find('button').simulate('submit');
         await timeout();
         matchError(wrapper, false);
-        expect(onFinish).toHaveBeenCalledWith({ user: 'Bamboo' });
+        expect(onFinish).toHaveBeenCalledWith({ user: 'Mia' });
         expect(onFinishFailed).not.toHaveBeenCalled();
     });
 
-    it('getInternalHooks should not usable by user', () => {
-        const errorSpy = jest
-            .spyOn(console, 'error')
-            .mockImplementation(() => {});
-
-        let form;
-        mount(
-            <div>
-                <Form
-                    ref={(instance) => {
-                        form = instance;
-                    }}
-                />
-            </div>
-        );
-
-        expect(form.getInternalHooks()).toEqual(null);
-
-        expect(errorSpy).toHaveBeenCalledWith(
-            'Warning: `getInternalHooks` is internal usage. Should not call directly.'
-        );
-
-        errorSpy.mockRestore();
-    });
-
-    it('valuePropName', async () => {
+    test('valuePropName', async () => {
         let form;
         const wrapper = mount(
             <div>
-                <Form
+                <OcForm
                     ref={(instance) => {
                         form = instance;
                     }}
                 >
-                    <Field name="check" valuePropName="checked">
+                    <OcField name="check" valuePropName="checked">
                         <Input type="checkbox" />
-                    </Field>
-                </Form>
+                    </OcField>
+                </OcForm>
             </div>
         );
 
@@ -435,37 +412,37 @@ describe('Form.Basic', () => {
         expect(form.getFieldsValue()).toEqual({ check: false });
     });
 
-    it('getValueProps', async () => {
+    test('getValueProps', async () => {
         const wrapper = mount(
             <div>
-                <Form initialValues={{ test: 'bamboo' }}>
-                    <Field
+                <OcForm initialValues={{ test: 'mia' }}>
+                    <OcField
                         name="test"
-                        getValueProps={(val) => ({ light: val })}
+                        getValueProps={(val) => ({ lola: val })}
                     >
                         <span className="anything" />
-                    </Field>
-                </Form>
+                    </OcField>
+                </OcForm>
             </div>
         );
 
-        expect(wrapper.find('.anything').props().light).toEqual('bamboo');
+        expect(wrapper.find('.anything').props().lola).toEqual('mia');
     });
 
     describe('shouldUpdate', () => {
-        it('work', async () => {
+        test('work', async () => {
             let isAllTouched;
             let hasError;
 
             const wrapper = mount(
-                <Form>
-                    <Field name="username" rules={[{ required: true }]}>
+                <OcForm>
+                    <OcField name="username" rules={[{ required: true }]}>
                         <Input />
-                    </Field>
-                    <Field name="password" rules={[{ required: true }]}>
+                    </OcField>
+                    <OcField name="password" rules={[{ required: true }]}>
                         <Input />
-                    </Field>
-                    <Field shouldUpdate>
+                    </OcField>
+                    <OcField shouldUpdate>
                         {(_, __, { getFieldsError, isFieldsTouched }) => {
                             isAllTouched = isFieldsTouched(true);
                             hasError = getFieldsError().filter(
@@ -474,15 +451,15 @@ describe('Form.Basic', () => {
 
                             return null;
                         }}
-                    </Field>
-                </Form>
+                    </OcField>
+                </OcForm>
             );
 
             await changeValue(getField(wrapper, 'username'), '');
             expect(isAllTouched).toBeFalsy();
             expect(hasError).toBeTruthy();
 
-            await changeValue(getField(wrapper, 'username'), 'Bamboo');
+            await changeValue(getField(wrapper, 'username'), 'Mia');
             expect(isAllTouched).toBeFalsy();
             expect(hasError).toBeFalsy();
 
@@ -495,15 +472,15 @@ describe('Form.Basic', () => {
             expect(hasError).toBeTruthy();
         });
 
-        it('true will force one more update', async () => {
+        test('true will force one more update', async () => {
             let renderPhase = 0;
 
             const wrapper = mount(
-                <Form initialValues={{ username: 'light' }}>
-                    <Field name="username">
+                <OcForm initialValues={{ username: 'lola' }}>
+                    <OcField name="username">
                         <Input />
-                    </Field>
-                    <Field shouldUpdate>
+                    </OcField>
+                    <OcField shouldUpdate>
                         {(_, __, form) => {
                             renderPhase += 1;
                             return (
@@ -514,23 +491,23 @@ describe('Form.Basic', () => {
                                 />
                             );
                         }}
-                    </Field>
-                </Form>
+                    </OcField>
+                </OcForm>
             );
 
             const props = wrapper.find('#holder').props();
             expect(renderPhase).toEqual(2);
             expect(props['data-touched']).toBeFalsy();
-            expect(props['data-value']).toEqual({ username: 'light' });
+            expect(props['data-value']).toEqual({ username: 'lola' });
         });
     });
 
     describe('setFields', () => {
-        it('should work', () => {
+        test('should work', () => {
             let form;
             const wrapper = mount(
                 <div>
-                    <Form
+                    <OcForm
                         ref={(instance) => {
                             form = instance;
                         }}
@@ -538,7 +515,7 @@ describe('Form.Basic', () => {
                         <InfoField name="username">
                             <Input />
                         </InfoField>
-                    </Form>
+                    </OcForm>
                 </div>
             );
 
@@ -557,14 +534,14 @@ describe('Form.Basic', () => {
             expect(form.isFieldsTouched()).toBeFalsy();
         });
 
-        it('should trigger by setField', () => {
+        test('should trigger by setField', () => {
             const triggerUpdate = jest.fn();
             const formRef = React.createRef();
 
             const wrapper = mount(
                 <div>
-                    <Form ref={formRef}>
-                        <Field
+                    <OcForm ref={formRef}>
+                        <OcField
                             shouldUpdate={(prev, next) =>
                                 prev.value !== next.value
                             }
@@ -573,8 +550,8 @@ describe('Form.Basic', () => {
                                 triggerUpdate();
                                 return <input />;
                             }}
-                        </Field>
-                    </Form>
+                        </OcField>
+                    </OcForm>
                 </div>
             );
             wrapper.update();
@@ -596,45 +573,45 @@ describe('Form.Basic', () => {
         });
     });
 
-    it('render props get meta', () => {
+    test('render props get meta', () => {
         let called1 = false;
         let called2 = false;
 
         mount(
-            <Form>
-                <Field name="Light">
+            <OcForm>
+                <OcField name="Light">
                     {(_, meta) => {
                         expect(meta.name).toEqual(['Light']);
                         called1 = true;
                         return null;
                     }}
-                </Field>
-                <Field name={['Bamboo', 'Best']}>
+                </OcField>
+                <OcField name={['Mia', 'Best']}>
                     {(_, meta) => {
-                        expect(meta.name).toEqual(['Bamboo', 'Best']);
+                        expect(meta.name).toEqual(['Mia', 'Best']);
                         called2 = true;
                         return null;
                     }}
-                </Field>
-            </Form>
+                </OcField>
+            </OcForm>
         );
 
         expect(called1).toBeTruthy();
         expect(called2).toBeTruthy();
     });
 
-    it('setFieldsValue should clean up status', async () => {
+    test('setFieldsValue should clean up status', async () => {
         let form;
         let currentMeta;
 
         const wrapper = mount(
             <div>
-                <Form
+                <OcForm
                     ref={(instance) => {
                         form = instance;
                     }}
                 >
-                    <Field
+                    <OcField
                         name="normal"
                         rules={[{ validator: () => new Promise(() => {}) }]}
                     >
@@ -642,8 +619,8 @@ describe('Form.Basic', () => {
                             currentMeta = meta;
                             return <Input {...control} />;
                         }}
-                    </Field>
-                </Form>
+                    </OcField>
+                </OcForm>
             </div>
         );
 
@@ -664,9 +641,9 @@ describe('Form.Basic', () => {
         expect(currentMeta.validating).toBeFalsy();
 
         // Input it
-        await changeValue(getField(wrapper), 'Bamboo');
+        await changeValue(getField(wrapper), 'Mia');
 
-        expect(form.getFieldValue('normal')).toBe('Bamboo');
+        expect(form.getFieldValue('normal')).toBe('Mia');
         expect(form.isFieldTouched('normal')).toBeTruthy();
         expect(form.getFieldError('normal')).toEqual([]);
         expect(currentMeta.validating).toBeTruthy();
@@ -682,65 +659,20 @@ describe('Form.Basic', () => {
         expect(currentMeta.validating).toBeFalsy();
     });
 
-    it('warning if invalidate element', () => {
-        resetWarned();
-        const errorSpy = jest
-            .spyOn(console, 'error')
-            .mockImplementation(() => {});
-        mount(
-            <div>
-                <Form>
-                    <Field>
-                        <h1 key="1">Light</h1>
-                        <h2 key="2">Bamboo</h2>
-                    </Field>
-                </Form>
-            </div>
-        );
-        expect(errorSpy).toHaveBeenCalledWith(
-            'Warning: `children` of Field is not validate ReactElement.'
-        );
-        errorSpy.mockRestore();
-    });
-
-    it('warning if call function before set prop', () => {
-        jest.useFakeTimers();
-        resetWarned();
-        const errorSpy = jest
-            .spyOn(console, 'error')
-            .mockImplementation(() => {});
-
-        const Test = () => {
-            const [form] = useForm();
-            form.getFieldsValue();
-
-            return <Form />;
-        };
-
-        mount(<Test />);
-
-        jest.runAllTimers();
-        expect(errorSpy).toHaveBeenCalledWith(
-            'Warning: Instance created by `useForm` is not connected to any Form element. Forget to pass `form` prop?'
-        );
-        errorSpy.mockRestore();
-        jest.useRealTimers();
-    });
-
-    it('filtering fields by meta', async () => {
+    test('filtering fields by meta', async () => {
         let form;
 
         const wrapper = mount(
             <div>
-                <Form
+                <OcForm
                     ref={(instance) => {
                         form = instance;
                     }}
                 >
                     <InfoField name="username" />
                     <InfoField name="password" />
-                    <Field>{() => null}</Field>
-                </Form>
+                    <OcField>{() => null}</OcField>
+                </OcForm>
             </div>
         );
 
@@ -762,24 +694,24 @@ describe('Form.Basic', () => {
         );
         expect(form.getFieldsValue(null, (meta) => meta.touched)).toEqual({});
 
-        await changeValue(getField(wrapper, 0), 'Bamboo');
+        await changeValue(getField(wrapper, 0), 'Mia');
         expect(form.getFieldsValue(null, () => true)).toEqual(
             form.getFieldsValue()
         );
         expect(form.getFieldsValue(null, (meta) => meta.touched)).toEqual({
-            username: 'Bamboo',
+            username: 'Mia',
         });
         expect(
             form.getFieldsValue(['username'], (meta) => meta.touched)
         ).toEqual({
-            username: 'Bamboo',
+            username: 'Mia',
         });
         expect(
             form.getFieldsValue(['password'], (meta) => meta.touched)
         ).toEqual({});
     });
 
-    it('should not crash when return value contains target field', async () => {
+    test('should not crash when return value contains target field', async () => {
         const CustomInput = ({ value, onChange }) => {
             const onInputChange = (e) => {
                 onChange({
@@ -790,11 +722,11 @@ describe('Form.Basic', () => {
             return <Input value={value} onChange={onInputChange} />;
         };
         const wrapper = mount(
-            <Form>
-                <Field name="user">
+            <OcForm>
+                <OcField name="user">
                     <CustomInput />
-                </Field>
-            </Form>
+                </OcField>
+            </OcForm>
         );
         expect(() => {
             wrapper
@@ -803,7 +735,7 @@ describe('Form.Basic', () => {
         }).not.toThrowError();
     });
 
-    it('setFieldsValue for List should work', () => {
+    test('setFieldsValue for List should work', () => {
         const Demo = () => {
             const [form] = useForm();
 
@@ -818,17 +750,17 @@ describe('Form.Basic', () => {
             };
 
             return (
-                <Form
+                <OcForm
                     form={form}
                     initialValues={initialValues}
                     name="dynamic_form_nest_item"
                     autoComplete="off"
                 >
-                    <Form.List name="users">
+                    <OcForm.OcList name="users">
                         {(fields, { add, remove }) => (
                             <>
                                 {fields.map(({ key, name, ...restField }) => (
-                                    <Field
+                                    <OcField
                                         key={key}
                                         {...restField}
                                         name={[name, 'name']}
@@ -840,17 +772,17 @@ describe('Form.Basic', () => {
                                         ]}
                                     >
                                         <Input placeholder="Name" />
-                                    </Field>
+                                    </OcField>
                                 ))}
                             </>
                         )}
-                    </Form.List>
-                    <Field>
+                    </OcForm.OcList>
+                    <OcField>
                         <button className="reset-btn" onClick={handelReset}>
                             reset
                         </button>
-                    </Field>
-                </Form>
+                    </OcField>
+                </OcForm>
             );
         };
 
@@ -860,7 +792,7 @@ describe('Form.Basic', () => {
         expect(wrapper.find('input').length).toBe(0);
     });
 
-    it('setFieldsValue should work for multiple Select', () => {
+    test('setFieldsValue should work for multiple Select', () => {
         const Select = ({ value, defaultValue }) => {
             return (
                 <div className="select-div">
@@ -870,18 +802,18 @@ describe('Form.Basic', () => {
         };
 
         const Demo = () => {
-            const [formInstance] = Form.useForm();
+            const [formInstance] = OcForm.useForm();
 
             React.useEffect(() => {
                 formInstance.setFieldsValue({ selector: ['K1', 'K2'] });
             }, [formInstance]);
 
             return (
-                <Form form={formInstance}>
-                    <Field initialValue="K1" name="selector">
+                <OcForm form={formInstance}>
+                    <OcField initialValue="K1" name="selector">
                         <Select />
-                    </Field>
-                </Form>
+                    </OcField>
+                </OcForm>
             );
         };
 
@@ -889,20 +821,19 @@ describe('Form.Basic', () => {
         expect(wrapper.find('.select-div').text()).toBe('K1,K2');
     });
 
-    // https://github.com/ant-design/ant-design/issues/34768
-    it('remount should not clear current value', () => {
+    test('remount should not clear current value', () => {
         let refForm;
 
         const Demo = ({ remount }) => {
-            const [form] = Form.useForm();
+            const [form] = OcForm.useForm();
             refForm = form;
 
             let node = (
-                <Form form={form} initialValues={{ name: 'little' }}>
-                    <Field name="name">
+                <OcForm form={form} initialValues={{ name: 'little' }}>
+                    <OcField name="name">
                         <Input />
-                    </Field>
-                </Form>
+                    </OcField>
+                </OcForm>
             );
 
             if (remount) {
@@ -913,45 +844,45 @@ describe('Form.Basic', () => {
         };
 
         const wrapper = mount(<Demo />);
-        refForm.setFieldsValue({ name: 'bamboo' });
+        refForm.setFieldsValue({ name: 'mia' });
         wrapper.update();
 
-        expect(wrapper.find('input').prop('value')).toEqual('bamboo');
+        expect(wrapper.find('input').prop('value')).toEqual('mia');
 
         wrapper.setProps({ remount: true });
         wrapper.update();
 
-        expect(wrapper.find('input').prop('value')).toEqual('bamboo');
+        expect(wrapper.find('input').prop('value')).toEqual('mia');
     });
 
-    it('setFieldValue', () => {
+    test('setFieldValue', () => {
         const formRef = React.createRef();
 
         const Demo = () => (
-            <Form
+            <OcForm
                 ref={formRef}
-                initialValues={{ list: ['bamboo', 'little', 'light'] }}
+                initialValues={{ list: ['mia', 'little', 'lola'] }}
             >
-                <Form.List name="list">
+                <OcForm.OcList name="list">
                     {(fields) =>
                         fields.map((field) => (
-                            <Field key={field.key} {...field}>
+                            <OcField key={field.key} {...field}>
                                 <Input />
-                            </Field>
+                            </OcField>
                         ))
                     }
-                </Form.List>
+                </OcForm.OcList>
 
-                <Field name={['nest', 'target']} initialValue="nested">
+                <OcField name={['nest', 'target']} initialValue="nested">
                     <Input />
-                </Field>
-            </Form>
+                </OcField>
+            </OcForm>
         );
 
         const wrapper = mount(<Demo />);
         expect(
             wrapper.find('input').map((input) => input.prop('value'))
-        ).toEqual(['bamboo', 'little', 'light', 'nested']);
+        ).toEqual(['mia', 'little', 'lola', 'nested']);
 
         // Set
         formRef.current.setFieldValue(['list', 1], 'tiny');
@@ -960,6 +891,6 @@ describe('Form.Basic', () => {
 
         expect(
             wrapper.find('input').map((input) => input.prop('value'))
-        ).toEqual(['bamboo', 'tiny', 'light', 'match']);
+        ).toEqual(['mia', 'tiny', 'lola', 'match']);
     });
 });

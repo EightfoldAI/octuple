@@ -1,20 +1,24 @@
-import toChildrenArray from 'rc-util/lib/Children/toArray';
-import * as React from 'react';
+import React from 'react';
+import toChildrenArray from '../../../shared/utilities/toArray';
 import type {
-    FieldEntity,
-    FormInstance,
-    InternalNamePath,
-    Meta,
-    NamePath,
-    NotifyInfo,
-    Rule,
-    Store,
-    ValidateOptions,
-    InternalFormInstance,
-    RuleObject,
-    StoreValue,
-    EventArgs,
-    RuleError,
+    OcEventArgs,
+    InternalOcNamePath,
+    InternalOcFieldProps,
+    InternalOcFormInstance,
+    OcMeta,
+    OcNotifyInfo,
+    OcChildProps,
+    OcFieldEntity,
+    OcFieldProps,
+    OcFieldState,
+    OcFormInstance,
+    OcRule,
+    OcRuleError,
+    OcRuleObject,
+    ShouldUpdate,
+    OcStore,
+    OcStoreValue,
+    OcValidateOptions,
 } from './OcForm.types';
 import FieldContext, { HOOK_MARK } from './OcFieldContext';
 import { toArray } from './utils/typeUtil';
@@ -28,22 +32,14 @@ import {
 
 const EMPTY_ERRORS: any[] = [];
 
-export type ShouldUpdate<Values = any> =
-    | boolean
-    | ((
-          prevValues: Values,
-          nextValues: Values,
-          info: { source?: string }
-      ) => boolean);
-
-function requireUpdate(
+const requireUpdate = (
     shouldUpdate: ShouldUpdate,
-    prev: StoreValue,
-    next: StoreValue,
-    prevValue: StoreValue,
-    nextValue: StoreValue,
-    info: NotifyInfo
-): boolean {
+    prev: OcStoreValue,
+    next: OcStoreValue,
+    prevValue: OcStoreValue,
+    nextValue: OcStoreValue,
+    info: OcNotifyInfo
+): boolean => {
     if (typeof shouldUpdate === 'function') {
         return shouldUpdate(
             prev,
@@ -52,72 +48,12 @@ function requireUpdate(
         );
     }
     return prevValue !== nextValue;
-}
-
-// eslint-disable-next-line @typescript-eslint/consistent-indexed-object-style
-interface ChildProps {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    [name: string]: any;
-}
-
-export interface InternalFieldProps<Values = any> {
-    children?:
-        | React.ReactElement
-        | ((
-              control: ChildProps,
-              meta: Meta,
-              form: FormInstance<Values>
-          ) => React.ReactNode);
-    /**
-     * Set up `dependencies` field.
-     * When dependencies field update and current field is touched,
-     * will trigger validate rules and render.
-     */
-    dependencies?: NamePath[];
-    getValueFromEvent?: (...args: EventArgs) => StoreValue;
-    name?: InternalNamePath;
-    normalize?: (
-        value: StoreValue,
-        prevValue: StoreValue,
-        allValues: Store
-    ) => StoreValue;
-    rules?: Rule[];
-    shouldUpdate?: ShouldUpdate<Values>;
-    trigger?: string;
-    validateTrigger?: string | string[] | false;
-    validateFirst?: boolean | 'parallel';
-    valuePropName?: string;
-    getValueProps?: (value: StoreValue) => Record<string, unknown>;
-    messageVariables?: Record<string, string>;
-    initialValue?: any;
-    onReset?: () => void;
-    onMetaChange?: (meta: Meta & { destroy?: boolean }) => void;
-    preserve?: boolean;
-
-    /** @private Passed by Form.List props. Do not use since it will break by path check. */
-    isListField?: boolean;
-
-    /** @private Passed by Form.List props. Do not use since it will break by path check. */
-    isList?: boolean;
-
-    /** @private Pass context as prop instead of context api
-     *  since class component can not get context in constructor */
-    fieldContext?: InternalFormInstance;
-}
-
-export interface FieldProps<Values = any>
-    extends Omit<InternalFieldProps<Values>, 'name' | 'fieldContext'> {
-    name?: NamePath;
-}
-
-export interface FieldState {
-    resetCount: number;
-}
+};
 
 // We use Class instead of Hooks here since it will cost much code by using Hooks.
-class Field
-    extends React.Component<InternalFieldProps, FieldState>
-    implements FieldEntity
+class OcField
+    extends React.Component<InternalOcFieldProps, OcFieldState>
+    implements OcFieldEntity
 {
     public static contextType = FieldContext;
 
@@ -133,7 +69,7 @@ class Field
     private cancelRegisterFunc: (
         isListField?: boolean,
         preserve?: boolean,
-        namePath?: InternalNamePath
+        namePath?: InternalOcNamePath
     ) => void | null = null;
 
     private mounted = false;
@@ -159,12 +95,12 @@ class Field
     private warnings: string[] = EMPTY_ERRORS;
 
     // ============================== Subscriptions ==============================
-    constructor(props: InternalFieldProps) {
+    constructor(props: InternalOcFieldProps) {
         super(props);
 
         // Register on init
         if (props.fieldContext) {
-            const { getInternalHooks }: InternalFormInstance =
+            const { getInternalHooks }: InternalOcFormInstance =
                 props.fieldContext;
             const { initEntityValue } = getInternalHooks(HOOK_MARK);
             initEntityValue(this);
@@ -178,7 +114,7 @@ class Field
 
         // Register on init
         if (fieldContext) {
-            const { getInternalHooks }: InternalFormInstance = fieldContext;
+            const { getInternalHooks }: InternalOcFormInstance = fieldContext;
             const { registerField } = getInternalHooks(HOOK_MARK);
             this.cancelRegisterFunc = registerField(this);
         }
@@ -205,17 +141,17 @@ class Field
     };
 
     // ================================== Utils ==================================
-    public getNamePath = (): InternalNamePath => {
+    public getNamePath = (): InternalOcNamePath => {
         const { name, fieldContext } = this.props;
-        const { prefixName = [] }: InternalFormInstance = fieldContext;
+        const { prefixName = [] }: InternalOcFormInstance = fieldContext;
 
         return name !== undefined ? [...prefixName, ...name] : [];
     };
 
-    public getRules = (): RuleObject[] => {
+    public getRules = (): OcRuleObject[] => {
         const { rules = [], fieldContext } = this.props;
 
-        return rules.map((rule: Rule): RuleObject => {
+        return rules.map((rule: OcRule): OcRuleObject => {
             if (typeof rule === 'function') {
                 return rule(fieldContext);
             }
@@ -247,7 +183,7 @@ class Field
 
     // ========================= Field Entity Interfaces =========================
     // Trigger by store update. Check if need update the component
-    public onStoreChange: FieldEntity['onStoreChange'] = (
+    public onStoreChange: OcFieldEntity['onStoreChange'] = (
         prevStore,
         namePathList,
         info
@@ -408,8 +344,8 @@ class Field
     };
 
     public validateRules = (
-        options?: ValidateOptions
-    ): Promise<RuleError[]> => {
+        options?: OcValidateOptions
+    ): Promise<OcRuleError[]> => {
         // We should fixed namePath & value to avoid developer change then by form function
         const namePath = this.getNamePath();
         const currentValue = this.getValue();
@@ -421,11 +357,11 @@ class Field
             }
 
             const { validateFirst = false, messageVariables } = this.props;
-            const { triggerName } = (options || {}) as ValidateOptions;
+            const { triggerName } = (options || {}) as OcValidateOptions;
 
             let filteredRules = this.getRules();
             if (triggerName) {
-                filteredRules = filteredRules.filter((rule: RuleObject) => {
+                filteredRules = filteredRules.filter((rule: OcRuleObject) => {
                     const { validateTrigger } = rule;
                     if (!validateTrigger) {
                         return true;
@@ -446,7 +382,7 @@ class Field
 
             promise
                 .catch((e) => e)
-                .then((ruleErrors: RuleError[] = EMPTY_ERRORS) => {
+                .then((ruleErrors: OcRuleError[] = EMPTY_ERRORS) => {
                     if (this.validatePromise === rootPromise) {
                         this.validatePromise = null;
 
@@ -520,11 +456,11 @@ class Field
     public isPreserve = () => this.props.preserve;
 
     // ============================= Child Component =============================
-    public getMeta = (): Meta => {
+    public getMeta = (): OcMeta => {
         // Make error & validating in cache to save perf
         this.prevValidating = this.isFieldValidating();
 
-        const meta: Meta = {
+        const meta: OcMeta = {
             touched: this.isFieldTouched(),
             validating: this.prevValidating,
             errors: this.errors,
@@ -540,9 +476,9 @@ class Field
         children:
             | React.ReactNode
             | ((
-                  control: ChildProps,
-                  meta: Meta,
-                  context: FormInstance
+                  control: OcChildProps,
+                  meta: OcMeta,
+                  context: OcFormInstance
               ) => React.ReactNode)
     ): { child: React.ReactNode | null; isFunction: boolean } => {
         // Support render props
@@ -571,13 +507,13 @@ class Field
     };
 
     // ============================== Field Control ==============================
-    public getValue = (store?: Store) => {
-        const { getFieldsValue }: FormInstance = this.props.fieldContext;
+    public getValue = (store?: OcStore) => {
+        const { getFieldsValue }: OcFormInstance = this.props.fieldContext;
         const namePath = this.getNamePath();
         return getValue(store || getFieldsValue(true), namePath);
     };
 
-    public getControlled = (childProps: ChildProps = {}) => {
+    public getControlled = (childProps: OcChildProps = {}) => {
         const {
             trigger,
             validateTrigger,
@@ -594,12 +530,13 @@ class Field
                 : fieldContext.validateTrigger;
 
         const namePath = this.getNamePath();
-        const { getInternalHooks, getFieldsValue }: InternalFormInstance =
+        const { getInternalHooks, getFieldsValue }: InternalOcFormInstance =
             fieldContext;
         const { dispatch } = getInternalHooks(HOOK_MARK);
         const value = this.getValue();
         const mergedGetValueProps =
-            getValueProps || ((val: StoreValue) => ({ [valuePropName]: val }));
+            getValueProps ||
+            ((val: OcStoreValue) => ({ [valuePropName]: val }));
 
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const originTriggerFunc: any = childProps[trigger];
@@ -610,14 +547,14 @@ class Field
         };
 
         // Add trigger
-        control[trigger] = (...args: EventArgs) => {
+        control[trigger] = (...args: OcEventArgs) => {
             // Mark as touched
             this.touched = true;
             this.dirty = true;
 
             this.triggerMetaEvent();
 
-            let newValue: StoreValue;
+            let newValue: OcStoreValue;
             if (getValueFromEvent) {
                 newValue = getValueFromEvent(...args);
             } else {
@@ -647,7 +584,7 @@ class Field
         validateTriggerList.forEach((triggerName: string) => {
             // Wrap additional function of component, so that we can get latest value from store
             const originTrigger = control[triggerName];
-            control[triggerName] = (...args: EventArgs) => {
+            control[triggerName] = (...args: OcEventArgs) => {
                 if (originTrigger) {
                     originTrigger(...args);
                 }
@@ -694,10 +631,10 @@ class Field
     }
 }
 
-function WrapperField<Values = any>({
+function OcFieldWrapper<Values = any>({
     name,
     ...restProps
-}: FieldProps<Values>) {
+}: OcFieldProps<Values>) {
     const fieldContext = React.useContext(FieldContext);
 
     const namePath = name !== undefined ? getNamePath(name) : undefined;
@@ -708,7 +645,7 @@ function WrapperField<Values = any>({
     }
 
     return (
-        <Field
+        <OcField
             key={key}
             name={namePath}
             {...restProps}
@@ -717,4 +654,4 @@ function WrapperField<Values = any>({
     );
 }
 
-export default WrapperField;
+export default OcFieldWrapper;

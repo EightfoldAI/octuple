@@ -1,28 +1,31 @@
 import React, { useState } from 'react';
-import { mount } from 'enzyme';
-import type { FormInstance } from '../src';
-import { List } from '../src';
-import Form, { Field } from '../src';
+import Enzyme, { mount } from 'enzyme';
+import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
+import type { OcFormInstance } from '../';
+import { OcList } from '../';
+import OcForm, { OcField } from '../';
 import timeout from './common/timeout';
 import { act } from 'react-dom/test-utils';
 import { Input } from './common/InfoField';
-import { stringify } from '../src/useWatch';
+import { stringify } from '../useWatch';
+
+Enzyme.configure({ adapter: new Adapter() });
 
 describe('useWatch', () => {
-    let staticForm: FormInstance<any>;
+    let staticForm: OcFormInstance<any>;
 
-    it('field initialValue', async () => {
+    test('field initialValue', async () => {
         const Demo = () => {
-            const [form] = Form.useForm();
-            const nameValue = Form.useWatch<string>('name', form);
+            const [form] = OcForm.useForm();
+            const nameValue = OcForm.useWatch<string>('name', form);
 
             return (
                 <div>
-                    <Form form={form}>
-                        <Field name="name" initialValue="bamboo">
+                    <OcForm form={form}>
+                        <OcField name="name" initialValue="mia">
                             <Input />
-                        </Field>
-                    </Form>
+                        </OcField>
+                    </OcForm>
                     <div className="values">{nameValue}</div>
                 </div>
             );
@@ -30,25 +33,25 @@ describe('useWatch', () => {
         await act(async () => {
             const wrapper = mount(<Demo />);
             await timeout();
-            expect(wrapper.find('.values').text()).toEqual('bamboo');
+            expect(wrapper.find('.values').text()).toEqual('mia');
         });
     });
 
-    it('form initialValue', async () => {
+    test('form initialValue', async () => {
         const Demo = () => {
-            const [form] = Form.useForm();
-            const nameValue = Form.useWatch<string>(['name'], form);
+            const [form] = OcForm.useForm();
+            const nameValue = OcForm.useWatch<string>(['name'], form);
 
             return (
                 <div>
-                    <Form
+                    <OcForm
                         form={form}
-                        initialValues={{ name: 'bamboo', other: 'other' }}
+                        initialValues={{ name: 'mia', other: 'other' }}
                     >
-                        <Field name="name">
+                        <OcField name="name">
                             <Input />
-                        </Field>
-                    </Form>
+                        </OcField>
+                    </OcForm>
                     <div className="values">{nameValue}</div>
                 </div>
             );
@@ -56,27 +59,27 @@ describe('useWatch', () => {
         await act(async () => {
             const wrapper = mount(<Demo />);
             await timeout();
-            expect(wrapper.find('.values').text()).toEqual('bamboo');
+            expect(wrapper.find('.values').text()).toEqual('mia');
         });
     });
 
-    it('change value with form api', async () => {
+    test('change value with form api', async () => {
         const Demo = () => {
-            const [form] = Form.useForm();
-            const nameValue = Form.useWatch<string>(['name'], form);
+            const [form] = OcForm.useForm();
+            const nameValue = OcForm.useWatch<string>(['name'], form);
 
             return (
                 <div>
-                    <Form
+                    <OcForm
                         form={form}
                         ref={(instance) => {
                             staticForm = instance;
                         }}
                     >
-                        <Field name="name">
+                        <OcField name="name">
                             <Input />
-                        </Field>
-                    </Form>
+                        </OcField>
+                    </OcForm>
                     <div className="values">{nameValue}</div>
                 </div>
             );
@@ -87,8 +90,8 @@ describe('useWatch', () => {
             staticForm.setFields([{ name: 'name', value: 'little' }]);
             expect(wrapper.find('.values').text()).toEqual('little');
 
-            staticForm.setFieldsValue({ name: 'light' });
-            expect(wrapper.find('.values').text()).toEqual('light');
+            staticForm.setFieldsValue({ name: 'lola' });
+            expect(wrapper.find('.values').text()).toEqual('lola');
 
             staticForm.resetFields();
             expect(wrapper.find('.values').text()).toEqual('');
@@ -96,20 +99,20 @@ describe('useWatch', () => {
     });
 
     describe('unmount', () => {
-        it('basic', async () => {
+        test('basic', async () => {
             const Demo = ({ visible }: { visible: boolean }) => {
-                const [form] = Form.useForm();
-                const nameValue = Form.useWatch<string>(['name'], form);
+                const [form] = OcForm.useForm();
+                const nameValue = OcForm.useWatch<string>(['name'], form);
 
                 return (
                     <div>
-                        <Form form={form} initialValues={{ name: 'bamboo' }}>
+                        <OcForm form={form} initialValues={{ name: 'mia' }}>
                             {visible && (
-                                <Field name="name">
+                                <OcField name="name">
                                     <Input />
-                                </Field>
+                                </OcField>
                             )}
-                        </Form>
+                        </OcForm>
                         <div className="values">{nameValue}</div>
                     </div>
                 );
@@ -119,36 +122,36 @@ describe('useWatch', () => {
                 const wrapper = mount(<Demo visible />);
                 await timeout();
 
-                expect(wrapper.find('.values').text()).toEqual('bamboo');
+                expect(wrapper.find('.values').text()).toEqual('mia');
 
                 wrapper.setProps({ visible: false });
                 expect(wrapper.find('.values').text()).toEqual('');
 
                 wrapper.setProps({ visible: true });
-                expect(wrapper.find('.values').text()).toEqual('bamboo');
+                expect(wrapper.find('.values').text()).toEqual('mia');
             });
         });
 
-        it('nest children component', async () => {
+        test('nest children component', async () => {
             const DemoWatch = () => {
-                Form.useWatch(['name']);
+                OcForm.useWatch(['name']);
 
                 return (
-                    <Field name="name">
+                    <OcField name="name">
                         <Input />
-                    </Field>
+                    </OcField>
                 );
             };
 
             const Demo = ({ visible }: { visible: boolean }) => {
-                const [form] = Form.useForm();
-                const nameValue = Form.useWatch<string>(['name'], form);
+                const [form] = OcForm.useForm();
+                const nameValue = OcForm.useWatch<string>(['name'], form);
 
                 return (
                     <div>
-                        <Form form={form} initialValues={{ name: 'bamboo' }}>
+                        <OcForm form={form} initialValues={{ name: 'mia' }}>
                             {visible && <DemoWatch />}
-                        </Form>
+                        </OcForm>
                         <div className="values">{nameValue}</div>
                     </div>
                 );
@@ -158,34 +161,34 @@ describe('useWatch', () => {
                 const wrapper = mount(<Demo visible />);
                 await timeout();
 
-                expect(wrapper.find('.values').text()).toEqual('bamboo');
+                expect(wrapper.find('.values').text()).toEqual('mia');
 
                 wrapper.setProps({ visible: false });
                 expect(wrapper.find('.values').text()).toEqual('');
 
                 wrapper.setProps({ visible: true });
-                expect(wrapper.find('.values').text()).toEqual('bamboo');
+                expect(wrapper.find('.values').text()).toEqual('mia');
             });
         });
     });
 
-    it('list', async () => {
+    test('list', async () => {
         const Demo = () => {
-            const [form] = Form.useForm();
-            const users = Form.useWatch<string[]>(['users'], form) || [];
+            const [form] = OcForm.useForm();
+            const users = OcForm.useWatch<string[]>(['users'], form) || [];
 
             return (
-                <Form
+                <OcForm
                     form={form}
                     style={{ border: '1px solid red', padding: 15 }}
                 >
                     <div className="values">{JSON.stringify(users)}</div>
-                    <List name="users" initialValue={['bamboo', 'light']}>
+                    <OcList name="users" initialValue={['mia', 'lola']}>
                         {(fields, { remove }) => {
                             return (
                                 <div>
                                     {fields.map((field, index) => (
-                                        <Field
+                                        <OcField
                                             {...field}
                                             key={field.key}
                                             rules={[{ required: true }]}
@@ -201,64 +204,49 @@ describe('useWatch', () => {
                                                     />
                                                 </div>
                                             )}
-                                        </Field>
+                                        </OcField>
                                     ))}
                                 </div>
                             );
                         }}
-                    </List>
-                </Form>
+                    </OcList>
+                </OcForm>
             );
         };
         await act(async () => {
             const wrapper = mount(<Demo />);
             await timeout();
             expect(wrapper.find('.values').text()).toEqual(
-                JSON.stringify(['bamboo', 'light'])
+                JSON.stringify(['mia', 'lola'])
             );
 
             wrapper.find('.remove').at(0).simulate('click');
             await timeout();
             expect(wrapper.find('.values').text()).toEqual(
-                JSON.stringify(['light'])
+                JSON.stringify(['lola'])
             );
         });
     });
 
-    it('warning if not provide form', () => {
-        const errorSpy = jest.spyOn(console, 'error');
-
-        const Demo = () => {
-            Form.useWatch([]);
-            return null;
-        };
-
-        mount(<Demo />);
-
-        expect(errorSpy).toHaveBeenCalledWith(
-            'Warning: useWatch requires a form instance since it can not auto detect from context.'
-        );
-    });
-
-    it('no more render time', () => {
+    test('no more render time', () => {
         let renderTime = 0;
 
         const Demo = () => {
-            const [form] = Form.useForm();
-            const name = Form.useWatch<string>('name', form);
+            const [form] = OcForm.useForm();
+            const name = OcForm.useWatch<string>('name', form);
 
             renderTime += 1;
 
             return (
-                <Form form={form}>
-                    <Field name="name">
+                <OcForm form={form}>
+                    <OcField name="name">
                         <Input />
-                    </Field>
-                    <Field name="age">
+                    </OcField>
+                    <OcField name="age">
                         <Input />
-                    </Field>
+                    </OcField>
                     <div className="value">{name}</div>
-                </Form>
+                </OcForm>
             );
         };
 
@@ -270,7 +258,7 @@ describe('useWatch', () => {
             .first()
             .simulate('change', {
                 target: {
-                    value: 'bamboo',
+                    value: 'mia',
                 },
             });
         expect(renderTime).toEqual(2);
@@ -296,7 +284,7 @@ describe('useWatch', () => {
         expect(renderTime).toEqual(2);
     });
 
-    it('typescript', () => {
+    test('typescript', () => {
         type FieldType = {
             main?: string;
             name?: string;
@@ -309,23 +297,23 @@ describe('useWatch', () => {
         };
 
         const Demo = () => {
-            const [form] = Form.useForm<FieldType>();
-            const values = Form.useWatch([], form);
-            const main = Form.useWatch('main', form);
-            const age = Form.useWatch(['age'], form);
-            const demo1 = Form.useWatch(['demo1'], form);
-            const demo2 = Form.useWatch(['demo1', 'demo2'], form);
-            const demo3 = Form.useWatch(['demo1', 'demo2', 'demo3'], form);
-            const demo4 = Form.useWatch(
+            const [form] = OcForm.useForm<FieldType>();
+            const values = OcForm.useWatch([], form);
+            const main = OcForm.useWatch('main', form);
+            const age = OcForm.useWatch(['age'], form);
+            const demo1 = OcForm.useWatch(['demo1'], form);
+            const demo2 = OcForm.useWatch(['demo1', 'demo2'], form);
+            const demo3 = OcForm.useWatch(['demo1', 'demo2', 'demo3'], form);
+            const demo4 = OcForm.useWatch(
                 ['demo1', 'demo2', 'demo3', 'demo4'],
                 form
             );
-            const demo5 = Form.useWatch(
+            const demo5 = OcForm.useWatch(
                 ['demo1', 'demo2', 'demo3', 'demo4', 'demo5'],
                 form
             );
-            const more = Form.useWatch(['age', 'name', 'gender'], form);
-            const demo = Form.useWatch<string>(['demo']);
+            const more = OcForm.useWatch(['age', 'name', 'gender'], form);
+            const demo = OcForm.useWatch<string>(['demo']);
 
             return (
                 <>
@@ -348,15 +336,14 @@ describe('useWatch', () => {
         mount(<Demo />);
     });
 
-    // https://github.com/react-component/field-form/issues/431
-    it('not trigger effect', () => {
+    test('not trigger effect', () => {
         let updateA = 0;
         let updateB = 0;
 
         const Demo = () => {
-            const [form] = Form.useForm();
-            const userA = Form.useWatch(['a'], form);
-            const userB = Form.useWatch(['b'], form);
+            const [form] = OcForm.useForm();
+            const userA = OcForm.useWatch(['a'], form);
+            const userB = OcForm.useWatch(['b'], form);
 
             React.useEffect(() => {
                 updateA += 1;
@@ -368,14 +355,14 @@ describe('useWatch', () => {
             }, [userB]);
 
             return (
-                <Form form={form}>
-                    <Field name={['a', 'name']}>
+                <OcForm form={form}>
+                    <OcField name={['a', 'name']}>
                         <Input />
-                    </Field>
-                    <Field name={['b', 'name']}>
+                    </OcField>
+                    <OcField name={['b', 'name']}>
                         <Input />
-                    </Field>
-                </Form>
+                    </OcField>
+                </OcForm>
             );
         };
 
@@ -385,34 +372,34 @@ describe('useWatch', () => {
         wrapper
             .find('input')
             .first()
-            .simulate('change', { target: { value: 'bamboo' } });
+            .simulate('change', { target: { value: 'mia' } });
 
         expect(updateA > updateB).toBeTruthy();
     });
 
-    it('mount while unmount', () => {
+    test('mount while unmount', () => {
         const Demo = () => {
-            const [form] = Form.useForm();
+            const [form] = OcForm.useForm();
             const [type, setType] = useState(true);
-            const name = Form.useWatch<string>('name', form);
+            const name = OcForm.useWatch<string>('name', form);
 
             return (
-                <Form form={form}>
+                <OcForm form={form}>
                     <button type="button" onClick={() => setType((c) => !c)}>
                         type
                     </button>
                     {type && (
-                        <Field name="name" key="a">
+                        <OcField name="name" key="a">
                             <Input />
-                        </Field>
+                        </OcField>
                     )}
                     {!type && (
-                        <Field name="name" key="b">
+                        <OcField name="name" key="b">
                             <Input />
-                        </Field>
+                        </OcField>
                     )}
                     <div className="value">{name}</div>
-                </Form>
+                </OcForm>
             );
         };
 
@@ -420,11 +407,11 @@ describe('useWatch', () => {
         wrapper
             .find('input')
             .first()
-            .simulate('change', { target: { value: 'bamboo' } });
+            .simulate('change', { target: { value: 'mia' } });
         wrapper.find('button').at(0).simulate('click');
-        expect(wrapper.find('.value').text()).toEqual('bamboo');
+        expect(wrapper.find('.value').text()).toEqual('mia');
     });
-    it('stringify error', () => {
+    test('stringify error', () => {
         const obj: any = {};
         obj.name = obj;
         const str = stringify(obj);

@@ -1,15 +1,18 @@
 import React from 'react';
-import { mount } from 'enzyme';
-import Form from '../src';
+import Enzyme, { mount } from 'enzyme';
+import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
+import OcForm from '../';
 import InfoField from './common/InfoField';
 import { changeValue, matchError } from './common';
 
-describe('Form.Control', () => {
-    it('fields', () => {
+Enzyme.configure({ adapter: new Adapter() });
+
+describe('OcForm.Control', () => {
+    test('fields', () => {
         const wrapper = mount(
-            <Form>
+            <OcForm>
                 <InfoField name="username" />
-            </Form>
+            </OcForm>
         );
 
         wrapper.setProps({
@@ -20,19 +23,19 @@ describe('Form.Control', () => {
         expect(wrapper.find('input').props().value).toEqual('Bamboo');
     });
 
-    it('fully test', async () => {
+    test('fully test', async () => {
         const Test = () => {
             const [fields, setFields] = React.useState([]);
 
             return (
-                <Form
+                <OcForm
                     fields={fields}
                     onFieldsChange={(_, allFields) => {
                         setFields(allFields);
                     }}
                 >
                     <InfoField name="test" rules={[{ required: true }]} />
-                </Form>
+                </OcForm>
             );
         };
 
