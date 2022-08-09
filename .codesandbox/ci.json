@@ -1,8 +1,5 @@
 {
     "buildCommand": "build-ci",
     "sandboxes": ["/storybook-static"],
-    "publishDirectory": {
-        "/storybook-static": "storybook-static"
-    },
     "node": "16"
 }
