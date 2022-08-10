@@ -50,13 +50,7 @@ export const SearchBox: FC<SearchBoxProps> = React.forwardRef(
         ref: Ref<HTMLInputElement>
     ) => {
         return (
-            <form
-                role="search"
-                onSubmit={(_event) => {
-                    _event.preventDefault();
-                    onSubmit?.(_event);
-                }}
-            >
+            <form role="search" onSubmit={(_event) => onSubmit?.(_event)}>
                 <TextInput
                     {...rest}
                     ref={ref}
