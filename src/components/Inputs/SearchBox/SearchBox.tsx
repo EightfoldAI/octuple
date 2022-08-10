@@ -37,6 +37,7 @@ export const SearchBox: FC<SearchBoxProps> = React.forwardRef(
             onChange,
             onFocus,
             onKeyDown,
+            onSubmit,
             placeholder = 'Search',
             shape = TextInputShape.Pill,
             size = TextInputSize.Flex,
@@ -49,7 +50,7 @@ export const SearchBox: FC<SearchBoxProps> = React.forwardRef(
         ref: Ref<HTMLInputElement>
     ) => {
         return (
-            <form role="search">
+            <form role="search" onSubmit={(_event) => onSubmit?.(_event)}>
                 <TextInput
                     {...rest}
                     ref={ref}

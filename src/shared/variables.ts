@@ -157,5 +157,7 @@ export interface CSSVariables extends React.CSSProperties {
     '--info-color'?: string;
     '--white-color'?: string;
     '--black-color'?: string;
+    '--font-family'?: string;
+    '--font-stack'?: string;
     '--font-size'?: string;
 }

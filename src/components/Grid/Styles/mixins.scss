@@ -1,0 +1,50 @@
+@mixin loop-grid-columns($index, $class) {
+    @if $index > 0 {
+        .col#{$class}-#{$index} {
+            display: block;
+            flex: 0 0 percentage(($index / $grid-columns));
+            max-width: percentage(($index / $grid-columns));
+        }
+        .col#{$class}-push-#{$index} {
+            left: percentage(($index / $grid-columns));
+        }
+        .col#{$class}-pull-#{$index} {
+            right: percentage(($index / $grid-columns));
+        }
+        .col#{$class}-offset-#{$index} {
+            margin-left: percentage(($index / $grid-columns));
+        }
+        .col#{$class}-order-#{$index} {
+            order: $index;
+        }
+        @include loop-grid-columns(($index - 1), $class);
+    }
+
+    @if $index == 0 {
+        .col#{$class}-#{$index} {
+            display: none;
+        }
+        .col-push-#{$index} {
+            left: auto;
+        }
+        .col-pull-#{$index} {
+            right: auto;
+        }
+        .col#{$class}-push-#{$index} {
+            left: auto;
+        }
+        .col#{$class}-pull-#{$index} {
+            right: auto;
+        }
+        .col#{$class}-offset-#{$index} {
+            margin-left: 0;
+        }
+        .col#{$class}-order-#{$index} {
+            order: 0;
+        }
+    }
+}
+
+@mixin make-grid($class: '') {
+    @include loop-grid-columns($grid-columns, $class);
+}

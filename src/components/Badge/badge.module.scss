@@ -2,10 +2,11 @@
     --bg: var(--grey-color-20);
     --label: var(--grey-color-80);
     background-color: var(--bg);
-    color: var(--label);
     border-radius: $space-m;
-    width: fit-content;
+    color: var(--label);
+    font-family: $octuple-font-family;
     padding: 0 $space-xxs;
+    width: fit-content;
 
     &.active {
         --bg: var(--accent-color-30);

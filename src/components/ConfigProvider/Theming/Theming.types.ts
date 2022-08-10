@@ -33,7 +33,6 @@ export interface OcBaseTheme {
     warningColor?: Value;
     infoColor?: Value;
     errorColor?: Value;
-    fontSize?: number;
     tabsTheme?: TabsTheme;
     navbarTheme?: NavbarTheme;
 }

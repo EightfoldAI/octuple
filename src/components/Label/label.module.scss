@@ -15,7 +15,7 @@
 
     .text-style {
         color: var(--text-primary-color);
-        font-family: 'Source Sans Pro', sans-serif;
+        font-family: $octuple-font-family;
 
         &.large {
             font-size: $text-font-size-5;

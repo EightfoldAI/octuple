@@ -1,13 +1,15 @@
 .info-bar {
     --info-color: var(--grey-color-10);
     --bg-color: var(--grey-color-70);
-    display: flex;
+
+    background-color: var(--bg-color);
     border-radius: $corner-radius-xl;
+    color: var(--info-color);
+    display: flex;
+    font-family: $octuple-font-family;
+    gap: $space-m;
     padding: $space-ml;
     width: 100%;
-    color: var(--info-color);
-    background-color: var(--bg-color);
-    gap: $space-m;
 
     &.neutral {
         --info-color: var(--grey-color-70);

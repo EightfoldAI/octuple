@@ -11,7 +11,13 @@ import {
 import { Tab, Tabs, TabVariant } from '../Tabs';
 import { Icon, IconName } from '../Icon';
 import { CompactPicker } from 'react-color';
-import { ConfigProvider, OcThemeNames, ThemeOptions, useConfig } from './';
+import {
+    ConfigProvider,
+    FontOptions,
+    OcThemeNames,
+    ThemeOptions,
+    useConfig,
+} from './';
 import { MatchScore } from '../MatchScore';
 import { Spinner } from '../Spinner';
 import { Stack } from '../Stack';
@@ -53,7 +59,9 @@ export default {
 
 const ThemedComponents: FC = () => {
     const [customPrimaryColor, setCustomPrimaryColor] = useState<string>('');
+    const [customFont, setCustomFont] = useState<string>('Source Sans Pro');
     const [customAccentColor, setCustomAccentColor] = useState<string>('');
+    const { fontOptions, setFontOptions } = useConfig();
     const { themeOptions, setThemeOptions } = useConfig();
     const themes: OcThemeNames[] = [
         'red',
@@ -153,6 +161,42 @@ const ThemedComponents: FC = () => {
                                 },
                             });
                             setCustomAccentColor(color.hex);
+                        }}
+                    />
+                </div>
+                <div>
+                    <p>Custom Font</p>
+                    <RadioGroup
+                        value={customFont}
+                        items={[
+                            {
+                                ariaLabel: 'Source Sans Pro',
+                                id: 'font-1',
+                                label: 'Source Sans Pro',
+                                name: 'font',
+                                value: 'Source Sans Pro',
+                                style: {
+                                    fontFamily: 'Source Sans Pro',
+                                },
+                            },
+                            {
+                                ariaLabel: 'Roboto',
+                                id: 'font-2',
+                                label: 'Roboto',
+                                name: 'font',
+                                value: 'Roboto',
+                                style: {
+                                    fontFamily: 'Roboto',
+                                },
+                            },
+                        ]}
+                        onChange={async (e) => {
+                            setFontOptions({
+                                customFont: {
+                                    fontFamily: e.target.value,
+                                },
+                            });
+                            setCustomFont(e.target.value);
                         }}
                     />
                 </div>
@@ -432,6 +476,11 @@ Theming.args = {
         focusVisible: DEFAULT_FOCUS_VISIBLE,
         focusVisibleElement: DEFAULT_FOCUS_VISIBLE_ELEMENT,
     },
+    fontOptions: {
+        fontFamily: '--font-family',
+        fontStack: '--font-stack',
+        fontSize: '--font-size',
+    } as FontOptions,
     themeOptions: {
         name: 'blue',
         customTheme: {

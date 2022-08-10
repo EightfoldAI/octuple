@@ -7,13 +7,14 @@
     }
 
     .tab {
-        display: flex;
-        border: none;
-        cursor: pointer;
-        padding: $space-s $space-m;
-        color: var(--tab-label);
         align-items: center;
+        border: none;
+        color: var(--tab-label);
+        cursor: pointer;
+        display: flex;
+        font-family: $octuple-font-family;
         justify-content: center;
+        padding: $space-s $space-m;
         position: relative;
         transition: background-color $motion-duration-fast
             $motion-easing-easeout 0s;
@@ -59,8 +60,9 @@
         }
 
         .label {
-            font-weight: $text-font-weight-semibold;
+            font-family: $octuple-font-family;
             font-size: $text-font-size-3;
+            font-weight: $text-font-weight-semibold;
             white-space: nowrap;
         }
 
