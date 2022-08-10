@@ -1,4 +1,4 @@
-import React, { Ref } from 'react';
+import React, { Ref, FormEventHandler } from 'react';
 import { Placement, Strategy } from '@floating-ui/react-dom';
 import { IconName, IconProps } from '../Icon';
 import { LabelProps } from '../Label';
@@ -147,6 +147,11 @@ export interface SearchBoxProps
      * The search box value.
      */
     value?: string;
+
+    /**
+     * Form onsubmit event handler.
+     */
+    onSubmit?: FormEventHandler<HTMLFormElement | HTMLInputElement>;
 }
 
 export interface TextAreaProps

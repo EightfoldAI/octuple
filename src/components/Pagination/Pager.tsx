@@ -1,12 +1,8 @@
-import React, {FC, useEffect, useCallback, useState, Ref} from 'react';
-import {PagerProps} from './Pagination.types';
-import {
-    ButtonShape,
-    ButtonSize,
-    NeutralButton,
-} from '../Button';
-import {IconName} from '../Icon';
-import {mergeClasses} from '../../shared/utilities';
+import React, { FC, useEffect, useCallback, useState, Ref } from 'react';
+import { PagerProps } from './Pagination.types';
+import { ButtonShape, ButtonSize, NeutralButton } from '../Button';
+import { IconName } from '../Icon';
+import { mergeClasses } from '../../shared/utilities';
 
 import styles from './pagination.module.scss';
 
@@ -140,7 +136,7 @@ export const Pager: FC<PagerProps> = React.forwardRef(
                                 checked={currentPage === 1}
                                 classNames={mergeClasses([
                                     styles.paginationButton,
-                                    {[styles.active]: currentPage === 1},
+                                    { [styles.active]: currentPage === 1 },
                                 ])}
                                 shape={ButtonShape.Rectangle}
                                 onClick={() => onCurrentChange(1)}
@@ -196,7 +192,10 @@ export const Pager: FC<PagerProps> = React.forwardRef(
                                     shape={ButtonShape.Rectangle}
                                     classNames={mergeClasses([
                                         styles.paginationButton,
-                                        {[styles.active]: currentPage === pager},
+                                        {
+                                            [styles.active]:
+                                                currentPage === pager,
+                                        },
                                     ])}
                                     onClick={() => onCurrentChange(pager)}
                                     size={ButtonSize.Medium}
@@ -244,7 +243,10 @@ export const Pager: FC<PagerProps> = React.forwardRef(
                                 checked={currentPage === pageCount}
                                 classNames={mergeClasses([
                                     styles.paginationButton,
-                                    {[styles.active]: currentPage === pageCount},
+                                    {
+                                        [styles.active]:
+                                            currentPage === pageCount,
+                                    },
                                 ])}
                                 onClick={() => onCurrentChange(pageCount)}
                                 size={ButtonSize.Medium}
