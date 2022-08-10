@@ -1,6 +1,6 @@
 {
     "name": "@eightfold.ai/octuple",
-    "version": "1.20.3",
+    "version": "1.20.4",
     "license": "MIT",
     "main": "lib/octuple.js",
     "types": "lib/octuple.d.ts",
@@ -271,7 +271,7 @@
         ]
     },
     "engines": {
-        "node": ">=16.13.0 < 16.15",
-        "npm": ">=8.5.0 < 8.6"
+        "node": ">=16.13.0 < 17",
+        "npm": ">=8.5.0 < 9"
     }
 }
