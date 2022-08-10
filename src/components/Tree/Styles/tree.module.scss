@@ -8,6 +8,7 @@ $tree-node-hightlight-color: inherit;
     @include reset-component();
     background: var(--background-color);
     border-radius: $tree-border-radius-base;
+    font-family: $octuple-font-family;
     transition: background-color 0.3s;
 
     &-focused:not(:hover):not(&-active-focused) {

@@ -1,0 +1,74 @@
+@import './mixins';
+
+.row {
+    &-rtl {
+        direction: rtl;
+    }
+}
+
+.col {
+    &-rtl {
+        direction: rtl;
+    }
+}
+
+@mixin loop-grid-columns($index, $class) {
+    @if $index > 0 {
+        .col#{$class}-push-#{$index} {
+            // reset property in RTL direction
+            &.col-rtl {
+                right: percentage(($index / $grid-columns));
+                left: auto;
+            }
+        }
+
+        .col#{$class}-pull-#{$index} {
+            // reset property in RTL direction
+            &.col-rtl {
+                right: auto;
+                left: percentage(($index / $grid-columns));
+            }
+        }
+
+        .col#{$class}-offset-#{$index} {
+            // reset property in RTL direction
+            &.col-rtl {
+                margin-right: percentage(($index / $grid-columns));
+                margin-left: 0;
+            }
+        }
+    }
+
+    @if $index == 0 {
+        .col-push-#{$index} {
+            // reset property in RTL direction
+            &.col-rtl {
+                right: auto;
+            }
+        }
+
+        .col-pull-#{$index} {
+            &.col-rtl {
+                left: auto;
+            }
+        }
+
+        .col#{$class}-push-#{$index} {
+            &.col-rtl {
+                right: auto;
+            }
+        }
+
+        .col#{$class}-pull-#{$index} {
+            &.col-rtl {
+                left: auto;
+            }
+        }
+
+        .col#{$class}-offset-#{$index} {
+            &.col-rtl {
+                margin-right: 0;
+            }
+        }
+    }
+}
