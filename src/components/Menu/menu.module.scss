@@ -3,15 +3,18 @@
     flex-direction: column;
 
     &.large {
-        gap: calc(#{$space-m} + #{$space-xxxs});
+        padding-top: $space-xl;
+        gap: $space-xl;
     }
 
     &.medium {
-        gap: calc(#{$space-s} + #{$space-xxxs});
+        padding-top: $space-l;
+        gap: $space-l;
     }
 
     &.small {
-        gap: calc(#{$space-xs} + #{$space-xxxs});
+        padding-top: $space-m;
+        gap: $space-m;
     }
 
     .menu-header-container {
@@ -19,15 +22,15 @@
         flex: 1;
 
         &.large {
-            margin: $space-xl $space-xl 0;
+            margin: 0 $space-xl;
         }
 
         &.medium {
-            margin: $space-l $space-l 0;
+            margin: 0 $space-l;
         }
 
         &.small {
-            margin: $space-m $space-m 0;
+            margin: 0 $space-m;
         }
 
         .heading {

@@ -18,10 +18,6 @@
         padding: $button-padding-vertical-medium
             $button-padding-horizontal-medium;
         margin: 0 $space-m $space-xs;
-
-        &:first-child {
-            margin-top: $space-m;
-        }
     }
 
     &.medium {
@@ -31,10 +27,6 @@
         padding: $button-padding-vertical-medium
             $button-padding-horizontal-medium;
         margin: 0 $space-s calc(#{$space-xxxs} + #{$space-xxs});
-
-        &:first-child {
-            margin-top: $space-s;
-        }
     }
 
     &.small {
@@ -43,10 +35,6 @@
         line-height: $text-line-height-1;
         padding: $space-xxs $space-xs;
         margin: 0 calc(#{$space-xs} + #{$space-xxxs}) $space-xxs;
-
-        &:first-child {
-            margin-top: calc(#{$space-xs} + #{$space-xxxs});
-        }
     }
 
     &.primary {
@@ -114,22 +102,22 @@
 
 .menu-item-sub-header {
     color: var(--grey-color-60);
-    padding: $space-l-fitted $space-xxs $space-s;
+    padding: $space-ml $space-xxs $space-s;
     border-bottom: solid 1px var(--border-color);
     margin: 0 $space-m $space-xs;
 }
 
 .menu-item-custom {
     &.large {
-        padding: $space-xl;
+        padding: 0 $space-xl;
     }
 
     &.medium {
-        padding: $space-l;
+        padding: 0 $space-l;
     }
 
     &.small {
-        padding: $space-m;
+        padding: 0 $space-m;
     }
 }
 

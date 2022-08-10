@@ -67,4 +67,5 @@ export interface DropdownProps {
      * @default true
      */
     closeOnDropdownClick?: boolean;
+    visible?: boolean;
 }
