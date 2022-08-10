@@ -11,7 +11,6 @@ import {
     AsideProps,
     CollapseType,
     LayoutContext,
-    LayoutTheme,
 } from './Layout.types';
 import { Icon, IconName, IconSize } from '../Icon';
 import {
@@ -44,7 +43,6 @@ export const Aside = React.forwardRef<HTMLDivElement, AsideProps>(
             trigger,
             reverseArrow = false,
             style = {},
-            theme = LayoutTheme.light,
             width = 200,
             zeroWidthTriggerStyle,
             ...props
@@ -216,7 +214,6 @@ export const Aside = React.forwardRef<HTMLDivElement, AsideProps>(
                 { [styles.layoutAsideBelow]: !!below },
                 { [styles.layoutAsideZeroWidth]: parseFloat(asideWidth) === 0 },
                 classNames,
-                { [styles.layoutDark]: theme === LayoutTheme.dark },
             ]);
             return (
                 <aside

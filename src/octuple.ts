@@ -47,7 +47,7 @@ import { Icon, IconName, IconSize } from './components/Icon';
 
 import { Label, LabelSize } from './components/Label';
 
-import Layout, { FontFamily, LayoutTheme } from './components/Layout';
+import Layout from './components/Layout';
 
 import { Link } from './components/Link';
 
@@ -152,7 +152,6 @@ export {
     ExpandableConfig,
     FilterConfirmProps,
     FilterValue,
-    FontFamily,
     Grid,
     Icon,
     IconName,
@@ -163,7 +162,6 @@ export {
     LabelPosition,
     LabelSize,
     Layout,
-    LayoutTheme,
     Link,
     List,
     MatchScore,

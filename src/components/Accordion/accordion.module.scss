@@ -1,6 +1,7 @@
 .accordion-container {
     border: 1px solid var(--grey-color-20);
     border-radius: $corner-radius-xl;
+    font-family: $octuple-font-family;
     overflow: hidden;
 
     .accordion-body-container {

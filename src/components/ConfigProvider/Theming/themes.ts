@@ -9,7 +9,6 @@ export const themeDefaults: OcBaseTheme = {
     warningColor: '#9D6309',
     infoColor: '#4F5666',
     errorColor: '#993838',
-    fontSize: 16,
 };
 
 export const red: OcTheme = {

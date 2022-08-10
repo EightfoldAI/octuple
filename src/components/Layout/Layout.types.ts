@@ -1,16 +1,6 @@
 import React from 'react';
 import { OcBaseProps } from '../OcBase';
 
-export enum FontFamily {
-    Gilroy = 'gilroy',
-    SourceSans = 'sourcesans',
-}
-
-export enum LayoutTheme {
-    light = 'light',
-    dark = 'dark',
-}
-
 export interface GeneratorProps {
     cssModifier: string;
     tagName:
@@ -25,11 +15,6 @@ export interface GeneratorProps {
 
 export interface BasicProps extends OcBaseProps<HTMLDivElement> {
     /**
-     * The layout font family.
-     * @default FontFamily.Gilroy
-     */
-    fontFamily?: FontFamily;
-    /**
      * The layout has an aside.
      */
     hasAside?: boolean;
@@ -38,14 +23,9 @@ export interface BasicProps extends OcBaseProps<HTMLDivElement> {
      */
     style?: React.CSSProperties;
     /**
-     * The layout theme.
-     * @default LayoutTheme.light
-     */
-    theme?: LayoutTheme;
-    /**
      * The layout uses octuple styles.
      */
-    uiChromeStyles?: boolean;
+    octupleStyles?: boolean;
 }
 
 export interface LayoutContextProps {
@@ -133,11 +113,6 @@ export interface AsideProps extends OcBaseProps<HTMLDivElement> {
      * @default false
      */
     reverseArrow?: boolean;
-    /**
-     * The aside theme.
-     * @default LayoutTheme.light
-     */
-    theme?: LayoutTheme;
     /**
      * The aside trigger element
      */

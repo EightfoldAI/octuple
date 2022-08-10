@@ -13,10 +13,11 @@
     align-items: center;
 
     .label {
+        font-family: $octuple-font-family;
+        font-size: $text-font-size-5;
+        font-weight: $text-font-weight-semibold;
         margin-bottom: 1px;
         margin-top: -1px;
-        font-weight: $text-font-weight-semibold;
-        font-size: $text-font-size-5;
 
         &.medium {
             font-size: $text-font-size-3;

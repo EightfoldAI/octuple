@@ -2,9 +2,11 @@
     --pager-button-active-foreground-color: var(--primary-color-70);
     --pager-button-active-outline-color: var(--accent-color-20);
     --pager-button-active-background-color: var(--accent-color-20);
-    padding: $space-xxs 0;
-    display: flex;
+
     align-items: center;
+    display: flex;
+    font-family: $octuple-font-family;
+    padding: $space-xxs 0;
 
     span,
     .pagination-button {

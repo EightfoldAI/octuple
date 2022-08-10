@@ -10,7 +10,6 @@ import { Dropdown } from '../Dropdown';
 import { Avatar } from '../Avatar';
 import { List } from '../List';
 import { Stack } from '../Stack';
-import { FontFamily, LayoutTheme } from './Layout.types';
 
 const { Article, Aside, Content, Footer, Header, Nav, Section } = Layout;
 
@@ -34,16 +33,6 @@ export default {
                     </article>
                 </main>
             ),
-        },
-    },
-    argTypes: {
-        fontFamily: {
-            options: [FontFamily.Gilroy, FontFamily.SourceSans],
-            control: { type: 'inline-radio' },
-        },
-        theme: {
-            options: ['light', 'dark'],
-            control: { type: 'inline-radio' },
         },
     },
 } as ComponentMeta<typeof Layout>;
@@ -635,9 +624,7 @@ const Trigger_Story: ComponentStory<typeof Layout> = (args) => {
 export const Trigger = Trigger_Story.bind({});
 
 const layoutArgs: Object = {
-    theme: LayoutTheme.light,
-    uiChromeStyles: true,
-    fontFamily: FontFamily.Gilroy,
+    octupleStyles: true,
     style: {
         border: '1px solid #f6f7f8',
         textAlign: 'center',

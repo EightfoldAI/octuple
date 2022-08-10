@@ -12,7 +12,7 @@ exports[`Storyshots Layout Basic 1`] = `
   }
 >
   <div
-    className="gilroy octuple layout"
+    className="octuple layout"
     style={
       Object {
         "border": "1px solid #f6f7f8",
@@ -184,7 +184,7 @@ exports[`Storyshots Layout Basic 1`] = `
     </footer>
   </div>
   <div
-    className="gilroy octuple layout"
+    className="octuple layout"
     style={
       Object {
         "border": "1px solid #f6f7f8",
@@ -315,7 +315,7 @@ exports[`Storyshots Layout Basic 1`] = `
       </div>
     </nav>
     <div
-      className="gilroy octuple layout"
+      className="octuple layout"
       style={
         Object {
           "border": "1px solid #f6f7f8",
@@ -375,7 +375,7 @@ exports[`Storyshots Layout Basic 1`] = `
     </footer>
   </div>
   <div
-    className="gilroy octuple layout"
+    className="octuple layout"
     style={
       Object {
         "border": "1px solid #f6f7f8",
@@ -506,7 +506,7 @@ exports[`Storyshots Layout Basic 1`] = `
       </h1>
     </header>
     <div
-      className="gilroy octuple layout"
+      className="octuple layout"
       style={
         Object {
           "border": "1px solid #f6f7f8",
@@ -566,7 +566,7 @@ exports[`Storyshots Layout Basic 1`] = `
     </footer>
   </div>
   <div
-    className="gilroy octuple layout"
+    className="octuple layout"
     style={
       Object {
         "border": "1px solid #f6f7f8",
@@ -594,7 +594,7 @@ exports[`Storyshots Layout Basic 1`] = `
       </div>
     </aside>
     <div
-      className="gilroy octuple layout"
+      className="octuple layout"
       style={
         Object {
           "border": "1px solid #f6f7f8",
@@ -764,7 +764,7 @@ exports[`Storyshots Layout Basic 1`] = `
 
 exports[`Storyshots Layout Fixed Aside 1`] = `
 <div
-  className="gilroy octuple layout"
+  className="octuple layout"
   style={
     Object {
       "border": "1px solid #f6f7f8",
@@ -797,7 +797,7 @@ exports[`Storyshots Layout Fixed Aside 1`] = `
     </div>
   </aside>
   <div
-    className="gilroy octuple layout"
+    className="octuple layout"
     style={
       Object {
         "marginLeft": 200,
@@ -861,7 +861,7 @@ exports[`Storyshots Layout Fixed Aside 1`] = `
 
 exports[`Storyshots Layout Fixed Navbar 1`] = `
 <div
-  className="gilroy octuple layout"
+  className="octuple layout"
   style={
     Object {
       "height": "294px",
@@ -986,7 +986,7 @@ exports[`Storyshots Layout Fixed Navbar 1`] = `
     </div>
   </nav>
   <div
-    className="gilroy octuple layout"
+    className="octuple layout"
     style={
       Object {
         "height": "394px",
@@ -1056,7 +1056,7 @@ exports[`Storyshots Layout Fixed Navbar 1`] = `
 
 exports[`Storyshots Layout Responsive 1`] = `
 <div
-  className="gilroy octuple layout"
+  className="octuple layout"
   style={
     Object {
       "border": "1px solid #f6f7f8",
@@ -1084,7 +1084,7 @@ exports[`Storyshots Layout Responsive 1`] = `
     </div>
   </aside>
   <div
-    className="gilroy octuple layout"
+    className="octuple layout"
     style={
       Object {
         "border": "1px solid #f6f7f8",
@@ -1253,7 +1253,7 @@ exports[`Storyshots Layout Responsive 1`] = `
 
 exports[`Storyshots Layout Trigger 1`] = `
 <div
-  className="gilroy octuple layout"
+  className="octuple layout"
   style={
     Object {
       "border": "1px solid #f6f7f8",
@@ -1281,7 +1281,7 @@ exports[`Storyshots Layout Trigger 1`] = `
     </div>
   </aside>
   <div
-    className="gilroy octuple layout"
+    className="octuple layout"
     style={
       Object {
         "border": "1px solid #f6f7f8",

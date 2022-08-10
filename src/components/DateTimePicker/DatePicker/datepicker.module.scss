@@ -10,12 +10,13 @@
         $picker-input-padding-horizontal-m
     );
 
-    position: relative;
-    display: inline-flex;
     align-items: center;
     background: $picker-background-color;
     border: $picker-border-width $picker-border-style $picker-border-color;
     border-radius: $picker-border-radius;
+    display: inline-flex;
+    font-family: $octuple-font-family;
+    position: relative;
     transition: border $motion-duration-fast, box-shadow $motion-duration-fast;
 
     &:hover,

@@ -1,5 +1,6 @@
 .main-wrapper {
     display: inline-block;
+    font-family: $octuple-font-family;
     white-space: nowrap;
 
     .reference-wrapper {
@@ -23,6 +24,7 @@
     padding: $space-xs;
     box-shadow: $shadow-object-m;
     border-radius: $corner-radius-xl;
+    font-family: $octuple-font-family;
     transition: all $motion-duration-fast $motion-easing-easeout;
     min-width: 280px;
     opacity: 0;

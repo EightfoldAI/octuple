@@ -1,9 +1,10 @@
 .modal {
     display: flex;
     flex-direction: column;
-    transform-origin: 50% 0;
-    overflow: hidden;
+    font-family: $octuple-font-family;
     max-height: 70vh;
+    overflow: hidden;
+    transform-origin: 50% 0;
     width: min(35vw, 100%);
 
     &.small {

@@ -2,10 +2,8 @@ import React, { Ref, useMemo } from 'react';
 import {
     BasicProps,
     BasicPropsWithTagName,
-    FontFamily,
     GeneratorProps,
     LayoutContext,
-    LayoutTheme,
 } from './Layout.types';
 import { mergeClasses } from '../../shared/utilities';
 import { useCanvasDirection } from '../../hooks/useCanvasDirection';
@@ -33,24 +31,13 @@ const generator = ({ cssModifier, tagName }: GeneratorProps) => {
 
 const Basic = React.forwardRef<HTMLElement, BasicPropsWithTagName>(
     (
-        {
-            children,
-            classNames,
-            fontFamily,
-            tagName,
-            theme,
-            style,
-            uiChromeStyles,
-            ...rest
-        },
+        { children, classNames, tagName, style, octupleStyles, ...rest },
         ref: Ref<HTMLElement>
     ) => {
         const htmlDir: string = useCanvasDirection();
 
         const tagClassNames: string = mergeClasses([
-            { [styles.gilroy]: fontFamily === FontFamily.Gilroy },
-            { [styles.octuple]: uiChromeStyles },
-            { [styles.layoutDark]: theme === LayoutTheme.dark },
+            { [styles.octuple]: octupleStyles },
             { [styles.layoutRtl]: htmlDir === 'rtl' },
             classNames,
         ]);
@@ -68,12 +55,10 @@ const BasicLayout = React.forwardRef<HTMLDivElement, BasicPropsWithTagName>(
         {
             children,
             classNames,
-            fontFamily,
             hasAside,
             style,
             tagName: Tag,
-            theme,
-            uiChromeStyles,
+            octupleStyles,
             ...rest
         },
         ref: Ref<HTMLDivElement>
@@ -82,15 +67,13 @@ const BasicLayout = React.forwardRef<HTMLDivElement, BasicPropsWithTagName>(
         const [asides, setAsides] = React.useState<string[]>([]);
 
         const tagClassNames: string = mergeClasses([
-            { [styles.gilroy]: fontFamily === FontFamily.Gilroy },
-            { [styles.octuple]: uiChromeStyles },
+            { [styles.octuple]: octupleStyles },
             {
                 [styles.layoutHasAside]:
                     typeof hasAside === 'boolean'
                         ? hasAside
                         : asides.length > 0,
             },
-            { [styles.layoutDark]: theme === LayoutTheme.dark },
             { [styles.layoutRtl]: htmlDir === 'rtl' },
             classNames,
         ]);

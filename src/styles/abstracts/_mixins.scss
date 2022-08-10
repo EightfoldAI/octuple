@@ -39,8 +39,11 @@
     white-space: nowrap;
 }
 
+/** Only to be used for octuple non-hashed BEM and Layout component styles
+    Maps to vertical spacing for any font size as specified by UX team */
 @mixin content-padding($line-height) {
-    padding: calc(#{$line-height} * 0.25) 0;
+    padding-bottom: calc(#{$line-height} * 0.25);
+    padding-top: calc(#{$line-height} * 0.25);
 
     // Resets defaults
     margin-block-end: 0;
@@ -49,17 +52,13 @@
     margin-inline-start: 0;
 }
 
-@mixin content-margin($line-height) {
-    margin: calc(#{$line-height} * 0.25) 0;
-}
-
 /** A set of opinionated styles to be used privately by Octuple components */
 @mixin octuple-chrome {
-    .oc-content {
+    .octuple-content {
         padding: 0 1.6rem;
     }
 
-    .oc-display {
+    .octuple-display {
         font-style: normal;
         font-weight: $text-font-weight-light;
         font-size: $text-font-size-11;
@@ -97,7 +96,7 @@
     }
 
     h1,
-    .oc-h1 {
+    .octuple-h1 {
         font-weight: $text-font-weight-semibold;
         font-size: $text-font-size-8;
         line-height: $text-line-height-7;
@@ -106,7 +105,7 @@
     }
 
     h2,
-    .oc-h2 {
+    .octuple-h2 {
         font-weight: $text-font-weight-semibold;
         font-size: $text-font-size-7;
         line-height: $text-line-height-6;
@@ -115,7 +114,7 @@
     }
 
     h3,
-    .oc-h3 {
+    .octuple-h3 {
         font-weight: $text-font-weight-semibold;
         font-size: $text-font-size-6;
         line-height: $text-line-height-5;
@@ -123,7 +122,7 @@
     }
 
     h4,
-    .oc-h4 {
+    .octuple-h4 {
         font-weight: $text-font-weight-semibold;
         font-size: $text-font-size-5;
         line-height: $text-line-height-3;
@@ -131,7 +130,7 @@
     }
 
     h5,
-    .oc-h5 {
+    .octuple-h5 {
         font-weight: $text-font-weight-semibold;
         font-size: $text-font-size-3;
         line-height: $text-line-height-2;
@@ -139,7 +138,7 @@
     }
 
     h6,
-    .oc-h6 {
+    .octuple-h6 {
         font-weight: $text-font-weight-semibold;
         font-size: $text-font-size-2;
         line-height: $text-line-height-2;
@@ -147,12 +146,12 @@
     }
 
     hr,
-    .oc-hr {
+    .octuple-hr {
         background-color: $divider-line-color;
         width: 100%;
     }
 
-    .oc-subtitle {
+    .octuple-subtitle {
         font-weight: $text-font-weight-semibold;
         font-size: $text-font-size-6;
         line-height: $text-line-height-5;
@@ -176,7 +175,7 @@
         }
     }
 
-    .oc-pre-display {
+    .octuple-pre-display {
         font-weight: $text-font-weight-semibold;
         font-size: $text-font-size-5;
         line-height: $text-line-height-4;
@@ -186,7 +185,7 @@
 
     body,
     p,
-    .oc-content {
+    .octuple-content {
         font-weight: $text-font-weight-regular;
         font-size: $text-font-size-3;
         line-height: $text-line-height-3;
@@ -197,7 +196,7 @@
         }
 
         a,
-        .oc-link {
+        .octuple-link {
             &__primary {
                 color: var(--primary-color);
             }
@@ -223,12 +222,12 @@
     }
 
     label,
-    .oc-label {
+    .octuple-label {
         font-weight: $text-font-weight-semibold;
     }
 
     caption,
-    .oc-caption {
+    .octuple-caption {
         font-weight: $text-font-weight-regular;
         font-size: $text-font-size-1;
         line-height: $text-line-height-1;
@@ -236,8 +235,7 @@
     }
 
     i,
-    .oc-icon {
-        font-family: Material Design Icons;
+    .octuple-icon {
         font-size: $icon-font-size-material-m;
 
         &__large {
@@ -260,19 +258,13 @@
     /* BEGIN Responsive Styles */
 
     @media (min-width: 600px) {
-        .oc-content {
-            padding: 0 2.4rem;
-        }
-    }
-
-    @media (min-width: 900px) {
-        .oc-content {
+        .octuple-content {
             padding: 0 2.4rem;
         }
     }
 
     @media (min-width: 1200px) {
-        .oc-content {
+        .octuple-content {
             padding: 0 4rem;
         }
     }

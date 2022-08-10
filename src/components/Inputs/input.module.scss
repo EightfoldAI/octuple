@@ -10,7 +10,7 @@
         border-radius: $corner-radius-xl;
         box-sizing: border-box;
         color: var(--grey-color-60);
-        font-family: 'Source Sans Pro', sans-serif;
+        font-family: $octuple-font-family;
         font-size: $text-font-size-3;
         line-height: $text-line-height-1;
         min-width: 120px;
@@ -874,7 +874,7 @@
         border-radius: $corner-radius-s;
         box-sizing: border-box;
         color: var(--grey-color-60);
-        font-family: 'Source Sans Pro', sans-serif;
+        font-family: $octuple-font-family;
         font-size: $text-font-size-3;
         line-height: $text-line-height-4;
         min-height: calc($text-line-height-4 + 2px + $space-xs * 2);

@@ -2,6 +2,7 @@
     display: flex;
     flex: auto;
     flex-direction: column;
+    font-family: $octuple-font-family;
     height: 100%;
 
     /* fix firefox can't set height smaller than content on flex item */
@@ -9,17 +10,6 @@
 
     &.octuple {
         @include octuple-chrome();
-    }
-
-    &:not(.gilroy) {
-        font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-            'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue',
-            sans-serif;
-    }
-
-    &.gilroy {
-        font-family: 'Gilroy', -apple-system, BlinkMacSystemFont, 'Segoe UI',
-            Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
     }
 
     &,
@@ -175,5 +165,4 @@
     }
 }
 
-@import './Styles/dark';
 @import './Styles/rtl';

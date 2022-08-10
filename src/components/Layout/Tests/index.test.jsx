@@ -178,16 +178,6 @@ describe('Layout', () => {
         });
     });
 
-    test('detect layout-aside-dark as default theme', async () => {
-        const wrapper = mount(<Aside>Aside</Aside>);
-        expect(wrapper.find('.layout-aside-dark')).toBeTruthy();
-    });
-
-    test('detect layout-aside-light when set light theme', async () => {
-        const wrapper = mount(<Aside theme="light">Aside</Aside>);
-        expect(wrapper.find('.layout-aside-light')).toBeTruthy();
-    });
-
     test('renders string width correctly', () => {
         const { asFragment } = render(<Aside width="200">Aside</Aside>);
         expect(asFragment().firstChild).toMatchSnapshot();
