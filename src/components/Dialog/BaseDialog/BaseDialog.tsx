@@ -55,8 +55,10 @@ export const BaseDialog: FC<BaseDialogProps> = React.forwardRef(
             styles.dialogBackdrop,
             dialogWrapperClassNames,
             { [styles.visible]: visible },
-            { [styles.modeless]: overlay === false },
-            { [styles.modelessMask]: overlay === false && maskClosable },
+            {
+                [styles.modeless]: overlay === false,
+                [styles.modelessMask]: overlay === false && maskClosable,
+            },
         ]);
 
         const dialogClasses: string = mergeClasses([
