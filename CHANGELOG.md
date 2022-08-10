@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.20.4](https://github.com/EightfoldAI/octuple/compare/v1.20.3...v1.20.4) (2022-08-10)
+
+### Bug Fixes
+
+-   node version adjustment ([#297](https://github.com/EightfoldAI/octuple/issues/297)) ([be5397d](https://github.com/EightfoldAI/octuple/commits/be5397d187615de628477c9e807e4ac05afed1f2))
+
 ### [1.20.3](https://github.com/EightfoldAI/octuple/compare/v1.20.2...v1.20.3) (2022-08-04)
 
 ### Bug Fixes
