@@ -7,7 +7,7 @@
 
         background-color: var(--background-color);
         border: 1px solid var(--border-color);
-        border-radius: $corner-radius-xl;
+        border-radius: $corner-radius-m;
         box-sizing: border-box;
         color: var(--grey-color-60);
         font-family: 'Source Sans Pro', sans-serif;
@@ -871,7 +871,7 @@
     .text-area {
         background-color: var(--background-color);
         border: 1px solid var(--border-color);
-        border-radius: $corner-radius-s;
+        border-radius: $corner-radius-m;
         box-sizing: border-box;
         color: var(--grey-color-60);
         font-family: 'Source Sans Pro', sans-serif;
