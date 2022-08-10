@@ -30,6 +30,7 @@ export const SearchBox: FC<SearchBoxProps> = ({
     onChange,
     onFocus,
     onKeyDown,
+    onSubmit,
     placeholder = 'Search',
     shape = TextInputShape.Rectangle,
     style,
@@ -38,7 +39,13 @@ export const SearchBox: FC<SearchBoxProps> = ({
     waitInterval = 500,
     ...rest
 }) => (
-    <form role="search">
+    <form
+        role="search"
+        onSubmit={(_event) => {
+            _event.preventDefault();
+            onSubmit?.(_event);
+        }}
+    >
         <TextInput
             {...rest}
             allowDisabledFocus={allowDisabledFocus}
