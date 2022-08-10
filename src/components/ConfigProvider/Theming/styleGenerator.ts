@@ -10,6 +10,7 @@ import {
 import { TinyColor } from '@ctrl/tinycolor';
 import generate from './generate';
 import OcThemes, { themeDefaults } from './themes';
+import { themeGenerator } from './themeGenerator';
 
 const THEME_CONTAINER_ID = 'octuple-theme';
 
@@ -21,7 +22,7 @@ interface Options {
 }
 
 export function getStyle(themeOptions: ThemeOptions): IGetStyle {
-    const variables: Variables = {};
+    let variables: Variables = {};
 
     const fillColor = (
         colorPalettes: string[],
@@ -43,20 +44,36 @@ export function getStyle(themeOptions: ThemeOptions): IGetStyle {
 
     const theme: OcTheme = {
         ...themeDefaults,
-        ...OcThemes?.[themeOptions.name as OcThemeNames],
+        ...OcThemes?.[themeName as OcThemeNames],
         ...themeOptions.customTheme,
     };
 
-    // ================ Use existing palette ================
+    const accentTheme: OcTheme = {
+        ...OcThemes?.[theme.accentName as OcThemeNames],
+    };
+
+    // ================ Use existing primary palette ================
     if (theme.palette) {
         fillColor([...theme.palette].reverse(), 'primary-color');
         variables[`primary-color`] = theme.primaryColor;
+    }
+
+    // ================ Use existing accent palette ================
+    if (accentTheme.palette) {
+        fillColor([...accentTheme.palette].reverse(), 'accent-color');
+        variables[`accent-color`] = accentTheme.primaryColor;
     }
 
     // ================ Custom primary palette ================
     if (themeOptions.customTheme?.primaryColor) {
         generatePalette(theme.primaryColor, 'primary-color');
         variables[`primary-color`] = theme.primaryColor;
+    }
+
+    // ================ Custom accent palette ================
+    if (themeOptions.customTheme?.accentColor) {
+        generatePalette(theme.accentColor, 'accent-color');
+        variables[`accent-color`] = theme.accentColor;
     }
 
     // ================ Disruptive palette ================
@@ -115,6 +132,22 @@ export function getStyle(themeOptions: ThemeOptions): IGetStyle {
     // ================= Font Size ==================
     if (theme.fontSize) {
         variables[`font-size`] = `${theme.fontSize}px`;
+    }
+
+    // ================= Tabs theme ==================
+    if (theme.tabsTheme) {
+        variables = {
+            ...variables,
+            ...themeGenerator(theme.tabsTheme, 'tab'),
+        };
+    }
+
+    // ================= Navbar theme ==================
+    if (theme.navbarTheme) {
+        variables = {
+            ...variables,
+            ...themeGenerator(theme.navbarTheme, 'navbar'),
+        };
     }
 
     return {

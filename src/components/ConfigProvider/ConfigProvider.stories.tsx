@@ -6,26 +6,21 @@ import {
     DefaultButton,
     PrimaryButton,
     SecondaryButton,
+    TwoStateButton,
 } from '../Button';
 import { Tab, Tabs, TabVariant } from '../Tabs';
-import { IconName } from '../Icon';
+import { Icon, IconName } from '../Icon';
 import { CompactPicker } from 'react-color';
-import { ConfigProvider, OcThemeNames, useConfig } from './';
+import { ConfigProvider, OcThemeNames, ThemeOptions, useConfig } from './';
 import { MatchScore } from '../MatchScore';
 import { Spinner } from '../Spinner';
 import { Stack } from '../Stack';
-import { CheckBoxGroup, CheckboxValueType, RadioGroup } from '../Selectors';
-
-const theme: OcThemeNames[] = [
-    'red',
-    'orange',
-    'yellow',
-    'green',
-    'bluegreen',
-    'blue',
-    'violet',
-    'grey',
-];
+import { RadioGroup } from '../RadioButton';
+import { CheckBox, CheckBoxGroup } from '../CheckBox';
+import { Link } from '../Link';
+import { Navbar, NavbarContent } from '../Navbar';
+import { Dropdown } from '../Dropdown';
+import { Menu, MenuVariant } from '../Menu';
 
 export default {
     title: 'Config Provider',
@@ -57,16 +52,21 @@ export default {
 } as ComponentMeta<typeof ConfigProvider>;
 
 const ThemedComponents: FC = () => {
-    const [customColor, setCustomColor] = useState<string>('');
+    const [customPrimaryColor, setCustomPrimaryColor] = useState<string>('');
+    const [customAccentColor, setCustomAccentColor] = useState<string>('');
     const { themeOptions, setThemeOptions } = useConfig();
     const themes: OcThemeNames[] = [
         'red',
+        'redOrange',
         'orange',
         'yellow',
+        'yellowGreen',
         'green',
-        'bluegreen',
+        'blueGreen',
         'blue',
+        'blueViolet',
         'violet',
+        'violetRed',
         'grey',
     ];
     const tabs = [1, 2, 3, 4].map((i) => ({
@@ -93,7 +93,16 @@ const ThemedComponents: FC = () => {
                         color: 'var(--primary-color)',
                     }}
                 >
-                    {themeOptions.name}
+                    Primary |
+                </span>
+                <span
+                    style={{
+                        textTransform: 'capitalize',
+                        marginLeft: '4px',
+                        color: 'var(--accent-color-30)',
+                    }}
+                >
+                    | Accent
                 </span>
             </h1>
             <Stack direction="horizontal" gap="m" style={{ marginTop: 0 }}>
@@ -116,17 +125,34 @@ const ThemedComponents: FC = () => {
                     </select>
                 </div>
                 <div>
-                    <p>Custom</p>
+                    <p>Custom Primary</p>
                     <CompactPicker
-                        color={customColor}
+                        color={customPrimaryColor}
                         onChange={async (color) => {
                             setThemeOptions({
                                 name: 'custom',
                                 customTheme: {
                                     primaryColor: color.hex,
+                                    accentColor: customAccentColor,
                                 },
                             });
-                            setCustomColor(color.hex);
+                            setCustomPrimaryColor(color.hex);
+                        }}
+                    />
+                </div>
+                <div>
+                    <p>Custom Accent</p>
+                    <CompactPicker
+                        color={customAccentColor}
+                        onChange={async (color) => {
+                            setThemeOptions({
+                                name: 'custom',
+                                customTheme: {
+                                    primaryColor: customPrimaryColor,
+                                    accentColor: color.hex,
+                                },
+                            });
+                            setCustomAccentColor(color.hex);
                         }}
                     />
                 </div>
@@ -185,6 +211,63 @@ const ThemedComponents: FC = () => {
                     text="Default Button"
                 />
             </Stack>
+            <Stack direction="horizontal" gap="m">
+                <TwoStateButton
+                    ariaLabel="Two state button"
+                    size={ButtonSize.Small}
+                    iconOneProps={{
+                        path: IconName.mdiCardsHeart,
+                        ariaHidden: true,
+                        classNames: 'my-two-state-btn-icon-one',
+                        id: 'myTwoStateButtonIconOne',
+                        role: 'presentation',
+                        rotate: 0,
+                        spin: false,
+                        vertical: false,
+                        'data-test-id': 'myTwoStateButtonIconOneTestId',
+                    }}
+                    iconTwoProps={{
+                        path: IconName.mdiChevronDown,
+                        ariaHidden: true,
+                        classNames: 'my-two-state-btn-icon-two',
+                        id: 'myTwoStateButtonIconTwo',
+                        role: 'presentation',
+                        rotate: 0,
+                        spin: false,
+                        vertical: false,
+                        'data-test-id': 'myTwoStateButtonIconTwoTestId',
+                    }}
+                    text="Two state button"
+                />
+                <TwoStateButton
+                    ariaLabel="Two state button"
+                    size={ButtonSize.Small}
+                    text="Two state button checked"
+                    iconOneProps={{
+                        path: IconName.mdiCardsHeart,
+                        ariaHidden: true,
+                        classNames: 'my-two-state-btn-icon-one',
+                        id: 'myTwoStateButtonIconOne',
+                        role: 'presentation',
+                        rotate: 0,
+                        spin: false,
+                        vertical: false,
+                        'data-test-id': 'myTwoStateButtonIconOneTestId',
+                    }}
+                    iconTwoProps={{
+                        path: IconName.mdiChevronDown,
+                        ariaHidden: true,
+                        classNames: 'my-two-state-btn-icon-two',
+                        id: 'myTwoStateButtonIconTwo',
+                        role: 'presentation',
+                        rotate: 0,
+                        spin: false,
+                        vertical: false,
+                        'data-test-id': 'myTwoStateButtonIconTwoTestId',
+                    }}
+                    checked
+                />
+            </Stack>
             <Tabs value={'tab1'}>
                 {tabs.map((tab) => (
                     <Tab key={tab.value} {...tab} />
@@ -205,6 +288,44 @@ const ThemedComponents: FC = () => {
                     <Tab key={tab.value} {...tab} />
                 ))}
             </Tabs>
+            <Navbar style={{ position: 'relative' }}>
+                <NavbarContent>
+                    <Link
+                        href="/"
+                        target="_self"
+                        variant="default"
+                        style={{ padding: '8px', color: 'inherit' }}
+                    >
+                        Home
+                    </Link>
+                </NavbarContent>
+                <NavbarContent>
+                    <Link
+                        href="https://www.twitter.com"
+                        target="_self"
+                        variant="default"
+                        style={{ padding: '8px', color: 'inherit' }}
+                    >
+                        <Icon path={IconName.mdiTwitter} />
+                    </Link>
+                    <Link
+                        href="https://www.facebook.com"
+                        target="_self"
+                        variant="default"
+                        style={{ padding: '8px', color: 'inherit' }}
+                    >
+                        <Icon path={IconName.mdiFacebook} />
+                    </Link>
+                    <Link
+                        href="https://www.instagram.com"
+                        target="_self"
+                        variant="default"
+                        style={{ padding: '8px', color: 'inherit' }}
+                    >
+                        <Icon path={IconName.mdiInstagram} />
+                    </Link>
+                </NavbarContent>
+            </Navbar>
             <MatchScore score={3} />
             <Spinner />
             <CheckBoxGroup
@@ -233,6 +354,7 @@ const ThemedComponents: FC = () => {
                     ],
                 }}
             />
+            <CheckBox label={'Toggle'} toggle />
             <RadioGroup
                 {...{
                     ariaLabel: 'Radio Group',
@@ -245,9 +367,52 @@ const ThemedComponents: FC = () => {
                     })),
                 }}
             />
+            <Dropdown overlay={Overlay()} placement="top">
+                <DefaultButton text={'Menu dropdown'} />
+            </Dropdown>
         </Stack>
     );
 };
+
+const Overlay = () => (
+    <Menu
+        {...{
+            variant: MenuVariant.neutral,
+            classNames: 'my-menu-class',
+            style: {},
+            itemClassNames: 'my-menu-item-class',
+            itemStyle: {},
+            listType: 'ul',
+        }}
+        items={[
+            {
+                iconProps: { path: IconName.mdiCalendar },
+                text: 'Date',
+                value: 'date 1',
+                counter: '8',
+            },
+            {
+                iconProps: { path: IconName.mdiThumbUpOutline },
+                text: 'Thumbs up',
+                value: 'date 1',
+                disabled: true,
+            },
+            {
+                iconProps: { path: IconName.mdiSchool },
+                text: 'School',
+                value: 'date 1',
+            },
+            {
+                iconProps: { path: IconName.mdiCalendar },
+                text: 'Date',
+                value: 'date 1',
+            },
+        ]}
+        onChange={(item) => {
+            console.log(item);
+        }}
+    />
+);
 
 const DEFAULT_FOCUS_VISIBLE: boolean = true;
 const DEFAULT_FOCUS_VISIBLE_ELEMENT: HTMLElement = document.documentElement;
@@ -269,7 +434,30 @@ Theming.args = {
     },
     themeOptions: {
         name: 'blue',
-    },
+        customTheme: {
+            tabsTheme: {
+                label: '--text-secondary-color',
+                activeLabel: '--primary-color',
+                activeBackground: 'transparent',
+                hoverLabel: '--primary-color',
+                hoverBackground: 'transparent',
+                indicatorColor: '--primary-color',
+                smallActiveBackground: 'transparent',
+                smallHoverBackground: 'transparent',
+                pillLabel: '--text-secondary-color',
+                pillActiveLabel: '--primary-color',
+                pillActiveBackground: '--accent-color-20',
+                pillHoverLabel: '--primary-color',
+                pillBackground: '--grey-color-10',
+            },
+            navbarTheme: {
+                background: '--primary-color-80',
+                textColor: '--primary-color-10',
+                textHoverBackground: '--primary-color-80',
+                textHoverColor: '--primary-color-20',
+            },
+        },
+    } as ThemeOptions,
     icomoonIconSet: {},
     children: <ThemedComponents />,
 };

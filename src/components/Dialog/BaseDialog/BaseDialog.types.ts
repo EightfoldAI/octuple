@@ -1,5 +1,9 @@
 import React, { Ref } from 'react';
 import { OcBaseProps } from '../../OcBase';
+import { ButtonProps } from '../../Button';
+import { IconName } from '../../Icon';
+
+export type CloseButtonProps = Omit<ButtonProps, 'onClick' | 'icon'>;
 
 type EventType =
     | React.KeyboardEvent<HTMLDivElement>
@@ -9,6 +13,26 @@ type Strategy = 'absolute' | 'fixed';
 
 export interface BaseDialogProps
     extends Omit<OcBaseProps<HTMLDivElement>, 'classNames'> {
+    /**
+     * Props for the first header action button
+     */
+    actionButtonOneProps?: ButtonProps;
+    /**
+     * Props for the second header action button
+     */
+    actionButtonTwoProps?: ButtonProps;
+    /**
+     * Props for the third header action button
+     */
+    actionButtonThreeProps?: ButtonProps;
+    /**
+     * Close button extra props
+     */
+    closeButtonProps?: CloseButtonProps;
+    /**
+     * Close icon name
+     */
+    closeIcon?: IconName;
     /**
      * Dialog is visible or not
      */

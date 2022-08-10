@@ -11,7 +11,7 @@ export interface TooltipProps extends OcBaseProps<HTMLDivElement> {
     /**
      * Content to show on the tooltip
      */
-    content: React.ReactNode | string;
+    content: React.ReactNode;
     /**
      * Theme of the tooltip
      * @default light
@@ -22,6 +22,11 @@ export interface TooltipProps extends OcBaseProps<HTMLDivElement> {
      * @default bottom
      */
     placement?: Placement;
+    /**
+     * If the tooltip is portaled
+     * @default false
+     */
+    portal?: boolean;
     /**
      * To disable the tooltip
      * @default false
@@ -57,4 +62,12 @@ export interface TooltipProps extends OcBaseProps<HTMLDivElement> {
      * @default 0
      */
     tabIndex?: number;
+    /**
+     * Wrapper class name
+     */
+    wrapperClassNames?: string;
+    /**
+     * Wrapper style
+     */
+    wrapperStyle?: React.CSSProperties;
 }

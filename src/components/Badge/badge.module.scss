@@ -8,8 +8,8 @@
     padding: 0 $space-xxs;
 
     &.active {
-        --bg: var(--primary-color-20);
-        --label: var(--primary-color);
+        --bg: var(--accent-color-30);
+        --label: var(--primary-color-80);
 
         &.disruptive {
             --bg: var(--disruptive-color-20);

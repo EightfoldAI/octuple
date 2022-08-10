@@ -1,9 +1,21 @@
-import React, { FormEventHandler } from 'react';
+import React, { Ref, FormEventHandler } from 'react';
 import { Placement, Strategy } from '@floating-ui/react-dom';
 import { IconName, IconProps } from '../Icon';
 import { LabelProps } from '../Label';
 import { TooltipTheme } from '../Tooltip';
 import { OcBaseProps } from '../OcBase';
+
+export enum TextInputIconAlign {
+    Left = 'left',
+    Right = 'right',
+}
+
+export enum TextInputSize {
+    Flex = 'flex',
+    Large = 'large',
+    Medium = 'medium',
+    Small = 'small',
+}
 
 export enum TextInputTheme {
     light = 'light',
@@ -18,6 +30,7 @@ export enum TextInputWidth {
 export enum TextInputShape {
     Rectangle = 'rectangle',
     Pill = 'pill',
+    Underline = 'underline',
 }
 
 export interface InputIconProps extends Omit<IconProps, 'path'> {
@@ -110,7 +123,7 @@ export interface InputLabelIconButtonProps {
     /**
      * Content to show on the tooltip
      */
-    toolTipContent?: React.ReactNode | string;
+    toolTipContent?: React.ReactNode;
     /**
      * Theme of the tooltip
      * @default light
@@ -144,13 +157,17 @@ export interface SearchBoxProps
 export interface TextAreaProps
     extends Omit<
         InputProps<HTMLTextAreaElement>,
-        'clearButtonAriaLabel' | 'iconProps' | 'iconButtonProps' | 'shape'
+        'clearButtonAriaLabel' | 'iconProps' | 'iconButtonProps' | 'alignIcon'
     > {
     /**
      * The text area is expandable.
      * @default false
      */
     enableExpand?: boolean;
+    /**
+     * The text area component ref.
+     */
+    ref?: Ref<HTMLTextAreaElement>;
     /**
      * The text area required attribute.
      * @default false
@@ -180,6 +197,14 @@ export interface TextInputProps extends InputProps<HTMLInputElement> {
      */
     numbersOnly?: boolean;
     /**
+     * onclear event handler.
+     */
+    onClear?: React.MouseEventHandler<Element>;
+    /**
+     * The input component ref.
+     */
+    ref?: Ref<HTMLInputElement>;
+    /**
      * The input required attribute.
      * @default false
      */
@@ -191,6 +216,17 @@ export interface InputProps<T>
         OcBaseProps<T>,
         'onChange' | 'onFocus' | 'onBlur' | 'onKeyDown'
     > {
+    /**
+     * The input icon alignment.
+     * @default TextInputIconAlign.Left
+     */
+    alignIcon?: TextInputIconAlign;
+    /**
+     * option to show the clear input button.
+     * default is true for backward compatibility
+     * @default true
+     */
+    clearable?: boolean;
     /**
      * Allows focus on the input when it's disabled.
      * @default false
@@ -226,6 +262,11 @@ export interface InputProps<T>
      * The input id.
      */
     id?: string;
+    /**
+     * The input label is inline.
+     * @default false
+     */
+    inline?: boolean;
     /**
      * Width of the tooltip
      * @default fitContent
@@ -271,9 +312,14 @@ export interface InputProps<T>
     placeholder?: string;
     /**
      * Shape of the input.
-     * @default TextInputShape.Rectangle
+     * @default TextInputShape.Pill
      */
     shape?: TextInputShape;
+    /**
+     * The input size.
+     * @default Flex
+     */
+    size?: TextInputSize;
     /**
      * Theme of the input.
      * @default TextInputTheme.light
@@ -288,4 +334,9 @@ export interface InputProps<T>
      * @default 10
      */
     waitInterval?: number;
+    /**
+     * input readonly.
+     * @default false
+     */
+    readonly?: boolean;
 }

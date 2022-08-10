@@ -1,10 +1,9 @@
 import React, { FC, Ref, useCallback, useState } from 'react';
 
-import { mergeClasses, uniqueId } from '../../shared/utilities';
+import { eventKeys, mergeClasses, uniqueId } from '../../shared/utilities';
 
 import { AccordionProps, AccordionSummaryProps, AccordionBodyProps } from './';
 import { Icon, IconName } from '../Icon';
-import { eventKeys } from '../../shared/eventKeys';
 
 import styles from './accordion.module.scss';
 
@@ -19,7 +18,9 @@ export const AccordionSummary: FC<AccordionSummaryProps> = ({
 }) => {
     const headerClassnames = mergeClasses([
         styles.accordionSummary,
+        'header4',
         classNames,
+        { [styles.accordionSummaryExpanded]: expanded },
     ]);
 
     const iconStyles: string = mergeClasses([
@@ -69,6 +70,7 @@ export const AccordionBody: FC<AccordionBodyProps> = ({
     const accordionBodyStyles: string = mergeClasses(
         styles.accordionBody,
         styles.showBorderTop,
+        'body2',
         classNames
     );
 

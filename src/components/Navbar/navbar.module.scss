@@ -1,0 +1,17 @@
+.navbar-container {
+    align-items: center;
+    background-color: var(--navbar-background);
+    color: var(--navbar-text-color);
+    display: flex;
+    flex-direction: row;
+    height: 60px;
+    justify-content: space-between;
+    padding: 0 $space-ml;
+    width: 100%;
+
+    .navbar-content {
+        align-items: center;
+        display: flex;
+        flex-direction: row;
+    }
+}

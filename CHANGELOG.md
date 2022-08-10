@@ -2,12 +2,362 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.2.5](https://github.com/EightfoldAI/octuple/compare/v2.2.4...v2.2.5) (2022-08-07)
+
+### Bug Fixes
+
+-   navbar: revert scoped css resets to navbar component ([#292](https://github.com/EightfoldAI/octuple/issues/292)) ([b3f03e0](https://github.com/EightfoldAI/octuple/commits/b3f03e02453de644a3e68e83175c0647b6d82389))
+
+### [2.2.4](https://github.com/EightfoldAI/octuple/compare/v2.2.3...v2.2.4) (2022-08-04)
+
+### Bug Fixes
+
+-   navbar: apply scoped css resets to navbar component ([#288](https://github.com/EightfoldAI/octuple/issues/288)) ([4a4e60c](https://github.com/EightfoldAI/octuple/commits/4a4e60cd2804dfef7967c48f38f7ef937ef831eb))
+
+### [2.2.3](https://github.com/EightfoldAI/octuple/compare/v2.2.2...v2.2.3) (2022-08-03)
+
+### Bug Fixes
+
+-   pagination: fix onCurrentChange event getting fired on change of total ([#285](https://github.com/EightfoldAI/octuple/issues/285)) ([74456a2](https://github.com/EightfoldAI/octuple/commits/74456a242eb227972ff5491d4c7390f8ec0abc5d))
+
+### [2.2.2](https://github.com/EightfoldAI/octuple/compare/v2.2.1...v2.2.2) (2022-08-03)
+
+### Bug Fixes
+
+-   css: scope normalize css reset to octuple components ([#283](https://github.com/EightfoldAI/octuple/issues/283)) ([1eeb0cd](https://github.com/EightfoldAI/octuple/commits/1eeb0cd3673fd03d599dc3aa84c5583fddaa26b2))
+-   radio group: updates story implementation to scope selection states ([#282](https://github.com/EightfoldAI/octuple/issues/282)) ([2ef7609](https://github.com/EightfoldAI/octuple/commits/2ef7609781b21f0682dee5c0a6affe4fe42fe217))
+
+### [2.2.1](https://github.com/EightfoldAI/octuple/compare/v2.1.1...v2.2.1) (2022-08-02)
+
+### Features
+
+-   codesandbox: adds basic codesandbox ci pr build config ([#278](https://github.com/EightfoldAI/octuple/issues/278)) ([a2b363f](https://github.com/EightfoldAI/octuple/commits/a2b363f3407cdd3c07d3c15d8d6f47dc0ce2bbc4))
+-   system ui button: add system ui button ([#280](https://github.com/EightfoldAI/octuple/issues/280)) ([4f79dbe](https://github.com/EightfoldAI/octuple/commits/4f79dbea8f00f651d213e7da976b094bb4770ad4))
+
+### Bug Fixes
+
+-   match score: update logic for filled and half filled scores ([3f8dab5](https://github.com/EightfoldAI/octuple/commits/3f8dab5582af73d59cccb7e9bb8ec040c8c58f84))
+-   radiobutton: fixes width of radio element in flex when layout is constrained ([#279](https://github.com/EightfoldAI/octuple/issues/279)) ([aa1cb92](https://github.com/EightfoldAI/octuple/commits/aa1cb923ce9c2320b7ae91e6dbd19c1cee562875))
+-   selectors: adds size prop, fixes styles to match the latest ([#275](https://github.com/EightfoldAI/octuple/issues/275)) ([ffa7735](https://github.com/EightfoldAI/octuple/commits/ffa773586f4d105f44bf6bd9e11e33604b0c90c0))
+-   snackbar: increase snackbar z-index to be more than surface elements ([#277](https://github.com/EightfoldAI/octuple/issues/277)) ([40d8840](https://github.com/EightfoldAI/octuple/commits/40d8840c51ad8815f125e9203b3ae1e47deb1675))
+
+## [2.2.0](https://github.com/EightfoldAI/octuple/compare/v2.1.2...v2.2.0) (2022-08-01)
+
+### Features
+
+-   codesandbox: adds basic codesandbox ci pr build config ([#278](https://github.com/EightfoldAI/octuple/issues/278)) ([a2b363f](https://github.com/EightfoldAI/octuple/commits/a2b363f3407cdd3c07d3c15d8d6f47dc0ce2bbc4))
+-   system ui button: add system ui button ([#280](https://github.com/EightfoldAI/octuple/issues/280)) ([4f79dbe](https://github.com/EightfoldAI/octuple/commits/4f79dbea8f00f651d213e7da976b094bb4770ad4))
+
+### Bug Fixes
+
+-   radiobutton: fixes width of radio element in flex when layout is constrained ([#279](https://github.com/EightfoldAI/octuple/issues/279)) ([aa1cb92](https://github.com/EightfoldAI/octuple/commits/aa1cb923ce9c2320b7ae91e6dbd19c1cee562875))
+
+### [2.1.2](https://github.com/EightfoldAI/octuple/compare/v2.1.1...v2.1.2) (2022-07-29)
+
+### Bug Fixes
+
+-   selectors: adds size prop, fixes styles to match the latest ([#275](https://github.com/EightfoldAI/octuple/issues/275)) ([ffa7735](https://github.com/EightfoldAI/octuple/commits/ffa773586f4d105f44bf6bd9e11e33604b0c90c0))
+-   snackbar: increase snackbar z-index to be more than surface elements ([#277](https://github.com/EightfoldAI/octuple/issues/277)) ([40d8840](https://github.com/EightfoldAI/octuple/commits/40d8840c51ad8815f125e9203b3ae1e47deb1675))
+
+### [2.1.1](https://github.com/EightfoldAI/octuple/compare/v2.1.0...v2.1.1) (2022-07-29)
+
+### Bug Fixes
+
+-   button: fixes secondary button border in safari, cleans up focus visible styles ([#272](https://github.com/EightfoldAI/octuple/issues/272)) ([3370a03](https://github.com/EightfoldAI/octuple/commits/3370a038efe18dcaa5164c656ea10ee0b6d1ece5))
+-   slider: fixes slider onchange event hang in react 16 ([#274](https://github.com/EightfoldAI/octuple/issues/274)) ([2ec21fd](https://github.com/EightfoldAI/octuple/commits/2ec21fd6e9a1f87988c242a404e69ce4214444d5))
+
+## [2.1.0](https://github.com/EightfoldAI/octuple/compare/v2.0.2...v2.1.0) (2022-07-28)
+
+### Features
+
+-   toggle: add toggle switch ([#269](https://github.com/EightfoldAI/octuple/issues/269)) ([b6ecc9d](https://github.com/EightfoldAI/octuple/commits/b6ecc9d217fadf0cd40a05ad2761d7be05affbbe))
+
+### Bug Fixes
+
+-   tooltip: fixes tooltip visibility upon on mouse leave ([#273](https://github.com/EightfoldAI/octuple/issues/273)) ([0314b8c](https://github.com/EightfoldAI/octuple/commits/0314b8c307c7bfdcb20853d09543cecb350416e2))
+
+### [2.0.2](https://github.com/EightfoldAI/octuple/compare/v2.0.1...v2.0.2) (2022-07-27)
+
+### Bug Fixes
+
+-   dependabot: removes and upgrades developer dependencies ([#267](https://github.com/EightfoldAI/octuple/issues/267)) ([e082a3d](https://github.com/EightfoldAI/octuple/commits/e082a3d18d33cf68a25b16613c7aed66d317abbb))
+-   slider: fixes slider onresize event hang in react 16 ([#268](https://github.com/EightfoldAI/octuple/issues/268)) ([a03d14f](https://github.com/EightfoldAI/octuple/commits/a03d14faf5a1cdf5a2965347570f2dede98c2693))
+
+### [2.0.1](https://github.com/EightfoldAI/octuple/compare/v1.19.1...v2.0.1) (2022-07-26)
+
+### Features
+
+-   add all theme2 colors to avatar and pill component ([e00d129](https://github.com/EightfoldAI/octuple/commits/e00d1298ef842198f9c106d37b928bf0416327ad))
+-   table: update table hover color, fix accordion hover overflow ([#255](https://github.com/EightfoldAI/octuple/issues/255)) ([2f4a851](https://github.com/EightfoldAI/octuple/commits/2f4a851b96c20c2325999745c4fb17e23114b9cf))
+-   theme 2 color palette, default button & input shape to pull, styles for selectors, tabs, buttons, accordion & match score ([#174](https://github.com/EightfoldAI/octuple/issues/174)) ([286ec69](https://github.com/EightfoldAI/octuple/commits/286ec690769268a63e9b0d38aa214cdf67f6f6e2))
+-   theme 2 for dialog, modal, infobar, snackbar and dropdown ([#162](https://github.com/EightfoldAI/octuple/issues/162)) ([883bc8f](https://github.com/EightfoldAI/octuple/commits/883bc8fe39500c79c2e8ba3ebc63209b6ae0fa42))
+-   Update incorrect colors for Tabs and Buttons in theme 2 ([#214](https://github.com/EightfoldAI/octuple/issues/214)) ([89bdd03](https://github.com/EightfoldAI/octuple/commits/89bdd0397b22ccabe41fd4f949d15e559186e803))
+-   update menu item, pagination and inputs to theme 2 ([#213](https://github.com/EightfoldAI/octuple/issues/213)) ([cb89df6](https://github.com/EightfoldAI/octuple/commits/cb89df6b9972eb2cba0803ad78dcbee88e8d6197))
+
+### Bug Fixes
+
+-   Update checkbox colors to the correct values ([#230](https://github.com/EightfoldAI/octuple/issues/230)) ([14babe6](https://github.com/EightfoldAI/octuple/commits/14babe674e1a8406e46fcbc1b7e3d24ac4ea2977)), closes [#162](https://github.com/EightfoldAI/octuple/issues/162) [#174](https://github.com/EightfoldAI/octuple/issues/174)
+-   update two state button to theme 2 ([#226](https://github.com/EightfoldAI/octuple/issues/226)) ([e42fc18](https://github.com/EightfoldAI/octuple/commits/e42fc18253bf28847ee209842918a82b8bb95853))
+
+### [1.19.1](https://github.com/EightfoldAI/octuple/compare/v1.19.0...v1.19.1) (2022-07-26)
+
+### Features
+
+-   tooltip: allow passing custom class and style to tooltip wrapper ([#264](https://github.com/EightfoldAI/octuple/issues/264)) ([4eeb0e4](https://github.com/EightfoldAI/octuple/commits/4eeb0e43ae4b50f657adcdedb8c59a1459bb993a))
+
+## [1.19.0](https://github.com/EightfoldAI/octuple/compare/v1.18.0...v1.19.0) (2022-07-25)
+
+### Features
+
+-   added filter options ([#252](https://github.com/EightfoldAI/octuple/issues/252)) ([5d14a7c](https://github.com/EightfoldAI/octuple/commits/5d14a7c749109b1c07e3772e12d97001b5a6caa8))
+
+### Bug Fixes
+
+-   export TextInputSize ([#254](https://github.com/EightfoldAI/octuple/issues/254)) ([04ef8f0](https://github.com/EightfoldAI/octuple/commits/04ef8f004d584c608c214ad183663c0aef5efc12))
+-   radiobutton: multiple radio buttons on the same page doesnt work as intended ([#253](https://github.com/EightfoldAI/octuple/issues/253)) ([664c531](https://github.com/EightfoldAI/octuple/commits/664c5311a8a90f240536a35ca66e47ab6ff4caec))
+
+## [1.18.0](https://github.com/EightfoldAI/octuple/compare/v1.17.0...v1.18.0) (2022-07-21)
+
+### Features
+
+-   icon: adds mdi "auto-fix" icon ([#236](https://github.com/EightfoldAI/octuple/issues/236)) ([e1b99bb](https://github.com/EightfoldAI/octuple/commits/e1b99bb7f7668717174ea31d927d7bf7203e52ec))
+-   input: add inline prop ([#239](https://github.com/EightfoldAI/octuple/issues/239)) ([e52d79a](https://github.com/EightfoldAI/octuple/commits/e52d79a5ac411dbced3c19dabf618cf8262c189a))
+-   input: add underline variant ([#237](https://github.com/EightfoldAI/octuple/issues/237)) ([553fee7](https://github.com/EightfoldAI/octuple/commits/553fee7ea5512541f1402069b8389751b29c9ece))
+-   modal: add three additional header action button props ([#244](https://github.com/EightfoldAI/octuple/issues/244)) ([60abc1f](https://github.com/EightfoldAI/octuple/commits/60abc1f90ef8e18a277ccf48f8cfed74c84d153f))
+
+### Bug Fixes
+
+-   select: fixes pills, filtering, empty text, and spinner position ([#243](https://github.com/EightfoldAI/octuple/issues/243)) ([c1bcf24](https://github.com/EightfoldAI/octuple/commits/c1bcf24f47d75d70e1eb74c07a82681de370321a))
+-   select: Move chevron indicator to the right side ([#240](https://github.com/EightfoldAI/octuple/issues/240)) ([e1d3ac0](https://github.com/EightfoldAI/octuple/commits/e1d3ac0071c93a3956a754aa7fc96b63a39b40d4))
+-   toggle hover dropdown on click, fixed dropdown flicker on close ([#238](https://github.com/EightfoldAI/octuple/issues/238)) ([ad9f340](https://github.com/EightfoldAI/octuple/commits/ad9f340558875f9be148d47015d3ecd795a5e838))
+-   usematchmedia: implement addlistener fallback for older browsers ([#241](https://github.com/EightfoldAI/octuple/issues/241)) ([f27b5bc](https://github.com/EightfoldAI/octuple/commits/f27b5bc35fea6b33af841384e85be1e175495245))
+
+### [2.0.1-pre.2](https://github.com/EightfoldAI/octuple/compare/v1.17.0...v2.0.1-pre.2) (2022-07-20)
+
+### Features
+
+-   add all theme2 colors to avatar and pill component ([1a29b95](https://github.com/EightfoldAI/octuple/commits/1a29b959ede50160df3ec58219ae8011daa6e87f))
+-   icon: adds mdi "auto-fix" icon ([#236](https://github.com/EightfoldAI/octuple/issues/236)) ([e1b99bb](https://github.com/EightfoldAI/octuple/commits/e1b99bb7f7668717174ea31d927d7bf7203e52ec))
+-   input: add inline prop ([#239](https://github.com/EightfoldAI/octuple/issues/239)) ([e52d79a](https://github.com/EightfoldAI/octuple/commits/e52d79a5ac411dbced3c19dabf618cf8262c189a))
+-   input: add underline variant ([#237](https://github.com/EightfoldAI/octuple/issues/237)) ([553fee7](https://github.com/EightfoldAI/octuple/commits/553fee7ea5512541f1402069b8389751b29c9ece))
+-   modal: add three additional header action button props ([#244](https://github.com/EightfoldAI/octuple/issues/244)) ([60abc1f](https://github.com/EightfoldAI/octuple/commits/60abc1f90ef8e18a277ccf48f8cfed74c84d153f))
+-   theme 2 color palette, default button & input shape to pull, styles for selectors, tabs, buttons, accordion & match score ([#174](https://github.com/EightfoldAI/octuple/issues/174)) ([38cc2fe](https://github.com/EightfoldAI/octuple/commits/38cc2fe182b76014ce4fcba44f0f39555d1ac920))
+-   theme 2 for dialog, modal, infobar, snackbar and dropdown ([#162](https://github.com/EightfoldAI/octuple/issues/162)) ([ba57712](https://github.com/EightfoldAI/octuple/commits/ba577125537c54e7015baa65b3316132d5dc8020))
+-   Update incorrect colors for Tabs and Buttons in theme 2 ([#214](https://github.com/EightfoldAI/octuple/issues/214)) ([897e93b](https://github.com/EightfoldAI/octuple/commits/897e93bd4a1bdfff2994422864486f205543a4fb))
+-   update menu item, pagination and inputs to theme 2 ([#213](https://github.com/EightfoldAI/octuple/issues/213)) ([867a01a](https://github.com/EightfoldAI/octuple/commits/867a01aa0c33d51953f134fac05c81faf6d0895b))
+
+### Bug Fixes
+
+-   select: Move chevron indicator to the right side ([#240](https://github.com/EightfoldAI/octuple/issues/240)) ([e1d3ac0](https://github.com/EightfoldAI/octuple/commits/e1d3ac0071c93a3956a754aa7fc96b63a39b40d4))
+-   toggle hover dropdown on click, fixed dropdown flicker on close ([#238](https://github.com/EightfoldAI/octuple/issues/238)) ([ad9f340](https://github.com/EightfoldAI/octuple/commits/ad9f340558875f9be148d47015d3ecd795a5e838))
+-   Update checkbox colors to the correct values ([#230](https://github.com/EightfoldAI/octuple/issues/230)) ([07f4cdb](https://github.com/EightfoldAI/octuple/commits/07f4cdb4a451f7c047eda04f986bfd51b3d727e6)), closes [#162](https://github.com/EightfoldAI/octuple/issues/162) [#174](https://github.com/EightfoldAI/octuple/issues/174)
+-   update two state button to theme 2 ([#226](https://github.com/EightfoldAI/octuple/issues/226)) ([a9f1a8b](https://github.com/EightfoldAI/octuple/commits/a9f1a8bf7a091ec51d3a2a060b0563c5427dd89e))
+-   usematchmedia: implement addlistener fallback for older browsers ([#241](https://github.com/EightfoldAI/octuple/issues/241)) ([f27b5bc](https://github.com/EightfoldAI/octuple/commits/f27b5bc35fea6b33af841384e85be1e175495245))
+
+## [1.17.0](https://github.com/EightfoldAI/octuple/compare/v1.16.0...v1.17.0) (2022-07-14)
+
+### Features
+
+-   add ability to pass custom class to table header ([#224](https://github.com/EightfoldAI/octuple/issues/224)) ([e819423](https://github.com/EightfoldAI/octuple/commits/e819423ff72688bf2597f2e1c6c67683dc8a0a6a))
+-   datepicker: adds date and time picker components ([#233](https://github.com/EightfoldAI/octuple/issues/233)) ([14e652c](https://github.com/EightfoldAI/octuple/commits/14e652c52cffef5922807e24ea5d153a2bbcc30f))
+
+### Bug Fixes
+
+-   datepicker: adds missing module selector ([#235](https://github.com/EightfoldAI/octuple/issues/235)) ([4cf98b0](https://github.com/EightfoldAI/octuple/commits/4cf98b091aa268c0c47ea425ffd656a5f9740405))
+-   prevent slider from firing onChange during init ([#232](https://github.com/EightfoldAI/octuple/issues/232)) ([5616347](https://github.com/EightfoldAI/octuple/commits/5616347496448384494a03b879c9c01fb2c5813e))
+
+### [2.0.1-pre.1](https://github.com/EightfoldAI/octuple/compare/v1.16.0...v2.0.1-pre.1) (2022-07-10)
+
+### Features
+
+-   add all theme2 colors to avatar and pill component ([16d2eda](https://github.com/EightfoldAI/octuple/commits/16d2edab25e0a8ca2da789049f1f6e89ca69985d))
+-   theme 2 color palette, default button & input shape to pull, styles for selectors, tabs, buttons, accordion & match score ([#174](https://github.com/EightfoldAI/octuple/issues/174)) ([bf405e7](https://github.com/EightfoldAI/octuple/commits/bf405e75171df5d82479d485be05bc777acdd28b))
+-   theme 2 for dialog, modal, infobar, snackbar and dropdown ([#162](https://github.com/EightfoldAI/octuple/issues/162)) ([20ba49a](https://github.com/EightfoldAI/octuple/commits/20ba49a5ccbc906152a77ffeb6d3cae12513e2b1))
+-   Update incorrect colors for Tabs and Buttons in theme 2 ([#214](https://github.com/EightfoldAI/octuple/issues/214)) ([46079ac](https://github.com/EightfoldAI/octuple/commits/46079acbbe8d00a044d28f824d0be51e8c016b76))
+-   update menu item, pagination and inputs to theme 2 ([#213](https://github.com/EightfoldAI/octuple/issues/213)) ([e038591](https://github.com/EightfoldAI/octuple/commits/e038591d5147a7a2c15e041e06401ddbaaeadff6))
+
+### Bug Fixes
+
+-   Update checkbox colors to the correct values ([#230](https://github.com/EightfoldAI/octuple/issues/230)) ([f3219a3](https://github.com/EightfoldAI/octuple/commits/f3219a3f63b3615f0528e4131ab9b88df885dbd2)), closes [#162](https://github.com/EightfoldAI/octuple/issues/162) [#174](https://github.com/EightfoldAI/octuple/issues/174)
+-   update two state button to theme 2 ([#226](https://github.com/EightfoldAI/octuple/issues/226)) ([0eeba80](https://github.com/EightfoldAI/octuple/commits/0eeba80f4b7dccda181264f7493171c29cf4e602))
+
+## [1.16.0](https://github.com/EightfoldAI/octuple/compare/v1.15.3...v1.16.0) (2022-07-08)
+
+### Features
+
+-   add persistent bar ([#229](https://github.com/EightfoldAI/octuple/issues/229)) ([c760e07](https://github.com/EightfoldAI/octuple/commits/c760e0756b9cba57e03cced654ee45367a7f0d3b))
+
+### [1.15.3](https://github.com/EightfoldAI/octuple/compare/v1.15.2...v1.15.3) (2022-07-08)
+
+### [1.15.2](https://github.com/EightfoldAI/octuple/compare/v1.15.1...v1.15.2) (2022-07-07)
+
+### [1.15.1](https://github.com/EightfoldAI/octuple/compare/v1.15.1-0...v1.15.1) (2022-07-07)
+
+### [1.15.1-0](https://github.com/EightfoldAI/octuple/compare/v1.15.0...v1.15.1-0) (2022-07-07)
+
+### Bug Fixes
+
+-   export slider component ([#221](https://github.com/EightfoldAI/octuple/issues/221)) ([a048ad2](https://github.com/EightfoldAI/octuple/commits/a048ad29004907df24c38bdbcce308ca2ea90cd9))
+
+### [2.0.1-pre.0](https://github.com/EightfoldAI/octuple/compare/v1.15.0...v2.0.1-pre.0) (2022-07-06)
+
+### Features
+
+-   add all theme2 colors to avatar and pill component ([190ac3d](https://github.com/EightfoldAI/octuple/commits/190ac3daeae040b077286b8e0ddfb8d579e27640))
+-   theme 2 color palette, default button & input shape to pull, styles for selectors, tabs, buttons, accordion & match score ([#174](https://github.com/EightfoldAI/octuple/issues/174)) ([e8a64eb](https://github.com/EightfoldAI/octuple/commits/e8a64eb1e511557f04140987f1290a0116cd8544))
+-   theme 2 for dialog, modal, infobar, snackbar and dropdown ([#162](https://github.com/EightfoldAI/octuple/issues/162)) ([f28cb26](https://github.com/EightfoldAI/octuple/commits/f28cb265fd4d608a32e38bf7cfd50c5cc4067038))
+-   Update incorrect colors for Tabs and Buttons in theme 2 ([#214](https://github.com/EightfoldAI/octuple/issues/214)) ([deb36f4](https://github.com/EightfoldAI/octuple/commits/deb36f4f0ee85702f90d814741ecf9b83c9d0073))
+-   update menu item, pagination and inputs to theme 2 ([#213](https://github.com/EightfoldAI/octuple/issues/213)) ([623e0af](https://github.com/EightfoldAI/octuple/commits/623e0af61c290f64e8dde0ad1b12f0ba7400e6e4))
+
+## [1.15.0](https://github.com/EightfoldAI/octuple/compare/v1.14.3...v1.15.0) (2022-07-01)
+
+### Features
+
+-   eng-22373: enable floating buttons ([#212](https://github.com/EightfoldAI/octuple/issues/212)) ([d1ac476](https://github.com/EightfoldAI/octuple/commits/d1ac476302172a387514bfcb4434afc881f06ec6))
+
+### Bug Fixes
+
+-   remove buttons from menu item ([#202](https://github.com/EightfoldAI/octuple/issues/202)) ([305c932](https://github.com/EightfoldAI/octuple/commits/305c932e1ee7e594ec6e856654a3baa97b1b4126))
+
+### [1.14.3](https://github.com/EightfoldAI/octuple/compare/v1.14.2...v1.14.3) (2022-06-30)
+
+### Features
+
+-   dropdown: add ability to portal ([#210](https://github.com/EightfoldAI/octuple/issues/210)) ([9a385ca](https://github.com/EightfoldAI/octuple/commits/9a385ca16aae7d8ae02a77b2439340b1e4d93499))
+
+### Bug Fixes
+
+-   table: increase selection column size, add border bottom header prop ([#209](https://github.com/EightfoldAI/octuple/issues/209)) ([2a36bee](https://github.com/EightfoldAI/octuple/commits/2a36beebce09cd58929b6ddc41b0e41b7fba0743))
+
+### [1.14.2](https://github.com/EightfoldAI/octuple/compare/v1.14.1...v1.14.2) (2022-06-28)
+
+### Features
+
+-   add layout type for radiogroup, checkboxgroup ([#207](https://github.com/EightfoldAI/octuple/issues/207)) ([3ecb719](https://github.com/EightfoldAI/octuple/commits/3ecb7192edf3c1767edb1f071d7f49985bc03ba8))
+
+### Bug Fixes
+
+-   tabs: allign first item to the left ([#208](https://github.com/EightfoldAI/octuple/issues/208)) ([daa2175](https://github.com/EightfoldAI/octuple/commits/daa21756884f1c0741d7e61d3b306b3e0daa5896))
+-   update button font sizes and outline colors ([#206](https://github.com/EightfoldAI/octuple/issues/206)) ([2fccac3](https://github.com/EightfoldAI/octuple/commits/2fccac34714049486dd599405da15faa27969186))
+
+### [1.14.1](https://github.com/EightfoldAI/octuple/compare/v1.13.0...v1.14.1) (2022-06-24)
+
+### Features
+
+-   table: add table component ([#193](https://github.com/EightfoldAI/octuple/issues/193)) ([427bca7](https://github.com/EightfoldAI/octuple/commits/427bca77438eff26a02a5d13fcfc914f007c51f4))
+
+### Bug Fixes
+
+-   button: removes focus outline and border style when not in keyboard mode ([#205](https://github.com/EightfoldAI/octuple/issues/205)) ([142200e](https://github.com/EightfoldAI/octuple/commits/142200ef8f763dbecbbf0ef4eeb137567cf00aff))
+
+## [1.14.0](https://github.com/EightfoldAI/octuple/compare/v1.13.0...v1.14.0) (2022-06-24)
+
+### Features
+
+-   table: add table component ([#193](https://github.com/EightfoldAI/octuple/issues/193)) ([427bca7](https://github.com/EightfoldAI/octuple/commits/427bca77438eff26a02a5d13fcfc914f007c51f4))
+
+### Bug Fixes
+
+-   button: removes focus outline and border style when not in keyboard mode ([#205](https://github.com/EightfoldAI/octuple/issues/205)) ([142200e](https://github.com/EightfoldAI/octuple/commits/142200ef8f763dbecbbf0ef4eeb137567cf00aff))
+
+## [1.13.0](https://github.com/EightfoldAI/octuple/compare/v1.8.0...v1.13.0) (2022-06-23)
+
+### Features
+
+-   added navbar component ([#201](https://github.com/EightfoldAI/octuple/issues/201)) ([2866410](https://github.com/EightfoldAI/octuple/commits/286641030e28cab1ee47bc060a513c442b88e459))
+
+## [1.12.0](https://github.com/EightfoldAI/octuple/compare/v1.11.2...v1.12.0) (2022-06-22)
+
+### Features
+
+-   add Slider component ([#190](https://github.com/EightfoldAI/octuple/issues/190)) ([8c8712d](https://github.com/EightfoldAI/octuple/commits/8c8712db1abbd31d3e408b4e378031949b23d581))
+
+### Bug Fixes
+
+-   interaction bugs in input, accordion and buttons ([#198](https://github.com/EightfoldAI/octuple/issues/198)) ([f5c1246](https://github.com/EightfoldAI/octuple/commits/f5c1246bd4a31ad8c9796a0830820dddd5b2a20b))
+
+### [1.11.2](https://github.com/EightfoldAI/octuple/compare/v1.11.1...v1.11.2) (2022-06-22)
+
+### Features
+
+-   add ability to define theme at a component level ([#197](https://github.com/EightfoldAI/octuple/issues/197)) ([11ef3c0](https://github.com/EightfoldAI/octuple/commits/11ef3c0de582f1bc62990e0d1b2ae266fa3a432c))
+
+### Bug Fixes
+
+-   textarea: event persist issue in react 16 ([#199](https://github.com/EightfoldAI/octuple/issues/199)) ([4ea9809](https://github.com/EightfoldAI/octuple/commits/4ea9809de0eac70115597179e1938313b29e92f6))
+
+### [1.11.1](https://github.com/EightfoldAI/octuple/compare/v1.11.0...v1.11.1) (2022-06-21)
+
+### Features
+
+-   icon: adds two mdi icons, account eye and its outline variant ([#196](https://github.com/EightfoldAI/octuple/issues/196)) ([f1d744b](https://github.com/EightfoldAI/octuple/commits/f1d744b632e9dc1087a0e18979cc1169c7551201))
+
+### Bug Fixes
+
+-   add total in dependencies to pickup latest changes ([#195](https://github.com/EightfoldAI/octuple/issues/195)) ([11a6d4b](https://github.com/EightfoldAI/octuple/commits/11a6d4b8b198ef5fef157f0c22859a1d1a484a5c))
+
+## [1.11.0](https://github.com/EightfoldAI/octuple/compare/v1.10.0...v1.11.0) (2022-06-16)
+
+### Features
+
+-   add neutral menu type, add default dropdown offset ([#189](https://github.com/EightfoldAI/octuple/issues/189)) ([e70b338](https://github.com/EightfoldAI/octuple/commits/e70b338953a15694f92488d42b88487d5d710793))
+-   button: adds counter badge support to all buttons ([#187](https://github.com/EightfoldAI/octuple/issues/187)) ([45eaec1](https://github.com/EightfoldAI/octuple/commits/45eaec1f04d9a8bf212bd0c776c50e5bfbfaab74))
+
+### Bug Fixes
+
+-   pagination: ensure jumper applies current page ([#182](https://github.com/EightfoldAI/octuple/issues/182)) ([16d26fa](https://github.com/EightfoldAI/octuple/commits/16d26fa6b593ba77b79be33fe813f3532379d3a8))
+
+## [1.10.0](https://github.com/EightfoldAI/octuple/compare/v1.9.1...v1.10.0) (2022-06-14)
+
+### Features
+
+-   empty: adds empty state component ([#180](https://github.com/EightfoldAI/octuple/issues/180)) ([9927e96](https://github.com/EightfoldAI/octuple/commits/9927e96641c014159c41c161da8d33707675cddb))
+-   tooltip: adds portal prop to tooltips ([#179](https://github.com/EightfoldAI/octuple/issues/179)) ([e48479a](https://github.com/EightfoldAI/octuple/commits/e48479a8b0f5c8eac3439a322a6ee4a991edac26))
+
+### Bug Fixes
+
+-   inputs: adds forward ref support, adjusts default wait interval ([#177](https://github.com/EightfoldAI/octuple/issues/177)) ([996f8d6](https://github.com/EightfoldAI/octuple/commits/996f8d62f8dd28030f5fd41ce81434e24c6ae3a9))
+-   pagination: enables page size and jumper controls and hides elements via total ([#178](https://github.com/EightfoldAI/octuple/issues/178)) ([d8de579](https://github.com/EightfoldAI/octuple/commits/d8de57926f4c2029a1e7379d40293cecd37aafc5))
+-   radio button: add classnames prop to radio button ([#176](https://github.com/EightfoldAI/octuple/issues/176)) ([3810d9a](https://github.com/EightfoldAI/octuple/commits/3810d9a5d77d4effb6c6b0d71cbadf6fcbf1baca))
+
+### [1.9.1](https://github.com/EightfoldAI/octuple/compare/v1.9.0...v1.9.1) (2022-06-13)
+
+### Bug Fixes
+
+-   modal: disable scroll in body on x axis ([#173](https://github.com/EightfoldAI/octuple/issues/173)) ([d6f38df](https://github.com/EightfoldAI/octuple/commits/d6f38dfdde99abfc6892a631f34c0cc2d92a4a0b))
+
+## [1.9.0](https://github.com/EightfoldAI/octuple/compare/v1.8.1...v1.9.0) (2022-06-13)
+
+### Features
+
+-   adds select component ([#155](https://github.com/EightfoldAI/octuple/issues/155)) ([2dc3bd7](https://github.com/EightfoldAI/octuple/commits/2dc3bd7835da49a26adb16c6b1e75a8e1dcf1146))
+
+### Bug Fixes
+
+-   tooltip: allow pointer events when tooltip is disabled ([#172](https://github.com/EightfoldAI/octuple/issues/172)) ([c99e226](https://github.com/EightfoldAI/octuple/commits/c99e2264ed57f8988eff1343440cc473ef136680))
+
+### [1.8.1](https://github.com/EightfoldAI/octuple/compare/v1.8.0...v1.8.1) (2022-06-10)
+
+### Bug Fixes
+
+-   modal: make position strategy fixed by default ([#171](https://github.com/EightfoldAI/octuple/issues/171)) ([98c7af5](https://github.com/EightfoldAI/octuple/commits/98c7af58ef68a99815e7ddab279b0e478aa5b71a))
+
 ## [1.8.0](https://github.com/EightfoldAI/octuple/compare/v1.7.2...v1.8.0) (2022-06-08)
 
 ### Bug Fixes
 
 -   fixed search event persist issue ([#169](https://github.com/EightfoldAI/octuple/issues/169)) ([55c99df](https://github.com/EightfoldAI/octuple/commits/55c99dfe1aff29e6e91b1995b8c516086db061ff))
 -   handle onScrollLock cleanly, dialog to render inside parent element ([#168](https://github.com/EightfoldAI/octuple/issues/168)) ([e9a5f0e](https://github.com/EightfoldAI/octuple/commits/e9a5f0e23d2de336aa2bca64c319b20003ab8c7d))
+
+## [2.0.0](https://github.com/EightfoldAI/octuple/compare/v1.7.1...v2.0.0) (2022-06-01)
+
+### Features
+
+-   theme 2 for dialog, modal, infobar, snackbar and dropdown ([#162](https://github.com/EightfoldAI/octuple/issues/162)) ([e99251d](https://github.com/EightfoldAI/octuple/commits/e99251d5460032f0167b9ff7f1c55ec8edf868f2))
+
+### Bug Fixes
+
+-   pass classnames to icons in base button ([#159](https://github.com/EightfoldAI/octuple/issues/159)) ([bcfb1a6](https://github.com/EightfoldAI/octuple/commits/bcfb1a66b0110b9e7f2ac9df579cf63596e7c249))
 
 ### [1.7.2](https://github.com/EightfoldAI/octuple/compare/v1.7.1...v1.7.2) (2022-06-02)
 

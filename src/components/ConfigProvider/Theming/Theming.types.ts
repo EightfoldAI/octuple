@@ -1,38 +1,54 @@
-export type Color = string;
+import { TabsTheme } from '../../Tabs';
+import { NavbarTheme } from '../../Navbar';
+
+export type Value = string;
 
 export type OcCustomThemeName = string;
 
 export type OcThemeNames =
     | 'red'
+    | 'redOrange'
     | 'orange'
     | 'yellow'
+    | 'yellowGreen'
     | 'green'
-    | 'bluegreen'
+    | 'blueGreen'
     | 'blue'
+    | 'blueViolet'
     | 'violet'
+    | 'violetRed'
     | 'grey';
 
 export type ThemeName = OcThemeNames | OcCustomThemeName;
 
 export interface OcBaseTheme {
-    primaryColor?: Color;
-    disruptiveColor?: Color;
-    textColor?: Color;
-    textColorSecondary?: Color;
-    textColorInverse?: Color;
-    backgroundColor?: Color;
-    successColor?: Color;
-    warningColor?: Color;
-    infoColor?: Color;
-    errorColor?: Color;
+    primaryColor?: Value;
+    accentColor?: Value;
+    disruptiveColor?: Value;
+    textColor?: Value;
+    textColorSecondary?: Value;
+    textColorInverse?: Value;
+    backgroundColor?: Value;
+    successColor?: Value;
+    warningColor?: Value;
+    infoColor?: Value;
+    errorColor?: Value;
     fontSize?: number;
+    tabsTheme?: TabsTheme;
+    navbarTheme?: NavbarTheme;
 }
 
 export interface OcTheme extends OcBaseTheme {
     /**
+     * Name of accent theme.
+     * @type {OcCustomThemeName|OcThemeNames}
+     * @default blueGreen
+     */
+    accentName?: ThemeName;
+    /**
      * Predefined color palette
      */
-    palette: Color[];
+    palette: Value[];
 }
 
 export interface ThemeOptions {
@@ -56,7 +72,7 @@ export interface ThemeOptions {
     customTheme?: OcBaseTheme;
 }
 
-export type Variables = Record<string, Color>;
+export type Variables = Record<string, Value>;
 
 export interface IGetStyle {
     themeName: ThemeName;

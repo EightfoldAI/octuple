@@ -21,14 +21,16 @@ export const NeutralButton: FC<ButtonProps> = React.forwardRef(
             ariaLabel,
             checked = false,
             classNames,
+            counter,
             disabled = false,
             dropShadow = false,
+            floatingButtonProps,
             htmlType,
             iconProps,
             onClick,
             text,
             theme,
-            shape = ButtonShape.Rectangle,
+            shape = ButtonShape.Pill,
             size = ButtonSize.Flex,
             split,
             splitButtonProps,
@@ -56,8 +58,10 @@ export const NeutralButton: FC<ButtonProps> = React.forwardRef(
                 ariaLabel={ariaLabel}
                 checked={checked}
                 classNames={buttonClassNames}
+                counter={counter}
                 disabled={disabled}
                 dropShadow={dropShadow}
+                floatingButtonProps={floatingButtonProps}
                 htmlType={htmlType}
                 iconProps={iconProps}
                 onClick={onClick}
@@ -69,8 +73,8 @@ export const NeutralButton: FC<ButtonProps> = React.forwardRef(
                 style={style}
                 text={text}
                 theme={theme}
-                type={ButtonType.Neutral}
                 toggle={toggle}
+                type={ButtonType.Neutral}
                 buttonWidth={buttonWidth}
             />
         );

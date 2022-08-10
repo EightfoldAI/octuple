@@ -37,7 +37,12 @@ export default {
             action: 'close',
         },
         size: {
-            options: [PillSize.Large, PillSize.Medium, PillSize.Small],
+            options: [
+                PillSize.Large,
+                PillSize.Medium,
+                PillSize.Small,
+                PillSize.XSmall,
+            ],
             control: { type: 'radio' },
         },
         type: {
@@ -49,12 +54,16 @@ export default {
 
 const themes: OcThemeNames[] = [
     'red',
+    'redOrange',
     'orange',
     'yellow',
+    'yellowGreen',
     'green',
-    'bluegreen',
+    'blueGreen',
     'blue',
+    'blueViolet',
     'violet',
+    'violetRed',
     'grey',
 ];
 

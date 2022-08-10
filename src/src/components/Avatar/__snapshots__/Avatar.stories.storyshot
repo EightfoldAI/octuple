@@ -1,0 +1,165 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Avatar Avatar Default 1`] = `
+<div
+  className="my-avatar-class"
+  style={
+    Object {
+      "fontSize": "18px",
+      "height": "40px",
+      "minHeight": "40px",
+      "minWidth": "40px",
+      "width": "40px",
+    }
+  }
+>
+  <img
+    alt="random profile image"
+    className="image-style"
+    height="40px"
+    src="https://images.pexels.com/photos/771742/pexels-photo-771742.jpeg"
+    width="40px"
+  />
+</div>
+`;
+
+exports[`Storyshots Avatar Avatar Fallback Hashing 1`] = `
+<div
+  className="wrapper-style my-avatar-class image-style round-image yellow"
+  style={
+    Object {
+      "fontSize": "18px",
+      "height": "40px",
+      "minHeight": "40px",
+      "minWidth": "40px",
+      "width": "40px",
+    }
+  }
+>
+  HF
+</div>
+`;
+
+exports[`Storyshots Avatar Avatar Fallback Theme 1`] = `
+<div
+  className="wrapper-style my-avatar-class image-style round-image green"
+  style={
+    Object {
+      "fontSize": "18px",
+      "height": "40px",
+      "minHeight": "40px",
+      "minWidth": "40px",
+      "width": "40px",
+    }
+  }
+>
+  AB
+</div>
+`;
+
+exports[`Storyshots Avatar Avatar Icon 1`] = `
+<div
+  className="wrapper-style my-avatar-class image-style"
+  style={
+    Object {
+      "backgroundColor": "var(--accent-color-20)",
+      "fontSize": "18px",
+      "height": "40px",
+      "minHeight": "40px",
+      "minWidth": "40px",
+      "width": "40px",
+    }
+  }
+>
+  <span
+    aria-hidden={false}
+    className="icon-wrapper"
+    role="presentation"
+  >
+    <svg
+      role="presentation"
+      style={
+        Object {
+          "height": "18px",
+          "width": "18px",
+        }
+      }
+      viewBox="0 0 24 24"
+    >
+      <path
+        d="M21,19V20H3V19L5,17V11C5,7.9 7.03,5.17 10,4.29C10,4.19 10,4.1 10,4A2,2 0 0,1 12,2A2,2 0 0,1 14,4C14,4.1 14,4.19 14,4.29C16.97,5.17 19,7.9 19,11V17L21,19M14,21A2,2 0 0,1 12,23A2,2 0 0,1 10,21"
+        style={
+          Object {
+            "fill": "currentColor",
+          }
+        }
+      />
+    </svg>
+  </span>
+</div>
+`;
+
+exports[`Storyshots Avatar Avatar Round 1`] = `
+<div
+  className="my-avatar-class"
+  style={
+    Object {
+      "fontSize": "18px",
+      "height": "40px",
+      "minHeight": "40px",
+      "minWidth": "40px",
+      "width": "40px",
+    }
+  }
+>
+  <img
+    alt="random profile image"
+    className="image-style round-image"
+    height="40px"
+    src="https://images.pexels.com/photos/771742/pexels-photo-771742.jpeg"
+    width="40px"
+  />
+</div>
+`;
+
+exports[`Storyshots Avatar Avatar Round Icon 1`] = `
+<div
+  className="wrapper-style my-avatar-class image-style round-image"
+  style={
+    Object {
+      "backgroundColor": "var(--accent-color-20)",
+      "fontSize": "18px",
+      "height": "40px",
+      "minHeight": "40px",
+      "minWidth": "40px",
+      "width": "40px",
+    }
+  }
+>
+  <span
+    aria-hidden={false}
+    className="icon-wrapper"
+    role="presentation"
+  >
+    <svg
+      role="presentation"
+      style={
+        Object {
+          "height": "18px",
+          "width": "18px",
+        }
+      }
+      viewBox="0 0 24 24"
+    >
+      <path
+        d="M21,19V20H3V19L5,17V11C5,7.9 7.03,5.17 10,4.29C10,4.19 10,4.1 10,4A2,2 0 0,1 12,2A2,2 0 0,1 14,4C14,4.1 14,4.19 14,4.29C16.97,5.17 19,7.9 19,11V17L21,19M14,21A2,2 0 0,1 12,23A2,2 0 0,1 10,21"
+        style={
+          Object {
+            "fill": "currentColor",
+          }
+        }
+      />
+    </svg>
+  </span>
+</div>
+`;

@@ -16,27 +16,21 @@ describe('useFocusVisible', () => {
 
     it('returns true', () => {
         render(<Foo />);
-        screen.debug();
         fireEvent.keyDown(screen.getByTestId('testDiv'), { KeyboardEvent });
         expect(screen.getByTestId('testDiv')).toHaveTextContent('true');
-        screen.debug();
     });
 
     it('returns false after true', () => {
         render(<Foo />);
-        screen.debug();
         fireEvent.keyDown(screen.getByTestId('testDiv'), { KeyboardEvent });
         expect(screen.getByTestId('testDiv')).toHaveTextContent('true');
         fireEvent.mouseMove(screen.getByTestId('testDiv'), { MouseEvent });
         expect(screen.getByTestId('testDiv')).toHaveTextContent('false');
-        screen.debug();
     });
 
     it('returns false', () => {
         render(<Foo />);
-        screen.debug();
         fireEvent.mouseMove(screen.getByTestId('testDiv'), { MouseEvent });
         expect(screen.getByTestId('testDiv')).toHaveTextContent('false');
-        screen.debug();
     });
 });

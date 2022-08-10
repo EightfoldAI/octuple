@@ -6,9 +6,9 @@
 
     .dialog {
         position: absolute;
-        padding: $space-l-fitted;
+        padding: $space-ml;
         background: var(--background-color);
-        border-radius: $corner-radius-m;
+        border-radius: $corner-radius-xl;
         box-shadow: $shadow-object-l;
         opacity: 0;
 
@@ -16,6 +16,14 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+
+            &-buttons {
+                align-items: flex-end;
+                align-self: start;
+                height: fit-content;
+                justify-content: right;
+                white-space: nowrap;
+            }
         }
     }
 

@@ -13,6 +13,7 @@ import {
     NeutralButton,
     PrimaryButton,
     SecondaryButton,
+    SystemUIButton,
 } from './';
 import { IconName } from '../Icon';
 
@@ -35,6 +36,18 @@ export default {
                             <h2>Best practices</h2>
                             <h3>Layout</h3>
                             <ul>
+                                <li>
+                                    There are four button sizes that may be
+                                    specified via the <b>size</b> prop and the{' '}
+                                    <b>ButtonSize</b>: <b>ButtonSize.Flex</b>,{' '}
+                                    <b>ButtonSize.Large</b>,{' '}
+                                    <b>ButtonSize.Medium</b>,{' '}
+                                    <b>ButtonSize.Small</b>.{' '}
+                                    <b>ButtonSize.Flex</b> is the default and
+                                    resizes the button automatically with the
+                                    viewport. To prevent this responsive
+                                    behavior, give the button a size.
+                                </li>
                                 <li>
                                     For dialog boxes and panels, where people
                                     are moving through a sequence of screens,
@@ -142,7 +155,11 @@ export default {
             action: 'contextmenu',
         },
         shape: {
-            options: [ButtonShape.Rectangle, ButtonShape.Pill],
+            options: [
+                ButtonShape.Rectangle,
+                ButtonShape.Pill,
+                ButtonShape.Round,
+            ],
             control: { type: 'inline-radio' },
         },
         size: {
@@ -166,6 +183,7 @@ const Primary_Button_Story: ComponentStory<typeof PrimaryButton> = (args) => (
 );
 
 export const Primary = Primary_Button_Story.bind({});
+export const Counter = Primary_Button_Story.bind({});
 
 const Secondary_Button_Story: ComponentStory<typeof SecondaryButton> = (
     args
@@ -185,17 +203,25 @@ const Neutral_Button_Story: ComponentStory<typeof NeutralButton> = (args) => (
 
 export const Neutral = Neutral_Button_Story.bind({});
 
+const System_UI_Button_Story: ComponentStory<typeof SystemUIButton> = (
+    args
+) => <SystemUIButton {...args} />;
+
+export const System_UI = System_UI_Button_Story.bind({});
+
 const Toggle_Button_Story: ComponentStory<typeof PrimaryButton> = (args) => (
     <PrimaryButton {...args} />
 );
 
 export const Toggle = Toggle_Button_Story.bind({});
+export const Toggle_With_Counter = Toggle_Button_Story.bind({});
 
 const Split_Button_Story: ComponentStory<typeof PrimaryButton> = (args) => (
     <PrimaryButton {...args} />
 );
 
 export const Split = Split_Button_Story.bind({});
+export const Split_With_Counter = Split_Button_Story.bind({});
 
 const buttonArgs: Object = {
     alignIcon: ButtonIconAlign.Left,
@@ -209,6 +235,9 @@ const buttonArgs: Object = {
     disabled: false,
     disruptive: false,
     dropShadow: false,
+    floatingButtonProps: {
+        enabled: false,
+    },
     htmlType: 'button',
     iconProps: {
         path: IconName.mdiCardsHeart,
@@ -222,7 +251,7 @@ const buttonArgs: Object = {
         'data-test-id': 'myButtonIconTestId',
     },
     id: 'myButton',
-    shape: ButtonShape.Rectangle,
+    shape: ButtonShape.Pill,
     size: ButtonSize.Flex,
     split: false,
     splitButtonChecked: false,
@@ -230,6 +259,7 @@ const buttonArgs: Object = {
     text: 'Button',
     theme: ButtonTheme.light,
     toggle: false,
+    counter: 0,
 };
 
 Primary.args = {
@@ -238,10 +268,23 @@ Primary.args = {
     text: 'Primary Button',
 };
 
+Counter.args = {
+    ...buttonArgs,
+    ariaLabel: 'Primary Button',
+    counter: '8',
+    text: 'Primary Button',
+};
+
 Secondary.args = {
     ...buttonArgs,
     ariaLabel: 'Secondary Button',
     text: 'Secondary Button',
+};
+
+System_UI.args = {
+    ...buttonArgs,
+    ariaLabel: 'System UI Button',
+    text: 'System UI Button',
 };
 
 Default.args = {
@@ -276,9 +319,40 @@ Toggle.args = {
     toggle: true,
 };
 
+Toggle_With_Counter.args = {
+    ...buttonArgs,
+    alignIcon: ButtonIconAlign.Right,
+    ariaLabel: 'Toggle Button',
+    checked: false,
+    counter: '8',
+    iconProps: {
+        path: IconName.mdiChevronDown,
+        ariaHidden: true,
+        classNames: 'my-btn-icon',
+        id: 'myButtonIcon',
+        role: 'presentation',
+        rotate: 0,
+        spin: false,
+        vertical: false,
+        'data-test-id': 'myButtonIconTestId',
+    },
+    text: 'Toggle Button',
+    toggle: true,
+};
+
 Split.args = {
     ...buttonArgs,
     ariaLabel: 'Split Button',
+    iconProps: null,
+    split: true,
+    splitButtonChecked: false,
+    text: 'Split Button',
+};
+
+Split_With_Counter.args = {
+    ...buttonArgs,
+    ariaLabel: 'Split Button',
+    counter: '8',
     iconProps: null,
     split: true,
     splitButtonChecked: false,

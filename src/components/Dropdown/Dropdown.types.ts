@@ -1,5 +1,5 @@
-import { Placement, Strategy } from '@floating-ui/react-dom';
 import React from 'react';
+import { Placement, Strategy } from '@floating-ui/react-dom';
 
 export interface DropdownProps {
     /**
@@ -11,6 +11,13 @@ export interface DropdownProps {
      * @param visible {boolean}
      */
     onVisibleChange?: (visible: boolean) => void;
+    /**
+     * Callback to control the show/hide behavior of the dropdown.
+     * triggered before the visible change
+     * @param show {boolean}
+     * @returns true or false.
+     */
+    showDropdown?: (show: boolean) => boolean;
     /**
      * The dropdown content
      */
@@ -32,6 +39,11 @@ export interface DropdownProps {
      * @default bottom-start
      */
     placement?: Placement;
+    /**
+     * If the dropdown is portaled
+     * @default false
+     */
+    portal?: boolean;
     /**
      * Positioning strategy for the tooltip
      * @default absolute

@@ -6,28 +6,54 @@ import { AvatarProps, AvatarFallbackProps, AvatarIconProps } from './';
 import { mergeClasses } from '../../shared/utilities';
 import { Icon } from '../Icon';
 
-export const AVATAR_CLASS_SET = [
-    styles.disruptive,
-    styles.grey,
-    styles.blue,
+export const AVATAR_THEME_SET = [
+    styles.red,
+    styles.redOrange,
     styles.orange,
-    styles.green,
-    styles.violet,
     styles.yellow,
-    styles.bluegreen,
+    styles.yellowGreen,
+    styles.green,
+    styles.blueGreen,
+    styles.blue,
+    styles.blueViolet,
+    styles.violet,
+    styles.violetRed,
+    styles.grey,
 ];
 
 const AvatarFallback: FC<AvatarFallbackProps> = React.forwardRef(
-    ({ children, classNames, style }, ref: Ref<HTMLDivElement>) => {
-        const colorSetIndex = useMemo(
-            () => Math.floor(Math.random() * 100) % AVATAR_CLASS_SET.length,
-            []
-        );
+    (
+        { children, classNames, style, hashingFunction, theme, randomiseTheme },
+        ref: Ref<HTMLDivElement>
+    ) => {
+        const colorSetIndex: number = useMemo(() => {
+            if (randomiseTheme) {
+                return (
+                    Math.floor(Math.random() * 100) % AVATAR_THEME_SET.length
+                );
+            }
+            if (hashingFunction) {
+                return Math.floor(hashingFunction()) % AVATAR_THEME_SET.length;
+            }
+            return -1;
+        }, []);
 
         const avatarClasses: string = mergeClasses([
             styles.wrapperStyle,
             classNames,
-            AVATAR_CLASS_SET[colorSetIndex],
+            { [styles.red]: theme === 'red' },
+            { [styles.redOrange]: theme === 'redOrange' },
+            { [styles.orange]: theme === 'orange' },
+            { [styles.yellow]: theme === 'yellow' },
+            { [styles.yellowGreen]: theme === 'yellowGreen' },
+            { [styles.green]: theme === 'green' },
+            { [styles.blueGreen]: theme === 'blueGreen' },
+            { [styles.blue]: theme === 'blue' },
+            { [styles.blueViolet]: theme === 'blueViolet' },
+            { [styles.violet]: theme === 'violet' },
+            { [styles.violetRed]: theme === 'violetRed' },
+            { [styles.grey]: theme === 'grey' },
+            AVATAR_THEME_SET?.[colorSetIndex],
         ]);
 
         return (
@@ -65,6 +91,9 @@ export const Avatar: FC<AvatarProps> = React.forwardRef(
             fontSize = '18px',
             iconProps,
             children,
+            hashingFunction,
+            theme,
+            randomiseTheme,
         },
         ref: Ref<HTMLDivElement>
     ) => {
@@ -119,6 +148,9 @@ export const Avatar: FC<AvatarProps> = React.forwardRef(
                 classNames={wrapperClasses}
                 style={wrapperContainerStyle}
                 ref={ref}
+                hashingFunction={hashingFunction}
+                theme={theme}
+                randomiseTheme={randomiseTheme}
             >
                 {children}
             </AvatarFallback>

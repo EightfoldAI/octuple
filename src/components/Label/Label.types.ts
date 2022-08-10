@@ -31,7 +31,7 @@ export interface LabelIconButtonProps
     /**
      * Content to show on the tooltip
      */
-    toolTipContent?: React.ReactNode | string;
+    toolTipContent?: React.ReactNode;
     /**
      * Theme of the tooltip
      * @default light
@@ -63,6 +63,11 @@ export interface LabelProps extends OcBaseProps<HTMLDivElement> {
      * The label element name.
      */
     htmlFor?: string;
+    /**
+     * The label element is inline.
+     * @default false
+     */
+    inline?: boolean;
     /**
      * The label icon button props.
      */

@@ -1,0 +1,50 @@
+.empty {
+    margin: 0 8px;
+    font-size: $text-font-size-2;
+    line-height: $text-line-height-3;
+    text-align: center;
+
+    .empty-image {
+        height: 200px;
+        margin-bottom: 8px;
+
+        img {
+            border-style: none;
+            height: 100%;
+        }
+
+        svg {
+            height: 100%;
+            margin: auto;
+        }
+    }
+
+    .empty-title {
+        font-size: $text-font-size-5;
+        line-height: $text-line-height-6;
+        text-align: center;
+    }
+
+    .empty-description {
+        color: $text-color-secondary;
+        font-size: $text-font-size-2;
+        line-height: $text-line-height-2;
+        margin: 0 auto;
+        text-align: center;
+        width: 200px;
+    }
+
+    .empty-footer {
+        margin-top: 16px;
+    }
+
+    &-default {
+        margin: 32px 0;
+
+        .empty-image {
+            height: 200px;
+        }
+    }
+}
+
+@import './rtl';

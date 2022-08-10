@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Snack Bar Closable 1`] = `
+<button
+  aria-disabled={false}
+  className="button button-default button-small pill-shape"
+  defaultChecked={false}
+  disabled={false}
+  onClick={[Function]}
+>
+  <span
+    className="button-text-small"
+  >
+    Serve closable snack
+  </span>
+</button>
+`;
+
+exports[`Storyshots Snack Bar Default 1`] = `
+<button
+  aria-disabled={false}
+  className="button button-default button-small pill-shape"
+  defaultChecked={false}
+  disabled={false}
+  onClick={[Function]}
+>
+  <span
+    className="button-text-small"
+  >
+    Serve snack
+  </span>
+</button>
+`;
+
+exports[`Storyshots Snack Bar With Action 1`] = `
+<button
+  aria-disabled={false}
+  className="button button-default button-small pill-shape"
+  defaultChecked={false}
+  disabled={false}
+  onClick={[Function]}
+>
+  <span
+    className="button-text-small"
+  >
+    Serve snack with action
+  </span>
+</button>
+`;

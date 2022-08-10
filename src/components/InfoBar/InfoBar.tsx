@@ -60,13 +60,19 @@ export const InfoBar: FC<InfoBarsProps> = React.forwardRef(
             >
                 <Icon path={getIconName()} classNames={styles.icon} />
                 <div className={messageClasses}>{content}</div>
-                {actionButtonProps && <NeutralButton {...actionButtonProps} />}
+                {actionButtonProps && (
+                    <NeutralButton
+                        {...actionButtonProps}
+                        disruptive={type === InfoBarType.disruptive}
+                    />
+                )}
                 {closable && (
                     <NeutralButton
                         iconProps={{ path: closeIcon }}
                         ariaLabel={'Close'}
                         onClick={onClose}
                         {...closeButtonProps}
+                        disruptive={type === InfoBarType.disruptive}
                     />
                 )}
             </div>

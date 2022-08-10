@@ -31,7 +31,7 @@ export const TwoStateButton: FC<TwoStateButtonProps> = React.forwardRef(
             iconTwoProps,
             id,
             onClick,
-            shape = ButtonShape.Rectangle,
+            shape = ButtonShape.Pill,
             size = ButtonSize.Flex,
             style,
             text,
@@ -58,24 +58,24 @@ export const TwoStateButton: FC<TwoStateButtonProps> = React.forwardRef(
             styles.twoStateButton,
             { [styles.checked]: checked },
             {
-                [styles.buttonSize3]:
+                [styles.buttonSmall]:
                     size === ButtonSize.Flex && largeScreenActive,
             },
             {
-                [styles.buttonSize2]:
+                [styles.buttonMedium]:
                     size === ButtonSize.Flex && mediumScreenActive,
             },
             {
-                [styles.buttonSize2]:
+                [styles.buttonMedium]:
                     size === ButtonSize.Flex && smallScreenActive,
             },
             {
-                [styles.buttonSize1]:
+                [styles.buttonLarge]:
                     size === ButtonSize.Flex && xSmallScreenActive,
             },
-            { [styles.buttonSize1]: size === ButtonSize.Large },
-            { [styles.buttonSize2]: size === ButtonSize.Medium },
-            { [styles.buttonSize3]: size === ButtonSize.Small },
+            { [styles.buttonLarge]: size === ButtonSize.Large },
+            { [styles.buttonMedium]: size === ButtonSize.Medium },
+            { [styles.buttonSmall]: size === ButtonSize.Small },
             { [styles.buttonStretch]: buttonWidth === ButtonWidth.fill },
             { [styles.pillShape]: shape === ButtonShape.Pill },
             { [styles.dropShadow]: dropShadow },
@@ -87,24 +87,24 @@ export const TwoStateButton: FC<TwoStateButtonProps> = React.forwardRef(
 
         const buttonTextClassNames: string = mergeClasses([
             {
-                [styles.buttonText3]:
+                [styles.buttonTextSmall]:
                     size === ButtonSize.Flex && largeScreenActive,
             },
             {
-                [styles.buttonText2]:
+                [styles.buttonTextMedium]:
                     size === ButtonSize.Flex && mediumScreenActive,
             },
             {
-                [styles.buttonText2]:
+                [styles.buttonTextMedium]:
                     size === ButtonSize.Flex && smallScreenActive,
             },
             {
-                [styles.buttonText1]:
+                [styles.buttonTextLarge]:
                     size === ButtonSize.Flex && xSmallScreenActive,
             },
-            { [styles.buttonText1]: size === ButtonSize.Large },
-            { [styles.buttonText2]: size === ButtonSize.Medium },
-            { [styles.buttonText3]: size === ButtonSize.Small },
+            { [styles.buttonTextLarge]: size === ButtonSize.Large },
+            { [styles.buttonTextMedium]: size === ButtonSize.Medium },
+            { [styles.buttonTextSmall]: size === ButtonSize.Small },
         ]);
 
         const badgeClassNames: string = mergeClasses([
@@ -155,11 +155,11 @@ export const TwoStateButton: FC<TwoStateButtonProps> = React.forwardRef(
                 {...rest}
                 ref={ref}
                 aria-checked={toggle ? !!checked : undefined}
-                aria-disabled={allowDisabledFocus}
+                aria-disabled={disabled}
                 aria-label={ariaLabel}
                 aria-pressed={toggle ? !!checked : undefined}
                 defaultChecked={checked}
-                disabled={disabled}
+                disabled={!allowDisabledFocus && disabled}
                 className={twoStateButtonClassNames}
                 id={id}
                 onClick={!allowDisabledFocus ? onClick : null}
@@ -173,7 +173,7 @@ export const TwoStateButton: FC<TwoStateButtonProps> = React.forwardRef(
                             getButtonText(buttonTextClassNames, text)}
                         {counterExists && (
                             <Badge classNames={badgeClassNames}>
-                                {counter.toLocaleString()}
+                                {counter}
                             </Badge>
                         )}
                     </span>

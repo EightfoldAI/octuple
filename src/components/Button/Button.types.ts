@@ -28,6 +28,7 @@ export enum ButtonWidth {
 export enum ButtonShape {
     Rectangle = 'rectangle',
     Pill = 'pill',
+    Round = 'round',
 }
 
 export enum ButtonTheme {
@@ -40,6 +41,7 @@ export enum ButtonType {
     Neutral = 'neutral',
     Primary = 'primary',
     Secondary = 'secondary',
+    SystemUI = 'systemui',
 }
 
 export interface InternalButtonProps extends ButtonProps {
@@ -51,6 +53,14 @@ export interface InternalButtonProps extends ButtonProps {
      * Ref of the button
      */
     ref?: Ref<HTMLButtonElement>;
+}
+
+export interface FloatingButtonProps {
+    /**
+     * Determines if the button is floating.
+     * @default false
+     */
+    enabled?: boolean;
 }
 
 export type NativeButtonProps = Omit<OcBaseProps<HTMLButtonElement>, 'type'>;
@@ -72,10 +82,6 @@ export interface TwoStateButtonProps
         | 'splitButtonChecked'
         | 'splitButtonProps'
     > {
-    /**
-     * The button counter number.
-     */
-    counter?: number;
     /**
      * The button icon 1 props.
      */
@@ -119,6 +125,10 @@ export interface ButtonProps extends NativeButtonProps {
      */
     classNames?: string;
     /**
+     * The button counter string.
+     */
+    counter?: string;
+    /**
      * The button disabled state.
      * @default false
      */
@@ -133,6 +143,10 @@ export interface ButtonProps extends NativeButtonProps {
      * @default false
      */
     dropShadow?: boolean;
+    /**
+     * The button is always floating on bottom right corner.
+     */
+    floatingButtonProps?: FloatingButtonProps;
     /**
      * The button html type.
      */
@@ -155,7 +169,7 @@ export interface ButtonProps extends NativeButtonProps {
     onContextMenu?: React.MouseEventHandler<HTMLButtonElement>;
     /**
      * Shape of the button.
-     * @default ButtonShape.Rectangle
+     * @default ButtonShape.Pill
      */
     shape?: ButtonShape;
     /**

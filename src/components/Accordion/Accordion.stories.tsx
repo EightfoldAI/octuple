@@ -89,7 +89,7 @@ export const List_Horizontal = List_Horizontal_Story.bind({});
 Single.args = {
     children: (
         <>
-            <div style={{ height: '80px' }}>
+            <div style={{ height: 'auto' }}>
                 Body 2 text used here. Bottom bars are sticky sections that can
                 be used to highlight a few actions that are out of the view to
                 be displayed inside the view. For example, if there's a very

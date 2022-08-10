@@ -68,11 +68,17 @@ const Avatar_Round_Icon_Story: ComponentStory<typeof Avatar> = (args) => (
 
 export const Avatar_Round_Icon = Avatar_Round_Icon_Story.bind({});
 
-const Avatar_Fallback_Story: ComponentStory<typeof Avatar> = (args) => (
-    <Avatar {...args} />
+const Avatar_Fallback_Theme_Story: ComponentStory<typeof Avatar> = (args) => (
+    <Avatar {...args} theme="green" />
 );
 
-export const Avatar_Fallback = Avatar_Fallback_Story.bind({});
+export const Avatar_Fallback_Theme = Avatar_Fallback_Theme_Story.bind({});
+
+const Avatar_Fallback_Hashing_Story: ComponentStory<typeof Avatar> = (args) => (
+    <Avatar {...args} hashingFunction={() => 3} />
+);
+
+export const Avatar_Fallback_Hashing = Avatar_Fallback_Hashing_Story.bind({});
 
 const avatarArgs: Object = {
     children: 'JD',
@@ -96,7 +102,7 @@ Avatar_Icon.args = {
         path: IconName.mdiBell,
     },
     style: {
-        backgroundColor: 'grey',
+        backgroundColor: 'var(--accent-color-20)',
     },
 };
 
@@ -113,13 +119,19 @@ Avatar_Round_Icon.args = {
         path: IconName.mdiBell,
     },
     style: {
-        backgroundColor: 'grey',
+        backgroundColor: 'var(--accent-color-20)',
     },
     type: 'round',
 };
 
-Avatar_Fallback.args = {
+Avatar_Fallback_Theme.args = {
     ...avatarArgs,
     children: 'AB',
+    type: 'round',
+};
+
+Avatar_Fallback_Hashing.args = {
+    ...avatarArgs,
+    children: 'HF',
     type: 'round',
 };

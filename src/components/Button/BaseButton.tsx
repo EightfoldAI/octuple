@@ -10,6 +10,7 @@ import {
     SplitButton,
 } from './';
 import { Icon, IconSize } from '../Icon';
+import { Badge } from '../Badge';
 import { Breakpoints, useMatchMedia } from '../../hooks/useMatchMedia';
 import { mergeClasses } from '../../shared/utilities';
 
@@ -25,15 +26,17 @@ export const BaseButton: FC<InternalButtonProps> = React.forwardRef(
             buttonWidth = ButtonWidth.fitContent,
             checked = false,
             classNames,
+            counter,
             disabled = false,
             disruptive = false,
             dropShadow = false,
+            floatingButtonProps,
             htmlType,
             iconProps,
             id,
             onClick,
             onContextMenu,
-            shape = ButtonShape.Rectangle,
+            shape = ButtonShape.Pill,
             size = ButtonSize.Flex,
             split,
             splitButtonChecked = false,
@@ -52,33 +55,39 @@ export const BaseButton: FC<InternalButtonProps> = React.forwardRef(
         const smallScreenActive: boolean = useMatchMedia(Breakpoints.Small);
         const xSmallScreenActive: boolean = useMatchMedia(Breakpoints.XSmall);
 
+        const counterExists: boolean = !!counter;
         const iconExists: boolean = !!iconProps;
         const textExists: boolean = !!text;
 
         const buttonBaseSharedClassNames: string = mergeClasses([
             classNames,
             {
-                [styles.buttonSize3]:
+                [styles.buttonSmall]:
                     size === ButtonSize.Flex && largeScreenActive,
             },
             {
-                [styles.buttonSize2]:
+                [styles.buttonMedium]:
                     size === ButtonSize.Flex && mediumScreenActive,
             },
             {
-                [styles.buttonSize2]:
+                [styles.buttonMedium]:
                     size === ButtonSize.Flex && smallScreenActive,
             },
             {
-                [styles.buttonSize1]:
+                [styles.buttonLarge]:
                     size === ButtonSize.Flex && xSmallScreenActive,
             },
-            { [styles.buttonSize1]: size === ButtonSize.Large },
-            { [styles.buttonSize2]: size === ButtonSize.Medium },
-            { [styles.buttonSize3]: size === ButtonSize.Small },
+            { [styles.buttonLarge]: size === ButtonSize.Large },
+            { [styles.buttonMedium]: size === ButtonSize.Medium },
+            { [styles.buttonSmall]: size === ButtonSize.Small },
             { [styles.pillShape]: shape === ButtonShape.Pill },
+            {
+                [styles.roundShape]:
+                    shape === ButtonShape.Round && !split && !textExists,
+            },
             { [styles.dropShadow]: dropShadow },
             { [styles.dark]: theme === ButtonTheme.dark },
+            { [styles.floating]: floatingButtonProps?.enabled },
         ]);
 
         const buttonBaseClassNames: string = mergeClasses([
@@ -100,24 +109,29 @@ export const BaseButton: FC<InternalButtonProps> = React.forwardRef(
 
         const buttonTextClassNames: string = mergeClasses([
             {
-                [styles.buttonText3]:
+                [styles.buttonTextSmall]:
                     size === ButtonSize.Flex && largeScreenActive,
             },
             {
-                [styles.buttonText2]:
+                [styles.buttonTextMedium]:
                     size === ButtonSize.Flex && mediumScreenActive,
             },
             {
-                [styles.buttonText2]:
+                [styles.buttonTextMedium]:
                     size === ButtonSize.Flex && smallScreenActive,
             },
             {
-                [styles.buttonText1]:
+                [styles.buttonTextLarge]:
                     size === ButtonSize.Flex && xSmallScreenActive,
             },
-            { [styles.buttonText1]: size === ButtonSize.Large },
-            { [styles.buttonText2]: size === ButtonSize.Medium },
-            { [styles.buttonText3]: size === ButtonSize.Small },
+            { [styles.buttonTextLarge]: size === ButtonSize.Large },
+            { [styles.buttonTextMedium]: size === ButtonSize.Medium },
+            { [styles.buttonTextSmall]: size === ButtonSize.Small },
+        ]);
+
+        const badgeClassNames: string = mergeClasses([
+            styles.counter,
+            buttonTextClassNames,
         ]);
 
         const getButtonIconSize = (): IconSize => {
@@ -149,12 +163,15 @@ export const BaseButton: FC<InternalButtonProps> = React.forwardRef(
             />
         );
 
-        const getButtonText = (
+        const getButtonContent = (
             buttonTextClassNames: string,
             text: string
         ): JSX.Element => (
             <span className={buttonTextClassNames}>
                 {text ? text : 'Button'}
+                {counterExists && (
+                    <Badge classNames={badgeClassNames}>{counter}</Badge>
+                )}
             </span>
         );
 
@@ -164,11 +181,11 @@ export const BaseButton: FC<InternalButtonProps> = React.forwardRef(
                     ref={ref}
                     {...rest}
                     aria-checked={toggle ? !!checked : undefined}
-                    aria-disabled={allowDisabledFocus}
+                    aria-disabled={disabled}
                     aria-label={ariaLabel}
                     aria-pressed={toggle ? !!checked : undefined}
                     defaultChecked={checked}
-                    disabled={disabled}
+                    disabled={!allowDisabledFocus && disabled}
                     className={buttonBaseClassNames}
                     id={id}
                     onClick={!allowDisabledFocus ? onClick : null}
@@ -176,13 +193,17 @@ export const BaseButton: FC<InternalButtonProps> = React.forwardRef(
                     type={htmlType}
                 >
                     {iconExists && !textExists && getButtonIcon()}
+                    {counterExists && !textExists && (
+                        <Badge classNames={badgeClassNames}>{counter}</Badge>
+                    )}
                     {iconExists && textExists && (
                         <span>
                             {getButtonIcon()}
-                            {getButtonText(buttonTextClassNames, text)}
+                            {getButtonContent(buttonTextClassNames, text)}
                         </span>
                     )}
-                    {!iconExists && getButtonText(buttonTextClassNames, text)}
+                    {!iconExists &&
+                        getButtonContent(buttonTextClassNames, text)}
                 </button>
                 {split && (
                     <SplitButton

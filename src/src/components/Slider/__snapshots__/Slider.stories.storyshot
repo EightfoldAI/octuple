@@ -1,0 +1,235 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Slider Range Slider 1`] = `
+<div
+  className="stack vertical xl"
+  style={
+    Object {
+      "alignItems": "stretch",
+      "flexWrap": undefined,
+      "justifyContent": "center",
+      "width": "100%",
+    }
+  }
+>
+  <div
+    className="slider-container"
+  >
+    <div
+      className="slider my-slider"
+    >
+      <div
+        className="slider-rail"
+      />
+      <div
+        className="slider-track"
+      />
+      <div
+        className="rail-marker"
+      />
+      <div
+        className="rail-marker"
+      />
+      <div
+        className="rail-marker"
+      />
+      <div
+        className="rail-marker"
+      />
+      <div
+        className="rail-marker"
+      />
+      <div
+        className="rail-marker"
+      />
+      <div
+        className="rail-marker"
+      />
+      <div
+        className="rail-marker"
+      />
+      <div
+        className="rail-marker"
+      />
+      <div
+        className="rail-marker"
+      />
+      <div
+        className="rail-marker active"
+      />
+      <div
+        className="rail-marker active"
+      />
+      <div
+        className="rail-marker active"
+      />
+      <div
+        className="rail-marker active"
+      />
+      <div
+        className="rail-marker active"
+      />
+      <div
+        className="rail-marker"
+      />
+      <div
+        className="rail-marker"
+      />
+      <div
+        className="rail-marker"
+      />
+      <div
+        className="rail-marker"
+      />
+      <input
+        aria-label="Slider"
+        autoFocus={false}
+        className="thumb"
+        disabled={false}
+        id="mySliderId-0"
+        max={200}
+        min={0}
+        name="mySlider-0"
+        onChange={[Function]}
+        step={10}
+        type="range"
+        value={110}
+      />
+      <input
+        aria-label="Slider"
+        autoFocus={false}
+        className="thumb"
+        disabled={false}
+        id="mySliderId-1"
+        max={200}
+        min={0}
+        name="mySlider-1"
+        onChange={[Function]}
+        step={10}
+        type="range"
+        value={150}
+      />
+    </div>
+    <div
+      className="slider-value label-visible"
+    >
+      110
+    </div>
+    <div
+      className="slider-value label-visible"
+    >
+      150
+    </div>
+    <div
+      className="extremity-label min-label"
+    >
+      0
+    </div>
+    <div
+      className="extremity-label max-label"
+    >
+      200
+    </div>
+  </div>
+  <div
+    className="stack horizontal xl"
+    style={
+      Object {
+        "alignItems": undefined,
+        "flexWrap": undefined,
+        "justifyContent": "center",
+        "width": "100%",
+      }
+    }
+  >
+    <div>
+      110
+    </div>
+    <div>
+      150
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Slider Standard Slider 1`] = `
+<div
+  className="stack vertical xl"
+  style={
+    Object {
+      "alignItems": undefined,
+      "flexWrap": undefined,
+      "justifyContent": undefined,
+      "width": "100%",
+    }
+  }
+>
+  <div
+    className="slider-container"
+  >
+    <div
+      className="slider my-slider"
+    >
+      <div
+        className="slider-rail"
+      />
+      <div
+        className="slider-track"
+      />
+      <div
+        className="rail-marker active"
+      />
+      <div
+        className="rail-marker"
+      />
+      <div
+        className="rail-marker"
+      />
+      <input
+        aria-label="Slider"
+        autoFocus={true}
+        className="thumb"
+        disabled={false}
+        id="mySliderId"
+        max={5}
+        min={1}
+        name="mySlider"
+        onChange={[Function]}
+        step={1}
+        type="range"
+        value={2}
+      />
+    </div>
+    <div
+      className="slider-value label-visible"
+    >
+      2
+    </div>
+    <div
+      className="extremity-label min-label"
+    >
+      1
+    </div>
+    <div
+      className="extremity-label max-label"
+    >
+      5
+    </div>
+  </div>
+  <div
+    className="stack horizontal xl"
+    style={
+      Object {
+        "alignItems": undefined,
+        "flexWrap": undefined,
+        "justifyContent": "center",
+        "width": "100%",
+      }
+    }
+  >
+    <div>
+      2
+    </div>
+  </div>
+</div>
+`;

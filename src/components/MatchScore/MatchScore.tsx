@@ -2,6 +2,7 @@ import React, { FC, Ref } from 'react';
 import styles from './matchScore.module.scss';
 import { mergeClasses } from '../../shared/utilities';
 import { FillType, MatchScoreProps } from './MatchScore.types';
+import { Atom } from '../Atom';
 
 export const MatchScore: FC<MatchScoreProps> = React.forwardRef(
     (
@@ -16,36 +17,41 @@ export const MatchScore: FC<MatchScoreProps> = React.forwardRef(
         ref: Ref<HTMLDivElement>
     ) => {
         const absTotal: number = Math.abs(total);
-        const matchScoreClasses = mergeClasses(
-            classNames,
-            styles.matchScoreContainer
+        const absScore: number = Math.round(score);
+        const fullCircles: number = Math.trunc(Math.round(score * 2.0) / 2.0);
+        const halfCircle: number = Math.trunc(
+            Math.ceil(score - fullCircles - 0.25)
         );
+        const emptyCircles: number = total - fullCircles - halfCircle;
+        const matchScoreLabelClasses = mergeClasses(styles.label, 'body2');
+
         return (
-            <div
+            <Atom<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>
+                of="div"
                 {...rest}
                 ref={ref}
-                className={matchScoreClasses}
+                classes={[classNames, styles.matchScoreContainer]}
                 aria-label={ariaLabel}
             >
-                {getArrayOfSize(Math.min(Math.floor(score), absTotal)).map(
-                    (_val, index) => (
-                        <MatchScoreCircle fill="full" key={index} />
-                    )
-                )}
-                {Math.floor(score) !== score && (
-                    <MatchScoreCircle fill="half" />
-                )}
-                {getArrayOfSize(Math.max(Math.floor(absTotal - score), 0)).map(
-                    (_val, index) => (
-                        <MatchScoreCircle key={index} />
-                    )
-                )}
+                {/* Full */}
+                {getArrayOfSize(fullCircles).map((_val, index) => (
+                    <MatchScoreCircle fill="full" key={index} />
+                ))}
+
+                {/* Half */}
+                {!!halfCircle && <MatchScoreCircle fill="half" />}
+
+                {/* Remaining empty circles */}
+                {getArrayOfSize(emptyCircles).map((_val, index) => (
+                    <MatchScoreCircle key={index} />
+                ))}
+
                 {!hideLabel && (
-                    <p className={styles.label}>
-                        {score}/{absTotal}
+                    <p className={matchScoreLabelClasses}>
+                        {absScore}/{absTotal}
                     </p>
                 )}
-            </div>
+            </Atom>
         );
     }
 );

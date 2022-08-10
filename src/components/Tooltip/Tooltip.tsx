@@ -6,8 +6,13 @@ import {
     arrow,
     offset as fOffset,
 } from '@floating-ui/react-dom';
+import { FloatingPortal } from '@floating-ui/react-dom-interactions';
 import { TooltipProps, TooltipTheme } from './Tooltip.types';
-import { mergeClasses } from '../../shared/utilities';
+import {
+    ConditionalWrapper,
+    generateId,
+    mergeClasses,
+} from '../../shared/utilities';
 
 import styles from './tooltip.module.scss';
 
@@ -19,18 +24,23 @@ export const Tooltip: FC<TooltipProps> = ({
     theme,
     content,
     placement = 'bottom',
+    portal = false,
     disabled,
+    id,
     visibleArrow = true,
     classNames,
     openDelay = 0,
     hideAfter = 0,
     tabIndex = 0,
     positionStrategy = 'absolute',
+    wrapperClassNames,
+    wrapperStyle,
     ...rest
 }) => {
     const tooltipSide: string = placement.split('-')?.[0];
     const [visible, setVisible] = useState<boolean>(false);
     const arrowRef = useRef<HTMLDivElement>(null);
+    const tooltipId = useRef<string>(id || generateId());
     let timeout: ReturnType<typeof setTimeout>;
 
     const {
@@ -68,7 +78,7 @@ export const Tooltip: FC<TooltipProps> = ({
     const toggle: Function =
         (show: boolean): Function =>
         (): void => {
-            if (!content) {
+            if (!content || disabled) {
                 return;
             }
             timeout && clearTimeout(timeout);
@@ -93,6 +103,7 @@ export const Tooltip: FC<TooltipProps> = ({
 
     const referenceWrapperClasses: string = mergeClasses([
         styles.referenceWrapper,
+        wrapperClassNames,
         { [styles.disabled]: disabled },
     ]);
 
@@ -119,33 +130,44 @@ export const Tooltip: FC<TooltipProps> = ({
     return (
         <>
             <div
-                onMouseEnter={toggle(true)}
+                className={referenceWrapperClasses}
+                style={wrapperStyle}
+                id={tooltipId.current}
+                onPointerEnter={toggle(true)}
                 onFocus={toggle(true)}
                 onBlur={toggle(false)}
-                onMouseLeave={toggle(false)}
+                onPointerLeave={toggle(false)}
                 ref={reference}
-                className={referenceWrapperClasses}
             >
                 {children}
             </div>
-            <div
-                {...rest}
-                role="tooltip"
-                aria-hidden={!visible}
-                ref={floating}
-                style={tooltipStyle}
-                className={tooltipClasses}
-                tabIndex={tabIndex}
-            >
-                {content}
-                {visibleArrow && (
-                    <div
-                        ref={arrowRef}
-                        style={arrowStyle}
-                        className={styles.arrow}
-                    />
+            <ConditionalWrapper
+                condition={portal}
+                wrapper={(children) => (
+                    <FloatingPortal>{children}</FloatingPortal>
                 )}
-            </div>
+            >
+                {visible && (
+                    <div
+                        {...rest}
+                        role="tooltip"
+                        aria-hidden={!visible}
+                        ref={floating}
+                        style={tooltipStyle}
+                        className={tooltipClasses}
+                        tabIndex={tabIndex}
+                    >
+                        {content}
+                        {visibleArrow && (
+                            <div
+                                ref={arrowRef}
+                                style={arrowStyle}
+                                className={styles.arrow}
+                            />
+                        )}
+                    </div>
+                )}
+            </ConditionalWrapper>
         </>
     );
 };

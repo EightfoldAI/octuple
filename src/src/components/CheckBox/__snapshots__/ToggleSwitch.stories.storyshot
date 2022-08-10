@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Toggle Switch Toggle Switch 1`] = `
+<div
+  className="selector selector-medium my-toggle-class"
+>
+  <input
+    aria-disabled={false}
+    aria-label="Label"
+    checked={true}
+    disabled={false}
+    id="myToggleId"
+    name="myToggleName"
+    onChange={[Function]}
+    readOnly={true}
+    type="checkbox"
+    value="label"
+  />
+  <label
+    className=""
+    htmlFor="myToggleId"
+  >
+    <span
+      className="checkmark toggle"
+    />
+    <span
+      className="selector-label selector-label-end"
+    >
+      Label
+    </span>
+  </label>
+</div>
+`;

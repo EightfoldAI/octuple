@@ -10,7 +10,7 @@ Enzyme.configure({ adapter: new Adapter() });
 
 let matchMedia: any;
 
-describe('Panel', () => {
+describe('Tabs', () => {
     let wrapper: ReactWrapper;
 
     const tabs = [1, 2, 3, 4].map((i) => ({

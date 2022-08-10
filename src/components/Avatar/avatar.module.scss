@@ -2,53 +2,54 @@
     align-items: center;
     display: flex;
     justify-content: center;
+    color: var(--text-inverse-color);
 
-    &.disruptive {
-        background-color: var(--disruptive-color-20);
-        border: solid 1px var(--disruptive-color-30);
-        color: var(--disruptive-color);
-    }
-
-    &.grey {
-        background-color: var(--grey-color-20);
-        border: solid 1px var(--grey-color-30);
-        color: var(--grey-color);
-    }
-
-    &.blue {
-        background-color: var(--blue-color-20);
-        border: solid 1px var(--blue-color-30);
-        color: var(--blue-color);
+    &.red {
+        background-color: var(--red-color-60);
     }
 
     &.orange {
-        background-color: var(--orange-color-20);
-        border: solid 1px var(--orange-color-30);
-        color: var(--orange-color);
+        background-color: var(--orange-color-60);
     }
 
-    &.green {
-        background-color: var(--green-color-20);
-        border: solid 1px var(--green-color-30);
-        color: var(--green-color);
-    }
-
-    &.violet {
-        background-color: var(--violet-color-20);
-        border: solid 1px var(--violet-color-30);
-        color: var(--violet-color);
+    &.red-orange {
+        background-color: var(--redorange-color-60);
     }
 
     &.yellow {
-        background-color: var(--yellow-color-20);
-        border: solid 1px var(--yellow-color-30);
-        color: var(--yellow-color);
+        background-color: var(--yellow-color-60);
     }
 
-    &.bluegreen {
-        background-color: var(--bluegreen-color-20);
-        border: solid 1px var(--bluegreen-color-30);
-        color: var(--bluegreen-color);
+    &.yellow-green {
+        background-color: var(--yellowgreen-color-60);
+    }
+
+    &.green {
+        background-color: var(--green-color-60);
+    }
+
+    &.blue-green {
+        background-color: var(--bluegreen-color-60);
+    }
+
+    &.blue {
+        background-color: var(--blue-color-60);
+    }
+
+    &.blue-violet {
+        background-color: var(--blueviolet-color-60);
+    }
+
+    &.violet {
+        background-color: var(--violet-color-60);
+    }
+
+    &.violet-red {
+        background-color: var(--violetred-color-60);
+    }
+
+    &.grey {
+        background-color: var(--grey-color-60);
     }
 }
 

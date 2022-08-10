@@ -1,0 +1,1276 @@
+@import '../DatePicker/Styles/mixins';
+
+.picker {
+    border: $picker-border;
+    border-radius: $picker-border-radius;
+    display: inline-flex;
+
+    &-rtl {
+        direction: rtl;
+    }
+
+    // Picker default styles are of size medium.
+    &-body {
+        padding: 8px 16px 8px 16px;
+    }
+
+    &-large &-body {
+        padding: 8px 16px 16px 16px;
+    }
+
+    &-medium &-body {
+        padding: 8px 16px 8px 16px;
+    }
+
+    &-small &-body {
+        padding: 4px 16px 8px 16px;
+    }
+
+    &-content {
+        width: 100%;
+        text-align: center;
+        border-collapse: separate;
+        border-spacing: 0;
+
+        thead {
+            tr {
+                th {
+                    color: $picker-header-cell-foreground-color;
+                }
+            }
+        }
+    }
+
+    &-large &-content {
+        thead {
+            tr {
+                th {
+                    font-size: $picker-font-size-l;
+                }
+            }
+        }
+    }
+
+    &-medium &-content {
+        thead {
+            tr {
+                th {
+                    font-size: $picker-font-size-m;
+                }
+            }
+        }
+    }
+
+    &-small &-content {
+        thead {
+            tr {
+                th {
+                    font-size: $picker-font-size-s;
+                }
+            }
+        }
+    }
+
+    &-focused {
+        border-color: $focus-visible-shadow-color;
+    }
+
+    &-disabled {
+        @include disabled();
+    }
+
+    &-partial {
+        display: inline-block;
+        vertical-align: top;
+        background: $picker-background-color;
+        border-radius: 8px;
+        box-shadow: $picker-box-shadow;
+
+        &-focused {
+            border-color: $focus-visible-shadow-color;
+        }
+
+        &-rtl {
+            direction: rtl;
+        }
+    }
+
+    &-decade-partial,
+    &-year-partial,
+    &-quarter-partial,
+    &-month-partial,
+    &-week-partial,
+    &-date-partial,
+    &-time-partial {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &-header {
+        border-bottom: 1px solid var(--grey-color-20);
+        display: flex;
+        margin: 0 16px 16px 16px;
+        padding: 16px 0 12px 0;
+
+        > * {
+            flex: none;
+        }
+
+        &-view {
+            flex: auto;
+            height: 28px;
+            text-align: center;
+
+            &:not(button) {
+                line-height: 28px;
+            }
+        }
+    }
+
+    &-large &-header {
+        margin: 0 16px 16px 16px;
+        padding: 16px 0 12px 0;
+    }
+
+    &-medium &-header {
+        margin: 0 16px 16px 16px;
+        padding: 16px 0 12px 0;
+    }
+
+    &-small &-header {
+        margin: 0 16px 8px 16px;
+        padding: 8px 0 8px 0;
+    }
+
+    &-cell {
+        background: $picker-cell-background-color;
+        border-bottom: $picker-cell-border;
+        border-top: $picker-cell-border;
+        color: $picker-cell-foreground-color;
+        height: $picker-cell-height-m;
+        opacity: $disabled-alpha-value;
+        width: $picker-cell-width-m;
+
+        &-disabled > &-inner {
+            @include disabled();
+        }
+
+        &-inner {
+            display: inline-block;
+            box-sizing: border-box;
+            height: $picker-cell-height-m;
+            margin: 0;
+            padding: 0;
+            font-size: $picker-font-size-m;
+            font-weight: $text-font-weight-semibold;
+            line-height: $picker-cell-height-m;
+            border-radius: 50%;
+            outline: none;
+            cursor: pointer;
+            text-align: center;
+            transition: background 0.3s, border 0.3s;
+            width: $picker-cell-width-m;
+
+            &:hover {
+                background: $picker-cell-background-color-hover;
+                color: $picker-cell-foreground-color-hover;
+            }
+        }
+
+        &-in-view,
+        &-week {
+            opacity: 1;
+        }
+
+        &-in-range {
+            background: $picker-cell-background-color-active;
+            color: $picker-cell-foreground-color-active;
+        }
+
+        &-range-hover-start,
+        &-range-hover-end,
+        &-range-hover {
+            background: $picker-cell-background-color-hover;
+            color: $picker-cell-foreground-color-hover;
+        }
+
+        &-today > &-inner {
+            outline: 1px solid $picker-cell-background-color-active;
+        }
+
+        &-range-start,
+        &-range-end,
+        &-selected > &-inner {
+            background: $picker-cell-background-color-active;
+            color: $picker-cell-foreground-color-active;
+        }
+
+        &-range-start:not(&-range-hover),
+        &-range-hover-start {
+            border-bottom-left-radius: $picker-cell-border-radius-m;
+            border-top-left-radius: $picker-cell-border-radius-m;
+        }
+
+        &-range-end:not(&-range-hover),
+        &-range-hover-end {
+            border-bottom-right-radius: $picker-cell-border-radius-m;
+            border-top-right-radius: $picker-cell-border-radius-m;
+        }
+    }
+
+    &-large &-cell {
+        height: $picker-cell-height-l;
+        width: $picker-cell-width-l;
+
+        &-inner {
+            height: $picker-cell-height-l;
+            font-size: $picker-font-size-l;
+            line-height: $picker-cell-height-l;
+            width: $picker-cell-width-l;
+        }
+
+        &-range-start:not(&-range-hover),
+        &-range-hover-start {
+            border-bottom-left-radius: $picker-cell-border-radius-l;
+            border-top-left-radius: $picker-cell-border-radius-l;
+        }
+        &-range-end:not(&-range-hover),
+        &-range-hover-end {
+            border-bottom-right-radius: $picker-cell-border-radius-l;
+            border-top-right-radius: $picker-cell-border-radius-l;
+        }
+    }
+
+    &-medium &-cell {
+        height: $picker-cell-height-m;
+        width: $picker-cell-width-m;
+
+        &-inner {
+            height: $picker-cell-height-m;
+            font-size: $picker-font-size-m;
+            line-height: $picker-cell-height-m;
+            width: $picker-cell-width-m;
+        }
+
+        &-range-start:not(&-range-hover),
+        &-range-hover-start {
+            border-bottom-left-radius: $picker-cell-border-radius-m;
+            border-top-left-radius: $picker-cell-border-radius-m;
+        }
+        &-range-end:not(&-range-hover),
+        &-range-hover-end {
+            border-bottom-right-radius: $picker-cell-border-radius-m;
+            border-top-right-radius: $picker-cell-border-radius-m;
+        }
+    }
+
+    &-small &-cell {
+        height: $picker-cell-height-s;
+        width: $picker-cell-width-s;
+
+        &-inner {
+            height: $picker-cell-height-s;
+            font-size: $picker-font-size-s;
+            line-height: $picker-cell-height-s;
+            width: $picker-cell-width-s;
+        }
+
+        &-range-start:not(&-range-hover),
+        &-range-hover-start {
+            border-bottom-left-radius: $picker-cell-border-radius-s;
+            border-top-left-radius: $picker-cell-border-radius-s;
+        }
+        &-range-end:not(&-range-hover),
+        &-range-hover-end {
+            border-bottom-right-radius: $picker-cell-border-radius-s;
+            border-top-right-radius: $picker-cell-border-radius-s;
+        }
+    }
+
+    &-decade-partial,
+    &-year-partial,
+    &-month-partial,
+    &-time-partial {
+        .picker-cell {
+            &-inner {
+                border-radius: $picker-cell-border-radius-m;
+            }
+        }
+    }
+
+    &-large &-decade-partial,
+    &-large &-year-partial,
+    &-large &-month-partial,
+    &-large &-time-partial {
+        .picker-cell {
+            &-inner {
+                border-radius: $picker-cell-border-radius-l;
+            }
+        }
+    }
+
+    &-medium &-decade-partial,
+    &-medium &-year-partial,
+    &-medium &-month-partial,
+    &-medium &-time-partial {
+        .picker-cell {
+            &-inner {
+                border-radius: $picker-cell-border-radius-m;
+            }
+        }
+    }
+
+    &-small &-decade-partial,
+    &-small &-year-partial,
+    &-small &-month-partial,
+    &-small &-time-partial {
+        .picker-cell {
+            &-inner {
+                border-radius: $picker-cell-border-radius-s;
+            }
+        }
+    }
+
+    &-large &-decade-partial {
+        .picker-cell-inner {
+            width: 120px;
+        }
+    }
+
+    &-medium &-decade-partial {
+        .picker-cell-inner {
+            width: 96px;
+        }
+    }
+
+    &-small &-decade-partial {
+        .picker-cell-inner {
+            width: 88px;
+        }
+    }
+
+    &-decade-partial,
+    &-year-partial,
+    &-quarter-partial,
+    &-month-partial {
+        .picker-body {
+            padding: 16px;
+        }
+
+        .picker-header {
+            margin: 0 16px;
+            padding: 16px 0 12px 0;
+        }
+    }
+
+    &-time-partial {
+        .picker-header {
+            margin: 0;
+            padding: 0 0 12px 0;
+
+            &-view {
+                color: $picker-foreground-color;
+                font-size: $picker-font-size-m;
+                height: $picker-header-height-m;
+                padding: 10px 14px;
+            }
+        }
+    }
+
+    &-large &-time-partial {
+        .picker-header {
+            &-view {
+                font-size: $picker-font-size-l;
+                height: $picker-header-height-l;
+                padding: 10px 14px;
+            }
+        }
+    }
+
+    &-medium &-time-partial {
+        .picker-header {
+            padding: 0 0 12px 0;
+
+            &-view {
+                font-size: $picker-font-size-m;
+                height: $picker-header-height-m;
+                padding: 4px 14px;
+            }
+        }
+    }
+
+    &-small &-time-partial {
+        .picker-header {
+            padding: 0 0 8px 0;
+
+            &-view {
+                font-size: $picker-font-size-s;
+                height: $picker-header-height-s;
+                padding: 2px 14px;
+            }
+        }
+    }
+
+    &-footer {
+        border-top: $picker-border;
+        display: flex;
+        justify-content: center;
+        padding: 16px;
+    }
+
+    &-large &-footer {
+        padding: 16px;
+    }
+
+    &-medium &-footer {
+        padding: 16px;
+    }
+
+    &-small &-footer {
+        padding: 12px;
+    }
+
+    &-footer-extra {
+        border-top: $picker-border;
+        padding: 16px;
+    }
+
+    &-ranges {
+        display: unset;
+        justify-content: unset;
+        list-style: none;
+        margin: 0;
+        overflow: hidden;
+        padding: 0;
+        width: 100%;
+
+        li {
+            display: inline-block;
+        }
+    }
+
+    &-preset {
+        margin-right: 16px;
+    }
+
+    &-ok {
+        float: right;
+    }
+
+    &-year-partial,
+    &-month-partial {
+        .picker-cell-inner {
+            width: 56px;
+        }
+    }
+
+    &-week-partial {
+        &-row {
+            &:hover {
+                .picker-cell {
+                    background: $picker-cell-background-color-hover;
+                    color: $picker-cell-foreground-color-hover;
+                }
+
+                .picker-cell:first-of-type {
+                    border-bottom-left-radius: $picker-cell-border-radius-m;
+                    border-top-left-radius: $picker-cell-border-radius-m;
+                }
+
+                .picker-cell:last-of-type {
+                    border-bottom-right-radius: $picker-cell-border-radius-m;
+                    border-top-right-radius: $picker-cell-border-radius-m;
+                }
+
+                .picker-cell:not(:first-of-type) {
+                    border-bottom-left-radius: 0;
+                    border-top-left-radius: 0;
+                }
+
+                .picker-cell:not(:last-of-type) {
+                    border-bottom-right-radius: 0;
+                    border-top-right-radius: 0;
+                }
+            }
+
+            &-selected {
+                .picker-cell {
+                    background: $picker-cell-background-color-active;
+                    color: $picker-cell-foreground-color-active;
+                }
+
+                .picker-cell:first-of-type {
+                    border-bottom-left-radius: $picker-cell-border-radius-m;
+                    border-top-left-radius: $picker-cell-border-radius-m;
+                }
+
+                .picker-cell:last-of-type {
+                    border-bottom-right-radius: $picker-cell-border-radius-m;
+                    border-top-right-radius: $picker-cell-border-radius-m;
+                }
+
+                .picker-cell:not(:first-of-type) {
+                    border-bottom-left-radius: 0;
+                    border-top-left-radius: 0;
+                }
+
+                .picker-cell:not(:last-of-type) {
+                    border-bottom-right-radius: 0;
+                    border-top-right-radius: 0;
+                }
+            }
+        }
+
+        .picker-cell,
+        .picker-cell-inner {
+            width: 20px;
+        }
+
+        .picker-cell-week {
+            color: $picker-foreground-color;
+            font-weight: $text-font-weight-bold;
+            font-size: $picker-font-size-m;
+        }
+
+        .picker-cell:hover > .picker-cell-inner,
+        .picker-cell-selected > .picker-cell-inner {
+            background: transparent;
+        }
+    }
+
+    &-large &-week-partial {
+        &-row {
+            &:hover {
+                .picker-cell:first-of-type {
+                    border-bottom-left-radius: $picker-cell-border-radius-l;
+                    border-top-left-radius: $picker-cell-border-radius-l;
+                }
+
+                .picker-cell:last-of-type {
+                    border-bottom-right-radius: $picker-cell-border-radius-l;
+                    border-top-right-radius: $picker-cell-border-radius-l;
+                }
+
+                .picker-cell:not(:first-of-type) {
+                    border-bottom-left-radius: 0;
+                    border-top-left-radius: 0;
+                }
+
+                .picker-cell:not(:last-of-type) {
+                    border-bottom-right-radius: 0;
+                    border-top-right-radius: 0;
+                }
+            }
+
+            &-selected {
+                .picker-cell:first-of-type {
+                    border-bottom-left-radius: $picker-cell-border-radius-l;
+                    border-top-left-radius: $picker-cell-border-radius-l;
+                }
+
+                .picker-cell:last-of-type {
+                    border-bottom-right-radius: $picker-cell-border-radius-l;
+                    border-top-right-radius: $picker-cell-border-radius-l;
+                }
+
+                .picker-cell:not(:first-of-type) {
+                    border-bottom-left-radius: 0;
+                    border-top-left-radius: 0;
+                }
+
+                .picker-cell:not(:last-of-type) {
+                    border-bottom-right-radius: 0;
+                    border-top-right-radius: 0;
+                }
+            }
+        }
+
+        .picker-cell-week {
+            font-size: $picker-font-size-l;
+        }
+    }
+
+    &-medium &-week-partial {
+        &-row {
+            &:hover {
+                .picker-cell:first-of-type {
+                    border-bottom-left-radius: $picker-cell-border-radius-m;
+                    border-top-left-radius: $picker-cell-border-radius-m;
+                }
+
+                .picker-cell:last-of-type {
+                    border-bottom-right-radius: $picker-cell-border-radius-m;
+                    border-top-right-radius: $picker-cell-border-radius-m;
+                }
+
+                .picker-cell:not(:first-of-type) {
+                    border-bottom-left-radius: 0;
+                    border-top-left-radius: 0;
+                }
+
+                .picker-cell:not(:last-of-type) {
+                    border-bottom-right-radius: 0;
+                    border-top-right-radius: 0;
+                }
+            }
+
+            &-selected {
+                .picker-cell:first-of-type {
+                    border-bottom-left-radius: $picker-cell-border-radius-m;
+                    border-top-left-radius: $picker-cell-border-radius-m;
+                }
+
+                .picker-cell:last-of-type {
+                    border-bottom-right-radius: $picker-cell-border-radius-m;
+                    border-top-right-radius: $picker-cell-border-radius-m;
+                }
+
+                .picker-cell:not(:first-of-type) {
+                    border-bottom-left-radius: 0;
+                    border-top-left-radius: 0;
+                }
+
+                .picker-cell:not(:last-of-type) {
+                    border-bottom-right-radius: 0;
+                    border-top-right-radius: 0;
+                }
+            }
+        }
+
+        .picker-cell-week {
+            font-size: $picker-font-size-m;
+        }
+    }
+
+    &-small &-week-partial {
+        &-row {
+            &:hover {
+                .picker-cell:first-of-type {
+                    border-bottom-left-radius: $picker-cell-border-radius-s;
+                    border-top-left-radius: $picker-cell-border-radius-s;
+                }
+
+                .picker-cell:last-of-type {
+                    border-bottom-right-radius: $picker-cell-border-radius-s;
+                    border-top-right-radius: $picker-cell-border-radius-s;
+                }
+
+                .picker-cell:not(:first-of-type) {
+                    border-bottom-left-radius: 0;
+                    border-top-left-radius: 0;
+                }
+
+                .picker-cell:not(:last-of-type) {
+                    border-bottom-right-radius: 0;
+                    border-top-right-radius: 0;
+                }
+            }
+
+            &-selected {
+                .picker-cell:first-of-type {
+                    border-bottom-left-radius: $picker-cell-border-radius-s;
+                    border-top-left-radius: $picker-cell-border-radius-s;
+                }
+
+                .picker-cell:last-of-type {
+                    border-bottom-right-radius: $picker-cell-border-radius-s;
+                    border-top-right-radius: $picker-cell-border-radius-s;
+                }
+
+                .picker-cell:not(:first-of-type) {
+                    border-bottom-left-radius: 0;
+                    border-top-left-radius: 0;
+                }
+
+                .picker-cell:not(:last-of-type) {
+                    border-bottom-right-radius: 0;
+                    border-top-right-radius: 0;
+                }
+            }
+        }
+
+        .picker-cell-week {
+            font-size: $picker-font-size-s;
+        }
+    }
+
+    &-date-partial {
+        .picker-cell-inner {
+            width: 20px;
+        }
+    }
+
+    &-time-partial {
+        margin: 16px 0 0;
+        padding: 0 16px;
+        width: auto;
+
+        .picker-content {
+            display: flex;
+            max-height: 360px;
+        }
+
+        &-cell {
+            &-inner {
+                color: $picker-cell-foreground-color;
+                font-weight: $text-font-weight-semibold;
+                height: $picker-cell-height-m;
+                line-height: $picker-cell-height-m;
+                margin: 0;
+                text-align: center;
+                width: $picker-cell-width-m;
+            }
+
+            &-selected > &-inner {
+                background: $picker-cell-background-color-active;
+                border-radius: $picker-cell-border-radius-m;
+                color: $picker-cell-foreground-color-active;
+            }
+
+            &-disabled {
+                opacity: $disabled-alpha-value;
+            }
+        }
+
+        &-column {
+            @include scroll-bars();
+
+            background: $picker-column-background-color;
+            flex: none;
+            width: 60px;
+            margin: 0;
+            padding: 8px 0;
+            overflow-x: hidden;
+            overflow-y: hidden;
+            font-size: $picker-font-size-m;
+            text-align: left;
+            list-style: none;
+            transition: background 0.3s;
+
+            &-active {
+                background: $picker-column-background-color-active;
+                color: $picker-column-foreground-color-active;
+            }
+
+            &:hover {
+                overflow-y: auto;
+            }
+
+            li {
+                cursor: pointer;
+                margin: 0;
+                padding: 0;
+            }
+        }
+    }
+
+    &-large &-time-partial {
+        margin: 16px 0 0;
+        padding: 0 16px;
+
+        .picker-content {
+            max-height: 360px;
+        }
+
+        &-column {
+            width: 60px;
+            padding: 8px 0;
+            font-size: $picker-font-size-l;
+        }
+
+        &-cell {
+            &-inner {
+                width: $picker-cell-width-l;
+                height: $picker-cell-height-l;
+                line-height: $picker-cell-height-l;
+            }
+
+            &-selected > &-inner {
+                border-radius: $picker-cell-border-radius-l;
+            }
+        }
+    }
+
+    &-medium &-time-partial {
+        margin: 16px 0 0;
+        padding: 0 16px;
+
+        .picker-content {
+            max-height: 300px;
+        }
+
+        &-column {
+            width: 60px;
+            padding: 8px 0;
+            font-size: $picker-font-size-m;
+        }
+
+        &-cell {
+            &-inner {
+                width: $picker-cell-width-m;
+                height: $picker-cell-height-m;
+                line-height: $picker-cell-height-m;
+            }
+
+            &-selected > &-inner {
+                border-radius: $picker-cell-border-radius-m;
+            }
+        }
+    }
+
+    &-small &-time-partial {
+        margin: 8px 0 0;
+        padding: 0 16px;
+
+        .picker-content {
+            max-height: 240px;
+        }
+
+        &-column {
+            width: 44px;
+            padding: 8px 0;
+            font-size: $picker-font-size-s;
+        }
+
+        &-cell {
+            &-inner {
+                width: $picker-cell-width-s;
+                height: $picker-cell-height-s;
+                line-height: $picker-cell-height-s;
+            }
+
+            &-selected > &-inner {
+                border-radius: $picker-cell-border-radius-s;
+            }
+        }
+    }
+
+    &-datetime-partial {
+        display: flex;
+
+        .picker-time-partial {
+            border-left: $picker-border;
+        }
+
+        .picker-date-partial,
+        .picker-time-partial {
+            transition: opacity 0.3s;
+        }
+
+        &-active {
+            .picker-date-partial,
+            .picker-time-partial {
+                opacity: 0.3;
+
+                &-active {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+
+    &-input {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        width: 100%;
+
+        .picker-rtl {
+            text-align: right;
+        }
+
+        input {
+            @include placeholder();
+
+            background-color: transparent;
+            background-image: none;
+            border: none;
+            box-sizing: border-box;
+            color: $picker-input-foreground-color;
+            display: inline-block;
+            font-family: 'Source Sans Pro', sans-serif;
+            font-size: $picker-font-size-m;
+            height: $picker-input-height-m;
+            line-height: $picker-line-height-m;
+            min-width: fit-content;
+            padding: $space-xs calc(#{$space-xxl} + 4px) $space-xs $space-xs;
+            position: relative;
+            transition: all 0.3s;
+            width: 100%;
+
+            &-borderless {
+                &,
+                &:hover,
+                &:focus,
+                &-focused,
+                &-disabled,
+                &[disabled] {
+                    background-color: transparent;
+                    border: none;
+                    box-shadow: none;
+                    outline: none;
+                }
+            }
+
+            &-disabled,
+            &[disabled] {
+                cursor: not-allowed;
+            }
+        }
+
+        &:hover {
+            .picker-clear {
+                opacity: 1;
+            }
+        }
+
+        &-placeholder {
+            input {
+                color: $picker-input-placeholder-color;
+
+                &-disabled,
+                &[disabled] {
+                    @include placeholder($picker-input-foreground-color);
+                }
+            }
+        }
+    }
+
+    &-status-error &-input {
+        input {
+            color: var(--disruptive-color-80);
+        }
+    }
+
+    &-suffix {
+        display: flex;
+        flex: none;
+        align-self: center;
+        margin-left: ($space-xs / 2);
+        line-height: 1;
+        pointer-events: none;
+
+        > * {
+            vertical-align: top;
+
+            &:not(:last-child) {
+                margin-right: 8px;
+            }
+        }
+    }
+
+    &-clear {
+        position: absolute;
+        right: 0;
+        color: $picker-input-clear-icon-color;
+        line-height: 1;
+        background: $picker-input-background-color;
+        cursor: pointer;
+        opacity: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        transition: opacity $motion-duration-fast, color $motion-duration-fast;
+
+        > * {
+            vertical-align: top;
+        }
+
+        .picker-rtl {
+            right: auto;
+            left: 4px;
+        }
+
+        &-btn:after {
+            content: '×';
+        }
+
+        &:hover {
+            color: $picker-input-clear-icon-color-active;
+        }
+    }
+
+    &-dropdown {
+        position: absolute;
+
+        &-range {
+            padding: 10px 0;
+        }
+
+        &-hidden {
+            display: none;
+        }
+
+        &-placement-topLeft,
+        &-placement-topRight {
+            .picker-range-arrow {
+                bottom: $picker-arrow-size / 2 + 1px;
+                transform: rotate(135deg);
+            }
+        }
+        &-placement-bottomLeft,
+        &-placement-bottomright {
+            .picker-range-arrow {
+                top: $picker-arrow-size / 2 + 1px;
+                transform: rotate(-45deg);
+            }
+        }
+
+        .picker-range-arrow {
+            position: absolute;
+            left: $picker-arrow-size;
+            z-index: 1;
+            width: $picker-arrow-size;
+            height: $picker-arrow-size;
+            margin-left: 10px;
+            transition: all 0.3s;
+
+            .picker-dropdown-rtl {
+                right: $picker-arrow-size;
+                left: auto;
+                margin-right: 10px;
+                margin-left: 0;
+            }
+
+            &:before,
+            &:after {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                box-sizing: border-box;
+                transform: translate(-50%, -50%);
+                content: '';
+
+                .picker-dropdown-rtl {
+                    right: 50%;
+                    left: auto;
+                    transform: translate(50%, -50%);
+                }
+            }
+
+            &:before {
+                width: $picker-arrow-size;
+                height: $picker-arrow-size;
+                border: $picker-arrow-size / 2 solid $picker-border-color-active;
+                border-color: $picker-border-color-active
+                    $picker-border-color-active transparent transparent;
+            }
+
+            &:after {
+                width: $picker-arrow-size - 2px;
+                height: $picker-arrow-size - 2px;
+                border: ($picker-arrow-size - 2px) / 2 solid
+                    $picker-border-color-active;
+                border-color: $picker-background-color $picker-background-color
+                    transparent transparent;
+            }
+        }
+    }
+
+    &-range {
+        position: relative;
+        display: inline-flex;
+
+        .picker-clear {
+            right: 8px;
+        }
+
+        &:hover {
+            .picker-clear {
+                opacity: 1;
+            }
+        }
+
+        &-wrapper {
+            display: flex;
+        }
+
+        .picker-active-bar {
+            bottom: 0;
+            height: 2px;
+            background: $picker-input-active-bar-color;
+            border: 1px solid transparent;
+            border-radius: 2px;
+            opacity: 0;
+            transition: all 0.3s;
+            pointer-events: none;
+        }
+
+        &.picker-focused {
+            .picker-active-bar {
+                opacity: 1;
+            }
+        }
+    }
+
+    &-large &-range {
+        .picker-clear {
+            right: 12px;
+            transform: translateY(-12px);
+        }
+    }
+
+    &-partial-container {
+        overflow: hidden;
+        vertical-align: top;
+        background: $picker-background-color;
+        border-radius: $picker-border-radius;
+        box-shadow: $picker-box-shadow;
+        transition: margin $motion-duration-fast;
+
+        .picker-partials {
+            display: inline-flex;
+            flex-wrap: nowrap;
+            direction: ltr;
+        }
+
+        .picker-partial {
+            vertical-align: top;
+            background: transparent;
+            border-width: 0 0 $picker-border-width 0;
+            border-radius: 0;
+            box-shadow: none;
+
+            .picker-content,
+            table {
+                text-align: center;
+            }
+
+            &-focused {
+                border-color: $picker-border-color;
+            }
+        }
+    }
+}
+
+.trigger-popup {
+    @include reset-component();
+
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+    z-index: $z-index-top;
+
+    &-placement-bottomLeft {
+        .picker-range-arrow {
+            top: ($picker-arrow-size / 2) - ($picker-arrow-size / 3) + 0.7px;
+            display: block;
+            transform: rotate(-135deg) translateY(1px);
+        }
+    }
+
+    &-placement-topLeft {
+        .picker-range-arrow {
+            bottom: ($picker-arrow-size / 2) - ($picker-arrow-size / 3) + 0.7px;
+            display: block;
+            transform: rotate(45deg);
+        }
+    }
+
+    &.slide-up-enter.trigger-popup-placement-topLeft,
+    &.slide-up-enter.trigger-popup-placement-topRight {
+        animation-name: slideDownIn;
+        animation-duration: $motion-duration-fast;
+        animation-fill-mode: forwards;
+    }
+
+    &.slide-up-enter.trigger-popup-placement-bottomLeft,
+    &.slide-up-enter.trigger-popup-placement-bottomRight {
+        animation-name: slideUpIn;
+        animation-duration: $motion-duration-fast;
+        animation-fill-mode: forwards;
+    }
+
+    &.slide-up-leave.trigger-popup-placement-topLeft,
+    &.slide-up-leave.trigger-popup-placement-topRight {
+        animation-name: slideDownOut;
+        animation-duration: $motion-duration-fast;
+        animation-fill-mode: forwards;
+    }
+
+    &.slide-up-leave.trigger-popup-placement-bottomLeft,
+    &.slide-up-leave.trigger-popup-placement-bottomRight {
+        animation-name: slideUpOut;
+        animation-duration: $motion-duration-fast;
+        animation-fill-mode: forwards;
+    }
+}
+
+@keyframes slideUpIn {
+    0% {
+        transform: scaleY(0.8);
+        transform-origin: 0% 0%;
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    100% {
+        transform: scaleY(1);
+        transform-origin: 0% 0%;
+        opacity: 1;
+        pointer-events: all;
+    }
+}
+
+@keyframes slideUpOut {
+    0% {
+        transform: scaleY(1);
+        transform-origin: 0% 0%;
+        opacity: 1;
+        pointer-events: all;
+    }
+
+    100% {
+        transform: scaleY(0.8);
+        transform-origin: 0% 0%;
+        opacity: 0;
+        pointer-events: none;
+    }
+}
+
+@keyframes slideDownIn {
+    0% {
+        transform: scaleY(0.8);
+        transform-origin: 100% 100%;
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    100% {
+        transform: scaleY(1);
+        transform-origin: 100% 100%;
+        opacity: 1;
+        pointer-events: all;
+    }
+}
+
+@keyframes slideDownOut {
+    0% {
+        transform: scaleY(1);
+        transform-origin: 100% 100%;
+        opacity: 1;
+        pointer-events: all;
+    }
+
+    100% {
+        transform: scaleY(0.8);
+        transform-origin: 100% 100%;
+        opacity: 0;
+        pointer-events: none;
+    }
+}
+
+:global(.focus-visible) {
+    .picker {
+        &-focused {
+            border-color: transparent;
+            box-shadow: $focus-visible-box-shadow;
+        }
+
+        &-partial {
+            &-focused {
+                border-color: transparent;
+                box-shadow: $focus-visible-box-shadow, $picker-box-shadow;
+            }
+        }
+    }
+}

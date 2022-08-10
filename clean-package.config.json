@@ -1,0 +1,3 @@
+{
+    "remove": ["engines", "lint-staged", "jest", "eslintConfig", "scripts"]
+}

@@ -1,0 +1,116 @@
+.menu-item {
+    --background: transparent;
+    background-color: var(--background);
+    color: var(--label);
+    display: flex;
+    align-items: center;
+    gap: $space-xs;
+    border-radius: $corner-radius-xl;
+    cursor: pointer;
+    font-weight: $text-font-weight-semibold;
+    transition: all $motion-duration-extra-fast $motion-easing-easeinout 0s;
+    margin: 4px 0;
+
+    &.large {
+        height: 44px;
+        font-size: $text-font-size-4;
+        line-height: $text-line-height-3;
+        padding: $button-padding-vertical-medium
+            $button-padding-horizontal-medium;
+    }
+
+    &.medium {
+        height: 36px;
+        font-size: $text-font-size-3;
+        line-height: $text-line-height-2;
+        padding: $button-padding-vertical-medium
+            $button-padding-horizontal-medium;
+    }
+
+    &.small {
+        height: 28px;
+        font-size: $text-font-size-2;
+        line-height: $text-line-height-1;
+        padding: $button-padding-vertical-small $button-padding-horizontal-small;
+    }
+
+    &.primary {
+        --label: var(--primary-color-70);
+
+        &:hover {
+            --background: var(--accent-color-10);
+        }
+
+        &.active,
+        &:active {
+            --background: var(--accent-color-20);
+        }
+    }
+
+    &.disruptive {
+        --label: var(--disruptive-color);
+
+        &:hover {
+            --background: var(--disruptive-color-10);
+        }
+
+        &.active,
+        &:active {
+            --background: var(--disruptive-color-20);
+        }
+    }
+
+    &.neutral {
+        --active-background: var(--grey-color-10);
+        --label: var(--grey-color-70);
+
+        &:hover {
+            --background: var(--grey-color-10);
+        }
+
+        &.active,
+        &:active {
+            --background: var(--grey-color-20);
+        }
+    }
+
+    &[disabled] {
+        pointer-events: none;
+        opacity: $disabled-alpha-value;
+        cursor: not-allowed;
+    }
+
+    .label {
+        flex: 1;
+        display: flex;
+        align-content: flex-start;
+    }
+}
+
+:global(.focus-visible) {
+    .menu-item {
+        &:focus-visible {
+            outline-offset: -1px;
+            outline-width: $space-xxxs;
+            outline-style: solid;
+        }
+
+        &.primary {
+            &:focus-visible {
+                outline-color: var(--blueviolet-color-50);
+            }
+        }
+
+        &.disruptive {
+            &:focus-visible {
+                outline-color: var(--blueviolet-color-50);
+            }
+        }
+
+        &.neutral {
+            &:focus-visible {
+                outline-color: var(--blueviolet-color-50);
+            }
+        }
+    }
+}

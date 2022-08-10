@@ -1,11 +1,4 @@
 .tab-wrap {
-    --label: var(--text-secondary-color);
-    --active-label: var(--primary-color);
-    --active-bg: transparent;
-    --hover-label: var(--primary-color);
-    --hover-bg: transparent;
-    --indicator: var(--primary-color);
-    --border: var(--primary-color);
     display: flex;
 
     &.scrollable {
@@ -18,23 +11,30 @@
         border: none;
         cursor: pointer;
         padding: $space-s $space-m;
-        color: var(--label);
+        color: var(--tab-label);
         align-items: center;
         justify-content: center;
         position: relative;
         transition: background-color $motion-duration-fast
             $motion-easing-easeout 0s;
 
+        &:first-child {
+            padding-left: 0;
+            .tab-indicator {
+                width: calc(100% - #{$space-xl / 2});
+            }
+        }
+
         &:hover,
         &:focus {
-            color: var(--hover-label);
-            background: var(--hover-bg);
+            color: var(--tab-hover-label);
+            background: var(--tab-hover-background);
             transition: all $motion-duration-fast $motion-easing-easeout 0s;
         }
 
         &.active {
-            color: var(--active-label);
-            background-color: var(--active-bg);
+            color: var(--tab-active-label);
+            background-color: var(--tab-active-background);
             transition: transform $motion-duration-fast $motion-easing-easeout
                 0s;
         }
@@ -45,7 +45,7 @@
         }
 
         &.inverse {
-            --active-label: var(--text-inverse-color);
+            --tab-active-label: var(--text-inverse-color);
         }
 
         .tab-indicator {
@@ -54,7 +54,7 @@
             height: $space-xxxs;
             bottom: 0;
             width: calc(100% - #{$space-xl});
-            background: var(--indicator);
+            background: var(--tab-indicator-color);
             border-radius: $space-xxs $space-xxs 0 0;
         }
 
@@ -74,8 +74,8 @@
     }
 
     &.small {
-        --active-bg: var(--primary-color-10);
-        --hover-bg: var(--primary-color-10);
+        --tab-active-background: var(--tab-small-active-background);
+        --tab-hover-background: var(--tab-small-hover-background);
 
         .tab {
             padding: $space-l $space-m;
@@ -87,25 +87,24 @@
     }
 
     &.pill {
-        --label: var(--primary-color);
-        --active-label: var(--background-color);
-        --active-bg: var(--primary-color);
-        --hover-label: var(--primary-color);
+        --tab-label: var(--tab-pill-label);
+        --tab-active-label: var(--tab-pill-active-label);
+        --tab-active-background: var(--tab-pill-active-background);
+        --tab-hover-label: var(--tab-pill-hover-label);
+        background-color: var(--tab-pill-background);
+        width: fit-content;
+        border-radius: $corner-radius-xl;
+        padding: $space-xs;
 
         .tab {
             padding: $space-xs $space-m;
-            border: $space-xxxs solid var(--border);
-            border-right: none;
+            border-radius: $corner-radius-xl;
 
-            &:first-child {
-                border-radius: $space-l-fitted 0 0 $space-l-fitted;
+            &.active {
+                .badge {
+                    --bg: var(--primary-color-10);
+                }
             }
-
-            &:last-child {
-                border-right: $space-xxxs solid var(--border);
-                border-radius: 0 $space-l-fitted $space-l-fitted 0;
-            }
-
             .tab-indicator {
                 display: none;
             }

@@ -1,0 +1,54 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Match Score Default 1`] = `
+<div
+  aria-label="score"
+  className="my-match-score-class match-score-container oct-component"
+>
+  <div
+    className="match-score-circle full"
+  />
+  <div
+    className="match-score-circle full"
+  />
+  <div
+    className="match-score-circle full"
+  />
+  <div
+    className="match-score-circle"
+  />
+  <div
+    className="match-score-circle"
+  />
+  <p
+    className="label body2"
+  >
+    3
+    /
+    5
+  </p>
+</div>
+`;
+
+exports[`Storyshots Match Score Without Label 1`] = `
+<div
+  aria-label="score"
+  className="my-match-score-class match-score-container oct-component"
+>
+  <div
+    className="match-score-circle full"
+  />
+  <div
+    className="match-score-circle full"
+  />
+  <div
+    className="match-score-circle full"
+  />
+  <div
+    className="match-score-circle"
+  />
+  <div
+    className="match-score-circle"
+  />
+</div>
+`;

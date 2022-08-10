@@ -1,12 +1,15 @@
 import React, { FC } from 'react';
-import { MenuItem, MenuProps } from './Menu.types';
+import { MenuProps, MenuSize, MenuType, MenuVariant } from './Menu.types';
 import { List } from '../List';
-import { ButtonTextAlign, ButtonWidth, DefaultButton } from '../Button';
+import { MenuItem } from './MenuItem/MenuItem';
+import { MenuItemProps } from './MenuItem/MenuItem.types';
 
 export const Menu: FC<MenuProps> = ({
     items,
     onChange,
-    disruptive = false,
+    variant = MenuVariant.neutral,
+    type = MenuType.button,
+    size = MenuSize.medium,
     classNames,
     style,
     itemClassNames,
@@ -14,32 +17,34 @@ export const Menu: FC<MenuProps> = ({
     header,
     footer,
     listType,
+    itemProps,
     ...rest
 }) => {
-    const getDefaultButton = (item: MenuItem): JSX.Element => (
-        <DefaultButton
-            {...item}
-            alignText={ButtonTextAlign.Left}
-            buttonWidth={ButtonWidth.fill}
-            disruptive={disruptive}
-            onClick={() => onChange(item.value)}
-        />
-    );
-
+    const getListItem = (item: MenuItemProps, index: number): JSX.Element => {
+        switch (type) {
+            case MenuType.button:
+                return (
+                    <MenuItem
+                        key={`oc-menu-item-${index}`}
+                        onClick={onChange}
+                        variant={variant}
+                        size={size}
+                        {...item}
+                    />
+                );
+        }
+    };
     return (
-        <List<MenuItem>
+        <List<MenuItemProps>
             {...rest}
             items={items}
-            renderItem={getDefaultButton}
             classNames={classNames}
             style={style}
-            itemClassNames={itemClassNames}
-            itemStyle={itemStyle}
             header={header}
             footer={footer}
             listType={listType}
             role="menu"
-            itemRole="menuitem"
+            getItem={getListItem}
         />
     );
 };

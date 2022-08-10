@@ -27,27 +27,36 @@ export const Pill: FC<PillProps> = React.forwardRef(
             [PillSize.Large, ButtonSize.Medium],
             [PillSize.Medium, ButtonSize.Small],
             [PillSize.Small, ButtonSize.Small],
+            [PillSize.XSmall, ButtonSize.Small],
         ]);
         const pillSizeToIconSizeMap = new Map<PillSize, IconSize>([
             [PillSize.Large, IconSize.Medium],
             [PillSize.Medium, IconSize.Small],
             [PillSize.Small, IconSize.XSmall],
+            [PillSize.XSmall, IconSize.XSmall],
         ]);
         const labelClassName: string = mergeClasses([
             styles.label,
             { [styles.medium]: size === PillSize.Medium },
             { [styles.small]: size === PillSize.Small },
+            { [styles.xsmall]: size === PillSize.XSmall },
         ]);
         const tagClassName: string = mergeClasses([
             styles.tagPills,
+            rest.classNames,
             { [styles.red]: theme === 'red' },
+            { [styles.redOrange]: theme === 'redOrange' },
             { [styles.orange]: theme === 'orange' },
             { [styles.yellow]: theme === 'yellow' },
+            { [styles.yellowGreen]: theme === 'yellowGreen' },
             { [styles.green]: theme === 'green' },
-            { [styles.bluegreen]: theme === 'bluegreen' },
+            { [styles.blueGreen]: theme === 'blueGreen' },
             { [styles.blue]: theme === 'blue' },
+            { [styles.blueViolet]: theme === 'blueViolet' },
             { [styles.violet]: theme === 'violet' },
+            { [styles.violetRed]: theme === 'violetRed' },
             { [styles.grey]: theme === 'grey' },
+            { [styles.xsmall]: size === PillSize.XSmall },
         ]);
         return (
             <div {...rest} className={tagClassName} style={{ color }} ref={ref}>

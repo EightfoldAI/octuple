@@ -27,7 +27,7 @@ export const SplitButton: FC<SplitButtonProps> = React.forwardRef(
             iconProps,
             id,
             onClick,
-            shape = ButtonShape.Rectangle,
+            shape = ButtonShape.Pill,
             size = ButtonSize.Flex,
             split,
             style,
@@ -46,24 +46,24 @@ export const SplitButton: FC<SplitButtonProps> = React.forwardRef(
             classNames,
             styles.splitButton,
             {
-                [styles.buttonSize3]:
+                [styles.buttonSmall]:
                     size === ButtonSize.Flex && largeScreenActive,
             },
             {
-                [styles.buttonSize2]:
+                [styles.buttonMedium]:
                     size === ButtonSize.Flex && mediumScreenActive,
             },
             {
-                [styles.buttonSize2]:
+                [styles.buttonMedium]:
                     size === ButtonSize.Flex && smallScreenActive,
             },
             {
-                [styles.buttonSize1]:
+                [styles.buttonLarge]:
                     size === ButtonSize.Flex && xSmallScreenActive,
             },
-            { [styles.buttonSize1]: size === ButtonSize.Large },
-            { [styles.buttonSize2]: size === ButtonSize.Medium },
-            { [styles.buttonSize3]: size === ButtonSize.Small },
+            { [styles.buttonLarge]: size === ButtonSize.Large },
+            { [styles.buttonMedium]: size === ButtonSize.Medium },
+            { [styles.buttonSmall]: size === ButtonSize.Small },
             { [styles.pillShape]: shape === ButtonShape.Pill },
             { [styles.dropShadow]: dropShadow },
             { [styles.splitRight]: split },
@@ -106,6 +106,7 @@ export const SplitButton: FC<SplitButtonProps> = React.forwardRef(
             },
             { [styles.splitDividerDefault]: type === ButtonType.Default },
             { [styles.splitDividerNeutral]: type === ButtonType.Neutral },
+            { [styles.splitDividerSystemUi]: type === ButtonType.SystemUI },
             {
                 [styles.splitDividerDisruptive]:
                     type === ButtonType.Default && disruptive,
@@ -151,11 +152,11 @@ export const SplitButton: FC<SplitButtonProps> = React.forwardRef(
                 {...rest}
                 ref={ref}
                 aria-checked={split ? !!checked : undefined}
-                aria-disabled={allowDisabledFocus}
+                aria-disabled={disabled}
                 aria-label={ariaLabel}
                 aria-pressed={split ? !!checked : undefined}
                 defaultChecked={checked}
-                disabled={disabled}
+                disabled={!allowDisabledFocus && disabled}
                 className={splitButtonClassNames}
                 id={id}
                 onClick={!allowDisabledFocus ? onClick : null}

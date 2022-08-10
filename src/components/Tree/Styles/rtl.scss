@@ -1,0 +1,64 @@
+.tree {
+    &-rtl {
+        direction: rtl;
+        .tree-node-content-wrapper[draggable='true'] {
+            .tree-drop-indicator {
+                &after {
+                    right: -6px;
+                    left: unset;
+                }
+            }
+        }
+    }
+
+    // ===================== TreeNode =====================
+    .tree-treenode {
+        &-rtl {
+            direction: rtl;
+        }
+    }
+
+    // >>> Switcher
+    &-switcher {
+        &_close {
+            .tree-switcher-icon {
+                svg {
+                    .tree-rtl {
+                        transform: rotate(90deg);
+                    }
+                }
+            }
+        }
+    }
+    // ==================== Show Line =====================
+    &-show-line {
+        // ================ Indent lines ================
+        .tree-indent {
+            &-unit {
+                &:before {
+                    .tree-rtl {
+                        right: auto;
+                        left: -calc($tree-title-height / 2) - 1px;
+                        border-right: none;
+                        border-left: 1px solid $tree-border-color;
+                    }
+                }
+            }
+        }
+    }
+    // >>> Checkbox
+    &-checkbox {
+        .tree-rtl {
+            margin: calc((#{$tree-title-height} - 22) / 2) 0 0 8px;
+        }
+    }
+}
+
+.tree-select-tree {
+    // >>> Checkbox
+    &-checkbox {
+        .tree-select-dropdown-rtl {
+            margin: calc((#{$tree-title-height} - 22) / 2) 0 0 8px;
+        }
+    }
+}

@@ -8,10 +8,15 @@ import React, {
 import { DropdownProps } from './Dropdown.types';
 import { autoUpdate, shift, useFloating } from '@floating-ui/react-dom';
 import { offset as fOffset } from '@floating-ui/core';
-import { mergeClasses, uniqueId } from '../../shared/utilities';
+import {
+    ConditionalWrapper,
+    mergeClasses,
+    uniqueId,
+} from '../../shared/utilities';
 import { useOnClickOutside } from '../../hooks/useOnClickOutside';
 import { useAccessibility } from '../../hooks/useAccessibility';
 import styles from './dropdown.module.scss';
+import { FloatingPortal } from '@floating-ui/react-dom-interactions';
 
 const TRIGGER_TO_HANDLER_MAP_ON_ENTER = {
     click: 'onClick',
@@ -37,10 +42,12 @@ export const Dropdown: FC<DropdownProps> = ({
     dropdownStyle,
     children,
     placement = 'bottom-start',
+    portal = false,
     overlay,
-    offset = 0,
+    offset = 4,
     positionStrategy = 'absolute',
     onVisibleChange,
+    showDropdown,
     disabled,
     closeOnDropdownClick = true,
 }) => {
@@ -56,22 +63,24 @@ export const Dropdown: FC<DropdownProps> = ({
     });
 
     const toggle: Function =
-        (show: boolean): Function =>
+        (show: boolean, showDropdown = (show: boolean) => show): Function =>
         (e: SyntheticEvent): void => {
+            // to control the toggle behaviour
+            const updatedShow = showDropdown(show);
             if (PREVENT_DEFAULT_TRIGGERS.includes(trigger)) {
                 e.preventDefault();
             }
-            setClosing(!show);
+            setClosing(!updatedShow);
             timeout && clearTimeout(timeout);
             timeout = setTimeout(
                 () => {
-                    setVisible(show);
+                    setVisible(updatedShow);
                 },
                 !show ? ANIMATION_DURATION : 0
             );
         };
 
-    useOnClickOutside(refs.floating, toggle(false), visible);
+    useOnClickOutside(refs.reference, toggle(false), visible);
 
     useEffect(() => {
         onVisibleChange?.(visible);
@@ -120,6 +129,7 @@ export const Dropdown: FC<DropdownProps> = ({
         ]);
         return cloneElement(child, {
             ...{ [TRIGGER_TO_HANDLER_MAP_ON_ENTER[trigger]]: toggle(true) },
+            onClick: toggle(!visible),
             className: referenceWrapperClasses,
             'aria-controls': dropdownId,
             'aria-expanded': visible,
@@ -136,7 +146,9 @@ export const Dropdown: FC<DropdownProps> = ({
                 style={dropdownStyles}
                 className={dropdownClasses}
                 tabIndex={0}
-                onClick={closeOnDropdownClick ? toggle(false) : null}
+                onClick={
+                    closeOnDropdownClick ? toggle(false, showDropdown) : null
+                }
                 id={dropdownId}
             >
                 {overlay}
@@ -149,11 +161,23 @@ export const Dropdown: FC<DropdownProps> = ({
             style={style}
             ref={reference}
             {...(TRIGGER_TO_HANDLER_MAP_ON_LEAVE[trigger]
-                ? { [TRIGGER_TO_HANDLER_MAP_ON_LEAVE[trigger]]: toggle(false) }
+                ? {
+                      [TRIGGER_TO_HANDLER_MAP_ON_LEAVE[trigger]]: toggle(
+                          false,
+                          showDropdown
+                      ),
+                  }
                 : {})}
         >
             {getReference()}
-            {getDropdown()}
+            <ConditionalWrapper
+                condition={portal}
+                wrapper={(children) => (
+                    <FloatingPortal>{children}</FloatingPortal>
+                )}
+            >
+                {getDropdown()}
+            </ConditionalWrapper>
         </div>
     );
 };

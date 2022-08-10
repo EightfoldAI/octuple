@@ -1,0 +1,1249 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Pagination All Combined 1`] = `
+<div
+  className="my-pagination-class pagination"
+  data-test-id="myPaginationTestId"
+>
+  <span
+    className="sizes"
+  >
+    <div
+      className="main-wrapper"
+    >
+      <button
+        aria-controls="dropdown-18"
+        aria-disabled={false}
+        aria-expanded={false}
+        aria-haspopup={true}
+        aria-label="Selected page size"
+        className="button button-neutral button-medium icon-left"
+        defaultChecked={false}
+        disabled={false}
+        onClick={[Function]}
+        role="button"
+        tabIndex="0"
+      >
+        <span>
+          <span
+            aria-hidden={false}
+            className="icon icon-wrapper"
+            role="presentation"
+          >
+            <svg
+              role="presentation"
+              style={
+                Object {
+                  "height": "20px",
+                  "width": "20px",
+                }
+              }
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M7.41,15.41L12,10.83L16.59,15.41L18,14L12,8L6,14L7.41,15.41Z"
+                style={
+                  Object {
+                    "fill": "currentColor",
+                  }
+                }
+              />
+            </svg>
+          </span>
+          <span
+            className="button-text-medium"
+          >
+            page / 100
+          </span>
+        </span>
+      </button>
+    </div>
+  </span>
+  <span
+    className="total"
+  >
+    400 Total
+  </span>
+  <button
+    aria-disabled={false}
+    aria-label="Previous"
+    className="pagination-button pagination-previous button button-neutral button-medium icon-left"
+    defaultChecked={false}
+    disabled={false}
+    onClick={[Function]}
+  >
+    <span
+      aria-hidden={false}
+      className="icon icon-wrapper"
+      role="presentation"
+    >
+      <svg
+        role="presentation"
+        style={
+          Object {
+            "height": "20px",
+            "width": "20px",
+          }
+        }
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z"
+          style={
+            Object {
+              "fill": "currentColor",
+            }
+          }
+        />
+      </svg>
+    </span>
+  </button>
+  <ul
+    className="pager"
+  >
+    <li>
+      <button
+        aria-checked={false}
+        aria-disabled={false}
+        aria-pressed={false}
+        className="pagination-button button button-neutral button-medium"
+        defaultChecked={false}
+        disabled={false}
+        onClick={[Function]}
+      >
+        <span
+          className="button-text-medium"
+        >
+          1
+        </span>
+      </button>
+    </li>
+    <li>
+      <button
+        aria-checked={false}
+        aria-disabled={false}
+        aria-pressed={false}
+        className="pagination-button button button-neutral button-medium"
+        defaultChecked={false}
+        disabled={false}
+        onClick={[Function]}
+      >
+        <span
+          className="button-text-medium"
+        >
+          0
+        </span>
+      </button>
+    </li>
+    <li>
+      <button
+        aria-checked={true}
+        aria-disabled={false}
+        aria-pressed={true}
+        className="pagination-button active button button-neutral button-medium"
+        defaultChecked={true}
+        disabled={false}
+        onClick={[Function]}
+      >
+        <span
+          className="button-text-medium"
+        >
+          4
+        </span>
+      </button>
+    </li>
+  </ul>
+  <button
+    aria-disabled={true}
+    aria-label="Next"
+    className="pagination-button pagination-next button button-neutral button-medium icon-left disabled"
+    defaultChecked={false}
+    disabled={true}
+    onClick={[Function]}
+  >
+    <span
+      aria-hidden={false}
+      className="icon icon-wrapper"
+      role="presentation"
+    >
+      <svg
+        role="presentation"
+        style={
+          Object {
+            "height": "20px",
+            "width": "20px",
+          }
+        }
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
+          style={
+            Object {
+              "fill": "currentColor",
+            }
+          }
+        />
+      </svg>
+    </span>
+  </button>
+  <span
+    className="jump"
+  >
+    <div
+      className="input-wrapper left-icon"
+    >
+      <div
+        className="input-group left-icon"
+      >
+        <input
+          aria-disabled={false}
+          autoFocus={false}
+          className="editor pill-shape left-icon clear-not-visible"
+          defaultValue={4}
+          disabled={false}
+          id="input-19"
+          minLength={1}
+          onChange={[Function]}
+          readOnly={false}
+          required={false}
+          role="textbox"
+          tabIndex={0}
+          type="number"
+        />
+      </div>
+    </div>
+  </span>
+</div>
+`;
+
+exports[`Storyshots Pagination Basic Few 1`] = `
+<div
+  className="my-pagination-class pagination"
+  data-test-id="myPaginationTestId"
+>
+  <span />
+  <button
+    aria-disabled={true}
+    aria-label="Previous"
+    className="pagination-button pagination-previous button button-neutral button-medium icon-left disabled"
+    defaultChecked={false}
+    disabled={true}
+    onClick={[Function]}
+  >
+    <span
+      aria-hidden={false}
+      className="icon icon-wrapper"
+      role="presentation"
+    >
+      <svg
+        role="presentation"
+        style={
+          Object {
+            "height": "20px",
+            "width": "20px",
+          }
+        }
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z"
+          style={
+            Object {
+              "fill": "currentColor",
+            }
+          }
+        />
+      </svg>
+    </span>
+  </button>
+  <ul
+    className="pager"
+  >
+    <li>
+      <button
+        aria-checked={true}
+        aria-disabled={false}
+        aria-pressed={true}
+        className="pagination-button active button button-neutral button-medium"
+        defaultChecked={true}
+        disabled={false}
+        onClick={[Function]}
+      >
+        <span
+          className="button-text-medium"
+        >
+          1
+        </span>
+      </button>
+    </li>
+    <li>
+      <button
+        aria-checked={false}
+        aria-disabled={false}
+        aria-pressed={false}
+        className="pagination-button button button-neutral button-medium"
+        defaultChecked={false}
+        disabled={false}
+        onClick={[Function]}
+      >
+        <span
+          className="button-text-medium"
+        >
+          0
+        </span>
+      </button>
+    </li>
+    <li>
+      <button
+        aria-checked={false}
+        aria-disabled={false}
+        aria-pressed={false}
+        className="pagination-button button button-neutral button-medium"
+        defaultChecked={false}
+        disabled={false}
+        onClick={[Function]}
+      >
+        <span
+          className="button-text-medium"
+        >
+          5
+        </span>
+      </button>
+    </li>
+  </ul>
+  <button
+    aria-disabled={false}
+    aria-label="Next"
+    className="pagination-button pagination-next button button-neutral button-medium icon-left"
+    defaultChecked={false}
+    disabled={false}
+    onClick={[Function]}
+  >
+    <span
+      aria-hidden={false}
+      className="icon icon-wrapper"
+      role="presentation"
+    >
+      <svg
+        role="presentation"
+        style={
+          Object {
+            "height": "20px",
+            "width": "20px",
+          }
+        }
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
+          style={
+            Object {
+              "fill": "currentColor",
+            }
+          }
+        />
+      </svg>
+    </span>
+  </button>
+</div>
+`;
+
+exports[`Storyshots Pagination Basic Many 1`] = `
+<div
+  className="my-pagination-class pagination"
+  data-test-id="myPaginationTestId"
+>
+  <span />
+  <button
+    aria-disabled={true}
+    aria-label="Previous"
+    className="pagination-button pagination-previous button button-neutral button-medium icon-left disabled"
+    defaultChecked={false}
+    disabled={true}
+    onClick={[Function]}
+  >
+    <span
+      aria-hidden={false}
+      className="icon icon-wrapper"
+      role="presentation"
+    >
+      <svg
+        role="presentation"
+        style={
+          Object {
+            "height": "20px",
+            "width": "20px",
+          }
+        }
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z"
+          style={
+            Object {
+              "fill": "currentColor",
+            }
+          }
+        />
+      </svg>
+    </span>
+  </button>
+  <ul
+    className="pager"
+  >
+    <li>
+      <button
+        aria-checked={true}
+        aria-disabled={false}
+        aria-pressed={true}
+        className="pagination-button active button button-neutral button-medium"
+        defaultChecked={true}
+        disabled={false}
+        onClick={[Function]}
+      >
+        <span
+          className="button-text-medium"
+        >
+          1
+        </span>
+      </button>
+    </li>
+    <li>
+      <button
+        aria-checked={false}
+        aria-disabled={false}
+        aria-pressed={false}
+        className="pagination-button button button-neutral button-medium"
+        defaultChecked={false}
+        disabled={false}
+        onClick={[Function]}
+      >
+        <span
+          className="button-text-medium"
+        >
+          0
+        </span>
+      </button>
+    </li>
+    <li>
+      <button
+        aria-disabled={false}
+        aria-label="Next 5"
+        className="pagination-button quicknext button button-neutral button-medium icon-left"
+        defaultChecked={false}
+        disabled={false}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+      >
+        <span
+          aria-hidden={false}
+          className="icon icon-wrapper"
+          role="presentation"
+        >
+          <svg
+            role="presentation"
+            style={
+              Object {
+                "height": "20px",
+                "width": "20px",
+              }
+            }
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M16,12A2,2 0 0,1 18,10A2,2 0 0,1 20,12A2,2 0 0,1 18,14A2,2 0 0,1 16,12M10,12A2,2 0 0,1 12,10A2,2 0 0,1 14,12A2,2 0 0,1 12,14A2,2 0 0,1 10,12M4,12A2,2 0 0,1 6,10A2,2 0 0,1 8,12A2,2 0 0,1 6,14A2,2 0 0,1 4,12Z"
+              style={
+                Object {
+                  "fill": "currentColor",
+                }
+              }
+            />
+          </svg>
+        </span>
+      </button>
+    </li>
+    <li>
+      <button
+        aria-checked={false}
+        aria-disabled={false}
+        aria-pressed={false}
+        className="pagination-button button button-neutral button-medium"
+        defaultChecked={false}
+        disabled={false}
+        onClick={[Function]}
+      >
+        <span
+          className="button-text-medium"
+        >
+          100
+        </span>
+      </button>
+    </li>
+  </ul>
+  <button
+    aria-disabled={false}
+    aria-label="Next"
+    className="pagination-button pagination-next button button-neutral button-medium icon-left"
+    defaultChecked={false}
+    disabled={false}
+    onClick={[Function]}
+  >
+    <span
+      aria-hidden={false}
+      className="icon icon-wrapper"
+      role="presentation"
+    >
+      <svg
+        role="presentation"
+        style={
+          Object {
+            "height": "20px",
+            "width": "20px",
+          }
+        }
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
+          style={
+            Object {
+              "fill": "currentColor",
+            }
+          }
+        />
+      </svg>
+    </span>
+  </button>
+</div>
+`;
+
+exports[`Storyshots Pagination Change Page Size 1`] = `
+<div
+  className="my-pagination-class pagination"
+  data-test-id="myPaginationTestId"
+>
+  <span
+    className="sizes"
+  >
+    <div
+      className="main-wrapper"
+    >
+      <button
+        aria-controls="dropdown-20"
+        aria-disabled={false}
+        aria-expanded={false}
+        aria-haspopup={true}
+        aria-label="Selected page size"
+        className="button button-neutral button-medium icon-left"
+        defaultChecked={false}
+        disabled={false}
+        onClick={[Function]}
+        role="button"
+        tabIndex="0"
+      >
+        <span>
+          <span
+            aria-hidden={false}
+            className="icon icon-wrapper"
+            role="presentation"
+          >
+            <svg
+              role="presentation"
+              style={
+                Object {
+                  "height": "20px",
+                  "width": "20px",
+                }
+              }
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M7.41,15.41L12,10.83L16.59,15.41L18,14L12,8L6,14L7.41,15.41Z"
+                style={
+                  Object {
+                    "fill": "currentColor",
+                  }
+                }
+              />
+            </svg>
+          </span>
+          <span
+            className="button-text-medium"
+          >
+            page / 1000
+          </span>
+        </span>
+      </button>
+    </div>
+  </span>
+  <span />
+  <button
+    aria-disabled={true}
+    aria-label="Previous"
+    className="pagination-button pagination-previous button button-neutral button-medium icon-left disabled"
+    defaultChecked={false}
+    disabled={true}
+    onClick={[Function]}
+  >
+    <span
+      aria-hidden={false}
+      className="icon icon-wrapper"
+      role="presentation"
+    >
+      <svg
+        role="presentation"
+        style={
+          Object {
+            "height": "20px",
+            "width": "20px",
+          }
+        }
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z"
+          style={
+            Object {
+              "fill": "currentColor",
+            }
+          }
+        />
+      </svg>
+    </span>
+  </button>
+  <ul
+    className="pager"
+  >
+    <li>
+      <button
+        aria-checked={true}
+        aria-disabled={false}
+        aria-pressed={true}
+        className="pagination-button active button button-neutral button-medium"
+        defaultChecked={true}
+        disabled={false}
+        onClick={[Function]}
+      >
+        <span
+          className="button-text-medium"
+        >
+          1
+        </span>
+      </button>
+    </li>
+    <li>
+      <button
+        aria-checked={false}
+        aria-disabled={false}
+        aria-pressed={false}
+        className="pagination-button button button-neutral button-medium"
+        defaultChecked={false}
+        disabled={false}
+        onClick={[Function]}
+      >
+        <span
+          className="button-text-medium"
+        >
+          0
+        </span>
+      </button>
+    </li>
+  </ul>
+  <button
+    aria-disabled={true}
+    aria-label="Next"
+    className="pagination-button pagination-next button button-neutral button-medium icon-left disabled"
+    defaultChecked={false}
+    disabled={true}
+    onClick={[Function]}
+  >
+    <span
+      aria-hidden={false}
+      className="icon icon-wrapper"
+      role="presentation"
+    >
+      <svg
+        role="presentation"
+        style={
+          Object {
+            "height": "20px",
+            "width": "20px",
+          }
+        }
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
+          style={
+            Object {
+              "fill": "currentColor",
+            }
+          }
+        />
+      </svg>
+    </span>
+  </button>
+</div>
+`;
+
+exports[`Storyshots Pagination Dots 1`] = `
+<div
+  className="my-pagination-class pagination dots"
+  data-test-id="myPaginationTestId"
+>
+  <span />
+  <button
+    aria-disabled={true}
+    aria-label="Previous"
+    className="pagination-button pagination-previous button button-neutral button-medium icon-left disabled"
+    defaultChecked={false}
+    disabled={true}
+    onClick={[Function]}
+  >
+    <span
+      aria-hidden={false}
+      className="icon icon-wrapper"
+      role="presentation"
+    >
+      <svg
+        role="presentation"
+        style={
+          Object {
+            "height": "20px",
+            "width": "20px",
+          }
+        }
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z"
+          style={
+            Object {
+              "fill": "currentColor",
+            }
+          }
+        />
+      </svg>
+    </span>
+  </button>
+  <ul
+    className="pager"
+  >
+    <li>
+      <button
+        aria-checked={true}
+        aria-disabled={false}
+        aria-pressed={true}
+        className="pagination-button active button button-neutral button-medium"
+        defaultChecked={true}
+        disabled={false}
+        onClick={[Function]}
+      >
+        <span
+          className="button-text-medium"
+        >
+          1
+        </span>
+      </button>
+    </li>
+    <li>
+      <button
+        aria-checked={false}
+        aria-disabled={false}
+        aria-pressed={false}
+        className="pagination-button button button-neutral button-medium"
+        defaultChecked={false}
+        disabled={false}
+        onClick={[Function]}
+      >
+        <span
+          className="button-text-medium"
+        >
+          0
+        </span>
+      </button>
+    </li>
+    <li>
+      <button
+        aria-checked={false}
+        aria-disabled={false}
+        aria-pressed={false}
+        className="pagination-button button button-neutral button-medium"
+        defaultChecked={false}
+        disabled={false}
+        onClick={[Function]}
+      >
+        <span
+          className="button-text-medium"
+        >
+          5
+        </span>
+      </button>
+    </li>
+  </ul>
+  <button
+    aria-disabled={false}
+    aria-label="Next"
+    className="pagination-button pagination-next button button-neutral button-medium icon-left"
+    defaultChecked={false}
+    disabled={false}
+    onClick={[Function]}
+  >
+    <span
+      aria-hidden={false}
+      className="icon icon-wrapper"
+      role="presentation"
+    >
+      <svg
+        role="presentation"
+        style={
+          Object {
+            "height": "20px",
+            "width": "20px",
+          }
+        }
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
+          style={
+            Object {
+              "fill": "currentColor",
+            }
+          }
+        />
+      </svg>
+    </span>
+  </button>
+</div>
+`;
+
+exports[`Storyshots Pagination Jump To 1`] = `
+<div
+  className="my-pagination-class pagination"
+  data-test-id="myPaginationTestId"
+>
+  <span />
+  <button
+    aria-disabled={false}
+    aria-label="Previous"
+    className="pagination-button pagination-previous button button-neutral button-medium icon-left"
+    defaultChecked={false}
+    disabled={false}
+    onClick={[Function]}
+  >
+    <span
+      aria-hidden={false}
+      className="icon icon-wrapper"
+      role="presentation"
+    >
+      <svg
+        role="presentation"
+        style={
+          Object {
+            "height": "20px",
+            "width": "20px",
+          }
+        }
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z"
+          style={
+            Object {
+              "fill": "currentColor",
+            }
+          }
+        />
+      </svg>
+    </span>
+  </button>
+  <ul
+    className="pager"
+  >
+    <li>
+      <button
+        aria-checked={false}
+        aria-disabled={false}
+        aria-pressed={false}
+        className="pagination-button button button-neutral button-medium"
+        defaultChecked={false}
+        disabled={false}
+        onClick={[Function]}
+      >
+        <span
+          className="button-text-medium"
+        >
+          1
+        </span>
+      </button>
+    </li>
+    <li>
+      <button
+        aria-checked={false}
+        aria-disabled={false}
+        aria-pressed={false}
+        className="pagination-button button button-neutral button-medium"
+        defaultChecked={false}
+        disabled={false}
+        onClick={[Function]}
+      >
+        <span
+          className="button-text-medium"
+        >
+          0
+        </span>
+      </button>
+    </li>
+    <li>
+      <button
+        aria-checked={false}
+        aria-disabled={false}
+        aria-pressed={false}
+        className="pagination-button button button-neutral button-medium"
+        defaultChecked={false}
+        disabled={false}
+        onClick={[Function]}
+      >
+        <span
+          className="button-text-medium"
+        >
+          10
+        </span>
+      </button>
+    </li>
+  </ul>
+  <button
+    aria-disabled={false}
+    aria-label="Next"
+    className="pagination-button pagination-next button button-neutral button-medium icon-left"
+    defaultChecked={false}
+    disabled={false}
+    onClick={[Function]}
+  >
+    <span
+      aria-hidden={false}
+      className="icon icon-wrapper"
+      role="presentation"
+    >
+      <svg
+        role="presentation"
+        style={
+          Object {
+            "height": "20px",
+            "width": "20px",
+          }
+        }
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
+          style={
+            Object {
+              "fill": "currentColor",
+            }
+          }
+        />
+      </svg>
+    </span>
+  </button>
+  <span
+    className="jump"
+  >
+    <div
+      className="input-wrapper left-icon"
+    >
+      <div
+        className="input-group left-icon"
+      >
+        <input
+          aria-disabled={false}
+          autoFocus={false}
+          className="editor pill-shape left-icon clear-not-visible"
+          defaultValue={5}
+          disabled={false}
+          id="input-21"
+          minLength={1}
+          onChange={[Function]}
+          readOnly={false}
+          required={false}
+          role="textbox"
+          tabIndex={0}
+          type="number"
+        />
+      </div>
+    </div>
+  </span>
+</div>
+`;
+
+exports[`Storyshots Pagination Simplified 1`] = `
+<div
+  className="my-pagination-class pagination"
+  data-test-id="myPaginationTestId"
+>
+  <span />
+  <button
+    aria-disabled={true}
+    aria-label="Previous"
+    className="pagination-button pagination-previous button button-neutral button-medium icon-left disabled"
+    defaultChecked={false}
+    disabled={true}
+    onClick={[Function]}
+  >
+    <span
+      aria-hidden={false}
+      className="icon icon-wrapper"
+      role="presentation"
+    >
+      <svg
+        role="presentation"
+        style={
+          Object {
+            "height": "20px",
+            "width": "20px",
+          }
+        }
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z"
+          style={
+            Object {
+              "fill": "currentColor",
+            }
+          }
+        />
+      </svg>
+    </span>
+  </button>
+  <ul
+    className="pager page-tracker"
+  >
+    <li>
+      <span>
+        1 of
+      </span>
+    </li>
+    <li>
+      <span>
+        5
+      </span>
+    </li>
+  </ul>
+  <button
+    aria-disabled={false}
+    aria-label="Next"
+    className="pagination-button pagination-next button button-neutral button-medium icon-left"
+    defaultChecked={false}
+    disabled={false}
+    onClick={[Function]}
+  >
+    <span
+      aria-hidden={false}
+      className="icon icon-wrapper"
+      role="presentation"
+    >
+      <svg
+        role="presentation"
+        style={
+          Object {
+            "height": "20px",
+            "width": "20px",
+          }
+        }
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
+          style={
+            Object {
+              "fill": "currentColor",
+            }
+          }
+        />
+      </svg>
+    </span>
+  </button>
+</div>
+`;
+
+exports[`Storyshots Pagination Total Item Count 1`] = `
+<div
+  className="my-pagination-class pagination"
+  data-test-id="myPaginationTestId"
+>
+  <span
+    className="total"
+  >
+    1000 Total
+  </span>
+  <button
+    aria-disabled={true}
+    aria-label="Previous"
+    className="pagination-button pagination-previous button button-neutral button-medium icon-left disabled"
+    defaultChecked={false}
+    disabled={true}
+    onClick={[Function]}
+  >
+    <span
+      aria-hidden={false}
+      className="icon icon-wrapper"
+      role="presentation"
+    >
+      <svg
+        role="presentation"
+        style={
+          Object {
+            "height": "20px",
+            "width": "20px",
+          }
+        }
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z"
+          style={
+            Object {
+              "fill": "currentColor",
+            }
+          }
+        />
+      </svg>
+    </span>
+  </button>
+  <ul
+    className="pager"
+  >
+    <li>
+      <button
+        aria-checked={true}
+        aria-disabled={false}
+        aria-pressed={true}
+        className="pagination-button active button button-neutral button-medium"
+        defaultChecked={true}
+        disabled={false}
+        onClick={[Function]}
+      >
+        <span
+          className="button-text-medium"
+        >
+          1
+        </span>
+      </button>
+    </li>
+    <li>
+      <button
+        aria-checked={false}
+        aria-disabled={false}
+        aria-pressed={false}
+        className="pagination-button button button-neutral button-medium"
+        defaultChecked={false}
+        disabled={false}
+        onClick={[Function]}
+      >
+        <span
+          className="button-text-medium"
+        >
+          0
+        </span>
+      </button>
+    </li>
+    <li>
+      <button
+        aria-disabled={false}
+        aria-label="Next 5"
+        className="pagination-button quicknext button button-neutral button-medium icon-left"
+        defaultChecked={false}
+        disabled={false}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+      >
+        <span
+          aria-hidden={false}
+          className="icon icon-wrapper"
+          role="presentation"
+        >
+          <svg
+            role="presentation"
+            style={
+              Object {
+                "height": "20px",
+                "width": "20px",
+              }
+            }
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M16,12A2,2 0 0,1 18,10A2,2 0 0,1 20,12A2,2 0 0,1 18,14A2,2 0 0,1 16,12M10,12A2,2 0 0,1 12,10A2,2 0 0,1 14,12A2,2 0 0,1 12,14A2,2 0 0,1 10,12M4,12A2,2 0 0,1 6,10A2,2 0 0,1 8,12A2,2 0 0,1 6,14A2,2 0 0,1 4,12Z"
+              style={
+                Object {
+                  "fill": "currentColor",
+                }
+              }
+            />
+          </svg>
+        </span>
+      </button>
+    </li>
+    <li>
+      <button
+        aria-checked={false}
+        aria-disabled={false}
+        aria-pressed={false}
+        className="pagination-button button button-neutral button-medium"
+        defaultChecked={false}
+        disabled={false}
+        onClick={[Function]}
+      >
+        <span
+          className="button-text-medium"
+        >
+          100
+        </span>
+      </button>
+    </li>
+  </ul>
+  <button
+    aria-disabled={false}
+    aria-label="Next"
+    className="pagination-button pagination-next button button-neutral button-medium icon-left"
+    defaultChecked={false}
+    disabled={false}
+    onClick={[Function]}
+  >
+    <span
+      aria-hidden={false}
+      className="icon icon-wrapper"
+      role="presentation"
+    >
+      <svg
+        role="presentation"
+        style={
+          Object {
+            "height": "20px",
+            "width": "20px",
+          }
+        }
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
+          style={
+            Object {
+              "fill": "currentColor",
+            }
+          }
+        />
+      </svg>
+    </span>
+  </button>
+</div>
+`;

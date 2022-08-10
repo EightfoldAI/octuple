@@ -4,7 +4,7 @@
     --hover-bg: var(--blue-color-30);
     --hover-label: var(--text-primary-color);
     padding: $space-xxs $space-s;
-    border-radius: $corner-radius-l;
+    border-radius: $corner-radius-m;
     transition: all $motion-duration-extra-fast $motion-easing-easeinout 0s;
     background: var(--bg);
     color: var(--label);
@@ -22,15 +22,27 @@
             font-size: $text-font-size-3;
         }
 
-        &.small {
+        &.small,
+        &.xsmall {
             font-size: $text-font-size-2;
         }
+    }
+
+    &.xsmall {
+        background: none;
+        border: none;
     }
 
     &.red {
         --bg: var(--red-color-20);
         --label: var(--red-color);
         --hover-bg: var(--red-color-30);
+    }
+
+    &.red-orange {
+        --bg: var(--redorange-color-20);
+        --label: var(--redorange-color);
+        --hover-bg: var(--redorange-color-30);
     }
 
     &.orange {
@@ -45,13 +57,19 @@
         --hover-bg: var(--yellow-color-30);
     }
 
+    &.yellow-green {
+        --bg: var(--yellowgreen-color-20);
+        --label: var(--yellowgreen-color);
+        --hover-bg: var(--yellowgreen-color-30);
+    }
+
     &.green {
         --bg: var(--green-color-20);
         --label: var(--green-color);
         --hover-bg: var(--green-color-30);
     }
 
-    &.bluegreen {
+    &.blue-green {
         --bg: var(--bluegreen-color-20);
         --label: var(--bluegreen-color);
         --hover-bg: var(--bluegreen-color-30);
@@ -62,10 +80,21 @@
         --label: var(--blue-color);
     }
 
+    &.blue-violet {
+        --bg: var(--blueviolet-color-20);
+        --label: var(--blueviolet-color);
+    }
+
     &.violet {
         --bg: var(--violet-color-20);
         --label: var(--violet-color);
         --hover-bg: var(--violet-color-30);
+    }
+
+    &.violet-red {
+        --bg: var(--violetred-color-20);
+        --label: var(--violetred-color);
+        --hover-bg: var(--violetred-color-30);
     }
 
     &.grey {

@@ -27,7 +27,7 @@ module.exports = (_, { mode }) => ({
                         loader: 'css-loader',
                         options: {
                             modules: {
-                                localIdentName: '[local]_[hash:base64:6]',
+                                localIdentName: '[local]_[hash:base64:7]',
                                 exportLocalsConvention: 'camelCase',
                             },
                         },

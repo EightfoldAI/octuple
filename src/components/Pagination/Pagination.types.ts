@@ -4,6 +4,7 @@ export enum PaginationLayoutOptions {
     Jumper = 'jumper',
     Next = 'next',
     Pager = 'pager',
+    Simplified = 'simplified',
     Previous = 'prev',
     Sizes = 'sizes',
     Total = 'total',
@@ -97,9 +98,15 @@ export interface PaginationProps extends OcBaseProps<HTMLElement> {
      */
     quickPreviousIconButtonAriaLabel?: string;
     /**
-     * The Pagination total number of pages.
+     * Pagination simplified mode.
+     * @default false
      */
-    total?: number;
+    simplified?: boolean;
+    /**
+     * The Pagination total number of pages.
+     * @default 1
+     */
+    total: number;
     /**
      * The 'Total' text string.
      * @default 'Total'

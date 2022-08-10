@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Stories } from '@storybook/addon-docs';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { IconName } from '../../Icon';
 import {
     TextInput,
     TextInputShape,
+    TextInputSize,
     TextInputTheme,
     TextInputWidth,
 } from '../index';
@@ -27,6 +28,19 @@ export default {
                             <h2>Best practices</h2>
                             <h3>Layout</h3>
                             <ul>
+                                <li>
+                                    There are four input sizes that may be
+                                    specified via the <b>size</b> prop and the{' '}
+                                    <b>TextInputSize</b>:{' '}
+                                    <b>TextInputSize.Flex</b>,{' '}
+                                    <b>TextInputSize.Large</b>,{' '}
+                                    <b>TextInputSize.Medium</b>,{' '}
+                                    <b>TextInputSize.Small</b>.{' '}
+                                    <b>TextInputSize.Flex</b> is the default and
+                                    resizes the input automatically with the
+                                    viewport. To prevent this responsive
+                                    behavior, give the input a size.
+                                </li>
                                 <li>
                                     Use a multiline text area component when
                                     long entries are expected.
@@ -88,13 +102,30 @@ export default {
         },
     },
     argTypes: {
+        inline: {
+            options: [true, false],
+            control: { type: 'inline-radio' },
+        },
         inputWidth: {
             options: [TextInputWidth.fitContent, TextInputWidth.fill],
             control: { type: 'inline-radio' },
         },
         shape: {
-            options: [TextInputShape.Rectangle, TextInputShape.Pill],
+            options: [
+                TextInputShape.Rectangle,
+                TextInputShape.Pill,
+                TextInputShape.Underline,
+            ],
             control: { type: 'inline-radio' },
+        },
+        size: {
+            options: [
+                TextInputSize.Flex,
+                TextInputSize.Large,
+                TextInputSize.Medium,
+                TextInputSize.Small,
+            ],
+            control: { type: 'radio' },
         },
         theme: {
             options: ['light', 'dark'],
@@ -106,9 +137,16 @@ export default {
     },
 } as ComponentMeta<typeof TextInput>;
 
-const Text_Input_Story: ComponentStory<typeof TextInput> = (args) => (
-    <TextInput {...args} />
-);
+const Text_Input_Story: ComponentStory<typeof TextInput> = (args) => {
+    const [val, setVal] = useState(args.value);
+    return (
+        <TextInput
+            {...args}
+            value={val}
+            onChange={(e) => setVal(e.target.value)}
+        />
+    );
+};
 
 export const Text_Input = Text_Input_Story.bind({});
 
@@ -130,6 +168,7 @@ Text_Input.args = {
         iconProps: { path: IconName.mdiFilter },
     },
     id: 'myTextInputId',
+    inline: false,
     inputWidth: TextInputWidth.fitContent,
     labelProps: {
         labelIconButtonProps: {
@@ -144,7 +183,8 @@ Text_Input.args = {
     numbersOnly: false,
     placeholder: 'Placeholder text',
     required: false,
-    shape: TextInputShape.Rectangle,
+    size: TextInputSize.Flex,
+    shape: TextInputShape.Pill,
     style: {},
     theme: TextInputTheme.light,
     waitInterval: 10,

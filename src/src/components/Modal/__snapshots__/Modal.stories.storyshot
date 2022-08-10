@@ -1,0 +1,113 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Modal Fullscreen 1`] = `
+<button
+  aria-disabled={false}
+  className="button button-primary pill-shape"
+  defaultChecked={false}
+  disabled={false}
+  onClick={[Function]}
+>
+  <span
+    className=""
+  >
+    Open modal
+  </span>
+</button>
+`;
+
+exports[`Storyshots Modal Header Actions 1`] = `
+<button
+  aria-disabled={false}
+  className="button button-primary pill-shape"
+  defaultChecked={false}
+  disabled={false}
+  onClick={[Function]}
+>
+  <span
+    className=""
+  >
+    Open modal
+  </span>
+</button>
+`;
+
+exports[`Storyshots Modal Large 1`] = `
+<button
+  aria-disabled={false}
+  className="button button-primary pill-shape"
+  defaultChecked={false}
+  disabled={false}
+  onClick={[Function]}
+>
+  <span
+    className=""
+  >
+    Open modal
+  </span>
+</button>
+`;
+
+exports[`Storyshots Modal Medium 1`] = `
+<button
+  aria-disabled={false}
+  className="button button-primary pill-shape"
+  defaultChecked={false}
+  disabled={false}
+  onClick={[Function]}
+>
+  <span
+    className=""
+  >
+    Open modal
+  </span>
+</button>
+`;
+
+exports[`Storyshots Modal Scrollable 1`] = `
+<button
+  aria-disabled={false}
+  className="button button-primary pill-shape"
+  defaultChecked={false}
+  disabled={false}
+  onClick={[Function]}
+>
+  <span
+    className=""
+  >
+    Open modal
+  </span>
+</button>
+`;
+
+exports[`Storyshots Modal Small 1`] = `
+<button
+  aria-disabled={false}
+  className="button button-primary pill-shape"
+  defaultChecked={false}
+  disabled={false}
+  onClick={[Function]}
+>
+  <span
+    className=""
+  >
+    Open modal
+  </span>
+</button>
+`;
+
+exports[`Storyshots Modal X Large 1`] = `
+<button
+  aria-disabled={false}
+  className="button button-primary pill-shape"
+  defaultChecked={false}
+  disabled={false}
+  onClick={[Function]}
+>
+  <span
+    className=""
+  >
+    Open modal
+  </span>
+</button>
+`;
