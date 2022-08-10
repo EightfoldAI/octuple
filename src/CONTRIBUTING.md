@@ -96,6 +96,8 @@ git clone https://github.com/imadev/octuple.git
 
 3. The clone command runs and downloads a copy of the Octuple repository files from your fork into a new folder on the local disk. A new folder is made within the current folder. It may take a few minutes, depending on the repository size. You can explore the folder to see the structure once it is finished.
 
+For additional details, see Github's [https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository](Cloning a repository) documentation.
+
 ### Configure remote upstream
 
 After cloning the repository, set up a read-only remote connection to the main repository named upstream. You use the upstream URL to keep your local repository in sync with the latest changes made by others. The git remote command is used to set the configuration value. You use the fetch command to refresh the branch info from the upstream repository.
