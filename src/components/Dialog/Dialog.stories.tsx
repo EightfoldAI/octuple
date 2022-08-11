@@ -199,6 +199,7 @@ const dialogArgs: Object = {
     actionsClassNames: 'my-dialog-actions-class',
     body: 'Body 2 which is at 16px font size is used here in the body section of the dialog. The dialog body text can wrap to multiple lines.',
     bodyClassNames: 'my-dialog-body-class',
+    bodyPadding: true,
     cancelButtonProps: {
         ariaLabel: 'Cancel',
         classNames: 'my-cancel-btn-class',
@@ -213,6 +214,7 @@ const dialogArgs: Object = {
     header: 'Header 4 used in this dialog',
     headerClassNames: 'my-dialog-header-class',
     maskClosable: true,
+    overlay: true,
     okButtonProps: {
         ariaLabel: 'OK',
         classNames: 'my-ok-btn-class',

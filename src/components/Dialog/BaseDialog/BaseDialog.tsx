@@ -18,26 +18,31 @@ export const BaseDialog: FC<BaseDialogProps> = React.forwardRef(
             actionButtonOneProps,
             actionButtonTwoProps,
             actionButtonThreeProps,
-            closeButtonProps,
-            closeIcon = IconName.mdiClose,
-            parent = document.body,
-            visible,
-            onClose,
-            maskClosable = true,
-            onVisibleChange,
-            height,
-            width,
-            zIndex,
-            header,
-            headerClassNames,
-            body,
-            bodyClassNames,
             actions,
             actionsClassNames,
-            dialogWrapperClassNames,
+            body,
+            bodyClassNames,
+            bodyPadding = true,
+            closable = true,
+            closeButtonProps,
+            closeIcon = IconName.mdiClose,
             dialogClassNames,
+            dialogWrapperClassNames,
+            header,
+            headerButtonProps,
+            headerClassNames,
+            headerIcon = IconName.mdiArrowLeftThick,
+            height,
+            maskClosable = true,
+            onClose,
+            onVisibleChange,
+            overlay = true,
+            parent = document.body,
             positionStrategy = 'fixed',
             style,
+            visible,
+            width,
+            zIndex,
             ...rest
         },
         ref: Ref<HTMLDivElement>
@@ -50,16 +55,26 @@ export const BaseDialog: FC<BaseDialogProps> = React.forwardRef(
             styles.dialogBackdrop,
             dialogWrapperClassNames,
             { [styles.visible]: visible },
+            {
+                [styles.modeless]: overlay === false,
+                [styles.modelessMask]: overlay === false && maskClosable,
+            },
         ]);
 
         const dialogClasses: string = mergeClasses([
             styles.dialog,
+            { [styles.noBodyPadding]: bodyPadding === false },
             dialogClassNames,
         ]);
 
         const headerClasses: string = mergeClasses([
             styles.header,
             headerClassNames,
+        ]);
+
+        const actionsClasses: string = mergeClasses([
+            styles.footer,
+            actionsClassNames,
         ]);
 
         const dialogBackdropStyle: React.CSSProperties = {
@@ -96,7 +111,17 @@ export const BaseDialog: FC<BaseDialogProps> = React.forwardRef(
                     onClick={stopPropagation}
                 >
                     <div className={headerClasses}>
-                        <span id={labelId}>{header}</span>
+                        <span id={labelId}>
+                            {headerButtonProps && (
+                                <NeutralButton
+                                    ariaLabel={'Back'}
+                                    classNames={styles.headerButton}
+                                    iconProps={{ path: headerIcon }}
+                                    {...headerButtonProps}
+                                />
+                            )}
+                            {header}
+                        </span>
                         <span className={styles.headerButtons}>
                             {actionButtonThreeProps && (
                                 <NeutralButton {...actionButtonThreeProps} />
@@ -107,18 +132,18 @@ export const BaseDialog: FC<BaseDialogProps> = React.forwardRef(
                             {actionButtonOneProps && (
                                 <NeutralButton {...actionButtonOneProps} />
                             )}
-                            <NeutralButton
-                                ariaLabel={'Close'}
-                                iconProps={{ path: closeIcon }}
-                                onClick={onClose}
-                                {...closeButtonProps}
-                            />
+                            {closable && (
+                                <NeutralButton
+                                    ariaLabel={'Close'}
+                                    iconProps={{ path: closeIcon }}
+                                    onClick={onClose}
+                                    {...closeButtonProps}
+                                />
+                            )}
                         </span>
                     </div>
                     <div className={bodyClassNames}>{body}</div>
-                    {actions && (
-                        <div className={actionsClassNames}>{actions}</div>
-                    )}
+                    {actions && <div className={actionsClasses}>{actions}</div>}
                 </div>
             </div>
         );

@@ -63,8 +63,8 @@ describe('Dialog', () => {
             onCancel,
             onClose,
         });
-        wrapper.find('.actions .button-primary').at(0).simulate('click');
-        wrapper.find('.actions .button-neutral').at(0).simulate('click');
+        wrapper.find('.footer .button-primary').at(0).simulate('click');
+        wrapper.find('.footer .button-neutral').at(0).simulate('click');
         wrapper.find('.button-neutral').at(0).simulate('click');
         wrapper.find('.dialog-backdrop').at(0).simulate('click');
 
@@ -78,5 +78,21 @@ describe('Dialog', () => {
 
         wrapper.find('.dialog-backdrop').at(0).simulate('click');
         expect(onClose).toHaveBeenCalledTimes(2);
+    });
+
+    test('dialog no body padding', () => {
+        wrapper.setProps({
+            visible: true,
+            bodyPadding: false,
+        });
+        expect(wrapper.find('.no-body-padding').length).toBeTruthy();
+    });
+
+    test('dialog overlay is hidden', () => {
+        wrapper.setProps({
+            visible: true,
+            overlay: false,
+        });
+        expect(wrapper.find('.modeless').length).toBeTruthy();
     });
 });
