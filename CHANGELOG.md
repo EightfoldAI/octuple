@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.20.6](https://github.com/EightfoldAI/octuple/compare/v1.20.3...v1.20.6) (2022-08-11)
+
+### Bug Fixes
+
+-   node version adjustment ([#298](https://github.com/EightfoldAI/octuple/issues/298)) ([c71e848](https://github.com/EightfoldAI/octuple/commits/c71e8482422b9b0c73448963b3f01efecd7f10e3)), closes [#297](https://github.com/EightfoldAI/octuple/issues/297)
+-   select: fixes select clear when items are toggled ([#300](https://github.com/EightfoldAI/octuple/issues/300)) ([#302](https://github.com/EightfoldAI/octuple/issues/302)) ([14072e4](https://github.com/EightfoldAI/octuple/commits/14072e498d4e5b7f326ee937b8692bd89afca7bf))
+
 ### [1.20.5](https://github.com/EightfoldAI/octuple/compare/v1.20.3...v1.20.5) (2022-08-10)
 
 ### Bug Fixes
