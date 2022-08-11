@@ -1,4 +1,5 @@
 import React, {
+    FC,
     useContext,
     useEffect,
     useImperativeHandle,
@@ -8,7 +9,7 @@ import React, {
 import { mergeClasses, stopPropagation } from '../../shared/utilities';
 import { PanelProps, PanelRef, PanelSize } from './';
 import { IconName } from '../Icon';
-import { NeutralButton } from '../Button';
+import { NeutralButton, SystemUIButton } from '../Button';
 import { Portal } from '../Portal';
 import { useScrollLock } from '../../hooks/useScrollLock';
 
@@ -31,6 +32,7 @@ export const Panel = React.forwardRef<PanelRef, PanelProps>(
             autoFocus = true,
             bodyClassNames,
             bodyPadding = true,
+            headerPadding = true,
             children,
             closable = true,
             closeButtonProps,
@@ -56,6 +58,7 @@ export const Panel = React.forwardRef<PanelRef, PanelProps>(
             size = PanelSize.medium,
             visible = false,
             width,
+            panelHeader,
             ...rest
         },
         ref
@@ -77,6 +80,7 @@ export const Panel = React.forwardRef<PanelRef, PanelProps>(
         const panelClasses: string = mergeClasses([
             styles.panel,
             { [styles.noBodyPadding]: bodyPadding === false },
+            { [styles.noHeaderPadding]: headerPadding === false },
             panelClassNames,
             { [styles.right]: placement === 'right' },
             { [styles.left]: placement === 'left' },
@@ -115,7 +119,7 @@ export const Panel = React.forwardRef<PanelRef, PanelProps>(
             onVisibleChange?.(visible);
         }, [visible]);
 
-        const getHeader = (): JSX.Element => (
+        const getDefaultHeader = (): JSX.Element => (
             <div className={headerClasses}>
                 <div>
                     {headerButtonProps && (
@@ -149,6 +153,11 @@ export const Panel = React.forwardRef<PanelRef, PanelProps>(
                 </span>
             </div>
         );
+
+        const getHeader = (): JSX.Element => {
+            if (!!panelHeader) return panelHeader();
+            return getDefaultHeader();
+        };
 
         const getBody = (): JSX.Element => (
             <div className={bodyClasses}>{children}</div>
@@ -233,3 +242,33 @@ export const Panel = React.forwardRef<PanelRef, PanelProps>(
         return <Portal getContainer={() => parent}>{getPanel()}</Portal>;
     }
 );
+
+interface PanelHeaderProps {
+    onClose?: () => void;
+    title?: string;
+}
+
+export const PanelHeader: FC<PanelHeaderProps> = ({ onClose, title }) => {
+    const panelHeaderTitle: string = mergeClasses([
+        'header4',
+        styles.customHeaderTitle,
+    ]);
+
+    return (
+        <div className={styles.customHeader}>
+            <div className={panelHeaderTitle}>{title}</div>
+            <div>
+                {!!onClose && (
+                    <SystemUIButton
+                        iconProps={{
+                            path: IconName.mdiClose,
+                            color: 'var(--white-black)',
+                        }}
+                        ariaLabel={'Close'}
+                        onClick={onClose}
+                    />
+                )}
+            </div>
+        </div>
+    );
+};

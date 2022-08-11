@@ -50,6 +50,11 @@ export interface PanelProps extends Omit<OcBaseProps<HTMLElement>, 'title'> {
      */
     bodyPadding?: boolean;
     /**
+     * Enables header padding
+     * @default true
+     */
+    headerPadding?: boolean;
+    /**
      * Content of the body
      */
     children?: React.ReactNode;
@@ -159,4 +164,8 @@ export interface PanelProps extends Omit<OcBaseProps<HTMLElement>, 'title'> {
      * Custom zIndex for the panel
      */
     zIndex?: number;
+    /**
+     * Custom zIndex for the panel
+     */
+    panelHeader?: () => React.ReactElement;
 }
