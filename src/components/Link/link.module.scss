@@ -10,4 +10,19 @@
     &.primary {
         color: var(--primary-color);
     }
+
+    // Hides the browser default keyboard focus-visible styles.
+    // Use the ConfigProvider instead.
+    &:focus-visible {
+        outline: none;
+    }
+}
+
+:global(.focus-visible) {
+    .link-style {
+        &.focus-visible,
+        &:focus-visible {
+            box-shadow: $focus-visible-box-shadow;
+        }
+    }
 }

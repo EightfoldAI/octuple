@@ -618,6 +618,12 @@
                     ceil(calc((14 * 1.4 - 2 * 3) / 2));
                 margin-right: $space-s;
             }
+
+            // Hides the browser default keyboard focus-visible styles.
+            // Use the ConfigProvider instead.
+            &:focus-visible {
+                outline: none;
+            }
         }
 
         tr {
@@ -792,6 +798,19 @@
                     &-active {
                         background-color: $table-sticky-scroll-bar-active-background-color;
                     }
+                }
+            }
+        }
+    }
+}
+
+:global(.focus-visible) {
+    .table-wrapper {
+        .table {
+            &-row-expand-icon {
+                &.focus-visible,
+                &:focus-visible {
+                    box-shadow: $focus-visible-box-shadow;
                 }
             }
         }
