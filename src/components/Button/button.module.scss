@@ -172,6 +172,12 @@
             background-color: var(--button-counter-active-background-color);
         }
     }
+
+    /** Hides the browser default keyboard focus-visible styles
+        use the ConfigProvider instead */
+    &:focus-visible {
+        outline: none;
+    }
 }
 
 .button-text-large {
