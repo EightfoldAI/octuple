@@ -104,7 +104,11 @@
     color: var(--grey-color-60);
     padding: $space-ml $space-xxs $space-s;
     border-bottom: solid 1px var(--border-color);
-    margin: 0 $space-m $space-xs;
+    margin: 0 $space-m $space-m;
+
+    &:first-child {
+        padding-top: 0;
+    }
 }
 
 .menu-item-custom {

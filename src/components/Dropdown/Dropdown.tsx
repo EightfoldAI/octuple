@@ -54,6 +54,7 @@ export const Dropdown: FC<DropdownProps> = React.memo(
         disabled,
         closeOnDropdownClick = true,
         visible,
+        onClickOutside,
     }) => {
         const [mergedVisible, setVisible] = useMergedState<boolean>(false, {
             value: visible,
@@ -89,7 +90,14 @@ export const Dropdown: FC<DropdownProps> = React.memo(
                 );
             };
 
-        useOnClickOutside(refs.reference, toggle(false), mergedVisible);
+        useOnClickOutside(
+            refs.reference,
+            (e) => {
+                toggle(false)(e);
+                onClickOutside?.(e);
+            },
+            mergedVisible
+        );
 
         useEffect(() => {
             if (!refs.reference.current || !refs.floating.current) {

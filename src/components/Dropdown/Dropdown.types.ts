@@ -68,4 +68,5 @@ export interface DropdownProps {
      */
     closeOnDropdownClick?: boolean;
     visible?: boolean;
+    onClickOutside?: (event: MouseEvent) => void;
 }
