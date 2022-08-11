@@ -1,0 +1,1370 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Layout Basic 1`] = `
+<div
+  className="stack full-width vertical xxxl"
+  style={
+    Object {
+      "alignItems": undefined,
+      "flexWrap": undefined,
+      "justifyContent": "center",
+    }
+  }
+>
+  <div
+    className="octuple layout"
+    style={
+      Object {
+        "border": "1px solid #f6f7f8",
+        "textAlign": "center",
+      }
+    }
+  >
+    <nav
+      className="layout-nav"
+    >
+      <div
+        className="navbar-container"
+        style={
+          Object {
+            "padding": 0,
+          }
+        }
+      >
+        <div
+          className="navbar-content"
+        >
+          <a
+            className="link-style"
+            href="https://www.twitter.com"
+            style={
+              Object {
+                "color": "inherit",
+                "padding": "8px 20px",
+              }
+            }
+            target="_self"
+          >
+            Twitter
+          </a>
+          <a
+            className="link-style"
+            href="https://www.facebook.com"
+            style={
+              Object {
+                "color": "inherit",
+                "padding": "8px 20px",
+              }
+            }
+            target="_self"
+          >
+            Facebook
+          </a>
+        </div>
+        <div
+          className="navbar-content"
+        >
+          <div
+            className="main-wrapper"
+          >
+            <div
+              aria-controls="dropdown-9"
+              aria-expanded={false}
+              aria-haspopup={true}
+              className="reference-wrapper"
+              onClick={[Function]}
+              role="button"
+              style={
+                Object {
+                  "display": "flex",
+                }
+              }
+              tabIndex="0"
+            >
+              <div
+                style={
+                  Object {
+                    "fontSize": "18px",
+                    "height": "32px",
+                    "minHeight": "32px",
+                    "minWidth": "32px",
+                    "width": "32px",
+                  }
+                }
+              >
+                <img
+                  alt="random profile image"
+                  className="image-style round-image"
+                  height="32px"
+                  src="https://images.pexels.com/photos/771742/pexels-photo-771742.jpeg"
+                  width="32px"
+                />
+              </div>
+              <span
+                aria-hidden={false}
+                className="icon-wrapper"
+                role="presentation"
+              >
+                <svg
+                  role="presentation"
+                  style={
+                    Object {
+                      "height": "20px",
+                      "width": "20px",
+                    }
+                  }
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"
+                    style={
+                      Object {
+                        "fill": "currentColor",
+                      }
+                    }
+                  />
+                </svg>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <header
+      className="layout-header"
+      style={
+        Object {
+          "border": "1px solid #f6f7f8",
+        }
+      }
+    >
+      <h1>
+        Header
+      </h1>
+    </header>
+    <main
+      className="layout-content"
+      style={
+        Object {
+          "border": "1px solid #f6f7f8",
+          "lineHeight": "120px",
+          "minHeight": "120px",
+        }
+      }
+    >
+      <section
+        className="layout-section"
+      >
+        <article
+          className="layout-article"
+        >
+          <p
+            style={
+              Object {
+                "lineHeight": "120px",
+              }
+            }
+          >
+            Content may be nested like so: Content, Section, then elements.
+          </p>
+        </article>
+      </section>
+    </main>
+    <footer
+      className="layout-footer"
+      style={
+        Object {
+          "border": "1px solid #f6f7f8",
+          "height": "80px",
+          "lineHeight": "48px",
+        }
+      }
+    >
+      Footer
+    </footer>
+  </div>
+  <div
+    className="octuple layout"
+    style={
+      Object {
+        "border": "1px solid #f6f7f8",
+        "textAlign": "center",
+      }
+    }
+  >
+    <header
+      className="layout-header"
+      style={
+        Object {
+          "border": "1px solid #f6f7f8",
+        }
+      }
+    >
+      <h1>
+        Header
+      </h1>
+    </header>
+    <nav
+      className="layout-nav"
+    >
+      <div
+        className="navbar-container"
+        style={
+          Object {
+            "padding": 0,
+          }
+        }
+      >
+        <div
+          className="navbar-content"
+        >
+          <a
+            className="link-style"
+            href="https://www.twitter.com"
+            style={
+              Object {
+                "color": "inherit",
+                "padding": "8px 20px",
+              }
+            }
+            target="_self"
+          >
+            Twitter
+          </a>
+          <a
+            className="link-style"
+            href="https://www.facebook.com"
+            style={
+              Object {
+                "color": "inherit",
+                "padding": "8px 20px",
+              }
+            }
+            target="_self"
+          >
+            Facebook
+          </a>
+        </div>
+        <div
+          className="navbar-content"
+        >
+          <div
+            className="main-wrapper"
+          >
+            <div
+              aria-controls="dropdown-10"
+              aria-expanded={false}
+              aria-haspopup={true}
+              className="reference-wrapper"
+              onClick={[Function]}
+              role="button"
+              style={
+                Object {
+                  "display": "flex",
+                }
+              }
+              tabIndex="0"
+            >
+              <div
+                style={
+                  Object {
+                    "fontSize": "18px",
+                    "height": "32px",
+                    "minHeight": "32px",
+                    "minWidth": "32px",
+                    "width": "32px",
+                  }
+                }
+              >
+                <img
+                  alt="random profile image"
+                  className="image-style round-image"
+                  height="32px"
+                  src="https://images.pexels.com/photos/771742/pexels-photo-771742.jpeg"
+                  width="32px"
+                />
+              </div>
+              <span
+                aria-hidden={false}
+                className="icon-wrapper"
+                role="presentation"
+              >
+                <svg
+                  role="presentation"
+                  style={
+                    Object {
+                      "height": "20px",
+                      "width": "20px",
+                    }
+                  }
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"
+                    style={
+                      Object {
+                        "fill": "currentColor",
+                      }
+                    }
+                  />
+                </svg>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div
+      className="octuple layout"
+      style={
+        Object {
+          "border": "1px solid #f6f7f8",
+          "textAlign": "center",
+        }
+      }
+    >
+      <aside
+        className="layout-aside"
+        style={
+          Object {
+            "border": "1px solid #f6f7f8",
+            "flex": "0 0 200px",
+            "lineHeight": "120px",
+            "maxWidth": "200px",
+            "minHeight": "120px",
+            "minWidth": "200px",
+            "width": "200px",
+          }
+        }
+      >
+        <div
+          className="layout-aside-children"
+        >
+          Aside
+        </div>
+      </aside>
+      <section
+        className="layout-section"
+      >
+        <article
+          className="layout-article"
+        >
+          <p
+            style={
+              Object {
+                "lineHeight": "120px",
+              }
+            }
+          >
+            Content may be nested like so: Content, Section, then elements.
+          </p>
+        </article>
+      </section>
+    </div>
+    <footer
+      className="layout-footer"
+      style={
+        Object {
+          "border": "1px solid #f6f7f8",
+          "height": "80px",
+          "lineHeight": "48px",
+        }
+      }
+    >
+      Footer
+    </footer>
+  </div>
+  <div
+    className="octuple layout"
+    style={
+      Object {
+        "border": "1px solid #f6f7f8",
+        "textAlign": "center",
+      }
+    }
+  >
+    <nav
+      className="layout-nav"
+    >
+      <div
+        className="navbar-container"
+        style={
+          Object {
+            "padding": 0,
+          }
+        }
+      >
+        <div
+          className="navbar-content"
+        >
+          <a
+            className="link-style"
+            href="https://www.twitter.com"
+            style={
+              Object {
+                "color": "inherit",
+                "padding": "8px 20px",
+              }
+            }
+            target="_self"
+          >
+            Twitter
+          </a>
+          <a
+            className="link-style"
+            href="https://www.facebook.com"
+            style={
+              Object {
+                "color": "inherit",
+                "padding": "8px 20px",
+              }
+            }
+            target="_self"
+          >
+            Facebook
+          </a>
+        </div>
+        <div
+          className="navbar-content"
+        >
+          <div
+            className="main-wrapper"
+          >
+            <div
+              aria-controls="dropdown-11"
+              aria-expanded={false}
+              aria-haspopup={true}
+              className="reference-wrapper"
+              onClick={[Function]}
+              role="button"
+              style={
+                Object {
+                  "display": "flex",
+                }
+              }
+              tabIndex="0"
+            >
+              <div
+                style={
+                  Object {
+                    "fontSize": "18px",
+                    "height": "32px",
+                    "minHeight": "32px",
+                    "minWidth": "32px",
+                    "width": "32px",
+                  }
+                }
+              >
+                <img
+                  alt="random profile image"
+                  className="image-style round-image"
+                  height="32px"
+                  src="https://images.pexels.com/photos/771742/pexels-photo-771742.jpeg"
+                  width="32px"
+                />
+              </div>
+              <span
+                aria-hidden={false}
+                className="icon-wrapper"
+                role="presentation"
+              >
+                <svg
+                  role="presentation"
+                  style={
+                    Object {
+                      "height": "20px",
+                      "width": "20px",
+                    }
+                  }
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"
+                    style={
+                      Object {
+                        "fill": "currentColor",
+                      }
+                    }
+                  />
+                </svg>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <header
+      className="layout-header"
+      style={
+        Object {
+          "border": "1px solid #f6f7f8",
+        }
+      }
+    >
+      <h1>
+        Header
+      </h1>
+    </header>
+    <div
+      className="octuple layout"
+      style={
+        Object {
+          "border": "1px solid #f6f7f8",
+          "textAlign": "center",
+        }
+      }
+    >
+      <section
+        className="layout-section"
+      >
+        <article
+          className="layout-article"
+        >
+          <p
+            style={
+              Object {
+                "lineHeight": "120px",
+              }
+            }
+          >
+            Content may be nested like so: Content, Section, then elements.
+          </p>
+        </article>
+      </section>
+      <aside
+        className="layout-aside"
+        style={
+          Object {
+            "border": "1px solid #f6f7f8",
+            "flex": "0 0 200px",
+            "lineHeight": "120px",
+            "maxWidth": "200px",
+            "minHeight": "120px",
+            "minWidth": "200px",
+            "width": "200px",
+          }
+        }
+      >
+        <div
+          className="layout-aside-children"
+        >
+          Aside
+        </div>
+      </aside>
+    </div>
+    <footer
+      className="layout-footer"
+      style={
+        Object {
+          "border": "1px solid #f6f7f8",
+          "height": "80px",
+          "lineHeight": "48px",
+        }
+      }
+    >
+      Footer
+    </footer>
+  </div>
+  <div
+    className="octuple layout"
+    style={
+      Object {
+        "border": "1px solid #f6f7f8",
+        "textAlign": "center",
+      }
+    }
+  >
+    <aside
+      className="layout-aside"
+      style={
+        Object {
+          "border": "1px solid #f6f7f8",
+          "flex": "0 0 200px",
+          "lineHeight": "352px",
+          "maxWidth": "200px",
+          "minWidth": "200px",
+          "width": "200px",
+        }
+      }
+    >
+      <div
+        className="layout-aside-children"
+      >
+        Aside
+      </div>
+    </aside>
+    <div
+      className="octuple layout"
+      style={
+        Object {
+          "border": "1px solid #f6f7f8",
+          "textAlign": "center",
+        }
+      }
+    >
+      <nav
+        className="layout-nav"
+      >
+        <div
+          className="navbar-container"
+          style={
+            Object {
+              "padding": 0,
+            }
+          }
+        >
+          <div
+            className="navbar-content"
+          >
+            <a
+              className="link-style"
+              href="https://www.twitter.com"
+              style={
+                Object {
+                  "color": "inherit",
+                  "padding": "8px 20px",
+                }
+              }
+              target="_self"
+            >
+              Twitter
+            </a>
+            <a
+              className="link-style"
+              href="https://www.facebook.com"
+              style={
+                Object {
+                  "color": "inherit",
+                  "padding": "8px 20px",
+                }
+              }
+              target="_self"
+            >
+              Facebook
+            </a>
+          </div>
+          <div
+            className="navbar-content"
+          >
+            <div
+              className="main-wrapper"
+            >
+              <div
+                aria-controls="dropdown-12"
+                aria-expanded={false}
+                aria-haspopup={true}
+                className="reference-wrapper"
+                onClick={[Function]}
+                role="button"
+                style={
+                  Object {
+                    "display": "flex",
+                  }
+                }
+                tabIndex="0"
+              >
+                <div
+                  style={
+                    Object {
+                      "fontSize": "18px",
+                      "height": "32px",
+                      "minHeight": "32px",
+                      "minWidth": "32px",
+                      "width": "32px",
+                    }
+                  }
+                >
+                  <img
+                    alt="random profile image"
+                    className="image-style round-image"
+                    height="32px"
+                    src="https://images.pexels.com/photos/771742/pexels-photo-771742.jpeg"
+                    width="32px"
+                  />
+                </div>
+                <span
+                  aria-hidden={false}
+                  className="icon-wrapper"
+                  role="presentation"
+                >
+                  <svg
+                    role="presentation"
+                    style={
+                      Object {
+                        "height": "20px",
+                        "width": "20px",
+                      }
+                    }
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"
+                      style={
+                        Object {
+                          "fill": "currentColor",
+                        }
+                      }
+                    />
+                  </svg>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <header
+        className="layout-header"
+        style={
+          Object {
+            "border": "1px solid #f6f7f8",
+          }
+        }
+      >
+        <h1>
+          Header
+        </h1>
+      </header>
+      <main
+        className="layout-content"
+      >
+        <section
+          className="layout-section"
+        >
+          <article
+            className="layout-article"
+          >
+            <p
+              style={
+                Object {
+                  "lineHeight": "120px",
+                }
+              }
+            >
+              Content may be nested like so: Content, Section, then elements.
+            </p>
+          </article>
+        </section>
+      </main>
+      <footer
+        className="layout-footer"
+        style={
+          Object {
+            "border": "1px solid #f6f7f8",
+            "height": "80px",
+            "lineHeight": "48px",
+          }
+        }
+      >
+        Footer
+      </footer>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Layout Fixed Aside 1`] = `
+<div
+  className="octuple layout"
+  style={
+    Object {
+      "border": "1px solid #f6f7f8",
+      "textAlign": "center",
+    }
+  }
+>
+  <aside
+    className="layout-aside"
+    style={
+      Object {
+        "border": "1px solid #f6f7f8",
+        "bottom": 0,
+        "flex": "0 0 200px",
+        "left": 0,
+        "maxWidth": "200px",
+        "minWidth": "200px",
+        "overflow": "auto",
+        "paddingTop": 60,
+        "position": "absolute",
+        "top": 0,
+        "width": "200px",
+      }
+    }
+  >
+    <div
+      className="layout-aside-children"
+    >
+      Fixed Aside
+    </div>
+  </aside>
+  <div
+    className="octuple layout"
+    style={
+      Object {
+        "marginLeft": 200,
+      }
+    }
+  >
+    <header
+      className="layout-header"
+      style={
+        Object {
+          "border": "1px solid #f6f7f8",
+        }
+      }
+    >
+      <h1>
+        Header
+      </h1>
+    </header>
+    <main
+      className="layout-content"
+      style={
+        Object {
+          "margin": "24px 16px 0",
+          "overflow": "initial",
+        }
+      }
+    >
+      <section
+        className="layout-section"
+      >
+        <article
+          className="layout-article"
+        >
+          <p
+            style={
+              Object {
+                "textAlign": "left",
+              }
+            }
+          >
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et eros aliquet, lacinia velit id, volutpat velit. Ut porttitor, nulla quis malesuada vulputate, tortor nisl lacinia velit, a vulputate leo sem mattis neque. Nam facilisis, risus quis tempus lacinia, mi dolor rhoncus mi, a pulvinar urna enim sit amet odio. Nam aliquam pellentesque neque, a auctor velit ultricies ut. Nunc posuere elit vel molestie convallis. Aliquam erat volutpat. Fusce sit amet tempus libero. Morbi lobortis elit eu dolor eleifend hendrerit. Nullam at justo mattis, consequat nisi ut, cursus lectus. Nulla ac enim at quam pretium bibendum vitae eu dui. Nam sollicitudin mi et mollis pulvinar. Mauris vel mi nisi. Nulla pharetra massa vel efficitur ullamcorper. Nulla suscipit sapien in ultrices condimentum. Phasellus consectetur euismod sagittis. Suspendisse arcu mi, dignissim at libero eget, rutrum commodo tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam molestie, libero ac aliquam facilisis, urna nunc rhoncus nisl, vel faucibus elit tellus nec velit. Morbi tempor in risus vitae finibus. Vestibulum congue ut sapien hendrerit tincidunt. Integer scelerisque nisl eu orci mattis varius non at ante. Vivamus finibus varius tellus vel pretium. Nullam ipsum nunc, volutpat sit amet consectetur ac, lacinia vel massa. Praesent odio turpis, dictum sit amet iaculis id, scelerisque vel erat. Aliquam mollis malesuada nibh, quis convallis massa mattis id. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque imperdiet mattis urna id cursus. Praesent sit amet pharetra libero, sed efficitur nibh. Mauris aliquam posuere egestas. Fusce tristique congue aliquet. Praesent pulvinar consectetur tempor. Donec justo mauris, finibus sed libero hendrerit, consectetur consequat dui. Fusce mauris augue, vestibulum nec consectetur id, fermentum sed felis. Pellentesque commodo magna sit amet lacus placerat, vel viverra urna convallis. Donec enim nisi, laoreet in mollis eu, lobortis vel tortor. Proin sit amet velit ut sem aliquet faucibus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec luctus, ligula bibendum auctor condimentum, augue tortor viverra orci, ac hendrerit enim nulla vehicula orci. Fusce id turpis arcu. Sed maximus erat ligula, vitae molestie est accumsan ut. Sed eu scelerisque quam. Mauris vel massa quis elit rutrum volutpat non sit amet enim. Nunc rutrum metus nunc, eu fermentum nunc auctor at. Nullam commodo magna vitae porttitor porta. Cras egestas nisi ut arcu aliquam molestie sed ut mauris. Vestibulum eu risus et nibh varius commodo ut ut quam. Phasellus a fringilla erat. Quisque turpis magna, lacinia a dignissim vel, convallis in orci. Phasellus ac lorem viverra, efficitur massa in, ullamcorper leo. Donec et tempor neque. Suspendisse at sem velit. Phasellus pretium tincidunt felis nec viverra. Donec dapibus condimentum quam, dapibus pretium erat feugiat non. Aliquam at enim turpis. Aenean ac nulla lobortis, vulputate erat vel, semper orci. Mauris porta at arcu quis elementum. Morbi nec gravida odio. Suspendisse sed cursus neque, vitae euismod massa. Donec non velit pretium, posuere nisi id, molestie velit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et eros aliquet, lacinia velit id, volutpat velit. Ut porttitor, nulla quis malesuada vulputate, tortor nisl lacinia velit, a vulputate leo sem mattis neque. Nam facilisis, risus quis tempus lacinia, mi dolor rhoncus mi, a pulvinar urna enim sit amet odio. Nam aliquam pellentesque neque, a auctor velit ultricies ut. Nunc posuere elit vel molestie convallis. Aliquam erat volutpat. Fusce sit amet tempus libero. Morbi lobortis elit eu dolor eleifend hendrerit. Nullam at justo mattis, consequat nisi ut, cursus lectus. Nulla ac enim at quam pretium bibendum vitae eu dui. Nam sollicitudin mi et mollis pulvinar. Mauris vel mi nisi. Nulla pharetra massa vel efficitur ullamcorper. Nulla suscipit sapien in ultrices condimentum. Phasellus consectetur euismod sagittis. Suspendisse arcu mi, dignissim at libero eget, rutrum commodo tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam molestie, libero ac aliquam facilisis, urna nunc rhoncus nisl, vel faucibus elit tellus nec velit. Morbi tempor in risus vitae finibus. Vestibulum congue ut sapien hendrerit tincidunt. Integer scelerisque nisl eu orci mattis varius non at ante. Vivamus finibus varius tellus vel pretium. Nullam ipsum nunc, volutpat sit amet consectetur ac, lacinia vel massa. Praesent odio turpis, dictum sit amet iaculis id, scelerisque vel erat. Aliquam mollis malesuada nibh, quis convallis massa mattis id. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque imperdiet mattis urna id cursus. Praesent sit amet pharetra libero, sed efficitur nibh. Mauris aliquam posuere egestas. Fusce tristique congue aliquet. Praesent pulvinar consectetur tempor. Donec justo mauris, finibus sed libero hendrerit, consectetur consequat dui. Fusce mauris augue, vestibulum nec consectetur id, fermentum sed felis. Pellentesque commodo magna sit amet lacus placerat, vel viverra urna convallis. Donec enim nisi, laoreet in mollis eu, lobortis vel tortor. Proin sit amet velit ut sem aliquet faucibus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec luctus, ligula bibendum auctor condimentum, augue tortor viverra orci, ac hendrerit enim nulla vehicula orci. Fusce id turpis arcu. Sed maximus erat ligula, vitae molestie est accumsan ut. Sed eu scelerisque quam. Mauris vel massa quis elit rutrum volutpat non sit amet enim. Nunc rutrum metus nunc, eu fermentum nunc auctor at. Nullam commodo magna vitae porttitor porta. Cras egestas nisi ut arcu aliquam molestie sed ut mauris. Vestibulum eu risus et nibh varius commodo ut ut quam. Phasellus a fringilla erat. Quisque turpis magna, lacinia a dignissim vel, convallis in orci. Phasellus ac lorem viverra, efficitur massa in, ullamcorper leo. Donec et tempor neque. Suspendisse at sem velit. Phasellus pretium tincidunt felis nec viverra. Donec dapibus condimentum quam, dapibus pretium erat feugiat non. Aliquam at enim turpis. Aenean ac nulla lobortis, vulputate erat vel, semper orci. Mauris porta at arcu quis elementum. Morbi nec gravida odio. Suspendisse sed cursus neque, vitae euismod massa. Donec non velit pretium, posuere nisi id, molestie velit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et eros aliquet, lacinia velit id, volutpat velit. Ut porttitor, nulla quis malesuada vulputate, tortor nisl lacinia velit, a vulputate leo sem mattis neque. Nam facilisis, risus quis tempus lacinia, mi dolor rhoncus mi, a pulvinar urna enim sit amet odio. Nam aliquam pellentesque neque, a auctor velit ultricies ut. Nunc posuere elit vel molestie convallis. Aliquam erat volutpat. Fusce sit amet tempus libero. Morbi lobortis elit eu dolor eleifend hendrerit. Nullam at justo mattis, consequat nisi ut, cursus lectus. Nulla ac enim at quam pretium bibendum vitae eu dui. Nam sollicitudin mi et mollis pulvinar. Mauris vel mi nisi. Nulla pharetra massa vel efficitur ullamcorper. Nulla suscipit sapien in ultrices condimentum. Phasellus consectetur euismod sagittis. Suspendisse arcu mi, dignissim at libero eget, rutrum commodo tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam molestie, libero ac aliquam facilisis, urna nunc rhoncus nisl, vel faucibus elit tellus nec velit. Morbi tempor in risus vitae finibus. Vestibulum congue ut sapien hendrerit tincidunt. Integer scelerisque nisl eu orci mattis varius non at ante. Vivamus finibus varius tellus vel pretium. Nullam ipsum nunc, volutpat sit amet consectetur ac, lacinia vel massa. Praesent odio turpis, dictum sit amet iaculis id, scelerisque vel erat. Aliquam mollis malesuada nibh, quis convallis massa mattis id. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque imperdiet mattis urna id cursus. Praesent sit amet pharetra libero, sed efficitur nibh. Mauris aliquam posuere egestas. Fusce tristique congue aliquet. Praesent pulvinar consectetur tempor. Donec justo mauris, finibus sed libero hendrerit, consectetur consequat dui. Fusce mauris augue, vestibulum nec consectetur id, fermentum sed felis. Pellentesque commodo magna sit amet lacus placerat, vel viverra urna convallis. Donec enim nisi, laoreet in mollis eu, lobortis vel tortor. Proin sit amet velit ut sem aliquet faucibus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec luctus, ligula bibendum auctor condimentum, augue tortor viverra orci, ac hendrerit enim nulla vehicula orci. Fusce id turpis arcu. Sed maximus erat ligula, vitae molestie est accumsan ut. Sed eu scelerisque quam. Mauris vel massa quis elit rutrum volutpat non sit amet enim. Nunc rutrum metus nunc, eu fermentum nunc auctor at. Nullam commodo magna vitae porttitor porta. Cras egestas nisi ut arcu aliquam molestie sed ut mauris. Vestibulum eu risus et nibh varius commodo ut ut quam. Phasellus a fringilla erat. Quisque turpis magna, lacinia a dignissim vel, convallis in orci. Phasellus ac lorem viverra, efficitur massa in, ullamcorper leo. Donec et tempor neque. Suspendisse at sem velit. Phasellus pretium tincidunt felis nec viverra. Donec dapibus condimentum quam, dapibus pretium erat feugiat non. Aliquam at enim turpis. Aenean ac nulla lobortis, vulputate erat vel, semper orci. Mauris porta at arcu quis elementum. Morbi nec gravida odio. Suspendisse sed cursus neque, vitae euismod massa. Donec non velit pretium, posuere nisi id, molestie velit.
+          </p>
+        </article>
+      </section>
+    </main>
+    <footer
+      className="layout-footer"
+      style={
+        Object {
+          "border": "1px solid #f6f7f8",
+          "height": "80px",
+          "lineHeight": "48px",
+        }
+      }
+    >
+      Footer
+    </footer>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Layout Fixed Navbar 1`] = `
+<div
+  className="octuple layout"
+  style={
+    Object {
+      "height": "294px",
+    }
+  }
+>
+  <nav
+    className="layout-nav"
+    style={
+      Object {
+        "position": "absolute",
+        "width": "calc(100% - 32px)",
+        "zIndex": 1,
+      }
+    }
+  >
+    <div
+      className="navbar-container"
+      style={
+        Object {
+          "padding": 0,
+        }
+      }
+    >
+      <div
+        className="navbar-content"
+      >
+        <a
+          className="link-style"
+          href="https://www.twitter.com"
+          style={
+            Object {
+              "color": "inherit",
+              "padding": "8px 20px",
+            }
+          }
+          target="_self"
+        >
+          Twitter
+        </a>
+        <a
+          className="link-style"
+          href="https://www.facebook.com"
+          style={
+            Object {
+              "color": "inherit",
+              "padding": "8px 20px",
+            }
+          }
+          target="_self"
+        >
+          Facebook
+        </a>
+      </div>
+      <div
+        className="navbar-content"
+      >
+        <div
+          className="main-wrapper"
+        >
+          <div
+            aria-controls="dropdown-13"
+            aria-expanded={false}
+            aria-haspopup={true}
+            className="reference-wrapper"
+            onClick={[Function]}
+            role="button"
+            style={
+              Object {
+                "display": "flex",
+              }
+            }
+            tabIndex="0"
+          >
+            <div
+              style={
+                Object {
+                  "fontSize": "18px",
+                  "height": "32px",
+                  "minHeight": "32px",
+                  "minWidth": "32px",
+                  "width": "32px",
+                }
+              }
+            >
+              <img
+                alt="random profile image"
+                className="image-style round-image"
+                height="32px"
+                src="https://images.pexels.com/photos/771742/pexels-photo-771742.jpeg"
+                width="32px"
+              />
+            </div>
+            <span
+              aria-hidden={false}
+              className="icon-wrapper"
+              role="presentation"
+            >
+              <svg
+                role="presentation"
+                style={
+                  Object {
+                    "height": "20px",
+                    "width": "20px",
+                  }
+                }
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"
+                  style={
+                    Object {
+                      "fill": "currentColor",
+                    }
+                  }
+                />
+              </svg>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <div
+    className="octuple layout"
+    style={
+      Object {
+        "height": "394px",
+        "marginTop": 60,
+        "overflowY": "auto",
+      }
+    }
+  >
+    <header
+      className="layout-header"
+      style={
+        Object {
+          "border": "1px solid #f6f7f8",
+          "textAlign": "center",
+        }
+      }
+    >
+      <h1>
+        Header
+      </h1>
+    </header>
+    <main
+      className="layout-content"
+      style={
+        Object {
+          "border": "1px solid #f6f7f8",
+          "lineHeight": "220px",
+          "minHeight": "220px",
+          "textAlign": "center",
+        }
+      }
+    >
+      <section
+        className="layout-section"
+      >
+        <article
+          className="layout-article"
+        >
+          <p
+            style={
+              Object {
+                "lineHeight": "220px",
+              }
+            }
+          >
+            Content may be nested like so: Content, Section, then elements.
+          </p>
+        </article>
+      </section>
+    </main>
+    <footer
+      className="layout-footer"
+      style={
+        Object {
+          "border": "1px solid #f6f7f8",
+          "height": "80px",
+          "lineHeight": "48px",
+          "textAlign": "center",
+        }
+      }
+    >
+      Footer
+    </footer>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Layout Responsive 1`] = `
+<div
+  className="octuple layout"
+  style={
+    Object {
+      "border": "1px solid #f6f7f8",
+      "textAlign": "center",
+    }
+  }
+>
+  <aside
+    className="layout-aside"
+    style={
+      Object {
+        "border": "1px solid #f6f7f8",
+        "flex": "0 0 200px",
+        "lineHeight": "352px",
+        "maxWidth": "200px",
+        "minWidth": "200px",
+        "width": "200px",
+      }
+    }
+  >
+    <div
+      className="layout-aside-children"
+    >
+      Aside
+    </div>
+  </aside>
+  <div
+    className="octuple layout"
+    style={
+      Object {
+        "border": "1px solid #f6f7f8",
+        "textAlign": "center",
+      }
+    }
+  >
+    <nav
+      className="layout-nav"
+    >
+      <div
+        className="navbar-container"
+        style={
+          Object {
+            "padding": 0,
+          }
+        }
+      >
+        <div
+          className="navbar-content"
+        >
+          <a
+            className="link-style"
+            href="https://www.twitter.com"
+            style={
+              Object {
+                "color": "inherit",
+                "padding": "8px 20px",
+              }
+            }
+            target="_self"
+          >
+            Twitter
+          </a>
+          <a
+            className="link-style"
+            href="https://www.facebook.com"
+            style={
+              Object {
+                "color": "inherit",
+                "padding": "8px 20px",
+              }
+            }
+            target="_self"
+          >
+            Facebook
+          </a>
+        </div>
+        <div
+          className="navbar-content"
+        >
+          <div
+            className="main-wrapper"
+          >
+            <div
+              aria-controls="dropdown-14"
+              aria-expanded={false}
+              aria-haspopup={true}
+              className="reference-wrapper"
+              onClick={[Function]}
+              role="button"
+              style={
+                Object {
+                  "display": "flex",
+                }
+              }
+              tabIndex="0"
+            >
+              <div
+                style={
+                  Object {
+                    "fontSize": "18px",
+                    "height": "32px",
+                    "minHeight": "32px",
+                    "minWidth": "32px",
+                    "width": "32px",
+                  }
+                }
+              >
+                <img
+                  alt="random profile image"
+                  className="image-style round-image"
+                  height="32px"
+                  src="https://images.pexels.com/photos/771742/pexels-photo-771742.jpeg"
+                  width="32px"
+                />
+              </div>
+              <span
+                aria-hidden={false}
+                className="icon-wrapper"
+                role="presentation"
+              >
+                <svg
+                  role="presentation"
+                  style={
+                    Object {
+                      "height": "20px",
+                      "width": "20px",
+                    }
+                  }
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"
+                    style={
+                      Object {
+                        "fill": "currentColor",
+                      }
+                    }
+                  />
+                </svg>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <header
+      className="layout-header"
+      style={
+        Object {
+          "border": "1px solid #f6f7f8",
+        }
+      }
+    >
+      <h1>
+        Header
+      </h1>
+    </header>
+    <main
+      className="layout-content"
+    >
+      <section
+        className="layout-section"
+      >
+        <article
+          className="layout-article"
+        >
+          <p
+            style={
+              Object {
+                "lineHeight": "120px",
+              }
+            }
+          >
+            Content may be nested like so: Content, Section, then elements.
+          </p>
+        </article>
+      </section>
+    </main>
+    <footer
+      className="layout-footer"
+      style={
+        Object {
+          "border": "1px solid #f6f7f8",
+          "height": "80px",
+          "lineHeight": "48px",
+        }
+      }
+    >
+      Footer
+    </footer>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Layout Trigger 1`] = `
+<div
+  className="octuple layout"
+  style={
+    Object {
+      "border": "1px solid #f6f7f8",
+      "textAlign": "center",
+    }
+  }
+>
+  <aside
+    className="layout-aside"
+    style={
+      Object {
+        "border": "1px solid #f6f7f8",
+        "flex": "0 0 200px",
+        "lineHeight": "352px",
+        "maxWidth": "200px",
+        "minWidth": "200px",
+        "width": "200px",
+      }
+    }
+  >
+    <div
+      className="layout-aside-children"
+    >
+      Aside
+    </div>
+  </aside>
+  <div
+    className="octuple layout"
+    style={
+      Object {
+        "border": "1px solid #f6f7f8",
+        "textAlign": "center",
+      }
+    }
+  >
+    <header
+      className="layout-header"
+      style={
+        Object {
+          "border": "1px solid #f6f7f8",
+          "textAlign": "left",
+        }
+      }
+    >
+      <button
+        aria-disabled={false}
+        className="trigger button button-neutral button-large pill-shape icon-left"
+        defaultChecked={false}
+        disabled={false}
+        onClick={[Function]}
+      >
+        <span
+          aria-hidden={false}
+          className="icon icon-wrapper"
+          role="presentation"
+        >
+          <svg
+            role="presentation"
+            style={
+              Object {
+                "height": "24px",
+                "width": "24px",
+              }
+            }
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M5,13L9,17L7.6,18.42L1.18,12L7.6,5.58L9,7L5,11H21V13H5M21,6V8H11V6H21M21,16V18H11V16H21Z"
+              style={
+                Object {
+                  "fill": "currentColor",
+                }
+              }
+            />
+          </svg>
+        </span>
+      </button>
+    </header>
+    <main
+      className="layout-content"
+    >
+      <section
+        className="layout-section"
+      >
+        <article
+          className="layout-article"
+        >
+          <p
+            style={
+              Object {
+                "lineHeight": "120px",
+              }
+            }
+          >
+            Content may be nested like so: Content, Section, then elements.
+          </p>
+        </article>
+      </section>
+    </main>
+    <footer
+      className="layout-footer"
+      style={
+        Object {
+          "border": "1px solid #f6f7f8",
+          "height": "80px",
+          "lineHeight": "48px",
+        }
+      }
+    >
+      Footer
+    </footer>
+  </div>
+</div>
+`;

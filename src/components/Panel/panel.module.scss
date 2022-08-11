@@ -10,6 +10,7 @@
     .panel {
         display: flex;
         flex-direction: column;
+        font-family: $octuple-font-family;
         position: absolute;
         padding: 0 $space-xl;
         background: var(--background-color);

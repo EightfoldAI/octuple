@@ -7,10 +7,10 @@
 
         background-color: var(--background-color);
         border: 1px solid var(--border-color);
-        border-radius: $corner-radius-xl;
+        border-radius: $corner-radius-m;
         box-sizing: border-box;
         color: var(--grey-color-60);
-        font-family: 'Source Sans Pro', sans-serif;
+        font-family: $octuple-font-family;
         font-size: $text-font-size-3;
         line-height: $text-line-height-1;
         min-width: 120px;
@@ -871,10 +871,10 @@
     .text-area {
         background-color: var(--background-color);
         border: 1px solid var(--border-color);
-        border-radius: $corner-radius-s;
+        border-radius: $corner-radius-m;
         box-sizing: border-box;
         color: var(--grey-color-60);
-        font-family: 'Source Sans Pro', sans-serif;
+        font-family: $octuple-font-family;
         font-size: $text-font-size-3;
         line-height: $text-line-height-4;
         min-height: calc($text-line-height-4 + 2px + $space-xs * 2);

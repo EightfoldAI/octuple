@@ -1,4 +1,10 @@
 import {
+    IGetFontStyle,
+    IRegisterFont,
+    FontOptions,
+    OcFont,
+} from './Font.types';
+import {
     IGetStyle,
     IRegisterTheme,
     OcTheme,
@@ -9,10 +15,12 @@ import {
 } from './Theming.types';
 import { TinyColor } from '@ctrl/tinycolor';
 import generate from './generate';
+import { fontDefaults } from './font';
 import OcThemes, { themeDefaults } from './themes';
 import { themeGenerator } from './themeGenerator';
 
 const THEME_CONTAINER_ID = 'octuple-theme';
+const FONT_CONTAINER_ID = 'octuple-font';
 
 interface Options {
     attachTo?: Element;
@@ -129,11 +137,6 @@ export function getStyle(themeOptions: ThemeOptions): IGetStyle {
         variables[`info-color`] = theme.infoColor;
     }
 
-    // ================= Font Size ==================
-    if (theme.fontSize) {
-        variables[`font-size`] = `${theme.fontSize}px`;
-    }
-
     // ================= Tabs theme ==================
     if (theme.tabsTheme) {
         variables = {
@@ -157,6 +160,32 @@ export function getStyle(themeOptions: ThemeOptions): IGetStyle {
     };
 }
 
+export function getFontStyle(fontOptions: FontOptions): IGetFontStyle {
+    let variables: Variables = {};
+
+    const font: OcFont = {
+        ...fontDefaults,
+        ...fontOptions.customFont,
+    };
+
+    // ================= Primary Font ==================
+    if (font.fontFamily) {
+        variables[`font-family`] = font.fontFamily;
+    }
+
+    // ================= Font Stack ==================
+    if (font.fontStack) {
+        variables[`font-stack`] = font.fontStack;
+    }
+
+    // ================= Font Size ==================
+    if (font.fontSize) {
+        variables[`font-size`] = `${font.fontSize}px`;
+    }
+
+    return { variables };
+}
+
 function getContainer(option: Options): Element {
     if (option.attachTo) {
         return option.attachTo;
@@ -168,6 +197,7 @@ function getContainer(option: Options): Element {
 
 export function injectCSS(
     variables: Variables,
+    id: string,
     option: Options = {}
 ): HTMLStyleElement {
     const css = `
@@ -178,9 +208,9 @@ export function injectCSS(
           }
           `.trim();
     const styleNode: HTMLStyleElement =
-        (document.getElementById(THEME_CONTAINER_ID) as HTMLStyleElement) ||
+        (document.getElementById(id) as HTMLStyleElement) ||
         document.createElement('style');
-    styleNode.id = THEME_CONTAINER_ID;
+    styleNode.id = id;
     if (option.csp?.nonce) {
         styleNode.nonce = option.csp?.nonce;
     }
@@ -204,10 +234,22 @@ export function injectCSS(
 
 export function registerTheme(themeOptions: ThemeOptions): IRegisterTheme {
     const { themeName, light, variables } = getStyle(themeOptions);
-    const styleNode: HTMLStyleElement = injectCSS(variables);
+    const styleNode: HTMLStyleElement = injectCSS(
+        variables,
+        THEME_CONTAINER_ID
+    );
     return {
         themeName,
         light,
+        variables,
+        styleNode,
+    };
+}
+
+export function registerFont(fontOptions: FontOptions): IRegisterFont {
+    const { variables } = getFontStyle(fontOptions);
+    const styleNode: HTMLStyleElement = injectCSS(variables, FONT_CONTAINER_ID);
+    return {
         variables,
         styleNode,
     };

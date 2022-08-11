@@ -4,6 +4,7 @@
     border: $picker-border;
     border-radius: $picker-border-radius;
     display: inline-flex;
+    font-family: $octuple-font-family;
 
     &-rtl {
         direction: rtl;
@@ -161,6 +162,7 @@
             height: $picker-cell-height-m;
             margin: 0;
             padding: 0;
+            font-family: $octuple-font-family;
             font-size: $picker-font-size-m;
             font-weight: $text-font-weight-semibold;
             line-height: $picker-cell-height-m;
@@ -294,6 +296,7 @@
         .picker-cell {
             &-inner {
                 border-radius: $picker-cell-border-radius-m;
+                font-family: $octuple-font-family;
             }
         }
     }
@@ -414,6 +417,7 @@
     &-footer {
         border-top: $picker-border;
         display: flex;
+        font-family: $octuple-font-family;
         justify-content: center;
         padding: 16px;
     }
@@ -432,6 +436,7 @@
 
     &-footer-extra {
         border-top: $picker-border;
+        font-family: $octuple-font-family;
         padding: 16px;
     }
 
@@ -713,6 +718,7 @@
         &-cell {
             &-inner {
                 color: $picker-cell-foreground-color;
+                font-family: $octuple-font-family;
                 font-weight: $text-font-weight-semibold;
                 height: $picker-cell-height-m;
                 line-height: $picker-cell-height-m;
@@ -888,7 +894,7 @@
             box-sizing: border-box;
             color: $picker-input-foreground-color;
             display: inline-block;
-            font-family: 'Source Sans Pro', sans-serif;
+            font-family: $octuple-font-family;
             font-size: $picker-font-size-m;
             height: $picker-input-height-m;
             line-height: $picker-line-height-m;

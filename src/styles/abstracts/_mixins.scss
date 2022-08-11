@@ -38,3 +38,236 @@
     text-overflow: ellipsis;
     white-space: nowrap;
 }
+
+/** Only to be used for octuple non-hashed BEM and Layout component styles
+    Maps to vertical spacing for any font size as specified by UX team */
+@mixin content-padding($line-height) {
+    padding-bottom: calc(#{$line-height} * 0.25);
+    padding-top: calc(#{$line-height} * 0.25);
+
+    // Resets defaults
+    margin-block-end: 0;
+    margin-block-start: 0;
+    margin-inline-end: 0;
+    margin-inline-start: 0;
+}
+
+/** A set of opinionated styles to be used privately by Octuple components */
+@mixin octuple-chrome {
+    .octuple-content {
+        padding: 0 1.6rem;
+    }
+
+    .octuple-display {
+        font-style: normal;
+        font-weight: $text-font-weight-light;
+        font-size: $text-font-size-11;
+        line-height: $text-line-height-10;
+        letter-spacing: $text-letter-spacing-l;
+        @include content-padding($text-line-height-10);
+
+        &__large {
+            font-size: $text-font-size-12;
+            line-height: $text-line-height-11;
+            letter-spacing: $text-letter-spacing-l;
+            @include content-padding($text-line-height-11);
+        }
+
+        &__medium {
+            font-size: $text-font-size-11;
+            line-height: $text-line-height-10;
+            letter-spacing: $text-letter-spacing-l;
+            @include content-padding($text-line-height-10);
+        }
+
+        &__small {
+            font-size: $text-font-size-10;
+            line-height: $text-line-height-9;
+            letter-spacing: $text-letter-spacing-m;
+            @include content-padding($text-line-height-9);
+        }
+
+        &__extra-small {
+            font-size: $text-font-size-9;
+            line-height: $text-line-height-8;
+            letter-spacing: $text-letter-spacing-m;
+            @include content-padding($text-line-height-8);
+        }
+    }
+
+    h1,
+    .octuple-h1 {
+        font-weight: $text-font-weight-semibold;
+        font-size: $text-font-size-8;
+        line-height: $text-line-height-7;
+        letter-spacing: $text-letter-spacing-m;
+        @include content-padding($text-line-height-7);
+    }
+
+    h2,
+    .octuple-h2 {
+        font-weight: $text-font-weight-semibold;
+        font-size: $text-font-size-7;
+        line-height: $text-line-height-6;
+        letter-spacing: $text-letter-spacing-xs;
+        @include content-padding($text-line-height-6);
+    }
+
+    h3,
+    .octuple-h3 {
+        font-weight: $text-font-weight-semibold;
+        font-size: $text-font-size-6;
+        line-height: $text-line-height-5;
+        @include content-padding($text-line-height-5);
+    }
+
+    h4,
+    .octuple-h4 {
+        font-weight: $text-font-weight-semibold;
+        font-size: $text-font-size-5;
+        line-height: $text-line-height-3;
+        @include content-padding($text-line-height-3);
+    }
+
+    h5,
+    .octuple-h5 {
+        font-weight: $text-font-weight-semibold;
+        font-size: $text-font-size-3;
+        line-height: $text-line-height-2;
+        @include content-padding($text-line-height-2);
+    }
+
+    h6,
+    .octuple-h6 {
+        font-weight: $text-font-weight-semibold;
+        font-size: $text-font-size-2;
+        line-height: $text-line-height-2;
+        @include content-padding($text-line-height-2);
+    }
+
+    hr,
+    .octuple-hr {
+        background-color: $divider-line-color;
+        width: 100%;
+    }
+
+    .octuple-subtitle {
+        font-weight: $text-font-weight-semibold;
+        font-size: $text-font-size-6;
+        line-height: $text-line-height-5;
+        letter-spacing: $text-letter-spacing-xs;
+        @include content-padding($text-line-height-5);
+
+        &__large {
+            font-weight: $text-font-weight-light;
+            font-size: $text-font-size-7;
+            line-height: $text-line-height-6;
+            letter-spacing: $text-letter-spacing-s;
+            @include content-padding($text-line-height-6);
+        }
+
+        &__medium {
+            font-weight: $text-font-weight-semibold;
+            font-size: $text-font-size-6;
+            line-height: $text-line-height-5;
+            letter-spacing: $text-letter-spacing-xs;
+            @include content-padding($text-line-height-5);
+        }
+    }
+
+    .octuple-pre-display {
+        font-weight: $text-font-weight-semibold;
+        font-size: $text-font-size-5;
+        line-height: $text-line-height-4;
+        text-transform: uppercase;
+        @include content-padding($text-line-height-4);
+    }
+
+    body,
+    p,
+    .octuple-content {
+        font-weight: $text-font-weight-regular;
+        font-size: $text-font-size-3;
+        line-height: $text-line-height-3;
+        @include content-padding($text-line-height-3);
+
+        &.semibold {
+            font-weight: $text-font-weight-semibold;
+        }
+
+        a,
+        .octuple-link {
+            &__primary {
+                color: var(--primary-color);
+            }
+        }
+
+        &__large {
+            font-size: $text-font-size-4;
+            line-height: $text-line-height-3;
+            @include content-padding($text-line-height-3);
+        }
+
+        &__medium {
+            font-size: $text-font-size-3;
+            line-height: $text-line-height-3;
+            @include content-padding($text-line-height-3);
+        }
+
+        &__small {
+            font-size: $text-font-size-2;
+            line-height: $text-line-height-2;
+            @include content-padding($text-line-height-2);
+        }
+    }
+
+    label,
+    .octuple-label {
+        font-weight: $text-font-weight-semibold;
+    }
+
+    caption,
+    .octuple-caption {
+        font-weight: $text-font-weight-regular;
+        font-size: $text-font-size-1;
+        line-height: $text-line-height-1;
+        @include content-padding($text-line-height-1);
+    }
+
+    i,
+    .octuple-icon {
+        font-size: $icon-font-size-material-m;
+
+        &__large {
+            font-size: $icon-font-size-material-l;
+        }
+
+        &__medium {
+            font-size: $icon-font-size-material-m;
+        }
+
+        &__small {
+            font-size: $icon-font-size-material-s;
+        }
+
+        &__extra-small {
+            font-size: $icon-font-size-material-xs;
+        }
+    }
+
+    /* BEGIN Responsive Styles */
+
+    @media (min-width: 600px) {
+        .octuple-content {
+            padding: 0 2.4rem;
+        }
+    }
+
+    @media (min-width: 1200px) {
+        .octuple-content {
+            padding: 0 4rem;
+        }
+    }
+
+    /* END Responsive Styles */
+}

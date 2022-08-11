@@ -1,6 +1,7 @@
 .dialog {
-    width: 352px;
+    font-family: $octuple-font-family;
     transform-origin: 50% 50%;
+    width: 352px;
 
     &.small {
         width: 352px;

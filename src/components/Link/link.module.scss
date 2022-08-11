@@ -4,7 +4,8 @@
     cursor: pointer;
     display: flex;
     flex-direction: row;
-    font-size: 14px;
+    font-family: $octuple-font-family;
+    font-size: $text-font-size-2;
 
     &.primary {
         color: var(--primary-color);

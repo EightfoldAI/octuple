@@ -1,0 +1,114 @@
+@import './Styles/mixins';
+
+// Grid system
+.row {
+    display: flex;
+    flex-flow: row wrap;
+    min-width: 0;
+
+    &:before,
+    &:after {
+        display: flex;
+    }
+
+    // No wrap of flex
+    &-no-wrap {
+        flex-wrap: nowrap;
+    }
+
+    @include make-grid();
+}
+
+// x-axis origin
+.row-start {
+    justify-content: flex-start;
+}
+
+// Center the x-axis
+.row-center {
+    justify-content: center;
+}
+
+// The opposite direction of the x-axis
+.row-end {
+    justify-content: flex-end;
+}
+
+// x-axis bisect
+.row-space-between {
+    justify-content: space-between;
+}
+
+// The x-axis bisects at intervals
+.row-space-around {
+    justify-content: space-around;
+}
+
+// The x-axis is equally divided
+.row-space-evenly {
+    justify-content: space-evenly;
+}
+
+// The x-axis is stretched
+.row-stretch {
+    justify-content: stretch;
+}
+
+// top align
+.row-top {
+    align-items: flex-start;
+}
+
+// Align center
+.row-middle {
+    align-items: center;
+}
+
+// Align bottom
+.row-bottom {
+    align-items: flex-end;
+}
+
+.col {
+    position: relative;
+    max-width: 100%;
+
+    // Prevent columns from collapsing when empty
+    min-height: 1px;
+}
+
+// Extra small grid
+//
+// Columns, offsets, pushes, and pulls for extra small devices like
+// smartphones.
+
+@media (min-width: $xsmall-screen-size) {
+    @include make-grid(-xs);
+}
+
+// Small grid
+//
+// Columns, offsets, pushes, and pulls for the small device range, from phones
+// to tablets.
+
+@media (min-width: $small-screen-size) {
+    @include make-grid(-sm);
+}
+
+// Medium grid
+//
+// Columns, offsets, pushes, and pulls for the desktop device range.
+
+@media (min-width: $medium-screen-size) {
+    @include make-grid(-md);
+}
+
+// Large grid
+//
+// Columns, offsets, pushes, and pulls for the large desktop device range.
+
+@media (min-width: $large-screen-size) {
+    @include make-grid(-lg);
+}
+
+@import './Styles/rtl';

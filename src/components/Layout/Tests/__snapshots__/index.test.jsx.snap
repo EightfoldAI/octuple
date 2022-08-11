@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Layout renders string width correctly 1`] = `
+<aside
+  class="layout-aside"
+  style="flex: 0 0 200px; max-width: 200px; min-width: 200px; width: 200px;"
+>
+  <div
+    class="layout-aside-children"
+  >
+    Aside
+  </div>
+</aside>
+`;
+
+exports[`Layout should be controlled by collapsed 1`] = `
+<aside
+  class="layout-aside"
+  style="flex: 0 0 200px; max-width: 200px; min-width: 200px; width: 200px;"
+>
+  <div
+    class="layout-aside-children"
+  >
+    Aside
+  </div>
+</aside>
+`;
+
+exports[`Layout should be controlled by collapsed 2`] = `
+<aside
+  class="layout-aside layout-aside-collapsed"
+  style="max-width: 80px; min-width: 80px; width: 80px; flex: 0 0 80px;"
+>
+  <div
+    class="layout-aside-children"
+  >
+    Aside
+  </div>
+</aside>
+`;

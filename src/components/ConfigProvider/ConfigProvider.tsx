@@ -1,7 +1,12 @@
 import React, { createContext, FC, useEffect, useState } from 'react';
-import { registerTheme } from './Theming/styleGenerator';
+import { registerFont, registerTheme } from './Theming/styleGenerator';
 import { ConfigProviderProps, IConfigContext } from './ConfigProvider.types';
-import { IRegisterTheme, ThemeOptions } from './Theming';
+import {
+    IRegisterFont,
+    IRegisterTheme,
+    FontOptions,
+    ThemeOptions,
+} from './Theming';
 import { useFocusVisibleClassName } from '../../hooks/useFocusVisibleClassName';
 
 const ConfigContext: React.Context<Partial<IConfigContext>> = createContext<
@@ -19,9 +24,17 @@ const ConfigProvider: FC<ConfigProviderProps> = ({
         focusVisible: DEFAULT_FOCUS_VISIBLE,
         focusVisibleElement: DEFAULT_FOCUS_VISIBLE_ELEMENT,
     },
-    themeOptions: defaultThemeOptions,
+    fontOptions: defaultFontOptions,
     icomoonIconSet = {},
+    themeOptions: defaultThemeOptions,
 }) => {
+    const [fontOptions, setFontOptions] =
+        useState<FontOptions>(defaultFontOptions);
+
+    const [registeredFont, setRegisteredFont] = useState<IRegisterFont>(
+        {} as IRegisterFont
+    );
+
     const [themeOptions, setThemeOptions] =
         useState<ThemeOptions>(defaultThemeOptions);
 
@@ -47,11 +60,24 @@ const ConfigProvider: FC<ConfigProviderProps> = ({
         }
     }, [themeOptions]);
 
+    useEffect(() => {
+        if (fontOptions) {
+            setRegisteredFont(
+                registerFont({
+                    ...fontOptions,
+                })
+            );
+        }
+    }, [fontOptions]);
+
     return (
         <ConfigContext.Provider
             value={{
+                fontOptions,
+                setFontOptions,
                 themeOptions,
                 setThemeOptions,
+                registeredFont,
                 registeredTheme,
                 icomoonIconSet,
             }}
