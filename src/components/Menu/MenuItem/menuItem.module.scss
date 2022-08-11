@@ -86,8 +86,8 @@
         align-content: flex-start;
     }
 
-    /** Hides the browser default keyboard focus-visible styles
-        use the ConfigProvider instead */
+    // Hides the browser default keyboard focus-visible styles.
+    // Use the ConfigProvider instead.
     &:focus-visible {
         outline: none;
     }
