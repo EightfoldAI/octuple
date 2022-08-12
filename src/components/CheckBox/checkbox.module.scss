@@ -232,8 +232,10 @@
         input {
             & + label {
                 .checkmark {
+                    min-height: $checkmark-large-height;
                     height: $checkmark-large-height;
                     width: $checkmark-large-width;
+                    min-width: $checkmark-large-width;
 
                     &:after {
                         height: $checkmark-large-after-height;
@@ -293,7 +295,9 @@
         input {
             & + label {
                 .checkmark {
+                    min-height: $checkmark-medium-height;
                     height: $checkmark-medium-height;
+                    min-width: $checkmark-medium-width;
                     width: $checkmark-medium-width;
 
                     &:after {
@@ -354,7 +358,9 @@
         input {
             & + label {
                 .checkmark {
+                    min-height: $checkmark-small-height;
                     height: $checkmark-small-height;
+                    min-width: $checkmark-small-width;
                     width: $checkmark-small-width;
 
                     &:after {

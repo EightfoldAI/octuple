@@ -135,6 +135,7 @@
         input {
             & + label {
                 .radio-button {
+                    min-height: $radio-large-height;
                     height: $radio-large-height;
                     min-width: $radio-large-width;
                     width: $radio-large-width;
@@ -174,6 +175,7 @@
         input {
             & + label {
                 .radio-button {
+                    min-height: $radio-medium-height;
                     height: $radio-medium-height;
                     min-width: $radio-medium-width;
                     width: $radio-medium-width;
@@ -213,6 +215,7 @@
         input {
             & + label {
                 .radio-button {
+                    min-height: $radio-small-height;
                     height: $radio-small-height;
                     min-width: $radio-small-width;
                     width: $radio-small-width;
