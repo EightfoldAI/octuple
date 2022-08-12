@@ -1,13 +1,13 @@
 import React, { FC, useEffect, useRef, useState } from 'react';
 import {
-    useFloating,
-    shift,
-    autoUpdate,
     arrow,
+    autoUpdate,
     offset as fOffset,
+    shift,
+    useFloating,
 } from '@floating-ui/react-dom';
 import { FloatingPortal } from '@floating-ui/react-dom-interactions';
-import { TooltipProps, TooltipTheme } from './Tooltip.types';
+import { TooltipProps, TooltipSize, TooltipTheme } from './Tooltip.types';
 import {
     ConditionalWrapper,
     generateId,
@@ -35,6 +35,7 @@ export const Tooltip: FC<TooltipProps> = ({
     positionStrategy = 'absolute',
     wrapperClassNames,
     wrapperStyle,
+    size,
     ...rest
 }) => {
     const tooltipSide: string = placement.split('-')?.[0];
@@ -99,6 +100,9 @@ export const Tooltip: FC<TooltipProps> = ({
         { [styles.bottom]: tooltipSide === 'bottom' },
         { [styles.left]: tooltipSide === 'left' },
         { [styles.right]: tooltipSide === 'right' },
+        { [styles.small]: size === TooltipSize.Small },
+        { [styles.medium]: size === TooltipSize.Medium },
+        { [styles.large]: size === TooltipSize.Large },
     ]);
 
     const referenceWrapperClasses: string = mergeClasses([

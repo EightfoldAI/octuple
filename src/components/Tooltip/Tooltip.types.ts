@@ -7,6 +7,12 @@ export enum TooltipTheme {
     dark = 'dark',
 }
 
+export enum TooltipSize {
+    Large = 'large',
+    Medium = 'medium',
+    Small = 'small',
+}
+
 export interface TooltipProps extends OcBaseProps<HTMLDivElement> {
     /**
      * Content to show on the tooltip
@@ -70,4 +76,9 @@ export interface TooltipProps extends OcBaseProps<HTMLDivElement> {
      * Wrapper style
      */
     wrapperStyle?: React.CSSProperties;
+    /**
+     * Size of the tooltip
+     * @default TooltipSize.small
+     */
+    size?: TooltipSize;
 }
