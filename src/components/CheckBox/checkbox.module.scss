@@ -31,12 +31,14 @@
                 border: $space-xxxs solid var(--grey-color-70);
                 border-radius: $corner-radius-xs;
                 height: $checkmark-medium-height;
+                width: $checkmark-medium-width;
+                min-height: $checkmark-medium-height;
+                min-width: $checkmark-medium-width;
                 left: 0;
                 position: relative;
                 top: 0;
                 transition: all $motion-duration-extra-fast $motion-ease-in-back
                     $motion-delay-s;
-                width: $checkmark-medium-width;
 
                 &:after {
                     border: solid var(--primary-color);

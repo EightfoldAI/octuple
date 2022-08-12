@@ -27,11 +27,12 @@
                 border: $space-xxxs solid var(--grey-color-70);
                 border-radius: 50%;
                 height: $radio-medium-height;
+                width: $radio-medium-width;
+                min-height: $radio-medium-height;
                 min-width: $radio-medium-width;
                 position: relative;
                 transition: all $motion-duration-extra-fast $motion-ease-in-back
                     $motion-delay-s;
-                width: $radio-medium-width;
 
                 &:after {
                     top: $radio-medium-after-top;
