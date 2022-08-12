@@ -91,7 +91,7 @@ import { Tabs, Tab, TabVariant } from './components/Tabs';
 
 import TimePicker from './components/DateTimePicker/TimePicker/TimePicker';
 
-import { Tooltip, TooltipTheme } from './components/Tooltip';
+import { Tooltip, TooltipTheme, TooltipSize } from './components/Tooltip';
 
 import { MatchScore } from './components/MatchScore';
 
@@ -222,6 +222,7 @@ export {
     TimePicker,
     Tooltip,
     TooltipTheme,
+    TooltipSize,
     TwoStateButton,
     useBoolean,
     useMatchMedia,

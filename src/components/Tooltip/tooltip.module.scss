@@ -22,7 +22,6 @@ $tooltip-arrow-shadow: 1px 1px 2px rgba(15, 20, 31, 0.12);
     z-index: $z-index-100;
     padding: $space-xs;
     border-radius: $corner-radius-s;
-    max-width: 140px;
 
     &.dark {
         --bg: var(--grey-color-80);
@@ -73,5 +72,17 @@ $tooltip-arrow-shadow: 1px 1px 2px rgba(15, 20, 31, 0.12);
         display: block;
         animation: scaleTooltip $motion-duration-extra-fast
             $motion-easing-easeinout 0s;
+    }
+
+    &.small {
+        max-width: 140px;
+    }
+
+    &.medium {
+        max-width: 240px;
+    }
+
+    &.large {
+        max-width: 360px;
     }
 }
