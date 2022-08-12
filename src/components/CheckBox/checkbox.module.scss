@@ -59,8 +59,10 @@
                 &.toggle {
                     border: $space-xxxs solid var(--grey-color-70);
                     border-radius: $toggle-medium-height;
+                    min-height: $toggle-medium-height;
                     height: $toggle-medium-height;
                     left: 0;
+                    min-width: $toggle-medium-width;
                     position: relative;
                     top: 0;
                     transition: all $motion-duration-extra-fast
@@ -242,7 +244,9 @@
 
                     &.toggle {
                         border-radius: $toggle-large-height;
+                        min-height: $toggle-large-height;
                         height: $toggle-large-height;
+                        min-width: $toggle-large-width;
                         width: $toggle-large-width;
 
                         &:after {
@@ -301,7 +305,9 @@
 
                     &.toggle {
                         border-radius: $toggle-medium-height;
+                        min-height: $toggle-medium-height;
                         height: $toggle-medium-height;
+                        min-width: $toggle-medium-width;
                         width: $toggle-medium-width;
 
                         &:after {
@@ -360,7 +366,9 @@
 
                     &.toggle {
                         border-radius: $toggle-small-height;
+                        min-height: $toggle-small-height;
                         height: $toggle-small-height;
+                        min-width: $toggle-small-width;
                         width: $toggle-small-width;
 
                         &:after {
