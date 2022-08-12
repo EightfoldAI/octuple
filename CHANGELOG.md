@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.4.0](https://github.com/EightfoldAI/octuple/compare/v2.3.0...v2.4.0) (2022-08-12)
+
+### Features
+
+-   tooltip: add sizes to tooltip ([#306](https://github.com/EightfoldAI/octuple/issues/306)) ([0f17fac](https://github.com/EightfoldAI/octuple/commits/0f17fac6238ec6161202b81e94176ffb5913f632))
+
+### Bug Fixes
+
+-   select: export SelectShape and SelectSize ([#304](https://github.com/EightfoldAI/octuple/issues/304)) ([c62a081](https://github.com/EightfoldAI/octuple/commits/c62a081b8b54d114bca20dae142915e447fb710b))
+-   selectors: fix selectors getting squished in certain scenarios ([#303](https://github.com/EightfoldAI/octuple/issues/303)) ([053bd5b](https://github.com/EightfoldAI/octuple/commits/053bd5b94c3740af6ad4b875dd1d95fc67e3e497))
+-   selectors: fix selectors getting squished in certain scenarios part two ([#308](https://github.com/EightfoldAI/octuple/issues/308)) ([2d135a0](https://github.com/EightfoldAI/octuple/commits/2d135a0b33152a7ce2f494d2373cd5008a32be0d))
+-   toggle: fix toggles getting squished in certain scenarios ([#307](https://github.com/EightfoldAI/octuple/issues/307)) ([23ee9dd](https://github.com/EightfoldAI/octuple/commits/23ee9dda3b7adeeba39e77c424a0eccd3607fefd))
+
 ## [2.3.0](https://github.com/EightfoldAI/octuple/compare/v2.2.5...v2.3.0) (2022-08-11)
 
 ### Features
