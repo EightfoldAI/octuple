@@ -77,7 +77,7 @@ import {
 
 import { InfoBar, InfoBarType } from './components/InfoBar';
 
-import { Select } from './components/Select';
+import { Select, SelectShape, SelectSize } from './components/Select';
 
 import { Slider } from './components/Slider';
 
@@ -192,6 +192,8 @@ export {
     ResizeObserver,
     Row,
     Select,
+    SelectShape,
+    SelectSize,
     SelectorSize,
     SearchBox,
     SecondaryButton,
