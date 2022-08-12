@@ -35,7 +35,7 @@ export const Tooltip: FC<TooltipProps> = ({
     positionStrategy = 'absolute',
     wrapperClassNames,
     wrapperStyle,
-    size,
+    size = TooltipSize.Small,
     ...rest
 }) => {
     const tooltipSide: string = placement.split('-')?.[0];
