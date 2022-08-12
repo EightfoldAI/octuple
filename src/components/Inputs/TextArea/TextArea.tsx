@@ -36,7 +36,7 @@ export const TextArea: FC<TextAreaProps> = React.forwardRef(
             onKeyDown,
             placeholder,
             required = false,
-            shape = TextInputShape.Pill,
+            shape = TextInputShape.Rectangle,
             size = TextInputSize.Flex,
             style,
             textAreaCols = 50,
