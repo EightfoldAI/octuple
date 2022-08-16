@@ -9,6 +9,7 @@ import {
 import { FloatingPortal } from '@floating-ui/react-dom-interactions';
 import { TooltipProps, TooltipSize, TooltipTheme } from './Tooltip.types';
 import {
+    cloneElement,
     ConditionalWrapper,
     generateId,
     mergeClasses,
@@ -131,25 +132,43 @@ export const Tooltip: FC<TooltipProps> = ({
         [staticSide]: `-${TOOLTIP_ARROW_WIDTH / 2}px`,
     };
 
+    const getChild = (): JSX.Element => {
+        // Need this to handle disabled elements.
+        const child = React.Children.only(children) as React.ReactElement<any>;
+        if (child.props?.disabled) {
+            const spanStyle = {
+                display: 'inline-block',
+                cursor: 'not-allowed',
+                width: child.props.block ? '100%' : null,
+            };
+            return (
+                <span style={spanStyle}>
+                    {cloneElement(child, {
+                        classNames: styles.noPointerEvents,
+                    })}
+                </span>
+            );
+        }
+        return child;
+    };
+
     return (
         <>
             <div
                 className={referenceWrapperClasses}
                 style={wrapperStyle}
                 id={tooltipId.current}
-                onPointerEnter={toggle(true)}
+                onMouseEnter={toggle(true)}
+                onMouseLeave={toggle(false)}
                 onFocus={toggle(true)}
                 onBlur={toggle(false)}
-                onPointerLeave={toggle(false)}
                 ref={reference}
             >
-                {children}
+                {getChild()}
             </div>
             <ConditionalWrapper
                 condition={portal}
-                wrapper={(children) => (
-                    <FloatingPortal>{children}</FloatingPortal>
-                )}
+                wrapper={() => <FloatingPortal>{getChild()}</FloatingPortal>}
             >
                 {visible && (
                     <div
