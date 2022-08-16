@@ -3808,6 +3808,86 @@ exports[`Storyshots Config Provider Theming 1`] = `
         </div>
       </div>
     </div>
+    <div>
+      <p>
+        Custom Font
+      </p>
+      <div
+        className="radio-group vertical radio-group-medium"
+        role="group"
+      >
+        <div
+          className="selector selector-medium"
+          style={
+            Object {
+              "fontFamily": "Source Sans Pro",
+            }
+          }
+        >
+          <input
+            aria-disabled={false}
+            aria-label="Source Sans Pro"
+            checked={true}
+            disabled={false}
+            id="font-1"
+            name="font"
+            onChange={[Function]}
+            readOnly={true}
+            type="radio"
+            value="Source Sans Pro"
+          />
+          <label
+            className=""
+            htmlFor="font-1"
+          >
+            <span
+              className="radio-button"
+              id="font-1-custom-radio"
+            />
+            <span
+              className="selector-label selector-label-end"
+            >
+              Source Sans Pro
+            </span>
+          </label>
+        </div>
+        <div
+          className="selector selector-medium"
+          style={
+            Object {
+              "fontFamily": "Roboto",
+            }
+          }
+        >
+          <input
+            aria-disabled={false}
+            aria-label="Roboto"
+            checked={false}
+            disabled={false}
+            id="font-2"
+            name="font"
+            onChange={[Function]}
+            readOnly={true}
+            type="radio"
+            value="Roboto"
+          />
+          <label
+            className=""
+            htmlFor="font-2"
+          >
+            <span
+              className="radio-button"
+              id="font-2-custom-radio"
+            />
+            <span
+              className="selector-label selector-label-end"
+            >
+              Roboto
+            </span>
+          </label>
+        </div>
+      </div>
+    </div>
   </div>
   <div
     className="stack horizontal m"

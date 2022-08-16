@@ -1,19 +1,27 @@
-import { IRegisterTheme, ThemeOptions } from './Theming';
+import {
+    IRegisterFont,
+    IRegisterTheme,
+    FontOptions,
+    ThemeOptions,
+} from './Theming';
 import { FocusVisibleOptions } from './A11y';
 
 export interface IConfigContext {
+    fontOptions: FontOptions;
     themeOptions: ThemeOptions;
+    setFontOptions: (fontOptions: FontOptions) => void;
     setThemeOptions: (themeOptions: ThemeOptions) => void;
+    registeredFont?: IRegisterFont;
     registeredTheme?: IRegisterTheme;
     icomoonIconSet?: Object;
 }
 
 export interface ConfigProviderProps {
     /**
-     * Options for theming
-     * @default { name: 'blue', useSystemTheme: false, customTheme: null }
+     * Options for font
+     * @default { fontFamily: 'Source Sans Pro', fontSize: '16px', fontStack: '-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif' }
      */
-    themeOptions?: ThemeOptions;
+    fontOptions?: FontOptions;
     /**
      * Options for keyboard modality styles
      * @default { focusVisible: true, focusVisibleElement: document.documentElement }
@@ -24,4 +32,9 @@ export interface ConfigProviderProps {
      * @default {}
      */
     icomoonIconSet?: Object;
+    /**
+     * Options for theming
+     * @default { name: 'blue', useSystemTheme: false, customTheme: null }
+     */
+    themeOptions?: ThemeOptions;
 }

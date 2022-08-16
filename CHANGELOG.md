@@ -2,6 +2,33 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.4.0](https://github.com/EightfoldAI/octuple/compare/v2.3.0...v2.4.0) (2022-08-12)
+
+### Features
+
+-   tooltip: add sizes to tooltip ([#306](https://github.com/EightfoldAI/octuple/issues/306)) ([0f17fac](https://github.com/EightfoldAI/octuple/commits/0f17fac6238ec6161202b81e94176ffb5913f632))
+
+### Bug Fixes
+
+-   select: export SelectShape and SelectSize ([#304](https://github.com/EightfoldAI/octuple/issues/304)) ([c62a081](https://github.com/EightfoldAI/octuple/commits/c62a081b8b54d114bca20dae142915e447fb710b))
+-   selectors: fix selectors getting squished in certain scenarios ([#303](https://github.com/EightfoldAI/octuple/issues/303)) ([053bd5b](https://github.com/EightfoldAI/octuple/commits/053bd5b94c3740af6ad4b875dd1d95fc67e3e497))
+-   selectors: fix selectors getting squished in certain scenarios part two ([#308](https://github.com/EightfoldAI/octuple/issues/308)) ([2d135a0](https://github.com/EightfoldAI/octuple/commits/2d135a0b33152a7ce2f494d2373cd5008a32be0d))
+-   toggle: fix toggles getting squished in certain scenarios ([#307](https://github.com/EightfoldAI/octuple/issues/307)) ([23ee9dd](https://github.com/EightfoldAI/octuple/commits/23ee9dda3b7adeeba39e77c424a0eccd3607fefd))
+
+## [2.3.0](https://github.com/EightfoldAI/octuple/compare/v2.2.5...v2.3.0) (2022-08-11)
+
+### Features
+
+-   add 12 column grid and layout components ([#291](https://github.com/EightfoldAI/octuple/issues/291)) ([c21df64](https://github.com/EightfoldAI/octuple/commits/c21df64cdfbd5f5940ad164647a15b8d5059bbdd))
+-   adds headerbuttonprops, headericon, bodypadding, and overlay props to surface ui ([#290](https://github.com/EightfoldAI/octuple/issues/290)) ([cbe4b87](https://github.com/EightfoldAI/octuple/commits/cbe4b87de7bfd75bd6a91080b903b3836a459da3))
+
+### Bug Fixes
+
+-   button: use configprovider focus visible styles ([#301](https://github.com/EightfoldAI/octuple/issues/301)) ([6102bc6](https://github.com/EightfoldAI/octuple/commits/6102bc65b833e1c82f30d94b599c38165a39b441))
+-   input: fixes rectangle shape for theme 2 input and textarea ([#295](https://github.com/EightfoldAI/octuple/issues/295)) ([658d009](https://github.com/EightfoldAI/octuple/commits/658d009fe9a55caafc721a2ed18a6f74f39c64a9))
+-   searchbox: add form onSubmit prop ([#296](https://github.com/EightfoldAI/octuple/issues/296)) ([b13ce34](https://github.com/EightfoldAI/octuple/commits/b13ce34d66e1f99fafdffe47748dbbcd7f258869))
+-   select: fixes select clear when items are toggled ([#300](https://github.com/EightfoldAI/octuple/issues/300)) ([72ba459](https://github.com/EightfoldAI/octuple/commits/72ba459c59881d8aa3edce0e89294878accca3d0))
+
 ### [2.2.5](https://github.com/EightfoldAI/octuple/compare/v2.2.4...v2.2.5) (2022-08-07)
 
 ### Bug Fixes

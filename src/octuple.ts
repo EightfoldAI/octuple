@@ -41,9 +41,13 @@ import { Dropdown } from './components/Dropdown';
 
 import { Empty, EmptyMode } from './components/Empty';
 
+import Grid, { Col, Row } from './components/Grid';
+
 import { Icon, IconName, IconSize } from './components/Icon';
 
 import { Label, LabelSize } from './components/Label';
+
+import Layout from './components/Layout';
 
 import { Link } from './components/Link';
 
@@ -73,7 +77,7 @@ import {
 
 import { InfoBar, InfoBarType } from './components/InfoBar';
 
-import { Select } from './components/Select';
+import { Select, SelectShape, SelectSize } from './components/Select';
 
 import { Slider } from './components/Slider';
 
@@ -87,7 +91,7 @@ import { Tabs, Tab, TabVariant } from './components/Tabs';
 
 import TimePicker from './components/DateTimePicker/TimePicker/TimePicker';
 
-import { Tooltip, TooltipTheme } from './components/Tooltip';
+import { Tooltip, TooltipTheme, TooltipSize } from './components/Tooltip';
 
 import { MatchScore } from './components/MatchScore';
 
@@ -132,6 +136,7 @@ export {
     ButtonWidth,
     CheckBox,
     CheckBoxGroup,
+    Col,
     ColumnGroupType,
     ColumnType,
     ColumnsType,
@@ -147,6 +152,7 @@ export {
     ExpandableConfig,
     FilterConfirmProps,
     FilterValue,
+    Grid,
     Icon,
     IconName,
     IconSize,
@@ -155,6 +161,7 @@ export {
     Label,
     LabelPosition,
     LabelSize,
+    Layout,
     Link,
     List,
     MatchScore,
@@ -183,7 +190,10 @@ export {
     RadioGroup,
     RangePickerProps,
     ResizeObserver,
+    Row,
     Select,
+    SelectShape,
+    SelectSize,
     SelectorSize,
     SearchBox,
     SecondaryButton,
@@ -212,6 +222,7 @@ export {
     TimePicker,
     Tooltip,
     TooltipTheme,
+    TooltipSize,
     TwoStateButton,
     useBoolean,
     useMatchMedia,

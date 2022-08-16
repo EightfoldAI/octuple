@@ -553,7 +553,8 @@ Header_Actions.args = {
 
 Panel_Header.args = {
     ...panelArgs,
-    bodyPadding: false,
+    bodyPadding: true,
+    headerPadding: false,
     // actionButtonOneProps: {
     //     iconProps: { path: IconName.mdiCogOutline },
     // },

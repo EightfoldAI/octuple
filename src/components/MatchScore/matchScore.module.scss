@@ -5,9 +5,10 @@ $indicator-size: 12px;
     align-items: center;
 
     .label {
+        color: var(--primary-color-70);
+        font-family: $octuple-font-family;
         margin: 0;
         margin-left: $space-xxs;
-        color: var(--primary-color-70);
     }
 
     .match-score-circle {
