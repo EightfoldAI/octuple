@@ -132,15 +132,15 @@ export const Tooltip: FC<TooltipProps> = ({
         [staticSide]: `-${TOOLTIP_ARROW_WIDTH / 2}px`,
     };
 
-    const getChild = (): JSX.Element => {
+    const getChild = (node: React.ReactNode): JSX.Element | React.ReactNode => {
         // Need this to handle disabled elements.
-        const child = React.Children.only(children) as React.ReactElement<any>;
-        if (child.props?.disabled) {
+        if (React.isValidElement(node) && node.props?.disabled) {
+            const child = React.Children.only(node) as React.ReactElement<any>;
             return cloneElement(child, {
                 classNames: styles.noPointerEvents,
             });
         }
-        return child;
+        return node;
     };
 
     return (
@@ -155,11 +155,13 @@ export const Tooltip: FC<TooltipProps> = ({
                 onBlur={toggle(false)}
                 ref={reference}
             >
-                {getChild()}
+                {getChild(children)}
             </div>
             <ConditionalWrapper
                 condition={portal}
-                wrapper={() => <FloatingPortal>{getChild()}</FloatingPortal>}
+                wrapper={(children) => (
+                    <FloatingPortal>{getChild(children)}</FloatingPortal>
+                )}
             >
                 {visible && (
                     <div
