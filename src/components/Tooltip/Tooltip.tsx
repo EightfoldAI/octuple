@@ -136,18 +136,9 @@ export const Tooltip: FC<TooltipProps> = ({
         // Need this to handle disabled elements.
         const child = React.Children.only(children) as React.ReactElement<any>;
         if (child.props?.disabled) {
-            const spanStyle = {
-                display: 'inline-block',
-                cursor: 'not-allowed',
-                width: child.props.block ? '100%' : null,
-            };
-            return (
-                <span style={spanStyle}>
-                    {cloneElement(child, {
-                        classNames: styles.noPointerEvents,
-                    })}
-                </span>
-            );
+            return cloneElement(child, {
+                classNames: styles.noPointerEvents,
+            });
         }
         return child;
     };
