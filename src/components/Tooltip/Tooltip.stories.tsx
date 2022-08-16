@@ -151,7 +151,6 @@ Tooltips.args = {
             ariaLabel="Show Tooltip"
             size={ButtonSize.Medium}
             text="Show Tooltip"
-            disabled
         />
     ),
 };
