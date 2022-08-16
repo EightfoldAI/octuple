@@ -7980,8 +7980,8 @@ exports[`Storyshots Table Ellipsis With Tooltip 1`] = `
                   id="4fzzzxj"
                   onBlur={[Function]}
                   onFocus={[Function]}
-                  onPointerEnter={[Function]}
-                  onPointerLeave={[Function]}
+                  onMouseEnter={[Function]}
+                  onMouseLeave={[Function]}
                 >
                   Beacon, NY
                 </div>
@@ -7999,8 +7999,8 @@ exports[`Storyshots Table Ellipsis With Tooltip 1`] = `
                   id="4fzzzxj"
                   onBlur={[Function]}
                   onFocus={[Function]}
-                  onPointerEnter={[Function]}
-                  onPointerLeave={[Function]}
+                  onMouseEnter={[Function]}
+                  onMouseLeave={[Function]}
                 >
                   Beacon, NY
                 </div>
@@ -8018,8 +8018,8 @@ exports[`Storyshots Table Ellipsis With Tooltip 1`] = `
                   id="4fzzzxj"
                   onBlur={[Function]}
                   onFocus={[Function]}
-                  onPointerEnter={[Function]}
-                  onPointerLeave={[Function]}
+                  onMouseEnter={[Function]}
+                  onMouseLeave={[Function]}
                 >
                   Beacon, NY
                 </div>
@@ -8037,8 +8037,8 @@ exports[`Storyshots Table Ellipsis With Tooltip 1`] = `
                   id="4fzzzxj"
                   onBlur={[Function]}
                   onFocus={[Function]}
-                  onPointerEnter={[Function]}
-                  onPointerLeave={[Function]}
+                  onMouseEnter={[Function]}
+                  onMouseLeave={[Function]}
                 >
                   Beacon, NY
                 </div>
@@ -8056,8 +8056,8 @@ exports[`Storyshots Table Ellipsis With Tooltip 1`] = `
                   id="4fzzzxj"
                   onBlur={[Function]}
                   onFocus={[Function]}
-                  onPointerEnter={[Function]}
-                  onPointerLeave={[Function]}
+                  onMouseEnter={[Function]}
+                  onMouseLeave={[Function]}
                 >
                   Beacon, NY
                 </div>
@@ -8075,8 +8075,8 @@ exports[`Storyshots Table Ellipsis With Tooltip 1`] = `
                   id="4fzzzxj"
                   onBlur={[Function]}
                   onFocus={[Function]}
-                  onPointerEnter={[Function]}
-                  onPointerLeave={[Function]}
+                  onMouseEnter={[Function]}
+                  onMouseLeave={[Function]}
                 >
                   Beacon, NY
                 </div>
@@ -8173,8 +8173,8 @@ exports[`Storyshots Table Ellipsis With Tooltip 1`] = `
                   id="4fzzzxj"
                   onBlur={[Function]}
                   onFocus={[Function]}
-                  onPointerEnter={[Function]}
-                  onPointerLeave={[Function]}
+                  onMouseEnter={[Function]}
+                  onMouseLeave={[Function]}
                 >
                   Delhi, Delhi
                 </div>
@@ -8192,8 +8192,8 @@ exports[`Storyshots Table Ellipsis With Tooltip 1`] = `
                   id="4fzzzxj"
                   onBlur={[Function]}
                   onFocus={[Function]}
-                  onPointerEnter={[Function]}
-                  onPointerLeave={[Function]}
+                  onMouseEnter={[Function]}
+                  onMouseLeave={[Function]}
                 >
                   Delhi, Delhi
                 </div>
@@ -8211,8 +8211,8 @@ exports[`Storyshots Table Ellipsis With Tooltip 1`] = `
                   id="4fzzzxj"
                   onBlur={[Function]}
                   onFocus={[Function]}
-                  onPointerEnter={[Function]}
-                  onPointerLeave={[Function]}
+                  onMouseEnter={[Function]}
+                  onMouseLeave={[Function]}
                 >
                   Delhi, Delhi
                 </div>
@@ -8230,8 +8230,8 @@ exports[`Storyshots Table Ellipsis With Tooltip 1`] = `
                   id="4fzzzxj"
                   onBlur={[Function]}
                   onFocus={[Function]}
-                  onPointerEnter={[Function]}
-                  onPointerLeave={[Function]}
+                  onMouseEnter={[Function]}
+                  onMouseLeave={[Function]}
                 >
                   Delhi, Delhi
                 </div>
@@ -8249,8 +8249,8 @@ exports[`Storyshots Table Ellipsis With Tooltip 1`] = `
                   id="4fzzzxj"
                   onBlur={[Function]}
                   onFocus={[Function]}
-                  onPointerEnter={[Function]}
-                  onPointerLeave={[Function]}
+                  onMouseEnter={[Function]}
+                  onMouseLeave={[Function]}
                 >
                   Delhi, Delhi
                 </div>
@@ -8268,8 +8268,8 @@ exports[`Storyshots Table Ellipsis With Tooltip 1`] = `
                   id="4fzzzxj"
                   onBlur={[Function]}
                   onFocus={[Function]}
-                  onPointerEnter={[Function]}
-                  onPointerLeave={[Function]}
+                  onMouseEnter={[Function]}
+                  onMouseLeave={[Function]}
                 >
                   Delhi, Delhi
                 </div>
@@ -8366,8 +8366,8 @@ exports[`Storyshots Table Ellipsis With Tooltip 1`] = `
                   id="4fzzzxj"
                   onBlur={[Function]}
                   onFocus={[Function]}
-                  onPointerEnter={[Function]}
-                  onPointerLeave={[Function]}
+                  onMouseEnter={[Function]}
+                  onMouseLeave={[Function]}
                 >
                   New York, NA
                 </div>
@@ -8385,8 +8385,8 @@ exports[`Storyshots Table Ellipsis With Tooltip 1`] = `
                   id="4fzzzxj"
                   onBlur={[Function]}
                   onFocus={[Function]}
-                  onPointerEnter={[Function]}
-                  onPointerLeave={[Function]}
+                  onMouseEnter={[Function]}
+                  onMouseLeave={[Function]}
                 >
                   New York, NA
                 </div>
@@ -8404,8 +8404,8 @@ exports[`Storyshots Table Ellipsis With Tooltip 1`] = `
                   id="4fzzzxj"
                   onBlur={[Function]}
                   onFocus={[Function]}
-                  onPointerEnter={[Function]}
-                  onPointerLeave={[Function]}
+                  onMouseEnter={[Function]}
+                  onMouseLeave={[Function]}
                 >
                   New York, NA
                 </div>
@@ -8423,8 +8423,8 @@ exports[`Storyshots Table Ellipsis With Tooltip 1`] = `
                   id="4fzzzxj"
                   onBlur={[Function]}
                   onFocus={[Function]}
-                  onPointerEnter={[Function]}
-                  onPointerLeave={[Function]}
+                  onMouseEnter={[Function]}
+                  onMouseLeave={[Function]}
                 >
                   New York, NA
                 </div>
@@ -8442,8 +8442,8 @@ exports[`Storyshots Table Ellipsis With Tooltip 1`] = `
                   id="4fzzzxj"
                   onBlur={[Function]}
                   onFocus={[Function]}
-                  onPointerEnter={[Function]}
-                  onPointerLeave={[Function]}
+                  onMouseEnter={[Function]}
+                  onMouseLeave={[Function]}
                 >
                   New York, NA
                 </div>
@@ -8461,8 +8461,8 @@ exports[`Storyshots Table Ellipsis With Tooltip 1`] = `
                   id="4fzzzxj"
                   onBlur={[Function]}
                   onFocus={[Function]}
-                  onPointerEnter={[Function]}
-                  onPointerLeave={[Function]}
+                  onMouseEnter={[Function]}
+                  onMouseLeave={[Function]}
                 >
                   New York, NA
                 </div>
@@ -8559,8 +8559,8 @@ exports[`Storyshots Table Ellipsis With Tooltip 1`] = `
                   id="4fzzzxj"
                   onBlur={[Function]}
                   onFocus={[Function]}
-                  onPointerEnter={[Function]}
-                  onPointerLeave={[Function]}
+                  onMouseEnter={[Function]}
+                  onMouseLeave={[Function]}
                 >
                   Atlanta, GA
                 </div>
@@ -8578,8 +8578,8 @@ exports[`Storyshots Table Ellipsis With Tooltip 1`] = `
                   id="4fzzzxj"
                   onBlur={[Function]}
                   onFocus={[Function]}
-                  onPointerEnter={[Function]}
-                  onPointerLeave={[Function]}
+                  onMouseEnter={[Function]}
+                  onMouseLeave={[Function]}
                 >
                   Atlanta, GA
                 </div>
@@ -8597,8 +8597,8 @@ exports[`Storyshots Table Ellipsis With Tooltip 1`] = `
                   id="4fzzzxj"
                   onBlur={[Function]}
                   onFocus={[Function]}
-                  onPointerEnter={[Function]}
-                  onPointerLeave={[Function]}
+                  onMouseEnter={[Function]}
+                  onMouseLeave={[Function]}
                 >
                   Atlanta, GA
                 </div>
@@ -8616,8 +8616,8 @@ exports[`Storyshots Table Ellipsis With Tooltip 1`] = `
                   id="4fzzzxj"
                   onBlur={[Function]}
                   onFocus={[Function]}
-                  onPointerEnter={[Function]}
-                  onPointerLeave={[Function]}
+                  onMouseEnter={[Function]}
+                  onMouseLeave={[Function]}
                 >
                   Atlanta, GA
                 </div>
@@ -8635,8 +8635,8 @@ exports[`Storyshots Table Ellipsis With Tooltip 1`] = `
                   id="4fzzzxj"
                   onBlur={[Function]}
                   onFocus={[Function]}
-                  onPointerEnter={[Function]}
-                  onPointerLeave={[Function]}
+                  onMouseEnter={[Function]}
+                  onMouseLeave={[Function]}
                 >
                   Atlanta, GA
                 </div>
@@ -8654,8 +8654,8 @@ exports[`Storyshots Table Ellipsis With Tooltip 1`] = `
                   id="4fzzzxj"
                   onBlur={[Function]}
                   onFocus={[Function]}
-                  onPointerEnter={[Function]}
-                  onPointerLeave={[Function]}
+                  onMouseEnter={[Function]}
+                  onMouseLeave={[Function]}
                 >
                   Atlanta, GA
                 </div>
@@ -8752,8 +8752,8 @@ exports[`Storyshots Table Ellipsis With Tooltip 1`] = `
                   id="4fzzzxj"
                   onBlur={[Function]}
                   onFocus={[Function]}
-                  onPointerEnter={[Function]}
-                  onPointerLeave={[Function]}
+                  onMouseEnter={[Function]}
+                  onMouseLeave={[Function]}
                 >
                   San Diego, USA
                 </div>
@@ -8771,8 +8771,8 @@ exports[`Storyshots Table Ellipsis With Tooltip 1`] = `
                   id="4fzzzxj"
                   onBlur={[Function]}
                   onFocus={[Function]}
-                  onPointerEnter={[Function]}
-                  onPointerLeave={[Function]}
+                  onMouseEnter={[Function]}
+                  onMouseLeave={[Function]}
                 >
                   San Diego, USA
                 </div>
@@ -8790,8 +8790,8 @@ exports[`Storyshots Table Ellipsis With Tooltip 1`] = `
                   id="4fzzzxj"
                   onBlur={[Function]}
                   onFocus={[Function]}
-                  onPointerEnter={[Function]}
-                  onPointerLeave={[Function]}
+                  onMouseEnter={[Function]}
+                  onMouseLeave={[Function]}
                 >
                   San Diego, USA
                 </div>
@@ -8809,8 +8809,8 @@ exports[`Storyshots Table Ellipsis With Tooltip 1`] = `
                   id="4fzzzxj"
                   onBlur={[Function]}
                   onFocus={[Function]}
-                  onPointerEnter={[Function]}
-                  onPointerLeave={[Function]}
+                  onMouseEnter={[Function]}
+                  onMouseLeave={[Function]}
                 >
                   San Diego, USA
                 </div>
@@ -8828,8 +8828,8 @@ exports[`Storyshots Table Ellipsis With Tooltip 1`] = `
                   id="4fzzzxj"
                   onBlur={[Function]}
                   onFocus={[Function]}
-                  onPointerEnter={[Function]}
-                  onPointerLeave={[Function]}
+                  onMouseEnter={[Function]}
+                  onMouseLeave={[Function]}
                 >
                   San Diego, USA
                 </div>
@@ -8847,8 +8847,8 @@ exports[`Storyshots Table Ellipsis With Tooltip 1`] = `
                   id="4fzzzxj"
                   onBlur={[Function]}
                   onFocus={[Function]}
-                  onPointerEnter={[Function]}
-                  onPointerLeave={[Function]}
+                  onMouseEnter={[Function]}
+                  onMouseLeave={[Function]}
                 >
                   San Diego, USA
                 </div>
@@ -8945,8 +8945,8 @@ exports[`Storyshots Table Ellipsis With Tooltip 1`] = `
                   id="4fzzzxj"
                   onBlur={[Function]}
                   onFocus={[Function]}
-                  onPointerEnter={[Function]}
-                  onPointerLeave={[Function]}
+                  onMouseEnter={[Function]}
+                  onMouseLeave={[Function]}
                 >
                   Mumbai, Maharashtra
                 </div>
@@ -8964,8 +8964,8 @@ exports[`Storyshots Table Ellipsis With Tooltip 1`] = `
                   id="4fzzzxj"
                   onBlur={[Function]}
                   onFocus={[Function]}
-                  onPointerEnter={[Function]}
-                  onPointerLeave={[Function]}
+                  onMouseEnter={[Function]}
+                  onMouseLeave={[Function]}
                 >
                   Mumbai, Maharashtra
                 </div>
@@ -8983,8 +8983,8 @@ exports[`Storyshots Table Ellipsis With Tooltip 1`] = `
                   id="4fzzzxj"
                   onBlur={[Function]}
                   onFocus={[Function]}
-                  onPointerEnter={[Function]}
-                  onPointerLeave={[Function]}
+                  onMouseEnter={[Function]}
+                  onMouseLeave={[Function]}
                 >
                   Mumbai, Maharashtra
                 </div>
@@ -9002,8 +9002,8 @@ exports[`Storyshots Table Ellipsis With Tooltip 1`] = `
                   id="4fzzzxj"
                   onBlur={[Function]}
                   onFocus={[Function]}
-                  onPointerEnter={[Function]}
-                  onPointerLeave={[Function]}
+                  onMouseEnter={[Function]}
+                  onMouseLeave={[Function]}
                 >
                   Mumbai, Maharashtra
                 </div>
@@ -9021,8 +9021,8 @@ exports[`Storyshots Table Ellipsis With Tooltip 1`] = `
                   id="4fzzzxj"
                   onBlur={[Function]}
                   onFocus={[Function]}
-                  onPointerEnter={[Function]}
-                  onPointerLeave={[Function]}
+                  onMouseEnter={[Function]}
+                  onMouseLeave={[Function]}
                 >
                   Mumbai, Maharashtra
                 </div>
@@ -9040,8 +9040,8 @@ exports[`Storyshots Table Ellipsis With Tooltip 1`] = `
                   id="4fzzzxj"
                   onBlur={[Function]}
                   onFocus={[Function]}
-                  onPointerEnter={[Function]}
-                  onPointerLeave={[Function]}
+                  onMouseEnter={[Function]}
+                  onMouseLeave={[Function]}
                 >
                   Mumbai, Maharashtra
                 </div>
@@ -9138,8 +9138,8 @@ exports[`Storyshots Table Ellipsis With Tooltip 1`] = `
                   id="4fzzzxj"
                   onBlur={[Function]}
                   onFocus={[Function]}
-                  onPointerEnter={[Function]}
-                  onPointerLeave={[Function]}
+                  onMouseEnter={[Function]}
+                  onMouseLeave={[Function]}
                 >
                   Houston, Texas Area
                 </div>
@@ -9157,8 +9157,8 @@ exports[`Storyshots Table Ellipsis With Tooltip 1`] = `
                   id="4fzzzxj"
                   onBlur={[Function]}
                   onFocus={[Function]}
-                  onPointerEnter={[Function]}
-                  onPointerLeave={[Function]}
+                  onMouseEnter={[Function]}
+                  onMouseLeave={[Function]}
                 >
                   Houston, Texas Area
                 </div>
@@ -9176,8 +9176,8 @@ exports[`Storyshots Table Ellipsis With Tooltip 1`] = `
                   id="4fzzzxj"
                   onBlur={[Function]}
                   onFocus={[Function]}
-                  onPointerEnter={[Function]}
-                  onPointerLeave={[Function]}
+                  onMouseEnter={[Function]}
+                  onMouseLeave={[Function]}
                 >
                   Houston, Texas Area
                 </div>
@@ -9195,8 +9195,8 @@ exports[`Storyshots Table Ellipsis With Tooltip 1`] = `
                   id="4fzzzxj"
                   onBlur={[Function]}
                   onFocus={[Function]}
-                  onPointerEnter={[Function]}
-                  onPointerLeave={[Function]}
+                  onMouseEnter={[Function]}
+                  onMouseLeave={[Function]}
                 >
                   Houston, Texas Area
                 </div>
@@ -9214,8 +9214,8 @@ exports[`Storyshots Table Ellipsis With Tooltip 1`] = `
                   id="4fzzzxj"
                   onBlur={[Function]}
                   onFocus={[Function]}
-                  onPointerEnter={[Function]}
-                  onPointerLeave={[Function]}
+                  onMouseEnter={[Function]}
+                  onMouseLeave={[Function]}
                 >
                   Houston, Texas Area
                 </div>
@@ -9233,8 +9233,8 @@ exports[`Storyshots Table Ellipsis With Tooltip 1`] = `
                   id="4fzzzxj"
                   onBlur={[Function]}
                   onFocus={[Function]}
-                  onPointerEnter={[Function]}
-                  onPointerLeave={[Function]}
+                  onMouseEnter={[Function]}
+                  onMouseLeave={[Function]}
                 >
                   Houston, Texas Area
                 </div>
@@ -9331,8 +9331,8 @@ exports[`Storyshots Table Ellipsis With Tooltip 1`] = `
                   id="4fzzzxj"
                   onBlur={[Function]}
                   onFocus={[Function]}
-                  onPointerEnter={[Function]}
-                  onPointerLeave={[Function]}
+                  onMouseEnter={[Function]}
+                  onMouseLeave={[Function]}
                 >
                   Irvine, CA
                 </div>
@@ -9350,8 +9350,8 @@ exports[`Storyshots Table Ellipsis With Tooltip 1`] = `
                   id="4fzzzxj"
                   onBlur={[Function]}
                   onFocus={[Function]}
-                  onPointerEnter={[Function]}
-                  onPointerLeave={[Function]}
+                  onMouseEnter={[Function]}
+                  onMouseLeave={[Function]}
                 >
                   Irvine, CA
                 </div>
@@ -9369,8 +9369,8 @@ exports[`Storyshots Table Ellipsis With Tooltip 1`] = `
                   id="4fzzzxj"
                   onBlur={[Function]}
                   onFocus={[Function]}
-                  onPointerEnter={[Function]}
-                  onPointerLeave={[Function]}
+                  onMouseEnter={[Function]}
+                  onMouseLeave={[Function]}
                 >
                   Irvine, CA
                 </div>
@@ -9388,8 +9388,8 @@ exports[`Storyshots Table Ellipsis With Tooltip 1`] = `
                   id="4fzzzxj"
                   onBlur={[Function]}
                   onFocus={[Function]}
-                  onPointerEnter={[Function]}
-                  onPointerLeave={[Function]}
+                  onMouseEnter={[Function]}
+                  onMouseLeave={[Function]}
                 >
                   Irvine, CA
                 </div>
@@ -9407,8 +9407,8 @@ exports[`Storyshots Table Ellipsis With Tooltip 1`] = `
                   id="4fzzzxj"
                   onBlur={[Function]}
                   onFocus={[Function]}
-                  onPointerEnter={[Function]}
-                  onPointerLeave={[Function]}
+                  onMouseEnter={[Function]}
+                  onMouseLeave={[Function]}
                 >
                   Irvine, CA
                 </div>
@@ -9426,8 +9426,8 @@ exports[`Storyshots Table Ellipsis With Tooltip 1`] = `
                   id="4fzzzxj"
                   onBlur={[Function]}
                   onFocus={[Function]}
-                  onPointerEnter={[Function]}
-                  onPointerLeave={[Function]}
+                  onMouseEnter={[Function]}
+                  onMouseLeave={[Function]}
                 >
                   Irvine, CA
                 </div>
@@ -44258,8 +44258,8 @@ exports[`Storyshots Table Sort 1`] = `
                   id="sortTip"
                   onBlur={[Function]}
                   onFocus={[Function]}
-                  onPointerEnter={[Function]}
-                  onPointerLeave={[Function]}
+                  onMouseEnter={[Function]}
+                  onMouseLeave={[Function]}
                 >
                   <div
                     className="table-column-sorters"
@@ -45869,8 +45869,8 @@ exports[`Storyshots Table Sort Multiple 1`] = `
                   id="sortTip"
                   onBlur={[Function]}
                   onFocus={[Function]}
-                  onPointerEnter={[Function]}
-                  onPointerLeave={[Function]}
+                  onMouseEnter={[Function]}
+                  onMouseLeave={[Function]}
                 >
                   <div
                     className="table-column-sorters"
@@ -45957,8 +45957,8 @@ exports[`Storyshots Table Sort Multiple 1`] = `
                   id="sortTip"
                   onBlur={[Function]}
                   onFocus={[Function]}
-                  onPointerEnter={[Function]}
-                  onPointerLeave={[Function]}
+                  onMouseEnter={[Function]}
+                  onMouseLeave={[Function]}
                 >
                   <div
                     className="table-column-sorters"
@@ -46045,8 +46045,8 @@ exports[`Storyshots Table Sort Multiple 1`] = `
                   id="sortTip"
                   onBlur={[Function]}
                   onFocus={[Function]}
-                  onPointerEnter={[Function]}
-                  onPointerLeave={[Function]}
+                  onMouseEnter={[Function]}
+                  onMouseLeave={[Function]}
                 >
                   <div
                     className="table-column-sorters"
