@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.4.1](https://github.com/EightfoldAI/octuple/compare/v2.4.0...v2.4.1) (2022-08-17)
+
+### Bug Fixes
+
+-   change default input and textarea shape to rectangle ([#305](https://github.com/EightfoldAI/octuple/issues/305)) ([93460a2](https://github.com/EightfoldAI/octuple/commits/93460a238e09779054869d2a0466a691f3c887f2))
+-   tooltips in safari for disabled element ([#309](https://github.com/EightfoldAI/octuple/issues/309)) ([26f76c0](https://github.com/EightfoldAI/octuple/commits/26f76c05cf8dda52f1573d9a33dc1ee1116f475a))
+
 ## [2.4.0](https://github.com/EightfoldAI/octuple/compare/v2.3.0...v2.4.0) (2022-08-12)
 
 ### Features
