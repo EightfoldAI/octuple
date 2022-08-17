@@ -124,7 +124,7 @@ jobs:
         env:
           API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
         with:
-          source-directory: 'dist'
+          source-directory: 'storybook-static'
           destination-github-username: 'EightfoldAI'
           destination-repository-name: 'octuple.github.io'
           user-email: ychhabra@eightfold.ai
