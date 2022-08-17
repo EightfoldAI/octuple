@@ -15,6 +15,7 @@ exports[`Storyshots Link Default Disabled 1`] = `
 <a
   className="link-style my-link-class"
   href="https://www.facebook.com"
+  onClick={[Function]}
   style={Object {}}
   target="_self"
 >
