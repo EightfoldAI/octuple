@@ -10,7 +10,7 @@
     },
     "scripts": {
         "storybook": "start-storybook -p 2022",
-        "build-storybook": "rm -rf dist && mkdir dist && build-storybook -o dist",
+        "build-storybook": "rm -rf storybook-static && mkdir storybook-static && build-storybook -o storybook-static",
         "build": "rm -rf lib && npm run lint && webpack --config webpack.prod.js --mode production",
         "details": "webpack --config webpack.dev.js --mode development --stats-error-details",
         "analyze": "webpack --config webpack.dev.js --mode production --json > stats.json",
