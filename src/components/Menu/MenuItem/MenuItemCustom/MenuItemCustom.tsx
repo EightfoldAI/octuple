@@ -8,7 +8,7 @@ import styles from '../menuItem.module.scss';
 export const MenuItemCustom: FC<MenuItemCustomProps> = ({
     index,
     onChange,
-    size,
+    size = MenuSize.medium,
     ...item
 }) => {
     const menuItemClasses = mergeClasses([

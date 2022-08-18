@@ -21,8 +21,8 @@ export const Link: FC<LinkProps> = React.forwardRef(
     ) => {
         const linkClasses: string = mergeClasses([
             styles.linkStyle,
-            classNames,
             { [styles.primary]: variant === 'primary' },
+            classNames,
         ]);
 
         return (

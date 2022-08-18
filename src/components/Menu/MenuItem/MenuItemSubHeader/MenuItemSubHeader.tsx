@@ -11,9 +11,11 @@ export const MenuItemSubHeader: FC<MenuItemSubHeaderProps> = ({
 }) => {
     const subHeaderClasses: string = mergeClasses([
         styles.menuItemSubHeader,
-        { 'body3 semibold': size === MenuSize.small },
-        { 'body2 semibold': size === MenuSize.medium },
-        { 'body1 semibold': size === MenuSize.large },
+        {
+            [styles.octupleContentLarge]: size === MenuSize.large,
+            [styles.octupleContentMedium]: size === MenuSize.medium,
+            [styles.octupleContentSmall]: size === MenuSize.small,
+        },
     ]);
     return <span className={subHeaderClasses}>{text}</span>;
 };

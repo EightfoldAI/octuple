@@ -13,7 +13,6 @@ import {
 } from '../Button';
 
 import styles from './menu.module.scss';
-import { IconName } from '../Icon';
 
 const MENU_SIZE_TO_BUTTON_SIZE_MAP: Record<MenuSize, ButtonSize> = {
     [MenuSize.large]: ButtonSize.Large,
@@ -43,11 +42,11 @@ export const Menu: FC<MenuProps> = ({
     const headerClasses: string = mergeClasses([
         styles.menuHeaderContainer,
         {
-            header4: size === MenuSize.large,
+            [styles.octupleH4]: size === MenuSize.large,
             [styles.large]: size === MenuSize.large,
-            header5: size === MenuSize.medium,
+            [styles.octupleH5]: size === MenuSize.medium,
             [styles.medium]: size === MenuSize.medium,
-            header6: size === MenuSize.small,
+            [styles.octupleH6]: size === MenuSize.small,
             [styles.small]: size === MenuSize.small,
         },
     ]);

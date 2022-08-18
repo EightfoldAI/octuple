@@ -1,7 +1,7 @@
 import React from 'react';
 import { Stories } from '@storybook/addon-docs';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { Menu, MenuItemType, MenuSize, MenuVariant } from './';
+import { Menu, MenuItemType, MenuProps, MenuSize, MenuVariant } from './';
 import { Dropdown } from '../Dropdown';
 import { DefaultButton } from '../Button';
 import { RadioGroup } from '../RadioButton';
@@ -48,7 +48,7 @@ export default {
     },
 } as ComponentMeta<typeof Menu>;
 
-const Overlay = (args: any) => (
+const BasicOverlay = (args: any) => (
     <Menu
         {...args}
         items={[
@@ -76,6 +76,67 @@ const Overlay = (args: any) => (
             {
                 text: 'Thumbs up',
                 value: 'date 1',
+            },
+            {
+                iconProps: {
+                    path: IconName.mdiCalendar,
+                },
+                text: 'Date',
+                value: 'date 1',
+                counter: '8',
+            },
+            {
+                text: 'Thumbs up',
+                value: 'date 1',
+            },
+        ]}
+        onChange={(item) => {
+            args.onChange(item);
+            console.log(item);
+        }}
+    />
+);
+
+const LinkOverlay = (args: any) => (
+    <Menu
+        {...args}
+        items={[
+            {
+                type: MenuItemType.link,
+                text: 'Twitter link',
+                href: 'https://twitter.com',
+                target: '_blank',
+            },
+            {
+                type: MenuItemType.link,
+                text: 'Facebook link',
+                href: 'https://facebook.com',
+                target: '_blank',
+            },
+        ]}
+        onChange={(item) => {
+            args.onChange(item);
+            console.log(item);
+        }}
+    />
+);
+
+const SubHeaderOverlay = (args: any) => (
+    <Menu
+        {...args}
+        items={[
+            {
+                iconProps: {
+                    path: IconName.mdiCalendar,
+                },
+                text: 'Date',
+                value: 'date 1',
+                counter: '8',
+            },
+            {
+                text: 'Thumbs up',
+                value: 'date 1',
+                disabled: true,
             },
             {
                 iconProps: {
@@ -128,6 +189,18 @@ const Overlay = (args: any) => (
                     />
                 ),
             },
+            {
+                iconProps: {
+                    path: IconName.mdiCalendar,
+                },
+                text: 'Date',
+                value: 'date 1',
+                counter: '8',
+            },
+            {
+                text: 'Thumbs up',
+                value: 'date 1',
+            },
         ]}
         onChange={(item) => {
             args.onChange(item);
@@ -136,22 +209,67 @@ const Overlay = (args: any) => (
     />
 );
 
-const Menu_Story: ComponentStory<typeof Menu> = (args) => (
-    <Dropdown overlay={Overlay(args)}>
+const Basic_Menu_Story: ComponentStory<typeof Menu> = (args) => (
+    <Dropdown overlay={BasicOverlay(args)}>
         <DefaultButton text={'Menu dropdown'} />
     </Dropdown>
 );
 
-export const Menus = Menu_Story.bind({});
+const Menu_Story: ComponentStory<typeof Menu> = (args) => (
+    <Dropdown overlay={LinkOverlay(args)}>
+        <DefaultButton text={'Menu dropdown'} />
+    </Dropdown>
+);
 
-Menus.args = {
+const Menu_Header_Story: ComponentStory<typeof Menu> = (args) => (
+    <Dropdown overlay={BasicOverlay(args)}>
+        <DefaultButton text={'Menu dropdown'} />
+    </Dropdown>
+);
+
+const Menu_Sub_Header_Story: ComponentStory<typeof Menu> = (args) => (
+    <Dropdown overlay={SubHeaderOverlay(args)}>
+        <DefaultButton text={'Menu dropdown'} />
+    </Dropdown>
+);
+
+export const BasicMenu = Basic_Menu_Story.bind({});
+export const LinkMenu = Menu_Story.bind({});
+export const MenuHeader = Menu_Header_Story.bind({});
+export const MenuSubHeader = Menu_Sub_Header_Story.bind({});
+export const MenuFooter = Menu_Header_Story.bind({});
+
+const menuArgs: object = {
     variant: MenuVariant.neutral,
-    size: MenuSize.medium,
+    size: MenuSize.large,
     classNames: 'my-menu-class',
     style: {},
-    header: 'Header 4 is used here',
-    subHeader: 'A short description if needed',
     itemClassNames: 'my-menu-item-class',
+    itemStyle: {},
+    listType: 'ul',
+};
+
+BasicMenu.args = {
+    ...menuArgs,
+};
+
+LinkMenu.args = {
+    ...menuArgs,
+};
+
+MenuHeader.args = {
+    header: 'Header 4 is used here',
+    ...menuArgs,
+};
+
+MenuSubHeader.args = {
+    header: 'Header 4 is used here',
+    ...menuArgs,
+};
+
+MenuFooter.args = {
+    header: 'Header 4 is used here',
+    ...menuArgs,
     cancelButtonProps: {
         ariaLabel: 'Cancel',
         classNames: 'my-cancel-btn-class',
@@ -168,6 +286,4 @@ Menus.args = {
         id: 'myAcceptButton',
         text: 'Accept',
     },
-    itemStyle: {},
-    listType: 'ul',
 };

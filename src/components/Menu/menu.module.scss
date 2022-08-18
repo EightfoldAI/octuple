@@ -1,36 +1,22 @@
+@include octuple-chrome();
 .menu-container {
     display: flex;
     flex-direction: column;
-
-    &.large {
-        padding-top: $space-xl;
-        gap: $space-xl;
-    }
-
-    &.medium {
-        padding-top: $space-l;
-        gap: $space-l;
-    }
-
-    &.small {
-        padding-top: $space-m;
-        gap: $space-m;
-    }
 
     .menu-header-container {
         display: flex;
         flex: 1;
 
         &.large {
-            margin: 0 $space-xl;
+            padding: $space-l $space-l $space-xs;
         }
 
         &.medium {
-            margin: 0 $space-l;
+            padding: $space-m $space-m $space-xs;
         }
 
         &.small {
-            margin: 0 $space-m;
+            padding: $space-m $space-m $space-xs;
         }
 
         .heading {
