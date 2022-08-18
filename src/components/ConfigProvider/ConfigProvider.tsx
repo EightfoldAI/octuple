@@ -1,4 +1,6 @@
 import React, { createContext, FC, useEffect, useState } from 'react';
+import LocaleReceiver from '../LocaleProvider/LocaleReceiver';
+import LocaleProvider from '../LocaleProvider';
 import { registerFont, registerTheme } from './Theming/styleGenerator';
 import { ConfigProviderProps, IConfigContext } from './ConfigProvider.types';
 import {
@@ -8,6 +10,7 @@ import {
     ThemeOptions,
 } from './Theming';
 import { useFocusVisibleClassName } from '../../hooks/useFocusVisibleClassName';
+import { DisabledContextProvider } from './DisabledContext';
 
 const ConfigContext: React.Context<Partial<IConfigContext>> = createContext<
     Partial<IConfigContext>
@@ -20,12 +23,14 @@ const DEFAULT_FOCUS_VISIBLE_ELEMENT: HTMLElement = document.documentElement;
 
 const ConfigProvider: FC<ConfigProviderProps> = ({
     children,
+    disabled = false,
     focusVisibleOptions = {
         focusVisible: DEFAULT_FOCUS_VISIBLE,
         focusVisibleElement: DEFAULT_FOCUS_VISIBLE_ELEMENT,
     },
     fontOptions: defaultFontOptions,
     icomoonIconSet = {},
+    locale,
     themeOptions: defaultThemeOptions,
 }) => {
     const [fontOptions, setFontOptions] =
@@ -82,7 +87,19 @@ const ConfigProvider: FC<ConfigProviderProps> = ({
                 icomoonIconSet,
             }}
         >
-            {children}
+            <DisabledContextProvider disabled={disabled}>
+                <LocaleReceiver>
+                    {(_, __) =>
+                        locale ? (
+                            <LocaleProvider locale={locale}>
+                                {children}
+                            </LocaleProvider>
+                        ) : (
+                            { children }
+                        )
+                    }
+                </LocaleReceiver>
+            </DisabledContextProvider>
         </ConfigContext.Provider>
     );
 };

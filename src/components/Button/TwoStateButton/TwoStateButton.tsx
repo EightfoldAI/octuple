@@ -1,4 +1,7 @@
-import React, { FC, Ref } from 'react';
+import React, { FC, Ref, useContext } from 'react';
+import DisabledContext, {
+    DisabledType,
+} from '../../ConfigProvider/DisabledContext';
 import {
     ButtonShape,
     ButtonSize,
@@ -47,6 +50,9 @@ export const TwoStateButton: FC<TwoStateButtonProps> = React.forwardRef(
         const smallScreenActive: boolean = useMatchMedia(Breakpoints.Small);
         const xSmallScreenActive: boolean = useMatchMedia(Breakpoints.XSmall);
 
+        const contextuallyDisabled: DisabledType = useContext(DisabledContext);
+        const mergedDisabled: boolean = contextuallyDisabled || disabled;
+
         const counterExists: boolean = !!counter;
         const iconOneExists: boolean = !!iconOneProps;
         const iconTwoExists: boolean = !!iconTwoProps;
@@ -81,7 +87,7 @@ export const TwoStateButton: FC<TwoStateButtonProps> = React.forwardRef(
             { [styles.dropShadow]: dropShadow },
             { [styles.left]: alignText === ButtonTextAlign.Left },
             { [styles.right]: alignText === ButtonTextAlign.Right },
-            { [styles.disabled]: allowDisabledFocus || disabled },
+            { [styles.disabled]: allowDisabledFocus || mergedDisabled },
             { [styles.dark]: theme === ButtonTheme.dark },
         ]);
 
@@ -155,11 +161,11 @@ export const TwoStateButton: FC<TwoStateButtonProps> = React.forwardRef(
                 {...rest}
                 ref={ref}
                 aria-checked={toggle ? !!checked : undefined}
-                aria-disabled={disabled}
+                aria-disabled={mergedDisabled}
                 aria-label={ariaLabel}
                 aria-pressed={toggle ? !!checked : undefined}
                 defaultChecked={checked}
-                disabled={!allowDisabledFocus && disabled}
+                disabled={!allowDisabledFocus && mergedDisabled}
                 className={twoStateButtonClassNames}
                 id={id}
                 onClick={!allowDisabledFocus ? onClick : null}

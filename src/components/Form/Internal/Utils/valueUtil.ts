@@ -7,7 +7,7 @@ import type {
     OcEventArgs,
 } from '../OcForm.types';
 import { toArray } from './typeUtil';
-import cloneDeep from '../utils/cloneDeep';
+import cloneDeep from '../Utils/cloneDeep';
 
 /**
  * Convert name to internal supported format.

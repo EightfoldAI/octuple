@@ -1,4 +1,7 @@
-import React, { FC, Ref, useEffect, useState } from 'react';
+import React, { FC, Ref, useContext, useEffect, useRef, useState } from 'react';
+import DisabledContext, {
+    DisabledType,
+} from '../../ConfigProvider/DisabledContext';
 import { ButtonSize, DefaultButton } from '../../Button';
 import { Icon, IconName, IconSize } from '../../Icon';
 import { Label, LabelSize } from '../../Label';
@@ -11,8 +14,17 @@ import {
     TextInputTheme,
 } from '../index';
 import { useDebounce } from '../../../hooks/useDebounce';
-import { mergeClasses, uniqueId } from '../../../shared/utilities';
+import {
+    mergeClasses,
+    resolveOnChange,
+    uniqueId,
+} from '../../../shared/utilities';
 import { Breakpoints, useMatchMedia } from '../../../hooks/useMatchMedia';
+import { FormItemInputContext } from '../../Form/Context';
+import {
+    getMergedStatus,
+    getStatusClassNames,
+} from '../../../shared/utilities';
 
 import styles from '../input.module.scss';
 
@@ -27,6 +39,7 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
             clearable = true,
             clearButtonAriaLabel,
             disabled = false,
+            formItemInput = false,
             htmlType = 'text',
             iconProps,
             iconButtonProps,
@@ -48,6 +61,7 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
             readonly = false,
             shape = TextInputShape.Pill,
             size = TextInputSize.Flex,
+            status,
             style,
             theme = TextInputTheme.light,
             value,
@@ -67,6 +81,14 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
             useState<boolean>(false);
         const [inputId] = useState<string>(uniqueId(id || 'input-'));
         const inputField: HTMLElement = document.getElementById(inputId);
+
+        const { status: contextStatus, isFormItemInput } =
+            useContext(FormItemInputContext);
+        const mergedStatus = getMergedStatus(contextStatus, status);
+        const mergedFormItemInput: boolean = isFormItemInput || formItemInput;
+
+        const contextuallyDisabled: DisabledType = useContext(DisabledContext);
+        const mergedDisabled: boolean = contextuallyDisabled || disabled;
 
         const iconClassNames: string = mergeClasses([
             styles.iconWrapper,
@@ -164,13 +186,13 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
             { [styles.rightIcon]: alignIcon === TextInputIconAlign.Right },
             { [styles.clearDisabled]: !clearable },
             { [styles.clearNotVisible]: !clearButtonShown },
+            { ['in-form-item']: mergedFormItemInput },
+            getStatusClassNames(mergedStatus),
         ]);
 
         const textInputGroupClassNames: string = mergeClasses([
             styles.inputGroup,
-            {
-                [styles.inline]: inline,
-            },
+            { [styles.inline]: inline },
             { [styles.leftIcon]: alignIcon === TextInputIconAlign.Left },
             { [styles.rightIcon]: alignIcon === TextInputIconAlign.Right },
         ]);
@@ -208,8 +230,9 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
             { [styles.leftIcon]: alignIcon === TextInputIconAlign.Left },
             { [styles.rightIcon]: alignIcon === TextInputIconAlign.Right },
             {
-                [styles.disabled]: allowDisabledFocus || disabled,
+                [styles.disabled]: allowDisabledFocus || mergedDisabled,
             },
+            { ['in-form-item']: mergedFormItemInput },
         ]);
 
         useEffect(() => {
@@ -231,6 +254,11 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
             _event.stopPropagation();
             if (!!inputField) {
                 (inputField as HTMLInputElement).value = '';
+                resolveOnChange(
+                    inputField as HTMLInputElement,
+                    _event as React.MouseEvent<HTMLElement, MouseEvent>,
+                    onChange
+                );
             }
             setInputValue('');
             onClear?.(_event);
@@ -328,11 +356,11 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
                     <input
                         {...rest}
                         ref={ref}
-                        aria-disabled={disabled}
+                        aria-disabled={mergedDisabled}
                         aria-label={ariaLabel}
                         autoFocus={autoFocus}
                         className={textInputClassNames}
-                        disabled={!allowDisabledFocus && disabled}
+                        disabled={!allowDisabledFocus && mergedDisabled}
                         id={inputId}
                         maxLength={maxlength}
                         minLength={minlength}
@@ -377,7 +405,9 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
                             ariaLabel={iconButtonProps.ariaLabel}
                             checked={iconButtonProps.checked}
                             classNames={iconButtonClassNames}
-                            disabled={iconButtonProps.disabled}
+                            disabled={
+                                iconButtonProps.disabled || mergedDisabled
+                            }
                             iconProps={{ path: iconButtonProps.iconProps.path }}
                             id={iconButtonProps.id}
                             onClick={iconButtonProps.onClick}
@@ -393,7 +423,7 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
                                 allowDisabledFocus={allowDisabledFocus}
                                 ariaLabel={clearButtonAriaLabel}
                                 classNames={clearIconButtonClassNames}
-                                disabled={disabled}
+                                disabled={mergedDisabled}
                                 iconProps={{ path: IconName.mdiClose }}
                                 onClick={
                                     !allowDisabledFocus ? handleOnClear : null

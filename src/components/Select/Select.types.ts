@@ -5,6 +5,7 @@ import { MenuProps } from '../Menu';
 import { OcBaseProps } from '../OcBase';
 import { PillProps } from '../Pills';
 import { MenuItemProps } from '../Menu/MenuItem/MenuItem.types';
+import type { InputStatus } from '../../shared/utilities';
 
 export enum SelectShape {
     Rectangle = 'rectangle',
@@ -20,17 +21,52 @@ export enum SelectSize {
 }
 
 export interface SelectOption extends MenuItemProps {
-    selected?: boolean;
     hideOption?: boolean;
     id?: string;
+    selected?: boolean;
 }
 
 export interface SelectProps extends OcBaseProps<HTMLSelectElement> {
+    /**
+     * clearable.
+     * @default false
+     */
+    clearable?: boolean;
+
     /**
      * Default Value
      * @default ''
      */
     defaultValue?: string;
+
+    /**
+     * The select disabled state.
+     * @default false
+     */
+    disabled?: boolean;
+
+    /**
+     * dropdown and overlay props.
+     * @default {}
+     */
+    dropdownProps?: DropdownProps;
+
+    /**
+     * display text when there are no filtered results.
+     */
+    emptyText?: string;
+
+    /**
+     * enable filtering/searching on the options
+     * @default false
+     */
+    filterable?: boolean;
+
+    /**
+     * Custom method to filter whether an option should be displayed in the menu.
+     * @default null
+     */
+    filterOption?: (option: any, query: any) => boolean;
 
     /**
      * Width of the tooltip
@@ -39,22 +75,22 @@ export interface SelectProps extends OcBaseProps<HTMLSelectElement> {
     inputWidth?: TextInputWidth;
 
     /**
-     * Default options
-     * @default ''
-     */
-    options?: SelectOption[];
-
-    /**
-     * clearable.
+     * applicable in case of loadOptions. pass true when the loading is in progress.
      * @default false
      */
-    clearable?: boolean;
+    isLoading?: boolean;
 
     /**
-     * enable filtering/searching on the options
+     * for async loading options.
      * @default false
      */
-    filterable?: boolean;
+    loadOptions?: (inputValue: string) => void;
+
+    /**
+     * dropdown menu props.
+     * @default {}
+     */
+    menuProps?: MenuProps;
 
     /**
      * in case of multiple select.
@@ -69,45 +105,16 @@ export interface SelectProps extends OcBaseProps<HTMLSelectElement> {
     onOptionsChange?: (options: SelectOption[]) => void;
 
     /**
-     * for async loading options.
-     * @default false
+     * Default options
+     * @default ''
      */
-    loadOptions?: (inputValue: string) => void;
-
-    /**
-     * applicable in case of loadOptions. pass true when the loading is in progress.
-     * @default false
-     */
-    isLoading?: boolean;
-
-    /**
-     * display text when there are no filtered results.
-     */
-    emptyText?: string;
-
-    /**
-     * select input props.
-     * @default {}
-     */
-    textInputProps?: TextInputProps;
-
-    /**
-     * dropdown and overlay props.
-     * @default {}
-     */
-    dropdownProps?: DropdownProps;
+    options?: SelectOption[];
 
     /**
      * pill props. applicable in case of multiple: true.
      * @default {}
      */
     pillProps?: PillProps;
-
-    /**
-     * dropdown menu props.
-     * @default {}
-     */
-    menuProps?: MenuProps;
 
     /**
      * Shape of the select.
@@ -128,8 +135,13 @@ export interface SelectProps extends OcBaseProps<HTMLSelectElement> {
     spinner?: React.ReactNode;
 
     /**
-     * Custom method to filter whether an option should be displayed in the menu.
-     * @default null
+     * the validation status.
      */
-    filterOption?: (option: any, query: any) => boolean;
+    status?: InputStatus;
+
+    /**
+     * select input props.
+     * @default {}
+     */
+    textInputProps?: TextInputProps;
 }

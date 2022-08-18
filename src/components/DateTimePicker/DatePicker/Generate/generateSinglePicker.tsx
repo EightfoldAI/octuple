@@ -1,4 +1,7 @@
-import React, { forwardRef, useImperativeHandle } from 'react';
+import React, { forwardRef, useContext, useImperativeHandle } from 'react';
+import DisabledContext, {
+    DisabledType,
+} from '../../../ConfigProvider/DisabledContext';
 import { mergeClasses } from '../../../../shared/utilities';
 import type { InputStatus } from '../../../../shared/utilities';
 import OcPicker from '../../Internal/OcPicker';
@@ -19,7 +22,6 @@ import enUS from '../Locale/en_US';
 import { getPlaceholder, transPlacement2DropdownAlign } from '../util';
 import { Icon, IconName, IconSize } from '../../../Icon';
 import { dir, useCanvasDirection } from '../../../../hooks/useCanvasDirection';
-import { CSSVariables } from '../../../../shared/variables';
 
 import styles from '../datepicker.module.scss';
 
@@ -87,6 +89,10 @@ export default function generatePicker<DateType>(
                       })
                     : {}),
             };
+
+            const contextuallyDisabled: DisabledType =
+                useContext(DisabledContext);
+            const mergedDisabled: boolean = contextuallyDisabled || disabled;
 
             const pickerSizeToIconSizeMap = new Map<typeof size, IconSize>([
                 ['Large', IconSize.Large],
@@ -173,7 +179,7 @@ export default function generatePicker<DateType>(
                     generateConfig={generateConfig}
                     components={Components}
                     direction={htmlDir}
-                    disabled={disabled}
+                    disabled={mergedDisabled}
                     size={size}
                 />
             );

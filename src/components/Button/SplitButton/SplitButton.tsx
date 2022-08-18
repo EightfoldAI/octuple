@@ -1,4 +1,7 @@
-import React, { FC, Ref } from 'react';
+import React, { FC, Ref, useContext } from 'react';
+import DisabledContext, {
+    DisabledType,
+} from '../../ConfigProvider/DisabledContext';
 import {
     ButtonShape,
     ButtonSize,
@@ -42,6 +45,9 @@ export const SplitButton: FC<SplitButtonProps> = React.forwardRef(
         const smallScreenActive: boolean = useMatchMedia(Breakpoints.Small);
         const xSmallScreenActive: boolean = useMatchMedia(Breakpoints.XSmall);
 
+        const contextuallyDisabled: DisabledType = useContext(DisabledContext);
+        const mergedDisabled: boolean = contextuallyDisabled || disabled;
+
         const splitButtonClassNames: string = mergeClasses([
             classNames,
             styles.splitButton,
@@ -68,7 +74,7 @@ export const SplitButton: FC<SplitButtonProps> = React.forwardRef(
             { [styles.dropShadow]: dropShadow },
             { [styles.splitRight]: split },
             {
-                [styles.disabled]: allowDisabledFocus || disabled,
+                [styles.disabled]: allowDisabledFocus || mergedDisabled,
             },
             { [styles.dark]: theme === ButtonTheme.dark },
         ]);
@@ -152,11 +158,11 @@ export const SplitButton: FC<SplitButtonProps> = React.forwardRef(
                 {...rest}
                 ref={ref}
                 aria-checked={split ? !!checked : undefined}
-                aria-disabled={disabled}
+                aria-disabled={mergedDisabled}
                 aria-label={ariaLabel}
                 aria-pressed={split ? !!checked : undefined}
                 defaultChecked={checked}
-                disabled={!allowDisabledFocus && disabled}
+                disabled={!allowDisabledFocus && mergedDisabled}
                 className={splitButtonClassNames}
                 id={id}
                 onClick={!allowDisabledFocus ? onClick : null}

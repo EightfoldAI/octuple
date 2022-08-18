@@ -9,7 +9,7 @@ exports[`Storyshots Icon Basic 1`] = `
   role="presentation"
 >
   <svg
-    aria-labelledby="icon_labelledby_99 icon_describedby_99"
+    aria-labelledby="icon_labelledby_86 icon_describedby_86"
     style={
       Object {
         "height": "20px",
@@ -19,12 +19,12 @@ exports[`Storyshots Icon Basic 1`] = `
     viewBox="0 0 24 24"
   >
     <title
-      id="icon_labelledby_99"
+      id="icon_labelledby_86"
     >
       My icon title.
     </title>
     <desc
-      id="icon_describedby_99"
+      id="icon_describedby_86"
     >
       My icon description.
     </desc>
@@ -33,85 +33,6 @@ exports[`Storyshots Icon Basic 1`] = `
       style={
         Object {
           "fill": "#000000",
-        }
-      }
-    />
-  </svg>
-</span>
-`;
-
-exports[`Storyshots Icon Icomoon 1`] = `
-<span
-  aria-hidden={false}
-  className="my-icon-class icon-wrapper"
-  data-test-id="myIconTestId"
-  id="myIconId"
-  role="presentation"
->
-  <svg
-    className=""
-    height="20px"
-    role="presentation"
-    style={
-      Object {
-        "display": "inline-block",
-        "verticalAlign": "middle",
-      }
-    }
-    viewBox="0 0 1024 1024"
-    width="20px"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path
-      d="M864 0c88.364 0 160 71.634 160 160 0 36.020-11.91 69.258-32 96l-64 64-224-224 64-64c26.742-20.090 59.978-32 96-32zM64 736l-64 288 288-64 592-592-224-224-592 592zM715.578 363.578l-448 448-55.156-55.156 448-448 55.156 55.156z"
-      style={
-        Object {
-          "fill": "#000000",
-        }
-      }
-    />
-  </svg>
-</span>
-`;
-
-exports[`Storyshots Icon Icomoon Multicolor 1`] = `
-<span
-  aria-hidden={false}
-  className="my-icon-class icon-wrapper"
-  data-test-id="myIconTestId"
-  id="myIconId"
-  role="presentation"
->
-  <svg
-    className=""
-    height="24px"
-    role="presentation"
-    style={
-      Object {
-        "display": "inline-block",
-        "verticalAlign": "middle",
-      }
-    }
-    viewBox="0 0 1024 1024"
-    width="24px"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path
-      d="M102.4 153.6v716.8h241.912v-139.999h79.375v139.999h241.912v-716.8h-563.2zM181.777 233.867h81.268v78.399h-81.268v-78.399zM344.312 233.867h79.375v78.399h-79.375v-78.399zM504.955 233.867h81.267v78.399h-81.267v-78.399zM181.777 392.532h81.268v80.269h-81.268v-80.269zM344.312 392.532h79.375v80.269h-79.375v-80.269zM504.955 392.532h81.267v80.269h-81.267v-80.269zM181.777 551.201h81.268v80.266h-81.268v-80.266zM344.312 551.201h79.375v80.266h-79.375v-80.266zM504.955 551.201h81.267v80.266h-81.267v-80.266zM181.777 711.734h81.268v78.4h-81.268v-78.4zM504.955 711.734h81.267v78.4h-81.267v-78.4z"
-      fill="rgb(80, 206, 225)"
-      style={
-        Object {
-          "fill": undefined,
-        }
-      }
-    />
-    <path
-      d="M598.536 358.4h108.529c14.303 0 26.501 5.478 36.598 16.435 10.936 10.112 16.404 22.333 16.404 36.662v54.359h108.531c14.303 0 26.501 5.478 36.598 16.435 10.936 10.115 16.404 22.756 16.404 37.926v295.821c0 15.171-5.468 28.234-16.404 39.191-10.097 10.115-22.295 15.171-36.598 15.171h-431.596c-14.303 0-26.921-5.056-37.86-15.171-10.094-10.957-15.142-24.020-15.142-39.191v-295.821c0-15.171 5.048-27.812 15.142-37.926 10.939-10.957 23.557-16.435 37.86-16.435h108.531v-54.359c0-14.328 5.046-26.55 15.142-36.662 10.936-10.957 23.557-16.435 37.86-16.435zM707.064 465.856v-54.359h-108.529v54.359h108.529z"
-      fill="rgb(20, 109, 166)"
-      opacity={0.6}
-      style={
-        Object {
-          "fill": undefined,
         }
       }
     />

@@ -1,0 +1,45 @@
+@import './mixins';
+
+.form-item {
+    &-explain {
+        &-error {
+            color: var(--error-color);
+        }
+
+        &-warning {
+            color: var(--warning-color);
+        }
+    }
+
+    &-has-feedback {
+        .form-switch {
+            margin: 2px 0 4px;
+        }
+    }
+
+    &-has-warning {
+        color: var(--warning-color);
+        border-color: var(--warning-color);
+        background-color: var(--background-color);
+        outline-color: var(--warning-color);
+
+        .form-item-split {
+            color: var(--warning-color);
+        }
+
+        &:hover {
+            border-color: var(--grey-color-60);
+        }
+    }
+
+    &-has-error {
+        color: var(--error-color);
+        border-color: var(--error-color);
+        background-color: var(--background-color);
+        outline-color: var(--error-color);
+
+        .form-item-split {
+            color: var(--error-color);
+        }
+    }
+}

@@ -1,5 +1,7 @@
-import React, { FC, useState, useEffect, Ref } from 'react';
-
+import React, { FC, useContext, useState, useEffect, Ref } from 'react';
+import DisabledContext, {
+    DisabledType,
+} from '../ConfigProvider/DisabledContext';
 import { mergeClasses } from '../../shared/utilities';
 import { Dropdown } from '../Dropdown';
 import { Menu } from '../Menu';
@@ -22,6 +24,8 @@ import {
 import { Spinner, SpinnerSize } from '../Spinner';
 import { Breakpoints, useMatchMedia } from '../../hooks/useMatchMedia';
 import { Tooltip, TooltipTheme } from '../Tooltip';
+import { FormItemInputContext } from '../Form/Context';
+import { getMergedStatus, getStatusClassNames } from '../../shared/utilities';
 
 import styles from './select.module.scss';
 
@@ -31,15 +35,16 @@ export const Select: FC<SelectProps> = React.forwardRef(
             classNames,
             clearable = false,
             defaultValue,
+            disabled = false,
             dropdownProps = {},
             emptyText = 'No match found.',
             filterable = false,
+            filterOption = null,
             inputWidth = TextInputWidth.fill,
             isLoading,
             loadOptions,
             menuProps = {},
             multiple = false,
-            textInputProps = {},
             onOptionsChange,
             options: _options = [],
             pillProps = {},
@@ -52,8 +57,9 @@ export const Select: FC<SelectProps> = React.forwardRef(
                     size={SpinnerSize.Small}
                 />
             ),
-            filterOption = null,
+            status,
             style,
+            textInputProps = {},
             'data-test-id': dataTestId,
         },
         ref: Ref<HTMLDivElement>
@@ -74,6 +80,13 @@ export const Select: FC<SelectProps> = React.forwardRef(
             }))
         );
         const [searchQuery, setSearchQuery] = useState<string>('');
+
+        const { status: contextStatus, isFormItemInput } =
+            useContext(FormItemInputContext);
+        const mergedStatus = getMergedStatus(contextStatus, status);
+
+        const contextuallyDisabled: DisabledType = useContext(DisabledContext);
+        const mergedDisabled: boolean = contextuallyDisabled || disabled;
 
         const getSelectedOptions = (): SelectOption['value'][] => {
             return options
@@ -210,6 +223,9 @@ export const Select: FC<SelectProps> = React.forwardRef(
             { [styles.selectSize1]: size === SelectSize.Large },
             { [styles.selectSize2]: size === SelectSize.Medium },
             { [styles.selectSize3]: size === SelectSize.Small },
+            { [styles.selectWrapperDisabled]: mergedDisabled },
+            { ['in-form-item']: isFormItemInput },
+            getStatusClassNames(mergedStatus),
             classNames,
         ]);
 
@@ -283,6 +299,10 @@ export const Select: FC<SelectProps> = React.forwardRef(
         };
 
         const onDropdownVisibilityChange = (isVisible: boolean) => {
+            if (mergedDisabled) {
+                return;
+            }
+
             setDropdownVisibility(isVisible);
             setSearchQuery('');
             setOptions(
@@ -384,6 +404,8 @@ export const Select: FC<SelectProps> = React.forwardRef(
                     {filterable ? (
                         <TextInput
                             {...selectInputProps}
+                            disabled={mergedDisabled}
+                            formItemInput={isFormItemInput}
                             shape={selectShapeToTextInputShapeMap.get(shape)}
                             size={selectSizeToTextInputSizeMap.get(size)}
                             value={
@@ -396,6 +418,8 @@ export const Select: FC<SelectProps> = React.forwardRef(
                     ) : (
                         <TextInput
                             {...selectInputProps}
+                            disabled={mergedDisabled}
+                            formItemInput={isFormItemInput}
                             readonly
                             shape={selectShapeToTextInputShapeMap.get(shape)}
                             size={selectSizeToTextInputSizeMap.get(size)}

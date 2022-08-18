@@ -8,7 +8,7 @@ import type {
 } from './OcForm.types';
 import OcFieldContext from './OcFieldContext';
 import OcField from './OcField';
-import { move, getNamePath } from './utils/valueUtil';
+import { move, getNamePath } from './Utils/valueUtil';
 import type { OcListContextProps } from './OcListContext';
 import OcListContext from './OcListContext';
 

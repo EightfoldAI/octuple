@@ -1,7 +1,11 @@
-import React, { FC, Ref, useEffect, useRef, useState } from 'react';
+import React, { FC, Ref, useContext, useEffect, useRef, useState } from 'react';
+import DisabledContext, {
+    DisabledType,
+} from '../ConfigProvider/DisabledContext';
 import { generateId, mergeClasses } from '../../shared/utilities';
 import { CheckboxProps, LabelPosition, SelectorSize } from './';
 import { Breakpoints, useMatchMedia } from '../../hooks/useMatchMedia';
+import { FormItemInputContext } from '../Form/Context';
 
 import styles from './checkbox.module.scss';
 
@@ -37,6 +41,11 @@ export const CheckBox: FC<CheckboxProps> = React.forwardRef(
             defaultChecked || checked
         );
 
+        const { isFormItemInput } = useContext(FormItemInputContext);
+
+        const contextuallyDisabled: DisabledType = useContext(DisabledContext);
+        const mergedDisabled: boolean = contextuallyDisabled || disabled;
+
         useEffect(() => {
             setIsChecked(checked);
         }, [checked]);
@@ -63,7 +72,8 @@ export const CheckBox: FC<CheckboxProps> = React.forwardRef(
             { [styles.selectorMedium]: size === SelectorSize.Medium },
             { [styles.selectorSmall]: size === SelectorSize.Small },
             classNames,
-            { [styles.disabled]: allowDisabledFocus || disabled },
+            { [styles.disabled]: allowDisabledFocus || mergedDisabled },
+            { ['in-form-item']: isFormItemInput },
         ]);
 
         const checkBoxCheckClassNames: string = mergeClasses([
@@ -99,10 +109,10 @@ export const CheckBox: FC<CheckboxProps> = React.forwardRef(
             >
                 <input
                     ref={ref}
-                    aria-disabled={disabled}
+                    aria-disabled={mergedDisabled}
                     aria-label={ariaLabel}
                     checked={isChecked}
-                    disabled={!allowDisabledFocus && disabled}
+                    disabled={!allowDisabledFocus && mergedDisabled}
                     id={checkBoxId.current}
                     onChange={!allowDisabledFocus ? toggleChecked : null}
                     name={name}

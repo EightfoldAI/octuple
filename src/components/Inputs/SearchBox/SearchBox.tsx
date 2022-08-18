@@ -1,4 +1,7 @@
-import React, { FC, Ref } from 'react';
+import React, { FC, Ref, useContext } from 'react';
+import DisabledContext, {
+    DisabledType,
+} from '../../ConfigProvider/DisabledContext';
 import { IconName } from '../../Icon';
 import {
     TextInputIconAlign,
@@ -9,6 +12,11 @@ import {
     TextInputSize,
     TextInputTheme,
 } from '../index';
+import { FormItemInputContext } from '../../Form/Context';
+import {
+    getMergedStatus,
+    getStatusClassNames,
+} from '../../../shared/utilities';
 
 export const SearchBox: FC<SearchBoxProps> = React.forwardRef(
     (
@@ -41,6 +49,7 @@ export const SearchBox: FC<SearchBoxProps> = React.forwardRef(
             placeholder = 'Search',
             shape = TextInputShape.Pill,
             size = TextInputSize.Flex,
+            status,
             style,
             theme = TextInputTheme.light,
             value,
@@ -49,6 +58,13 @@ export const SearchBox: FC<SearchBoxProps> = React.forwardRef(
         },
         ref: Ref<HTMLInputElement>
     ) => {
+        const { status: contextStatus, isFormItemInput } =
+            useContext(FormItemInputContext);
+        const mergedStatus = getMergedStatus(contextStatus, status);
+
+        const contextuallyDisabled: DisabledType = useContext(DisabledContext);
+        const mergedDisabled: boolean = contextuallyDisabled || disabled;
+
         return (
             <form role="search" onSubmit={(_event) => onSubmit?.(_event)}>
                 <TextInput
@@ -61,10 +77,14 @@ export const SearchBox: FC<SearchBoxProps> = React.forwardRef(
                     autoFocus={autoFocus}
                     classNames={classNames}
                     clearButtonAriaLabel={clearButtonAriaLabel}
-                    disabled={disabled}
+                    disabled={mergedDisabled}
+                    formItemInput={isFormItemInput}
                     htmlType="search"
                     iconProps={iconProps}
-                    iconButtonProps={iconButtonProps}
+                    iconButtonProps={{
+                        ...iconButtonProps,
+                        disabled: mergedDisabled,
+                    }}
                     inline={inline}
                     inputWidth={inputWidth}
                     labelProps={labelProps}
@@ -78,6 +98,7 @@ export const SearchBox: FC<SearchBoxProps> = React.forwardRef(
                     placeholder={placeholder}
                     shape={shape}
                     size={size}
+                    status={mergedStatus}
                     style={style}
                     theme={theme}
                     value={value}

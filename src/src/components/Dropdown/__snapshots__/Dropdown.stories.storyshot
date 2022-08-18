@@ -6,7 +6,7 @@ exports[`Storyshots Dropdown Dropdown Button 1`] = `
   style={Object {}}
 >
   <button
-    aria-controls="dropdown-4"
+    aria-controls="dropdown-3"
     aria-disabled={false}
     aria-expanded={false}
     aria-haspopup={true}
@@ -59,7 +59,7 @@ exports[`Storyshots Dropdown Dropdown Div 1`] = `
   style={Object {}}
 >
   <div
-    aria-controls="dropdown-5"
+    aria-controls="dropdown-4"
     aria-expanded={false}
     aria-haspopup={true}
     className="reference-wrapper"

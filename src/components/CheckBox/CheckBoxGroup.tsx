@@ -1,7 +1,11 @@
-import React, { FC, Ref } from 'react';
+import React, { FC, Ref, useContext } from 'react';
+import DisabledContext, {
+    DisabledType,
+} from '../ConfigProvider/DisabledContext';
 import { mergeClasses } from '../../shared/utilities';
 import { CheckBox, CheckboxGroupProps, LabelPosition, SelectorSize } from './';
 import { Breakpoints, useMatchMedia } from '../../hooks/useMatchMedia';
+import { FormItemInputContext } from '../Form/Context';
 
 import styles from './checkbox.module.scss';
 
@@ -28,6 +32,11 @@ export const CheckBoxGroup: FC<CheckboxGroupProps> = React.forwardRef(
         const smallScreenActive: boolean = useMatchMedia(Breakpoints.Small);
         const xSmallScreenActive: boolean = useMatchMedia(Breakpoints.XSmall);
 
+        const { isFormItemInput } = useContext(FormItemInputContext);
+
+        const contextuallyDisabled: DisabledType = useContext(DisabledContext);
+        const mergedDisabled: boolean = contextuallyDisabled || disabled;
+
         const checkboxGroupClassNames = mergeClasses([
             styles.checkboxGroup,
             { [styles.vertical]: layout === 'vertical' },
@@ -51,6 +60,7 @@ export const CheckBoxGroup: FC<CheckboxGroupProps> = React.forwardRef(
             { [styles.checkboxGroupLarge]: size === SelectorSize.Large },
             { [styles.checkboxGroupMedium]: size === SelectorSize.Medium },
             { [styles.checkboxGroupSmall]: size === SelectorSize.Small },
+            { ['in-form-item']: isFormItemInput },
             classNames,
         ]);
 
@@ -66,7 +76,7 @@ export const CheckBoxGroup: FC<CheckboxGroupProps> = React.forwardRef(
                 {items.map((item) => (
                     <CheckBox
                         allowDisabledFocus={allowDisabledFocus}
-                        disabled={disabled}
+                        disabled={mergedDisabled}
                         labelPosition={labelPosition}
                         {...item}
                         checked={value?.includes(item.value)}

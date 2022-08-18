@@ -4,6 +4,7 @@ import { IconName, IconProps } from '../Icon';
 import { LabelProps } from '../Label';
 import { TooltipTheme } from '../Tooltip';
 import { OcBaseProps } from '../OcBase';
+import type { InputStatus } from '../../shared/utilities';
 
 export enum TextInputIconAlign {
     Left = 'left',
@@ -251,6 +252,11 @@ export interface InputProps<T>
      */
     disabled?: boolean;
     /**
+     * The input is a form item.
+     * @default false
+     */
+    formItemInput?: boolean;
+    /**
      * The input icon props.
      */
     iconProps?: InputIconProps;
@@ -320,6 +326,10 @@ export interface InputProps<T>
      * @default Flex
      */
     size?: TextInputSize;
+    /**
+     * the validation status.
+     */
+    status?: InputStatus;
     /**
      * Theme of the input.
      * @default TextInputTheme.light

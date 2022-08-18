@@ -16,13 +16,8 @@
             cursor: not-allowed;
 
             & + label {
-                .checkmark {
-                    opacity: 50%;
-
-                    &.toggle {
-                        opacity: 50%;
-                    }
-                }
+                opacity: $disabled-alpha-value;
+                cursor: not-allowed;
             }
         }
 

@@ -12,7 +12,7 @@ exports[`Storyshots Pagination All Combined 1`] = `
       className="main-wrapper"
     >
       <button
-        aria-controls="dropdown-24"
+        aria-controls="dropdown-29"
         aria-disabled={false}
         aria-expanded={false}
         aria-haspopup={true}
@@ -202,7 +202,7 @@ exports[`Storyshots Pagination All Combined 1`] = `
           className="editor pill-shape left-icon clear-not-visible"
           defaultValue={4}
           disabled={false}
-          id="input-25"
+          id="input-30"
           minLength={1}
           onChange={[Function]}
           readOnly={false}
@@ -533,7 +533,7 @@ exports[`Storyshots Pagination Change Page Size 1`] = `
       className="main-wrapper"
     >
       <button
-        aria-controls="dropdown-26"
+        aria-controls="dropdown-31"
         aria-disabled={false}
         aria-expanded={false}
         aria-haspopup={true}
@@ -966,7 +966,7 @@ exports[`Storyshots Pagination Jump To 1`] = `
           className="editor pill-shape left-icon clear-not-visible"
           defaultValue={5}
           disabled={false}
-          id="input-27"
+          id="input-32"
           minLength={1}
           onChange={[Function]}
           readOnly={false}

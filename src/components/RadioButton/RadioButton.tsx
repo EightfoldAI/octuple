@@ -1,9 +1,13 @@
-import React, { FC, Ref, useEffect, useRef, useState } from 'react';
+import React, { FC, Ref, useContext, useEffect, useRef, useState } from 'react';
+import DisabledContext, {
+    DisabledType,
+} from '../ConfigProvider/DisabledContext';
 import { RadioButtonProps, RadioButtonValue } from './';
 import { LabelPosition, SelectorSize } from '../CheckBox';
 import { mergeClasses, generateId } from '../../shared/utilities';
 import { useRadioGroup } from './RadioGroup.context';
 import { Breakpoints, useMatchMedia } from '../../hooks/useMatchMedia';
+import { FormItemInputContext } from '../Form/Context';
 
 import styles from './radio.module.scss';
 
@@ -40,6 +44,11 @@ export const RadioButton: FC<RadioButtonProps> = React.forwardRef(
         const [selectedValue, setSelectedValue] =
             useState<RadioButtonValue>(value);
 
+        const { isFormItemInput } = useContext(FormItemInputContext);
+
+        const contextuallyDisabled: DisabledType = useContext(DisabledContext);
+        const mergedDisabled: boolean = contextuallyDisabled || disabled;
+
         const radioButtonClassNames: string = mergeClasses([
             styles.radioButton,
         ]);
@@ -66,7 +75,8 @@ export const RadioButton: FC<RadioButtonProps> = React.forwardRef(
             { [styles.selectorMedium]: size === SelectorSize.Medium },
             { [styles.selectorSmall]: size === SelectorSize.Small },
             classNames,
-            { [styles.disabled]: allowDisabledFocus || disabled },
+            { [styles.disabled]: allowDisabledFocus || mergedDisabled },
+            { ['in-form-item']: isFormItemInput },
         ]);
 
         const labelClassNames: string = mergeClasses([
@@ -110,14 +120,14 @@ export const RadioButton: FC<RadioButtonProps> = React.forwardRef(
             >
                 <input
                     ref={ref}
-                    aria-disabled={disabled}
+                    aria-disabled={mergedDisabled}
                     aria-label={ariaLabel}
                     checked={
                         radioGroupContext
                             ? isActive
                             : selectedValue === value && checked
                     }
-                    disabled={!allowDisabledFocus && disabled}
+                    disabled={!allowDisabledFocus && mergedDisabled}
                     id={radioButtonId.current}
                     name={name}
                     type={'radio'}

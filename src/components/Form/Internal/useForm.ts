@@ -24,7 +24,7 @@ import type {
     WatchOcCallBack,
 } from './OcForm.types';
 import { allPromiseFinish } from './Utils/asyncUtil';
-import cloneDeep from './utils/cloneDeep';
+import cloneDeep from './Utils/cloneDeep';
 import { defaultValidateMessages } from './Utils/messages';
 import NameMap from './Utils/NameMap';
 import {

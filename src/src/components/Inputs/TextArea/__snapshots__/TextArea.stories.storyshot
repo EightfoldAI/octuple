@@ -2,7 +2,7 @@
 
 exports[`Storyshots Input Text Area 1`] = `
 <div
-  className="input-wrapper pill-shape pill-shape"
+  className="input-wrapper pill-shape"
 >
   <div
     className="field-label medium"
@@ -69,7 +69,7 @@ exports[`Storyshots Input Text Area 1`] = `
       cols={50}
       disabled={false}
       htmltype="text"
-      id="myTextAreaId7"
+      id="myTextAreaId12"
       maxLength={300}
       minLength={0}
       name="myTextArea"

@@ -40,7 +40,7 @@ export {
     useForm,
     OcFormProvider,
     OcFieldContext,
-    OcListContext as ListContext,
+    OcListContext,
     useWatch,
 };
 

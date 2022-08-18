@@ -13,12 +13,9 @@
         z-index: 1;
 
         &[disabled] {
-            cursor: not-allowed;
-
             & + label {
-                .radio-button {
-                    opacity: 50%;
-                }
+                opacity: $disabled-alpha-value;
+                cursor: not-allowed;
             }
         }
 
@@ -29,8 +26,8 @@
                 height: $radio-medium-height;
                 min-width: $radio-medium-width;
                 position: relative;
-                transition: all $motion-duration-extra-fast $motion-ease-in-back
-                    $motion-delay-s;
+                transition: all $motion-duration-extra-fast
+                    $motion-easing-easeinout 0s;
                 width: $radio-medium-width;
 
                 &:after {
@@ -46,11 +43,10 @@
                     transform: scale(0);
                     opacity: 0;
                     display: block;
-                    transition-delay: $motion-delay-s;
                     transition-duration: $motion-duration-extra-fast;
                     transition-property: opacity;
                     transition-property: transform;
-                    transition-timing-function: $motion-ease-in-back;
+                    transition-timing-function: $motion-easing-easeinout;
                 }
             }
         }
@@ -72,12 +68,15 @@
 
     input:checked {
         &[disabled] {
-            cursor: not-allowed;
+            & + label {
+                opacity: $disabled-alpha-value;
+                cursor: not-allowed;
+            }
         }
 
         & + label {
-            transition: all $motion-duration-extra-fast $motion-ease-out-back
-                $motion-delay-s;
+            transition: all $motion-duration-extra-fast $motion-easing-easeinout
+                0s;
 
             .radio-button {
                 background-color: var(--accent-color-30);
@@ -87,11 +86,10 @@
             .radio-button:after {
                 opacity: 1;
                 transform: scale(0.8);
-                transition-delay: $motion-delay-s;
                 transition-duration: $motion-duration-extra-fast;
                 transition-property: opacity;
                 transition-property: transform;
-                transition-timing-function: $motion-ease-out-back;
+                transition-timing-function: $motion-easing-easeinout;
             }
         }
 
@@ -249,12 +247,9 @@
 
     &.disabled {
         input {
-            cursor: not-allowed;
-
             & + label {
-                .radio-button {
-                    opacity: 50%;
-                }
+                opacity: $disabled-alpha-value;
+                cursor: not-allowed;
             }
         }
 

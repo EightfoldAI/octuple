@@ -1,4 +1,7 @@
-import React, { FC, Ref } from 'react';
+import React, { FC, Ref, useContext } from 'react';
+import DisabledContext, {
+    DisabledType,
+} from '../ConfigProvider/DisabledContext';
 import {
     ButtonIconAlign,
     ButtonShape,
@@ -55,6 +58,9 @@ export const BaseButton: FC<InternalButtonProps> = React.forwardRef(
         const smallScreenActive: boolean = useMatchMedia(Breakpoints.Small);
         const xSmallScreenActive: boolean = useMatchMedia(Breakpoints.XSmall);
 
+        const contextuallyDisabled: DisabledType = useContext(DisabledContext);
+        const mergedDisabled: boolean = contextuallyDisabled || disabled;
+
         const counterExists: boolean = !!counter;
         const iconExists: boolean = !!iconProps;
         const textExists: boolean = !!text;
@@ -104,7 +110,7 @@ export const BaseButton: FC<InternalButtonProps> = React.forwardRef(
                 [styles.iconRight]:
                     iconExists && alignIcon === ButtonIconAlign.Right,
             },
-            { [styles.disabled]: allowDisabledFocus || disabled },
+            { [styles.disabled]: allowDisabledFocus || mergedDisabled },
         ]);
 
         const buttonTextClassNames: string = mergeClasses([
@@ -181,11 +187,11 @@ export const BaseButton: FC<InternalButtonProps> = React.forwardRef(
                     ref={ref}
                     {...rest}
                     aria-checked={toggle ? !!checked : undefined}
-                    aria-disabled={disabled}
+                    aria-disabled={mergedDisabled}
                     aria-label={ariaLabel}
                     aria-pressed={toggle ? !!checked : undefined}
                     defaultChecked={checked}
-                    disabled={!allowDisabledFocus && disabled}
+                    disabled={!allowDisabledFocus && mergedDisabled}
                     className={buttonBaseClassNames}
                     id={id}
                     onClick={!allowDisabledFocus ? onClick : null}

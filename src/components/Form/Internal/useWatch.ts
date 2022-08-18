@@ -7,7 +7,7 @@ import type {
     OcNamePath,
     OcStore,
 } from './OcForm.types';
-import { getNamePath, getValue } from './utils/valueUtil';
+import { getNamePath, getValue } from './Utils/valueUtil';
 
 type ReturnPromise<T> = T extends Promise<infer ValueType> ? ValueType : never;
 type GetGeneric<TForm extends OcFormInstance> = ReturnPromise<

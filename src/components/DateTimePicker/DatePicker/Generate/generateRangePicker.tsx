@@ -1,4 +1,7 @@
-import React, { forwardRef, useImperativeHandle } from 'react';
+import React, { forwardRef, useContext, useImperativeHandle } from 'react';
+import DisabledContext, {
+    DisabledType,
+} from '../../../ConfigProvider/DisabledContext';
 import { mergeClasses } from '../../../../shared/utilities';
 import OcRangePicker from '../../Internal/OcRangePicker';
 import type { GenerateConfig } from '../../Internal/Generate';
@@ -51,6 +54,10 @@ export default function generateRangePicker<DateType>(
                 ? getTimeProps({ format, ...props, picker })
                 : {}),
         };
+
+        const contextuallyDisabled: DisabledType = useContext(DisabledContext);
+        const mergedDisabled: DisabledType | [boolean, boolean] =
+            contextuallyDisabled || disabled;
 
         const pickerSizeToIconSizeMap = new Map<typeof size, IconSize>([
             ['Large', IconSize.Large],
@@ -111,7 +118,7 @@ export default function generateRangePicker<DateType>(
                         />
                     </span>
                 }
-                disabled={disabled}
+                disabled={mergedDisabled}
                 ref={innerRef}
                 dropdownAlign={transPlacement2DropdownAlign(
                     htmlDir as dir,

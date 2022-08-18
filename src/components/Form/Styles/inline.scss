@@ -1,0 +1,37 @@
+.form-inline {
+    display: flex;
+    flex-wrap: wrap;
+
+    .form-item {
+        flex: none;
+        flex-wrap: nowrap;
+        margin-right: $space-m;
+        margin-bottom: 0;
+
+        &-with-help {
+            margin-bottom: $space-l;
+        }
+
+        &-row {
+            gap: 16px;
+        }
+
+        > .form-item-label,
+        > .form-item-control {
+            display: inline-block;
+            vertical-align: top;
+        }
+
+        > .form-item-label {
+            flex: none;
+        }
+
+        .form-text {
+            display: inline-block;
+        }
+
+        .form-item-has-feedback {
+            display: inline-block;
+        }
+    }
+}

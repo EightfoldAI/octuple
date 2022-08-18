@@ -11,7 +11,7 @@ import { OcFormProps } from './OcForm.types';
 import useForm from './useForm';
 import FieldContext, { HOOK_MARK } from './OcFieldContext';
 import OcFormContext from './OcFormContext';
-import { isSimilar } from './utils/valueUtil';
+import { isSimilar } from './Utils/valueUtil';
 
 export const OcForm: React.ForwardRefRenderFunction<
     OcFormInstance,

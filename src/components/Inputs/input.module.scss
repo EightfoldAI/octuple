@@ -286,7 +286,7 @@
             }
         }
 
-        &:hover {
+        &:hover:not([disabled]) {
             border-color: var(--grey-color-60);
 
             &.underline {
@@ -856,6 +856,10 @@
                 color: var(--grey-color-80);
             }
         }
+
+        &:focus-visible {
+            outline: none;
+        }
     }
 
     .icon-wrapper:not(:empty) + .icon-button {
@@ -915,7 +919,7 @@
             color: var(--text-primary-color);
         }
 
-        &:hover {
+        &:hover:not([disabled]) {
             border-color: var(--grey-color-60);
         }
 
@@ -1257,6 +1261,7 @@
             &.focus-visible,
             &:focus-visible {
                 background-color: transparent;
+                box-shadow: $focus-visible-box-shadow;
 
                 svg {
                     color: var(--grey-color-80);

@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Form.List should render empty without errors 1`] = `
+<div
+  class="form-item-explain form-show-help-appear form-show-help-appear-start form-show-help"
+/>
+`;

@@ -1,0 +1,178 @@
+.form {
+    &-rtl {
+        direction: rtl;
+    }
+}
+
+.form-item {
+    &-label {
+        .form-rtl {
+            text-align: left;
+        }
+
+        > label {
+            &.form-item-required:before {
+                .form-rtl {
+                    margin-right: 0;
+                    margin-left: 4px;
+                }
+            }
+
+            &::after {
+                .form-rtl {
+                    margin: 0 $space-xxxs 0 $space-xs;
+                }
+            }
+
+            .form-item-optional {
+                .form-rtl {
+                    margin-right: $space-xxs;
+                    margin-left: 0;
+                }
+            }
+        }
+    }
+
+    &-control {
+        .form-col-rtl &:first-child {
+            width: 100%;
+        }
+    }
+
+    &-has-feedback {
+        .form-input {
+            .form-rtl {
+                padding-right: $space-m;
+                padding-left: $space-l;
+            }
+        }
+
+        .form-input-affix-wrapper {
+            .form-input-suffix {
+                .form-rtl {
+                    padding-right: $space-m;
+                    padding-left: $space-m;
+                }
+            }
+            .form-input {
+                .form-rtl {
+                    padding: 0;
+                }
+            }
+        }
+
+        .form-input-number-affix-wrapper {
+            .form-input-number {
+                .form-rtl {
+                    padding: 0;
+                }
+            }
+        }
+
+        .form-input-search:not(.form-input-search-enter-button) {
+            .form-input-suffix {
+                .form-rtl {
+                    right: auto;
+                    left: 28px;
+                }
+            }
+        }
+
+        .form-input-number {
+            .form-rtl {
+                padding-left: 18px;
+            }
+        }
+
+        > .form-select .form-select-arrow,
+        > .form-select .form-select-clear,
+        :not(.form-input-group-addon) > .form-select .form-select-arrow,
+        :not(.form-input-group-addon) > .form-select .form-select-clear,
+        :not(.form-input-number-group-addon) > .form-select .form-select-arrow,
+        :not(.form-input-number-group-addon) > .form-select .form-select-clear {
+            .form-rtl {
+                right: auto;
+                left: 32px;
+            }
+        }
+
+        > .form-select .form-select-selection-selected-value,
+        :not(.form-input-group-addon)
+            > .form-select
+            .form-select-selection-selected-value,
+        :not(.form-input-number-group-addon)
+            > .form-select
+            .form-select-selection-selected-value {
+            .form-rtl {
+                padding-right: 0;
+                padding-left: 42px;
+            }
+        }
+
+        .form-cascader-picker {
+            &-arrow {
+                .form-rtl {
+                    margin-right: 0;
+                    margin-left: 19px;
+                }
+            }
+
+            &-clear {
+                .form-rtl {
+                    right: auto;
+                    left: 32px;
+                }
+            }
+        }
+
+        .form-picker {
+            .form-rtl {
+                padding-right: $space-m;
+                padding-left: $space-m + $text-font-size-2 * 1.3;
+            }
+
+            &-large {
+                .form-rtl {
+                    padding-right: $space-m;
+                    padding-left: $space-m + $text-font-size-2 * 1.3;
+                }
+            }
+
+            &-small {
+                .form-rtl {
+                    padding-right: $space-m;
+                    padding-left: $space-m + $text-font-size-2 * 1.3;
+                }
+            }
+        }
+
+        &.form-item {
+            &-has-success,
+            &-has-warning,
+            &-has-error,
+            &-is-validating {
+                .form-item-children-icon {
+                    .form-rtl {
+                        right: auto;
+                        left: 0;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.form-inline {
+    .form-item {
+        .form-rtl {
+            margin-right: 0;
+            margin-left: 16px;
+        }
+    }
+}
+
+@mixin make-vertical-layout-label() {
+    .form-rtl {
+        text-align: right;
+    }
+}

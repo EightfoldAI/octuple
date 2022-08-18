@@ -21,14 +21,14 @@ import type {
     OcValidateOptions,
 } from './OcForm.types';
 import FieldContext, { HOOK_MARK } from './OcFieldContext';
-import { toArray } from './utils/typeUtil';
-import { validateRules } from './utils/validateUtil';
+import { toArray } from './Utils/typeUtil';
+import { validateRules } from './Utils/validateUtil';
 import {
     containsNamePath,
     defaultGetValueFromEvent,
     getNamePath,
     getValue,
-} from './utils/valueUtil';
+} from './Utils/valueUtil';
 
 const EMPTY_ERRORS: any[] = [];
 

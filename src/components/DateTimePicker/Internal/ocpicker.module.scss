@@ -72,6 +72,14 @@
         }
     }
 
+    &:hover:not([disabled]) {
+        border-color: var(--grey-color-60);
+
+        &.underline {
+            border-color: transparent;
+        }
+    }
+
     &-focused {
         border-color: $focus-visible-shadow-color;
     }

@@ -484,7 +484,7 @@ $tree-child-padding: 18px;
 // Picker
 
 $picker-arrow-size: 8px;
-$picker-border-radius: $corner-radius-s;
+$picker-border-radius: $corner-radius-m;
 $picker-cell-border-radius-l: 24px;
 $picker-cell-border-radius-m: 18px;
 $picker-cell-border-radius-s: 14px;
@@ -519,6 +519,14 @@ $picker-partial-cell-width: 32px;
 // DatePicker
 
 $picker-text-height: 40px;
+
+// Form
+
+$form-input-height-m: 36px;
+$form-input-height-l: 44px;
+$form-input-height-s: 28px;
+$form-vertical-label-margin: 0;
+$form-vertical-label-padding: 0 0 8px;
 
 // Grid system
 

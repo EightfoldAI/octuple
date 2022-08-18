@@ -1,0 +1,74 @@
+@mixin make-vertical-layout-label() {
+    line-height: $text-line-height-1;
+    margin: $form-vertical-label-margin;
+    padding: $form-vertical-label-padding;
+    text-align: left;
+    white-space: initial;
+
+    > label {
+        margin: 0;
+
+        &:after {
+            display: none;
+        }
+    }
+}
+
+@mixin make-vertical-layout() {
+    .form-item .form-item-label {
+        @include make-vertical-layout-label();
+    }
+
+    .form {
+        .form-item {
+            flex-wrap: wrap;
+
+            .form-item-label,
+            .form-item-control {
+                flex: 0 0 100%;
+                max-width: 100%;
+            }
+        }
+    }
+}
+
+.form-vertical {
+    .form-item {
+        &-row {
+            flex-direction: column;
+        }
+
+        &-label > label {
+            height: auto;
+        }
+
+        .form-item-control {
+            width: 100%;
+        }
+    }
+}
+
+.form-vertical .form-item-label,
+.col-12.form-item-label,
+.col-l-12.form-item-label {
+    @include make-vertical-layout-label();
+}
+
+@media (max-width: $small-screen-size) {
+    @include make-vertical-layout();
+    .col-xs-12.form-item-label {
+        @include make-vertical-layout-label();
+    }
+}
+
+@media (max-width: $medium-screen-size) {
+    .col-sm-12.form-item-label {
+        @include make-vertical-layout-label();
+    }
+}
+
+@media (max-width: $large-screen-size) {
+    .col-md-12.form-item-label {
+        @include make-vertical-layout-label();
+    }
+}

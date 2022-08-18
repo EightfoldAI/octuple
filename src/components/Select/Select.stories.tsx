@@ -190,6 +190,7 @@ With_DefaultValue.args = {
 
 Disabled.args = {
     ...With_DefaultValue.args,
+    disabled: true,
     textInputProps: {
         ...With_DefaultValue.args.textInputProps,
         disabled: true,

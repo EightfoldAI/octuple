@@ -1,4 +1,7 @@
-import React, { FC, Ref, useEffect, useState } from 'react';
+import React, { FC, Ref, useContext, useEffect, useState } from 'react';
+import DisabledContext, {
+    DisabledType,
+} from '../../ConfigProvider/DisabledContext';
 import { Icon, IconName } from '../../Icon';
 import { Label, LabelSize } from '../../Label';
 import {
@@ -11,6 +14,11 @@ import {
 import { useDebounce } from '../../../hooks/useDebounce';
 import { mergeClasses, uniqueId } from '../../../shared/utilities';
 import { Breakpoints, useMatchMedia } from '../../../hooks/useMatchMedia';
+import { FormItemInputContext } from '../../Form/Context';
+import {
+    getMergedStatus,
+    getStatusClassNames,
+} from '../../../shared/utilities';
 
 import styles from '../input.module.scss';
 
@@ -38,6 +46,7 @@ export const TextArea: FC<TextAreaProps> = React.forwardRef(
             required = false,
             shape = TextInputShape.Pill,
             size = TextInputSize.Flex,
+            status,
             style,
             textAreaCols = 50,
             textAreaRows = 5,
@@ -56,6 +65,13 @@ export const TextArea: FC<TextAreaProps> = React.forwardRef(
         const [textAreaId] = useState<string>(uniqueId(id || 'textarea-'));
         const [inputValue, setInputValue] = useState(value);
 
+        const { status: contextStatus, isFormItemInput } =
+            useContext(FormItemInputContext);
+        const mergedStatus = getMergedStatus(contextStatus, status);
+
+        const contextuallyDisabled: DisabledType = useContext(DisabledContext);
+        const mergedDisabled: boolean = contextuallyDisabled || disabled;
+
         const textAreaClassNames: string = mergeClasses([
             classNames,
             styles.textArea,
@@ -69,6 +85,8 @@ export const TextArea: FC<TextAreaProps> = React.forwardRef(
             },
             { [styles.dark]: theme === TextInputTheme.dark },
             { [styles.inputStretch]: inputWidth === TextInputWidth.fill },
+            { ['in-form-item']: isFormItemInput },
+            getStatusClassNames(mergedStatus),
         ]);
 
         const textAreaGroupClassNames: string = mergeClasses([
@@ -86,10 +104,6 @@ export const TextArea: FC<TextAreaProps> = React.forwardRef(
             },
             {
                 [styles.inline]: inline,
-            },
-            { [styles.pillShape]: shape === TextInputShape.Pill },
-            {
-                [styles.underline]: shape === TextInputShape.Underline,
             },
             {
                 [styles.inputSmall]:
@@ -114,7 +128,7 @@ export const TextArea: FC<TextAreaProps> = React.forwardRef(
                 [styles.inputStretch]: inputWidth === TextInputWidth.fill,
             },
             {
-                [styles.disabled]: allowDisabledFocus || disabled,
+                [styles.disabled]: allowDisabledFocus || mergedDisabled,
             },
         ]);
 
@@ -173,12 +187,12 @@ export const TextArea: FC<TextAreaProps> = React.forwardRef(
                     <textarea
                         {...rest}
                         ref={ref}
-                        aria-disabled={disabled}
+                        aria-disabled={mergedDisabled}
                         aria-label={ariaLabel}
                         autoFocus={autoFocus}
                         className={textAreaClassNames}
                         cols={textAreaCols}
-                        disabled={!allowDisabledFocus && disabled}
+                        disabled={!allowDisabledFocus && mergedDisabled}
                         id={textAreaId}
                         maxLength={maxlength}
                         minLength={minlength}

@@ -2,14 +2,19 @@ import React, {
     createRef,
     FC,
     RefObject,
+    useContext,
     useLayoutEffect,
     useRef,
     useState,
 } from 'react';
-
+import DisabledContext, {
+    DisabledType,
+} from '../ConfigProvider/DisabledContext';
 import { ResizeObserver } from '../../shared/ResizeObserver/ResizeObserver';
 import { mergeClasses } from '../../shared/utilities';
 import { SliderMarker, SliderProps } from './Slider.types';
+import { FormItemInputContext } from '../Form/Context';
+
 import styles from './slider.module.scss';
 
 const thumbDiameter: number = +styles.thumbDiameter;
@@ -85,6 +90,11 @@ export const Slider: FC<SliderProps> = ({
     markerRefs.current = markers.map(
         (_, i) => markerRefs.current?.[i] ?? createRef<HTMLDivElement>()
     );
+
+    const { isFormItemInput } = useContext(FormItemInputContext);
+
+    const contextuallyDisabled: DisabledType = useContext(DisabledContext);
+    const mergedDisabled: boolean = contextuallyDisabled || disabled;
 
     const getIdentifier = (baseString: string, index: number): string => {
         if (!baseString) {
@@ -190,9 +200,11 @@ export const Slider: FC<SliderProps> = ({
     return (
         <ResizeObserver onResize={updateLayout}>
             <div
-                className={mergeClasses(styles.sliderContainer, {
-                    [styles.sliderDisabled]: disabled,
-                })}
+                className={mergeClasses(
+                    styles.sliderContainer,
+                    { [styles.sliderDisabled]: mergedDisabled },
+                    { ['in-form-item']: isFormItemInput }
+                )}
             >
                 <div className={mergeClasses(styles.slider, classNames)}>
                     <div ref={railRef} className={styles.sliderRail} />
@@ -222,7 +234,7 @@ export const Slider: FC<SliderProps> = ({
                             className={styles.thumb}
                             id={getIdentifier(id, index)}
                             key={index}
-                            disabled={disabled}
+                            disabled={mergedDisabled}
                             onChange={(
                                 event: React.ChangeEvent<HTMLInputElement>
                             ) => handleChange(+event.target.value, index)}

@@ -4,6 +4,7 @@ import {
     FontOptions,
     ThemeOptions,
 } from './Theming';
+import type { Locale } from '../LocaleProvider';
 import { FocusVisibleOptions } from './A11y';
 
 export interface IConfigContext {
@@ -17,6 +18,11 @@ export interface IConfigContext {
 }
 
 export interface ConfigProviderProps {
+    /**
+     * Used by the disabled context provider to disable components.
+     * @default false
+     */
+    disabled?: boolean;
     /**
      * Options for font
      * @default { fontFamily: 'Source Sans Pro', fontSize: '16px', fontStack: '-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif' }
@@ -32,6 +38,10 @@ export interface ConfigProviderProps {
      * @default {}
      */
     icomoonIconSet?: Object;
+    /**
+     * The locale of the application.
+     */
+    locale?: Locale;
     /**
      * Options for theming
      * @default { name: 'blue', useSystemTheme: false, customTheme: null }

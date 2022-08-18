@@ -1,0 +1,977 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Form Basic 1`] = `
+<form
+  autoComplete="off"
+  className="form form-horizontal form-medium"
+  id="basic"
+  onReset={[Function]}
+  onSubmit={[Function]}
+>
+  <div
+    className="form-item"
+  >
+    <div
+      className="row form-item-row"
+      style={Object {}}
+    >
+      <div
+        className="col col-2 form-item-label"
+        style={Object {}}
+      >
+        <label
+          className=""
+          htmlFor="basic_username"
+          title="Username"
+        >
+          Username
+          <div
+            className="reference-wrapper"
+            id="4fzzzxj"
+            onBlur={[Function]}
+            onFocus={[Function]}
+            onPointerEnter={[Function]}
+            onPointerLeave={[Function]}
+          >
+            <span
+              aria-hidden={false}
+              className="icon-wrapper"
+              role="presentation"
+            >
+              <svg
+                role="presentation"
+                style={
+                  Object {
+                    "height": "16px",
+                    "width": "16px",
+                  }
+                }
+                viewBox="0 0 24 24"
+              >
+                
+                <path
+                  d="M15.07,11.25L14.17,12.17C13.45,12.89 13,13.5 13,15H11V14.5C11,13.39 11.45,12.39 12.17,11.67L13.41,10.41C13.78,10.05 14,9.55 14,9C14,7.89 13.1,7 12,7A2,2 0 0,0 10,9H8A4,4 0 0,1 12,5A4,4 0 0,1 16,9C16,9.88 15.64,10.67 15.07,11.25M13,19H11V17H13M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12C22,6.47 17.5,2 12,2Z"
+                  style={
+                    Object {
+                      "fill": "var(--primary-color)",
+                    }
+                  }
+                />
+              </svg>
+            </span>
+          </div>
+        </label>
+      </div>
+      <div
+        className="col col-10 form-item-control"
+        style={Object {}}
+      >
+        <div
+          className="form-item-control-input"
+        >
+          <div
+            className="form-item-control-input-content"
+          >
+            <div
+              className="input-wrapper left-icon in-form-item"
+            >
+              <div
+                className="input-group left-icon"
+              >
+                <input
+                  aria-disabled={false}
+                  autoFocus={false}
+                  className="left-icon clear-not-visible in-form-item"
+                  disabled={false}
+                  id="basic_username5"
+                  onChange={[Function]}
+                  readOnly={false}
+                  required={false}
+                  role="textbox"
+                  tabIndex={0}
+                  type="text"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="form-item"
+  >
+    <div
+      className="row form-item-row"
+      style={Object {}}
+    >
+      <div
+        className="col col-2 form-item-label"
+        style={Object {}}
+      >
+        <label
+          className="form-item-required"
+          htmlFor="basic_password"
+          title="Password"
+        >
+          Password
+        </label>
+      </div>
+      <div
+        className="col col-10 form-item-control"
+        style={Object {}}
+      >
+        <div
+          className="form-item-control-input"
+        >
+          <div
+            className="form-item-control-input-content"
+          >
+            <div
+              className="input-wrapper left-icon in-form-item"
+            >
+              <div
+                className="input-group left-icon"
+              >
+                <input
+                  aria-disabled={false}
+                  autoFocus={false}
+                  className="left-icon clear-not-visible in-form-item"
+                  disabled={false}
+                  id="basic_password6"
+                  onChange={[Function]}
+                  readOnly={false}
+                  required={false}
+                  role="textbox"
+                  tabIndex={0}
+                  type="password"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="form-item"
+  >
+    <div
+      className="row form-item-row"
+      style={Object {}}
+    >
+      <div
+        className="col col-10 col-offset-2 form-item-control"
+        style={Object {}}
+      >
+        <div
+          className="form-item-control-input"
+        >
+          <div
+            className="form-item-control-input-content"
+          >
+            <div
+              className="selector selector-medium in-form-item"
+            >
+              <input
+                aria-disabled={false}
+                checked={true}
+                disabled={false}
+                id="basic_remember"
+                onChange={[Function]}
+                readOnly={true}
+                type="checkbox"
+              />
+              <label
+                className=""
+                htmlFor="basic_remember"
+              >
+                <span
+                  className="checkmark"
+                />
+                <span
+                  className="selector-label selector-label-end"
+                >
+                  Remember me
+                </span>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="form-item"
+  >
+    <div
+      className="row form-item-row"
+      style={Object {}}
+    >
+      <div
+        className="col col-10 col-offset-2 form-item-control"
+        style={Object {}}
+      >
+        <div
+          className="form-item-control-input"
+        >
+          <div
+            className="form-item-control-input-content"
+          >
+            <button
+              aria-disabled={false}
+              className="button button-primary pill-shape"
+              defaultChecked={false}
+              disabled={false}
+              type="submit"
+            >
+              <span
+                className=""
+              >
+                Submit
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+`;
+
+exports[`Storyshots Form Disabled 1`] = `
+<div
+  className="stack full-width vertical l"
+  style={
+    Object {
+      "alignItems": undefined,
+      "flexWrap": undefined,
+      "justifyContent": undefined,
+    }
+  }
+>
+  <div
+    className="selector selector-medium"
+  >
+    <input
+      aria-disabled={false}
+      checked={true}
+      disabled={false}
+      id="4fzzzxj"
+      onChange={[Function]}
+      readOnly={true}
+      type="checkbox"
+    />
+    <label
+      className=""
+      htmlFor="4fzzzxj"
+    >
+      <span
+        className="checkmark"
+      />
+      <span
+        className="selector-label selector-label-end"
+      >
+        Form disabled
+      </span>
+    </label>
+  </div>
+  <form
+    className="form form-horizontal form-medium"
+    onReset={[Function]}
+    onSubmit={[Function]}
+  >
+    <div
+      className="form-item"
+    >
+      <div
+        className="row form-item-row"
+        style={Object {}}
+      >
+        <div
+          className="col col-2 form-item-label"
+          style={Object {}}
+        >
+          <label
+            className=""
+            title="CheckBox"
+          >
+            CheckBox
+          </label>
+        </div>
+        <div
+          className="col col-10 form-item-control"
+          style={Object {}}
+        >
+          <div
+            className="form-item-control-input"
+          >
+            <div
+              className="form-item-control-input-content"
+            >
+              <div
+                className="selector selector-medium disabled in-form-item"
+              >
+                <input
+                  aria-disabled={true}
+                  checked={false}
+                  disabled={true}
+                  id="4fzzzxj"
+                  onChange={[Function]}
+                  readOnly={true}
+                  type="checkbox"
+                />
+                <label
+                  className=""
+                  htmlFor="4fzzzxj"
+                >
+                  <span
+                    className="checkmark"
+                  />
+                  <span
+                    className="selector-label selector-label-end"
+                  >
+                    Checkbox
+                  </span>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="form-item"
+    >
+      <div
+        className="row form-item-row"
+        style={Object {}}
+      >
+        <div
+          className="col col-2 form-item-label"
+          style={Object {}}
+        >
+          <label
+            className=""
+            title="Radio"
+          >
+            Radio
+          </label>
+        </div>
+        <div
+          className="col col-10 form-item-control"
+          style={Object {}}
+        >
+          <div
+            className="form-item-control-input"
+          >
+            <div
+              className="form-item-control-input-content"
+            >
+              <div
+                className="radio-group vertical radio-group-medium in-form-item"
+                role="group"
+              >
+                <div
+                  className="selector selector-medium disabled in-form-item"
+                >
+                  <input
+                    aria-disabled={true}
+                    checked={true}
+                    disabled={true}
+                    id="4fzzzxj"
+                    name="group1"
+                    onChange={[Function]}
+                    readOnly={true}
+                    type="radio"
+                    value="apple"
+                  />
+                  <label
+                    className=""
+                    htmlFor="4fzzzxj"
+                  >
+                    <span
+                      className="radio-button"
+                      id="4fzzzxj-custom-radio"
+                    />
+                    <span
+                      className="selector-label selector-label-end"
+                    >
+                      Apple
+                    </span>
+                  </label>
+                </div>
+                <div
+                  className="selector selector-medium disabled in-form-item"
+                >
+                  <input
+                    aria-disabled={true}
+                    checked={false}
+                    disabled={true}
+                    id="4fzzzxj"
+                    name="group1"
+                    onChange={[Function]}
+                    readOnly={true}
+                    type="radio"
+                    value="pear"
+                  />
+                  <label
+                    className=""
+                    htmlFor="4fzzzxj"
+                  >
+                    <span
+                      className="radio-button"
+                      id="4fzzzxj-custom-radio"
+                    />
+                    <span
+                      className="selector-label selector-label-end"
+                    >
+                      Pear
+                    </span>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="form-item"
+    >
+      <div
+        className="row form-item-row"
+        style={Object {}}
+      >
+        <div
+          className="col col-2 form-item-label"
+          style={Object {}}
+        >
+          <label
+            className=""
+            title="Input"
+          >
+            Input
+          </label>
+        </div>
+        <div
+          className="col col-10 form-item-control"
+          style={Object {}}
+        >
+          <div
+            className="form-item-control-input"
+          >
+            <div
+              className="form-item-control-input-content"
+            >
+              <div
+                className="input-wrapper left-icon disabled in-form-item"
+              >
+                <div
+                  className="input-group left-icon"
+                >
+                  <input
+                    aria-disabled={true}
+                    autoFocus={false}
+                    className="left-icon clear-not-visible in-form-item"
+                    disabled={true}
+                    id="input-7"
+                    onChange={[Function]}
+                    readOnly={false}
+                    required={false}
+                    role="textbox"
+                    tabIndex={0}
+                    type="text"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="form-item"
+    >
+      <div
+        className="row form-item-row"
+        style={Object {}}
+      >
+        <div
+          className="col col-2 form-item-label"
+          style={Object {}}
+        >
+          <label
+            className=""
+            title="Select"
+          >
+            Select
+          </label>
+        </div>
+        <div
+          className="col col-10 form-item-control"
+          style={Object {}}
+        >
+          <div
+            className="form-item-control-input"
+          >
+            <div
+              className="form-item-control-input-content"
+            >
+              <div
+                className="select-wrapper select-wrapper-disabled in-form-item"
+              >
+                <div
+                  className="select-dropdown-main-wrapper main-wrapper"
+                >
+                  <div
+                    className="input-wrapper right-icon disabled in-form-item"
+                  >
+                    <div
+                      className="input-group right-icon"
+                    >
+                      <input
+                        aria-controls="dropdown-8"
+                        aria-disabled={true}
+                        aria-expanded={false}
+                        aria-haspopup={true}
+                        autoFocus={false}
+                        className="select-input with-icon right-icon clear-disabled clear-not-visible in-form-item"
+                        disabled={true}
+                        id="input-9"
+                        onChange={[Function]}
+                        onClick={[Function]}
+                        placeholder="Select"
+                        readOnly={true}
+                        required={false}
+                        role="textbox"
+                        tabIndex={0}
+                        type="text"
+                      />
+                      <div
+                        className="icon-wrapper right-icon"
+                      >
+                        <span
+                          aria-hidden={false}
+                          className="icon-wrapper"
+                          role="presentation"
+                        >
+                          <svg
+                            role="presentation"
+                            style={
+                              Object {
+                                "height": "20px",
+                                "width": "20px",
+                              }
+                            }
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"
+                              style={
+                                Object {
+                                  "fill": "currentColor",
+                                }
+                              }
+                            />
+                          </svg>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="form-item"
+    >
+      <div
+        className="row form-item-row"
+        style={Object {}}
+      >
+        <div
+          className="col col-2 form-item-label"
+          style={Object {}}
+        >
+          <label
+            className=""
+            title="DatePicker"
+          >
+            DatePicker
+          </label>
+        </div>
+        <div
+          className="col col-10 form-item-control"
+          style={Object {}}
+        >
+          <div
+            className="form-item-control-input"
+          >
+            <div
+              className="form-item-control-input-content"
+            >
+              <div
+                className="picker picker-small picker-disabled"
+                onMouseUp={[Function]}
+              >
+                <div
+                  className="picker-input"
+                >
+                  <input
+                    autoComplete="off"
+                    disabled={true}
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    onFocus={[Function]}
+                    onKeyDown={[Function]}
+                    onMouseDown={[Function]}
+                    placeholder="Select date"
+                    readOnly={true}
+                    size={12}
+                    title=""
+                    value=""
+                  />
+                  <span
+                    className="picker-suffix"
+                  >
+                    <span
+                      aria-hidden={false}
+                      className="icon-wrapper"
+                      role="presentation"
+                    >
+                      <svg
+                        role="presentation"
+                        style={
+                          Object {
+                            "height": "14px",
+                            "width": "14px",
+                          }
+                        }
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M19,4H18V2H16V4H8V2H6V4H5C3.89,4 3,4.9 3,6V20A2,2 0 0,0 5,22H19A2,2 0 0,0 21,20V6A2,2 0 0,0 19,4M19,20H5V10H19V20M19,8H5V6H19V8Z"
+                          style={
+                            Object {
+                              "fill": "#69717f",
+                            }
+                          }
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="form-item"
+    >
+      <div
+        className="row form-item-row"
+        style={Object {}}
+      >
+        <div
+          className="col col-2 form-item-label"
+          style={Object {}}
+        >
+          <label
+            className=""
+            title="RangePicker"
+          >
+            RangePicker
+          </label>
+        </div>
+        <div
+          className="col col-10 form-item-control"
+          style={Object {}}
+        >
+          <div
+            className="form-item-control-input"
+          >
+            <div
+              className="form-item-control-input-content"
+            >
+              <div
+                className="picker picker-range picker-small picker-disabled"
+                onClick={[Function]}
+                onMouseDown={[Function]}
+              >
+                <div
+                  className="picker-input picker-input-active"
+                >
+                  <input
+                    autoComplete="off"
+                    disabled={true}
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    onFocus={[Function]}
+                    onKeyDown={[Function]}
+                    onMouseDown={[Function]}
+                    placeholder="Start date"
+                    readOnly={true}
+                    size={12}
+                    value=""
+                  />
+                </div>
+                <div
+                  className="picker-range-separator"
+                >
+                  <span
+                    aria-label="to"
+                    className="picker-separator"
+                  >
+                    <span
+                      aria-hidden={false}
+                      className="icon-wrapper"
+                      role="presentation"
+                    >
+                      <svg
+                        role="presentation"
+                        style={
+                          Object {
+                            "height": "20px",
+                            "width": "20px",
+                          }
+                        }
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M14 16.94V12.94H5.08L5.05 10.93H14V6.94L19 11.94Z"
+                          style={
+                            Object {
+                              "fill": "#69717f",
+                            }
+                          }
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                </div>
+                <div
+                  className="picker-input"
+                >
+                  <input
+                    autoComplete="off"
+                    disabled={true}
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    onFocus={[Function]}
+                    onKeyDown={[Function]}
+                    onMouseDown={[Function]}
+                    placeholder="End date"
+                    readOnly={true}
+                    size={12}
+                    value=""
+                  />
+                </div>
+                <div
+                  className="picker-active-bar"
+                  style={
+                    Object {
+                      "left": 0,
+                      "position": "absolute",
+                      "width": 0,
+                    }
+                  }
+                />
+                <span
+                  className="picker-suffix"
+                >
+                  <span
+                    aria-hidden={false}
+                    className="icon-wrapper"
+                    role="presentation"
+                  >
+                    <svg
+                      role="presentation"
+                      style={
+                        Object {
+                          "height": "14px",
+                          "width": "14px",
+                        }
+                      }
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M19,4H18V2H16V4H8V2H6V4H5C3.89,4 3,4.9 3,6V20A2,2 0 0,0 5,22H19A2,2 0 0,0 21,20V6A2,2 0 0,0 19,4M19,20H5V10H19V20M19,8H5V6H19V8Z"
+                        style={
+                          Object {
+                            "fill": "#69717f",
+                          }
+                        }
+                      />
+                    </svg>
+                  </span>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="form-item"
+    >
+      <div
+        className="row form-item-row"
+        style={Object {}}
+      >
+        <div
+          className="col col-2 form-item-label"
+          style={Object {}}
+        >
+          <label
+            className=""
+            title="TextArea"
+          >
+            TextArea
+          </label>
+        </div>
+        <div
+          className="col col-10 form-item-control"
+          style={Object {}}
+        >
+          <div
+            className="form-item-control-input"
+          >
+            <div
+              className="form-item-control-input-content"
+            >
+              <div
+                className="input-wrapper disabled"
+              >
+                <div
+                  className="text-area-group"
+                >
+                  <textarea
+                    aria-disabled={true}
+                    autoFocus={false}
+                    className="text-area text-area-no-expand in-form-item"
+                    cols={50}
+                    disabled={true}
+                    id="textarea-10"
+                    onChange={[Function]}
+                    required={false}
+                    rows={5}
+                    tabIndex={0}
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="form-item"
+    >
+      <div
+        className="row form-item-row"
+        style={Object {}}
+      >
+        <div
+          className="col col-2 form-item-label"
+          style={Object {}}
+        >
+          <label
+            className=""
+            title="Switch"
+          >
+            Switch
+          </label>
+        </div>
+        <div
+          className="col col-10 form-item-control"
+          style={Object {}}
+        >
+          <div
+            className="form-item-control-input"
+          >
+            <div
+              className="form-item-control-input-content"
+            >
+              <div
+                className="selector selector-medium disabled in-form-item"
+              >
+                <input
+                  aria-disabled={true}
+                  checked={false}
+                  disabled={true}
+                  id="4fzzzxj"
+                  onChange={[Function]}
+                  readOnly={true}
+                  type="checkbox"
+                />
+                <label
+                  className=""
+                  htmlFor="4fzzzxj"
+                >
+                  <span
+                    className="checkmark toggle"
+                  />
+                  <span
+                    className="selector-label selector-label-end"
+                  />
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="form-item"
+    >
+      <div
+        className="row form-item-row"
+        style={Object {}}
+      >
+        <div
+          className="col col-2 form-item-label"
+          style={Object {}}
+        >
+          <label
+            className=""
+            title="Button"
+          >
+            Button
+          </label>
+        </div>
+        <div
+          className="col col-10 form-item-control"
+          style={Object {}}
+        >
+          <div
+            className="form-item-control-input"
+          >
+            <div
+              className="form-item-control-input-content"
+            >
+              <button
+                aria-disabled={true}
+                className="button button-primary pill-shape disabled"
+                defaultChecked={false}
+                disabled={true}
+              >
+                <span
+                  className=""
+                >
+                  Button
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+`;

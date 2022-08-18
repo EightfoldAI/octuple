@@ -3,6 +3,10 @@
     position: relative;
     width: 100%;
 
+    &-disabled {
+        cursor: not-allowed;
+    }
+
     .select-dropdown-overlay {
         width: 400px;
 
