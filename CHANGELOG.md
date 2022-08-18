@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.5.0](https://github.com/EightfoldAI/octuple/compare/v2.4.1...v2.5.0) (2022-08-18)
+
+### Features
+
+-   theme 2 menu with headers, subheaders, footers and links ([#266](https://github.com/EightfoldAI/octuple/issues/266)) ([ac0d878](https://github.com/EightfoldAI/octuple/commits/ac0d8785ec18b035bd3379665d8c6fd181bb4a6e))
+
 ### [2.4.1](https://github.com/EightfoldAI/octuple/compare/v2.4.0...v2.4.1) (2022-08-17)
 
 ### Bug Fixes
