@@ -1,10 +1,9 @@
 import React from 'react';
 import { DropdownProps } from '../Dropdown';
 import { TextInputProps, TextInputWidth } from '../Inputs';
-import { MenuProps } from '../Menu';
+import { MenuItemButtonProps, MenuProps } from '../Menu';
 import { OcBaseProps } from '../OcBase';
 import { PillProps } from '../Pills';
-import { MenuItemProps } from '../Menu/MenuItem/MenuItem.types';
 
 export enum SelectShape {
     Rectangle = 'rectangle',
@@ -19,7 +18,7 @@ export enum SelectSize {
     Small = 'small',
 }
 
-export interface SelectOption extends MenuItemProps {
+export interface SelectOption extends MenuItemButtonProps {
     selected?: boolean;
     hideOption?: boolean;
     id?: string;
@@ -125,7 +124,7 @@ export interface SelectProps extends OcBaseProps<HTMLSelectElement> {
      * loading spinner props.
      * @default {}
      */
-    spinner?: React.ReactNode;
+    spinner?: React.ReactElement;
 
     /**
      * Custom method to filter whether an option should be displayed in the menu.

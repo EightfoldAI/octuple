@@ -21,7 +21,7 @@ export interface DropdownProps {
     /**
      * The dropdown content
      */
-    overlay?: React.ReactNode;
+    overlay?: React.ReactElement;
     /**
      * If the dropdown is disabled or not
      */
@@ -67,4 +67,6 @@ export interface DropdownProps {
      * @default true
      */
     closeOnDropdownClick?: boolean;
+    visible?: boolean;
+    onClickOutside?: (event: MouseEvent) => void;
 }

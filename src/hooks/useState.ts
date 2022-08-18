@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 declare type Updater<T> = T | ((prevValue: T) => T);
 
@@ -42,4 +43,13 @@ export const useSafeState = <T>(
     };
 
     return [value, safeSetState];
+};
+
+export const useRefState = <T>(defaultValue: T): [T, SetState<T>] => {
+    const [state, setState] = useState<T>(defaultValue);
+    const stateRef = useRef<T>(state);
+    useEffect(() => {
+        stateRef.current = state;
+    }, [state]);
+    return [stateRef.current, setState];
 };

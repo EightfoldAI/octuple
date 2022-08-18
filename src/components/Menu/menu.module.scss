@@ -1,0 +1,45 @@
+@include octuple-chrome();
+.menu-container {
+    display: flex;
+    flex-direction: column;
+
+    .menu-header-container {
+        display: flex;
+        flex: 1;
+
+        &.large {
+            padding: $space-l $space-l $space-xs;
+        }
+
+        &.medium {
+            padding: $space-m $space-m $space-xs;
+        }
+
+        &.small {
+            padding: $space-m $space-m $space-xs;
+        }
+
+        .heading {
+            flex: 1;
+        }
+    }
+
+    .menu-footer-container {
+        background: var(--background-color);
+        position: sticky;
+        bottom: 0;
+        border-top: solid 1px var(--border-color);
+
+        &.large {
+            padding: $space-l;
+        }
+
+        &.medium {
+            padding: $space-m;
+        }
+
+        &.small {
+            padding: $space-s;
+        }
+    }
+}
