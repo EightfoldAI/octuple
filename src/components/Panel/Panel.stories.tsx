@@ -555,19 +555,5 @@ Panel_Header.args = {
     ...panelArgs,
     bodyPadding: true,
     headerPadding: false,
-    // actionButtonOneProps: {
-    //     iconProps: { path: IconName.mdiCogOutline },
-    // },
-    // actionButtonTwoProps: {
-    //     iconProps: {
-    //         path: IconName.mdiHistory,
-    //     },
-    // },
-    // actionButtonThreeProps: {
-    //     iconProps: { path: IconName.mdiDatabaseArrowDownOutline },
-    // },
-    // headerButtonProps: {
-    //     iconProps: { path: IconName.mdiArrowLeftThick },
-    // },
-    // size: PanelSize.medium,
+    size: PanelSize.medium,
 };
