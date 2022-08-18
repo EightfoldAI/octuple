@@ -119,7 +119,7 @@ const Wrapper: FC<SelectProps> = ({ children }) => {
     );
 };
 
-const DynamicSelect: FC<SelectProps> = () => {
+const DynamicSelect: FC<SelectProps> = (args) => {
     const timer = useRef<ReturnType<typeof setTimeout>>(null);
     const [options, setOptions] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
@@ -139,11 +139,12 @@ const DynamicSelect: FC<SelectProps> = () => {
     };
     return (
         <Select
+            {...args}
             filterable={true}
             isLoading={isLoading}
             loadOptions={loadOptions}
             options={options}
-        ></Select>
+        />
     );
 };
 
