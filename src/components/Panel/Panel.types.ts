@@ -41,6 +41,19 @@ export interface PanelProps extends Omit<OcBaseProps<HTMLElement>, 'title'> {
      */
     autoFocus?: boolean;
     /**
+     * Custom classes for the body
+     */
+    bodyClassNames?: string;
+    /**
+     * Enables body padding
+     * @default true
+     */
+    bodyPadding?: boolean;
+    /**
+     * Content of the body
+     */
+    children?: React.ReactNode;
+    /**
      * Show close button on top right
      * @default true
      */
@@ -54,40 +67,82 @@ export interface PanelProps extends Omit<OcBaseProps<HTMLElement>, 'title'> {
      */
     closeButtonProps?: CloseButtonProps;
     /**
+     * Footer of the panel
+     */
+    footer?: React.ReactNode;
+    /**
+     * Custom classes for the footer
+     */
+    footerClassNames?: string;
+    /**
+     * Props for the header button
+     */
+    headerButtonProps?: ButtonProps;
+    /**
+     * Custom classes for the header
+     */
+    headerClassNames?: string;
+    /**
+     * Header icon name
+     */
+    headerIcon?: IconName;
+    /**
+     * Custom height of the panel
+     */
+    height?: number;
+    /**
      * Clicking on mask should close panel or not
      * @default true
      */
     maskClosable?: boolean;
     /**
+     * Callback fired on close on the panel
+     * @param e {EventType}
+     */
+    onClose?: (e: EventType) => void;
+    /**
+     * Callback fired on visibility change of the panel
+     * @param visible {bool}
+     */
+    onVisibleChange?: (visible: boolean) => void;
+    /**
+     * Whether the dialog should show the overlay
+     * if false: there will be no overlay.
+     * @default true
+     */
+    overlay?: boolean;
+    /**
+     * Element to which to attach the panel to
+     * @default HTMLBodyElement
+     */
+    parent?: HTMLDivElement | HTMLBodyElement;
+    /**
+     * Custom classes for the panel
+     */
+    panelClassNames?: string;
+    /**
+     * Custom classes for the panel wrapper
+     */
+    panelWrapperClassNames?: string;
+    /**
      * Custom style for the side panel
      */
     panelStyle?: React.CSSProperties;
     /**
-     * Size of the panel, can be overridden with width
-     * @default medium
+     * Where to place the drawer
+     * @default right
      */
-    size?: PanelSize;
+    placement?: PanelPlacement;
     /**
      * Whether the panel gets pushed out with nested panels
      * @default true
      */
     push?: boolean;
     /**
-     * Custom classes for the panel wrapper
+     * Size of the panel, can be overridden with width
+     * @default medium
      */
-    panelWrapperClassNames?: string;
-    /**
-     * Custom classes for the panel
-     */
-    panelClassNames?: string;
-    /**
-     * Custom classes for the header
-     */
-    headerClassNames?: string;
-    /**
-     * Custom classes for the body
-     */
-    bodyClassNames?: string;
+    size?: PanelSize;
     /**
      * The title of the panel
      */
@@ -101,43 +156,7 @@ export interface PanelProps extends Omit<OcBaseProps<HTMLElement>, 'title'> {
      */
     width?: number;
     /**
-     * Custom height of the panel
-     */
-    height?: number;
-    /**
      * Custom zIndex for the panel
      */
     zIndex?: number;
-    /**
-     * Where to place the drawer
-     * @default right
-     */
-    placement?: PanelPlacement;
-    /**
-     * Callback fired on close on the panel
-     * @param e {EventType}
-     */
-    onClose?: (e: EventType) => void;
-    /**
-     * Callback fired on visibility change of the panel
-     * @param visible {bool}
-     */
-    onVisibleChange?: (visible: boolean) => void;
-    /**
-     * Footer of the panel
-     */
-    footer?: React.ReactNode;
-    /**
-     * Custom classes for the footer
-     */
-    footerClassNames?: string;
-    /**
-     * Content of the body
-     */
-    children?: React.ReactNode;
-    /**
-     * Element to which to attach the panel to
-     * @default HTMLBodyElement
-     */
-    parent?: HTMLDivElement | HTMLBodyElement;
 }

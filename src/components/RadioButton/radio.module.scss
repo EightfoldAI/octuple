@@ -24,6 +24,8 @@
                 border: $space-xxxs solid var(--grey-color-70);
                 border-radius: 50%;
                 height: $radio-medium-height;
+                width: $radio-medium-width;
+                min-height: $radio-medium-height;
                 min-width: $radio-medium-width;
                 position: relative;
                 transition: all $motion-duration-extra-fast
@@ -132,6 +134,7 @@
         input {
             & + label {
                 .radio-button {
+                    min-height: $radio-large-height;
                     height: $radio-large-height;
                     min-width: $radio-large-width;
                     width: $radio-large-width;
@@ -171,6 +174,7 @@
         input {
             & + label {
                 .radio-button {
+                    min-height: $radio-medium-height;
                     height: $radio-medium-height;
                     min-width: $radio-medium-width;
                     width: $radio-medium-width;
@@ -210,6 +214,7 @@
         input {
             & + label {
                 .radio-button {
+                    min-height: $radio-small-height;
                     height: $radio-small-height;
                     min-width: $radio-small-width;
                     width: $radio-small-width;

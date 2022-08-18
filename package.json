@@ -1,6 +1,6 @@
 {
     "name": "@eightfold.ai/octuple",
-    "version": "2.2.5",
+    "version": "2.4.1",
     "license": "MIT",
     "main": "lib/octuple.js",
     "types": "lib/octuple.d.ts",
@@ -10,7 +10,7 @@
     },
     "scripts": {
         "storybook": "start-storybook -p 2022",
-        "build-storybook": "rm -rf dist && mkdir dist && build-storybook -o dist",
+        "build-storybook": "rm -rf storybook-static && mkdir storybook-static && build-storybook -o storybook-static",
         "build": "rm -rf lib && npm run lint && webpack --config webpack.prod.js --mode production",
         "details": "webpack --config webpack.dev.js --mode development --stats-error-details",
         "analyze": "webpack --config webpack.dev.js --mode production --json > stats.json",
@@ -274,7 +274,7 @@
         ]
     },
     "engines": {
-        "node": ">=16.13.0 < 16.15",
-        "npm": ">=8.5.0 < 8.6"
+        "node": ">=16.13.0 < 17",
+        "npm": ">=8.5.0 < 9"
     }
 }

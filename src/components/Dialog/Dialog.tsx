@@ -12,24 +12,31 @@ export const Dialog: FC<DialogProps> = React.forwardRef(
             actionButtonOneProps,
             actionButtonTwoProps,
             actionButtonThreeProps,
+            actionsClassNames,
+            bodyClassNames,
+            bodyPadding = true,
+            cancelButtonProps,
             closeButtonProps,
             closeIcon,
-            parent = document.body,
-            size = DialogSize.medium,
-            headerClassNames,
-            bodyClassNames,
-            actionsClassNames,
             dialogClassNames,
+            headerButtonProps,
+            headerClassNames,
+            headerIcon,
+            height,
             okButtonProps,
-            cancelButtonProps,
             onOk,
             onCancel,
+            overlay,
+            parent = document.body,
+            size = DialogSize.medium,
+            width,
             ...rest
         },
         ref: Ref<HTMLDivElement>
     ) => {
         const dialogClasses: string = mergeClasses([
             styles.dialog,
+            { [styles.noBodyPadding]: bodyPadding === false },
             dialogClassNames,
             { [styles.small]: size === DialogSize.small },
             { [styles.medium]: size === DialogSize.medium },
@@ -43,7 +50,7 @@ export const Dialog: FC<DialogProps> = React.forwardRef(
         const bodyClasses: string = mergeClasses([styles.body, bodyClassNames]);
 
         const actionClasses: string = mergeClasses([
-            styles.actions,
+            styles.footer,
             actionsClassNames,
         ]);
 
@@ -54,12 +61,6 @@ export const Dialog: FC<DialogProps> = React.forwardRef(
                 actionButtonOneProps={actionButtonOneProps}
                 actionButtonTwoProps={actionButtonTwoProps}
                 actionButtonThreeProps={actionButtonThreeProps}
-                closeButtonProps={closeButtonProps}
-                closeIcon={closeIcon}
-                dialogClassNames={dialogClasses}
-                headerClassNames={headerClasses}
-                bodyClassNames={bodyClasses}
-                actionsClassNames={actionClasses}
                 actions={
                     <>
                         {cancelButtonProps && (
@@ -73,6 +74,18 @@ export const Dialog: FC<DialogProps> = React.forwardRef(
                         )}
                     </>
                 }
+                actionsClassNames={actionClasses}
+                bodyClassNames={bodyClasses}
+                bodyPadding={bodyPadding}
+                closeButtonProps={closeButtonProps}
+                closeIcon={closeIcon}
+                dialogClassNames={dialogClasses}
+                headerButtonProps={headerButtonProps}
+                headerClassNames={headerClasses}
+                headerIcon={headerIcon}
+                height={height}
+                overlay={overlay}
+                width={width}
             />
         );
     }

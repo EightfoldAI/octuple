@@ -377,6 +377,7 @@ const panelArgs: Object = {
     size: PanelSize.small,
     visible: false,
     closable: true,
+    bodyPadding: true,
     children: (
         <>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum
@@ -447,7 +448,9 @@ const panelArgs: Object = {
     maskClosable: true,
     zIndex: 1000,
     panelStyle: {},
+    headerIcon: IconName.mdiArrowLeftThick,
     closeIcon: IconName.mdiClose,
+    overlay: true,
     push: true,
     parent: document.body,
     panelWrapperClassNames: 'my-panel-wrapper-class',
@@ -507,6 +510,9 @@ Header_Actions.args = {
     },
     actionButtonThreeProps: {
         iconProps: { path: IconName.mdiDatabaseArrowDownOutline },
+    },
+    headerButtonProps: {
+        iconProps: { path: IconName.mdiArrowLeftThick },
     },
     size: PanelSize.medium,
 };

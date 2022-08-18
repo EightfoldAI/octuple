@@ -88,17 +88,17 @@ const ConfigProvider: FC<ConfigProviderProps> = ({
             }}
         >
             <DisabledContextProvider disabled={disabled}>
-                <LocaleReceiver>
+                {/* <LocaleReceiver>
                     {(_, __) =>
                         locale ? (
-                            <LocaleProvider locale={locale}>
-                                {children}
-                            </LocaleProvider>
+                            <LocaleProvider locale={locale}> */}
+                {children}
+                {/* </LocaleProvider>
                         ) : (
                             { children }
                         )
                     }
-                </LocaleReceiver>
+                </LocaleReceiver> */}
             </DisabledContextProvider>
         </ConfigContext.Provider>
     );

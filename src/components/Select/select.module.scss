@@ -58,19 +58,19 @@
         color: var(--primary-color-80);
     }
 
-    &.select-size-1 {
+    &.select-large {
         .multi-select-pills {
             top: 7px;
         }
     }
 
-    &.select-size-2 {
+    &.select-medium {
         .multi-select-pills {
             top: 5px;
         }
     }
 
-    &.select-size-3 {
+    &.select-small {
         .multi-select-pills {
             top: 4px;
 

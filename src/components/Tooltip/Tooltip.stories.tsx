@@ -147,12 +147,10 @@ Tooltips.args = {
     positionStrategy: 'absolute',
     portal: false,
     children: (
-        <>
-            <PrimaryButton
-                ariaLabel="Show Tooltip"
-                size={ButtonSize.Medium}
-                text="Show Tooltip"
-            />
-        </>
+        <PrimaryButton
+            ariaLabel="Show Tooltip"
+            size={ButtonSize.Medium}
+            text="Show Tooltip"
+        />
     ),
 };

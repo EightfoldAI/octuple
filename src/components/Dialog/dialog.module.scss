@@ -30,10 +30,20 @@
         line-height: $text-line-height-3;
     }
 
-    .actions {
+    .footer {
         display: flex;
         flex-direction: row;
         justify-content: flex-end;
         gap: $space-xs;
+    }
+
+    &.no-body-padding {
+        .header {
+            padding-bottom: $space-s;
+        }
+
+        .body {
+            padding-bottom: 0;
+        }
     }
 }

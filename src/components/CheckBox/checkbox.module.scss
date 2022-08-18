@@ -26,12 +26,14 @@
                 border: $space-xxxs solid var(--grey-color-70);
                 border-radius: $corner-radius-xs;
                 height: $checkmark-medium-height;
+                width: $checkmark-medium-width;
+                min-height: $checkmark-medium-height;
+                min-width: $checkmark-medium-width;
                 left: 0;
                 position: relative;
                 top: 0;
                 transition: all $motion-duration-extra-fast $motion-ease-in-back
                     $motion-delay-s;
-                width: $checkmark-medium-width;
 
                 &:after {
                     border: solid var(--primary-color);
@@ -52,8 +54,10 @@
                 &.toggle {
                     border: $space-xxxs solid var(--grey-color-70);
                     border-radius: $toggle-medium-height;
+                    min-height: $toggle-medium-height;
                     height: $toggle-medium-height;
                     left: 0;
+                    min-width: $toggle-medium-width;
                     position: relative;
                     top: 0;
                     transition: all $motion-duration-extra-fast
@@ -223,8 +227,10 @@
         input {
             & + label {
                 .checkmark {
+                    min-height: $checkmark-large-height;
                     height: $checkmark-large-height;
                     width: $checkmark-large-width;
+                    min-width: $checkmark-large-width;
 
                     &:after {
                         height: $checkmark-large-after-height;
@@ -235,7 +241,9 @@
 
                     &.toggle {
                         border-radius: $toggle-large-height;
+                        min-height: $toggle-large-height;
                         height: $toggle-large-height;
+                        min-width: $toggle-large-width;
                         width: $toggle-large-width;
 
                         &:after {
@@ -282,7 +290,9 @@
         input {
             & + label {
                 .checkmark {
+                    min-height: $checkmark-medium-height;
                     height: $checkmark-medium-height;
+                    min-width: $checkmark-medium-width;
                     width: $checkmark-medium-width;
 
                     &:after {
@@ -294,7 +304,9 @@
 
                     &.toggle {
                         border-radius: $toggle-medium-height;
+                        min-height: $toggle-medium-height;
                         height: $toggle-medium-height;
+                        min-width: $toggle-medium-width;
                         width: $toggle-medium-width;
 
                         &:after {
@@ -341,7 +353,9 @@
         input {
             & + label {
                 .checkmark {
+                    min-height: $checkmark-small-height;
                     height: $checkmark-small-height;
+                    min-width: $checkmark-small-width;
                     width: $checkmark-small-width;
 
                     &:after {
@@ -353,7 +367,9 @@
 
                     &.toggle {
                         border-radius: $toggle-small-height;
+                        min-height: $toggle-small-height;
                         height: $toggle-small-height;
+                        min-width: $toggle-small-width;
                         width: $toggle-small-width;
 
                         &:after {

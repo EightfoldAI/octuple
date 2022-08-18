@@ -1,5 +1,12 @@
 .dialog-backdrop {
-    @include backdrop;
+    &:not(.modeless) {
+        @include backdrop;
+    }
+
+    &.modeless {
+        @include no-backdrop;
+    }
+
     align-items: center;
     display: flex;
     font-family: $octuple-font-family;
@@ -18,12 +25,28 @@
             justify-content: space-between;
             align-items: center;
 
+            &-button {
+                margin-right: $space-m;
+            }
+
             &-buttons {
                 align-items: flex-end;
                 align-self: start;
                 height: fit-content;
                 justify-content: right;
                 white-space: nowrap;
+            }
+        }
+
+        &.no-body-padding {
+            padding: 0;
+
+            .header {
+                padding: $space-ml $space-ml $space-s $space-ml;
+            }
+
+            .footer {
+                padding: $space-ml;
             }
         }
     }
@@ -36,6 +59,18 @@
         .dialog {
             animation: scaleIn $motion-duration-extra-fast
                 $motion-easing-easeinout 0s forwards;
+        }
+
+        &.modeless {
+            pointer-events: none;
+
+            .dialog {
+                pointer-events: all;
+            }
+        }
+
+        &.modeless-mask {
+            pointer-events: auto;
         }
     }
 }

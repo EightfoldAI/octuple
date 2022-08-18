@@ -59,7 +59,7 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
             placeholder,
             required = false,
             readonly = false,
-            shape = TextInputShape.Pill,
+            shape = TextInputShape.Rectangle,
             size = TextInputSize.Flex,
             status,
             style,

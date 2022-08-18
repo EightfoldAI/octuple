@@ -172,6 +172,12 @@
             background-color: var(--button-counter-active-background-color);
         }
     }
+
+    // Hides the browser default keyboard focus-visible styles.
+    // Use the ConfigProvider instead.
+    &:focus-visible {
+        outline: none;
+    }
 }
 
 .button-text-large {
@@ -242,6 +248,22 @@
 
     &:active:not([disabled]) {
         --bg: var(--accent-color-20);
+    }
+
+    // The additional Secondary Button border requires some padding pixel pushing.
+    &.button-large {
+        padding: calc($button-padding-vertical-large - 1px)
+            $button-padding-horizontal-large;
+    }
+
+    &.button-medium {
+        padding: calc($button-padding-vertical-medium - 1px)
+            $button-padding-horizontal-medium;
+    }
+
+    &.button-small {
+        padding: calc($button-padding-vertical-small - 1px)
+            $button-padding-horizontal-small;
     }
 }
 

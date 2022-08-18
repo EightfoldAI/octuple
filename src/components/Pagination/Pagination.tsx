@@ -4,14 +4,13 @@ import {
     ButtonIconAlign,
     ButtonShape,
     ButtonSize,
-    DefaultButton,
     NeutralButton,
 } from '../Button';
 import { Dropdown } from '../Dropdown';
 import { IconName } from '../Icon';
 import { Menu } from '../Menu';
 import { MenuItemProps } from '../Menu/MenuItem/MenuItem.types';
-import { TextInput } from '../Inputs';
+import { TextInput, TextInputShape } from '../Inputs';
 import { mergeClasses } from '../../shared/utilities';
 import { useBoolean } from '../../octuple';
 import { useCanvasDirection } from '../../hooks/useCanvasDirection';
@@ -315,6 +314,7 @@ export const Pagination: FC<PaginationProps> = React.forwardRef(
                                     <TextInput
                                         ref={inputRef}
                                         classNames={styles.editor}
+                                        shape={TextInputShape.Pill}
                                         minlength={1}
                                         maxlength={_pageCount}
                                         numbersOnly

@@ -137,16 +137,13 @@ export const Select: FC<SelectProps> = React.forwardRef(
         };
 
         const onInputClear = (): void => {
-            if (filterable && dropdownVisible) {
-                setSearchQuery('');
-            } else {
-                setOptions(
-                    options.map((opt) => ({
-                        ...opt,
-                        selected: false,
-                    }))
-                );
-            }
+            setSearchQuery('');
+            setOptions(
+                options.map((opt) => ({
+                    ...opt,
+                    selected: false,
+                }))
+            );
         };
 
         const onInputChange = (
@@ -205,24 +202,24 @@ export const Select: FC<SelectProps> = React.forwardRef(
         const componentClasses: string = mergeClasses([
             styles.selectWrapper,
             {
-                [styles.selectSize3]:
+                [styles.selectSmall]:
                     size === SelectSize.Flex && largeScreenActive,
             },
             {
-                [styles.selectSize2]:
+                [styles.selectMedium]:
                     size === SelectSize.Flex && mediumScreenActive,
             },
             {
-                [styles.selectSize2]:
+                [styles.selectMedium]:
                     size === SelectSize.Flex && smallScreenActive,
             },
             {
-                [styles.selectSize1]:
+                [styles.selectSmall]:
                     size === SelectSize.Flex && xSmallScreenActive,
             },
-            { [styles.selectSize1]: size === SelectSize.Large },
-            { [styles.selectSize2]: size === SelectSize.Medium },
-            { [styles.selectSize3]: size === SelectSize.Small },
+            { [styles.selectLarge]: size === SelectSize.Large },
+            { [styles.selectMedium]: size === SelectSize.Medium },
+            { [styles.selectSmall]: size === SelectSize.Small },
             { [styles.selectWrapperDisabled]: mergedDisabled },
             { ['in-form-item']: isFormItemInput },
             getStatusClassNames(mergedStatus),
@@ -346,8 +343,12 @@ export const Select: FC<SelectProps> = React.forwardRef(
             if (showPills()) {
                 return undefined;
             }
-            const selectedOption = options.find((option) => option.selected);
-            return selectedOption?.text;
+            const selectedOption = options
+                .filter((option: SelectOption) => option.selected)
+                .map((option: SelectOption) => option.text)
+                .join(', ')
+                .toLocaleString();
+            return selectedOption;
         };
 
         const selectInputProps: TextInputProps = {
@@ -409,7 +410,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
                             shape={selectShapeToTextInputShapeMap.get(shape)}
                             size={selectSizeToTextInputSizeMap.get(size)}
                             value={
-                                getSelectedOptionText() && !dropdownVisible
+                                !dropdownVisible
                                     ? getSelectedOptionText()
                                     : undefined
                             }

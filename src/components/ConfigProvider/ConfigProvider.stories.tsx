@@ -462,11 +462,7 @@ const DEFAULT_FOCUS_VISIBLE: boolean = true;
 const DEFAULT_FOCUS_VISIBLE_ELEMENT: HTMLElement = document.documentElement;
 
 const Theming_Story: ComponentStory<typeof ConfigProvider> = (args) => {
-    return (
-        <ConfigProvider {...args}>
-            <ThemedComponents />
-        </ConfigProvider>
-    );
+    return <ConfigProvider {...args} />;
 };
 
 export const Theming = Theming_Story.bind({});

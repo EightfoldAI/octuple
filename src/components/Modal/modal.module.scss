@@ -69,4 +69,11 @@
         padding-top: $space-m;
         gap: $space-xs;
     }
+
+    &.no-body-padding {
+        .header {
+            padding-bottom: $space-ml;
+            margin-bottom: 0;
+        }
+    }
 }

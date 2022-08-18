@@ -1,14 +1,15 @@
 import React, { FC, useEffect, useRef, useState } from 'react';
 import {
-    useFloating,
-    shift,
-    autoUpdate,
     arrow,
+    autoUpdate,
     offset as fOffset,
+    shift,
+    useFloating,
 } from '@floating-ui/react-dom';
 import { FloatingPortal } from '@floating-ui/react-dom-interactions';
-import { TooltipProps, TooltipTheme } from './Tooltip.types';
+import { TooltipProps, TooltipSize, TooltipTheme } from './Tooltip.types';
 import {
+    cloneElement,
     ConditionalWrapper,
     generateId,
     mergeClasses,
@@ -35,6 +36,7 @@ export const Tooltip: FC<TooltipProps> = ({
     positionStrategy = 'absolute',
     wrapperClassNames,
     wrapperStyle,
+    size = TooltipSize.Small,
     ...rest
 }) => {
     const tooltipSide: string = placement.split('-')?.[0];
@@ -99,6 +101,9 @@ export const Tooltip: FC<TooltipProps> = ({
         { [styles.bottom]: tooltipSide === 'bottom' },
         { [styles.left]: tooltipSide === 'left' },
         { [styles.right]: tooltipSide === 'right' },
+        { [styles.small]: size === TooltipSize.Small },
+        { [styles.medium]: size === TooltipSize.Medium },
+        { [styles.large]: size === TooltipSize.Large },
     ]);
 
     const referenceWrapperClasses: string = mergeClasses([
@@ -127,24 +132,35 @@ export const Tooltip: FC<TooltipProps> = ({
         [staticSide]: `-${TOOLTIP_ARROW_WIDTH / 2}px`,
     };
 
+    const getChild = (node: React.ReactNode): JSX.Element | React.ReactNode => {
+        // Need this to handle disabled elements.
+        if (React.isValidElement(node) && node.props?.disabled) {
+            const child = React.Children.only(node) as React.ReactElement<any>;
+            return cloneElement(child, {
+                classNames: styles.noPointerEvents,
+            });
+        }
+        return node;
+    };
+
     return (
         <>
             <div
                 className={referenceWrapperClasses}
                 style={wrapperStyle}
                 id={tooltipId.current}
-                onPointerEnter={toggle(true)}
+                onMouseEnter={toggle(true)}
+                onMouseLeave={toggle(false)}
                 onFocus={toggle(true)}
                 onBlur={toggle(false)}
-                onPointerLeave={toggle(false)}
                 ref={reference}
             >
-                {children}
+                {getChild(children)}
             </div>
             <ConditionalWrapper
                 condition={portal}
                 wrapper={(children) => (
-                    <FloatingPortal>{children}</FloatingPortal>
+                    <FloatingPortal>{getChild(children)}</FloatingPortal>
                 )}
             >
                 {visible && (

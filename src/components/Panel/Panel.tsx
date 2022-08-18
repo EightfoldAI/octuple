@@ -29,30 +29,34 @@ export const Panel = React.forwardRef<PanelRef, PanelProps>(
             actionButtonOneProps,
             actionButtonTwoProps,
             actionButtonThreeProps,
-            size = PanelSize.medium,
-            visible = false,
-            closable = true,
-            onClose = () => {},
+            autoFocus = true,
+            bodyClassNames,
+            bodyPadding = true,
             children,
-            placement = 'right',
+            closable = true,
+            closeButtonProps,
+            closeIcon = IconName.mdiClose,
+            footerClassNames,
+            headerButtonProps,
+            headerClassNames,
+            headerIcon = IconName.mdiArrowLeftThick,
+            height,
             footer,
             title,
             maskClosable = true,
-            width,
-            height,
+            onClose = () => {},
             onVisibleChange,
+            overlay = true,
             zIndex,
-            panelStyle,
-            closeIcon = IconName.mdiClose,
-            push = true,
-            parent = document.body,
-            panelWrapperClassNames,
             panelClassNames,
-            headerClassNames,
-            bodyClassNames,
-            footerClassNames,
-            closeButtonProps,
-            autoFocus = true,
+            panelStyle,
+            panelWrapperClassNames,
+            parent = document.body,
+            placement = 'right',
+            push = true,
+            size = PanelSize.medium,
+            visible = false,
+            width,
             ...rest
         },
         ref
@@ -67,10 +71,13 @@ export const Panel = React.forwardRef<PanelRef, PanelProps>(
             styles.panelBackdrop,
             panelWrapperClassNames,
             { [styles.visible]: visible },
+            { [styles.modeless]: overlay === false },
+            { [styles.modelessMask]: overlay === false && maskClosable },
         ]);
 
         const panelClasses: string = mergeClasses([
             styles.panel,
+            { [styles.noBodyPadding]: bodyPadding === false },
             panelClassNames,
             { [styles.right]: placement === 'right' },
             { [styles.left]: placement === 'left' },
@@ -111,7 +118,17 @@ export const Panel = React.forwardRef<PanelRef, PanelProps>(
 
         const getHeader = (): JSX.Element => (
             <div className={headerClasses}>
-                <div>{title}</div>
+                <div>
+                    {headerButtonProps && (
+                        <NeutralButton
+                            ariaLabel={'Back'}
+                            classNames={styles.headerButton}
+                            iconProps={{ path: headerIcon }}
+                            {...headerButtonProps}
+                        />
+                    )}
+                    {title}
+                </div>
                 <span className={styles.headerButtons}>
                     {actionButtonThreeProps && (
                         <NeutralButton {...actionButtonThreeProps} />

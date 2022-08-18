@@ -77,7 +77,7 @@ import {
 
 import { InfoBar, InfoBarType } from './components/InfoBar';
 
-import { Select } from './components/Select';
+import { Select, SelectShape, SelectSize } from './components/Select';
 
 import { Slider } from './components/Slider';
 
@@ -91,7 +91,7 @@ import { Tabs, Tab, TabVariant } from './components/Tabs';
 
 import TimePicker from './components/DateTimePicker/TimePicker/TimePicker';
 
-import { Tooltip, TooltipTheme } from './components/Tooltip';
+import { Tooltip, TooltipTheme, TooltipSize } from './components/Tooltip';
 
 import { MatchScore } from './components/MatchScore';
 
@@ -192,6 +192,8 @@ export {
     ResizeObserver,
     Row,
     Select,
+    SelectShape,
+    SelectSize,
     SelectorSize,
     SearchBox,
     SecondaryButton,
@@ -220,6 +222,7 @@ export {
     TimePicker,
     Tooltip,
     TooltipTheme,
+    TooltipSize,
     TwoStateButton,
     useBoolean,
     useMatchMedia,

@@ -39,6 +39,7 @@ exports[`Storyshots Select Basic 1`] = `
             role="textbox"
             tabIndex={0}
             type="text"
+            value=""
           />
           <div
             className="icon-wrapper right-icon"
@@ -115,6 +116,7 @@ exports[`Storyshots Select Disabled 1`] = `
             role="textbox"
             tabIndex={0}
             type="text"
+            value=""
           />
           <div
             className="icon-wrapper right-icon"
@@ -189,6 +191,7 @@ exports[`Storyshots Select Dynamic 1`] = `
             role="textbox"
             tabIndex={0}
             type="text"
+            value=""
           />
           <div
             className="icon-wrapper right-icon"
@@ -265,6 +268,7 @@ exports[`Storyshots Select Filterable 1`] = `
             role="textbox"
             tabIndex={0}
             type="text"
+            value=""
           />
           <div
             className="icon-wrapper right-icon"
@@ -341,6 +345,7 @@ exports[`Storyshots Select Multiple 1`] = `
             role="textbox"
             tabIndex={0}
             type="text"
+            value=""
           />
           <div
             className="icon-wrapper right-icon"
@@ -417,6 +422,7 @@ exports[`Storyshots Select Multiple With No Filter 1`] = `
             role="textbox"
             tabIndex={0}
             type="text"
+            value=""
           />
           <div
             className="icon-wrapper right-icon"
@@ -493,6 +499,7 @@ exports[`Storyshots Select Options Disabled 1`] = `
             role="textbox"
             tabIndex={0}
             type="text"
+            value=""
           />
           <div
             className="icon-wrapper right-icon"
@@ -569,6 +576,7 @@ exports[`Storyshots Select With Clear 1`] = `
             role="textbox"
             tabIndex={0}
             type="text"
+            value=""
           />
           <div
             className="icon-wrapper right-icon"
@@ -645,6 +653,7 @@ exports[`Storyshots Select With Default Value 1`] = `
             role="textbox"
             tabIndex={0}
             type="text"
+            value=""
           />
           <div
             className="icon-wrapper right-icon"

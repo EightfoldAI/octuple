@@ -73,6 +73,10 @@ describe('Modal', () => {
             visible: true,
             header,
             body,
+            headerButtonProps: {
+                classNames: 'header-button',
+                iconProps: { path: IconName.mdiArrowLeftThick },
+            },
             actionButtonOneProps: {
                 classNames: 'header-action-button-1',
                 iconProps: { path: IconName.mdiCogOutline },
@@ -86,8 +90,25 @@ describe('Modal', () => {
                 iconProps: { path: IconName.mdiDatabaseArrowDownOutline },
             },
         });
+        expect(wrapper.find('.header-button').length).toBeTruthy();
         expect(wrapper.find('.header-action-button-1').length).toBeTruthy();
         expect(wrapper.find('.header-action-button-2').length).toBeTruthy();
         expect(wrapper.find('.header-action-button-3').length).toBeTruthy();
+    });
+
+    test('modal no body padding', () => {
+        wrapper.setProps({
+            visible: true,
+            bodyPadding: false,
+        });
+        expect(wrapper.find('.no-body-padding').length).toBeTruthy();
+    });
+
+    test('modal overlay is hidden', () => {
+        wrapper.setProps({
+            visible: true,
+            overlay: false,
+        });
+        expect(wrapper.find('.modeless').length).toBeTruthy();
     });
 });
