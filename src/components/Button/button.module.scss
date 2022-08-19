@@ -349,15 +349,15 @@
     --color: var(--grey-color-60);
     color: var(--color);
 
-    &:not(.transparent-bg) {
+    &:not(.transparent) {
         background-color: var(--bg);
     }
 
-    &:not(.transparent-bg):hover {
+    &:not(.transparent):hover {
         --bg: var(--grey-color-10);
     }
 
-    &:not(.transparent-bg):active {
+    &:not(.transparent):active {
         --bg: var(--grey-color-20);
     }
 }

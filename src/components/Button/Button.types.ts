@@ -210,5 +210,5 @@ export interface ButtonProps extends NativeButtonProps {
     /**
      * The button will remain transparent
      */
-    transparentBg?: boolean;
+    transparent?: boolean;
 }

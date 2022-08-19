@@ -38,7 +38,7 @@ export const SystemUIButton: FC<ButtonProps> = React.forwardRef(
             style,
             toggle,
             buttonWidth,
-            transparentBg,
+            transparent = false,
             ...rest
         },
         ref: Ref<HTMLButtonElement>
@@ -47,7 +47,7 @@ export const SystemUIButton: FC<ButtonProps> = React.forwardRef(
             classNames,
             styles.button,
             styles.buttonSystemUi,
-            { [styles.transparentBg]: !!transparentBg },
+            { [styles.transparent]: transparent },
         ]);
 
         return (
