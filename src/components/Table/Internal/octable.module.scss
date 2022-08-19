@@ -276,6 +276,10 @@
     thead {
         td,
         th {
+            font-weight: $text-font-weight-semibold;
+            font-size: $text-font-size-2;
+            line-height: $text-line-height-1;
+            color: $table-header-color;
             text-align: left;
         }
 
