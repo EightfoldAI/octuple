@@ -381,7 +381,7 @@ exports[`Storyshots Button System UI 1`] = `
 <button
   aria-disabled={false}
   aria-label="System UI Button"
-  className="my-btn-class button button-system-ui transparent pill-shape icon-left"
+  className="my-btn-class button button-system-ui pill-shape icon-left"
   data-test-id="my-btn-test-id"
   defaultChecked={false}
   disabled={false}
