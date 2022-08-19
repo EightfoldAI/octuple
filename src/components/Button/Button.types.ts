@@ -209,6 +209,7 @@ export interface ButtonProps extends NativeButtonProps {
     toggle?: boolean;
     /**
      * The button will remain transparent
+     * @default false
      */
     transparent?: boolean;
 }
