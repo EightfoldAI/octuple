@@ -207,4 +207,8 @@ export interface ButtonProps extends NativeButtonProps {
      * The button is a toggle button with distinct on and off states.
      */
     toggle?: boolean;
+    /**
+     * The button will remain transparent
+     */
+    transparentBg?: boolean;
 }

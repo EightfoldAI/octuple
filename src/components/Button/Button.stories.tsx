@@ -285,6 +285,7 @@ System_UI.args = {
     ...buttonArgs,
     ariaLabel: 'System UI Button',
     text: 'System UI Button',
+    transparentBg: true,
 };
 
 Default.args = {
