@@ -42,11 +42,8 @@ export const Menu: FC<MenuProps> = ({
     const headerClasses: string = mergeClasses([
         styles.menuHeaderContainer,
         {
-            [styles.octupleH4]: size === MenuSize.large,
             [styles.large]: size === MenuSize.large,
-            [styles.octupleH5]: size === MenuSize.medium,
             [styles.medium]: size === MenuSize.medium,
-            [styles.octupleH6]: size === MenuSize.small,
             [styles.small]: size === MenuSize.small,
         },
     ]);
