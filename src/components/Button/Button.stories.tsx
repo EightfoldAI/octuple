@@ -347,6 +347,11 @@ Split.args = {
     split: true,
     splitButtonChecked: false,
     text: 'Split Button',
+    splitButtonProps: {
+        iconProps: {
+            path: IconName.mdiClockOutline,
+        },
+    },
 };
 
 Split_With_Counter.args = {
