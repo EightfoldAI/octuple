@@ -5,12 +5,7 @@ import { MenuItem } from './MenuItem/MenuItem';
 import { MenuItemType } from './MenuItem/MenuItem.types';
 import { mergeClasses } from '../../shared/utilities';
 import { Stack } from '../Stack';
-import {
-    ButtonShape,
-    ButtonSize,
-    NeutralButton,
-    PrimaryButton,
-} from '../Button';
+import { ButtonSize, NeutralButton, PrimaryButton } from '../Button';
 
 import styles from './menu.module.scss';
 
