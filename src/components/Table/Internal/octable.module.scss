@@ -171,8 +171,6 @@
 
         &-fix-right-first,
         &-fix-right-last {
-            box-shadow: -1px 0 0 $table-border-color;
-
             &.table-rtl {
                 box-shadow: none;
             }
