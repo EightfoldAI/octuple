@@ -1,4 +1,3 @@
-@include octuple-chrome();
 .menu-container {
     display: flex;
     flex-direction: column;
@@ -8,14 +7,17 @@
         flex: 1;
 
         &.large {
+            @include octuple-h4();
             padding: $space-l $space-l $space-xs;
         }
 
         &.medium {
+            @include octuple-h5();
             padding: $space-m $space-m $space-xs;
         }
 
         &.small {
+            @include octuple-h6();
             padding: $space-m $space-m $space-xs;
         }
 
