@@ -57,7 +57,7 @@ export const Panel = React.forwardRef<PanelRef, PanelProps>(
             size = PanelSize.medium,
             visible = false,
             width,
-            panelHeader,
+            PanelHeader,
             ...rest
         },
         ref
@@ -154,7 +154,7 @@ export const Panel = React.forwardRef<PanelRef, PanelProps>(
         );
 
         const getHeader = (): JSX.Element => {
-            if (!!panelHeader) return panelHeader();
+            if (!!PanelHeader) return PanelHeader;
             return getDefaultHeader();
         };
 
