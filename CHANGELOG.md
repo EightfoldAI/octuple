@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.5.2](https://github.com/EightfoldAI/octuple/compare/v2.5.1...v2.5.2) (2022-08-22)
+
+### Features
+
+-   dropdown: add prop to disable closing on clicking outside ([#320](https://github.com/EightfoldAI/octuple/issues/320)) ([b329442](https://github.com/EightfoldAI/octuple/commits/b329442ce875fa9ca342e2cb5094803883d42a6a))
+
+### Bug Fixes
+
+-   badge: fix font size ([#321](https://github.com/EightfoldAI/octuple/issues/321)) ([bf44706](https://github.com/EightfoldAI/octuple/commits/bf4470620fb8c8270935a018d427b25010c3fac2))
+
 ### [2.5.1](https://github.com/EightfoldAI/octuple/compare/v2.5.0...v2.5.1) (2022-08-19)
 
 ### Bug Fixes
