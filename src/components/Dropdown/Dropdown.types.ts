@@ -67,6 +67,18 @@ export interface DropdownProps {
      * @default true
      */
     closeOnDropdownClick?: boolean;
+    /**
+     * Should close dropdown on click outside
+     * @default true
+     */
+    closeOnOutsideClick?: boolean;
+    /**
+     * Manually control visibility of the dropdown
+     */
     visible?: boolean;
+    /**
+     * Callback method fired on outside click on dropdown
+     * @param event
+     */
     onClickOutside?: (event: MouseEvent) => void;
 }

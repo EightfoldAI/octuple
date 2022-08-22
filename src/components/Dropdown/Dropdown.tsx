@@ -53,6 +53,7 @@ export const Dropdown: FC<DropdownProps> = React.memo(
         showDropdown,
         disabled,
         closeOnDropdownClick = true,
+        closeOnOutsideClick = true,
         visible,
         onClickOutside,
     }) => {
@@ -93,7 +94,9 @@ export const Dropdown: FC<DropdownProps> = React.memo(
         useOnClickOutside(
             refs.reference,
             (e) => {
-                toggle(false)(e);
+                if (closeOnOutsideClick) {
+                    toggle(false)(e);
+                }
                 onClickOutside?.(e);
             },
             mergedVisible
