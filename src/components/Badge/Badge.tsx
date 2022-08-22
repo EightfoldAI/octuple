@@ -14,7 +14,6 @@ export const Badge: FC<BadgeProps> = ({
 }) => {
     const badgeClasses: string = mergeClasses([
         styles.badge,
-        'header6',
         { [styles.disruptive]: disruptive },
         classNames,
         { [styles.active]: active },
