@@ -10,12 +10,10 @@ import { IconName } from '../Icon';
 import styles from './panel.module.scss';
 
 export const PanelHeader: FC<PanelHeaderProps> = ({ onClose, title }) => {
-    const headerTitle: string = mergeClasses(['octuple-h4', styles.headerTitle]);
-
     return (
         <div className={styles.logoGradientHeaderWrapper}>
-            <div className={headerTitle}>{title}</div>
-            <div>
+            <div className={styles.headerTitle}>{title}</div>
+            <div className={styles.headerActionButtons}>
                 {!!onClose && (
                     <SystemUIButton
                         iconProps={{

@@ -75,6 +75,20 @@ $eightfold-logo-gradient: linear-gradient(
     #6fc6aa 100.03%
 );
 
+$eightfold-logo-gradient-dark: linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.25),
+        rgba(0, 0, 0, 0.25)
+    ),
+    linear-gradient(
+        90deg,
+        #3186c8 0.01%,
+        #269fca 18.01%,
+        #1db4cc 38.02%,
+        #1abbcd 50.02%,
+        #6fc6aa 100.03%
+    );
+
 // Shadow Definitions
 
 $shadow-object-xs: 0px 1px 2px rgba(15, 20, 31, 0.12);

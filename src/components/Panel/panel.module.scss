@@ -163,12 +163,17 @@
         justify-content: space-between;
         align-items: center;
 
-        background: $eightfold-logo-gradient;
+        background: $eightfold-logo-gradient-dark;
 
         .header-title {
+            @include octuple-h4();
             padding: 0;
             margin: 0;
             color: var(--white-color);
+        }
+
+        .header-action-buttons {
+            margin-right: -$space-xl / 2;
         }
     }
 }
