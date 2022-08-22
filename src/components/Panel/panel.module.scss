@@ -149,25 +149,26 @@
             pointer-events: auto;
         }
     }
+}
 
-    .panel {
-        .logo-gradient-header-wrapper {
-            display: flex;
-            padding: 0 $space-xl;
-            min-height: 52px;
-            margin-bottom: $space-ml;
-            position: sticky;
-            top: 0;
-            justify-content: space-between;
-            align-items: center;
+// Custom Headers Styles
+.panel-backdrop .panel {
+    .logo-gradient-header-wrapper {
+        display: flex;
+        padding: 0 $space-xl;
+        min-height: 52px;
+        margin-bottom: $space-ml;
+        position: sticky;
+        top: 0;
+        justify-content: space-between;
+        align-items: center;
 
-            background: $eightfold-logo-gradient;
+        background: $eightfold-logo-gradient;
 
-            .header-title {
-                padding: 0;
-                margin: 0;
-                color: var(--white-color);
-            }
+        .header-title {
+            padding: 0;
+            margin: 0;
+            color: var(--white-color);
         }
     }
 }
