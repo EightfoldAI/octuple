@@ -25,10 +25,11 @@ export const PanelHeader: FC<PanelHeaderProps> = ({ onClose, title }) => {
                     <SystemUIButton
                         iconProps={{
                             path: IconName.mdiClose,
-                            color: 'var(--white-black)',
+                            color: 'var(--white-color)',
                         }}
                         ariaLabel={'Close'}
                         onClick={onClose}
+                        transparent
                     />
                 )}
             </div>
