@@ -16,7 +16,7 @@ export type PanelRef = {
 
 export type PanelPlacement = 'top' | 'right' | 'bottom' | 'left';
 
-type EventType =
+export type EventType =
     | React.KeyboardEvent<HTMLDivElement>
     | React.MouseEvent<HTMLDivElement | HTMLButtonElement>;
 

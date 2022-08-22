@@ -285,6 +285,7 @@ System_UI.args = {
     ...buttonArgs,
     ariaLabel: 'System UI Button',
     text: 'System UI Button',
+    transparent: false,
 };
 
 Default.args = {
@@ -347,6 +348,11 @@ Split.args = {
     split: true,
     splitButtonChecked: false,
     text: 'Split Button',
+    splitButtonProps: {
+        iconProps: {
+            path: IconName.mdiClockOutline,
+        },
+    },
 };
 
 Split_With_Counter.args = {

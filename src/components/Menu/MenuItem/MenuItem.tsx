@@ -1,47 +1,21 @@
-import React, { FC } from 'react';
-import { MenuItemProps } from './MenuItem.types';
-import { MenuSize, MenuVariant } from '../Menu.types';
-import { Icon } from '../../Icon';
-import { mergeClasses } from '../../../shared/utilities';
+import React, { FC, JSXElementConstructor } from 'react';
+import { MenuItemProps, MenuItemType } from './MenuItem.types';
+import { MenuItemButton } from './MenuItemButton';
+import { MenuItemCustom } from './MenuItemCustom';
+import { MenuItemLink } from './MenuItemLink';
+import { MenuItemSubHeader } from './MenuItemSubHeader';
 
-import styles from './menuItem.module.scss';
+const TYPE_TO_MENU_ITEM_MAP: Record<
+    MenuItemType,
+    JSXElementConstructor<any>
+> = {
+    [MenuItemType.button]: MenuItemButton,
+    [MenuItemType.custom]: MenuItemCustom,
+    [MenuItemType.link]: MenuItemLink,
+    [MenuItemType.subHeader]: MenuItemSubHeader,
+};
 
-export const MenuItem: FC<MenuItemProps> = ({
-    iconProps,
-    text,
-    variant = MenuVariant.neutral,
-    size = MenuSize.medium,
-    classNames,
-    onClick,
-    tabIndex = 0,
-    value,
-    active,
-    counter,
-    ...rest
-}) => {
-    const menuItemClasses: string = mergeClasses([
-        styles.menuItem,
-        { [styles.small]: size === MenuSize.small },
-        { [styles.medium]: size === MenuSize.medium },
-        { [styles.large]: size === MenuSize.large },
-        { [styles.neutral]: variant === MenuVariant.neutral },
-        { [styles.primary]: variant === MenuVariant.primary },
-        { [styles.disruptive]: variant === MenuVariant.disruptive },
-        { [styles.active]: active },
-        classNames,
-    ]);
-
-    return (
-        <button
-            onClick={() => onClick?.(value)}
-            tabIndex={tabIndex}
-            role="menuitem"
-            className={menuItemClasses}
-            {...rest}
-        >
-            {iconProps && <Icon {...iconProps} />}
-            <span className={styles.label}>{text}</span>
-            {counter && <span>{counter}</span>}
-        </button>
-    );
+export const MenuItem: FC<MenuItemProps> = ({ type, ...rest }) => {
+    const Component = TYPE_TO_MENU_ITEM_MAP?.[type] ?? null;
+    return <Component {...rest} />;
 };

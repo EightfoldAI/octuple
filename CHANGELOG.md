@@ -2,6 +2,30 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.5.1](https://github.com/EightfoldAI/octuple/compare/v2.5.0...v2.5.1) (2022-08-19)
+
+### Bug Fixes
+
+-   added fix for split btn icon ([#314](https://github.com/EightfoldAI/octuple/issues/314)) ([a1c0651](https://github.com/EightfoldAI/octuple/commits/a1c06513f0c8dd7c08aec5baef929c1f0c014ccd))
+-   added transparency prop to system ui button ([#313](https://github.com/EightfoldAI/octuple/issues/313)) ([8856895](https://github.com/EightfoldAI/octuple/commits/885689509f049fe22e3626c7275361ac4ca8141c))
+-   menu: remove octuple chrome from menu and menu item ([#315](https://github.com/EightfoldAI/octuple/issues/315)) ([119d0e6](https://github.com/EightfoldAI/octuple/commits/119d0e640cc6ad1c8ada1e5a0fa849cc346a008c))
+-   selectors: increase radio and checkbox paddings ([#317](https://github.com/EightfoldAI/octuple/issues/317)) ([442baf3](https://github.com/EightfoldAI/octuple/commits/442baf3fd71c6e15907935e7983428e1d340cd8c))
+-   table: remove background from a sorted row ([#311](https://github.com/EightfoldAI/octuple/issues/311)) ([98f1f70](https://github.com/EightfoldAI/octuple/commits/98f1f700d39da147cc8df79b36d5b7536b8df094))
+-   table: remove left border from last fixed cell ([#316](https://github.com/EightfoldAI/octuple/issues/316)) ([2268579](https://github.com/EightfoldAI/octuple/commits/226857990ae73733841935d9671fb5170419e2a7))
+
+## [2.5.0](https://github.com/EightfoldAI/octuple/compare/v2.4.1...v2.5.0) (2022-08-18)
+
+### Features
+
+-   theme 2 menu with headers, subheaders, footers and links ([#266](https://github.com/EightfoldAI/octuple/issues/266)) ([ac0d878](https://github.com/EightfoldAI/octuple/commits/ac0d8785ec18b035bd3379665d8c6fd181bb4a6e))
+
+### [2.4.1](https://github.com/EightfoldAI/octuple/compare/v2.4.0...v2.4.1) (2022-08-17)
+
+### Bug Fixes
+
+-   change default input and textarea shape to rectangle ([#305](https://github.com/EightfoldAI/octuple/issues/305)) ([93460a2](https://github.com/EightfoldAI/octuple/commits/93460a238e09779054869d2a0466a691f3c887f2))
+-   tooltips in safari for disabled element ([#309](https://github.com/EightfoldAI/octuple/issues/309)) ([26f76c0](https://github.com/EightfoldAI/octuple/commits/26f76c05cf8dda52f1573d9a33dc1ee1116f475a))
+
 ## [2.4.0](https://github.com/EightfoldAI/octuple/compare/v2.3.0...v2.4.0) (2022-08-12)
 
 ### Features

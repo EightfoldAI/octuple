@@ -1,5 +1,4 @@
 import React, {
-    FC,
     useContext,
     useEffect,
     useImperativeHandle,
@@ -9,7 +8,7 @@ import React, {
 import { mergeClasses, stopPropagation } from '../../shared/utilities';
 import { PanelProps, PanelRef, PanelSize } from './';
 import { IconName } from '../Icon';
-import { NeutralButton, SystemUIButton } from '../Button';
+import { NeutralButton } from '../Button';
 import { Portal } from '../Portal';
 import { useScrollLock } from '../../hooks/useScrollLock';
 
@@ -242,33 +241,3 @@ export const Panel = React.forwardRef<PanelRef, PanelProps>(
         return <Portal getContainer={() => parent}>{getPanel()}</Portal>;
     }
 );
-
-interface PanelHeaderProps {
-    onClose?: () => void;
-    title?: string;
-}
-
-export const PanelHeader: FC<PanelHeaderProps> = ({ onClose, title }) => {
-    const panelHeaderTitle: string = mergeClasses([
-        'header4',
-        styles.customHeaderTitle,
-    ]);
-
-    return (
-        <div className={styles.customHeader}>
-            <div className={panelHeaderTitle}>{title}</div>
-            <div>
-                {!!onClose && (
-                    <SystemUIButton
-                        iconProps={{
-                            path: IconName.mdiClose,
-                            color: 'var(--white-black)',
-                        }}
-                        ariaLabel={'Close'}
-                        onClick={onClose}
-                    />
-                )}
-            </div>
-        </div>
-    );
-};

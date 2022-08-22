@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { Stories } from '@storybook/addon-docs';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { PanelHeader, Panel, PanelSize } from './';
+import { Panel, PanelSize } from './';
+import { PanelHeader } from './PanelHeader';
 import { IconName } from '../Icon';
 import { PrimaryButton } from '../Button';
 

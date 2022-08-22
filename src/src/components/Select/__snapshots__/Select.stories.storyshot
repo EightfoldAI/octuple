@@ -23,14 +23,14 @@ exports[`Storyshots Select Basic 1`] = `
           className="input-group right-icon"
         >
           <input
-            aria-controls="dropdown-28"
+            aria-controls="dropdown-32"
             aria-disabled={false}
             aria-expanded={false}
             aria-haspopup={true}
             autoFocus={false}
             className="select-input with-icon input-stretch right-icon clear-disabled clear-not-visible"
             disabled={false}
-            id="input-29"
+            id="input-33"
             onChange={[Function]}
             onClick={[Function]}
             placeholder="Select"
@@ -100,14 +100,14 @@ exports[`Storyshots Select Disabled 1`] = `
           className="input-group right-icon"
         >
           <input
-            aria-controls="dropdown-30"
+            aria-controls="dropdown-34"
             aria-disabled={true}
             aria-expanded={false}
             aria-haspopup={true}
             autoFocus={false}
             className="select-input with-icon input-stretch right-icon clear-disabled clear-not-visible"
             disabled={true}
-            id="input-31"
+            id="input-35"
             onChange={[Function]}
             onClick={[Function]}
             placeholder="Select"
@@ -175,14 +175,14 @@ exports[`Storyshots Select Dynamic 1`] = `
           className="input-group right-icon"
         >
           <input
-            aria-controls="dropdown-32"
+            aria-controls="dropdown-36"
             aria-disabled={false}
             aria-expanded={false}
             aria-haspopup={true}
             autoFocus={false}
             className="with-icon input-stretch right-icon clear-disabled clear-not-visible"
             disabled={false}
-            id="input-33"
+            id="input-37"
             onChange={[Function]}
             onClick={[Function]}
             placeholder="Select"
@@ -252,14 +252,14 @@ exports[`Storyshots Select Filterable 1`] = `
           className="input-group right-icon"
         >
           <input
-            aria-controls="dropdown-34"
+            aria-controls="dropdown-38"
             aria-disabled={false}
             aria-expanded={false}
             aria-haspopup={true}
             autoFocus={false}
             className="with-icon input-stretch right-icon clear-not-visible"
             disabled={false}
-            id="input-35"
+            id="input-39"
             onChange={[Function]}
             onClick={[Function]}
             placeholder="Select"
@@ -329,14 +329,14 @@ exports[`Storyshots Select Multiple 1`] = `
           className="input-group right-icon"
         >
           <input
-            aria-controls="dropdown-36"
+            aria-controls="dropdown-40"
             aria-disabled={false}
             aria-expanded={false}
             aria-haspopup={true}
             autoFocus={false}
             className="with-icon input-stretch right-icon clear-not-visible"
             disabled={false}
-            id="input-37"
+            id="input-41"
             onChange={[Function]}
             onClick={[Function]}
             placeholder="Select"
@@ -384,160 +384,6 @@ exports[`Storyshots Select Multiple 1`] = `
 `;
 
 exports[`Storyshots Select Multiple With No Filter 1`] = `
-<div
-  style={
-    Object {
-      "width": "200px",
-    }
-  }
->
-  <div
-    className="select-wrapper octuple-select-class"
-    data-test-id="octuple-select-test-id"
-    style={Object {}}
-  >
-    <div
-      className="select-dropdown-main-wrapper main-wrapper"
-    >
-      <div
-        className="input-wrapper input-stretch right-icon"
-      >
-        <div
-          className="input-group right-icon"
-        >
-          <input
-            aria-controls="dropdown-38"
-            aria-disabled={false}
-            aria-expanded={false}
-            aria-haspopup={true}
-            autoFocus={false}
-            className="select-input with-icon input-stretch right-icon clear-not-visible"
-            disabled={false}
-            id="input-39"
-            onChange={[Function]}
-            onClick={[Function]}
-            placeholder="Select"
-            readOnly={true}
-            required={false}
-            role="textbox"
-            tabIndex={0}
-            type="text"
-            value=""
-          />
-          <div
-            className="icon-wrapper right-icon"
-          >
-            <span
-              aria-hidden={false}
-              className="icon-wrapper"
-              role="presentation"
-            >
-              <svg
-                role="presentation"
-                style={
-                  Object {
-                    "height": "20px",
-                    "width": "20px",
-                  }
-                }
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"
-                  style={
-                    Object {
-                      "fill": "currentColor",
-                    }
-                  }
-                />
-              </svg>
-            </span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Storyshots Select Options Disabled 1`] = `
-<div
-  style={
-    Object {
-      "width": "200px",
-    }
-  }
->
-  <div
-    className="select-wrapper octuple-select-class"
-    data-test-id="octuple-select-test-id"
-    style={Object {}}
-  >
-    <div
-      className="select-dropdown-main-wrapper main-wrapper"
-    >
-      <div
-        className="input-wrapper input-stretch right-icon"
-      >
-        <div
-          className="input-group right-icon"
-        >
-          <input
-            aria-controls="dropdown-40"
-            aria-disabled={false}
-            aria-expanded={false}
-            aria-haspopup={true}
-            autoFocus={false}
-            className="select-input with-icon input-stretch right-icon clear-disabled clear-not-visible"
-            disabled={false}
-            id="input-41"
-            onChange={[Function]}
-            onClick={[Function]}
-            placeholder="Select"
-            readOnly={true}
-            required={false}
-            role="textbox"
-            tabIndex={0}
-            type="text"
-            value=""
-          />
-          <div
-            className="icon-wrapper right-icon"
-          >
-            <span
-              aria-hidden={false}
-              className="icon-wrapper"
-              role="presentation"
-            >
-              <svg
-                role="presentation"
-                style={
-                  Object {
-                    "height": "20px",
-                    "width": "20px",
-                  }
-                }
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"
-                  style={
-                    Object {
-                      "fill": "currentColor",
-                    }
-                  }
-                />
-              </svg>
-            </span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Storyshots Select With Clear 1`] = `
 <div
   style={
     Object {
@@ -614,7 +460,7 @@ exports[`Storyshots Select With Clear 1`] = `
 </div>
 `;
 
-exports[`Storyshots Select With Default Value 1`] = `
+exports[`Storyshots Select Options Disabled 1`] = `
 <div
   style={
     Object {
@@ -645,6 +491,160 @@ exports[`Storyshots Select With Default Value 1`] = `
             className="select-input with-icon input-stretch right-icon clear-disabled clear-not-visible"
             disabled={false}
             id="input-45"
+            onChange={[Function]}
+            onClick={[Function]}
+            placeholder="Select"
+            readOnly={true}
+            required={false}
+            role="textbox"
+            tabIndex={0}
+            type="text"
+            value=""
+          />
+          <div
+            className="icon-wrapper right-icon"
+          >
+            <span
+              aria-hidden={false}
+              className="icon-wrapper"
+              role="presentation"
+            >
+              <svg
+                role="presentation"
+                style={
+                  Object {
+                    "height": "20px",
+                    "width": "20px",
+                  }
+                }
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"
+                  style={
+                    Object {
+                      "fill": "currentColor",
+                    }
+                  }
+                />
+              </svg>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Select With Clear 1`] = `
+<div
+  style={
+    Object {
+      "width": "200px",
+    }
+  }
+>
+  <div
+    className="select-wrapper octuple-select-class"
+    data-test-id="octuple-select-test-id"
+    style={Object {}}
+  >
+    <div
+      className="select-dropdown-main-wrapper main-wrapper"
+    >
+      <div
+        className="input-wrapper input-stretch right-icon"
+      >
+        <div
+          className="input-group right-icon"
+        >
+          <input
+            aria-controls="dropdown-46"
+            aria-disabled={false}
+            aria-expanded={false}
+            aria-haspopup={true}
+            autoFocus={false}
+            className="select-input with-icon input-stretch right-icon clear-not-visible"
+            disabled={false}
+            id="input-47"
+            onChange={[Function]}
+            onClick={[Function]}
+            placeholder="Select"
+            readOnly={true}
+            required={false}
+            role="textbox"
+            tabIndex={0}
+            type="text"
+            value=""
+          />
+          <div
+            className="icon-wrapper right-icon"
+          >
+            <span
+              aria-hidden={false}
+              className="icon-wrapper"
+              role="presentation"
+            >
+              <svg
+                role="presentation"
+                style={
+                  Object {
+                    "height": "20px",
+                    "width": "20px",
+                  }
+                }
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"
+                  style={
+                    Object {
+                      "fill": "currentColor",
+                    }
+                  }
+                />
+              </svg>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Select With Default Value 1`] = `
+<div
+  style={
+    Object {
+      "width": "200px",
+    }
+  }
+>
+  <div
+    className="select-wrapper octuple-select-class"
+    data-test-id="octuple-select-test-id"
+    style={Object {}}
+  >
+    <div
+      className="select-dropdown-main-wrapper main-wrapper"
+    >
+      <div
+        className="input-wrapper input-stretch right-icon"
+      >
+        <div
+          className="input-group right-icon"
+        >
+          <input
+            aria-controls="dropdown-48"
+            aria-disabled={false}
+            aria-expanded={false}
+            aria-haspopup={true}
+            autoFocus={false}
+            className="select-input with-icon input-stretch right-icon clear-disabled clear-not-visible"
+            disabled={false}
+            id="input-49"
             onChange={[Function]}
             onClick={[Function]}
             placeholder="Select"

@@ -49,7 +49,7 @@ export interface ListProps<T> extends OcBaseProps<HTMLDivElement> {
     /**
      * Get custom list item
      */
-    getItem?: (item: T, index: number) => JSX.Element;
+    getItem?: (item: T, index: number) => ReactNode;
     /**
      * Role of the list
      */
