@@ -4,9 +4,9 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import Form, { FormSize } from './';
 import { CheckBox } from '../CheckBox';
 import { TextArea, TextInput, TextInputWidth, TextInputShape } from '../Inputs';
-import { PrimaryButton } from '../Button';
+import { DefaultButton, PrimaryButton, SecondaryButton } from '../Button';
 import { RadioButtonValue, RadioGroup } from '../RadioButton';
-import { Select } from '../Select';
+import { Select, SelectOption } from '../Select';
 import DatePicker from '../DateTimePicker/DatePicker';
 import { Stack } from '../Stack';
 import enUS from '../Locale/en_US';
@@ -131,7 +131,7 @@ const Disabled_Story: ComponentStory<typeof Form> = (args) => {
     return (
         <ConfigProvider
             themeOptions={{ name: 'blue' }}
-            locale={zhCN}
+            locale={enUS}
             children={
                 <Stack direction={'vertical'} gap={'l'} fullWidth>
                     <CheckBox
@@ -146,6 +146,7 @@ const Disabled_Story: ComponentStory<typeof Form> = (args) => {
                         layout="horizontal"
                         onValuesChange={onFormLayoutChange}
                         disabled={componentDisabled}
+                        requiredMark={'optional'}
                     >
                         <Form.Item label="CheckBox" valuePropName="checked">
                             <CheckBox label={'Checkbox'} />
@@ -210,8 +211,148 @@ const Disabled_Story: ComponentStory<typeof Form> = (args) => {
     );
 };
 
+const Form_Methods_Story: ComponentStory<typeof Form> = (args) => {
+    const [form] = Form.useForm();
+    const layout = {
+        labelCol: { span: 2 },
+        wrapperCol: { span: 10 },
+    };
+    const tailLayout = {
+        wrapperCol: { offset: 2, span: 10 },
+    };
+
+    const onGenderChange = (options: SelectOption[]) => {
+        const selectedOption: SelectOption['value'][] = options
+            .filter((option: SelectOption) => option.selected)
+            .map((option: SelectOption) => option.value);
+        console.log(selectedOption);
+        // switch (selectedOption) {
+        //     case 'male':
+        //         form.setFieldsValue({ note: 'Hi, man!' });
+        //         return;
+        //     case 'female':
+        //         form.setFieldsValue({ note: 'Hi, lady!' });
+        //         return;
+        //     case 'other':
+        //         form.setFieldsValue({ note: 'Hi there!' });
+        // }
+    };
+
+    const onFinish = (values: any) => {
+        console.log(values);
+    };
+
+    const onReset = () => {
+        form.resetFields();
+    };
+
+    const onFill = () => {
+        form.setFieldsValue({
+            note: 'Hello world!',
+            gender: 'male',
+        });
+    };
+
+    return (
+        <ConfigProvider
+            themeOptions={{ name: 'blue' }}
+            locale={enUS}
+            children={
+                <Stack fullWidth>
+                    <Form
+                        {...args}
+                        {...layout}
+                        form={form}
+                        name="control-hooks"
+                        onFinish={onFinish}
+                        style={{
+                            width: '100%',
+                        }}
+                    >
+                        <Form.Item
+                            name="note"
+                            label="Note"
+                            rules={[{ required: true }]}
+                        >
+                            <TextInput inputWidth={TextInputWidth.fill} />
+                        </Form.Item>
+                        <Form.Item
+                            name="gender"
+                            label="Gender"
+                            rules={[{ required: true }]}
+                        >
+                            <Select
+                                placeholder="Select a option and change input text above"
+                                onOptionsChange={(o) => {
+                                    onGenderChange(o);
+                                }}
+                                clearable
+                                textInputProps={{
+                                    inputWidth: TextInputWidth.fill,
+                                }}
+                                options={[
+                                    {
+                                        text: 'male',
+                                        value: 'male',
+                                    },
+                                    {
+                                        text: 'female',
+                                        value: 'female',
+                                    },
+                                    {
+                                        text: 'other',
+                                        value: 'other',
+                                    },
+                                ]}
+                            />
+                        </Form.Item>
+                        <Form.Item
+                            noStyle
+                            shouldUpdate={(prevValues, currentValues) =>
+                                prevValues.gender !== currentValues.gender
+                            }
+                        >
+                            {({ getFieldValue }) =>
+                                getFieldValue('gender') === 'other' ? (
+                                    <Form.Item
+                                        name="customizeGender"
+                                        label="Customize Gender"
+                                        rules={[{ required: true }]}
+                                    >
+                                        <TextInput
+                                            inputWidth={TextInputWidth.fill}
+                                        />
+                                    </Form.Item>
+                                ) : null
+                            }
+                        </Form.Item>
+                        <Form.Item {...tailLayout}>
+                            <Stack direction={'horizontal'} gap={'m'} fullWidth>
+                                <PrimaryButton
+                                    htmlType="submit"
+                                    text={'Submit'}
+                                />
+                                <SecondaryButton
+                                    htmlType="button"
+                                    onClick={onReset}
+                                    text={'Reset'}
+                                />
+                                <DefaultButton
+                                    onClick={onFill}
+                                    text={'Fill form'}
+                                />
+                            </Stack>
+                        </Form.Item>
+                    </Form>
+                </Stack>
+            }
+        />
+    );
+};
+
 export const Basic = Basic_Story.bind({});
 export const Disabled = Disabled_Story.bind({});
+export const Form_Methods = Form_Methods_Story.bind({});
 
 const formArgs: Object = {
     size: FormSize.Medium,
@@ -223,5 +364,9 @@ Basic.args = {
 };
 
 Disabled.args = {
+    ...formArgs,
+};
+
+Form_Methods.args = {
     ...formArgs,
 };

@@ -1,4 +1,10 @@
-import React, { createContext, FC, useEffect, useState } from 'react';
+import React, {
+    createContext,
+    FC,
+    useContext,
+    useEffect,
+    useState,
+} from 'react';
 import LocaleReceiver from '../LocaleProvider/LocaleReceiver';
 import LocaleProvider from '../LocaleProvider';
 import { registerFont, registerTheme } from './Theming/styleGenerator';
@@ -11,6 +17,11 @@ import {
 } from './Theming';
 import { useFocusVisibleClassName } from '../../hooks/useFocusVisibleClassName';
 import { DisabledContextProvider } from './DisabledContext';
+import { ShapeContextProvider } from './ShapeContext';
+import { SizeContextProvider } from './SizeContext';
+import { ValidateMessages } from '../Form/Internal/OcForm.types';
+import { OcFormProvider } from '../Form/Internal';
+import defaultLocale from '../Locale/Default';
 
 const ConfigContext: React.Context<Partial<IConfigContext>> = createContext<
     Partial<IConfigContext>
@@ -29,8 +40,11 @@ const ConfigProvider: FC<ConfigProviderProps> = ({
         focusVisibleElement: DEFAULT_FOCUS_VISIBLE_ELEMENT,
     },
     fontOptions: defaultFontOptions,
+    form,
     icomoonIconSet = {},
     locale,
+    shape = 'rectangle',
+    size = 'medium',
     themeOptions: defaultThemeOptions,
 }) => {
     const [fontOptions, setFontOptions] =
@@ -75,37 +89,79 @@ const ConfigProvider: FC<ConfigProviderProps> = ({
         }
     }, [fontOptions]);
 
-    return (
-        <ConfigContext.Provider
-            value={{
-                fontOptions,
-                setFontOptions,
-                themeOptions,
-                setThemeOptions,
-                registeredFont,
-                registeredTheme,
-                icomoonIconSet,
-            }}
-        >
-            <DisabledContextProvider disabled={disabled}>
-                {/* <LocaleReceiver>
-                    {(_, __) =>
-                        locale ? (
-                            <LocaleProvider locale={locale}> */}
+    let childNode = children;
+    let validateMessages: ValidateMessages = {};
+
+    if (locale) {
+        validateMessages =
+            locale.Form?.defaultValidateMessages ||
+            defaultLocale.Form?.defaultValidateMessages ||
+            {};
+    }
+
+    if (form && form.validateMessages) {
+        validateMessages = { ...validateMessages, ...form.validateMessages };
+    }
+
+    if (Object.keys(validateMessages).length > 0) {
+        childNode = (
+            <OcFormProvider validateMessages={validateMessages}>
                 {children}
-                {/* </LocaleProvider>
-                        ) : (
-                            { children }
-                        )
-                    }
-                </LocaleReceiver> */}
+            </OcFormProvider>
+        );
+    }
+
+    if (locale) {
+        childNode = (
+            <LocaleProvider locale={locale}>{childNode}</LocaleProvider>
+        );
+    }
+
+    if (shape) {
+        childNode = (
+            <ShapeContextProvider shape={shape}>
+                {childNode}
+            </ShapeContextProvider>
+        );
+    }
+
+    if (size) {
+        childNode = (
+            <SizeContextProvider size={size}>{childNode}</SizeContextProvider>
+        );
+    }
+
+    if (disabled !== undefined) {
+        childNode = (
+            <DisabledContextProvider disabled={disabled}>
+                {childNode}
             </DisabledContextProvider>
-        </ConfigContext.Provider>
+        );
+    }
+
+    return (
+        <LocaleReceiver>
+            {(_, __) => (
+                <ConfigContext.Provider
+                    value={{
+                        fontOptions,
+                        setFontOptions,
+                        themeOptions,
+                        setThemeOptions,
+                        registeredFont,
+                        registeredTheme,
+                        icomoonIconSet,
+                    }}
+                >
+                    {childNode}
+                </ConfigContext.Provider>
+            )}
+        </LocaleReceiver>
     );
 };
 
 const useConfig = () => {
-    const context = React.useContext(ConfigContext);
+    const context = useContext(ConfigContext);
     if (context === undefined) {
         throw new Error('useConfig hook must be used within config provider');
     }
