@@ -167,7 +167,7 @@ export interface PanelProps extends Omit<OcBaseProps<HTMLElement>, 'title'> {
     /**
      * Custom zIndex for the panel
      */
-    PanelHeader?: React.ReactElement;
+    panelHeader?: React.ReactElement;
 }
 
 export interface PanelHeaderProps {

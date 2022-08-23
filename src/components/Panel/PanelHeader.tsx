@@ -18,19 +18,19 @@ export const PanelHeader: FC<PanelHeaderProps> = ({
     return (
         <div className={styles.logoGradientHeaderWrapper}>
             <div className={styles.headerTitle}>
-                {!!actionDefaultButtonProps && (
+                {actionDefaultButtonProps && (
                     <SystemUIButton {...actionDefaultButtonProps} />
                 )}
                 {title}
             </div>
             <div className={styles.headerActionButtons}>
-                {!!actionButtonOneProps && (
+                {actionButtonOneProps && (
                     <SystemUIButton {...actionButtonOneProps} />
                 )}
-                {!!actionButtonTwoProps && (
+                {actionButtonTwoProps && (
                     <SystemUIButton {...actionButtonTwoProps} />
                 )}
-                {!!onClose && (
+                {onClose && (
                     <SystemUIButton
                         iconProps={{
                             path: closeIcon,
