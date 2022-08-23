@@ -172,20 +172,27 @@ export interface PanelProps extends Omit<OcBaseProps<HTMLElement>, 'title'> {
 
 export interface PanelHeaderProps {
     /**
+     * Props for the default header action button
+     */
+    actionDefaultButtonProps?: ButtonProps;
+    /**
+     * Props for the first header action button
+     */
+    actionButtonOneProps?: ButtonProps;
+    /**
+     * Props for the second header action button
+     */
+    actionButtonTwoProps?: ButtonProps;
+    /**
+     * Close icon name
+     * @default IconName.mdiClose
+     */
+    closeIcon?: IconName;
+    /**
      * Callback fired on close on the panel
      * @param e {EventType}
      */
     onClose?: (e: EventType) => void;
-    /**
-     * Callback fired on noodles icon is clicked on the panel
-     * @param e {EventType}
-     */
-    onNoodles?: (e: EventType) => void;
-    /**
-     * Callback fired on maximise icon is clicked on the panel
-     * @param e {EventType}
-     */
-    onMaximise?: (e: EventType) => void;
     /**
      * The title of the panel
      */

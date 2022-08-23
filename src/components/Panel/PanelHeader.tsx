@@ -9,38 +9,31 @@ import styles from './panel.module.scss';
 
 export const PanelHeader: FC<PanelHeaderProps> = ({
     onClose,
+    closeIcon = IconName.mdiClose,
     title,
-    onNoodles,
-    onMaximise,
+    actionDefaultButtonProps,
+    actionButtonOneProps,
+    actionButtonTwoProps,
 }) => {
     return (
         <div className={styles.logoGradientHeaderWrapper}>
-            <div className={styles.headerTitle}>{title}</div>
-            <div className={styles.headerActionButtons}>
-                {!!onNoodles && (
-                    <SystemUIButton
-                        iconProps={{
-                            path: IconName.mdiNoodles,
-                            color: 'var(--white-color)',
-                        }}
-                        onClick={onNoodles}
-                        transparent
-                    />
+            <div className={styles.headerTitle}>
+                {!!actionDefaultButtonProps && (
+                    <SystemUIButton {...actionDefaultButtonProps} />
                 )}
-                {!!onMaximise && (
-                    <SystemUIButton
-                        iconProps={{
-                            path: IconName.mdiArrowExpand,
-                            color: 'var(--white-color)',
-                        }}
-                        onClick={onMaximise}
-                        transparent
-                    />
+                {title}
+            </div>
+            <div className={styles.headerActionButtons}>
+                {!!actionButtonOneProps && (
+                    <SystemUIButton {...actionButtonOneProps} />
+                )}
+                {!!actionButtonTwoProps && (
+                    <SystemUIButton {...actionButtonTwoProps} />
                 )}
                 {!!onClose && (
                     <SystemUIButton
                         iconProps={{
-                            path: IconName.mdiClose,
+                            path: closeIcon,
                             color: 'var(--white-color)',
                         }}
                         ariaLabel={'Close'}

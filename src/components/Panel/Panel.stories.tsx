@@ -396,9 +396,31 @@ const Panel_Header_Story: ComponentStory<typeof Panel> = (args) => {
                 onClose={() => setVisible(false)}
                 PanelHeader={
                     <PanelHeader
+                        actionDefaultButtonProps={{
+                            iconProps: {
+                                path: IconName.mdiArrowLeftThick,
+                                color: 'var(--white-color)',
+                            },
+                            transparent: true,
+                            onClick: () => setVisible(false),
+                        }}
+                        actionButtonOneProps={{
+                            iconProps: {
+                                path: IconName.mdiNoodles,
+                                color: 'var(--white-color)',
+                            },
+                            transparent: true,
+                            onClick: () => setVisible(false),
+                        }}
+                        actionButtonTwoProps={{
+                            iconProps: {
+                                path: IconName.mdiArrowExpand,
+                                color: 'var(--white-color)',
+                            },
+                            transparent: true,
+                            onClick: () => setVisible(false),
+                        }}
                         onClose={() => setVisible(false)}
-                        onNoodles={() => {}}
-                        onMaximise={() => {}}
                         title={'Header'}
                     />
                 }
