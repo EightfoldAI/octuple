@@ -122,11 +122,11 @@
         font-size: $text-font-size-2;
 
         &-end {
-            margin-left: $space-xxs;
+            margin-left: $space-xs;
         }
 
         &-start {
-            margin-right: $space-xxs;
+            margin-right: $space-xs;
         }
     }
 
@@ -161,11 +161,11 @@
             font-size: $text-font-size-3;
 
             &-end {
-                margin-left: $space-xs;
+                margin-left: $space-m;
             }
 
             &-start {
-                margin-right: $space-xs;
+                margin-right: $space-m;
             }
         }
     }
@@ -201,11 +201,11 @@
             font-size: $text-font-size-2;
 
             &-end {
-                margin-left: $space-xxs;
+                margin-left: $space-xs;
             }
 
             &-start {
-                margin-right: $space-xxs;
+                margin-right: $space-xs;
             }
         }
     }

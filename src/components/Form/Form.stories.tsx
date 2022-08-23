@@ -222,20 +222,16 @@ const Form_Methods_Story: ComponentStory<typeof Form> = (args) => {
     };
 
     const onGenderChange = (options: SelectOption[]) => {
-        const selectedOption: SelectOption['value'][] = options
-            .filter((option: SelectOption) => option.selected)
-            .map((option: SelectOption) => option.value);
-        console.log(selectedOption);
-        // switch (selectedOption) {
-        //     case 'male':
-        //         form.setFieldsValue({ note: 'Hi, man!' });
-        //         return;
-        //     case 'female':
-        //         form.setFieldsValue({ note: 'Hi, lady!' });
-        //         return;
-        //     case 'other':
-        //         form.setFieldsValue({ note: 'Hi there!' });
-        // }
+        switch (options.length) {
+            case 0:
+                form.setFieldsValue({ note: 'Hi, man!' });
+                return;
+            case 1:
+                form.setFieldsValue({ note: 'Hi, lady!' });
+                return;
+            case 2:
+                form.setFieldsValue({ note: 'Hi there!' });
+        }
     };
 
     const onFinish = (values: any) => {
@@ -282,14 +278,8 @@ const Form_Methods_Story: ComponentStory<typeof Form> = (args) => {
                             rules={[{ required: true }]}
                         >
                             <Select
-                                placeholder="Select a option and change input text above"
-                                onOptionsChange={(o) => {
-                                    onGenderChange(o);
-                                }}
                                 clearable
-                                textInputProps={{
-                                    inputWidth: TextInputWidth.fill,
-                                }}
+                                onOptionsChange={onGenderChange}
                                 options={[
                                     {
                                         text: 'male',
@@ -304,6 +294,12 @@ const Form_Methods_Story: ComponentStory<typeof Form> = (args) => {
                                         value: 'other',
                                     },
                                 ]}
+                                placeholder={
+                                    'Select an option to change input text above'
+                                }
+                                textInputProps={{
+                                    inputWidth: TextInputWidth.fill,
+                                }}
                             />
                         </Form.Item>
                         <Form.Item

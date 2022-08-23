@@ -1,6 +1,6 @@
 {
     "name": "@eightfold.ai/octuple",
-    "version": "2.4.1",
+    "version": "2.5.3",
     "license": "MIT",
     "main": "lib/octuple.js",
     "types": "lib/octuple.d.ts",
@@ -84,6 +84,7 @@
         "@commitlint/config-conventional": "16.2.1",
         "@ctrl/tinycolor": "3.4.0",
         "@pmmmwh/react-refresh-webpack-plugin": "0.5.3",
+        "@storybook/addon-a11y": "6.5.5",
         "@storybook/addon-actions": "6.5.5",
         "@storybook/addon-docs": "6.5.5",
         "@storybook/addon-essentials": "6.5.5",

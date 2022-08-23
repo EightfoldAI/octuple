@@ -275,12 +275,6 @@
             }
         }
 
-        td {
-            &.table-column-sort {
-                background: $table-body-sort-backgroud-color;
-            }
-        }
-
         &-column-title {
             position: relative;
             z-index: 1;

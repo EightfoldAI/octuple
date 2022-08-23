@@ -83,7 +83,7 @@ exports[`Storyshots Accordion List Horizontal 1`] = `
               Notification testing
             </div>
             <span
-              className="badge header6 active"
+              className="badge active"
             >
               2
             </span>
@@ -198,7 +198,7 @@ exports[`Storyshots Accordion List Horizontal 1`] = `
               Notification testing
             </div>
             <span
-              className="badge header6 active"
+              className="badge active"
             >
               12
             </span>
@@ -347,7 +347,7 @@ exports[`Storyshots Accordion List Vertical 1`] = `
               Notification testing
             </div>
             <span
-              className="badge header6 active"
+              className="badge active"
             >
               2
             </span>
@@ -462,7 +462,7 @@ exports[`Storyshots Accordion List Vertical 1`] = `
               Notification testing
             </div>
             <span
-              className="badge header6 active"
+              className="badge active"
             >
               12
             </span>

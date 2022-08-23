@@ -348,13 +348,16 @@
     --bg: var(--background-color);
     --color: var(--grey-color-60);
     color: var(--color);
-    background-color: var(--bg);
 
-    &:hover:not([disabled]) {
+    &:not(.transparent) {
+        background-color: var(--bg);
+    }
+
+    &:not(.transparent):not([disabled]):hover {
         --bg: var(--grey-color-10);
     }
 
-    &:active:not([disabled]) {
+    &:not(.transparent):not([disabled]):active {
         --bg: var(--grey-color-20);
     }
 }

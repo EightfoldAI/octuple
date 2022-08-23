@@ -15,17 +15,19 @@ export const Link: FC<LinkProps> = React.forwardRef(
             variant = 'default',
             style,
             'data-test-id': dataTestId,
+            ...rest
         },
         ref: Ref<HTMLAnchorElement>
     ) => {
         const linkClasses: string = mergeClasses([
             styles.linkStyle,
-            classNames,
             { [styles.primary]: variant === 'primary' },
+            classNames,
         ]);
 
         return (
             <a
+                {...rest}
                 ref={ref}
                 href={href}
                 className={linkClasses}

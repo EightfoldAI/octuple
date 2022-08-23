@@ -2,7 +2,7 @@
 
 exports[`Storyshots Badge Badge Active 1`] = `
 <span
-  className="badge header6 my-badge-class active"
+  className="badge my-badge-class active"
   style={Object {}}
 >
   8
@@ -11,7 +11,7 @@ exports[`Storyshots Badge Badge Active 1`] = `
 
 exports[`Storyshots Badge Badge Default 1`] = `
 <span
-  className="badge header6 my-badge-class"
+  className="badge my-badge-class"
   style={Object {}}
 >
   8
@@ -20,7 +20,7 @@ exports[`Storyshots Badge Badge Default 1`] = `
 
 exports[`Storyshots Badge Badge Disruptive 1`] = `
 <span
-  className="badge header6 disruptive my-badge-class active"
+  className="badge disruptive my-badge-class active"
   style={Object {}}
 >
   8

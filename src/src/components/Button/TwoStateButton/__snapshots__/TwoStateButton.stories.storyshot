@@ -52,7 +52,7 @@ exports[`Storyshots Button Two State Button 1`] = `
         Two State Button
       </span>
       <span
-        className="badge header6 counter"
+        className="badge counter"
       >
         8
       </span>

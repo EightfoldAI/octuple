@@ -1,6 +1,6 @@
 .menu-item {
     --background: transparent;
-    background-color: var(--background);
+    background: var(--background);
     color: var(--label);
     display: flex;
     align-items: center;
@@ -17,6 +17,7 @@
         line-height: $text-line-height-3;
         padding: $button-padding-vertical-medium
             $button-padding-horizontal-medium;
+        margin: 0 $space-xs $space-xs;
     }
 
     &.medium {
@@ -25,13 +26,15 @@
         line-height: $text-line-height-2;
         padding: $button-padding-vertical-medium
             $button-padding-horizontal-medium;
+        margin: 0 $space-xxs $space-xs;
     }
 
     &.small {
         height: 28px;
         font-size: $text-font-size-2;
         line-height: $text-line-height-1;
-        padding: $button-padding-vertical-small $button-padding-horizontal-small;
+        padding: $space-xxs $space-xs;
+        margin: 0 $space-xxs $space-xxs;
     }
 
     &.primary {
@@ -62,7 +65,7 @@
 
     &.neutral {
         --active-background: var(--grey-color-10);
-        --label: var(--grey-color-70);
+        --label: var(--grey-color-90);
 
         &:hover {
             --background: var(--grey-color-10);
@@ -80,16 +83,71 @@
         cursor: not-allowed;
     }
 
+    &.menu-link {
+        text-decoration: none;
+    }
+
     .label {
         flex: 1;
         display: flex;
         align-content: flex-start;
     }
 
+    &:first-child {
+        margin-top: $space-xs;
+    }
+
+    &:last-child {
+        margin-bottom: $space-xs;
+    }
+
     // Hides the browser default keyboard focus-visible styles.
     // Use the ConfigProvider instead.
     &:focus-visible {
         outline: none;
+    }
+}
+
+.menu-item-sub-header {
+    color: var(--grey-color-60);
+    padding: $space-s $space-xxs $space-s;
+    border-bottom: solid 1px var(--border-color);
+    margin: 0 $space-m $space-m;
+    font-weight: $text-font-weight-semibold;
+
+    &:first-child {
+        padding-top: 0;
+    }
+
+    &.large {
+        padding: $space-s $space-xxs $space-s;
+        @include octuple-content-large();
+    }
+
+    &.medium {
+        padding: $space-s $space-xxxs $space-s;
+        @include octuple-content-medium();
+    }
+
+    &.small {
+        padding: $space-s $space-xxxs $space-s;
+        @include octuple-content-small();
+    }
+}
+
+.menu-item-custom {
+    margin-bottom: $space-m;
+
+    &.large {
+        padding: 0 $space-l;
+    }
+
+    &.medium {
+        padding: 0 $space-m;
+    }
+
+    &.small {
+        padding: 0 $space-s;
     }
 }
 
