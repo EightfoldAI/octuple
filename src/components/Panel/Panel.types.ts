@@ -171,6 +171,23 @@ export interface PanelProps extends Omit<OcBaseProps<HTMLElement>, 'title'> {
 }
 
 export interface PanelHeaderProps {
+    /**
+     * Callback fired on close on the panel
+     * @param e {EventType}
+     */
     onClose?: (e: EventType) => void;
+    /**
+     * Callback fired on noodles icon is clicked on the panel
+     * @param e {EventType}
+     */
+    onNoodles?: (e: EventType) => void;
+    /**
+     * Callback fired on maximise icon is clicked on the panel
+     * @param e {EventType}
+     */
+    onMaximise?: (e: EventType) => void;
+    /**
+     * The title of the panel
+     */
     title?: string;
 }

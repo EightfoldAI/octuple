@@ -397,6 +397,8 @@ const Panel_Header_Story: ComponentStory<typeof Panel> = (args) => {
                 PanelHeader={
                     <PanelHeader
                         onClose={() => setVisible(false)}
+                        onNoodles={() => {}}
+                        onMaximise={() => {}}
                         title={'Header'}
                     />
                 }
