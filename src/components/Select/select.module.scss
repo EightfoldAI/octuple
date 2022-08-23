@@ -8,7 +8,7 @@
         padding: 0;
 
         .select-spinner {
-            margin: 4px auto;
+            margin: 10px auto;
             position: relative;
         }
     }
@@ -81,7 +81,7 @@
 
 .select-menu-empty {
     color: var(--grey-color-60);
-    margin: 10px auto;
+    margin: $space-m;
     position: relative;
 }
 
