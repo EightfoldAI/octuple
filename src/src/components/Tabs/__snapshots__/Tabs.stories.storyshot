@@ -98,14 +98,7 @@ exports[`Storyshots Tabs Default Loader 1`] = `
         data-portal-key="portal"
       />
       <div
-        className="stack loader horizontal undefined"
-        style={
-          Object {
-            "alignItems": undefined,
-            "flexWrap": undefined,
-            "justifyContent": undefined,
-          }
-        }
+        className="loader"
       >
         <div
           className="dot small"
@@ -149,14 +142,7 @@ exports[`Storyshots Tabs Default Loader 1`] = `
         Tab 3
       </span>
       <div
-        className="stack loader horizontal undefined"
-        style={
-          Object {
-            "alignItems": undefined,
-            "flexWrap": undefined,
-            "justifyContent": undefined,
-          }
-        }
+        className="loader"
       >
         <div
           className="dot small"

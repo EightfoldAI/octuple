@@ -7,9 +7,9 @@ import { Flipped } from 'react-flip-toolkit';
 import { Icon } from '../../Icon';
 import { useConfig } from '../../ConfigProvider';
 import { Badge } from '../../Badge';
+import { Loader } from '../../Loader';
 
 import styles from '../tabs.module.scss';
-import { Loader } from '../../Loader';
 
 export const Tab: FC<TabProps> = React.forwardRef(
     (
