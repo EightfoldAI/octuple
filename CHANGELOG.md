@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.6.2](https://github.com/EightfoldAI/octuple/compare/v2.6.1...v2.6.2) (2022-08-24)
+
+### Bug Fixes
+
+-   system ui button transparency fix ([#325](https://github.com/EightfoldAI/octuple/issues/325)) ([232665d](https://github.com/EightfoldAI/octuple/commits/232665d60604d73fe5fd3688a42f706ecbf6efae))
+
 ### [2.6.1](https://github.com/EightfoldAI/octuple/compare/v2.6.0...v2.6.1) (2022-08-24)
 
 ### Bug Fixes
