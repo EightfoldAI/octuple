@@ -14,6 +14,7 @@
     min-width: max-content;
     transition: all $motion-duration-extra-fast $motion-easing-easeinout 0s;
     white-space: nowrap;
+    position: relative;
 
     span:not(.column):not(.counter) {
         align-items: center;
@@ -162,8 +163,8 @@
     }
 
     &.loading {
+        opacity: 1;
         pointer-events: none;
-        cursor: not-allowed;
     }
 
     &:hover {
@@ -185,7 +186,17 @@
     }
 
     .loader {
-        margin-left: $space-xs;
+        position: absolute;
+        background: inherit;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: $corner-radius-xl;
+        left: 0;
+        top: 0;
+        animation: fadeIn $motion-duration-normal $motion-easing-easein forwards;
     }
 }
 
