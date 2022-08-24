@@ -95,7 +95,12 @@ import { Tooltip, TooltipTheme, TooltipSize } from './components/Tooltip';
 
 import { MatchScore } from './components/MatchScore';
 
-import { Panel, PanelPlacement, PanelSize } from './components/Panel';
+import {
+    Panel,
+    PanelPlacement,
+    PanelSize,
+    PanelHeader,
+} from './components/Panel';
 
 import { Portal } from './components/Portal';
 
@@ -177,6 +182,7 @@ export {
     Pagination,
     PaginationLayoutOptions,
     Panel,
+    PanelHeader,
     PanelPlacement,
     PanelSize,
     PersistentBar,
