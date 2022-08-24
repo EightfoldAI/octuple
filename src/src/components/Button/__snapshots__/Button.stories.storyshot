@@ -45,7 +45,7 @@ exports[`Storyshots Button Counter 1`] = `
     >
       Primary Button
       <span
-        className="badge header6 counter"
+        className="badge counter"
       >
         8
       </span>
@@ -329,7 +329,7 @@ Array [
     >
       Split Button
       <span
-        className="badge header6 counter"
+        className="badge counter"
       >
         8
       </span>
@@ -524,7 +524,7 @@ exports[`Storyshots Button Toggle With Counter 1`] = `
     >
       Toggle Button
       <span
-        className="badge header6 counter"
+        className="badge counter"
       >
         8
       </span>
