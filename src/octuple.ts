@@ -93,6 +93,8 @@ import TimePicker from './components/DateTimePicker/TimePicker/TimePicker';
 
 import { Tooltip, TooltipTheme, TooltipSize } from './components/Tooltip';
 
+import { Loader, LoaderSize } from './components/Loader';
+
 import { MatchScore } from './components/MatchScore';
 
 import {
@@ -169,6 +171,8 @@ export {
     Layout,
     Link,
     List,
+    Loader,
+    LoaderSize,
     MatchScore,
     Menu,
     MenuItemType,
