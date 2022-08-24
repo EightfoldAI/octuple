@@ -2,6 +2,7 @@ import React, { FC, Ref, useContext } from 'react';
 import DisabledContext, {
     DisabledType,
 } from '../ConfigProvider/DisabledContext';
+import { SizeContext, SizeType } from '../ConfigProvider';
 import { mergeClasses } from '../../shared/utilities';
 import { CheckBox, CheckboxGroupProps, LabelPosition, SelectorSize } from './';
 import { Breakpoints, useMatchMedia } from '../../hooks/useMatchMedia';
@@ -20,7 +21,7 @@ export const CheckBoxGroup: FC<CheckboxGroupProps> = React.forwardRef(
             labelPosition = LabelPosition.End,
             layout = 'vertical',
             onChange,
-            size = SelectorSize.Medium,
+            size = 'medium' as SizeType as SizeType,
             style,
             value,
             ...rest
@@ -37,29 +38,35 @@ export const CheckBoxGroup: FC<CheckboxGroupProps> = React.forwardRef(
         const contextuallyDisabled: DisabledType = useContext(DisabledContext);
         const mergedDisabled: boolean = contextuallyDisabled || disabled;
 
+        const contextuallySized: SizeType = useContext(SizeContext);
+        const mergedSize: SelectorSize | SizeType = contextuallySized || size;
+
         const checkboxGroupClassNames = mergeClasses([
             styles.checkboxGroup,
             { [styles.vertical]: layout === 'vertical' },
             { [styles.horizontal]: layout === 'horizontal' },
             {
                 [styles.checkboxGroupSmall]:
-                    size === SelectorSize.Flex && largeScreenActive,
+                    mergedSize === SelectorSize.Flex && largeScreenActive,
             },
             {
                 [styles.checkboxGroupMedium]:
-                    size === SelectorSize.Flex && mediumScreenActive,
+                    mergedSize === SelectorSize.Flex && mediumScreenActive,
             },
             {
                 [styles.checkboxGroupMedium]:
-                    size === SelectorSize.Flex && smallScreenActive,
+                    mergedSize === SelectorSize.Flex && smallScreenActive,
             },
             {
                 [styles.checkboxGroupLarge]:
-                    size === SelectorSize.Flex && xSmallScreenActive,
+                    mergedSize === SelectorSize.Flex && xSmallScreenActive,
             },
-            { [styles.checkboxGroupLarge]: size === SelectorSize.Large },
-            { [styles.checkboxGroupMedium]: size === SelectorSize.Medium },
-            { [styles.checkboxGroupSmall]: size === SelectorSize.Small },
+            { [styles.checkboxGroupLarge]: mergedSize === SelectorSize.Large },
+            {
+                [styles.checkboxGroupMedium]:
+                    mergedSize === SelectorSize.Medium,
+            },
+            { [styles.checkboxGroupSmall]: mergedSize === SelectorSize.Small },
             { ['in-form-item']: isFormItemInput },
             classNames,
         ]);
@@ -91,7 +98,7 @@ export const CheckBoxGroup: FC<CheckboxGroupProps> = React.forwardRef(
                             }
                             onChange?.(newValue);
                         }}
-                        size={size}
+                        size={mergedSize}
                     />
                 ))}
             </div>

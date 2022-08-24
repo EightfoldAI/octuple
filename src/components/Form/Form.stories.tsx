@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Stories } from '@storybook/addon-docs';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import Form, { FormSize } from './';
+import Form from './';
 import { CheckBox } from '../CheckBox';
 import { TextArea, TextInput, TextInputWidth, TextInputShape } from '../Inputs';
 import { DefaultButton, PrimaryButton, SecondaryButton } from '../Button';
@@ -39,13 +39,12 @@ export default {
         },
     },
     argTypes: {
+        shape: {
+            options: ['rectangle', 'pill', 'underline'],
+            control: { type: 'inline-radio' },
+        },
         size: {
-            options: [
-                FormSize.Flex,
-                FormSize.Large,
-                FormSize.Medium,
-                FormSize.Small,
-            ],
+            options: ['flex', 'large', 'medium', 'small'],
             control: { type: 'radio' },
         },
     },
@@ -80,7 +79,7 @@ const Basic_Story: ComponentStory<typeof Form> = (args) => {
                         rules={[{ required: true, warningOnly: true }]}
                         tooltip={<span>A Tooltip!</span>}
                     >
-                        <TextInput shape={TextInputShape.Rectangle} />
+                        <TextInput />
                     </Form.Item>
 
                     <Form.Item
@@ -93,10 +92,7 @@ const Basic_Story: ComponentStory<typeof Form> = (args) => {
                             },
                         ]}
                     >
-                        <TextInput
-                            htmlType={'password'}
-                            shape={TextInputShape.Rectangle}
-                        />
+                        <TextInput htmlType={'password'} />
                     </Form.Item>
 
                     <Form.Item
@@ -174,7 +170,7 @@ const Disabled_Story: ComponentStory<typeof Form> = (args) => {
                             name="input"
                             rules={[{ required: true }]}
                         >
-                            <TextInput shape={TextInputShape.Rectangle} />
+                            <TextInput />
                         </Form.Item>
                         <Form.Item label="Select">
                             <Select
@@ -196,7 +192,7 @@ const Disabled_Story: ComponentStory<typeof Form> = (args) => {
                             <RangePicker />
                         </Form.Item>
                         <Form.Item label="TextArea">
-                            <TextArea shape={TextInputShape.Rectangle} />
+                            <TextArea />
                         </Form.Item>
                         <Form.Item label="Switch" valuePropName="checked">
                             <CheckBox toggle />
@@ -211,7 +207,7 @@ const Disabled_Story: ComponentStory<typeof Form> = (args) => {
     );
 };
 
-const Form_Methods_Story: ComponentStory<typeof Form> = (args) => {
+const Methods_Story: ComponentStory<typeof Form> = (args) => {
     const [form] = Form.useForm();
     const layout = {
         labelCol: { span: 2 },
@@ -346,23 +342,202 @@ const Form_Methods_Story: ComponentStory<typeof Form> = (args) => {
     );
 };
 
+const Size_Story: ComponentStory<typeof Form> = (args) => {
+    const [selected, setSelected] = useState<RadioButtonValue>('apple');
+
+    const radioChangeGroupHandler = (
+        e?: React.ChangeEvent<HTMLInputElement>
+    ): void => {
+        setSelected(e.target.value);
+    };
+    return (
+        <ConfigProvider
+            themeOptions={{ name: 'blue' }}
+            locale={enUS}
+            children={
+                <Stack direction={'vertical'} gap={'l'} fullWidth>
+                    <Form
+                        {...args}
+                        labelCol={{ span: 3 }}
+                        wrapperCol={{ span: 9 }}
+                        layout="horizontal"
+                        requiredMark={'optional'}
+                    >
+                        <Form.Item label="CheckBox" valuePropName="checked">
+                            <CheckBox label={'Checkbox'} />
+                        </Form.Item>
+                        <Form.Item label="Radio">
+                            <RadioGroup
+                                value={selected}
+                                onChange={radioChangeGroupHandler}
+                                items={[
+                                    {
+                                        label: 'Apple',
+                                        name: 'group1',
+                                        value: 'apple',
+                                    },
+                                    {
+                                        label: 'Pear',
+                                        name: 'group1',
+                                        value: 'pear',
+                                    },
+                                ]}
+                            />
+                        </Form.Item>
+                        <Form.Item
+                            label="Input"
+                            name="input"
+                            rules={[{ required: true }]}
+                        >
+                            <TextInput />
+                        </Form.Item>
+                        <Form.Item label="Select">
+                            <Select
+                                textInputProps={{
+                                    inputWidth: TextInputWidth.fitContent,
+                                }}
+                                options={[
+                                    {
+                                        text: 'Demo',
+                                        value: 'demo',
+                                    },
+                                ]}
+                            />
+                        </Form.Item>
+                        <Form.Item label="DatePicker">
+                            <DatePicker />
+                        </Form.Item>
+                        <Form.Item label="RangePicker">
+                            <RangePicker />
+                        </Form.Item>
+                        <Form.Item label="TextArea">
+                            <TextArea />
+                        </Form.Item>
+                        <Form.Item label="Switch" valuePropName="checked">
+                            <CheckBox toggle />
+                        </Form.Item>
+                        <Form.Item label="Button">
+                            <PrimaryButton htmlType="submit" text={'Submit'} />
+                        </Form.Item>
+                    </Form>
+                </Stack>
+            }
+        />
+    );
+};
+
+const Shape_Story: ComponentStory<typeof Form> = (args) => {
+    const [selected, setSelected] = useState<RadioButtonValue>('apple');
+
+    const radioChangeGroupHandler = (
+        e?: React.ChangeEvent<HTMLInputElement>
+    ): void => {
+        setSelected(e.target.value);
+    };
+    return (
+        <ConfigProvider
+            themeOptions={{ name: 'blue' }}
+            locale={enUS}
+            children={
+                <Stack direction={'vertical'} gap={'l'} fullWidth>
+                    <Form
+                        {...args}
+                        labelCol={{ span: 3 }}
+                        wrapperCol={{ span: 9 }}
+                        layout="horizontal"
+                        requiredMark={'optional'}
+                    >
+                        <Form.Item label="CheckBox" valuePropName="checked">
+                            <CheckBox label={'Checkbox'} />
+                        </Form.Item>
+                        <Form.Item label="Radio">
+                            <RadioGroup
+                                value={selected}
+                                onChange={radioChangeGroupHandler}
+                                items={[
+                                    {
+                                        label: 'Apple',
+                                        name: 'group1',
+                                        value: 'apple',
+                                    },
+                                    {
+                                        label: 'Pear',
+                                        name: 'group1',
+                                        value: 'pear',
+                                    },
+                                ]}
+                            />
+                        </Form.Item>
+                        <Form.Item
+                            label="Input"
+                            name="input"
+                            rules={[{ required: true }]}
+                        >
+                            <TextInput />
+                        </Form.Item>
+                        <Form.Item label="Select">
+                            <Select
+                                textInputProps={{
+                                    inputWidth: TextInputWidth.fitContent,
+                                }}
+                                options={[
+                                    {
+                                        text: 'Demo',
+                                        value: 'demo',
+                                    },
+                                ]}
+                            />
+                        </Form.Item>
+                        <Form.Item label="DatePicker">
+                            <DatePicker />
+                        </Form.Item>
+                        <Form.Item label="RangePicker">
+                            <RangePicker />
+                        </Form.Item>
+                        <Form.Item label="TextArea">
+                            <TextArea />
+                        </Form.Item>
+                        <Form.Item label="Switch" valuePropName="checked">
+                            <CheckBox toggle />
+                        </Form.Item>
+                        <Form.Item label="Button">
+                            <PrimaryButton htmlType="submit" text={'Submit'} />
+                        </Form.Item>
+                    </Form>
+                </Stack>
+            }
+        />
+    );
+};
+
 export const Basic = Basic_Story.bind({});
 export const Disabled = Disabled_Story.bind({});
-export const Form_Methods = Form_Methods_Story.bind({});
+export const Methods = Methods_Story.bind({});
+export const Size = Size_Story.bind({});
+export const Shape = Shape_Story.bind({});
 
 const formArgs: Object = {
-    size: FormSize.Medium,
+    shape: 'rectangle',
+    size: 'medium',
+    disabled: false,
 };
 
 Basic.args = {
     ...formArgs,
-    disabled: false,
 };
 
 Disabled.args = {
     ...formArgs,
 };
 
-Form_Methods.args = {
+Methods.args = {
+    ...formArgs,
+};
+
+Size.args = {
+    ...formArgs,
+};
+
+Shape.args = {
     ...formArgs,
 };

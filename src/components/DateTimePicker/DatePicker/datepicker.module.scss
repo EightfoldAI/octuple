@@ -19,12 +19,12 @@
     position: relative;
     transition: border $motion-duration-fast, box-shadow $motion-duration-fast;
 
-    &:hover,
-    &-focused {
+    &:hover:not(.picker-underline),
+    &-focused:not(.picker-underline) {
         @include hover();
     }
 
-    &-focused {
+    &-focused:not(.picker-underline) {
         @include active();
     }
 
@@ -37,6 +37,14 @@
         border-color: transparent;
         box-shadow: none;
         outline: none;
+    }
+
+    &-pill {
+        border-radius: $corner-radius-xl;
+    }
+
+    &-underline {
+        border-color: transparent;
     }
 
     &-separator {

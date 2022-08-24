@@ -62,8 +62,12 @@ export default {
         placeholder: {
             control: { type: 'text' },
         },
+        shape: {
+            options: ['rectangle', 'pill', 'underline'],
+            control: { type: 'inline-radio' },
+        },
         size: {
-            options: ['Large', 'Medium', 'Small'],
+            options: ['flex', 'large', 'medium', 'small'],
             control: { type: 'radio' },
         },
         status: {
@@ -477,7 +481,8 @@ const pickerArgs: Object = {
     classNames: 'my-picker-class',
     id: 'myPickerInputId',
     locale: locale,
-    size: 'Small',
+    shape: 'rectangle',
+    size: 'small',
 };
 
 Single_Picker.args = {

@@ -1,13 +1,7 @@
 import React, { useState } from 'react';
 import { Stories } from '@storybook/addon-docs';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import {
-    CheckBox,
-    CheckBoxGroup,
-    CheckboxValueType,
-    LabelPosition,
-    SelectorSize,
-} from './';
+import { CheckBox, CheckBoxGroup, CheckboxValueType, LabelPosition } from './';
 
 export default {
     title: 'Check Box',
@@ -92,12 +86,7 @@ export default {
             control: { type: 'inline-radio' },
         },
         size: {
-            options: [
-                SelectorSize.Flex,
-                SelectorSize.Large,
-                SelectorSize.Medium,
-                SelectorSize.Small,
-            ],
+            options: ['flex', 'large', 'medium', 'small'],
             control: { type: 'radio' },
         },
     },
@@ -136,7 +125,7 @@ const checkBoxArgs: Object = {
     labelPosition: LabelPosition.End,
     id: 'myCheckBoxId',
     defaultChecked: false,
-    size: SelectorSize.Medium,
+    size: 'medium',
     toggle: false,
 };
 
@@ -170,5 +159,5 @@ Check_Box_Group.args = {
         },
     ],
     layout: 'vertical',
-    size: SelectorSize.Medium,
+    size: 'medium',
 };

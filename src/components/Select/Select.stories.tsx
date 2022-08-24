@@ -2,12 +2,7 @@ import React, { FC, useState, useRef } from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { IconName } from '../Icon';
 import { Select } from './';
-import {
-    SelectOption,
-    SelectProps,
-    SelectShape,
-    SelectSize,
-} from './Select.types';
+import { SelectOption, SelectProps } from './Select.types';
 import { Stories } from '@storybook/addon-docs';
 
 const defaultOptions: SelectOption[] = [
@@ -88,20 +83,11 @@ export default {
             action: 'click',
         },
         shape: {
-            options: [
-                SelectShape.Rectangle,
-                SelectShape.Pill,
-                SelectShape.Underline,
-            ],
+            options: ['rectangle', 'pill', 'underline'],
             control: { type: 'inline-radio' },
         },
         size: {
-            options: [
-                SelectSize.Flex,
-                SelectSize.Large,
-                SelectSize.Medium,
-                SelectSize.Small,
-            ],
+            options: ['flex', 'large', 'medium', 'small'],
             control: { type: 'radio' },
         },
     },

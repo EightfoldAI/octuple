@@ -26,6 +26,7 @@ import usePickerInput from './Hooks/usePickerInput';
 import useTextValueMapping from './Hooks/useTextValueMapping';
 import useValueTexts from './Hooks/useValueTexts';
 import useHoverValue from './Hooks/useHoverValue';
+import { ShapeType, SizeType } from '../../ConfigProvider';
 
 import styles from './ocpicker.module.scss';
 
@@ -82,7 +83,8 @@ function InnerPicker<DateType>(props: OcPickerProps<DateType>) {
         direction,
         autoComplete = 'off',
         inputRender,
-        size = 'Small',
+        shape = 'rectangle' as ShapeType,
+        size = 'medium' as SizeType,
     } = props as MergedOcPickerProps<DateType>;
 
     const inputRef: React.MutableRefObject<HTMLInputElement> =
@@ -440,6 +442,7 @@ function InnerPicker<DateType>(props: OcPickerProps<DateType>) {
                     className={mergeClasses([
                         styles.picker,
                         classNames,
+                        { [styles.pickerUnderline]: shape === 'underline' },
                         { [styles.pickerDisabled]: disabled },
                         { [styles.pickerFocused]: focused },
                         { [styles.pickerRtl]: direction === 'rtl' },

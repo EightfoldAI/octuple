@@ -564,15 +564,3 @@
         }
     }
 }
-
-.dark {
-    .button-wrapper {
-        .button {
-            background-color: inherit;
-
-            &.drop-shadow {
-                box-shadow: $shadow-object-s;
-            }
-        }
-    }
-}

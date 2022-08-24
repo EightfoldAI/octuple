@@ -1,13 +1,7 @@
 import React, { useState } from 'react';
 import { Stories } from '@storybook/addon-docs';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import {
-    TextArea,
-    TextInputSize,
-    TextInputTheme,
-    TextInputWidth,
-    TextInputShape,
-} from '../index';
+import { TextArea, TextInputWidth } from '../index';
 
 export default {
     title: 'Input',
@@ -88,25 +82,12 @@ export default {
             control: { type: 'inline-radio' },
         },
         shape: {
-            options: [
-                TextInputShape.Rectangle,
-                TextInputShape.Pill,
-                TextInputShape.Underline,
-            ],
+            options: ['rectangle', 'pill', 'underline'],
             control: { type: 'inline-radio' },
         },
         size: {
-            options: [
-                TextInputSize.Flex,
-                TextInputSize.Large,
-                TextInputSize.Medium,
-                TextInputSize.Small,
-            ],
+            options: ['flex', 'large', 'medium', 'small'],
             control: { type: 'radio' },
-        },
-        theme: {
-            options: ['light', 'dark'],
-            control: { type: 'inline-radio' },
         },
         value: {
             control: { type: 'text' },
@@ -150,11 +131,10 @@ Text_Area.args = {
     name: 'myTextArea',
     placeholder: 'Placeholder text',
     required: false,
-    size: TextInputSize.Flex,
-    shape: TextInputShape.Pill,
+    size: 'medium',
+    shape: 'rectangle',
     style: {},
     textAreaCols: 50,
     textAreaRows: 5,
-    theme: TextInputTheme.light,
     waitInterval: 10,
 };

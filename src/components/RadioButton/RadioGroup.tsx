@@ -2,6 +2,7 @@ import React, { FC, Ref, useContext } from 'react';
 import DisabledContext, {
     DisabledType,
 } from '../ConfigProvider/DisabledContext';
+import { SizeContext, SizeType } from '../ConfigProvider';
 import { RadioButtonProps, RadioGroupProps, RadioButton } from './';
 import { LabelPosition, SelectorSize } from '../CheckBox';
 import { RadioGroupProvider } from './RadioGroup.context';
@@ -22,7 +23,7 @@ export const RadioGroup: FC<RadioGroupProps> = React.forwardRef(
             labelPosition = LabelPosition.End,
             layout = 'vertical',
             onChange,
-            size = SelectorSize.Medium,
+            size = 'medium' as SizeType,
             style,
             value,
             ...rest
@@ -39,29 +40,32 @@ export const RadioGroup: FC<RadioGroupProps> = React.forwardRef(
         const contextuallyDisabled: DisabledType = useContext(DisabledContext);
         const mergedDisabled: boolean = contextuallyDisabled || disabled;
 
+        const contextuallySized: SizeType = useContext(SizeContext);
+        const mergedSize = contextuallySized || size;
+
         const radioGroupClasses: string = mergeClasses([
             styles.radioGroup,
             { [styles.vertical]: layout === 'vertical' },
             { [styles.horizontal]: layout === 'horizontal' },
             {
                 [styles.radioGroupSmall]:
-                    size === SelectorSize.Flex && largeScreenActive,
+                    mergedSize === SelectorSize.Flex && largeScreenActive,
             },
             {
                 [styles.radioGroupMedium]:
-                    size === SelectorSize.Flex && mediumScreenActive,
+                    mergedSize === SelectorSize.Flex && mediumScreenActive,
             },
             {
                 [styles.radioGroupMedium]:
-                    size === SelectorSize.Flex && smallScreenActive,
+                    mergedSize === SelectorSize.Flex && smallScreenActive,
             },
             {
                 [styles.radioGroupLarge]:
-                    size === SelectorSize.Flex && xSmallScreenActive,
+                    mergedSize === SelectorSize.Flex && xSmallScreenActive,
             },
-            { [styles.radioGroupLarge]: size === SelectorSize.Large },
-            { [styles.radioGroupMedium]: size === SelectorSize.Medium },
-            { [styles.radioGroupSmall]: size === SelectorSize.Small },
+            { [styles.radioGroupLarge]: mergedSize === SelectorSize.Large },
+            { [styles.radioGroupMedium]: mergedSize === SelectorSize.Medium },
+            { [styles.radioGroupSmall]: mergedSize === SelectorSize.Small },
             { ['in-form-item']: isFormItemInput },
             classNames,
         ]);
@@ -83,7 +87,7 @@ export const RadioGroup: FC<RadioGroupProps> = React.forwardRef(
                             disabled={mergedDisabled}
                             {...item}
                             labelPosition={labelPosition}
-                            size={size}
+                            size={mergedSize}
                         />
                     ))}
                 </div>

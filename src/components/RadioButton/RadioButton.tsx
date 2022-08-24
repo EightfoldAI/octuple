@@ -2,6 +2,7 @@ import React, { FC, Ref, useContext, useEffect, useRef, useState } from 'react';
 import DisabledContext, {
     DisabledType,
 } from '../ConfigProvider/DisabledContext';
+import { SizeContext, SizeType } from '../ConfigProvider';
 import { RadioButtonProps, RadioButtonValue } from './';
 import { LabelPosition, SelectorSize } from '../CheckBox';
 import { mergeClasses, generateId } from '../../shared/utilities';
@@ -24,7 +25,7 @@ export const RadioButton: FC<RadioButtonProps> = React.forwardRef(
             label,
             labelPosition = LabelPosition.End,
             onChange,
-            size = SelectorSize.Medium,
+            size = 'medium' as SizeType,
             style,
             value = '',
             'data-test-id': dataTestId,
@@ -49,6 +50,9 @@ export const RadioButton: FC<RadioButtonProps> = React.forwardRef(
         const contextuallyDisabled: DisabledType = useContext(DisabledContext);
         const mergedDisabled: boolean = contextuallyDisabled || disabled;
 
+        const contextuallySized: SizeType = useContext(SizeContext);
+        const mergedSize = contextuallySized || size;
+
         const radioButtonClassNames: string = mergeClasses([
             styles.radioButton,
         ]);
@@ -57,23 +61,23 @@ export const RadioButton: FC<RadioButtonProps> = React.forwardRef(
             styles.selector,
             {
                 [styles.selectorSmall]:
-                    size === SelectorSize.Flex && largeScreenActive,
+                    mergedSize === SelectorSize.Flex && largeScreenActive,
             },
             {
                 [styles.selectorMedium]:
-                    size === SelectorSize.Flex && mediumScreenActive,
+                    mergedSize === SelectorSize.Flex && mediumScreenActive,
             },
             {
                 [styles.selectorMedium]:
-                    size === SelectorSize.Flex && smallScreenActive,
+                    mergedSize === SelectorSize.Flex && smallScreenActive,
             },
             {
                 [styles.selectorLarge]:
-                    size === SelectorSize.Flex && xSmallScreenActive,
+                    mergedSize === SelectorSize.Flex && xSmallScreenActive,
             },
-            { [styles.selectorLarge]: size === SelectorSize.Large },
-            { [styles.selectorMedium]: size === SelectorSize.Medium },
-            { [styles.selectorSmall]: size === SelectorSize.Small },
+            { [styles.selectorLarge]: mergedSize === SelectorSize.Large },
+            { [styles.selectorMedium]: mergedSize === SelectorSize.Medium },
+            { [styles.selectorSmall]: mergedSize === SelectorSize.Small },
             classNames,
             { [styles.disabled]: allowDisabledFocus || mergedDisabled },
             { ['in-form-item']: isFormItemInput },

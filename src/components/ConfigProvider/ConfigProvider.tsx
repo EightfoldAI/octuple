@@ -44,7 +44,7 @@ const ConfigProvider: FC<ConfigProviderProps> = ({
     icomoonIconSet = {},
     locale,
     shape = 'rectangle',
-    size = 'medium',
+    size = 'medium' as SizeType,
     themeOptions: defaultThemeOptions,
 }) => {
     const [fontOptions, setFontOptions] =

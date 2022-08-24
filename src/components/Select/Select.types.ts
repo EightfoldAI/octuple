@@ -6,6 +6,7 @@ import { OcBaseProps } from '../OcBase';
 import { PillProps } from '../Pills';
 import { MenuItemProps } from '../Menu/MenuItem/MenuItem.types';
 import type { InputStatus } from '../../shared/utilities';
+import { ShapeType, SizeType } from '../ConfigProvider';
 
 export enum SelectShape {
     Rectangle = 'rectangle',
@@ -120,13 +121,13 @@ export interface SelectProps extends OcBaseProps<HTMLSelectElement> {
      * Shape of the select.
      * @default SelectShape.Rectangle
      */
-    shape?: SelectShape;
+    shape?: SelectShape | ShapeType;
 
     /**
      * The select size.
-     * @default Flex
+     * @default 'medium'
      */
-    size?: SelectSize;
+    size?: SelectSize | SizeType;
 
     /**
      * loading spinner props.

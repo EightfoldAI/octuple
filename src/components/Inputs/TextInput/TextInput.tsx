@@ -2,16 +2,21 @@ import React, { FC, Ref, useContext, useEffect, useState } from 'react';
 import DisabledContext, {
     DisabledType,
 } from '../../ConfigProvider/DisabledContext';
-import { ButtonSize, DefaultButton } from '../../Button';
+import {
+    ShapeContext,
+    ShapeType,
+    SizeContext,
+    SizeType,
+} from '../../ConfigProvider';
+import { DefaultButton } from '../../Button';
 import { Icon, IconName, IconSize } from '../../Icon';
-import { Label, LabelSize } from '../../Label';
+import { Label } from '../../Label';
 import {
     TextInputIconAlign,
     TextInputWidth,
     TextInputProps,
     TextInputShape,
     TextInputSize,
-    TextInputTheme,
 } from '../index';
 import { useDebounce } from '../../../hooks/useDebounce';
 import {
@@ -59,11 +64,10 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
             placeholder,
             required = false,
             readonly = false,
-            shape = TextInputShape.Rectangle,
-            size = TextInputSize.Flex,
+            shape = 'rectangle' as ShapeType,
+            size = 'medium' as SizeType,
             status,
             style,
-            theme = TextInputTheme.light,
             value,
             waitInterval = 10,
             ...rest
@@ -90,6 +94,12 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
         const contextuallyDisabled: DisabledType = useContext(DisabledContext);
         const mergedDisabled: boolean = contextuallyDisabled || disabled;
 
+        const contextuallySized: SizeType = useContext(SizeContext);
+        const mergedSize = contextuallySized || size;
+
+        const contextuallyShaped: ShapeType = useContext(ShapeContext);
+        const mergedShape = contextuallyShaped || shape;
+
         const iconClassNames: string = mergeClasses([
             styles.iconWrapper,
             { [styles.leftIcon]: alignIcon === TextInputIconAlign.Left },
@@ -112,72 +122,70 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
             classNames,
             {
                 [styles.inputSmall]:
-                    size === TextInputSize.Flex && largeScreenActive,
+                    mergedSize === TextInputSize.Flex && largeScreenActive,
             },
             {
                 [styles.inputMedium]:
-                    size === TextInputSize.Flex && mediumScreenActive,
+                    mergedSize === TextInputSize.Flex && mediumScreenActive,
             },
             {
                 [styles.inputMedium]:
-                    size === TextInputSize.Flex && smallScreenActive,
+                    mergedSize === TextInputSize.Flex && smallScreenActive,
             },
             {
                 [styles.inputLarge]:
-                    size === TextInputSize.Flex && xSmallScreenActive,
+                    mergedSize === TextInputSize.Flex && xSmallScreenActive,
             },
-            { [styles.inputLarge]: size === TextInputSize.Large },
-            { [styles.inputMedium]: size === TextInputSize.Medium },
-            { [styles.inputSmall]: size === TextInputSize.Small },
+            { [styles.inputLarge]: mergedSize === TextInputSize.Large },
+            { [styles.inputMedium]: mergedSize === TextInputSize.Medium },
+            { [styles.inputSmall]: mergedSize === TextInputSize.Small },
             {
                 [styles.withIcon]:
                     !!iconProps?.path &&
-                    (shape === TextInputShape.Rectangle ||
-                        shape === TextInputShape.Underline),
+                    (mergedShape === TextInputShape.Rectangle ||
+                        mergedShape === TextInputShape.Underline),
             },
             {
                 [styles.withImageIcon]:
                     !!iconProps?.imageSrc &&
-                    (shape === TextInputShape.Rectangle ||
-                        shape === TextInputShape.Underline),
+                    (mergedShape === TextInputShape.Rectangle ||
+                        mergedShape === TextInputShape.Underline),
             },
             {
                 [styles.withIconButton]:
                     !!iconButtonProps &&
-                    (shape === TextInputShape.Rectangle ||
-                        shape === TextInputShape.Underline),
+                    (mergedShape === TextInputShape.Rectangle ||
+                        mergedShape === TextInputShape.Underline),
             },
             {
                 [styles.withIconAndIconButton]:
                     !!iconProps &&
                     !!iconButtonProps &&
-                    (shape === TextInputShape.Rectangle ||
-                        shape === TextInputShape.Underline),
+                    (mergedShape === TextInputShape.Rectangle ||
+                        mergedShape === TextInputShape.Underline),
             },
-            { [styles.pillShape]: shape === TextInputShape.Pill },
+            { [styles.pillShape]: mergedShape === TextInputShape.Pill },
             {
                 [styles.pillShapeWithIcon]:
-                    !!iconProps?.path && shape === TextInputShape.Pill,
+                    !!iconProps?.path && mergedShape === TextInputShape.Pill,
             },
             {
                 [styles.pillShapeWithImageIcon]:
-                    !!iconProps?.imageSrc && shape === TextInputShape.Pill,
+                    !!iconProps?.imageSrc &&
+                    mergedShape === TextInputShape.Pill,
             },
             {
                 [styles.pillShapeWithIconButton]:
-                    !!iconButtonProps && shape === TextInputShape.Pill,
+                    !!iconButtonProps && mergedShape === TextInputShape.Pill,
             },
             {
                 [styles.pillShapeWithIconAndIconButton]:
                     !!iconProps &&
                     !!iconButtonProps &&
-                    shape === TextInputShape.Pill,
+                    mergedShape === TextInputShape.Pill,
             },
             {
-                [styles.underline]: shape === TextInputShape.Underline,
-            },
-            {
-                [styles.dark]: theme === TextInputTheme.dark,
+                [styles.underline]: mergedShape === TextInputShape.Underline,
             },
             {
                 [styles.inputStretch]: inputWidth === TextInputWidth.fill,
@@ -203,27 +211,27 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
                 [styles.inline]: inline,
             },
             {
-                [styles.underline]: shape === TextInputShape.Underline,
+                [styles.underline]: mergedShape === TextInputShape.Underline,
             },
             {
                 [styles.inputSmall]:
-                    size === TextInputSize.Flex && largeScreenActive,
+                    mergedSize === TextInputSize.Flex && largeScreenActive,
             },
             {
                 [styles.inputMedium]:
-                    size === TextInputSize.Flex && mediumScreenActive,
+                    mergedSize === TextInputSize.Flex && mediumScreenActive,
             },
             {
                 [styles.inputMedium]:
-                    size === TextInputSize.Flex && smallScreenActive,
+                    mergedSize === TextInputSize.Flex && smallScreenActive,
             },
             {
                 [styles.inputLarge]:
-                    size === TextInputSize.Flex && xSmallScreenActive,
+                    mergedSize === TextInputSize.Flex && xSmallScreenActive,
             },
-            { [styles.inputLarge]: size === TextInputSize.Large },
-            { [styles.inputMedium]: size === TextInputSize.Medium },
-            { [styles.inputSmall]: size === TextInputSize.Small },
+            { [styles.inputLarge]: mergedSize === TextInputSize.Large },
+            { [styles.inputMedium]: mergedSize === TextInputSize.Medium },
+            { [styles.inputSmall]: mergedSize === TextInputSize.Small },
             {
                 [styles.inputStretch]: inputWidth === TextInputWidth.fill,
             },
@@ -294,13 +302,6 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
             debouncedChange(e);
         };
 
-        const inputSizeToButtonSizeMap = new Map<TextInputSize, ButtonSize>([
-            [TextInputSize.Flex, ButtonSize.Flex],
-            [TextInputSize.Large, ButtonSize.Large],
-            [TextInputSize.Medium, ButtonSize.Medium],
-            [TextInputSize.Small, ButtonSize.Small],
-        ]);
-
         const getIconSize = (): IconSize => {
             let iconSize: IconSize;
             if (largeScreenActive) {
@@ -315,42 +316,20 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
             return iconSize;
         };
 
-        const inputSizeToIconSizeMap = new Map<TextInputSize, IconSize>([
+        const inputSizeToIconSizeMap = new Map<
+            TextInputSize | SizeType,
+            IconSize
+        >([
             [TextInputSize.Flex, getIconSize()],
             [TextInputSize.Large, IconSize.Large],
             [TextInputSize.Medium, IconSize.Medium],
             [TextInputSize.Small, IconSize.Small],
         ]);
 
-        const getLabelSize = (): LabelSize => {
-            let labelSize: LabelSize;
-            if (largeScreenActive) {
-                labelSize = LabelSize.Small;
-            } else if (mediumScreenActive) {
-                labelSize = LabelSize.Medium;
-            } else if (smallScreenActive) {
-                labelSize = LabelSize.Medium;
-            } else if (xSmallScreenActive) {
-                labelSize = LabelSize.Large;
-            }
-            return labelSize;
-        };
-
-        const inputSizeToLabelSizeMap = new Map<TextInputSize, LabelSize>([
-            [TextInputSize.Flex, getLabelSize()],
-            [TextInputSize.Large, LabelSize.Large],
-            [TextInputSize.Medium, LabelSize.Medium],
-            [TextInputSize.Small, LabelSize.Small],
-        ]);
-
         return (
             <div className={textInputWrapperClassNames}>
                 {labelProps && (
-                    <Label
-                        inline={inline}
-                        size={inputSizeToLabelSizeMap.get(size)}
-                        {...labelProps}
-                    />
+                    <Label inline={inline} size={mergedSize} {...labelProps} />
                 )}
                 <div className={textInputGroupClassNames}>
                     <input
@@ -384,7 +363,9 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
                                 <Icon
                                     {...iconProps}
                                     path={iconProps.path}
-                                    size={inputSizeToIconSizeMap.get(size)}
+                                    size={inputSizeToIconSizeMap.get(
+                                        mergedSize
+                                    )}
                                 />
                             )}
                             {iconProps.imageSrc && !iconProps.path && (
@@ -411,7 +392,7 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
                             iconProps={{ path: iconButtonProps.iconProps.path }}
                             id={iconButtonProps.id}
                             onClick={iconButtonProps.onClick}
-                            size={inputSizeToButtonSizeMap.get(size)}
+                            size={mergedSize}
                             htmlType={iconButtonProps.htmlType}
                         />
                     )}
@@ -428,7 +409,7 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
                                 onClick={
                                     !allowDisabledFocus ? handleOnClear : null
                                 }
-                                size={ButtonSize.Small}
+                                size={'small'}
                             />
                         )}
                 </div>

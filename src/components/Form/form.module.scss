@@ -4,16 +4,6 @@
 @import './Styles/status';
 @import './Styles/mixins';
 
-@mixin formSize($input-height) {
-    .form-item-label > label {
-        height: $input-height;
-    }
-
-    .form-item-control-input {
-        min-height: $input-height;
-    }
-}
-
 @mixin explainAndExtraDistance($num) {
     @if $num >= 0 {
         padding-top: floor($num);
@@ -36,14 +26,38 @@
         padding-right: 8px;
     }
 
-    @include formSize($form-input-height-m);
+    .form-item-label > label {
+        height: $form-input-height-m;
+    }
+
+    .form-item-control-input {
+        min-height: $form-input-height-m;
+    }
 
     &-small {
-        @include formSize($form-input-height-s);
+        .form-item-label > label {
+            font-size: $text-font-size-2;
+            font-weight: $text-font-weight-semibold;
+            height: $form-input-height-s;
+            line-height: $text-line-height-1;
+        }
+
+        .form-item-control-input {
+            min-height: $form-input-height-s;
+        }
     }
 
     &-large {
-        @include formSize($form-input-height-l);
+        .form-item-label > label {
+            font-size: $text-font-size-5;
+            font-weight: $text-font-weight-semibold;
+            height: $form-input-height-l;
+            line-height: $text-line-height-3;
+        }
+
+        .form-item-control-input {
+            min-height: $form-input-height-l;
+        }
     }
 }
 

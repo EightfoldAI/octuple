@@ -2,6 +2,12 @@ import React, { forwardRef, useContext, useImperativeHandle } from 'react';
 import DisabledContext, {
     DisabledType,
 } from '../../../ConfigProvider/DisabledContext';
+import {
+    ShapeContext,
+    ShapeType,
+    SizeContext,
+    SizeType,
+} from '../../../ConfigProvider';
 import { mergeClasses } from '../../../../shared/utilities';
 import type { InputStatus } from '../../../../shared/utilities';
 import OcPicker from '../../Internal/OcPicker';
@@ -22,6 +28,7 @@ import enUS from '../Locale/en_US';
 import { getPlaceholder, transPlacement2DropdownAlign } from '../util';
 import { Icon, IconName, IconSize } from '../../../Icon';
 import { dir, useCanvasDirection } from '../../../../hooks/useCanvasDirection';
+import { Breakpoints, useMatchMedia } from '../../../../hooks/useMatchMedia';
 
 import styles from '../datepicker.module.scss';
 
@@ -45,7 +52,8 @@ export default function generatePicker<DateType>(
                 getPopupContainer,
                 classNames,
                 id,
-                size = 'Small',
+                shape = 'rectangle' as ShapeType,
+                size = 'medium' as SizeType,
                 bordered = true,
                 popupPlacement,
                 placeholder,
@@ -53,6 +61,14 @@ export default function generatePicker<DateType>(
                 status,
                 ...rest
             } = props;
+            const largeScreenActive: boolean = useMatchMedia(Breakpoints.Large);
+            const mediumScreenActive: boolean = useMatchMedia(
+                Breakpoints.Medium
+            );
+            const smallScreenActive: boolean = useMatchMedia(Breakpoints.Small);
+            const xSmallScreenActive: boolean = useMatchMedia(
+                Breakpoints.XSmall
+            );
             const htmlDir: string = useCanvasDirection();
             const innerRef = React.useRef<OcPicker<DateType>>(null);
             const { format, showTime } = props as any;
@@ -94,18 +110,42 @@ export default function generatePicker<DateType>(
                 useContext(DisabledContext);
             const mergedDisabled: boolean = contextuallyDisabled || disabled;
 
-            const pickerSizeToIconSizeMap = new Map<typeof size, IconSize>([
-                ['Large', IconSize.Large],
-                ['Medium', IconSize.Small],
-                ['Small', IconSize.XSmall],
+            const contextuallySized: SizeType = useContext(SizeContext);
+            const mergedSize = contextuallySized || size;
+
+            const contextuallyShaped: ShapeType = useContext(ShapeContext);
+            const mergedShape = contextuallyShaped || shape;
+
+            const getIconSize = (): IconSize => {
+                let iconSize: IconSize;
+                if (largeScreenActive) {
+                    iconSize = IconSize.Small;
+                } else if (mediumScreenActive) {
+                    iconSize = IconSize.Medium;
+                } else if (smallScreenActive) {
+                    iconSize = IconSize.Medium;
+                } else if (xSmallScreenActive) {
+                    iconSize = IconSize.Large;
+                }
+                return iconSize;
+            };
+
+            const pickerSizeToIconSizeMap = new Map<
+                typeof mergedSize,
+                IconSize
+            >([
+                ['flex', getIconSize()],
+                ['large', IconSize.Large],
+                ['medium', IconSize.Medium],
+                ['small', IconSize.Small],
             ]);
 
             const iconColor = (): string => {
-                let color: string = '#69717f';
+                let color: string = 'var(--grey-color-60)';
                 if (status === 'error') {
-                    color = '#993838';
+                    color = 'var(--error-color)';
                 } else if (status === 'warning') {
-                    color = '#9d6309';
+                    color = 'var(--warning-color)';
                 }
                 return color;
             };
@@ -167,10 +207,31 @@ export default function generatePicker<DateType>(
                     {...additionalOverrideProps}
                     locale={locale!.lang}
                     classNames={mergeClasses([
-                        { [styles.pickerLarge]: size === 'Large' },
-                        { [styles.pickerMedium]: size === 'Medium' },
-                        { [styles.pickerSmall]: size === 'Small' },
+                        {
+                            [styles.pickerSmall]:
+                                mergedSize === 'flex' && largeScreenActive,
+                        },
+                        {
+                            [styles.pickerMedium]:
+                                mergedSize === 'flex' && mediumScreenActive,
+                        },
+                        {
+                            [styles.pickerMedium]:
+                                mergedSize === 'flex' && smallScreenActive,
+                        },
+                        {
+                            [styles.pickerLarge]:
+                                mergedSize === 'flex' && xSmallScreenActive,
+                        },
+                        { [styles.pickerLarge]: mergedSize === 'large' },
+                        { [styles.pickerMedium]: mergedSize === 'medium' },
+                        { [styles.pickerSmall]: mergedSize === 'small' },
                         { [styles.pickerBorderless]: !bordered },
+                        {
+                            [styles.pickerUnderline]:
+                                mergedShape === 'underline',
+                        },
+                        { [styles.pickerPill]: mergedShape === 'pill' },
                         { [styles.pickerStatusWarning]: status === 'warning' },
                         { [styles.pickerStatusError]: status === 'error' },
                         classNames,
@@ -180,7 +241,8 @@ export default function generatePicker<DateType>(
                     components={Components}
                     direction={htmlDir}
                     disabled={mergedDisabled}
-                    size={size}
+                    shape={mergedShape}
+                    size={mergedSize}
                 />
             );
         });

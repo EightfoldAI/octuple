@@ -4,6 +4,7 @@ import { Header } from '../Header';
 import PartialContext from '../../PartialContext';
 import { formatValue } from '../../Utils/dateUtil';
 import { ButtonSize, NeutralButton } from '../../../../Button';
+import { SizeType } from '../../../../ConfigProvider';
 
 function DateHeader<DateType>(props: DateHeaderProps<DateType>) {
     const {
@@ -16,7 +17,7 @@ function DateHeader<DateType>(props: DateHeaderProps<DateType>) {
         onPrevYear,
         onYearClick,
         onMonthClick,
-        size = 'Small',
+        size = 'medium' as SizeType,
     } = props;
     const { hideHeader } = React.useContext(PartialContext);
 
@@ -32,10 +33,14 @@ function DateHeader<DateType>(props: DateHeaderProps<DateType>) {
 
     const month = generateConfig.getMonth(viewDate);
 
-    const datePickerSizeToButtonSizeMap = new Map<typeof size, ButtonSize>([
-        ['Large', ButtonSize.Large],
-        ['Medium', ButtonSize.Medium],
-        ['Small', ButtonSize.Small],
+    const datePickerSizeToButtonSizeMap = new Map<
+        typeof size,
+        ButtonSize | SizeType
+    >([
+        ['flex', ButtonSize.Flex],
+        ['large', ButtonSize.Large],
+        ['medium', ButtonSize.Medium],
+        ['small', ButtonSize.Small],
     ]);
 
     const yearNode: React.ReactNode = (

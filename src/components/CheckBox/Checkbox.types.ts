@@ -1,5 +1,6 @@
 import React from 'react';
 import { OcBaseProps } from '../OcBase';
+import { SizeType } from '../ConfigProvider';
 
 export type CheckboxValueType = string | number;
 
@@ -58,7 +59,7 @@ export interface CheckboxProps extends OcBaseProps<HTMLInputElement> {
      * The checkbox size.
      * @default SelectorSize.Medium
      */
-    size?: SelectorSize;
+    size?: SelectorSize | SizeType;
     /**
      * The Checkbox UI is toggle.
      * @default false

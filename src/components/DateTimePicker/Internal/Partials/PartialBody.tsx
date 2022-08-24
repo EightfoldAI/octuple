@@ -4,6 +4,8 @@ import { mergeClasses } from '../../../../shared/utilities';
 import PartialContext from '../PartialContext';
 import { getLastDay } from '../Utils/timeUtil';
 import { getCellDateDisabled } from '../Utils/dateUtil';
+import { Breakpoints, useMatchMedia } from '../../../../hooks/useMatchMedia';
+import { SizeType } from '../../../ConfigProvider';
 
 import styles from '../ocpicker.module.scss';
 
@@ -22,8 +24,12 @@ export default function PartialBody<DateType>({
     generateConfig,
     titleCell,
     headerCells,
-    size = 'Small',
+    size = 'medium' as SizeType,
 }: PartialBodyProps<DateType>) {
+    const largeScreenActive: boolean = useMatchMedia(Breakpoints.Large);
+    const mediumScreenActive: boolean = useMatchMedia(Breakpoints.Medium);
+    const smallScreenActive: boolean = useMatchMedia(Breakpoints.Small);
+    const xSmallScreenActive: boolean = useMatchMedia(Breakpoints.XSmall);
     const { onDateMouseEnter, onDateMouseLeave, mode } =
         React.useContext(PartialContext);
 
@@ -105,9 +111,21 @@ export default function PartialBody<DateType>({
 
     const pickerBodyClassNames: string = mergeClasses([
         styles.pickerBody,
-        { [styles.pickerLarge]: size === 'Large' },
-        { [styles.pickerMedium]: size === 'Medium' },
-        { [styles.pickerSmall]: size === 'Small' },
+        {
+            [styles.pickerSmall]: size === 'flex' && largeScreenActive,
+        },
+        {
+            [styles.pickerMedium]: size === 'flex' && mediumScreenActive,
+        },
+        {
+            [styles.pickerMedium]: size === 'flex' && smallScreenActive,
+        },
+        {
+            [styles.pickerLarge]: size === 'flex' && xSmallScreenActive,
+        },
+        { [styles.pickerLarge]: size === 'large' },
+        { [styles.pickerMedium]: size === 'medium' },
+        { [styles.pickerSmall]: size === 'small' },
     ]);
 
     return (

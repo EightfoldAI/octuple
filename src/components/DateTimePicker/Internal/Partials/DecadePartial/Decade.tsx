@@ -8,6 +8,7 @@ import {
 import DecadeHeader from './DecadeHeader';
 import DecadeBody from './DecadeBody';
 import { createKeyDownHandler } from '../../Utils/uiUtil';
+import { SizeType } from '../../../../ConfigProvider';
 
 import styles from '../../ocpicker.module.scss';
 
@@ -19,7 +20,7 @@ function DecadePartial<DateType>(props: DecadePartialProps<DateType>) {
         operationRef,
         onSelect,
         onPartialChange,
-        size = 'Small',
+        size = 'medium' as SizeType,
     } = props;
 
     operationRef.current = {

@@ -1,4 +1,5 @@
 import React from 'react';
+import { SizeType } from '../../../ConfigProvider';
 import type {
     Components,
     DatePickerSize,
@@ -18,7 +19,7 @@ export type RangesProps = {
     okDisabled?: boolean;
     showNow?: boolean;
     locale: Locale;
-    size?: DatePickerSize;
+    size?: DatePickerSize | SizeType;
 };
 
 export default function getRanges({
@@ -30,15 +31,19 @@ export default function getRanges({
     okDisabled,
     showNow,
     locale,
-    size = 'Small',
+    size = 'medium' as SizeType,
 }: RangesProps) {
     let presetNode: React.ReactNode;
     let okNode: React.ReactNode;
 
-    const datePickerSizeToButtonSizeMap = new Map<typeof size, ButtonSize>([
-        ['Large', ButtonSize.Large],
-        ['Medium', ButtonSize.Medium],
-        ['Small', ButtonSize.Small],
+    const datePickerSizeToButtonSizeMap = new Map<
+        typeof size,
+        ButtonSize | SizeType
+    >([
+        ['flex', ButtonSize.Flex],
+        ['large', ButtonSize.Large],
+        ['medium', ButtonSize.Medium],
+        ['small', ButtonSize.Small],
     ]);
 
     if (rangeList.length) {
@@ -64,8 +69,6 @@ export default function getRanges({
     }
 
     if (needConfirmButton) {
-        const Button = (components.button || 'button') as any;
-
         if (onNow && !presetNode && showNow !== false) {
             presetNode = (
                 <li className={'picker-now'}>

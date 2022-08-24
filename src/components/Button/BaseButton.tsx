@@ -2,12 +2,12 @@ import React, { FC, Ref, useContext } from 'react';
 import DisabledContext, {
     DisabledType,
 } from '../ConfigProvider/DisabledContext';
+import { SizeContext, SizeType } from '../ConfigProvider';
 import {
     ButtonIconAlign,
     ButtonShape,
     ButtonSize,
     ButtonTextAlign,
-    ButtonTheme,
     ButtonWidth,
     InternalButtonProps,
     SplitButton,
@@ -39,14 +39,13 @@ export const BaseButton: FC<InternalButtonProps> = React.forwardRef(
             id,
             onClick,
             onContextMenu,
-            shape = ButtonShape.Pill,
-            size = ButtonSize.Flex,
+            shape = 'pill',
+            size = 'medium' as SizeType,
             split,
             splitButtonChecked = false,
             splitButtonProps,
             style,
             text,
-            theme,
             toggle,
             type,
             ...rest
@@ -61,6 +60,9 @@ export const BaseButton: FC<InternalButtonProps> = React.forwardRef(
         const contextuallyDisabled: DisabledType = useContext(DisabledContext);
         const mergedDisabled: boolean = contextuallyDisabled || disabled;
 
+        const contextuallySized: SizeType = useContext(SizeContext);
+        const mergedSize = contextuallySized || size;
+
         const counterExists: boolean = !!counter;
         const iconExists: boolean = !!iconProps;
         const textExists: boolean = !!text;
@@ -69,30 +71,29 @@ export const BaseButton: FC<InternalButtonProps> = React.forwardRef(
             classNames,
             {
                 [styles.buttonSmall]:
-                    size === ButtonSize.Flex && largeScreenActive,
+                    mergedSize === ButtonSize.Flex && largeScreenActive,
             },
             {
                 [styles.buttonMedium]:
-                    size === ButtonSize.Flex && mediumScreenActive,
+                    mergedSize === ButtonSize.Flex && mediumScreenActive,
             },
             {
                 [styles.buttonMedium]:
-                    size === ButtonSize.Flex && smallScreenActive,
+                    mergedSize === ButtonSize.Flex && smallScreenActive,
             },
             {
                 [styles.buttonLarge]:
-                    size === ButtonSize.Flex && xSmallScreenActive,
+                    mergedSize === ButtonSize.Flex && xSmallScreenActive,
             },
-            { [styles.buttonLarge]: size === ButtonSize.Large },
-            { [styles.buttonMedium]: size === ButtonSize.Medium },
-            { [styles.buttonSmall]: size === ButtonSize.Small },
+            { [styles.buttonLarge]: mergedSize === ButtonSize.Large },
+            { [styles.buttonMedium]: mergedSize === ButtonSize.Medium },
+            { [styles.buttonSmall]: mergedSize === ButtonSize.Small },
             { [styles.pillShape]: shape === ButtonShape.Pill },
             {
                 [styles.roundShape]:
                     shape === ButtonShape.Round && !split && !textExists,
             },
             { [styles.dropShadow]: dropShadow },
-            { [styles.dark]: theme === ButtonTheme.dark },
             { [styles.floating]: floatingButtonProps?.enabled },
         ]);
 
@@ -116,23 +117,23 @@ export const BaseButton: FC<InternalButtonProps> = React.forwardRef(
         const buttonTextClassNames: string = mergeClasses([
             {
                 [styles.buttonTextSmall]:
-                    size === ButtonSize.Flex && largeScreenActive,
+                    mergedSize === ButtonSize.Flex && largeScreenActive,
             },
             {
                 [styles.buttonTextMedium]:
-                    size === ButtonSize.Flex && mediumScreenActive,
+                    mergedSize === ButtonSize.Flex && mediumScreenActive,
             },
             {
                 [styles.buttonTextMedium]:
-                    size === ButtonSize.Flex && smallScreenActive,
+                    mergedSize === ButtonSize.Flex && smallScreenActive,
             },
             {
                 [styles.buttonTextLarge]:
-                    size === ButtonSize.Flex && xSmallScreenActive,
+                    mergedSize === ButtonSize.Flex && xSmallScreenActive,
             },
-            { [styles.buttonTextLarge]: size === ButtonSize.Large },
-            { [styles.buttonTextMedium]: size === ButtonSize.Medium },
-            { [styles.buttonTextSmall]: size === ButtonSize.Small },
+            { [styles.buttonTextLarge]: mergedSize === ButtonSize.Large },
+            { [styles.buttonTextMedium]: mergedSize === ButtonSize.Medium },
+            { [styles.buttonTextSmall]: mergedSize === ButtonSize.Small },
         ]);
 
         const badgeClassNames: string = mergeClasses([
@@ -142,20 +143,20 @@ export const BaseButton: FC<InternalButtonProps> = React.forwardRef(
 
         const getButtonIconSize = (): IconSize => {
             let iconSize: IconSize;
-            if (size === ButtonSize.Flex && largeScreenActive) {
+            if (mergedSize === ButtonSize.Flex && largeScreenActive) {
                 iconSize = IconSize.Small;
             } else if (
-                size === ButtonSize.Flex &&
+                mergedSize === ButtonSize.Flex &&
                 (mediumScreenActive || smallScreenActive)
             ) {
                 iconSize = IconSize.Medium;
-            } else if (size === ButtonSize.Flex && xSmallScreenActive) {
+            } else if (mergedSize === ButtonSize.Flex && xSmallScreenActive) {
                 iconSize = IconSize.Large;
-            } else if (size === ButtonSize.Large) {
+            } else if (mergedSize === ButtonSize.Large) {
                 iconSize = IconSize.Large;
-            } else if (size === ButtonSize.Medium) {
+            } else if (mergedSize === ButtonSize.Medium) {
                 iconSize = IconSize.Medium;
-            } else if (size === ButtonSize.Small) {
+            } else if (mergedSize === ButtonSize.Small) {
                 iconSize = IconSize.Small;
             }
             return iconSize;
@@ -228,9 +229,8 @@ export const BaseButton: FC<InternalButtonProps> = React.forwardRef(
                                 : null
                         }
                         shape={shape}
-                        size={size}
+                        size={mergedSize}
                         split={split}
-                        theme={theme}
                         type={type}
                     />
                 )}

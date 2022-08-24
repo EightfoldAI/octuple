@@ -5,6 +5,7 @@ import { LabelProps } from '../Label';
 import { TooltipTheme } from '../Tooltip';
 import { OcBaseProps } from '../OcBase';
 import type { InputStatus } from '../../shared/utilities';
+import { ShapeType, SizeType } from '../ConfigProvider';
 
 export enum TextInputIconAlign {
     Left = 'left',
@@ -320,21 +321,16 @@ export interface InputProps<T>
      * Shape of the input.
      * @default TextInputShape.Pill
      */
-    shape?: TextInputShape;
+    shape?: TextInputShape | ShapeType;
     /**
      * The input size.
-     * @default Flex
+     * @default 'medium'
      */
-    size?: TextInputSize;
+    size?: TextInputSize | SizeType;
     /**
      * the validation status.
      */
     status?: InputStatus;
-    /**
-     * Theme of the input.
-     * @default TextInputTheme.light
-     */
-    theme?: TextInputTheme;
     /**
      * The value of the input.
      */

@@ -2,11 +2,11 @@ import React, { FC, Ref, useContext } from 'react';
 import DisabledContext, {
     DisabledType,
 } from '../../ConfigProvider/DisabledContext';
+import { SizeContext, SizeType } from '../../ConfigProvider';
 import {
     ButtonShape,
     ButtonSize,
     ButtonTextAlign,
-    ButtonTheme,
     ButtonWidth,
     TwoStateButtonProps,
 } from '../';
@@ -34,11 +34,10 @@ export const TwoStateButton: FC<TwoStateButtonProps> = React.forwardRef(
             iconTwoProps,
             id,
             onClick,
-            shape = ButtonShape.Pill,
-            size = ButtonSize.Flex,
+            shape = 'pill',
+            size = 'medium' as SizeType,
             style,
             text,
-            theme,
             toggle,
             type,
             ...rest
@@ -53,6 +52,9 @@ export const TwoStateButton: FC<TwoStateButtonProps> = React.forwardRef(
         const contextuallyDisabled: DisabledType = useContext(DisabledContext);
         const mergedDisabled: boolean = contextuallyDisabled || disabled;
 
+        const contextuallySized: SizeType = useContext(SizeContext);
+        const mergedSize = contextuallySized || size;
+
         const counterExists: boolean = !!counter;
         const iconOneExists: boolean = !!iconOneProps;
         const iconTwoExists: boolean = !!iconTwoProps;
@@ -65,52 +67,51 @@ export const TwoStateButton: FC<TwoStateButtonProps> = React.forwardRef(
             { [styles.checked]: checked },
             {
                 [styles.buttonSmall]:
-                    size === ButtonSize.Flex && largeScreenActive,
+                    mergedSize === ButtonSize.Flex && largeScreenActive,
             },
             {
                 [styles.buttonMedium]:
-                    size === ButtonSize.Flex && mediumScreenActive,
+                    mergedSize === ButtonSize.Flex && mediumScreenActive,
             },
             {
                 [styles.buttonMedium]:
-                    size === ButtonSize.Flex && smallScreenActive,
+                    mergedSize === ButtonSize.Flex && smallScreenActive,
             },
             {
                 [styles.buttonLarge]:
-                    size === ButtonSize.Flex && xSmallScreenActive,
+                    mergedSize === ButtonSize.Flex && xSmallScreenActive,
             },
-            { [styles.buttonLarge]: size === ButtonSize.Large },
-            { [styles.buttonMedium]: size === ButtonSize.Medium },
-            { [styles.buttonSmall]: size === ButtonSize.Small },
+            { [styles.buttonLarge]: mergedSize === ButtonSize.Large },
+            { [styles.buttonMedium]: mergedSize === ButtonSize.Medium },
+            { [styles.buttonSmall]: mergedSize === ButtonSize.Small },
             { [styles.buttonStretch]: buttonWidth === ButtonWidth.fill },
             { [styles.pillShape]: shape === ButtonShape.Pill },
             { [styles.dropShadow]: dropShadow },
             { [styles.left]: alignText === ButtonTextAlign.Left },
             { [styles.right]: alignText === ButtonTextAlign.Right },
             { [styles.disabled]: allowDisabledFocus || mergedDisabled },
-            { [styles.dark]: theme === ButtonTheme.dark },
         ]);
 
         const buttonTextClassNames: string = mergeClasses([
             {
                 [styles.buttonTextSmall]:
-                    size === ButtonSize.Flex && largeScreenActive,
+                    mergedSize === ButtonSize.Flex && largeScreenActive,
             },
             {
                 [styles.buttonTextMedium]:
-                    size === ButtonSize.Flex && mediumScreenActive,
+                    mergedSize === ButtonSize.Flex && mediumScreenActive,
             },
             {
                 [styles.buttonTextMedium]:
-                    size === ButtonSize.Flex && smallScreenActive,
+                    mergedSize === ButtonSize.Flex && smallScreenActive,
             },
             {
                 [styles.buttonTextLarge]:
-                    size === ButtonSize.Flex && xSmallScreenActive,
+                    mergedSize === ButtonSize.Flex && xSmallScreenActive,
             },
-            { [styles.buttonTextLarge]: size === ButtonSize.Large },
-            { [styles.buttonTextMedium]: size === ButtonSize.Medium },
-            { [styles.buttonTextSmall]: size === ButtonSize.Small },
+            { [styles.buttonTextLarge]: mergedSize === ButtonSize.Large },
+            { [styles.buttonTextMedium]: mergedSize === ButtonSize.Medium },
+            { [styles.buttonTextSmall]: mergedSize === ButtonSize.Small },
         ]);
 
         const badgeClassNames: string = mergeClasses([
@@ -120,20 +121,20 @@ export const TwoStateButton: FC<TwoStateButtonProps> = React.forwardRef(
 
         const getButtonIconSize = (): IconSize => {
             let iconSize: IconSize;
-            if (size === ButtonSize.Flex && largeScreenActive) {
+            if (mergedSize === ButtonSize.Flex && largeScreenActive) {
                 iconSize = IconSize.Small;
             } else if (
-                size === ButtonSize.Flex &&
+                mergedSize === ButtonSize.Flex &&
                 (mediumScreenActive || smallScreenActive)
             ) {
                 iconSize = IconSize.Medium;
-            } else if (size === ButtonSize.Flex && xSmallScreenActive) {
+            } else if (mergedSize === ButtonSize.Flex && xSmallScreenActive) {
                 iconSize = IconSize.Large;
-            } else if (size === ButtonSize.Large) {
+            } else if (mergedSize === ButtonSize.Large) {
                 iconSize = IconSize.Large;
-            } else if (size === ButtonSize.Medium) {
+            } else if (mergedSize === ButtonSize.Medium) {
                 iconSize = IconSize.Medium;
-            } else if (size === ButtonSize.Small) {
+            } else if (mergedSize === ButtonSize.Small) {
                 iconSize = IconSize.Small;
             }
             return iconSize;

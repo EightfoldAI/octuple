@@ -7,6 +7,14 @@ import type { Options } from 'scroll-into-view-if-needed';
 import DisabledContext, {
     DisabledContextProvider,
 } from '../ConfigProvider/DisabledContext';
+import SizeContext, {
+    SizeContextProvider,
+    SizeType,
+} from '../ConfigProvider/SizeContext';
+import ShapeContext, {
+    ShapeContextProvider,
+    ShapeType,
+} from '../ConfigProvider/ShapeContext';
 import type { ColProps } from '../Grid/Grid.types';
 import type { FormContextProps } from './Context';
 import { FormContext } from './Context';
@@ -19,13 +27,6 @@ import styles from './form.module.scss';
 export type RequiredMark = boolean | 'optional';
 export type FormLayout = 'horizontal' | 'inline' | 'vertical';
 
-export enum FormSize {
-    Flex = 'flex',
-    Large = 'large',
-    Medium = 'medium',
-    Small = 'small',
-}
-
 export interface FormProps<Values = any>
     extends Omit<OcFormProps<Values>, 'form'> {
     classNames?: string;
@@ -37,7 +38,8 @@ export interface FormProps<Values = any>
     labelCol?: ColProps;
     wrapperCol?: ColProps;
     form?: FormInstance<Values>;
-    size?: FormSize;
+    shape?: ShapeType;
+    size?: SizeType;
     disabled?: boolean;
     scrollToFirstError?: Options | boolean;
     requiredMark?: RequiredMark;
@@ -48,12 +50,15 @@ const InternalForm: React.ForwardRefRenderFunction<FormInstance, FormProps> = (
     ref
 ) => {
     const htmlDir: string = useCanvasDirection();
-    const contextDisabled = useContext(DisabledContext);
+    const contextuallyDisabled = useContext(DisabledContext);
+    const contextuallySized = useContext(SizeContext);
+    const contextuallyShaped = useContext(ShapeContext);
 
     const {
         classNames,
-        size = FormSize.Medium,
-        disabled = contextDisabled,
+        shape = contextuallyShaped,
+        size = contextuallySized,
+        disabled = contextuallyDisabled,
         form,
         colon,
         labelAlign,
@@ -93,7 +98,6 @@ const InternalForm: React.ForwardRefRenderFunction<FormInstance, FormProps> = (
             vertical: layout === 'vertical',
             colon: colon,
             requiredMark: requiredMark,
-            size: FormSize.Medium,
             itemRef: __INTERNAL__.itemRef,
             form: wrapForm,
         }),
@@ -129,16 +133,20 @@ const InternalForm: React.ForwardRefRenderFunction<FormInstance, FormProps> = (
 
     return (
         <DisabledContextProvider disabled={disabled}>
-            <FormContext.Provider value={formContextValue}>
-                <OcFieldForm
-                    id={name}
-                    {...rest}
-                    name={name}
-                    onFinishFailed={onInternalFinishFailed}
-                    form={wrapForm}
-                    className={formClassNames}
-                />
-            </FormContext.Provider>
+            <ShapeContextProvider shape={shape}>
+                <SizeContextProvider size={size}>
+                    <FormContext.Provider value={formContextValue}>
+                        <OcFieldForm
+                            id={name}
+                            {...rest}
+                            name={name}
+                            onFinishFailed={onInternalFinishFailed}
+                            form={wrapForm}
+                            className={formClassNames}
+                        />
+                    </FormContext.Provider>
+                </SizeContextProvider>
+            </ShapeContextProvider>
         </DisabledContextProvider>
     );
 };

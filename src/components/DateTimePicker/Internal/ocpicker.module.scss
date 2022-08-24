@@ -72,15 +72,11 @@
         }
     }
 
-    &:hover:not([disabled]) {
+    &:hover:not([disabled]):not(.picker-underline) {
         border-color: var(--grey-color-60);
-
-        &.underline {
-            border-color: transparent;
-        }
     }
 
-    &-focused {
+    &-focused:not(.picker-underline) {
         border-color: $focus-visible-shadow-color;
     }
 
@@ -909,7 +905,6 @@
             min-width: fit-content;
             padding: $space-xs calc(#{$space-xxl} + 4px) $space-xs $space-xs;
             position: relative;
-            transition: all 0.3s;
             width: 100%;
 
             &-borderless {
@@ -950,6 +945,47 @@
         }
     }
 
+    &-underline {
+        .picker-input {
+            &:before {
+                border-bottom: 1px solid var(--border-color);
+                left: 0;
+                bottom: 0;
+                content: '';
+                position: absolute;
+                right: 0;
+                transition: border-bottom-color $motion-duration-extra-fast
+                    $motion-easing-easeinout;
+                pointer-events: none;
+            }
+
+            &:after {
+                border-bottom: 1px solid var(--primary-color-60);
+                left: 0;
+                bottom: 0;
+                content: '';
+                position: absolute;
+                right: 0;
+                transform: scaleX(0);
+                transition: transform $motion-duration-extra-fast
+                    $motion-easing-easeinout;
+                pointer-events: none;
+            }
+
+            &:hover {
+                &:before {
+                    border-color: var(--grey-color-60);
+                }
+            }
+
+            &:focus-within {
+                &:after {
+                    transform: scaleX(1) translateX(0px);
+                }
+            }
+        }
+    }
+
     &-status-error &-input {
         input {
             color: var(--disruptive-color-80);
@@ -960,7 +996,6 @@
         display: flex;
         flex: none;
         align-self: center;
-        margin-left: ($space-xs / 2);
         line-height: 1;
         pointer-events: none;
 
@@ -971,6 +1006,18 @@
                 margin-right: 8px;
             }
         }
+    }
+
+    &-small &-suffix {
+        margin: 0 ($space-xxs / 2);
+    }
+
+    &-medium &-suffix {
+        margin: 0 ($space-m / 2);
+    }
+
+    &-large &-suffix {
+        margin: 0 ($space-l / 2);
     }
 
     &-clear {
@@ -1112,6 +1159,20 @@
         &.picker-focused {
             .picker-active-bar {
                 opacity: 1;
+            }
+        }
+    }
+
+    &-underline {
+        &.picker-range {
+            .picker-input {
+                &:before {
+                    right: -$space-ml;
+                }
+
+                &:after {
+                    right: -$space-ml;
+                }
             }
         }
     }

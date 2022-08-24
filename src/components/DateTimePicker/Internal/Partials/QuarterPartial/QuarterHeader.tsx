@@ -4,6 +4,7 @@ import { Header } from '../Header';
 import PartialContext from '../../PartialContext';
 import { formatValue } from '../../Utils/dateUtil';
 import { ButtonSize, NeutralButton } from '../../../../Button';
+import { SizeType } from '../../../../ConfigProvider';
 
 function QuarterHeader<DateType>(props: QuarterHeaderProps<DateType>) {
     const {
@@ -13,14 +14,18 @@ function QuarterHeader<DateType>(props: QuarterHeaderProps<DateType>) {
         onNextYear,
         onPrevYear,
         onYearClick,
-        size = 'Small',
+        size = 'medium' as SizeType,
     } = props;
     const { hideHeader } = React.useContext(PartialContext);
 
-    const datePickerSizeToButtonSizeMap = new Map<typeof size, ButtonSize>([
-        ['Large', ButtonSize.Large],
-        ['Medium', ButtonSize.Medium],
-        ['Small', ButtonSize.Small],
+    const datePickerSizeToButtonSizeMap = new Map<
+        typeof size,
+        ButtonSize | SizeType
+    >([
+        ['flex', ButtonSize.Flex],
+        ['large', ButtonSize.Large],
+        ['medium', ButtonSize.Medium],
+        ['small', ButtonSize.Small],
     ]);
 
     if (hideHeader) {

@@ -4,10 +4,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import {
     BaseButton,
     ButtonIconAlign,
-    ButtonShape,
-    ButtonSize,
     ButtonTextAlign,
-    ButtonTheme,
     ButtonWidth,
     DefaultButton,
     NeutralButton,
@@ -39,14 +36,12 @@ export default {
                                 <li>
                                     There are four button sizes that may be
                                     specified via the <b>size</b> prop and the{' '}
-                                    <b>ButtonSize</b>: <b>ButtonSize.Flex</b>,{' '}
-                                    <b>ButtonSize.Large</b>,{' '}
-                                    <b>ButtonSize.Medium</b>,{' '}
-                                    <b>ButtonSize.Small</b>.{' '}
-                                    <b>ButtonSize.Flex</b> is the default and
-                                    resizes the button automatically with the
-                                    viewport. To prevent this responsive
-                                    behavior, give the button a size.
+                                    <b>size</b>: <b>flex</b>, <b>large</b>,{' '}
+                                    <b>medium</b>, <b>small</b>. <b>medium</b>{' '}
+                                    is the default and flex resizes the button
+                                    automatically with the viewport. To prevent
+                                    this responsive behavior, give the button a
+                                    size other than flex.
                                 </li>
                                 <li>
                                     For dialog boxes and panels, where people
@@ -155,20 +150,11 @@ export default {
             action: 'contextmenu',
         },
         shape: {
-            options: [
-                ButtonShape.Rectangle,
-                ButtonShape.Pill,
-                ButtonShape.Round,
-            ],
+            options: ['rectangle', 'pill', 'round'],
             control: { type: 'inline-radio' },
         },
         size: {
-            options: [
-                ButtonSize.Flex,
-                ButtonSize.Large,
-                ButtonSize.Medium,
-                ButtonSize.Small,
-            ],
+            options: ['flex', 'large', 'medium', 'small'],
             control: { type: 'radio' },
         },
         theme: {
@@ -251,13 +237,12 @@ const buttonArgs: Object = {
         'data-test-id': 'myButtonIconTestId',
     },
     id: 'myButton',
-    shape: ButtonShape.Pill,
-    size: ButtonSize.Flex,
+    shape: 'pill',
+    size: 'medium',
     split: false,
     splitButtonChecked: false,
     style: {},
     text: 'Button',
-    theme: ButtonTheme.light,
     toggle: false,
     counter: 0,
 };

@@ -8,7 +8,6 @@ import ErrorList, { ErrorListProps } from './ErrorList';
 import InternalForm, {
     FormInstance,
     FormProps,
-    FormSize,
     useForm,
     useWatch,
 } from './Form';
@@ -46,7 +45,6 @@ export {
     FormInstance,
     FormInterface,
     FormProps,
-    FormSize,
     FormItemProps,
     ErrorListProps,
     Rule,

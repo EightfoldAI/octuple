@@ -2,13 +2,7 @@ import React, { useState } from 'react';
 import { Stories } from '@storybook/addon-docs';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { IconName } from '../../Icon';
-import {
-    TextInput,
-    TextInputShape,
-    TextInputSize,
-    TextInputTheme,
-    TextInputWidth,
-} from '../index';
+import { TextInput, TextInputWidth } from '../index';
 
 export default {
     title: 'Input',
@@ -111,25 +105,12 @@ export default {
             control: { type: 'inline-radio' },
         },
         shape: {
-            options: [
-                TextInputShape.Rectangle,
-                TextInputShape.Pill,
-                TextInputShape.Underline,
-            ],
+            options: ['rectangle', 'pill', 'underline'],
             control: { type: 'inline-radio' },
         },
         size: {
-            options: [
-                TextInputSize.Flex,
-                TextInputSize.Large,
-                TextInputSize.Medium,
-                TextInputSize.Small,
-            ],
+            options: ['flex', 'large', 'medium', 'small'],
             control: { type: 'radio' },
-        },
-        theme: {
-            options: ['light', 'dark'],
-            control: { type: 'inline-radio' },
         },
         value: {
             control: { type: 'text' },
@@ -183,9 +164,8 @@ Text_Input.args = {
     numbersOnly: false,
     placeholder: 'Placeholder text',
     required: false,
-    size: TextInputSize.Flex,
-    shape: TextInputShape.Pill,
+    size: 'medium',
+    shape: 'rectangle',
     style: {},
-    theme: TextInputTheme.light,
     waitInterval: 10,
 };

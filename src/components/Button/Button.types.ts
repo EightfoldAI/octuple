@@ -1,6 +1,7 @@
 import React, { Ref } from 'react';
 import { IconProps } from '../Icon';
 import { OcBaseProps } from '../OcBase';
+import { ShapeType, SizeType } from '../ConfigProvider';
 
 export enum ButtonIconAlign {
     Left = 'left',
@@ -29,11 +30,6 @@ export enum ButtonShape {
     Rectangle = 'rectangle',
     Pill = 'pill',
     Round = 'round',
-}
-
-export enum ButtonTheme {
-    light = 'light',
-    dark = 'dark',
 }
 
 export enum ButtonType {
@@ -171,12 +167,12 @@ export interface ButtonProps extends NativeButtonProps {
      * Shape of the button.
      * @default ButtonShape.Pill
      */
-    shape?: ButtonShape;
+    shape?: ButtonShape | ShapeType;
     /**
      * The button size.
      * @default ButtonSize.Medium
      */
-    size?: ButtonSize;
+    size?: ButtonSize | SizeType;
     /**
      * Determines whether this is a split button.
      * @default false
@@ -198,11 +194,6 @@ export interface ButtonProps extends NativeButtonProps {
      * The button text.
      */
     text?: string;
-    /**
-     * The button theme.
-     * @default light
-     */
-    theme?: ButtonTheme;
     /**
      * The button is a toggle button with distinct on and off states.
      */

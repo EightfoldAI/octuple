@@ -2,13 +2,18 @@ import React, { FC, Ref, useContext, useEffect, useState } from 'react';
 import DisabledContext, {
     DisabledType,
 } from '../../ConfigProvider/DisabledContext';
+import {
+    ShapeContext,
+    ShapeType,
+    SizeContext,
+    SizeType,
+} from '../../ConfigProvider';
 import { Icon, IconName } from '../../Icon';
-import { Label, LabelSize } from '../../Label';
+import { Label } from '../../Label';
 import {
     TextAreaProps,
     TextInputShape,
     TextInputSize,
-    TextInputTheme,
     TextInputWidth,
 } from '../index';
 import { useDebounce } from '../../../hooks/useDebounce';
@@ -44,13 +49,12 @@ export const TextArea: FC<TextAreaProps> = React.forwardRef(
             onKeyDown,
             placeholder,
             required = false,
-            shape = TextInputShape.Rectangle,
-            size = TextInputSize.Flex,
+            shape = 'rectangle' as ShapeType,
+            size = 'medium' as SizeType,
             status,
             style,
             textAreaCols = 50,
             textAreaRows = 5,
-            theme = TextInputTheme.light,
             value,
             waitInterval = 10,
             ...rest
@@ -72,6 +76,12 @@ export const TextArea: FC<TextAreaProps> = React.forwardRef(
         const contextuallyDisabled: DisabledType = useContext(DisabledContext);
         const mergedDisabled: boolean = contextuallyDisabled || disabled;
 
+        const contextuallySized: SizeType = useContext(SizeContext);
+        const mergedSize = contextuallySized || size;
+
+        const contextuallyShaped: ShapeType = useContext(ShapeContext);
+        const mergedShape = contextuallyShaped || shape;
+
         const textAreaClassNames: string = mergeClasses([
             classNames,
             styles.textArea,
@@ -79,11 +89,10 @@ export const TextArea: FC<TextAreaProps> = React.forwardRef(
                 [styles.inline]: inline,
             },
             { [styles.textAreaNoExpand]: !enableExpand },
-            { [styles.pillShape]: shape === TextInputShape.Pill },
+            { [styles.pillShape]: mergedShape === TextInputShape.Pill },
             {
-                [styles.underline]: shape === TextInputShape.Underline,
+                [styles.underline]: mergedShape === TextInputShape.Underline,
             },
-            { [styles.dark]: theme === TextInputTheme.dark },
             { [styles.inputStretch]: inputWidth === TextInputWidth.fill },
             { ['in-form-item']: isFormItemInput },
             getStatusClassNames(mergedStatus),
@@ -98,32 +107,32 @@ export const TextArea: FC<TextAreaProps> = React.forwardRef(
 
         const textAreaWrapperClassNames: string = mergeClasses([
             styles.inputWrapper,
-            { [styles.pillShape]: shape === TextInputShape.Pill },
+            { [styles.pillShape]: mergedShape === TextInputShape.Pill },
             {
-                [styles.underline]: shape === TextInputShape.Underline,
+                [styles.underline]: mergedShape === TextInputShape.Underline,
             },
             {
                 [styles.inline]: inline,
             },
             {
                 [styles.inputSmall]:
-                    size === TextInputSize.Flex && largeScreenActive,
+                    mergedSize === TextInputSize.Flex && largeScreenActive,
             },
             {
                 [styles.inputMedium]:
-                    size === TextInputSize.Flex && mediumScreenActive,
+                    mergedSize === TextInputSize.Flex && mediumScreenActive,
             },
             {
                 [styles.inputMedium]:
-                    size === TextInputSize.Flex && smallScreenActive,
+                    mergedSize === TextInputSize.Flex && smallScreenActive,
             },
             {
                 [styles.inputLarge]:
-                    size === TextInputSize.Flex && xSmallScreenActive,
+                    mergedSize === TextInputSize.Flex && xSmallScreenActive,
             },
-            { [styles.inputLarge]: size === TextInputSize.Large },
-            { [styles.inputMedium]: size === TextInputSize.Medium },
-            { [styles.inputSmall]: size === TextInputSize.Small },
+            { [styles.inputLarge]: mergedSize === TextInputSize.Large },
+            { [styles.inputMedium]: mergedSize === TextInputSize.Medium },
+            { [styles.inputSmall]: mergedSize === TextInputSize.Small },
             {
                 [styles.inputStretch]: inputWidth === TextInputWidth.fill,
             },
@@ -153,35 +162,10 @@ export const TextArea: FC<TextAreaProps> = React.forwardRef(
             debouncedChange(e);
         };
 
-        const getLabelSize = (): LabelSize => {
-            let labelSize: LabelSize;
-            if (largeScreenActive) {
-                labelSize = LabelSize.Small;
-            } else if (mediumScreenActive) {
-                labelSize = LabelSize.Medium;
-            } else if (smallScreenActive) {
-                labelSize = LabelSize.Medium;
-            } else if (xSmallScreenActive) {
-                labelSize = LabelSize.Large;
-            }
-            return labelSize;
-        };
-
-        const inputSizeToLabelSizeMap = new Map<TextInputSize, LabelSize>([
-            [TextInputSize.Flex, getLabelSize()],
-            [TextInputSize.Large, LabelSize.Large],
-            [TextInputSize.Medium, LabelSize.Medium],
-            [TextInputSize.Small, LabelSize.Small],
-        ]);
-
         return (
             <div className={textAreaWrapperClassNames}>
                 {labelProps && (
-                    <Label
-                        inline={inline}
-                        size={inputSizeToLabelSizeMap.get(size)}
-                        {...labelProps}
-                    />
+                    <Label inline={inline} size={mergedSize} {...labelProps} />
                 )}
                 <div className={textAreaGroupClassNames}>
                     <textarea

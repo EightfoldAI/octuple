@@ -898,15 +898,11 @@
             padding: $space-xs $space-s;
         }
 
-        &:focus {
+        &:focus:not(.underline) {
             color: var(--text-primary-color);
             border-color: $focus-visible-shadow-color;
             transition: border-color $motion-duration-extra-fast
                 $motion-easing-easeinout;
-
-            &.underline {
-                border-color: transparent;
-            }
         }
 
         &:disabled {
@@ -919,7 +915,7 @@
             color: var(--text-primary-color);
         }
 
-        &:hover:not([disabled]) {
+        &:hover:not([disabled]):not(.underline) {
             border-color: var(--grey-color-60);
         }
 
@@ -1281,11 +1277,5 @@
                 }
             }
         }
-    }
-}
-
-.dark {
-    .input-wrapper {
-        position: relative;
     }
 }

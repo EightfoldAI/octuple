@@ -1,6 +1,7 @@
 import type { Component, ComponentClass, ForwardedRef } from 'react';
 import type {
     DataPickerPlacement,
+    DatePickerShape,
     DatePickerSize,
     Locale as OcPickerLocale,
     OcPickerBaseProps,
@@ -13,13 +14,15 @@ import type {
 import type { TimePickerLocale } from '../../TimePicker/TimePicker.types';
 import PickerButton from '../PickerButton';
 import type { InputStatus } from '../../../../shared/utilities';
+import { ShapeType, SizeType } from '../../../ConfigProvider';
 
 type InjectDefaultProps<Props> = Omit<
     Props,
     'locale' | 'generateConfig' | 'hideHeader' | 'components'
 > & {
     locale?: PickerLocale;
-    size?: DatePickerSize;
+    shape?: DatePickerShape | ShapeType;
+    size?: DatePickerSize | SizeType;
     popupPlacement?: DataPickerPlacement;
     bordered?: boolean;
     status?: InputStatus;

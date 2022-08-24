@@ -2,11 +2,11 @@ import React, { FC, Ref, useContext } from 'react';
 import DisabledContext, {
     DisabledType,
 } from '../../ConfigProvider/DisabledContext';
+import { SizeContext, SizeType } from '../../ConfigProvider';
 import {
     ButtonShape,
     ButtonSize,
     ButtonTextAlign,
-    ButtonTheme,
     ButtonType,
     SplitButtonProps,
 } from '../';
@@ -30,11 +30,10 @@ export const SplitButton: FC<SplitButtonProps> = React.forwardRef(
             iconProps,
             id,
             onClick,
-            shape = ButtonShape.Pill,
-            size = ButtonSize.Flex,
+            shape = 'pill',
+            size = 'medium' as SizeType,
             split,
             style,
-            theme,
             type,
             ...rest
         },
@@ -48,58 +47,60 @@ export const SplitButton: FC<SplitButtonProps> = React.forwardRef(
         const contextuallyDisabled: DisabledType = useContext(DisabledContext);
         const mergedDisabled: boolean = contextuallyDisabled || disabled;
 
+        const contextuallySized: SizeType = useContext(SizeContext);
+        const mergedSize = contextuallySized || size;
+
         const splitButtonClassNames: string = mergeClasses([
             classNames,
             styles.splitButton,
             {
                 [styles.buttonSmall]:
-                    size === ButtonSize.Flex && largeScreenActive,
+                    mergedSize === ButtonSize.Flex && largeScreenActive,
             },
             {
                 [styles.buttonMedium]:
-                    size === ButtonSize.Flex && mediumScreenActive,
+                    mergedSize === ButtonSize.Flex && mediumScreenActive,
             },
             {
                 [styles.buttonMedium]:
-                    size === ButtonSize.Flex && smallScreenActive,
+                    mergedSize === ButtonSize.Flex && smallScreenActive,
             },
             {
                 [styles.buttonLarge]:
-                    size === ButtonSize.Flex && xSmallScreenActive,
+                    mergedSize === ButtonSize.Flex && xSmallScreenActive,
             },
-            { [styles.buttonLarge]: size === ButtonSize.Large },
-            { [styles.buttonMedium]: size === ButtonSize.Medium },
-            { [styles.buttonSmall]: size === ButtonSize.Small },
+            { [styles.buttonLarge]: mergedSize === ButtonSize.Large },
+            { [styles.buttonMedium]: mergedSize === ButtonSize.Medium },
+            { [styles.buttonSmall]: mergedSize === ButtonSize.Small },
             { [styles.pillShape]: shape === ButtonShape.Pill },
             { [styles.dropShadow]: dropShadow },
             { [styles.splitRight]: split },
             {
                 [styles.disabled]: allowDisabledFocus || mergedDisabled,
             },
-            { [styles.dark]: theme === ButtonTheme.dark },
         ]);
 
         const splitDividerClassNames: string = mergeClasses([
             styles.splitDivider,
             {
                 [styles.splitDividerSmall]:
-                    size === ButtonSize.Flex && largeScreenActive,
+                    mergedSize === ButtonSize.Flex && largeScreenActive,
             },
             {
                 [styles.splitDividerMedium]:
-                    size === ButtonSize.Flex && mediumScreenActive,
+                    mergedSize === ButtonSize.Flex && mediumScreenActive,
             },
             {
                 [styles.splitDividerMedium]:
-                    size === ButtonSize.Flex && smallScreenActive,
+                    mergedSize === ButtonSize.Flex && smallScreenActive,
             },
             {
                 [styles.splitDividerLarge]:
-                    size === ButtonSize.Flex && xSmallScreenActive,
+                    mergedSize === ButtonSize.Flex && xSmallScreenActive,
             },
-            { [styles.splitDividerLarge]: size === ButtonSize.Large },
-            { [styles.splitDividerMedium]: size === ButtonSize.Medium },
-            { [styles.splitDividerSmall]: size === ButtonSize.Small },
+            { [styles.splitDividerLarge]: mergedSize === ButtonSize.Large },
+            { [styles.splitDividerMedium]: mergedSize === ButtonSize.Medium },
+            { [styles.splitDividerSmall]: mergedSize === ButtonSize.Small },
             { [styles.splitDividerPrimary]: type === ButtonType.Primary },
             {
                 [styles.splitDividerPrimaryDisruptive]:
@@ -121,20 +122,20 @@ export const SplitButton: FC<SplitButtonProps> = React.forwardRef(
 
         const getButtonIconSize = (): IconSize => {
             let iconSize: IconSize;
-            if (size === ButtonSize.Flex && largeScreenActive) {
+            if (mergedSize === ButtonSize.Flex && largeScreenActive) {
                 iconSize = IconSize.Small;
             } else if (
-                size === ButtonSize.Flex &&
+                mergedSize === ButtonSize.Flex &&
                 (mediumScreenActive || smallScreenActive)
             ) {
                 iconSize = IconSize.Medium;
-            } else if (size === ButtonSize.Flex && xSmallScreenActive) {
+            } else if (mergedSize === ButtonSize.Flex && xSmallScreenActive) {
                 iconSize = IconSize.Large;
-            } else if (size === ButtonSize.Large) {
+            } else if (mergedSize === ButtonSize.Large) {
                 iconSize = IconSize.Large;
-            } else if (size === ButtonSize.Medium) {
+            } else if (mergedSize === ButtonSize.Medium) {
                 iconSize = IconSize.Medium;
-            } else if (size === ButtonSize.Small) {
+            } else if (mergedSize === ButtonSize.Small) {
                 iconSize = IconSize.Small;
             }
             return iconSize;

@@ -3,8 +3,6 @@ import {
     BaseButton,
     ButtonIconAlign,
     ButtonProps,
-    ButtonShape,
-    ButtonSize,
     ButtonTextAlign,
     ButtonType,
 } from '../';
@@ -29,9 +27,8 @@ export const DefaultButton: FC<ButtonProps> = React.forwardRef(
             iconProps,
             onClick,
             text,
-            theme,
-            shape = ButtonShape.Pill,
-            size = ButtonSize.Flex,
+            shape = 'pill',
+            size = 'medium' as SizeType,
             split,
             splitButtonChecked,
             splitButtonProps,
@@ -74,7 +71,6 @@ export const DefaultButton: FC<ButtonProps> = React.forwardRef(
                 splitButtonProps={splitButtonProps}
                 style={style}
                 text={text}
-                theme={theme}
                 toggle={toggle}
                 type={ButtonType.Default}
                 buttonWidth={buttonWidth}

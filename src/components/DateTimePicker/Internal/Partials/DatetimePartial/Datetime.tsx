@@ -7,6 +7,7 @@ import TimePartial from '../TimePartial/Time';
 import { tuple } from '../../Utils/miscUtil';
 import { setDateTime as setTime } from '../../Utils/timeUtil';
 import type { PartialRefProps } from '../../OcPicker.types';
+import { SizeType } from '../../../../ConfigProvider';
 
 import styles from '../../ocpicker.module.scss';
 
@@ -22,7 +23,7 @@ function DatetimePartial<DateType>(props: DatetimePartialProps<DateType>) {
         disabledTime,
         showTime,
         onSelect,
-        size = 'Small',
+        size = 'medium' as SizeType,
     } = props;
     const [activePartial, setActivePartial] =
         React.useState<ActivePartialType | null>(null);

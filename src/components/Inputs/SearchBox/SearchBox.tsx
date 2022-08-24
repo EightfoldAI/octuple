@@ -2,21 +2,21 @@ import React, { FC, Ref, useContext } from 'react';
 import DisabledContext, {
     DisabledType,
 } from '../../ConfigProvider/DisabledContext';
+import {
+    ShapeContext,
+    ShapeType,
+    SizeContext,
+    SizeType,
+} from '../../ConfigProvider';
 import { IconName } from '../../Icon';
 import {
     TextInputIconAlign,
     TextInputWidth,
     SearchBoxProps,
     TextInput,
-    TextInputShape,
-    TextInputSize,
-    TextInputTheme,
 } from '../index';
 import { FormItemInputContext } from '../../Form/Context';
-import {
-    getMergedStatus,
-    getStatusClassNames,
-} from '../../../shared/utilities';
+import { getMergedStatus } from '../../../shared/utilities';
 
 export const SearchBox: FC<SearchBoxProps> = React.forwardRef(
     (
@@ -47,11 +47,10 @@ export const SearchBox: FC<SearchBoxProps> = React.forwardRef(
             onKeyDown,
             onSubmit,
             placeholder = 'Search',
-            shape = TextInputShape.Pill,
-            size = TextInputSize.Flex,
+            shape = 'rectangle' as ShapeType,
+            size = 'medium' as SizeType,
             status,
             style,
-            theme = TextInputTheme.light,
             value,
             waitInterval = 500,
             ...rest
@@ -64,6 +63,12 @@ export const SearchBox: FC<SearchBoxProps> = React.forwardRef(
 
         const contextuallyDisabled: DisabledType = useContext(DisabledContext);
         const mergedDisabled: boolean = contextuallyDisabled || disabled;
+
+        const contextuallySized: SizeType = useContext(SizeContext);
+        const mergedSize = contextuallySized || size;
+
+        const contextuallyShaped: ShapeType = useContext(ShapeContext);
+        const mergedShape = contextuallyShaped || shape;
 
         return (
             <form role="search" onSubmit={(_event) => onSubmit?.(_event)}>
@@ -96,11 +101,10 @@ export const SearchBox: FC<SearchBoxProps> = React.forwardRef(
                     onFocus={onFocus}
                     onKeyDown={onKeyDown}
                     placeholder={placeholder}
-                    shape={shape}
-                    size={size}
+                    shape={mergedShape}
+                    size={mergedSize}
                     status={mergedStatus}
                     style={style}
-                    theme={theme}
                     value={value}
                     waitInterval={waitInterval}
                 />

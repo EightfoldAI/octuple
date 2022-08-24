@@ -3,6 +3,7 @@ import { TimeHeaderProps } from './Time.types';
 import { Header } from '../Header';
 import PartialContext from '../../PartialContext';
 import { formatValue } from '../../Utils/dateUtil';
+import { SizeType } from '../../../../ConfigProvider';
 
 function TimeHeader<DateType>(props: TimeHeaderProps<DateType>) {
     const { hideHeader } = useContext(PartialContext);
@@ -11,7 +12,13 @@ function TimeHeader<DateType>(props: TimeHeaderProps<DateType>) {
         return null;
     }
 
-    const { generateConfig, locale, value, format, size = 'Small' } = props;
+    const {
+        generateConfig,
+        locale,
+        value,
+        format,
+        size = 'medium' as SizeType,
+    } = props;
 
     return (
         <Header size={size}>

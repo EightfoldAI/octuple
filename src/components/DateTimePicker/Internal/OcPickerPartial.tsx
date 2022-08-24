@@ -29,6 +29,8 @@ import { getExtraFooter } from './Utils/getExtraFooter';
 import getRanges from './Utils/getRanges';
 import { getLowerBoundTime, setDateTime, setTime } from './Utils/timeUtil';
 import { ButtonSize, NeutralButton } from '../../Button';
+import { Breakpoints, useMatchMedia } from '../../../hooks/useMatchMedia';
+import { SizeType } from '../../ConfigProvider';
 
 import styles from './ocpicker.module.scss';
 
@@ -69,9 +71,12 @@ function OcPickerPartial<DateType>(props: OcPickerPartialProps<DateType>) {
         hourStep = 1,
         minuteStep = 1,
         secondStep = 1,
-        size = 'Small',
+        size = 'medium' as SizeType,
     } = props as MergedPickerPartialProps<DateType>;
-
+    const largeScreenActive: boolean = useMatchMedia(Breakpoints.Large);
+    const mediumScreenActive: boolean = useMatchMedia(Breakpoints.Medium);
+    const smallScreenActive: boolean = useMatchMedia(Breakpoints.Small);
+    const xSmallScreenActive: boolean = useMatchMedia(Breakpoints.XSmall);
     const needConfirmButton: boolean =
         (picker === 'date' && !!showTime) || picker === 'time';
 
@@ -424,10 +429,14 @@ function OcPickerPartial<DateType>(props: OcPickerPartialProps<DateType>) {
         });
     }
 
-    const datePickerSizeToButtonSizeMap = new Map<typeof size, ButtonSize>([
-        ['Large', ButtonSize.Large],
-        ['Medium', ButtonSize.Medium],
-        ['Small', ButtonSize.Small],
+    const datePickerSizeToButtonSizeMap = new Map<
+        typeof size,
+        ButtonSize | SizeType
+    >([
+        ['flex', ButtonSize.Flex],
+        ['large', ButtonSize.Large],
+        ['medium', ButtonSize.Medium],
+        ['small', ButtonSize.Small],
     ]);
 
     let todayNode: React.ReactNode;
@@ -470,9 +479,25 @@ function OcPickerPartial<DateType>(props: OcPickerPartialProps<DateType>) {
                 tabIndex={tabIndex}
                 className={mergeClasses([
                     styles.pickerPartial,
-                    { [styles.pickerLarge]: size === 'Large' },
-                    { [styles.pickerMedium]: size === 'Medium' },
-                    { [styles.pickerSmall]: size === 'Small' },
+                    {
+                        [styles.pickerSmall]:
+                            size === 'flex' && largeScreenActive,
+                    },
+                    {
+                        [styles.pickerMedium]:
+                            size === 'flex' && mediumScreenActive,
+                    },
+                    {
+                        [styles.pickerMedium]:
+                            size === 'flex' && smallScreenActive,
+                    },
+                    {
+                        [styles.pickerLarge]:
+                            size === 'flex' && xSmallScreenActive,
+                    },
+                    { [styles.pickerLarge]: size === 'large' },
+                    { [styles.pickerMedium]: size === 'medium' },
+                    { [styles.pickerSmall]: size === 'small' },
                     classNames,
                     {
                         ['picker-partial-has-range']:

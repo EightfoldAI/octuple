@@ -2,6 +2,12 @@ import React, { FC, useContext, useState, useEffect, Ref } from 'react';
 import DisabledContext, {
     DisabledType,
 } from '../ConfigProvider/DisabledContext';
+import {
+    ShapeContext,
+    ShapeType,
+    SizeContext,
+    SizeType,
+} from '../ConfigProvider';
 import { mergeClasses } from '../../shared/utilities';
 import { Dropdown } from '../Dropdown';
 import { Menu } from '../Menu';
@@ -49,8 +55,8 @@ export const Select: FC<SelectProps> = React.forwardRef(
             options: _options = [],
             pillProps = {},
             placeholder = 'Select',
-            shape = SelectShape.Rectangle,
-            size = SelectSize.Flex,
+            shape = 'rectangle' as ShapeType,
+            size = 'medium' as SizeType,
             spinner = (
                 <Spinner
                     classNames={styles.selectSpinner}
@@ -87,6 +93,12 @@ export const Select: FC<SelectProps> = React.forwardRef(
 
         const contextuallyDisabled: DisabledType = useContext(DisabledContext);
         const mergedDisabled: boolean = contextuallyDisabled || disabled;
+
+        const contextuallySized: SizeType = useContext(SizeContext);
+        const mergedSize = contextuallySized || size;
+
+        const contextuallyShaped: ShapeType = useContext(ShapeContext);
+        const mergedShape = contextuallyShaped || shape;
 
         const getSelectedOptions = (): SelectOption['value'][] => {
             return options
@@ -203,23 +215,23 @@ export const Select: FC<SelectProps> = React.forwardRef(
             styles.selectWrapper,
             {
                 [styles.selectSmall]:
-                    size === SelectSize.Flex && largeScreenActive,
+                    mergedSize === SelectSize.Flex && largeScreenActive,
             },
             {
                 [styles.selectMedium]:
-                    size === SelectSize.Flex && mediumScreenActive,
+                    mergedSize === SelectSize.Flex && mediumScreenActive,
             },
             {
                 [styles.selectMedium]:
-                    size === SelectSize.Flex && smallScreenActive,
+                    mergedSize === SelectSize.Flex && smallScreenActive,
             },
             {
-                [styles.selectSmall]:
-                    size === SelectSize.Flex && xSmallScreenActive,
+                [styles.selectLarge]:
+                    mergedSize === SelectSize.Flex && xSmallScreenActive,
             },
-            { [styles.selectLarge]: size === SelectSize.Large },
-            { [styles.selectMedium]: size === SelectSize.Medium },
-            { [styles.selectSmall]: size === SelectSize.Small },
+            { [styles.selectLarge]: mergedSize === SelectSize.Large },
+            { [styles.selectMedium]: mergedSize === SelectSize.Medium },
+            { [styles.selectSmall]: mergedSize === SelectSize.Small },
             { [styles.selectWrapperDisabled]: mergedDisabled },
             { ['in-form-item']: isFormItemInput },
             getStatusClassNames(mergedStatus),
@@ -250,7 +262,10 @@ export const Select: FC<SelectProps> = React.forwardRef(
             return pillSize;
         };
 
-        const selectSizeToPillSizeMap = new Map<SelectSize, PillSize>([
+        const selectSizeToPillSizeMap = new Map<
+            SelectSize | SizeType,
+            PillSize
+        >([
             [SelectSize.Flex, getPillSize()],
             [SelectSize.Large, PillSize.Large],
             [SelectSize.Medium, PillSize.Medium],
@@ -276,7 +291,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
                             classNames={pillClasses}
                             label={selected[0].text}
                             onClose={() => toggleOption(selected[0])}
-                            size={selectSizeToPillSizeMap.get(size)}
+                            size={selectSizeToPillSizeMap.get(mergedSize)}
                             theme={'blueGreen'}
                             type={PillType.closable}
                             {...pillProps}
@@ -287,23 +302,11 @@ export const Select: FC<SelectProps> = React.forwardRef(
                             classNames={countPillClasses}
                             label={'+' + moreOptionsCount}
                             theme={'blueGreen'}
-                            size={selectSizeToPillSizeMap.get(size)}
+                            size={selectSizeToPillSizeMap.get(mergedSize)}
                             {...pillProps}
                         />
                     ) : null}
                 </div>
-            );
-        };
-
-        const onDropdownVisibilityChange = (isVisible: boolean) => {
-            if (mergedDisabled) {
-                return;
-            }
-
-            setDropdownVisibility(isVisible);
-            setSearchQuery('');
-            setOptions(
-                options.map((option) => ({ ...option, hideOption: false }))
             );
         };
 
@@ -365,22 +368,23 @@ export const Select: FC<SelectProps> = React.forwardRef(
         };
 
         const selectShapeToTextInputShapeMap = new Map<
-            SelectShape,
-            TextInputShape
+            SelectShape | ShapeType,
+            TextInputShape | ShapeType
         >([
             [SelectShape.Rectangle, TextInputShape.Rectangle],
             [SelectShape.Pill, TextInputShape.Pill],
             [SelectShape.Underline, TextInputShape.Underline],
         ]);
 
-        const selectSizeToTextInputSizeMap = new Map<SelectSize, TextInputSize>(
-            [
-                [SelectSize.Flex, TextInputSize.Flex],
-                [SelectSize.Large, TextInputSize.Large],
-                [SelectSize.Medium, TextInputSize.Medium],
-                [SelectSize.Small, TextInputSize.Small],
-            ]
-        );
+        const selectSizeToTextInputSizeMap = new Map<
+            SelectSize | SizeType,
+            TextInputSize | SizeType
+        >([
+            [SelectSize.Flex, TextInputSize.Flex],
+            [SelectSize.Large, TextInputSize.Large],
+            [SelectSize.Medium, TextInputSize.Medium],
+            [SelectSize.Small, TextInputSize.Small],
+        ]);
 
         return (
             <div
@@ -393,7 +397,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
                 <Dropdown
                     {...dropdownProps}
                     onVisibleChange={(isVisible) =>
-                        onDropdownVisibilityChange(isVisible)
+                        setDropdownVisibility(isVisible)
                     }
                     showDropdown={showDropdown}
                     overlay={
@@ -407,8 +411,10 @@ export const Select: FC<SelectProps> = React.forwardRef(
                             {...selectInputProps}
                             disabled={mergedDisabled}
                             formItemInput={isFormItemInput}
-                            shape={selectShapeToTextInputShapeMap.get(shape)}
-                            size={selectSizeToTextInputSizeMap.get(size)}
+                            shape={selectShapeToTextInputShapeMap.get(
+                                mergedShape
+                            )}
+                            size={selectSizeToTextInputSizeMap.get(mergedSize)}
                             value={
                                 !dropdownVisible
                                     ? getSelectedOptionText()
@@ -422,8 +428,10 @@ export const Select: FC<SelectProps> = React.forwardRef(
                             disabled={mergedDisabled}
                             formItemInput={isFormItemInput}
                             readonly
-                            shape={selectShapeToTextInputShapeMap.get(shape)}
-                            size={selectSizeToTextInputSizeMap.get(size)}
+                            shape={selectShapeToTextInputShapeMap.get(
+                                mergedShape
+                            )}
+                            size={selectSizeToTextInputSizeMap.get(mergedSize)}
                             value={getSelectedOptionText()}
                             classNames={styles.selectInput}
                         />

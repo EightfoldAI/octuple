@@ -2,6 +2,12 @@ import React, { forwardRef, useContext, useImperativeHandle } from 'react';
 import DisabledContext, {
     DisabledType,
 } from '../../../ConfigProvider/DisabledContext';
+import {
+    ShapeContext,
+    ShapeType,
+    SizeContext,
+    SizeType,
+} from '../../../ConfigProvider';
 import { mergeClasses } from '../../../../shared/utilities';
 import OcRangePicker from '../../Internal/OcRangePicker';
 import type { GenerateConfig } from '../../Internal/Generate';
@@ -17,6 +23,7 @@ import enUS from '../Locale/en_US';
 import { getRangePlaceholder, transPlacement2DropdownAlign } from '../util';
 import { Icon, IconName, IconSize } from '../../../Icon';
 import { dir, useCanvasDirection } from '../../../../hooks/useCanvasDirection';
+import { Breakpoints, useMatchMedia } from '../../../../hooks/useMatchMedia';
 
 import styles from '../datepicker.module.scss';
 
@@ -34,14 +41,18 @@ export default function generateRangePicker<DateType>(
             classNames,
             id,
             popupPlacement,
-            size = 'Small',
+            shape = 'rectangle' as ShapeType,
+            size = 'medium' as SizeType,
             disabled = false,
             bordered = true,
             placeholder,
             status,
             ...rest
         } = props;
-
+        const largeScreenActive: boolean = useMatchMedia(Breakpoints.Large);
+        const mediumScreenActive: boolean = useMatchMedia(Breakpoints.Medium);
+        const smallScreenActive: boolean = useMatchMedia(Breakpoints.Small);
+        const xSmallScreenActive: boolean = useMatchMedia(Breakpoints.XSmall);
         const innerRef = React.useRef<OcRangePicker<DateType>>(null);
         const htmlDir: string = useCanvasDirection();
         const { format, showTime, picker } = props as any;
@@ -59,18 +70,39 @@ export default function generateRangePicker<DateType>(
         const mergedDisabled: DisabledType | [boolean, boolean] =
             contextuallyDisabled || disabled;
 
-        const pickerSizeToIconSizeMap = new Map<typeof size, IconSize>([
-            ['Large', IconSize.Large],
-            ['Medium', IconSize.Small],
-            ['Small', IconSize.XSmall],
+        const contextuallySized: SizeType = useContext(SizeContext);
+        const mergedSize = contextuallySized || size;
+
+        const contextuallyShaped: ShapeType = useContext(ShapeContext);
+        const mergedShape = contextuallyShaped || shape;
+
+        const getIconSize = (): IconSize => {
+            let iconSize: IconSize;
+            if (largeScreenActive) {
+                iconSize = IconSize.Small;
+            } else if (mediumScreenActive) {
+                iconSize = IconSize.Medium;
+            } else if (smallScreenActive) {
+                iconSize = IconSize.Medium;
+            } else if (xSmallScreenActive) {
+                iconSize = IconSize.Large;
+            }
+            return iconSize;
+        };
+
+        const pickerSizeToIconSizeMap = new Map<typeof mergedSize, IconSize>([
+            ['flex', getIconSize()],
+            ['large', IconSize.Large],
+            ['medium', IconSize.Medium],
+            ['small', IconSize.Small],
         ]);
 
         const iconColor = (): string => {
-            let color: string = '#69717f';
+            let color: string = 'var(--grey-color-60)';
             if (status === 'error') {
-                color = '#993838';
+                color = 'var(--error-color)';
             } else if (status === 'warning') {
-                color = '#9d6309';
+                color = 'var(--warning-color)';
             }
             return color;
         };
@@ -112,7 +144,7 @@ export default function generateRangePicker<DateType>(
                 separator={
                     <span aria-label="to" className={styles.pickerSeparator}>
                         <Icon
-                            color="#69717f"
+                            color="var(--grey-color-60)"
                             path={IconName.mdiArrowRightThin}
                             size={IconSize.Medium}
                         />
@@ -141,10 +173,28 @@ export default function generateRangePicker<DateType>(
                 {...rest}
                 {...additionalOverrideProps}
                 classNames={mergeClasses([
-                    { [styles.pickerLarge]: size === 'Large' },
-                    { [styles.pickerMedium]: size === 'Medium' },
-                    { [styles.pickerSmall]: size === 'Small' },
+                    {
+                        [styles.pickerSmall]:
+                            mergedSize === 'flex' && largeScreenActive,
+                    },
+                    {
+                        [styles.pickerMedium]:
+                            mergedSize === 'flex' && mediumScreenActive,
+                    },
+                    {
+                        [styles.pickerMedium]:
+                            mergedSize === 'flex' && smallScreenActive,
+                    },
+                    {
+                        [styles.pickerLarge]:
+                            mergedSize === 'flex' && xSmallScreenActive,
+                    },
+                    { [styles.pickerLarge]: mergedSize === 'large' },
+                    { [styles.pickerMedium]: mergedSize === 'medium' },
+                    { [styles.pickerSmall]: mergedSize === 'small' },
                     { [styles.pickerBorderless]: !bordered },
+                    { [styles.pickerUnderline]: mergedShape === 'underline' },
+                    { [styles.pickerPill]: mergedShape === 'pill' },
                     { [styles.pickerStatusWarning]: status === 'warning' },
                     { [styles.pickerStatusError]: status === 'error' },
                     classNames,
@@ -154,7 +204,8 @@ export default function generateRangePicker<DateType>(
                 generateConfig={generateConfig}
                 components={Components}
                 direction={htmlDir}
-                size={size}
+                shape={mergedShape}
+                size={mergedSize}
             />
         );
     });
