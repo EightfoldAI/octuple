@@ -98,7 +98,7 @@ exports[`Storyshots Tabs Default Loader 1`] = `
         data-portal-key="portal"
       />
       <div
-        className="loader"
+        className="loader-container loader"
       >
         <div
           className="dot small"
@@ -142,7 +142,7 @@ exports[`Storyshots Tabs Default Loader 1`] = `
         Tab 3
       </span>
       <div
-        className="loader"
+        className="loader-container loader"
       >
         <div
           className="dot small"
