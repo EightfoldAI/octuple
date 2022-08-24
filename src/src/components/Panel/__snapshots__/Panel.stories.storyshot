@@ -80,6 +80,22 @@ exports[`Storyshots Panel Medium 1`] = `
 </button>
 `;
 
+exports[`Storyshots Panel Panel Header 1`] = `
+<button
+  aria-disabled={false}
+  className="button button-primary pill-shape"
+  defaultChecked={false}
+  disabled={false}
+  onClick={[Function]}
+>
+  <span
+    className=""
+  >
+    Open panel
+  </span>
+</button>
+`;
+
 exports[`Storyshots Panel Small 1`] = `
 <button
   aria-disabled={false}
