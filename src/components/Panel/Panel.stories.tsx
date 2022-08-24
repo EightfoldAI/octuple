@@ -394,7 +394,7 @@ const Panel_Header_Story: ComponentStory<typeof Panel> = (args) => {
                 }
                 visible={visible}
                 onClose={() => setVisible(false)}
-                PanelHeader={
+                panelHeader={
                     <PanelHeader
                         actionDefaultButtonProps={{
                             iconProps: {
