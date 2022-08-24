@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.6.0](https://github.com/EightfoldAI/octuple/compare/v2.5.2...v2.6.0) (2022-08-24)
+
+### Features
+
+-   panel custom header ([#318](https://github.com/EightfoldAI/octuple/issues/318)) ([6e80dad](https://github.com/EightfoldAI/octuple/commits/6e80dade501df9a48178551e618e7050b6f35827))
+
+### Bug Fixes
+
+-   select: fixes pills layout and removes redundant options change ([#323](https://github.com/EightfoldAI/octuple/issues/323)) ([503f0d8](https://github.com/EightfoldAI/octuple/commits/503f0d8d68f8c9429210930d1f027b4850aa3b4f))
+-   update page as currentPage prop value updates ([#322](https://github.com/EightfoldAI/octuple/issues/322)) ([b5c6b8e](https://github.com/EightfoldAI/octuple/commits/b5c6b8e3e6c257f6cb1c917b35ad133f3da2c095))
+
 ### [2.5.3](https://github.com/EightfoldAI/octuple/compare/v2.5.2...v2.5.3) (2022-08-23)
 
 ### Bug Fixes
