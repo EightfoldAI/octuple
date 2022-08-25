@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.8.0](https://github.com/EightfoldAI/octuple/compare/v2.7.1...v2.8.0) (2022-08-25)
+
+### Features
+
+-   add selfControlled prop to Pagination for indication of outside page control ([#330](https://github.com/EightfoldAI/octuple/issues/330)) ([4ef4aec](https://github.com/EightfoldAI/octuple/commits/4ef4aece5cc14f2cce1fb38926bd206bd7025756))
+
 ### [2.7.1](https://github.com/EightfoldAI/octuple/compare/v2.7.0...v2.7.1) (2022-08-25)
 
 ### Bug Fixes
