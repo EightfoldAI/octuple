@@ -7,9 +7,9 @@
     gap: $space-xs;
     border-radius: $corner-radius-xl;
     cursor: pointer;
-    font-weight: $text-font-weight-semibold;
+    font-weight: $text-font-weight-regular;
     transition: all $motion-duration-extra-fast $motion-easing-easeinout 0s;
-    margin: 4px 0;
+    margin: $space-xxs 0;
 
     &.large {
         height: 44px;
