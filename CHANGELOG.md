@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.7.0](https://github.com/EightfoldAI/octuple/compare/v2.6.2...v2.7.0) (2022-08-25)
+
+### Features
+
+-   add loading state in button and tabs ([#326](https://github.com/EightfoldAI/octuple/issues/326)) ([954e6f6](https://github.com/EightfoldAI/octuple/commits/954e6f61e42a6838d4218907d95ebead419b16af))
+
 ### [2.6.2](https://github.com/EightfoldAI/octuple/compare/v2.6.1...v2.6.2) (2022-08-24)
 
 ### Bug Fixes
