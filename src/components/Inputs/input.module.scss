@@ -111,10 +111,6 @@
             }
         }
 
-        &:hover {
-            color: var(--text-primary-color);
-        }
-
         &:active ~ .icon-button {
             background-color: transparent;
             border-color: transparent;
@@ -279,7 +275,6 @@
 
         &:active {
             border-color: var(--grey-color-60);
-            color: var(--text-primary-color);
 
             &.underline {
                 border-color: transparent;
@@ -295,7 +290,6 @@
         }
 
         &:focus {
-            color: var(--text-primary-color);
             border-color: $focus-visible-shadow-color;
             transition: border-color $motion-duration-extra-fast
                 $motion-easing-easeinout;
@@ -895,7 +889,6 @@
         }
 
         &:focus {
-            color: var(--text-primary-color);
             border-color: $focus-visible-shadow-color;
             transition: border-color $motion-duration-extra-fast
                 $motion-easing-easeinout;
