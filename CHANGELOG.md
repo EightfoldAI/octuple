@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.7.1](https://github.com/EightfoldAI/octuple/compare/v2.7.0...v2.7.1) (2022-08-25)
+
+### Bug Fixes
+
+-   inputs: text input color ([#328](https://github.com/EightfoldAI/octuple/issues/328)) ([263fb73](https://github.com/EightfoldAI/octuple/commits/263fb73fcd7e257c0da183c66ba94f84f5e44a49))
+-   menu: update menu min width and reduce font weight of menu item ([#327](https://github.com/EightfoldAI/octuple/issues/327)) ([565ac23](https://github.com/EightfoldAI/octuple/commits/565ac2341477736c48468377ac9677aec1ed9fb1))
+-   table: increase border radius ([#329](https://github.com/EightfoldAI/octuple/issues/329)) ([93a2ea1](https://github.com/EightfoldAI/octuple/commits/93a2ea104b7ac28e9c0b1b0af8977327034f6840))
+
 ## [2.7.0](https://github.com/EightfoldAI/octuple/compare/v2.6.2...v2.7.0) (2022-08-25)
 
 ### Features
