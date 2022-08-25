@@ -117,6 +117,19 @@
                 padding: $space-m $space-xl $space-l $space-xl;
             }
         }
+
+        &.no-header-padding {
+            padding: 0;
+            .header {
+                padding: 0;
+            }
+            .body {
+                padding: 0 $space-xl;
+            }
+            .footer {
+                padding: $space-m $space-xl $space-l $space-xl;
+            }
+        }
     }
 
     &.visible {
@@ -134,6 +147,38 @@
 
         &.modeless-mask {
             pointer-events: auto;
+        }
+    }
+}
+
+// Custom Headers Styles
+.panel-backdrop .panel {
+    .logo-gradient-header-wrapper {
+        display: flex;
+        padding: 0 $space-xl;
+        min-height: 52px;
+        margin-bottom: $space-ml;
+        position: sticky;
+        top: 0;
+        justify-content: space-between;
+        align-items: center;
+        background: $eightfold-logo-gradient-dark;
+
+        .header-title {
+            @include octuple-h4();
+            padding: 0;
+            margin: 0;
+            color: var(--white-color);
+            display: flex;
+            align-items: center;
+
+            & > :first-child {
+                padding-left: 0;
+            }
+        }
+
+        .header-action-buttons {
+            margin-right: -$space-xl / 2;
         }
     }
 }

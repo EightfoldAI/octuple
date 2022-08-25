@@ -201,7 +201,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
                     size === SelectSize.Flex && smallScreenActive,
             },
             {
-                [styles.selectSmall]:
+                [styles.selectLarge]:
                     size === SelectSize.Flex && xSmallScreenActive,
             },
             { [styles.selectLarge]: size === SelectSize.Large },
@@ -276,14 +276,6 @@ export const Select: FC<SelectProps> = React.forwardRef(
                         />
                     ) : null}
                 </div>
-            );
-        };
-
-        const onDropdownVisibilityChange = (isVisible: boolean) => {
-            setDropdownVisibility(isVisible);
-            setSearchQuery('');
-            setOptions(
-                options.map((option) => ({ ...option, hideOption: false }))
             );
         };
 
@@ -373,7 +365,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
                 <Dropdown
                     {...dropdownProps}
                     onVisibleChange={(isVisible) =>
-                        onDropdownVisibilityChange(isVisible)
+                        setDropdownVisibility(isVisible)
                     }
                     showDropdown={showDropdown}
                     overlay={

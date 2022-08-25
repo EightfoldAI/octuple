@@ -2,6 +2,49 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.7.1](https://github.com/EightfoldAI/octuple/compare/v2.7.0...v2.7.1) (2022-08-25)
+
+### Bug Fixes
+
+-   inputs: text input color ([#328](https://github.com/EightfoldAI/octuple/issues/328)) ([263fb73](https://github.com/EightfoldAI/octuple/commits/263fb73fcd7e257c0da183c66ba94f84f5e44a49))
+-   menu: update menu min width and reduce font weight of menu item ([#327](https://github.com/EightfoldAI/octuple/issues/327)) ([565ac23](https://github.com/EightfoldAI/octuple/commits/565ac2341477736c48468377ac9677aec1ed9fb1))
+-   table: increase border radius ([#329](https://github.com/EightfoldAI/octuple/issues/329)) ([93a2ea1](https://github.com/EightfoldAI/octuple/commits/93a2ea104b7ac28e9c0b1b0af8977327034f6840))
+
+## [2.7.0](https://github.com/EightfoldAI/octuple/compare/v2.6.2...v2.7.0) (2022-08-25)
+
+### Features
+
+-   add loading state in button and tabs ([#326](https://github.com/EightfoldAI/octuple/issues/326)) ([954e6f6](https://github.com/EightfoldAI/octuple/commits/954e6f61e42a6838d4218907d95ebead419b16af))
+
+### [2.6.2](https://github.com/EightfoldAI/octuple/compare/v2.6.1...v2.6.2) (2022-08-24)
+
+### Bug Fixes
+
+-   system ui button transparency fix ([#325](https://github.com/EightfoldAI/octuple/issues/325)) ([232665d](https://github.com/EightfoldAI/octuple/commits/232665d60604d73fe5fd3688a42f706ecbf6efae))
+
+### [2.6.1](https://github.com/EightfoldAI/octuple/compare/v2.6.0...v2.6.1) (2022-08-24)
+
+### Bug Fixes
+
+-   exporting header ([#324](https://github.com/EightfoldAI/octuple/issues/324)) ([c166a71](https://github.com/EightfoldAI/octuple/commits/c166a71fba677ae4cc8868f272b46ce487670d88))
+
+## [2.6.0](https://github.com/EightfoldAI/octuple/compare/v2.5.2...v2.6.0) (2022-08-24)
+
+### Features
+
+-   panel custom header ([#318](https://github.com/EightfoldAI/octuple/issues/318)) ([6e80dad](https://github.com/EightfoldAI/octuple/commits/6e80dade501df9a48178551e618e7050b6f35827))
+
+### Bug Fixes
+
+-   select: fixes pills layout and removes redundant options change ([#323](https://github.com/EightfoldAI/octuple/issues/323)) ([503f0d8](https://github.com/EightfoldAI/octuple/commits/503f0d8d68f8c9429210930d1f027b4850aa3b4f))
+-   update page as currentPage prop value updates ([#322](https://github.com/EightfoldAI/octuple/issues/322)) ([b5c6b8e](https://github.com/EightfoldAI/octuple/commits/b5c6b8e3e6c257f6cb1c917b35ad133f3da2c095))
+
+### [2.5.3](https://github.com/EightfoldAI/octuple/compare/v2.5.2...v2.5.3) (2022-08-23)
+
+### Bug Fixes
+
+-   select: fixes pills layout and removes redundant options change ([#323](https://github.com/EightfoldAI/octuple/issues/323)) ([503f0d8](https://github.com/EightfoldAI/octuple/commits/503f0d8d68f8c9429210930d1f027b4850aa3b4f))
+
 ### [2.5.2](https://github.com/EightfoldAI/octuple/compare/v2.5.1...v2.5.2) (2022-08-22)
 
 ### Features

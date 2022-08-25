@@ -57,6 +57,10 @@ export interface TabProps extends OcBaseProps<HTMLButtonElement> {
      * Content of the badge
      */
     badgeContent?: React.ReactNode;
+    /**
+     * If the tab is in loading state
+     */
+    loading?: boolean;
 }
 
 export interface TabsProps extends Omit<OcBaseProps<HTMLElement>, 'onChange'> {

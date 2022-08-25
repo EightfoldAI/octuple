@@ -99,6 +99,21 @@ const Default_Story: ComponentStory<typeof Tabs> = (args) => {
 
 export const Default = Default_Story.bind({});
 
+const Default_Loading_Story: ComponentStory<typeof Tabs> = (args) => {
+    const [activeTabs, setActiveTabs] = useState({ defaultTab: 'tab1' });
+    return (
+        <Tabs
+            {...args}
+            onChange={(tab) =>
+                setActiveTabs({ ...activeTabs, defaultTab: tab })
+            }
+            value={activeTabs.defaultTab}
+        />
+    );
+};
+
+export const DefaultLoader = Default_Loading_Story.bind({});
+
 const Small_Story: ComponentStory<typeof Tabs> = (args) => {
     const [activeTabs, setActiveTabs] = useState({ defaultTab: 'tab1' });
     return (
@@ -243,6 +258,13 @@ const tabsArgs: Object = {
 
 Default.args = {
     ...tabsArgs,
+};
+
+DefaultLoader.args = {
+    ...tabsArgs,
+    children: badgeTabs.map((tab, index) => (
+        <Tab key={tab.value} {...tab} loading={index % 2 === 0} />
+    )),
 };
 
 Small.args = {

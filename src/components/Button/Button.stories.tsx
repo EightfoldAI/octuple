@@ -260,6 +260,7 @@ const buttonArgs: Object = {
     theme: ButtonTheme.light,
     toggle: false,
     counter: 0,
+    loading: false,
 };
 
 Primary.args = {

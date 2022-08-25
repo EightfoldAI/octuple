@@ -93,9 +93,16 @@ import TimePicker from './components/DateTimePicker/TimePicker/TimePicker';
 
 import { Tooltip, TooltipTheme, TooltipSize } from './components/Tooltip';
 
+import { Loader, LoaderSize } from './components/Loader';
+
 import { MatchScore } from './components/MatchScore';
 
-import { Panel, PanelPlacement, PanelSize } from './components/Panel';
+import {
+    Panel,
+    PanelPlacement,
+    PanelSize,
+    PanelHeader,
+} from './components/Panel';
 
 import { Portal } from './components/Portal';
 
@@ -164,6 +171,8 @@ export {
     Layout,
     Link,
     List,
+    Loader,
+    LoaderSize,
     MatchScore,
     Menu,
     MenuItemType,
@@ -177,6 +186,7 @@ export {
     Pagination,
     PaginationLayoutOptions,
     Panel,
+    PanelHeader,
     PanelPlacement,
     PanelSize,
     PersistentBar,
