@@ -112,4 +112,9 @@ export interface PaginationProps extends OcBaseProps<HTMLElement> {
      * @default 'Total'
      */
     totalText?: string;
+    /**
+     * The Page change is controlled internally.
+     * @default true
+     */
+    selfControlled?: boolean;
 }

@@ -41,6 +41,7 @@ export const Pagination: FC<PaginationProps> = React.forwardRef(
             quickPreviousIconButtonAriaLabel = 'Previous 5',
             total = 1,
             totalText = 'Total',
+            selfControlled = true,
             'data-test-id': dataTestId,
             ...rest
         },
@@ -148,7 +149,9 @@ export const Pagination: FC<PaginationProps> = React.forwardRef(
             onSizeChange && onSizeChange(val);
 
             // TODO: Improve this to find _currentPage in newly calc'd _pageSize.
-            handleCurrentChange(1);
+            if (selfControlled) {
+                handleCurrentChange(1);
+            }
         };
 
         const handleJumpOnChange = (
