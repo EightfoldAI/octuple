@@ -141,7 +141,8 @@ const FormItemLabel: React.FC<FormItemLabelProps & { required?: boolean }> = ({
                 }
 
                 const labelClassNames: string = mergeClasses({
-                    [styles.formItemRequired]: required,
+                    [styles.formItemRequired]:
+                        required && requiredMark !== false,
                     [styles.formItemRequiredMarkOptional]:
                         requiredMark === 'optional',
                     [styles.formItemNoColon]: !computedColon,

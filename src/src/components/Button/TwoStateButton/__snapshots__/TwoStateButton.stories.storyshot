@@ -6,7 +6,7 @@ exports[`Storyshots Button Two State Button 1`] = `
   aria-disabled={false}
   aria-label="Two State Button"
   aria-pressed={false}
-  className="my-two-state-btn-class button two-state-button pill-shape"
+  className="my-two-state-btn-class button two-state-button button-medium pill-shape"
   defaultChecked={false}
   disabled={false}
   id="myTwoStateButton"
@@ -47,12 +47,12 @@ exports[`Storyshots Button Two State Button 1`] = `
         </svg>
       </span>
       <span
-        className=""
+        className="button-text-medium"
       >
         Two State Button
       </span>
       <span
-        className="badge counter"
+        className="badge counter button-text-medium"
       >
         8
       </span>

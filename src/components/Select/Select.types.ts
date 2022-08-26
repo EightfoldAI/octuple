@@ -4,8 +4,7 @@ import { TextInputProps, TextInputWidth } from '../Inputs';
 import { MenuProps } from '../Menu';
 import { OcBaseProps } from '../OcBase';
 import { PillProps } from '../Pills';
-import { MenuItemProps } from '../Menu/MenuItem/MenuItem.types';
-import type { InputStatus } from '../../shared/utilities';
+import { MenuItemButtonProps } from '../Menu/MenuItem/MenuItem.types';
 import { ShapeType, SizeType } from '../ConfigProvider';
 
 export enum SelectShape {
@@ -21,7 +20,7 @@ export enum SelectSize {
     Small = 'small',
 }
 
-export interface SelectOption extends MenuItemProps {
+export interface SelectOption extends MenuItemButtonProps {
     hideOption?: boolean;
     id?: string;
     selected?: boolean;
@@ -100,6 +99,11 @@ export interface SelectProps extends OcBaseProps<HTMLSelectElement> {
     multiple?: boolean;
 
     /**
+     * Callback called when the clear button is clicked
+     */
+    onClear?: () => void;
+
+    /**
      * Callback called when options are selected/unselected
      * @param options {SelectOption[]}
      */
@@ -133,12 +137,7 @@ export interface SelectProps extends OcBaseProps<HTMLSelectElement> {
      * loading spinner props.
      * @default {}
      */
-    spinner?: React.ReactNode;
-
-    /**
-     * the validation status.
-     */
-    status?: InputStatus;
+    spinner?: React.ReactElement;
 
     /**
      * select input props.

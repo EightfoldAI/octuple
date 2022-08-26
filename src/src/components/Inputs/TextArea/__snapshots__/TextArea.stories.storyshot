@@ -2,7 +2,7 @@
 
 exports[`Storyshots Input Text Area 1`] = `
 <div
-  className="input-wrapper pill-shape"
+  className="input-wrapper input-medium"
 >
   <div
     className="field-label medium"
@@ -65,11 +65,11 @@ exports[`Storyshots Input Text Area 1`] = `
       aria-disabled={false}
       aria-label="Sample text"
       autoFocus={false}
-      className="my-textarea-class text-area pill-shape"
+      className="my-textarea-class text-area"
       cols={50}
       disabled={false}
       htmltype="text"
-      id="myTextAreaId12"
+      id="myTextAreaId96"
       maxLength={300}
       minLength={0}
       name="myTextArea"

@@ -216,7 +216,7 @@ export default function ItemHolder(props: ItemHolderProps) {
                     </NoStyleItemContext.Provider>
                 </FormItemInput>
             </Row>
-            {marginBottom && (
+            {!!marginBottom && (
                 <div
                     className={styles.formItemMarginOffset}
                     style={{

@@ -48,6 +48,7 @@ export function valueToPercent(
 }
 
 export const Slider: FC<SliderProps> = ({
+    allowDisabledFocus = false,
     ariaLabel,
     autoFocus = false,
     classNames,
@@ -202,7 +203,10 @@ export const Slider: FC<SliderProps> = ({
             <div
                 className={mergeClasses(
                     styles.sliderContainer,
-                    { [styles.sliderDisabled]: mergedDisabled },
+                    {
+                        [styles.sliderDisabled]:
+                            allowDisabledFocus || mergedDisabled,
+                    },
                     { ['in-form-item']: isFormItemInput }
                 )}
             >
@@ -229,15 +233,24 @@ export const Slider: FC<SliderProps> = ({
                     })}
                     {values.map((val: number, index: number) => (
                         <input
+                            aria-disabled={mergedDisabled}
                             aria-label={ariaLabel}
                             autoFocus={autoFocus && index === 0}
                             className={styles.thumb}
                             id={getIdentifier(id, index)}
                             key={index}
-                            disabled={mergedDisabled}
-                            onChange={(
-                                event: React.ChangeEvent<HTMLInputElement>
-                            ) => handleChange(+event.target.value, index)}
+                            disabled={!allowDisabledFocus && mergedDisabled}
+                            onChange={
+                                !allowDisabledFocus
+                                    ? (
+                                          event: React.ChangeEvent<HTMLInputElement>
+                                      ) =>
+                                          handleChange(
+                                              +event.target.value,
+                                              index
+                                          )
+                                    : null
+                            }
                             min={min}
                             max={max}
                             name={getIdentifier(name, index)}

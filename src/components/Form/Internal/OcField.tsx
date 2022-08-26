@@ -612,7 +612,7 @@ class OcField
 
         const { child, isFunction } = this.getOnlyChild(children);
 
-        // Not need to `cloneElement` since user can handle this in render function self
+        // No need to `cloneElement` since user can handle this in render function self
         let returnChildNode: React.ReactNode;
         if (isFunction) {
             returnChildNode = child;

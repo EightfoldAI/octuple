@@ -26,6 +26,10 @@ export interface SliderProps extends SliderInputProps {
 export interface SliderInputProps
     extends Omit<OcBaseProps<HTMLInputElement>, 'onChange' | 'value'> {
     /**
+     * Allows focus on the slider when it's disabled.
+     */
+    allowDisabledFocus?: boolean;
+    /**
      * The input aria label text.
      */
     ariaLabel?: string;

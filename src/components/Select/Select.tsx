@@ -31,7 +31,6 @@ import { Spinner, SpinnerSize } from '../Spinner';
 import { Breakpoints, useMatchMedia } from '../../hooks/useMatchMedia';
 import { Tooltip, TooltipTheme } from '../Tooltip';
 import { FormItemInputContext } from '../Form/Context';
-import { getMergedStatus, getStatusClassNames } from '../../shared/utilities';
 
 import styles from './select.module.scss';
 
@@ -51,6 +50,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
             loadOptions,
             menuProps = {},
             multiple = false,
+            onClear,
             onOptionsChange,
             options: _options = [],
             pillProps = {},
@@ -63,7 +63,6 @@ export const Select: FC<SelectProps> = React.forwardRef(
                     size={SpinnerSize.Small}
                 />
             ),
-            status,
             style,
             textInputProps = {},
             'data-test-id': dataTestId,
@@ -87,9 +86,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
         );
         const [searchQuery, setSearchQuery] = useState<string>('');
 
-        const { status: contextStatus, isFormItemInput } =
-            useContext(FormItemInputContext);
-        const mergedStatus = getMergedStatus(contextStatus, status);
+        const { isFormItemInput } = useContext(FormItemInputContext);
 
         const contextuallyDisabled: DisabledType = useContext(DisabledContext);
         const mergedDisabled: boolean = contextuallyDisabled || disabled;
@@ -156,6 +153,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
                     selected: false,
                 }))
             );
+            onClear?.();
         };
 
         const onInputChange = (
@@ -234,7 +232,6 @@ export const Select: FC<SelectProps> = React.forwardRef(
             { [styles.selectSmall]: mergedSize === SelectSize.Small },
             { [styles.selectWrapperDisabled]: mergedDisabled },
             { ['in-form-item']: isFormItemInput },
-            getStatusClassNames(mergedStatus),
             classNames,
         ]);
 

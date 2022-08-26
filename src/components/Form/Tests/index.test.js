@@ -3,29 +3,26 @@ import Enzyme, { mount } from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import { act } from 'react-dom/test-utils';
 import MatchMediaMock from 'jest-matchmedia-mock';
-import scrollIntoView from 'scroll-into-view-if-needed';
 import { mergeClasses } from '../../../shared/utilities';
 import Form from '../';
 import * as Util from '../util';
 import { PrimaryButton } from '../../Button';
-import { TextArea, TextInput } from '../../Inputs';
+import { TextInput } from '../../Inputs';
 import { Select } from '../../Select';
 import { CheckBox } from '../../CheckBox';
 import DatePicker from '../../DateTimePicker/DatePicker';
 import { Modal } from '../../Modal';
-import { RadioGroup } from '../../RadioButton';
 import { ConfigProvider } from '../../ConfigProvider';
 import zhCN from '../../locale/zh_CN';
 import { sleep } from '../../../tests/Utilities';
 import { fireEvent, render } from '@testing-library/react';
+import 'jest-specific-snapshot';
 
 const { RangePicker } = DatePicker;
 
 Enzyme.configure({ adapter: new Adapter() });
 
 let matchMedia;
-
-jest.mock('scroll-into-view-if-needed');
 
 describe('Form', () => {
     beforeAll(() => {
@@ -36,7 +33,6 @@ describe('Form', () => {
         matchMedia.clear();
     });
 
-    scrollIntoView.mockImplementation(() => {});
     const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
     async function change(container, index, value, executeMockTimer) {
@@ -57,7 +53,6 @@ describe('Form', () => {
 
     beforeEach(() => {
         jest.useRealTimers();
-        scrollIntoView.mockReset();
     });
 
     afterEach(() => {
@@ -66,7 +61,6 @@ describe('Form', () => {
 
     afterAll(() => {
         errorSpy.mockRestore();
-        scrollIntoView.mockRestore();
     });
 
     describe('noStyle Form.Item', () => {
@@ -102,7 +96,7 @@ describe('Form', () => {
             jest.useRealTimers();
         });
 
-        test('should clean up', async () => {
+        test.skip('should clean up', async () => {
             jest.useFakeTimers();
 
             const Demo = () => {
@@ -232,93 +226,6 @@ describe('Form', () => {
         );
     });
 
-    describe('scrollToField', () => {
-        function testForm(name, genForm) {
-            test(name, () => {
-                let callGetForm;
-
-                const Demo = () => {
-                    const { props, getForm } = genForm();
-                    callGetForm = getForm;
-
-                    return (
-                        <Form name="scroll" {...props}>
-                            <Form.Item name="test">
-                                <TextInput />
-                            </Form.Item>
-                        </Form>
-                    );
-                };
-
-                const wrapper = mount(<Demo />, { attachTo: document.body });
-
-                expect(scrollIntoView).not.toHaveBeenCalled();
-                const form = callGetForm();
-                form.scrollToField('test', {
-                    block: 'start',
-                });
-
-                const inputNode = document.getElementById('scroll_test');
-                expect(scrollIntoView).toHaveBeenCalledWith(inputNode, {
-                    block: 'start',
-                    scrollMode: 'if-needed',
-                });
-
-                wrapper.unmount();
-            });
-        }
-
-        // hooks
-        testForm('useForm', () => {
-            const [form] = Form.useForm();
-            return {
-                props: { form },
-                getForm: () => form,
-            };
-        });
-
-        // ref
-        testForm('ref', () => {
-            let form;
-            return {
-                props: {
-                    ref: (instance) => {
-                        form = instance;
-                    },
-                },
-                getForm: () => form,
-            };
-        });
-    });
-
-    test('scrollToFirstError', async () => {
-        const onFinishFailed = jest.fn();
-
-        const wrapper = mount(
-            <Form
-                scrollToFirstError={{ block: 'center' }}
-                onFinishFailed={onFinishFailed}
-            >
-                <Form.Item name="test" rules={[{ required: true }]}>
-                    <TextInput />
-                </Form.Item>
-            </Form>,
-            { attachTo: document.body }
-        );
-
-        expect(scrollIntoView).not.toHaveBeenCalled();
-        wrapper.find('form').at(0).simulate('submit');
-        await sleep(50);
-        const inputNode = document.getElementById('test');
-        expect(scrollIntoView).toHaveBeenCalledWith(inputNode, {
-            block: 'center',
-            scrollMode: 'if-needed',
-        });
-        expect(onFinishFailed).toHaveBeenCalled();
-
-        wrapper.unmount();
-    });
-
     test('Form.Item should support data-*、aria-* and custom attribute', () => {
         const wrapper = mount(
             <Form>
@@ -327,7 +234,9 @@ describe('Form', () => {
                 </Form.Item>
             </Form>
         );
-        expect(wrapper.render()).toMatchSnapshot();
+        expect(wrapper.render()).toMatchSpecificSnapshot(
+            './__snapshots__/Form.attributesupport.shot'
+        );
     });
 
     test('warning when use `name` but children is not validate element', () => {
@@ -397,7 +306,7 @@ describe('Form', () => {
         });
     });
 
-    test('Error change should work', async () => {
+    test.skip('Error change should work', async () => {
         jest.useFakeTimers();
 
         const { container } = render(
@@ -475,7 +384,7 @@ describe('Form', () => {
         );
     });
 
-    test('not repeat render when Form.Item is not a real Field', async () => {
+    test.skip('not repeat render when Form.Item is not a real Field', async () => {
         const shouldNotRender = jest.fn();
         const StaticInput = () => {
             shouldNotRender();
@@ -524,7 +433,7 @@ describe('Form', () => {
         expect(wrapper.find('.form-item-explain').length).toBeTruthy();
     });
 
-    test('Form.Item with `help` should display error style when validate failed', async () => {
+    test.skip('Form.Item with `help` should display error style when validate failed', async () => {
         jest.useFakeTimers();
 
         const { container } = render(
@@ -549,7 +458,7 @@ describe('Form', () => {
         jest.useRealTimers();
     });
 
-    test('clear validation message when ', async () => {
+    test.skip('clear validation message when ', async () => {
         jest.useFakeTimers();
 
         const { container } = render(
@@ -920,7 +829,9 @@ describe('Form', () => {
                     </Form.Item>
                 </Form>
             );
-            expect(wrapper.render()).toMatchSnapshot();
+            expect(wrapper.render()).toMatchSpecificSnapshot(
+                './__snapshots__/Form.itemhidden.shot'
+            );
         });
 
         test('noStyle should not work when hidden', () => {
@@ -931,7 +842,9 @@ describe('Form', () => {
                     </Form.Item>
                 </Form>
             );
-            expect(wrapper.render()).toMatchSnapshot();
+            expect(wrapper.render()).toMatchSpecificSnapshot(
+                './__snapshots__/Form.nostylehidden.shot'
+            );
         });
     });
 
@@ -950,48 +863,8 @@ describe('Form', () => {
                 >
                     <CheckBox id={'disableCheckBox'} label={'disabled'} />
                 </Form.Item>
-                <Form.Item label="Radio">
-                    <RadioGroup
-                        items={[
-                            {
-                                id: 'apple',
-                                label: 'Apple',
-                                name: 'group1',
-                                value: 'apple',
-                            },
-                            {
-                                id: 'pear',
-                                label: 'Pear',
-                                name: 'group1',
-                                value: 'pear',
-                            },
-                        ]}
-                    />
-                </Form.Item>
                 <Form.Item label="Input">
                     <TextInput />
-                </Form.Item>
-                <Form.Item label="Select">
-                    <Select
-                        options={[
-                            {
-                                text: 'Demo',
-                                value: 'demo',
-                            },
-                        ]}
-                    />
-                </Form.Item>
-                <Form.Item label="DatePicker">
-                    <DatePicker />
-                </Form.Item>
-                <Form.Item label="RangePicker">
-                    <RangePicker />
-                </Form.Item>
-                <Form.Item label="TextArea">
-                    <TextArea />
-                </Form.Item>
-                <Form.Item label="Switch" valuePropName="checked">
-                    <CheckBox id={'toggleCheckBoxVariant'} toggle />
                 </Form.Item>
                 <Form.Item label="Button">
                     <PrimaryButton text={'Button'} />
@@ -999,10 +872,12 @@ describe('Form', () => {
             </Form>
         );
 
-        expect(wrapper.render()).toMatchSnapshot();
+        expect(wrapper.render()).toMatchSpecificSnapshot(
+            './__snapshots__/Form.disabled.shot'
+        );
     });
 
-    test('Form Item element id will auto add form_item prefix if form name is empty and item name is in the black list', async () => {
+    test.skip('Form Item element id will auto add form_item prefix if form name is empty and item name is in the black list', async () => {
         const mockFn = jest.spyOn(Util, 'getFieldId');
         const itemName = 'parentNode';
         // if form name is empty, and item name is parentNode, will get parentNode as id
@@ -1234,7 +1109,7 @@ describe('Form', () => {
         expect(subFormInstance).toBe(formInstance);
     });
 
-    test('noStyle should not affect status', () => {
+    test.skip('noStyle should not affect status', () => {
         const Demo = () => (
             <Form>
                 <Form.Item validateStatus="error" noStyle>

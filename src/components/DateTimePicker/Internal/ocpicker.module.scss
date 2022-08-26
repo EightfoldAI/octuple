@@ -72,7 +72,7 @@
         }
     }
 
-    &:hover:not([disabled]):not(.picker-underline) {
+    &:hover:not(.picker-disabled):not(.picker-underline) {
         border-color: var(--grey-color-60);
     }
 
@@ -981,6 +981,30 @@
             &:focus-within {
                 &:after {
                     transform: scaleX(1) translateX(0px);
+                }
+            }
+        }
+    }
+
+    &-disabled {
+        &.picker-underline {
+            .picker-input {
+                &:after {
+                    border-bottom: 1px solid var(--border-color);
+                    left: 0;
+                    bottom: 0;
+                    content: '';
+                    position: absolute;
+                    right: 0;
+                    transition: border-bottom-color $motion-duration-extra-fast
+                        $motion-easing-easeinout;
+                    pointer-events: none;
+                }
+
+                &:hover {
+                    &:before {
+                        border-color: var(--border-color);
+                    }
                 }
             }
         }

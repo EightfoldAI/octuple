@@ -3,13 +3,13 @@
 exports[`Storyshots Modal Fullscreen 1`] = `
 <button
   aria-disabled={false}
-  className="button button-primary pill-shape"
+  className="button button-primary button-medium pill-shape"
   defaultChecked={false}
   disabled={false}
   onClick={[Function]}
 >
   <span
-    className=""
+    className="button-text-medium"
   >
     Open modal
   </span>
@@ -19,13 +19,13 @@ exports[`Storyshots Modal Fullscreen 1`] = `
 exports[`Storyshots Modal Header Actions 1`] = `
 <button
   aria-disabled={false}
-  className="button button-primary pill-shape"
+  className="button button-primary button-medium pill-shape"
   defaultChecked={false}
   disabled={false}
   onClick={[Function]}
 >
   <span
-    className=""
+    className="button-text-medium"
   >
     Open modal
   </span>
@@ -35,13 +35,13 @@ exports[`Storyshots Modal Header Actions 1`] = `
 exports[`Storyshots Modal Large 1`] = `
 <button
   aria-disabled={false}
-  className="button button-primary pill-shape"
+  className="button button-primary button-medium pill-shape"
   defaultChecked={false}
   disabled={false}
   onClick={[Function]}
 >
   <span
-    className=""
+    className="button-text-medium"
   >
     Open modal
   </span>
@@ -51,13 +51,13 @@ exports[`Storyshots Modal Large 1`] = `
 exports[`Storyshots Modal Medium 1`] = `
 <button
   aria-disabled={false}
-  className="button button-primary pill-shape"
+  className="button button-primary button-medium pill-shape"
   defaultChecked={false}
   disabled={false}
   onClick={[Function]}
 >
   <span
-    className=""
+    className="button-text-medium"
   >
     Open modal
   </span>
@@ -67,13 +67,13 @@ exports[`Storyshots Modal Medium 1`] = `
 exports[`Storyshots Modal Scrollable 1`] = `
 <button
   aria-disabled={false}
-  className="button button-primary pill-shape"
+  className="button button-primary button-medium pill-shape"
   defaultChecked={false}
   disabled={false}
   onClick={[Function]}
 >
   <span
-    className=""
+    className="button-text-medium"
   >
     Open modal
   </span>
@@ -83,13 +83,13 @@ exports[`Storyshots Modal Scrollable 1`] = `
 exports[`Storyshots Modal Small 1`] = `
 <button
   aria-disabled={false}
-  className="button button-primary pill-shape"
+  className="button button-primary button-medium pill-shape"
   defaultChecked={false}
   disabled={false}
   onClick={[Function]}
 >
   <span
-    className=""
+    className="button-text-medium"
   >
     Open modal
   </span>
@@ -99,13 +99,13 @@ exports[`Storyshots Modal Small 1`] = `
 exports[`Storyshots Modal X Large 1`] = `
 <button
   aria-disabled={false}
-  className="button button-primary pill-shape"
+  className="button button-primary button-medium pill-shape"
   defaultChecked={false}
   disabled={false}
   onClick={[Function]}
 >
   <span
-    className=""
+    className="button-text-medium"
   >
     Open modal
   </span>

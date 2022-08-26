@@ -82,6 +82,7 @@ exports[`Storyshots Slider Range Slider 1`] = `
         className="rail-marker"
       />
       <input
+        aria-disabled={false}
         aria-label="Slider"
         autoFocus={false}
         className="thumb"
@@ -96,6 +97,7 @@ exports[`Storyshots Slider Range Slider 1`] = `
         value={110}
       />
       <input
+        aria-disabled={false}
         aria-label="Slider"
         autoFocus={false}
         className="thumb"
@@ -186,6 +188,7 @@ exports[`Storyshots Slider Standard Slider 1`] = `
         className="rail-marker"
       />
       <input
+        aria-disabled={false}
         aria-label="Slider"
         autoFocus={true}
         className="thumb"

@@ -20,12 +20,10 @@ import { useDebounce } from '../../../hooks/useDebounce';
 import { mergeClasses, uniqueId } from '../../../shared/utilities';
 import { Breakpoints, useMatchMedia } from '../../../hooks/useMatchMedia';
 import { FormItemInputContext } from '../../Form/Context';
-import {
-    getMergedStatus,
-    getStatusClassNames,
-} from '../../../shared/utilities';
+import { getMergedStatus } from '../../../shared/utilities';
 
 import styles from '../input.module.scss';
+import { ValidateStatus } from '../../Form/FormItem';
 
 export const TextArea: FC<TextAreaProps> = React.forwardRef(
     (
@@ -82,6 +80,19 @@ export const TextArea: FC<TextAreaProps> = React.forwardRef(
         const contextuallyShaped: ShapeType = useContext(ShapeContext);
         const mergedShape = contextuallyShaped || shape;
 
+        const getStatusClassNames = (
+            status?: ValidateStatus,
+            hasFeedback?: boolean
+        ): string => {
+            return mergeClasses({
+                [styles.statusSuccess]: status === 'success',
+                [styles.statusWarning]: status === 'warning',
+                [styles.statusError]: status === 'error',
+                [styles.statusValidating]: status === 'validating',
+                [styles.hasFeedback]: hasFeedback,
+            });
+        };
+
         const textAreaClassNames: string = mergeClasses([
             classNames,
             styles.textArea,
@@ -103,6 +114,7 @@ export const TextArea: FC<TextAreaProps> = React.forwardRef(
             {
                 [styles.inline]: inline,
             },
+            getStatusClassNames(mergedStatus),
         ]);
 
         const textAreaWrapperClassNames: string = mergeClasses([

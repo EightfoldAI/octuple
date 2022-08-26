@@ -101,7 +101,7 @@ LoadedCheerio {
             "next": Node {
               "attribs": Object {
                 "class": "picker-active-bar",
-                "style": "left: 0px; width: 0px; position: absolute;",
+                "style": "left: 8px; width: -8px; position: absolute;",
               },
               "children": Array [],
               "name": "div",
@@ -277,7 +277,7 @@ LoadedCheerio {
           "next": Node {
             "attribs": Object {
               "class": "picker-active-bar",
-              "style": "left: 0px; width: 0px; position: absolute;",
+              "style": "left: 8px; width: -8px; position: absolute;",
             },
             "children": Array [],
             "name": "div",
@@ -476,7 +476,7 @@ LoadedCheerio {
         "next": Node {
           "attribs": Object {
             "class": "picker-active-bar",
-            "style": "left: 0px; width: 0px; position: absolute;",
+            "style": "left: 8px; width: -8px; position: absolute;",
           },
           "children": Array [],
           "name": "div",
@@ -652,7 +652,7 @@ LoadedCheerio {
       Node {
         "attribs": Object {
           "class": "picker-active-bar",
-          "style": "left: 0px; width: 0px; position: absolute;",
+          "style": "left: 8px; width: -8px; position: absolute;",
         },
         "children": Array [],
         "name": "div",
@@ -930,7 +930,7 @@ LoadedCheerio {
         "prev": Node {
           "attribs": Object {
             "class": "picker-active-bar",
-            "style": "left: 0px; width: 0px; position: absolute;",
+            "style": "left: 8px; width: -8px; position: absolute;",
           },
           "children": Array [],
           "name": "div",
@@ -1136,7 +1136,7 @@ LoadedCheerio {
           "prev": Node {
             "attribs": Object {
               "class": "picker-active-bar",
-              "style": "left: 0px; width: 0px; position: absolute;",
+              "style": "left: 8px; width: -8px; position: absolute;",
             },
             "children": Array [],
             "name": "div",
@@ -1500,7 +1500,7 @@ LoadedCheerio {
             "next": Node {
               "attribs": Object {
                 "class": "picker-active-bar",
-                "style": "right: 0px; width: 0px; position: absolute;",
+                "style": "right: 8px; width: -8px; position: absolute;",
               },
               "children": Array [],
               "name": "div",
@@ -1604,7 +1604,7 @@ LoadedCheerio {
           "next": Node {
             "attribs": Object {
               "class": "picker-active-bar",
-              "style": "right: 0px; width: 0px; position: absolute;",
+              "style": "right: 8px; width: -8px; position: absolute;",
             },
             "children": Array [],
             "name": "div",
@@ -1731,7 +1731,7 @@ LoadedCheerio {
         "next": Node {
           "attribs": Object {
             "class": "picker-active-bar",
-            "style": "right: 0px; width: 0px; position: absolute;",
+            "style": "right: 8px; width: -8px; position: absolute;",
           },
           "children": Array [],
           "name": "div",
@@ -1835,7 +1835,7 @@ LoadedCheerio {
       Node {
         "attribs": Object {
           "class": "picker-active-bar",
-          "style": "right: 0px; width: 0px; position: absolute;",
+          "style": "right: 8px; width: -8px; position: absolute;",
         },
         "children": Array [],
         "name": "div",
@@ -2183,7 +2183,7 @@ LoadedCheerio {
             "next": Node {
               "attribs": Object {
                 "class": "picker-active-bar",
-                "style": "left: 0px; width: 0px; position: absolute;",
+                "style": "left: 8px; width: -8px; position: absolute;",
               },
               "children": Array [],
               "name": "div",
@@ -2287,7 +2287,7 @@ LoadedCheerio {
           "next": Node {
             "attribs": Object {
               "class": "picker-active-bar",
-              "style": "left: 0px; width: 0px; position: absolute;",
+              "style": "left: 8px; width: -8px; position: absolute;",
             },
             "children": Array [],
             "name": "div",
@@ -2414,7 +2414,7 @@ LoadedCheerio {
         "next": Node {
           "attribs": Object {
             "class": "picker-active-bar",
-            "style": "left: 0px; width: 0px; position: absolute;",
+            "style": "left: 8px; width: -8px; position: absolute;",
           },
           "children": Array [],
           "name": "div",
@@ -2518,7 +2518,7 @@ LoadedCheerio {
       Node {
         "attribs": Object {
           "class": "picker-active-bar",
-          "style": "left: 0px; width: 0px; position: absolute;",
+          "style": "left: 8px; width: -8px; position: absolute;",
         },
         "children": Array [],
         "name": "div",
@@ -3327,7 +3327,7 @@ LoadedCheerio {
                   "next": Node {
                     "attribs": Object {
                       "class": "picker-active-bar",
-                      "style": "left: 0px; width: 0px; position: absolute;",
+                      "style": "left: 8px; width: -8px; position: absolute;",
                     },
                     "children": Array [],
                     "name": "div",
@@ -3431,7 +3431,7 @@ LoadedCheerio {
                 "next": Node {
                   "attribs": Object {
                     "class": "picker-active-bar",
-                    "style": "left: 0px; width: 0px; position: absolute;",
+                    "style": "left: 8px; width: -8px; position: absolute;",
                   },
                   "children": Array [],
                   "name": "div",
@@ -3558,7 +3558,7 @@ LoadedCheerio {
               "next": Node {
                 "attribs": Object {
                   "class": "picker-active-bar",
-                  "style": "left: 0px; width: 0px; position: absolute;",
+                  "style": "left: 8px; width: -8px; position: absolute;",
                 },
                 "children": Array [],
                 "name": "div",
@@ -3662,7 +3662,7 @@ LoadedCheerio {
             Node {
               "attribs": Object {
                 "class": "picker-active-bar",
-                "style": "left: 0px; width: 0px; position: absolute;",
+                "style": "left: 8px; width: -8px; position: absolute;",
               },
               "children": Array [],
               "name": "div",
@@ -3922,7 +3922,7 @@ LoadedCheerio {
               "next": Node {
                 "attribs": Object {
                   "class": "picker-active-bar",
-                  "style": "left: 0px; width: 0px; position: absolute;",
+                  "style": "left: 8px; width: -8px; position: absolute;",
                 },
                 "children": Array [],
                 "name": "div",
@@ -4026,7 +4026,7 @@ LoadedCheerio {
             "next": Node {
               "attribs": Object {
                 "class": "picker-active-bar",
-                "style": "left: 0px; width: 0px; position: absolute;",
+                "style": "left: 8px; width: -8px; position: absolute;",
               },
               "children": Array [],
               "name": "div",
@@ -4153,7 +4153,7 @@ LoadedCheerio {
           "next": Node {
             "attribs": Object {
               "class": "picker-active-bar",
-              "style": "left: 0px; width: 0px; position: absolute;",
+              "style": "left: 8px; width: -8px; position: absolute;",
             },
             "children": Array [],
             "name": "div",
@@ -4257,7 +4257,7 @@ LoadedCheerio {
         Node {
           "attribs": Object {
             "class": "picker-active-bar",
-            "style": "left: 0px; width: 0px; position: absolute;",
+            "style": "left: 8px; width: -8px; position: absolute;",
           },
           "children": Array [],
           "name": "div",

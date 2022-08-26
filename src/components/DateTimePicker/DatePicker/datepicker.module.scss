@@ -19,12 +19,12 @@
     position: relative;
     transition: border $motion-duration-fast, box-shadow $motion-duration-fast;
 
-    &:hover:not(.picker-underline),
+    &:hover:not(.picker-disabled):not(.picker-underline),
     &-focused:not(.picker-underline) {
         @include hover();
     }
 
-    &-focused:not(.picker-underline) {
+    &-focused:not(.picker-disabled):not(.picker-underline) {
         @include active();
     }
 
@@ -45,6 +45,60 @@
 
     &-underline {
         border-color: transparent;
+    }
+
+    &-status-success.picker-underline {
+        div {
+            &:before {
+                border-color: var(--success-color);
+            }
+
+            &:after {
+                border-color: var(--success-color);
+            }
+
+            &:hover {
+                &:before {
+                    border-color: var(--success-color);
+                }
+            }
+        }
+    }
+
+    &-status-warning.picker-underline {
+        div {
+            &:before {
+                border-color: var(--warning-color);
+            }
+
+            &:after {
+                border-color: var(--warning-color);
+            }
+
+            &:hover {
+                &:before {
+                    border-color: var(--warning-color);
+                }
+            }
+        }
+    }
+
+    &-status-error.picker-underline {
+        div {
+            &:before {
+                border-color: var(--error-color);
+            }
+
+            &:after {
+                border-color: var(--error-color);
+            }
+
+            &:hover {
+                &:before {
+                    border-color: var(--error-color);
+                }
+            }
+        }
     }
 
     &-separator {

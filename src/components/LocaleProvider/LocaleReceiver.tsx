@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { JSXElementConstructor, ReactElement, ReactNode } from 'react';
 import type { Locale } from '.';
 import type { LocaleContextProps } from './Context';
 import LocaleContext from './Context';
@@ -52,6 +52,15 @@ export default class LocaleReceiver<
 
         return localeCode;
     }
+
+    // render() {
+    //     const { children }  = this.props;
+    //     return () => {children(
+    //         this.getLocale(),
+    //         this.getLocaleCode(),
+    //         this.context
+    //     )};
+    // }
 
     render() {
         return this.props.children(

@@ -76,7 +76,9 @@ const InternalForm: React.ForwardRefRenderFunction<FormInstance, FormProps> = (
     const formClassNames: string = mergeClasses([
         styles.form,
         {
-            [(styles as any)[`form-${layout}`]]: true,
+            [styles.formHorizontal]: layout === 'horizontal',
+            [styles.formVertical]: layout === 'vertical',
+            [styles.formInline]: layout === 'inline',
             [styles.formHideRequiredMark]: requiredMark === false,
             [styles.formRtl]: htmlDir === 'rtl',
             [(styles as any)[`form-${size}`]]: size,

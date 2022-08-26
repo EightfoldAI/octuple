@@ -7,6 +7,7 @@ import {
     ButtonType,
 } from '../';
 import { mergeClasses } from '../../../shared/utilities';
+import { SizeType } from '../../ConfigProvider';
 
 import styles from '../button.module.scss';
 

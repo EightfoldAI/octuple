@@ -252,9 +252,9 @@
 
     &.disabled {
         input {
+            cursor: not-allowed;
             & + label {
                 opacity: $disabled-alpha-value;
-                cursor: not-allowed;
             }
         }
 

@@ -24,6 +24,8 @@ import { getRangePlaceholder, transPlacement2DropdownAlign } from '../util';
 import { Icon, IconName, IconSize } from '../../../Icon';
 import { dir, useCanvasDirection } from '../../../../hooks/useCanvasDirection';
 import { Breakpoints, useMatchMedia } from '../../../../hooks/useMatchMedia';
+import { FormItemInputContext } from '../../../Form/Context';
+import { getMergedStatus } from '../../../../shared/utilities';
 
 import styles from '../datepicker.module.scss';
 
@@ -66,6 +68,9 @@ export default function generateRangePicker<DateType>(
                 : {}),
         };
 
+        const { status: contextStatus } = useContext(FormItemInputContext);
+        const mergedStatus = getMergedStatus(contextStatus, status);
+
         const contextuallyDisabled: DisabledType = useContext(DisabledContext);
         const mergedDisabled: DisabledType | [boolean, boolean] =
             contextuallyDisabled || disabled;
@@ -99,9 +104,9 @@ export default function generateRangePicker<DateType>(
 
         const iconColor = (): string => {
             let color: string = 'var(--grey-color-60)';
-            if (status === 'error') {
+            if (mergedStatus === 'error') {
                 color = 'var(--error-color)';
-            } else if (status === 'warning') {
+            } else if (mergedStatus === 'warning') {
                 color = 'var(--warning-color)';
             }
             return color;
@@ -195,8 +200,15 @@ export default function generateRangePicker<DateType>(
                     { [styles.pickerBorderless]: !bordered },
                     { [styles.pickerUnderline]: mergedShape === 'underline' },
                     { [styles.pickerPill]: mergedShape === 'pill' },
-                    { [styles.pickerStatusWarning]: status === 'warning' },
-                    { [styles.pickerStatusError]: status === 'error' },
+                    {
+                        [styles.pickerStatusWarning]:
+                            mergedStatus === 'warning',
+                    },
+                    { [styles.pickerStatusError]: mergedStatus === 'error' },
+                    {
+                        [styles.pickerStatusSuccess]:
+                            mergedStatus === 'success',
+                    },
                     classNames,
                 ])}
                 locale={locale!.lang}

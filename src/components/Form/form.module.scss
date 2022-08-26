@@ -97,6 +97,8 @@
             overflow: unset;
             line-height: $text-line-height-3;
             white-space: unset;
+            word-wrap: break-word;
+            word-break: break-all;
         }
 
         > label {

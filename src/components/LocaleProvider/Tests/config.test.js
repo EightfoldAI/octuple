@@ -5,24 +5,13 @@ import { act } from 'react-dom/test-utils';
 import { sleep } from '../../../tests/Utilities';
 import { ConfigProvider } from '../../ConfigProvider';
 import zhCN from '../zh_CN';
+import enUS from '../en_US';
+import { fireEvent, render } from '@testing-library/react';
 
 Enzyme.configure({ adapter: new Adapter() });
 
-class Demo extends React.Component {
-    static defaultProps = {};
-
-    componentDidMount() {
-        if (this.props.type === 'dashboard') {
-        }
-    }
-
-    render() {
-        return <div>{this.props.type}</div>;
-    }
-}
-
 describe('Locale Provider demo', () => {
-    it('change type', async () => {
+    test('change type', async () => {
         jest.useFakeTimers();
 
         const BasicExample = () => {
@@ -40,36 +29,36 @@ describe('Locale Provider demo', () => {
                     </a>
                     <div>
                         {type === 'about' && (
-                            <ConfigProvider locale={zhCN}>
-                                <Demo type="about" />
+                            <ConfigProvider locale={enUS}>
+                                <span>Sure</span>
                             </ConfigProvider>
                         )}
                         {type === 'dashboard' && (
                             <ConfigProvider locale={zhCN}>
-                                <Demo type="dashboard" />
+                                <span>确 定</span>
                             </ConfigProvider>
                         )}
                     </div>
                 </div>
             );
         };
-        const wrapper = mount(<BasicExample />);
+        const { container } = render(<BasicExample />);
 
-        wrapper.find('.about').at(0).simulate('click');
+        fireEvent.click(container.querySelector('.about'));
         await act(async () => {
             jest.runAllTimers();
             await sleep();
         });
 
-        wrapper.find('.dashboard').at(0).simulate('click');
+        expect(container.querySelector('span').textContent).toBe('Sure');
+
+        fireEvent.click(container.querySelector('.dashboard'));
         await act(async () => {
             jest.runAllTimers();
             await sleep();
         });
 
-        expect(
-            document.body.querySelectorAll('.button span')[0].textContent
-        ).toBe('确 定');
+        expect(container.querySelector('span').textContent).toBe('确 定');
         jest.useRealTimers();
     });
 });

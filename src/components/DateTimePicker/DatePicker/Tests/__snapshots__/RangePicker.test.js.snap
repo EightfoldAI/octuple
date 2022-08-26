@@ -4,7 +4,7 @@ exports[`RangePicker customize separator 1`] = `
 LoadedCheerio {
   "0": Node {
     "attribs": Object {
-      "class": "picker picker-range picker-small",
+      "class": "picker picker-range picker-medium",
     },
     "children": Array [
       Node {
@@ -101,7 +101,7 @@ LoadedCheerio {
             "next": Node {
               "attribs": Object {
                 "class": "picker-active-bar",
-                "style": "left: 0px; width: 0px; position: absolute;",
+                "style": "left: 8px; width: -8px; position: absolute;",
               },
               "children": Array [],
               "name": "div",
@@ -121,14 +121,14 @@ LoadedCheerio {
                       Node {
                         "attribs": Object {
                           "role": "presentation",
-                          "style": "width: 14px; height: 14px;",
+                          "style": "width: 20px; height: 20px;",
                           "viewBox": "0 0 24 24",
                         },
                         "children": Array [
                           Node {
                             "attribs": Object {
                               "d": "M19,4H18V2H16V4H8V2H6V4H5C3.89,4 3,4.9 3,6V20A2,2 0 0,0 5,22H19A2,2 0 0,0 21,20V6A2,2 0 0,0 19,4M19,20H5V10H19V20M19,8H5V6H19V8Z",
-                              "style": "fill: #69717f;",
+                              "style": "fill: var(--grey-color-60);",
                             },
                             "children": Array [],
                             "name": "path",
@@ -294,7 +294,7 @@ LoadedCheerio {
           "next": Node {
             "attribs": Object {
               "class": "picker-active-bar",
-              "style": "left: 0px; width: 0px; position: absolute;",
+              "style": "left: 8px; width: -8px; position: absolute;",
             },
             "children": Array [],
             "name": "div",
@@ -314,14 +314,14 @@ LoadedCheerio {
                     Node {
                       "attribs": Object {
                         "role": "presentation",
-                        "style": "width: 14px; height: 14px;",
+                        "style": "width: 20px; height: 20px;",
                         "viewBox": "0 0 24 24",
                       },
                       "children": Array [
                         Node {
                           "attribs": Object {
                             "d": "M19,4H18V2H16V4H8V2H6V4H5C3.89,4 3,4.9 3,6V20A2,2 0 0,0 5,22H19A2,2 0 0,0 21,20V6A2,2 0 0,0 19,4M19,20H5V10H19V20M19,8H5V6H19V8Z",
-                            "style": "fill: #69717f;",
+                            "style": "fill: var(--grey-color-60);",
                           },
                           "children": Array [],
                           "name": "path",
@@ -510,7 +510,7 @@ LoadedCheerio {
         "next": Node {
           "attribs": Object {
             "class": "picker-active-bar",
-            "style": "left: 0px; width: 0px; position: absolute;",
+            "style": "left: 8px; width: -8px; position: absolute;",
           },
           "children": Array [],
           "name": "div",
@@ -530,14 +530,14 @@ LoadedCheerio {
                   Node {
                     "attribs": Object {
                       "role": "presentation",
-                      "style": "width: 14px; height: 14px;",
+                      "style": "width: 20px; height: 20px;",
                       "viewBox": "0 0 24 24",
                     },
                     "children": Array [
                       Node {
                         "attribs": Object {
                           "d": "M19,4H18V2H16V4H8V2H6V4H5C3.89,4 3,4.9 3,6V20A2,2 0 0,0 5,22H19A2,2 0 0,0 21,20V6A2,2 0 0,0 19,4M19,20H5V10H19V20M19,8H5V6H19V8Z",
-                          "style": "fill: #69717f;",
+                          "style": "fill: var(--grey-color-60);",
                         },
                         "children": Array [],
                         "name": "path",
@@ -703,7 +703,7 @@ LoadedCheerio {
       Node {
         "attribs": Object {
           "class": "picker-active-bar",
-          "style": "left: 0px; width: 0px; position: absolute;",
+          "style": "left: 8px; width: -8px; position: absolute;",
         },
         "children": Array [],
         "name": "div",
@@ -723,14 +723,14 @@ LoadedCheerio {
                 Node {
                   "attribs": Object {
                     "role": "presentation",
-                    "style": "width: 14px; height: 14px;",
+                    "style": "width: 20px; height: 20px;",
                     "viewBox": "0 0 24 24",
                   },
                   "children": Array [
                     Node {
                       "attribs": Object {
                         "d": "M19,4H18V2H16V4H8V2H6V4H5C3.89,4 3,4.9 3,6V20A2,2 0 0,0 5,22H19A2,2 0 0,0 21,20V6A2,2 0 0,0 19,4M19,20H5V10H19V20M19,8H5V6H19V8Z",
-                        "style": "fill: #69717f;",
+                        "style": "fill: var(--grey-color-60);",
                       },
                       "children": Array [],
                       "name": "path",
@@ -946,14 +946,14 @@ LoadedCheerio {
               Node {
                 "attribs": Object {
                   "role": "presentation",
-                  "style": "width: 14px; height: 14px;",
+                  "style": "width: 20px; height: 20px;",
                   "viewBox": "0 0 24 24",
                 },
                 "children": Array [
                   Node {
                     "attribs": Object {
                       "d": "M19,4H18V2H16V4H8V2H6V4H5C3.89,4 3,4.9 3,6V20A2,2 0 0,0 5,22H19A2,2 0 0,0 21,20V6A2,2 0 0,0 19,4M19,20H5V10H19V20M19,8H5V6H19V8Z",
-                      "style": "fill: #69717f;",
+                      "style": "fill: var(--grey-color-60);",
                     },
                     "children": Array [],
                     "name": "path",
@@ -1015,7 +1015,7 @@ LoadedCheerio {
         "prev": Node {
           "attribs": Object {
             "class": "picker-active-bar",
-            "style": "left: 0px; width: 0px; position: absolute;",
+            "style": "left: 8px; width: -8px; position: absolute;",
           },
           "children": Array [],
           "name": "div",

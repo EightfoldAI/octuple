@@ -12,7 +12,7 @@ exports[`Storyshots Pagination All Combined 1`] = `
       className="main-wrapper"
     >
       <button
-        aria-controls="dropdown-29"
+        aria-controls="dropdown-117"
         aria-disabled={false}
         aria-expanded={false}
         aria-haspopup={true}
@@ -191,7 +191,7 @@ exports[`Storyshots Pagination All Combined 1`] = `
     className="jump"
   >
     <div
-      className="input-wrapper left-icon"
+      className="input-wrapper input-medium left-icon"
     >
       <div
         className="input-group left-icon"
@@ -199,10 +199,10 @@ exports[`Storyshots Pagination All Combined 1`] = `
         <input
           aria-disabled={false}
           autoFocus={false}
-          className="editor pill-shape left-icon clear-not-visible"
+          className="editor input-medium pill-shape left-icon clear-not-visible"
           defaultValue={4}
           disabled={false}
-          id="input-30"
+          id="input-118"
           minLength={1}
           onChange={[Function]}
           readOnly={false}
@@ -533,7 +533,7 @@ exports[`Storyshots Pagination Change Page Size 1`] = `
       className="main-wrapper"
     >
       <button
-        aria-controls="dropdown-31"
+        aria-controls="dropdown-119"
         aria-disabled={false}
         aria-expanded={false}
         aria-haspopup={true}
@@ -955,7 +955,7 @@ exports[`Storyshots Pagination Jump To 1`] = `
     className="jump"
   >
     <div
-      className="input-wrapper left-icon"
+      className="input-wrapper input-medium left-icon"
     >
       <div
         className="input-group left-icon"
@@ -963,10 +963,10 @@ exports[`Storyshots Pagination Jump To 1`] = `
         <input
           aria-disabled={false}
           autoFocus={false}
-          className="editor pill-shape left-icon clear-not-visible"
+          className="editor input-medium pill-shape left-icon clear-not-visible"
           defaultValue={5}
           disabled={false}
-          id="input-32"
+          id="input-120"
           minLength={1}
           onChange={[Function]}
           readOnly={false}

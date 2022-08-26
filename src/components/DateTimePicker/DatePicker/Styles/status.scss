@@ -18,4 +18,13 @@
         border-color: var(--warning-color);
         color: var(--warning-color);
     }
+
+    &-status-success {
+        input {
+            @include placeholder(var(--success-color));
+        }
+
+        border-color: var(--success-color);
+        color: var(--success-color);
+    }
 }

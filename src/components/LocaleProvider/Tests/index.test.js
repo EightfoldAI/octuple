@@ -111,19 +111,19 @@ const App = () => (
         <Select
             options={[
                 {
-                    text: 'jack',
-                    value: 'jack',
+                    text: 'Mia',
+                    value: 'mia',
                 },
                 {
-                    text: 'lucy',
-                    value: 'lucy',
+                    text: 'Lola',
+                    value: 'lola',
                 },
             ]}
             style={{ width: 200 }}
         />
-        <DatePicker open />
-        <TimePicker open defaultOpenValue={dayjs()} />
-        <RangePicker open style={{ width: 200 }} />
+        <DatePicker />
+        <TimePicker defaultOpenValue={dayjs()} />
+        <RangePicker style={{ width: 200 }} />
         <Table dataSource={[]} columns={columns} />
         <Modal title={'Locale Modal'} visible body={<p>Locale Modal</p>} />
     </div>
@@ -158,7 +158,7 @@ describe('Locale Provider', () => {
         const Test = ({ locale }) => (
             <LocaleProvider locale={locale}>
                 <div>
-                    <DatePicker defaultValue={dayjs()} open />
+                    <DatePicker defaultValue={dayjs()} />
                 </div>
             </LocaleProvider>
         );

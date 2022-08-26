@@ -7,6 +7,7 @@ import {
     ButtonTextAlign,
     ButtonType,
 } from '../';
+import { SizeType } from '../../ConfigProvider';
 
 import styles from '../button.module.scss';
 

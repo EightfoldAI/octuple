@@ -29,6 +29,8 @@ import { getPlaceholder, transPlacement2DropdownAlign } from '../util';
 import { Icon, IconName, IconSize } from '../../../Icon';
 import { dir, useCanvasDirection } from '../../../../hooks/useCanvasDirection';
 import { Breakpoints, useMatchMedia } from '../../../../hooks/useMatchMedia';
+import { FormItemInputContext } from '../../../Form/Context';
+import { getMergedStatus } from '../../../../shared/utilities';
 
 import styles from '../datepicker.module.scss';
 
@@ -106,6 +108,9 @@ export default function generatePicker<DateType>(
                     : {}),
             };
 
+            const { status: contextStatus } = useContext(FormItemInputContext);
+            const mergedStatus = getMergedStatus(contextStatus, status);
+
             const contextuallyDisabled: DisabledType =
                 useContext(DisabledContext);
             const mergedDisabled: boolean = contextuallyDisabled || disabled;
@@ -142,31 +147,13 @@ export default function generatePicker<DateType>(
 
             const iconColor = (): string => {
                 let color: string = 'var(--grey-color-60)';
-                if (status === 'error') {
+                if (mergedStatus === 'error') {
                     color = 'var(--error-color)';
-                } else if (status === 'warning') {
+                } else if (mergedStatus === 'warning') {
                     color = 'var(--warning-color)';
                 }
                 return color;
             };
-
-            const suffixNode = (
-                <>
-                    {mergedPicker === 'time' ? (
-                        <Icon
-                            color={iconColor()}
-                            path={IconName.mdiClockOutline}
-                            size={pickerSizeToIconSizeMap.get(size)}
-                        />
-                    ) : (
-                        <Icon
-                            color={iconColor()}
-                            path={IconName.mdiCalendarBlankOutline}
-                            size={pickerSizeToIconSizeMap.get(size)}
-                        />
-                    )}
-                </>
-            );
 
             let locale: PickerLocale;
 
@@ -185,7 +172,21 @@ export default function generatePicker<DateType>(
                         locale,
                         placeholder
                     )}
-                    suffixIcon={suffixNode}
+                    suffixIcon={
+                        mergedPicker === 'time' ? (
+                            <Icon
+                                color={iconColor()}
+                                path={IconName.mdiClockOutline}
+                                size={pickerSizeToIconSizeMap.get(mergedSize)}
+                            />
+                        ) : (
+                            <Icon
+                                color={iconColor()}
+                                path={IconName.mdiCalendarBlankOutline}
+                                size={pickerSizeToIconSizeMap.get(mergedSize)}
+                            />
+                        )
+                    }
                     dropdownAlign={transPlacement2DropdownAlign(
                         htmlDir as dir,
                         popupPlacement
@@ -193,7 +194,7 @@ export default function generatePicker<DateType>(
                     clearIcon={
                         <Icon
                             path={IconName.mdiCloseCircle}
-                            size={pickerSizeToIconSizeMap.get(size)}
+                            size={pickerSizeToIconSizeMap.get(mergedSize)}
                         />
                     }
                     prevIcon={IconName.mdiChevronLeft}
@@ -232,8 +233,18 @@ export default function generatePicker<DateType>(
                                 mergedShape === 'underline',
                         },
                         { [styles.pickerPill]: mergedShape === 'pill' },
-                        { [styles.pickerStatusWarning]: status === 'warning' },
-                        { [styles.pickerStatusError]: status === 'error' },
+                        {
+                            [styles.pickerStatusWarning]:
+                                mergedStatus === 'warning',
+                        },
+                        {
+                            [styles.pickerStatusError]:
+                                mergedStatus === 'error',
+                        },
+                        {
+                            [styles.pickerStatusSuccess]:
+                                mergedStatus === 'success',
+                        },
                         classNames,
                     ])}
                     getPopupContainer={getPopupContainer}
