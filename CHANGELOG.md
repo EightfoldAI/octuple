@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.8.1](https://github.com/EightfoldAI/octuple/compare/v2.7.1...v2.8.1) (2022-08-26)
+
+### Features
+
+-   add selfControlled prop to Pagination for indication of outside page control ([#330](https://github.com/EightfoldAI/octuple/issues/330)) ([4ef4aec](https://github.com/EightfoldAI/octuple/commits/4ef4aece5cc14f2cce1fb38926bd206bd7025756))
+
+### Bug Fixes
+
+-   menuitem: add no wrap do long text doesnt wrap to next line ([#331](https://github.com/EightfoldAI/octuple/issues/331)) ([1df907c](https://github.com/EightfoldAI/octuple/commits/1df907c44fb66374fd5b8b48d873bc715a67a159))
+
 ## [2.8.0](https://github.com/EightfoldAI/octuple/compare/v2.7.1...v2.8.0) (2022-08-25)
 
 ### Features
