@@ -40,6 +40,8 @@ import { Dropdown } from './components/Dropdown';
 
 import { Empty, EmptyMode } from './components/Empty';
 
+import Form, { FormInstance } from './components/Form';
+
 import Grid, { Col, Row } from './components/Grid';
 
 import { Icon, IconName, IconSize } from './components/Icon';
@@ -157,6 +159,8 @@ export {
     ExpandableConfig,
     FilterConfirmProps,
     FilterValue,
+    Form,
+    FormInstance,
     Grid,
     Icon,
     IconName,
