@@ -245,6 +245,7 @@ const buttonArgs: Object = {
     text: 'Button',
     toggle: false,
     counter: 0,
+    loading: false,
 };
 
 Primary.args = {

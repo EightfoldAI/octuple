@@ -32,6 +32,7 @@ export const Panel = React.forwardRef<PanelRef, PanelProps>(
             autoFocus = true,
             bodyClassNames,
             bodyPadding = true,
+            headerPadding = true,
             children,
             closable = true,
             closeButtonProps,
@@ -57,6 +58,7 @@ export const Panel = React.forwardRef<PanelRef, PanelProps>(
             size = PanelSize.medium,
             visible = false,
             width,
+            panelHeader,
             ...rest
         },
         ref
@@ -78,6 +80,7 @@ export const Panel = React.forwardRef<PanelRef, PanelProps>(
         const panelClasses: string = mergeClasses([
             styles.panel,
             { [styles.noBodyPadding]: bodyPadding === false },
+            { [styles.noHeaderPadding]: headerPadding === false },
             panelClassNames,
             { [styles.right]: placement === 'right' },
             { [styles.left]: placement === 'left' },
@@ -116,7 +119,7 @@ export const Panel = React.forwardRef<PanelRef, PanelProps>(
             onVisibleChange?.(visible);
         }, [visible]);
 
-        const getHeader = (): JSX.Element => (
+        const getDefaultHeader = (): JSX.Element => (
             <div className={headerClasses}>
                 <div>
                     {headerButtonProps && (
@@ -150,6 +153,11 @@ export const Panel = React.forwardRef<PanelRef, PanelProps>(
                 </span>
             </div>
         );
+
+        const getHeader = (): JSX.Element => {
+            if (!!panelHeader) return panelHeader;
+            return getDefaultHeader();
+        };
 
         const getBody = (): JSX.Element => (
             <div className={bodyClasses}>{children}</div>

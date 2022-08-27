@@ -7,6 +7,7 @@ import { Flipped } from 'react-flip-toolkit';
 import { Icon } from '../../Icon';
 import { useConfig } from '../../ConfigProvider';
 import { Badge } from '../../Badge';
+import { Loader } from '../../Loader';
 
 import styles from '../tabs.module.scss';
 
@@ -20,6 +21,7 @@ export const Tab: FC<TabProps> = React.forwardRef(
             ariaLabel,
             badgeContent,
             classNames,
+            loading,
             ...rest
         },
         ref: Ref<HTMLButtonElement>
@@ -53,11 +55,15 @@ export const Tab: FC<TabProps> = React.forwardRef(
             );
 
         const getBadge = (): JSX.Element =>
-            !!badgeContent && (
+            !!badgeContent &&
+            !loading && (
                 <Badge active={isActive} classNames={styles.badge}>
                     {badgeContent}
                 </Badge>
             );
+
+        const getLoader = (): JSX.Element =>
+            loading && <Loader classNames={styles.loader} />;
 
         return (
             <button
@@ -74,6 +80,7 @@ export const Tab: FC<TabProps> = React.forwardRef(
                 {getLabel()}
                 {getTabIndicator()}
                 {getBadge()}
+                {getLoader()}
             </button>
         );
     }

@@ -584,7 +584,7 @@ const Non_Blocking_Story: ComponentStory<typeof Form> = (args) => {
     );
 };
 
-const Watch_Hooks_Story: ComponentStory<typeof Form> = (args) => {
+const Watch_Hooks_Story: ComponentStory<typeof Form> = () => {
     const [form] = Form.useForm<{ foo: string; bar: number }>();
     const fooValue = Form.useWatch('foo', form);
 
@@ -1089,7 +1089,7 @@ const Nest_Story: ComponentStory<typeof Form> = (args) => {
                         label={'Age'}
                         rules={[{ type: 'number', min: 0, max: 99 }]}
                     >
-                        {/* TODO: Fix Validation */}
+                        {/* TODO: Fix number Validation */}
                         <TextInput numbersOnly />
                     </Form.Item>
                     <Form.Item name={['user', 'website']} label={'Website'}>
@@ -1543,12 +1543,31 @@ const Control_Between_Forms_Story: ComponentStory<typeof Form> = () => {
                                     <ul style={{ listStyle: 'none' }}>
                                         {users.map((user, index) => (
                                             <li key={index}>
-                                                <Avatar
-                                                    iconProps={{
-                                                        path: IconName.mdiAccount,
-                                                    }}
-                                                />
-                                                {user.name} - {user.age}
+                                                <Stack
+                                                    direction={'horizontal'}
+                                                    gap={'xs'}
+                                                    style={{ marginBottom: 8 }}
+                                                >
+                                                    <Avatar
+                                                        fontSize={'18px'}
+                                                        iconProps={{
+                                                            path: IconName.mdiAccount,
+                                                        }}
+                                                        size={'40px'}
+                                                        style={{
+                                                            backgroundColor:
+                                                                'var(--accent-color-40)',
+                                                        }}
+                                                        type={'round'}
+                                                    />
+                                                    <span
+                                                        style={{
+                                                            lineHeight: '40px',
+                                                        }}
+                                                    >
+                                                        {user.name} - {user.age}
+                                                    </span>
+                                                </Stack>
                                             </li>
                                         ))}
                                     </ul>

@@ -16,6 +16,7 @@ import { Icon, IconSize } from '../Icon';
 import { Badge } from '../Badge';
 import { Breakpoints, useMatchMedia } from '../../hooks/useMatchMedia';
 import { mergeClasses } from '../../shared/utilities';
+import { Loader, LoaderSize } from '../Loader';
 
 import styles from './button.module.scss';
 
@@ -48,6 +49,7 @@ export const BaseButton: FC<InternalButtonProps> = React.forwardRef(
             text,
             toggle,
             type,
+            loading = false,
             ...rest
         },
         ref: Ref<HTMLButtonElement>
@@ -112,6 +114,7 @@ export const BaseButton: FC<InternalButtonProps> = React.forwardRef(
                     iconExists && alignIcon === ButtonIconAlign.Right,
             },
             { [styles.disabled]: allowDisabledFocus || mergedDisabled },
+            { [styles.loading]: loading },
         ]);
 
         const buttonTextClassNames: string = mergeClasses([
@@ -162,6 +165,32 @@ export const BaseButton: FC<InternalButtonProps> = React.forwardRef(
             return iconSize;
         };
 
+        const getLoaderSize = (): LoaderSize => {
+            let loaderSize: LoaderSize;
+            if (size === ButtonSize.Flex && largeScreenActive) {
+                loaderSize = LoaderSize.Small;
+            } else if (
+                size === ButtonSize.Flex &&
+                (mediumScreenActive || smallScreenActive)
+            ) {
+                loaderSize = LoaderSize.Medium;
+            } else if (size === ButtonSize.Flex && xSmallScreenActive) {
+                loaderSize = LoaderSize.Large;
+            } else if (size === ButtonSize.Large) {
+                loaderSize = LoaderSize.Large;
+            } else if (size === ButtonSize.Medium) {
+                loaderSize = LoaderSize.Medium;
+            } else if (size === ButtonSize.Small) {
+                loaderSize = LoaderSize.Small;
+            }
+            return loaderSize;
+        };
+
+        const getButtonLoader = (): JSX.Element =>
+            loading && (
+                <Loader classNames={styles.loader} size={getLoaderSize()} />
+            );
+
         const getButtonIcon = (): JSX.Element => (
             <Icon
                 {...iconProps}
@@ -188,11 +217,13 @@ export const BaseButton: FC<InternalButtonProps> = React.forwardRef(
                     ref={ref}
                     {...rest}
                     aria-checked={toggle ? !!checked : undefined}
-                    aria-disabled={mergedDisabled}
+                    aria-disabled={mergedDisabled || loading}
                     aria-label={ariaLabel}
                     aria-pressed={toggle ? !!checked : undefined}
                     defaultChecked={checked}
-                    disabled={!allowDisabledFocus && mergedDisabled}
+                    disabled={
+                        (!allowDisabledFocus && mergedDisabled) || loading
+                    }
                     className={buttonBaseClassNames}
                     id={id}
                     onClick={!allowDisabledFocus ? onClick : null}
@@ -200,7 +231,7 @@ export const BaseButton: FC<InternalButtonProps> = React.forwardRef(
                     type={htmlType}
                 >
                     {iconExists && !textExists && getButtonIcon()}
-                    {counterExists && !textExists && (
+                    {counterExists && !textExists && !loading && (
                         <Badge classNames={badgeClassNames}>{counter}</Badge>
                     )}
                     {iconExists && textExists && (
@@ -211,6 +242,7 @@ export const BaseButton: FC<InternalButtonProps> = React.forwardRef(
                     )}
                     {!iconExists &&
                         getButtonContent(buttonTextClassNames, text)}
+                    {getButtonLoader()}
                 </button>
                 {split && (
                     <SplitButton

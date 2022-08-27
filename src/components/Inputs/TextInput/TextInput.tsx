@@ -310,9 +310,7 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
         // Reference: https://reactjs.org/docs/legacy-event-pooling.html
         const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
             e.persist();
-            setInputValue(
-                numbersOnly ? parseInt(e.target.value, 10) : e.target.value
-            );
+            setInputValue(e.target.value);
             debouncedChange(e);
         };
 

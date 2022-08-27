@@ -9,7 +9,7 @@
         border: 1px solid var(--border-color);
         border-radius: $corner-radius-m;
         box-sizing: border-box;
-        color: var(--grey-color-60);
+        color: var(--text-primary-color);
         font-family: $octuple-font-family;
         font-size: $text-font-size-3;
         line-height: $text-line-height-1;
@@ -109,10 +109,6 @@
             svg {
                 color: var(--grey-color-80);
             }
-        }
-
-        &:hover {
-            color: var(--text-primary-color);
         }
 
         &:active ~ .icon-button {
@@ -316,7 +312,6 @@
 
         &:active {
             border-color: var(--grey-color-60);
-            color: var(--text-primary-color);
 
             &.underline {
                 border-color: transparent;
@@ -332,7 +327,6 @@
         }
 
         &:focus {
-            color: var(--text-primary-color);
             border-color: $focus-visible-shadow-color;
             transition: border-color $motion-duration-extra-fast
                 $motion-easing-easeinout;
@@ -914,7 +908,7 @@
         border: 1px solid var(--border-color);
         border-radius: $corner-radius-m;
         box-sizing: border-box;
-        color: var(--grey-color-60);
+        color: var(--text-primary-color);
         font-family: $octuple-font-family;
         font-size: $text-font-size-3;
         line-height: $text-line-height-4;
@@ -936,7 +930,6 @@
         }
 
         &:focus:not(.underline) {
-            color: var(--text-primary-color);
             border-color: $focus-visible-shadow-color;
             transition: border-color $motion-duration-extra-fast
                 $motion-easing-easeinout;

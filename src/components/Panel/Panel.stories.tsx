@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Stories } from '@storybook/addon-docs';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Panel, PanelSize } from './';
+import { PanelHeader } from './PanelHeader';
 import { IconName } from '../Icon';
 import { PrimaryButton } from '../Button';
 
@@ -373,11 +374,69 @@ const Header_Actions_Story: ComponentStory<typeof Panel> = (args) => {
 
 export const Header_Actions = Header_Actions_Story.bind({});
 
+const Panel_Header_Story: ComponentStory<typeof Panel> = (args) => {
+    const [visible, setVisible] = useState<boolean>(false);
+    return (
+        <>
+            <PrimaryButton
+                text={'Open panel'}
+                onClick={() => setVisible(true)}
+            />
+            <Panel
+                {...args}
+                footer={
+                    <div>
+                        <PrimaryButton
+                            text={'Close'}
+                            onClick={() => setVisible(false)}
+                        />
+                    </div>
+                }
+                visible={visible}
+                onClose={() => setVisible(false)}
+                panelHeader={
+                    <PanelHeader
+                        actionDefaultButtonProps={{
+                            iconProps: {
+                                path: IconName.mdiArrowLeftThick,
+                                color: 'var(--white-color)',
+                            },
+                            transparent: true,
+                            onClick: () => setVisible(false),
+                        }}
+                        actionButtonOneProps={{
+                            iconProps: {
+                                path: IconName.mdiNoodles,
+                                color: 'var(--white-color)',
+                            },
+                            transparent: true,
+                            onClick: () => setVisible(false),
+                        }}
+                        actionButtonTwoProps={{
+                            iconProps: {
+                                path: IconName.mdiArrowExpand,
+                                color: 'var(--white-color)',
+                            },
+                            transparent: true,
+                            onClick: () => setVisible(false),
+                        }}
+                        onClose={() => setVisible(false)}
+                        title={'Header'}
+                    />
+                }
+            />
+        </>
+    );
+};
+
+export const Panel_Header = Panel_Header_Story.bind({});
+
 const panelArgs: Object = {
     size: PanelSize.small,
     visible: false,
     closable: true,
     bodyPadding: true,
+    headerPadding: true,
     children: (
         <>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum
@@ -514,5 +573,12 @@ Header_Actions.args = {
     headerButtonProps: {
         iconProps: { path: IconName.mdiArrowLeftThick },
     },
+    size: PanelSize.medium,
+};
+
+Panel_Header.args = {
+    ...panelArgs,
+    bodyPadding: true,
+    headerPadding: false,
     size: PanelSize.medium,
 };

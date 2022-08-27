@@ -145,23 +145,26 @@ describe('Locale Provider', () => {
 
     locales.forEach((locale) => {
         test(`should display the text as ${locale.locale}`, () => {
-            const wrapper = mount(
+            const Test = () => (_, __) => {
                 <LocaleProvider locale={locale}>
                     <App />
-                </LocaleProvider>
-            );
+                </LocaleProvider>;
+            };
+            const wrapper = mount(<Test />);
             expect(wrapper.render()).toMatchSnapshot();
         });
     });
 
     test('set dayjs locale when locale changes', () => {
-        const Test = ({ locale }) => (
-            <LocaleProvider locale={locale}>
-                <div>
-                    <DatePicker defaultValue={dayjs()} />
-                </div>
-            </LocaleProvider>
-        );
+        const Test =
+            ({ locale }) =>
+            (_, __) => {
+                <LocaleProvider locale={locale}>
+                    <div>
+                        <DatePicker defaultValue={dayjs()} />
+                    </div>
+                </LocaleProvider>;
+            };
 
         const wrapper = mount(<Test />);
         wrapper.setProps({ locale: zhCN });

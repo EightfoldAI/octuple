@@ -71,6 +71,113 @@ exports[`Storyshots Tabs Default 1`] = `
 </div>
 `;
 
+exports[`Storyshots Tabs Default Loader 1`] = `
+<div>
+  <div
+    className="tab-wrap"
+    role="tablist"
+    style={Object {}}
+    value="tab1"
+  >
+    <button
+      aria-label="Tab 1"
+      aria-selected={true}
+      className="tab active"
+      onClick={[Function]}
+      role="tab"
+    >
+      <span
+        className="label"
+      >
+        Tab 1
+      </span>
+      <div
+        className="tab-indicator"
+        data-flip-config="{\\"translate\\":true,\\"scale\\":true,\\"opacity\\":true}"
+        data-flip-id="tabIndicator"
+        data-portal-key="portal"
+      />
+      <div
+        className="loader-container loader"
+      >
+        <div
+          className="dot small"
+        />
+        <div
+          className="dot small"
+        />
+        <div
+          className="dot small"
+        />
+      </div>
+    </button>
+    <button
+      aria-label="Tab 2"
+      aria-selected={false}
+      className="tab"
+      onClick={[Function]}
+      role="tab"
+    >
+      <span
+        className="label"
+      >
+        Tab 2
+      </span>
+      <span
+        className="badge badge"
+      >
+        2
+      </span>
+    </button>
+    <button
+      aria-label="Tab 3"
+      aria-selected={false}
+      className="tab"
+      onClick={[Function]}
+      role="tab"
+    >
+      <span
+        className="label"
+      >
+        Tab 3
+      </span>
+      <div
+        className="loader-container loader"
+      >
+        <div
+          className="dot small"
+        />
+        <div
+          className="dot small"
+        />
+        <div
+          className="dot small"
+        />
+      </div>
+    </button>
+    <button
+      aria-label="Tab 4"
+      aria-selected={false}
+      className="tab"
+      disabled={true}
+      onClick={[Function]}
+      role="tab"
+    >
+      <span
+        className="label"
+      >
+        Tab 4
+      </span>
+      <span
+        className="badge badge"
+      >
+        4
+      </span>
+    </button>
+  </div>
+</div>
+`;
+
 exports[`Storyshots Tabs Icon 1`] = `
 <div>
   <div

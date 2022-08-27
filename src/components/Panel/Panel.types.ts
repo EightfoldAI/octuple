@@ -16,7 +16,7 @@ export type PanelRef = {
 
 export type PanelPlacement = 'top' | 'right' | 'bottom' | 'left';
 
-type EventType =
+export type EventType =
     | React.KeyboardEvent<HTMLDivElement>
     | React.MouseEvent<HTMLDivElement | HTMLButtonElement>;
 
@@ -49,6 +49,11 @@ export interface PanelProps extends Omit<OcBaseProps<HTMLElement>, 'title'> {
      * @default true
      */
     bodyPadding?: boolean;
+    /**
+     * Enables header padding
+     * @default true
+     */
+    headerPadding?: boolean;
     /**
      * Content of the body
      */
@@ -159,4 +164,37 @@ export interface PanelProps extends Omit<OcBaseProps<HTMLElement>, 'title'> {
      * Custom zIndex for the panel
      */
     zIndex?: number;
+    /**
+     * Custom zIndex for the panel
+     */
+    panelHeader?: React.ReactElement;
+}
+
+export interface PanelHeaderProps {
+    /**
+     * Props for the default header action button
+     */
+    actionDefaultButtonProps?: ButtonProps;
+    /**
+     * Props for the first header action button
+     */
+    actionButtonOneProps?: ButtonProps;
+    /**
+     * Props for the second header action button
+     */
+    actionButtonTwoProps?: ButtonProps;
+    /**
+     * Close icon name
+     * @default IconName.mdiClose
+     */
+    closeIcon?: IconName;
+    /**
+     * Callback fired on close on the panel
+     * @param e {EventType}
+     */
+    onClose?: (e: EventType) => void;
+    /**
+     * The title of the panel
+     */
+    title?: string;
 }

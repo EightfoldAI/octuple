@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Loader Default 1`] = `
+<div
+  className="loader-container my-loader-class"
+>
+  <div
+    className="dot small"
+  />
+  <div
+    className="dot small"
+  />
+  <div
+    className="dot small"
+  />
+</div>
+`;

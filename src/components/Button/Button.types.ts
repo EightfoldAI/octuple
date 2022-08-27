@@ -203,4 +203,8 @@ export interface ButtonProps extends NativeButtonProps {
      * @default false
      */
     transparent?: boolean;
+    /**
+     * If the button is in loading state
+     */
+    loading?: boolean;
 }
