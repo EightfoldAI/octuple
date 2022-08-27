@@ -15,7 +15,7 @@ const AsyncValidator: any = RawAsyncValidator;
 
 /**
  * Replace with template.
- *   `I'm ${name}` + { name: 'bamboo' } = I'm bamboo
+ *   `I'm ${name}` + { name: 'mia' } = I'm mia
  */
 function replaceMessage(template: string, kv: Record<string, string>): string {
     return template.replace(/\$\{\w+\}/g, (str: string) => {
@@ -33,6 +33,7 @@ async function validateRule(
     options: OcValidateOptions,
     messageVariables?: Record<string, string>
 ): Promise<string[]> {
+    if (rule.type === 'number') value = Number(value);
     const cloneRule = { ...rule };
 
     delete (cloneRule as any).ruleIndex;
@@ -200,7 +201,7 @@ export function validateRules(
                 { warningOnly: w2, ruleIndex: i2 }
             ) => {
                 if (!!w1 === !!w2) {
-                    // Let keep origin order
+                    // Keep origin order
                     return i1 - i2;
                 }
 

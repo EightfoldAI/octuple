@@ -1089,7 +1089,6 @@ const Nest_Story: ComponentStory<typeof Form> = (args) => {
                         label={'Age'}
                         rules={[{ type: 'number', min: 0, max: 99 }]}
                     >
-                        {/* TODO: Fix number Validation */}
                         <TextInput numbersOnly />
                     </Form.Item>
                     <Form.Item name={['user', 'website']} label={'Website'}>
