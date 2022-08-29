@@ -5,7 +5,7 @@ import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import { act } from 'react-dom/test-utils';
 import OcForm, { OcField, useForm } from '../';
 import InfoField, { Input } from './Common/InfoField';
-import { changeValue, matchError, getField } from './common';
+import { changeValue, matchError, getField } from './Common';
 import timeout from './Common/timeout';
 import { OcFormInstance, ValidateMessages } from '../OcForm.types';
 

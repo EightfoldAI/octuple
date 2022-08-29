@@ -4,7 +4,7 @@ import Enzyme, { mount } from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import OcForm from '../';
 import InfoField, { Input } from './Common/InfoField';
-import { changeValue, matchError } from './common';
+import { changeValue, matchError } from './Common';
 import type { OcFormInstance, OcRule } from '../OcForm.types';
 
 Enzyme.configure({ adapter: new Adapter() });

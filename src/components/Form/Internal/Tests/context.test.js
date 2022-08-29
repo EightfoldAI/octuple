@@ -3,7 +3,7 @@ import Enzyme, { mount } from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import OcForm, { OcFormProvider } from '../';
 import InfoField from './Common/InfoField';
-import { changeValue, matchError, getField } from './common';
+import { changeValue, matchError, getField } from './Common';
 import timeout from './Common/timeout';
 
 Enzyme.configure({ adapter: new Adapter() });

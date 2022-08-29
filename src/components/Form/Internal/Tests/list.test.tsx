@@ -14,7 +14,7 @@ import type {
 } from '../OcForm.types';
 import OcListContext from '../OcListContext';
 import { Input } from './Common/InfoField';
-import { changeValue, getField } from './common';
+import { changeValue, getField } from './Common';
 import timeout from './Common/timeout';
 
 Enzyme.configure({ adapter: new Adapter() });
