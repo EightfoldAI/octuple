@@ -206,7 +206,7 @@
         font-size: $text-font-size-2;
         text-align: center;
         visibility: visible;
-        animation: zoomIn $motion-duration-fast ease-out-back;
+        animation: zoomIn $motion-duration-fast $motion-ease-out-back;
         pointer-events: none;
 
         &-success {
