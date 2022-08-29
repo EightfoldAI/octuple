@@ -1033,15 +1033,15 @@
     }
 
     &-small &-suffix {
-        margin: 0 ($space-xxs / 2);
+        margin: 0 calc($space-xxs / 2);
     }
 
     &-medium &-suffix {
-        margin: 0 ($space-m / 2);
+        margin: 0 calc($space-m / 2);
     }
 
     &-large &-suffix {
-        margin: 0 ($space-l / 2);
+        margin: 0 calc($space-l / 2);
     }
 
     &-clear {
@@ -1088,14 +1088,14 @@
         &-placement-topLeft,
         &-placement-topRight {
             .picker-range-arrow {
-                bottom: $picker-arrow-size / 2 + 1px;
+                bottom: calc($picker-arrow-size / 2) + 1px;
                 transform: rotate(135deg);
             }
         }
         &-placement-bottomLeft,
         &-placement-bottomright {
             .picker-range-arrow {
-                top: $picker-arrow-size / 2 + 1px;
+                top: calc($picker-arrow-size / 2) + 1px;
                 transform: rotate(-45deg);
             }
         }
@@ -1135,7 +1135,8 @@
             &:before {
                 width: $picker-arrow-size;
                 height: $picker-arrow-size;
-                border: $picker-arrow-size / 2 solid $picker-border-color-active;
+                border: calc($picker-arrow-size / 2) solid
+                    $picker-border-color-active;
                 border-color: $picker-border-color-active
                     $picker-border-color-active transparent transparent;
             }
@@ -1143,7 +1144,7 @@
             &:after {
                 width: $picker-arrow-size - 2px;
                 height: $picker-arrow-size - 2px;
-                border: ($picker-arrow-size - 2px) / 2 solid
+                border: calc(calc($picker-arrow-size - 2px) / 2) solid
                     $picker-border-color-active;
                 border-color: $picker-background-color $picker-background-color
                     transparent transparent;
@@ -1251,7 +1252,8 @@
 
     &-placement-bottomLeft {
         .picker-range-arrow {
-            top: ($picker-arrow-size / 2) - ($picker-arrow-size / 3) + 0.7px;
+            top: calc($picker-arrow-size / 2) - calc($picker-arrow-size / 3) +
+                0.7px;
             display: block;
             transform: rotate(-135deg) translateY(1px);
         }
@@ -1259,7 +1261,8 @@
 
     &-placement-topLeft {
         .picker-range-arrow {
-            bottom: ($picker-arrow-size / 2) - ($picker-arrow-size / 3) + 0.7px;
+            bottom: calc($picker-arrow-size / 2) - calc($picker-arrow-size / 3) +
+                0.7px;
             display: block;
             transform: rotate(45deg);
         }

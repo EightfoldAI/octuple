@@ -4,8 +4,8 @@ import Enzyme, { mount } from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import type { OcFormInstance } from '../';
 import Form from '../';
-import InfoField, { Input } from './common/InfoField';
-import timeout from './common/timeout';
+import InfoField, { Input } from './Common/InfoField';
+import timeout from './Common/timeout';
 
 Enzyme.configure({ adapter: new Adapter() });
 

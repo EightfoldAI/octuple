@@ -2,8 +2,8 @@ import React from 'react';
 import Enzyme, { mount } from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import OcForm, { OcField } from '../';
-import timeout from './common/timeout';
-import InfoField, { Input } from './common/InfoField';
+import timeout from './Common/timeout';
+import InfoField, { Input } from './Common/InfoField';
 import { changeValue, matchError, getField } from './common';
 
 Enzyme.configure({ adapter: new Adapter() });

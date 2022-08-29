@@ -2,7 +2,7 @@ import React from 'react';
 import Enzyme, { mount } from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import OcForm from '../';
-import InfoField, { Input } from './common/InfoField';
+import InfoField, { Input } from './Common/InfoField';
 import { changeValue } from './common';
 
 Enzyme.configure({ adapter: new Adapter() });

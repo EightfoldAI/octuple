@@ -4,9 +4,9 @@ import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import type { OcFormInstance } from '../';
 import { OcList } from '../';
 import OcForm, { OcField } from '../';
-import timeout from './common/timeout';
+import timeout from './Common/timeout';
 import { act } from 'react-dom/test-utils';
-import { Input } from './common/InfoField';
+import { Input } from './Common/InfoField';
 import { stringify } from '../useWatch';
 
 Enzyme.configure({ adapter: new Adapter() });

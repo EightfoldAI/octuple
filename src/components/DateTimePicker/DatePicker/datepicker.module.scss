@@ -181,7 +181,7 @@
     }
 
     &-dropdown-range {
-        padding: ($picker-arrow-size * 2 / 3) 0;
+        padding: calc($picker-arrow-size * 2 / 3) 0;
 
         &-hidden {
             display: none;
@@ -189,15 +189,15 @@
     }
 
     &-partial > &-time-partial {
-        padding-top: ($space-xs / 2);
+        padding-top: calc($space-xs / 2);
     }
 
     &-ranges {
         margin-bottom: 0;
-        padding: ($space-xs / 2) $space-s;
+        padding: calc($space-xs / 2) $space-s;
         overflow: hidden;
         line-height: $picker-line-height-m - 2 * $picker-border-width -
-            ($space-xs / 2);
+            calc($space-xs / 2);
         text-align: left;
         list-style: none;
 
@@ -221,17 +221,17 @@
 
     &-large &-ranges {
         line-height: $picker-line-height-l - 2 * $picker-border-width -
-            ($space-xs / 2);
+            calc($space-xs / 2);
     }
 
     &-medium &-ranges {
         line-height: $picker-line-height-m - 2 * $picker-border-width -
-            ($space-xs / 2);
+            calc($space-xs / 2);
     }
 
     &-small &-ranges {
         line-height: $picker-line-height-s - 2 * $picker-border-width -
-            ($space-xs / 2);
+            calc($space-xs / 2);
     }
 
     &-large {

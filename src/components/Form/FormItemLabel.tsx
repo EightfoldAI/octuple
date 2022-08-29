@@ -4,7 +4,7 @@ import type { ColProps } from '../Grid';
 import { Col } from '../Grid';
 import { useLocaleReceiver } from '../LocaleProvider/LocaleReceiver';
 import defaultLocale from '../Locale/Default';
-import type { TooltipProps } from '../tooltip';
+import type { TooltipProps } from '../Tooltip';
 import { Tooltip } from '../Tooltip';
 import type { FormContextProps } from './Context';
 import { FormContext } from './Context';
