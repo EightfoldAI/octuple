@@ -17,7 +17,7 @@
         .col#{$class}-push-#{$index} {
             // reset property in RTL direction
             &.col-rtl {
-                right: percentage(($index / $grid-columns));
+                right: percentage(calc($index / $grid-columns));
                 left: auto;
             }
         }
@@ -26,14 +26,14 @@
             // reset property in RTL direction
             &.col-rtl {
                 right: auto;
-                left: percentage(($index / $grid-columns));
+                left: percentage(calc($index / $grid-columns));
             }
         }
 
         .col#{$class}-offset-#{$index} {
             // reset property in RTL direction
             &.col-rtl {
-                margin-right: percentage(($index / $grid-columns));
+                margin-right: percentage(calc($index / $grid-columns));
                 margin-left: 0;
             }
         }

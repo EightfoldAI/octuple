@@ -128,7 +128,7 @@
                 width: $layout-zero-trigger-width;
                 height: $layout-zero-trigger-height;
                 color: $layout-trigger-color;
-                font-size: ($layout-zero-trigger-width / 2);
+                font-size: calc($layout-zero-trigger-width / 2);
                 line-height: $layout-zero-trigger-height;
                 text-align: center;
                 background: var(--primary-color);
