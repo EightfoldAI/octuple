@@ -13,7 +13,7 @@ import { CheckBox } from '../../CheckBox';
 import DatePicker from '../../DateTimePicker/DatePicker';
 import { Modal } from '../../Modal';
 import { ConfigProvider } from '../../ConfigProvider';
-import zhCN from '../../locale/zh_CN';
+import zhCN from '../../Locale/zh_CN';
 import { sleep } from '../../../tests/Utilities';
 import { fireEvent, render } from '@testing-library/react';
 import 'jest-specific-snapshot';
