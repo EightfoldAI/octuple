@@ -42,7 +42,6 @@ export const Modal: FC<ModalProps> = React.forwardRef(
 
         const headerClasses: string = mergeClasses([
             styles.header,
-            'header4',
             headerClassNames,
         ]);
 
