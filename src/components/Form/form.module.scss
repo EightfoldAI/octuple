@@ -162,7 +162,7 @@
         flex-direction: column;
         flex-grow: 1;
 
-        &:first-child:not([class="'col-'"]):not([class="' col-'"]) {
+        &:first-child:not([class^='col-']):not([class*=' col-']) {
             width: 100%;
         }
     }
@@ -185,8 +185,10 @@
         color: var(--text-secondary-color);
         font-size: $text-font-size-2;
         line-height: $text-line-height-3;
-        transition: color $motion-duration-fast ease-out;
-        @include explainAndExtraDistance(($space-l - $text-line-height-3) / 2);
+        transition: color $motion-duration-fast $motion-easing-easeout;
+        @include explainAndExtraDistance(
+            calc(($space-l - $text-line-height-3) / 2)
+        );
     }
 
     &-explain-connected {
@@ -228,7 +230,7 @@
 }
 
 .form-show-help {
-    transition: opacity $motion-duration-fast ease-in-out;
+    transition: opacity $motion-duration-fast $motion-easing-easeinout;
 
     &-appear,
     &-enter {
@@ -250,9 +252,9 @@
 
 .form-show-help-item {
     overflow: hidden;
-    transition: height $motion-duration-fast ease-in-out,
-        opacity $motion-duration-fast ease-in-out,
-        transform $motion-duration-fast ease-in-out !important;
+    transition: height $motion-duration-fast $motion-easing-easeinout,
+        opacity $motion-duration-fast $motion-easing-easeinout,
+        transform $motion-duration-fast $motion-easing-easeinout !important;
 
     &-appear,
     &-enter {
@@ -266,9 +268,9 @@
     }
 
     &-leave {
-        transition: height $motion-duration-fast ease-in-out,
-            opacity $motion-duration-fast ease-in-out,
-            transform $motion-duration-fast ease-in-out !important;
+        transition: height $motion-duration-fast $motion-easing-easeinout,
+            opacity $motion-duration-fast $motion-easing-easeinout,
+            transform $motion-duration-fast $motion-easing-easeinout !important;
     }
 
     &-leave-active {
