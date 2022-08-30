@@ -7,7 +7,7 @@ import {
     uniqueId,
 } from '../../../shared/utilities';
 import { IconName } from '../../Icon';
-import { NeutralButton } from '../../Button';
+import { ButtonShape, NeutralButton } from '../../Button';
 import { useScrollLock } from '../../../hooks/useScrollLock';
 
 import styles from './base-dialog.module.scss';
@@ -114,8 +114,8 @@ export const BaseDialog: FC<BaseDialogProps> = React.forwardRef(
                         <span id={labelId}>
                             {headerButtonProps && (
                                 <NeutralButton
-                                    ariaLabel={'Back'}
                                     classNames={styles.headerButton}
+                                    shape={ButtonShape.Round}
                                     iconProps={{ path: headerIcon }}
                                     {...headerButtonProps}
                                 />
@@ -136,6 +136,7 @@ export const BaseDialog: FC<BaseDialogProps> = React.forwardRef(
                                 <NeutralButton
                                     ariaLabel={'Close'}
                                     iconProps={{ path: closeIcon }}
+                                    shape={ButtonShape.Round}
                                     onClick={onClose}
                                     {...closeButtonProps}
                                 />
