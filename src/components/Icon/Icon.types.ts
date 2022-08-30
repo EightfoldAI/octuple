@@ -35,6 +35,10 @@ export interface IconProps
      */
     horizontal?: boolean;
     /**
+     * Style of the icon wrapper
+     */
+    style?: React.CSSProperties;
+    /**
      * The icon id.
      */
     id?: string;

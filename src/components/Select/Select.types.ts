@@ -24,7 +24,7 @@ export interface SelectOption extends MenuItemButtonProps {
     id?: string;
 }
 
-export interface SelectProps extends OcBaseProps<HTMLSelectElement> {
+export interface SelectProps extends OcBaseProps<HTMLDivElement> {
     /**
      * Default Value
      * @default ''
@@ -60,6 +60,11 @@ export interface SelectProps extends OcBaseProps<HTMLSelectElement> {
      * @default false
      */
     multiple?: boolean;
+
+    /**
+     * Callback called when the clear button is clicked
+     */
+    onClear?: () => void;
 
     /**
      * Callback called when options are selected/unselected

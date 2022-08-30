@@ -1,4 +1,4 @@
-import React, { HTMLAttributes } from 'react';
+import React, { HTMLAttributes, Ref } from 'react';
 
 export interface OcBaseProps<T> extends HTMLAttributes<T> {
     /**
@@ -9,4 +9,8 @@ export interface OcBaseProps<T> extends HTMLAttributes<T> {
      * Unique id used to target element for testing
      */
     'data-test-id'?: string;
+    /**
+     * The component ref
+     */
+    ref?: Ref<T>;
 }

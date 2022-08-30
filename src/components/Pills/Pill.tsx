@@ -9,6 +9,7 @@ import { ButtonSize, DefaultButton } from '../Button';
 export const Pill: FC<PillProps> = React.forwardRef(
     (
         {
+            classNames,
             color,
             label,
             iconProps,
@@ -19,6 +20,7 @@ export const Pill: FC<PillProps> = React.forwardRef(
             pillButtonProps,
             type = PillType.default,
             size = PillSize.Large,
+            style,
             ...rest
         },
         ref: Ref<HTMLDivElement>
@@ -43,7 +45,7 @@ export const Pill: FC<PillProps> = React.forwardRef(
         ]);
         const tagClassName: string = mergeClasses([
             styles.tagPills,
-            rest.classNames,
+            classNames,
             { [styles.red]: theme === 'red' },
             { [styles.redOrange]: theme === 'redOrange' },
             { [styles.orange]: theme === 'orange' },
@@ -59,7 +61,12 @@ export const Pill: FC<PillProps> = React.forwardRef(
             { [styles.xsmall]: size === PillSize.XSmall },
         ]);
         return (
-            <div {...rest} className={tagClassName} style={{ color }} ref={ref}>
+            <div
+                {...rest}
+                className={tagClassName}
+                style={{ ...style, color }}
+                ref={ref}
+            >
                 {iconProps && (
                     <Icon
                         {...iconProps}

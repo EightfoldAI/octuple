@@ -81,4 +81,12 @@ export interface DropdownProps {
      * @param event
      */
     onClickOutside?: (event: MouseEvent) => void;
+    /**
+     * Manually control the width of the dropdown
+     */
+    width?: number;
+    /**
+     * Manually control the height of the dropdown
+     */
+    height?: number;
 }
