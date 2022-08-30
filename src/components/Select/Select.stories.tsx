@@ -9,7 +9,6 @@ import {
     SelectSize,
 } from './Select.types';
 import { Stories } from '@storybook/addon-docs';
-import { TextInputWidth } from '../Inputs';
 
 const defaultOptions: SelectOption[] = [
     {

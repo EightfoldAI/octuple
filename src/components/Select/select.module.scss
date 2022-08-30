@@ -2,7 +2,9 @@
     font-family: $octuple-font-family;
     position: relative;
     width: 100%;
-    min-width: 256px; // The minimum width required to ensure multi-select pills have enough room for 1 pill + the count
+
+    // The minimum width required to ensure multi-select pills have enough room for 1 pill + the count
+    min-width: 256px;
 
     .select-dropdown-overlay {
         padding: 0;
