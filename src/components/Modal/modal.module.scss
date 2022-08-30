@@ -46,9 +46,11 @@
     }
 
     .header {
+        @include octuple-h4();
         display: flex;
         flex-direction: row;
         margin-bottom: $space-ml;
+        padding: 0;
     }
 
     .body {
