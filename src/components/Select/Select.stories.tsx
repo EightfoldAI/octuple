@@ -108,7 +108,7 @@ export default {
 } as ComponentMeta<typeof Select>;
 
 const Wrapper: FC<SelectProps> = ({ children }) => {
-    return <div>{children}</div>;
+    return <div style={{ marginTop: 80 }}>{children}</div>;
 };
 
 const DynamicSelect: FC<SelectProps> = (args) => {
