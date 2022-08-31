@@ -1,7 +1,7 @@
 import { OcBaseProps } from '../OcBase';
 import { IconProps } from '../Icon';
 
-interface AccordionBaseProps extends OcBaseProps<HTMLSpanElement> {
+interface AccordionBaseProps extends OcBaseProps<HTMLDivElement> {
     /**
      * Accordion is in an expanded state or not
      * @default false
