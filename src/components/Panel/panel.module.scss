@@ -178,7 +178,7 @@
         }
 
         .header-action-buttons {
-            margin-right: -$space-xl / 2;
+            margin-right: calc(-#{$space-xl} / 2);
         }
     }
 }

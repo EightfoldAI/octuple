@@ -2,22 +2,22 @@
     @if $index > 0 {
         .col#{$class}-#{$index} {
             display: block;
-            flex: 0 0 percentage(($index / $grid-columns));
-            max-width: percentage(($index / $grid-columns));
+            flex: 0 0 percentage(calc($index / $grid-columns));
+            max-width: percentage(calc($index / $grid-columns));
         }
         .col#{$class}-push-#{$index} {
-            left: percentage(($index / $grid-columns));
+            left: percentage(calc($index / $grid-columns));
         }
         .col#{$class}-pull-#{$index} {
-            right: percentage(($index / $grid-columns));
+            right: percentage(calc($index / $grid-columns));
         }
         .col#{$class}-offset-#{$index} {
-            margin-left: percentage(($index / $grid-columns));
+            margin-left: percentage(calc($index / $grid-columns));
         }
         .col#{$class}-order-#{$index} {
             order: $index;
         }
-        @include loop-grid-columns(($index - 1), $class);
+        @include loop-grid-columns(calc($index - 1), $class);
     }
 
     @if $index == 0 {
