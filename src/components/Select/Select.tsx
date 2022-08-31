@@ -1,5 +1,11 @@
-import React, { FC, useEffect, useState, Ref } from 'react';
-
+import React, {
+    FC,
+    useEffect,
+    useLayoutEffect,
+    useRef,
+    useState,
+    Ref,
+} from 'react';
 import { mergeClasses } from '../../shared/utilities';
 import { Dropdown } from '../Dropdown';
 import { Menu } from '../Menu';
@@ -22,6 +28,8 @@ import {
 import { Spinner, SpinnerSize } from '../Spinner';
 import { Breakpoints, useMatchMedia } from '../../hooks/useMatchMedia';
 import { Tooltip, TooltipTheme } from '../Tooltip';
+import { ResizeObserver } from '../../shared/ResizeObserver/ResizeObserver';
+import { useMaxVisibleSections } from '../../hooks/useMaxVisibleSections';
 
 import styles from './select.module.scss';
 
@@ -40,6 +48,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
             menuProps = {},
             multiple = false,
             textInputProps = {},
+            onClear,
             onOptionsChange,
             options: _options = [],
             pillProps = {},
@@ -63,6 +72,12 @@ export const Select: FC<SelectProps> = React.forwardRef(
         const smallScreenActive: boolean = useMatchMedia(Breakpoints.Small);
         const xSmallScreenActive: boolean = useMatchMedia(Breakpoints.XSmall);
 
+        const [dropdownWidth, setDropdownWidth] = useState(0);
+        const [selectWidth, setSelectWidth] = useState(0);
+
+        const inputRef = useRef<HTMLInputElement>(null);
+        const pillRefs = useRef<HTMLElement[]>([]);
+
         const [dropdownVisible, setDropdownVisibility] =
             useState<boolean>(false);
         const [options, setOptions] = useState<SelectOption[]>(
@@ -80,6 +95,15 @@ export const Select: FC<SelectProps> = React.forwardRef(
                 .filter((option: SelectOption) => option.selected)
                 .map((option: SelectOption) => option.value);
         };
+
+        const { count, filled, width } = useMaxVisibleSections(
+            inputRef,
+            pillRefs,
+            168,
+            8,
+            1,
+            getSelectedOptions().length
+        );
 
         useEffect(() => {
             const selected = options.filter((option) => option.selected);
@@ -118,6 +142,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
                 return {
                     ...opt,
                     selected: selected,
+                    hideOption: false,
                 };
             });
             setOptions(updatedOptions);
@@ -125,14 +150,33 @@ export const Select: FC<SelectProps> = React.forwardRef(
 
         const onInputClear = (): void => {
             setSearchQuery('');
-            setOptions(
-                options.map((opt) => ({
-                    ...opt,
-                    selected: false,
-                }))
-            );
+            if (filterable && multiple && dropdownVisible) {
+                setOptions(
+                    options.map((opt) => ({
+                        ...opt,
+                        hideOption: false,
+                    }))
+                );
+            } else if (filterable) {
+                setOptions(
+                    options.map((opt) => ({
+                        ...opt,
+                        hideOption: false,
+                        selected: false,
+                    }))
+                );
+            } else {
+                setOptions(
+                    options.map((opt) => ({
+                        ...opt,
+                        selected: false,
+                    }))
+                );
+            }
+            onClear?.();
         };
 
+        // TODO: Clear search on dropdownVisible change.
         const onInputChange = (
             event: React.ChangeEvent<HTMLInputElement>
         ): void => {
@@ -210,14 +254,10 @@ export const Select: FC<SelectProps> = React.forwardRef(
             classNames,
         ]);
 
-        const showPills = () => {
+        const showPills = (): boolean => {
             const selected = options.filter((opt) => opt.selected);
             const selectedCount = selected.length;
-            return (
-                selectedCount !== 0 &&
-                !(filterable && dropdownVisible) &&
-                multiple
-            );
+            return selectedCount !== 0 && multiple;
         };
 
         const getPillSize = (): PillSize => {
@@ -241,45 +281,59 @@ export const Select: FC<SelectProps> = React.forwardRef(
             [SelectSize.Small, PillSize.Small],
         ]);
 
-        // TODO: Use ConditionalWrapper using a custom hook to determine when ellipsis is active
-        // Because the option will not yet be rendered this may need to be spoofed in the hook
-        // Also need a better way to determine the number of Pills shown before moreOptionsCount.
-        const getPills = () => {
+        // TODO: Mutate Array based on order of selection.
+        const getPills = (): JSX.Element => {
             const selected = options.filter((opt) => opt.selected);
             const selectedCount = selected.length;
-            const moreOptionsCount = selectedCount - 1;
-            return (
-                <div className={styles.multiSelectPills}>
+            const pills: React.ReactElement[] = [];
+            let moreOptionsCount: number = selectedCount;
+
+            selected.forEach((value: SelectOption, index: number) => {
+                pills.push(
                     <Tooltip
                         classNames={styles.selectTooltip}
-                        content={selected[0].text}
+                        content={value.text}
                         theme={TooltipTheme.dark}
+                        portal
                     >
                         <Pill
-                            id={selected[0].id}
+                            ref={(ref) => (pillRefs.current[index] = ref)}
+                            id={value.id}
                             classNames={pillClasses}
-                            label={selected[0].text}
-                            onClose={() => toggleOption(selected[0])}
+                            label={value.text}
+                            onClose={() => toggleOption(value)}
                             size={selectSizeToPillSizeMap.get(size)}
                             theme={'blueGreen'}
                             type={PillType.closable}
+                            style={{
+                                visibility:
+                                    index < count ? 'visible' : 'hidden',
+                            }}
                             {...pillProps}
                         />
                     </Tooltip>
-                    {moreOptionsCount ? (
+                );
+                if (pills.length === count && filled) {
+                    pills.push(
                         <Pill
                             classNames={countPillClasses}
-                            label={'+' + moreOptionsCount}
+                            label={'+' + (moreOptionsCount - count)}
                             theme={'blueGreen'}
                             size={selectSizeToPillSizeMap.get(size)}
                             {...pillProps}
                         />
-                    ) : null}
-                </div>
-            );
+                    );
+                }
+            });
+
+            return <div className={styles.multiSelectPills}>{pills}</div>;
         };
 
-        const OptionMenu = ({ options }: { options: SelectOption[] }) => {
+        const OptionMenu = ({
+            options,
+        }: {
+            options: SelectOption[];
+        }): JSX.Element => {
             const filteredOptions = options.filter(
                 (option) => !option.hideOption
             );
@@ -311,9 +365,9 @@ export const Select: FC<SelectProps> = React.forwardRef(
             }
         };
 
-        const getSelectedOptionText = () => {
+        const getSelectedOptionText = (): string => {
             if (showPills()) {
-                return undefined;
+                return '';
             }
             const selectedOption = options
                 .filter((option: SelectOption) => option.selected)
@@ -323,15 +377,29 @@ export const Select: FC<SelectProps> = React.forwardRef(
             return selectedOption;
         };
 
+        // TODO: handle multiple with clearable padding flicker.
+        const getStyle = (): React.CSSProperties => {
+            if (filterable && multiple && dropdownVisible) {
+                return { paddingLeft: width > 0 ? width + 8 : 8 };
+            } else {
+                return undefined;
+            }
+        };
+
         const selectInputProps: TextInputProps = {
             placeholder: showPills() ? '' : placeholder,
             alignIcon: TextInputIconAlign.Right,
             clearable: clearable,
             inputWidth: inputWidth,
-            iconProps: {
-                path: IconName.mdiChevronDown,
-                rotate: dropdownVisible ? 180 : 0,
+            iconButtonProps: {
+                iconProps: {
+                    path: dropdownVisible
+                        ? IconName.mdiChevronUp
+                        : IconName.mdiChevronDown,
+                },
+                onClick: () => inputRef.current.click(),
             },
+            style: getStyle(),
             onClear: onInputClear,
             ...textInputProps,
         };
@@ -354,50 +422,68 @@ export const Select: FC<SelectProps> = React.forwardRef(
             ]
         );
 
+        const updateLayout = (): void => {
+            // Ensure the minimum default width is 400
+            const dropdownDefaultWidth: number = 400;
+
+            if (!inputRef.current) {
+                return;
+            }
+
+            const inputWidth = inputRef.current?.offsetWidth;
+            let dropdownUpdatedWidth =
+                inputRef.current?.offsetWidth > dropdownDefaultWidth
+                    ? inputRef.current?.offsetWidth
+                    : dropdownDefaultWidth;
+
+            setSelectWidth(inputWidth);
+            setDropdownWidth(dropdownUpdatedWidth);
+        };
+
+        useLayoutEffect(() => {
+            updateLayout();
+        }, [dropdownWidth, selectWidth]);
+
         return (
-            <div
-                className={componentClasses}
-                style={style}
-                ref={ref}
-                data-test-id={dataTestId}
-            >
-                {showPills() ? getPills() : null}
-                <Dropdown
-                    {...dropdownProps}
-                    onVisibleChange={(isVisible) =>
-                        setDropdownVisibility(isVisible)
-                    }
-                    showDropdown={showDropdown}
-                    overlay={
-                        isLoading ? spinner : <OptionMenu options={options} />
-                    }
-                    classNames={dropdownWrapperClasses}
-                    dropdownClassNames={dropdownMenuOverlayClasses}
+            <ResizeObserver onResize={updateLayout}>
+                <div
+                    className={componentClasses}
+                    style={style}
+                    ref={ref}
+                    data-test-id={dataTestId}
                 >
-                    {filterable ? (
+                    {showPills() ? getPills() : null}
+                    <Dropdown
+                        width={dropdownWidth}
+                        {...dropdownProps}
+                        visible={dropdownVisible}
+                        onVisibleChange={(isVisible) =>
+                            setDropdownVisibility(isVisible)
+                        }
+                        showDropdown={showDropdown}
+                        overlay={
+                            isLoading ? (
+                                spinner
+                            ) : (
+                                <OptionMenu options={options} />
+                            )
+                        }
+                        classNames={dropdownWrapperClasses}
+                        dropdownClassNames={dropdownMenuOverlayClasses}
+                    >
                         <TextInput
+                            ref={inputRef}
                             {...selectInputProps}
-                            shape={selectShapeToTextInputShapeMap.get(shape)}
-                            size={selectSizeToTextInputSizeMap.get(size)}
-                            value={
-                                !dropdownVisible
-                                    ? getSelectedOptionText()
-                                    : undefined
-                            }
-                            onChange={onInputChange}
-                        />
-                    ) : (
-                        <TextInput
-                            {...selectInputProps}
-                            readonly
+                            readonly={!filterable}
                             shape={selectShapeToTextInputShapeMap.get(shape)}
                             size={selectSizeToTextInputSizeMap.get(size)}
                             value={getSelectedOptionText()}
                             classNames={styles.selectInput}
+                            onChange={filterable ? onInputChange : null}
                         />
-                    )}
-                </Dropdown>
-            </div>
+                    </Dropdown>
+                </div>
+            </ResizeObserver>
         );
     }
 );

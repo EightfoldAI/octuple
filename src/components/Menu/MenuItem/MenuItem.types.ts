@@ -33,9 +33,11 @@ export interface MenuItemProps {
     size?: MenuSize;
 }
 
+type NativeMenuButtonProps = Omit<OcBaseProps<HTMLButtonElement>, 'children'>;
+
 export interface MenuItemButtonProps
     extends MenuItemProps,
-        OcBaseProps<Omit<HTMLButtonElement, 'children'>> {
+        NativeMenuButtonProps {
     /**
      * Menu item icon props
      */
