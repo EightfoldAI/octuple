@@ -10,8 +10,12 @@ export enum IconSize {
 }
 
 export interface IconProps
-    extends OcBaseProps<HTMLSpanElement>,
+    extends React.HTMLAttributes<HTMLSpanElement>,
         Omit<MdiIconProps, 'path'> {
+    /**
+     * Custom classnames of the component
+     */
+    classNames?: string;
     /**
      * The icon svg path name.
      */
@@ -75,4 +79,8 @@ export interface IconProps
      * Name of the icon as defined in icomoon app
      */
     icomoonIconName?: string;
+    /**
+     * Unique id used to target element for testing
+     */
+    'data-test-id'?: string;
 }
