@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.9.0](https://github.com/EightfoldAI/octuple/compare/v2.8.1...v2.9.0) (2022-08-31)
+
+### Features
+
+-   select: add resizeobserver usemaxvisiblesections hook and dynamic pills ([#334](https://github.com/EightfoldAI/octuple/issues/334)) ([d9c21e0](https://github.com/EightfoldAI/octuple/commits/d9c21e0ff134e3055b1192cf2932f4f34b87fc05))
+
+### Bug Fixes
+
+-   modal: fix modal header to correct font size and weight, update icons to round ([#333](https://github.com/EightfoldAI/octuple/issues/333)) ([24ab749](https://github.com/EightfoldAI/octuple/commits/24ab749d44813dbcaf0bbf38b7baa7b2a4267c24))
+
 ### [2.8.1](https://github.com/EightfoldAI/octuple/compare/v2.7.1...v2.8.1) (2022-08-26)
 
 ### Features
