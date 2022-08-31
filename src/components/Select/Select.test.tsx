@@ -10,6 +10,20 @@ Enzyme.configure({ adapter: new Adapter() });
 
 let matchMedia: any;
 
+class ResizeObserver {
+    observe() {
+        // do nothing
+    }
+    unobserve() {
+        // do nothing
+    }
+    disconnect() {
+        // do nothing
+    }
+}
+
+window.ResizeObserver = ResizeObserver;
+
 describe('Select', () => {
     beforeAll(() => {
         matchMedia = new MatchMediaMock();

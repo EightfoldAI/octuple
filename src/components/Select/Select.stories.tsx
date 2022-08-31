@@ -94,18 +94,10 @@ export default {
 } as ComponentMeta<typeof Select>;
 
 const Wrapper: FC<SelectProps> = ({ children }) => {
-    return (
-        <div
-            style={{
-                width: '200px',
-            }}
-        >
-            {children}
-        </div>
-    );
+    return <div>{children}</div>;
 };
 
-const DynamicSelect: FC<SelectProps> = () => {
+const DynamicSelect: FC<SelectProps> = (args) => {
     const timer = useRef<ReturnType<typeof setTimeout>>(null);
     const [options, setOptions] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
@@ -125,6 +117,7 @@ const DynamicSelect: FC<SelectProps> = () => {
     };
     return (
         <Select
+            {...args}
             filterable={true}
             isLoading={isLoading}
             loadOptions={loadOptions}
@@ -136,19 +129,20 @@ const DynamicSelect: FC<SelectProps> = () => {
 const Basic_Story: ComponentStory<typeof Select> = (args) => (
     <>
         <Wrapper>
-            <Select {...args}></Select>
+            <Select {...args} />
         </Wrapper>
     </>
 );
 
 const Dynamic_Story: ComponentStory<typeof Select> = (args) => (
     <Wrapper>
-        <DynamicSelect {...args}></DynamicSelect>
+        <DynamicSelect {...args} />
     </Wrapper>
 );
 
 export type SelectStory = ComponentStory<React.FC<SelectProps>>;
 export const Basic: SelectStory = Basic_Story.bind({});
+export const Dynamic_Width: SelectStory = Basic_Story.bind({});
 export const With_DefaultValue: SelectStory = Basic_Story.bind({});
 export const Disabled: SelectStory = Basic_Story.bind({});
 export const Options_Disabled: SelectStory = Basic_Story.bind({});
@@ -161,12 +155,21 @@ export const Dynamic: SelectStory = Dynamic_Story.bind({});
 const SelectArgs: SelectProps = {
     classNames: 'octuple-select-class',
     'data-test-id': 'octuple-select-test-id',
-    style: {},
+    style: {
+        width: 256,
+    },
     options: defaultOptions,
 };
 
 Basic.args = {
     ...SelectArgs,
+};
+
+Dynamic_Width.args = {
+    ...SelectArgs,
+    style: {
+        width: '100%',
+    },
 };
 
 With_DefaultValue.args = {
@@ -221,6 +224,9 @@ Multiple.args = {
         ...Basic.args.textInputProps,
         clearable: true,
     },
+    style: {
+        width: '100%',
+    },
 };
 
 Multiple_With_NoFilter.args = {
@@ -230,6 +236,9 @@ Multiple_With_NoFilter.args = {
     textInputProps: {
         ...Basic.args.textInputProps,
         clearable: true,
+    },
+    style: {
+        width: '100%',
     },
 };
 

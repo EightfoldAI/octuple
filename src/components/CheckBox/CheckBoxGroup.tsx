@@ -26,7 +26,7 @@ export const CheckBoxGroup: FC<CheckboxGroupProps> = React.forwardRef(
             value,
             ...rest
         },
-        ref: Ref<HTMLDivElement>
+        ref: Ref<HTMLInputElement>
     ) => {
         const largeScreenActive: boolean = useMatchMedia(Breakpoints.Large);
         const mediumScreenActive: boolean = useMatchMedia(Breakpoints.Medium);

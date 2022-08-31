@@ -26,7 +26,7 @@ export interface SelectOption extends MenuItemButtonProps {
     selected?: boolean;
 }
 
-export interface SelectProps extends OcBaseProps<HTMLSelectElement> {
+export interface SelectProps extends OcBaseProps<HTMLDivElement> {
     /**
      * clearable.
      * @default false

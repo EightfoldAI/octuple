@@ -23,9 +23,10 @@ $tooltip-arrow-shadow: 1px 1px 2px rgba(15, 20, 31, 0.12);
     font-family: $octuple-font-family;
     font-size: $text-font-size-1;
     text-align: center;
-    z-index: $z-index-100;
+    z-index: $z-index-400;
     padding: $space-xs;
     border-radius: $corner-radius-s;
+    overflow-wrap: break-word;
 
     &.dark {
         --bg: var(--grey-color-80);

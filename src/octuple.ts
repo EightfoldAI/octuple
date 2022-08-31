@@ -132,6 +132,8 @@ import { useOnClickOutside } from './hooks/useOnClickOutside';
 
 import { useScrollLock } from './hooks/useScrollLock';
 
+import { useMaxVisibleSections } from './hooks/useMaxVisibleSections';
+
 export {
     Accordion,
     Avatar,
@@ -238,6 +240,7 @@ export {
     TwoStateButton,
     useBoolean,
     useMatchMedia,
+    useMaxVisibleSections,
     useOnClickOutside,
     useScrollLock,
 };

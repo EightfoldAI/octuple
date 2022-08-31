@@ -20,6 +20,7 @@ export const Icon: FC<IconProps> = ({
     rotate,
     size = IconSize.Medium,
     spin,
+    style,
     title,
     vertical,
     'data-test-id': dataTestId,
@@ -65,6 +66,7 @@ export const Icon: FC<IconProps> = ({
             className={iconClassNames}
             id={id}
             role={role}
+            style={style}
         >
             {iconComponent}
         </span>

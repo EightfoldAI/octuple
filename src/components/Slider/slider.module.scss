@@ -1,5 +1,5 @@
 @function strip-units($number) {
-    @return $number / ($number * 0 + 1);
+    @return calc($number / ($number * 0 + 1px));
 }
 
 // Represents the diameter of the thumb slider

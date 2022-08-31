@@ -8,10 +8,12 @@ $picker-input-padding-vertical: max(
             round(
                     (
                             (
-                                    strip-units($picker-input-height-s) -
-                                        strip-units($picker-font-size-m) *
-                                        strip-units($picker-line-height-m)
-                                ) / 2
+                                (
+                                        strip-units($picker-input-height-s) -
+                                            strip-units($picker-font-size-m) *
+                                            strip-units($picker-line-height-m)
+                                    ) / 2
+                            )
                         ) * 10
                 ) / 10
         ) - strip-units($picker-border-width),
@@ -25,7 +27,7 @@ $picker-input-padding-vertical: max(
             strip-units($font-size) * strip-units($padding-horizontal)
         ) + 2;
     $padding-top: max(
-        ((strip-units($input-height) - strip-units($font-height)) / 2),
+        calc((strip-units($input-height) - strip-units($font-height)) / 2),
         0
     );
     $padding-bottom: max(

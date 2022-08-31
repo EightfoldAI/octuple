@@ -1,8 +1,9 @@
-import { ButtonProps } from '../Button';
+import { ButtonIconAlign, ButtonTextAlign } from '../Button';
 import { Placement, Strategy } from '@floating-ui/react-dom';
 import { TooltipTheme } from '../Tooltip';
 import { OcBaseProps } from '../OcBase';
 import { SizeType } from '../ConfigProvider';
+import { IconProps } from '../Icon';
 
 export enum LabelSize {
     Flex = 'flex',
@@ -11,20 +12,7 @@ export enum LabelSize {
     Small = 'small',
 }
 
-export interface LabelIconButtonProps
-    extends Omit<
-        ButtonProps,
-        | 'buttonWidth'
-        | 'checked'
-        | 'htmlType'
-        | 'onContextMenu'
-        | 'shape'
-        | 'size'
-        | 'split'
-        | 'splitButtonChecked'
-        | 'splitButtonProps'
-        | 'toggle'
-    > {
+export interface LabelIconButtonProps {
     /**
      * The label icon button is shown.
      * @default false
@@ -49,6 +37,80 @@ export interface LabelIconButtonProps
      * @default absolute
      */
     toolTipPositionStrategy?: Strategy;
+    /**
+     * Allows focus on the button when it's disabled.
+     */
+    allowDisabledFocus?: boolean;
+    /**
+     * The button icon alignment.
+     * @default ButtonIconAlign.Left
+     */
+    alignIcon?: ButtonIconAlign;
+    /**
+     * The button text alignment.
+     * @default ButtonTextAlign.Center
+     */
+    alignText?: ButtonTextAlign;
+    /**
+     * The button aria-label text.
+     */
+    ariaLabel?: string;
+    /**
+     * The button class names.
+     */
+    classNames?: string;
+    /**
+     * The button counter string.
+     */
+    counter?: string;
+    /**
+     * The button disabled state.
+     * @default false
+     */
+    disabled?: boolean;
+    /**
+     * The button disruptive state.
+     * @default false
+     */
+    disruptive?: boolean;
+    /**
+     * The button drop shadow state.
+     * @default false
+     */
+    dropShadow?: boolean;
+    /**
+     * The button icon props.
+     */
+    iconProps?: IconProps;
+    /**
+     * The button id.
+     */
+    id?: string;
+    /**
+     * The button onClick event handler.
+     */
+    onClick?: React.MouseEventHandler<HTMLButtonElement>;
+    /**
+     * The button style.
+     */
+    style?: React.CSSProperties;
+    /**
+     * The button text.
+     */
+    text?: string;
+    /**
+     * The button will remain transparent
+     * @default false
+     */
+    transparent?: boolean;
+    /**
+     * If the button is in loading state
+     */
+    loading?: boolean;
+    /**
+     * Unique id used to target element for testing
+     */
+    'data-test-id'?: string;
 }
 
 export interface LabelProps extends OcBaseProps<HTMLDivElement> {

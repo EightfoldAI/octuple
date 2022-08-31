@@ -294,7 +294,7 @@ exports[`Storyshots Form Complex Dynamic Form Items 1`] = `
                       aria-expanded={false}
                       aria-haspopup={true}
                       autoFocus={false}
-                      className="select-input input-medium with-icon input-stretch right-icon clear-disabled clear-not-visible in-form-item"
+                      className="select-input input-medium with-icon-button input-stretch right-icon clear-disabled clear-not-visible in-form-item"
                       disabled={false}
                       id="input-9"
                       onChange={[Function]}
@@ -307,12 +307,16 @@ exports[`Storyshots Form Complex Dynamic Form Items 1`] = `
                       type="text"
                       value="Seattle"
                     />
-                    <div
-                      className="icon-wrapper right-icon"
+                    <button
+                      aria-disabled={false}
+                      className="icon-button right-icon button button-default button-medium pill-shape icon-left"
+                      defaultChecked={false}
+                      disabled={false}
+                      onClick={[Function]}
                     >
                       <span
                         aria-hidden={false}
-                        className="icon-wrapper"
+                        className="icon icon-wrapper"
                         role="presentation"
                       >
                         <svg
@@ -335,7 +339,7 @@ exports[`Storyshots Form Complex Dynamic Form Items 1`] = `
                           />
                         </svg>
                       </span>
-                    </div>
+                    </button>
                   </div>
                 </div>
               </div>
@@ -581,7 +585,7 @@ exports[`Storyshots Form Complex Form Control 1`] = `
                         aria-expanded={false}
                         aria-haspopup={true}
                         autoFocus={false}
-                        className="select-input input-medium with-icon right-icon clear-disabled clear-not-visible in-form-item"
+                        className="select-input input-medium with-icon-button right-icon clear-disabled clear-not-visible in-form-item"
                         disabled={false}
                         id="input-12"
                         onChange={[Function]}
@@ -594,12 +598,16 @@ exports[`Storyshots Form Complex Form Control 1`] = `
                         type="text"
                         value=""
                       />
-                      <div
-                        className="icon-wrapper right-icon"
+                      <button
+                        aria-disabled={false}
+                        className="icon-button right-icon button button-default button-medium pill-shape icon-left"
+                        defaultChecked={false}
+                        disabled={false}
+                        onClick={[Function]}
                       >
                         <span
                           aria-hidden={false}
-                          className="icon-wrapper"
+                          className="icon icon-wrapper"
                           role="presentation"
                         >
                           <svg
@@ -622,7 +630,7 @@ exports[`Storyshots Form Complex Form Control 1`] = `
                             />
                           </svg>
                         </span>
-                      </div>
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -1118,7 +1126,7 @@ exports[`Storyshots Form Custom Form Controls 1`] = `
                         aria-expanded={false}
                         aria-haspopup={true}
                         autoFocus={false}
-                        className="select-input input-medium with-icon right-icon clear-disabled clear-not-visible in-form-item"
+                        className="select-input input-medium with-icon-button right-icon clear-disabled clear-not-visible in-form-item"
                         disabled={false}
                         id="input-20"
                         onChange={[Function]}
@@ -1131,12 +1139,16 @@ exports[`Storyshots Form Custom Form Controls 1`] = `
                         type="text"
                         value=""
                       />
-                      <div
-                        className="icon-wrapper right-icon"
+                      <button
+                        aria-disabled={false}
+                        className="icon-button right-icon button button-default button-medium pill-shape icon-left"
+                        defaultChecked={false}
+                        disabled={false}
+                        onClick={[Function]}
                       >
                         <span
                           aria-hidden={false}
-                          className="icon-wrapper"
+                          className="icon icon-wrapper"
                           role="presentation"
                         >
                           <svg
@@ -1159,7 +1171,7 @@ exports[`Storyshots Form Custom Form Controls 1`] = `
                             />
                           </svg>
                         </span>
-                      </div>
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -1906,7 +1918,7 @@ exports[`Storyshots Form Custom Validation 1`] = `
                       aria-expanded={false}
                       aria-haspopup={true}
                       autoFocus={false}
-                      className="select-input input-medium with-icon input-stretch right-icon clear-not-visible in-form-item status-error"
+                      className="select-input input-medium with-icon-button input-stretch right-icon clear-not-visible in-form-item status-error"
                       disabled={false}
                       id="input-28"
                       onChange={[Function]}
@@ -1919,12 +1931,16 @@ exports[`Storyshots Form Custom Validation 1`] = `
                       type="text"
                       value=""
                     />
-                    <div
-                      className="icon-wrapper right-icon"
+                    <button
+                      aria-disabled={false}
+                      className="icon-button right-icon button button-default button-medium pill-shape icon-left"
+                      defaultChecked={false}
+                      disabled={false}
+                      onClick={[Function]}
                     >
                       <span
                         aria-hidden={false}
-                        className="icon-wrapper"
+                        className="icon icon-wrapper"
                         role="presentation"
                       >
                         <svg
@@ -1947,7 +1963,7 @@ exports[`Storyshots Form Custom Validation 1`] = `
                           />
                         </svg>
                       </span>
-                    </div>
+                    </button>
                   </div>
                 </div>
               </div>
@@ -3293,7 +3309,7 @@ exports[`Storyshots Form Disabled 1`] = `
                         aria-expanded={false}
                         aria-haspopup={true}
                         autoFocus={false}
-                        className="select-input input-medium with-icon right-icon clear-disabled clear-not-visible in-form-item"
+                        className="select-input input-medium with-icon-button right-icon clear-disabled clear-not-visible in-form-item"
                         disabled={true}
                         id="input-36"
                         onChange={[Function]}
@@ -3306,12 +3322,16 @@ exports[`Storyshots Form Disabled 1`] = `
                         type="text"
                         value=""
                       />
-                      <div
-                        className="icon-wrapper right-icon"
+                      <button
+                        aria-disabled={true}
+                        className="icon-button right-icon button button-default button-medium pill-shape icon-left disabled"
+                        defaultChecked={false}
+                        disabled={true}
+                        onClick={[Function]}
                       >
                         <span
                           aria-hidden={false}
-                          className="icon-wrapper"
+                          className="icon icon-wrapper"
                           role="presentation"
                         >
                           <svg
@@ -3334,7 +3354,7 @@ exports[`Storyshots Form Disabled 1`] = `
                             />
                           </svg>
                         </span>
-                      </div>
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -4482,7 +4502,7 @@ exports[`Storyshots Form Flex 1`] = `
                         aria-expanded={false}
                         aria-haspopup={true}
                         autoFocus={false}
-                        className="select-input with-icon right-icon clear-disabled clear-not-visible in-form-item"
+                        className="select-input with-icon-button right-icon clear-disabled clear-not-visible in-form-item"
                         disabled={false}
                         id="input-42"
                         onChange={[Function]}
@@ -4495,12 +4515,16 @@ exports[`Storyshots Form Flex 1`] = `
                         type="text"
                         value=""
                       />
-                      <div
-                        className="icon-wrapper right-icon"
+                      <button
+                        aria-disabled={false}
+                        className="icon-button right-icon button button-default pill-shape icon-left"
+                        defaultChecked={false}
+                        disabled={false}
+                        onClick={[Function]}
                       >
                         <span
                           aria-hidden={false}
-                          className="icon-wrapper"
+                          className="icon icon-wrapper"
                           role="presentation"
                         >
                           <svg
@@ -4523,7 +4547,7 @@ exports[`Storyshots Form Flex 1`] = `
                             />
                           </svg>
                         </span>
-                      </div>
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -5624,7 +5648,7 @@ exports[`Storyshots Form Large 1`] = `
                         aria-expanded={false}
                         aria-haspopup={true}
                         autoFocus={false}
-                        className="select-input input-large with-icon right-icon clear-disabled clear-not-visible in-form-item"
+                        className="select-input input-large with-icon-button right-icon clear-disabled clear-not-visible in-form-item"
                         disabled={false}
                         id="input-52"
                         onChange={[Function]}
@@ -5637,12 +5661,16 @@ exports[`Storyshots Form Large 1`] = `
                         type="text"
                         value=""
                       />
-                      <div
-                        className="icon-wrapper right-icon"
+                      <button
+                        aria-disabled={false}
+                        className="icon-button right-icon button button-default button-large pill-shape icon-left"
+                        defaultChecked={false}
+                        disabled={false}
+                        onClick={[Function]}
                       >
                         <span
                           aria-hidden={false}
-                          className="icon-wrapper"
+                          className="icon icon-wrapper"
                           role="presentation"
                         >
                           <svg
@@ -5665,7 +5693,7 @@ exports[`Storyshots Form Large 1`] = `
                             />
                           </svg>
                         </span>
-                      </div>
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -6404,7 +6432,7 @@ exports[`Storyshots Form Medium 1`] = `
                         aria-expanded={false}
                         aria-haspopup={true}
                         autoFocus={false}
-                        className="select-input input-medium with-icon right-icon clear-disabled clear-not-visible in-form-item"
+                        className="select-input input-medium with-icon-button right-icon clear-disabled clear-not-visible in-form-item"
                         disabled={false}
                         id="input-57"
                         onChange={[Function]}
@@ -6417,12 +6445,16 @@ exports[`Storyshots Form Medium 1`] = `
                         type="text"
                         value=""
                       />
-                      <div
-                        className="icon-wrapper right-icon"
+                      <button
+                        aria-disabled={false}
+                        className="icon-button right-icon button button-default button-medium pill-shape icon-left"
+                        defaultChecked={false}
+                        disabled={false}
+                        onClick={[Function]}
                       >
                         <span
                           aria-hidden={false}
-                          className="icon-wrapper"
+                          className="icon icon-wrapper"
                           role="presentation"
                         >
                           <svg
@@ -6445,7 +6477,7 @@ exports[`Storyshots Form Medium 1`] = `
                             />
                           </svg>
                         </span>
-                      </div>
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -6970,7 +7002,7 @@ exports[`Storyshots Form Methods 1`] = `
                         aria-expanded={false}
                         aria-haspopup={true}
                         autoFocus={false}
-                        className="select-input input-medium with-icon input-stretch right-icon clear-not-visible in-form-item"
+                        className="select-input input-medium with-icon-button input-stretch right-icon clear-not-visible in-form-item"
                         disabled={false}
                         id="input-61"
                         onChange={[Function]}
@@ -6983,12 +7015,16 @@ exports[`Storyshots Form Methods 1`] = `
                         type="text"
                         value=""
                       />
-                      <div
-                        className="icon-wrapper right-icon"
+                      <button
+                        aria-disabled={false}
+                        className="icon-button right-icon button button-default button-medium pill-shape icon-left"
+                        defaultChecked={false}
+                        disabled={false}
+                        onClick={[Function]}
                       >
                         <span
                           aria-hidden={false}
-                          className="icon-wrapper"
+                          className="icon icon-wrapper"
                           role="presentation"
                         >
                           <svg
@@ -7011,7 +7047,7 @@ exports[`Storyshots Form Methods 1`] = `
                             />
                           </svg>
                         </span>
-                      </div>
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -7974,7 +8010,7 @@ exports[`Storyshots Form Pill 1`] = `
                         aria-expanded={false}
                         aria-haspopup={true}
                         autoFocus={false}
-                        className="select-input input-medium pill-shape pill-shape-with-icon right-icon clear-disabled clear-not-visible in-form-item"
+                        className="select-input input-medium pill-shape pill-shape-with-icon-button right-icon clear-disabled clear-not-visible in-form-item"
                         disabled={false}
                         id="input-72"
                         onChange={[Function]}
@@ -7987,12 +8023,16 @@ exports[`Storyshots Form Pill 1`] = `
                         type="text"
                         value=""
                       />
-                      <div
-                        className="icon-wrapper right-icon"
+                      <button
+                        aria-disabled={false}
+                        className="icon-button right-icon button button-default button-medium pill-shape icon-left"
+                        defaultChecked={false}
+                        disabled={false}
+                        onClick={[Function]}
                       >
                         <span
                           aria-hidden={false}
-                          className="icon-wrapper"
+                          className="icon icon-wrapper"
                           role="presentation"
                         >
                           <svg
@@ -8015,7 +8055,7 @@ exports[`Storyshots Form Pill 1`] = `
                             />
                           </svg>
                         </span>
-                      </div>
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -8688,7 +8728,7 @@ exports[`Storyshots Form Rectangle 1`] = `
                         aria-expanded={false}
                         aria-haspopup={true}
                         autoFocus={false}
-                        className="select-input input-medium with-icon right-icon clear-disabled clear-not-visible in-form-item"
+                        className="select-input input-medium with-icon-button right-icon clear-disabled clear-not-visible in-form-item"
                         disabled={false}
                         id="input-76"
                         onChange={[Function]}
@@ -8701,12 +8741,16 @@ exports[`Storyshots Form Rectangle 1`] = `
                         type="text"
                         value=""
                       />
-                      <div
-                        className="icon-wrapper right-icon"
+                      <button
+                        aria-disabled={false}
+                        className="icon-button right-icon button button-default button-medium pill-shape icon-left"
+                        defaultChecked={false}
+                        disabled={false}
+                        onClick={[Function]}
                       >
                         <span
                           aria-hidden={false}
-                          className="icon-wrapper"
+                          className="icon icon-wrapper"
                           role="presentation"
                         >
                           <svg
@@ -8729,7 +8773,7 @@ exports[`Storyshots Form Rectangle 1`] = `
                             />
                           </svg>
                         </span>
-                      </div>
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -9708,7 +9752,7 @@ exports[`Storyshots Form Small 1`] = `
                         aria-expanded={false}
                         aria-haspopup={true}
                         autoFocus={false}
-                        className="select-input input-small with-icon right-icon clear-disabled clear-not-visible in-form-item"
+                        className="select-input input-small with-icon-button right-icon clear-disabled clear-not-visible in-form-item"
                         disabled={false}
                         id="input-84"
                         onChange={[Function]}
@@ -9721,12 +9765,16 @@ exports[`Storyshots Form Small 1`] = `
                         type="text"
                         value=""
                       />
-                      <div
-                        className="icon-wrapper right-icon"
+                      <button
+                        aria-disabled={false}
+                        className="icon-button right-icon button button-default button-small pill-shape icon-left"
+                        defaultChecked={false}
+                        disabled={false}
+                        onClick={[Function]}
                       >
                         <span
                           aria-hidden={false}
-                          className="icon-wrapper"
+                          className="icon icon-wrapper"
                           role="presentation"
                         >
                           <svg
@@ -9749,7 +9797,7 @@ exports[`Storyshots Form Small 1`] = `
                             />
                           </svg>
                         </span>
-                      </div>
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -10499,7 +10547,7 @@ exports[`Storyshots Form Underline 1`] = `
                         aria-expanded={false}
                         aria-haspopup={true}
                         autoFocus={false}
-                        className="select-input input-medium with-icon underline right-icon clear-disabled clear-not-visible in-form-item"
+                        className="select-input input-medium with-icon-button underline right-icon clear-disabled clear-not-visible in-form-item"
                         disabled={false}
                         id="input-89"
                         onChange={[Function]}
@@ -10512,12 +10560,16 @@ exports[`Storyshots Form Underline 1`] = `
                         type="text"
                         value=""
                       />
-                      <div
-                        className="icon-wrapper right-icon"
+                      <button
+                        aria-disabled={false}
+                        className="icon-button right-icon button button-default button-medium pill-shape icon-left"
+                        defaultChecked={false}
+                        disabled={false}
+                        onClick={[Function]}
                       >
                         <span
                           aria-hidden={false}
-                          className="icon-wrapper"
+                          className="icon icon-wrapper"
                           role="presentation"
                         >
                           <svg
@@ -10540,7 +10592,7 @@ exports[`Storyshots Form Underline 1`] = `
                             />
                           </svg>
                         </span>
-                      </div>
+                      </button>
                     </div>
                   </div>
                 </div>

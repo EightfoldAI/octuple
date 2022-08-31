@@ -7,7 +7,7 @@ import {
     uniqueId,
 } from '../../../shared/utilities';
 import { IconName } from '../../Icon';
-import { NeutralButton } from '../../Button';
+import { ButtonShape, NeutralButton } from '../../Button';
 import { useScrollLock } from '../../../hooks/useScrollLock';
 import { NoFormStyle } from '../../Form/Context';
 
@@ -116,8 +116,8 @@ export const BaseDialog: FC<BaseDialogProps> = React.forwardRef(
                             <span id={labelId}>
                                 {headerButtonProps && (
                                     <NeutralButton
-                                        ariaLabel={'Back'}
                                         classNames={styles.headerButton}
+                                        shape={ButtonShape.Round}
                                         iconProps={{ path: headerIcon }}
                                         {...headerButtonProps}
                                     />
@@ -127,19 +127,27 @@ export const BaseDialog: FC<BaseDialogProps> = React.forwardRef(
                             <span className={styles.headerButtons}>
                                 {actionButtonThreeProps && (
                                     <NeutralButton
+                                        shape={ButtonShape.Round}
                                         {...actionButtonThreeProps}
                                     />
                                 )}
                                 {actionButtonTwoProps && (
-                                    <NeutralButton {...actionButtonTwoProps} />
+                                    <NeutralButton
+                                        shape={ButtonShape.Round}
+                                        {...actionButtonTwoProps}
+                                    />
                                 )}
                                 {actionButtonOneProps && (
-                                    <NeutralButton {...actionButtonOneProps} />
+                                    <NeutralButton
+                                        shape={ButtonShape.Round}
+                                        {...actionButtonOneProps}
+                                    />
                                 )}
                                 {closable && (
                                     <NeutralButton
                                         ariaLabel={'Close'}
                                         iconProps={{ path: closeIcon }}
+                                        shape={ButtonShape.Round}
                                         onClick={onClose}
                                         {...closeButtonProps}
                                     />
