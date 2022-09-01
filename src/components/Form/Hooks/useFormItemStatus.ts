@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import type { ValidateStatus } from '../FormItem';
+import type { ValidateStatus } from '../Form.types';
 import { FormItemInputContext } from '../Context';
 import { warning } from '../../../shared/utilities';
 

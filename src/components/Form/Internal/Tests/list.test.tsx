@@ -81,7 +81,7 @@ describe('OcForm.OcList', () => {
         await changeValue(getField(listNode, 1), '222');
         await changeValue(getField(listNode, 2), '333');
 
-        expect(form.getFieldsValue()).toEqual({
+        expect(form.getFieldListValues()).toEqual({
             list: ['111', '222', '333'],
         });
     });
@@ -134,7 +134,7 @@ describe('OcForm.OcList', () => {
 
         wrapper.update();
         expect(getList().find(OcField).length).toEqual(3);
-        expect(form.getFieldsValue()).toEqual({
+        expect(form.getFieldListValues()).toEqual({
             list: [undefined, '2', undefined],
         });
 
@@ -200,7 +200,7 @@ describe('OcForm.OcList', () => {
 
         // Modify
         await changeValue(getField(getList(), 1), '222');
-        expect(form.getFieldsValue()).toEqual({
+        expect(form.getFieldListValues()).toEqual({
             list: [undefined, '222', undefined],
         });
         expect(form.isTouched(['list', 0])).toBeFalsy();
@@ -217,7 +217,7 @@ describe('OcForm.OcList', () => {
         });
         wrapper.update();
         expect(getList().find(OcField).length).toEqual(2);
-        expect(form.getFieldsValue()).toEqual({
+        expect(form.getFieldListValues()).toEqual({
             list: [undefined, undefined],
         });
         expect(form.isTouched(['list', 0])).toBeFalsy();
@@ -351,7 +351,7 @@ describe('OcForm.OcList', () => {
 
         wrapper.update();
         expect(getList().find(OcField).length).toEqual(3);
-        expect(form.getFieldsValue()).toEqual({
+        expect(form.getFieldListValues()).toEqual({
             list: [undefined, '1', '2'],
         });
 
@@ -364,7 +364,7 @@ describe('OcForm.OcList', () => {
 
         wrapper.update();
         expect(getList().find(OcField).length).toEqual(5);
-        expect(form.getFieldsValue()).toEqual({
+        expect(form.getFieldListValues()).toEqual({
             list: ['0', undefined, '1', '4', '2'],
         });
     });
@@ -663,10 +663,8 @@ describe('OcForm.OcList', () => {
 
             // Not changed
             expect(formRef.current.isTouched('user')).toBeFalsy();
-            expect(
-                formRef.current.isFieldsTouched(['user'], false)
-            ).toBeFalsy();
-            expect(formRef.current.isFieldsTouched(['user'], true)).toBeFalsy();
+            expect(formRef.current.isListTouched(['user'], false)).toBeFalsy();
+            expect(formRef.current.isListTouched(['user'], true)).toBeFalsy();
 
             // Changed
             wrapper
@@ -675,12 +673,8 @@ describe('OcForm.OcList', () => {
                 .simulate('change', { target: { value: '' } });
 
             expect(formRef.current.isTouched('user')).toBeTruthy();
-            expect(
-                formRef.current.isFieldsTouched(['user'], false)
-            ).toBeTruthy();
-            expect(
-                formRef.current.isFieldsTouched(['user'], true)
-            ).toBeTruthy();
+            expect(formRef.current.isListTouched(['user'], false)).toBeTruthy();
+            expect(formRef.current.isListTouched(['user'], true)).toBeTruthy();
         });
 
         test('OcList children change', () => {
@@ -701,8 +695,8 @@ describe('OcForm.OcList', () => {
 
             // Not changed yet
             expect(form.isTouched('list')).toBeFalsy();
-            expect(form.isFieldsTouched(['list'], false)).toBeFalsy();
-            expect(form.isFieldsTouched(['list'], true)).toBeFalsy();
+            expect(form.isListTouched(['list'], false)).toBeFalsy();
+            expect(form.isListTouched(['list'], true)).toBeFalsy();
 
             // Change children value
             wrapper
@@ -711,8 +705,8 @@ describe('OcForm.OcList', () => {
                 .simulate('change', { target: { value: 'little' } });
 
             expect(form.isTouched('list')).toBeTruthy();
-            expect(form.isFieldsTouched(['list'], false)).toBeTruthy();
-            expect(form.isFieldsTouched(['list'], true)).toBeTruthy();
+            expect(form.isListTouched(['list'], false)).toBeTruthy();
+            expect(form.isListTouched(['list'], true)).toBeTruthy();
         });
 
         test('OcList self change', () => {
@@ -734,15 +728,15 @@ describe('OcForm.OcList', () => {
 
             // Not changed yet
             expect(form.isTouched('list')).toBeFalsy();
-            expect(form.isFieldsTouched(['list'], false)).toBeFalsy();
-            expect(form.isFieldsTouched(['list'], true)).toBeFalsy();
+            expect(form.isListTouched(['list'], false)).toBeFalsy();
+            expect(form.isListTouched(['list'], true)).toBeFalsy();
 
             // Change children value
             wrapper.find('button').simulate('click');
 
             expect(form.isTouched('list')).toBeTruthy();
-            expect(form.isFieldsTouched(['list'], false)).toBeTruthy();
-            expect(form.isFieldsTouched(['list'], true)).toBeTruthy();
+            expect(form.isListTouched(['list'], false)).toBeTruthy();
+            expect(form.isListTouched(['list'], true)).toBeTruthy();
         });
     });
 
@@ -761,7 +755,7 @@ describe('OcForm.OcList', () => {
             { initialValue: ['lola', 'mia'] }
         );
 
-        expect(form.getFieldsValue()).toEqual({
+        expect(form.getFieldListValues()).toEqual({
             list: ['lola', 'mia'],
         });
     });

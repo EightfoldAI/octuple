@@ -1,27 +1,12 @@
 import React, { FC, useContext, useMemo } from 'react';
-import { mergeClasses } from '../../shared/utilities';
-import type { ColProps } from '../Grid';
-import { Col } from '../Grid';
 import { FormContext, FormItemStatusContext } from './Context';
+import { FormItemInputMiscProps, FormItemInputProps } from './Form.types';
 import ErrorList from './ErrorList';
-import type { ValidateStatus } from './FormItem';
+import { Col } from '../Grid';
+import type { ColProps } from '../Grid';
+import { mergeClasses } from '../../shared/utilities';
 
 import styles from './form.module.scss';
-
-interface FormItemInputMiscProps {
-    children: React.ReactNode;
-    errors: React.ReactNode[];
-    warnings: React.ReactNode[];
-    marginBottom?: number | null;
-    onErrorVisibleChanged?: (visible: boolean) => void;
-}
-
-export interface FormItemInputProps {
-    wrapperCol?: ColProps;
-    extra?: React.ReactNode;
-    status?: ValidateStatus;
-    help?: React.ReactNode;
-}
 
 const FormItemInput: FC<FormItemInputProps & FormItemInputMiscProps> = (
     props

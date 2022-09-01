@@ -3,9 +3,12 @@ import type { FC, PropsWithChildren, ReactNode } from 'react';
 import { OcFormProvider } from './Internal';
 import type { OcFormProviderProps, OcMeta } from './Internal/OcForm.types';
 import type { ColProps } from '../Grid';
-import type { FormInstance, RequiredMark } from './Form';
-import type { ValidateStatus } from './FormItem';
-import type { FormLabelAlign } from './Form.types';
+import type { FormInstance } from './Form';
+import type {
+    FormLabelAlign,
+    RequiredMark,
+    ValidateStatus,
+} from './Form.types';
 
 export interface FormContextProps {
     vertical: boolean;

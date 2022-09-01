@@ -1,49 +1,24 @@
 import React, { useContext, useMemo } from 'react';
+import { FormProps } from './Form.types';
 import OcFieldForm, { OcList, useWatch } from './Internal';
-import type { OcFormProps } from './Internal';
 import type { OcValidateErrorEntity } from './Internal/OcForm.types';
-import { mergeClasses } from '../../shared/utilities';
-import type { Options } from 'scroll-into-view-if-needed';
+import { FormContext } from './Context';
+import type { FormContextProps } from './Context';
+import useForm, { FormInstance } from './Hooks/useForm';
 import DisabledContext, {
     DisabledContextProvider,
 } from '../ConfigProvider/DisabledContext';
 import SizeContext, {
     SizeContextProvider,
-    Size,
 } from '../ConfigProvider/SizeContext';
 import ShapeContext, {
     ShapeContextProvider,
-    Shape,
 } from '../ConfigProvider/ShapeContext';
-import type { ColProps } from '../Grid/Grid.types';
-import type { FormContextProps } from './Context';
-import { FormContext } from './Context';
-import useForm, { FormInstance } from './Hooks/useForm';
-import type { FormLabelAlign } from './Form.types';
 import { useCanvasDirection } from '../../hooks/useCanvasDirection';
+import { mergeClasses } from '../../shared/utilities';
+import type { Options } from 'scroll-into-view-if-needed';
 
 import styles from './form.module.scss';
-
-export type RequiredMark = boolean | 'optional';
-export type FormLayout = 'horizontal' | 'inline' | 'vertical';
-
-export interface FormProps<Values = any>
-    extends Omit<OcFormProps<Values>, 'form'> {
-    classNames?: string;
-    colon?: boolean;
-    name?: string;
-    layout?: FormLayout;
-    labelAlign?: FormLabelAlign;
-    labelWrap?: boolean;
-    labelCol?: ColProps;
-    wrapperCol?: ColProps;
-    form?: FormInstance<Values>;
-    shape?: Shape;
-    size?: Size;
-    disabled?: boolean;
-    scrollToFirstError?: Options | boolean;
-    requiredMark?: RequiredMark;
-}
 
 const InternalForm: React.ForwardRefRenderFunction<FormInstance, FormProps> = (
     props,

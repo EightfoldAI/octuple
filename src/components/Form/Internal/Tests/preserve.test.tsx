@@ -196,7 +196,7 @@ describe('Form.Preserve', () => {
             wrapper.find('button').simulate('click');
             wrapper.update();
 
-            expect(form.getFieldsValue()).toEqual({
+            expect(form.getFieldListValues()).toEqual({
                 list: ['mia', 'little'],
             });
         });
@@ -234,7 +234,7 @@ describe('Form.Preserve', () => {
 
             // Remove should not work
             wrapper.find('button').simulate('click');
-            expect(form.getFieldsValue()).toEqual({ list: [] });
+            expect(form.getFieldListValues()).toEqual({ list: [] });
         });
 
         test('multiple level field can use preserve', async () => {
@@ -327,14 +327,14 @@ describe('Form.Preserve', () => {
                 .last()
                 .simulate('change', { target: { value: '903' } });
 
-            expect(form.getFieldsValue()).toEqual({
+            expect(form.getFieldListValues()).toEqual({
                 list: [{ type: 'mia', mia: '903' }],
             });
 
             // ============== Remove Test ==============
             // Remove field
             wrapper.find('button').simulate('click');
-            expect(form.getFieldsValue()).toEqual({ list: [] });
+            expect(form.getFieldListValues()).toEqual({ list: [] });
         });
     });
 
@@ -362,12 +362,12 @@ describe('Form.Preserve', () => {
         );
 
         wrapper.find('input').simulate('change', { target: { value: 'mia' } });
-        expect(form.getFieldsValue()).toEqual({ lola: 'mia' });
+        expect(form.getFieldListValues()).toEqual({ lola: 'mia' });
 
         wrapper
             .find('input')
             .simulate('change', { target: { value: 'little' } });
-        expect(form.getFieldsValue()).toEqual({ lola: 'little' });
+        expect(form.getFieldListValues()).toEqual({ lola: 'little' });
 
         wrapper.unmount();
     });
@@ -530,7 +530,7 @@ describe('Form.Preserve', () => {
             visible: false,
         });
 
-        instance.setFieldsValue({ name: 'mia' });
+        instance.setFieldListValues({ name: 'mia' });
         wrapper.setProps({
             visible: true,
         });

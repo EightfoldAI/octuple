@@ -246,7 +246,7 @@ describe('Form.List', () => {
             const [form] = Form.useForm();
 
             React.useEffect(() => {
-                form.setFieldsValue({
+                form.setFieldListValues({
                     list: [1],
                 });
             }, []);

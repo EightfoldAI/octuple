@@ -88,24 +88,20 @@ describe('OcForm.Basic', () => {
             </div>
         );
 
-        expect(form.isFieldsTouched()).toBeFalsy();
-        expect(form.isFieldsTouched(['username', 'password'])).toBeFalsy();
+        expect(form.isListTouched()).toBeFalsy();
+        expect(form.isListTouched(['username', 'password'])).toBeFalsy();
 
         await changeValue(getField(wrapper, 0), 'Mia');
-        expect(form.isFieldsTouched()).toBeTruthy();
-        expect(form.isFieldsTouched(['username', 'password'])).toBeTruthy();
-        expect(form.isFieldsTouched(true)).toBeFalsy();
-        expect(
-            form.isFieldsTouched(['username', 'password'], true)
-        ).toBeFalsy();
+        expect(form.isListTouched()).toBeTruthy();
+        expect(form.isListTouched(['username', 'password'])).toBeTruthy();
+        expect(form.isListTouched(true)).toBeFalsy();
+        expect(form.isListTouched(['username', 'password'], true)).toBeFalsy();
 
         await changeValue(getField(wrapper, 1), 'Light');
-        expect(form.isFieldsTouched()).toBeTruthy();
-        expect(form.isFieldsTouched(['username', 'password'])).toBeTruthy();
-        expect(form.isFieldsTouched(true)).toBeTruthy();
-        expect(
-            form.isFieldsTouched(['username', 'password'], true)
-        ).toBeTruthy();
+        expect(form.isListTouched()).toBeTruthy();
+        expect(form.isListTouched(['username', 'password'])).toBeTruthy();
+        expect(form.isListTouched(true)).toBeTruthy();
+        expect(form.isListTouched(['username', 'password'], true)).toBeTruthy();
     });
 
     describe('reset form', () => {
@@ -403,13 +399,13 @@ describe('OcForm.Basic', () => {
             .find('input[type="checkbox"]')
             .simulate('change', { target: { checked: true } });
         await timeout();
-        expect(form.getFieldsValue()).toEqual({ check: true });
+        expect(form.getFieldListValues()).toEqual({ check: true });
 
         wrapper
             .find('input[type="checkbox"]')
             .simulate('change', { target: { checked: false } });
         await timeout();
-        expect(form.getFieldsValue()).toEqual({ check: false });
+        expect(form.getFieldListValues()).toEqual({ check: false });
     });
 
     test('getValueProps', async () => {
@@ -443,9 +439,9 @@ describe('OcForm.Basic', () => {
                         <Input />
                     </OcField>
                     <OcField shouldUpdate>
-                        {(_, __, { getFieldsError, isFieldsTouched }) => {
-                            isAllTouched = isFieldsTouched(true);
-                            hasError = getFieldsError().filter(
+                        {(_, __, { getFieldListErrors, isListTouched }) => {
+                            isAllTouched = isListTouched(true);
+                            hasError = getFieldListErrors().filter(
                                 ({ errors }) => errors.length
                             ).length;
 
@@ -486,8 +482,8 @@ describe('OcForm.Basic', () => {
                             return (
                                 <span
                                     id="holder"
-                                    data-touched={form.isFieldsTouched(true)}
-                                    data-value={form.getFieldsValue()}
+                                    data-touched={form.isListTouched(true)}
+                                    data-value={form.getFieldListValues()}
                                 />
                             );
                         }}
@@ -531,7 +527,7 @@ describe('OcForm.Basic', () => {
 
             matchError(wrapper, 'Set It!');
             expect(wrapper.find('.validating').length).toBeTruthy();
-            expect(form.isFieldsTouched()).toBeFalsy();
+            expect(form.isListTouched()).toBeFalsy();
         });
 
         test('should trigger by setField', () => {
@@ -600,7 +596,7 @@ describe('OcForm.Basic', () => {
         expect(called2).toBeTruthy();
     });
 
-    test('setFieldsValue should clean up status', async () => {
+    test('setFieldListValues should clean up status', async () => {
         let form;
         let currentMeta;
 
@@ -631,7 +627,7 @@ describe('OcForm.Basic', () => {
         expect(currentMeta.validating).toBeFalsy();
 
         // Set it
-        form.setFieldsValue({
+        form.setFieldListValues({
             normal: 'Light',
         });
 
@@ -649,7 +645,7 @@ describe('OcForm.Basic', () => {
         expect(currentMeta.validating).toBeTruthy();
 
         // Set it again
-        form.setFieldsValue({
+        form.setFieldListValues({
             normal: 'Light',
         });
 
@@ -677,7 +673,7 @@ describe('OcForm.Basic', () => {
         );
 
         expect(
-            form.getFieldsValue(null, (meta) => {
+            form.getFieldListValues(null, (meta) => {
                 expect(Object.keys(meta)).toEqual([
                     'touched',
                     'validating',
@@ -689,25 +685,27 @@ describe('OcForm.Basic', () => {
             })
         ).toEqual({});
 
-        expect(form.getFieldsValue(null, () => true)).toEqual(
-            form.getFieldsValue()
+        expect(form.getFieldListValues(null, () => true)).toEqual(
+            form.getFieldListValues()
         );
-        expect(form.getFieldsValue(null, (meta) => meta.touched)).toEqual({});
+        expect(form.getFieldListValues(null, (meta) => meta.touched)).toEqual(
+            {}
+        );
 
         await changeValue(getField(wrapper, 0), 'Mia');
-        expect(form.getFieldsValue(null, () => true)).toEqual(
-            form.getFieldsValue()
+        expect(form.getFieldListValues(null, () => true)).toEqual(
+            form.getFieldListValues()
         );
-        expect(form.getFieldsValue(null, (meta) => meta.touched)).toEqual({
+        expect(form.getFieldListValues(null, (meta) => meta.touched)).toEqual({
             username: 'Mia',
         });
         expect(
-            form.getFieldsValue(['username'], (meta) => meta.touched)
+            form.getFieldListValues(['username'], (meta) => meta.touched)
         ).toEqual({
             username: 'Mia',
         });
         expect(
-            form.getFieldsValue(['password'], (meta) => meta.touched)
+            form.getFieldListValues(['password'], (meta) => meta.touched)
         ).toEqual({});
     });
 
@@ -735,12 +733,12 @@ describe('OcForm.Basic', () => {
         }).not.toThrowError();
     });
 
-    test('setFieldsValue for List should work', () => {
+    test('setFieldListValues for List should work', () => {
         const Demo = () => {
             const [form] = useForm();
 
             const handelReset = () => {
-                form.setFieldsValue({
+                form.setFieldListValues({
                     users: [],
                 });
             };
@@ -792,7 +790,7 @@ describe('OcForm.Basic', () => {
         expect(wrapper.find('input').length).toBe(0);
     });
 
-    test('setFieldsValue should work for multiple Select', () => {
+    test('setFieldListValues should work for multiple Select', () => {
         const Select = ({ value, defaultValue }) => {
             return (
                 <div className="select-div">
@@ -805,7 +803,7 @@ describe('OcForm.Basic', () => {
             const [formInstance] = OcForm.useForm();
 
             React.useEffect(() => {
-                formInstance.setFieldsValue({ selector: ['K1', 'K2'] });
+                formInstance.setFieldListValues({ selector: ['K1', 'K2'] });
             }, [formInstance]);
 
             return (
@@ -844,7 +842,7 @@ describe('OcForm.Basic', () => {
         };
 
         const wrapper = mount(<Demo />);
-        refForm.setFieldsValue({ name: 'mia' });
+        refForm.setFieldListValues({ name: 'mia' });
         wrapper.update();
 
         expect(wrapper.find('input').prop('value')).toEqual('mia');

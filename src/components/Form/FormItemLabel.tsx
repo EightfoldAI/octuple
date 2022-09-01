@@ -1,24 +1,21 @@
 import React from 'react';
-import { mergeClasses } from '../../shared/utilities';
-import type { ColProps } from '../Grid';
-import { Col } from '../Grid';
-import { useLocaleReceiver } from '../LocaleProvider/LocaleReceiver';
-import defaultLocale from '../Locale/Default';
-import type { TooltipProps } from '../Tooltip';
-import { Tooltip } from '../Tooltip';
 import type { FormContextProps } from './Context';
 import { FormContext } from './Context';
-import type { RequiredMark } from './Form';
+import {
+    FormItemLabelProps,
+    LabelTooltipType,
+    WrapperTooltipProps,
+} from './Form.types';
 import type { FormLabelAlign } from './Form.types';
+import { Col } from '../Grid';
+import type { ColProps } from '../Grid';
 import { Icon, IconName, IconSize } from '../Icon';
+import { useLocaleReceiver } from '../LocaleProvider/LocaleReceiver';
+import defaultLocale from '../Locale/Default';
+import { Tooltip } from '../Tooltip';
+import { mergeClasses } from '../../shared/utilities';
 
 import styles from './form.module.scss';
-
-export type WrapperTooltipProps = TooltipProps & {
-    icon?: React.ReactElement;
-};
-
-export type LabelTooltipType = WrapperTooltipProps | React.ReactNode;
 
 function toTooltipProps(tooltip: LabelTooltipType): WrapperTooltipProps | null {
     if (!tooltip) {
@@ -33,16 +30,6 @@ function toTooltipProps(tooltip: LabelTooltipType): WrapperTooltipProps | null {
         content: tooltip,
         portal: true,
     };
-}
-
-export interface FormItemLabelProps {
-    colon?: boolean;
-    htmlFor?: string;
-    label?: React.ReactNode;
-    labelAlign?: FormLabelAlign;
-    labelCol?: ColProps;
-    requiredMark?: RequiredMark;
-    tooltip?: LabelTooltipType;
 }
 
 const FormItemLabel: React.FC<FormItemLabelProps & { required?: boolean }> = ({

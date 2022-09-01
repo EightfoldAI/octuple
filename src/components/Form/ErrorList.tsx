@@ -1,8 +1,8 @@
 import React from 'react';
+import type { ValidateStatus } from './Form.types';
+import useDebounce from './Hooks/useDebounce';
 import CSSMotion, { CSSMotionList } from '../Motion';
 import { collapseMotion, mergeClasses } from '../../shared/utilities';
-import type { ValidateStatus } from './FormItem';
-import useDebounce from './Hooks/useDebounce';
 
 import styles from './form.module.scss';
 

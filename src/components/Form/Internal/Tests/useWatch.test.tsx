@@ -90,7 +90,7 @@ describe('useWatch', () => {
             staticForm.setFields([{ name: 'name', value: 'little' }]);
             expect(wrapper.find('.values').text()).toEqual('little');
 
-            staticForm.setFieldsValue({ name: 'lola' });
+            staticForm.setFieldListValues({ name: 'lola' });
             expect(wrapper.find('.values').text()).toEqual('lola');
 
             staticForm.resetFields();

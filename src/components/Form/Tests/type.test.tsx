@@ -30,7 +30,7 @@ describe('Form.typescript', () => {
             const Demo = () => {
                 const [form] = Form.useForm<FormValues>();
 
-                form.setFieldsValue({ path1: { path2: 2333 } });
+                form.setFieldListValues({ path1: { path2: 2333 } });
 
                 return (
                     <Form
@@ -52,7 +52,7 @@ describe('Form.typescript', () => {
                 formRef = React.createRef<FormInstance<FormValues>>();
 
                 componentDidMount() {
-                    this.formRef.current?.setFieldsValue({
+                    this.formRef.current?.setFieldListValues({
                         path1: { path2: 233 },
                     });
                 }
@@ -79,8 +79,8 @@ describe('Form.typescript', () => {
         const Demo = () => (
             <Form<FormValues>>
                 <Form.Item<FormValues>>
-                    {({ getFieldsValue }) => {
-                        const values = getFieldsValue();
+                    {({ getFieldListValues }) => {
+                        const values = getFieldListValues();
                         expect(values).toBeTruthy();
                         expect(values.username).toBeTruthy();
                         expect(values.path1?.path2).toBeTruthy();

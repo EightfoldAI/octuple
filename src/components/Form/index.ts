@@ -5,18 +5,16 @@ import {
 } from './Internal/OcForm.types';
 import { FormProvider } from './Context';
 import ErrorList, { ErrorListProps } from './ErrorList';
-import InternalForm, {
-    FormInstance,
+import InternalForm, { FormInstance, useForm, useWatch } from './Form';
+import Item from './FormItem';
+import List from './FormList';
+import {
+    FormItemProps,
     FormProps,
-    useForm,
-    useWatch,
-} from './Form';
-import Item, { FormItemProps } from './FormItem';
-import List, {
     FormListFieldData,
     FormListOperation,
     FormListProps,
-} from './FormList';
+} from './Form.types';
 import useFormInstance from './Hooks/useFormInstance';
 
 type InternalFormType = typeof InternalForm;

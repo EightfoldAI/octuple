@@ -1,16 +1,16 @@
 import React, { useLayoutEffect, useMemo } from 'react';
+import { ItemHolderProps } from '../Form.types';
+import type { ValidateStatus } from '../Form.types';
 import { mergeClasses, omit } from '../../../shared/utilities';
-import type { OcMeta } from '../Internal/OcForm.types';
 import { Row } from '../../Grid';
 import FormItemLabel from '../FormItemLabel';
 import FormItemInput from '../FormItemInput';
-import type { FormItemStatusContextProps, ReportMetaChange } from '../Context';
+import type { FormItemStatusContextProps } from '../Context';
 import {
     FormContext,
     FormItemInputContext,
     NoStyleItemContext,
 } from '../Context';
-import type { FormItemProps, ValidateStatus } from '.';
 import { Icon, IconName, IconSize } from '../../Icon';
 import { Loader, LoaderSize } from '../../Loader';
 import useDebounce from '../Hooks/useDebounce';
@@ -43,18 +43,6 @@ const iconMap = {
         <Loader color={'var(--primary-color)'} size={LoaderSize.Small} />
     ),
 };
-
-export interface ItemHolderProps extends FormItemProps {
-    classNames?: string;
-    style?: React.CSSProperties;
-    errors: React.ReactNode[];
-    warnings: React.ReactNode[];
-    meta: OcMeta;
-    children?: React.ReactNode;
-    fieldId?: string;
-    isRequired?: boolean;
-    onSubItemMetaChange: ReportMetaChange;
-}
 
 export default function ItemHolder(props: ItemHolderProps) {
     const {

@@ -13,18 +13,18 @@ import {
     TextInputShape,
     TextInputSize,
 } from '../index';
+import { FormItemInputContext } from '../../Form/Context';
+import { ValidateStatus } from '../../Form/Form.types';
 import { useDebounce } from '../../../hooks/useDebounce';
 import {
+    getMergedStatus,
     mergeClasses,
     resolveOnChange,
     uniqueId,
 } from '../../../shared/utilities';
 import { Breakpoints, useMatchMedia } from '../../../hooks/useMatchMedia';
-import { FormItemInputContext } from '../../Form/Context';
-import { getMergedStatus } from '../../../shared/utilities';
 
 import styles from '../input.module.scss';
-import { ValidateStatus } from '../../Form/FormItem';
 
 export const TextInput: FC<TextInputProps> = React.forwardRef(
     (

@@ -11,14 +11,17 @@ import {
     TextInputSize,
     TextInputWidth,
 } from '../index';
-import { useDebounce } from '../../../hooks/useDebounce';
-import { mergeClasses, uniqueId } from '../../../shared/utilities';
-import { Breakpoints, useMatchMedia } from '../../../hooks/useMatchMedia';
 import { FormItemInputContext } from '../../Form/Context';
-import { getMergedStatus } from '../../../shared/utilities';
+import { ValidateStatus } from '../../Form/Form.types';
+import { useDebounce } from '../../../hooks/useDebounce';
+import {
+    getMergedStatus,
+    mergeClasses,
+    uniqueId,
+} from '../../../shared/utilities';
+import { Breakpoints, useMatchMedia } from '../../../hooks/useMatchMedia';
 
 import styles from '../input.module.scss';
-import { ValidateStatus } from '../../Form/FormItem';
 
 export const TextArea: FC<TextAreaProps> = React.forwardRef(
     (

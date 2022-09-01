@@ -14,18 +14,18 @@ const warningFunc: any = () => {
 
 const Context = createContext<InternalOcFormInstance>({
     getFieldValue: warningFunc,
-    getFieldsValue: warningFunc,
+    getFieldListValues: warningFunc,
     getFieldError: warningFunc,
     getFieldWarning: warningFunc,
-    getFieldsError: warningFunc,
-    isFieldsTouched: warningFunc,
+    getFieldListErrors: warningFunc,
+    isListTouched: warningFunc,
     isTouched: warningFunc,
     isValidating: warningFunc,
-    isFieldsValidating: warningFunc,
+    isListValidating: warningFunc,
     resetFields: warningFunc,
     setFields: warningFunc,
     setFieldValue: warningFunc,
-    setFieldsValue: warningFunc,
+    setFieldListValues: warningFunc,
     validateFields: warningFunc,
     submit: warningFunc,
 

@@ -64,11 +64,11 @@
 .form-item {
     @include reset-component();
 
-    margin-bottom: $space-l;
+    margin-bottom: $space-xl;
     vertical-align: top;
 
     &-margin-offset {
-        margin-bottom: $space-l;
+        margin-bottom: $space-xl;
     }
 
     &-with-help {

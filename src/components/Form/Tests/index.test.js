@@ -432,7 +432,7 @@ describe('Form', () => {
         expect(shouldNotRender).toHaveBeenCalledTimes(1);
         expect(shouldRender).toHaveBeenCalledTimes(1);
 
-        formRef.current.setFieldsValue({ lola: 'mia' });
+        formRef.current.setFieldListValues({ lola: 'mia' });
         await Promise.resolve();
         expect(shouldNotRender).toHaveBeenCalledTimes(1);
         expect(shouldRender).toHaveBeenCalledTimes(2);

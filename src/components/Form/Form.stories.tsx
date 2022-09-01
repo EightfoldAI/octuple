@@ -258,21 +258,21 @@ const Methods_Story: ComponentStory<typeof Form> = (args) => {
         }
         switch (options[0]) {
             case 'foo' as unknown as SelectOption:
-                form.setFieldsValue({
+                form.setFieldListValues({
                     note: 'Hello, Foo!',
                     selectValue: 'foo',
                 });
                 setSelected('foo');
                 return;
             case 'bar' as unknown as SelectOption:
-                form.setFieldsValue({
+                form.setFieldListValues({
                     note: 'Hello, Bar!',
                     selectValue: 'bar',
                 });
                 setSelected('bar');
                 return;
             case 'other' as unknown as SelectOption:
-                form.setFieldsValue({
+                form.setFieldListValues({
                     note: 'Hello, Other!',
                     selectValue: 'other',
                 });
@@ -292,7 +292,7 @@ const Methods_Story: ComponentStory<typeof Form> = (args) => {
 
     const onFill = () => {
         form.resetFields();
-        form.setFieldsValue({
+        form.setFieldListValues({
             note: 'Hello, Foo!',
             selectValue: 'foo',
         });
@@ -534,7 +534,7 @@ const Non_Blocking_Story: ComponentStory<typeof Form> = (args) => {
     };
 
     const onFill = () => {
-        form.setFieldsValue({
+        form.setFieldListValues({
             url: 'https://eightfold.ai/',
         });
     };
@@ -886,24 +886,24 @@ const Complex_Dynamic_Form_Items_Story: ComponentStory<typeof Form> = (
     type SightsKeys = keyof typeof sights;
 
     const onSelectAreaChange = (options: SelectOption[]) => {
-        form.setFieldsValue({ sights: [] });
+        form.setFieldListValues({ sights: [] });
         options.forEach((area) => {
-            form.setFieldsValue({ area: area });
+            form.setFieldListValues({ area: area });
         });
     };
 
     const onSelectSitesChange = (options: SelectOption[], _key: number) => {
-        const fields = form.getFieldsValue();
+        const fields = form.getFieldListValues();
         const { sight, sights } = fields;
         options.forEach((option) => {
             const sightByFieldName = `${_key}${option}`;
             Object.assign(sightByFieldName, { sight: option });
-            form.setFieldsValue({ sight });
+            form.setFieldListValues({ sight });
             Object.assign(sights[_key], { sight: option });
-            form.setFieldsValue({ sights });
+            form.setFieldListValues({ sights });
             form.validateFields();
         });
-        console.log(form.getFieldsValue());
+        console.log(form.getFieldListValues());
     };
 
     const onFinish = (values: any) => {
@@ -1068,7 +1068,9 @@ const Nest_Story: ComponentStory<typeof Form> = (args) => {
                     {...layout}
                     name={'nest-messages'}
                     onFinish={onFinish}
+                    //scrollToFirstError={{behavior: 'smooth', scrollMode: 'if-needed', block: 'start'}}
                     validateMessages={validateMessages}
+                    //style={{height: 200, overflow: 'auto'}}
                 >
                     <Form.Item
                         name={['user', 'name']}
@@ -1124,10 +1126,10 @@ const Complex_Form_Control_Story: ComponentStory<typeof Form> = (args) => {
 
     const onSelectCityChange = (options: SelectOption[]) => {
         options.forEach((option) => {
-            form.setFieldsValue({ address: { city: option } });
+            form.setFieldListValues({ address: { city: option } });
             form.validateFields();
         });
-        console.log(form.getFieldsValue());
+        console.log(form.getFieldListValues());
     };
 
     const onFinish = (values: any) => {
@@ -1514,7 +1516,7 @@ const Control_Between_Forms_Story: ComponentStory<typeof Form> = () => {
                             const { basicForm } = forms;
                             const users =
                                 basicForm.getFieldValue('users') || [];
-                            basicForm.setFieldsValue({
+                            basicForm.setFieldListValues({
                                 users: [...users, values],
                             });
                             setVisible(false);
@@ -1651,7 +1653,7 @@ const CollectionCreateForm: React.FC<CollectionCreateFormProps> = ({
             size={ModalSize.small}
             onClose={onCancel}
             width={440}
-            height={selectedReason === 'Radio4' ? 506 : 316}
+            height={selectedReason === 'Radio4' ? 520 : 336}
             actions={
                 <>
                     <NeutralButton text={'Cancel'} onClick={onCancel} />

@@ -105,7 +105,7 @@ export const OcForm: React.ForwardRefRenderFunction<
     let childrenNode: React.ReactNode;
     const childrenRenderProps = typeof children === 'function';
     if (childrenRenderProps) {
-        const values = formInstance.getFieldsValue(true);
+        const values = formInstance.getFieldListValues(true);
         childrenNode = (children as OcRenderProps)(values, formInstance);
     } else {
         childrenNode = children;

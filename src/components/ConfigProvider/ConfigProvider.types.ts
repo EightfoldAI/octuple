@@ -9,7 +9,7 @@ import { FocusVisibleOptions } from './A11y';
 import { Shape } from './ShapeContext';
 import { Size } from './SizeContext';
 import { ValidateMessages } from '../Form/Internal/OcForm.types';
-import { RequiredMark } from '../Form/Form';
+import { RequiredMark } from '../Form/Form.types';
 
 export type DirectionType = 'ltr' | 'rtl' | undefined;
 

@@ -101,7 +101,7 @@ function useWatch(dependencies: OcNamePath = [], form?: OcFormInstance) {
                 return null;
             }
 
-            const { getFieldsValue, getInternalHooks } = formInstance;
+            const { getFieldListValues, getInternalHooks } = formInstance;
             const { registerWatch } = getInternalHooks(HOOK_MARK);
 
             const cancelRegister = registerWatch((store) => {
@@ -116,7 +116,7 @@ function useWatch(dependencies: OcNamePath = [], form?: OcFormInstance) {
             });
 
             const initialValue = getValue(
-                getFieldsValue(),
+                getFieldListValues(),
                 namePathRef.current
             );
             setValue(initialValue);

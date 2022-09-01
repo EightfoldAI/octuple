@@ -1,68 +1,33 @@
 import React, { useContext, useMemo } from 'react';
-import type { OcFormInstance } from '../Internal';
 import { OcField, OcFieldContext, OcListContext } from '../Internal';
 import { OcMeta, OcNamePath } from '../Internal/OcForm.types';
-import type { OcFieldProps } from '../Internal/OcForm.types';
 import useFormItemStatus from '../Hooks/useFormItemStatus';
-import {
-    cloneElement,
-    isValidElement,
-    tuple,
-    warning,
-} from '../../../shared/utilities';
 import { FormContext, NoStyleItemContext } from '../Context';
-import type { FormItemInputProps } from '../FormItemInput';
-import type { FormItemLabelProps, LabelTooltipType } from '../FormItemLabel';
 import useFrameState from '../Hooks/useFrameState';
 import useItemRef from '../Hooks/useItemRef';
 import { useSafeState } from '../../../hooks/useState';
 import { getFieldId, toArray } from '../util';
+import {
+    FieldError,
+    FormItemProps,
+    MemoInputProps,
+    RenderChildren,
+} from '../Form.types';
 import ItemHolder from './ItemHolder';
+import {
+    cloneElement,
+    isValidElement,
+    warning,
+} from '../../../shared/utilities';
 
+// Separates the mergedNameKey of the form list item
+// e.g. name: ['user', 1] + key: [4] = ['user', 4] becomes `user__SPLIT__4`
 const NAME_SPLIT = '__SPLIT__';
-
-interface FieldError {
-    errors: string[];
-    warnings: string[];
-}
-
-const ValidateStatuses = tuple('success', 'warning', 'error', 'validating', '');
-export type ValidateStatus = typeof ValidateStatuses[number];
-
-type RenderChildren<Values = any> = (
-    form: OcFormInstance<Values>
-) => React.ReactNode;
-type RcFieldProps<Values = any> = Omit<OcFieldProps<Values>, 'children'>;
-type ChildrenType<Values = any> = RenderChildren<Values> | React.ReactNode;
-
-interface MemoInputProps {
-    value: any;
-    update: any;
-    children: React.ReactNode;
-}
 
 const MemoInput = React.memo(
     ({ children }: MemoInputProps) => children as JSX.Element,
     (prev, next) => prev.value === next.value && prev.update === next.update
 );
-
-export interface FormItemProps<Values = any>
-    extends FormItemLabelProps,
-        FormItemInputProps,
-        RcFieldProps<Values> {
-    noStyle?: boolean;
-    style?: React.CSSProperties;
-    className?: string;
-    children?: ChildrenType<Values>;
-    id?: string;
-    hasFeedback?: boolean;
-    validateStatus?: ValidateStatus;
-    required?: boolean;
-    hidden?: boolean;
-    initialValue?: any;
-    messageVariables?: Record<string, string>;
-    tooltip?: LabelTooltipType;
-}
 
 function hasValidName(name?: OcNamePath): Boolean {
     if (name === null) {

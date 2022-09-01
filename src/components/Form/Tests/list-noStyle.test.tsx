@@ -5,7 +5,7 @@ import MatchMediaMock from 'jest-matchmedia-mock';
 import { act } from 'react-dom/test-utils';
 import Form from '../';
 import { TextInput } from '../../Inputs';
-import type { FormListOperation } from '../FormList';
+import type { FormListOperation } from '../Form.types';
 import { sleep } from '../../../tests/Utilities';
 
 Enzyme.configure({ adapter: new Adapter() });

@@ -197,7 +197,7 @@ class OcField
         const namePathMatch =
             namePathList && containsNamePath(namePathList, namePath);
 
-        // `setFieldsValue` is a quick access to update related status
+        // `setFieldListValues` is a quick access to update related status
         if (
             info.type === 'valueUpdate' &&
             info.source === 'external' &&
@@ -508,9 +508,9 @@ class OcField
 
     // ============================== Field Control ==============================
     public getValue = (store?: OcStore) => {
-        const { getFieldsValue }: OcFormInstance = this.props.fieldContext;
+        const { getFieldListValues }: OcFormInstance = this.props.fieldContext;
         const namePath = this.getNamePath();
-        return getValue(store || getFieldsValue(true), namePath);
+        return getValue(store || getFieldListValues(true), namePath);
     };
 
     public getControlled = (childProps: OcChildProps = {}) => {
@@ -530,7 +530,7 @@ class OcField
                 : fieldContext.validateTrigger;
 
         const namePath = this.getNamePath();
-        const { getInternalHooks, getFieldsValue }: InternalOcFormInstance =
+        const { getInternalHooks, getFieldListValues }: InternalOcFormInstance =
             fieldContext;
         const { dispatch } = getInternalHooks(HOOK_MARK);
         const value = this.getValue();
@@ -562,7 +562,7 @@ class OcField
             }
 
             if (normalize) {
-                newValue = normalize(newValue, value, getFieldsValue(true));
+                newValue = normalize(newValue, value, getFieldListValues(true));
             }
 
             dispatch({

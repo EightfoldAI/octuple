@@ -32,21 +32,23 @@ describe('OcForm.InitialValues', () => {
             </div>
         );
 
-        expect(form.getFieldsValue()).toEqual({
+        expect(form.getFieldListValues()).toEqual({
             username: 'Lola',
             path1: {
                 path2: 'Mia',
             },
         });
-        expect(form.getFieldsValue(['username'])).toEqual({
+        expect(form.getFieldListValues(['username'])).toEqual({
             username: 'Lola',
         });
-        expect(form.getFieldsValue(['path1'])).toEqual({
+        expect(form.getFieldListValues(['path1'])).toEqual({
             path1: {
                 path2: 'Mia',
             },
         });
-        expect(form.getFieldsValue(['username', ['path1', 'path2']])).toEqual({
+        expect(
+            form.getFieldListValues(['username', ['path1', 'path2']])
+        ).toEqual({
             username: 'Lola',
             path1: {
                 path2: 'Mia',
@@ -89,7 +91,7 @@ describe('OcForm.InitialValues', () => {
         );
 
         const wrapper = mount(<Test initialValues={{ username: 'Mia' }} />);
-        expect(form.getFieldsValue()).toEqual({
+        expect(form.getFieldListValues()).toEqual({
             username: 'Mia',
         });
         expect(
@@ -99,7 +101,7 @@ describe('OcForm.InitialValues', () => {
         // Should not change it
         wrapper.setProps({ initialValues: { username: 'Lola' } });
         wrapper.update();
-        expect(form.getFieldsValue()).toEqual({
+        expect(form.getFieldListValues()).toEqual({
             username: 'Mia',
         });
         expect(
@@ -110,7 +112,7 @@ describe('OcForm.InitialValues', () => {
         form.resetFields();
         wrapper.update();
         expect(mountCount).toEqual(1);
-        expect(form.getFieldsValue()).toEqual({
+        expect(form.getFieldListValues()).toEqual({
             username: 'Lola',
         });
         expect(
@@ -206,7 +208,7 @@ describe('OcForm.InitialValues', () => {
 
         wrapper.find('button').simulate('click');
         expect(formValue.users[0].last).toEqual('bbb');
-        console.log('Form Value:', refForm.getFieldsValue(true));
+        console.log('Form Value:', refForm.getFieldListValues(true));
 
         wrapper.find('button').simulate('click');
         wrapper.update();
@@ -373,7 +375,7 @@ describe('OcForm.InitialValues', () => {
 
             const wrapper = mount(<Test />);
 
-            expect(formInstance.getFieldsValue()).toEqual({ lola: 'mia' });
+            expect(formInstance.getFieldListValues()).toEqual({ lola: 'mia' });
 
             wrapper.unmount();
         });

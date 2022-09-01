@@ -1,30 +1,8 @@
 import React, { FC, useMemo } from 'react';
 import { OcList } from './Internal';
-import type { OcStoreValue, OcValidatorRule } from './Internal/OcForm.types';
-import { warning } from '../../shared/utilities';
 import { FormItemStatusContext } from './Context';
-
-export interface FormListFieldData {
-    name: number;
-    key: number;
-}
-
-export interface FormListOperation {
-    add: (defaultValue?: OcStoreValue, insertIndex?: number) => void;
-    remove: (index: number | number[]) => void;
-    move: (from: number, to: number) => void;
-}
-
-export interface FormListProps {
-    name: string | number | (string | number)[];
-    rules?: OcValidatorRule[];
-    initialValue?: any[];
-    children: (
-        fields: FormListFieldData[],
-        operation: FormListOperation,
-        meta: { errors: React.ReactNode[]; warnings: React.ReactNode[] }
-    ) => React.ReactNode;
-}
+import { FormListProps } from './Form.types';
+import { warning } from '../../shared/utilities';
 
 const FormList: FC<FormListProps> = ({ children, ...props }) => {
     warning(!!props.name, 'Form.List Missing `name` prop.');

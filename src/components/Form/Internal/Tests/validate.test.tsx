@@ -31,7 +31,7 @@ describe('OcForm.Validate', () => {
         expect(form.getFieldError('username')).toEqual([
             "'username' is required",
         ]);
-        expect(form.getFieldsError()).toEqual([
+        expect(form.getFieldListErrors()).toEqual([
             {
                 name: ['username'],
                 errors: ["'username' is required"],
@@ -40,7 +40,7 @@ describe('OcForm.Validate', () => {
         ]);
 
         // Contains not exists
-        expect(form.getFieldsError(['username', 'not-exist'])).toEqual([
+        expect(form.getFieldListErrors(['username', 'not-exist'])).toEqual([
             {
                 name: ['username'],
                 errors: ["'username' is required"],
@@ -501,7 +501,7 @@ describe('OcForm.Validate', () => {
             expect(form.getFieldError('username')).toEqual([
                 "'username' is required",
             ]);
-            expect(form.getFieldsError()).toEqual([
+            expect(form.getFieldListErrors()).toEqual([
                 {
                     name: ['username'],
                     errors: ["'username' is required"],
