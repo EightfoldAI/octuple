@@ -14,7 +14,7 @@
 
     .dialog {
         position: absolute;
-        padding: $space-ml;
+        padding: $space-l $space-xl;
         background: var(--background-color);
         border-radius: $corner-radius-xl;
         box-shadow: $shadow-object-l;
