@@ -1,7 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Storyshots Select Basic 1`] = `
-<div>
+<div
+  style={
+    Object {
+      "marginTop": 80,
+    }
+  }
+>
   <div
     className="select-wrapper octuple-select-class"
     data-test-id="octuple-select-test-id"
@@ -80,7 +86,13 @@ exports[`Storyshots Select Basic 1`] = `
 `;
 
 exports[`Storyshots Select Disabled 1`] = `
-<div>
+<div
+  style={
+    Object {
+      "marginTop": 80,
+    }
+  }
+>
   <div
     className="select-wrapper octuple-select-class"
     data-test-id="octuple-select-test-id"
@@ -159,7 +171,13 @@ exports[`Storyshots Select Disabled 1`] = `
 `;
 
 exports[`Storyshots Select Dynamic 1`] = `
-<div>
+<div
+  style={
+    Object {
+      "marginTop": 80,
+    }
+  }
+>
   <div
     className="select-wrapper octuple-select-class"
     data-test-id="octuple-select-test-id"
@@ -238,7 +256,13 @@ exports[`Storyshots Select Dynamic 1`] = `
 `;
 
 exports[`Storyshots Select Dynamic Width 1`] = `
-<div>
+<div
+  style={
+    Object {
+      "marginTop": 80,
+    }
+  }
+>
   <div
     className="select-wrapper octuple-select-class"
     data-test-id="octuple-select-test-id"
@@ -317,7 +341,13 @@ exports[`Storyshots Select Dynamic Width 1`] = `
 `;
 
 exports[`Storyshots Select Filterable 1`] = `
-<div>
+<div
+  style={
+    Object {
+      "marginTop": 80,
+    }
+  }
+>
   <div
     className="select-wrapper octuple-select-class"
     data-test-id="octuple-select-test-id"
@@ -396,7 +426,13 @@ exports[`Storyshots Select Filterable 1`] = `
 `;
 
 exports[`Storyshots Select Multiple 1`] = `
-<div>
+<div
+  style={
+    Object {
+      "marginTop": 80,
+    }
+  }
+>
   <div
     className="select-wrapper octuple-select-class"
     data-test-id="octuple-select-test-id"
@@ -475,7 +511,13 @@ exports[`Storyshots Select Multiple 1`] = `
 `;
 
 exports[`Storyshots Select Multiple With No Filter 1`] = `
-<div>
+<div
+  style={
+    Object {
+      "marginTop": 80,
+    }
+  }
+>
   <div
     className="select-wrapper octuple-select-class"
     data-test-id="octuple-select-test-id"
@@ -554,7 +596,13 @@ exports[`Storyshots Select Multiple With No Filter 1`] = `
 `;
 
 exports[`Storyshots Select Options Disabled 1`] = `
-<div>
+<div
+  style={
+    Object {
+      "marginTop": 80,
+    }
+  }
+>
   <div
     className="select-wrapper octuple-select-class"
     data-test-id="octuple-select-test-id"
@@ -633,7 +681,13 @@ exports[`Storyshots Select Options Disabled 1`] = `
 `;
 
 exports[`Storyshots Select With Clear 1`] = `
-<div>
+<div
+  style={
+    Object {
+      "marginTop": 80,
+    }
+  }
+>
   <div
     className="select-wrapper octuple-select-class"
     data-test-id="octuple-select-test-id"
@@ -712,7 +766,13 @@ exports[`Storyshots Select With Clear 1`] = `
 `;
 
 exports[`Storyshots Select With Default Value 1`] = `
-<div>
+<div
+  style={
+    Object {
+      "marginTop": 80,
+    }
+  }
+>
   <div
     className="select-wrapper octuple-select-class"
     data-test-id="octuple-select-test-id"

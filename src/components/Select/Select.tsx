@@ -293,8 +293,8 @@ export const Select: FC<SelectProps> = React.forwardRef(
                     <Tooltip
                         classNames={styles.selectTooltip}
                         content={value.text}
+                        placement={'top'}
                         theme={TooltipTheme.dark}
-                        portal
                     >
                         <Pill
                             ref={(ref) => (pillRefs.current[index] = ref)}
