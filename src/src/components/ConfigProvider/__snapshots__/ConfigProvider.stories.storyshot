@@ -3902,12 +3902,12 @@ exports[`Storyshots Config Provider Theming 1`] = `
     <button
       aria-disabled={false}
       aria-label="Primary Button"
-      className="button button-primary button-medium pill-shape"
+      className="button button-primary button-small pill-shape"
       defaultChecked={false}
       disabled={false}
     >
       <span
-        className="button-text-medium"
+        className="button-text-small"
       >
         Primary Button
       </span>
@@ -3915,7 +3915,7 @@ exports[`Storyshots Config Provider Theming 1`] = `
     <button
       aria-disabled={false}
       aria-label="Primary Button"
-      className="button button-primary button-medium pill-shape icon-left"
+      className="button button-primary button-small pill-shape icon-left"
       defaultChecked={false}
       disabled={false}
     >
@@ -3928,8 +3928,8 @@ exports[`Storyshots Config Provider Theming 1`] = `
           role="presentation"
           style={
             Object {
-              "height": "20px",
-              "width": "20px",
+              "height": "16px",
+              "width": "16px",
             }
           }
           viewBox="0 0 24 24"
@@ -3948,7 +3948,7 @@ exports[`Storyshots Config Provider Theming 1`] = `
     <button
       aria-disabled={false}
       aria-label="Primary Button"
-      className="button button-primary button-medium pill-shape icon-left"
+      className="button button-primary button-small pill-shape icon-left"
       defaultChecked={false}
       disabled={false}
     >
@@ -3962,8 +3962,8 @@ exports[`Storyshots Config Provider Theming 1`] = `
             role="presentation"
             style={
               Object {
-                "height": "20px",
-                "width": "20px",
+                "height": "16px",
+                "width": "16px",
               }
             }
             viewBox="0 0 24 24"
@@ -3979,7 +3979,7 @@ exports[`Storyshots Config Provider Theming 1`] = `
           </svg>
         </span>
         <span
-          className="button-text-medium"
+          className="button-text-small"
         >
           Primary Button
         </span>
@@ -3999,12 +3999,12 @@ exports[`Storyshots Config Provider Theming 1`] = `
     <button
       aria-disabled={false}
       aria-label="Secondary Button"
-      className="button button-secondary button-medium pill-shape"
+      className="button button-secondary button-small pill-shape"
       defaultChecked={false}
       disabled={false}
     >
       <span
-        className="button-text-medium"
+        className="button-text-small"
       >
         Secondary Button
       </span>
@@ -4012,7 +4012,7 @@ exports[`Storyshots Config Provider Theming 1`] = `
     <button
       aria-disabled={false}
       aria-label="Secondary Button"
-      className="button button-secondary button-medium pill-shape icon-left"
+      className="button button-secondary button-small pill-shape icon-left"
       defaultChecked={false}
       disabled={false}
     >
@@ -4025,8 +4025,8 @@ exports[`Storyshots Config Provider Theming 1`] = `
           role="presentation"
           style={
             Object {
-              "height": "20px",
-              "width": "20px",
+              "height": "16px",
+              "width": "16px",
             }
           }
           viewBox="0 0 24 24"
@@ -4045,7 +4045,7 @@ exports[`Storyshots Config Provider Theming 1`] = `
     <button
       aria-disabled={false}
       aria-label="Secondary Button"
-      className="button button-secondary button-medium pill-shape icon-left"
+      className="button button-secondary button-small pill-shape icon-left"
       defaultChecked={false}
       disabled={false}
     >
@@ -4059,8 +4059,8 @@ exports[`Storyshots Config Provider Theming 1`] = `
             role="presentation"
             style={
               Object {
-                "height": "20px",
-                "width": "20px",
+                "height": "16px",
+                "width": "16px",
               }
             }
             viewBox="0 0 24 24"
@@ -4076,7 +4076,7 @@ exports[`Storyshots Config Provider Theming 1`] = `
           </svg>
         </span>
         <span
-          className="button-text-medium"
+          className="button-text-small"
         >
           Secondary Button
         </span>
@@ -4096,12 +4096,12 @@ exports[`Storyshots Config Provider Theming 1`] = `
     <button
       aria-disabled={false}
       aria-label="Default Button"
-      className="button button-default button-medium pill-shape"
+      className="button button-default button-small pill-shape"
       defaultChecked={false}
       disabled={false}
     >
       <span
-        className="button-text-medium"
+        className="button-text-small"
       >
         Default Button
       </span>
@@ -4109,7 +4109,7 @@ exports[`Storyshots Config Provider Theming 1`] = `
     <button
       aria-disabled={false}
       aria-label="Default Button"
-      className="button button-default button-medium pill-shape icon-left"
+      className="button button-default button-small pill-shape icon-left"
       defaultChecked={false}
       disabled={false}
     >
@@ -4122,8 +4122,8 @@ exports[`Storyshots Config Provider Theming 1`] = `
           role="presentation"
           style={
             Object {
-              "height": "20px",
-              "width": "20px",
+              "height": "16px",
+              "width": "16px",
             }
           }
           viewBox="0 0 24 24"
@@ -4142,7 +4142,7 @@ exports[`Storyshots Config Provider Theming 1`] = `
     <button
       aria-disabled={false}
       aria-label="Default Button"
-      className="button button-default button-medium pill-shape icon-left"
+      className="button button-default button-small pill-shape icon-left"
       defaultChecked={false}
       disabled={false}
     >
@@ -4156,8 +4156,8 @@ exports[`Storyshots Config Provider Theming 1`] = `
             role="presentation"
             style={
               Object {
-                "height": "20px",
-                "width": "20px",
+                "height": "16px",
+                "width": "16px",
               }
             }
             viewBox="0 0 24 24"
@@ -4173,7 +4173,7 @@ exports[`Storyshots Config Provider Theming 1`] = `
           </svg>
         </span>
         <span
-          className="button-text-medium"
+          className="button-text-small"
         >
           Default Button
         </span>
@@ -4193,7 +4193,7 @@ exports[`Storyshots Config Provider Theming 1`] = `
     <button
       aria-disabled={false}
       aria-label="Two state button"
-      className="button two-state-button button-medium pill-shape"
+      className="button two-state-button button-small pill-shape"
       defaultChecked={false}
       disabled={false}
       type="button"
@@ -4215,8 +4215,8 @@ exports[`Storyshots Config Provider Theming 1`] = `
               role="presentation"
               style={
                 Object {
-                  "height": "20px",
-                  "width": "20px",
+                  "height": "16px",
+                  "width": "16px",
                 }
               }
               viewBox="0 0 24 24"
@@ -4232,7 +4232,7 @@ exports[`Storyshots Config Provider Theming 1`] = `
             </svg>
           </span>
           <span
-            className="button-text-medium"
+            className="button-text-small"
           >
             Two state button
           </span>
@@ -4251,8 +4251,8 @@ exports[`Storyshots Config Provider Theming 1`] = `
               role="presentation"
               style={
                 Object {
-                  "height": "20px",
-                  "width": "20px",
+                  "height": "16px",
+                  "width": "16px",
                 }
               }
               viewBox="0 0 24 24"
@@ -4273,7 +4273,7 @@ exports[`Storyshots Config Provider Theming 1`] = `
     <button
       aria-disabled={false}
       aria-label="Two state button"
-      className="button two-state-button checked button-medium pill-shape"
+      className="button two-state-button checked button-small pill-shape"
       defaultChecked={true}
       disabled={false}
       type="button"
@@ -4295,8 +4295,8 @@ exports[`Storyshots Config Provider Theming 1`] = `
               role="presentation"
               style={
                 Object {
-                  "height": "20px",
-                  "width": "20px",
+                  "height": "16px",
+                  "width": "16px",
                 }
               }
               viewBox="0 0 24 24"
@@ -4312,7 +4312,7 @@ exports[`Storyshots Config Provider Theming 1`] = `
             </svg>
           </span>
           <span
-            className="button-text-medium"
+            className="button-text-small"
           >
             Two state button checked
           </span>
@@ -4331,8 +4331,8 @@ exports[`Storyshots Config Provider Theming 1`] = `
               role="presentation"
               style={
                 Object {
-                  "height": "20px",
-                  "width": "20px",
+                  "height": "16px",
+                  "width": "16px",
                 }
               }
               viewBox="0 0 24 24"

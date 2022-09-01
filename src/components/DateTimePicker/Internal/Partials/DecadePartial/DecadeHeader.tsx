@@ -3,7 +3,7 @@ import { YearHeaderProps } from './Decade.types';
 import { Header } from '../Header';
 import { DECADE_DISTANCE_COUNT } from './Decade.types';
 import PartialContext from '../../PartialContext';
-import { SizeType } from '../../../../ConfigProvider';
+import { DatePickerSize } from '../../OcPicker.types';
 
 function DecadeHeader<DateType>(props: YearHeaderProps<DateType>) {
     const {
@@ -11,7 +11,7 @@ function DecadeHeader<DateType>(props: YearHeaderProps<DateType>) {
         viewDate,
         onPrevDecades,
         onNextDecades,
-        size = 'medium' as SizeType,
+        size = DatePickerSize.Medium,
     } = props;
     const { hideHeader } = React.useContext(PartialContext);
 

@@ -12,6 +12,7 @@ import {
 } from '../Context';
 import type { FormItemProps, ValidateStatus } from '.';
 import { Icon, IconName, IconSize } from '../../Icon';
+import { Loader, LoaderSize } from '../../Loader';
 import useDebounce from '../Hooks/useDebounce';
 
 import styles from '../form.module.scss';
@@ -39,12 +40,7 @@ const iconMap = {
         />
     ),
     validating: (
-        <Icon
-            color={'var(--primary-color)'}
-            path={IconName.mdiLoading}
-            size={IconSize.Small}
-            spin={0.8}
-        />
+        <Loader color={'var(--primary-color)'} size={LoaderSize.Small} />
     ),
 };
 

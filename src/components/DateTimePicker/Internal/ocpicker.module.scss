@@ -193,21 +193,50 @@
             color: $picker-cell-foreground-color-active;
         }
 
-        &-range-hover-start,
-        &-range-hover-end,
         &-range-hover {
-            background: $picker-cell-background-color-hover;
+            background: $picker-cell-background-color-active;
             color: $picker-cell-foreground-color-hover;
         }
 
-        &-today > &-inner {
-            outline: 1px solid $picker-cell-background-color-active;
+        &-range-hover-start {
+            background: $picker-cell-range-start-background-color-hover;
+
+            &.picker-cell-inner {
+                &:hover {
+                    background: $picker-cell-range-start-background-color-hover;
+                    color: $picker-cell-foreground-color-hover;
+                }
+            }
         }
 
-        &-range-start,
-        &-range-end,
+        &-range-hover-end {
+            background: $picker-cell-range-end-background-color-hover;
+            color: $picker-cell-foreground-color-hover;
+
+            &.picker-cell-inner {
+                &:hover {
+                    background: $picker-cell-range-start-background-color-hover;
+                    color: $picker-cell-foreground-color-hover;
+                }
+            }
+        }
+
+        &-today > &-inner {
+            outline: 1px solid $picker-cell-today-background-color;
+        }
+
         &-selected > &-inner {
-            background: $picker-cell-background-color-active;
+            background: $picker-cell-selected-background-color-active;
+            color: $picker-cell-foreground-color-active;
+        }
+
+        &-range-start {
+            background: $picker-cell-range-start-background-color-active;
+            color: $picker-cell-foreground-color-active;
+        }
+
+        &-range-end {
+            background: $picker-cell-range-end-background-color-active;
             color: $picker-cell-foreground-color-active;
         }
 
@@ -732,7 +761,7 @@
             }
 
             &-selected > &-inner {
-                background: $picker-cell-background-color-active;
+                background: $picker-cell-selected-background-color-active;
                 border-radius: $picker-cell-border-radius-m;
                 color: $picker-cell-foreground-color-active;
             }

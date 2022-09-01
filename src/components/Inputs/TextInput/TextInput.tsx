@@ -1,16 +1,11 @@
 import React, { FC, Ref, useContext, useEffect, useState } from 'react';
 import DisabledContext, {
-    DisabledType,
+    Disabled,
 } from '../../ConfigProvider/DisabledContext';
-import {
-    ShapeContext,
-    ShapeType,
-    SizeContext,
-    SizeType,
-} from '../../ConfigProvider';
-import { DefaultButton } from '../../Button';
+import { ShapeContext, Shape, SizeContext, Size } from '../../ConfigProvider';
+import { ButtonSize, DefaultButton } from '../../Button';
 import { Icon, IconName, IconSize } from '../../Icon';
-import { Label } from '../../Label';
+import { Label, LabelSize } from '../../Label';
 import {
     TextInputIconAlign,
     TextInputWidth,
@@ -62,8 +57,8 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
             placeholder,
             required = false,
             readonly = false,
-            shape = 'rectangle' as ShapeType,
-            size = 'medium' as SizeType,
+            shape = TextInputShape.Rectangle,
+            size = TextInputSize.Medium,
             status,
             style,
             value,
@@ -89,13 +84,13 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
         const mergedStatus = getMergedStatus(contextStatus, status);
         const mergedFormItemInput: boolean = isFormItemInput || formItemInput;
 
-        const contextuallyDisabled: DisabledType = useContext(DisabledContext);
+        const contextuallyDisabled: Disabled = useContext(DisabledContext);
         const mergedDisabled: boolean = contextuallyDisabled || disabled;
 
-        const contextuallySized: SizeType = useContext(SizeContext);
+        const contextuallySized: Size = useContext(SizeContext);
         const mergedSize = contextuallySized || size;
 
-        const contextuallyShaped: ShapeType = useContext(ShapeContext);
+        const contextuallyShaped: Shape = useContext(ShapeContext);
         const mergedShape = contextuallyShaped || shape;
 
         const getStatusClassNames = (
@@ -328,20 +323,41 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
             return iconSize;
         };
 
-        const inputSizeToIconSizeMap = new Map<
-            TextInputSize | SizeType,
-            IconSize
-        >([
+        const inputSizeToIconSizeMap = new Map<TextInputSize | Size, IconSize>([
             [TextInputSize.Flex, getIconSize()],
             [TextInputSize.Large, IconSize.Large],
             [TextInputSize.Medium, IconSize.Medium],
             [TextInputSize.Small, IconSize.Small],
         ]);
 
+        const inputSizeToButtonSizeMap = new Map<
+            TextInputSize | Size,
+            ButtonSize | Size
+        >([
+            [TextInputSize.Flex, ButtonSize.Flex],
+            [TextInputSize.Large, ButtonSize.Large],
+            [TextInputSize.Medium, ButtonSize.Medium],
+            [TextInputSize.Small, ButtonSize.Small],
+        ]);
+
+        const inputSizeToLabelSizeMap = new Map<
+            TextInputSize | Size,
+            LabelSize | Size
+        >([
+            [TextInputSize.Flex, LabelSize.Flex],
+            [TextInputSize.Large, LabelSize.Large],
+            [TextInputSize.Medium, LabelSize.Medium],
+            [TextInputSize.Small, LabelSize.Small],
+        ]);
+
         return (
             <div className={textInputWrapperClassNames}>
                 {labelProps && (
-                    <Label inline={inline} size={mergedSize} {...labelProps} />
+                    <Label
+                        inline={inline}
+                        size={inputSizeToLabelSizeMap.get(mergedSize)}
+                        {...labelProps}
+                    />
                 )}
                 <div className={textInputGroupClassNames}>
                     <input
@@ -404,7 +420,7 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
                             iconProps={{ path: iconButtonProps.iconProps.path }}
                             id={iconButtonProps.id}
                             onClick={iconButtonProps.onClick}
-                            size={mergedSize}
+                            size={inputSizeToButtonSizeMap.get(mergedSize)}
                             htmlType={iconButtonProps.htmlType}
                         />
                     )}
@@ -421,7 +437,7 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
                                 onClick={
                                     !allowDisabledFocus ? handleOnClear : null
                                 }
-                                size={'small'}
+                                size={ButtonSize.Small}
                             />
                         )}
                 </div>

@@ -1,7 +1,7 @@
 import React, { Ref } from 'react';
 import { IconProps } from '../Icon';
 import { OcBaseProps } from '../OcBase';
-import { ShapeType, SizeType } from '../ConfigProvider';
+import { Shape, Size } from '../ConfigProvider';
 
 export enum ButtonIconAlign {
     Left = 'left',
@@ -167,12 +167,12 @@ export interface ButtonProps extends NativeButtonProps {
      * Shape of the button.
      * @default ButtonShape.Pill
      */
-    shape?: ButtonShape | ShapeType;
+    shape?: ButtonShape | Shape;
     /**
      * The button size.
      * @default ButtonSize.Medium
      */
-    size?: ButtonSize | SizeType;
+    size?: ButtonSize | Size;
     /**
      * Determines whether this is a split button.
      * @default false

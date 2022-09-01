@@ -5,7 +5,7 @@ import { mergeClasses } from '../../../../../shared/utilities';
 import TimeHeader from './TimeHeader';
 import TimeBody from './TimeBody';
 import { createKeyDownHandler } from '../../Utils/uiUtil';
-import { SizeType } from '../../../../ConfigProvider';
+import { DatePickerSize } from '../../OcPicker.types';
 
 import styles from '../../ocpicker.module.scss';
 
@@ -24,7 +24,7 @@ function TimePartial<DateType>(props: TimePartialProps<DateType>) {
         use12Hours = false,
         onSelect,
         value,
-        size = 'medium' as SizeType,
+        size = DatePickerSize.Medium,
     } = props;
     const bodyOperationRef: React.MutableRefObject<BodyOperationRef> =
         React.useRef<BodyOperationRef>();

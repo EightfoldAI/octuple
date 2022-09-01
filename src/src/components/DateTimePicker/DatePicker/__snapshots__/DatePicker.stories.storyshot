@@ -2,7 +2,7 @@
 
 exports[`Storyshots Date Picker Customized Date Styling 1`] = `
 <div
-  className="picker picker-range picker-small my-picker-class"
+  className="picker picker-range picker-medium my-picker-class"
   onClick={[Function]}
   onMouseDown={[Function]}
 >
@@ -97,8 +97,8 @@ exports[`Storyshots Date Picker Customized Date Styling 1`] = `
         role="presentation"
         style={
           Object {
-            "height": "16px",
-            "width": "16px",
+            "height": "20px",
+            "width": "20px",
           }
         }
         viewBox="0 0 24 24"
@@ -129,7 +129,7 @@ exports[`Storyshots Date Picker Date Format Basic 1`] = `
   }
 >
   <div
-    className="picker picker-small my-picker-class"
+    className="picker picker-medium my-picker-class"
     onMouseUp={[Function]}
   >
     <div
@@ -162,8 +162,8 @@ exports[`Storyshots Date Picker Date Format Basic 1`] = `
             role="presentation"
             style={
               Object {
-                "height": "16px",
-                "width": "16px",
+                "height": "20px",
+                "width": "20px",
               }
             }
             viewBox="0 0 24 24"
@@ -194,8 +194,8 @@ exports[`Storyshots Date Picker Date Format Basic 1`] = `
             role="presentation"
             style={
               Object {
-                "height": "16px",
-                "width": "16px",
+                "height": "20px",
+                "width": "20px",
               }
             }
             viewBox="0 0 24 24"
@@ -214,7 +214,7 @@ exports[`Storyshots Date Picker Date Format Basic 1`] = `
     </div>
   </div>
   <div
-    className="picker picker-small my-picker-class"
+    className="picker picker-medium my-picker-class"
     onMouseUp={[Function]}
   >
     <div
@@ -247,8 +247,8 @@ exports[`Storyshots Date Picker Date Format Basic 1`] = `
             role="presentation"
             style={
               Object {
-                "height": "16px",
-                "width": "16px",
+                "height": "20px",
+                "width": "20px",
               }
             }
             viewBox="0 0 24 24"
@@ -279,8 +279,8 @@ exports[`Storyshots Date Picker Date Format Basic 1`] = `
             role="presentation"
             style={
               Object {
-                "height": "16px",
-                "width": "16px",
+                "height": "20px",
+                "width": "20px",
               }
             }
             viewBox="0 0 24 24"
@@ -299,7 +299,7 @@ exports[`Storyshots Date Picker Date Format Basic 1`] = `
     </div>
   </div>
   <div
-    className="picker picker-small my-picker-class"
+    className="picker picker-medium my-picker-class"
     onMouseUp={[Function]}
   >
     <div
@@ -332,8 +332,8 @@ exports[`Storyshots Date Picker Date Format Basic 1`] = `
             role="presentation"
             style={
               Object {
-                "height": "16px",
-                "width": "16px",
+                "height": "20px",
+                "width": "20px",
               }
             }
             viewBox="0 0 24 24"
@@ -364,8 +364,8 @@ exports[`Storyshots Date Picker Date Format Basic 1`] = `
             role="presentation"
             style={
               Object {
-                "height": "16px",
-                "width": "16px",
+                "height": "20px",
+                "width": "20px",
               }
             }
             viewBox="0 0 24 24"
@@ -384,7 +384,7 @@ exports[`Storyshots Date Picker Date Format Basic 1`] = `
     </div>
   </div>
   <div
-    className="picker picker-small my-picker-class"
+    className="picker picker-medium my-picker-class"
     onMouseUp={[Function]}
   >
     <div
@@ -417,8 +417,8 @@ exports[`Storyshots Date Picker Date Format Basic 1`] = `
             role="presentation"
             style={
               Object {
-                "height": "16px",
-                "width": "16px",
+                "height": "20px",
+                "width": "20px",
               }
             }
             viewBox="0 0 24 24"
@@ -449,8 +449,8 @@ exports[`Storyshots Date Picker Date Format Basic 1`] = `
             role="presentation"
             style={
               Object {
-                "height": "16px",
-                "width": "16px",
+                "height": "20px",
+                "width": "20px",
               }
             }
             viewBox="0 0 24 24"
@@ -469,7 +469,7 @@ exports[`Storyshots Date Picker Date Format Basic 1`] = `
     </div>
   </div>
   <div
-    className="picker picker-small my-picker-class"
+    className="picker picker-medium my-picker-class"
     onMouseUp={[Function]}
   >
     <div
@@ -502,8 +502,8 @@ exports[`Storyshots Date Picker Date Format Basic 1`] = `
             role="presentation"
             style={
               Object {
-                "height": "16px",
-                "width": "16px",
+                "height": "20px",
+                "width": "20px",
               }
             }
             viewBox="0 0 24 24"
@@ -534,8 +534,8 @@ exports[`Storyshots Date Picker Date Format Basic 1`] = `
             role="presentation"
             style={
               Object {
-                "height": "16px",
-                "width": "16px",
+                "height": "20px",
+                "width": "20px",
               }
             }
             viewBox="0 0 24 24"
@@ -558,7 +558,7 @@ exports[`Storyshots Date Picker Date Format Basic 1`] = `
 
 exports[`Storyshots Date Picker Date Format Range 1`] = `
 <div
-  className="picker picker-range picker-small my-picker-class"
+  className="picker picker-range picker-medium my-picker-class"
   onClick={[Function]}
   onMouseDown={[Function]}
 >
@@ -653,8 +653,8 @@ exports[`Storyshots Date Picker Date Format Range 1`] = `
         role="presentation"
         style={
           Object {
-            "height": "16px",
-            "width": "16px",
+            "height": "20px",
+            "width": "20px",
           }
         }
         viewBox="0 0 24 24"
@@ -684,8 +684,8 @@ exports[`Storyshots Date Picker Date Format Range 1`] = `
         role="presentation"
         style={
           Object {
-            "height": "16px",
-            "width": "16px",
+            "height": "20px",
+            "width": "20px",
           }
         }
         viewBox="0 0 24 24"
@@ -706,7 +706,7 @@ exports[`Storyshots Date Picker Date Format Range 1`] = `
 
 exports[`Storyshots Date Picker Extra Footer 1`] = `
 <div
-  className="picker picker-small my-picker-class"
+  className="picker picker-medium my-picker-class"
   onMouseUp={[Function]}
 >
   <div
@@ -739,8 +739,8 @@ exports[`Storyshots Date Picker Extra Footer 1`] = `
           role="presentation"
           style={
             Object {
-              "height": "16px",
-              "width": "16px",
+              "height": "20px",
+              "width": "20px",
             }
           }
           viewBox="0 0 24 24"
@@ -772,7 +772,7 @@ exports[`Storyshots Date Picker Preset Ranges 1`] = `
   }
 >
   <div
-    className="picker picker-range picker-small my-picker-class"
+    className="picker picker-range picker-medium my-picker-class"
     onClick={[Function]}
     onMouseDown={[Function]}
   >
@@ -867,8 +867,8 @@ exports[`Storyshots Date Picker Preset Ranges 1`] = `
           role="presentation"
           style={
             Object {
-              "height": "16px",
-              "width": "16px",
+              "height": "20px",
+              "width": "20px",
             }
           }
           viewBox="0 0 24 24"
@@ -886,7 +886,7 @@ exports[`Storyshots Date Picker Preset Ranges 1`] = `
     </span>
   </div>
   <div
-    className="picker picker-range picker-small my-picker-class"
+    className="picker picker-range picker-medium my-picker-class"
     onClick={[Function]}
     onMouseDown={[Function]}
   >
@@ -981,8 +981,8 @@ exports[`Storyshots Date Picker Preset Ranges 1`] = `
           role="presentation"
           style={
             Object {
-              "height": "16px",
-              "width": "16px",
+              "height": "20px",
+              "width": "20px",
             }
           }
           viewBox="0 0 24 24"
@@ -1014,7 +1014,7 @@ exports[`Storyshots Date Picker Range Picker 1`] = `
   }
 >
   <div
-    className="picker picker-range picker-small my-picker-class"
+    className="picker picker-range picker-medium my-picker-class"
     onClick={[Function]}
     onMouseDown={[Function]}
   >
@@ -1109,8 +1109,8 @@ exports[`Storyshots Date Picker Range Picker 1`] = `
           role="presentation"
           style={
             Object {
-              "height": "16px",
-              "width": "16px",
+              "height": "20px",
+              "width": "20px",
             }
           }
           viewBox="0 0 24 24"
@@ -1128,7 +1128,7 @@ exports[`Storyshots Date Picker Range Picker 1`] = `
     </span>
   </div>
   <div
-    className="picker picker-range picker-small my-picker-class"
+    className="picker picker-range picker-medium my-picker-class"
     onClick={[Function]}
     onMouseDown={[Function]}
   >
@@ -1223,8 +1223,8 @@ exports[`Storyshots Date Picker Range Picker 1`] = `
           role="presentation"
           style={
             Object {
-              "height": "16px",
-              "width": "16px",
+              "height": "20px",
+              "width": "20px",
             }
           }
           viewBox="0 0 24 24"
@@ -1242,7 +1242,7 @@ exports[`Storyshots Date Picker Range Picker 1`] = `
     </span>
   </div>
   <div
-    className="picker picker-range picker-small my-picker-class"
+    className="picker picker-range picker-medium my-picker-class"
     onClick={[Function]}
     onMouseDown={[Function]}
   >
@@ -1337,8 +1337,8 @@ exports[`Storyshots Date Picker Range Picker 1`] = `
           role="presentation"
           style={
             Object {
-              "height": "16px",
-              "width": "16px",
+              "height": "20px",
+              "width": "20px",
             }
           }
           viewBox="0 0 24 24"
@@ -1356,7 +1356,7 @@ exports[`Storyshots Date Picker Range Picker 1`] = `
     </span>
   </div>
   <div
-    className="picker picker-range picker-small my-picker-class"
+    className="picker picker-range picker-medium my-picker-class"
     onClick={[Function]}
     onMouseDown={[Function]}
   >
@@ -1451,8 +1451,8 @@ exports[`Storyshots Date Picker Range Picker 1`] = `
           role="presentation"
           style={
             Object {
-              "height": "16px",
-              "width": "16px",
+              "height": "20px",
+              "width": "20px",
             }
           }
           viewBox="0 0 24 24"
@@ -1470,7 +1470,7 @@ exports[`Storyshots Date Picker Range Picker 1`] = `
     </span>
   </div>
   <div
-    className="picker picker-range picker-small my-picker-class"
+    className="picker picker-range picker-medium my-picker-class"
     onClick={[Function]}
     onMouseDown={[Function]}
   >
@@ -1565,8 +1565,8 @@ exports[`Storyshots Date Picker Range Picker 1`] = `
           role="presentation"
           style={
             Object {
-              "height": "16px",
-              "width": "16px",
+              "height": "20px",
+              "width": "20px",
             }
           }
           viewBox="0 0 24 24"
@@ -1588,7 +1588,7 @@ exports[`Storyshots Date Picker Range Picker 1`] = `
 
 exports[`Storyshots Date Picker Range Picker Choose Time 1`] = `
 <div
-  className="picker picker-range picker-small my-picker-class"
+  className="picker picker-range picker-medium my-picker-class"
   onClick={[Function]}
   onMouseDown={[Function]}
 >
@@ -1683,8 +1683,8 @@ exports[`Storyshots Date Picker Range Picker Choose Time 1`] = `
         role="presentation"
         style={
           Object {
-            "height": "16px",
-            "width": "16px",
+            "height": "20px",
+            "width": "20px",
           }
         }
         viewBox="0 0 24 24"
@@ -1715,7 +1715,7 @@ exports[`Storyshots Date Picker Range Picker Disabled 1`] = `
   }
 >
   <div
-    className="picker picker-range picker-small my-picker-class picker-disabled"
+    className="picker picker-range picker-medium my-picker-class picker-disabled"
     onClick={[Function]}
     onMouseDown={[Function]}
   >
@@ -1810,8 +1810,8 @@ exports[`Storyshots Date Picker Range Picker Disabled 1`] = `
           role="presentation"
           style={
             Object {
-              "height": "16px",
-              "width": "16px",
+              "height": "20px",
+              "width": "20px",
             }
           }
           viewBox="0 0 24 24"
@@ -1829,7 +1829,7 @@ exports[`Storyshots Date Picker Range Picker Disabled 1`] = `
     </span>
   </div>
   <div
-    className="picker picker-range picker-small my-picker-class picker-disabled"
+    className="picker picker-range picker-medium my-picker-class picker-disabled"
     onClick={[Function]}
     onMouseDown={[Function]}
   >
@@ -1924,8 +1924,8 @@ exports[`Storyshots Date Picker Range Picker Disabled 1`] = `
           role="presentation"
           style={
             Object {
-              "height": "16px",
-              "width": "16px",
+              "height": "20px",
+              "width": "20px",
             }
           }
           viewBox="0 0 24 24"
@@ -1957,7 +1957,7 @@ exports[`Storyshots Date Picker Range Picker Disabled Date And Time 1`] = `
   }
 >
   <div
-    className="picker picker-range picker-small my-picker-class"
+    className="picker picker-range picker-medium my-picker-class"
     onClick={[Function]}
     onMouseDown={[Function]}
   >
@@ -2052,8 +2052,8 @@ exports[`Storyshots Date Picker Range Picker Disabled Date And Time 1`] = `
           role="presentation"
           style={
             Object {
-              "height": "16px",
-              "width": "16px",
+              "height": "20px",
+              "width": "20px",
             }
           }
           viewBox="0 0 24 24"
@@ -2071,7 +2071,7 @@ exports[`Storyshots Date Picker Range Picker Disabled Date And Time 1`] = `
     </span>
   </div>
   <div
-    className="picker picker-range picker-small my-picker-class"
+    className="picker picker-range picker-medium my-picker-class"
     onClick={[Function]}
     onMouseDown={[Function]}
   >
@@ -2166,8 +2166,8 @@ exports[`Storyshots Date Picker Range Picker Disabled Date And Time 1`] = `
           role="presentation"
           style={
             Object {
-              "height": "16px",
-              "width": "16px",
+              "height": "20px",
+              "width": "20px",
             }
           }
           viewBox="0 0 24 24"
@@ -2189,7 +2189,7 @@ exports[`Storyshots Date Picker Range Picker Disabled Date And Time 1`] = `
 
 exports[`Storyshots Date Picker Select Range By Day Limit 1`] = `
 <div
-  className="picker picker-range picker-small my-picker-class"
+  className="picker picker-range picker-medium my-picker-class"
   onClick={[Function]}
   onMouseDown={[Function]}
 >
@@ -2284,8 +2284,8 @@ exports[`Storyshots Date Picker Select Range By Day Limit 1`] = `
         role="presentation"
         style={
           Object {
-            "height": "16px",
-            "width": "16px",
+            "height": "20px",
+            "width": "20px",
           }
         }
         viewBox="0 0 24 24"
@@ -2316,7 +2316,7 @@ exports[`Storyshots Date Picker Single Picker 1`] = `
   }
 >
   <div
-    className="picker picker-small my-picker-class"
+    className="picker picker-medium my-picker-class"
     onMouseUp={[Function]}
   >
     <div
@@ -2349,8 +2349,8 @@ exports[`Storyshots Date Picker Single Picker 1`] = `
             role="presentation"
             style={
               Object {
-                "height": "16px",
-                "width": "16px",
+                "height": "20px",
+                "width": "20px",
               }
             }
             viewBox="0 0 24 24"
@@ -2369,7 +2369,7 @@ exports[`Storyshots Date Picker Single Picker 1`] = `
     </div>
   </div>
   <div
-    className="picker picker-small my-picker-class"
+    className="picker picker-medium my-picker-class"
     onMouseUp={[Function]}
   >
     <div
@@ -2402,8 +2402,8 @@ exports[`Storyshots Date Picker Single Picker 1`] = `
             role="presentation"
             style={
               Object {
-                "height": "16px",
-                "width": "16px",
+                "height": "20px",
+                "width": "20px",
               }
             }
             viewBox="0 0 24 24"
@@ -2422,7 +2422,7 @@ exports[`Storyshots Date Picker Single Picker 1`] = `
     </div>
   </div>
   <div
-    className="picker picker-small my-picker-class"
+    className="picker picker-medium my-picker-class"
     onMouseUp={[Function]}
   >
     <div
@@ -2455,8 +2455,8 @@ exports[`Storyshots Date Picker Single Picker 1`] = `
             role="presentation"
             style={
               Object {
-                "height": "16px",
-                "width": "16px",
+                "height": "20px",
+                "width": "20px",
               }
             }
             viewBox="0 0 24 24"
@@ -2475,7 +2475,7 @@ exports[`Storyshots Date Picker Single Picker 1`] = `
     </div>
   </div>
   <div
-    className="picker picker-small my-picker-class"
+    className="picker picker-medium my-picker-class"
     onMouseUp={[Function]}
   >
     <div
@@ -2508,8 +2508,8 @@ exports[`Storyshots Date Picker Single Picker 1`] = `
             role="presentation"
             style={
               Object {
-                "height": "16px",
-                "width": "16px",
+                "height": "20px",
+                "width": "20px",
               }
             }
             viewBox="0 0 24 24"
@@ -2528,7 +2528,7 @@ exports[`Storyshots Date Picker Single Picker 1`] = `
     </div>
   </div>
   <div
-    className="picker picker-small my-picker-class"
+    className="picker picker-medium my-picker-class"
     onMouseUp={[Function]}
   >
     <div
@@ -2561,8 +2561,8 @@ exports[`Storyshots Date Picker Single Picker 1`] = `
             role="presentation"
             style={
               Object {
-                "height": "16px",
-                "width": "16px",
+                "height": "20px",
+                "width": "20px",
               }
             }
             viewBox="0 0 24 24"
@@ -2585,7 +2585,7 @@ exports[`Storyshots Date Picker Single Picker 1`] = `
 
 exports[`Storyshots Date Picker Single Picker Choose Time 1`] = `
 <div
-  className="picker picker-small my-picker-class"
+  className="picker picker-medium my-picker-class"
   onMouseUp={[Function]}
 >
   <div
@@ -2618,8 +2618,8 @@ exports[`Storyshots Date Picker Single Picker Choose Time 1`] = `
           role="presentation"
           style={
             Object {
-              "height": "16px",
-              "width": "16px",
+              "height": "20px",
+              "width": "20px",
             }
           }
           viewBox="0 0 24 24"
@@ -2651,7 +2651,7 @@ exports[`Storyshots Date Picker Single Picker Disabled 1`] = `
   }
 >
   <div
-    className="picker picker-small my-picker-class picker-disabled"
+    className="picker picker-medium my-picker-class picker-disabled"
     onMouseUp={[Function]}
   >
     <div
@@ -2684,8 +2684,8 @@ exports[`Storyshots Date Picker Single Picker Disabled 1`] = `
             role="presentation"
             style={
               Object {
-                "height": "16px",
-                "width": "16px",
+                "height": "20px",
+                "width": "20px",
               }
             }
             viewBox="0 0 24 24"
@@ -2704,7 +2704,7 @@ exports[`Storyshots Date Picker Single Picker Disabled 1`] = `
     </div>
   </div>
   <div
-    className="picker picker-small my-picker-class picker-disabled"
+    className="picker picker-medium my-picker-class picker-disabled"
     onMouseUp={[Function]}
   >
     <div
@@ -2737,8 +2737,8 @@ exports[`Storyshots Date Picker Single Picker Disabled 1`] = `
             role="presentation"
             style={
               Object {
-                "height": "16px",
-                "width": "16px",
+                "height": "20px",
+                "width": "20px",
               }
             }
             viewBox="0 0 24 24"
@@ -2771,7 +2771,7 @@ exports[`Storyshots Date Picker Single Picker Disabled Date And Time 1`] = `
   }
 >
   <div
-    className="picker picker-small my-picker-class"
+    className="picker picker-medium my-picker-class"
     onMouseUp={[Function]}
   >
     <div
@@ -2804,8 +2804,8 @@ exports[`Storyshots Date Picker Single Picker Disabled Date And Time 1`] = `
             role="presentation"
             style={
               Object {
-                "height": "16px",
-                "width": "16px",
+                "height": "20px",
+                "width": "20px",
               }
             }
             viewBox="0 0 24 24"
@@ -2824,7 +2824,7 @@ exports[`Storyshots Date Picker Single Picker Disabled Date And Time 1`] = `
     </div>
   </div>
   <div
-    className="picker picker-small my-picker-class"
+    className="picker picker-medium my-picker-class"
     onMouseUp={[Function]}
   >
     <div
@@ -2857,8 +2857,8 @@ exports[`Storyshots Date Picker Single Picker Disabled Date And Time 1`] = `
             role="presentation"
             style={
               Object {
-                "height": "16px",
-                "width": "16px",
+                "height": "20px",
+                "width": "20px",
               }
             }
             viewBox="0 0 24 24"
@@ -2891,7 +2891,7 @@ exports[`Storyshots Date Picker Status 1`] = `
   }
 >
   <div
-    className="picker picker-small picker-status-error my-picker-class"
+    className="picker picker-medium picker-status-error my-picker-class"
     onMouseUp={[Function]}
   >
     <div
@@ -2924,8 +2924,8 @@ exports[`Storyshots Date Picker Status 1`] = `
             role="presentation"
             style={
               Object {
-                "height": "16px",
-                "width": "16px",
+                "height": "20px",
+                "width": "20px",
               }
             }
             viewBox="0 0 24 24"
@@ -2944,7 +2944,7 @@ exports[`Storyshots Date Picker Status 1`] = `
     </div>
   </div>
   <div
-    className="picker picker-small picker-status-warning my-picker-class"
+    className="picker picker-medium picker-status-warning my-picker-class"
     onMouseUp={[Function]}
   >
     <div
@@ -2977,8 +2977,8 @@ exports[`Storyshots Date Picker Status 1`] = `
             role="presentation"
             style={
               Object {
-                "height": "16px",
-                "width": "16px",
+                "height": "20px",
+                "width": "20px",
               }
             }
             viewBox="0 0 24 24"

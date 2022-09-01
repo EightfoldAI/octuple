@@ -2,7 +2,12 @@ import React, { FC, useState, useRef } from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { IconName } from '../Icon';
 import { Select } from './';
-import { SelectOption, SelectProps } from './Select.types';
+import {
+    SelectOption,
+    SelectProps,
+    SelectShape,
+    SelectSize,
+} from './Select.types';
 import { Stories } from '@storybook/addon-docs';
 
 const defaultOptions: SelectOption[] = [
@@ -83,11 +88,20 @@ export default {
             action: 'click',
         },
         shape: {
-            options: ['rectangle', 'pill', 'underline'],
+            options: [
+                SelectShape.Rectangle,
+                SelectShape.Pill,
+                SelectShape.Underline,
+            ],
             control: { type: 'inline-radio' },
         },
         size: {
-            options: ['flex', 'large', 'medium', 'small'],
+            options: [
+                SelectSize.Flex,
+                SelectSize.Large,
+                SelectSize.Medium,
+                SelectSize.Small,
+            ],
             control: { type: 'radio' },
         },
     },
@@ -155,6 +169,8 @@ export const Dynamic: SelectStory = Dynamic_Story.bind({});
 const SelectArgs: SelectProps = {
     classNames: 'octuple-select-class',
     'data-test-id': 'octuple-select-test-id',
+    shape: SelectShape.Rectangle,
+    size: SelectSize.Medium,
     style: {
         width: 256,
     },

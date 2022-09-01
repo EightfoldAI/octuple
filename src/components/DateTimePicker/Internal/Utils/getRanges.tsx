@@ -1,6 +1,6 @@
 import React from 'react';
-import { SizeType } from '../../../ConfigProvider';
-import type {
+import { Size } from '../../../ConfigProvider';
+import {
     Components,
     DatePickerSize,
     RangeList,
@@ -19,7 +19,7 @@ export type RangesProps = {
     okDisabled?: boolean;
     showNow?: boolean;
     locale: Locale;
-    size?: DatePickerSize | SizeType;
+    size?: DatePickerSize | Size;
 };
 
 export default function getRanges({
@@ -31,19 +31,19 @@ export default function getRanges({
     okDisabled,
     showNow,
     locale,
-    size = 'medium' as SizeType,
+    size = DatePickerSize.Medium,
 }: RangesProps) {
     let presetNode: React.ReactNode;
     let okNode: React.ReactNode;
 
     const datePickerSizeToButtonSizeMap = new Map<
-        typeof size,
-        ButtonSize | SizeType
+        DatePickerSize | Size,
+        ButtonSize | Size
     >([
-        ['flex', ButtonSize.Flex],
-        ['large', ButtonSize.Large],
-        ['medium', ButtonSize.Medium],
-        ['small', ButtonSize.Small],
+        [DatePickerSize.Flex, ButtonSize.Flex],
+        [DatePickerSize.Large, ButtonSize.Large],
+        [DatePickerSize.Medium, ButtonSize.Medium],
+        [DatePickerSize.Small, ButtonSize.Small],
     ]);
 
     if (rangeList.length) {

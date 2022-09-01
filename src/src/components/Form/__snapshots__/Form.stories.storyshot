@@ -840,7 +840,7 @@ exports[`Storyshots Form Complex Form Control 1`] = `
 
 exports[`Storyshots Form Control Between Forms 1`] = `
 <form
-  className="form form-horizontal form-medium"
+  className="form form-horizontal"
   id="basicForm"
   onReset={[Function]}
   onSubmit={[Function]}
@@ -10201,7 +10201,7 @@ exports[`Storyshots Form Small 1`] = `
 exports[`Storyshots Form Store Form Data 1`] = `
 Array [
   <form
-    className="form form-inline form-medium"
+    className="form form-inline"
     id="global-state"
     onReset={[Function]}
     onSubmit={[Function]}
@@ -11159,7 +11159,7 @@ exports[`Storyshots Form Watch Hooks 1`] = `
 >
   <form
     autoComplete="off"
-    className="form form-vertical form-medium"
+    className="form form-vertical"
     onReset={[Function]}
     onSubmit={[Function]}
   >

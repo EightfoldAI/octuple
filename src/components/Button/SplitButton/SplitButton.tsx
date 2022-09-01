@@ -1,8 +1,8 @@
 import React, { FC, Ref, useContext } from 'react';
 import DisabledContext, {
-    DisabledType,
+    Disabled,
 } from '../../ConfigProvider/DisabledContext';
-import { SizeContext, SizeType } from '../../ConfigProvider';
+import { SizeContext, Size } from '../../ConfigProvider';
 import {
     ButtonShape,
     ButtonSize,
@@ -30,8 +30,8 @@ export const SplitButton: FC<SplitButtonProps> = React.forwardRef(
             iconProps,
             id,
             onClick,
-            shape = 'pill',
-            size = 'medium' as SizeType,
+            shape = ButtonShape.Pill,
+            size = ButtonSize.Medium,
             split,
             style,
             type,
@@ -44,10 +44,10 @@ export const SplitButton: FC<SplitButtonProps> = React.forwardRef(
         const smallScreenActive: boolean = useMatchMedia(Breakpoints.Small);
         const xSmallScreenActive: boolean = useMatchMedia(Breakpoints.XSmall);
 
-        const contextuallyDisabled: DisabledType = useContext(DisabledContext);
+        const contextuallyDisabled: Disabled = useContext(DisabledContext);
         const mergedDisabled: boolean = contextuallyDisabled || disabled;
 
-        const contextuallySized: SizeType = useContext(SizeContext);
+        const contextuallySized: Size = useContext(SizeContext);
         const mergedSize = contextuallySized || size;
 
         const splitButtonClassNames: string = mergeClasses([

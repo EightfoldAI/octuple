@@ -85,8 +85,8 @@ export class FormStore {
         getFieldWarning: this.getFieldWarning,
         getFieldsError: this.getFieldsError,
         isFieldsTouched: this.isFieldsTouched,
-        isFieldTouched: this.isFieldTouched,
-        isFieldValidating: this.isFieldValidating,
+        isTouched: this.isTouched,
+        isValidating: this.isValidating,
         isFieldsValidating: this.isFieldsValidating,
         resetFields: this.resetFields,
         setFields: this.setFields,
@@ -355,13 +355,13 @@ export class FormStore {
         }
 
         const fieldEntities = this.getFieldEntities(true);
-        const isFieldTouched = (field: OcFieldEntity) => field.isFieldTouched();
+        const isTouched = (field: OcFieldEntity) => field.isTouched();
 
         // ===== Will get fully compare when not config namePathList =====
         if (!namePathList) {
             return isAllFieldsTouched
-                ? fieldEntities.every(isFieldTouched)
-                : fieldEntities.some(isFieldTouched);
+                ? fieldEntities.every(isTouched)
+                : fieldEntities.some(isTouched);
         }
 
         // Generate a nest tree for validate
@@ -387,7 +387,7 @@ export class FormStore {
 
         // Check if NameMap value is touched
         const isNamePathListTouched = (entities: OcFieldEntity[]) =>
-            entities.some(isFieldTouched);
+            entities.some(isTouched);
 
         const namePathListEntities = map.map(({ value }) => value);
 
@@ -396,16 +396,14 @@ export class FormStore {
             : namePathListEntities.some(isNamePathListTouched);
     };
 
-    private isFieldTouched = (name: OcNamePath) => {
+    private isTouched = (name: OcNamePath) => {
         return this.isFieldsTouched([name]);
     };
 
     private isFieldsValidating = (nameList?: OcNamePath[]) => {
         const fieldEntities = this.getFieldEntities();
         if (!nameList) {
-            return fieldEntities.some((testField) =>
-                testField.isFieldValidating()
-            );
+            return fieldEntities.some((testField) => testField.isValidating());
         }
 
         const namePathList: InternalOcNamePath[] = nameList.map(getNamePath);
@@ -413,12 +411,12 @@ export class FormStore {
             const fieldNamePath = testField.getNamePath();
             return (
                 containsNamePath(namePathList, fieldNamePath) &&
-                testField.isFieldValidating()
+                testField.isValidating()
             );
         });
     };
 
-    private isFieldValidating = (name: OcNamePath) => {
+    private isValidating = (name: OcNamePath) => {
         return this.isFieldsValidating([name]);
     };
 
@@ -798,7 +796,7 @@ export class FormStore {
                     children.add(field);
 
                     const fieldNamePath = field.getNamePath();
-                    if (field.isFieldDirty() && fieldNamePath.length) {
+                    if (field.isDirty() && fieldNamePath.length) {
                         childrenFields.push(fieldNamePath);
                         fillChildren(fieldNamePath);
                     }

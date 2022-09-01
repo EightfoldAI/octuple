@@ -4,7 +4,7 @@ import type {
     PartialSharedProps,
 } from '../../OcPicker.types';
 import type { GenerateConfig } from '../../Generate';
-import { ShapeType, SizeType } from '../../../../ConfigProvider';
+import { Shape, Size } from '../../../../ConfigProvider';
 
 export const DECADE_UNIT_DIFF: number = 10;
 export const DECADE_DISTANCE_COUNT: number = DECADE_UNIT_DIFF * 10;
@@ -17,8 +17,8 @@ export type YearHeaderProps<DateType> = {
     generateConfig: GenerateConfig<DateType>;
     onPrevDecades: () => void;
     onNextDecades: () => void;
-    shape?: DatePickerShape | ShapeType;
-    size?: DatePickerSize | SizeType;
+    shape?: DatePickerShape | Shape;
+    size?: DatePickerSize | Size;
 };
 
 export type YearBodyProps<DateType> = {
@@ -26,6 +26,6 @@ export type YearBodyProps<DateType> = {
     viewDate: DateType;
     disabledDate?: (date: DateType) => boolean;
     onSelect: (value: DateType) => void;
-    shape?: DatePickerShape | ShapeType;
-    size?: DatePickerSize | SizeType;
+    shape?: DatePickerShape | Shape;
+    size?: DatePickerSize | Size;
 };

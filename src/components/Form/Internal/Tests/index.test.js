@@ -137,7 +137,7 @@ describe('OcForm.Basic', () => {
                 await changeValue(getField(wrapper, 'username'), 'Mia');
                 expect(form.getFieldValue('username')).toEqual('Mia');
                 expect(form.getFieldError('username')).toEqual([]);
-                expect(form.isFieldTouched('username')).toBeTruthy();
+                expect(form.isTouched('username')).toBeTruthy();
                 expect(onMeta).toHaveBeenCalledWith(
                     expect.objectContaining({
                         touched: true,
@@ -152,7 +152,7 @@ describe('OcForm.Basic', () => {
                 form.resetFields(...args);
                 expect(form.getFieldValue('username')).toEqual(undefined);
                 expect(form.getFieldError('username')).toEqual([]);
-                expect(form.isFieldTouched('username')).toBeFalsy();
+                expect(form.isTouched('username')).toBeFalsy();
                 expect(onMeta).toHaveBeenCalledWith(
                     expect.objectContaining({
                         touched: false,
@@ -169,7 +169,7 @@ describe('OcForm.Basic', () => {
                 expect(form.getFieldError('username')).toEqual([
                     "'username' is required",
                 ]);
-                expect(form.isFieldTouched('username')).toBeTruthy();
+                expect(form.isTouched('username')).toBeTruthy();
                 expect(onMeta).toHaveBeenCalledWith(
                     expect.objectContaining({
                         touched: true,
@@ -184,7 +184,7 @@ describe('OcForm.Basic', () => {
                 form.resetFields(...args);
                 expect(form.getFieldValue('username')).toEqual(undefined);
                 expect(form.getFieldError('username')).toEqual([]);
-                expect(form.isFieldTouched('username')).toBeFalsy();
+                expect(form.isTouched('username')).toBeFalsy();
                 expect(onMeta).toHaveBeenCalledWith(
                     expect.objectContaining({
                         touched: false,
@@ -226,12 +226,12 @@ describe('OcForm.Basic', () => {
 
             expect(form.getFieldValue('username')).toEqual(undefined);
             expect(form.getFieldError('username')).toEqual([]);
-            expect(form.isFieldTouched('username')).toBeFalsy();
+            expect(form.isTouched('username')).toBeFalsy();
             expect(form.getFieldValue('password')).toEqual('');
             expect(form.getFieldError('password')).toEqual([
                 "'password' is required",
             ]);
-            expect(form.isFieldTouched('password')).toBeTruthy();
+            expect(form.isTouched('password')).toBeTruthy();
         });
 
         test('remove OcField should trigger onMetaChange', () => {
@@ -252,8 +252,8 @@ describe('OcForm.Basic', () => {
     });
 
     test('should throw if no OcForm in use', () => {
-        const errorSpy = jest
-            .spyOn(console, 'error')
+        const warnSpy = jest
+            .spyOn(console, 'warn')
             .mockImplementation(() => {});
 
         mount(
@@ -262,11 +262,11 @@ describe('OcForm.Basic', () => {
             </OcField>
         );
 
-        expect(errorSpy).toHaveBeenCalledWith(
+        expect(warnSpy).toHaveBeenCalledWith(
             'Warning: Can not find FormContext. Please make sure you wrap Field under Form.'
         );
 
-        errorSpy.mockRestore();
+        warnSpy.mockRestore();
     });
 
     test('keep origin input function', async () => {
@@ -626,7 +626,7 @@ describe('OcForm.Basic', () => {
 
         // Init
         expect(form.getFieldValue('normal')).toBe(undefined);
-        expect(form.isFieldTouched('normal')).toBeFalsy();
+        expect(form.isTouched('normal')).toBeFalsy();
         expect(form.getFieldError('normal')).toEqual([]);
         expect(currentMeta.validating).toBeFalsy();
 
@@ -636,7 +636,7 @@ describe('OcForm.Basic', () => {
         });
 
         expect(form.getFieldValue('normal')).toBe('Light');
-        expect(form.isFieldTouched('normal')).toBeTruthy();
+        expect(form.isTouched('normal')).toBeTruthy();
         expect(form.getFieldError('normal')).toEqual([]);
         expect(currentMeta.validating).toBeFalsy();
 
@@ -644,7 +644,7 @@ describe('OcForm.Basic', () => {
         await changeValue(getField(wrapper), 'Mia');
 
         expect(form.getFieldValue('normal')).toBe('Mia');
-        expect(form.isFieldTouched('normal')).toBeTruthy();
+        expect(form.isTouched('normal')).toBeTruthy();
         expect(form.getFieldError('normal')).toEqual([]);
         expect(currentMeta.validating).toBeTruthy();
 
@@ -654,7 +654,7 @@ describe('OcForm.Basic', () => {
         });
 
         expect(form.getFieldValue('normal')).toBe('Light');
-        expect(form.isFieldTouched('normal')).toBeTruthy();
+        expect(form.isTouched('normal')).toBeTruthy();
         expect(form.getFieldError('normal')).toEqual([]);
         expect(currentMeta.validating).toBeFalsy();
     });

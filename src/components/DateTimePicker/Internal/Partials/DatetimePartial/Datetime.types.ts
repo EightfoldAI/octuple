@@ -5,14 +5,14 @@ import type {
     DatePickerSize,
     DisabledTime,
 } from '../../OcPicker.types';
-import { ShapeType, SizeType } from '../../../../ConfigProvider';
+import { Shape, Size } from '../../../../ConfigProvider';
 
 export type DatetimePartialProps<DateType> = {
     disabledTime?: DisabledTime<DateType>;
     showTime?: boolean | SharedTimeProps<DateType>;
     defaultValue?: DateType;
-    shape?: DatePickerShape | ShapeType;
-    size?: DatePickerSize | SizeType;
+    shape?: DatePickerShape | Shape;
+    size?: DatePickerSize | Size;
 } & Omit<
     DatePartialProps<DateType>,
     'disabledHours' | 'disabledMinutes' | 'disabledSeconds'

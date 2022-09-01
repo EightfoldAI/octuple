@@ -4,6 +4,8 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import {
     BaseButton,
     ButtonIconAlign,
+    ButtonShape,
+    ButtonSize,
     ButtonTextAlign,
     ButtonWidth,
     DefaultButton,
@@ -36,9 +38,11 @@ export default {
                                 <li>
                                     There are four button sizes that may be
                                     specified via the <b>size</b> prop and the{' '}
-                                    <b>size</b>: <b>flex</b>, <b>large</b>,{' '}
-                                    <b>medium</b>, <b>small</b>. <b>medium</b>{' '}
-                                    is the default and flex resizes the button
+                                    <b>size</b>: <b>ButtonSize.Flex</b>,{' '}
+                                    <b>ButtonSize.Large</b>,{' '}
+                                    <b>ButtonSize.Medium</b>,{' '}
+                                    <b>ButtonSize.Small</b>. <b>medium</b> is
+                                    the default and flex resizes the button
                                     automatically with the viewport. To prevent
                                     this responsive behavior, give the button a
                                     size other than flex.
@@ -150,11 +154,20 @@ export default {
             action: 'contextmenu',
         },
         shape: {
-            options: ['rectangle', 'pill', 'round'],
+            options: [
+                ButtonShape.Rectangle,
+                ButtonShape.Pill,
+                ButtonShape.Round,
+            ],
             control: { type: 'inline-radio' },
         },
         size: {
-            options: ['flex', 'large', 'medium', 'small'],
+            options: [
+                ButtonSize.Flex,
+                ButtonSize.Large,
+                ButtonSize.Medium,
+                ButtonSize.Small,
+            ],
             control: { type: 'radio' },
         },
         theme: {
@@ -237,8 +250,8 @@ const buttonArgs: Object = {
         'data-test-id': 'myButtonIconTestId',
     },
     id: 'myButton',
-    shape: 'pill',
-    size: 'medium',
+    shape: ButtonShape.Pill,
+    size: ButtonSize.Medium,
     split: false,
     splitButtonChecked: false,
     style: {},

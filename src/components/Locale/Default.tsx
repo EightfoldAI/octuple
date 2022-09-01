@@ -6,13 +6,13 @@ const typeTemplate = '${label} is not a valid ${type}';
 const localeValues: Locale = {
     locale: 'en',
     global: {
-        placeholder: 'Please select',
+        placeholder: 'Select',
     },
     Form: {
         optional: '(optional)',
         defaultValidateMessages: {
             default: 'Field validation error for ${label}',
-            required: 'Please enter ${label}',
+            required: '${label} is required',
             enum: '${label} must be one of [${enum}]',
             whitespace: '${label} cannot be a blank character',
             date: {

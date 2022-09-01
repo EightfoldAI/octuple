@@ -50,7 +50,7 @@ const requireUpdate = (
     return prevValue !== nextValue;
 };
 
-// We use Class instead of Hooks here since it will cost much code by using Hooks.
+// TODO: refactor to use hooks, rather than a class component.
 class OcField
     extends React.Component<InternalOcFieldProps, OcFieldState>
     implements OcFieldEntity
@@ -83,7 +83,7 @@ class OcField
     /**
      * Mark when touched & validated. Currently only used for `dependencies`.
      * Note that we do not think field with `initialValue` is dirty
-     * but this will be by `isFieldDirty` func.
+     * but this will be by `isDirty` func.
      */
     private dirty: boolean = false;
 
@@ -350,7 +350,7 @@ class OcField
         const namePath = this.getNamePath();
         const currentValue = this.getValue();
 
-        // Force change to async to avoid rule OOD under renderProps field
+        // Force change to async to ensure rules are kept up to date under renderProps field
         const rootPromise = Promise.resolve().then(() => {
             if (!this.mounted) {
                 return [];
@@ -425,11 +425,11 @@ class OcField
         return rootPromise;
     };
 
-    public isFieldValidating = () => !!this.validatePromise;
+    public isValidating = () => !!this.validatePromise;
 
-    public isFieldTouched = () => this.touched;
+    public isTouched = () => this.touched;
 
-    public isFieldDirty = () => {
+    public isDirty = () => {
         // Touched or validate or has initialValue
         if (this.dirty || this.props.initialValue !== undefined) {
             return true;
@@ -458,10 +458,10 @@ class OcField
     // ============================= Child Component =============================
     public getMeta = (): OcMeta => {
         // Make error & validating in cache to save perf
-        this.prevValidating = this.isFieldValidating();
+        this.prevValidating = this.isValidating();
 
         const meta: OcMeta = {
-            touched: this.isFieldTouched(),
+            touched: this.isTouched(),
             validating: this.prevValidating,
             errors: this.errors,
             warnings: this.warnings,

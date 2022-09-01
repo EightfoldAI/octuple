@@ -5,7 +5,7 @@ import type { MonthCellRender } from './Partials/MonthPartial/Month.types';
 import type { AlignType } from '../../Align/Align.types';
 import { IconName } from '../../Icon';
 import { tuple } from '../../../shared/utilities';
-import { ShapeType, SizeType } from '../../ConfigProvider';
+import { Shape, Size } from '../../ConfigProvider';
 
 export type Locale = {
     locale: string;
@@ -73,9 +73,18 @@ const DataPickerPlacements = tuple(
 );
 export type DataPickerPlacement = typeof DataPickerPlacements[number];
 
-export type DatePickerSize = 'flex' | 'large' | 'medium' | 'small' | undefined;
+export enum DatePickerShape {
+    Pill = 'pill',
+    Rectangle = 'rectangle',
+    Underline = 'underline',
+}
 
-export type DatePickerShape = 'rectangle' | 'pill' | 'round' | undefined;
+export enum DatePickerSize {
+    Flex = 'flex',
+    Large = 'large',
+    Medium = 'medium',
+    Small = 'small',
+}
 
 export type OcPickerTriggerProps = {
     visible: boolean;
@@ -86,8 +95,8 @@ export type OcPickerTriggerProps = {
     getPopupContainer?: (node: HTMLElement) => HTMLElement;
     dropdownAlign?: AlignType;
     range?: boolean;
-    shape?: DatePickerShape | ShapeType;
-    size?: DatePickerSize | SizeType;
+    shape?: DatePickerShape | Shape;
+    size?: DatePickerSize | Size;
     popupPlacement?: DataPickerPlacement;
     direction?: 'ltr' | 'rtl';
 };
@@ -101,8 +110,8 @@ export type PartialSharedProps<DateType> = {
     disabledDate?: (date: DateType) => boolean;
     prevIcon?: IconName;
     nextIcon?: IconName;
-    shape?: DatePickerShape | ShapeType;
-    size?: DatePickerSize | SizeType;
+    shape?: DatePickerShape | Shape;
+    size?: DatePickerSize | Size;
     superPrevIcon?: IconName;
     superNextIcon?: IconName;
     operationRef: React.MutableRefObject<PartialRefProps>;
@@ -175,8 +184,8 @@ export type OcPickerPartialSharedProps<DateType> = {
     onPickerValueChange?: (date: DateType) => void;
     /** @private Internal usage. Do not use in your production env */
     components?: Components;
-    shape?: DatePickerShape | ShapeType;
-    size?: DatePickerSize | SizeType;
+    shape?: DatePickerShape | Shape;
+    size?: DatePickerSize | Size;
 };
 
 export type OcPickerPartialBaseProps<DateType> = {
@@ -219,8 +228,8 @@ export type OcPickerSharedProps<DateType> = {
         date: EventValue<DateType>,
         type: RangeType
     ) => DisabledTimes;
-    shape?: DatePickerShape | ShapeType;
-    size?: DatePickerSize | SizeType;
+    shape?: DatePickerShape | Shape;
+    size?: DatePickerSize | Size;
     tabIndex?: number;
     open?: boolean;
     defaultOpen?: boolean;
@@ -348,8 +357,8 @@ export type OcRangePickerSharedProps<DateType> = {
         | (() => Exclude<RangeValue<DateType>, null>)
     >;
     separator?: React.ReactNode;
-    shape?: DatePickerShape | ShapeType;
-    size?: DatePickerSize | SizeType;
+    shape?: DatePickerShape | Shape;
+    size?: DatePickerSize | Size;
     allowEmpty?: [boolean, boolean];
     mode?: [PartialMode, PartialMode];
     onChange?: (

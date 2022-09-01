@@ -30,7 +30,8 @@ import getRanges from './Utils/getRanges';
 import { getLowerBoundTime, setDateTime, setTime } from './Utils/timeUtil';
 import { ButtonSize, NeutralButton } from '../../Button';
 import { Breakpoints, useMatchMedia } from '../../../hooks/useMatchMedia';
-import { SizeType } from '../../ConfigProvider';
+import { Size } from '../../ConfigProvider';
+import { DatePickerSize } from './OcPicker.types';
 
 import styles from './ocpicker.module.scss';
 
@@ -71,7 +72,7 @@ function OcPickerPartial<DateType>(props: OcPickerPartialProps<DateType>) {
         hourStep = 1,
         minuteStep = 1,
         secondStep = 1,
-        size = 'medium' as SizeType,
+        size = DatePickerSize.Medium,
     } = props as MergedPickerPartialProps<DateType>;
     const largeScreenActive: boolean = useMatchMedia(Breakpoints.Large);
     const mediumScreenActive: boolean = useMatchMedia(Breakpoints.Medium);
@@ -430,13 +431,13 @@ function OcPickerPartial<DateType>(props: OcPickerPartialProps<DateType>) {
     }
 
     const datePickerSizeToButtonSizeMap = new Map<
-        typeof size,
-        ButtonSize | SizeType
+        DatePickerSize | Size,
+        ButtonSize | Size
     >([
-        ['flex', ButtonSize.Flex],
-        ['large', ButtonSize.Large],
-        ['medium', ButtonSize.Medium],
-        ['small', ButtonSize.Small],
+        [DatePickerSize.Flex, ButtonSize.Flex],
+        [DatePickerSize.Large, ButtonSize.Large],
+        [DatePickerSize.Medium, ButtonSize.Medium],
+        [DatePickerSize.Small, ButtonSize.Small],
     ]);
 
     let todayNode: React.ReactNode;
@@ -481,23 +482,23 @@ function OcPickerPartial<DateType>(props: OcPickerPartialProps<DateType>) {
                     styles.pickerPartial,
                     {
                         [styles.pickerSmall]:
-                            size === 'flex' && largeScreenActive,
+                            size === DatePickerSize.Flex && largeScreenActive,
                     },
                     {
                         [styles.pickerMedium]:
-                            size === 'flex' && mediumScreenActive,
+                            size === DatePickerSize.Flex && mediumScreenActive,
                     },
                     {
                         [styles.pickerMedium]:
-                            size === 'flex' && smallScreenActive,
+                            size === DatePickerSize.Flex && smallScreenActive,
                     },
                     {
                         [styles.pickerLarge]:
-                            size === 'flex' && xSmallScreenActive,
+                            size === DatePickerSize.Flex && xSmallScreenActive,
                     },
-                    { [styles.pickerLarge]: size === 'large' },
-                    { [styles.pickerMedium]: size === 'medium' },
-                    { [styles.pickerSmall]: size === 'small' },
+                    { [styles.pickerLarge]: size === DatePickerSize.Large },
+                    { [styles.pickerMedium]: size === DatePickerSize.Medium },
+                    { [styles.pickerSmall]: size === DatePickerSize.Small },
                     classNames,
                     {
                         ['picker-partial-has-range']:

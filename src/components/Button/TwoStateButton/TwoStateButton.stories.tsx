@@ -1,7 +1,14 @@
 import React from 'react';
 import { Stories } from '@storybook/addon-docs';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { BaseButton, ButtonTextAlign, ButtonWidth, TwoStateButton } from '../';
+import {
+    BaseButton,
+    ButtonShape,
+    ButtonSize,
+    ButtonTextAlign,
+    ButtonWidth,
+    TwoStateButton,
+} from '../';
 import { IconName } from '../../Icon';
 
 export default {
@@ -36,8 +43,21 @@ export default {
         onClick: {
             action: 'click',
         },
+        shape: {
+            options: [
+                ButtonShape.Rectangle,
+                ButtonShape.Pill,
+                ButtonShape.Round,
+            ],
+            control: { type: 'inline-radio' },
+        },
         size: {
-            options: ['flex', 'large', 'medium', 'small'],
+            options: [
+                ButtonSize.Flex,
+                ButtonSize.Large,
+                ButtonSize.Medium,
+                ButtonSize.Small,
+            ],
             control: { type: 'radio' },
         },
         theme: {
@@ -87,8 +107,8 @@ Two_State_Button.args = {
         'data-test-id': 'myTwoStateButtonIconTwoTestId',
     },
     id: 'myTwoStateButton',
-    shape: 'pill',
-    size: 'medium',
+    shape: ButtonShape.Pill,
+    size: ButtonSize.Medium,
     style: {},
     text: 'Two State Button',
     toggle: true,

@@ -7,7 +7,7 @@ export const warning = (valid: boolean, message: string): void => {
         !valid &&
         console !== undefined
     ) {
-        console.error(`Warning: ${message}`);
+        console.warn(`Warning: ${message}`);
     }
 };
 
@@ -17,7 +17,7 @@ export const note = (valid: boolean, message: string): void => {
         !valid &&
         console !== undefined
     ) {
-        console.warn(`Note: ${message}`);
+        console.info(`Note: ${message}`);
     }
 };
 

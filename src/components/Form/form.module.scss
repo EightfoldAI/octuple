@@ -112,7 +112,7 @@
             font-weight: $text-font-weight-semibold;
             line-height: $text-line-height-2;
 
-            &.form-item-required:not(.form-item-required-mark-optional):before {
+            &.form-item-required:not(.form-item-required-mark-optional):after {
                 display: inline-block;
                 margin-right: $space-xxs;
                 color: var(--text-primary-color);

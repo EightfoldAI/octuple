@@ -5,7 +5,7 @@ import type {
     PartialMode,
 } from '../OcPicker.types';
 import { IconName } from '../../../Icon';
-import { ShapeType, SizeType } from '../../../ConfigProvider';
+import { Shape, Size } from '../../../ConfigProvider';
 
 export type HeaderProps = {
     prevIcon?: IconName;
@@ -17,8 +17,8 @@ export type HeaderProps = {
     onSuperPrev?: () => void;
     onSuperNext?: () => void;
     children?: React.ReactNode;
-    shape?: DatePickerShape | ShapeType;
-    size?: DatePickerSize | SizeType;
+    shape?: DatePickerShape | Shape;
+    size?: DatePickerSize | Size;
 };
 
 export type PartialBodyProps<DateType> = {
@@ -36,6 +36,6 @@ export type PartialBodyProps<DateType> = {
     titleCell?: (date: DateType) => string;
     generateConfig: GenerateConfig<DateType>;
     rowClassNames?: (date: DateType) => string;
-    shape?: DatePickerShape | ShapeType;
-    size?: DatePickerSize | SizeType;
+    shape?: DatePickerShape | Shape;
+    size?: DatePickerSize | Size;
 };

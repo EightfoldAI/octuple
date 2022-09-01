@@ -6,7 +6,7 @@ import type {
 } from '../../OcPicker.types';
 import type { KeyboardConfig } from '../../Utils/uiUtil';
 import type { Locale } from '../../OcPicker.types';
-import { ShapeType, SizeType } from '../../../../ConfigProvider';
+import { Shape, Size } from '../../../../ConfigProvider';
 
 export type DateRender<DateType> = (
     currentDate: DateType,
@@ -34,8 +34,8 @@ export type DateHeaderProps<DateType> = {
     onNextMonth: () => void;
     onYearClick: () => void;
     onMonthClick: () => void;
-    shape?: DatePickerShape | ShapeType;
-    size?: DatePickerSize | SizeType;
+    shape?: DatePickerShape | Shape;
+    size?: DatePickerSize | Size;
 };
 
 export type DateBodyPassProps<DateType> = {
@@ -51,6 +51,6 @@ export type DateBodyProps<DateType> = {
     locale: Locale;
     rowCount: number;
     onSelect: (value: DateType) => void;
-    shape?: DatePickerShape | ShapeType;
-    size?: DatePickerSize | SizeType;
+    shape?: DatePickerShape | Shape;
+    size?: DatePickerSize | Size;
 } & DateBodyPassProps<DateType>;

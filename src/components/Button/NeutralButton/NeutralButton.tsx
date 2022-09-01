@@ -3,11 +3,12 @@ import {
     BaseButton,
     ButtonIconAlign,
     ButtonProps,
+    ButtonShape,
+    ButtonSize,
     ButtonTextAlign,
     ButtonType,
 } from '../';
 import { mergeClasses } from '../../../shared/utilities';
-import { SizeType } from '../../ConfigProvider';
 
 import styles from '../button.module.scss';
 
@@ -28,8 +29,8 @@ export const NeutralButton: FC<ButtonProps> = React.forwardRef(
             iconProps,
             onClick,
             text,
-            shape = 'pill',
-            size = 'medium' as SizeType,
+            shape = ButtonShape.Pill,
+            size = ButtonSize.Medium,
             split,
             splitButtonProps,
             splitButtonChecked = false,

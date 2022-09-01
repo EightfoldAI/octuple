@@ -6,8 +6,8 @@ import {
 } from './Theming';
 import type { Locale } from '../LocaleProvider';
 import { FocusVisibleOptions } from './A11y';
-import { ShapeType } from './ShapeContext';
-import { SizeType } from './SizeContext';
+import { Shape } from './ShapeContext';
+import { Size } from './SizeContext';
 import { ValidateMessages } from '../Form/Internal/OcForm.types';
 import { RequiredMark } from '../Form/Form';
 
@@ -58,14 +58,12 @@ export interface ConfigProviderProps {
     locale?: Locale;
     /**
      * Used by the shape context provider to determine the shape of components.
-     * @default 'rectangle'
      */
-    shape?: ShapeType;
+    shape?: Shape;
     /**
      * Used by the size context provider to determine the size of components.
-     * @default 'medium'
      */
-    size?: SizeType;
+    size?: Size;
     /**
      * Options for theming
      * @default { name: 'blue', useSystemTheme: false, customTheme: null }

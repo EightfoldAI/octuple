@@ -4,10 +4,11 @@ import {
     BaseButton,
     ButtonIconAlign,
     ButtonProps,
+    ButtonShape,
+    ButtonSize,
     ButtonTextAlign,
     ButtonType,
 } from '../';
-import { SizeType } from '../../ConfigProvider';
 
 import styles from '../button.module.scss';
 
@@ -29,8 +30,8 @@ export const SecondaryButton: FC<ButtonProps> = React.forwardRef(
             iconProps,
             onClick,
             text,
-            shape = 'pill',
-            size = 'medium' as SizeType,
+            shape = ButtonShape.Pill,
+            size = ButtonSize.Medium,
             split,
             splitButtonChecked = false,
             splitButtonProps,

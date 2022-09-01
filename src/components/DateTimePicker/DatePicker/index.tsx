@@ -7,6 +7,8 @@ import type {
 } from '../Internal/OcPicker.types';
 import generatePicker from './Generate/Generate';
 
+export { DatePickerShape, DatePickerSize } from '../Internal/OcPicker.types';
+
 export type DatePickerProps = OcPickerProps<Dayjs>;
 export type MonthPickerProps = Omit<OcPickerDateProps<Dayjs>, 'picker'>;
 export type WeekPickerProps = Omit<OcPickerDateProps<Dayjs>, 'picker'>;

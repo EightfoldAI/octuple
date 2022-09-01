@@ -1,8 +1,6 @@
 import React, { FC, Ref, useContext, useEffect, useRef, useState } from 'react';
-import DisabledContext, {
-    DisabledType,
-} from '../ConfigProvider/DisabledContext';
-import { SizeContext, SizeType } from '../ConfigProvider';
+import DisabledContext, { Disabled } from '../ConfigProvider/DisabledContext';
+import { SizeContext, Size } from '../ConfigProvider';
 import { RadioButtonProps, RadioButtonValue } from './';
 import { LabelPosition, SelectorSize } from '../CheckBox';
 import { mergeClasses, generateId } from '../../shared/utilities';
@@ -25,7 +23,7 @@ export const RadioButton: FC<RadioButtonProps> = React.forwardRef(
             label,
             labelPosition = LabelPosition.End,
             onChange,
-            size = 'medium' as SizeType,
+            size = SelectorSize.Medium,
             style,
             value = '',
             'data-test-id': dataTestId,
@@ -47,10 +45,10 @@ export const RadioButton: FC<RadioButtonProps> = React.forwardRef(
 
         const { isFormItemInput } = useContext(FormItemInputContext);
 
-        const contextuallyDisabled: DisabledType = useContext(DisabledContext);
+        const contextuallyDisabled: Disabled = useContext(DisabledContext);
         const mergedDisabled: boolean = contextuallyDisabled || disabled;
 
-        const contextuallySized: SizeType = useContext(SizeContext);
+        const contextuallySized: Size = useContext(SizeContext);
         const mergedSize = contextuallySized || size;
 
         const radioButtonClassNames: string = mergeClasses([

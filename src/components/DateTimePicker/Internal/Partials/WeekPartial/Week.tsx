@@ -3,7 +3,7 @@ import { WeekPartialProps } from './Week.types';
 import { mergeClasses } from '../../../../../shared/utilities';
 import DatePartial from '../DatePartial/Date';
 import { isSameWeek } from '../../Utils/dateUtil';
-import { SizeType } from '../../../../ConfigProvider';
+import { DatePickerSize } from '../../OcPicker.types';
 
 import styles from '../../ocpicker.module.scss';
 
@@ -12,7 +12,7 @@ function WeekPartial<DateType>(props: WeekPartialProps<DateType>) {
         generateConfig,
         locale,
         value,
-        size = 'medium' as SizeType,
+        size = DatePickerSize.Medium,
     } = props;
 
     // Add row classNames

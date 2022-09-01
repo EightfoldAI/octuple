@@ -18,7 +18,7 @@ import DatePicker from '../DateTimePicker/DatePicker';
 import { Stack } from '../Stack';
 import enUS from '../Locale/en_US';
 import zhCN from '../Locale/zh_CN';
-import { ConfigProvider } from '../ConfigProvider';
+import { ConfigProvider, Shape, Size } from '../ConfigProvider';
 import { Slider } from '../Slider';
 import { snack, SnackbarContainer } from '../Snackbar';
 import { Icon, IconName } from '../Icon';
@@ -57,11 +57,11 @@ export default {
             control: { type: 'inline-radio' },
         },
         shape: {
-            options: ['rectangle', 'pill', 'underline'],
+            options: [Shape.Rectangle, Shape.Pill, Shape.Underline],
             control: { type: 'inline-radio' },
         },
         size: {
-            options: ['flex', 'large', 'medium', 'small'],
+            options: [Size.Flex, Size.Large, Size.Medium, Size.Small],
             control: { type: 'radio' },
         },
     },
@@ -1651,7 +1651,7 @@ const CollectionCreateForm: React.FC<CollectionCreateFormProps> = ({
             size={ModalSize.small}
             onClose={onCancel}
             width={440}
-            height={selectedReason === 'Radio4' ? 490 : 300}
+            height={selectedReason === 'Radio4' ? 506 : 316}
             actions={
                 <>
                     <NeutralButton text={'Cancel'} onClick={onCancel} />
@@ -2232,8 +2232,8 @@ const formArgs: Object = {
     labelAlign: 'left',
     labelWrap: false,
     layout: 'horizontal',
-    shape: 'rectangle',
-    size: 'medium',
+    shape: Shape.Rectangle,
+    size: Size.Medium,
 };
 
 Basic.args = {
@@ -2250,37 +2250,37 @@ Methods.args = {
 
 Flex.args = {
     ...formArgs,
-    size: 'flex',
+    size: Size.Flex,
 };
 
 Large.args = {
     ...formArgs,
-    size: 'large',
+    size: Size.Large,
 };
 
 Medium.args = {
     ...formArgs,
-    size: 'medium',
+    size: Size.Medium,
 };
 
 Small.args = {
     ...formArgs,
-    size: 'small',
+    size: Size.Small,
 };
 
 Rectangle.args = {
     ...formArgs,
-    shape: 'rectangle',
+    shape: Shape.Rectangle,
 };
 
 Pill.args = {
     ...formArgs,
-    shape: 'pill',
+    shape: Shape.Pill,
 };
 
 Underline.args = {
     ...formArgs,
-    shape: 'underline',
+    shape: Shape.Underline,
 };
 
 Horizontal.args = {

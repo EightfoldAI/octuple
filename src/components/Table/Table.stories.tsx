@@ -5,6 +5,7 @@ import { Link } from '../Link';
 import { Stack } from '../Stack';
 import { Avatar } from '../Avatar';
 import Table from './index';
+import { TableSize } from './Table.types';
 import type { ColumnsType } from './Table.types';
 import { ResizeObserver } from '../../shared/ResizeObserver/ResizeObserver';
 import { VariableSizeGrid as Grid } from 'react-window';
@@ -1176,7 +1177,7 @@ const expandedRowRender = () => {
             columns={columns}
             dataSource={data}
             pagination={false}
-            size="small"
+            size={TableSize.Small}
         />
     );
 };
@@ -1428,17 +1429,17 @@ Row_Bordered.args = {
 
 Small.args = {
     ...tableArgs,
-    size: 'small',
+    size: TableSize.Small,
 };
 
 Medium.args = {
     ...tableArgs,
-    size: 'medium',
+    size: TableSize.Medium,
 };
 
 Large.args = {
     ...tableArgs,
-    size: 'large',
+    size: TableSize.Large,
 };
 
 Empty.args = {

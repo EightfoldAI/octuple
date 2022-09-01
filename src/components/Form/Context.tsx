@@ -22,7 +22,7 @@ export interface FormContextProps {
 
 export const FormContext = React.createContext<FormContextProps>({
     itemRef: (() => {}) as any,
-    labelAlign: 'right',
+    labelAlign: 'left',
     vertical: false,
 });
 

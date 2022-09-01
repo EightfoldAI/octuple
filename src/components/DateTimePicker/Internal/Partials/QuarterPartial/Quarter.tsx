@@ -3,7 +3,7 @@ import { QuarterPartialProps } from './Quarter.types';
 import QuarterHeader from './QuarterHeader';
 import QuarterBody from './QuarterBody';
 import { createKeyDownHandler } from '../../Utils/uiUtil';
-import { SizeType } from '../../../../ConfigProvider';
+import { DatePickerSize } from '../../OcPicker.types';
 
 import styles from '../../ocpicker.module.scss';
 
@@ -16,7 +16,7 @@ function QuarterPartial<DateType>(props: QuarterPartialProps<DateType>) {
         viewDate,
         onPartialChange,
         onSelect,
-        size = 'medium' as SizeType,
+        size = DatePickerSize.Medium,
     } = props;
 
     operationRef.current = {

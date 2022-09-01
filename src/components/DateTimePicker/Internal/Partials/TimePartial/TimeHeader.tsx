@@ -3,7 +3,7 @@ import { TimeHeaderProps } from './Time.types';
 import { Header } from '../Header';
 import PartialContext from '../../PartialContext';
 import { formatValue } from '../../Utils/dateUtil';
-import { SizeType } from '../../../../ConfigProvider';
+import { DatePickerSize } from '../../OcPicker.types';
 
 function TimeHeader<DateType>(props: TimeHeaderProps<DateType>) {
     const { hideHeader } = useContext(PartialContext);
@@ -17,7 +17,7 @@ function TimeHeader<DateType>(props: TimeHeaderProps<DateType>) {
         locale,
         value,
         format,
-        size = 'medium' as SizeType,
+        size = DatePickerSize.Medium,
     } = props;
 
     return (

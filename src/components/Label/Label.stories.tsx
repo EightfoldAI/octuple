@@ -1,7 +1,7 @@
 import React from 'react';
 import { Stories } from '@storybook/addon-docs';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Label } from './index';
+import { Label, LabelSize } from './index';
 
 export default {
     title: 'Label',
@@ -54,7 +54,12 @@ export default {
     },
     argTypes: {
         size: {
-            options: ['flex', 'large', 'medium', 'small'],
+            options: [
+                LabelSize.Flex,
+                LabelSize.Large,
+                LabelSize.Medium,
+                LabelSize.Small,
+            ],
             control: { type: 'radio' },
         },
     },
@@ -66,7 +71,7 @@ export const Labels = Label_Story.bind({});
 
 Labels.args = {
     text: 'This is a label',
-    size: 'medium',
+    size: LabelSize.Medium,
     labelIconButtonProps: {
         show: true,
         toolTipContent: 'A tooltip',

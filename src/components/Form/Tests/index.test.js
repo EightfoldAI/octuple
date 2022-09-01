@@ -47,7 +47,7 @@ describe('Form', () => {
         matchMedia.clear();
     });
 
-    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const warnSpy = jest.spyOn(console, 'warn').mockImplementation(() => {});
 
     async function change(container, index, value, executeMockTimer) {
         fireEvent.change(container.querySelectorAll('input')[index], {
@@ -70,11 +70,11 @@ describe('Form', () => {
     });
 
     afterEach(() => {
-        errorSpy.mockReset();
+        warnSpy.mockReset();
     });
 
     afterAll(() => {
-        errorSpy.mockRestore();
+        warnSpy.mockRestore();
     });
 
     describe('noStyle Form.Item', () => {
@@ -196,7 +196,7 @@ describe('Form', () => {
                 <Form.Item>{() => null}</Form.Item>
             </Form>
         );
-        expect(errorSpy).toHaveBeenCalledWith(
+        expect(warnSpy).toHaveBeenCalledWith(
             'Warning: Form.Item `children` of render props only work with `shouldUpdate` or `dependencies`.'
         );
     });
@@ -208,7 +208,7 @@ describe('Form', () => {
                 </Form.Item>
             </Form>
         );
-        expect(errorSpy).toHaveBeenCalledWith(
+        expect(warnSpy).toHaveBeenCalledWith(
             "Warning: Form.Item `shouldUpdate` and `dependencies` shouldn't be used together."
         );
     });
@@ -221,7 +221,7 @@ describe('Form', () => {
                 </Form.Item>
             </Form>
         );
-        expect(errorSpy).toHaveBeenCalledWith(
+        expect(warnSpy).toHaveBeenCalledWith(
             "Warning: Form.Item Do not use `name` with `children` of render props since it's not a field."
         );
     });
@@ -235,7 +235,7 @@ describe('Form', () => {
                 </Form.Item>
             </Form>
         );
-        expect(errorSpy).toHaveBeenCalledWith(
+        expect(warnSpy).toHaveBeenCalledWith(
             'Warning: Form.Item `children` is array of render props cannot have `name`.'
         );
     });
@@ -259,7 +259,7 @@ describe('Form', () => {
                 <Form.Item name="warning">text</Form.Item>
             </Form>
         );
-        expect(errorSpy).toHaveBeenCalledWith(
+        expect(warnSpy).toHaveBeenCalledWith(
             'Warning: Form.Item `name` is only used for validate React element. If you are using Form.Item as layout display, please remove `name` instead.'
         );
     });
@@ -393,7 +393,7 @@ describe('Form', () => {
                 <Form.Item dependencies={[]}>text</Form.Item>
             </Form>
         );
-        expect(errorSpy).toHaveBeenCalledWith(
+        expect(warnSpy).toHaveBeenCalledWith(
             'Warning: Form.Item Must set `name` or use render props when `dependencies` is set.'
         );
     });
@@ -526,7 +526,7 @@ describe('Form', () => {
         );
 
         expect(wrapper.find('Field')).toHaveLength(0);
-        expect(errorSpy).toHaveBeenCalledWith(
+        expect(warnSpy).toHaveBeenCalledWith(
             'Warning: Form.Item `null` is passed as `name` property'
         );
     });
@@ -581,7 +581,7 @@ describe('Form', () => {
         const { container } = render(<Demo />);
         fireEvent.click(container.querySelector('button'));
 
-        expect(errorSpy).not.toHaveBeenCalled();
+        expect(warnSpy).not.toHaveBeenCalled();
     });
 
     test('`label` support template', async () => {
@@ -761,7 +761,7 @@ describe('Form', () => {
             </Form>
         );
 
-        expect(errorSpy).toHaveBeenCalledWith(
+        expect(warnSpy).toHaveBeenCalledWith(
             'Warning: Form.Item `defaultValue` will not work on controlled Field. You should use `initialValues` of Form instead.'
         );
     });
@@ -807,7 +807,7 @@ describe('Form', () => {
                 </Form.Item>
             </Form>
         );
-        expect(errorSpy).not.toHaveBeenCalled();
+        expect(warnSpy).not.toHaveBeenCalled();
     });
 
     test('should customize id work', () => {
@@ -1054,7 +1054,7 @@ describe('Form', () => {
         // Delay validate failed
         rejectFn(new Error('delay failed'));
 
-        expect(errorSpy).not.toHaveBeenCalled();
+        expect(warnSpy).not.toHaveBeenCalled();
 
         jest.useRealTimers();
     });
@@ -1253,7 +1253,7 @@ describe('Form', () => {
         expect(
             container.querySelector('.custom-input-wrong')?.classList
         ).toContain('custom-input-status-undefined');
-        expect(errorSpy).toHaveBeenCalledWith(
+        expect(warnSpy).toHaveBeenCalledWith(
             expect.stringContaining(
                 'Form.Item.useStatus should be used under Form.Item component.'
             )

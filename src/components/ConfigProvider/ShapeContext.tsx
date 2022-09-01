@@ -1,11 +1,15 @@
 import React, { createContext, FC } from 'react';
 
-export type ShapeType = 'pill' | 'rectangle' | 'underline' | undefined;
+export enum Shape {
+    Rectangle = 'rectangle',
+    Pill = 'pill',
+    Underline = 'underline',
+}
 
-const ShapeContext = createContext<ShapeType>(undefined);
+const ShapeContext = createContext<Shape>(undefined);
 
 export interface ShapeContextProps {
-    shape?: ShapeType;
+    shape?: Shape;
     children?: React.ReactNode;
 }
 

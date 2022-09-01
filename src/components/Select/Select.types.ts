@@ -5,7 +5,7 @@ import { MenuProps } from '../Menu';
 import { OcBaseProps } from '../OcBase';
 import { PillProps } from '../Pills';
 import { MenuItemButtonProps } from '../Menu/MenuItem/MenuItem.types';
-import { ShapeType, SizeType } from '../ConfigProvider';
+import { Shape, Size } from '../ConfigProvider';
 
 export enum SelectShape {
     Rectangle = 'rectangle',
@@ -125,13 +125,13 @@ export interface SelectProps extends OcBaseProps<HTMLDivElement> {
      * Shape of the select.
      * @default SelectShape.Rectangle
      */
-    shape?: SelectShape | ShapeType;
+    shape?: SelectShape | Shape;
 
     /**
      * The select size.
      * @default 'medium'
      */
-    size?: SelectSize | SizeType;
+    size?: SelectSize | Size;
 
     /**
      * loading spinner props.

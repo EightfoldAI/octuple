@@ -1,8 +1,6 @@
 import React, { FC, Ref, useContext, useEffect, useRef, useState } from 'react';
-import DisabledContext, {
-    DisabledType,
-} from '../ConfigProvider/DisabledContext';
-import { SizeContext, SizeType } from '../ConfigProvider';
+import DisabledContext, { Disabled } from '../ConfigProvider/DisabledContext';
+import { SizeContext, Size } from '../ConfigProvider';
 import { generateId, mergeClasses } from '../../shared/utilities';
 import { CheckboxProps, LabelPosition, SelectorSize } from './';
 import { Breakpoints, useMatchMedia } from '../../hooks/useMatchMedia';
@@ -24,7 +22,7 @@ export const CheckBox: FC<CheckboxProps> = React.forwardRef(
             labelPosition = LabelPosition.End,
             name,
             onChange,
-            size = 'medium' as SizeType,
+            size = SelectorSize.Medium,
             style,
             toggle = false,
             value,
@@ -44,10 +42,10 @@ export const CheckBox: FC<CheckboxProps> = React.forwardRef(
 
         const { isFormItemInput } = useContext(FormItemInputContext);
 
-        const contextuallyDisabled: DisabledType = useContext(DisabledContext);
+        const contextuallyDisabled: Disabled = useContext(DisabledContext);
         const mergedDisabled: boolean = contextuallyDisabled || disabled;
 
-        const contextuallySized: SizeType = useContext(SizeContext);
+        const contextuallySized: Size = useContext(SizeContext);
         const mergedSize = contextuallySized || size;
 
         useEffect(() => {

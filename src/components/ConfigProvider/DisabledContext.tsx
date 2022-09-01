@@ -1,11 +1,11 @@
 import React, { createContext, FC, useContext } from 'react';
 
-export type DisabledType = true | false | undefined;
+export type Disabled = true | false | undefined;
 
-const DisabledContext = createContext<DisabledType>(false);
+const DisabledContext = createContext<Disabled>(false);
 
 export interface DisabledContextProps {
-    disabled?: DisabledType;
+    disabled?: Disabled;
     children?: React.ReactNode;
 }
 

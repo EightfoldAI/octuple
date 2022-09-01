@@ -5,7 +5,7 @@ exports[`Storyshots Table Basic 1`] = `
   className="table-wrapper my-table-class"
 >
   <div
-    className="table table table-alternate"
+    className="table table table-medium table-alternate"
     id="myTableId"
   >
     <div
@@ -1558,7 +1558,7 @@ exports[`Storyshots Table Bordered 1`] = `
   className="table-wrapper my-table-class"
 >
   <div
-    className="table table table-alternate table-bordered"
+    className="table table table-medium table-alternate table-bordered"
     id="myTableId"
   >
     <div
@@ -3111,7 +3111,7 @@ exports[`Storyshots Table Cell Bordered 1`] = `
   className="table-wrapper my-table-class"
 >
   <div
-    className="table table table-alternate table-cell-bordered"
+    className="table table table-medium table-alternate table-cell-bordered"
     id="myTableId"
   >
     <div
@@ -4664,7 +4664,7 @@ exports[`Storyshots Table Colspan Rows 1`] = `
   className="table-wrapper my-table-class"
 >
   <div
-    className="table table table-alternate table-bordered"
+    className="table table table-medium table-alternate table-bordered"
     id="myTableId"
   >
     <div
@@ -4980,7 +4980,7 @@ exports[`Storyshots Table Ellipsis 1`] = `
   className="table-wrapper my-table-class"
 >
   <div
-    className="table table table-alternate table-bordered"
+    className="table table table-medium table-alternate table-bordered"
     id="myTableId"
   >
     <div
@@ -7701,7 +7701,7 @@ exports[`Storyshots Table Ellipsis With Tooltip 1`] = `
   className="table-wrapper my-table-class"
 >
   <div
-    className="table table table-alternate table-bordered"
+    className="table table table-medium table-alternate table-bordered"
     id="myTableId"
   >
     <div
@@ -9650,7 +9650,7 @@ exports[`Storyshots Table Empty 1`] = `
   className="table-wrapper"
 >
   <div
-    className="table table table-alternate table-bordered table-empty"
+    className="table table table-medium table-alternate table-bordered table-empty"
   >
     <div
       className="table-container"
@@ -9787,7 +9787,7 @@ exports[`Storyshots Table Expandable Row 1`] = `
   className="table-wrapper my-table-class"
 >
   <div
-    className="table table table-alternate table-bordered"
+    className="table table table-medium table-alternate table-bordered"
     id="myTableId"
   >
     <div
@@ -11599,7 +11599,7 @@ exports[`Storyshots Table Filter 1`] = `
   className="table-wrapper my-table-class"
 >
   <div
-    className="table table table-alternate table-bordered"
+    className="table table table-medium table-alternate table-bordered"
     id="myTableId"
   >
     <div
@@ -13215,7 +13215,7 @@ exports[`Storyshots Table Fixed Columns 1`] = `
     }
   >
     <div
-      className="table table-fixed-column table-scroll-horizontal table-has-fix-left table-has-fix-right table table-alternate table-bordered"
+      className="table table-fixed-column table-scroll-horizontal table-has-fix-left table-has-fix-right table table-medium table-alternate table-bordered"
       id="myTableId"
     >
       <div
@@ -16584,7 +16584,7 @@ exports[`Storyshots Table Fixed Columns And Header 1`] = `
     }
   >
     <div
-      className="table table-fixed-header table-fixed-column table-scroll-horizontal table-has-fix-left table-has-fix-right table table-alternate table-bordered"
+      className="table table-fixed-header table-fixed-column table-scroll-horizontal table-has-fix-left table-has-fix-right table table-medium table-alternate table-bordered"
       id="myTableId"
     >
       <div
@@ -19969,7 +19969,7 @@ exports[`Storyshots Table Fixed Header 1`] = `
     className="table-wrapper my-table-class"
   >
     <div
-      className="table table-fixed-header table table-alternate table-bordered"
+      className="table table-fixed-header table table-medium table-alternate table-bordered"
       id="myTableId"
     >
       <div
@@ -21620,7 +21620,7 @@ exports[`Storyshots Table Header And Footer 1`] = `
   className="table-wrapper my-table-class"
 >
   <div
-    className="table table table-alternate table-bordered"
+    className="table table table-medium table-alternate table-bordered"
     id="myTableId"
   >
     <div
@@ -23183,7 +23183,7 @@ exports[`Storyshots Table Header Bordered 1`] = `
   className="table-wrapper my-table-class"
 >
   <div
-    className="table table table-alternate table-header-bordered"
+    className="table table table-medium table-alternate table-header-bordered"
     id="myTableId"
   >
     <div
@@ -24736,7 +24736,7 @@ exports[`Storyshots Table Header Grouping 1`] = `
   className="table-wrapper my-table-class"
 >
   <div
-    className="table table-fixed-column table-scroll-horizontal table-has-fix-left table-has-fix-right table table-alternate table-bordered"
+    className="table table-fixed-column table-scroll-horizontal table-has-fix-left table-has-fix-right table table-medium table-alternate table-bordered"
     id="myTableId"
   >
     <div
@@ -28001,7 +28001,7 @@ exports[`Storyshots Table Inner Bordered 1`] = `
   className="table-wrapper my-table-class"
 >
   <div
-    className="table table table-alternate table-inner-bordered"
+    className="table table table-medium table-alternate table-inner-bordered"
     id="myTableId"
   >
     <div
@@ -29554,7 +29554,7 @@ exports[`Storyshots Table Large 1`] = `
   className="table-wrapper my-table-class"
 >
   <div
-    className="table table table-alternate table-bordered"
+    className="table table table-large table-alternate table-bordered"
     id="myTableId"
   >
     <div
@@ -32660,7 +32660,7 @@ exports[`Storyshots Table Nested 1`] = `
   className="table-wrapper my-table-class"
 >
   <div
-    className="table table table-alternate table-bordered"
+    className="table table table-medium table-alternate table-bordered"
     id="myTableId"
   >
     <div
@@ -34472,7 +34472,7 @@ exports[`Storyshots Table Order Select And Expand Column 1`] = `
   className="table-wrapper my-table-class"
 >
   <div
-    className="table table table-alternate table-bordered"
+    className="table table table-medium table-alternate table-bordered"
     id="myTableId"
   >
     <div
@@ -36871,7 +36871,7 @@ exports[`Storyshots Table Outer Bordered 1`] = `
   className="table-wrapper my-table-class"
 >
   <div
-    className="table table table-alternate table-outer-bordered"
+    className="table table table-medium table-alternate table-outer-bordered"
     id="myTableId"
   >
     <div
@@ -38424,7 +38424,7 @@ exports[`Storyshots Table Responsive 1`] = `
   className="table-wrapper my-table-class"
 >
   <div
-    className="table table table-alternate table-bordered"
+    className="table table table-medium table-alternate table-bordered"
     id="myTableId"
   >
     <div
@@ -38966,7 +38966,7 @@ exports[`Storyshots Table Row Bordered 1`] = `
   className="table-wrapper my-table-class"
 >
   <div
-    className="table table table-alternate table-row-bordered"
+    className="table table table-medium table-alternate table-row-bordered"
     id="myTableId"
   >
     <div
@@ -40519,7 +40519,7 @@ exports[`Storyshots Table Selection 1`] = `
   className="table-wrapper my-table-class"
 >
   <div
-    className="table table table-alternate table-bordered"
+    className="table table table-medium table-alternate table-bordered"
     id="myTableId"
   >
     <div
@@ -44199,7 +44199,7 @@ exports[`Storyshots Table Sort 1`] = `
   className="table-wrapper my-table-class"
 >
   <div
-    className="table table table-alternate table-bordered"
+    className="table table table-medium table-alternate table-bordered"
     id="myTableId"
   >
     <div
@@ -45830,7 +45830,7 @@ exports[`Storyshots Table Sort Multiple 1`] = `
   className="table-wrapper my-table-class"
 >
   <div
-    className="table table table-alternate table-bordered"
+    className="table table table-medium table-alternate table-bordered"
     id="myTableId"
   >
     <div
@@ -47617,7 +47617,7 @@ exports[`Storyshots Table Summary 1`] = `
   className="table-wrapper my-table-class"
 >
   <div
-    className="table table table-alternate table-bordered"
+    className="table table table-medium table-alternate table-bordered"
     id="myTableId"
   >
     <div
@@ -49196,7 +49196,7 @@ exports[`Storyshots Table Tree 1`] = `
   className="table-wrapper my-table-class"
 >
   <div
-    className="table table table-alternate table-bordered"
+    className="table table table-medium table-alternate table-bordered"
     id="myTableId"
   >
     <div
@@ -49391,7 +49391,7 @@ exports[`Storyshots Table Virtual List 1`] = `
   className="table-wrapper virtual-table"
 >
   <div
-    className="table table-fixed-header table-scroll-horizontal table table-alternate"
+    className="table table-fixed-header table-scroll-horizontal table table-medium table-alternate"
   >
     <div
       className="table-container"

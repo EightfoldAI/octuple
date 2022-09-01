@@ -3,11 +3,12 @@ import {
     BaseButton,
     ButtonIconAlign,
     ButtonProps,
+    ButtonShape,
+    ButtonSize,
     ButtonTextAlign,
     ButtonType,
 } from '../';
 import { mergeClasses } from '../../../shared/utilities';
-import { SizeType } from '../../ConfigProvider';
 
 import styles from '../button.module.scss';
 
@@ -29,8 +30,8 @@ export const PrimaryButton: FC<ButtonProps> = React.forwardRef(
             iconProps,
             onClick,
             onContextMenu,
-            shape = 'pill',
-            size = 'medium' as SizeType,
+            shape = ButtonShape.Pill,
+            size = ButtonSize.Medium,
             split,
             splitButtonChecked = false,
             splitButtonProps,

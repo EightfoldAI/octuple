@@ -5,7 +5,7 @@ import type {
     DatePickerSize,
     PartialSharedProps,
 } from '../../OcPicker.types';
-import { ShapeType, SizeType } from '../../../../ConfigProvider';
+import { Shape, Size } from '../../../../ConfigProvider';
 
 export const QUARTER_COL_COUNT: number = 4;
 
@@ -18,8 +18,8 @@ export type QuarterHeaderProps<DateType> = {
     onPrevYear: () => void;
     onNextYear: () => void;
     onYearClick: () => void;
-    shape?: DatePickerShape | ShapeType;
-    size?: DatePickerSize | SizeType;
+    shape?: DatePickerShape | Shape;
+    size?: DatePickerSize | Size;
 };
 
 export type QuarterBodyProps<DateType> = {
@@ -29,6 +29,6 @@ export type QuarterBodyProps<DateType> = {
     viewDate: DateType;
     disabledDate?: (date: DateType) => boolean;
     onSelect: (value: DateType) => void;
-    shape?: DatePickerShape | ShapeType;
-    size?: DatePickerSize | SizeType;
+    shape?: DatePickerShape | Shape;
+    size?: DatePickerSize | Size;
 };

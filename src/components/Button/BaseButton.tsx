@@ -1,8 +1,6 @@
 import React, { FC, Ref, useContext } from 'react';
-import DisabledContext, {
-    DisabledType,
-} from '../ConfigProvider/DisabledContext';
-import { SizeContext, SizeType } from '../ConfigProvider';
+import DisabledContext, { Disabled } from '../ConfigProvider/DisabledContext';
+import { SizeContext, Size } from '../ConfigProvider';
 import {
     ButtonIconAlign,
     ButtonShape,
@@ -40,8 +38,8 @@ export const BaseButton: FC<InternalButtonProps> = React.forwardRef(
             id,
             onClick,
             onContextMenu,
-            shape = 'pill',
-            size = 'medium' as SizeType,
+            shape = ButtonShape.Pill,
+            size = ButtonSize.Medium,
             split,
             splitButtonChecked = false,
             splitButtonProps,
@@ -59,10 +57,10 @@ export const BaseButton: FC<InternalButtonProps> = React.forwardRef(
         const smallScreenActive: boolean = useMatchMedia(Breakpoints.Small);
         const xSmallScreenActive: boolean = useMatchMedia(Breakpoints.XSmall);
 
-        const contextuallyDisabled: DisabledType = useContext(DisabledContext);
+        const contextuallyDisabled: Disabled = useContext(DisabledContext);
         const mergedDisabled: boolean = contextuallyDisabled || disabled;
 
-        const contextuallySized: SizeType = useContext(SizeContext);
+        const contextuallySized: Size = useContext(SizeContext);
         const mergedSize = contextuallySized || size;
 
         const counterExists: boolean = !!counter;

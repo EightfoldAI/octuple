@@ -5,7 +5,7 @@ import PartialContext from '../PartialContext';
 import { getLastDay } from '../Utils/timeUtil';
 import { getCellDateDisabled } from '../Utils/dateUtil';
 import { Breakpoints, useMatchMedia } from '../../../../hooks/useMatchMedia';
-import { SizeType } from '../../../ConfigProvider';
+import { DatePickerSize } from '../OcPicker.types';
 
 import styles from '../ocpicker.module.scss';
 
@@ -24,7 +24,7 @@ export default function PartialBody<DateType>({
     generateConfig,
     titleCell,
     headerCells,
-    size = 'medium' as SizeType,
+    size = DatePickerSize.Medium,
 }: PartialBodyProps<DateType>) {
     const largeScreenActive: boolean = useMatchMedia(Breakpoints.Large);
     const mediumScreenActive: boolean = useMatchMedia(Breakpoints.Medium);
@@ -112,20 +112,24 @@ export default function PartialBody<DateType>({
     const pickerBodyClassNames: string = mergeClasses([
         styles.pickerBody,
         {
-            [styles.pickerSmall]: size === 'flex' && largeScreenActive,
+            [styles.pickerSmall]:
+                size === DatePickerSize.Flex && largeScreenActive,
         },
         {
-            [styles.pickerMedium]: size === 'flex' && mediumScreenActive,
+            [styles.pickerMedium]:
+                size === DatePickerSize.Flex && mediumScreenActive,
         },
         {
-            [styles.pickerMedium]: size === 'flex' && smallScreenActive,
+            [styles.pickerMedium]:
+                size === DatePickerSize.Flex && smallScreenActive,
         },
         {
-            [styles.pickerLarge]: size === 'flex' && xSmallScreenActive,
+            [styles.pickerLarge]:
+                size === DatePickerSize.Flex && xSmallScreenActive,
         },
-        { [styles.pickerLarge]: size === 'large' },
-        { [styles.pickerMedium]: size === 'medium' },
-        { [styles.pickerSmall]: size === 'small' },
+        { [styles.pickerLarge]: size === DatePickerSize.Large },
+        { [styles.pickerMedium]: size === DatePickerSize.Medium },
+        { [styles.pickerSmall]: size === DatePickerSize.Small },
     ]);
 
     return (

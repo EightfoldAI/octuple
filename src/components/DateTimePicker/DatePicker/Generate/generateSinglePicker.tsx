@@ -1,18 +1,22 @@
 import React, { forwardRef, useContext, useImperativeHandle } from 'react';
 import DisabledContext, {
-    DisabledType,
+    Disabled,
 } from '../../../ConfigProvider/DisabledContext';
 import {
     ShapeContext,
-    ShapeType,
+    Shape,
     SizeContext,
-    SizeType,
+    Size,
 } from '../../../ConfigProvider';
 import { mergeClasses } from '../../../../shared/utilities';
 import type { InputStatus } from '../../../../shared/utilities';
 import OcPicker from '../../Internal/OcPicker';
 import type { GenerateConfig } from '../../Internal/Generate';
-import type { OcPickerMode } from '../../Internal/OcPicker.types';
+import {
+    DatePickerShape,
+    DatePickerSize,
+    OcPickerMode,
+} from '../../Internal/OcPicker.types';
 import { getTimeProps } from './Generate';
 import type {
     CommonPickerMethods,
@@ -54,8 +58,8 @@ export default function generatePicker<DateType>(
                 getPopupContainer,
                 classNames,
                 id,
-                shape = 'rectangle' as ShapeType,
-                size = 'medium' as SizeType,
+                shape = DatePickerShape.Rectangle,
+                size = DatePickerSize.Medium,
                 bordered = true,
                 popupPlacement,
                 placeholder,
@@ -111,14 +115,13 @@ export default function generatePicker<DateType>(
             const { status: contextStatus } = useContext(FormItemInputContext);
             const mergedStatus = getMergedStatus(contextStatus, status);
 
-            const contextuallyDisabled: DisabledType =
-                useContext(DisabledContext);
+            const contextuallyDisabled: Disabled = useContext(DisabledContext);
             const mergedDisabled: boolean = contextuallyDisabled || disabled;
 
-            const contextuallySized: SizeType = useContext(SizeContext);
+            const contextuallySized: Size = useContext(SizeContext);
             const mergedSize = contextuallySized || size;
 
-            const contextuallyShaped: ShapeType = useContext(ShapeContext);
+            const contextuallyShaped: Shape = useContext(ShapeContext);
             const mergedShape = contextuallyShaped || shape;
 
             const getIconSize = (): IconSize => {
@@ -139,10 +142,10 @@ export default function generatePicker<DateType>(
                 typeof mergedSize,
                 IconSize
             >([
-                ['flex', getIconSize()],
-                ['large', IconSize.Large],
-                ['medium', IconSize.Medium],
-                ['small', IconSize.Small],
+                [DatePickerSize.Flex, getIconSize()],
+                [DatePickerSize.Large, IconSize.Large],
+                [DatePickerSize.Medium, IconSize.Medium],
+                [DatePickerSize.Small, IconSize.Small],
             ]);
 
             const iconColor = (): string => {
@@ -210,29 +213,45 @@ export default function generatePicker<DateType>(
                     classNames={mergeClasses([
                         {
                             [styles.pickerSmall]:
-                                mergedSize === 'flex' && largeScreenActive,
+                                mergedSize === DatePickerSize.Flex &&
+                                largeScreenActive,
                         },
                         {
                             [styles.pickerMedium]:
-                                mergedSize === 'flex' && mediumScreenActive,
+                                mergedSize === DatePickerSize.Flex &&
+                                mediumScreenActive,
                         },
                         {
                             [styles.pickerMedium]:
-                                mergedSize === 'flex' && smallScreenActive,
+                                mergedSize === DatePickerSize.Flex &&
+                                smallScreenActive,
                         },
                         {
                             [styles.pickerLarge]:
-                                mergedSize === 'flex' && xSmallScreenActive,
+                                mergedSize === DatePickerSize.Flex &&
+                                xSmallScreenActive,
                         },
-                        { [styles.pickerLarge]: mergedSize === 'large' },
-                        { [styles.pickerMedium]: mergedSize === 'medium' },
-                        { [styles.pickerSmall]: mergedSize === 'small' },
+                        {
+                            [styles.pickerLarge]:
+                                mergedSize === DatePickerSize.Large,
+                        },
+                        {
+                            [styles.pickerMedium]:
+                                mergedSize === DatePickerSize.Medium,
+                        },
+                        {
+                            [styles.pickerSmall]:
+                                mergedSize === DatePickerSize.Small,
+                        },
                         { [styles.pickerBorderless]: !bordered },
                         {
                             [styles.pickerUnderline]:
-                                mergedShape === 'underline',
+                                mergedShape === DatePickerShape.Underline,
                         },
-                        { [styles.pickerPill]: mergedShape === 'pill' },
+                        {
+                            [styles.pickerPill]:
+                                mergedShape === DatePickerShape.Pill,
+                        },
                         {
                             [styles.pickerStatusWarning]:
                                 mergedStatus === 'warning',

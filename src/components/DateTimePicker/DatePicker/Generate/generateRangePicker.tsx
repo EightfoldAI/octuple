@@ -1,13 +1,14 @@
 import React, { forwardRef, useContext, useImperativeHandle } from 'react';
 import DisabledContext, {
-    DisabledType,
+    Disabled,
 } from '../../../ConfigProvider/DisabledContext';
 import {
     ShapeContext,
-    ShapeType,
+    Shape,
     SizeContext,
-    SizeType,
+    Size,
 } from '../../../ConfigProvider';
+import { DatePickerShape, DatePickerSize } from '../../Internal/OcPicker.types';
 import { mergeClasses } from '../../../../shared/utilities';
 import OcRangePicker from '../../Internal/OcRangePicker';
 import type { GenerateConfig } from '../../Internal/Generate';
@@ -43,8 +44,8 @@ export default function generateRangePicker<DateType>(
             classNames,
             id,
             popupPlacement,
-            shape = 'rectangle' as ShapeType,
-            size = 'medium' as SizeType,
+            shape = DatePickerShape.Rectangle,
+            size = DatePickerSize.Medium,
             disabled = false,
             bordered = true,
             placeholder,
@@ -71,14 +72,14 @@ export default function generateRangePicker<DateType>(
         const { status: contextStatus } = useContext(FormItemInputContext);
         const mergedStatus = getMergedStatus(contextStatus, status);
 
-        const contextuallyDisabled: DisabledType = useContext(DisabledContext);
-        const mergedDisabled: DisabledType | [boolean, boolean] =
+        const contextuallyDisabled: Disabled = useContext(DisabledContext);
+        const mergedDisabled: Disabled | [boolean, boolean] =
             contextuallyDisabled || disabled;
 
-        const contextuallySized: SizeType = useContext(SizeContext);
+        const contextuallySized: Size = useContext(SizeContext);
         const mergedSize = contextuallySized || size;
 
-        const contextuallyShaped: ShapeType = useContext(ShapeContext);
+        const contextuallyShaped: Shape = useContext(ShapeContext);
         const mergedShape = contextuallyShaped || shape;
 
         const getIconSize = (): IconSize => {
@@ -96,10 +97,10 @@ export default function generateRangePicker<DateType>(
         };
 
         const pickerSizeToIconSizeMap = new Map<typeof mergedSize, IconSize>([
-            ['flex', getIconSize()],
-            ['large', IconSize.Large],
-            ['medium', IconSize.Medium],
-            ['small', IconSize.Small],
+            [DatePickerSize.Flex, getIconSize()],
+            [DatePickerSize.Large, IconSize.Large],
+            [DatePickerSize.Medium, IconSize.Medium],
+            [DatePickerSize.Small, IconSize.Small],
         ]);
 
         const iconColor = (): string => {
@@ -180,26 +181,45 @@ export default function generateRangePicker<DateType>(
                 classNames={mergeClasses([
                     {
                         [styles.pickerSmall]:
-                            mergedSize === 'flex' && largeScreenActive,
+                            mergedSize === DatePickerSize.Flex &&
+                            largeScreenActive,
                     },
                     {
                         [styles.pickerMedium]:
-                            mergedSize === 'flex' && mediumScreenActive,
+                            mergedSize === DatePickerSize.Flex &&
+                            mediumScreenActive,
                     },
                     {
                         [styles.pickerMedium]:
-                            mergedSize === 'flex' && smallScreenActive,
+                            mergedSize === DatePickerSize.Flex &&
+                            smallScreenActive,
                     },
                     {
                         [styles.pickerLarge]:
-                            mergedSize === 'flex' && xSmallScreenActive,
+                            mergedSize === DatePickerSize.Flex &&
+                            xSmallScreenActive,
                     },
-                    { [styles.pickerLarge]: mergedSize === 'large' },
-                    { [styles.pickerMedium]: mergedSize === 'medium' },
-                    { [styles.pickerSmall]: mergedSize === 'small' },
+                    {
+                        [styles.pickerLarge]:
+                            mergedSize === DatePickerSize.Large,
+                    },
+                    {
+                        [styles.pickerMedium]:
+                            mergedSize === DatePickerSize.Medium,
+                    },
+                    {
+                        [styles.pickerSmall]:
+                            mergedSize === DatePickerSize.Small,
+                    },
                     { [styles.pickerBorderless]: !bordered },
-                    { [styles.pickerUnderline]: mergedShape === 'underline' },
-                    { [styles.pickerPill]: mergedShape === 'pill' },
+                    {
+                        [styles.pickerUnderline]:
+                            mergedShape === DatePickerShape.Underline,
+                    },
+                    {
+                        [styles.pickerPill]:
+                            mergedShape === DatePickerShape.Pill,
+                    },
                     {
                         [styles.pickerStatusWarning]:
                             mergedStatus === 'warning',

@@ -1,7 +1,4 @@
-import React from 'react';
-import { render } from '@testing-library/react';
 import { noteOnce, resetWarned, warning } from './warning';
-import unsafeLifecyclesPolyfill from './unsafeLifecyclesPolyfill';
 
 describe('warning', () => {
     beforeEach(() => {
@@ -10,7 +7,7 @@ describe('warning', () => {
 
     test('warning', () => {
         const warnSpy = jest
-            .spyOn(console, 'error')
+            .spyOn(console, 'warn')
             .mockImplementation(() => {});
         warning(false, '[oc Component] test hello world');
         expect(warnSpy).toHaveBeenCalledWith(
@@ -33,7 +30,7 @@ describe('warning', () => {
 
     test('note', () => {
         const warnSpy = jest
-            .spyOn(console, 'warn')
+            .spyOn(console, 'info')
             .mockImplementation(() => {});
         noteOnce(false, '[oc Component] test hello world');
         expect(warnSpy).toHaveBeenCalledWith(
@@ -51,27 +48,6 @@ describe('warning', () => {
         noteOnce(true, '[oc Component] test1');
         expect(warnSpy).not.toHaveBeenCalledWith('[oc Component] test1');
 
-        warnSpy.mockRestore();
-    });
-
-    test('should not warning React componentWillReceiveProps', () => {
-        const warnSpy = jest
-            .spyOn(console, 'warn')
-            .mockImplementation(() => {});
-        class App extends React.Component {
-            state = {};
-
-            render() {
-                return null;
-            }
-        }
-        const FixedWarningApp = unsafeLifecyclesPolyfill(App);
-        render(<FixedWarningApp />);
-        expect(warnSpy).not.toHaveBeenCalledWith(
-            expect.stringContaining(
-                'componentWillReceiveProps has been renamed'
-            )
-        );
         warnSpy.mockRestore();
     });
 });

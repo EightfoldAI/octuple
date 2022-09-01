@@ -1,7 +1,7 @@
 import React from 'react';
 import { OcBaseProps } from '../OcBase';
 import { LabelPosition, SelectorSize } from '../CheckBox';
-import { SizeType } from '../ConfigProvider';
+import { Size } from '../ConfigProvider';
 
 export type RadioButtonValue = string | number;
 
@@ -58,7 +58,7 @@ export interface RadioButtonProps extends OcBaseProps<HTMLInputElement> {
      * The radio button size.
      * @default SelectorSize.Medium
      */
-    size?: SelectorSize | SizeType;
+    size?: SelectorSize | Size;
 }
 
 export interface RadioGroupProps extends OcBaseProps<HTMLDivElement> {

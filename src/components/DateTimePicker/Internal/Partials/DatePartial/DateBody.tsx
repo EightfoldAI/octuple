@@ -10,7 +10,7 @@ import {
 import RangeContext from '../../RangeContext';
 import useCellClassNames from '../../Hooks/useCellClassNames';
 import PartialBody from '../PartialBody';
-import { SizeType } from '../../../../ConfigProvider';
+import { DatePickerSize } from '../../OcPicker.types';
 
 function DateBody<DateType>(props: DateBodyProps<DateType>) {
     const {
@@ -20,7 +20,7 @@ function DateBody<DateType>(props: DateBodyProps<DateType>) {
         viewDate,
         value,
         dateRender,
-        size = 'medium' as SizeType,
+        size = DatePickerSize.Medium,
     } = props;
 
     const { rangedValue, hoverRangedValue } = React.useContext(RangeContext);

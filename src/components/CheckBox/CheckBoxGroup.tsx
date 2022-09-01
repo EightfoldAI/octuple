@@ -1,8 +1,6 @@
 import React, { FC, Ref, useContext } from 'react';
-import DisabledContext, {
-    DisabledType,
-} from '../ConfigProvider/DisabledContext';
-import { SizeContext, SizeType } from '../ConfigProvider';
+import DisabledContext, { Disabled } from '../ConfigProvider/DisabledContext';
+import { SizeContext, Size } from '../ConfigProvider';
 import { mergeClasses } from '../../shared/utilities';
 import { CheckBox, CheckboxGroupProps, LabelPosition, SelectorSize } from './';
 import { Breakpoints, useMatchMedia } from '../../hooks/useMatchMedia';
@@ -21,7 +19,7 @@ export const CheckBoxGroup: FC<CheckboxGroupProps> = React.forwardRef(
             labelPosition = LabelPosition.End,
             layout = 'vertical',
             onChange,
-            size = 'medium' as SizeType as SizeType,
+            size = SelectorSize.Medium,
             style,
             value,
             ...rest
@@ -35,11 +33,11 @@ export const CheckBoxGroup: FC<CheckboxGroupProps> = React.forwardRef(
 
         const { isFormItemInput } = useContext(FormItemInputContext);
 
-        const contextuallyDisabled: DisabledType = useContext(DisabledContext);
+        const contextuallyDisabled: Disabled = useContext(DisabledContext);
         const mergedDisabled: boolean = contextuallyDisabled || disabled;
 
-        const contextuallySized: SizeType = useContext(SizeContext);
-        const mergedSize: SelectorSize | SizeType = contextuallySized || size;
+        const contextuallySized: Size = useContext(SizeContext);
+        const mergedSize = contextuallySized || size;
 
         const checkboxGroupClassNames = mergeClasses([
             styles.checkboxGroup,

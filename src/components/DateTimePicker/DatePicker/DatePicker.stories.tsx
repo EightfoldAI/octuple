@@ -4,6 +4,7 @@ import type { Dayjs } from 'dayjs';
 import { Stories } from '@storybook/addon-docs';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import DatePicker from './';
+import { DatePickerShape, DatePickerSize } from './';
 import type { DatePickerProps, RangePickerProps } from './';
 import { Stack } from '../../Stack';
 import locale from './Locale/en_US';
@@ -63,11 +64,20 @@ export default {
             control: { type: 'text' },
         },
         shape: {
-            options: ['rectangle', 'pill', 'underline'],
+            options: [
+                DatePickerShape.Rectangle,
+                DatePickerShape.Pill,
+                DatePickerShape.Underline,
+            ],
             control: { type: 'inline-radio' },
         },
         size: {
-            options: ['flex', 'large', 'medium', 'small'],
+            options: [
+                DatePickerSize.Flex,
+                DatePickerSize.Large,
+                DatePickerSize.Medium,
+                DatePickerSize.Small,
+            ],
             control: { type: 'radio' },
         },
         status: {
@@ -481,8 +491,8 @@ const pickerArgs: Object = {
     classNames: 'my-picker-class',
     id: 'myPickerInputId',
     locale: locale,
-    shape: 'rectangle',
-    size: 'small',
+    shape: DatePickerShape.Rectangle,
+    size: DatePickerSize.Medium,
 };
 
 Single_Picker.args = {

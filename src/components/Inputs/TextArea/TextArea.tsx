@@ -1,15 +1,10 @@
 import React, { FC, Ref, useContext, useEffect, useState } from 'react';
 import DisabledContext, {
-    DisabledType,
+    Disabled,
 } from '../../ConfigProvider/DisabledContext';
-import {
-    ShapeContext,
-    ShapeType,
-    SizeContext,
-    SizeType,
-} from '../../ConfigProvider';
+import { ShapeContext, Shape, SizeContext, Size } from '../../ConfigProvider';
 import { Icon, IconName } from '../../Icon';
-import { Label } from '../../Label';
+import { Label, LabelSize } from '../../Label';
 import {
     TextAreaProps,
     TextInputShape,
@@ -47,8 +42,8 @@ export const TextArea: FC<TextAreaProps> = React.forwardRef(
             onKeyDown,
             placeholder,
             required = false,
-            shape = 'rectangle' as ShapeType,
-            size = 'medium' as SizeType,
+            shape = TextInputShape.Rectangle,
+            size = TextInputSize.Medium,
             status,
             style,
             textAreaCols = 50,
@@ -71,13 +66,13 @@ export const TextArea: FC<TextAreaProps> = React.forwardRef(
             useContext(FormItemInputContext);
         const mergedStatus = getMergedStatus(contextStatus, status);
 
-        const contextuallyDisabled: DisabledType = useContext(DisabledContext);
+        const contextuallyDisabled: Disabled = useContext(DisabledContext);
         const mergedDisabled: boolean = contextuallyDisabled || disabled;
 
-        const contextuallySized: SizeType = useContext(SizeContext);
+        const contextuallySized: Size = useContext(SizeContext);
         const mergedSize = contextuallySized || size;
 
-        const contextuallyShaped: ShapeType = useContext(ShapeContext);
+        const contextuallyShaped: Shape = useContext(ShapeContext);
         const mergedShape = contextuallyShaped || shape;
 
         const getStatusClassNames = (
@@ -174,10 +169,24 @@ export const TextArea: FC<TextAreaProps> = React.forwardRef(
             debouncedChange(e);
         };
 
+        const inputSizeToLabelSizeMap = new Map<
+            TextInputSize | Size,
+            LabelSize | Size
+        >([
+            [TextInputSize.Flex, LabelSize.Flex],
+            [TextInputSize.Large, LabelSize.Large],
+            [TextInputSize.Medium, LabelSize.Medium],
+            [TextInputSize.Small, LabelSize.Small],
+        ]);
+
         return (
             <div className={textAreaWrapperClassNames}>
                 {labelProps && (
-                    <Label inline={inline} size={mergedSize} {...labelProps} />
+                    <Label
+                        inline={inline}
+                        size={inputSizeToLabelSizeMap.get(mergedSize)}
+                        {...labelProps}
+                    />
                 )}
                 <div className={textAreaGroupClassNames}>
                     <textarea

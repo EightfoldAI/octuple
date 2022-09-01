@@ -2,7 +2,7 @@ import { ButtonIconAlign, ButtonTextAlign } from '../Button';
 import { Placement, Strategy } from '@floating-ui/react-dom';
 import { TooltipTheme } from '../Tooltip';
 import { OcBaseProps } from '../OcBase';
-import { SizeType } from '../ConfigProvider';
+import { Size } from '../ConfigProvider';
 import { IconProps } from '../Icon';
 
 export enum LabelSize {
@@ -139,7 +139,7 @@ export interface LabelProps extends OcBaseProps<HTMLDivElement> {
     /**
      * The label size.
      */
-    size?: LabelSize | SizeType;
+    size?: LabelSize | Size;
     /**
      * The label text.
      */

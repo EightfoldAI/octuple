@@ -5,7 +5,7 @@ import DateBody from './DateBody';
 import DateHeader from './DateHeader';
 import { WEEK_DAY_COUNT } from '../../Utils/dateUtil';
 import { createKeyDownHandler } from '../../Utils/uiUtil';
-import { SizeType } from '../../../../ConfigProvider';
+import { DatePickerSize } from '../../OcPicker.types';
 
 import styles from '../../ocpicker.module.scss';
 
@@ -23,7 +23,7 @@ function DatePartial<DateType>(props: DatePartialProps<DateType>) {
         onViewDateChange,
         onPartialChange,
         onSelect,
-        size = 'medium' as SizeType,
+        size = DatePickerSize.Medium,
     } = props;
 
     operationRef.current = {

@@ -1,8 +1,6 @@
 import React, { FC, Ref, useContext } from 'react';
-import DisabledContext, {
-    DisabledType,
-} from '../ConfigProvider/DisabledContext';
-import { SizeContext, SizeType } from '../ConfigProvider';
+import DisabledContext, { Disabled } from '../ConfigProvider/DisabledContext';
+import { SizeContext, Size } from '../ConfigProvider';
 import { RadioButtonProps, RadioGroupProps, RadioButton } from './';
 import { LabelPosition, SelectorSize } from '../CheckBox';
 import { RadioGroupProvider } from './RadioGroup.context';
@@ -23,7 +21,7 @@ export const RadioGroup: FC<RadioGroupProps> = React.forwardRef(
             labelPosition = LabelPosition.End,
             layout = 'vertical',
             onChange,
-            size = 'medium' as SizeType,
+            size = SelectorSize.Medium,
             style,
             value,
             ...rest
@@ -37,10 +35,10 @@ export const RadioGroup: FC<RadioGroupProps> = React.forwardRef(
 
         const { isFormItemInput } = useContext(FormItemInputContext);
 
-        const contextuallyDisabled: DisabledType = useContext(DisabledContext);
+        const contextuallyDisabled: Disabled = useContext(DisabledContext);
         const mergedDisabled: boolean = contextuallyDisabled || disabled;
 
-        const contextuallySized: SizeType = useContext(SizeContext);
+        const contextuallySized: Size = useContext(SizeContext);
         const mergedSize = contextuallySized || size;
 
         const radioGroupClasses: string = mergeClasses([

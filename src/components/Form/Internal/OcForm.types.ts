@@ -168,9 +168,9 @@ export interface OcFieldEntity {
         namePathList: InternalOcNamePath[] | null,
         info: OcValuedNotifyInfo
     ) => void;
-    isFieldTouched: () => boolean;
-    isFieldDirty: () => boolean;
-    isFieldValidating: () => boolean;
+    isTouched: () => boolean;
+    isDirty: () => boolean;
+    isValidating: () => boolean;
     isListField: () => boolean;
     isList: () => boolean;
     isPreserve: () => boolean;
@@ -275,8 +275,8 @@ export interface OcFormInstance<Values = any> {
         allFieldsTouched?: boolean
     ) => boolean) &
         ((allFieldsTouched?: boolean) => boolean);
-    isFieldTouched: (name: OcNamePath) => boolean;
-    isFieldValidating: (name: OcNamePath) => boolean;
+    isTouched: (name: OcNamePath) => boolean;
+    isValidating: (name: OcNamePath) => boolean;
     isFieldsValidating: (nameList: OcNamePath[]) => boolean;
     resetFields: (fields?: OcNamePath[]) => void;
     setFields: (fields: OcFieldData[]) => void;

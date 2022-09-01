@@ -14,15 +14,15 @@ import type {
 import type { TimePickerLocale } from '../../TimePicker/TimePicker.types';
 import PickerButton from '../PickerButton';
 import type { InputStatus } from '../../../../shared/utilities';
-import { ShapeType, SizeType } from '../../../ConfigProvider';
+import { Shape, Size } from '../../../ConfigProvider';
 
 type InjectDefaultProps<Props> = Omit<
     Props,
     'locale' | 'generateConfig' | 'hideHeader' | 'components'
 > & {
     locale?: PickerLocale;
-    shape?: DatePickerShape | ShapeType;
-    size?: DatePickerSize | SizeType;
+    shape?: DatePickerShape | Shape;
+    size?: DatePickerSize | Size;
     popupPlacement?: DataPickerPlacement;
     bordered?: boolean;
     status?: InputStatus;

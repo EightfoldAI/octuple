@@ -1,6 +1,6 @@
 import React, { FC, useContext } from 'react';
-import { DefaultButton } from '../Button';
-import { SizeContext, SizeType } from '../ConfigProvider';
+import { ButtonSize, DefaultButton } from '../Button';
+import { SizeContext, Size } from '../ConfigProvider';
 import { IconName } from '../Icon/index';
 import { LabelProps, LabelSize } from './index';
 import { Tooltip } from '../Tooltip';
@@ -16,7 +16,7 @@ export const Label: FC<LabelProps> = ({
     htmlFor,
     inline = false,
     labelIconButtonProps,
-    size = 'medium' as SizeType,
+    size = LabelSize.Medium,
     text,
     ...rest
 }) => {
@@ -26,7 +26,7 @@ export const Label: FC<LabelProps> = ({
     const smallScreenActive: boolean = useMatchMedia(Breakpoints.Small);
     const xSmallScreenActive: boolean = useMatchMedia(Breakpoints.XSmall);
 
-    const contextuallySized: SizeType = useContext(SizeContext);
+    const contextuallySized: Size = useContext(SizeContext);
     const mergedSize = contextuallySized || size;
 
     const sizeClassNames: string = mergeClasses([
@@ -102,7 +102,7 @@ export const Label: FC<LabelProps> = ({
                                     ? labelIconButtonProps?.onClick
                                     : null
                             }
-                            size={'small'}
+                            size={ButtonSize.Small}
                         />
                     </Tooltip>
                 </span>

@@ -18,7 +18,7 @@ import {
 import { useFocusVisibleClassName } from '../../hooks/useFocusVisibleClassName';
 import { DisabledContextProvider } from './DisabledContext';
 import { ShapeContextProvider } from './ShapeContext';
-import { SizeContextProvider, SizeType } from './SizeContext';
+import { SizeContextProvider, Size } from './SizeContext';
 import { ValidateMessages } from '../Form/Internal/OcForm.types';
 import { OcFormProvider } from '../Form/Internal';
 import defaultLocale from '../Locale/Default';
@@ -43,8 +43,8 @@ const ConfigProvider: FC<ConfigProviderProps> = ({
     form,
     icomoonIconSet = {},
     locale,
-    shape = 'rectangle',
-    size = 'medium' as SizeType,
+    shape,
+    size,
     themeOptions: defaultThemeOptions,
 }) => {
     const [fontOptions, setFontOptions] =

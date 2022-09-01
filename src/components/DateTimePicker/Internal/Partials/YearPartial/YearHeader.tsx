@@ -3,7 +3,8 @@ import { Header } from '../Header';
 import { YEAR_DECADE_COUNT, YearHeaderProps } from './Year.types';
 import PartialContext from '../../PartialContext';
 import { ButtonSize, NeutralButton } from '../../../../Button';
-import { SizeType } from '../../../../ConfigProvider';
+import { DatePickerSize } from '../../OcPicker.types';
+import { Size } from '../../../../ConfigProvider';
 
 function YearHeader<DateType>(props: YearHeaderProps<DateType>) {
     const {
@@ -12,18 +13,18 @@ function YearHeader<DateType>(props: YearHeaderProps<DateType>) {
         onPrevDecade,
         onNextDecade,
         onDecadeClick,
-        size = 'medium' as SizeType,
+        size = DatePickerSize.Medium,
     } = props;
     const { hideHeader } = React.useContext(PartialContext);
 
     const datePickerSizeToButtonSizeMap = new Map<
-        typeof size,
-        ButtonSize | SizeType
+        DatePickerSize | Size,
+        ButtonSize | Size
     >([
-        ['flex', ButtonSize.Flex],
-        ['large', ButtonSize.Large],
-        ['medium', ButtonSize.Medium],
-        ['small', ButtonSize.Small],
+        [DatePickerSize.Flex, ButtonSize.Flex],
+        [DatePickerSize.Large, ButtonSize.Large],
+        [DatePickerSize.Medium, ButtonSize.Medium],
+        [DatePickerSize.Small, ButtonSize.Small],
     ]);
 
     if (hideHeader) {

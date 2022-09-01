@@ -9,11 +9,11 @@ import DisabledContext, {
 } from '../ConfigProvider/DisabledContext';
 import SizeContext, {
     SizeContextProvider,
-    SizeType,
+    Size,
 } from '../ConfigProvider/SizeContext';
 import ShapeContext, {
     ShapeContextProvider,
-    ShapeType,
+    Shape,
 } from '../ConfigProvider/ShapeContext';
 import type { ColProps } from '../Grid/Grid.types';
 import type { FormContextProps } from './Context';
@@ -38,8 +38,8 @@ export interface FormProps<Values = any>
     labelCol?: ColProps;
     wrapperCol?: ColProps;
     form?: FormInstance<Values>;
-    shape?: ShapeType;
-    size?: SizeType;
+    shape?: Shape;
+    size?: Size;
     disabled?: boolean;
     scrollToFirstError?: Options | boolean;
     requiredMark?: RequiredMark;

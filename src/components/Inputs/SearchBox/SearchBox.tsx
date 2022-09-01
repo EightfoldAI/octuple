@@ -1,19 +1,16 @@
 import React, { FC, Ref, useContext } from 'react';
 import DisabledContext, {
-    DisabledType,
+    Disabled,
 } from '../../ConfigProvider/DisabledContext';
-import {
-    ShapeContext,
-    ShapeType,
-    SizeContext,
-    SizeType,
-} from '../../ConfigProvider';
+import { ShapeContext, Shape, SizeContext, Size } from '../../ConfigProvider';
 import { IconName } from '../../Icon';
 import {
-    TextInputIconAlign,
-    TextInputWidth,
     SearchBoxProps,
     TextInput,
+    TextInputIconAlign,
+    TextInputShape,
+    TextInputSize,
+    TextInputWidth,
 } from '../index';
 import { FormItemInputContext } from '../../Form/Context';
 import { getMergedStatus } from '../../../shared/utilities';
@@ -47,8 +44,8 @@ export const SearchBox: FC<SearchBoxProps> = React.forwardRef(
             onKeyDown,
             onSubmit,
             placeholder = 'Search',
-            shape = 'rectangle' as ShapeType,
-            size = 'medium' as SizeType,
+            shape = TextInputShape.Rectangle,
+            size = TextInputSize.Medium,
             status,
             style,
             value,
@@ -61,13 +58,13 @@ export const SearchBox: FC<SearchBoxProps> = React.forwardRef(
             useContext(FormItemInputContext);
         const mergedStatus = getMergedStatus(contextStatus, status);
 
-        const contextuallyDisabled: DisabledType = useContext(DisabledContext);
+        const contextuallyDisabled: Disabled = useContext(DisabledContext);
         const mergedDisabled: boolean = contextuallyDisabled || disabled;
 
-        const contextuallySized: SizeType = useContext(SizeContext);
+        const contextuallySized: Size = useContext(SizeContext);
         const mergedSize = contextuallySized || size;
 
-        const contextuallyShaped: ShapeType = useContext(ShapeContext);
+        const contextuallyShaped: Shape = useContext(ShapeContext);
         const mergedShape = contextuallyShaped || shape;
 
         return (

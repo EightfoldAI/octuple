@@ -7,15 +7,8 @@ import React, {
     useState,
     Ref,
 } from 'react';
-import DisabledContext, {
-    DisabledType,
-} from '../ConfigProvider/DisabledContext';
-import {
-    ShapeContext,
-    ShapeType,
-    SizeContext,
-    SizeType,
-} from '../ConfigProvider';
+import DisabledContext, { Disabled } from '../ConfigProvider/DisabledContext';
+import { ShapeContext, Shape, SizeContext, Size } from '../ConfigProvider';
 import { mergeClasses } from '../../shared/utilities';
 import { Dropdown } from '../Dropdown';
 import { Menu } from '../Menu';
@@ -65,8 +58,8 @@ export const Select: FC<SelectProps> = React.forwardRef(
             options: _options = [],
             pillProps = {},
             placeholder = 'Select',
-            shape = 'rectangle' as ShapeType,
-            size = 'medium' as SizeType,
+            shape = SelectShape.Rectangle,
+            size = SelectSize.Medium,
             spinner = (
                 <Spinner
                     classNames={styles.selectSpinner}
@@ -104,13 +97,13 @@ export const Select: FC<SelectProps> = React.forwardRef(
 
         const { isFormItemInput } = useContext(FormItemInputContext);
 
-        const contextuallyDisabled: DisabledType = useContext(DisabledContext);
+        const contextuallyDisabled: Disabled = useContext(DisabledContext);
         const mergedDisabled: boolean = contextuallyDisabled || disabled;
 
-        const contextuallySized: SizeType = useContext(SizeContext);
+        const contextuallySized: Size = useContext(SizeContext);
         const mergedSize = contextuallySized || size;
 
-        const contextuallyShaped: ShapeType = useContext(ShapeContext);
+        const contextuallyShaped: Shape = useContext(ShapeContext);
         const mergedShape = contextuallyShaped || shape;
 
         const getSelectedOptions = (): SelectOption['value'][] => {
@@ -299,10 +292,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
             return pillSize;
         };
 
-        const selectSizeToPillSizeMap = new Map<
-            SelectSize | SizeType,
-            PillSize
-        >([
+        const selectSizeToPillSizeMap = new Map<SelectSize | Size, PillSize>([
             [SelectSize.Flex, getPillSize()],
             [SelectSize.Large, PillSize.Large],
             [SelectSize.Medium, PillSize.Medium],
@@ -433,8 +423,8 @@ export const Select: FC<SelectProps> = React.forwardRef(
         };
 
         const selectShapeToTextInputShapeMap = new Map<
-            SelectShape | ShapeType,
-            TextInputShape | ShapeType
+            SelectShape | Shape,
+            TextInputShape | Shape
         >([
             [SelectShape.Rectangle, TextInputShape.Rectangle],
             [SelectShape.Pill, TextInputShape.Pill],
@@ -442,8 +432,8 @@ export const Select: FC<SelectProps> = React.forwardRef(
         ]);
 
         const selectSizeToTextInputSizeMap = new Map<
-            SelectSize | SizeType,
-            TextInputSize | SizeType
+            SelectSize | Size,
+            TextInputSize | Size
         >([
             [SelectSize.Flex, TextInputSize.Flex],
             [SelectSize.Large, TextInputSize.Large],

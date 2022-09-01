@@ -7,9 +7,7 @@ import React, {
     useRef,
     useState,
 } from 'react';
-import DisabledContext, {
-    DisabledType,
-} from '../ConfigProvider/DisabledContext';
+import DisabledContext, { Disabled } from '../ConfigProvider/DisabledContext';
 import { ResizeObserver } from '../../shared/ResizeObserver/ResizeObserver';
 import { mergeClasses } from '../../shared/utilities';
 import { SliderMarker, SliderProps } from './Slider.types';
@@ -94,7 +92,7 @@ export const Slider: FC<SliderProps> = ({
 
     const { isFormItemInput } = useContext(FormItemInputContext);
 
-    const contextuallyDisabled: DisabledType = useContext(DisabledContext);
+    const contextuallyDisabled: Disabled = useContext(DisabledContext);
     const mergedDisabled: boolean = contextuallyDisabled || disabled;
 
     const getIdentifier = (baseString: string, index: number): string => {
