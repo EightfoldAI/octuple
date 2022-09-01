@@ -51,6 +51,24 @@
         }
     }
 
+    .body {
+        transition: box-shadow $motion-duration-extra-fast
+            $motion-easing-easeinout;
+    }
+
+    .body-top-shadow {
+        box-shadow: inset 0px 11px 8px -10px var(--grey-color-20);
+    }
+
+    .body-bottom-shadow {
+        box-shadow: inset 0px -11px 8px -10px var(--grey-color-20);
+    }
+
+    .body-top-bottom-shadow {
+        box-shadow: inset 0px 11px 8px -10px var(--grey-color-20),
+            inset 0px -11px 8px -10px var(--grey-color-20);
+    }
+
     &.visible {
         visibility: visible;
         opacity: 1;
