@@ -360,7 +360,7 @@ export interface OcFormInstance<Values = any> {
     ) => boolean) &
         ((allFieldsTouched?: boolean) => boolean);
     /**
-     * 	Check if a field has been operated
+     * Check if a field has been operated
      */
     isTouched: (name: OcNamePath) => boolean;
     /**
@@ -376,7 +376,7 @@ export interface OcFormInstance<Values = any> {
      */
     resetFields: (fields?: OcNamePath[]) => void;
     /**
-     * 	Set multiple fields status
+     * Set multiple fields status
      */
     setFields: (fields: OcFieldData[]) => void;
     /**

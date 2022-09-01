@@ -52,7 +52,7 @@ export interface FormProps<Values = any>
      */
     layout?: FormLayout;
     /**
-     * 	The text align of label of all items
+     * The text align of label of all items
      * @default 'left'
      */
     labelAlign?: FormLabelAlign;

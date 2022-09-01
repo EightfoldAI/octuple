@@ -11,14 +11,20 @@ import { getFieldId, toArray } from '../util';
 
 export interface FormInstance<Values = any> extends OcFormInstance<Values> {
     scrollToField: (name: OcNamePath, options?: ScrollOptions) => void;
-    /** This is for internal usage only. */
+    /**
+     * Gets field instance
+     */
+    getFieldInstance: (name: OcNamePath) => any;
+    /**
+     * @private This is for internal usage only.
+     * Do not use in prod
+     */
     __INTERNAL__: {
         name?: string;
         itemRef: (
             name: InternalOcNamePath
         ) => (node: React.ReactElement) => void;
     };
-    getFieldInstance: (name: OcNamePath) => any;
 }
 
 function toNamePathStr(name: OcNamePath) {

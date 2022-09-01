@@ -724,6 +724,7 @@ const Dynamic_Form_Item_Story: ComponentStory<typeof Form> = (args) => {
                                         onClick={() => add()}
                                         style={{ display: 'block' }}
                                         text={'Add field'}
+                                        htmlType={'button'}
                                     />
                                     <PrimaryButton
                                         iconProps={{
@@ -737,6 +738,7 @@ const Dynamic_Form_Item_Story: ComponentStory<typeof Form> = (args) => {
                                             marginTop: '20px',
                                         }}
                                         text={'Add field at head'}
+                                        htmlType={'button'}
                                     />
                                     <Form.ErrorList errors={errors} />
                                 </Form.Item>
@@ -815,6 +817,7 @@ const Dynamic_Form_Nest_Items_Story: ComponentStory<typeof Form> = (args) => {
                                             }}
                                             onClick={() => remove(name)}
                                             shape={ButtonShape.Round}
+                                            htmlType={'button'}
                                         />
                                     </Stack>
                                 ))}
@@ -825,6 +828,7 @@ const Dynamic_Form_Nest_Items_Story: ComponentStory<typeof Form> = (args) => {
                                         }}
                                         onClick={() => add()}
                                         text={'Add field'}
+                                        htmlType={'button'}
                                     />
                                 </Form.Item>
                             </>
@@ -1021,6 +1025,7 @@ const Complex_Dynamic_Form_Items_Story: ComponentStory<typeof Form> = (
                                         }}
                                         onClick={() => add()}
                                         text={'Add sights'}
+                                        htmlType={'button'}
                                     />
                                 </Form.Item>
                             </>
@@ -1068,7 +1073,7 @@ const Nest_Story: ComponentStory<typeof Form> = (args) => {
                     {...layout}
                     name={'nest-messages'}
                     onFinish={onFinish}
-                    //scrollToFirstError={{behavior: 'smooth', scrollMode: 'if-needed', block: 'start'}}
+                    //scrollToFirstError={{behavior: 'smooth', block: 'start'}}
                     validateMessages={validateMessages}
                     //style={{height: 200, overflow: 'auto'}}
                 >
