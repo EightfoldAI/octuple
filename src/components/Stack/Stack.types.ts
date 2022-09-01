@@ -8,6 +8,7 @@ export type StackGap =
     | 'xs'
     | 's'
     | 'm'
+    | 'ml'
     | 'l'
     | 'xl'
     | 'xxl'

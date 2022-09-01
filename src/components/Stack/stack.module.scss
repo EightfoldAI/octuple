@@ -32,6 +32,11 @@
                 margin-top: $space-l;
             }
         }
+        &.ml {
+            > * + * {
+                margin-top: $space-ml;
+            }
+        }
         &.m {
             > * + * {
                 margin-top: $space-m;
@@ -85,6 +90,11 @@
         &.m {
             > * + * {
                 margin-left: $space-m;
+            }
+        }
+        &.ml {
+            > * + * {
+                margin-left: $space-ml;
             }
         }
         &.s {
