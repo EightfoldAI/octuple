@@ -101,6 +101,7 @@ const InternalForm: React.ForwardRefRenderFunction<FormInstance, FormProps> = (
             if (typeof scrollToFirstError === 'object') {
                 defaultScrollToFirstError = scrollToFirstError;
             }
+            console.log(errorInfo.errorFields[0].name);
             wrapForm.scrollToField(
                 errorInfo.errorFields[0].name,
                 defaultScrollToFirstError

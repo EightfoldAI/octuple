@@ -22,6 +22,7 @@ export const RadioGroup: FC<RadioGroupProps> = React.forwardRef(
             },
             disabled = false,
             formItemInput = false,
+            id,
             items,
             labelPosition = LabelPosition.End,
             layout = 'vertical',
@@ -86,6 +87,7 @@ export const RadioGroup: FC<RadioGroupProps> = React.forwardRef(
                     style={style}
                     ref={ref}
                     aria-label={ariaLabel}
+                    id={id}
                     {...rest}
                 >
                     {items.map((item: RadioButtonProps) => (

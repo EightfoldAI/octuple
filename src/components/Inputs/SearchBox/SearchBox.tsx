@@ -38,6 +38,7 @@ export const SearchBox: FC<SearchBoxProps> = React.forwardRef(
                 disabled: false,
                 iconProps: { path: IconName.mdiMagnify },
             },
+            id,
             inline = false,
             inputWidth = TextInputWidth.fitContent,
             labelProps,
@@ -100,6 +101,7 @@ export const SearchBox: FC<SearchBoxProps> = React.forwardRef(
                         ...iconButtonProps,
                         disabled: mergedDisabled,
                     }}
+                    id={id}
                     inline={inline}
                     inputWidth={inputWidth}
                     labelProps={labelProps}

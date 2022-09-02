@@ -46,7 +46,7 @@ LoadedCheerio {
                                     "attribs": Object {
                                       "aria-disabled": "false",
                                       "class": "input-medium left-icon clear-not-visible in-form-item",
-                                      "id": "lola44",
+                                      "id": "lola",
                                       "role": "textbox",
                                       "tabindex": "0",
                                       "type": "text",

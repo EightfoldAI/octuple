@@ -54,6 +54,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
             filterable = false,
             filterOption = null,
             formItemInput = false,
+            id,
             inputWidth = TextInputWidth.fill,
             isLoading,
             loadOptions,
@@ -482,6 +483,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
                     className={componentClasses}
                     style={style}
                     ref={ref}
+                    id={id}
                     data-test-id={dataTestId}
                 >
                     {showPills() ? getPills() : null}

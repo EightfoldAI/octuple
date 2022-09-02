@@ -83,7 +83,7 @@ export interface FormProps<Values = any>
      */
     size?: Size;
     /**
-     * 	Disables Form Octuple components
+     * Disables Form Octuple components
      * @default false
      */
     disabled?: boolean;

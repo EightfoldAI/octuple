@@ -71,9 +71,14 @@ export const TextArea: FC<TextAreaProps> = React.forwardRef(
         const [textAreaId] = useState<string>(uniqueId(id || 'textarea-'));
         const [inputValue, setInputValue] = useState(value);
 
-        const { status: contextStatus, isFormItemInput } =
-            useContext(FormItemInputContext);
+        const {
+            status: contextStatus,
+            isFormItemInput,
+            hasFeedback,
+        } = useContext(FormItemInputContext);
         const mergedStatus = getMergedStatus(contextStatus, status);
+
+        // Needed for form error scroll-into-view by id
         const mergedFormItemInput: boolean = isFormItemInput || formItemInput;
 
         const contextuallyDisabled: Disabled = useContext(DisabledContext);
@@ -117,7 +122,7 @@ export const TextArea: FC<TextAreaProps> = React.forwardRef(
             },
             { [styles.inputStretch]: inputWidth === TextInputWidth.fill },
             { ['in-form-item']: mergedFormItemInput },
-            getStatusClassNames(mergedStatus),
+            getStatusClassNames(mergedStatus, hasFeedback),
         ]);
 
         const textAreaGroupClassNames: string = mergeClasses([
@@ -125,7 +130,7 @@ export const TextArea: FC<TextAreaProps> = React.forwardRef(
             {
                 [styles.inline]: inline,
             },
-            getStatusClassNames(mergedStatus),
+            getStatusClassNames(mergedStatus, hasFeedback),
         ]);
 
         const textAreaWrapperClassNames: string = mergeClasses([
@@ -214,7 +219,7 @@ export const TextArea: FC<TextAreaProps> = React.forwardRef(
                         className={textAreaClassNames}
                         cols={textAreaCols}
                         disabled={!allowDisabledFocus && mergedDisabled}
-                        id={textAreaId}
+                        id={mergedFormItemInput ? id : textAreaId}
                         maxLength={maxlength}
                         minLength={minlength}
                         name={name}

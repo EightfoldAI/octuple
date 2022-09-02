@@ -34,6 +34,19 @@
         min-height: $form-input-height-m;
     }
 
+    &-medium {
+        .form-item-label > label {
+            font-size: $text-font-size-3;
+            font-weight: $text-font-weight-semibold;
+            height: $form-input-height-m;
+            line-height: $text-line-height-2;
+        }
+
+        .form-item-control-input {
+            min-height: $form-input-height-m;
+        }
+    }
+
     &-small {
         .form-item-label > label {
             font-size: $text-font-size-2;

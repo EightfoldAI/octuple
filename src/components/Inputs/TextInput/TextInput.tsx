@@ -82,12 +82,20 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
         const [clearButtonShown, _setClearButtonShown] =
             useState<boolean>(false);
         const [inputId] = useState<string>(uniqueId(id || 'input-'));
-        const inputField: HTMLElement = document.getElementById(inputId);
 
-        const { status: contextStatus, isFormItemInput } =
-            useContext(FormItemInputContext);
+        const {
+            status: contextStatus,
+            isFormItemInput,
+            hasFeedback,
+        } = useContext(FormItemInputContext);
         const mergedStatus = getMergedStatus(contextStatus, status);
+
+        // Needed for form error scroll-into-view by id
         const mergedFormItemInput: boolean = isFormItemInput || formItemInput;
+
+        const inputField: HTMLElement = document.getElementById(
+            mergedFormItemInput ? id : inputId
+        );
 
         const contextuallyDisabled: Disabled = useContext(DisabledContext);
         const mergedDisabled: boolean = configContextProps.noDisabledContext
@@ -212,7 +220,7 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
             { [styles.clearDisabled]: !clearable },
             { [styles.clearNotVisible]: !clearButtonShown },
             { ['in-form-item']: mergedFormItemInput },
-            getStatusClassNames(mergedStatus),
+            getStatusClassNames(mergedStatus, hasFeedback),
         ]);
 
         const textInputGroupClassNames: string = mergeClasses([
@@ -220,7 +228,7 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
             { [styles.inline]: inline },
             { [styles.leftIcon]: alignIcon === TextInputIconAlign.Left },
             { [styles.rightIcon]: alignIcon === TextInputIconAlign.Right },
-            getStatusClassNames(mergedStatus),
+            getStatusClassNames(mergedStatus, hasFeedback),
         ]);
 
         const textInputWrapperClassNames: string = mergeClasses([
@@ -379,7 +387,7 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
                         autoFocus={autoFocus}
                         className={textInputClassNames}
                         disabled={!allowDisabledFocus && mergedDisabled}
-                        id={inputId}
+                        id={mergedFormItemInput ? id : inputId}
                         maxLength={maxlength}
                         minLength={minlength}
                         name={name}

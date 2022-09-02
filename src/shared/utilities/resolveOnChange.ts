@@ -21,8 +21,8 @@ export function resolveOnChange<
         // Avoid the following usage, the setQuery method gets the original value.
         //
         // const [query, setQuery] = React.useState('');
-        // <Input
-        //   allowClear
+        // <TextInput
+        //   clearable
         //   value={query}
         //   onChange={(e)=> {
         //     setQuery((prevStatus) => e.target.value);

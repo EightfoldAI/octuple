@@ -36,7 +36,7 @@ describe('Scroll Into View', () => {
 
     describe('scrollToField', () => {
         function testForm(name, genForm) {
-            test.skip(name, () => {
+            test(name, () => {
                 let callGetForm;
 
                 const Demo = () => {
@@ -93,7 +93,7 @@ describe('Scroll Into View', () => {
         });
     });
 
-    test.skip('scrollToFirstError', async () => {
+    test('scrollToFirstError', async () => {
         const onFinishFailed = jest.fn();
 
         const wrapper = mount(

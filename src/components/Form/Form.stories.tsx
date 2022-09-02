@@ -1073,9 +1073,8 @@ const Nest_Story: ComponentStory<typeof Form> = (args) => {
                     {...layout}
                     name={'nest-messages'}
                     onFinish={onFinish}
-                    //scrollToFirstError={{behavior: 'smooth', block: 'start'}}
+                    scrollToFirstError={{ behavior: 'smooth', block: 'start' }}
                     validateMessages={validateMessages}
-                    //style={{height: 200, overflow: 'auto'}}
                 >
                     <Form.Item
                         name={['user', 'name']}
@@ -1834,6 +1833,7 @@ const Dates_and_Times_Story: ComponentStory<typeof Form> = (args) => {
                     name={'dates-and-times'}
                     {...formItemLayout}
                     onFinish={onFinish}
+                    scrollToFirstError={{ behavior: 'smooth', block: 'start' }}
                 >
                     <Form.Item name={'date-picker'} label={'Date'} {...config}>
                         <DatePicker />

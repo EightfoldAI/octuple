@@ -989,7 +989,7 @@ describe('Form', () => {
         const computeSpy = jest
             .spyOn(window, 'getComputedStyle')
             .mockImplementation(() => ({
-                marginBottom: 24,
+                marginBottom: 32,
             }));
 
         const { container } = render(
@@ -1269,7 +1269,7 @@ describe('Form', () => {
         const computeSpy = jest
             .spyOn(window, 'getComputedStyle')
             .mockImplementation(() => ({
-                marginBottom: 24,
+                marginBottom: 32,
             }));
 
         const { container } = render(
@@ -1292,6 +1292,6 @@ describe('Form', () => {
         expect(
             container.querySelector('.form-item-margin-offset').style
                 .marginBottom
-        ).toBe('-24px');
+        ).toBe('-32px');
     });
 });

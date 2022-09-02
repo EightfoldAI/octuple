@@ -20,6 +20,7 @@ export const CheckBoxGroup: FC<CheckboxGroupProps> = React.forwardRef(
             },
             disabled = false,
             formItemInput = false,
+            id,
             items = [],
             labelPosition = LabelPosition.End,
             layout = 'vertical',
@@ -85,6 +86,7 @@ export const CheckBoxGroup: FC<CheckboxGroupProps> = React.forwardRef(
                 style={style}
                 role="group"
                 aria-label={ariaLabel}
+                id={id}
                 ref={ref}
                 {...rest}
             >

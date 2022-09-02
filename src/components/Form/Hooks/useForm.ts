@@ -63,7 +63,7 @@ export default function useForm<Values = any>(
                         namePath,
                         wrapForm.__INTERNAL__.name
                     );
-                    const node: HTMLElement | null = fieldId
+                    const node: any | null = fieldId
                         ? document.getElementById(fieldId)
                         : null;
 
