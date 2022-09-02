@@ -18,7 +18,7 @@ import {
 import { useFocusVisibleClassName } from '../../hooks/useFocusVisibleClassName';
 import { DisabledContextProvider } from './DisabledContext';
 import { ShapeContextProvider } from './ShapeContext';
-import { SizeContextProvider, Size } from './SizeContext';
+import { SizeContextProvider } from './SizeContext';
 import { ValidateMessages } from '../Form/Internal/OcForm.types';
 import { OcFormProvider } from '../Form/Internal';
 import defaultLocale from '../Locale/Default';

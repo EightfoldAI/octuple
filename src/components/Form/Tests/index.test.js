@@ -527,7 +527,7 @@ describe('Form', () => {
 
         expect(wrapper.find('Field')).toHaveLength(0);
         expect(warnSpy).toHaveBeenCalledWith(
-            'Warning: Form.Item `null` is passed as `name` property'
+            'Warning: Form.Item: `name` property is `null`'
         );
     });
 

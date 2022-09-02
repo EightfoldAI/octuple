@@ -31,7 +31,7 @@ const MemoInput = React.memo(
 
 function hasValidName(name?: OcNamePath): Boolean {
     if (name === null) {
-        warning(false, 'Form.Item `null` is passed as `name` property');
+        warning(false, 'Form.Item: `name` property is `null`');
     }
     return !(name === undefined || name === null);
 }

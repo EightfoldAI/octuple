@@ -372,6 +372,7 @@ exports[`Storyshots Form Complex Dynamic Form Items 1`] = `
               defaultChecked={false}
               disabled={false}
               onClick={[Function]}
+              type="button"
             >
               <span>
                 <span
@@ -3790,6 +3791,7 @@ exports[`Storyshots Form Dynamic Form Item 1`] = `
                   "display": "block",
                 }
               }
+              type="button"
             >
               <span>
                 <span
@@ -3836,6 +3838,7 @@ exports[`Storyshots Form Dynamic Form Item 1`] = `
                   "marginTop": "20px",
                 }
               }
+              type="button"
             >
               <span>
                 <span
@@ -3948,6 +3951,7 @@ exports[`Storyshots Form Dynamic Form Nest Items 1`] = `
               defaultChecked={false}
               disabled={false}
               onClick={[Function]}
+              type="button"
             >
               <span>
                 <span
