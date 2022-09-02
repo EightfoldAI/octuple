@@ -21,10 +21,10 @@
 
     &-status-success {
         input {
-            @include placeholder(var(--success-color));
+            @include placeholder($picker-input-foreground-color);
         }
 
-        border-color: var(--success-color);
-        color: var(--success-color);
+        border-color: var(--border-color);
+        color: var(--text-primary-color);
     }
 }

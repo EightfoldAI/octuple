@@ -270,12 +270,8 @@
         }
 
         &.status-success {
-            color: var(--success-color);
-            border-color: var(--success-color);
-
-            &::placeholder {
-                color: var(--success-color);
-            }
+            color: var(--text-primary-color);
+            border-color: var(--border-color);
         }
 
         &.status-warning {
@@ -950,12 +946,8 @@
         }
 
         &.status-success {
-            color: var(--success-color);
-            border-color: var(--success-color);
-
-            &::placeholder {
-                color: var(--success-color);
-            }
+            color: var(--text-primary-color);
+            border-color: var(--border-color);
         }
 
         &.status-warning {
@@ -1087,16 +1079,16 @@
 
             &.status-success {
                 &:before {
-                    border-color: var(--success-color);
+                    border-color: var(--border-color);
                 }
 
                 &:after {
-                    border-color: var(--success-color);
+                    border-color: var(--primary-color-60);
                 }
 
                 &:hover {
                     &:before {
-                        border-color: var(--success-color);
+                        border-color: var(--grey-color-60);
                     }
                 }
             }

@@ -50,16 +50,16 @@
     &-status-success.picker-underline {
         div {
             &:before {
-                border-color: var(--success-color);
+                border-color: var(--border-color);
             }
 
             &:after {
-                border-color: var(--success-color);
+                border-color: var(--primary-color-60);
             }
 
             &:hover {
                 &:before {
-                    border-color: var(--success-color);
+                    border-color: var(--grey-color-60);
                 }
             }
         }
