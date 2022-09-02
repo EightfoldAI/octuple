@@ -42,6 +42,12 @@ export default function generateRangePicker<DateType>(
         const {
             getPopupContainer,
             classNames,
+            configContextProps = {
+                noDisabledContext: false,
+                noShapeContext: false,
+                noSizeContext: false,
+            },
+            formItemInput = false,
             id,
             popupPlacement,
             shape = DatePickerShape.Rectangle,
@@ -69,18 +75,26 @@ export default function generateRangePicker<DateType>(
                 : {}),
         };
 
-        const { status: contextStatus } = useContext(FormItemInputContext);
+        const { isFormItemInput, status: contextStatus } =
+            useContext(FormItemInputContext);
         const mergedStatus = getMergedStatus(contextStatus, status);
+        const mergedFormItemInput: boolean = isFormItemInput || formItemInput;
 
         const contextuallyDisabled: Disabled = useContext(DisabledContext);
         const mergedDisabled: Disabled | [boolean, boolean] =
-            contextuallyDisabled || disabled;
-
-        const contextuallySized: Size = useContext(SizeContext);
-        const mergedSize = contextuallySized || size;
+            configContextProps.noDisabledContext
+                ? disabled
+                : contextuallyDisabled || disabled;
 
         const contextuallyShaped: Shape = useContext(ShapeContext);
-        const mergedShape = contextuallyShaped || shape;
+        const mergedShape = configContextProps.noShapeContext
+            ? shape
+            : contextuallyShaped || shape;
+
+        const contextuallySized: Size = useContext(SizeContext);
+        const mergedSize = configContextProps.noSizeContext
+            ? size
+            : contextuallySized || size;
 
         const getIconSize = (): IconSize => {
             let iconSize: IconSize;
@@ -229,6 +243,7 @@ export default function generateRangePicker<DateType>(
                         [styles.pickerStatusSuccess]:
                             mergedStatus === 'success',
                     },
+                    { ['in-form-item']: mergedFormItemInput },
                     classNames,
                 ])}
                 locale={locale!.lang}

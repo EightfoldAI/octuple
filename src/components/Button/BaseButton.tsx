@@ -28,6 +28,10 @@ export const BaseButton: FC<InternalButtonProps> = React.forwardRef(
             buttonWidth = ButtonWidth.fitContent,
             checked = false,
             classNames,
+            configContextProps = {
+                noDisabledContext: false,
+                noSizeContext: false,
+            },
             counter,
             disabled = false,
             disruptive = false,
@@ -58,10 +62,14 @@ export const BaseButton: FC<InternalButtonProps> = React.forwardRef(
         const xSmallScreenActive: boolean = useMatchMedia(Breakpoints.XSmall);
 
         const contextuallyDisabled: Disabled = useContext(DisabledContext);
-        const mergedDisabled: boolean = contextuallyDisabled || disabled;
+        const mergedDisabled: boolean = configContextProps.noDisabledContext
+            ? disabled
+            : contextuallyDisabled || disabled;
 
         const contextuallySized: Size = useContext(SizeContext);
-        const mergedSize = contextuallySized || size;
+        const mergedSize = configContextProps.noSizeContext
+            ? size
+            : contextuallySized || size;
 
         const counterExists: boolean = !!counter;
         const iconExists: boolean = !!iconProps;

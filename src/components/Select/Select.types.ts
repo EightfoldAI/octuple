@@ -5,7 +5,7 @@ import { MenuProps } from '../Menu';
 import { OcBaseProps } from '../OcBase';
 import { PillProps } from '../Pills';
 import { MenuItemButtonProps } from '../Menu/MenuItem/MenuItem.types';
-import { Shape, Size } from '../ConfigProvider';
+import { ConfigContextProps, Shape, Size } from '../ConfigProvider';
 
 export enum SelectShape {
     Rectangle = 'rectangle',
@@ -32,6 +32,11 @@ export interface SelectProps extends OcBaseProps<HTMLDivElement> {
      * @default false
      */
     clearable?: boolean;
+
+    /**
+     * Configure how contextual props are consumed
+     */
+    configContextProps?: ConfigContextProps;
 
     /**
      * Default Value
@@ -67,6 +72,12 @@ export interface SelectProps extends OcBaseProps<HTMLDivElement> {
      * @default null
      */
     filterOption?: (option: any, query: any) => boolean;
+
+    /**
+     * The select is a form item.
+     * @default false
+     */
+    formItemInput?: boolean;
 
     /**
      * Width of the tooltip

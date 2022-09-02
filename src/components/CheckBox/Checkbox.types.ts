@@ -1,6 +1,6 @@
 import React from 'react';
 import { OcBaseProps } from '../OcBase';
-import { Size } from '../ConfigProvider';
+import { ConfigContextProps, Size } from '../ConfigProvider';
 
 export type CheckboxValueType = string | number;
 
@@ -30,6 +30,10 @@ export interface CheckboxProps extends OcBaseProps<HTMLInputElement> {
      */
     checked?: boolean;
     /**
+     * Configure how contextual props are consumed
+     */
+    configContextProps?: ConfigContextProps;
+    /**
      * The input checkbox default checked value.
      */
     defaultChecked?: boolean;
@@ -38,6 +42,11 @@ export interface CheckboxProps extends OcBaseProps<HTMLInputElement> {
      * @default false
      */
     disabled?: boolean;
+    /**
+     * The checkbox is a form item.
+     * @default false
+     */
+    formItemInput?: boolean;
     /**
      * The checkbox input name.
      */
@@ -82,10 +91,19 @@ export interface CheckboxGroupProps
      */
     ariaLabel?: string;
     /**
+     * Configure how contextual props are consumed
+     */
+    configContextProps?: ConfigContextProps;
+    /**
      * The checkbox group disabled state.
      * @default false
      */
     disabled?: boolean;
+    /**
+     * The checkbox group is a form item.
+     * @default false
+     */
+    formItemInput?: boolean;
     /**
      * The array of items for the radio group.
      */

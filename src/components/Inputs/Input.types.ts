@@ -5,7 +5,7 @@ import { LabelProps } from '../Label';
 import { TooltipTheme } from '../Tooltip';
 import { OcBaseProps } from '../OcBase';
 import type { InputStatus } from '../../shared/utilities';
-import { Shape, Size } from '../ConfigProvider';
+import { ConfigContextProps, Shape, Size } from '../ConfigProvider';
 
 export enum TextInputIconAlign {
     Left = 'left',
@@ -229,6 +229,10 @@ export interface InputProps<T>
      * @default true
      */
     clearable?: boolean;
+    /**
+     * Configure how contextual props are consumed
+     */
+    configContextProps?: ConfigContextProps;
     /**
      * Allows focus on the input when it's disabled.
      * @default false

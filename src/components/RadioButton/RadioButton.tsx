@@ -17,7 +17,12 @@ export const RadioButton: FC<RadioButtonProps> = React.forwardRef(
             ariaLabel,
             checked = false,
             classNames,
+            configContextProps = {
+                noDisabledContext: false,
+                noSizeContext: false,
+            },
             disabled = false,
+            formItemInput = false,
             id,
             name,
             label,
@@ -44,12 +49,17 @@ export const RadioButton: FC<RadioButtonProps> = React.forwardRef(
             useState<RadioButtonValue>(value);
 
         const { isFormItemInput } = useContext(FormItemInputContext);
+        const mergedFormItemInput: boolean = isFormItemInput || formItemInput;
 
         const contextuallyDisabled: Disabled = useContext(DisabledContext);
-        const mergedDisabled: boolean = contextuallyDisabled || disabled;
+        const mergedDisabled: boolean = configContextProps.noDisabledContext
+            ? disabled
+            : contextuallyDisabled || disabled;
 
         const contextuallySized: Size = useContext(SizeContext);
-        const mergedSize = contextuallySized || size;
+        const mergedSize = configContextProps.noSizeContext
+            ? size
+            : contextuallySized || size;
 
         const radioButtonClassNames: string = mergeClasses([
             styles.radioButton,
@@ -78,7 +88,7 @@ export const RadioButton: FC<RadioButtonProps> = React.forwardRef(
             { [styles.selectorSmall]: mergedSize === SelectorSize.Small },
             classNames,
             { [styles.disabled]: allowDisabledFocus || mergedDisabled },
-            { ['in-form-item']: isFormItemInput },
+            { ['in-form-item']: mergedFormItemInput },
         ]);
 
         const labelClassNames: string = mergeClasses([

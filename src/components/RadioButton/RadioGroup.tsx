@@ -16,7 +16,12 @@ export const RadioGroup: FC<RadioGroupProps> = React.forwardRef(
             allowDisabledFocus = false,
             ariaLabel,
             classNames,
+            configContextProps = {
+                noDisabledContext: false,
+                noSizeContext: false,
+            },
             disabled = false,
+            formItemInput = false,
             items,
             labelPosition = LabelPosition.End,
             layout = 'vertical',
@@ -34,12 +39,17 @@ export const RadioGroup: FC<RadioGroupProps> = React.forwardRef(
         const xSmallScreenActive: boolean = useMatchMedia(Breakpoints.XSmall);
 
         const { isFormItemInput } = useContext(FormItemInputContext);
+        const mergedFormItemInput: boolean = isFormItemInput || formItemInput;
 
         const contextuallyDisabled: Disabled = useContext(DisabledContext);
-        const mergedDisabled: boolean = contextuallyDisabled || disabled;
+        const mergedDisabled: boolean = configContextProps.noDisabledContext
+            ? disabled
+            : contextuallyDisabled || disabled;
 
         const contextuallySized: Size = useContext(SizeContext);
-        const mergedSize = contextuallySized || size;
+        const mergedSize = configContextProps.noSizeContext
+            ? size
+            : contextuallySized || size;
 
         const radioGroupClasses: string = mergeClasses([
             styles.radioGroup,
@@ -64,7 +74,7 @@ export const RadioGroup: FC<RadioGroupProps> = React.forwardRef(
             { [styles.radioGroupLarge]: mergedSize === SelectorSize.Large },
             { [styles.radioGroupMedium]: mergedSize === SelectorSize.Medium },
             { [styles.radioGroupSmall]: mergedSize === SelectorSize.Small },
-            { ['in-form-item']: isFormItemInput },
+            { ['in-form-item']: mergedFormItemInput },
             classNames,
         ]);
 

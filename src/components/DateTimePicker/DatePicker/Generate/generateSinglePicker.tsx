@@ -57,6 +57,12 @@ export default function generatePicker<DateType>(
             const {
                 getPopupContainer,
                 classNames,
+                configContextProps = {
+                    noDisabledContext: false,
+                    noShapeContext: false,
+                    noSizeContext: false,
+                },
+                formItemInput = false,
                 id,
                 shape = DatePickerShape.Rectangle,
                 size = DatePickerSize.Medium,
@@ -112,17 +118,26 @@ export default function generatePicker<DateType>(
                     : {}),
             };
 
-            const { status: contextStatus } = useContext(FormItemInputContext);
+            const { status: contextStatus, isFormItemInput } =
+                useContext(FormItemInputContext);
             const mergedStatus = getMergedStatus(contextStatus, status);
+            const mergedFormItemInput: boolean =
+                isFormItemInput || formItemInput;
 
             const contextuallyDisabled: Disabled = useContext(DisabledContext);
-            const mergedDisabled: boolean = contextuallyDisabled || disabled;
-
-            const contextuallySized: Size = useContext(SizeContext);
-            const mergedSize = contextuallySized || size;
+            const mergedDisabled: boolean = configContextProps.noDisabledContext
+                ? disabled
+                : contextuallyDisabled || disabled;
 
             const contextuallyShaped: Shape = useContext(ShapeContext);
-            const mergedShape = contextuallyShaped || shape;
+            const mergedShape = configContextProps.noShapeContext
+                ? shape
+                : contextuallyShaped || shape;
+
+            const contextuallySized: Size = useContext(SizeContext);
+            const mergedSize = configContextProps.noSizeContext
+                ? size
+                : contextuallySized || size;
 
             const getIconSize = (): IconSize => {
                 let iconSize: IconSize;
@@ -264,6 +279,7 @@ export default function generatePicker<DateType>(
                             [styles.pickerStatusSuccess]:
                                 mergedStatus === 'success',
                         },
+                        { ['in-form-item']: mergedFormItemInput },
                         classNames,
                     ])}
                     getPopupContainer={getPopupContainer}

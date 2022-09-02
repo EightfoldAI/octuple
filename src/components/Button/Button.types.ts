@@ -1,7 +1,7 @@
 import React, { Ref } from 'react';
 import { IconProps } from '../Icon';
 import { OcBaseProps } from '../OcBase';
-import { Shape, Size } from '../ConfigProvider';
+import { ConfigContextProps, Shape, Size } from '../ConfigProvider';
 
 export enum ButtonIconAlign {
     Left = 'left',
@@ -120,6 +120,10 @@ export interface ButtonProps extends NativeButtonProps {
      * The button class names.
      */
     classNames?: string;
+    /**
+     * Configure how contextual props are consumed
+     */
+    configContextProps?: ConfigContextProps;
     /**
      * The button counter string.
      */

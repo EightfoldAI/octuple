@@ -5,7 +5,7 @@ import type { MonthCellRender } from './Partials/MonthPartial/Month.types';
 import type { AlignType } from '../../Align/Align.types';
 import { IconName } from '../../Icon';
 import { tuple } from '../../../shared/utilities';
-import { Shape, Size } from '../../ConfigProvider';
+import { ConfigContextProps, Shape, Size } from '../../ConfigProvider';
 
 export type Locale = {
     locale: string;
@@ -217,8 +217,17 @@ export type OcPickerRefConfig = {
 };
 
 export type OcPickerSharedProps<DateType> = {
+    /**
+     * Configure how contextual props are consumed
+     */
+    configContextProps?: ConfigContextProps;
     dropdownClassNames?: string;
     dropdownAlign?: AlignType;
+    /**
+     * The picker is a form item
+     * @default false
+     */
+    formItemInput?: boolean;
     popupStyle?: React.CSSProperties;
     placeholder?: string;
     allowClear?: boolean;
@@ -384,7 +393,10 @@ export type OcRangePickerSharedProps<DateType> = {
     onOk?: (dates: RangeValue<DateType>) => void;
     direction?: 'ltr' | 'rtl';
     autoComplete?: string;
-    /** @private Internal control of active picker. Do not use since it's private usage */
+    /**
+     * @private Internal control of active picker
+     * Do not use in prod
+     */
     activePickerIndex?: 0 | 1;
     dateRender?: RangeDateRender<DateType>;
     partialRender?: (originPartial: React.ReactNode) => React.ReactNode;

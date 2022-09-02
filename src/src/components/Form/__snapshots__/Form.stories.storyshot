@@ -1586,7 +1586,7 @@ exports[`Storyshots Form Custom Validation 1`] = `
             className="form-item-control-input-content"
           >
             <div
-              className="picker picker-medium picker-status-success"
+              className="picker picker-medium picker-status-success in-form-item"
               onMouseUp={[Function]}
             >
               <div
@@ -1671,7 +1671,7 @@ exports[`Storyshots Form Custom Validation 1`] = `
             className="form-item-control-input-content"
           >
             <div
-              className="picker picker-medium picker-status-warning"
+              className="picker picker-medium picker-status-warning in-form-item"
               onMouseUp={[Function]}
             >
               <div
@@ -1756,7 +1756,7 @@ exports[`Storyshots Form Custom Validation 1`] = `
             className="form-item-control-input-content"
           >
             <div
-              className="picker picker-range picker-medium picker-status-error"
+              className="picker picker-range picker-medium picker-status-error in-form-item"
               onClick={[Function]}
               onMouseDown={[Function]}
             >
@@ -2286,7 +2286,7 @@ exports[`Storyshots Form Dates And Times 1`] = `
             className="form-item-control-input-content"
           >
             <div
-              className="picker picker-medium"
+              className="picker picker-medium in-form-item"
               onMouseUp={[Function]}
             >
               <div
@@ -2373,7 +2373,7 @@ exports[`Storyshots Form Dates And Times 1`] = `
             className="form-item-control-input-content"
           >
             <div
-              className="picker picker-medium"
+              className="picker picker-medium in-form-item"
               onMouseUp={[Function]}
             >
               <div
@@ -2460,7 +2460,7 @@ exports[`Storyshots Form Dates And Times 1`] = `
             className="form-item-control-input-content"
           >
             <div
-              className="picker picker-medium"
+              className="picker picker-medium in-form-item"
               onMouseUp={[Function]}
             >
               <div
@@ -2547,7 +2547,7 @@ exports[`Storyshots Form Dates And Times 1`] = `
             className="form-item-control-input-content"
           >
             <div
-              className="picker picker-range picker-medium"
+              className="picker picker-range picker-medium in-form-item"
               onClick={[Function]}
               onMouseDown={[Function]}
             >
@@ -2695,7 +2695,7 @@ exports[`Storyshots Form Dates And Times 1`] = `
             className="form-item-control-input-content"
           >
             <div
-              className="picker picker-range picker-medium"
+              className="picker picker-range picker-medium in-form-item"
               onClick={[Function]}
               onMouseDown={[Function]}
             >
@@ -2843,7 +2843,7 @@ exports[`Storyshots Form Dates And Times 1`] = `
             className="form-item-control-input-content"
           >
             <div
-              className="picker picker-medium"
+              className="picker picker-medium in-form-item"
               onMouseUp={[Function]}
             >
               <div
@@ -3394,7 +3394,7 @@ exports[`Storyshots Form Disabled 1`] = `
               className="form-item-control-input-content"
             >
               <div
-                className="picker picker-medium picker-disabled"
+                className="picker picker-medium in-form-item picker-disabled"
                 onMouseUp={[Function]}
               >
                 <div
@@ -3479,7 +3479,7 @@ exports[`Storyshots Form Disabled 1`] = `
               className="form-item-control-input-content"
             >
               <div
-                className="picker picker-range picker-medium picker-disabled"
+                className="picker picker-range picker-medium in-form-item picker-disabled"
                 onClick={[Function]}
                 onMouseDown={[Function]}
               >
@@ -4590,7 +4590,7 @@ exports[`Storyshots Form Flex 1`] = `
               className="form-item-control-input-content"
             >
               <div
-                className="picker"
+                className="picker in-form-item"
                 onMouseUp={[Function]}
               >
                 <div
@@ -4675,7 +4675,7 @@ exports[`Storyshots Form Flex 1`] = `
               className="form-item-control-input-content"
             >
               <div
-                className="picker picker-range"
+                className="picker picker-range in-form-item"
                 onClick={[Function]}
                 onMouseDown={[Function]}
               >
@@ -5736,7 +5736,7 @@ exports[`Storyshots Form Large 1`] = `
               className="form-item-control-input-content"
             >
               <div
-                className="picker picker-large"
+                className="picker picker-large in-form-item"
                 onMouseUp={[Function]}
               >
                 <div
@@ -5821,7 +5821,7 @@ exports[`Storyshots Form Large 1`] = `
               className="form-item-control-input-content"
             >
               <div
-                className="picker picker-range picker-large"
+                className="picker picker-range picker-large in-form-item"
                 onClick={[Function]}
                 onMouseDown={[Function]}
               >
@@ -6520,7 +6520,7 @@ exports[`Storyshots Form Medium 1`] = `
               className="form-item-control-input-content"
             >
               <div
-                className="picker picker-medium"
+                className="picker picker-medium in-form-item"
                 onMouseUp={[Function]}
               >
                 <div
@@ -6605,7 +6605,7 @@ exports[`Storyshots Form Medium 1`] = `
               className="form-item-control-input-content"
             >
               <div
-                className="picker picker-range picker-medium"
+                className="picker picker-range picker-medium in-form-item"
                 onClick={[Function]}
                 onMouseDown={[Function]}
               >
@@ -8098,7 +8098,7 @@ exports[`Storyshots Form Pill 1`] = `
               className="form-item-control-input-content"
             >
               <div
-                className="picker picker-medium picker-pill"
+                className="picker picker-medium picker-pill in-form-item"
                 onMouseUp={[Function]}
               >
                 <div
@@ -8183,7 +8183,7 @@ exports[`Storyshots Form Pill 1`] = `
               className="form-item-control-input-content"
             >
               <div
-                className="picker picker-range picker-medium picker-pill"
+                className="picker picker-range picker-medium picker-pill in-form-item"
                 onClick={[Function]}
                 onMouseDown={[Function]}
               >
@@ -8816,7 +8816,7 @@ exports[`Storyshots Form Rectangle 1`] = `
               className="form-item-control-input-content"
             >
               <div
-                className="picker picker-medium"
+                className="picker picker-medium in-form-item"
                 onMouseUp={[Function]}
               >
                 <div
@@ -8901,7 +8901,7 @@ exports[`Storyshots Form Rectangle 1`] = `
               className="form-item-control-input-content"
             >
               <div
-                className="picker picker-range picker-medium"
+                className="picker picker-range picker-medium in-form-item"
                 onClick={[Function]}
                 onMouseDown={[Function]}
               >
@@ -9840,7 +9840,7 @@ exports[`Storyshots Form Small 1`] = `
               className="form-item-control-input-content"
             >
               <div
-                className="picker picker-small"
+                className="picker picker-small in-form-item"
                 onMouseUp={[Function]}
               >
                 <div
@@ -9925,7 +9925,7 @@ exports[`Storyshots Form Small 1`] = `
               className="form-item-control-input-content"
             >
               <div
-                className="picker picker-range picker-small"
+                className="picker picker-range picker-small in-form-item"
                 onClick={[Function]}
                 onMouseDown={[Function]}
               >
@@ -10635,7 +10635,7 @@ exports[`Storyshots Form Underline 1`] = `
               className="form-item-control-input-content"
             >
               <div
-                className="picker picker-medium picker-underline picker-underline"
+                className="picker picker-medium picker-underline in-form-item picker-underline"
                 onMouseUp={[Function]}
               >
                 <div
@@ -10720,7 +10720,7 @@ exports[`Storyshots Form Underline 1`] = `
               className="form-item-control-input-content"
             >
               <div
-                className="picker picker-range picker-medium picker-underline picker-underline"
+                className="picker picker-range picker-medium picker-underline in-form-item picker-underline"
                 onClick={[Function]}
                 onMouseDown={[Function]}
               >

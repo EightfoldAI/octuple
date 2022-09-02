@@ -50,7 +50,12 @@ export const Slider: FC<SliderProps> = ({
     ariaLabel,
     autoFocus = false,
     classNames,
+    configContextProps = {
+        noDisabledContext: false,
+        noSizeContext: false,
+    },
     disabled = false,
+    formItemInput = false,
     id,
     min = 0,
     max = 100,
@@ -91,9 +96,12 @@ export const Slider: FC<SliderProps> = ({
     );
 
     const { isFormItemInput } = useContext(FormItemInputContext);
+    const mergedFormItemInput: boolean = isFormItemInput || formItemInput;
 
     const contextuallyDisabled: Disabled = useContext(DisabledContext);
-    const mergedDisabled: boolean = contextuallyDisabled || disabled;
+    const mergedDisabled: boolean = configContextProps.noDisabledContext
+        ? disabled
+        : contextuallyDisabled || disabled;
 
     const getIdentifier = (baseString: string, index: number): string => {
         if (!baseString) {
@@ -205,7 +213,7 @@ export const Slider: FC<SliderProps> = ({
                         [styles.sliderDisabled]:
                             allowDisabledFocus || mergedDisabled,
                     },
-                    { ['in-form-item']: isFormItemInput }
+                    { ['in-form-item']: mergedFormItemInput }
                 )}
             >
                 <div className={mergeClasses(styles.slider, classNames)}>

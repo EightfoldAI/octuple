@@ -30,8 +30,14 @@ export const TextArea: FC<TextAreaProps> = React.forwardRef(
             ariaLabel,
             autoFocus = false,
             classNames,
+            configContextProps = {
+                noDisabledContext: false,
+                noShapeContext: false,
+                noSizeContext: false,
+            },
             disabled = false,
             enableExpand = false,
+            formItemInput = false,
             id,
             inline = false,
             inputWidth = TextInputWidth.fitContent,
@@ -68,15 +74,22 @@ export const TextArea: FC<TextAreaProps> = React.forwardRef(
         const { status: contextStatus, isFormItemInput } =
             useContext(FormItemInputContext);
         const mergedStatus = getMergedStatus(contextStatus, status);
+        const mergedFormItemInput: boolean = isFormItemInput || formItemInput;
 
         const contextuallyDisabled: Disabled = useContext(DisabledContext);
-        const mergedDisabled: boolean = contextuallyDisabled || disabled;
-
-        const contextuallySized: Size = useContext(SizeContext);
-        const mergedSize = contextuallySized || size;
+        const mergedDisabled: boolean = configContextProps.noDisabledContext
+            ? disabled
+            : contextuallyDisabled || disabled;
 
         const contextuallyShaped: Shape = useContext(ShapeContext);
-        const mergedShape = contextuallyShaped || shape;
+        const mergedShape = configContextProps.noShapeContext
+            ? shape
+            : contextuallyShaped || shape;
+
+        const contextuallySized: Size = useContext(SizeContext);
+        const mergedSize = configContextProps.noSizeContext
+            ? size
+            : contextuallySized || size;
 
         const getStatusClassNames = (
             status?: ValidateStatus,
@@ -103,7 +116,7 @@ export const TextArea: FC<TextAreaProps> = React.forwardRef(
                 [styles.underline]: mergedShape === TextInputShape.Underline,
             },
             { [styles.inputStretch]: inputWidth === TextInputWidth.fill },
-            { ['in-form-item']: isFormItemInput },
+            { ['in-form-item']: mergedFormItemInput },
             getStatusClassNames(mergedStatus),
         ]);
 

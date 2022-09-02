@@ -24,6 +24,10 @@ export const SplitButton: FC<SplitButtonProps> = React.forwardRef(
             ariaLabel,
             classNames,
             checked = false,
+            configContextProps = {
+                noDisabledContext: false,
+                noSizeContext: false,
+            },
             disabled = false,
             disruptive = false,
             dropShadow = false,
@@ -45,10 +49,14 @@ export const SplitButton: FC<SplitButtonProps> = React.forwardRef(
         const xSmallScreenActive: boolean = useMatchMedia(Breakpoints.XSmall);
 
         const contextuallyDisabled: Disabled = useContext(DisabledContext);
-        const mergedDisabled: boolean = contextuallyDisabled || disabled;
+        const mergedDisabled: boolean = configContextProps.noDisabledContext
+            ? disabled
+            : contextuallyDisabled || disabled;
 
         const contextuallySized: Size = useContext(SizeContext);
-        const mergedSize = contextuallySized || size;
+        const mergedSize = configContextProps.noSizeContext
+            ? size
+            : contextuallySized || size;
 
         const splitButtonClassNames: string = mergeClasses([
             classNames,

@@ -13,6 +13,24 @@ import { RequiredMark } from '../Form/Form.types';
 
 export type DirectionType = 'ltr' | 'rtl' | undefined;
 
+export interface ConfigContextProps {
+    /**
+     * If true, no contextual disable for a given component
+     * @default false
+     */
+    noDisabledContext?: boolean;
+    /**
+     * If true, no contextual shape for a given component
+     * @default false
+     */
+    noShapeContext?: boolean;
+    /**
+     * If true, no contextual size for a given component
+     * @default false
+     */
+    noSizeContext?: boolean;
+}
+
 export interface IConfigContext {
     fontOptions: FontOptions;
     themeOptions: ThemeOptions;

@@ -25,7 +25,13 @@ export const SearchBox: FC<SearchBoxProps> = React.forwardRef(
             classNames,
             clearable = true,
             clearButtonAriaLabel,
+            configContextProps = {
+                noDisabledContext: false,
+                noShapeContext: false,
+                noSizeContext: false,
+            },
             disabled = false,
+            formItemInput = false,
             iconProps,
             iconButtonProps = {
                 allowDisabledFocus: false,
@@ -57,15 +63,22 @@ export const SearchBox: FC<SearchBoxProps> = React.forwardRef(
         const { status: contextStatus, isFormItemInput } =
             useContext(FormItemInputContext);
         const mergedStatus = getMergedStatus(contextStatus, status);
+        const mergedFormItemInput: boolean = isFormItemInput || formItemInput;
 
         const contextuallyDisabled: Disabled = useContext(DisabledContext);
-        const mergedDisabled: boolean = contextuallyDisabled || disabled;
-
-        const contextuallySized: Size = useContext(SizeContext);
-        const mergedSize = contextuallySized || size;
+        const mergedDisabled: boolean = configContextProps.noDisabledContext
+            ? disabled
+            : contextuallyDisabled || disabled;
 
         const contextuallyShaped: Shape = useContext(ShapeContext);
-        const mergedShape = contextuallyShaped || shape;
+        const mergedShape = configContextProps.noShapeContext
+            ? shape
+            : contextuallyShaped || shape;
+
+        const contextuallySized: Size = useContext(SizeContext);
+        const mergedSize = configContextProps.noSizeContext
+            ? size
+            : contextuallySized || size;
 
         return (
             <form role="search" onSubmit={(_event) => onSubmit?.(_event)}>
@@ -80,7 +93,7 @@ export const SearchBox: FC<SearchBoxProps> = React.forwardRef(
                     classNames={classNames}
                     clearButtonAriaLabel={clearButtonAriaLabel}
                     disabled={mergedDisabled}
-                    formItemInput={isFormItemInput}
+                    formItemInput={mergedFormItemInput}
                     htmlType="search"
                     iconProps={iconProps}
                     iconButtonProps={{

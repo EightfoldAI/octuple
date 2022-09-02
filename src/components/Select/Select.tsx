@@ -42,12 +42,18 @@ export const Select: FC<SelectProps> = React.forwardRef(
         {
             classNames,
             clearable = false,
+            configContextProps = {
+                noDisabledContext: false,
+                noShapeContext: false,
+                noSizeContext: false,
+            },
             defaultValue,
             disabled = false,
             dropdownProps = {},
             emptyText = 'No match found.',
             filterable = false,
             filterOption = null,
+            formItemInput = false,
             inputWidth = TextInputWidth.fill,
             isLoading,
             loadOptions,
@@ -96,15 +102,22 @@ export const Select: FC<SelectProps> = React.forwardRef(
         const [searchQuery, setSearchQuery] = useState<string>('');
 
         const { isFormItemInput } = useContext(FormItemInputContext);
+        const mergedFormItemInput: boolean = isFormItemInput || formItemInput;
 
         const contextuallyDisabled: Disabled = useContext(DisabledContext);
-        const mergedDisabled: boolean = contextuallyDisabled || disabled;
-
-        const contextuallySized: Size = useContext(SizeContext);
-        const mergedSize = contextuallySized || size;
+        const mergedDisabled: boolean = configContextProps.noDisabledContext
+            ? disabled
+            : contextuallyDisabled || disabled;
 
         const contextuallyShaped: Shape = useContext(ShapeContext);
-        const mergedShape = contextuallyShaped || shape;
+        const mergedShape = configContextProps.noShapeContext
+            ? shape
+            : contextuallyShaped || shape;
+
+        const contextuallySized: Size = useContext(SizeContext);
+        const mergedSize = configContextProps.noSizeContext
+            ? size
+            : contextuallySized || size;
 
         const getSelectedOptions = (): SelectOption['value'][] => {
             return options
@@ -268,7 +281,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
             { [styles.selectMedium]: mergedSize === SelectSize.Medium },
             { [styles.selectSmall]: mergedSize === SelectSize.Small },
             { [styles.selectWrapperDisabled]: mergedDisabled },
-            { ['in-form-item']: isFormItemInput },
+            { ['in-form-item']: mergedFormItemInput },
             classNames,
         ]);
 
@@ -494,7 +507,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
                             ref={inputRef}
                             {...selectInputProps}
                             disabled={mergedDisabled}
-                            formItemInput={isFormItemInput}
+                            formItemInput={mergedFormItemInput}
                             readonly={!filterable}
                             shape={selectShapeToTextInputShapeMap.get(
                                 mergedShape
