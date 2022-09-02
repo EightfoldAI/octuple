@@ -7,7 +7,6 @@ import {
     ButtonShape,
     ButtonSize,
     ButtonTextAlign,
-    ButtonTheme,
     ButtonWidth,
     DefaultButton,
     NeutralButton,
@@ -39,14 +38,14 @@ export default {
                                 <li>
                                     There are four button sizes that may be
                                     specified via the <b>size</b> prop and the{' '}
-                                    <b>ButtonSize</b>: <b>ButtonSize.Flex</b>,{' '}
+                                    <b>size</b>: <b>ButtonSize.Flex</b>,{' '}
                                     <b>ButtonSize.Large</b>,{' '}
                                     <b>ButtonSize.Medium</b>,{' '}
-                                    <b>ButtonSize.Small</b>.{' '}
-                                    <b>ButtonSize.Flex</b> is the default and
-                                    resizes the button automatically with the
-                                    viewport. To prevent this responsive
-                                    behavior, give the button a size.
+                                    <b>ButtonSize.Small</b>. <b>medium</b> is
+                                    the default and flex resizes the button
+                                    automatically with the viewport. To prevent
+                                    this responsive behavior, give the button a
+                                    size other than flex.
                                 </li>
                                 <li>
                                     For dialog boxes and panels, where people
@@ -252,12 +251,11 @@ const buttonArgs: Object = {
     },
     id: 'myButton',
     shape: ButtonShape.Pill,
-    size: ButtonSize.Flex,
+    size: ButtonSize.Medium,
     split: false,
     splitButtonChecked: false,
     style: {},
     text: 'Button',
-    theme: ButtonTheme.light,
     toggle: false,
     counter: 0,
     loading: false,

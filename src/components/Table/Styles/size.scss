@@ -34,6 +34,43 @@
             padding-inline-start: 0;
         }
 
+        // TODO: Work with UX to determine large styling
+        &-large {
+            font-size: $table-font-size-md;
+
+            thead tr th,
+            tbody tr td,
+            tfoot tr th,
+            tfoot tr td {
+                padding: $table-padding-vertical-md $table-padding-horizontal-md;
+            }
+
+            .table-title {
+                padding: $table-padding-vertical-md $table-padding-horizontal-md;
+            }
+
+            .table-filter-trigger {
+                margin-right: -($table-padding-horizontal-md / 2);
+            }
+
+            .table-expanded-row-fixed {
+                margin: -$table-padding-vertical-md -$table-padding-horizontal-md;
+            }
+
+            .table-tbody {
+                .table-wrapper:only-child {
+                    .table {
+                        margin: -$table-padding-vertical-md -$table-padding-horizontal-md -$table-padding-vertical-md
+                            ($table-padding-horizontal-md + ceil((14 * 1.4)));
+                    }
+                }
+            }
+
+            .table-selection-column {
+                padding-inline-start: ($table-padding-horizontal-md / 4);
+            }
+        }
+
         &-medium {
             font-size: $table-font-size-md;
 

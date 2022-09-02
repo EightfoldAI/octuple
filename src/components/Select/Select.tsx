@@ -1,11 +1,14 @@
 import React, {
     FC,
+    useContext,
     useEffect,
     useLayoutEffect,
     useRef,
     useState,
     Ref,
 } from 'react';
+import DisabledContext, { Disabled } from '../ConfigProvider/DisabledContext';
+import { ShapeContext, Shape, SizeContext, Size } from '../ConfigProvider';
 import { mergeClasses } from '../../shared/utilities';
 import { Dropdown } from '../Dropdown';
 import { Menu } from '../Menu';
@@ -28,6 +31,7 @@ import {
 import { Spinner, SpinnerSize } from '../Spinner';
 import { Breakpoints, useMatchMedia } from '../../hooks/useMatchMedia';
 import { Tooltip, TooltipTheme } from '../Tooltip';
+import { FormItemInputContext } from '../Form/Context';
 import { ResizeObserver } from '../../shared/ResizeObserver/ResizeObserver';
 import { useMaxVisibleSections } from '../../hooks/useMaxVisibleSections';
 
@@ -38,31 +42,39 @@ export const Select: FC<SelectProps> = React.forwardRef(
         {
             classNames,
             clearable = false,
+            configContextProps = {
+                noDisabledContext: false,
+                noShapeContext: false,
+                noSizeContext: false,
+            },
             defaultValue,
+            disabled = false,
             dropdownProps = {},
             emptyText = 'No match found.',
             filterable = false,
+            filterOption = null,
+            formItemInput = false,
+            id,
             inputWidth = TextInputWidth.fill,
             isLoading,
             loadOptions,
             menuProps = {},
             multiple = false,
-            textInputProps = {},
             onClear,
             onOptionsChange,
             options: _options = [],
             pillProps = {},
             placeholder = 'Select',
             shape = SelectShape.Rectangle,
-            size = SelectSize.Flex,
+            size = SelectSize.Medium,
             spinner = (
                 <Spinner
                     classNames={styles.selectSpinner}
                     size={SpinnerSize.Small}
                 />
             ),
-            filterOption = null,
             style,
+            textInputProps = {},
             'data-test-id': dataTestId,
         },
         ref: Ref<HTMLDivElement>
@@ -89,6 +101,24 @@ export const Select: FC<SelectProps> = React.forwardRef(
             }))
         );
         const [searchQuery, setSearchQuery] = useState<string>('');
+
+        const { isFormItemInput } = useContext(FormItemInputContext);
+        const mergedFormItemInput: boolean = isFormItemInput || formItemInput;
+
+        const contextuallyDisabled: Disabled = useContext(DisabledContext);
+        const mergedDisabled: boolean = configContextProps.noDisabledContext
+            ? disabled
+            : contextuallyDisabled || disabled;
+
+        const contextuallyShaped: Shape = useContext(ShapeContext);
+        const mergedShape = configContextProps.noShapeContext
+            ? shape
+            : contextuallyShaped || shape;
+
+        const contextuallySized: Size = useContext(SizeContext);
+        const mergedSize = configContextProps.noSizeContext
+            ? size
+            : contextuallySized || size;
 
         const getSelectedOptions = (): SelectOption['value'][] => {
             return options
@@ -234,23 +264,25 @@ export const Select: FC<SelectProps> = React.forwardRef(
             styles.selectWrapper,
             {
                 [styles.selectSmall]:
-                    size === SelectSize.Flex && largeScreenActive,
+                    mergedSize === SelectSize.Flex && largeScreenActive,
             },
             {
                 [styles.selectMedium]:
-                    size === SelectSize.Flex && mediumScreenActive,
+                    mergedSize === SelectSize.Flex && mediumScreenActive,
             },
             {
                 [styles.selectMedium]:
-                    size === SelectSize.Flex && smallScreenActive,
+                    mergedSize === SelectSize.Flex && smallScreenActive,
             },
             {
                 [styles.selectLarge]:
-                    size === SelectSize.Flex && xSmallScreenActive,
+                    mergedSize === SelectSize.Flex && xSmallScreenActive,
             },
-            { [styles.selectLarge]: size === SelectSize.Large },
-            { [styles.selectMedium]: size === SelectSize.Medium },
-            { [styles.selectSmall]: size === SelectSize.Small },
+            { [styles.selectLarge]: mergedSize === SelectSize.Large },
+            { [styles.selectMedium]: mergedSize === SelectSize.Medium },
+            { [styles.selectSmall]: mergedSize === SelectSize.Small },
+            { [styles.selectWrapperDisabled]: mergedDisabled },
+            { ['in-form-item']: mergedFormItemInput },
             classNames,
         ]);
 
@@ -274,7 +306,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
             return pillSize;
         };
 
-        const selectSizeToPillSizeMap = new Map<SelectSize, PillSize>([
+        const selectSizeToPillSizeMap = new Map<SelectSize | Size, PillSize>([
             [SelectSize.Flex, getPillSize()],
             [SelectSize.Large, PillSize.Large],
             [SelectSize.Medium, PillSize.Medium],
@@ -319,7 +351,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
                             classNames={countPillClasses}
                             label={'+' + (moreOptionsCount - count)}
                             theme={'blueGreen'}
-                            size={selectSizeToPillSizeMap.get(size)}
+                            size={selectSizeToPillSizeMap.get(mergedSize)}
                             {...pillProps}
                         />
                     );
@@ -405,22 +437,23 @@ export const Select: FC<SelectProps> = React.forwardRef(
         };
 
         const selectShapeToTextInputShapeMap = new Map<
-            SelectShape,
-            TextInputShape
+            SelectShape | Shape,
+            TextInputShape | Shape
         >([
             [SelectShape.Rectangle, TextInputShape.Rectangle],
             [SelectShape.Pill, TextInputShape.Pill],
             [SelectShape.Underline, TextInputShape.Underline],
         ]);
 
-        const selectSizeToTextInputSizeMap = new Map<SelectSize, TextInputSize>(
-            [
-                [SelectSize.Flex, TextInputSize.Flex],
-                [SelectSize.Large, TextInputSize.Large],
-                [SelectSize.Medium, TextInputSize.Medium],
-                [SelectSize.Small, TextInputSize.Small],
-            ]
-        );
+        const selectSizeToTextInputSizeMap = new Map<
+            SelectSize | Size,
+            TextInputSize | Size
+        >([
+            [SelectSize.Flex, TextInputSize.Flex],
+            [SelectSize.Large, TextInputSize.Large],
+            [SelectSize.Medium, TextInputSize.Medium],
+            [SelectSize.Small, TextInputSize.Small],
+        ]);
 
         const updateLayout = (): void => {
             // Ensure the minimum default width is 400
@@ -450,6 +483,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
                     className={componentClasses}
                     style={style}
                     ref={ref}
+                    id={id}
                     data-test-id={dataTestId}
                 >
                     {showPills() ? getPills() : null}
@@ -474,9 +508,13 @@ export const Select: FC<SelectProps> = React.forwardRef(
                         <TextInput
                             ref={inputRef}
                             {...selectInputProps}
+                            disabled={mergedDisabled}
+                            formItemInput={mergedFormItemInput}
                             readonly={!filterable}
-                            shape={selectShapeToTextInputShapeMap.get(shape)}
-                            size={selectSizeToTextInputSizeMap.get(size)}
+                            shape={selectShapeToTextInputShapeMap.get(
+                                mergedShape
+                            )}
+                            size={selectSizeToTextInputSizeMap.get(mergedSize)}
                             value={getSelectedOptionText()}
                             classNames={styles.selectInput}
                             onChange={filterable ? onInputChange : null}

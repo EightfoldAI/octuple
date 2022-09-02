@@ -15,7 +15,14 @@ import type { INTERNAL_SELECTION_ITEM } from './Hooks/useSelection';
 import { FilterState } from './Hooks/useFilter';
 import { SortState } from './Hooks/useSorter';
 import { SpinnerProps } from '../Spinner';
-import type { SizeType } from './Internal/Context/SizeContext';
+import type { Size } from '../ConfigProvider/SizeContext';
+
+export enum TableSize {
+    Flex = 'flex',
+    Large = 'large',
+    Medium = 'medium',
+    Small = 'small',
+}
 
 export { GetRowKey, ExpandableConfig };
 
@@ -251,7 +258,7 @@ export interface TableProps<RecordType>
     selectInvertText?: string;
     selectNoneText?: string;
     showSorterTooltip?: boolean | TooltipProps;
-    size?: SizeType;
+    size?: TableSize | Size;
     sortDirections?: SortOrder[];
     triggerAscText?: string;
     triggerDescText?: string;

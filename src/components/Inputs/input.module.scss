@@ -269,6 +269,39 @@
             }
         }
 
+        &.status-success {
+            color: var(--text-primary-color);
+            border-color: var(--border-color);
+        }
+
+        &.status-warning {
+            color: var(--warning-color);
+            border-color: var(--warning-color);
+
+            &::placeholder {
+                color: var(--warning-color);
+            }
+        }
+
+        &.status-error {
+            color: var(--error-color);
+            border-color: var(--error-color);
+
+            &::placeholder {
+                color: var(--error-color);
+            }
+        }
+
+        // TODO: work with UXDs on validating state
+        &.status-validating {
+            border-color: var(--border-color);
+        }
+
+        // TODO: work with UXDs on feedback state
+        &.has-feedback {
+            border-color: var(--border-color);
+        }
+
         &.underline {
             border-color: transparent;
         }
@@ -281,7 +314,7 @@
             }
         }
 
-        &:hover {
+        &:hover:not([disabled]) {
             border-color: var(--grey-color-60);
 
             &.underline {
@@ -850,6 +883,10 @@
                 color: var(--grey-color-80);
             }
         }
+
+        &:focus-visible {
+            outline: none;
+        }
     }
 
     .icon-wrapper:not(:empty) + .icon-button {
@@ -888,14 +925,10 @@
             padding: $space-xs $space-s;
         }
 
-        &:focus {
+        &:focus:not(.underline) {
             border-color: $focus-visible-shadow-color;
             transition: border-color $motion-duration-extra-fast
                 $motion-easing-easeinout;
-
-            &.underline {
-                border-color: transparent;
-            }
         }
 
         &:disabled {
@@ -908,8 +941,41 @@
             color: var(--text-primary-color);
         }
 
-        &:hover {
+        &:hover:not([disabled]):not(.underline) {
             border-color: var(--grey-color-60);
+        }
+
+        &.status-success {
+            color: var(--text-primary-color);
+            border-color: var(--border-color);
+        }
+
+        &.status-warning {
+            color: var(--warning-color);
+            border-color: var(--warning-color);
+
+            &::placeholder {
+                color: var(--warning-color);
+            }
+        }
+
+        &.status-error {
+            color: var(--error-color);
+            border-color: var(--error-color);
+
+            &::placeholder {
+                color: var(--error-color);
+            }
+        }
+
+        // TODO: work with UXDs on validating state
+        &.status-validating {
+            border-color: var(--border-color);
+        }
+
+        // TODO: work with UXDs on feedback state
+        &.has-feedback {
+            border-color: var(--border-color);
         }
 
         &.underline {
@@ -1011,6 +1077,54 @@
                 }
             }
 
+            &.status-success {
+                &:before {
+                    border-color: var(--border-color);
+                }
+
+                &:after {
+                    border-color: var(--primary-color-60);
+                }
+
+                &:hover {
+                    &:before {
+                        border-color: var(--grey-color-60);
+                    }
+                }
+            }
+
+            &.status-warning {
+                &:before {
+                    border-color: var(--warning-color);
+                }
+
+                &:after {
+                    border-color: var(--warning-color);
+                }
+
+                &:hover {
+                    &:before {
+                        border-color: var(--warning-color);
+                    }
+                }
+            }
+
+            &.status-error {
+                &:before {
+                    border-color: var(--error-color);
+                }
+
+                &:after {
+                    border-color: var(--error-color);
+                }
+
+                &:hover {
+                    &:before {
+                        border-color: var(--error-color);
+                    }
+                }
+            }
+
             &:focus-within {
                 &:after {
                     transform: scaleX(1) translateX(0px);
@@ -1027,6 +1141,33 @@
         textarea {
             opacity: $disabled-alpha-value;
             cursor: not-allowed;
+        }
+
+        &.underline {
+            .input-group,
+            .text-area-group {
+                &:before {
+                    opacity: $disabled-alpha-value;
+                }
+
+                &:after {
+                    border-bottom: 1px solid var(--border-color);
+                    left: 0;
+                    bottom: 0;
+                    content: '';
+                    position: absolute;
+                    right: 0;
+                    transition: border-bottom-color $motion-duration-extra-fast
+                        $motion-easing-easeinout;
+                    pointer-events: none;
+                }
+
+                &:hover {
+                    &:before {
+                        border-color: var(--border-color);
+                    }
+                }
+            }
         }
     }
 
@@ -1250,6 +1391,7 @@
             &.focus-visible,
             &:focus-visible {
                 background-color: transparent;
+                box-shadow: $focus-visible-box-shadow;
 
                 svg {
                     color: var(--grey-color-80);
@@ -1269,11 +1411,5 @@
                 }
             }
         }
-    }
-}
-
-.dark {
-    .input-wrapper {
-        position: relative;
     }
 }

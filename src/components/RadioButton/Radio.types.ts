@@ -1,6 +1,7 @@
 import React from 'react';
 import { OcBaseProps } from '../OcBase';
 import { LabelPosition, SelectorSize } from '../CheckBox';
+import { ConfigContextProps, Size } from '../ConfigProvider';
 
 export type RadioButtonValue = string | number;
 
@@ -29,9 +30,18 @@ export interface RadioButtonProps extends OcBaseProps<HTMLInputElement> {
      */
     checked?: boolean;
     /**
+     * Configure how contextual props are consumed
+     */
+    configContextProps?: ConfigContextProps;
+    /**
      * The boolean for disabling the radio button.
      */
     disabled?: boolean;
+    /**
+     * The radio button is a form item.
+     * @default false
+     */
+    formItemInput?: boolean;
     /**
      * The name of the radio button group.
      */
@@ -57,7 +67,7 @@ export interface RadioButtonProps extends OcBaseProps<HTMLInputElement> {
      * The radio button size.
      * @default SelectorSize.Medium
      */
-    size?: SelectorSize;
+    size?: SelectorSize | Size;
 }
 
 export interface RadioGroupProps extends OcBaseProps<HTMLDivElement> {
@@ -70,9 +80,18 @@ export interface RadioGroupProps extends OcBaseProps<HTMLDivElement> {
      */
     ariaLabel?: string;
     /**
+     * Configure how contextual props are consumed
+     */
+    configContextProps?: ConfigContextProps;
+    /**
      * The boolean for disabling the radio group.
      */
     disabled?: boolean;
+    /**
+     * The radio button group is a form item.
+     * @default false
+     */
+    formItemInput?: boolean;
     /**
      * The array of items for the radio group.
      */

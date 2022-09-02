@@ -9,6 +9,7 @@ import {
 import { IconName } from '../../Icon';
 import { ButtonShape, NeutralButton } from '../../Button';
 import { useScrollLock } from '../../../hooks/useScrollLock';
+import { NoFormStyle } from '../../Form/Context';
 
 import styles from './base-dialog.module.scss';
 
@@ -93,60 +94,73 @@ export const BaseDialog: FC<BaseDialogProps> = React.forwardRef(
         }, [visible]);
 
         const getDialog = (): JSX.Element => (
-            <div
-                {...rest}
-                ref={ref}
-                role="dialog"
-                aria-modal={true}
-                aria-labelledby={labelId}
-                style={dialogBackdropStyle}
-                className={dialogBackdropClasses}
-                onClick={(e: React.MouseEvent<HTMLDivElement>) => {
-                    maskClosable && onClose?.(e);
-                }}
-            >
+            <NoFormStyle status override>
                 <div
-                    className={dialogClasses}
-                    style={dialogStyle}
-                    onClick={stopPropagation}
+                    {...rest}
+                    ref={ref}
+                    role="dialog"
+                    aria-modal={true}
+                    aria-labelledby={labelId}
+                    style={dialogBackdropStyle}
+                    className={dialogBackdropClasses}
+                    onClick={(e: React.MouseEvent<HTMLDivElement>) => {
+                        maskClosable && onClose?.(e);
+                    }}
                 >
-                    <div className={headerClasses}>
-                        <span id={labelId}>
-                            {headerButtonProps && (
-                                <NeutralButton
-                                    classNames={styles.headerButton}
-                                    shape={ButtonShape.Round}
-                                    iconProps={{ path: headerIcon }}
-                                    {...headerButtonProps}
-                                />
-                            )}
-                            {header}
-                        </span>
-                        <span className={styles.headerButtons}>
-                            {actionButtonThreeProps && (
-                                <NeutralButton {...actionButtonThreeProps} />
-                            )}
-                            {actionButtonTwoProps && (
-                                <NeutralButton {...actionButtonTwoProps} />
-                            )}
-                            {actionButtonOneProps && (
-                                <NeutralButton {...actionButtonOneProps} />
-                            )}
-                            {closable && (
-                                <NeutralButton
-                                    ariaLabel={'Close'}
-                                    iconProps={{ path: closeIcon }}
-                                    shape={ButtonShape.Round}
-                                    onClick={onClose}
-                                    {...closeButtonProps}
-                                />
-                            )}
-                        </span>
+                    <div
+                        className={dialogClasses}
+                        style={dialogStyle}
+                        onClick={stopPropagation}
+                    >
+                        <div className={headerClasses}>
+                            <span id={labelId}>
+                                {headerButtonProps && (
+                                    <NeutralButton
+                                        classNames={styles.headerButton}
+                                        shape={ButtonShape.Round}
+                                        iconProps={{ path: headerIcon }}
+                                        {...headerButtonProps}
+                                    />
+                                )}
+                                {header}
+                            </span>
+                            <span className={styles.headerButtons}>
+                                {actionButtonThreeProps && (
+                                    <NeutralButton
+                                        shape={ButtonShape.Round}
+                                        {...actionButtonThreeProps}
+                                    />
+                                )}
+                                {actionButtonTwoProps && (
+                                    <NeutralButton
+                                        shape={ButtonShape.Round}
+                                        {...actionButtonTwoProps}
+                                    />
+                                )}
+                                {actionButtonOneProps && (
+                                    <NeutralButton
+                                        shape={ButtonShape.Round}
+                                        {...actionButtonOneProps}
+                                    />
+                                )}
+                                {closable && (
+                                    <NeutralButton
+                                        ariaLabel={'Close'}
+                                        iconProps={{ path: closeIcon }}
+                                        shape={ButtonShape.Round}
+                                        onClick={onClose}
+                                        {...closeButtonProps}
+                                    />
+                                )}
+                            </span>
+                        </div>
+                        <div className={bodyClassNames}>{body}</div>
+                        {actions && (
+                            <div className={actionsClasses}>{actions}</div>
+                        )}
                     </div>
-                    <div className={bodyClassNames}>{body}</div>
-                    {actions && <div className={actionsClasses}>{actions}</div>}
                 </div>
-            </div>
+            </NoFormStyle>
         );
         return <Portal getContainer={() => parent}>{getDialog()}</Portal>;
     }

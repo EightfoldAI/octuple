@@ -1,7 +1,10 @@
-import React, { FC, Ref } from 'react';
+import React, { FC, Ref, useContext } from 'react';
+import DisabledContext, { Disabled } from '../ConfigProvider/DisabledContext';
+import { SizeContext, Size } from '../ConfigProvider';
 import { mergeClasses } from '../../shared/utilities';
 import { CheckBox, CheckboxGroupProps, LabelPosition, SelectorSize } from './';
 import { Breakpoints, useMatchMedia } from '../../hooks/useMatchMedia';
+import { FormItemInputContext } from '../Form/Context';
 
 import styles from './checkbox.module.scss';
 
@@ -11,7 +14,13 @@ export const CheckBoxGroup: FC<CheckboxGroupProps> = React.forwardRef(
             allowDisabledFocus = false,
             ariaLabel,
             classNames,
+            configContextProps = {
+                noDisabledContext: false,
+                noSizeContext: false,
+            },
             disabled = false,
+            formItemInput = false,
+            id,
             items = [],
             labelPosition = LabelPosition.End,
             layout = 'vertical',
@@ -28,29 +37,46 @@ export const CheckBoxGroup: FC<CheckboxGroupProps> = React.forwardRef(
         const smallScreenActive: boolean = useMatchMedia(Breakpoints.Small);
         const xSmallScreenActive: boolean = useMatchMedia(Breakpoints.XSmall);
 
+        const { isFormItemInput } = useContext(FormItemInputContext);
+        const mergedFormItemInput: boolean = isFormItemInput || formItemInput;
+
+        const contextuallyDisabled: Disabled = useContext(DisabledContext);
+        const mergedDisabled: boolean = configContextProps.noDisabledContext
+            ? disabled
+            : contextuallyDisabled || disabled;
+
+        const contextuallySized: Size = useContext(SizeContext);
+        const mergedSize = configContextProps.noSizeContext
+            ? size
+            : contextuallySized || size;
+
         const checkboxGroupClassNames = mergeClasses([
             styles.checkboxGroup,
             { [styles.vertical]: layout === 'vertical' },
             { [styles.horizontal]: layout === 'horizontal' },
             {
                 [styles.checkboxGroupSmall]:
-                    size === SelectorSize.Flex && largeScreenActive,
+                    mergedSize === SelectorSize.Flex && largeScreenActive,
             },
             {
                 [styles.checkboxGroupMedium]:
-                    size === SelectorSize.Flex && mediumScreenActive,
+                    mergedSize === SelectorSize.Flex && mediumScreenActive,
             },
             {
                 [styles.checkboxGroupMedium]:
-                    size === SelectorSize.Flex && smallScreenActive,
+                    mergedSize === SelectorSize.Flex && smallScreenActive,
             },
             {
                 [styles.checkboxGroupLarge]:
-                    size === SelectorSize.Flex && xSmallScreenActive,
+                    mergedSize === SelectorSize.Flex && xSmallScreenActive,
             },
-            { [styles.checkboxGroupLarge]: size === SelectorSize.Large },
-            { [styles.checkboxGroupMedium]: size === SelectorSize.Medium },
-            { [styles.checkboxGroupSmall]: size === SelectorSize.Small },
+            { [styles.checkboxGroupLarge]: mergedSize === SelectorSize.Large },
+            {
+                [styles.checkboxGroupMedium]:
+                    mergedSize === SelectorSize.Medium,
+            },
+            { [styles.checkboxGroupSmall]: mergedSize === SelectorSize.Small },
+            { ['in-form-item']: mergedFormItemInput },
             classNames,
         ]);
 
@@ -60,13 +86,14 @@ export const CheckBoxGroup: FC<CheckboxGroupProps> = React.forwardRef(
                 style={style}
                 role="group"
                 aria-label={ariaLabel}
+                id={id}
                 ref={ref}
                 {...rest}
             >
                 {items.map((item) => (
                     <CheckBox
                         allowDisabledFocus={allowDisabledFocus}
-                        disabled={disabled}
+                        disabled={mergedDisabled}
                         labelPosition={labelPosition}
                         {...item}
                         checked={value?.includes(item.value)}
@@ -81,7 +108,7 @@ export const CheckBoxGroup: FC<CheckboxGroupProps> = React.forwardRef(
                             }
                             onChange?.(newValue);
                         }}
-                        size={size}
+                        size={mergedSize}
                     />
                 ))}
             </div>

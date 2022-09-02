@@ -6,6 +6,7 @@ import TimeUnitColumn from './TimeUnitColumn';
 import { leftPad } from '../../Utils/miscUtil';
 import { setTime as utilSetTime } from '../../Utils/timeUtil';
 import { DisabledTimes } from '../../OcPicker.types';
+import { DatePickerSize } from '../../OcPicker.types';
 
 import styles from '../../ocpicker.module.scss';
 
@@ -51,7 +52,7 @@ function TimeBody<DateType>(props: TimeBodyProps<DateType>) {
         disabledTime,
         hideDisabledOptions,
         onSelect,
-        size = 'Small',
+        size = DatePickerSize.Medium,
     } = props;
 
     const columns: {

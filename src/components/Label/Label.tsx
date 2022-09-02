@@ -1,9 +1,11 @@
-import React, { FC } from 'react';
+import React, { FC, useContext } from 'react';
 import { ButtonSize, DefaultButton } from '../Button';
+import { SizeContext, Size } from '../ConfigProvider';
 import { IconName } from '../Icon/index';
 import { LabelProps, LabelSize } from './index';
 import { Tooltip } from '../Tooltip';
 import { useCanvasDirection } from '../../hooks/useCanvasDirection';
+import { Breakpoints, useMatchMedia } from '../../hooks/useMatchMedia';
 import { mergeClasses } from '../../shared/utilities';
 
 import styles from './label.module.scss';
@@ -19,11 +21,31 @@ export const Label: FC<LabelProps> = ({
     ...rest
 }) => {
     const htmlDir: string = useCanvasDirection();
+    const largeScreenActive: boolean = useMatchMedia(Breakpoints.Large);
+    const mediumScreenActive: boolean = useMatchMedia(Breakpoints.Medium);
+    const smallScreenActive: boolean = useMatchMedia(Breakpoints.Small);
+    const xSmallScreenActive: boolean = useMatchMedia(Breakpoints.XSmall);
+
+    const contextuallySized: Size = useContext(SizeContext);
+    const mergedSize = contextuallySized || size;
 
     const sizeClassNames: string = mergeClasses([
-        { [styles.large]: size === LabelSize.Large },
-        { [styles.medium]: size === LabelSize.Medium },
-        { [styles.small]: size === LabelSize.Small },
+        {
+            [styles.small]: mergedSize === LabelSize.Flex && largeScreenActive,
+        },
+        {
+            [styles.medium]:
+                mergedSize === LabelSize.Flex && mediumScreenActive,
+        },
+        {
+            [styles.medium]: mergedSize === LabelSize.Flex && smallScreenActive,
+        },
+        {
+            [styles.large]: mergedSize === LabelSize.Flex && xSmallScreenActive,
+        },
+        { [styles.large]: mergedSize === LabelSize.Large },
+        { [styles.medium]: mergedSize === LabelSize.Medium },
+        { [styles.small]: mergedSize === LabelSize.Small },
     ]);
     const labelClassNames: string = mergeClasses([
         styles.fieldLabel,

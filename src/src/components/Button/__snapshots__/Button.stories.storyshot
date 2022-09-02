@@ -4,7 +4,7 @@ exports[`Storyshots Button Counter 1`] = `
 <button
   aria-disabled={false}
   aria-label="Primary Button"
-  className="my-btn-class button button-primary pill-shape icon-left"
+  className="my-btn-class button button-primary button-medium pill-shape icon-left"
   data-test-id="my-btn-test-id"
   defaultChecked={false}
   disabled={false}
@@ -41,11 +41,11 @@ exports[`Storyshots Button Counter 1`] = `
       </svg>
     </span>
     <span
-      className=""
+      className="button-text-medium"
     >
       Primary Button
       <span
-        className="badge counter"
+        className="badge counter button-text-medium"
       >
         8
       </span>
@@ -58,7 +58,7 @@ exports[`Storyshots Button Default 1`] = `
 <button
   aria-disabled={false}
   aria-label="Default Button"
-  className="my-btn-class button button-default pill-shape icon-left"
+  className="my-btn-class button button-default button-medium pill-shape icon-left"
   data-test-id="my-btn-test-id"
   defaultChecked={false}
   disabled={false}
@@ -95,7 +95,7 @@ exports[`Storyshots Button Default 1`] = `
       </svg>
     </span>
     <span
-      className=""
+      className="button-text-medium"
     >
       Default Button
     </span>
@@ -107,7 +107,7 @@ exports[`Storyshots Button Neutral 1`] = `
 <button
   aria-disabled={false}
   aria-label="Neutral Button"
-  className="my-btn-class button button-neutral pill-shape icon-left"
+  className="my-btn-class button button-neutral button-medium pill-shape icon-left"
   data-test-id="my-btn-test-id"
   defaultChecked={false}
   disabled={false}
@@ -144,7 +144,7 @@ exports[`Storyshots Button Neutral 1`] = `
       </svg>
     </span>
     <span
-      className=""
+      className="button-text-medium"
     >
       Neutral Button
     </span>
@@ -156,7 +156,7 @@ exports[`Storyshots Button Primary 1`] = `
 <button
   aria-disabled={false}
   aria-label="Primary Button"
-  className="my-btn-class button button-primary pill-shape icon-left"
+  className="my-btn-class button button-primary button-medium pill-shape icon-left"
   data-test-id="my-btn-test-id"
   defaultChecked={false}
   disabled={false}
@@ -193,7 +193,7 @@ exports[`Storyshots Button Primary 1`] = `
       </svg>
     </span>
     <span
-      className=""
+      className="button-text-medium"
     >
       Primary Button
     </span>
@@ -205,7 +205,7 @@ exports[`Storyshots Button Secondary 1`] = `
 <button
   aria-disabled={false}
   aria-label="Secondary Button"
-  className="my-btn-class button button-secondary pill-shape icon-left"
+  className="my-btn-class button button-secondary button-medium pill-shape icon-left"
   data-test-id="my-btn-test-id"
   defaultChecked={false}
   disabled={false}
@@ -242,7 +242,7 @@ exports[`Storyshots Button Secondary 1`] = `
       </svg>
     </span>
     <span
-      className=""
+      className="button-text-medium"
     >
       Secondary Button
     </span>
@@ -255,7 +255,7 @@ Array [
   <button
     aria-disabled={false}
     aria-label="Split Button"
-    className="my-btn-class button button-primary pill-shape split-left"
+    className="my-btn-class button button-primary button-medium pill-shape split-left"
     data-test-id="my-btn-test-id"
     defaultChecked={false}
     disabled={false}
@@ -264,7 +264,7 @@ Array [
     type="button"
   >
     <span
-      className=""
+      className="button-text-medium"
     >
       Split Button
     </span>
@@ -273,7 +273,7 @@ Array [
     aria-checked={false}
     aria-disabled={false}
     aria-pressed={false}
-    className="my-btn-class button button-primary pill-shape undefined split-button pill-shape split-right"
+    className="my-btn-class button button-primary button-medium pill-shape undefined split-button button-medium pill-shape split-right"
     defaultChecked={false}
     disabled={false}
     type="button"
@@ -305,7 +305,7 @@ Array [
     </span>
     <span
       aria-hidden="true"
-      className="split-divider split-divider-primary"
+      className="split-divider split-divider-medium split-divider-primary"
     />
   </button>,
 ]
@@ -316,7 +316,7 @@ Array [
   <button
     aria-disabled={false}
     aria-label="Split Button"
-    className="my-btn-class button button-primary pill-shape split-left"
+    className="my-btn-class button button-primary button-medium pill-shape split-left"
     data-test-id="my-btn-test-id"
     defaultChecked={false}
     disabled={false}
@@ -325,11 +325,11 @@ Array [
     type="button"
   >
     <span
-      className=""
+      className="button-text-medium"
     >
       Split Button
       <span
-        className="badge counter"
+        className="badge counter button-text-medium"
       >
         8
       </span>
@@ -339,7 +339,7 @@ Array [
     aria-checked={false}
     aria-disabled={false}
     aria-pressed={false}
-    className="my-btn-class button button-primary pill-shape undefined split-button pill-shape split-right"
+    className="my-btn-class button button-primary button-medium pill-shape undefined split-button button-medium pill-shape split-right"
     defaultChecked={false}
     disabled={false}
     type="button"
@@ -371,7 +371,7 @@ Array [
     </span>
     <span
       aria-hidden="true"
-      className="split-divider split-divider-primary"
+      className="split-divider split-divider-medium split-divider-primary"
     />
   </button>,
 ]
@@ -381,7 +381,7 @@ exports[`Storyshots Button System UI 1`] = `
 <button
   aria-disabled={false}
   aria-label="System UI Button"
-  className="my-btn-class button button-system-ui pill-shape icon-left"
+  className="my-btn-class button button-system-ui button-medium pill-shape icon-left"
   data-test-id="my-btn-test-id"
   defaultChecked={false}
   disabled={false}
@@ -418,7 +418,7 @@ exports[`Storyshots Button System UI 1`] = `
       </svg>
     </span>
     <span
-      className=""
+      className="button-text-medium"
     >
       System UI Button
     </span>
@@ -432,7 +432,7 @@ exports[`Storyshots Button Toggle 1`] = `
   aria-disabled={false}
   aria-label="Toggle Button"
   aria-pressed={false}
-  className="my-btn-class button button-primary pill-shape icon-right"
+  className="my-btn-class button button-primary button-medium pill-shape icon-right"
   data-test-id="my-btn-test-id"
   defaultChecked={false}
   disabled={false}
@@ -469,7 +469,7 @@ exports[`Storyshots Button Toggle 1`] = `
       </svg>
     </span>
     <span
-      className=""
+      className="button-text-medium"
     >
       Toggle Button
     </span>
@@ -483,7 +483,7 @@ exports[`Storyshots Button Toggle With Counter 1`] = `
   aria-disabled={false}
   aria-label="Toggle Button"
   aria-pressed={false}
-  className="my-btn-class button button-primary pill-shape icon-right"
+  className="my-btn-class button button-primary button-medium pill-shape icon-right"
   data-test-id="my-btn-test-id"
   defaultChecked={false}
   disabled={false}
@@ -520,11 +520,11 @@ exports[`Storyshots Button Toggle With Counter 1`] = `
       </svg>
     </span>
     <span
-      className=""
+      className="button-text-medium"
     >
       Toggle Button
       <span
-        className="badge counter"
+        className="badge counter button-text-medium"
       >
         8
       </span>

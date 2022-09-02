@@ -4,6 +4,8 @@ import { IconName, IconProps } from '../Icon';
 import { LabelProps } from '../Label';
 import { TooltipTheme } from '../Tooltip';
 import { OcBaseProps } from '../OcBase';
+import type { InputStatus } from '../../shared/utilities';
+import { ConfigContextProps, Shape, Size } from '../ConfigProvider';
 
 export enum TextInputIconAlign {
     Left = 'left',
@@ -228,6 +230,10 @@ export interface InputProps<T>
      */
     clearable?: boolean;
     /**
+     * Configure how contextual props are consumed
+     */
+    configContextProps?: ConfigContextProps;
+    /**
      * Allows focus on the input when it's disabled.
      * @default false
      */
@@ -250,6 +256,11 @@ export interface InputProps<T>
      * @default false
      */
     disabled?: boolean;
+    /**
+     * The input is a form item.
+     * @default false
+     */
+    formItemInput?: boolean;
     /**
      * The input icon props.
      */
@@ -314,17 +325,16 @@ export interface InputProps<T>
      * Shape of the input.
      * @default TextInputShape.Pill
      */
-    shape?: TextInputShape;
+    shape?: TextInputShape | Shape;
     /**
      * The input size.
-     * @default Flex
+     * @default 'medium'
      */
-    size?: TextInputSize;
+    size?: TextInputSize | Size;
     /**
-     * Theme of the input.
-     * @default TextInputTheme.light
+     * the validation status.
      */
-    theme?: TextInputTheme;
+    status?: InputStatus;
     /**
      * The value of the input.
      */

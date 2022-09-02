@@ -5,11 +5,11 @@ exports[`Storyshots Menu Basic Menu 1`] = `
   className="main-wrapper"
 >
   <button
-    aria-controls="dropdown-15"
+    aria-controls="dropdown-104"
     aria-disabled={false}
     aria-expanded={false}
     aria-haspopup={true}
-    className="button button-default pill-shape"
+    className="button button-default button-medium pill-shape"
     defaultChecked={false}
     disabled={false}
     onClick={[Function]}
@@ -17,7 +17,7 @@ exports[`Storyshots Menu Basic Menu 1`] = `
     tabIndex="0"
   >
     <span
-      className=""
+      className="button-text-medium"
     >
       Menu dropdown
     </span>
@@ -30,11 +30,11 @@ exports[`Storyshots Menu Link Menu 1`] = `
   className="main-wrapper"
 >
   <button
-    aria-controls="dropdown-16"
+    aria-controls="dropdown-105"
     aria-disabled={false}
     aria-expanded={false}
     aria-haspopup={true}
-    className="button button-default pill-shape"
+    className="button button-default button-medium pill-shape"
     defaultChecked={false}
     disabled={false}
     onClick={[Function]}
@@ -42,7 +42,7 @@ exports[`Storyshots Menu Link Menu 1`] = `
     tabIndex="0"
   >
     <span
-      className=""
+      className="button-text-medium"
     >
       Menu dropdown
     </span>
@@ -55,11 +55,11 @@ exports[`Storyshots Menu Menu Footer 1`] = `
   className="main-wrapper"
 >
   <button
-    aria-controls="dropdown-17"
+    aria-controls="dropdown-106"
     aria-disabled={false}
     aria-expanded={false}
     aria-haspopup={true}
-    className="button button-default pill-shape"
+    className="button button-default button-medium pill-shape"
     defaultChecked={false}
     disabled={false}
     onClick={[Function]}
@@ -67,7 +67,7 @@ exports[`Storyshots Menu Menu Footer 1`] = `
     tabIndex="0"
   >
     <span
-      className=""
+      className="button-text-medium"
     >
       Menu dropdown
     </span>
@@ -80,11 +80,11 @@ exports[`Storyshots Menu Menu Header 1`] = `
   className="main-wrapper"
 >
   <button
-    aria-controls="dropdown-18"
+    aria-controls="dropdown-107"
     aria-disabled={false}
     aria-expanded={false}
     aria-haspopup={true}
-    className="button button-default pill-shape"
+    className="button button-default button-medium pill-shape"
     defaultChecked={false}
     disabled={false}
     onClick={[Function]}
@@ -92,7 +92,7 @@ exports[`Storyshots Menu Menu Header 1`] = `
     tabIndex="0"
   >
     <span
-      className=""
+      className="button-text-medium"
     >
       Menu dropdown
     </span>
@@ -105,11 +105,11 @@ exports[`Storyshots Menu Menu Sub Header 1`] = `
   className="main-wrapper"
 >
   <button
-    aria-controls="dropdown-19"
+    aria-controls="dropdown-108"
     aria-disabled={false}
     aria-expanded={false}
     aria-haspopup={true}
-    className="button button-default pill-shape"
+    className="button button-default button-medium pill-shape"
     defaultChecked={false}
     disabled={false}
     onClick={[Function]}
@@ -117,7 +117,7 @@ exports[`Storyshots Menu Menu Sub Header 1`] = `
     tabIndex="0"
   >
     <span
-      className=""
+      className="button-text-medium"
     >
       Menu dropdown
     </span>

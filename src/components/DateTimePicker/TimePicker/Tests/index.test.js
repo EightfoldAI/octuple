@@ -4,10 +4,21 @@ import dayjs from 'dayjs';
 import React from 'react';
 import TimePicker from '../TimePicker';
 import '@testing-library/jest-dom';
+import MatchMediaMock from 'jest-matchmedia-mock';
 
 Enzyme.configure({ adapter: new Adapter() });
 
+let matchMedia;
+
 describe('TimePicker', () => {
+    beforeAll(() => {
+        matchMedia = new MatchMediaMock();
+    });
+
+    afterEach(() => {
+        matchMedia.clear();
+    });
+
     it('not render clear icon when allowClear is false', () => {
         const wrapper = mount(
             <TimePicker

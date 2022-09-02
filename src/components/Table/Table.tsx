@@ -30,7 +30,12 @@ import type {
     TableAction,
     TableProps,
 } from './Table.types';
-import { EMPTY_LIST, ColumnsType, TablePaginationConfig } from './Table.types';
+import {
+    EMPTY_LIST,
+    ColumnsType,
+    TablePaginationConfig,
+    TableSize,
+} from './Table.types';
 import useSelection, {
     SELECTION_ALL,
     SELECTION_COLUMN,
@@ -43,7 +48,7 @@ import type { FilterState } from './Hooks/useFilter';
 import useFilter, { getFilterData } from './Hooks/useFilter';
 import useTitleColumns from './Hooks/useTitleColumns';
 import renderExpandIcon from './ExpandIcon';
-import SizeContext from './Internal/Context/SizeContext';
+import { Size, SizeContext } from '../ConfigProvider';
 import Column from './Internal/Column';
 import ColumnGroup from './Internal/ColumnGroup';
 import { useBreakpoint } from '../../hooks/useBreakpoint';
@@ -95,7 +100,7 @@ function InternalTable<RecordType extends object = any>(
         selectionAllText,
         selectNoneText,
         showSorterTooltip = true,
-        size: customizeSize,
+        size = TableSize.Medium,
         sortDirections,
         style,
         triggerAscText,
@@ -137,9 +142,10 @@ function InternalTable<RecordType extends object = any>(
         'columns',
     ]) as TableProps<RecordType>;
 
-    const size = useContext(SizeContext);
+    const contextuallySized: Size = useContext(SizeContext);
+    const mergedSize = contextuallySized || size;
+
     const htmlDir: string = useCanvasDirection();
-    const mergedSize = customizeSize || size;
     const rawData: readonly RecordType[] = dataSource || EMPTY_LIST;
 
     const mergedExpandableConfig: ExpandableConfig<RecordType> = {
@@ -539,8 +545,9 @@ function InternalTable<RecordType extends object = any>(
                 classNames={mergeClasses([
                     styles.table,
                     { [styles.tableRtl]: htmlDir === 'rtl' },
-                    { [styles.tableMedium]: mergedSize === 'medium' },
-                    { [styles.tableSmall]: mergedSize === 'small' },
+                    { [styles.tableLarge]: mergedSize === TableSize.Large },
+                    { [styles.tableMedium]: mergedSize === TableSize.Medium },
+                    { [styles.tableSmall]: mergedSize === TableSize.Small },
                     { [styles.tableAlternate]: alternateRowColor },
                     { [styles.tableBordered]: bordered },
                     {

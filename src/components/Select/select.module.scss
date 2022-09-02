@@ -6,6 +6,10 @@
     // The minimum width required to ensure multi-select pills have enough room for 1 pill + the count
     min-width: 256px;
 
+    &-disabled {
+        cursor: not-allowed;
+    }
+
     .select-dropdown-overlay {
         padding: 0;
 

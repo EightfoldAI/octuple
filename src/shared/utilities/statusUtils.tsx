@@ -1,13 +1,7 @@
+import { ValidateStatus } from '../../components/Form/Form.types';
 import { tuple } from './';
 
-export type ValidateStatus =
-    | ''
-    | 'warning'
-    | 'error'
-    | 'success'
-    | 'validating';
-
-const InputStatuses = tuple('warning', 'error', '');
+const InputStatuses = tuple('success', 'warning', 'error', 'validating', '');
 export type InputStatus = typeof InputStatuses[number];
 
 export const getMergedStatus = (

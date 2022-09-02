@@ -5,6 +5,7 @@ import type { MonthCellRender } from './Partials/MonthPartial/Month.types';
 import type { AlignType } from '../../Align/Align.types';
 import { IconName } from '../../Icon';
 import { tuple } from '../../../shared/utilities';
+import { ConfigContextProps, Shape, Size } from '../../ConfigProvider';
 
 export type Locale = {
     locale: string;
@@ -72,7 +73,18 @@ const DataPickerPlacements = tuple(
 );
 export type DataPickerPlacement = typeof DataPickerPlacements[number];
 
-export type DatePickerSize = 'Small' | 'Medium' | 'Large' | undefined;
+export enum DatePickerShape {
+    Pill = 'pill',
+    Rectangle = 'rectangle',
+    Underline = 'underline',
+}
+
+export enum DatePickerSize {
+    Flex = 'flex',
+    Large = 'large',
+    Medium = 'medium',
+    Small = 'small',
+}
 
 export type OcPickerTriggerProps = {
     visible: boolean;
@@ -83,7 +95,8 @@ export type OcPickerTriggerProps = {
     getPopupContainer?: (node: HTMLElement) => HTMLElement;
     dropdownAlign?: AlignType;
     range?: boolean;
-    size?: DatePickerSize;
+    shape?: DatePickerShape | Shape;
+    size?: DatePickerSize | Size;
     popupPlacement?: DataPickerPlacement;
     direction?: 'ltr' | 'rtl';
 };
@@ -97,7 +110,8 @@ export type PartialSharedProps<DateType> = {
     disabledDate?: (date: DateType) => boolean;
     prevIcon?: IconName;
     nextIcon?: IconName;
-    size?: DatePickerSize;
+    shape?: DatePickerShape | Shape;
+    size?: DatePickerSize | Size;
     superPrevIcon?: IconName;
     superNextIcon?: IconName;
     operationRef: React.MutableRefObject<PartialRefProps>;
@@ -170,7 +184,8 @@ export type OcPickerPartialSharedProps<DateType> = {
     onPickerValueChange?: (date: DateType) => void;
     /** @private Internal usage. Do not use in your production env */
     components?: Components;
-    size?: DatePickerSize;
+    shape?: DatePickerShape | Shape;
+    size?: DatePickerSize | Size;
 };
 
 export type OcPickerPartialBaseProps<DateType> = {
@@ -202,8 +217,17 @@ export type OcPickerRefConfig = {
 };
 
 export type OcPickerSharedProps<DateType> = {
+    /**
+     * Configure how contextual props are consumed
+     */
+    configContextProps?: ConfigContextProps;
     dropdownClassNames?: string;
     dropdownAlign?: AlignType;
+    /**
+     * The picker is a form item
+     * @default false
+     */
+    formItemInput?: boolean;
     popupStyle?: React.CSSProperties;
     placeholder?: string;
     allowClear?: boolean;
@@ -213,7 +237,8 @@ export type OcPickerSharedProps<DateType> = {
         date: EventValue<DateType>,
         type: RangeType
     ) => DisabledTimes;
-    size?: DatePickerSize;
+    shape?: DatePickerShape | Shape;
+    size?: DatePickerSize | Size;
     tabIndex?: number;
     open?: boolean;
     defaultOpen?: boolean;
@@ -341,7 +366,8 @@ export type OcRangePickerSharedProps<DateType> = {
         | (() => Exclude<RangeValue<DateType>, null>)
     >;
     separator?: React.ReactNode;
-    size?: DatePickerSize;
+    shape?: DatePickerShape | Shape;
+    size?: DatePickerSize | Size;
     allowEmpty?: [boolean, boolean];
     mode?: [PartialMode, PartialMode];
     onChange?: (
@@ -367,7 +393,10 @@ export type OcRangePickerSharedProps<DateType> = {
     onOk?: (dates: RangeValue<DateType>) => void;
     direction?: 'ltr' | 'rtl';
     autoComplete?: string;
-    /** @private Internal control of active picker. Do not use since it's private usage */
+    /**
+     * @private Internal control of active picker
+     * Do not use in prod
+     */
     activePickerIndex?: 0 | 1;
     dateRender?: RangeDateRender<DateType>;
     partialRender?: (originPartial: React.ReactNode) => React.ReactNode;

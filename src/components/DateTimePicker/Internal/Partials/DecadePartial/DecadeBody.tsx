@@ -2,6 +2,7 @@ import React from 'react';
 import { DECADE_COL_COUNT, YearBodyProps } from './Decade.types';
 import { DECADE_DISTANCE_COUNT, DECADE_UNIT_DIFF } from './Decade.types';
 import PartialBody from '../PartialBody';
+import { DatePickerSize } from '../../OcPicker.types';
 
 import styles from '../../ocpicker.module.scss';
 
@@ -9,7 +10,7 @@ const DECADE_ROW_COUNT: number = 4;
 
 function DecadeBody<DateType>(props: YearBodyProps<DateType>) {
     const DECADE_UNIT_DIFF_DES: number = DECADE_UNIT_DIFF - 1;
-    const { viewDate, generateConfig, size = 'Small' } = props;
+    const { viewDate, generateConfig, size = DatePickerSize.Medium } = props;
 
     const yearNumber: number = generateConfig.getYear(viewDate);
     const decadeYearNumber: number =

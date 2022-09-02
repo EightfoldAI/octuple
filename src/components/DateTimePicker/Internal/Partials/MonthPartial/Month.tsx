@@ -3,6 +3,7 @@ import { MONTH_COL_COUNT, MonthPartialProps } from './Month.types';
 import MonthHeader from './MonthHeader';
 import MonthBody from './MonthBody';
 import { createKeyDownHandler } from '../../Utils/uiUtil';
+import { DatePickerSize } from '../../OcPicker.types';
 
 import styles from '../../ocpicker.module.scss';
 
@@ -15,7 +16,7 @@ function MonthPartial<DateType>(props: MonthPartialProps<DateType>) {
         viewDate,
         onPartialChange,
         onSelect,
-        size = 'Small',
+        size = DatePickerSize.Medium,
     } = props;
 
     operationRef.current = {

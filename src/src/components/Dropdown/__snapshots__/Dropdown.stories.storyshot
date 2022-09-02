@@ -10,7 +10,7 @@ exports[`Storyshots Dropdown Dropdown Button 1`] = `
     aria-disabled={false}
     aria-expanded={false}
     aria-haspopup={true}
-    className="button button-default pill-shape icon-right"
+    className="button button-default button-medium pill-shape icon-right"
     defaultChecked={false}
     disabled={false}
     onClick={[Function]}
@@ -44,7 +44,7 @@ exports[`Storyshots Dropdown Dropdown Button 1`] = `
         </svg>
       </span>
       <span
-        className=""
+        className="button-text-medium"
       >
         Click button start
       </span>

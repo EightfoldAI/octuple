@@ -167,13 +167,13 @@
         pointer-events: none;
     }
 
-    &:hover {
+    &:hover:not([disabled]) {
         .counter {
             background-color: var(--button-counter-hover-background-color);
         }
     }
 
-    &:active {
+    &:active:not([disabled]) {
         .counter {
             background-color: var(--button-counter-active-background-color);
         }
@@ -245,11 +245,11 @@
     color: var(--color);
     background-color: var(--bg);
 
-    &:hover {
+    &:hover:not([disabled]) {
         --bg: var(--accent-color-10);
     }
 
-    &:active {
+    &:active:not([disabled]) {
         --bg: var(--accent-color-30);
     }
 }
@@ -262,11 +262,11 @@
     background-color: var(--bg);
     border: 1px solid var(--border);
 
-    &:hover {
+    &:hover:not([disabled]) {
         --bg: var(--accent-color-10);
     }
 
-    &:active {
+    &:active:not([disabled]) {
         --bg: var(--accent-color-20);
     }
 
@@ -293,11 +293,11 @@
     color: var(--color);
     background-color: var(--bg);
 
-    &:hover {
+    &:hover:not([disabled]) {
         --bg: var(--disruptive-color-10);
     }
 
-    &:active {
+    &:active:not([disabled]) {
         --bg: var(--disruptive-color-30);
     }
 }
@@ -309,11 +309,11 @@
     background-color: var(--bg);
     border: 1px solid var(--disruptive-color-70);
 
-    &:hover {
+    &:hover:not([disabled]) {
         --bg: var(--disruptive-color-10);
     }
 
-    &:active {
+    &:active:not([disabled]) {
         --bg: var(--disruptive-color-20);
     }
 }
@@ -324,11 +324,11 @@
     color: var(--color);
     background-color: var(--bg);
 
-    &:hover {
+    &:hover:not([disabled]) {
         --bg: var(--background-color);
     }
 
-    &:active {
+    &:active:not([disabled]) {
         --bg: var(--primary-color-20);
         color: var(--primary-color-80);
     }
@@ -338,12 +338,12 @@
     background-color: var(--white-color);
     color: var(--disruptive-color-70);
 
-    &:hover {
+    &:hover:not([disabled]) {
         background-color: var(--disruptive-color-10);
         color: var(--disruptive-color-70);
     }
 
-    &:active {
+    &:active:not([disabled]) {
         background-color: var(--disruptive-color-20);
         color: var(--disruptive-color-80);
     }
@@ -355,11 +355,11 @@
     color: var(--color);
     background-color: var(--bg);
 
-    &:hover {
+    &:hover:not([disabled]) {
         --bg: var(--background-color);
     }
 
-    &:active {
+    &:active:not([disabled]) {
         --bg: var(--grey-color-20);
     }
 }
@@ -377,11 +377,11 @@
         background-color: var(--bg);
     }
 
-    &:not(.transparent):hover {
+    &:not(.transparent):not([disabled]):hover {
         --bg: var(--grey-color-10);
     }
 
-    &:not(.transparent):active {
+    &:not(.transparent):not([disabled]):active {
         --bg: var(--grey-color-20);
     }
 }
@@ -493,7 +493,7 @@
         }
     }
 
-    &:hover {
+    &:hover:not([disabled]) {
         --bg: var(--green-color-10);
         --color: var(--accent-color-70);
 
@@ -502,7 +502,7 @@
         }
     }
 
-    &:active {
+    &:active:not([disabled]) {
         --bg: var(--green-color-20);
         --color: var(--accent-color);
 
@@ -584,18 +584,6 @@
             &.focus-visible,
             &:focus-visible {
                 margin: 0 2px;
-            }
-        }
-    }
-}
-
-.dark {
-    .button-wrapper {
-        .button {
-            background-color: inherit;
-
-            &.drop-shadow {
-                box-shadow: $shadow-object-s;
             }
         }
     }

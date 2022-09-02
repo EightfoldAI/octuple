@@ -198,8 +198,24 @@ $picker-border: $picker-border-width $picker-border-style $picker-border-color;
 $picker-box-shadow: 0px 1px 2px rgba(15, 20, 31, 0.12),
     0px 4px 16px rgba(15, 20, 31, 0.16);
 $picker-cell-background-color: var(--picker-cell-background-color);
+$picker-cell-today-background-color: var(--picker-cell-today-background-color);
+$picker-cell-selected-background-color-active: var(
+    --picker-cell-selected-background-color-active
+);
 $picker-cell-background-color-active: var(
     --picker-cell-background-color-active
+);
+$picker-cell-range-start-background-color-hover: var(
+    --picker-cell-range-start-background-color-hover
+);
+$picker-cell-range-start-background-color-active: var(
+    --picker-cell-range-start-background-color-active
+);
+$picker-cell-range-end-background-color-hover: var(
+    --picker-cell-range-end-background-color-hover
+);
+$picker-cell-range-end-background-color-active: var(
+    --picker-cell-range-end-background-color-active
 );
 $picker-cell-background-color-hover: var(--picker-cell-background-color-hover);
 $picker-cell-border: $picker-border-width $picker-border-style
@@ -499,7 +515,7 @@ $tree-child-padding: 18px;
 // Picker
 
 $picker-arrow-size: 8px;
-$picker-border-radius: $corner-radius-s;
+$picker-border-radius: $corner-radius-m;
 $picker-cell-border-radius-l: 24px;
 $picker-cell-border-radius-m: 18px;
 $picker-cell-border-radius-s: 14px;
@@ -520,7 +536,8 @@ $picker-input-height-m: 36px;
 $picker-input-height-l: 44px;
 $picker-input-height-s: 28px;
 $picker-input-outline-offset: 0 0;
-$picker-input-padding-horizontal-l: $space-s;
+$picker-input-padding-horizontal-pill: $space-m;
+$picker-input-padding-horizontal-l: $space-xs;
 $picker-input-padding-horizontal-m: $space-xs;
 $picker-input-padding-horizontal-s: $space-xs;
 $picker-line-height-l: $text-line-height-5;
@@ -534,6 +551,14 @@ $picker-partial-cell-width: 32px;
 // DatePicker
 
 $picker-text-height: 40px;
+
+// Form
+
+$form-input-height-m: 36px;
+$form-input-height-l: 44px;
+$form-input-height-s: 28px;
+$form-vertical-label-margin: 0;
+$form-vertical-label-padding: 0 0 8px;
 
 // Grid system
 

@@ -8,7 +8,6 @@ import {
     ButtonShape,
     ButtonSize,
     ButtonTextAlign,
-    ButtonTheme,
     ButtonWidth,
     ButtonIconAlign,
     DefaultButton,
@@ -26,12 +25,14 @@ import {
     SelectorSize,
 } from './components/CheckBox';
 
-import { ConfigProvider } from './components/ConfigProvider';
+import { ConfigProvider, Shape, Size } from './components/ConfigProvider';
 
 import DatePicker from './components/DateTimePicker/DatePicker';
 
 import {
     DatePickerProps,
+    DatePickerShape,
+    DatePickerSize,
     RangePickerProps,
 } from './components/DateTimePicker/DatePicker';
 
@@ -40,6 +41,8 @@ import { Dialog, DialogSize } from './components/Dialog';
 import { Dropdown } from './components/Dropdown';
 
 import { Empty, EmptyMode } from './components/Empty';
+
+import Form, { FormInstance } from './components/Form';
 
 import Grid, { Col, Row } from './components/Grid';
 
@@ -119,6 +122,7 @@ import Table, {
     TablePaginationConfig,
     TableProps,
     TableRowSelection,
+    TableSize,
 } from './components/Table/';
 
 import { ResizeObserver } from './shared/ResizeObserver/ResizeObserver';
@@ -141,7 +145,6 @@ export {
     ButtonShape,
     ButtonSize,
     ButtonTextAlign,
-    ButtonTheme,
     ButtonWidth,
     CheckBox,
     CheckBoxGroup,
@@ -152,6 +155,8 @@ export {
     ConfigProvider,
     DatePicker,
     DatePickerProps,
+    DatePickerShape,
+    DatePickerSize,
     DefaultButton,
     Dialog,
     DialogSize,
@@ -161,6 +166,8 @@ export {
     ExpandableConfig,
     FilterConfirmProps,
     FilterValue,
+    Form,
+    FormInstance,
     Grid,
     Icon,
     IconName,
@@ -209,6 +216,8 @@ export {
     SelectorSize,
     SearchBox,
     SecondaryButton,
+    Shape,
+    Size,
     Slider,
     snack,
     Snackbar,
@@ -222,6 +231,7 @@ export {
     TablePaginationConfig,
     TableProps,
     TableRowSelection,
+    TableSize,
     Tabs,
     Tab,
     TabVariant,

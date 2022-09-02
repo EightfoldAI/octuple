@@ -1,4 +1,5 @@
 import type {
+    DatePickerShape,
     DatePickerSize,
     DisabledTimes,
     Locale,
@@ -6,6 +7,7 @@ import type {
     PartialSharedProps,
 } from '../../OcPicker.types';
 import type { GenerateConfig } from '../../Generate';
+import { Shape, Size } from '../../../../ConfigProvider';
 
 export type Unit = {
     label: React.ReactText;
@@ -19,7 +21,8 @@ export type TimeUnitColumnProps = {
     active?: boolean;
     hideDisabledOptions?: boolean;
     onSelect?: (value: number) => void;
-    size?: DatePickerSize;
+    shape?: DatePickerShape | Shape;
+    size?: DatePickerSize | Size;
 };
 
 export type SharedTimeProps<DateType> = {
@@ -35,7 +38,8 @@ export type SharedTimeProps<DateType> = {
     hideDisabledOptions?: boolean;
     defaultValue?: DateType;
     disabledTime?: (date: DateType) => DisabledTimes;
-    size?: DatePickerSize;
+    shape?: DatePickerShape | Shape;
+    size?: DatePickerSize | Size;
 };
 
 export type TimePartialProps<DateType> = {
@@ -49,7 +53,8 @@ export type TimeHeaderProps<DateType> = {
     locale: Locale;
     generateConfig: GenerateConfig<DateType>;
     format: string;
-    size?: DatePickerSize;
+    shape?: DatePickerShape | Shape;
+    size?: DatePickerSize | Size;
 };
 
 export type BodyOperationRef = {

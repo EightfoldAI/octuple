@@ -3,10 +3,9 @@ import { Stories } from '@storybook/addon-docs';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import {
     TextArea,
-    TextInputSize,
-    TextInputTheme,
-    TextInputWidth,
     TextInputShape,
+    TextInputSize,
+    TextInputWidth,
 } from '../index';
 
 export default {
@@ -104,10 +103,6 @@ export default {
             ],
             control: { type: 'radio' },
         },
-        theme: {
-            options: ['light', 'dark'],
-            control: { type: 'inline-radio' },
-        },
         value: {
             control: { type: 'text' },
         },
@@ -150,11 +145,10 @@ Text_Area.args = {
     name: 'myTextArea',
     placeholder: 'Placeholder text',
     required: false,
-    size: TextInputSize.Flex,
-    shape: TextInputShape.Pill,
+    size: TextInputSize.Medium,
+    shape: TextInputShape.Rectangle,
     style: {},
     textAreaCols: 50,
     textAreaRows: 5,
-    theme: TextInputTheme.light,
     waitInterval: 10,
 };

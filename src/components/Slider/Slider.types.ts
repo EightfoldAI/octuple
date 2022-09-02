@@ -1,4 +1,5 @@
 import { OcBaseProps } from '../OcBase';
+import { ConfigContextProps } from '../ConfigProvider';
 
 export interface SliderMarker {
     /**
@@ -26,6 +27,10 @@ export interface SliderProps extends SliderInputProps {
 export interface SliderInputProps
     extends Omit<OcBaseProps<HTMLInputElement>, 'onChange' | 'value'> {
     /**
+     * Allows focus on the slider when it's disabled.
+     */
+    allowDisabledFocus?: boolean;
+    /**
      * The input aria label text.
      */
     ariaLabel?: string;
@@ -35,10 +40,19 @@ export interface SliderInputProps
      */
     autoFocus?: boolean;
     /**
+     * Configure how contextual props are consumed
+     */
+    configContextProps?: ConfigContextProps;
+    /**
      * The input disabled state.
      * @default false
      */
     disabled?: boolean;
+    /**
+     * The slider is a form item.
+     * @default false
+     */
+    formItemInput?: boolean;
     /**
      * The input id.
      * NOTE: For range sliders, each input's id will have an index value added.

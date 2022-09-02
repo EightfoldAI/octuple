@@ -4,6 +4,7 @@ import { formatValue, isSameMonth } from '../../Utils/dateUtil';
 import RangeContext from '../../RangeContext';
 import useCellClassNames from '../../Hooks/useCellClassNames';
 import PartialBody from '../PartialBody';
+import { DatePickerSize } from '../../OcPicker.types';
 
 const MONTH_ROW_COUNT: number = 4;
 
@@ -14,7 +15,7 @@ function MonthBody<DateType>(props: MonthBodyProps<DateType>) {
         viewDate,
         generateConfig,
         monthCellRender,
-        size = 'Small',
+        size = DatePickerSize.Medium,
     } = props;
 
     const { rangedValue, hoverRangedValue } = React.useContext(RangeContext);

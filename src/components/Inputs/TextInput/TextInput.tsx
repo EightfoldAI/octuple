@@ -1,4 +1,8 @@
-import React, { FC, Ref, useEffect, useState } from 'react';
+import React, { FC, Ref, useContext, useEffect, useState } from 'react';
+import DisabledContext, {
+    Disabled,
+} from '../../ConfigProvider/DisabledContext';
+import { ShapeContext, Shape, SizeContext, Size } from '../../ConfigProvider';
 import { ButtonSize, DefaultButton } from '../../Button';
 import { Icon, IconName, IconSize } from '../../Icon';
 import { Label, LabelSize } from '../../Label';
@@ -8,10 +12,16 @@ import {
     TextInputProps,
     TextInputShape,
     TextInputSize,
-    TextInputTheme,
 } from '../index';
+import { FormItemInputContext } from '../../Form/Context';
+import { ValidateStatus } from '../../Form/Form.types';
 import { useDebounce } from '../../../hooks/useDebounce';
-import { mergeClasses, uniqueId } from '../../../shared/utilities';
+import {
+    getMergedStatus,
+    mergeClasses,
+    resolveOnChange,
+    uniqueId,
+} from '../../../shared/utilities';
 import { Breakpoints, useMatchMedia } from '../../../hooks/useMatchMedia';
 
 import styles from '../input.module.scss';
@@ -26,7 +36,13 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
             classNames,
             clearable = true,
             clearButtonAriaLabel,
+            configContextProps = {
+                noDisabledContext: false,
+                noShapeContext: false,
+                noSizeContext: false,
+            },
             disabled = false,
+            formItemInput = false,
             htmlType = 'text',
             iconProps,
             iconButtonProps,
@@ -47,9 +63,9 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
             required = false,
             readonly = false,
             shape = TextInputShape.Rectangle,
-            size = TextInputSize.Flex,
+            size = TextInputSize.Medium,
+            status,
             style,
-            theme = TextInputTheme.light,
             value,
             waitInterval = 10,
             ...rest
@@ -66,7 +82,48 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
         const [clearButtonShown, _setClearButtonShown] =
             useState<boolean>(false);
         const [inputId] = useState<string>(uniqueId(id || 'input-'));
-        const inputField: HTMLElement = document.getElementById(inputId);
+
+        const {
+            status: contextStatus,
+            isFormItemInput,
+            hasFeedback,
+        } = useContext(FormItemInputContext);
+        const mergedStatus = getMergedStatus(contextStatus, status);
+
+        // Needed for form error scroll-into-view by id
+        const mergedFormItemInput: boolean = isFormItemInput || formItemInput;
+
+        const inputField: HTMLElement = document.getElementById(
+            mergedFormItemInput ? id : inputId
+        );
+
+        const contextuallyDisabled: Disabled = useContext(DisabledContext);
+        const mergedDisabled: boolean = configContextProps.noDisabledContext
+            ? disabled
+            : contextuallyDisabled || disabled;
+
+        const contextuallyShaped: Shape = useContext(ShapeContext);
+        const mergedShape = configContextProps.noShapeContext
+            ? shape
+            : contextuallyShaped || shape;
+
+        const contextuallySized: Size = useContext(SizeContext);
+        const mergedSize = configContextProps.noSizeContext
+            ? size
+            : contextuallySized || size;
+
+        const getStatusClassNames = (
+            status?: ValidateStatus,
+            hasFeedback?: boolean
+        ): string => {
+            return mergeClasses({
+                [styles.statusSuccess]: status === 'success',
+                [styles.statusWarning]: status === 'warning',
+                [styles.statusError]: status === 'error',
+                [styles.statusValidating]: status === 'validating',
+                [styles.hasFeedback]: hasFeedback,
+            });
+        };
 
         const iconClassNames: string = mergeClasses([
             styles.iconWrapper,
@@ -90,72 +147,70 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
             classNames,
             {
                 [styles.inputSmall]:
-                    size === TextInputSize.Flex && largeScreenActive,
+                    mergedSize === TextInputSize.Flex && largeScreenActive,
             },
             {
                 [styles.inputMedium]:
-                    size === TextInputSize.Flex && mediumScreenActive,
+                    mergedSize === TextInputSize.Flex && mediumScreenActive,
             },
             {
                 [styles.inputMedium]:
-                    size === TextInputSize.Flex && smallScreenActive,
+                    mergedSize === TextInputSize.Flex && smallScreenActive,
             },
             {
                 [styles.inputLarge]:
-                    size === TextInputSize.Flex && xSmallScreenActive,
+                    mergedSize === TextInputSize.Flex && xSmallScreenActive,
             },
-            { [styles.inputLarge]: size === TextInputSize.Large },
-            { [styles.inputMedium]: size === TextInputSize.Medium },
-            { [styles.inputSmall]: size === TextInputSize.Small },
+            { [styles.inputLarge]: mergedSize === TextInputSize.Large },
+            { [styles.inputMedium]: mergedSize === TextInputSize.Medium },
+            { [styles.inputSmall]: mergedSize === TextInputSize.Small },
             {
                 [styles.withIcon]:
                     !!iconProps?.path &&
-                    (shape === TextInputShape.Rectangle ||
-                        shape === TextInputShape.Underline),
+                    (mergedShape === TextInputShape.Rectangle ||
+                        mergedShape === TextInputShape.Underline),
             },
             {
                 [styles.withImageIcon]:
                     !!iconProps?.imageSrc &&
-                    (shape === TextInputShape.Rectangle ||
-                        shape === TextInputShape.Underline),
+                    (mergedShape === TextInputShape.Rectangle ||
+                        mergedShape === TextInputShape.Underline),
             },
             {
                 [styles.withIconButton]:
                     !!iconButtonProps &&
-                    (shape === TextInputShape.Rectangle ||
-                        shape === TextInputShape.Underline),
+                    (mergedShape === TextInputShape.Rectangle ||
+                        mergedShape === TextInputShape.Underline),
             },
             {
                 [styles.withIconAndIconButton]:
                     !!iconProps &&
                     !!iconButtonProps &&
-                    (shape === TextInputShape.Rectangle ||
-                        shape === TextInputShape.Underline),
+                    (mergedShape === TextInputShape.Rectangle ||
+                        mergedShape === TextInputShape.Underline),
             },
-            { [styles.pillShape]: shape === TextInputShape.Pill },
+            { [styles.pillShape]: mergedShape === TextInputShape.Pill },
             {
                 [styles.pillShapeWithIcon]:
-                    !!iconProps?.path && shape === TextInputShape.Pill,
+                    !!iconProps?.path && mergedShape === TextInputShape.Pill,
             },
             {
                 [styles.pillShapeWithImageIcon]:
-                    !!iconProps?.imageSrc && shape === TextInputShape.Pill,
+                    !!iconProps?.imageSrc &&
+                    mergedShape === TextInputShape.Pill,
             },
             {
                 [styles.pillShapeWithIconButton]:
-                    !!iconButtonProps && shape === TextInputShape.Pill,
+                    !!iconButtonProps && mergedShape === TextInputShape.Pill,
             },
             {
                 [styles.pillShapeWithIconAndIconButton]:
                     !!iconProps &&
                     !!iconButtonProps &&
-                    shape === TextInputShape.Pill,
+                    mergedShape === TextInputShape.Pill,
             },
             {
-                [styles.underline]: shape === TextInputShape.Underline,
-            },
-            {
-                [styles.dark]: theme === TextInputTheme.dark,
+                [styles.underline]: mergedShape === TextInputShape.Underline,
             },
             {
                 [styles.inputStretch]: inputWidth === TextInputWidth.fill,
@@ -164,15 +219,16 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
             { [styles.rightIcon]: alignIcon === TextInputIconAlign.Right },
             { [styles.clearDisabled]: !clearable },
             { [styles.clearNotVisible]: !clearButtonShown },
+            { ['in-form-item']: mergedFormItemInput },
+            getStatusClassNames(mergedStatus, hasFeedback),
         ]);
 
         const textInputGroupClassNames: string = mergeClasses([
             styles.inputGroup,
-            {
-                [styles.inline]: inline,
-            },
+            { [styles.inline]: inline },
             { [styles.leftIcon]: alignIcon === TextInputIconAlign.Left },
             { [styles.rightIcon]: alignIcon === TextInputIconAlign.Right },
+            getStatusClassNames(mergedStatus, hasFeedback),
         ]);
 
         const textInputWrapperClassNames: string = mergeClasses([
@@ -181,35 +237,36 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
                 [styles.inline]: inline,
             },
             {
-                [styles.underline]: shape === TextInputShape.Underline,
+                [styles.underline]: mergedShape === TextInputShape.Underline,
             },
             {
                 [styles.inputSmall]:
-                    size === TextInputSize.Flex && largeScreenActive,
+                    mergedSize === TextInputSize.Flex && largeScreenActive,
             },
             {
                 [styles.inputMedium]:
-                    size === TextInputSize.Flex && mediumScreenActive,
+                    mergedSize === TextInputSize.Flex && mediumScreenActive,
             },
             {
                 [styles.inputMedium]:
-                    size === TextInputSize.Flex && smallScreenActive,
+                    mergedSize === TextInputSize.Flex && smallScreenActive,
             },
             {
                 [styles.inputLarge]:
-                    size === TextInputSize.Flex && xSmallScreenActive,
+                    mergedSize === TextInputSize.Flex && xSmallScreenActive,
             },
-            { [styles.inputLarge]: size === TextInputSize.Large },
-            { [styles.inputMedium]: size === TextInputSize.Medium },
-            { [styles.inputSmall]: size === TextInputSize.Small },
+            { [styles.inputLarge]: mergedSize === TextInputSize.Large },
+            { [styles.inputMedium]: mergedSize === TextInputSize.Medium },
+            { [styles.inputSmall]: mergedSize === TextInputSize.Small },
             {
                 [styles.inputStretch]: inputWidth === TextInputWidth.fill,
             },
             { [styles.leftIcon]: alignIcon === TextInputIconAlign.Left },
             { [styles.rightIcon]: alignIcon === TextInputIconAlign.Right },
             {
-                [styles.disabled]: allowDisabledFocus || disabled,
+                [styles.disabled]: allowDisabledFocus || mergedDisabled,
             },
+            { ['in-form-item']: mergedFormItemInput },
         ]);
 
         useEffect(() => {
@@ -231,6 +288,11 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
             _event.stopPropagation();
             if (!!inputField) {
                 (inputField as HTMLInputElement).value = '';
+                resolveOnChange(
+                    inputField as HTMLInputElement,
+                    _event as React.MouseEvent<HTMLElement, MouseEvent>,
+                    onChange
+                );
             }
             setInputValue('');
             onClear?.(_event);
@@ -266,13 +328,6 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
             debouncedChange(e);
         };
 
-        const inputSizeToButtonSizeMap = new Map<TextInputSize, ButtonSize>([
-            [TextInputSize.Flex, ButtonSize.Flex],
-            [TextInputSize.Large, ButtonSize.Large],
-            [TextInputSize.Medium, ButtonSize.Medium],
-            [TextInputSize.Small, ButtonSize.Small],
-        ]);
-
         const getIconSize = (): IconSize => {
             let iconSize: IconSize;
             if (largeScreenActive) {
@@ -287,29 +342,28 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
             return iconSize;
         };
 
-        const inputSizeToIconSizeMap = new Map<TextInputSize, IconSize>([
+        const inputSizeToIconSizeMap = new Map<TextInputSize | Size, IconSize>([
             [TextInputSize.Flex, getIconSize()],
             [TextInputSize.Large, IconSize.Large],
             [TextInputSize.Medium, IconSize.Medium],
             [TextInputSize.Small, IconSize.Small],
         ]);
 
-        const getLabelSize = (): LabelSize => {
-            let labelSize: LabelSize;
-            if (largeScreenActive) {
-                labelSize = LabelSize.Small;
-            } else if (mediumScreenActive) {
-                labelSize = LabelSize.Medium;
-            } else if (smallScreenActive) {
-                labelSize = LabelSize.Medium;
-            } else if (xSmallScreenActive) {
-                labelSize = LabelSize.Large;
-            }
-            return labelSize;
-        };
+        const inputSizeToButtonSizeMap = new Map<
+            TextInputSize | Size,
+            ButtonSize | Size
+        >([
+            [TextInputSize.Flex, ButtonSize.Flex],
+            [TextInputSize.Large, ButtonSize.Large],
+            [TextInputSize.Medium, ButtonSize.Medium],
+            [TextInputSize.Small, ButtonSize.Small],
+        ]);
 
-        const inputSizeToLabelSizeMap = new Map<TextInputSize, LabelSize>([
-            [TextInputSize.Flex, getLabelSize()],
+        const inputSizeToLabelSizeMap = new Map<
+            TextInputSize | Size,
+            LabelSize | Size
+        >([
+            [TextInputSize.Flex, LabelSize.Flex],
             [TextInputSize.Large, LabelSize.Large],
             [TextInputSize.Medium, LabelSize.Medium],
             [TextInputSize.Small, LabelSize.Small],
@@ -320,7 +374,7 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
                 {labelProps && (
                     <Label
                         inline={inline}
-                        size={inputSizeToLabelSizeMap.get(size)}
+                        size={inputSizeToLabelSizeMap.get(mergedSize)}
                         {...labelProps}
                     />
                 )}
@@ -328,12 +382,12 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
                     <input
                         {...rest}
                         ref={ref}
-                        aria-disabled={disabled}
+                        aria-disabled={mergedDisabled}
                         aria-label={ariaLabel}
                         autoFocus={autoFocus}
                         className={textInputClassNames}
-                        disabled={!allowDisabledFocus && disabled}
-                        id={inputId}
+                        disabled={!allowDisabledFocus && mergedDisabled}
+                        id={mergedFormItemInput ? id : inputId}
                         maxLength={maxlength}
                         minLength={minlength}
                         name={name}
@@ -356,7 +410,9 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
                                 <Icon
                                     {...iconProps}
                                     path={iconProps.path}
-                                    size={inputSizeToIconSizeMap.get(size)}
+                                    size={inputSizeToIconSizeMap.get(
+                                        mergedSize
+                                    )}
                                 />
                             )}
                             {iconProps.imageSrc && !iconProps.path && (
@@ -377,11 +433,13 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
                             ariaLabel={iconButtonProps.ariaLabel}
                             checked={iconButtonProps.checked}
                             classNames={iconButtonClassNames}
-                            disabled={iconButtonProps.disabled}
+                            disabled={
+                                iconButtonProps.disabled || mergedDisabled
+                            }
                             iconProps={{ path: iconButtonProps.iconProps.path }}
                             id={iconButtonProps.id}
                             onClick={iconButtonProps.onClick}
-                            size={inputSizeToButtonSizeMap.get(size)}
+                            size={inputSizeToButtonSizeMap.get(mergedSize)}
                             htmlType={iconButtonProps.htmlType}
                         />
                     )}
@@ -393,7 +451,7 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
                                 allowDisabledFocus={allowDisabledFocus}
                                 ariaLabel={clearButtonAriaLabel}
                                 classNames={clearIconButtonClassNames}
-                                disabled={disabled}
+                                disabled={mergedDisabled}
                                 iconProps={{ path: IconName.mdiClose }}
                                 onClick={
                                     !allowDisabledFocus ? handleOnClear : null

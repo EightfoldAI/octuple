@@ -5130,7 +5130,7 @@ exports[`Storyshots Config Provider Theming 1`] = `
       aria-disabled={false}
       aria-expanded={false}
       aria-haspopup={true}
-      className="button button-default pill-shape"
+      className="button button-default button-medium pill-shape"
       defaultChecked={false}
       disabled={false}
       onClick={[Function]}
@@ -5138,7 +5138,7 @@ exports[`Storyshots Config Provider Theming 1`] = `
       tabIndex="0"
     >
       <span
-        className=""
+        className="button-text-medium"
       >
         Menu dropdown
       </span>

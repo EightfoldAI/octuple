@@ -9,15 +9,15 @@ exports[`Storyshots Input Search Box 1`] = `
     className="input-wrapper left-icon"
   >
     <div
-      className="field-label medium"
+      className="field-label"
     >
       <label
-        className="text-style medium"
+        className="text-style"
       >
         Label
       </label>
       <span
-        className="field-label-icon-button medium"
+        className="field-label-icon-button"
       >
         <div
           className="reference-wrapper"
@@ -71,7 +71,7 @@ exports[`Storyshots Input Search Box 1`] = `
         autoFocus={false}
         className="my-searchbox-class pill-shape pill-shape-with-icon pill-shape-with-icon-button pill-shape-with-icon-and-icon-button left-icon clear-not-visible"
         disabled={false}
-        id="mySearchBoxId6"
+        id="mySearchBoxId95"
         maxLength={100}
         minLength={0}
         name="mySearchBox"
@@ -82,6 +82,7 @@ exports[`Storyshots Input Search Box 1`] = `
         role="textbox"
         style={Object {}}
         tabIndex={0}
+        theme="light"
         type="search"
       />
       <div

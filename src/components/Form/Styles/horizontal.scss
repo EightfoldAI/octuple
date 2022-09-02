@@ -1,0 +1,16 @@
+.form-horizontal {
+    .form-item-label {
+        flex-grow: 0;
+    }
+
+    .form-item-control {
+        flex: 1 1 0;
+        min-width: 0;
+        padding: 0 $space-xs;
+    }
+
+    .form-item-label[class$='-12'] + .form-item-control,
+    .form-item-label[class*='-12 '] + .form-item-control {
+        min-width: unset;
+    }
+}

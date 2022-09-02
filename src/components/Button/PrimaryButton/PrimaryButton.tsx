@@ -3,8 +3,8 @@ import {
     BaseButton,
     ButtonIconAlign,
     ButtonProps,
-    ButtonSize,
     ButtonShape,
+    ButtonSize,
     ButtonTextAlign,
     ButtonType,
 } from '../';
@@ -31,13 +31,12 @@ export const PrimaryButton: FC<ButtonProps> = React.forwardRef(
             onClick,
             onContextMenu,
             shape = ButtonShape.Pill,
-            size = ButtonSize.Flex,
+            size = ButtonSize.Medium,
             split,
             splitButtonChecked = false,
             splitButtonProps,
             style,
             text,
-            theme,
             toggle,
             buttonWidth,
             ...rest
@@ -77,7 +76,6 @@ export const PrimaryButton: FC<ButtonProps> = React.forwardRef(
                 splitButtonProps={splitButtonProps}
                 style={style}
                 text={text}
-                theme={theme}
                 toggle={toggle}
                 type={ButtonType.Primary}
                 buttonWidth={buttonWidth}

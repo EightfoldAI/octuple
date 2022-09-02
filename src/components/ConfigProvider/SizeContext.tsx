@@ -1,15 +1,20 @@
-import React from 'react';
+import React, { createContext, FC } from 'react';
 
-export type SizeType = 'small' | 'medium' | 'large' | undefined;
+export enum Size {
+    Flex = 'flex',
+    Large = 'large',
+    Medium = 'medium',
+    Small = 'small',
+}
 
-const SizeContext = React.createContext<SizeType>(undefined);
+const SizeContext = createContext<Size>(undefined);
 
 export interface SizeContextProps {
-    size?: SizeType;
+    size?: Size;
     children?: React.ReactNode;
 }
 
-export const SizeContextProvider: React.FC<SizeContextProps> = ({
+export const SizeContextProvider: FC<SizeContextProps> = ({
     children,
     size,
 }) => (

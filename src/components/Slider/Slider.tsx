@@ -2,14 +2,17 @@ import React, {
     createRef,
     FC,
     RefObject,
+    useContext,
     useLayoutEffect,
     useRef,
     useState,
 } from 'react';
-
+import DisabledContext, { Disabled } from '../ConfigProvider/DisabledContext';
 import { ResizeObserver } from '../../shared/ResizeObserver/ResizeObserver';
 import { mergeClasses } from '../../shared/utilities';
 import { SliderMarker, SliderProps } from './Slider.types';
+import { FormItemInputContext } from '../Form/Context';
+
 import styles from './slider.module.scss';
 
 const thumbDiameter: number = +styles.thumbDiameter;
@@ -43,10 +46,16 @@ export function valueToPercent(
 }
 
 export const Slider: FC<SliderProps> = ({
+    allowDisabledFocus = false,
     ariaLabel,
     autoFocus = false,
     classNames,
+    configContextProps = {
+        noDisabledContext: false,
+        noSizeContext: false,
+    },
     disabled = false,
+    formItemInput = false,
     id,
     min = 0,
     max = 100,
@@ -85,6 +94,14 @@ export const Slider: FC<SliderProps> = ({
     markerRefs.current = markers.map(
         (_, i) => markerRefs.current?.[i] ?? createRef<HTMLDivElement>()
     );
+
+    const { isFormItemInput } = useContext(FormItemInputContext);
+    const mergedFormItemInput: boolean = isFormItemInput || formItemInput;
+
+    const contextuallyDisabled: Disabled = useContext(DisabledContext);
+    const mergedDisabled: boolean = configContextProps.noDisabledContext
+        ? disabled
+        : contextuallyDisabled || disabled;
 
     const getIdentifier = (baseString: string, index: number): string => {
         if (!baseString) {
@@ -190,9 +207,14 @@ export const Slider: FC<SliderProps> = ({
     return (
         <ResizeObserver onResize={updateLayout}>
             <div
-                className={mergeClasses(styles.sliderContainer, {
-                    [styles.sliderDisabled]: disabled,
-                })}
+                className={mergeClasses(
+                    styles.sliderContainer,
+                    {
+                        [styles.sliderDisabled]:
+                            allowDisabledFocus || mergedDisabled,
+                    },
+                    { ['in-form-item']: mergedFormItemInput }
+                )}
             >
                 <div className={mergeClasses(styles.slider, classNames)}>
                     <div ref={railRef} className={styles.sliderRail} />
@@ -217,15 +239,24 @@ export const Slider: FC<SliderProps> = ({
                     })}
                     {values.map((val: number, index: number) => (
                         <input
+                            aria-disabled={mergedDisabled}
                             aria-label={ariaLabel}
                             autoFocus={autoFocus && index === 0}
                             className={styles.thumb}
                             id={getIdentifier(id, index)}
                             key={index}
-                            disabled={disabled}
-                            onChange={(
-                                event: React.ChangeEvent<HTMLInputElement>
-                            ) => handleChange(+event.target.value, index)}
+                            disabled={!allowDisabledFocus && mergedDisabled}
+                            onChange={
+                                !allowDisabledFocus
+                                    ? (
+                                          event: React.ChangeEvent<HTMLInputElement>
+                                      ) =>
+                                          handleChange(
+                                              +event.target.value,
+                                              index
+                                          )
+                                    : null
+                            }
                             min={min}
                             max={max}
                             name={getIdentifier(name, index)}

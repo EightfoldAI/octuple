@@ -2,7 +2,7 @@
 
 exports[`Storyshots Date Picker Customized Date Styling 1`] = `
 <div
-  className="picker picker-range picker-small my-picker-class"
+  className="picker picker-range picker-medium my-picker-class"
   onClick={[Function]}
   onMouseDown={[Function]}
 >
@@ -50,7 +50,7 @@ exports[`Storyshots Date Picker Customized Date Styling 1`] = `
             d="M14 16.94V12.94H5.08L5.05 10.93H14V6.94L19 11.94Z"
             style={
               Object {
-                "fill": "#69717f",
+                "fill": "var(--grey-color-60)",
               }
             }
           />
@@ -97,8 +97,8 @@ exports[`Storyshots Date Picker Customized Date Styling 1`] = `
         role="presentation"
         style={
           Object {
-            "height": "14px",
-            "width": "14px",
+            "height": "20px",
+            "width": "20px",
           }
         }
         viewBox="0 0 24 24"
@@ -107,7 +107,7 @@ exports[`Storyshots Date Picker Customized Date Styling 1`] = `
           d="M19,4H18V2H16V4H8V2H6V4H5C3.89,4 3,4.9 3,6V20A2,2 0 0,0 5,22H19A2,2 0 0,0 21,20V6A2,2 0 0,0 19,4M19,20H5V10H19V20M19,8H5V6H19V8Z"
           style={
             Object {
-              "fill": "#69717f",
+              "fill": "var(--grey-color-60)",
             }
           }
         />
@@ -129,7 +129,7 @@ exports[`Storyshots Date Picker Date Format Basic 1`] = `
   }
 >
   <div
-    className="picker picker-small my-picker-class"
+    className="picker picker-medium my-picker-class"
     onMouseUp={[Function]}
   >
     <div
@@ -162,8 +162,8 @@ exports[`Storyshots Date Picker Date Format Basic 1`] = `
             role="presentation"
             style={
               Object {
-                "height": "14px",
-                "width": "14px",
+                "height": "20px",
+                "width": "20px",
               }
             }
             viewBox="0 0 24 24"
@@ -172,7 +172,7 @@ exports[`Storyshots Date Picker Date Format Basic 1`] = `
               d="M19,4H18V2H16V4H8V2H6V4H5C3.89,4 3,4.9 3,6V20A2,2 0 0,0 5,22H19A2,2 0 0,0 21,20V6A2,2 0 0,0 19,4M19,20H5V10H19V20M19,8H5V6H19V8Z"
               style={
                 Object {
-                  "fill": "#69717f",
+                  "fill": "var(--grey-color-60)",
                 }
               }
             />
@@ -194,8 +194,8 @@ exports[`Storyshots Date Picker Date Format Basic 1`] = `
             role="presentation"
             style={
               Object {
-                "height": "14px",
-                "width": "14px",
+                "height": "20px",
+                "width": "20px",
               }
             }
             viewBox="0 0 24 24"
@@ -214,7 +214,7 @@ exports[`Storyshots Date Picker Date Format Basic 1`] = `
     </div>
   </div>
   <div
-    className="picker picker-small my-picker-class"
+    className="picker picker-medium my-picker-class"
     onMouseUp={[Function]}
   >
     <div
@@ -247,8 +247,8 @@ exports[`Storyshots Date Picker Date Format Basic 1`] = `
             role="presentation"
             style={
               Object {
-                "height": "14px",
-                "width": "14px",
+                "height": "20px",
+                "width": "20px",
               }
             }
             viewBox="0 0 24 24"
@@ -257,7 +257,7 @@ exports[`Storyshots Date Picker Date Format Basic 1`] = `
               d="M19,4H18V2H16V4H8V2H6V4H5C3.89,4 3,4.9 3,6V20A2,2 0 0,0 5,22H19A2,2 0 0,0 21,20V6A2,2 0 0,0 19,4M19,20H5V10H19V20M19,8H5V6H19V8Z"
               style={
                 Object {
-                  "fill": "#69717f",
+                  "fill": "var(--grey-color-60)",
                 }
               }
             />
@@ -279,8 +279,8 @@ exports[`Storyshots Date Picker Date Format Basic 1`] = `
             role="presentation"
             style={
               Object {
-                "height": "14px",
-                "width": "14px",
+                "height": "20px",
+                "width": "20px",
               }
             }
             viewBox="0 0 24 24"
@@ -299,7 +299,7 @@ exports[`Storyshots Date Picker Date Format Basic 1`] = `
     </div>
   </div>
   <div
-    className="picker picker-small my-picker-class"
+    className="picker picker-medium my-picker-class"
     onMouseUp={[Function]}
   >
     <div
@@ -332,8 +332,8 @@ exports[`Storyshots Date Picker Date Format Basic 1`] = `
             role="presentation"
             style={
               Object {
-                "height": "14px",
-                "width": "14px",
+                "height": "20px",
+                "width": "20px",
               }
             }
             viewBox="0 0 24 24"
@@ -342,7 +342,7 @@ exports[`Storyshots Date Picker Date Format Basic 1`] = `
               d="M19,4H18V2H16V4H8V2H6V4H5C3.89,4 3,4.9 3,6V20A2,2 0 0,0 5,22H19A2,2 0 0,0 21,20V6A2,2 0 0,0 19,4M19,20H5V10H19V20M19,8H5V6H19V8Z"
               style={
                 Object {
-                  "fill": "#69717f",
+                  "fill": "var(--grey-color-60)",
                 }
               }
             />
@@ -364,8 +364,8 @@ exports[`Storyshots Date Picker Date Format Basic 1`] = `
             role="presentation"
             style={
               Object {
-                "height": "14px",
-                "width": "14px",
+                "height": "20px",
+                "width": "20px",
               }
             }
             viewBox="0 0 24 24"
@@ -384,7 +384,7 @@ exports[`Storyshots Date Picker Date Format Basic 1`] = `
     </div>
   </div>
   <div
-    className="picker picker-small my-picker-class"
+    className="picker picker-medium my-picker-class"
     onMouseUp={[Function]}
   >
     <div
@@ -417,8 +417,8 @@ exports[`Storyshots Date Picker Date Format Basic 1`] = `
             role="presentation"
             style={
               Object {
-                "height": "14px",
-                "width": "14px",
+                "height": "20px",
+                "width": "20px",
               }
             }
             viewBox="0 0 24 24"
@@ -427,7 +427,7 @@ exports[`Storyshots Date Picker Date Format Basic 1`] = `
               d="M19,4H18V2H16V4H8V2H6V4H5C3.89,4 3,4.9 3,6V20A2,2 0 0,0 5,22H19A2,2 0 0,0 21,20V6A2,2 0 0,0 19,4M19,20H5V10H19V20M19,8H5V6H19V8Z"
               style={
                 Object {
-                  "fill": "#69717f",
+                  "fill": "var(--grey-color-60)",
                 }
               }
             />
@@ -449,8 +449,8 @@ exports[`Storyshots Date Picker Date Format Basic 1`] = `
             role="presentation"
             style={
               Object {
-                "height": "14px",
-                "width": "14px",
+                "height": "20px",
+                "width": "20px",
               }
             }
             viewBox="0 0 24 24"
@@ -469,7 +469,7 @@ exports[`Storyshots Date Picker Date Format Basic 1`] = `
     </div>
   </div>
   <div
-    className="picker picker-small my-picker-class"
+    className="picker picker-medium my-picker-class"
     onMouseUp={[Function]}
   >
     <div
@@ -502,8 +502,8 @@ exports[`Storyshots Date Picker Date Format Basic 1`] = `
             role="presentation"
             style={
               Object {
-                "height": "14px",
-                "width": "14px",
+                "height": "20px",
+                "width": "20px",
               }
             }
             viewBox="0 0 24 24"
@@ -512,7 +512,7 @@ exports[`Storyshots Date Picker Date Format Basic 1`] = `
               d="M19,4H18V2H16V4H8V2H6V4H5C3.89,4 3,4.9 3,6V20A2,2 0 0,0 5,22H19A2,2 0 0,0 21,20V6A2,2 0 0,0 19,4M19,20H5V10H19V20M19,8H5V6H19V8Z"
               style={
                 Object {
-                  "fill": "#69717f",
+                  "fill": "var(--grey-color-60)",
                 }
               }
             />
@@ -534,8 +534,8 @@ exports[`Storyshots Date Picker Date Format Basic 1`] = `
             role="presentation"
             style={
               Object {
-                "height": "14px",
-                "width": "14px",
+                "height": "20px",
+                "width": "20px",
               }
             }
             viewBox="0 0 24 24"
@@ -558,7 +558,7 @@ exports[`Storyshots Date Picker Date Format Basic 1`] = `
 
 exports[`Storyshots Date Picker Date Format Range 1`] = `
 <div
-  className="picker picker-range picker-small my-picker-class"
+  className="picker picker-range picker-medium my-picker-class"
   onClick={[Function]}
   onMouseDown={[Function]}
 >
@@ -606,7 +606,7 @@ exports[`Storyshots Date Picker Date Format Range 1`] = `
             d="M14 16.94V12.94H5.08L5.05 10.93H14V6.94L19 11.94Z"
             style={
               Object {
-                "fill": "#69717f",
+                "fill": "var(--grey-color-60)",
               }
             }
           />
@@ -653,8 +653,8 @@ exports[`Storyshots Date Picker Date Format Range 1`] = `
         role="presentation"
         style={
           Object {
-            "height": "14px",
-            "width": "14px",
+            "height": "20px",
+            "width": "20px",
           }
         }
         viewBox="0 0 24 24"
@@ -663,7 +663,7 @@ exports[`Storyshots Date Picker Date Format Range 1`] = `
           d="M19,4H18V2H16V4H8V2H6V4H5C3.89,4 3,4.9 3,6V20A2,2 0 0,0 5,22H19A2,2 0 0,0 21,20V6A2,2 0 0,0 19,4M19,20H5V10H19V20M19,8H5V6H19V8Z"
           style={
             Object {
-              "fill": "#69717f",
+              "fill": "var(--grey-color-60)",
             }
           }
         />
@@ -684,8 +684,8 @@ exports[`Storyshots Date Picker Date Format Range 1`] = `
         role="presentation"
         style={
           Object {
-            "height": "14px",
-            "width": "14px",
+            "height": "20px",
+            "width": "20px",
           }
         }
         viewBox="0 0 24 24"
@@ -706,7 +706,7 @@ exports[`Storyshots Date Picker Date Format Range 1`] = `
 
 exports[`Storyshots Date Picker Extra Footer 1`] = `
 <div
-  className="picker picker-small my-picker-class"
+  className="picker picker-medium my-picker-class"
   onMouseUp={[Function]}
 >
   <div
@@ -739,8 +739,8 @@ exports[`Storyshots Date Picker Extra Footer 1`] = `
           role="presentation"
           style={
             Object {
-              "height": "14px",
-              "width": "14px",
+              "height": "20px",
+              "width": "20px",
             }
           }
           viewBox="0 0 24 24"
@@ -749,7 +749,7 @@ exports[`Storyshots Date Picker Extra Footer 1`] = `
             d="M19,4H18V2H16V4H8V2H6V4H5C3.89,4 3,4.9 3,6V20A2,2 0 0,0 5,22H19A2,2 0 0,0 21,20V6A2,2 0 0,0 19,4M19,20H5V10H19V20M19,8H5V6H19V8Z"
             style={
               Object {
-                "fill": "#69717f",
+                "fill": "var(--grey-color-60)",
               }
             }
           />
@@ -772,7 +772,7 @@ exports[`Storyshots Date Picker Preset Ranges 1`] = `
   }
 >
   <div
-    className="picker picker-range picker-small my-picker-class"
+    className="picker picker-range picker-medium my-picker-class"
     onClick={[Function]}
     onMouseDown={[Function]}
   >
@@ -820,7 +820,7 @@ exports[`Storyshots Date Picker Preset Ranges 1`] = `
               d="M14 16.94V12.94H5.08L5.05 10.93H14V6.94L19 11.94Z"
               style={
                 Object {
-                  "fill": "#69717f",
+                  "fill": "var(--grey-color-60)",
                 }
               }
             />
@@ -867,8 +867,8 @@ exports[`Storyshots Date Picker Preset Ranges 1`] = `
           role="presentation"
           style={
             Object {
-              "height": "14px",
-              "width": "14px",
+              "height": "20px",
+              "width": "20px",
             }
           }
           viewBox="0 0 24 24"
@@ -877,7 +877,7 @@ exports[`Storyshots Date Picker Preset Ranges 1`] = `
             d="M19,4H18V2H16V4H8V2H6V4H5C3.89,4 3,4.9 3,6V20A2,2 0 0,0 5,22H19A2,2 0 0,0 21,20V6A2,2 0 0,0 19,4M19,20H5V10H19V20M19,8H5V6H19V8Z"
             style={
               Object {
-                "fill": "#69717f",
+                "fill": "var(--grey-color-60)",
               }
             }
           />
@@ -886,7 +886,7 @@ exports[`Storyshots Date Picker Preset Ranges 1`] = `
     </span>
   </div>
   <div
-    className="picker picker-range picker-small my-picker-class"
+    className="picker picker-range picker-medium my-picker-class"
     onClick={[Function]}
     onMouseDown={[Function]}
   >
@@ -934,7 +934,7 @@ exports[`Storyshots Date Picker Preset Ranges 1`] = `
               d="M14 16.94V12.94H5.08L5.05 10.93H14V6.94L19 11.94Z"
               style={
                 Object {
-                  "fill": "#69717f",
+                  "fill": "var(--grey-color-60)",
                 }
               }
             />
@@ -981,8 +981,8 @@ exports[`Storyshots Date Picker Preset Ranges 1`] = `
           role="presentation"
           style={
             Object {
-              "height": "14px",
-              "width": "14px",
+              "height": "20px",
+              "width": "20px",
             }
           }
           viewBox="0 0 24 24"
@@ -991,7 +991,7 @@ exports[`Storyshots Date Picker Preset Ranges 1`] = `
             d="M19,4H18V2H16V4H8V2H6V4H5C3.89,4 3,4.9 3,6V20A2,2 0 0,0 5,22H19A2,2 0 0,0 21,20V6A2,2 0 0,0 19,4M19,20H5V10H19V20M19,8H5V6H19V8Z"
             style={
               Object {
-                "fill": "#69717f",
+                "fill": "var(--grey-color-60)",
               }
             }
           />
@@ -1014,7 +1014,7 @@ exports[`Storyshots Date Picker Range Picker 1`] = `
   }
 >
   <div
-    className="picker picker-range picker-small my-picker-class"
+    className="picker picker-range picker-medium my-picker-class"
     onClick={[Function]}
     onMouseDown={[Function]}
   >
@@ -1062,7 +1062,7 @@ exports[`Storyshots Date Picker Range Picker 1`] = `
               d="M14 16.94V12.94H5.08L5.05 10.93H14V6.94L19 11.94Z"
               style={
                 Object {
-                  "fill": "#69717f",
+                  "fill": "var(--grey-color-60)",
                 }
               }
             />
@@ -1109,8 +1109,8 @@ exports[`Storyshots Date Picker Range Picker 1`] = `
           role="presentation"
           style={
             Object {
-              "height": "14px",
-              "width": "14px",
+              "height": "20px",
+              "width": "20px",
             }
           }
           viewBox="0 0 24 24"
@@ -1119,7 +1119,7 @@ exports[`Storyshots Date Picker Range Picker 1`] = `
             d="M19,4H18V2H16V4H8V2H6V4H5C3.89,4 3,4.9 3,6V20A2,2 0 0,0 5,22H19A2,2 0 0,0 21,20V6A2,2 0 0,0 19,4M19,20H5V10H19V20M19,8H5V6H19V8Z"
             style={
               Object {
-                "fill": "#69717f",
+                "fill": "var(--grey-color-60)",
               }
             }
           />
@@ -1128,7 +1128,7 @@ exports[`Storyshots Date Picker Range Picker 1`] = `
     </span>
   </div>
   <div
-    className="picker picker-range picker-small my-picker-class"
+    className="picker picker-range picker-medium my-picker-class"
     onClick={[Function]}
     onMouseDown={[Function]}
   >
@@ -1176,7 +1176,7 @@ exports[`Storyshots Date Picker Range Picker 1`] = `
               d="M14 16.94V12.94H5.08L5.05 10.93H14V6.94L19 11.94Z"
               style={
                 Object {
-                  "fill": "#69717f",
+                  "fill": "var(--grey-color-60)",
                 }
               }
             />
@@ -1223,8 +1223,8 @@ exports[`Storyshots Date Picker Range Picker 1`] = `
           role="presentation"
           style={
             Object {
-              "height": "14px",
-              "width": "14px",
+              "height": "20px",
+              "width": "20px",
             }
           }
           viewBox="0 0 24 24"
@@ -1233,7 +1233,7 @@ exports[`Storyshots Date Picker Range Picker 1`] = `
             d="M19,4H18V2H16V4H8V2H6V4H5C3.89,4 3,4.9 3,6V20A2,2 0 0,0 5,22H19A2,2 0 0,0 21,20V6A2,2 0 0,0 19,4M19,20H5V10H19V20M19,8H5V6H19V8Z"
             style={
               Object {
-                "fill": "#69717f",
+                "fill": "var(--grey-color-60)",
               }
             }
           />
@@ -1242,7 +1242,7 @@ exports[`Storyshots Date Picker Range Picker 1`] = `
     </span>
   </div>
   <div
-    className="picker picker-range picker-small my-picker-class"
+    className="picker picker-range picker-medium my-picker-class"
     onClick={[Function]}
     onMouseDown={[Function]}
   >
@@ -1290,7 +1290,7 @@ exports[`Storyshots Date Picker Range Picker 1`] = `
               d="M14 16.94V12.94H5.08L5.05 10.93H14V6.94L19 11.94Z"
               style={
                 Object {
-                  "fill": "#69717f",
+                  "fill": "var(--grey-color-60)",
                 }
               }
             />
@@ -1337,8 +1337,8 @@ exports[`Storyshots Date Picker Range Picker 1`] = `
           role="presentation"
           style={
             Object {
-              "height": "14px",
-              "width": "14px",
+              "height": "20px",
+              "width": "20px",
             }
           }
           viewBox="0 0 24 24"
@@ -1347,7 +1347,7 @@ exports[`Storyshots Date Picker Range Picker 1`] = `
             d="M19,4H18V2H16V4H8V2H6V4H5C3.89,4 3,4.9 3,6V20A2,2 0 0,0 5,22H19A2,2 0 0,0 21,20V6A2,2 0 0,0 19,4M19,20H5V10H19V20M19,8H5V6H19V8Z"
             style={
               Object {
-                "fill": "#69717f",
+                "fill": "var(--grey-color-60)",
               }
             }
           />
@@ -1356,7 +1356,7 @@ exports[`Storyshots Date Picker Range Picker 1`] = `
     </span>
   </div>
   <div
-    className="picker picker-range picker-small my-picker-class"
+    className="picker picker-range picker-medium my-picker-class"
     onClick={[Function]}
     onMouseDown={[Function]}
   >
@@ -1404,7 +1404,7 @@ exports[`Storyshots Date Picker Range Picker 1`] = `
               d="M14 16.94V12.94H5.08L5.05 10.93H14V6.94L19 11.94Z"
               style={
                 Object {
-                  "fill": "#69717f",
+                  "fill": "var(--grey-color-60)",
                 }
               }
             />
@@ -1451,8 +1451,8 @@ exports[`Storyshots Date Picker Range Picker 1`] = `
           role="presentation"
           style={
             Object {
-              "height": "14px",
-              "width": "14px",
+              "height": "20px",
+              "width": "20px",
             }
           }
           viewBox="0 0 24 24"
@@ -1461,7 +1461,7 @@ exports[`Storyshots Date Picker Range Picker 1`] = `
             d="M19,4H18V2H16V4H8V2H6V4H5C3.89,4 3,4.9 3,6V20A2,2 0 0,0 5,22H19A2,2 0 0,0 21,20V6A2,2 0 0,0 19,4M19,20H5V10H19V20M19,8H5V6H19V8Z"
             style={
               Object {
-                "fill": "#69717f",
+                "fill": "var(--grey-color-60)",
               }
             }
           />
@@ -1470,7 +1470,7 @@ exports[`Storyshots Date Picker Range Picker 1`] = `
     </span>
   </div>
   <div
-    className="picker picker-range picker-small my-picker-class"
+    className="picker picker-range picker-medium my-picker-class"
     onClick={[Function]}
     onMouseDown={[Function]}
   >
@@ -1518,7 +1518,7 @@ exports[`Storyshots Date Picker Range Picker 1`] = `
               d="M14 16.94V12.94H5.08L5.05 10.93H14V6.94L19 11.94Z"
               style={
                 Object {
-                  "fill": "#69717f",
+                  "fill": "var(--grey-color-60)",
                 }
               }
             />
@@ -1565,8 +1565,8 @@ exports[`Storyshots Date Picker Range Picker 1`] = `
           role="presentation"
           style={
             Object {
-              "height": "14px",
-              "width": "14px",
+              "height": "20px",
+              "width": "20px",
             }
           }
           viewBox="0 0 24 24"
@@ -1575,7 +1575,7 @@ exports[`Storyshots Date Picker Range Picker 1`] = `
             d="M19,4H18V2H16V4H8V2H6V4H5C3.89,4 3,4.9 3,6V20A2,2 0 0,0 5,22H19A2,2 0 0,0 21,20V6A2,2 0 0,0 19,4M19,20H5V10H19V20M19,8H5V6H19V8Z"
             style={
               Object {
-                "fill": "#69717f",
+                "fill": "var(--grey-color-60)",
               }
             }
           />
@@ -1588,7 +1588,7 @@ exports[`Storyshots Date Picker Range Picker 1`] = `
 
 exports[`Storyshots Date Picker Range Picker Choose Time 1`] = `
 <div
-  className="picker picker-range picker-small my-picker-class"
+  className="picker picker-range picker-medium my-picker-class"
   onClick={[Function]}
   onMouseDown={[Function]}
 >
@@ -1636,7 +1636,7 @@ exports[`Storyshots Date Picker Range Picker Choose Time 1`] = `
             d="M14 16.94V12.94H5.08L5.05 10.93H14V6.94L19 11.94Z"
             style={
               Object {
-                "fill": "#69717f",
+                "fill": "var(--grey-color-60)",
               }
             }
           />
@@ -1683,8 +1683,8 @@ exports[`Storyshots Date Picker Range Picker Choose Time 1`] = `
         role="presentation"
         style={
           Object {
-            "height": "14px",
-            "width": "14px",
+            "height": "20px",
+            "width": "20px",
           }
         }
         viewBox="0 0 24 24"
@@ -1693,7 +1693,7 @@ exports[`Storyshots Date Picker Range Picker Choose Time 1`] = `
           d="M19,4H18V2H16V4H8V2H6V4H5C3.89,4 3,4.9 3,6V20A2,2 0 0,0 5,22H19A2,2 0 0,0 21,20V6A2,2 0 0,0 19,4M19,20H5V10H19V20M19,8H5V6H19V8Z"
           style={
             Object {
-              "fill": "#69717f",
+              "fill": "var(--grey-color-60)",
             }
           }
         />
@@ -1715,7 +1715,7 @@ exports[`Storyshots Date Picker Range Picker Disabled 1`] = `
   }
 >
   <div
-    className="picker picker-range picker-small my-picker-class picker-disabled"
+    className="picker picker-range picker-medium my-picker-class picker-disabled"
     onClick={[Function]}
     onMouseDown={[Function]}
   >
@@ -1763,7 +1763,7 @@ exports[`Storyshots Date Picker Range Picker Disabled 1`] = `
               d="M14 16.94V12.94H5.08L5.05 10.93H14V6.94L19 11.94Z"
               style={
                 Object {
-                  "fill": "#69717f",
+                  "fill": "var(--grey-color-60)",
                 }
               }
             />
@@ -1810,8 +1810,8 @@ exports[`Storyshots Date Picker Range Picker Disabled 1`] = `
           role="presentation"
           style={
             Object {
-              "height": "14px",
-              "width": "14px",
+              "height": "20px",
+              "width": "20px",
             }
           }
           viewBox="0 0 24 24"
@@ -1820,7 +1820,7 @@ exports[`Storyshots Date Picker Range Picker Disabled 1`] = `
             d="M19,4H18V2H16V4H8V2H6V4H5C3.89,4 3,4.9 3,6V20A2,2 0 0,0 5,22H19A2,2 0 0,0 21,20V6A2,2 0 0,0 19,4M19,20H5V10H19V20M19,8H5V6H19V8Z"
             style={
               Object {
-                "fill": "#69717f",
+                "fill": "var(--grey-color-60)",
               }
             }
           />
@@ -1829,7 +1829,7 @@ exports[`Storyshots Date Picker Range Picker Disabled 1`] = `
     </span>
   </div>
   <div
-    className="picker picker-range picker-small my-picker-class picker-disabled"
+    className="picker picker-range picker-medium my-picker-class picker-disabled"
     onClick={[Function]}
     onMouseDown={[Function]}
   >
@@ -1877,7 +1877,7 @@ exports[`Storyshots Date Picker Range Picker Disabled 1`] = `
               d="M14 16.94V12.94H5.08L5.05 10.93H14V6.94L19 11.94Z"
               style={
                 Object {
-                  "fill": "#69717f",
+                  "fill": "var(--grey-color-60)",
                 }
               }
             />
@@ -1924,8 +1924,8 @@ exports[`Storyshots Date Picker Range Picker Disabled 1`] = `
           role="presentation"
           style={
             Object {
-              "height": "14px",
-              "width": "14px",
+              "height": "20px",
+              "width": "20px",
             }
           }
           viewBox="0 0 24 24"
@@ -1934,7 +1934,7 @@ exports[`Storyshots Date Picker Range Picker Disabled 1`] = `
             d="M19,4H18V2H16V4H8V2H6V4H5C3.89,4 3,4.9 3,6V20A2,2 0 0,0 5,22H19A2,2 0 0,0 21,20V6A2,2 0 0,0 19,4M19,20H5V10H19V20M19,8H5V6H19V8Z"
             style={
               Object {
-                "fill": "#69717f",
+                "fill": "var(--grey-color-60)",
               }
             }
           />
@@ -1957,7 +1957,7 @@ exports[`Storyshots Date Picker Range Picker Disabled Date And Time 1`] = `
   }
 >
   <div
-    className="picker picker-range picker-small my-picker-class"
+    className="picker picker-range picker-medium my-picker-class"
     onClick={[Function]}
     onMouseDown={[Function]}
   >
@@ -2005,7 +2005,7 @@ exports[`Storyshots Date Picker Range Picker Disabled Date And Time 1`] = `
               d="M14 16.94V12.94H5.08L5.05 10.93H14V6.94L19 11.94Z"
               style={
                 Object {
-                  "fill": "#69717f",
+                  "fill": "var(--grey-color-60)",
                 }
               }
             />
@@ -2052,8 +2052,8 @@ exports[`Storyshots Date Picker Range Picker Disabled Date And Time 1`] = `
           role="presentation"
           style={
             Object {
-              "height": "14px",
-              "width": "14px",
+              "height": "20px",
+              "width": "20px",
             }
           }
           viewBox="0 0 24 24"
@@ -2062,7 +2062,7 @@ exports[`Storyshots Date Picker Range Picker Disabled Date And Time 1`] = `
             d="M19,4H18V2H16V4H8V2H6V4H5C3.89,4 3,4.9 3,6V20A2,2 0 0,0 5,22H19A2,2 0 0,0 21,20V6A2,2 0 0,0 19,4M19,20H5V10H19V20M19,8H5V6H19V8Z"
             style={
               Object {
-                "fill": "#69717f",
+                "fill": "var(--grey-color-60)",
               }
             }
           />
@@ -2071,7 +2071,7 @@ exports[`Storyshots Date Picker Range Picker Disabled Date And Time 1`] = `
     </span>
   </div>
   <div
-    className="picker picker-range picker-small my-picker-class"
+    className="picker picker-range picker-medium my-picker-class"
     onClick={[Function]}
     onMouseDown={[Function]}
   >
@@ -2119,7 +2119,7 @@ exports[`Storyshots Date Picker Range Picker Disabled Date And Time 1`] = `
               d="M14 16.94V12.94H5.08L5.05 10.93H14V6.94L19 11.94Z"
               style={
                 Object {
-                  "fill": "#69717f",
+                  "fill": "var(--grey-color-60)",
                 }
               }
             />
@@ -2166,8 +2166,8 @@ exports[`Storyshots Date Picker Range Picker Disabled Date And Time 1`] = `
           role="presentation"
           style={
             Object {
-              "height": "14px",
-              "width": "14px",
+              "height": "20px",
+              "width": "20px",
             }
           }
           viewBox="0 0 24 24"
@@ -2176,7 +2176,7 @@ exports[`Storyshots Date Picker Range Picker Disabled Date And Time 1`] = `
             d="M19,4H18V2H16V4H8V2H6V4H5C3.89,4 3,4.9 3,6V20A2,2 0 0,0 5,22H19A2,2 0 0,0 21,20V6A2,2 0 0,0 19,4M19,20H5V10H19V20M19,8H5V6H19V8Z"
             style={
               Object {
-                "fill": "#69717f",
+                "fill": "var(--grey-color-60)",
               }
             }
           />
@@ -2189,7 +2189,7 @@ exports[`Storyshots Date Picker Range Picker Disabled Date And Time 1`] = `
 
 exports[`Storyshots Date Picker Select Range By Day Limit 1`] = `
 <div
-  className="picker picker-range picker-small my-picker-class"
+  className="picker picker-range picker-medium my-picker-class"
   onClick={[Function]}
   onMouseDown={[Function]}
 >
@@ -2237,7 +2237,7 @@ exports[`Storyshots Date Picker Select Range By Day Limit 1`] = `
             d="M14 16.94V12.94H5.08L5.05 10.93H14V6.94L19 11.94Z"
             style={
               Object {
-                "fill": "#69717f",
+                "fill": "var(--grey-color-60)",
               }
             }
           />
@@ -2284,8 +2284,8 @@ exports[`Storyshots Date Picker Select Range By Day Limit 1`] = `
         role="presentation"
         style={
           Object {
-            "height": "14px",
-            "width": "14px",
+            "height": "20px",
+            "width": "20px",
           }
         }
         viewBox="0 0 24 24"
@@ -2294,7 +2294,7 @@ exports[`Storyshots Date Picker Select Range By Day Limit 1`] = `
           d="M19,4H18V2H16V4H8V2H6V4H5C3.89,4 3,4.9 3,6V20A2,2 0 0,0 5,22H19A2,2 0 0,0 21,20V6A2,2 0 0,0 19,4M19,20H5V10H19V20M19,8H5V6H19V8Z"
           style={
             Object {
-              "fill": "#69717f",
+              "fill": "var(--grey-color-60)",
             }
           }
         />
@@ -2316,7 +2316,7 @@ exports[`Storyshots Date Picker Single Picker 1`] = `
   }
 >
   <div
-    className="picker picker-small my-picker-class"
+    className="picker picker-medium my-picker-class"
     onMouseUp={[Function]}
   >
     <div
@@ -2349,8 +2349,8 @@ exports[`Storyshots Date Picker Single Picker 1`] = `
             role="presentation"
             style={
               Object {
-                "height": "14px",
-                "width": "14px",
+                "height": "20px",
+                "width": "20px",
               }
             }
             viewBox="0 0 24 24"
@@ -2359,7 +2359,7 @@ exports[`Storyshots Date Picker Single Picker 1`] = `
               d="M19,4H18V2H16V4H8V2H6V4H5C3.89,4 3,4.9 3,6V20A2,2 0 0,0 5,22H19A2,2 0 0,0 21,20V6A2,2 0 0,0 19,4M19,20H5V10H19V20M19,8H5V6H19V8Z"
               style={
                 Object {
-                  "fill": "#69717f",
+                  "fill": "var(--grey-color-60)",
                 }
               }
             />
@@ -2369,7 +2369,7 @@ exports[`Storyshots Date Picker Single Picker 1`] = `
     </div>
   </div>
   <div
-    className="picker picker-small my-picker-class"
+    className="picker picker-medium my-picker-class"
     onMouseUp={[Function]}
   >
     <div
@@ -2402,8 +2402,8 @@ exports[`Storyshots Date Picker Single Picker 1`] = `
             role="presentation"
             style={
               Object {
-                "height": "14px",
-                "width": "14px",
+                "height": "20px",
+                "width": "20px",
               }
             }
             viewBox="0 0 24 24"
@@ -2412,7 +2412,7 @@ exports[`Storyshots Date Picker Single Picker 1`] = `
               d="M19,4H18V2H16V4H8V2H6V4H5C3.89,4 3,4.9 3,6V20A2,2 0 0,0 5,22H19A2,2 0 0,0 21,20V6A2,2 0 0,0 19,4M19,20H5V10H19V20M19,8H5V6H19V8Z"
               style={
                 Object {
-                  "fill": "#69717f",
+                  "fill": "var(--grey-color-60)",
                 }
               }
             />
@@ -2422,7 +2422,7 @@ exports[`Storyshots Date Picker Single Picker 1`] = `
     </div>
   </div>
   <div
-    className="picker picker-small my-picker-class"
+    className="picker picker-medium my-picker-class"
     onMouseUp={[Function]}
   >
     <div
@@ -2455,8 +2455,8 @@ exports[`Storyshots Date Picker Single Picker 1`] = `
             role="presentation"
             style={
               Object {
-                "height": "14px",
-                "width": "14px",
+                "height": "20px",
+                "width": "20px",
               }
             }
             viewBox="0 0 24 24"
@@ -2465,7 +2465,7 @@ exports[`Storyshots Date Picker Single Picker 1`] = `
               d="M19,4H18V2H16V4H8V2H6V4H5C3.89,4 3,4.9 3,6V20A2,2 0 0,0 5,22H19A2,2 0 0,0 21,20V6A2,2 0 0,0 19,4M19,20H5V10H19V20M19,8H5V6H19V8Z"
               style={
                 Object {
-                  "fill": "#69717f",
+                  "fill": "var(--grey-color-60)",
                 }
               }
             />
@@ -2475,7 +2475,7 @@ exports[`Storyshots Date Picker Single Picker 1`] = `
     </div>
   </div>
   <div
-    className="picker picker-small my-picker-class"
+    className="picker picker-medium my-picker-class"
     onMouseUp={[Function]}
   >
     <div
@@ -2508,8 +2508,8 @@ exports[`Storyshots Date Picker Single Picker 1`] = `
             role="presentation"
             style={
               Object {
-                "height": "14px",
-                "width": "14px",
+                "height": "20px",
+                "width": "20px",
               }
             }
             viewBox="0 0 24 24"
@@ -2518,7 +2518,7 @@ exports[`Storyshots Date Picker Single Picker 1`] = `
               d="M19,4H18V2H16V4H8V2H6V4H5C3.89,4 3,4.9 3,6V20A2,2 0 0,0 5,22H19A2,2 0 0,0 21,20V6A2,2 0 0,0 19,4M19,20H5V10H19V20M19,8H5V6H19V8Z"
               style={
                 Object {
-                  "fill": "#69717f",
+                  "fill": "var(--grey-color-60)",
                 }
               }
             />
@@ -2528,7 +2528,7 @@ exports[`Storyshots Date Picker Single Picker 1`] = `
     </div>
   </div>
   <div
-    className="picker picker-small my-picker-class"
+    className="picker picker-medium my-picker-class"
     onMouseUp={[Function]}
   >
     <div
@@ -2561,8 +2561,8 @@ exports[`Storyshots Date Picker Single Picker 1`] = `
             role="presentation"
             style={
               Object {
-                "height": "14px",
-                "width": "14px",
+                "height": "20px",
+                "width": "20px",
               }
             }
             viewBox="0 0 24 24"
@@ -2571,7 +2571,7 @@ exports[`Storyshots Date Picker Single Picker 1`] = `
               d="M19,4H18V2H16V4H8V2H6V4H5C3.89,4 3,4.9 3,6V20A2,2 0 0,0 5,22H19A2,2 0 0,0 21,20V6A2,2 0 0,0 19,4M19,20H5V10H19V20M19,8H5V6H19V8Z"
               style={
                 Object {
-                  "fill": "#69717f",
+                  "fill": "var(--grey-color-60)",
                 }
               }
             />
@@ -2585,7 +2585,7 @@ exports[`Storyshots Date Picker Single Picker 1`] = `
 
 exports[`Storyshots Date Picker Single Picker Choose Time 1`] = `
 <div
-  className="picker picker-small my-picker-class"
+  className="picker picker-medium my-picker-class"
   onMouseUp={[Function]}
 >
   <div
@@ -2618,8 +2618,8 @@ exports[`Storyshots Date Picker Single Picker Choose Time 1`] = `
           role="presentation"
           style={
             Object {
-              "height": "14px",
-              "width": "14px",
+              "height": "20px",
+              "width": "20px",
             }
           }
           viewBox="0 0 24 24"
@@ -2628,7 +2628,7 @@ exports[`Storyshots Date Picker Single Picker Choose Time 1`] = `
             d="M19,4H18V2H16V4H8V2H6V4H5C3.89,4 3,4.9 3,6V20A2,2 0 0,0 5,22H19A2,2 0 0,0 21,20V6A2,2 0 0,0 19,4M19,20H5V10H19V20M19,8H5V6H19V8Z"
             style={
               Object {
-                "fill": "#69717f",
+                "fill": "var(--grey-color-60)",
               }
             }
           />
@@ -2651,7 +2651,7 @@ exports[`Storyshots Date Picker Single Picker Disabled 1`] = `
   }
 >
   <div
-    className="picker picker-small my-picker-class picker-disabled"
+    className="picker picker-medium my-picker-class picker-disabled"
     onMouseUp={[Function]}
   >
     <div
@@ -2684,8 +2684,8 @@ exports[`Storyshots Date Picker Single Picker Disabled 1`] = `
             role="presentation"
             style={
               Object {
-                "height": "14px",
-                "width": "14px",
+                "height": "20px",
+                "width": "20px",
               }
             }
             viewBox="0 0 24 24"
@@ -2694,7 +2694,7 @@ exports[`Storyshots Date Picker Single Picker Disabled 1`] = `
               d="M19,4H18V2H16V4H8V2H6V4H5C3.89,4 3,4.9 3,6V20A2,2 0 0,0 5,22H19A2,2 0 0,0 21,20V6A2,2 0 0,0 19,4M19,20H5V10H19V20M19,8H5V6H19V8Z"
               style={
                 Object {
-                  "fill": "#69717f",
+                  "fill": "var(--grey-color-60)",
                 }
               }
             />
@@ -2704,7 +2704,7 @@ exports[`Storyshots Date Picker Single Picker Disabled 1`] = `
     </div>
   </div>
   <div
-    className="picker picker-small my-picker-class picker-disabled"
+    className="picker picker-medium my-picker-class picker-disabled"
     onMouseUp={[Function]}
   >
     <div
@@ -2737,8 +2737,8 @@ exports[`Storyshots Date Picker Single Picker Disabled 1`] = `
             role="presentation"
             style={
               Object {
-                "height": "14px",
-                "width": "14px",
+                "height": "20px",
+                "width": "20px",
               }
             }
             viewBox="0 0 24 24"
@@ -2747,7 +2747,7 @@ exports[`Storyshots Date Picker Single Picker Disabled 1`] = `
               d="M19,4H18V2H16V4H8V2H6V4H5C3.89,4 3,4.9 3,6V20A2,2 0 0,0 5,22H19A2,2 0 0,0 21,20V6A2,2 0 0,0 19,4M19,20H5V10H19V20M19,8H5V6H19V8Z"
               style={
                 Object {
-                  "fill": "#69717f",
+                  "fill": "var(--grey-color-60)",
                 }
               }
             />
@@ -2771,7 +2771,7 @@ exports[`Storyshots Date Picker Single Picker Disabled Date And Time 1`] = `
   }
 >
   <div
-    className="picker picker-small my-picker-class"
+    className="picker picker-medium my-picker-class"
     onMouseUp={[Function]}
   >
     <div
@@ -2804,8 +2804,8 @@ exports[`Storyshots Date Picker Single Picker Disabled Date And Time 1`] = `
             role="presentation"
             style={
               Object {
-                "height": "14px",
-                "width": "14px",
+                "height": "20px",
+                "width": "20px",
               }
             }
             viewBox="0 0 24 24"
@@ -2814,7 +2814,7 @@ exports[`Storyshots Date Picker Single Picker Disabled Date And Time 1`] = `
               d="M19,4H18V2H16V4H8V2H6V4H5C3.89,4 3,4.9 3,6V20A2,2 0 0,0 5,22H19A2,2 0 0,0 21,20V6A2,2 0 0,0 19,4M19,20H5V10H19V20M19,8H5V6H19V8Z"
               style={
                 Object {
-                  "fill": "#69717f",
+                  "fill": "var(--grey-color-60)",
                 }
               }
             />
@@ -2824,7 +2824,7 @@ exports[`Storyshots Date Picker Single Picker Disabled Date And Time 1`] = `
     </div>
   </div>
   <div
-    className="picker picker-small my-picker-class"
+    className="picker picker-medium my-picker-class"
     onMouseUp={[Function]}
   >
     <div
@@ -2857,8 +2857,8 @@ exports[`Storyshots Date Picker Single Picker Disabled Date And Time 1`] = `
             role="presentation"
             style={
               Object {
-                "height": "14px",
-                "width": "14px",
+                "height": "20px",
+                "width": "20px",
               }
             }
             viewBox="0 0 24 24"
@@ -2867,7 +2867,7 @@ exports[`Storyshots Date Picker Single Picker Disabled Date And Time 1`] = `
               d="M19,4H18V2H16V4H8V2H6V4H5C3.89,4 3,4.9 3,6V20A2,2 0 0,0 5,22H19A2,2 0 0,0 21,20V6A2,2 0 0,0 19,4M19,20H5V10H19V20M19,8H5V6H19V8Z"
               style={
                 Object {
-                  "fill": "#69717f",
+                  "fill": "var(--grey-color-60)",
                 }
               }
             />
@@ -2891,7 +2891,7 @@ exports[`Storyshots Date Picker Status 1`] = `
   }
 >
   <div
-    className="picker picker-small picker-status-error my-picker-class"
+    className="picker picker-medium picker-status-error my-picker-class"
     onMouseUp={[Function]}
   >
     <div
@@ -2924,8 +2924,8 @@ exports[`Storyshots Date Picker Status 1`] = `
             role="presentation"
             style={
               Object {
-                "height": "14px",
-                "width": "14px",
+                "height": "20px",
+                "width": "20px",
               }
             }
             viewBox="0 0 24 24"
@@ -2934,7 +2934,7 @@ exports[`Storyshots Date Picker Status 1`] = `
               d="M19,4H18V2H16V4H8V2H6V4H5C3.89,4 3,4.9 3,6V20A2,2 0 0,0 5,22H19A2,2 0 0,0 21,20V6A2,2 0 0,0 19,4M19,20H5V10H19V20M19,8H5V6H19V8Z"
               style={
                 Object {
-                  "fill": "#993838",
+                  "fill": "var(--error-color)",
                 }
               }
             />
@@ -2944,7 +2944,7 @@ exports[`Storyshots Date Picker Status 1`] = `
     </div>
   </div>
   <div
-    className="picker picker-small picker-status-warning my-picker-class"
+    className="picker picker-medium picker-status-warning my-picker-class"
     onMouseUp={[Function]}
   >
     <div
@@ -2977,8 +2977,8 @@ exports[`Storyshots Date Picker Status 1`] = `
             role="presentation"
             style={
               Object {
-                "height": "14px",
-                "width": "14px",
+                "height": "20px",
+                "width": "20px",
               }
             }
             viewBox="0 0 24 24"
@@ -2987,7 +2987,7 @@ exports[`Storyshots Date Picker Status 1`] = `
               d="M19,4H18V2H16V4H8V2H6V4H5C3.89,4 3,4.9 3,6V20A2,2 0 0,0 5,22H19A2,2 0 0,0 21,20V6A2,2 0 0,0 19,4M19,20H5V10H19V20M19,8H5V6H19V8Z"
               style={
                 Object {
-                  "fill": "#9d6309",
+                  "fill": "var(--warning-color)",
                 }
               }
             />

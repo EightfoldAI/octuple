@@ -1,14 +1,19 @@
-import React, { FC, Ref } from 'react';
+import React, { FC, Ref, useContext } from 'react';
+import DisabledContext, {
+    Disabled,
+} from '../../ConfigProvider/DisabledContext';
+import { ShapeContext, Shape, SizeContext, Size } from '../../ConfigProvider';
 import { IconName } from '../../Icon';
 import {
-    TextInputIconAlign,
-    TextInputWidth,
     SearchBoxProps,
     TextInput,
+    TextInputIconAlign,
     TextInputShape,
     TextInputSize,
-    TextInputTheme,
+    TextInputWidth,
 } from '../index';
+import { FormItemInputContext } from '../../Form/Context';
+import { getMergedStatus } from '../../../shared/utilities';
 
 export const SearchBox: FC<SearchBoxProps> = React.forwardRef(
     (
@@ -20,13 +25,20 @@ export const SearchBox: FC<SearchBoxProps> = React.forwardRef(
             classNames,
             clearable = true,
             clearButtonAriaLabel,
+            configContextProps = {
+                noDisabledContext: false,
+                noShapeContext: false,
+                noSizeContext: false,
+            },
             disabled = false,
+            formItemInput = false,
             iconProps,
             iconButtonProps = {
                 allowDisabledFocus: false,
                 disabled: false,
                 iconProps: { path: IconName.mdiMagnify },
             },
+            id,
             inline = false,
             inputWidth = TextInputWidth.fitContent,
             labelProps,
@@ -39,16 +51,36 @@ export const SearchBox: FC<SearchBoxProps> = React.forwardRef(
             onKeyDown,
             onSubmit,
             placeholder = 'Search',
-            shape = TextInputShape.Pill,
-            size = TextInputSize.Flex,
+            shape = TextInputShape.Rectangle,
+            size = TextInputSize.Medium,
+            status,
             style,
-            theme = TextInputTheme.light,
             value,
             waitInterval = 500,
             ...rest
         },
         ref: Ref<HTMLInputElement>
     ) => {
+        const { status: contextStatus, isFormItemInput } =
+            useContext(FormItemInputContext);
+        const mergedStatus = getMergedStatus(contextStatus, status);
+        const mergedFormItemInput: boolean = isFormItemInput || formItemInput;
+
+        const contextuallyDisabled: Disabled = useContext(DisabledContext);
+        const mergedDisabled: boolean = configContextProps.noDisabledContext
+            ? disabled
+            : contextuallyDisabled || disabled;
+
+        const contextuallyShaped: Shape = useContext(ShapeContext);
+        const mergedShape = configContextProps.noShapeContext
+            ? shape
+            : contextuallyShaped || shape;
+
+        const contextuallySized: Size = useContext(SizeContext);
+        const mergedSize = configContextProps.noSizeContext
+            ? size
+            : contextuallySized || size;
+
         return (
             <form role="search" onSubmit={(_event) => onSubmit?.(_event)}>
                 <TextInput
@@ -61,10 +93,15 @@ export const SearchBox: FC<SearchBoxProps> = React.forwardRef(
                     autoFocus={autoFocus}
                     classNames={classNames}
                     clearButtonAriaLabel={clearButtonAriaLabel}
-                    disabled={disabled}
+                    disabled={mergedDisabled}
+                    formItemInput={mergedFormItemInput}
                     htmlType="search"
                     iconProps={iconProps}
-                    iconButtonProps={iconButtonProps}
+                    iconButtonProps={{
+                        ...iconButtonProps,
+                        disabled: mergedDisabled,
+                    }}
+                    id={id}
                     inline={inline}
                     inputWidth={inputWidth}
                     labelProps={labelProps}
@@ -76,10 +113,10 @@ export const SearchBox: FC<SearchBoxProps> = React.forwardRef(
                     onFocus={onFocus}
                     onKeyDown={onKeyDown}
                     placeholder={placeholder}
-                    shape={shape}
-                    size={size}
+                    shape={mergedShape}
+                    size={mergedSize}
+                    status={mergedStatus}
                     style={style}
-                    theme={theme}
                     value={value}
                     waitInterval={waitInterval}
                 />

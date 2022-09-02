@@ -68,7 +68,7 @@ exports[`Storyshots Layout Basic 1`] = `
             className="main-wrapper"
           >
             <div
-              aria-controls="dropdown-9"
+              aria-controls="dropdown-98"
               aria-expanded={false}
               aria-haspopup={true}
               className="reference-wrapper"
@@ -252,7 +252,7 @@ exports[`Storyshots Layout Basic 1`] = `
             className="main-wrapper"
           >
             <div
-              aria-controls="dropdown-10"
+              aria-controls="dropdown-99"
               aria-expanded={false}
               aria-haspopup={true}
               className="reference-wrapper"
@@ -431,7 +431,7 @@ exports[`Storyshots Layout Basic 1`] = `
             className="main-wrapper"
           >
             <div
-              aria-controls="dropdown-11"
+              aria-controls="dropdown-100"
               aria-expanded={false}
               aria-haspopup={true}
               className="reference-wrapper"
@@ -650,7 +650,7 @@ exports[`Storyshots Layout Basic 1`] = `
               className="main-wrapper"
             >
               <div
-                aria-controls="dropdown-12"
+                aria-controls="dropdown-101"
                 aria-expanded={false}
                 aria-haspopup={true}
                 className="reference-wrapper"
@@ -923,7 +923,7 @@ exports[`Storyshots Layout Fixed Navbar 1`] = `
           className="main-wrapper"
         >
           <div
-            aria-controls="dropdown-13"
+            aria-controls="dropdown-102"
             aria-expanded={false}
             aria-haspopup={true}
             className="reference-wrapper"
@@ -1140,7 +1140,7 @@ exports[`Storyshots Layout Responsive 1`] = `
             className="main-wrapper"
           >
             <div
-              aria-controls="dropdown-14"
+              aria-controls="dropdown-103"
               aria-expanded={false}
               aria-haspopup={true}
               className="reference-wrapper"

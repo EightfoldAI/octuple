@@ -54,7 +54,12 @@ export default {
     },
     argTypes: {
         size: {
-            options: [LabelSize.Large, LabelSize.Medium, LabelSize.Small],
+            options: [
+                LabelSize.Flex,
+                LabelSize.Large,
+                LabelSize.Medium,
+                LabelSize.Small,
+            ],
             control: { type: 'radio' },
         },
     },

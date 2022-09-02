@@ -29,6 +29,9 @@ import { getExtraFooter } from './Utils/getExtraFooter';
 import getRanges from './Utils/getRanges';
 import { getLowerBoundTime, setDateTime, setTime } from './Utils/timeUtil';
 import { ButtonSize, NeutralButton } from '../../Button';
+import { Breakpoints, useMatchMedia } from '../../../hooks/useMatchMedia';
+import { Size } from '../../ConfigProvider';
+import { DatePickerSize } from './OcPicker.types';
 
 import styles from './ocpicker.module.scss';
 
@@ -69,9 +72,12 @@ function OcPickerPartial<DateType>(props: OcPickerPartialProps<DateType>) {
         hourStep = 1,
         minuteStep = 1,
         secondStep = 1,
-        size = 'Small',
+        size = DatePickerSize.Medium,
     } = props as MergedPickerPartialProps<DateType>;
-
+    const largeScreenActive: boolean = useMatchMedia(Breakpoints.Large);
+    const mediumScreenActive: boolean = useMatchMedia(Breakpoints.Medium);
+    const smallScreenActive: boolean = useMatchMedia(Breakpoints.Small);
+    const xSmallScreenActive: boolean = useMatchMedia(Breakpoints.XSmall);
     const needConfirmButton: boolean =
         (picker === 'date' && !!showTime) || picker === 'time';
 
@@ -424,10 +430,14 @@ function OcPickerPartial<DateType>(props: OcPickerPartialProps<DateType>) {
         });
     }
 
-    const datePickerSizeToButtonSizeMap = new Map<typeof size, ButtonSize>([
-        ['Large', ButtonSize.Large],
-        ['Medium', ButtonSize.Medium],
-        ['Small', ButtonSize.Small],
+    const datePickerSizeToButtonSizeMap = new Map<
+        DatePickerSize | Size,
+        ButtonSize | Size
+    >([
+        [DatePickerSize.Flex, ButtonSize.Flex],
+        [DatePickerSize.Large, ButtonSize.Large],
+        [DatePickerSize.Medium, ButtonSize.Medium],
+        [DatePickerSize.Small, ButtonSize.Small],
     ]);
 
     let todayNode: React.ReactNode;
@@ -470,9 +480,25 @@ function OcPickerPartial<DateType>(props: OcPickerPartialProps<DateType>) {
                 tabIndex={tabIndex}
                 className={mergeClasses([
                     styles.pickerPartial,
-                    { [styles.pickerLarge]: size === 'Large' },
-                    { [styles.pickerMedium]: size === 'Medium' },
-                    { [styles.pickerSmall]: size === 'Small' },
+                    {
+                        [styles.pickerSmall]:
+                            size === DatePickerSize.Flex && largeScreenActive,
+                    },
+                    {
+                        [styles.pickerMedium]:
+                            size === DatePickerSize.Flex && mediumScreenActive,
+                    },
+                    {
+                        [styles.pickerMedium]:
+                            size === DatePickerSize.Flex && smallScreenActive,
+                    },
+                    {
+                        [styles.pickerLarge]:
+                            size === DatePickerSize.Flex && xSmallScreenActive,
+                    },
+                    { [styles.pickerLarge]: size === DatePickerSize.Large },
+                    { [styles.pickerMedium]: size === DatePickerSize.Medium },
+                    { [styles.pickerSmall]: size === DatePickerSize.Small },
                     classNames,
                     {
                         ['picker-partial-has-range']:

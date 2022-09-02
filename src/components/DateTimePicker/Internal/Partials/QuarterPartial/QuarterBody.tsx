@@ -4,11 +4,18 @@ import { formatValue, isSameQuarter } from '../../Utils/dateUtil';
 import RangeContext from '../../RangeContext';
 import useCellClassNames from '../../Hooks/useCellClassNames';
 import PartialBody from '../PartialBody';
+import { DatePickerSize } from '../../OcPicker.types';
 
 const QUARTER_ROW_COUNT: number = 1;
 
 function QuarterBody<DateType>(props: QuarterBodyProps<DateType>) {
-    const { locale, value, viewDate, generateConfig, size = 'Small' } = props;
+    const {
+        locale,
+        value,
+        viewDate,
+        generateConfig,
+        size = DatePickerSize.Medium,
+    } = props;
 
     const { rangedValue, hoverRangedValue } = React.useContext(RangeContext);
 

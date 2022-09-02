@@ -6,7 +6,6 @@ import {
     TextInput,
     TextInputShape,
     TextInputSize,
-    TextInputTheme,
     TextInputWidth,
 } from '../index';
 
@@ -127,10 +126,6 @@ export default {
             ],
             control: { type: 'radio' },
         },
-        theme: {
-            options: ['light', 'dark'],
-            control: { type: 'inline-radio' },
-        },
         value: {
             control: { type: 'text' },
         },
@@ -183,9 +178,8 @@ Text_Input.args = {
     numbersOnly: false,
     placeholder: 'Placeholder text',
     required: false,
-    size: TextInputSize.Flex,
-    shape: TextInputShape.Pill,
+    size: TextInputSize.Medium,
+    shape: TextInputShape.Rectangle,
     style: {},
-    theme: TextInputTheme.light,
     waitInterval: 10,
 };

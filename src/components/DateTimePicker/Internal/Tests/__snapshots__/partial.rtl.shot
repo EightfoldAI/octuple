@@ -4,7 +4,7 @@ exports[`Picker.Partial should render month correctly in rtl 1`] = `
 LoadedCheerio {
   "0": Node {
     "attribs": Object {
-      "class": "picker-partial picker-small picker-partial-rtl",
+      "class": "picker-partial picker-medium picker-partial-rtl",
       "tabindex": "0",
     },
     "children": Array [
@@ -21,7 +21,7 @@ LoadedCheerio {
               Node {
                 "attribs": Object {
                   "aria-disabled": "false",
-                  "class": "picker-header-super-prev-btn button button-neutral button-small pill-shape icon-left",
+                  "class": "picker-header-super-prev-btn button button-neutral button-medium pill-shape icon-left",
                 },
                 "children": Array [
                   Node {
@@ -34,7 +34,7 @@ LoadedCheerio {
                       Node {
                         "attribs": Object {
                           "role": "presentation",
-                          "style": "width: 16px; height: 16px;",
+                          "style": "width: 20px; height: 20px;",
                           "viewBox": "0 0 24 24",
                         },
                         "children": Array [
@@ -106,12 +106,12 @@ LoadedCheerio {
                     Node {
                       "attribs": Object {
                         "aria-disabled": "false",
-                        "class": "picker-year-btn button button-neutral button-small pill-shape",
+                        "class": "picker-year-btn button button-neutral button-medium pill-shape",
                       },
                       "children": Array [
                         Node {
                           "attribs": Object {
-                            "class": "button-text-small",
+                            "class": "button-text-medium",
                           },
                           "children": Array [
                             Node {
@@ -157,7 +157,7 @@ LoadedCheerio {
                   "next": Node {
                     "attribs": Object {
                       "aria-disabled": "false",
-                      "class": "picker-header-super-next-btn button button-neutral button-small pill-shape icon-left",
+                      "class": "picker-header-super-next-btn button button-neutral button-medium pill-shape icon-left",
                     },
                     "children": Array [
                       Node {
@@ -170,7 +170,7 @@ LoadedCheerio {
                           Node {
                             "attribs": Object {
                               "role": "presentation",
-                              "style": "width: 16px; height: 16px;",
+                              "style": "width: 20px; height: 20px;",
                               "viewBox": "0 0 24 24",
                             },
                             "children": Array [
@@ -277,12 +277,12 @@ LoadedCheerio {
                   Node {
                     "attribs": Object {
                       "aria-disabled": "false",
-                      "class": "picker-year-btn button button-neutral button-small pill-shape",
+                      "class": "picker-year-btn button button-neutral button-medium pill-shape",
                     },
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "class": "button-text-small",
+                          "class": "button-text-medium",
                         },
                         "children": Array [
                           Node {
@@ -328,7 +328,7 @@ LoadedCheerio {
                 "next": Node {
                   "attribs": Object {
                     "aria-disabled": "false",
-                    "class": "picker-header-super-next-btn button button-neutral button-small pill-shape icon-left",
+                    "class": "picker-header-super-next-btn button button-neutral button-medium pill-shape icon-left",
                   },
                   "children": Array [
                     Node {
@@ -341,7 +341,7 @@ LoadedCheerio {
                         Node {
                           "attribs": Object {
                             "role": "presentation",
-                            "style": "width: 16px; height: 16px;",
+                            "style": "width: 20px; height: 20px;",
                             "viewBox": "0 0 24 24",
                           },
                           "children": Array [
@@ -422,7 +422,7 @@ LoadedCheerio {
                 "prev": Node {
                   "attribs": Object {
                     "aria-disabled": "false",
-                    "class": "picker-header-super-prev-btn button button-neutral button-small pill-shape icon-left",
+                    "class": "picker-header-super-prev-btn button button-neutral button-medium pill-shape icon-left",
                   },
                   "children": Array [
                     Node {
@@ -435,7 +435,7 @@ LoadedCheerio {
                         Node {
                           "attribs": Object {
                             "role": "presentation",
-                            "style": "width: 16px; height: 16px;",
+                            "style": "width: 20px; height: 20px;",
                             "viewBox": "0 0 24 24",
                           },
                           "children": Array [
@@ -523,7 +523,7 @@ LoadedCheerio {
               Node {
                 "attribs": Object {
                   "aria-disabled": "false",
-                  "class": "picker-header-super-next-btn button button-neutral button-small pill-shape icon-left",
+                  "class": "picker-header-super-next-btn button button-neutral button-medium pill-shape icon-left",
                 },
                 "children": Array [
                   Node {
@@ -536,7 +536,7 @@ LoadedCheerio {
                       Node {
                         "attribs": Object {
                           "role": "presentation",
-                          "style": "width: 16px; height: 16px;",
+                          "style": "width: 20px; height: 20px;",
                           "viewBox": "0 0 24 24",
                         },
                         "children": Array [
@@ -610,12 +610,12 @@ LoadedCheerio {
                     Node {
                       "attribs": Object {
                         "aria-disabled": "false",
-                        "class": "picker-year-btn button button-neutral button-small pill-shape",
+                        "class": "picker-year-btn button button-neutral button-medium pill-shape",
                       },
                       "children": Array [
                         Node {
                           "attribs": Object {
-                            "class": "button-text-small",
+                            "class": "button-text-medium",
                           },
                           "children": Array [
                             Node {
@@ -663,7 +663,7 @@ LoadedCheerio {
                   "prev": Node {
                     "attribs": Object {
                       "aria-disabled": "false",
-                      "class": "picker-header-super-prev-btn button button-neutral button-small pill-shape icon-left",
+                      "class": "picker-header-super-prev-btn button button-neutral button-medium pill-shape icon-left",
                     },
                     "children": Array [
                       Node {
@@ -676,7 +676,7 @@ LoadedCheerio {
                           Node {
                             "attribs": Object {
                               "role": "presentation",
-                              "style": "width: 16px; height: 16px;",
+                              "style": "width: 20px; height: 20px;",
                               "viewBox": "0 0 24 24",
                             },
                             "children": Array [
@@ -776,7 +776,7 @@ LoadedCheerio {
             "namespace": "http://www.w3.org/1999/xhtml",
             "next": Node {
               "attribs": Object {
-                "class": "picker-body picker-small",
+                "class": "picker-body picker-medium",
               },
               "children": Array [
                 Node {
@@ -7849,7 +7849,7 @@ LoadedCheerio {
           },
           Node {
             "attribs": Object {
-              "class": "picker-body picker-small",
+              "class": "picker-body picker-medium",
             },
             "children": Array [
               Node {
@@ -14909,7 +14909,7 @@ LoadedCheerio {
                 Node {
                   "attribs": Object {
                     "aria-disabled": "false",
-                    "class": "picker-header-super-prev-btn button button-neutral button-small pill-shape icon-left",
+                    "class": "picker-header-super-prev-btn button button-neutral button-medium pill-shape icon-left",
                   },
                   "children": Array [
                     Node {
@@ -14922,7 +14922,7 @@ LoadedCheerio {
                         Node {
                           "attribs": Object {
                             "role": "presentation",
-                            "style": "width: 16px; height: 16px;",
+                            "style": "width: 20px; height: 20px;",
                             "viewBox": "0 0 24 24",
                           },
                           "children": Array [
@@ -14994,12 +14994,12 @@ LoadedCheerio {
                       Node {
                         "attribs": Object {
                           "aria-disabled": "false",
-                          "class": "picker-year-btn button button-neutral button-small pill-shape",
+                          "class": "picker-year-btn button button-neutral button-medium pill-shape",
                         },
                         "children": Array [
                           Node {
                             "attribs": Object {
-                              "class": "button-text-small",
+                              "class": "button-text-medium",
                             },
                             "children": Array [
                               Node {
@@ -15045,7 +15045,7 @@ LoadedCheerio {
                     "next": Node {
                       "attribs": Object {
                         "aria-disabled": "false",
-                        "class": "picker-header-super-next-btn button button-neutral button-small pill-shape icon-left",
+                        "class": "picker-header-super-next-btn button button-neutral button-medium pill-shape icon-left",
                       },
                       "children": Array [
                         Node {
@@ -15058,7 +15058,7 @@ LoadedCheerio {
                             Node {
                               "attribs": Object {
                                 "role": "presentation",
-                                "style": "width: 16px; height: 16px;",
+                                "style": "width: 20px; height: 20px;",
                                 "viewBox": "0 0 24 24",
                               },
                               "children": Array [
@@ -15165,12 +15165,12 @@ LoadedCheerio {
                     Node {
                       "attribs": Object {
                         "aria-disabled": "false",
-                        "class": "picker-year-btn button button-neutral button-small pill-shape",
+                        "class": "picker-year-btn button button-neutral button-medium pill-shape",
                       },
                       "children": Array [
                         Node {
                           "attribs": Object {
-                            "class": "button-text-small",
+                            "class": "button-text-medium",
                           },
                           "children": Array [
                             Node {
@@ -15216,7 +15216,7 @@ LoadedCheerio {
                   "next": Node {
                     "attribs": Object {
                       "aria-disabled": "false",
-                      "class": "picker-header-super-next-btn button button-neutral button-small pill-shape icon-left",
+                      "class": "picker-header-super-next-btn button button-neutral button-medium pill-shape icon-left",
                     },
                     "children": Array [
                       Node {
@@ -15229,7 +15229,7 @@ LoadedCheerio {
                           Node {
                             "attribs": Object {
                               "role": "presentation",
-                              "style": "width: 16px; height: 16px;",
+                              "style": "width: 20px; height: 20px;",
                               "viewBox": "0 0 24 24",
                             },
                             "children": Array [
@@ -15310,7 +15310,7 @@ LoadedCheerio {
                   "prev": Node {
                     "attribs": Object {
                       "aria-disabled": "false",
-                      "class": "picker-header-super-prev-btn button button-neutral button-small pill-shape icon-left",
+                      "class": "picker-header-super-prev-btn button button-neutral button-medium pill-shape icon-left",
                     },
                     "children": Array [
                       Node {
@@ -15323,7 +15323,7 @@ LoadedCheerio {
                           Node {
                             "attribs": Object {
                               "role": "presentation",
-                              "style": "width: 16px; height: 16px;",
+                              "style": "width: 20px; height: 20px;",
                               "viewBox": "0 0 24 24",
                             },
                             "children": Array [
@@ -15411,7 +15411,7 @@ LoadedCheerio {
                 Node {
                   "attribs": Object {
                     "aria-disabled": "false",
-                    "class": "picker-header-super-next-btn button button-neutral button-small pill-shape icon-left",
+                    "class": "picker-header-super-next-btn button button-neutral button-medium pill-shape icon-left",
                   },
                   "children": Array [
                     Node {
@@ -15424,7 +15424,7 @@ LoadedCheerio {
                         Node {
                           "attribs": Object {
                             "role": "presentation",
-                            "style": "width: 16px; height: 16px;",
+                            "style": "width: 20px; height: 20px;",
                             "viewBox": "0 0 24 24",
                           },
                           "children": Array [
@@ -15498,12 +15498,12 @@ LoadedCheerio {
                       Node {
                         "attribs": Object {
                           "aria-disabled": "false",
-                          "class": "picker-year-btn button button-neutral button-small pill-shape",
+                          "class": "picker-year-btn button button-neutral button-medium pill-shape",
                         },
                         "children": Array [
                           Node {
                             "attribs": Object {
-                              "class": "button-text-small",
+                              "class": "button-text-medium",
                             },
                             "children": Array [
                               Node {
@@ -15551,7 +15551,7 @@ LoadedCheerio {
                     "prev": Node {
                       "attribs": Object {
                         "aria-disabled": "false",
-                        "class": "picker-header-super-prev-btn button button-neutral button-small pill-shape icon-left",
+                        "class": "picker-header-super-prev-btn button button-neutral button-medium pill-shape icon-left",
                       },
                       "children": Array [
                         Node {
@@ -15564,7 +15564,7 @@ LoadedCheerio {
                             Node {
                               "attribs": Object {
                                 "role": "presentation",
-                                "style": "width: 16px; height: 16px;",
+                                "style": "width: 20px; height: 20px;",
                                 "viewBox": "0 0 24 24",
                               },
                               "children": Array [

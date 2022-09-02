@@ -51,6 +51,7 @@ import getRanges from './Utils/getRanges';
 import useRangeViewDates from './Hooks/useRangeViewDates';
 import type { DateRender } from './Partials/DatePartial/Date.types';
 import useHoverValue from './Hooks/useHoverValue';
+import { DatePickerShape, DatePickerSize } from './OcPicker.types';
 
 import styles from './ocpicker.module.scss';
 
@@ -155,7 +156,8 @@ function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
         direction,
         activePickerIndex,
         autoComplete = 'off',
-        size = 'Small',
+        shape = DatePickerShape.Rectangle,
+        size = DatePickerSize.Medium,
     } = props as MergedOcRangePickerProps<DateType>;
 
     const needConfirmButton: boolean =
@@ -1094,8 +1096,23 @@ function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
         endInputDivRef.current &&
         separatorRef.current
     ) {
-        if (mergedActivePickerIndex === 0) {
-            activeBarWidth = startInputDivRef.current.offsetWidth;
+        if (
+            mergedActivePickerIndex === 0 &&
+            shape === DatePickerShape.Underline
+        ) {
+            activeBarWidth = startInputDivRef.current.offsetWidth + 20;
+        } else if (
+            mergedActivePickerIndex === 0 &&
+            shape === DatePickerShape.Pill
+        ) {
+            activeBarLeft = 14;
+            activeBarWidth = startInputDivRef.current.offsetWidth - 14;
+        } else if (mergedActivePickerIndex === 0) {
+            activeBarLeft = 8;
+            activeBarWidth = startInputDivRef.current.offsetWidth - 8;
+        } else if (shape === DatePickerShape.Underline) {
+            activeBarLeft = arrowLeft;
+            activeBarWidth = endInputDivRef.current.offsetWidth + 20;
         } else {
             activeBarLeft = arrowLeft;
             activeBarWidth = endInputDivRef.current.offsetWidth;
@@ -1158,6 +1175,10 @@ function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
                         styles.picker,
                         styles.pickerRange,
                         classNames,
+                        {
+                            [styles.pickerUnderline]:
+                                shape === DatePickerShape.Underline,
+                        },
                         {
                             [styles.pickerDisabled]:
                                 mergedDisabled[0] && mergedDisabled[1],

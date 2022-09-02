@@ -9,7 +9,7 @@ LoadedCheerio {
     "children": Array [
       Node {
         "attribs": Object {
-          "class": "table table table-alternate",
+          "class": "table table table-medium table-alternate",
         },
         "children": Array [
           Node {
@@ -3677,7 +3677,7 @@ LoadedCheerio {
     "children": Array [
       Node {
         "attribs": Object {
-          "class": "table table table-alternate",
+          "class": "table table table-medium table-alternate",
         },
         "children": Array [
           Node {
@@ -7345,7 +7345,7 @@ LoadedCheerio {
     "children": Array [
       Node {
         "attribs": Object {
-          "class": "table table table-alternate",
+          "class": "table table table-medium table-alternate",
         },
         "children": Array [
           Node {

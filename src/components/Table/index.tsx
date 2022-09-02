@@ -11,6 +11,7 @@ export {
     SorterResult,
     TableProps,
     TableRowSelection,
+    TableSize,
 } from './Table.types';
 export { TablePaginationConfig };
 

@@ -4,8 +4,8 @@ import {
     BaseButton,
     ButtonIconAlign,
     ButtonProps,
-    ButtonSize,
     ButtonShape,
+    ButtonSize,
     ButtonTextAlign,
     ButtonType,
 } from '../';
@@ -30,9 +30,8 @@ export const SecondaryButton: FC<ButtonProps> = React.forwardRef(
             iconProps,
             onClick,
             text,
-            theme,
             shape = ButtonShape.Pill,
-            size = ButtonSize.Flex,
+            size = ButtonSize.Medium,
             split,
             splitButtonChecked = false,
             splitButtonProps,
@@ -75,7 +74,6 @@ export const SecondaryButton: FC<ButtonProps> = React.forwardRef(
                 splitButtonProps={splitButtonProps}
                 style={style}
                 text={text}
-                theme={theme}
                 toggle={toggle}
                 type={ButtonType.Secondary}
                 buttonWidth={buttonWidth}

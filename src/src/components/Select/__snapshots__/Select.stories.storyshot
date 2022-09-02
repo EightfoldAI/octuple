@@ -9,7 +9,7 @@ exports[`Storyshots Select Basic 1`] = `
   }
 >
   <div
-    className="select-wrapper octuple-select-class"
+    className="select-wrapper select-medium octuple-select-class"
     data-test-id="octuple-select-test-id"
     style={
       Object {
@@ -21,20 +21,20 @@ exports[`Storyshots Select Basic 1`] = `
       className="select-dropdown-main-wrapper main-wrapper"
     >
       <div
-        className="input-wrapper input-stretch right-icon"
+        className="input-wrapper input-medium input-stretch right-icon"
       >
         <div
           className="input-group right-icon"
         >
           <input
-            aria-controls="dropdown-32"
+            aria-controls="dropdown-121"
             aria-disabled={false}
             aria-expanded={false}
             aria-haspopup={true}
             autoFocus={false}
-            className="select-input with-icon-button input-stretch right-icon clear-disabled clear-not-visible"
+            className="select-input input-medium with-icon-button input-stretch right-icon clear-disabled clear-not-visible"
             disabled={false}
-            id="input-33"
+            id="input-122"
             onChange={[Function]}
             onClick={[Function]}
             placeholder="Select"
@@ -47,7 +47,7 @@ exports[`Storyshots Select Basic 1`] = `
           />
           <button
             aria-disabled={false}
-            className="icon-button right-icon button button-default pill-shape icon-left"
+            className="icon-button right-icon button button-default button-medium pill-shape icon-left"
             defaultChecked={false}
             disabled={false}
             onClick={[Function]}
@@ -94,7 +94,7 @@ exports[`Storyshots Select Disabled 1`] = `
   }
 >
   <div
-    className="select-wrapper octuple-select-class"
+    className="select-wrapper select-medium select-wrapper-disabled octuple-select-class"
     data-test-id="octuple-select-test-id"
     style={
       Object {
@@ -106,20 +106,20 @@ exports[`Storyshots Select Disabled 1`] = `
       className="select-dropdown-main-wrapper main-wrapper"
     >
       <div
-        className="input-wrapper input-stretch right-icon disabled"
+        className="input-wrapper input-medium input-stretch right-icon disabled"
       >
         <div
           className="input-group right-icon"
         >
           <input
-            aria-controls="dropdown-34"
+            aria-controls="dropdown-123"
             aria-disabled={true}
             aria-expanded={false}
             aria-haspopup={true}
             autoFocus={false}
-            className="select-input with-icon-button input-stretch right-icon clear-disabled clear-not-visible"
+            className="select-input input-medium with-icon-button input-stretch right-icon clear-disabled clear-not-visible"
             disabled={true}
-            id="input-35"
+            id="input-124"
             onChange={[Function]}
             onClick={[Function]}
             placeholder="Select"
@@ -131,10 +131,10 @@ exports[`Storyshots Select Disabled 1`] = `
             value=""
           />
           <button
-            aria-disabled={false}
-            className="icon-button right-icon button button-default pill-shape icon-left"
+            aria-disabled={true}
+            className="icon-button right-icon button button-default button-medium pill-shape icon-left disabled"
             defaultChecked={false}
-            disabled={false}
+            disabled={true}
             onClick={[Function]}
           >
             <span
@@ -179,7 +179,7 @@ exports[`Storyshots Select Dynamic 1`] = `
   }
 >
   <div
-    className="select-wrapper octuple-select-class"
+    className="select-wrapper select-medium octuple-select-class"
     data-test-id="octuple-select-test-id"
     style={
       Object {
@@ -191,20 +191,20 @@ exports[`Storyshots Select Dynamic 1`] = `
       className="select-dropdown-main-wrapper main-wrapper"
     >
       <div
-        className="input-wrapper input-stretch right-icon"
+        className="input-wrapper input-medium input-stretch right-icon"
       >
         <div
           className="input-group right-icon"
         >
           <input
-            aria-controls="dropdown-36"
+            aria-controls="dropdown-125"
             aria-disabled={false}
             aria-expanded={false}
             aria-haspopup={true}
             autoFocus={false}
-            className="select-input with-icon-button input-stretch right-icon clear-not-visible"
+            className="select-input input-medium with-icon-button input-stretch right-icon clear-not-visible"
             disabled={false}
-            id="input-37"
+            id="input-126"
             onChange={[Function]}
             onClick={[Function]}
             placeholder="Select"
@@ -217,7 +217,7 @@ exports[`Storyshots Select Dynamic 1`] = `
           />
           <button
             aria-disabled={false}
-            className="icon-button right-icon button button-default pill-shape icon-left"
+            className="icon-button right-icon button button-default button-medium pill-shape icon-left"
             defaultChecked={false}
             disabled={false}
             onClick={[Function]}
@@ -264,7 +264,7 @@ exports[`Storyshots Select Dynamic Width 1`] = `
   }
 >
   <div
-    className="select-wrapper octuple-select-class"
+    className="select-wrapper select-medium octuple-select-class"
     data-test-id="octuple-select-test-id"
     style={
       Object {
@@ -276,20 +276,20 @@ exports[`Storyshots Select Dynamic Width 1`] = `
       className="select-dropdown-main-wrapper main-wrapper"
     >
       <div
-        className="input-wrapper input-stretch right-icon"
+        className="input-wrapper input-medium input-stretch right-icon"
       >
         <div
           className="input-group right-icon"
         >
           <input
-            aria-controls="dropdown-38"
+            aria-controls="dropdown-127"
             aria-disabled={false}
             aria-expanded={false}
             aria-haspopup={true}
             autoFocus={false}
-            className="select-input with-icon-button input-stretch right-icon clear-disabled clear-not-visible"
+            className="select-input input-medium with-icon-button input-stretch right-icon clear-disabled clear-not-visible"
             disabled={false}
-            id="input-39"
+            id="input-128"
             onChange={[Function]}
             onClick={[Function]}
             placeholder="Select"
@@ -302,7 +302,7 @@ exports[`Storyshots Select Dynamic Width 1`] = `
           />
           <button
             aria-disabled={false}
-            className="icon-button right-icon button button-default pill-shape icon-left"
+            className="icon-button right-icon button button-default button-medium pill-shape icon-left"
             defaultChecked={false}
             disabled={false}
             onClick={[Function]}
@@ -349,7 +349,7 @@ exports[`Storyshots Select Filterable 1`] = `
   }
 >
   <div
-    className="select-wrapper octuple-select-class"
+    className="select-wrapper select-medium octuple-select-class"
     data-test-id="octuple-select-test-id"
     style={
       Object {
@@ -361,20 +361,20 @@ exports[`Storyshots Select Filterable 1`] = `
       className="select-dropdown-main-wrapper main-wrapper"
     >
       <div
-        className="input-wrapper input-stretch right-icon"
+        className="input-wrapper input-medium input-stretch right-icon"
       >
         <div
           className="input-group right-icon"
         >
           <input
-            aria-controls="dropdown-40"
+            aria-controls="dropdown-129"
             aria-disabled={false}
             aria-expanded={false}
             aria-haspopup={true}
             autoFocus={false}
-            className="select-input with-icon-button input-stretch right-icon clear-not-visible"
+            className="select-input input-medium with-icon-button input-stretch right-icon clear-not-visible"
             disabled={false}
-            id="input-41"
+            id="input-130"
             onChange={[Function]}
             onClick={[Function]}
             placeholder="Select"
@@ -387,7 +387,7 @@ exports[`Storyshots Select Filterable 1`] = `
           />
           <button
             aria-disabled={false}
-            className="icon-button right-icon button button-default pill-shape icon-left"
+            className="icon-button right-icon button button-default button-medium pill-shape icon-left"
             defaultChecked={false}
             disabled={false}
             onClick={[Function]}
@@ -434,7 +434,7 @@ exports[`Storyshots Select Multiple 1`] = `
   }
 >
   <div
-    className="select-wrapper octuple-select-class"
+    className="select-wrapper select-medium octuple-select-class"
     data-test-id="octuple-select-test-id"
     style={
       Object {
@@ -446,20 +446,20 @@ exports[`Storyshots Select Multiple 1`] = `
       className="select-dropdown-main-wrapper main-wrapper"
     >
       <div
-        className="input-wrapper input-stretch right-icon"
+        className="input-wrapper input-medium input-stretch right-icon"
       >
         <div
           className="input-group right-icon"
         >
           <input
-            aria-controls="dropdown-42"
+            aria-controls="dropdown-131"
             aria-disabled={false}
             aria-expanded={false}
             aria-haspopup={true}
             autoFocus={false}
-            className="select-input with-icon-button input-stretch right-icon clear-not-visible"
+            className="select-input input-medium with-icon-button input-stretch right-icon clear-not-visible"
             disabled={false}
-            id="input-43"
+            id="input-132"
             onChange={[Function]}
             onClick={[Function]}
             placeholder="Select"
@@ -472,7 +472,7 @@ exports[`Storyshots Select Multiple 1`] = `
           />
           <button
             aria-disabled={false}
-            className="icon-button right-icon button button-default pill-shape icon-left"
+            className="icon-button right-icon button button-default button-medium pill-shape icon-left"
             defaultChecked={false}
             disabled={false}
             onClick={[Function]}
@@ -519,7 +519,7 @@ exports[`Storyshots Select Multiple With No Filter 1`] = `
   }
 >
   <div
-    className="select-wrapper octuple-select-class"
+    className="select-wrapper select-medium octuple-select-class"
     data-test-id="octuple-select-test-id"
     style={
       Object {
@@ -531,20 +531,20 @@ exports[`Storyshots Select Multiple With No Filter 1`] = `
       className="select-dropdown-main-wrapper main-wrapper"
     >
       <div
-        className="input-wrapper input-stretch right-icon"
+        className="input-wrapper input-medium input-stretch right-icon"
       >
         <div
           className="input-group right-icon"
         >
           <input
-            aria-controls="dropdown-44"
+            aria-controls="dropdown-133"
             aria-disabled={false}
             aria-expanded={false}
             aria-haspopup={true}
             autoFocus={false}
-            className="select-input with-icon-button input-stretch right-icon clear-not-visible"
+            className="select-input input-medium with-icon-button input-stretch right-icon clear-not-visible"
             disabled={false}
-            id="input-45"
+            id="input-134"
             onChange={[Function]}
             onClick={[Function]}
             placeholder="Select"
@@ -557,7 +557,7 @@ exports[`Storyshots Select Multiple With No Filter 1`] = `
           />
           <button
             aria-disabled={false}
-            className="icon-button right-icon button button-default pill-shape icon-left"
+            className="icon-button right-icon button button-default button-medium pill-shape icon-left"
             defaultChecked={false}
             disabled={false}
             onClick={[Function]}
@@ -604,7 +604,7 @@ exports[`Storyshots Select Options Disabled 1`] = `
   }
 >
   <div
-    className="select-wrapper octuple-select-class"
+    className="select-wrapper select-medium octuple-select-class"
     data-test-id="octuple-select-test-id"
     style={
       Object {
@@ -616,20 +616,20 @@ exports[`Storyshots Select Options Disabled 1`] = `
       className="select-dropdown-main-wrapper main-wrapper"
     >
       <div
-        className="input-wrapper input-stretch right-icon"
+        className="input-wrapper input-medium input-stretch right-icon"
       >
         <div
           className="input-group right-icon"
         >
           <input
-            aria-controls="dropdown-46"
+            aria-controls="dropdown-135"
             aria-disabled={false}
             aria-expanded={false}
             aria-haspopup={true}
             autoFocus={false}
-            className="select-input with-icon-button input-stretch right-icon clear-disabled clear-not-visible"
+            className="select-input input-medium with-icon-button input-stretch right-icon clear-disabled clear-not-visible"
             disabled={false}
-            id="input-47"
+            id="input-136"
             onChange={[Function]}
             onClick={[Function]}
             placeholder="Select"
@@ -642,7 +642,7 @@ exports[`Storyshots Select Options Disabled 1`] = `
           />
           <button
             aria-disabled={false}
-            className="icon-button right-icon button button-default pill-shape icon-left"
+            className="icon-button right-icon button button-default button-medium pill-shape icon-left"
             defaultChecked={false}
             disabled={false}
             onClick={[Function]}
@@ -689,7 +689,7 @@ exports[`Storyshots Select With Clear 1`] = `
   }
 >
   <div
-    className="select-wrapper octuple-select-class"
+    className="select-wrapper select-medium octuple-select-class"
     data-test-id="octuple-select-test-id"
     style={
       Object {
@@ -701,20 +701,20 @@ exports[`Storyshots Select With Clear 1`] = `
       className="select-dropdown-main-wrapper main-wrapper"
     >
       <div
-        className="input-wrapper input-stretch right-icon"
+        className="input-wrapper input-medium input-stretch right-icon"
       >
         <div
           className="input-group right-icon"
         >
           <input
-            aria-controls="dropdown-48"
+            aria-controls="dropdown-137"
             aria-disabled={false}
             aria-expanded={false}
             aria-haspopup={true}
             autoFocus={false}
-            className="select-input with-icon-button input-stretch right-icon clear-not-visible"
+            className="select-input input-medium with-icon-button input-stretch right-icon clear-not-visible"
             disabled={false}
-            id="input-49"
+            id="input-138"
             onChange={[Function]}
             onClick={[Function]}
             placeholder="Select"
@@ -727,7 +727,7 @@ exports[`Storyshots Select With Clear 1`] = `
           />
           <button
             aria-disabled={false}
-            className="icon-button right-icon button button-default pill-shape icon-left"
+            className="icon-button right-icon button button-default button-medium pill-shape icon-left"
             defaultChecked={false}
             disabled={false}
             onClick={[Function]}
@@ -774,7 +774,7 @@ exports[`Storyshots Select With Default Value 1`] = `
   }
 >
   <div
-    className="select-wrapper octuple-select-class"
+    className="select-wrapper select-medium octuple-select-class"
     data-test-id="octuple-select-test-id"
     style={
       Object {
@@ -786,20 +786,20 @@ exports[`Storyshots Select With Default Value 1`] = `
       className="select-dropdown-main-wrapper main-wrapper"
     >
       <div
-        className="input-wrapper input-stretch right-icon"
+        className="input-wrapper input-medium input-stretch right-icon"
       >
         <div
           className="input-group right-icon"
         >
           <input
-            aria-controls="dropdown-50"
+            aria-controls="dropdown-139"
             aria-disabled={false}
             aria-expanded={false}
             aria-haspopup={true}
             autoFocus={false}
-            className="select-input with-icon-button input-stretch right-icon clear-disabled clear-not-visible"
+            className="select-input input-medium with-icon-button input-stretch right-icon clear-disabled clear-not-visible"
             disabled={false}
-            id="input-51"
+            id="input-140"
             onChange={[Function]}
             onClick={[Function]}
             placeholder="Select"
@@ -812,7 +812,7 @@ exports[`Storyshots Select With Default Value 1`] = `
           />
           <button
             aria-disabled={false}
-            className="icon-button right-icon button button-default pill-shape icon-left"
+            className="icon-button right-icon button button-default button-medium pill-shape icon-left"
             defaultChecked={false}
             disabled={false}
             onClick={[Function]}

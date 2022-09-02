@@ -6,7 +6,6 @@ import {
     ButtonShape,
     ButtonSize,
     ButtonTextAlign,
-    ButtonTheme,
     ButtonWidth,
     TwoStateButton,
 } from '../';
@@ -43,6 +42,14 @@ export default {
         },
         onClick: {
             action: 'click',
+        },
+        shape: {
+            options: [
+                ButtonShape.Rectangle,
+                ButtonShape.Pill,
+                ButtonShape.Round,
+            ],
+            control: { type: 'inline-radio' },
         },
         size: {
             options: [
@@ -101,9 +108,8 @@ Two_State_Button.args = {
     },
     id: 'myTwoStateButton',
     shape: ButtonShape.Pill,
-    size: ButtonSize.Flex,
+    size: ButtonSize.Medium,
     style: {},
     text: 'Two State Button',
-    theme: ButtonTheme.light,
     toggle: true,
 };

@@ -9,7 +9,7 @@ LoadedCheerio {
     "children": Array [
       Node {
         "attribs": Object {
-          "class": "table table-fixed-column table-scroll-horizontal table-has-fix-left table table-alternate table-empty",
+          "class": "table table-fixed-column table-scroll-horizontal table-has-fix-left table table-medium table-alternate table-empty",
         },
         "children": Array [
           Node {

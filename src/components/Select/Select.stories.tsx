@@ -169,6 +169,8 @@ export const Dynamic: SelectStory = Dynamic_Story.bind({});
 const SelectArgs: SelectProps = {
     classNames: 'octuple-select-class',
     'data-test-id': 'octuple-select-test-id',
+    shape: SelectShape.Rectangle,
+    size: SelectSize.Medium,
     style: {
         width: 256,
     },
@@ -193,6 +195,7 @@ With_DefaultValue.args = {
 
 Disabled.args = {
     ...With_DefaultValue.args,
+    disabled: true,
     textInputProps: {
         ...With_DefaultValue.args.textInputProps,
         disabled: true,

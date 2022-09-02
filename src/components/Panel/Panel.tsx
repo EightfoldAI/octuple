@@ -11,6 +11,7 @@ import { IconName } from '../Icon';
 import { NeutralButton } from '../Button';
 import { Portal } from '../Portal';
 import { useScrollLock } from '../../hooks/useScrollLock';
+import { NoFormStyle } from '../Form/Context';
 
 import styles from './panel.module.scss';
 
@@ -214,27 +215,29 @@ export const Panel = React.forwardRef<PanelRef, PanelProps>(
 
         const getPanel = (): JSX.Element => (
             <PanelContext.Provider value={operations}>
-                <div
-                    {...rest}
-                    tabIndex={-1}
-                    ref={containerRef}
-                    className={panelBackdropClasses}
-                    onClick={(e: React.MouseEvent<HTMLDivElement>) => {
-                        maskClosable && onClose(e);
-                    }}
-                    aria-hidden={!visible}
-                >
+                <NoFormStyle status override>
                     <div
-                        ref={panelRef}
-                        className={panelClasses}
-                        onClick={stopPropagation}
-                        style={getPanelStyle()}
+                        {...rest}
+                        tabIndex={-1}
+                        ref={containerRef}
+                        className={panelBackdropClasses}
+                        onClick={(e: React.MouseEvent<HTMLDivElement>) => {
+                            maskClosable && onClose(e);
+                        }}
+                        aria-hidden={!visible}
                     >
-                        {getHeader()}
-                        {getBody()}
-                        {getFooter()}
+                        <div
+                            ref={panelRef}
+                            className={panelClasses}
+                            onClick={stopPropagation}
+                            style={getPanelStyle()}
+                        >
+                            {getHeader()}
+                            {getBody()}
+                            {getFooter()}
+                        </div>
                     </div>
-                </div>
+                </NoFormStyle>
             </PanelContext.Provider>
         );
 

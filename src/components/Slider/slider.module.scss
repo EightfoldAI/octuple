@@ -167,7 +167,30 @@ $marker-top: $vertical-center - calc($marker-height / 2);
 }
 
 .slider-disabled {
+    cursor: not-allowed;
+
     .slider {
-        opacity: 0.5;
+        opacity: $disabled-alpha-value;
+        pointer-events: none;
+    }
+
+    .thumb {
+        &:focus::-webkit-slider-thumb {
+            cursor: not-allowed;
+        }
+
+        // For Chrome browsers
+        &::-webkit-slider-thumb {
+            cursor: not-allowed;
+        }
+
+        // For Firefox browsers
+        &::-moz-range-thumb {
+            cursor: not-allowed;
+        }
+
+        &:focus::-moz-range-thumb {
+            cursor: not-allowed;
+        }
     }
 }

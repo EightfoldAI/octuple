@@ -4,6 +4,8 @@ import { mergeClasses } from '../../../../shared/utilities';
 import PartialContext from '../PartialContext';
 import { getLastDay } from '../Utils/timeUtil';
 import { getCellDateDisabled } from '../Utils/dateUtil';
+import { Breakpoints, useMatchMedia } from '../../../../hooks/useMatchMedia';
+import { DatePickerSize } from '../OcPicker.types';
 
 import styles from '../ocpicker.module.scss';
 
@@ -22,8 +24,12 @@ export default function PartialBody<DateType>({
     generateConfig,
     titleCell,
     headerCells,
-    size = 'Small',
+    size = DatePickerSize.Medium,
 }: PartialBodyProps<DateType>) {
+    const largeScreenActive: boolean = useMatchMedia(Breakpoints.Large);
+    const mediumScreenActive: boolean = useMatchMedia(Breakpoints.Medium);
+    const smallScreenActive: boolean = useMatchMedia(Breakpoints.Small);
+    const xSmallScreenActive: boolean = useMatchMedia(Breakpoints.XSmall);
     const { onDateMouseEnter, onDateMouseLeave, mode } =
         React.useContext(PartialContext);
 
@@ -105,9 +111,25 @@ export default function PartialBody<DateType>({
 
     const pickerBodyClassNames: string = mergeClasses([
         styles.pickerBody,
-        { [styles.pickerLarge]: size === 'Large' },
-        { [styles.pickerMedium]: size === 'Medium' },
-        { [styles.pickerSmall]: size === 'Small' },
+        {
+            [styles.pickerSmall]:
+                size === DatePickerSize.Flex && largeScreenActive,
+        },
+        {
+            [styles.pickerMedium]:
+                size === DatePickerSize.Flex && mediumScreenActive,
+        },
+        {
+            [styles.pickerMedium]:
+                size === DatePickerSize.Flex && smallScreenActive,
+        },
+        {
+            [styles.pickerLarge]:
+                size === DatePickerSize.Flex && xSmallScreenActive,
+        },
+        { [styles.pickerLarge]: size === DatePickerSize.Large },
+        { [styles.pickerMedium]: size === DatePickerSize.Medium },
+        { [styles.pickerSmall]: size === DatePickerSize.Small },
     ]);
 
     return (

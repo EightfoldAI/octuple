@@ -1,6 +1,11 @@
 import type { Locale } from '../../OcPicker.types';
 import type { GenerateConfig } from '../../Generate';
-import type { DatePickerSize, PartialSharedProps } from '../../OcPicker.types';
+import type {
+    DatePickerShape,
+    DatePickerSize,
+    PartialSharedProps,
+} from '../../OcPicker.types';
+import { Shape, Size } from '../../../../ConfigProvider';
 
 export const MONTH_COL_COUNT: number = 3;
 
@@ -20,7 +25,8 @@ export type MonthHeaderProps<DateType> = {
     onPrevYear: () => void;
     onNextYear: () => void;
     onYearClick: () => void;
-    size?: DatePickerSize;
+    shape?: DatePickerShape | Shape;
+    size?: DatePickerSize | Size;
 };
 
 export type MonthBodyProps<DateType> = {
@@ -31,5 +37,6 @@ export type MonthBodyProps<DateType> = {
     disabledDate?: (date: DateType) => boolean;
     monthCellRender?: MonthCellRender<DateType>;
     onSelect: (value: DateType) => void;
-    size?: DatePickerSize;
+    shape?: DatePickerShape | Shape;
+    size?: DatePickerSize | Size;
 };

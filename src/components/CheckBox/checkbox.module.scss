@@ -16,13 +16,8 @@
             cursor: not-allowed;
 
             & + label {
-                .checkmark {
-                    opacity: 50%;
-
-                    &.toggle {
-                        opacity: 50%;
-                    }
-                }
+                opacity: $disabled-alpha-value;
+                cursor: not-allowed;
             }
         }
 
@@ -217,7 +212,7 @@
     }
 
     .selector-label {
-        font-size: $text-font-size-2;
+        font-size: $text-font-size-3;
 
         &-end {
             margin-left: $space-xs;
@@ -279,7 +274,7 @@
         }
 
         .selector-label {
-            font-size: $text-font-size-3;
+            font-size: $text-font-size-4;
 
             &-end {
                 margin-left: $space-m;
@@ -342,7 +337,7 @@
         }
 
         .selector-label {
-            font-size: $text-font-size-2;
+            font-size: $text-font-size-3;
 
             &-end {
                 margin-left: $space-xs;
@@ -401,7 +396,7 @@
         }
 
         .selector-label {
-            font-size: $text-font-size-1;
+            font-size: $text-font-size-2;
 
             &-end {
                 margin-left: $space-xxs;

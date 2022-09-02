@@ -2,7 +2,7 @@
 
 exports[`Storyshots Input Text Input 1`] = `
 <div
-  className="input-wrapper left-icon"
+  className="input-wrapper input-medium left-icon"
 >
   <div
     className="field-label medium"
@@ -65,10 +65,10 @@ exports[`Storyshots Input Text Input 1`] = `
       aria-disabled={false}
       aria-label="Sample text"
       autoFocus={false}
-      className="my-textinput-class pill-shape pill-shape-with-icon pill-shape-with-icon-button pill-shape-with-icon-and-icon-button left-icon clear-not-visible"
+      className="my-textinput-class input-medium with-icon with-icon-button with-icon-and-icon-button left-icon clear-not-visible"
       disabled={false}
       htmltype="text"
-      id="myTextInputId8"
+      id="myTextInputId97"
       maxLength={100}
       minLength={0}
       name="myTextInput"
@@ -112,7 +112,7 @@ exports[`Storyshots Input Text Input 1`] = `
     </div>
     <button
       aria-disabled={false}
-      className="icon-button left-icon button button-default pill-shape icon-left"
+      className="icon-button left-icon button button-default button-medium pill-shape icon-left"
       defaultChecked={false}
       disabled={false}
     >

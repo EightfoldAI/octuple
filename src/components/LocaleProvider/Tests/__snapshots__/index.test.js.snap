@@ -1,0 +1,371 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Locale Provider set dayjs locale when locale changes 1`] = `
+LoadedCheerio {
+  "length": 0,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`Locale Provider set dayjs locale when locale changes 2`] = `
+LoadedCheerio {
+  "length": 0,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`Locale Provider set dayjs locale when locale changes 3`] = `
+LoadedCheerio {
+  "length": 0,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`Locale Provider should display the text as cs 1`] = `
+LoadedCheerio {
+  "length": 0,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`Locale Provider should display the text as da 1`] = `
+LoadedCheerio {
+  "length": 0,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`Locale Provider should display the text as de 1`] = `
+LoadedCheerio {
+  "length": 0,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`Locale Provider should display the text as el 1`] = `
+LoadedCheerio {
+  "length": 0,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`Locale Provider should display the text as en 1`] = `
+LoadedCheerio {
+  "length": 0,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`Locale Provider should display the text as en-gb 1`] = `
+LoadedCheerio {
+  "length": 0,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`Locale Provider should display the text as es 1`] = `
+LoadedCheerio {
+  "length": 0,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`Locale Provider should display the text as es-do 1`] = `
+LoadedCheerio {
+  "length": 0,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`Locale Provider should display the text as es-mx 1`] = `
+LoadedCheerio {
+  "length": 0,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`Locale Provider should display the text as fi 1`] = `
+LoadedCheerio {
+  "length": 0,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`Locale Provider should display the text as fr 1`] = `
+LoadedCheerio {
+  "length": 0,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`Locale Provider should display the text as fr 2`] = `
+LoadedCheerio {
+  "length": 0,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`Locale Provider should display the text as fr 3`] = `
+LoadedCheerio {
+  "length": 0,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`Locale Provider should display the text as fr 4`] = `
+LoadedCheerio {
+  "length": 0,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`Locale Provider should display the text as he 1`] = `
+LoadedCheerio {
+  "length": 0,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`Locale Provider should display the text as hr 1`] = `
+LoadedCheerio {
+  "length": 0,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`Locale Provider should display the text as hu 1`] = `
+LoadedCheerio {
+  "length": 0,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`Locale Provider should display the text as it 1`] = `
+LoadedCheerio {
+  "length": 0,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`Locale Provider should display the text as ja 1`] = `
+LoadedCheerio {
+  "length": 0,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`Locale Provider should display the text as ko 1`] = `
+LoadedCheerio {
+  "length": 0,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`Locale Provider should display the text as ms-my 1`] = `
+LoadedCheerio {
+  "length": 0,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`Locale Provider should display the text as nb 1`] = `
+LoadedCheerio {
+  "length": 0,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`Locale Provider should display the text as nl 1`] = `
+LoadedCheerio {
+  "length": 0,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`Locale Provider should display the text as nl-be 1`] = `
+LoadedCheerio {
+  "length": 0,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`Locale Provider should display the text as pl 1`] = `
+LoadedCheerio {
+  "length": 0,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`Locale Provider should display the text as pt 1`] = `
+LoadedCheerio {
+  "length": 0,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`Locale Provider should display the text as pt-br 1`] = `
+LoadedCheerio {
+  "length": 0,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`Locale Provider should display the text as ru 1`] = `
+LoadedCheerio {
+  "length": 0,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`Locale Provider should display the text as sv 1`] = `
+LoadedCheerio {
+  "length": 0,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`Locale Provider should display the text as th 1`] = `
+LoadedCheerio {
+  "length": 0,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`Locale Provider should display the text as tr 1`] = `
+LoadedCheerio {
+  "length": 0,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`Locale Provider should display the text as uk 1`] = `
+LoadedCheerio {
+  "length": 0,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`Locale Provider should display the text as zh-cn 1`] = `
+LoadedCheerio {
+  "length": 0,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`Locale Provider should display the text as zh-tw 1`] = `
+LoadedCheerio {
+  "length": 0,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;

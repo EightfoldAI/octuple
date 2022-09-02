@@ -4,11 +4,18 @@ import useCellClassNames from '../../Hooks/useCellClassNames';
 import { formatValue, isSameYear } from '../../Utils/dateUtil';
 import RangeContext from '../../RangeContext';
 import PartialBody from '../PartialBody';
+import { DatePickerSize } from '../../OcPicker.types';
 
 const YEAR_ROW_COUNT: number = 4;
 
 function YearBody<DateType>(props: YearBodyProps<DateType>) {
-    const { value, viewDate, locale, generateConfig, size = 'Small' } = props;
+    const {
+        value,
+        viewDate,
+        locale,
+        generateConfig,
+        size = DatePickerSize.Medium,
+    } = props;
     const { rangedValue, hoverRangedValue } = React.useContext(RangeContext);
 
     const yearNumber: number = generateConfig.getYear(viewDate);

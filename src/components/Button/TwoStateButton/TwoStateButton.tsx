@@ -1,9 +1,12 @@
-import React, { FC, Ref } from 'react';
+import React, { FC, Ref, useContext } from 'react';
+import DisabledContext, {
+    Disabled,
+} from '../../ConfigProvider/DisabledContext';
+import { SizeContext, Size } from '../../ConfigProvider';
 import {
     ButtonShape,
     ButtonSize,
     ButtonTextAlign,
-    ButtonTheme,
     ButtonWidth,
     TwoStateButtonProps,
 } from '../';
@@ -23,6 +26,10 @@ export const TwoStateButton: FC<TwoStateButtonProps> = React.forwardRef(
             buttonWidth = ButtonWidth.fitContent,
             classNames,
             checked = false,
+            configContextProps = {
+                noDisabledContext: false,
+                noSizeContext: false,
+            },
             counter,
             disabled = false,
             disruptive = false,
@@ -32,10 +39,9 @@ export const TwoStateButton: FC<TwoStateButtonProps> = React.forwardRef(
             id,
             onClick,
             shape = ButtonShape.Pill,
-            size = ButtonSize.Flex,
+            size = ButtonSize.Medium,
             style,
             text,
-            theme,
             toggle,
             type,
             ...rest
@@ -46,6 +52,16 @@ export const TwoStateButton: FC<TwoStateButtonProps> = React.forwardRef(
         const mediumScreenActive: boolean = useMatchMedia(Breakpoints.Medium);
         const smallScreenActive: boolean = useMatchMedia(Breakpoints.Small);
         const xSmallScreenActive: boolean = useMatchMedia(Breakpoints.XSmall);
+
+        const contextuallyDisabled: Disabled = useContext(DisabledContext);
+        const mergedDisabled: boolean = configContextProps.noDisabledContext
+            ? disabled
+            : contextuallyDisabled || disabled;
+
+        const contextuallySized: Size = useContext(SizeContext);
+        const mergedSize = configContextProps.noSizeContext
+            ? size
+            : contextuallySized || size;
 
         const counterExists: boolean = !!counter;
         const iconOneExists: boolean = !!iconOneProps;
@@ -59,52 +75,51 @@ export const TwoStateButton: FC<TwoStateButtonProps> = React.forwardRef(
             { [styles.checked]: checked },
             {
                 [styles.buttonSmall]:
-                    size === ButtonSize.Flex && largeScreenActive,
+                    mergedSize === ButtonSize.Flex && largeScreenActive,
             },
             {
                 [styles.buttonMedium]:
-                    size === ButtonSize.Flex && mediumScreenActive,
+                    mergedSize === ButtonSize.Flex && mediumScreenActive,
             },
             {
                 [styles.buttonMedium]:
-                    size === ButtonSize.Flex && smallScreenActive,
+                    mergedSize === ButtonSize.Flex && smallScreenActive,
             },
             {
                 [styles.buttonLarge]:
-                    size === ButtonSize.Flex && xSmallScreenActive,
+                    mergedSize === ButtonSize.Flex && xSmallScreenActive,
             },
-            { [styles.buttonLarge]: size === ButtonSize.Large },
-            { [styles.buttonMedium]: size === ButtonSize.Medium },
-            { [styles.buttonSmall]: size === ButtonSize.Small },
+            { [styles.buttonLarge]: mergedSize === ButtonSize.Large },
+            { [styles.buttonMedium]: mergedSize === ButtonSize.Medium },
+            { [styles.buttonSmall]: mergedSize === ButtonSize.Small },
             { [styles.buttonStretch]: buttonWidth === ButtonWidth.fill },
             { [styles.pillShape]: shape === ButtonShape.Pill },
             { [styles.dropShadow]: dropShadow },
             { [styles.left]: alignText === ButtonTextAlign.Left },
             { [styles.right]: alignText === ButtonTextAlign.Right },
-            { [styles.disabled]: allowDisabledFocus || disabled },
-            { [styles.dark]: theme === ButtonTheme.dark },
+            { [styles.disabled]: allowDisabledFocus || mergedDisabled },
         ]);
 
         const buttonTextClassNames: string = mergeClasses([
             {
                 [styles.buttonTextSmall]:
-                    size === ButtonSize.Flex && largeScreenActive,
+                    mergedSize === ButtonSize.Flex && largeScreenActive,
             },
             {
                 [styles.buttonTextMedium]:
-                    size === ButtonSize.Flex && mediumScreenActive,
+                    mergedSize === ButtonSize.Flex && mediumScreenActive,
             },
             {
                 [styles.buttonTextMedium]:
-                    size === ButtonSize.Flex && smallScreenActive,
+                    mergedSize === ButtonSize.Flex && smallScreenActive,
             },
             {
                 [styles.buttonTextLarge]:
-                    size === ButtonSize.Flex && xSmallScreenActive,
+                    mergedSize === ButtonSize.Flex && xSmallScreenActive,
             },
-            { [styles.buttonTextLarge]: size === ButtonSize.Large },
-            { [styles.buttonTextMedium]: size === ButtonSize.Medium },
-            { [styles.buttonTextSmall]: size === ButtonSize.Small },
+            { [styles.buttonTextLarge]: mergedSize === ButtonSize.Large },
+            { [styles.buttonTextMedium]: mergedSize === ButtonSize.Medium },
+            { [styles.buttonTextSmall]: mergedSize === ButtonSize.Small },
         ]);
 
         const badgeClassNames: string = mergeClasses([
@@ -114,20 +129,20 @@ export const TwoStateButton: FC<TwoStateButtonProps> = React.forwardRef(
 
         const getButtonIconSize = (): IconSize => {
             let iconSize: IconSize;
-            if (size === ButtonSize.Flex && largeScreenActive) {
+            if (mergedSize === ButtonSize.Flex && largeScreenActive) {
                 iconSize = IconSize.Small;
             } else if (
-                size === ButtonSize.Flex &&
+                mergedSize === ButtonSize.Flex &&
                 (mediumScreenActive || smallScreenActive)
             ) {
                 iconSize = IconSize.Medium;
-            } else if (size === ButtonSize.Flex && xSmallScreenActive) {
+            } else if (mergedSize === ButtonSize.Flex && xSmallScreenActive) {
                 iconSize = IconSize.Large;
-            } else if (size === ButtonSize.Large) {
+            } else if (mergedSize === ButtonSize.Large) {
                 iconSize = IconSize.Large;
-            } else if (size === ButtonSize.Medium) {
+            } else if (mergedSize === ButtonSize.Medium) {
                 iconSize = IconSize.Medium;
-            } else if (size === ButtonSize.Small) {
+            } else if (mergedSize === ButtonSize.Small) {
                 iconSize = IconSize.Small;
             }
             return iconSize;
@@ -155,11 +170,11 @@ export const TwoStateButton: FC<TwoStateButtonProps> = React.forwardRef(
                 {...rest}
                 ref={ref}
                 aria-checked={toggle ? !!checked : undefined}
-                aria-disabled={disabled}
+                aria-disabled={mergedDisabled}
                 aria-label={ariaLabel}
                 aria-pressed={toggle ? !!checked : undefined}
                 defaultChecked={checked}
-                disabled={!allowDisabledFocus && disabled}
+                disabled={!allowDisabledFocus && mergedDisabled}
                 className={twoStateButtonClassNames}
                 id={id}
                 onClick={!allowDisabledFocus ? onClick : null}

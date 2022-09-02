@@ -206,11 +206,17 @@
     /* ------ Picker theme ------ */
     --picker-background-color: var(--background-color);
     --picker-foreground-color: var(--text-secondary-color);
-    --picker-border-color: var(--grey-color-20);
+    --picker-border-color: var(--border-color);
     --picker-border-color-active: var(--primary-color);
     --picker-cell-background-color: var(--background-color);
     --picker-cell-background-color-active: var(--primary-color-20);
-    --picker-cell-background-color-hover: var(--primary-color-20);
+    --picker-cell-background-color-hover: var(--accent-color-30);
+    --picker-cell-today-background-color: var(--accent-color-30);
+    --picker-cell-selected-background-color-active: var(--accent-color-30);
+    --picker-cell-range-start-background-color-hover: var(--accent-color-30);
+    --picker-cell-range-start-background-color-active: var(--accent-color-30);
+    --picker-cell-range-end-background-color-hover: var(--accent-color-30);
+    --picker-cell-range-end-background-color-active: var(--accent-color-30);
     --picker-cell-foreground-color: var(--text-secondary-color);
     --picker-cell-foreground-color-active: var(--primary-color);
     --picker-cell-foreground-color-hover: var(--primary-color);

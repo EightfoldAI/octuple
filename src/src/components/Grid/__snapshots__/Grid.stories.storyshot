@@ -1050,6 +1050,7 @@ exports[`Storyshots Grid Playground 1`] = `
           className="slider-track"
         />
         <input
+          aria-disabled={false}
           autoFocus={false}
           className="thumb"
           disabled={false}
@@ -1103,6 +1104,7 @@ exports[`Storyshots Grid Playground 1`] = `
           className="slider-track"
         />
         <input
+          aria-disabled={false}
           autoFocus={false}
           className="thumb"
           disabled={false}
@@ -1156,6 +1158,7 @@ exports[`Storyshots Grid Playground 1`] = `
           className="slider-track"
         />
         <input
+          aria-disabled={false}
           autoFocus={false}
           className="thumb"
           disabled={false}

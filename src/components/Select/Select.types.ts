@@ -1,9 +1,11 @@
 import React from 'react';
 import { DropdownProps } from '../Dropdown';
 import { TextInputProps, TextInputWidth } from '../Inputs';
-import { MenuItemButtonProps, MenuProps } from '../Menu';
+import { MenuProps } from '../Menu';
 import { OcBaseProps } from '../OcBase';
 import { PillProps } from '../Pills';
+import { MenuItemButtonProps } from '../Menu/MenuItem/MenuItem.types';
+import { ConfigContextProps, Shape, Size } from '../ConfigProvider';
 
 export enum SelectShape {
     Rectangle = 'rectangle',
@@ -19,17 +21,63 @@ export enum SelectSize {
 }
 
 export interface SelectOption extends MenuItemButtonProps {
-    selected?: boolean;
     hideOption?: boolean;
     id?: string;
+    selected?: boolean;
 }
 
 export interface SelectProps extends OcBaseProps<HTMLDivElement> {
+    /**
+     * clearable.
+     * @default false
+     */
+    clearable?: boolean;
+
+    /**
+     * Configure how contextual props are consumed
+     */
+    configContextProps?: ConfigContextProps;
+
     /**
      * Default Value
      * @default ''
      */
     defaultValue?: string;
+
+    /**
+     * The select disabled state.
+     * @default false
+     */
+    disabled?: boolean;
+
+    /**
+     * dropdown and overlay props.
+     * @default {}
+     */
+    dropdownProps?: DropdownProps;
+
+    /**
+     * display text when there are no filtered results.
+     */
+    emptyText?: string;
+
+    /**
+     * enable filtering/searching on the options
+     * @default false
+     */
+    filterable?: boolean;
+
+    /**
+     * Custom method to filter whether an option should be displayed in the menu.
+     * @default null
+     */
+    filterOption?: (option: any, query: any) => boolean;
+
+    /**
+     * The select is a form item.
+     * @default false
+     */
+    formItemInput?: boolean;
 
     /**
      * Width of the tooltip
@@ -38,22 +86,22 @@ export interface SelectProps extends OcBaseProps<HTMLDivElement> {
     inputWidth?: TextInputWidth;
 
     /**
-     * Default options
-     * @default ''
-     */
-    options?: SelectOption[];
-
-    /**
-     * clearable.
+     * applicable in case of loadOptions. pass true when the loading is in progress.
      * @default false
      */
-    clearable?: boolean;
+    isLoading?: boolean;
 
     /**
-     * enable filtering/searching on the options
+     * for async loading options.
      * @default false
      */
-    filterable?: boolean;
+    loadOptions?: (inputValue: string) => void;
+
+    /**
+     * dropdown menu props.
+     * @default {}
+     */
+    menuProps?: MenuProps;
 
     /**
      * in case of multiple select.
@@ -73,33 +121,10 @@ export interface SelectProps extends OcBaseProps<HTMLDivElement> {
     onOptionsChange?: (options: SelectOption[]) => void;
 
     /**
-     * for async loading options.
-     * @default false
+     * Default options
+     * @default ''
      */
-    loadOptions?: (inputValue: string) => void;
-
-    /**
-     * applicable in case of loadOptions. pass true when the loading is in progress.
-     * @default false
-     */
-    isLoading?: boolean;
-
-    /**
-     * display text when there are no filtered results.
-     */
-    emptyText?: string;
-
-    /**
-     * select input props.
-     * @default {}
-     */
-    textInputProps?: TextInputProps;
-
-    /**
-     * dropdown and overlay props.
-     * @default {}
-     */
-    dropdownProps?: DropdownProps;
+    options?: SelectOption[];
 
     /**
      * pill props. applicable in case of multiple: true.
@@ -108,22 +133,16 @@ export interface SelectProps extends OcBaseProps<HTMLDivElement> {
     pillProps?: PillProps;
 
     /**
-     * dropdown menu props.
-     * @default {}
-     */
-    menuProps?: MenuProps;
-
-    /**
      * Shape of the select.
      * @default SelectShape.Rectangle
      */
-    shape?: SelectShape;
+    shape?: SelectShape | Shape;
 
     /**
      * The select size.
-     * @default Flex
+     * @default 'medium'
      */
-    size?: SelectSize;
+    size?: SelectSize | Size;
 
     /**
      * loading spinner props.
@@ -132,8 +151,8 @@ export interface SelectProps extends OcBaseProps<HTMLDivElement> {
     spinner?: React.ReactElement;
 
     /**
-     * Custom method to filter whether an option should be displayed in the menu.
-     * @default null
+     * select input props.
+     * @default {}
      */
-    filterOption?: (option: any, query: any) => boolean;
+    textInputProps?: TextInputProps;
 }

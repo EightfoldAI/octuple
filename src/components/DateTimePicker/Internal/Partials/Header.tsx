@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { HeaderProps } from './Partial.types';
 import PartialContext from '../PartialContext';
 import { ButtonSize, NeutralButton } from '../../../Button';
 import { IconName } from '../../../Icon';
+import { Size } from '../../../ConfigProvider';
+import { DatePickerSize } from '../OcPicker.types';
 
 import styles from '../ocpicker.module.scss';
 
@@ -20,14 +22,18 @@ export const Header = ({
     onPrev,
     onNext,
     children,
-    size = 'Small',
+    size = DatePickerSize.Medium,
 }: HeaderProps): JSX.Element => {
     const { hideNextBtn, hidePrevBtn } = React.useContext(PartialContext);
 
-    const datePickerSizeToButtonSizeMap = new Map<typeof size, ButtonSize>([
-        ['Large', ButtonSize.Large],
-        ['Medium', ButtonSize.Medium],
-        ['Small', ButtonSize.Small],
+    const datePickerSizeToButtonSizeMap = new Map<
+        DatePickerSize | Size,
+        ButtonSize | Size
+    >([
+        [DatePickerSize.Flex, ButtonSize.Flex],
+        [DatePickerSize.Large, ButtonSize.Large],
+        [DatePickerSize.Medium, ButtonSize.Medium],
+        [DatePickerSize.Small, ButtonSize.Small],
     ]);
 
     return (
