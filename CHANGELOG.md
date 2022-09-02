@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.9.1](https://github.com/EightfoldAI/octuple/compare/v2.9.0...v2.9.1) (2022-09-02)
+
+### Bug Fixes
+
+-   dialog: update padding according to design guidelines ([#337](https://github.com/EightfoldAI/octuple/issues/337)) ([7a93319](https://github.com/EightfoldAI/octuple/commits/7a93319cab1067c8f7d435791f6124ab6b9057ac))
+-   pills: fix allignment of text ([#336](https://github.com/EightfoldAI/octuple/issues/336)) ([e022633](https://github.com/EightfoldAI/octuple/commits/e0226330b634986f66257ca23cc8107ce507972f))
+-   select: removes portal property from tooltip and replace with position ([#335](https://github.com/EightfoldAI/octuple/issues/335)) ([07cd4e4](https://github.com/EightfoldAI/octuple/commits/07cd4e477eadb5694d5d757a334c179ccf6b5b6a))
+-   stack: add ml size ([#338](https://github.com/EightfoldAI/octuple/issues/338)) ([b7fca4f](https://github.com/EightfoldAI/octuple/commits/b7fca4f0a605f292bea4dab368da72ac37d6a04c))
+
 ## [2.9.0](https://github.com/EightfoldAI/octuple/compare/v2.8.1...v2.9.0) (2022-08-31)
 
 ### Features
