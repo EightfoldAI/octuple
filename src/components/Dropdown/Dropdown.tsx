@@ -1,38 +1,27 @@
-import React, {
-    cloneElement,
-    FC,
-    SyntheticEvent,
-    useEffect,
-    useState,
-} from 'react';
+import React, { cloneElement, FC, useEffect, useState } from 'react';
 import { DropdownProps } from './Dropdown.types';
-import { autoUpdate, shift, useFloating } from '@floating-ui/react-dom';
+import { autoUpdate, shift } from '@floating-ui/react-dom';
 import { offset as fOffset } from '@floating-ui/core';
 import {
     ConditionalWrapper,
     mergeClasses,
     uniqueId,
 } from '../../shared/utilities';
-import { useOnClickOutside } from '../../hooks/useOnClickOutside';
-import { useAccessibility } from '../../hooks/useAccessibility';
-import styles from './dropdown.module.scss';
-import { FloatingPortal } from '@floating-ui/react-dom-interactions';
+import {
+    FloatingPortal,
+    safePolygon,
+    useClick,
+    useDismiss,
+    useFloating,
+    useFocus,
+    useHover,
+    useInteractions,
+} from '@floating-ui/react-dom-interactions';
 import { Menu } from '../Menu';
 import { useMergedState } from '../../hooks/useMergedState';
+import { useOnClickOutside } from '../../hooks/useOnClickOutside';
 
-const TRIGGER_TO_HANDLER_MAP_ON_ENTER = {
-    click: 'onClick',
-    hover: 'onMouseEnter',
-    contextmenu: 'onContextMenu',
-};
-
-const TRIGGER_TO_HANDLER_MAP_ON_LEAVE = {
-    click: '',
-    hover: 'onMouseLeave',
-    contextmenu: '',
-};
-
-const PREVENT_DEFAULT_TRIGGERS = ['contextmenu'];
+import styles from './dropdown.module.scss';
 
 const ANIMATION_DURATION = 200;
 
@@ -50,7 +39,6 @@ export const Dropdown: FC<DropdownProps> = React.memo(
         offset = 4,
         positionStrategy = 'absolute',
         onVisibleChange,
-        showDropdown,
         disabled,
         closeOnDropdownClick = true,
         closeOnOutsideClick = true,
@@ -67,37 +55,54 @@ export const Dropdown: FC<DropdownProps> = React.memo(
         const [dropdownId] = useState<string>(uniqueId('dropdown-'));
 
         let timeout: ReturnType<typeof setTimeout>;
-        const { x, y, reference, floating, strategy, update, refs } =
+
+        const toggle: Function = (show: boolean) => {
+            // to control the toggle behaviour
+            setClosing(!show);
+            timeout && clearTimeout(timeout);
+            timeout = setTimeout(
+                () => {
+                    setVisible(show);
+                    onVisibleChange?.(show);
+                },
+                !show ? ANIMATION_DURATION : 0
+            );
+        };
+
+        const { x, y, reference, floating, strategy, update, refs, context } =
             useFloating({
+                open: mergedVisible,
+                onOpenChange: (open) =>
+                    toggle(trigger === 'hover' ? open : !mergedVisible),
                 placement,
                 strategy: positionStrategy,
                 middleware: [fOffset(offset), shift()],
             });
 
-        const toggle: Function =
-            (show: boolean, showDropdown = (show: boolean) => show): Function =>
-            (e: SyntheticEvent): void => {
-                // to control the toggle behaviour
-                const updatedShow = showDropdown(show);
-                if (PREVENT_DEFAULT_TRIGGERS.includes(trigger)) {
-                    e.preventDefault();
-                }
-                setClosing(!updatedShow);
-                timeout && clearTimeout(timeout);
-                timeout = setTimeout(
-                    () => {
-                        setVisible(updatedShow);
-                        onVisibleChange?.(updatedShow);
-                    },
-                    !show ? ANIMATION_DURATION : 0
-                );
-            };
+        const { getReferenceProps, getFloatingProps } = useInteractions([
+            useHover(context, {
+                handleClose: safePolygon({ restMs: 25 }),
+                enabled: trigger === 'hover',
+                move: false,
+                delay: { open: 75 },
+            }),
+            useClick(context, {
+                pointerDown: true,
+                keyboardHandlers: true,
+            }),
+            useDismiss(context, {
+                outsidePointerDown: false,
+                referencePointerDown: closeOnDropdownClick,
+                ancestorScroll: true,
+            }),
+            useFocus(context),
+        ]);
 
         useOnClickOutside(
             refs.reference,
             (e) => {
                 if (closeOnOutsideClick) {
-                    toggle(false)(e);
+                    toggle(false);
                 }
                 onClickOutside?.(e);
             },
@@ -117,7 +122,6 @@ export const Dropdown: FC<DropdownProps> = React.memo(
             );
         }, [refs.reference, refs.floating, update]);
 
-        useAccessibility(trigger, refs.reference, toggle(true), toggle(false));
         const dropdownClasses: string = mergeClasses([
             dropdownClassNames,
             styles.dropdownWrapper,
@@ -152,14 +156,9 @@ export const Dropdown: FC<DropdownProps> = React.memo(
                 { [styles.disabled]: disabled },
             ]);
             return cloneElement(child, {
-                ...{ [TRIGGER_TO_HANDLER_MAP_ON_ENTER[trigger]]: toggle(true) },
-                onClick: toggle(!mergedVisible),
                 className: referenceWrapperClasses,
-                'aria-controls': dropdownId,
-                'aria-expanded': mergedVisible,
-                'aria-haspopup': true,
                 role: 'button',
-                tabIndex: '0',
+                ...getReferenceProps(),
             });
         };
 
@@ -170,31 +169,16 @@ export const Dropdown: FC<DropdownProps> = React.memo(
                     style={dropdownStyles}
                     className={dropdownClasses}
                     tabIndex={0}
-                    onClick={
-                        closeOnDropdownClick
-                            ? toggle(false, showDropdown)
-                            : null
-                    }
                     id={dropdownId}
+                    onClick={() => closeOnDropdownClick && toggle(false)}
+                    {...getFloatingProps()}
                 >
                     {overlay}
                 </div>
             );
 
         return (
-            <div
-                className={mainWrapperClasses}
-                style={style}
-                ref={reference}
-                {...(TRIGGER_TO_HANDLER_MAP_ON_LEAVE[trigger]
-                    ? {
-                          [TRIGGER_TO_HANDLER_MAP_ON_LEAVE[trigger]]: toggle(
-                              false,
-                              showDropdown
-                          ),
-                      }
-                    : {})}
-            >
+            <div className={mainWrapperClasses} style={style} ref={reference}>
                 {getReference()}
                 <ConditionalWrapper
                     condition={portal}
