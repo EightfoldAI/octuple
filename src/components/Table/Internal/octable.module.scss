@@ -108,8 +108,12 @@
 
     table {
         width: 100%;
-        border-spacing: 0px;
+        border-spacing: 0;
         border-radius: $table-border-radius;
+    }
+
+    th {
+        line-height: $text-line-height-1;
     }
 
     th,
@@ -118,7 +122,6 @@
         box-sizing: border-box;
         padding: $table-cell-padding;
         white-space: normal;
-        word-break: break-word;
         border-top: 0;
         border-left: 0;
         transition: box-shadow 0.3s;
