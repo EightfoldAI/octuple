@@ -53,7 +53,8 @@ export const BaseDialog: FC<BaseDialogProps> = React.forwardRef(
         const bodyRef = useRef<HTMLDivElement>(null);
 
         useScrollLock(parent, visible);
-        const { showBottomShadow, showTopShadow } = useScrollShadow(bodyRef);
+        const { showBottomShadow, showTopShadow, scrollRef } =
+            useScrollShadow(bodyRef);
 
         const dialogBackdropClasses: string = mergeClasses([
             styles.dialogBackdrop,
@@ -167,7 +168,7 @@ export const BaseDialog: FC<BaseDialogProps> = React.forwardRef(
                                 )}
                             </span>
                         </div>
-                        <div ref={bodyRef} className={bodyClasses}>
+                        <div ref={scrollRef} className={bodyClasses}>
                             {body}
                         </div>
                         {actions && (

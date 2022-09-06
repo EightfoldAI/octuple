@@ -14,7 +14,7 @@
 
     .dialog {
         position: absolute;
-        padding: $space-l $space-xl;
+        padding: $space-l 0;
         background: var(--background-color);
         border-radius: $corner-radius-xl;
         box-shadow: $shadow-object-l;
@@ -24,6 +24,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: 0 $space-xl;
 
             &-button {
                 margin-right: $space-m;
@@ -49,9 +50,14 @@
                 padding: $space-ml;
             }
         }
+
+        .footer {
+            padding: $space-ml $space-xl 0;
+        }
     }
 
     .body {
+        padding: 0 $space-xl;
         transition: box-shadow $motion-duration-extra-fast
             $motion-easing-easeinout;
     }

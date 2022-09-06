@@ -19,14 +19,18 @@ export function useScrollShadow(containerRef: MutableRefObject<HTMLElement>) {
         }
     }, []);
 
-    useEffect(() => {
-        const content = containerRef.current;
+    const scrollRef = useCallback((content: HTMLElement) => {
         if (!content) {
-            return () => {};
+            return;
         }
+        containerRef.current = content;
         content.addEventListener('scroll', onScroll);
-        return () => content.removeEventListener('scroll', onScroll);
-    }, [containerRef.current]);
+    }, []);
 
-    return { showBottomShadow, showTopShadow };
+    useEffect(() => {
+        return () =>
+            containerRef.current.removeEventListener('scroll', onScroll);
+    }, [containerRef]);
+
+    return { showBottomShadow, showTopShadow, scrollRef };
 }
