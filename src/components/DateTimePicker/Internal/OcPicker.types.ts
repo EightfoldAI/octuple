@@ -930,7 +930,7 @@ export type OcRangePickerSharedProps<DateType> = {
      */
     popupPlacement?: DataPickerPlacement;
     /**
-     * The preseted ranges for quick selection.
+     * The preset ranges for quick selection.
      */
     ranges?: Record<
         string,
