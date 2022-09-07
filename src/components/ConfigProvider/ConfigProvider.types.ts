@@ -44,7 +44,6 @@ export interface IConfigContext {
 export interface ConfigProviderProps {
     /**
      * Used by the disabled context provider to disable components.
-     * @default false
      */
     disabled?: boolean;
     /**

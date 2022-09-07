@@ -1,7 +1,7 @@
 export interface FocusVisibleOptions {
     /**
      * Enables keyboard modality styles
-     * @default false
+     * @default true
      */
     focusVisible?: boolean;
     /**
