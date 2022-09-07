@@ -500,7 +500,7 @@ export type OcPickerPartialDateProps<DateType> = {
      */
     picker?: 'date';
     /**
-     * 	Show 'Now' button in partial when `showTime` is set.
+     * Show 'Now' button in partial when `showTime` is set.
      */
     showNow?: boolean;
     /**
@@ -639,7 +639,7 @@ export type OcPickerSharedProps<DateType> = {
      */
     onBlur?: React.FocusEventHandler<HTMLInputElement>;
     /**
-     * 	Callback executed when the selected time is changing.
+     * Callback executed when the selected time is changing.
      */
     onChange?: (value: DateType | null, dateString: string) => void;
     /**
