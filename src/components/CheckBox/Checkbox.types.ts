@@ -105,7 +105,7 @@ export interface CheckboxGroupProps
      */
     formItemInput?: boolean;
     /**
-     * The array of items for the radio group.
+     * The array of items for the checkbox group.
      */
     items?: CheckboxProps[];
     /**
