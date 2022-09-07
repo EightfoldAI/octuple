@@ -937,6 +937,9 @@ export type OcRangePickerSharedProps<DateType> = {
         | Exclude<RangeValue<DateType>, null>
         | (() => Exclude<RangeValue<DateType>, null>)
     >;
+    /**
+     * Custom separator between inputs.
+     */
     separator?: React.ReactNode;
     /**
      * The range picker shape.
