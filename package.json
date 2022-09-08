@@ -74,6 +74,10 @@
         "scroll-into-view-if-needed": "2.2.25",
         "shallowequal": "1.1.0"
     },
+    "peerDependencies": {
+        "react": ">=16",
+        "react-dom": ">=16"
+    },
     "devDependencies": {
         "@babel/core": "7.17.5",
         "@babel/runtime": "7.17.2",
