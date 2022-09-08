@@ -129,3 +129,43 @@ exports[`Storyshots Check Box Check Box Group 1`] = `
   </div>
 </div>
 `;
+
+exports[`Storyshots Check Box Check Box Long Text 1`] = `
+<div
+  style={
+    Object {
+      "width": 200,
+    }
+  }
+>
+  <div
+    className="selector selector-medium my-checkbox-class"
+  >
+    <input
+      aria-disabled={false}
+      aria-label="Label"
+      checked={true}
+      disabled={false}
+      id="myCheckBoxId"
+      name="myCheckBoxName"
+      onChange={[Function]}
+      readOnly={true}
+      type="checkbox"
+      value="label"
+    />
+    <label
+      className=""
+      htmlFor="myCheckBoxId"
+    >
+      <span
+        className="checkmark"
+      />
+      <span
+        className="selector-label selector-label-end"
+      >
+        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
+      </span>
+    </label>
+  </div>
+</div>
+`;

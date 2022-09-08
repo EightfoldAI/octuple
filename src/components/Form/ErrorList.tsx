@@ -9,8 +9,17 @@ import styles from './form.module.scss';
 const EMPTY_LIST: React.ReactNode[] = [];
 
 interface ErrorEntity {
+    /**
+     * The error node
+     */
     error: React.ReactNode;
+    /**
+     * The validation status
+     */
     errorStatus?: ValidateStatus;
+    /**
+     * The error entity key
+     */
     key: string;
 }
 
@@ -28,11 +37,29 @@ function toErrorEntity(
 }
 
 export interface ErrorListProps {
-    help?: React.ReactNode;
-    helpStatus?: ValidateStatus;
-    errors?: React.ReactNode[];
-    warnings?: React.ReactNode[];
+    /**
+     * Custom classnames of Error.List
+     */
     classNames?: string;
+    /**
+     * Custom help node
+     */
+    help?: React.ReactNode;
+    /**
+     * The validation status
+     */
+    helpStatus?: ValidateStatus;
+    /**
+     * Error list
+     */
+    errors?: React.ReactNode[];
+    /**
+     * Warning list
+     */
+    warnings?: React.ReactNode[];
+    /**
+     * Callback executed on visibility chnage event
+     */
     onVisibleChanged?: (visible: boolean) => void;
 }
 

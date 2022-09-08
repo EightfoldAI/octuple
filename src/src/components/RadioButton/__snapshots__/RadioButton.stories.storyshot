@@ -245,6 +245,47 @@ exports[`Storyshots Radio Button Radio Button 1`] = `
 </div>
 `;
 
+exports[`Storyshots Radio Button Radio Button Long Text 1`] = `
+<div
+  style={
+    Object {
+      "width": 200,
+    }
+  }
+>
+  <div
+    className="selector selector-medium my-radiobutton-class"
+  >
+    <input
+      aria-disabled={false}
+      aria-label="Label"
+      checked={false}
+      disabled={false}
+      id="myRadioButtonId"
+      name="myRadioButtonName"
+      onChange={[Function]}
+      readOnly={true}
+      type="radio"
+      value="Label1"
+    />
+    <label
+      className=""
+      htmlFor="myRadioButtonId"
+    >
+      <span
+        className="radio-button"
+        id="myRadioButtonId-custom-radio"
+      />
+      <span
+        className="selector-label selector-label-end"
+      >
+        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
+      </span>
+    </label>
+  </div>
+</div>
+`;
+
 exports[`Storyshots Radio Button Radio Button With Custom Label 1`] = `
 <div
   className="selector selector-medium my-radiobutton-class"

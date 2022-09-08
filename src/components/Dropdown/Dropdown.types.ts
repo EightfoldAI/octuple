@@ -3,37 +3,54 @@ import { Placement, Strategy } from '@floating-ui/react-dom';
 
 export interface DropdownProps {
     /**
-     * The trigger mode that opens the dropdown
+     * Class names of the main wrapper
      */
-    trigger?: 'click' | 'hover' | 'contextmenu';
+    classNames?: string;
+    /**
+     * Should close dropdown on body click
+     * @default true
+     */
+    closeOnDropdownClick?: boolean;
+    /**
+     * Should close dropdown on click outside
+     * @default true
+     */
+    closeOnOutsideClick?: boolean;
+    /**
+     * If the dropdown is disabled or not
+     */
+    disabled?: boolean;
+    /**
+     * Custom dropdown class names
+     */
+    dropdownClassNames?: string;
+    /**
+     * Dropdown custom style
+     */
+    dropdownStyle?: React.CSSProperties;
+    /**
+     * Manually control the height of the dropdown
+     */
+    height?: number;
+    /**
+     * The offset from the reference element
+     * @default 0
+     */
+    offset?: number;
+    /**
+     * Callback method fired on outside click on dropdown
+     * @param event
+     */
+    onClickOutside?: (event: MouseEvent) => void;
     /**
      * Callback called when the visibility of the dropdown changes
      * @param visible {boolean}
      */
     onVisibleChange?: (visible: boolean) => void;
     /**
-     * Callback to control the show/hide behavior of the dropdown.
-     * triggered before the visible change
-     * @param show {boolean}
-     * @returns true or false.
-     */
-    showDropdown?: (show: boolean) => boolean;
-    /**
      * The dropdown content
      */
     overlay?: React.ReactElement;
-    /**
-     * If the dropdown is disabled or not
-     */
-    disabled?: boolean;
-    /**
-     * Class names of the main wrapper
-     */
-    classNames?: string;
-    /**
-     * Style of the main wrapper
-     */
-    style?: React.CSSProperties;
     /**
      * Placement of the menu
      * @default bottom-start
@@ -50,43 +67,27 @@ export interface DropdownProps {
      */
     positionStrategy?: Strategy;
     /**
-     * The offset from the reference element
-     * @default 0
+     * Callback to control the show/hide behavior of the dropdown.
+     * triggered before the visible change
+     * @param show {boolean}
+     * @returns true or false.
      */
-    offset?: number;
+    showDropdown?: (show: boolean) => boolean;
     /**
-     * Custom dropdown class names
+     * Style of the main wrapper
      */
-    dropdownClassNames?: string;
+    style?: React.CSSProperties;
     /**
-     * Dropdown custom style
+     * The trigger mode that opens the dropdown
+     * @default 'click'
      */
-    dropdownStyle?: React.CSSProperties;
-    /**
-     * Should close dropdown on body click
-     * @default true
-     */
-    closeOnDropdownClick?: boolean;
-    /**
-     * Should close dropdown on click outside
-     * @default true
-     */
-    closeOnOutsideClick?: boolean;
+    trigger?: 'click' | 'hover' | 'contextmenu';
     /**
      * Manually control visibility of the dropdown
      */
     visible?: boolean;
     /**
-     * Callback method fired on outside click on dropdown
-     * @param event
-     */
-    onClickOutside?: (event: MouseEvent) => void;
-    /**
      * Manually control the width of the dropdown
      */
     width?: number;
-    /**
-     * Manually control the height of the dropdown
-     */
-    height?: number;
 }

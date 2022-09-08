@@ -1657,7 +1657,7 @@ const CollectionCreateForm: React.FC<CollectionCreateFormProps> = ({
             size={ModalSize.small}
             onClose={onCancel}
             width={440}
-            height={selectedReason === 'Radio4' ? 520 : 336}
+            height={selectedReason === 'Radio4' ? 528 : 336}
             actions={
                 <>
                     <NeutralButton text={'Cancel'} onClick={onCancel} />
@@ -1724,7 +1724,9 @@ const CollectionCreateForm: React.FC<CollectionCreateFormProps> = ({
                                     name={'reason'}
                                     rules={[{ required: true }]}
                                 >
-                                    <TextArea />
+                                    <TextArea
+                                        inputWidth={TextInputWidth.fill}
+                                    />
                                 </Form.Item>
                             ) : null
                         }
