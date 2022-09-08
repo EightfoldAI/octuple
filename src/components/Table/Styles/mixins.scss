@@ -47,5 +47,4 @@ $border: $border-width solid $border-color;
 @mixin table-border() {
     border: $table-border;
     border-radius: $table-border-radius;
-    box-shadow: $table-box-shadow;
 }

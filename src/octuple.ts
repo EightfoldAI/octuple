@@ -22,6 +22,7 @@ import {
     CheckBox,
     CheckBoxGroup,
     LabelPosition,
+    LabelAlign,
     SelectorSize,
 } from './components/CheckBox';
 
@@ -175,6 +176,7 @@ export {
     InfoBar,
     InfoBarType,
     Label,
+    LabelAlign,
     LabelPosition,
     LabelSize,
     Layout,

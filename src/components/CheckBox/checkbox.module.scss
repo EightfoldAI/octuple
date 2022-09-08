@@ -22,6 +22,16 @@
         }
 
         & + label {
+            &.align-start {
+                align-items: flex-start;
+                display: flex;
+            }
+
+            &.align-end {
+                align-items: flex-end;
+                display: flex;
+            }
+
             .checkmark {
                 border: $space-xxxs solid var(--grey-color-70);
                 border-radius: $corner-radius-xs;
@@ -212,7 +222,7 @@
     }
 
     .selector-label {
-        font-size: $text-font-size-3;
+        font-size: $text-font-size-2;
 
         &-end {
             margin-left: $space-xs;
@@ -274,7 +284,7 @@
         }
 
         .selector-label {
-            font-size: $text-font-size-4;
+            font-size: $text-font-size-3;
 
             &-end {
                 margin-left: $space-m;
@@ -337,7 +347,7 @@
         }
 
         .selector-label {
-            font-size: $text-font-size-3;
+            font-size: $text-font-size-2;
 
             &-end {
                 margin-left: $space-xs;
@@ -396,7 +406,7 @@
         }
 
         .selector-label {
-            font-size: $text-font-size-2;
+            font-size: $text-font-size-1;
 
             &-end {
                 margin-left: $space-xxs;

@@ -2,7 +2,7 @@ import React, { FC, Ref, useContext, useEffect, useRef, useState } from 'react';
 import DisabledContext, { Disabled } from '../ConfigProvider/DisabledContext';
 import { SizeContext, Size } from '../ConfigProvider';
 import { RadioButtonProps, RadioButtonValue } from './';
-import { LabelPosition, SelectorSize } from '../CheckBox';
+import { LabelAlign, LabelPosition, SelectorSize } from '../CheckBox';
 import { mergeClasses, generateId } from '../../shared/utilities';
 import { useRadioGroup } from './RadioGroup.context';
 import { Breakpoints, useMatchMedia } from '../../hooks/useMatchMedia';
@@ -27,6 +27,7 @@ export const RadioButton: FC<RadioButtonProps> = React.forwardRef(
             name,
             label,
             labelPosition = LabelPosition.End,
+            labelAlign = LabelAlign.Center,
             onChange,
             size = SelectorSize.Medium,
             style,
@@ -92,7 +93,12 @@ export const RadioButton: FC<RadioButtonProps> = React.forwardRef(
         ]);
 
         const labelClassNames: string = mergeClasses([
-            { [styles.labelNoValue]: value === '' },
+            {
+                [styles.labelNoValue]: value === '',
+                [styles.labelNoValue]: value === '',
+                [styles.alignStart]: labelAlign === LabelAlign.Start,
+                [styles.alignEnd]: labelAlign === LabelAlign.End,
+            },
         ]);
 
         const selectorLabelClassNames: string = mergeClasses([

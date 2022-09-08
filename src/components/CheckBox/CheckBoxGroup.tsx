@@ -2,7 +2,13 @@ import React, { FC, Ref, useContext } from 'react';
 import DisabledContext, { Disabled } from '../ConfigProvider/DisabledContext';
 import { SizeContext, Size } from '../ConfigProvider';
 import { mergeClasses } from '../../shared/utilities';
-import { CheckBox, CheckboxGroupProps, LabelPosition, SelectorSize } from './';
+import {
+    CheckBox,
+    CheckboxGroupProps,
+    LabelAlign,
+    LabelPosition,
+    SelectorSize,
+} from './';
 import { Breakpoints, useMatchMedia } from '../../hooks/useMatchMedia';
 import { FormItemInputContext } from '../Form/Context';
 
@@ -23,6 +29,7 @@ export const CheckBoxGroup: FC<CheckboxGroupProps> = React.forwardRef(
             id,
             items = [],
             labelPosition = LabelPosition.End,
+            labelAlign = LabelAlign.Center,
             layout = 'vertical',
             onChange,
             size = SelectorSize.Medium,
@@ -95,6 +102,7 @@ export const CheckBoxGroup: FC<CheckboxGroupProps> = React.forwardRef(
                         allowDisabledFocus={allowDisabledFocus}
                         disabled={mergedDisabled}
                         labelPosition={labelPosition}
+                        labelAlign={labelAlign}
                         {...item}
                         checked={value?.includes(item.value)}
                         key={item.value}

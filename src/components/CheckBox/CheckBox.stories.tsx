@@ -5,6 +5,7 @@ import {
     CheckBox,
     CheckBoxGroup,
     CheckboxValueType,
+    LabelAlign,
     LabelPosition,
     SelectorSize,
 } from './';
@@ -87,6 +88,10 @@ export default {
             options: [LabelPosition.End, LabelPosition.Start],
             control: { type: 'inline-radio' },
         },
+        labelAlign: {
+            options: [LabelAlign.Start, LabelAlign.Center, LabelAlign.End],
+            control: { type: 'inline-radio' },
+        },
         layout: {
             options: ['vertical', 'horizontal'],
             control: { type: 'inline-radio' },
@@ -108,6 +113,14 @@ const CheckBox_Story: ComponentStory<typeof CheckBox> = (args) => (
 );
 
 export const Check_Box = CheckBox_Story.bind({});
+
+const CheckBox_Long_text_Story: ComponentStory<typeof CheckBox> = (args) => (
+    <div style={{ width: 200 }}>
+        <CheckBox checked={true} {...args} />
+    </div>
+);
+
+export const Check_Box_Long_Text = CheckBox_Long_text_Story.bind({});
 
 const CheckBoxGroup_Story: ComponentStory<typeof CheckBoxGroup> = (args) => {
     const [selected, setSelected] = useState<CheckboxValueType[]>([]);
@@ -134,6 +147,7 @@ const checkBoxArgs: Object = {
     value: 'label',
     label: 'Label',
     labelPosition: LabelPosition.End,
+    labelAlign: LabelAlign.Center,
     id: 'myCheckBoxId',
     defaultChecked: false,
     size: SelectorSize.Medium,
@@ -142,6 +156,11 @@ const checkBoxArgs: Object = {
 
 Check_Box.args = {
     ...checkBoxArgs,
+};
+
+Check_Box_Long_Text.args = {
+    ...checkBoxArgs,
+    label: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
 };
 
 Check_Box_Group.args = {

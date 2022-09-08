@@ -188,6 +188,7 @@ const dropdownArgs: Object = {
     positionStrategy: 'absolute',
     disabled: false,
     closeOnDropdownClick: true,
+    portal: false,
 };
 
 Dropdown_Button.args = {

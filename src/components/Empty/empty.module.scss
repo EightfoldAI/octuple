@@ -6,8 +6,8 @@
     text-align: center;
 
     .empty-image {
-        height: 200px;
-        margin-bottom: 8px;
+        height: 120px;
+        margin-bottom: 24px;
 
         img {
             border-style: none;
@@ -21,13 +21,16 @@
     }
 
     .empty-title {
-        font-size: $text-font-size-5;
-        line-height: $text-line-height-6;
+        color: var(--text-tertiary-color);
+        font-size: $text-font-size-4;
+        font-weight: $text-font-weight-semibold;
+        line-height: $text-line-height-5;
         text-align: center;
+        margin-bottom: 8px;
     }
 
     .empty-description {
-        color: $text-color-secondary;
+        color: var(--text-tertiary-color);
         font-size: $text-font-size-2;
         line-height: $text-line-height-2;
         margin: 0 auto;

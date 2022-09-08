@@ -94,7 +94,7 @@ export const Dropdown: FC<DropdownProps> = React.memo(
             };
 
         useOnClickOutside(
-            refs.reference,
+            refs.floating,
             (e) => {
                 if (closeOnOutsideClick) {
                     toggle(false)(e);

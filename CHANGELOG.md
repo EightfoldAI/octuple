@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.10.0](https://github.com/EightfoldAI/octuple/compare/v2.9.1...v2.10.0) (2022-09-05)
+
+### Features
+
+-   Add Loc support and Form component ([#332](https://github.com/EightfoldAI/octuple/issues/332)) ([af2882f](https://github.com/EightfoldAI/octuple/commits/af2882f689eab4a17ec6eefc8fe9af6c69e202ae))
+
+### Bug Fixes
+
+-   dropdown: fix on click outside getting triggered on portaled dropdowns ([#343](https://github.com/EightfoldAI/octuple/issues/343)) ([f400b41](https://github.com/EightfoldAI/octuple/commits/f400b410b36ef85d9e4b4547d52cd32747b8d0ca))
+-   searchbox: set default shape to pill ([#344](https://github.com/EightfoldAI/octuple/issues/344)) ([6a1b136](https://github.com/EightfoldAI/octuple/commits/6a1b136002264d32ced750ebac899780845c92e3))
+-   table: remove box shadow from bordered table ([#341](https://github.com/EightfoldAI/octuple/issues/341)) ([931b2a8](https://github.com/EightfoldAI/octuple/commits/931b2a85509d59626995115e42355c54ff278c05))
+
 ### [2.9.1](https://github.com/EightfoldAI/octuple/compare/v2.9.0...v2.9.1) (2022-09-02)
 
 ### Bug Fixes

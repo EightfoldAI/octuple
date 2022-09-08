@@ -8,7 +8,7 @@
     --table-border-active-color: transparent;
     --table-header-background-color: var(--background-color);
     --table-header-foreground-color: var(--text-primary-color);
-    --table-header-icon-color: var(--primary-color);
+    --table-header-icon-color: var(--grey-color-40);
     --table-header-icon-hover-color: var(--primary-color-80);
     --table-header-cell-split-color: var(--grey-color-20);
     --table-body-sort-background-color: var(--background-color);
@@ -42,7 +42,7 @@
     --table-fixed-left-box-shadow: inset 32px 0 8px -32px rgba(15, 20, 31, 0.08);
     --table-fixed-right-box-shadow: inset -32px 0 8px -32px
         rgba(15, 20, 31, 0.08);
-    --table-header-font-size: 16px;
+    --table-header-font-size: 14px;
     --table-header-line-height: 24px;
     --table-footer-font-size: 16px;
     --table-footer-line-height: 24px;
@@ -300,7 +300,7 @@
         }
 
         &-column-sorter {
-            margin-left: 8px;
+            margin-left: $space-xxs;
             color: $table-header-icon-color;
             font-size: 0;
             transition: color 0.3s;
@@ -316,7 +316,7 @@
                 font-size: 14px;
 
                 &.active {
-                    color: var(--primary-color);
+                    color: var(--grey-color-90);
                 }
             }
 
