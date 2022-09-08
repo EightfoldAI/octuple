@@ -9,11 +9,6 @@ type Validator = (
 
 interface OcBaseRule {
     /**
-     * Set required to warningOnly
-     * Will not block Form submit
-     */
-    warningOnly?: boolean;
-    /**
      * Match enum value
      * Set type to enum to enable
      */
@@ -55,15 +50,20 @@ interface OcBaseRule {
      */
     type?: OcRuleType;
     /**
-     * Fail if only has whitespace
-     * only works with type: 'string' rule
-     */
-    whitespace?: boolean;
-    /**
      * Customize rule level `validateTrigger`
      * Must be subset of Field `validateTrigger`
      */
     validateTrigger?: string | string[];
+    /**
+     * Set required to warningOnly
+     * Will not block Form submit
+     */
+    warningOnly?: boolean;
+    /**
+     * Fail if only has whitespace
+     * only works with type: 'string' rule
+     */
+    whitespace?: boolean;
 }
 
 type OcAggregationRule = OcBaseRule & Partial<OcValidatorRule>;
@@ -136,16 +136,40 @@ export interface OcFormFinishInfo {
 }
 
 export interface OcFormProviderProps {
-    validateMessages?: ValidateMessages;
-    onFormChange?: (name: string, info: OcFormChangeInfo) => void;
-    onFormFinish?: (name: string, info: OcFormFinishInfo) => void;
+    /**
+     * The child node
+     */
     children?: React.ReactNode;
+    /**
+     * Triggered when a sub form field updates
+     */
+    onFormChange?: (name: string, info: OcFormChangeInfo) => void;
+    /**
+     * Triggered when a sub form submits
+     */
+    onFormFinish?: (name: string, info: OcFormFinishInfo) => void;
+    /**
+     * Validation prompt template
+     */
+    validateMessages?: ValidateMessages;
 }
 
 export interface OcFormContextProps extends OcFormProviderProps {
-    triggerFormChange: (name: string, changedFields: OcFieldData[]) => void;
-    triggerFormFinish: (name: string, values: OcStore) => void;
+    /**
+     * Registers form
+     */
     registerForm: (name: string, form: OcFormInstance) => void;
+    /**
+     * Triggers form field updates
+     */
+    triggerFormChange: (name: string, changedFields: OcFieldData[]) => void;
+    /**
+     * Triggers form submit
+     */
+    triggerFormFinish: (name: string, values: OcStore) => void;
+    /**
+     * Unregisters form
+     */
     unregisterForm: (name: string) => void;
 }
 
@@ -157,6 +181,14 @@ export type OcStore = Record<string, OcStoreValue>;
 
 export interface OcMeta {
     /**
+     * Error messages
+     */
+    errors: string[];
+    /**
+     * Field name path
+     */
+    name: InternalOcNamePath;
+    /**
      * if is operated
      */
     touched: boolean;
@@ -165,17 +197,9 @@ export interface OcMeta {
      */
     validating: boolean;
     /**
-     * Error messages
-     */
-    errors: string[];
-    /**
      * Warning messages
      */
     warnings: string[];
-    /**
-     * Field name path
-     */
-    name: InternalOcNamePath;
 }
 
 export interface InternalOcFieldData extends OcMeta {
@@ -208,8 +232,19 @@ export type OcRuleType =
 export type OcRuleRender = (form: OcFormInstance) => OcRuleObject;
 
 export interface OcValidatorRule {
-    warningOnly?: boolean;
+    /**
+     * The message
+     */
     message?: string | ReactElement;
+    /**
+     * Required will only be a warning
+     * Form submit will not be blocked
+     */
+    warningOnly?: boolean;
+    /**
+     * Custom validation rule
+     * Accepts Promise as return
+     */
     validator: Validator;
 }
 
@@ -324,9 +359,13 @@ export interface InternalOcHooks {
 // Internal Form API
 export interface OcFormInstance<Values = any> {
     /**
-     * Gets the value by a field name
+     * Gets the error messages by a field name
      */
-    getFieldValue: (name: OcNamePath) => OcStoreValue;
+    getFieldError: (name: OcNamePath) => string[];
+    /**
+     * Get the error messages by multiple fields' name
+     */
+    getFieldListErrors: (nameList?: OcNamePath[]) => OcFieldError[];
     /**
      * Gets values by a set of field names
      * return according to the corresponding structure
@@ -339,13 +378,9 @@ export interface OcFormInstance<Values = any> {
             filterFunc?: (meta: OcMeta) => boolean
         ) => any);
     /**
-     * Gets the error messages by a field name
+     * Gets the value by a field name
      */
-    getFieldError: (name: OcNamePath) => string[];
-    /**
-     * Get the error messages by multiple fields' name
-     */
-    getFieldListErrors: (nameList?: OcNamePath[]) => OcFieldError[];
+    getFieldValue: (name: OcNamePath) => OcStoreValue;
     /**
      * Gets the warn messages by a field name
      */
@@ -360,6 +395,10 @@ export interface OcFormInstance<Values = any> {
     ) => boolean) &
         ((allFieldsTouched?: boolean) => boolean);
     /**
+     * Check if multiple fields are validating
+     */
+    isListValidating: (nameList: OcNamePath[]) => boolean;
+    /**
      * Check if a field has been operated
      */
     isTouched: (name: OcNamePath) => boolean;
@@ -367,10 +406,6 @@ export interface OcFormInstance<Values = any> {
      * Check if a field is validating
      */
     isValidating: (name: OcNamePath) => boolean;
-    /**
-     * Check if multiple fields are validating
-     */
-    isListValidating: (nameList: OcNamePath[]) => boolean;
     /**
      * Reset fields to initialValues
      */
@@ -380,12 +415,6 @@ export interface OcFormInstance<Values = any> {
      */
     setFields: (fields: OcFieldData[]) => void;
     /**
-     * Set a single field value
-     * Will directly pass to form store
-     * If you do not want to modify passed object, clone first
-     */
-    setFieldValue: (name: OcNamePath, value: any) => void;
-    /**
      * Set multiple fields' value
      * Will directly pass to form store
      * If you do not want to modify passed object, clone first
@@ -393,33 +422,44 @@ export interface OcFormInstance<Values = any> {
      */
     setFieldListValues: (values: RecursiveOcPartial<Values>) => void;
     /**
-     * Validate fields
+     * Set a single field value
+     * Will directly pass to form store
+     * If you do not want to modify passed object, clone first
      */
-    validateFields: ValidateFields<Values>;
+    setFieldValue: (name: OcNamePath, value: any) => void;
     /**
      * Submit the form
      * Equivalent to submit button click
      */
     submit: () => void;
+    /**
+     * Validate fields
+     */
+    validateFields: ValidateFields<Values>;
 }
 
 export type InternalOcFormInstance = Omit<OcFormInstance, 'validateFields'> & {
+    /**
+     * Validate fields
+     */
     validateFields: InternalOcValidateFields;
-
     /**
      * Passed by field context props
      */
     prefixName?: InternalOcNamePath;
-
+    /**
+     * Determine when to validate the value of children node
+     */
     validateTrigger?: string | string[] | false;
-
     /**
      * Form component should register some content into store.
      * We pass the `HOOK_MARK` as key to avoid user call the function.
      */
     getInternalHooks: (secret: string) => InternalOcHooks | null;
-
-    /** @private Internal usage. Do not use it in your production */
+    /**
+     * @private Internal usage only
+     * Do not use in production
+     */
     _init?: boolean;
 };
 
@@ -486,21 +526,12 @@ export type OcRenderProps = (
 
 export interface OcFormProps<Values = any> extends BaseOcFormProps {
     /**
-     * Set value by Form initialization or reset
-     */
-    initialValues?: OcStore;
-    /**
-     * Form control instance created by Form.useForm()
-     * Automatically created when not provided
-     */
-    form?: OcFormInstance<Values>;
-    /**
      * The Form children
      */
     children?: OcRenderProps | React.ReactNode;
     /**
      * Set the Form rendering element
-     * Do not create a DOM node for false
+     * Do not create a DOM node if false
      */
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     component?: false | string | React.FC<any> | React.ComponentClass<any>;
@@ -509,17 +540,18 @@ export interface OcFormProps<Values = any> extends BaseOcFormProps {
      */
     fields?: OcFieldData[];
     /**
+     * Form control instance created by Form.useForm()
+     * Automatically created when not provided
+     */
+    form?: OcFormInstance<Values>;
+    /**
+     * Set value by Form initialization or reset
+     */
+    initialValues?: OcStore;
+    /**
      * The Form name.
      */
     name?: string;
-    /**
-     * Validation message prompts
-     */
-    validateMessages?: ValidateMessages;
-    /**
-     * Trigger when value updated
-     */
-    onValuesChange?: OcCallbacks<Values>['onValuesChange'];
     /**
      * Trigger when field updated
      */
@@ -533,13 +565,21 @@ export interface OcFormProps<Values = any> extends BaseOcFormProps {
      */
     onFinishFailed?: OcCallbacks<Values>['onFinishFailed'];
     /**
-     * Determine when to validate the value of children node
+     * Trigger when value updated
      */
-    validateTrigger?: string | string[] | false;
+    onValuesChange?: OcCallbacks<Values>['onValuesChange'];
     /**
      * Keep field value even when field is removed
      */
     preserve?: boolean;
+    /**
+     * Validation message prompts
+     */
+    validateMessages?: ValidateMessages;
+    /**
+     * Determine when to validate the value of children node
+     */
+    validateTrigger?: string | string[] | false;
 }
 
 export type ShouldUpdate<Values = any> =
@@ -563,21 +603,47 @@ export interface OcListField {
 }
 
 export interface OcListOperations {
+    /**
+     * Add a Form.Item
+     */
     add: (defaultValue?: OcStoreValue, index?: number) => void;
-    remove: (index: number | number[]) => void;
+    /**
+     * Move a Form.Item
+     */
     move: (from: number, to: number) => void;
+    /**
+     * Remove a Form.Item
+     */
+    remove: (index: number | number[]) => void;
 }
 
 export interface OcListProps {
-    name: OcNamePath;
-    rules?: OcValidatorRule[];
-    validateTrigger?: string | string[] | false;
-    initialValue?: any[];
+    /**
+     * The render function
+     */
     children?: (
         fields: OcListField[],
         operations: OcListOperations,
         meta: OcMeta
     ) => JSX.Element | React.ReactNode;
+    /**
+     * Configure sub default value
+     * Form initialValues get higher priority
+     */
+    initialValue?: any[];
+    /**
+     * Field name, supports array
+     */
+    name: OcNamePath;
+    /**
+     * Validate rules
+     * only supports customized validator
+     */
+    rules?: OcValidatorRule[];
+    /**
+     * When to validate the value of children node
+     */
+    validateTrigger?: string | string[] | false;
 }
 
 export interface InternalOcFieldProps<Values = any> {
@@ -602,6 +668,19 @@ export interface InternalOcFieldProps<Values = any> {
      */
     getValueFromEvent?: (...args: OcEventArgs) => OcStoreValue;
     /**
+     * Additional props with sub component
+     */
+    getValueProps?: (value: OcStoreValue) => Record<string, unknown>;
+    /**
+     * Config sub default value
+     * Form initialValues get higher priority
+     */
+    initialValue?: any;
+    /**
+     * The default validate field info
+     */
+    messageVariables?: Record<string, string>;
+    /**
      * The Field name
      * supports array
      */
@@ -615,6 +694,22 @@ export interface InternalOcFieldProps<Values = any> {
         prevValue: OcStoreValue,
         allValues: OcStore
     ) => OcStoreValue;
+    /**
+     * The onMeta change event
+     * Called when fields are dynamically added/removed
+     */
+    onMetaChange?: (meta: OcMeta & { destroy?: boolean }) => void;
+    /**
+     * The onReset callback
+     */
+    onReset?: () => void;
+    /**
+     * Keep field value even when field is removed
+     */
+    preserve?: boolean;
+    /**
+     * Rules for field validation
+     */
     rules?: OcRule[];
     /**
      * Custom field update logic
@@ -625,12 +720,8 @@ export interface InternalOcFieldProps<Values = any> {
      */
     trigger?: string;
     /**
-     * When to validate the value of children node
-     */
-    validateTrigger?: string | string[] | false;
-    /**
      * Whether stop validate on first rule of error for this field
-     * Will parallel validate when parallel cofigured
+     * Will parallel validate when parallel configured
      */
     validateFirst?: boolean | 'parallel';
     /**
@@ -640,46 +731,24 @@ export interface InternalOcFieldProps<Values = any> {
      */
     valuePropName?: string;
     /**
-     * Additional props with sub component
+     * When to validate the value of children node
      */
-    getValueProps?: (value: OcStoreValue) => Record<string, unknown>;
+    validateTrigger?: string | string[] | false;
     /**
-     * The default validate field info
+     * @private Pass context as prop instead of context api
+     * since class component can not get context in constructor
      */
-    messageVariables?: Record<string, string>;
-    /**
-     * Config sub default value
-     * Form initialValues get higher priority
-     */
-    initialValue?: any;
-    /**
-     * The onReset callback
-     */
-    onReset?: () => void;
-    /**
-     * The onMeta change event
-     * Called when fields are dynamically added/removed
-     */
-    onMetaChange?: (meta: OcMeta & { destroy?: boolean }) => void;
-    /**
-     * Keep field value even when field is removed
-     */
-    preserve?: boolean;
-    /**
-     * @private Passed by Form.List props
-     * Do not use since it will break by path check
-     */
-    isListField?: boolean;
+    fieldContext?: InternalOcFormInstance;
     /**
      * @private Passed by Form.List props
      * Do not use since it will break by path check
      */
     isList?: boolean;
     /**
-     * @private Pass context as prop instead of context api
-     * since class component can not get context in constructor
+     * @private Passed by Form.List props
+     * Do not use since it will break by path check
      */
-    fieldContext?: InternalOcFormInstance;
+    isListField?: boolean;
 }
 
 export interface OcFieldProps<Values = any>
