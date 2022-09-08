@@ -125,6 +125,7 @@
         border-top: 0;
         border-left: 0;
         transition: box-shadow 0.3s;
+        @include text-overflow();
 
         &.table-rtl {
             border-right: 0;
