@@ -20,7 +20,7 @@
         "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
         "format": "prettier --write \"**/*.+(js|jsx|ts|tsx|json|css|scss|md)\"",
         "chromatic": "chromatic --exit-zero-on-changes",
-        "prepare": "husky install && install-peers",
+        "prepare": "husky install",
         "lint-staged": "lint-staged",
         "release": "standard-version",
         "release:minor": "standard-version --release-as minor",
