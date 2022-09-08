@@ -20,6 +20,16 @@
         }
 
         & + label {
+            &.align-start {
+                align-items: flex-start;
+                display: flex;
+            }
+
+            &.align-end {
+                align-items: flex-end;
+                display: flex;
+            }
+
             .radio-button {
                 border: $space-xxxs solid var(--grey-color-70);
                 border-radius: 50%;

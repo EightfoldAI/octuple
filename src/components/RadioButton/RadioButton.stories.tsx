@@ -3,7 +3,7 @@ import { Stories } from '@storybook/addon-docs';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Label } from '../Label';
 import { RadioButton, RadioButtonValue, RadioGroup } from './';
-import { LabelPosition, SelectorSize } from '../CheckBox';
+import { LabelAlign, LabelPosition, SelectorSize } from '../CheckBox';
 import { Stack } from '../Stack';
 
 export default {
@@ -106,6 +106,10 @@ export default {
             options: [LabelPosition.End, LabelPosition.Start],
             control: { type: 'inline-radio' },
         },
+        labelAlign: {
+            options: [LabelAlign.Start, LabelAlign.Center, LabelAlign.End],
+            control: { type: 'inline-radio' },
+        },
         layout: {
             options: ['vertical', 'horizontal'],
             control: { type: 'inline-radio' },
@@ -141,6 +145,30 @@ const RadioButton_Story: ComponentStory<typeof RadioButton> = (args) => {
 };
 
 export const Radio_Button = RadioButton_Story.bind({});
+
+const RadioButtonLongText_Story: ComponentStory<typeof RadioButton> = (
+    args
+) => {
+    const [selected, setSelected] = useState<RadioButtonValue>('label1');
+
+    const radioChangeHandler = (
+        e?: React.ChangeEvent<HTMLInputElement>
+    ): void => {
+        setSelected(e.target.value);
+    };
+
+    return (
+        <div style={{ width: 200 }}>
+            <RadioButton
+                {...args}
+                checked={selected === 'Label1'}
+                onChange={radioChangeHandler}
+            />
+        </div>
+    );
+};
+
+export const Radio_Button_Long_Text = RadioButtonLongText_Story.bind({});
 
 const RadioGroup_Story: ComponentStory<typeof RadioGroup> = (args) => {
     const [selected1, setSelected1] = useState<RadioButtonValue>(args.value);
@@ -299,6 +327,7 @@ const radioButtonArgs: Object = {
     id: 'myRadioButtonId',
     label: 'Label',
     labelPosition: LabelPosition.End,
+    labelAlign: LabelAlign.Center,
     name: 'myRadioButtonName',
     size: SelectorSize.Medium,
     value: 'Label1',
@@ -306,6 +335,11 @@ const radioButtonArgs: Object = {
 
 Radio_Button.args = {
     ...radioButtonArgs,
+};
+
+Radio_Button_Long_Text.args = {
+    ...radioButtonArgs,
+    label: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
 };
 
 Radio_Group.args = {

@@ -9,6 +9,12 @@ export enum LabelPosition {
     Start = 'start',
 }
 
+export enum LabelAlign {
+    Start = 'start',
+    Center = 'center',
+    End = 'end',
+}
+
 export enum SelectorSize {
     Flex = 'flex',
     Large = 'large',
@@ -60,6 +66,11 @@ export interface CheckboxProps extends OcBaseProps<HTMLInputElement> {
      * @default LabelPosition.End
      */
     labelPosition?: LabelPosition;
+    /**
+     * The vertical placement of the label
+     * @default LabelAlign.Center
+     */
+    labelAlign?: LabelAlign;
     /**
      * The checkbox onChange event handler.
      */
@@ -113,6 +124,11 @@ export interface CheckboxGroupProps
      * @default LabelPosition.End
      */
     labelPosition?: LabelPosition;
+    /**
+     * The vertical placement of the label
+     * @default LabelAlign.Center
+     */
+    labelAlign?: LabelAlign;
     /**
      * Type of layout for the checkbox group
      * @default vertical

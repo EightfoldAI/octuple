@@ -2,7 +2,7 @@ import React, { FC, Ref, useContext, useEffect, useRef, useState } from 'react';
 import DisabledContext, { Disabled } from '../ConfigProvider/DisabledContext';
 import { SizeContext, Size } from '../ConfigProvider';
 import { generateId, mergeClasses } from '../../shared/utilities';
-import { CheckboxProps, LabelPosition, SelectorSize } from './';
+import { CheckboxProps, LabelAlign, LabelPosition, SelectorSize } from './';
 import { Breakpoints, useMatchMedia } from '../../hooks/useMatchMedia';
 import { FormItemInputContext } from '../Form/Context';
 
@@ -25,6 +25,7 @@ export const CheckBox: FC<CheckboxProps> = React.forwardRef(
             id,
             label,
             labelPosition = LabelPosition.End,
+            labelAlign = LabelAlign.Center,
             name,
             onChange,
             size = SelectorSize.Medium,
@@ -94,7 +95,11 @@ export const CheckBox: FC<CheckboxProps> = React.forwardRef(
         ]);
 
         const labelClassNames: string = mergeClasses([
-            { [styles.labelNoValue]: value === '' },
+            {
+                [styles.labelNoValue]: value === '',
+                [styles.alignStart]: labelAlign === LabelAlign.Start,
+                [styles.alignEnd]: labelAlign === LabelAlign.End,
+            },
         ]);
 
         const selectorLabelClassNames: string = mergeClasses([
