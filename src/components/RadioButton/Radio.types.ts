@@ -1,6 +1,6 @@
 import React from 'react';
 import { OcBaseProps } from '../OcBase';
-import { LabelPosition, SelectorSize } from '../CheckBox';
+import { LabelAlign, LabelPosition, SelectorSize } from '../CheckBox';
 import { ConfigContextProps, Size } from '../ConfigProvider';
 
 export type RadioButtonValue = string | number;
@@ -60,6 +60,11 @@ export interface RadioButtonProps extends OcBaseProps<HTMLInputElement> {
      */
     labelPosition?: LabelPosition;
     /**
+     * The vertical placement of the label
+     * @default LabelAlign.Center
+     */
+    labelAlign?: LabelAlign;
+    /**
      * The radio button onChange event handler.
      */
     onChange?: React.ChangeEventHandler<HTMLInputElement>;
@@ -101,6 +106,11 @@ export interface RadioGroupProps extends OcBaseProps<HTMLDivElement> {
      * @default LabelPosition.End
      */
     labelPosition?: LabelPosition;
+    /**
+     * The vertical placement of the label
+     * @default LabelAlign.Center
+     */
+    labelAlign?: LabelAlign;
     /**
      * Type of layout for the radio group.
      * @default vertical.
