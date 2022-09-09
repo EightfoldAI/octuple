@@ -278,7 +278,7 @@ export interface InputProps<T>
      */
     inline?: boolean;
     /**
-     * Width of the tooltip
+     * Width of the input
      * @default fitContent
      */
     inputWidth?: TextInputWidth;
