@@ -98,6 +98,10 @@ export const SearchBox: FC<SearchBoxProps> = React.forwardRef(
                     htmlType="search"
                     iconProps={iconProps}
                     iconButtonProps={{
+                        htmlType: 'button',
+                        iconProps: {
+                            path: IconName.mdiMagnify,
+                        },
                         ...iconButtonProps,
                         disabled: mergedDisabled,
                     }}

@@ -39,7 +39,7 @@ exports[`Storyshots Info Bar Disruptive 1`] = `
   <button
     aria-disabled={false}
     aria-label="Action"
-    className="my-action-btn-class button button-neutral button-medium pill-shape"
+    className="my-action-btn-class button button-system-ui button-medium pill-shape"
     data-test-id="my-action-btn-test-id"
     defaultChecked={false}
     disabled={false}
@@ -54,7 +54,7 @@ exports[`Storyshots Info Bar Disruptive 1`] = `
   <button
     aria-disabled={false}
     aria-label="Close"
-    className="my-close-btn-class button button-neutral button-medium pill-shape icon-left"
+    className="my-close-btn-class button button-system-ui button-medium pill-shape icon-left"
     data-test-id="my-close-btn-test-id"
     defaultChecked={false}
     disabled={false}
@@ -128,7 +128,7 @@ exports[`Storyshots Info Bar Neutral 1`] = `
   <button
     aria-disabled={false}
     aria-label="Action"
-    className="my-action-btn-class button button-neutral button-medium pill-shape"
+    className="my-action-btn-class button button-system-ui button-medium pill-shape"
     data-test-id="my-action-btn-test-id"
     defaultChecked={false}
     disabled={false}
@@ -143,7 +143,7 @@ exports[`Storyshots Info Bar Neutral 1`] = `
   <button
     aria-disabled={false}
     aria-label="Close"
-    className="my-close-btn-class button button-neutral button-medium pill-shape icon-left"
+    className="my-close-btn-class button button-system-ui button-medium pill-shape icon-left"
     data-test-id="my-close-btn-test-id"
     defaultChecked={false}
     disabled={false}
@@ -217,7 +217,7 @@ exports[`Storyshots Info Bar Positive 1`] = `
   <button
     aria-disabled={false}
     aria-label="Action"
-    className="my-action-btn-class button button-neutral button-medium pill-shape"
+    className="my-action-btn-class button button-system-ui button-medium pill-shape"
     data-test-id="my-action-btn-test-id"
     defaultChecked={false}
     disabled={false}
@@ -232,7 +232,7 @@ exports[`Storyshots Info Bar Positive 1`] = `
   <button
     aria-disabled={false}
     aria-label="Close"
-    className="my-close-btn-class button button-neutral button-medium pill-shape icon-left"
+    className="my-close-btn-class button button-system-ui button-medium pill-shape icon-left"
     data-test-id="my-close-btn-test-id"
     defaultChecked={false}
     disabled={false}
@@ -306,7 +306,7 @@ exports[`Storyshots Info Bar Warning 1`] = `
   <button
     aria-disabled={false}
     aria-label="Action"
-    className="my-action-btn-class button button-neutral button-medium pill-shape"
+    className="my-action-btn-class button button-system-ui button-medium pill-shape"
     data-test-id="my-action-btn-test-id"
     defaultChecked={false}
     disabled={false}
@@ -321,7 +321,7 @@ exports[`Storyshots Info Bar Warning 1`] = `
   <button
     aria-disabled={false}
     aria-label="Close"
-    className="my-close-btn-class button button-neutral button-medium pill-shape icon-left"
+    className="my-close-btn-class button button-system-ui button-medium pill-shape icon-left"
     data-test-id="my-close-btn-test-id"
     defaultChecked={false}
     disabled={false}

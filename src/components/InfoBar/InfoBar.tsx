@@ -2,7 +2,7 @@ import React, { FC, Ref } from 'react';
 import { InfoBarsProps, InfoBarType } from './InfoBar.types';
 import { Icon, IconName } from '../Icon';
 import { mergeClasses } from '../../shared/utilities';
-import { NeutralButton } from '../Button';
+import { SystemUIButton } from '../Button';
 
 import styles from './infoBar.module.scss';
 
@@ -61,13 +61,13 @@ export const InfoBar: FC<InfoBarsProps> = React.forwardRef(
                 <Icon path={getIconName()} classNames={styles.icon} />
                 <div className={messageClasses}>{content}</div>
                 {actionButtonProps && (
-                    <NeutralButton
+                    <SystemUIButton
                         {...actionButtonProps}
                         disruptive={type === InfoBarType.disruptive}
                     />
                 )}
                 {closable && (
-                    <NeutralButton
+                    <SystemUIButton
                         iconProps={{ path: closeIcon }}
                         ariaLabel={'Close'}
                         onClick={onClose}
