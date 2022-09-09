@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.10.2](https://github.com/EightfoldAI/octuple/compare/v2.10.1...v2.10.2) (2022-09-09)
+
+### Bug Fixes
+
+-   remove table data text overflow ([#361](https://github.com/EightfoldAI/octuple/issues/361)) ([6042167](https://github.com/EightfoldAI/octuple/commits/604216716c98ccaa93e2a9571ab1eabda9808e30))
+
 ### [2.10.1](https://github.com/EightfoldAI/octuple/compare/v2.10.0...v2.10.1) (2022-09-09)
 
 ### Features
