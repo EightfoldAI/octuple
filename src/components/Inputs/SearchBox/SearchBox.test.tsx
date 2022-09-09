@@ -22,4 +22,10 @@ describe('SearchBox', () => {
         const wrapper = mount(<SearchBox />);
         expect(wrapper.containsMatchingElement(<SearchBox />)).toEqual(true);
     });
+    test('text input renders with partially customized icon button', () => {
+        const wrapper = mount(
+            <SearchBox iconButtonProps={{ htmlType: 'submit' }} />
+        );
+        expect(wrapper.containsMatchingElement(<SearchBox />)).toEqual(true);
+    });
 });
