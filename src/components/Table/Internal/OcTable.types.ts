@@ -41,13 +41,38 @@ export type DataIndex = string | number | readonly (string | number)[];
 export type CellEllipsisType = { showTitle?: boolean } | boolean;
 
 interface ColumnSharedType<RecordType> {
-    title?: React.ReactNode;
-    key?: Key;
-    classNames?: string;
-    fixed?: FixedType;
-    onHeaderCell?: GetComponentProps<ColumnsType<RecordType>[number]>;
-    ellipsis?: CellEllipsisType;
+    /**
+     * Set the Table Column alignment.
+     * @default 'left'
+     */
     align?: AlignType;
+    /**
+     * The custom class names of the Table Column.
+     */
+    classNames?: string;
+    /**
+     * The ellipsis configuration of the Table cell content.
+     * `tableLayout` is `fixed` when ellipsis is true or { showTitle?: boolean }
+     */
+    ellipsis?: CellEllipsisType;
+    /**
+     * Set Column to fixed.
+     */
+    fixed?: FixedType;
+    /**
+     * Unique key of the Table Column.
+     * May be ignored if you've set a unique `dataIndex`.
+     */
+    key?: Key;
+    /**
+     * Set props on header cell.
+     */
+    onHeaderCell?: GetComponentProps<ColumnsType<RecordType>[number]>;
+    /**
+     * @private
+     * The Column title.
+     */
+    title?: React.ReactNode;
 }
 
 export interface ColumnGroupType<RecordType>
@@ -58,17 +83,40 @@ export interface ColumnGroupType<RecordType>
 export type AlignType = 'left' | 'center' | 'right';
 
 export interface ColumnType<RecordType> extends ColumnSharedType<RecordType> {
+    /**
+     * Span of the Table Column's title
+     */
     colSpan?: number;
+    /**
+     * Display field of the data record.
+     * Supports nest path by string array.
+     */
     dataIndex?: DataIndex;
+    /**
+     * Set props on cell.
+     */
+    onCell?: GetComponentProps<RecordType>;
+    /**
+     * Renderer of the Table cell.
+     * The return value should be a ReactNode.
+     */
     render?: (
         value: any,
         record: RecordType,
         index: number
     ) => React.ReactNode | RenderedCell<RecordType>;
-    shouldCellUpdate?: (record: RecordType, prevRecord: RecordType) => boolean;
+    /**
+     * Span of the Table Column row.
+     */
     rowSpan?: number;
+    /**
+     * Control the Table cell render logic.
+     */
+    shouldCellUpdate?: (record: RecordType, prevRecord: RecordType) => boolean;
+    /**
+     * The Table Column width.
+     */
     width?: number | string;
-    onCell?: GetComponentProps<RecordType>;
 }
 
 export type ColumnsType<RecordType = unknown> = readonly (
@@ -160,21 +208,73 @@ export type RenderExpandIcon<RecordType> = (
 ) => React.ReactNode;
 
 export interface ExpandableConfig<RecordType> {
-    expandedRowKeys?: readonly Key[];
-    defaultExpandedRowKeys?: readonly Key[];
-    expandedRowRender?: ExpandedRowRender<RecordType>;
-    expandRowByClick?: boolean;
-    expandIcon?: RenderExpandIcon<RecordType>;
-    onExpand?: (expanded: boolean, record: RecordType) => void;
-    onExpandedRowsChange?: (expandedKeys: readonly Key[]) => void;
-    defaultExpandAllRows?: boolean;
-    indentSize?: number;
-    showExpandColumn?: boolean;
-    expandedRowClassName?: RowClassName<RecordType>;
+    /**
+     * The Column contains children to display.
+     * @default 'children'
+     */
     childrenColumnName?: string;
-    rowExpandable?: (record: RecordType) => boolean;
+    /**
+     * The width of the expand Column
+     */
     columnWidth?: number | string;
+    /**
+     * Expand all rows by default.
+     * @default false
+     */
+    defaultExpandAllRows?: boolean;
+    /**
+     * Expanded row keys by default.
+     */
+    defaultExpandedRowKeys?: readonly Key[];
+    /**
+     * The expanded row's custom class name.
+     */
+    expandedRowClassName?: RowClassName<RecordType>;
+    /**
+     * Current expanded row keys.
+     */
+    expandedRowKeys?: readonly Key[];
+    /**
+     * Custom expand row Icon.
+     */
+    expandIcon?: RenderExpandIcon<RecordType>;
+    /**
+     * Whether to expand row by clicking anywhere in the row.
+     * @default false
+     */
+    expandRowByClick?: boolean;
+    /**
+     * Expanded container render for each row.
+     */
+    expandedRowRender?: ExpandedRowRender<RecordType>;
+    /**
+     * Whether the expansion icon is fixed.
+     * true | left | right
+     * @default false
+     */
     fixed?: FixedType;
+    /**
+     * Indent size in pixels of Table tree data.
+     * @default 15
+     */
+    indentSize?: number;
+    /**
+     * Callback executed when the expand row icon is clicked.
+     */
+    onExpand?: (expanded: boolean, record: RecordType) => void;
+    /**
+     * Callback executed when the expanded rows change.
+     */
+    onExpandedRowsChange?: (expandedKeys: readonly Key[]) => void;
+    /**
+     * Enable row expandable.
+     */
+    rowExpandable?: (record: RecordType) => boolean;
+    /**
+     * Show expand column.
+     * @default true
+     */
+    showExpandColumn?: boolean;
 }
 
 // =================== Render ===================
@@ -212,42 +312,116 @@ export interface MemoTableContentProps {
 }
 
 export interface OcTableProps<RecordType = unknown> {
+    /**
+     * The Table custom class names.
+     */
     classNames?: string;
-    style?: React.CSSProperties;
+    /**
+     * The Table children.
+     */
     children?: React.ReactNode;
-    data?: readonly RecordType[];
-    columns?: ColumnsType<RecordType>;
-    rowKey?: string | GetRowKey<RecordType>;
-    tableLayout?: TableLayout;
-
-    // Fixed Columns
-    scroll?: { x?: number | true | string; y?: number | string };
-
-    // expandableConfig
-    /** Config expand rows */
-    expandableConfig?: ExpandableConfig<RecordType>;
-    indentSize?: number;
-    rowClassName?: string | RowClassName<RecordType>;
-
-    // Additional Part
-    title?: FrameWrapperRender<RecordType>;
-    footer?: FrameWrapperRender<RecordType>;
-    summary?: (data: readonly RecordType[]) => React.ReactNode;
-
-    // Customize
-    id?: string;
-    showHeader?: boolean;
+    /**
+     * Override default Table elements.
+     */
     components?: TableComponents<RecordType>;
-    onRow?: GetComponentProps<RecordType>;
-    onHeaderRow?: GetComponentProps<readonly ColumnType<RecordType>[]>;
-    emptyText?: React.ReactNode | (() => React.ReactNode);
-    headerClassName?: string;
-
+    /**
+     * The Table canvas direction.
+     * options: 'ltr', 'rtl'
+     */
     direction?: string;
-
+    /**
+     * Configure expandable content.
+     */
+    expandableConfig?: ExpandableConfig<RecordType>;
+    /**
+     * The Table footer renderer.
+     */
+    footer?: FrameWrapperRender<RecordType>;
+    /**
+     * The custom class name of Table header.
+     */
+    headerClassName?: string;
+    /**
+     * The Table id.
+     */
+    id?: string;
+    /**
+     * Indent size in pixels of Table tree data.
+     */
+    indentSize?: number;
+    /**
+     * Set props on header row.
+     */
+    onHeaderRow?: GetComponentProps<readonly ColumnType<RecordType>[]>;
+    /**
+     * Set props on row.
+     */
+    onRow?: GetComponentProps<RecordType>;
+    /**
+     * The custom class name of Table row.
+     */
+    rowClassName?: string | RowClassName<RecordType>;
+    /**
+     * Table Row's unique key.
+     * May be a string or function that returns a string.
+     */
+    rowKey?: string | GetRowKey<RecordType>;
+    /**
+     * Show the Table header.
+     * @default true
+     */
+    showHeader?: boolean;
+    /**
+     * Set Table sticky header and scroll bar.
+     */
+    sticky?: boolean | TableSticky;
+    /**
+     * The Table custom style.
+     */
+    style?: React.CSSProperties;
+    /**
+     * The Table summary content.
+     */
+    summary?: (data: readonly RecordType[]) => React.ReactNode;
+    /**
+     * The table-layout attribute of <table> element.
+     * options: `fixed`, `auto`.
+     */
+    tableLayout?: TableLayout;
+    /**
+     * The Table title renderer.
+     */
+    title?: FrameWrapperRender<RecordType>;
+    /**
+     * @private
+     * The internal Table transform column with an additional debug column.
+     * TODO: investigate removing this internal prop if not needed.
+     */
     transformColumns?: (
         columns: ColumnsType<RecordType>
     ) => ColumnsType<RecordType>;
-
-    sticky?: boolean | TableSticky;
+    /**
+     * @private
+     * The internal Table columns.
+     */
+    columns?: ColumnsType<RecordType>;
+    /**
+     * @private
+     * The Table Data record array to be displayed.
+     */
+    data?: readonly RecordType[];
+    /**
+     * @private
+     * The Table empty text renderer.
+     */
+    emptyText?: React.ReactNode | (() => React.ReactNode);
+    /**
+     * @private
+     * Set if the Table is scrollable. May be used for fixed content.
+     * `x` sets horizontal scrolling, can also be used to specify the width of
+     * the scroll area, could be number, percent value, true and 'max-content'.
+     * `y` sets vertical scrolling, can also be used to specify the height of
+     * the scroll area, could be string or number.
+     */
+    scroll?: { x?: number | true | string; y?: number | string };
 }
