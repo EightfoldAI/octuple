@@ -332,7 +332,7 @@ export interface InputProps<T>
     shape?: TextInputShape | Shape;
     /**
      * The input size.
-     * @default 'medium'
+     * @default TextInputSize.Medium
      */
     size?: TextInputSize | Size;
     /**
