@@ -223,16 +223,6 @@ export interface InputProps<T>
      */
     alignIcon?: TextInputIconAlign;
     /**
-     * option to show the clear input button.
-     * default is true for backward compatibility
-     * @default true
-     */
-    clearable?: boolean;
-    /**
-     * Configure how contextual props are consumed
-     */
-    configContextProps?: ConfigContextProps;
-    /**
      * Allows focus on the input when it's disabled.
      * @default false
      */
@@ -246,6 +236,16 @@ export interface InputProps<T>
      * @default false
      */
     autoFocus?: boolean;
+    /**
+     * option to show the clear input button.
+     * default is true for backward compatibility
+     * @default true
+     */
+    clearable?: boolean;
+    /**
+     * Configure how contextual props are consumed
+     */
+    configContextProps?: ConfigContextProps;
     /**
      * The input clear button aria label text.
      */
@@ -261,13 +261,13 @@ export interface InputProps<T>
      */
     formItemInput?: boolean;
     /**
-     * The input icon props.
-     */
-    iconProps?: InputIconProps;
-    /**
      * The input icon button props.
      */
     iconButtonProps?: InputIconButtonProps;
+    /**
+     * The input icon props.
+     */
+    iconProps?: InputIconProps;
     /**
      * The input id.
      */
