@@ -146,14 +146,13 @@ export interface InputLabelIconButtonProps {
 export interface SearchBoxProps
     extends Omit<InputProps<HTMLInputElement>, 'htmlType'> {
     /**
-     * The search box value.
-     */
-    value?: string;
-
-    /**
      * Form onsubmit event handler.
      */
     onSubmit?: FormEventHandler<HTMLFormElement | HTMLInputElement>;
+    /**
+     * The search box value.
+     */
+    value?: string;
 }
 
 export interface TextAreaProps
@@ -322,6 +321,11 @@ export interface InputProps<T>
      */
     placeholder?: string;
     /**
+     * input readonly.
+     * @default false
+     */
+    readonly?: boolean;
+    /**
      * Shape of the input.
      * @default TextInputShape.Pill
      */
@@ -344,9 +348,4 @@ export interface InputProps<T>
      * @default 10
      */
     waitInterval?: number;
-    /**
-     * input readonly.
-     * @default false
-     */
-    readonly?: boolean;
 }
