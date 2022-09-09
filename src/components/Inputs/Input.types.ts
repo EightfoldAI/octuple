@@ -1,8 +1,6 @@
 import React, { Ref, FormEventHandler } from 'react';
-import { Placement, Strategy } from '@floating-ui/react-dom';
 import { IconName, IconProps } from '../Icon';
 import { LabelProps } from '../Label';
-import { TooltipTheme } from '../Tooltip';
 import { OcBaseProps } from '../OcBase';
 import type { InputStatus } from '../../shared/utilities';
 import { ConfigContextProps, Shape, Size } from '../ConfigProvider';
@@ -41,13 +39,13 @@ export interface InputIconProps extends Omit<IconProps, 'path'> {
      */
     alt?: string;
     /**
-     * The optional icon svg path name.
-     */
-    path?: IconName;
-    /**
      * The icon image source url.
      */
     imageSrc?: string;
+    /**
+     * The optional icon svg path name.
+     */
+    path?: IconName;
 }
 
 export interface InputIconButtonProps {
@@ -90,59 +88,6 @@ export interface InputIconButtonProps {
     onClick?: React.MouseEventHandler<HTMLButtonElement>;
 }
 
-export interface InputLabelIconButtonProps {
-    /**
-     * Allows focus on the label icon button when it's disabled.
-     */
-    allowDisabledFocus?: boolean;
-    /**
-     * The label icon button aria-label.
-     * @default false
-     */
-    ariaLabel?: string;
-    /**
-     * The label icon button disabled state.
-     * @default false
-     */
-    disabled?: boolean;
-    /**
-     * The label icon button props.
-     */
-    iconProps?: IconProps;
-    /**
-     * The label icon button id.
-     */
-    id?: string;
-    /**
-     * The label icon button onClick event handler.
-     */
-    onClick?: React.MouseEventHandler<HTMLButtonElement>;
-    /**
-     * The label icon button is shown.
-     * @default false
-     */
-    show?: boolean;
-    /**
-     * Content to show on the tooltip
-     */
-    toolTipContent?: React.ReactNode;
-    /**
-     * Theme of the tooltip
-     * @default light
-     */
-    toolTipTheme?: TooltipTheme;
-    /**
-     * Placement of the tooltip
-     * @default top
-     */
-    toolTipPlacement?: Placement;
-    /**
-     * Positioning strategy for the tooltip
-     * @default absolute
-     */
-    toolTipPositionStrategy?: Strategy;
-}
-
 export interface SearchBoxProps
     extends Omit<InputProps<HTMLInputElement>, 'htmlType'> {
     /**
@@ -158,7 +103,11 @@ export interface SearchBoxProps
 export interface TextAreaProps
     extends Omit<
         InputProps<HTMLTextAreaElement>,
-        'clearButtonAriaLabel' | 'iconProps' | 'iconButtonProps' | 'alignIcon'
+        | 'clearable'
+        | 'clearButtonAriaLabel'
+        | 'iconProps'
+        | 'iconButtonProps'
+        | 'alignIcon'
     > {
     /**
      * The text area is expandable.
