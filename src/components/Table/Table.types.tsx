@@ -176,6 +176,9 @@ export interface ColumnType<RecordType>
 
 export interface ColumnGroupType<RecordType>
     extends Omit<ColumnType<RecordType>, 'dataIndex'> {
+    /**
+     * The ColumnGroup children.
+     */
     children: ColumnsType<RecordType>;
 }
 
@@ -186,15 +189,15 @@ export type ColumnsType<RecordType = unknown> = (
 
 export interface SelectionItem {
     /**
-     * Unique key of this selection.
+     * Unique key of the selection item.
      */
     key: string;
     /**
-     * Callback executed when this selection is clicked.
+     * Callback executed when the selection item is clicked.
      */
     onSelect?: SelectionItemSelectFn;
     /**
-     * Display text of this selection.
+     * Display text of the selection item.
      */
     text: React.ReactNode;
 }
@@ -324,18 +327,34 @@ export interface TablePaginationConfig extends Omit<PaginationProps, 'total'> {
 export const EMPTY_LIST: any[] = [];
 
 export interface ChangeEventInfo<RecordType> {
+    /**
+     * The chnage event params of filters.
+     */
+    filters: Record<string, FilterValue | null>;
+    /**
+     * The filter state.
+     */
+    filterStates: FilterState<RecordType>[];
+    /**
+     * The change event params of pagination.
+     */
     pagination: {
         currentPage?: number;
         pageSize?: number;
         total: number;
     };
-    filters: Record<string, FilterValue | null>;
-    sorter: SorterResult<RecordType> | SorterResult<RecordType>[];
-
-    filterStates: FilterState<RecordType>[];
-    sorterStates: SortState<RecordType>[];
-
+    /**
+     * The reset pagination function.
+     */
     resetPagination: Function;
+    /**
+     * The change event params of sorter.
+     */
+    sorter: SorterResult<RecordType> | SorterResult<RecordType>[];
+    /**
+     * The sorter state.
+     */
+    sorterStates: SortState<RecordType>[];
 }
 
 export interface TableProps<RecordType>
