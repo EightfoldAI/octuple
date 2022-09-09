@@ -80,6 +80,12 @@ import {
 
 import { InfoBar, InfoBarType } from './components/InfoBar';
 
+import {
+    Skeleton,
+    SkeletonVariant,
+    SkeletonAnimation,
+} from './components/Skeleton';
+
 import { Select, SelectShape, SelectSize } from './components/Select';
 
 import { Slider } from './components/Slider';
@@ -210,6 +216,9 @@ export {
     RangePickerProps,
     ResizeObserver,
     Row,
+    Skeleton,
+    SkeletonVariant,
+    SkeletonAnimation,
     Select,
     SelectShape,
     SelectSize,
