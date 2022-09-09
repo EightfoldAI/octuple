@@ -1,0 +1,48 @@
+.info-bar {
+    --info-color: var(--grey-color-10);
+    --bg-color: var(--grey-color-70);
+
+    background-color: var(--bg-color);
+    border-radius: $corner-radius-xl;
+    color: var(--info-color);
+    display: flex;
+    font-family: $octuple-font-family;
+    gap: $space-m;
+    padding: $space-ml;
+    width: 100%;
+
+    &.neutral {
+        --info-color: var(--grey-color-70);
+        --bg-color: var(--grey-color-10);
+    }
+
+    &.positive {
+        --info-color: var(--green-color-70);
+        --bg-color: var(--green-color-10);
+    }
+
+    &.warning {
+        --info-color: var(--orange-color-70);
+        --bg-color: var(--orange-color-10);
+    }
+
+    &.disruptive {
+        --info-color: var(--disruptive-color-70);
+        --bg-color: var(--disruptive-color-10);
+    }
+
+    .icon {
+        color: inherit;
+    }
+
+    .message {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        color: inherit;
+    }
+
+    .buttons-container {
+        padding: $space-m;
+    }
+}
