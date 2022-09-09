@@ -119,6 +119,7 @@ exports[`Storyshots Input Search Box 1`] = `
         className="icon-button left-icon button button-default pill-shape icon-left"
         defaultChecked={false}
         disabled={false}
+        type="button"
       >
         <span
           aria-hidden={false}

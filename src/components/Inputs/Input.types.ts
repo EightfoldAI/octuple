@@ -146,14 +146,13 @@ export interface InputLabelIconButtonProps {
 export interface SearchBoxProps
     extends Omit<InputProps<HTMLInputElement>, 'htmlType'> {
     /**
-     * The search box value.
-     */
-    value?: string;
-
-    /**
      * Form onsubmit event handler.
      */
     onSubmit?: FormEventHandler<HTMLFormElement | HTMLInputElement>;
+    /**
+     * The search box value.
+     */
+    value?: string;
 }
 
 export interface TextAreaProps
@@ -224,16 +223,6 @@ export interface InputProps<T>
      */
     alignIcon?: TextInputIconAlign;
     /**
-     * option to show the clear input button.
-     * default is true for backward compatibility
-     * @default true
-     */
-    clearable?: boolean;
-    /**
-     * Configure how contextual props are consumed
-     */
-    configContextProps?: ConfigContextProps;
-    /**
      * Allows focus on the input when it's disabled.
      * @default false
      */
@@ -247,6 +236,16 @@ export interface InputProps<T>
      * @default false
      */
     autoFocus?: boolean;
+    /**
+     * option to show the clear input button.
+     * default is true for backward compatibility
+     * @default true
+     */
+    clearable?: boolean;
+    /**
+     * Configure how contextual props are consumed
+     */
+    configContextProps?: ConfigContextProps;
     /**
      * The input clear button aria label text.
      */
@@ -262,13 +261,13 @@ export interface InputProps<T>
      */
     formItemInput?: boolean;
     /**
-     * The input icon props.
-     */
-    iconProps?: InputIconProps;
-    /**
      * The input icon button props.
      */
     iconButtonProps?: InputIconButtonProps;
+    /**
+     * The input icon props.
+     */
+    iconProps?: InputIconProps;
     /**
      * The input id.
      */
@@ -279,7 +278,7 @@ export interface InputProps<T>
      */
     inline?: boolean;
     /**
-     * Width of the tooltip
+     * Width of the input
      * @default fitContent
      */
     inputWidth?: TextInputWidth;
@@ -322,13 +321,18 @@ export interface InputProps<T>
      */
     placeholder?: string;
     /**
+     * input readonly.
+     * @default false
+     */
+    readonly?: boolean;
+    /**
      * Shape of the input.
      * @default TextInputShape.Pill
      */
     shape?: TextInputShape | Shape;
     /**
      * The input size.
-     * @default 'medium'
+     * @default TextInputSize.Medium
      */
     size?: TextInputSize | Size;
     /**
@@ -344,9 +348,4 @@ export interface InputProps<T>
      * @default 10
      */
     waitInterval?: number;
-    /**
-     * input readonly.
-     * @default false
-     */
-    readonly?: boolean;
 }

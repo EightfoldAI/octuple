@@ -13,42 +13,42 @@ export enum InfoBarType {
 
 export interface InfoBarsProps extends OcBaseProps<HTMLDivElement> {
     /**
-     * Content of the info bar
+     * Props for the action button
      */
-    content: string;
-    /**
-     * Type of the infoBar
-     * @default InfoBarType.neutral
-     */
-    type?: InfoBarType;
-    /**
-     * Custom icon for the infoBar
-     * @default IconName.mdiInformation | IconName.mdiCheckCircle | IconName.mdiAlert
-     */
-    icon?: IconName;
+    actionButtonProps?: ButtonProps;
     /**
      * If the infoBar is closable or not
      */
     closable?: boolean;
     /**
-     * Callback fired on close of the infoBar
+     * Custom props for the close button
      */
-    onClose?: () => void;
+    closeButtonProps?: CloseButtonProps;
     /**
      * Icon for the close button
      * @default IconName.mdiClose
      */
     closeIcon?: IconName;
     /**
-     * Custom props for the close button
+     * Content of the info bar
      */
-    closeButtonProps?: CloseButtonProps;
+    content: string;
     /**
-     * Props for the action button
+     * Custom icon for the infoBar
+     * @default IconName.mdiInformation | IconName.mdiCheckCircle | IconName.mdiAlert
      */
-    actionButtonProps?: ButtonProps;
+    icon?: IconName;
+    /**
+     * Callback fired on close of the infoBar
+     */
+    onClose?: () => void;
     /**
      * Role of the info bar
      */
     role?: string;
+    /**
+     * Type of the infoBar
+     * @default InfoBarType.neutral
+     */
+    type?: InfoBarType;
 }
