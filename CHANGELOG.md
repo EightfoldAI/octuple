@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.10.2](https://github.com/EightfoldAI/octuple/compare/v2.10.1...v2.10.2) (2022-09-09)
+
+### Bug Fixes
+
+-   remove table data text overflow ([#361](https://github.com/EightfoldAI/octuple/issues/361)) ([6042167](https://github.com/EightfoldAI/octuple/commits/604216716c98ccaa93e2a9571ab1eabda9808e30))
+
+### [2.10.1](https://github.com/EightfoldAI/octuple/compare/v2.10.0...v2.10.1) (2022-09-09)
+
+### Features
+
+-   adding support for 3 more icons ([#360](https://github.com/EightfoldAI/octuple/issues/360)) ([26569b5](https://github.com/EightfoldAI/octuple/commits/26569b56a707e4774a027b61d2b70642b39faf12))
+-   selectors: add ability to vertically align label ([#353](https://github.com/EightfoldAI/octuple/issues/353)) ([457b984](https://github.com/EightfoldAI/octuple/commits/457b9849f39c49acd9ab60aa644204dff1cf9fdc))
+
+### Bug Fixes
+
+-   check box sizes ([#347](https://github.com/EightfoldAI/octuple/issues/347)) ([b7eee38](https://github.com/EightfoldAI/octuple/commits/b7eee38a53cfd637d1a507a12f13f6dd1a7c5cf8))
+-   date picker: adds type annotations and alphabetizes types ([#348](https://github.com/EightfoldAI/octuple/issues/348)) ([3859587](https://github.com/EightfoldAI/octuple/commits/38595878b0da95ed289e8c69e7cee41c09ab44a8))
+-   form: adds type annotations and sorts them renames one internal type ([#355](https://github.com/EightfoldAI/octuple/issues/355)) ([38b7c0a](https://github.com/EightfoldAI/octuple/commits/38b7c0acca0b0e7432198a77101a46d5fb8c32a8))
+-   radio button size ([#346](https://github.com/EightfoldAI/octuple/issues/346)) ([cab5d09](https://github.com/EightfoldAI/octuple/commits/cab5d092aeacdcff169d057394ab911e1a064f94))
+-   table: clip long table header text ([#354](https://github.com/EightfoldAI/octuple/issues/354)) ([31d534c](https://github.com/EightfoldAI/octuple/commits/31d534c83f0f67d57e97ed38534e2416a9c37dce))
+-   update styles for table header and empty component ([#345](https://github.com/EightfoldAI/octuple/issues/345)) ([da6353e](https://github.com/EightfoldAI/octuple/commits/da6353eb18e004de7eea80bdff3a967bee77833b))
+
 ## [2.10.0](https://github.com/EightfoldAI/octuple/compare/v2.9.1...v2.10.0) (2022-09-05)
 
 ### Features

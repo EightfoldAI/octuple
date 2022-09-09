@@ -114,6 +114,7 @@
 
     th {
         line-height: $text-line-height-1;
+        @include text-overflow();
     }
 
     th,
