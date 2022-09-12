@@ -50,7 +50,7 @@ export const MatchScore: FC<MatchScoreProps> = React.forwardRef(
 
                 {!hideLabel && (
                     <p className={matchScoreLabelClasses}>
-                        {label} {!hideValues && absScore / absTotal}
+                        {label} {!hideValues && absScore + '/' + absTotal}
                     </p>
                 )}
             </Atom>
