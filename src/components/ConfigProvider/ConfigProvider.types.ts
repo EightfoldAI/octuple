@@ -1,3 +1,4 @@
+import React from 'react';
 import {
     IRegisterFont,
     IRegisterTheme,
@@ -42,6 +43,10 @@ export interface IConfigContext {
 }
 
 export interface ConfigProviderProps {
+    /**
+     * The child component renderer.
+     */
+    children?: React.ReactNode;
     /**
      * Used by the disabled context provider to disable components.
      */
