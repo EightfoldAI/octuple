@@ -14,16 +14,16 @@ export interface ModalProps
         'dialogWrapperClassName' | 'dialogClassName'
     > {
     /**
-     * Size of the modal
-     * @default medium
+     * Custom class for the modal
      */
-    size?: ModalSize;
+    modalClassNames?: string;
     /**
      * Custom class for the modal wrapper
      */
     modalWrapperClassNames?: string;
     /**
-     * Custom class for the modal
+     * Size of the modal
+     * @default medium
      */
-    modalClassNames?: string;
+    size?: ModalSize;
 }
