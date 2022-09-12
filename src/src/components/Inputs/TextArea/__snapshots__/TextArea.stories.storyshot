@@ -25,9 +25,18 @@ exports[`Storyshots Input Text Area 1`] = `
       >
         <button
           aria-disabled={false}
-          className="label-icon-button button button-default button-small pill-shape icon-left"
+          className="label-icon-button button button-default button-small round-shape icon-left"
           defaultChecked={false}
           disabled={false}
+          show={true}
+          style={
+            Object {
+              "height": 16,
+              "padding": 0,
+            }
+          }
+          toolTipContent="tooltip"
+          type="button"
         >
           <span
             aria-hidden={false}

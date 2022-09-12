@@ -1,0 +1,127 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Skeleton Child Wrapper 1`] = `
+<div
+  className="skeleton-container"
+>
+  <button
+    aria-disabled={false}
+    className="button button-default button-medium pill-shape"
+    defaultChecked={false}
+    disabled={false}
+  >
+    <span
+      className="button-text-medium"
+    >
+      Sample button
+    </span>
+  </button>
+  <div
+    className="skeleton wave pill children"
+    style={
+      Object {
+        "height": undefined,
+        "width": undefined,
+      }
+    }
+    tabIndex={-1}
+  />
+</div>
+`;
+
+exports[`Storyshots Skeleton Default 1`] = `
+<div
+  className="skeleton wave"
+  style={
+    Object {
+      "height": 80,
+      "width": 80,
+    }
+  }
+  tabIndex={-1}
+/>
+`;
+
+exports[`Storyshots Skeleton Sample Usage 1`] = `
+<div
+  className="stack vertical xs"
+  style={
+    Object {
+      "alignItems": undefined,
+      "flexWrap": undefined,
+      "justifyContent": undefined,
+      "width": 210,
+    }
+  }
+>
+  <div
+    className="skeleton wave rounded"
+    style={
+      Object {
+        "height": 10,
+        "width": 210,
+      }
+    }
+    tabIndex={-1}
+  />
+  <div
+    className="skeleton wave circular"
+    style={
+      Object {
+        "height": 40,
+        "width": 40,
+      }
+    }
+    tabIndex={-1}
+  />
+  <div
+    className="skeleton wave"
+    style={
+      Object {
+        "height": 60,
+        "width": 210,
+      }
+    }
+    tabIndex={-1}
+  />
+  <div
+    className="skeleton wave"
+    style={
+      Object {
+        "height": 60,
+        "width": 210,
+      }
+    }
+    tabIndex={-1}
+  />
+  <div
+    className="stack full-width horizontal xs"
+    style={
+      Object {
+        "alignItems": undefined,
+        "flexWrap": undefined,
+        "justifyContent": "flex-end",
+      }
+    }
+  >
+    <div
+      className="skeleton wave button-small"
+      style={
+        Object {
+          "width": 60,
+        }
+      }
+      tabIndex={-1}
+    />
+    <div
+      className="skeleton wave button-small"
+      style={
+        Object {
+          "width": 60,
+        }
+      }
+      tabIndex={-1}
+    />
+  </div>
+</div>
+`;

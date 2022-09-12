@@ -2,6 +2,7 @@ import React from 'react';
 import { Stories } from '@storybook/addon-docs';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Label, LabelSize } from './index';
+import { ButtonShape } from '../Button';
 
 export default {
     title: 'Label',
@@ -67,15 +68,46 @@ export default {
 
 const Label_Story: ComponentStory<typeof Label> = (args) => <Label {...args} />;
 
-export const Labels = Label_Story.bind({});
+export const Basic = Label_Story.bind({});
+export const Default_Info_Button = Label_Story.bind({});
+export const Custom_Button = Label_Story.bind({});
 
-Labels.args = {
+Basic.args = {
+    text: 'This is a label',
+    size: LabelSize.Medium,
+    classNames: 'my-label-class',
+    colon: false,
+    htmlFor: '',
+};
+
+Default_Info_Button.args = {
     text: 'This is a label',
     size: LabelSize.Medium,
     labelIconButtonProps: {
         show: true,
         toolTipContent: 'A tooltip',
         toolTipPlacement: 'right',
+        onClick: () => _alertClicked(),
+    },
+    classNames: 'my-label-class',
+    colon: false,
+    htmlFor: '',
+};
+
+Custom_Button.args = {
+    text: 'This is a label',
+    size: LabelSize.Medium,
+    labelIconButtonProps: {
+        iconProps: {
+            path: null,
+        },
+        shape: ButtonShape.Pill,
+        show: true,
+        style: {
+            marginLeft: 8,
+            marginTop: -8,
+        },
+        text: 'Learn more',
         onClick: () => _alertClicked(),
     },
     classNames: 'my-label-class',
