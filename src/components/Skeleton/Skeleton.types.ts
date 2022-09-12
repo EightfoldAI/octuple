@@ -19,30 +19,30 @@ type Dimension = number | string;
 
 export interface SkeletonProps extends OcBaseProps<HTMLDivElement> {
     /**
-     * Height of the skeleton
+     * Is animating or not
+     * @default true
      */
-    height?: Dimension;
+    animating?: boolean;
     /**
-     * Width of the skeleton
+     * Animation of the skeleton component
+     * @default SkeletonAnimation.Wave
      */
-    width?: Dimension;
+    animation?: SkeletonAnimation;
     /**
      * If the skeleton is full width, will ignore the width prop
      */
     fullWidth?: boolean;
     /**
-     * Is animating or not
-     * @default true
+     * Height of the skeleton
      */
-    animating?: boolean;
+    height?: Dimension;
     /**
      * Visible variant of the skeleton
      * @default SkeletonVariant.Rectangular
      */
     variant?: SkeletonVariant;
     /**
-     *
-     * @default SkeletonAnimation.Wave
+     * Width of the skeleton
      */
-    animation?: SkeletonAnimation;
+    width?: Dimension;
 }

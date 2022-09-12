@@ -8,6 +8,7 @@ import {
     SkeletonVariant,
 } from './Skeleton.types';
 import { Stack } from '../Stack';
+import { DefaultButton } from '../Button';
 
 export default {
     title: 'Skeleton',
@@ -50,6 +51,14 @@ const Default_Story: ComponentStory<typeof Skeleton> = (args) => (
 );
 
 export const Default = Default_Story.bind({});
+
+const Child_Wrapper_Story: ComponentStory<typeof Skeleton> = (args) => (
+    <Skeleton {...args}>
+        <DefaultButton text={'Sample button'} />
+    </Skeleton>
+);
+
+export const ChildWrapper = Child_Wrapper_Story.bind({});
 
 const SampleUsage_Story: ComponentStory<typeof Skeleton> = (args) => (
     <Stack direction="vertical" gap="xs" style={{ width: 210 }}>
@@ -95,6 +104,11 @@ Default.args = {
     height: 80,
     fullWidth: false,
     variant: SkeletonVariant.Rectangular,
+};
+
+ChildWrapper.args = {
+    ...skeletonArgs,
+    variant: SkeletonVariant.Pill,
 };
 
 Sample_Usage.args = {

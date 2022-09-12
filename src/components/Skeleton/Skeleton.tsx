@@ -4,7 +4,7 @@ import {
     SkeletonProps,
     SkeletonVariant,
 } from './Skeleton.types';
-import { mergeClasses } from '../../shared/utilities';
+import { ConditionalWrapper, mergeClasses } from '../../shared/utilities';
 
 import styles from './skeleton.module.scss';
 
@@ -25,6 +25,7 @@ export const Skeleton: FC<SkeletonProps> = React.forwardRef(
             variant = SkeletonVariant.Rectangular,
             animation = SkeletonAnimation.Wave,
             animating = true,
+            children,
             'data-test-id': dataTestId,
         },
         ref: Ref<HTMLDivElement>
@@ -44,6 +45,7 @@ export const Skeleton: FC<SkeletonProps> = React.forwardRef(
                 [styles.buttonSmall]: variant === SkeletonVariant.ButtonSmall,
                 [styles.buttonMedium]: variant === SkeletonVariant.ButtonMedium,
                 [styles.buttonLarge]: variant === SkeletonVariant.ButtonLarge,
+                [styles.children]: children,
             },
         ]);
 
@@ -54,7 +56,7 @@ export const Skeleton: FC<SkeletonProps> = React.forwardRef(
                 : {}),
         };
 
-        return (
+        const getSkeleton = (): JSX.Element => (
             <div
                 ref={ref}
                 className={skeletonClasses}
@@ -62,6 +64,20 @@ export const Skeleton: FC<SkeletonProps> = React.forwardRef(
                 data-test-id={dataTestId}
                 style={{ ...style, ...customStyle }}
             />
+        );
+
+        return (
+            <ConditionalWrapper
+                condition={!!children}
+                wrapper={(skeleton) => (
+                    <div className={styles.skeletonContainer}>
+                        {children}
+                        {animating && skeleton}
+                    </div>
+                )}
+            >
+                {getSkeleton()}
+            </ConditionalWrapper>
         );
     }
 );
