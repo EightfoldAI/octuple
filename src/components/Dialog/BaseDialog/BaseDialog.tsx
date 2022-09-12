@@ -1,4 +1,4 @@
-import React, { FC, Ref, useEffect } from 'react';
+import React, { FC, Ref, useEffect, useRef } from 'react';
 import { BaseDialogProps } from './BaseDialog.types';
 import { Portal } from '../../Portal';
 import {
@@ -12,6 +12,7 @@ import { useScrollLock } from '../../../hooks/useScrollLock';
 import { NoFormStyle } from '../../Form/Context';
 
 import styles from './base-dialog.module.scss';
+import { useScrollShadow } from '../../../hooks/useScrollShadows';
 
 export const BaseDialog: FC<BaseDialogProps> = React.forwardRef(
     (
@@ -49,8 +50,11 @@ export const BaseDialog: FC<BaseDialogProps> = React.forwardRef(
         ref: Ref<HTMLDivElement>
     ) => {
         const labelId = uniqueId('dialog-label-');
+        const bodyRef = useRef<HTMLDivElement>(null);
 
         useScrollLock(parent, visible);
+        const { showBottomShadow, showTopShadow, scrollRef } =
+            useScrollShadow(bodyRef);
 
         const dialogBackdropClasses: string = mergeClasses([
             styles.dialogBackdrop,
@@ -71,6 +75,16 @@ export const BaseDialog: FC<BaseDialogProps> = React.forwardRef(
         const headerClasses: string = mergeClasses([
             styles.header,
             headerClassNames,
+        ]);
+
+        const bodyClasses: string = mergeClasses([
+            styles.body,
+            bodyClassNames,
+            {
+                [styles.bodyBottomShadow]: showBottomShadow,
+                [styles.bodyTopShadow]: showTopShadow,
+                [styles.bodyTopBottomShadow]: showTopShadow && showBottomShadow,
+            },
         ]);
 
         const actionsClasses: string = mergeClasses([
@@ -154,7 +168,9 @@ export const BaseDialog: FC<BaseDialogProps> = React.forwardRef(
                                 )}
                             </span>
                         </div>
-                        <div className={bodyClassNames}>{body}</div>
+                        <div ref={scrollRef} className={bodyClasses}>
+                            {body}
+                        </div>
                         {actions && (
                             <div className={actionsClasses}>{actions}</div>
                         )}
