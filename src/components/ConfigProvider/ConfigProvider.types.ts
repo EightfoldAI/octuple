@@ -1,3 +1,4 @@
+import React from 'react';
 import {
     IRegisterFont,
     IRegisterTheme,
@@ -10,7 +11,6 @@ import { Shape } from './ShapeContext';
 import { Size } from './SizeContext';
 import { ValidateMessages } from '../Form/Internal/OcForm.types';
 import { RequiredMark } from '../Form/Form.types';
-import React from 'react';
 
 export type DirectionType = 'ltr' | 'rtl' | undefined;
 
