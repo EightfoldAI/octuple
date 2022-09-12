@@ -27,6 +27,10 @@
                 display: flex;
             }
 
+            &.align-start .checkmark {
+                margin-top: $space-xxxs;
+            }
+
             &.align-end {
                 align-items: flex-end;
                 display: flex;
