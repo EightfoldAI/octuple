@@ -1,12 +1,16 @@
 import { MutableRefObject, useCallback, useEffect, useState } from 'react';
+import ResizeObserver from 'resize-observer-polyfill';
+
+const SCROLL_BREATHER: number = 0.5;
 
 export function useScrollShadow(containerRef: MutableRefObject<HTMLElement>) {
-    const [showBottomShadow, setShowBottomShadow] = useState(false);
-    const [showTopShadow, setShowTopShadow] = useState(false);
+    let ob: ResizeObserver;
+    const [showBottomShadow, setShowBottomShadow] = useState<boolean>(false);
+    const [showTopShadow, setShowTopShadow] = useState<boolean>(false);
 
     const onScroll = useCallback((event) => {
         const { scrollHeight, scrollTop, clientHeight } = event.target;
-        const containerHeight = scrollHeight - clientHeight;
+        const containerHeight = scrollHeight - clientHeight - SCROLL_BREATHER;
         if (scrollTop > 0) {
             setShowTopShadow(true);
         } else if (scrollTop === 0) {
@@ -24,12 +28,17 @@ export function useScrollShadow(containerRef: MutableRefObject<HTMLElement>) {
             return;
         }
         containerRef.current = content;
+        // To compute shadows on mount and resize
+        ob = new ResizeObserver(() => onScroll({ target: content }));
+        ob.observe(content);
         content.addEventListener('scroll', onScroll);
     }, []);
 
     useEffect(() => {
-        return () =>
-            containerRef.current.removeEventListener('scroll', onScroll);
+        return () => {
+            containerRef?.current?.removeEventListener?.('scroll', onScroll);
+            ob.disconnect();
+        };
     }, [containerRef]);
 
     return { showBottomShadow, showTopShadow, scrollRef };
