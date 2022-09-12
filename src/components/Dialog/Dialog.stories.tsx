@@ -3,6 +3,7 @@ import { Stories } from '@storybook/addon-docs';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Dialog, DialogSize } from './';
 import { PrimaryButton } from '../Button';
+import { DialogHelper as dialogHelper } from './DialogHelper';
 
 export default {
     title: 'Dialog',
@@ -194,6 +195,17 @@ const Small_Story: ComponentStory<typeof Dialog> = (args) => {
 
 export const Small = Small_Story.bind({});
 
+const DialogHelper_Story: ComponentStory<typeof Dialog> = (args) => (
+    <>
+        <PrimaryButton
+            text={'Open dialog'}
+            onClick={() => dialogHelper.show({ ...args })}
+        />
+    </>
+);
+
+export const DialogHelper = DialogHelper_Story.bind({});
+
 const dialogArgs: Object = {
     size: DialogSize.medium,
     actionsClassNames: 'my-dialog-actions-class',
@@ -253,4 +265,8 @@ Small.args = {
         id: 'myAcceptButton',
         text: 'Accept',
     },
+};
+
+DialogHelper.args = {
+    ...dialogArgs,
 };

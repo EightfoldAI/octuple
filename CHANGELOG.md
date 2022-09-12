@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.11.1](https://github.com/EightfoldAI/octuple/compare/v2.11.0...v2.11.1) (2022-09-12)
+
+### Bug Fixes
+
+-   selectors: add minor paddding in start align ([#364](https://github.com/EightfoldAI/octuple/issues/364)) ([039779d](https://github.com/EightfoldAI/octuple/commits/039779db670b3c292203f0213257c9c9cca63509))
+
+## [2.11.0](https://github.com/EightfoldAI/octuple/compare/v2.10.2...v2.11.0) (2022-09-12)
+
+### Features
+
+-   add skeleton component ([#357](https://github.com/EightfoldAI/octuple/issues/357)) ([e84a4eb](https://github.com/EightfoldAI/octuple/commits/e84a4ebf48904529b7135c3725d9d4fde5f88118))
+-   dialog: add box shadows on scrollable content for modals, dialogs ([#339](https://github.com/EightfoldAI/octuple/issues/339)) ([4f1d5bf](https://github.com/EightfoldAI/octuple/commits/4f1d5bfe8cdb18d22ff40ec0039f5737eae27a4f))
+
+### Bug Fixes
+
+-   search box: icon button default htmltype should be button path should have a default ([#356](https://github.com/EightfoldAI/octuple/issues/356)) ([0bb0072](https://github.com/EightfoldAI/octuple/commits/0bb00725aeaeac9770aad3535e6959eee1ab8624))
+-   table: adds type annotations and omits private transformColumns property ([#363](https://github.com/EightfoldAI/octuple/issues/363)) ([991de21](https://github.com/EightfoldAI/octuple/commits/991de21f17f367d30edf6c3a7efaeb35782c02a5))
+-   text input: removes unused interface omits a prop from text area and alphabetizes types ([#362](https://github.com/EightfoldAI/octuple/issues/362)) ([35cf3c5](https://github.com/EightfoldAI/octuple/commits/35cf3c5673aa4997231d02307e7dadd4dfb808dd))
+
 ### [2.10.2](https://github.com/EightfoldAI/octuple/compare/v2.10.1...v2.10.2) (2022-09-09)
 
 ### Bug Fixes

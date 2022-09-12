@@ -37,7 +37,7 @@ import {
     RangePickerProps,
 } from './components/DateTimePicker/DatePicker';
 
-import { Dialog, DialogSize } from './components/Dialog';
+import { Dialog, DialogHelper, DialogSize } from './components/Dialog';
 
 import { Dropdown } from './components/Dropdown';
 
@@ -80,6 +80,12 @@ import {
 } from './components/Inputs';
 
 import { InfoBar, InfoBarType } from './components/InfoBar';
+
+import {
+    Skeleton,
+    SkeletonVariant,
+    SkeletonAnimation,
+} from './components/Skeleton';
 
 import { Select, SelectShape, SelectSize } from './components/Select';
 
@@ -160,6 +166,7 @@ export {
     DatePickerSize,
     DefaultButton,
     Dialog,
+    DialogHelper,
     DialogSize,
     Dropdown,
     Empty,
@@ -212,6 +219,9 @@ export {
     RangePickerProps,
     ResizeObserver,
     Row,
+    Skeleton,
+    SkeletonVariant,
+    SkeletonAnimation,
     Select,
     SelectShape,
     SelectSize,
