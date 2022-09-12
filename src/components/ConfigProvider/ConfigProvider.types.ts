@@ -10,6 +10,7 @@ import { Shape } from './ShapeContext';
 import { Size } from './SizeContext';
 import { ValidateMessages } from '../Form/Internal/OcForm.types';
 import { RequiredMark } from '../Form/Form.types';
+import React from 'react';
 
 export type DirectionType = 'ltr' | 'rtl' | undefined;
 
@@ -42,6 +43,10 @@ export interface IConfigContext {
 }
 
 export interface ConfigProviderProps {
+    /**
+     * The child component renderer.
+     */
+    children?: React.ReactNode;
     /**
      * Used by the disabled context provider to disable components.
      */
