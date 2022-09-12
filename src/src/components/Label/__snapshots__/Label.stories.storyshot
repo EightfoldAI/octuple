@@ -1,6 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Storyshots Label Labels 1`] = `
+exports[`Storyshots Label Basic 1`] = `
+<div
+  className="field-label medium my-label-class"
+>
+  <label
+    className="text-style medium"
+    htmlFor=""
+  >
+    This is a label
+  </label>
+</div>
+`;
+
+exports[`Storyshots Label Custom Button 1`] = `
 <div
   className="field-label medium my-label-class"
 >
@@ -27,6 +40,65 @@ exports[`Storyshots Label Labels 1`] = `
         defaultChecked={false}
         disabled={false}
         onClick={[Function]}
+        show={true}
+        style={
+          Object {
+            "marginLeft": 8,
+            "marginTop": -8,
+          }
+        }
+        type="button"
+      >
+        <span>
+          <span
+            className="button-text-small"
+          >
+            Learn more
+          </span>
+        </span>
+      </button>
+    </div>
+  </span>
+</div>
+`;
+
+exports[`Storyshots Label Default Info Button 1`] = `
+<div
+  className="field-label medium my-label-class"
+>
+  <label
+    className="text-style medium"
+    htmlFor=""
+  >
+    This is a label
+  </label>
+  <span
+    className="field-label-icon-button medium"
+  >
+    <div
+      className="reference-wrapper"
+      id="4fzzzxj"
+      onBlur={[Function]}
+      onFocus={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+    >
+      <button
+        aria-disabled={false}
+        className="label-icon-button button button-default button-small round-shape icon-left"
+        defaultChecked={false}
+        disabled={false}
+        onClick={[Function]}
+        show={true}
+        style={
+          Object {
+            "height": 16,
+            "padding": 0,
+          }
+        }
+        toolTipContent="A tooltip"
+        toolTipPlacement="right"
+        type="button"
       >
         <span
           aria-hidden={false}
