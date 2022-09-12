@@ -20,7 +20,7 @@ export type EventType =
     | React.KeyboardEvent<HTMLDivElement>
     | React.MouseEvent<HTMLDivElement | HTMLButtonElement>;
 
-export type CloseButtonProps = Omit<ButtonProps, 'onClick' | 'icon'>;
+export type CloseButtonProps = Omit<ButtonProps, 'onClick' | 'iconProps'>;
 
 export interface PanelProps extends Omit<OcBaseProps<HTMLElement>, 'title'> {
     /**
@@ -50,14 +50,13 @@ export interface PanelProps extends Omit<OcBaseProps<HTMLElement>, 'title'> {
      */
     bodyPadding?: boolean;
     /**
-     * Enables header padding
-     * @default true
-     */
-    headerPadding?: boolean;
-    /**
      * Content of the body
      */
     children?: React.ReactNode;
+    /**
+     * Close button extra props
+     */
+    closeButtonProps?: CloseButtonProps;
     /**
      * Show close button on top right
      * @default true
@@ -67,10 +66,6 @@ export interface PanelProps extends Omit<OcBaseProps<HTMLElement>, 'title'> {
      * Close icon name
      */
     closeIcon?: IconName;
-    /**
-     * Close button extra props
-     */
-    closeButtonProps?: CloseButtonProps;
     /**
      * Footer of the panel
      */
@@ -92,6 +87,11 @@ export interface PanelProps extends Omit<OcBaseProps<HTMLElement>, 'title'> {
      */
     headerIcon?: IconName;
     /**
+     * Enables header padding
+     * @default true
+     */
+    headerPadding?: boolean;
+    /**
      * Custom height of the panel
      */
     height?: number;
@@ -111,13 +111,13 @@ export interface PanelProps extends Omit<OcBaseProps<HTMLElement>, 'title'> {
      */
     onVisibleChange?: (visible: boolean) => void;
     /**
-     * Whether the dialog should show the overlay
+     * Whether the panel should show the overlay
      * if false: there will be no overlay.
      * @default true
      */
     overlay?: boolean;
     /**
-     * Element to which to attach the panel to
+     * Element to which to attach the panel
      * @default HTMLBodyElement
      */
     parent?: HTMLDivElement | HTMLBodyElement;
@@ -126,15 +126,19 @@ export interface PanelProps extends Omit<OcBaseProps<HTMLElement>, 'title'> {
      */
     panelClassNames?: string;
     /**
+     * Header of the panel
+     */
+    panelHeader?: React.ReactElement;
+    /**
+     * Custom style for the panel
+     */
+    panelStyle?: React.CSSProperties;
+    /**
      * Custom classes for the panel wrapper
      */
     panelWrapperClassNames?: string;
     /**
-     * Custom style for the side panel
-     */
-    panelStyle?: React.CSSProperties;
-    /**
-     * Where to place the drawer
+     * Where to place the panel
      * @default right
      */
     placement?: PanelPlacement;
@@ -149,7 +153,7 @@ export interface PanelProps extends Omit<OcBaseProps<HTMLElement>, 'title'> {
      */
     size?: PanelSize;
     /**
-     * The title of the panel
+     * The title node of the panel
      */
     title?: React.ReactNode;
     /**
@@ -164,17 +168,9 @@ export interface PanelProps extends Omit<OcBaseProps<HTMLElement>, 'title'> {
      * Custom zIndex for the panel
      */
     zIndex?: number;
-    /**
-     * Custom zIndex for the panel
-     */
-    panelHeader?: React.ReactElement;
 }
 
 export interface PanelHeaderProps {
-    /**
-     * Props for the default header action button
-     */
-    actionDefaultButtonProps?: ButtonProps;
     /**
      * Props for the first header action button
      */
@@ -183,6 +179,10 @@ export interface PanelHeaderProps {
      * Props for the second header action button
      */
     actionButtonTwoProps?: ButtonProps;
+    /**
+     * Props for the default header action button
+     */
+    actionDefaultButtonProps?: ButtonProps;
     /**
      * Close icon name
      * @default IconName.mdiClose
@@ -194,7 +194,7 @@ export interface PanelHeaderProps {
      */
     onClose?: (e: EventType) => void;
     /**
-     * The title of the panel
+     * The title string of the panel
      */
     title?: string;
 }
