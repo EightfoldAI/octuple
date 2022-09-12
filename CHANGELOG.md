@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.12.0](https://github.com/EightfoldAI/octuple/compare/v2.11.1...v2.12.0) (2022-09-12)
+
+### Features
+
+-   dialog: add dialog helper method to render dialogs with ease ([#365](https://github.com/EightfoldAI/octuple/issues/365)) ([7a6f1e8](https://github.com/EightfoldAI/octuple/commits/7a6f1e8e31427436fb9ca7d53119d02de56910c6))
+-   label: add support for custom buttons and type clean up ([#366](https://github.com/EightfoldAI/octuple/issues/366)) ([4e9f352](https://github.com/EightfoldAI/octuple/commits/4e9f352e1bb46fab77c39045b23a21f312aeff8a))
+
+### Bug Fixes
+
+-   config provider: export children prop type ([#369](https://github.com/EightfoldAI/octuple/issues/369)) ([2625c20](https://github.com/EightfoldAI/octuple/commits/2625c209f827cc7dde801f62e58ce7f363164ab6))
+
 ### [2.11.1](https://github.com/EightfoldAI/octuple/compare/v2.11.0...v2.11.1) (2022-09-12)
 
 ### Bug Fixes
