@@ -55,4 +55,6 @@ export const DialogHelper = {
             },
             containerId
         ),
+    close: (containerId: string = uniqueId) =>
+        unmountComponentAtNode(document.getElementById(containerId)),
 };
