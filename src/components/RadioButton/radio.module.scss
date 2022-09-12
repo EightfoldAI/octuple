@@ -30,6 +30,10 @@
                 display: flex;
             }
 
+            &.align-start .radio-button {
+                margin-top: $space-xxxs;
+            }
+
             .radio-button {
                 border: $space-xxxs solid var(--grey-color-70);
                 border-radius: 50%;

@@ -37,7 +37,7 @@ export function useScrollShadow(containerRef: MutableRefObject<HTMLElement>) {
     useEffect(() => {
         return () => {
             containerRef?.current?.removeEventListener?.('scroll', onScroll);
-            ob.disconnect();
+            ob?.disconnect?.();
         };
     }, [containerRef]);
 
