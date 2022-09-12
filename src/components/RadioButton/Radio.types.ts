@@ -55,15 +55,15 @@ export interface RadioButtonProps extends OcBaseProps<HTMLInputElement> {
      */
     label?: React.ReactNode;
     /**
+     * The vertical placement of the label.
+     * @default LabelAlign.Center
+     */
+    labelAlign?: LabelAlign;
+    /**
      * The label position of the radio button.
      * @default LabelPosition.End
      */
     labelPosition?: LabelPosition;
-    /**
-     * The vertical placement of the label
-     * @default LabelAlign.Center
-     */
-    labelAlign?: LabelAlign;
     /**
      * The radio button onChange event handler.
      */
@@ -102,15 +102,15 @@ export interface RadioGroupProps extends OcBaseProps<HTMLDivElement> {
      */
     items?: RadioButtonProps[];
     /**
+     * The vertical placement of the label.
+     * @default LabelAlign.Center
+     */
+    labelAlign?: LabelAlign;
+    /**
      * The label position of the radio buttons.
      * @default LabelPosition.End
      */
     labelPosition?: LabelPosition;
-    /**
-     * The vertical placement of the label
-     * @default LabelAlign.Center
-     */
-    labelAlign?: LabelAlign;
     /**
      * Type of layout for the radio group.
      * @default vertical.
