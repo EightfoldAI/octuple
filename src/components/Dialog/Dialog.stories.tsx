@@ -3,7 +3,7 @@ import { Stories } from '@storybook/addon-docs';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Dialog, DialogSize } from './';
 import { PrimaryButton } from '../Button';
-import dialogHelper from './DialogHelper';
+import { DialogHelper as dialogHelper } from './DialogHelper';
 
 export default {
     title: 'Dialog',

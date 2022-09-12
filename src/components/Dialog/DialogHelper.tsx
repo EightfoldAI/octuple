@@ -19,7 +19,7 @@ function createWrapperAndAppendToBody(wrapperId: string): HTMLDivElement {
     return wrapperElement;
 }
 
-const DialogHelper = (props: DialogProps, containerId: string = uniqueId) => {
+const $dialog = (props: DialogProps, containerId: string = uniqueId) => {
     const element: HTMLDivElement = createWrapperAndAppendToBody(
         containerId ?? uniqueId
     );
@@ -37,10 +37,10 @@ const DialogHelper = (props: DialogProps, containerId: string = uniqueId) => {
     );
 };
 
-export default {
-    show: DialogHelper,
+export const DialogHelper = {
+    show: $dialog,
     showSmall: (props: DialogProps, containerId: string = uniqueId) =>
-        DialogHelper(
+        $dialog(
             {
                 ...props,
                 size: DialogSize.small,
@@ -48,7 +48,7 @@ export default {
             containerId
         ),
     showMedium: (props: DialogProps, containerId: string = uniqueId) =>
-        DialogHelper(
+        $dialog(
             {
                 ...props,
                 size: DialogSize.medium,

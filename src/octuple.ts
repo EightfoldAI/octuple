@@ -37,7 +37,7 @@ import {
     RangePickerProps,
 } from './components/DateTimePicker/DatePicker';
 
-import { Dialog, DialogSize } from './components/Dialog';
+import { Dialog, DialogHelper, DialogSize } from './components/Dialog';
 
 import { Dropdown } from './components/Dropdown';
 
@@ -166,6 +166,7 @@ export {
     DatePickerSize,
     DefaultButton,
     Dialog,
+    DialogHelper,
     DialogSize,
     Dropdown,
     Empty,
