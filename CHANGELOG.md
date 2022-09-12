@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.11.1](https://github.com/EightfoldAI/octuple/compare/v2.11.0...v2.11.1) (2022-09-12)
+
+### Bug Fixes
+
+-   selectors: add minor paddding in start align ([#364](https://github.com/EightfoldAI/octuple/issues/364)) ([039779d](https://github.com/EightfoldAI/octuple/commits/039779db670b3c292203f0213257c9c9cca63509))
+
 ## [2.11.0](https://github.com/EightfoldAI/octuple/compare/v2.10.2...v2.11.0) (2022-09-12)
 
 ### Features
