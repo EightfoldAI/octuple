@@ -22,74 +22,89 @@ export enum TabVariant {
 }
 
 export interface TabsContextProps {
+    /**
+     * List of Tab element.
+     */
     children: React.ReactNode;
+    /**
+     * The onChange event handler.
+     */
     onChange: OnChangeHandler;
+    /**
+     * The value of the selected tab.
+     */
     value?: TabValue;
 }
 
 export interface ITabsContext {
+    /**
+     * The currently active tab value.
+     */
     currentActiveTab: TabValue;
+    /**
+     * The onClick handler of the tab.
+     */
     onTabClick: OnChangeHandler;
 }
 
 export interface TabProps extends OcBaseProps<HTMLButtonElement> {
     /**
-     * Active value of the tab.
-     */
-    value: TabValue;
-    /**
-     * The tab label.
-     */
-    label?: string;
-    /**
-     * The icon to display.
-     */
-    icon?: IconName;
-    /**
      * The aria-label of the tab.
      */
     ariaLabel?: string;
+    /**
+     * Content of the badge.
+     */
+    badgeContent?: React.ReactNode;
     /**
      * The tab is disabled.
      */
     disabled?: boolean;
     /**
-     * Content of the badge
+     * The icon to display.
      */
-    badgeContent?: React.ReactNode;
+    icon?: IconName;
     /**
-     * If the tab is in loading state
+     * The tab label.
+     */
+    label?: string;
+    /**
+     * If the tab is in loading state.
      */
     loading?: boolean;
+    /**
+     * Active value of the tab.
+     */
+    value: TabValue;
 }
 
 export interface TabsProps extends Omit<OcBaseProps<HTMLElement>, 'onChange'> {
     /**
-     * List of Tab element
+     * List of Tab element.
      */
     children: React.ReactElement<TabProps> | React.ReactElement<TabProps>[];
     /**
-     * The default tab to select
-     */
-    value?: TabValue;
-    /**
-     * Callback called on click of a tab
+     * Callback called on click of a tab.
      * @param value {TabValue}
      * @param event {SelectTabEvent}
      */
     onChange?: OnChangeHandler;
     /**
-     * Variant of the tab
-     * @default default
-     */
-    variant?: TabVariant;
-    /**
-     * If the tabs are scrollable or not
+     * If the tabs are scrollable or not.
      * @default false
      */
     scrollable?: boolean;
     /**
-     * Ref of the tabs
+     * The default tab to select.
+     */
+    value?: TabValue;
+    /**
+     * Variant of the tab.
+     * @default default
+     */
+    variant?: TabVariant;
+    /**
+     * Ref of the tabs.
      */
     ref?: Ref<HTMLDivElement>;
 }

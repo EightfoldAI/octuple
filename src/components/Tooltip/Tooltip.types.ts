@@ -15,14 +15,29 @@ export enum TooltipSize {
 
 export interface TooltipProps extends OcBaseProps<HTMLDivElement> {
     /**
-     * Content to show on the tooltip
+     * Content to show in the tooltip
      */
     content: React.ReactNode;
     /**
-     * Theme of the tooltip
-     * @default light
+     * Whether to disable the tooltip
+     * @default false
      */
-    theme?: TooltipTheme;
+    disabled?: boolean;
+    /**
+     * Timeout in milliseconds to hide tooltip
+     * @default 0
+     */
+    hideAfter?: number;
+    /**
+     * Offset of the tooltip from the reference element
+     * @default 8
+     */
+    offset?: number;
+    /**
+     * Delay of appearance, in millisecond
+     * @default 0
+     */
+    openDelay?: number;
     /**
      * Placement of the tooltip
      * @default bottom
@@ -34,40 +49,30 @@ export interface TooltipProps extends OcBaseProps<HTMLDivElement> {
      */
     portal?: boolean;
     /**
-     * To disable the tooltip
-     * @default false
-     */
-    disabled?: boolean;
-    /**
-     * Offset of the tooltip from the reference element
-     * @default 8
-     */
-    offset?: number;
-    /**
-     * If the tooltip arrow is visible
-     * @default true
-     */
-    visibleArrow?: boolean;
-    /**
-     * Delay of appearance, in millisecond
-     * @default 0
-     */
-    openDelay?: number;
-    /**
      * Positioning strategy for the tooltip
      * @default absolute
      */
     positionStrategy?: Strategy;
     /**
-     * Timeout in milliseconds to hide tooltip
-     * @default 0
+     * Size of the tooltip
+     * @default TooltipSize.small
      */
-    hideAfter?: number;
+    size?: TooltipSize;
     /**
      * Tabindex of tooltip
      * @default 0
      */
     tabIndex?: number;
+    /**
+     * Theme of the tooltip
+     * @default light
+     */
+    theme?: TooltipTheme;
+    /**
+     * If the tooltip arrow is visible
+     * @default true
+     */
+    visibleArrow?: boolean;
     /**
      * Wrapper class name
      */
@@ -76,9 +81,4 @@ export interface TooltipProps extends OcBaseProps<HTMLDivElement> {
      * Wrapper style
      */
     wrapperStyle?: React.CSSProperties;
-    /**
-     * Size of the tooltip
-     * @default TooltipSize.small
-     */
-    size?: TooltipSize;
 }

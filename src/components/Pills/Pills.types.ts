@@ -35,14 +35,10 @@ export type pillButtonProps = Omit<
 
 export interface PillProps extends OcBaseProps<HTMLElement> {
     /**
-     * Label of the pill
+     * Props for the close button,
+     * if type is set to PillType.closable
      */
-    label: string;
-    /**
-     * Theme of the pill
-     * @default blue
-     */
-    theme?: OcThemeNames;
+    closeButtonProps?: closeButtonProps;
     /**
      * Custom color for the pill
      */
@@ -52,31 +48,35 @@ export interface PillProps extends OcBaseProps<HTMLElement> {
      */
     iconProps?: IconProps;
     /**
-     * Type of the pill
-     * @default PillType.default
+     * Label of the pill
      */
-    type?: PillType;
+    label: string;
     /**
-     * Size of the pill
-     * @default PillType.Large
+     * Callback called on click of the button right of the pill
      */
-    size?: PillSize;
+    onClick?: React.MouseEventHandler<HTMLButtonElement>;
     /**
-     * Props for the close button,
-     * if type is set to PillType.closable
+     * Callback called on click of the close button
      */
-    closeButtonProps?: closeButtonProps;
+    onClose?: React.MouseEventHandler<HTMLButtonElement>;
     /**
      * Props for the button on the right side of the pill
      * if type is set to PillType.withButton
      */
     pillButtonProps?: pillButtonProps;
     /**
-     * Callback called on click of the close button
+     * Size of the pill
+     * @default PillType.Large
      */
-    onClose?: React.MouseEventHandler<HTMLButtonElement>;
+    size?: PillSize;
     /**
-     * Callback called on click of the button right of the pill
+     * Theme of the pill
+     * @default blue
      */
-    onClick?: React.MouseEventHandler<HTMLButtonElement>;
+    theme?: OcThemeNames;
+    /**
+     * Type of the pill
+     * @default PillType.default
+     */
+    type?: PillType;
 }
