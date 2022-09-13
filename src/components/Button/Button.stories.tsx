@@ -222,6 +222,12 @@ const Split_Button_Story: ComponentStory<typeof PrimaryButton> = (args) => (
 export const Split = Split_Button_Story.bind({});
 export const Split_With_Counter = Split_Button_Story.bind({});
 
+const Floating_Button_Story: ComponentStory<typeof PrimaryButton> = (args) => (
+    <PrimaryButton {...args} />
+);
+
+export const Floating_Button = Floating_Button_Story.bind({});
+
 const buttonArgs: Object = {
     alignIcon: ButtonIconAlign.Left,
     alignText: ButtonTextAlign.Center,
@@ -362,4 +368,13 @@ Split_With_Counter.args = {
     split: true,
     splitButtonChecked: false,
     text: 'Split Button',
+};
+
+Floating_Button.args = {
+    ...buttonArgs,
+    floatingButtonProps: {
+        enabled: true,
+    },
+    shape: ButtonShape.Round,
+    text: null,
 };
