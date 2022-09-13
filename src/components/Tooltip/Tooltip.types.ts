@@ -24,7 +24,7 @@ export interface TooltipProps extends OcBaseProps<HTMLDivElement> {
      */
     disabled?: boolean;
     /**
-     * Timeout in milliseconds to hide tooltip
+     * Timeout in milliseconds to hide the tooltip
      * @default 0
      */
     hideAfter?: number;
@@ -34,7 +34,7 @@ export interface TooltipProps extends OcBaseProps<HTMLDivElement> {
      */
     offset?: number;
     /**
-     * Delay of appearance, in millisecond
+     * Delay of appearance, in milliseconds
      * @default 0
      */
     openDelay?: number;
@@ -44,7 +44,7 @@ export interface TooltipProps extends OcBaseProps<HTMLDivElement> {
      */
     placement?: Placement;
     /**
-     * If the tooltip is portaled
+     * Whether the tooltip is portaled
      * @default false
      */
     portal?: boolean;
@@ -69,12 +69,12 @@ export interface TooltipProps extends OcBaseProps<HTMLDivElement> {
      */
     theme?: TooltipTheme;
     /**
-     * If the tooltip arrow is visible
+     * Whether the tooltip arrow is visible
      * @default true
      */
     visibleArrow?: boolean;
     /**
-     * Wrapper class name
+     * Wrapper class names
      */
     wrapperClassNames?: string;
     /**
