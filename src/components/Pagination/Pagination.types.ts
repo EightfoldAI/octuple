@@ -24,7 +24,7 @@ export interface PagerProps
         | 'totalText'
     > {}
 
-export interface PaginationProps extends OcBaseProps<HTMLDivElement> {
+export interface PaginationProps extends OcBaseProps<HTMLElement> {
     /**
      * The current page.
      * @default 1
