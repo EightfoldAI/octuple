@@ -48,12 +48,12 @@ export interface PersistentBarsProps extends OcBaseProps<HTMLDivElement> {
      */
     content: string;
     /**
-     * Custom icon for the persistent
+     * Custom icon for the persistent bar
      * @default PersistentBarType.mdiInformation | IconName.mdiCheckCircle | IconName.mdiAlert
      */
     icon?: IconName;
     /**
-     * Callback fired on close of the persistent
+     * Callback fired on close of the persistent bar
      */
     onClose?: () => void;
     /**
@@ -73,7 +73,7 @@ export interface PersistentBarsProps extends OcBaseProps<HTMLDivElement> {
      */
     title?: string;
     /**
-     * Type of the persistent
+     * Type of the persistent bar
      * @default PersistentBarType.bottom
      */
     type?: PersistentBarType;
