@@ -28,6 +28,7 @@ import type {
     PickerTimeProps,
 } from './Generate.types';
 import { Components } from './Generate.types';
+import LocaleReceiver from '../../../LocaleProvider/LocaleReceiver';
 import enUS from '../Locale/en_US';
 import { getPlaceholder, transPlacement2DropdownAlign } from '../util';
 import { Icon, IconName, IconSize } from '../../../Icon';
@@ -173,123 +174,141 @@ export default function generatePicker<DateType>(
                 return color;
             };
 
-            let locale: PickerLocale;
-
-            if (props.locale) {
-                locale = props.locale;
-            } else {
-                locale = enUS;
-            }
-
             return (
-                <OcPicker<DateType>
-                    ref={innerRef}
-                    id={id}
-                    placeholder={getPlaceholder(
-                        mergedPicker,
-                        locale,
-                        placeholder
-                    )}
-                    suffixIcon={
-                        mergedPicker === 'time' ? (
-                            <Icon
-                                color={iconColor()}
-                                path={IconName.mdiClockOutline}
-                                size={pickerSizeToIconSizeMap.get(mergedSize)}
+                <LocaleReceiver
+                    componentName={'DatePicker'}
+                    defaultLocale={enUS}
+                >
+                    {(contextLocale: PickerLocale) => {
+                        const locale = { ...contextLocale, ...props.locale };
+
+                        return (
+                            <OcPicker<DateType>
+                                ref={innerRef}
+                                id={id}
+                                placeholder={getPlaceholder(
+                                    mergedPicker,
+                                    locale,
+                                    placeholder
+                                )}
+                                suffixIcon={
+                                    mergedPicker === 'time' ? (
+                                        <Icon
+                                            color={iconColor()}
+                                            path={IconName.mdiClockOutline}
+                                            size={pickerSizeToIconSizeMap.get(
+                                                mergedSize
+                                            )}
+                                        />
+                                    ) : (
+                                        <Icon
+                                            color={iconColor()}
+                                            path={
+                                                IconName.mdiCalendarBlankOutline
+                                            }
+                                            size={pickerSizeToIconSizeMap.get(
+                                                mergedSize
+                                            )}
+                                        />
+                                    )
+                                }
+                                dropdownAlign={transPlacement2DropdownAlign(
+                                    htmlDir as dir,
+                                    popupPlacement
+                                )}
+                                clearIcon={
+                                    <Icon
+                                        path={IconName.mdiCloseCircle}
+                                        size={pickerSizeToIconSizeMap.get(
+                                            mergedSize
+                                        )}
+                                    />
+                                }
+                                prevIcon={IconName.mdiChevronLeft}
+                                nextIcon={IconName.mdiChevronRight}
+                                superPrevIcon={IconName.mdiChevronDoubleLeft}
+                                superNextIcon={IconName.mdiChevronDoubleRight}
+                                allowClear
+                                transitionName={'picker-slide-up'}
+                                {...additionalProps}
+                                {...rest}
+                                {...additionalOverrideProps}
+                                locale={locale!.lang}
+                                classNames={mergeClasses([
+                                    {
+                                        [styles.pickerSmall]:
+                                            mergedSize ===
+                                                DatePickerSize.Flex &&
+                                            largeScreenActive,
+                                    },
+                                    {
+                                        [styles.pickerMedium]:
+                                            mergedSize ===
+                                                DatePickerSize.Flex &&
+                                            mediumScreenActive,
+                                    },
+                                    {
+                                        [styles.pickerMedium]:
+                                            mergedSize ===
+                                                DatePickerSize.Flex &&
+                                            smallScreenActive,
+                                    },
+                                    {
+                                        [styles.pickerLarge]:
+                                            mergedSize ===
+                                                DatePickerSize.Flex &&
+                                            xSmallScreenActive,
+                                    },
+                                    {
+                                        [styles.pickerLarge]:
+                                            mergedSize === DatePickerSize.Large,
+                                    },
+                                    {
+                                        [styles.pickerMedium]:
+                                            mergedSize ===
+                                            DatePickerSize.Medium,
+                                    },
+                                    {
+                                        [styles.pickerSmall]:
+                                            mergedSize === DatePickerSize.Small,
+                                    },
+                                    { [styles.pickerBorderless]: !bordered },
+                                    {
+                                        [styles.pickerUnderline]:
+                                            mergedShape ===
+                                            DatePickerShape.Underline,
+                                    },
+                                    {
+                                        [styles.pickerPill]:
+                                            mergedShape ===
+                                            DatePickerShape.Pill,
+                                    },
+                                    {
+                                        [styles.pickerStatusWarning]:
+                                            mergedStatus === 'warning',
+                                    },
+                                    {
+                                        [styles.pickerStatusError]:
+                                            mergedStatus === 'error',
+                                    },
+                                    {
+                                        [styles.pickerStatusSuccess]:
+                                            mergedStatus === 'success',
+                                    },
+                                    { ['in-form-item']: mergedFormItemInput },
+                                    classNames,
+                                ])}
+                                getPopupContainer={getPopupContainer}
+                                generateConfig={generateConfig}
+                                components={Components}
+                                direction={htmlDir}
+                                disabled={mergedDisabled}
+                                shape={mergedShape}
+                                size={mergedSize}
                             />
-                        ) : (
-                            <Icon
-                                color={iconColor()}
-                                path={IconName.mdiCalendarBlankOutline}
-                                size={pickerSizeToIconSizeMap.get(mergedSize)}
-                            />
-                        )
-                    }
-                    dropdownAlign={transPlacement2DropdownAlign(
-                        htmlDir as dir,
-                        popupPlacement
-                    )}
-                    clearIcon={
-                        <Icon
-                            path={IconName.mdiCloseCircle}
-                            size={pickerSizeToIconSizeMap.get(mergedSize)}
-                        />
-                    }
-                    prevIcon={IconName.mdiChevronLeft}
-                    nextIcon={IconName.mdiChevronRight}
-                    superPrevIcon={IconName.mdiChevronDoubleLeft}
-                    superNextIcon={IconName.mdiChevronDoubleRight}
-                    allowClear
-                    transitionName={'picker-slide-up'}
-                    {...additionalProps}
-                    {...rest}
-                    {...additionalOverrideProps}
-                    locale={locale!.lang}
-                    classNames={mergeClasses([
-                        {
-                            [styles.pickerSmall]:
-                                mergedSize === DatePickerSize.Flex &&
-                                largeScreenActive,
-                        },
-                        {
-                            [styles.pickerMedium]:
-                                mergedSize === DatePickerSize.Flex &&
-                                mediumScreenActive,
-                        },
-                        {
-                            [styles.pickerMedium]:
-                                mergedSize === DatePickerSize.Flex &&
-                                smallScreenActive,
-                        },
-                        {
-                            [styles.pickerLarge]:
-                                mergedSize === DatePickerSize.Flex &&
-                                xSmallScreenActive,
-                        },
-                        {
-                            [styles.pickerLarge]:
-                                mergedSize === DatePickerSize.Large,
-                        },
-                        {
-                            [styles.pickerMedium]:
-                                mergedSize === DatePickerSize.Medium,
-                        },
-                        {
-                            [styles.pickerSmall]:
-                                mergedSize === DatePickerSize.Small,
-                        },
-                        { [styles.pickerBorderless]: !bordered },
-                        {
-                            [styles.pickerUnderline]:
-                                mergedShape === DatePickerShape.Underline,
-                        },
-                        {
-                            [styles.pickerPill]:
-                                mergedShape === DatePickerShape.Pill,
-                        },
-                        {
-                            [styles.pickerStatusWarning]:
-                                mergedStatus === 'warning',
-                        },
-                        {
-                            [styles.pickerStatusError]:
-                                mergedStatus === 'error',
-                        },
-                        {
-                            [styles.pickerStatusSuccess]:
-                                mergedStatus === 'success',
-                        },
-                        { ['in-form-item']: mergedFormItemInput },
-                        classNames,
-                    ])}
-                    getPopupContainer={getPopupContainer}
-                    generateConfig={generateConfig}
-                    components={Components}
-                    direction={htmlDir}
-                    disabled={mergedDisabled}
-                    shape={mergedShape}
-                    size={mergedSize}
-                />
+                        );
+                    }}
+                </LocaleReceiver>
             );
         });
 

@@ -456,11 +456,20 @@ const Customized_Date_Styling_Story: ComponentStory<typeof RangePicker> = (
     />
 );
 
-const Status_Story: ComponentStory<typeof DatePicker> = (args) => {
+const Single_Status_Story: ComponentStory<typeof DatePicker> = (args) => {
     return (
         <Stack direction="vertical" gap="m">
             <DatePicker {...args} status="error" />
             <DatePicker {...args} status="warning" />
+        </Stack>
+    );
+};
+
+const Range_Status_Story: ComponentStory<typeof RangePicker> = (args) => {
+    return (
+        <Stack direction="vertical" gap="m">
+            <RangePicker {...args} status="error" />
+            <RangePicker {...args} status="warning" />
         </Stack>
     );
 };
@@ -485,7 +494,8 @@ export const Date_Format_Basic = Date_Format_Basic_Story.bind({});
 export const Date_Format_Range = Date_Format_Range_Story.bind({});
 export const Extra_Footer = Extra_Footer_Story.bind({});
 export const Customized_Date_Styling = Customized_Date_Styling_Story.bind({});
-export const Status = Status_Story.bind({});
+export const Single_Status = Single_Status_Story.bind({});
+export const Range_Status = Range_Status_Story.bind({});
 
 const pickerArgs: Object = {
     classNames: 'my-picker-class',
@@ -553,6 +563,10 @@ Customized_Date_Styling.args = {
     ...pickerArgs,
 };
 
-Status.args = {
+Single_Status.args = {
+    ...pickerArgs,
+};
+
+Range_Status.args = {
     ...pickerArgs,
 };
