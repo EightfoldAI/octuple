@@ -50,7 +50,7 @@ exports[`Storyshots Date Picker Customized Date Styling 1`] = `
             d="M14 16.94V12.94H5.08L5.05 10.93H14V6.94L19 11.94Z"
             style={
               Object {
-                "fill": "var(--grey-color-60)",
+                "fill": "currentColor",
               }
             }
           />
@@ -606,7 +606,7 @@ exports[`Storyshots Date Picker Date Format Range 1`] = `
             d="M14 16.94V12.94H5.08L5.05 10.93H14V6.94L19 11.94Z"
             style={
               Object {
-                "fill": "var(--grey-color-60)",
+                "fill": "currentColor",
               }
             }
           />
@@ -820,7 +820,7 @@ exports[`Storyshots Date Picker Preset Ranges 1`] = `
               d="M14 16.94V12.94H5.08L5.05 10.93H14V6.94L19 11.94Z"
               style={
                 Object {
-                  "fill": "var(--grey-color-60)",
+                  "fill": "currentColor",
                 }
               }
             />
@@ -934,7 +934,7 @@ exports[`Storyshots Date Picker Preset Ranges 1`] = `
               d="M14 16.94V12.94H5.08L5.05 10.93H14V6.94L19 11.94Z"
               style={
                 Object {
-                  "fill": "var(--grey-color-60)",
+                  "fill": "currentColor",
                 }
               }
             />
@@ -1052,7 +1052,7 @@ exports[`Storyshots Date Picker Range Borderless 1`] = `
             d="M14 16.94V12.94H5.08L5.05 10.93H14V6.94L19 11.94Z"
             style={
               Object {
-                "fill": "var(--grey-color-60)",
+                "fill": "currentColor",
               }
             }
           />
@@ -1179,7 +1179,7 @@ exports[`Storyshots Date Picker Range Picker 1`] = `
               d="M14 16.94V12.94H5.08L5.05 10.93H14V6.94L19 11.94Z"
               style={
                 Object {
-                  "fill": "var(--grey-color-60)",
+                  "fill": "currentColor",
                 }
               }
             />
@@ -1293,7 +1293,7 @@ exports[`Storyshots Date Picker Range Picker 1`] = `
               d="M14 16.94V12.94H5.08L5.05 10.93H14V6.94L19 11.94Z"
               style={
                 Object {
-                  "fill": "var(--grey-color-60)",
+                  "fill": "currentColor",
                 }
               }
             />
@@ -1407,7 +1407,7 @@ exports[`Storyshots Date Picker Range Picker 1`] = `
               d="M14 16.94V12.94H5.08L5.05 10.93H14V6.94L19 11.94Z"
               style={
                 Object {
-                  "fill": "var(--grey-color-60)",
+                  "fill": "currentColor",
                 }
               }
             />
@@ -1521,7 +1521,7 @@ exports[`Storyshots Date Picker Range Picker 1`] = `
               d="M14 16.94V12.94H5.08L5.05 10.93H14V6.94L19 11.94Z"
               style={
                 Object {
-                  "fill": "var(--grey-color-60)",
+                  "fill": "currentColor",
                 }
               }
             />
@@ -1635,7 +1635,7 @@ exports[`Storyshots Date Picker Range Picker 1`] = `
               d="M14 16.94V12.94H5.08L5.05 10.93H14V6.94L19 11.94Z"
               style={
                 Object {
-                  "fill": "var(--grey-color-60)",
+                  "fill": "currentColor",
                 }
               }
             />
@@ -1753,7 +1753,7 @@ exports[`Storyshots Date Picker Range Picker Choose Time 1`] = `
             d="M14 16.94V12.94H5.08L5.05 10.93H14V6.94L19 11.94Z"
             style={
               Object {
-                "fill": "var(--grey-color-60)",
+                "fill": "currentColor",
               }
             }
           />
@@ -1880,7 +1880,7 @@ exports[`Storyshots Date Picker Range Picker Disabled 1`] = `
               d="M14 16.94V12.94H5.08L5.05 10.93H14V6.94L19 11.94Z"
               style={
                 Object {
-                  "fill": "var(--grey-color-60)",
+                  "fill": "currentColor",
                 }
               }
             />
@@ -1994,7 +1994,7 @@ exports[`Storyshots Date Picker Range Picker Disabled 1`] = `
               d="M14 16.94V12.94H5.08L5.05 10.93H14V6.94L19 11.94Z"
               style={
                 Object {
-                  "fill": "var(--grey-color-60)",
+                  "fill": "currentColor",
                 }
               }
             />
@@ -2122,7 +2122,7 @@ exports[`Storyshots Date Picker Range Picker Disabled Date And Time 1`] = `
               d="M14 16.94V12.94H5.08L5.05 10.93H14V6.94L19 11.94Z"
               style={
                 Object {
-                  "fill": "var(--grey-color-60)",
+                  "fill": "currentColor",
                 }
               }
             />
@@ -2236,7 +2236,7 @@ exports[`Storyshots Date Picker Range Picker Disabled Date And Time 1`] = `
               d="M14 16.94V12.94H5.08L5.05 10.93H14V6.94L19 11.94Z"
               style={
                 Object {
-                  "fill": "var(--grey-color-60)",
+                  "fill": "currentColor",
                 }
               }
             />
@@ -2364,7 +2364,7 @@ exports[`Storyshots Date Picker Range Status 1`] = `
               d="M14 16.94V12.94H5.08L5.05 10.93H14V6.94L19 11.94Z"
               style={
                 Object {
-                  "fill": "var(--grey-color-60)",
+                  "fill": "currentColor",
                 }
               }
             />
@@ -2478,7 +2478,7 @@ exports[`Storyshots Date Picker Range Status 1`] = `
               d="M14 16.94V12.94H5.08L5.05 10.93H14V6.94L19 11.94Z"
               style={
                 Object {
-                  "fill": "var(--grey-color-60)",
+                  "fill": "currentColor",
                 }
               }
             />
@@ -2596,7 +2596,7 @@ exports[`Storyshots Date Picker Select Range By Day Limit 1`] = `
             d="M14 16.94V12.94H5.08L5.05 10.93H14V6.94L19 11.94Z"
             style={
               Object {
-                "fill": "var(--grey-color-60)",
+                "fill": "currentColor",
               }
             }
           />

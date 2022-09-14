@@ -166,7 +166,6 @@ export default function generateRangePicker<DateType>(
                                     className={styles.pickerSeparator}
                                 >
                                     <Icon
-                                        color="var(--grey-color-60)"
                                         path={IconName.mdiArrowRightThin}
                                         size={IconSize.Medium}
                                     />
