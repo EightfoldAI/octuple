@@ -456,6 +456,14 @@ const Customized_Date_Styling_Story: ComponentStory<typeof RangePicker> = (
     />
 );
 
+const Single_Borderless_Story: ComponentStory<typeof DatePicker> = (args) => {
+    return <DatePicker {...args} />;
+};
+
+const Range_Borderless_Story: ComponentStory<typeof RangePicker> = (args) => {
+    return <RangePicker {...args} />;
+};
+
 const Single_Status_Story: ComponentStory<typeof DatePicker> = (args) => {
     return (
         <Stack direction="vertical" gap="m">
@@ -494,6 +502,8 @@ export const Date_Format_Basic = Date_Format_Basic_Story.bind({});
 export const Date_Format_Range = Date_Format_Range_Story.bind({});
 export const Extra_Footer = Extra_Footer_Story.bind({});
 export const Customized_Date_Styling = Customized_Date_Styling_Story.bind({});
+export const Single_Borderless = Single_Borderless_Story.bind({});
+export const Range_Borderless = Range_Borderless_Story.bind({});
 export const Single_Status = Single_Status_Story.bind({});
 export const Range_Status = Range_Status_Story.bind({});
 
@@ -561,6 +571,16 @@ Extra_Footer.args = {
 
 Customized_Date_Styling.args = {
     ...pickerArgs,
+};
+
+Single_Borderless.args = {
+    ...pickerArgs,
+    bordered: false,
+};
+
+Range_Borderless.args = {
+    ...pickerArgs,
+    bordered: false,
 };
 
 Single_Status.args = {

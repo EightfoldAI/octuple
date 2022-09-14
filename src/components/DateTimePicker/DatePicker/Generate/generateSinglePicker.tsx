@@ -185,6 +185,7 @@ export default function generatePicker<DateType>(
                         return (
                             <OcPicker<DateType>
                                 ref={innerRef}
+                                bordered={bordered}
                                 id={id}
                                 placeholder={getPlaceholder(
                                     mergedPicker,

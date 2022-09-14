@@ -380,7 +380,7 @@ exports[`Storyshots Time Picker Range Borderless 1`] = `
   }
 >
   <div
-    className="picker picker-range picker-medium picker-borderless my-picker-class"
+    className="picker picker-range picker-medium picker-borderless my-picker-class picker-borderless"
     onClick={[Function]}
     onMouseDown={[Function]}
   >
@@ -750,7 +750,7 @@ exports[`Storyshots Time Picker Single Borderless 1`] = `
   }
 >
   <div
-    className="picker picker-medium picker-borderless my-picker-class"
+    className="picker picker-medium picker-borderless my-picker-class picker-borderless"
     onMouseUp={[Function]}
   >
     <div

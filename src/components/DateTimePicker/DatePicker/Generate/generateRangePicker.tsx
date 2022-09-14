@@ -158,6 +158,7 @@ export default function generateRangePicker<DateType>(
 
                     return (
                         <OcRangePicker<DateType>
+                            bordered={bordered}
                             id={id}
                             separator={
                                 <span

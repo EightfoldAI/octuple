@@ -104,6 +104,7 @@ function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
     const {
         id,
         style,
+        bordered = true,
         classNames,
         popupStyle,
         dropdownClassNames,
@@ -1179,6 +1180,7 @@ function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
                             [styles.pickerUnderline]:
                                 shape === DatePickerShape.Underline,
                         },
+                        { [styles.pickerBorderless]: !bordered },
                         {
                             [styles.pickerDisabled]:
                                 mergedDisabled[0] && mergedDisabled[1],
