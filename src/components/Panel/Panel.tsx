@@ -8,7 +8,7 @@ import React, {
 import { mergeClasses, stopPropagation } from '../../shared/utilities';
 import { PanelProps, PanelRef, PanelSize } from './';
 import { IconName } from '../Icon';
-import { NeutralButton } from '../Button';
+import { ButtonShape, NeutralButton } from '../Button';
 import { Portal } from '../Portal';
 import { useScrollLock } from '../../hooks/useScrollLock';
 import { NoFormStyle } from '../Form/Context';
@@ -127,6 +127,7 @@ export const Panel = React.forwardRef<PanelRef, PanelProps>(
                             ariaLabel={'Back'}
                             classNames={styles.headerButton}
                             iconProps={{ path: headerIcon }}
+                            shape={ButtonShape.Round}
                             {...headerButtonProps}
                         />
                     )}
@@ -134,19 +135,29 @@ export const Panel = React.forwardRef<PanelRef, PanelProps>(
                 </div>
                 <span className={styles.headerButtons}>
                     {actionButtonThreeProps && (
-                        <NeutralButton {...actionButtonThreeProps} />
+                        <NeutralButton
+                            shape={ButtonShape.Round}
+                            {...actionButtonThreeProps}
+                        />
                     )}
                     {actionButtonTwoProps && (
-                        <NeutralButton {...actionButtonTwoProps} />
+                        <NeutralButton
+                            shape={ButtonShape.Round}
+                            {...actionButtonTwoProps}
+                        />
                     )}
                     {actionButtonOneProps && (
-                        <NeutralButton {...actionButtonOneProps} />
+                        <NeutralButton
+                            shape={ButtonShape.Round}
+                            {...actionButtonOneProps}
+                        />
                     )}
                     {closable && (
                         <NeutralButton
                             iconProps={{ path: closeIcon }}
                             ariaLabel={'Close'}
                             onClick={onClose}
+                            shape={ButtonShape.Round}
                             {...closeButtonProps}
                         />
                     )}
