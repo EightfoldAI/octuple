@@ -412,14 +412,16 @@ describe('Picker.Partial', () => {
     });
 
     describe('not trigger onSelect when cell disabled', () => {
-        // TODO: Re-enable test when util supports updated time partial.
-        it.skip('time', () => {
+        const disabledDateTime = () => ({
+            disabledHours: () => [0],
+        });
+        it('time', () => {
             const onSelect = jest.fn();
             const wrapper = mount(
                 <DayjsPickerPartial
                     picker="time"
                     onSelect={onSelect}
-                    disabledDate={(date: dayjs.Dayjs) => date.hour() === 0}
+                    disabledTime={disabledDateTime}
                 />
             );
 
