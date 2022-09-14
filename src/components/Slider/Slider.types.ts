@@ -14,11 +14,10 @@ export interface SliderProps extends SliderInputProps {
      * @default true
      */
     showLabels?: boolean;
-
     /**
      * Indicates if steps/markers should be displayed on the slider track.
      * NOTE: initial implementation will put a marker at each step. This could
-     * be extended to provide explicit markers to change the behavior..
+     * be extended to provide explicit markers to change the behavior.
      * @default false
      */
     showMarkers?: boolean;
@@ -28,14 +27,15 @@ export interface SliderInputProps
     extends Omit<OcBaseProps<HTMLInputElement>, 'onChange' | 'value'> {
     /**
      * Allows focus on the slider when it's disabled.
+     * @default false
      */
     allowDisabledFocus?: boolean;
     /**
-     * The input aria label text.
+     * The slider aria label text.
      */
     ariaLabel?: string;
     /**
-     * The input autoFocus attribute.
+     * The slider autoFocus attribute.
      * @default false
      */
     autoFocus?: boolean;
@@ -44,7 +44,7 @@ export interface SliderInputProps
      */
     configContextProps?: ConfigContextProps;
     /**
-     * The input disabled state.
+     * The slider disabled state.
      * @default false
      */
     disabled?: boolean;
@@ -64,7 +64,7 @@ export interface SliderInputProps
      */
     max?: number;
     /**
-     * The maximum value of the slider.
+     * The minimum value of the slider.
      * @default 0
      */
     min?: number;

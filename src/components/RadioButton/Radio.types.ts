@@ -19,6 +19,7 @@ export interface IRadioButtonsContext {
 export interface RadioButtonProps extends OcBaseProps<HTMLInputElement> {
     /**
      * Allows focus on the radio button when it's disabled.
+     * @default false
      */
     allowDisabledFocus?: boolean;
     /**
@@ -27,6 +28,7 @@ export interface RadioButtonProps extends OcBaseProps<HTMLInputElement> {
     ariaLabel?: string;
     /**
      * The input icon button checked value.
+     * @default false
      */
     checked?: boolean;
     /**
@@ -35,6 +37,7 @@ export interface RadioButtonProps extends OcBaseProps<HTMLInputElement> {
     configContextProps?: ConfigContextProps;
     /**
      * The boolean for disabling the radio button.
+     * @default false
      */
     disabled?: boolean;
     /**
@@ -43,27 +46,23 @@ export interface RadioButtonProps extends OcBaseProps<HTMLInputElement> {
      */
     formItemInput?: boolean;
     /**
-     * The name of the radio button group.
-     */
-    name?: string;
-    /**
-     * The value of the input.
-     */
-    value?: RadioButtonValue;
-    /**
      * Label of the radio button.
      */
     label?: React.ReactNode;
+    /**
+     * The vertical placement of the label.
+     * @default LabelAlign.Center
+     */
+    labelAlign?: LabelAlign;
     /**
      * The label position of the radio button.
      * @default LabelPosition.End
      */
     labelPosition?: LabelPosition;
     /**
-     * The vertical placement of the label
-     * @default LabelAlign.Center
+     * The name of the radio button group.
      */
-    labelAlign?: LabelAlign;
+    name?: string;
     /**
      * The radio button onChange event handler.
      */
@@ -73,6 +72,10 @@ export interface RadioButtonProps extends OcBaseProps<HTMLInputElement> {
      * @default SelectorSize.Medium
      */
     size?: SelectorSize | Size;
+    /**
+     * The value of the input.
+     */
+    value?: RadioButtonValue;
 }
 
 export interface RadioGroupProps extends OcBaseProps<HTMLDivElement> {
@@ -102,15 +105,15 @@ export interface RadioGroupProps extends OcBaseProps<HTMLDivElement> {
      */
     items?: RadioButtonProps[];
     /**
-     * The label position of the radio buttons.
-     * @default LabelPosition.End
-     */
-    labelPosition?: LabelPosition;
-    /**
      * The vertical placement of the label
      * @default LabelAlign.Center
      */
     labelAlign?: LabelAlign;
+    /**
+     * The label position of the radio buttons.
+     * @default LabelPosition.End
+     */
+    labelPosition?: LabelPosition;
     /**
      * Type of layout for the radio group.
      * @default vertical.
