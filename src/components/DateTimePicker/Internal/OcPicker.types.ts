@@ -556,6 +556,10 @@ export type OcPickerSharedProps<DateType> = {
      */
     autoFocus?: boolean;
     /**
+     * Determines if the picker has a border style.
+     */
+    bordered?: boolean;
+    /**
      * Custom clear icon.
      */
     clearIcon?: React.ReactNode;

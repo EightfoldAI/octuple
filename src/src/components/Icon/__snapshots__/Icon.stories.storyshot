@@ -9,7 +9,7 @@ exports[`Storyshots Icon Basic 1`] = `
   role="presentation"
 >
   <svg
-    aria-labelledby="icon_labelledby_158 icon_describedby_158"
+    aria-labelledby="icon_labelledby_183 icon_describedby_183"
     style={
       Object {
         "height": "20px",
@@ -19,12 +19,12 @@ exports[`Storyshots Icon Basic 1`] = `
     viewBox="0 0 24 24"
   >
     <title
-      id="icon_labelledby_158"
+      id="icon_labelledby_183"
     >
       My icon title.
     </title>
     <desc
-      id="icon_describedby_158"
+      id="icon_describedby_183"
     >
       My icon description.
     </desc>
