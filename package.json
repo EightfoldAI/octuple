@@ -206,7 +206,7 @@
     },
     "jest": {
         "roots": [
-            "<rootDir>/src"
+            "<rootDir>"
         ],
         "setupFiles": [
             "react-app-polyfill/jsdom",
