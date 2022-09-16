@@ -26,6 +26,8 @@ export const Tooltip: FC<TooltipProps> = ({
     content,
     placement = 'bottom',
     portal = false,
+    portalId,
+    portalRoot,
     disabled,
     id,
     visibleArrow = true,
@@ -160,7 +162,9 @@ export const Tooltip: FC<TooltipProps> = ({
             <ConditionalWrapper
                 condition={portal}
                 wrapper={(children) => (
-                    <FloatingPortal>{getChild(children)}</FloatingPortal>
+                    <FloatingPortal id={portalId} root={portalRoot}>
+                        {getChild(children)}
+                    </FloatingPortal>
                 )}
             >
                 {visible && (

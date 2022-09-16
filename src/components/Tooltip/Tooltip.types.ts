@@ -49,6 +49,14 @@ export interface TooltipProps extends OcBaseProps<HTMLDivElement> {
      */
     portal?: boolean;
     /**
+     * The id of the floating portal
+     */
+    portalId?: string;
+    /**
+     * The element in which to render the portal
+     */
+    portalRoot?: HTMLElement | null;
+    /**
      * Positioning strategy for the tooltip
      * @default absolute
      */
