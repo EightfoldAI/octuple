@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.12.1](https://github.com/EightfoldAI/octuple/compare/v2.12.0...v2.12.1) (2022-09-16)
+
+### Features
+
+-   picker: add time picker story and loc string support to pickers ([#378](https://github.com/EightfoldAI/octuple/issues/378)) ([33e516c](https://github.com/EightfoldAI/octuple/commits/33e516c9d80bd0886f25f94b42673f7095dc51a6))
+
+### Bug Fixes
+
+-   button: fixes floating icon button distortion in some versions of safari ([#377](https://github.com/EightfoldAI/octuple/issues/377)) ([0fce942](https://github.com/EightfoldAI/octuple/commits/0fce94255ff03a5fc0f2f29bc8a4f1b5580e3d2a))
+-   panel: update the default shape of the header buttons to be round ([#371](https://github.com/EightfoldAI/octuple/issues/371)) ([c29b359](https://github.com/EightfoldAI/octuple/commits/c29b359599b8ad8e379fca62cdb1ad9fff2fdfef))
+-   persistent bar: export buttontype and type cleanup ([#373](https://github.com/EightfoldAI/octuple/issues/373)) ([dd77e4b](https://github.com/EightfoldAI/octuple/commits/dd77e4b539d0a436ce4bc3bc480f9b8d403eafba))
+-   remove flex style from link ([#380](https://github.com/EightfoldAI/octuple/issues/380)) ([0a47459](https://github.com/EightfoldAI/octuple/commits/0a47459fe6e7f499c621eba0c525b75d3d2f92da))
+
 ## [2.12.0](https://github.com/EightfoldAI/octuple/compare/v2.11.1...v2.12.0) (2022-09-12)
 
 ### Features
