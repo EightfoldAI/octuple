@@ -146,6 +146,8 @@ Tooltips.args = {
     tabIndex: 0,
     positionStrategy: 'absolute',
     portal: false,
+    portalId: 'my-portal-id',
+    portalRoot: null,
     children: (
         <PrimaryButton
             ariaLabel="Show Tooltip"
