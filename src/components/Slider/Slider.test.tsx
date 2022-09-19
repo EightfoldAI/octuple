@@ -24,17 +24,19 @@ describe('Slider', () => {
         expect(wrapper.children().length).toEqual(1);
     });
 
-    test('should correctly display markers and indicate when they are active', () => {
+    test('should correctly display marker segments and indicate when they are active', () => {
         let markers;
-        let activeMarkers;
+        let activeMarkerSegments;
 
         wrapper = mount(
             <Slider min={20} max={40} value={30} showMarkers={true} />
         );
-        markers = wrapper.find('.rail-marker');
-        expect(markers.length).toEqual(19);
-        activeMarkers = wrapper.find('.rail-marker.active');
-        expect(activeMarkers.length).toEqual(10);
+        markers = wrapper.find(
+            '.rail-marker-segment:not(.rail-marker-segment-hidden)'
+        );
+        expect(markers.length).toEqual(20);
+        activeMarkerSegments = wrapper.find('.rail-marker-segment.active');
+        expect(activeMarkerSegments.length).toEqual(10);
 
         wrapper = mount(
             <Slider
@@ -45,10 +47,12 @@ describe('Slider', () => {
                 showMarkers={true}
             />
         );
-        markers = wrapper.find('.rail-marker');
-        expect(markers.length).toEqual(3);
-        activeMarkers = wrapper.find('.rail-marker.active');
-        expect(activeMarkers.length).toEqual(2);
+        markers = wrapper.find(
+            '.rail-marker-segment:not(.rail-marker-segment-hidden)'
+        );
+        expect(markers.length).toEqual(4);
+        activeMarkerSegments = wrapper.find('.rail-marker-segment.active');
+        expect(activeMarkerSegments.length).toEqual(1);
     });
 
     test('should not call onChanges on initial load', () => {

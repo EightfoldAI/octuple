@@ -1,22 +1,34 @@
 import React, {
     createRef,
     FC,
+    Ref,
     RefObject,
     useContext,
     useLayoutEffect,
     useRef,
     useState,
 } from 'react';
+import shallowEqual from 'shallowequal';
+import { SizeContext, Size } from '../ConfigProvider';
 import DisabledContext, { Disabled } from '../ConfigProvider/DisabledContext';
 import { ResizeObserver } from '../../shared/ResizeObserver/ResizeObserver';
 import { mergeClasses } from '../../shared/utilities';
-import { SliderMarker, SliderProps } from './Slider.types';
+import { SliderMarker, SliderProps, SliderSize } from './Slider.types';
+import useOffset from './Hooks/useOffset';
 import { FormItemInputContext } from '../Form/Context';
+import { Breakpoints, useMatchMedia } from '../../hooks/useMatchMedia';
+import { useCanvasDirection } from '../../hooks/useCanvasDirection';
 
 import styles from './slider.module.scss';
 
-const thumbDiameter: number = +styles.thumbDiameter;
-const thumbRadius = thumbDiameter / 2;
+const largeThumbDiameter: number = +styles.largeThumbDiameter;
+const largeThumbRadius: number = largeThumbDiameter / 2;
+
+const mediumThumbDiameter: number = +styles.mediumThumbDiameter;
+const mediumThumbRadius: number = mediumThumbDiameter / 2;
+
+const smallThumbDiameter: number = +styles.smallThumbDiameter;
+const smallThumbRadius: number = smallThumbDiameter / 2;
 
 /**
  * For use with Array.sort to sort numbers in ascending order.
@@ -45,266 +57,598 @@ export function valueToPercent(
     return ((value - min) * 100) / (max - min);
 }
 
-export const Slider: FC<SliderProps> = ({
-    allowDisabledFocus = false,
-    ariaLabel,
-    autoFocus = false,
-    classNames,
-    configContextProps = {
-        noDisabledContext: false,
-        noSizeContext: false,
-    },
-    disabled = false,
-    formItemInput = false,
-    id,
-    min = 0,
-    max = 100,
-    name,
-    onChange,
-    showLabels = true,
-    showMarkers = false,
-    step = 1,
-    value,
-}) => {
-    const isRange: boolean = Array.isArray(value);
-    const [values, setValues] = useState<number[]>(
-        Array.isArray(value) ? value.sort(asc) : [value]
-    );
-    const railRef: React.MutableRefObject<HTMLDivElement> =
-        useRef<HTMLDivElement>(null);
-    const lowerLabelRef: React.MutableRefObject<HTMLInputElement> =
-        useRef<HTMLInputElement>(null);
-    const upperLabelRef: React.MutableRefObject<HTMLInputElement> =
-        useRef<HTMLInputElement>(null);
-    const trackRef: React.MutableRefObject<HTMLDivElement> =
-        useRef<HTMLDivElement>(null);
-    const minLabelRef: React.MutableRefObject<HTMLDivElement> =
-        useRef<HTMLDivElement>(null);
-    const maxLabelRef: React.MutableRefObject<HTMLDivElement> =
-        useRef<HTMLDivElement>(null);
-    let [markers, setMarkers] = useState<SliderMarker[]>(
-        !showMarkers
-            ? []
-            : [...Array(Math.floor((max - min) / step) + 1)].map(
-                  (_, index) => ({ value: min + step * index })
-              )
-    );
-    const markerRefs: React.MutableRefObject<RefObject<HTMLDivElement>[]> =
-        useRef<RefObject<HTMLDivElement>[]>(null);
-    markerRefs.current = markers.map(
-        (_, i) => markerRefs.current?.[i] ?? createRef<HTMLDivElement>()
-    );
+export const Slider: FC<SliderProps> = React.forwardRef(
+    (
+        {
+            allowDisabledFocus = false,
+            ariaLabel,
+            autoFocus = false,
+            classNames,
+            configContextProps = {
+                noDisabledContext: false,
+                noSizeContext: false,
+            },
+            disabled = false,
+            formItemInput = false,
+            hideMax = false,
+            hideMin = false,
+            hideValue = false,
+            id,
+            min = 0,
+            minLabel,
+            max = 100,
+            maxLabel,
+            name,
+            onChange,
+            showLabels = true,
+            showMarkers = false,
+            size = SliderSize.Medium,
+            step = 1,
+            value,
+            valueLabel,
+            ...rest
+        },
+        ref: Ref<HTMLInputElement>
+    ) => {
+        const largeScreenActive: boolean = useMatchMedia(Breakpoints.Large);
+        const mediumScreenActive: boolean = useMatchMedia(Breakpoints.Medium);
+        const smallScreenActive: boolean = useMatchMedia(Breakpoints.Small);
+        const xSmallScreenActive: boolean = useMatchMedia(Breakpoints.XSmall);
 
-    const { isFormItemInput } = useContext(FormItemInputContext);
-    const mergedFormItemInput: boolean = isFormItemInput || formItemInput;
+        const htmlDir: string = useCanvasDirection();
 
-    const contextuallyDisabled: Disabled = useContext(DisabledContext);
-    const mergedDisabled: boolean = configContextProps.noDisabledContext
-        ? disabled
-        : contextuallyDisabled || disabled;
-
-    const getIdentifier = (baseString: string, index: number): string => {
-        if (!baseString) {
-            return '';
-        }
-        const idTokens: Array<string | number> = [baseString];
-        if (isRange) {
-            idTokens.push(index);
-        }
-        return idTokens.join('-');
-    };
-
-    const isMarkerActive = (markerValue: number): boolean => {
-        const markerPct = valueToPercent(markerValue, min, max);
-        return isRange
-            ? markerPct >= valueToPercent(values[0], min, max) &&
-                  markerPct <= valueToPercent(values[1], min, max)
-            : markerPct <= valueToPercent(values[0], min, max);
-    };
-
-    const getValueOffset = (val: number): number => {
-        const inputWidth = railRef.current?.offsetWidth || 0;
-        return (
-            ((val - min) / (max - min)) * (inputWidth - thumbDiameter) +
-            thumbRadius
+        const isRange: boolean = Array.isArray(value);
+        const [values, setValues] = useState<number[]>(
+            Array.isArray(value) ? value.sort(asc) : [value]
         );
-    };
+        const containerRef: React.MutableRefObject<HTMLDivElement> =
+            useRef<HTMLDivElement>(null);
+        const railRef: React.MutableRefObject<HTMLDivElement> =
+            useRef<HTMLDivElement>(null);
+        const lowerLabelRef: React.MutableRefObject<HTMLInputElement> =
+            useRef<HTMLInputElement>(null);
+        const upperLabelRef: React.MutableRefObject<HTMLInputElement> =
+            useRef<HTMLInputElement>(null);
+        const trackRef: React.MutableRefObject<HTMLDivElement> =
+            useRef<HTMLDivElement>(null);
+        const minLabelRef: React.MutableRefObject<HTMLDivElement> =
+            useRef<HTMLDivElement>(null);
+        const maxLabelRef: React.MutableRefObject<HTMLDivElement> =
+            useRef<HTMLDivElement>(null);
+        let [markers, setMarkers] = useState<SliderMarker[]>(
+            [...Array(Math.floor((max - min) / step) + 1)].map((_, index) => ({
+                value: min + step * index,
+            }))
+        );
+        const markerSegmentRefs: React.MutableRefObject<
+            RefObject<HTMLDivElement>[]
+        > = useRef<RefObject<HTMLDivElement>[]>(null);
+        markerSegmentRefs.current = markers.map(
+            (_, i) =>
+                markerSegmentRefs.current?.[i] ?? createRef<HTMLDivElement>()
+        );
 
-    const handleChange = (newVal: number, index: number): void => {
-        const newValues = [...values];
-        newValues.splice(index, 1, newVal);
-        newValues.sort(asc);
-        setValues(newValues);
-        onChange?.(isRange ? [...newValues] : newValues[0]);
-    };
+        const { isFormItemInput } = useContext(FormItemInputContext);
+        const mergedFormItemInput: boolean = isFormItemInput || formItemInput;
 
-    const updateLayout = (): void => {
-        const inputWidth = railRef.current?.offsetWidth || 0;
+        const contextuallySized: Size = useContext(SizeContext);
+        const mergedSize = configContextProps.noSizeContext
+            ? size
+            : contextuallySized || size;
 
-        // Early exit if there is no ref available yet. The DOM has yet to initialize
-        // and its not possible to calculate positions.
-        if (!railRef.current) {
-            return;
-        }
+        const contextuallyDisabled: Disabled = useContext(DisabledContext);
+        const mergedDisabled: boolean = configContextProps.noDisabledContext
+            ? disabled
+            : contextuallyDisabled || disabled;
 
-        markerRefs.current.forEach(
-            (ref: React.RefObject<HTMLDivElement>, i: number) => {
-                if (ref.current) {
-                    ref.current.style.left = `${getValueOffset(
-                        markers[i].value
-                    )}px`;
+        const getIdentifier = (baseString: string, index: number): string => {
+            if (!baseString) {
+                return '';
+            }
+            const idTokens: Array<string | number> = [baseString];
+            if (isRange) {
+                idTokens.push(index);
+            }
+            return idTokens.join('-');
+        };
+
+        const isMarkerSegmentActive = (markerValue: number): boolean => {
+            const markerPct = valueToPercent(markerValue, min, max);
+            const segmentRangeOffset: number = 1;
+            return isRange
+                ? markerPct >=
+                      valueToPercent(values[0], min, max) -
+                          segmentRangeOffset &&
+                      markerPct <=
+                          valueToPercent(values[1], min, max) -
+                              segmentRangeOffset
+                : markerPct <=
+                      valueToPercent(values[0], min, max) - segmentRangeOffset;
+        };
+
+        const thumbGeometry = (): {
+            diameter: number;
+            radius: number;
+        } => {
+            switch (mergedSize) {
+                case SliderSize.Large:
+                    return {
+                        diameter: largeThumbDiameter,
+                        radius: largeThumbRadius,
+                    };
+                case SliderSize.Medium:
+                    return {
+                        diameter: mediumThumbDiameter,
+                        radius: mediumThumbRadius,
+                    };
+                case SliderSize.Small:
+                    return {
+                        diameter: smallThumbDiameter,
+                        radius: smallThumbRadius,
+                    };
+                case SliderSize.Flex:
+                    if (largeScreenActive) {
+                        return {
+                            diameter: smallThumbDiameter,
+                            radius: smallThumbRadius,
+                        };
+                    } else if (mediumScreenActive) {
+                        return {
+                            diameter: mediumThumbDiameter,
+                            radius: mediumThumbRadius,
+                        };
+                    } else if (smallScreenActive) {
+                        return {
+                            diameter: mediumThumbDiameter,
+                            radius: mediumThumbRadius,
+                        };
+                    } else if (xSmallScreenActive) {
+                        return {
+                            diameter: largeThumbDiameter,
+                            radius: largeThumbRadius,
+                        };
+                    }
+                default:
+                    return {
+                        diameter: mediumThumbDiameter,
+                        radius: mediumThumbRadius,
+                    };
+            }
+        };
+
+        const getValueOffset = (
+            val: number,
+            thumbDiameter: number,
+            thumbRadius: number
+        ): number => {
+            const inputWidth = containerRef.current?.offsetWidth || 0;
+            return (
+                ((val - min) / (max - min)) * (inputWidth - thumbDiameter) +
+                thumbRadius
+            );
+        };
+
+        const updateLayout = (): void => {
+            const inputWidth: number = containerRef.current?.offsetWidth || 0;
+
+            // Early exit if there is no ref available yet. The DOM has yet to initialize
+            // and its not possible to calculate positions.
+            if (!railRef.current) {
+                return;
+            }
+
+            const thumbDiameter: number = thumbGeometry().diameter;
+            const thumbRadius: number = thumbGeometry().radius;
+            const trackBorderOffset: number = 2;
+            const lowerThumbOffset: number = getValueOffset(
+                values[0],
+                thumbDiameter,
+                thumbRadius
+            );
+            const upperThumbOffset: number = getValueOffset(
+                values[1],
+                thumbDiameter,
+                thumbRadius
+            );
+            const rangeWidth: number = isRange
+                ? upperThumbOffset - lowerThumbOffset
+                : lowerThumbOffset;
+
+            // The below calculation is as follows:
+            // First we get the left position of the segment.
+            // Then we get the width rounded to the lowest possible even number with a 2px spacer to account for borders.
+            // Then we hide the last segment because visually we only need n - 1 markers to generate the visible segments.
+            if (showMarkers) {
+                markerSegmentRefs.current?.forEach(
+                    (ref: React.RefObject<HTMLDivElement>, i: number) => {
+                        if (ref.current) {
+                            if (htmlDir === 'rtl') {
+                                ref.current.style.right = `${getValueOffset(
+                                    markers[i].value,
+                                    thumbDiameter,
+                                    thumbRadius
+                                )}px`;
+                            } else {
+                                ref.current.style.left = `${getValueOffset(
+                                    markers[i].value,
+                                    thumbDiameter,
+                                    thumbRadius
+                                )}px`;
+                            }
+                            ref.current.style.width = `${
+                                2 *
+                                    Math.round(
+                                        Math.floor(
+                                            (inputWidth - thumbDiameter * 2) /
+                                                (markers.length - 1)
+                                        ) / 2
+                                    ) -
+                                trackBorderOffset
+                            }px`;
+                        }
+                    }
+                );
+            }
+
+            // Hide the min/max markers if the value labels would collide.
+            // Range labels are centered, ignore when isRange.
+            if (!isRange) {
+                const lowerThumbOffset: number = getValueOffset(
+                    values[0],
+                    thumbDiameter,
+                    thumbRadius
+                );
+                const showMaxLabel: boolean =
+                    showLabels &&
+                    lowerThumbOffset <
+                        maxLabelRef.current.getBoundingClientRect().left -
+                            lowerLabelRef.current.offsetWidth / 2 -
+                            thumbRadius;
+                maxLabelRef.current.style.opacity = showMaxLabel ? '1' : '0';
+
+                const showMinLabel: boolean =
+                    showLabels &&
+                    lowerThumbOffset >
+                        minLabelRef.current.getBoundingClientRect().right +
+                            lowerLabelRef.current.offsetWidth / 2 -
+                            thumbRadius;
+                minLabelRef.current.style.opacity = showMinLabel ? '1' : '0';
+
+                const lowerLabelOffset: number =
+                    lowerLabelRef.current.offsetWidth / 2;
+
+                if (htmlDir === 'rtl') {
+                    lowerLabelRef.current.style.right = `${
+                        lowerThumbOffset - lowerLabelOffset
+                    }px`;
+                    lowerLabelRef.current.style.left = 'unset';
+                } else {
+                    lowerLabelRef.current.style.left = `${
+                        lowerThumbOffset - lowerLabelOffset
+                    }px`;
+                    lowerLabelRef.current.style.right = 'unset';
                 }
             }
-        );
 
-        const lowerThumbOffset: number = getValueOffset(values[0]);
-        const upperThumbOffset: number = getValueOffset(values[1]);
-        const rangeWidth: number = isRange
-            ? upperThumbOffset - lowerThumbOffset
-            : lowerThumbOffset;
+            if (htmlDir === 'rtl') {
+                trackRef.current.style.right = isRange
+                    ? `${lowerThumbOffset}px`
+                    : `${thumbRadius}px`;
+            } else {
+                trackRef.current.style.left = isRange
+                    ? `${lowerThumbOffset}px`
+                    : `${thumbRadius}px`;
+            }
+            trackRef.current.style.width = `${rangeWidth}px`;
+        };
 
-        // Hide the min/max markers if the value labels would collide.
-        const maxCollisionLabelRef: React.MutableRefObject<HTMLInputElement> =
-            isRange ? upperLabelRef : lowerLabelRef;
-        const maxCollisionThumbOffset: number = isRange
-            ? upperThumbOffset
-            : lowerThumbOffset;
+        const [formatValue] = useOffset(min, max, step, markers);
 
-        const showMaxLabel: boolean =
-            showLabels &&
-            inputWidth - maxCollisionThumbOffset >
-                (maxCollisionLabelRef.current?.offsetWidth || 0) + 15;
-        maxLabelRef.current.style.opacity = showMaxLabel ? '1' : '0';
+        const rawValues = React.useMemo(() => {
+            const valueList =
+                value === null || value === undefined
+                    ? []
+                    : Array.isArray(value)
+                    ? value
+                    : [value];
 
-        const showMinLabel: boolean =
-            showLabels &&
-            lowerThumbOffset > lowerLabelRef.current.offsetWidth + 15;
-        minLabelRef.current.style.opacity = showMinLabel ? '1' : '0';
+            const [val0 = min] = valueList;
+            let returnValues: number[] = value === null ? [] : [val0];
 
-        const lowerLabelOffset: number = lowerLabelRef.current.offsetWidth / 2;
-        lowerLabelRef.current.style.left = `${
-            lowerThumbOffset - lowerLabelOffset
-        }px`;
+            // Format as range
+            if (isRange) {
+                returnValues = [...valueList];
 
-        // upper Label/thumb is only used in range mode.
-        if (isRange) {
-            const upperLabelOffset: number =
-                upperLabelRef.current.offsetWidth / 2;
-            upperLabelRef.current.style.left = `${
-                upperThumbOffset - upperLabelOffset
-            }px`;
-        }
+                // When value is `undefined`, fill values.
+                if (value === undefined) {
+                    const pointCount = 2;
+                    returnValues = returnValues.slice(0, pointCount);
 
-        trackRef.current.style.left = isRange ? `${lowerThumbOffset}px` : '0';
-        trackRef.current.style.width = `${rangeWidth}px`;
-    };
-
-    // Set width of the range to decrease from the left side
-    useLayoutEffect(() => {
-        updateLayout();
-    }, [values]);
-
-    return (
-        <ResizeObserver onResize={updateLayout}>
-            <div
-                className={mergeClasses(
-                    styles.sliderContainer,
-                    {
-                        [styles.sliderDisabled]:
-                            allowDisabledFocus || mergedDisabled,
-                    },
-                    { ['in-form-item']: mergedFormItemInput }
-                )}
-            >
-                <div className={mergeClasses(styles.slider, classNames)}>
-                    <div ref={railRef} className={styles.sliderRail} />
-                    <div ref={trackRef} className={styles.sliderTrack} />
-                    {markers.map((mark: SliderMarker, index: number) => {
-                        // Hiding the first and last marker based on design.
-                        const isFirstOrLast =
-                            index === 0 || index === markers.length - 1;
-                        return (
-                            !isFirstOrLast && (
-                                <div
-                                    key={index}
-                                    className={mergeClasses(styles.railMarker, {
-                                        [styles.active]: isMarkerActive(
-                                            mark.value
-                                        ),
-                                    })}
-                                    ref={markerRefs.current[index]}
-                                />
-                            )
+                    while (returnValues.length < pointCount) {
+                        returnValues.push(
+                            returnValues[returnValues.length - 1] ?? min
                         );
-                    })}
-                    {values.map((val: number, index: number) => (
-                        <input
-                            aria-disabled={mergedDisabled}
-                            aria-label={ariaLabel}
-                            autoFocus={autoFocus && index === 0}
-                            className={styles.thumb}
-                            id={getIdentifier(id, index)}
-                            key={index}
-                            disabled={!allowDisabledFocus && mergedDisabled}
-                            onChange={
-                                !allowDisabledFocus
-                                    ? (
-                                          event: React.ChangeEvent<HTMLInputElement>
-                                      ) =>
-                                          handleChange(
-                                              +event.target.value,
-                                              index
-                                          )
-                                    : null
-                            }
-                            min={min}
-                            max={max}
-                            name={getIdentifier(name, index)}
-                            type="range"
-                            step={step}
-                            value={val}
-                        />
-                    ))}
-                </div>
-                <>
-                    <div
-                        className={mergeClasses(styles.sliderValue, {
-                            [styles.labelVisible]: showLabels,
-                        })}
-                        ref={lowerLabelRef}
-                    >
-                        {values[0]}
-                    </div>
-                    {isRange && (
+                    }
+                }
+                returnValues.sort((a, b) => a - b);
+            }
+
+            returnValues.forEach((val: number, index: number) => {
+                returnValues[index] = formatValue(val);
+            });
+
+            return returnValues;
+        }, [value, isRange, min, formatValue]);
+
+        const rawValuesRef: React.MutableRefObject<number[]> =
+            React.useRef(rawValues);
+        rawValuesRef.current = rawValues;
+
+        const getTriggerValue = (triggerValues: number[]) =>
+            isRange ? triggerValues : triggerValues[0];
+
+        const triggerChange = (nextValues: number[]) => {
+            const cloneNextValues = [...nextValues].sort((a, b) => a - b);
+
+            if (!shallowEqual(cloneNextValues, rawValuesRef.current)) {
+                onChange?.(getTriggerValue(cloneNextValues));
+            }
+
+            setValues(cloneNextValues);
+        };
+
+        const changeToCloseValue = (newValue: number) => {
+            if (!disabled) {
+                let valueIndex: number = 0;
+                let valueDist: number = max - min;
+
+                rawValues.forEach((val: number, index: number) => {
+                    const dist: number = Math.abs(newValue - val);
+                    if (dist <= valueDist) {
+                        valueDist = dist;
+                        valueIndex = index;
+                    }
+                });
+
+                const cloneNextValues = [...rawValues];
+
+                cloneNextValues[valueIndex] = newValue;
+
+                if (isRange && !rawValues.length) {
+                    cloneNextValues.push(newValue);
+                }
+
+                triggerChange(cloneNextValues);
+            }
+        };
+
+        const onSliderMouseDown = (
+            event: React.MouseEvent<HTMLDivElement>
+        ): void => {
+            event.preventDefault();
+
+            const { width, left, right } =
+                containerRef.current.getBoundingClientRect();
+            const { clientX } = event;
+
+            let percent: number;
+            if (htmlDir === 'rtl') {
+                percent = (right - clientX) / width;
+            } else {
+                percent = (clientX - left) / width;
+            }
+
+            const nextValue: number = min + percent * (max - min);
+            changeToCloseValue(formatValue(nextValue));
+        };
+
+        const handleChange = (newVal: number, index: number): void => {
+            const newValues = [...values];
+            newValues.splice(index, 1, newVal);
+            newValues.sort(asc);
+            setValues(newValues);
+            onChange?.(isRange ? [...newValues] : newValues[0]);
+        };
+
+        // Set width of the range to decrease from the left side
+        // Update markers when shown
+        useLayoutEffect(() => {
+            updateLayout();
+        }, [values, showMarkers]);
+
+        return (
+            <ResizeObserver onResize={updateLayout}>
+                <div
+                    ref={containerRef}
+                    {...rest}
+                    className={mergeClasses(
+                        styles.sliderContainer,
+                        {
+                            [styles.sliderSmall]:
+                                mergedSize === SliderSize.Flex &&
+                                largeScreenActive,
+                        },
+                        {
+                            [styles.sliderMedium]:
+                                mergedSize === SliderSize.Flex &&
+                                mediumScreenActive,
+                        },
+                        {
+                            [styles.sliderMedium]:
+                                mergedSize === SliderSize.Flex &&
+                                smallScreenActive,
+                        },
+                        {
+                            [styles.sliderLarge]:
+                                mergedSize === SliderSize.Flex &&
+                                xSmallScreenActive,
+                        },
+                        {
+                            [styles.sliderLarge]:
+                                mergedSize === SliderSize.Large,
+                        },
+                        {
+                            [styles.sliderMedium]:
+                                mergedSize === SliderSize.Medium,
+                        },
+                        {
+                            [styles.sliderSmall]:
+                                mergedSize === SliderSize.Small,
+                        },
+                        {
+                            [styles.sliderDisabled]:
+                                allowDisabledFocus || mergedDisabled,
+                        },
+                        { [styles.sliderContainerRtl]: htmlDir === 'rtl' },
+                        { [styles.showMarkers]: !!showMarkers },
+                        { ['in-form-item']: mergedFormItemInput }
+                    )}
+                >
+                    <div className={mergeClasses(styles.slider, classNames)}>
                         <div
-                            className={mergeClasses(styles.sliderValue, {
-                                [styles.labelVisible]: showLabels,
+                            ref={railRef}
+                            className={mergeClasses(styles.sliderRail, {
+                                [styles.sliderRailOpacity]: showMarkers,
                             })}
-                            ref={upperLabelRef}
-                        >
-                            {values[1]}
+                            onMouseDown={onSliderMouseDown}
+                        />
+                        <div
+                            ref={trackRef}
+                            className={mergeClasses(styles.sliderTrack, {
+                                [styles.sliderTrackOpacity]: showMarkers,
+                            })}
+                            onMouseDown={onSliderMouseDown}
+                        />
+                        {!!showMarkers && (
+                            <div className={styles.railMarkerSegments}>
+                                {markers.map(
+                                    (mark: SliderMarker, index: number) => {
+                                        return (
+                                            <div
+                                                className={mergeClasses(
+                                                    styles.railMarkerSegment,
+                                                    {
+                                                        [styles.active]:
+                                                            isMarkerSegmentActive(
+                                                                mark.value
+                                                            ),
+                                                    },
+                                                    {
+                                                        [styles.railMarkerSegmentHidden]:
+                                                            index ===
+                                                            markers.length - 1,
+                                                    }
+                                                )}
+                                                key={index}
+                                                onMouseDown={onSliderMouseDown}
+                                                ref={
+                                                    markerSegmentRefs.current[
+                                                        index
+                                                    ]
+                                                }
+                                            />
+                                        );
+                                    }
+                                )}
+                            </div>
+                        )}
+                        {values.map((val: number, index: number) => (
+                            <input
+                                ref={ref}
+                                aria-disabled={mergedDisabled}
+                                aria-label={ariaLabel}
+                                autoFocus={autoFocus && index === 0}
+                                className={styles.thumb}
+                                id={getIdentifier(id, index)}
+                                key={index}
+                                disabled={!allowDisabledFocus && mergedDisabled}
+                                onChange={
+                                    !allowDisabledFocus
+                                        ? (
+                                              event: React.ChangeEvent<HTMLInputElement>
+                                          ) =>
+                                              handleChange(
+                                                  +event.target.value,
+                                                  index
+                                              )
+                                        : null
+                                }
+                                min={min}
+                                max={max}
+                                name={getIdentifier(name, index)}
+                                type="range"
+                                step={step}
+                                value={val}
+                            />
+                        ))}
+                    </div>
+                    <div
+                        ref={minLabelRef}
+                        className={mergeClasses(
+                            styles.extremityLabel,
+                            styles.minLabel,
+                            { [styles.extremityRangeLabel]: isRange }
+                        )}
+                    >
+                        {!!minLabel && minLabel} {!hideMin && min}
+                    </div>
+                    <div
+                        ref={maxLabelRef}
+                        className={mergeClasses(
+                            styles.extremityLabel,
+                            styles.maxLabel,
+                            { [styles.extremityRangeLabel]: isRange }
+                        )}
+                    >
+                        {!!maxLabel && maxLabel} {!hideMax && max}
+                    </div>
+                    <div
+                        className={mergeClasses(
+                            styles.sliderLabels,
+                            { [styles.sliderRangeLabels]: isRange },
+                            { [styles.labelVisible]: showLabels }
+                        )}
+                    >
+                        <div className={styles.sliderValue} ref={lowerLabelRef}>
+                            {!hideValue && htmlDir === 'rtl' && (
+                                <span>{values[0]}</span>
+                            )}{' '}
+                            {!!valueLabel && (
+                                <span>
+                                    {isRange ? valueLabel[0] : valueLabel}
+                                </span>
+                            )}{' '}
+                            {!hideValue && htmlDir !== 'rtl' && (
+                                <span>{values[0]}</span>
+                            )}
                         </div>
-                    )}
-                </>
-                <div
-                    ref={minLabelRef}
-                    className={mergeClasses(
-                        styles.extremityLabel,
-                        styles.minLabel
-                    )}
-                >
-                    {min}
+                        {isRange && (
+                            <div
+                                className={styles.sliderValue}
+                                ref={upperLabelRef}
+                            >
+                                {!hideValue && (
+                                    <span className={styles.sliderLabelSpacer}>
+                                        -
+                                    </span>
+                                )}
+                                {hideValue && !!valueLabel[1] && (
+                                    <span className={styles.sliderLabelSpacer}>
+                                        -
+                                    </span>
+                                )}
+                                {!hideValue && htmlDir === 'rtl' && (
+                                    <span>{values[1]}</span>
+                                )}{' '}
+                                {!!valueLabel && <span>{valueLabel[1]}</span>}{' '}
+                                {!hideValue && htmlDir !== 'rtl' && (
+                                    <span>{values[1]}</span>
+                                )}
+                            </div>
+                        )}
+                    </div>
                 </div>
-                <div
-                    ref={maxLabelRef}
-                    className={mergeClasses(
-                        styles.extremityLabel,
-                        styles.maxLabel
-                    )}
-                >
-                    {max}
-                </div>
-            </div>
-        </ResizeObserver>
-    );
-};
+            </ResizeObserver>
+        );
+    }
+);
