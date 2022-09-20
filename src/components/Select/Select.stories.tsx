@@ -160,7 +160,6 @@ export const Dynamic_Width: SelectStory = Basic_Story.bind({});
 export const With_DefaultValue: SelectStory = Basic_Story.bind({});
 export const Disabled: SelectStory = Basic_Story.bind({});
 export const Options_Disabled: SelectStory = Basic_Story.bind({});
-export const With_Clear: SelectStory = Basic_Story.bind({});
 export const Filterable: SelectStory = Basic_Story.bind({});
 export const Multiple: SelectStory = Basic_Story.bind({});
 export const Multiple_With_NoFilter: SelectStory = Basic_Story.bind({});
@@ -168,6 +167,7 @@ export const Dynamic: SelectStory = Dynamic_Story.bind({});
 
 const SelectArgs: SelectProps = {
     classNames: 'octuple-select-class',
+    disabled: false,
     'data-test-id': 'octuple-select-test-id',
     shape: SelectShape.Rectangle,
     size: SelectSize.Medium,
@@ -213,14 +213,6 @@ Options_Disabled.args = {
         },
         ...defaultOptions,
     ],
-};
-
-With_Clear.args = {
-    ...With_DefaultValue.args,
-    textInputProps: {
-        ...With_DefaultValue.args.textInputProps,
-        clearable: true,
-    },
 };
 
 Filterable.args = {

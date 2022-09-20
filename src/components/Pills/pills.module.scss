@@ -103,7 +103,7 @@
         --hover-bg: var(--grey-color-30);
     }
 
-    &:hover {
+    &:hover:not(.tag-pills-disabled) {
         --bg: var(--hover-bg);
         --label: var(--hover-label);
     }
@@ -135,5 +135,10 @@
 
     .icon {
         margin-right: $space-xxs;
+    }
+
+    &-disabled {
+        cursor: not-allowed;
+        opacity: $disabled-alpha-value;
     }
 }

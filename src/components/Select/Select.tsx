@@ -171,8 +171,8 @@ export const Select: FC<SelectProps> = React.forwardRef(
                     opt.value === option.value ? !opt.selected : defaultState;
                 return {
                     ...opt,
-                    selected: selected,
                     hideOption: false,
+                    selected: selected,
                 };
             });
             setOptions(updatedOptions);
@@ -206,7 +206,6 @@ export const Select: FC<SelectProps> = React.forwardRef(
             onClear?.();
         };
 
-        // TODO: Clear search on dropdownVisible change.
         const onInputChange = (
             event: React.ChangeEvent<HTMLInputElement>
         ): void => {
@@ -289,7 +288,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
         const showPills = (): boolean => {
             const selected = options.filter((opt) => opt.selected);
             const selectedCount = selected.length;
-            return selectedCount !== 0 && multiple;
+            return selectedCount !== 0;
         };
 
         const getPillSize = (): PillSize => {
@@ -313,13 +312,42 @@ export const Select: FC<SelectProps> = React.forwardRef(
             [SelectSize.Small, PillSize.Small],
         ]);
 
-        // TODO: Mutate Array based on order of selection.
         const getPills = (): JSX.Element => {
-            const selected = options.filter((opt) => opt.selected);
+            const selected = options.filter(
+                (opt: SelectOption) => opt.selected
+            );
+
+            if (!multiple) {
+                return (
+                    <div className={styles.multiSelectPills}>
+                        <Tooltip
+                            classNames={styles.selectTooltip}
+                            content={selected[0].text}
+                            placement={'top'}
+                            theme={TooltipTheme.dark}
+                        >
+                            <Pill
+                                ref={(ref) => (pillRefs.current[0] = ref)}
+                                id={selected[0].id}
+                                classNames={pillClasses}
+                                disabled={mergedDisabled}
+                                label={selected[0].text}
+                                onClose={() => toggleOption(selected[0])}
+                                size={selectSizeToPillSizeMap.get(size)}
+                                theme={'blueGreen'}
+                                type={PillType.closable}
+                                {...pillProps}
+                            />
+                        </Tooltip>
+                    </div>
+                );
+            }
+
             const selectedCount = selected.length;
             const pills: React.ReactElement[] = [];
             let moreOptionsCount: number = selectedCount;
 
+            // TODO: Mutate Array based on order of selection.
             selected.forEach((value: SelectOption, index: number) => {
                 pills.push(
                     <Tooltip
@@ -332,6 +360,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
                             ref={(ref) => (pillRefs.current[index] = ref)}
                             id={value.id}
                             classNames={pillClasses}
+                            disabled={mergedDisabled}
                             label={value.text}
                             onClose={() => toggleOption(value)}
                             size={selectSizeToPillSizeMap.get(size)}
@@ -349,6 +378,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
                     pills.push(
                         <Pill
                             classNames={countPillClasses}
+                            disabled={mergedDisabled}
                             label={'+' + (moreOptionsCount - count)}
                             theme={'blueGreen'}
                             size={selectSizeToPillSizeMap.get(mergedSize)}
@@ -397,21 +427,9 @@ export const Select: FC<SelectProps> = React.forwardRef(
             }
         };
 
-        const getSelectedOptionText = (): string => {
-            if (showPills()) {
-                return '';
-            }
-            const selectedOption = options
-                .filter((option: SelectOption) => option.selected)
-                .map((option: SelectOption) => option.text)
-                .join(', ')
-                .toLocaleString();
-            return selectedOption;
-        };
-
         // TODO: handle multiple with clearable padding flicker.
         const getStyle = (): React.CSSProperties => {
-            if (filterable && multiple && dropdownVisible) {
+            if (filterable && dropdownVisible && showPills()) {
                 return { paddingLeft: width > 0 ? width + 8 : 8 };
             } else {
                 return undefined;
@@ -515,9 +533,9 @@ export const Select: FC<SelectProps> = React.forwardRef(
                                 mergedShape
                             )}
                             size={selectSizeToTextInputSizeMap.get(mergedSize)}
-                            value={getSelectedOptionText()}
                             classNames={styles.selectInput}
                             onChange={filterable ? onInputChange : null}
+                            value={searchQuery}
                         />
                     </Dropdown>
                 </div>
