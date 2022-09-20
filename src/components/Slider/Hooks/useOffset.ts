@@ -53,7 +53,7 @@ export default function useOffset(
                     min +
                     Math.round((formatRangeValue(val) - min) / step) * step;
 
-                // Cut number in case to be like 0.30000000000000004
+                // Limit the number of decimal places.
                 const getDecimal = (num: number) =>
                     (String(num).split('.')[1] || '').length;
                 const maxDecimal: number = Math.max(
@@ -78,16 +78,15 @@ export default function useOffset(
         (val) => {
             const formatNextValue: number = formatRangeValue(val);
 
-            // List align values
+            // List align values.
             const alignValues: number[] = markers.map((mark) => mark.value);
             if (step !== null) {
                 alignValues.push(formatStepValue(val));
             }
 
-            // min & max
             alignValues.push(min, max);
 
-            // Align with marks
+            // Align with marks.
             let closeValue: number = alignValues[0];
             let closeDist: number = max - min;
 
@@ -104,8 +103,6 @@ export default function useOffset(
         [min, max, markers, step, formatRangeValue, formatStepValue]
     );
 
-    // ========================== Offset ==========================
-    // Single Value
     const offsetValue: OffsetValue = (
         values,
         offset,
@@ -116,22 +113,21 @@ export default function useOffset(
             let nextValue: number;
             const originValue: number = values[valueIndex];
 
-            // Only used for `dist` mode
+            // Only used for `dist` mode.
             const targetDistValue: number = originValue + offset;
 
-            // Compare next step value & mark value which is best match
+            // Compare next step value & mark value which is best match.
             let potentialValues: number[] = [];
             markers.forEach((mark) => {
                 potentialValues.push(mark.value);
             });
 
-            // Min & Max
             potentialValues.push(min, max);
 
-            // In case origin value is align with mark but not with step
+            // In case origin value is align with mark but not with step.
             potentialValues.push(formatStepValue(originValue));
 
-            // Put offset step value also
+            // Put offset step value.
             const sign = offset > 0 ? 1 : -1;
 
             if (mode === 'unit') {
@@ -142,16 +138,16 @@ export default function useOffset(
                 potentialValues.push(formatStepValue(targetDistValue));
             }
 
-            // Find close one
+            // Find closest one.
             potentialValues = potentialValues
                 .filter((val) => val !== null)
-                // Remove reverse value
+                // Remove reverse value.
                 .filter((val) =>
                     offset < 0 ? val <= originValue : val >= originValue
                 );
 
             if (mode === 'unit') {
-                // `unit` mode can not contain itself
+                // `unit` mode can not contain itself.
                 potentialValues = potentialValues.filter(
                     (val) => val !== originValue
                 );
@@ -171,7 +167,7 @@ export default function useOffset(
                 }
             });
 
-            // Out of range will back to range
+            // Out of range handled.
             if (nextValue === undefined) {
                 return offset < 0 ? min : max;
             }
@@ -181,7 +177,7 @@ export default function useOffset(
                 return nextValue;
             }
 
-            // `unit` mode may need another round
+            // `unit` mode may need another round.
             if (Math.abs(offset) > 1) {
                 const cloneValues: number[] = [...values];
                 cloneValues[valueIndex] = nextValue;

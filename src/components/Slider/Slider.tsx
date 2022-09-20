@@ -9,13 +9,13 @@ import React, {
     useState,
 } from 'react';
 import shallowEqual from 'shallowequal';
+import { FormItemInputContext } from '../Form/Context';
 import { SizeContext, Size } from '../ConfigProvider';
 import DisabledContext, { Disabled } from '../ConfigProvider/DisabledContext';
 import { ResizeObserver } from '../../shared/ResizeObserver/ResizeObserver';
 import { mergeClasses } from '../../shared/utilities';
 import { SliderMarker, SliderProps, SliderSize } from './Slider.types';
 import useOffset from './Hooks/useOffset';
-import { FormItemInputContext } from '../Form/Context';
 import { Breakpoints, useMatchMedia } from '../../hooks/useMatchMedia';
 import { useCanvasDirection } from '../../hooks/useCanvasDirection';
 
@@ -132,7 +132,7 @@ export const Slider: FC<SliderProps> = React.forwardRef(
         const mergedFormItemInput: boolean = isFormItemInput || formItemInput;
 
         const contextuallySized: Size = useContext(SizeContext);
-        const mergedSize = configContextProps.noSizeContext
+        const mergedSize: SliderSize | Size = configContextProps.noSizeContext
             ? size
             : contextuallySized || size;
 
