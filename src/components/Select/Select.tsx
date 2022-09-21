@@ -9,7 +9,7 @@ import React, {
 } from 'react';
 import DisabledContext, { Disabled } from '../ConfigProvider/DisabledContext';
 import { ShapeContext, Shape, SizeContext, Size } from '../ConfigProvider';
-import { eventKeys, mergeClasses } from '../../shared/utilities';
+import { mergeClasses } from '../../shared/utilities';
 import { Dropdown } from '../Dropdown';
 import { Menu } from '../Menu';
 import {
@@ -34,10 +34,11 @@ import { Tooltip, TooltipTheme } from '../Tooltip';
 import { FormItemInputContext } from '../Form/Context';
 import { ResizeObserver } from '../../shared/ResizeObserver/ResizeObserver';
 import { useMaxVisibleSections } from '../../hooks/useMaxVisibleSections';
+import { useCanvasDirection } from '../../hooks/useCanvasDirection';
 
 import styles from './select.module.scss';
 
-const inputPaddingLeft: number = +styles.inputPaddingLeft;
+const inputPaddingHorizontal: number = +styles.inputPaddingHorizontal;
 const multiSelectCountOffset: number = +styles.multiSelectCountOffset;
 
 export const Select: FC<SelectProps> = React.forwardRef(
@@ -86,6 +87,8 @@ export const Select: FC<SelectProps> = React.forwardRef(
         const mediumScreenActive: boolean = useMatchMedia(Breakpoints.Medium);
         const smallScreenActive: boolean = useMatchMedia(Breakpoints.Small);
         const xSmallScreenActive: boolean = useMatchMedia(Breakpoints.XSmall);
+
+        const htmlDir: string = useCanvasDirection();
 
         const [dropdownWidth, setDropdownWidth] = useState(0);
         const [selectWidth, setSelectWidth] = useState(0);
@@ -300,6 +303,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
             { [styles.selectLarge]: mergedSize === SelectSize.Large },
             { [styles.selectMedium]: mergedSize === SelectSize.Medium },
             { [styles.selectSmall]: mergedSize === SelectSize.Small },
+            { [styles.selectWrapperRtl]: htmlDir === 'rtl' },
             { [styles.selectWrapperDisabled]: mergedDisabled },
             { ['in-form-item']: mergedFormItemInput },
             classNames,
@@ -449,14 +453,21 @@ export const Select: FC<SelectProps> = React.forwardRef(
         // TODO: handle multiple with clearable padding flicker.
         const getStyle = (): React.CSSProperties => {
             if (filterable && multiple && dropdownVisible) {
-                return {
-                    paddingLeft:
-                        width > 0
-                            ? filled
-                                ? width + multiSelectCountOffset
-                                : width + inputPaddingLeft
-                            : inputPaddingLeft,
-                };
+                const paddingValue: number =
+                    width > 0
+                        ? filled
+                            ? width + multiSelectCountOffset
+                            : width + inputPaddingHorizontal
+                        : inputPaddingHorizontal;
+                if (htmlDir === 'rtl') {
+                    return {
+                        paddingRight: paddingValue,
+                    };
+                } else {
+                    return {
+                        paddingLeft: paddingValue,
+                    };
+                }
             } else {
                 return undefined;
             }
@@ -464,7 +475,10 @@ export const Select: FC<SelectProps> = React.forwardRef(
 
         const selectInputProps: TextInputProps = {
             placeholder: showPills() ? '' : placeholder,
-            alignIcon: TextInputIconAlign.Right,
+            alignIcon:
+                htmlDir === 'rtl'
+                    ? TextInputIconAlign.Left
+                    : TextInputIconAlign.Right,
             clearable: clearable,
             inputWidth: inputWidth,
             iconButtonProps: {
