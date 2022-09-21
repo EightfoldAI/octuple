@@ -111,6 +111,11 @@ const pillArgs: Object = {
     size: PillSize.Large,
     type: PillType.default,
     label: 'Pill label',
+    disabled: false,
+    configContextProps: {
+        noDisabledContext: false,
+        noSizeContext: false,
+    },
     closeButtonProps: {
         ariaLabel: 'Close',
     },

@@ -19,6 +19,7 @@ export interface IRadioButtonsContext {
 export interface RadioButtonProps extends OcBaseProps<HTMLInputElement> {
     /**
      * Allows focus on the radio button when it's disabled.
+     * @default false
      */
     allowDisabledFocus?: boolean;
     /**
@@ -27,6 +28,7 @@ export interface RadioButtonProps extends OcBaseProps<HTMLInputElement> {
     ariaLabel?: string;
     /**
      * The input icon button checked value.
+     * @default false
      */
     checked?: boolean;
     /**
@@ -35,6 +37,7 @@ export interface RadioButtonProps extends OcBaseProps<HTMLInputElement> {
     configContextProps?: ConfigContextProps;
     /**
      * The boolean for disabling the radio button.
+     * @default false
      */
     disabled?: boolean;
     /**
@@ -42,14 +45,6 @@ export interface RadioButtonProps extends OcBaseProps<HTMLInputElement> {
      * @default false
      */
     formItemInput?: boolean;
-    /**
-     * The name of the radio button group.
-     */
-    name?: string;
-    /**
-     * The value of the input.
-     */
-    value?: RadioButtonValue;
     /**
      * Label of the radio button.
      */
@@ -65,6 +60,10 @@ export interface RadioButtonProps extends OcBaseProps<HTMLInputElement> {
      */
     labelPosition?: LabelPosition;
     /**
+     * The name of the radio button group.
+     */
+    name?: string;
+    /**
      * The radio button onChange event handler.
      */
     onChange?: React.ChangeEventHandler<HTMLInputElement>;
@@ -73,6 +72,10 @@ export interface RadioButtonProps extends OcBaseProps<HTMLInputElement> {
      * @default SelectorSize.Medium
      */
     size?: SelectorSize | Size;
+    /**
+     * The value of the input.
+     */
+    value?: RadioButtonValue;
 }
 
 export interface RadioGroupProps extends OcBaseProps<HTMLDivElement> {

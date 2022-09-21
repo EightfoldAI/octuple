@@ -12,10 +12,6 @@ export type SnackbarType = InfoBarType;
 
 export interface SnackbarProps extends Omit<InfoBarsProps, 'onClick'> {
     /**
-     * Unique id of the snackbar
-     */
-    id?: string;
-    /**
      * Content of the snackbar
      */
     content: string;
@@ -25,6 +21,10 @@ export interface SnackbarProps extends Omit<InfoBarsProps, 'onClick'> {
      */
     duration?: number;
     /**
+     * Unique id of the snackbar
+     */
+    id?: string;
+    /**
      * Position of the snackbar
      * @default top-center
      */
@@ -33,16 +33,31 @@ export interface SnackbarProps extends Omit<InfoBarsProps, 'onClick'> {
 
 export interface SnackbarContainerProps {
     /**
-     * Parent container on which the snackbar need to
-     * be rendered on
+     * Parent container on which the snackbar needs to
+     * be rendered
      */
     parent?: HTMLElement;
 }
 
 export interface ISnack {
+    /**
+     * Serves a snack.
+     */
     serve: (props: SnackbarProps) => void;
+    /**
+     * Serves a neutral snack.
+     */
     serveNeutral: (props: SnackbarProps) => void;
+    /**
+     * Serves a positive snack.
+     */
     servePositive: (props: SnackbarProps) => void;
+    /**
+     * Serves a warning snack.
+     */
     serveWarning: (props: SnackbarProps) => void;
+    /**
+     * Serves a disruptive snack.
+     */
     serveDisruptive: (props: SnackbarProps) => void;
 }

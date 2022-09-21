@@ -1,0 +1,1043 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Time Picker Basic 1`] = `
+<div
+  className="picker picker-medium my-picker-class"
+  onMouseUp={[Function]}
+>
+  <div
+    className="picker-input"
+  >
+    <input
+      autoComplete="off"
+      disabled={false}
+      id="myPickerInputId"
+      onBlur={[Function]}
+      onChange={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onMouseDown={[Function]}
+      placeholder="Select time"
+      readOnly={true}
+      size={10}
+      title=""
+      value=""
+    />
+    <span
+      className="picker-suffix"
+    >
+      <span
+        aria-hidden={false}
+        className="icon-wrapper"
+        role="presentation"
+      >
+        <svg
+          role="presentation"
+          style={
+            Object {
+              "height": "20px",
+              "width": "20px",
+            }
+          }
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22C6.47,22 2,17.5 2,12A10,10 0 0,1 12,2M12.5,7V12.25L17,14.92L16.25,16.15L11,13V7H12.5Z"
+            style={
+              Object {
+                "fill": "var(--grey-color-60)",
+              }
+            }
+          />
+        </svg>
+      </span>
+    </span>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Time Picker Controlled 1`] = `
+<div
+  className="picker picker-medium my-picker-class"
+  onMouseUp={[Function]}
+>
+  <div
+    className="picker-input"
+  >
+    <input
+      autoComplete="off"
+      disabled={false}
+      id="myPickerInputId"
+      onBlur={[Function]}
+      onChange={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onMouseDown={[Function]}
+      placeholder="Select time"
+      readOnly={true}
+      size={10}
+      title=""
+      value=""
+    />
+    <span
+      className="picker-suffix"
+    >
+      <span
+        aria-hidden={false}
+        className="icon-wrapper"
+        role="presentation"
+      >
+        <svg
+          role="presentation"
+          style={
+            Object {
+              "height": "20px",
+              "width": "20px",
+            }
+          }
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22C6.47,22 2,17.5 2,12A10,10 0 0,1 12,2M12.5,7V12.25L17,14.92L16.25,16.15L11,13V7H12.5Z"
+            style={
+              Object {
+                "fill": "var(--grey-color-60)",
+              }
+            }
+          />
+        </svg>
+      </span>
+    </span>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Time Picker Disabled 1`] = `
+<div
+  className="picker picker-medium my-picker-class picker-disabled"
+  onMouseUp={[Function]}
+>
+  <div
+    className="picker-input"
+  >
+    <input
+      autoComplete="off"
+      disabled={true}
+      id="myPickerInputId"
+      onBlur={[Function]}
+      onChange={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onMouseDown={[Function]}
+      placeholder="Select time"
+      readOnly={true}
+      size={10}
+      title=""
+      value=""
+    />
+    <span
+      className="picker-suffix"
+    >
+      <span
+        aria-hidden={false}
+        className="icon-wrapper"
+        role="presentation"
+      >
+        <svg
+          role="presentation"
+          style={
+            Object {
+              "height": "20px",
+              "width": "20px",
+            }
+          }
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22C6.47,22 2,17.5 2,12A10,10 0 0,1 12,2M12.5,7V12.25L17,14.92L16.25,16.15L11,13V7H12.5Z"
+            style={
+              Object {
+                "fill": "var(--grey-color-60)",
+              }
+            }
+          />
+        </svg>
+      </span>
+    </span>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Time Picker Extra Footer 1`] = `
+<div
+  className="picker picker-medium my-picker-class"
+  onMouseUp={[Function]}
+>
+  <div
+    className="picker-input"
+  >
+    <input
+      autoComplete="off"
+      disabled={false}
+      id="myPickerInputId"
+      onBlur={[Function]}
+      onChange={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onMouseDown={[Function]}
+      placeholder="Select time"
+      readOnly={true}
+      size={10}
+      title=""
+      value=""
+    />
+    <span
+      className="picker-suffix"
+    >
+      <span
+        aria-hidden={false}
+        className="icon-wrapper"
+        role="presentation"
+      >
+        <svg
+          role="presentation"
+          style={
+            Object {
+              "height": "20px",
+              "width": "20px",
+            }
+          }
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22C6.47,22 2,17.5 2,12A10,10 0 0,1 12,2M12.5,7V12.25L17,14.92L16.25,16.15L11,13V7H12.5Z"
+            style={
+              Object {
+                "fill": "var(--grey-color-60)",
+              }
+            }
+          />
+        </svg>
+      </span>
+    </span>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Time Picker Hour And Minute 1`] = `
+<div
+  className="picker picker-medium my-picker-class"
+  onMouseUp={[Function]}
+>
+  <div
+    className="picker-input"
+  >
+    <input
+      autoComplete="off"
+      disabled={false}
+      id="myPickerInputId"
+      onBlur={[Function]}
+      onChange={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onMouseDown={[Function]}
+      placeholder="Select time"
+      readOnly={true}
+      size={10}
+      title=""
+      value=""
+    />
+    <span
+      className="picker-suffix"
+    >
+      <span
+        aria-hidden={false}
+        className="icon-wrapper"
+        role="presentation"
+      >
+        <svg
+          role="presentation"
+          style={
+            Object {
+              "height": "20px",
+              "width": "20px",
+            }
+          }
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22C6.47,22 2,17.5 2,12A10,10 0 0,1 12,2M12.5,7V12.25L17,14.92L16.25,16.15L11,13V7H12.5Z"
+            style={
+              Object {
+                "fill": "var(--grey-color-60)",
+              }
+            }
+          />
+        </svg>
+      </span>
+    </span>
+    <span
+      className="picker-clear"
+      onMouseDown={[Function]}
+      onMouseUp={[Function]}
+      role="button"
+    >
+      <span
+        aria-hidden={false}
+        className="icon-wrapper"
+        role="presentation"
+      >
+        <svg
+          role="presentation"
+          style={
+            Object {
+              "height": "20px",
+              "width": "20px",
+            }
+          }
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M12,2C17.53,2 22,6.47 22,12C22,17.53 17.53,22 12,22C6.47,22 2,17.53 2,12C2,6.47 6.47,2 12,2M15.59,7L12,10.59L8.41,7L7,8.41L10.59,12L7,15.59L8.41,17L12,13.41L15.59,17L17,15.59L13.41,12L17,8.41L15.59,7Z"
+            style={
+              Object {
+                "fill": "currentColor",
+              }
+            }
+          />
+        </svg>
+      </span>
+    </span>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Time Picker Interval 1`] = `
+<div
+  className="picker picker-medium my-picker-class"
+  onMouseUp={[Function]}
+>
+  <div
+    className="picker-input"
+  >
+    <input
+      autoComplete="off"
+      disabled={false}
+      id="myPickerInputId"
+      onBlur={[Function]}
+      onChange={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onMouseDown={[Function]}
+      placeholder="Select time"
+      readOnly={true}
+      size={10}
+      title=""
+      value=""
+    />
+    <span
+      className="picker-suffix"
+    >
+      <span
+        aria-hidden={false}
+        className="icon-wrapper"
+        role="presentation"
+      >
+        <svg
+          role="presentation"
+          style={
+            Object {
+              "height": "20px",
+              "width": "20px",
+            }
+          }
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22C6.47,22 2,17.5 2,12A10,10 0 0,1 12,2M12.5,7V12.25L17,14.92L16.25,16.15L11,13V7H12.5Z"
+            style={
+              Object {
+                "fill": "var(--grey-color-60)",
+              }
+            }
+          />
+        </svg>
+      </span>
+    </span>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Time Picker Range Borderless 1`] = `
+<div
+  className="stack vertical xxl"
+  style={
+    Object {
+      "alignItems": undefined,
+      "flexWrap": undefined,
+      "justifyContent": undefined,
+    }
+  }
+>
+  <div
+    className="picker picker-range picker-medium picker-borderless my-picker-class picker-borderless"
+    onClick={[Function]}
+    onMouseDown={[Function]}
+  >
+    <div
+      className="picker-input picker-input-active"
+    >
+      <input
+        autoComplete="off"
+        disabled={false}
+        id="myPickerInputId"
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onMouseDown={[Function]}
+        placeholder="Start time"
+        readOnly={true}
+        size={10}
+        value=""
+      />
+    </div>
+    <div
+      className="picker-range-separator"
+    >
+      <span
+        aria-label="to"
+        className="picker-separator"
+      >
+        <span
+          aria-hidden={false}
+          className="icon-wrapper"
+          role="presentation"
+        >
+          <svg
+            role="presentation"
+            style={
+              Object {
+                "height": "20px",
+                "width": "20px",
+              }
+            }
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M14 16.94V12.94H5.08L5.05 10.93H14V6.94L19 11.94Z"
+              style={
+                Object {
+                  "fill": "currentColor",
+                }
+              }
+            />
+          </svg>
+        </span>
+      </span>
+    </div>
+    <div
+      className="picker-input"
+    >
+      <input
+        autoComplete="off"
+        disabled={false}
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onMouseDown={[Function]}
+        placeholder="End time"
+        readOnly={true}
+        size={10}
+        value=""
+      />
+    </div>
+    <div
+      className="picker-active-bar"
+      style={
+        Object {
+          "left": 0,
+          "position": "absolute",
+          "width": 0,
+        }
+      }
+    />
+    <span
+      className="picker-suffix"
+    >
+      <span
+        aria-hidden={false}
+        className="icon-wrapper"
+        role="presentation"
+      >
+        <svg
+          role="presentation"
+          style={
+            Object {
+              "height": "20px",
+              "width": "20px",
+            }
+          }
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22C6.47,22 2,17.5 2,12A10,10 0 0,1 12,2M12.5,7V12.25L17,14.92L16.25,16.15L11,13V7H12.5Z"
+            style={
+              Object {
+                "fill": "var(--grey-color-60)",
+              }
+            }
+          />
+        </svg>
+      </span>
+    </span>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Time Picker Range Status 1`] = `
+<div
+  className="stack vertical xxl"
+  style={
+    Object {
+      "alignItems": undefined,
+      "flexWrap": undefined,
+      "justifyContent": undefined,
+    }
+  }
+>
+  <div
+    className="picker picker-range picker-medium picker-status-error my-picker-class"
+    onClick={[Function]}
+    onMouseDown={[Function]}
+  >
+    <div
+      className="picker-input picker-input-active"
+    >
+      <input
+        autoComplete="off"
+        disabled={false}
+        id="myPickerInputId"
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onMouseDown={[Function]}
+        placeholder="Start time"
+        readOnly={true}
+        size={10}
+        value=""
+      />
+    </div>
+    <div
+      className="picker-range-separator"
+    >
+      <span
+        aria-label="to"
+        className="picker-separator"
+      >
+        <span
+          aria-hidden={false}
+          className="icon-wrapper"
+          role="presentation"
+        >
+          <svg
+            role="presentation"
+            style={
+              Object {
+                "height": "20px",
+                "width": "20px",
+              }
+            }
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M14 16.94V12.94H5.08L5.05 10.93H14V6.94L19 11.94Z"
+              style={
+                Object {
+                  "fill": "currentColor",
+                }
+              }
+            />
+          </svg>
+        </span>
+      </span>
+    </div>
+    <div
+      className="picker-input"
+    >
+      <input
+        autoComplete="off"
+        disabled={false}
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onMouseDown={[Function]}
+        placeholder="End time"
+        readOnly={true}
+        size={10}
+        value=""
+      />
+    </div>
+    <div
+      className="picker-active-bar"
+      style={
+        Object {
+          "left": 0,
+          "position": "absolute",
+          "width": 0,
+        }
+      }
+    />
+    <span
+      className="picker-suffix"
+    >
+      <span
+        aria-hidden={false}
+        className="icon-wrapper"
+        role="presentation"
+      >
+        <svg
+          role="presentation"
+          style={
+            Object {
+              "height": "20px",
+              "width": "20px",
+            }
+          }
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22C6.47,22 2,17.5 2,12A10,10 0 0,1 12,2M12.5,7V12.25L17,14.92L16.25,16.15L11,13V7H12.5Z"
+            style={
+              Object {
+                "fill": "var(--error-color)",
+              }
+            }
+          />
+        </svg>
+      </span>
+    </span>
+  </div>
+  <div
+    className="picker picker-range picker-medium picker-status-warning my-picker-class"
+    onClick={[Function]}
+    onMouseDown={[Function]}
+  >
+    <div
+      className="picker-input picker-input-active"
+    >
+      <input
+        autoComplete="off"
+        disabled={false}
+        id="myPickerInputId"
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onMouseDown={[Function]}
+        placeholder="Start time"
+        readOnly={true}
+        size={10}
+        value=""
+      />
+    </div>
+    <div
+      className="picker-range-separator"
+    >
+      <span
+        aria-label="to"
+        className="picker-separator"
+      >
+        <span
+          aria-hidden={false}
+          className="icon-wrapper"
+          role="presentation"
+        >
+          <svg
+            role="presentation"
+            style={
+              Object {
+                "height": "20px",
+                "width": "20px",
+              }
+            }
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M14 16.94V12.94H5.08L5.05 10.93H14V6.94L19 11.94Z"
+              style={
+                Object {
+                  "fill": "currentColor",
+                }
+              }
+            />
+          </svg>
+        </span>
+      </span>
+    </div>
+    <div
+      className="picker-input"
+    >
+      <input
+        autoComplete="off"
+        disabled={false}
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onMouseDown={[Function]}
+        placeholder="End time"
+        readOnly={true}
+        size={10}
+        value=""
+      />
+    </div>
+    <div
+      className="picker-active-bar"
+      style={
+        Object {
+          "left": 0,
+          "position": "absolute",
+          "width": 0,
+        }
+      }
+    />
+    <span
+      className="picker-suffix"
+    >
+      <span
+        aria-hidden={false}
+        className="icon-wrapper"
+        role="presentation"
+      >
+        <svg
+          role="presentation"
+          style={
+            Object {
+              "height": "20px",
+              "width": "20px",
+            }
+          }
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22C6.47,22 2,17.5 2,12A10,10 0 0,1 12,2M12.5,7V12.25L17,14.92L16.25,16.15L11,13V7H12.5Z"
+            style={
+              Object {
+                "fill": "var(--warning-color)",
+              }
+            }
+          />
+        </svg>
+      </span>
+    </span>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Time Picker Single Borderless 1`] = `
+<div
+  className="stack vertical xxl"
+  style={
+    Object {
+      "alignItems": undefined,
+      "flexWrap": undefined,
+      "justifyContent": undefined,
+    }
+  }
+>
+  <div
+    className="picker picker-medium picker-borderless my-picker-class picker-borderless"
+    onMouseUp={[Function]}
+  >
+    <div
+      className="picker-input"
+    >
+      <input
+        autoComplete="off"
+        disabled={false}
+        id="myPickerInputId"
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onMouseDown={[Function]}
+        placeholder="Select time"
+        readOnly={true}
+        size={10}
+        title=""
+        value=""
+      />
+      <span
+        className="picker-suffix"
+      >
+        <span
+          aria-hidden={false}
+          className="icon-wrapper"
+          role="presentation"
+        >
+          <svg
+            role="presentation"
+            style={
+              Object {
+                "height": "20px",
+                "width": "20px",
+              }
+            }
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22C6.47,22 2,17.5 2,12A10,10 0 0,1 12,2M12.5,7V12.25L17,14.92L16.25,16.15L11,13V7H12.5Z"
+              style={
+                Object {
+                  "fill": "var(--grey-color-60)",
+                }
+              }
+            />
+          </svg>
+        </span>
+      </span>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Time Picker Single Status 1`] = `
+<div
+  className="stack vertical xxl"
+  style={
+    Object {
+      "alignItems": undefined,
+      "flexWrap": undefined,
+      "justifyContent": undefined,
+    }
+  }
+>
+  <div
+    className="picker picker-medium picker-status-error my-picker-class"
+    onMouseUp={[Function]}
+  >
+    <div
+      className="picker-input"
+    >
+      <input
+        autoComplete="off"
+        disabled={false}
+        id="myPickerInputId"
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onMouseDown={[Function]}
+        placeholder="Select time"
+        readOnly={true}
+        size={10}
+        title=""
+        value=""
+      />
+      <span
+        className="picker-suffix"
+      >
+        <span
+          aria-hidden={false}
+          className="icon-wrapper"
+          role="presentation"
+        >
+          <svg
+            role="presentation"
+            style={
+              Object {
+                "height": "20px",
+                "width": "20px",
+              }
+            }
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22C6.47,22 2,17.5 2,12A10,10 0 0,1 12,2M12.5,7V12.25L17,14.92L16.25,16.15L11,13V7H12.5Z"
+              style={
+                Object {
+                  "fill": "var(--error-color)",
+                }
+              }
+            />
+          </svg>
+        </span>
+      </span>
+    </div>
+  </div>
+  <div
+    className="picker picker-medium picker-status-warning my-picker-class"
+    onMouseUp={[Function]}
+  >
+    <div
+      className="picker-input"
+    >
+      <input
+        autoComplete="off"
+        disabled={false}
+        id="myPickerInputId"
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onMouseDown={[Function]}
+        placeholder="Select time"
+        readOnly={true}
+        size={10}
+        title=""
+        value=""
+      />
+      <span
+        className="picker-suffix"
+      >
+        <span
+          aria-hidden={false}
+          className="icon-wrapper"
+          role="presentation"
+        >
+          <svg
+            role="presentation"
+            style={
+              Object {
+                "height": "20px",
+                "width": "20px",
+              }
+            }
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22C6.47,22 2,17.5 2,12A10,10 0 0,1 12,2M12.5,7V12.25L17,14.92L16.25,16.15L11,13V7H12.5Z"
+              style={
+                Object {
+                  "fill": "var(--warning-color)",
+                }
+              }
+            />
+          </svg>
+        </span>
+      </span>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Time Picker Time Range Picker 1`] = `
+<div
+  className="picker picker-range picker-medium my-picker-class"
+  onClick={[Function]}
+  onMouseDown={[Function]}
+>
+  <div
+    className="picker-input picker-input-active"
+  >
+    <input
+      autoComplete="off"
+      disabled={false}
+      id="myPickerInputId"
+      onBlur={[Function]}
+      onChange={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onMouseDown={[Function]}
+      placeholder="Start time"
+      readOnly={true}
+      size={10}
+      value=""
+    />
+  </div>
+  <div
+    className="picker-range-separator"
+  >
+    <span
+      aria-label="to"
+      className="picker-separator"
+    >
+      <span
+        aria-hidden={false}
+        className="icon-wrapper"
+        role="presentation"
+      >
+        <svg
+          role="presentation"
+          style={
+            Object {
+              "height": "20px",
+              "width": "20px",
+            }
+          }
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M14 16.94V12.94H5.08L5.05 10.93H14V6.94L19 11.94Z"
+            style={
+              Object {
+                "fill": "currentColor",
+              }
+            }
+          />
+        </svg>
+      </span>
+    </span>
+  </div>
+  <div
+    className="picker-input"
+  >
+    <input
+      autoComplete="off"
+      disabled={false}
+      onBlur={[Function]}
+      onChange={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onMouseDown={[Function]}
+      placeholder="End time"
+      readOnly={true}
+      size={10}
+      value=""
+    />
+  </div>
+  <div
+    className="picker-active-bar"
+    style={
+      Object {
+        "left": 0,
+        "position": "absolute",
+        "width": 0,
+      }
+    }
+  />
+  <span
+    className="picker-suffix"
+  >
+    <span
+      aria-hidden={false}
+      className="icon-wrapper"
+      role="presentation"
+    >
+      <svg
+        role="presentation"
+        style={
+          Object {
+            "height": "20px",
+            "width": "20px",
+          }
+        }
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22C6.47,22 2,17.5 2,12A10,10 0 0,1 12,2M12.5,7V12.25L17,14.92L16.25,16.15L11,13V7H12.5Z"
+          style={
+            Object {
+              "fill": "var(--grey-color-60)",
+            }
+          }
+        />
+      </svg>
+    </span>
+  </span>
+</div>
+`;

@@ -44,6 +44,7 @@ function InnerPicker<DateType>(props: OcPickerProps<DateType>) {
         id,
         tabIndex,
         style,
+        bordered = true,
         classNames,
         dropdownClassNames,
         dropdownAlign,
@@ -448,6 +449,7 @@ function InnerPicker<DateType>(props: OcPickerProps<DateType>) {
                             [styles.pickerUnderline]:
                                 shape === DatePickerShape.Underline,
                         },
+                        { [styles.pickerBorderless]: !bordered },
                         { [styles.pickerDisabled]: disabled },
                         { [styles.pickerFocused]: focused },
                         { [styles.pickerRtl]: direction === 'rtl' },

@@ -40,5 +40,5 @@ const Portal_Story: ComponentStory<typeof Portal> = (args) => {
 export const Default = Portal_Story.bind({});
 
 Default.args = {
-    children: <>Hello i was portaled</>,
+    children: <>Hello, I was portaled.</>,
 };

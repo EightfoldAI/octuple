@@ -15,70 +15,78 @@ export enum TooltipSize {
 
 export interface TooltipProps extends OcBaseProps<HTMLDivElement> {
     /**
-     * Content to show on the tooltip
+     * Content to show in the tooltip
      */
     content: React.ReactNode;
     /**
-     * Theme of the tooltip
-     * @default light
-     */
-    theme?: TooltipTheme;
-    /**
-     * Placement of the tooltip
-     * @default bottom
-     */
-    placement?: Placement;
-    /**
-     * If the tooltip is portaled
-     * @default false
-     */
-    portal?: boolean;
-    /**
-     * To disable the tooltip
+     * Whether to disable the tooltip
      * @default false
      */
     disabled?: boolean;
+    /**
+     * Timeout in milliseconds to hide the tooltip
+     * @default 0
+     */
+    hideAfter?: number;
     /**
      * Offset of the tooltip from the reference element
      * @default 8
      */
     offset?: number;
     /**
-     * If the tooltip arrow is visible
-     * @default true
-     */
-    visibleArrow?: boolean;
-    /**
-     * Delay of appearance, in millisecond
+     * Delay of appearance, in milliseconds
      * @default 0
      */
     openDelay?: number;
+    /**
+     * Placement of the tooltip
+     * @default bottom
+     */
+    placement?: Placement;
+    /**
+     * Whether the tooltip is portaled
+     * @default false
+     */
+    portal?: boolean;
+    /**
+     * The id of the floating portal
+     */
+    portalId?: string;
+    /**
+     * The element in which to render the portal
+     */
+    portalRoot?: HTMLElement | null;
     /**
      * Positioning strategy for the tooltip
      * @default absolute
      */
     positionStrategy?: Strategy;
     /**
-     * Timeout in milliseconds to hide tooltip
-     * @default 0
+     * Size of the tooltip
+     * @default TooltipSize.small
      */
-    hideAfter?: number;
+    size?: TooltipSize;
     /**
      * Tabindex of tooltip
      * @default 0
      */
     tabIndex?: number;
     /**
-     * Wrapper class name
+     * Theme of the tooltip
+     * @default light
+     */
+    theme?: TooltipTheme;
+    /**
+     * Whether the tooltip arrow is visible
+     * @default true
+     */
+    visibleArrow?: boolean;
+    /**
+     * Wrapper class names
      */
     wrapperClassNames?: string;
     /**
      * Wrapper style
      */
     wrapperStyle?: React.CSSProperties;
-    /**
-     * Size of the tooltip
-     * @default TooltipSize.small
-     */
-    size?: TooltipSize;
 }

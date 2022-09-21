@@ -99,10 +99,16 @@ Primary.args = {
         maxWidth: '100px',
     },
     children: (
-        <>
+        <span
+            style={{
+                alignItems: 'center',
+                display: 'flex',
+                flexDirection: 'row',
+            }}
+        >
             <Icon path={IconName.mdiAccount} />
             User Profile
-        </>
+        </span>
     ),
 };
 
@@ -111,9 +117,15 @@ Default_Disabled.args = {
     href: 'https://eightfold.ai',
     onClick: (e: React.MouseEvent) => e.preventDefault(),
     children: (
-        <>
+        <span
+            style={{
+                alignItems: 'center',
+                display: 'flex',
+                flexDirection: 'row',
+            }}
+        >
             <Icon path={IconName.mdiAccount} />
             User Profile
-        </>
+        </span>
     ),
 };

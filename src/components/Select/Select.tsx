@@ -34,8 +34,12 @@ import { Tooltip, TooltipTheme } from '../Tooltip';
 import { FormItemInputContext } from '../Form/Context';
 import { ResizeObserver } from '../../shared/ResizeObserver/ResizeObserver';
 import { useMaxVisibleSections } from '../../hooks/useMaxVisibleSections';
+import { useCanvasDirection } from '../../hooks/useCanvasDirection';
 
 import styles from './select.module.scss';
+
+const inputPaddingHorizontal: number = +styles.inputPaddingHorizontal;
+const multiSelectCountOffset: number = +styles.multiSelectCountOffset;
 
 export const Select: FC<SelectProps> = React.forwardRef(
     (
@@ -84,6 +88,8 @@ export const Select: FC<SelectProps> = React.forwardRef(
         const smallScreenActive: boolean = useMatchMedia(Breakpoints.Small);
         const xSmallScreenActive: boolean = useMatchMedia(Breakpoints.XSmall);
 
+        const htmlDir: string = useCanvasDirection();
+
         const [dropdownWidth, setDropdownWidth] = useState(0);
         const [selectWidth, setSelectWidth] = useState(0);
 
@@ -111,12 +117,13 @@ export const Select: FC<SelectProps> = React.forwardRef(
             : contextuallyDisabled || disabled;
 
         const contextuallyShaped: Shape = useContext(ShapeContext);
-        const mergedShape = configContextProps.noShapeContext
-            ? shape
-            : contextuallyShaped || shape;
+        const mergedShape: SelectShape | Shape =
+            configContextProps.noShapeContext
+                ? shape
+                : contextuallyShaped || shape;
 
         const contextuallySized: Size = useContext(SizeContext);
-        const mergedSize = configContextProps.noSizeContext
+        const mergedSize: SelectSize | Size = configContextProps.noSizeContext
             ? size
             : contextuallySized || size;
 
@@ -136,7 +143,9 @@ export const Select: FC<SelectProps> = React.forwardRef(
         );
 
         useEffect(() => {
-            const selected = options.filter((option) => option.selected);
+            const selected: SelectOption[] = options.filter(
+                (opt: SelectOption) => opt.selected
+            );
             setOptions(
                 _options.map((option: SelectOption, index: number) => ({
                     selected: !!selected.find(
@@ -154,7 +163,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
         }, [getSelectedOptions().join('')]);
 
         useEffect(() => {
-            const updatedOptions = options.map((opt) => ({
+            const updatedOptions = options.map((opt: SelectOption) => ({
                 ...opt,
                 selected:
                     (defaultValue && opt.value === defaultValue) ||
@@ -165,14 +174,14 @@ export const Select: FC<SelectProps> = React.forwardRef(
 
         const toggleOption = (option: SelectOption): void => {
             setSearchQuery('');
-            const updatedOptions = options.map((opt) => {
+            const updatedOptions = options.map((opt: SelectOption) => {
                 const defaultState = multiple ? opt.selected : false;
                 const selected =
                     opt.value === option.value ? !opt.selected : defaultState;
                 return {
                     ...opt,
-                    selected: selected,
                     hideOption: false,
+                    selected: selected,
                 };
             });
             setOptions(updatedOptions);
@@ -182,14 +191,14 @@ export const Select: FC<SelectProps> = React.forwardRef(
             setSearchQuery('');
             if (filterable && multiple && dropdownVisible) {
                 setOptions(
-                    options.map((opt) => ({
+                    options.map((opt: SelectOption) => ({
                         ...opt,
                         hideOption: false,
                     }))
                 );
             } else if (filterable) {
                 setOptions(
-                    options.map((opt) => ({
+                    options.map((opt: SelectOption) => ({
                         ...opt,
                         hideOption: false,
                         selected: false,
@@ -197,7 +206,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
                 );
             } else {
                 setOptions(
-                    options.map((opt) => ({
+                    options.map((opt: SelectOption) => ({
                         ...opt,
                         selected: false,
                     }))
@@ -206,30 +215,43 @@ export const Select: FC<SelectProps> = React.forwardRef(
             onClear?.();
         };
 
-        // TODO: Clear search on dropdownVisible change.
         const onInputChange = (
             event: React.ChangeEvent<HTMLInputElement>
         ): void => {
             const { target } = event;
-            const value = target?.value?.toLowerCase();
+            const value: string = target?.value?.toLowerCase();
             setSearchQuery(value);
             if (loadOptions) {
                 return loadOptions(value);
             }
             if (value) {
                 setOptions(
-                    options.map((option) => ({
-                        ...option,
+                    options.map((opt: SelectOption) => ({
+                        ...opt,
                         hideOption: filterOption
-                            ? !filterOption(option, value)
-                            : !option.text.toLowerCase().includes(value),
+                            ? !filterOption(opt, value)
+                            : !opt.text.toLowerCase().includes(value),
                     }))
                 );
             } else {
                 setSearchQuery('');
+                // When not in multiple mode and the value is empty
+                // deselect and execute onClear.
                 setOptions(
-                    options.map((option) => ({ ...option, hideOption: false }))
+                    options.map((opt: SelectOption) => {
+                        const selected: boolean = multiple
+                            ? opt.selected
+                            : false;
+                        return {
+                            ...opt,
+                            hideOption: false,
+                            selected: selected,
+                        };
+                    })
                 );
+                if (!multiple) {
+                    onClear?.();
+                }
             }
         };
 
@@ -281,14 +303,17 @@ export const Select: FC<SelectProps> = React.forwardRef(
             { [styles.selectLarge]: mergedSize === SelectSize.Large },
             { [styles.selectMedium]: mergedSize === SelectSize.Medium },
             { [styles.selectSmall]: mergedSize === SelectSize.Small },
+            { [styles.selectWrapperRtl]: htmlDir === 'rtl' },
             { [styles.selectWrapperDisabled]: mergedDisabled },
             { ['in-form-item']: mergedFormItemInput },
             classNames,
         ]);
 
         const showPills = (): boolean => {
-            const selected = options.filter((opt) => opt.selected);
-            const selectedCount = selected.length;
+            const selected: SelectOption[] = options.filter(
+                (opt: SelectOption) => opt.selected
+            );
+            const selectedCount: number = selected.length;
             return selectedCount !== 0 && multiple;
         };
 
@@ -313,18 +338,32 @@ export const Select: FC<SelectProps> = React.forwardRef(
             [SelectSize.Small, PillSize.Small],
         ]);
 
-        // TODO: Mutate Array based on order of selection.
+        const isPillEllipsisActive = (element: HTMLElement) => {
+            const labelElement: HTMLSpanElement =
+                element.firstElementChild as HTMLSpanElement;
+            return labelElement?.offsetWidth < labelElement?.scrollWidth;
+        };
+
         const getPills = (): JSX.Element => {
-            const selected = options.filter((opt) => opt.selected);
-            const selectedCount = selected.length;
+            const selected: SelectOption[] = options.filter(
+                (opt: SelectOption) => opt.selected
+            );
+
+            const selectedCount: number = selected.length;
             const pills: React.ReactElement[] = [];
             let moreOptionsCount: number = selectedCount;
 
+            // TODO: Mutate Array based on order of selection.
             selected.forEach((value: SelectOption, index: number) => {
                 pills.push(
                     <Tooltip
                         classNames={styles.selectTooltip}
                         content={value.text}
+                        disabled={
+                            !isPillEllipsisActive(
+                                document?.getElementById(value.id)
+                            )
+                        }
                         placement={'top'}
                         theme={TooltipTheme.dark}
                     >
@@ -332,6 +371,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
                             ref={(ref) => (pillRefs.current[index] = ref)}
                             id={value.id}
                             classNames={pillClasses}
+                            disabled={mergedDisabled}
                             label={value.text}
                             onClose={() => toggleOption(value)}
                             size={selectSizeToPillSizeMap.get(size)}
@@ -349,6 +389,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
                     pills.push(
                         <Pill
                             classNames={countPillClasses}
+                            disabled={mergedDisabled}
                             label={'+' + (moreOptionsCount - count)}
                             theme={'blueGreen'}
                             size={selectSizeToPillSizeMap.get(mergedSize)}
@@ -361,19 +402,31 @@ export const Select: FC<SelectProps> = React.forwardRef(
             return <div className={styles.multiSelectPills}>{pills}</div>;
         };
 
+        const getSelectedOptionText = (): string => {
+            if (showPills()) {
+                return searchQuery;
+            }
+            const selectedOption = options
+                .filter((opt: SelectOption) => opt.selected)
+                .map((opt: SelectOption) => opt.text)
+                .join(', ')
+                .toLocaleString();
+            return selectedOption;
+        };
+
         const OptionMenu = ({
             options,
         }: {
             options: SelectOption[];
         }): JSX.Element => {
             const filteredOptions = options.filter(
-                (option) => !option.hideOption
+                (opt: SelectOption) => !opt.hideOption
             );
             const updatedItems: SelectOption[] = filteredOptions.map(
-                ({ hideOption, ...option }) => ({
-                    ...option,
+                ({ hideOption, ...opt }) => ({
+                    ...opt,
                     classNames: mergeClasses([
-                        { [styles.selectedOption]: option.selected },
+                        { [styles.selectedOption]: opt.selected },
                     ]),
                 })
             );
@@ -384,7 +437,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
                         items={updatedItems}
                         onChange={(value) => {
                             const option = updatedItems.find(
-                                (option) => option.value === value
+                                (opt: SelectOption) => opt.value === value
                             );
                             toggleOption(option);
                         }}
@@ -397,22 +450,24 @@ export const Select: FC<SelectProps> = React.forwardRef(
             }
         };
 
-        const getSelectedOptionText = (): string => {
-            if (showPills()) {
-                return '';
-            }
-            const selectedOption = options
-                .filter((option: SelectOption) => option.selected)
-                .map((option: SelectOption) => option.text)
-                .join(', ')
-                .toLocaleString();
-            return selectedOption;
-        };
-
         // TODO: handle multiple with clearable padding flicker.
         const getStyle = (): React.CSSProperties => {
             if (filterable && multiple && dropdownVisible) {
-                return { paddingLeft: width > 0 ? width + 8 : 8 };
+                const paddingValue: number =
+                    width > 0
+                        ? filled
+                            ? width + multiSelectCountOffset
+                            : width + inputPaddingHorizontal
+                        : inputPaddingHorizontal;
+                if (htmlDir === 'rtl') {
+                    return {
+                        paddingRight: paddingValue,
+                    };
+                } else {
+                    return {
+                        paddingLeft: paddingValue,
+                    };
+                }
             } else {
                 return undefined;
             }
@@ -420,7 +475,10 @@ export const Select: FC<SelectProps> = React.forwardRef(
 
         const selectInputProps: TextInputProps = {
             placeholder: showPills() ? '' : placeholder,
-            alignIcon: TextInputIconAlign.Right,
+            alignIcon:
+                htmlDir === 'rtl'
+                    ? TextInputIconAlign.Left
+                    : TextInputIconAlign.Right,
             clearable: clearable,
             inputWidth: inputWidth,
             iconButtonProps: {
@@ -463,8 +521,8 @@ export const Select: FC<SelectProps> = React.forwardRef(
                 return;
             }
 
-            const inputWidth = inputRef.current?.offsetWidth;
-            let dropdownUpdatedWidth =
+            const inputWidth: number = inputRef.current?.offsetWidth;
+            let dropdownUpdatedWidth: number =
                 inputRef.current?.offsetWidth > dropdownDefaultWidth
                     ? inputRef.current?.offsetWidth
                     : dropdownDefaultWidth;
@@ -480,21 +538,21 @@ export const Select: FC<SelectProps> = React.forwardRef(
         return (
             <ResizeObserver onResize={updateLayout}>
                 <div
-                    className={componentClasses}
-                    style={style}
                     ref={ref}
-                    id={id}
+                    className={componentClasses}
                     data-test-id={dataTestId}
+                    id={id}
+                    style={style}
                 >
                     {showPills() ? getPills() : null}
                     <Dropdown
                         width={dropdownWidth}
                         {...dropdownProps}
-                        visible={dropdownVisible}
+                        classNames={dropdownWrapperClasses}
+                        dropdownClassNames={dropdownMenuOverlayClasses}
                         onVisibleChange={(isVisible) =>
                             setDropdownVisibility(isVisible)
                         }
-                        showDropdown={showDropdown}
                         overlay={
                             isLoading ? (
                                 spinner
@@ -502,22 +560,22 @@ export const Select: FC<SelectProps> = React.forwardRef(
                                 <OptionMenu options={options} />
                             )
                         }
-                        classNames={dropdownWrapperClasses}
-                        dropdownClassNames={dropdownMenuOverlayClasses}
+                        showDropdown={showDropdown}
+                        visible={dropdownVisible}
                     >
                         <TextInput
                             ref={inputRef}
                             {...selectInputProps}
+                            classNames={styles.selectInput}
                             disabled={mergedDisabled}
                             formItemInput={mergedFormItemInput}
+                            onChange={filterable ? onInputChange : null}
                             readonly={!filterable}
                             shape={selectShapeToTextInputShapeMap.get(
                                 mergedShape
                             )}
                             size={selectSizeToTextInputSizeMap.get(mergedSize)}
                             value={getSelectedOptionText()}
-                            classNames={styles.selectInput}
-                            onChange={filterable ? onInputChange : null}
                         />
                     </Dropdown>
                 </div>

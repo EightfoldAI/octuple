@@ -1,72 +1,116 @@
-@function strip-units($number) {
-    @return calc($number / ($number * 0 + 1px));
-}
+$border-offset: 1px;
 
 // Represents the diameter of the thumb slider
 // and the overall height of the slider.
-$slider-height: 28px;
-$label-height: 20px;
-$track-height: 6px;
-$vertical-center: calc($slider-height / 2);
-$rail-top: $vertical-center - calc($track-height / 2);
+$large-slider-height: 28px;
+$large-label-height: 24px;
+$large-track-height: 6px;
+$large-vertical-center: calc($large-slider-height / 2);
+$large-rail-top: $large-vertical-center - calc($large-track-height / 2);
+$large-marker-top: 0;
 
-$marker-height: 6px;
-$marker-width: 6px;
-$marker-top: $vertical-center - calc($marker-height / 2);
+$medium-slider-height: 22px;
+$medium-label-height: 20px;
+$medium-thumb-offset: 3px;
+$medium-track-height: 4px;
+$medium-vertical-center: calc($medium-slider-height / 2);
+$medium-rail-top: $medium-vertical-center - calc($medium-track-height / 2);
+$medium-marker-top: 0;
 
-// Export these values for typescript consumption.
+$small-slider-height: 16px;
+$small-label-height: 16px;
+$small-track-height: 4px;
+$small-vertical-center: calc($small-slider-height / 2);
+$small-rail-top: $small-vertical-center - calc($small-track-height / 2);
+$small-marker-top: 0;
+
+// Export values for typescript consumption.
 :export {
-    thumbDiameter: strip-units($slider-height);
+    largeThumbDiameter: strip-units($large-slider-height);
+    mediumThumbDiameter: strip-units($medium-slider-height);
+    smallThumbDiameter: strip-units($small-slider-height);
 }
 
+// Default size is medium
 .slider-container {
     --slider-default-track-color: var(--primary-color-60);
     --slider-default-rail-color: var(--primary-color-10);
     --slider-default-rail-border-color: var(--primary-color-60);
     --slider-default-value-text-color: var(--text-secondary-color);
     --slider-min-max-labels-color: var(--grey-color-60);
-    --slider-default-thumb-color: var(--primary-color);
-    --slider-default-marker-background: var(--white-color);
+    --slider-default-thumb-color: var(--accent-color-20);
+    --slider-default-marker-background: var(--background-color);
 
     font-family: $octuple-font-family;
-    height: $slider-height + $label-height;
+    height: $medium-slider-height + $medium-label-height;
     position: relative;
 
     .slider {
         position: relative;
-        height: $slider-height;
+        height: $medium-slider-height;
     }
 
     .slider-rail,
-    .slider-track {
-        position: absolute;
-        top: $rail-top;
+    .slider-track,
+    .rail-marker-segments {
+        border-radius: $corner-radius-xs;
+        cursor: pointer;
+        height: $medium-track-height;
         left: 0;
-    }
-
-    .slider-rail,
-    .slider-track {
-        height: $track-height;
-        border-radius: 8px;
-    }
-
-    .slider-rail {
-        background-color: var(--slider-default-rail-color);
-        border: 1px solid var(--slider-default-rail-border-color);
+        position: absolute;
+        top: $medium-rail-top;
         width: 100%;
     }
 
-    .rail-marker {
-        height: $marker-height;
-        width: $marker-width;
-        position: absolute;
-        top: $marker-top;
-        margin-left: calc(calc($marker-height / 2) * -1);
-        background-color: var(--slider-default-marker-background);
+    // The slider rail needs to be 2px thinner than the track to prevent layered border-radius flicker.
+    .slider-rail {
+        background-color: var(--slider-default-rail-color);
         border: 1px solid var(--slider-default-rail-border-color);
 
+        &-opacity {
+            opacity: 0;
+        }
+    }
+
+    .slider-track {
+        background-color: var(--slider-default-track-color);
+        border: 1px solid var(--slider-default-track-color);
+
+        &-opacity {
+            opacity: 0;
+        }
+    }
+
+    .slider-rail:not(.slider-rail-opacity),
+    .slider-track:not(.slider-track-opacity) {
+        left: calc($medium-slider-height / 2);
+        width: calc(100% - $medium-slider-height);
+    }
+
+    // Account for the border offsets to prevent layered border-radius flicker.
+    .slider-rail:not(.slider-rail-opacity) {
+        left: calc($medium-slider-height / 2);
+        margin: 0 $border-offset;
+        width: calc(
+            calc(100% - $medium-slider-height) - calc($border-offset * 2)
+        );
+    }
+
+    .rail-marker-segment {
+        background-color: var(--slider-default-rail-color);
+        border: 1px solid var(--slider-default-rail-border-color);
+        border-radius: $corner-radius-xs;
+        height: $medium-track-height;
+        position: absolute;
+        top: $medium-marker-top;
+
+        &-hidden {
+            display: none;
+        }
+
         &.active {
-            background-color: var(--slider-default-marker-background);
+            background-color: var(--slider-default-track-color);
+            border: 1px solid var(--slider-default-track-color);
         }
     }
 
@@ -74,31 +118,53 @@ $marker-top: $vertical-center - calc($marker-height / 2);
         background-color: var(--slider-default-track-color);
     }
 
+    .slider-labels {
+        opacity: 0;
+    }
+
+    .slider-label-spacer {
+        margin: 0 $space-xxs;
+    }
+
     .slider-value {
+        bottom: 0;
         color: var(--slider-default-value-text-color);
         font-family: $octuple-font-family;
         font-size: $text-font-size-2;
-        font-weight: $text-font-weight-semibold;
+        padding: 0 $space-xxxs;
         position: absolute;
-        bottom: 0;
-        opacity: 0;
+        white-space: nowrap;
     }
 
     .extremity-label {
         color: var(--slider-min-max-labels-color);
         font-family: $octuple-font-family;
         font-size: $text-font-size-2;
-        font-weight: $text-font-weight-regular;
         position: absolute;
         bottom: 0;
         opacity: 0;
 
         &.min-label {
-            left: 2px;
+            left: calc($medium-slider-height / 2);
         }
 
         &.max-label {
-            right: 2px;
+            right: calc($medium-slider-height / 2);
+        }
+    }
+
+    .extremity-range-label {
+        opacity: 1;
+    }
+
+    .slider-range-labels {
+        align-items: center;
+        display: flex;
+        justify-content: center;
+
+        .slider-value {
+            margin-top: $space-xxs;
+            position: relative;
         }
     }
 
@@ -111,24 +177,30 @@ $marker-top: $vertical-center - calc($marker-height / 2);
     .thumb::-webkit-slider-thumb {
         -webkit-appearance: none;
         -webkit-tap-highlight-color: transparent;
+        background-image: url("data:image/svg+xml,%3Csvg width='4' height='7' viewBox='0 0 4 7' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0H1.34375V1.34375H0V0ZM2.65625 0H4V1.34375H2.65625V0ZM0 2.65625H1.34375V4H0V2.65625ZM2.65625 2.65625H4V4H2.65625V2.65625ZM0 5.34375H1.34375V6.65625H0V5.34375ZM2.65625 5.34375H4V6.65625H2.65625V5.34375Z' fill='%23343c4c'/%3E%3C/svg%3E%0A");
+        background-position: center;
+        background-repeat: no-repeat;
     }
 
     .thumb {
+        box-shadow: $shadow-object-s;
+        cursor: pointer;
         display: block;
-        width: 100%;
+        height: 0;
         pointer-events: none;
         position: absolute;
-        top: $rail-top;
-        height: 0;
+        top: $medium-rail-top;
+        width: 100%;
+    }
+
+    // Firefox fix for thumb position
+    @-moz-document url-prefix() {
+        .thumb {
+            top: calc($medium-rail-top + $space-xxxs);
+        }
     }
 
     .thumb {
-        &:focus::-webkit-slider-thumb {
-            // TODO: move this to a global mixin, update moz implementation below.
-            outline: 2px solid var(--primary-color-40);
-            outline-offset: 1px;
-        }
-
         // For Chrome browsers
         &::-webkit-slider-thumb {
             -webkit-appearance: none;
@@ -137,31 +209,463 @@ $marker-top: $vertical-center - calc($marker-height / 2);
             border-radius: 50%;
             box-shadow: $shadow-object-s;
             cursor: pointer;
-            height: $slider-height;
-            width: $slider-height;
-            margin-top: 4px;
+            height: $medium-slider-height;
+            margin-top: $space-xxs;
             pointer-events: all;
             position: relative;
+            width: $medium-slider-height;
         }
 
         // For Firefox browsers
         &::-moz-range-thumb {
             background-color: var(--slider-default-thumb-color);
+            background-image: url("data:image/svg+xml,%3Csvg width='4' height='7' viewBox='0 0 4 7' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0H1.34375V1.34375H0V0ZM2.65625 0H4V1.34375H2.65625V0ZM0 2.65625H1.34375V4H0V2.65625ZM2.65625 2.65625H4V4H2.65625V2.65625ZM0 5.34375H1.34375V6.65625H0V5.34375ZM2.65625 5.34375H4V6.65625H2.65625V5.34375Z' fill='%23343c4c'/%3E%3C/svg%3E%0A");
+            background-position: center;
+            background-repeat: no-repeat;
             border: none;
             border-radius: 50%;
             box-shadow: $shadow-object-s;
             cursor: pointer;
-            height: $slider-height;
-            width: $slider-height;
-            margin-top: 4px;
+            height: $medium-slider-height;
+            margin-top: $space-xxs;
             pointer-events: all;
             position: relative;
+            width: $medium-slider-height;
+        }
+    }
+
+    &.show-markers {
+        .thumb {
+            margin-left: -$medium-thumb-offset;
+        }
+    }
+
+    &.slider-large {
+        height: $large-slider-height + $large-label-height;
+
+        .slider {
+            height: $large-slider-height;
         }
 
-        &:focus::-moz-range-thumb {
-            // TODO: move this to a global mixin.
-            outline: 2px solid var(--primary-color-40);
-            outline-offset: 1px;
+        .slider-rail,
+        .slider-track,
+        .rail-marker-segments {
+            border-radius: $corner-radius-m;
+            height: $large-track-height;
+            top: $large-rail-top;
+        }
+
+        .slider-rail:not(.slider-rail-opacity),
+        .slider-track:not(.slider-track-opacity) {
+            left: calc($large-slider-height / 2);
+            width: calc(100% - $large-slider-height);
+        }
+
+        .slider-rail:not(.slider-rail-opacity) {
+            left: calc($large-slider-height / 2);
+            width: calc(
+                calc(100% - $large-slider-height) - calc($border-offset * 2)
+            );
+        }
+
+        .rail-marker-segment {
+            border-radius: $corner-radius-m;
+            height: $large-track-height;
+            top: $large-marker-top;
+        }
+
+        .slider-value {
+            font-size: $text-font-size-3;
+            white-space: nowrap;
+        }
+
+        .extremity-label {
+            font-size: $text-font-size-3;
+
+            &.min-label {
+                left: calc($large-slider-height / 2);
+            }
+
+            &.max-label {
+                right: calc($large-slider-height / 2);
+            }
+        }
+
+        .slider-range-labels {
+            .slider-value {
+                margin-top: calc($space-xs - $space-xxxs);
+            }
+        }
+
+        .thumb,
+        .thumb::-webkit-slider-thumb {
+            background-image: url("data:image/svg+xml,%3Csvg width='4' height='12' viewBox='0 0 4 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0H1.34375V1.34375H0V0ZM2.65625 0H4V1.34375H2.65625V0ZM0 2.65625H1.34375V4H0V2.65625ZM2.65625 2.65625H4V4H2.65625V2.65625ZM0 5.34375H1.34375V6.65625H0V5.34375ZM2.65625 5.34375H4V6.65625H2.65625V5.34375ZM0 8H1.34375V9.34375H0V8ZM2.65625 8H4V9.34375H2.65625V8ZM0 10.6562H1.34375V12H0V10.6562ZM2.65625 10.6562H4V12H2.65625V10.6562Z' fill='%23343c4c'/%3E%3C/svg%3E%0A");
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .thumb {
+            top: $large-rail-top;
+        }
+
+        @-moz-document url-prefix() {
+            .thumb {
+                top: calc($large-rail-top + $space-xxxs);
+            }
+        }
+
+        .thumb {
+            &::-webkit-slider-thumb {
+                height: $large-slider-height;
+                margin-top: $space-xxs;
+                width: $large-slider-height;
+            }
+
+            &::-moz-range-thumb {
+                background-image: url("data:image/svg+xml,%3Csvg width='4' height='12' viewBox='0 0 4 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0H1.34375V1.34375H0V0ZM2.65625 0H4V1.34375H2.65625V0ZM0 2.65625H1.34375V4H0V2.65625ZM2.65625 2.65625H4V4H2.65625V2.65625ZM0 5.34375H1.34375V6.65625H0V5.34375ZM2.65625 5.34375H4V6.65625H2.65625V5.34375ZM0 8H1.34375V9.34375H0V8ZM2.65625 8H4V9.34375H2.65625V8ZM0 10.6562H1.34375V12H0V10.6562ZM2.65625 10.6562H4V12H2.65625V10.6562Z' fill='%23343c4c'/%3E%3C/svg%3E%0A");
+                background-position: center;
+                background-repeat: no-repeat;
+                height: $large-slider-height;
+                margin-top: $space-xxs;
+                width: $large-slider-height;
+            }
+        }
+
+        &.show-markers {
+            .thumb {
+                margin-left: -$space-xxs;
+            }
+        }
+    }
+
+    &.slider-medium {
+        height: $medium-slider-height + $medium-label-height;
+
+        .slider {
+            height: $medium-slider-height;
+        }
+
+        .slider-rail,
+        .slider-track,
+        .rail-marker-segments {
+            border-radius: $corner-radius-xs;
+            height: $medium-track-height;
+            top: $medium-rail-top;
+        }
+
+        .slider-rail:not(.slider-rail-opacity),
+        .slider-track:not(.slider-track-opacity) {
+            left: calc($medium-slider-height / 2);
+            width: calc(100% - $medium-slider-height);
+        }
+
+        .slider-rail:not(.slider-rail-opacity) {
+            left: calc($medium-slider-height / 2);
+            width: calc(
+                calc(100% - $medium-slider-height) - calc($border-offset * 2)
+            );
+        }
+
+        .rail-marker-segment {
+            border-radius: $corner-radius-xs;
+            height: $medium-track-height;
+            top: $medium-marker-top;
+        }
+
+        .slider-value {
+            font-size: $text-font-size-2;
+        }
+
+        .extremity-label {
+            font-size: $text-font-size-2;
+
+            &.min-label {
+                left: calc($medium-slider-height / 2);
+            }
+
+            &.max-label {
+                right: calc($medium-slider-height / 2);
+            }
+        }
+
+        .slider-range-labels {
+            .slider-value {
+                margin-top: $space-xxs;
+            }
+        }
+
+        .thumb,
+        .thumb::-webkit-slider-thumb {
+            background-image: url("data:image/svg+xml,%3Csvg width='4' height='7' viewBox='0 0 4 7' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0H1.34375V1.34375H0V0ZM2.65625 0H4V1.34375H2.65625V0ZM0 2.65625H1.34375V4H0V2.65625ZM2.65625 2.65625H4V4H2.65625V2.65625ZM0 5.34375H1.34375V6.65625H0V5.34375ZM2.65625 5.34375H4V6.65625H2.65625V5.34375Z' fill='%23343c4c'/%3E%3C/svg%3E%0A");
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .thumb {
+            top: $medium-rail-top;
+        }
+
+        @-moz-document url-prefix() {
+            .thumb {
+                top: calc($medium-rail-top + $space-xxxs);
+            }
+        }
+
+        .thumb {
+            &::-webkit-slider-thumb {
+                height: $medium-slider-height;
+                margin-top: $space-xxs;
+                width: $medium-slider-height;
+            }
+
+            &::-moz-range-thumb {
+                background-image: url("data:image/svg+xml,%3Csvg width='4' height='7' viewBox='0 0 4 7' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0H1.34375V1.34375H0V0ZM2.65625 0H4V1.34375H2.65625V0ZM0 2.65625H1.34375V4H0V2.65625ZM2.65625 2.65625H4V4H2.65625V2.65625ZM0 5.34375H1.34375V6.65625H0V5.34375ZM2.65625 5.34375H4V6.65625H2.65625V5.34375Z' fill='%23343c4c'/%3E%3C/svg%3E%0A");
+                background-position: center;
+                background-repeat: no-repeat;
+                height: $medium-slider-height;
+                margin-top: $space-xxs;
+                width: $medium-slider-height;
+            }
+        }
+
+        &.show-markers {
+            .thumb {
+                margin-left: -$medium-thumb-offset;
+            }
+        }
+    }
+
+    &.slider-small {
+        height: $small-slider-height + $small-label-height;
+
+        .slider {
+            height: $small-slider-height;
+        }
+
+        .slider-rail,
+        .slider-track,
+        .rail-marker-segments {
+            border-radius: $corner-radius-xs;
+            height: $small-track-height;
+            top: $small-rail-top;
+        }
+
+        .slider-rail:not(.slider-rail-opacity),
+        .slider-track:not(.slider-track-opacity) {
+            left: calc($small-slider-height / 2);
+            width: calc(100% - $small-slider-height);
+        }
+
+        .slider-rail:not(.slider-rail-opacity) {
+            left: calc($small-slider-height / 2);
+            width: calc(
+                calc(100% - $small-slider-height) - calc($border-offset * 2)
+            );
+        }
+
+        .rail-marker-segment {
+            border-radius: $corner-radius-xs;
+            height: $small-track-height;
+            top: $small-marker-top;
+        }
+
+        .slider-value {
+            font-size: $text-font-size-1;
+        }
+
+        .extremity-label {
+            font-size: $text-font-size-1;
+
+            &.min-label {
+                left: calc($small-slider-height / 2);
+            }
+
+            &.max-label {
+                right: calc($small-slider-height / 2);
+            }
+        }
+
+        .slider-range-labels {
+            .slider-value {
+                margin-top: $space-xxxs;
+            }
+        }
+
+        .thumb,
+        .thumb::-webkit-slider-thumb {
+            background-image: url("data:image/svg+xml,%3Csvg width='4' height='4' viewBox='0 0 4 4' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0H1.34375V1.34375H0V0ZM2.65625 0H4V1.34375H2.65625V0ZM0 2.65625H1.34375V4H0V2.65625ZM2.65625 2.65625H4V4H2.65625V2.65625Z' fill='%23343c4c'/%3E%3C/svg%3E%0A");
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .thumb {
+            top: $small-rail-top;
+        }
+
+        @-moz-document url-prefix() {
+            .thumb {
+                top: calc($small-rail-top + $space-xxxs);
+            }
+        }
+
+        .thumb {
+            &::-webkit-slider-thumb {
+                box-shadow: $shadow-object-xs;
+                height: $small-slider-height;
+                margin-top: $space-xxs;
+                width: $small-slider-height;
+            }
+
+            &::-moz-range-thumb {
+                background-image: url("data:image/svg+xml,%3Csvg width='4' height='4' viewBox='0 0 4 4' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0H1.34375V1.34375H0V0ZM2.65625 0H4V1.34375H2.65625V0ZM0 2.65625H1.34375V4H0V2.65625ZM2.65625 2.65625H4V4H2.65625V2.65625Z' fill='%23343c4c'/%3E%3C/svg%3E%0A");
+                background-position: center;
+                background-repeat: no-repeat;
+                box-shadow: $shadow-object-xs;
+                height: $small-slider-height;
+                margin-top: $space-xxs;
+                width: $small-slider-height;
+            }
+        }
+
+        &.show-markers {
+            .thumb {
+                margin-left: -$space-xxxs;
+            }
+        }
+    }
+
+    &-rtl {
+        .slider-rail,
+        .slider-track,
+        .rail-marker-segments {
+            left: unset;
+            right: 0;
+        }
+
+        .slider-rail:not(.slider-rail-opacity),
+        .slider-track:not(.slider-track-opacity) {
+            left: unset;
+            right: calc($medium-slider-height / 2);
+        }
+
+        .slider-rail:not(.slider-rail-opacity) {
+            left: unset;
+            right: calc($medium-slider-height / 2);
+        }
+
+        .extremity-label {
+            &.min-label {
+                left: unset;
+                right: calc($medium-slider-height / 2);
+            }
+
+            &.max-label {
+                right: unset;
+                left: calc($medium-slider-height / 2);
+            }
+        }
+
+        &.show-markers {
+            .thumb {
+                margin-left: unset;
+                margin-right: -$medium-thumb-offset;
+            }
+        }
+
+        &.slider-large {
+            .slider-rail:not(.slider-rail-opacity),
+            .slider-track:not(.slider-track-opacity) {
+                left: unset;
+                right: calc($large-slider-height / 2);
+            }
+
+            .slider-rail:not(.slider-rail-opacity) {
+                left: unset;
+                right: calc($large-slider-height / 2);
+            }
+
+            .extremity-label {
+                &.min-label {
+                    left: unset;
+                    right: calc($large-slider-height / 2);
+                }
+
+                &.max-label {
+                    right: unset;
+                    left: calc($large-slider-height / 2);
+                }
+            }
+
+            &.show-markers {
+                .thumb {
+                    margin-left: unset;
+                    margin-right: -$space-xxs;
+                }
+            }
+        }
+
+        &.slider-medium {
+            .slider-rail:not(.slider-rail-opacity),
+            .slider-track:not(.slider-track-opacity) {
+                left: unset;
+                right: calc($medium-slider-height / 2);
+            }
+
+            .slider-rail:not(.slider-rail-opacity) {
+                left: unset;
+                right: calc($medium-slider-height / 2);
+            }
+
+            .extremity-label {
+                &.min-label {
+                    left: unset;
+                    right: calc($medium-slider-height / 2);
+                }
+
+                &.max-label {
+                    right: unset;
+                    left: calc($medium-slider-height / 2);
+                }
+            }
+
+            &.show-markers {
+                .thumb {
+                    margin-left: unset;
+                    margin-right: -$medium-thumb-offset;
+                }
+            }
+        }
+
+        &.slider-small {
+            .slider-rail:not(.slider-rail-opacity),
+            .slider-track:not(.slider-track-opacity) {
+                left: unset;
+                right: calc($small-slider-height / 2);
+            }
+
+            .slider-rail:not(.slider-rail-opacity) {
+                left: unset;
+                right: calc($small-slider-height / 2);
+            }
+
+            .extremity-label {
+                &.min-label {
+                    left: unset;
+                    right: calc($small-slider-height / 2);
+                }
+
+                &.max-label {
+                    right: unset;
+                    left: calc($small-slider-height / 2);
+                }
+            }
+
+            &.show-markers {
+                .thumb {
+                    margin-left: unset;
+                    margin-right: -$space-xxxs;
+                }
+            }
         }
     }
 }
@@ -179,18 +683,32 @@ $marker-top: $vertical-center - calc($marker-height / 2);
             cursor: not-allowed;
         }
 
-        // For Chrome browsers
         &::-webkit-slider-thumb {
             cursor: not-allowed;
         }
 
-        // For Firefox browsers
         &::-moz-range-thumb {
             cursor: not-allowed;
         }
 
         &:focus::-moz-range-thumb {
             cursor: not-allowed;
+        }
+    }
+}
+
+:global(.focus-visible) {
+    .slider-container {
+        .thumb {
+            &:focus-visible::-webkit-slider-thumb {
+                outline: $space-xxxs solid var(--primary-color-40);
+                outline-offset: 1px;
+            }
+
+            &:focus-visible::-moz-range-thumb {
+                outline: $space-xxxs solid var(--primary-color-40);
+                outline-offset: 1px;
+            }
         }
     }
 }

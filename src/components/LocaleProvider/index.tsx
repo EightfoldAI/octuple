@@ -1,10 +1,13 @@
 import React from 'react';
 import memoizeOne from 'memoize-one';
+import type { PickerLocale as DatePickerLocale } from '../DateTimePicker/DatePicker/Generate/Generate.types';
 import type { ValidateMessages } from '../Form/Internal/OcForm.types';
 import LocaleContext from './Context';
 
 export interface Locale {
     locale: string;
+    DatePicker?: DatePickerLocale;
+    TimePicker?: Record<string, any>;
     global?: Record<string, any>;
     Form?: {
         optional?: string;
