@@ -113,7 +113,7 @@ const Wrapper: FC<SelectProps> = ({ children }) => {
 
 const DynamicSelect: FC<SelectProps> = (args) => {
     const timer = useRef<ReturnType<typeof setTimeout>>(null);
-    const [options, setOptions] = useState([]);
+    const [options, setOptions] = useState(defaultOptions);
     const [isLoading, setIsLoading] = useState(false);
     const loadOptions = (searchString: string) => {
         setIsLoading(true);
@@ -159,8 +159,8 @@ export const Basic: SelectStory = Basic_Story.bind({});
 export const Dynamic_Width: SelectStory = Basic_Story.bind({});
 export const With_DefaultValue: SelectStory = Basic_Story.bind({});
 export const Disabled: SelectStory = Basic_Story.bind({});
-export const Options_Disabled: SelectStory = Basic_Story.bind({});
 export const With_Clear: SelectStory = Basic_Story.bind({});
+export const Options_Disabled: SelectStory = Basic_Story.bind({});
 export const Filterable: SelectStory = Basic_Story.bind({});
 export const Multiple: SelectStory = Basic_Story.bind({});
 export const Multiple_With_NoFilter: SelectStory = Basic_Story.bind({});
@@ -168,6 +168,7 @@ export const Dynamic: SelectStory = Dynamic_Story.bind({});
 
 const SelectArgs: SelectProps = {
     classNames: 'octuple-select-class',
+    disabled: false,
     'data-test-id': 'octuple-select-test-id',
     shape: SelectShape.Rectangle,
     size: SelectSize.Medium,

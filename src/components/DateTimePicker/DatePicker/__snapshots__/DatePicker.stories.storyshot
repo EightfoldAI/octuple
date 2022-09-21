@@ -50,7 +50,7 @@ exports[`Storyshots Date Picker Customized Date Styling 1`] = `
             d="M14 16.94V12.94H5.08L5.05 10.93H14V6.94L19 11.94Z"
             style={
               Object {
-                "fill": "var(--grey-color-60)",
+                "fill": "currentColor",
               }
             }
           />
@@ -606,7 +606,7 @@ exports[`Storyshots Date Picker Date Format Range 1`] = `
             d="M14 16.94V12.94H5.08L5.05 10.93H14V6.94L19 11.94Z"
             style={
               Object {
-                "fill": "var(--grey-color-60)",
+                "fill": "currentColor",
               }
             }
           />
@@ -820,7 +820,7 @@ exports[`Storyshots Date Picker Preset Ranges 1`] = `
               d="M14 16.94V12.94H5.08L5.05 10.93H14V6.94L19 11.94Z"
               style={
                 Object {
-                  "fill": "var(--grey-color-60)",
+                  "fill": "currentColor",
                 }
               }
             />
@@ -934,7 +934,7 @@ exports[`Storyshots Date Picker Preset Ranges 1`] = `
               d="M14 16.94V12.94H5.08L5.05 10.93H14V6.94L19 11.94Z"
               style={
                 Object {
-                  "fill": "var(--grey-color-60)",
+                  "fill": "currentColor",
                 }
               }
             />
@@ -1002,6 +1002,123 @@ exports[`Storyshots Date Picker Preset Ranges 1`] = `
 </div>
 `;
 
+exports[`Storyshots Date Picker Range Borderless 1`] = `
+<div
+  className="picker picker-range picker-medium picker-borderless my-picker-class picker-borderless"
+  onClick={[Function]}
+  onMouseDown={[Function]}
+>
+  <div
+    className="picker-input picker-input-active"
+  >
+    <input
+      autoComplete="off"
+      disabled={false}
+      id="myPickerInputId"
+      onBlur={[Function]}
+      onChange={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onMouseDown={[Function]}
+      placeholder="Start date"
+      readOnly={true}
+      size={12}
+      value=""
+    />
+  </div>
+  <div
+    className="picker-range-separator"
+  >
+    <span
+      aria-label="to"
+      className="picker-separator"
+    >
+      <span
+        aria-hidden={false}
+        className="icon-wrapper"
+        role="presentation"
+      >
+        <svg
+          role="presentation"
+          style={
+            Object {
+              "height": "20px",
+              "width": "20px",
+            }
+          }
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M14 16.94V12.94H5.08L5.05 10.93H14V6.94L19 11.94Z"
+            style={
+              Object {
+                "fill": "currentColor",
+              }
+            }
+          />
+        </svg>
+      </span>
+    </span>
+  </div>
+  <div
+    className="picker-input"
+  >
+    <input
+      autoComplete="off"
+      disabled={false}
+      onBlur={[Function]}
+      onChange={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onMouseDown={[Function]}
+      placeholder="End date"
+      readOnly={true}
+      size={12}
+      value=""
+    />
+  </div>
+  <div
+    className="picker-active-bar"
+    style={
+      Object {
+        "left": 0,
+        "position": "absolute",
+        "width": 0,
+      }
+    }
+  />
+  <span
+    className="picker-suffix"
+  >
+    <span
+      aria-hidden={false}
+      className="icon-wrapper"
+      role="presentation"
+    >
+      <svg
+        role="presentation"
+        style={
+          Object {
+            "height": "20px",
+            "width": "20px",
+          }
+        }
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M19,4H18V2H16V4H8V2H6V4H5C3.89,4 3,4.9 3,6V20A2,2 0 0,0 5,22H19A2,2 0 0,0 21,20V6A2,2 0 0,0 19,4M19,20H5V10H19V20M19,8H5V6H19V8Z"
+          style={
+            Object {
+              "fill": "var(--grey-color-60)",
+            }
+          }
+        />
+      </svg>
+    </span>
+  </span>
+</div>
+`;
+
 exports[`Storyshots Date Picker Range Picker 1`] = `
 <div
   className="stack vertical m"
@@ -1062,7 +1179,7 @@ exports[`Storyshots Date Picker Range Picker 1`] = `
               d="M14 16.94V12.94H5.08L5.05 10.93H14V6.94L19 11.94Z"
               style={
                 Object {
-                  "fill": "var(--grey-color-60)",
+                  "fill": "currentColor",
                 }
               }
             />
@@ -1176,7 +1293,7 @@ exports[`Storyshots Date Picker Range Picker 1`] = `
               d="M14 16.94V12.94H5.08L5.05 10.93H14V6.94L19 11.94Z"
               style={
                 Object {
-                  "fill": "var(--grey-color-60)",
+                  "fill": "currentColor",
                 }
               }
             />
@@ -1290,7 +1407,7 @@ exports[`Storyshots Date Picker Range Picker 1`] = `
               d="M14 16.94V12.94H5.08L5.05 10.93H14V6.94L19 11.94Z"
               style={
                 Object {
-                  "fill": "var(--grey-color-60)",
+                  "fill": "currentColor",
                 }
               }
             />
@@ -1404,7 +1521,7 @@ exports[`Storyshots Date Picker Range Picker 1`] = `
               d="M14 16.94V12.94H5.08L5.05 10.93H14V6.94L19 11.94Z"
               style={
                 Object {
-                  "fill": "var(--grey-color-60)",
+                  "fill": "currentColor",
                 }
               }
             />
@@ -1518,7 +1635,7 @@ exports[`Storyshots Date Picker Range Picker 1`] = `
               d="M14 16.94V12.94H5.08L5.05 10.93H14V6.94L19 11.94Z"
               style={
                 Object {
-                  "fill": "var(--grey-color-60)",
+                  "fill": "currentColor",
                 }
               }
             />
@@ -1636,7 +1753,7 @@ exports[`Storyshots Date Picker Range Picker Choose Time 1`] = `
             d="M14 16.94V12.94H5.08L5.05 10.93H14V6.94L19 11.94Z"
             style={
               Object {
-                "fill": "var(--grey-color-60)",
+                "fill": "currentColor",
               }
             }
           />
@@ -1763,7 +1880,7 @@ exports[`Storyshots Date Picker Range Picker Disabled 1`] = `
               d="M14 16.94V12.94H5.08L5.05 10.93H14V6.94L19 11.94Z"
               style={
                 Object {
-                  "fill": "var(--grey-color-60)",
+                  "fill": "currentColor",
                 }
               }
             />
@@ -1877,7 +1994,7 @@ exports[`Storyshots Date Picker Range Picker Disabled 1`] = `
               d="M14 16.94V12.94H5.08L5.05 10.93H14V6.94L19 11.94Z"
               style={
                 Object {
-                  "fill": "var(--grey-color-60)",
+                  "fill": "currentColor",
                 }
               }
             />
@@ -2005,7 +2122,7 @@ exports[`Storyshots Date Picker Range Picker Disabled Date And Time 1`] = `
               d="M14 16.94V12.94H5.08L5.05 10.93H14V6.94L19 11.94Z"
               style={
                 Object {
-                  "fill": "var(--grey-color-60)",
+                  "fill": "currentColor",
                 }
               }
             />
@@ -2119,7 +2236,7 @@ exports[`Storyshots Date Picker Range Picker Disabled Date And Time 1`] = `
               d="M14 16.94V12.94H5.08L5.05 10.93H14V6.94L19 11.94Z"
               style={
                 Object {
-                  "fill": "var(--grey-color-60)",
+                  "fill": "currentColor",
                 }
               }
             />
@@ -2187,6 +2304,248 @@ exports[`Storyshots Date Picker Range Picker Disabled Date And Time 1`] = `
 </div>
 `;
 
+exports[`Storyshots Date Picker Range Status 1`] = `
+<div
+  className="stack vertical m"
+  style={
+    Object {
+      "alignItems": undefined,
+      "flexWrap": undefined,
+      "justifyContent": undefined,
+    }
+  }
+>
+  <div
+    className="picker picker-range picker-medium picker-status-error my-picker-class"
+    onClick={[Function]}
+    onMouseDown={[Function]}
+  >
+    <div
+      className="picker-input picker-input-active"
+    >
+      <input
+        autoComplete="off"
+        disabled={false}
+        id="myPickerInputId"
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onMouseDown={[Function]}
+        placeholder="Start date"
+        readOnly={true}
+        size={12}
+        value=""
+      />
+    </div>
+    <div
+      className="picker-range-separator"
+    >
+      <span
+        aria-label="to"
+        className="picker-separator"
+      >
+        <span
+          aria-hidden={false}
+          className="icon-wrapper"
+          role="presentation"
+        >
+          <svg
+            role="presentation"
+            style={
+              Object {
+                "height": "20px",
+                "width": "20px",
+              }
+            }
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M14 16.94V12.94H5.08L5.05 10.93H14V6.94L19 11.94Z"
+              style={
+                Object {
+                  "fill": "currentColor",
+                }
+              }
+            />
+          </svg>
+        </span>
+      </span>
+    </div>
+    <div
+      className="picker-input"
+    >
+      <input
+        autoComplete="off"
+        disabled={false}
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onMouseDown={[Function]}
+        placeholder="End date"
+        readOnly={true}
+        size={12}
+        value=""
+      />
+    </div>
+    <div
+      className="picker-active-bar"
+      style={
+        Object {
+          "left": 0,
+          "position": "absolute",
+          "width": 0,
+        }
+      }
+    />
+    <span
+      className="picker-suffix"
+    >
+      <span
+        aria-hidden={false}
+        className="icon-wrapper"
+        role="presentation"
+      >
+        <svg
+          role="presentation"
+          style={
+            Object {
+              "height": "20px",
+              "width": "20px",
+            }
+          }
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M19,4H18V2H16V4H8V2H6V4H5C3.89,4 3,4.9 3,6V20A2,2 0 0,0 5,22H19A2,2 0 0,0 21,20V6A2,2 0 0,0 19,4M19,20H5V10H19V20M19,8H5V6H19V8Z"
+            style={
+              Object {
+                "fill": "var(--error-color)",
+              }
+            }
+          />
+        </svg>
+      </span>
+    </span>
+  </div>
+  <div
+    className="picker picker-range picker-medium picker-status-warning my-picker-class"
+    onClick={[Function]}
+    onMouseDown={[Function]}
+  >
+    <div
+      className="picker-input picker-input-active"
+    >
+      <input
+        autoComplete="off"
+        disabled={false}
+        id="myPickerInputId"
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onMouseDown={[Function]}
+        placeholder="Start date"
+        readOnly={true}
+        size={12}
+        value=""
+      />
+    </div>
+    <div
+      className="picker-range-separator"
+    >
+      <span
+        aria-label="to"
+        className="picker-separator"
+      >
+        <span
+          aria-hidden={false}
+          className="icon-wrapper"
+          role="presentation"
+        >
+          <svg
+            role="presentation"
+            style={
+              Object {
+                "height": "20px",
+                "width": "20px",
+              }
+            }
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M14 16.94V12.94H5.08L5.05 10.93H14V6.94L19 11.94Z"
+              style={
+                Object {
+                  "fill": "currentColor",
+                }
+              }
+            />
+          </svg>
+        </span>
+      </span>
+    </div>
+    <div
+      className="picker-input"
+    >
+      <input
+        autoComplete="off"
+        disabled={false}
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onMouseDown={[Function]}
+        placeholder="End date"
+        readOnly={true}
+        size={12}
+        value=""
+      />
+    </div>
+    <div
+      className="picker-active-bar"
+      style={
+        Object {
+          "left": 0,
+          "position": "absolute",
+          "width": 0,
+        }
+      }
+    />
+    <span
+      className="picker-suffix"
+    >
+      <span
+        aria-hidden={false}
+        className="icon-wrapper"
+        role="presentation"
+      >
+        <svg
+          role="presentation"
+          style={
+            Object {
+              "height": "20px",
+              "width": "20px",
+            }
+          }
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M19,4H18V2H16V4H8V2H6V4H5C3.89,4 3,4.9 3,6V20A2,2 0 0,0 5,22H19A2,2 0 0,0 21,20V6A2,2 0 0,0 19,4M19,20H5V10H19V20M19,8H5V6H19V8Z"
+            style={
+              Object {
+                "fill": "var(--warning-color)",
+              }
+            }
+          />
+        </svg>
+      </span>
+    </span>
+  </div>
+</div>
+`;
+
 exports[`Storyshots Date Picker Select Range By Day Limit 1`] = `
 <div
   className="picker picker-range picker-medium my-picker-class"
@@ -2237,7 +2596,7 @@ exports[`Storyshots Date Picker Select Range By Day Limit 1`] = `
             d="M14 16.94V12.94H5.08L5.05 10.93H14V6.94L19 11.94Z"
             style={
               Object {
-                "fill": "var(--grey-color-60)",
+                "fill": "currentColor",
               }
             }
           />
@@ -2301,6 +2660,62 @@ exports[`Storyshots Date Picker Select Range By Day Limit 1`] = `
       </svg>
     </span>
   </span>
+</div>
+`;
+
+exports[`Storyshots Date Picker Single Borderless 1`] = `
+<div
+  className="picker picker-medium picker-borderless my-picker-class picker-borderless"
+  onMouseUp={[Function]}
+>
+  <div
+    className="picker-input"
+  >
+    <input
+      autoComplete="off"
+      disabled={false}
+      id="myPickerInputId"
+      onBlur={[Function]}
+      onChange={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onMouseDown={[Function]}
+      placeholder="Select date"
+      readOnly={true}
+      size={12}
+      title=""
+      value=""
+    />
+    <span
+      className="picker-suffix"
+    >
+      <span
+        aria-hidden={false}
+        className="icon-wrapper"
+        role="presentation"
+      >
+        <svg
+          role="presentation"
+          style={
+            Object {
+              "height": "20px",
+              "width": "20px",
+            }
+          }
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M19,4H18V2H16V4H8V2H6V4H5C3.89,4 3,4.9 3,6V20A2,2 0 0,0 5,22H19A2,2 0 0,0 21,20V6A2,2 0 0,0 19,4M19,20H5V10H19V20M19,8H5V6H19V8Z"
+            style={
+              Object {
+                "fill": "var(--grey-color-60)",
+              }
+            }
+          />
+        </svg>
+      </span>
+    </span>
+  </div>
 </div>
 `;
 
@@ -2879,7 +3294,7 @@ exports[`Storyshots Date Picker Single Picker Disabled Date And Time 1`] = `
 </div>
 `;
 
-exports[`Storyshots Date Picker Status 1`] = `
+exports[`Storyshots Date Picker Single Status 1`] = `
 <div
   className="stack vertical m"
   style={

@@ -15,41 +15,6 @@ export enum PersistentBarType {
 
 export interface PersistentBarsProps extends OcBaseProps<HTMLDivElement> {
     /**
-     * Buttons to display on top bar
-     */
-    buttonMenuProps?: Array<InternalButtonProps>;
-    /**
-     * Content of the persistent bar
-     */
-    content: string;
-    /**
-     * Type of the persistent
-     * @default PersistentBarType.bottom
-     */
-    type?: PersistentBarType;
-    /**
-     * Custom icon for the persistent
-     * @default PersistentBarType.mdiInformation | IconName.mdiCheckCircle | IconName.mdiAlert
-     */
-    icon?: IconName;
-    /**
-     * If the persistent is closable or not
-     */
-    closable?: boolean;
-    /**
-     * Callback fired on close of the persistent
-     */
-    onClose?: () => void;
-    /**
-     * Icon for the close button
-     * @default IconName.mdiClose
-     */
-    closeIcon?: IconName;
-    /**
-     * Custom props for the close button
-     */
-    closeButtonProps?: CloseButtonProps;
-    /**
      * Props for the first action button
      */
     actionButtonOneProps?: ButtonProps;
@@ -61,6 +26,36 @@ export interface PersistentBarsProps extends OcBaseProps<HTMLDivElement> {
      * Props for the third action button
      */
     actionButtonThreeProps?: ButtonProps;
+    /**
+     * Buttons to display on top bar
+     */
+    buttonMenuProps?: Array<InternalButtonProps>;
+    /**
+     * If the persistent is closable or not
+     */
+    closable?: boolean;
+    /**
+     * Icon for the close button
+     * @default IconName.mdiClose
+     */
+    closeIcon?: IconName;
+    /**
+     * Custom props for the close button
+     */
+    closeButtonProps?: CloseButtonProps;
+    /**
+     * Content of the persistent bar
+     */
+    content: string;
+    /**
+     * Custom icon for the persistent bar
+     * @default PersistentBarType.mdiInformation | IconName.mdiCheckCircle | IconName.mdiAlert
+     */
+    icon?: IconName;
+    /**
+     * Callback fired on close of the persistent bar
+     */
+    onClose?: () => void;
     /**
      * Arguments for pagination
      */
@@ -77,4 +72,9 @@ export interface PersistentBarsProps extends OcBaseProps<HTMLDivElement> {
      * Title for the persistent bar
      */
     title?: string;
+    /**
+     * Type of the persistent bar
+     * @default PersistentBarType.bottom
+     */
+    type?: PersistentBarType;
 }

@@ -72,16 +72,22 @@
         }
     }
 
-    &:hover:not(.picker-disabled):not(.picker-underline) {
+    &:hover:not(.picker-disabled):not(.picker-underline):not(.picker-borderless) {
         border-color: var(--grey-color-60);
     }
 
-    &-focused:not(.picker-underline) {
+    &-focused:not(.picker-disabled):not(.picker-underline):not(.picker-borderless) {
         border-color: $focus-visible-shadow-color;
     }
 
     &-disabled {
         @include disabled();
+    }
+
+    &-borderless {
+        border-color: transparent;
+        box-shadow: none;
+        outline: none;
     }
 
     &-partial {
@@ -935,20 +941,6 @@
             padding: $space-xs calc(#{$space-xxl} + 4px) $space-xs $space-xs;
             position: relative;
             width: 100%;
-
-            &-borderless {
-                &,
-                &:hover,
-                &:focus,
-                &-focused,
-                &-disabled,
-                &[disabled] {
-                    background-color: transparent;
-                    border: none;
-                    box-shadow: none;
-                    outline: none;
-                }
-            }
 
             &-disabled,
             &[disabled] {

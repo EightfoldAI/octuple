@@ -19,12 +19,11 @@
     position: relative;
     transition: border $motion-duration-fast, box-shadow $motion-duration-fast;
 
-    &:hover:not(.picker-disabled):not(.picker-underline),
-    &-focused:not(.picker-underline) {
+    &:hover:not(.picker-disabled):not(.picker-underline):not(.picker-borderless) {
         @include hover();
     }
 
-    &-focused:not(.picker-disabled):not(.picker-underline) {
+    &-focused:not(.picker-disabled):not(.picker-underline):not(.picker-borderless) {
         @include active();
     }
 
@@ -33,7 +32,6 @@
     }
 
     &-borderless {
-        background-color: transparent;
         border-color: transparent;
         box-shadow: none;
         outline: none;
@@ -102,6 +100,7 @@
     }
 
     &-separator {
+        color: $picker-foreground-color;
         cursor: default;
         display: inline-block;
         position: relative;
@@ -115,6 +114,18 @@
             .picker-disabled {
                 cursor: not-allowed;
             }
+        }
+    }
+
+    &-status-warning {
+        .picker-separator {
+            color: inherit;
+        }
+    }
+
+    &-status-error {
+        .picker-separator {
+            color: inherit;
         }
     }
 

@@ -1801,7 +1801,7 @@ exports[`Storyshots Form Custom Validation 1`] = `
                         d="M14 16.94V12.94H5.08L5.05 10.93H14V6.94L19 11.94Z"
                         style={
                           Object {
-                            "fill": "var(--grey-color-60)",
+                            "fill": "currentColor",
                           }
                         }
                       />
@@ -2587,7 +2587,7 @@ exports[`Storyshots Form Dates And Times 1`] = `
                         d="M14 16.94V12.94H5.08L5.05 10.93H14V6.94L19 11.94Z"
                         style={
                           Object {
-                            "fill": "var(--grey-color-60)",
+                            "fill": "currentColor",
                           }
                         }
                       />
@@ -2735,7 +2735,7 @@ exports[`Storyshots Form Dates And Times 1`] = `
                         d="M14 16.94V12.94H5.08L5.05 10.93H14V6.94L19 11.94Z"
                         style={
                           Object {
-                            "fill": "var(--grey-color-60)",
+                            "fill": "currentColor",
                           }
                         }
                       />
@@ -3517,7 +3517,7 @@ exports[`Storyshots Form Disabled 1`] = `
                           d="M14 16.94V12.94H5.08L5.05 10.93H14V6.94L19 11.94Z"
                           style={
                             Object {
-                              "fill": "var(--grey-color-60)",
+                              "fill": "currentColor",
                             }
                           }
                         />
@@ -4711,7 +4711,7 @@ exports[`Storyshots Form Flex 1`] = `
                           d="M14 16.94V12.94H5.08L5.05 10.93H14V6.94L19 11.94Z"
                           style={
                             Object {
-                              "fill": "var(--grey-color-60)",
+                              "fill": "currentColor",
                             }
                           }
                         />
@@ -5850,7 +5850,7 @@ exports[`Storyshots Form Large 1`] = `
                           d="M14 16.94V12.94H5.08L5.05 10.93H14V6.94L19 11.94Z"
                           style={
                             Object {
-                              "fill": "var(--grey-color-60)",
+                              "fill": "currentColor",
                             }
                           }
                         />
@@ -6631,7 +6631,7 @@ exports[`Storyshots Form Medium 1`] = `
                           d="M14 16.94V12.94H5.08L5.05 10.93H14V6.94L19 11.94Z"
                           style={
                             Object {
-                              "fill": "var(--grey-color-60)",
+                              "fill": "currentColor",
                             }
                           }
                         />
@@ -8205,7 +8205,7 @@ exports[`Storyshots Form Pill 1`] = `
                           d="M14 16.94V12.94H5.08L5.05 10.93H14V6.94L19 11.94Z"
                           style={
                             Object {
-                              "fill": "var(--grey-color-60)",
+                              "fill": "currentColor",
                             }
                           }
                         />
@@ -8921,7 +8921,7 @@ exports[`Storyshots Form Rectangle 1`] = `
                           d="M14 16.94V12.94H5.08L5.05 10.93H14V6.94L19 11.94Z"
                           style={
                             Object {
-                              "fill": "var(--grey-color-60)",
+                              "fill": "currentColor",
                             }
                           }
                         />
@@ -9939,7 +9939,7 @@ exports[`Storyshots Form Small 1`] = `
                           d="M14 16.94V12.94H5.08L5.05 10.93H14V6.94L19 11.94Z"
                           style={
                             Object {
-                              "fill": "var(--grey-color-60)",
+                              "fill": "currentColor",
                             }
                           }
                         />
@@ -10732,7 +10732,7 @@ exports[`Storyshots Form Underline 1`] = `
                           d="M14 16.94V12.94H5.08L5.05 10.93H14V6.94L19 11.94Z"
                           style={
                             Object {
-                              "fill": "var(--grey-color-60)",
+                              "fill": "currentColor",
                             }
                           }
                         />

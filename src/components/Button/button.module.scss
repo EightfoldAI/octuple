@@ -143,17 +143,32 @@
     &-large {
         height: 44px;
         padding: $button-padding-vertical-large $button-padding-horizontal-large;
+
+        &.floating.round-shape {
+            width: 44px;
+            height: 44px;
+        }
     }
 
     &-medium {
         height: 36px;
         padding: $button-padding-vertical-medium
             $button-padding-horizontal-medium;
+
+        &.floating.round-shape {
+            width: 36px;
+            height: 36px;
+        }
     }
 
     &-small {
         height: 28px;
         padding: $button-padding-vertical-small $button-padding-horizontal-small;
+
+        &.floating.round-shape {
+            width: 28px;
+            height: 28px;
+        }
     }
 
     &:disabled,

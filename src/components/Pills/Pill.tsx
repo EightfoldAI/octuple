@@ -1,7 +1,8 @@
-import React, { FC, Ref } from 'react';
+import React, { FC, Ref, useContext } from 'react';
 import { PillProps, PillSize, PillType } from './Pills.types';
 import { mergeClasses } from '../../shared/utilities';
 import { Icon, IconName, IconSize } from '../Icon';
+import DisabledContext, { Disabled } from '../ConfigProvider/DisabledContext';
 
 import styles from './pills.module.scss';
 import { ButtonSize, DefaultButton } from '../Button';
@@ -11,6 +12,11 @@ export const Pill: FC<PillProps> = React.forwardRef(
         {
             classNames,
             color,
+            configContextProps = {
+                noDisabledContext: false,
+                noSizeContext: false,
+            },
+            disabled = false,
             label,
             iconProps,
             theme = 'blue',
@@ -19,12 +25,16 @@ export const Pill: FC<PillProps> = React.forwardRef(
             closeButtonProps,
             pillButtonProps,
             type = PillType.default,
-            size = PillSize.Large,
+            size = PillSize.Medium,
             style,
             ...rest
         },
         ref: Ref<HTMLDivElement>
     ) => {
+        const contextuallyDisabled: Disabled = useContext(DisabledContext);
+        const mergedDisabled: boolean = configContextProps.noDisabledContext
+            ? disabled
+            : contextuallyDisabled || disabled;
         const pillSizeToButtonSizeMap = new Map<PillSize, ButtonSize>([
             [PillSize.Large, ButtonSize.Medium],
             [PillSize.Medium, ButtonSize.Small],
@@ -59,6 +69,7 @@ export const Pill: FC<PillProps> = React.forwardRef(
             { [styles.violetRed]: theme === 'violetRed' },
             { [styles.grey]: theme === 'grey' },
             { [styles.xsmall]: size === PillSize.XSmall },
+            { [styles.tagPillsDisabled]: mergedDisabled },
         ]);
         return (
             <div
@@ -78,7 +89,7 @@ export const Pill: FC<PillProps> = React.forwardRef(
                 {type === PillType.withButton && (
                     <DefaultButton
                         {...pillButtonProps}
-                        onClick={onClick}
+                        onClick={!mergedDisabled ? onClick : null}
                         size={pillSizeToButtonSizeMap.get(size)}
                         classNames={styles.button}
                     />
@@ -87,7 +98,7 @@ export const Pill: FC<PillProps> = React.forwardRef(
                     <DefaultButton
                         {...closeButtonProps}
                         iconProps={{ path: IconName.mdiClose }}
-                        onClick={onClose}
+                        onClick={!mergedDisabled ? onClose : null}
                         size={pillSizeToButtonSizeMap.get(size)}
                         classNames={styles.closeButton}
                     />

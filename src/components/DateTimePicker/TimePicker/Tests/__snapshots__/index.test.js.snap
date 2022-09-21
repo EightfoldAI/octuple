@@ -382,7 +382,7 @@ exports[`TimePicker should support bordered 1`] = `
 LoadedCheerio {
   "0": Node {
     "attribs": Object {
-      "class": "picker picker-medium picker-borderless",
+      "class": "picker picker-medium picker-borderless picker-borderless",
     },
     "children": Array [
       Node {
