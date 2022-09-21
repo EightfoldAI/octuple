@@ -113,7 +113,7 @@ const Wrapper: FC<SelectProps> = ({ children }) => {
 
 const DynamicSelect: FC<SelectProps> = (args) => {
     const timer = useRef<ReturnType<typeof setTimeout>>(null);
-    const [options, setOptions] = useState([]);
+    const [options, setOptions] = useState(defaultOptions);
     const [isLoading, setIsLoading] = useState(false);
     const loadOptions = (searchString: string) => {
         setIsLoading(true);
@@ -159,6 +159,7 @@ export const Basic: SelectStory = Basic_Story.bind({});
 export const Dynamic_Width: SelectStory = Basic_Story.bind({});
 export const With_DefaultValue: SelectStory = Basic_Story.bind({});
 export const Disabled: SelectStory = Basic_Story.bind({});
+export const With_Clear: SelectStory = Basic_Story.bind({});
 export const Options_Disabled: SelectStory = Basic_Story.bind({});
 export const Filterable: SelectStory = Basic_Story.bind({});
 export const Multiple: SelectStory = Basic_Story.bind({});
@@ -213,6 +214,14 @@ Options_Disabled.args = {
         },
         ...defaultOptions,
     ],
+};
+
+With_Clear.args = {
+    ...With_DefaultValue.args,
+    textInputProps: {
+        ...With_DefaultValue.args.textInputProps,
+        clearable: true,
+    },
 };
 
 Filterable.args = {

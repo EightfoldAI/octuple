@@ -1,7 +1,3 @@
-@function strip-units($number) {
-    @return calc($number / ($number * 0 + 1px));
-}
-
 $border-offset: 1px;
 
 // Represents the diameter of the thumb slider
@@ -31,13 +27,7 @@ $small-marker-top: 0;
 // Export values for typescript consumption.
 :export {
     largeThumbDiameter: strip-units($large-slider-height);
-}
-
-:export {
     mediumThumbDiameter: strip-units($medium-slider-height);
-}
-
-:export {
     smallThumbDiameter: strip-units($small-slider-height);
 }
 

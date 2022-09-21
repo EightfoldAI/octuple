@@ -1,3 +1,12 @@
+$input-padding-left: 8px;
+$multi-select-count-offset: 54px;
+
+// Export values for typescript consumption.
+:export {
+    inputPaddingLeft: strip-units($input-padding-left);
+    multiSelectCountOffset: strip-units($multi-select-count-offset);
+}
+
 .select-wrapper {
     font-family: $octuple-font-family;
     position: relative;
