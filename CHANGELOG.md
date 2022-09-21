@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.13.0](https://github.com/EightfoldAI/octuple/compare/v2.12.1...v2.13.0) (2022-09-21)
+
+### Features
+
+-   slider: update to theme two, adds custom labels, and update value on click ([#383](https://github.com/EightfoldAI/octuple/issues/383)) ([f42be3f](https://github.com/EightfoldAI/octuple/commits/f42be3f2049fce75d89b6522e4eecc006adea9b3))
+
+### Bug Fixes
+
+-   link: updates link story layout to account for link style flex removal ([#385](https://github.com/EightfoldAI/octuple/issues/385)) ([14b1e9d](https://github.com/EightfoldAI/octuple/commits/14b1e9dcd414a4f1f065863d50ebba83d7c645cd))
+-   tooltip: adds two props to improve configuration of portal mode ([#382](https://github.com/EightfoldAI/octuple/issues/382)) ([3982c91](https://github.com/EightfoldAI/octuple/commits/3982c912a274332e980a6985749ef2107a4f083e))
+
 ### [2.12.1](https://github.com/EightfoldAI/octuple/compare/v2.12.0...v2.12.1) (2022-09-16)
 
 ### Features
