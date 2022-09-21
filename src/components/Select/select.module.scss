@@ -1,3 +1,12 @@
+$input-padding-horizontal: 8px;
+$multi-select-count-offset: 54px;
+
+// Export values for typescript consumption.
+:export {
+    inputPaddingHorizontal: strip-units($input-padding-horizontal);
+    multiSelectCountOffset: strip-units($multi-select-count-offset);
+}
+
 .select-wrapper {
     font-family: $octuple-font-family;
     position: relative;
@@ -82,6 +91,23 @@
             .multi-select-pill {
                 padding: 2px 12px;
             }
+        }
+    }
+
+    &-rtl {
+        .multi-select-pills {
+            left: $space-xxl;
+            right: $space-xs;
+        }
+
+        .multi-select-pill {
+            margin-left: $space-xs;
+            margin-right: 0;
+        }
+
+        .multi-select-count {
+            margin-left: $space-xs;
+            margin-right: 0;
         }
     }
 }

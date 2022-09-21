@@ -1,3 +1,11 @@
+@mixin rem($properties, $values...) {
+    @include convert($properties, $values...);
+}
+
+@mixin baseline($zoom: 100%) {
+    font-size: _divide($zoom, 16px) * $baseline;
+}
+
 @mixin surface-layout {
     position: fixed;
     top: 0;

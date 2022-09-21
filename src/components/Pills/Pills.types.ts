@@ -3,6 +3,7 @@ import { IconProps } from '../Icon';
 import { OcThemeNames } from '../ConfigProvider';
 import { ButtonProps } from '../Button';
 import { OcBaseProps } from '../OcBase';
+import { ConfigContextProps } from '../ConfigProvider';
 
 export enum PillType {
     default = 'default',
@@ -44,6 +45,15 @@ export interface PillProps extends OcBaseProps<HTMLElement> {
      */
     color?: string;
     /**
+     * Configure how contextual props are consumed
+     */
+    configContextProps?: ConfigContextProps;
+    /**
+     * The pill disabled state
+     * @default false
+     */
+    disabled?: boolean;
+    /**
      * Icon shown before the label
      */
     iconProps?: IconProps;
@@ -66,7 +76,7 @@ export interface PillProps extends OcBaseProps<HTMLElement> {
     pillButtonProps?: pillButtonProps;
     /**
      * Size of the pill
-     * @default PillType.Large
+     * @default PillType.Medium
      */
     size?: PillSize;
     /**
