@@ -105,7 +105,7 @@ export interface RadioGroupProps extends OcBaseProps<HTMLDivElement> {
      */
     items?: RadioButtonProps[];
     /**
-     * The vertical placement of the label
+     * The vertical placement of the label.
      * @default LabelAlign.Center
      */
     labelAlign?: LabelAlign;

@@ -4862,9 +4862,8 @@ exports[`Storyshots Config Provider Theming 1`] = `
     <p
       className="label body2"
     >
-      3
-      /
-      5
+       
+      3/5
     </p>
   </div>
   <span

@@ -7,5 +7,9 @@ export enum LoaderSize {
 }
 
 export interface LoaderProps extends OcBaseProps<HTMLDivElement> {
+    /**
+     * The size of the loader.
+     * @default LoaderSize.Small
+     */
     size?: LoaderSize;
 }
