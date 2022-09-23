@@ -48,6 +48,11 @@ export default {
             ),
         },
     },
+    argTypes: {
+        label: {
+            control: { type: 'text' },
+        },
+    },
 } as ComponentMeta<typeof MatchScore>;
 
 const Default_Story: ComponentStory<typeof MatchScore> = (args) => (
@@ -56,22 +61,26 @@ const Default_Story: ComponentStory<typeof MatchScore> = (args) => (
 
 export const Default = Default_Story.bind({});
 
-const Without_Label_Story: ComponentStory<typeof MatchScore> = (args) => (
-    <MatchScore {...args} />
-);
+export const Custom_Label = Default_Story.bind({});
 
-export const Without_Label = Without_Label_Story.bind({});
+export const Without_Label = Default_Story.bind({});
 
 const matchScoreArgs: Object = {
     classNames: 'my-match-score-class',
     score: 3,
     total: 5,
     hideLabel: false,
+    hideValues: false,
     ariaLabel: 'score',
 };
 
 Default.args = {
     ...matchScoreArgs,
+};
+
+Custom_Label.args = {
+    ...matchScoreArgs,
+    label: 'Score',
 };
 
 Without_Label.args = {

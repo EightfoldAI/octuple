@@ -8,11 +8,13 @@ import { useCanvasDirection } from '../../hooks/useCanvasDirection';
 export const MatchScore: FC<MatchScoreProps> = React.forwardRef(
     (
         {
+            ariaLabel = 'score',
             classNames,
+            hideLabel = false,
+            hideValues = false,
+            label,
             score = 0,
             total = 5,
-            hideLabel = false,
-            ariaLabel = 'score',
             ...rest
         },
         ref: Ref<HTMLDivElement>
@@ -55,7 +57,7 @@ export const MatchScore: FC<MatchScoreProps> = React.forwardRef(
 
                 {!hideLabel && (
                     <p className={matchScoreLabelClasses}>
-                        {absScore}/{absTotal}
+                        {label} {!hideValues && absScore + '/' + absTotal}
                     </p>
                 )}
             </Atom>
