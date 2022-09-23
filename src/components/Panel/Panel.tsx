@@ -12,6 +12,7 @@ import { ButtonShape, NeutralButton } from '../Button';
 import { Portal } from '../Portal';
 import { useScrollLock } from '../../hooks/useScrollLock';
 import { NoFormStyle } from '../Form/Context';
+import { useCanvasDirection } from '../../hooks/useCanvasDirection';
 
 import styles from './panel.module.scss';
 
@@ -63,6 +64,8 @@ export const Panel = React.forwardRef<PanelRef, PanelProps>(
         },
         ref
     ) => {
+        const htmlDir: string = useCanvasDirection();
+
         const panelRef = useRef<HTMLDivElement>(null);
         const containerRef = useRef<HTMLDivElement>(null);
         const parentPanel = useContext<PanelRef>(PanelContext);
@@ -75,6 +78,7 @@ export const Panel = React.forwardRef<PanelRef, PanelProps>(
             { [styles.visible]: visible },
             { [styles.modeless]: overlay === false },
             { [styles.modelessMask]: overlay === false && maskClosable },
+            { [styles.panelBackdropRtl]: htmlDir === 'rtl' },
         ]);
 
         const panelClasses: string = mergeClasses([
@@ -126,7 +130,15 @@ export const Panel = React.forwardRef<PanelRef, PanelProps>(
                         <NeutralButton
                             ariaLabel={'Back'}
                             classNames={styles.headerButton}
-                            iconProps={{ path: headerIcon }}
+                            iconProps={{
+                                path: headerIcon,
+                            }}
+                            style={{
+                                transform:
+                                    htmlDir === 'rtl'
+                                        ? 'rotate(180deg)'
+                                        : 'none',
+                            }}
                             shape={ButtonShape.Round}
                             {...headerButtonProps}
                         />
@@ -187,11 +199,19 @@ export const Panel = React.forwardRef<PanelRef, PanelProps>(
             }
 
             if (['left', 'right'].includes(placement)) {
-                return {
-                    transform: `translateX(${
-                        placement === 'left' ? -distance : distance
-                    }px)`,
-                };
+                if (htmlDir === 'rtl') {
+                    return {
+                        transform: `translateX(${
+                            placement === 'right' ? -distance : distance
+                        }px)`,
+                    };
+                } else {
+                    return {
+                        transform: `translateX(${
+                            placement === 'left' ? -distance : distance
+                        }px)`,
+                    };
+                }
             } else if (['top', 'bottom'].includes(placement)) {
                 return {
                     transform: `translateY(${

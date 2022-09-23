@@ -441,6 +441,62 @@
             cursor: not-allowed;
         }
     }
+
+    &-rtl {
+        .selector-label {
+            &-end {
+                margin-left: 0;
+                margin-right: $space-xs;
+            }
+
+            &-start {
+                margin-left: $space-xs;
+                margin-right: 0;
+            }
+        }
+
+        &-large {
+            .selector-label {
+                &-end {
+                    margin-left: 0;
+                    margin-right: $space-m;
+                }
+
+                &-start {
+                    margin-left: $space-m;
+                    margin-right: 0;
+                }
+            }
+        }
+
+        &-medium {
+            .selector-label {
+                &-end {
+                    margin-left: 0;
+                    margin-right: $space-xs;
+                }
+
+                &-start {
+                    margin-left: $space-xs;
+                    margin-right: 0;
+                }
+            }
+        }
+
+        &-small {
+            .selector-label {
+                &-end {
+                    margin-left: 0;
+                    margin-right: $space-xxs;
+                }
+
+                &-start {
+                    margin-left: $space-xxs;
+                    margin-right: 0;
+                }
+            }
+        }
+    }
 }
 
 :global(.focus-visible) {

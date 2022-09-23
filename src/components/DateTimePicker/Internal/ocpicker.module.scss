@@ -6,10 +6,6 @@
     display: inline-flex;
     font-family: $octuple-font-family;
 
-    &-rtl {
-        direction: rtl;
-    }
-
     // Picker default styles are of size medium.
     &-body {
         padding: 8px 16px 8px 16px;
@@ -99,10 +95,6 @@
 
         &-focused {
             border-color: $focus-visible-shadow-color;
-        }
-
-        &-rtl {
-            direction: rtl;
         }
     }
 
@@ -565,11 +557,6 @@
             }
         }
 
-        .picker-cell,
-        .picker-cell-inner {
-            width: 20px;
-        }
-
         .picker-cell-week {
             color: $picker-foreground-color;
             font-weight: $text-font-weight-bold;
@@ -735,12 +722,6 @@
 
         .picker-cell-week {
             font-size: $picker-font-size-s;
-        }
-    }
-
-    &-date-partial {
-        .picker-cell-inner {
-            width: 20px;
         }
     }
 
@@ -920,10 +901,6 @@
         align-items: center;
         width: 100%;
 
-        .picker-rtl {
-            text-align: right;
-        }
-
         input {
             @include placeholder();
 
@@ -1081,11 +1058,6 @@
             vertical-align: top;
         }
 
-        .picker-rtl {
-            right: auto;
-            left: 4px;
-        }
-
         &-btn:after {
             content: '×';
         }
@@ -1130,13 +1102,6 @@
             margin-left: 10px;
             transition: all 0.3s;
 
-            .picker-dropdown-rtl {
-                right: $picker-arrow-size;
-                left: auto;
-                margin-right: 10px;
-                margin-left: 0;
-            }
-
             &:before,
             &:after {
                 position: absolute;
@@ -1145,12 +1110,6 @@
                 box-sizing: border-box;
                 transform: translate(-50%, -50%);
                 content: '';
-
-                .picker-dropdown-rtl {
-                    right: 50%;
-                    left: auto;
-                    transform: translate(50%, -50%);
-                }
             }
 
             &:before {
@@ -1258,6 +1217,354 @@
 
             &-focused {
                 border-color: $picker-border-color;
+            }
+        }
+    }
+
+    &-rtl {
+        direction: rtl;
+
+        .picker-clear {
+            left: 0;
+            right: unset;
+        }
+
+        &.picker-range {
+            .picker-clear {
+                left: $picker-input-padding-horizontal-l;
+                right: unset;
+            }
+        }
+
+        .picker-dropdown {
+            .picker-range-arrow {
+                right: $picker-arrow-size;
+                left: unset;
+                margin-right: 10px;
+                margin-left: 0;
+
+                &:before,
+                &:after {
+                    right: 50%;
+                    left: auto;
+                    transform: translate(50%, -50%);
+                }
+            }
+        }
+    }
+
+    &-partial-rtl {
+        direction: rtl;
+
+        .picker-datetime-partial {
+            .picker-time-partial {
+                border-left: none;
+                border-right: $picker-border;
+            }
+        }
+
+        .picker-ok {
+            float: left;
+        }
+
+        .picker-cell {
+            height: $picker-cell-height-m;
+            width: $picker-cell-width-m;
+
+            &-inner {
+                height: $picker-cell-height-m;
+                width: $picker-cell-width-m;
+            }
+
+            &-range-start:not(&-range-hover),
+            &-range-hover-start {
+                border-bottom-left-radius: 0;
+                border-top-left-radius: 0;
+                border-bottom-right-radius: $picker-cell-border-radius-m;
+                border-top-right-radius: $picker-cell-border-radius-m;
+            }
+
+            &-range-end:not(&-range-hover),
+            &-range-hover-end {
+                border-bottom-left-radius: $picker-cell-border-radius-m;
+                border-top-left-radius: $picker-cell-border-radius-m;
+                border-bottom-right-radius: 0;
+                border-top-right-radius: 0;
+            }
+        }
+
+        &.picker-large .picker-cell {
+            height: $picker-cell-height-l;
+            width: $picker-cell-width-l;
+
+            &-inner {
+                height: $picker-cell-height-l;
+                width: $picker-cell-width-l;
+            }
+
+            &-range-start:not(&-range-hover),
+            &-range-hover-start {
+                border-bottom-left-radius: 0;
+                border-top-left-radius: 0;
+                border-bottom-right-radius: $picker-cell-border-radius-l;
+                border-top-right-radius: $picker-cell-border-radius-l;
+            }
+            &-range-end:not(&-range-hover),
+            &-range-hover-end {
+                border-bottom-left-radius: $picker-cell-border-radius-l;
+                border-top-left-radius: $picker-cell-border-radius-l;
+                border-bottom-right-radius: 0;
+                border-top-right-radius: 0;
+            }
+        }
+
+        &.picker-medium .picker-cell {
+            height: $picker-cell-height-m;
+            width: $picker-cell-width-m;
+
+            &-inner {
+                height: $picker-cell-height-m;
+                width: $picker-cell-width-m;
+            }
+
+            &-range-start:not(&-range-hover),
+            &-range-hover-start {
+                border-bottom-left-radius: 0;
+                border-top-left-radius: 0;
+                border-bottom-right-radius: $picker-cell-border-radius-m;
+                border-top-right-radius: $picker-cell-border-radius-m;
+            }
+            &-range-end:not(&-range-hover),
+            &-range-hover-end {
+                border-bottom-left-radius: $picker-cell-border-radius-m;
+                border-top-left-radius: $picker-cell-border-radius-m;
+                border-bottom-right-radius: 0;
+                border-top-right-radius: 0;
+            }
+        }
+
+        &.picker-small .picker-cell {
+            height: $picker-cell-height-s;
+            width: $picker-cell-width-s;
+
+            &-inner {
+                height: $picker-cell-height-s;
+                width: $picker-cell-width-s;
+            }
+
+            &-range-start:not(&-range-hover),
+            &-range-hover-start {
+                border-bottom-left-radius: 0;
+                border-top-left-radius: 0;
+                border-bottom-right-radius: $picker-cell-border-radius-s;
+                border-top-right-radius: $picker-cell-border-radius-s;
+            }
+            &-range-end:not(&-range-hover),
+            &-range-hover-end {
+                border-bottom-left-radius: $picker-cell-border-radius-s;
+                border-top-left-radius: $picker-cell-border-radius-s;
+                border-bottom-right-radius: 0;
+                border-top-right-radius: 0;
+            }
+        }
+
+        .picker-week-partial {
+            &-row {
+                &:hover {
+                    .picker-cell:not(:first-of-type):not(:last-of-type) {
+                        border-bottom-left-radius: 0;
+                        border-top-left-radius: 0;
+                        border-bottom-right-radius: 0;
+                        border-top-right-radius: 0;
+                    }
+
+                    .picker-cell:first-of-type {
+                        border-bottom-left-radius: 0;
+                        border-top-left-radius: 0;
+                        border-bottom-right-radius: $picker-cell-border-radius-m;
+                        border-top-right-radius: $picker-cell-border-radius-m;
+                    }
+
+                    .picker-cell:last-of-type {
+                        border-bottom-left-radius: $picker-cell-border-radius-m;
+                        border-top-left-radius: $picker-cell-border-radius-m;
+                        border-bottom-right-radius: 0;
+                        border-top-right-radius: 0;
+                    }
+                }
+
+                &-selected {
+                    .picker-cell:not(:first-of-type):not(:last-of-type) {
+                        border-bottom-left-radius: 0;
+                        border-top-left-radius: 0;
+                        border-bottom-right-radius: 0;
+                        border-top-right-radius: 0;
+                    }
+
+                    .picker-cell:first-of-type {
+                        border-bottom-left-radius: 0;
+                        border-top-left-radius: 0;
+                        border-bottom-right-radius: $picker-cell-border-radius-m;
+                        border-top-right-radius: $picker-cell-border-radius-m;
+                    }
+
+                    .picker-cell:last-of-type {
+                        border-bottom-left-radius: $picker-cell-border-radius-m;
+                        border-top-left-radius: $picker-cell-border-radius-m;
+                        border-bottom-right-radius: 0;
+                        border-top-right-radius: 0;
+                    }
+                }
+            }
+        }
+
+        &.picker-large .picker-week-partial {
+            &-row {
+                &:hover {
+                    .picker-cell:not(:first-of-type):not(:last-of-type) {
+                        border-bottom-left-radius: 0;
+                        border-top-left-radius: 0;
+                        border-bottom-right-radius: 0;
+                        border-top-right-radius: 0;
+                    }
+
+                    .picker-cell:first-of-type {
+                        border-bottom-left-radius: 0;
+                        border-top-left-radius: 0;
+                        border-bottom-right-radius: $picker-cell-border-radius-l;
+                        border-top-right-radius: $picker-cell-border-radius-l;
+                    }
+
+                    .picker-cell:last-of-type {
+                        border-bottom-left-radius: $picker-cell-border-radius-l;
+                        border-top-left-radius: $picker-cell-border-radius-l;
+                        border-bottom-right-radius: 0;
+                        border-top-right-radius: 0;
+                    }
+                }
+
+                &-selected {
+                    .picker-cell:not(:first-of-type):not(:last-of-type) {
+                        border-bottom-left-radius: 0;
+                        border-top-left-radius: 0;
+                        border-bottom-right-radius: 0;
+                        border-top-right-radius: 0;
+                    }
+
+                    .picker-cell:first-of-type {
+                        border-bottom-left-radius: 0;
+                        border-top-left-radius: 0;
+                        border-bottom-right-radius: $picker-cell-border-radius-l;
+                        border-top-right-radius: $picker-cell-border-radius-l;
+                    }
+
+                    .picker-cell:last-of-type {
+                        border-bottom-left-radius: $picker-cell-border-radius-l;
+                        border-top-left-radius: $picker-cell-border-radius-l;
+                        border-bottom-right-radius: 0;
+                        border-top-right-radius: 0;
+                    }
+                }
+            }
+        }
+
+        &.picker-medium .picker-week-partial {
+            &-row {
+                &:hover {
+                    .picker-cell:not(:first-of-type):not(:last-of-type) {
+                        border-bottom-left-radius: 0;
+                        border-top-left-radius: 0;
+                        border-bottom-right-radius: 0;
+                        border-top-right-radius: 0;
+                    }
+
+                    .picker-cell:first-of-type {
+                        border-bottom-left-radius: 0;
+                        border-top-left-radius: 0;
+                        border-bottom-right-radius: $picker-cell-border-radius-m;
+                        border-top-right-radius: $picker-cell-border-radius-m;
+                    }
+
+                    .picker-cell:last-of-type {
+                        border-bottom-left-radius: $picker-cell-border-radius-m;
+                        border-top-left-radius: $picker-cell-border-radius-m;
+                        border-bottom-right-radius: 0;
+                        border-top-right-radius: 0;
+                    }
+                }
+
+                &-selected {
+                    .picker-cell:not(:first-of-type):not(:last-of-type) {
+                        border-bottom-left-radius: 0;
+                        border-top-left-radius: 0;
+                        border-bottom-right-radius: 0;
+                        border-top-right-radius: 0;
+                    }
+
+                    .picker-cell:first-of-type {
+                        border-bottom-left-radius: 0;
+                        border-top-left-radius: 0;
+                        border-bottom-right-radius: $picker-cell-border-radius-m;
+                        border-top-right-radius: $picker-cell-border-radius-m;
+                    }
+
+                    .picker-cell:last-of-type {
+                        border-bottom-left-radius: $picker-cell-border-radius-m;
+                        border-top-left-radius: $picker-cell-border-radius-m;
+                        border-bottom-right-radius: 0;
+                        border-top-right-radius: 0;
+                    }
+                }
+            }
+        }
+
+        &.picker-small .picker-week-partial {
+            &-row {
+                &:hover {
+                    .picker-cell:not(:first-of-type):not(:last-of-type) {
+                        border-bottom-left-radius: 0;
+                        border-top-left-radius: 0;
+                        border-bottom-right-radius: 0;
+                        border-top-right-radius: 0;
+                    }
+
+                    .picker-cell:first-of-type {
+                        border-bottom-left-radius: 0;
+                        border-top-left-radius: 0;
+                        border-bottom-right-radius: $picker-cell-border-radius-s;
+                        border-top-right-radius: $picker-cell-border-radius-s;
+                    }
+
+                    .picker-cell:last-of-type {
+                        border-bottom-left-radius: $picker-cell-border-radius-s;
+                        border-top-left-radius: $picker-cell-border-radius-s;
+                        border-bottom-right-radius: 0;
+                        border-top-right-radius: 0;
+                    }
+                }
+
+                &-selected {
+                    .picker-cell:not(:first-of-type):not(:last-of-type) {
+                        border-bottom-left-radius: 0;
+                        border-top-left-radius: 0;
+                        border-bottom-right-radius: 0;
+                        border-top-right-radius: 0;
+                    }
+
+                    .picker-cell:first-of-type {
+                        border-bottom-left-radius: 0;
+                        border-top-left-radius: 0;
+                        border-bottom-right-radius: $picker-cell-border-radius-s;
+                        border-top-right-radius: $picker-cell-border-radius-s;
+                    }
+
+                    .picker-cell:last-of-type {
+                        border-bottom-left-radius: $picker-cell-border-radius-s;
+                        border-top-left-radius: $picker-cell-border-radius-s;
+                        border-bottom-right-radius: 0;
+                        border-top-right-radius: 0;
+                    }
+                }
             }
         }
     }

@@ -23,6 +23,7 @@ import {
     uniqueId,
 } from '../../../shared/utilities';
 import { Breakpoints, useMatchMedia } from '../../../hooks/useMatchMedia';
+import { useCanvasDirection } from '../../../hooks/useCanvasDirection';
 
 import styles from '../input.module.scss';
 
@@ -76,6 +77,8 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
         const mediumScreenActive: boolean = useMatchMedia(Breakpoints.Medium);
         const smallScreenActive: boolean = useMatchMedia(Breakpoints.Small);
         const xSmallScreenActive: boolean = useMatchMedia(Breakpoints.XSmall);
+
+        const htmlDir: string = useCanvasDirection();
 
         const [inputValue, setInputValue] = useState(value);
 
@@ -266,6 +269,7 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
             {
                 [styles.disabled]: allowDisabledFocus || mergedDisabled,
             },
+            { [styles.inputWrapperRtl]: htmlDir === 'rtl' },
             { ['in-form-item']: mergedFormItemInput },
         ]);
 

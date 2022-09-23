@@ -13,6 +13,7 @@ import {
 import { Icon, IconName, IconSize } from '../../Icon';
 import { Breakpoints, useMatchMedia } from '../../../hooks/useMatchMedia';
 import { mergeClasses } from '../../../shared/utilities';
+import { useCanvasDirection } from '../../../hooks/useCanvasDirection';
 
 import styles from '../button.module.scss';
 
@@ -47,6 +48,8 @@ export const SplitButton: FC<SplitButtonProps> = React.forwardRef(
         const mediumScreenActive: boolean = useMatchMedia(Breakpoints.Medium);
         const smallScreenActive: boolean = useMatchMedia(Breakpoints.Small);
         const xSmallScreenActive: boolean = useMatchMedia(Breakpoints.XSmall);
+
+        const htmlDir: string = useCanvasDirection();
 
         const contextuallyDisabled: Disabled = useContext(DisabledContext);
         const mergedDisabled: boolean = configContextProps.noDisabledContext
@@ -181,11 +184,19 @@ export const SplitButton: FC<SplitButtonProps> = React.forwardRef(
                 style={style}
                 type="button"
             >
+                {htmlDir === 'rtl' && (
+                    <span
+                        className={splitDividerClassNames}
+                        aria-hidden="true"
+                    ></span>
+                )}
                 {getButtonIcon()}
-                <span
-                    className={splitDividerClassNames}
-                    aria-hidden="true"
-                ></span>
+                {htmlDir !== 'rtl' && (
+                    <span
+                        className={splitDividerClassNames}
+                        aria-hidden="true"
+                    ></span>
+                )}
             </button>
         );
     }

@@ -190,6 +190,7 @@ export const Pagination: FC<PaginationProps> = React.forwardRef(
             classNames,
             styles.pagination,
             { [styles.dots]: dots },
+            { [styles.paginationRtl]: htmlDir === 'rtl' },
         ]);
 
         return (
@@ -204,7 +205,6 @@ export const Pagination: FC<PaginationProps> = React.forwardRef(
                         {layout.includes(PaginationLayoutOptions.Sizes) &&
                             moreThanOnePage && (
                                 <span className={styles.sizes} key="sizes">
-                                    {/** TODO: Replace with Select component when available */}
                                     <Dropdown
                                         overlay={Overlay(_pageSizes)}
                                         onVisibleChange={setToggle}
@@ -220,8 +220,8 @@ export const Pagination: FC<PaginationProps> = React.forwardRef(
                                             iconProps={{
                                                 role: 'presentation',
                                                 path: _toggle
-                                                    ? IconName.mdiChevronDown
-                                                    : IconName.mdiChevronUp,
+                                                    ? IconName.mdiChevronUp
+                                                    : IconName.mdiChevronDown,
                                             }}
                                             size={ButtonSize.Medium}
                                             text={
@@ -256,7 +256,10 @@ export const Pagination: FC<PaginationProps> = React.forwardRef(
                                     disabled={_currentPage <= 1}
                                     iconProps={{
                                         role: 'presentation',
-                                        path: IconName.mdiChevronLeft,
+                                        path:
+                                            htmlDir === 'rtl'
+                                                ? IconName.mdiChevronRight
+                                                : IconName.mdiChevronLeft,
                                     }}
                                     onClick={previous}
                                     size={ButtonSize.Medium}
@@ -307,7 +310,10 @@ export const Pagination: FC<PaginationProps> = React.forwardRef(
                                     }
                                     iconProps={{
                                         role: 'presentation',
-                                        path: IconName.mdiChevronRight,
+                                        path:
+                                            htmlDir === 'rtl'
+                                                ? IconName.mdiChevronLeft
+                                                : IconName.mdiChevronRight,
                                     }}
                                     onClick={() => next()}
                                     size={ButtonSize.Medium}
@@ -316,7 +322,7 @@ export const Pagination: FC<PaginationProps> = React.forwardRef(
                         {layout.includes(PaginationLayoutOptions.Jumper) &&
                             moreThanOnePage && (
                                 <span className={styles.jump} key="jumper">
-                                    {htmlDir === 'ltr' && goToText}
+                                    {goToText}
                                     <TextInput
                                         ref={inputRef}
                                         classNames={styles.editor}
@@ -332,7 +338,6 @@ export const Pagination: FC<PaginationProps> = React.forwardRef(
                                         }
                                         onChange={handleJumpOnChange}
                                     />
-                                    {htmlDir === 'rtl' && goToText}
                                 </span>
                             )}
                     </>

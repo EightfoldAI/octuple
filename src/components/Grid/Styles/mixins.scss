@@ -7,12 +7,27 @@
         }
         .col#{$class}-push-#{$index} {
             left: percentage(calc($index / $grid-columns));
+
+            &.col-rtl {
+                right: percentage(calc($index / $grid-columns));
+                left: auto;
+            }
         }
         .col#{$class}-pull-#{$index} {
             right: percentage(calc($index / $grid-columns));
+
+            &.col-rtl {
+                right: auto;
+                left: percentage(calc($index / $grid-columns));
+            }
         }
         .col#{$class}-offset-#{$index} {
             margin-left: percentage(calc($index / $grid-columns));
+
+            &.col-rtl {
+                margin-right: percentage(calc($index / $grid-columns));
+                margin-left: 0;
+            }
         }
         .col#{$class}-order-#{$index} {
             order: $index;
@@ -26,18 +41,38 @@
         }
         .col-push-#{$index} {
             left: auto;
+
+            &.col-rtl {
+                right: auto;
+            }
         }
         .col-pull-#{$index} {
             right: auto;
+
+            &.col-rtl {
+                left: auto;
+            }
         }
         .col#{$class}-push-#{$index} {
             left: auto;
+
+            &.col-rtl {
+                right: auto;
+            }
         }
         .col#{$class}-pull-#{$index} {
             right: auto;
+
+            &.col-rtl {
+                left: auto;
+            }
         }
         .col#{$class}-offset-#{$index} {
             margin-left: 0;
+
+            &.col-rtl {
+                margin-right: 0;
+            }
         }
         .col#{$class}-order-#{$index} {
             order: 0;

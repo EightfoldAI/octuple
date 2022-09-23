@@ -536,6 +536,132 @@
     }
 }
 
+.button-rtl {
+    .icon + .button-text-large:not(:empty) {
+        margin-left: 0;
+        margin-right: $button-spacer-large;
+    }
+
+    .icon + .button-text-medium:not(:empty) {
+        margin-left: 0;
+        margin-right: $button-spacer-medium;
+    }
+
+    .icon + .button-text-small:not(:empty) {
+        margin-left: 0;
+        margin-right: $button-spacer-small;
+    }
+
+    &.split-left {
+        border-bottom-left-radius: 0;
+        border-top-left-radius: 0;
+        border-bottom-right-radius: $corner-radius-s;
+        border-top-right-radius: $corner-radius-s;
+
+        &.pill-shape {
+            border-bottom-right-radius: $corner-radius-xl;
+            border-top-right-radius: $corner-radius-xl;
+        }
+
+        .button-text-large {
+            &.counter {
+                margin-left: 0;
+                margin-right: $space-xs;
+            }
+        }
+
+        .button-text-medium {
+            &.counter {
+                margin-left: 0;
+                margin-right: $space-xs;
+            }
+        }
+
+        .button-text-small {
+            &.counter {
+                margin-left: 0;
+                margin-right: $space-xxs;
+            }
+        }
+    }
+
+    &.split-right {
+        border-bottom-left-radius: $corner-radius-s;
+        border-top-left-radius: $corner-radius-s;
+        border-bottom-right-radius: 0;
+        border-top-right-radius: 0;
+
+        &.pill-shape {
+            border-bottom-left-radius: $corner-radius-xl;
+            border-top-left-radius: $corner-radius-xl;
+        }
+
+        .button-text-large {
+            &.counter {
+                margin-left: $space-xs;
+                margin-right: 0;
+            }
+        }
+
+        .button-text-medium {
+            &.counter {
+                margin-left: $space-xs;
+                margin-right: 0;
+            }
+        }
+
+        .button-text-small {
+            &.counter {
+                margin-left: $space-xxs;
+                margin-right: 0;
+            }
+        }
+    }
+
+    &.split-button {
+        .split-divider-large {
+            left: 50px;
+            right: unset;
+        }
+
+        .split-divider-medium {
+            left: 42px;
+            right: unset;
+        }
+
+        .split-divider-small {
+            left: 34px;
+            right: unset;
+        }
+    }
+
+    &.floating {
+        left: 40px;
+        right: unset;
+    }
+
+    .button-text-large {
+        &.counter {
+            margin-left: 0;
+            margin-right: $space-xs;
+        }
+    }
+
+    .button-text-medium {
+        &.counter {
+            margin-left: 0;
+            margin-right: $space-xs;
+        }
+    }
+
+    .button-text-small {
+        &.counter {
+            margin-left: 0;
+            margin-right: $space-xxs;
+        }
+    }
+}
+
 :global(.focus-visible) {
     .button {
         &.focus-visible,

@@ -5,6 +5,7 @@ import { generateId, mergeClasses } from '../../shared/utilities';
 import { CheckboxProps, LabelAlign, LabelPosition, SelectorSize } from './';
 import { Breakpoints, useMatchMedia } from '../../hooks/useMatchMedia';
 import { FormItemInputContext } from '../Form/Context';
+import { useCanvasDirection } from '../../hooks/useCanvasDirection';
 
 import styles from './checkbox.module.scss';
 
@@ -40,6 +41,8 @@ export const CheckBox: FC<CheckboxProps> = React.forwardRef(
         const mediumScreenActive: boolean = useMatchMedia(Breakpoints.Medium);
         const smallScreenActive: boolean = useMatchMedia(Breakpoints.Small);
         const xSmallScreenActive: boolean = useMatchMedia(Breakpoints.XSmall);
+
+        const htmlDir: string = useCanvasDirection();
 
         const checkBoxId = useRef<string>(id || generateId());
         const [isChecked, setIsChecked] = useState<boolean>(
@@ -86,6 +89,7 @@ export const CheckBox: FC<CheckboxProps> = React.forwardRef(
             { [styles.selectorSmall]: mergedSize === SelectorSize.Small },
             classNames,
             { [styles.disabled]: allowDisabledFocus || mergedDisabled },
+            { [styles.selectorRtl]: htmlDir === 'rtl' },
             { ['in-form-item']: mergedFormItemInput },
         ]);
 
