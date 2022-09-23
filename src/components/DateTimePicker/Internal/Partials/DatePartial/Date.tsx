@@ -74,7 +74,7 @@ function DatePartial<DateType>(props: DatePartialProps<DateType>) {
     return (
         <div
             className={mergeClasses([
-                `picker-${partialName}-partial`,
+                (styles as any)[`picker-${partialName}-partial`],
                 { [styles.pickerDatePartialActive]: active },
             ])}
         >

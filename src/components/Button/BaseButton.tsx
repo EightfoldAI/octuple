@@ -15,6 +15,7 @@ import { Badge } from '../Badge';
 import { Breakpoints, useMatchMedia } from '../../hooks/useMatchMedia';
 import { mergeClasses } from '../../shared/utilities';
 import { Loader, LoaderSize } from '../Loader';
+import { useCanvasDirection } from '../../hooks/useCanvasDirection';
 
 import styles from './button.module.scss';
 
@@ -61,6 +62,8 @@ export const BaseButton: FC<InternalButtonProps> = React.forwardRef(
         const smallScreenActive: boolean = useMatchMedia(Breakpoints.Small);
         const xSmallScreenActive: boolean = useMatchMedia(Breakpoints.XSmall);
 
+        const htmlDir: string = useCanvasDirection();
+
         const contextuallyDisabled: Disabled = useContext(DisabledContext);
         const mergedDisabled: boolean = configContextProps.noDisabledContext
             ? disabled
@@ -103,6 +106,7 @@ export const BaseButton: FC<InternalButtonProps> = React.forwardRef(
             },
             { [styles.dropShadow]: dropShadow },
             { [styles.floating]: floatingButtonProps?.enabled },
+            { [styles.buttonRtl]: htmlDir === 'rtl' },
         ]);
 
         const buttonBaseClassNames: string = mergeClasses([

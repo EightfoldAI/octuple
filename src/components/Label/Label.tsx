@@ -52,6 +52,7 @@ export const Label: FC<LabelProps> = ({
         {
             [styles.inline]: inline,
         },
+        { [styles.fieldLabelRtl]: htmlDir === 'rtl' },
         sizeClassNames,
         classNames,
     ]);

@@ -69,13 +69,14 @@
             vertical-align: top;
             cursor: pointer;
         }
+        // TODO: Replace with Octuple checkbox
         span {
             &.tree-switcher,
             &.tree-checkbox,
             &.tree-iconEle {
                 display: inline-block;
-                width: 16px;
-                height: 16px;
+                width: 14px;
+                height: 14px;
                 margin-right: 2px;
                 line-height: 16px;
                 vertical-align: -0.125em;

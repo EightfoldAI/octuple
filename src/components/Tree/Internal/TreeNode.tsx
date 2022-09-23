@@ -348,9 +348,11 @@ class InternalTreeNode extends React.Component<
 
         const switcherCls = mergeClasses([
             styles.treeSwitcher,
-            `tree-switcher_${
-                expanded ? TREE_NODE_ICON_OPEN : TREE_NODE_ICON_CLOSE
-            }`,
+            (styles as any)[
+                `tree-switcher_${
+                    expanded ? TREE_NODE_ICON_OPEN : TREE_NODE_ICON_CLOSE
+                }`
+            ],
         ]);
 
         const switcherIconDom = this.renderSwitcherIconDom(false);

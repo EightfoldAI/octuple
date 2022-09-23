@@ -141,4 +141,23 @@
         cursor: not-allowed;
         opacity: $disabled-alpha-value;
     }
+
+    &-rtl {
+        .button,
+        .close-button {
+            margin: 0 $space-xxs 0 0;
+        }
+
+        .label + .button:not(:empty) {
+            border-left: unset;
+            padding-left: unset;
+            border-right: 1px solid var(--label);
+            padding-right: $space-xxs;
+        }
+
+        .icon {
+            margin-left: $space-xxs;
+            margin-right: unset;
+        }
+    }
 }

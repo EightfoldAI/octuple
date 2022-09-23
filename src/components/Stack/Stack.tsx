@@ -4,6 +4,7 @@ import { mergeClasses } from '../../shared/utilities';
 import { StackBreakpoint, StackProps } from './Stack.types';
 import { useMatchMedia } from '../../octuple';
 import { Breakpoints } from '../../hooks/useMatchMedia';
+import { useCanvasDirection } from '../../hooks/useCanvasDirection';
 
 export const Stack: FC<StackProps> = React.forwardRef(
     (
@@ -27,6 +28,9 @@ export const Stack: FC<StackProps> = React.forwardRef(
         const smallScreenActive: boolean = useMatchMedia(Breakpoints.Small);
         const mediumScreenActive: boolean = useMatchMedia(Breakpoints.Medium);
         const largeScreenActive: boolean = useMatchMedia(Breakpoints.Large);
+
+        const htmlDir: string = useCanvasDirection();
+
         const breakPointConfigurationList: Array<[StackBreakpoint, boolean]> = [
             ['large', largeScreenActive],
             ['medium', mediumScreenActive],
@@ -71,6 +75,7 @@ export const Stack: FC<StackProps> = React.forwardRef(
             { [styles.fullWidth]: fullWidth },
             { [styles.vertical]: direction === 'vertical' },
             { [styles.horizontal]: direction === 'horizontal' },
+            { [styles.stackRtl]: htmlDir === 'rtl' },
             styles[gap],
         ]);
 

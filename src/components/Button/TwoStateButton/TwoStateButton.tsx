@@ -14,6 +14,7 @@ import { Badge } from '../../Badge';
 import { Icon, IconSize } from '../../Icon';
 import { Breakpoints, useMatchMedia } from '../../../hooks/useMatchMedia';
 import { mergeClasses } from '../../../shared/utilities';
+import { useCanvasDirection } from '../../../hooks/useCanvasDirection';
 
 import styles from '../button.module.scss';
 
@@ -52,6 +53,8 @@ export const TwoStateButton: FC<TwoStateButtonProps> = React.forwardRef(
         const mediumScreenActive: boolean = useMatchMedia(Breakpoints.Medium);
         const smallScreenActive: boolean = useMatchMedia(Breakpoints.Small);
         const xSmallScreenActive: boolean = useMatchMedia(Breakpoints.XSmall);
+
+        const htmlDir: string = useCanvasDirection();
 
         const contextuallyDisabled: Disabled = useContext(DisabledContext);
         const mergedDisabled: boolean = configContextProps.noDisabledContext
@@ -98,6 +101,7 @@ export const TwoStateButton: FC<TwoStateButtonProps> = React.forwardRef(
             { [styles.left]: alignText === ButtonTextAlign.Left },
             { [styles.right]: alignText === ButtonTextAlign.Right },
             { [styles.disabled]: allowDisabledFocus || mergedDisabled },
+            { [styles.buttonRtl]: htmlDir === 'rtl' },
         ]);
 
         const buttonTextClassNames: string = mergeClasses([

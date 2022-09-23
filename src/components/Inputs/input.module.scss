@@ -75,29 +75,38 @@
         }
 
         &.with-icon-and-icon-button {
-            padding: $space-xs $space-xxl $space-xs 74px;
+            padding: $space-xs $space-xxl $space-xs
+                $input-padding-medium-with-icon-and-icon-button;
 
             &.left-icon {
-                padding: $space-xs $space-xxl $space-xs 74px;
+                padding: $space-xs $space-xxl $space-xs
+                    $input-padding-medium-with-icon-and-icon-button;
             }
 
             &.right-icon {
-                padding: $space-xs 74px $space-xs $space-xxl;
+                padding: $space-xs
+                    $input-padding-medium-with-icon-and-icon-button $space-xs
+                    $space-xxl;
             }
 
             &.clear-disabled {
                 &.left-icon {
-                    padding: $space-xs $space-xs $space-xs 74px;
+                    padding: $space-xs $space-xs $space-xs
+                        $input-padding-medium-with-icon-and-icon-button;
                 }
 
                 &.right-icon {
-                    padding: $space-xs 74px $space-xs $space-xs;
+                    padding: $space-xs
+                        $input-padding-medium-with-icon-and-icon-button
+                        $space-xs $space-xs;
                 }
             }
 
             &.clear-not-visible {
                 &.right-icon {
-                    padding: $space-xs 74px $space-xs $space-xs;
+                    padding: $space-xs
+                        $input-padding-medium-with-icon-and-icon-button
+                        $space-xs $space-xs;
                 }
             }
         }
@@ -213,29 +222,38 @@
         }
 
         &.pill-shape-with-icon-and-icon-button {
-            padding: $space-xs $space-xl $space-xs 74px;
+            padding: $space-xs $space-xl $space-xs
+                $input-padding-medium-with-icon-and-icon-button;
 
             &.left-icon {
-                padding: $space-xs $space-xl $space-xs 74px;
+                padding: $space-xs $space-xl $space-xs
+                    $input-padding-medium-with-icon-and-icon-button;
             }
 
             &.right-icon {
-                padding: $space-xs 74px $space-xs $space-xl;
+                padding: $space-xs
+                    $input-padding-medium-with-icon-and-icon-button $space-xs
+                    $space-xl;
             }
 
             &.clear-disabled {
                 &.left-icon {
-                    padding: $space-xs $space-xs $space-xs 74px;
+                    padding: $space-xs $space-xs $space-xs
+                        $input-padding-medium-with-icon-and-icon-button;
                 }
 
                 &.right-icon {
-                    padding: $space-xs 74px $space-xs $space-xs;
+                    padding: $space-xs
+                        $input-padding-medium-with-icon-and-icon-button
+                        $space-xs $space-xs;
                 }
             }
 
             &.clear-not-visible {
                 &.right-icon {
-                    padding: $space-xs 74px $space-xs $space-xs;
+                    padding: $space-xs
+                        $input-padding-medium-with-icon-and-icon-button
+                        $space-xs $space-xs;
                 }
             }
         }
@@ -341,57 +359,72 @@
             &.with-icon,
             &.with-image-icon,
             &.with-icon-button {
-                padding: $space-xs $space-xxl $space-xs 48px;
+                padding: $space-xs $space-xxl $space-xs
+                    $input-padding-large-with-icon;
 
                 &.left-icon {
-                    padding: $space-xs $space-xxl $space-xs 48px;
+                    padding: $space-xs $space-xxl $space-xs
+                        $input-padding-large-with-icon;
                 }
 
                 &.right-icon {
-                    padding: $space-xs 48px $space-xs $space-xxl;
+                    padding: $space-xs $input-padding-large-with-icon $space-xs
+                        $space-xxl;
                 }
 
                 &.clear-disabled {
                     &.left-icon {
-                        padding: $space-xs $space-xs $space-xs 48px;
+                        padding: $space-xs $space-xs $space-xs
+                            $input-padding-large-with-icon;
                     }
 
                     &.right-icon {
-                        padding: $space-xs 48px $space-xs $space-xs;
+                        padding: $space-xs $input-padding-large-with-icon
+                            $space-xs $space-xs;
                     }
                 }
 
                 &.clear-not-visible {
                     &.right-icon {
-                        padding: $space-xs 48px $space-xs $space-xs;
+                        padding: $space-xs $input-padding-large-with-icon
+                            $space-xs $space-xs;
                     }
                 }
             }
 
             &.with-icon-and-icon-button {
-                padding: $space-xs $space-xxl $space-xs 84px;
+                padding: $space-xs $space-xxl $space-xs
+                    $input-padding-large-with-icon-and-icon-button;
 
                 &.left-icon {
-                    padding: $space-xs $space-xxl $space-xs 84px;
+                    padding: $space-xs $space-xxl $space-xs
+                        $input-padding-large-with-icon-and-icon-button;
                 }
 
                 &.right-icon {
-                    padding: $space-xs 84px $space-xs $space-xxl;
+                    padding: $space-xs
+                        $input-padding-large-with-icon-and-icon-button $space-xs
+                        $space-xxl;
                 }
 
                 &.clear-disabled {
                     &.left-icon {
-                        padding: $space-xs $space-xs $space-xs 84px;
+                        padding: $space-xs $space-xs $space-xs
+                            $input-padding-large-with-icon-and-icon-button;
                     }
 
                     &.right-icon {
-                        padding: $space-xs 84px $space-xs $space-xs;
+                        padding: $space-xs
+                            $input-padding-large-with-icon-and-icon-button
+                            $space-xs $space-xs;
                     }
                 }
 
                 &.clear-not-visible {
                     &.right-icon {
-                        padding: $space-xs 84px $space-xs $space-xs;
+                        padding: $space-xs
+                            $input-padding-large-with-icon-and-icon-button
+                            $space-xs $space-xs;
                     }
                 }
             }
@@ -399,57 +432,72 @@
             &.pill-shape-with-icon,
             &.pill-shape-with-image-icon,
             &.pill-shape-with-icon-button {
-                padding: $space-xs $space-xxl $space-xs 48px;
+                padding: $space-xs $space-xxl $space-xs
+                    $input-padding-large-with-icon;
 
                 &.left-icon {
-                    padding: $space-xs $space-xxl $space-xs 48px;
+                    padding: $space-xs $space-xxl $space-xs
+                        $input-padding-large-with-icon;
                 }
 
                 &.right-icon {
-                    padding: $space-xs 48px $space-xs $space-xxl;
+                    padding: $space-xs $input-padding-large-with-icon $space-xs
+                        $space-xxl;
                 }
 
                 &.clear-disabled {
                     &.left-icon {
-                        padding: $space-xs $space-xs $space-xs 48px;
+                        padding: $space-xs $space-xs $space-xs
+                            $input-padding-large-with-icon;
                     }
 
                     &.right-icon {
-                        padding: $space-xs 48px $space-xs $space-xs;
+                        padding: $space-xs $input-padding-large-with-icon
+                            $space-xs $space-xs;
                     }
                 }
 
                 &.clear-not-visible {
                     &.right-icon {
-                        padding: $space-xs 48px $space-xs $space-xs;
+                        padding: $space-xs $input-padding-large-with-icon
+                            $space-xs $space-xs;
                     }
                 }
             }
 
             &.pill-shape-with-icon-and-icon-button {
-                padding: $space-xs $space-xxl $space-xs 84px;
+                padding: $space-xs $space-xxl $space-xs
+                    $input-padding-large-with-icon-and-icon-button;
 
                 &.left-icon {
-                    padding: $space-xs $space-xxl $space-xs 84px;
+                    padding: $space-xs $space-xxl $space-xs
+                        $input-padding-large-with-icon-and-icon-button;
                 }
 
                 &.right-icon {
-                    padding: $space-xs 84px $space-xs $space-xxl;
+                    padding: $space-xs
+                        $input-padding-large-with-icon-and-icon-button $space-xs
+                        $space-xxl;
                 }
 
                 &.clear-disabled {
                     &.left-icon {
-                        padding: $space-xs $space-xs $space-xs 84px;
+                        padding: $space-xs $space-xs $space-xs
+                            $input-padding-large-with-icon-and-icon-button;
                     }
 
                     &.right-icon {
-                        padding: $space-xs 84px $space-xs $space-xs;
+                        padding: $space-xs
+                            $input-padding-large-with-icon-and-icon-button
+                            $space-xs $space-xs;
                     }
                 }
 
                 &.clear-not-visible {
                     &.right-icon {
-                        padding: $space-xs 84px $space-xs $space-xs;
+                        padding: $space-xs
+                            $input-padding-large-with-icon-and-icon-button
+                            $space-xs $space-xs;
                     }
                 }
             }
@@ -516,29 +564,38 @@
             }
 
             &.with-icon-and-icon-button {
-                padding: $space-xs $space-xxl $space-xs 74px;
+                padding: $space-xs $space-xxl $space-xs
+                    $input-padding-medium-with-icon-and-icon-button;
 
                 &.left-icon {
-                    padding: $space-xs $space-xxl $space-xs 74px;
+                    padding: $space-xs $space-xxl $space-xs
+                        $input-padding-medium-with-icon-and-icon-button;
                 }
 
                 &.right-icon {
-                    padding: $space-xs 74px $space-xs $space-xxl;
+                    padding: $space-xs
+                        $input-padding-medium-with-icon-and-icon-button
+                        $space-xs $space-xxl;
                 }
 
                 &.clear-disabled {
                     &.left-icon {
-                        padding: $space-xs $space-xs $space-xs 74px;
+                        padding: $space-xs $space-xs $space-xs
+                            $input-padding-medium-with-icon-and-icon-button;
                     }
 
                     &.right-icon {
-                        padding: $space-xs 74px $space-xs $space-xs;
+                        padding: $space-xs
+                            $input-padding-medium-with-icon-and-icon-button
+                            $space-xs $space-xs;
                     }
                 }
 
                 &.clear-not-visible {
                     &.right-icon {
-                        padding: $space-xs 74px $space-xs $space-xs;
+                        padding: $space-xs
+                            $input-padding-medium-with-icon-and-icon-button
+                            $space-xs $space-xs;
                     }
                 }
             }
@@ -598,29 +655,38 @@
             }
 
             &.pill-shape-with-icon-and-icon-button {
-                padding: $space-xs $space-xl $space-xs 74px;
+                padding: $space-xs $space-xl $space-xs
+                    $input-padding-medium-with-icon-and-icon-button;
 
                 &.left-icon {
-                    padding: $space-xs $space-xl $space-xs 74px;
+                    padding: $space-xs $space-xl $space-xs
+                        $input-padding-medium-with-icon-and-icon-button;
                 }
 
                 &.right-icon {
-                    padding: $space-xs 74px $space-xs $space-xl;
+                    padding: $space-xs
+                        $input-padding-medium-with-icon-and-icon-button
+                        $space-xs $space-xl;
                 }
 
                 &.clear-disabled {
                     &.left-icon {
-                        padding: $space-xs $space-xs $space-xs 74px;
+                        padding: $space-xs $space-xs $space-xs
+                            $input-padding-medium-with-icon-and-icon-button;
                     }
 
                     &.right-icon {
-                        padding: $space-xs 74px $space-xs $space-xs;
+                        padding: $space-xs
+                            $input-padding-medium-with-icon-and-icon-button
+                            $space-xs $space-xs;
                     }
                 }
 
                 &.clear-not-visible {
                     &.right-icon {
-                        padding: $space-xs 74px $space-xs $space-xs;
+                        padding: $space-xs
+                            $input-padding-medium-with-icon-and-icon-button
+                            $space-xs $space-xs;
                     }
                 }
             }
@@ -635,16 +701,17 @@
             &.with-icon,
             &.with-image-icon,
             &.with-icon-button {
-                padding: $space-xs calc(#{$space-l} + 4px) $space-xs $space-xl;
+                padding: $space-xs calc(#{$space-l} + $space-xxs) $space-xs
+                    $space-xl;
 
                 &.left-icon {
-                    padding: $space-xs calc(#{$space-l} + 4px) $space-xs
+                    padding: $space-xs calc(#{$space-l} + $space-xxs) $space-xs
                         $space-xl;
                 }
 
                 &.right-icon {
                     padding: $space-xs $space-xl $space-xs
-                        calc(#{$space-l} + 4px);
+                        calc(#{$space-l} + $space-xxs);
                 }
 
                 &.clear-disabled {
@@ -665,45 +732,55 @@
             }
 
             &.with-icon-and-icon-button {
-                padding: $space-xs calc(#{$space-l} + 4px) $space-xs 60px;
+                padding: $space-xs calc(#{$space-l} + $space-xxs) $space-xs
+                    $input-padding-small-with-icon-and-icon-button;
 
                 &.left-icon {
-                    padding: $space-xs calc(#{$space-l} + 4px) $space-xs 60px;
+                    padding: $space-xs calc(#{$space-l} + $space-xxs) $space-xs
+                        $input-padding-small-with-icon-and-icon-button;
                 }
 
                 &.right-icon {
-                    padding: $space-xs 60px $space-xs calc(#{$space-l} + 4px);
+                    padding: $space-xs
+                        $input-padding-small-with-icon-and-icon-button $space-xs
+                        calc(#{$space-l} + $space-xxs);
                 }
 
                 &.clear-disabled {
                     &.left-icon {
-                        padding: $space-xs $space-xs $space-xs 60px;
+                        padding: $space-xs $space-xs $space-xs
+                            $input-padding-small-with-icon-and-icon-button;
                     }
 
                     &.right-icon {
-                        padding: $space-xs 60px $space-xs $space-xs;
+                        padding: $space-xs
+                            $input-padding-small-with-icon-and-icon-button
+                            $space-xs $space-xs;
                     }
                 }
 
                 &.clear-not-visible {
                     &.right-icon {
-                        padding: $space-xs 60px $space-xs $space-xs;
+                        padding: $space-xs
+                            $input-padding-small-with-icon-and-icon-button
+                            $space-xs $space-xs;
                     }
                 }
             }
 
             &.pill-shape-with-icon,
             &.pill-shape-with-image-icon {
-                padding: $space-xs calc(#{$space-l} + 4px) $space-xs $space-xl;
+                padding: $space-xs calc(#{$space-l} + $space-xxs) $space-xs
+                    $space-xl;
 
                 &.left-icon {
-                    padding: $space-xs calc(#{$space-l} + 4px) $space-xs
+                    padding: $space-xs calc(#{$space-l} + $space-xxs) $space-xs
                         $space-xl;
                 }
 
                 &.right-icon {
                     padding: $space-xs $space-xl $space-xs
-                        calc(#{$space-l} + 4px);
+                        calc(#{$space-l} + $space-xxs);
                 }
 
                 &.clear-disabled {
@@ -748,30 +825,43 @@
                 }
             }
 
+            $input-padding-small-with-icon-and-icon-button-local: 28px;
+
             &.pill-shape-with-icon-and-icon-button {
-                padding: $space-xs 28px $space-xs 60px;
+                padding: $space-xs
+                    $input-padding-small-with-icon-and-icon-button-local
+                    $space-xs $input-padding-small-with-icon-and-icon-button;
 
                 &.left-icon {
-                    padding: $space-xs 28px $space-xs 60px;
+                    padding: $space-xs
+                        $input-padding-small-with-icon-and-icon-button-local
+                        $space-xs $input-padding-small-with-icon-and-icon-button;
                 }
 
                 &.right-icon {
-                    padding: $space-xs 60px $space-xs 28px;
+                    padding: $space-xs
+                        $input-padding-small-with-icon-and-icon-button $space-xs
+                        $input-padding-small-with-icon-and-icon-button-local;
                 }
 
                 &.clear-disabled {
                     &.left-icon {
-                        padding: $space-xs $space-xs $space-xs 60px;
+                        padding: $space-xs $space-xs $space-xs
+                            $input-padding-small-with-icon-and-icon-button;
                     }
 
                     &.right-icon {
-                        padding: $space-xs 60px $space-xs $space-xs;
+                        padding: $space-xs
+                            $input-padding-small-with-icon-and-icon-button
+                            $space-xs $space-xs;
                     }
                 }
 
                 &.clear-not-visible {
                     &.right-icon {
-                        padding: $space-xs 60px $space-xs $space-xs;
+                        padding: $space-xs
+                            $input-padding-small-with-icon-and-icon-button
+                            $space-xs $space-xs;
                     }
                 }
             }
@@ -789,15 +879,15 @@
         width: 36px;
 
         &.left-icon {
-            left: 4px;
+            left: $space-xxs;
         }
 
         &.right-icon {
-            right: 4px;
+            right: $space-xxs;
         }
 
         span {
-            padding: 8px 4px;
+            padding: $space-xs $space-xxs;
         }
 
         img {
@@ -823,11 +913,11 @@
         transition: none;
 
         &.left-icon {
-            left: 2px;
+            left: $space-xxxs;
         }
 
         &.right-icon {
-            right: 2px;
+            right: $space-xxxs;
         }
 
         svg {
@@ -861,16 +951,16 @@
         color: var(--grey-color-60);
         height: 35px;
         position: absolute;
-        right: 2px;
+        right: $space-xxxs;
         transition: none;
         width: 35px;
 
         &.left-icon {
-            right: 2px;
+            right: $space-xxxs;
         }
 
         &.right-icon {
-            left: 2px;
+            left: $space-xxxs;
         }
 
         &:active,
@@ -908,7 +998,7 @@
         font-family: $octuple-font-family;
         font-size: $text-font-size-3;
         line-height: $text-line-height-4;
-        min-height: calc($text-line-height-4 + 2px + $space-xs * 2);
+        min-height: calc($text-line-height-4 + $space-xxxs + $space-xs * 2);
         min-width: 320px;
         padding: $space-xs;
 
@@ -995,8 +1085,8 @@
 
     .text-area-resize-icon {
         position: absolute;
-        bottom: 8px;
-        right: 4px;
+        bottom: $space-xs;
+        right: $space-xxs;
     }
 
     &.pill-shape {
@@ -1021,7 +1111,7 @@
             flex-grow: 1;
 
             .text-area-resize-icon {
-                bottom: 4px;
+                bottom: $space-xxs;
             }
 
             &.pill-shape {
@@ -1173,58 +1263,58 @@
 
     &.input-large {
         .icon-wrapper {
-            bottom: 2px;
-            height: 40px;
-            width: 40px;
+            bottom: $space-xxxs;
+            height: $space-xxl;
+            width: $space-xxl;
 
             &.left-icon {
-                left: 8px;
+                left: $space-xs;
             }
 
             &.right-icon {
-                right: 8px;
+                right: $space-xs;
             }
 
             span {
-                height: 40px;
+                height: $space-xxl;
             }
         }
 
         .icon-button {
-            bottom: 2px;
-            height: 40px;
+            bottom: $space-xxxs;
+            height: $space-xxl;
 
             &.left-icon {
-                left: 8px;
+                left: $space-xs;
             }
 
             &.right-icon {
-                right: 8px;
+                right: $space-xs;
             }
         }
 
         .clear-icon-button {
-            bottom: 2px;
-            height: 40px;
-            padding: 12px;
-            right: 2px;
-            width: 40px;
+            bottom: $space-xxxs;
+            height: $space-xxl;
+            padding: $space-s;
+            right: $space-xxxs;
+            width: $space-xxl;
         }
 
         .icon-wrapper:not(:empty) + .icon-button {
             &.left-icon {
-                left: calc($space-xxl + 4px);
+                left: calc($space-xxl + $space-xxs);
             }
 
             &.right-icon {
-                right: calc($space-xxl + 4px);
+                right: calc($space-xxl + $space-xxs);
             }
         }
 
         .text-area {
             font-size: $text-font-size-4;
             line-height: $text-line-height-5;
-            min-height: calc($text-line-height-5 + 2px + $space-xs * 2);
+            min-height: calc($text-line-height-5 + $space-xxxs + $space-xs * 2);
         }
     }
 
@@ -1235,11 +1325,11 @@
             width: 36px;
 
             &.left-icon {
-                left: 4px;
+                left: $space-xs;
             }
 
             &.right-icon {
-                right: 4px;
+                right: $space-xs;
             }
 
             span {
@@ -1253,11 +1343,11 @@
             padding: $button-padding-vertical-small $space-xxs;
 
             &.left-icon {
-                left: 4px;
+                left: $space-xxs;
             }
 
             &.right-icon {
-                right: 4px;
+                right: $space-xxs;
             }
         }
 
@@ -1282,50 +1372,50 @@
         .text-area {
             font-size: $text-font-size-3;
             line-height: $text-line-height-4;
-            min-height: calc($text-line-height-4 + 2px + $space-xs * 2);
+            min-height: calc($text-line-height-4 + $space-xxxs + $space-xs * 2);
         }
     }
 
     &.input-small {
         .icon-wrapper {
-            bottom: 2px;
-            height: 24px;
-            width: 24px;
+            bottom: $space-xxxs;
+            height: $space-l;
+            width: $space-l;
 
             &.left-icon {
-                left: 4px;
+                left: $space-xxs;
             }
 
             &.right-icon {
-                right: 4px;
+                right: $space-xxs;
             }
 
             span {
-                height: 24px;
-                padding: 4px;
+                height: $space-l;
+                padding: $space-xxs;
             }
         }
 
         .icon-button {
-            bottom: 2px;
-            height: 24px;
-            padding: 4px;
+            bottom: $space-xxxs;
+            height: $space-l;
+            padding: $space-xxs;
 
             &.left-icon {
-                left: 2px;
+                left: $space-xxxs;
             }
 
             &.right-icon {
-                right: 2px;
+                right: $space-xxxs;
             }
         }
 
         .clear-icon-button {
-            bottom: 2px;
-            height: 24px;
-            padding: 4px;
-            right: 2px;
-            width: 24px;
+            bottom: $space-xxxs;
+            height: $space-l;
+            padding: $space-xxs;
+            right: $space-xxxs;
+            width: $space-l;
         }
 
         .icon-wrapper:not(:empty) + .icon-button {
@@ -1341,7 +1431,7 @@
         .text-area {
             font-size: $text-font-size-2;
             line-height: $text-line-height-3;
-            min-height: calc($text-line-height-3 + 2px + $space-xs * 2);
+            min-height: calc($text-line-height-3 + $space-xxxs + $space-xs * 2);
         }
     }
 
@@ -1370,7 +1460,7 @@
             .text-area-group {
                 &:after {
                     border-bottom-color: $focus-visible-shadow-color;
-                    border-bottom-width: 2px;
+                    border-bottom-width: $space-xxxs;
                 }
             }
         }
@@ -1413,3 +1503,5 @@
         }
     }
 }
+
+@import './Styles/rtl';

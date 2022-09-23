@@ -35,6 +35,11 @@
         &:nth-child(3) {
             animation: 2s linear infinite both thirdBall;
         }
+
+        &-rtl {
+            margin-left: $space-xxs;
+            margin-right: unset;
+        }
     }
 }
 

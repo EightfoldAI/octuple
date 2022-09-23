@@ -39,6 +39,10 @@ $dialog-body-bottom-shadow: inset 0 -11px 8px -10px var(--grey-color-20);
                 height: fit-content;
                 justify-content: right;
                 white-space: nowrap;
+
+                button {
+                    margin-left: $space-xs;
+                }
             }
         }
 
@@ -56,6 +60,26 @@ $dialog-body-bottom-shadow: inset 0 -11px 8px -10px var(--grey-color-20);
 
         .footer {
             padding: $space-ml $space-xl 0;
+        }
+
+        &-rtl {
+            .header {
+                &-button {
+                    margin-left: $space-m;
+                    margin-right: unset;
+                }
+
+                &-buttons {
+                    button {
+                        margin-left: unset;
+                        margin-right: $space-xs;
+                    }
+                }
+            }
+
+            .footer {
+                padding: $space-ml 0 0 $space-xl;
+            }
         }
     }
 

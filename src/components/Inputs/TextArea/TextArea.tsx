@@ -20,6 +20,7 @@ import {
     uniqueId,
 } from '../../../shared/utilities';
 import { Breakpoints, useMatchMedia } from '../../../hooks/useMatchMedia';
+import { useCanvasDirection } from '../../../hooks/useCanvasDirection';
 
 import styles from '../input.module.scss';
 
@@ -67,6 +68,8 @@ export const TextArea: FC<TextAreaProps> = React.forwardRef(
         const mediumScreenActive: boolean = useMatchMedia(Breakpoints.Medium);
         const smallScreenActive: boolean = useMatchMedia(Breakpoints.Small);
         const xSmallScreenActive: boolean = useMatchMedia(Breakpoints.XSmall);
+
+        const htmlDir: string = useCanvasDirection();
 
         const [textAreaId] = useState<string>(uniqueId(id || 'textarea-'));
         const [inputValue, setInputValue] = useState(value);
@@ -167,6 +170,7 @@ export const TextArea: FC<TextAreaProps> = React.forwardRef(
             {
                 [styles.disabled]: allowDisabledFocus || mergedDisabled,
             },
+            { [styles.inputWrapperRtl]: htmlDir === 'rtl' },
         ]);
 
         useEffect(() => setInputValue(value), [value]);
@@ -238,6 +242,7 @@ export const TextArea: FC<TextAreaProps> = React.forwardRef(
                         <Icon
                             classNames={styles.textAreaResizeIcon}
                             path={IconName.mdiResizeBottomRight}
+                            rotate={htmlDir === 'rtl' ? 90 : 0}
                         />
                     )}
                 </div>

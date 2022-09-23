@@ -3,6 +3,7 @@ import { PillProps, PillSize, PillType } from './Pills.types';
 import { mergeClasses } from '../../shared/utilities';
 import { Icon, IconName, IconSize } from '../Icon';
 import DisabledContext, { Disabled } from '../ConfigProvider/DisabledContext';
+import { useCanvasDirection } from '../../hooks/useCanvasDirection';
 
 import styles from './pills.module.scss';
 import { ButtonSize, DefaultButton } from '../Button';
@@ -31,6 +32,8 @@ export const Pill: FC<PillProps> = React.forwardRef(
         },
         ref: Ref<HTMLDivElement>
     ) => {
+        const htmlDir: string = useCanvasDirection();
+
         const contextuallyDisabled: Disabled = useContext(DisabledContext);
         const mergedDisabled: boolean = configContextProps.noDisabledContext
             ? disabled
@@ -70,6 +73,7 @@ export const Pill: FC<PillProps> = React.forwardRef(
             { [styles.grey]: theme === 'grey' },
             { [styles.xsmall]: size === PillSize.XSmall },
             { [styles.tagPillsDisabled]: mergedDisabled },
+            { [styles.tagPillsRtl]: htmlDir === 'rtl' },
         ]);
         return (
             <div

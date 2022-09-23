@@ -298,31 +298,60 @@ export const Slider: FC<SliderProps> = React.forwardRef(
                     thumbDiameter,
                     thumbRadius
                 );
-                const showMaxLabel: boolean =
-                    showLabels &&
-                    lowerThumbOffset <
-                        maxLabelRef.current.getBoundingClientRect().left -
-                            lowerLabelRef.current.offsetWidth / 2 -
-                            thumbRadius;
-                maxLabelRef.current.style.opacity = showMaxLabel ? '1' : '0';
-
-                const showMinLabel: boolean =
-                    showLabels &&
-                    lowerThumbOffset >
-                        minLabelRef.current.getBoundingClientRect().right +
-                            lowerLabelRef.current.offsetWidth / 2 -
-                            thumbRadius;
-                minLabelRef.current.style.opacity = showMinLabel ? '1' : '0';
-
                 const lowerLabelOffset: number =
                     lowerLabelRef.current.offsetWidth / 2;
+                let showMaxLabel: boolean;
+                let showMinLabel: boolean;
 
+                // TODO: Need to investigate why `showMaxLabel` and `showMinLabel`
+                // calculations need to be duped depending on canvas direction.
+                // Moving these into a shared expression also doesn't work.
                 if (htmlDir === 'rtl') {
+                    showMaxLabel =
+                        showLabels &&
+                        lowerThumbOffset <
+                            minLabelRef.current.getBoundingClientRect().left -
+                                lowerLabelRef.current.offsetWidth / 2 -
+                                thumbRadius;
+                    maxLabelRef.current.style.opacity = showMaxLabel
+                        ? '1'
+                        : '0';
+
+                    showMinLabel =
+                        showLabels &&
+                        lowerThumbOffset >
+                            maxLabelRef.current.getBoundingClientRect().right +
+                                lowerLabelRef.current.offsetWidth / 2 -
+                                thumbRadius;
+                    minLabelRef.current.style.opacity = showMinLabel
+                        ? '1'
+                        : '0';
+
                     lowerLabelRef.current.style.right = `${
                         lowerThumbOffset - lowerLabelOffset
                     }px`;
                     lowerLabelRef.current.style.left = 'unset';
                 } else {
+                    showMaxLabel =
+                        showLabels &&
+                        lowerThumbOffset <
+                            maxLabelRef.current.getBoundingClientRect().left -
+                                lowerLabelRef.current.offsetWidth / 2 -
+                                thumbRadius;
+                    maxLabelRef.current.style.opacity = showMaxLabel
+                        ? '1'
+                        : '0';
+
+                    showMinLabel =
+                        showLabels &&
+                        lowerThumbOffset >
+                            minLabelRef.current.getBoundingClientRect().right +
+                                lowerLabelRef.current.offsetWidth / 2 -
+                                thumbRadius;
+                    minLabelRef.current.style.opacity = showMinLabel
+                        ? '1'
+                        : '0';
+
                     lowerLabelRef.current.style.left = `${
                         lowerThumbOffset - lowerLabelOffset
                     }px`;

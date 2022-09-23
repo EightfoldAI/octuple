@@ -159,6 +159,38 @@
             vertical-align: middle;
         }
     }
+
+    &-rtl {
+        .pagination-next {
+            margin-left: unset;
+            margin-right: $space-xxs;
+        }
+
+        .pagination-previous {
+            margin-left: $space-xxs;
+            margin-right: unset;
+        }
+
+        .jump {
+            margin: 0 $space-xs 0 0;
+
+            .editor {
+                margin: 0 $space-xs 0 0;
+                padding-left: unset;
+                padding-right: $space-xs;
+            }
+        }
+
+        .total {
+            margin: 0 0 0 $space-xs;
+        }
+
+        &.dots {
+            .total {
+                margin: 0 0 0 $space-xs;
+            }
+        }
+    }
 }
 
 @media (min-width: $small-screen-size) {
