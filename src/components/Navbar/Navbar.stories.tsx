@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { Stories } from '@storybook/addon-docs';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { ConfigProvider } from '../ConfigProvider';
 import { Icon, IconName } from '../Icon';
 import { Navbar, NavbarContent } from './';
 import { Link } from '../Link';
@@ -44,7 +45,7 @@ const Overlay = () => {
             items={sampleList}
             layout="vertical"
             renderItem={(item: string) => (
-                <p style={{ margin: '8px 0' }}>{item}</p>
+                <div style={{ margin: '8px' }}>{item}</div>
             )}
         />
     );
@@ -73,36 +74,90 @@ const ProfileDropdown = () => {
     );
 };
 
-const Navbar_Div_Story: ComponentStory<typeof Navbar> = (args) => {
+const Basic_Story: ComponentStory<typeof Navbar> = (args) => {
     return (
-        <div style={{ height: '250px' }}>
-            <Navbar {...args}>
-                <NavbarContent>
-                    <Link
-                        href="https://www.twitter.com"
-                        target="_self"
-                        variant="default"
-                        style={{ padding: '8px 20px', color: 'inherit' }}
-                    >
-                        Twitter
-                    </Link>
-                    <Link
-                        href="https://www.facebook.com"
-                        target="_self"
-                        variant="default"
-                        style={{ padding: '8px 20px', color: 'inherit' }}
-                    >
-                        Facebook
-                    </Link>
-                </NavbarContent>
-                <NavbarContent>
-                    <ProfileDropdown />
-                </NavbarContent>
-            </Navbar>
-        </div>
+        <ConfigProvider
+            themeOptions={{
+                name: 'blue',
+            }}
+        >
+            <div style={{ height: '250px' }}>
+                <Navbar {...args}>
+                    <NavbarContent>
+                        <Link
+                            href="https://eightfold.ai"
+                            target="_blank"
+                            variant="default"
+                            style={{ padding: '8px 20px', color: 'inherit' }}
+                        >
+                            Eightfold
+                        </Link>
+                    </NavbarContent>
+                    <NavbarContent>
+                        <ProfileDropdown />
+                    </NavbarContent>
+                </Navbar>
+            </div>
+        </ConfigProvider>
     );
 };
 
-export const Navbar_Div = Navbar_Div_Story.bind({});
+const Theme_Story: ComponentStory<typeof Navbar> = (args) => {
+    const linkRef = useRef(null);
+    return (
+        <ConfigProvider
+            themeOptions={{
+                name: 'nav',
+                customTheme: {
+                    navbarTheme: {
+                        background: '#3E5334',
+                        textColor: '#EAD7A4',
+                        textHoverColor: '#3E5334',
+                        textHoverBackground: '#8FA394',
+                    },
+                },
+            }}
+        >
+            <div style={{ height: '250px' }}>
+                <Navbar {...args}>
+                    <NavbarContent>
+                        <Link
+                            ref={linkRef}
+                            href="https://eightfold.ai"
+                            target="_blank"
+                            variant="primary"
+                            style={{
+                                backgroundColor: 'transparent',
+                                color: 'var(--navbar-text-color)',
+                                padding: '8px 20px',
+                            }}
+                            onMouseEnter={() => {
+                                linkRef.current.style.backgroundColor =
+                                    'var(--navbar-text-hover-background)';
+                                linkRef.current.style.color =
+                                    'var(--navbar-text-hover-color)';
+                            }}
+                            onMouseLeave={() => {
+                                linkRef.current.style.backgroundColor =
+                                    'transparent';
+                                linkRef.current.style.color =
+                                    'var(--navbar-text-color)';
+                            }}
+                        >
+                            Eightfold
+                        </Link>
+                    </NavbarContent>
+                    <NavbarContent>
+                        <ProfileDropdown />
+                    </NavbarContent>
+                </Navbar>
+            </div>
+        </ConfigProvider>
+    );
+};
 
-Navbar_Div.args = {};
+export const Basic = Basic_Story.bind({});
+export const Theme = Theme_Story.bind({});
+
+Basic.args = {};
+Theme.args = {};

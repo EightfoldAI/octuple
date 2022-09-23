@@ -179,8 +179,8 @@ const Disabled_Story: ComponentStory<typeof Form> = (args) => {
                                 ]}
                             />
                         </Form.Item>
-                        <Form.Item label={'Slider'} name={'slider'}>
-                            <Slider value={50} />
+                        <Form.Item noStyle label={'Slider'} name={'slider'}>
+                            <Slider step={1} max={100} min={1} value={50} />
                         </Form.Item>
                         <Form.Item
                             label={'Input'}
@@ -1150,8 +1150,8 @@ const Complex_Form_Control_Story: ComponentStory<typeof Form> = (args) => {
                     form={form}
                     name={'complex-form'}
                     onFinish={onFinish}
-                    labelCol={{ span: 4 }}
-                    wrapperCol={{ span: 8 }}
+                    labelCol={{ span: 2 }}
+                    wrapperCol={{ span: 10 }}
                 >
                     <Form.Item label={'Username'}>
                         <Stack direction={'horizontal'} gap={'m'}>
@@ -1189,7 +1189,7 @@ const Complex_Form_Control_Story: ComponentStory<typeof Form> = (args) => {
                             >
                                 <Select
                                     placeholder={'Select city'}
-                                    inputWidth={TextInputWidth.fitContent}
+                                    inputWidth={TextInputWidth.fill}
                                     onOptionsChange={onSelectCityChange}
                                     options={defaultOptions}
                                 />
