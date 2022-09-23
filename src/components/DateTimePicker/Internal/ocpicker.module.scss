@@ -1237,17 +1237,19 @@
         }
 
         .picker-dropdown {
-            .picker-range-arrow {
-                right: $picker-arrow-size;
-                left: unset;
-                margin-right: 10px;
-                margin-left: 0;
+            &-rtl {
+                .picker-range-arrow {
+                    right: $picker-arrow-size;
+                    left: unset;
+                    margin-right: 10px;
+                    margin-left: 0;
 
-                &:before,
-                &:after {
-                    right: 50%;
-                    left: auto;
-                    transform: translate(50%, -50%);
+                    &:before,
+                    &:after {
+                        right: 50%;
+                        left: auto;
+                        transform: translate(50%, -50%);
+                    }
                 }
             }
         }
