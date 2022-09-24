@@ -510,7 +510,7 @@ $table-font-size-md: var(--table-font-size-md);
 $table-font-size-sm: var(--table-font-size-sm);
 $table-line-height: var(--table-line-height);
 $table-selection-column-width: var(--table-selection-column-width);
-$table-sticky-scroll-bar-radius: $table-border-radius;
+$table-sticky-scroll-bar-radius: 2px;
 
 // Tree
 

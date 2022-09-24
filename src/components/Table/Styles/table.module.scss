@@ -699,11 +699,11 @@
             }
         }
 
+        // TODO: Determine if the internal sticky scroller component is needed anymore.
         &-sticky {
             &-holder {
                 position: sticky;
                 z-index: 3;
-                background: $table-background-color;
             }
 
             &-scroll {
@@ -712,16 +712,10 @@
                 z-index: 3;
                 display: flex;
                 align-items: center;
-                background: lighten(#d9dce1, 80%);
-                border-top: 1px solid $table-border-color;
-                opacity: 0.6;
-
-                &:hover {
-                    transform-origin: center bottom;
-                }
-
+                border-top: none;
+                opacity: 0;
                 &-bar {
-                    height: 8px;
+                    height: 4px;
                     background-color: $table-sticky-scroll-bar-background-color;
                     border-radius: $table-sticky-scroll-bar-radius;
 

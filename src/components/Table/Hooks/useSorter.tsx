@@ -213,6 +213,7 @@ function injectSorter<RecordType>(
                         <Tooltip
                             {...tooltipProps}
                             id={'sortTip'}
+                            portal
                             theme={TooltipTheme.dark}
                         >
                             {renderSortTitle}

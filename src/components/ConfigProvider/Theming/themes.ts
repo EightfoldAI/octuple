@@ -9,6 +9,27 @@ export const themeDefaults: OcBaseTheme = {
     warningColor: '#9D6309',
     infoColor: '#4F5666',
     errorColor: '#993838',
+    tabsTheme: {
+        label: '#4F5666',
+        activeLabel: '#146DA6',
+        activeBackground: 'transparent',
+        hoverLabel: '#054D7B',
+        hoverBackground: 'transparent',
+        indicatorColor: '#146DA6',
+        smallActiveBackground: 'transparent',
+        smallHoverBackground: 'transparent',
+        pillLabel: '#4F5666',
+        pillActiveLabel: '#054D7B',
+        pillActiveBackground: '#B0F3FE',
+        pillHoverLabel: '#054D7B',
+        pillBackground: '#F6F7F8',
+    },
+    navbarTheme: {
+        background: '#054D7B',
+        textColor: '#fff',
+        textHoverBackground: '#054D7B',
+        textHoverColor: '#fff',
+    },
 };
 
 export const red: OcTheme = {

@@ -433,6 +433,7 @@
         z-index: 2;
     }
 
+    // TODO: Determine if the internal sticky scroller component is needed anymore.
     &-sticky {
         &-holder {
             position: sticky;
@@ -444,22 +445,17 @@
             z-index: 2;
             display: flex;
             align-items: center;
-            border-top: $table-border;
-            opacity: 0.6;
-            transition: transform 0.1s ease-in 0s;
-            &:hover {
-                transform: scaleY(1.2);
-                transform-origin: center bottom;
-            }
+            border-top: none;
+            opacity: 0;
             &-bar {
-                height: 8px;
-                background-color: #bbb;
-                border-radius: 4px;
+                height: 4px;
+                background-color: $table-sticky-scroll-bar-background-color;
+                border-radius: $table-sticky-scroll-bar-radius;
                 &:hover {
-                    background-color: #999;
+                    background-color: $table-sticky-scroll-bar-active-background-color;
                 }
                 &-active {
-                    background-color: #999;
+                    background-color: $table-sticky-scroll-bar-active-background-color;
                 }
             }
         }

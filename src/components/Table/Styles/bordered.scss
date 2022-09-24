@@ -52,6 +52,10 @@
                     tr:not(:last-of-type) td {
                         border-bottom: $table-border;
                     }
+
+                    tr:last-of-type td {
+                        border-bottom: none;
+                    }
                 }
             }
 
