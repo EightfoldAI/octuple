@@ -51,11 +51,6 @@ const defaultOptions: SelectOption[] = [
         text: 'Bell',
         value: 'bell',
     },
-    {
-        iconProps: { path: IconName.mdiNoodles },
-        text: 'Zero',
-        value: '0',
-    },
 ];
 
 export default {
@@ -196,7 +191,7 @@ Dynamic_Width.args = {
 
 With_DefaultValue.args = {
     ...Basic.args,
-    defaultValue: '0',
+    defaultValue: 'hat',
 };
 
 Disabled.args = {
