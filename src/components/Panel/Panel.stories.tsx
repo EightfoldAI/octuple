@@ -437,6 +437,7 @@ const panelArgs: Object = {
     closable: true,
     bodyPadding: true,
     headerPadding: true,
+    scrollLock: true,
     children: (
         <>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum

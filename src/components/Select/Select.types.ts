@@ -49,7 +49,7 @@ export interface SelectProps extends OcBaseProps<HTMLDivElement> {
      * The select default value.
      * @default ''
      */
-    defaultValue?: string;
+    defaultValue?: string | number;
     /**
      * The select disabled state.
      * @default false

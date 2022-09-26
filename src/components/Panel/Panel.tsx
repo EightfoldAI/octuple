@@ -60,6 +60,7 @@ export const Panel = React.forwardRef<PanelRef, PanelProps>(
             visible = false,
             width,
             panelHeader,
+            scrollLock = true,
             ...rest
         },
         ref
@@ -70,7 +71,8 @@ export const Panel = React.forwardRef<PanelRef, PanelProps>(
         const containerRef = useRef<HTMLDivElement>(null);
         const parentPanel = useContext<PanelRef>(PanelContext);
         const [internalPush, setPush] = useState<boolean>(false);
-        useScrollLock(parent, visible);
+
+        useScrollLock(parent, !scrollLock ? false : visible);
 
         const panelBackdropClasses: string = mergeClasses([
             styles.panelBackdrop,

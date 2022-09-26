@@ -166,7 +166,8 @@ export const Select: FC<SelectProps> = React.forwardRef(
             const updatedOptions = options.map((opt: SelectOption) => ({
                 ...opt,
                 selected:
-                    (defaultValue && opt.value === defaultValue) ||
+                    (defaultValue !== undefined &&
+                        opt.value === defaultValue) ||
                     opt.selected,
             }));
             setOptions(updatedOptions);
