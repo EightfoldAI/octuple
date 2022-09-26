@@ -169,7 +169,7 @@ export interface PanelProps extends Omit<OcBaseProps<HTMLElement>, 'title'> {
      */
     zIndex?: number;
     /**
-     * Set this to enable parent scrollable
+     * Set this to enable/disable parent scroll
      * @default true
      */
     scrollLock?: Boolean;
