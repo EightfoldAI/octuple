@@ -215,7 +215,6 @@ function InternalTable<RecordType extends object = any>(
                 const pages: number[] = changeInfo.pagination!.pageSizes!;
 
                 if (pages) {
-                    console.log('triggerOnChange pages: ' + pages);
                     for (let i: number = 0; i < pages.length; ++i) {
                         pagination.onSizeChange?.(
                             changeInfo.pagination!.pageSizes[i]
@@ -333,13 +332,6 @@ function InternalTable<RecordType extends object = any>(
         pageSize: number,
         pageSizes: number[]
     ) => {
-        console.log(
-            'onPaginationChange pageSize: ' +
-                pageSize +
-                ' ' +
-                'onPaginationChange pageSizes: ' +
-                pageSizes
-        );
         triggerOnChange(
             {
                 pagination: {
@@ -376,7 +368,9 @@ function InternalTable<RecordType extends object = any>(
         }
 
         const {
-            currentPage = 1,
+            currentPage = mergedPagination.pageSizes
+                ? mergedPagination.currentPage || 1
+                : 1,
             total,
             pageSize = mergedPagination.pageSizes
                 ? mergedPagination.pageSizes[0]
@@ -386,16 +380,9 @@ function InternalTable<RecordType extends object = any>(
 
         // Dynamic table data
         if (pageSizes) {
-            console.log('Dynamic table data pageSizes: ' + pageSizes);
             for (let i: number = 0; i < pageSizes.length; ++i) {
                 if (pageSize === pageSizes[i]) {
                     mergedPagination.pageSize = pageSizes[i];
-                    console.log(
-                        'Dynamic table data pageSizes[' +
-                            i +
-                            '] value: ' +
-                            pageSizes[i]
-                    );
                     if (mergedData.length < total!) {
                         if (mergedData.length > pageSizes[i]) {
                             return mergedData.slice(
@@ -406,15 +393,6 @@ function InternalTable<RecordType extends object = any>(
                         return mergedData;
                     }
 
-                    // This is not getting logged unless the page size is updated twice
-                    // after changing page size then paging to a new page.
-                    console.log(
-                        mergedData.slice(
-                            (currentPage - 1) * pageSizes[i],
-                            currentPage * pageSizes[i]
-                        )
-                    );
-
                     return mergedData.slice(
                         (currentPage - 1) * pageSizes[i],
                         currentPage * pageSizes[i]
@@ -422,7 +400,6 @@ function InternalTable<RecordType extends object = any>(
                 }
             }
         } else {
-            console.log('Dynamic table data pageSize: ' + pageSize);
             if (mergedData.length < total!) {
                 if (mergedData.length > pageSize) {
                     return mergedData.slice(
@@ -525,13 +502,11 @@ function InternalTable<RecordType extends object = any>(
         let paginationSizes: TablePaginationConfig['pageSizes'];
 
         if (mergedPagination.pageSize) {
-            console.log('Table pageSize: ' + mergedPagination.pageSize);
             paginationSize = mergedPagination.pageSize;
         } else {
             paginationSize = undefined;
         }
         if (mergedPagination.pageSizes) {
-            console.log('Table pageSizes: ' + mergedPagination.pageSizes);
             paginationSizes = mergedPagination.pageSizes;
         } else {
             paginationSizes = undefined;

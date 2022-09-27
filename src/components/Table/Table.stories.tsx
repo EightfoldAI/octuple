@@ -1369,6 +1369,7 @@ const Page_Sizes_Story: ComponentStory<typeof Table> = (args) => {
                     PaginationLayoutOptions.Pager,
                 ],
                 pageSizes: [5, 10, 20],
+                selfControlled: false,
                 total: r?.length,
             }}
             scroll={{

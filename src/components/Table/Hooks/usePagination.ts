@@ -87,9 +87,7 @@ export default function usePagination(
     if (pages) {
         for (let i: number = 0; i < pages.length; ++i) {
             if (mergedPagination.pageSize === pages[i]) {
-                console.log('usePagination pages: ' + pages[i]);
                 maxPage = Math.ceil((paginationTotal || total) / pages[i]!);
-                console.log('usePagination maxPage: ' + maxPage);
             }
         }
     } else {
@@ -144,10 +142,6 @@ export default function usePagination(
                 if (size === pages[i]) {
                     mergedPagination.onSizeChange?.(
                         mergedPagination?.pageSizes[i]
-                    );
-                    console.log(
-                        'onInternalSizeChange pageSize: ' +
-                            mergedPagination?.pageSizes[i]
                     );
                     refreshPagination(
                         mergedPagination?.currentPage,
