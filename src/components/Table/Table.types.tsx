@@ -341,6 +341,7 @@ export interface ChangeEventInfo<RecordType> {
     pagination: {
         currentPage?: number;
         pageSize?: number;
+        pageSizes?: number[];
         total: number;
     };
     /**
