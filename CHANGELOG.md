@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.13.1](https://github.com/EightfoldAI/octuple/compare/v2.13.0...v2.13.1) (2022-09-27)
+
+### Features
+
+-   match score: add support for custom label ([#367](https://github.com/EightfoldAI/octuple/issues/367)) ([6e0cd0f](https://github.com/EightfoldAI/octuple/commits/6e0cd0fb491976ef12f8e34306f66206ec6fcc82))
+
+### Bug Fixes
+
+-   panel add scrollLock prop and select handle 0 value ([#390](https://github.com/EightfoldAI/octuple/issues/390)) ([2538b7e](https://github.com/EightfoldAI/octuple/commits/2538b7eb2d2d108dfaad7ee4c36afa35effa22b5))
+-   rtl: rtl ui polish ([#387](https://github.com/EightfoldAI/octuple/issues/387)) ([5eb44e9](https://github.com/EightfoldAI/octuple/commits/5eb44e94756811a54efe862f579a0b6118097b0b))
+-   theme: fixes navbar and tabs configprovider theme ([#389](https://github.com/EightfoldAI/octuple/issues/389)) ([d72ad05](https://github.com/EightfoldAI/octuple/commits/d72ad0538d865f7dbdd5cd315cb89d40028d2a3f))
+
 ## [2.13.0](https://github.com/EightfoldAI/octuple/compare/v2.12.1...v2.13.0) (2022-09-21)
 
 ### Features
