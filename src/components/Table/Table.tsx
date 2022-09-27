@@ -378,15 +378,19 @@ function InternalTable<RecordType extends object = any>(
         const {
             currentPage = 1,
             total,
-            pageSize = DEFAULT_PAGE_SIZE, // Need to figure out how to update this value
+            pageSize = DEFAULT_PAGE_SIZE,
             pageSizes,
         } = mergedPagination;
 
         // Dynamic table data
         if (pageSizes) {
+            // Set the default when pageSizes
+            mergedPagination.pageSize = pageSizes[0];
+
             console.log('Dynamic table data pageSizes: ' + pageSizes);
             for (let i: number = 0; i < pageSizes.length; ++i) {
                 if (pageSize === pageSizes[i]) {
+                    // This is not getting called unless the page size is updated twice.
                     console.log(
                         'Dynamic table data pageSizes[' +
                             i +

@@ -1324,7 +1324,7 @@ const VirtualTable = (props: Parameters<typeof Table>[0]) => {
     );
 };
 
-const Debug_Story: ComponentStory<typeof Table> = (args) => {
+const Page_Sizes_Story: ComponentStory<typeof Table> = (args) => {
     const n: any[] = [];
     const total = 1000;
 
@@ -1341,7 +1341,6 @@ const Debug_Story: ComponentStory<typeof Table> = (args) => {
                 dataIndex: 'key',
                 width: 300,
                 render: (value: any) => {
-                    // This prints 1000 statements even if there are only 5 elements in a page
                     console.log('row rendered');
                     return value;
                 },
@@ -1350,16 +1349,17 @@ const Debug_Story: ComponentStory<typeof Table> = (args) => {
     };
     return (
         <Table
+            {...args}
             title={() => (
                 <div className="i18n-messages-table-title">
-                    <h3>{'Translations'}</h3>
+                    <h3>{'Data'}</h3>
                 </div>
             )}
             dataSource={r}
             sticky
             columns={getColumns()}
             emptyTextDetails=""
-            emptyText={'No translations found'}
+            emptyText={'No data found'}
             pagination={{
                 layout: [
                     PaginationLayoutOptions.Sizes,
@@ -1368,7 +1368,6 @@ const Debug_Story: ComponentStory<typeof Table> = (args) => {
                     PaginationLayoutOptions.Previous,
                     PaginationLayoutOptions.Pager,
                 ],
-                // pageSize: 5,
                 pageSizes: [5, 10, 20],
                 total: r?.length,
             }}
@@ -1378,8 +1377,6 @@ const Debug_Story: ComponentStory<typeof Table> = (args) => {
         />
     );
 };
-
-export const Debug = Debug_Story.bind({});
 
 export const Basic = Table_Base_Story.bind({});
 export const Bordered = Table_Base_Story.bind({});
@@ -1410,6 +1407,7 @@ export const Ellipsis_With_Tooltip = Table_Base_Story.bind({});
 export const Responsive = Table_Base_Story.bind({});
 export const Tree = Table_Base_Story.bind({});
 export const Nested = Table_Base_Story.bind({});
+export const Page_Sizes = Page_Sizes_Story.bind({});
 
 export const Virtual_List: FC = () => {
     return (
@@ -1638,4 +1636,8 @@ Nested.args = {
     expandableConfig: {
         expandedRowRender,
     },
+};
+
+Page_Sizes.args = {
+    ...tableArgs,
 };
