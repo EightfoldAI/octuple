@@ -11,6 +11,7 @@ export function getPaginationParam(
     const param: any = {
         currentPage: mergedPagination.currentPage,
         pageSize: mergedPagination.pageSize,
+        pageSizes: mergedPagination.pageSizes,
         total: mergedPagination.total,
     };
 
@@ -48,7 +49,12 @@ function extendsObject<T extends Object>(...list: T[]) {
 export default function usePagination(
     total: number,
     pagination: TablePaginationConfig | false | undefined,
-    onChange: (currentPage: number, pageSize: number, total: number) => void
+    onChange: (
+        currentPage: number,
+        pageSize: number,
+        pageSizes: number[],
+        total: number
+    ) => void
 ): [TablePaginationConfig, () => void] {
     const { total: paginationTotal = 0, ...paginationObj } =
         pagination && typeof pagination === 'object' ? pagination : {};
@@ -56,10 +62,12 @@ export default function usePagination(
     const [innerPagination, setInnerPagination] = useState<{
         currentPage?: number;
         pageSize?: number;
+        pageSizes?: number[];
         total?: number;
     }>(() => ({
         currentPage: paginationObj.currentPage,
         pageSize: paginationObj.pageSize,
+        pageSizes: paginationObj.pageSizes,
         total: paginationTotal,
     }));
 
@@ -73,9 +81,23 @@ export default function usePagination(
     );
 
     // Reset `current` if data length or pageSize changed
-    const maxPage = Math.ceil(
-        (paginationTotal || total) / mergedPagination.pageSize!
-    );
+    const pages: number[] = mergedPagination.pageSizes!;
+    let maxPage: number;
+
+    if (pages) {
+        for (let i: number = 0; i < pages.length; ++i) {
+            if (mergedPagination.pageSize === pages[i]) {
+                console.log('usePagination pages: ' + pages[i]);
+                maxPage = Math.ceil((paginationTotal || total) / pages[i]!);
+                console.log('usePagination maxPage: ' + maxPage);
+            }
+        }
+    } else {
+        maxPage = Math.ceil(
+            (paginationTotal || total) / mergedPagination.pageSize!
+        );
+    }
+
     if (mergedPagination.currentPage! > maxPage) {
         // Prevent a maximum page count of 0
         mergedPagination.currentPage = maxPage || 1;
@@ -84,11 +106,13 @@ export default function usePagination(
     const refreshPagination = (
         currentPage?: number,
         pageSize?: number,
+        pageSizes?: number[],
         total?: number
     ) => {
         setInnerPagination({
             currentPage: currentPage,
             pageSize: pageSize,
+            pageSizes: pageSizes,
             total: total,
         });
     };
@@ -100,29 +124,56 @@ export default function usePagination(
         refreshPagination(
             currentPage,
             mergedPagination?.pageSize,
+            mergedPagination?.pageSizes,
             mergedPagination?.total
         );
         onChange(
             currentPage || mergedPagination?.currentPage!,
             mergedPagination?.pageSize,
+            mergedPagination?.pageSizes,
             mergedPagination?.total
         );
     };
 
     const onInternalSizeChange: PaginationProps['onSizeChange'] = (
-        pageSize: number
+        size: number
     ) => {
-        mergedPagination.onSizeChange?.(mergedPagination?.pageSize);
-        refreshPagination(
-            mergedPagination?.currentPage,
-            pageSize,
-            mergedPagination?.total
-        );
-        onChange(
-            mergedPagination?.currentPage,
-            pageSize || mergedPagination?.pageSize!,
-            mergedPagination?.total
-        );
+        const pages: number[] = mergedPagination?.pageSizes;
+        if (pages) {
+            for (let i: number = 0; i < pages.length; ++i) {
+                mergedPagination.onSizeChange?.(mergedPagination?.pageSizes[i]);
+                console.log(
+                    'onInternalSizeChange pageSize: ' +
+                        mergedPagination?.pageSizes[i]
+                );
+                refreshPagination(
+                    mergedPagination?.currentPage,
+                    size,
+                    mergedPagination?.pageSizes!,
+                    mergedPagination?.total
+                );
+                onChange(
+                    mergedPagination?.currentPage,
+                    size || mergedPagination?.pageSizes[i]!,
+                    mergedPagination?.pageSizes!,
+                    mergedPagination?.total
+                );
+            }
+        } else {
+            mergedPagination.onSizeChange?.(mergedPagination?.pageSize);
+            refreshPagination(
+                mergedPagination?.currentPage,
+                size,
+                undefined,
+                mergedPagination?.total
+            );
+            onChange(
+                mergedPagination?.currentPage,
+                size || mergedPagination?.pageSize!,
+                undefined,
+                mergedPagination?.total
+            );
+        }
     };
 
     if (pagination === false) {

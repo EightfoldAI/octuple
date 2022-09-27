@@ -1324,6 +1324,63 @@ const VirtualTable = (props: Parameters<typeof Table>[0]) => {
     );
 };
 
+const Debug_Story: ComponentStory<typeof Table> = (args) => {
+    const n: any[] = [];
+    const total = 1000;
+
+    const [r, setR] = useState(n);
+
+    for (let i = 0; i < total; i++) {
+        n.push({ key: i });
+    }
+
+    const getColumns = () => {
+        return [
+            {
+                title: 'Key',
+                dataIndex: 'key',
+                width: 300,
+                render: (value: any) => {
+                    // This prints 1000 statements even if there are only 5 elements in a page
+                    console.log('row rendered');
+                    return value;
+                },
+            },
+        ];
+    };
+    return (
+        <Table
+            title={() => (
+                <div className="i18n-messages-table-title">
+                    <h3>{'Translations'}</h3>
+                </div>
+            )}
+            dataSource={r}
+            sticky
+            columns={getColumns()}
+            emptyTextDetails=""
+            emptyText={'No translations found'}
+            pagination={{
+                layout: [
+                    PaginationLayoutOptions.Sizes,
+                    PaginationLayoutOptions.Total,
+                    PaginationLayoutOptions.Next,
+                    PaginationLayoutOptions.Previous,
+                    PaginationLayoutOptions.Pager,
+                ],
+                // pageSize: 5,
+                pageSizes: [5, 10, 20],
+                total: r?.length,
+            }}
+            scroll={{
+                y: 2000,
+            }}
+        />
+    );
+};
+
+export const Debug = Debug_Story.bind({});
+
 export const Basic = Table_Base_Story.bind({});
 export const Bordered = Table_Base_Story.bind({});
 export const Cell_Bordered = Table_Base_Story.bind({});
