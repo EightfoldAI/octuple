@@ -2761,12 +2761,12 @@ LoadedCheerio {
         class="input-group right-icon"
       >
         <input
-          aria-controls="dropdown-22"
+          aria-controls="dropdown-"
           aria-disabled="false"
           aria-expanded="false"
           aria-haspopup="true"
           class="select-input input-large with-icon-button input-stretch right-icon clear-disabled clear-not-visible"
-          id="input-23"
+          id="input-"
           placeholder="Select"
           readonly=""
           role="textbox"
@@ -2815,12 +2815,12 @@ exports[`Select Select is medium 1`] = `
         class="input-group right-icon"
       >
         <input
-          aria-controls="dropdown-26"
+          aria-controls="dropdown-"
           aria-disabled="false"
           aria-expanded="false"
           aria-haspopup="true"
           class="select-input input-medium with-icon-button input-stretch right-icon clear-disabled clear-not-visible"
-          id="input-27"
+          id="input-"
           placeholder="Select"
           readonly=""
           role="textbox"
@@ -2869,12 +2869,12 @@ exports[`Select Select is pill shaped 1`] = `
         class="input-group right-icon"
       >
         <input
-          aria-controls="dropdown-38"
+          aria-controls="dropdown-"
           aria-disabled="false"
           aria-expanded="false"
           aria-haspopup="true"
           class="select-input input-medium pill-shape pill-shape-with-icon-button input-stretch right-icon clear-disabled clear-not-visible"
-          id="input-39"
+          id="input-"
           placeholder="Select"
           readonly=""
           role="textbox"
@@ -2923,12 +2923,12 @@ exports[`Select Select is rectangle shaped 1`] = `
         class="input-group right-icon"
       >
         <input
-          aria-controls="dropdown-34"
+          aria-controls="dropdown-"
           aria-disabled="false"
           aria-expanded="false"
           aria-haspopup="true"
           class="select-input input-medium with-icon-button input-stretch right-icon clear-disabled clear-not-visible"
-          id="input-35"
+          id="input-"
           placeholder="Select"
           readonly=""
           role="textbox"
@@ -2977,12 +2977,12 @@ exports[`Select Select is small 1`] = `
         class="input-group right-icon"
       >
         <input
-          aria-controls="dropdown-30"
+          aria-controls="dropdown-"
           aria-disabled="false"
           aria-expanded="false"
           aria-haspopup="true"
           class="select-input input-small with-icon-button input-stretch right-icon clear-disabled clear-not-visible"
-          id="input-31"
+          id="input-"
           placeholder="Select"
           readonly=""
           role="textbox"
@@ -3031,12 +3031,12 @@ exports[`Select Select is underline shaped 1`] = `
         class="input-group right-icon"
       >
         <input
-          aria-controls="dropdown-42"
+          aria-controls="dropdown-"
           aria-disabled="false"
           aria-expanded="false"
           aria-haspopup="true"
           class="select-input input-medium with-icon-button underline input-stretch right-icon clear-disabled clear-not-visible"
-          id="input-43"
+          id="input-"
           placeholder="Select"
           readonly=""
           role="textbox"
