@@ -386,35 +386,35 @@ function InternalTable<RecordType extends object = any>(
         if (pageSizes) {
             console.log('Dynamic table data pageSizes: ' + pageSizes);
             for (let i: number = 0; i < pageSizes.length; ++i) {
-                // For whatever reason this log stays the same.
-                console.log(
-                    'Dynamic table data pageSizes[' +
-                        i +
-                        '] value: ' +
-                        pageSizes[i]
-                );
-                if (mergedData.length < total!) {
-                    if (mergedData.length > pageSizes[i]) {
-                        return mergedData.slice(
+                if (pageSize === pageSizes[i]) {
+                    console.log(
+                        'Dynamic table data pageSizes[' +
+                            i +
+                            '] value: ' +
+                            pageSizes[i]
+                    );
+                    if (mergedData.length < total!) {
+                        if (mergedData.length > pageSizes[i]) {
+                            return mergedData.slice(
+                                (currentPage - 1) * pageSizes[i],
+                                currentPage * pageSizes[i]
+                            );
+                        }
+                        return mergedData;
+                    }
+
+                    console.log(
+                        mergedData.slice(
                             (currentPage - 1) * pageSizes[i],
                             currentPage * pageSizes[i]
-                        );
-                    }
-                    return mergedData;
-                }
+                        )
+                    );
 
-                // For whatever reason this log stays the same.
-                console.log(
-                    mergedData.slice(
+                    return mergedData.slice(
                         (currentPage - 1) * pageSizes[i],
                         currentPage * pageSizes[i]
-                    )
-                );
-
-                return mergedData.slice(
-                    (currentPage - 1) * pageSizes[i],
-                    currentPage * pageSizes[i]
-                );
+                    );
+                }
             }
         } else {
             console.log('Dynamic table data pageSize: ' + pageSize);
