@@ -172,7 +172,7 @@ export interface PanelProps extends Omit<OcBaseProps<HTMLElement>, 'title'> {
      * Set this to enable/disable parent scroll
      * @default true
      */
-    scrollLock?: Boolean;
+    scrollLock?: boolean;
 }
 
 export interface PanelHeaderProps {
