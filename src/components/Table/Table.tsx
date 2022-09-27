@@ -384,9 +384,9 @@ function InternalTable<RecordType extends object = any>(
 
         // Dynamic table data
         if (pageSizes) {
-            // Need to figure out why this isn't changing.
             console.log('Dynamic table data pageSizes: ' + pageSizes);
             for (let i: number = 0; i < pageSizes.length; ++i) {
+                // For whatever reason this log stays the same.
                 console.log(
                     'Dynamic table data pageSizes[' +
                         i +
@@ -404,7 +404,6 @@ function InternalTable<RecordType extends object = any>(
                 }
 
                 // For whatever reason this log stays the same.
-                // We currently do useMemo, so might need to move this into useEffect?
                 console.log(
                     mergedData.slice(
                         (currentPage - 1) * pageSizes[i],
