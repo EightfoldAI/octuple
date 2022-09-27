@@ -141,23 +141,27 @@ export default function usePagination(
         const pages: number[] = mergedPagination?.pageSizes;
         if (pages) {
             for (let i: number = 0; i < pages.length; ++i) {
-                mergedPagination.onSizeChange?.(mergedPagination?.pageSizes[i]);
-                console.log(
-                    'onInternalSizeChange pageSize: ' +
+                if (size === pages[i]) {
+                    mergedPagination.onSizeChange?.(
                         mergedPagination?.pageSizes[i]
-                );
-                refreshPagination(
-                    mergedPagination?.currentPage,
-                    size,
-                    mergedPagination?.pageSizes!,
-                    mergedPagination?.total
-                );
-                onChange(
-                    mergedPagination?.currentPage,
-                    size || mergedPagination?.pageSizes[i]!,
-                    mergedPagination?.pageSizes!,
-                    mergedPagination?.total
-                );
+                    );
+                    console.log(
+                        'onInternalSizeChange pageSize: ' +
+                            mergedPagination?.pageSizes[i]
+                    );
+                    refreshPagination(
+                        mergedPagination?.currentPage,
+                        size,
+                        mergedPagination?.pageSizes!,
+                        mergedPagination?.total
+                    );
+                    onChange(
+                        mergedPagination?.currentPage,
+                        size || mergedPagination?.pageSizes[i]!,
+                        mergedPagination?.pageSizes!,
+                        mergedPagination?.total
+                    );
+                }
             }
         } else {
             mergedPagination.onSizeChange?.(mergedPagination?.pageSize);
