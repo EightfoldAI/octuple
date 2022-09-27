@@ -10,6 +10,7 @@ import {
     InternalButtonProps,
 } from '../Button';
 import { Pagination, PaginationLayoutOptions } from '../Pagination';
+import { useCanvasDirection } from '../../hooks/useCanvasDirection';
 
 import styles from './persistentBar.module.scss';
 
@@ -37,6 +38,8 @@ export const PersistentBar: FC<PersistentBarsProps> = React.forwardRef(
         },
         ref: Ref<HTMLDivElement>
     ) => {
+        const htmlDir: string = useCanvasDirection();
+
         const persistentBarClasses: string = mergeClasses([
             styles.persistentBar,
             classNames,
@@ -61,6 +64,7 @@ export const PersistentBar: FC<PersistentBarsProps> = React.forwardRef(
                 [styles.topPagination]:
                     type === PersistentBarType.topBarPagination,
             },
+            { [styles.persistentBarRtl]: htmlDir === 'rtl' },
         ]);
 
         const getIconName = (): IconName => {
@@ -69,7 +73,9 @@ export const PersistentBar: FC<PersistentBarsProps> = React.forwardRef(
             }
             switch (type) {
                 case PersistentBarType.topBarWithText:
-                    return IconName.mdiArrowLeft;
+                    return htmlDir === 'rtl'
+                        ? IconName.mdiArrowRight
+                        : IconName.mdiArrowLeft;
                 default:
                     return null;
             }

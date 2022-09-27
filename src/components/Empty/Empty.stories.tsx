@@ -80,7 +80,7 @@ Tasks_Complete.args = {
 Custom_Image.args = {
     ...emptyArgs,
     image: (
-        <Icon color="#8ED0FA" path={IconName.mdiWrenchOutline} size="200px" />
+        <Icon color="#8ED0FA" path={IconName.mdiWrenchOutline} size="120px" />
     ),
     imageStyle: {},
     mode: '',

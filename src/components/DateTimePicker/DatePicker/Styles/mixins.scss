@@ -38,6 +38,23 @@ $picker-input-padding-vertical: max(
     padding: $padding-top $padding-horizontal $padding-bottom 0;
 }
 
+@mixin picker-padding-rtl($input-height, $font-size, $padding-horizontal) {
+    // font height is probably 22.0001, So using floor is better
+    $font-height: floor(
+            strip-units($font-size) * strip-units($padding-horizontal)
+        ) + 2;
+    $padding-top: max(
+        calc((strip-units($input-height) - strip-units($font-height)) / 2),
+        0
+    );
+    $padding-bottom: max(
+        strip-units($input-height) - strip-units($font-height) -
+            strip-units($padding-top),
+        0
+    );
+    padding: $padding-top 0 $padding-bottom $padding-horizontal;
+}
+
 // Picker css reset
 @mixin reset-component() {
     box-sizing: border-box;

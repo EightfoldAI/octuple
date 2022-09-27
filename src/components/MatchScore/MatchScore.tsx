@@ -3,19 +3,24 @@ import styles from './matchScore.module.scss';
 import { mergeClasses } from '../../shared/utilities';
 import { FillType, MatchScoreProps } from './MatchScore.types';
 import { Atom } from '../Atom';
+import { useCanvasDirection } from '../../hooks/useCanvasDirection';
 
 export const MatchScore: FC<MatchScoreProps> = React.forwardRef(
     (
         {
+            ariaLabel = 'score',
             classNames,
+            hideLabel = false,
+            hideValues = false,
+            label,
             score = 0,
             total = 5,
-            hideLabel = false,
-            ariaLabel = 'score',
             ...rest
         },
         ref: Ref<HTMLDivElement>
     ) => {
+        const htmlDir: string = useCanvasDirection();
+
         const absTotal: number = Math.abs(total);
         const absScore: number = Math.round(score);
         const fullCircles: number = Math.trunc(Math.round(score * 2.0) / 2.0);
@@ -23,14 +28,18 @@ export const MatchScore: FC<MatchScoreProps> = React.forwardRef(
             Math.ceil(score - fullCircles - 0.25)
         );
         const emptyCircles: number = total - fullCircles - halfCircle;
-        const matchScoreLabelClasses = mergeClasses(styles.label, 'body2');
+        const matchScoreLabelClasses: string = mergeClasses(styles.label);
 
         return (
             <Atom<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>
                 of="div"
                 {...rest}
                 ref={ref}
-                classes={[classNames, styles.matchScoreContainer]}
+                classes={[
+                    classNames,
+                    styles.matchScoreContainer,
+                    { [styles.matchScoreContainerRtl]: htmlDir === 'rtl' },
+                ]}
                 aria-label={ariaLabel}
             >
                 {/* Full */}
@@ -48,7 +57,7 @@ export const MatchScore: FC<MatchScoreProps> = React.forwardRef(
 
                 {!hideLabel && (
                     <p className={matchScoreLabelClasses}>
-                        {absScore}/{absTotal}
+                        {label} {!hideValues && absScore + '/' + absTotal}
                     </p>
                 )}
             </Atom>

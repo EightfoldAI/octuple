@@ -63,4 +63,13 @@
     .buttons-container {
         padding: $space-m;
     }
+
+    &-rtl {
+        &.bottom-with-text {
+            .DefaultButton {
+                margin-left: $space-m;
+                margin-right: unset;
+            }
+        }
+    }
 }

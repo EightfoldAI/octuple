@@ -296,6 +296,7 @@ export default function generatePicker<DateType>(
                                         [styles.pickerStatusSuccess]:
                                             mergedStatus === 'success',
                                     },
+                                    { [styles.pickerRtl]: htmlDir === 'rtl' },
                                     { ['in-form-item']: mergedFormItemInput },
                                     classNames,
                                 ])}

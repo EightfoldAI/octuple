@@ -28,7 +28,6 @@ import usePickerInput from './Hooks/usePickerInput';
 import useTextValueMapping from './Hooks/useTextValueMapping';
 import useValueTexts from './Hooks/useValueTexts';
 import useHoverValue from './Hooks/useHoverValue';
-import { Shape } from '../../ConfigProvider';
 
 import styles from './ocpicker.module.scss';
 

@@ -167,6 +167,7 @@ export default function generateRangePicker<DateType>(
                                 >
                                     <Icon
                                         path={IconName.mdiArrowRightThin}
+                                        rotate={htmlDir === 'rtl' ? 180 : 0}
                                         size={IconSize.Medium}
                                     />
                                 </span>
@@ -252,6 +253,7 @@ export default function generateRangePicker<DateType>(
                                     [styles.pickerStatusSuccess]:
                                         mergedStatus === 'success',
                                 },
+                                { [styles.pickerRtl]: htmlDir === 'rtl' },
                                 { ['in-form-item']: mergedFormItemInput },
                                 classNames,
                             ])}

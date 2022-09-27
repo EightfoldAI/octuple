@@ -3,18 +3,18 @@
 exports[`Storyshots Link Default 1`] = `
 <a
   className="link-style my-link-class"
-  href="https://www.twitter.com"
+  href="https://eightfold.ai"
   style={Object {}}
   target="_self"
 >
-  Twitter
+  Eightfold
 </a>
 `;
 
 exports[`Storyshots Link Default Disabled 1`] = `
 <a
   className="link-style my-link-class"
-  href="https://www.facebook.com"
+  href="https://eightfold.ai"
   onClick={[Function]}
   style={Object {}}
   target="_self"
@@ -51,7 +51,7 @@ exports[`Storyshots Link Default Disabled 1`] = `
 exports[`Storyshots Link Primary 1`] = `
 <a
   className="link-style primary my-link-class"
-  href="https://www.facebook.com"
+  href="https://eightfold.ai"
   style={
     Object {
       "maxWidth": "100px",

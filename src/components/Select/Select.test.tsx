@@ -122,32 +122,32 @@ describe('Select', () => {
     });
 
     test('Select is large', () => {
-        const wrapper = mount(<Select size={SelectSize.Large} />);
-        expect(wrapper.render()).toMatchSnapshot();
+        const { container } = render(<Select size={SelectSize.Large} />);
+        expect(container.firstChild).toMatchSnapshot();
     });
 
     test('Select is medium', () => {
-        const wrapper = mount(<Select size={SelectSize.Medium} />);
-        expect(wrapper.render()).toMatchSnapshot();
+        const { container } = render(<Select size={SelectSize.Medium} />);
+        expect(container.firstChild).toMatchSnapshot();
     });
 
     test('Select is small', () => {
-        const wrapper = mount(<Select size={SelectSize.Small} />);
-        expect(wrapper.render()).toMatchSnapshot();
+        const { container } = render(<Select size={SelectSize.Small} />);
+        expect(container.firstChild).toMatchSnapshot();
     });
 
     test('Select is rectangle shaped', () => {
-        const wrapper = mount(<Select shape={SelectShape.Rectangle} />);
-        expect(wrapper.render()).toMatchSnapshot();
+        const { container } = render(<Select shape={SelectShape.Rectangle} />);
+        expect(container.firstChild).toMatchSnapshot();
     });
 
     test('Select is pill shaped', () => {
-        const wrapper = mount(<Select shape={SelectShape.Pill} />);
-        expect(wrapper.render()).toMatchSnapshot();
+        const { container } = render(<Select shape={SelectShape.Pill} />);
+        expect(container.firstChild).toMatchSnapshot();
     });
 
     test('Select is underline shaped', () => {
-        const wrapper = mount(<Select shape={SelectShape.Underline} />);
-        expect(wrapper.render()).toMatchSnapshot();
+        const { container } = render(<Select shape={SelectShape.Underline} />);
+        expect(container.firstChild).toMatchSnapshot();
     });
 });

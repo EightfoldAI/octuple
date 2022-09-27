@@ -113,14 +113,16 @@ export interface AsideProps extends React.HTMLAttributes<HTMLDivElement> {
     defaultCollapsed?: boolean;
     /**
      * The aside onBreakpoint callback.
+     * Executed when breakpoints change.
      */
     onBreakpoint?: (broken: boolean) => void;
     /**
      * The aside onCollapse callback.
+     * Executed by clicking the trigger or activating the responsive layout.
      */
     onCollapse?: (collapsed: boolean, type: CollapseType) => void;
     /**
-     * Sets whether the amburger arrow is reversed.
+     * Sets whether the hamburger arrow is reversed.
      * @default false
      */
     reverseArrow?: boolean;
@@ -134,7 +136,7 @@ export interface AsideProps extends React.HTMLAttributes<HTMLDivElement> {
      */
     width?: number | string;
     /**
-     * The aside width trigger style.
+     * The aside width trigger style when `collapsedWidth` is 0.
      */
     zeroWidthTriggerStyle?: React.CSSProperties;
     /**

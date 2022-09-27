@@ -1002,7 +1002,7 @@ function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
 
         let mergedNodes: React.ReactNode = (
             <>
-                <div className={'picker-partials'}>{partials}</div>
+                <div className={styles.pickerPartials}>{partials}</div>
                 {extraNode && (
                     <div className={styles.pickerFooterExtra}>{extraNode}</div>
                 )}

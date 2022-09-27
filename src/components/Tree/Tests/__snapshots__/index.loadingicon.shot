@@ -146,7 +146,7 @@ LoadedCheerio {
                                               "attribs": Object {},
                                               "children": Array [
                                                 Node {
-                                                  "data": "@keyframes spin { to { transform: rotate(360deg) } }",
+                                                  "data": "@keyframes spin { from { transform: rotate(0deg) } to { transform: rotate(360deg) } }",
                                                   "next": null,
                                                   "parent": [Circular],
                                                   "prev": null,
@@ -370,7 +370,7 @@ LoadedCheerio {
                                                 "attribs": Object {},
                                                 "children": Array [
                                                   Node {
-                                                    "data": "@keyframes spin { to { transform: rotate(360deg) } }",
+                                                    "data": "@keyframes spin { from { transform: rotate(0deg) } to { transform: rotate(360deg) } }",
                                                     "next": null,
                                                     "parent": [Circular],
                                                     "prev": null,
@@ -586,7 +586,7 @@ LoadedCheerio {
                                             "attribs": Object {},
                                             "children": Array [
                                               Node {
-                                                "data": "@keyframes spin { to { transform: rotate(360deg) } }",
+                                                "data": "@keyframes spin { from { transform: rotate(0deg) } to { transform: rotate(360deg) } }",
                                                 "next": null,
                                                 "parent": [Circular],
                                                 "prev": null,
@@ -810,7 +810,7 @@ LoadedCheerio {
                                               "attribs": Object {},
                                               "children": Array [
                                                 Node {
-                                                  "data": "@keyframes spin { to { transform: rotate(360deg) } }",
+                                                  "data": "@keyframes spin { from { transform: rotate(0deg) } to { transform: rotate(360deg) } }",
                                                   "next": null,
                                                   "parent": [Circular],
                                                   "prev": null,
@@ -1131,7 +1131,7 @@ LoadedCheerio {
                                               "attribs": Object {},
                                               "children": Array [
                                                 Node {
-                                                  "data": "@keyframes spin { to { transform: rotate(360deg) } }",
+                                                  "data": "@keyframes spin { from { transform: rotate(0deg) } to { transform: rotate(360deg) } }",
                                                   "next": null,
                                                   "parent": [Circular],
                                                   "prev": null,
@@ -1355,7 +1355,7 @@ LoadedCheerio {
                                                 "attribs": Object {},
                                                 "children": Array [
                                                   Node {
-                                                    "data": "@keyframes spin { to { transform: rotate(360deg) } }",
+                                                    "data": "@keyframes spin { from { transform: rotate(0deg) } to { transform: rotate(360deg) } }",
                                                     "next": null,
                                                     "parent": [Circular],
                                                     "prev": null,
@@ -1658,7 +1658,7 @@ LoadedCheerio {
                                             "attribs": Object {},
                                             "children": Array [
                                               Node {
-                                                "data": "@keyframes spin { to { transform: rotate(360deg) } }",
+                                                "data": "@keyframes spin { from { transform: rotate(0deg) } to { transform: rotate(360deg) } }",
                                                 "next": null,
                                                 "parent": [Circular],
                                                 "prev": null,
@@ -1882,7 +1882,7 @@ LoadedCheerio {
                                               "attribs": Object {},
                                               "children": Array [
                                                 Node {
-                                                  "data": "@keyframes spin { to { transform: rotate(360deg) } }",
+                                                  "data": "@keyframes spin { from { transform: rotate(0deg) } to { transform: rotate(360deg) } }",
                                                   "next": null,
                                                   "parent": [Circular],
                                                   "prev": null,
@@ -2098,7 +2098,7 @@ LoadedCheerio {
                                           "attribs": Object {},
                                           "children": Array [
                                             Node {
-                                              "data": "@keyframes spin { to { transform: rotate(360deg) } }",
+                                              "data": "@keyframes spin { from { transform: rotate(0deg) } to { transform: rotate(360deg) } }",
                                               "next": null,
                                               "parent": [Circular],
                                               "prev": null,
@@ -2322,7 +2322,7 @@ LoadedCheerio {
                                             "attribs": Object {},
                                             "children": Array [
                                               Node {
-                                                "data": "@keyframes spin { to { transform: rotate(360deg) } }",
+                                                "data": "@keyframes spin { from { transform: rotate(0deg) } to { transform: rotate(360deg) } }",
                                                 "next": null,
                                                 "parent": [Circular],
                                                 "prev": null,
@@ -2643,7 +2643,7 @@ LoadedCheerio {
                                             "attribs": Object {},
                                             "children": Array [
                                               Node {
-                                                "data": "@keyframes spin { to { transform: rotate(360deg) } }",
+                                                "data": "@keyframes spin { from { transform: rotate(0deg) } to { transform: rotate(360deg) } }",
                                                 "next": null,
                                                 "parent": [Circular],
                                                 "prev": null,
@@ -2867,7 +2867,7 @@ LoadedCheerio {
                                               "attribs": Object {},
                                               "children": Array [
                                                 Node {
-                                                  "data": "@keyframes spin { to { transform: rotate(360deg) } }",
+                                                  "data": "@keyframes spin { from { transform: rotate(0deg) } to { transform: rotate(360deg) } }",
                                                   "next": null,
                                                   "parent": [Circular],
                                                   "prev": null,
@@ -3156,7 +3156,7 @@ LoadedCheerio {
                                           "attribs": Object {},
                                           "children": Array [
                                             Node {
-                                              "data": "@keyframes spin { to { transform: rotate(360deg) } }",
+                                              "data": "@keyframes spin { from { transform: rotate(0deg) } to { transform: rotate(360deg) } }",
                                               "next": null,
                                               "parent": [Circular],
                                               "prev": null,
@@ -3380,7 +3380,7 @@ LoadedCheerio {
                                             "attribs": Object {},
                                             "children": Array [
                                               Node {
-                                                "data": "@keyframes spin { to { transform: rotate(360deg) } }",
+                                                "data": "@keyframes spin { from { transform: rotate(0deg) } to { transform: rotate(360deg) } }",
                                                 "next": null,
                                                 "parent": [Circular],
                                                 "prev": null,
@@ -3596,7 +3596,7 @@ LoadedCheerio {
                                         "attribs": Object {},
                                         "children": Array [
                                           Node {
-                                            "data": "@keyframes spin { to { transform: rotate(360deg) } }",
+                                            "data": "@keyframes spin { from { transform: rotate(0deg) } to { transform: rotate(360deg) } }",
                                             "next": null,
                                             "parent": [Circular],
                                             "prev": null,
@@ -3820,7 +3820,7 @@ LoadedCheerio {
                                           "attribs": Object {},
                                           "children": Array [
                                             Node {
-                                              "data": "@keyframes spin { to { transform: rotate(360deg) } }",
+                                              "data": "@keyframes spin { from { transform: rotate(0deg) } to { transform: rotate(360deg) } }",
                                               "next": null,
                                               "parent": [Circular],
                                               "prev": null,
@@ -4141,7 +4141,7 @@ LoadedCheerio {
                                           "attribs": Object {},
                                           "children": Array [
                                             Node {
-                                              "data": "@keyframes spin { to { transform: rotate(360deg) } }",
+                                              "data": "@keyframes spin { from { transform: rotate(0deg) } to { transform: rotate(360deg) } }",
                                               "next": null,
                                               "parent": [Circular],
                                               "prev": null,
@@ -4365,7 +4365,7 @@ LoadedCheerio {
                                             "attribs": Object {},
                                             "children": Array [
                                               Node {
-                                                "data": "@keyframes spin { to { transform: rotate(360deg) } }",
+                                                "data": "@keyframes spin { from { transform: rotate(0deg) } to { transform: rotate(360deg) } }",
                                                 "next": null,
                                                 "parent": [Circular],
                                                 "prev": null,

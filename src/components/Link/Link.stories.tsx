@@ -79,9 +79,9 @@ const Default_Disabled_Story: ComponentStory<typeof Link> = (args) => (
 export const Default_Disabled = Default_Disabled_Story.bind({});
 
 const linkArgs: Object = {
-    href: 'https://www.twitter.com',
+    href: 'https://eightfold.ai',
     classNames: 'my-link-class',
-    children: 'Twitter',
+    children: 'Eightfold',
     target: '_self',
     variant: 'default',
     style: {},
@@ -93,7 +93,7 @@ Default.args = {
 
 Primary.args = {
     ...linkArgs,
-    href: 'https://www.facebook.com',
+    href: 'https://eightfold.ai',
     variant: 'primary',
     style: {
         maxWidth: '100px',
@@ -114,7 +114,7 @@ Primary.args = {
 
 Default_Disabled.args = {
     ...linkArgs,
-    href: 'https://www.facebook.com',
+    href: 'https://eightfold.ai',
     onClick: (e: React.MouseEvent) => e.preventDefault(),
     children: (
         <span

@@ -8,6 +8,7 @@ import { Icon } from '../../Icon';
 import { useConfig } from '../../ConfigProvider';
 import { Badge } from '../../Badge';
 import { Loader } from '../../Loader';
+import { useCanvasDirection } from '../../../hooks/useCanvasDirection';
 
 import styles from '../tabs.module.scss';
 
@@ -26,6 +27,8 @@ export const Tab: FC<TabProps> = React.forwardRef(
         },
         ref: Ref<HTMLButtonElement>
     ) => {
+        const htmlDir: string = useCanvasDirection();
+
         const { onTabClick, currentActiveTab } = useTabs();
 
         const iconExists: boolean = !!icon;
@@ -38,6 +41,7 @@ export const Tab: FC<TabProps> = React.forwardRef(
             styles.tab,
             { [styles.active]: isActive },
             { [styles.inverse]: light },
+            { [styles.tabRtl]: htmlDir === 'rtl' },
             classNames,
         ]);
 

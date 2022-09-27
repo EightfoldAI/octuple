@@ -1,6 +1,6 @@
 {
     "name": "@eightfold.ai/octuple",
-    "version": "2.13.0",
+    "version": "2.13.2",
     "license": "MIT",
     "main": "lib/octuple.js",
     "types": "lib/octuple.d.ts",
@@ -53,7 +53,7 @@
     "dependencies": {
         "@floating-ui/react-dom": "0.6.0",
         "@floating-ui/react-dom-interactions": "0.6.3",
-        "@mdi/react": "1.5.0",
+        "@mdi/react": "1.6.1",
         "@ngard/tiny-isequal": "1.1.0",
         "@types/react-is": "17.0.3",
         "@types/shallowequal": "1.1.1",
@@ -210,7 +210,8 @@
         ],
         "setupFiles": [
             "react-app-polyfill/jsdom",
-            "jest-localstorage-mock"
+            "jest-localstorage-mock",
+            "<rootDir>/src/tests/setup"
         ],
         "setupFilesAfterEnv": [
             "window-resizeto/polyfill"

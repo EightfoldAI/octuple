@@ -7,6 +7,7 @@ import { mergeClasses, generateId } from '../../shared/utilities';
 import { useRadioGroup } from './RadioGroup.context';
 import { Breakpoints, useMatchMedia } from '../../hooks/useMatchMedia';
 import { FormItemInputContext } from '../Form/Context';
+import { useCanvasDirection } from '../../hooks/useCanvasDirection';
 
 import styles from './radio.module.scss';
 
@@ -40,6 +41,8 @@ export const RadioButton: FC<RadioButtonProps> = React.forwardRef(
         const mediumScreenActive: boolean = useMatchMedia(Breakpoints.Medium);
         const smallScreenActive: boolean = useMatchMedia(Breakpoints.Small);
         const xSmallScreenActive: boolean = useMatchMedia(Breakpoints.XSmall);
+
+        const htmlDir: string = useCanvasDirection();
 
         const radioButtonId = useRef<string>(id || generateId());
         const radioGroupContext = useRadioGroup();
@@ -89,6 +92,7 @@ export const RadioButton: FC<RadioButtonProps> = React.forwardRef(
             { [styles.selectorSmall]: mergedSize === SelectorSize.Small },
             classNames,
             { [styles.disabled]: allowDisabledFocus || mergedDisabled },
+            { [styles.selectorRtl]: htmlDir === 'rtl' },
             { ['in-form-item']: mergedFormItemInput },
         ]);
 

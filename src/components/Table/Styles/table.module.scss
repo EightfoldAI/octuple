@@ -62,6 +62,7 @@
         font-family: $octuple-font-family;
         font-size: $table-font-size;
         background: $table-background-color;
+        overflow: hidden;
 
         table {
             width: 100%;
@@ -353,67 +354,6 @@
 
             &.active {
                 color: var(--primary-color);
-            }
-        }
-
-        &-filter-dropdown {
-            &-tree {
-                padding: 8px 8px 0;
-
-                .tree-treenode .tree-node-content-wrapper:hover {
-                    background-color: $tree-node-hover-bg;
-                }
-
-                .tree-treenode-checkbox-checked .tree-node-content-wrapper {
-                    &,
-                    &:hover {
-                        background-color: $tree-node-selected-bg;
-                    }
-                }
-            }
-
-            &-search {
-                padding: 8px;
-                border-bottom: $table-border-width $table-border-color
-                    $table-border-style;
-
-                &-input {
-                    input {
-                        min-width: 140px;
-                    }
-                    .icon {
-                        opacity: $disabled-alpha-value;
-                    }
-                }
-            }
-
-            &-checkall {
-                width: 100%;
-                margin-bottom: 4px;
-                margin-left: 4px;
-            }
-
-            &-submenu > ul {
-                max-height: calc(100vh - 130px);
-                overflow-x: hidden;
-                overflow-y: auto;
-            }
-
-            &,
-            &-submenu {
-                .checkbox-wrapper + span {
-                    padding-left: 8px;
-                }
-            }
-
-            &-btns {
-                display: flex;
-                justify-content: space-between;
-                padding: 7px 8px;
-                overflow: hidden;
-                background-color: $table-header-filter-buttons-background-color;
-                border-top: $table-border-width $table-border-style
-                    $table-border-color;
             }
         }
 
@@ -759,11 +699,11 @@
             }
         }
 
+        // TODO: Determine if the internal sticky scroller component is needed anymore.
         &-sticky {
             &-holder {
                 position: sticky;
                 z-index: 3;
-                background: $table-background-color;
             }
 
             &-scroll {
@@ -772,16 +712,10 @@
                 z-index: 3;
                 display: flex;
                 align-items: center;
-                background: lighten(#d9dce1, 80%);
-                border-top: 1px solid $table-border-color;
-                opacity: 0.6;
-
-                &:hover {
-                    transform-origin: center bottom;
-                }
-
+                border-top: none;
+                opacity: 0;
                 &-bar {
-                    height: 8px;
+                    height: 4px;
                     background-color: $table-sticky-scroll-bar-background-color;
                     border-radius: $table-sticky-scroll-bar-radius;
 
@@ -795,6 +729,66 @@
                 }
             }
         }
+    }
+}
+
+.table-filter-dropdown {
+    &-tree {
+        padding: 8px 8px 0;
+
+        .tree-treenode .tree-node-content-wrapper:hover {
+            background-color: $tree-node-hover-bg;
+        }
+
+        .tree-treenode-checkbox-checked .tree-node-content-wrapper {
+            &,
+            &:hover {
+                background-color: $tree-node-selected-bg;
+            }
+        }
+    }
+
+    &-search {
+        padding: 8px;
+        border-bottom: $table-border-width $table-border-color
+            $table-border-style;
+
+        &-input {
+            input {
+                min-width: 140px;
+            }
+            .icon {
+                opacity: $disabled-alpha-value;
+            }
+        }
+    }
+
+    &-checkall {
+        width: 100%;
+        margin-bottom: 4px;
+        margin-left: 4px;
+    }
+
+    &-submenu > ul {
+        max-height: calc(100vh - 130px);
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+
+    &,
+    &-submenu {
+        .checkbox-wrapper + span {
+            padding-left: 8px;
+        }
+    }
+
+    &-btns {
+        display: flex;
+        justify-content: space-between;
+        padding: 7px 8px;
+        overflow: hidden;
+        background-color: $table-header-filter-buttons-background-color;
+        border-top: $table-border-width $table-border-style $table-border-color;
     }
 }
 

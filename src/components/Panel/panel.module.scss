@@ -86,6 +86,10 @@
                 height: fit-content;
                 justify-content: right;
                 white-space: nowrap;
+
+                button {
+                    margin-left: $space-xs;
+                }
             }
         }
 
@@ -179,6 +183,48 @@
 
         .header-action-buttons {
             margin-right: calc(-#{$space-xl} / 2);
+        }
+    }
+}
+
+.panel-backdrop-rtl {
+    .panel {
+        &.left {
+            left: unset;
+            right: 0;
+        }
+
+        &.right {
+            left: 0;
+            right: unset;
+        }
+
+        .header {
+            &-button {
+                margin-left: $space-m;
+                margin-right: unset;
+            }
+
+            &-buttons {
+                button {
+                    margin-left: unset;
+                    margin-right: $space-xs;
+                }
+            }
+        }
+
+        .logo-gradient-header-wrapper {
+            .header-title {
+                & > :first-child {
+                    padding-left: $space-s;
+                    padding-right: 0;
+                }
+            }
+
+            .header-action-buttons {
+                margin-left: calc(-#{$space-xl} / 2);
+                margin-right: unset;
+            }
         }
     }
 }

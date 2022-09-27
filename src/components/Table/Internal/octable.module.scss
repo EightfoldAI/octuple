@@ -102,10 +102,6 @@
     font-size: $table-font-size;
     line-height: $table-line-height;
 
-    &-rtl {
-        direction: rtl;
-    }
-
     table {
         width: 100%;
         border-spacing: 0;
@@ -126,11 +122,6 @@
         border-top: 0;
         border-left: 0;
         transition: box-shadow 0.3s;
-
-        &.table-rtl {
-            border-right: 0;
-            border-left: $table-border;
-        }
     }
 
     &-cell {
@@ -143,21 +134,6 @@
 
         &-fix-right:last-child:not(&-fix-sticky) {
             border-right-color: transparent;
-        }
-
-        &.table-rtl {
-            &-fix-right:last-child {
-                border-right-color: $table-border-color;
-            }
-            &-fix-left:last-child {
-                border-left-color: transparent;
-            }
-        }
-
-        &-fix-left-first {
-            &.table-rtl {
-                box-shadow: 1px 0 0 $table-border-color;
-            }
         }
 
         &-fix-left-first:after,
@@ -175,10 +151,6 @@
 
         &-fix-right-first,
         &-fix-right-last {
-            &.table-rtl {
-                box-shadow: none;
-            }
-
             &:after {
                 position: absolute;
                 top: 0;
@@ -314,11 +286,6 @@
                     left: -1px;
                     width: 1px;
                     content: '';
-
-                    &.table-rtl {
-                        right: -1px;
-                        left: auto;
-                    }
                 }
             }
         }
@@ -466,6 +433,7 @@
         z-index: 2;
     }
 
+    // TODO: Determine if the internal sticky scroller component is needed anymore.
     &-sticky {
         &-holder {
             position: sticky;
@@ -477,22 +445,127 @@
             z-index: 2;
             display: flex;
             align-items: center;
-            border-top: $table-border;
-            opacity: 0.6;
-            transition: transform 0.1s ease-in 0s;
-            &:hover {
-                transform: scaleY(1.2);
-                transform-origin: center bottom;
-            }
+            border-top: none;
+            opacity: 0;
             &-bar {
-                height: 8px;
-                background-color: #bbb;
-                border-radius: 4px;
+                height: 4px;
+                background-color: $table-sticky-scroll-bar-background-color;
+                border-radius: $table-sticky-scroll-bar-radius;
                 &:hover {
-                    background-color: #999;
+                    background-color: $table-sticky-scroll-bar-active-background-color;
                 }
                 &-active {
-                    background-color: #999;
+                    background-color: $table-sticky-scroll-bar-active-background-color;
+                }
+            }
+        }
+    }
+
+    &-rtl {
+        direction: rtl;
+
+        .table-cell {
+            &-fix-right:last-child {
+                border-right-color: $table-border-color;
+            }
+            &-fix-left:last-child {
+                border-left-color: transparent;
+            }
+
+            &-fix-left-first {
+                box-shadow: 1px 0 0 $table-border-color;
+            }
+
+            &-fix-right-first,
+            &-fix-right-last {
+                box-shadow: none;
+
+                &:after {
+                    left: -1px;
+                }
+            }
+
+            &:last-of-type {
+                border-left: none;
+            }
+
+            &-row-hover {
+                &:first-of-type {
+                    &:before {
+                        border-left: none;
+                        border-right: 2px solid $table-border-active-color;
+                    }
+                }
+
+                &:last-of-type {
+                    &:before {
+                        border-left: 2px solid $table-border-active-color;
+                        border-right: none;
+                    }
+                }
+
+                &:before {
+                    left: unset;
+                    right: 0;
+                }
+            }
+        }
+
+        .table-ping-left {
+            .table-cell-fix-left-first:after,
+            .table-cell-fix-left-last:after {
+                box-shadow: $table-fixed-right-box-shadow;
+            }
+        }
+
+        .table-ping-right {
+            .table-cell-fix-right-first:after,
+            .table-cell-fix-right-last:after {
+                box-shadow: $table-fixed-left-box-shadow;
+            }
+        }
+
+        thead {
+            td,
+            th {
+                text-align: right;
+            }
+
+            tr:first-of-type {
+                th:first-of-type {
+                    border-top-left-radius: 0;
+                    border-top-right-radius: $table-border-radius;
+                }
+
+                th:last-of-type {
+                    border-top-left-radius: $table-border-radius;
+                    border-top-right-radius: 0;
+                }
+
+                th.table-cell-scrollbar {
+                    border-top-left-radius: $table-border-radius;
+
+                    &:after {
+                        left: unset;
+                        right: -1px;
+                    }
+                }
+            }
+        }
+
+        .table-fixed-column .table-body:after {
+            left: 0;
+            right: unset;
+        }
+
+        .table-expanded-row {
+            &-fixed {
+                margin-left: -$table-padding-horizontal - 2;
+                margin-right: $table-cell-margin;
+
+                &:after {
+                    left: 1px;
+                    right: unset;
                 }
             }
         }

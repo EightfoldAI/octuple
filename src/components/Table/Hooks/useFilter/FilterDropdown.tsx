@@ -463,13 +463,18 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
         );
     }
 
+    const htmlDir: string = useCanvasDirection();
+
     const menu = (
-        <FilterDropdownMenuWrapper classNames={styles.tableFilterDropdown}>
+        <FilterDropdownMenuWrapper
+            classNames={mergeClasses([
+                styles.tableFilterDropdown,
+                { [styles.tableFilterDropdownRtl]: htmlDir === 'rtl' },
+            ])}
+        >
             {dropdownContent}
         </FilterDropdownMenuWrapper>
     );
-
-    const htmlDir: string = useCanvasDirection();
 
     return (
         <div className={styles.tableFilterColumn}>
@@ -479,6 +484,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
                 trigger="click"
                 onVisibleChange={onVisibleChange}
                 placement={htmlDir === 'rtl' ? 'bottom-end' : 'bottom-start'}
+                portal
                 positionStrategy="absolute"
             >
                 <NeutralButton

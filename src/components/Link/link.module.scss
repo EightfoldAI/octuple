@@ -5,6 +5,11 @@
 
     &.primary {
         color: var(--primary-color);
+
+        &:active,
+        &:hover {
+            color: var(--primary-color-90);
+        }
     }
 
     // Hides the browser default keyboard focus-visible styles.

@@ -62,15 +62,15 @@ export interface CheckboxProps extends OcBaseProps<HTMLInputElement> {
      */
     label?: React.ReactNode;
     /**
+     * The vertical placement of the label.
+     * @default LabelAlign.Center
+     */
+    labelAlign?: LabelAlign;
+    /**
      * The label position of the checkbox.
      * @default LabelPosition.End
      */
     labelPosition?: LabelPosition;
-    /**
-     * The vertical placement of the label
-     * @default LabelAlign.Center
-     */
-    labelAlign?: LabelAlign;
     /**
      * The checkbox onChange event handler.
      */
@@ -120,15 +120,15 @@ export interface CheckboxGroupProps
      */
     items?: CheckboxProps[];
     /**
+     * The vertical placement of the label.
+     * @default LabelAlign.Center
+     */
+    labelAlign?: LabelAlign;
+    /**
      * The label position of the checkboxes.
      * @default LabelPosition.End
      */
     labelPosition?: LabelPosition;
-    /**
-     * The vertical placement of the label
-     * @default LabelAlign.Center
-     */
-    labelAlign?: LabelAlign;
     /**
      * Type of layout for the checkbox group
      * @default vertical

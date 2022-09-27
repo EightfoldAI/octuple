@@ -166,7 +166,8 @@ export const Select: FC<SelectProps> = React.forwardRef(
             const updatedOptions = options.map((opt: SelectOption) => ({
                 ...opt,
                 selected:
-                    (defaultValue && opt.value === defaultValue) ||
+                    (defaultValue !== undefined &&
+                        opt.value === defaultValue) ||
                     opt.selected,
             }));
             setOptions(updatedOptions);
@@ -403,7 +404,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
         };
 
         const getSelectedOptionText = (): string => {
-            if (showPills()) {
+            if (multiple) {
                 return searchQuery;
             }
             const selectedOption = options
@@ -450,9 +451,8 @@ export const Select: FC<SelectProps> = React.forwardRef(
             }
         };
 
-        // TODO: handle multiple with clearable padding flicker.
         const getStyle = (): React.CSSProperties => {
-            if (filterable && multiple && dropdownVisible) {
+            if (filterable && multiple && dropdownVisible && showPills()) {
                 const paddingValue: number =
                     width > 0
                         ? filled
@@ -475,10 +475,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
 
         const selectInputProps: TextInputProps = {
             placeholder: showPills() ? '' : placeholder,
-            alignIcon:
-                htmlDir === 'rtl'
-                    ? TextInputIconAlign.Left
-                    : TextInputIconAlign.Right,
+            alignIcon: TextInputIconAlign.Right,
             clearable: clearable,
             inputWidth: inputWidth,
             iconButtonProps: {

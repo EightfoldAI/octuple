@@ -10,6 +10,7 @@ import { IconName } from '../../Icon';
 import { ButtonShape, NeutralButton } from '../../Button';
 import { useScrollLock } from '../../../hooks/useScrollLock';
 import { NoFormStyle } from '../../Form/Context';
+import { useCanvasDirection } from '../../../hooks/useCanvasDirection';
 
 import styles from './base-dialog.module.scss';
 import { useScrollShadow } from '../../../hooks/useScrollShadows';
@@ -49,6 +50,8 @@ export const BaseDialog: FC<BaseDialogProps> = React.forwardRef(
         },
         ref: Ref<HTMLDivElement>
     ) => {
+        const htmlDir: string = useCanvasDirection();
+
         const labelId = uniqueId('dialog-label-');
         const bodyRef = useRef<HTMLDivElement>(null);
 
@@ -69,6 +72,7 @@ export const BaseDialog: FC<BaseDialogProps> = React.forwardRef(
         const dialogClasses: string = mergeClasses([
             styles.dialog,
             { [styles.noBodyPadding]: bodyPadding === false },
+            { [styles.dialogRtl]: htmlDir === 'rtl' },
             dialogClassNames,
         ]);
 
@@ -133,6 +137,12 @@ export const BaseDialog: FC<BaseDialogProps> = React.forwardRef(
                                         classNames={styles.headerButton}
                                         shape={ButtonShape.Round}
                                         iconProps={{ path: headerIcon }}
+                                        style={{
+                                            transform:
+                                                htmlDir === 'rtl'
+                                                    ? 'rotate(180deg)'
+                                                    : 'none',
+                                        }}
                                         {...headerButtonProps}
                                     />
                                 )}
