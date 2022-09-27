@@ -1,6 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Select Select is large 1`] = `
+<<<<<<< HEAD
 LoadedCheerio {
   "0": Node {
     "attribs": Object {
@@ -2746,4 +2747,327 @@ LoadedCheerio {
     "xml": false,
   },
 }
+=======
+<div
+  class="select-wrapper select-large"
+>
+  <div
+    class="select-dropdown-main-wrapper main-wrapper"
+  >
+    <div
+      class="input-wrapper input-large input-stretch right-icon"
+    >
+      <div
+        class="input-group right-icon"
+      >
+        <input
+          aria-controls="dropdown-22"
+          aria-disabled="false"
+          aria-expanded="false"
+          aria-haspopup="true"
+          class="select-input input-large with-icon-button input-stretch right-icon clear-disabled clear-not-visible"
+          id="input-23"
+          placeholder="Select"
+          readonly=""
+          role="textbox"
+          tabindex="0"
+          type="text"
+          value=""
+        />
+        <button
+          aria-disabled="false"
+          class="icon-button right-icon button button-default button-large pill-shape icon-left"
+        >
+          <span
+            aria-hidden="false"
+            class="icon icon-wrapper"
+            role="presentation"
+          >
+            <svg
+              role="presentation"
+              style="width: 24px; height: 24px;"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"
+                style="fill: currentColor;"
+              />
+            </svg>
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Select Select is medium 1`] = `
+<div
+  class="select-wrapper select-medium"
+>
+  <div
+    class="select-dropdown-main-wrapper main-wrapper"
+  >
+    <div
+      class="input-wrapper input-medium input-stretch right-icon"
+    >
+      <div
+        class="input-group right-icon"
+      >
+        <input
+          aria-controls="dropdown-26"
+          aria-disabled="false"
+          aria-expanded="false"
+          aria-haspopup="true"
+          class="select-input input-medium with-icon-button input-stretch right-icon clear-disabled clear-not-visible"
+          id="input-27"
+          placeholder="Select"
+          readonly=""
+          role="textbox"
+          tabindex="0"
+          type="text"
+          value=""
+        />
+        <button
+          aria-disabled="false"
+          class="icon-button right-icon button button-default button-medium pill-shape icon-left"
+        >
+          <span
+            aria-hidden="false"
+            class="icon icon-wrapper"
+            role="presentation"
+          >
+            <svg
+              role="presentation"
+              style="width: 20px; height: 20px;"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"
+                style="fill: currentColor;"
+              />
+            </svg>
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Select Select is pill shaped 1`] = `
+<div
+  class="select-wrapper select-medium"
+>
+  <div
+    class="select-dropdown-main-wrapper main-wrapper"
+  >
+    <div
+      class="input-wrapper input-medium input-stretch right-icon"
+    >
+      <div
+        class="input-group right-icon"
+      >
+        <input
+          aria-controls="dropdown-38"
+          aria-disabled="false"
+          aria-expanded="false"
+          aria-haspopup="true"
+          class="select-input input-medium pill-shape pill-shape-with-icon-button input-stretch right-icon clear-disabled clear-not-visible"
+          id="input-39"
+          placeholder="Select"
+          readonly=""
+          role="textbox"
+          tabindex="0"
+          type="text"
+          value=""
+        />
+        <button
+          aria-disabled="false"
+          class="icon-button right-icon button button-default button-medium pill-shape icon-left"
+        >
+          <span
+            aria-hidden="false"
+            class="icon icon-wrapper"
+            role="presentation"
+          >
+            <svg
+              role="presentation"
+              style="width: 20px; height: 20px;"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"
+                style="fill: currentColor;"
+              />
+            </svg>
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Select Select is rectangle shaped 1`] = `
+<div
+  class="select-wrapper select-medium"
+>
+  <div
+    class="select-dropdown-main-wrapper main-wrapper"
+  >
+    <div
+      class="input-wrapper input-medium input-stretch right-icon"
+    >
+      <div
+        class="input-group right-icon"
+      >
+        <input
+          aria-controls="dropdown-34"
+          aria-disabled="false"
+          aria-expanded="false"
+          aria-haspopup="true"
+          class="select-input input-medium with-icon-button input-stretch right-icon clear-disabled clear-not-visible"
+          id="input-35"
+          placeholder="Select"
+          readonly=""
+          role="textbox"
+          tabindex="0"
+          type="text"
+          value=""
+        />
+        <button
+          aria-disabled="false"
+          class="icon-button right-icon button button-default button-medium pill-shape icon-left"
+        >
+          <span
+            aria-hidden="false"
+            class="icon icon-wrapper"
+            role="presentation"
+          >
+            <svg
+              role="presentation"
+              style="width: 20px; height: 20px;"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"
+                style="fill: currentColor;"
+              />
+            </svg>
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Select Select is small 1`] = `
+<div
+  class="select-wrapper select-small"
+>
+  <div
+    class="select-dropdown-main-wrapper main-wrapper"
+  >
+    <div
+      class="input-wrapper input-small input-stretch right-icon"
+    >
+      <div
+        class="input-group right-icon"
+      >
+        <input
+          aria-controls="dropdown-30"
+          aria-disabled="false"
+          aria-expanded="false"
+          aria-haspopup="true"
+          class="select-input input-small with-icon-button input-stretch right-icon clear-disabled clear-not-visible"
+          id="input-31"
+          placeholder="Select"
+          readonly=""
+          role="textbox"
+          tabindex="0"
+          type="text"
+          value=""
+        />
+        <button
+          aria-disabled="false"
+          class="icon-button right-icon button button-default button-small pill-shape icon-left"
+        >
+          <span
+            aria-hidden="false"
+            class="icon icon-wrapper"
+            role="presentation"
+          >
+            <svg
+              role="presentation"
+              style="width: 16px; height: 16px;"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"
+                style="fill: currentColor;"
+              />
+            </svg>
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Select Select is underline shaped 1`] = `
+<div
+  class="select-wrapper select-medium"
+>
+  <div
+    class="select-dropdown-main-wrapper main-wrapper"
+  >
+    <div
+      class="input-wrapper underline input-medium input-stretch right-icon"
+    >
+      <div
+        class="input-group right-icon"
+      >
+        <input
+          aria-controls="dropdown-42"
+          aria-disabled="false"
+          aria-expanded="false"
+          aria-haspopup="true"
+          class="select-input input-medium with-icon-button underline input-stretch right-icon clear-disabled clear-not-visible"
+          id="input-43"
+          placeholder="Select"
+          readonly=""
+          role="textbox"
+          tabindex="0"
+          type="text"
+          value=""
+        />
+        <button
+          aria-disabled="false"
+          class="icon-button right-icon button button-default button-medium pill-shape icon-left"
+        >
+          <span
+            aria-hidden="false"
+            class="icon icon-wrapper"
+            role="presentation"
+          >
+            <svg
+              role="presentation"
+              style="width: 20px; height: 20px;"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"
+                style="fill: currentColor;"
+              />
+            </svg>
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+>>>>>>> 0ab0adc (chore: select: fix flaky unit tests)
 `;
