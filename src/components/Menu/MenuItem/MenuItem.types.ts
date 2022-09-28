@@ -13,6 +13,16 @@ export enum MenuItemType {
 
 export interface MenuItemProps {
     /**
+     * Size of the menu
+     * @default MenuSize.Medium
+     */
+    size?: MenuSize;
+    /**
+     * Type of the menu
+     * @default MenuType.button
+     */
+    type?: MenuItemType;
+    /**
      * Value of the menu item
      */
     value: any;
@@ -21,16 +31,6 @@ export interface MenuItemProps {
      * @default MenuVariant.neutral
      */
     variant?: MenuVariant;
-    /**
-     * Type of the menu
-     * @default MenuType.button
-     */
-    type?: MenuItemType;
-    /**
-     * Size of the menu
-     * @default MenuSize.Medium
-     */
-    size?: MenuSize;
 }
 
 type NativeMenuButtonProps = Omit<OcBaseProps<HTMLButtonElement>, 'children'>;
@@ -39,36 +39,49 @@ export interface MenuItemButtonProps
     extends MenuItemProps,
         NativeMenuButtonProps {
     /**
-     * Menu item icon props
+     * If the menu item is active or not
+     * @default false
      */
-    iconProps?: IconProps;
+    active?: boolean;
     /**
-     * Display label of the menu item
+     * The counter string.
      */
-    text?: string;
+    counter?: string;
     /**
      * If menu item is disabled or not
      */
     disabled?: boolean;
+    /**
+     * Menu item icon props
+     */
+    iconProps?: IconProps;
     /**
      * On Click handler of the menu item
      * @param value
      */
     onClick?: (value: any) => void;
     /**
-     * The counter string.
+     * Display label of the menu item
      */
-    counter?: string;
-    /**
-     * If the menu item is active or not
-     * @default false
-     */
-    active?: boolean;
+    text?: string;
 }
 
 export interface MenuItemLinkProps
     extends MenuItemProps,
         Omit<LinkProps, 'variant' | 'type'> {
+    /**
+     * If the menu item is active or not
+     * @default false
+     */
+    active?: boolean;
+    /**
+     * The counter string.
+     */
+    counter?: string;
+    /**
+     * If menu item is disabled or not
+     */
+    disabled?: boolean;
     /**
      * Menu item icon props
      */
@@ -77,19 +90,6 @@ export interface MenuItemLinkProps
      * Display label of the menu item
      */
     text?: string;
-    /**
-     * If menu item is disabled or not
-     */
-    disabled?: boolean;
-    /**
-     * The counter string.
-     */
-    counter?: string;
-    /**
-     * If the menu item is active or not
-     * @default false
-     */
-    active?: boolean;
 }
 
 export interface MenuItemSubHeaderProps
