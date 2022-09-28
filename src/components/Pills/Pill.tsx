@@ -83,7 +83,6 @@ export const Pill: FC<PillProps> = React.forwardRef(
                 className={tagClassName}
                 style={{ ...style, color }}
                 ref={ref}
-                tabIndex={readOnly ? -1 : 0}
             >
                 {iconProps && (
                     <Icon
