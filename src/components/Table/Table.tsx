@@ -219,6 +219,7 @@ function InternalTable<RecordType extends object = any>(
     );
 
     // Memoized locs, if the prop isn't provided use the loc defaults.
+    // If the locale is changed, update.
     useMemo(() => {
         setFilterConfirmText(
             props.filterConfirmText
@@ -289,23 +290,7 @@ function InternalTable<RecordType extends object = any>(
                 ? props.cancelSortText
                 : locale.lang!.cancelSortText
         );
-    }, [
-        filterConfirmText,
-        filterResetText,
-        filterEmptyText,
-        filterCheckallText,
-        filterSearchPlaceholderText,
-        emptyText,
-        emptyTextDetails,
-        selectInvertText,
-        selectNoneText,
-        selectionAllText,
-        expandText,
-        collapseText,
-        triggerDescText,
-        triggerAscText,
-        cancelSortText,
-    ]);
+    }, [locale]);
 
     // ============================ RowKey ============================
     const getRowKey = useMemo<GetRowKey<RecordType>>(() => {
