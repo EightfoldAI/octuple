@@ -61,7 +61,13 @@ export const Pill: FC<PillProps> = React.forwardRef(
             { [styles.readOnly]: readOnly === true },
         ]);
         return (
-            <div {...rest} className={tagClassName} style={{ color }} ref={ref}>
+            <div
+                {...rest}
+                className={tagClassName}
+                style={{ color }}
+                ref={ref}
+                tabIndex={readOnly ? -1 : 0}
+            >
                 {iconProps && (
                     <Icon
                         {...iconProps}
