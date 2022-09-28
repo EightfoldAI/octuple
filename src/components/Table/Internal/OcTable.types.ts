@@ -443,7 +443,7 @@ export interface OcTableProps<RecordType = unknown> {
     /**
      * Localization configuration.
      */
-    locale: Locale;
+    locale?: Locale;
     /**
      * Set props on header row.
      */
