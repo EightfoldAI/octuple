@@ -5,6 +5,7 @@ import type {
     DefaultRecordType,
     AlignType,
     CellEllipsisType,
+    VerticalAlignType,
 } from '../OcTable.types';
 import type { HoverContextProps } from '../Context/HoverContext';
 
@@ -34,6 +35,8 @@ export interface InternalCellProps<RecordType extends DefaultRecordType>
     lastFixLeft?: boolean;
     firstFixRight?: boolean;
     lastFixRight?: boolean;
+
+    verticalAlign?: VerticalAlignType;
 
     // ====================== Private Props ======================
     /** @private Used for `expandable` with nest tree */

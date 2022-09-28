@@ -1,5 +1,6 @@
 /* eslint-disable no-template-curly-in-string */
 import type { Locale } from '../LocaleProvider';
+import Table from '../Table/Locale/nl_BE';
 
 const typeTemplate = '${label} is geen geldige ${type}';
 
@@ -59,6 +60,7 @@ const localeValues: Locale = {
             },
         },
     },
+    Table,
 };
 
 export default localeValues;

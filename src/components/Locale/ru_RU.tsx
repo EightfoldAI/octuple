@@ -1,5 +1,6 @@
 /* eslint-disable no-template-curly-in-string */
 import type { Locale } from '../LocaleProvider';
+import Table from '../Table/Locale/ru_RU';
 
 const typeTemplate: string = '${label} не является типом ${type}';
 
@@ -56,6 +57,7 @@ const localeValues: Locale = {
             },
         },
     },
+    Table,
 };
 
 export default localeValues;
