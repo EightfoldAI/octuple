@@ -3,6 +3,7 @@ import React, {
     ReactNode,
     useCallback,
     useContext,
+    useEffect,
     useMemo,
     useRef,
     useState,
@@ -218,9 +219,9 @@ function InternalTable<RecordType extends object = any>(
         defaultCancelSortText
     );
 
-    // Memoized locs, if the prop isn't provided use the loc defaults.
+    // Locs: if the prop isn't provided use the loc defaults.
     // If the locale is changed, update.
-    useMemo(() => {
+    useEffect(() => {
         setFilterConfirmText(
             props.filterConfirmText
                 ? props.filterConfirmText
@@ -490,9 +491,7 @@ function InternalTable<RecordType extends object = any>(
         }
 
         const {
-            currentPage = mergedPagination.pageSizes
-                ? mergedPagination.currentPage || 1
-                : 1,
+            currentPage = 1,
             total,
             pageSize = mergedPagination.pageSizes
                 ? mergedPagination.pageSizes[0]
