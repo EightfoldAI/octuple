@@ -27,6 +27,7 @@ export const Pill: FC<PillProps> = React.forwardRef(
             pillButtonProps,
             type = PillType.default,
             size = PillSize.Medium,
+            readOnly = false,
             style,
             ...rest
         },
@@ -74,6 +75,7 @@ export const Pill: FC<PillProps> = React.forwardRef(
             { [styles.xsmall]: size === PillSize.XSmall },
             { [styles.tagPillsDisabled]: mergedDisabled },
             { [styles.tagPillsRtl]: htmlDir === 'rtl' },
+            { [styles.readOnly]: readOnly === true },
         ]);
         return (
             <div
@@ -81,6 +83,7 @@ export const Pill: FC<PillProps> = React.forwardRef(
                 className={tagClassName}
                 style={{ ...style, color }}
                 ref={ref}
+                tabIndex={readOnly ? -1 : 0}
             >
                 {iconProps && (
                     <Icon

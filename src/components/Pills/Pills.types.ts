@@ -80,6 +80,11 @@ export interface PillProps extends OcBaseProps<HTMLElement> {
      */
     size?: PillSize;
     /**
+     * Determine if pill is clickable or not.
+     * @default false
+     */
+    readOnly?: boolean;
+    /**
      * Theme of the pill
      * @default blue
      */

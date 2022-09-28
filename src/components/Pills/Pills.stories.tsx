@@ -124,6 +124,7 @@ const pillArgs: Object = {
         text: '2',
         ariaLabel: 'Thumbs up',
     },
+    readOnly: false,
 };
 
 Default.args = {
