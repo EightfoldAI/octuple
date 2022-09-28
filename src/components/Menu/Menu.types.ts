@@ -32,38 +32,38 @@ export interface MenuProps
         'renderItem' | 'role' | 'itemRole' | 'footer'
     > {
     /**
-     * Variant of the menu item
-     * @default MenuVariant.neutral
+     * Props for the cancel button
      */
-    variant?: MenuVariant;
+    cancelButtonProps?: ButtonProps;
     /**
-     * Size of the menu
-     * @default MenuSize.Medium
+     * Props for the ok button
      */
-    size?: MenuSize;
+    okButtonProps?: ButtonProps;
+    /**
+     * Callback when cancel button is clicked
+     */
+    onCancel?: React.MouseEventHandler<HTMLButtonElement>;
     /**
      * On change callback when menu item is clicked
      * @param value
      */
     onChange?: (value: any) => void;
     /**
-     * SubHeader of the menu
-     */
-    subHeader?: string;
-    /**
-     * Props for the ok button
-     */
-    okButtonProps?: ButtonProps;
-    /**
-     * Props for the cancel button
-     */
-    cancelButtonProps?: ButtonProps;
-    /**
      * Callback when ok button is clicked
      */
     onOk?: React.MouseEventHandler<HTMLButtonElement>;
     /**
-     * Callback when cancel button is clicked
+     * Size of the menu
+     * @default MenuSize.Medium
      */
-    onCancel?: React.MouseEventHandler<HTMLButtonElement>;
+    size?: MenuSize;
+    /**
+     * SubHeader of the menu
+     */
+    subHeader?: string;
+    /**
+     * Variant of the menu item
+     * @default MenuVariant.neutral
+     */
+    variant?: MenuVariant;
 }
