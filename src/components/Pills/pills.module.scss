@@ -29,6 +29,10 @@
         }
     }
 
+    &.readOnly {
+        cursor: default;
+    }
+
     &.xsmall {
         background: none;
         border: none;

@@ -62,6 +62,11 @@ export interface PillProps extends OcBaseProps<HTMLElement> {
      */
     size?: PillSize;
     /**
+     * Determine if pill is clickable or not.
+     * @default false
+     */
+    readOnly?: boolean;
+    /**
      * Props for the close button,
      * if type is set to PillType.closable
      */

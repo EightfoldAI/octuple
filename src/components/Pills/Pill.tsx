@@ -19,6 +19,7 @@ export const Pill: FC<PillProps> = React.forwardRef(
             pillButtonProps,
             type = PillType.default,
             size = PillSize.Large,
+            readOnly = false,
             ...rest
         },
         ref: Ref<HTMLDivElement>
@@ -57,6 +58,7 @@ export const Pill: FC<PillProps> = React.forwardRef(
             { [styles.violetRed]: theme === 'violetRed' },
             { [styles.grey]: theme === 'grey' },
             { [styles.xsmall]: size === PillSize.XSmall },
+            { [styles.readOnly]: readOnly === true },
         ]);
         return (
             <div {...rest} className={tagClassName} style={{ color }} ref={ref}>
@@ -71,7 +73,7 @@ export const Pill: FC<PillProps> = React.forwardRef(
                 {type === PillType.withButton && (
                     <DefaultButton
                         {...pillButtonProps}
-                        onClick={onClick}
+                        onClick={readOnly ? null : onClick}
                         size={pillSizeToButtonSizeMap.get(size)}
                         classNames={styles.button}
                     />
@@ -80,7 +82,7 @@ export const Pill: FC<PillProps> = React.forwardRef(
                     <DefaultButton
                         {...closeButtonProps}
                         iconProps={{ path: IconName.mdiClose }}
-                        onClick={onClose}
+                        onClick={readOnly ? null : onClose}
                         size={pillSizeToButtonSizeMap.get(size)}
                         classNames={styles.closeButton}
                     />
