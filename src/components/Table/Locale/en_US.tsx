@@ -9,8 +9,7 @@ const locale: TableLocale = {
         filterCheckallText: 'Select all items',
         filterSearchPlaceholderText: 'Search in filters',
         emptyText: 'No data found',
-        emptyTextDetails:
-            'More detail on how might the user be able to get around this',
+        emptyTextDetails: '',
         selectInvertText: 'Invert current page',
         selectNoneText: 'Clear all data',
         selectionAllText: 'Select all data',
