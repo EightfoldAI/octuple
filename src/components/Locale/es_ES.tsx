@@ -1,5 +1,6 @@
 /* eslint-disable no-template-curly-in-string */
 import type { Locale } from '../LocaleProvider';
+import Table from '../Table/Locale/es_ES';
 
 const typeTemplate = '${label} no es un ${type} válido';
 
@@ -58,6 +59,7 @@ const localeValues: Locale = {
             },
         },
     },
+    Table,
 };
 
 export default localeValues;

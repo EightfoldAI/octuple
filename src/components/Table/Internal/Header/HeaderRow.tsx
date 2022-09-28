@@ -52,6 +52,7 @@ function HeaderRow<RecordType>({
                         classNames={mergeClasses([cell.classNames, classNames])}
                         ellipsis={column.ellipsis}
                         align={column.align}
+                        verticalAlign={column.verticalAlign}
                         component={CellComponent}
                         key={columnsKey[cellIndex]}
                         {...fixedInfo}

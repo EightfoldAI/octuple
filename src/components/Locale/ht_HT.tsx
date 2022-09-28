@@ -1,5 +1,6 @@
 /* eslint-disable no-template-curly-in-string */
 import type { Locale } from '../LocaleProvider';
+import Table from '../Table/Locale/ht_HT';
 
 const typeTemplate =
     "La valeur du champ ${label} n'est pas valide pour le type ${type}";
@@ -58,6 +59,7 @@ const localeValues: Locale = {
             },
         },
     },
+    Table,
 };
 
 export default localeValues;

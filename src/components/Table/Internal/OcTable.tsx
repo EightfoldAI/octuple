@@ -835,7 +835,7 @@ OcTable.Summary = FooterComponents;
 
 OcTable.defaultProps = {
     rowKey: 'key',
-    emptyText: () => 'Nothing to see here.',
+    emptyText: () => 'No data found',
 };
 
 export default OcTable;

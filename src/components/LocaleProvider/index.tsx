@@ -1,6 +1,7 @@
 import React from 'react';
 import memoizeOne from 'memoize-one';
 import type { PickerLocale as DatePickerLocale } from '../DateTimePicker/DatePicker/Generate/Generate.types';
+import type { TableLocale } from '../Table/Table.types';
 import type { ValidateMessages } from '../Form/Internal/OcForm.types';
 import LocaleContext from './Context';
 
@@ -13,6 +14,7 @@ export interface Locale {
         optional?: string;
         defaultValidateMessages: ValidateMessages;
     };
+    Table?: TableLocale;
 }
 
 export interface LocaleProviderProps {
