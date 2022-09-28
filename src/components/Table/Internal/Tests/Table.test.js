@@ -728,6 +728,55 @@ describe('Table.Basic', () => {
         });
     });
 
+    it('verticalAlign column', () => {
+        const columns = [
+            { title: 'Name', dataIndex: 'name', key: 'name' },
+            {
+                title: 'Age',
+                dataIndex: 'age',
+                key: 'age',
+                verticalAlign: 'top',
+            },
+        ];
+        const wrapper = mount(createTable({ columns }));
+        expect(
+            wrapper.find('th').at(0).props().style.verticalAlign
+        ).toBeFalsy();
+        expect(wrapper.find('th').at(1).props().style.verticalAlign).toEqual(
+            'top'
+        );
+        expect(
+            wrapper.find('tbody tr').first().find('td').at(0).props().style
+                .verticalAlign
+        ).toBeFalsy();
+        expect(
+            wrapper.find('tbody tr').first().find('td').at(1).props().style
+                .verticalAlign
+        ).toEqual('top');
+    });
+
+    it('verticalAlign column should not override cell style', () => {
+        const columns = [
+            {
+                title: 'Age',
+                dataIndex: 'age',
+                key: 'age',
+                verticalAlign: 'top',
+                onCell: () => ({ style: { color: 'red' } }),
+                onHeaderCell: () => ({ style: { color: 'green' } }),
+            },
+        ];
+        const wrapper = mount(createTable({ columns }));
+        expect(wrapper.find('th').first().props().style).toEqual({
+            color: 'green',
+            verticalAlign: 'top',
+        });
+        expect(wrapper.find('td').first().props().style).toEqual({
+            color: 'red',
+            verticalAlign: 'top',
+        });
+    });
+
     describe('row events', () => {
         let spy;
 

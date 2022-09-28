@@ -1,4 +1,9 @@
-import type { AlignType, ColumnType, StickyOffsets } from '../OcTable.types';
+import type {
+    AlignType,
+    ColumnType,
+    StickyOffsets,
+    VerticalAlignType,
+} from '../OcTable.types';
 
 export type FlattenColumns<RecordType> = readonly (ColumnType<RecordType> & {
     scrollbar?: boolean;
@@ -11,6 +16,7 @@ export interface SummaryCellProps {
     colSpan?: number;
     rowSpan?: number;
     align?: AlignType;
+    verticalAlign?: VerticalAlignType;
 }
 
 export interface SummaryProps {

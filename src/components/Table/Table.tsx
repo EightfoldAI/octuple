@@ -5,6 +5,7 @@ import React, {
     useContext,
     useMemo,
     useRef,
+    useState,
 } from 'react';
 import type { Breakpoint } from '../../shared/utilities';
 import { mergeClasses, omit, scrollTo } from '../../shared/utilities';
@@ -28,6 +29,7 @@ import type {
     GetRowKey,
     SorterResult,
     TableAction,
+    TableLocale,
     TableProps,
 } from './Table.types';
 import {
@@ -54,6 +56,8 @@ import ColumnGroup from './Internal/ColumnGroup';
 import { useBreakpoint } from '../../hooks/useBreakpoint';
 import { useCanvasDirection } from '../../hooks/useCanvasDirection';
 import { Empty, EmptyMode } from '../Empty/index';
+import LocaleReceiver from '../LocaleProvider/LocaleReceiver';
+import enUS from './Locale/en_US';
 
 import styles from './Styles/table.module.scss';
 
@@ -66,28 +70,29 @@ function InternalTable<RecordType extends object = any>(
     const {
         alternateRowColor = true,
         bordered,
-        cancelSortText,
+        cancelSortText: defaultCancelSortText,
         cellBordered = false,
         children,
         classNames,
-        collapseText,
+        collapseText: defaultCollapseText,
         columns,
         dataSource,
-        emptyText,
-        emptyTextDetails,
+        emptyText: defaultEmptyText,
+        emptyTextDetails: defaultEmptyTextDetails,
         expandableConfig,
-        expandText,
-        filterCheckallText,
-        filterConfirmText,
-        filterEmptyText,
-        filterResetText,
-        filterSearchPlaceholderText,
+        expandText: defaultExpandText,
+        filterCheckallText: defaultFilterCheckallText,
+        filterConfirmText: defaultFilterConfirmText,
+        filterEmptyText: defaultFilterEmptyText,
+        filterResetText: defaultFilterResetText,
+        filterSearchPlaceholderText: defaultFilterSearchPlaceholderText,
         getPopupContainer,
         headerBordered = false,
         headerBottomBordered = false,
         indentSize,
         innerBordered = false,
         loading,
+        locale = enUS,
         onChange,
         outerBordered = false,
         pagination,
@@ -96,15 +101,15 @@ function InternalTable<RecordType extends object = any>(
         rowKey,
         rowSelection,
         scroll,
-        selectInvertText,
-        selectionAllText,
-        selectNoneText,
+        selectInvertText: defaultSelectInvertText,
+        selectionAllText: defaultSelectionAllText,
+        selectNoneText: defaultSelectNoneText,
         showSorterTooltip = true,
         size = TableSize.Medium,
         sortDirections,
         style,
-        triggerAscText,
-        triggerDescText,
+        triggerAscText: defaultTriggerAscText,
+        triggerDescText: defaultTriggerDescText,
     } = props;
 
     const baseColumns: ColumnsType<RecordType> = useMemo(
@@ -169,6 +174,138 @@ function InternalTable<RecordType extends object = any>(
     const internalRefs = {
         body: useRef<HTMLDivElement>(),
     };
+
+    // ============================ Strings ===========================
+    const [filterConfirmText, setFilterConfirmText] = useState<string>(
+        defaultFilterConfirmText
+    );
+    const [filterResetText, setFilterResetText] = useState<string>(
+        defaultFilterResetText
+    );
+    const [filterEmptyText, setFilterEmptyText] = useState<string>(
+        defaultFilterEmptyText
+    );
+    const [filterCheckallText, setFilterCheckallText] = useState<string>(
+        defaultFilterCheckallText
+    );
+    const [filterSearchPlaceholderText, setFilterSearchPlaceholderText] =
+        useState<string>(defaultFilterSearchPlaceholderText);
+    const [emptyText, setEmptyText] = useState<ReactNode | (() => ReactNode)>(
+        defaultEmptyText
+    );
+    const [emptyTextDetails, setEmptyTextDetails] = useState<string>(
+        defaultEmptyTextDetails
+    );
+    const [selectInvertText, setSelectInvertText] = useState<string>(
+        defaultSelectInvertText
+    );
+    const [selectNoneText, setSelectNoneText] = useState<string>(
+        defaultSelectNoneText
+    );
+    const [selectionAllText, setSelectionAllText] = useState<string>(
+        defaultSelectionAllText
+    );
+    const [expandText, setExpandText] = useState<string>(defaultExpandText);
+    const [collapseText, setCollapseText] =
+        useState<string>(defaultCollapseText);
+    const [triggerDescText, setTriggerDescText] = useState<string>(
+        defaultTriggerDescText
+    );
+    const [triggerAscText, setTriggerAscText] = useState<string>(
+        defaultTriggerAscText
+    );
+    const [cancelSortText, setCancelSortText] = useState<string>(
+        defaultCancelSortText
+    );
+
+    // Memoized locs, if the prop isn't provided use the loc defaults.
+    useMemo(() => {
+        setFilterConfirmText(
+            props.filterConfirmText
+                ? props.filterConfirmText
+                : locale.lang!.filterConfirmText
+        );
+        setFilterResetText(
+            props.filterResetText
+                ? props.filterResetText
+                : locale.lang!.filterResetText
+        );
+        setFilterEmptyText(
+            props.filterEmptyText
+                ? props.filterEmptyText
+                : locale.lang!.filterEmptyText
+        );
+        setFilterCheckallText(
+            props.filterCheckallText
+                ? props.filterCheckallText
+                : locale.lang!.filterCheckallText
+        );
+        setFilterSearchPlaceholderText(
+            props.filterSearchPlaceholderText
+                ? props.filterSearchPlaceholderText
+                : locale.lang!.filterSearchPlaceholderText
+        );
+        setEmptyText(
+            props.emptyText ? props.emptyText : locale.lang!.emptyText
+        );
+        setEmptyTextDetails(
+            props.emptyTextDetails
+                ? props.emptyTextDetails
+                : locale.lang!.emptyTextDetails
+        );
+        setSelectInvertText(
+            props.selectInvertText
+                ? props.selectInvertText
+                : locale.lang!.selectInvertText
+        );
+        setSelectNoneText(
+            props.selectNoneText
+                ? props.selectNoneText
+                : locale.lang!.selectNoneText
+        );
+        setSelectionAllText(
+            props.selectionAllText
+                ? props.selectionAllText
+                : locale.lang!.selectionAllText
+        );
+        setExpandText(
+            props.expandText ? props.expandText : locale.lang!.expandText
+        );
+        setCollapseText(
+            props.collapseText ? props.collapseText : locale.lang!.collapseText
+        );
+        setTriggerDescText(
+            props.triggerDescText
+                ? props.triggerDescText
+                : locale.lang!.triggerDescText
+        );
+        setTriggerAscText(
+            props.triggerAscText
+                ? props.triggerAscText
+                : locale.lang!.triggerAscText
+        );
+        setCancelSortText(
+            props.cancelSortText
+                ? props.cancelSortText
+                : locale.lang!.cancelSortText
+        );
+    }, [
+        filterConfirmText,
+        filterResetText,
+        filterEmptyText,
+        filterCheckallText,
+        filterSearchPlaceholderText,
+        emptyText,
+        emptyTextDetails,
+        selectInvertText,
+        selectNoneText,
+        selectionAllText,
+        expandText,
+        collapseText,
+        triggerDescText,
+        triggerAscText,
+        cancelSortText,
+    ]);
 
     // ============================ RowKey ============================
     const getRowKey = useMemo<GetRowKey<RecordType>>(() => {
@@ -591,65 +728,93 @@ function InternalTable<RecordType extends object = any>(
         { [styles.tableWrapperRtl]: htmlDir === 'rtl' },
         classNames,
     ]);
+
     return (
-        <div ref={ref} className={wrapperClassNames} style={style}>
-            {topPaginationNode}
-            <OcTable<RecordType>
-                {...tableProps}
-                columns={mergedColumns as OcTableProps<RecordType>['columns']}
-                direction={htmlDir}
-                expandableConfig={mergedExpandableConfig}
-                classNames={mergeClasses([
-                    styles.table,
-                    { [styles.tableRtl]: htmlDir === 'rtl' },
-                    { [styles.tableLarge]: mergedSize === TableSize.Large },
-                    { [styles.tableMedium]: mergedSize === TableSize.Medium },
-                    { [styles.tableSmall]: mergedSize === TableSize.Small },
-                    { [styles.tableAlternate]: alternateRowColor },
-                    { [styles.tableBordered]: bordered },
-                    {
-                        [styles.tableCellBordered]:
-                            !bordered &&
-                            !rowBordered &&
-                            !innerBordered &&
-                            cellBordered,
-                    },
-                    {
-                        [styles.tableHeaderBordered]:
-                            !bordered &&
-                            !rowBordered &&
-                            !innerBordered &&
-                            headerBordered,
-                    },
-                    {
-                        [styles.tableHeaderBottomBordered]:
-                            !bordered &&
-                            !rowBordered &&
-                            !innerBordered &&
-                            !headerBordered &&
-                            headerBottomBordered,
-                    },
-                    {
-                        [styles.tableInnerBordered]:
-                            !bordered && !rowBordered && innerBordered,
-                    },
-                    { [styles.tableOuterBordered]: !bordered && outerBordered },
-                    {
-                        [styles.tableRowBordered]:
-                            !bordered && !innerBordered && rowBordered,
-                    },
-                    { [styles.tableEmpty]: rawData.length === 0 },
-                ])}
-                data={pageData}
-                rowKey={getRowKey}
-                rowClassName={internalRowClassName}
-                emptyText={renderEmpty(emptyText, emptyTextDetails)}
-                transformColumns={
-                    transformColumns as OcTableProps<RecordType>['transformColumns']
-                }
-            />
-            {bottomPaginationNode}
-        </div>
+        <LocaleReceiver componentName={'Table'} defaultLocale={enUS}>
+            {(contextLocale: TableLocale) => {
+                const locale = { ...contextLocale, ...props.locale };
+
+                return (
+                    <div ref={ref} className={wrapperClassNames} style={style}>
+                        {topPaginationNode}
+                        <OcTable<RecordType>
+                            {...tableProps}
+                            columns={
+                                mergedColumns as OcTableProps<RecordType>['columns']
+                            }
+                            direction={htmlDir}
+                            expandableConfig={mergedExpandableConfig}
+                            classNames={mergeClasses([
+                                styles.table,
+                                { [styles.tableRtl]: htmlDir === 'rtl' },
+                                {
+                                    [styles.tableLarge]:
+                                        mergedSize === TableSize.Large,
+                                },
+                                {
+                                    [styles.tableMedium]:
+                                        mergedSize === TableSize.Medium,
+                                },
+                                {
+                                    [styles.tableSmall]:
+                                        mergedSize === TableSize.Small,
+                                },
+                                { [styles.tableAlternate]: alternateRowColor },
+                                { [styles.tableBordered]: bordered },
+                                {
+                                    [styles.tableCellBordered]:
+                                        !bordered &&
+                                        !rowBordered &&
+                                        !innerBordered &&
+                                        cellBordered,
+                                },
+                                {
+                                    [styles.tableHeaderBordered]:
+                                        !bordered &&
+                                        !rowBordered &&
+                                        !innerBordered &&
+                                        headerBordered,
+                                },
+                                {
+                                    [styles.tableHeaderBottomBordered]:
+                                        !bordered &&
+                                        !rowBordered &&
+                                        !innerBordered &&
+                                        !headerBordered &&
+                                        headerBottomBordered,
+                                },
+                                {
+                                    [styles.tableInnerBordered]:
+                                        !bordered &&
+                                        !rowBordered &&
+                                        innerBordered,
+                                },
+                                {
+                                    [styles.tableOuterBordered]:
+                                        !bordered && outerBordered,
+                                },
+                                {
+                                    [styles.tableRowBordered]:
+                                        !bordered &&
+                                        !innerBordered &&
+                                        rowBordered,
+                                },
+                                { [styles.tableEmpty]: rawData.length === 0 },
+                            ])}
+                            data={pageData}
+                            locale={locale!.lang}
+                            rowKey={getRowKey}
+                            rowClassName={internalRowClassName}
+                            emptyText={renderEmpty(emptyText, emptyTextDetails)}
+                            transformColumns={
+                                transformColumns as OcTableProps<RecordType>['transformColumns']
+                            }
+                        />
+                        {bottomPaginationNode}
+                    </div>
+                );
+            }}
+        </LocaleReceiver>
     );
 }
 
@@ -678,22 +843,6 @@ interface TableInterface extends InternalTableType {
 const Table = ForwardTable as TableInterface;
 
 Table.defaultProps = {
-    filterConfirmText: 'OK',
-    filterResetText: 'Reset',
-    filterEmptyText: 'No filters',
-    filterCheckallText: 'Select all items',
-    filterSearchPlaceholderText: 'Search in filters',
-    emptyText: 'Short Message Here',
-    emptyTextDetails:
-        'More detail on how might the user be able to get around this',
-    selectInvertText: 'Invert current page',
-    selectNoneText: 'Clear all data',
-    selectionAllText: 'Select all data',
-    expandText: 'Expand row',
-    collapseText: 'Collapse row',
-    triggerDescText: 'Click to sort descending',
-    triggerAscText: 'Click to sort ascending',
-    cancelSortText: 'Click to cancel sorting',
     rowKey: 'key',
 };
 

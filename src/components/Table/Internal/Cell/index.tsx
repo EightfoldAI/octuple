@@ -84,6 +84,7 @@ function Cell<RecordType extends DefaultRecordType>(
         isSticky,
         hovering,
         onHover,
+        verticalAlign,
     }: InternalCellProps<RecordType>,
     ref: React.Ref<any>
 ): React.ReactElement {
@@ -182,8 +183,15 @@ function Cell<RecordType extends DefaultRecordType>(
 
     // ====================== Align =======================
     const alignStyle: React.CSSProperties = {};
+
     if (align) {
         alignStyle.textAlign = align;
+    }
+
+    const verticalAlignStyle: React.CSSProperties = {};
+
+    if (verticalAlign) {
+        verticalAlignStyle.verticalAlign = verticalAlign;
     }
 
     // ====================== Hover =======================
@@ -244,6 +252,7 @@ function Cell<RecordType extends DefaultRecordType>(
         style: {
             ...additionalProps.style,
             ...alignStyle,
+            ...verticalAlignStyle,
             ...fixedStyle,
             ...cellStyle,
         },

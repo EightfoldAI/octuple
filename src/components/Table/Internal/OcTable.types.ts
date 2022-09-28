@@ -8,6 +8,75 @@ export type DefaultRecordType = Record<string, any>;
 
 export type TableLayout = 'auto' | 'fixed';
 
+export type Locale = {
+    /**
+     * The Table locale.
+     */
+    locale: string;
+    /**
+     * The Table filter `OK` string.
+     */
+    filterConfirmText?: string;
+    /**
+     * The Table filter `Reset` string.
+     */
+    filterResetText?: string;
+    /**
+     * The Table filter `No filters` string.
+     */
+    filterEmptyText?: string;
+    /**
+     * The Table filter `Select all items` string.
+     */
+    filterCheckallText?: string;
+    /**
+     * The Table filter `Search in filters` string.
+     */
+    filterSearchPlaceholderText?: string;
+    /**
+     * The empty Table `No data found` string.
+     */
+    emptyText?: string;
+    /**
+     * The empty Table details string.
+     * This is not localized as its specific to your scenario.
+     * Must be passed via props.
+     */
+    emptyTextDetails?: string;
+    /**
+     * The Table `Clear all data` string.
+     */
+    selectNoneText?: string;
+    /**
+     * The Table `Invert current page` string.
+     */
+    selectInvertText?: string;
+    /**
+     * The Table `Select all data` string.
+     */
+    selectionAllText?: string;
+    /**
+     * The Table `Expand row` string.
+     */
+    expandText?: string;
+    /**
+     * The Table `Collapse row` string.
+     */
+    collapseText?: string;
+    /**
+     * The Table `Click to sort descending` string.
+     */
+    triggerDescText?: string;
+    /**
+     * The Table `Click to sort ascending` string.
+     */
+    triggerAscText?: string;
+    /**
+     * The Table `Click to cancel sorting` string.
+     */
+    cancelSortText?: string;
+};
+
 // ==================== Row =====================
 export type RowClassName<RecordType> = (
     record: RecordType,
@@ -42,7 +111,7 @@ export type CellEllipsisType = { showTitle?: boolean } | boolean;
 
 interface ColumnSharedType<RecordType> {
     /**
-     * Set the Table Column alignment.
+     * Set the Table Column text alignment.
      * @default 'left'
      */
     align?: AlignType;
@@ -73,6 +142,10 @@ interface ColumnSharedType<RecordType> {
      * The Column title.
      */
     title?: React.ReactNode;
+    /**
+     * Set the Table Column vertical alignment.
+     */
+    verticalAlign?: VerticalAlignType;
 }
 
 export interface ColumnGroupType<RecordType>
@@ -80,7 +153,25 @@ export interface ColumnGroupType<RecordType>
     children: ColumnsType<RecordType>;
 }
 
-export type AlignType = 'left' | 'center' | 'right';
+export type AlignType =
+    | 'start'
+    | 'end'
+    | 'left'
+    | 'right'
+    | 'center'
+    | 'justify'
+    | 'match-parent';
+
+export type VerticalAlignType =
+    | 'baseline'
+    | 'bottom'
+    | 'middle'
+    | 'sub'
+    | 'super'
+    | 'text-bottom'
+    | 'text-top'
+    | 'top'
+    | string;
 
 export interface ColumnType<RecordType> extends ColumnSharedType<RecordType> {
     /**
@@ -349,6 +440,10 @@ export interface OcTableProps<RecordType = unknown> {
      * Indent size in pixels of Table tree data.
      */
     indentSize?: number;
+    /**
+     * Localization configuration.
+     */
+    locale: Locale;
     /**
      * Set props on header row.
      */
