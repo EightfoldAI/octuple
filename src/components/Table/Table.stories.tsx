@@ -12,7 +12,6 @@ import { VariableSizeGrid as Grid } from 'react-window';
 import { mergeClasses } from '../../shared/utilities';
 import { PaginationLayoutOptions } from '../Pagination';
 import { Tooltip, TooltipTheme } from '../Tooltip';
-import zhCN from './Locale/zh_CN';
 
 export default {
     title: 'Table',
