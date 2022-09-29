@@ -1,8 +1,18 @@
 .accordion-container {
-    border: 1px solid var(--grey-color-20);
-    border-radius: $corner-radius-xl;
     font-family: $octuple-font-family;
     overflow: hidden;
+
+    &.accordion-border {
+        border: 1px solid var(--grey-color-20);
+    }
+
+    &.pill {
+        border-radius: $corner-radius-xl;
+    }
+
+    &.rectangle {
+        border-radius: $corner-radius-s;
+    }
 
     .accordion-body-container {
         box-sizing: border-box;
@@ -11,13 +21,23 @@
         transition: all $motion-duration-fast $motion-easing-easeout;
 
         &.show {
-            max-height: 500px;
+            transition: all $motion-duration-fast $motion-easing-easein;
+            max-height: 100vh;
         }
     }
 
     .accordion-body {
-        margin: 0 $space-l;
-        padding: $space-m 0;
+        &.large {
+            @include octuple-content-medium();
+            padding: $space-l 0;
+            margin: 0 $space-l;
+        }
+
+        &.medium {
+            @include octuple-content-small();
+            padding: $space-m 0;
+            margin: 0 $space-m;
+        }
 
         &.show-border-top {
             border-top: 1px solid var(--grey-color-20);
@@ -28,10 +48,45 @@
         cursor: pointer;
         display: flex;
         justify-content: space-between;
-        padding: $space-l;
         width: 100%;
         transition: background-color $motion-duration-fast
             $motion-easing-easeout;
+
+        &.large {
+            padding: $space-l;
+
+            .accordion-header-container {
+                gap: $space-m;
+
+                .accordion-header {
+                    @include octuple-h4();
+                    padding: 0;
+                }
+            }
+        }
+
+        &.medium {
+            padding: $space-m;
+
+            .accordion-header-container {
+                gap: $space-s;
+
+                .accordion-header {
+                    @include octuple-h5();
+                    padding: 0;
+                }
+            }
+        }
+
+        &.disabled {
+            pointer-events: none;
+            cursor: not-allowed;
+        }
+
+        .accordion-header-container {
+            display: flex;
+            align-items: center;
+        }
 
         &:focus,
         &:focus-visible {
@@ -66,7 +121,7 @@
             &:focus-visible {
                 border: 2px solid $focus-visible-shadow-color;
                 border-radius: $corner-radius-xl;
-                padding: calc($space-l - 2px);
+                padding: calc(#{$space-l} - 2px);
 
                 &-expanded {
                     border-radius: 0;
