@@ -1,4 +1,8 @@
-import { Accordion } from './components/Accordion';
+import {
+    Accordion,
+    AccordionShape,
+    AccordionSize,
+} from './components/Accordion';
 
 import { Avatar } from './components/Avatar';
 
@@ -147,6 +151,8 @@ import { useMaxVisibleSections } from './hooks/useMaxVisibleSections';
 
 export {
     Accordion,
+    AccordionShape,
+    AccordionSize,
     Avatar,
     Badge,
     ButtonIconAlign,
