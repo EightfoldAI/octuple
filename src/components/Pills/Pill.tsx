@@ -27,7 +27,6 @@ export const Pill: FC<PillProps> = React.forwardRef(
             pillButtonProps,
             type = PillType.default,
             size = PillSize.Medium,
-            readOnly = false,
             style,
             ...rest
         },
@@ -75,7 +74,10 @@ export const Pill: FC<PillProps> = React.forwardRef(
             { [styles.xsmall]: size === PillSize.XSmall },
             { [styles.tagPillsDisabled]: mergedDisabled },
             { [styles.tagPillsRtl]: htmlDir === 'rtl' },
-            { [styles.readOnly]: readOnly === true },
+            {
+                [styles.readOnly]:
+                    type !== PillType.withButton && type !== PillType.closable,
+            },
         ]);
         return (
             <div
