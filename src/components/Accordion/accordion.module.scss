@@ -21,7 +21,8 @@
         transition: all $motion-duration-fast $motion-easing-easeout;
 
         &.show {
-            max-height: 500px;
+            transition: all $motion-duration-fast $motion-easing-easein;
+            max-height: 100vh;
         }
     }
 
@@ -75,6 +76,11 @@
                     padding: 0;
                 }
             }
+        }
+
+        &.disabled {
+            pointer-events: none;
+            cursor: not-allowed;
         }
 
         .accordion-header-container {

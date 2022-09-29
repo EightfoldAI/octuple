@@ -39,6 +39,10 @@ interface AccordionBaseProps extends OcBaseProps<HTMLDivElement> {
      * @default AccordionSize.Large
      */
     size?: AccordionSize;
+    /**
+     * If the accordion is disabled
+     */
+    disabled?: boolean;
 }
 
 export interface AccordionProps extends AccordionBaseProps {

@@ -1,4 +1,4 @@
-import React, { FC, Ref, useCallback, useState } from 'react';
+import React, { FC, Ref, useCallback, useEffect, useState } from 'react';
 import { eventKeys, mergeClasses, uniqueId } from '../../shared/utilities';
 import {
     AccordionBodyProps,
@@ -22,6 +22,7 @@ export const AccordionSummary: FC<AccordionSummaryProps> = ({
     iconProps,
     badgeProps,
     size,
+    disabled,
     ...rest
 }) => {
     const headerClassnames = mergeClasses([
@@ -31,6 +32,7 @@ export const AccordionSummary: FC<AccordionSummaryProps> = ({
             [styles.medium]: size === AccordionSize.Medium,
             [styles.large]: size === AccordionSize.Large,
             [styles.accordionSummaryExpanded]: expanded,
+            [styles.disabled]: disabled,
         },
     ]);
 
@@ -123,11 +125,16 @@ export const Accordion: FC<AccordionProps> = React.forwardRef(
             iconProps,
             badgeProps,
             size = AccordionSize.Large,
+            disabled,
             ...rest
         },
         ref: Ref<HTMLDivElement>
     ) => {
         const [isExpanded, setIsExpanded] = useState<boolean>(expanded);
+
+        useEffect(() => {
+            setIsExpanded(expanded);
+        }, [expanded]);
 
         const toggleAccordion = (expand: boolean): void => {
             setIsExpanded(expand);
@@ -152,6 +159,7 @@ export const Accordion: FC<AccordionProps> = React.forwardRef(
                     expanded={isExpanded}
                     iconProps={iconProps}
                     badgeProps={badgeProps}
+                    disabled={disabled}
                     size={size}
                     id={id}
                     {...headerProps}

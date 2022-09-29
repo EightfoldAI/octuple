@@ -127,6 +127,8 @@ Single.args = {
     bordered: true,
     shape: AccordionShape.Pill,
     size: AccordionSize.Large,
+    expanded: false,
+    disabled: false,
 };
 
 const listArgs: Object = {
