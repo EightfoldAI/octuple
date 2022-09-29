@@ -19,6 +19,7 @@ export const Pager: FC<PagerProps> = React.forwardRef(
     (
         {
             currentPage = 1,
+            locale,
             onCurrentChange,
             pageCount,
             quickNextIconButtonAriaLabel,
@@ -145,7 +146,9 @@ export const Pager: FC<PagerProps> = React.forwardRef(
                                 toggle
                             />
                         ) : (
-                            <span>{`${currentPage.toLocaleString()} of`}</span>
+                            <span>{`${currentPage.toLocaleString()} ${
+                                locale.lang!.pagerText
+                            }`}</span>
                         )}
                     </li>
                 )}

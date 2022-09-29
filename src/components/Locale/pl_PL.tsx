@@ -1,5 +1,6 @@
 /* eslint-disable no-template-curly-in-string */
 import type { Locale } from '../LocaleProvider';
+import Pagination from '../Pagination/Locale/pl_PL';
 import Table from '../Table/Locale/pl_PL';
 
 const typeTemplate = '${label} nie posiada poprawnej wartości dla typu ${type}';
@@ -60,6 +61,7 @@ const localeValues: Locale = {
             },
         },
     },
+    Pagination,
     Table,
 };
 

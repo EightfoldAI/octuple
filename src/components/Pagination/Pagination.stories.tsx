@@ -103,22 +103,14 @@ const paginationArgs: Object = {
     classNames: 'my-pagination-class',
     currentPage: 1,
     dots: false,
-    goToText: 'Go to',
     layout: [
         PaginationLayoutOptions.Previous,
         PaginationLayoutOptions.Pager,
         PaginationLayoutOptions.Next,
     ],
-    nextIconButtonAriaLabel: 'Next',
     pageSize: 10,
-    pageSizeButtonAriaLabel: 'Selected page size',
     pageSizes: [10, 20, 30, 40, 50, 100],
-    pageSizeText: 'page',
-    previousIconButtonAriaLabel: 'Previous',
-    quickNextIconButtonAriaLabel: 'Next 5',
-    quickPreviousIconButtonAriaLabel: 'Previous 5',
     total: 50,
-    totalText: 'Total',
     'data-test-id': 'myPaginationTestId',
 };
 
