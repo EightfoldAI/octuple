@@ -1,9 +1,14 @@
-import React, { FC, Ref, useCallback, useState } from 'react';
-
+import React, { FC, Ref, useCallback, useEffect, useState } from 'react';
 import { eventKeys, mergeClasses, uniqueId } from '../../shared/utilities';
-
-import { AccordionProps, AccordionSummaryProps, AccordionBodyProps } from './';
+import {
+    AccordionBodyProps,
+    AccordionProps,
+    AccordionShape,
+    AccordionSize,
+    AccordionSummaryProps,
+} from './';
 import { Icon, IconName } from '../Icon';
+import { Badge } from '../Badge';
 
 import styles from './accordion.module.scss';
 
@@ -14,13 +19,21 @@ export const AccordionSummary: FC<AccordionSummaryProps> = ({
     onClick,
     classNames,
     id,
+    iconProps,
+    badgeProps,
+    size,
+    disabled,
     ...rest
 }) => {
     const headerClassnames = mergeClasses([
         styles.accordionSummary,
-        'header4',
         classNames,
-        { [styles.accordionSummaryExpanded]: expanded },
+        {
+            [styles.medium]: size === AccordionSize.Medium,
+            [styles.large]: size === AccordionSize.Large,
+            [styles.accordionSummaryExpanded]: expanded,
+            [styles.disabled]: disabled,
+        },
     ]);
 
     const iconStyles: string = mergeClasses([
@@ -49,7 +62,11 @@ export const AccordionSummary: FC<AccordionSummaryProps> = ({
             tabIndex={0}
             {...rest}
         >
-            {children}
+            <div className={styles.accordionHeaderContainer}>
+                {iconProps && <Icon {...iconProps} />}
+                <span className={styles.accordionHeader}>{children}</span>
+                {badgeProps && <Badge {...badgeProps} />}
+            </div>
             <Icon classNames={iconStyles} {...expandIconProps} />
         </div>
     );
@@ -60,6 +77,7 @@ export const AccordionBody: FC<AccordionBodyProps> = ({
     expanded,
     classNames,
     id,
+    size,
     ...rest
 }) => {
     const accordionBodyContainerStyles: string = mergeClasses(
@@ -70,7 +88,10 @@ export const AccordionBody: FC<AccordionBodyProps> = ({
     const accordionBodyStyles: string = mergeClasses(
         styles.accordionBody,
         styles.showBorderTop,
-        'body2',
+        {
+            [styles.medium]: size === AccordionSize.Medium,
+            [styles.large]: size === AccordionSize.Large,
+        },
         classNames
     );
 
@@ -99,11 +120,21 @@ export const Accordion: FC<AccordionProps> = React.forwardRef(
             id = uniqueId('accordion-'),
             headerProps,
             bodyProps,
+            shape = AccordionShape.Pill,
+            bordered = true,
+            iconProps,
+            badgeProps,
+            size = AccordionSize.Large,
+            disabled,
             ...rest
         },
         ref: Ref<HTMLDivElement>
     ) => {
         const [isExpanded, setIsExpanded] = useState<boolean>(expanded);
+
+        useEffect(() => {
+            setIsExpanded(expanded);
+        }, [expanded]);
 
         const toggleAccordion = (expand: boolean): void => {
             setIsExpanded(expand);
@@ -112,6 +143,11 @@ export const Accordion: FC<AccordionProps> = React.forwardRef(
 
         const accordionContainerStyle: string = mergeClasses(
             styles.accordionContainer,
+            {
+                [styles.accordionBorder]: bordered,
+                [styles.pill]: shape === AccordionShape.Pill,
+                [styles.rectangle]: shape === AccordionShape.Rectangle,
+            },
             classNames
         );
 
@@ -121,12 +157,21 @@ export const Accordion: FC<AccordionProps> = React.forwardRef(
                     expandIconProps={expandIconProps}
                     onClick={() => toggleAccordion(!isExpanded)}
                     expanded={isExpanded}
+                    iconProps={iconProps}
+                    badgeProps={badgeProps}
+                    disabled={disabled}
+                    size={size}
                     id={id}
                     {...headerProps}
                 >
                     {summary}
                 </AccordionSummary>
-                <AccordionBody id={id} expanded={isExpanded} {...bodyProps}>
+                <AccordionBody
+                    id={id}
+                    expanded={isExpanded}
+                    size={size}
+                    {...bodyProps}
+                >
                     {children}
                 </AccordionBody>
             </div>
