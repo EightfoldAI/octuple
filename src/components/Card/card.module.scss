@@ -1,0 +1,108 @@
+.card {
+    --info-color: var(--grey-color-10);
+    --bg-color: var(--grey-color-70);
+
+    background-color: var(--bg-color);
+    border-radius: $corner-radius-xl;
+    color: var(--info-color);
+    display: block;
+    font-family: $octuple-font-family;
+    gap: $space-m;
+    padding: $space-ml;
+    width: 360px;
+    position: relative;
+
+    &.list {
+        --info-color: var(--grey-color-70);
+        --bg-color: var(--grey-color-10);
+    }
+
+    &.carousel {
+        --info-color: var(--green-color-70);
+        --bg-color: var(--green-color-10);
+    }
+
+    .icon {
+        color: inherit;
+    }
+
+    .message {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        color: inherit;
+    }
+
+    .buttons-container {
+        padding: $space-m;
+    }
+
+    &-large {
+        height: 278px;
+    }
+
+    &-medium,
+    &-small {
+        height: 260px;
+    }
+
+    .header {
+        @include octuple-h4();
+        display: flex;
+        flex-direction: row;
+        margin-bottom: $space-ml;
+        padding: 0;
+
+        .mainHeader {
+            display: flex;
+            .icon {
+                height: fit-content;
+            }
+
+            &-button {
+                margin-right: $space-m;
+                padding: 0;
+                padding-bottom: 12px;
+            }
+
+            &-buttons {
+                align-items: flex-end;
+                align-self: start;
+                height: fit-content;
+                justify-content: right;
+                white-space: nowrap;
+
+                button {
+                    margin-left: $space-xs;
+                }
+            }
+        }
+
+        .subHeader {
+            opacity: 50%;
+        }
+    }
+
+    .body {
+        display: flex;
+        flex-direction: column;
+        overflow-y: auto;
+        overflow-x: hidden;
+        flex: 1;
+        line-height: normal;
+
+        .list {
+            margin-bottom: 20px;
+        }
+    }
+
+    .footer {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        padding-top: $space-m;
+        gap: $space-xs;
+        bottom: 25px;
+        position: absolute;
+    }
+}
