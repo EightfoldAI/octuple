@@ -1,11 +1,14 @@
 /* eslint-disable no-template-curly-in-string */
 import type { Locale } from '../LocaleProvider';
+import DatePicker from '../DateTimePicker/DatePicker/Locale/ko_KR';
 import Table from '../Table/Locale/ko_KR';
+import TimePicker from '../DateTimePicker/TimePicker/Locale/ko_KR';
 
 const typeTemplate = '${label} 유효하지 않은 ${type}';
 
 const localeValues: Locale = {
     locale: 'ko',
+    DatePicker,
     Form: {
         defaultValidateMessages: {
             default: '필드 유효성 검사 오류 ${label}',
@@ -56,6 +59,7 @@ const localeValues: Locale = {
         },
     },
     Table,
+    TimePicker,
 };
 
 export default localeValues;

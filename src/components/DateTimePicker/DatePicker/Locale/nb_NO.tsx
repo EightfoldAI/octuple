@@ -2,7 +2,6 @@ import CalendarLocale from '../../Internal/Locale/nb_NO';
 import TimePickerLocale from '../../TimePicker/Locale/nb_NO';
 import type { PickerLocale } from '../Generate/Generate.types';
 
-// Merge into a locale object
 const locale: PickerLocale = {
     lang: {
         placeholder: 'Velg dato',

@@ -7,7 +7,6 @@ import DatePicker from './';
 import { DatePickerShape, DatePickerSize } from './';
 import type { DatePickerProps, RangePickerProps } from './';
 import { Stack } from '../../Stack';
-import locale from './Locale/en_US';
 
 export default {
     title: 'Date Picker',
@@ -510,7 +509,6 @@ export const Range_Status = Range_Status_Story.bind({});
 const pickerArgs: Object = {
     classNames: 'my-picker-class',
     id: 'myPickerInputId',
-    locale: locale,
     shape: DatePickerShape.Rectangle,
     size: DatePickerSize.Medium,
 };

@@ -7,14 +7,14 @@ import LocaleContext from './Context';
 
 export interface Locale {
     locale: string;
-    DatePicker?: DatePickerLocale;
-    TimePicker?: Record<string, any>;
     global?: Record<string, any>;
+    DatePicker?: DatePickerLocale;
     Form?: {
         optional?: string;
         defaultValidateMessages: ValidateMessages;
     };
     Table?: TableLocale;
+    TimePicker?: Record<string, any>;
 }
 
 export interface LocaleProviderProps {

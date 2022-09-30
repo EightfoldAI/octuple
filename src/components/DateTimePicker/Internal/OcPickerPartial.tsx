@@ -45,34 +45,37 @@ type MergedPickerPartialProps<DateType> = {
 function OcPickerPartial<DateType>(props: OcPickerPartialProps<DateType>) {
     const {
         classNames,
-        style,
-        locale,
-        generateConfig,
-        value,
-        defaultValue,
-        pickerValue,
+        components,
         defaultPickerValue,
+        defaultValue,
+        direction,
         disabledDate,
+        generateConfig,
+        hideHeader,
+        hourStep = 1,
+        locale,
+        minuteStep = 1,
         mode,
+        okText,
+        nowText,
+        onChange,
+        onMouseDown,
+        onOk,
+        onPartialChange,
+        onPickerValueChange,
+        onSelect,
         picker = 'date',
-        tabIndex = 0,
+        pickerValue,
+        renderExtraFooter,
+        secondStep = 1,
         showNow,
         showTime,
         showToday,
-        renderExtraFooter,
-        hideHeader,
-        onSelect,
-        onChange,
-        onPartialChange,
-        onMouseDown,
-        onPickerValueChange,
-        onOk,
-        components,
-        direction,
-        hourStep = 1,
-        minuteStep = 1,
-        secondStep = 1,
         size = DatePickerSize.Medium,
+        style,
+        tabIndex = 0,
+        todayText,
+        value,
     } = props as MergedPickerPartialProps<DateType>;
     const largeScreenActive: boolean = useMatchMedia(Breakpoints.Large);
     const mediumScreenActive: boolean = useMatchMedia(Breakpoints.Medium);
@@ -267,6 +270,7 @@ function OcPickerPartial<DateType>(props: OcPickerPartialProps<DateType>) {
 
     const pickerProps = {
         ...(props as MergedPickerPartialProps<DateType>),
+        locale,
         operationRef: partialRef,
         viewDate,
         value: mergedValue,
@@ -413,10 +417,10 @@ function OcPickerPartial<DateType>(props: OcPickerPartialProps<DateType>) {
         rangesNode = getRanges({
             components,
             needConfirmButton,
+            nowText,
             okDisabled:
                 !mergedValue || (disabledDate && disabledDate(mergedValue)),
-            locale,
-            showNow,
+            okText,
             onNow: needConfirmButton && onNow,
             onOk: () => {
                 if (mergedValue) {
@@ -426,6 +430,7 @@ function OcPickerPartial<DateType>(props: OcPickerPartialProps<DateType>) {
                     }
                 }
             },
+            showNow,
             size: size,
         });
     }
@@ -458,7 +463,7 @@ function OcPickerPartial<DateType>(props: OcPickerPartialProps<DateType>) {
                     }
                 }}
                 size={datePickerSizeToButtonSizeMap.get(size)}
-                text={locale.today}
+                text={todayText}
             />
         );
     }

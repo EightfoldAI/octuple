@@ -1,6 +1,8 @@
 /* eslint-disable no-template-curly-in-string */
 import type { Locale } from '../LocaleProvider';
+import DatePicker from '../DateTimePicker/DatePicker/Locale/hr_HR';
 import Table from '../Table/Locale/hr_HR';
+import TimePicker from '../DateTimePicker/TimePicker/Locale/hr_HR';
 
 const typeTemplate = '${label} nije valjan ${type}';
 
@@ -9,6 +11,7 @@ const localeValues: Locale = {
     global: {
         placeholder: 'Molimo označite',
     },
+    DatePicker,
     Form: {
         optional: '(neobavezno)',
         defaultValidateMessages: {
@@ -60,6 +63,7 @@ const localeValues: Locale = {
         },
     },
     Table,
+    TimePicker,
 };
 
 export default localeValues;

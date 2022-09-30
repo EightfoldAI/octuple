@@ -1,6 +1,8 @@
 /* eslint-disable no-template-curly-in-string */
 import type { Locale } from '../LocaleProvider';
+import DatePicker from '../DateTimePicker/DatePicker/Locale/pt_BR';
 import Table from '../Table/Locale/pt_BR';
+import TimePicker from '../DateTimePicker/TimePicker/Locale/pt_BR';
 
 const typeTemplate = '${label} não é um ${type} válido';
 
@@ -9,6 +11,7 @@ const localeValues: Locale = {
     global: {
         placeholder: 'Por favor escolha',
     },
+    DatePicker,
     Form: {
         optional: '(opcional)',
         defaultValidateMessages: {
@@ -60,6 +63,7 @@ const localeValues: Locale = {
         },
     },
     Table,
+    TimePicker,
 };
 
 export default localeValues;
