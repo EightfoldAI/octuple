@@ -186,6 +186,10 @@ export interface InputProps<T>
      */
     autoFocus?: boolean;
     /**
+     * programmatically clear the input when true.
+     */
+    clear?: boolean;
+    /**
      * option to show the clear input button.
      * default is true for backward compatibility
      * @default true
