@@ -14,6 +14,7 @@ export const AnimatedTabs: FC<TabsProps> = React.forwardRef(
             style,
             variant = TabVariant.default,
             scrollable,
+            underlined = false,
             onChange,
             ...rest
         },
@@ -22,6 +23,7 @@ export const AnimatedTabs: FC<TabsProps> = React.forwardRef(
         const { currentActiveTab } = useTabs();
         const tabClassName: string = mergeClasses([
             styles.tabWrap,
+            { [styles.underlined]: underlined && variant !== TabVariant.pill },
             { [styles.small]: variant === TabVariant.small },
             { [styles.pill]: variant === TabVariant.pill },
             { [styles.scrollable]: scrollable },

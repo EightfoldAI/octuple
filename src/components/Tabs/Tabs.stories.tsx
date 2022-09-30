@@ -99,6 +99,8 @@ const Default_Story: ComponentStory<typeof Tabs> = (args) => {
 
 export const Default = Default_Story.bind({});
 
+export const DefaultUnderlined = Default_Story.bind({});
+
 const Default_Loading_Story: ComponentStory<typeof Tabs> = (args) => {
     const [activeTabs, setActiveTabs] = useState({ defaultTab: 'tab1' });
     return (
@@ -252,12 +254,18 @@ export const Pill_Icon_Label = Pill_Icon_Label_Story.bind({});
 const tabsArgs: Object = {
     scrollable: false,
     variant: TabVariant.default,
+    underlined: false,
     children: tabs.map((tab) => <Tab key={tab.value} {...tab} />),
     style: {},
 };
 
 Default.args = {
     ...tabsArgs,
+};
+
+DefaultUnderlined.args = {
+    ...tabsArgs,
+    underlined: true,
 };
 
 DefaultLoader.args = {

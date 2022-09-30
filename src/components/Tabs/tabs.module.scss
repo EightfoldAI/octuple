@@ -6,6 +6,10 @@
         @include no-scrollbars;
     }
 
+    &.underlined {
+        border-bottom: 1px solid var(--tab-underline);
+    }
+
     .tab {
         align-items: center;
         border: none;
