@@ -263,7 +263,7 @@ export type PartialSharedProps<DateType> = {
      * Localization configuration.
      * @default enUS
      */
-    locale?: Locale;
+    locale: Locale;
     /**
      * The custom next icon.
      */
