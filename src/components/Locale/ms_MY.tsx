@@ -1,4 +1,5 @@
 import type { Locale } from '../LocaleProvider';
+import Pagination from '../Pagination/Locale/ms_MY';
 import Table from '../Table/Locale/ms_MY';
 
 const localeValues: Locale = {
@@ -6,6 +7,7 @@ const localeValues: Locale = {
     global: {
         placeholder: 'Sila pilih',
     },
+    Pagination,
     Table,
 };
 

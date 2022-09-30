@@ -1,5 +1,6 @@
 /* eslint-disable no-template-curly-in-string */
 import type { Locale } from '../LocaleProvider';
+import Pagination from '../Pagination/Locale/ja_JP';
 import Table from '../Table/Locale/ja_JP';
 
 const typeTemplate = '${label}は有効な${type}ではありません';
@@ -55,6 +56,7 @@ const localeValues: Locale = {
             },
         },
     },
+    Pagination,
     Table,
 };
 
