@@ -1,6 +1,7 @@
 /* eslint-disable no-template-curly-in-string */
 import type { Locale } from '../LocaleProvider';
 import DatePicker from '../DateTimePicker/DatePicker/Locale/uk_UA';
+import Dialog from '../Dialog/BaseDialog/Locale/uk_UA';
 import Pagination from '../Pagination/Locale/uk_UA';
 import Table from '../Table/Locale/uk_UA';
 import TimePicker from '../DateTimePicker/TimePicker/Locale/uk_UA';
@@ -13,6 +14,7 @@ const localeValues: Locale = {
         placeholder: 'Будь ласка, оберіть',
     },
     DatePicker,
+    Dialog,
     Form: {
         optional: '(опціонально)',
         defaultValidateMessages: {

@@ -1,6 +1,7 @@
 /* eslint-disable no-template-curly-in-string */
 import type { Locale } from '../LocaleProvider';
 import DatePicker from '../DateTimePicker/DatePicker/Locale/zh_CN';
+import Dialog from '../Dialog/BaseDialog/Locale/zh_CN';
 import Pagination from '../Pagination/Locale/zh_CN';
 import Table from '../Table/Locale/zh_CN';
 import TimePicker from '../DateTimePicker/TimePicker/Locale/zh_CN';
@@ -13,6 +14,7 @@ const localeValues: Locale = {
         placeholder: '请选择',
     },
     DatePicker,
+    Dialog,
     Form: {
         optional: '（可选）',
         defaultValidateMessages: {
