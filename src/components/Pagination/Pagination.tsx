@@ -1,5 +1,10 @@
 import React, { FC, Ref, useEffect, useState } from 'react';
-import { Pager, PaginationLayoutOptions, PaginationProps } from './index';
+import {
+    Pager,
+    PaginationLayoutOptions,
+    PaginationLocale,
+    PaginationProps,
+} from './index';
 import {
     ButtonIconAlign,
     ButtonShape,
@@ -13,40 +18,45 @@ import { TextInput, TextInputShape } from '../Inputs';
 import { mergeClasses } from '../../shared/utilities';
 import { useBoolean } from '../../octuple';
 import { useCanvasDirection } from '../../hooks/useCanvasDirection';
+import LocaleReceiver, {
+    useLocaleReceiver,
+} from '../LocaleProvider/LocaleReceiver';
+import enUS from './Locale/en_US';
 
 import styles from './pagination.module.scss';
 
 export const Pagination: FC<PaginationProps> = React.forwardRef(
-    (
-        {
+    (props: PaginationProps, ref: Ref<HTMLDivElement>) => {
+        const {
             classNames,
             currentPage = 1,
             dots = false,
-            goToText = 'Go to',
+            goToText: defaultGoToText,
             layout = [
                 PaginationLayoutOptions.Previous,
                 PaginationLayoutOptions.Pager,
                 PaginationLayoutOptions.Next,
             ],
-            nextIconButtonAriaLabel = 'Next',
+            locale = enUS,
+            nextIconButtonAriaLabel: defaultNextIconButtonAriaLabel,
             onCurrentChange,
             onSizeChange,
             pageCount,
             pageSize = 10,
-            pageSizeButtonAriaLabel = 'Selected page size',
+            pageSizeButtonAriaLabel: defaultPageSizeButtonAriaLabel,
             pageSizes = [10, 20, 30, 40, 50, 100],
-            pageSizeText = 'page',
-            previousIconButtonAriaLabel = 'Previous',
-            quickNextIconButtonAriaLabel = 'Next 5',
-            quickPreviousIconButtonAriaLabel = 'Previous 5',
+            pageSizeText: defaultPageSizeText,
+            previousIconButtonAriaLabel: defaultPreviousIconButtonAriaLabel,
+            quickNextIconButtonAriaLabel: defaultQuickNextIconButtonAriaLabel,
+            quickPreviousIconButtonAriaLabel:
+                defaultQuickPreviousIconButtonAriaLabel,
             total = 1,
-            totalText = 'Total',
+            totalText: defaultTotalText,
             selfControlled = true,
             'data-test-id': dataTestId,
             ...rest
-        },
-        ref: Ref<HTMLDivElement>
-    ) => {
+        } = props;
+
         const htmlDir: string = useCanvasDirection();
         const [_toggle, { toggle: setToggle }] = useBoolean(false);
 
@@ -57,6 +67,74 @@ export const Pagination: FC<PaginationProps> = React.forwardRef(
         const [_total, setTotal] = useState<number>(total);
 
         const inputRef = React.createRef<HTMLInputElement>();
+
+        // ============================ Strings ===========================
+        const [paginationLocale] = useLocaleReceiver('Pagination');
+        let mergedLocale: PaginationLocale;
+
+        if (props.locale) {
+            mergedLocale = props.locale;
+        } else {
+            mergedLocale = paginationLocale || props.locale;
+        }
+
+        const [goToText, setGoToText] = useState<string>(defaultGoToText);
+        const [nextIconButtonAriaLabel, setNextIconButtonAriaLabel] =
+            useState<string>(defaultNextIconButtonAriaLabel);
+        const [pageSizeButtonAriaLabel, setPageSizeButtonAriaLabel] =
+            useState<string>(defaultPageSizeButtonAriaLabel);
+        const [pageSizeText, setPageSizeText] =
+            useState<string>(defaultPageSizeText);
+        const [previousIconButtonAriaLabel, setPreviousIconButtonAriaLabel] =
+            useState<string>(defaultPreviousIconButtonAriaLabel);
+        const [quickNextIconButtonAriaLabel, setQuickNextIconButtonAriaLabel] =
+            useState<string>(defaultQuickNextIconButtonAriaLabel);
+        const [
+            quickPreviousIconButtonAriaLabel,
+            setQuickPreviousIconButtonAriaLabel,
+        ] = useState<string>(defaultQuickPreviousIconButtonAriaLabel);
+        const [totalText, setTotalText] = useState<string>(defaultTotalText);
+
+        // Locs: if the prop isn't provided use the loc defaults.
+        // If the mergedLocale is changed, update.
+        useEffect(() => {
+            setGoToText(
+                props.goToText ? props.goToText : mergedLocale.lang!.goToText
+            );
+            setNextIconButtonAriaLabel(
+                props.nextIconButtonAriaLabel
+                    ? props.nextIconButtonAriaLabel
+                    : mergedLocale.lang!.nextIconButtonAriaLabel
+            );
+            setPageSizeButtonAriaLabel(
+                props.pageSizeButtonAriaLabel
+                    ? props.pageSizeButtonAriaLabel
+                    : mergedLocale.lang!.pageSizeButtonAriaLabel
+            );
+            setPageSizeText(
+                props.pageSizeText
+                    ? props.pageSizeText
+                    : mergedLocale.lang!.pageSizeText
+            );
+            setPreviousIconButtonAriaLabel(
+                props.previousIconButtonAriaLabel
+                    ? props.previousIconButtonAriaLabel
+                    : mergedLocale.lang!.previousIconButtonAriaLabel
+            );
+            setQuickNextIconButtonAriaLabel(
+                props.quickNextIconButtonAriaLabel
+                    ? props.quickNextIconButtonAriaLabel
+                    : mergedLocale.lang!.quickNextIconButtonAriaLabel
+            );
+            setQuickPreviousIconButtonAriaLabel(
+                props.quickPreviousIconButtonAriaLabel
+                    ? props.quickPreviousIconButtonAriaLabel
+                    : mergedLocale.lang!.quickPreviousIconButtonAriaLabel
+            );
+            setTotalText(
+                props.totalText ? props.totalText : mergedLocale.lang!.totalText
+            );
+        }, [mergedLocale]);
 
         useEffect((): void => {
             setTotal(total);
@@ -194,155 +272,205 @@ export const Pagination: FC<PaginationProps> = React.forwardRef(
         ]);
 
         return (
-            <div
-                {...rest}
-                ref={ref}
-                className={paginationWrapperClassNames}
-                data-test-id={dataTestId}
-            >
-                {_total > 0 && (
-                    <>
-                        {layout.includes(PaginationLayoutOptions.Sizes) &&
-                            moreThanOnePage && (
-                                <span className={styles.sizes} key="sizes">
-                                    <Dropdown
-                                        overlay={Overlay(_pageSizes)}
-                                        onVisibleChange={setToggle}
-                                    >
-                                        <NeutralButton
-                                            alignIcon={
-                                                htmlDir === 'ltr'
-                                                    ? ButtonIconAlign.Right
-                                                    : ButtonIconAlign.Left
+            <LocaleReceiver componentName={'Pagination'} defaultLocale={enUS}>
+                {(contextLocale: PaginationLocale) => {
+                    const locale = { ...contextLocale, ...mergedLocale };
+
+                    return (
+                        <div
+                            {...rest}
+                            ref={ref}
+                            className={paginationWrapperClassNames}
+                            data-test-id={dataTestId}
+                        >
+                            {_total > 0 && (
+                                <>
+                                    {layout.includes(
+                                        PaginationLayoutOptions.Sizes
+                                    ) &&
+                                        moreThanOnePage && (
+                                            <span
+                                                className={styles.sizes}
+                                                key="sizes"
+                                            >
+                                                <Dropdown
+                                                    overlay={Overlay(
+                                                        _pageSizes
+                                                    )}
+                                                    onVisibleChange={setToggle}
+                                                >
+                                                    <NeutralButton
+                                                        alignIcon={
+                                                            htmlDir === 'ltr'
+                                                                ? ButtonIconAlign.Right
+                                                                : ButtonIconAlign.Left
+                                                        }
+                                                        ariaLabel={
+                                                            pageSizeButtonAriaLabel
+                                                        }
+                                                        shape={
+                                                            ButtonShape.Rectangle
+                                                        }
+                                                        iconProps={{
+                                                            role: 'presentation',
+                                                            path: _toggle
+                                                                ? IconName.mdiChevronUp
+                                                                : IconName.mdiChevronDown,
+                                                        }}
+                                                        size={ButtonSize.Medium}
+                                                        text={
+                                                            htmlDir === 'ltr'
+                                                                ? `${_pageSize} / ${pageSizeText}`
+                                                                : `${pageSizeText} / ${_pageSize}`
+                                                        }
+                                                    />
+                                                </Dropdown>
+                                            </span>
+                                        )}
+                                    {layout.includes(
+                                        PaginationLayoutOptions.Total
+                                    ) && moreThanOnePage ? (
+                                        <span
+                                            className={styles.total}
+                                            key="total"
+                                        >
+                                            {htmlDir === 'ltr'
+                                                ? `${totalText} ${total}`
+                                                : `${total} ${totalText}`}
+                                        </span>
+                                    ) : (
+                                        <span />
+                                    )}
+                                    {layout.includes(
+                                        PaginationLayoutOptions.Previous
+                                    ) &&
+                                        moreThanOnePage && (
+                                            <NeutralButton
+                                                ariaLabel={
+                                                    previousIconButtonAriaLabel
+                                                }
+                                                classNames={mergeClasses([
+                                                    styles.paginationButton,
+                                                    styles.paginationPrevious,
+                                                ])}
+                                                shape={ButtonShape.Rectangle}
+                                                key="previous"
+                                                disabled={_currentPage <= 1}
+                                                iconProps={{
+                                                    role: 'presentation',
+                                                    path:
+                                                        htmlDir === 'rtl'
+                                                            ? IconName.mdiChevronRight
+                                                            : IconName.mdiChevronLeft,
+                                                }}
+                                                onClick={previous}
+                                                size={ButtonSize.Medium}
+                                            />
+                                        )}
+                                    {layout.includes(
+                                        PaginationLayoutOptions.Pager
+                                    ) &&
+                                    !layout.includes(
+                                        PaginationLayoutOptions.Simplified
+                                    ) ? (
+                                        <Pager
+                                            currentPage={_currentPage}
+                                            key="pager"
+                                            locale={locale}
+                                            onCurrentChange={
+                                                handleCurrentChange
                                             }
-                                            ariaLabel={pageSizeButtonAriaLabel}
-                                            shape={ButtonShape.Rectangle}
-                                            iconProps={{
-                                                role: 'presentation',
-                                                path: _toggle
-                                                    ? IconName.mdiChevronUp
-                                                    : IconName.mdiChevronDown,
-                                            }}
-                                            size={ButtonSize.Medium}
-                                            text={
-                                                htmlDir === 'ltr'
-                                                    ? `${_pageSize} / ${pageSizeText}`
-                                                    : `${pageSizeText} / ${_pageSize}`
+                                            pageCount={getPageCount()}
+                                            quickNextIconButtonAriaLabel={
+                                                quickNextIconButtonAriaLabel
+                                            }
+                                            quickPreviousIconButtonAriaLabel={
+                                                quickPreviousIconButtonAriaLabel
                                             }
                                         />
-                                    </Dropdown>
-                                </span>
+                                    ) : (
+                                        <Pager
+                                            currentPage={_currentPage}
+                                            key="pager"
+                                            locale={locale}
+                                            onCurrentChange={
+                                                handleCurrentChange
+                                            }
+                                            pageCount={getPageCount()}
+                                            quickNextIconButtonAriaLabel={
+                                                quickNextIconButtonAriaLabel
+                                            }
+                                            quickPreviousIconButtonAriaLabel={
+                                                quickPreviousIconButtonAriaLabel
+                                            }
+                                            simplified={true}
+                                        />
+                                    )}
+                                    {layout.includes(
+                                        PaginationLayoutOptions.Next
+                                    ) &&
+                                        moreThanOnePage && (
+                                            <NeutralButton
+                                                ariaLabel={
+                                                    nextIconButtonAriaLabel
+                                                }
+                                                classNames={mergeClasses([
+                                                    styles.paginationButton,
+                                                    styles.paginationNext,
+                                                ])}
+                                                shape={ButtonShape.Rectangle}
+                                                key="next"
+                                                disabled={
+                                                    _currentPage ===
+                                                        getPageCount() ||
+                                                    _pageCount === 0
+                                                }
+                                                iconProps={{
+                                                    role: 'presentation',
+                                                    path:
+                                                        htmlDir === 'rtl'
+                                                            ? IconName.mdiChevronLeft
+                                                            : IconName.mdiChevronRight,
+                                                }}
+                                                onClick={() => next()}
+                                                size={ButtonSize.Medium}
+                                            />
+                                        )}
+                                    {layout.includes(
+                                        PaginationLayoutOptions.Jumper
+                                    ) &&
+                                        moreThanOnePage && (
+                                            <span
+                                                className={styles.jump}
+                                                key="jumper"
+                                            >
+                                                {goToText}
+                                                <TextInput
+                                                    ref={inputRef}
+                                                    classNames={styles.editor}
+                                                    shape={TextInputShape.Pill}
+                                                    minlength={1}
+                                                    maxlength={_pageCount}
+                                                    numbersOnly
+                                                    defaultValue={
+                                                        _currentPage >
+                                                            getPageCount() ||
+                                                        _currentPage <= 0
+                                                            ? 1
+                                                            : _currentPage
+                                                    }
+                                                    onChange={
+                                                        handleJumpOnChange
+                                                    }
+                                                />
+                                            </span>
+                                        )}
+                                </>
                             )}
-                        {layout.includes(PaginationLayoutOptions.Total) &&
-                        moreThanOnePage ? (
-                            <span className={styles.total} key="total">
-                                {htmlDir === 'ltr'
-                                    ? `${totalText} ${total}`
-                                    : `${total} ${totalText}`}
-                            </span>
-                        ) : (
-                            <span />
-                        )}
-                        {layout.includes(PaginationLayoutOptions.Previous) &&
-                            moreThanOnePage && (
-                                <NeutralButton
-                                    ariaLabel={previousIconButtonAriaLabel}
-                                    classNames={mergeClasses([
-                                        styles.paginationButton,
-                                        styles.paginationPrevious,
-                                    ])}
-                                    shape={ButtonShape.Rectangle}
-                                    key="previous"
-                                    disabled={_currentPage <= 1}
-                                    iconProps={{
-                                        role: 'presentation',
-                                        path:
-                                            htmlDir === 'rtl'
-                                                ? IconName.mdiChevronRight
-                                                : IconName.mdiChevronLeft,
-                                    }}
-                                    onClick={previous}
-                                    size={ButtonSize.Medium}
-                                />
-                            )}
-                        {layout.includes(PaginationLayoutOptions.Pager) &&
-                        !layout.includes(PaginationLayoutOptions.Simplified) ? (
-                            <Pager
-                                currentPage={_currentPage}
-                                key="pager"
-                                onCurrentChange={handleCurrentChange}
-                                pageCount={getPageCount()}
-                                quickNextIconButtonAriaLabel={
-                                    quickNextIconButtonAriaLabel
-                                }
-                                quickPreviousIconButtonAriaLabel={
-                                    quickPreviousIconButtonAriaLabel
-                                }
-                            />
-                        ) : (
-                            <Pager
-                                currentPage={_currentPage}
-                                key="pager"
-                                onCurrentChange={handleCurrentChange}
-                                pageCount={getPageCount()}
-                                quickNextIconButtonAriaLabel={
-                                    quickNextIconButtonAriaLabel
-                                }
-                                quickPreviousIconButtonAriaLabel={
-                                    quickPreviousIconButtonAriaLabel
-                                }
-                                simplified={true}
-                            />
-                        )}
-                        {layout.includes(PaginationLayoutOptions.Next) &&
-                            moreThanOnePage && (
-                                <NeutralButton
-                                    ariaLabel={nextIconButtonAriaLabel}
-                                    classNames={mergeClasses([
-                                        styles.paginationButton,
-                                        styles.paginationNext,
-                                    ])}
-                                    shape={ButtonShape.Rectangle}
-                                    key="next"
-                                    disabled={
-                                        _currentPage === getPageCount() ||
-                                        _pageCount === 0
-                                    }
-                                    iconProps={{
-                                        role: 'presentation',
-                                        path:
-                                            htmlDir === 'rtl'
-                                                ? IconName.mdiChevronLeft
-                                                : IconName.mdiChevronRight,
-                                    }}
-                                    onClick={() => next()}
-                                    size={ButtonSize.Medium}
-                                />
-                            )}
-                        {layout.includes(PaginationLayoutOptions.Jumper) &&
-                            moreThanOnePage && (
-                                <span className={styles.jump} key="jumper">
-                                    {goToText}
-                                    <TextInput
-                                        ref={inputRef}
-                                        classNames={styles.editor}
-                                        shape={TextInputShape.Pill}
-                                        minlength={1}
-                                        maxlength={_pageCount}
-                                        numbersOnly
-                                        defaultValue={
-                                            _currentPage > getPageCount() ||
-                                            _currentPage <= 0
-                                                ? 1
-                                                : _currentPage
-                                        }
-                                        onChange={handleJumpOnChange}
-                                    />
-                                </span>
-                            )}
-                    </>
-                )}
-            </div>
+                        </div>
+                    );
+                }}
+            </LocaleReceiver>
         );
     }
 );

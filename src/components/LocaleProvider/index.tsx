@@ -1,5 +1,6 @@
 import React from 'react';
 import memoizeOne from 'memoize-one';
+import type { PaginationLocale } from '../Pagination';
 import type { PickerLocale as DatePickerLocale } from '../DateTimePicker/DatePicker/Generate/Generate.types';
 import type { TableLocale } from '../Table/Table.types';
 import type { ValidateMessages } from '../Form/Internal/OcForm.types';
@@ -13,6 +14,7 @@ export interface Locale {
         optional?: string;
         defaultValidateMessages: ValidateMessages;
     };
+    Pagination?: PaginationLocale;
     Table?: TableLocale;
     TimePicker?: Record<string, any>;
 }

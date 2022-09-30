@@ -57,7 +57,9 @@ import ColumnGroup from './Internal/ColumnGroup';
 import { useBreakpoint } from '../../hooks/useBreakpoint';
 import { useCanvasDirection } from '../../hooks/useCanvasDirection';
 import { Empty, EmptyMode } from '../Empty/index';
-import LocaleReceiver from '../LocaleProvider/LocaleReceiver';
+import LocaleReceiver, {
+    useLocaleReceiver,
+} from '../LocaleProvider/LocaleReceiver';
 import enUS from './Locale/en_US';
 
 import styles from './Styles/table.module.scss';
@@ -177,6 +179,15 @@ function InternalTable<RecordType extends object = any>(
     };
 
     // ============================ Strings ===========================
+    const [tableLocale] = useLocaleReceiver('Table');
+    let mergedLocale: TableLocale;
+
+    if (props.locale) {
+        mergedLocale = props.locale;
+    } else {
+        mergedLocale = tableLocale || props.locale;
+    }
+
     const [filterConfirmText, setFilterConfirmText] = useState<string>(
         defaultFilterConfirmText
     );
@@ -220,78 +231,80 @@ function InternalTable<RecordType extends object = any>(
     );
 
     // Locs: if the prop isn't provided use the loc defaults.
-    // If the locale is changed, update.
+    // If the mergedLocale is changed, update.
     useEffect(() => {
         setFilterConfirmText(
             props.filterConfirmText
                 ? props.filterConfirmText
-                : locale.lang!.filterConfirmText
+                : mergedLocale.lang!.filterConfirmText
         );
         setFilterResetText(
             props.filterResetText
                 ? props.filterResetText
-                : locale.lang!.filterResetText
+                : mergedLocale.lang!.filterResetText
         );
         setFilterEmptyText(
             props.filterEmptyText
                 ? props.filterEmptyText
-                : locale.lang!.filterEmptyText
+                : mergedLocale.lang!.filterEmptyText
         );
         setFilterCheckallText(
             props.filterCheckallText
                 ? props.filterCheckallText
-                : locale.lang!.filterCheckallText
+                : mergedLocale.lang!.filterCheckallText
         );
         setFilterSearchPlaceholderText(
             props.filterSearchPlaceholderText
                 ? props.filterSearchPlaceholderText
-                : locale.lang!.filterSearchPlaceholderText
+                : mergedLocale.lang!.filterSearchPlaceholderText
         );
         setEmptyText(
-            props.emptyText ? props.emptyText : locale.lang!.emptyText
+            props.emptyText ? props.emptyText : mergedLocale.lang!.emptyText
         );
         setEmptyTextDetails(
             props.emptyTextDetails
                 ? props.emptyTextDetails
-                : locale.lang!.emptyTextDetails
+                : mergedLocale.lang!.emptyTextDetails
         );
         setSelectInvertText(
             props.selectInvertText
                 ? props.selectInvertText
-                : locale.lang!.selectInvertText
+                : mergedLocale.lang!.selectInvertText
         );
         setSelectNoneText(
             props.selectNoneText
                 ? props.selectNoneText
-                : locale.lang!.selectNoneText
+                : mergedLocale.lang!.selectNoneText
         );
         setSelectionAllText(
             props.selectionAllText
                 ? props.selectionAllText
-                : locale.lang!.selectionAllText
+                : mergedLocale.lang!.selectionAllText
         );
         setExpandText(
-            props.expandText ? props.expandText : locale.lang!.expandText
+            props.expandText ? props.expandText : mergedLocale.lang!.expandText
         );
         setCollapseText(
-            props.collapseText ? props.collapseText : locale.lang!.collapseText
+            props.collapseText
+                ? props.collapseText
+                : mergedLocale.lang!.collapseText
         );
         setTriggerDescText(
             props.triggerDescText
                 ? props.triggerDescText
-                : locale.lang!.triggerDescText
+                : mergedLocale.lang!.triggerDescText
         );
         setTriggerAscText(
             props.triggerAscText
                 ? props.triggerAscText
-                : locale.lang!.triggerAscText
+                : mergedLocale.lang!.triggerAscText
         );
         setCancelSortText(
             props.cancelSortText
                 ? props.cancelSortText
-                : locale.lang!.cancelSortText
+                : mergedLocale.lang!.cancelSortText
         );
-    }, [locale]);
+    }, [mergedLocale]);
 
     // ============================ RowKey ============================
     const getRowKey = useMemo<GetRowKey<RecordType>>(() => {
@@ -716,7 +729,7 @@ function InternalTable<RecordType extends object = any>(
     return (
         <LocaleReceiver componentName={'Table'} defaultLocale={enUS}>
             {(contextLocale: TableLocale) => {
-                const locale = { ...contextLocale, ...props.locale };
+                const locale = { ...contextLocale, ...mergedLocale };
 
                 return (
                     <div ref={ref} className={wrapperClassNames} style={style}>

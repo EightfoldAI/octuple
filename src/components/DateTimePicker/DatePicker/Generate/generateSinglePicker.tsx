@@ -76,6 +76,7 @@ export default function generatePicker<DateType>(
                 formItemInput = false,
                 getPopupContainer,
                 id,
+                locale = enUS,
                 nowText: defaultNowText,
                 okText: defaultOkText,
                 placeholder,

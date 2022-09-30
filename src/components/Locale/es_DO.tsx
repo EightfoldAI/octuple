@@ -1,6 +1,7 @@
 /* eslint-disable no-template-curly-in-string */
 import type { Locale } from '../LocaleProvider';
 import DatePicker from '../DateTimePicker/DatePicker/Locale/es_DO';
+import Pagination from '../Pagination/Locale/es_DO';
 import Table from '../Table/Locale/es_DO';
 import TimePicker from '../DateTimePicker/TimePicker/Locale/es_DO';
 
@@ -62,6 +63,7 @@ const localeValues: Locale = {
             },
         },
     },
+    Pagination,
     Table,
     TimePicker,
 };
