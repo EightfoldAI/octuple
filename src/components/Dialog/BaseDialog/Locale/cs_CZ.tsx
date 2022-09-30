@@ -3,9 +3,9 @@ import type { DialogLocale } from '../BaseDialog.types';
 const locale: DialogLocale = {
     lang: {
         locale: 'cs_CZ',
-        cancelButtonText: 'Zrušit',
+        cancelText: 'Zrušit',
         closeButtonAriaLabelText: 'Zavřít',
-        okButtonText: 'OK',
+        okText: 'OK',
     },
 };
 

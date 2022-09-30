@@ -3,9 +3,9 @@ import type { DialogLocale } from '../BaseDialog.types';
 const locale: DialogLocale = {
     lang: {
         locale: 'de_DE',
-        cancelButtonText: 'Abbrechen',
+        cancelText: 'Abbrechen',
         closeButtonAriaLabelText: 'Schließen',
-        okButtonText: 'Okay',
+        okText: 'Okay',
     },
 };
 

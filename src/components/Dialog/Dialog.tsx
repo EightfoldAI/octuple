@@ -21,7 +21,7 @@ export const Dialog: FC<DialogProps> = React.forwardRef(
             bodyClassNames,
             bodyPadding = true,
             cancelButtonProps,
-            cancelButtonText: defaultCancelButtonText,
+            cancelText: defaultCancelButtonText,
             closeButtonAriaLabelText: defaultCloseButtonAriaLabelText,
             closeButtonProps,
             closeIcon,
@@ -32,7 +32,7 @@ export const Dialog: FC<DialogProps> = React.forwardRef(
             height,
             locale = enUS,
             okButtonProps,
-            okButtonText: defaultOkButtonText,
+            okText: defaultOkButtonText,
             onOk,
             onCancel,
             overlay,
@@ -52,21 +52,20 @@ export const Dialog: FC<DialogProps> = React.forwardRef(
             mergedLocale = dialogLocale || props.locale;
         }
 
-        const [cancelButtonText, setCancelButtonText] = useState<string>(
+        const [cancelText, setCancelButtonText] = useState<string>(
             defaultCancelButtonText
         );
         const [closeButtonAriaLabelText, setCloseButtonAriaLabelText] =
             useState<string>(defaultCloseButtonAriaLabelText);
-        const [okButtonText, setOkButtonText] =
-            useState<string>(defaultOkButtonText);
+        const [okText, setOkButtonText] = useState<string>(defaultOkButtonText);
 
         // Locs: if the prop isn't provided use the loc defaults.
         // If the mergedLocale is changed, update.
         useEffect(() => {
             setCancelButtonText(
-                props.cancelButtonText
-                    ? props.cancelButtonText
-                    : mergedLocale.lang!.cancelButtonText
+                props.cancelText
+                    ? props.cancelText
+                    : mergedLocale.lang!.cancelText
             );
             setCloseButtonAriaLabelText(
                 props.closeButtonAriaLabelText
@@ -74,9 +73,7 @@ export const Dialog: FC<DialogProps> = React.forwardRef(
                     : mergedLocale.lang!.closeButtonAriaLabelText
             );
             setOkButtonText(
-                props.okButtonText
-                    ? props.okButtonText
-                    : mergedLocale.lang!.okButtonText
+                props.okText ? props.okText : mergedLocale.lang!.okText
             );
         }, [mergedLocale]);
 
@@ -116,14 +113,14 @@ export const Dialog: FC<DialogProps> = React.forwardRef(
                                 <>
                                     {cancelButtonProps && (
                                         <NeutralButton
-                                            text={cancelButtonText}
+                                            text={cancelText}
                                             {...cancelButtonProps}
                                             onClick={onCancel}
                                         />
                                     )}
                                     {okButtonProps && (
                                         <PrimaryButton
-                                            text={okButtonText}
+                                            text={okText}
                                             {...okButtonProps}
                                             onClick={onOk}
                                         />
@@ -142,7 +139,7 @@ export const Dialog: FC<DialogProps> = React.forwardRef(
                             headerIcon={headerIcon}
                             height={height}
                             locale={locale}
-                            okButtonText={okButtonText}
+                            okText={okText}
                             overlay={overlay}
                             width={width}
                         />

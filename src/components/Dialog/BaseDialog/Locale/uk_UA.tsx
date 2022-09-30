@@ -3,9 +3,9 @@ import type { DialogLocale } from '../BaseDialog.types';
 const locale: DialogLocale = {
     lang: {
         locale: 'uk_UA',
-        cancelButtonText: 'Скасувати',
+        cancelText: 'Скасувати',
         closeButtonAriaLabelText: 'Закрити',
-        okButtonText: 'Гаразд',
+        okText: 'Гаразд',
     },
 };
 

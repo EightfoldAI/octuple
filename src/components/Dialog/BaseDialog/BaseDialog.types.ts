@@ -19,7 +19,7 @@ type Locale = {
     /**
      * The Dialog `Cancel` button string.
      */
-    cancelButtonText?: string;
+    cancelText?: string;
     /**
      * The Dialog `Close` Button aria label string.
      */
@@ -27,7 +27,7 @@ type Locale = {
     /**
      * The Dialog `OK` button string.
      */
-    okButtonText?: string;
+    okText?: string;
 };
 
 export type DialogLocale = {
@@ -73,7 +73,7 @@ export interface BaseDialogProps
      * The dialog cancel button string.
      * @default 'Cancel'
      */
-    cancelButtonText?: string;
+    cancelText?: string;
     /**
      * Show close button on top right
      * @default true
@@ -134,7 +134,7 @@ export interface BaseDialogProps
      * The dialog ok button string.
      * @default 'OK'
      */
-    okButtonText?: string;
+    okText?: string;
     /**
      * Callback fired on close on the modal
      * @param e {EventType}

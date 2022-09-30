@@ -3,9 +3,9 @@ import type { DialogLocale } from '../BaseDialog.types';
 const locale: DialogLocale = {
     lang: {
         locale: 'ja_JP',
-        cancelButtonText: 'キャンセル',
+        cancelText: 'キャンセル',
         closeButtonAriaLabelText: '閉める',
-        okButtonText: 'わかりました',
+        okText: 'わかりました',
     },
 };
 

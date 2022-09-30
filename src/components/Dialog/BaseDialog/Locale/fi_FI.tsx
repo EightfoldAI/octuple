@@ -3,9 +3,9 @@ import type { DialogLocale } from '../BaseDialog.types';
 const locale: DialogLocale = {
     lang: {
         locale: 'fi_FI',
-        cancelButtonText: 'Perua',
+        cancelText: 'Perua',
         closeButtonAriaLabelText: 'Sulkea',
-        okButtonText: 'Okei',
+        okText: 'Okei',
     },
 };
 
