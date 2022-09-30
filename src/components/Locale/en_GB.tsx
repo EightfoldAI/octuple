@@ -1,6 +1,7 @@
 /* eslint-disable no-template-curly-in-string */
 import type { Locale } from '../LocaleProvider';
 import DatePicker from '../DateTimePicker/DatePicker/Locale/en_GB';
+import Dialog from '../Dialog/BaseDialog/Locale/en_GB';
 import Pagination from '../Pagination/Locale/en_GB';
 import Table from '../Table/Locale/en_GB';
 import TimePicker from '../DateTimePicker/TimePicker/Locale/en_GB';
@@ -13,6 +14,7 @@ const localeValues: Locale = {
         placeholder: 'Select',
     },
     DatePicker,
+    Dialog,
     Form: {
         optional: '(optional)',
         defaultValidateMessages: {

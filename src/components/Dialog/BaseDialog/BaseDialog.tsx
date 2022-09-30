@@ -27,6 +27,7 @@ export const BaseDialog: FC<BaseDialogProps> = React.forwardRef(
             bodyClassNames,
             bodyPadding = true,
             closable = true,
+            closeButtonAriaLabelText,
             closeButtonProps,
             closeIcon = IconName.mdiClose,
             dialogClassNames,
@@ -169,7 +170,7 @@ export const BaseDialog: FC<BaseDialogProps> = React.forwardRef(
                                 )}
                                 {closable && (
                                     <NeutralButton
-                                        ariaLabel={'Close'}
+                                        ariaLabel={closeButtonAriaLabelText}
                                         iconProps={{ path: closeIcon }}
                                         shape={ButtonShape.Round}
                                         onClick={onClose}
