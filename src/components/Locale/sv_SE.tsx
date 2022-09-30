@@ -1,7 +1,9 @@
 /* eslint-disable no-template-curly-in-string */
 import type { Locale } from '../LocaleProvider';
+import DatePicker from '../DateTimePicker/DatePicker/Locale/sv_SE';
 import Pagination from '../Pagination/Locale/sv_SE';
 import Table from '../Table/Locale/sv_SE';
+import TimePicker from '../DateTimePicker/TimePicker/Locale/sv_SE';
 
 const typeTemplate = '${label} är inte en giltig ${type}';
 
@@ -10,6 +12,7 @@ const localeValues: Locale = {
     global: {
         placeholder: 'Vänligen välj',
     },
+    DatePicker,
     Form: {
         optional: '(valfritt)',
         defaultValidateMessages: {
@@ -63,6 +66,7 @@ const localeValues: Locale = {
     },
     Pagination,
     Table,
+    TimePicker,
 };
 
 export default localeValues;

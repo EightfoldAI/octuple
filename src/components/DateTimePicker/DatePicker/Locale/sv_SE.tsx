@@ -2,7 +2,6 @@ import CalendarLocale from '../../Internal/Locale/sv_SE';
 import TimePickerLocale from '../../TimePicker/Locale/sv_SE';
 import type { PickerLocale } from '../Generate/Generate.types';
 
-// Merge into a locale object
 const locale: PickerLocale = {
     lang: {
         placeholder: 'Välj datum',

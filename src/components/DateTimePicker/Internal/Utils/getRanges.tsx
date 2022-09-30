@@ -1,36 +1,33 @@
 import React from 'react';
 import { Size } from '../../../ConfigProvider';
-import {
-    Components,
-    DatePickerSize,
-    RangeList,
-    Locale,
-} from '../OcPicker.types';
+import { Components, DatePickerSize, RangeList } from '../OcPicker.types';
 import { ButtonSize, DefaultButton, PrimaryButton } from '../../../Button';
 
 import styles from '../ocpicker.module.scss';
 
 export type RangesProps = {
-    rangeList?: RangeList;
     components?: Components;
     needConfirmButton: boolean;
+    nowText?: string;
+    okDisabled?: boolean;
+    okText?: string;
     onNow?: null | (() => void) | false;
     onOk?: null | (() => void) | false;
-    okDisabled?: boolean;
+    rangeList?: RangeList;
     showNow?: boolean;
-    locale: Locale;
     size?: DatePickerSize | Size;
 };
 
 export default function getRanges({
-    rangeList = [],
     components = {},
     needConfirmButton,
+    nowText,
+    okDisabled,
+    okText,
     onNow,
     onOk,
-    okDisabled,
+    rangeList = [],
     showNow,
-    locale,
     size = DatePickerSize.Medium,
 }: RangesProps) {
     let presetNode: React.ReactNode;
@@ -76,7 +73,7 @@ export default function getRanges({
                         classNames={'picker-now-btn'}
                         onClick={onNow}
                         size={datePickerSizeToButtonSizeMap.get(size)}
-                        text={locale.now}
+                        text={nowText}
                     />
                 </li>
             );
@@ -88,7 +85,7 @@ export default function getRanges({
                     disabled={okDisabled}
                     onClick={onOk as () => void}
                     size={datePickerSizeToButtonSizeMap.get(size)}
-                    text={locale.ok}
+                    text={okText}
                 />
             </li>
         );

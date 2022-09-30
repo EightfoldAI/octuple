@@ -9,7 +9,6 @@ import LocaleContext from './Context';
 export interface Locale {
     locale: string;
     global?: Record<string, any>;
-
     DatePicker?: DatePickerLocale;
     Form?: {
         optional?: string;

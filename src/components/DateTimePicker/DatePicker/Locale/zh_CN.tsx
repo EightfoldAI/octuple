@@ -2,7 +2,6 @@ import CalendarLocale from '../../Internal/Locale/zh_CN';
 import TimePickerLocale from '../../TimePicker/Locale/zh_CN';
 import type { PickerLocale } from '../Generate/Generate.types';
 
-// 统一合并为完整的 Locale
 const locale: PickerLocale = {
     lang: {
         placeholder: '请选择日期',

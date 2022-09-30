@@ -1,7 +1,9 @@
 /* eslint-disable no-template-curly-in-string */
 import type { Locale } from '../LocaleProvider';
+import DatePicker from '../DateTimePicker/DatePicker/Locale/nl_BE';
 import Pagination from '../Pagination/Locale/nl_BE';
 import Table from '../Table/Locale/nl_BE';
+import TimePicker from '../DateTimePicker/TimePicker/Locale/nl_BE';
 
 const typeTemplate = '${label} is geen geldige ${type}';
 
@@ -10,6 +12,7 @@ const localeValues: Locale = {
     global: {
         placeholder: 'Maak een selectie',
     },
+    DatePicker,
     Form: {
         optional: '(optioneel)',
         defaultValidateMessages: {
@@ -63,6 +66,7 @@ const localeValues: Locale = {
     },
     Pagination,
     Table,
+    TimePicker,
 };
 
 export default localeValues;

@@ -2,7 +2,6 @@ import CalendarLocale from '../../Internal/Locale/uk_UA';
 import TimePickerLocale from '../../TimePicker/Locale/uk_UA';
 import type { PickerLocale } from '../Generate/Generate.types';
 
-// Merge into a locale object
 const locale: PickerLocale = {
     lang: {
         placeholder: 'Оберіть дату',

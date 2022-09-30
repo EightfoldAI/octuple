@@ -1,7 +1,9 @@
 /* eslint-disable no-template-curly-in-string */
 import type { Locale } from '../LocaleProvider';
+import DatePicker from '../DateTimePicker/DatePicker/Locale/zh_TW';
 import Pagination from '../Pagination/Locale/zh_TW';
 import Table from '../Table/Locale/zh_TW';
+import TimePicker from '../DateTimePicker/TimePicker/Locale/zh_TW';
 
 const typeTemplate = '${label}不是一個有效的${type}';
 
@@ -10,6 +12,7 @@ const localeValues: Locale = {
     global: {
         placeholder: '請選擇',
     },
+    DatePicker,
     Form: {
         optional: '（可選）',
         defaultValidateMessages: {
@@ -62,6 +65,7 @@ const localeValues: Locale = {
     },
     Pagination,
     Table,
+    TimePicker,
 };
 
 export default localeValues;

@@ -2,7 +2,6 @@ import CalendarLocale from '../../Internal/Locale/th_TH';
 import TimePickerLocale from '../../TimePicker/Locale/th_TH';
 import type { PickerLocale } from '../Generate/Generate.types';
 
-// Merge into a locale object
 const locale: PickerLocale = {
     lang: {
         placeholder: 'เลือกวันที่',

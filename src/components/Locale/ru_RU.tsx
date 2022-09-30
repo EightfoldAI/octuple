@@ -1,7 +1,9 @@
 /* eslint-disable no-template-curly-in-string */
 import type { Locale } from '../LocaleProvider';
+import DatePicker from '../DateTimePicker/DatePicker/Locale/ru_RU';
 import Pagination from '../Pagination/Locale/ru_RU';
 import Table from '../Table/Locale/ru_RU';
+import TimePicker from '../DateTimePicker/TimePicker/Locale/ru_RU';
 
 const typeTemplate: string = '${label} не является типом ${type}';
 
@@ -10,6 +12,7 @@ const localeValues: Locale = {
     global: {
         placeholder: 'Пожалуйста выберите',
     },
+    DatePicker,
     Form: {
         defaultValidateMessages: {
             default: 'Ошибка проверки поля ${label}',
@@ -60,6 +63,7 @@ const localeValues: Locale = {
     },
     Pagination,
     Table,
+    TimePicker,
 };
 
 export default localeValues;

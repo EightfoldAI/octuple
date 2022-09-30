@@ -1,12 +1,15 @@
 /* eslint-disable no-template-curly-in-string */
 import type { Locale } from '../LocaleProvider';
+import DatePicker from '../DateTimePicker/DatePicker/Locale/ja_JP';
 import Pagination from '../Pagination/Locale/ja_JP';
 import Table from '../Table/Locale/ja_JP';
+import TimePicker from '../DateTimePicker/TimePicker/Locale/ja_JP';
 
 const typeTemplate = '${label}は有効な${type}ではありません';
 
 const localeValues: Locale = {
     locale: 'ja',
+    DatePicker,
     Form: {
         defaultValidateMessages: {
             default: '${label}のフィールド検証エラー',
@@ -58,6 +61,7 @@ const localeValues: Locale = {
     },
     Pagination,
     Table,
+    TimePicker,
 };
 
 export default localeValues;

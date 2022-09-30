@@ -1,13 +1,16 @@
 /* eslint-disable no-template-curly-in-string */
 import type { Locale } from '../LocaleProvider';
+import DatePicker from '../DateTimePicker/DatePicker/Locale/fr_FR';
 import Pagination from '../Pagination/Locale/fr_FR';
 import Table from '../Table/Locale/fr_FR';
+import TimePicker from '../DateTimePicker/TimePicker/Locale/fr_FR';
 
 const typeTemplate =
     "La valeur du champ ${label} n'est pas valide pour le type ${type}";
 
 const localeValues: Locale = {
     locale: 'fr',
+    DatePicker,
     Form: {
         optional: '(optionnel)',
         defaultValidateMessages: {
@@ -62,6 +65,7 @@ const localeValues: Locale = {
     },
     Pagination,
     Table,
+    TimePicker,
 };
 
 export default localeValues;
