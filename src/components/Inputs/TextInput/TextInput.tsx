@@ -35,7 +35,7 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
             ariaLabel,
             autoFocus = false,
             classNames,
-            clear,
+            clear = false,
             clearable = true,
             clearButtonAriaLabel,
             configContextProps = {

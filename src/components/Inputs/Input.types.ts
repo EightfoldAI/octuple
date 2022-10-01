@@ -187,6 +187,7 @@ export interface InputProps<T>
     autoFocus?: boolean;
     /**
      * programmatically clear the input when true.
+     * @default false
      */
     clear?: boolean;
     /**
