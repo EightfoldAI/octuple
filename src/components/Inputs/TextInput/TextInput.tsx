@@ -1,4 +1,4 @@
-import React, { FC, Ref, useContext, useEffect, useState } from 'react';
+import React, { FC, Ref, useContext, useEffect, useRef, useState } from 'react';
 import DisabledContext, {
     Disabled,
 } from '../../ConfigProvider/DisabledContext';
@@ -35,6 +35,7 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
             ariaLabel,
             autoFocus = false,
             classNames,
+            clear = false,
             clearable = true,
             clearButtonAriaLabel,
             configContextProps = {
@@ -85,6 +86,9 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
         const [clearButtonShown, _setClearButtonShown] =
             useState<boolean>(false);
         const [inputId] = useState<string>(uniqueId(id || 'input-'));
+
+        const clearButtonRef: React.MutableRefObject<HTMLButtonElement> =
+            useRef<HTMLButtonElement>(null);
 
         const {
             status: contextStatus,
@@ -287,6 +291,12 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
                 : _setClearButtonShown(showClear);
         };
 
+        useEffect(() => {
+            if (clear) {
+                clearButtonRef.current?.click();
+            }
+        }, [clear]);
+
         const handleOnClear = (_event: React.MouseEvent) => {
             _event.preventDefault();
             _event.stopPropagation();
@@ -452,6 +462,7 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
                         !numbersOnly &&
                         htmlType !== 'number' && (
                             <DefaultButton
+                                ref={clearButtonRef}
                                 allowDisabledFocus={allowDisabledFocus}
                                 ariaLabel={clearButtonAriaLabel}
                                 classNames={clearIconButtonClassNames}

@@ -41,13 +41,14 @@ describe('Select', () => {
         await sleep();
     }
 
+    const defaultOptions: SelectOption[] = [
+        {
+            text: 'School',
+            value: 'school',
+        },
+    ];
+
     test('Select clearable', async () => {
-        let defaultOptions: SelectOption[] = [
-            {
-                text: 'School',
-                value: 'school',
-            },
-        ];
         const { container } = render(
             <Select
                 defaultValue="school"
@@ -99,12 +100,6 @@ describe('Select', () => {
 
             fireEvent.keyUp(element, sharedEventConfig);
         };
-        const defaultOptions: SelectOption[] = [
-            {
-                text: 'School',
-                value: 'school',
-            },
-        ];
         const { container } = render(<Select options={defaultOptions} />);
         await change(container, 'School');
         expect(
@@ -122,32 +117,44 @@ describe('Select', () => {
     });
 
     test('Select is large', () => {
-        const { container } = render(<Select size={SelectSize.Large} />);
+        const { container } = render(
+            <Select options={defaultOptions} size={SelectSize.Large} />
+        );
         expect(container.firstChild).toMatchSnapshot();
     });
 
     test('Select is medium', () => {
-        const { container } = render(<Select size={SelectSize.Medium} />);
+        const { container } = render(
+            <Select options={defaultOptions} size={SelectSize.Medium} />
+        );
         expect(container.firstChild).toMatchSnapshot();
     });
 
     test('Select is small', () => {
-        const { container } = render(<Select size={SelectSize.Small} />);
+        const { container } = render(
+            <Select options={defaultOptions} size={SelectSize.Small} />
+        );
         expect(container.firstChild).toMatchSnapshot();
     });
 
     test('Select is rectangle shaped', () => {
-        const { container } = render(<Select shape={SelectShape.Rectangle} />);
+        const { container } = render(
+            <Select options={defaultOptions} shape={SelectShape.Rectangle} />
+        );
         expect(container.firstChild).toMatchSnapshot();
     });
 
     test('Select is pill shaped', () => {
-        const { container } = render(<Select shape={SelectShape.Pill} />);
+        const { container } = render(
+            <Select options={defaultOptions} shape={SelectShape.Pill} />
+        );
         expect(container.firstChild).toMatchSnapshot();
     });
 
     test('Select is underline shaped', () => {
-        const { container } = render(<Select shape={SelectShape.Underline} />);
+        const { container } = render(
+            <Select options={defaultOptions} shape={SelectShape.Underline} />
+        );
         expect(container.firstChild).toMatchSnapshot();
     });
 });
