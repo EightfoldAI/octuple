@@ -297,4 +297,14 @@ export interface InputProps<T>
      * @default 10
      */
     waitInterval?: number;
+    /**
+     * Make input expandable on focus
+     * @default false
+     */
+    expandable?: boolean;
+    /**
+     * Make input expandable input to start from right
+     * @default false
+     */
+    expandRight?: boolean;
 }

@@ -182,4 +182,6 @@ Text_Input.args = {
     shape: TextInputShape.Rectangle,
     style: {},
     waitInterval: 10,
+    expandable: true,
+    expandRight: false,
 };

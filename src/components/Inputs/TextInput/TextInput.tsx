@@ -3,7 +3,7 @@ import DisabledContext, {
     Disabled,
 } from '../../ConfigProvider/DisabledContext';
 import { ShapeContext, Shape, SizeContext, Size } from '../../ConfigProvider';
-import { ButtonSize, DefaultButton } from '../../Button';
+import { ButtonSize, DefaultButton, SystemUIButton } from '../../Button';
 import { Icon, IconName, IconSize } from '../../Icon';
 import { Label, LabelSize } from '../../Label';
 import {
@@ -69,6 +69,8 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
             style,
             value,
             waitInterval = 10,
+            expandable,
+            expandRight,
             ...rest
         },
         ref: Ref<HTMLInputElement>
@@ -81,6 +83,7 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
         const htmlDir: string = useCanvasDirection();
 
         const [inputValue, setInputValue] = useState(value);
+        const [inputFocus, setInputFocus] = useState<boolean>(false);
 
         const [clearButtonShown, _setClearButtonShown] =
             useState<boolean>(false);
@@ -231,6 +234,7 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
             { [styles.inline]: inline },
             { [styles.leftIcon]: alignIcon === TextInputIconAlign.Left },
             { [styles.rightIcon]: alignIcon === TextInputIconAlign.Right },
+            { [styles.expandRight]: expandable && expandRight },
             getStatusClassNames(mergedStatus, hasFeedback),
         ]);
 
@@ -271,7 +275,16 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
             },
             { [styles.inputWrapperRtl]: htmlDir === 'rtl' },
             { ['in-form-item']: mergedFormItemInput },
+            { [styles.isExpandable]: expandable },
         ]);
+
+        const expandableWrapperClassNames: string =
+            expandable &&
+            mergeClasses([
+                styles.expandableWrapper,
+                { [styles.expandableFocus]: inputFocus },
+                { [styles.expandRight]: expandRight },
+            ]);
 
         useEffect(() => {
             setInputValue(value);
@@ -288,6 +301,7 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
         };
 
         const handleOnClear = (_event: React.MouseEvent) => {
+            console.log('handleOnClear');
             _event.preventDefault();
             _event.stopPropagation();
             if (!!inputField) {
@@ -330,6 +344,16 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
             e.persist();
             setInputValue(e.target.value);
             debouncedChange(e);
+        };
+
+        const handleBlur = (e: React.FocusEvent<HTMLInputElement>) => {
+            setInputFocus(false);
+            onBlur?.(e);
+        };
+
+        const handleFocus = (e: React.FocusEvent<HTMLInputElement>) => {
+            setInputFocus(true);
+            onFocus?.(e);
         };
 
         const getIconSize = (): IconSize => {
@@ -382,87 +406,120 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
                         {...labelProps}
                     />
                 )}
-                <div className={textInputGroupClassNames}>
-                    <input
-                        {...rest}
-                        ref={ref}
-                        aria-disabled={mergedDisabled}
-                        aria-label={ariaLabel}
-                        autoFocus={autoFocus}
-                        className={textInputClassNames}
-                        disabled={!allowDisabledFocus && mergedDisabled}
-                        id={mergedFormItemInput ? id : inputId}
-                        maxLength={maxlength}
-                        minLength={minlength}
-                        name={name}
-                        onChange={!allowDisabledFocus ? handleChange : null}
-                        onBlur={!allowDisabledFocus ? onBlur : null}
-                        onFocus={!allowDisabledFocus ? onFocus : null}
-                        onKeyDown={!allowDisabledFocus ? onKeyDown : null}
-                        placeholder={placeholder}
-                        required={required}
-                        role="textbox"
-                        style={style}
-                        tabIndex={0}
-                        type={numbersOnly ? 'number' : htmlType}
-                        value={inputValue}
-                        readOnly={readonly}
-                    />
-                    {iconProps && (
-                        <div className={iconClassNames}>
-                            {iconProps.path && !iconProps.imageSrc && (
-                                <Icon
-                                    {...iconProps}
-                                    path={iconProps.path}
-                                    size={inputSizeToIconSizeMap.get(
+                <div className={expandableWrapperClassNames}>
+                    <div className={textInputGroupClassNames}>
+                        <input
+                            {...rest}
+                            ref={ref}
+                            aria-disabled={mergedDisabled}
+                            aria-label={ariaLabel}
+                            autoFocus={autoFocus}
+                            className={textInputClassNames}
+                            disabled={!allowDisabledFocus && mergedDisabled}
+                            id={mergedFormItemInput ? id : inputId}
+                            maxLength={maxlength}
+                            minLength={minlength}
+                            name={name}
+                            onChange={!allowDisabledFocus ? handleChange : null}
+                            onBlur={!allowDisabledFocus ? handleBlur : null}
+                            onFocus={!allowDisabledFocus ? handleFocus : null}
+                            onKeyDown={!allowDisabledFocus ? onKeyDown : null}
+                            placeholder={
+                                expandable
+                                    ? inputFocus
+                                        ? placeholder
+                                        : ''
+                                    : placeholder
+                            }
+                            required={required}
+                            role="textbox"
+                            style={style}
+                            tabIndex={0}
+                            type={numbersOnly ? 'number' : htmlType}
+                            value={inputValue}
+                            readOnly={readonly}
+                        />
+                        {iconProps && (
+                            <div className={iconClassNames}>
+                                {iconProps.path && !iconProps.imageSrc && (
+                                    <Icon
+                                        {...iconProps}
+                                        path={iconProps.path}
+                                        size={inputSizeToIconSizeMap.get(
+                                            mergedSize
+                                        )}
+                                    />
+                                )}
+                                {iconProps.imageSrc && !iconProps.path && (
+                                    <img
+                                        aria-hidden={iconProps.ariaHidden}
+                                        alt={iconProps.alt}
+                                        id={iconProps.id}
+                                        src={iconProps.imageSrc}
+                                    />
+                                )}
+                            </div>
+                        )}
+                        {iconButtonProps && (
+                            <DefaultButton
+                                allowDisabledFocus={
+                                    iconButtonProps.allowDisabledFocus
+                                }
+                                ariaLabel={iconButtonProps.ariaLabel}
+                                checked={iconButtonProps.checked}
+                                classNames={iconButtonClassNames}
+                                disabled={
+                                    iconButtonProps.disabled || mergedDisabled
+                                }
+                                iconProps={{
+                                    path: iconButtonProps.iconProps.path,
+                                }}
+                                id={iconButtonProps.id}
+                                onClick={iconButtonProps.onClick}
+                                size={inputSizeToButtonSizeMap.get(mergedSize)}
+                                htmlType={iconButtonProps.htmlType}
+                            />
+                        )}
+                        {clearable &&
+                            clearButtonShown &&
+                            !numbersOnly &&
+                            htmlType !== 'number' && (
+                                <DefaultButton
+                                    allowDisabledFocus={allowDisabledFocus}
+                                    ariaLabel={clearButtonAriaLabel}
+                                    classNames={clearIconButtonClassNames}
+                                    disabled={mergedDisabled}
+                                    iconProps={{ path: IconName.mdiClose }}
+                                    onClick={
+                                        !allowDisabledFocus
+                                            ? handleOnClear
+                                            : null
+                                    }
+                                    size={ButtonSize.Small}
+                                />
+                            )}
+                        {expandable && !inputFocus && (
+                            <div className={styles.expandablePlaceholder}>
+                                <SystemUIButton
+                                    transparent={true}
+                                    allowDisabledFocus={
+                                        iconButtonProps.allowDisabledFocus
+                                    }
+                                    ariaLabel={iconButtonProps.ariaLabel}
+                                    disabled={
+                                        iconButtonProps.disabled ||
+                                        mergedDisabled
+                                    }
+                                    iconProps={{
+                                        path: iconButtonProps.iconProps.path,
+                                    }}
+                                    size={inputSizeToButtonSizeMap.get(
                                         mergedSize
                                     )}
                                 />
-                            )}
-                            {iconProps.imageSrc && !iconProps.path && (
-                                <img
-                                    aria-hidden={iconProps.ariaHidden}
-                                    alt={iconProps.alt}
-                                    id={iconProps.id}
-                                    src={iconProps.imageSrc}
-                                />
-                            )}
-                        </div>
-                    )}
-                    {iconButtonProps && (
-                        <DefaultButton
-                            allowDisabledFocus={
-                                iconButtonProps.allowDisabledFocus
-                            }
-                            ariaLabel={iconButtonProps.ariaLabel}
-                            checked={iconButtonProps.checked}
-                            classNames={iconButtonClassNames}
-                            disabled={
-                                iconButtonProps.disabled || mergedDisabled
-                            }
-                            iconProps={{ path: iconButtonProps.iconProps.path }}
-                            id={iconButtonProps.id}
-                            onClick={iconButtonProps.onClick}
-                            size={inputSizeToButtonSizeMap.get(mergedSize)}
-                            htmlType={iconButtonProps.htmlType}
-                        />
-                    )}
-                    {clearable &&
-                        clearButtonShown &&
-                        !numbersOnly &&
-                        htmlType !== 'number' && (
-                            <DefaultButton
-                                allowDisabledFocus={allowDisabledFocus}
-                                ariaLabel={clearButtonAriaLabel}
-                                classNames={clearIconButtonClassNames}
-                                disabled={mergedDisabled}
-                                iconProps={{ path: IconName.mdiClose }}
-                                onClick={
-                                    !allowDisabledFocus ? handleOnClear : null
-                                }
-                                size={ButtonSize.Small}
-                            />
+                            </div>
                         )}
+                    </div>
                 </div>
             </div>
         );

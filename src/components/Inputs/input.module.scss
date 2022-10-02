@@ -2,9 +2,12 @@
     position: relative;
     width: fit-content;
 
+    $input-small-size: 28px;
+    $input-medium-size: 36px;
+    $input-large-size: 44px;
+
     input {
         @include text-overflow;
-
         background-color: var(--background-color);
         border: 1px solid var(--border-color);
         border-radius: $corner-radius-m;
@@ -352,7 +355,7 @@
 
         &.input-large {
             font-size: $text-font-size-4;
-            height: 44px;
+            height: $input-large-size;
             line-height: $text-line-height-5;
             padding: $space-xs $space-xxl $space-xs $space-m;
 
@@ -505,7 +508,7 @@
 
         &.input-medium {
             font-size: $text-font-size-3;
-            height: 36px;
+            height: $input-medium-size;
             line-height: $text-line-height-4;
             padding: $space-xs $space-xl $space-xs $space-m;
 
@@ -694,7 +697,7 @@
 
         &.input-small {
             font-size: $text-font-size-2;
-            height: 28px;
+            height: $input-small-size;
             line-height: $text-line-height-3;
             padding: $space-xs $space-l $space-xs $space-s;
 
@@ -1437,6 +1440,109 @@
 
     &.input-stretch {
         width: 100%;
+    }
+
+    &.is-expandable {
+        &.input-small .expandable-wrapper {
+            width: $input-small-size;
+        }
+
+        &.input-medium .expandable-wrapper {
+            width: $input-medium-size;
+        }
+
+        &.input-large .expandable-wrapper {
+            width: $input-large-size;
+        }
+
+        .expandable-wrapper {
+            position: relative;
+
+            .input-group {
+                position: absolute;
+                left: 0;
+
+                &.expand-right {
+                    left: initial;
+                    right: 0px;
+                }
+
+                input {
+                    transition: padding $motion-duration-fast
+                        $motion-easing-easeout;
+                }
+
+                .clear-icon-button {
+                    right: -35px;
+                    opacity: 1;
+                    visibility: visible;
+                }
+            }
+
+            .expandable-placeholder {
+                // Placeholder thump icon
+                z-index: -1;
+                position: absolute;
+                left: -5px;
+                top: 0px;
+                border-radius: 100%;
+                background-color: var(--white-color);
+            }
+
+            &:not(.expandable-focus) {
+                // When input is not focused
+                @mixin get-input-styles($size) {
+                    min-width: $size;
+                    max-width: $size;
+                    padding-left: 0;
+                    padding-right: 0;
+                    border-radius: $size;
+                }
+                input {
+                    background-color: transparent;
+                    font-size: 0;
+                    line-height: 0;
+
+                    &.input-small {
+                        @include get-input-styles($input-small-size);
+                    }
+                    &.input-medium {
+                        @include get-input-styles($input-medium-size);
+                    }
+                    &.input-large {
+                        @include get-input-styles($input-large-size);
+                    }
+                }
+                .icon-button,
+                .icon-wrapper {
+                    display: none;
+                }
+                .clear-icon-button {
+                    opacity: 0;
+                    visibility: hidden;
+                }
+            }
+
+            &:focus-within::before {
+                content: '';
+                height: 100%;
+                width: 500px;
+                position: absolute;
+                left: 0;
+                top: 0;
+                bottom: 0;
+                opacity: 0.99;
+                background: $expandable-header-gradient-reverse;
+            }
+
+            &.expand-right {
+                &:focus-within::before {
+                    background: $expandable-header-gradient;
+                    right: 0;
+                    left: unset;
+                }
+            }
+        }
     }
 }
 

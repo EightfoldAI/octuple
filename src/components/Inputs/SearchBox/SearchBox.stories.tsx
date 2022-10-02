@@ -173,10 +173,10 @@ Search_Box.args = {
     inputWidth: TextInputWidth.fitContent,
     labelProps: {
         labelIconButtonProps: {
-            show: true,
+            show: false,
             toolTipContent: 'tooltip',
         },
-        text: 'Label',
+        text: 'Label Text For Showing Expanded SearchBox Gradient',
     },
     maxlength: 100,
     minlength: 0,
@@ -187,4 +187,6 @@ Search_Box.args = {
     style: {},
     theme: TextInputTheme.light,
     waitInterval: 10,
+    expandable: true,
+    expandRight: false,
 };
