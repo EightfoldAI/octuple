@@ -303,7 +303,7 @@ export interface InputProps<T>
      */
     expandable?: boolean;
     /**
-     * Make input expandable input to start from right
+     * Enable this to slide the input from right to left
      * @default false
      */
     expandRight?: boolean;
