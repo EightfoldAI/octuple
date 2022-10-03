@@ -440,10 +440,6 @@ const panelArgs: Object = {
     scrollLock: true,
     children: (
         <>
-            <button>1</button>
-            <input />
-            <input />
-            <input />
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum
             finibus, magna eu dignissim posuere, elit metus eleifend diam,
             accumsan bibendum turpis erat in velit. Nulla vel purus sit amet
