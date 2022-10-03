@@ -121,7 +121,7 @@ export interface BaseDialogProps
      */
     height?: number;
     /**
-     * The Pagination locale.
+     * The Dialog locale.
      * @default 'enUS'
      */
     locale?: DialogLocale;
