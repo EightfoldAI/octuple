@@ -6,13 +6,17 @@ import React, {
     useState,
 } from 'react';
 import { mergeClasses, stopPropagation } from '../../shared/utilities';
-import { PanelProps, PanelRef, PanelSize } from './';
+import { PanelLocale, PanelProps, PanelRef, PanelSize } from './';
 import { IconName } from '../Icon';
 import { ButtonShape, NeutralButton } from '../Button';
 import { Portal } from '../Portal';
 import { useScrollLock } from '../../hooks/useScrollLock';
 import { NoFormStyle } from '../Form/Context';
 import { useCanvasDirection } from '../../hooks/useCanvasDirection';
+import LocaleReceiver, {
+    useLocaleReceiver,
+} from '../LocaleProvider/LocaleReceiver';
+import enUS from './Locale/en_US';
 
 import styles from './panel.module.scss';
 
@@ -25,8 +29,8 @@ const PANEL_WIDTHS: Record<PanelSize, number> = Object.freeze({
 });
 
 export const Panel = React.forwardRef<PanelRef, PanelProps>(
-    (
-        {
+    (props: PanelProps, ref: React.ForwardedRef<PanelRef>) => {
+        const {
             actionButtonOneProps,
             actionButtonTwoProps,
             actionButtonThreeProps,
@@ -36,15 +40,16 @@ export const Panel = React.forwardRef<PanelRef, PanelProps>(
             headerPadding = true,
             children,
             closable = true,
+            closeButtonAriaLabelText: defaultCloseButtonAriaLabelText,
             closeButtonProps,
             closeIcon = IconName.mdiClose,
+            footer,
             footerClassNames,
             headerButtonProps,
             headerClassNames,
             headerIcon = IconName.mdiArrowLeftThick,
             height,
-            footer,
-            title,
+            locale = enUS,
             maskClosable = true,
             onClose = () => {},
             onVisibleChange,
@@ -57,14 +62,14 @@ export const Panel = React.forwardRef<PanelRef, PanelProps>(
             placement = 'right',
             push = true,
             size = PanelSize.medium,
+            title,
             visible = false,
             width,
             panelHeader,
             scrollLock = true,
             ...rest
-        },
-        ref
-    ) => {
+        } = props;
+
         const htmlDir: string = useCanvasDirection();
 
         const panelRef = useRef<HTMLDivElement>(null);
@@ -73,6 +78,29 @@ export const Panel = React.forwardRef<PanelRef, PanelProps>(
         const [internalPush, setPush] = useState<boolean>(false);
 
         useScrollLock(parent, !scrollLock ? false : visible);
+
+        // ============================ Strings ===========================
+        const [panelLocale] = useLocaleReceiver('Panel');
+        let mergedLocale: PanelLocale;
+
+        if (props.locale) {
+            mergedLocale = props.locale;
+        } else {
+            mergedLocale = panelLocale || props.locale;
+        }
+
+        const [closeButtonAriaLabelText, setCloseButtonAriaLabelText] =
+            useState<string>(defaultCloseButtonAriaLabelText);
+
+        // Locs: if the prop isn't provided use the loc defaults.
+        // If the mergedLocale is changed, update.
+        useEffect(() => {
+            setCloseButtonAriaLabelText(
+                props.closeButtonAriaLabelText
+                    ? props.closeButtonAriaLabelText
+                    : mergedLocale.lang!.closeButtonAriaLabelText
+            );
+        }, [mergedLocale]);
 
         const panelBackdropClasses: string = mergeClasses([
             styles.panelBackdrop,
@@ -130,7 +158,6 @@ export const Panel = React.forwardRef<PanelRef, PanelProps>(
                 <div>
                     {headerButtonProps && (
                         <NeutralButton
-                            ariaLabel={'Back'}
                             classNames={styles.headerButton}
                             iconProps={{
                                 path: headerIcon,
@@ -169,7 +196,7 @@ export const Panel = React.forwardRef<PanelRef, PanelProps>(
                     {closable && (
                         <NeutralButton
                             iconProps={{ path: closeIcon }}
-                            ariaLabel={'Close'}
+                            ariaLabel={closeButtonAriaLabelText}
                             onClick={onClose}
                             shape={ButtonShape.Round}
                             {...closeButtonProps}
@@ -246,33 +273,43 @@ export const Panel = React.forwardRef<PanelRef, PanelProps>(
 
         useImperativeHandle(ref, () => operations);
 
-        const getPanel = (): JSX.Element => (
-            <PanelContext.Provider value={operations}>
-                <NoFormStyle status override>
-                    <div
-                        {...rest}
-                        tabIndex={-1}
-                        ref={containerRef}
-                        className={panelBackdropClasses}
-                        onClick={(e: React.MouseEvent<HTMLDivElement>) => {
-                            maskClosable && onClose(e);
-                        }}
-                        aria-hidden={!visible}
-                    >
-                        <div
-                            ref={panelRef}
-                            className={panelClasses}
-                            onClick={stopPropagation}
-                            style={getPanelStyle()}
-                        >
-                            {getHeader()}
-                            {getBody()}
-                            {getFooter()}
-                        </div>
-                    </div>
-                </NoFormStyle>
-            </PanelContext.Provider>
-        );
+        const getPanel = (): JSX.Element => {
+            return (
+                <LocaleReceiver componentName={'Panel'} defaultLocale={enUS}>
+                    {(_contextLocale: PanelLocale) => {
+                        return (
+                            <PanelContext.Provider value={operations}>
+                                <NoFormStyle status override>
+                                    <div
+                                        {...rest}
+                                        tabIndex={-1}
+                                        ref={containerRef}
+                                        className={panelBackdropClasses}
+                                        onClick={(
+                                            e: React.MouseEvent<HTMLDivElement>
+                                        ) => {
+                                            maskClosable && onClose(e);
+                                        }}
+                                        aria-hidden={!visible}
+                                    >
+                                        <div
+                                            ref={panelRef}
+                                            className={panelClasses}
+                                            onClick={stopPropagation}
+                                            style={getPanelStyle()}
+                                        >
+                                            {getHeader()}
+                                            {getBody()}
+                                            {getFooter()}
+                                        </div>
+                                    </div>
+                                </NoFormStyle>
+                            </PanelContext.Provider>
+                        );
+                    }}
+                </LocaleReceiver>
+            );
+        };
 
         return <Portal getContainer={() => parent}>{getPanel()}</Portal>;
     }

@@ -22,6 +22,21 @@ export type EventType =
 
 export type CloseButtonProps = Omit<ButtonProps, 'onClick' | 'iconProps'>;
 
+type Locale = {
+    /**
+     * The Panel locale.
+     */
+    locale: string;
+    /**
+     * The Panel `Close` Button aria label string.
+     */
+    closeButtonAriaLabelText?: string;
+};
+
+export type PanelLocale = {
+    lang: Locale;
+};
+
 export interface PanelProps extends Omit<OcBaseProps<HTMLElement>, 'title'> {
     /**
      * Props for the first header action button
@@ -53,6 +68,11 @@ export interface PanelProps extends Omit<OcBaseProps<HTMLElement>, 'title'> {
      * Content of the body
      */
     children?: React.ReactNode;
+    /**
+     * The Panel `Close` Button aria label string.
+     * @default 'Close'
+     */
+    closeButtonAriaLabelText?: string;
     /**
      * Close button extra props
      */
@@ -95,6 +115,11 @@ export interface PanelProps extends Omit<OcBaseProps<HTMLElement>, 'title'> {
      * Custom height of the panel
      */
     height?: number;
+    /**
+     * The Panel locale.
+     * @default 'enUS'
+     */
+    locale?: PanelLocale;
     /**
      * Clicking on mask should close panel or not
      * @default true
@@ -175,7 +200,7 @@ export interface PanelProps extends Omit<OcBaseProps<HTMLElement>, 'title'> {
     scrollLock?: boolean;
 }
 
-export interface PanelHeaderProps {
+export interface PanelHeaderProps extends OcBaseProps<HTMLDivElement> {
     /**
      * Props for the first header action button
      */
@@ -189,10 +214,20 @@ export interface PanelHeaderProps {
      */
     actionDefaultButtonProps?: ButtonProps;
     /**
+     * The Panel `Close` Button aria label string.
+     * @default 'Close'
+     */
+    closeButtonAriaLabelText?: string;
+    /**
      * Close icon name
      * @default IconName.mdiClose
      */
     closeIcon?: IconName;
+    /**
+     * The PanelHeader locale.
+     * @default 'enUS'
+     */
+    locale?: PanelLocale;
     /**
      * Callback fired on close on the panel
      * @param e {EventType}

@@ -11,15 +11,35 @@ export enum InfoBarType {
     disruptive = 'disruptive',
 }
 
+type Locale = {
+    /**
+     * The InfoBar locale.
+     */
+    locale: string;
+    /**
+     * The InfoBar `Close` Button aria label string.
+     */
+    closeButtonAriaLabelText?: string;
+};
+
+export type InfoBarLocale = {
+    lang: Locale;
+};
+
 export interface InfoBarsProps extends OcBaseProps<HTMLDivElement> {
     /**
      * Props for the action button
      */
     actionButtonProps?: ButtonProps;
     /**
-     * If the infoBar is closable or not
+     * If the InfoBar is closable or not
      */
     closable?: boolean;
+    /**
+     * The Panel `Close` Button aria label string.
+     * @default 'Close'
+     */
+    closeButtonAriaLabelText?: string;
     /**
      * Custom props for the close button
      */
@@ -30,24 +50,29 @@ export interface InfoBarsProps extends OcBaseProps<HTMLDivElement> {
      */
     closeIcon?: IconName;
     /**
-     * Content of the info bar
+     * Content of the InfoBar
      */
     content: string;
     /**
-     * Custom icon for the infoBar
+     * Custom icon for the InfoBar
      * @default IconName.mdiInformation | IconName.mdiCheckCircle | IconName.mdiAlert
      */
     icon?: IconName;
     /**
-     * Callback fired on close of the infoBar
+     * The InfoBar locale.
+     * @default 'enUS'
+     */
+    locale?: InfoBarLocale;
+    /**
+     * Callback fired on close of the InfoBar
      */
     onClose?: () => void;
     /**
-     * Role of the info bar
+     * Role of the InfoBar
      */
     role?: string;
     /**
-     * Type of the infoBar
+     * Type of the InfoBar
      * @default InfoBarType.neutral
      */
     type?: InfoBarType;
