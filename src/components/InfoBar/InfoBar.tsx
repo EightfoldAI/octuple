@@ -1,29 +1,57 @@
-import React, { FC, Ref } from 'react';
-import { InfoBarsProps, InfoBarType } from './InfoBar.types';
+import React, { FC, Ref, useEffect, useState } from 'react';
+import { InfoBarLocale, InfoBarsProps, InfoBarType } from './InfoBar.types';
 import { Icon, IconName } from '../Icon';
 import { mergeClasses } from '../../shared/utilities';
 import { SystemUIButton } from '../Button';
+import LocaleReceiver, {
+    useLocaleReceiver,
+} from '../LocaleProvider/LocaleReceiver';
+import enUS from './Locale/en_US';
 
 import styles from './infoBar.module.scss';
 
 export const InfoBar: FC<InfoBarsProps> = React.forwardRef(
-    (
-        {
+    (props: InfoBarsProps, ref: Ref<HTMLDivElement>) => {
+        const {
+            actionButtonProps,
+            classNames,
+            closable,
+            closeButtonAriaLabelText: defaultCloseButtonAriaLabelText,
+            closeButtonProps,
+            closeIcon = IconName.mdiClose,
             content,
             icon,
-            type = InfoBarType.neutral,
-            closable,
+            locale = enUS,
             onClose,
-            style,
-            classNames,
-            closeIcon = IconName.mdiClose,
-            closeButtonProps,
-            actionButtonProps,
             role = 'presentation',
+            style,
+            type = InfoBarType.neutral,
             ...rest
-        },
-        ref: Ref<HTMLDivElement>
-    ) => {
+        } = props;
+
+        // ============================ Strings ===========================
+        const [infoBarLocale] = useLocaleReceiver('InfoBar');
+        let mergedLocale: InfoBarLocale;
+
+        if (props.locale) {
+            mergedLocale = props.locale;
+        } else {
+            mergedLocale = infoBarLocale || props.locale;
+        }
+
+        const [closeButtonAriaLabelText, setCloseButtonAriaLabelText] =
+            useState<string>(defaultCloseButtonAriaLabelText);
+
+        // Locs: if the prop isn't provided use the loc defaults.
+        // If the mergedLocale is changed, update.
+        useEffect(() => {
+            setCloseButtonAriaLabelText(
+                props.closeButtonAriaLabelText
+                    ? props.closeButtonAriaLabelText
+                    : mergedLocale.lang!.closeButtonAriaLabelText
+            );
+        }, [mergedLocale]);
+
         const infoBarClasses: string = mergeClasses([
             styles.infoBar,
             classNames,
@@ -51,31 +79,40 @@ export const InfoBar: FC<InfoBarsProps> = React.forwardRef(
         };
 
         return (
-            <div
-                {...rest}
-                className={infoBarClasses}
-                ref={ref}
-                style={style}
-                role={role}
-            >
-                <Icon path={getIconName()} classNames={styles.icon} />
-                <div className={messageClasses}>{content}</div>
-                {actionButtonProps && (
-                    <SystemUIButton
-                        {...actionButtonProps}
-                        disruptive={type === InfoBarType.disruptive}
-                    />
-                )}
-                {closable && (
-                    <SystemUIButton
-                        iconProps={{ path: closeIcon }}
-                        ariaLabel={'Close'}
-                        onClick={onClose}
-                        {...closeButtonProps}
-                        disruptive={type === InfoBarType.disruptive}
-                    />
-                )}
-            </div>
+            <LocaleReceiver componentName={'InfoBar'} defaultLocale={enUS}>
+                {(_contextLocale: InfoBarLocale) => {
+                    return (
+                        <div
+                            {...rest}
+                            className={infoBarClasses}
+                            ref={ref}
+                            style={style}
+                            role={role}
+                        >
+                            <Icon
+                                path={getIconName()}
+                                classNames={styles.icon}
+                            />
+                            <div className={messageClasses}>{content}</div>
+                            {actionButtonProps && (
+                                <SystemUIButton
+                                    {...actionButtonProps}
+                                    disruptive={type === InfoBarType.disruptive}
+                                />
+                            )}
+                            {closable && (
+                                <SystemUIButton
+                                    iconProps={{ path: closeIcon }}
+                                    ariaLabel={closeButtonAriaLabelText}
+                                    onClick={onClose}
+                                    {...closeButtonProps}
+                                    disruptive={type === InfoBarType.disruptive}
+                                />
+                            )}
+                        </div>
+                    );
+                }}
+            </LocaleReceiver>
         );
     }
 );
