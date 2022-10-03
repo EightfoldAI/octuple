@@ -117,7 +117,12 @@ export const Dropdown: FC<DropdownProps> = React.memo(
             );
         }, [refs.reference, refs.floating, update]);
 
-        useAccessibility(trigger, refs.reference, toggle(true), toggle(false));
+        useAccessibility(
+            trigger,
+            portal ? refs.floating : refs.reference,
+            toggle(true),
+            toggle(false)
+        );
         const dropdownClasses: string = mergeClasses([
             dropdownClassNames,
             styles.dropdownWrapper,
@@ -162,6 +167,13 @@ export const Dropdown: FC<DropdownProps> = React.memo(
                 tabIndex: '0',
             });
         };
+
+        // auto focussing incase of portal=true
+        useEffect(() => {
+            if (portal && mergedVisible && refs?.floating?.current) {
+                refs.floating.current.focus();
+            }
+        }, [mergedVisible]);
 
         const getDropdown = (): JSX.Element =>
             mergedVisible && (

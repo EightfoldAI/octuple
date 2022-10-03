@@ -15,13 +15,15 @@ export const useAccessibility = (
     const triggerEvent: string = ACCESSIBILITY_EVENTS_MAP[trigger];
     const handleAccessibility = useCallback(
         (e) => {
-            if (ref.current?.contains?.(e.target)) {
-                if (triggerEvent != 'keydown' || e.key == 'Enter') {
-                    return onEnter?.();
+            if (ref.current) {
+                if (ref.current?.contains?.(e.target)) {
+                    if (triggerEvent != 'keydown' || e.key == 'Enter') {
+                        return onEnter?.();
+                    }
+                    return null;
                 }
-                return null;
+                return onLeave?.();
             }
-            return onLeave?.();
         },
         [ref]
     );
