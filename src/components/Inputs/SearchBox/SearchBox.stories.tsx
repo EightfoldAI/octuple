@@ -187,4 +187,5 @@ Search_Box.args = {
     style: {},
     theme: TextInputTheme.light,
     waitInterval: 10,
+    expandable: true,
 };

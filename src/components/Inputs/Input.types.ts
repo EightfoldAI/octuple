@@ -302,4 +302,9 @@ export interface InputProps<T>
      * @default 10
      */
     waitInterval?: number;
+    /**
+     * Make input expandable on focus
+     * @default false
+     */
+    expandable?: boolean;
 }
