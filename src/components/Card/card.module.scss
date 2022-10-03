@@ -45,23 +45,23 @@
         display: flex;
         flex-direction: row;
         margin-bottom: $space-ml;
-        padding: 0;
+        padding: $disabled-zero;
 
         .mainHeader {
             display: flex;
             .icon {
                 height: fit-content;
-                padding-top: 10px;
+                padding-top: $space-xs;
             }
 
             .title {
-                margin-left: 8px;
+                margin-left: $space-xs;
             }
 
             &-button {
                 margin-right: $space-l;
-                padding: 0;
-                padding-bottom: 12px;
+                padding: $disabled-zero;
+                padding-bottom: $space-s;
                 background-color: white;
             }
 
@@ -81,15 +81,15 @@
         .subHeader {
             opacity: 50%;
             font-style: normal;
-            font-weight: 500;
-            font-size: 16px;
-            line-height: 24px;
+            font-weight: $text-font-weight-regular;
+            font-size: $text-font-size-3;
+            line-height: $text-line-height-3;
             display: flex;
         }
 
         .buttonIcon {
             position: absolute;
-            right: 0;
+            right: $disabled-zero;
             background-color: white;
         }
     }
@@ -103,7 +103,7 @@
         line-height: normal;
 
         .list {
-            margin-bottom: 20px;
+            margin-bottom: $space-ml;
 
             ul {
                 flex-wrap: wrap;
@@ -114,7 +114,7 @@
 
     .footer {
         padding-top: $space-xs;
-        bottom: 25px;
+        bottom: $space-l;
         position: absolute;
         width: 320px;
 

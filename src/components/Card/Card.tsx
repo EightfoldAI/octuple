@@ -4,38 +4,37 @@ import { mergeClasses } from '../../shared/utilities';
 import { ButtonShape, TwoStateButton } from '../Button';
 import { SizeContext, Size } from '../ConfigProvider';
 import { Icon, IconSize } from '../Icon';
-
-import styles from './card.module.scss';
 import { Stack } from '../Stack';
+import styles from './card.module.scss';
 import { Pill } from '../Pills';
 import { List } from '../List';
 
 export const Card: FC<CardProps> = React.forwardRef(
     (
         {
-            name,
-            icon,
-            type = CardType.list,
-            style,
-            actionButtonProps,
             avatar,
-            size = CardSize.Medium,
-            configContextProps = {
-                noDisabledContext: false,
-                noSizeContext: false,
-            },
-            header,
-            headerButtonProps,
-            headerClassNames,
-            headerIcon,
             body,
             bodyClassNames,
             bodyListOneProps,
             bodyListTwoProps,
+            configContextProps = {
+                noDisabledContext: false,
+                noSizeContext: false,
+            },
+            disabled = false,
             footerClassNames,
             footerProps,
-            subHeaderProps,
+            header,
+            headerButtonProps,
+            headerClassNames,
+            headerIcon,
             height,
+            icon,
+            name,
+            size = CardSize.Medium,
+            style,
+            subHeaderProps,
+            type = CardType.list,
             width,
             ...rest
         },

@@ -105,4 +105,9 @@ export interface CardProps
      * The props for the footer
      */
     footerProps?: FooterItems;
+    /**
+     * The card is in a disabled state.
+     * @default false
+     */
+    disabled?: boolean;
 }
