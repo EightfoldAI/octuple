@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.14.0](https://github.com/EightfoldAI/octuple/compare/v2.13.2...v2.14.0) (2022-10-03)
+
+### Features
+
+-   add shape and size prop for accordion ([#397](https://github.com/EightfoldAI/octuple/issues/397)) ([8b006cd](https://github.com/EightfoldAI/octuple/commits/8b006cd672f8c291e9984d0f32f1fd2b82f2439a))
+-   dialog: add localization support to dialog ([#402](https://github.com/EightfoldAI/octuple/issues/402)) ([25366c9](https://github.com/EightfoldAI/octuple/commits/25366c989220432d2ea1b973631b7818732c370c))
+-   Enable readOnly for pills without buttons ([#396](https://github.com/EightfoldAI/octuple/issues/396)) ([66954ef](https://github.com/EightfoldAI/octuple/commits/66954efd8a7dc8a0ddad162711332a396adc3933))
+-   pagination: add localization support to pagination ([#399](https://github.com/EightfoldAI/octuple/issues/399)) ([e723bfc](https://github.com/EightfoldAI/octuple/commits/e723bfca9ce19dacb8ffb1738c0b27372facf210))
+-   picker: add localization support to date and time pickers ([#400](https://github.com/EightfoldAI/octuple/issues/400)) ([e1a3e24](https://github.com/EightfoldAI/octuple/commits/e1a3e244e3833fe3f73270e068bf228a9fa3a36d))
+-   table: Add loc support and column, cell css vertical alignment prop ([#394](https://github.com/EightfoldAI/octuple/issues/394)) ([e0045e3](https://github.com/EightfoldAI/octuple/commits/e0045e36631010e4c7d2b7216368adee669a2747))
+-   **tabs:** add underlined option to tabs ([#401](https://github.com/EightfoldAI/octuple/issues/401)) ([8f15496](https://github.com/EightfoldAI/octuple/commits/8f154962850f1c3f5cd5c4e1d272159b45ef983d))
+
+### Bug Fixes
+
+-   select: update when options change ([#403](https://github.com/EightfoldAI/octuple/issues/403)) ([7cac956](https://github.com/EightfoldAI/octuple/commits/7cac956aa59b615592d7bbf3af817632f4d2978c))
+-   table: add page sizes prop to table pagination ([#393](https://github.com/EightfoldAI/octuple/issues/393)) ([5f45f94](https://github.com/EightfoldAI/octuple/commits/5f45f94b95babe252c8464d8ffb12394c7f582d4))
+-   table: revert overflow css and update esmx strings ([#398](https://github.com/EightfoldAI/octuple/issues/398)) ([d363abb](https://github.com/EightfoldAI/octuple/commits/d363abb2603609761ce3e9bdd7f35d37d2c26f67))
+-   type annotation cleanup ([#372](https://github.com/EightfoldAI/octuple/issues/372)) ([c3c5f32](https://github.com/EightfoldAI/octuple/commits/c3c5f320be13076d2777b773bc1bd0d7087f79db))
+
 ### [2.13.2](https://github.com/EightfoldAI/octuple/compare/v2.13.1...v2.13.2) (2022-09-27)
 
 ### Bug Fixes
