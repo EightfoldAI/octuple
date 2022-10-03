@@ -1,10 +1,10 @@
 .card {
-    --info-color: var(--grey-color-10);
-    --bg-color: var(--grey-color-70);
+    --bg-color: white;
 
+    box-shadow: $shadow-object-m;
     background-color: var(--bg-color);
     border-radius: $corner-radius-xl;
-    color: var(--info-color);
+    color: black;
     display: block;
     font-family: $octuple-font-family;
     gap: $space-m;
@@ -12,14 +12,8 @@
     width: 360px;
     position: relative;
 
-    &.list {
-        --info-color: var(--grey-color-70);
-        --bg-color: var(--grey-color-10);
-    }
-
     &.carousel {
-        --info-color: var(--green-color-70);
-        --bg-color: var(--green-color-10);
+        border: 1px solid var(--grey-color-20);
     }
 
     .icon {
@@ -57,12 +51,18 @@
             display: flex;
             .icon {
                 height: fit-content;
+                padding-top: 10px;
+            }
+
+            .title {
+                margin-left: 8px;
             }
 
             &-button {
-                margin-right: $space-m;
+                margin-right: $space-l;
                 padding: 0;
                 padding-bottom: 12px;
+                background-color: white;
             }
 
             &-buttons {
@@ -80,6 +80,17 @@
 
         .subHeader {
             opacity: 50%;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 24px;
+            display: flex;
+        }
+
+        .buttonIcon {
+            position: absolute;
+            right: 0;
+            background-color: white;
         }
     }
 
@@ -93,16 +104,27 @@
 
         .list {
             margin-bottom: 20px;
+
+            ul {
+                flex-wrap: wrap;
+                display: -webkit-inline-box;
+            }
         }
     }
 
     .footer {
-        display: flex;
-        flex-direction: row;
-        justify-content: flex-end;
-        padding-top: $space-m;
-        gap: $space-xs;
+        padding-top: $space-xs;
         bottom: 25px;
         position: absolute;
+        width: 320px;
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+
+            .content {
+                display: flex;
+            }
+        }
     }
 }

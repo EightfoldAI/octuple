@@ -25,35 +25,15 @@ export default {
     },
 } as ComponentMeta<typeof Card>;
 
-const List_Story: ComponentStory<typeof Card> = (args) => <Card {...args} />;
-
-export const List = List_Story.bind({});
-
-const Carousel_Story: ComponentStory<typeof Card> = (args) => (
+const Base_Card_Story: ComponentStory<typeof Card> = (args) => (
     <Card {...args} />
 );
 
-export const Carousel = Carousel_Story.bind({});
+export const BaseCard = Base_Card_Story.bind({});
 
 const cardArgs: Object = {
-    actionButtonProps: {
-        ariaLabel: 'Action',
-        classNames: 'my-action-btn-class',
-        'data-test-id': 'my-action-btn-test-id',
-        iconProps: null,
-        id: 'myActionButton',
-        text: 'Action',
-    },
-    name: 'Body2 is used inside here.',
     style: {},
     classNames: 'my-card-class',
-    icon: IconName.mdiCheckCircle,
-    role: 'presentation',
-    type: CardType.list,
-};
-
-List.args = {
-    ...cardArgs,
     icon: IconName.mdiInformation,
     type: CardType.list,
     headerIcon: IconName.mdiCardsHeart,
@@ -75,10 +55,19 @@ List.args = {
         type: 'pills',
         contents: ['Department', 'Urgent Hire'],
     },
-    subHeaderOne: 'Company',
-    subHeaderTwo: 'Job Location',
+    subHeaderProps: ['Company', 'Job Location'],
+    footerProps: [
+        {
+            icon: IconName.mdiAccountCircle,
+            text: 'Strong match',
+        },
+        {
+            icon: IconName.mdiCheck,
+            text: 'Applied',
+        },
+    ],
 };
 
-Carousel.args = {
+BaseCard.args = {
     ...cardArgs,
 };

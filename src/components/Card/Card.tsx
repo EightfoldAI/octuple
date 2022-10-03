@@ -8,6 +8,7 @@ import { Icon, IconSize } from '../Icon';
 import styles from './card.module.scss';
 import { Stack } from '../Stack';
 import { Pill } from '../Pills';
+import { List } from '../List';
 
 export const Card: FC<CardProps> = React.forwardRef(
     (
@@ -17,7 +18,6 @@ export const Card: FC<CardProps> = React.forwardRef(
             type = CardType.list,
             style,
             actionButtonProps,
-            role = 'presentation',
             avatar,
             size = CardSize.Medium,
             configContextProps = {
@@ -30,9 +30,13 @@ export const Card: FC<CardProps> = React.forwardRef(
             headerIcon,
             body,
             bodyClassNames,
-            footerClassNames,
             bodyListOneProps,
             bodyListTwoProps,
+            footerClassNames,
+            footerProps,
+            subHeaderProps,
+            height,
+            width,
             ...rest
         },
         ref: Ref<HTMLDivElement>
@@ -50,8 +54,6 @@ export const Card: FC<CardProps> = React.forwardRef(
             { [styles.cardSmall]: mergedSize === CardSize.Small },
         ]);
 
-        const messageClasses: string = mergeClasses([styles.message, 'body2']);
-
         const headerClasses: string = mergeClasses([
             styles.header,
             headerClassNames,
@@ -65,21 +67,37 @@ export const Card: FC<CardProps> = React.forwardRef(
         ]);
 
         return (
-            <div
-                {...rest}
-                className={cardClasses}
-                ref={ref}
-                style={style}
-                role={role}
-            >
+            <div {...rest} className={cardClasses} ref={ref} style={style}>
                 <div className={headerClasses}>
                     <div className={styles.mainHeader}>
                         <Icon
                             path={icon}
                             classNames={styles.icon}
-                            size={IconSize.Medium}
+                            size={IconSize.Large}
                         />
-                        {header}
+                        <div className={styles.title}>
+                            {header}
+                            <div className={styles.subHeader}>
+                                {subHeaderProps &&
+                                    subHeaderProps.map((item, idx) => {
+                                        return (
+                                            <div>
+                                                {idx ===
+                                                    subHeaderProps.length -
+                                                        1 && <>&nbsp;&nbsp;</>}
+                                                {item}
+                                                {idx <
+                                                    subHeaderProps.length -
+                                                        1 && (
+                                                    <>&nbsp;&nbsp;&bull;</>
+                                                )}
+                                            </div>
+                                        );
+                                    })}
+                            </div>
+                        </div>
+                    </div>
+                    <div className={styles.buttonIcon}>
                         {headerButtonProps && (
                             <TwoStateButton
                                 classNames={styles.mainHeaderButton}
@@ -89,7 +107,6 @@ export const Card: FC<CardProps> = React.forwardRef(
                                     ariaHidden: true,
                                     classNames: 'my-two-state-btn-icon-one',
                                     id: 'myTwoStateButtonIconOne',
-                                    role: 'presentation',
                                     rotate: 0,
                                     spin: false,
                                     vertical: false,
@@ -100,28 +117,28 @@ export const Card: FC<CardProps> = React.forwardRef(
                             />
                         )}
                     </div>
-                    <div className={styles.subHeader}></div>
                 </div>
                 <div className={bodyClasses}>
                     {bodyListOneProps && (
-                        <Stack
-                            direction="horizontal"
-                            gap="xs"
-                            wrap="wrap"
+                        <List
+                            layout="horizontal"
                             classNames={styles.list}
-                        >
-                            {bodyListOneProps.contents.map((item) => {
-                                if (bodyListOneProps.type === 'list')
-                                    return <div>{item},</div>;
-                                return <Pill label={item} theme="grey" />;
-                            })}
-                        </Stack>
+                            itemStyle={{ margin: '5px' }}
+                            items={bodyListOneProps.contents}
+                            renderItem={(item) => {
+                                return bodyListOneProps.type === 'list' ? (
+                                    <span>{item}</span>
+                                ) : (
+                                    <Pill label={item as string} theme="grey" />
+                                );
+                            }}
+                        />
                     )}
                     {bodyListTwoProps && (
                         <Stack direction="horizontal" gap="xs" wrap="wrap">
                             {bodyListTwoProps.contents.map((item) => {
                                 if (bodyListTwoProps.type === 'list')
-                                    return <div>{item},</div>;
+                                    return <span>{item},</span>;
                                 return <Pill label={item} theme="grey" />;
                             })}
                         </Stack>
@@ -129,8 +146,22 @@ export const Card: FC<CardProps> = React.forwardRef(
                     {body}
                 </div>
                 <div className={footerClasses}>
-                    <div>Match potential</div>
-                    <div>Status</div>
+                    {footerProps && (
+                        <div className={styles.container}>
+                            {footerProps.map((items: any) => {
+                                return (
+                                    <div className={styles.content}>
+                                        <Icon
+                                            path={items.icon}
+                                            classNames={styles.icon}
+                                            size={IconSize.Medium}
+                                        />
+                                        <div>{items.text}</div>
+                                    </div>
+                                );
+                            })}
+                        </div>
+                    )}
                 </div>
             </div>
         );

@@ -18,6 +18,13 @@ export enum CardType {
     carousel = 'carousel',
 }
 
+export interface BodyProps {
+    contents?: string[];
+    type?: string;
+}
+
+export type FooterItems = [icon?: IconName, text?: string];
+
 export interface CardProps
     extends Omit<
         BaseDialogProps,
@@ -85,17 +92,17 @@ export interface CardProps
     /**
      * List of items for boday
      */
-    bodyListOneProps?: Array<string | HTMLElement | object>;
+    bodyListOneProps?: BodyProps;
     /**
      * List of items for body
      */
-    bodyListTwoProps?: Array<string | HTMLElement | object>;
+    bodyListTwoProps?: BodyProps;
     /**
-     * The first subheader below the header
+     * The props for the subheaders
      */
-    subHeaderOne?: string;
+    subHeaderProps?: Array<string>;
     /**
-     * The first subheader below the header
+     * The props for the footer
      */
-    subHeaderTwo?: string;
+    footerProps?: FooterItems;
 }
