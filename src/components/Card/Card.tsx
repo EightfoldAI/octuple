@@ -3,7 +3,7 @@ import { CardProps, CardSize, CardType } from './Card.types';
 import { mergeClasses } from '../../shared/utilities';
 import { ButtonShape, TwoStateButton } from '../Button';
 import { SizeContext, Size } from '../ConfigProvider';
-import { Icon, IconSize } from '../Icon';
+import { Icon, IconName, IconSize } from '../Icon';
 import { Stack } from '../Stack';
 import styles from './card.module.scss';
 import { Pill } from '../Pills';
@@ -47,7 +47,6 @@ export const Card: FC<CardProps> = React.forwardRef(
         const cardClasses: string = mergeClasses([
             styles.card,
             { [styles.list]: type === CardType.list },
-            { [styles.carousel]: type === CardType.carousel },
             { [styles.cardLarge]: mergedSize === CardSize.Large },
             { [styles.cardMedium]: mergedSize === CardSize.Medium },
             { [styles.cardSmall]: mergedSize === CardSize.Small },
@@ -66,31 +65,42 @@ export const Card: FC<CardProps> = React.forwardRef(
         ]);
 
         return (
-            <div {...rest} className={cardClasses} ref={ref} style={style}>
+            <div
+                {...rest}
+                className={cardClasses}
+                ref={ref}
+                style={{ ...style, ...{ height, width } }}
+            >
                 <div className={headerClasses}>
                     <div className={styles.mainHeader}>
-                        <Icon
-                            path={icon}
-                            classNames={styles.icon}
-                            size={IconSize.Large}
-                        />
+                        {icon && (
+                            <Icon
+                                path={icon}
+                                classNames={styles.icon}
+                                size={IconSize.Large}
+                            />
+                        )}
                         <div className={styles.title}>
                             {header}
                             <div className={styles.subHeader}>
                                 {subHeaderProps &&
                                     subHeaderProps.map((item, idx) => {
                                         return (
-                                            <div>
-                                                {idx ===
-                                                    subHeaderProps.length -
-                                                        1 && <>&nbsp;&nbsp;</>}
-                                                {item}
+                                            <>
+                                                <div>{item}</div>
                                                 {idx <
                                                     subHeaderProps.length -
                                                         1 && (
-                                                    <>&nbsp;&nbsp;&bull;</>
+                                                    <Icon
+                                                        path={
+                                                            IconName.mdiCircle
+                                                        }
+                                                        classNames={
+                                                            styles.separator
+                                                        }
+                                                    />
                                                 )}
-                                            </div>
+                                            </>
                                         );
                                     })}
                             </div>
@@ -128,7 +138,7 @@ export const Card: FC<CardProps> = React.forwardRef(
                                 return bodyListOneProps.type === 'list' ? (
                                     <span>{item}</span>
                                 ) : (
-                                    <Pill label={item as string} theme="grey" />
+                                    <Pill label={item as string} />
                                 );
                             }}
                         />

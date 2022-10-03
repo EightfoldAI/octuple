@@ -1,20 +1,16 @@
 .card {
-    --bg-color: white;
+    --bg-color: $background-color-white;
 
     box-shadow: $shadow-object-m;
     background-color: var(--bg-color);
     border-radius: $corner-radius-xl;
-    color: black;
+    color: var(--black-color);
     display: block;
     font-family: $octuple-font-family;
     gap: $space-m;
     padding: $space-ml;
     width: 360px;
     position: relative;
-
-    &.carousel {
-        border: 1px solid var(--grey-color-20);
-    }
 
     .icon {
         color: inherit;
@@ -62,7 +58,7 @@
                 margin-right: $space-l;
                 padding: $disabled-zero;
                 padding-bottom: $space-s;
-                background-color: white;
+                background-color: $background-color-white;
             }
 
             &-buttons {
@@ -85,12 +81,20 @@
             font-size: $text-font-size-3;
             line-height: $text-line-height-3;
             display: flex;
+
+            .separator {
+                height: 5px;
+                width: 5px;
+                margin-right: $space-xs;
+                margin-left: $space-xs;
+                margin-top: $space-xs;
+            }
         }
 
         .buttonIcon {
             position: absolute;
             right: $disabled-zero;
-            background-color: white;
+            background-color: $background-color-white;
         }
     }
 
@@ -116,7 +120,8 @@
         padding-top: $space-xs;
         bottom: $space-l;
         position: absolute;
-        width: 320px;
+        width: 100%;
+        padding-right: 40px;
 
         .container {
             display: flex;
