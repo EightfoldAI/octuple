@@ -3,6 +3,9 @@ import { Stories } from '@storybook/addon-docs';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Card, CardType } from './';
 import { IconName } from '../Icon';
+import { Avatar } from '../Avatar';
+import { Pill } from '../Pills';
+import { SecondaryButton } from '../Button';
 
 export default {
     title: 'Card',
@@ -31,7 +34,13 @@ const Base_Card_Story: ComponentStory<typeof Card> = (args) => (
 
 export const BaseCard = Base_Card_Story.bind({});
 
-const cardArgs: Object = {
+const Custom_Card_Story: ComponentStory<typeof Card> = (args) => (
+    <Card {...args} />
+);
+
+export const CustomCard = Custom_Card_Story.bind({});
+
+const baseCardArgs: Object = {
     style: {},
     classNames: 'my-card-class',
     icon: IconName.mdiInformation,
@@ -115,5 +124,91 @@ const cardArgs: Object = {
 };
 
 BaseCard.args = {
-    ...cardArgs,
+    ...baseCardArgs,
+};
+
+CustomCard.args = {
+    ...baseCardArgs,
+    width: '360px',
+    height: '520px',
+    children: (
+        <div style={{ textAlign: '-webkit-center', position: 'relative' }}>
+            <Avatar
+                theme="green"
+                children="AB"
+                type="round"
+                size="80px"
+                fontSize="36px"
+                style={{ marginBottom: '10px' }}
+            />
+            <div
+                style={{
+                    marginBottom: '10px',
+                    fontSize: '24px',
+                    fontWeight: '600',
+                }}
+            >
+                John Doe
+            </div>
+            <div
+                style={{
+                    marginBottom: '30px',
+                    fontSize: '18px',
+                    fontWeight: '400',
+                }}
+            >
+                Senior Quality Engineer
+            </div>
+            <div
+                style={{
+                    display: 'flex',
+                    justifyContent: 'space-evenly',
+                    marginBottom: '20px',
+                    fontSize: '18px',
+                    fontWeight: '400',
+                }}
+            >
+                <div>
+                    <div style={{ opacity: '50%', marginBottom: '5px' }}>
+                        Time in role
+                    </div>
+                    <div>2.5 y</div>
+                </div>
+                <div>
+                    <div style={{ opacity: '50%', marginBottom: '5px' }}>
+                        Skills | Skill gaps
+                    </div>
+                    <div>73 | 0</div>
+                </div>
+            </div>
+            <div
+                style={{
+                    textAlign: 'start',
+                    marginBottom: '30px',
+                    fontSize: '18px',
+                    fontWeight: '400',
+                    marginLeft: '35px',
+                }}
+            >
+                <div style={{ opacity: '50%', marginBottom: '5px' }}>
+                    Last manager assessment
+                </div>
+                <div>Oct 1, 2022</div>
+            </div>
+            <div
+                style={{
+                    display: 'flex',
+                    justifyContent: 'space-evenly',
+                    marginBottom: '80px',
+                }}
+            >
+                <Pill label="Leadership Potential" theme="blueViolet" />
+                <Pill label="High Risk" theme="violetRed" />
+            </div>
+            <div style={{ display: 'flex', justifyContent: 'space-evenly' }}>
+                <SecondaryButton text="Add Development Plan" />
+                <SecondaryButton iconProps={{ path: IconName.mdiMenu }} />
+            </div>
+        </div>
+    ),
 };
