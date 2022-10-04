@@ -59,7 +59,7 @@ const baseCardArgs: Object = {
         iconProps: {
             path: IconName.mdiCheck,
             color: 'green',
-            marginLeft: '2px',
+            style: { marginRight: '2px' },
         },
         type: 'list',
         contents: [
@@ -115,7 +115,7 @@ const baseCardArgs: Object = {
             iconProps: {
                 path: IconName.mdiWeb,
                 color: 'blue',
-                marginLeft: '2px',
+                style: { marginRight: '2px' },
             },
             text: 'Strong match',
         },
@@ -123,6 +123,7 @@ const baseCardArgs: Object = {
             iconProps: {
                 path: IconName.mdiCheck,
                 color: 'green',
+                style: { marginRight: '2px' },
             },
             text: 'Applied',
         },
