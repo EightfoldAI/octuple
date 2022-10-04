@@ -16,7 +16,11 @@ export default {
                     <article>
                         <section>
                             <h1>Card</h1>
-                            <p>TBD</p>
+                            <p>
+                                A card can be used to display content. The
+                                content may consist of multiple elements in its
+                                header, body and footer.
+                            </p>
                         </section>
                         <section>
                             <Stories includePrimary title="" />
@@ -55,6 +59,7 @@ const baseCardArgs: Object = {
         iconProps: {
             path: IconName.mdiCheck,
             color: 'green',
+            marginLeft: '2px',
         },
         type: 'list',
         contents: [
@@ -110,6 +115,7 @@ const baseCardArgs: Object = {
             iconProps: {
                 path: IconName.mdiWeb,
                 color: 'blue',
+                marginLeft: '2px',
             },
             text: 'Strong match',
         },
@@ -132,14 +138,14 @@ CustomCard.args = {
     width: '360px',
     height: '520px',
     children: (
-        <div style={{ textAlign: '-webkit-center', position: 'relative' }}>
+        <div style={{ textAlign: 'center', position: 'relative' }}>
             <Avatar
                 theme="green"
                 children="AB"
                 type="round"
                 size="80px"
                 fontSize="36px"
-                style={{ marginBottom: '10px' }}
+                style={{ margin: '0 auto 10px' }}
             />
             <div
                 style={{
@@ -190,7 +196,14 @@ CustomCard.args = {
                     marginLeft: '35px',
                 }}
             >
-                <div style={{ opacity: '50%', marginBottom: '5px' }}>
+                <div
+                    style={{
+                        textAlign: 'start',
+                        marginBottom: '30px',
+                        fontSize: '18px',
+                        fontWeight: '400',
+                    }}
+                >
                     Last manager assessment
                 </div>
                 <div>Oct 1, 2022</div>
@@ -207,7 +220,9 @@ CustomCard.args = {
             </div>
             <div style={{ display: 'flex', justifyContent: 'space-evenly' }}>
                 <SecondaryButton text="Add Development Plan" />
-                <SecondaryButton iconProps={{ path: IconName.mdiMenu }} />
+                <SecondaryButton
+                    iconProps={{ path: IconName.mdiDotsVertical }}
+                />
             </div>
         </div>
     ),

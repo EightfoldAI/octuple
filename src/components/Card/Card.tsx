@@ -121,7 +121,7 @@ export const Card: FC<CardProps> = React.forwardRef(
                                         <Icon
                                             path={icon}
                                             classNames={styles.icon}
-                                            size={IconSize.Large}
+                                            size={'40px'}
                                         />
                                     )}
                                     {headerTitle && (
