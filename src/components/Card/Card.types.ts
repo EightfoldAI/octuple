@@ -1,4 +1,4 @@
-import { IconName } from '../Icon';
+import { IconName, IconProps } from '../Icon';
 import { ButtonProps } from '../Button';
 import { PillProps, PillType } from '../Pills';
 import { OcBaseProps } from '../OcBase';
@@ -17,12 +17,18 @@ export enum CardType {
     carousel = 'carousel',
 }
 
-export interface BodyProps {
-    contents?: string[];
-    type?: string;
+export interface BodyListProps {
+    showIcon?: boolean;
+    label?: string;
 }
 
-export type FooterItems = [icon?: IconName, text?: string];
+export interface BodyProps {
+    contents?: BodyListProps[];
+    type?: string;
+    iconProps?: IconProps;
+}
+
+export type FooterItems = [iconProps?: IconProps, text?: string];
 
 export interface CardProps {
     /**

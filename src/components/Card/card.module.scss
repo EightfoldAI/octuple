@@ -114,6 +114,10 @@
         .list {
             margin-bottom: $space-ml;
 
+            &-item {
+                display: flex;
+            }
+
             ul {
                 flex-wrap: wrap;
                 display: -webkit-inline-box;

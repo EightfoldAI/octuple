@@ -43,18 +43,50 @@ const cardArgs: Object = {
     },
     headerTitle: <div>Senior UX Designer</div>,
     bodyListOneProps: {
+        iconProps: {
+            path: IconName.mdiCheck,
+            color: 'green',
+        },
         type: 'list',
         contents: [
-            'Matched Skill',
-            'Matched Skill',
-            'Matched Skill',
-            'Other Skill',
-            'Other Skill',
+            {
+                showIcon: true,
+                label: 'Matched Skill',
+            },
+            {
+                showIcon: true,
+                label: 'Matched Skill',
+            },
+            {
+                showIcon: true,
+                label: 'Matched Skill',
+            },
+            {
+                showIcon: false,
+                label: 'Other Skill',
+            },
+            {
+                showIcon: false,
+                label: 'Other Skill',
+            },
         ],
     },
     bodyListTwoProps: {
+        iconProps: {
+            path: IconName.mdiCheck,
+            color: 'green',
+        },
         type: 'pills',
-        contents: ['Department', 'Urgent Hire'],
+        contents: [
+            {
+                showIcon: false,
+                label: 'Department',
+            },
+            {
+                showIcon: false,
+                label: 'Urgent Hire',
+            },
+        ],
     },
     bodyListOnePillProps: {
         theme: 'grey',
@@ -66,11 +98,17 @@ const cardArgs: Object = {
     subHeaderProps: ['Company', 'Job Location'],
     footerProps: [
         {
-            icon: IconName.mdiAccountCircle,
+            iconProps: {
+                path: IconName.mdiWeb,
+                color: 'blue',
+            },
             text: 'Strong match',
         },
         {
-            icon: IconName.mdiCheck,
+            iconProps: {
+                path: IconName.mdiCheck,
+                color: 'green',
+            },
             text: 'Applied',
         },
     ],

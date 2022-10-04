@@ -180,10 +180,17 @@ export const Card: FC<CardProps> = React.forwardRef(
                                     renderItem={(item) => {
                                         return bodyListOneProps.type ===
                                             'list' ? (
-                                            <span>{item}</span>
+                                            <div className={styles.listItem}>
+                                                {item.showIcon && (
+                                                    <Icon
+                                                        {...bodyListOneProps.iconProps}
+                                                    />
+                                                )}
+                                                <span>{item.label}</span>
+                                            </div>
                                         ) : (
                                             <Pill
-                                                label={item}
+                                                label={item.label}
                                                 {...bodyListOnePillProps}
                                             />
                                         );
@@ -197,11 +204,19 @@ export const Card: FC<CardProps> = React.forwardRef(
                                     wrap="wrap"
                                 >
                                     {bodyListTwoProps?.contents.map((item) => {
-                                        if (bodyListTwoProps.type === 'list')
-                                            return <span>{item},</span>;
-                                        return (
+                                        return bodyListTwoProps.type ===
+                                            'list' ? (
+                                            <div className={styles.listItem}>
+                                                {item.showIcon && (
+                                                    <Icon
+                                                        {...bodyListOneProps.iconProps}
+                                                    />
+                                                )}
+                                                <span>{item.label}</span>
+                                            </div>
+                                        ) : (
                                             <Pill
-                                                label={item}
+                                                label={item.label}
                                                 {...bodyListTwoPillProps}
                                             />
                                         );
@@ -213,15 +228,11 @@ export const Card: FC<CardProps> = React.forwardRef(
                         <div className={footerClasses}>
                             {footerProps && (
                                 <div className={styles.container}>
-                                    {footerProps.map((items: any) => {
+                                    {footerProps.map((item: any) => {
                                         return (
                                             <div className={styles.content}>
-                                                <Icon
-                                                    path={items.icon}
-                                                    classNames={styles.icon}
-                                                    size={IconSize.Medium}
-                                                />
-                                                <div>{items.text}</div>
+                                                <Icon {...item.iconProps} />
+                                                <div>{item.text}</div>
                                             </div>
                                         );
                                     })}
