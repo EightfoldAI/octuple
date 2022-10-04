@@ -8,6 +8,7 @@ import { Stack } from '../Stack';
 import styles from './card.module.scss';
 import { Pill } from '../Pills';
 import { List } from '../List';
+import { Breakpoints, useMatchMedia } from '../../hooks/useMatchMedia';
 
 export const Card: FC<CardProps> = React.forwardRef(
     (
@@ -17,17 +18,20 @@ export const Card: FC<CardProps> = React.forwardRef(
             bodyClassNames,
             bodyListOneProps,
             bodyListTwoProps,
+            children,
             configContextProps = {
                 noDisabledContext: false,
                 noSizeContext: false,
             },
             disabled = false,
+            footer,
             footerClassNames,
             footerProps,
             header,
             headerButtonProps,
             headerClassNames,
             headerIcon,
+            headerTitle,
             height,
             icon,
             name,
@@ -40,12 +44,33 @@ export const Card: FC<CardProps> = React.forwardRef(
         },
         ref: Ref<HTMLDivElement>
     ) => {
+        const largeScreenActive: boolean = useMatchMedia(Breakpoints.Large);
+        const mediumScreenActive: boolean = useMatchMedia(Breakpoints.Medium);
+        const smallScreenActive: boolean = useMatchMedia(Breakpoints.Small);
+        const xSmallScreenActive: boolean = useMatchMedia(Breakpoints.XSmall);
+
         const contextuallySized: Size = useContext(SizeContext);
         const mergedSize = configContextProps.noSizeContext
             ? size
             : contextuallySized || size;
         const cardClasses: string = mergeClasses([
             styles.card,
+            {
+                [styles.cardSmall]:
+                    mergedSize === CardSize.Flex && largeScreenActive,
+            },
+            {
+                [styles.cardMedium]:
+                    mergedSize === CardSize.Flex && mediumScreenActive,
+            },
+            {
+                [styles.cardMedium]:
+                    mergedSize === CardSize.Flex && smallScreenActive,
+            },
+            {
+                [styles.cardLarge]:
+                    mergedSize === CardSize.Flex && xSmallScreenActive,
+            },
             { [styles.list]: type === CardType.list },
             { [styles.cardLarge]: mergedSize === CardSize.Large },
             { [styles.cardMedium]: mergedSize === CardSize.Medium },
@@ -71,107 +96,131 @@ export const Card: FC<CardProps> = React.forwardRef(
                 ref={ref}
                 style={{ ...style, ...{ height, width } }}
             >
-                <div className={headerClasses}>
-                    <div className={styles.mainHeader}>
-                        {icon && (
-                            <Icon
-                                path={icon}
-                                classNames={styles.icon}
-                                size={IconSize.Large}
-                            />
-                        )}
-                        <div className={styles.title}>
-                            {header}
-                            <div className={styles.subHeader}>
-                                {subHeaderProps &&
-                                    subHeaderProps.map((item, idx) => {
+                {children ? (
+                    children
+                ) : (
+                    <>
+                        <div className={headerClasses}>
+                            {header && header}
+                            {(icon || headerTitle) && (
+                                <div className={styles.mainHeader}>
+                                    {icon && (
+                                        <Icon
+                                            path={icon}
+                                            classNames={styles.icon}
+                                            size={IconSize.Large}
+                                        />
+                                    )}
+                                    {headerTitle && (
+                                        <div className={styles.title}>
+                                            {headerTitle}
+                                            <div className={styles.subHeader}>
+                                                {subHeaderProps &&
+                                                    subHeaderProps.map(
+                                                        (item, idx) => {
+                                                            return (
+                                                                <>
+                                                                    <div>
+                                                                        {item}
+                                                                    </div>
+                                                                    {idx <
+                                                                        subHeaderProps.length -
+                                                                            1 && (
+                                                                        <Icon
+                                                                            path={
+                                                                                IconName.mdiCircle
+                                                                            }
+                                                                            classNames={
+                                                                                styles.separator
+                                                                            }
+                                                                        />
+                                                                    )}
+                                                                </>
+                                                            );
+                                                        }
+                                                    )}
+                                            </div>
+                                        </div>
+                                    )}
+                                </div>
+                            )}
+                            {headerButtonProps && (
+                                <div className={styles.buttonIcon}>
+                                    <TwoStateButton
+                                        classNames={styles.mainHeaderButton}
+                                        shape={ButtonShape.Round}
+                                        iconOneProps={{
+                                            path: headerIcon,
+                                            ariaHidden: true,
+                                            classNames:
+                                                'my-two-state-btn-icon-one',
+                                            id: 'myTwoStateButtonIconOne',
+                                            rotate: 0,
+                                            spin: false,
+                                            vertical: false,
+                                            'data-test-id':
+                                                'myTwoStateButtonIconOneTestId',
+                                        }}
+                                        {...headerButtonProps}
+                                    />
+                                </div>
+                            )}
+                        </div>
+                        <div className={bodyClasses}>
+                            {bodyListOneProps && (
+                                <List
+                                    layout="horizontal"
+                                    classNames={styles.list}
+                                    itemStyle={{ margin: '5px' }}
+                                    items={bodyListOneProps.contents}
+                                    renderItem={(item) => {
+                                        return bodyListOneProps.type ===
+                                            'list' ? (
+                                            <span>{item}</span>
+                                        ) : (
+                                            <Pill label={item as string} />
+                                        );
+                                    }}
+                                />
+                            )}
+                            {bodyListTwoProps && (
+                                <Stack
+                                    direction="horizontal"
+                                    gap="xs"
+                                    wrap="wrap"
+                                >
+                                    {bodyListTwoProps.contents.map((item) => {
+                                        if (bodyListTwoProps.type === 'list')
+                                            return <span>{item},</span>;
                                         return (
-                                            <>
-                                                <div>{item}</div>
-                                                {idx <
-                                                    subHeaderProps.length -
-                                                        1 && (
-                                                    <Icon
-                                                        path={
-                                                            IconName.mdiCircle
-                                                        }
-                                                        classNames={
-                                                            styles.separator
-                                                        }
-                                                    />
-                                                )}
-                                            </>
+                                            <Pill label={item} theme="grey" />
                                         );
                                     })}
-                            </div>
+                                </Stack>
+                            )}
+                            {body && body}
                         </div>
-                    </div>
-                    <div className={styles.buttonIcon}>
-                        {headerButtonProps && (
-                            <TwoStateButton
-                                classNames={styles.mainHeaderButton}
-                                shape={ButtonShape.Round}
-                                iconOneProps={{
-                                    path: headerIcon,
-                                    ariaHidden: true,
-                                    classNames: 'my-two-state-btn-icon-one',
-                                    id: 'myTwoStateButtonIconOne',
-                                    rotate: 0,
-                                    spin: false,
-                                    vertical: false,
-                                    'data-test-id':
-                                        'myTwoStateButtonIconOneTestId',
-                                }}
-                                {...headerButtonProps}
-                            />
-                        )}
-                    </div>
-                </div>
-                <div className={bodyClasses}>
-                    {bodyListOneProps && (
-                        <List
-                            layout="horizontal"
-                            classNames={styles.list}
-                            itemStyle={{ margin: '5px' }}
-                            items={bodyListOneProps.contents}
-                            renderItem={(item) => {
-                                return bodyListOneProps.type === 'list' ? (
-                                    <span>{item}</span>
-                                ) : (
-                                    <Pill label={item as string} />
-                                );
-                            }}
-                        />
-                    )}
-                    {bodyListTwoProps && (
-                        <Stack direction="horizontal" gap="xs" wrap="wrap">
-                            {bodyListTwoProps.contents.map((item) => {
-                                if (bodyListTwoProps.type === 'list')
-                                    return <span>{item},</span>;
-                                return <Pill label={item} theme="grey" />;
-                            })}
-                        </Stack>
-                    )}
-                    {body}
-                </div>
-                <div className={footerClasses}>
-                    {footerProps && (
-                        <div className={styles.container}>
-                            {footerProps.map((items: any) => {
-                                return (
-                                    <div className={styles.content}>
-                                        <Icon
-                                            path={items.icon}
-                                            classNames={styles.icon}
-                                            size={IconSize.Medium}
-                                        />
-                                        <div>{items.text}</div>
-                                    </div>
-                                );
-                            })}
+                        <div className={footerClasses}>
+                            {footerProps && (
+                                <div className={styles.container}>
+                                    {footerProps.map((items: any) => {
+                                        return (
+                                            <div className={styles.content}>
+                                                <Icon
+                                                    path={items.icon}
+                                                    classNames={styles.icon}
+                                                    size={IconSize.Medium}
+                                                />
+                                                <div>{items.text}</div>
+                                            </div>
+                                        );
+                                    })}
+                                </div>
+                            )}
+                            {footer && footer}
                         </div>
-                    )}
-                </div>
+                    </>
+                )}
             </div>
         );
     }

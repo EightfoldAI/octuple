@@ -4,7 +4,6 @@ import { PillProps, PillType } from '../Pills';
 import { OcBaseProps } from '../OcBase';
 import { ConfigContextProps, Size } from '../ConfigProvider';
 import { AvatarProps } from '../Avatar';
-import { BaseDialogProps } from '../Dialog/BaseDialog/BaseDialog.types';
 
 export enum CardSize {
     Flex = 'flex',
@@ -25,15 +24,23 @@ export interface BodyProps {
 
 export type FooterItems = [icon?: IconName, text?: string];
 
-export interface CardProps
-    extends Omit<
-        BaseDialogProps,
-        'dialogWrapperClassName' | 'dialogClassName'
-    > {
+export interface CardProps {
     /**
-     * Props for the action button
+     * Avatar of the employee
      */
-    actionButtonProps?: ButtonProps;
+    avatar?: AvatarProps;
+    /**
+     * The Body of the dialog
+     */
+    body?: React.ReactNode;
+    /**
+     * Custom classes for the Body
+     */
+    bodyClassNames?: string;
+    /**
+     * Configure how contextual props are consumed
+     */
+    configContextProps?: ConfigContextProps;
     /**
      * Name of the employee card
      */
@@ -44,35 +51,23 @@ export interface CardProps
      */
     icon?: IconName;
     /**
-     * Role of the employee
+     * The boolean value if a list card is selected
      */
-    role?: string;
-    /**
-     * Avatar of the employee
-     */
-    avatar?: AvatarProps;
-    /**
-     * Type of the card
-     * @default CardType.neutral
-     */
-    type?: CardType;
-    /**
-     * Tags for the employee
-     */
-    tag?: PillProps;
+    isSelected?: boolean;
     /**
      * The checkbox size.
      * @default SelectorSize.Medium
      */
     size?: CardSize | Size;
     /**
-     * The boolean value if a list card is selected
+     * Tags for the employee
      */
-    isSelected?: boolean;
+    tag?: PillProps;
     /**
-     * Configure how contextual props are consumed
+     * Type of the card
+     * @default CardType.neutral
      */
-    configContextProps?: ConfigContextProps;
+    type?: CardType;
     /**
      * The Footer of the dialog
      */
@@ -110,4 +105,36 @@ export interface CardProps
      * @default false
      */
     disabled?: boolean;
+    /**
+     * The Header of the dialog
+     */
+    header?: React.ReactNode;
+    /**
+     * Props for the header button
+     */
+    headerButtonProps?: ButtonProps;
+    /**
+     * Custom classes for the header
+     */
+    headerClassNames?: string;
+    /**
+     * Header icon name
+     */
+    headerIcon?: IconName;
+    /**
+     * Header title name
+     */
+    headerTitle?: string;
+    /**
+     * Custom height of the panel
+     */
+    height?: number;
+    /**
+     * The button style.
+     */
+    style?: React.CSSProperties;
+    /**
+     * Custom width of the panel
+     */
+    width?: number;
 }

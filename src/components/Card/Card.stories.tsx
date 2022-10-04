@@ -40,7 +40,7 @@ const cardArgs: Object = {
     headerButtonProps: {
         path: IconName.mdiCardsHeart,
     },
-    header: <div>Senior UX Designer</div>,
+    headerTitle: <div>Senior UX Designer</div>,
     bodyListOneProps: {
         type: 'list',
         contents: [
