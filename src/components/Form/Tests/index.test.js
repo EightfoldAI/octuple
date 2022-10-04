@@ -904,7 +904,6 @@ describe('Form', () => {
                         <Form.Item name={itemName}>
                             <Select
                                 classNames={'form_item_parentNode'}
-                                defaultValue="lucy"
                                 showDropdown={open}
                                 options={[
                                     {
@@ -914,6 +913,7 @@ describe('Form', () => {
                                     {
                                         text: 'Lucy',
                                         value: 'lucy',
+                                        selected: true,
                                     },
                                     {
                                         text: 'Yiminghe',
@@ -1127,21 +1127,45 @@ describe('Form', () => {
         const Demo = () => (
             <Form>
                 <Form.Item validateStatus="error" noStyle>
-                    <Select classNames={'custom-select'} />
+                    <Select
+                        classNames={'custom-select'}
+                        options={{
+                            text: 'School',
+                            value: 'school',
+                        }}
+                    />
                 </Form.Item>
                 <Form.Item validateStatus="error">
                     <Form.Item noStyle>
-                        <Select classNames={'custom-select-b'} />
+                        <Select
+                            classNames={'custom-select-b'}
+                            options={{
+                                text: 'School',
+                                value: 'school',
+                            }}
+                        />
                     </Form.Item>
                 </Form.Item>
                 <Form.Item validateStatus="error">
                     <Form.Item noStyle validateStatus="warning">
-                        <Select classNames={'custom-select-c'} />
+                        <Select
+                            classNames={'custom-select-c'}
+                            options={{
+                                text: 'School',
+                                value: 'school',
+                            }}
+                        />
                     </Form.Item>
                 </Form.Item>
                 <Form.Item noStyle>
                     <Form.Item validateStatus="warning">
-                        <Select classNames={'custom-select-d'} />
+                        <Select
+                            classNames={'custom-select-d'}
+                            options={{
+                                text: 'School',
+                                value: 'school',
+                            }}
+                        />
                     </Form.Item>
                 </Form.Item>
             </Form>
@@ -1179,17 +1203,17 @@ describe('Form', () => {
                 <Form.Item labelCol={4} validateStatus="error">
                     <Modal
                         visible={true}
-                        body={<Select classNames={'modal-select'} />}
+                        body={<TextInput classNames={'modal-input'} />}
                     />
                 </Form.Item>
             </Form>
         );
         const { container } = render(<Demo />, { container: document.body });
         expect(
-            container.querySelector('.modal-select')?.className
+            container.querySelector('.modal-input')?.className
         ).not.toContain('in-form-item');
         expect(
-            container.querySelector('.modal-select')?.className
+            container.querySelector('.modal-input')?.className
         ).not.toContain('status-error');
     });
 

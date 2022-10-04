@@ -149,6 +149,7 @@ function BodyRow<RecordType extends { children?: readonly RecordType[] }>(
                         classNames={columnClassName}
                         ellipsis={column.ellipsis}
                         align={column.align}
+                        verticalAlign={column.verticalAlign}
                         component={cellComponent}
                         key={key}
                         record={record}

@@ -1349,17 +1349,6 @@ const Page_Sizes_Story: ComponentStory<typeof Table> = (args) => {
     };
     return (
         <Table
-            {...args}
-            title={() => (
-                <div className="i18n-messages-table-title">
-                    <h3>{'Data'}</h3>
-                </div>
-            )}
-            dataSource={r}
-            sticky
-            columns={getColumns()}
-            emptyTextDetails=""
-            emptyText={'No data found'}
             pagination={{
                 layout: [
                     PaginationLayoutOptions.Sizes,
@@ -1372,9 +1361,14 @@ const Page_Sizes_Story: ComponentStory<typeof Table> = (args) => {
                 selfControlled: false,
                 total: r?.length,
             }}
-            scroll={{
-                y: 2000,
-            }}
+            {...args}
+            title={() => (
+                <div className="i18n-messages-table-title">
+                    <h3>{'Data'}</h3>
+                </div>
+            )}
+            dataSource={r}
+            columns={getColumns()}
         />
     );
 };
@@ -1641,4 +1635,18 @@ Nested.args = {
 
 Page_Sizes.args = {
     ...tableArgs,
+    columns: undefined,
+    dataSource: undefined,
+    pagination: {
+        layout: [
+            PaginationLayoutOptions.Sizes,
+            PaginationLayoutOptions.Total,
+            PaginationLayoutOptions.Next,
+            PaginationLayoutOptions.Previous,
+            PaginationLayoutOptions.Pager,
+        ],
+        pageSizes: [5, 10, 20],
+        selfControlled: false,
+        total: 1000,
+    },
 };

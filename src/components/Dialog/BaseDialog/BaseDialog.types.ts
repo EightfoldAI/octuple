@@ -11,6 +11,29 @@ type EventType =
 
 type Strategy = 'absolute' | 'fixed';
 
+type Locale = {
+    /**
+     * The Dialog locale.
+     */
+    locale: string;
+    /**
+     * The Dialog `Cancel` button string.
+     */
+    cancelText?: string;
+    /**
+     * The Dialog `Close` Button aria label string.
+     */
+    closeButtonAriaLabelText?: string;
+    /**
+     * The Dialog `OK` button string.
+     */
+    okText?: string;
+};
+
+export type DialogLocale = {
+    lang: Locale;
+};
+
 export interface BaseDialogProps
     extends Omit<OcBaseProps<HTMLDivElement>, 'classNames'> {
     /**
@@ -47,10 +70,20 @@ export interface BaseDialogProps
      */
     bodyPadding?: boolean;
     /**
+     * The dialog cancel button string.
+     * @default 'Cancel'
+     */
+    cancelText?: string;
+    /**
      * Show close button on top right
      * @default true
      */
     closable?: boolean;
+    /**
+     * The dialog close button aria label string.
+     * @default 'Close'
+     */
+    closeButtonAriaLabelText?: string;
     /**
      * Close button extra props
      */
@@ -88,10 +121,20 @@ export interface BaseDialogProps
      */
     height?: number;
     /**
+     * The Dialog locale.
+     * @default 'enUS'
+     */
+    locale?: DialogLocale;
+    /**
      * Clicking on mask should close modal or not
      * @default true
      */
     maskClosable?: boolean;
+    /**
+     * The dialog ok button string.
+     * @default 'OK'
+     */
+    okText?: string;
     /**
      * Callback fired on close on the modal
      * @param e {EventType}

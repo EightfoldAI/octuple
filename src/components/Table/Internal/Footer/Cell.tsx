@@ -12,6 +12,7 @@ export default function SummaryCell({
     colSpan = 1,
     rowSpan,
     align,
+    verticalAlign,
 }: SummaryCellProps) {
     const { direction } = useContext(TableContext);
     const { scrollColumnIndex, stickyOffsets, flattenColumns } =
@@ -36,6 +37,7 @@ export default function SummaryCell({
             record={null}
             dataIndex={null}
             align={align}
+            verticalAlign={verticalAlign}
             colSpan={mergedColSpan}
             rowSpan={rowSpan}
             render={() => children}

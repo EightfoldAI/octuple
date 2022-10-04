@@ -1,10 +1,9 @@
 import React from 'react';
 import { Stories } from '@storybook/addon-docs';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Badge } from '../Badge';
+import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { List } from '../List';
-import { Icon, IconName } from '../Icon';
-import { Accordion } from './';
+import { IconName } from '../Icon';
+import { Accordion, AccordionProps, AccordionSize, AccordionShape } from './';
 
 export default {
     title: 'Accordion',
@@ -29,24 +28,29 @@ export default {
             ),
         },
     },
+    argTypes: {
+        shape: {
+            options: [AccordionShape.Pill, AccordionShape.Rectangle],
+            control: { type: 'radio' },
+        },
+        size: {
+            options: [AccordionSize.Medium, AccordionSize.Large],
+            control: { type: 'radio' },
+        },
+    },
 } as ComponentMeta<typeof Accordion>;
 
-const accordionSummary = (count: number) => (
-    <div style={{ display: 'flex', alignItems: 'center' }}>
-        <Icon color="green" path={IconName.mdiCheckCircleOutline} />
-        <div style={{ margin: '0 12px 0 5px' }}>Notification testing</div>
-        <Badge active>{count}</Badge>
-    </div>
-);
-
-const listItems: {
-    summary: JSX.Element;
-    body: string;
-    id: string;
-}[] = [
+const listItems: AccordionProps[] = [
     {
-        summary: accordionSummary(2),
-        body: `Body 2 text used here. Bottom bars are sticky sections that
+        iconProps: {
+            color: 'green',
+            path: IconName.mdiCheckCircleOutline,
+        },
+        badgeProps: {
+            children: 2,
+        },
+        summary: 'Notification testing',
+        children: `Body 2 text used here. Bottom bars are sticky sections that
         can be used to highlight a few actions that are out of the
         view to be displayed inside the view. For example, if
         there's a very long form with Save and Cancel buttons at the
@@ -56,8 +60,15 @@ const listItems: {
         id: '1',
     },
     {
-        summary: accordionSummary(12),
-        body: `Body 2 text used here. Bottom bars are sticky sections that
+        iconProps: {
+            color: 'green',
+            path: IconName.mdiCheckCircleOutline,
+        },
+        badgeProps: {
+            children: 12,
+        },
+        summary: 'Notification testing',
+        children: `Body 2 text used here. Bottom bars are sticky sections that
         can be used to highlight a few actions that are out of the
         view to be displayed inside the view. For example, if
         there's a very long form with Save and Cancel buttons at the
@@ -106,6 +117,18 @@ Single.args = {
         path: IconName.mdiChevronDown,
     },
     summary: 'Accordion Header',
+    iconProps: {
+        color: 'green',
+        path: IconName.mdiCheckCircleOutline,
+    },
+    badgeProps: {
+        children: 2,
+    },
+    bordered: true,
+    shape: AccordionShape.Pill,
+    size: AccordionSize.Large,
+    expanded: false,
+    disabled: false,
 };
 
 const listArgs: Object = {
@@ -118,11 +141,7 @@ const listArgs: Object = {
         </>
     ),
     layout: 'vertical',
-    renderItem: (item: { summary: JSX.Element; body: string; id: string }) => (
-        <Accordion summary={item.summary} id={item.id}>
-            {item.body}
-        </Accordion>
-    ),
+    renderItem: (item: AccordionProps) => <Accordion {...item} />,
     header: (
         <>
             <div style={{ paddingLeft: '16px' }}>

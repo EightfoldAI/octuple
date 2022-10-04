@@ -1,5 +1,12 @@
 /* eslint-disable no-template-curly-in-string */
 import type { Locale } from '../LocaleProvider';
+import DatePicker from '../DateTimePicker/DatePicker/Locale/de_DE';
+import Dialog from '../Dialog/BaseDialog/Locale/de_DE';
+import InfoBar from '../InfoBar/Locale/de_DE';
+import Pagination from '../Pagination/Locale/de_DE';
+import Panel from '../Panel/Locale/de_DE';
+import Table from '../Table/Locale/de_DE';
+import TimePicker from '../DateTimePicker/TimePicker/Locale/de_DE';
 
 const typeTemplate = '${label} ist nicht gültig. ${type} erwartet';
 
@@ -8,6 +15,8 @@ const localeValues: Locale = {
     global: {
         placeholder: 'Bitte auswählen',
     },
+    DatePicker,
+    Dialog,
     Form: {
         defaultValidateMessages: {
             default: 'Feld-Validierungsfehler: ${label}',
@@ -57,6 +66,11 @@ const localeValues: Locale = {
             },
         },
     },
+    InfoBar,
+    Pagination,
+    Panel,
+    Table,
+    TimePicker,
 };
 
 export default localeValues;

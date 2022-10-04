@@ -7,7 +7,6 @@ import { IconName } from '../../Icon';
 import { tuple } from '../../../shared/utilities';
 import { ConfigContextProps, Shape, Size } from '../../ConfigProvider';
 
-// TODO: move to ./Locale and use the provider.
 export type Locale = {
     /**
      * The picker locale.
@@ -262,6 +261,7 @@ export type PartialSharedProps<DateType> = {
     generateConfig: GenerateConfig<DateType>;
     /**
      * Localization configuration.
+     * @default enUS
      */
     locale: Locale;
     /**
@@ -410,6 +410,7 @@ export type OcPickerPartialSharedProps<DateType> = {
     generateConfig: GenerateConfig<DateType>;
     /**
      * Localization configuration.
+     * @default enUS
      */
     locale: Locale;
     /**
@@ -420,6 +421,16 @@ export type OcPickerPartialSharedProps<DateType> = {
      * Custom month cell content render method.
      */
     monthCellRender?: MonthCellRender<DateType>;
+    /**
+     * The 'Now' text string.
+     * @default 'Now'
+     */
+    nowText?: string;
+    /**
+     * The 'OK' text string.
+     * @default 'OK'
+     */
+    okText?: string;
     /**
      * 	Callback executed when the selected time is changing.
      */
@@ -464,6 +475,11 @@ export type OcPickerPartialSharedProps<DateType> = {
      * The partial tab index.
      */
     tabIndex?: number;
+    /**
+     * The 'Today' text string.
+     * @default 'Today'
+     */
+    todayText?: string;
     /**
      * The partial date value.
      */
@@ -560,6 +576,11 @@ export type OcPickerSharedProps<DateType> = {
      */
     bordered?: boolean;
     /**
+     * The clear icon 'Clear' aria label text string.
+     * @default 'Clear'
+     */
+    clearIconAriaLabelText?: string;
+    /**
      * Custom clear icon.
      */
     clearIcon?: React.ReactNode;
@@ -638,6 +659,16 @@ export type OcPickerSharedProps<DateType> = {
      * The custom next icon.
      */
     nextIcon?: IconName;
+    /**
+     * The 'Now' text string.
+     * @default 'Now'
+     */
+    nowText?: string;
+    /**
+     * The 'OK' text string.
+     * @default 'OK'
+     */
+    okText?: string;
     /**
      * Callback executes on picker blur event.
      */
@@ -737,6 +768,11 @@ export type OcPickerSharedProps<DateType> = {
      * The picker tab index.
      */
     tabIndex?: number;
+    /**
+     * The 'Today' text string.
+     * @default 'Today'
+     */
+    todayText?: string;
     /**
      * @private Internal usage, do not use in production.
      */

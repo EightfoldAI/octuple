@@ -1,4 +1,10 @@
-import React, { forwardRef, useContext, useImperativeHandle } from 'react';
+import React, {
+    forwardRef,
+    useContext,
+    useEffect,
+    useImperativeHandle,
+    useState,
+} from 'react';
 import DisabledContext, {
     Disabled,
 } from '../../../ConfigProvider/DisabledContext';
@@ -28,7 +34,9 @@ import type {
     PickerTimeProps,
 } from './Generate.types';
 import { Components } from './Generate.types';
-import LocaleReceiver from '../../../LocaleProvider/LocaleReceiver';
+import LocaleReceiver, {
+    useLocaleReceiver,
+} from '../../../LocaleProvider/LocaleReceiver';
 import enUS from '../Locale/en_US';
 import { getPlaceholder, transPlacement2DropdownAlign } from '../util';
 import { Icon, IconName, IconSize } from '../../../Icon';
@@ -56,22 +64,27 @@ export default function generatePicker<DateType>(
             InnerPickerProps
         >((props, ref) => {
             const {
-                getPopupContainer,
+                bordered = true,
                 classNames,
+                clearIconAriaLabelText: defaultClearIconAriaLabelText,
                 configContextProps = {
                     noDisabledContext: false,
                     noShapeContext: false,
                     noSizeContext: false,
                 },
+                disabled = false,
                 formItemInput = false,
+                getPopupContainer,
                 id,
+                locale = enUS,
+                nowText: defaultNowText,
+                okText: defaultOkText,
+                placeholder,
+                popupPlacement,
                 shape = DatePickerShape.Rectangle,
                 size = DatePickerSize.Medium,
-                bordered = true,
-                popupPlacement,
-                placeholder,
-                disabled = false,
                 status,
+                todayText: defaultTodayText,
                 ...rest
             } = props;
             const largeScreenActive: boolean = useMatchMedia(Breakpoints.Large);
@@ -140,6 +153,40 @@ export default function generatePicker<DateType>(
                 ? size
                 : contextuallySized || size;
 
+            // ============================ Strings ===========================
+            const [pickerLocale] = useLocaleReceiver('DatePicker');
+            let mergedLocale: PickerLocale;
+
+            if (props.locale) {
+                mergedLocale = props.locale;
+            } else {
+                mergedLocale = pickerLocale || props.locale;
+            }
+
+            const [clearIconAriaLabelText, setClearIconAriaLabelText] =
+                useState<string>(defaultClearIconAriaLabelText);
+            const [nowText, setNowText] = useState<string>(defaultNowText);
+            const [okText, setOkText] = useState<string>(defaultOkText);
+            const [todayText, setTodayText] =
+                useState<string>(defaultTodayText);
+
+            // Locs: if the prop isn't provided use the loc defaults.
+            // If the mergedLocale is changed, update.
+            useEffect(() => {
+                setClearIconAriaLabelText(
+                    props.clearIconAriaLabelText
+                        ? props.clearIconAriaLabelText
+                        : mergedLocale.lang!.clear
+                );
+                setNowText(
+                    props.nowText ? props.nowText : mergedLocale.lang!.now
+                );
+                setOkText(props.okText ? props.okText : mergedLocale.lang!.ok);
+                setTodayText(
+                    props.todayText ? props.todayText : mergedLocale.lang!.today
+                );
+            }, [mergedLocale]);
+
             const getIconSize = (): IconSize => {
                 let iconSize: IconSize;
                 if (largeScreenActive) {
@@ -180,12 +227,13 @@ export default function generatePicker<DateType>(
                     defaultLocale={enUS}
                 >
                     {(contextLocale: PickerLocale) => {
-                        const locale = { ...contextLocale, ...props.locale };
+                        const locale = { ...contextLocale, ...mergedLocale };
 
                         return (
                             <OcPicker<DateType>
                                 ref={innerRef}
                                 bordered={bordered}
+                                clearIconAriaLabelText={clearIconAriaLabelText}
                                 id={id}
                                 placeholder={getPlaceholder(
                                     mergedPicker,
@@ -225,6 +273,9 @@ export default function generatePicker<DateType>(
                                         )}
                                     />
                                 }
+                                nowText={nowText}
+                                okText={okText}
+                                todayText={todayText}
                                 prevIcon={IconName.mdiChevronLeft}
                                 nextIcon={IconName.mdiChevronRight}
                                 superPrevIcon={IconName.mdiChevronDoubleLeft}

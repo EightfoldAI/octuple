@@ -1,5 +1,48 @@
 import { OcBaseProps } from '../OcBase';
 
+type Locale = {
+    /**
+     * The Pagination locale.
+     */
+    locale: string;
+    /**
+     * The Pagination `Go to` string.
+     */
+    goToText?: string;
+    /**
+     * The Pagination `Next` string.
+     */
+    nextIconButtonAriaLabel?: string;
+    /**
+     * The Pager `of` string.
+     */
+    pagerText?: string;
+    /**
+     * The Pagination `Selected page size` string.
+     */
+    pageSizeButtonAriaLabel?: string;
+    /**
+     * The Pagination `page` string.
+     */
+    pageSizeText?: string;
+    /**
+     * The Pagination `Previous` string.
+     */
+    previousIconButtonAriaLabel?: string;
+    /**
+     * The Pagination `Next 5` string.
+     */
+    quickNextIconButtonAriaLabel?: string;
+    /**
+     * The Pagination `Previous 5` string.
+     */
+    quickPreviousIconButtonAriaLabel?: string;
+    /**
+     * The Pagination `Total` string.
+     */
+    totalText?: string;
+};
+
 export enum PaginationLayoutOptions {
     Jumper = 'jumper',
     Next = 'next',
@@ -9,6 +52,10 @@ export enum PaginationLayoutOptions {
     Sizes = 'sizes',
     Total = 'total',
 }
+
+export type PaginationLocale = {
+    lang: Locale;
+};
 
 export interface PagerProps
     extends Omit<
@@ -45,6 +92,11 @@ export interface PaginationProps extends OcBaseProps<HTMLElement> {
      * @default {PaginationLayoutOptions.Previous, PaginationLayoutOptions.Pager, PaginationLayoutOptions.Next}
      */
     layout?: PaginationLayoutOptions[];
+    /**
+     * The Pagination locale.
+     * @default 'enUS'
+     */
+    locale?: PaginationLocale;
     /**
      * The next icon button aria-label string.
      * @default 'Next'

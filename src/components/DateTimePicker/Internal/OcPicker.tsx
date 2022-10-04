@@ -40,53 +40,57 @@ type MergedOcPickerProps<DateType> = {
 
 function InnerPicker<DateType>(props: OcPickerProps<DateType>) {
     const {
-        id,
-        tabIndex,
-        style,
+        allowClear,
+        autoComplete = 'off',
+        autoFocus,
         bordered = true,
         classNames,
-        dropdownClassNames,
-        dropdownAlign,
-        popupStyle,
-        generateConfig,
-        locale,
-        inputReadOnly,
-        allowClear,
-        autoFocus,
-        showTime,
-        picker = 'date',
-        format,
-        use12Hours,
-        value,
-        defaultValue,
-        open,
-        defaultOpen,
-        suffixIcon,
         clearIcon,
+        clearIconAriaLabelText,
+        defaultOpen,
+        defaultValue,
+        direction,
         disabled,
         disabledDate,
-        placeholder,
+        dropdownAlign,
+        dropdownClassNames,
+        format,
+        generateConfig,
         getPopupContainer,
-        pickerRef,
-        partialRender,
-        onChange,
-        onOpenChange,
-        onFocus,
+        id,
+        inputReadOnly,
+        inputRender,
+        locale,
+        nowText,
+        okText,
         onBlur,
+        onChange,
+        onClick,
+        onContextMenu,
+        onFocus,
+        onKeyDown,
         onMouseDown,
-        onMouseUp,
         onMouseEnter,
         onMouseLeave,
-        onContextMenu,
-        onClick,
-        onKeyDown,
+        onMouseUp,
+        onOpenChange,
         onSelect,
+        open,
+        partialRender,
+        picker = 'date',
+        pickerRef,
+        placeholder,
         popupPlacement,
-        direction,
-        autoComplete = 'off',
-        inputRender,
+        popupStyle,
         shape = DatePickerShape.Rectangle,
+        showTime,
         size = DatePickerSize.Medium,
+        style,
+        suffixIcon,
+        tabIndex,
+        todayText,
+        use12Hours,
+        value,
     } = props as MergedOcPickerProps<DateType>;
 
     const inputRef: React.MutableRefObject<HTMLInputElement> =
@@ -305,7 +309,7 @@ function InnerPicker<DateType>(props: OcPickerProps<DateType>) {
         onPickerValueChange: any;
         onChange: any;
     } = {
-        // Remove `picker` & `format` here since TimePicker is little different with other partial
+        // Remove `picker` & `format` here since TimePicker partial isn't much different than other partials.
         ...(props as Omit<MergedOcPickerProps<DateType>, 'picker' | 'format'>),
         classNames: undefined,
         style: undefined,
@@ -324,6 +328,9 @@ function InnerPicker<DateType>(props: OcPickerProps<DateType>) {
             value={selectedValue}
             locale={locale}
             tabIndex={-1}
+            nowText={nowText}
+            okText={okText}
+            todayText={todayText}
             onSelect={(date: DateType) => {
                 onSelect?.(date);
                 setSelectedValue(date);
@@ -362,6 +369,7 @@ function InnerPicker<DateType>(props: OcPickerProps<DateType>) {
     if (allowClear && mergedValue && !disabled) {
         clearNode = (
             <span
+                aria-label={clearIconAriaLabelText}
                 onMouseDown={(e) => {
                     e.preventDefault();
                     e.stopPropagation();

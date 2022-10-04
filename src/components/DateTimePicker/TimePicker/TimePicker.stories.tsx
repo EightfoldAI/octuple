@@ -6,7 +6,6 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import TimePicker from './TimePicker';
 import { DatePickerShape, DatePickerSize } from '../DatePicker';
 import { Stack } from '../../Stack';
-import locale from './Locale/en_US';
 import { ButtonSize, PrimaryButton } from '../../Button';
 
 const { RangePicker } = TimePicker;
@@ -218,7 +217,6 @@ export const Range_Status = Range_Status_Story.bind({});
 const pickerArgs: Object = {
     classNames: 'my-picker-class',
     id: 'myPickerInputId',
-    locale: locale,
     shape: DatePickerShape.Rectangle,
     size: DatePickerSize.Medium,
 };

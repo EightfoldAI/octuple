@@ -1,5 +1,12 @@
 /* eslint-disable no-template-curly-in-string */
 import type { Locale } from '../LocaleProvider';
+import DatePicker from '../DateTimePicker/DatePicker/Locale/en_GB';
+import Dialog from '../Dialog/BaseDialog/Locale/en_GB';
+import InfoBar from '../InfoBar/Locale/en_GB';
+import Pagination from '../Pagination/Locale/en_GB';
+import Panel from '../Panel/Locale/en_GB';
+import Table from '../Table/Locale/en_GB';
+import TimePicker from '../DateTimePicker/TimePicker/Locale/en_GB';
 
 const typeTemplate = '${label} is not a valid ${type}';
 
@@ -8,6 +15,8 @@ const localeValues: Locale = {
     global: {
         placeholder: 'Select',
     },
+    DatePicker,
+    Dialog,
     Form: {
         optional: '(optional)',
         defaultValidateMessages: {
@@ -58,6 +67,11 @@ const localeValues: Locale = {
             },
         },
     },
+    InfoBar,
+    Pagination,
+    Panel,
+    Table,
+    TimePicker,
 };
 
 export default localeValues;

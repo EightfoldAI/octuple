@@ -1,6 +1,7 @@
 import type * as React from 'react';
 import type {
     ColumnType as OcColumnType,
+    Locale as OcTableLocale,
     RenderedCell as OcRenderedCell,
     FixedType,
     OcTableProps,
@@ -40,6 +41,10 @@ const TableActions = tuple('paginate', 'sort', 'filter');
 export type TableAction = typeof TableActions[number];
 
 export type CompareFn<T> = (a: T, b: T, sortOrder?: SortOrder) => number;
+
+export type TableLocale = {
+    lang: OcTableLocale;
+};
 
 export interface ColumnFilterItem {
     text: React.ReactNode;
@@ -361,7 +366,12 @@ export interface ChangeEventInfo<RecordType> {
 export interface TableProps<RecordType>
     extends Omit<
         OcTableProps<RecordType>,
-        'data' | 'columns' | 'scroll' | 'emptyText' | 'transformColumns'
+        | 'columns'
+        | 'data'
+        | 'emptyText'
+        | 'locale'
+        | 'scroll'
+        | 'transformColumns'
     > {
     /**
      * The Table Row background colors alternate.
@@ -457,6 +467,11 @@ export interface TableProps<RecordType>
      * The Table loading state.
      */
     loading?: boolean | SpinnerProps;
+    /**
+     * The Table locale.
+     * @default 'enUS'
+     */
+    locale?: TableLocale;
     /**
      * Callback executed when Table pagination, filters, or sort is changed.
      */

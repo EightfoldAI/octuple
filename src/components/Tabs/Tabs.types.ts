@@ -95,6 +95,12 @@ export interface TabsProps extends Omit<OcBaseProps<HTMLElement>, 'onChange'> {
      */
     scrollable?: boolean;
     /**
+     * If the tabs should have an underline/penline beneath them.
+     * NOTE: won't be applied if pill variant is used.
+     * @default false
+     */
+    underlined?: boolean;
+    /**
      * The default tab to select.
      */
     value?: TabValue;

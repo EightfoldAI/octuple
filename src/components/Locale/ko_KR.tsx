@@ -1,10 +1,19 @@
 /* eslint-disable no-template-curly-in-string */
 import type { Locale } from '../LocaleProvider';
+import DatePicker from '../DateTimePicker/DatePicker/Locale/ko_KR';
+import Dialog from '../Dialog/BaseDialog/Locale/ko_KR';
+import InfoBar from '../InfoBar/Locale/ko_KR';
+import Pagination from '../Pagination/Locale/ko_KR';
+import Panel from '../Panel/Locale/ko_KR';
+import Table from '../Table/Locale/ko_KR';
+import TimePicker from '../DateTimePicker/TimePicker/Locale/ko_KR';
 
 const typeTemplate = '${label} 유효하지 않은 ${type}';
 
 const localeValues: Locale = {
     locale: 'ko',
+    DatePicker,
+    Dialog,
     Form: {
         defaultValidateMessages: {
             default: '필드 유효성 검사 오류 ${label}',
@@ -54,6 +63,11 @@ const localeValues: Locale = {
             },
         },
     },
+    InfoBar,
+    Pagination,
+    Panel,
+    Table,
+    TimePicker,
 };
 
 export default localeValues;

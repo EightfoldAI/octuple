@@ -102,63 +102,67 @@ type MergedOcRangePickerProps<DateType> = {
 
 function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
     const {
-        id,
-        style,
+        activePickerIndex,
+        allowClear,
+        allowEmpty,
+        autoComplete = 'off',
+        autoFocus,
         bordered = true,
         classNames,
-        popupStyle,
-        dropdownClassNames,
-        dropdownAlign,
-        getPopupContainer,
-        generateConfig,
-        locale,
-        placeholder,
-        autoFocus,
-        disabled,
-        format,
-        picker = 'date',
-        showTime,
-        use12Hours,
-        separator = ',',
-        value,
-        defaultValue,
-        defaultPickerValue,
-        open,
+        clearIconAriaLabelText,
+        clearIcon,
+        components,
+        dateRender,
         defaultOpen,
+        defaultPickerValue,
+        defaultValue,
+        direction,
+        disabled,
         disabledDate,
         disabledTime,
-        dateRender,
-        partialRender,
-        ranges,
-        allowEmpty,
-        allowClear,
-        suffixIcon,
-        clearIcon,
-        pickerRef,
+        dropdownAlign,
+        dropdownClassNames,
+        format,
+        generateConfig,
+        getPopupContainer,
+        id,
         inputReadOnly,
+        locale,
         mode,
-        renderExtraFooter,
-        onChange,
-        onOpenChange,
-        onPartialChange,
-        onCalendarChange,
-        onFocus,
+        nowText,
+        okText,
         onBlur,
+        onCalendarChange,
+        onChange,
+        onClick,
+        onFocus,
+        onKeyDown,
         onMouseDown,
-        onMouseUp,
         onMouseEnter,
         onMouseLeave,
-        onClick,
+        onMouseUp,
         onOk,
-        onKeyDown,
-        popupPlacement,
-        components,
+        onOpenChange,
+        onPartialChange,
+        open,
         order,
-        direction,
-        activePickerIndex,
-        autoComplete = 'off',
+        partialRender,
+        picker = 'date',
+        pickerRef,
+        placeholder,
+        popupPlacement,
+        popupStyle,
+        ranges,
+        renderExtraFooter,
+        separator = ',',
         shape = DatePickerShape.Rectangle,
+        showTime,
         size = DatePickerSize.Medium,
+        style,
+        suffixIcon,
+        use12Hours,
+        todayText,
+        value,
     } = props as MergedOcRangePickerProps<DateType>;
 
     const needConfirmButton: boolean =
@@ -872,6 +876,9 @@ function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
                         }
                         setViewDate(viewDate, mergedActivePickerIndex);
                     }}
+                    nowText={nowText}
+                    okText={okText}
+                    todayText={todayText}
                     onOk={null}
                     onSelect={undefined}
                     onChange={undefined}
@@ -933,8 +940,8 @@ function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
                 !getValue(selectedValue, mergedActivePickerIndex) ||
                 (disabledDate &&
                     disabledDate(selectedValue[mergedActivePickerIndex])),
-            locale,
-            rangeList,
+            nowText,
+            okText,
             onOk: () => {
                 if (getValue(selectedValue, mergedActivePickerIndex)) {
                     // triggerChangeOld(selectedValue);
@@ -944,6 +951,7 @@ function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
                     }
                 }
             },
+            rangeList,
             size: size,
         });
 
@@ -1060,6 +1068,7 @@ function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
     ) {
         clearNode = (
             <span
+                aria-label={clearIconAriaLabelText}
                 onMouseDown={(e) => {
                     e.preventDefault();
                     e.stopPropagation();
@@ -1080,6 +1089,7 @@ function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
                     triggerOpen(false, mergedActivePickerIndex);
                 }}
                 className={styles.pickerClear}
+                role="button"
             >
                 {clearIcon || <span className={styles.pickerClearBtn} />}
             </span>

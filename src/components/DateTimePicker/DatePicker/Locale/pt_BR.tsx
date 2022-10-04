@@ -2,7 +2,6 @@ import CalendarLocale from '../../Internal/Locale/pt_BR';
 import TimePickerLocale from '../../TimePicker/Locale/pt_BR';
 import type { PickerLocale } from '../Generate/Generate.types';
 
-// Merge into a locale object
 const locale: PickerLocale = {
     lang: {
         placeholder: 'Selecionar data',

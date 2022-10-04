@@ -1,5 +1,12 @@
 /* eslint-disable no-template-curly-in-string */
 import type { Locale } from '../LocaleProvider';
+import DatePicker from '../DateTimePicker/DatePicker/Locale/he_IL';
+import Dialog from '../Dialog/BaseDialog/Locale/he_IL';
+import InfoBar from '../InfoBar/Locale/he_IL';
+import Pagination from '../Pagination/Locale/he_IL';
+import Panel from '../Panel/Locale/he_IL';
+import Table from '../Table/Locale/he_IL';
+import TimePicker from '../DateTimePicker/TimePicker/Locale/he_IL';
 
 const typeTemplate = '${label} הוא לא ${type} תקין';
 
@@ -8,6 +15,8 @@ const localeValues: Locale = {
     global: {
         placeholder: 'אנא בחר',
     },
+    DatePicker,
+    Dialog,
     Form: {
         defaultValidateMessages: {
             default: 'ערך השדה שגוי ${label}',
@@ -57,6 +66,11 @@ const localeValues: Locale = {
             },
         },
     },
+    InfoBar,
+    Pagination,
+    Panel,
+    Table,
+    TimePicker,
 };
 
 export default localeValues;

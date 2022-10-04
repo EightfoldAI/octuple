@@ -27,6 +27,11 @@
         }
     }
 
+    &.readOnly {
+        cursor: default;
+        pointer-events: none;
+    }
+
     &.xsmall {
         background: none;
         border: none;

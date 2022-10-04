@@ -71,7 +71,6 @@ const infoBarArgs: Object = {
     style: {},
     classNames: 'my-info-bar-class',
     closeButtonProps: {
-        ariaLabel: 'Close',
         classNames: 'my-close-btn-class',
         'data-test-id': 'my-close-btn-test-id',
         id: 'myCloseButton',

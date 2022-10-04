@@ -483,6 +483,7 @@ LoadedCheerio {
               "namespace": "http://www.w3.org/1999/xhtml",
               "next": Node {
                 "attribs": Object {
+                  "aria-label": "Clear",
                   "class": "picker-clear",
                   "role": "button",
                 },
@@ -566,10 +567,12 @@ LoadedCheerio {
                 "prev": [Circular],
                 "type": "tag",
                 "x-attribsNamespace": Object {
+                  "aria-label": undefined,
                   "class": undefined,
                   "role": undefined,
                 },
                 "x-attribsPrefix": Object {
+                  "aria-label": undefined,
                   "class": undefined,
                   "role": undefined,
                 },
@@ -685,6 +688,7 @@ LoadedCheerio {
             "namespace": "http://www.w3.org/1999/xhtml",
             "next": Node {
               "attribs": Object {
+                "aria-label": "Clear",
                 "class": "picker-clear",
                 "role": "button",
               },
@@ -768,10 +772,12 @@ LoadedCheerio {
               "prev": [Circular],
               "type": "tag",
               "x-attribsNamespace": Object {
+                "aria-label": undefined,
                 "class": undefined,
                 "role": undefined,
               },
               "x-attribsPrefix": Object {
+                "aria-label": undefined,
                 "class": undefined,
                 "role": undefined,
               },
@@ -820,6 +826,7 @@ LoadedCheerio {
           },
           Node {
             "attribs": Object {
+              "aria-label": "Clear",
               "class": "picker-clear",
               "role": "button",
             },
@@ -1024,10 +1031,12 @@ LoadedCheerio {
             },
             "type": "tag",
             "x-attribsNamespace": Object {
+              "aria-label": undefined,
               "class": undefined,
               "role": undefined,
             },
             "x-attribsPrefix": Object {
+              "aria-label": undefined,
               "class": undefined,
               "role": undefined,
             },
