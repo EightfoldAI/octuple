@@ -36,9 +36,10 @@ const cardArgs: Object = {
     classNames: 'my-card-class',
     icon: IconName.mdiInformation,
     type: CardType.list,
-    headerIcon: IconName.mdiCardsHeart,
     headerButtonProps: {
-        path: IconName.mdiCardsHeart,
+        iconProps: {
+            path: IconName.mdiBookmark,
+        },
     },
     headerTitle: <div>Senior UX Designer</div>,
     bodyListOneProps: {

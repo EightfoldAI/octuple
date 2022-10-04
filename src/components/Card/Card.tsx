@@ -149,18 +149,9 @@ export const Card: FC<CardProps> = React.forwardRef(
                                     <TwoStateButton
                                         classNames={styles.mainHeaderButton}
                                         shape={ButtonShape.Round}
-                                        iconOneProps={{
-                                            path: headerIcon,
-                                            ariaHidden: true,
-                                            classNames:
-                                                'my-two-state-btn-icon-one',
-                                            id: 'myTwoStateButtonIconOne',
-                                            rotate: 0,
-                                            spin: false,
-                                            vertical: false,
-                                            'data-test-id':
-                                                'myTwoStateButtonIconOneTestId',
-                                        }}
+                                        iconOneProps={
+                                            headerButtonProps.iconProps
+                                        }
                                         {...headerButtonProps}
                                     />
                                 </div>
