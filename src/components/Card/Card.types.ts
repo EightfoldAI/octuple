@@ -62,7 +62,7 @@ export interface CardProps {
     /**
      * Name of the employee card
      */
-    name: string;
+    name?: string;
     /**
      * Custom icon for the card
      * @default IconName.mdiInformation | IconName.mdiCheckCircle | IconName.mdiAlert
