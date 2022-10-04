@@ -1,21 +1,26 @@
 import React, { FC, Ref, useContext } from 'react';
+import DisabledContext, { Disabled } from '../ConfigProvider/DisabledContext';
 import { CardProps, CardSize, CardType } from './Card.types';
 import { mergeClasses } from '../../shared/utilities';
 import { ButtonShape, TwoStateButton } from '../Button';
 import { SizeContext, Size } from '../ConfigProvider';
 import { Icon, IconName, IconSize } from '../Icon';
 import { Stack } from '../Stack';
-import styles from './card.module.scss';
 import { Pill } from '../Pills';
 import { List } from '../List';
 import { Breakpoints, useMatchMedia } from '../../hooks/useMatchMedia';
 
+import styles from './card.module.scss';
+
 export const Card: FC<CardProps> = React.forwardRef(
     (
         {
+            allowDisabledFocus = false,
             avatar,
             body,
             bodyClassNames,
+            bodyListOnePillProps,
+            bodyListTwoPillProps,
             bodyListOneProps,
             bodyListTwoProps,
             children,
@@ -38,6 +43,7 @@ export const Card: FC<CardProps> = React.forwardRef(
             size = CardSize.Medium,
             style,
             subHeaderProps,
+            subHeaderSeparatorIcon,
             type = CardType.list,
             width,
             ...rest
@@ -53,6 +59,12 @@ export const Card: FC<CardProps> = React.forwardRef(
         const mergedSize = configContextProps.noSizeContext
             ? size
             : contextuallySized || size;
+
+        const contextuallyDisabled: Disabled = useContext(DisabledContext);
+        const mergedDisabled: boolean = configContextProps.noDisabledContext
+            ? disabled
+            : contextuallyDisabled || disabled;
+
         const cardClasses: string = mergeClasses([
             styles.card,
             {
@@ -72,6 +84,7 @@ export const Card: FC<CardProps> = React.forwardRef(
                     mergedSize === CardSize.Flex && xSmallScreenActive,
             },
             { [styles.list]: type === CardType.list },
+            { [styles.disabled]: allowDisabledFocus || mergedDisabled },
             { [styles.cardLarge]: mergedSize === CardSize.Large },
             { [styles.cardMedium]: mergedSize === CardSize.Medium },
             { [styles.cardSmall]: mergedSize === CardSize.Small },
@@ -128,7 +141,7 @@ export const Card: FC<CardProps> = React.forwardRef(
                                                                             1 && (
                                                                         <Icon
                                                                             path={
-                                                                                IconName.mdiCircle
+                                                                                subHeaderSeparatorIcon
                                                                             }
                                                                             classNames={
                                                                                 styles.separator
@@ -169,7 +182,10 @@ export const Card: FC<CardProps> = React.forwardRef(
                                             'list' ? (
                                             <span>{item}</span>
                                         ) : (
-                                            <Pill label={item as string} />
+                                            <Pill
+                                                label={item}
+                                                {...bodyListOnePillProps}
+                                            />
                                         );
                                     }}
                                 />
@@ -180,11 +196,14 @@ export const Card: FC<CardProps> = React.forwardRef(
                                     gap="xs"
                                     wrap="wrap"
                                 >
-                                    {bodyListTwoProps.contents.map((item) => {
+                                    {bodyListTwoProps?.contents.map((item) => {
                                         if (bodyListTwoProps.type === 'list')
                                             return <span>{item},</span>;
                                         return (
-                                            <Pill label={item} theme="grey" />
+                                            <Pill
+                                                label={item}
+                                                {...bodyListTwoPillProps}
+                                            />
                                         );
                                     })}
                                 </Stack>

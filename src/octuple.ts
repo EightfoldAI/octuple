@@ -19,6 +19,8 @@ import {
     TwoStateButton,
 } from './components/Button';
 
+import { Card } from './components/Card';
+
 import {
     CheckBox,
     CheckBoxGroup,
@@ -155,6 +157,7 @@ export {
     ButtonTextAlign,
     ButtonType,
     ButtonWidth,
+    Card,
     CheckBox,
     CheckBoxGroup,
     Col,

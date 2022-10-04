@@ -36,6 +36,11 @@
         height: 260px;
     }
 
+    &.disabled {
+        opacity: $disabled-alpha-value;
+        cursor: not-allowed;
+    }
+
     .header {
         @include octuple-h4();
         display: flex;
@@ -43,7 +48,7 @@
         margin-bottom: $space-ml;
         padding: $disabled-zero;
 
-        .mainHeader {
+        .main-header {
             display: flex;
             .icon {
                 height: fit-content;
@@ -74,7 +79,7 @@
             }
         }
 
-        .subHeader {
+        .sub-header {
             opacity: 50%;
             font-style: normal;
             font-weight: $text-font-weight-regular;
@@ -91,7 +96,7 @@
             }
         }
 
-        .buttonIcon {
+        .button-icon {
             position: absolute;
             right: $disabled-zero;
             background-color: $background-color-white;

@@ -56,6 +56,13 @@ const cardArgs: Object = {
         type: 'pills',
         contents: ['Department', 'Urgent Hire'],
     },
+    bodyListOnePillProps: {
+        theme: 'grey',
+    },
+    bodyListTwoPillProps: {
+        theme: 'grey',
+    },
+    subHeaderSeparatorIcon: IconName.mdiCircle,
     subHeaderProps: ['Company', 'Job Location'],
     footerProps: [
         {

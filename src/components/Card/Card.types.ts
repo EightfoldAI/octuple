@@ -26,6 +26,10 @@ export type FooterItems = [icon?: IconName, text?: string];
 
 export interface CardProps {
     /**
+     * Allows focus on the checkbox when it's disabled.
+     */
+    allowDisabledFocus?: boolean;
+    /**
      * Avatar of the employee
      */
     avatar?: AvatarProps;
@@ -37,6 +41,14 @@ export interface CardProps {
      * Custom classes for the Body
      */
     bodyClassNames?: string;
+    /**
+     * Pill props for the first body list
+     */
+    bodyListOnePillProps?: PillProps;
+    /**
+     * Pill props for the second body list
+     */
+    bodyListTwoPillProps?: PillProps;
     /**
      * Configure how contextual props are consumed
      */
@@ -96,6 +108,10 @@ export interface CardProps {
      * The props for the subheaders
      */
     subHeaderProps?: Array<string>;
+    /**
+     * Custom icon subheader separator
+     */
+    subHeaderSeparatorIcon?: IconName;
     /**
      * The props for the footer
      */
