@@ -88,11 +88,11 @@
             display: flex;
 
             .separator {
-                height: 5px;
-                width: 5px;
+                height: $space-xxs;
+                width: $space-xxs;
                 margin-right: $space-xs;
                 margin-left: $space-xs;
-                margin-top: $space-xs;
+                margin-top: $space-s;
             }
         }
 
