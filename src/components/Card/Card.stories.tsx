@@ -213,7 +213,7 @@ CustomCard.args = {
                 style={{
                     display: 'flex',
                     justifyContent: 'space-evenly',
-                    marginBottom: '80px',
+                    marginBottom: '60px',
                 }}
             >
                 <Pill label="Leadership Potential" theme="blueViolet" />
