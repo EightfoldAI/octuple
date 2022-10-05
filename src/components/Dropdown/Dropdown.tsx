@@ -116,12 +116,17 @@ export const Dropdown: FC<DropdownProps> = React.memo(
                 update
             );
         }, [refs.reference, refs.floating, update]);
-
         useAccessibility(
             trigger,
-            portal ? refs.floating : refs.reference,
+            refs.reference,
             toggle(true),
-            toggle(false)
+            portal
+                ? (e) => {
+                      if (e?.key == 'Enter') {
+                          toggle(false);
+                      }
+                  }
+                : toggle(false)
         );
         const dropdownClasses: string = mergeClasses([
             dropdownClassNames,

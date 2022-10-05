@@ -10,20 +10,18 @@ export const useAccessibility = (
     trigger: 'click' | 'hover' | 'contextmenu',
     ref: RefObject<any>,
     onEnter: () => void,
-    onLeave: () => void
+    onLeave: (e: any) => void
 ) => {
     const triggerEvent: string = ACCESSIBILITY_EVENTS_MAP[trigger];
     const handleAccessibility = useCallback(
         (e) => {
-            if (ref.current) {
-                if (ref.current?.contains?.(e.target)) {
-                    if (triggerEvent != 'keydown' || e.key == 'Enter') {
-                        return onEnter?.();
-                    }
-                    return null;
+            if (ref.current?.contains?.(e.target)) {
+                if (triggerEvent != 'keydown' || e.key == 'Enter') {
+                    return onEnter?.();
                 }
-                return onLeave?.();
+                return null;
             }
+            return onLeave?.(e);
         },
         [ref]
     );
