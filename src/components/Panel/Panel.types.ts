@@ -199,8 +199,8 @@ export interface PanelProps extends Omit<OcBaseProps<HTMLElement>, 'title'> {
      */
     scrollLock?: boolean;
     /**
-     * Set this to trap focus inside panel
-     * @default false
+     * Unset this to disable focus trap
+     * @default true
      */
     focusTrap?: boolean;
 }

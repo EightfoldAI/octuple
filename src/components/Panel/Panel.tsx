@@ -11,7 +11,7 @@ import { IconName } from '../Icon';
 import { ButtonShape, NeutralButton } from '../Button';
 import { Portal } from '../Portal';
 import { useScrollLock } from '../../hooks/useScrollLock';
-import { useFocusTrap } from '../../hooks/useFocusTrap';
+import { FocusTrap } from '../../shared/FocusTrap';
 import { NoFormStyle } from '../Form/Context';
 import { useCanvasDirection } from '../../hooks/useCanvasDirection';
 import LocaleReceiver, {
@@ -68,7 +68,7 @@ export const Panel = React.forwardRef<PanelRef, PanelProps>(
             width,
             panelHeader,
             scrollLock = true,
-            focusTrap = false,
+            focusTrap = true,
             ...rest
         } = props;
 
@@ -275,8 +275,6 @@ export const Panel = React.forwardRef<PanelRef, PanelProps>(
 
         useImperativeHandle(ref, () => operations);
 
-        const focusRef = useFocusTrap(focusTrap && visible);
-
         const getPanel = (): JSX.Element => {
             return (
                 <LocaleReceiver componentName={'Panel'} defaultLocale={enUS}>
@@ -284,10 +282,9 @@ export const Panel = React.forwardRef<PanelRef, PanelProps>(
                         return (
                             <PanelContext.Provider value={operations}>
                                 <NoFormStyle status override>
-                                    <div ref={focusRef}>
+                                    <FocusTrap trap={visible && focusTrap}>
                                         <div
                                             {...rest}
-                                            tabIndex={-1}
                                             ref={containerRef}
                                             className={panelBackdropClasses}
                                             onClick={(
@@ -308,7 +305,7 @@ export const Panel = React.forwardRef<PanelRef, PanelProps>(
                                                 {getFooter()}
                                             </div>
                                         </div>
-                                    </div>
+                                    </FocusTrap>
                                 </NoFormStyle>
                             </PanelContext.Provider>
                         );
