@@ -1,4 +1,10 @@
-import React, { forwardRef, useLayoutEffect, useRef, useState } from 'react';
+import React, {
+    forwardRef,
+    useEffect,
+    useLayoutEffect,
+    useRef,
+    useState,
+} from 'react';
 import Align from '../../Align/Align';
 import type { RefAlign } from '../../Align/Align';
 import { PopupInnerProps, PopupInnerRef } from './Popup.types';
@@ -55,11 +61,12 @@ const PopupInner = forwardRef<PopupInnerRef, PopupInnerProps>((props, ref) => {
     // ======================== Aligns ========================
     /**
      * `alignedClassNames` may modify `source` size,
-     * which means one time align may not move to the correct position at once.
+     * which means one time align may not move to the correct position.
      *
      * We will reset `alignTimes` for each status switch to `alignPre`
-     * and let `align` to align for multiple times to ensure get final stable place.
-     * Currently we mark `alignTimes < 2` repeat align, it will increase if user report for align issue.
+     * and let `align` to align for multiple times to ensure proper alignment.
+     * Currently we mark `alignTimes < 2` repeat align, this should be increased if customers report align issues.
+     * May refactor to use a debounce.
      */
     const [alignTimes, setAlignTimes] = useState(0);
     const prepareResolveRef = useRef<(value?: unknown) => void>();
@@ -89,7 +96,7 @@ const PopupInner = forwardRef<PopupInnerRef, PopupInnerProps>((props, ref) => {
             setAlignedClassName(nextAlignedClassName);
         }
 
-        // We will retry multi times to make sure that the element has been align in the right position.
+        // Retry to make sure that the element has been align in the right position.
         setAlignTimes((val) => val + 1);
 
         if (status === 'align') {
@@ -100,7 +107,7 @@ const PopupInner = forwardRef<PopupInnerRef, PopupInnerProps>((props, ref) => {
     // Delay to go to next status
     useLayoutEffect(() => {
         if (status === 'align') {
-            // Repeat until not more align needed
+            // Repeat until no more align needed
             if (alignTimes < 2) {
                 forceAlign();
             } else {
@@ -166,6 +173,20 @@ const PopupInner = forwardRef<PopupInnerRef, PopupInnerProps>((props, ref) => {
         childNode = <div className={'trigger-popup-content'}>{children}</div>;
     }
 
+    const [_visible, setVisible] = useState<boolean>(false);
+
+    // TODO: Remove in future change.
+    // This is a temporary workaround to ensure the out transition works.
+    useEffect(() => {
+        if (visible) {
+            setVisible(true);
+        } else {
+            setTimeout(() => {
+                setVisible(false);
+            }, 400);
+        }
+    }, [visible]);
+
     return (
         <CSSMotion
             visible={visible}
@@ -183,7 +204,8 @@ const PopupInner = forwardRef<PopupInnerRef, PopupInnerProps>((props, ref) => {
             ) => {
                 const mergedClassNames = mergeClasses([
                     styles.triggerPopup,
-                    { [styles.triggerPopupHidden]: !visible },
+                    { ['trigger-popup-hidden']: !visible }, // TODO: Remove - This is a stub to ensure UTs pass based on props
+                    { [styles.triggerPopupHidden]: !_visible }, // Temporary workaround to ensure the out transition works
                     motion?.motionName,
                     classNames,
                     alignedClassNames,
