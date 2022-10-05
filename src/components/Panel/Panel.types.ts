@@ -87,6 +87,11 @@ export interface PanelProps extends Omit<OcBaseProps<HTMLElement>, 'title'> {
      */
     closeIcon?: IconName;
     /**
+     * Unset this to disable focus trap
+     * @default true
+     */
+    focusTrap?: boolean;
+    /**
      * Footer of the panel
      */
     footer?: React.ReactNode;
@@ -173,6 +178,11 @@ export interface PanelProps extends Omit<OcBaseProps<HTMLElement>, 'title'> {
      */
     push?: boolean;
     /**
+     * Set this to enable/disable parent scroll
+     * @default true
+     */
+    scrollLock?: boolean;
+    /**
      * Size of the panel, can be overridden with width
      * @default medium
      */
@@ -193,16 +203,6 @@ export interface PanelProps extends Omit<OcBaseProps<HTMLElement>, 'title'> {
      * Custom zIndex for the panel
      */
     zIndex?: number;
-    /**
-     * Set this to enable/disable parent scroll
-     * @default true
-     */
-    scrollLock?: boolean;
-    /**
-     * Unset this to disable focus trap
-     * @default true
-     */
-    focusTrap?: boolean;
 }
 
 export interface PanelHeaderProps extends OcBaseProps<HTMLDivElement> {
