@@ -28,7 +28,7 @@ import RangeContext from './RangeContext';
 import { getExtraFooter } from './Utils/getExtraFooter';
 import getRanges from './Utils/getRanges';
 import { getLowerBoundTime, setDateTime, setTime } from './Utils/timeUtil';
-import { ButtonSize, NeutralButton } from '../../Button';
+import { ButtonSize, SystemUIButton } from '../../Button';
 import { Breakpoints, useMatchMedia } from '../../../hooks/useMatchMedia';
 import { Size } from '../../ConfigProvider';
 import { DatePickerSize } from './OcPicker.types';
@@ -451,7 +451,7 @@ function OcPickerPartial<DateType>(props: OcPickerPartialProps<DateType>) {
         const now: DateType = generateConfig.getNow();
         const disabled: boolean = disabledDate && disabledDate(now);
         todayNode = (
-            <NeutralButton
+            <SystemUIButton
                 aria-disabled={disabled}
                 classNames={mergeClasses([
                     'picker-today-btn',

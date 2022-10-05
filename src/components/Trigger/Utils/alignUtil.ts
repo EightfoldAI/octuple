@@ -1,6 +1,8 @@
 import type { BuildInPlacements } from '../Trigger.types';
 import type { AlignType, AlignPoint } from '../../Align/Align.types';
 
+import styles from '../trigger.module.scss';
+
 function isPointsEq(
     a1: AlignPoint[],
     a2: AlignPoint[],
@@ -42,7 +44,7 @@ export function getAlignPopupClassName(
                 isAlignPoint
             )
         ) {
-            return `trigger-popup-placement-${placement}`;
+            return (styles as any)[`trigger-popup-placement-${placement}`];
         }
     }
 
