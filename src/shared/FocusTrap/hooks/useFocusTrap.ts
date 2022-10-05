@@ -2,23 +2,32 @@
 import { useRef, useEffect } from 'react';
 import { eventKeys } from '../../utilities/eventKeys';
 
-export function useFocusTrap(visible = true) {
-    const elRef = useRef(null);
-    const handleFocus = (e: KeyboardEvent) => {
-        const focusableEls = elRef.current.querySelectorAll(
-            'a[href], button, textarea, input[type="text"], input[type="radio"], input[type="checkbox"], select'
+const SELECTORS =
+    'a[href], button, input, textarea, select, details, [tabindex]:not([tabindex="-1"], iframe, object, embed';
+
+export function useFocusTrap(
+    visible = true
+): React.MutableRefObject<HTMLDivElement> {
+    const elRef = useRef<any>(null);
+    const handleFocus = (e: React.KeyboardEvent) => {
+        const focusableEls = [
+            ...elRef.current.querySelectorAll(SELECTORS),
+        ].filter(
+            (el) =>
+                !el.hasAttribute('disabled') && !el.getAttribute('aria-hidden')
         );
 
         const firstFocusableEl = focusableEls[0];
         const lastFocusableEl = focusableEls[focusableEls.length - 1];
 
         const isTabPressed = e.key === eventKeys.TAB;
+        const isShiftPressed = e.key === eventKeys.SHIFTLEFT;
 
         if (!isTabPressed) {
             return;
         }
 
-        if (e.shiftKey) {
+        if (isShiftPressed) {
             if (document.activeElement === firstFocusableEl) {
                 /* shift + tab */
                 lastFocusableEl.focus();
