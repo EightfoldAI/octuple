@@ -1,7 +1,10 @@
 /* eslint-disable no-template-curly-in-string */
 import type { Locale } from '../LocaleProvider';
 import DatePicker from '../DateTimePicker/DatePicker/Locale/hr_HR';
+import Dialog from '../Dialog/BaseDialog/Locale/hr_HR';
+import InfoBar from '../InfoBar/Locale/hr_HR';
 import Pagination from '../Pagination/Locale/hr_HR';
+import Panel from '../Panel/Locale/hr_HR';
 import Table from '../Table/Locale/hr_HR';
 import TimePicker from '../DateTimePicker/TimePicker/Locale/hr_HR';
 
@@ -13,6 +16,7 @@ const localeValues: Locale = {
         placeholder: 'Molimo označite',
     },
     DatePicker,
+    Dialog,
     Form: {
         optional: '(neobavezno)',
         defaultValidateMessages: {
@@ -63,7 +67,9 @@ const localeValues: Locale = {
             },
         },
     },
+    InfoBar,
     Pagination,
+    Panel,
     Table,
     TimePicker,
 };

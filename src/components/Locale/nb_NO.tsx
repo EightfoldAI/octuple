@@ -1,7 +1,10 @@
 /* eslint-disable no-template-curly-in-string */
 import type { Locale } from '../LocaleProvider';
 import DatePicker from '../DateTimePicker/DatePicker/Locale/nb_NO';
+import Dialog from '../Dialog/BaseDialog/Locale/nb_NO';
+import InfoBar from '../InfoBar/Locale/nb_NO';
 import Pagination from '../Pagination/Locale/nb_NO';
+import Panel from '../Panel/Locale/nb_NO';
 import Table from '../Table/Locale/nb_NO';
 import TimePicker from '../DateTimePicker/TimePicker/Locale/nb_NO';
 
@@ -13,6 +16,7 @@ const localeValues: Locale = {
         placeholder: 'Vennligst velg',
     },
     DatePicker,
+    Dialog,
     Form: {
         defaultValidateMessages: {
             default: 'Feltvalideringsfeil ${label}',
@@ -63,7 +67,9 @@ const localeValues: Locale = {
             },
         },
     },
+    InfoBar,
     Pagination,
+    Panel,
     Table,
     TimePicker,
 };

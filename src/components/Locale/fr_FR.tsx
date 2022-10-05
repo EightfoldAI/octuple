@@ -1,7 +1,10 @@
 /* eslint-disable no-template-curly-in-string */
 import type { Locale } from '../LocaleProvider';
 import DatePicker from '../DateTimePicker/DatePicker/Locale/fr_FR';
+import Dialog from '../Dialog/BaseDialog/Locale/fr_FR';
+import InfoBar from '../InfoBar/Locale/fr_FR';
 import Pagination from '../Pagination/Locale/fr_FR';
+import Panel from '../Panel/Locale/fr_FR';
 import Table from '../Table/Locale/fr_FR';
 import TimePicker from '../DateTimePicker/TimePicker/Locale/fr_FR';
 
@@ -11,6 +14,7 @@ const typeTemplate =
 const localeValues: Locale = {
     locale: 'fr',
     DatePicker,
+    Dialog,
     Form: {
         optional: '(optionnel)',
         defaultValidateMessages: {
@@ -63,7 +67,9 @@ const localeValues: Locale = {
             },
         },
     },
+    InfoBar,
     Pagination,
+    Panel,
     Table,
     TimePicker,
 };

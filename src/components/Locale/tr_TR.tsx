@@ -1,7 +1,10 @@
 /* eslint-disable no-template-curly-in-string */
 import type { Locale } from '../LocaleProvider';
 import DatePicker from '../DateTimePicker/DatePicker/Locale/tr_TR';
+import Dialog from '../Dialog/BaseDialog/Locale/tr_TR';
+import InfoBar from '../InfoBar/Locale/tr_TR';
 import Pagination from '../Pagination/Locale/tr_TR';
+import Panel from '../Panel/Locale/tr_TR';
 import Table from '../Table/Locale/tr_TR';
 import TimePicker from '../DateTimePicker/TimePicker/Locale/tr_TR';
 
@@ -13,6 +16,7 @@ const localeValues: Locale = {
         placeholder: 'Lütfen seçiniz',
     },
     DatePicker,
+    Dialog,
     Form: {
         optional: '(opsiyonel)',
         defaultValidateMessages: {
@@ -63,7 +67,9 @@ const localeValues: Locale = {
             },
         },
     },
+    InfoBar,
     Pagination,
+    Panel,
     Table,
     TimePicker,
 };

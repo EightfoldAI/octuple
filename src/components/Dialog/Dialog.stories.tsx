@@ -218,7 +218,6 @@ const dialogArgs: Object = {
         'data-test-id': 'my-cancel-btn-test-id',
         iconProps: null,
         id: 'myCancelButton',
-        text: 'Cancel',
     },
     'data-test-id': 'my-dialog-test-id',
     dialogClassNames: 'my-dialog-class',
@@ -233,7 +232,6 @@ const dialogArgs: Object = {
         'data-test-id': 'my-ok-btn-test-id',
         iconProps: null,
         id: 'myOkButton',
-        text: 'OK',
     },
     parent: document.body,
     zIndex: 1000,
@@ -254,7 +252,6 @@ Small.args = {
         disruptive: true,
         iconProps: null,
         id: 'myCancelButton',
-        text: 'Cancel',
     },
     okButtonProps: {
         ariaLabel: 'Accept',

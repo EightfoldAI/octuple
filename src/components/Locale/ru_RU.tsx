@@ -1,7 +1,10 @@
 /* eslint-disable no-template-curly-in-string */
 import type { Locale } from '../LocaleProvider';
 import DatePicker from '../DateTimePicker/DatePicker/Locale/ru_RU';
+import Dialog from '../Dialog/BaseDialog/Locale/ru_RU';
+import InfoBar from '../InfoBar/Locale/ru_RU';
 import Pagination from '../Pagination/Locale/ru_RU';
+import Panel from '../Panel/Locale/ru_RU';
 import Table from '../Table/Locale/ru_RU';
 import TimePicker from '../DateTimePicker/TimePicker/Locale/ru_RU';
 
@@ -13,6 +16,7 @@ const localeValues: Locale = {
         placeholder: 'Пожалуйста выберите',
     },
     DatePicker,
+    Dialog,
     Form: {
         defaultValidateMessages: {
             default: 'Ошибка проверки поля ${label}',
@@ -61,7 +65,9 @@ const localeValues: Locale = {
             },
         },
     },
+    InfoBar,
     Pagination,
+    Panel,
     Table,
     TimePicker,
 };

@@ -156,7 +156,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
                     ...option,
                 }))
             );
-        }, [isLoading]);
+        }, [_options, isLoading]);
 
         useEffect(() => {
             onOptionsChange?.(getSelectedOptions());

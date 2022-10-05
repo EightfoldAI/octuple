@@ -1,7 +1,10 @@
 /* eslint-disable no-template-curly-in-string */
 import type { Locale } from '../LocaleProvider';
 import DatePicker from '../DateTimePicker/DatePicker/Locale/es_DO';
+import Dialog from '../Dialog/BaseDialog/Locale/es_DO';
+import InfoBar from '../InfoBar/Locale/es_DO';
 import Pagination from '../Pagination/Locale/es_DO';
+import Panel from '../Panel/Locale/es_DO';
 import Table from '../Table/Locale/es_DO';
 import TimePicker from '../DateTimePicker/TimePicker/Locale/es_DO';
 
@@ -13,6 +16,7 @@ const localeValues: Locale = {
         placeholder: 'Seleccione',
     },
     DatePicker,
+    Dialog,
     Form: {
         optional: '(opcional)',
         defaultValidateMessages: {
@@ -63,7 +67,9 @@ const localeValues: Locale = {
             },
         },
     },
+    InfoBar,
     Pagination,
+    Panel,
     Table,
     TimePicker,
 };

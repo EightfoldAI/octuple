@@ -1,7 +1,10 @@
 /* eslint-disable no-template-curly-in-string */
 import type { Locale } from '../LocaleProvider';
 import DatePicker from '../DateTimePicker/DatePicker/Locale/zh_TW';
+import Dialog from '../Dialog/BaseDialog/Locale/zh_TW';
+import InfoBar from '../InfoBar/Locale/zh_TW';
 import Pagination from '../Pagination/Locale/zh_TW';
+import Panel from '../Panel/Locale/zh_TW';
 import Table from '../Table/Locale/zh_TW';
 import TimePicker from '../DateTimePicker/TimePicker/Locale/zh_TW';
 
@@ -13,6 +16,7 @@ const localeValues: Locale = {
         placeholder: '請選擇',
     },
     DatePicker,
+    Dialog,
     Form: {
         optional: '（可選）',
         defaultValidateMessages: {
@@ -63,7 +67,9 @@ const localeValues: Locale = {
             },
         },
     },
+    InfoBar,
     Pagination,
+    Panel,
     Table,
     TimePicker,
 };

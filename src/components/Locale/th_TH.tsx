@@ -1,7 +1,10 @@
 /* eslint-disable no-template-curly-in-string */
 import type { Locale } from '../LocaleProvider';
 import DatePicker from '../DateTimePicker/DatePicker/Locale/th_TH';
+import Dialog from '../Dialog/BaseDialog/Locale/th_TH';
+import InfoBar from '../InfoBar/Locale/th_TH';
 import Pagination from '../Pagination/Locale/th_TH';
+import Panel from '../Panel/Locale/th_TH';
 import Table from '../Table/Locale/th_TH';
 import TimePicker from '../DateTimePicker/TimePicker/Locale/th_TH';
 
@@ -13,6 +16,7 @@ const localeValues: Locale = {
         placeholder: 'กรุณาเลือก',
     },
     DatePicker,
+    Dialog,
     Form: {
         optional: '(ไม่จำเป็น)',
         defaultValidateMessages: {
@@ -63,7 +67,9 @@ const localeValues: Locale = {
             },
         },
     },
+    InfoBar,
     Pagination,
+    Panel,
     Table,
     TimePicker,
 };
