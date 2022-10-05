@@ -519,7 +519,7 @@ const panelArgs: Object = {
     bodyClassNames: 'my-panel-body-class',
     footerClassNames: 'my-panel-footer-class',
     autoFocus: true,
-    focusTrap: false,
+    focusTrap: true,
 };
 
 Small.args = {
