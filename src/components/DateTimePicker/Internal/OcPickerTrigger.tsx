@@ -3,7 +3,7 @@ import { mergeClasses } from '../../../shared/utilities';
 import Trigger from '../../Trigger/Trigger';
 import { OcPickerTriggerProps } from './OcPicker.types';
 
-import styles from './ocpicker.module.scss';
+import triggerStyles from '../../Trigger/trigger.module.scss';
 
 const BUILT_IN_PLACEMENTS = {
     bottomLeft: {
@@ -68,27 +68,27 @@ function OcPickerTrigger({
             popupAlign={dropdownAlign}
             popupClassNames={mergeClasses([
                 dropdownClassNames,
-                styles.triggerPopup,
-                { [styles.slideUpEnter]: visible },
-                { [styles.slideUpLeave]: !visible },
+                triggerStyles.triggerPopup,
+                { [triggerStyles.slideUpEnter]: visible },
+                { [triggerStyles.slideUpLeave]: !visible },
                 {
-                    [styles.triggerPopupPlacementBottomLeft]:
+                    [triggerStyles.triggerPopupPlacementBottomLeft]:
                         getPopupPlacement() === 'bottomLeft',
                 },
                 {
-                    [styles.triggerPopupPlacementBottomRight]:
+                    [triggerStyles.triggerPopupPlacementBottomRight]:
                         getPopupPlacement() === 'bottomRight',
                 },
                 {
-                    [styles.triggerPopupPlacementTopLeft]:
+                    [triggerStyles.triggerPopupPlacementTopLeft]:
                         getPopupPlacement() === 'topLeft',
                 },
                 {
-                    [styles.triggerPopupPlacementTopRight]:
+                    [triggerStyles.triggerPopupPlacementTopRight]:
                         getPopupPlacement() === 'topRight',
                 },
-                { [styles.pickerDropdownRange]: range },
-                { [styles.pickerDropdownRtl]: direction === 'rtl' },
+                { [triggerStyles.triggerPopupRange]: range },
+                { [triggerStyles.triggerPopupRtl]: direction === 'rtl' },
             ])}
             popupPlacement={getPopupPlacement()}
             popupStyle={popupStyle}

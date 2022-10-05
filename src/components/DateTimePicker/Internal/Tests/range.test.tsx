@@ -878,14 +878,14 @@ describe('Picker.Range', () => {
             domMock.mockRestore();
         });
 
-        it('end date arrow should move partial left', () => {
+        it('end date arrow should not move partial left', () => {
             const wrapper = mount(<DayjsRangePicker />);
             wrapper.openPicker(1);
             wrapper.update();
             expect(
                 (wrapper.find('.picker-partial-container').props() as any).style
                     .marginLeft
-            ).toEqual(200);
+            ).toEqual(0);
         });
     });
 

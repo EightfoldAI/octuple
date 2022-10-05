@@ -33,6 +33,7 @@
             tr {
                 th {
                     color: $picker-header-cell-foreground-color;
+                    font-weight: $text-font-weight-semibold;
                 }
             }
         }
@@ -121,6 +122,7 @@
 
         &-view {
             flex: auto;
+            flex-shrink: 0;
             height: 28px;
             text-align: center;
 
@@ -166,7 +168,7 @@
             padding: 0;
             font-family: $octuple-font-family;
             font-size: $picker-font-size-m;
-            font-weight: $text-font-weight-semibold;
+            font-weight: $text-font-weight-regular;
             line-height: $picker-cell-height-m;
             border-radius: 50%;
             outline: none;
@@ -440,7 +442,7 @@
             &-view {
                 font-size: $picker-font-size-s;
                 height: $picker-header-height-s;
-                padding: 2px 14px;
+                padding: $space-xxxs 14px;
             }
         }
     }
@@ -559,7 +561,7 @@
 
         .picker-cell-week {
             color: $picker-foreground-color;
-            font-weight: $text-font-weight-bold;
+            font-weight: $text-font-weight-regular;
             font-size: $picker-font-size-m;
         }
 
@@ -739,7 +741,7 @@
             &-inner {
                 color: $picker-cell-foreground-color;
                 font-family: $octuple-font-family;
-                font-weight: $text-font-weight-semibold;
+                font-weight: $text-font-weight-regular;
                 height: $picker-cell-height-m;
                 line-height: $picker-cell-height-m;
                 margin: 0;
@@ -1067,71 +1069,6 @@
         }
     }
 
-    &-dropdown {
-        position: absolute;
-
-        &-range {
-            padding: 10px 0;
-        }
-
-        &-hidden {
-            display: none;
-        }
-
-        &-placement-topLeft,
-        &-placement-topRight {
-            .picker-range-arrow {
-                bottom: calc($picker-arrow-size / 2) + 1px;
-                transform: rotate(135deg);
-            }
-        }
-        &-placement-bottomLeft,
-        &-placement-bottomright {
-            .picker-range-arrow {
-                top: calc($picker-arrow-size / 2) + 1px;
-                transform: rotate(-45deg);
-            }
-        }
-
-        .picker-range-arrow {
-            position: absolute;
-            left: $picker-arrow-size;
-            z-index: 1;
-            width: $picker-arrow-size;
-            height: $picker-arrow-size;
-            margin-left: 10px;
-            transition: all 0.3s;
-
-            &:before,
-            &:after {
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                box-sizing: border-box;
-                transform: translate(-50%, -50%);
-                content: '';
-            }
-
-            &:before {
-                width: $picker-arrow-size;
-                height: $picker-arrow-size;
-                border: calc($picker-arrow-size / 2) solid
-                    $picker-border-color-active;
-                border-color: $picker-border-color-active
-                    $picker-border-color-active transparent transparent;
-            }
-
-            &:after {
-                width: $picker-arrow-size - 2px;
-                height: $picker-arrow-size - 2px;
-                border: calc(calc($picker-arrow-size - 2px) / 2) solid
-                    $picker-border-color-active;
-                border-color: $picker-background-color $picker-background-color
-                    transparent transparent;
-            }
-        }
-    }
-
     &-range {
         position: relative;
         display: inline-flex;
@@ -1152,10 +1089,10 @@
 
         .picker-active-bar {
             bottom: 0;
-            height: 2px;
+            height: $space-xxxs;
             background: $picker-input-active-bar-color;
             border: 1px solid transparent;
-            border-radius: 2px;
+            border-radius: $corner-radius-xs;
             opacity: 0;
             transition: all 0.3s;
             pointer-events: none;
@@ -1233,24 +1170,6 @@
             .picker-clear {
                 left: $picker-input-padding-horizontal-l;
                 right: unset;
-            }
-        }
-
-        .picker-dropdown {
-            &-rtl {
-                .picker-range-arrow {
-                    right: $picker-arrow-size;
-                    left: unset;
-                    margin-right: 10px;
-                    margin-left: 0;
-
-                    &:before,
-                    &:after {
-                        right: 50%;
-                        left: auto;
-                        transform: translate(50%, -50%);
-                    }
-                }
             }
         }
     }
@@ -1569,125 +1488,6 @@
                 }
             }
         }
-    }
-}
-
-.trigger-popup {
-    @include reset-component();
-
-    position: absolute;
-    top: -9999px;
-    left: -9999px;
-    z-index: $z-index-top;
-
-    &-placement-bottomLeft {
-        .picker-range-arrow {
-            top: calc($picker-arrow-size / 2) - calc($picker-arrow-size / 3) +
-                0.7px;
-            display: block;
-            transform: rotate(-135deg) translateY(1px);
-        }
-    }
-
-    &-placement-topLeft {
-        .picker-range-arrow {
-            bottom: calc($picker-arrow-size / 2) - calc($picker-arrow-size / 3) +
-                0.7px;
-            display: block;
-            transform: rotate(45deg);
-        }
-    }
-
-    &.slide-up-enter.trigger-popup-placement-topLeft,
-    &.slide-up-enter.trigger-popup-placement-topRight {
-        animation-name: slideDownIn;
-        animation-duration: $motion-duration-fast;
-        animation-fill-mode: forwards;
-    }
-
-    &.slide-up-enter.trigger-popup-placement-bottomLeft,
-    &.slide-up-enter.trigger-popup-placement-bottomRight {
-        animation-name: slideUpIn;
-        animation-duration: $motion-duration-fast;
-        animation-fill-mode: forwards;
-    }
-
-    &.slide-up-leave.trigger-popup-placement-topLeft,
-    &.slide-up-leave.trigger-popup-placement-topRight {
-        animation-name: slideDownOut;
-        animation-duration: $motion-duration-fast;
-        animation-fill-mode: forwards;
-    }
-
-    &.slide-up-leave.trigger-popup-placement-bottomLeft,
-    &.slide-up-leave.trigger-popup-placement-bottomRight {
-        animation-name: slideUpOut;
-        animation-duration: $motion-duration-fast;
-        animation-fill-mode: forwards;
-    }
-}
-
-@keyframes slideUpIn {
-    0% {
-        transform: scaleY(0.8);
-        transform-origin: 0% 0%;
-        opacity: 0;
-        pointer-events: none;
-    }
-
-    100% {
-        transform: scaleY(1);
-        transform-origin: 0% 0%;
-        opacity: 1;
-        pointer-events: all;
-    }
-}
-
-@keyframes slideUpOut {
-    0% {
-        transform: scaleY(1);
-        transform-origin: 0% 0%;
-        opacity: 1;
-        pointer-events: all;
-    }
-
-    100% {
-        transform: scaleY(0.8);
-        transform-origin: 0% 0%;
-        opacity: 0;
-        pointer-events: none;
-    }
-}
-
-@keyframes slideDownIn {
-    0% {
-        transform: scaleY(0.8);
-        transform-origin: 100% 100%;
-        opacity: 0;
-        pointer-events: none;
-    }
-
-    100% {
-        transform: scaleY(1);
-        transform-origin: 100% 100%;
-        opacity: 1;
-        pointer-events: all;
-    }
-}
-
-@keyframes slideDownOut {
-    0% {
-        transform: scaleY(1);
-        transform-origin: 100% 100%;
-        opacity: 1;
-        pointer-events: all;
-    }
-
-    100% {
-        transform: scaleY(0.8);
-        transform-origin: 100% 100%;
-        opacity: 0;
-        pointer-events: none;
     }
 }
 

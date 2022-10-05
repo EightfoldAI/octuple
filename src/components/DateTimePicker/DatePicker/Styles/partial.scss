@@ -247,7 +247,7 @@ $picker-time-partial-cell-height: 28px;
 
         &-view {
             flex: auto;
-            font-weight: 500;
+            font-weight: $text-font-weight-semibold;
             line-height: $picker-text-height;
         }
     }
@@ -261,7 +261,7 @@ $picker-time-partial-cell-height: 28px;
         td {
             position: relative;
             min-width: 24px;
-            font-weight: 400;
+            font-weight: $text-font-weight-regular;
         }
 
         th {

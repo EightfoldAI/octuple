@@ -223,6 +223,7 @@ export default function generateRangePicker<DateType>(
                                 htmlDir as dir,
                                 popupPlacement
                             )}
+                            popupPlacement={popupPlacement}
                             nowText={nowText}
                             okText={okText}
                             todayText={todayText}
@@ -243,7 +244,6 @@ export default function generateRangePicker<DateType>(
                             superPrevIcon={IconName.mdiChevronDoubleLeft}
                             superNextIcon={IconName.mdiChevronDoubleRight}
                             allowClear
-                            transitionName={'picker-slide-up'}
                             {...rest}
                             {...additionalOverrideProps}
                             classNames={mergeClasses([

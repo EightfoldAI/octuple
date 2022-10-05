@@ -1,7 +1,7 @@
 import React from 'react';
 import { HeaderProps } from './Partial.types';
 import PartialContext from '../PartialContext';
-import { ButtonSize, NeutralButton } from '../../../Button';
+import { ButtonSize, SystemUIButton } from '../../../Button';
 import { IconName } from '../../../Icon';
 import { Size } from '../../../ConfigProvider';
 import { DatePickerSize } from '../OcPicker.types';
@@ -42,7 +42,7 @@ export const Header = ({
     return (
         <div className={styles.pickerHeader}>
             {onSuperPrev && (
-                <NeutralButton
+                <SystemUIButton
                     classNames={'picker-header-super-prev-btn'}
                     iconProps={{
                         path: superPrevIcon,
@@ -54,7 +54,7 @@ export const Header = ({
                 />
             )}
             {onPrev && (
-                <NeutralButton
+                <SystemUIButton
                     classNames={'picker-header-prev-btn'}
                     iconProps={{
                         path: prevIcon,
@@ -67,7 +67,7 @@ export const Header = ({
             )}
             <div className={styles.pickerHeaderView}>{children}</div>
             {onNext && (
-                <NeutralButton
+                <SystemUIButton
                     classNames={'picker-header-next-btn'}
                     iconProps={{
                         path: nextIcon,
@@ -79,7 +79,7 @@ export const Header = ({
                 />
             )}
             {onSuperNext && (
-                <NeutralButton
+                <SystemUIButton
                     classNames={'picker-header-super-next-btn'}
                     iconProps={{
                         path: superNextIcon,

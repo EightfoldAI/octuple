@@ -2683,7 +2683,7 @@ LoadedCheerio {
       "children": Array [
         Node {
           "attribs": Object {
-            "class": "trigger-popup trigger-popup slide-up-enter trigger-popup-placement-bottom-left picker-dropdown-range",
+            "class": "trigger-popup trigger-popup slide-up-enter trigger-popup-placement-bottom-left trigger-popup-range",
             "style": "opacity: 0;",
           },
           "children": Array [
@@ -2877,7 +2877,7 @@ LoadedCheerio {
           "children": Array [
             Node {
               "attribs": Object {
-                "class": "trigger-popup trigger-popup slide-up-enter trigger-popup-placement-bottom-left picker-dropdown-range",
+                "class": "trigger-popup trigger-popup slide-up-enter trigger-popup-placement-bottom-left trigger-popup-range",
                 "style": "opacity: 0;",
               },
               "children": Array [
@@ -3074,7 +3074,7 @@ LoadedCheerio {
     "children": Array [
       Node {
         "attribs": Object {
-          "class": "trigger-popup trigger-popup slide-up-enter trigger-popup-placement-bottom-left picker-dropdown-range",
+          "class": "trigger-popup trigger-popup slide-up-enter trigger-popup-placement-bottom-left trigger-popup-range",
           "style": "opacity: 0;",
         },
         "children": Array [
