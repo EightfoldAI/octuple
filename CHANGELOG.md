@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.15.0](https://github.com/EightfoldAI/octuple/compare/v2.14.0...v2.15.0) (2022-10-06)
+
+### Features
+
+-   panel: add localization support to panel ([#407](https://github.com/EightfoldAI/octuple/issues/407)) ([8413a18](https://github.com/EightfoldAI/octuple/commits/8413a1823b9a2501840c3b25743fea660aae3161))
+
+### Bug Fixes
+
+-   card: custom card story ui polish ([#411](https://github.com/EightfoldAI/octuple/issues/411)) ([ad6bb46](https://github.com/EightfoldAI/octuple/commits/ad6bb465f63b69be9eb5c661736d1de0c19511f0))
+-   picker: fix flicker on resize, update buttons, and font weight to match latest design ([#410](https://github.com/EightfoldAI/octuple/issues/410)) ([1fe6e52](https://github.com/EightfoldAI/octuple/commits/1fe6e52cec371973cf22cbaeb5828598ac7494a7))
+
 ## [2.14.0](https://github.com/EightfoldAI/octuple/compare/v2.13.2...v2.14.0) (2022-10-03)
 
 ### Features
