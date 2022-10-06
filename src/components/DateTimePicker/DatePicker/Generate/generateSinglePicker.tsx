@@ -265,6 +265,7 @@ export default function generatePicker<DateType>(
                                     htmlDir as dir,
                                     popupPlacement
                                 )}
+                                popupPlacement={popupPlacement}
                                 clearIcon={
                                     <Icon
                                         path={IconName.mdiCloseCircle}
@@ -281,7 +282,6 @@ export default function generatePicker<DateType>(
                                 superPrevIcon={IconName.mdiChevronDoubleLeft}
                                 superNextIcon={IconName.mdiChevronDoubleRight}
                                 allowClear
-                                transitionName={'picker-slide-up'}
                                 {...additionalProps}
                                 {...rest}
                                 {...additionalOverrideProps}

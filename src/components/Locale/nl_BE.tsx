@@ -2,7 +2,9 @@
 import type { Locale } from '../LocaleProvider';
 import DatePicker from '../DateTimePicker/DatePicker/Locale/nl_BE';
 import Dialog from '../Dialog/BaseDialog/Locale/nl_BE';
+import InfoBar from '../InfoBar/Locale/nl_BE';
 import Pagination from '../Pagination/Locale/nl_BE';
+import Panel from '../Panel/Locale/nl_BE';
 import Table from '../Table/Locale/nl_BE';
 import TimePicker from '../DateTimePicker/TimePicker/Locale/nl_BE';
 
@@ -66,7 +68,9 @@ const localeValues: Locale = {
             },
         },
     },
+    InfoBar,
     Pagination,
+    Panel,
     Table,
     TimePicker,
 };

@@ -22,6 +22,21 @@ export type EventType =
 
 export type CloseButtonProps = Omit<ButtonProps, 'onClick' | 'iconProps'>;
 
+type Locale = {
+    /**
+     * The Panel locale.
+     */
+    locale: string;
+    /**
+     * The Panel `Close` Button aria label string.
+     */
+    closeButtonAriaLabelText?: string;
+};
+
+export type PanelLocale = {
+    lang: Locale;
+};
+
 export interface PanelProps extends Omit<OcBaseProps<HTMLElement>, 'title'> {
     /**
      * Props for the first header action button
@@ -54,6 +69,11 @@ export interface PanelProps extends Omit<OcBaseProps<HTMLElement>, 'title'> {
      */
     children?: React.ReactNode;
     /**
+     * The Panel `Close` Button aria label string.
+     * @default 'Close'
+     */
+    closeButtonAriaLabelText?: string;
+    /**
      * Close button extra props
      */
     closeButtonProps?: CloseButtonProps;
@@ -66,6 +86,11 @@ export interface PanelProps extends Omit<OcBaseProps<HTMLElement>, 'title'> {
      * Close icon name
      */
     closeIcon?: IconName;
+    /**
+     * Unset this to disable focus trap
+     * @default true
+     */
+    focusTrap?: boolean;
     /**
      * Footer of the panel
      */
@@ -95,6 +120,11 @@ export interface PanelProps extends Omit<OcBaseProps<HTMLElement>, 'title'> {
      * Custom height of the panel
      */
     height?: number;
+    /**
+     * The Panel locale.
+     * @default 'enUS'
+     */
+    locale?: PanelLocale;
     /**
      * Clicking on mask should close panel or not
      * @default true
@@ -148,6 +178,11 @@ export interface PanelProps extends Omit<OcBaseProps<HTMLElement>, 'title'> {
      */
     push?: boolean;
     /**
+     * Set this to enable/disable parent scroll
+     * @default true
+     */
+    scrollLock?: boolean;
+    /**
      * Size of the panel, can be overridden with width
      * @default medium
      */
@@ -168,14 +203,9 @@ export interface PanelProps extends Omit<OcBaseProps<HTMLElement>, 'title'> {
      * Custom zIndex for the panel
      */
     zIndex?: number;
-    /**
-     * Set this to enable/disable parent scroll
-     * @default true
-     */
-    scrollLock?: boolean;
 }
 
-export interface PanelHeaderProps {
+export interface PanelHeaderProps extends OcBaseProps<HTMLDivElement> {
     /**
      * Props for the first header action button
      */
@@ -189,10 +219,20 @@ export interface PanelHeaderProps {
      */
     actionDefaultButtonProps?: ButtonProps;
     /**
+     * The Panel `Close` Button aria label string.
+     * @default 'Close'
+     */
+    closeButtonAriaLabelText?: string;
+    /**
      * Close icon name
      * @default IconName.mdiClose
      */
     closeIcon?: IconName;
+    /**
+     * The PanelHeader locale.
+     * @default 'enUS'
+     */
+    locale?: PanelLocale;
     /**
      * Callback fired on close on the panel
      * @param e {EventType}
