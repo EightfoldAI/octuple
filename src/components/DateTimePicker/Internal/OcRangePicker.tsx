@@ -54,6 +54,7 @@ import useHoverValue from './Hooks/useHoverValue';
 import { DatePickerShape, DatePickerSize } from './OcPicker.types';
 
 import styles from './ocpicker.module.scss';
+import triggerStyles from '../../Trigger/trigger.module.scss';
 
 function reorderValues<DateType>(
     values: RangeValue<DateType>,
@@ -906,14 +907,15 @@ function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
             startInputDivRef.current.offsetWidth +
             separatorRef.current.offsetWidth;
 
-        // If partialWidth - arrowWidth - arrowMarginLeft < arrowLeft, partial should move to right side.
+        // If partialWidth - arrowWidth + arrowMarginLeft < arrowLeft, partial should move to right side.
         // If offsetLeft > arrowLeft, arrow position is absolutely right, because arrowLeft is not calculated with arrow margin.
         if (
             partialDivRef.current.offsetWidth &&
             arrowRef.current.offsetWidth &&
             arrowLeft >
                 partialDivRef.current.offsetWidth -
-                    arrowRef.current.offsetWidth -
+                    (arrowRef.current.offsetWidth +
+                        parseInt(arrowRef.current.style.marginLeft, 10)) -
                     (direction === 'rtl' ||
                     arrowRef.current.offsetLeft > arrowLeft
                         ? 0
@@ -1048,7 +1050,7 @@ function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
         >
             <div
                 ref={arrowRef}
-                className={styles.pickerRangeArrow}
+                className={triggerStyles.pickerRangeArrow}
                 style={arrowPositionStyle}
             />
             {renderPartials()}

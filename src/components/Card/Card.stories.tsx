@@ -5,7 +5,7 @@ import { Card, CardType } from './';
 import { IconName } from '../Icon';
 import { Avatar } from '../Avatar';
 import { Pill } from '../Pills';
-import { SecondaryButton } from '../Button';
+import { ButtonShape, SecondaryButton } from '../Button';
 
 export default {
     title: 'Card',
@@ -146,11 +146,11 @@ CustomCard.args = {
                 type="round"
                 size="80px"
                 fontSize="36px"
-                style={{ margin: '0 auto 10px' }}
+                style={{ margin: '12px auto' }}
             />
             <div
                 style={{
-                    marginBottom: '10px',
+                    marginBottom: '12px',
                     fontSize: '24px',
                     fontWeight: '600',
                 }}
@@ -159,7 +159,7 @@ CustomCard.args = {
             </div>
             <div
                 style={{
-                    marginBottom: '30px',
+                    marginBottom: '34px',
                     fontSize: '18px',
                     fontWeight: '400',
                 }}
@@ -170,7 +170,7 @@ CustomCard.args = {
                 style={{
                     display: 'flex',
                     justifyContent: 'space-evenly',
-                    marginBottom: '20px',
+                    marginBottom: '24px',
                     fontSize: '18px',
                     fontWeight: '400',
                 }}
@@ -191,7 +191,7 @@ CustomCard.args = {
             <div
                 style={{
                     textAlign: 'start',
-                    marginBottom: '30px',
+                    marginBottom: '34px',
                     fontSize: '18px',
                     fontWeight: '400',
                     marginLeft: '35px',
@@ -200,7 +200,7 @@ CustomCard.args = {
                 <div
                     style={{
                         textAlign: 'start',
-                        marginBottom: '30px',
+                        marginBottom: '8px',
                         fontSize: '18px',
                         fontWeight: '400',
                     }}
@@ -213,7 +213,7 @@ CustomCard.args = {
                 style={{
                     display: 'flex',
                     justifyContent: 'space-evenly',
-                    marginBottom: '60px',
+                    marginBottom: '48px',
                 }}
             >
                 <Pill label="Leadership Potential" theme="blueViolet" />
@@ -223,6 +223,7 @@ CustomCard.args = {
                 <SecondaryButton text="Add Development Plan" />
                 <SecondaryButton
                     iconProps={{ path: IconName.mdiDotsVertical }}
+                    shape={ButtonShape.Round}
                 />
             </div>
         </div>

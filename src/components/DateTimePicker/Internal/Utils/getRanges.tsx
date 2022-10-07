@@ -1,7 +1,7 @@
 import React from 'react';
 import { Size } from '../../../ConfigProvider';
 import { Components, DatePickerSize, RangeList } from '../OcPicker.types';
-import { ButtonSize, DefaultButton, PrimaryButton } from '../../../Button';
+import { ButtonSize, SystemUIButton } from '../../../Button';
 
 import styles from '../ocpicker.module.scss';
 
@@ -69,7 +69,7 @@ export default function getRanges({
         if (onNow && !presetNode && showNow !== false) {
             presetNode = (
                 <li className={'picker-now'}>
-                    <DefaultButton
+                    <SystemUIButton
                         classNames={'picker-now-btn'}
                         onClick={onNow}
                         size={datePickerSizeToButtonSizeMap.get(size)}
@@ -81,7 +81,7 @@ export default function getRanges({
 
         okNode = needConfirmButton && (
             <li className={styles.pickerOk}>
-                <PrimaryButton
+                <SystemUIButton
                     disabled={okDisabled}
                     onClick={onOk as () => void}
                     size={datePickerSizeToButtonSizeMap.get(size)}

@@ -3,7 +3,7 @@ import { DateHeaderProps } from './Date.types';
 import { Header } from '../Header';
 import PartialContext from '../../PartialContext';
 import { formatValue } from '../../Utils/dateUtil';
-import { ButtonSize, NeutralButton } from '../../../../Button';
+import { ButtonSize, SystemUIButton } from '../../../../Button';
 import { Size } from '../../../../ConfigProvider';
 import { DatePickerSize } from '../../OcPicker.types';
 
@@ -45,7 +45,7 @@ function DateHeader<DateType>(props: DateHeaderProps<DateType>) {
     ]);
 
     const yearNode: React.ReactNode = (
-        <NeutralButton
+        <SystemUIButton
             classNames={'picker-year-btn'}
             key="year"
             onClick={onYearClick}
@@ -58,7 +58,7 @@ function DateHeader<DateType>(props: DateHeaderProps<DateType>) {
         />
     );
     const monthNode: React.ReactNode = (
-        <NeutralButton
+        <SystemUIButton
             classNames={'picker-month-btn'}
             key="month"
             onClick={onMonthClick}

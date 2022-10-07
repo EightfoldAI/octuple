@@ -2,7 +2,7 @@ import React from 'react';
 import { Header } from '../Header';
 import { YEAR_DECADE_COUNT, YearHeaderProps } from './Year.types';
 import PartialContext from '../../PartialContext';
-import { ButtonSize, NeutralButton } from '../../../../Button';
+import { ButtonSize, SystemUIButton } from '../../../../Button';
 import { DatePickerSize } from '../../OcPicker.types';
 import { Size } from '../../../../ConfigProvider';
 
@@ -43,7 +43,7 @@ function YearHeader<DateType>(props: YearHeaderProps<DateType>) {
             onSuperNext={onNextDecade}
             size={size}
         >
-            <NeutralButton
+            <SystemUIButton
                 classNames={'picker-decade-btn'}
                 onClick={onDecadeClick}
                 size={datePickerSizeToButtonSizeMap.get(size)}

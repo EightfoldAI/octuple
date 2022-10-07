@@ -11,6 +11,7 @@ import { IconName } from '../Icon';
 import { ButtonShape, NeutralButton } from '../Button';
 import { Portal } from '../Portal';
 import { useScrollLock } from '../../hooks/useScrollLock';
+import { FocusTrap } from '../../shared/FocusTrap';
 import { NoFormStyle } from '../Form/Context';
 import { useCanvasDirection } from '../../hooks/useCanvasDirection';
 import LocaleReceiver, {
@@ -67,6 +68,7 @@ export const Panel = React.forwardRef<PanelRef, PanelProps>(
             width,
             panelHeader,
             scrollLock = true,
+            focusTrap = true,
             ...rest
         } = props;
 
@@ -280,29 +282,30 @@ export const Panel = React.forwardRef<PanelRef, PanelProps>(
                         return (
                             <PanelContext.Provider value={operations}>
                                 <NoFormStyle status override>
-                                    <div
-                                        {...rest}
-                                        tabIndex={-1}
-                                        ref={containerRef}
-                                        className={panelBackdropClasses}
-                                        onClick={(
-                                            e: React.MouseEvent<HTMLDivElement>
-                                        ) => {
-                                            maskClosable && onClose(e);
-                                        }}
-                                        aria-hidden={!visible}
-                                    >
+                                    <FocusTrap trap={visible && focusTrap}>
                                         <div
-                                            ref={panelRef}
-                                            className={panelClasses}
-                                            onClick={stopPropagation}
-                                            style={getPanelStyle()}
+                                            {...rest}
+                                            ref={containerRef}
+                                            className={panelBackdropClasses}
+                                            onClick={(
+                                                e: React.MouseEvent<HTMLDivElement>
+                                            ) => {
+                                                maskClosable && onClose(e);
+                                            }}
+                                            aria-hidden={!visible}
                                         >
-                                            {getHeader()}
-                                            {getBody()}
-                                            {getFooter()}
+                                            <div
+                                                ref={panelRef}
+                                                className={panelClasses}
+                                                onClick={stopPropagation}
+                                                style={getPanelStyle()}
+                                            >
+                                                {getHeader()}
+                                                {getBody()}
+                                                {getFooter()}
+                                            </div>
                                         </div>
-                                    </div>
+                                    </FocusTrap>
                                 </NoFormStyle>
                             </PanelContext.Provider>
                         );

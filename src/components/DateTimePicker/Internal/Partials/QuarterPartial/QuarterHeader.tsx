@@ -3,7 +3,7 @@ import { QuarterHeaderProps } from './Quarter.types';
 import { Header } from '../Header';
 import PartialContext from '../../PartialContext';
 import { formatValue } from '../../Utils/dateUtil';
-import { ButtonSize, NeutralButton } from '../../../../Button';
+import { ButtonSize, SystemUIButton } from '../../../../Button';
 import { Size } from '../../../../ConfigProvider';
 import { DatePickerSize } from '../../OcPicker.types';
 
@@ -35,7 +35,7 @@ function QuarterHeader<DateType>(props: QuarterHeaderProps<DateType>) {
 
     return (
         <Header {...props} onSuperPrev={onPrevYear} onSuperNext={onNextYear}>
-            <NeutralButton
+            <SystemUIButton
                 classNames={'picker-year-btn'}
                 onClick={onYearClick}
                 size={datePickerSizeToButtonSizeMap.get(size)}

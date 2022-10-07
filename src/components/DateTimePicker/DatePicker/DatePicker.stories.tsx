@@ -509,6 +509,7 @@ export const Range_Status = Range_Status_Story.bind({});
 const pickerArgs: Object = {
     classNames: 'my-picker-class',
     id: 'myPickerInputId',
+    popupPlacement: 'bottomLeft',
     shape: DatePickerShape.Rectangle,
     size: DatePickerSize.Medium,
 };
