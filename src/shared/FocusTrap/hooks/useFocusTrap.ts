@@ -20,7 +20,6 @@ export function useFocusTrap(
 
     const handleFocus = (e: React.KeyboardEvent) => {
         const focusableEls = getFocusableElements();
-        console.log(document.activeElement);
         const firstFocusableEl = focusableEls[0];
         const lastFocusableEl = focusableEls[focusableEls.length - 1];
 

@@ -48,6 +48,7 @@ export const BaseDialog: FC<BaseDialogProps> = React.forwardRef(
             visible,
             width,
             zIndex,
+            focusTrap = true,
             ...rest
         },
         ref: Ref<HTMLDivElement>
@@ -115,7 +116,7 @@ export const BaseDialog: FC<BaseDialogProps> = React.forwardRef(
 
         const getDialog = (): JSX.Element => (
             <NoFormStyle status override>
-                <FocusTrap trap={visible}>
+                <FocusTrap trap={visible && focusTrap}>
                     <div
                         {...rest}
                         ref={ref}
