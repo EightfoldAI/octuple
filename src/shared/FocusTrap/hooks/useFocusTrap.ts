@@ -9,14 +9,18 @@ export function useFocusTrap(
     visible = true
 ): React.MutableRefObject<HTMLDivElement> {
     const elRef = useRef<any>(null);
-    const handleFocus = (e: React.KeyboardEvent) => {
-        const focusableEls = [
-            ...elRef.current.querySelectorAll(SELECTORS),
-        ].filter(
+    const restoreFocusRef = useRef<any>(null);
+
+    const getFocusableElements = () => {
+        return [...elRef.current.querySelectorAll(SELECTORS)].filter(
             (el) =>
                 !el.hasAttribute('disabled') && !el.getAttribute('aria-hidden')
         );
+    };
 
+    const handleFocus = (e: React.KeyboardEvent) => {
+        const focusableEls = getFocusableElements();
+        console.log(document.activeElement);
         const firstFocusableEl = focusableEls[0];
         const lastFocusableEl = focusableEls[focusableEls.length - 1];
 
@@ -42,11 +46,24 @@ export function useFocusTrap(
         }
     };
 
+    const setUpFocus = () => {
+        if (!elRef.current) {
+            return;
+        }
+        restoreFocusRef.current = document.activeElement;
+        const elementToFocus = getFocusableElements()[0] || elRef.current;
+        setTimeout(() => {
+            elementToFocus.focus();
+        }, 100);
+    };
+
     useEffect(() => {
         if (visible) {
+            setUpFocus();
             elRef.current?.addEventListener('keydown', handleFocus);
         }
         return () => {
+            restoreFocusRef.current?.focus();
             elRef.current?.removeEventListener('keydown', handleFocus);
         };
     }, [visible]);
