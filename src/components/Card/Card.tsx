@@ -24,6 +24,7 @@ export const Card: FC<CardProps> = React.forwardRef(
             bodyListOneProps,
             bodyListTwoProps,
             children,
+            classNames,
             configContextProps = {
                 noDisabledContext: false,
                 noSizeContext: false,
@@ -66,6 +67,7 @@ export const Card: FC<CardProps> = React.forwardRef(
             : contextuallyDisabled || disabled;
 
         const cardClasses: string = mergeClasses([
+            classNames,
             styles.card,
             {
                 [styles.cardSmall]:

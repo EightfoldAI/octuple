@@ -56,36 +56,26 @@ export interface CardProps {
      */
     bodyListTwoPillProps?: PillProps;
     /**
+     * List of items for boday
+     */
+    bodyListOneProps?: BodyProps;
+    /**
+     * List of items for body
+     */
+    bodyListTwoProps?: BodyProps;
+    /**
+     * Custom classnames of the component.
+     */
+    classNames?: string;
+    /**
      * Configure how contextual props are consumed
      */
     configContextProps?: ConfigContextProps;
     /**
-     * Name of the employee card
+     * The card is in a disabled state.
+     * @default false
      */
-    name?: string;
-    /**
-     * Custom icon for the card
-     * @default IconName.mdiInformation | IconName.mdiCheckCircle | IconName.mdiAlert
-     */
-    icon?: IconName;
-    /**
-     * The boolean value if a list card is selected
-     */
-    isSelected?: boolean;
-    /**
-     * The checkbox size.
-     * @default SelectorSize.Medium
-     */
-    size?: CardSize | Size;
-    /**
-     * Tags for the employee
-     */
-    tag?: PillProps;
-    /**
-     * Type of the card
-     * @default CardType.neutral
-     */
-    type?: CardType;
+    disabled?: boolean;
     /**
      * The Footer of the dialog
      */
@@ -103,30 +93,9 @@ export interface CardProps {
      */
     footerIcon?: IconName;
     /**
-     * List of items for boday
-     */
-    bodyListOneProps?: BodyProps;
-    /**
-     * List of items for body
-     */
-    bodyListTwoProps?: BodyProps;
-    /**
-     * The props for the subheaders
-     */
-    subHeaderProps?: Array<string>;
-    /**
-     * Custom icon subheader separator
-     */
-    subHeaderSeparatorIcon?: IconName;
-    /**
      * The props for the footer
      */
     footerProps?: FooterItems;
-    /**
-     * The card is in a disabled state.
-     * @default false
-     */
-    disabled?: boolean;
     /**
      * The Header of the dialog
      */
@@ -152,9 +121,44 @@ export interface CardProps {
      */
     height?: number;
     /**
+     * Custom icon for the card
+     * @default IconName.mdiInformation | IconName.mdiCheckCircle | IconName.mdiAlert
+     */
+    icon?: IconName;
+    /**
+     * The boolean value if a list card is selected
+     */
+    isSelected?: boolean;
+    /**
+     * Name of the employee card
+     */
+    name?: string;
+    /**
+     * The checkbox size.
+     * @default SelectorSize.Medium
+     */
+    size?: CardSize | Size;
+    /**
      * The button style.
      */
     style?: React.CSSProperties;
+    /**
+     * The props for the subheaders
+     */
+    subHeaderProps?: Array<string>;
+    /**
+     * Custom icon subheader separator
+     */
+    subHeaderSeparatorIcon?: IconName;
+    /**
+     * Tags for the employee
+     */
+    tag?: PillProps;
+    /**
+     * Type of the card
+     * @default CardType.neutral
+     */
+    type?: CardType;
     /**
      * Custom width of the panel
      */
