@@ -5,6 +5,8 @@ import { eventKeys } from '../../utilities/eventKeys';
 const SELECTORS =
     'a[href], button, input, textarea, select, details, [tabindex]:not([tabindex="-1"], iframe, object, embed';
 
+const INITIAL_FOCUS_DELAY = 100;
+
 export function useFocusTrap(
     visible = true
 ): React.MutableRefObject<HTMLDivElement> {
@@ -50,10 +52,10 @@ export function useFocusTrap(
             return;
         }
         restoreFocusRef.current = document.activeElement;
-        const elementToFocus = getFocusableElements()[0] || elRef.current;
+        const elementToFocus = getFocusableElements()?.[0];
         setTimeout(() => {
-            elementToFocus.focus();
-        }, 100);
+            elementToFocus?.focus();
+        }, INITIAL_FOCUS_DELAY);
     };
 
     useEffect(() => {
