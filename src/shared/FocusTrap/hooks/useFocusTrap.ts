@@ -21,16 +21,17 @@ export function useFocusTrap(
     };
 
     const handleFocus = (e: React.KeyboardEvent) => {
-        const focusableEls = getFocusableElements();
-        const firstFocusableEl = focusableEls[0];
-        const lastFocusableEl = focusableEls[focusableEls.length - 1];
-
         const isTabPressed = e.key === eventKeys.TAB;
         const isShiftPressed = e.key === eventKeys.SHIFTLEFT;
 
-        if (!isTabPressed) {
+        const focusableEls = getFocusableElements();
+
+        if (!isTabPressed || !focusableEls.length) {
             return;
         }
+
+        const firstFocusableEl = focusableEls[0];
+        const lastFocusableEl = focusableEls[focusableEls.length - 1];
 
         if (isShiftPressed) {
             if (document.activeElement === firstFocusableEl) {
