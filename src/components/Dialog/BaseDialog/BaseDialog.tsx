@@ -116,79 +116,78 @@ export const BaseDialog: FC<BaseDialogProps> = React.forwardRef(
 
         const getDialog = (): JSX.Element => (
             <NoFormStyle status override>
-                <FocusTrap trap={visible && focusTrap}>
+                <FocusTrap
+                    trap={visible && focusTrap}
+                    {...rest}
+                    ref={ref}
+                    role="dialog"
+                    aria-modal={true}
+                    aria-labelledby={labelId}
+                    style={dialogBackdropStyle}
+                    className={dialogBackdropClasses}
+                    onClick={(e: React.MouseEvent<HTMLDivElement>) => {
+                        maskClosable && onClose?.(e);
+                    }}
+                >
                     <div
-                        {...rest}
-                        ref={ref}
-                        role="dialog"
-                        aria-modal={true}
-                        aria-labelledby={labelId}
-                        style={dialogBackdropStyle}
-                        className={dialogBackdropClasses}
-                        onClick={(e: React.MouseEvent<HTMLDivElement>) => {
-                            maskClosable && onClose?.(e);
-                        }}
+                        className={dialogClasses}
+                        style={dialogStyle}
+                        onClick={stopPropagation}
                     >
-                        <div
-                            className={dialogClasses}
-                            style={dialogStyle}
-                            onClick={stopPropagation}
-                        >
-                            <div className={headerClasses}>
-                                <span id={labelId}>
-                                    {headerButtonProps && (
-                                        <NeutralButton
-                                            classNames={styles.headerButton}
-                                            shape={ButtonShape.Round}
-                                            iconProps={{ path: headerIcon }}
-                                            style={{
-                                                transform:
-                                                    htmlDir === 'rtl'
-                                                        ? 'rotate(180deg)'
-                                                        : 'none',
-                                            }}
-                                            {...headerButtonProps}
-                                        />
-                                    )}
-                                    {header}
-                                </span>
-                                <span className={styles.headerButtons}>
-                                    {actionButtonThreeProps && (
-                                        <NeutralButton
-                                            shape={ButtonShape.Round}
-                                            {...actionButtonThreeProps}
-                                        />
-                                    )}
-                                    {actionButtonTwoProps && (
-                                        <NeutralButton
-                                            shape={ButtonShape.Round}
-                                            {...actionButtonTwoProps}
-                                        />
-                                    )}
-                                    {actionButtonOneProps && (
-                                        <NeutralButton
-                                            shape={ButtonShape.Round}
-                                            {...actionButtonOneProps}
-                                        />
-                                    )}
-                                    {closable && (
-                                        <NeutralButton
-                                            ariaLabel={closeButtonAriaLabelText}
-                                            iconProps={{ path: closeIcon }}
-                                            shape={ButtonShape.Round}
-                                            onClick={onClose}
-                                            {...closeButtonProps}
-                                        />
-                                    )}
-                                </span>
-                            </div>
-                            <div ref={scrollRef} className={bodyClasses}>
-                                {body}
-                            </div>
-                            {actions && (
-                                <div className={actionsClasses}>{actions}</div>
-                            )}
+                        <div className={headerClasses}>
+                            <span id={labelId}>
+                                {headerButtonProps && (
+                                    <NeutralButton
+                                        classNames={styles.headerButton}
+                                        shape={ButtonShape.Round}
+                                        iconProps={{ path: headerIcon }}
+                                        style={{
+                                            transform:
+                                                htmlDir === 'rtl'
+                                                    ? 'rotate(180deg)'
+                                                    : 'none',
+                                        }}
+                                        {...headerButtonProps}
+                                    />
+                                )}
+                                {header}
+                            </span>
+                            <span className={styles.headerButtons}>
+                                {actionButtonThreeProps && (
+                                    <NeutralButton
+                                        shape={ButtonShape.Round}
+                                        {...actionButtonThreeProps}
+                                    />
+                                )}
+                                {actionButtonTwoProps && (
+                                    <NeutralButton
+                                        shape={ButtonShape.Round}
+                                        {...actionButtonTwoProps}
+                                    />
+                                )}
+                                {actionButtonOneProps && (
+                                    <NeutralButton
+                                        shape={ButtonShape.Round}
+                                        {...actionButtonOneProps}
+                                    />
+                                )}
+                                {closable && (
+                                    <NeutralButton
+                                        ariaLabel={closeButtonAriaLabelText}
+                                        iconProps={{ path: closeIcon }}
+                                        shape={ButtonShape.Round}
+                                        onClick={onClose}
+                                        {...closeButtonProps}
+                                    />
+                                )}
+                            </span>
                         </div>
+                        <div ref={scrollRef} className={bodyClasses}>
+                            {body}
+                        </div>
+                        {actions && (
+                            <div className={actionsClasses}>{actions}</div>
+                        )}
                     </div>
                 </FocusTrap>
             </NoFormStyle>
