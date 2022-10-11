@@ -16,7 +16,7 @@
         background: var(--background-color);
         box-shadow: $shadow-panel-right;
         transition: all $motion-duration-extra-fast $motion-easing-easeinout 0s;
-        overflow: scroll;
+        overflow: auto;
 
         &.left,
         &.right {
