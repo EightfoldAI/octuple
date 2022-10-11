@@ -11,43 +11,54 @@ exports[`Select Select is large 1`] = `
       class="input-wrapper input-large input-stretch right-icon"
     >
       <div
-        class="input-group right-icon"
+        class="expandable-wrapper"
       >
-        <input
-          aria-controls="dropdown-"
-          aria-disabled="false"
-          aria-expanded="false"
-          aria-haspopup="true"
-          class="select-input input-large with-icon-button input-stretch right-icon clear-disabled clear-not-visible"
-          id="input-"
-          placeholder="Select"
-          readonly=""
-          role="textbox"
-          tabindex="0"
-          type="text"
-          value=""
-        />
-        <button
-          aria-disabled="false"
-          class="icon-button right-icon button button-default button-large pill-shape icon-left"
+        <div
+          class="input-group right-icon"
         >
-          <span
-            aria-hidden="false"
-            class="icon icon-wrapper"
-            role="presentation"
+          <input
+            aria-controls="dropdown-"
+            aria-disabled="false"
+            aria-expanded="false"
+            aria-haspopup="true"
+            class="select-input input-large with-icon-button input-stretch right-icon clear-disabled clear-not-visible"
+            id="input-"
+            placeholder="Select"
+            readonly=""
+            role="textbox"
+            tabindex="0"
+            type="text"
+            value=""
+          />
+          <div
+            class="action-wrapper"
           >
-            <svg
-              role="presentation"
-              style="width: 24px; height: 24px;"
-              viewBox="0 0 24 24"
+            <div
+              class="overlay"
+            />
+            <button
+              aria-disabled="false"
+              class="icon-button right-icon button button-default button-large pill-shape icon-left"
             >
-              <path
-                d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"
-                style="fill: currentColor;"
-              />
-            </svg>
-          </span>
-        </button>
+              <span
+                aria-hidden="false"
+                class="icon icon-wrapper"
+                role="presentation"
+              >
+                <svg
+                  role="presentation"
+                  style="width: 24px; height: 24px;"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"
+                    style="fill: currentColor;"
+                  />
+                </svg>
+              </span>
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -65,43 +76,54 @@ exports[`Select Select is medium 1`] = `
       class="input-wrapper input-medium input-stretch right-icon"
     >
       <div
-        class="input-group right-icon"
+        class="expandable-wrapper"
       >
-        <input
-          aria-controls="dropdown-"
-          aria-disabled="false"
-          aria-expanded="false"
-          aria-haspopup="true"
-          class="select-input input-medium with-icon-button input-stretch right-icon clear-disabled clear-not-visible"
-          id="input-"
-          placeholder="Select"
-          readonly=""
-          role="textbox"
-          tabindex="0"
-          type="text"
-          value=""
-        />
-        <button
-          aria-disabled="false"
-          class="icon-button right-icon button button-default button-medium pill-shape icon-left"
+        <div
+          class="input-group right-icon"
         >
-          <span
-            aria-hidden="false"
-            class="icon icon-wrapper"
-            role="presentation"
+          <input
+            aria-controls="dropdown-"
+            aria-disabled="false"
+            aria-expanded="false"
+            aria-haspopup="true"
+            class="select-input input-medium with-icon-button input-stretch right-icon clear-disabled clear-not-visible"
+            id="input-"
+            placeholder="Select"
+            readonly=""
+            role="textbox"
+            tabindex="0"
+            type="text"
+            value=""
+          />
+          <div
+            class="action-wrapper"
           >
-            <svg
-              role="presentation"
-              style="width: 20px; height: 20px;"
-              viewBox="0 0 24 24"
+            <div
+              class="overlay"
+            />
+            <button
+              aria-disabled="false"
+              class="icon-button right-icon button button-default button-medium pill-shape icon-left"
             >
-              <path
-                d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"
-                style="fill: currentColor;"
-              />
-            </svg>
-          </span>
-        </button>
+              <span
+                aria-hidden="false"
+                class="icon icon-wrapper"
+                role="presentation"
+              >
+                <svg
+                  role="presentation"
+                  style="width: 20px; height: 20px;"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"
+                    style="fill: currentColor;"
+                  />
+                </svg>
+              </span>
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -119,43 +141,54 @@ exports[`Select Select is pill shaped 1`] = `
       class="input-wrapper input-medium input-stretch right-icon"
     >
       <div
-        class="input-group right-icon"
+        class="expandable-wrapper"
       >
-        <input
-          aria-controls="dropdown-"
-          aria-disabled="false"
-          aria-expanded="false"
-          aria-haspopup="true"
-          class="select-input input-medium pill-shape pill-shape-with-icon-button input-stretch right-icon clear-disabled clear-not-visible"
-          id="input-"
-          placeholder="Select"
-          readonly=""
-          role="textbox"
-          tabindex="0"
-          type="text"
-          value=""
-        />
-        <button
-          aria-disabled="false"
-          class="icon-button right-icon button button-default button-medium pill-shape icon-left"
+        <div
+          class="input-group right-icon"
         >
-          <span
-            aria-hidden="false"
-            class="icon icon-wrapper"
-            role="presentation"
+          <input
+            aria-controls="dropdown-"
+            aria-disabled="false"
+            aria-expanded="false"
+            aria-haspopup="true"
+            class="select-input input-medium pill-shape pill-shape-with-icon-button input-stretch right-icon clear-disabled clear-not-visible"
+            id="input-"
+            placeholder="Select"
+            readonly=""
+            role="textbox"
+            tabindex="0"
+            type="text"
+            value=""
+          />
+          <div
+            class="action-wrapper"
           >
-            <svg
-              role="presentation"
-              style="width: 20px; height: 20px;"
-              viewBox="0 0 24 24"
+            <div
+              class="overlay"
+            />
+            <button
+              aria-disabled="false"
+              class="icon-button right-icon button button-default button-medium pill-shape icon-left"
             >
-              <path
-                d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"
-                style="fill: currentColor;"
-              />
-            </svg>
-          </span>
-        </button>
+              <span
+                aria-hidden="false"
+                class="icon icon-wrapper"
+                role="presentation"
+              >
+                <svg
+                  role="presentation"
+                  style="width: 20px; height: 20px;"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"
+                    style="fill: currentColor;"
+                  />
+                </svg>
+              </span>
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -173,43 +206,54 @@ exports[`Select Select is rectangle shaped 1`] = `
       class="input-wrapper input-medium input-stretch right-icon"
     >
       <div
-        class="input-group right-icon"
+        class="expandable-wrapper"
       >
-        <input
-          aria-controls="dropdown-"
-          aria-disabled="false"
-          aria-expanded="false"
-          aria-haspopup="true"
-          class="select-input input-medium with-icon-button input-stretch right-icon clear-disabled clear-not-visible"
-          id="input-"
-          placeholder="Select"
-          readonly=""
-          role="textbox"
-          tabindex="0"
-          type="text"
-          value=""
-        />
-        <button
-          aria-disabled="false"
-          class="icon-button right-icon button button-default button-medium pill-shape icon-left"
+        <div
+          class="input-group right-icon"
         >
-          <span
-            aria-hidden="false"
-            class="icon icon-wrapper"
-            role="presentation"
+          <input
+            aria-controls="dropdown-"
+            aria-disabled="false"
+            aria-expanded="false"
+            aria-haspopup="true"
+            class="select-input input-medium with-icon-button input-stretch right-icon clear-disabled clear-not-visible"
+            id="input-"
+            placeholder="Select"
+            readonly=""
+            role="textbox"
+            tabindex="0"
+            type="text"
+            value=""
+          />
+          <div
+            class="action-wrapper"
           >
-            <svg
-              role="presentation"
-              style="width: 20px; height: 20px;"
-              viewBox="0 0 24 24"
+            <div
+              class="overlay"
+            />
+            <button
+              aria-disabled="false"
+              class="icon-button right-icon button button-default button-medium pill-shape icon-left"
             >
-              <path
-                d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"
-                style="fill: currentColor;"
-              />
-            </svg>
-          </span>
-        </button>
+              <span
+                aria-hidden="false"
+                class="icon icon-wrapper"
+                role="presentation"
+              >
+                <svg
+                  role="presentation"
+                  style="width: 20px; height: 20px;"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"
+                    style="fill: currentColor;"
+                  />
+                </svg>
+              </span>
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -227,43 +271,54 @@ exports[`Select Select is small 1`] = `
       class="input-wrapper input-small input-stretch right-icon"
     >
       <div
-        class="input-group right-icon"
+        class="expandable-wrapper"
       >
-        <input
-          aria-controls="dropdown-"
-          aria-disabled="false"
-          aria-expanded="false"
-          aria-haspopup="true"
-          class="select-input input-small with-icon-button input-stretch right-icon clear-disabled clear-not-visible"
-          id="input-"
-          placeholder="Select"
-          readonly=""
-          role="textbox"
-          tabindex="0"
-          type="text"
-          value=""
-        />
-        <button
-          aria-disabled="false"
-          class="icon-button right-icon button button-default button-small pill-shape icon-left"
+        <div
+          class="input-group right-icon"
         >
-          <span
-            aria-hidden="false"
-            class="icon icon-wrapper"
-            role="presentation"
+          <input
+            aria-controls="dropdown-"
+            aria-disabled="false"
+            aria-expanded="false"
+            aria-haspopup="true"
+            class="select-input input-small with-icon-button input-stretch right-icon clear-disabled clear-not-visible"
+            id="input-"
+            placeholder="Select"
+            readonly=""
+            role="textbox"
+            tabindex="0"
+            type="text"
+            value=""
+          />
+          <div
+            class="action-wrapper"
           >
-            <svg
-              role="presentation"
-              style="width: 16px; height: 16px;"
-              viewBox="0 0 24 24"
+            <div
+              class="overlay"
+            />
+            <button
+              aria-disabled="false"
+              class="icon-button right-icon button button-default button-small pill-shape icon-left"
             >
-              <path
-                d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"
-                style="fill: currentColor;"
-              />
-            </svg>
-          </span>
-        </button>
+              <span
+                aria-hidden="false"
+                class="icon icon-wrapper"
+                role="presentation"
+              >
+                <svg
+                  role="presentation"
+                  style="width: 16px; height: 16px;"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"
+                    style="fill: currentColor;"
+                  />
+                </svg>
+              </span>
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -281,43 +336,54 @@ exports[`Select Select is underline shaped 1`] = `
       class="input-wrapper underline input-medium input-stretch right-icon"
     >
       <div
-        class="input-group right-icon"
+        class="expandable-wrapper"
       >
-        <input
-          aria-controls="dropdown-"
-          aria-disabled="false"
-          aria-expanded="false"
-          aria-haspopup="true"
-          class="select-input input-medium with-icon-button underline input-stretch right-icon clear-disabled clear-not-visible"
-          id="input-"
-          placeholder="Select"
-          readonly=""
-          role="textbox"
-          tabindex="0"
-          type="text"
-          value=""
-        />
-        <button
-          aria-disabled="false"
-          class="icon-button right-icon button button-default button-medium pill-shape icon-left"
+        <div
+          class="input-group right-icon"
         >
-          <span
-            aria-hidden="false"
-            class="icon icon-wrapper"
-            role="presentation"
+          <input
+            aria-controls="dropdown-"
+            aria-disabled="false"
+            aria-expanded="false"
+            aria-haspopup="true"
+            class="select-input input-medium with-icon-button underline input-stretch right-icon clear-disabled clear-not-visible"
+            id="input-"
+            placeholder="Select"
+            readonly=""
+            role="textbox"
+            tabindex="0"
+            type="text"
+            value=""
+          />
+          <div
+            class="action-wrapper"
           >
-            <svg
-              role="presentation"
-              style="width: 20px; height: 20px;"
-              viewBox="0 0 24 24"
+            <div
+              class="overlay"
+            />
+            <button
+              aria-disabled="false"
+              class="icon-button right-icon button button-default button-medium pill-shape icon-left"
             >
-              <path
-                d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"
-                style="fill: currentColor;"
-              />
-            </svg>
-          </span>
-        </button>
+              <span
+                aria-hidden="false"
+                class="icon icon-wrapper"
+                role="presentation"
+              >
+                <svg
+                  role="presentation"
+                  style="width: 20px; height: 20px;"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"
+                    style="fill: currentColor;"
+                  />
+                </svg>
+              </span>
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   </div>
