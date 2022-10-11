@@ -282,28 +282,27 @@ export const Panel = React.forwardRef<PanelRef, PanelProps>(
                         return (
                             <PanelContext.Provider value={operations}>
                                 <NoFormStyle status override>
-                                    <FocusTrap trap={visible && focusTrap}>
+                                    <FocusTrap
+                                        trap={visible && focusTrap}
+                                        {...rest}
+                                        ref={containerRef}
+                                        classNames={panelBackdropClasses}
+                                        onClick={(
+                                            e: React.MouseEvent<HTMLDivElement>
+                                        ) => {
+                                            maskClosable && onClose(e);
+                                        }}
+                                        aria-hidden={!visible}
+                                    >
                                         <div
-                                            {...rest}
-                                            ref={containerRef}
-                                            className={panelBackdropClasses}
-                                            onClick={(
-                                                e: React.MouseEvent<HTMLDivElement>
-                                            ) => {
-                                                maskClosable && onClose(e);
-                                            }}
-                                            aria-hidden={!visible}
+                                            ref={panelRef}
+                                            className={panelClasses}
+                                            onClick={stopPropagation}
+                                            style={getPanelStyle()}
                                         >
-                                            <div
-                                                ref={panelRef}
-                                                className={panelClasses}
-                                                onClick={stopPropagation}
-                                                style={getPanelStyle()}
-                                            >
-                                                {getHeader()}
-                                                {getBody()}
-                                                {getFooter()}
-                                            </div>
+                                            {getHeader()}
+                                            {getBody()}
+                                            {getFooter()}
                                         </div>
                                     </FocusTrap>
                                 </NoFormStyle>
