@@ -44,6 +44,8 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
                 noSizeContext: false,
             },
             disabled = false,
+            expandable = false,
+            expandRight = false,
             formItemInput = false,
             htmlType = 'text',
             iconProps,
@@ -70,7 +72,6 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
             style,
             value,
             waitInterval = 10,
-            expandable = false,
             ...rest
         },
         ref: Ref<HTMLInputElement>
@@ -277,6 +278,7 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
             { [styles.inputWrapperRtl]: htmlDir === 'rtl' },
             { ['in-form-item']: mergedFormItemInput },
             { [styles.isExpandable]: expandable },
+            { [styles.expandRight]: expandable && expandRight },
         ]);
 
         useEffect(() => {

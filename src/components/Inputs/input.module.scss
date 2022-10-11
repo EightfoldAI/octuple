@@ -1482,6 +1482,21 @@
             background: $expandable-header-gradient;
         }
 
+        &.expand-right {
+            .input-group,
+            .overlay {
+                left: unset;
+                right: 10px;
+            }
+            .overlay {
+                transform: rotate(180deg);
+            }
+
+            .expandable-wrapper {
+                margin-left: 10px;
+            }
+        }
+
         input,
         .input-group,
         .overlay {
@@ -1498,7 +1513,7 @@
                 }
             }
 
-            ~ .actionWrapper {
+            ~ .action-wrapper {
                 display: block;
             }
 
@@ -1517,18 +1532,24 @@
             .input-group:not(:hover)
                 input.input-#{$size-name}:placeholder-shown {
                 min-width: $size-value;
-            }
-
-            .input-group:not(:hover)
-                input.input-#{$size-name}:placeholder-shown {
                 padding: 0;
                 overflow: hidden;
+
+                // Internet Explorer 10–11
+                &:-ms-input-placeholder {
+                    font-size: 0;
+                }
+
+                // Edge
+                &::-ms-input-placeholder {
+                    font-size: 0;
+                }
 
                 &::placeholder {
                     font-size: 0;
                 }
 
-                ~ .actionWrapper {
+                ~ .action-wrapper {
                     display: none;
                 }
             }

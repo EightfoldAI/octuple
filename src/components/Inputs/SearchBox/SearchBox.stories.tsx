@@ -159,6 +159,8 @@ Search_Box.args = {
     classNames: 'my-searchbox-class',
     clearButtonAriaLabel: 'Clear',
     disabled: false,
+    expandable: true,
+    expandRight: false,
     iconProps: {
         path: IconName.mdiCardsHeart,
         color: 'red',
@@ -176,7 +178,7 @@ Search_Box.args = {
             show: true,
             toolTipContent: 'tooltip',
         },
-        text: 'Label',
+        text: 'Search Label Placeholder',
     },
     maxlength: 100,
     minlength: 0,
@@ -187,5 +189,4 @@ Search_Box.args = {
     style: {},
     theme: TextInputTheme.light,
     waitInterval: 10,
-    expandable: true,
 };
