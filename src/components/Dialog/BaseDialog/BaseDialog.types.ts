@@ -101,6 +101,11 @@ export interface BaseDialogProps
      */
     dialogWrapperClassNames?: string;
     /**
+     * Unset this to disable focus trap
+     * @default true
+     */
+    focusTrap?: boolean;
+    /**
      * The header of the dialog
      */
     header?: React.ReactNode;
