@@ -78,6 +78,7 @@ export const AccordionBody: FC<AccordionBodyProps> = ({
     classNames,
     id,
     size,
+    bordered = true,
     ...rest
 }) => {
     const accordionBodyContainerStyles: string = mergeClasses(
@@ -87,8 +88,8 @@ export const AccordionBody: FC<AccordionBodyProps> = ({
 
     const accordionBodyStyles: string = mergeClasses(
         styles.accordionBody,
-        styles.showBorderTop,
         {
+            [styles.borderTop]: bordered,
             [styles.medium]: size === AccordionSize.Medium,
             [styles.large]: size === AccordionSize.Large,
         },
@@ -170,6 +171,7 @@ export const Accordion: FC<AccordionProps> = React.forwardRef(
                     id={id}
                     expanded={isExpanded}
                     size={size}
+                    bordered={bordered}
                     {...bodyProps}
                 >
                     {children}

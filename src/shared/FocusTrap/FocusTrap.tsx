@@ -1,14 +1,27 @@
-import React from 'react';
-
+import React, { FC } from 'react';
 import { useFocusTrap } from './hooks/useFocusTrap';
+import { OcBaseProps } from '../../components/OcBase';
 
-interface Pros {
-    children: React.ReactElement;
+interface FocusTrapProps extends OcBaseProps<HTMLDivElement> {
     trap: boolean;
 }
 
-export const FocusTrap = ({ children, trap = true }: Pros): JSX.Element => {
+export const FocusTrap: FC<FocusTrapProps> = ({
+    trap = true,
+    children,
+    classNames,
+    'data-test-id': dataTestId,
+    ...rest
+}) => {
     const focusRef = useFocusTrap(trap);
-    if (!trap) return children;
-    return <div ref={focusRef}>{children}</div>;
+    return (
+        <div
+            ref={focusRef}
+            className={classNames}
+            data-test-id={dataTestId}
+            {...rest}
+        >
+            {children}
+        </div>
+    );
 };
