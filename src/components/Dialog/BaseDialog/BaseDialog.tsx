@@ -9,6 +9,7 @@ import {
 import { IconName } from '../../Icon';
 import { ButtonShape, NeutralButton } from '../../Button';
 import { useScrollLock } from '../../../hooks/useScrollLock';
+import { FocusTrap } from '../../../shared/FocusTrap';
 import { NoFormStyle } from '../../Form/Context';
 import { useCanvasDirection } from '../../../hooks/useCanvasDirection';
 
@@ -47,6 +48,7 @@ export const BaseDialog: FC<BaseDialogProps> = React.forwardRef(
             visible,
             width,
             zIndex,
+            focusTrap = true,
             ...rest
         },
         ref: Ref<HTMLDivElement>
@@ -114,7 +116,8 @@ export const BaseDialog: FC<BaseDialogProps> = React.forwardRef(
 
         const getDialog = (): JSX.Element => (
             <NoFormStyle status override>
-                <div
+                <FocusTrap
+                    trap={visible && focusTrap}
                     {...rest}
                     ref={ref}
                     role="dialog"
@@ -186,7 +189,7 @@ export const BaseDialog: FC<BaseDialogProps> = React.forwardRef(
                             <div className={actionsClasses}>{actions}</div>
                         )}
                     </div>
-                </div>
+                </FocusTrap>
             </NoFormStyle>
         );
         return <Portal getContainer={() => parent}>{getDialog()}</Portal>;
