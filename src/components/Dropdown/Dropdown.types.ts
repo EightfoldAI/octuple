@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { MutableRefObject } from 'react';
 import { Placement, Strategy } from '@floating-ui/react-dom';
 
 export interface DropdownProps {
@@ -32,6 +32,10 @@ export interface DropdownProps {
      * Manually control the height of the dropdown
      */
     height?: number;
+    /**
+     * Include dropdown textbox ref if using Select component
+     */
+    inputRef?: MutableRefObject<HTMLInputElement>;
     /**
      * The offset from the reference element
      * @default 0
