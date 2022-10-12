@@ -33,6 +33,10 @@ export interface DropdownProps {
      */
     height?: number;
     /**
+     * Include dropdown textbox ref if using Select component
+     */
+    inputRef?: MutableRefObject<HTMLInputElement>;
+    /**
      * The offset from the reference element
      * @default 0
      */
@@ -90,8 +94,4 @@ export interface DropdownProps {
      * Manually control the width of the dropdown
      */
     width?: number;
-    /**
-     * Include dropdown textbox ref if using Select component
-     */
-    inputRef?: MutableRefObject<HTMLInputElement>;
 }
