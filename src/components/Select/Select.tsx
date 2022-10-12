@@ -479,6 +479,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
             clearable: clearable,
             inputWidth: inputWidth,
             iconButtonProps: {
+                htmlType: 'button',
                 iconProps: {
                     path: dropdownVisible
                         ? IconName.mdiChevronUp
