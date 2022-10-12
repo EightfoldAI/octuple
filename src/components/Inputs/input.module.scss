@@ -1521,8 +1521,8 @@
         }
 
         // Set Rules
-        .input-group:focus-within > input,
         .input-group:hover > input,
+        .input-group:focus-within > input,
         input:focus,
         input:not(:placeholder-shown) {
             @each $size-name, $size-value in $input-size-map {
