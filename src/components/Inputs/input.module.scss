@@ -1461,10 +1461,6 @@
             input {
                 width: 0;
             }
-
-            .clear-icon-button {
-                right: -12%;
-            }
         }
 
         .expandable-thumb {
@@ -1500,8 +1496,7 @@
         input,
         .input-group,
         .overlay {
-            transition: padding $motion-duration-extra-fast
-                $motion-easing-easeout;
+            transition: all $motion-duration-extra-fast $motion-easing-easeout;
         }
 
         .input-group:focus-within {
@@ -1640,3 +1635,7 @@
 }
 
 @import './Styles/rtl';
+
+*:focus {
+    border: 1px solid red !important;
+}
