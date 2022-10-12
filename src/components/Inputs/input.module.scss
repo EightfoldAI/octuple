@@ -1500,10 +1500,28 @@
         input,
         .input-group,
         .overlay {
-            transition: all $motion-duration-fast $motion-easing-easeout;
+            transition: padding $motion-duration-extra-fast
+                $motion-easing-easeout;
+        }
+
+        .input-group:focus-within {
+            @each $size-name, $size-value in $input-size-map {
+                &.input-#{$size-name} {
+                    width: auto;
+                }
+            }
+
+            ~ .action-wrapper {
+                display: block;
+            }
+
+            ~ .expandable-thumb {
+                display: none;
+            }
         }
 
         // Set Rules
+        .input-group:focus-within > input,
         .input-group:hover > input,
         input:focus,
         input:not(:placeholder-shown) {
@@ -1529,7 +1547,7 @@
                 min-height: $size-value;
             }
 
-            .input-group:not(:hover)
+            .input-group:not(:hover):not(:focus-within)
                 input.input-#{$size-name}:placeholder-shown {
                 min-width: $size-value;
                 padding: 0;
