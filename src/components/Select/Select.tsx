@@ -559,6 +559,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
                         }
                         showDropdown={showDropdown}
                         visible={dropdownVisible}
+                        inputRef={inputRef}
                     >
                         <TextInput
                             ref={inputRef}
