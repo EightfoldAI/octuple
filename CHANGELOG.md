@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.16.1](https://github.com/EightfoldAI/octuple/compare/v2.16.0...v2.16.1) (2022-10-12)
+
+### Bug Fixes
+
+-   a11y fixes in cases of portal dropdown ([#405](https://github.com/EightfoldAI/octuple/issues/405)) ([2ab62d0](https://github.com/EightfoldAI/octuple/commits/2ab62d0a70065d4c6fae6f05cb39332a76243bb6))
+-   accordion: remove body top border on borderd false ([#416](https://github.com/EightfoldAI/octuple/issues/416)) ([95870ed](https://github.com/EightfoldAI/octuple/commits/95870eda3e03f29c030de06cd62dd53c8f7cdf00))
+-   dialog focus trap and restore ([#412](https://github.com/EightfoldAI/octuple/issues/412)) ([651d4fd](https://github.com/EightfoldAI/octuple/commits/651d4fd014cf8c82e384226f14e616ba9e6ef2bd))
+-   **dropdown:** modify flip behavior for filterable Select ([#417](https://github.com/EightfoldAI/octuple/issues/417)) ([25b6144](https://github.com/EightfoldAI/octuple/commits/25b6144d1725ce7c38107783a416814a23e56ed9))
+-   overflow fix in the panel ([#415](https://github.com/EightfoldAI/octuple/issues/415)) ([844be5e](https://github.com/EightfoldAI/octuple/commits/844be5eae68cb7f979c9759f974ea6205a5b5d52))
+-   panel: fix panel animation while closing ([#414](https://github.com/EightfoldAI/octuple/issues/414)) ([7e12a20](https://github.com/EightfoldAI/octuple/commits/7e12a2003fcefea5f46c3cd2aa185a3244876f7e))
+-   select: adds html type to chevron button ([#419](https://github.com/EightfoldAI/octuple/issues/419)) ([532c091](https://github.com/EightfoldAI/octuple/commits/532c0910c5902a5912091c2dfe00cb89a72bbeeb))
+
 ## [2.16.0](https://github.com/EightfoldAI/octuple/compare/v2.14.0...v2.16.0) (2022-10-06)
 
 ### Features
