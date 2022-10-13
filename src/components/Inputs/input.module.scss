@@ -1459,6 +1459,11 @@
 
             input {
                 width: 0;
+
+                &::placeholder {
+                    transition: opacity $motion-duration-extra-fast
+                        $motion-easing-easeinout $motion-delay-s;
+                }
             }
         }
 
@@ -1530,13 +1535,6 @@
             }
         }
 
-        .input-group:hover,
-        .input-group:focus-within {
-            &::after {
-                left: 100%;
-            }
-        }
-
         // Unset Rules
         @each $size-name, $size-value in $input-size-map {
             &.input-#{$size-name} > .expandable-wrapper {
@@ -1552,15 +1550,18 @@
 
                 // Internet Explorer 10–11
                 &:-ms-input-placeholder {
+                    opacity: 0;
                     font-size: 0;
                 }
 
                 // Edge
                 &::-ms-input-placeholder {
+                    opacity: 0;
                     font-size: 0;
                 }
 
                 &::placeholder {
+                    opacity: 0;
                     font-size: 0;
                 }
 
@@ -1637,7 +1638,3 @@
 }
 
 @import './Styles/rtl';
-
-// *:focus {
-//     border: 1px solid red !important;
-// }
