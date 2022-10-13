@@ -1456,7 +1456,6 @@
         .input-group {
             position: absolute;
             left: 0;
-            z-index: 10;
 
             input {
                 width: 0;
@@ -1487,16 +1486,12 @@
             .overlay {
                 transform: rotate(180deg);
             }
-
-            .expandable-wrapper {
-                margin-left: 10px;
-            }
         }
 
         input,
         .input-group,
         .overlay {
-            transition: all $motion-duration-extra-fast $motion-easing-easeout;
+            transition: all $motion-duration-extra-fast $motion-easing-easeinout;
         }
 
         .input-group:focus-within {
@@ -1532,6 +1527,13 @@
 
             ~ .expandable-thumb {
                 display: none;
+            }
+        }
+
+        .input-group:hover,
+        .input-group:focus-within {
+            &::after {
+                left: 100%;
             }
         }
 
@@ -1636,6 +1638,6 @@
 
 @import './Styles/rtl';
 
-*:focus {
-    border: 1px solid red !important;
-}
+// *:focus {
+//     border: 1px solid red !important;
+// }

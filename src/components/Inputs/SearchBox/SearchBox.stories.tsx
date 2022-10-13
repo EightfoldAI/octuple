@@ -155,7 +155,7 @@ export const Search_Box = Search_Box_Story.bind({});
 Search_Box.args = {
     allowDisabledFocus: false,
     ariaLabel: 'Search',
-    autoFocus: false,
+    autoFocus: true,
     classNames: 'my-searchbox-class',
     clearButtonAriaLabel: 'Clear',
     disabled: false,
@@ -171,7 +171,7 @@ Search_Box.args = {
         iconProps: { path: IconName.mdiMagnify },
     },
     id: 'mySearchBoxId',
-    inline: false,
+    inline: true,
     inputWidth: TextInputWidth.fitContent,
     labelProps: {
         labelIconButtonProps: {
