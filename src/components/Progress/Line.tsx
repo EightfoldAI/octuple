@@ -1,5 +1,5 @@
 import React, { FC, useLayoutEffect, useRef } from 'react';
-import type { DirectionType } from '../configProvider';
+import type { DirectionType } from '../ConfigProvider';
 import { LineProps, ProgressSize } from './Progress.types';
 import type { ProgressGradient, StringGradients } from './Progress.types';
 import { getSuccessPercent, validProgress } from './Utils';
