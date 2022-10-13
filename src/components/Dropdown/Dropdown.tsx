@@ -58,6 +58,7 @@ export const Dropdown: FC<DropdownProps> = React.memo(
         onClickOutside,
         width,
         height,
+        inputRef,
     }) => {
         const [mergedVisible, setVisible] = useMergedState<boolean>(false, {
             value: visible,
@@ -71,7 +72,7 @@ export const Dropdown: FC<DropdownProps> = React.memo(
             useFloating({
                 placement,
                 strategy: positionStrategy,
-                middleware: [flip(), fOffset(offset), shift()],
+                middleware: [fOffset(offset), flip(), shift()],
             });
 
         const toggle: Function =
@@ -151,6 +152,15 @@ export const Dropdown: FC<DropdownProps> = React.memo(
             height: height ?? '',
         };
 
+        const dropdownStylesFlipped: React.CSSProperties = {
+            ...dropdownStyle,
+            position: strategy,
+            bottom: offset + inputRef?.current?.clientHeight,
+            left: x ?? '',
+            width: width ?? '',
+            height: height ?? '',
+        };
+
         const getReference = (): JSX.Element => {
             const child = React.Children.only(
                 children
@@ -184,7 +194,7 @@ export const Dropdown: FC<DropdownProps> = React.memo(
             mergedVisible && (
                 <div
                     ref={floating}
-                    style={dropdownStyles}
+                    style={y > 0 ? dropdownStyles : dropdownStylesFlipped}
                     className={dropdownClasses}
                     tabIndex={0}
                     onClick={

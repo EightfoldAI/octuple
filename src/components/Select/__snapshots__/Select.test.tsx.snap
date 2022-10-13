@@ -39,6 +39,7 @@ exports[`Select Select is large 1`] = `
             <button
               aria-disabled="false"
               class="icon-button right-icon button button-default button-large pill-shape icon-left"
+              type="button"
             >
               <span
                 aria-hidden="false"
@@ -104,6 +105,7 @@ exports[`Select Select is medium 1`] = `
             <button
               aria-disabled="false"
               class="icon-button right-icon button button-default button-medium pill-shape icon-left"
+              type="button"
             >
               <span
                 aria-hidden="false"
@@ -169,6 +171,7 @@ exports[`Select Select is pill shaped 1`] = `
             <button
               aria-disabled="false"
               class="icon-button right-icon button button-default button-medium pill-shape icon-left"
+              type="button"
             >
               <span
                 aria-hidden="false"
@@ -234,6 +237,7 @@ exports[`Select Select is rectangle shaped 1`] = `
             <button
               aria-disabled="false"
               class="icon-button right-icon button button-default button-medium pill-shape icon-left"
+              type="button"
             >
               <span
                 aria-hidden="false"
@@ -299,6 +303,7 @@ exports[`Select Select is small 1`] = `
             <button
               aria-disabled="false"
               class="icon-button right-icon button button-default button-small pill-shape icon-left"
+              type="button"
             >
               <span
                 aria-hidden="false"
@@ -364,6 +369,7 @@ exports[`Select Select is underline shaped 1`] = `
             <button
               aria-disabled="false"
               class="icon-button right-icon button button-default button-medium pill-shape icon-left"
+              type="button"
             >
               <span
                 aria-hidden="false"
