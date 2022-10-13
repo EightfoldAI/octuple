@@ -55,19 +55,6 @@ $picker-input-padding-vertical: max(
     padding: $padding-top 0 $padding-bottom $padding-horizontal;
 }
 
-// Picker css reset
-@mixin reset-component() {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    color: var(--text-primary-color);
-    font-size: 14px;
-    font-variant: tabular-nums;
-    line-height: 1.5715;
-    list-style: none;
-    font-feature-settings: 'tnum';
-}
-
 // Picker scroll bars
 @mixin scroll-bars() {
     -ms-overflow-style: none;

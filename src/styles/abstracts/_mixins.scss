@@ -19,6 +19,31 @@
     opacity: 0;
 }
 
+@mixin reset-component() {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    color: var(--text-primary-color);
+    font-size: $text-font-size-2;
+    font-variant: tabular-nums;
+    line-height: 1.5715;
+    list-style: none;
+    font-feature-settings: 'tnum';
+}
+
+@mixin clearfix() {
+    &:before {
+        display: table;
+        content: '';
+    }
+
+    &:after {
+        display: table;
+        clear: both;
+        content: '';
+    }
+}
+
 @mixin backdrop {
     @include surface-layout();
 
