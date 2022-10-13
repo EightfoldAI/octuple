@@ -23,6 +23,8 @@ const Progress: FC<ProgressProps> = React.forwardRef(
             classNames,
             hideMax = false,
             hideMin = false,
+            maxLabel,
+            minLabel,
             percent = 0,
             showLabels = true,
             showPercentSymbol = true,
@@ -32,6 +34,7 @@ const Progress: FC<ProgressProps> = React.forwardRef(
             steps,
             stepWidth,
             strokeColor,
+            successLabel,
             type = 'line',
             width,
             ...rest
@@ -157,18 +160,17 @@ const Progress: FC<ProgressProps> = React.forwardRef(
                                     styles.progressText,
                                 ])}
                                 ref={minLabelRef}
-                                title={
-                                    !hideMin
-                                        ? typeof text === 'string'
-                                            ? text
-                                            : undefined
-                                        : undefined
-                                }
+                                title={minLabelRef.current?.innerText}
                             >
                                 {!hideMin && !showValueLabel && text}
                                 {!hideMin &&
+                                    !minLabel &&
                                     showValueLabel &&
                                     (showPercentSymbol ? '0%' : '0')}
+                                {!hideMin &&
+                                    minLabel &&
+                                    showValueLabel &&
+                                    minLabel}
                             </span>
                             <span
                                 className={mergeClasses([
@@ -177,16 +179,12 @@ const Progress: FC<ProgressProps> = React.forwardRef(
                                     styles.progressText,
                                 ])}
                                 ref={maxLabelRef}
-                                title={
-                                    !hideMax
-                                        ? showPercentSymbol
-                                            ? '100%'
-                                            : '100'
-                                        : undefined
-                                }
+                                title={maxLabelRef.current?.innerText}
                             >
                                 {!hideMax &&
+                                    !maxLabel &&
                                     (showPercentSymbol ? '100%' : '100')}
+                                {!hideMax && maxLabel && maxLabel}
                             </span>
                             <span
                                 className={mergeClasses([
@@ -194,13 +192,7 @@ const Progress: FC<ProgressProps> = React.forwardRef(
                                     styles.progressText,
                                 ])}
                                 ref={valueLabelRef}
-                                title={
-                                    showValueLabel
-                                        ? typeof text === 'string'
-                                            ? text
-                                            : undefined
-                                        : undefined
-                                }
+                                title={valueLabelRef.current?.innerText}
                             >
                                 {showValueLabel && text}
                             </span>
@@ -210,18 +202,16 @@ const Progress: FC<ProgressProps> = React.forwardRef(
                                     styles.progressText,
                                 ])}
                                 ref={successLabelRef}
-                                title={
-                                    showValueLabel
-                                        ? showPercentSymbol
-                                            ? `${successPercent}%`
-                                            : `${successPercent}`
-                                        : undefined
-                                }
+                                title={successLabelRef.current?.innerText}
                             >
                                 {showSuccessLabel &&
+                                    !successLabel &&
                                     (showPercentSymbol
                                         ? `${successPercent}%`
                                         : `${successPercent}`)}
+                                {showSuccessLabel &&
+                                    successLabel &&
+                                    successLabel}
                             </span>
                         </div>
                     )}

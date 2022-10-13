@@ -48,15 +48,24 @@ export interface ProgressProps extends OcBaseProps<HTMLDivElement> {
      */
     gapPosition?: GapPositionType | null;
     /**
-     * Hide the maximum value of the slider.
+     * Hide the maximum value of Progress.
      * @default false
      */
     hideMax?: boolean;
     /**
-     * Hide the minimum value of the slider.
+     * Hide the minimum value of Progress.
      * @default false
      */
     hideMin?: boolean;
+    /**
+     * The custom maximum value label of Progress.
+     */
+    maxLabel?: string;
+    /**
+     * The custom minimum value label of Progress.
+     * Use when showValueLabel is true.
+     */
+    minLabel?: string;
     /**
      * The Progress completion percentage.
      * @default 0
@@ -122,6 +131,10 @@ export interface ProgressProps extends OcBaseProps<HTMLDivElement> {
      * The Progress success segment configuration.
      */
     success?: SuccessProps;
+    /**
+     * The custom success segment value label of Progress.
+     */
+    successLabel?: string;
     /**
      * The color of the unfilled part.
      */

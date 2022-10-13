@@ -181,13 +181,11 @@ exports[`Progress render format 1`] = `
   >
     <span
       class="extremity-label min-label progress-text"
-      title="50 10"
     >
       50 10
     </span>
     <span
       class="extremity-label max-label progress-text"
-      title="100%"
     >
       100%
     </span>
@@ -222,13 +220,11 @@ exports[`Progress render negative progress 1`] = `
   >
     <span
       class="extremity-label min-label progress-text"
-      title="0%"
     >
       0%
     </span>
     <span
       class="extremity-label max-label progress-text"
-      title="100%"
     >
       100%
     </span>
@@ -267,13 +263,11 @@ exports[`Progress render negative successPercent 1`] = `
   >
     <span
       class="extremity-label min-label progress-text"
-      title="50%"
     >
       50%
     </span>
     <span
       class="extremity-label max-label progress-text"
-      title="100%"
     >
       100%
     </span>
@@ -308,13 +302,11 @@ exports[`Progress render normal progress 1`] = `
   >
     <span
       class="extremity-label min-label progress-text"
-      title="0%"
     >
       0%
     </span>
     <span
       class="extremity-label max-label progress-text"
-      title="100%"
     >
       100%
     </span>
@@ -369,7 +361,6 @@ exports[`Progress render out-of-range progress 1`] = `
     </span>
     <span
       class="extremity-label max-label progress-text"
-      title="100%"
     >
       100%
     </span>
@@ -424,7 +415,6 @@ exports[`Progress render out-of-range progress with info 1`] = `
     </span>
     <span
       class="extremity-label max-label progress-text"
-      title="100%"
     >
       100%
     </span>
@@ -511,13 +501,11 @@ exports[`Progress render strokeColor 2`] = `
   >
     <span
       class="extremity-label min-label progress-text"
-      title="50%"
     >
       50%
     </span>
     <span
       class="extremity-label max-label progress-text"
-      title="100%"
     >
       100%
     </span>
@@ -552,13 +540,11 @@ exports[`Progress render strokeColor 3`] = `
   >
     <span
       class="extremity-label min-label progress-text"
-      title="50%"
     >
       50%
     </span>
     <span
       class="extremity-label max-label progress-text"
-      title="100%"
     >
       100%
     </span>
@@ -597,13 +583,11 @@ exports[`Progress render successColor progress 1`] = `
   >
     <span
       class="extremity-label min-label progress-text"
-      title="60%"
     >
       60%
     </span>
     <span
       class="extremity-label max-label progress-text"
-      title="100%"
     >
       100%
     </span>
@@ -743,13 +727,11 @@ exports[`Progress render trailColor progress 1`] = `
   >
     <span
       class="extremity-label min-label progress-text"
-      title="0%"
     >
       0%
     </span>
     <span
       class="extremity-label max-label progress-text"
-      title="100%"
     >
       100%
     </span>
@@ -788,13 +770,11 @@ exports[`Progress should support steps 1`] = `
   >
     <span
       class="extremity-label min-label progress-text"
-      title="0%"
     >
       0%
     </span>
     <span
       class="extremity-label max-label progress-text"
-      title="100%"
     >
       100%
     </span>
