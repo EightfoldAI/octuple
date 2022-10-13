@@ -1,9 +1,12 @@
 import React, { FC, useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { ProgressStepsProps } from './Progress.types';
+import { MAX_PERCENT } from './Internal/Common';
 import { ResizeObserver } from '../../shared/ResizeObserver/ResizeObserver';
 import { mergeClasses } from '../../shared/utilities';
 
 import styles from './progress.module.scss';
+
+const STEP_ITEM_MARGIN_OFFSET: number = 4;
 
 const Steps: FC<ProgressStepsProps> = (props) => {
     const {
@@ -23,9 +26,8 @@ const Steps: FC<ProgressStepsProps> = (props) => {
         valueLabelRef,
     } = props;
     const [calculatedWidth, setCalculatedWidth] = useState<string>('0');
-    const current: number = Math.round(steps * (percent / 100));
+    const current: number = Math.round(steps * (percent / MAX_PERCENT));
     const styledSteps: React.ReactNode[] = new Array(steps);
-    const stepItemMarginOffset: number = 4;
     const flexContainerRef: React.MutableRefObject<HTMLDivElement> =
         useRef<HTMLDivElement>(null);
     const progressBgRef: React.MutableRefObject<HTMLDivElement> =
@@ -65,12 +67,14 @@ const Steps: FC<ProgressStepsProps> = (props) => {
             flexContainerRef.current?.offsetWidth || 0;
         const itemWidth: number = Math.round(
             Math.floor(flexContainerWidth / steps) -
-                stepItemMarginOffset +
-                Math.ceil(stepItemMarginOffset / steps)
+                STEP_ITEM_MARGIN_OFFSET +
+                Math.ceil(STEP_ITEM_MARGIN_OFFSET / steps)
         );
 
         // Calculates the percent width of each item
-        setCalculatedWidth(`${(itemWidth / flexContainerWidth) * 100}%`);
+        setCalculatedWidth(
+            `${(itemWidth / flexContainerWidth) * MAX_PERCENT}%`
+        );
     }, [steps]);
 
     const updateLayout = (): void => {

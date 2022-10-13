@@ -9,6 +9,7 @@ import {
     StringGradients,
 } from './Progress.types';
 import { getSuccessPercent, validProgress } from './Utils';
+import { MAX_PERCENT } from './Internal/Common';
 import { DirectionType } from '../ConfigProvider';
 import { Icon, IconName, IconSize } from '../Icon';
 import { useCanvasDirection } from '../../hooks/useCanvasDirection';
@@ -65,7 +66,7 @@ const Progress: FC<ProgressProps> = React.forwardRef(
             const { status } = props;
             if (
                 ProgressStatuses.indexOf(status!) < 0 &&
-                getPercentNumber() >= 100
+                getPercentNumber() >= MAX_PERCENT
             ) {
                 return 'success';
             }

@@ -1,36 +1,30 @@
 import { useRef, useEffect } from 'react';
-import { OcProgressProps } from './OcProgress.types';
 
-export const defaultProps: Partial<OcProgressProps> = {
-    classNames: '',
-    percent: 0,
-    strokeColor: 'var(--primary-color-60)',
-    strokeLinecap: 'round',
-    strokeWidth: 1,
-    style: {},
-    trailColor: 'var(--accent-color-10)',
-    trailWidth: 1,
-    gapPosition: 'bottom',
-};
+export const MAX_PERCENT: number = 100;
 
 export const useTransitionDuration = (): SVGPathElement[] => {
-    const pathsRef = useRef<SVGPathElement[]>([]);
-    const prevTimeStamp = useRef(null);
+    const pathsRef: React.MutableRefObject<SVGPathElement[]> = useRef<
+        SVGPathElement[]
+    >([]);
+    const prevTimeStamp: React.MutableRefObject<any> = useRef(null);
 
     useEffect(() => {
-        const now = Date.now();
-        let updated = false;
+        const now: number = Date.now();
+        let updated: boolean = false;
 
-        pathsRef.current.forEach((path) => {
+        pathsRef.current.forEach((path: SVGPathElement) => {
             if (!path) {
                 return;
             }
 
             updated = true;
-            const pathStyle = path.style;
+            const pathStyle: CSSStyleDeclaration = path.style;
             pathStyle.transitionDuration = '.3s, .3s, .3s, .06s';
 
-            if (prevTimeStamp.current && now - prevTimeStamp.current < 100) {
+            if (
+                prevTimeStamp.current &&
+                now - prevTimeStamp.current < MAX_PERCENT
+            ) {
                 pathStyle.transitionDuration = '0s, 0s';
             }
         });

@@ -17,7 +17,7 @@ export interface OcProgressProps {
      * The gap position, options: 'top' 'bottom' 'left' 'right'.
      * @default 'bottom'
      */
-    gapPosition?: GapPositionType;
+    gapPosition?: GapPositionType | null;
     /**
      * The Progress id.
      */

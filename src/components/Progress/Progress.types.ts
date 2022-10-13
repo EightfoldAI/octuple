@@ -1,5 +1,6 @@
 import { DirectionType } from '../ConfigProvider';
 import { OcBaseProps } from '../OcBase';
+import type { GapPositionType } from './Internal/OcProgress.types';
 import { tuple } from '../../shared/utilities';
 
 const ProgressTypes = tuple('line', 'circle', 'dashboard');
@@ -45,7 +46,7 @@ export interface ProgressProps extends OcBaseProps<HTMLDivElement> {
      * The gap position, options: 'top' 'bottom' 'left' 'right'.
      * @default 'bottom'
      */
-    gapPosition?: 'top' | 'bottom' | 'left' | 'right';
+    gapPosition?: GapPositionType | null;
     /**
      * Hide the maximum value of the slider.
      * @default false
@@ -124,7 +125,7 @@ export interface ProgressProps extends OcBaseProps<HTMLDivElement> {
     /**
      * The color of the unfilled part.
      */
-    trailColor?: string;
+    trailColor?: string | null;
     /**
      * The type of Progress
      * @default 'line'

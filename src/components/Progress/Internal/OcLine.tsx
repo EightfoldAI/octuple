@@ -1,38 +1,37 @@
 import React, { FC } from 'react';
-import type { OcProgressProps } from './OcProgress.types';
-import { useTransitionDuration, defaultProps } from './Common';
+import type { BaseStrokeColorType, OcProgressProps } from './OcProgress.types';
+import { MAX_PERCENT, useTransitionDuration } from './Common';
 import { mergeClasses } from '../../../shared/utilities';
 
 import styles from '../progress.module.scss';
 
 const OcLine: FC<OcProgressProps> = ({
     classNames,
-    percent,
-    strokeColor,
-    strokeLinecap,
-    strokeWidth,
+    percent = 0,
+    strokeColor = 'var(--primary-color-60)',
+    strokeLinecap = 'round',
+    strokeWidth = 1,
     style,
-    trailColor,
-    trailWidth,
+    trailColor = 'var(--accent-color-10)',
+    trailWidth = 1,
     transition,
     ...rest
 }) => {
-    // eslint-disable-next-line no-param-reassign
-    delete rest.gapPosition;
-
-    const percentList = Array.isArray(percent) ? percent : [percent];
-    const strokeColorList = Array.isArray(strokeColor)
+    const percentList: number[] = Array.isArray(percent) ? percent : [percent];
+    const strokeColorList: BaseStrokeColorType[] = Array.isArray(strokeColor)
         ? strokeColor
         : [strokeColor];
+    const paths: SVGPathElement[] = useTransitionDuration();
+    const center: number = strokeWidth / 2;
+    const right: number = MAX_PERCENT - strokeWidth / 2;
+    const pathString: string = `M ${
+        strokeLinecap === 'round' ? center : 0
+    },${center}
+         L ${strokeLinecap === 'round' ? right : MAX_PERCENT},${center}`;
+    const viewBoxString: string = `0 0 100 ${strokeWidth}`;
 
-    const paths = useTransitionDuration();
+    let stackPtg: number = 0;
 
-    const center = strokeWidth / 2;
-    const right = 100 - strokeWidth / 2;
-    const pathString = `M ${strokeLinecap === 'round' ? center : 0},${center}
-         L ${strokeLinecap === 'round' ? right : 100},${center}`;
-    const viewBoxString = `0 0 100 ${strokeWidth}`;
-    let stackPtg = 0;
     return (
         <svg
             className={mergeClasses([styles.progressLine, classNames])}
@@ -53,10 +52,10 @@ const OcLine: FC<OcProgressProps> = ({
                 let dashPercent = 1;
                 switch (strokeLinecap) {
                     case 'round':
-                        dashPercent = 1 - strokeWidth / 100;
+                        dashPercent = 1 - strokeWidth / MAX_PERCENT;
                         break;
                     case 'square':
-                        dashPercent = 1 - strokeWidth / 2 / 100;
+                        dashPercent = 1 - strokeWidth / 2 / MAX_PERCENT;
                         break;
                     default:
                         dashPercent = 1;
@@ -97,7 +96,5 @@ const OcLine: FC<OcProgressProps> = ({
         </svg>
     );
 };
-
-OcLine.defaultProps = defaultProps;
 
 export default OcLine;

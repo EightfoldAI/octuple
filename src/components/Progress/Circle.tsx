@@ -6,7 +6,13 @@ import { mergeClasses } from '../../shared/utilities';
 
 import styles from './progress.module.scss';
 
-function getPercentage({ percent, success }: CircleProps) {
+const DEFAULT_CIRCLE_SIZE: number = 120;
+const DEFAULT_GAP_DEGREE: number = 75;
+const DEFAULT_STROKE_WIDTH_DIVISOR: number = 1.6;
+const FAlLBACK_STROKE_WIDTH: number = 4;
+const FONT_SIZE_FLOAT: number = 0.15;
+
+function getPercentage({ percent, success }: CircleProps): number[] {
     const realSuccessPercent = validProgress(getSuccessPercent({ success }));
     return [
         realSuccessPercent,
@@ -28,30 +34,30 @@ const Circle: FC<CircleProps> = (props) => {
         gapDegree,
         gapPosition,
         strokeLinecap = 'butt',
-        strokeWidth = VIEW_BOX_SIZE / 1.6,
+        strokeWidth = VIEW_BOX_SIZE / DEFAULT_STROKE_WIDTH_DIVISOR,
         success,
-        trailColor = null as any,
+        trailColor = null,
         type,
         width,
     } = props;
 
-    const circleSize = width || 120;
-    const circleStyle = {
+    const circleSize: number = width || DEFAULT_CIRCLE_SIZE;
+    const circleStyle: React.CSSProperties = {
         width: circleSize,
         height: circleSize,
-        fontSize: circleSize * 0.15 + 4,
-    } as React.CSSProperties;
-    const circleWidth = strokeWidth || 4;
-    const gapPos =
+        fontSize: circleSize * FONT_SIZE_FLOAT + FAlLBACK_STROKE_WIDTH,
+    };
+    const circleWidth: number = strokeWidth || FAlLBACK_STROKE_WIDTH;
+    const gapPos: 'top' | 'bottom' | 'left' | 'right' =
         gapPosition || (type === 'dashboard' && 'bottom') || undefined;
 
-    const getGapDegree = () => {
+    const getGapDegree = (): number => {
         // Support gapDeg = 0 when type = 'dashboard'
         if (gapDegree || gapDegree === 0) {
             return gapDegree;
         }
         if (type === 'dashboard') {
-            return 75;
+            return DEFAULT_GAP_DEGREE;
         }
         return undefined;
     };

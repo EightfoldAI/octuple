@@ -1,8 +1,8 @@
 import React, { FC, useLayoutEffect, useRef } from 'react';
-import type { DirectionType } from '../ConfigProvider';
 import { LineProps, ProgressSize } from './Progress.types';
 import type { ProgressGradient, StringGradients } from './Progress.types';
 import { getSuccessPercent, validProgress } from './Utils';
+import type { DirectionType } from '../ConfigProvider';
 import { ResizeObserver } from '../../shared/ResizeObserver/ResizeObserver';
 
 import styles from './progress.module.scss';

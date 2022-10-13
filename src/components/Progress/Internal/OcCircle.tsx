@@ -1,8 +1,7 @@
 import React, { FC } from 'react';
-import { defaultProps, useTransitionDuration } from './Common';
+import { MAX_PERCENT, useTransitionDuration } from './Common';
 import type { OcProgressProps } from './OcProgress.types';
-import useId from './hooks/useId';
-import { mergeClasses } from '../../../shared/utilities';
+import { mergeClasses, uniqueId } from '../../../shared/utilities';
 import styles from '../progress.module.scss';
 
 function stripPercentToNumber(percent: string): number {
@@ -10,11 +9,17 @@ function stripPercentToNumber(percent: string): number {
 }
 
 function toArray<T>(value: T | T[]): T[] {
-    const mergedValue = value ?? [];
+    const mergedValue: T | T[] = value ?? [];
     return Array.isArray(mergedValue) ? mergedValue : [mergedValue];
 }
 
 export const VIEW_BOX_SIZE: number = 100;
+
+const CIRCLE_DEGREE: number = 360;
+const FLIP_DEGREE: number = 180;
+const ROTATE_RIGHT_ANGLE_DEGREE: number = 90;
+const SPLIT_NUMBER: number = 2;
+const VIEW_BOX_SIZE_RADIUS: number = VIEW_BOX_SIZE / SPLIT_NUMBER;
 
 const getCircleStyle = (
     gapDegree: number,
@@ -29,22 +34,25 @@ const getCircleStyle = (
     strokeWidth: number,
     stepSpace: number = 0
 ) => {
-    const offsetDeg: number = (offset / 100) * 360 * ((360 - gapDegree) / 360);
+    const offsetDeg: number =
+        (offset / VIEW_BOX_SIZE) *
+        CIRCLE_DEGREE *
+        ((CIRCLE_DEGREE - gapDegree) / CIRCLE_DEGREE);
     const positionDeg: number =
         gapDegree === 0
             ? 0
             : {
                   bottom: 0,
-                  top: 180,
-                  left: 90,
-                  right: -90,
+                  top: FLIP_DEGREE,
+                  left: ROTATE_RIGHT_ANGLE_DEGREE,
+                  right: -ROTATE_RIGHT_ANGLE_DEGREE,
               }[gapPosition];
 
     let strokeDashoffset: number =
-        ((100 - percent) / 100) * perimeterWithoutGap;
+        ((MAX_PERCENT - percent) / MAX_PERCENT) * perimeterWithoutGap;
     // Fix percent accuracy when strokeLinecap is round
-    if (strokeLinecap === 'round' && percent !== 100) {
-        strokeDashoffset += strokeWidth / 2;
+    if (strokeLinecap === 'round' && percent !== MAX_PERCENT) {
+        strokeDashoffset += strokeWidth / SPLIT_NUMBER;
         // when percent is small enough (<= 1%), keep smallest value to avoid stroke disappearing.
         if (strokeDashoffset >= perimeterWithoutGap) {
             strokeDashoffset = perimeterWithoutGap - 0.01;
@@ -66,32 +74,38 @@ const getCircleStyle = (
 const OcCircle: FC<OcProgressProps> = ({
     classNames,
     gapDegree = 0,
-    gapPosition,
+    gapPosition = 'bottom',
     id,
-    percent,
+    percent = 0,
     steps,
-    strokeColor,
-    strokeLinecap,
-    strokeWidth,
+    strokeColor = 'var(--primary-color-60)',
+    strokeLinecap = 'butt',
+    strokeWidth = 1,
     style,
-    trailColor,
-    trailWidth,
+    trailColor = 'var(--accent-color-10)',
+    trailWidth = 1,
     ...rest
 }) => {
-    const mergedId: string = useId(id);
+    const mergedId: string = uniqueId(id ? `${id}-` : 'circle-');
     const gradientId: string = `${mergedId}-gradient`;
-    const radius: number = VIEW_BOX_SIZE / 2;
-    const perimeter: number = Math.PI * 2 * radius;
-    const rotateDeg: number = gapDegree > 0 ? 90 + gapDegree / 2 : -90;
-    const perimeterWithoutGap: number = perimeter * ((360 - gapDegree) / 360);
+    const radius: number = VIEW_BOX_SIZE_RADIUS;
+    const perimeter: number = Math.PI * SPLIT_NUMBER * radius;
+    const rotateDeg: number =
+        gapDegree > 0
+            ? ROTATE_RIGHT_ANGLE_DEGREE + gapDegree / SPLIT_NUMBER
+            : -ROTATE_RIGHT_ANGLE_DEGREE;
+    const perimeterWithoutGap: number =
+        perimeter * ((CIRCLE_DEGREE - gapDegree) / CIRCLE_DEGREE);
     const { count: stepCount, space: stepSpace } =
-        typeof steps === 'object' ? steps : { count: steps, space: 2 };
+        typeof steps === 'object'
+            ? steps
+            : { count: steps, space: SPLIT_NUMBER };
 
     const circleStyle = getCircleStyle(
         gapDegree,
         gapPosition,
         0,
-        100,
+        MAX_PERCENT,
         perimeter,
         perimeterWithoutGap,
         rotateDeg,
@@ -137,8 +151,8 @@ const OcCircle: FC<OcProgressProps> = ({
                         key={index}
                         className={styles.progressCirclePath}
                         r={radius}
-                        cx={VIEW_BOX_SIZE / 2}
-                        cy={VIEW_BOX_SIZE / 2}
+                        cx={VIEW_BOX_SIZE_RADIUS}
+                        cy={VIEW_BOX_SIZE_RADIUS}
                         stroke={stroke}
                         strokeLinecap={strokeLinecap}
                         strokeWidth={strokeWidth}
@@ -160,8 +174,10 @@ const OcCircle: FC<OcProgressProps> = ({
 
     const getStepStrokeList = (): JSX.Element[] => {
         // only show the first percent when pass steps
-        const current: number = Math.round(stepCount * (percentList[0] / 100));
-        const stepPtg: number = 100 / stepCount;
+        const current: number = Math.round(
+            stepCount * (percentList[0] / MAX_PERCENT)
+        );
+        const stepPtg: number = MAX_PERCENT / stepCount;
 
         let stackPtg: number = 0;
         return new Array(stepCount).fill(null).map((_, index) => {
@@ -188,7 +204,7 @@ const OcCircle: FC<OcProgressProps> = ({
                 ((perimeterWithoutGap -
                     circleStyleForStack.strokeDashoffset +
                     stepSpace) *
-                    100) /
+                    MAX_PERCENT) /
                 perimeterWithoutGap;
 
             return (
@@ -196,8 +212,8 @@ const OcCircle: FC<OcProgressProps> = ({
                     key={index}
                     className={styles.progressCirclePath}
                     r={radius}
-                    cx={VIEW_BOX_SIZE / 2}
-                    cy={VIEW_BOX_SIZE / 2}
+                    cx={VIEW_BOX_SIZE_RADIUS}
+                    cy={VIEW_BOX_SIZE_RADIUS}
                     stroke={stroke}
                     strokeLinecap={strokeLinecap}
                     strokeWidth={strokeWidth}
@@ -248,8 +264,8 @@ const OcCircle: FC<OcProgressProps> = ({
                 <circle
                     className={styles.progressCircleTrail}
                     r={radius}
-                    cx={VIEW_BOX_SIZE / 2}
-                    cy={VIEW_BOX_SIZE / 2}
+                    cx={VIEW_BOX_SIZE_RADIUS}
+                    cy={VIEW_BOX_SIZE_RADIUS}
                     stroke={trailColor}
                     strokeLinecap={strokeLinecap}
                     strokeWidth={trailWidth || strokeWidth}
@@ -260,7 +276,5 @@ const OcCircle: FC<OcProgressProps> = ({
         </svg>
     );
 };
-
-OcCircle.defaultProps = defaultProps;
 
 export default OcCircle;
