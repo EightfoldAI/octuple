@@ -58,6 +58,7 @@ export const Dropdown: FC<DropdownProps> = React.memo(
         onClickOutside,
         width,
         height,
+        inputRef,
     }) => {
         const [mergedVisible, setVisible] = useMergedState<boolean>(false, {
             value: visible,
@@ -71,7 +72,7 @@ export const Dropdown: FC<DropdownProps> = React.memo(
             useFloating({
                 placement,
                 strategy: positionStrategy,
-                middleware: [flip(), fOffset(offset), shift()],
+                middleware: [fOffset(offset), flip(), shift()],
             });
 
         const toggle: Function =
@@ -116,8 +117,18 @@ export const Dropdown: FC<DropdownProps> = React.memo(
                 update
             );
         }, [refs.reference, refs.floating, update]);
-
-        useAccessibility(trigger, refs.reference, toggle(true), toggle(false));
+        useAccessibility(
+            trigger,
+            refs.reference,
+            toggle(true),
+            portal
+                ? (e) => {
+                      if (e?.key == 'Enter') {
+                          toggle(false);
+                      }
+                  }
+                : toggle(false)
+        );
         const dropdownClasses: string = mergeClasses([
             dropdownClassNames,
             styles.dropdownWrapper,
@@ -136,6 +147,15 @@ export const Dropdown: FC<DropdownProps> = React.memo(
             ...dropdownStyle,
             position: strategy,
             top: y ?? '',
+            left: x ?? '',
+            width: width ?? '',
+            height: height ?? '',
+        };
+
+        const dropdownStylesFlipped: React.CSSProperties = {
+            ...dropdownStyle,
+            position: strategy,
+            bottom: offset + inputRef?.current?.clientHeight,
             left: x ?? '',
             width: width ?? '',
             height: height ?? '',
@@ -163,11 +183,18 @@ export const Dropdown: FC<DropdownProps> = React.memo(
             });
         };
 
+        // auto focussing incase of portal=true
+        useEffect(() => {
+            if (portal && mergedVisible && refs?.floating?.current) {
+                refs.floating.current.focus();
+            }
+        }, [mergedVisible]);
+
         const getDropdown = (): JSX.Element =>
             mergedVisible && (
                 <div
                     ref={floating}
-                    style={dropdownStyles}
+                    style={y > 0 ? dropdownStyles : dropdownStylesFlipped}
                     className={dropdownClasses}
                     tabIndex={0}
                     onClick={

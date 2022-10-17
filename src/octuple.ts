@@ -86,6 +86,8 @@ import {
     TextInputWidth,
 } from './components/Inputs';
 
+import Progress from './components/Progress';
+
 import { InfoBar, InfoBarType } from './components/InfoBar';
 
 import {
@@ -227,6 +229,7 @@ export {
     PillType,
     Portal,
     PrimaryButton,
+    Progress,
     RadioButton,
     RadioGroup,
     RangePickerProps,

@@ -1,15 +1,3 @@
-@mixin reset-component() {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    color: var(--text-primary-color);
-    font-size: $text-font-size-2;
-    font-variant: tabular-nums;
-    line-height: 1.5715;
-    list-style: none;
-    font-feature-settings: 'tnum';
-}
-
 @mixin reset-form() {
     legend {
         display: block;

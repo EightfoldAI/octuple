@@ -11,6 +11,7 @@ module.exports = {
         '@storybook/addon-links',
         'storybook-css-modules',
         '@storybook/addon-a11y',
+        'storybook-addon-rtl',
     ],
     staticDirs: ['../public/assets'],
     framework: '@storybook/react',

@@ -1204,6 +1204,7 @@ LoadedCheerio {
                             "next": Node {
                               "attribs": Object {
                                 "class": "tree-treenode-motion",
+                                "style": "height: 0px; opacity: 0;",
                               },
                               "children": Array [
                                 Node {
@@ -2164,9 +2165,11 @@ LoadedCheerio {
                               "type": "tag",
                               "x-attribsNamespace": Object {
                                 "class": undefined,
+                                "style": undefined,
                               },
                               "x-attribsPrefix": Object {
                                 "class": undefined,
+                                "style": undefined,
                               },
                             },
                             "parent": [Circular],
@@ -2186,6 +2189,7 @@ LoadedCheerio {
                           Node {
                             "attribs": Object {
                               "class": "tree-treenode-motion",
+                              "style": "height: 0px; opacity: 0;",
                             },
                             "children": Array [
                               Node {
@@ -4253,9 +4257,11 @@ LoadedCheerio {
                             "type": "tag",
                             "x-attribsNamespace": Object {
                               "class": undefined,
+                              "style": undefined,
                             },
                             "x-attribsPrefix": Object {
                               "class": undefined,
+                              "style": undefined,
                             },
                           },
                         ],
@@ -5497,6 +5503,7 @@ LoadedCheerio {
                           "next": Node {
                             "attribs": Object {
                               "class": "tree-treenode-motion",
+                              "style": "height: 0px; opacity: 0;",
                             },
                             "children": Array [
                               Node {
@@ -6457,9 +6464,11 @@ LoadedCheerio {
                             "type": "tag",
                             "x-attribsNamespace": Object {
                               "class": undefined,
+                              "style": undefined,
                             },
                             "x-attribsPrefix": Object {
                               "class": undefined,
+                              "style": undefined,
                             },
                           },
                           "parent": [Circular],
@@ -6479,6 +6488,7 @@ LoadedCheerio {
                         Node {
                           "attribs": Object {
                             "class": "tree-treenode-motion",
+                            "style": "height: 0px; opacity: 0;",
                           },
                           "children": Array [
                             Node {
@@ -8546,9 +8556,11 @@ LoadedCheerio {
                           "type": "tag",
                           "x-attribsNamespace": Object {
                             "class": undefined,
+                            "style": undefined,
                           },
                           "x-attribsPrefix": Object {
                             "class": undefined,
+                            "style": undefined,
                           },
                         },
                       ],
@@ -9776,6 +9788,7 @@ LoadedCheerio {
                         "next": Node {
                           "attribs": Object {
                             "class": "tree-treenode-motion",
+                            "style": "height: 0px; opacity: 0;",
                           },
                           "children": Array [
                             Node {
@@ -10736,9 +10749,11 @@ LoadedCheerio {
                           "type": "tag",
                           "x-attribsNamespace": Object {
                             "class": undefined,
+                            "style": undefined,
                           },
                           "x-attribsPrefix": Object {
                             "class": undefined,
+                            "style": undefined,
                           },
                         },
                         "parent": [Circular],
@@ -10758,6 +10773,7 @@ LoadedCheerio {
                       Node {
                         "attribs": Object {
                           "class": "tree-treenode-motion",
+                          "style": "height: 0px; opacity: 0;",
                         },
                         "children": Array [
                           Node {
@@ -12825,9 +12841,11 @@ LoadedCheerio {
                         "type": "tag",
                         "x-attribsNamespace": Object {
                           "class": undefined,
+                          "style": undefined,
                         },
                         "x-attribsPrefix": Object {
                           "class": undefined,
+                          "style": undefined,
                         },
                       },
                     ],

@@ -2,9 +2,18 @@
     position: relative;
     width: fit-content;
 
+    $input-small-size: 28px;
+    $input-medium-size: 36px;
+    $input-large-size: 44px;
+
+    $input-size-map: (
+        small: $input-small-size,
+        medium: $input-medium-size,
+        large: $input-large-size,
+    );
+
     input {
         @include text-overflow;
-
         background-color: var(--background-color);
         border: 1px solid var(--border-color);
         border-radius: $corner-radius-m;
@@ -352,7 +361,7 @@
 
         &.input-large {
             font-size: $text-font-size-4;
-            height: 44px;
+            height: $input-large-size;
             line-height: $text-line-height-5;
             padding: $space-xs $space-xxl $space-xs $space-m;
 
@@ -505,7 +514,7 @@
 
         &.input-medium {
             font-size: $text-font-size-3;
-            height: 36px;
+            height: $input-medium-size;
             line-height: $text-line-height-4;
             padding: $space-xs $space-xl $space-xs $space-m;
 
@@ -694,7 +703,7 @@
 
         &.input-small {
             font-size: $text-font-size-2;
-            height: 28px;
+            height: $input-small-size;
             line-height: $text-line-height-3;
             padding: $space-xs $space-l $space-xs $space-s;
 
@@ -874,9 +883,9 @@
 
     .icon-wrapper {
         bottom: 0;
-        height: 36px;
+        height: $input-medium-size;
         position: absolute;
-        width: 36px;
+        width: $input-medium-size;
 
         &.left-icon {
             left: $space-xxs;
@@ -1321,8 +1330,8 @@
     &.input-medium {
         .icon-wrapper {
             bottom: 0;
-            height: 36px;
-            width: 36px;
+            height: $input-medium-size;
+            width: $input-medium-size;
 
             &.left-icon {
                 left: $space-xs;
@@ -1333,7 +1342,7 @@
             }
 
             span {
-                height: 36px;
+                height: $input-medium-size;
             }
         }
 
@@ -1437,6 +1446,136 @@
 
     &.input-stretch {
         width: 100%;
+    }
+
+    &.isExpandable {
+        .expandable-wrapper {
+            position: relative;
+        }
+
+        .input-group {
+            position: absolute;
+            left: 0;
+
+            input {
+                width: 0;
+
+                &::placeholder {
+                    transition: opacity $motion-duration-extra-fast
+                        $motion-easing-easeinout $motion-delay-s;
+                }
+            }
+        }
+
+        .expandable-thumb {
+            position: absolute;
+            left: -4px;
+        }
+
+        &.input-large {
+            .expandable-thumb {
+                left: -2px;
+            }
+        }
+
+        .overlay {
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 200%;
+            z-index: -1;
+            background: $expandable-header-gradient;
+        }
+
+        &.expand-right {
+            .input-group,
+            .overlay {
+                left: unset;
+                right: 10px;
+            }
+            .overlay {
+                transform: rotate(180deg);
+            }
+        }
+
+        input,
+        .input-group,
+        .overlay {
+            transition: all $motion-duration-extra-fast $motion-easing-easeinout;
+        }
+
+        .input-group:focus-within {
+            @each $size-name, $size-value in $input-size-map {
+                &.input-#{$size-name} {
+                    width: auto;
+                }
+            }
+
+            ~ .action-wrapper {
+                display: block;
+            }
+
+            ~ .expandable-thumb {
+                display: none;
+            }
+        }
+
+        // Set Rules
+        .input-group:hover > input,
+        .input-group:focus-within > input,
+        input:focus,
+        input:not(:placeholder-shown) {
+            @each $size-name, $size-value in $input-size-map {
+                &.input-#{$size-name} {
+                    width: auto;
+                }
+            }
+
+            ~ .action-wrapper {
+                display: block;
+            }
+
+            ~ .expandable-thumb {
+                display: none;
+            }
+        }
+
+        // Unset Rules
+        @each $size-name, $size-value in $input-size-map {
+            &.input-#{$size-name} > .expandable-wrapper {
+                min-width: $size-value;
+                min-height: $size-value;
+            }
+
+            .input-group:not(:hover):not(:focus-within)
+                input.input-#{$size-name}:placeholder-shown {
+                min-width: $size-value;
+                padding: 0;
+                overflow: hidden;
+
+                // Internet Explorer 10–11
+                &:-ms-input-placeholder {
+                    opacity: 0;
+                    font-size: 0;
+                }
+
+                // Edge
+                &::-ms-input-placeholder {
+                    opacity: 0;
+                    font-size: 0;
+                }
+
+                &::placeholder {
+                    opacity: 0;
+                    font-size: 0;
+                }
+
+                ~ .action-wrapper {
+                    display: none;
+                }
+            }
+        }
     }
 }
 

@@ -1,6 +1,6 @@
 {
     "name": "@eightfold.ai/octuple",
-    "version": "2.14.0",
+    "version": "2.16.1",
     "license": "MIT",
     "main": "lib/octuple.js",
     "types": "lib/octuple.d.ts",
@@ -183,6 +183,7 @@
         "sinon": "14.0.1",
         "source-map-loader": "3.0.0",
         "standard-version": "9.5.0",
+        "storybook-addon-rtl": "^0.4.3",
         "storybook-addon-state": "1.0.3",
         "storybook-css-modules": "^1.0.5",
         "style-loader": "3.3.1",

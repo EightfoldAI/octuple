@@ -11,6 +11,7 @@ import { IconName } from '../Icon';
 import { ButtonShape, NeutralButton } from '../Button';
 import { Portal } from '../Portal';
 import { useScrollLock } from '../../hooks/useScrollLock';
+import { FocusTrap } from '../../shared/FocusTrap';
 import { NoFormStyle } from '../Form/Context';
 import { useCanvasDirection } from '../../hooks/useCanvasDirection';
 import LocaleReceiver, {
@@ -67,6 +68,7 @@ export const Panel = React.forwardRef<PanelRef, PanelProps>(
             width,
             panelHeader,
             scrollLock = true,
+            focusTrap = true,
             ...rest
         } = props;
 
@@ -280,11 +282,11 @@ export const Panel = React.forwardRef<PanelRef, PanelProps>(
                         return (
                             <PanelContext.Provider value={operations}>
                                 <NoFormStyle status override>
-                                    <div
+                                    <FocusTrap
+                                        trap={visible && focusTrap}
                                         {...rest}
-                                        tabIndex={-1}
                                         ref={containerRef}
-                                        className={panelBackdropClasses}
+                                        classNames={panelBackdropClasses}
                                         onClick={(
                                             e: React.MouseEvent<HTMLDivElement>
                                         ) => {
@@ -302,7 +304,7 @@ export const Panel = React.forwardRef<PanelRef, PanelProps>(
                                             {getBody()}
                                             {getFooter()}
                                         </div>
-                                    </div>
+                                    </FocusTrap>
                                 </NoFormStyle>
                             </PanelContext.Provider>
                         );

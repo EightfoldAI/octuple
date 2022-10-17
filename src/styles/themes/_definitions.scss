@@ -88,6 +88,12 @@ $eightfold-logo-gradient-dark: linear-gradient(
         #1abbcd 50.02%,
         #6fc6aa 100.03%
     );
+$expandable-header-gradient: linear-gradient(
+    270deg,
+    hsla(0, 0%, 100%, 0) 22.25%,
+    hsla(0, 0%, 100%, 0.995) 41.17%,
+    $background-color-white 80.83%
+);
 
 // Shadow Definitions
 

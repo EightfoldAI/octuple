@@ -10,7 +10,7 @@ export const useAccessibility = (
     trigger: 'click' | 'hover' | 'contextmenu',
     ref: RefObject<any>,
     onEnter: () => void,
-    onLeave: () => void
+    onLeave: (e: any) => void
 ) => {
     const triggerEvent: string = ACCESSIBILITY_EVENTS_MAP[trigger];
     const handleAccessibility = useCallback(
@@ -21,7 +21,7 @@ export const useAccessibility = (
                 }
                 return null;
             }
-            return onLeave?.();
+            return onLeave?.(e);
         },
         [ref]
     );

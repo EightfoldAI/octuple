@@ -148,7 +148,7 @@ export const Text_Input = Text_Input_Story.bind({});
 Text_Input.args = {
     allowDisabledFocus: false,
     ariaLabel: 'Sample text',
-    autoFocus: false,
+    autoFocus: true,
     classNames: 'my-textinput-class',
     clearButtonAriaLabel: 'Clear',
     disabled: false,
