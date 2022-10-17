@@ -1,14 +1,13 @@
 import React from 'react';
 import OcTree, { TreeNode } from './Internal';
-import { mergeClasses } from '../../shared/utilities';
 import { DraggableConfig, OcTreeNodeProps, TreeProps } from './Tree.types';
 import type { BasicDataNode, DataNode } from './Internal/OcTree.types';
 import DirectoryTree from './DirectoryTree';
-import collapseMotion from '../Motion';
 import renderSwitcherIcon from './Utils/iconUtil';
 import dropIndicatorRender from './Utils/dropIndicator';
 import { Icon, IconName, IconSize } from '../Icon';
 import { useCanvasDirection } from '../../hooks/useCanvasDirection';
+import { collapseMotion, mergeClasses } from '../../shared/utilities';
 
 import styles from './Styles/tree.module.scss';
 
