@@ -917,5 +917,27 @@
                 }
             }
         }
+
+        &.isExpandable {
+            .overlay {
+                right: 0;
+                transform: rotate(180deg);
+            }
+
+            .input-group {
+                left: unset;
+            }
+
+            &.expand-right {
+                .input-group,
+                .overlay {
+                    left: 0;
+                    right: unset;
+                }
+                .overlay {
+                    transform: rotate(0deg);
+                }
+            }
+        }
     }
 }
