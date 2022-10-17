@@ -7,6 +7,7 @@ import Pagination from '../Pagination/Locale/es_ES';
 import Panel from '../Panel/Locale/es_ES';
 import Table from '../Table/Locale/es_ES';
 import TimePicker from '../DateTimePicker/TimePicker/Locale/es_ES';
+import Upload from '../Upload/Locale/es_ES';
 
 const typeTemplate = '${label} no es un ${type} válido';
 
@@ -72,6 +73,7 @@ const localeValues: Locale = {
     Panel,
     Table,
     TimePicker,
+    Upload,
 };
 
 export default localeValues;

@@ -6,6 +6,7 @@ import type { PanelLocale } from '../Panel';
 import type { InfoBarLocale } from '../InfoBar';
 import type { PickerLocale as DatePickerLocale } from '../DateTimePicker/DatePicker/Generate/Generate.types';
 import type { TableLocale } from '../Table/Table.types';
+import type { UploadLocale } from '../Upload/Upload.types';
 import type { ValidateMessages } from '../Form/Internal/OcForm.types';
 import LocaleContext from './Context';
 
@@ -23,6 +24,7 @@ export interface Locale {
     Panel?: PanelLocale;
     Table?: TableLocale;
     TimePicker?: Record<string, any>;
+    Upload?: UploadLocale;
 }
 
 export interface LocaleProviderProps {

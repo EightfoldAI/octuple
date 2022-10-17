@@ -1,0 +1,537 @@
+$upload-picture-card-size: 104px;
+
+.upload {
+    @include reset-component();
+
+    outline: 0;
+
+    p {
+        margin: 0;
+    }
+
+    &-btn {
+        display: block;
+        width: 100%;
+        outline: none;
+    }
+
+    input[type='file'] {
+        cursor: pointer;
+    }
+
+    &-select {
+        display: inline-block;
+    }
+
+    &-disabled {
+        opacity: $disabled-alpha-value;
+        cursor: not-allowed;
+    }
+
+    &-select-picture-card {
+        width: $upload-picture-card-size;
+        height: $upload-picture-card-size;
+        margin-right: $space-xs;
+        margin-bottom: $space-xs;
+        text-align: center;
+        vertical-align: top;
+        background-color: var(--background-color);
+        border: 1px dashed var(--border-color);
+        border-radius: $corner-radius-s;
+        cursor: pointer;
+        transition: border-color 0.3s;
+
+        > .upload {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            text-align: center;
+        }
+
+        &:hover {
+            border-color: var(--primary-color);
+            .upload-disabled {
+                border-color: var(--border-color);
+            }
+        }
+    }
+
+    &-drag {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        background: var(--background-color);
+        border: 1px dashed var(--border-color);
+        border-radius: $corner-radius-s;
+        cursor: pointer;
+        transition: border-color 0.3s;
+
+        .upload {
+            padding: $space-m 0;
+        }
+
+        &.upload-drag-hover:not(.upload-disabled) {
+            border-color: var(--primary-color-70);
+        }
+
+        &.upload-disabled {
+            cursor: not-allowed;
+        }
+
+        .upload-btn {
+            display: table;
+            height: 100%;
+        }
+
+        .upload-drag-container {
+            display: table-cell;
+            vertical-align: middle;
+        }
+
+        &:not(.upload-disabled):hover {
+            border-color: var(--primary-color-50);
+        }
+
+        p.upload-drag-icon {
+            .icon {
+                color: var(--primary-color-50);
+            }
+
+            margin-bottom: $space-ml;
+        }
+        p.upload-text {
+            margin: 0 0 $space-xxs;
+            color: var(--text-primary-color);
+            font-size: $text-font-size-3;
+        }
+        p.upload-hint {
+            color: var(--text-secondary-color);
+            font-size: $text-font-size-2;
+        }
+
+        .icon-plus {
+            color: var(--text-tertiary-color);
+            transition: all 0.3s;
+
+            &:hover {
+                color: var(--text-secondary-color);
+            }
+        }
+        &:hover .icon-plus {
+            color: var(--text-secondary-color);
+        }
+    }
+
+    &-picture-card-wrapper {
+        @include clearfix();
+
+        display: inline-block;
+        width: 100%;
+    }
+}
+
+.upload-list {
+    @include reset-component();
+    @include clearfix();
+
+    line-height: $text-line-height-3;
+
+    &-item {
+        position: relative;
+        height: calc(#{$text-line-height-3} * #{$text-font-size-2});
+        margin-top: $space-xs;
+        font-size: $text-font-size-2;
+
+        &-name {
+            display: inline-block;
+            width: 100%;
+            padding-left: $space-l;
+            overflow: hidden;
+            line-height: $text-line-height-3;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+
+        &-card-actions {
+            position: absolute;
+            right: 0;
+
+            &-btn {
+                opacity: 0;
+            }
+
+            &-btn {
+                vertical-align: top;
+            }
+
+            &.picture {
+                top: 22px;
+                line-height: 0;
+            }
+
+            &-btn:focus,
+            &.picture &-btn {
+                opacity: 1;
+            }
+
+            .icon {
+                color: var(--text-secondary-color);
+                transition: all 0.3s;
+            }
+
+            &:hover .icon {
+                color: var(--text-primary-color);
+            }
+        }
+
+        &-info {
+            height: 100%;
+            transition: background-color 0.3s;
+
+            > span {
+                display: block;
+                width: 100%;
+                height: 100%;
+            }
+
+            .icon-loading,
+            .upload-text-icon {
+                .icon {
+                    position: absolute;
+                    top: $space-xxs;
+                    color: var(--text-secondary-color);
+                    font-size: $text-font-size-2;
+                }
+            }
+        }
+
+        &:hover &-info {
+            background-color: var(--grey-color-10);
+        }
+
+        &:hover &-card-actions-btn {
+            opacity: 1;
+        }
+
+        &-error,
+        &-error .upload-text-icon > .icon,
+        &-error &-name {
+            color: var(--error-color);
+        }
+
+        &-error &-card-actions {
+            .icon {
+                color: var(--error-color);
+            }
+
+            &-btn {
+                opacity: 1;
+            }
+        }
+
+        &-progress {
+            position: absolute;
+            bottom: -$space-s;
+            width: 100%;
+            padding-left: $space-l;
+            font-size: $text-font-size-2;
+            line-height: 0;
+        }
+    }
+
+    &-picture,
+    &-picture-card {
+        .upload-list-item {
+            position: relative;
+            height: 66px;
+            padding: $space-xs;
+            border: 1px solid var(--border-color);
+            border-radius: $corner-radius-s;
+
+            &:hover {
+                background: transparent;
+            }
+
+            &-error {
+                border-color: var(--error-color);
+            }
+        }
+
+        .upload-list-item-info {
+            padding: 0;
+        }
+
+        .upload-list-item:hover .upload-list-item-info {
+            background: transparent;
+        }
+
+        .upload-list-item-uploading {
+            border-style: dashed;
+        }
+
+        .upload-list-item-thumbnail {
+            width: 48px;
+            height: 48px;
+            line-height: 60px;
+            text-align: center;
+            opacity: 0.8;
+        }
+
+        .upload-list-item-error .upload-list-item-thumbnail {
+            .icon {
+                svg path {
+                    &[fill='#e6f7ff'] {
+                        fill: var(--error-color);
+                    }
+
+                    &[fill='#1890ff'] {
+                        fill: var(--error-color);
+                    }
+                }
+            }
+        }
+
+        .upload-list-item-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .upload-list-item-image {
+            max-width: 100%;
+        }
+
+        .upload-list-item-thumbnail img {
+            display: block;
+            width: 48px;
+            height: 48px;
+            overflow: hidden;
+        }
+
+        .upload-list-item-name {
+            display: inline-block;
+            box-sizing: border-box;
+            max-width: 100%;
+            margin: 0 0 0 $space-xs;
+            padding-right: $space-xs;
+            padding-left: 48px;
+            overflow: hidden;
+            line-height: 44px;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            transition: all 0.3s;
+        }
+
+        .upload-list-item-uploading .upload-list-item-name {
+            margin-bottom: $space-s;
+        }
+
+        .upload-list-item-progress {
+            bottom: 14px;
+            width: calc(100% - 24px);
+            margin-top: 0;
+            padding-left: 56px;
+        }
+    }
+
+    &-picture-card {
+        &-container {
+            display: inline-block;
+            width: $upload-picture-card-size;
+            height: $upload-picture-card-size;
+            margin: 0 $space-xs $space-xs 0;
+            vertical-align: top;
+        }
+
+        .upload-list-item {
+            height: 100%;
+            margin: 0;
+        }
+
+        .upload-list-item-info {
+            position: relative;
+            height: 100%;
+            overflow: hidden;
+
+            &:before {
+                position: absolute;
+                z-index: 1;
+                width: 100%;
+                height: 100%;
+                background-color: $all-backdrops;
+                opacity: 0;
+                transition: all 0.3s;
+                content: ' ';
+            }
+        }
+
+        .upload-list-item:hover .upload-list-item-info:before {
+            opacity: 1;
+        }
+
+        .upload-list-item-actions {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            z-index: 10;
+            white-space: nowrap;
+            transform: translate(-50%, -50%);
+            opacity: 0;
+            transition: all 0.3s;
+
+            .icon-view,
+            .icon-download,
+            .icon-delete {
+                z-index: 10;
+                width: $space-m;
+                margin: 0 $space-xxs;
+                color: var(--text-primary-color);
+                cursor: pointer;
+                transition: all 0.3s;
+
+                &:hover {
+                    color: var(--text-inverse-color);
+                }
+            }
+        }
+
+        .upload-list-item-info:hover + .upload-list-item-actions,
+        .upload-list-item-actions:hover {
+            opacity: 1;
+        }
+
+        .upload-list-item-thumbnail,
+        .upload-list-item-thumbnail img {
+            position: static;
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .upload-list-item-name {
+            display: none;
+            margin: $space-xs 0 0;
+            padding: 0;
+            line-height: $text-line-height-3;
+            text-align: center;
+        }
+
+        .upload-list-item-file + .upload-list-item-name {
+            position: absolute;
+            bottom: 10px;
+            display: block;
+        }
+
+        .upload-list-item-uploading {
+            &.upload-list-item {
+                background-color: var(--background-color);
+            }
+
+            .upload-list-item-info {
+                height: auto;
+
+                &:before,
+                .icon-view,
+                .icon-delete {
+                    display: none;
+                }
+            }
+        }
+
+        .upload-list-item-progress {
+            bottom: 32px;
+            width: calc(100% - 14px);
+            padding-left: 0;
+        }
+    }
+
+    &-text,
+    &-picture {
+        &-container {
+            transition: opacity $motion-duration-fast,
+                height $motion-duration-fast;
+
+            &:before {
+                display: table;
+                width: 0;
+                height: 0;
+                content: '';
+            }
+
+            .upload-span {
+                display: block;
+                flex: auto;
+            }
+        }
+
+        .upload-span {
+            display: flex;
+            align-items: center;
+
+            > * {
+                flex: none;
+            }
+        }
+
+        .upload-list-item-name {
+            flex: auto;
+            margin: 0;
+            padding: 0 $space-xs;
+        }
+
+        .upload-list-item-card-actions {
+            position: static;
+        }
+    }
+
+    &-text {
+        .upload-text-icon {
+            .icon {
+                position: static;
+            }
+        }
+    }
+
+    .upload-animate-inline-appear,
+    .upload-animate-inline-enter,
+    .upload-animate-inline-leave {
+        animation-duration: $motion-duration-fast;
+        animation-timing-function: $motion-easing-easeinout;
+        animation-fill-mode: forwards;
+    }
+
+    .upload-animate-inline-appear,
+    .upload-animate-inline-enter {
+        animation-name: uploadAnimateInlineIn;
+    }
+
+    .upload-animate-inline-leave {
+        animation-name: uploadAnimateInlineOut;
+    }
+}
+
+@keyframes uploadAnimateInlineIn {
+    from {
+        width: 0;
+        height: 0;
+        margin: 0;
+        padding: 0;
+        opacity: 0;
+    }
+}
+
+@keyframes uploadAnimateInlineOut {
+    to {
+        width: 0;
+        height: 0;
+        margin: 0;
+        padding: 0;
+        opacity: 0;
+    }
+}
+
+@import './Styles/rtl';

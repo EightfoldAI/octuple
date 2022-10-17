@@ -7,6 +7,7 @@ import Pagination from '../Pagination/Locale/zh_TW';
 import Panel from '../Panel/Locale/zh_TW';
 import Table from '../Table/Locale/zh_TW';
 import TimePicker from '../DateTimePicker/TimePicker/Locale/zh_TW';
+import Upload from '../Upload/Locale/zh_TW';
 
 const typeTemplate = '${label}不是一個有效的${type}';
 
@@ -72,6 +73,7 @@ const localeValues: Locale = {
     Panel,
     Table,
     TimePicker,
+    Upload,
 };
 
 export default localeValues;

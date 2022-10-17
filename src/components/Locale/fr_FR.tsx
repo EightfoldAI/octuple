@@ -7,6 +7,7 @@ import Pagination from '../Pagination/Locale/fr_FR';
 import Panel from '../Panel/Locale/fr_FR';
 import Table from '../Table/Locale/fr_FR';
 import TimePicker from '../DateTimePicker/TimePicker/Locale/fr_FR';
+import Upload from '../Upload/Locale/fr_FR';
 
 const typeTemplate =
     "La valeur du champ ${label} n'est pas valide pour le type ${type}";
@@ -72,6 +73,7 @@ const localeValues: Locale = {
     Panel,
     Table,
     TimePicker,
+    Upload,
 };
 
 export default localeValues;
