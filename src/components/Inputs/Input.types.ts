@@ -210,6 +210,17 @@ export interface InputProps<T>
      */
     disabled?: boolean;
     /**
+     * Make input expandable on focus.
+     * Default slides from left upon setting this to true.
+     * @default false
+     */
+    expandable?: boolean;
+    /**
+     * Make input expandable slide from right.
+     * @default false
+     */
+    expandRight?: boolean;
+    /**
      * The input is a form item.
      * @default false
      */

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Ref } from 'react';
 import { Placement, Strategy } from '@floating-ui/react-dom';
 
 export interface DropdownProps {
@@ -90,4 +90,16 @@ export interface DropdownProps {
      * Manually control the width of the dropdown
      */
     width?: number;
+    /**
+     * The ref of the dropdown
+     */
+    ref?: Ref<DropdownRef>;
 }
+
+export type DropdownRef = {
+    /**
+     * Helper method to manually update the position
+     * of the dropdown
+     */
+    update: () => void;
+};

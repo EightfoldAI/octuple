@@ -10,7 +10,7 @@ import React, {
 import DisabledContext, { Disabled } from '../ConfigProvider/DisabledContext';
 import { ShapeContext, Shape, SizeContext, Size } from '../ConfigProvider';
 import { mergeClasses } from '../../shared/utilities';
-import { Dropdown } from '../Dropdown';
+import { Dropdown, DropdownRef } from '../Dropdown';
 import { Menu } from '../Menu';
 import {
     TextInput,
@@ -94,6 +94,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
         const [selectWidth, setSelectWidth] = useState(0);
 
         const inputRef = useRef<HTMLInputElement>(null);
+        const dropdownRef = useRef<DropdownRef>(null);
         const pillRefs = useRef<HTMLElement[]>([]);
 
         const [dropdownVisible, setDropdownVisibility] =
@@ -254,6 +255,8 @@ export const Select: FC<SelectProps> = React.forwardRef(
                     onClear?.();
                 }
             }
+            // Update dropdown position on options change
+            dropdownRef.current?.update();
         };
 
         const showDropdown = (show: boolean) => {
@@ -479,6 +482,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
             clearable: clearable,
             inputWidth: inputWidth,
             iconButtonProps: {
+                htmlType: 'button',
                 iconProps: {
                     path: dropdownVisible
                         ? IconName.mdiChevronUp
@@ -559,6 +563,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
                         }
                         showDropdown={showDropdown}
                         visible={dropdownVisible}
+                        ref={dropdownRef}
                     >
                         <TextInput
                             ref={inputRef}
