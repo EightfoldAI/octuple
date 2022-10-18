@@ -42,6 +42,7 @@ export const Card: FC<CardProps> = React.forwardRef(
             headerTitle,
             height,
             icon,
+            isSelected = false,
             name,
             size = CardSize.Medium,
             style,
