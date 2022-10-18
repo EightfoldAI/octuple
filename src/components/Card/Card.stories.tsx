@@ -45,6 +45,7 @@ const Custom_Card_Story: ComponentStory<typeof Card> = (args) => (
 export const CustomCard = Custom_Card_Story.bind({});
 
 const baseCardArgs: Object = {
+    dropShadow: true,
     style: {},
     classNames: 'my-card-class',
     icon: IconName.mdiInformation,

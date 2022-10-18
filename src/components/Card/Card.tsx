@@ -4,11 +4,12 @@ import { CardProps, CardSize, CardType } from './Card.types';
 import { mergeClasses } from '../../shared/utilities';
 import { ButtonShape, TwoStateButton } from '../Button';
 import { SizeContext, Size } from '../ConfigProvider';
-import { Icon, IconName, IconSize } from '../Icon';
+import { Icon } from '../Icon';
 import { Stack } from '../Stack';
 import { Pill } from '../Pills';
 import { List } from '../List';
 import { Breakpoints, useMatchMedia } from '../../hooks/useMatchMedia';
+import { useCanvasDirection } from '../../hooks/useCanvasDirection';
 
 import styles from './card.module.scss';
 
@@ -24,11 +25,13 @@ export const Card: FC<CardProps> = React.forwardRef(
             bodyListOneProps,
             bodyListTwoProps,
             children,
+            classNames,
             configContextProps = {
                 noDisabledContext: false,
                 noSizeContext: false,
             },
             disabled = false,
+            dropShadow = false,
             footer,
             footerClassNames,
             footerProps,
@@ -39,6 +42,7 @@ export const Card: FC<CardProps> = React.forwardRef(
             headerTitle,
             height,
             icon,
+            isSelected = false,
             name,
             size = CardSize.Medium,
             style,
@@ -55,6 +59,8 @@ export const Card: FC<CardProps> = React.forwardRef(
         const smallScreenActive: boolean = useMatchMedia(Breakpoints.Small);
         const xSmallScreenActive: boolean = useMatchMedia(Breakpoints.XSmall);
 
+        const htmlDir: string = useCanvasDirection();
+
         const contextuallySized: Size = useContext(SizeContext);
         const mergedSize = configContextProps.noSizeContext
             ? size
@@ -66,6 +72,7 @@ export const Card: FC<CardProps> = React.forwardRef(
             : contextuallyDisabled || disabled;
 
         const cardClasses: string = mergeClasses([
+            classNames,
             styles.card,
             {
                 [styles.cardSmall]:
@@ -88,6 +95,8 @@ export const Card: FC<CardProps> = React.forwardRef(
             { [styles.cardLarge]: mergedSize === CardSize.Large },
             { [styles.cardMedium]: mergedSize === CardSize.Medium },
             { [styles.cardSmall]: mergedSize === CardSize.Small },
+            { [styles.dropShadow]: dropShadow },
+            { [styles.cardRtl]: htmlDir === 'rtl' },
         ]);
 
         const headerClasses: string = mergeClasses([
