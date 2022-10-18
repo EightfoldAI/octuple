@@ -1,42 +1,44 @@
-import { Ref } from 'react';
+import React, { ReactNode, Ref } from 'react';
 import { OcThemeNames } from '../ConfigProvider';
 import { IconProps } from '../Icon';
+import { ListProps } from '../List';
+import { TooltipProps } from '../Tooltip';
 import { OcBaseProps } from '../OcBase';
 
 interface BaseAvatarProps extends OcBaseProps<HTMLSpanElement> {
-    /**
-     * Avatar size
-     * @default 32
-     */
-    size?: string;
     /**
      * Avatar fallback font size
      * @default 18
      */
     fontSize?: string;
     /**
-     * Type of avatar style
-     * @default 'square'
+     * Function that returns avatar index
      */
-    type?: 'round' | 'square';
+    hashingFunction?: () => number;
+    /**
+     * Should randomise theme
+     * @default false
+     */
+    randomiseTheme?: boolean;
     /**
      * Ref of the container div
      */
     ref?: Ref<HTMLDivElement>;
     /**
-     * Function that returns avatar index
+     * Avatar size
+     * @default 32
      */
-    hashingFunction?: () => number;
+    size?: string;
     /**
      * theme of the fallback avatar
      * @default ''
      */
     theme?: OcThemeNames;
     /**
-     * Should randomise theme
-     * @default false
+     * Type of avatar style
+     * @default 'square'
      */
-    randomiseTheme?: boolean;
+    type?: 'round' | 'square';
 }
 
 export interface AvatarIconProps extends BaseAvatarProps {
@@ -59,4 +61,68 @@ export interface AvatarProps
      * Image alt text
      */
     alt?: string;
+}
+
+interface MaxAvatarProps extends BaseAvatarProps {
+    /**
+     * Max Avatar class names.
+     */
+    classNames?: string;
+    /**
+     * Shown Avatars max count.
+     */
+    count?: number;
+    /**
+     * Max Avatar style.
+     */
+    style?: React.CSSProperties;
+    /**
+     * Max tooltip props.
+     */
+    tooltipProps?: TooltipProps;
+    /**
+     * Max Avatar custom value.
+     */
+    value?: ReactNode;
+    /**
+     * Unique id used to target element for testing.
+     */
+    'data-test-id'?: string;
+    /**
+     * Max Avatar ref.
+     */
+    ref?: Ref<HTMLDivElement>;
+}
+
+interface AvatarListProps
+    extends Omit<ListProps<ReactNode>, 'footer' | 'header' | 'layout'> {}
+
+export interface AvatarGroupProps extends OcBaseProps<HTMLDivElement> {
+    /**
+     * Avatar group List props.
+     */
+    avatarListProps?: AvatarListProps;
+    /**
+     * Avatar group children.
+     */
+    children?: ReactNode;
+    /**
+     * Avatar group fallback font size
+     * @default 18
+     */
+    fontSize?: string;
+    /**
+     * Avatar group max props.
+     */
+    maxProps?: MaxAvatarProps;
+    /**
+     * Avatar group size.
+     * @default 32
+     */
+    size?: string;
+    /**
+     * Type of avatar group style
+     * @default 'square'
+     */
+    type?: 'round' | 'square';
 }

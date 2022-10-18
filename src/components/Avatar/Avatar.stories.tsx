@@ -40,10 +40,6 @@ const imageProps = {
     alt: 'random profile image',
 };
 
-const iconProps = {
-    path: IconName.mdiBell,
-};
-
 const Avatar_Default_Story: ComponentStory<typeof Avatar> = (args) => (
     <Avatar {...args} />
 );
