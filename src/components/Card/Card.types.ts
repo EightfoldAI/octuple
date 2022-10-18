@@ -30,7 +30,7 @@ export interface BodyProps {
 
 export type FooterItems = [iconProps?: IconProps, text?: string];
 
-export interface CardProps extends OcBaseProps<HTMLInputElement> {
+export interface CardProps extends OcBaseProps<HTMLDivElement> {
     /**
      * Allows focus on the checkbox when it's disabled.
      */
