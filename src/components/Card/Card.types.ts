@@ -30,7 +30,7 @@ export interface BodyProps {
 
 export type FooterItems = [iconProps?: IconProps, text?: string];
 
-export interface CardProps {
+export interface CardProps extends OcBaseProps<HTMLInputElement> {
     /**
      * Allows focus on the checkbox when it's disabled.
      */
@@ -56,7 +56,7 @@ export interface CardProps {
      */
     bodyListTwoPillProps?: PillProps;
     /**
-     * List of items for boday
+     * List of items for body
      */
     bodyListOneProps?: BodyProps;
     /**
@@ -76,6 +76,11 @@ export interface CardProps {
      * @default false
      */
     disabled?: boolean;
+    /**
+     * The card has a drop shadow
+     * @default false
+     */
+    dropShadow?: boolean;
     /**
      * The Footer of the dialog
      */

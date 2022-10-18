@@ -4,7 +4,7 @@ import { CardProps, CardSize, CardType } from './Card.types';
 import { mergeClasses } from '../../shared/utilities';
 import { ButtonShape, TwoStateButton } from '../Button';
 import { SizeContext, Size } from '../ConfigProvider';
-import { Icon, IconName, IconSize } from '../Icon';
+import { Icon } from '../Icon';
 import { Stack } from '../Stack';
 import { Pill } from '../Pills';
 import { List } from '../List';
@@ -30,6 +30,7 @@ export const Card: FC<CardProps> = React.forwardRef(
                 noSizeContext: false,
             },
             disabled = false,
+            dropShadow = false,
             footer,
             footerClassNames,
             footerProps,
@@ -90,6 +91,7 @@ export const Card: FC<CardProps> = React.forwardRef(
             { [styles.cardLarge]: mergedSize === CardSize.Large },
             { [styles.cardMedium]: mergedSize === CardSize.Medium },
             { [styles.cardSmall]: mergedSize === CardSize.Small },
+            { [styles.dropShadow]: dropShadow },
         ]);
 
         const headerClasses: string = mergeClasses([

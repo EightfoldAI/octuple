@@ -1,7 +1,6 @@
 .card {
     --bg-color: $background-color-white;
 
-    box-shadow: $shadow-object-m;
     background-color: var(--bg-color);
     border-radius: $corner-radius-xl;
     color: var(--black-color);
@@ -39,6 +38,10 @@
     &.disabled {
         opacity: $disabled-alpha-value;
         cursor: not-allowed;
+    }
+
+    &.drop-shadow {
+        box-shadow: $shadow-object-m;
     }
 
     .header {
