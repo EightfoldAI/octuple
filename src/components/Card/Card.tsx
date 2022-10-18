@@ -9,6 +9,7 @@ import { Stack } from '../Stack';
 import { Pill } from '../Pills';
 import { List } from '../List';
 import { Breakpoints, useMatchMedia } from '../../hooks/useMatchMedia';
+import { useCanvasDirection } from '../../hooks/useCanvasDirection';
 
 import styles from './card.module.scss';
 
@@ -57,6 +58,8 @@ export const Card: FC<CardProps> = React.forwardRef(
         const smallScreenActive: boolean = useMatchMedia(Breakpoints.Small);
         const xSmallScreenActive: boolean = useMatchMedia(Breakpoints.XSmall);
 
+        const htmlDir: string = useCanvasDirection();
+
         const contextuallySized: Size = useContext(SizeContext);
         const mergedSize = configContextProps.noSizeContext
             ? size
@@ -92,6 +95,7 @@ export const Card: FC<CardProps> = React.forwardRef(
             { [styles.cardMedium]: mergedSize === CardSize.Medium },
             { [styles.cardSmall]: mergedSize === CardSize.Small },
             { [styles.dropShadow]: dropShadow },
+            { [styles.cardRtl]: htmlDir === 'rtl' },
         ]);
 
         const headerClasses: string = mergeClasses([
