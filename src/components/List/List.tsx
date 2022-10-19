@@ -5,9 +5,11 @@ import { mergeClasses } from '../../shared/utilities';
 import styles from './list.module.scss';
 
 export const List = <T extends any>({
+    additionalItem,
     items,
     footer,
     layout = 'vertical',
+    renderAdditionalItem,
     renderItem,
     rowKey,
     header,
@@ -31,6 +33,17 @@ export const List = <T extends any>({
     const getHeader = (): JSX.Element => <>{header}</>;
 
     const getFooter = (): JSX.Element => <>{footer}</>;
+
+    const getAdditionalItem = (): JSX.Element => (
+        <li
+            {...itemProps}
+            key={getItemKey(additionalItem, (items?.length + 1) | 1)}
+            className={itemClasses}
+            style={itemStyle}
+        >
+            {renderAdditionalItem?.(additionalItem)}
+        </li>
+    );
 
     const getItemKey = (item: T, index: number): Key => {
         if (typeof rowKey === 'function') {
@@ -63,11 +76,13 @@ export const List = <T extends any>({
             {listType === 'ul' && (
                 <ul role={role} className={containerClasses}>
                     {getItems()}
+                    {!!renderAdditionalItem && getAdditionalItem()}
                 </ul>
             )}
             {listType === 'ol' && (
                 <ol role={role} className={containerClasses}>
                     {getItems()}
+                    {!!renderAdditionalItem && getAdditionalItem()}
                 </ol>
             )}
             {getFooter()}
