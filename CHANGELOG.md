@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.17.1](https://github.com/EightfoldAI/octuple/compare/v2.17.0...v2.17.1) (2022-10-19)
+
+### Bug Fixes
+
+-   dropdown: remove force focus on portaled dropdown ([#423](https://github.com/EightfoldAI/octuple/issues/423)) ([a7e894a](https://github.com/EightfoldAI/octuple/commits/a7e894aaf3af85e65624fd3ce875aa17d9e684c9))
+
 ## [2.17.0](https://github.com/EightfoldAI/octuple/compare/v2.16.1...v2.17.0) (2022-10-19)
 
 ### Features

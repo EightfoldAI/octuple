@@ -190,13 +190,6 @@ export const Dropdown: FC<DropdownProps> = React.memo(
                 });
             };
 
-            // auto focussing incase of portal=true
-            useEffect(() => {
-                if (portal && mergedVisible && refs?.floating?.current) {
-                    refs.floating.current.focus();
-                }
-            }, [mergedVisible]);
-
             const getDropdown = (): JSX.Element =>
                 mergedVisible && (
                     <div
