@@ -98,7 +98,7 @@ const FormItemLabel: React.FC<FormItemLabelProps & { required?: boolean }> = ({
                         ...restTooltipProps
                     } = tooltipProps;
                     const tooltipNode = (
-                        <Tooltip {...restTooltipProps}>
+                        <Tooltip portal {...restTooltipProps}>
                             {React.cloneElement(icon, {
                                 className: styles.formItemTooltip,
                                 title: '',
