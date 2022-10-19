@@ -177,6 +177,7 @@ export default function ItemHolder(props: ItemHolderProps) {
             >
                 <FormItemLabel
                     htmlFor={fieldId}
+                    itemRef={itemRef}
                     required={isRequired}
                     requiredMark={requiredMark}
                     {...props}

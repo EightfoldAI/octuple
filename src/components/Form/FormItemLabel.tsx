@@ -33,11 +33,12 @@ function toTooltipProps(tooltip: LabelTooltipType): WrapperTooltipProps | null {
 }
 
 const FormItemLabel: React.FC<FormItemLabelProps & { required?: boolean }> = ({
-    label,
-    htmlFor,
-    labelCol,
-    labelAlign,
     colon,
+    htmlFor,
+    itemRef,
+    label,
+    labelAlign,
+    labelCol,
     required,
     requiredMark,
     tooltip,
@@ -98,7 +99,11 @@ const FormItemLabel: React.FC<FormItemLabelProps & { required?: boolean }> = ({
                         ...restTooltipProps
                     } = tooltipProps;
                     const tooltipNode = (
-                        <Tooltip portal {...restTooltipProps}>
+                        <Tooltip
+                            portal
+                            portalRoot={itemRef?.current}
+                            {...restTooltipProps}
+                        >
                             {React.cloneElement(icon, {
                                 className: styles.formItemTooltip,
                                 title: '',
