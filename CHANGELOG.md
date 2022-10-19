@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.17.0](https://github.com/EightfoldAI/octuple/compare/v2.16.1...v2.17.0) (2022-10-19)
+
+### Features
+
+-   adding rtl addon ([#418](https://github.com/EightfoldAI/octuple/issues/418)) ([b65ef2c](https://github.com/EightfoldAI/octuple/commits/b65ef2c962a6dac05c7b184b9625901f730fd1ac))
+-   implementation of search box expandable ([#408](https://github.com/EightfoldAI/octuple/issues/408)) ([aba0df7](https://github.com/EightfoldAI/octuple/commits/aba0df7586de3932e4ea69a650436a02fa9b2146))
+-   progress: add progress component to octuple ([#420](https://github.com/EightfoldAI/octuple/issues/420)) ([aa1ad1d](https://github.com/EightfoldAI/octuple/commits/aa1ad1d07572453d2eb1c2f90859ba081bb7cf4c))
+
+### Bug Fixes
+
+-   dropdown: remove inputRef from dropdown and use update method to fix position ([#421](https://github.com/EightfoldAI/octuple/issues/421)) ([da8c7e7](https://github.com/EightfoldAI/octuple/commits/da8c7e79995f58c3fc23f4d2a5d94f517076c8f5))
+
 ### [2.16.1](https://github.com/EightfoldAI/octuple/compare/v2.16.0...v2.16.1) (2022-10-12)
 
 ### Bug Fixes
