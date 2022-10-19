@@ -1478,6 +1478,7 @@ const ModalForm: React.FC<ModalFormProps> = ({ visible, onCancel }) => {
                         name={'name'}
                         label={'Name'}
                         rules={[{ required: true }]}
+                        tooltip={<span>A Tooltip!</span>}
                     >
                         <TextInput />
                     </Form.Item>
