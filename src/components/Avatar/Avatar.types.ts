@@ -8,7 +8,7 @@ import { OcBaseProps } from '../OcBase';
 interface BaseAvatarProps extends OcBaseProps<HTMLSpanElement> {
     /**
      * Avatar fallback font size
-     * @default 18
+     * @default '18px'
      */
     fontSize?: string;
     /**
@@ -26,7 +26,7 @@ interface BaseAvatarProps extends OcBaseProps<HTMLSpanElement> {
     ref?: Ref<HTMLDivElement>;
     /**
      * Avatar size
-     * @default 32
+     * @default '32px'
      */
     size?: string;
     /**
@@ -107,8 +107,8 @@ export interface AvatarGroupProps extends OcBaseProps<HTMLDivElement> {
      */
     children?: ReactNode;
     /**
-     * Avatar group fallback font size
-     * @default 18
+     * Avatar group fallback avatar font sizes.
+     * @default '18px'
      */
     fontSize?: string;
     /**
@@ -116,8 +116,8 @@ export interface AvatarGroupProps extends OcBaseProps<HTMLDivElement> {
      */
     maxProps?: MaxAvatarProps;
     /**
-     * Avatar group size.
-     * @default 32
+     * Avatar group avatar sizes.
+     * @default '32px'
      */
     size?: string;
     /**
