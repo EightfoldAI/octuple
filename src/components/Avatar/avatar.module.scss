@@ -1,3 +1,8 @@
+// Export values for typescript consumption.
+:export {
+    maxCountFontSize: $text-font-size-3;
+}
+
 .wrapper-style {
     align-items: center;
     display: flex;
@@ -63,3 +68,6 @@
     width: 100%;
     object-fit: cover;
 }
+
+@import './Styles/group';
+@import './Styles/rtl';

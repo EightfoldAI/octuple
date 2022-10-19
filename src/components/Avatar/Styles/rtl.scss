@@ -1,0 +1,8 @@
+.avatar-group {
+    &-rtl {
+        :not(:first-child):not(.avatar-group-tooltip) {
+            margin-right: -$space-xs;
+            margin-left: 0;
+        }
+    }
+}

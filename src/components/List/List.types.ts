@@ -9,6 +9,10 @@ export interface ListItemProps
 
 export interface ListProps<T> extends OcBaseProps<HTMLDivElement> {
     /**
+     * Additonal item.
+     */
+    additionalItem?: T;
+    /**
      * List footer renderer
      */
     footer?: ReactNode;
@@ -51,6 +55,11 @@ export interface ListProps<T> extends OcBaseProps<HTMLDivElement> {
      * @param item
      */
     renderItem?: (item: T) => ReactNode;
+    /**
+     * Render method for additional list item
+     * @param item
+     */
+    renderAdditionalItem?: (item: T) => ReactNode;
     /**
      * Role of the list
      */
