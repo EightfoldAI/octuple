@@ -147,6 +147,10 @@ export interface FormItemLabelProps {
      */
     htmlFor?: string;
     /**
+     * The parent element ref.
+     */
+    itemRef?: React.MutableRefObject<HTMLDivElement>;
+    /**
      * Label text
      */
     label?: React.ReactNode;
