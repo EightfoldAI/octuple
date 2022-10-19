@@ -4,7 +4,7 @@ import {
     AccordionSize,
 } from './components/Accordion';
 
-import { Avatar, AvatarGroup } from './components/Avatar';
+import { AVATAR_THEME_SET, Avatar, AvatarGroup } from './components/Avatar';
 
 import { Badge } from './components/Badge';
 
@@ -157,6 +157,7 @@ export {
     Accordion,
     AccordionShape,
     AccordionSize,
+    AVATAR_THEME_SET,
     Avatar,
     AvatarGroup,
     Badge,
