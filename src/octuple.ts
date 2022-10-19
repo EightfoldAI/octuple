@@ -4,7 +4,7 @@ import {
     AccordionSize,
 } from './components/Accordion';
 
-import { Avatar } from './components/Avatar';
+import { Avatar, AvatarGroup } from './components/Avatar';
 
 import { Badge } from './components/Badge';
 
@@ -86,7 +86,7 @@ import {
     TextInputWidth,
 } from './components/Inputs';
 
-import Progress from './components/Progress';
+import Progress, { ProgressSize } from './components/Progress';
 
 import { InfoBar, InfoBarType } from './components/InfoBar';
 
@@ -158,6 +158,7 @@ export {
     AccordionShape,
     AccordionSize,
     Avatar,
+    AvatarGroup,
     Badge,
     ButtonIconAlign,
     ButtonShape,
@@ -230,6 +231,7 @@ export {
     Portal,
     PrimaryButton,
     Progress,
+    ProgressSize,
     RadioButton,
     RadioGroup,
     RangePickerProps,
