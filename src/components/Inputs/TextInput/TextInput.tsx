@@ -3,7 +3,7 @@ import DisabledContext, {
     Disabled,
 } from '../../ConfigProvider/DisabledContext';
 import { ShapeContext, Shape, SizeContext, Size } from '../../ConfigProvider';
-import { ButtonSize, DefaultButton, SystemUIButton } from '../../Button';
+import { ButtonShape, ButtonSize, SystemUIButton } from '../../Button';
 import { Icon, IconName, IconSize } from '../../Icon';
 import { Label, LabelSize } from '../../Label';
 import {
@@ -17,6 +17,7 @@ import { FormItemInputContext } from '../../Form/Context';
 import { ValidateStatus } from '../../Form/Form.types';
 import { useDebounce } from '../../../hooks/useDebounce';
 import {
+    eventKeys,
     getMergedStatus,
     mergeClasses,
     resolveOnChange,
@@ -301,6 +302,15 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
             }
         }, [clear]);
 
+        const handleOnKeydownClear = (_event: React.KeyboardEvent) => {
+            if (
+                document.activeElement !== clearButtonRef?.current &&
+                _event.key === eventKeys.ENTER
+            ) {
+                return;
+            }
+            handleOnClear;
+        };
         const handleOnClear = (_event: React.MouseEvent) => {
             _event.preventDefault();
             _event.stopPropagation();
@@ -359,6 +369,15 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
             }
             return iconSize;
         };
+
+        const inputShapeToButtonShapeMap = new Map<
+            TextInputShape | Shape,
+            ButtonShape
+        >([
+            [TextInputShape.Pill, ButtonShape.Round],
+            [TextInputShape.Rectangle, ButtonShape.Rectangle],
+            [TextInputShape.Underline, ButtonShape.Rectangle],
+        ]);
 
         const inputSizeToIconSizeMap = new Map<TextInputSize | Size, IconSize>([
             [TextInputSize.Flex, getIconSize()],
@@ -439,6 +458,7 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
                                     path: iconButtonProps.iconProps.path,
                                 }}
                                 id={iconButtonProps.id}
+                                shape={inputShapeToButtonShapeMap.get(shape)}
                                 size={inputSizeToButtonSizeMap.get(mergedSize)}
                                 htmlType={iconButtonProps.htmlType}
                             />
@@ -467,7 +487,7 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
                                 </div>
                             )}
                             {iconButtonProps && (
-                                <DefaultButton
+                                <SystemUIButton
                                     allowDisabledFocus={
                                         iconButtonProps.allowDisabledFocus
                                     }
@@ -478,34 +498,48 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
                                         iconButtonProps.disabled ||
                                         mergedDisabled
                                     }
+                                    htmlType={iconButtonProps.htmlType}
                                     iconProps={{
                                         path: iconButtonProps.iconProps.path,
                                     }}
                                     id={iconButtonProps.id}
                                     onClick={iconButtonProps.onClick}
+                                    shape={inputShapeToButtonShapeMap.get(
+                                        shape
+                                    )}
                                     size={inputSizeToButtonSizeMap.get(
                                         mergedSize
                                     )}
-                                    htmlType={iconButtonProps.htmlType}
+                                    transparent
                                 />
                             )}
                             {clearable &&
                                 clearButtonShown &&
                                 !numbersOnly &&
                                 htmlType !== 'number' && (
-                                    <DefaultButton
+                                    <SystemUIButton
                                         ref={clearButtonRef}
                                         allowDisabledFocus={allowDisabledFocus}
                                         ariaLabel={clearButtonAriaLabel}
                                         classNames={clearIconButtonClassNames}
                                         disabled={mergedDisabled}
+                                        htmlType={'button'}
                                         iconProps={{ path: IconName.mdiClose }}
                                         onClick={
                                             !allowDisabledFocus
                                                 ? handleOnClear
                                                 : null
                                         }
+                                        onKeyDown={
+                                            !allowDisabledFocus
+                                                ? handleOnKeydownClear
+                                                : null
+                                        }
+                                        shape={inputShapeToButtonShapeMap.get(
+                                            shape
+                                        )}
                                         size={ButtonSize.Small}
+                                        transparent
                                     />
                                 )}
                         </div>
