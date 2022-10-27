@@ -402,6 +402,7 @@ const Cropper = forwardRef<EasyCropper, CropperProps>((props, ref) => {
                                     />
                                 }
                                 maskClosable={false}
+                                modalClassNames={styles.cropperModal}
                                 modalWrapperClassNames={mergeClasses([
                                     styles.cropperModal,
                                     modalWrapperClassNames,

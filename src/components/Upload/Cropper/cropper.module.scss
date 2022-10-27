@@ -1,7 +1,8 @@
 .cropper-modal {
     // Fade-in only as transform doesn't play nicely with canvas.
+    // TODO: Add an animationProps prop to BaseDialog then remove this !important.
     animation: fadeIn $motion-duration-extra-fast $motion-easing-easeinout 0s
-        forwards;
+        forwards !important;
 
     .cropper-container {
         height: 60vh;
