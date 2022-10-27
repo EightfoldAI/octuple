@@ -6,6 +6,7 @@ import Panel from '../Panel/Locale/cs_CZ';
 import InfoBar from '../InfoBar/Locale/cs_CZ';
 import Table from '../Table/Locale/cs_CZ';
 import TimePicker from '../DateTimePicker/TimePicker/Locale/cs_CZ';
+import Upload from '../Upload/Locale/cs_CZ';
 
 const localeValues: Locale = {
     locale: 'cs',
@@ -19,6 +20,7 @@ const localeValues: Locale = {
     Panel,
     Table,
     TimePicker,
+    Upload,
 };
 
 export default localeValues;

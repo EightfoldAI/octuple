@@ -7,6 +7,7 @@ import Pagination from '../Pagination/Locale/sv_SE';
 import Panel from '../Panel/Locale/sv_SE';
 import Table from '../Table/Locale/sv_SE';
 import TimePicker from '../DateTimePicker/TimePicker/Locale/sv_SE';
+import Upload from '../Upload/Locale/sv_SE';
 
 const typeTemplate = '${label} är inte en giltig ${type}';
 
@@ -73,6 +74,7 @@ const localeValues: Locale = {
     Panel,
     Table,
     TimePicker,
+    Upload,
 };
 
 export default localeValues;

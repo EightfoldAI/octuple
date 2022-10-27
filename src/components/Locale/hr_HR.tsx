@@ -7,6 +7,7 @@ import Pagination from '../Pagination/Locale/hr_HR';
 import Panel from '../Panel/Locale/hr_HR';
 import Table from '../Table/Locale/hr_HR';
 import TimePicker from '../DateTimePicker/TimePicker/Locale/hr_HR';
+import Upload from '../Upload/Locale/hr_HR';
 
 const typeTemplate = '${label} nije valjan ${type}';
 
@@ -72,6 +73,7 @@ const localeValues: Locale = {
     Panel,
     Table,
     TimePicker,
+    Upload,
 };
 
 export default localeValues;

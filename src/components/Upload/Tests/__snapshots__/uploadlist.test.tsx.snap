@@ -1,0 +1,1390 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Upload List itemRender 1`] = `
+<ul
+  class="upload-list upload-list-text"
+>
+  <li
+    class="upload-list-text-container"
+  >
+    <div
+      class="custom-item-render"
+    >
+      <span>
+        uid:-1 name: xyz.png status: removed url: https://github.com/EightfoldAI/octuple/blob/main/public/assets/NewIssue.png  1/2
+      </span>
+      <span
+        class="custom-item-render-action-remove"
+      >
+        remove
+      </span>
+      <span
+        class="custom-item-render-action-replace"
+      >
+        replace
+      </span>
+      <span
+        class="custom-item-render-action-download"
+      >
+        download
+      </span>
+      <span
+        class="custom-item-render-action-preview"
+      >
+        preview
+      </span>
+    </div>
+  </li>
+  <li
+    class="upload-list-text-container"
+  >
+    <div
+      class="custom-item-render"
+    >
+      <span>
+        uid:-2 name: yyy.png status: removed url: https://github.com/EightfoldAI/octuple/blob/main/public/assets/NewIssue.png  2/2
+      </span>
+      <span
+        class="custom-item-render-action-remove"
+      >
+        remove
+      </span>
+      <span
+        class="custom-item-render-action-replace"
+      >
+        replace
+      </span>
+      <span
+        class="custom-item-render-action-download"
+      >
+        download
+      </span>
+      <span
+        class="custom-item-render-action-preview"
+      >
+        preview
+      </span>
+    </div>
+  </li>
+</ul>
+`;
+
+exports[`Upload List should be uploading when upload a file 1`] = `
+<span>
+  <div
+    class="upload upload-select"
+  >
+    <span
+      class=""
+      role="button"
+    >
+      <input
+        accept=""
+        style="display: none;"
+        type="file"
+      />
+      <button
+        type="button"
+      >
+        upload
+      </button>
+    </span>
+  </div>
+  <ul
+    class="upload-list upload-list-medium upload-list-text"
+  >
+    <li
+      class="upload-list-text-container upload-animate-appear upload-animate-appear-start upload-animate"
+      style="height: 0px; opacity: 0;"
+    >
+      <div
+        class="upload-list-item upload-list-item-uploading upload-list-item-list-type-text"
+      >
+        <div
+          class="upload-list-item-info"
+        >
+          <span
+            class="upload-span"
+          >
+            <div
+              class="upload-list-item-text-icon"
+            >
+              <span
+                aria-hidden="false"
+                class="upload-spin-icon icon-wrapper"
+                role="presentation"
+              >
+                <svg
+                  role="presentation"
+                  style="width: 14px; height: 14px;"
+                  viewBox="0 0 24 24"
+                >
+                  <style>
+                    @keyframes spin { from { transform: rotate(0deg) } to { transform: rotate(360deg) } }
+                  </style>
+                  <g
+                    style="animation: spin linear 0.4s infinite; transform-origin: center;"
+                  >
+                    <path
+                      d="M12,4V2A10,10 0 0,0 2,12H4A8,8 0 0,1 12,4Z"
+                      style="fill: currentColor;"
+                    />
+                    <rect
+                      fill="transparent"
+                      height="24"
+                      width="24"
+                    />
+                  </g>
+                </svg>
+              </span>
+            </div>
+            <span
+              class="upload-list-item-name"
+              title="foo.png"
+            >
+              foo.png
+            </span>
+            <span
+              class="upload-list-item-card-actions"
+            >
+              <button
+                aria-disabled="false"
+                aria-label="Remove file"
+                class="icon-delete button button-default button-medium round-shape icon-left"
+              >
+                <span
+                  aria-hidden="false"
+                  class="icon icon-wrapper"
+                  role="presentation"
+                >
+                  <svg
+                    role="presentation"
+                    style="width: 20px; height: 20px;"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19M8,9H16V19H8V9M15.5,4L14.5,3H9.5L8.5,4H5V6H19V4H15.5Z"
+                      style="fill: currentColor;"
+                    />
+                  </svg>
+                </span>
+              </button>
+            </span>
+          </span>
+        </div>
+      </div>
+    </li>
+  </ul>
+</span>
+`;
+
+exports[`Upload List should non-image format file preview 1`] = `
+<span>
+  <div
+    class="upload upload-select"
+  >
+    <span
+      class=""
+      role="button"
+    >
+      <input
+        accept=""
+        style="display: none;"
+        type="file"
+      />
+      <button
+        type="button"
+      >
+        upload
+      </button>
+    </span>
+  </div>
+  <ul
+    class="upload-list upload-list-medium upload-list-picture"
+  >
+    <li
+      class="upload-list-picture-container"
+    >
+      <div
+        class="upload-list-item upload-list-item-done upload-list-item-list-type-picture"
+      >
+        <div
+          class="upload-list-item-info"
+        >
+          <span
+            class="upload-span"
+          >
+            <a
+              class="upload-list-item-thumbnail upload-list-item-file"
+              href="https://cdn.xyz.com/aaa.zip"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <span
+                aria-hidden="false"
+                class="icon-wrapper"
+                role="presentation"
+              >
+                <svg
+                  role="presentation"
+                  style="width: 48px; height: 48px;"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M14,2L20,8V20A2,2 0 0,1 18,22H6A2,2 0 0,1 4,20V4A2,2 0 0,1 6,2H14M18,20V9H13V4H6V20H18M11.2,18.46L8.45,15.46L9.61,14.3L11.2,15.88L14.78,12.3L15.95,13.71L11.2,18.46Z"
+                    style="fill: currentColor;"
+                  />
+                </svg>
+              </span>
+            </a>
+            <a
+              class="upload-list-item-name"
+              href="https://cdn.xyz.com/aaa.zip"
+              rel="noopener noreferrer"
+              target="_blank"
+              title="not-image"
+            >
+              not-image
+            </a>
+            <span
+              class="upload-list-item-card-actions picture"
+            >
+              <button
+                aria-disabled="false"
+                aria-label="Remove file"
+                class="icon-delete button button-default button-medium round-shape icon-left"
+              >
+                <span
+                  aria-hidden="false"
+                  class="icon icon-wrapper"
+                  role="presentation"
+                >
+                  <svg
+                    role="presentation"
+                    style="width: 20px; height: 20px;"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19M8,9H16V19H8V9M15.5,4L14.5,3H9.5L8.5,4H5V6H19V4H15.5Z"
+                      style="fill: currentColor;"
+                    />
+                  </svg>
+                </span>
+              </button>
+            </span>
+          </span>
+        </div>
+      </div>
+    </li>
+    <li
+      class="upload-list-picture-container"
+    >
+      <div
+        class="upload-list-item upload-list-item-done upload-list-item-list-type-picture"
+      >
+        <div
+          class="upload-list-item-info"
+        >
+          <span
+            class="upload-span"
+          >
+            <a
+              class="upload-list-item-thumbnail"
+              href="https://cdn.xyz.com/aaa"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <img
+                alt="image"
+                class="upload-list-item-image"
+                src="https://cdn.xyz.com/aaa"
+              />
+            </a>
+            <a
+              class="upload-list-item-name"
+              href="https://cdn.xyz.com/aaa"
+              rel="noopener noreferrer"
+              target="_blank"
+              title="image"
+            >
+              image
+            </a>
+            <span
+              class="upload-list-item-card-actions picture"
+            >
+              <button
+                aria-disabled="false"
+                aria-label="Remove file"
+                class="icon-delete button button-default button-medium round-shape icon-left"
+              >
+                <span
+                  aria-hidden="false"
+                  class="icon icon-wrapper"
+                  role="presentation"
+                >
+                  <svg
+                    role="presentation"
+                    style="width: 20px; height: 20px;"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19M8,9H16V19H8V9M15.5,4L14.5,3H9.5L8.5,4H5V6H19V4H15.5Z"
+                      style="fill: currentColor;"
+                    />
+                  </svg>
+                </span>
+              </button>
+            </span>
+          </span>
+        </div>
+      </div>
+    </li>
+    <li
+      class="upload-list-picture-container"
+    >
+      <div
+        class="upload-list-item upload-list-item-done upload-list-item-list-type-picture"
+      >
+        <div
+          class="upload-list-item-info"
+        >
+          <span
+            class="upload-span"
+          >
+            <a
+              class="upload-list-item-thumbnail upload-list-item-file"
+              href="https://cdn.xyz.com/aaa.xx"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <span
+                aria-hidden="false"
+                class="icon-wrapper"
+                role="presentation"
+              >
+                <svg
+                  role="presentation"
+                  style="width: 48px; height: 48px;"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M14,2L20,8V20A2,2 0 0,1 18,22H6A2,2 0 0,1 4,20V4A2,2 0 0,1 6,2H14M18,20V9H13V4H6V20H18M11.2,18.46L8.45,15.46L9.61,14.3L11.2,15.88L14.78,12.3L15.95,13.71L11.2,18.46Z"
+                    style="fill: currentColor;"
+                  />
+                </svg>
+              </span>
+            </a>
+            <a
+              class="upload-list-item-name"
+              href="https://cdn.xyz.com/aaa.xx"
+              rel="noopener noreferrer"
+              target="_blank"
+              title="not-image"
+            >
+              not-image
+            </a>
+            <span
+              class="upload-list-item-card-actions picture"
+            >
+              <button
+                aria-disabled="false"
+                aria-label="Remove file"
+                class="icon-delete button button-default button-medium round-shape icon-left"
+              >
+                <span
+                  aria-hidden="false"
+                  class="icon icon-wrapper"
+                  role="presentation"
+                >
+                  <svg
+                    role="presentation"
+                    style="width: 20px; height: 20px;"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19M8,9H16V19H8V9M15.5,4L14.5,3H9.5L8.5,4H5V6H19V4H15.5Z"
+                      style="fill: currentColor;"
+                    />
+                  </svg>
+                </span>
+              </button>
+            </span>
+          </span>
+        </div>
+      </div>
+    </li>
+    <li
+      class="upload-list-picture-container"
+    >
+      <div
+        class="upload-list-item upload-list-item-done upload-list-item-list-type-picture"
+      >
+        <div
+          class="upload-list-item-info"
+        >
+          <span
+            class="upload-span"
+          >
+            <a
+              class="upload-list-item-thumbnail upload-list-item-file"
+              href="https://cdn.xyz.com/aaa.png/xx.xx"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <span
+                aria-hidden="false"
+                class="icon-wrapper"
+                role="presentation"
+              >
+                <svg
+                  role="presentation"
+                  style="width: 48px; height: 48px;"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M14,2L20,8V20A2,2 0 0,1 18,22H6A2,2 0 0,1 4,20V4A2,2 0 0,1 6,2H14M18,20V9H13V4H6V20H18M11.2,18.46L8.45,15.46L9.61,14.3L11.2,15.88L14.78,12.3L15.95,13.71L11.2,18.46Z"
+                    style="fill: currentColor;"
+                  />
+                </svg>
+              </span>
+            </a>
+            <a
+              class="upload-list-item-name"
+              href="https://cdn.xyz.com/aaa.png/xx.xx"
+              rel="noopener noreferrer"
+              target="_blank"
+              title="not-image"
+            >
+              not-image
+            </a>
+            <span
+              class="upload-list-item-card-actions picture"
+            >
+              <button
+                aria-disabled="false"
+                aria-label="Remove file"
+                class="icon-delete button button-default button-medium round-shape icon-left"
+              >
+                <span
+                  aria-hidden="false"
+                  class="icon icon-wrapper"
+                  role="presentation"
+                >
+                  <svg
+                    role="presentation"
+                    style="width: 20px; height: 20px;"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19M8,9H16V19H8V9M15.5,4L14.5,3H9.5L8.5,4H5V6H19V4H15.5Z"
+                      style="fill: currentColor;"
+                    />
+                  </svg>
+                </span>
+              </button>
+            </span>
+          </span>
+        </div>
+      </div>
+    </li>
+    <li
+      class="upload-list-picture-container"
+    >
+      <div
+        class="upload-list-item upload-list-item-done upload-list-item-list-type-picture"
+      >
+        <div
+          class="upload-list-item-info"
+        >
+          <span
+            class="upload-span"
+          >
+            <a
+              class="upload-list-item-thumbnail"
+              href="https://cdn.xyz.com/xx.xx/aaa.png"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <img
+                alt="image"
+                class="upload-list-item-image"
+                src="https://cdn.xyz.com/xx.xx/aaa.png"
+              />
+            </a>
+            <a
+              class="upload-list-item-name"
+              href="https://cdn.xyz.com/xx.xx/aaa.png"
+              rel="noopener noreferrer"
+              target="_blank"
+              title="image"
+            >
+              image
+            </a>
+            <span
+              class="upload-list-item-card-actions picture"
+            >
+              <button
+                aria-disabled="false"
+                aria-label="Remove file"
+                class="icon-delete button button-default button-medium round-shape icon-left"
+              >
+                <span
+                  aria-hidden="false"
+                  class="icon icon-wrapper"
+                  role="presentation"
+                >
+                  <svg
+                    role="presentation"
+                    style="width: 20px; height: 20px;"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19M8,9H16V19H8V9M15.5,4L14.5,3H9.5L8.5,4H5V6H19V4H15.5Z"
+                      style="fill: currentColor;"
+                    />
+                  </svg>
+                </span>
+              </button>
+            </span>
+          </span>
+        </div>
+      </div>
+    </li>
+    <li
+      class="upload-list-picture-container"
+    >
+      <div
+        class="upload-list-item upload-list-item-done upload-list-item-list-type-picture"
+      >
+        <div
+          class="upload-list-item-info"
+        >
+          <span
+            class="upload-span"
+          >
+            <a
+              class="upload-list-item-thumbnail"
+              href="https://cdn.xyz.com/xx.xx/aaa.png"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <img
+                alt="image"
+                class="upload-list-item-image"
+                src="data:image/png;base64,UEsDBAoAAAAAADYZYkwAAAAAAAAAAAAAAAAdAAk"
+              />
+            </a>
+            <a
+              class="upload-list-item-name"
+              href="https://cdn.xyz.com/xx.xx/aaa.png"
+              rel="noopener noreferrer"
+              target="_blank"
+              title="image"
+            >
+              image
+            </a>
+            <span
+              class="upload-list-item-card-actions picture"
+            >
+              <button
+                aria-disabled="false"
+                aria-label="Remove file"
+                class="icon-delete button button-default button-medium round-shape icon-left"
+              >
+                <span
+                  aria-hidden="false"
+                  class="icon icon-wrapper"
+                  role="presentation"
+                >
+                  <svg
+                    role="presentation"
+                    style="width: 20px; height: 20px;"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19M8,9H16V19H8V9M15.5,4L14.5,3H9.5L8.5,4H5V6H19V4H15.5Z"
+                      style="fill: currentColor;"
+                    />
+                  </svg>
+                </span>
+              </button>
+            </span>
+          </span>
+        </div>
+      </div>
+    </li>
+    <li
+      class="upload-list-picture-container"
+    >
+      <div
+        class="upload-list-item upload-list-item-done upload-list-item-list-type-picture"
+      >
+        <div
+          class="upload-list-item-info"
+        >
+          <span
+            class="upload-span"
+          >
+            <a
+              class="upload-list-item-thumbnail"
+              href="https://cdn.xyz.com/xx.xx/aaa.png?query=123"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <img
+                alt="image"
+                class="upload-list-item-image"
+                src="https://cdn.xyz.com/xx.xx/aaa.png?query=123"
+              />
+            </a>
+            <a
+              class="upload-list-item-name"
+              href="https://cdn.xyz.com/xx.xx/aaa.png?query=123"
+              rel="noopener noreferrer"
+              target="_blank"
+              title="image"
+            >
+              image
+            </a>
+            <span
+              class="upload-list-item-card-actions picture"
+            >
+              <button
+                aria-disabled="false"
+                aria-label="Remove file"
+                class="icon-delete button button-default button-medium round-shape icon-left"
+              >
+                <span
+                  aria-hidden="false"
+                  class="icon icon-wrapper"
+                  role="presentation"
+                >
+                  <svg
+                    role="presentation"
+                    style="width: 20px; height: 20px;"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19M8,9H16V19H8V9M15.5,4L14.5,3H9.5L8.5,4H5V6H19V4H15.5Z"
+                      style="fill: currentColor;"
+                    />
+                  </svg>
+                </span>
+              </button>
+            </span>
+          </span>
+        </div>
+      </div>
+    </li>
+    <li
+      class="upload-list-picture-container"
+    >
+      <div
+        class="upload-list-item upload-list-item-done upload-list-item-list-type-picture"
+      >
+        <div
+          class="upload-list-item-info"
+        >
+          <span
+            class="upload-span"
+          >
+            <a
+              class="upload-list-item-thumbnail"
+              href="https://cdn.xyz.com/xx.xx/aaa.png#anchor"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <img
+                alt="image"
+                class="upload-list-item-image"
+                src="https://cdn.xyz.com/xx.xx/aaa.png#anchor"
+              />
+            </a>
+            <a
+              class="upload-list-item-name"
+              href="https://cdn.xyz.com/xx.xx/aaa.png#anchor"
+              rel="noopener noreferrer"
+              target="_blank"
+              title="image"
+            >
+              image
+            </a>
+            <span
+              class="upload-list-item-card-actions picture"
+            >
+              <button
+                aria-disabled="false"
+                aria-label="Remove file"
+                class="icon-delete button button-default button-medium round-shape icon-left"
+              >
+                <span
+                  aria-hidden="false"
+                  class="icon icon-wrapper"
+                  role="presentation"
+                >
+                  <svg
+                    role="presentation"
+                    style="width: 20px; height: 20px;"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19M8,9H16V19H8V9M15.5,4L14.5,3H9.5L8.5,4H5V6H19V4H15.5Z"
+                      style="fill: currentColor;"
+                    />
+                  </svg>
+                </span>
+              </button>
+            </span>
+          </span>
+        </div>
+      </div>
+    </li>
+    <li
+      class="upload-list-picture-container"
+    >
+      <div
+        class="upload-list-item upload-list-item-done upload-list-item-list-type-picture"
+      >
+        <div
+          class="upload-list-item-info"
+        >
+          <span
+            class="upload-span"
+          >
+            <a
+              class="upload-list-item-thumbnail"
+              href="https://cdn.xyz.com/xx.xx/aaa.png?query=some.query.with.dot"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <img
+                alt="image"
+                class="upload-list-item-image"
+                src="https://cdn.xyz.com/xx.xx/aaa.png?query=some.query.with.dot"
+              />
+            </a>
+            <a
+              class="upload-list-item-name"
+              href="https://cdn.xyz.com/xx.xx/aaa.png?query=some.query.with.dot"
+              rel="noopener noreferrer"
+              target="_blank"
+              title="image"
+            >
+              image
+            </a>
+            <span
+              class="upload-list-item-card-actions picture"
+            >
+              <button
+                aria-disabled="false"
+                aria-label="Remove file"
+                class="icon-delete button button-default button-medium round-shape icon-left"
+              >
+                <span
+                  aria-hidden="false"
+                  class="icon icon-wrapper"
+                  role="presentation"
+                >
+                  <svg
+                    role="presentation"
+                    style="width: 20px; height: 20px;"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19M8,9H16V19H8V9M15.5,4L14.5,3H9.5L8.5,4H5V6H19V4H15.5Z"
+                      style="fill: currentColor;"
+                    />
+                  </svg>
+                </span>
+              </button>
+            </span>
+          </span>
+        </div>
+      </div>
+    </li>
+    <li
+      class="upload-list-picture-container"
+    >
+      <div
+        class="upload-list-item upload-list-item-done upload-list-item-list-type-picture"
+      >
+        <div
+          class="upload-list-item-info"
+        >
+          <span
+            class="upload-span"
+          >
+            <a
+              class="upload-list-item-thumbnail"
+              href="https://github.com/EightfoldAI/octuple/blob/main/public/assets/NewIssue.png@w_150%2ch_152"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <img
+                alt="image"
+                class="upload-list-item-image"
+                src="https://github.com/EightfoldAI/octuple/blob/main/public/assets/NewIssue.png@w_150%2ch_152"
+              />
+            </a>
+            <a
+              class="upload-list-item-name"
+              href="https://github.com/EightfoldAI/octuple/blob/main/public/assets/NewIssue.png@w_150%2ch_152"
+              rel="noopener noreferrer"
+              target="_blank"
+              title="image"
+            >
+              image
+            </a>
+            <span
+              class="upload-list-item-card-actions picture"
+            >
+              <button
+                aria-disabled="false"
+                aria-label="Remove file"
+                class="icon-delete button button-default button-medium round-shape icon-left"
+              >
+                <span
+                  aria-hidden="false"
+                  class="icon icon-wrapper"
+                  role="presentation"
+                >
+                  <svg
+                    role="presentation"
+                    style="width: 20px; height: 20px;"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19M8,9H16V19H8V9M15.5,4L14.5,3H9.5L8.5,4H5V6H19V4H15.5Z"
+                      style="fill: currentColor;"
+                    />
+                  </svg>
+                </span>
+              </button>
+            </span>
+          </span>
+        </div>
+      </div>
+    </li>
+  </ul>
+</span>
+`;
+
+exports[`Upload List should support removeIcon, replaceIcon, and downloadIcon 1`] = `
+<span>
+  <div
+    class="upload upload-select"
+  >
+    <span
+      class=""
+      role="button"
+    >
+      <input
+        accept=""
+        style="display: none;"
+        type="file"
+      />
+      <button
+        type="button"
+      >
+        upload
+      </button>
+    </span>
+  </div>
+  <ul
+    class="upload-list upload-list-medium upload-list-picture"
+  >
+    <li
+      class="upload-list-picture-container"
+    >
+      <div
+        class="upload-list-item upload-list-item-uploading upload-list-item-list-type-picture"
+      >
+        <div
+          class="upload-list-item-info"
+        >
+          <span
+            class="upload-span"
+          >
+            <div
+              class="upload-list-item-thumbnail"
+            >
+              <span
+                aria-hidden="false"
+                class="upload-spin-icon icon-wrapper"
+                role="presentation"
+              >
+                <svg
+                  role="presentation"
+                  style="width: 14px; height: 14px;"
+                  viewBox="0 0 24 24"
+                >
+                  <style>
+                    @keyframes spin { from { transform: rotate(0deg) } to { transform: rotate(360deg) } }
+                  </style>
+                  <g
+                    style="animation: spin linear 0.4s infinite; transform-origin: center;"
+                  >
+                    <path
+                      d="M12,4V2A10,10 0 0,0 2,12H4A8,8 0 0,1 12,4Z"
+                      style="fill: currentColor;"
+                    />
+                    <rect
+                      fill="transparent"
+                      height="24"
+                      width="24"
+                    />
+                  </g>
+                </svg>
+              </span>
+            </div>
+            <a
+              class="upload-list-item-name"
+              href="https://cdn.xyz.com/aaa"
+              rel="noopener noreferrer"
+              target="_blank"
+              title="image"
+            >
+              image
+            </a>
+            <span
+              class="upload-list-item-card-actions picture"
+            >
+              <button
+                aria-disabled="false"
+                aria-label="Remove file"
+                class="icon-delete button button-default button-medium round-shape icon-left"
+              >
+                <span
+                  aria-hidden="false"
+                  class="icon icon-wrapper"
+                  role="presentation"
+                >
+                  <svg
+                    role="presentation"
+                    style="width: 20px; height: 20px;"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"
+                      style="fill: currentColor;"
+                    />
+                  </svg>
+                </span>
+              </button>
+            </span>
+          </span>
+        </div>
+      </div>
+    </li>
+    <li
+      class="upload-list-picture-container"
+    >
+      <div
+        class="upload-list-item upload-list-item-done upload-list-item-list-type-picture"
+      >
+        <div
+          class="upload-list-item-info"
+        >
+          <span
+            class="upload-span"
+          >
+            <a
+              class="upload-list-item-thumbnail"
+              href="https://cdn.xyz.com/aaa"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <img
+                alt="image"
+                class="upload-list-item-image"
+                src="https://cdn.xyz.com/aaa"
+              />
+            </a>
+            <a
+              class="upload-list-item-name"
+              href="https://cdn.xyz.com/aaa"
+              rel="noopener noreferrer"
+              target="_blank"
+              title="image"
+            >
+              image
+            </a>
+            <span
+              class="upload-list-item-card-actions picture"
+            >
+              <button
+                aria-disabled="false"
+                aria-label="Download file"
+                class="icon-download button button-default button-medium round-shape icon-left"
+              >
+                <span
+                  aria-hidden="false"
+                  class="icon icon-wrapper"
+                  role="presentation"
+                >
+                  <svg
+                    role="presentation"
+                    style="width: 20px; height: 20px;"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"
+                      style="fill: currentColor;"
+                    />
+                  </svg>
+                </span>
+              </button>
+              <button
+                aria-disabled="false"
+                aria-label="Remove file"
+                class="icon-delete button button-default button-medium round-shape icon-left"
+              >
+                <span
+                  aria-hidden="false"
+                  class="icon icon-wrapper"
+                  role="presentation"
+                >
+                  <svg
+                    role="presentation"
+                    style="width: 20px; height: 20px;"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"
+                      style="fill: currentColor;"
+                    />
+                  </svg>
+                </span>
+              </button>
+            </span>
+          </span>
+        </div>
+      </div>
+    </li>
+  </ul>
+</span>
+`;
+
+exports[`Upload List should support removeIcon, replaceIcon, and downloadIcon 2`] = `
+<span>
+  <div
+    class="upload upload-select"
+  >
+    <span
+      class=""
+      role="button"
+    >
+      <input
+        accept=""
+        style="display: none;"
+        type="file"
+      />
+      <button
+        type="button"
+      >
+        upload
+      </button>
+    </span>
+  </div>
+  <ul
+    class="upload-list upload-list-medium upload-list-picture"
+  >
+    <li
+      class="upload-list-picture-container"
+    >
+      <div
+        class="upload-list-item upload-list-item-uploading upload-list-item-list-type-picture"
+      >
+        <div
+          class="upload-list-item-info"
+        >
+          <span
+            class="upload-span"
+          >
+            <div
+              class="upload-list-item-thumbnail"
+            >
+              <span
+                aria-hidden="false"
+                class="upload-spin-icon icon-wrapper"
+                role="presentation"
+              >
+                <svg
+                  role="presentation"
+                  style="width: 14px; height: 14px;"
+                  viewBox="0 0 24 24"
+                >
+                  <style>
+                    @keyframes spin { from { transform: rotate(0deg) } to { transform: rotate(360deg) } }
+                  </style>
+                  <g
+                    style="animation: spin linear 0.4s infinite; transform-origin: center;"
+                  >
+                    <path
+                      d="M12,4V2A10,10 0 0,0 2,12H4A8,8 0 0,1 12,4Z"
+                      style="fill: currentColor;"
+                    />
+                    <rect
+                      fill="transparent"
+                      height="24"
+                      width="24"
+                    />
+                  </g>
+                </svg>
+              </span>
+            </div>
+            <a
+              class="upload-list-item-name"
+              href="https://cdn.xyz.com/aaa"
+              rel="noopener noreferrer"
+              target="_blank"
+              title="image"
+            >
+              image
+            </a>
+            <span
+              class="upload-list-item-card-actions picture"
+            >
+              <button
+                aria-disabled="false"
+                aria-label="Remove file"
+                class="icon-delete button button-default button-medium round-shape icon-left"
+              >
+                <span
+                  aria-hidden="false"
+                  class="icon icon-wrapper"
+                  role="presentation"
+                >
+                  <svg
+                    role="presentation"
+                    style="width: 20px; height: 20px;"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"
+                      style="fill: currentColor;"
+                    />
+                  </svg>
+                </span>
+              </button>
+            </span>
+          </span>
+        </div>
+      </div>
+    </li>
+    <li
+      class="upload-list-picture-container"
+    >
+      <div
+        class="upload-list-item upload-list-item-done upload-list-item-list-type-picture"
+      >
+        <div
+          class="upload-list-item-info"
+        >
+          <span
+            class="upload-span"
+          >
+            <a
+              class="upload-list-item-thumbnail"
+              href="https://cdn.xyz.com/aaa"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <img
+                alt="image"
+                class="upload-list-item-image"
+                src="https://cdn.xyz.com/aaa"
+              />
+            </a>
+            <a
+              class="upload-list-item-name"
+              href="https://cdn.xyz.com/aaa"
+              rel="noopener noreferrer"
+              target="_blank"
+              title="image"
+            >
+              image
+            </a>
+            <span
+              class="upload-list-item-card-actions picture"
+            >
+              <button
+                aria-disabled="false"
+                aria-label="Download file"
+                class="icon-download button button-default button-medium round-shape icon-left"
+              >
+                <span
+                  aria-hidden="false"
+                  class="icon icon-wrapper"
+                  role="presentation"
+                >
+                  <svg
+                    role="presentation"
+                    style="width: 20px; height: 20px;"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"
+                      style="fill: currentColor;"
+                    />
+                  </svg>
+                </span>
+              </button>
+              <button
+                aria-disabled="false"
+                aria-label="Remove file"
+                class="icon-delete button button-default button-medium round-shape icon-left"
+              >
+                <span
+                  aria-hidden="false"
+                  class="icon icon-wrapper"
+                  role="presentation"
+                >
+                  <svg
+                    role="presentation"
+                    style="width: 20px; height: 20px;"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"
+                      style="fill: currentColor;"
+                    />
+                  </svg>
+                </span>
+              </button>
+            </span>
+          </span>
+        </div>
+      </div>
+    </li>
+  </ul>
+</span>
+`;
+
+exports[`Upload List should support showRemoveIconButton, showReplaceButton, and showPreviewIconButton 1`] = `
+<span>
+  <div
+    class="upload upload-select"
+  >
+    <span
+      class=""
+      role="button"
+    >
+      <input
+        accept=""
+        style="display: none;"
+        type="file"
+      />
+      <button
+        type="button"
+      >
+        upload
+      </button>
+    </span>
+  </div>
+  <ul
+    class="upload-list upload-list-medium upload-list-picture"
+  >
+    <li
+      class="upload-list-picture-container"
+    >
+      <div
+        class="upload-list-item upload-list-item-uploading upload-list-item-list-type-picture"
+      >
+        <div
+          class="upload-list-item-info"
+        >
+          <span
+            class="upload-span"
+          >
+            <div
+              class="upload-list-item-thumbnail"
+            >
+              <span
+                aria-hidden="false"
+                class="upload-spin-icon icon-wrapper"
+                role="presentation"
+              >
+                <svg
+                  role="presentation"
+                  style="width: 14px; height: 14px;"
+                  viewBox="0 0 24 24"
+                >
+                  <style>
+                    @keyframes spin { from { transform: rotate(0deg) } to { transform: rotate(360deg) } }
+                  </style>
+                  <g
+                    style="animation: spin linear 0.4s infinite; transform-origin: center;"
+                  >
+                    <path
+                      d="M12,4V2A10,10 0 0,0 2,12H4A8,8 0 0,1 12,4Z"
+                      style="fill: currentColor;"
+                    />
+                    <rect
+                      fill="transparent"
+                      height="24"
+                      width="24"
+                    />
+                  </g>
+                </svg>
+              </span>
+            </div>
+            <a
+              class="upload-list-item-name"
+              href="https://cdn.xyz.com/aaa"
+              rel="noopener noreferrer"
+              target="_blank"
+              title="image"
+            >
+              image
+            </a>
+            <span
+              class="upload-list-item-card-actions picture"
+            />
+          </span>
+        </div>
+      </div>
+    </li>
+    <li
+      class="upload-list-picture-container"
+    >
+      <div
+        class="upload-list-item upload-list-item-done upload-list-item-list-type-picture"
+      >
+        <div
+          class="upload-list-item-info"
+        >
+          <span
+            class="upload-span"
+          >
+            <a
+              class="upload-list-item-thumbnail"
+              href="https://cdn.xyz.com/aaa"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <img
+                alt="image"
+                class="upload-list-item-image"
+                src="https://cdn.xyz.com/aaa"
+              />
+            </a>
+            <a
+              class="upload-list-item-name"
+              href="https://cdn.xyz.com/aaa"
+              rel="noopener noreferrer"
+              target="_blank"
+              title="image"
+            >
+              image
+            </a>
+            <span
+              class="upload-list-item-card-actions picture"
+            />
+          </span>
+        </div>
+      </div>
+    </li>
+  </ul>
+</span>
+`;
