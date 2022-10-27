@@ -657,7 +657,8 @@ $upload-picture-card-size: 104px;
     &-small {
         &.upload-drop {
             height: 88px;
-            width: 400px;
+            min-width: 400px;
+            width: fit-content;
 
             .upload-drop-container {
                 margin: unset;
@@ -768,7 +769,8 @@ $upload-picture-card-size: 104px;
     &-medium {
         &.upload-drop {
             height: auto;
-            width: 400px;
+            min-width: 400px;
+            width: fit-content;
 
             .upload-list-item-single {
                 font-size: $text-font-size-3;
