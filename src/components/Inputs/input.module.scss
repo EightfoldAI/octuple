@@ -913,11 +913,10 @@
     }
 
     .icon-button {
-        background-color: transparent;
         bottom: 1px;
         color: var(--grey-color-60);
-        height: 34px;
-        padding: $button-padding-vertical-small $space-xxs;
+        height: 28px;
+        padding: $space-xxs;
         position: absolute;
         transition: none;
 
@@ -936,7 +935,6 @@
         &:active,
         &:focus {
             background-color: transparent;
-            padding: $button-padding-vertical-small $space-xxs;
 
             svg {
                 color: var(--grey-color-60);
@@ -945,7 +943,6 @@
 
         &:hover {
             background-color: transparent;
-            padding: $button-padding-vertical-small $space-xxs;
             outline-color: transparent;
 
             svg {
@@ -955,7 +952,6 @@
     }
 
     .clear-icon-button {
-        background-color: transparent;
         bottom: 1px;
         color: var(--grey-color-60);
         height: 35px;
@@ -1290,8 +1286,8 @@
         }
 
         .icon-button {
-            bottom: $space-xxxs;
-            height: $space-xxl;
+            bottom: 0;
+            height: 44px;
 
             &.left-icon {
                 left: $space-xs;
@@ -1347,9 +1343,9 @@
         }
 
         .icon-button {
-            bottom: 1px;
-            height: 34px;
-            padding: $button-padding-vertical-small $space-xxs;
+            bottom: $space-xxs;
+            height: 28px;
+            padding: $space-xxs;
 
             &.left-icon {
                 left: $space-xxs;
@@ -1469,14 +1465,14 @@
 
         .expandable-thumb {
             position: absolute;
-            left: -4px;
+            //left: -4px;
         }
 
-        &.input-large {
-            .expandable-thumb {
-                left: -2px;
-            }
-        }
+        // &.input-large {
+        //     .expandable-thumb {
+        //         left: -2px;
+        //     }
+        // }
 
         .overlay {
             position: absolute;
@@ -1607,8 +1603,7 @@
         .icon-button {
             &.focus-visible,
             &:focus-visible {
-                background-color: var(--background-color);
-                padding: $button-padding-vertical-small $space-xxs;
+                background-color: transparent;
 
                 svg {
                     color: var(--grey-color-60);
