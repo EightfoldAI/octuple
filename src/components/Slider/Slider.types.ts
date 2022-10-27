@@ -47,9 +47,13 @@ export interface SliderInputProps
      */
     autoFocus?: boolean;
     /**
-     * Configure how contextual props are consumed
+     * Configure how contextual props are consumed.
      */
     configContextProps?: ConfigContextProps;
+    /**
+     * Custom class names of the component container.
+     */
+    containerClassNames?: string;
     /**
      * The slider disabled state.
      * @default false

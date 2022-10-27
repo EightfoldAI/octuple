@@ -7,6 +7,7 @@ import Pagination from '../Pagination/Locale/ja_JP';
 import Panel from '../Panel/Locale/ja_JP';
 import Table from '../Table/Locale/ja_JP';
 import TimePicker from '../DateTimePicker/TimePicker/Locale/ja_JP';
+import Upload from '../Upload/Locale/ja_JP';
 
 const typeTemplate = '${label}は有効な${type}ではありません';
 
@@ -68,6 +69,7 @@ const localeValues: Locale = {
     Panel,
     Table,
     TimePicker,
+    Upload,
 };
 
 export default localeValues;

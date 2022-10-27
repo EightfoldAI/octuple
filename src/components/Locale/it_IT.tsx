@@ -6,6 +6,7 @@ import Pagination from '../Pagination/Locale/it_IT';
 import Panel from '../Panel/Locale/it_IT';
 import Table from '../Table/Locale/it_IT';
 import TimePicker from '../DateTimePicker/TimePicker/Locale/it_IT';
+import Upload from '../Upload/Locale/it_IT';
 
 const localeValues: Locale = {
     locale: 'it',
@@ -16,6 +17,7 @@ const localeValues: Locale = {
     Panel,
     Table,
     TimePicker,
+    Upload,
 };
 
 export default localeValues;
