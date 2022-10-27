@@ -915,7 +915,7 @@
     .icon-button {
         bottom: 1px;
         color: var(--grey-color-60);
-        height: 28px;
+        height: $input-small-size;
         padding: $space-xxs;
         position: absolute;
         transition: none;
