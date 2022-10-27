@@ -315,7 +315,6 @@ class AjaxUploader extends Component<OcUploadProps> {
                   onMouseLeave,
                   onDrop: this.onFileDrop,
                   onDragOver: this.onFileDrop,
-                  tabIndex: '0',
               };
         return (
             <Tag

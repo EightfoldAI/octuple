@@ -17,7 +17,7 @@ export type UploadRequestMethod =
 export interface OcUploadProps
     extends Omit<
         React.InputHTMLAttributes<HTMLInputElement>,
-        'onError' | 'onProgress'
+        'onError' | 'onProgress' | 'size'
     > {
     /**
      * File types that can be accepted.
@@ -150,7 +150,7 @@ export interface OcUploadProps
     ) => void;
     /**
      * Click to open file dialog.
-     * Useful for drag only upload
+     * Useful for drop only upload
      * as it does not trigger on enter key or click event.
      * @default true
      */

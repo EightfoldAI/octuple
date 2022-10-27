@@ -2,9 +2,82 @@
     &-rtl {
         direction: rtl;
 
-        .upload-list-select-picture-card {
+        .upload-select-picture-card {
             margin-right: unset;
             margin-left: $space-xs;
+        }
+
+        &.upload-small {
+            &.upload-drop {
+                .upload-drop-button {
+                    margin: auto $space-l auto 0;
+                }
+
+                .upload-list-item-single {
+                    .upload-list-item-card-actions {
+                        margin-right: 0;
+                    }
+
+                    .upload-list-item-name {
+                        text-align: right;
+                    }
+
+                    .upload-list-item-info {
+                        .upload-spin-icon {
+                            left: unset;
+                            right: 18px;
+                        }
+                    }
+                }
+            }
+        }
+
+        &.upload-medium {
+            &.upload-drop {
+                .upload-list-item-single {
+                    .upload-list-item-card-actions {
+                        margin-right: 0;
+                    }
+
+                    .upload-list-item-info {
+                        .upload-spin-icon {
+                            right: unset;
+                        }
+                    }
+                }
+
+                .upload-list-picture {
+                    .upload-list-item-thumbnail:not(.upload-list-item-file):not(.upload-list-item-icon) {
+                        .upload-list-item-image {
+                            left: unset;
+                        }
+                    }
+                }
+            }
+        }
+
+        &.upload-large {
+            &.upload-drop {
+                .upload-list-item-single {
+                    .upload-list-item-card-actions {
+                        margin-right: 0;
+                    }
+
+                    .upload-list-item-info {
+                        .upload-spin-icon {
+                            right: unset;
+                        }
+                    }
+                }
+
+                .upload-list-picture {
+                    .upload-list-item-thumbnail:not(.upload-list-item-file):not(.upload-list-item-icon) {
+                        .upload-list-item-image {
+                            left: unset;
+                        }
+                    }
+                }
+            }
         }
     }
 }
@@ -13,109 +86,58 @@
     &-rtl {
         direction: rtl;
 
-        .upload-list-item-list-type-text {
-            &:hover {
-                .upload-list-item-name-icon-count-1 {
-                    padding-right: 22px;
-                    padding-left: 14px;
-                }
-                .upload-list-item-name-icon-count-2 {
-                    padding-right: 22px;
-                    padding-left: 28px;
-                }
-            }
-        }
-
         .upload-list-item {
             &-name {
+                padding-left: unset;
                 padding-right: $space-l;
-                padding-left: 0;
-            }
-
-            &-name-icon-count-1 {
-                padding-left: 14px;
             }
 
             &-card-actions {
-                right: auto;
                 left: 0;
+                margin-left: unset;
+                margin-right: $space-l;
+                right: unset;
 
-                .icon {
-                    padding-right: 0;
-                    padding-left: 5px;
+                .icon-view,
+                .icon-download,
+                .icon-delete,
+                .icon-replace {
+                    margin-left: unset;
+                    margin-right: $space-xs;
                 }
             }
 
             &-info {
-                padding: 0 4px 0 12px;
-            }
-
-            &-error &-card-actions {
-                .icon {
-                    padding-right: 0;
-                    padding-left: 5px;
+                .upload-spin-icon {
+                    left: unset;
+                    right: 9px;
                 }
             }
 
-            &-progress {
-                padding-right: $space-l;
-                padding-left: 0;
+            &-single {
+                .upload-list-item-card-actions {
+                    margin-right: 0;
+                }
+
+                .upload-list-item-info {
+                    .upload-spin-icon {
+                        left: unset;
+                        right: 18px;
+                    }
+                }
             }
         }
 
-        .upload-list-picture,
-        .upload-list-picture-card {
-            .upload-list-item-info {
-                padding: 0;
-            }
-
-            .upload-list-item-thumbnail {
-                right: $space-xs;
-                left: unset;
-            }
-
-            .upload-list-item-icon {
-                right: 50%;
-                left: unset;
-                transform: translate(50%, -50%);
+        &.upload-list-picture-card {
+            &-container {
+                margin-left: $space-xs;
+                margin-right: unset;
             }
 
             .upload-list-item-name {
-                margin: 0 $space-xs 0 0;
-                padding-right: 48px;
-                padding-left: $space-xs;
-            }
-
-            .upload-list-item-name-icon-count-1 {
-                padding-right: 48px;
-                padding-left: 18px;
-            }
-
-            .upload-list-item-name-icon-count-2 {
-                padding-right: 48px;
-                padding-left: 36px;
-            }
-
-            .upload-list-item-progress {
-                padding-right: 0;
+                margin: 0;
                 padding-left: 0;
-            }
-        }
-
-        .upload-list-picture-card {
-            &-container {
-                margin: 0 0 $space-xs $space-xs;
-            }
-
-            .upload-list-item-actions {
-                right: 50%;
-                left: unset;
-                transform: translate(50%, -50%);
-            }
-
-            .upload-list-item-file + .upload-list-item-name {
-                margin: $space-xs 0 0;
-                padding: 0;
+                padding-right: 0;
             }
         }
     }

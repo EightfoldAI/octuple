@@ -1,22 +1,22 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import ListItem from './ListItem';
-import type {
+import {
     InternalUploadFile,
     UploadFile,
     UploadListProps,
+    UploadSize,
 } from '../Upload.types';
 import { isImageUrl, previewImage } from '../Utils';
 import CSSMotion, { CSSMotionList } from '../../Motion';
 import type { CSSMotionListProps } from '../../Motion';
-import { ButtonShape, SystemUIButton } from '../../Button';
-import { ButtonProps, ButtonSize } from '../../Button';
+import { ButtonShape, DefaultButton } from '../../Button';
+import { ButtonProps } from '../../Button';
 import { Icon, IconName, IconSize } from '../../Icon';
 import { useCanvasDirection } from '../../../hooks/useCanvasDirection';
 import { useForceUpdate } from '../../../hooks/useForceUpdate';
 import {
     cloneElement,
     collapseMotion,
-    isValidElement,
     mergeClasses,
 } from '../../../shared/utilities';
 
@@ -35,37 +35,42 @@ const InternalUploadList: React.ForwardRefRenderFunction<
     UploadListProps
 > = (props, ref) => {
     const {
-        //acceptedFileTypesText,
         appendAction,
         appendActionVisible = true,
         downloadFileText,
         downloadIcon,
-        //dragAndDropFileText,
         iconRender,
         isImageUrl: isImgUrl = isImageUrl,
         itemRender,
         items = [],
         listType = 'text',
+        maxCount,
         onDownload,
         onPreview,
         onRemove,
+        onReplace,
         previewFile = previewImage,
         previewFileText,
         previewIcon,
-        progress = { strokeWidth: 2, showInfo: false },
+        progress = { strokeWidth: 2, showLabels: false },
         removeFileText,
         removeIcon,
-        //replaceFileText,
-        //selectFileText,
+        replaceFileText,
+        replaceIcon,
         showDownloadIconButton: showDownloadIconButton = false,
         showPreviewIconButton: showPreviewIconButton = true,
         showRemoveIconButton: showRemoveIconButton = true,
+        showReplaceButton: showReplaceButton = true,
+        size,
         uploadErrorText,
         uploadingText,
     } = props;
 
     const forceUpdate = useForceUpdate();
     const [motionAppear, setMotionAppear] = React.useState(false);
+
+    const listRef: React.MutableRefObject<HTMLUListElement> =
+        useRef<HTMLUListElement>(null);
 
     useEffect(() => {
         if (listType !== 'picture' && listType !== 'picture-card') {
@@ -125,35 +130,55 @@ const InternalUploadList: React.ForwardRefRenderFunction<
         onRemove?.(file);
     };
 
+    const onInternalReplace = (file: UploadFile): void => {
+        onReplace?.(file);
+    };
+
     const internalIconRender = (file: UploadFile) => {
         if (iconRender) {
             return iconRender(file, listType);
         }
         const isLoading: boolean = file.status === 'uploading';
+        const dropIcon: IconName =
+            file.status === 'error'
+                ? IconName.mdiFileCancelOutline
+                : IconName.mdiFileCheckOutline;
+        const dropIconColor: string =
+            file.status === 'error'
+                ? 'var(--error-color)'
+                : 'var(--text-tertiary-color)';
         const fileIcon: JSX.Element =
             isImgUrl && isImgUrl(file) ? (
-                <Icon path={IconName.mdiImageOutline} size={IconSize.XSmall} />
+                <Icon path={IconName.mdiImageOutline} size={'48px'} />
             ) : (
-                <Icon
-                    path={IconName.mdiFileDocumentOutline}
-                    size={IconSize.XSmall}
-                />
+                <Icon path={dropIcon} size={'48px'} />
             );
         let icon: React.ReactNode = isLoading ? (
             <Icon
+                classNames={styles.uploadSpinIcon}
                 path={IconName.mdiLoading}
                 size={IconSize.XSmall}
-                spin={400}
+                spin={0.4}
             />
         ) : (
-            <Icon path={IconName.mdiPaperclip} size={IconSize.XSmall} />
+            <Icon
+                classNames={styles.uploadDropIcon}
+                color={dropIconColor}
+                path={
+                    file.status === 'removed'
+                        ? IconName.mdiFileCancelOutline
+                        : dropIcon
+                }
+                size={'48px'}
+            />
         );
         if (listType === 'picture') {
             icon = isLoading ? (
                 <Icon
+                    classNames={styles.uploadSpinIcon}
                     path={IconName.mdiLoading}
                     size={IconSize.XSmall}
-                    spin={400}
+                    spin={0.4}
                 />
             ) : (
                 fileIcon
@@ -170,21 +195,18 @@ const InternalUploadList: React.ForwardRefRenderFunction<
     ): JSX.Element => {
         const defaultProps: ButtonProps = {
             classNames: mergeClasses([
-                styles.uploadListItemCardActionsBtn,
-                styles.icon,
+                styles.uploadListItemCardActionsButton,
                 styles.iconDownload,
             ]),
             iconProps: {
                 path: IconName.mdiArrowDownThin,
-                size: IconSize.XSmall,
             },
             shape: ButtonShape.Round,
-            size: ButtonSize.Small,
             onClick: (_event: React.MouseEvent<HTMLElement>) => {
                 callback();
             },
         };
-        return <SystemUIButton {...defaultProps} {...buttonProps} />;
+        return <DefaultButton {...defaultProps} {...buttonProps} />;
     };
 
     // Test handler
@@ -197,6 +219,9 @@ const InternalUploadList: React.ForwardRefRenderFunction<
 
     const listClassNames: string = mergeClasses([
         styles.uploadList,
+        { [styles.uploadListLarge]: size === UploadSize.Large },
+        { [styles.uploadListMedium]: size === UploadSize.Medium },
+        { [styles.uploadListSmall]: size === UploadSize.Small },
         (styles as any)[`upload-list-${listType}`],
         { [styles.uploadListRtl]: htmlDir === 'rtl' },
     ]);
@@ -226,7 +251,7 @@ const InternalUploadList: React.ForwardRefRenderFunction<
     }
 
     return (
-        <div className={listClassNames}>
+        <ul ref={listRef} className={listClassNames}>
             <CSSMotionList {...motionConfig} component={false}>
                 {({
                     key,
@@ -246,24 +271,27 @@ const InternalUploadList: React.ForwardRefRenderFunction<
                         items={items}
                         key={key}
                         listType={listType}
+                        maxCount={maxCount}
                         onClose={onInternalClose}
                         onDownload={onInternalDownload}
                         onPreview={onInternalPreview}
+                        onReplace={onInternalReplace}
                         previewFileText={previewFileText}
                         previewIcon={previewIcon}
                         progress={progress}
                         removeFileText={removeFileText}
                         removeIcon={removeIcon}
+                        replaceFileText={replaceFileText}
+                        replaceIcon={replaceIcon}
                         showDownloadIconButton={showDownloadIconButton}
                         showPreviewIconButton={showPreviewIconButton}
                         showRemoveIconButton={showRemoveIconButton}
+                        showReplaceButton={showReplaceButton}
                         style={motionStyle}
                         uploadErrorText={uploadErrorText}
                     />
                 )}
             </CSSMotionList>
-
-            {/* Append action */}
             {appendAction && (
                 <CSSMotion
                     {...motionConfig}
@@ -288,7 +316,7 @@ const InternalUploadList: React.ForwardRefRenderFunction<
                     }
                 </CSSMotion>
             )}
-        </div>
+        </ul>
     );
 };
 

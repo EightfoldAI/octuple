@@ -208,7 +208,7 @@ describe('uploader', () => {
             }, 100);
         });
 
-        it('drag to upload', (done) => {
+        it('drop to upload', (done) => {
             const input = uploader.find('input').first();
 
             const files = [
@@ -238,7 +238,7 @@ describe('uploader', () => {
             }, 100);
         });
 
-        it('drag unaccepted type files to upload will not trigger onStart', (done) => {
+        it('drop unaccepted type files to upload will not trigger onStart', (done) => {
             const input = uploader.find('input').first();
             const files = [
                 {
@@ -258,7 +258,7 @@ describe('uploader', () => {
             }, 100);
         });
 
-        it('drag files with multiple false', (done) => {
+        it('drop files with multiple false', (done) => {
             const wrapper = mount(<Uploader {...props} multiple={false} />);
             const input = wrapper.find('input').first();
 

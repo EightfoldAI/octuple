@@ -68,6 +68,7 @@ export const Slider: FC<SliderProps> = React.forwardRef(
                 noDisabledContext: false,
                 noSizeContext: false,
             },
+            containerClassNames,
             disabled = false,
             formItemInput = false,
             hideMax = false,
@@ -530,7 +531,8 @@ export const Slider: FC<SliderProps> = React.forwardRef(
                         },
                         { [styles.sliderContainerRtl]: htmlDir === 'rtl' },
                         { [styles.showMarkers]: !!showMarkers },
-                        { ['in-form-item']: mergedFormItemInput }
+                        { ['in-form-item']: mergedFormItemInput },
+                        containerClassNames
                     )}
                 >
                     <div className={mergeClasses(styles.slider, classNames)}>

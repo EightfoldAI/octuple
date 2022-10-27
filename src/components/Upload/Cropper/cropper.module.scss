@@ -1,0 +1,30 @@
+.cropper-modal {
+    // Fade-in only as transform doesn't play nicely with canvas.
+    animation: fadeIn $motion-duration-extra-fast $motion-easing-easeinout 0s
+        forwards;
+
+    .cropper-container {
+        height: 60vh;
+        position: relative;
+        width: 100%;
+    }
+
+    .cropper-zoom-control,
+    .cropper-rotate-control {
+        position: relative;
+        width: 100%;
+
+        .cropper-icon-button {
+            margin-top: calc($space-xxs + 1px);
+        }
+
+        .cropper-slider {
+            margin-top: $space-xs;
+            width: calc(100% - 88px);
+        }
+    }
+
+    .cropper-zoom-control {
+        margin-top: $space-ml;
+    }
+}

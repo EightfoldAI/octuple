@@ -75,8 +75,10 @@ describe('Upload.typescript', () => {
                 showUploadList={{
                     showPreviewIconButton: true,
                     showRemoveIconButton: true,
+                    showReplaceButton: true,
                     showDownloadIconButton: true,
                     removeIcon: IconName.mdiDelete,
+                    replaceIcon: IconName.mdiRepeat,
                     downloadIcon: IconName.mdiArrowDown,
                 }}
             >
@@ -177,6 +179,7 @@ describe('Upload.typescript', () => {
                         <span onClick={actions.remove}>remove</span>
                         <span onClick={actions.download}>download</span>
                         <span onClick={actions.preview}>preview</span>
+                        <span onClick={actions.replace}>replace</span>
                     </div>
                 )}
             >

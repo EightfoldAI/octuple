@@ -7,7 +7,7 @@ import MatchMediaMock from 'jest-matchmedia-mock';
 
 let matchMedia: any;
 
-describe('Upload.Dragger', () => {
+describe('Upload.Dropzone', () => {
     beforeAll(() => {
         matchMedia = new MatchMediaMock();
     });
@@ -19,15 +19,15 @@ describe('Upload.Dragger', () => {
         matchMedia.clear();
     });
 
-    test('support drag file with over style', async () => {
+    test('support drop file with over style', async () => {
         jest.useFakeTimers();
         const { container: wrapper } = render(
-            <Upload.Dragger action="http://upload.com">
+            <Upload.Dropzone action="http://upload.com">
                 <div />
-            </Upload.Dragger>
+            </Upload.Dropzone>
         );
 
-        fireEvent.dragOver(wrapper.querySelector('.upload-drag-container')!, {
+        fireEvent.dragOver(wrapper.querySelector('.upload-drop-container')!, {
             target: {
                 files: [{ file: 'foo.png' }],
             },
@@ -40,8 +40,8 @@ describe('Upload.Dragger', () => {
         await waitFor(() => {
             expect(
                 wrapper
-                    .querySelector('.upload-drag')
-                    .classList.contains('upload-drag-hover')
+                    .querySelector('.upload-drop')
+                    .classList.contains('upload-drop-hover')
             ).toBeTruthy();
         });
 
@@ -51,12 +51,12 @@ describe('Upload.Dragger', () => {
     test('support onDrop when files are dropped onto upload area', async () => {
         const onDrop = jest.fn();
         const { container: wrapper } = render(
-            <Upload.Dragger onDrop={onDrop}>
+            <Upload.Dropzone onDrop={onDrop}>
                 <div />
-            </Upload.Dragger>
+            </Upload.Dropzone>
         );
 
-        fireEvent.drop(wrapper.querySelector('.upload-drag-container')!, {
+        fireEvent.drop(wrapper.querySelector('.upload-drop-container')!, {
             dataTransfer: {
                 files: [new File(['foo'], 'foo.png', { type: 'image/png' })],
             },

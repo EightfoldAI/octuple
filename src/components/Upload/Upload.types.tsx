@@ -28,6 +28,26 @@ type Locale = {
      */
     dragAndDropFileText?: string;
     /**
+     * The Upload 'Drag & drop files' string.
+     */
+    dragAndDropMultipleFilesText?: string;
+    /**
+     * The Cropper Modal 'Cancel' string.
+     */
+    modalCancelText?: string;
+    /**
+     * The Cropper Modal 'Close' string.
+     */
+    modalCloseButtonAriaLabelText?: string;
+    /**
+     * The Cropper Modal 'OK' string.
+     */
+    modalOkText?: string;
+    /**
+     * The Cropper Modal 'Edit Image' string.
+     */
+    modalTitleText?: string;
+    /**
      * The Upload 'Preview file' string.
      */
     previewFileText?: string;
@@ -40,9 +60,21 @@ type Locale = {
      */
     replaceFileText?: string;
     /**
+     * The Cropper 'Rotate left' string.
+     */
+    rotateLeftButtonAriaLabelText?: string;
+    /**
+     * The Cropper 'Rotate right' string.
+     */
+    rotateRightButtonAriaLabelText?: string;
+    /**
      * The Upload 'Select file' string.
      */
     selectFileText?: string;
+    /**
+     * The Upload 'Select files' string.
+     */
+    selectMultipleFilesText?: string;
     /**
      * The Upload 'File upload failed' string.
      */
@@ -51,6 +83,14 @@ type Locale = {
      * The Upload 'Uploading' string.
      */
     uploadingText?: string;
+    /**
+     * The Cropper 'Zoom in' string.
+     */
+    zoomInButtonAriaLabelText?: string;
+    /**
+     * The Cropper 'Zoom out' string.
+     */
+    zoomOutButtonAriaLabelText?: string;
 };
 
 type PreviewFileHandler = (file: File | Blob) => PromiseLike<string>;
@@ -62,7 +102,7 @@ export type UploadFileStatus =
     | 'done'
     | 'uploading'
     | 'removed';
-export type UploadType = 'drag' | 'select';
+export type UploadType = 'drop' | 'select';
 export type UploadListType = 'text' | 'picture' | 'picture-card';
 export type UploadListProgressProps = Omit<ProgressProps, 'percent' | 'type'>;
 
@@ -74,8 +114,15 @@ export type ItemRender<T = any> = (
         download: () => void;
         preview: () => void;
         remove: () => void;
+        replace: () => void;
     }
 ) => React.ReactNode;
+
+export enum UploadSize {
+    Large = 'large',
+    Medium = 'medium',
+    Small = 'small',
+}
 
 export interface OcFile extends InternalOcFile {
     /**
@@ -203,17 +250,25 @@ export interface ShowUploadListInterface {
      */
     removeIcon?: IconName | ((file: UploadFile) => IconName);
     /**
+     * Customize the replace button icon svg path.
+     */
+    replaceIcon?: IconName | ((file: UploadFile) => IconName);
+    /**
      * Whether to show the download icon button.
      */
     showDownloadIconButton?: boolean;
     /**
-     * Whether to show the preview icon.
+     * Whether to show the preview icon button.
      */
     showPreviewIconButton?: boolean;
     /**
-     * Whether to show the remove icon.
+     * Whether to show the remove icon button.
      */
     showRemoveIconButton?: boolean;
+    /**
+     * Whether to show the replace button.
+     */
+    showReplaceButton?: boolean;
 }
 
 export interface UploadLocale {
@@ -296,6 +351,11 @@ export interface UploadProps<T = any> extends Pick<OcUploadProps, 'capture'> {
      * @default 'Drag & drop file'
      */
     dragAndDropFileText?: string;
+    /**
+     * The multiple drag and drop string.
+     * @default 'Drag & drop file'
+     */
+    dragAndDropMultipleFilesText?: string;
     /**
      * List of files that have been uploaded (controlled).
      * Update fileList in the uploading cycle.
@@ -385,8 +445,16 @@ export interface UploadProps<T = any> extends Pick<OcUploadProps, 'capture'> {
         file: UploadFile<T>
     ) => void | boolean | Promise<void | boolean>;
     /**
+     * Callback executed when replace button is clicked.
+     * Replace event will be prevented when return value is false
+     * or a Promise is resolve(false) or rejected.
+     */
+    onReplace?: (
+        file: UploadFile<T>
+    ) => void | boolean | Promise<void | boolean>;
+    /**
      * Click to open file dialog.
-     * Useful for drag only upload
+     * Useful for drop only upload
      * as it does not trigger on enter key or click event.
      * @default true
      */
@@ -402,7 +470,7 @@ export interface UploadProps<T = any> extends Pick<OcUploadProps, 'capture'> {
     previewFileText?: string;
     /**
      * Custom progress bar.
-     * @default { strokeWidth: 2, showInfo: false }
+     * @default { strokeWidth: 2, showLabels: false }
      */
     progress?: UploadListProgressProps;
     /**
@@ -421,12 +489,22 @@ export interface UploadProps<T = any> extends Pick<OcUploadProps, 'capture'> {
      */
     selectFileText?: string;
     /**
+     * The select multiple files string.
+     * @default 'Select files'
+     */
+    selectMultipleFilesText?: string;
+    /**
      * Whether to show default upload list,
      * could be an object to specify each 'showPreviewIconButton', 'showRemoveIconButton',
-     * 'showDownloadIconButton', 'removeIcon' and 'downloadIcon'.
+     * 'showDownloadIconButton', 'showReplaceButton', 'removeIcon', 'replaceIcon', and 'downloadIcon'.
      * @default true
      */
     showUploadList?: boolean | ShowUploadListInterface;
+    /**
+     * The Upload size.
+     * @default UploadSize.Medium
+     */
+    size?: UploadSize;
     /**
      * The Upload component custom styles.
      */
@@ -464,18 +542,13 @@ export interface UploadState<T = any> {
      */
     fileList: UploadFile<T>[];
     /**
-     * The Upload component drag state.
+     * The Upload component drop state.
      * @default 'drop'
      */
-    dragState: string;
+    dropState: string;
 }
 
 export interface UploadListProps<T = any> {
-    /**
-     * The accepted files string.
-     * @default '(doc, docx, pdf or txt)'
-     */
-    acceptedFileTypesText?: string;
     /**
      * The Upload list append action render.
      */
@@ -493,11 +566,6 @@ export interface UploadListProps<T = any> {
      * Customize the download icon button svg path.
      */
     downloadIcon?: IconName | ((file: UploadFile) => IconName);
-    /**
-     * The drag and drop string.
-     * @default 'Drag & drop file'
-     */
-    dragAndDropFileText?: string;
     /**
      * The custom icon.
      */
@@ -524,6 +592,11 @@ export interface UploadListProps<T = any> {
      */
     listType?: UploadListType;
     /**
+     * Limit the number of uploaded files.
+     * Will replace current one when maxCount is 1
+     */
+    maxCount?: number;
+    /**
      * Download file method.
      * @default 'jump to new TAB'
      */
@@ -539,6 +612,12 @@ export interface UploadListProps<T = any> {
      */
     onRemove?: (file: UploadFile<T>) => void | boolean;
     /**
+     * Callback executed when replace button is clicked.
+     * Replace event will be prevented when return value is false
+     * or a Promise is resolve(false) or rejected.
+     */
+    onReplace?: (file: UploadFile<T>) => void | boolean;
+    /**
      * Customize the preview file logic.
      */
     previewFile?: PreviewFileHandler;
@@ -553,7 +632,7 @@ export interface UploadListProps<T = any> {
     previewIcon?: IconName | ((file: UploadFile) => IconName);
     /**
      * Customize progress bar.
-     * @default { strokeWidth: 2, showInfo: false }
+     * @default { strokeWidth: 2, showLabels: false }
      */
     progress?: UploadListProgressProps;
     /**
@@ -571,10 +650,9 @@ export interface UploadListProps<T = any> {
      */
     replaceFileText?: string;
     /**
-     * The select file string.
-     * @default 'Select file'
+     * Customize the replace button icon svg path.
      */
-    selectFileText?: string;
+    replaceIcon?: IconName | ((file: UploadFile) => IconName);
     /**
      * Whether to show the download icon button.
      */
@@ -587,6 +665,15 @@ export interface UploadListProps<T = any> {
      * Whether to show the remove icon button.
      */
     showRemoveIconButton?: boolean;
+    /**
+     * Whether to show the replace button.
+     */
+    showReplaceButton?: boolean;
+    /**
+     * The Upload size.
+     * @default UploadSize.Medium
+     */
+    size?: UploadSize;
     /**
      * The file upload failed string.
      * @default  'File upload failed'
@@ -647,6 +734,15 @@ export interface ListItemProps {
      */
     listType?: UploadListType;
     /**
+     * The parent list element ref.
+     */
+    listRef?: React.MutableRefObject<HTMLUListElement>;
+    /**
+     * Limit the number of uploaded files.
+     * Will replace current one when maxCount is 1
+     */
+    maxCount?: number;
+    /**
      * Callback executed when an Upload list item is removed.
      */
     onClose: (file: UploadFile) => void;
@@ -659,6 +755,10 @@ export interface ListItemProps {
      * Callback executed when file link or preview icon is clicked.
      */
     onPreview: (file: UploadFile, e: React.SyntheticEvent<HTMLElement>) => void;
+    /**
+     * Callback executed when an Upload list item is replaced.
+     */
+    onReplace: (file: UploadFile) => void;
     /**
      * The preview file string.
      * @default 'Preview file'
@@ -688,17 +788,25 @@ export interface ListItemProps {
      */
     replaceFileText?: string;
     /**
+     * Customize the replace button icon svg path.
+     */
+    replaceIcon?: IconName | ((file: UploadFile) => IconName);
+    /**
      * Whether to show the download icon button.
      */
     showDownloadIconButton?: boolean;
     /**
-     * Whether to show the preview icon.
+     * Whether to show the preview icon button.
      */
     showPreviewIconButton?: boolean;
     /**
-     * Whether to show the remove icon.
+     * Whether to show the remove icon button.
      */
     showRemoveIconButton?: boolean;
+    /**
+     * Whether to show the replace button.
+     */
+    showReplaceButton?: boolean;
     /**
      * The Upload list item component custom styles.
      */

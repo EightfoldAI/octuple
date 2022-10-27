@@ -2,15 +2,19 @@ import React, { useContext, useEffect, useMemo, useState } from 'react';
 import { flushSync } from 'react-dom';
 import type { OcUploadProps } from './Internal';
 import OcUpload from './Internal';
-import type {
+import {
     OcFile,
     ShowUploadListInterface,
     UploadChangeParam,
     UploadFile,
     UploadLocale,
+    UploadSize,
 } from './Upload.types';
 import { UploadProps } from './Upload.types';
 import UploadList from './UploadList';
+import { Icon, IconName } from '../Icon';
+import { PrimaryButton } from '../Button';
+import { Stack } from '../Stack';
 import { file2Obj, getFileItem, removeFileItem, updateFileList } from './Utils';
 import DisabledContext, { Disabled } from '../ConfigProvider/DisabledContext';
 import LocaleReceiver, {
@@ -45,6 +49,7 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (
         disabled = false,
         downloadFileText: defaultDownloadFileText,
         dragAndDropFileText: defaultDragAndDropFileText,
+        dragAndDropMultipleFilesText: defaultDragAndDropMultipleFilesText,
         fileList,
         iconRender,
         isImageUrl,
@@ -58,13 +63,16 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (
         onDrop,
         onPreview,
         onRemove,
+        onReplace,
         previewFile,
         previewFileText: defaultPreviewFileText,
         progress,
         removeFileText: defaultRemoveFileText,
         replaceFileText: defaultReplaceFileText,
         selectFileText: defaultSelectFileText,
+        selectMultipleFilesText: defaultSelectMultipleFilesText,
         showUploadList = true,
+        size = UploadSize.Medium,
         style,
         supportServerRender = true,
         type = 'select',
@@ -98,6 +106,8 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (
     const [dragAndDropFileText, setDragAndDropFileText] = useState<string>(
         defaultDragAndDropFileText
     );
+    const [dragAndDropMultipleFilesText, setDragAndDropMultipleFilesText] =
+        useState<string>(defaultDragAndDropMultipleFilesText);
     const [previewFileText, setPreviewFileText] = useState<string>(
         defaultPreviewFileText
     );
@@ -110,6 +120,8 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (
     const [selectFileText, setSelectFileText] = useState<string>(
         defaultSelectFileText
     );
+    const [selectMultipleFilesText, setSelectMultipleFilesText] =
+        useState<string>(defaultSelectMultipleFilesText);
     const [uploadErrorText, setUploadErrorText] = useState<string>(
         defaultUploadErrorText
     );
@@ -134,6 +146,11 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (
                 ? props.dragAndDropFileText
                 : mergedLocale.lang!.dragAndDropFileText
         );
+        setDragAndDropMultipleFilesText(
+            props.dragAndDropMultipleFilesText
+                ? props.dragAndDropMultipleFilesText
+                : mergedLocale.lang!.dragAndDropMultipleFilesText
+        );
         setPreviewFileText(
             props.previewFileText
                 ? props.previewFileText
@@ -153,6 +170,11 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (
             props.selectFileText
                 ? props.selectFileText
                 : mergedLocale.lang!.selectFileText
+        );
+        setSelectMultipleFilesText(
+            props.selectMultipleFilesText
+                ? props.selectMultipleFilesText
+                : mergedLocale.lang!.selectMultipleFilesText
         );
         setUploadErrorText(
             props.uploadErrorText
@@ -174,7 +196,7 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (
         }
     );
 
-    const [dragState, setDragState] = React.useState<string>('drop');
+    const [dropState, setDropState] = React.useState<string>('drop');
 
     const upload: React.MutableRefObject<any> = React.useRef<any>();
 
@@ -400,8 +422,14 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (
         });
     };
 
+    const handleReplace = (file: UploadFile): void => {
+        Promise.resolve(
+            typeof onReplace === 'function' ? onReplace(file) : onReplace
+        );
+    };
+
     const onFileDrop = (e: React.DragEvent<HTMLDivElement>): void => {
-        setDragState(e.type);
+        setDropState(e.type);
 
         if (e.type === 'drop') {
             onDrop?.(e);
@@ -453,28 +481,30 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (
                         downloadIcon,
                         previewIcon,
                         removeIcon,
+                        replaceIcon,
                         showDownloadIconButton: showDownloadIconButton,
                         showPreviewIconButton: showPreviewIconButton,
                         showRemoveIconButton: showRemoveIconButton,
+                        showReplaceButton: showReplaceButton,
                     } = typeof showUploadList === 'boolean'
                         ? ({} as ShowUploadListInterface)
                         : showUploadList;
                     return (
                         <UploadList
-                            acceptedFileTypesText={acceptedFileTypesText}
                             appendAction={button}
                             appendActionVisible={buttonVisible}
                             downloadFileText={downloadFileText}
                             downloadIcon={downloadIcon}
-                            dragAndDropFileText={dragAndDropFileText}
                             iconRender={iconRender}
                             isImageUrl={isImageUrl}
                             itemRender={itemRender}
                             items={mergedFileList}
                             listType={listType}
+                            maxCount={maxCount}
                             onDownload={onDownload}
                             onPreview={onPreview}
                             onRemove={handleRemove}
+                            onReplace={handleReplace}
                             previewFile={previewFile}
                             previewFileText={previewFileText}
                             previewIcon={previewIcon}
@@ -482,12 +512,16 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (
                             removeFileText={removeFileText}
                             removeIcon={removeIcon}
                             replaceFileText={replaceFileText}
-                            selectFileText={selectFileText}
+                            replaceIcon={replaceIcon}
                             showDownloadIconButton={showDownloadIconButton}
                             showPreviewIconButton={showPreviewIconButton}
                             showRemoveIconButton={
                                 !mergedDisabled && showRemoveIconButton
                             }
+                            showReplaceButton={
+                                !mergedDisabled && showReplaceButton
+                            }
+                            size={size}
                             uploadErrorText={uploadErrorText}
                             uploadingText={uploadingText}
                         />
@@ -498,24 +532,93 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (
             button
         );
 
-    if (type === 'drag') {
-        const dragClassNames: string = mergeClasses([
+    if (type === 'drop') {
+        const renderIcon = (): JSX.Element => (
+            <Icon
+                classNames={styles.uploadDropIcon}
+                path={IconName.mdiFileUploadOutline}
+                size={'48px'}
+            />
+        );
+        const renderText = (): JSX.Element => (
+            <Stack direction={'vertical'}>
+                <div className={styles.uploadDropText}>
+                    {maxCount === 1
+                        ? dragAndDropFileText
+                        : dragAndDropMultipleFilesText}
+                </div>
+                <div className={styles.uploadDropHintText}>
+                    {acceptedFileTypesText}
+                </div>
+            </Stack>
+        );
+        const renderButton = (): JSX.Element => (
+            <PrimaryButton
+                classNames={styles.uploadDropButton}
+                disabled={mergedDisabled}
+                htmlType={'button'}
+                onKeyDown={(event) => event.preventDefault()}
+                text={maxCount === 1 ? selectFileText : selectMultipleFilesText}
+            />
+        );
+        const renderDropzone = (): JSX.Element => {
+            return (
+                <>
+                    {size === UploadSize.Large && (
+                        <Stack
+                            direction={'vertical'}
+                            fullWidth
+                            gap={'ml'}
+                            justify={'center'}
+                        >
+                            {renderIcon()}
+                            {renderText()}
+                            {renderButton()}
+                        </Stack>
+                    )}
+                    {size === UploadSize.Medium && (
+                        <Stack direction={'vertical'} gap={'m'}>
+                            <Stack direction={'horizontal'} gap={'xs'}>
+                                {renderIcon()}
+                                {renderText()}
+                            </Stack>
+                            {renderButton()}
+                        </Stack>
+                    )}
+                    {size === UploadSize.Small && (
+                        <Stack
+                            direction={'horizontal'}
+                            fullWidth
+                            justify={'space-evenly'}
+                        >
+                            {renderIcon()}
+                            {renderText()}
+                            {renderButton()}
+                        </Stack>
+                    )}
+                </>
+            );
+        };
+        const dropClassNames: string = mergeClasses([
             styles.upload,
-            { [styles.uploadDrag]: true },
+            { [styles.uploadLarge]: size === UploadSize.Large },
+            { [styles.uploadMedium]: size === UploadSize.Medium },
+            { [styles.uploadSmall]: size === UploadSize.Small },
+            { [styles.uploadDrop]: true },
             {
-                ['upload-drag-uploading']: mergedFileList.some(
+                ['upload-drop-uploading']: mergedFileList.some(
                     (file) => file.status === 'uploading'
                 ),
             },
-            { [styles.uploadDragHover]: dragState === 'dragover' },
+            { [styles.uploadDropHover]: dropState === 'dragover' },
             { [styles.uploadDisabled]: mergedDisabled },
             { [styles.uploadRtl]: htmlDir === 'rtl' },
             classNames,
         ]);
         return (
-            <span>
+            <>
                 <div
-                    className={dragClassNames}
+                    className={dropClassNames}
                     onDrop={onFileDrop}
                     onDragOver={onFileDrop}
                     onDragLeave={onFileDrop}
@@ -524,22 +627,35 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (
                     <OcUpload
                         {...ocUploadProps}
                         ref={upload}
-                        className={styles.uploadBtn}
+                        className={styles.uploadButton}
                     >
-                        <div className={styles.uploadDragContainer}>
-                            {children}
+                        <div className={styles.uploadDropContainer}>
+                            {!children && (
+                                <>
+                                    {!maxCount && renderDropzone()}
+                                    {maxCount === 1 && (
+                                        <>
+                                            {mergedFileList.length === 0 &&
+                                                renderDropzone()}
+                                            {mergedFileList.length > 0 &&
+                                                renderUploadList()}
+                                        </>
+                                    )}
+                                </>
+                            )}
+                            {!!children && children}
                         </div>
                     </OcUpload>
                 </div>
-                {renderUploadList()}
-            </span>
+                {!maxCount && renderUploadList()}
+            </>
         );
     }
 
     const uploadButtonClassNames: string = mergeClasses([
         styles.upload,
         { [styles.uploadSelect]: true },
-        { [(styles as any)[`upload-select-${listType}`]]: true },
+        { [styles.uploadSelectPictureCard]: listType === 'picture-card' },
         { [styles.uploadDisabled]: mergedDisabled },
         { [styles.uploadRtl]: htmlDir === 'rtl' },
     ]);

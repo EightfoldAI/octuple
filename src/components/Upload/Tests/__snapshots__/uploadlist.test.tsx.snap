@@ -1,113 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Upload List handle error 1`] = `
-<span>
-  <div
-    class="upload upload-select upload-select-text"
-  >
-    <span
-      class=""
-      role="button"
-      tabindex="0"
-    >
-      <input
-        accept=""
-        style="display: none;"
-        type="file"
-      />
-      <button
-        type="button"
-      >
-        upload
-      </button>
-    </span>
-  </div>
-  <div
-    class="upload-list upload-list-text"
-  >
-    <div
-      class="upload-list-text-container"
-      style=""
-    >
-      <div
-        class="reference-wrapper"
-        id="fjny29p"
-      >
-        <div
-          class="upload-list-item upload-list-item-error upload-list-item-list-type-text"
-        >
-          <div
-            class="upload-list-item-info"
-          >
-            <span
-              class="upload-span"
-            >
-              <div
-                class="upload-text-icon"
-              >
-                <span
-                  aria-hidden="false"
-                  class="icon-wrapper"
-                  role="presentation"
-                >
-                  <svg
-                    role="presentation"
-                    style="width: 14px; height: 14px;"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M16.5,6V17.5A4,4 0 0,1 12.5,21.5A4,4 0 0,1 8.5,17.5V5A2.5,2.5 0 0,1 11,2.5A2.5,2.5 0 0,1 13.5,5V15.5A1,1 0 0,1 12.5,16.5A1,1 0 0,1 11.5,15.5V6H10V15.5A2.5,2.5 0 0,0 12.5,18A2.5,2.5 0 0,0 15,15.5V5A4,4 0 0,0 11,1A4,4 0 0,0 7,5V17.5A5.5,5.5 0 0,0 12.5,23A5.5,5.5 0 0,0 18,17.5V6H16.5Z"
-                      style="fill: currentColor;"
-                    />
-                  </svg>
-                </span>
-              </div>
-              <span
-                class="upload-list-item-name"
-                title="foo.png"
-              >
-                foo.png
-              </span>
-              <span
-                class="upload-list-item-card-actions"
-              >
-                <button
-                  aria-disabled="false"
-                  aria-label="Remove file"
-                  class="icon icon-delete button button-system-ui button-small round-shape icon-left"
-                >
-                  <span
-                    aria-hidden="false"
-                    class="icon icon-wrapper"
-                    role="presentation"
-                  >
-                    <svg
-                      role="presentation"
-                      style="width: 16px; height: 16px;"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        d="M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19M8,9H16V19H8V9M15.5,4L14.5,3H9.5L8.5,4H5V6H19V4H15.5Z"
-                        style="fill: currentColor;"
-                      />
-                    </svg>
-                  </span>
-                </button>
-              </span>
-            </span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</span>
-`;
-
 exports[`Upload List itemRender 1`] = `
-<div
+<ul
   class="upload-list upload-list-text"
 >
-  <div
+  <li
     class="upload-list-text-container"
   >
     <div
@@ -122,6 +19,11 @@ exports[`Upload List itemRender 1`] = `
         remove
       </span>
       <span
+        class="custom-item-render-action-replace"
+      >
+        replace
+      </span>
+      <span
         class="custom-item-render-action-download"
       >
         download
@@ -132,8 +34,8 @@ exports[`Upload List itemRender 1`] = `
         preview
       </span>
     </div>
-  </div>
-  <div
+  </li>
+  <li
     class="upload-list-text-container"
   >
     <div
@@ -148,6 +50,11 @@ exports[`Upload List itemRender 1`] = `
         remove
       </span>
       <span
+        class="custom-item-render-action-replace"
+      >
+        replace
+      </span>
+      <span
         class="custom-item-render-action-download"
       >
         download
@@ -158,19 +65,18 @@ exports[`Upload List itemRender 1`] = `
         preview
       </span>
     </div>
-  </div>
-</div>
+  </li>
+</ul>
 `;
 
 exports[`Upload List should be uploading when upload a file 1`] = `
 <span>
   <div
-    class="upload upload-select upload-select-text"
+    class="upload upload-select"
   >
     <span
       class=""
       role="button"
-      tabindex="0"
     >
       <input
         accept=""
@@ -184,10 +90,10 @@ exports[`Upload List should be uploading when upload a file 1`] = `
       </button>
     </span>
   </div>
-  <div
-    class="upload-list upload-list-text"
+  <ul
+    class="upload-list upload-list-medium upload-list-text"
   >
-    <div
+    <li
       class="upload-list-text-container upload-animate-appear upload-animate-appear-start upload-animate"
       style="height: 0px; opacity: 0;"
     >
@@ -201,11 +107,11 @@ exports[`Upload List should be uploading when upload a file 1`] = `
             class="upload-span"
           >
             <div
-              class="upload-text-icon"
+              class="upload-list-item-text-icon"
             >
               <span
                 aria-hidden="false"
-                class="icon-wrapper"
+                class="upload-spin-icon icon-wrapper"
                 role="presentation"
               >
                 <svg
@@ -217,7 +123,7 @@ exports[`Upload List should be uploading when upload a file 1`] = `
                     @keyframes spin { from { transform: rotate(0deg) } to { transform: rotate(360deg) } }
                   </style>
                   <g
-                    style="animation: spin linear 400s infinite; transform-origin: center;"
+                    style="animation: spin linear 0.4s infinite; transform-origin: center;"
                   >
                     <path
                       d="M12,4V2A10,10 0 0,0 2,12H4A8,8 0 0,1 12,4Z"
@@ -244,7 +150,7 @@ exports[`Upload List should be uploading when upload a file 1`] = `
               <button
                 aria-disabled="false"
                 aria-label="Remove file"
-                class="icon icon-delete button button-system-ui button-small round-shape icon-left"
+                class="icon-delete button button-default button-medium round-shape icon-left"
               >
                 <span
                   aria-hidden="false"
@@ -253,7 +159,7 @@ exports[`Upload List should be uploading when upload a file 1`] = `
                 >
                   <svg
                     role="presentation"
-                    style="width: 16px; height: 16px;"
+                    style="width: 20px; height: 20px;"
                     viewBox="0 0 24 24"
                   >
                     <path
@@ -267,20 +173,19 @@ exports[`Upload List should be uploading when upload a file 1`] = `
           </span>
         </div>
       </div>
-    </div>
-  </div>
+    </li>
+  </ul>
 </span>
 `;
 
 exports[`Upload List should non-image format file preview 1`] = `
 <span>
   <div
-    class="upload upload-select upload-select-picture"
+    class="upload upload-select"
   >
     <span
       class=""
       role="button"
-      tabindex="0"
     >
       <input
         accept=""
@@ -294,10 +199,10 @@ exports[`Upload List should non-image format file preview 1`] = `
       </button>
     </span>
   </div>
-  <div
-    class="upload-list upload-list-picture"
+  <ul
+    class="upload-list upload-list-medium upload-list-picture"
   >
-    <div
+    <li
       class="upload-list-picture-container"
     >
       <div
@@ -322,11 +227,11 @@ exports[`Upload List should non-image format file preview 1`] = `
               >
                 <svg
                   role="presentation"
-                  style="width: 14px; height: 14px;"
+                  style="width: 48px; height: 48px;"
                   viewBox="0 0 24 24"
                 >
                   <path
-                    d="M6,2A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6M6,4H13V9H18V20H6V4M8,12V14H16V12H8M8,16V18H13V16H8Z"
+                    d="M14,2L20,8V20A2,2 0 0,1 18,22H6A2,2 0 0,1 4,20V4A2,2 0 0,1 6,2H14M18,20V9H13V4H6V20H18M11.2,18.46L8.45,15.46L9.61,14.3L11.2,15.88L14.78,12.3L15.95,13.71L11.2,18.46Z"
                     style="fill: currentColor;"
                   />
                 </svg>
@@ -347,7 +252,7 @@ exports[`Upload List should non-image format file preview 1`] = `
               <button
                 aria-disabled="false"
                 aria-label="Remove file"
-                class="icon icon-delete button button-system-ui button-small round-shape icon-left"
+                class="icon-delete button button-default button-medium round-shape icon-left"
               >
                 <span
                   aria-hidden="false"
@@ -356,7 +261,7 @@ exports[`Upload List should non-image format file preview 1`] = `
                 >
                   <svg
                     role="presentation"
-                    style="width: 16px; height: 16px;"
+                    style="width: 20px; height: 20px;"
                     viewBox="0 0 24 24"
                   >
                     <path
@@ -370,8 +275,8 @@ exports[`Upload List should non-image format file preview 1`] = `
           </span>
         </div>
       </div>
-    </div>
-    <div
+    </li>
+    <li
       class="upload-list-picture-container"
     >
       <div
@@ -410,7 +315,7 @@ exports[`Upload List should non-image format file preview 1`] = `
               <button
                 aria-disabled="false"
                 aria-label="Remove file"
-                class="icon icon-delete button button-system-ui button-small round-shape icon-left"
+                class="icon-delete button button-default button-medium round-shape icon-left"
               >
                 <span
                   aria-hidden="false"
@@ -419,7 +324,7 @@ exports[`Upload List should non-image format file preview 1`] = `
                 >
                   <svg
                     role="presentation"
-                    style="width: 16px; height: 16px;"
+                    style="width: 20px; height: 20px;"
                     viewBox="0 0 24 24"
                   >
                     <path
@@ -433,8 +338,8 @@ exports[`Upload List should non-image format file preview 1`] = `
           </span>
         </div>
       </div>
-    </div>
-    <div
+    </li>
+    <li
       class="upload-list-picture-container"
     >
       <div
@@ -459,11 +364,11 @@ exports[`Upload List should non-image format file preview 1`] = `
               >
                 <svg
                   role="presentation"
-                  style="width: 14px; height: 14px;"
+                  style="width: 48px; height: 48px;"
                   viewBox="0 0 24 24"
                 >
                   <path
-                    d="M6,2A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6M6,4H13V9H18V20H6V4M8,12V14H16V12H8M8,16V18H13V16H8Z"
+                    d="M14,2L20,8V20A2,2 0 0,1 18,22H6A2,2 0 0,1 4,20V4A2,2 0 0,1 6,2H14M18,20V9H13V4H6V20H18M11.2,18.46L8.45,15.46L9.61,14.3L11.2,15.88L14.78,12.3L15.95,13.71L11.2,18.46Z"
                     style="fill: currentColor;"
                   />
                 </svg>
@@ -484,7 +389,7 @@ exports[`Upload List should non-image format file preview 1`] = `
               <button
                 aria-disabled="false"
                 aria-label="Remove file"
-                class="icon icon-delete button button-system-ui button-small round-shape icon-left"
+                class="icon-delete button button-default button-medium round-shape icon-left"
               >
                 <span
                   aria-hidden="false"
@@ -493,7 +398,7 @@ exports[`Upload List should non-image format file preview 1`] = `
                 >
                   <svg
                     role="presentation"
-                    style="width: 16px; height: 16px;"
+                    style="width: 20px; height: 20px;"
                     viewBox="0 0 24 24"
                   >
                     <path
@@ -507,8 +412,8 @@ exports[`Upload List should non-image format file preview 1`] = `
           </span>
         </div>
       </div>
-    </div>
-    <div
+    </li>
+    <li
       class="upload-list-picture-container"
     >
       <div
@@ -533,11 +438,11 @@ exports[`Upload List should non-image format file preview 1`] = `
               >
                 <svg
                   role="presentation"
-                  style="width: 14px; height: 14px;"
+                  style="width: 48px; height: 48px;"
                   viewBox="0 0 24 24"
                 >
                   <path
-                    d="M6,2A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6M6,4H13V9H18V20H6V4M8,12V14H16V12H8M8,16V18H13V16H8Z"
+                    d="M14,2L20,8V20A2,2 0 0,1 18,22H6A2,2 0 0,1 4,20V4A2,2 0 0,1 6,2H14M18,20V9H13V4H6V20H18M11.2,18.46L8.45,15.46L9.61,14.3L11.2,15.88L14.78,12.3L15.95,13.71L11.2,18.46Z"
                     style="fill: currentColor;"
                   />
                 </svg>
@@ -558,7 +463,7 @@ exports[`Upload List should non-image format file preview 1`] = `
               <button
                 aria-disabled="false"
                 aria-label="Remove file"
-                class="icon icon-delete button button-system-ui button-small round-shape icon-left"
+                class="icon-delete button button-default button-medium round-shape icon-left"
               >
                 <span
                   aria-hidden="false"
@@ -567,7 +472,7 @@ exports[`Upload List should non-image format file preview 1`] = `
                 >
                   <svg
                     role="presentation"
-                    style="width: 16px; height: 16px;"
+                    style="width: 20px; height: 20px;"
                     viewBox="0 0 24 24"
                   >
                     <path
@@ -581,8 +486,8 @@ exports[`Upload List should non-image format file preview 1`] = `
           </span>
         </div>
       </div>
-    </div>
-    <div
+    </li>
+    <li
       class="upload-list-picture-container"
     >
       <div
@@ -621,7 +526,7 @@ exports[`Upload List should non-image format file preview 1`] = `
               <button
                 aria-disabled="false"
                 aria-label="Remove file"
-                class="icon icon-delete button button-system-ui button-small round-shape icon-left"
+                class="icon-delete button button-default button-medium round-shape icon-left"
               >
                 <span
                   aria-hidden="false"
@@ -630,7 +535,7 @@ exports[`Upload List should non-image format file preview 1`] = `
                 >
                   <svg
                     role="presentation"
-                    style="width: 16px; height: 16px;"
+                    style="width: 20px; height: 20px;"
                     viewBox="0 0 24 24"
                   >
                     <path
@@ -644,8 +549,8 @@ exports[`Upload List should non-image format file preview 1`] = `
           </span>
         </div>
       </div>
-    </div>
-    <div
+    </li>
+    <li
       class="upload-list-picture-container"
     >
       <div
@@ -684,7 +589,7 @@ exports[`Upload List should non-image format file preview 1`] = `
               <button
                 aria-disabled="false"
                 aria-label="Remove file"
-                class="icon icon-delete button button-system-ui button-small round-shape icon-left"
+                class="icon-delete button button-default button-medium round-shape icon-left"
               >
                 <span
                   aria-hidden="false"
@@ -693,7 +598,7 @@ exports[`Upload List should non-image format file preview 1`] = `
                 >
                   <svg
                     role="presentation"
-                    style="width: 16px; height: 16px;"
+                    style="width: 20px; height: 20px;"
                     viewBox="0 0 24 24"
                   >
                     <path
@@ -707,8 +612,8 @@ exports[`Upload List should non-image format file preview 1`] = `
           </span>
         </div>
       </div>
-    </div>
-    <div
+    </li>
+    <li
       class="upload-list-picture-container"
     >
       <div
@@ -747,7 +652,7 @@ exports[`Upload List should non-image format file preview 1`] = `
               <button
                 aria-disabled="false"
                 aria-label="Remove file"
-                class="icon icon-delete button button-system-ui button-small round-shape icon-left"
+                class="icon-delete button button-default button-medium round-shape icon-left"
               >
                 <span
                   aria-hidden="false"
@@ -756,7 +661,7 @@ exports[`Upload List should non-image format file preview 1`] = `
                 >
                   <svg
                     role="presentation"
-                    style="width: 16px; height: 16px;"
+                    style="width: 20px; height: 20px;"
                     viewBox="0 0 24 24"
                   >
                     <path
@@ -770,8 +675,8 @@ exports[`Upload List should non-image format file preview 1`] = `
           </span>
         </div>
       </div>
-    </div>
-    <div
+    </li>
+    <li
       class="upload-list-picture-container"
     >
       <div
@@ -810,7 +715,7 @@ exports[`Upload List should non-image format file preview 1`] = `
               <button
                 aria-disabled="false"
                 aria-label="Remove file"
-                class="icon icon-delete button button-system-ui button-small round-shape icon-left"
+                class="icon-delete button button-default button-medium round-shape icon-left"
               >
                 <span
                   aria-hidden="false"
@@ -819,7 +724,7 @@ exports[`Upload List should non-image format file preview 1`] = `
                 >
                   <svg
                     role="presentation"
-                    style="width: 16px; height: 16px;"
+                    style="width: 20px; height: 20px;"
                     viewBox="0 0 24 24"
                   >
                     <path
@@ -833,8 +738,8 @@ exports[`Upload List should non-image format file preview 1`] = `
           </span>
         </div>
       </div>
-    </div>
-    <div
+    </li>
+    <li
       class="upload-list-picture-container"
     >
       <div
@@ -873,7 +778,7 @@ exports[`Upload List should non-image format file preview 1`] = `
               <button
                 aria-disabled="false"
                 aria-label="Remove file"
-                class="icon icon-delete button button-system-ui button-small round-shape icon-left"
+                class="icon-delete button button-default button-medium round-shape icon-left"
               >
                 <span
                   aria-hidden="false"
@@ -882,7 +787,7 @@ exports[`Upload List should non-image format file preview 1`] = `
                 >
                   <svg
                     role="presentation"
-                    style="width: 16px; height: 16px;"
+                    style="width: 20px; height: 20px;"
                     viewBox="0 0 24 24"
                   >
                     <path
@@ -896,8 +801,8 @@ exports[`Upload List should non-image format file preview 1`] = `
           </span>
         </div>
       </div>
-    </div>
-    <div
+    </li>
+    <li
       class="upload-list-picture-container"
     >
       <div
@@ -936,7 +841,7 @@ exports[`Upload List should non-image format file preview 1`] = `
               <button
                 aria-disabled="false"
                 aria-label="Remove file"
-                class="icon icon-delete button button-system-ui button-small round-shape icon-left"
+                class="icon-delete button button-default button-medium round-shape icon-left"
               >
                 <span
                   aria-hidden="false"
@@ -945,7 +850,7 @@ exports[`Upload List should non-image format file preview 1`] = `
                 >
                   <svg
                     role="presentation"
-                    style="width: 16px; height: 16px;"
+                    style="width: 20px; height: 20px;"
                     viewBox="0 0 24 24"
                   >
                     <path
@@ -959,20 +864,19 @@ exports[`Upload List should non-image format file preview 1`] = `
           </span>
         </div>
       </div>
-    </div>
-  </div>
+    </li>
+  </ul>
 </span>
 `;
 
-exports[`Upload List should support removeIcon and downloadIcon 1`] = `
+exports[`Upload List should support removeIcon, replaceIcon, and downloadIcon 1`] = `
 <span>
   <div
-    class="upload upload-select upload-select-picture"
+    class="upload upload-select"
   >
     <span
       class=""
       role="button"
-      tabindex="0"
     >
       <input
         accept=""
@@ -986,10 +890,10 @@ exports[`Upload List should support removeIcon and downloadIcon 1`] = `
       </button>
     </span>
   </div>
-  <div
-    class="upload-list upload-list-picture"
+  <ul
+    class="upload-list upload-list-medium upload-list-picture"
   >
-    <div
+    <li
       class="upload-list-picture-container"
     >
       <div
@@ -1006,7 +910,7 @@ exports[`Upload List should support removeIcon and downloadIcon 1`] = `
             >
               <span
                 aria-hidden="false"
-                class="icon-wrapper"
+                class="upload-spin-icon icon-wrapper"
                 role="presentation"
               >
                 <svg
@@ -1018,7 +922,7 @@ exports[`Upload List should support removeIcon and downloadIcon 1`] = `
                     @keyframes spin { from { transform: rotate(0deg) } to { transform: rotate(360deg) } }
                   </style>
                   <g
-                    style="animation: spin linear 400s infinite; transform-origin: center;"
+                    style="animation: spin linear 0.4s infinite; transform-origin: center;"
                   >
                     <path
                       d="M12,4V2A10,10 0 0,0 2,12H4A8,8 0 0,1 12,4Z"
@@ -1048,7 +952,7 @@ exports[`Upload List should support removeIcon and downloadIcon 1`] = `
               <button
                 aria-disabled="false"
                 aria-label="Remove file"
-                class="icon icon-delete button button-system-ui button-small round-shape icon-left"
+                class="icon-delete button button-default button-medium round-shape icon-left"
               >
                 <span
                   aria-hidden="false"
@@ -1057,7 +961,7 @@ exports[`Upload List should support removeIcon and downloadIcon 1`] = `
                 >
                   <svg
                     role="presentation"
-                    style="width: 16px; height: 16px;"
+                    style="width: 20px; height: 20px;"
                     viewBox="0 0 24 24"
                   >
                     <path
@@ -1071,8 +975,8 @@ exports[`Upload List should support removeIcon and downloadIcon 1`] = `
           </span>
         </div>
       </div>
-    </div>
-    <div
+    </li>
+    <li
       class="upload-list-picture-container"
     >
       <div
@@ -1111,7 +1015,7 @@ exports[`Upload List should support removeIcon and downloadIcon 1`] = `
               <button
                 aria-disabled="false"
                 aria-label="Download file"
-                class="icon icon-download button button-system-ui button-small round-shape icon-left"
+                class="icon-download button button-default button-medium round-shape icon-left"
               >
                 <span
                   aria-hidden="false"
@@ -1120,7 +1024,7 @@ exports[`Upload List should support removeIcon and downloadIcon 1`] = `
                 >
                   <svg
                     role="presentation"
-                    style="width: 16px; height: 16px;"
+                    style="width: 20px; height: 20px;"
                     viewBox="0 0 24 24"
                   >
                     <path
@@ -1133,7 +1037,7 @@ exports[`Upload List should support removeIcon and downloadIcon 1`] = `
               <button
                 aria-disabled="false"
                 aria-label="Remove file"
-                class="icon icon-delete button button-system-ui button-small round-shape icon-left"
+                class="icon-delete button button-default button-medium round-shape icon-left"
               >
                 <span
                   aria-hidden="false"
@@ -1142,7 +1046,7 @@ exports[`Upload List should support removeIcon and downloadIcon 1`] = `
                 >
                   <svg
                     role="presentation"
-                    style="width: 16px; height: 16px;"
+                    style="width: 20px; height: 20px;"
                     viewBox="0 0 24 24"
                   >
                     <path
@@ -1156,20 +1060,19 @@ exports[`Upload List should support removeIcon and downloadIcon 1`] = `
           </span>
         </div>
       </div>
-    </div>
-  </div>
+    </li>
+  </ul>
 </span>
 `;
 
-exports[`Upload List should support removeIcon and downloadIcon 2`] = `
+exports[`Upload List should support removeIcon, replaceIcon, and downloadIcon 2`] = `
 <span>
   <div
-    class="upload upload-select upload-select-picture"
+    class="upload upload-select"
   >
     <span
       class=""
       role="button"
-      tabindex="0"
     >
       <input
         accept=""
@@ -1183,10 +1086,10 @@ exports[`Upload List should support removeIcon and downloadIcon 2`] = `
       </button>
     </span>
   </div>
-  <div
-    class="upload-list upload-list-picture"
+  <ul
+    class="upload-list upload-list-medium upload-list-picture"
   >
-    <div
+    <li
       class="upload-list-picture-container"
     >
       <div
@@ -1203,7 +1106,7 @@ exports[`Upload List should support removeIcon and downloadIcon 2`] = `
             >
               <span
                 aria-hidden="false"
-                class="icon-wrapper"
+                class="upload-spin-icon icon-wrapper"
                 role="presentation"
               >
                 <svg
@@ -1215,7 +1118,7 @@ exports[`Upload List should support removeIcon and downloadIcon 2`] = `
                     @keyframes spin { from { transform: rotate(0deg) } to { transform: rotate(360deg) } }
                   </style>
                   <g
-                    style="animation: spin linear 400s infinite; transform-origin: center;"
+                    style="animation: spin linear 0.4s infinite; transform-origin: center;"
                   >
                     <path
                       d="M12,4V2A10,10 0 0,0 2,12H4A8,8 0 0,1 12,4Z"
@@ -1245,7 +1148,7 @@ exports[`Upload List should support removeIcon and downloadIcon 2`] = `
               <button
                 aria-disabled="false"
                 aria-label="Remove file"
-                class="icon icon-delete button button-system-ui button-small round-shape icon-left"
+                class="icon-delete button button-default button-medium round-shape icon-left"
               >
                 <span
                   aria-hidden="false"
@@ -1254,7 +1157,7 @@ exports[`Upload List should support removeIcon and downloadIcon 2`] = `
                 >
                   <svg
                     role="presentation"
-                    style="width: 16px; height: 16px;"
+                    style="width: 20px; height: 20px;"
                     viewBox="0 0 24 24"
                   >
                     <path
@@ -1268,8 +1171,8 @@ exports[`Upload List should support removeIcon and downloadIcon 2`] = `
           </span>
         </div>
       </div>
-    </div>
-    <div
+    </li>
+    <li
       class="upload-list-picture-container"
     >
       <div
@@ -1308,7 +1211,7 @@ exports[`Upload List should support removeIcon and downloadIcon 2`] = `
               <button
                 aria-disabled="false"
                 aria-label="Download file"
-                class="icon icon-download button button-system-ui button-small round-shape icon-left"
+                class="icon-download button button-default button-medium round-shape icon-left"
               >
                 <span
                   aria-hidden="false"
@@ -1317,7 +1220,7 @@ exports[`Upload List should support removeIcon and downloadIcon 2`] = `
                 >
                   <svg
                     role="presentation"
-                    style="width: 16px; height: 16px;"
+                    style="width: 20px; height: 20px;"
                     viewBox="0 0 24 24"
                   >
                     <path
@@ -1330,7 +1233,7 @@ exports[`Upload List should support removeIcon and downloadIcon 2`] = `
               <button
                 aria-disabled="false"
                 aria-label="Remove file"
-                class="icon icon-delete button button-system-ui button-small round-shape icon-left"
+                class="icon-delete button button-default button-medium round-shape icon-left"
               >
                 <span
                   aria-hidden="false"
@@ -1339,7 +1242,7 @@ exports[`Upload List should support removeIcon and downloadIcon 2`] = `
                 >
                   <svg
                     role="presentation"
-                    style="width: 16px; height: 16px;"
+                    style="width: 20px; height: 20px;"
                     viewBox="0 0 24 24"
                   >
                     <path
@@ -1353,20 +1256,19 @@ exports[`Upload List should support removeIcon and downloadIcon 2`] = `
           </span>
         </div>
       </div>
-    </div>
-  </div>
+    </li>
+  </ul>
 </span>
 `;
 
-exports[`Upload List should support showRemoveIconButton and showPreviewIconButton 1`] = `
+exports[`Upload List should support showRemoveIconButton, showReplaceButton, and showPreviewIconButton 1`] = `
 <span>
   <div
-    class="upload upload-select upload-select-picture"
+    class="upload upload-select"
   >
     <span
       class=""
       role="button"
-      tabindex="0"
     >
       <input
         accept=""
@@ -1380,10 +1282,10 @@ exports[`Upload List should support showRemoveIconButton and showPreviewIconButt
       </button>
     </span>
   </div>
-  <div
-    class="upload-list upload-list-picture"
+  <ul
+    class="upload-list upload-list-medium upload-list-picture"
   >
-    <div
+    <li
       class="upload-list-picture-container"
     >
       <div
@@ -1400,7 +1302,7 @@ exports[`Upload List should support showRemoveIconButton and showPreviewIconButt
             >
               <span
                 aria-hidden="false"
-                class="icon-wrapper"
+                class="upload-spin-icon icon-wrapper"
                 role="presentation"
               >
                 <svg
@@ -1412,7 +1314,7 @@ exports[`Upload List should support showRemoveIconButton and showPreviewIconButt
                     @keyframes spin { from { transform: rotate(0deg) } to { transform: rotate(360deg) } }
                   </style>
                   <g
-                    style="animation: spin linear 400s infinite; transform-origin: center;"
+                    style="animation: spin linear 0.4s infinite; transform-origin: center;"
                   >
                     <path
                       d="M12,4V2A10,10 0 0,0 2,12H4A8,8 0 0,1 12,4Z"
@@ -1442,8 +1344,8 @@ exports[`Upload List should support showRemoveIconButton and showPreviewIconButt
           </span>
         </div>
       </div>
-    </div>
-    <div
+    </li>
+    <li
       class="upload-list-picture-container"
     >
       <div
@@ -1482,7 +1384,7 @@ exports[`Upload List should support showRemoveIconButton and showPreviewIconButt
           </span>
         </div>
       </div>
-    </div>
-  </div>
+    </li>
+  </ul>
 </span>
 `;

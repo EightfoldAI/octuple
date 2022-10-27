@@ -35,6 +35,8 @@ import {
 
 import { ConfigProvider, Shape, Size } from './components/ConfigProvider';
 
+import Cropper from './components/Upload/Cropper';
+
 import DatePicker from './components/DateTimePicker/DatePicker';
 
 import {
@@ -141,6 +143,13 @@ import Table, {
     TableSize,
 } from './components/Table/';
 
+import Upload, {
+    OcFile,
+    UploadFile,
+    UploadProps,
+    UploadSize,
+} from './components/Upload';
+
 import { ResizeObserver } from './shared/ResizeObserver/ResizeObserver';
 
 import { useBoolean } from './hooks/useBoolean';
@@ -177,6 +186,7 @@ export {
     ColumnType,
     ColumnsType,
     ConfigProvider,
+    Cropper,
     DatePicker,
     DatePickerProps,
     DatePickerShape,
@@ -218,6 +228,7 @@ export {
     Navbar,
     NavbarContent,
     NeutralButton,
+    OcFile,
     Pagination,
     PaginationLayoutOptions,
     Panel,
@@ -277,6 +288,10 @@ export {
     TooltipTheme,
     TooltipSize,
     TwoStateButton,
+    Upload,
+    UploadFile,
+    UploadProps,
+    UploadSize,
     useBoolean,
     useMatchMedia,
     useMaxVisibleSections,

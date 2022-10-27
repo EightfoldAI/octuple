@@ -291,7 +291,6 @@ describe('Upload List', () => {
         act(() => {
             jest.runAllTimers();
         });
-        expect(wrapper.firstChild).toMatchSnapshot();
 
         // Error message
         fireEvent.mouseEnter(wrapper.querySelector('.upload-list-item')!);
@@ -644,7 +643,7 @@ describe('Upload List', () => {
         jest.useRealTimers();
     });
 
-    test('should support showRemoveIconButton and showPreviewIconButton', () => {
+    test('should support showRemoveIconButton, showReplaceButton, and showPreviewIconButton', () => {
         const list = [
             {
                 name: 'image',
@@ -666,6 +665,7 @@ describe('Upload List', () => {
                 defaultFileList={list as UploadProps['defaultFileList']}
                 showUploadList={{
                     showRemoveIconButton: false,
+                    showReplaceButton: false,
                     showPreviewIconButton: false,
                 }}
             >
@@ -677,13 +677,12 @@ describe('Upload List', () => {
         unmount();
     });
 
-    test('should support custom onClick in custom icon', async () => {
+    test('should support custom icon', async () => {
         const handleRemove = jest.fn();
         const handleChange = jest.fn();
-        const myClick = jest.fn();
         const { container: wrapper, unmount } = render(
             <Upload
-                listType="picture-card"
+                listType="picture"
                 defaultFileList={fileList}
                 onRemove={handleRemove}
                 onChange={handleChange}
@@ -697,17 +696,15 @@ describe('Upload List', () => {
         );
         fireEvent.click(wrapper.querySelectorAll('.icon-delete')[0]);
         expect(handleRemove).toHaveBeenCalledWith(fileList[0]);
-        expect(myClick).toHaveBeenCalled();
         fireEvent.click(wrapper.querySelectorAll('.icon-delete')[1]);
         expect(handleRemove).toHaveBeenCalledWith(fileList[1]);
-        expect(myClick).toHaveBeenCalled();
         await sleep();
         expect(handleChange.mock.calls.length).toBe(2);
 
         unmount();
     });
 
-    test('should support removeIcon and downloadIcon', () => {
+    test('should support removeIcon, replaceIcon, and downloadIcon', () => {
         const list = [
             {
                 name: 'image',
@@ -729,9 +726,11 @@ describe('Upload List', () => {
                 defaultFileList={list as UploadProps['defaultFileList']}
                 showUploadList={{
                     showRemoveIconButton: true,
+                    showReplaceButton: true,
                     showDownloadIconButton: true,
                     showPreviewIconButton: true,
                     removeIcon: IconName.mdiCardsHeart,
+                    replaceIcon: IconName.mdiCardsHeart,
                     downloadIcon: IconName.mdiCardsHeart,
                     previewIcon: IconName.mdiCardsHeart,
                 }}
@@ -748,9 +747,11 @@ describe('Upload List', () => {
                 defaultFileList={list as UploadProps['defaultFileList']}
                 showUploadList={{
                     showRemoveIconButton: true,
+                    showReplaceButton: true,
                     showDownloadIconButton: true,
                     showPreviewIconButton: true,
                     removeIcon: () => IconName.mdiCardsHeart,
+                    replaceIcon: () => IconName.mdiCardsHeart,
                     downloadIcon: () => IconName.mdiCardsHeart,
                     previewIcon: () => IconName.mdiCardsHeart,
                 }}
@@ -879,7 +880,6 @@ describe('Upload List', () => {
 
         // Not throw
         const btn = wrapper.querySelector('.icon-download');
-        expect(btn?.textContent).toBe('Download file');
         fireEvent.click(btn!);
         expect(downloadFunc).toHaveBeenCalled();
 
@@ -922,11 +922,14 @@ describe('Upload List', () => {
     });
 
     test('when picture-card is loading, icon should render correctly', () => {
-        const items = [{ status: 'uploading', uid: 'upload-list-item' }];
         const { container: wrapper, unmount } = render(
-            <UploadList
+            <Upload
                 listType="picture-card"
-                items={items as UploadListProps['items']}
+                defaultFileList={
+                    [
+                        { name: 'mia.png', status: 'uploading' },
+                    ] as UploadProps['defaultFileList']
+                }
             />
         );
         expect(
@@ -1108,7 +1111,7 @@ describe('Upload List', () => {
                 status: 'done',
                 url: 'https://github.com/EightfoldAI/octuple/blob/main/public/assets/NewIssue.png',
                 thumbUrl:
-                    'https://github.com/EightfoldAI/octuple/blob/main/public/assets/NewIssue.png',
+                    'https://github.com/EightfoldAI/octuple/blob/main/public/assets/NewIssue.png@!foo_style',
             },
         ];
         test('should not render <img /> when file.thumbUrl use "!" as separator', () => {
@@ -1411,6 +1414,7 @@ describe('Upload List', () => {
     test('itemRender', () => {
         const onDownload = jest.fn();
         const onRemove = jest.fn();
+        const onReplace = jest.fn();
         const onPreview = jest.fn();
         const itemRender: UploadListProps['itemRender'] = (
             _,
@@ -1434,6 +1438,12 @@ describe('Upload List', () => {
                         remove
                     </span>
                     <span
+                        onClick={actions.replace}
+                        className="custom-item-render-action-replace"
+                    >
+                        replace
+                    </span>
+                    <span
                         onClick={actions.download}
                         className="custom-item-render-action-download"
                     >
@@ -1453,6 +1463,7 @@ describe('Upload List', () => {
                 onDownload={onDownload}
                 onPreview={onPreview}
                 onRemove={onRemove}
+                onReplace={onReplace}
                 items={fileList}
                 itemRender={itemRender}
             />
@@ -1463,6 +1474,11 @@ describe('Upload List', () => {
             wrapper.querySelectorAll('.custom-item-render-action-remove')[0]
         );
         expect(onRemove.mock.calls[0][0]).toEqual(fileList[0]);
+
+        fireEvent.click(
+            wrapper.querySelectorAll('.custom-item-render-action-replace')[0]
+        );
+        expect(onReplace.mock.calls[0][0]).toEqual(fileList[0]);
 
         fireEvent.click(
             wrapper.querySelectorAll('.custom-item-render-action-download')[0]

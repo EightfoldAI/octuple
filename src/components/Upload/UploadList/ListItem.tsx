@@ -3,7 +3,8 @@ import { ListItemProps } from '../Upload.types';
 import { Icon, IconName, IconSize } from '../../Icon';
 import CSSMotion from '../../Motion';
 import Progress from '../../Progress';
-import { Tooltip } from '../../Tooltip';
+import { ButtonShape, ButtonSize } from '../../Button';
+import { Tooltip, TooltipTheme } from '../../Tooltip';
 import { mergeClasses } from '../../../shared/utilities';
 
 import styles from '../upload.module.scss';
@@ -21,21 +22,27 @@ const ListItem = React.forwardRef(
             itemRender,
             items,
             listType,
+            listRef,
+            maxCount,
             onClose,
             onDownload,
             onPreview,
+            onReplace,
             previewFileText,
             previewIcon: customPreviewIcon,
             progress: progressProps,
             removeFileText,
+            replaceFileText,
             removeIcon: customRemoveIcon,
+            replaceIcon: customReplaceIcon,
             showDownloadIconButton: showDownloadIconButton,
             showPreviewIconButton: showPreviewIconButton,
             showRemoveIconButton: showRemoveIconButton,
+            showReplaceButton: showReplaceButton,
             style,
             uploadErrorText,
         }: ListItemProps,
-        ref: React.Ref<HTMLDivElement>
+        ref: React.Ref<HTMLLIElement>
     ) => {
         // Status: ignore `removed` status
         const { status } = file;
@@ -47,8 +54,8 @@ const ListItem = React.forwardRef(
             }
         }, [status]);
 
-        // Delay to show the progress bar
-        const [showProgress, setShowProgress] = useState(false);
+        // Delay showing the progress bar
+        const [showProgress, setShowProgress] = useState<boolean>(false);
         const progressRafRef = React.useRef<any>();
 
         useEffect(() => {
@@ -64,7 +71,7 @@ const ListItem = React.forwardRef(
         const iconNode: React.ReactNode = iconRender(file);
 
         let icon: JSX.Element = (
-            <div className={styles.uploadTextIcon}>{iconNode}</div>
+            <div className={styles.uploadListItemTextIcon}>{iconNode}</div>
         );
 
         if (listType === 'picture' || listType === 'picture-card') {
@@ -80,10 +87,10 @@ const ListItem = React.forwardRef(
             } else {
                 const thumbnail: React.ReactNode = isImgUrl?.(file) ? (
                     <img
-                        src={file.thumbUrl || file.url}
                         alt={file.name}
                         className={styles.uploadListItemImage}
                         crossOrigin={file.crossOrigin}
+                        src={file.thumbUrl || file.url}
                     />
                 ) : (
                     iconNode
@@ -111,6 +118,7 @@ const ListItem = React.forwardRef(
 
         const infoUploadingClassNames: string = mergeClasses([
             styles.uploadListItem,
+            { [styles.uploadListItemSingle]: maxCount === 1 },
             (styles as any)[`upload-list-item-${mergedStatus}`],
             (styles as any)[`upload-list-item-list-type-${listType}`],
         ]);
@@ -123,10 +131,8 @@ const ListItem = React.forwardRef(
             ? actionButtonRender(
                   {
                       ariaLabel: removeFileText,
-                      classNames: mergeClasses([
-                          styles.icon,
-                          styles.iconDelete,
-                      ]),
+                      classNames: mergeClasses([styles.iconDelete]),
+                      disruptive: mergedStatus === 'error',
                       iconProps: {
                           path:
                               typeof customRemoveIcon === 'function'
@@ -134,8 +140,33 @@ const ListItem = React.forwardRef(
                                   : customRemoveIcon ||
                                     IconName.mdiDeleteOutline,
                       },
+                      size:
+                          listType === 'picture-card'
+                              ? ButtonSize.Small
+                              : ButtonSize.Medium,
                   },
                   () => onClose(file)
+              )
+            : null;
+
+        const replaceButton: React.ReactNode = showReplaceButton
+            ? actionButtonRender(
+                  {
+                      classNames: mergeClasses([styles.iconReplace]),
+                      disruptive: mergedStatus === 'error',
+                      iconProps: {
+                          path:
+                              typeof customReplaceIcon === 'function'
+                                  ? customReplaceIcon(file)
+                                  : customReplaceIcon || IconName.mdiRepeat,
+                      },
+                      onKeyDown: (event) => event.preventDefault(),
+                      shape: replaceFileText
+                          ? ButtonShape.Pill
+                          : ButtonShape.Round,
+                      text: replaceFileText,
+                  },
+                  () => onReplace(file)
               )
             : null;
 
@@ -144,16 +175,13 @@ const ListItem = React.forwardRef(
                 ? actionButtonRender(
                       {
                           ariaLabel: downloadFileText,
-                          classNames: mergeClasses([
-                              styles.icon,
-                              styles.iconDownload,
-                          ]),
+                          classNames: mergeClasses([styles.iconDownload]),
                           iconProps: {
                               path:
                                   typeof customDownloadIcon === 'function'
                                       ? customDownloadIcon(file)
                                       : customDownloadIcon ||
-                                        IconName.mdiArrowDownThin,
+                                        IconName.mdiDownloadOutline,
                           },
                       },
                       () => onDownload(file)
@@ -170,7 +198,8 @@ const ListItem = React.forwardRef(
                 ])}
             >
                 {downloadIconButton}
-                {removeIconButton}
+                {!maxCount && removeIconButton}
+                {maxCount === 1 && replaceButton}
             </span>
         );
         const listItemNameClassName: string = styles.uploadListItemName;
@@ -234,7 +263,8 @@ const ListItem = React.forwardRef(
                 <span className={styles.uploadListItemActions}>
                     {previewIconButton}
                     {mergedStatus === 'done' && downloadIconButton}
-                    {removeIconButton}
+                    {!maxCount && removeIconButton}
+                    {maxCount === 1 && replaceButton}
                 </span>
             );
 
@@ -300,25 +330,30 @@ const ListItem = React.forwardRef(
         ]);
         const item: JSX.Element =
             mergedStatus === 'error' ? (
-                <Tooltip content={message}>{dom}</Tooltip>
+                <Tooltip
+                    content={message}
+                    portal
+                    portalRoot={listRef?.current}
+                    theme={TooltipTheme.dark}
+                    wrapperClassNames={styles.uploadListItemTooltipWrapper}
+                >
+                    {dom}
+                </Tooltip>
             ) : (
                 dom
             );
 
         return (
-            <div
-                ref={ref}
-                className={listContainerNameClassNames}
-                style={style}
-            >
+            <li ref={ref} className={listContainerNameClassNames} style={style}>
                 {itemRender
                     ? itemRender(item, file, items, {
                           download: onDownload.bind(null, file),
                           preview: onPreview.bind(null, file),
                           remove: onClose.bind(null, file),
+                          replace: onReplace.bind(null, file),
                       })
                     : item}
-            </div>
+            </li>
         );
     }
 );
