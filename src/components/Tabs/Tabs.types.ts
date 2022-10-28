@@ -45,6 +45,11 @@ export interface TabsContextProps {
      */
     onChange: OnChangeHandler;
     /**
+     * The tab group is readonly.
+     * @default false
+     */
+    readonly?: boolean;
+    /**
      * The value of the selected tab.
      */
     value?: TabValue;
@@ -63,6 +68,11 @@ export interface ITabsContext {
      * The onClick handler of the tab.
      */
     onTabClick: OnChangeHandler;
+    /**
+     * The tab group is readonly.
+     * @default false
+     */
+    readonly?: boolean;
 }
 
 export interface TabProps extends OcBaseProps<HTMLButtonElement> {
@@ -143,6 +153,11 @@ export interface TabsProps extends Omit<OcBaseProps<HTMLElement>, 'onChange'> {
      * @param event {SelectTabEvent}
      */
     onChange?: OnChangeHandler;
+    /**
+     * The tab group is readonly.
+     * @default false
+     */
+    readonly?: boolean;
     /**
      * Ref of the tabs.
      */

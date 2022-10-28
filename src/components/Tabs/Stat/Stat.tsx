@@ -30,7 +30,8 @@ export const Stat: FC<StatProps> = React.forwardRef(
     ) => {
         const htmlDir: string = useCanvasDirection();
 
-        const { currentActiveTab, groupTheme, onTabClick } = useTabs();
+        const { currentActiveTab, groupTheme, readonly, onTabClick } =
+            useTabs();
 
         let mergedTheme: OcThemeNames;
 
@@ -48,7 +49,8 @@ export const Stat: FC<StatProps> = React.forwardRef(
 
         const tabClassName: string = mergeClasses([
             styles.tab,
-            { [styles.active]: isActive },
+            { [styles.readOnly]: !!readonly },
+            { [styles.active]: isActive && !readonly },
             { [styles.red]: mergedTheme === 'red' },
             {
                 [styles.redOrange]: mergedTheme === 'redOrange',
@@ -110,10 +112,10 @@ export const Stat: FC<StatProps> = React.forwardRef(
                 ref={ref}
                 className={tabClassName}
                 aria-label={ariaLabel}
-                aria-selected={isActive}
+                aria-selected={!readonly && isActive}
                 role="tab"
                 disabled={disabled}
-                onClick={(e) => onTabClick(value, e)}
+                onClick={!readonly ? (e) => onTabClick(value, e) : null}
             >
                 <Stack
                     direction={'horizontal'}

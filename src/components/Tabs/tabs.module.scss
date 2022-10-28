@@ -338,16 +338,20 @@
                 --hover-border: var(--grey-color-20);
             }
 
-            &:focus:not(:disabled),
-            &:hover:not(:disabled) {
+            &.read-only {
+                cursor: default;
+            }
+
+            &:focus:not(:disabled):not(.read-only),
+            &:hover:not(:disabled):not(.read-only) {
                 --bg: var(--hover-bg);
                 --border: var(--hover-bg);
                 --icon-bg: var(--hover-bg);
             }
 
-            &.active,
-            &.active:focus,
-            &.active:hover {
+            &.active:not(.read-only),
+            &.active:focus:not(.read-only),
+            &.active:hover:not(.read-only) {
                 --bg: var(--hover-bg);
                 --border: var(--active-border);
                 --icon-bg: var(--hover-bg);

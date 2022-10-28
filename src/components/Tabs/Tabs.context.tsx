@@ -12,6 +12,7 @@ const TabsProvider = ({
     children,
     groupTheme,
     onChange,
+    readonly,
     value,
 }: TabsContextProps) => {
     const [currentActiveTab, setCurrentActiveTab] = useState<TabValue>(value);
@@ -26,7 +27,7 @@ const TabsProvider = ({
 
     return (
         <TabsContext.Provider
-            value={{ currentActiveTab, groupTheme, onTabClick }}
+            value={{ currentActiveTab, groupTheme, onTabClick, readonly }}
         >
             {children}
         </TabsContext.Provider>

@@ -56,6 +56,9 @@ export default {
         divider: {
             control: { type: 'boolean' },
         },
+        readonly: {
+            control: { type: 'boolean' },
+        },
         size: {
             options: [TabSize.Medium, TabSize.Small],
             control: { type: 'inline-radio' },
@@ -335,6 +338,7 @@ const Stat_Story: ComponentStory<typeof Tabs> = (args) => {
 
 export const Stat_Medium = Stat_Story.bind({});
 export const Stat_Small = Stat_Story.bind({});
+export const Stat_Group_Read_Only = Stat_Story.bind({});
 export const Stat_Group_Theme = Stat_Story.bind({});
 export const Stat_Item_Theme_Override = Stat_Story.bind({});
 
@@ -428,6 +432,16 @@ Stat_Small.args = {
     bordered: true,
     divider: true,
     size: TabSize.Small,
+    variant: TabVariant.stat,
+    children: statTabs.map((tab) => <Stat key={tab.value} {...tab} />),
+};
+
+Stat_Group_Read_Only.args = {
+    ...tabsArgs,
+    bordered: true,
+    divider: true,
+    groupTheme: themes[6],
+    readonly: true,
     variant: TabVariant.stat,
     children: statTabs.map((tab) => <Stat key={tab.value} {...tab} />),
 };
