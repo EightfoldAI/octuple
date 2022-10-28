@@ -8,7 +8,12 @@ import {
 
 const TabsContext = createContext<Partial<ITabsContext>>({});
 
-const TabsProvider = ({ children, onChange, value }: TabsContextProps) => {
+const TabsProvider = ({
+    children,
+    groupTheme,
+    onChange,
+    value,
+}: TabsContextProps) => {
     const [currentActiveTab, setCurrentActiveTab] = useState<TabValue>(value);
 
     useEffect(() => {
@@ -20,7 +25,9 @@ const TabsProvider = ({ children, onChange, value }: TabsContextProps) => {
     };
 
     return (
-        <TabsContext.Provider value={{ onTabClick, currentActiveTab }}>
+        <TabsContext.Provider
+            value={{ currentActiveTab, groupTheme, onTabClick }}
+        >
             {children}
         </TabsContext.Provider>
     );

@@ -3,7 +3,7 @@ import Enzyme, { mount, ReactWrapper } from 'enzyme';
 import { create } from 'react-test-renderer';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import MatchMediaMock from 'jest-matchmedia-mock';
-import { Tabs, Tab } from './';
+import { Stat, Tabs, Tab, TabSize } from './';
 import { IconName } from '../Icon';
 
 Enzyme.configure({ adapter: new Adapter() });
@@ -70,5 +70,29 @@ describe('Tabs', () => {
             </Tabs>
         );
         expect(wrapper.find('.tab').at(2).hasClass('active')).toEqual(true);
+    });
+
+    test('stat tabs medium snapshot', () => {
+        expect(
+            create(
+                <Tabs onChange={tabClick} value={'tab1'}>
+                    {tabs.map((tab) => (
+                        <Stat key={tab.value} {...tab} />
+                    ))}
+                </Tabs>
+            ).toJSON()
+        ).toMatchSnapshot();
+    });
+
+    test('stat tabs small snapshot', () => {
+        expect(
+            create(
+                <Tabs onChange={tabClick} size={TabSize.Small} value={'tab1'}>
+                    {tabs.map((tab) => (
+                        <Stat key={tab.value} {...tab} />
+                    ))}
+                </Tabs>
+            ).toJSON()
+        ).toMatchSnapshot();
     });
 });

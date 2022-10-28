@@ -5,9 +5,13 @@ import { AnimatedTabs } from './AnimatedTabs';
 
 export const Tabs: FC<TabsProps> = React.forwardRef(
     (props, ref: Ref<HTMLDivElement>) => {
-        const { value, onChange, children } = props;
+        const { children, groupTheme, onChange, value } = props;
         return (
-            <TabsProvider onChange={onChange} value={value}>
+            <TabsProvider
+                groupTheme={groupTheme}
+                onChange={onChange}
+                value={value}
+            >
                 <AnimatedTabs {...props} ref={ref}>
                     {children}
                 </AnimatedTabs>

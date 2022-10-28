@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { Stories } from '@storybook/addon-docs';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Tabs, Tab, TabVariant } from './';
+import { OcThemeNames } from '../ConfigProvider';
+import { Stat, Tabs, Tab, TabSize, TabVariant } from './';
 import { IconName } from '../Icon';
 
 export default {
@@ -41,11 +42,58 @@ export default {
     },
     argTypes: {
         variant: {
-            options: [TabVariant.default, TabVariant.small, TabVariant.pill],
+            options: [
+                TabVariant.default,
+                TabVariant.small,
+                TabVariant.pill,
+                TabVariant.stat,
+            ],
             control: { type: 'inline-radio' },
+        },
+        bordered: {
+            control: { type: 'boolean' },
+        },
+        divider: {
+            control: { type: 'boolean' },
+        },
+        size: {
+            options: [TabSize.Medium, TabSize.Small],
+            control: { type: 'inline-radio' },
+        },
+        groupTheme: {
+            options: [
+                'red',
+                'redOrange',
+                'orange',
+                'yellow',
+                'yellowGreen',
+                'green',
+                'blueGreen',
+                'blue',
+                'blueViolet',
+                'violet',
+                'violetRed',
+                'grey',
+            ],
+            control: { type: 'select' },
         },
     },
 } as ComponentMeta<typeof Tabs>;
+
+const themes: OcThemeNames[] = [
+    'red',
+    'redOrange',
+    'orange',
+    'yellow',
+    'yellowGreen',
+    'green',
+    'blueGreen',
+    'blue',
+    'blueViolet',
+    'violet',
+    'violetRed',
+    'grey',
+];
 
 const tabs = [1, 2, 3, 4].map((i) => ({
     value: `tab${i}`,
@@ -81,6 +129,27 @@ const scrollableTabs = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((i) => ({
     value: `tab${i}`,
     label: `Tab ${i}`,
     ariaLabel: `Tab ${i}`,
+    ...(i === 4 ? { disabled: true } : {}),
+}));
+
+const statTabs = [1, 2, 3, 4].map((i) => ({
+    ariaLabel: `Label ${i}, 2 out of 5%`,
+    icon: IconName.mdiAccountAlert,
+    label: `Label ${i}`,
+    ratioA: 2,
+    ratioB: '(5%)',
+    value: `tab${i}`,
+    ...(i === 4 ? { disabled: true } : {}),
+}));
+
+const statTabsThemed = [1, 2, 3, 4].map((i) => ({
+    ariaLabel: `Label ${i}, 2 out of 5%`,
+    icon: IconName.mdiAccountAlert,
+    label: `Label ${i}`,
+    ratioA: 2,
+    ratioB: '(5%)',
+    value: `tab${i}`,
+    ...(i === 2 ? { theme: themes[8] } : {}),
     ...(i === 4 ? { disabled: true } : {}),
 }));
 
@@ -251,9 +320,28 @@ const Pill_Icon_Label_Story: ComponentStory<typeof Tabs> = (args) => {
 
 export const Pill_Icon_Label = Pill_Icon_Label_Story.bind({});
 
+const Stat_Story: ComponentStory<typeof Tabs> = (args) => {
+    const [activeTabs, setActiveTabs] = useState({ defaultTab: 'tab1' });
+    return (
+        <Tabs
+            {...args}
+            onChange={(tab) =>
+                setActiveTabs({ ...activeTabs, defaultTab: tab })
+            }
+            value={activeTabs.defaultTab}
+        />
+    );
+};
+
+export const Stat_Medium = Stat_Story.bind({});
+export const Stat_Small = Stat_Story.bind({});
+export const Stat_Group_Theme = Stat_Story.bind({});
+export const Stat_Item_Theme_Override = Stat_Story.bind({});
+
 const tabsArgs: Object = {
     scrollable: false,
     variant: TabVariant.default,
+    size: TabSize.Medium,
     underlined: false,
     children: tabs.map((tab) => <Tab key={tab.value} {...tab} />),
     style: {},
@@ -277,7 +365,7 @@ DefaultLoader.args = {
 
 Small.args = {
     ...tabsArgs,
-    variant: TabVariant.small,
+    size: TabSize.Small,
 };
 
 With_Badge.args = {
@@ -325,4 +413,39 @@ Pill_Icon_Label.args = {
     ...tabsArgs,
     variant: TabVariant.pill,
     children: iconLabelTabs.map((tab) => <Tab key={tab.value} {...tab} />),
+};
+
+Stat_Medium.args = {
+    ...tabsArgs,
+    bordered: true,
+    divider: true,
+    variant: TabVariant.stat,
+    children: statTabs.map((tab) => <Stat key={tab.value} {...tab} />),
+};
+
+Stat_Small.args = {
+    ...tabsArgs,
+    bordered: true,
+    divider: true,
+    size: TabSize.Small,
+    variant: TabVariant.stat,
+    children: statTabs.map((tab) => <Stat key={tab.value} {...tab} />),
+};
+
+Stat_Group_Theme.args = {
+    ...tabsArgs,
+    bordered: true,
+    divider: true,
+    groupTheme: themes[6],
+    variant: TabVariant.stat,
+    children: statTabs.map((tab) => <Stat key={tab.value} {...tab} />),
+};
+
+Stat_Item_Theme_Override.args = {
+    ...tabsArgs,
+    bordered: true,
+    divider: true,
+    groupTheme: themes[6],
+    variant: TabVariant.stat,
+    children: statTabsThemed.map((tab) => <Stat key={tab.value} {...tab} />),
 };
