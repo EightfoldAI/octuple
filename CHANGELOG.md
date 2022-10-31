@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.18.0](https://github.com/EightfoldAI/octuple/compare/v2.17.1...v2.18.0) (2022-10-27)
+
+### Features
+
+-   avatar group: add the avatar group component ([#422](https://github.com/EightfoldAI/octuple/issues/422)) ([535cfe6](https://github.com/EightfoldAI/octuple/commits/535cfe61101c5716660ea905c4a016bafd7198e1))
+-   upload: add upload component ([#426](https://github.com/EightfoldAI/octuple/issues/426)) ([2fa465e](https://github.com/EightfoldAI/octuple/commits/2fa465e876b3abd742f2b80e26c0d6885c05246c))
+
+### Bug Fixes
+
+-   exports: adds progress size and avatar group to exports ([#425](https://github.com/EightfoldAI/octuple/issues/425)) ([5028ace](https://github.com/EightfoldAI/octuple/commits/5028ace9f0de8f0da8ef492a22fd2c47cd76317b))
+-   form: add portal prop to tooltip to fix tooltip in modal ([#424](https://github.com/EightfoldAI/octuple/issues/424)) ([5c6beed](https://github.com/EightfoldAI/octuple/commits/5c6beedfe77a9c5d27f31b696cbaa6b4fa573f67))
+-   search box: pressing enter key clears text when clearable is true ([#427](https://github.com/EightfoldAI/octuple/issues/427)) ([498947c](https://github.com/EightfoldAI/octuple/commits/498947c216bab9777957623bf58bb39a7b37d70a))
+
 ### [2.17.1](https://github.com/EightfoldAI/octuple/compare/v2.17.0...v2.17.1) (2022-10-19)
 
 ### Bug Fixes
