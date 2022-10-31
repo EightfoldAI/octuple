@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { Stack } from '../Stack';
+import { Col, Row } from '../Grid';
 
 import { Slider, SliderSize } from './';
 
@@ -30,11 +31,15 @@ const Slider_Story: ComponentStory<typeof Slider> = (args) => {
 
     return (
         <Stack align="stretch" direction="vertical" fullWidth gap="xl">
-            <Slider
-                {...args}
-                value={transientSlidingValue}
-                onChange={handleChange}
-            />
+            <Row>
+                <Col span={6} push={3}>
+                    <Slider
+                        {...args}
+                        value={transientSlidingValue}
+                        onChange={handleChange}
+                    />
+                </Col>
+            </Row>
             <Stack direction="horizontal" gap="xl" justify="center" fullWidth>
                 <div>{transientSlidingValue}</div>
             </Stack>

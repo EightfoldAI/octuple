@@ -20,7 +20,19 @@ export default {
                     <article>
                         <section>
                             <h1>Upload</h1>
-                            <p>TBD</p>
+                            <p>
+                                Use the Upload component to publishing
+                                information (text, pictures, video, etc.) to a
+                                remote server via a web app. Use this component
+                                to do the following:
+                            </p>
+                            <ul>
+                                <li>To upload one or more files</li>
+                                <li>To show the process of uploading</li>
+                                <li>
+                                    To upload files by dragging and dropping
+                                </li>
+                            </ul>
                         </section>
                         <section>
                             <Stories includePrimary title="" />

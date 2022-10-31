@@ -311,7 +311,7 @@ export const Slider: FC<SliderProps> = React.forwardRef(
                     showMaxLabel =
                         showLabels &&
                         lowerThumbOffset <
-                            minLabelRef.current.getBoundingClientRect().left -
+                            minLabelRef.current.offsetLeft -
                                 lowerLabelRef.current.offsetWidth / 2 -
                                 thumbRadius;
                     maxLabelRef.current.style.opacity = showMaxLabel
@@ -321,7 +321,8 @@ export const Slider: FC<SliderProps> = React.forwardRef(
                     showMinLabel =
                         showLabels &&
                         lowerThumbOffset >
-                            maxLabelRef.current.getBoundingClientRect().right +
+                            maxLabelRef.current.offsetLeft +
+                                maxLabelRef.current.offsetWidth +
                                 lowerLabelRef.current.offsetWidth / 2 -
                                 thumbRadius;
                     minLabelRef.current.style.opacity = showMinLabel
@@ -336,7 +337,7 @@ export const Slider: FC<SliderProps> = React.forwardRef(
                     showMaxLabel =
                         showLabels &&
                         lowerThumbOffset <
-                            maxLabelRef.current.getBoundingClientRect().left -
+                            maxLabelRef.current.offsetLeft -
                                 lowerLabelRef.current.offsetWidth / 2 -
                                 thumbRadius;
                     maxLabelRef.current.style.opacity = showMaxLabel
@@ -346,7 +347,8 @@ export const Slider: FC<SliderProps> = React.forwardRef(
                     showMinLabel =
                         showLabels &&
                         lowerThumbOffset >
-                            minLabelRef.current.getBoundingClientRect().right +
+                            minLabelRef.current.offsetLeft +
+                                minLabelRef.current.offsetWidth +
                                 lowerLabelRef.current.offsetWidth / 2 -
                                 thumbRadius;
                     minLabelRef.current.style.opacity = showMinLabel
