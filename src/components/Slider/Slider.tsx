@@ -349,7 +349,7 @@ export const Slider: FC<SliderProps> = React.forwardRef(
                         lowerThumbOffset >
                             minLabelRef.current.offsetLeft +
                                 minLabelRef.current.offsetWidth +
-                                lowerLabelRef.current.offsetWidth / 2 -
+                                lowerLabelRef.current.offsetWidth / 2 +
                                 thumbRadius;
                     minLabelRef.current.style.opacity = showMinLabel
                         ? '1'
@@ -371,7 +371,7 @@ export const Slider: FC<SliderProps> = React.forwardRef(
                     ? `${lowerThumbOffset}px`
                     : `${thumbRadius}px`;
             }
-            trackRef.current.style.width = `${rangeWidth}px`;
+            trackRef.current.style.width = `${rangeWidth - thumbRadius}px`;
         };
 
         const [formatValue] = useOffset(min, max, step, markers);
