@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.18.1](https://github.com/EightfoldAI/octuple/compare/v2.18.0...v2.18.1) (2022-11-01)
+
+### Bug Fixes
+
+-   slider: fixes collision detection in grid layouts ([#429](https://github.com/EightfoldAI/octuple/issues/429)) ([5981e55](https://github.com/EightfoldAI/octuple/commits/5981e55d10438a4edad619816fe38eca18f74e5a))
+
 ## [2.18.0](https://github.com/EightfoldAI/octuple/compare/v2.17.1...v2.18.0) (2022-10-27)
 
 ### Features
