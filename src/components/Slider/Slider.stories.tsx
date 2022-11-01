@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { Stack } from '../Stack';
+import { Col, Row } from '../Grid';
 
 import { Slider, SliderSize } from './';
 
@@ -21,22 +22,40 @@ export default {
 } as ComponentMeta<typeof Slider>;
 
 const Slider_Story: ComponentStory<typeof Slider> = (args) => {
-    const [transientSlidingValue, setTransientSlidingValue] =
+    const [transientSlidingValueA, setTransientSlidingValueA] =
+        useState<number>(20);
+    const [transientSlidingValueB, setTransientSlidingValueB] =
         useState<number>(20);
 
-    const handleChange = (val: number): void => {
-        setTransientSlidingValue(val);
+    const handleChangeA = (val: number): void => {
+        setTransientSlidingValueA(val);
+    };
+
+    const handleChangeB = (val: number): void => {
+        setTransientSlidingValueB(val);
     };
 
     return (
         <Stack align="stretch" direction="vertical" fullWidth gap="xl">
             <Slider
                 {...args}
-                value={transientSlidingValue}
-                onChange={handleChange}
+                value={transientSlidingValueA}
+                onChange={handleChangeA}
             />
             <Stack direction="horizontal" gap="xl" justify="center" fullWidth>
-                <div>{transientSlidingValue}</div>
+                <div>{transientSlidingValueA}</div>
+            </Stack>
+            <Row style={{ marginTop: 100 }}>
+                <Col span={6} push={3}>
+                    <Slider
+                        {...args}
+                        value={transientSlidingValueA}
+                        onChange={handleChangeB}
+                    />
+                </Col>
+            </Row>
+            <Stack direction="horizontal" gap="xl" justify="center" fullWidth>
+                <div>{transientSlidingValueB}</div>
             </Stack>
         </Stack>
     );

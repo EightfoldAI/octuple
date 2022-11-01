@@ -4,6 +4,7 @@ import type {
     OcFile as InternalOcFile,
     OcUploadProps,
     UploadRequestOption as OcCustomRequestOptions,
+    UploadRequestMethod,
 } from './Internal/OcUpload.types';
 import type { ProgressProps } from '../Progress';
 import { ConfigContextProps } from '../ConfigProvider';
@@ -148,7 +149,7 @@ export interface UploadFile<T = any> {
      */
     error?: any;
     /**
-     * The upload file name.
+     * The Upload file name.
      */
     fileName?: string;
     /**
@@ -180,7 +181,7 @@ export interface UploadFile<T = any> {
      */
     preview?: string;
     /**
-     * The Upload file resoponse
+     * The Upload file response.
      */
     response?: T;
     /**
@@ -310,7 +311,7 @@ export interface UploadProps<T = any> extends Pick<OcUploadProps, 'capture'> {
      */
     classNames?: string;
     /**
-     * Configure how contextual props are consumed
+     * Configure how contextual props are consumed.
      */
     configContextProps?: ConfigContextProps;
     /**
@@ -329,9 +330,12 @@ export interface UploadProps<T = any> extends Pick<OcUploadProps, 'capture'> {
         | ((
               file: UploadFile<T>
           ) => Record<string, unknown> | Promise<Record<string, unknown>>);
+    /**
+     * Default list of files that have been uploaded.
+     */
     defaultFileList?: Array<UploadFile<T>>;
     /**
-     * upload a directory.
+     * Upload a directory.
      * https://caniuse.com/input-file-directory
      * @default false
      */
@@ -353,7 +357,7 @@ export interface UploadProps<T = any> extends Pick<OcUploadProps, 'capture'> {
     dragAndDropFileText?: string;
     /**
      * The multiple drag and drop string.
-     * @default 'Drag & drop file'
+     * @default 'Drag & drop files'
      */
     dragAndDropMultipleFilesText?: string;
     /**
@@ -405,7 +409,7 @@ export interface UploadProps<T = any> extends Pick<OcUploadProps, 'capture'> {
      * The http method of the upload request.
      * @default 'post'
      */
-    method?: 'POST' | 'PUT' | 'PATCH' | 'post' | 'put' | 'patch';
+    method?: UploadRequestMethod;
     /**
      * Whether to support multiple file upload.
      * Enables select multiple files using CTRL button when true
@@ -415,7 +419,7 @@ export interface UploadProps<T = any> extends Pick<OcUploadProps, 'capture'> {
     multiple?: boolean;
     /**
      * The name of uploading file.
-     * @default file
+     * @default 'file'
      */
     name?: string;
     /**
@@ -515,7 +519,7 @@ export interface UploadProps<T = any> extends Pick<OcUploadProps, 'capture'> {
      */
     supportServerRender?: boolean;
     /**
-     * The Upload type
+     * The Upload type.
      * @default 'select'
      */
     type?: UploadType;
