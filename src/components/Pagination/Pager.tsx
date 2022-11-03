@@ -25,6 +25,7 @@ export const Pager: FC<PagerProps> = React.forwardRef(
             quickNextIconButtonAriaLabel,
             quickPreviousIconButtonAriaLabel,
             simplified = false,
+            showLast = true,
             ...rest
         },
         ref: Ref<HTMLUListElement>
@@ -238,7 +239,7 @@ export const Pager: FC<PagerProps> = React.forwardRef(
                             />
                         </li>
                     )}
-                {pageCount > 1 && (
+                {pageCount > 1 && showLast && (
                     <li>
                         {!simplified ? (
                             <NeutralButton
