@@ -5,30 +5,38 @@ import React, {
     RefObject,
     useContext,
     useLayoutEffect,
+    useMemo,
     useRef,
     useState,
 } from 'react';
 import shallowEqual from 'shallowequal';
 import { FormItemInputContext } from '../Form/Context';
-import { SizeContext, Size } from '../ConfigProvider';
+import { DirectionType, SizeContext, Size } from '../ConfigProvider';
 import DisabledContext, { Disabled } from '../ConfigProvider/DisabledContext';
+import SliderContext, { SliderContextProps } from './Context';
+import Marks from './Marks';
+import Steps from './Steps';
+import {
+    LARGE_THUMB_DIAMETER,
+    LARGE_THUMB_RADIUS,
+    Marker,
+    MEDIUM_THUMB_DIAMETER,
+    MEDIUM_THUMB_RADIUS,
+    SliderMarker,
+    SliderProps,
+    SliderSize,
+    SMALL_THUMB_DIAMETER,
+    SMALL_THUMB_RADIUS,
+    THUMB_TOOLTIP_Y_OFFSET,
+} from './Slider.types';
+import { Tooltip, TooltipTheme } from '../Tooltip';
 import { ResizeObserver } from '../../shared/ResizeObserver/ResizeObserver';
-import { mergeClasses } from '../../shared/utilities';
-import { SliderMarker, SliderProps, SliderSize } from './Slider.types';
 import useOffset from './Hooks/useOffset';
 import { Breakpoints, useMatchMedia } from '../../hooks/useMatchMedia';
 import { useCanvasDirection } from '../../hooks/useCanvasDirection';
+import { mergeClasses } from '../../shared/utilities';
 
 import styles from './slider.module.scss';
-
-const largeThumbDiameter: number = +styles.largeThumbDiameter;
-const largeThumbRadius: number = largeThumbDiameter / 2;
-
-const mediumThumbDiameter: number = +styles.mediumThumbDiameter;
-const mediumThumbRadius: number = mediumThumbDiameter / 2;
-
-const smallThumbDiameter: number = +styles.smallThumbDiameter;
-const smallThumbRadius: number = smallThumbDiameter / 2;
 
 /**
  * For use with Array.sort to sort numbers in ascending order.
@@ -60,6 +68,7 @@ export function valueToPercent(
 export const Slider: FC<SliderProps> = React.forwardRef(
     (
         {
+            activeDotStyle,
             allowDisabledFocus = false,
             ariaLabel,
             autoFocus = false,
@@ -70,21 +79,29 @@ export const Slider: FC<SliderProps> = React.forwardRef(
             },
             containerClassNames,
             disabled = false,
+            dots = false,
+            dotStyle,
             formItemInput = false,
             hideMax = false,
             hideMin = false,
+            hideThumb = false,
             hideValue = false,
             id,
+            included = true,
+            marks,
             min = 0,
             minLabel,
             max = 100,
             maxLabel,
             name,
             onChange,
+            readonly = false,
             showLabels = true,
             showMarkers = false,
             size = SliderSize.Medium,
             step = 1,
+            tooltipContent,
+            tooltipProps,
             value,
             valueLabel,
             ...rest
@@ -97,6 +114,19 @@ export const Slider: FC<SliderProps> = React.forwardRef(
         const xSmallScreenActive: boolean = useMatchMedia(Breakpoints.XSmall);
 
         const htmlDir: string = useCanvasDirection();
+
+        const mergedMin: number = useMemo(
+            () => (isFinite(min) ? min : 0),
+            [min]
+        );
+        const mergedMax: number = useMemo(
+            () => (isFinite(max) ? max : 100),
+            [max]
+        );
+        const mergedStep: number = useMemo(
+            () => (step !== null && step <= 0 ? 1 : step === null ? 1 : step),
+            [step]
+        );
 
         const isRange: boolean = Array.isArray(value);
         const [values, setValues] = useState<number[]>(
@@ -117,8 +147,10 @@ export const Slider: FC<SliderProps> = React.forwardRef(
         const maxLabelRef: React.MutableRefObject<HTMLDivElement> =
             useRef<HTMLDivElement>(null);
         let [markers, setMarkers] = useState<SliderMarker[]>(
-            [...Array(Math.floor((max - min) / step) + 1)].map((_, index) => ({
-                value: min + step * index,
+            [
+                ...Array(Math.floor((mergedMax - mergedMin) / mergedStep) + 1),
+            ].map((_, index) => ({
+                value: mergedMin + mergedStep * index,
             }))
         );
         const markerSegmentRefs: React.MutableRefObject<
@@ -154,17 +186,18 @@ export const Slider: FC<SliderProps> = React.forwardRef(
         };
 
         const isMarkerSegmentActive = (markerValue: number): boolean => {
-            const markerPct = valueToPercent(markerValue, min, max);
+            const markerPct = valueToPercent(markerValue, mergedMin, mergedMax);
             const segmentRangeOffset: number = 1;
             return isRange
                 ? markerPct >=
-                      valueToPercent(values[0], min, max) -
+                      valueToPercent(values[0], mergedMin, mergedMax) -
                           segmentRangeOffset &&
                       markerPct <=
-                          valueToPercent(values[1], min, max) -
+                          valueToPercent(values[1], mergedMin, mergedMax) -
                               segmentRangeOffset
                 : markerPct <=
-                      valueToPercent(values[0], min, max) - segmentRangeOffset;
+                      valueToPercent(values[0], mergedMin, mergedMax) -
+                          segmentRangeOffset;
         };
 
         const thumbGeometry = (): {
@@ -174,45 +207,45 @@ export const Slider: FC<SliderProps> = React.forwardRef(
             switch (mergedSize) {
                 case SliderSize.Large:
                     return {
-                        diameter: largeThumbDiameter,
-                        radius: largeThumbRadius,
+                        diameter: LARGE_THUMB_DIAMETER,
+                        radius: LARGE_THUMB_RADIUS,
                     };
                 case SliderSize.Medium:
                     return {
-                        diameter: mediumThumbDiameter,
-                        radius: mediumThumbRadius,
+                        diameter: MEDIUM_THUMB_DIAMETER,
+                        radius: MEDIUM_THUMB_RADIUS,
                     };
                 case SliderSize.Small:
                     return {
-                        diameter: smallThumbDiameter,
-                        radius: smallThumbRadius,
+                        diameter: SMALL_THUMB_DIAMETER,
+                        radius: SMALL_THUMB_RADIUS,
                     };
                 case SliderSize.Flex:
                     if (largeScreenActive) {
                         return {
-                            diameter: smallThumbDiameter,
-                            radius: smallThumbRadius,
+                            diameter: SMALL_THUMB_DIAMETER,
+                            radius: SMALL_THUMB_RADIUS,
                         };
                     } else if (mediumScreenActive) {
                         return {
-                            diameter: mediumThumbDiameter,
-                            radius: mediumThumbRadius,
+                            diameter: MEDIUM_THUMB_DIAMETER,
+                            radius: MEDIUM_THUMB_RADIUS,
                         };
                     } else if (smallScreenActive) {
                         return {
-                            diameter: mediumThumbDiameter,
-                            radius: mediumThumbRadius,
+                            diameter: MEDIUM_THUMB_DIAMETER,
+                            radius: MEDIUM_THUMB_RADIUS,
                         };
                     } else if (xSmallScreenActive) {
                         return {
-                            diameter: largeThumbDiameter,
-                            radius: largeThumbRadius,
+                            diameter: LARGE_THUMB_DIAMETER,
+                            radius: LARGE_THUMB_RADIUS,
                         };
                     }
                 default:
                     return {
-                        diameter: mediumThumbDiameter,
-                        radius: mediumThumbRadius,
+                        diameter: MEDIUM_THUMB_DIAMETER,
+                        radius: MEDIUM_THUMB_RADIUS,
                     };
             }
         };
@@ -224,7 +257,8 @@ export const Slider: FC<SliderProps> = React.forwardRef(
         ): number => {
             const inputWidth = containerRef.current?.offsetWidth || 0;
             return (
-                ((val - min) / (max - min)) * (inputWidth - thumbDiameter) +
+                ((val - mergedMin) / (mergedMax - mergedMin)) *
+                    (inputWidth - thumbDiameter) +
                 thumbRadius
             );
         };
@@ -374,7 +408,12 @@ export const Slider: FC<SliderProps> = React.forwardRef(
             trackRef.current.style.width = `${rangeWidth - thumbRadius}px`;
         };
 
-        const [formatValue] = useOffset(min, max, step, markers);
+        const [formatValue] = useOffset(
+            mergedMin,
+            mergedMax,
+            mergedStep,
+            markers
+        );
 
         const rawValues = React.useMemo(() => {
             const valueList =
@@ -384,7 +423,7 @@ export const Slider: FC<SliderProps> = React.forwardRef(
                     ? value
                     : [value];
 
-            const [val0 = min] = valueList;
+            const [val0 = mergedMin] = valueList;
             let returnValues: number[] = value === null ? [] : [val0];
 
             // Format as range
@@ -398,7 +437,7 @@ export const Slider: FC<SliderProps> = React.forwardRef(
 
                     while (returnValues.length < pointCount) {
                         returnValues.push(
-                            returnValues[returnValues.length - 1] ?? min
+                            returnValues[returnValues.length - 1] ?? mergedMin
                         );
                     }
                 }
@@ -410,11 +449,57 @@ export const Slider: FC<SliderProps> = React.forwardRef(
             });
 
             return returnValues;
-        }, [value, isRange, min, formatValue]);
+        }, [value, isRange, mergedMin, formatValue]);
 
         const rawValuesRef: React.MutableRefObject<number[]> =
             React.useRef(rawValues);
         rawValuesRef.current = rawValues;
+
+        const markList: SliderMarker[] = useMemo<SliderMarker[]>(() => {
+            const keys: string[] = Object.keys(marks || {});
+
+            return keys
+                .map((key) => {
+                    const mark: React.ReactNode | Marker = marks[key];
+                    const markObj: SliderMarker = {
+                        value: Number(key),
+                    };
+
+                    if (
+                        mark &&
+                        typeof mark === 'object' &&
+                        !React.isValidElement(mark) &&
+                        ('label' in mark || 'style' in mark)
+                    ) {
+                        markObj.style = mark.style;
+                        markObj.label = mark.label;
+                    } else {
+                        markObj.label = mark;
+                    }
+
+                    return markObj;
+                })
+                .filter(({ label }) => label || typeof label === 'number')
+                .sort((a, b) => a.value - b.value);
+        }, [marks]);
+
+        const sortedCacheValues = useMemo(
+            () => [...rawValues].sort((a, b) => a - b),
+            [rawValues]
+        );
+
+        // Provide range values with included [min, max]
+        // Used by Mark & Dot.
+        const [includedStart, includedEnd] = useMemo(() => {
+            if (!isRange) {
+                return [mergedMin, sortedCacheValues[0]];
+            }
+
+            return [
+                sortedCacheValues[0],
+                sortedCacheValues[sortedCacheValues.length - 1],
+            ];
+        }, [sortedCacheValues, isRange, mergedMin]);
 
         const getTriggerValue = (triggerValues: number[]) =>
             isRange ? triggerValues : triggerValues[0];
@@ -432,7 +517,7 @@ export const Slider: FC<SliderProps> = React.forwardRef(
         const changeToCloseValue = (newValue: number) => {
             if (!disabled) {
                 let valueIndex: number = 0;
-                let valueDist: number = max - min;
+                let valueDist: number = mergedMax - mergedMin;
 
                 rawValues.forEach((val: number, index: number) => {
                     const dist: number = Math.abs(newValue - val);
@@ -470,218 +555,380 @@ export const Slider: FC<SliderProps> = React.forwardRef(
                 percent = (clientX - left) / width;
             }
 
-            const nextValue: number = min + percent * (max - min);
+            const nextValue: number =
+                mergedMin + percent * (mergedMax - mergedMin);
             changeToCloseValue(formatValue(nextValue));
         };
 
         const handleChange = (newVal: number, index: number): void => {
             const newValues = [...values];
+
             newValues.splice(index, 1, newVal);
             newValues.sort(asc);
             setValues(newValues);
             onChange?.(isRange ? [...newValues] : newValues[0]);
         };
 
+        const getTooltipContentByValue = (value: number): React.ReactNode => {
+            let content: React.ReactNode = '';
+            if (isRange) {
+                if (value === values[0] && tooltipContent) {
+                    content = (tooltipContent as any)[0]
+                        ? (tooltipContent as any)[0]
+                        : '';
+                } else if (value === values[1] && tooltipContent) {
+                    content = (tooltipContent as any)[1]
+                        ? (tooltipContent as any)[1]
+                        : '';
+                }
+            } else {
+                content = tooltipContent;
+            }
+            return content;
+        };
+
+        const getTooltipStyles = (
+            direction: string,
+            styles: React.CSSProperties,
+            value: number
+        ): React.CSSProperties => {
+            let style: React.CSSProperties;
+            if (direction === 'rtl') {
+                style = {
+                    marginLeft: !showMarkers
+                        ? `-${getValueOffset(
+                              value,
+                              thumbGeometry().diameter,
+                              thumbGeometry().radius
+                          )}px`
+                        : `calc(calc(${getValueOffset(
+                              value,
+                              thumbGeometry().diameter,
+                              thumbGeometry().radius
+                          )}px - 4px) * -1)`,
+                    ...styles,
+                };
+            } else {
+                style = {
+                    marginLeft: !showMarkers
+                        ? `${getValueOffset(
+                              value,
+                              thumbGeometry().diameter,
+                              thumbGeometry().radius
+                          )}px`
+                        : `calc(${getValueOffset(
+                              value,
+                              thumbGeometry().diameter,
+                              thumbGeometry().radius
+                          )}px - 4px)`,
+                    ...styles,
+                };
+            }
+            return style;
+        };
+
         // Set width of the range to decrease from the left side
         // Update markers when shown
         useLayoutEffect(() => {
             updateLayout();
-        }, [values, showMarkers]);
+        }, [showLabels, showMarkers, value, values]);
+
+        const context: SliderContextProps = useMemo<SliderContextProps>(
+            () => ({
+                direction: htmlDir as DirectionType,
+                disabled: mergedDisabled,
+                included,
+                includedEnd,
+                includedStart,
+                max: mergedMax,
+                min: mergedMin,
+                step: mergedStep,
+            }),
+            [
+                htmlDir,
+                mergedDisabled,
+                included,
+                includedEnd,
+                includedStart,
+                mergedMax,
+                mergedMin,
+                mergedStep,
+            ]
+        );
 
         return (
-            <ResizeObserver onResize={updateLayout}>
-                <div
-                    ref={containerRef}
-                    {...rest}
-                    className={mergeClasses(
-                        styles.sliderContainer,
-                        {
-                            [styles.sliderSmall]:
-                                mergedSize === SliderSize.Flex &&
-                                largeScreenActive,
-                        },
-                        {
-                            [styles.sliderMedium]:
-                                mergedSize === SliderSize.Flex &&
-                                mediumScreenActive,
-                        },
-                        {
-                            [styles.sliderMedium]:
-                                mergedSize === SliderSize.Flex &&
-                                smallScreenActive,
-                        },
-                        {
-                            [styles.sliderLarge]:
-                                mergedSize === SliderSize.Flex &&
-                                xSmallScreenActive,
-                        },
-                        {
-                            [styles.sliderLarge]:
-                                mergedSize === SliderSize.Large,
-                        },
-                        {
-                            [styles.sliderMedium]:
-                                mergedSize === SliderSize.Medium,
-                        },
-                        {
-                            [styles.sliderSmall]:
-                                mergedSize === SliderSize.Small,
-                        },
-                        {
-                            [styles.sliderDisabled]:
-                                allowDisabledFocus || mergedDisabled,
-                        },
-                        { [styles.sliderContainerRtl]: htmlDir === 'rtl' },
-                        { [styles.showMarkers]: !!showMarkers },
-                        { ['in-form-item']: mergedFormItemInput },
-                        containerClassNames
-                    )}
-                >
-                    <div className={mergeClasses(styles.slider, classNames)}>
-                        <div
-                            ref={railRef}
-                            className={mergeClasses(styles.sliderRail, {
-                                [styles.sliderRailOpacity]: showMarkers,
-                            })}
-                            onMouseDown={onSliderMouseDown}
-                        />
-                        <div
-                            ref={trackRef}
-                            className={mergeClasses(styles.sliderTrack, {
-                                [styles.sliderTrackOpacity]: showMarkers,
-                            })}
-                            onMouseDown={onSliderMouseDown}
-                        />
-                        {!!showMarkers && (
-                            <div className={styles.railMarkerSegments}>
-                                {markers.map(
-                                    (mark: SliderMarker, index: number) => {
-                                        return (
-                                            <div
-                                                className={mergeClasses(
-                                                    styles.railMarkerSegment,
-                                                    {
-                                                        [styles.active]:
-                                                            isMarkerSegmentActive(
-                                                                mark.value
-                                                            ),
-                                                    },
-                                                    {
-                                                        [styles.railMarkerSegmentHidden]:
-                                                            index ===
-                                                            markers.length - 1,
-                                                    }
-                                                )}
-                                                key={index}
-                                                onMouseDown={onSliderMouseDown}
-                                                ref={
-                                                    markerSegmentRefs.current[
-                                                        index
-                                                    ]
-                                                }
-                                            />
-                                        );
-                                    }
-                                )}
-                            </div>
+            <SliderContext.Provider value={context}>
+                <ResizeObserver onResize={updateLayout}>
+                    <div
+                        ref={containerRef}
+                        {...rest}
+                        className={mergeClasses(
+                            styles.sliderContainer,
+                            {
+                                [styles.sliderSmall]:
+                                    mergedSize === SliderSize.Flex &&
+                                    largeScreenActive,
+                            },
+                            {
+                                [styles.sliderMedium]:
+                                    mergedSize === SliderSize.Flex &&
+                                    mediumScreenActive,
+                            },
+                            {
+                                [styles.sliderMedium]:
+                                    mergedSize === SliderSize.Flex &&
+                                    smallScreenActive,
+                            },
+                            {
+                                [styles.sliderLarge]:
+                                    mergedSize === SliderSize.Flex &&
+                                    xSmallScreenActive,
+                            },
+                            {
+                                [styles.sliderLarge]:
+                                    mergedSize === SliderSize.Large,
+                            },
+                            {
+                                [styles.sliderMedium]:
+                                    mergedSize === SliderSize.Medium,
+                            },
+                            {
+                                [styles.sliderSmall]:
+                                    mergedSize === SliderSize.Small,
+                            },
+                            {
+                                [styles.sliderDisabled]:
+                                    allowDisabledFocus || mergedDisabled,
+                            },
+                            {
+                                [styles.sliderReadonly]: !!readonly,
+                            },
+                            { [styles.sliderContainerRtl]: htmlDir === 'rtl' },
+                            { [styles.showMarkers]: !!showMarkers },
+                            { ['in-form-item']: mergedFormItemInput },
+                            containerClassNames
                         )}
-                        {values.map((val: number, index: number) => (
-                            <input
-                                ref={ref}
-                                aria-disabled={mergedDisabled}
-                                aria-label={ariaLabel}
-                                autoFocus={autoFocus && index === 0}
-                                className={styles.thumb}
-                                id={getIdentifier(id, index)}
-                                key={index}
-                                disabled={!allowDisabledFocus && mergedDisabled}
-                                onChange={
-                                    !allowDisabledFocus
-                                        ? (
-                                              event: React.ChangeEvent<HTMLInputElement>
-                                          ) =>
-                                              handleChange(
-                                                  +event.target.value,
-                                                  index
-                                              )
+                    >
+                        <div
+                            className={mergeClasses(styles.slider, classNames)}
+                        >
+                            <div
+                                ref={railRef}
+                                className={mergeClasses(styles.sliderRail, {
+                                    [styles.sliderRailOpacity]: showMarkers,
+                                })}
+                                onMouseDown={
+                                    !allowDisabledFocus && !readonly
+                                        ? onSliderMouseDown
                                         : null
                                 }
-                                min={min}
-                                max={max}
-                                name={getIdentifier(name, index)}
-                                type="range"
-                                step={step}
-                                value={val}
                             />
-                        ))}
-                    </div>
-                    <div
-                        ref={minLabelRef}
-                        className={mergeClasses(
-                            styles.extremityLabel,
-                            styles.minLabel,
-                            { [styles.extremityRangeLabel]: isRange }
-                        )}
-                    >
-                        {!!minLabel && minLabel} {!hideMin && min}
-                    </div>
-                    <div
-                        ref={maxLabelRef}
-                        className={mergeClasses(
-                            styles.extremityLabel,
-                            styles.maxLabel,
-                            { [styles.extremityRangeLabel]: isRange }
-                        )}
-                    >
-                        {!!maxLabel && maxLabel} {!hideMax && max}
-                    </div>
-                    <div
-                        className={mergeClasses(
-                            styles.sliderLabels,
-                            { [styles.sliderRangeLabels]: isRange },
-                            { [styles.labelVisible]: showLabels }
-                        )}
-                    >
-                        <div className={styles.sliderValue} ref={lowerLabelRef}>
-                            {!hideValue && htmlDir === 'rtl' && (
-                                <span>{values[0]}</span>
-                            )}{' '}
-                            {!!valueLabel && (
-                                <span>
-                                    {isRange ? valueLabel[0] : valueLabel}
-                                </span>
-                            )}{' '}
-                            {!hideValue && htmlDir !== 'rtl' && (
-                                <span>{values[0]}</span>
+                            <div
+                                ref={trackRef}
+                                className={mergeClasses([
+                                    styles.sliderTrack,
+                                    {
+                                        [styles.sliderTrackOpacity]:
+                                            showMarkers || !included,
+                                    },
+                                ])}
+                                onMouseDown={
+                                    !allowDisabledFocus && !readonly
+                                        ? onSliderMouseDown
+                                        : null
+                                }
+                            />
+                            {!!showMarkers && (
+                                <div className={styles.railMarkerSegments}>
+                                    {markers.map(
+                                        (mark: SliderMarker, index: number) => {
+                                            return (
+                                                <div
+                                                    className={mergeClasses(
+                                                        styles.railMarkerSegment,
+                                                        {
+                                                            [styles.active]:
+                                                                isMarkerSegmentActive(
+                                                                    mark.value
+                                                                ),
+                                                        },
+                                                        {
+                                                            [styles.railMarkerSegmentHidden]:
+                                                                index ===
+                                                                markers.length -
+                                                                    1,
+                                                        }
+                                                    )}
+                                                    key={index}
+                                                    onMouseDown={
+                                                        !allowDisabledFocus &&
+                                                        !readonly
+                                                            ? onSliderMouseDown
+                                                            : null
+                                                    }
+                                                    ref={
+                                                        markerSegmentRefs
+                                                            .current[index]
+                                                    }
+                                                />
+                                            );
+                                        }
+                                    )}
+                                </div>
                             )}
+                            <Steps
+                                activeStyle={activeDotStyle}
+                                dots={dots}
+                                marks={markList}
+                                style={dotStyle}
+                            />
+                            <Marks
+                                marks={markList}
+                                onClick={
+                                    !allowDisabledFocus && !readonly
+                                        ? changeToCloseValue
+                                        : null
+                                }
+                            />
+                            {values.map((val: number, index: number) => (
+                                <Tooltip
+                                    offset={
+                                        thumbGeometry().diameter +
+                                        THUMB_TOOLTIP_Y_OFFSET
+                                    }
+                                    placement={'top'}
+                                    portal
+                                    portalRoot={containerRef.current}
+                                    theme={TooltipTheme.dark}
+                                    {...tooltipProps}
+                                    classNames={mergeClasses([
+                                        styles.sliderTooltip,
+                                        tooltipProps?.classNames,
+                                    ])}
+                                    content={getTooltipContentByValue(val)}
+                                    tooltipStyle={getTooltipStyles(
+                                        htmlDir,
+                                        tooltipProps?.style,
+                                        val
+                                    )}
+                                >
+                                    <input
+                                        ref={ref}
+                                        aria-disabled={mergedDisabled}
+                                        aria-label={ariaLabel}
+                                        autoFocus={autoFocus && index === 0}
+                                        className={mergeClasses([
+                                            styles.thumb,
+                                            {
+                                                [styles.thumbHidden]: hideThumb,
+                                            },
+                                        ])}
+                                        id={getIdentifier(id, index)}
+                                        key={index}
+                                        disabled={
+                                            !allowDisabledFocus &&
+                                            mergedDisabled
+                                        }
+                                        onChange={
+                                            !allowDisabledFocus && !readonly
+                                                ? (
+                                                      event: React.ChangeEvent<HTMLInputElement>
+                                                  ) =>
+                                                      handleChange(
+                                                          +event.target.value,
+                                                          index
+                                                      )
+                                                : null
+                                        }
+                                        min={mergedMin}
+                                        max={mergedMax}
+                                        name={getIdentifier(name, index)}
+                                        type="range"
+                                        step={mergedStep}
+                                        value={val}
+                                    />
+                                </Tooltip>
+                            ))}
                         </div>
-                        {isRange && (
+                        <div
+                            ref={minLabelRef}
+                            className={mergeClasses(
+                                styles.extremityLabel,
+                                styles.minLabel,
+                                { [styles.extremityRangeLabel]: isRange },
+                                { [styles.labelVisible]: showLabels }
+                            )}
+                        >
+                            {!!minLabel && minLabel} {!hideMin && mergedMin}
+                        </div>
+                        <div
+                            ref={maxLabelRef}
+                            className={mergeClasses(
+                                styles.extremityLabel,
+                                styles.maxLabel,
+                                { [styles.extremityRangeLabel]: isRange },
+                                { [styles.labelVisible]: showLabels }
+                            )}
+                        >
+                            {!!maxLabel && maxLabel} {!hideMax && mergedMax}
+                        </div>
+                        <div
+                            className={mergeClasses(
+                                styles.sliderLabels,
+                                { [styles.sliderRangeLabels]: isRange },
+                                { [styles.labelVisible]: showLabels }
+                            )}
+                        >
                             <div
                                 className={styles.sliderValue}
-                                ref={upperLabelRef}
+                                ref={lowerLabelRef}
                             >
-                                {!hideValue && (
-                                    <span className={styles.sliderLabelSpacer}>
-                                        -
-                                    </span>
-                                )}
-                                {hideValue && !!valueLabel[1] && (
-                                    <span className={styles.sliderLabelSpacer}>
-                                        -
-                                    </span>
-                                )}
                                 {!hideValue && htmlDir === 'rtl' && (
-                                    <span>{values[1]}</span>
+                                    <span>{values[0]}</span>
                                 )}{' '}
-                                {!!valueLabel && <span>{valueLabel[1]}</span>}{' '}
+                                {!!valueLabel && (
+                                    <span>
+                                        {isRange ? valueLabel[0] : valueLabel}
+                                    </span>
+                                )}{' '}
                                 {!hideValue && htmlDir !== 'rtl' && (
-                                    <span>{values[1]}</span>
+                                    <span>{values[0]}</span>
                                 )}
                             </div>
-                        )}
+                            {isRange && (
+                                <div
+                                    className={styles.sliderValue}
+                                    ref={upperLabelRef}
+                                >
+                                    {!hideValue && (
+                                        <span
+                                            className={styles.sliderLabelSpacer}
+                                        >
+                                            -
+                                        </span>
+                                    )}
+                                    {hideValue && !!valueLabel[1] && (
+                                        <span
+                                            className={styles.sliderLabelSpacer}
+                                        >
+                                            -
+                                        </span>
+                                    )}
+                                    {!hideValue && htmlDir === 'rtl' && (
+                                        <span>{values[1]}</span>
+                                    )}{' '}
+                                    {!!valueLabel && (
+                                        <span>{valueLabel[1]}</span>
+                                    )}{' '}
+                                    {!hideValue && htmlDir !== 'rtl' && (
+                                        <span>{values[1]}</span>
+                                    )}
+                                </div>
+                            )}
+                        </div>
                     </div>
-                </div>
-            </ResizeObserver>
+                </ResizeObserver>
+            </SliderContext.Provider>
         );
     }
 );
