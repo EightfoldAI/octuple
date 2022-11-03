@@ -42,6 +42,7 @@ export default {
                 PaginationLayoutOptions.Pager,
                 PaginationLayoutOptions.Next,
                 PaginationLayoutOptions.Jumper,
+                PaginationLayoutOptions.NoLast,
             ],
             control: { type: 'check' },
         },

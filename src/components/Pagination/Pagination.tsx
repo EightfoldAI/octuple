@@ -387,6 +387,11 @@ export const Pagination: FC<PaginationProps> = React.forwardRef(
                                             quickPreviousIconButtonAriaLabel={
                                                 quickPreviousIconButtonAriaLabel
                                             }
+                                            showLast={
+                                                !layout.includes(
+                                                    PaginationLayoutOptions.NoLast
+                                                )
+                                            }
                                         />
                                     ) : (
                                         <Pager
@@ -404,6 +409,11 @@ export const Pagination: FC<PaginationProps> = React.forwardRef(
                                                 quickPreviousIconButtonAriaLabel
                                             }
                                             simplified={true}
+                                            showLast={
+                                                !layout.includes(
+                                                    PaginationLayoutOptions.NoLast
+                                                )
+                                            }
                                         />
                                     )}
                                     {layout.includes(
