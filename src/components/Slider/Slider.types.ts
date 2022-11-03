@@ -1,5 +1,22 @@
+import React from 'react';
 import { OcBaseProps } from '../OcBase';
 import { ConfigContextProps, Size } from '../ConfigProvider';
+import { TooltipProps } from '../Tooltip';
+
+import styles from './slider.module.scss';
+
+export const LARGE_THUMB_DIAMETER: number = +styles.largeThumbDiameter;
+export const LARGE_THUMB_RADIUS: number = LARGE_THUMB_DIAMETER / 2;
+
+export const MEDIUM_THUMB_DIAMETER: number = +styles.mediumThumbDiameter;
+export const MEDIUM_THUMB_RADIUS: number = MEDIUM_THUMB_DIAMETER / 2;
+
+export const SMALL_THUMB_DIAMETER: number = +styles.smallThumbDiameter;
+export const SMALL_THUMB_RADIUS: number = SMALL_THUMB_DIAMETER / 2;
+
+export const THUMB_TOOLTIP_Y_OFFSET: number = 8;
+
+export type SliderMarks = SliderProps['marks'];
 
 export enum SliderSize {
     Flex = 'flex',
@@ -8,11 +25,90 @@ export enum SliderSize {
     Small = 'small',
 }
 
-export interface SliderMarker {
+export interface Marker {
+    /**
+     * Custom Marker label.
+     */
+    label?: React.ReactNode;
+    /**
+     * Custom Marker style.
+     */
+    style?: React.CSSProperties;
+}
+
+export interface SliderMarker extends Marker {
     /**
      * The step value of the marker.
      */
     value: number;
+}
+
+export interface MarkProps {
+    /**
+     * The Mark renderer.
+     */
+    children?: React.ReactNode;
+    /**
+     * Callback executed on Mark click.
+     */
+    onClick: (value: number) => void;
+    /**
+     * Custom Mark style.
+     */
+    style?: React.CSSProperties;
+    /**
+     * The Mark value
+     */
+    value: number;
+}
+
+export interface MarksProps {
+    /**
+     * The Slider marks.
+     */
+    marks?: SliderMarker[];
+    /**
+     * Callback executed on Mark click.
+     */
+    onClick: (value: number) => void;
+}
+
+export interface DotProps {
+    /**
+     * Custom active dot style.
+     */
+    activeStyle?:
+        | React.CSSProperties
+        | ((dotValue: number) => React.CSSProperties);
+    /**
+     * Custom dot style.
+     */
+    style?: React.CSSProperties | ((dotValue: number) => React.CSSProperties);
+    /**
+     * The step dot value.
+     */
+    value: number;
+}
+
+export interface StepsProps {
+    /**
+     * Custom active dot style.
+     */
+    activeStyle?:
+        | React.CSSProperties
+        | ((dotValue: number) => React.CSSProperties);
+    /**
+     * The step dots.
+     */
+    dots?: boolean;
+    /**
+     * The Slider marks.
+     */
+    marks: SliderMarker[];
+    /**
+     * Custom dot style.
+     */
+    style?: React.CSSProperties | ((dotValue: number) => React.CSSProperties);
 }
 
 export interface SliderProps extends SliderInputProps {
@@ -32,6 +128,12 @@ export interface SliderProps extends SliderInputProps {
 
 export interface SliderInputProps
     extends Omit<OcBaseProps<HTMLInputElement>, 'onChange' | 'value'> {
+    /**
+     * Custom active dot style.
+     */
+    activeDotStyle?:
+        | React.CSSProperties
+        | ((dotValue: number) => React.CSSProperties);
     /**
      * Allows focus on the slider when it's disabled.
      * @default false
@@ -60,6 +162,17 @@ export interface SliderInputProps
      */
     disabled?: boolean;
     /**
+     * Enable Slider step dots.
+     * @default false
+     */
+    dots?: boolean;
+    /**
+     * Custom dot style.
+     */
+    dotStyle?:
+        | React.CSSProperties
+        | ((dotValue: number) => React.CSSProperties);
+    /**
      * The slider is a form item.
      * @default false
      */
@@ -75,6 +188,11 @@ export interface SliderInputProps
      */
     hideMin?: boolean;
     /**
+     * Whether to hide the Slider thumb until rail is clicked.
+     * @default false
+     */
+    hideThumb?: boolean;
+    /**
      * Hide the value of the slider.
      * @default false
      */
@@ -84,6 +202,17 @@ export interface SliderInputProps
      * NOTE: For range sliders, each input's id will have an index value added.
      */
     id?: string;
+    /**
+     * Make effect when `marks` isn't null,
+     * true means containment and false means coordinative.
+     * @default true
+     */
+    included?: boolean;
+    /**
+     * Slider custom marks, type of key must be number,
+     * and must in closed interval [min, max], each mark may declare its own style.
+     */
+    marks?: Record<string | number, React.ReactNode | Marker>;
     /**
      * The maximum value of the slider.
      * @default 100
@@ -112,6 +241,10 @@ export interface SliderInputProps
      */
     onChange?: (value: number | number[]) => void;
     /**
+     * The Slider is read only.
+     */
+    readonly?: boolean;
+    /**
      * The slider size.
      * @default SliderSize.Medium
      */
@@ -121,6 +254,14 @@ export interface SliderInputProps
      * @default 1
      */
     step?: number;
+    /**
+     * The slider thumb tooltip content.
+     */
+    tooltipContent?: React.ReactNode | React.ReactNode[];
+    /**
+     * Max tooltip props.
+     */
+    tooltipProps?: Omit<TooltipProps, 'content'>;
     /**
      * The current slider value. Provide an array for range slider.
      */
