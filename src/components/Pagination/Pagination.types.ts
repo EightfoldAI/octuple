@@ -51,6 +51,7 @@ export enum PaginationLayoutOptions {
     Previous = 'prev',
     Sizes = 'sizes',
     Total = 'total',
+    NoLast = 'noLast',
 }
 
 export type PaginationLocale = {
@@ -159,6 +160,11 @@ export interface PaginationProps extends OcBaseProps<HTMLElement> {
      * @default false
      */
     simplified?: boolean;
+    /**
+     * Show last page or not
+     * @default true
+     */
+    showLast?: boolean;
     /**
      * The Pagination total number of pages.
      * @default 1

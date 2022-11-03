@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.18.2](https://github.com/EightfoldAI/octuple/compare/v2.18.1...v2.18.2) (2022-11-03)
+
+### Features
+
+-   pagination: add ability to hide last page ([#430](https://github.com/EightfoldAI/octuple/issues/430)) ([2a61a0c](https://github.com/EightfoldAI/octuple/commits/2a61a0c72f150111577cfbedd8d865e4067bb775))
+
 ### [2.18.1](https://github.com/EightfoldAI/octuple/compare/v2.18.0...v2.18.1) (2022-11-01)
 
 ### Bug Fixes
