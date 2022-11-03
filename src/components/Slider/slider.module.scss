@@ -48,6 +48,61 @@ $small-marker-top: 0;
     .slider {
         position: relative;
         height: $medium-slider-height;
+
+        &-dot {
+            background-color: var(--slider-default-rail-color);
+            border: 1px solid var(--slider-default-rail-border-color);
+            border-radius: 50%;
+            cursor: pointer;
+            height: calc($medium-track-height * 2);
+            position: absolute;
+            top: calc($medium-rail-top - calc($border-offset * 2));
+            width: calc($medium-track-height * 2);
+
+            &-active {
+                border-color: var(--slider-default-track-color);
+                border-width: 2px;
+            }
+        }
+
+        &-mark {
+            left: calc($medium-slider-height / 2);
+            position: absolute;
+            top: calc(
+                $medium-rail-top -
+                    calc($medium-slider-height + $medium-track-height)
+            );
+            width: calc(100% - $medium-slider-height);
+        }
+
+        &-mark-text {
+            color: var(--slider-default-value-text-color);
+            cursor: pointer;
+            display: inline-block;
+            font-family: $octuple-font-family;
+            font-size: $text-font-size-2;
+            padding: 0 $space-xxxs;
+            position: absolute;
+            text-align: center;
+            white-space: nowrap;
+
+            &-active {
+                color: var(--slider-default-value-text-color);
+            }
+        }
+
+        &-step {
+            background: transparent;
+            height: $medium-track-height;
+            left: calc($medium-slider-height / 2);
+            pointer-events: none;
+            position: absolute;
+            width: calc(100% - $medium-slider-height);
+        }
+
+        &-tooltip {
+            min-width: max-content;
+        }
     }
 
     .slider-rail,
@@ -154,7 +209,7 @@ $small-marker-top: 0;
     }
 
     .extremity-range-label {
-        opacity: 1;
+        opacity: 0;
     }
 
     .slider-range-labels {
@@ -187,10 +242,15 @@ $small-marker-top: 0;
         cursor: pointer;
         display: block;
         height: 0;
+        opacity: 1;
         pointer-events: none;
         position: absolute;
         top: $medium-rail-top;
         width: 100%;
+
+        &-hidden {
+            opacity: 0;
+        }
     }
 
     // Firefox fix for thumb position
@@ -245,6 +305,31 @@ $small-marker-top: 0;
 
         .slider {
             height: $large-slider-height;
+
+            &-dot {
+                height: calc($large-track-height * 2);
+                top: calc($large-rail-top - calc($border-offset * 3));
+                width: calc($large-track-height * 2);
+            }
+
+            &-mark {
+                left: calc($large-slider-height / 2);
+                top: calc(
+                    $large-rail-top -
+                        calc($large-slider-height + $large-track-height)
+                );
+                width: calc(100% - $large-slider-height);
+            }
+
+            &-mark-text {
+                font-size: $text-font-size-3;
+            }
+
+            &-step {
+                height: $large-track-height;
+                left: calc($large-slider-height / 2);
+                width: calc(100% - $large-slider-height);
+            }
         }
 
         .slider-rail,
@@ -343,6 +428,31 @@ $small-marker-top: 0;
 
         .slider {
             height: $medium-slider-height;
+
+            &-dot {
+                height: calc($medium-track-height * 2);
+                top: calc($medium-rail-top - calc($border-offset * 2));
+                width: calc($medium-track-height * 2);
+            }
+
+            &-mark {
+                left: calc($medium-slider-height / 2);
+                top: calc(
+                    $medium-rail-top -
+                        calc($medium-slider-height + $medium-track-height)
+                );
+                width: calc(100% - $medium-slider-height);
+            }
+
+            &-mark-text {
+                font-size: $text-font-size-2;
+            }
+
+            &-step {
+                height: $medium-track-height;
+                left: calc($medium-slider-height / 2);
+                width: calc(100% - $medium-slider-height);
+            }
         }
 
         .slider-rail,
@@ -440,6 +550,36 @@ $small-marker-top: 0;
 
         .slider {
             height: $small-slider-height;
+
+            &-dot {
+                height: calc($small-track-height * 2);
+                top: calc($small-rail-top - calc($border-offset * 2));
+                width: calc($small-track-height * 2);
+            }
+
+            &-mark {
+                left: calc($small-slider-height / 2);
+                top: calc(
+                    $small-rail-top -
+                        calc($small-slider-height + $small-track-height)
+                );
+                width: calc(100% - $small-slider-height);
+            }
+
+            &-marks {
+                left: calc($small-slider-height / 2);
+                width: calc(100% - calc($small-slider-height / 2));
+            }
+
+            &-mark-text {
+                font-size: $text-font-size-1;
+            }
+
+            &-step {
+                height: $small-track-height;
+                left: calc($small-slider-height / 2);
+                width: calc(100% - $small-slider-height);
+            }
         }
 
         .slider-rail,
@@ -535,6 +675,18 @@ $small-marker-top: 0;
     }
 
     &-rtl {
+        .slider {
+            &-mark {
+                left: unset;
+                right: calc($medium-slider-height / 2);
+            }
+
+            &-step {
+                left: unset;
+                right: calc($medium-slider-height / 2);
+            }
+        }
+
         .slider-rail,
         .slider-track,
         .rail-marker-segments {
@@ -573,6 +725,18 @@ $small-marker-top: 0;
         }
 
         &.slider-large {
+            .slider {
+                &-mark {
+                    left: unset;
+                    right: calc($large-slider-height / 2);
+                }
+
+                &-step {
+                    left: unset;
+                    right: calc($large-slider-height / 2);
+                }
+            }
+
             .slider-rail:not(.slider-rail-opacity),
             .slider-track:not(.slider-track-opacity) {
                 left: unset;
@@ -605,6 +769,18 @@ $small-marker-top: 0;
         }
 
         &.slider-medium {
+            .slider {
+                &-mark {
+                    left: unset;
+                    right: calc($medium-slider-height / 2);
+                }
+
+                &-step {
+                    left: unset;
+                    right: calc($medium-slider-height / 2);
+                }
+            }
+
             .slider-rail:not(.slider-rail-opacity),
             .slider-track:not(.slider-track-opacity) {
                 left: unset;
@@ -637,6 +813,18 @@ $small-marker-top: 0;
         }
 
         &.slider-small {
+            .slider {
+                &-mark {
+                    left: unset;
+                    right: calc($small-slider-height / 2);
+                }
+
+                &-step {
+                    left: unset;
+                    right: calc($small-slider-height / 2);
+                }
+            }
+
             .slider-rail:not(.slider-rail-opacity),
             .slider-track:not(.slider-track-opacity) {
                 left: unset;
@@ -670,7 +858,8 @@ $small-marker-top: 0;
     }
 }
 
-.slider-disabled {
+.slider-disabled,
+.slider-readonly {
     cursor: not-allowed;
 
     .slider {
@@ -694,6 +883,12 @@ $small-marker-top: 0;
         &:focus::-moz-range-thumb {
             cursor: not-allowed;
         }
+    }
+}
+
+.slider-readonly {
+    .slider {
+        opacity: 1;
     }
 }
 

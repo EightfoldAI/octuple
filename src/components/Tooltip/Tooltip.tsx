@@ -35,6 +35,7 @@ export const Tooltip: FC<TooltipProps> = ({
     openDelay = 0,
     hideAfter = 0,
     tabIndex = 0,
+    tooltipStyle,
     positionStrategy = 'absolute',
     wrapperClassNames,
     wrapperStyle,
@@ -121,10 +122,11 @@ export const Tooltip: FC<TooltipProps> = ({
         left: 'right',
     }[tooltipSide];
 
-    const tooltipStyle: object = {
+    const tooltipStyles: object = {
         position: strategy,
         top: y ?? '',
         left: x ?? '',
+        ...tooltipStyle,
     };
 
     const arrowStyle: object = {
@@ -173,7 +175,7 @@ export const Tooltip: FC<TooltipProps> = ({
                         role="tooltip"
                         aria-hidden={!visible}
                         ref={floating}
-                        style={tooltipStyle}
+                        style={tooltipStyles}
                         className={tooltipClasses}
                         tabIndex={tabIndex}
                     >

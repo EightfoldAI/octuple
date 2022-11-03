@@ -77,6 +77,10 @@ export interface TooltipProps extends OcBaseProps<HTMLDivElement> {
      */
     theme?: TooltipTheme;
     /**
+     * Tooltip style
+     */
+    tooltipStyle?: React.CSSProperties;
+    /**
      * Whether the tooltip arrow is visible
      * @default true
      */
