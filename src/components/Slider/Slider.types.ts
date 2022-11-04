@@ -243,7 +243,7 @@ export interface SliderInputProps
     /**
      * The Slider is read only.
      */
-    readonly?: boolean;
+    readOnly?: boolean;
     /**
      * The slider size.
      * @default SliderSize.Medium

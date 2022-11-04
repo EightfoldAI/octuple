@@ -10,7 +10,7 @@ exports[`Tabs stat tabs medium snapshot 1`] = `
     <button
       aria-label="Tab 1"
       aria-selected={true}
-      className="tab active"
+      className="tab undefined active"
       onClick={[Function]}
       role="tab"
     >
@@ -75,7 +75,7 @@ exports[`Tabs stat tabs medium snapshot 1`] = `
     <button
       aria-label="Tab 2"
       aria-selected={false}
-      className="tab"
+      className="tab undefined"
       onClick={[Function]}
       role="tab"
     >
@@ -140,7 +140,7 @@ exports[`Tabs stat tabs medium snapshot 1`] = `
     <button
       aria-label="Tab 3"
       aria-selected={false}
-      className="tab"
+      className="tab undefined"
       onClick={[Function]}
       role="tab"
     >
@@ -205,7 +205,7 @@ exports[`Tabs stat tabs medium snapshot 1`] = `
     <button
       aria-label="Tab 4"
       aria-selected={false}
-      className="tab"
+      className="tab undefined"
       disabled={true}
       onClick={[Function]}
       role="tab"
@@ -282,7 +282,7 @@ exports[`Tabs stat tabs small snapshot 1`] = `
     <button
       aria-label="Tab 1"
       aria-selected={true}
-      className="tab active"
+      className="tab undefined active"
       onClick={[Function]}
       role="tab"
     >
@@ -347,7 +347,7 @@ exports[`Tabs stat tabs small snapshot 1`] = `
     <button
       aria-label="Tab 2"
       aria-selected={false}
-      className="tab"
+      className="tab undefined"
       onClick={[Function]}
       role="tab"
     >
@@ -412,7 +412,7 @@ exports[`Tabs stat tabs small snapshot 1`] = `
     <button
       aria-label="Tab 3"
       aria-selected={false}
-      className="tab"
+      className="tab undefined"
       onClick={[Function]}
       role="tab"
     >
@@ -477,7 +477,7 @@ exports[`Tabs stat tabs small snapshot 1`] = `
     <button
       aria-label="Tab 4"
       aria-selected={false}
-      className="tab"
+      className="tab undefined"
       disabled={true}
       onClick={[Function]}
       role="tab"

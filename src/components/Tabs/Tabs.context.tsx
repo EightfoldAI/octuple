@@ -10,9 +10,9 @@ const TabsContext = createContext<Partial<ITabsContext>>({});
 
 const TabsProvider = ({
     children,
-    groupTheme,
     onChange,
-    readonly,
+    readOnly,
+    statgrouptheme,
     value,
 }: TabsContextProps) => {
     const [currentActiveTab, setCurrentActiveTab] = useState<TabValue>(value);
@@ -27,7 +27,7 @@ const TabsProvider = ({
 
     return (
         <TabsContext.Provider
-            value={{ currentActiveTab, groupTheme, onTabClick, readonly }}
+            value={{ currentActiveTab, onTabClick, readOnly, statgrouptheme }}
         >
             {children}
         </TabsContext.Provider>

@@ -114,7 +114,7 @@ describe('Slider', () => {
         expect(vals[1]).toEqual(7);
     });
 
-    test('should not update values when readonly', () => {
+    test('should not update values when readOnly', () => {
         let val = 1;
         wrapper = mount(
             <Slider
@@ -122,7 +122,7 @@ describe('Slider', () => {
                 max={10}
                 value={val}
                 onChange={(newVal: number) => (val = newVal)}
-                readonly
+                readOnly
             />
         );
 
@@ -138,7 +138,7 @@ describe('Slider', () => {
                 max={20}
                 value={vals}
                 onChange={(newVal: number[]) => (vals = [...newVal])}
-                readonly
+                readOnly
             />
         );
         let thumb1 = wrapper.find('input[type="range"]').at(0);

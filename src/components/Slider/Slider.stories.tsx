@@ -299,7 +299,7 @@ const sliderArgs: Object = {
     onChange: () => {
         console.log('changed');
     },
-    readonly: false,
+    readOnly: false,
     showLabels: true,
     showMarkers: false,
     size: SliderSize.Medium,

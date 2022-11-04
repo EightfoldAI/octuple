@@ -1,14 +1,16 @@
 import React, { FC, Ref } from 'react';
-import { StatProps, TabSize } from '../Tabs.types';
+import { StatProps, StatThemeNames, TabSize } from '../Tabs.types';
 import { useTabs } from '../Tabs.context';
-import { OcThemeNames } from '../../ConfigProvider';
 import { Icon } from '../../Icon';
 import { Loader } from '../../Loader';
-import { Stack } from '../../Stack';
+import { Stack, StackGap } from '../../Stack';
 import { useCanvasDirection } from '../../../hooks/useCanvasDirection';
 import { mergeClasses } from '../../../shared/utilities';
 
 import styles from '../tabs.module.scss';
+
+const MEDIUM_ICON_SIZE: string = '40px';
+const SMALL_ICON_SIZE: string = '32px';
 
 export const Stat: FC<StatProps> = React.forwardRef(
     (
@@ -30,16 +32,10 @@ export const Stat: FC<StatProps> = React.forwardRef(
     ) => {
         const htmlDir: string = useCanvasDirection();
 
-        const { currentActiveTab, groupTheme, readonly, onTabClick } =
+        const { currentActiveTab, statgrouptheme, readOnly, onTabClick } =
             useTabs();
 
-        let mergedTheme: OcThemeNames;
-
-        if (theme) {
-            mergedTheme = theme;
-        } else {
-            mergedTheme = groupTheme;
-        }
+        const mergedTheme: StatThemeNames = theme ?? statgrouptheme;
 
         const iconExists: boolean = !!icon;
         const labelExists: boolean = !!label;
@@ -49,39 +45,12 @@ export const Stat: FC<StatProps> = React.forwardRef(
 
         const tabClassName: string = mergeClasses([
             styles.tab,
-            { [styles.readOnly]: !!readonly },
-            { [styles.active]: isActive && !readonly },
-            { [styles.red]: mergedTheme === 'red' },
+            (styles as any)[`${mergedTheme}`],
             {
-                [styles.redOrange]: mergedTheme === 'redOrange',
+                [styles.readOnly]: !!readOnly,
+                [styles.active]: isActive && !readOnly,
+                [styles.tabRtl]: htmlDir === 'rtl',
             },
-            {
-                [styles.orange]: mergedTheme === 'orange',
-            },
-            {
-                [styles.yellow]: mergedTheme === 'yellow',
-            },
-            {
-                [styles.yellowGreen]: mergedTheme === 'yellowGreen',
-            },
-            {
-                [styles.green]: mergedTheme === 'green',
-            },
-            {
-                [styles.blueGreen]: mergedTheme === 'blueGreen',
-            },
-            { [styles.blue]: mergedTheme === 'blue' },
-            {
-                [styles.blueViolet]: mergedTheme === 'blueViolet',
-            },
-            {
-                [styles.violet]: mergedTheme === 'violet',
-            },
-            {
-                [styles.violetRed]: mergedTheme === 'violetRed',
-            },
-            { [styles.grey]: mergedTheme === 'grey' },
-            { [styles.tabRtl]: htmlDir === 'rtl' },
             classNames,
         ]);
 
@@ -90,7 +59,11 @@ export const Stat: FC<StatProps> = React.forwardRef(
                 <Icon
                     path={icon}
                     classNames={styles.icon}
-                    size={size === TabSize.Small ? '32px' : '40px'}
+                    size={
+                        size === TabSize.Small
+                            ? SMALL_ICON_SIZE
+                            : MEDIUM_ICON_SIZE
+                    }
                 />
             );
 
@@ -106,25 +79,30 @@ export const Stat: FC<StatProps> = React.forwardRef(
         const getLoader = (): JSX.Element =>
             loading && <Loader classNames={styles.loader} />;
 
+        const tabSizeToGapMap = new Map<TabSize, StackGap>([
+            [TabSize.Medium, 'm'],
+            [TabSize.Small, 's'],
+        ]);
+
         return (
             <button
                 {...rest}
                 ref={ref}
                 className={tabClassName}
                 aria-label={ariaLabel}
-                aria-selected={!readonly && isActive}
+                aria-selected={!readOnly && isActive}
                 role="tab"
                 disabled={disabled}
-                onClick={!readonly ? (e) => onTabClick(value, e) : null}
+                onClick={!readOnly ? (e) => onTabClick(value, e) : null}
             >
                 <Stack
-                    direction={'horizontal'}
+                    direction="horizontal"
                     fullWidth
-                    gap={size === TabSize.Small ? 's' : 'm'}
-                    justify={'center'}
+                    gap={tabSizeToGapMap.get(size)}
+                    justify="center"
                 >
                     {getIcon()}
-                    <Stack direction={'vertical'} fullWidth>
+                    <Stack direction="vertical" fullWidth>
                         {getLabel()}
                         <span className={styles.label}>
                             {getRatioA()} {getRatioB()}

@@ -149,9 +149,10 @@
     &.stat {
         --bg: var(--background-color);
         --border: var(--border-color);
+        --border-width: 1px;
         align-items: center;
         background: var(--bg);
-        border: 1px solid var(--bg);
+        border: var(--border-width) solid var(--bg);
         border-radius: $corner-radius-xl;
         display: flex;
         padding: $space-ml $space-s;
@@ -165,30 +166,37 @@
             --active-border: var(--grey-color-60);
             --bg: var(--background-color);
             --border: var(--background-color);
+            --border-radius: 40px;
+            --divider-height: 84px;
+            --divider-width: 1px;
+            --height: 116px;
             --hover-bg: var(--grey-color-20);
             --hover-border: var(--grey-color-20);
             --icon: var(--grey-color-70);
             --icon-bg: var(--grey-color-20);
+            --icon-height: 72px;
+            --icon-width: 72px;
             --label: var(--text-secondary-color);
+            --width: 200px;
             background: var(--bg);
-            border: 1px solid var(--border);
-            border-radius: 40px;
+            border: var(--border-width) solid var(--border);
+            border-radius: var(--border-radius);
             color: var(--label);
             font-family: $octuple-font-family;
             font-weight: $text-font-weight-semibold;
-            height: 116px;
+            height: var(--height);
             margin: 0 $space-s;
             padding: $space-ml $space-m;
             transition: all $motion-duration-extra-fast $motion-easing-easeinout
                 0s;
-            width: 200px;
+            width: var(--width);
 
             .icon {
                 background: var(--icon-bg);
                 border-radius: 50%;
                 color: var(--icon);
-                min-height: 72px;
-                min-width: 72px;
+                min-height: var(--icon-height);
+                min-width: var(--icon-width);
                 padding: $space-m;
 
                 svg {
@@ -368,10 +376,10 @@
                     &:after {
                         background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' stroke='%23d9dce1' stroke-width='1' stroke-dasharray='2' stroke-dashoffset='0' stroke-linecap='round'/%3e%3c/svg%3e");
                         content: ' ';
-                        height: 84px;
+                        height: var(--divider-height);
                         position: absolute;
                         right: calc(calc($space-ml + 1px) * -1);
-                        width: 1px;
+                        width: var(--divider-width);
                     }
                 }
             }
@@ -381,18 +389,19 @@
             padding: $space-s $space-xxs;
 
             .tab {
-                border-radius: $corner-radius-xl;
-                height: 72px;
+                --border-radius: 24px;
+                --divider-height: 40px;
+                --height: 72px;
+                --icon-height: 48px;
+                --icon-width: 48px;
+                --width: 136px;
                 margin: 0 $space-xs;
                 padding: $space-s $space-xs;
-                width: 136px;
 
                 .icon {
-                    height: 48px;
-                    min-height: 48px;
-                    min-width: 48px;
+                    height: var(--icon-height);
                     padding: $space-xs;
-                    width: 48px;
+                    width: var(--icon-width);
                 }
 
                 .label {
@@ -419,12 +428,7 @@
 
                     &:not(:last-of-type) {
                         &:after {
-                            background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' stroke='%23d9dce1' stroke-width='1' stroke-dasharray='2' stroke-dashoffset='0' stroke-linecap='round'/%3e%3c/svg%3e");
-                            content: ' ';
-                            height: 40px;
-                            position: absolute;
                             right: calc(calc($space-s + 1px) * -1);
-                            width: 1px;
                         }
                     }
                 }

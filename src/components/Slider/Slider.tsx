@@ -95,7 +95,7 @@ export const Slider: FC<SliderProps> = React.forwardRef(
             maxLabel,
             name,
             onChange,
-            readonly = false,
+            readOnly = false,
             showLabels = true,
             showMarkers = false,
             size = SliderSize.Medium,
@@ -701,7 +701,7 @@ export const Slider: FC<SliderProps> = React.forwardRef(
                                     allowDisabledFocus || mergedDisabled,
                             },
                             {
-                                [styles.sliderReadonly]: !!readonly,
+                                [styles.sliderReadonly]: !!readOnly,
                             },
                             { [styles.sliderContainerRtl]: htmlDir === 'rtl' },
                             { [styles.showMarkers]: !!showMarkers },
@@ -718,7 +718,7 @@ export const Slider: FC<SliderProps> = React.forwardRef(
                                     [styles.sliderRailOpacity]: showMarkers,
                                 })}
                                 onMouseDown={
-                                    !allowDisabledFocus && !readonly
+                                    !allowDisabledFocus && !readOnly
                                         ? onSliderMouseDown
                                         : null
                                 }
@@ -733,7 +733,7 @@ export const Slider: FC<SliderProps> = React.forwardRef(
                                     },
                                 ])}
                                 onMouseDown={
-                                    !allowDisabledFocus && !readonly
+                                    !allowDisabledFocus && !readOnly
                                         ? onSliderMouseDown
                                         : null
                                 }
@@ -762,7 +762,7 @@ export const Slider: FC<SliderProps> = React.forwardRef(
                                                     key={index}
                                                     onMouseDown={
                                                         !allowDisabledFocus &&
-                                                        !readonly
+                                                        !readOnly
                                                             ? onSliderMouseDown
                                                             : null
                                                     }
@@ -785,7 +785,7 @@ export const Slider: FC<SliderProps> = React.forwardRef(
                             <Marks
                                 marks={markList}
                                 onClick={
-                                    !allowDisabledFocus && !readonly
+                                    !allowDisabledFocus && !readOnly
                                         ? changeToCloseValue
                                         : null
                                 }
@@ -830,7 +830,7 @@ export const Slider: FC<SliderProps> = React.forwardRef(
                                             mergedDisabled
                                         }
                                         onChange={
-                                            !allowDisabledFocus && !readonly
+                                            !allowDisabledFocus && !readOnly
                                                 ? (
                                                       event: React.ChangeEvent<HTMLInputElement>
                                                   ) =>

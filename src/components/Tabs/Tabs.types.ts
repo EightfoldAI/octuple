@@ -31,24 +31,26 @@ export enum TabVariant {
     small = 'small',
 }
 
+export type StatThemeNames = OcThemeNames;
+
 export interface TabsContextProps {
     /**
      * List of Tab element.
      */
     children: React.ReactNode;
     /**
-     * Theme of the tab group.
-     */
-    groupTheme?: OcThemeNames;
-    /**
      * The onChange event handler.
      */
     onChange: OnChangeHandler;
     /**
-     * The tab group is readonly.
+     * The Stat Tab group is readOnly.
      * @default false
      */
-    readonly?: boolean;
+    readOnly?: boolean;
+    /**
+     * Theme of the Stat Tab group.
+     */
+    statgrouptheme?: StatThemeNames;
     /**
      * The value of the selected tab.
      */
@@ -61,18 +63,18 @@ export interface ITabsContext {
      */
     currentActiveTab: TabValue;
     /**
-     * Theme of the tab group.
-     */
-    groupTheme?: OcThemeNames;
-    /**
      * The onClick handler of the tab.
      */
     onTabClick: OnChangeHandler;
     /**
-     * The tab group is readonly.
+     * The Stat Tab group is readOnly.
      * @default false
      */
-    readonly?: boolean;
+    readOnly?: boolean;
+    /**
+     * Theme of the Stat Tab group.
+     */
+    statgrouptheme?: StatThemeNames;
 }
 
 export interface TabProps extends OcBaseProps<HTMLButtonElement> {
@@ -121,9 +123,9 @@ export interface StatProps extends Omit<TabProps, 'badgeContent'> {
      */
     ratioB?: string | number;
     /**
-     * Theme of the tab
+     * Theme of the stat tab.
      */
-    theme?: OcThemeNames;
+    theme?: StatThemeNames;
 }
 
 export interface TabsProps extends Omit<OcBaseProps<HTMLElement>, 'onChange'> {
@@ -144,20 +146,16 @@ export interface TabsProps extends Omit<OcBaseProps<HTMLElement>, 'onChange'> {
      */
     divider?: boolean;
     /**
-     * Theme of the tab group.
-     */
-    groupTheme?: OcThemeNames;
-    /**
      * Callback called on click of a tab.
      * @param value {TabValue}
      * @param event {SelectTabEvent}
      */
     onChange?: OnChangeHandler;
     /**
-     * The tab group is readonly.
+     * The Stat Tab group is readOnly.
      * @default false
      */
-    readonly?: boolean;
+    readOnly?: boolean;
     /**
      * Ref of the tabs.
      */
@@ -172,6 +170,10 @@ export interface TabsProps extends Omit<OcBaseProps<HTMLElement>, 'onChange'> {
      * @default TabSize.Medium
      */
     size?: TabSize;
+    /**
+     * Theme of the Stat Tab group.
+     */
+    statgrouptheme?: StatThemeNames;
     /**
      * If the tabs should have an underline/penline beneath them.
      * NOTE: won't be applied if pill variant is used.

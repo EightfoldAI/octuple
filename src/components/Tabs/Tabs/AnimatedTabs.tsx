@@ -26,16 +26,19 @@ export const AnimatedTabs: FC<TabsProps> = React.forwardRef(
         const { currentActiveTab } = useTabs();
         const tabClassName: string = mergeClasses([
             styles.tabWrap,
-            { [styles.underlined]: underlined && variant !== TabVariant.pill },
             {
+                [styles.underlined]:
+                    underlined &&
+                    variant !== TabVariant.pill &&
+                    variant !== TabVariant.stat,
                 [styles.small]:
                     variant === TabVariant.small || size === TabSize.Small,
+                [styles.pill]: variant === TabVariant.pill,
+                [styles.stat]: variant === TabVariant.stat,
+                [styles.bordered]: variant === TabVariant.stat && bordered,
+                [styles.divider]: variant === TabVariant.stat && divider,
+                [styles.scrollable]: scrollable,
             },
-            { [styles.pill]: variant === TabVariant.pill },
-            { [styles.stat]: variant === TabVariant.stat },
-            { [styles.bordered]: variant === TabVariant.stat && bordered },
-            { [styles.divider]: variant === TabVariant.stat && divider },
-            { [styles.scrollable]: scrollable },
             classNames,
         ]);
         return (
