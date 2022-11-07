@@ -5,6 +5,17 @@ import { TooltipProps } from '../Tooltip';
 
 import styles from './slider.module.scss';
 
+// The subtracted integer accounts for rounding in the browser.
+// Other than this, there are no magic numbers.
+const LARGE_INLINE_MARGIN: number = +styles.largeSliderInlineMargin;
+export const LARGE_INLINE_MARGIN_OFFSET: number = LARGE_INLINE_MARGIN * 2 - 4;
+
+const MEDIUM_INLINE_MARGIN: number = +styles.mediumSliderInlineMargin;
+export const MEDIUM_INLINE_MARGIN_OFFSET: number = MEDIUM_INLINE_MARGIN * 2 - 2;
+
+const SMALL_INLINE_MARGIN: number = +styles.smallSliderInlineMargin;
+export const SMALL_INLINE_MARGIN_OFFSET: number = SMALL_INLINE_MARGIN * 2 - 2;
+
 export const LARGE_THUMB_DIAMETER: number = +styles.largeThumbDiameter;
 export const LARGE_THUMB_RADIUS: number = LARGE_THUMB_DIAMETER / 2;
 
@@ -16,7 +27,11 @@ export const SMALL_THUMB_RADIUS: number = SMALL_THUMB_DIAMETER / 2;
 
 export const THUMB_TOOLTIP_Y_OFFSET: number = 8;
 
+export type SliderLabelPosition = 'bottom' | 'inline';
+
 export type SliderMarks = SliderProps['marks'];
+
+export type SliderType = 'data' | 'default';
 
 export enum SliderSize {
     Flex = 'flex',
@@ -24,7 +39,6 @@ export enum SliderSize {
     Medium = 'medium',
     Small = 'small',
 }
-
 export interface Marker {
     /**
      * Custom Marker label.
@@ -113,21 +127,19 @@ export interface StepsProps {
 
 export interface SliderProps extends SliderInputProps {
     /**
-     * Indicates if the value should be displayed under the slider.
+     * Indicates if the value should be displayed under the Slider.
      * @default true
      */
     showLabels?: boolean;
     /**
-     * Indicates if steps/markers should be displayed on the slider track.
-     * NOTE: initial implementation will put a marker at each step. This could
-     * be extended to provide explicit markers to change the behavior.
+     * Indicates if steps/markers should be displayed on the Slider track.
      * @default false
      */
     showMarkers?: boolean;
 }
 
 export interface SliderInputProps
-    extends Omit<OcBaseProps<HTMLInputElement>, 'onChange' | 'value'> {
+    extends Omit<OcBaseProps<HTMLInputElement>, 'onChange' | 'type' | 'value'> {
     /**
      * Custom active dot style.
      */
@@ -135,16 +147,16 @@ export interface SliderInputProps
         | React.CSSProperties
         | ((dotValue: number) => React.CSSProperties);
     /**
-     * Allows focus on the slider when it's disabled.
+     * Allows focus on the Slider when it's disabled.
      * @default false
      */
     allowDisabledFocus?: boolean;
     /**
-     * The slider aria label text.
+     * The Slider aria label text.
      */
     ariaLabel?: string;
     /**
-     * The slider autoFocus attribute.
+     * The Slider autoFocus attribute.
      * @default false
      */
     autoFocus?: boolean;
@@ -157,7 +169,7 @@ export interface SliderInputProps
      */
     containerClassNames?: string;
     /**
-     * The slider disabled state.
+     * The Slider disabled state.
      * @default false
      */
     disabled?: boolean;
@@ -173,17 +185,17 @@ export interface SliderInputProps
         | React.CSSProperties
         | ((dotValue: number) => React.CSSProperties);
     /**
-     * The slider is a form item.
+     * The Slider is a form item.
      * @default false
      */
     formItemInput?: boolean;
     /**
-     * Hide the maximum value of the slider.
+     * Hide the maximum value of the Slider.
      * @default false
      */
     hideMax?: boolean;
     /**
-     * Hide the minimum value of the slider.
+     * Hide the minimum value of the Slider.
      * @default false
      */
     hideMin?: boolean;
@@ -193,13 +205,13 @@ export interface SliderInputProps
      */
     hideThumb?: boolean;
     /**
-     * Hide the value of the slider.
+     * Hide the value of the Slider.
      * @default false
      */
     hideValue?: boolean;
     /**
      * The input id.
-     * NOTE: For range sliders, each input's id will have an index value added.
+     * NOTE: For range Sliders, each input's id will have an index value added.
      */
     id?: string;
     /**
@@ -209,31 +221,36 @@ export interface SliderInputProps
      */
     included?: boolean;
     /**
+     * Sets the Slider extremity label position.
+     * @default 'bottom'
+     */
+    labelPosition?: SliderLabelPosition;
+    /**
      * Slider custom marks, type of key must be number,
      * and must in closed interval [min, max], each mark may declare its own style.
      */
     marks?: Record<string | number, React.ReactNode | Marker>;
     /**
-     * The maximum value of the slider.
+     * The maximum value of the Slider.
      * @default 100
      */
     max?: number;
     /**
-     * The custom maximum value label of the slider.
+     * The custom maximum value label of the Slider.
      */
     maxLabel?: string;
     /**
-     * The minimum value of the slider.
+     * The minimum value of the Slider.
      * @default 0
      */
     min?: number;
     /**
-     * The custom minimum value label of the slider.
+     * The custom minimum value label of the Slider.
      */
     minLabel?: string;
     /**
      * The input name.
-     * NOTE: For range sliders, each input's name will have an index value added.
+     * NOTE: For range Sliders, each input's name will have an index value added.
      */
     name?: string;
     /**
@@ -243,9 +260,9 @@ export interface SliderInputProps
     /**
      * The Slider is read only.
      */
-    readonly?: boolean;
+    readOnly?: boolean;
     /**
-     * The slider size.
+     * The Slider size.
      * @default SliderSize.Medium
      */
     size?: SliderSize | Size;
@@ -255,7 +272,7 @@ export interface SliderInputProps
      */
     step?: number;
     /**
-     * The slider thumb tooltip content.
+     * The Slider thumb tooltip content.
      */
     tooltipContent?: React.ReactNode | React.ReactNode[];
     /**
@@ -263,11 +280,16 @@ export interface SliderInputProps
      */
     tooltipProps?: Omit<TooltipProps, 'content'>;
     /**
-     * The current slider value. Provide an array for range slider.
+     * The type of Slider.
+     * @default 'default'
+     */
+    type?: SliderType;
+    /**
+     * The current Slider value. Provide an array for range Slider.
      */
     value: number | number[];
     /**
-     * The custom value label of the slider.
+     * The custom value label of the Slider.
      */
     valueLabel?: string | string[];
 }
