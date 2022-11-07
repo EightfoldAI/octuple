@@ -23,7 +23,6 @@ describe('Slider', () => {
     test('Should render', () => {
         wrapper = mount(<Slider min={20} max={40} value={30} />);
         expect(wrapper.children().length).toEqual(1);
-        expect(wrapper.render()).toMatchSnapshot();
     });
 
     test('should correctly display marker segments and indicate when they are active', () => {
@@ -155,7 +154,6 @@ describe('Slider', () => {
     test('should render normally when `hideThumb=true`', () => {
         const { container } = render(<Slider hideThumb value={50} />);
         expect(() => container).not.toThrowError();
-        expect(wrapper.render()).toMatchSnapshot();
     });
 
     test('should render normally when `labelPosition=inline`', () => {
@@ -163,7 +161,6 @@ describe('Slider', () => {
             <Slider labelPosition="inline" value={50} />
         );
         expect(() => container).not.toThrowError();
-        expect(wrapper.render()).toMatchSnapshot();
     });
 
     test('should render dots correctly when `dots=true`', () => {
