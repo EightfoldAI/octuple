@@ -906,6 +906,7 @@ LoadedCheerio {
         "next": Node {
           "attribs": Object {
             "class": "table-pagination table-pagination-right my-page pagination",
+            "role": "navigation",
           },
           "children": Array [
             Node {
@@ -1005,9 +1006,8 @@ LoadedCheerio {
                       "children": Array [
                         Node {
                           "attribs": Object {
-                            "aria-checked": "true",
+                            "aria-current": "true",
                             "aria-disabled": "false",
-                            "aria-pressed": "true",
                             "class": "pagination-button active button button-neutral button-medium",
                           },
                           "children": Array [
@@ -1045,15 +1045,13 @@ LoadedCheerio {
                           "prev": null,
                           "type": "tag",
                           "x-attribsNamespace": Object {
-                            "aria-checked": undefined,
+                            "aria-current": undefined,
                             "aria-disabled": undefined,
-                            "aria-pressed": undefined,
                             "class": undefined,
                           },
                           "x-attribsPrefix": Object {
-                            "aria-checked": undefined,
+                            "aria-current": undefined,
                             "aria-disabled": undefined,
-                            "aria-pressed": undefined,
                             "class": undefined,
                           },
                         },
@@ -1293,9 +1291,8 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "aria-checked": "true",
+                          "aria-current": "true",
                           "aria-disabled": "false",
-                          "aria-pressed": "true",
                           "class": "pagination-button active button button-neutral button-medium",
                         },
                         "children": Array [
@@ -1333,15 +1330,13 @@ LoadedCheerio {
                         "prev": null,
                         "type": "tag",
                         "x-attribsNamespace": Object {
-                          "aria-checked": undefined,
+                          "aria-current": undefined,
                           "aria-disabled": undefined,
-                          "aria-pressed": undefined,
                           "class": undefined,
                         },
                         "x-attribsPrefix": Object {
-                          "aria-checked": undefined,
+                          "aria-current": undefined,
                           "aria-disabled": undefined,
-                          "aria-pressed": undefined,
                           "class": undefined,
                         },
                       },
@@ -1504,9 +1499,8 @@ LoadedCheerio {
                   "children": Array [
                     Node {
                       "attribs": Object {
-                        "aria-checked": "true",
+                        "aria-current": "true",
                         "aria-disabled": "false",
-                        "aria-pressed": "true",
                         "class": "pagination-button active button button-neutral button-medium",
                       },
                       "children": Array [
@@ -1544,15 +1538,13 @@ LoadedCheerio {
                       "prev": null,
                       "type": "tag",
                       "x-attribsNamespace": Object {
-                        "aria-checked": undefined,
+                        "aria-current": undefined,
                         "aria-disabled": undefined,
-                        "aria-pressed": undefined,
                         "class": undefined,
                       },
                       "x-attribsPrefix": Object {
-                        "aria-checked": undefined,
+                        "aria-current": undefined,
                         "aria-disabled": undefined,
-                        "aria-pressed": undefined,
                         "class": undefined,
                       },
                     },
@@ -1881,9 +1873,8 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "aria-checked": "true",
+                          "aria-current": "true",
                           "aria-disabled": "false",
-                          "aria-pressed": "true",
                           "class": "pagination-button active button button-neutral button-medium",
                         },
                         "children": Array [
@@ -1921,15 +1912,13 @@ LoadedCheerio {
                         "prev": null,
                         "type": "tag",
                         "x-attribsNamespace": Object {
-                          "aria-checked": undefined,
+                          "aria-current": undefined,
                           "aria-disabled": undefined,
-                          "aria-pressed": undefined,
                           "class": undefined,
                         },
                         "x-attribsPrefix": Object {
-                          "aria-checked": undefined,
+                          "aria-current": undefined,
                           "aria-disabled": undefined,
-                          "aria-pressed": undefined,
                           "class": undefined,
                         },
                       },
@@ -2089,9 +2078,11 @@ LoadedCheerio {
           "type": "tag",
           "x-attribsNamespace": Object {
             "class": undefined,
+            "role": undefined,
           },
           "x-attribsPrefix": Object {
             "class": undefined,
+            "role": undefined,
           },
         },
         "parent": [Circular],
@@ -2107,6 +2098,7 @@ LoadedCheerio {
       Node {
         "attribs": Object {
           "class": "table-pagination table-pagination-right my-page pagination",
+          "role": "navigation",
         },
         "children": Array [
           Node {
@@ -2206,9 +2198,8 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "aria-checked": "true",
+                          "aria-current": "true",
                           "aria-disabled": "false",
-                          "aria-pressed": "true",
                           "class": "pagination-button active button button-neutral button-medium",
                         },
                         "children": Array [
@@ -2246,15 +2237,13 @@ LoadedCheerio {
                         "prev": null,
                         "type": "tag",
                         "x-attribsNamespace": Object {
-                          "aria-checked": undefined,
+                          "aria-current": undefined,
                           "aria-disabled": undefined,
-                          "aria-pressed": undefined,
                           "class": undefined,
                         },
                         "x-attribsPrefix": Object {
-                          "aria-checked": undefined,
+                          "aria-current": undefined,
                           "aria-disabled": undefined,
-                          "aria-pressed": undefined,
                           "class": undefined,
                         },
                       },
@@ -2494,9 +2483,8 @@ LoadedCheerio {
                   "children": Array [
                     Node {
                       "attribs": Object {
-                        "aria-checked": "true",
+                        "aria-current": "true",
                         "aria-disabled": "false",
-                        "aria-pressed": "true",
                         "class": "pagination-button active button button-neutral button-medium",
                       },
                       "children": Array [
@@ -2534,15 +2522,13 @@ LoadedCheerio {
                       "prev": null,
                       "type": "tag",
                       "x-attribsNamespace": Object {
-                        "aria-checked": undefined,
+                        "aria-current": undefined,
                         "aria-disabled": undefined,
-                        "aria-pressed": undefined,
                         "class": undefined,
                       },
                       "x-attribsPrefix": Object {
-                        "aria-checked": undefined,
+                        "aria-current": undefined,
                         "aria-disabled": undefined,
-                        "aria-pressed": undefined,
                         "class": undefined,
                       },
                     },
@@ -2705,9 +2691,8 @@ LoadedCheerio {
                 "children": Array [
                   Node {
                     "attribs": Object {
-                      "aria-checked": "true",
+                      "aria-current": "true",
                       "aria-disabled": "false",
-                      "aria-pressed": "true",
                       "class": "pagination-button active button button-neutral button-medium",
                     },
                     "children": Array [
@@ -2745,15 +2730,13 @@ LoadedCheerio {
                     "prev": null,
                     "type": "tag",
                     "x-attribsNamespace": Object {
-                      "aria-checked": undefined,
+                      "aria-current": undefined,
                       "aria-disabled": undefined,
-                      "aria-pressed": undefined,
                       "class": undefined,
                     },
                     "x-attribsPrefix": Object {
-                      "aria-checked": undefined,
+                      "aria-current": undefined,
                       "aria-disabled": undefined,
-                      "aria-pressed": undefined,
                       "class": undefined,
                     },
                   },
@@ -3082,9 +3065,8 @@ LoadedCheerio {
                   "children": Array [
                     Node {
                       "attribs": Object {
-                        "aria-checked": "true",
+                        "aria-current": "true",
                         "aria-disabled": "false",
-                        "aria-pressed": "true",
                         "class": "pagination-button active button button-neutral button-medium",
                       },
                       "children": Array [
@@ -3122,15 +3104,13 @@ LoadedCheerio {
                       "prev": null,
                       "type": "tag",
                       "x-attribsNamespace": Object {
-                        "aria-checked": undefined,
+                        "aria-current": undefined,
                         "aria-disabled": undefined,
-                        "aria-pressed": undefined,
                         "class": undefined,
                       },
                       "x-attribsPrefix": Object {
-                        "aria-checked": undefined,
+                        "aria-current": undefined,
                         "aria-disabled": undefined,
-                        "aria-pressed": undefined,
                         "class": undefined,
                       },
                     },
@@ -4196,9 +4176,11 @@ LoadedCheerio {
         "type": "tag",
         "x-attribsNamespace": Object {
           "class": undefined,
+          "role": undefined,
         },
         "x-attribsPrefix": Object {
           "class": undefined,
+          "role": undefined,
         },
       },
     ],

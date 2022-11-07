@@ -135,7 +135,7 @@ export const Pager: FC<PagerProps> = React.forwardRef(
                     <li>
                         {!simplified ? (
                             <NeutralButton
-                                checked={currentPage === 1}
+                                aria-current={currentPage === 1}
                                 classNames={mergeClasses([
                                     styles.paginationButton,
                                     { [styles.active]: currentPage === 1 },
@@ -144,7 +144,6 @@ export const Pager: FC<PagerProps> = React.forwardRef(
                                 onClick={() => onCurrentChange(1)}
                                 size={ButtonSize.Medium}
                                 text={'1'.toLocaleString()}
-                                toggle
                             />
                         ) : (
                             <span>{`${currentPage.toLocaleString()} ${
@@ -192,8 +191,7 @@ export const Pager: FC<PagerProps> = React.forwardRef(
                         return (
                             <li key={idx}>
                                 <NeutralButton
-                                    checked={currentPage === pager}
-                                    shape={ButtonShape.Rectangle}
+                                    aria-current={currentPage === pager}
                                     classNames={mergeClasses([
                                         styles.paginationButton,
                                         {
@@ -202,9 +200,9 @@ export const Pager: FC<PagerProps> = React.forwardRef(
                                         },
                                     ])}
                                     onClick={() => onCurrentChange(pager)}
+                                    shape={ButtonShape.Rectangle}
                                     size={ButtonSize.Medium}
                                     text={pager.toLocaleString()}
-                                    toggle
                                 />
                             </li>
                         );
@@ -243,8 +241,7 @@ export const Pager: FC<PagerProps> = React.forwardRef(
                     <li>
                         {!simplified ? (
                             <NeutralButton
-                                shape={ButtonShape.Rectangle}
-                                checked={currentPage === pageCount}
+                                aria-current={currentPage === pageCount}
                                 classNames={mergeClasses([
                                     styles.paginationButton,
                                     {
@@ -253,9 +250,9 @@ export const Pager: FC<PagerProps> = React.forwardRef(
                                     },
                                 ])}
                                 onClick={() => onCurrentChange(pageCount)}
+                                shape={ButtonShape.Rectangle}
                                 size={ButtonSize.Medium}
                                 text={pageCount.toLocaleString()}
-                                toggle
                             />
                         ) : (
                             <span>{pageCount.toLocaleString()}</span>
