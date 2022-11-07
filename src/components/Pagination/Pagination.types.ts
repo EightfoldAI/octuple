@@ -156,15 +156,15 @@ export interface PaginationProps extends OcBaseProps<HTMLElement> {
      */
     selfControlled?: boolean;
     /**
+     * Show last page or not.
+     * @default true
+     */
+    showLast?: boolean;
+    /**
      * Pagination simplified mode.
      * @default false
      */
     simplified?: boolean;
-    /**
-     * Show last page or not
-     * @default true
-     */
-    showLast?: boolean;
     /**
      * The Pagination total number of pages.
      * @default 1
