@@ -281,6 +281,7 @@ export const Pagination: FC<PaginationProps> = React.forwardRef(
                             {...rest}
                             ref={ref}
                             className={paginationWrapperClassNames}
+                            role="navigation"
                             data-test-id={dataTestId}
                         >
                             {_total > 0 && (

@@ -3,7 +3,7 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { Slider, SliderSize } from './';
 import { Stack } from '../Stack';
 import { Col, Row } from '../Grid';
-import { ButtonWidth, PrimaryButton } from '../Button';
+import { PrimaryButton } from '../Button';
 
 export default {
     title: 'Slider',
@@ -39,8 +39,8 @@ const Slider_Story: ComponentStory<typeof Slider> = (args) => {
         <Stack align="stretch" direction="vertical" fullWidth gap="xl">
             <Slider
                 {...args}
-                value={transientSlidingAValue}
                 onChange={handleChangeA}
+                value={transientSlidingAValue}
             />
             <Stack direction="horizontal" gap="xl" justify="center" fullWidth>
                 <div>{transientSlidingAValue}</div>
@@ -86,8 +86,8 @@ const Range_Slider_Story: ComponentStory<typeof Slider> = (args) => {
         <Stack align="stretch" direction="vertical" fullWidth gap="xl">
             <Slider
                 {...args}
-                value={transientSlidingAValues}
                 onChange={handleChangeA}
+                value={transientSlidingAValues}
             />
             <Stack direction="horizontal" gap="xl" justify="center" fullWidth>
                 <div>{transientSlidingAValues[0]}</div>
@@ -107,6 +107,47 @@ const Range_Slider_Story: ComponentStory<typeof Slider> = (args) => {
                     />
                 </Col>
             </Row>
+            <Stack direction="horizontal" gap="xl" justify="center" fullWidth>
+                <div>{transientSlidingBValues[0]}</div>
+                <div>{transientSlidingBValues[1]}</div>
+            </Stack>
+        </Stack>
+    );
+};
+
+const Inline_Extemity_Labels_Story: ComponentStory<typeof Slider> = (args) => {
+    const [transientSlidingAValue, setTransientSlidingAValue] =
+        useState<number>(Number(args.value));
+    const [transientSlidingBValues, setTransientSlidingBValues] = useState<
+        number[]
+    >([40, 80]);
+
+    const handleChangeA = (val: number): void => {
+        setTransientSlidingAValue(val);
+    };
+
+    const handleChangeB = (vals: number[]): void => {
+        setTransientSlidingBValues(vals);
+    };
+
+    return (
+        <Stack align="stretch" direction="vertical" fullWidth gap="xl">
+            <Slider
+                {...args}
+                onChange={handleChangeA}
+                value={transientSlidingAValue}
+            />
+            <Stack direction="horizontal" gap="xl" justify="center" fullWidth>
+                <div>{transientSlidingAValue}</div>
+            </Stack>
+            <Slider
+                {...args}
+                onChange={handleChangeB}
+                showMarkers
+                step={20}
+                style={{ marginTop: 100 }}
+                value={transientSlidingBValues}
+            />
             <Stack direction="horizontal" gap="xl" justify="center" fullWidth>
                 <div>{transientSlidingBValues[0]}</div>
                 <div>{transientSlidingBValues[1]}</div>
@@ -197,8 +238,8 @@ const Custom_Markers_Null_Step_Story: ComponentStory<typeof Slider> = (
     return (
         <Slider
             {...args}
-            step={null}
             onChange={handleChangeE}
+            step={null}
             value={transientSlidingEValue}
         />
     );
@@ -266,6 +307,7 @@ const Toggle_Thumb_Story: ComponentStory<typeof Slider> = (args) => {
 
 export const Standard_Slider = Slider_Story.bind({});
 export const Range_Slider = Range_Slider_Story.bind({});
+export const Inline_Extemity_Labels = Inline_Extemity_Labels_Story.bind({});
 export const Custom_Markers_Included = Custom_Markers_Included_Story.bind({});
 export const Custom_Markers_Excluded = Custom_Markers_Excluded_Story.bind({});
 export const Custom_Markers_With_Step = Custom_Markers_With_Step_Story.bind({});
@@ -290,6 +332,7 @@ const sliderArgs: Object = {
     hideThumb: false,
     hideValue: false,
     id: 'mySliderId',
+    labelPosition: 'bottom',
     marks: null,
     max: 100,
     maxLabel: null,
@@ -308,8 +351,9 @@ const sliderArgs: Object = {
         marginTop: 24,
     },
     tooltipContent: null,
-    'data-test-id': 'test-id',
+    type: 'default',
     valueLabel: [null, null],
+    'data-test-id': 'test-id',
 };
 
 Standard_Slider.args = {
@@ -321,11 +365,18 @@ Standard_Slider.args = {
 
 Range_Slider.args = {
     ...sliderArgs,
-    min: 0,
     showLabels: true,
     showMarkers: true,
     step: 20,
     value: [40, 80],
+};
+
+Inline_Extemity_Labels.args = {
+    ...sliderArgs,
+    autoFocus: true,
+    labelPosition: 'inline',
+    showLabels: true,
+    value: 20,
 };
 
 Custom_Markers_Included.args = {

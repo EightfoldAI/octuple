@@ -17,14 +17,17 @@ import SliderContext, { SliderContextProps } from './Context';
 import Marks from './Marks';
 import Steps from './Steps';
 import {
+    LARGE_INLINE_MARGIN_OFFSET,
     LARGE_THUMB_DIAMETER,
     LARGE_THUMB_RADIUS,
     Marker,
+    MEDIUM_INLINE_MARGIN_OFFSET,
     MEDIUM_THUMB_DIAMETER,
     MEDIUM_THUMB_RADIUS,
     SliderMarker,
     SliderProps,
     SliderSize,
+    SMALL_INLINE_MARGIN_OFFSET,
     SMALL_THUMB_DIAMETER,
     SMALL_THUMB_RADIUS,
     THUMB_TOOLTIP_Y_OFFSET,
@@ -88,6 +91,7 @@ export const Slider: FC<SliderProps> = React.forwardRef(
             hideValue = false,
             id,
             included = true,
+            labelPosition = 'bottom',
             marks,
             min = 0,
             minLabel,
@@ -102,6 +106,7 @@ export const Slider: FC<SliderProps> = React.forwardRef(
             step = 1,
             tooltipContent,
             tooltipProps,
+            type = 'default',
             value,
             valueLabel,
             ...rest
@@ -132,10 +137,12 @@ export const Slider: FC<SliderProps> = React.forwardRef(
         const [values, setValues] = useState<number[]>(
             Array.isArray(value) ? value.sort(asc) : [value]
         );
-        const containerRef: React.MutableRefObject<HTMLDivElement> =
+        const sliderRef: React.MutableRefObject<HTMLDivElement> =
             useRef<HTMLDivElement>(null);
         const railRef: React.MutableRefObject<HTMLDivElement> =
             useRef<HTMLDivElement>(null);
+        const sliderLabelsRef: React.MutableRefObject<HTMLInputElement> =
+            useRef<HTMLInputElement>(null);
         const lowerLabelRef: React.MutableRefObject<HTMLInputElement> =
             useRef<HTMLInputElement>(null);
         const upperLabelRef: React.MutableRefObject<HTMLInputElement> =
@@ -203,49 +210,58 @@ export const Slider: FC<SliderProps> = React.forwardRef(
         const thumbGeometry = (): {
             diameter: number;
             radius: number;
+            inlineLabelOffset: number;
         } => {
             switch (mergedSize) {
                 case SliderSize.Large:
                     return {
                         diameter: LARGE_THUMB_DIAMETER,
                         radius: LARGE_THUMB_RADIUS,
+                        inlineLabelOffset: LARGE_INLINE_MARGIN_OFFSET,
                     };
                 case SliderSize.Medium:
                     return {
                         diameter: MEDIUM_THUMB_DIAMETER,
                         radius: MEDIUM_THUMB_RADIUS,
+                        inlineLabelOffset: MEDIUM_INLINE_MARGIN_OFFSET,
                     };
                 case SliderSize.Small:
                     return {
                         diameter: SMALL_THUMB_DIAMETER,
                         radius: SMALL_THUMB_RADIUS,
+                        inlineLabelOffset: SMALL_INLINE_MARGIN_OFFSET,
                     };
                 case SliderSize.Flex:
                     if (largeScreenActive) {
                         return {
                             diameter: SMALL_THUMB_DIAMETER,
                             radius: SMALL_THUMB_RADIUS,
+                            inlineLabelOffset: SMALL_INLINE_MARGIN_OFFSET,
                         };
                     } else if (mediumScreenActive) {
                         return {
                             diameter: MEDIUM_THUMB_DIAMETER,
                             radius: MEDIUM_THUMB_RADIUS,
+                            inlineLabelOffset: MEDIUM_INLINE_MARGIN_OFFSET,
                         };
                     } else if (smallScreenActive) {
                         return {
                             diameter: MEDIUM_THUMB_DIAMETER,
                             radius: MEDIUM_THUMB_RADIUS,
+                            inlineLabelOffset: MEDIUM_INLINE_MARGIN_OFFSET,
                         };
                     } else if (xSmallScreenActive) {
                         return {
                             diameter: LARGE_THUMB_DIAMETER,
                             radius: LARGE_THUMB_RADIUS,
+                            inlineLabelOffset: LARGE_INLINE_MARGIN_OFFSET,
                         };
                     }
                 default:
                     return {
                         diameter: MEDIUM_THUMB_DIAMETER,
                         radius: MEDIUM_THUMB_RADIUS,
+                        inlineLabelOffset: MEDIUM_INLINE_MARGIN_OFFSET,
                     };
             }
         };
@@ -255,7 +271,7 @@ export const Slider: FC<SliderProps> = React.forwardRef(
             thumbDiameter: number,
             thumbRadius: number
         ): number => {
-            const inputWidth = containerRef.current?.offsetWidth || 0;
+            const inputWidth = sliderRef.current?.offsetWidth || 0;
             return (
                 ((val - mergedMin) / (mergedMax - mergedMin)) *
                     (inputWidth - thumbDiameter) +
@@ -264,7 +280,7 @@ export const Slider: FC<SliderProps> = React.forwardRef(
         };
 
         const updateLayout = (): void => {
-            const inputWidth: number = containerRef.current?.offsetWidth || 0;
+            const inputWidth: number = sliderRef.current?.offsetWidth || 0;
 
             // Early exit if there is no ref available yet. The DOM has yet to initialize
             // and its not possible to calculate positions.
@@ -325,16 +341,44 @@ export const Slider: FC<SliderProps> = React.forwardRef(
                 );
             }
 
-            // Hide the min/max markers if the value labels would collide.
-            // Range labels are centered, ignore when isRange.
             if (!isRange) {
-                const lowerThumbOffset: number = getValueOffset(
-                    values[0],
-                    thumbDiameter,
-                    thumbRadius
-                );
                 const lowerLabelOffset: number =
                     lowerLabelRef.current.offsetWidth / 2;
+                const inlineLabelOffest: number =
+                    labelPosition === 'inline'
+                        ? thumbGeometry().inlineLabelOffset
+                        : 0;
+
+                if (htmlDir === 'rtl') {
+                    lowerLabelRef.current.style.right = `${
+                        lowerThumbOffset - lowerLabelOffset + inlineLabelOffest
+                    }px`;
+                    lowerLabelRef.current.style.left = 'unset';
+                } else {
+                    lowerLabelRef.current.style.left = `${
+                        lowerThumbOffset - lowerLabelOffset + inlineLabelOffest
+                    }px`;
+                    lowerLabelRef.current.style.right = 'unset';
+                }
+            } else {
+                if (labelPosition === 'inline') {
+                    const sliderLabelsOffset: number =
+                        sliderLabelsRef.current.offsetWidth / 2;
+
+                    if (htmlDir === 'rtl') {
+                        sliderLabelsRef.current.style.marginRight = `-${sliderLabelsOffset}px`;
+                        sliderLabelsRef.current.style.marginLeft = 'unset';
+                    } else {
+                        sliderLabelsRef.current.style.marginLeft = `-${sliderLabelsOffset}px`;
+                        sliderLabelsRef.current.style.marginRight = 'unset';
+                    }
+                }
+            }
+
+            // Hide the min/max markers if the value labels would collide.
+            // Range labels are centered, ignore when isRange and only
+            // allow when labelPosition is 'bottom'.
+            if (!isRange && labelPosition === 'bottom') {
                 let showMaxLabel: boolean;
                 let showMinLabel: boolean;
 
@@ -362,11 +406,6 @@ export const Slider: FC<SliderProps> = React.forwardRef(
                     minLabelRef.current.style.opacity = showMinLabel
                         ? '1'
                         : '0';
-
-                    lowerLabelRef.current.style.right = `${
-                        lowerThumbOffset - lowerLabelOffset
-                    }px`;
-                    lowerLabelRef.current.style.left = 'unset';
                 } else {
                     showMaxLabel =
                         showLabels &&
@@ -388,11 +427,6 @@ export const Slider: FC<SliderProps> = React.forwardRef(
                     minLabelRef.current.style.opacity = showMinLabel
                         ? '1'
                         : '0';
-
-                    lowerLabelRef.current.style.left = `${
-                        lowerThumbOffset - lowerLabelOffset
-                    }px`;
-                    lowerLabelRef.current.style.right = 'unset';
                 }
             }
 
@@ -545,7 +579,7 @@ export const Slider: FC<SliderProps> = React.forwardRef(
             event.preventDefault();
 
             const { width, left, right } =
-                containerRef.current.getBoundingClientRect();
+                sliderRef.current.getBoundingClientRect();
             const { clientX } = event;
 
             let percent: number;
@@ -660,7 +694,6 @@ export const Slider: FC<SliderProps> = React.forwardRef(
             <SliderContext.Provider value={context}>
                 <ResizeObserver onResize={updateLayout}>
                     <div
-                        ref={containerRef}
                         {...rest}
                         className={mergeClasses(
                             styles.sliderContainer,
@@ -668,48 +701,50 @@ export const Slider: FC<SliderProps> = React.forwardRef(
                                 [styles.sliderSmall]:
                                     mergedSize === SliderSize.Flex &&
                                     largeScreenActive,
-                            },
-                            {
                                 [styles.sliderMedium]:
                                     mergedSize === SliderSize.Flex &&
                                     mediumScreenActive,
-                            },
-                            {
                                 [styles.sliderMedium]:
                                     mergedSize === SliderSize.Flex &&
                                     smallScreenActive,
-                            },
-                            {
                                 [styles.sliderLarge]:
                                     mergedSize === SliderSize.Flex &&
                                     xSmallScreenActive,
-                            },
-                            {
                                 [styles.sliderLarge]:
                                     mergedSize === SliderSize.Large,
-                            },
-                            {
                                 [styles.sliderMedium]:
                                     mergedSize === SliderSize.Medium,
-                            },
-                            {
                                 [styles.sliderSmall]:
                                     mergedSize === SliderSize.Small,
-                            },
-                            {
                                 [styles.sliderDisabled]:
                                     allowDisabledFocus || mergedDisabled,
-                            },
-                            {
                                 [styles.sliderReadonly]: !!readOnly,
+                                [styles.sliderContainerInline]:
+                                    labelPosition === 'inline',
+                                [styles.sliderContainerRtl]: htmlDir === 'rtl',
+                                [styles.showMarkers]: !!showMarkers,
+                                ['in-form-item']: mergedFormItemInput,
                             },
-                            { [styles.sliderContainerRtl]: htmlDir === 'rtl' },
-                            { [styles.showMarkers]: !!showMarkers },
-                            { ['in-form-item']: mergedFormItemInput },
                             containerClassNames
                         )}
                     >
                         <div
+                            ref={minLabelRef}
+                            className={mergeClasses(
+                                styles.extremityLabel,
+                                styles.minLabel,
+                                {
+                                    [styles.extremityRangeLabel]: isRange,
+                                    [styles.extremityLabelInline]:
+                                        labelPosition === 'inline',
+                                    [styles.labelVisible]: showLabels,
+                                }
+                            )}
+                        >
+                            {!!minLabel && minLabel} {!hideMin && mergedMin}
+                        </div>
+                        <div
+                            ref={sliderRef}
                             className={mergeClasses(styles.slider, classNames)}
                         >
                             <div
@@ -751,8 +786,6 @@ export const Slider: FC<SliderProps> = React.forwardRef(
                                                                 isMarkerSegmentActive(
                                                                     mark.value
                                                                 ),
-                                                        },
-                                                        {
                                                             [styles.railMarkerSegmentHidden]:
                                                                 index ===
                                                                 markers.length -
@@ -798,7 +831,7 @@ export const Slider: FC<SliderProps> = React.forwardRef(
                                     }
                                     placement={'top'}
                                     portal
-                                    portalRoot={containerRef.current}
+                                    portalRoot={sliderRef.current}
                                     theme={TooltipTheme.dark}
                                     {...tooltipProps}
                                     classNames={mergeClasses([
@@ -851,28 +884,22 @@ export const Slider: FC<SliderProps> = React.forwardRef(
                             ))}
                         </div>
                         <div
-                            ref={minLabelRef}
-                            className={mergeClasses(
-                                styles.extremityLabel,
-                                styles.minLabel,
-                                { [styles.extremityRangeLabel]: isRange },
-                                { [styles.labelVisible]: showLabels }
-                            )}
-                        >
-                            {!!minLabel && minLabel} {!hideMin && mergedMin}
-                        </div>
-                        <div
                             ref={maxLabelRef}
                             className={mergeClasses(
                                 styles.extremityLabel,
                                 styles.maxLabel,
-                                { [styles.extremityRangeLabel]: isRange },
-                                { [styles.labelVisible]: showLabels }
+                                {
+                                    [styles.extremityRangeLabel]: isRange,
+                                    [styles.extremityLabelInline]:
+                                        labelPosition === 'inline',
+                                    [styles.labelVisible]: showLabels,
+                                }
                             )}
                         >
                             {!!maxLabel && maxLabel} {!hideMax && mergedMax}
                         </div>
                         <div
+                            ref={sliderLabelsRef}
                             className={mergeClasses(
                                 styles.sliderLabels,
                                 { [styles.sliderRangeLabels]: isRange },

@@ -156,6 +156,13 @@ describe('Slider', () => {
         expect(() => container).not.toThrowError();
     });
 
+    test('should render normally when `labelPosition=inline`', () => {
+        const { container } = render(
+            <Slider labelPosition="inline" value={50} />
+        );
+        expect(() => container).not.toThrowError();
+    });
+
     test('should render dots correctly when `dots=true`', () => {
         const { container: container1 } = render(
             <Slider value={50} step={10} dots />
