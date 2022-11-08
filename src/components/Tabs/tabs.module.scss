@@ -145,6 +145,296 @@
             }
         }
     }
+
+    &.stat {
+        --bg: var(--background-color);
+        --border: var(--border-color);
+        --border-width: 1px;
+        align-items: center;
+        background: var(--bg);
+        border: var(--border-width) solid var(--bg);
+        border-radius: $corner-radius-xl;
+        display: flex;
+        padding: $space-ml $space-s;
+        width: fit-content;
+
+        &.bordered {
+            border-color: var(--border);
+        }
+
+        .tab {
+            --active-border: var(--grey-color-60);
+            --bg: var(--background-color);
+            --border: var(--background-color);
+            --border-radius: 40px;
+            --divider-height: 84px;
+            --divider-width: 1px;
+            --height: 116px;
+            --hover-bg: var(--grey-color-20);
+            --hover-border: var(--grey-color-20);
+            --icon: var(--grey-color-70);
+            --icon-bg: var(--grey-color-20);
+            --icon-height: 72px;
+            --icon-width: 72px;
+            --label: var(--text-secondary-color);
+            --width: 200px;
+            background: var(--bg);
+            border: var(--border-width) solid var(--border);
+            border-radius: var(--border-radius);
+            color: var(--label);
+            font-family: $octuple-font-family;
+            font-weight: $text-font-weight-semibold;
+            height: var(--height);
+            margin: 0 $space-s;
+            padding: $space-ml $space-m;
+            transition: all $motion-duration-extra-fast $motion-easing-easeinout
+                0s;
+            width: var(--width);
+
+            .icon {
+                background: var(--icon-bg);
+                border-radius: 50%;
+                color: var(--icon);
+                min-height: var(--icon-height);
+                min-width: var(--icon-width);
+                padding: $space-m;
+
+                svg {
+                    margin: 0 auto;
+                }
+            }
+
+            .label,
+            .ratio-a,
+            .ratio-b {
+                text-align: start;
+            }
+
+            .label {
+                font-size: $text-font-size-3;
+                line-height: $text-line-height-3;
+            }
+
+            .ratio-a {
+                font-size: $text-font-size-7;
+                line-height: $text-line-height-6;
+            }
+
+            .ratio-b {
+                font-size: $text-font-size-5;
+                line-height: $text-line-height-6;
+                vertical-align: bottom;
+            }
+
+            &.red {
+                --active-border: var(--red-color-60);
+                --bg: var(--red-color-10);
+                --border: var(--red-color-10);
+                --icon: var(--red-color-70);
+                --icon-bg: var(--red-color-20);
+                --hover-bg: var(--red-color-20);
+                --hover-border: var(--red-color-20);
+            }
+
+            &.red-orange {
+                --active-border: var(--redorange-color-60);
+                --bg: var(--redorange-color-10);
+                --border: var(--redorange-color-10);
+                --icon: var(--redorange-color-70);
+                --icon-bg: var(--redorange-color-20);
+                --hover-bg: var(--redorange-color-20);
+                --hover-border: var(--redorange-color-20);
+            }
+
+            &.orange {
+                --active-border: var(--orange-color-60);
+                --bg: var(--orange-color-10);
+                --border: var(--orange-color-10);
+                --icon: var(--orange-color-70);
+                --icon-bg: var(--orange-color-20);
+                --hover-bg: var(--orange-color-20);
+                --hover-border: var(--orange-color-20);
+            }
+
+            &.yellow {
+                --active-border: var(--yellow-color-60);
+                --bg: var(--yellow-color-10);
+                --border: var(--yellow-color-10);
+                --icon: var(--yellow-color-70);
+                --icon-bg: var(--yellow-color-20);
+                --hover-bg: var(--yellow-color-20);
+                --hover-border: var(--yellow-color-20);
+            }
+
+            &.yellow-green {
+                --active-border: var(--yellowgreen-color-60);
+                --bg: var(--yellowgreen-color-10);
+                --border: var(--yellowgreen-color-10);
+                --icon: var(--yellowgreen-color-70);
+                --icon-bg: var(--yellowgreen-color-20);
+                --hover-bg: var(--yellowgreen-color-20);
+                --hover-border: var(--yellowgreen-color-20);
+            }
+
+            &.green {
+                --active-border: var(--green-color-60);
+                --bg: var(--green-color-10);
+                --border: var(--green-color-10);
+                --icon: var(--green-color-70);
+                --icon-bg: var(--green-color-20);
+                --hover-bg: var(--green-color-20);
+                --hover-border: var(--green-color-20);
+            }
+
+            &.blue-green {
+                --active-border: var(--bluegreen-color-60);
+                --bg: var(--bluegreen-color-10);
+                --border: var(--bluegreen-color-10);
+                --icon: var(--bluegreen-color-70);
+                --icon-bg: var(--bluegreen-color-20);
+                --hover-bg: var(--bluegreen-color-20);
+                --hover-border: var(--bluegreen-color-20);
+            }
+
+            &.blue {
+                --active-border: var(--blue-color-60);
+                --bg: var(--blue-color-10);
+                --border: var(--blue-color-10);
+                --icon: var(--blue-color-70);
+                --icon-bg: var(--blue-color-20);
+                --hover-bg: var(--blue-color-20);
+                --hover-border: var(--blue-color-20);
+            }
+
+            &.blue-violet {
+                --active-border: var(--blueviolet-color-60);
+                --bg: var(--blueviolet-color-10);
+                --border: var(--blueviolet-color-10);
+                --icon: var(--blueviolet-color-70);
+                --icon-bg: var(--blueviolet-color-20);
+                --hover-bg: var(--blueviolet-color-20);
+                --hover-border: var(--blueviolet-color-20);
+            }
+
+            &.violet {
+                --active-border: var(--violet-color-60);
+                --bg: var(--violet-color-10);
+                --border: var(--violet-color-10);
+                --icon: var(--violet-color-70);
+                --icon-bg: var(--violet-color-20);
+                --hover-bg: var(--violet-color-20);
+                --hover-border: var(--violet-color-20);
+            }
+
+            &.violet-red {
+                --active-border: var(--violetred-color-60);
+                --bg: var(--violetred-color-10);
+                --border: var(--violetred-color-10);
+                --icon: var(--violetred-color-70);
+                --icon-bg: var(--violetred-color-20);
+                --hover-bg: var(--violetred-color-20);
+                --hover-border: var(--violetred-color-20);
+            }
+
+            &.grey {
+                --active-border: var(--grey-color-60);
+                --bg: var(--grey-color-10);
+                --border: var(--grey-color-10);
+                --icon: var(--grey-color-70);
+                --icon-bg: var(--grey-color-20);
+                --hover-bg: var(--grey-color-20);
+                --hover-border: var(--grey-color-20);
+            }
+
+            &.read-only {
+                cursor: default;
+            }
+
+            &:focus:not(:disabled):not(.read-only),
+            &:hover:not(:disabled):not(.read-only) {
+                --bg: var(--hover-bg);
+                --border: var(--hover-bg);
+                --icon-bg: var(--hover-bg);
+            }
+
+            &.active:not(.read-only),
+            &.active:focus:not(.read-only),
+            &.active:hover:not(.read-only) {
+                --bg: var(--hover-bg);
+                --border: var(--active-border);
+                --icon-bg: var(--hover-bg);
+            }
+        }
+
+        &.divider {
+            padding: $space-ml 0;
+
+            .tab {
+                margin: 0 $space-ml;
+
+                &:not(:last-of-type) {
+                    &:after {
+                        background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' stroke='%23d9dce1' stroke-width='1' stroke-dasharray='2' stroke-dashoffset='0' stroke-linecap='round'/%3e%3c/svg%3e");
+                        content: ' ';
+                        height: var(--divider-height);
+                        position: absolute;
+                        right: calc(calc($space-ml + 1px) * -1);
+                        width: var(--divider-width);
+                    }
+                }
+            }
+        }
+
+        &.small {
+            padding: $space-s $space-xxs;
+
+            .tab {
+                --border-radius: 24px;
+                --divider-height: 40px;
+                --height: 72px;
+                --icon-height: 48px;
+                --icon-width: 48px;
+                --width: 136px;
+                margin: 0 $space-xs;
+                padding: $space-s $space-xs;
+
+                .icon {
+                    height: var(--icon-height);
+                    padding: $space-xs;
+                    width: var(--icon-width);
+                }
+
+                .label {
+                    font-size: $text-font-size-2;
+                    line-height: $text-line-height-2;
+                }
+
+                .ratio-a {
+                    font-size: $text-font-size-6;
+                    line-height: $text-line-height-5;
+                }
+
+                .ratio-b {
+                    font-size: $text-font-size-3;
+                    line-height: $text-line-height-5;
+                }
+            }
+
+            &.divider {
+                padding: $space-s 0;
+
+                .tab {
+                    margin: 0 $space-s;
+
+                    &:not(:last-of-type) {
+                        &:after {
+                            right: calc(calc($space-s + 1px) * -1);
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
 
 :global(.focus-visible) {

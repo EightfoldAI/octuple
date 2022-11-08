@@ -1,4 +1,5 @@
 import React from 'react';
+import { OcThemeNames } from '../ConfigProvider';
 import { IconName } from '../Icon';
 import { OcBaseProps } from '../OcBase';
 import { Ref } from 'react';
@@ -10,16 +11,27 @@ export type SelectTabEvent<E = HTMLElement> =
 
 export type OnChangeHandler = (value: TabValue, event: SelectTabEvent) => void;
 
+export enum TabSize {
+    Medium = 'medium',
+    Small = 'small',
+}
+
 export type TabValue = string;
 
 export enum TabVariant {
     default = 'default',
-    small = 'small',
+    stat = 'stat',
     /**
      * @experimental as of version 0.0.1
      */
     pill = 'pill',
+    /**
+     * @deprecated Use TabSize.Small instead.
+     */
+    small = 'small',
 }
+
+export type StatThemeNames = OcThemeNames;
 
 export interface TabsContextProps {
     /**
@@ -30,6 +42,15 @@ export interface TabsContextProps {
      * The onChange event handler.
      */
     onChange: OnChangeHandler;
+    /**
+     * The Stat Tab group is readOnly.
+     * @default false
+     */
+    readOnly?: boolean;
+    /**
+     * Theme of the Stat Tab group.
+     */
+    statgrouptheme?: StatThemeNames;
     /**
      * The value of the selected tab.
      */
@@ -45,6 +66,15 @@ export interface ITabsContext {
      * The onClick handler of the tab.
      */
     onTabClick: OnChangeHandler;
+    /**
+     * The Stat Tab group is readOnly.
+     * @default false
+     */
+    readOnly?: boolean;
+    /**
+     * Theme of the Stat Tab group.
+     */
+    statgrouptheme?: StatThemeNames;
 }
 
 export interface TabProps extends OcBaseProps<HTMLButtonElement> {
@@ -73,16 +103,48 @@ export interface TabProps extends OcBaseProps<HTMLButtonElement> {
      */
     loading?: boolean;
     /**
+     * The tab size.
+     * @default TabSize.Medium
+     */
+    size?: TabSize;
+    /**
      * Active value of the tab.
      */
     value: TabValue;
 }
 
+export interface StatProps extends Omit<TabProps, 'badgeContent'> {
+    /**
+     * The stat tab 'a' ratio value, e.g. [1]/2.
+     */
+    ratioA?: string | number;
+    /**
+     * The stat tab 'b' ratio value, e.g. 1/[2].
+     */
+    ratioB?: string | number;
+    /**
+     * Theme of the stat tab.
+     */
+    theme?: StatThemeNames;
+}
+
 export interface TabsProps extends Omit<OcBaseProps<HTMLElement>, 'onChange'> {
+    /**
+     * Use when variant is `stat`.
+     * If the stat tabs are bordered or not.
+     * @default true
+     */
+    bordered?: boolean;
     /**
      * List of Tab element.
      */
     children: React.ReactElement<TabProps> | React.ReactElement<TabProps>[];
+    /**
+     * Use when variant is `stat`.
+     * If the stat tabs are separated by a dashed line or not.
+     * @default true
+     */
+    divider?: boolean;
     /**
      * Callback called on click of a tab.
      * @param value {TabValue}
@@ -90,10 +152,28 @@ export interface TabsProps extends Omit<OcBaseProps<HTMLElement>, 'onChange'> {
      */
     onChange?: OnChangeHandler;
     /**
+     * The Stat Tab group is readOnly.
+     * @default false
+     */
+    readOnly?: boolean;
+    /**
+     * Ref of the tabs.
+     */
+    ref?: Ref<HTMLDivElement>;
+    /**
      * If the tabs are scrollable or not.
      * @default false
      */
     scrollable?: boolean;
+    /**
+     * The tab size.
+     * @default TabSize.Medium
+     */
+    size?: TabSize;
+    /**
+     * Theme of the Stat Tab group.
+     */
+    statgrouptheme?: StatThemeNames;
     /**
      * If the tabs should have an underline/penline beneath them.
      * NOTE: won't be applied if pill variant is used.
@@ -109,10 +189,6 @@ export interface TabsProps extends Omit<OcBaseProps<HTMLElement>, 'onChange'> {
      * @default default
      */
     variant?: TabVariant;
-    /**
-     * Ref of the tabs.
-     */
-    ref?: Ref<HTMLDivElement>;
 }
 
 export interface TabsTheme {

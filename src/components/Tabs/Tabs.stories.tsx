@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Stories } from '@storybook/addon-docs';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Tabs, Tab, TabVariant } from './';
+import { Tabs, Tab, TabSize, TabVariant } from './';
 import { IconName } from '../Icon';
 
 export default {
@@ -42,6 +42,10 @@ export default {
     argTypes: {
         variant: {
             options: [TabVariant.default, TabVariant.small, TabVariant.pill],
+            control: { type: 'inline-radio' },
+        },
+        size: {
+            options: [TabSize.Medium, TabSize.Small],
             control: { type: 'inline-radio' },
         },
     },
@@ -254,6 +258,7 @@ export const Pill_Icon_Label = Pill_Icon_Label_Story.bind({});
 const tabsArgs: Object = {
     scrollable: false,
     variant: TabVariant.default,
+    size: TabSize.Medium,
     underlined: false,
     children: tabs.map((tab) => <Tab key={tab.value} {...tab} />),
     style: {},
@@ -277,7 +282,7 @@ DefaultLoader.args = {
 
 Small.args = {
     ...tabsArgs,
-    variant: TabVariant.small,
+    size: TabSize.Small,
 };
 
 With_Badge.args = {
