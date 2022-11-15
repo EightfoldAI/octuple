@@ -556,7 +556,7 @@ export interface TableProps<RecordType>
      * @param index - Index of the row element
      * @param event - Mouse over event
      */
-    onRowHover: (
+    onRowHover?: (
         index: number,
         event: React.MouseEvent<HTMLDivElement>
     ) => void;
