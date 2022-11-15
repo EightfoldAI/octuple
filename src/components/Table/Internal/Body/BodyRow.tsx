@@ -109,7 +109,7 @@ function BodyRow<RecordType extends { children?: readonly RecordType[] }>(
             }}
             onClick={onClick}
             onMouseOver={(e: React.MouseEvent<HTMLElement>) =>
-                onRowHover(renderIndex, e)
+                onRowHover?.(renderIndex, e)
             }
         >
             {flattenColumns.map((column: ColumnType<RecordType>, colIndex) => {
