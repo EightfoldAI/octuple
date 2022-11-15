@@ -41,6 +41,12 @@ export interface BodyRowProps<RecordType> {
     rowKey: React.Key;
     getRowKey: GetRowKey<RecordType>;
     childrenColumnName: string;
+    /**
+     * Callback fired on row hover
+     * @param index - Index of the row element
+     * @param event - Mouse over event
+     */
+    onRowHover: (index: number, event: React.MouseEvent<HTMLElement>) => void;
 }
 
 export interface BodyProps<RecordType> {
@@ -52,4 +58,10 @@ export interface BodyProps<RecordType> {
     rowExpandable: (record: RecordType) => boolean;
     emptyNode: React.ReactNode;
     childrenColumnName: string;
+    /**
+     * Callback fired on row hover
+     * @param index - Index of the row element
+     * @param event - Mouse over event
+     */
+    onRowHover: (index: number, event: React.MouseEvent<HTMLElement>) => void;
 }

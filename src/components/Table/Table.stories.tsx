@@ -111,7 +111,11 @@ export default {
             ),
         },
     },
-    argTypes: {},
+    argTypes: {
+        onRowHover: {
+            action: 'onMouseOver',
+        },
+    },
 } as ComponentMeta<typeof Component>;
 
 interface DataType {
