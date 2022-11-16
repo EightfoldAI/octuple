@@ -1,6 +1,7 @@
 import { IconName } from '../Icon';
 import { ButtonProps } from '../Button';
 import { OcBaseProps } from '../OcBase';
+import React from 'react';
 
 export type CloseButtonProps = Omit<ButtonProps, 'onClick' | 'icon'>;
 
@@ -52,7 +53,7 @@ export interface InfoBarsProps extends OcBaseProps<HTMLDivElement> {
     /**
      * Content of the InfoBar
      */
-    content: string;
+    content: React.ReactNode;
     /**
      * Custom icon for the InfoBar
      * @default IconName.mdiInformation | IconName.mdiCheckCircle | IconName.mdiAlert
