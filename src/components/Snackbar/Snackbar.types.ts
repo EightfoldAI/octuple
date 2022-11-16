@@ -1,3 +1,4 @@
+import React from 'react';
 import { InfoBarsProps, InfoBarType } from '../InfoBar';
 
 export type SnackbarPosition =
@@ -14,7 +15,7 @@ export interface SnackbarProps extends Omit<InfoBarsProps, 'onClick'> {
     /**
      * Content of the snackbar
      */
-    content: string;
+    content: React.ReactNode;
     /**
      * Duration for which the snackbar is shown
      * @default 3000
