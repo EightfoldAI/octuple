@@ -522,7 +522,12 @@ export interface OcTableProps<RecordType = unknown> {
     /**
      * Callback fired on row hover
      * @param index - Index of the row element
+     * @param rowKey - Unique row identifier
      * @param event - Mouse over event
      */
-    onRowHover?: (index: number, event: React.MouseEvent<HTMLElement>) => void;
+    onRowHover?: (
+        index: number,
+        rowKey: React.Key,
+        event: React.MouseEvent<HTMLElement>
+    ) => void;
 }

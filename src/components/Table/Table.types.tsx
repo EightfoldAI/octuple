@@ -554,10 +554,12 @@ export interface TableProps<RecordType>
     /**
      * Callback fired on row hover
      * @param index - Index of the row element
+     * @param rowKey - Unique row identifier
      * @param event - Mouse over event
      */
     onRowHover?: (
         index: number,
-        event: React.MouseEvent<HTMLDivElement>
+        rowKey: React.Key,
+        event: React.MouseEvent<HTMLElement>
     ) => void;
 }
