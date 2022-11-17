@@ -49,6 +49,7 @@ import type { SortState } from './Hooks/useSorter';
 import useSorter, { getSortData } from './Hooks/useSorter';
 import type { FilterState } from './Hooks/useFilter';
 import useFilter, { getFilterData } from './Hooks/useFilter';
+import useSelectAll from './Hooks/useSelectAll';
 import useTitleColumns from './Hooks/useTitleColumns';
 import renderExpandIcon from './ExpandIcon';
 import { Size, SizeContext } from '../ConfigProvider';
@@ -463,6 +464,11 @@ function InternalTable<RecordType extends object = any>(
     );
     const [transformTitleColumns] = useTitleColumns(columnTitleProps);
 
+    // ============================ Select All Checkbox ============================
+    const [transformSelectAllColumns] = useSelectAll(columnTitleProps, () => {
+        console.log('on changed');
+    });
+
     // ========================== Pagination ==========================
     const onPaginationChange = (
         currentPage: number,
@@ -619,13 +625,18 @@ function InternalTable<RecordType extends object = any>(
         (innerColumns: ColumnsType<RecordType>): ColumnsType<RecordType> =>
             transformTitleColumns(
                 transformSelectionColumns(
-                    transformFilterColumns(transformSorterColumns(innerColumns))
+                    transformFilterColumns(
+                        transformSorterColumns(
+                            transformSelectAllColumns(innerColumns)
+                        )
+                    )
                 )
             ),
         [
             transformSorterColumns,
             transformFilterColumns,
             transformSelectionColumns,
+            transformSelectAllColumns,
         ]
     );
 

@@ -525,6 +525,11 @@ const basicCols: ColumnsType<DataType> = [
     {
         title: 'Role',
         dataIndex: 'title',
+        allowSelectAll: {
+            onChange: (e) => {
+                console.log(e);
+            },
+        },
     },
     {
         title: 'Profile',
