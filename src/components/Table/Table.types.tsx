@@ -70,6 +70,9 @@ export interface FilterConfirmProps {
     closeDropdown: boolean;
 }
 
+export interface allowSelectAllProps {
+    onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+}
 export interface FilterDropdownProps {
     clearFilters?: () => void;
     confirm: (param?: FilterConfirmProps) => void;
@@ -177,6 +180,7 @@ export interface ColumnType<RecordType>
      * The Column title.
      */
     title?: ColumnTitle<RecordType>;
+    allowSelectAll?: allowSelectAllProps;
 }
 
 export interface ColumnGroupType<RecordType>

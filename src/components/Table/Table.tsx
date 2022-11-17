@@ -465,9 +465,7 @@ function InternalTable<RecordType extends object = any>(
     const [transformTitleColumns] = useTitleColumns(columnTitleProps);
 
     // ============================ Select All Checkbox ============================
-    const [transformSelectAllColumns] = useSelectAll(columnTitleProps, () => {
-        console.log('on changed');
-    });
+    const [transformSelectAllColumns] = useSelectAll(columnTitleProps);
 
     // ========================== Pagination ==========================
     const onPaginationChange = (
