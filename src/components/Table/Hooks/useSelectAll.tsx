@@ -14,8 +14,11 @@ function injectSelectAllCheckbox<RecordType>(columns: ColumnsType<RecordType>) {
         if (cloneColumn?.allowSelectAll?.onChange) {
             const { onChange } = cloneColumn.allowSelectAll;
             cloneColumn.title = (renderProps: ColumnTitleProps<RecordType>) => (
-                <div className={styles.displayFlex}>
-                    <CheckBox onChange={onChange} />
+                <div className={styles.selectAllCheckboxWrapper}>
+                    <CheckBox
+                        onChange={onChange}
+                        classNames={styles.checkbox}
+                    />
                     {renderColumnTitle(column.title, renderProps)}
                 </div>
             );

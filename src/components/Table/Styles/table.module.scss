@@ -78,8 +78,12 @@
             }
         }
 
-        .display-flex {
+        .selectAllCheckboxWrapper {
             display: flex;
+
+            .checkbox {
+                margin: 0 12px;
+            }
         }
 
         &-thead tr th,
