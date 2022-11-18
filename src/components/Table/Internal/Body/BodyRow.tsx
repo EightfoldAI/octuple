@@ -108,10 +108,10 @@ function BodyRow<RecordType extends { children?: readonly RecordType[] }>(
                 ...(additionalProps ? additionalProps.style : null),
             }}
             onClick={onClick}
-            onMouseOver={(e: React.MouseEvent<HTMLElement>) =>
+            onMouseEnter={(e: React.MouseEvent<HTMLElement>) =>
                 onRowHover?.(renderIndex, rowKey, e)
             }
-            onMouseOut={(e: React.MouseEvent<HTMLElement>) =>
+            onMouseLeave={(e: React.MouseEvent<HTMLElement>) =>
                 onRowHover?.(-1, -1, e)
             }
         >
