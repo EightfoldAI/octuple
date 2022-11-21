@@ -9,6 +9,7 @@ import styles from '../menuItem.module.scss';
 export const MenuItemButton: FC<MenuItemButtonProps> = ({
     iconProps,
     text,
+    subText,
     variant = MenuVariant.neutral,
     size = MenuSize.medium,
     classNames,
@@ -34,6 +35,15 @@ export const MenuItemButton: FC<MenuItemButtonProps> = ({
         classNames,
     ]);
 
+    const itemSubTextClasses: string = mergeClasses([
+        styles.itemSubText,
+        {
+            [styles.small]: size === MenuSize.small,
+            [styles.medium]: size === MenuSize.medium,
+            [styles.large]: size === MenuSize.large,
+        },
+    ]);
+
     return (
         <button
             onClick={() => onClick?.(value)}
@@ -43,8 +53,13 @@ export const MenuItemButton: FC<MenuItemButtonProps> = ({
             {...rest}
         >
             {iconProps && <Icon {...iconProps} />}
-            <span className={styles.label}>{text}</span>
-            {counter && <span>{counter}</span>}
+            <div className={styles.menuItemWrapper}>
+                <div className={styles.itemText}>
+                    <span className={styles.label}>{text}</span>
+                    {counter && <span>{counter}</span>}
+                </div>
+                {subText && <div className={itemSubTextClasses}>{subText}</div>}
+            </div>
         </button>
     );
 };

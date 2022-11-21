@@ -2,18 +2,45 @@
     --background: transparent;
     background: var(--background);
     color: var(--label);
-    display: flex;
-    align-items: center;
-    gap: $space-xs;
     border-radius: $corner-radius-xl;
     cursor: pointer;
     font-weight: $text-font-weight-regular;
     transition: all $motion-duration-extra-fast $motion-easing-easeinout 0s;
     margin: $space-xxs 0;
     white-space: nowrap;
+    display: flex;
+    gap: $space-xs;
+
+    $text-font-size-map: (
+        small: $text-font-size-1,
+        medium: $text-font-size-2,
+        large: $text-font-size-3,
+    );
+
+    .menu-item-wrapper {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+    }
+
+    .item-text {
+        display: flex;
+        align-items: center;
+        gap: $space-xs;
+    }
+
+    .item-sub-text {
+        text-align: left;
+        color: var(--grey-color-60);
+        @each $size-name, $size-value in $text-font-size-map {
+            &.#{$size-name} {
+                font-size: $size-value;
+            }
+        }
+    }
 
     &.large {
-        height: 44px;
+        min-height: 44px;
         font-size: $text-font-size-4;
         line-height: $text-line-height-3;
         padding: $button-padding-vertical-medium
@@ -22,7 +49,7 @@
     }
 
     &.medium {
-        height: 36px;
+        min-height: 36px;
         font-size: $text-font-size-3;
         line-height: $text-line-height-2;
         padding: $button-padding-vertical-medium
@@ -31,7 +58,7 @@
     }
 
     &.small {
-        height: 28px;
+        min-height: 28px;
         font-size: $text-font-size-2;
         line-height: $text-line-height-1;
         padding: $space-xxs $space-xs;
