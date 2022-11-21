@@ -552,12 +552,23 @@ export interface TableProps<RecordType>
      */
     triggerDescText?: string;
     /**
-     * Callback fired on row hover
+     * Callback fired on row hover enter
      * @param index - Index of the row element
      * @param rowKey - Unique row identifier
      * @param event - Mouse over event
      */
-    onRowHover?: (
+    onRowHoverEnter?: (
+        index: number,
+        rowKey: React.Key,
+        event: React.MouseEvent<HTMLElement>
+    ) => void;
+    /**
+     * Callback fired on row hover leave
+     * @param index - Index of the row element
+     * @param rowKey - Unique row identifier
+     * @param event - Mouse over event
+     */
+    onRowHoverLeave?: (
         index: number,
         rowKey: React.Key,
         event: React.MouseEvent<HTMLElement>

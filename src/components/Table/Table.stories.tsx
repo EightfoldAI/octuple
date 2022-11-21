@@ -112,8 +112,11 @@ export default {
         },
     },
     argTypes: {
-        onRowHover: {
-            action: 'onMouseOver',
+        onRowHoverEnter: {
+            action: 'onMouseEnter',
+        },
+        onRowHoverLeave: {
+            action: 'onMouseLeave',
         },
     },
 } as ComponentMeta<typeof Component>;

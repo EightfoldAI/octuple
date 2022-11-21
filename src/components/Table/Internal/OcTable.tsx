@@ -114,7 +114,8 @@ function OcTable<RecordType extends DefaultRecordType>(
         transformColumns,
         sticky,
         headerClassName,
-        onRowHover,
+        onRowHoverEnter,
+        onRowHoverLeave,
     } = props;
 
     const mergedData = data || EMPTY_DATA;
@@ -512,7 +513,8 @@ function OcTable<RecordType extends DefaultRecordType>(
             onRow={onRow}
             emptyNode={emptyNode}
             childrenColumnName={mergedChildrenColumnName}
-            onRowHover={onRowHover}
+            onRowHoverEnter={onRowHoverEnter}
+            onRowHoverLeave={onRowHoverLeave}
         />
     );
 
