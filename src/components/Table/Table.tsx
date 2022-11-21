@@ -113,7 +113,8 @@ function InternalTable<RecordType extends object = any>(
         style,
         triggerAscText: defaultTriggerAscText,
         triggerDescText: defaultTriggerDescText,
-        onRowHover,
+        onRowHoverEnter,
+        onRowHoverLeave,
     } = props;
 
     const baseColumns: ColumnsType<RecordType> = useMemo(
@@ -807,7 +808,8 @@ function InternalTable<RecordType extends object = any>(
                             transformColumns={
                                 transformColumns as OcTableProps<RecordType>['transformColumns']
                             }
-                            onRowHover={onRowHover}
+                            onRowHoverEnter={onRowHoverEnter}
+                            onRowHoverLeave={onRowHoverLeave}
                         />
                         {bottomPaginationNode}
                     </div>
