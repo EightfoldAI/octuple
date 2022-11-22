@@ -53,13 +53,15 @@ export const MenuItemButton: FC<MenuItemButtonProps> = ({
             {...rest}
         >
             {iconProps && <Icon {...iconProps} />}
-            <div className={styles.menuItemWrapper}>
-                <div className={styles.itemText}>
+            <span className={styles.menuItemWrapper}>
+                <span className={styles.itemText}>
                     <span className={styles.label}>{text}</span>
                     {counter && <span>{counter}</span>}
-                </div>
-                {subText && <div className={itemSubTextClasses}>{subText}</div>}
-            </div>
+                </span>
+                {subText && (
+                    <span className={itemSubTextClasses}>{subText}</span>
+                )}
+            </span>
         </button>
     );
 };
