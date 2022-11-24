@@ -64,6 +64,7 @@ const BasicOverlay = (args: any) => (
                 text: 'Thumbs up',
                 value: 'date 1',
                 disabled: true,
+                subText: 'This is a sub text',
             },
             {
                 iconProps: {
