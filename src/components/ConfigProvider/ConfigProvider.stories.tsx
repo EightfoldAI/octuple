@@ -26,7 +26,8 @@ import { CheckBox, CheckBoxGroup } from '../CheckBox';
 import { Link } from '../Link';
 import { Navbar, NavbarContent } from '../Navbar';
 import { Dropdown } from '../Dropdown';
-import { Menu, MenuItemType, MenuVariant } from '../Menu';
+import { Menu, MenuVariant } from '../Menu';
+import { TextArea } from '../Inputs';
 
 export default {
     title: 'Config Provider',
@@ -201,6 +202,32 @@ const ThemedComponents: FC = () => {
                     />
                 </div>
             </Stack>
+            <div>
+                <TextArea
+                    enableExpand
+                    labelProps={{ text: 'Var Theme (updates onBlur)' }}
+                    name="varTheme"
+                    placeholder={'{"navbar-background":"pink"}'}
+                    value={JSON.stringify(themeOptions.customTheme.varTheme)}
+                    onBlur={(event) => {
+                        try {
+                            // default to empty array to allow an null/undefined values.
+                            const jsonStrVal = event.target.value || `{}`;
+                            const newVarTheme = JSON.parse(jsonStrVal);
+                            setThemeOptions({
+                                ...themeOptions,
+                                customTheme: {
+                                    ...themeOptions.customTheme,
+                                    varTheme: newVarTheme,
+                                },
+                            });
+                        } catch {
+                            alert('JSON parsing error');
+                        }
+                    }}
+                ></TextArea>
+            </div>
+
             <Stack direction="horizontal" gap="m">
                 <PrimaryButton
                     ariaLabel="Primary Button"
@@ -480,6 +507,7 @@ Theming.args = {
     themeOptions: {
         name: 'blue',
         customTheme: {
+            varTheme: undefined,
             tabsTheme: {
                 label: '--text-secondary-color',
                 activeLabel: '--primary-color',

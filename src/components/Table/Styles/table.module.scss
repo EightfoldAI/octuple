@@ -1,57 +1,6 @@
 @import './mixins';
 
 .table-wrapper {
-    --table-background-color: var(--background-color);
-    --table-foreground-color: var(--text-primary-color);
-    --table-background-alternate-color: var(--grey-color-10);
-    --table-border-color: var(--grey-color-20);
-    --table-border-active-color: transparent;
-    --table-header-background-color: var(--background-color);
-    --table-header-foreground-color: var(--text-primary-color);
-    --table-header-icon-color: var(--grey-color-40);
-    --table-header-icon-hover-color: var(--primary-color-80);
-    --table-header-cell-split-color: var(--grey-color-20);
-    --table-body-sort-background-color: var(--background-color);
-    --table-header-sort-background-color: var(--background-color);
-    --table-header-sort-active-background-color: var(--grey-color-10);
-    --table-header-filter-background-color: var(--background-color);
-    --table-header-filter-active-background-color: var(--grey-color-10);
-    --table-header-filter-dropdown-background-color: var(--background-color);
-    --table-header-filter-buttons-background-color: var(--background-color);
-    --table-expand-icon-background-color: var(--background-color);
-    --table-row-hover-background-color: var(--accent-color-10);
-    --table-row-selected-background-color: var(--grey-color-10);
-    --table-row-selected-hover-background-color: var(--accent-color-10);
-    --table-row-selected-foregroud-color: var(--text-primary-color);
-    --table-row-expanded-background-color: var(--grey-color-10);
-    --table-body-selected-sort-background-color: var(--grey-color-10);
-    --table-footer-background-color: var(--background-color);
-    --table-footer-foreground-color: var(--text-primary-color);
-
-    --table-border-radius: 24px;
-    --table-border-style: solid;
-    --table-border-width: 1px;
-    --table-padding-vertical: 8px;
-    --table-padding-horizontal: 16px;
-    --table-padding-vertical-md: 12px;
-    --table-padding-horizontal-md: 8px;
-    --table-padding-vertical-sm: 8px;
-    --table-padding-horizontal-sm: 8px;
-    --table-box-shadow: 0 1px 2px rgba(15, 20, 31, 0.08),
-        0 2px 8px rgba(15, 20, 31, 0.08);
-    --table-fixed-left-box-shadow: inset 32px 0 8px -32px rgba(15, 20, 31, 0.08);
-    --table-fixed-right-box-shadow: inset -32px 0 8px -32px
-        rgba(15, 20, 31, 0.08);
-    --table-header-font-size: 14px;
-    --table-header-line-height: 24px;
-    --table-footer-font-size: 16px;
-    --table-footer-line-height: 24px;
-    --table-font-size: 14px;
-    --table-font-size-md: 14px;
-    --table-font-size-sm: 14px;
-    --table-line-height: 20px;
-    --table-selection-column-width: 80px;
-
     clear: both;
     max-width: 100%;
     @include clearfix();

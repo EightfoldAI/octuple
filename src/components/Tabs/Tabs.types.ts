@@ -205,4 +205,5 @@ export interface TabsTheme {
     pillActiveBackground?: Value;
     pillHoverLabel?: Value;
     pillBackground?: Value;
+    underline?: Value;
 }
