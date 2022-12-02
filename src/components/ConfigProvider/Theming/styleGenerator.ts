@@ -18,7 +18,6 @@ import generate from './generate';
 import { fontDefaults } from './font';
 import OcThemes, { themeDefaults } from './themes';
 import { themeGenerator } from './themeGenerator';
-import { keyframes } from '@storybook/theming';
 
 const THEME_CONTAINER_ID = 'octuple-theme';
 const FONT_CONTAINER_ID = 'octuple-font';
