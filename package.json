@@ -282,5 +282,6 @@
     "engines": {
         "node": ">=16.13.0 < 17",
         "npm": ">=8.5.0 < 9"
-    }
+    },
+    "packageManager": "yarn@1.22.19"
 }

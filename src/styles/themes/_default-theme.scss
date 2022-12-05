@@ -181,7 +181,7 @@
         Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
     --font-size: 16px;
 
-    /* ------ Tabs theme ------ */
+    // ------ Tabs theme ------
     --tab-label: var(--text-secondary-color);
     --tab-active-label: var(--primary-color-70);
     --tab-active-background: transparent;
@@ -196,16 +196,16 @@
     --tab-pill-hover-label: var(--primary-color);
     --tab-pill-background: var(--grey-color-10);
     --tab-underline: var(--border-color);
-    /* ------ Tabs theme ------ */
+    // ------ Tabs theme ------
 
-    /* ------ Navbar theme ------ */
+    // ------ Navbar theme ------
     --navbar-background: var(--primary-color-80);
     --navbar-text-color: var(--text-inverse-color);
     --navbar-text-hover-background: var(--navbar-background);
     --navbar-text-hover-color: var(--navbar-text-color);
-    /* ------ Navbar theme ------ */
+    // ------ Navbar theme ------
 
-    /* ------ Picker theme ------ */
+    // ------ Picker theme ------
     --picker-background-color: var(--background-color);
     --picker-foreground-color: var(--text-secondary-color);
     --picker-border-color: var(--border-color);
@@ -238,5 +238,255 @@
     --picker-input-foreground-color: var(--text-primary-color);
     --picker-input-placeholder-color: var(--grey-color-60);
     --picker-outline-color: var(--primary-color-40);
-    /* ------ Picker theme ------ */
+    // ------ Picker theme ------
+
+    // ------ Table theme ------
+    --table-background-color: var(--background-color);
+    --table-foreground-color: var(--text-primary-color);
+    --table-background-alternate-color: var(--grey-color-10);
+    --table-border-color: var(--grey-color-20);
+    --table-border-active-color: transparent;
+    --table-header-background-color: var(--background-color);
+    --table-header-foreground-color: var(--text-primary-color);
+    --table-header-icon-color: var(--grey-color-40);
+    --table-header-icon-hover-color: var(--primary-color-80);
+    --table-header-cell-split-color: var(--grey-color-20);
+    --table-body-sort-background-color: var(--background-color);
+    --table-header-sort-background-color: var(--background-color);
+    --table-header-sort-active-background-color: var(--grey-color-10);
+    --table-header-filter-background-color: var(--background-color);
+    --table-header-filter-active-background-color: var(--grey-color-10);
+    --table-header-filter-dropdown-background-color: var(--background-color);
+    --table-header-filter-buttons-background-color: var(--background-color);
+    --table-expand-icon-background-color: var(--background-color);
+    --table-row-hover-background-color: var(--accent-color-10);
+    --table-row-selected-background-color: var(--grey-color-10);
+    --table-row-selected-hover-background-color: var(--accent-color-10);
+    --table-row-selected-foregroud-color: var(--text-primary-color);
+    --table-row-expanded-background-color: var(--grey-color-10);
+    --table-body-selected-sort-background-color: var(--grey-color-10);
+    --table-footer-background-color: var(--background-color);
+    --table-footer-foreground-color: var(--text-primary-color);
+
+    --table-border-radius: 24px;
+    --table-border-style: solid;
+    --table-border-width: 1px;
+    --table-padding-vertical: 8px;
+    --table-padding-horizontal: 16px;
+    --table-padding-vertical-md: 12px;
+    --table-padding-horizontal-md: 8px;
+    --table-padding-vertical-sm: 8px;
+    --table-padding-horizontal-sm: 8px;
+    --table-box-shadow: 0 1px 2px rgba(15, 20, 31, 0.08),
+        0 2px 8px rgba(15, 20, 31, 0.08);
+    --table-fixed-left-box-shadow: inset 32px 0 8px -32px rgba(15, 20, 31, 0.08);
+    --table-fixed-right-box-shadow: inset -32px 0 8px -32px
+        rgba(15, 20, 31, 0.08);
+    --table-header-font-size: 14px;
+    --table-header-line-height: 24px;
+    --table-footer-font-size: 16px;
+    --table-footer-line-height: 24px;
+    --table-font-size: 14px;
+    --table-font-size-md: 14px;
+    --table-font-size-sm: 14px;
+    --table-line-height: 20px;
+    --table-selection-column-width: 80px;
+    // ------ Table theme ------
+
+    // ------ Generic button vars ------
+    --button-border-radius: 4px;
+    --button-round-shape-border-radius: 50%;
+    --button-pill-shape-border-radius: 24px;
+    // TODO: button text/font related vars
+    // ------ Generic button vars ------
+
+    // ------ Default Button theme ------
+    --button-default-text-color: var(--primary-color-70);
+    --button-default-background-color: var(--primary-color-10);
+    --button-default-border-width: 0;
+    --button-default-border-style: solid;
+    --button-default-border-color: var(--button-default-background-color);
+    --button-default-hover-text-color: var(--button-default-text-color);
+    --button-default-hover-background-color: var(--background-color);
+    --button-default-hover-border-width: var(--button-default-border-width);
+    --button-default-hover-border-style: var(--button-default-border-style);
+    --button-default-hover-border-color: var(
+        --button-default-hover-background-color
+    );
+    --button-default-active-text-color: var(--primary-color-80);
+    --button-default-active-background-color: var(--primary-color-20);
+    --button-default-active-border-width: var(--button-default-border-width);
+    --button-default-active-border-style: var(--button-default-border-style);
+    --button-default-active-border-color: var(
+        --button-default-active-background-color
+    );
+    // ------ Default Button theme ------
+
+    // ------ Default Disruptive Button theme ------
+    --button-default-disruptive-text-color: var(--disruptive-color-70);
+    --button-default-disruptive-background-color: var(--background-color);
+    --button-default-disruptive-border-width: 0;
+    --button-default-disruptive-border-style: solid;
+    --button-default-disruptive-border-color: var(
+        --button-default-disruptive-background-color
+    );
+    --button-default-disruptive-hover-text-color: var(--disruptive-color-70);
+    --button-default-disruptive-hover-background-color: var(
+        --disruptive-color-10
+    );
+    --button-default-disruptive-hover-border-width: var(
+        --button-default-disruptive-border-width
+    );
+    --button-default-disruptive-hover-border-style: var(
+        --button-default-disruptive-border-style
+    );
+    --button-default-disruptive-hover-border-color: var(
+        --button-default-disruptive-hover-background-color
+    );
+    --button-default-disruptive-active-text-color: var(--disruptive-color-80);
+    --button-default-disruptive-active-background-color: var(
+        --disruptive-color-20
+    );
+    --button-default-disruptive-active-border-width: var(
+        --button-default-disruptive-border-width
+    );
+    --button-default-disruptive-active-border-style: var(
+        --button-default-disruptive-border-style
+    );
+    --button-default-disruptive-active-border-color: var(
+        --button-default-disruptive-active-background-color
+    );
+    // ------ Default Disruptive Button theme ------
+
+    // ------ Primary Button theme ------
+    --button-primary-text-color: var(--primary-color-80);
+    --button-primary-background-color: var(--accent-color-20);
+    --button-primary-border-width: 0;
+    --button-primary-border-style: solid;
+    --button-primary-border-color: var(--button-primary-background-color);
+    --button-primary-hover-text-color: var(--button-primary-text-color);
+    --button-primary-hover-background-color: var(--accent-color-10);
+    --button-primary-hover-border-width: var(--button-primary-border-width);
+    --button-primary-hover-border-style: var(--button-primary-border-style);
+    --button-primary-hover-border-color: var(
+        --button-primary-hover-background-color
+    );
+    --button-primary-active-text-color: var(--button-primary-text-color);
+    --button-primary-active-background-color: var(--accent-color-30);
+    --button-primary-active-border-width: var(--button-primary-border-width);
+    --button-primary-active-border-style: var(--button-primary-border-style);
+    --button-primary-active-border-color: var(
+        --button-primary-active-background-color
+    );
+    // ------ Primary Button theme ------
+
+    // ------ Primary Disruptive Button theme ------
+    --button-primary-disruptive-text-color: var(--disruptive-color-80);
+    --button-primary-disruptive-background-color: var(--disruptive-color-20);
+    --button-primary-disruptive-border-width: 0;
+    --button-primary-disruptive-border-style: solid;
+    --button-primary-disruptive-border-color: var(
+        --button-primary-disruptive-background-color
+    );
+    --button-primary-disruptive-hover-text-color: var(
+        --button-primary-disruptive-text-color
+    );
+    --button-primary-disruptive-hover-background-color: var(
+        --disruptive-color-10
+    );
+    --button-primary-disruptive-hover-border-width: var(
+        --button-primary-disruptive-border-width
+    );
+    --button-primary-disruptive-hover-border-style: var(
+        --button-primary-disruptive-border-style
+    );
+    --button-primary-disruptive-hover-border-color: var(
+        --button-primary-disruptive-hover-background-color
+    );
+    --button-primary-disruptive-active-text-color: var(
+        --button-primary-disruptive-text-color
+    );
+    --button-primary-disruptive-active-background-color: var(
+        --disruptive-color-30
+    );
+    --button-primary-disruptive-active-border-width: var(
+        --button-primary-disruptive-border-width
+    );
+    --button-primary-disruptive-active-border-style: var(
+        --button-primary-disruptive-border-style
+    );
+    --button-primary-disruptive-active-border-color: var(
+        --button-primary-disruptive-active-background-color
+    );
+    // ------ Primary Disruptive Button theme ------
+
+    // ------ Secondary Button theme ------
+    --button-secondary-text-color: var(--primary-color-70);
+    --button-secondary-background-color: var(--background-color);
+    --button-secondary-border-width: 1px;
+    --button-secondary-border-style: solid;
+    --button-secondary-border-color: var(--accent-color-60);
+    --button-secondary-hover-text-color: var(--button-secondary-text-color);
+    --button-secondary-hover-background-color: var(--accent-color-10);
+    --button-secondary-hover-border-width: var(--button-secondary-border-width);
+    --button-secondary-hover-border-style: var(--button-secondary-border-style);
+    --button-secondary-hover-border-color: var(--button-secondary-border-color);
+    --button-secondary-active-text-color: var(--button-secondary-text-color);
+    --button-secondary-active-background-color: var(--accent-color-20);
+    --button-secondary-active-border-width: var(
+        --button-secondary-border-width
+    );
+    --button-secondary-active-border-style: var(
+        --button-secondary-border-style
+    );
+    --button-secondary-active-border-color: var(
+        --button-secondary-border-color
+    );
+    // ------ Secondary Button theme ------
+
+    // ------ Secondary Disruptive Button theme ------
+    --button-secondary-disruptive-text-color: var(--disruptive-color-70);
+    --button-secondary-disruptive-background-color: var(--background-color);
+    --button-secondary-disruptive-border-width: 1px;
+    --button-secondary-disruptive-border-style: solid;
+    --button-secondary-disruptive-border-color: var(--disruptive-color-70);
+    --button-secondary-disruptive-hover-text-color: var(
+        --button-secondary-disruptive-text-color
+    );
+    --button-secondary-disruptive-hover-background-color: var(
+        --disruptive-color-10
+    );
+    --button-secondary-disruptive-hover-border-width: var(
+        --button-secondary-disruptive-border-width
+    );
+    --button-secondary-disruptive-hover-border-style: var(
+        --button-secondary-disruptive-border-style
+    );
+    --button-secondary-disruptive-hover-border-color: var(
+        --button-secondary-disruptive-hover-background-color
+    );
+    --button-secondary-disruptive-active-text-color: var(
+        --button-secondary-disruptive-text-color
+    );
+    --button-secondary-disruptive-active-background-color: var(
+        --disruptive-color-20
+    );
+    --button-secondary-disruptive-active-border-width: var(
+        --button-secondary-disruptive-border-width
+    );
+    --button-secondary-disruptive-active-border-style: var(
+        --button-secondary-disruptive-border-style
+    );
+    --button-secondary-disruptive-active-border-color: var(
+        --button-secondary-disruptive-active-background-color
+    );
+    // ------ Secondary Disruptive Button theme ------
+
+    // ------ Button Counter theme ------
+    --button-counter-default-background-color: var(--grey-color-20);
+    --button-counter-hover-background-color: var(--primary-color-20);
+    --button-counter-checked-background-color: var(--primary-color-10);
+    --button-counter-focus-background-color: var(--primary-color-20);
+    --button-counter-active-background-color: var(--primary-color-10);
+    // ------ Button Counter theme ------
 }
