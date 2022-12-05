@@ -248,9 +248,12 @@ const ThemedComponents: FC = () => {
                             <>
                                 <p>
                                     Refer to{' '}
-                                    <code>
-                                        src/styles/theme/_default-theme.scss
-                                    </code>{' '}
+                                    <a
+                                        target="_blank"
+                                        href="https://github.com/EightfoldAI/octuple/blob/main/src/styles/themes/_definitions.scss"
+                                    >
+                                        _default-theme.scss
+                                    </a>{' '}
                                     for css variables that can be overwritten
                                     using this mechanism. This can also be
                                     leveraged to overwrite css variables that
