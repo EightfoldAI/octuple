@@ -227,7 +227,8 @@ const ThemedComponents: FC = () => {
                             try {
                                 // default to empty array to allow an null/undefined values.
                                 const jsonStrVal =
-                                    varThemeRef?.current?.value || `{}`;
+                                    (varThemeRef?.current || { value: null })
+                                        .value || `{}`;
 
                                 const newVarTheme = JSON.parse(jsonStrVal);
                                 setThemeOptions({
