@@ -27,6 +27,8 @@ function BodyRow<RecordType extends { children?: readonly RecordType[] }>(
         rowComponent: RowComponent,
         cellComponent,
         childrenColumnName,
+        onRowHoverEnter,
+        onRowHoverLeave,
     } = props;
     const { fixedInfoList } = useContext(TableContext);
     const {
@@ -107,6 +109,14 @@ function BodyRow<RecordType extends { children?: readonly RecordType[] }>(
                 ...(additionalProps ? additionalProps.style : null),
             }}
             onClick={onClick}
+            onMouseEnter={(e: React.MouseEvent<HTMLElement>) => {
+                onRowHoverEnter?.(renderIndex, rowKey, e);
+                additionalProps?.onMouseEnter(e);
+            }}
+            onMouseLeave={(e: React.MouseEvent<HTMLElement>) => {
+                onRowHoverLeave?.(renderIndex, rowKey, e);
+                additionalProps?.onMouseLeave(e);
+            }}
         >
             {flattenColumns.map((column: ColumnType<RecordType>, colIndex) => {
                 const {

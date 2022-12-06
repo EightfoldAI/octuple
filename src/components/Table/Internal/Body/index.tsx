@@ -30,6 +30,8 @@ function Body<RecordType>({
     rowExpandable,
     emptyNode,
     childrenColumnName,
+    onRowHoverEnter,
+    onRowHoverLeave,
 }: BodyProps<RecordType>) {
     const { onColumnResize } = useContext(ResizeContext);
     const { getComponent } = useContext(TableContext);
@@ -91,6 +93,8 @@ function Body<RecordType>({
                         rowExpandable={rowExpandable}
                         childrenColumnName={childrenColumnName}
                         indent={indent}
+                        onRowHoverEnter={onRowHoverEnter}
+                        onRowHoverLeave={onRowHoverLeave}
                     />
                 );
             });

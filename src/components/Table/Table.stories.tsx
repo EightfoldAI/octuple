@@ -111,7 +111,14 @@ export default {
             ),
         },
     },
-    argTypes: {},
+    argTypes: {
+        onRowHoverEnter: {
+            action: 'onMouseEnter',
+        },
+        onRowHoverLeave: {
+            action: 'onMouseLeave',
+        },
+    },
 } as ComponentMeta<typeof Component>;
 
 interface DataType {

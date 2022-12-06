@@ -519,4 +519,26 @@ export interface OcTableProps<RecordType = unknown> {
      * the scroll area, could be string or number.
      */
     scroll?: { x?: number | true | string; y?: number | string };
+    /**
+     * Callback fired on row hover
+     * @param index - Index of the row element
+     * @param rowKey - Unique row identifier
+     * @param event - Mouse over event
+     */
+    onRowHoverEnter?: (
+        index: number,
+        rowKey: React.Key,
+        event: React.MouseEvent<HTMLElement>
+    ) => void;
+    /**
+     * Callback fired on row hover leave
+     * @param index - Index of the row element
+     * @param rowKey - Unique row identifier
+     * @param event - Mouse over event
+     */
+    onRowHoverLeave?: (
+        index: number,
+        rowKey: React.Key,
+        event: React.MouseEvent<HTMLElement>
+    ) => void;
 }

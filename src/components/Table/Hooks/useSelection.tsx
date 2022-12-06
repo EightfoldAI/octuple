@@ -440,8 +440,9 @@ export default function useSelection<RecordType>(
 
                 const allDisabledData = flattedData
                     .map((record, index) => {
-                        const key = getRowKey(record, index);
-                        const checkboxProps = checkboxPropsMap.get(key) || {};
+                        const key: React.Key = getRowKey(record, index);
+                        const checkboxProps: Partial<CheckboxProps> =
+                            checkboxPropsMap.get(key) || {};
                         return { checked: keySet.has(key), ...checkboxProps };
                     })
                     .filter(({ disabled }) => disabled);
@@ -453,9 +454,6 @@ export default function useSelection<RecordType>(
                 const allDisabledAndChecked =
                     allDisabled &&
                     allDisabledData.every(({ checked }) => checked);
-                const allDisabledSomeChecked =
-                    allDisabled &&
-                    allDisabledData.some(({ checked }) => checked);
 
                 title = !hideSelectAll && (
                     <div className={styles.tableSelectionColumn}>
@@ -466,7 +464,7 @@ export default function useSelection<RecordType>(
                                     : allDisabledAndChecked
                             }
                             classNames={styles.selectionCheckbox}
-                            id={'selectCheckBox'}
+                            id={'selectAllCheckBox'}
                             onChange={onSelectAllChange}
                             disabled={flattedData.length === 0 || allDisabled}
                         />
@@ -483,8 +481,8 @@ export default function useSelection<RecordType>(
             ) => { node: React.ReactNode; checked: boolean };
             if (selectionType === 'radio') {
                 renderCell = (_, record, index) => {
-                    const key = getRowKey(record, index);
-                    const checked = keySet.has(key);
+                    const key: React.Key = getRowKey(record, index);
+                    const checked: boolean = keySet.has(key);
 
                     return {
                         node: (
@@ -493,7 +491,7 @@ export default function useSelection<RecordType>(
                                 checked={checked}
                                 name={'oc-table-radio-group'}
                                 classNames={styles.selectionRadiobutton}
-                                id={'selectRadioButton'}
+                                id={`selectRadioButton-${key}`}
                                 onClick={(e) => e.stopPropagation()}
                                 onChange={(event) => {
                                     if (!keySet.has(key)) {
@@ -512,9 +510,10 @@ export default function useSelection<RecordType>(
                 };
             } else {
                 renderCell = (_, record, index) => {
-                    const key = getRowKey(record, index);
-                    const checked = keySet.has(key);
-                    const checkboxProps = checkboxPropsMap.get(key);
+                    const key: React.Key = getRowKey(record, index);
+                    const checked: boolean = keySet.has(key);
+                    const checkboxProps: Partial<CheckboxProps> =
+                        checkboxPropsMap.get(key);
 
                     // Record checked
                     return {
@@ -523,7 +522,7 @@ export default function useSelection<RecordType>(
                                 {...checkboxProps}
                                 checked={checked}
                                 classNames={styles.selectionCheckbox}
-                                id={'selectCheckBox'}
+                                id={`selectCheckBox-${key}`}
                                 onClick={(e) => e.stopPropagation()}
                                 onChange={(nativeEvent: any) => {
                                     const { shiftKey } = nativeEvent;
