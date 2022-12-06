@@ -24,6 +24,7 @@ export const Card: FC<CardProps> = React.forwardRef(
             bodyListTwoPillProps,
             bodyListOneProps,
             bodyListTwoProps,
+            bordered = false,
             children,
             classNames,
             configContextProps = {
@@ -74,6 +75,9 @@ export const Card: FC<CardProps> = React.forwardRef(
         const cardClasses: string = mergeClasses([
             classNames,
             styles.card,
+            {
+                [styles.cardBordered]: !!bordered,
+            },
             {
                 [styles.cardSmall]:
                     mergedSize === CardSize.Flex && largeScreenActive,
