@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react';
+import React, { FC, useState, useRef } from 'react';
 import { Stories } from '@storybook/addon-docs';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import {
@@ -26,7 +26,9 @@ import { CheckBox, CheckBoxGroup } from '../CheckBox';
 import { Link } from '../Link';
 import { Navbar, NavbarContent } from '../Navbar';
 import { Dropdown } from '../Dropdown';
-import { Menu, MenuItemType, MenuVariant } from '../Menu';
+import { Menu, MenuVariant } from '../Menu';
+import { TextArea } from '../Inputs';
+import { Dialog } from '../Dialog';
 
 export default {
     title: 'Config Provider',
@@ -58,6 +60,8 @@ export default {
 } as ComponentMeta<typeof ConfigProvider>;
 
 const ThemedComponents: FC = () => {
+    const [showVarThemeModal, setShowVarThemeModal] = useState(false);
+    const varThemeRef = useRef();
     const [customPrimaryColor, setCustomPrimaryColor] = useState<string>('');
     const [customFont, setCustomFont] = useState<string>('Source Sans Pro');
     const [customAccentColor, setCustomAccentColor] = useState<string>('');
@@ -201,6 +205,76 @@ const ThemedComponents: FC = () => {
                     />
                 </div>
             </Stack>
+
+            <div>
+                <PrimaryButton
+                    text="Edit varTheme"
+                    onClick={() => setShowVarThemeModal(true)}
+                />
+                {showVarThemeModal && (
+                    <Dialog
+                        visible={showVarThemeModal}
+                        closable={true}
+                        onClose={() => setShowVarThemeModal(false)}
+                        header="Edit varTheme"
+                        okButtonProps={{
+                            text: 'Save',
+                        }}
+                        cancelButtonProps={{
+                            text: 'Cancel',
+                        }}
+                        onOk={() => {
+                            try {
+                                // default to empty array to allow an null/undefined values.
+                                const jsonStrVal =
+                                    (varThemeRef?.current || { value: null })
+                                        .value || `{}`;
+
+                                const newVarTheme = JSON.parse(jsonStrVal);
+                                setThemeOptions({
+                                    ...themeOptions,
+                                    customTheme: {
+                                        ...themeOptions.customTheme,
+                                        varTheme: newVarTheme,
+                                    },
+                                });
+                                setShowVarThemeModal(false);
+                            } catch {
+                                alert('JSON parsing error');
+                            }
+                        }}
+                        onCancel={() => setShowVarThemeModal(false)}
+                        body={
+                            <>
+                                <p>
+                                    Refer to{' '}
+                                    <a
+                                        target="_blank"
+                                        href="https://github.com/EightfoldAI/octuple/blob/main/src/styles/themes/_definitions.scss"
+                                    >
+                                        _default-theme.scss
+                                    </a>{' '}
+                                    for css variables that can be overwritten
+                                    using this mechanism. This can also be
+                                    leveraged to overwrite css variables that
+                                    don't belong to Octuple.
+                                </p>
+                                <TextArea
+                                    ref={varThemeRef}
+                                    enableExpand
+                                    labelProps={{ text: 'Var Theme' }}
+                                    name="varTheme"
+                                    placeholder={'{"navbar-background":"pink"}'}
+                                    value={JSON.stringify(
+                                        themeOptions.customTheme.varTheme
+                                    )}
+                                ></TextArea>
+                            </>
+                        }
+                    />
+                )}
+            </div>
+
             <Stack direction="horizontal" gap="m">
                 <PrimaryButton
                     ariaLabel="Primary Button"
@@ -477,9 +551,12 @@ Theming.args = {
         fontStack: '--font-stack',
         fontSize: '--font-size',
     } as FontOptions,
+    // TODO: should get this from the ConfigProvider in order to restore any
+    // customizations the storybook user has applied so far.
     themeOptions: {
         name: 'blue',
         customTheme: {
+            varTheme: undefined,
             tabsTheme: {
                 label: '--text-secondary-color',
                 activeLabel: '--primary-color',

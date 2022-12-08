@@ -21,6 +21,13 @@ export type OcThemeNames =
 
 export type ThemeName = OcThemeNames | OcCustomThemeName;
 
+/**
+ * Used to theme based purely on css var overrides.
+ * Any values provided within this record will also override
+ * values provided via OcTheme
+ */
+export type VarTheme = Record<string, Value>;
+
 export interface OcBaseTheme {
     primaryColor?: Value;
     accentColor?: Value;
@@ -35,6 +42,7 @@ export interface OcBaseTheme {
     errorColor?: Value;
     tabsTheme?: TabsTheme;
     navbarTheme?: NavbarTheme;
+    varTheme?: VarTheme;
 }
 
 export interface OcTheme extends OcBaseTheme {
