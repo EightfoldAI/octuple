@@ -1,4 +1,4 @@
-import { createApi } from '../createApi';
+import { autoScrollApi } from '../autoScrollApi';
 import ItemsMap from '../ItemsMap';
 import {
     getItemElementById,
@@ -57,7 +57,7 @@ const setup = (ratio = [0.3, 1, 0.7]) => {
     };
 };
 
-describe('createApi', () => {
+describe('autoScrollApi', () => {
     afterEach(() => {
         jest.clearAllMocks();
     });
@@ -66,7 +66,7 @@ describe('createApi', () => {
         const { items, visibleElementsWithSeparators } = setup([0.3, 1, 0.7]);
 
         expect(
-            createApi(items, visibleElementsWithSeparators).visibleItems
+            autoScrollApi(items, visibleElementsWithSeparators).visibleItems
         ).toEqual(visibleElementsWithSeparators);
     });
 
@@ -79,15 +79,17 @@ describe('createApi', () => {
             .map((el) => el[1].key);
 
         expect(
-            createApi(items, visibleElementsWithSeparators).visibleElements
+            autoScrollApi(items, visibleElementsWithSeparators).visibleElements
         ).toEqual(expected);
         expect(
-            createApi(items, visibleElementsWithSeparators)
+            autoScrollApi(items, visibleElementsWithSeparators)
                 .visibleItemsWithoutSeparators
         ).toEqual(expected);
 
-        expect(createApi(items, []).visibleElements).toEqual([]);
-        expect(createApi(items, []).visibleItemsWithoutSeparators).toEqual([]);
+        expect(autoScrollApi(items, []).visibleElements).toEqual([]);
+        expect(autoScrollApi(items, []).visibleItemsWithoutSeparators).toEqual(
+            []
+        );
     });
 
     describe('helpers', () => {
@@ -98,7 +100,7 @@ describe('createApi', () => {
                 ]);
 
                 const boundary = { current: document.createElement('div') };
-                createApi(
+                autoScrollApi(
                     items,
                     visibleElementsWithSeparators,
                     boundary
@@ -130,7 +132,7 @@ describe('createApi', () => {
                     behavior: () => false,
                 };
 
-                createApi(
+                autoScrollApi(
                     items,
                     visibleElementsWithSeparators,
                     boundary,
@@ -164,7 +166,7 @@ describe('createApi', () => {
                     behavior: () => false,
                 };
 
-                createApi(
+                autoScrollApi(
                     items,
                     visibleElementsWithSeparators,
                     boundary,
@@ -196,7 +198,7 @@ describe('createApi', () => {
             const { items, visibleElementsWithSeparators } = setup([0.7, 0, 0]);
 
             expect(
-                createApi(items, visibleElementsWithSeparators)
+                autoScrollApi(items, visibleElementsWithSeparators)
                     .getItemElementById
             ).toEqual(getItemElementById);
         });
@@ -205,7 +207,7 @@ describe('createApi', () => {
             const { items, visibleElementsWithSeparators } = setup([0.7, 0, 0]);
 
             expect(
-                createApi(items, visibleElementsWithSeparators)
+                autoScrollApi(items, visibleElementsWithSeparators)
                     .getItemElementByIndex
             ).toEqual(getItemElementByIndex);
         });
@@ -216,7 +218,7 @@ describe('createApi', () => {
             const { items, visibleElementsWithSeparators } = setup([0.7, 0, 0]);
 
             expect(
-                createApi(items, visibleElementsWithSeparators)
+                autoScrollApi(items, visibleElementsWithSeparators)
                     .isFirstItemVisible
             ).toEqual(true);
         });
@@ -225,7 +227,7 @@ describe('createApi', () => {
             const { items, visibleElementsWithSeparators } = setup([0.3, 1, 1]);
 
             expect(
-                createApi(items, visibleElementsWithSeparators)
+                autoScrollApi(items, visibleElementsWithSeparators)
                     .isFirstItemVisible
             ).toEqual(false);
         });
@@ -233,7 +235,7 @@ describe('createApi', () => {
         test('empty items', () => {
             const items = new ItemsMap();
 
-            expect(createApi(items).isFirstItemVisible).toEqual(false);
+            expect(autoScrollApi(items).isFirstItemVisible).toEqual(false);
         });
     });
 
@@ -244,7 +246,7 @@ describe('createApi', () => {
             ]);
 
             expect(
-                createApi(items, visibleElementsWithSeparators)
+                autoScrollApi(items, visibleElementsWithSeparators)
                     .isLastItemVisible
             ).toEqual(true);
         });
@@ -253,7 +255,7 @@ describe('createApi', () => {
             const { items, visibleElementsWithSeparators } = setup([1, 1, 0.3]);
 
             expect(
-                createApi(items, visibleElementsWithSeparators)
+                autoScrollApi(items, visibleElementsWithSeparators)
                     .isLastItemVisible
             ).toEqual(false);
         });
@@ -261,7 +263,7 @@ describe('createApi', () => {
         test('empty items', () => {
             const items = new ItemsMap();
 
-            expect(createApi(items).isLastItemVisible).toEqual(false);
+            expect(autoScrollApi(items).isLastItemVisible).toEqual(false);
         });
     });
 
@@ -269,11 +271,11 @@ describe('createApi', () => {
         test('item exist', () => {
             const { items, nodes } = setup([0.1, 1, 0.9]);
 
-            expect(createApi(items).getItemById('test1')).toEqual(nodes[0]);
+            expect(autoScrollApi(items).getItemById('test1')).toEqual(nodes[0]);
 
-            expect(createApi(items).getItemById('2')).toEqual(nodes[2]);
+            expect(autoScrollApi(items).getItemById('2')).toEqual(nodes[2]);
             expect(
-                createApi(items).getItemById(2 as unknown as string)
+                autoScrollApi(items).getItemById(2 as unknown as string)
             ).toEqual(nodes[2]);
         });
 
@@ -281,8 +283,10 @@ describe('createApi', () => {
         test('item not exist', () => {
             const { items } = setup([0.1, 1, 0.9]);
 
-            expect(createApi(items).getItemById('test123')).toEqual(undefined);
-            expect(createApi(items).getItemById('')).toEqual(undefined);
+            expect(autoScrollApi(items).getItemById('test123')).toEqual(
+                undefined
+            );
+            expect(autoScrollApi(items).getItemById('')).toEqual(undefined);
         });
     });
 
@@ -293,22 +297,24 @@ describe('createApi', () => {
             ]);
 
             expect(
-                createApi(items, visibleElementsWithSeparators).getItemByIndex(
-                    0
-                )
+                autoScrollApi(
+                    items,
+                    visibleElementsWithSeparators
+                ).getItemByIndex(0)
             ).toEqual(nodes[0]);
 
             expect(
-                createApi(items, visibleElementsWithSeparators).getItemByIndex(
-                    0
-                )
+                autoScrollApi(
+                    items,
+                    visibleElementsWithSeparators
+                ).getItemByIndex(0)
             ).toEqual(nodes[0]);
         });
 
         test('item not exist', () => {
             const { items } = setup([0.1, 1, 0.9]);
 
-            expect(createApi(items).getItemByIndex(5.1)).toEqual(undefined);
+            expect(autoScrollApi(items).getItemByIndex(5.1)).toEqual(undefined);
         });
     });
 
@@ -318,19 +324,22 @@ describe('createApi', () => {
                 0.1, 1, 0.9,
             ]);
             expect(
-                createApi(items, visibleElementsWithSeparators).isItemVisible(
-                    'test1'
-                )
+                autoScrollApi(
+                    items,
+                    visibleElementsWithSeparators
+                ).isItemVisible('test1')
             ).toBeFalsy();
             expect(
-                createApi(items, visibleElementsWithSeparators).isItemVisible(
-                    '2'
-                )
+                autoScrollApi(
+                    items,
+                    visibleElementsWithSeparators
+                ).isItemVisible('2')
             ).toBeTruthy();
             expect(
-                createApi(items, visibleElementsWithSeparators).isItemVisible(
-                    2 as unknown as string
-                )
+                autoScrollApi(
+                    items,
+                    visibleElementsWithSeparators
+                ).isItemVisible(2 as unknown as string)
             ).toBeTruthy();
         });
 
@@ -339,14 +348,16 @@ describe('createApi', () => {
                 0.1, 1, 0.9,
             ]);
             expect(
-                createApi(items, visibleElementsWithSeparators).isItemVisible(
-                    'test3'
-                )
+                autoScrollApi(
+                    items,
+                    visibleElementsWithSeparators
+                ).isItemVisible('test3')
             ).toBeFalsy();
             expect(
-                createApi(items, visibleElementsWithSeparators).isItemVisible(
-                    ''
-                )
+                autoScrollApi(
+                    items,
+                    visibleElementsWithSeparators
+                ).isItemVisible('')
             ).toBeFalsy();
         });
     });
@@ -358,7 +369,10 @@ describe('createApi', () => {
             ]);
 
             expect(
-                createApi(items, visibleElementsWithSeparators).getPrevItem()
+                autoScrollApi(
+                    items,
+                    visibleElementsWithSeparators
+                ).getPrevItem()
             ).toEqual(nodes[0.1]);
         });
 
@@ -366,7 +380,10 @@ describe('createApi', () => {
             const { items, visibleElementsWithSeparators } = setup([0, 0.1, 1]);
 
             expect(
-                createApi(items, visibleElementsWithSeparators).getPrevItem()
+                autoScrollApi(
+                    items,
+                    visibleElementsWithSeparators
+                ).getPrevItem()
             ).toEqual(undefined);
         });
     });
@@ -378,7 +395,10 @@ describe('createApi', () => {
             ]);
 
             expect(
-                createApi(items, visibleElementsWithSeparators).getPrevElement()
+                autoScrollApi(
+                    items,
+                    visibleElementsWithSeparators
+                ).getPrevElement()
             ).toEqual(nodes[0.1]);
         });
 
@@ -388,7 +408,10 @@ describe('createApi', () => {
             ]);
 
             expect(
-                createApi(items, visibleElementsWithSeparators).getPrevElement()
+                autoScrollApi(
+                    items,
+                    visibleElementsWithSeparators
+                ).getPrevElement()
             ).toEqual(undefined);
         });
     });
@@ -399,7 +422,10 @@ describe('createApi', () => {
                 1, 1, 1.1,
             ]);
             expect(
-                createApi(items, visibleElementsWithSeparators).getNextItem()
+                autoScrollApi(
+                    items,
+                    visibleElementsWithSeparators
+                ).getNextItem()
             ).toEqual(nodes[1]);
         });
 
@@ -407,7 +433,10 @@ describe('createApi', () => {
             const { items, visibleElementsWithSeparators } = setup([0, 0.1]);
 
             expect(
-                createApi(items, visibleElementsWithSeparators).getNextItem()
+                autoScrollApi(
+                    items,
+                    visibleElementsWithSeparators
+                ).getNextItem()
             ).toEqual(undefined);
         });
     });
@@ -418,7 +447,10 @@ describe('createApi', () => {
                 0, 0.1, 1, 1.1, 2,
             ]);
             expect(
-                createApi(items, visibleElementsWithSeparators).getNextElement()
+                autoScrollApi(
+                    items,
+                    visibleElementsWithSeparators
+                ).getNextElement()
             ).toEqual(nodes[0]);
         });
 
@@ -426,7 +458,10 @@ describe('createApi', () => {
             const { items, visibleElementsWithSeparators } = setup([0, 0.1]);
 
             expect(
-                createApi(items, visibleElementsWithSeparators).getNextElement()
+                autoScrollApi(
+                    items,
+                    visibleElementsWithSeparators
+                ).getNextElement()
             ).toEqual(undefined);
         });
     });
@@ -437,10 +472,12 @@ describe('createApi', () => {
                 0.1, 1, 0.9,
             ]);
             expect(
-                createApi(items, visibleElementsWithSeparators).isLastItem('2')
+                autoScrollApi(items, visibleElementsWithSeparators).isLastItem(
+                    '2'
+                )
             ).toEqual(true);
             expect(
-                createApi(items, visibleElementsWithSeparators).isLastItem(
+                autoScrollApi(items, visibleElementsWithSeparators).isLastItem(
                     2 as unknown as string
                 )
             ).toEqual(true);
@@ -452,7 +489,7 @@ describe('createApi', () => {
             ]);
 
             expect(
-                createApi(items, visibleElementsWithSeparators).isLastItem(
+                autoScrollApi(items, visibleElementsWithSeparators).isLastItem(
                     'test1'
                 )
             ).toEqual(false);
@@ -466,7 +503,7 @@ describe('createApi', () => {
             ]);
 
             const boundary = { current: document.createElement('li') };
-            createApi(
+            autoScrollApi(
                 items,
                 visibleElementsWithSeparators,
                 boundary
@@ -490,7 +527,7 @@ describe('createApi', () => {
         test('no prev item', () => {
             const { items, visibleElementsWithSeparators } = setup([0, 1]);
 
-            createApi(items, visibleElementsWithSeparators).scrollPrev();
+            autoScrollApi(items, visibleElementsWithSeparators).scrollPrev();
 
             expect(scrollIntoView).not.toHaveBeenCalled();
         });
@@ -502,7 +539,7 @@ describe('createApi', () => {
             const scrollToItemSpy = jest.spyOn(utilities, 'scrollToItem');
 
             const rtl = true;
-            const api = createApi(
+            const api = autoScrollApi(
                 items,
                 visibleElementsWithSeparators,
                 undefined,
@@ -520,7 +557,7 @@ describe('createApi', () => {
             const scrollToItemSpy = jest.spyOn(utilities, 'scrollToItem');
 
             const noPolyfill = true;
-            const api = createApi(
+            const api = autoScrollApi(
                 items,
                 visibleElementsWithSeparators,
                 undefined,
@@ -545,7 +582,7 @@ describe('createApi', () => {
                 ease: (t: number) => t,
                 behavior: () => false,
             };
-            createApi(
+            autoScrollApi(
                 items,
                 visibleElementsWithSeparators,
                 boundary,
@@ -578,7 +615,7 @@ describe('createApi', () => {
                 ease: (t: number) => t,
                 behavior: () => false,
             };
-            createApi(
+            autoScrollApi(
                 items,
                 visibleElementsWithSeparators,
                 boundary,
@@ -608,7 +645,7 @@ describe('createApi', () => {
             ]);
 
             const boundary = { current: document.createElement('li') };
-            createApi(
+            autoScrollApi(
                 items,
                 visibleElementsWithSeparators,
                 boundary
@@ -632,7 +669,7 @@ describe('createApi', () => {
         test('no next item', () => {
             const { items, visibleElementsWithSeparators } = setup([0, 0.1]);
 
-            createApi(items, visibleElementsWithSeparators).scrollNext();
+            autoScrollApi(items, visibleElementsWithSeparators).scrollNext();
 
             expect(scrollIntoView).not.toHaveBeenCalled();
         });
@@ -642,7 +679,7 @@ describe('createApi', () => {
             const scrollToItemSpy = jest.spyOn(utilities, 'scrollToItem');
 
             const rtl = true;
-            const api = createApi(
+            const api = autoScrollApi(
                 items,
                 visibleElementsWithSeparators,
                 undefined,
@@ -660,7 +697,7 @@ describe('createApi', () => {
             const scrollToItemSpy = jest.spyOn(utilities, 'scrollToItem');
 
             const noPolyfill = true;
-            const api = createApi(
+            const api = autoScrollApi(
                 items,
                 visibleElementsWithSeparators,
                 undefined,
@@ -685,7 +722,7 @@ describe('createApi', () => {
                 ease: (t: number) => t,
                 behavior: () => false,
             };
-            createApi(
+            autoScrollApi(
                 items,
                 visibleElementsWithSeparators,
                 boundary,
@@ -718,7 +755,7 @@ describe('createApi', () => {
                 ease: (t: number) => t,
                 behavior: () => false,
             };
-            createApi(
+            autoScrollApi(
                 items,
                 visibleElementsWithSeparators,
                 boundary,

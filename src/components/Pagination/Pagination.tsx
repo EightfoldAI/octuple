@@ -154,8 +154,10 @@ export const Pagination: FC<PaginationProps> = React.forwardRef(
         }, [currentPage]);
 
         useEffect((): void => {
-            setPageCount(pageCount);
-        }, [pageCount]);
+            if (loop) {
+                setPageCount(pageCount);
+            }
+        }, [loop, pageCount]);
 
         const previous = (): void => {
             const oldVal: number = _currentPage;

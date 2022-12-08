@@ -9,7 +9,7 @@ import {
     ScrollMenuProps,
     separatorClassName,
 } from '../Carousel.types';
-import { publicApiType } from '../createApi';
+import { autoScrollApiType } from '../autoScrollApi';
 import { useIntersectionObserver } from '../Hooks/useIntersectionObserver';
 import { act, fireEvent, render } from '@testing-library/react';
 
@@ -25,7 +25,7 @@ const defaultItems = ['test1', 'test2'];
 // eslint-disable-next-line radar/no-duplicate-string
 const defaultItemsWithSeparators = ['test1', 'item1-separator', 'test2'];
 const scrollContainerClassNames = 'scroll-class';
-const getContext = (context: publicApiType) => {
+const getContext = (context: autoScrollApiType) => {
     const { items: _1, scrollContainer: _2, ...rest } = context;
     return rest;
 };
@@ -195,7 +195,7 @@ describe('ScrollMenu', () => {
             });
             const apiRef = {
                 current: {},
-            } as React.MutableRefObject<publicApiType>;
+            } as React.MutableRefObject<autoScrollApiType>;
 
             const { container } = setup({ apiRef });
 
@@ -475,7 +475,7 @@ describe('ScrollMenu', () => {
     });
 });
 
-function comparePublicApi(call: publicApiType) {
+function comparePublicApi(call: autoScrollApiType) {
     const {
         getItemById,
         getItemByIndex,

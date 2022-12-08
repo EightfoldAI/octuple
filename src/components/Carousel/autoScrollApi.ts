@@ -13,7 +13,7 @@ import type {
     visibleElements,
 } from './Carousel.types';
 
-export const createApi = (
+export const autoScrollApi = (
     items: ItemsMap,
     visibleElementsWithSeparators: visibleElements = [],
     boundaryElement?: React.MutableRefObject<HTMLElement | null>,
@@ -135,14 +135,21 @@ export const createApi = (
             block?: ScrollLogicalPosition,
             options?: scrollToItemOptions
         ) => {
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
-            const _behavior: any = behavior ?? transitionOptions?.behavior;
-            return scrollToItem(target, _behavior, inline, block, {
-                boundary: boundaryElement?.current,
-                ...options,
-                duration: options?.duration ?? transitionOptions?.duration,
-                ease: options?.ease ?? transitionOptions?.ease,
-            });
+            const _behavior: string | Function =
+                behavior ?? transitionOptions?.behavior;
+
+            return scrollToItem(
+                target,
+                _behavior as ScrollBehavior | CustomScrollBehavior<T>,
+                inline,
+                block,
+                {
+                    boundary: boundaryElement?.current,
+                    ...options,
+                    duration: options?.duration ?? transitionOptions?.duration,
+                    ease: options?.ease ?? transitionOptions?.ease,
+                }
+            );
         },
         visibleElements,
         visibleElementsWithSeparators,
@@ -152,7 +159,7 @@ export const createApi = (
     };
 };
 
-export interface publicApiType extends ReturnType<typeof createApi> {
+export interface autoScrollApiType extends ReturnType<typeof autoScrollApi> {
     initComplete: boolean;
     items: ItemsMap;
     scrollContainer: React.RefObject<HTMLElement | null>;

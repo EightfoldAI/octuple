@@ -16,7 +16,7 @@ import {
 import type { Refs } from '../Carousel.types';
 import { ScrollContainer } from '../ScrollContainer';
 import { MenuItems } from '../MenuItems';
-import { createApi, publicApiType } from '../createApi';
+import { autoScrollApi, autoScrollApiType } from '../autoScrollApi';
 import ItemsMap from '../ItemsMap';
 import { observerOptions as defaultObserverOptions } from '../Settings';
 import { useIntersectionObserver } from '../Hooks/useIntersectionObserver';
@@ -31,7 +31,7 @@ import styles from '../carousel.module.scss';
 export const ScrollMenu: FC<ScrollMenuProps> = forwardRef(
     (props: ScrollMenuProps, ref: Ref<HTMLDivElement>) => {
         const {
-            apiRef = { current: {} as publicApiType },
+            apiRef = { current: {} as autoScrollApiType },
             children,
             gap = 8,
             itemClassNames,
@@ -87,7 +87,7 @@ export const ScrollMenu: FC<ScrollMenuProps> = forwardRef(
 
         const api = useMemo(
             () =>
-                createApi(
+                autoScrollApi(
                     items,
                     visibleElementsWithSeparators,
                     scrollContainerRef,
@@ -125,7 +125,7 @@ export const ScrollMenu: FC<ScrollMenuProps> = forwardRef(
             ]
         );
 
-        const [context, setContext] = useState<publicApiType>(getContext);
+        const [context, setContext] = useState<autoScrollApiType>(getContext);
 
         const onInitCallbackTriggered = useOnInitCallback({
             callback: () => onInit(context),

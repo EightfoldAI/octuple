@@ -8,7 +8,7 @@ import React, {
 import type { CustomEasing } from 'smooth-scroll-into-view-if-needed';
 import type { CustomScrollBehaviorCallback } from 'scroll-into-view-if-needed/typings/types';
 import { observerOptions as defaultObserverOptions } from './Settings';
-import { publicApiType } from './createApi';
+import { autoScrollApiType } from './autoScrollApi';
 import { OcBaseProps } from '../OcBase';
 import { PaginationLocale } from '../Pagination';
 
@@ -49,8 +49,8 @@ export interface ContextProps {
 export const CarouselContext: React.Context<ContextProps> = createContext(
     {} as ContextProps
 );
-export const VisibilityContext: React.Context<publicApiType> =
-    React.createContext<publicApiType>({} as publicApiType);
+export const VisibilityContext: React.Context<autoScrollApiType> =
+    React.createContext<autoScrollApiType>({} as autoScrollApiType);
 
 export const dataKeyAttribute: string = 'data-key';
 export const dataIndexAttribute: string = 'data-index';
@@ -220,7 +220,7 @@ export interface ScrollMenuProps
      * Ref object for access VisibilityContextApi outside of context
      * e.g. apiRef.current.scrollToItem(...)
      */
-    apiRef?: React.MutableRefObject<publicApiType>;
+    apiRef?: React.MutableRefObject<autoScrollApiType>;
     /**
      * The child renderer.
      * Every child should have a unique `itemId` prop.
@@ -245,31 +245,34 @@ export interface ScrollMenuProps
     /**
      * Callback fired on init.
      */
-    onInit?: (api: publicApiType) => void;
+    onInit?: (api: autoScrollApiType) => void;
     /**
      * Callback fired on mouse down.
      */
-    onMouseDown?: (arg0: publicApiType) => React.MouseEventHandler;
+    onMouseDown?: (arg0: autoScrollApiType) => React.MouseEventHandler;
     /**
      * Callback fired on mouse up.
      */
-    onMouseUp?: (arg0: publicApiType) => React.MouseEventHandler;
+    onMouseUp?: (arg0: autoScrollApiType) => React.MouseEventHandler;
     /**
      * Callback fired on mouse move.
      */
-    onMouseMove?: (arg0: publicApiType) => React.MouseEventHandler;
+    onMouseMove?: (arg0: autoScrollApiType) => React.MouseEventHandler;
     /**
      * Callback fired on scroll.
      */
-    onScroll?: (api: publicApiType, ev: React.UIEvent) => React.UIEventHandler;
+    onScroll?: (
+        api: autoScrollApiType,
+        ev: React.UIEvent
+    ) => React.UIEventHandler;
     /**
      * Callback fired when visibility of items change.
      */
-    onUpdate?: (api: publicApiType) => void;
+    onUpdate?: (api: autoScrollApiType) => void;
     /**
      * Handler on mouse wheel.
      */
-    onWheel?: (api: publicApiType, ev: React.WheelEvent) => void;
+    onWheel?: (api: autoScrollApiType, ev: React.WheelEvent) => void;
     /**
      * Options for intersection observer.
      */

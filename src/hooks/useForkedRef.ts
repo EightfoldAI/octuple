@@ -44,7 +44,6 @@ export function assignRef<RefValueType = any>(
     }
 }
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/ban-types
 export function isFunction(value: any): value is Function {
     return !!(value && {}.toString.call(value) == '[object Function]');
 }
