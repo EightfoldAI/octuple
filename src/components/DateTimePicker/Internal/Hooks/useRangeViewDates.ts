@@ -124,7 +124,11 @@ export default function useRangeViewDates<DateType>({
 
     function setViewDate(viewDate: DateType | null, index: 0 | 1) {
         if (viewDate) {
-            let newViewDates = updateValues(viewDates, viewDate, index);
+            let newViewDates: [DateType, DateType] = updateValues(
+                viewDates,
+                viewDate,
+                index
+            );
             // Set view date will clean up default one
             setDefaultViewDates(
                 // Should always be an array
@@ -132,7 +136,7 @@ export default function useRangeViewDates<DateType>({
             );
 
             // Reset another one when not have value
-            const anotherIndex = (index + 1) % 2;
+            const anotherIndex: number = (index + 1) % 2;
             if (!getValue(values, anotherIndex)) {
                 newViewDates = updateValues(
                     newViewDates,

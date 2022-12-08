@@ -219,7 +219,7 @@ function InnerPicker<DateType>(props: OcPickerProps<DateType>) {
         value: text,
         triggerOpen,
         forwardKeyDown,
-        isClickOutside: (target) =>
+        isClickOutside: (target: EventTarget): boolean =>
             !elementsContains(
                 [
                     partialDivRef.current,
@@ -228,7 +228,7 @@ function InnerPicker<DateType>(props: OcPickerProps<DateType>) {
                 ],
                 target as HTMLElement
             ),
-        onSubmit: () => {
+        onSubmit: (): boolean | void => {
             if (
                 // When user typing disabledDate with keyboard and enter, this value will be empty
                 !selectedValue ||
@@ -243,12 +243,15 @@ function InnerPicker<DateType>(props: OcPickerProps<DateType>) {
             resetText();
             return true;
         },
-        onCancel: () => {
+        onCancel: (): void => {
             triggerOpen(false);
             setSelectedValue(mergedValue);
             resetText();
         },
-        onKeyDown: (e, preventDefault) => {
+        onKeyDown: (
+            e: React.KeyboardEvent<HTMLInputElement>,
+            preventDefault: () => void
+        ): void => {
             onKeyDown?.(e, preventDefault);
         },
         onFocus,
@@ -349,7 +352,7 @@ function InnerPicker<DateType>(props: OcPickerProps<DateType>) {
         partialNode = partialRender(partialNode);
     }
 
-    const partial = (
+    const partial: JSX.Element = (
         <div
             className={styles.pickerPartialContainer}
             onMouseDown={(e) => {
@@ -370,11 +373,15 @@ function InnerPicker<DateType>(props: OcPickerProps<DateType>) {
         clearNode = (
             <span
                 aria-label={clearIconAriaLabelText}
-                onMouseDown={(e) => {
+                onMouseDown={(
+                    e: React.MouseEvent<HTMLSpanElement, MouseEvent>
+                ) => {
                     e.preventDefault();
                     e.stopPropagation();
                 }}
-                onMouseUp={(e) => {
+                onMouseUp={(
+                    e: React.MouseEvent<HTMLSpanElement, MouseEvent>
+                ) => {
                     e.preventDefault();
                     e.stopPropagation();
                     triggerChange(null);
@@ -488,15 +495,16 @@ function InnerPicker<DateType>(props: OcPickerProps<DateType>) {
 
 // Wrap with class component to enable pass generic with instance method
 class OcPicker<DateType> extends React.Component<OcPickerProps<DateType>> {
-    pickerRef = React.createRef<OcPickerRefConfig>();
+    pickerRef: React.RefObject<OcPickerRefConfig> =
+        React.createRef<OcPickerRefConfig>();
 
-    focus = () => {
+    focus = (): void => {
         if (this.pickerRef.current) {
             this.pickerRef.current.focus();
         }
     };
 
-    blur = () => {
+    blur = (): void => {
         if (this.pickerRef.current) {
             this.pickerRef.current.blur();
         }

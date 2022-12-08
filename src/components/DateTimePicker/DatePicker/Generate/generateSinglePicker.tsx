@@ -96,7 +96,8 @@ export default function generatePicker<DateType>(
                 Breakpoints.XSmall
             );
             const htmlDir: string = useCanvasDirection();
-            const innerRef = React.useRef<OcPicker<DateType>>(null);
+            const innerRef: React.MutableRefObject<OcPicker<DateType>> =
+                React.useRef<OcPicker<DateType>>(null);
             const { format, showTime } = props as any;
 
             useImperativeHandle(ref, () => ({

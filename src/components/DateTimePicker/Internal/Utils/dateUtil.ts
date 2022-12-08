@@ -30,8 +30,8 @@ export function isSameDecade<DateType>(
         return equal;
     }
 
-    const num1 = Math.floor(generateConfig.getYear(decade1!) / 10);
-    const num2 = Math.floor(generateConfig.getYear(decade2!) / 10);
+    const num1: number = Math.floor(generateConfig.getYear(decade1!) / 10);
+    const num2: number = Math.floor(generateConfig.getYear(decade2!) / 10);
     return num1 === num2;
 }
 
@@ -271,7 +271,7 @@ export function getCellDateDisabled<DateType>({
         start: number,
         end: number
     ) => {
-        let current = start;
+        let current: number = start;
         while (current <= end) {
             let date: DateType;
             switch (currentMode) {

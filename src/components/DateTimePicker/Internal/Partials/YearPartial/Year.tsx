@@ -12,25 +12,25 @@ import styles from '../../ocpicker.module.scss';
 
 function YearPartial<DateType>(props: YearPartialProps<DateType>) {
     const {
-        operationRef,
-        onViewDateChange,
         generateConfig,
+        onPartialChange,
+        onSelect,
+        onViewDateChange,
+        operationRef,
+        sourceMode,
         value,
         viewDate,
-        sourceMode,
-        onSelect,
-        onPartialChange,
     } = props;
     operationRef.current = {
-        onKeyDown: (event: React.KeyboardEvent<HTMLElement>) =>
+        onKeyDown: (event: React.KeyboardEvent<HTMLElement>): boolean =>
             createKeyDownHandler(event, {
-                onLeftRight: (diff) => {
+                onLeftRight: (diff: number): void => {
                     onSelect(
                         generateConfig.addYear(value || viewDate, diff),
                         'key'
                     );
                 },
-                onCtrlLeftRight: (diff) => {
+                onCtrlLeftRight: (diff: number): void => {
                     onSelect(
                         generateConfig.addYear(
                             value || viewDate,
@@ -39,7 +39,7 @@ function YearPartial<DateType>(props: YearPartialProps<DateType>) {
                         'key'
                     );
                 },
-                onUpDown: (diff) => {
+                onUpDown: (diff: number): void => {
                     onSelect(
                         generateConfig.addYear(
                             value || viewDate,
@@ -48,7 +48,7 @@ function YearPartial<DateType>(props: YearPartialProps<DateType>) {
                         'key'
                     );
                 },
-                onEnter: () => {
+                onEnter: (): void => {
                     onPartialChange(
                         sourceMode === 'date' ? 'date' : 'month',
                         value || viewDate
@@ -57,7 +57,7 @@ function YearPartial<DateType>(props: YearPartialProps<DateType>) {
             }),
     };
 
-    const onDecadeChange = (diff: number) => {
+    const onDecadeChange = (diff: number): void => {
         const newDate: DateType = generateConfig.addYear(viewDate, diff * 10);
         onViewDateChange(newDate);
         onPartialChange(null, newDate);
@@ -67,19 +67,19 @@ function YearPartial<DateType>(props: YearPartialProps<DateType>) {
         <div className={styles.pickerYearPartial}>
             <YearHeader
                 {...props}
-                onPrevDecade={() => {
+                onPrevDecade={(): void => {
                     onDecadeChange(-1);
                 }}
-                onNextDecade={() => {
+                onNextDecade={(): void => {
                     onDecadeChange(1);
                 }}
-                onDecadeClick={() => {
+                onDecadeClick={(): void => {
                     onPartialChange('decade', viewDate);
                 }}
             />
             <YearBody
                 {...props}
-                onSelect={(date: DateType) => {
+                onSelect={(date: DateType): void => {
                     onPartialChange(
                         sourceMode === 'date' ? 'date' : 'month',
                         date

@@ -1,16 +1,18 @@
 import React from 'react';
-import { DECADE_COL_COUNT, YearBodyProps } from './Decade.types';
+import {
+    DECADE_COL_COUNT,
+    DECADE_ROW_COUNT,
+    YearBodyProps,
+} from './Decade.types';
 import { DECADE_DISTANCE_COUNT, DECADE_UNIT_DIFF } from './Decade.types';
 import PartialBody from '../PartialBody';
 import { DatePickerSize } from '../../OcPicker.types';
 
 import styles from '../../ocpicker.module.scss';
 
-const DECADE_ROW_COUNT: number = 4;
-
 function DecadeBody<DateType>(props: YearBodyProps<DateType>) {
     const DECADE_UNIT_DIFF_DES: number = DECADE_UNIT_DIFF - 1;
-    const { viewDate, generateConfig, size = DatePickerSize.Medium } = props;
+    const { generateConfig, size = DatePickerSize.Medium, viewDate } = props;
 
     const yearNumber: number = generateConfig.getYear(viewDate);
     const decadeYearNumber: number =
@@ -31,8 +33,9 @@ function DecadeBody<DateType>(props: YearBodyProps<DateType>) {
     );
 
     const getCellClassNames = (date: DateType) => {
-        const startDecadeNumber = generateConfig.getYear(date);
-        const endDecadeNumber = startDecadeNumber + DECADE_UNIT_DIFF_DES;
+        const startDecadeNumber: number = generateConfig.getYear(date);
+        const endDecadeNumber: number =
+            startDecadeNumber + DECADE_UNIT_DIFF_DES;
 
         return {
             [styles.pickerCellInView]:
@@ -48,14 +51,14 @@ function DecadeBody<DateType>(props: YearBodyProps<DateType>) {
             rowNum={DECADE_ROW_COUNT}
             colNum={DECADE_COL_COUNT}
             baseDate={baseDecadeYear}
-            getCellText={(date: DateType) => {
+            getCellText={(date: DateType): React.ReactNode => {
                 const startDecadeNumber: number = generateConfig.getYear(date);
                 return `${startDecadeNumber}-${
                     startDecadeNumber + DECADE_UNIT_DIFF_DES
                 }`;
             }}
             getCellClassNames={getCellClassNames}
-            getCellDate={(date: DateType, offset: number) =>
+            getCellDate={(date: DateType, offset: number): DateType =>
                 generateConfig.addYear(date, offset * DECADE_UNIT_DIFF)
             }
             size={size}

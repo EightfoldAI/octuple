@@ -1,10 +1,4 @@
-import React, {
-    forwardRef,
-    useEffect,
-    useLayoutEffect,
-    useRef,
-    useState,
-} from 'react';
+import React, { forwardRef, useLayoutEffect, useRef, useState } from 'react';
 import Align from '../../Align/Align';
 import type { RefAlign } from '../../Align/Align';
 import { PopupInnerProps, PopupInnerRef } from './Popup.types';
@@ -173,20 +167,6 @@ const PopupInner = forwardRef<PopupInnerRef, PopupInnerProps>((props, ref) => {
         childNode = <div className={'trigger-popup-content'}>{children}</div>;
     }
 
-    const [_visible, setVisible] = useState<boolean>(false);
-
-    // TODO: Remove in future change.
-    // This is a temporary workaround to ensure the out transition works.
-    useEffect(() => {
-        if (visible) {
-            setVisible(true);
-        } else {
-            setTimeout(() => {
-                setVisible(false);
-            }, 400);
-        }
-    }, [visible]);
-
     return (
         <CSSMotion
             visible={visible}
@@ -202,10 +182,9 @@ const PopupInner = forwardRef<PopupInnerRef, PopupInnerProps>((props, ref) => {
                 { classNames: motionClassNames, style: motionStyle },
                 motionRef
             ) => {
-                const mergedClassNames = mergeClasses([
+                const mergedClassNames: string = mergeClasses([
                     styles.triggerPopup,
                     { ['trigger-popup-hidden']: !visible }, // TODO: Remove - This is a stub to ensure UTs pass based on props
-                    { [styles.triggerPopupHidden]: !_visible }, // Temporary workaround to ensure the out transition works
                     motion?.motionName,
                     classNames,
                     alignedClassNames,

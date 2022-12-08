@@ -1,4 +1,4 @@
-import dayjs from 'dayjs';
+import dayjs, { Dayjs } from 'dayjs';
 import { eventKeys } from '../../../../shared/utilities';
 import { requestAnimationFrameWrapper } from '../../../../shared/utilities';
 import { isVisible } from '../../../../shared/utilities';
@@ -162,9 +162,12 @@ export function getDefaultFormat<DateType>(
     showTime: boolean | object | undefined,
     use12Hours: boolean | undefined
 ) {
-    let mergedFormat = format;
+    let mergedFormat:
+        | string
+        | CustomFormat<DateType>
+        | (string | CustomFormat<DateType>)[] = format;
 
-    const weekStartEndFormat: DatePickerProps['format'] = (value) =>
+    const weekStartEndFormat: DatePickerProps['format'] = (value: Dayjs) =>
         `${dayjs(value).startOf('week').format('YYYY-MM-DD')} to ${dayjs(value)
             .endOf('week')
             .format('YYYY-MM-DD')}`;
@@ -205,8 +208,8 @@ export function getInputSize<DateType>(
     format: string | CustomFormat<DateType>,
     generateConfig: GenerateConfig<DateType>
 ) {
-    const defaultSize = picker === 'time' ? 8 : 10;
-    const length =
+    const defaultSize: 8 | 10 = picker === 'time' ? 8 : 10;
+    const length: number =
         typeof format === 'function'
             ? format(generateConfig.getNow()).length
             : format.length;
@@ -215,7 +218,7 @@ export function getInputSize<DateType>(
 
 type ClickEventHandler = (event: MouseEvent) => void;
 let globalClickFunc: ClickEventHandler | null = null;
-const clickCallbacks = new Set<ClickEventHandler>();
+const clickCallbacks: Set<ClickEventHandler> = new Set<ClickEventHandler>();
 
 export function addGlobalMouseDownEvent(callback: ClickEventHandler) {
     if (

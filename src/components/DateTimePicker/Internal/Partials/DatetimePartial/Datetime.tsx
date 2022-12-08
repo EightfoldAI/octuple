@@ -6,24 +6,29 @@ import DatePartial from '../DatePartial/Date';
 import TimePartial from '../TimePartial/Time';
 import { tuple } from '../../Utils/miscUtil';
 import { setDateTime as setTime } from '../../Utils/timeUtil';
-import type { PartialRefProps } from '../../OcPicker.types';
+import type {
+    DatePickerShape,
+    DisabledTimes,
+    PartialRefProps,
+} from '../../OcPicker.types';
 import { DatePickerSize } from '../../OcPicker.types';
+import { Shape, Size } from '../../../../ConfigProvider';
 
 import styles from '../../ocpicker.module.scss';
 
-const ACTIVE_PARTIAL = tuple('date', 'time');
+const ACTIVE_PARTIAL: ['date', 'time'] = tuple('date', 'time');
 type ActivePartialType = typeof ACTIVE_PARTIAL[number];
 
 function DatetimePartial<DateType>(props: DatetimePartialProps<DateType>) {
     const {
-        operationRef,
-        generateConfig,
-        value,
         defaultValue,
         disabledTime,
-        showTime,
+        generateConfig,
         onSelect,
+        operationRef,
+        showTime,
         size = DatePickerSize.Medium,
+        value,
     } = props;
     const [activePartial, setActivePartial] =
         React.useState<ActivePartialType | null>(null);
@@ -33,26 +38,43 @@ function DatetimePartial<DateType>(props: DatetimePartialProps<DateType>) {
     const timeOperationRef: React.MutableRefObject<PartialRefProps> =
         React.useRef<PartialRefProps>({});
 
-    const timeProps = typeof showTime === 'object' ? { ...showTime } : {};
+    const timeProps: {
+        format?: string;
+        showNow?: boolean;
+        showHour?: boolean;
+        showMinute?: boolean;
+        showSecond?: boolean;
+        use12Hours?: boolean;
+        hourStep?: number;
+        minuteStep?: number;
+        secondStep?: number;
+        hideDisabledOptions?: boolean;
+        defaultValue?: DateType;
+        disabledTime?: (date: DateType) => DisabledTimes;
+        shape?: DatePickerShape | Shape;
+        size?: DatePickerSize | Size;
+    } = typeof showTime === 'object' ? { ...showTime } : {};
 
-    function getNextActive(offset: number) {
-        const activeIndex = ACTIVE_PARTIAL.indexOf(activePartial!) + offset;
-        const nextActivePartial = ACTIVE_PARTIAL[activeIndex] || null;
+    const getNextActive = (offset: number): 'time' | 'date' => {
+        const activeIndex: number =
+            ACTIVE_PARTIAL.indexOf(activePartial!) + offset;
+        const nextActivePartial: 'date' | 'time' =
+            ACTIVE_PARTIAL[activeIndex] || null;
         return nextActivePartial;
-    }
+    };
 
-    const onBlur = (e?: React.FocusEvent<HTMLElement>) => {
+    const onBlur = (event?: React.FocusEvent<HTMLElement>): void => {
         if (timeOperationRef.current.onBlur) {
-            timeOperationRef.current.onBlur(e!);
+            timeOperationRef.current.onBlur(event!);
         }
         setActivePartial(null);
     };
 
     operationRef.current = {
-        onKeyDown: (event: React.KeyboardEvent<HTMLElement>) => {
+        onKeyDown: (event: React.KeyboardEvent<HTMLElement>): boolean => {
             // Switch active partial
             if (event.key === eventKeys.TAB) {
-                const nextActivePartial = getNextActive(
+                const nextActivePartial: 'date' | 'time' = getNextActive(
                     event.shiftKey ? -1 : 1
                 );
                 setActivePartial(nextActivePartial);
@@ -66,7 +88,7 @@ function DatetimePartial<DateType>(props: DatetimePartialProps<DateType>) {
 
             // Operate on current active partial
             if (activePartial) {
-                const ref =
+                const ref: React.MutableRefObject<PartialRefProps> =
                     activePartial === 'date'
                         ? dateOperationRef
                         : timeOperationRef;
@@ -97,8 +119,11 @@ function DatetimePartial<DateType>(props: DatetimePartialProps<DateType>) {
         onClose: onBlur,
     };
 
-    const onInternalSelect = (date: DateType, source: 'date' | 'time') => {
-        let selectedDate = date;
+    const onInternalSelect = (
+        date: DateType,
+        source: 'date' | 'time'
+    ): void => {
+        let selectedDate: DateType = date;
 
         if (source === 'date' && !value && timeProps.defaultValue) {
             // Date with time defaultValue
@@ -134,7 +159,9 @@ function DatetimePartial<DateType>(props: DatetimePartialProps<DateType>) {
         }
     };
 
-    const disabledTimes = disabledTime ? disabledTime(value || null) : {};
+    const disabledTimes: DisabledTimes = disabledTime
+        ? disabledTime(value || null)
+        : {};
 
     return (
         <div
@@ -149,7 +176,7 @@ function DatetimePartial<DateType>(props: DatetimePartialProps<DateType>) {
                 {...props}
                 operationRef={dateOperationRef}
                 active={activePartial === 'date'}
-                onSelect={(date) => {
+                onSelect={(date: DateType): void => {
                     onInternalSelect(
                         setTime(
                             generateConfig,
@@ -172,7 +199,7 @@ function DatetimePartial<DateType>(props: DatetimePartialProps<DateType>) {
                 defaultValue={undefined}
                 operationRef={timeOperationRef}
                 active={activePartial === 'time'}
-                onSelect={(date: DateType) => {
+                onSelect={(date: DateType): void => {
                     onInternalSelect(date, 'time');
                 }}
                 size={size}

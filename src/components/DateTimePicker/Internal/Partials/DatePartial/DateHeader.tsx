@@ -11,14 +11,14 @@ function DateHeader<DateType>(props: DateHeaderProps<DateType>) {
     const {
         generateConfig,
         locale,
-        viewDate,
+        onMonthClick,
         onNextMonth,
-        onPrevMonth,
         onNextYear,
+        onPrevMonth,
         onPrevYear,
         onYearClick,
-        onMonthClick,
         size = DatePickerSize.Medium,
+        viewDate,
     } = props;
     const { hideHeader } = React.useContext(PartialContext);
 
@@ -32,7 +32,7 @@ function DateHeader<DateType>(props: DateHeaderProps<DateType>) {
             ? generateConfig.locale.getShortMonths(locale.locale)
             : []);
 
-    const month = generateConfig.getMonth(viewDate);
+    const month: number = generateConfig.getMonth(viewDate);
 
     const datePickerSizeToButtonSizeMap = new Map<
         DatePickerSize | Size,

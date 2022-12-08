@@ -76,7 +76,8 @@ export default function generateRangePicker<DateType>(
         const mediumScreenActive: boolean = useMatchMedia(Breakpoints.Medium);
         const smallScreenActive: boolean = useMatchMedia(Breakpoints.Small);
         const xSmallScreenActive: boolean = useMatchMedia(Breakpoints.XSmall);
-        const innerRef = React.useRef<OcRangePicker<DateType>>(null);
+        const innerRef: React.MutableRefObject<OcRangePicker<DateType>> =
+            React.useRef<OcRangePicker<DateType>>(null);
         const htmlDir: string = useCanvasDirection();
         const { format, showTime, picker } = props as any;
 
