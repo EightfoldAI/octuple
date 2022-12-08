@@ -37,7 +37,7 @@ export default function useCellClassNames<DateType>({
         const hoverStart: DateType = getValue(hoverRangedValue, 0);
         const hoverEnd: DateType = getValue(hoverRangedValue, 1);
 
-        const isRangeHovered = isInRange(
+        const isRangeHovered: boolean = isInRange(
             generateConfig,
             hoverStart,
             hoverEnd,
@@ -53,10 +53,10 @@ export default function useCellClassNames<DateType>({
         const isHoverStart: boolean = isSameCell(hoverStart, currentDate);
         const isHoverEnd: boolean = isSameCell(hoverEnd, currentDate);
 
-        const isHoverEdgeStart =
+        const isHoverEdgeStart: boolean =
             (isRangeHovered || isHoverEnd) &&
             (!isInView(prevDate) || isRangeEnd(prevDate));
-        const isHoverEdgeEnd =
+        const isHoverEdgeEnd: boolean =
             (isRangeHovered || isHoverStart) &&
             (!isInView(nextDate) || isRangeStart(nextDate));
 

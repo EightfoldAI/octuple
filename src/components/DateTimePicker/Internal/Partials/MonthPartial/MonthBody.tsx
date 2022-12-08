@@ -4,18 +4,18 @@ import { formatValue, isSameMonth } from '../../Utils/dateUtil';
 import RangeContext from '../../RangeContext';
 import useCellClassNames from '../../Hooks/useCellClassNames';
 import PartialBody from '../PartialBody';
-import { DatePickerSize } from '../../OcPicker.types';
+import { DatePickerSize, NullableDateType } from '../../OcPicker.types';
 
 const MONTH_ROW_COUNT: number = 4;
 
 function MonthBody<DateType>(props: MonthBodyProps<DateType>) {
     const {
-        locale,
-        value,
-        viewDate,
         generateConfig,
+        locale,
         monthCellRender,
         size = DatePickerSize.Medium,
+        value,
+        viewDate,
     } = props;
 
     const { rangedValue, hoverRangedValue } = React.useContext(RangeContext);
@@ -25,10 +25,13 @@ function MonthBody<DateType>(props: MonthBodyProps<DateType>) {
         generateConfig,
         rangedValue,
         hoverRangedValue,
-        isSameCell: (current, target) =>
-            isSameMonth(generateConfig, current, target),
-        isInView: () => true,
-        offsetCell: (date, offset) => generateConfig.addMonth(date, offset),
+        isSameCell: (
+            current: NullableDateType<DateType>,
+            target: NullableDateType<DateType>
+        ): boolean => isSameMonth(generateConfig, current, target),
+        isInView: (): boolean => true,
+        offsetCell: (date: DateType, offset: number): DateType =>
+            generateConfig.addMonth(date, offset),
     });
 
     const monthsLocale: string[] =
@@ -37,9 +40,9 @@ function MonthBody<DateType>(props: MonthBodyProps<DateType>) {
             ? generateConfig.locale.getShortMonths(locale.locale)
             : []);
 
-    const baseMonth = generateConfig.setMonth(viewDate, 0);
+    const baseMonth: DateType = generateConfig.setMonth(viewDate, 0);
 
-    const getCellNode = monthCellRender
+    const getCellNode: (date: DateType) => React.ReactNode = monthCellRender
         ? (date: DateType) => monthCellRender(date, locale)
         : undefined;
 
@@ -50,7 +53,7 @@ function MonthBody<DateType>(props: MonthBodyProps<DateType>) {
             colNum={MONTH_COL_COUNT}
             baseDate={baseMonth}
             getCellNode={getCellNode}
-            getCellText={(date: DateType) =>
+            getCellText={(date: DateType): React.ReactNode =>
                 locale.monthFormat
                     ? formatValue(date, {
                           locale,
@@ -61,7 +64,7 @@ function MonthBody<DateType>(props: MonthBodyProps<DateType>) {
             }
             getCellClassNames={getCellClassNames}
             getCellDate={generateConfig.addMonth}
-            titleCell={(date: DateType) =>
+            titleCell={(date: DateType): string =>
                 formatValue(date, {
                     locale,
                     format: 'YYYY-MM',

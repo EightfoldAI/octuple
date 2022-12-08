@@ -13,7 +13,7 @@ import styles from '../../ocpicker.module.scss';
 const shouldUnitsUpdate = (prevUnits: Unit[], nextUnits: Unit[]): boolean => {
     if (prevUnits.length !== nextUnits.length) return true;
     // if any unit's disabled status is different, the units should be re-evaluted
-    for (let i = 0; i < prevUnits.length; i += 1) {
+    for (let i: number = 0; i < prevUnits.length; i += 1) {
         if (prevUnits[i].disabled !== nextUnits[i].disabled) return true;
     }
     return false;
@@ -38,21 +38,21 @@ const generateUnits = (
 
 function TimeBody<DateType>(props: TimeBodyProps<DateType>) {
     const {
-        generateConfig,
-        operationRef,
         activeColumnIndex,
-        value,
+        disabledTime,
+        generateConfig,
+        hideDisabledOptions,
+        hourStep = 1,
+        minuteStep = 1,
+        onSelect,
+        operationRef,
+        secondStep = 1,
         showHour,
         showMinute,
         showSecond,
-        use12Hours,
-        hourStep = 1,
-        minuteStep = 1,
-        secondStep = 1,
-        disabledTime,
-        hideDisabledOptions,
-        onSelect,
         size = DatePickerSize.Medium,
+        use12Hours,
+        value,
     } = props;
 
     const columns: {
@@ -172,8 +172,13 @@ function TimeBody<DateType>(props: TimeBodyProps<DateType>) {
     );
 
     operationRef.current = {
-        onUpDown: (diff: number) => {
-            const column = columns[activeColumnIndex];
+        onUpDown: (diff: number): void => {
+            const column: {
+                node: React.ReactElement;
+                value: number;
+                units: Unit[];
+                onSelect: (diff: number) => void;
+            } = columns[activeColumnIndex];
             if (column) {
                 const valueIndex: number = column.units.findIndex(
                     (unit) => unit.value === column.value
@@ -201,7 +206,7 @@ function TimeBody<DateType>(props: TimeBodyProps<DateType>) {
         columnValue: number,
         units: Unit[],
         onColumnSelect: (diff: number) => void
-    ) {
+    ): void {
         if (condition !== false) {
             columns.push({
                 node: React.cloneElement(node, {
@@ -224,7 +229,7 @@ function TimeBody<DateType>(props: TimeBodyProps<DateType>) {
         <TimeUnitColumn key="hour" size={size} />,
         hour,
         hours,
-        (num) => {
+        (num: number): void => {
             onSelect(setTime(isPM, num, minute, second), 'mouse');
         }
     );
@@ -235,7 +240,7 @@ function TimeBody<DateType>(props: TimeBodyProps<DateType>) {
         <TimeUnitColumn key="minute" size={size} />,
         minute,
         minutes,
-        (num) => {
+        (num: number): void => {
             onSelect(setTime(isPM, hour, num, second), 'mouse');
         }
     );
@@ -246,7 +251,7 @@ function TimeBody<DateType>(props: TimeBodyProps<DateType>) {
         <TimeUnitColumn key="second" size={size} />,
         second,
         seconds,
-        (num) => {
+        (num: number): void => {
             onSelect(setTime(isPM, hour, minute, num), 'mouse');
         }
     );
@@ -265,7 +270,7 @@ function TimeBody<DateType>(props: TimeBodyProps<DateType>) {
             { label: 'AM', value: 0, disabled: AMDisabled },
             { label: 'PM', value: 1, disabled: PMDisabled },
         ],
-        (num) => {
+        (num: number): void => {
             onSelect(setTime(!!num, hour, minute, second), 'mouse');
         }
     );

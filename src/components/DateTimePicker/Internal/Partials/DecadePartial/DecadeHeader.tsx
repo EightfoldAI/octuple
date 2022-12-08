@@ -8,10 +8,10 @@ import { DatePickerSize } from '../../OcPicker.types';
 function DecadeHeader<DateType>(props: YearHeaderProps<DateType>) {
     const {
         generateConfig,
-        viewDate,
-        onPrevDecades,
         onNextDecades,
+        onPrevDecades,
         size = DatePickerSize.Medium,
+        viewDate,
     } = props;
     const { hideHeader } = React.useContext(PartialContext);
 

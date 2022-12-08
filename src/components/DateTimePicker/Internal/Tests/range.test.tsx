@@ -24,13 +24,13 @@ Object.assign(Enzyme.ReactWrapper.prototype, {
     confirmOK() {
         this.find('.picker-ok > *').simulate('click');
     },
+    isClosed() {
+        const closedDiv = this.find('.slide-up-leave').hostNodes();
+        return closedDiv && closedDiv.length;
+    },
     isOpen() {
         const openDiv = this.find('.trigger-popup').hostNodes();
-        return (
-            openDiv &&
-            openDiv.length &&
-            !openDiv.hasClass('trigger-popup-hidden')
-        );
+        return openDiv && openDiv.length;
     },
     findCell(text: number | string, index: number = 0) {
         let matchCell;
@@ -455,7 +455,7 @@ describe('Picker.Range', () => {
 
             wrapper.openPicker();
             wrapper.clearValue();
-            expect(wrapper.isOpen()).toBeFalsy();
+            expect(wrapper.isClosed()).toBeTruthy();
             expect(onChange.mock.calls[0][1]).toEqual(['', '2000-11-11']);
         });
 
@@ -837,7 +837,7 @@ describe('Picker.Range', () => {
         expect(wrapper.isOpen()).toBeTruthy();
 
         wrapper.find('input').last().simulate('blur');
-        expect(wrapper.isOpen()).toBeFalsy();
+        expect(wrapper.isClosed()).toBeTruthy();
     });
 
     it('icon', () => {
@@ -995,7 +995,7 @@ describe('Picker.Range', () => {
         });
         wrapper.update();
 
-        expect(wrapper.isOpen()).toBeFalsy();
+        expect(wrapper.isClosed()).toBeTruthy();
         expect(wrapper.find('input').first().props().value).toEqual('');
 
         jest.useRealTimers();
@@ -1390,9 +1390,10 @@ describe('Picker.Range', () => {
             wrapper.closePicker(0);
             expect(wrapper.isOpen()).toBeTruthy();
 
+            wrapper.openPicker(1);
             wrapper.inputValue('1991-01-01');
             wrapper.closePicker(1);
-            expect(wrapper.isOpen()).toBeFalsy();
+            expect(wrapper.isClosed()).toBeTruthy();
         });
 
         describe('valued: start -> end -> close', () => {
@@ -1411,9 +1412,10 @@ describe('Picker.Range', () => {
                 wrapper.closePicker(0);
                 expect(wrapper.isOpen()).toBeTruthy();
 
+                wrapper.openPicker(1);
                 wrapper.inputValue('1990-12-23');
                 wrapper.closePicker(1);
-                expect(wrapper.isOpen()).toBeFalsy();
+                expect(wrapper.isClosed()).toBeTruthy();
             });
 
             it('new start is after end', () => {
@@ -1431,9 +1433,10 @@ describe('Picker.Range', () => {
                 wrapper.closePicker(0);
                 expect(wrapper.isOpen()).toBeTruthy();
 
+                wrapper.openPicker(1);
                 wrapper.inputValue('1989-01-25');
                 wrapper.closePicker(1);
-                expect(wrapper.isOpen()).toBeFalsy();
+                expect(wrapper.isClosed()).toBeTruthy();
             });
         });
 
@@ -1445,9 +1448,10 @@ describe('Picker.Range', () => {
             wrapper.closePicker(1);
             expect(wrapper.isOpen()).toBeTruthy();
 
+            wrapper.openPicker(0);
             wrapper.inputValue('1989-01-01');
             wrapper.closePicker(0);
-            expect(wrapper.isOpen()).toBeFalsy();
+            expect(wrapper.isClosed()).toBeTruthy();
         });
 
         describe('valued: end -> start -> close', () => {
@@ -1466,9 +1470,10 @@ describe('Picker.Range', () => {
                 wrapper.closePicker(1);
                 expect(wrapper.isOpen()).toBeTruthy();
 
+                wrapper.openPicker(0);
                 wrapper.inputValue('1989-01-01');
                 wrapper.closePicker(0);
-                expect(wrapper.isOpen()).toBeFalsy();
+                expect(wrapper.isClosed()).toBeTruthy();
             });
 
             it('new end is before start', () => {
@@ -1486,9 +1491,11 @@ describe('Picker.Range', () => {
                 wrapper.closePicker(1);
                 expect(wrapper.isOpen()).toBeTruthy();
 
+                wrapper.openPicker(0);
+                expect(wrapper.isOpen()).toBeTruthy();
                 wrapper.inputValue('1989-01-01');
                 wrapper.closePicker(0);
-                expect(wrapper.isOpen()).toBeFalsy();
+                expect(wrapper.isClosed()).toBeTruthy();
             });
         });
 
@@ -1503,7 +1510,7 @@ describe('Picker.Range', () => {
             );
             wrapper.openPicker(0);
             wrapper.closePicker(0);
-            expect(wrapper.isOpen()).toBeFalsy();
+            expect(wrapper.isClosed()).toBeTruthy();
         });
     });
 

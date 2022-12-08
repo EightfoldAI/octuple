@@ -14,19 +14,19 @@ import styles from '../../ocpicker.module.scss';
 
 function DecadePartial<DateType>(props: DecadePartialProps<DateType>) {
     const {
-        onViewDateChange,
         generateConfig,
-        viewDate,
-        operationRef,
-        onSelect,
         onPartialChange,
+        onSelect,
+        onViewDateChange,
+        operationRef,
         size = DatePickerSize.Medium,
+        viewDate,
     } = props;
 
     operationRef.current = {
-        onKeyDown: (event: React.KeyboardEvent<HTMLElement>) =>
+        onKeyDown: (event: React.KeyboardEvent<HTMLElement>): boolean =>
             createKeyDownHandler(event, {
-                onLeftRight: (diff) => {
+                onLeftRight: (diff: number): void => {
                     onSelect(
                         generateConfig.addYear(
                             viewDate,
@@ -35,7 +35,7 @@ function DecadePartial<DateType>(props: DecadePartialProps<DateType>) {
                         'key'
                     );
                 },
-                onCtrlLeftRight: (diff) => {
+                onCtrlLeftRight: (diff: number): void => {
                     onSelect(
                         generateConfig.addYear(
                             viewDate,
@@ -44,7 +44,7 @@ function DecadePartial<DateType>(props: DecadePartialProps<DateType>) {
                         'key'
                     );
                 },
-                onUpDown: (diff) => {
+                onUpDown: (diff: number): void => {
                     onSelect(
                         generateConfig.addYear(
                             viewDate,
@@ -53,14 +53,14 @@ function DecadePartial<DateType>(props: DecadePartialProps<DateType>) {
                         'key'
                     );
                 },
-                onEnter: () => {
+                onEnter: (): void => {
                     onPartialChange('year', viewDate);
                 },
             }),
     };
 
-    const onDecadesChange = (diff: number) => {
-        const newDate = generateConfig.addYear(
+    const onDecadesChange = (diff: number): void => {
+        const newDate: DateType = generateConfig.addYear(
             viewDate,
             diff * DECADE_DISTANCE_COUNT
         );
@@ -68,7 +68,7 @@ function DecadePartial<DateType>(props: DecadePartialProps<DateType>) {
         onPartialChange(null, newDate);
     };
 
-    const onInternalSelect = (date: DateType) => {
+    const onInternalSelect = (date: DateType): void => {
         onSelect(date, 'mouse');
         onPartialChange('year', date);
     };
@@ -77,10 +77,10 @@ function DecadePartial<DateType>(props: DecadePartialProps<DateType>) {
         <div className={styles.pickerDecadePartial}>
             <DecadeHeader
                 {...props}
-                onPrevDecades={() => {
+                onPrevDecades={(): void => {
                     onDecadesChange(-1);
                 }}
-                onNextDecades={() => {
+                onNextDecades={(): void => {
                     onDecadesChange(1);
                 }}
                 size={size}
