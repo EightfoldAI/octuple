@@ -34,40 +34,39 @@
             padding-inline-start: 0;
         }
 
-        // TODO: Work with UX to determine large styling
         &-large {
-            font-size: $table-font-size-md;
+            font-size: $table-font-size-lg;
 
             thead tr th,
             tbody tr td,
             tfoot tr th,
             tfoot tr td {
-                padding: $table-padding-vertical-md $table-padding-horizontal-md;
+                padding: $table-padding-vertical-lg $table-padding-horizontal-lg;
             }
 
             .table-title {
-                padding: $table-padding-vertical-md $table-padding-horizontal-md;
+                padding: $table-padding-vertical-lg $table-padding-horizontal-lg;
             }
 
             .table-filter-trigger {
-                margin-right: -($table-padding-horizontal-md / 2);
+                margin-right: -($table-padding-horizontal-lg / 2);
             }
 
             .table-expanded-row-fixed {
-                margin: -$table-padding-vertical-md -$table-padding-horizontal-md;
+                margin: -$table-padding-vertical-lg -$table-padding-horizontal-lg;
             }
 
             .table-tbody {
                 .table-wrapper:only-child {
                     .table {
-                        margin: -$table-padding-vertical-md -$table-padding-horizontal-md -$table-padding-vertical-md
-                            ($table-padding-horizontal-md + ceil((14 * 1.4)));
+                        margin: -$table-padding-vertical-lg -$table-padding-horizontal-lg -$table-padding-vertical-lg
+                            ($table-padding-horizontal-lg + ceil((14 * 1.4)));
                     }
                 }
             }
 
             .table-selection-column {
-                padding-inline-start: ($table-padding-horizontal-md / 4);
+                padding-inline-start: ($table-padding-horizontal-lg / 4);
             }
         }
 
