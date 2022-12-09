@@ -9,32 +9,32 @@ import styles from '../../ocpicker.module.scss';
 
 function QuarterPartial<DateType>(props: QuarterPartialProps<DateType>) {
     const {
-        operationRef,
-        onViewDateChange,
         generateConfig,
-        value,
-        viewDate,
         onPartialChange,
         onSelect,
+        onViewDateChange,
+        operationRef,
         size = DatePickerSize.Medium,
+        value,
+        viewDate,
     } = props;
 
     operationRef.current = {
-        onKeyDown: (event) =>
+        onKeyDown: (event: React.KeyboardEvent<HTMLElement>): boolean =>
             createKeyDownHandler(event, {
-                onLeftRight: (diff) => {
+                onLeftRight: (diff: number): void => {
                     onSelect(
                         generateConfig.addMonth(value || viewDate, diff * 3),
                         'key'
                     );
                 },
-                onCtrlLeftRight: (diff) => {
+                onCtrlLeftRight: (diff: number): void => {
                     onSelect(
                         generateConfig.addYear(value || viewDate, diff),
                         'key'
                     );
                 },
-                onUpDown: (diff) => {
+                onUpDown: (diff: number): void => {
                     onSelect(
                         generateConfig.addYear(value || viewDate, diff),
                         'key'
@@ -43,8 +43,8 @@ function QuarterPartial<DateType>(props: QuarterPartialProps<DateType>) {
             }),
     };
 
-    const onYearChange = (diff: number) => {
-        const newDate = generateConfig.addYear(viewDate, diff);
+    const onYearChange = (diff: number): void => {
+        const newDate: DateType = generateConfig.addYear(viewDate, diff);
         onViewDateChange(newDate);
         onPartialChange(null, newDate);
     };
@@ -53,20 +53,20 @@ function QuarterPartial<DateType>(props: QuarterPartialProps<DateType>) {
         <div className={styles.pickerQuarterPartial}>
             <QuarterHeader
                 {...props}
-                onPrevYear={() => {
+                onPrevYear={(): void => {
                     onYearChange(-1);
                 }}
-                onNextYear={() => {
+                onNextYear={(): void => {
                     onYearChange(1);
                 }}
-                onYearClick={() => {
+                onYearClick={(): void => {
                     onPartialChange('year', viewDate);
                 }}
                 size={size}
             />
             <QuarterBody<DateType>
                 {...props}
-                onSelect={(date) => {
+                onSelect={(date: DateType): void => {
                     onSelect(date, 'mouse');
                 }}
                 size={size}

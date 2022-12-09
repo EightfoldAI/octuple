@@ -10,21 +10,21 @@ import { DatePickerSize } from '../OcPicker.types';
 import styles from '../ocpicker.module.scss';
 
 export default function PartialBody<DateType>({
+    baseDate,
+    colNum,
     disabledDate,
+    generateConfig,
+    getCellClassNames,
+    getCellDate,
+    getCellNode,
+    getCellText,
+    headerCells,
     onSelect,
     picker,
-    rowNum,
-    colNum,
     rowClassNames,
-    baseDate,
-    getCellClassNames,
-    getCellText,
-    getCellNode,
-    getCellDate,
-    generateConfig,
-    titleCell,
-    headerCells,
+    rowNum,
     size = DatePickerSize.Medium,
+    titleCell,
 }: PartialBodyProps<DateType>) {
     const largeScreenActive: boolean = useMatchMedia(Breakpoints.Large);
     const mediumScreenActive: boolean = useMatchMedia(Breakpoints.Medium);

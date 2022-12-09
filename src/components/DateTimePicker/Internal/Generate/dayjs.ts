@@ -15,12 +15,12 @@ dayjs.extend(localeData);
 dayjs.extend(weekOfYear);
 dayjs.extend(weekYear);
 
-dayjs.extend((_o, c) => {
+dayjs.extend((_o: unknown, c: typeof Dayjs) => {
     // todo support Wo (ISO week)
-    const proto = c.prototype;
-    const oldFormat = proto.format;
+    const proto: Dayjs = c.prototype;
+    const oldFormat: (template?: string) => string = proto.format;
     proto.format = function f(formatStr: string) {
-        const str = (formatStr || '').replace('Wo', 'wo');
+        const str: string = (formatStr || '').replace('Wo', 'wo');
         return oldFormat.bind(this)(str);
     };
 });
@@ -65,75 +65,77 @@ const localeMap: IlocaleMapObject = {
     zh_TW: 'zh-tw', // 中文 (繁體)
 };
 
-const parseLocale = (locale: string) => {
-    const mapLocale = localeMap[locale];
+const parseLocale = (locale: string): string => {
+    const mapLocale: string = localeMap[locale];
     return mapLocale || locale.split('_')[0];
 };
 
 const generateConfig: GenerateConfig<Dayjs> = {
-    // get
-    getNow: () => dayjs(),
-    getFixedDate: (string) => dayjs(string, ['YYYY-M-DD', 'YYYY-MM-DD']),
-    getEndDate: (date) => date.endOf('month'),
-    getWeekDay: (date) => {
-        const clone = date.locale('en');
+    // Get
+    getNow: (): Dayjs => dayjs(),
+    getFixedDate: (string: string): Dayjs =>
+        dayjs(string, ['YYYY-M-DD', 'YYYY-MM-DD']),
+    getEndDate: (date: Dayjs): Dayjs => date.endOf('month'),
+    getWeekDay: (date: Dayjs): number => {
+        const clone: Dayjs = date.locale('en');
         return clone.weekday() + clone.localeData().firstDayOfWeek();
     },
-    getYear: (date) => date.year(),
-    getMonth: (date) => date.month(),
-    getDate: (date) => date.date(),
-    getHour: (date) => date.hour(),
-    getMinute: (date) => date.minute(),
-    getSecond: (date) => date.second(),
+    getYear: (date: Dayjs): number => date.year(),
+    getMonth: (date: Dayjs): number => date.month(),
+    getDate: (date: Dayjs): number => date.date(),
+    getHour: (date: Dayjs): number => date.hour(),
+    getMinute: (date: Dayjs): number => date.minute(),
+    getSecond: (date: Dayjs): number => date.second(),
 
-    // set
-    addYear: (date, diff) => date.add(diff, 'year'),
-    addMonth: (date, diff) => date.add(diff, 'month'),
-    addDate: (date, diff) => date.add(diff, 'day'),
-    setYear: (date, year) => date.year(year),
-    setMonth: (date, month) => date.month(month),
-    setDate: (date, num) => date.date(num),
-    setHour: (date, hour) => date.hour(hour),
-    setMinute: (date, minute) => date.minute(minute),
-    setSecond: (date, second) => date.second(second),
+    // Set
+    addYear: (date: Dayjs, diff: number): Dayjs => date.add(diff, 'year'),
+    addMonth: (date: Dayjs, diff: number): Dayjs => date.add(diff, 'month'),
+    addDate: (date: Dayjs, diff: number): Dayjs => date.add(diff, 'day'),
+    setYear: (date: Dayjs, year: number): Dayjs => date.year(year),
+    setMonth: (date: Dayjs, month: number): Dayjs => date.month(month),
+    setDate: (date: Dayjs, num: number): Dayjs => date.date(num),
+    setHour: (date: Dayjs, hour: number): Dayjs => date.hour(hour),
+    setMinute: (date: Dayjs, minute: number): Dayjs => date.minute(minute),
+    setSecond: (date: Dayjs, second: number): Dayjs => date.second(second),
 
     // Compare
-    isAfter: (date1, date2) => date1.isAfter(date2),
-    isValidate: (date) => date.isValid(),
+    isAfter: (date1: Dayjs, date2: Dayjs): boolean => date1.isAfter(date2),
+    isValidate: (date: Dayjs): boolean => date.isValid(),
 
     locale: {
-        getWeekFirstDay: (locale) =>
+        getWeekFirstDay: (locale: string): number =>
             dayjs().locale(parseLocale(locale)).localeData().firstDayOfWeek(),
-        getWeekFirstDate: (locale, date) =>
+        getWeekFirstDate: (locale: string, date: Dayjs): Dayjs =>
             date.locale(parseLocale(locale)).weekday(0),
-        getWeek: (locale, date) => date.locale(parseLocale(locale)).week(),
-        getShortWeekDays: (locale) =>
+        getWeek: (locale: string, date: Dayjs): number =>
+            date.locale(parseLocale(locale)).week(),
+        getShortWeekDays: (locale: string): string[] =>
             dayjs().locale(parseLocale(locale)).localeData().weekdaysMin(),
-        getShortMonths: (locale) =>
+        getShortMonths: (locale: string): string[] =>
             dayjs().locale(parseLocale(locale)).localeData().monthsShort(),
-        format: (locale, date, format) =>
+        format: (locale: string, date: Dayjs, format: string): string =>
             date.locale(parseLocale(locale)).format(format),
-        parse: (locale, text, formats) => {
-            const localeStr = parseLocale(locale);
-            for (let i = 0; i < formats.length; i += 1) {
-                const format = formats[i];
-                const formatText = text;
+        parse: (locale: string, text: string, formats: string[]): Dayjs => {
+            const localeStr: string = parseLocale(locale);
+            for (let i: number = 0; i < formats.length; i += 1) {
+                const format: string = formats[i];
+                const formatText: string = text;
                 if (format.includes('wo') || format.includes('Wo')) {
                     // parse Wo
-                    const year = formatText.split('-')[0];
-                    const weekStr = formatText.split('-')[1];
-                    const firstWeek = dayjs(year, 'YYYY')
+                    const year: string = formatText.split('-')[0];
+                    const weekStr: string = formatText.split('-')[1];
+                    const firstWeek: Dayjs = dayjs(year, 'YYYY')
                         .startOf('year')
                         .locale(localeStr);
                     for (let j = 0; j <= 52; j += 1) {
-                        const nextWeek = firstWeek.add(j, 'week');
+                        const nextWeek: Dayjs = firstWeek.add(j, 'week');
                         if (nextWeek.format('Wo') === weekStr) {
                             return nextWeek;
                         }
                     }
                     return null;
                 }
-                const date = dayjs(formatText, format).locale(localeStr);
+                const date: Dayjs = dayjs(formatText, format).locale(localeStr);
                 if (date.isValid()) {
                     return date;
                 }

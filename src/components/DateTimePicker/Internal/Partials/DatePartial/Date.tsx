@@ -13,35 +13,35 @@ const DATE_ROW_COUNT: number = 6;
 
 function DatePartial<DateType>(props: DatePartialProps<DateType>) {
     const {
-        partialName = 'date',
-        keyboardConfig,
         active,
-        operationRef,
         generateConfig,
-        value,
-        viewDate,
-        onViewDateChange,
+        keyboardConfig,
         onPartialChange,
         onSelect,
+        onViewDateChange,
+        operationRef,
+        partialName = 'date',
         size = DatePickerSize.Medium,
+        value,
+        viewDate,
     } = props;
 
     operationRef.current = {
-        onKeyDown: (event) =>
+        onKeyDown: (event: React.KeyboardEvent<HTMLElement>): boolean =>
             createKeyDownHandler(event, {
-                onLeftRight: (diff) => {
+                onLeftRight: (diff: number): void => {
                     onSelect(
                         generateConfig.addDate(value || viewDate, diff),
                         'key'
                     );
                 },
-                onCtrlLeftRight: (diff) => {
+                onCtrlLeftRight: (diff: number): void => {
                     onSelect(
                         generateConfig.addYear(value || viewDate, diff),
                         'key'
                     );
                 },
-                onUpDown: (diff) => {
+                onUpDown: (diff: number): void => {
                     onSelect(
                         generateConfig.addDate(
                             value || viewDate,
@@ -50,7 +50,7 @@ function DatePartial<DateType>(props: DatePartialProps<DateType>) {
                         'key'
                     );
                 },
-                onPageUpDown: (diff) => {
+                onPageUpDown: (diff: number): void => {
                     onSelect(
                         generateConfig.addMonth(value || viewDate, diff),
                         'key'
@@ -60,13 +60,13 @@ function DatePartial<DateType>(props: DatePartialProps<DateType>) {
             }),
     };
 
-    const onYearChange = (diff: number) => {
-        const newDate = generateConfig.addYear(viewDate, diff);
+    const onYearChange = (diff: number): void => {
+        const newDate: DateType = generateConfig.addYear(viewDate, diff);
         onViewDateChange(newDate);
         onPartialChange(null, newDate);
     };
-    const onMonthChange = (diff: number) => {
-        const newDate = generateConfig.addMonth(viewDate, diff);
+    const onMonthChange = (diff: number): void => {
+        const newDate: DateType = generateConfig.addMonth(viewDate, diff);
         onViewDateChange(newDate);
         onPartialChange(null, newDate);
     };
@@ -83,29 +83,29 @@ function DatePartial<DateType>(props: DatePartialProps<DateType>) {
                 value={value}
                 viewDate={viewDate}
                 // View Operation
-                onPrevYear={() => {
+                onPrevYear={(): void => {
                     onYearChange(-1);
                 }}
-                onNextYear={() => {
+                onNextYear={(): void => {
                     onYearChange(1);
                 }}
-                onPrevMonth={() => {
+                onPrevMonth={(): void => {
                     onMonthChange(-1);
                 }}
-                onNextMonth={() => {
+                onNextMonth={(): void => {
                     onMonthChange(1);
                 }}
-                onMonthClick={() => {
+                onMonthClick={(): void => {
                     onPartialChange('month', viewDate);
                 }}
-                onYearClick={() => {
+                onYearClick={(): void => {
                     onPartialChange('year', viewDate);
                 }}
                 size={size}
             />
             <DateBody
                 {...props}
-                onSelect={(date) => onSelect(date, 'mouse')}
+                onSelect={(date: DateType): void => onSelect(date, 'mouse')}
                 value={value}
                 viewDate={viewDate}
                 rowCount={DATE_ROW_COUNT}

@@ -1,6 +1,11 @@
+import { Shape, Size } from '../../../ConfigProvider';
 import type { GenerateConfig } from '../../Internal/Generate';
 import type { SharedTimeProps } from '../../Internal/Partials/TimePartial/Time.types';
-import type { OcPickerMode } from '../../Internal/OcPicker.types';
+import type {
+    DatePickerShape,
+    DatePickerSize,
+    OcPickerMode,
+} from '../../Internal/OcPicker.types';
 import generateRangePicker from './generateRangePicker';
 import generateSinglePicker from './generateSinglePicker';
 
@@ -22,8 +27,24 @@ export function getTimeProps<DateType, DisabledTime>(
     const { format, picker, showHour, showMinute, showSecond, use12Hours } =
         props;
 
-    const firstFormat = toArray(format)[0];
-    const showTimeObj = { ...props };
+    const firstFormat: string = toArray(format)[0];
+    const showTimeObj: {
+        format?: string;
+        picker?: OcPickerMode;
+        showNow?: boolean;
+        showHour?: boolean;
+        showMinute?: boolean;
+        showSecond?: boolean;
+        use12Hours?: boolean;
+        hourStep?: number;
+        minuteStep?: number;
+        secondStep?: number;
+        hideDisabledOptions?: boolean;
+        defaultValue?: DateType;
+        shape?: DatePickerShape | Shape;
+        size?: DatePickerSize | Size;
+        disabledTime?: DisabledTime;
+    } = { ...props };
 
     if (firstFormat && typeof firstFormat === 'string') {
         if (!firstFormat.includes('s') && showSecond === undefined) {

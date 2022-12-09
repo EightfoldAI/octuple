@@ -17,23 +17,21 @@ export function genCSSMotion(): React.ForwardRefExoticComponent<
 > {
     const CSSMotion = React.forwardRef<any, CSSMotionProps>((props, ref) => {
         const {
-            // Default config
-            visible = true,
-            removeOnLeave = true,
-
-            forceRender,
             children,
-            motionName,
-            leavedClassName,
             eventProps,
+            forceRender,
+            leavedClassName,
+            motionName,
+            removeOnLeave = true,
+            visible = true,
         } = props;
 
         // Ref to the react node, it may be a HTMLElement
-        const nodeRef = useRef<any>();
+        const nodeRef: React.MutableRefObject<any> = useRef<any>();
         // Ref to the dom wrapper in case ref can not pass to HTMLElement
-        const wrapperNodeRef = useRef();
+        const wrapperNodeRef: React.MutableRefObject<undefined> = useRef();
 
-        function getDomElement() {
+        function getDomElement(): HTMLElement {
             try {
                 // Here we're avoiding call for findDOMNode since it's deprecated
                 // in strict mode. We're calling it only when node ref is not
@@ -83,7 +81,7 @@ export function genCSSMotion(): React.ForwardRefExoticComponent<
                 motionChildren = children({ ...mergedProps }, setNodeRef);
             } else if (!removeOnLeave && renderedRef.current) {
                 motionChildren = children(
-                    { ...mergedProps, className: leavedClassName },
+                    { ...mergedProps, classNames: leavedClassName },
                     setNodeRef
                 );
             } else if (forceRender) {
@@ -127,7 +125,7 @@ export function genCSSMotion(): React.ForwardRefExoticComponent<
             );
         }
 
-        // Auto inject ref if child node not have `ref` props
+        // Auto inject ref if child node doesn't have `ref` props
         if (React.isValidElement(motionChildren)) {
             const { ref: originNodeRef } = motionChildren as any;
 

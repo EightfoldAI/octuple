@@ -28,13 +28,13 @@ Object.assign(Enzyme.ReactWrapper.prototype, {
     confirmOK() {
         this.find('.picker-ok *').simulate('click');
     },
+    isClosed() {
+        const closedDiv = this.find('.slide-up-leave').hostNodes();
+        return closedDiv && closedDiv.length;
+    },
     isOpen() {
         const openDiv = this.find('.trigger-popup').hostNodes();
-        return (
-            openDiv &&
-            openDiv.length &&
-            !openDiv.hasClass('trigger-popup-hidden')
-        );
+        return openDiv && openDiv.length;
     },
     findCell(text: number | string, index: number = 0) {
         let matchCell;
@@ -208,7 +208,7 @@ describe('Picker.Keyboard', () => {
 
         // ENTER
         wrapper.keyDown(eventKeys.ENTER);
-        expect(wrapper.isOpen()).toBeFalsy();
+        expect(wrapper.isClosed()).toBeTruthy();
         expect(onChange.mock.calls[0][1]).toEqual('1990-09-04');
     });
 

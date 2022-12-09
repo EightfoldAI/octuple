@@ -13,11 +13,11 @@ function TimeHeader<DateType>(props: TimeHeaderProps<DateType>) {
     }
 
     const {
+        format,
         generateConfig,
         locale,
-        value,
-        format,
         size = DatePickerSize.Medium,
+        value,
     } = props;
 
     return (
