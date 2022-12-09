@@ -2,7 +2,9 @@ import React, { createContext, useEffect, useState } from 'react';
 import {
     TabsContextProps,
     ITabsContext,
+    TabSize,
     TabValue,
+    TabVariant,
     SelectTabEvent,
 } from './Tabs.types';
 
@@ -12,8 +14,10 @@ const TabsProvider = ({
     children,
     onChange,
     readOnly,
+    size = TabSize.Medium,
     statgrouptheme,
     value,
+    variant = TabVariant.default,
 }: TabsContextProps) => {
     const [currentActiveTab, setCurrentActiveTab] = useState<TabValue>(value);
 
@@ -27,7 +31,14 @@ const TabsProvider = ({
 
     return (
         <TabsContext.Provider
-            value={{ currentActiveTab, onTabClick, readOnly, statgrouptheme }}
+            value={{
+                currentActiveTab,
+                onTabClick,
+                readOnly,
+                size,
+                statgrouptheme,
+                variant,
+            }}
         >
             {children}
         </TabsContext.Provider>

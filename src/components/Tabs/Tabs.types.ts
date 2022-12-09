@@ -12,6 +12,7 @@ export type SelectTabEvent<E = HTMLElement> =
 export type OnChangeHandler = (value: TabValue, event: SelectTabEvent) => void;
 
 export enum TabSize {
+    Large = 'large',
     Medium = 'medium',
     Small = 'small',
 }
@@ -48,6 +49,11 @@ export interface TabsContextProps {
      */
     readOnly?: boolean;
     /**
+     * The Tabs size.
+     * @default TabSize.Medium
+     */
+    size?: TabSize;
+    /**
      * Theme of the Stat Tab group.
      */
     statgrouptheme?: StatThemeNames;
@@ -55,6 +61,11 @@ export interface TabsContextProps {
      * The value of the selected tab.
      */
     value?: TabValue;
+    /**
+     * Variant of the Tabs.
+     * @default default
+     */
+    variant?: TabVariant;
 }
 
 export interface ITabsContext {
@@ -72,9 +83,19 @@ export interface ITabsContext {
      */
     readOnly?: boolean;
     /**
+     * The Tabs size.
+     * @default TabSize.Medium
+     */
+    size?: TabSize;
+    /**
      * Theme of the Stat Tab group.
      */
     statgrouptheme?: StatThemeNames;
+    /**
+     * Variant of the Tabs.
+     * @default default
+     */
+    variant?: TabVariant;
 }
 
 export interface TabProps extends OcBaseProps<HTMLButtonElement> {
