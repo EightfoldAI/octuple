@@ -124,6 +124,11 @@ export interface TabProps extends OcBaseProps<HTMLButtonElement> {
      */
     loading?: boolean;
     /**
+     * The tab size.
+     * @default TabSize.Medium
+     */
+    size?: TabSize;
+    /**
      * Active value of the tab.
      */
     value: TabValue;
