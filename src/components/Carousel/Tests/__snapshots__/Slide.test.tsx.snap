@@ -1,0 +1,166 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Slide loads and displays Carousel component 1`] = `
+<div>
+  <div
+    class="carousel carousel-slider"
+  >
+    <div
+      class="carousel-pagination pagination dots"
+      role="navigation"
+    >
+      <span />
+      <button
+        aria-disabled="false"
+        aria-label="Previous"
+        class="pagination-button pagination-previous button button-neutral button-medium icon-left"
+      >
+        <span
+          aria-hidden="false"
+          class="icon icon-wrapper"
+          role="presentation"
+        >
+          <svg
+            role="presentation"
+            style="width: 20px; height: 20px;"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z"
+              style="fill: currentColor;"
+            />
+          </svg>
+        </span>
+      </button>
+      <ul
+        class="pager"
+      >
+        <li>
+          <button
+            aria-current="true"
+            aria-disabled="false"
+            class="pagination-button active button button-neutral button-medium"
+          >
+            <span
+              class="button-text-medium"
+            >
+              1
+            </span>
+          </button>
+        </li>
+        <li>
+          <button
+            aria-current="false"
+            aria-disabled="false"
+            class="pagination-button button button-neutral button-medium"
+          >
+            <span
+              class="button-text-medium"
+            >
+              2
+            </span>
+          </button>
+        </li>
+        <li>
+          <button
+            aria-current="false"
+            aria-disabled="false"
+            class="pagination-button button button-neutral button-medium"
+          >
+            <span
+              class="button-text-medium"
+            >
+              3
+            </span>
+          </button>
+        </li>
+      </ul>
+      <button
+        aria-disabled="false"
+        aria-label="Next"
+        class="pagination-button pagination-next button button-neutral button-medium icon-left"
+      >
+        <span
+          aria-hidden="false"
+          class="icon icon-wrapper"
+          role="presentation"
+        >
+          <svg
+            role="presentation"
+            style="width: 20px; height: 20px;"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
+              style="fill: currentColor;"
+            />
+          </svg>
+        </span>
+      </button>
+    </div>
+    <div
+      class="carousel-inner"
+    >
+      <div
+        class="carousel-slide active slide-1"
+      >
+        Slide-1
+      </div>
+      <div
+        class="carousel-slide slide-2"
+      >
+        Slide-2
+      </div>
+      <div
+        class="carousel-slide slide-3"
+      >
+        Slide-3
+      </div>
+    </div>
+    <button
+      aria-disabled="false"
+      aria-label="Previous"
+      class="carousel-previous button button-secondary button-medium icon-left"
+    >
+      <span
+        aria-hidden="false"
+        class="icon icon-wrapper"
+        role="presentation"
+      >
+        <svg
+          role="presentation"
+          style="width: 20px; height: 20px;"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z"
+            style="fill: currentColor;"
+          />
+        </svg>
+      </span>
+    </button>
+    <button
+      aria-disabled="false"
+      aria-label="Next"
+      class="carousel-next button button-secondary button-medium icon-left"
+    >
+      <span
+        aria-hidden="false"
+        class="icon icon-wrapper"
+        role="presentation"
+      >
+        <svg
+          role="presentation"
+          style="width: 20px; height: 20px;"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
+            style="fill: currentColor;"
+          />
+        </svg>
+      </span>
+    </button>
+  </div>
+</div>
+`;
