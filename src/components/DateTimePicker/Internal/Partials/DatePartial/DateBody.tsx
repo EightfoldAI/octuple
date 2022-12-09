@@ -14,13 +14,13 @@ import { DatePickerSize } from '../../OcPicker.types';
 
 function DateBody<DateType>(props: DateBodyProps<DateType>) {
     const {
+        dateRender,
         generateConfig,
         locale,
         rowCount,
-        viewDate,
-        value,
-        dateRender,
         size = DatePickerSize.Medium,
+        value,
+        viewDate,
     } = props;
 
     const { rangedValue, hoverRangedValue } = React.useContext(RangeContext);
@@ -42,7 +42,7 @@ function DateBody<DateType>(props: DateBodyProps<DateType>) {
             ? generateConfig.locale.getShortWeekDays(locale.locale)
             : []);
 
-    for (let i = 0; i < WEEK_DAY_COUNT; i += 1) {
+    for (let i: number = 0; i < WEEK_DAY_COUNT; i += 1) {
         headerCells.push(
             <th key={i}>
                 {weekDaysLocale[(i + weekFirstDay) % WEEK_DAY_COUNT]}
@@ -63,7 +63,7 @@ function DateBody<DateType>(props: DateBodyProps<DateType>) {
     });
 
     const getCellNode: (date: DateType) => React.ReactNode = dateRender
-        ? (date: DateType) => dateRender(date, today)
+        ? (date: DateType): React.ReactNode => dateRender(date, today)
         : undefined;
 
     return (
@@ -76,7 +76,7 @@ function DateBody<DateType>(props: DateBodyProps<DateType>) {
             getCellText={generateConfig.getDate}
             getCellClassNames={getCellClassNames}
             getCellDate={generateConfig.addDate}
-            titleCell={(date) =>
+            titleCell={(date: DateType): string =>
                 formatValue(date, {
                     locale,
                     format: 'YYYY-MM-DD',

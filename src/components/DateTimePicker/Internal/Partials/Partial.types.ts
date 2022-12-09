@@ -8,34 +8,121 @@ import { IconName } from '../../../Icon';
 import { Shape, Size } from '../../../ConfigProvider';
 
 export type HeaderProps = {
-    prevIcon?: IconName;
-    nextIcon?: IconName;
-    superPrevIcon?: IconName;
-    superNextIcon?: IconName;
-    onPrev?: () => void;
-    onNext?: () => void;
-    onSuperPrev?: () => void;
-    onSuperNext?: () => void;
+    /**
+     * The renderer.
+     */
     children?: React.ReactNode;
+    /**
+     * The prev icon.
+     * @default IconName.mdiChevronRight
+     */
+    nextIcon?: IconName;
+    /**
+     * The prev icon.
+     * @default IconName.mdiChevronLeft
+     */
+    prevIcon?: IconName;
+    /**
+     * Callback executed onNext event.
+     */
+    onNext?: () => void;
+    /**
+     * Callback executed onPrev event.
+     */
+    onPrev?: () => void;
+    /**
+     * Callback executed onSuperNext event.
+     */
+    onSuperNext?: () => void;
+    /**
+     * Callback executed onSuperPrev event.
+     */
+    onSuperPrev?: () => void;
+    /**
+     * The DatePicker shape.
+     */
     shape?: DatePickerShape | Shape;
+    /**
+     * The DatePicker size.
+     * @default DatePickerSize.Medium
+     */
     size?: DatePickerSize | Size;
+    /**
+     * The super prev icon.
+     * @default IconName.mdiChevronDoubleLeft
+     */
+    superPrevIcon?: IconName;
+    /**
+     * The super next icon.
+     * @default IconName.mdiChevronDoubleRight
+     */
+    superNextIcon?: IconName;
 };
 
 export type PartialBodyProps<DateType> = {
-    disabledDate?: (date: DateType) => boolean;
-    onSelect: (value: DateType) => void;
-    picker?: PartialMode;
-    headerCells?: React.ReactNode;
-    rowNum: number;
-    colNum: number;
+    /**
+     * The current date.
+     */
     baseDate: DateType;
-    getCellClassNames: (date: DateType) => Record<string, boolean | undefined>;
-    getCellDate: (date: DateType, offset: number) => DateType;
-    getCellText: (date: DateType) => React.ReactNode;
-    getCellNode?: (date: DateType) => React.ReactNode;
-    titleCell?: (date: DateType) => string;
+    /**
+     * The number of columns in the calendar.
+     */
+    colNum: number;
+    /**
+     * Function that returns true or false to apply disabled cell styles.
+     */
+    disabledDate?: (date: DateType) => boolean;
+    /**
+     * Generates the configured dates.
+     */
     generateConfig: GenerateConfig<DateType>;
+    /**
+     * Get the cell class names using the current date.
+     */
+    getCellClassNames: (date: DateType) => Record<string, boolean | undefined>;
+    /**
+     * Get the cell date using the current date and offset.
+     */
+    getCellDate: (date: DateType, offset: number) => DateType;
+    /**
+     * Get the calendar cell node using the current date.
+     */
+    getCellNode?: (date: DateType) => React.ReactNode;
+    /**
+     * Get the calendar cell text using the current date.
+     */
+    getCellText: (date: DateType) => React.ReactNode;
+    /**
+     * Gets the header cells.
+     */
+    headerCells?: React.ReactNode;
+    /**
+     * Callback executed on cell select event.
+     */
+    onSelect: (value: DateType) => void;
+    /**
+     * The picker partial mode.
+     */
+    picker?: PartialMode;
+    /**
+     * The row class names.
+     */
     rowClassNames?: (date: DateType) => string;
+    /**
+     * The number of rows in the calendar.
+     */
+    rowNum: number;
+    /**
+     * The DatePicker shape.
+     */
     shape?: DatePickerShape | Shape;
+    /**
+     * The DatePicker size.
+     * @default DatePickerSize.Medium
+     */
     size?: DatePickerSize | Size;
+    /**
+     * The title cell text content.
+     */
+    titleCell?: (date: DateType) => string;
 };

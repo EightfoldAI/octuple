@@ -52,7 +52,11 @@ function OcPickerTrigger({
     popupPlacement,
     direction,
 }: OcPickerTriggerProps) {
-    const getPopupPlacement = () => {
+    const getPopupPlacement = ():
+        | 'bottomLeft'
+        | 'bottomRight'
+        | 'topLeft'
+        | 'topRight' => {
         if (popupPlacement !== undefined) {
             return popupPlacement;
         }

@@ -180,6 +180,7 @@
     --font-stack: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
         Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
     --font-size: 16px;
+    --backdrop-filter: blur(5px);
 
     // ------ Tabs theme ------
     --tab-label: var(--text-secondary-color);
@@ -191,8 +192,8 @@
     --tab-small-active-background: transparent;
     --tab-small-hover-background: transparent;
     --tab-pill-label: var(--text-secondary-color);
-    --tab-pill-active-label: var(--primary-color);
-    --tab-pill-active-background: var(--accent-color-20);
+    --tab-pill-active-label: var(--primary-color-80);
+    --tab-pill-active-background: var(--primary-color-20);
     --tab-pill-hover-label: var(--primary-color);
     --tab-pill-background: var(--grey-color-10);
     --tab-underline: var(--border-color);
@@ -203,6 +204,9 @@
     --navbar-text-color: var(--text-inverse-color);
     --navbar-text-hover-background: var(--navbar-background);
     --navbar-text-hover-color: var(--navbar-text-color);
+    --navbar-backdrop-filter: var(--backdrop-filter);
+    --navbar-border-bottom: 1px solid transparent;
+    --navbar-box-shadow: 0 1px 3px rgb(50 50 93 / 25%);
     // ------ Navbar theme ------
 
     // ------ Picker theme ------
@@ -214,6 +218,7 @@
     --picker-cell-background-color-active: var(--primary-color-20);
     --picker-cell-background-color-hover: var(--accent-color-30);
     --picker-cell-today-background-color: var(--accent-color-30);
+    --picker-cell-today-foreground-color: var(--primary-color);
     --picker-cell-selected-background-color-active: var(--accent-color-30);
     --picker-cell-range-start-background-color-hover: var(--accent-color-30);
     --picker-cell-range-start-background-color-active: var(--accent-color-30);
@@ -273,6 +278,8 @@
     --table-border-width: 1px;
     --table-padding-vertical: 8px;
     --table-padding-horizontal: 16px;
+    --table-padding-vertical-lg: 24px;
+    --table-padding-horizontal-lg: 16px;
     --table-padding-vertical-md: 12px;
     --table-padding-horizontal-md: 8px;
     --table-padding-vertical-sm: 8px;
@@ -287,6 +294,7 @@
     --table-footer-font-size: 16px;
     --table-footer-line-height: 24px;
     --table-font-size: 14px;
+    --table-font-size-lg: 14px;
     --table-font-size-md: 14px;
     --table-font-size-sm: 14px;
     --table-line-height: 20px;

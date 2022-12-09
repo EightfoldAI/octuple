@@ -1,6 +1,6 @@
 .trigger-popup {
     &-mobile {
-        transition: all 0.3s;
+        transition: all $motion-duration-extra-fast;
         position: fixed;
         left: 0;
         right: 0;

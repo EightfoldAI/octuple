@@ -14,17 +14,17 @@ const countBoolean = (boolList: (boolean | undefined)[]): number =>
 
 function TimePartial<DateType>(props: TimePartialProps<DateType>) {
     const {
-        generateConfig,
-        format = 'HH:mm:ss',
         active,
+        format = 'HH:mm:ss',
+        generateConfig,
+        onSelect,
         operationRef,
         showHour,
         showMinute,
         showSecond,
-        use12Hours = false,
-        onSelect,
-        value,
         size = DatePickerSize.Medium,
+        use12Hours = false,
+        value,
     } = props;
     const bodyOperationRef: React.MutableRefObject<BodyOperationRef> =
         React.useRef<BodyOperationRef>();
@@ -38,27 +38,27 @@ function TimePartial<DateType>(props: TimePartialProps<DateType>) {
     ]);
 
     operationRef.current = {
-        onKeyDown: (event) =>
+        onKeyDown: (event: React.KeyboardEvent<HTMLElement>): boolean =>
             createKeyDownHandler(event, {
-                onLeftRight: (diff) => {
+                onLeftRight: (diff: number): void => {
                     setActiveColumnIndex(
                         (activeColumnIndex + diff + columnsCount) % columnsCount
                     );
                 },
-                onUpDown: (diff) => {
+                onUpDown: (diff: number): void => {
                     if (activeColumnIndex === -1) {
                         setActiveColumnIndex(0);
                     } else if (bodyOperationRef.current) {
                         bodyOperationRef.current.onUpDown(diff);
                     }
                 },
-                onEnter: () => {
+                onEnter: (): void => {
                     onSelect(value || generateConfig.getNow(), 'key');
                     setActiveColumnIndex(-1);
                 },
             }),
 
-        onBlur: () => {
+        onBlur: (): void => {
             setActiveColumnIndex(-1);
         },
     };

@@ -8,10 +8,26 @@ import type {
 import { Shape, Size } from '../../../../ConfigProvider';
 
 export type DatetimePartialProps<DateType> = {
-    disabledTime?: DisabledTime<DateType>;
-    showTime?: boolean | SharedTimeProps<DateType>;
+    /**
+     * The default date value.
+     */
     defaultValue?: DateType;
+    /**
+     * Specified time that may not be selected.
+     */
+    disabledTime?: DisabledTime<DateType>;
+    /**
+     * The DatePicker shape.
+     */
     shape?: DatePickerShape | Shape;
+    /**
+     * Enables time selection partial.
+     */
+    showTime?: boolean | SharedTimeProps<DateType>;
+    /**
+     * The DatePicker size.
+     * @default DatePickerSize.Medium
+     */
     size?: DatePickerSize | Size;
 } & Omit<
     DatePartialProps<DateType>,
