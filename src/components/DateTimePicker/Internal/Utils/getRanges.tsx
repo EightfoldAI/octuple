@@ -8,13 +8,40 @@ import styles from '../ocpicker.module.scss';
 export type RangesProps = {
     components?: Components;
     needConfirmButton: boolean;
+    /**
+     * The `Now`button text.
+     * @default 'Now'
+     */
     nowText?: string;
+    /**
+     * Whether the `OK` button is disabled.
+     */
     okDisabled?: boolean;
+    /**
+     * The `OK` button text.
+     * @default 'OK'
+     */
     okText?: string;
+    /**
+     * Callback executed onNow event.
+     */
     onNow?: null | (() => void) | false;
+    /**
+     * Callback executed onOk event.
+     */
     onOk?: null | (() => void) | false;
+    /**
+     * List of Preset range buttons.
+     */
     rangeList?: RangeList;
+    /**
+     * Show 'Now' button in partial when `showTime` is set.
+     */
     showNow?: boolean;
+    /**
+     * The DatePicker size.
+     * @default DatePickerSize.Medium
+     */
     size?: DatePickerSize | Size;
 };
 
@@ -33,10 +60,10 @@ export default function getRanges({
     let presetNode: React.ReactNode;
     let okNode: React.ReactNode;
 
-    const datePickerSizeToButtonSizeMap = new Map<
+    const datePickerSizeToButtonSizeMap: Map<
         DatePickerSize | Size,
-        ButtonSize | Size
-    >([
+        Size | ButtonSize
+    > = new Map<DatePickerSize | Size, ButtonSize | Size>([
         [DatePickerSize.Flex, ButtonSize.Flex],
         [DatePickerSize.Large, ButtonSize.Large],
         [DatePickerSize.Medium, ButtonSize.Medium],

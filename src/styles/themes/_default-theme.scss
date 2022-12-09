@@ -180,6 +180,7 @@
     --font-stack: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
         Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
     --font-size: 16px;
+    --backdrop-filter: blur(5px);
 
     // ------ Tabs theme ------
     --tab-label: var(--text-secondary-color);
@@ -203,6 +204,9 @@
     --navbar-text-color: var(--text-inverse-color);
     --navbar-text-hover-background: var(--navbar-background);
     --navbar-text-hover-color: var(--navbar-text-color);
+    --navbar-backdrop-filter: var(--backdrop-filter);
+    --navbar-border-bottom: 1px solid transparent;
+    --navbar-box-shadow: 0 1px 3px rgb(50 50 93 / 25%);
     // ------ Navbar theme ------
 
     // ------ Picker theme ------
@@ -214,6 +218,7 @@
     --picker-cell-background-color-active: var(--primary-color-20);
     --picker-cell-background-color-hover: var(--accent-color-30);
     --picker-cell-today-background-color: var(--accent-color-30);
+    --picker-cell-today-foreground-color: var(--primary-color);
     --picker-cell-selected-background-color-active: var(--accent-color-30);
     --picker-cell-range-start-background-color-hover: var(--accent-color-30);
     --picker-cell-range-start-background-color-active: var(--accent-color-30);

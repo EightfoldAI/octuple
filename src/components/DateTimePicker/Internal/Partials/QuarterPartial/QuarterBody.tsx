@@ -4,19 +4,18 @@ import { formatValue, isSameQuarter } from '../../Utils/dateUtil';
 import RangeContext from '../../RangeContext';
 import useCellClassNames from '../../Hooks/useCellClassNames';
 import PartialBody from '../PartialBody';
-import { DatePickerSize } from '../../OcPicker.types';
+import { DatePickerSize, NullableDateType } from '../../OcPicker.types';
 
 const QUARTER_ROW_COUNT: number = 1;
 
 function QuarterBody<DateType>(props: QuarterBodyProps<DateType>) {
     const {
+        generateConfig,
         locale,
+        size = DatePickerSize.Medium,
         value,
         viewDate,
-        generateConfig,
-        size = DatePickerSize.Medium,
     } = props;
-
     const { rangedValue, hoverRangedValue } = React.useContext(RangeContext);
 
     const getCellClassNames = useCellClassNames({
@@ -24,13 +23,16 @@ function QuarterBody<DateType>(props: QuarterBodyProps<DateType>) {
         generateConfig,
         rangedValue,
         hoverRangedValue,
-        isSameCell: (current, target) =>
-            isSameQuarter(generateConfig, current, target),
-        isInView: () => true,
-        offsetCell: (date, offset) => generateConfig.addMonth(date, offset * 3),
+        isSameCell: (
+            current: NullableDateType<DateType>,
+            target: NullableDateType<DateType>
+        ): boolean => isSameQuarter(generateConfig, current, target),
+        isInView: (): boolean => true,
+        offsetCell: (date: DateType, offset: number): DateType =>
+            generateConfig.addMonth(date, offset * 3),
     });
 
-    const baseQuarter = generateConfig.setDate(
+    const baseQuarter: DateType = generateConfig.setDate(
         generateConfig.setMonth(viewDate, 0),
         1
     );
@@ -49,7 +51,7 @@ function QuarterBody<DateType>(props: QuarterBodyProps<DateType>) {
                 })
             }
             getCellClassNames={getCellClassNames}
-            getCellDate={(date: DateType, offset: number) =>
+            getCellDate={(date: DateType, offset: number): DateType =>
                 generateConfig.addMonth(date, offset * 3)
             }
             titleCell={(date) =>

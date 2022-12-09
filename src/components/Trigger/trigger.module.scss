@@ -58,15 +58,15 @@
     &.slide-up-enter.trigger-popup-placement-bottomLeft,
     &.slide-up-enter.trigger-popup-placement-bottomRight {
         animation-name: slideUpIn;
-        animation-duration: $motion-duration-fast;
-        animation-timing-function: $motion-easing-easeout;
+        animation-duration: $motion-duration-extra-fast;
+        animation-timing-function: $motion-easing-easein;
     }
 
     &.slide-up-leave.trigger-popup-placement-bottomLeft,
     &.slide-up-leave.trigger-popup-placement-bottomRight {
         animation-name: slideUpOut;
-        animation-duration: $motion-duration-fast;
-        animation-timing-function: $motion-easing-easein;
+        animation-duration: $motion-duration-extra-fast;
+        animation-timing-function: $motion-easing-easeinout;
     }
 
     &-placement-topLeft,
@@ -81,15 +81,15 @@
     &.slide-up-enter.trigger-popup-placement-topLeft,
     &.slide-up-enter.trigger-popup-placement-topRight {
         animation-name: slideDownIn;
-        animation-duration: $motion-duration-fast;
-        animation-timing-function: $motion-easing-easeout;
+        animation-duration: $motion-duration-extra-fast;
+        animation-timing-function: $motion-easing-easein;
     }
 
     &.slide-up-leave.trigger-popup-placement-topLeft,
     &.slide-up-leave.trigger-popup-placement-topRight {
         animation-name: slideDownOut;
-        animation-duration: $motion-duration-fast;
-        animation-timing-function: $motion-easing-easein;
+        animation-duration: $motion-duration-extra-fast;
+        animation-timing-function: $motion-easing-easeinout;
     }
 
     &-range {
@@ -118,7 +118,7 @@
 
     // Assert styles
     @mixin effect() {
-        animation-duration: $motion-duration-fast;
+        animation-duration: $motion-duration-extra-fast;
         animation-fill-mode: both;
     }
 
@@ -126,13 +126,13 @@
     &-zoom-appear {
         opacity: 0;
         @include effect();
-        animation-timing-function: $motion-easing-easeout;
+        animation-timing-function: $motion-easing-easein;
         animation-play-state: paused;
     }
 
     &-zoom-leave {
         @include effect();
-        animation-timing-function: $motion-easing-easein;
+        animation-timing-function: $motion-easing-easeinout;
         animation-play-state: paused;
     }
 

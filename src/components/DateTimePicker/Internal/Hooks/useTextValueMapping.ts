@@ -14,12 +14,12 @@ export default function useTextValueMapping({
     >([]);
     valueTextsRef.current = valueTexts;
 
-    function triggerTextChange(value: string) {
+    function triggerTextChange(value: string): void {
         setInnerText(value);
         onTextChange(value);
     }
 
-    function resetText() {
+    function resetText(): void {
         setInnerText(valueTextsRef.current[0]);
     }
 

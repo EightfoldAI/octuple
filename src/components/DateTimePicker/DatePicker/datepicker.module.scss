@@ -17,7 +17,8 @@
     display: inline-flex;
     font-family: $octuple-font-family;
     position: relative;
-    transition: border $motion-duration-fast, box-shadow $motion-duration-fast;
+    transition: border $motion-duration-extra-fast,
+        box-shadow $motion-duration-extra-fast;
 
     &:hover:not(.picker-disabled):not(.picker-underline):not(.picker-borderless) {
         @include hover();
@@ -145,11 +146,11 @@
 
         .picker-active-bar {
             bottom: -$picker-border-width;
-            height: 2px;
+            height: $space-xxxs;
             margin-left: $picker-input-padding-horizontal-l;
             background: $picker-input-active-bar-color;
             opacity: 0;
-            transition: all $motion-duration-fast ease-out;
+            transition: all $motion-duration-extra-fast;
             pointer-events: none;
         }
 
@@ -217,7 +218,7 @@
         }
 
         .picker-preset {
-            margin-right: 16px;
+            margin-right: $space-m;
         }
 
         .picker-ok {
@@ -277,7 +278,7 @@
         }
 
         .picker-separator {
-            top: 8px;
+            top: $space-xs;
         }
     }
 
@@ -293,7 +294,7 @@
         }
 
         .picker-separator {
-            top: 4px;
+            top: $space-xxs;
         }
     }
 }

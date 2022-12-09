@@ -25,6 +25,7 @@ export type Wrapper = ReactWrapper & {
     confirmOK: () => void;
     openPicker: (index?: number) => void;
     closePicker: (index?: number) => void;
+    isClosed: () => boolean;
     isOpen: () => boolean;
     findCell: (text: number | string, index?: number) => Wrapper;
     selectCell: (text: number | string, index?: number) => Wrapper;
