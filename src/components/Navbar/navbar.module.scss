@@ -1,6 +1,9 @@
 .navbar-container {
     align-items: center;
     background-color: var(--navbar-background);
+    backdrop-filter: var(--navbar-backdrop-filter);
+    border-bottom: var(--navbar-border-bottom);
+    box-shadow: var(--navbar-box-shadow);
     color: var(--navbar-text-color);
     display: flex;
     flex-direction: row;

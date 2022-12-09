@@ -129,10 +129,11 @@
         background-color: var(--tab-pill-background);
         width: fit-content;
         border-radius: $corner-radius-xl;
-        padding: $space-xs;
+        padding: calc(#{$space-xs} - #{$space-xxxs});
 
         .tab {
-            padding: $space-xs $space-m;
+            padding: $button-padding-vertical-medium
+                $button-padding-horizontal-medium;
             border-radius: $corner-radius-xl;
 
             &.active {
@@ -140,8 +141,78 @@
                     --bg: var(--primary-color-10);
                 }
             }
+
             .tab-indicator {
                 display: none;
+            }
+        }
+    }
+
+    &.large {
+        &.pill {
+            padding: $space-xs;
+
+            .tab {
+                padding: $button-padding-vertical-large
+                    $button-padding-horizontal-large;
+
+                .badge {
+                    font-size: $text-font-size-3;
+                    height: $text-line-height-3;
+                    line-height: $text-line-height-3;
+                    margin-left: $space-xs;
+                }
+
+                .label {
+                    font-size: $text-font-size-4;
+                    line-height: $text-line-height-3;
+                }
+            }
+        }
+    }
+
+    &.medium {
+        &.pill {
+            padding: calc(#{$space-xs} - #{$space-xxxs});
+
+            .tab {
+                padding: $button-padding-vertical-medium
+                    $button-padding-horizontal-medium;
+
+                .badge {
+                    font-size: $text-font-size-1;
+                    height: $text-line-height-1;
+                    line-height: $text-line-height-1;
+                    margin-left: $space-xxs;
+                }
+
+                .label {
+                    font-size: $text-font-size-2;
+                    line-height: $text-line-height-1;
+                }
+            }
+        }
+    }
+
+    &.small {
+        &.pill {
+            padding: $space-xxs;
+
+            .tab {
+                padding: $button-padding-vertical-small
+                    $button-padding-horizontal-small;
+
+                .badge {
+                    font-size: $text-font-size-1;
+                    height: $text-line-height-1;
+                    line-height: $text-line-height-1;
+                    margin-left: $space-xxs;
+                }
+
+                .label {
+                    font-size: $text-font-size-2;
+                    line-height: $text-line-height-1;
+                }
             }
         }
     }
