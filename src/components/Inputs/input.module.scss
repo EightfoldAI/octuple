@@ -11,6 +11,7 @@
         medium: $input-medium-size,
         large: $input-large-size,
     );
+    --border-color: #69717f;
 
     input {
         @include text-overflow;
