@@ -9,6 +9,7 @@ export const ScrollContainer: FC<ScrollContainerProps> = forwardRef(
         const {
             children,
             classNames,
+            containerPadding = 0,
             onScroll = () => void 0,
             rtl,
             'data-test-id': dataTestId,
@@ -28,6 +29,10 @@ export const ScrollContainer: FC<ScrollContainerProps> = forwardRef(
                 data-test-id={dataTestId}
                 onScroll={() => onScroll}
                 ref={ref}
+                style={{
+                    margin: -containerPadding,
+                    padding: containerPadding,
+                }}
             >
                 {children}
             </ul>

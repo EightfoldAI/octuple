@@ -227,6 +227,11 @@ export interface ScrollMenuProps
      */
     children: ItemType | ItemType[];
     /**
+     * The container padding around menu items.
+     * @default 0
+     */
+    containerPadding?: number;
+    /**
      * The pixel gap between items.
      */
     gap?: number;
@@ -339,6 +344,11 @@ export interface ScrollContainerProps
      * The child renderer.
      */
     children?: ReactNode;
+    /**
+     * The container padding around menu items.
+     * @default 0
+     */
+    containerPadding?: number;
     /**
      * Callback fired on scroll.
      */

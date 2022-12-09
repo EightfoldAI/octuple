@@ -16,6 +16,7 @@ exports[`ScrollMenu Children and buttons LeftArrow, ScrollContainer, MenuItems, 
       </div>
       <ul
         class="carousel-auto-scroll-container scroll-class"
+        style="margin: 0px; padding: 0px;"
       >
         <li
           class="carousel-scroll-menu-item"
@@ -69,6 +70,7 @@ exports[`ScrollMenu should render without props 1`] = `
     >
       <ul
         class="carousel-auto-scroll-container"
+        style="margin: 0px; padding: 0px;"
       >
         <li
           class="carousel-scroll-menu-item"

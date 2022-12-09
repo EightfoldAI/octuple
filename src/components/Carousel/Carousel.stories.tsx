@@ -128,6 +128,8 @@ Scroller.args = {
                 style={{
                     alignItems: 'center',
                     background: 'var(--grey-color-20)',
+                    boxShadow:
+                        '0px 1px 2px rgba(15, 20, 31, 0.12), 0px 2px 8px rgba(15, 20, 31, 0.16)',
                     display: 'flex',
                     height: 200,
                     justifyContent: 'center',
@@ -138,6 +140,7 @@ Scroller.args = {
                 {item.name}
             </div>
         )),
+        containerPadding: 8,
         gap: 24,
     },
     id: 'myCarouselScrollId',

@@ -33,6 +33,7 @@ export const ScrollMenu: FC<ScrollMenuProps> = forwardRef(
         const {
             apiRef = { current: {} as autoScrollApiType },
             children,
+            containerPadding = 0,
             gap = 8,
             itemClassNames,
             nextButton: _rightArrow,
@@ -177,6 +178,7 @@ export const ScrollMenu: FC<ScrollMenuProps> = forwardRef(
                         {LeftArrow}
                         <ScrollContainer
                             classNames={scrollContainerClassNames}
+                            containerPadding={containerPadding}
                             onScroll={() => scrollHandler}
                             ref={scrollContainerRef}
                             rtl={rtl}
