@@ -45,7 +45,7 @@ export default {
             control: { type: 'inline-radio' },
         },
         size: {
-            options: [TabSize.Medium, TabSize.Small],
+            options: [TabSize.Large, TabSize.Medium, TabSize.Small],
             control: { type: 'inline-radio' },
         },
     },
