@@ -125,10 +125,14 @@
         transition: none;
 
         &:hover {
+            background: inherit;
+            color: inherit;
             outline-color: transparent;
         }
 
         &:active {
+            background: inherit;
+            color: inherit;
             outline-color: transparent;
         }
     }
