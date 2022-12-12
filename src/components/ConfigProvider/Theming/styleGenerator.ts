@@ -153,6 +153,14 @@ export function getStyle(themeOptions: ThemeOptions): IGetStyle {
         };
     }
 
+    // ================= var theming ==================
+    if (theme.varTheme) {
+        variables = {
+            ...variables,
+            ...theme.varTheme,
+        };
+    }
+
     return {
         variables,
         light: themePrimaryColor.isLight(),

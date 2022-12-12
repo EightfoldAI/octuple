@@ -10,11 +10,11 @@ const YEAR_ROW_COUNT: number = 4;
 
 function YearBody<DateType>(props: YearBodyProps<DateType>) {
     const {
+        generateConfig,
+        locale,
+        size = DatePickerSize.Medium,
         value,
         viewDate,
-        locale,
-        generateConfig,
-        size = DatePickerSize.Medium,
     } = props;
     const { rangedValue, hoverRangedValue } = React.useContext(RangeContext);
 

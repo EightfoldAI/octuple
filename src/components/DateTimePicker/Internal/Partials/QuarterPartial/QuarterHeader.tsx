@@ -11,18 +11,18 @@ function QuarterHeader<DateType>(props: QuarterHeaderProps<DateType>) {
     const {
         generateConfig,
         locale,
-        viewDate,
         onNextYear,
         onPrevYear,
         onYearClick,
         size = DatePickerSize.Medium,
+        viewDate,
     } = props;
     const { hideHeader } = React.useContext(PartialContext);
 
-    const datePickerSizeToButtonSizeMap = new Map<
+    const datePickerSizeToButtonSizeMap: Map<
         DatePickerSize | Size,
-        ButtonSize | Size
-    >([
+        Size | ButtonSize
+    > = new Map<DatePickerSize | Size, ButtonSize | Size>([
         [DatePickerSize.Flex, ButtonSize.Flex],
         [DatePickerSize.Large, ButtonSize.Large],
         [DatePickerSize.Medium, ButtonSize.Medium],

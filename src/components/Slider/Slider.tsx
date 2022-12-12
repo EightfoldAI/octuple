@@ -439,7 +439,7 @@ export const Slider: FC<SliderProps> = React.forwardRef(
                     ? `${lowerThumbOffset}px`
                     : `${thumbRadius}px`;
             }
-            trackRef.current.style.width = `${rangeWidth - thumbRadius}px`;
+            trackRef.current.style.width = `${rangeWidth}px`;
         };
 
         const [formatValue] = useOffset(
@@ -449,7 +449,7 @@ export const Slider: FC<SliderProps> = React.forwardRef(
             markers
         );
 
-        const rawValues = React.useMemo(() => {
+        const rawValues = useMemo(() => {
             const valueList =
                 value === null || value === undefined
                     ? []
@@ -486,7 +486,7 @@ export const Slider: FC<SliderProps> = React.forwardRef(
         }, [value, isRange, mergedMin, formatValue]);
 
         const rawValuesRef: React.MutableRefObject<number[]> =
-            React.useRef(rawValues);
+            useRef(rawValues);
         rawValuesRef.current = rawValues;
 
         const markList: SliderMarker[] = useMemo<SliderMarker[]>(() => {

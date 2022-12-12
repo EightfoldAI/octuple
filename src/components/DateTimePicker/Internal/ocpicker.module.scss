@@ -8,19 +8,19 @@
 
     // Picker default styles are of size medium.
     &-body {
-        padding: 8px 16px 8px 16px;
+        padding: $space-xs $space-m $space-xs $space-m;
     }
 
     &-large &-body {
-        padding: 8px 16px 16px 16px;
+        padding: $space-xs $space-m $space-m $space-m;
     }
 
     &-medium &-body {
-        padding: 8px 16px 8px 16px;
+        padding: $space-xs $space-m $space-xs $space-m;
     }
 
     &-small &-body {
-        padding: 4px 16px 8px 16px;
+        padding: $space-xxs $space-m $space-xs $space-m;
     }
 
     &-content {
@@ -91,7 +91,7 @@
         display: inline-block;
         vertical-align: top;
         background: $picker-background-color;
-        border-radius: 8px;
+        border-radius: $corner-radius-m;
         box-shadow: $picker-box-shadow;
 
         &-focused {
@@ -113,8 +113,8 @@
     &-header {
         border-bottom: 1px solid var(--grey-color-20);
         display: flex;
-        margin: 0 16px 16px 16px;
-        padding: 16px 0 12px 0;
+        margin: 0 $space-m $space-m $space-m;
+        padding: $space-m 0 $space-s 0;
 
         > * {
             flex: none;
@@ -133,18 +133,18 @@
     }
 
     &-large &-header {
-        margin: 0 16px 16px 16px;
-        padding: 16px 0 12px 0;
+        margin: 0 $space-m $space-m $space-m;
+        padding: $space-m 0 $space-s 0;
     }
 
     &-medium &-header {
-        margin: 0 16px 16px 16px;
-        padding: 16px 0 12px 0;
+        margin: 0 $space-m $space-m $space-m;
+        padding: $space-m 0 $space-s 0;
     }
 
     &-small &-header {
-        margin: 0 16px 8px 16px;
-        padding: 8px 0 8px 0;
+        margin: 0 $space-m $space-xs $space-m;
+        padding: $space-xs 0 $space-xs 0;
     }
 
     &-cell {
@@ -174,7 +174,8 @@
             outline: none;
             cursor: pointer;
             text-align: center;
-            transition: background 0.3s, border 0.3s;
+            transition: background $motion-duration-extra-fast,
+                border $motion-duration-extra-fast;
             width: $picker-cell-width-m;
 
             &:hover {
@@ -222,6 +223,8 @@
         }
 
         &-today > &-inner {
+            background: $picker-cell-today-background-color;
+            color: $picker-cell-today-foreground-color;
             outline: 1px solid $picker-cell-today-background-color;
         }
 
@@ -390,19 +393,19 @@
     &-quarter-partial,
     &-month-partial {
         .picker-body {
-            padding: 16px;
+            padding: $space-m;
         }
 
         .picker-header {
-            margin: 0 16px;
-            padding: 16px 0 12px 0;
+            margin: 0 $space-m;
+            padding: $space-m 0 $space-s 0;
         }
     }
 
     &-time-partial {
         .picker-header {
             margin: 0;
-            padding: 0 0 12px 0;
+            padding: 0 0 $space-s 0;
 
             &-view {
                 color: $picker-foreground-color;
@@ -425,19 +428,19 @@
 
     &-medium &-time-partial {
         .picker-header {
-            padding: 0 0 12px 0;
+            padding: 0 0 $space-s 0;
 
             &-view {
                 font-size: $picker-font-size-m;
                 height: $picker-header-height-m;
-                padding: 4px 14px;
+                padding: $space-xxs 14px;
             }
         }
     }
 
     &-small &-time-partial {
         .picker-header {
-            padding: 0 0 8px 0;
+            padding: 0 0 $space-xs 0;
 
             &-view {
                 font-size: $picker-font-size-s;
@@ -452,25 +455,25 @@
         display: flex;
         font-family: $octuple-font-family;
         justify-content: center;
-        padding: 16px;
+        padding: $space-m;
     }
 
     &-large &-footer {
-        padding: 16px;
+        padding: $space-m;
     }
 
     &-medium &-footer {
-        padding: 16px;
+        padding: $space-m;
     }
 
     &-small &-footer {
-        padding: 12px;
+        padding: $space-s;
     }
 
     &-footer-extra {
         border-top: $picker-border;
         font-family: $octuple-font-family;
-        padding: 16px;
+        padding: $space-m;
     }
 
     &-ranges {
@@ -488,7 +491,7 @@
     }
 
     &-preset {
-        margin-right: 16px;
+        margin-right: $space-m;
     }
 
     &-ok {
@@ -504,7 +507,9 @@
 
     &-week-partial {
         &-row {
-            &:hover {
+            &:hover,
+            &:has(.picker-cell-range-start),
+            &:has(.picker-cell-range-end) {
                 .picker-cell {
                     background: $picker-cell-background-color-hover;
                     color: $picker-cell-foreground-color-hover;
@@ -528,6 +533,20 @@
                 .picker-cell:not(:last-of-type) {
                     border-bottom-right-radius: 0;
                     border-top-right-radius: 0;
+                }
+            }
+
+            &:has(.picker-cell-range-start) {
+                .picker-cell:last-of-type {
+                    border-bottom-right-radius: 0;
+                    border-top-right-radius: 0;
+                }
+            }
+
+            &:has(.picker-cell-range-end) {
+                .picker-cell:first-of-type {
+                    border-bottom-left-radius: 0;
+                    border-top-left-radius: 0;
                 }
             }
 
@@ -573,7 +592,9 @@
 
     &-large &-week-partial {
         &-row {
-            &:hover {
+            &:hover,
+            &:has(.picker-cell-range-start),
+            &:has(.picker-cell-range-end) {
                 .picker-cell:first-of-type {
                     border-bottom-left-radius: $picker-cell-border-radius-l;
                     border-top-left-radius: $picker-cell-border-radius-l;
@@ -592,6 +613,20 @@
                 .picker-cell:not(:last-of-type) {
                     border-bottom-right-radius: 0;
                     border-top-right-radius: 0;
+                }
+            }
+
+            &:has(.picker-cell-range-start) {
+                .picker-cell:last-of-type {
+                    border-bottom-right-radius: 0;
+                    border-top-right-radius: 0;
+                }
+            }
+
+            &:has(.picker-cell-range-end) {
+                .picker-cell:first-of-type {
+                    border-bottom-left-radius: 0;
+                    border-top-left-radius: 0;
                 }
             }
 
@@ -625,7 +660,9 @@
 
     &-medium &-week-partial {
         &-row {
-            &:hover {
+            &:hover,
+            &:has(.picker-cell-range-start),
+            &:has(.picker-cell-range-end) {
                 .picker-cell:first-of-type {
                     border-bottom-left-radius: $picker-cell-border-radius-m;
                     border-top-left-radius: $picker-cell-border-radius-m;
@@ -644,6 +681,20 @@
                 .picker-cell:not(:last-of-type) {
                     border-bottom-right-radius: 0;
                     border-top-right-radius: 0;
+                }
+            }
+
+            &:has(.picker-cell-range-start) {
+                .picker-cell:last-of-type {
+                    border-bottom-right-radius: 0;
+                    border-top-right-radius: 0;
+                }
+            }
+
+            &:has(.picker-cell-range-end) {
+                .picker-cell:first-of-type {
+                    border-bottom-left-radius: 0;
+                    border-top-left-radius: 0;
                 }
             }
 
@@ -677,7 +728,9 @@
 
     &-small &-week-partial {
         &-row {
-            &:hover {
+            &:hover,
+            &:has(.picker-cell-range-start),
+            &:has(.picker-cell-range-end) {
                 .picker-cell:first-of-type {
                     border-bottom-left-radius: $picker-cell-border-radius-s;
                     border-top-left-radius: $picker-cell-border-radius-s;
@@ -696,6 +749,20 @@
                 .picker-cell:not(:last-of-type) {
                     border-bottom-right-radius: 0;
                     border-top-right-radius: 0;
+                }
+            }
+
+            &:has(.picker-cell-range-start) {
+                .picker-cell:last-of-type {
+                    border-bottom-right-radius: 0;
+                    border-top-right-radius: 0;
+                }
+            }
+
+            &:has(.picker-cell-range-end) {
+                .picker-cell:first-of-type {
+                    border-bottom-left-radius: 0;
+                    border-top-left-radius: 0;
                 }
             }
 
@@ -728,8 +795,8 @@
     }
 
     &-time-partial {
-        margin: 16px 0 0;
-        padding: 0 16px;
+        margin: $space-m 0 0;
+        padding: 0 $space-m;
         width: auto;
 
         .picker-content {
@@ -767,13 +834,13 @@
             flex: none;
             width: 60px;
             margin: 0;
-            padding: 8px 0;
+            padding: $space-xs 0;
             overflow-x: hidden;
             overflow-y: hidden;
             font-size: $picker-font-size-m;
             text-align: left;
             list-style: none;
-            transition: background 0.3s;
+            transition: background $motion-duration-extra-fast;
 
             &-active {
                 background: $picker-column-background-color-active;
@@ -793,8 +860,8 @@
     }
 
     &-large &-time-partial {
-        margin: 16px 0 0;
-        padding: 0 16px;
+        margin: $space-m 0 0;
+        padding: 0 $space-m;
 
         .picker-content {
             max-height: 360px;
@@ -802,7 +869,7 @@
 
         &-column {
             width: 60px;
-            padding: 8px 0;
+            padding: $space-xs 0;
             font-size: $picker-font-size-l;
         }
 
@@ -820,8 +887,8 @@
     }
 
     &-medium &-time-partial {
-        margin: 16px 0 0;
-        padding: 0 16px;
+        margin: $space-m 0 0;
+        padding: 0 $space-m;
 
         .picker-content {
             max-height: 300px;
@@ -829,7 +896,7 @@
 
         &-column {
             width: 60px;
-            padding: 8px 0;
+            padding: $space-xs 0;
             font-size: $picker-font-size-m;
         }
 
@@ -847,8 +914,8 @@
     }
 
     &-small &-time-partial {
-        margin: 8px 0 0;
-        padding: 0 16px;
+        margin: $space-xs 0 0;
+        padding: 0 $space-m;
 
         .picker-content {
             max-height: 240px;
@@ -856,7 +923,7 @@
 
         &-column {
             width: 44px;
-            padding: 8px 0;
+            padding: $space-xs 0;
             font-size: $picker-font-size-s;
         }
 
@@ -882,7 +949,7 @@
 
         .picker-date-partial,
         .picker-time-partial {
-            transition: opacity 0.3s;
+            transition: opacity $motion-duration-extra-fast;
         }
 
         &-active {
@@ -917,7 +984,8 @@
             height: $picker-input-height-m;
             line-height: $picker-line-height-m;
             min-width: fit-content;
-            padding: $space-xs calc(#{$space-xxl} + 4px) $space-xs $space-xs;
+            padding: $space-xs calc(#{$space-xxl} + #{$space-xs}) $space-xs
+                $space-xs;
             position: relative;
             width: 100%;
 
@@ -1027,7 +1095,7 @@
             vertical-align: top;
 
             &:not(:last-child) {
-                margin-right: 8px;
+                margin-right: $space-xs;
             }
         }
     }
@@ -1054,7 +1122,8 @@
         opacity: 0;
         top: 50%;
         transform: translateY(-50%);
-        transition: opacity $motion-duration-fast, color $motion-duration-fast;
+        transition: opacity $motion-duration-extra-fast,
+            color $motion-duration-extra-fast;
 
         > * {
             vertical-align: top;
@@ -1074,7 +1143,7 @@
         display: inline-flex;
 
         .picker-clear {
-            right: 8px;
+            right: $space-xs;
         }
 
         &:hover {
@@ -1094,7 +1163,7 @@
             border: 1px solid transparent;
             border-radius: $corner-radius-xs;
             opacity: 0;
-            transition: all 0.3s;
+            transition: all $motion-duration-extra-fast;
             pointer-events: none;
         }
 
@@ -1121,8 +1190,8 @@
 
     &-large &-range {
         .picker-clear {
-            right: 12px;
-            transform: translateY(-12px);
+            right: $space-s;
+            transform: translateY(-$space-s);
         }
     }
 
@@ -1132,7 +1201,7 @@
         background: $picker-background-color;
         border-radius: $picker-border-radius;
         box-shadow: $picker-box-shadow;
-        transition: margin $motion-duration-fast;
+        transition: margin $motion-duration-extra-fast;
 
         .picker-partials {
             display: inline-flex;
@@ -1291,7 +1360,9 @@
 
         .picker-week-partial {
             &-row {
-                &:hover {
+                &:hover,
+                &:has(.picker-cell-range-start),
+                &:has(.picker-cell-range-end) {
                     .picker-cell:not(:first-of-type):not(:last-of-type) {
                         border-bottom-left-radius: 0;
                         border-top-left-radius: 0;
@@ -1309,6 +1380,20 @@
                     .picker-cell:last-of-type {
                         border-bottom-left-radius: $picker-cell-border-radius-m;
                         border-top-left-radius: $picker-cell-border-radius-m;
+                        border-bottom-right-radius: 0;
+                        border-top-right-radius: 0;
+                    }
+                }
+
+                &:has(.picker-cell-range-start) {
+                    .picker-cell:last-of-type {
+                        border-bottom-left-radius: 0;
+                        border-top-left-radius: 0;
+                    }
+                }
+
+                &:has(.picker-cell-range-end) {
+                    .picker-cell:first-of-type {
                         border-bottom-right-radius: 0;
                         border-top-right-radius: 0;
                     }
@@ -1341,7 +1426,9 @@
 
         &.picker-large .picker-week-partial {
             &-row {
-                &:hover {
+                &:hover,
+                &:has(.picker-cell-range-start),
+                &:has(.picker-cell-range-end) {
                     .picker-cell:not(:first-of-type):not(:last-of-type) {
                         border-bottom-left-radius: 0;
                         border-top-left-radius: 0;
@@ -1359,6 +1446,20 @@
                     .picker-cell:last-of-type {
                         border-bottom-left-radius: $picker-cell-border-radius-l;
                         border-top-left-radius: $picker-cell-border-radius-l;
+                        border-bottom-right-radius: 0;
+                        border-top-right-radius: 0;
+                    }
+                }
+
+                &:has(.picker-cell-range-start) {
+                    .picker-cell:last-of-type {
+                        border-bottom-left-radius: 0;
+                        border-top-left-radius: 0;
+                    }
+                }
+
+                &:has(.picker-cell-range-end) {
+                    .picker-cell:first-of-type {
                         border-bottom-right-radius: 0;
                         border-top-right-radius: 0;
                     }
@@ -1391,7 +1492,9 @@
 
         &.picker-medium .picker-week-partial {
             &-row {
-                &:hover {
+                &:hover,
+                &:has(.picker-cell-range-start),
+                &:has(.picker-cell-range-end) {
                     .picker-cell:not(:first-of-type):not(:last-of-type) {
                         border-bottom-left-radius: 0;
                         border-top-left-radius: 0;
@@ -1409,6 +1512,20 @@
                     .picker-cell:last-of-type {
                         border-bottom-left-radius: $picker-cell-border-radius-m;
                         border-top-left-radius: $picker-cell-border-radius-m;
+                        border-bottom-right-radius: 0;
+                        border-top-right-radius: 0;
+                    }
+                }
+
+                &:has(.picker-cell-range-start) {
+                    .picker-cell:last-of-type {
+                        border-bottom-left-radius: 0;
+                        border-top-left-radius: 0;
+                    }
+                }
+
+                &:has(.picker-cell-range-end) {
+                    .picker-cell:first-of-type {
                         border-bottom-right-radius: 0;
                         border-top-right-radius: 0;
                     }
@@ -1441,7 +1558,9 @@
 
         &.picker-small .picker-week-partial {
             &-row {
-                &:hover {
+                &:hover,
+                &:has(.picker-cell-range-start),
+                &:has(.picker-cell-range-end) {
                     .picker-cell:not(:first-of-type):not(:last-of-type) {
                         border-bottom-left-radius: 0;
                         border-top-left-radius: 0;
@@ -1459,6 +1578,20 @@
                     .picker-cell:last-of-type {
                         border-bottom-left-radius: $picker-cell-border-radius-s;
                         border-top-left-radius: $picker-cell-border-radius-s;
+                        border-bottom-right-radius: 0;
+                        border-top-right-radius: 0;
+                    }
+                }
+
+                &:has(.picker-cell-range-start) {
+                    .picker-cell:last-of-type {
+                        border-bottom-left-radius: 0;
+                        border-top-left-radius: 0;
+                    }
+                }
+
+                &:has(.picker-cell-range-end) {
+                    .picker-cell:first-of-type {
                         border-bottom-right-radius: 0;
                         border-top-right-radius: 0;
                     }

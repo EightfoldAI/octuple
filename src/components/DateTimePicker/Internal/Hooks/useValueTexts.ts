@@ -24,7 +24,7 @@ export default function useValueTexts<DateType>(
             let firstValueText: string = '';
             const fullValueTexts: string[] = [];
 
-            for (let i = 0; i < formatList.length; i += 1) {
+            for (let i: number = 0; i < formatList.length; i += 1) {
                 const format: string | CustomFormat<DateType> = formatList[i];
                 const formatStr: string = formatValue(value, {
                     generateConfig,

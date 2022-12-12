@@ -22,7 +22,7 @@ import type {
     OcPickerMode,
 } from './OcPicker.types';
 import { isEqual } from './Utils/dateUtil';
-import PartialContext from './PartialContext';
+import PartialContext, { PartialContextProps } from './PartialContext';
 import { PickerModeMap } from './Utils/uiUtil';
 import RangeContext from './RangeContext';
 import { getExtraFooter } from './Utils/getExtraFooter';
@@ -84,11 +84,11 @@ function OcPickerPartial<DateType>(props: OcPickerPartialProps<DateType>) {
     const needConfirmButton: boolean =
         (picker === 'date' && !!showTime) || picker === 'time';
 
-    const isHourStepValid = 24 % hourStep === 0;
-    const isMinuteStepValid = 60 % minuteStep === 0;
-    const isSecondStepValid = 60 % secondStep === 0;
+    const isHourStepValid: boolean = 24 % hourStep === 0;
+    const isMinuteStepValid: boolean = 60 % minuteStep === 0;
+    const isSecondStepValid: boolean = 60 % secondStep === 0;
 
-    const partialContext = useContext(PartialContext);
+    const partialContext: PartialContextProps = useContext(PartialContext);
     const {
         operationRef,
         partialRef: partialDivRef,
@@ -98,10 +98,11 @@ function OcPickerPartial<DateType>(props: OcPickerPartialProps<DateType>) {
 
     const { inRange, partialPosition, rangedValue, hoverRangedValue } =
         useContext(RangeContext);
-    const partialRef = useRef<PartialRefProps>({});
+    const partialRef: React.MutableRefObject<PartialRefProps> =
+        useRef<PartialRefProps>({});
 
     // Handle init logic
-    const initRef = useRef(true);
+    const initRef: React.MutableRefObject<boolean> = useRef(true);
 
     // Value
     const [mergedValue, setInnerValue] = useMergedState(null, {
@@ -119,7 +120,7 @@ function OcPickerPartial<DateType>(props: OcPickerPartialProps<DateType>) {
     >(null, {
         value: pickerValue,
         defaultValue: defaultPickerValue || mergedValue,
-        postState: (date) => {
+        postState: (date: DateType) => {
             const now = generateConfig.getNow();
             if (!date) {
                 return now;
@@ -140,7 +141,7 @@ function OcPickerPartial<DateType>(props: OcPickerPartialProps<DateType>) {
         },
     });
 
-    const setViewDate = (date: DateType) => {
+    const setViewDate = (date: DateType): void => {
         setInnerViewDate(date);
         if (onPickerValueChange) {
             onPickerValueChange(date);
@@ -218,7 +219,9 @@ function OcPickerPartial<DateType>(props: OcPickerPartialProps<DateType>) {
         }
     };
 
-    const onInternalKeyDown = (e: React.KeyboardEvent<HTMLElement>) => {
+    const onInternalKeyDown = (
+        e: React.KeyboardEvent<HTMLElement>
+    ): boolean => {
         if (partialRef.current?.onKeyDown) {
             if (
                 [
@@ -239,9 +242,11 @@ function OcPickerPartial<DateType>(props: OcPickerPartialProps<DateType>) {
         return null;
     };
 
-    const onInternalBlur: React.FocusEventHandler<HTMLElement> = (e) => {
+    const onInternalBlur: React.FocusEventHandler<HTMLElement> = (
+        event: React.FocusEvent<HTMLElement, Element>
+    ): void => {
         if (partialRef.current?.onBlur) {
-            partialRef.current.onBlur(e);
+            partialRef.current.onBlur(event);
         }
     };
 
@@ -287,7 +292,10 @@ function OcPickerPartial<DateType>(props: OcPickerPartialProps<DateType>) {
             partialNode = (
                 <DecadePartial<DateType>
                     {...pickerProps}
-                    onSelect={(date, type) => {
+                    onSelect={(
+                        date: DateType,
+                        type: 'key' | 'mouse' | 'submit'
+                    ) => {
                         setViewDate(date);
                         triggerSelect(date, type);
                     }}
@@ -300,7 +308,10 @@ function OcPickerPartial<DateType>(props: OcPickerPartialProps<DateType>) {
             partialNode = (
                 <YearPartial<DateType>
                     {...pickerProps}
-                    onSelect={(date, type) => {
+                    onSelect={(
+                        date: DateType,
+                        type: 'key' | 'mouse' | 'submit'
+                    ) => {
                         setViewDate(date);
                         triggerSelect(date, type);
                     }}
@@ -313,7 +324,10 @@ function OcPickerPartial<DateType>(props: OcPickerPartialProps<DateType>) {
             partialNode = (
                 <MonthPartial<DateType>
                     {...pickerProps}
-                    onSelect={(date, type) => {
+                    onSelect={(
+                        date: DateType,
+                        type: 'key' | 'mouse' | 'submit'
+                    ) => {
                         setViewDate(date);
                         triggerSelect(date, type);
                     }}
@@ -326,7 +340,10 @@ function OcPickerPartial<DateType>(props: OcPickerPartialProps<DateType>) {
             partialNode = (
                 <QuarterPartial<DateType>
                     {...pickerProps}
-                    onSelect={(date, type) => {
+                    onSelect={(
+                        date: DateType,
+                        type: 'key' | 'mouse' | 'submit'
+                    ) => {
                         setViewDate(date);
                         triggerSelect(date, type);
                     }}
@@ -339,7 +356,10 @@ function OcPickerPartial<DateType>(props: OcPickerPartialProps<DateType>) {
             partialNode = (
                 <WeekPartial
                     {...pickerProps}
-                    onSelect={(date, type) => {
+                    onSelect={(
+                        date: DateType,
+                        type: 'key' | 'mouse' | 'submit'
+                    ) => {
                         setViewDate(date);
                         triggerSelect(date, type);
                     }}
@@ -354,7 +374,10 @@ function OcPickerPartial<DateType>(props: OcPickerPartialProps<DateType>) {
                 <TimePartial<DateType>
                     {...pickerProps}
                     {...(typeof showTime === 'object' ? showTime : null)}
-                    onSelect={(date, type) => {
+                    onSelect={(
+                        date: DateType,
+                        type: 'key' | 'mouse' | 'submit'
+                    ) => {
                         setViewDate(date);
                         triggerSelect(date, type);
                     }}
@@ -368,7 +391,10 @@ function OcPickerPartial<DateType>(props: OcPickerPartialProps<DateType>) {
                 partialNode = (
                     <DateTimePartial
                         {...pickerProps}
-                        onSelect={(date, type) => {
+                        onSelect={(
+                            date: DateType,
+                            type: 'key' | 'mouse' | 'submit'
+                        ) => {
                             setViewDate(date);
                             triggerSelect(date, type);
                         }}
@@ -379,7 +405,10 @@ function OcPickerPartial<DateType>(props: OcPickerPartialProps<DateType>) {
                 partialNode = (
                     <DatePartial<DateType>
                         {...pickerProps}
-                        onSelect={(date, type) => {
+                        onSelect={(
+                            date: DateType,
+                            type: 'key' | 'mouse' | 'submit'
+                        ) => {
                             setViewDate(date);
                             triggerSelect(date, type);
                         }}
@@ -393,8 +422,8 @@ function OcPickerPartial<DateType>(props: OcPickerPartialProps<DateType>) {
     let rangesNode: React.ReactNode;
 
     const onNow = (): void => {
-        const now = generateConfig.getNow();
-        const lowerBoundTime = getLowerBoundTime(
+        const now: DateType = generateConfig.getNow();
+        const lowerBoundTime: [number, number, number] = getLowerBoundTime(
             generateConfig.getHour(now),
             generateConfig.getMinute(now),
             generateConfig.getSecond(now),
@@ -402,7 +431,7 @@ function OcPickerPartial<DateType>(props: OcPickerPartialProps<DateType>) {
             isMinuteStepValid ? minuteStep : 1,
             isSecondStepValid ? secondStep : 1
         );
-        const adjustedNow = setTime(
+        const adjustedNow: DateType = setTime(
             generateConfig,
             now,
             lowerBoundTime[0], // hour
@@ -435,10 +464,10 @@ function OcPickerPartial<DateType>(props: OcPickerPartialProps<DateType>) {
         });
     }
 
-    const datePickerSizeToButtonSizeMap = new Map<
+    const datePickerSizeToButtonSizeMap: Map<
         DatePickerSize | Size,
-        ButtonSize | Size
-    >([
+        Size | ButtonSize
+    > = new Map<DatePickerSize | Size, ButtonSize | Size>([
         [DatePickerSize.Flex, ButtonSize.Flex],
         [DatePickerSize.Large, ButtonSize.Large],
         [DatePickerSize.Medium, ButtonSize.Medium],

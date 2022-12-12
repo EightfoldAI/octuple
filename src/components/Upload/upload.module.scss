@@ -533,6 +533,10 @@ $upload-picture-card-size: 104px;
                     color: var(--primary-color-80);
                 }
 
+                &:has(.icon-view) {
+                    padding: 7px;
+                }
+
                 .icon-view {
                     margin: 0;
                 }

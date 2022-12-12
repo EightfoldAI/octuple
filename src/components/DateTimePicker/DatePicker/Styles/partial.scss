@@ -20,7 +20,8 @@ $picker-time-partial-cell-height: 28px;
     height: $picker-partial-cell-height;
     line-height: $picker-partial-cell-height;
     border-radius: $picker-border-radius;
-    transition: background $motion-duration-fast, border $motion-duration-fast;
+    transition: background $motion-duration-extra-fast,
+        border $motion-duration-extra-fast;
 
     &:before {
         position: absolute;
@@ -30,7 +31,7 @@ $picker-time-partial-cell-height: 28px;
         z-index: 1;
         height: $picker-partial-cell-height;
         transform: translateY(-50%);
-        transition: all $motion-duration-fast;
+        transition: all $motion-duration-extra-fast;
         content: '';
     }
 
@@ -101,7 +102,7 @@ $picker-time-partial-cell-height: 28px;
             border-bottom: $picker-border-width dashed
                 $picker-date-hover-range-border-color;
             transform: translateY(-50%);
-            transition: all $motion-duration-fast;
+            transition: all $motion-duration-extra-fast;
             content: '';
         }
     }
@@ -145,7 +146,7 @@ $picker-time-partial-cell-height: 28px;
             bottom: 0;
             z-index: -1;
             background: $picker-date-hover-range-color;
-            transition: all $motion-duration-fast;
+            transition: all $motion-duration-extra-fast;
             content: '';
         }
     }
@@ -419,7 +420,7 @@ $picker-time-partial-cell-height: 28px;
 
         &-row {
             td {
-                transition: background $motion-duration-fast;
+                transition: background $motion-duration-extra-fast;
             }
 
             &:hover td {
@@ -469,7 +470,7 @@ $picker-time-partial-cell-height: 28px;
 
         .picker-date-partial,
         .picker-time-partial {
-            transition: opacity $motion-duration-fast;
+            transition: opacity $motion-duration-extra-fast;
         }
 
         &-active {
@@ -502,7 +503,7 @@ $picker-time-partial-cell-height: 28px;
             overflow-y: hidden;
             text-align: left;
             list-style: none;
-            transition: background $motion-duration-fast;
+            transition: background $motion-duration-extra-fast;
 
             &:after {
                 display: block;
@@ -545,7 +546,7 @@ $picker-time-partial-cell-height: 28px;
                         line-height: $picker-time-partial-cell-height;
                         border-radius: 0;
                         cursor: pointer;
-                        transition: background $motion-duration-fast;
+                        transition: background $motion-duration-extra-fast;
 
                         &:hover {
                             background: $picker-basic-cell-hover-color;
