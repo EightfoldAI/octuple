@@ -108,7 +108,7 @@ import { Spinner, SpinnerSize } from './components/Spinner';
 
 import { Stack } from './components/Stack';
 
-import { Tabs, Tab, TabVariant } from './components/Tabs';
+import { Stat, Tabs, Tab, TabVariant } from './components/Tabs';
 
 import TimePicker from './components/DateTimePicker/TimePicker/TimePicker';
 
@@ -269,6 +269,7 @@ export {
     Spinner,
     SpinnerSize,
     Stack,
+    Stat,
     SystemUIButton,
     Table,
     TablePaginationConfig,
