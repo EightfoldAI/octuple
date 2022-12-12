@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.20.1](https://github.com/EightfoldAI/octuple/compare/v2.20.0...v2.20.1) (2022-12-12)
+
+### Features
+
+-   add new material design icons ([#458](https://github.com/EightfoldAI/octuple/issues/458)) ([81c56ea](https://github.com/EightfoldAI/octuple/commits/81c56ead213acb8f34263cb5be86abfe8ca1e4e5))
+
+### Bug Fixes
+
+-   export stats tab ([#459](https://github.com/EightfoldAI/octuple/issues/459)) ([6eb35fd](https://github.com/EightfoldAI/octuple/commits/6eb35fd939a7a37758f81a5de59b90d039cfd9cc))
+
 ## [2.20.0](https://github.com/EightfoldAI/octuple/compare/v2.19.0...v2.20.0) (2022-12-10)
 
 ### Features
