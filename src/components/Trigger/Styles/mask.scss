@@ -5,10 +5,8 @@
         right: 0;
         left: 0;
         bottom: 0;
-        background-color: rgb(55, 55, 55);
-        background-color: rgba(55, 55, 55, 0.6);
+        background-color: $all-backdrops;
         height: 100%;
-        filter: alpha(opacity=50);
         z-index: 1050;
 
         &-hidden {
@@ -16,21 +14,19 @@
         }
     }
 
-    @mixin fade-effect() {
-        animation-duration: 0.3s;
-        animation-fill-mode: both;
-        animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
-    }
-
     &-fade-enter,
     &-fade-appear {
         opacity: 0;
-        @include fade-effect();
+        animation-duration: $motion-duration-extra-fast;
+        animation-fill-mode: both;
+        animation-timing-function: $motion-easing-easeout;
         animation-play-state: paused;
     }
 
     &-fade-leave {
-        @include fade-effect();
+        animation-duration: $motion-duration-extra-fast;
+        animation-fill-mode: both;
+        animation-timing-function: $motion-easing-easeinout;
         animation-play-state: paused;
     }
 

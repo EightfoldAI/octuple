@@ -23,13 +23,13 @@ Object.assign(Enzyme.ReactWrapper.prototype, {
     confirmOK() {
         this.find('.picker-ok > *').simulate('click');
     },
+    isClosed() {
+        const closedDiv = this.find('.slide-up-leave').hostNodes();
+        return closedDiv && closedDiv.length;
+    },
     isOpen() {
         const openDiv = this.find('.trigger-popup').hostNodes();
-        return (
-            openDiv &&
-            openDiv.length &&
-            !openDiv.hasClass('trigger-popup-hidden')
-        );
+        return openDiv && openDiv.length;
     },
     findCell(text: number | string, index: number = 0) {
         let matchCell;
@@ -230,7 +230,7 @@ describe('Picker.Basic', () => {
             onOpenChange.mockReset();
 
             wrapper.closePicker();
-            expect(wrapper.isOpen()).toBeFalsy();
+            expect(wrapper.isClosed()).toBeTruthy();
             expect(onOpenChange).toHaveBeenCalledWith(false);
         });
 
@@ -240,7 +240,7 @@ describe('Picker.Basic', () => {
 
             wrapper.setProps({ open: false });
             wrapper.update();
-            expect(wrapper.isOpen()).toBeFalsy();
+            expect(wrapper.isClosed()).toBeTruthy();
         });
 
         it('fixed open need repeat trigger onOpenChange', () => {
@@ -364,7 +364,7 @@ describe('Picker.Basic', () => {
 
                 wrapper.clearValue();
                 expect(onChange).toHaveBeenCalledWith(null, '');
-                expect(wrapper.isOpen()).toBeFalsy();
+                expect(wrapper.isClosed()).toBeTruthy();
 
                 wrapper.openPicker();
                 expect(wrapper.find(selected).length).toBeFalsy();
@@ -1106,10 +1106,10 @@ describe('Picker.Basic', () => {
             expect(wrapper.isOpen()).toBeTruthy();
 
             wrapper.keyDown(eventKeys.ESCAPE);
-            expect(wrapper.isOpen()).toBeFalsy();
+            expect(wrapper.isClosed()).toBeTruthy();
 
             wrapper.keyDown(eventKeys.ENTER);
-            expect(wrapper.isOpen()).toBeFalsy();
+            expect(wrapper.isClosed()).toBeTruthy();
         });
     });
 

@@ -11,11 +11,9 @@ function WeekPartial<DateType>(props: WeekPartialProps<DateType>) {
     const {
         generateConfig,
         locale,
-        value,
         size = DatePickerSize.Medium,
+        value,
     } = props;
-
-    // Add row classNames
     const rowClassNames = (date: DateType): string =>
         mergeClasses([
             styles.pickerWeekPartialRow,

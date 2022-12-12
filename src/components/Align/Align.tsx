@@ -212,7 +212,7 @@ const Align: React.ForwardRefRenderFunction<RefAlign, AlignProps> = (
     return childNode;
 };
 
-const RcAlign = React.forwardRef(Align);
-RcAlign.displayName = 'Align';
+const OcAlign = React.forwardRef(Align);
+OcAlign.displayName = 'Align';
 
-export default RcAlign;
+export default OcAlign;

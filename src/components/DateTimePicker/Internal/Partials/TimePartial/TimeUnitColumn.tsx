@@ -7,7 +7,7 @@ import PartialContext from '../../PartialContext';
 import styles from '../../ocpicker.module.scss';
 
 function TimeUnitColumn(props: TimeUnitColumnProps) {
-    const { units, onSelect, value, active, hideDisabledOptions } = props;
+    const { active, hideDisabledOptions, onSelect, units, value } = props;
     const { open } = React.useContext(PartialContext);
 
     const ulRef: React.MutableRefObject<HTMLUListElement> =
@@ -17,7 +17,7 @@ function TimeUnitColumn(props: TimeUnitColumnProps) {
     >(new Map());
     const scrollRef: React.MutableRefObject<Function> = useRef<Function>();
 
-    // `useLayoutEffect` here to avoid blink by duration is 0
+    // `useLayoutEffect` here to avoid flicker
     useLayoutEffect(() => {
         const li: HTMLElement = liRefs.current?.get(value!);
         if (li && open !== false) {

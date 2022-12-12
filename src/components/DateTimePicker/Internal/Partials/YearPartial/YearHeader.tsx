@@ -9,18 +9,18 @@ import { Size } from '../../../../ConfigProvider';
 function YearHeader<DateType>(props: YearHeaderProps<DateType>) {
     const {
         generateConfig,
-        viewDate,
-        onPrevDecade,
-        onNextDecade,
         onDecadeClick,
+        onNextDecade,
+        onPrevDecade,
         size = DatePickerSize.Medium,
+        viewDate,
     } = props;
     const { hideHeader } = React.useContext(PartialContext);
 
-    const datePickerSizeToButtonSizeMap = new Map<
+    const datePickerSizeToButtonSizeMap: Map<
         DatePickerSize | Size,
-        ButtonSize | Size
-    >([
+        Size | ButtonSize
+    > = new Map<DatePickerSize | Size, ButtonSize | Size>([
         [DatePickerSize.Flex, ButtonSize.Flex],
         [DatePickerSize.Large, ButtonSize.Large],
         [DatePickerSize.Medium, ButtonSize.Medium],

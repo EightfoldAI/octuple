@@ -9,32 +9,32 @@ import styles from '../../ocpicker.module.scss';
 
 function MonthPartial<DateType>(props: MonthPartialProps<DateType>) {
     const {
-        operationRef,
-        onViewDateChange,
         generateConfig,
-        value,
-        viewDate,
         onPartialChange,
         onSelect,
+        onViewDateChange,
+        operationRef,
         size = DatePickerSize.Medium,
+        value,
+        viewDate,
     } = props;
 
     operationRef.current = {
-        onKeyDown: (event) =>
+        onKeyDown: (event: React.KeyboardEvent<HTMLElement>): boolean =>
             createKeyDownHandler(event, {
-                onLeftRight: (diff) => {
+                onLeftRight: (diff: number): void => {
                     onSelect(
                         generateConfig.addMonth(value || viewDate, diff),
                         'key'
                     );
                 },
-                onCtrlLeftRight: (diff) => {
+                onCtrlLeftRight: (diff: number): void => {
                     onSelect(
                         generateConfig.addYear(value || viewDate, diff),
                         'key'
                     );
                 },
-                onUpDown: (diff) => {
+                onUpDown: (diff: number): void => {
                     onSelect(
                         generateConfig.addMonth(
                             value || viewDate,
@@ -43,13 +43,13 @@ function MonthPartial<DateType>(props: MonthPartialProps<DateType>) {
                         'key'
                     );
                 },
-                onEnter: () => {
+                onEnter: (): void => {
                     onPartialChange('date', value || viewDate);
                 },
             }),
     };
 
-    const onYearChange = (diff: number) => {
+    const onYearChange = (diff: number): void => {
         const newDate: DateType = generateConfig.addYear(viewDate, diff);
         onViewDateChange(newDate);
         onPartialChange(null, newDate);
@@ -59,20 +59,20 @@ function MonthPartial<DateType>(props: MonthPartialProps<DateType>) {
         <div className={styles.pickerMonthPartial}>
             <MonthHeader
                 {...props}
-                onPrevYear={() => {
+                onPrevYear={(): void => {
                     onYearChange(-1);
                 }}
-                onNextYear={() => {
+                onNextYear={(): void => {
                     onYearChange(1);
                 }}
-                onYearClick={() => {
+                onYearClick={(): void => {
                     onPartialChange('year', viewDate);
                 }}
                 size={size}
             />
             <MonthBody<DateType>
                 {...props}
-                onSelect={(date) => {
+                onSelect={(date: DateType): void => {
                     onSelect(date, 'mouse');
                     onPartialChange('date', date);
                 }}

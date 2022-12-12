@@ -1,7 +1,7 @@
 import React from 'react';
 import { HeaderProps } from './Partial.types';
 import PartialContext from '../PartialContext';
-import { ButtonSize, SystemUIButton } from '../../../Button';
+import { ButtonShape, ButtonSize, SystemUIButton } from '../../../Button';
 import { IconName } from '../../../Icon';
 import { Size } from '../../../ConfigProvider';
 import { DatePickerSize } from '../OcPicker.types';
@@ -14,16 +14,16 @@ const HIDDEN_STYLE: React.CSSProperties = {
 };
 
 export const Header = ({
-    prevIcon = IconName.mdiChevronLeft,
-    nextIcon = IconName.mdiChevronRight,
-    superPrevIcon = IconName.mdiChevronDoubleLeft,
-    superNextIcon = IconName.mdiChevronDoubleRight,
-    onSuperPrev,
-    onSuperNext,
-    onPrev,
-    onNext,
     children,
+    nextIcon = IconName.mdiChevronRight,
+    onNext,
+    onPrev,
+    onSuperNext,
+    onSuperPrev,
+    prevIcon = IconName.mdiChevronLeft,
     size = DatePickerSize.Medium,
+    superNextIcon = IconName.mdiChevronDoubleRight,
+    superPrevIcon = IconName.mdiChevronDoubleLeft,
 }: HeaderProps): JSX.Element => {
     const htmlDir: string = useCanvasDirection();
 
@@ -49,6 +49,7 @@ export const Header = ({
                         rotate: htmlDir === 'rtl' ? 180 : 0,
                     }}
                     onClick={onSuperPrev}
+                    shape={ButtonShape.Round}
                     size={datePickerSizeToButtonSizeMap.get(size)}
                     style={hidePrevBtn ? HIDDEN_STYLE : {}}
                 />
@@ -61,6 +62,7 @@ export const Header = ({
                         rotate: htmlDir === 'rtl' ? 180 : 0,
                     }}
                     onClick={onPrev}
+                    shape={ButtonShape.Round}
                     size={datePickerSizeToButtonSizeMap.get(size)}
                     style={hidePrevBtn ? HIDDEN_STYLE : {}}
                 />
@@ -74,6 +76,7 @@ export const Header = ({
                         rotate: htmlDir === 'rtl' ? 180 : 0,
                     }}
                     onClick={onNext}
+                    shape={ButtonShape.Round}
                     size={datePickerSizeToButtonSizeMap.get(size)}
                     style={hideNextBtn ? HIDDEN_STYLE : {}}
                 />
@@ -86,6 +89,7 @@ export const Header = ({
                         rotate: htmlDir === 'rtl' ? 180 : 0,
                     }}
                     onClick={onSuperNext}
+                    shape={ButtonShape.Round}
                     size={datePickerSizeToButtonSizeMap.get(size)}
                     style={hideNextBtn ? HIDDEN_STYLE : {}}
                 />

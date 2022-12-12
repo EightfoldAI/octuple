@@ -23,7 +23,7 @@ You will also see any lint errors in the console.
 
 ### `yarn build-storybook`
 
-Builds the Octuple Design System Storybook project for deployment to the `dist` folder.
+Builds the Octuple Design System Storybook project to the `dist` folder for deployment.
 
 ### `yarn test`
 
