@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.20.2](https://github.com/EightfoldAI/octuple/compare/v2.20.1...v2.20.2) (2022-12-12)
+
+### Bug Fixes
+
+-   carousel and tabs: exports carousel slide and tab size ([#460](https://github.com/EightfoldAI/octuple/issues/460)) ([3789543](https://github.com/EightfoldAI/octuple/commits/37895433196e392dffb0b856caac7b92882006b1))
+
 ### [2.20.1](https://github.com/EightfoldAI/octuple/compare/v2.20.0...v2.20.1) (2022-12-12)
 
 ### Features
