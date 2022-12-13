@@ -1,5 +1,6 @@
 .input-wrapper {
     --input-border-color: var(--grey-color-60);
+    --input-border-color-active: var(--grey-color-80);
 
     position: relative;
     width: fit-content;
@@ -335,7 +336,7 @@
         }
 
         &:active {
-            border-color: var(--grey-color-60);
+            border-color: var(--input-border-color-active);
 
             &.underline {
                 border-color: transparent;
@@ -343,7 +344,7 @@
         }
 
         &:hover:not([disabled]) {
-            border-color: var(--grey-color-60);
+            border-color: var(--input-border-color-active);
 
             &.underline {
                 border-color: transparent;
@@ -1038,7 +1039,7 @@
         }
 
         &:hover:not([disabled]):not(.underline) {
-            border-color: var(--grey-color-60);
+            border-color: var(--input-border-color-active);
         }
 
         &.status-success {
@@ -1169,7 +1170,7 @@
 
             &:hover {
                 &:before {
-                    border-color: var(--grey-color-60);
+                    border-color: var(--input-border-color-active);
                 }
             }
 
@@ -1184,7 +1185,7 @@
 
                 &:hover {
                     &:before {
-                        border-color: var(--grey-color-60);
+                        border-color: var(--input-border-color-active);
                     }
                 }
             }
