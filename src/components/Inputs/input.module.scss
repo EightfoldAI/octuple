@@ -1,7 +1,8 @@
 .input-wrapper {
+    --input-border-color: var(--grey-color-60);
+
     position: relative;
     width: fit-content;
-
     $input-small-size: 28px;
     $input-medium-size: 36px;
     $input-large-size: 44px;
@@ -11,12 +12,11 @@
         medium: $input-medium-size,
         large: $input-large-size,
     );
-    --border-color: #69717f;
 
     input {
         @include text-overflow;
         background-color: var(--background-color);
-        border: 1px solid var(--border-color);
+        border: 1px solid var(--input-border-color);
         border-radius: $corner-radius-m;
         box-sizing: border-box;
         color: var(--text-primary-color);
@@ -172,7 +172,7 @@
         }
 
         &.pill-shape {
-            border-color: var(--border-color);
+            border-color: var(--input-border-color);
             border-radius: $corner-radius-xl;
             padding: $space-xs $space-s;
         }
@@ -299,7 +299,7 @@
 
         &.status-success {
             color: var(--text-primary-color);
-            border-color: var(--border-color);
+            border-color: var(--input-border-color);
         }
 
         &.status-warning {
@@ -322,12 +322,12 @@
 
         // TODO: work with UXDs on validating state
         &.status-validating {
-            border-color: var(--border-color);
+            border-color: var(--input-border-color);
         }
 
         // TODO: work with UXDs on feedback state
         &.has-feedback {
-            border-color: var(--border-color);
+            border-color: var(--input-border-color);
         }
 
         &.underline {
@@ -997,7 +997,7 @@
 
     .text-area {
         background-color: var(--background-color);
-        border: 1px solid var(--border-color);
+        border: 1px solid var(--input-border-color);
         border-radius: $corner-radius-m;
         box-sizing: border-box;
         color: var(--text-primary-color);
@@ -1043,7 +1043,7 @@
 
         &.status-success {
             color: var(--text-primary-color);
-            border-color: var(--border-color);
+            border-color: var(--input-border-color);
         }
 
         &.status-warning {
@@ -1066,12 +1066,12 @@
 
         // TODO: work with UXDs on validating state
         &.status-validating {
-            border-color: var(--border-color);
+            border-color: var(--input-border-color);
         }
 
         // TODO: work with UXDs on feedback state
         &.has-feedback {
-            border-color: var(--border-color);
+            border-color: var(--input-border-color);
         }
 
         &.underline {
@@ -1143,7 +1143,7 @@
         .input-group,
         .text-area-group {
             &:before {
-                border-bottom: 1px solid var(--border-color);
+                border-bottom: 1px solid var(--input-border-color);
                 left: 0;
                 bottom: 0;
                 content: '';
@@ -1175,7 +1175,7 @@
 
             &.status-success {
                 &:before {
-                    border-color: var(--border-color);
+                    border-color: var(--input-border-color);
                 }
 
                 &:after {
@@ -1247,7 +1247,7 @@
                 }
 
                 &:after {
-                    border-bottom: 1px solid var(--border-color);
+                    border-bottom: 1px solid var(--input-border-color);
                     left: 0;
                     bottom: 0;
                     content: '';
@@ -1260,7 +1260,7 @@
 
                 &:hover {
                     &:before {
-                        border-color: var(--border-color);
+                        border-color: var(--input-border-color);
                     }
                 }
             }
