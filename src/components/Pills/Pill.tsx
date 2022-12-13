@@ -1,12 +1,12 @@
 import React, { FC, Ref, useContext } from 'react';
 import { PillProps, PillSize, PillType } from './Pills.types';
-import { mergeClasses } from '../../shared/utilities';
-import { Icon, IconName, IconSize } from '../Icon';
 import DisabledContext, { Disabled } from '../ConfigProvider/DisabledContext';
+import { ButtonSize, DefaultButton } from '../Button';
+import { Icon, IconName, IconSize } from '../Icon';
 import { useCanvasDirection } from '../../hooks/useCanvasDirection';
+import { mergeClasses } from '../../shared/utilities';
 
 import styles from './pills.module.scss';
-import { ButtonSize, DefaultButton } from '../Button';
 
 export const Pill: FC<PillProps> = React.forwardRef(
     (

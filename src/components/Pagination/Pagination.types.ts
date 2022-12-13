@@ -99,6 +99,11 @@ export interface PaginationProps extends OcBaseProps<HTMLElement> {
      */
     locale?: PaginationLocale;
     /**
+     * Set whether the pagination should cycle continuously or have hard stops.
+     * @default false
+     */
+    loop?: boolean;
+    /**
      * The next icon button aria-label string.
      * @default 'Next'
      */

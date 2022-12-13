@@ -64,6 +64,11 @@ export interface CardProps extends OcBaseProps<HTMLDivElement> {
      */
     bodyListTwoProps?: BodyProps;
     /**
+     * If the card is bordered or not.
+     * @default false
+     */
+    bordered?: boolean;
+    /**
      * Custom classnames of the component.
      */
     classNames?: string;
