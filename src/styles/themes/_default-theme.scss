@@ -179,7 +179,16 @@
     --font-family: 'Source Sans Pro';
     --font-stack: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
         Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+    --font-stack-full: var(--font-family), var(--font-stack);
     --font-size: 16px;
+
+    --anchor-color: var(--primary-color-70);
+
+    --border-radius-xs: 2px;
+    --border-radius-s: 4px;
+    --border-radius-m: 8px;
+    --border-radius-l: 16px;
+    --border-radius-xl: 24px;
 
     // ------ Tabs theme ------
     --tab-label: var(--text-secondary-color);
@@ -269,7 +278,7 @@
     --table-footer-background-color: var(--background-color);
     --table-footer-foreground-color: var(--text-primary-color);
 
-    --table-border-radius: 24px;
+    --table-border-radius: var(--border-radius-xl);
     --table-border-style: solid;
     --table-border-width: 1px;
     --table-padding-vertical: 8px;
@@ -286,7 +295,7 @@
     --table-header-font-size: 14px;
     --table-header-line-height: 24px;
     --table-footer-font-size: 16px;
-    --table-footer-line-height: 24px;
+    --table-footer-aline-height: 24px;
     --table-font-size: 14px;
     --table-font-size-md: 14px;
     --table-font-size-sm: 14px;
@@ -295,9 +304,10 @@
     // ------ Table theme ------
 
     // ------ Generic button vars ------
-    --button-border-radius: 4px;
+    --button-font-family: var(--font-stack-full);
+    --button-border-radius: --border-radius-s;
     --button-round-shape-border-radius: 50%;
-    --button-pill-shape-border-radius: 24px;
+    --button-pill-shape-border-radius: var(--border-radius-xl);
     // TODO: button text/font related vars
     // ------ Generic button vars ------
 
@@ -490,4 +500,39 @@
     --button-counter-focus-background-color: var(--primary-color-20);
     --button-counter-active-background-color: var(--primary-color-10);
     // ------ Button Counter theme ------
+
+    // ------ Badge theme ------
+    --badge-font-family: var(--font-stack-full);
+    --badge-background-color: var(--grey-color-20);
+    --badge-text-color: var(--grey-color-80);
+    --badge-active-background-color: var(--accent-color-30);
+    --badge-active-text-color: var(--primary-color-80);
+    --badge-disruptive-background-color: var(--disruptive-color-20);
+    --badge-disruptive-text-color: var(--disruptive-color);
+    // ------ Badge theme ------
+
+    // ------ Avatar theme ------
+    --avatar-font-family: var(--font-stack-full);
+    --avatar-border-radius: 0;
+    --avatar-round-border-radius: 50%;
+    // ------ Avatar theme ------
+
+    // ------ Card theme ------
+    --card-background-color: var(--background-color);
+    --card-font-family: var(--font-stack-full);
+    --card-text-color: var(--black-color);
+    --card-border-radius: var(--border-radius-xl);
+    // ------ Card theme ------
+
+    // ------ Info Bar theme ------
+    --info-bar-border-radius: var(--border-radius-xl);
+    --info-bar-background-color: var(--grey-color-10);
+    --info-bar-text-color: var(--grey-color-70);
+    --info-bar-positive-background-color: var(--green-color-10);
+    --info-bar-positive-text-color: var(--green-color-70);
+    --info-bar-warning-background-color: var(--orange-color-10);
+    --info-bar-warning-text-color: var(--orange-color-70);
+    --info-bar-disruptive-background-color: var(--disruptive-color-10);
+    --info-bar-disruptive-text-color: var(--disruptive-color-70);
+    // ------ Info Bar theme ------
 }

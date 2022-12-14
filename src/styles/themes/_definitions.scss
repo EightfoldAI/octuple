@@ -264,7 +264,7 @@ $picker-outline-color: var(--picker-outline-color);
 
 // BEGIN: NON-COLOR DEFINITIONS
 
-$octuple-font-family: var(--font-family), var(--font-stack);
+$octuple-font-family: var(--font-stack-full);
 
 $text-font-size-1: 12px;
 $text-font-size-2: 14px;
@@ -341,11 +341,11 @@ $label-no-value-margin-bottom: 15px;
 
 // Corner-radius Definitions
 
-$corner-radius-xs: 2px;
-$corner-radius-s: 4px;
-$corner-radius-m: 8px;
-$corner-radius-l: 16px;
-$corner-radius-xl: 24px;
+$corner-radius-xs: var(--border-radius-xs);
+$corner-radius-s: var(--border-radius-s);
+$corner-radius-m: var(--border-radius-m);
+$corner-radius-l: var(--border-radius-l);
+$corner-radius-xl: var(--border-radius-xl);
 
 // Speed / Duration Definitions
 

@@ -6,8 +6,9 @@
 .wrapper-style {
     align-items: center;
     display: flex;
-    font-family: $octuple-font-family;
+    font-family: var(--avatar-font-family);
     justify-content: center;
+    border-radius: var(--avatar-border-radius);
     color: var(--text-inverse-color);
 
     &.red {
@@ -60,7 +61,7 @@
 }
 
 .round-image {
-    border-radius: 50%;
+    border-radius: var(--avatar-round-border-radius);
 }
 
 .image-style {
