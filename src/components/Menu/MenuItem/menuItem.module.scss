@@ -5,7 +5,7 @@
     display: flex;
     align-items: center;
     gap: $space-xs;
-    border-radius: $corner-radius-xl;
+    border-radius: $border-radius-xl;
     cursor: pointer;
     font-weight: $text-font-weight-regular;
     transition: all $motion-duration-extra-fast $motion-easing-easeinout 0s;

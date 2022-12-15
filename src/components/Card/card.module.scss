@@ -1,11 +1,9 @@
 .card {
-    --bg-color: $background-color-white;
-
-    background-color: var(--bg-color);
-    border-radius: $corner-radius-xl;
-    color: var(--black-color);
+    background-color: --card-background-color;
+    border-radius: var(--card-border-radius);
+    color: var(--card-text-color);
     display: block;
-    font-family: $octuple-font-family;
+    font-family: var(--card-font-family);
     gap: $space-m;
     padding: $space-ml;
     width: 360px;

@@ -264,7 +264,7 @@ $picker-outline-color: var(--picker-outline-color);
 
 // BEGIN: NON-COLOR DEFINITIONS
 
-$octuple-font-family: var(--font-family), var(--font-stack);
+$octuple-font-family: var(--font-stack-full);
 
 $text-font-size-1: 12px;
 $text-font-size-2: 14px;
@@ -341,11 +341,11 @@ $label-no-value-margin-bottom: 15px;
 
 // Corner-radius Definitions
 
-$corner-radius-xs: 2px;
-$corner-radius-s: 4px;
-$corner-radius-m: 8px;
-$corner-radius-l: 16px;
-$corner-radius-xl: 24px;
+$border-radius-xs: var(--border-radius-xs);
+$border-radius-s: var(--border-radius-s);
+$border-radius-m: var(--border-radius-m);
+$border-radius-l: var(--border-radius-l);
+$border-radius-xl: var(--border-radius-xl);
 
 // Speed / Duration Definitions
 
@@ -530,7 +530,7 @@ $tree-child-padding: 18px;
 // Picker
 
 $picker-arrow-size: 8px;
-$picker-border-radius: $corner-radius-m;
+$picker-border-radius: $border-radius-m;
 $picker-cell-border-radius-l: 24px;
 $picker-cell-border-radius-m: 18px;
 $picker-cell-border-radius-s: 14px;

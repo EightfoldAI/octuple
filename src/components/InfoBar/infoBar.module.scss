@@ -1,10 +1,7 @@
 .info-bar {
-    --info-color: var(--grey-color-10);
-    --bg-color: var(--grey-color-70);
-
-    background-color: var(--bg-color);
-    border-radius: $corner-radius-xl;
-    color: var(--info-color);
+    background-color: var(--info-bar-background-color);
+    border-radius: var(--info-bar-border-radius);
+    color: var(--info-bar-text-color);
     display: flex;
     font-family: $octuple-font-family;
     gap: $space-m;
@@ -12,23 +9,23 @@
     width: 100%;
 
     &.neutral {
-        --info-color: var(--grey-color-70);
-        --bg-color: var(--grey-color-10);
+        background-color: var(--info-bar-background-color);
+        color: var(--info-bar-text-color);
     }
 
     &.positive {
-        --info-color: var(--green-color-70);
-        --bg-color: var(--green-color-10);
+        background-color: var(--info-bar-positive-background-color);
+        color: var(--info-bar-positive-text-color);
     }
 
     &.warning {
-        --info-color: var(--orange-color-70);
-        --bg-color: var(--orange-color-10);
+        background-color: var(--info-bar-warning-background-color);
+        color: var(--info-bar-warning-text-color);
     }
 
     &.disruptive {
-        --info-color: var(--disruptive-color-70);
-        --bg-color: var(--disruptive-color-10);
+        background-color: var(--info-bar-disruptive-background-color);
+        color: var(--info-bar-disruptive-text-color);
     }
 
     .icon {

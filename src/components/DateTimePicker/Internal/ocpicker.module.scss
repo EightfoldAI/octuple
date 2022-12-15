@@ -91,7 +91,7 @@
         display: inline-block;
         vertical-align: top;
         background: $picker-background-color;
-        border-radius: $corner-radius-m;
+        border-radius: $border-radius-m;
         box-shadow: $picker-box-shadow;
 
         &-focused {
@@ -1161,7 +1161,7 @@
             height: $space-xxxs;
             background: $picker-input-active-bar-color;
             border: 1px solid transparent;
-            border-radius: $corner-radius-xs;
+            border-radius: $border-radius-xs;
             opacity: 0;
             transition: all $motion-duration-extra-fast;
             pointer-events: none;

@@ -83,7 +83,7 @@ $upload-picture-card-size: 104px;
             }
 
             &-info {
-                border-radius: $corner-radius-xl;
+                border-radius: $border-radius-xl;
                 height: 48px;
                 padding: $space-xs;
                 transition: background-color $motion-duration-extra-fast;
@@ -310,7 +310,7 @@ $upload-picture-card-size: 104px;
     &-drop {
         background: var(--background-color);
         background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='24' ry='24' stroke='%23bec2ca' stroke-width='1' stroke-dasharray='8' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
-        border-radius: $corner-radius-xl;
+        border-radius: $border-radius-xl;
         cursor: pointer;
         height: 188px;
         position: relative;
@@ -328,7 +328,7 @@ $upload-picture-card-size: 104px;
         }
 
         &-container {
-            border-radius: $corner-radius-xl;
+            border-radius: $border-radius-xl;
             margin: 0 auto;
             padding: $space-xl;
             position: relative;
@@ -426,7 +426,7 @@ $upload-picture-card-size: 104px;
 
         .upload-list-item {
             border: 1px solid var(--border-color);
-            border-radius: $corner-radius-m;
+            border-radius: $border-radius-m;
             height: 100%;
             margin: 0;
             padding: $space-xs;
@@ -447,7 +447,7 @@ $upload-picture-card-size: 104px;
         }
 
         .upload-list-item-info {
-            border-radius: $corner-radius-m;
+            border-radius: $border-radius-m;
             font-size: $text-font-size-2;
             height: 100%;
             overflow: hidden;
@@ -630,7 +630,7 @@ $upload-picture-card-size: 104px;
     &-select-picture-card {
         background-color: var(--background-color);
         border: 1px solid var(--border-color);
-        border-radius: $corner-radius-m;
+        border-radius: $border-radius-m;
         cursor: pointer;
         height: $upload-picture-card-size;
         margin-bottom: $space-xs;
