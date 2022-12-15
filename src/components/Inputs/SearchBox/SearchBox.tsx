@@ -21,6 +21,7 @@ export const SearchBox: FC<SearchBoxProps> = React.forwardRef(
             alignIcon = TextInputIconAlign.Left,
             allowDisabledFocus = false,
             ariaLabel,
+            autocomplete,
             autoFocus = false,
             classNames,
             clearable = true,
@@ -90,6 +91,7 @@ export const SearchBox: FC<SearchBoxProps> = React.forwardRef(
                     clearable={clearable}
                     allowDisabledFocus={allowDisabledFocus}
                     ariaLabel={ariaLabel}
+                    autocomplete={autocomplete}
                     autoFocus={autoFocus}
                     classNames={classNames}
                     clearButtonAriaLabel={clearButtonAriaLabel}

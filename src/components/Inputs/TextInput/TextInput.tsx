@@ -34,6 +34,7 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
             alignIcon = TextInputIconAlign.Left,
             allowDisabledFocus = false,
             ariaLabel,
+            autocomplete,
             autoFocus = false,
             classNames,
             clear = false,
@@ -422,6 +423,7 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
                             ref={ref}
                             aria-disabled={mergedDisabled}
                             aria-label={ariaLabel}
+                            autoComplete={autocomplete}
                             autoFocus={autoFocus}
                             className={textInputClassNames}
                             disabled={!allowDisabledFocus && mergedDisabled}
