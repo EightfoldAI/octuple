@@ -4,9 +4,9 @@
 @import 'abstracts/mixins';
 
 :global {
-    @import 'themes/default-theme';
-    @import 'base/fonts';
-    @import 'base/css-reset';
-    @import 'base/motion';
-    @import 'base/helpers';
+  @import 'themes/default-theme';
+  @import 'base/fonts';
+  @import 'base/css-reset';
+  @import 'base/motion';
+  @import 'base/helpers';
 }

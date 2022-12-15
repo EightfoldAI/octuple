@@ -1,545 +1,538 @@
 :root {
-    --primary-color-10: #ebf7ff;
-    --primary-color-20: #bce4ff;
-    --primary-color-30: #8ed0fa;
-    --primary-color-40: #68baef;
-    --primary-color-50: #47a4df;
-    --primary-color-60: #2c8cc9;
-    --primary-color-70: #146da6;
-    --primary-color-80: #054d7b;
-    --primary-color-90: #002a47;
-    --primary-color-100: #00060a;
-    --primary-color: #054d7b;
-    --accent-color-10: #ebfdff;
-    --accent-color-20: #b0f3fe;
-    --accent-color-30: #7be4f4;
-    --accent-color-40: #50cee1;
-    --accent-color-50: #2db3c7;
-    --accent-color-60: #1999ac;
-    --accent-color-70: #0b7b8b;
-    --accent-color-80: #025966;
-    --accent-color-90: #00333b;
-    --accent-color-100: #00090a;
-    --accent-color: #025966;
-    --disruptive-color-10: #ffefef;
-    --disruptive-color-20: #ffc6c6;
-    --disruptive-color-30: #ffa3a3;
-    --disruptive-color-40: #f48686;
-    --disruptive-color-50: #e46f6f;
-    --disruptive-color-60: #c45353;
-    --disruptive-color-70: #993838;
-    --disruptive-color-80: #6c2222;
-    --disruptive-color-90: #3b1010;
-    --disruptive-color-100: #0a0202;
-    --disruptive-color: #6c2222;
-    --red-color-10: #ffefef;
-    --red-color-20: #ffc6c6;
-    --red-color-30: #ffa3a3;
-    --red-color-40: #f48686;
-    --red-color-50: #e46f6f;
-    --red-color-60: #c45353;
-    --red-color-70: #993838;
-    --red-color-80: #6c2222;
-    --red-color-90: #3b1010;
-    --red-color-100: #0a0202;
-    --red-color: #6c2222;
-    --redorange-color-10: #fff2ed;
-    --redorange-color-20: #ffd1bd;
-    --redorange-color-30: #ffb396;
-    --redorange-color-40: #ff9977;
-    --redorange-color-50: #f8845f;
-    --redorange-color-60: #d26743;
-    --redorange-color-70: #a54d2c;
-    --redorange-color-80: #78351a;
-    --redorange-color-90: #4c1f0c;
-    --redorange-color-100: #1f0c03;
-    --redorange-color: #78351a;
-    --orange-color-10: #fff8eb;
-    --orange-color-20: #ffe3b0;
-    --orange-color-30: #ffcd78;
-    --orange-color-40: #ffb650;
-    --orange-color-50: #f29d31;
-    --orange-color-60: #ce811a;
-    --orange-color-70: #9d6309;
-    --orange-color-80: #6c4500;
-    --orange-color-90: #3b2600;
-    --orange-color-100: #0a0700;
-    --orange-color: #6c4500;
-    --yellow-color-10: #ffffeb;
-    --yellow-color-20: #fff89c;
-    --yellow-color-30: #ffe44e;
-    --yellow-color-40: #f1c40f;
-    --yellow-color-50: #d6ad00;
-    --yellow-color-60: #ad9300;
-    --yellow-color-70: #857600;
-    --yellow-color-80: #5c5500;
-    --yellow-color-90: #333100;
-    --yellow-color-100: #0a0a00;
-    --yellow-color: #5c5500;
-    --yellowgreen-color-10: #fdfeeb;
-    --yellowgreen-color-20: #f3f5b0;
-    --yellowgreen-color-30: #e2e575;
-    --yellowgreen-color-40: #cacd46;
-    --yellowgreen-color-50: #abae1f;
-    --yellowgreen-color-60: #858707;
-    --yellowgreen-color-70: #6d6f00;
-    --yellowgreen-color-80: #525400;
-    --yellowgreen-color-90: #343500;
-    --yellowgreen-color-100: #131300;
-    --yellowgreen-color: #525400;
-    --green-color-10: #f0fefa;
-    --green-color-20: #b9f4e4;
-    --green-color-30: #8ce1ca;
-    --green-color-40: #67c5ac;
-    --green-color-50: #51ab93;
-    --green-color-60: #3d8f79;
-    --green-color-70: #2b715f;
-    --green-color-80: #1b5143;
-    --green-color-90: #0e2e26;
-    --green-color-100: #030a08;
-    --green-color: #1b5143;
-    --bluegreen-color-10: #ebfdff;
-    --bluegreen-color-20: #b0f3fe;
-    --bluegreen-color-30: #7be4f4;
-    --bluegreen-color-40: #50cee1;
-    --bluegreen-color-50: #2db3c7;
-    --bluegreen-color-60: #1999ac;
-    --bluegreen-color-70: #0b7b8b;
-    --bluegreen-color-80: #025966;
-    --bluegreen-color-90: #00333b;
-    --bluegreen-color-100: #00090a;
-    --bluegreen-color: #025966;
-    --blue-color-10: #ebf7ff;
-    --blue-color-20: #bce4ff;
-    --blue-color-30: #8ed0fa;
-    --blue-color-40: #68baef;
-    --blue-color-50: #47a4df;
-    --blue-color-60: #2c8cc9;
-    --blue-color-70: #146da6;
-    --blue-color-80: #054d7b;
-    --blue-color-90: #002a47;
-    --blue-color-100: #00060a;
-    --blue-color: #054d7b;
-    --blueviolet-color-10: #f1f2ff;
-    --blueviolet-color-20: #cacffc;
-    --blueviolet-color-30: #a9b0f5;
-    --blueviolet-color-40: #8c95e8;
-    --blueviolet-color-50: #757ed6;
-    --blueviolet-color-60: #5962b7;
-    --blueviolet-color-70: #414996;
-    --blueviolet-color-80: #2b3271;
-    --blueviolet-color-90: #191d4a;
-    --blueviolet-color-100: #090b1f;
-    --blueviolet-color: #2b3271;
-    --violet-color-10: #fbf6fb;
-    --violet-color-20: #ead3e8;
-    --violet-color-30: #d8b1d4;
-    --violet-color-40: #c491bf;
-    --violet-color-50: #ae72a8;
-    --violet-color-60: #975590;
-    --violet-color-70: #7e3a77;
-    --violet-color-80: #5d2156;
-    --violet-color-90: #350e31;
-    --violet-color-100: #060106;
-    --violet-color: #5d2156;
-    --violetred-color-10: #fff0f9;
-    --violetred-color-20: #fcc8e7;
-    --violetred-color-30: #f3a5d4;
-    --violetred-color-40: #e688c0;
-    --violetred-color-50: #d36fab;
-    --violetred-color-60: #b5548e;
-    --violetred-color-70: #943d71;
-    --violetred-color-80: #702853;
-    --violetred-color-90: #491635;
-    --violetred-color-100: #1f0816;
-    --violetred-color: #702853;
-    --grey-color-10: #f6f7f8;
-    --grey-color-20: #d9dce1;
-    --grey-color-30: #bdc1c9;
-    --grey-color-40: #a1a6b1;
-    --grey-color-50: #858b98;
-    --grey-color-60: #69717f;
-    --grey-color-70: #4f5666;
-    --grey-color-80: #343c4c;
-    --grey-color-90: #1a212e;
-    --grey-color-100: #05070a;
-    --grey-color: #343c4c;
-    --background-color: #fff;
-    --border-color: #bec2ca;
-    --text-primary-color: #1a212e;
-    --text-secondary-color: #4f5666;
-    --text-tertiary-color: #69717f;
-    --text-inverse-color: #fff;
-    --success-color: #2b715f;
-    --warning-color: #9d6309;
-    --error-color: #993838;
-    --info-color: #4f5666;
-    --white-color: #fff;
-    --black-color: #000;
-    --font-family: 'Source Sans Pro';
-    --font-stack: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-        Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
-    --font-stack-full: var(--font-family), var(--font-stack);
-    --font-size: 16px;
-    --backdrop-filter: blur(5px);
+  --primary-color-10: #ebf7ff;
+  --primary-color-20: #bce4ff;
+  --primary-color-30: #8ed0fa;
+  --primary-color-40: #68baef;
+  --primary-color-50: #47a4df;
+  --primary-color-60: #2c8cc9;
+  --primary-color-70: #146da6;
+  --primary-color-80: #054d7b;
+  --primary-color-90: #002a47;
+  --primary-color-100: #00060a;
+  --primary-color: #054d7b;
+  --accent-color-10: #ebfdff;
+  --accent-color-20: #b0f3fe;
+  --accent-color-30: #7be4f4;
+  --accent-color-40: #50cee1;
+  --accent-color-50: #2db3c7;
+  --accent-color-60: #1999ac;
+  --accent-color-70: #0b7b8b;
+  --accent-color-80: #025966;
+  --accent-color-90: #00333b;
+  --accent-color-100: #00090a;
+  --accent-color: #025966;
+  --disruptive-color-10: #ffefef;
+  --disruptive-color-20: #ffc6c6;
+  --disruptive-color-30: #ffa3a3;
+  --disruptive-color-40: #f48686;
+  --disruptive-color-50: #e46f6f;
+  --disruptive-color-60: #c45353;
+  --disruptive-color-70: #993838;
+  --disruptive-color-80: #6c2222;
+  --disruptive-color-90: #3b1010;
+  --disruptive-color-100: #0a0202;
+  --disruptive-color: #6c2222;
+  --red-color-10: #ffefef;
+  --red-color-20: #ffc6c6;
+  --red-color-30: #ffa3a3;
+  --red-color-40: #f48686;
+  --red-color-50: #e46f6f;
+  --red-color-60: #c45353;
+  --red-color-70: #993838;
+  --red-color-80: #6c2222;
+  --red-color-90: #3b1010;
+  --red-color-100: #0a0202;
+  --red-color: #6c2222;
+  --redorange-color-10: #fff2ed;
+  --redorange-color-20: #ffd1bd;
+  --redorange-color-30: #ffb396;
+  --redorange-color-40: #ff9977;
+  --redorange-color-50: #f8845f;
+  --redorange-color-60: #d26743;
+  --redorange-color-70: #a54d2c;
+  --redorange-color-80: #78351a;
+  --redorange-color-90: #4c1f0c;
+  --redorange-color-100: #1f0c03;
+  --redorange-color: #78351a;
+  --orange-color-10: #fff8eb;
+  --orange-color-20: #ffe3b0;
+  --orange-color-30: #ffcd78;
+  --orange-color-40: #ffb650;
+  --orange-color-50: #f29d31;
+  --orange-color-60: #ce811a;
+  --orange-color-70: #9d6309;
+  --orange-color-80: #6c4500;
+  --orange-color-90: #3b2600;
+  --orange-color-100: #0a0700;
+  --orange-color: #6c4500;
+  --yellow-color-10: #ffffeb;
+  --yellow-color-20: #fff89c;
+  --yellow-color-30: #ffe44e;
+  --yellow-color-40: #f1c40f;
+  --yellow-color-50: #d6ad00;
+  --yellow-color-60: #ad9300;
+  --yellow-color-70: #857600;
+  --yellow-color-80: #5c5500;
+  --yellow-color-90: #333100;
+  --yellow-color-100: #0a0a00;
+  --yellow-color: #5c5500;
+  --yellowgreen-color-10: #fdfeeb;
+  --yellowgreen-color-20: #f3f5b0;
+  --yellowgreen-color-30: #e2e575;
+  --yellowgreen-color-40: #cacd46;
+  --yellowgreen-color-50: #abae1f;
+  --yellowgreen-color-60: #858707;
+  --yellowgreen-color-70: #6d6f00;
+  --yellowgreen-color-80: #525400;
+  --yellowgreen-color-90: #343500;
+  --yellowgreen-color-100: #131300;
+  --yellowgreen-color: #525400;
+  --green-color-10: #f0fefa;
+  --green-color-20: #b9f4e4;
+  --green-color-30: #8ce1ca;
+  --green-color-40: #67c5ac;
+  --green-color-50: #51ab93;
+  --green-color-60: #3d8f79;
+  --green-color-70: #2b715f;
+  --green-color-80: #1b5143;
+  --green-color-90: #0e2e26;
+  --green-color-100: #030a08;
+  --green-color: #1b5143;
+  --bluegreen-color-10: #ebfdff;
+  --bluegreen-color-20: #b0f3fe;
+  --bluegreen-color-30: #7be4f4;
+  --bluegreen-color-40: #50cee1;
+  --bluegreen-color-50: #2db3c7;
+  --bluegreen-color-60: #1999ac;
+  --bluegreen-color-70: #0b7b8b;
+  --bluegreen-color-80: #025966;
+  --bluegreen-color-90: #00333b;
+  --bluegreen-color-100: #00090a;
+  --bluegreen-color: #025966;
+  --blue-color-10: #ebf7ff;
+  --blue-color-20: #bce4ff;
+  --blue-color-30: #8ed0fa;
+  --blue-color-40: #68baef;
+  --blue-color-50: #47a4df;
+  --blue-color-60: #2c8cc9;
+  --blue-color-70: #146da6;
+  --blue-color-80: #054d7b;
+  --blue-color-90: #002a47;
+  --blue-color-100: #00060a;
+  --blue-color: #054d7b;
+  --blueviolet-color-10: #f1f2ff;
+  --blueviolet-color-20: #cacffc;
+  --blueviolet-color-30: #a9b0f5;
+  --blueviolet-color-40: #8c95e8;
+  --blueviolet-color-50: #757ed6;
+  --blueviolet-color-60: #5962b7;
+  --blueviolet-color-70: #414996;
+  --blueviolet-color-80: #2b3271;
+  --blueviolet-color-90: #191d4a;
+  --blueviolet-color-100: #090b1f;
+  --blueviolet-color: #2b3271;
+  --violet-color-10: #fbf6fb;
+  --violet-color-20: #ead3e8;
+  --violet-color-30: #d8b1d4;
+  --violet-color-40: #c491bf;
+  --violet-color-50: #ae72a8;
+  --violet-color-60: #975590;
+  --violet-color-70: #7e3a77;
+  --violet-color-80: #5d2156;
+  --violet-color-90: #350e31;
+  --violet-color-100: #060106;
+  --violet-color: #5d2156;
+  --violetred-color-10: #fff0f9;
+  --violetred-color-20: #fcc8e7;
+  --violetred-color-30: #f3a5d4;
+  --violetred-color-40: #e688c0;
+  --violetred-color-50: #d36fab;
+  --violetred-color-60: #b5548e;
+  --violetred-color-70: #943d71;
+  --violetred-color-80: #702853;
+  --violetred-color-90: #491635;
+  --violetred-color-100: #1f0816;
+  --violetred-color: #702853;
+  --grey-color-10: #f6f7f8;
+  --grey-color-20: #d9dce1;
+  --grey-color-30: #bdc1c9;
+  --grey-color-40: #a1a6b1;
+  --grey-color-50: #858b98;
+  --grey-color-60: #69717f;
+  --grey-color-70: #4f5666;
+  --grey-color-80: #343c4c;
+  --grey-color-90: #1a212e;
+  --grey-color-100: #05070a;
+  --grey-color: #343c4c;
+  --background-color: #fff;
+  --border-color: #bec2ca;
+  --text-primary-color: #1a212e;
+  --text-secondary-color: #4f5666;
+  --text-tertiary-color: #69717f;
+  --text-inverse-color: #fff;
+  --success-color: #2b715f;
+  --warning-color: #9d6309;
+  --error-color: #993838;
+  --info-color: #4f5666;
+  --white-color: #fff;
+  --black-color: #000;
+  --font-family: 'Source Sans Pro';
+  --font-stack: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+  --font-stack-full: var(--font-family), var(--font-stack);
+  --font-size: 16px;
+  --backdrop-filter: blur(5px);
 
-    --anchor-color: var(--primary-color-70);
+  --anchor-color: var(--primary-color-70);
 
-    --border-radius-xs: 2px;
-    --border-radius-s: 4px;
-    --border-radius-m: 8px;
-    --border-radius-l: 16px;
-    --border-radius-xl: 24px;
+  --border-radius-xs: 2px;
+  --border-radius-s: 4px;
+  --border-radius-m: 8px;
+  --border-radius-l: 16px;
+  --border-radius-xl: 24px;
 
-    // ------ Tabs theme ------
-    --tab-label: var(--text-secondary-color);
-    --tab-active-label: var(--primary-color-70);
-    --tab-active-background: transparent;
-    --tab-hover-label: var(--primary-color);
-    --tab-hover-background: transparent;
-    --tab-indicator-color: var(--primary-color-70);
-    --tab-small-active-background: transparent;
-    --tab-small-hover-background: transparent;
-    --tab-pill-label: var(--text-secondary-color);
-    --tab-pill-active-label: var(--primary-color-80);
-    --tab-pill-active-background: var(--primary-color-20);
-    --tab-pill-hover-label: var(--primary-color);
-    --tab-pill-background: var(--grey-color-10);
-    --tab-underline: var(--border-color);
-    // ------ Tabs theme ------
+  // ------ Tabs theme ------
+  --tab-label: var(--text-secondary-color);
+  --tab-active-label: var(--primary-color-70);
+  --tab-active-background: transparent;
+  --tab-hover-label: var(--primary-color);
+  --tab-hover-background: transparent;
+  --tab-indicator-color: var(--primary-color-70);
+  --tab-small-active-background: transparent;
+  --tab-small-hover-background: transparent;
+  --tab-pill-label: var(--text-secondary-color);
+  --tab-pill-active-label: var(--primary-color-80);
+  --tab-pill-active-background: var(--primary-color-20);
+  --tab-pill-hover-label: var(--primary-color);
+  --tab-pill-background: var(--grey-color-10);
+  --tab-underline: var(--border-color);
+  // ------ Tabs theme ------
 
-    // ------ Navbar theme ------
-    --navbar-background: var(--primary-color-80);
-    --navbar-text-color: var(--text-inverse-color);
-    --navbar-text-hover-background: var(--navbar-background);
-    --navbar-text-hover-color: var(--navbar-text-color);
-    --navbar-backdrop-filter: var(--backdrop-filter);
-    --navbar-border-bottom: 1px solid transparent;
-    --navbar-box-shadow: 0 1px 3px rgb(50 50 93 / 25%);
-    // ------ Navbar theme ------
+  // ------ Navbar theme ------
+  --navbar-background: var(--primary-color-80);
+  --navbar-text-color: var(--text-inverse-color);
+  --navbar-text-hover-background: var(--navbar-background);
+  --navbar-text-hover-color: var(--navbar-text-color);
+  --navbar-backdrop-filter: var(--backdrop-filter);
+  --navbar-border-bottom: 1px solid transparent;
+  --navbar-box-shadow: 0 1px 3px rgb(50 50 93 / 25%);
+  // ------ Navbar theme ------
 
-    // ------ Picker theme ------
-    --picker-background-color: var(--background-color);
-    --picker-foreground-color: var(--text-secondary-color);
-    --picker-border-color: var(--border-color);
-    --picker-border-color-active: var(--primary-color);
-    --picker-cell-background-color: var(--background-color);
-    --picker-cell-background-color-active: var(--primary-color-20);
-    --picker-cell-background-color-hover: var(--accent-color-30);
-    --picker-cell-today-background-color: var(--accent-color-30);
-    --picker-cell-today-foreground-color: var(--primary-color);
-    --picker-cell-selected-background-color-active: var(--accent-color-30);
-    --picker-cell-range-start-background-color-hover: var(--accent-color-30);
-    --picker-cell-range-start-background-color-active: var(--accent-color-30);
-    --picker-cell-range-end-background-color-hover: var(--accent-color-30);
-    --picker-cell-range-end-background-color-active: var(--accent-color-30);
-    --picker-cell-foreground-color: var(--text-tertiary-color);
-    --picker-cell-foreground-color-active: var(--primary-color);
-    --picker-cell-foreground-color-hover: var(--primary-color);
-    --picker-column-background-color: var(--background-color);
-    --picker-column-background-color-active: var(--primary-color-20);
-    --picker-column-background-color-hover: var(--primary-color-20);
-    --picker-column-foreground-color: var(--text-secondary-color);
-    --picker-column-foreground-color-active: var(--primary-color);
-    --picker-column-foreground-color-hover: var(--primary-color);
-    --picker-header-cell-foreground-color: var(--grey-color-60);
-    --picker-input-active-bar-color: var(--primary-color);
-    --picker-input-background-color: var(--background-color);
-    --picker-input-border-color-active: var(--primary-color-40);
-    --picker-input-border-color-hover: var(--primary-color-40);
-    --picker-input-clear-icon-color: var(--grey-color-60);
-    --picker-input-clear-icon-color-active: var(--grey-color-60);
-    --picker-input-foreground-color: var(--text-primary-color);
-    --picker-input-placeholder-color: var(--grey-color-60);
-    --picker-outline-color: var(--primary-color-40);
-    // ------ Picker theme ------
+  // ------ Picker theme ------
+  --picker-background-color: var(--background-color);
+  --picker-foreground-color: var(--text-secondary-color);
+  --picker-border-color: var(--border-color);
+  --picker-border-color-active: var(--primary-color);
+  --picker-cell-background-color: var(--background-color);
+  --picker-cell-background-color-active: var(--primary-color-20);
+  --picker-cell-background-color-hover: var(--accent-color-30);
+  --picker-cell-today-background-color: var(--accent-color-30);
+  --picker-cell-today-foreground-color: var(--primary-color);
+  --picker-cell-selected-background-color-active: var(--accent-color-30);
+  --picker-cell-range-start-background-color-hover: var(--accent-color-30);
+  --picker-cell-range-start-background-color-active: var(--accent-color-30);
+  --picker-cell-range-end-background-color-hover: var(--accent-color-30);
+  --picker-cell-range-end-background-color-active: var(--accent-color-30);
+  --picker-cell-foreground-color: var(--text-tertiary-color);
+  --picker-cell-foreground-color-active: var(--primary-color);
+  --picker-cell-foreground-color-hover: var(--primary-color);
+  --picker-column-background-color: var(--background-color);
+  --picker-column-background-color-active: var(--primary-color-20);
+  --picker-column-background-color-hover: var(--primary-color-20);
+  --picker-column-foreground-color: var(--text-secondary-color);
+  --picker-column-foreground-color-active: var(--primary-color);
+  --picker-column-foreground-color-hover: var(--primary-color);
+  --picker-header-cell-foreground-color: var(--grey-color-60);
+  --picker-input-active-bar-color: var(--primary-color);
+  --picker-input-background-color: var(--background-color);
+  --picker-input-border-color-active: var(--primary-color-40);
+  --picker-input-border-color-hover: var(--primary-color-40);
+  --picker-input-clear-icon-color: var(--grey-color-60);
+  --picker-input-clear-icon-color-active: var(--grey-color-60);
+  --picker-input-foreground-color: var(--text-primary-color);
+  --picker-input-placeholder-color: var(--grey-color-60);
+  --picker-outline-color: var(--primary-color-40);
+  // ------ Picker theme ------
 
-    // ------ Table theme ------
-    --table-background-color: var(--background-color);
-    --table-foreground-color: var(--text-primary-color);
-    --table-background-alternate-color: var(--grey-color-10);
-    --table-border-color: var(--grey-color-20);
-    --table-border-active-color: transparent;
-    --table-header-background-color: var(--background-color);
-    --table-header-foreground-color: var(--text-primary-color);
-    --table-header-icon-color: var(--grey-color-40);
-    --table-header-icon-hover-color: var(--primary-color-80);
-    --table-header-cell-split-color: var(--grey-color-20);
-    --table-body-sort-background-color: var(--background-color);
-    --table-header-sort-background-color: var(--background-color);
-    --table-header-sort-active-background-color: var(--grey-color-10);
-    --table-header-filter-background-color: var(--background-color);
-    --table-header-filter-active-background-color: var(--grey-color-10);
-    --table-header-filter-dropdown-background-color: var(--background-color);
-    --table-header-filter-buttons-background-color: var(--background-color);
-    --table-expand-icon-background-color: var(--background-color);
-    --table-row-hover-background-color: var(--accent-color-10);
-    --table-row-selected-background-color: var(--grey-color-10);
-    --table-row-selected-hover-background-color: var(--accent-color-10);
-    --table-row-selected-foregroud-color: var(--text-primary-color);
-    --table-row-expanded-background-color: var(--grey-color-10);
-    --table-body-selected-sort-background-color: var(--grey-color-10);
-    --table-footer-background-color: var(--background-color);
-    --table-footer-foreground-color: var(--text-primary-color);
+  // ------ Table theme ------
+  --table-background-color: var(--background-color);
+  --table-foreground-color: var(--text-primary-color);
+  --table-background-alternate-color: var(--grey-color-10);
+  --table-border-color: var(--grey-color-20);
+  --table-border-active-color: transparent;
+  --table-header-background-color: var(--background-color);
+  --table-header-foreground-color: var(--text-primary-color);
+  --table-header-icon-color: var(--grey-color-40);
+  --table-header-icon-hover-color: var(--primary-color-80);
+  --table-header-cell-split-color: var(--grey-color-20);
+  --table-body-sort-background-color: var(--background-color);
+  --table-header-sort-background-color: var(--background-color);
+  --table-header-sort-active-background-color: var(--grey-color-10);
+  --table-header-filter-background-color: var(--background-color);
+  --table-header-filter-active-background-color: var(--grey-color-10);
+  --table-header-filter-dropdown-background-color: var(--background-color);
+  --table-header-filter-buttons-background-color: var(--background-color);
+  --table-expand-icon-background-color: var(--background-color);
+  --table-row-hover-background-color: var(--accent-color-10);
+  --table-row-selected-background-color: var(--grey-color-10);
+  --table-row-selected-hover-background-color: var(--accent-color-10);
+  --table-row-selected-foregroud-color: var(--text-primary-color);
+  --table-row-expanded-background-color: var(--grey-color-10);
+  --table-body-selected-sort-background-color: var(--grey-color-10);
+  --table-footer-background-color: var(--background-color);
+  --table-footer-foreground-color: var(--text-primary-color);
 
-    --table-border-radius: var(--border-radius-xl);
-    --table-border-style: solid;
-    --table-border-width: 1px;
-    --table-padding-vertical: 8px;
-    --table-padding-horizontal: 16px;
-    --table-padding-vertical-lg: 24px;
-    --table-padding-horizontal-lg: 16px;
-    --table-padding-vertical-md: 12px;
-    --table-padding-horizontal-md: 8px;
-    --table-padding-vertical-sm: 8px;
-    --table-padding-horizontal-sm: 8px;
-    --table-box-shadow: 0 1px 2px rgba(15, 20, 31, 0.08),
-        0 2px 8px rgba(15, 20, 31, 0.08);
-    --table-fixed-left-box-shadow: inset 32px 0 8px -32px rgba(15, 20, 31, 0.08);
-    --table-fixed-right-box-shadow: inset -32px 0 8px -32px
-        rgba(15, 20, 31, 0.08);
-    --table-header-font-size: 14px;
-    --table-header-line-height: 24px;
-    --table-footer-font-size: 16px;
-    --table-footer-line-height: 24px;
-    --table-font-size: 14px;
-    --table-font-size-lg: 14px;
-    --table-font-size-md: 14px;
-    --table-font-size-sm: 14px;
-    --table-line-height: 20px;
-    --table-selection-column-width: 80px;
-    // ------ Table theme ------
+  --table-border-radius: var(--border-radius-xl);
+  --table-border-style: solid;
+  --table-border-width: 1px;
+  --table-padding-vertical: 8px;
+  --table-padding-horizontal: 16px;
+  --table-padding-vertical-lg: 24px;
+  --table-padding-horizontal-lg: 16px;
+  --table-padding-vertical-md: 12px;
+  --table-padding-horizontal-md: 8px;
+  --table-padding-vertical-sm: 8px;
+  --table-padding-horizontal-sm: 8px;
+  --table-box-shadow: 0 1px 2px rgba(15, 20, 31, 0.08),
+    0 2px 8px rgba(15, 20, 31, 0.08);
+  --table-fixed-left-box-shadow: inset 32px 0 8px -32px rgba(15, 20, 31, 0.08);
+  --table-fixed-right-box-shadow: inset -32px 0 8px -32px rgba(15, 20, 31, 0.08);
+  --table-header-font-size: 14px;
+  --table-header-line-height: 24px;
+  --table-footer-font-size: 16px;
+  --table-footer-line-height: 24px;
+  --table-font-size: 14px;
+  --table-font-size-lg: 14px;
+  --table-font-size-md: 14px;
+  --table-font-size-sm: 14px;
+  --table-line-height: 20px;
+  --table-selection-column-width: 80px;
+  // ------ Table theme ------
 
-    // ------ Generic button vars ------
-    --button-font-family: var(--font-stack-full);
-    --button-border-radius: var(--border-radius-s);
-    --button-round-shape-border-radius: 50%;
-    --button-pill-shape-border-radius: var(--border-radius-xl);
-    // TODO: button text/font related vars
-    // ------ Generic button vars ------
+  // ------ Generic button vars ------
+  --button-font-family: var(--font-stack-full);
+  --button-border-radius: var(--border-radius-s);
+  --button-round-shape-border-radius: 50%;
+  --button-pill-shape-border-radius: var(--border-radius-xl);
+  // TODO: button text/font related vars
+  // ------ Generic button vars ------
 
-    // ------ Default Button theme ------
-    --button-default-text-color: var(--primary-color-70);
-    --button-default-background-color: var(--primary-color-10);
-    --button-default-border-width: 0;
-    --button-default-border-style: solid;
-    --button-default-border-color: var(--button-default-background-color);
-    --button-default-hover-text-color: var(--button-default-text-color);
-    --button-default-hover-background-color: var(--background-color);
-    --button-default-hover-border-width: var(--button-default-border-width);
-    --button-default-hover-border-style: var(--button-default-border-style);
-    --button-default-hover-border-color: var(
-        --button-default-hover-background-color
-    );
-    --button-default-active-text-color: var(--primary-color-80);
-    --button-default-active-background-color: var(--primary-color-20);
-    --button-default-active-border-width: var(--button-default-border-width);
-    --button-default-active-border-style: var(--button-default-border-style);
-    --button-default-active-border-color: var(
-        --button-default-active-background-color
-    );
-    // ------ Default Button theme ------
+  // ------ Default Button theme ------
+  --button-default-text-color: var(--primary-color-70);
+  --button-default-background-color: var(--primary-color-10);
+  --button-default-border-width: 0;
+  --button-default-border-style: solid;
+  --button-default-border-color: var(--button-default-background-color);
+  --button-default-hover-text-color: var(--button-default-text-color);
+  --button-default-hover-background-color: var(--background-color);
+  --button-default-hover-border-width: var(--button-default-border-width);
+  --button-default-hover-border-style: var(--button-default-border-style);
+  --button-default-hover-border-color: var(
+    --button-default-hover-background-color
+  );
+  --button-default-active-text-color: var(--primary-color-80);
+  --button-default-active-background-color: var(--primary-color-20);
+  --button-default-active-border-width: var(--button-default-border-width);
+  --button-default-active-border-style: var(--button-default-border-style);
+  --button-default-active-border-color: var(
+    --button-default-active-background-color
+  );
+  // ------ Default Button theme ------
 
-    // ------ Default Disruptive Button theme ------
-    --button-default-disruptive-text-color: var(--disruptive-color-70);
-    --button-default-disruptive-background-color: var(--background-color);
-    --button-default-disruptive-border-width: 0;
-    --button-default-disruptive-border-style: solid;
-    --button-default-disruptive-border-color: var(
-        --button-default-disruptive-background-color
-    );
-    --button-default-disruptive-hover-text-color: var(--disruptive-color-70);
-    --button-default-disruptive-hover-background-color: var(
-        --disruptive-color-10
-    );
-    --button-default-disruptive-hover-border-width: var(
-        --button-default-disruptive-border-width
-    );
-    --button-default-disruptive-hover-border-style: var(
-        --button-default-disruptive-border-style
-    );
-    --button-default-disruptive-hover-border-color: var(
-        --button-default-disruptive-hover-background-color
-    );
-    --button-default-disruptive-active-text-color: var(--disruptive-color-80);
-    --button-default-disruptive-active-background-color: var(
-        --disruptive-color-20
-    );
-    --button-default-disruptive-active-border-width: var(
-        --button-default-disruptive-border-width
-    );
-    --button-default-disruptive-active-border-style: var(
-        --button-default-disruptive-border-style
-    );
-    --button-default-disruptive-active-border-color: var(
-        --button-default-disruptive-active-background-color
-    );
-    // ------ Default Disruptive Button theme ------
+  // ------ Default Disruptive Button theme ------
+  --button-default-disruptive-text-color: var(--disruptive-color-70);
+  --button-default-disruptive-background-color: var(--background-color);
+  --button-default-disruptive-border-width: 0;
+  --button-default-disruptive-border-style: solid;
+  --button-default-disruptive-border-color: var(
+    --button-default-disruptive-background-color
+  );
+  --button-default-disruptive-hover-text-color: var(--disruptive-color-70);
+  --button-default-disruptive-hover-background-color: var(
+    --disruptive-color-10
+  );
+  --button-default-disruptive-hover-border-width: var(
+    --button-default-disruptive-border-width
+  );
+  --button-default-disruptive-hover-border-style: var(
+    --button-default-disruptive-border-style
+  );
+  --button-default-disruptive-hover-border-color: var(
+    --button-default-disruptive-hover-background-color
+  );
+  --button-default-disruptive-active-text-color: var(--disruptive-color-80);
+  --button-default-disruptive-active-background-color: var(
+    --disruptive-color-20
+  );
+  --button-default-disruptive-active-border-width: var(
+    --button-default-disruptive-border-width
+  );
+  --button-default-disruptive-active-border-style: var(
+    --button-default-disruptive-border-style
+  );
+  --button-default-disruptive-active-border-color: var(
+    --button-default-disruptive-active-background-color
+  );
+  // ------ Default Disruptive Button theme ------
 
-    // ------ Primary Button theme ------
-    --button-primary-text-color: var(--primary-color-80);
-    --button-primary-background-color: var(--accent-color-20);
-    --button-primary-border-width: 0;
-    --button-primary-border-style: solid;
-    --button-primary-border-color: var(--button-primary-background-color);
-    --button-primary-hover-text-color: var(--button-primary-text-color);
-    --button-primary-hover-background-color: var(--accent-color-10);
-    --button-primary-hover-border-width: var(--button-primary-border-width);
-    --button-primary-hover-border-style: var(--button-primary-border-style);
-    --button-primary-hover-border-color: var(
-        --button-primary-hover-background-color
-    );
-    --button-primary-active-text-color: var(--button-primary-text-color);
-    --button-primary-active-background-color: var(--accent-color-30);
-    --button-primary-active-border-width: var(--button-primary-border-width);
-    --button-primary-active-border-style: var(--button-primary-border-style);
-    --button-primary-active-border-color: var(
-        --button-primary-active-background-color
-    );
-    // ------ Primary Button theme ------
+  // ------ Primary Button theme ------
+  --button-primary-text-color: var(--primary-color-80);
+  --button-primary-background-color: var(--accent-color-20);
+  --button-primary-border-width: 0;
+  --button-primary-border-style: solid;
+  --button-primary-border-color: var(--button-primary-background-color);
+  --button-primary-hover-text-color: var(--button-primary-text-color);
+  --button-primary-hover-background-color: var(--accent-color-10);
+  --button-primary-hover-border-width: var(--button-primary-border-width);
+  --button-primary-hover-border-style: var(--button-primary-border-style);
+  --button-primary-hover-border-color: var(
+    --button-primary-hover-background-color
+  );
+  --button-primary-active-text-color: var(--button-primary-text-color);
+  --button-primary-active-background-color: var(--accent-color-30);
+  --button-primary-active-border-width: var(--button-primary-border-width);
+  --button-primary-active-border-style: var(--button-primary-border-style);
+  --button-primary-active-border-color: var(
+    --button-primary-active-background-color
+  );
+  // ------ Primary Button theme ------
 
-    // ------ Primary Disruptive Button theme ------
-    --button-primary-disruptive-text-color: var(--disruptive-color-80);
-    --button-primary-disruptive-background-color: var(--disruptive-color-20);
-    --button-primary-disruptive-border-width: 0;
-    --button-primary-disruptive-border-style: solid;
-    --button-primary-disruptive-border-color: var(
-        --button-primary-disruptive-background-color
-    );
-    --button-primary-disruptive-hover-text-color: var(
-        --button-primary-disruptive-text-color
-    );
-    --button-primary-disruptive-hover-background-color: var(
-        --disruptive-color-10
-    );
-    --button-primary-disruptive-hover-border-width: var(
-        --button-primary-disruptive-border-width
-    );
-    --button-primary-disruptive-hover-border-style: var(
-        --button-primary-disruptive-border-style
-    );
-    --button-primary-disruptive-hover-border-color: var(
-        --button-primary-disruptive-hover-background-color
-    );
-    --button-primary-disruptive-active-text-color: var(
-        --button-primary-disruptive-text-color
-    );
-    --button-primary-disruptive-active-background-color: var(
-        --disruptive-color-30
-    );
-    --button-primary-disruptive-active-border-width: var(
-        --button-primary-disruptive-border-width
-    );
-    --button-primary-disruptive-active-border-style: var(
-        --button-primary-disruptive-border-style
-    );
-    --button-primary-disruptive-active-border-color: var(
-        --button-primary-disruptive-active-background-color
-    );
-    // ------ Primary Disruptive Button theme ------
+  // ------ Primary Disruptive Button theme ------
+  --button-primary-disruptive-text-color: var(--disruptive-color-80);
+  --button-primary-disruptive-background-color: var(--disruptive-color-20);
+  --button-primary-disruptive-border-width: 0;
+  --button-primary-disruptive-border-style: solid;
+  --button-primary-disruptive-border-color: var(
+    --button-primary-disruptive-background-color
+  );
+  --button-primary-disruptive-hover-text-color: var(
+    --button-primary-disruptive-text-color
+  );
+  --button-primary-disruptive-hover-background-color: var(
+    --disruptive-color-10
+  );
+  --button-primary-disruptive-hover-border-width: var(
+    --button-primary-disruptive-border-width
+  );
+  --button-primary-disruptive-hover-border-style: var(
+    --button-primary-disruptive-border-style
+  );
+  --button-primary-disruptive-hover-border-color: var(
+    --button-primary-disruptive-hover-background-color
+  );
+  --button-primary-disruptive-active-text-color: var(
+    --button-primary-disruptive-text-color
+  );
+  --button-primary-disruptive-active-background-color: var(
+    --disruptive-color-30
+  );
+  --button-primary-disruptive-active-border-width: var(
+    --button-primary-disruptive-border-width
+  );
+  --button-primary-disruptive-active-border-style: var(
+    --button-primary-disruptive-border-style
+  );
+  --button-primary-disruptive-active-border-color: var(
+    --button-primary-disruptive-active-background-color
+  );
+  // ------ Primary Disruptive Button theme ------
 
-    // ------ Secondary Button theme ------
-    --button-secondary-text-color: var(--primary-color-70);
-    --button-secondary-background-color: var(--background-color);
-    --button-secondary-border-width: 1px;
-    --button-secondary-border-style: solid;
-    --button-secondary-border-color: var(--accent-color-60);
-    --button-secondary-hover-text-color: var(--button-secondary-text-color);
-    --button-secondary-hover-background-color: var(--accent-color-10);
-    --button-secondary-hover-border-width: var(--button-secondary-border-width);
-    --button-secondary-hover-border-style: var(--button-secondary-border-style);
-    --button-secondary-hover-border-color: var(--button-secondary-border-color);
-    --button-secondary-active-text-color: var(--button-secondary-text-color);
-    --button-secondary-active-background-color: var(--accent-color-20);
-    --button-secondary-active-border-width: var(
-        --button-secondary-border-width
-    );
-    --button-secondary-active-border-style: var(
-        --button-secondary-border-style
-    );
-    --button-secondary-active-border-color: var(
-        --button-secondary-border-color
-    );
-    // ------ Secondary Button theme ------
+  // ------ Secondary Button theme ------
+  --button-secondary-text-color: var(--primary-color-70);
+  --button-secondary-background-color: var(--background-color);
+  --button-secondary-border-width: 1px;
+  --button-secondary-border-style: solid;
+  --button-secondary-border-color: var(--accent-color-60);
+  --button-secondary-hover-text-color: var(--button-secondary-text-color);
+  --button-secondary-hover-background-color: var(--accent-color-10);
+  --button-secondary-hover-border-width: var(--button-secondary-border-width);
+  --button-secondary-hover-border-style: var(--button-secondary-border-style);
+  --button-secondary-hover-border-color: var(--button-secondary-border-color);
+  --button-secondary-active-text-color: var(--button-secondary-text-color);
+  --button-secondary-active-background-color: var(--accent-color-20);
+  --button-secondary-active-border-width: var(--button-secondary-border-width);
+  --button-secondary-active-border-style: var(--button-secondary-border-style);
+  --button-secondary-active-border-color: var(--button-secondary-border-color);
+  // ------ Secondary Button theme ------
 
-    // ------ Secondary Disruptive Button theme ------
-    --button-secondary-disruptive-text-color: var(--disruptive-color-70);
-    --button-secondary-disruptive-background-color: var(--background-color);
-    --button-secondary-disruptive-border-width: 1px;
-    --button-secondary-disruptive-border-style: solid;
-    --button-secondary-disruptive-border-color: var(--disruptive-color-70);
-    --button-secondary-disruptive-hover-text-color: var(
-        --button-secondary-disruptive-text-color
-    );
-    --button-secondary-disruptive-hover-background-color: var(
-        --disruptive-color-10
-    );
-    --button-secondary-disruptive-hover-border-width: var(
-        --button-secondary-disruptive-border-width
-    );
-    --button-secondary-disruptive-hover-border-style: var(
-        --button-secondary-disruptive-border-style
-    );
-    --button-secondary-disruptive-hover-border-color: var(
-        --button-secondary-disruptive-hover-background-color
-    );
-    --button-secondary-disruptive-active-text-color: var(
-        --button-secondary-disruptive-text-color
-    );
-    --button-secondary-disruptive-active-background-color: var(
-        --disruptive-color-20
-    );
-    --button-secondary-disruptive-active-border-width: var(
-        --button-secondary-disruptive-border-width
-    );
-    --button-secondary-disruptive-active-border-style: var(
-        --button-secondary-disruptive-border-style
-    );
-    --button-secondary-disruptive-active-border-color: var(
-        --button-secondary-disruptive-active-background-color
-    );
-    // ------ Secondary Disruptive Button theme ------
+  // ------ Secondary Disruptive Button theme ------
+  --button-secondary-disruptive-text-color: var(--disruptive-color-70);
+  --button-secondary-disruptive-background-color: var(--background-color);
+  --button-secondary-disruptive-border-width: 1px;
+  --button-secondary-disruptive-border-style: solid;
+  --button-secondary-disruptive-border-color: var(--disruptive-color-70);
+  --button-secondary-disruptive-hover-text-color: var(
+    --button-secondary-disruptive-text-color
+  );
+  --button-secondary-disruptive-hover-background-color: var(
+    --disruptive-color-10
+  );
+  --button-secondary-disruptive-hover-border-width: var(
+    --button-secondary-disruptive-border-width
+  );
+  --button-secondary-disruptive-hover-border-style: var(
+    --button-secondary-disruptive-border-style
+  );
+  --button-secondary-disruptive-hover-border-color: var(
+    --button-secondary-disruptive-hover-background-color
+  );
+  --button-secondary-disruptive-active-text-color: var(
+    --button-secondary-disruptive-text-color
+  );
+  --button-secondary-disruptive-active-background-color: var(
+    --disruptive-color-20
+  );
+  --button-secondary-disruptive-active-border-width: var(
+    --button-secondary-disruptive-border-width
+  );
+  --button-secondary-disruptive-active-border-style: var(
+    --button-secondary-disruptive-border-style
+  );
+  --button-secondary-disruptive-active-border-color: var(
+    --button-secondary-disruptive-active-background-color
+  );
+  // ------ Secondary Disruptive Button theme ------
 
-    // ------ Button Counter theme ------
-    --button-counter-default-background-color: var(--grey-color-20);
-    --button-counter-hover-background-color: var(--primary-color-20);
-    --button-counter-checked-background-color: var(--primary-color-10);
-    --button-counter-focus-background-color: var(--primary-color-20);
-    --button-counter-active-background-color: var(--primary-color-10);
-    // ------ Button Counter theme ------
+  // ------ Button Counter theme ------
+  --button-counter-default-background-color: var(--grey-color-20);
+  --button-counter-hover-background-color: var(--primary-color-20);
+  --button-counter-checked-background-color: var(--primary-color-10);
+  --button-counter-focus-background-color: var(--primary-color-20);
+  --button-counter-active-background-color: var(--primary-color-10);
+  // ------ Button Counter theme ------
 
-    // ------ Badge theme ------
-    --badge-font-family: var(--font-stack-full);
-    --badge-background-color: var(--grey-color-20);
-    --badge-text-color: var(--grey-color-80);
-    --badge-active-background-color: var(--accent-color-30);
-    --badge-active-text-color: var(--primary-color-80);
-    --badge-disruptive-background-color: var(--disruptive-color-20);
-    --badge-disruptive-text-color: var(--disruptive-color);
-    // ------ Badge theme ------
+  // ------ Badge theme ------
+  --badge-font-family: var(--font-stack-full);
+  --badge-background-color: var(--grey-color-20);
+  --badge-text-color: var(--grey-color-80);
+  --badge-active-background-color: var(--accent-color-30);
+  --badge-active-text-color: var(--primary-color-80);
+  --badge-disruptive-background-color: var(--disruptive-color-20);
+  --badge-disruptive-text-color: var(--disruptive-color);
+  // ------ Badge theme ------
 
-    // ------ Avatar theme ------
-    --avatar-font-family: var(--font-stack-full);
-    --avatar-border-radius: 0;
-    --avatar-round-border-radius: 50%;
-    // ------ Avatar theme ------
+  // ------ Avatar theme ------
+  --avatar-font-family: var(--font-stack-full);
+  --avatar-border-radius: 0;
+  --avatar-round-border-radius: 50%;
+  // ------ Avatar theme ------
 
-    // ------ Card theme ------
-    --card-background-color: var(--background-color);
-    --card-font-family: var(--font-stack-full);
-    --card-text-color: var(--black-color);
-    --card-border-radius: var(--border-radius-xl);
-    // ------ Card theme ------
+  // ------ Card theme ------
+  --card-background-color: var(--background-color);
+  --card-font-family: var(--font-stack-full);
+  --card-text-color: var(--black-color);
+  --card-border-radius: var(--border-radius-xl);
+  // ------ Card theme ------
 
-    // ------ Info Bar theme ------
-    --info-bar-border-radius: var(--border-radius-xl);
-    --info-bar-background-color: var(--grey-color-10);
-    --info-bar-text-color: var(--grey-color-70);
-    --info-bar-positive-background-color: var(--green-color-10);
-    --info-bar-positive-text-color: var(--green-color-70);
-    --info-bar-warning-background-color: var(--orange-color-10);
-    --info-bar-warning-text-color: var(--orange-color-70);
-    --info-bar-disruptive-background-color: var(--disruptive-color-10);
-    --info-bar-disruptive-text-color: var(--disruptive-color-70);
-    // ------ Info Bar theme ------
+  // ------ Info Bar theme ------
+  --info-bar-border-radius: var(--border-radius-xl);
+  --info-bar-background-color: var(--grey-color-10);
+  --info-bar-text-color: var(--grey-color-70);
+  --info-bar-positive-background-color: var(--green-color-10);
+  --info-bar-positive-text-color: var(--green-color-70);
+  --info-bar-warning-background-color: var(--orange-color-10);
+  --info-bar-warning-text-color: var(--orange-color-70);
+  --info-bar-disruptive-background-color: var(--disruptive-color-10);
+  --info-bar-disruptive-text-color: var(--disruptive-color-70);
+  // ------ Info Bar theme ------
 }

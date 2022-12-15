@@ -1,151 +1,151 @@
 .trigger-popup {
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+  z-index: $z-index-top;
+
+  &-hidden {
+    display: none;
+  }
+
+  // Picker styles
+  .picker-range-arrow {
     position: absolute;
-    top: -9999px;
-    left: -9999px;
-    z-index: $z-index-top;
+    left: $picker-arrow-size;
+    z-index: 1;
+    width: $picker-arrow-size;
+    height: $picker-arrow-size;
+    margin-left: $space-xs;
+    transition: all 0.3s;
+
+    &:before,
+    &:after {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      box-sizing: border-box;
+      transform: translate(-50%, -50%);
+      content: '';
+    }
+
+    &:before {
+      width: $picker-arrow-size;
+      height: $picker-arrow-size;
+      border: calc($picker-arrow-size / 2) solid $picker-background-color;
+      border-color: $picker-background-color $picker-background-color
+        transparent transparent;
+    }
+
+    &:after {
+      width: $picker-arrow-size - $space-xxxs;
+      height: $picker-arrow-size - $space-xxxs;
+      border: calc(calc($picker-arrow-size - $space-xxxs) / 2) solid
+        $picker-background-color;
+      border-color: $picker-background-color $picker-background-color
+        transparent transparent;
+    }
+  }
+
+  &-placement-bottomLeft,
+  &-placement-bottomRight {
+    .picker-range-arrow {
+      bottom: unset;
+      top: 1px;
+      transform: rotate(-45deg);
+    }
+  }
+
+  &.slide-up-enter.trigger-popup-placement-bottomLeft,
+  &.slide-up-enter.trigger-popup-placement-bottomRight {
+    animation-name: slideUpIn;
+    animation-duration: $motion-duration-extra-fast;
+    animation-timing-function: $motion-easing-easein;
+  }
+
+  &.slide-up-leave.trigger-popup-placement-bottomLeft,
+  &.slide-up-leave.trigger-popup-placement-bottomRight {
+    animation-name: slideUpOut;
+    animation-duration: $motion-duration-extra-fast;
+    animation-timing-function: $motion-easing-easeinout;
+  }
+
+  &-placement-topLeft,
+  &-placement-topRight {
+    .picker-range-arrow {
+      bottom: $space-xxxs;
+      top: unset;
+      transform: rotate(135deg);
+    }
+  }
+
+  &.slide-up-enter.trigger-popup-placement-topLeft,
+  &.slide-up-enter.trigger-popup-placement-topRight {
+    animation-name: slideDownIn;
+    animation-duration: $motion-duration-extra-fast;
+    animation-timing-function: $motion-easing-easein;
+  }
+
+  &.slide-up-leave.trigger-popup-placement-topLeft,
+  &.slide-up-leave.trigger-popup-placement-topRight {
+    animation-name: slideDownOut;
+    animation-duration: $motion-duration-extra-fast;
+    animation-timing-function: $motion-easing-easeinout;
+  }
+
+  &-range {
+    padding: ($picker-arrow-size * 2 / 3) 0;
 
     &-hidden {
-        display: none;
+      display: none;
     }
+  }
 
-    // Picker styles
+  &-rtl {
     .picker-range-arrow {
-        position: absolute;
-        left: $picker-arrow-size;
-        z-index: 1;
-        width: $picker-arrow-size;
-        height: $picker-arrow-size;
-        margin-left: $space-xs;
-        transition: all 0.3s;
+      right: $picker-arrow-size;
+      left: unset;
+      margin-right: 10px;
+      margin-left: 0;
 
-        &:before,
-        &:after {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            box-sizing: border-box;
-            transform: translate(-50%, -50%);
-            content: '';
-        }
-
-        &:before {
-            width: $picker-arrow-size;
-            height: $picker-arrow-size;
-            border: calc($picker-arrow-size / 2) solid $picker-background-color;
-            border-color: $picker-background-color $picker-background-color
-                transparent transparent;
-        }
-
-        &:after {
-            width: $picker-arrow-size - $space-xxxs;
-            height: $picker-arrow-size - $space-xxxs;
-            border: calc(calc($picker-arrow-size - $space-xxxs) / 2) solid
-                $picker-background-color;
-            border-color: $picker-background-color $picker-background-color
-                transparent transparent;
-        }
+      &:before,
+      &:after {
+        right: 50%;
+        left: auto;
+        transform: translate(50%, -50%);
+      }
     }
+  }
 
-    &-placement-bottomLeft,
-    &-placement-bottomRight {
-        .picker-range-arrow {
-            bottom: unset;
-            top: 1px;
-            transform: rotate(-45deg);
-        }
-    }
+  // Assert styles
+  @mixin effect() {
+    animation-duration: $motion-duration-extra-fast;
+    animation-fill-mode: both;
+  }
 
-    &.slide-up-enter.trigger-popup-placement-bottomLeft,
-    &.slide-up-enter.trigger-popup-placement-bottomRight {
-        animation-name: slideUpIn;
-        animation-duration: $motion-duration-extra-fast;
-        animation-timing-function: $motion-easing-easein;
-    }
+  &-zoom-enter,
+  &-zoom-appear {
+    opacity: 0;
+    @include effect();
+    animation-timing-function: $motion-easing-easein;
+    animation-play-state: paused;
+  }
 
-    &.slide-up-leave.trigger-popup-placement-bottomLeft,
-    &.slide-up-leave.trigger-popup-placement-bottomRight {
-        animation-name: slideUpOut;
-        animation-duration: $motion-duration-extra-fast;
-        animation-timing-function: $motion-easing-easeinout;
-    }
+  &-zoom-leave {
+    @include effect();
+    animation-timing-function: $motion-easing-easeinout;
+    animation-play-state: paused;
+  }
 
-    &-placement-topLeft,
-    &-placement-topRight {
-        .picker-range-arrow {
-            bottom: $space-xxxs;
-            top: unset;
-            transform: rotate(135deg);
-        }
-    }
+  &-zoom-enter &-zoom-enter-active,
+  &-zoom-appear &-zoom-appear-active {
+    animation-name: triggerZoomIn;
+    animation-play-state: running;
+  }
 
-    &.slide-up-enter.trigger-popup-placement-topLeft,
-    &.slide-up-enter.trigger-popup-placement-topRight {
-        animation-name: slideDownIn;
-        animation-duration: $motion-duration-extra-fast;
-        animation-timing-function: $motion-easing-easein;
-    }
-
-    &.slide-up-leave.trigger-popup-placement-topLeft,
-    &.slide-up-leave.trigger-popup-placement-topRight {
-        animation-name: slideDownOut;
-        animation-duration: $motion-duration-extra-fast;
-        animation-timing-function: $motion-easing-easeinout;
-    }
-
-    &-range {
-        padding: ($picker-arrow-size * 2 / 3) 0;
-
-        &-hidden {
-            display: none;
-        }
-    }
-
-    &-rtl {
-        .picker-range-arrow {
-            right: $picker-arrow-size;
-            left: unset;
-            margin-right: 10px;
-            margin-left: 0;
-
-            &:before,
-            &:after {
-                right: 50%;
-                left: auto;
-                transform: translate(50%, -50%);
-            }
-        }
-    }
-
-    // Assert styles
-    @mixin effect() {
-        animation-duration: $motion-duration-extra-fast;
-        animation-fill-mode: both;
-    }
-
-    &-zoom-enter,
-    &-zoom-appear {
-        opacity: 0;
-        @include effect();
-        animation-timing-function: $motion-easing-easein;
-        animation-play-state: paused;
-    }
-
-    &-zoom-leave {
-        @include effect();
-        animation-timing-function: $motion-easing-easeinout;
-        animation-play-state: paused;
-    }
-
-    &-zoom-enter &-zoom-enter-active,
-    &-zoom-appear &-zoom-appear-active {
-        animation-name: triggerZoomIn;
-        animation-play-state: running;
-    }
-
-    &-zoom-leave &-zoom-leave-active {
-        animation-name: triggerZoomOut;
-        animation-play-state: running;
-    }
+  &-zoom-leave &-zoom-leave-active {
+    animation-name: triggerZoomOut;
+    animation-play-state: running;
+  }
 }
 
 @import './Styles/mask';

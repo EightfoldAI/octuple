@@ -1,1637 +1,1600 @@
 .input-wrapper {
-    --input-border-color: var(--grey-color-60);
-    --input-border-color-active: var(--grey-color-80);
+  --input-border-color: var(--grey-color-60);
+  --input-border-color-active: var(--grey-color-80);
 
-    position: relative;
-    width: fit-content;
-    $input-small-size: 28px;
-    $input-medium-size: 36px;
-    $input-large-size: 44px;
+  position: relative;
+  width: fit-content;
+  $input-small-size: 28px;
+  $input-medium-size: 36px;
+  $input-large-size: 44px;
 
-    $input-size-map: (
-        small: $input-small-size,
-        medium: $input-medium-size,
-        large: $input-large-size,
-    );
+  $input-size-map: (
+    small: $input-small-size,
+    medium: $input-medium-size,
+    large: $input-large-size,
+  );
 
-    input {
-        @include text-overflow;
-        background-color: var(--background-color);
-        border: 1px solid var(--input-border-color);
-        border-radius: $border-radius-m;
-        box-sizing: border-box;
+  input {
+    @include text-overflow;
+    background-color: var(--background-color);
+    border: 1px solid var(--input-border-color);
+    border-radius: $border-radius-m;
+    box-sizing: border-box;
+    color: var(--text-primary-color);
+    font-family: $octuple-font-family;
+    font-size: $text-font-size-3;
+    line-height: $text-line-height-1;
+    min-width: 120px;
+    padding: $space-xs $space-xl $space-xs $space-m;
+
+    &::-webkit-search-cancel-button {
+      -webkit-appearance: none;
+    }
+
+    &.with-icon,
+    &.with-image-icon {
+      padding: $space-xs $space-xl $space-xs $space-xxl;
+
+      &.left-icon {
+        padding: $space-xs $space-xl $space-xs $space-xxl;
+      }
+
+      &.right-icon {
+        padding: $space-xs $space-xxl $space-xs $space-xl;
+      }
+
+      &.clear-disabled {
+        &.left-icon {
+          padding: $space-xs $space-xs $space-xs $space-xxl;
+        }
+
+        &.right-icon {
+          padding: $space-xs $space-xxl $space-xs $space-xs;
+        }
+      }
+
+      &.clear-not-visible {
+        &.right-icon {
+          padding: $space-xs $space-xxl $space-xs $space-xs;
+        }
+      }
+    }
+
+    &.with-icon-button {
+      padding: $space-xs $space-xl $space-xs $space-xl;
+
+      &.left-icon,
+      &.right-icon {
+        padding: $space-xs $space-xl $space-xs $space-xl;
+      }
+
+      &.clear-disabled {
+        &.left-icon {
+          padding: $space-xs $space-xs $space-xs $space-xl;
+        }
+
+        &.right-icon {
+          padding: $space-xs $space-xl $space-xs $space-xs;
+        }
+      }
+
+      &.clear-not-visible {
+        &.right-icon {
+          padding: $space-xs $space-xl $space-xs $space-xs;
+        }
+      }
+    }
+
+    &.with-icon-and-icon-button {
+      padding: $space-xs $space-xxl $space-xs
+        $input-padding-medium-with-icon-and-icon-button;
+
+      &.left-icon {
+        padding: $space-xs $space-xxl $space-xs
+          $input-padding-medium-with-icon-and-icon-button;
+      }
+
+      &.right-icon {
+        padding: $space-xs $input-padding-medium-with-icon-and-icon-button
+          $space-xs $space-xxl;
+      }
+
+      &.clear-disabled {
+        &.left-icon {
+          padding: $space-xs $space-xs $space-xs
+            $input-padding-medium-with-icon-and-icon-button;
+        }
+
+        &.right-icon {
+          padding: $space-xs $input-padding-medium-with-icon-and-icon-button
+            $space-xs $space-xs;
+        }
+      }
+
+      &.clear-not-visible {
+        &.right-icon {
+          padding: $space-xs $input-padding-medium-with-icon-and-icon-button
+            $space-xs $space-xs;
+        }
+      }
+    }
+
+    &:hover ~ .icon-button {
+      background-color: transparent;
+      border-color: transparent;
+
+      svg {
+        color: var(--grey-color-80);
+      }
+    }
+
+    &:active ~ .icon-button {
+      background-color: transparent;
+      border-color: transparent;
+
+      svg {
+        color: var(--grey-color-80);
+      }
+    }
+
+    &:disabled {
+      opacity: $disabled-alpha-value;
+      cursor: not-allowed;
+    }
+
+    &.read-only {
+      background-color: var(--grey-color-10);
+      color: var(--text-primary-color);
+    }
+
+    &:focus ~ .icon-button {
+      background-color: transparent;
+      border-color: transparent;
+
+      svg {
+        color: var(--grey-color-80);
+      }
+    }
+
+    &:disabled ~ .icon-button {
+      background-color: transparent;
+      border-color: transparent;
+
+      svg {
         color: var(--text-primary-color);
-        font-family: $octuple-font-family;
-        font-size: $text-font-size-3;
-        line-height: $text-line-height-1;
-        min-width: 120px;
-        padding: $space-xs $space-xl $space-xs $space-m;
-
-        &::-webkit-search-cancel-button {
-            -webkit-appearance: none;
-        }
-
-        &.with-icon,
-        &.with-image-icon {
-            padding: $space-xs $space-xl $space-xs $space-xxl;
-
-            &.left-icon {
-                padding: $space-xs $space-xl $space-xs $space-xxl;
-            }
-
-            &.right-icon {
-                padding: $space-xs $space-xxl $space-xs $space-xl;
-            }
-
-            &.clear-disabled {
-                &.left-icon {
-                    padding: $space-xs $space-xs $space-xs $space-xxl;
-                }
-
-                &.right-icon {
-                    padding: $space-xs $space-xxl $space-xs $space-xs;
-                }
-            }
-
-            &.clear-not-visible {
-                &.right-icon {
-                    padding: $space-xs $space-xxl $space-xs $space-xs;
-                }
-            }
-        }
-
-        &.with-icon-button {
-            padding: $space-xs $space-xl $space-xs $space-xl;
-
-            &.left-icon,
-            &.right-icon {
-                padding: $space-xs $space-xl $space-xs $space-xl;
-            }
-
-            &.clear-disabled {
-                &.left-icon {
-                    padding: $space-xs $space-xs $space-xs $space-xl;
-                }
-
-                &.right-icon {
-                    padding: $space-xs $space-xl $space-xs $space-xs;
-                }
-            }
-
-            &.clear-not-visible {
-                &.right-icon {
-                    padding: $space-xs $space-xl $space-xs $space-xs;
-                }
-            }
-        }
-
-        &.with-icon-and-icon-button {
-            padding: $space-xs $space-xxl $space-xs
-                $input-padding-medium-with-icon-and-icon-button;
-
-            &.left-icon {
-                padding: $space-xs $space-xxl $space-xs
-                    $input-padding-medium-with-icon-and-icon-button;
-            }
-
-            &.right-icon {
-                padding: $space-xs
-                    $input-padding-medium-with-icon-and-icon-button $space-xs
-                    $space-xxl;
-            }
-
-            &.clear-disabled {
-                &.left-icon {
-                    padding: $space-xs $space-xs $space-xs
-                        $input-padding-medium-with-icon-and-icon-button;
-                }
-
-                &.right-icon {
-                    padding: $space-xs
-                        $input-padding-medium-with-icon-and-icon-button
-                        $space-xs $space-xs;
-                }
-            }
-
-            &.clear-not-visible {
-                &.right-icon {
-                    padding: $space-xs
-                        $input-padding-medium-with-icon-and-icon-button
-                        $space-xs $space-xs;
-                }
-            }
-        }
-
-        &:hover ~ .icon-button {
-            background-color: transparent;
-            border-color: transparent;
-
-            svg {
-                color: var(--grey-color-80);
-            }
-        }
-
-        &:active ~ .icon-button {
-            background-color: transparent;
-            border-color: transparent;
-
-            svg {
-                color: var(--grey-color-80);
-            }
-        }
-
-        &:disabled {
-            opacity: $disabled-alpha-value;
-            cursor: not-allowed;
-        }
-
-        &.read-only {
-            background-color: var(--grey-color-10);
-            color: var(--text-primary-color);
-        }
-
-        &:focus ~ .icon-button {
-            background-color: transparent;
-            border-color: transparent;
-
-            svg {
-                color: var(--grey-color-80);
-            }
-        }
-
-        &:disabled ~ .icon-button {
-            background-color: transparent;
-            border-color: transparent;
-
-            svg {
-                color: var(--text-primary-color);
-            }
-        }
-
-        &:disabled::placeholder {
-            color: var(--text-primary-color);
-        }
-
-        &.pill-shape {
-            border-color: var(--input-border-color);
-            border-radius: $border-radius-xl;
-            padding: $space-xs $space-s;
-        }
-
-        &.pill-shape-with-icon,
-        &.pill-shape-with-image-icon {
-            padding: $space-xs $space-xl $space-xs $space-xxl;
-
-            &.left-icon {
-                padding: $space-xs $space-xl $space-xs $space-xxl;
-            }
-
-            &.right-icon {
-                padding: $space-xs $space-xxl $space-xs $space-xl;
-            }
-
-            &.clear-disabled {
-                &.left-icon {
-                    padding: $space-xs $space-xs $space-xs $space-xxl;
-                }
-
-                &.right-icon {
-                    padding: $space-xs $space-xxl $space-xs $space-xs;
-                }
-            }
-
-            &.clear-not-visible {
-                &.right-icon {
-                    padding: $space-xs $space-xxl $space-xs $space-xs;
-                }
-            }
-        }
-
-        &.pill-shape-with-icon-button {
-            padding: $space-xs $space-xl $space-xs $space-xl;
-
-            &.left-icon,
-            &.right-icon {
-                padding: $space-xs $space-xl $space-xs $space-xl;
-            }
-
-            &.clear-disabled {
-                &.left-icon {
-                    padding: $space-xs $space-xs $space-xs $space-xl;
-                }
-
-                &.right-icon {
-                    padding: $space-xs $space-xl $space-xs $space-xs;
-                }
-            }
-
-            &.clear-not-visible {
-                &.right-icon {
-                    padding: $space-xs $space-xl $space-xs $space-xs;
-                }
-            }
-        }
-
-        &.pill-shape-with-icon-and-icon-button {
-            padding: $space-xs $space-xl $space-xs
-                $input-padding-medium-with-icon-and-icon-button;
-
-            &.left-icon {
-                padding: $space-xs $space-xl $space-xs
-                    $input-padding-medium-with-icon-and-icon-button;
-            }
-
-            &.right-icon {
-                padding: $space-xs
-                    $input-padding-medium-with-icon-and-icon-button $space-xs
-                    $space-xl;
-            }
-
-            &.clear-disabled {
-                &.left-icon {
-                    padding: $space-xs $space-xs $space-xs
-                        $input-padding-medium-with-icon-and-icon-button;
-                }
-
-                &.right-icon {
-                    padding: $space-xs
-                        $input-padding-medium-with-icon-and-icon-button
-                        $space-xs $space-xs;
-                }
-            }
-
-            &.clear-not-visible {
-                &.right-icon {
-                    padding: $space-xs
-                        $input-padding-medium-with-icon-and-icon-button
-                        $space-xs $space-xs;
-                }
-            }
-        }
-
-        &.pill-shape-with-icon-button ~ .icon-button {
-            &.left-icon {
-                border-bottom-left-radius: 50%;
-                border-top-left-radius: 50%;
-            }
-
-            &.right-icon {
-                border-bottom-right-radius: 50%;
-                border-top-right-radius: 50%;
-            }
-        }
-
-        &.pill-shape-with-icon-button ~ .clear-icon-button {
-            border-bottom-right-radius: 50%;
-            border-top-right-radius: 50%;
-        }
-
-        &.pill-shape-with-icon-and-icon-button ~ .icon-button {
-            &.left-icon {
-                border-bottom-left-radius: inherit;
-                border-top-left-radius: inherit;
-            }
-
-            &.right-icon {
-                border-bottom-right-radius: inherit;
-                border-top-right-radius: inherit;
-            }
-        }
-
-        &.status-success {
-            color: var(--text-primary-color);
-            border-color: var(--input-border-color);
-        }
-
-        &.status-warning {
-            color: var(--warning-color);
-            border-color: var(--warning-color);
-
-            &::placeholder {
-                color: var(--warning-color);
-            }
-        }
-
-        &.status-error {
-            color: var(--error-color);
-            border-color: var(--error-color);
-
-            &::placeholder {
-                color: var(--error-color);
-            }
-        }
-
-        // TODO: work with UXDs on validating state
-        &.status-validating {
-            border-color: var(--input-border-color);
-        }
-
-        // TODO: work with UXDs on feedback state
-        &.has-feedback {
-            border-color: var(--input-border-color);
-        }
-
-        &.underline {
-            border-color: transparent;
-        }
-
-        &:active {
-            border-color: var(--input-border-color-active);
-
-            &.underline {
-                border-color: transparent;
-            }
-        }
-
-        &:hover:not([disabled]) {
-            border-color: var(--input-border-color-active);
-
-            &.underline {
-                border-color: transparent;
-            }
-        }
-
-        &:focus {
-            border-color: $focus-visible-shadow-color;
-            transition: border-color $motion-duration-extra-fast
-                $motion-easing-easeinout;
-
-            &.underline {
-                border-color: transparent;
-            }
-        }
-
-        &.input-large {
-            font-size: $text-font-size-4;
-            height: $input-large-size;
-            line-height: $text-line-height-5;
-            padding: $space-xs $space-xxl $space-xs $space-m;
-
-            &.with-icon,
-            &.with-image-icon,
-            &.with-icon-button {
-                padding: $space-xs $space-xxl $space-xs
-                    $input-padding-large-with-icon;
-
-                &.left-icon {
-                    padding: $space-xs $space-xxl $space-xs
-                        $input-padding-large-with-icon;
-                }
-
-                &.right-icon {
-                    padding: $space-xs $input-padding-large-with-icon $space-xs
-                        $space-xxl;
-                }
-
-                &.clear-disabled {
-                    &.left-icon {
-                        padding: $space-xs $space-xs $space-xs
-                            $input-padding-large-with-icon;
-                    }
-
-                    &.right-icon {
-                        padding: $space-xs $input-padding-large-with-icon
-                            $space-xs $space-xs;
-                    }
-                }
-
-                &.clear-not-visible {
-                    &.right-icon {
-                        padding: $space-xs $input-padding-large-with-icon
-                            $space-xs $space-xs;
-                    }
-                }
-            }
-
-            &.with-icon-and-icon-button {
-                padding: $space-xs $space-xxl $space-xs
-                    $input-padding-large-with-icon-and-icon-button;
-
-                &.left-icon {
-                    padding: $space-xs $space-xxl $space-xs
-                        $input-padding-large-with-icon-and-icon-button;
-                }
-
-                &.right-icon {
-                    padding: $space-xs
-                        $input-padding-large-with-icon-and-icon-button $space-xs
-                        $space-xxl;
-                }
-
-                &.clear-disabled {
-                    &.left-icon {
-                        padding: $space-xs $space-xs $space-xs
-                            $input-padding-large-with-icon-and-icon-button;
-                    }
-
-                    &.right-icon {
-                        padding: $space-xs
-                            $input-padding-large-with-icon-and-icon-button
-                            $space-xs $space-xs;
-                    }
-                }
-
-                &.clear-not-visible {
-                    &.right-icon {
-                        padding: $space-xs
-                            $input-padding-large-with-icon-and-icon-button
-                            $space-xs $space-xs;
-                    }
-                }
-            }
-
-            &.pill-shape-with-icon,
-            &.pill-shape-with-image-icon,
-            &.pill-shape-with-icon-button {
-                padding: $space-xs $space-xxl $space-xs
-                    $input-padding-large-with-icon;
-
-                &.left-icon {
-                    padding: $space-xs $space-xxl $space-xs
-                        $input-padding-large-with-icon;
-                }
-
-                &.right-icon {
-                    padding: $space-xs $input-padding-large-with-icon $space-xs
-                        $space-xxl;
-                }
-
-                &.clear-disabled {
-                    &.left-icon {
-                        padding: $space-xs $space-xs $space-xs
-                            $input-padding-large-with-icon;
-                    }
-
-                    &.right-icon {
-                        padding: $space-xs $input-padding-large-with-icon
-                            $space-xs $space-xs;
-                    }
-                }
-
-                &.clear-not-visible {
-                    &.right-icon {
-                        padding: $space-xs $input-padding-large-with-icon
-                            $space-xs $space-xs;
-                    }
-                }
-            }
-
-            &.pill-shape-with-icon-and-icon-button {
-                padding: $space-xs $space-xxl $space-xs
-                    $input-padding-large-with-icon-and-icon-button;
-
-                &.left-icon {
-                    padding: $space-xs $space-xxl $space-xs
-                        $input-padding-large-with-icon-and-icon-button;
-                }
-
-                &.right-icon {
-                    padding: $space-xs
-                        $input-padding-large-with-icon-and-icon-button $space-xs
-                        $space-xxl;
-                }
-
-                &.clear-disabled {
-                    &.left-icon {
-                        padding: $space-xs $space-xs $space-xs
-                            $input-padding-large-with-icon-and-icon-button;
-                    }
-
-                    &.right-icon {
-                        padding: $space-xs
-                            $input-padding-large-with-icon-and-icon-button
-                            $space-xs $space-xs;
-                    }
-                }
-
-                &.clear-not-visible {
-                    &.right-icon {
-                        padding: $space-xs
-                            $input-padding-large-with-icon-and-icon-button
-                            $space-xs $space-xs;
-                    }
-                }
-            }
-        }
-
-        &.input-medium {
-            font-size: $text-font-size-3;
-            height: $input-medium-size;
-            line-height: $text-line-height-4;
-            padding: $space-xs $space-xl $space-xs $space-m;
-
-            &.with-icon,
-            &.with-image-icon {
-                padding: $space-xs $space-xl $space-xs $space-xxl;
-
-                &.left-icon {
-                    padding: $space-xs $space-xl $space-xs $space-xxl;
-                }
-
-                &.right-icon {
-                    padding: $space-xs $space-xxl $space-xs $space-xxl;
-                }
-
-                &.clear-disabled {
-                    &.left-icon {
-                        padding: $space-xs $space-xs $space-xs $space-xxl;
-                    }
-
-                    &.right-icon {
-                        padding: $space-xs $space-xxl $space-xs $space-xs;
-                    }
-                }
-
-                &.clear-not-visible {
-                    &.right-icon {
-                        padding: $space-xs $space-xxl $space-xs $space-xs;
-                    }
-                }
-            }
-
-            &.with-icon-button {
-                padding: $space-xs $space-xl $space-xs $space-xl;
-
-                &.left-icon,
-                &.right-icon {
-                    padding: $space-xs $space-xl $space-xs $space-xl;
-                }
-
-                &.clear-disabled {
-                    &.left-icon {
-                        padding: $space-xs $space-xs $space-xs $space-xl;
-                    }
-
-                    &.right-icon {
-                        padding: $space-xs $space-xl $space-xs $space-xs;
-                    }
-                }
-
-                &.clear-not-visible {
-                    &.right-icon {
-                        padding: $space-xs $space-xl $space-xs $space-xs;
-                    }
-                }
-            }
-
-            &.with-icon-and-icon-button {
-                padding: $space-xs $space-xxl $space-xs
-                    $input-padding-medium-with-icon-and-icon-button;
-
-                &.left-icon {
-                    padding: $space-xs $space-xxl $space-xs
-                        $input-padding-medium-with-icon-and-icon-button;
-                }
-
-                &.right-icon {
-                    padding: $space-xs
-                        $input-padding-medium-with-icon-and-icon-button
-                        $space-xs $space-xxl;
-                }
-
-                &.clear-disabled {
-                    &.left-icon {
-                        padding: $space-xs $space-xs $space-xs
-                            $input-padding-medium-with-icon-and-icon-button;
-                    }
-
-                    &.right-icon {
-                        padding: $space-xs
-                            $input-padding-medium-with-icon-and-icon-button
-                            $space-xs $space-xs;
-                    }
-                }
-
-                &.clear-not-visible {
-                    &.right-icon {
-                        padding: $space-xs
-                            $input-padding-medium-with-icon-and-icon-button
-                            $space-xs $space-xs;
-                    }
-                }
-            }
-
-            &.pill-shape-with-icon,
-            &.pill-shape-with-image-icon {
-                padding: $space-xs $space-xl $space-xs $space-xxl;
-
-                &.left-icon {
-                    padding: $space-xs $space-xl $space-xs $space-xxl;
-                }
-
-                &.right-icon {
-                    padding: $space-xs $space-xxl $space-xs $space-xl;
-                }
-
-                &.clear-disabled {
-                    &.left-icon {
-                        padding: $space-xs $space-xs $space-xs $space-xxl;
-                    }
-
-                    &.right-icon {
-                        padding: $space-xs $space-xxl $space-xs $space-xs;
-                    }
-                }
-
-                &.clear-not-visible {
-                    &.right-icon {
-                        padding: $space-xs $space-xxl $space-xs $space-xs;
-                    }
-                }
-            }
-
-            &.pill-shape-with-icon-button {
-                padding: $space-xs $space-xl $space-xs $space-xl;
-
-                &.left-icon,
-                &.right-icon {
-                    padding: $space-xs $space-xl $space-xs $space-xl;
-                }
-
-                &.clear-disabled {
-                    &.left-icon {
-                        padding: $space-xs $space-xs $space-xs $space-xl;
-                    }
-
-                    &.right-icon {
-                        padding: $space-xs $space-xl $space-xs $space-xs;
-                    }
-                }
-
-                &.clear-not-visible {
-                    &.right-icon {
-                        padding: $space-xs $space-xl $space-xs $space-xs;
-                    }
-                }
-            }
-
-            &.pill-shape-with-icon-and-icon-button {
-                padding: $space-xs $space-xl $space-xs
-                    $input-padding-medium-with-icon-and-icon-button;
-
-                &.left-icon {
-                    padding: $space-xs $space-xl $space-xs
-                        $input-padding-medium-with-icon-and-icon-button;
-                }
-
-                &.right-icon {
-                    padding: $space-xs
-                        $input-padding-medium-with-icon-and-icon-button
-                        $space-xs $space-xl;
-                }
-
-                &.clear-disabled {
-                    &.left-icon {
-                        padding: $space-xs $space-xs $space-xs
-                            $input-padding-medium-with-icon-and-icon-button;
-                    }
-
-                    &.right-icon {
-                        padding: $space-xs
-                            $input-padding-medium-with-icon-and-icon-button
-                            $space-xs $space-xs;
-                    }
-                }
-
-                &.clear-not-visible {
-                    &.right-icon {
-                        padding: $space-xs
-                            $input-padding-medium-with-icon-and-icon-button
-                            $space-xs $space-xs;
-                    }
-                }
-            }
-        }
-
-        &.input-small {
-            font-size: $text-font-size-2;
-            height: $input-small-size;
-            line-height: $text-line-height-3;
-            padding: $space-xs $space-l $space-xs $space-s;
-
-            &.with-icon,
-            &.with-image-icon,
-            &.with-icon-button {
-                padding: $space-xs calc(#{$space-l} + $space-xxs) $space-xs
-                    $space-xl;
-
-                &.left-icon {
-                    padding: $space-xs calc(#{$space-l} + $space-xxs) $space-xs
-                        $space-xl;
-                }
-
-                &.right-icon {
-                    padding: $space-xs $space-xl $space-xs
-                        calc(#{$space-l} + $space-xxs);
-                }
-
-                &.clear-disabled {
-                    &.left-icon {
-                        padding: $space-xs $space-xs $space-xs $space-xl;
-                    }
-
-                    &.right-icon {
-                        padding: $space-xs $space-xl $space-xs $space-xs;
-                    }
-                }
-
-                &.clear-not-visible {
-                    &.right-icon {
-                        padding: $space-xs $space-xl $space-xs $space-xs;
-                    }
-                }
-            }
-
-            &.with-icon-and-icon-button {
-                padding: $space-xs calc(#{$space-l} + $space-xxs) $space-xs
-                    $input-padding-small-with-icon-and-icon-button;
-
-                &.left-icon {
-                    padding: $space-xs calc(#{$space-l} + $space-xxs) $space-xs
-                        $input-padding-small-with-icon-and-icon-button;
-                }
-
-                &.right-icon {
-                    padding: $space-xs
-                        $input-padding-small-with-icon-and-icon-button $space-xs
-                        calc(#{$space-l} + $space-xxs);
-                }
-
-                &.clear-disabled {
-                    &.left-icon {
-                        padding: $space-xs $space-xs $space-xs
-                            $input-padding-small-with-icon-and-icon-button;
-                    }
-
-                    &.right-icon {
-                        padding: $space-xs
-                            $input-padding-small-with-icon-and-icon-button
-                            $space-xs $space-xs;
-                    }
-                }
-
-                &.clear-not-visible {
-                    &.right-icon {
-                        padding: $space-xs
-                            $input-padding-small-with-icon-and-icon-button
-                            $space-xs $space-xs;
-                    }
-                }
-            }
-
-            &.pill-shape-with-icon,
-            &.pill-shape-with-image-icon {
-                padding: $space-xs calc(#{$space-l} + $space-xxs) $space-xs
-                    $space-xl;
-
-                &.left-icon {
-                    padding: $space-xs calc(#{$space-l} + $space-xxs) $space-xs
-                        $space-xl;
-                }
-
-                &.right-icon {
-                    padding: $space-xs $space-xl $space-xs
-                        calc(#{$space-l} + $space-xxs);
-                }
-
-                &.clear-disabled {
-                    &.left-icon {
-                        padding: $space-xs $space-xs $space-xs $space-xl;
-                    }
-
-                    &.right-icon {
-                        padding: $space-xs $space-xl $space-xs $space-xs;
-                    }
-                }
-
-                &.clear-not-visible {
-                    &.right-icon {
-                        padding: $space-xs $space-xl $space-xs $space-xs;
-                    }
-                }
-            }
-
-            &.pill-shape-with-icon-button {
-                padding: $space-xs $space-xl $space-xs $space-xl;
-
-                &.left-icon,
-                &.right-icon {
-                    padding: $space-xs $space-xl $space-xs $space-xl;
-                }
-
-                &.clear-disabled {
-                    &.left-icon {
-                        padding: $space-xs $space-xs $space-xs $space-xl;
-                    }
-
-                    &.right-icon {
-                        padding: $space-xs $space-xl $space-xs $space-xs;
-                    }
-                }
-
-                &.clear-not-visible {
-                    &.right-icon {
-                        padding: $space-xs $space-xl $space-xs $space-xs;
-                    }
-                }
-            }
-
-            $input-padding-small-with-icon-and-icon-button-local: 28px;
-
-            &.pill-shape-with-icon-and-icon-button {
-                padding: $space-xs
-                    $input-padding-small-with-icon-and-icon-button-local
-                    $space-xs $input-padding-small-with-icon-and-icon-button;
-
-                &.left-icon {
-                    padding: $space-xs
-                        $input-padding-small-with-icon-and-icon-button-local
-                        $space-xs $input-padding-small-with-icon-and-icon-button;
-                }
-
-                &.right-icon {
-                    padding: $space-xs
-                        $input-padding-small-with-icon-and-icon-button $space-xs
-                        $input-padding-small-with-icon-and-icon-button-local;
-                }
-
-                &.clear-disabled {
-                    &.left-icon {
-                        padding: $space-xs $space-xs $space-xs
-                            $input-padding-small-with-icon-and-icon-button;
-                    }
-
-                    &.right-icon {
-                        padding: $space-xs
-                            $input-padding-small-with-icon-and-icon-button
-                            $space-xs $space-xs;
-                    }
-                }
-
-                &.clear-not-visible {
-                    &.right-icon {
-                        padding: $space-xs
-                            $input-padding-small-with-icon-and-icon-button
-                            $space-xs $space-xs;
-                    }
-                }
-            }
-        }
-
-        &.input-stretch {
-            width: 100%;
-        }
+      }
     }
 
-    .icon-wrapper {
-        bottom: 0;
-        height: $input-medium-size;
-        position: absolute;
-        width: $input-medium-size;
-
-        &.left-icon {
-            left: $space-xxs;
-        }
-
-        &.right-icon {
-            right: $space-xxs;
-        }
-
-        span {
-            padding: $space-xs $space-xxs;
-        }
-
-        img {
-            display: inline-block;
-            height: 100%;
-            padding: 3px 3px;
-            max-width: 30px;
-            vertical-align: middle;
-        }
-
-        svg {
-            color: var(--grey-color-60);
-        }
-    }
-
-    .icon-button {
-        bottom: 1px;
-        color: var(--grey-color-60);
-        height: $input-small-size;
-        padding: $space-xxs;
-        position: absolute;
-        transition: none;
-
-        &.left-icon {
-            left: $space-xxxs;
-        }
-
-        &.right-icon {
-            right: $space-xxxs;
-        }
-
-        svg {
-            color: var(--grey-color-60);
-        }
-
-        &:active,
-        &:focus {
-            background-color: transparent;
-
-            svg {
-                color: var(--grey-color-60);
-            }
-        }
-
-        &:hover {
-            background-color: transparent;
-            outline-color: transparent;
-
-            svg {
-                color: var(--grey-color-80);
-            }
-        }
-    }
-
-    .clear-icon-button {
-        bottom: 1px;
-        color: var(--grey-color-60);
-        height: 35px;
-        position: absolute;
-        right: $space-xxxs;
-        transition: none;
-        width: 35px;
-
-        &.left-icon {
-            right: $space-xxxs;
-        }
-
-        &.right-icon {
-            left: $space-xxxs;
-        }
-
-        &:active,
-        &:hover {
-            background-color: transparent;
-            color: var(--grey-color-80);
-            outline-color: transparent;
-
-            svg {
-                color: var(--grey-color-80);
-            }
-        }
-
-        &:focus-visible {
-            outline: none;
-        }
-    }
-
-    .icon-wrapper:not(:empty) + .icon-button {
-        &.left-icon {
-            left: $space-xl;
-        }
-
-        &.right-icon {
-            right: $space-xl;
-        }
-    }
-
-    .text-area {
-        background-color: var(--background-color);
-        border: 1px solid var(--input-border-color);
-        border-radius: $border-radius-m;
-        box-sizing: border-box;
-        color: var(--text-primary-color);
-        font-family: $octuple-font-family;
-        font-size: $text-font-size-3;
-        line-height: $text-line-height-4;
-        min-height: calc($text-line-height-4 + $space-xxxs + $space-xs * 2);
-        min-width: 320px;
-        padding: $space-xs;
-
-        &::-webkit-resizer {
-            display: none;
-        }
-
-        &.text-area-no-expand {
-            resize: none;
-        }
-
-        &.pill-shape {
-            border-radius: $border-radius-xl;
-            padding: $space-xs $space-s;
-        }
-
-        &:focus:not(.underline) {
-            border-color: $focus-visible-shadow-color;
-            transition: border-color $motion-duration-extra-fast
-                $motion-easing-easeinout;
-        }
-
-        &:disabled {
-            opacity: $disabled-alpha-value;
-            cursor: not-allowed;
-        }
-
-        &.read-only {
-            background-color: var(--grey-color-10);
-            color: var(--text-primary-color);
-        }
-
-        &:hover:not([disabled]):not(.underline) {
-            border-color: var(--input-border-color-active);
-        }
-
-        &.status-success {
-            color: var(--text-primary-color);
-            border-color: var(--input-border-color);
-        }
-
-        &.status-warning {
-            color: var(--warning-color);
-            border-color: var(--warning-color);
-
-            &::placeholder {
-                color: var(--warning-color);
-            }
-        }
-
-        &.status-error {
-            color: var(--error-color);
-            border-color: var(--error-color);
-
-            &::placeholder {
-                color: var(--error-color);
-            }
-        }
-
-        // TODO: work with UXDs on validating state
-        &.status-validating {
-            border-color: var(--input-border-color);
-        }
-
-        // TODO: work with UXDs on feedback state
-        &.has-feedback {
-            border-color: var(--input-border-color);
-        }
-
-        &.underline {
-            border-color: transparent;
-        }
-
-        &.inline {
-            display: flex;
-            flex-direction: column;
-            flex-grow: 1;
-        }
-
-        &.input-stretch {
-            width: 100%;
-        }
-    }
-
-    .text-area-resize-icon {
-        position: absolute;
-        bottom: $space-xs;
-        right: $space-xxs;
+    &:disabled::placeholder {
+      color: var(--text-primary-color);
     }
 
     &.pill-shape {
-        .text-area-resize-icon {
-            bottom: 14px;
-            right: 10px;
-        }
+      border-color: var(--input-border-color);
+      border-radius: $border-radius-xl;
+      padding: $space-xs $space-s;
     }
 
-    &.inline {
-        display: flex;
-        flex-flow: row wrap;
+    &.pill-shape-with-icon,
+    &.pill-shape-with-image-icon {
+      padding: $space-xs $space-xl $space-xs $space-xxl;
+
+      &.left-icon {
+        padding: $space-xs $space-xl $space-xs $space-xxl;
+      }
+
+      &.right-icon {
+        padding: $space-xs $space-xxl $space-xs $space-xl;
+      }
+
+      &.clear-disabled {
+        &.left-icon {
+          padding: $space-xs $space-xs $space-xs $space-xxl;
+        }
+
+        &.right-icon {
+          padding: $space-xs $space-xxl $space-xs $space-xs;
+        }
+      }
+
+      &.clear-not-visible {
+        &.right-icon {
+          padding: $space-xs $space-xxl $space-xs $space-xs;
+        }
+      }
     }
 
-    .input-group,
-    .text-area-group {
-        position: relative;
+    &.pill-shape-with-icon-button {
+      padding: $space-xs $space-xl $space-xs $space-xl;
 
-        &.inline {
-            display: flex;
-            flex-direction: column;
-            flex-grow: 1;
+      &.left-icon,
+      &.right-icon {
+        padding: $space-xs $space-xl $space-xs $space-xl;
+      }
 
-            .text-area-resize-icon {
-                bottom: $space-xxs;
-            }
-
-            &.pill-shape {
-                .text-area-resize-icon {
-                    bottom: 10px;
-                }
-            }
+      &.clear-disabled {
+        &.left-icon {
+          padding: $space-xs $space-xs $space-xs $space-xl;
         }
+
+        &.right-icon {
+          padding: $space-xs $space-xl $space-xs $space-xs;
+        }
+      }
+
+      &.clear-not-visible {
+        &.right-icon {
+          padding: $space-xs $space-xl $space-xs $space-xs;
+        }
+      }
     }
 
-    &.pill-shape {
-        .input-group,
-        .text-area-group {
-            &.inline {
-                .text-area-resize-icon {
-                    bottom: 10px;
-                }
-            }
+    &.pill-shape-with-icon-and-icon-button {
+      padding: $space-xs $space-xl $space-xs
+        $input-padding-medium-with-icon-and-icon-button;
+
+      &.left-icon {
+        padding: $space-xs $space-xl $space-xs
+          $input-padding-medium-with-icon-and-icon-button;
+      }
+
+      &.right-icon {
+        padding: $space-xs $input-padding-medium-with-icon-and-icon-button
+          $space-xs $space-xl;
+      }
+
+      &.clear-disabled {
+        &.left-icon {
+          padding: $space-xs $space-xs $space-xs
+            $input-padding-medium-with-icon-and-icon-button;
         }
+
+        &.right-icon {
+          padding: $space-xs $input-padding-medium-with-icon-and-icon-button
+            $space-xs $space-xs;
+        }
+      }
+
+      &.clear-not-visible {
+        &.right-icon {
+          padding: $space-xs $input-padding-medium-with-icon-and-icon-button
+            $space-xs $space-xs;
+        }
+      }
+    }
+
+    &.pill-shape-with-icon-button ~ .icon-button {
+      &.left-icon {
+        border-bottom-left-radius: 50%;
+        border-top-left-radius: 50%;
+      }
+
+      &.right-icon {
+        border-bottom-right-radius: 50%;
+        border-top-right-radius: 50%;
+      }
+    }
+
+    &.pill-shape-with-icon-button ~ .clear-icon-button {
+      border-bottom-right-radius: 50%;
+      border-top-right-radius: 50%;
+    }
+
+    &.pill-shape-with-icon-and-icon-button ~ .icon-button {
+      &.left-icon {
+        border-bottom-left-radius: inherit;
+        border-top-left-radius: inherit;
+      }
+
+      &.right-icon {
+        border-bottom-right-radius: inherit;
+        border-top-right-radius: inherit;
+      }
+    }
+
+    &.status-success {
+      color: var(--text-primary-color);
+      border-color: var(--input-border-color);
+    }
+
+    &.status-warning {
+      color: var(--warning-color);
+      border-color: var(--warning-color);
+
+      &::placeholder {
+        color: var(--warning-color);
+      }
+    }
+
+    &.status-error {
+      color: var(--error-color);
+      border-color: var(--error-color);
+
+      &::placeholder {
+        color: var(--error-color);
+      }
+    }
+
+    // TODO: work with UXDs on validating state
+    &.status-validating {
+      border-color: var(--input-border-color);
+    }
+
+    // TODO: work with UXDs on feedback state
+    &.has-feedback {
+      border-color: var(--input-border-color);
     }
 
     &.underline {
-        .input-group,
-        .text-area-group {
-            &:before {
-                border-bottom: 1px solid var(--input-border-color);
-                left: 0;
-                bottom: 0;
-                content: '';
-                position: absolute;
-                right: 0;
-                transition: border-bottom-color $motion-duration-extra-fast
-                    $motion-easing-easeinout;
-                pointer-events: none;
-            }
-
-            &:after {
-                border-bottom: 1px solid var(--primary-color-60);
-                left: 0;
-                bottom: 0;
-                content: '';
-                position: absolute;
-                right: 0;
-                transform: scaleX(0);
-                transition: transform $motion-duration-extra-fast
-                    $motion-easing-easeinout;
-                pointer-events: none;
-            }
-
-            &:hover {
-                &:before {
-                    border-color: var(--input-border-color-active);
-                }
-            }
-
-            &.status-success {
-                &:before {
-                    border-color: var(--input-border-color);
-                }
-
-                &:after {
-                    border-color: var(--primary-color-60);
-                }
-
-                &:hover {
-                    &:before {
-                        border-color: var(--input-border-color-active);
-                    }
-                }
-            }
-
-            &.status-warning {
-                &:before {
-                    border-color: var(--warning-color);
-                }
-
-                &:after {
-                    border-color: var(--warning-color);
-                }
-
-                &:hover {
-                    &:before {
-                        border-color: var(--warning-color);
-                    }
-                }
-            }
-
-            &.status-error {
-                &:before {
-                    border-color: var(--error-color);
-                }
-
-                &:after {
-                    border-color: var(--error-color);
-                }
-
-                &:hover {
-                    &:before {
-                        border-color: var(--error-color);
-                    }
-                }
-            }
-
-            &:focus-within {
-                &:after {
-                    transform: scaleX(1) translateX(0px);
-                }
-            }
-        }
+      border-color: transparent;
     }
 
-    &.disabled {
-        .clear-icon-button,
-        .icon-wrapper,
-        .icon-button,
-        input,
-        textarea {
-            opacity: $disabled-alpha-value;
-            cursor: not-allowed;
-        }
+    &:active {
+      border-color: var(--input-border-color-active);
 
-        &.underline {
-            .input-group,
-            .text-area-group {
-                &:before {
-                    opacity: $disabled-alpha-value;
-                }
+      &.underline {
+        border-color: transparent;
+      }
+    }
 
-                &:after {
-                    border-bottom: 1px solid var(--input-border-color);
-                    left: 0;
-                    bottom: 0;
-                    content: '';
-                    position: absolute;
-                    right: 0;
-                    transition: border-bottom-color $motion-duration-extra-fast
-                        $motion-easing-easeinout;
-                    pointer-events: none;
-                }
+    &:hover:not([disabled]) {
+      border-color: var(--input-border-color-active);
 
-                &:hover {
-                    &:before {
-                        border-color: var(--input-border-color);
-                    }
-                }
-            }
-        }
+      &.underline {
+        border-color: transparent;
+      }
+    }
+
+    &:focus {
+      border-color: $focus-visible-shadow-color;
+      transition: border-color $motion-duration-extra-fast
+        $motion-easing-easeinout;
+
+      &.underline {
+        border-color: transparent;
+      }
     }
 
     &.input-large {
-        .icon-wrapper {
-            bottom: $space-xxxs;
-            height: $space-xxl;
-            width: $space-xxl;
+      font-size: $text-font-size-4;
+      height: $input-large-size;
+      line-height: $text-line-height-5;
+      padding: $space-xs $space-xxl $space-xs $space-m;
 
-            &.left-icon {
-                left: $space-xs;
-            }
+      &.with-icon,
+      &.with-image-icon,
+      &.with-icon-button {
+        padding: $space-xs $space-xxl $space-xs $input-padding-large-with-icon;
 
-            &.right-icon {
-                right: $space-xs;
-            }
-
-            span {
-                height: $space-xxl;
-            }
+        &.left-icon {
+          padding: $space-xs $space-xxl $space-xs $input-padding-large-with-icon;
         }
 
-        .icon-button {
-            bottom: 0;
-            height: 44px;
-
-            &.left-icon {
-                left: $space-xs;
-            }
-
-            &.right-icon {
-                right: $space-xs;
-            }
+        &.right-icon {
+          padding: $space-xs $input-padding-large-with-icon $space-xs $space-xxl;
         }
 
-        .clear-icon-button {
-            bottom: $space-xxxs;
-            height: $space-xxl;
-            padding: $space-s;
-            right: $space-xxxs;
-            width: $space-xxl;
+        &.clear-disabled {
+          &.left-icon {
+            padding: $space-xs $space-xs $space-xs
+              $input-padding-large-with-icon;
+          }
+
+          &.right-icon {
+            padding: $space-xs $input-padding-large-with-icon $space-xs
+              $space-xs;
+          }
         }
 
-        .icon-wrapper:not(:empty) + .icon-button {
-            &.left-icon {
-                left: calc($space-xxl + $space-xxs);
-            }
+        &.clear-not-visible {
+          &.right-icon {
+            padding: $space-xs $input-padding-large-with-icon $space-xs
+              $space-xs;
+          }
+        }
+      }
 
-            &.right-icon {
-                right: calc($space-xxl + $space-xxs);
-            }
+      &.with-icon-and-icon-button {
+        padding: $space-xs $space-xxl $space-xs
+          $input-padding-large-with-icon-and-icon-button;
+
+        &.left-icon {
+          padding: $space-xs $space-xxl $space-xs
+            $input-padding-large-with-icon-and-icon-button;
         }
 
-        .text-area {
-            font-size: $text-font-size-4;
-            line-height: $text-line-height-5;
-            min-height: calc($text-line-height-5 + $space-xxxs + $space-xs * 2);
+        &.right-icon {
+          padding: $space-xs $input-padding-large-with-icon-and-icon-button
+            $space-xs $space-xxl;
         }
+
+        &.clear-disabled {
+          &.left-icon {
+            padding: $space-xs $space-xs $space-xs
+              $input-padding-large-with-icon-and-icon-button;
+          }
+
+          &.right-icon {
+            padding: $space-xs $input-padding-large-with-icon-and-icon-button
+              $space-xs $space-xs;
+          }
+        }
+
+        &.clear-not-visible {
+          &.right-icon {
+            padding: $space-xs $input-padding-large-with-icon-and-icon-button
+              $space-xs $space-xs;
+          }
+        }
+      }
+
+      &.pill-shape-with-icon,
+      &.pill-shape-with-image-icon,
+      &.pill-shape-with-icon-button {
+        padding: $space-xs $space-xxl $space-xs $input-padding-large-with-icon;
+
+        &.left-icon {
+          padding: $space-xs $space-xxl $space-xs $input-padding-large-with-icon;
+        }
+
+        &.right-icon {
+          padding: $space-xs $input-padding-large-with-icon $space-xs $space-xxl;
+        }
+
+        &.clear-disabled {
+          &.left-icon {
+            padding: $space-xs $space-xs $space-xs
+              $input-padding-large-with-icon;
+          }
+
+          &.right-icon {
+            padding: $space-xs $input-padding-large-with-icon $space-xs
+              $space-xs;
+          }
+        }
+
+        &.clear-not-visible {
+          &.right-icon {
+            padding: $space-xs $input-padding-large-with-icon $space-xs
+              $space-xs;
+          }
+        }
+      }
+
+      &.pill-shape-with-icon-and-icon-button {
+        padding: $space-xs $space-xxl $space-xs
+          $input-padding-large-with-icon-and-icon-button;
+
+        &.left-icon {
+          padding: $space-xs $space-xxl $space-xs
+            $input-padding-large-with-icon-and-icon-button;
+        }
+
+        &.right-icon {
+          padding: $space-xs $input-padding-large-with-icon-and-icon-button
+            $space-xs $space-xxl;
+        }
+
+        &.clear-disabled {
+          &.left-icon {
+            padding: $space-xs $space-xs $space-xs
+              $input-padding-large-with-icon-and-icon-button;
+          }
+
+          &.right-icon {
+            padding: $space-xs $input-padding-large-with-icon-and-icon-button
+              $space-xs $space-xs;
+          }
+        }
+
+        &.clear-not-visible {
+          &.right-icon {
+            padding: $space-xs $input-padding-large-with-icon-and-icon-button
+              $space-xs $space-xs;
+          }
+        }
+      }
     }
 
     &.input-medium {
-        .icon-wrapper {
-            bottom: 0;
-            height: $input-medium-size;
-            width: $input-medium-size;
+      font-size: $text-font-size-3;
+      height: $input-medium-size;
+      line-height: $text-line-height-4;
+      padding: $space-xs $space-xl $space-xs $space-m;
 
-            &.left-icon {
-                left: $space-xs;
-            }
+      &.with-icon,
+      &.with-image-icon {
+        padding: $space-xs $space-xl $space-xs $space-xxl;
 
-            &.right-icon {
-                right: $space-xs;
-            }
-
-            span {
-                height: $input-medium-size;
-            }
+        &.left-icon {
+          padding: $space-xs $space-xl $space-xs $space-xxl;
         }
 
-        .icon-button {
-            bottom: $space-xxs;
-            height: 28px;
-            padding: $space-xxs;
-
-            &.left-icon {
-                left: $space-xxs;
-            }
-
-            &.right-icon {
-                right: $space-xxs;
-            }
+        &.right-icon {
+          padding: $space-xs $space-xxl $space-xs $space-xxl;
         }
 
-        .clear-icon-button {
-            bottom: 1px;
-            height: 35px;
-            padding: 6px 10px;
-            right: 1px;
-            width: 35px;
+        &.clear-disabled {
+          &.left-icon {
+            padding: $space-xs $space-xs $space-xs $space-xxl;
+          }
+
+          &.right-icon {
+            padding: $space-xs $space-xxl $space-xs $space-xs;
+          }
         }
 
-        .icon-wrapper:not(:empty) + .icon-button {
-            &.left-icon {
-                left: $space-xxl;
-            }
+        &.clear-not-visible {
+          &.right-icon {
+            padding: $space-xs $space-xxl $space-xs $space-xs;
+          }
+        }
+      }
 
-            &.right-icon {
-                right: $space-xxl;
-            }
+      &.with-icon-button {
+        padding: $space-xs $space-xl $space-xs $space-xl;
+
+        &.left-icon,
+        &.right-icon {
+          padding: $space-xs $space-xl $space-xs $space-xl;
         }
 
-        .text-area {
-            font-size: $text-font-size-3;
-            line-height: $text-line-height-4;
-            min-height: calc($text-line-height-4 + $space-xxxs + $space-xs * 2);
+        &.clear-disabled {
+          &.left-icon {
+            padding: $space-xs $space-xs $space-xs $space-xl;
+          }
+
+          &.right-icon {
+            padding: $space-xs $space-xl $space-xs $space-xs;
+          }
         }
+
+        &.clear-not-visible {
+          &.right-icon {
+            padding: $space-xs $space-xl $space-xs $space-xs;
+          }
+        }
+      }
+
+      &.with-icon-and-icon-button {
+        padding: $space-xs $space-xxl $space-xs
+          $input-padding-medium-with-icon-and-icon-button;
+
+        &.left-icon {
+          padding: $space-xs $space-xxl $space-xs
+            $input-padding-medium-with-icon-and-icon-button;
+        }
+
+        &.right-icon {
+          padding: $space-xs $input-padding-medium-with-icon-and-icon-button
+            $space-xs $space-xxl;
+        }
+
+        &.clear-disabled {
+          &.left-icon {
+            padding: $space-xs $space-xs $space-xs
+              $input-padding-medium-with-icon-and-icon-button;
+          }
+
+          &.right-icon {
+            padding: $space-xs $input-padding-medium-with-icon-and-icon-button
+              $space-xs $space-xs;
+          }
+        }
+
+        &.clear-not-visible {
+          &.right-icon {
+            padding: $space-xs $input-padding-medium-with-icon-and-icon-button
+              $space-xs $space-xs;
+          }
+        }
+      }
+
+      &.pill-shape-with-icon,
+      &.pill-shape-with-image-icon {
+        padding: $space-xs $space-xl $space-xs $space-xxl;
+
+        &.left-icon {
+          padding: $space-xs $space-xl $space-xs $space-xxl;
+        }
+
+        &.right-icon {
+          padding: $space-xs $space-xxl $space-xs $space-xl;
+        }
+
+        &.clear-disabled {
+          &.left-icon {
+            padding: $space-xs $space-xs $space-xs $space-xxl;
+          }
+
+          &.right-icon {
+            padding: $space-xs $space-xxl $space-xs $space-xs;
+          }
+        }
+
+        &.clear-not-visible {
+          &.right-icon {
+            padding: $space-xs $space-xxl $space-xs $space-xs;
+          }
+        }
+      }
+
+      &.pill-shape-with-icon-button {
+        padding: $space-xs $space-xl $space-xs $space-xl;
+
+        &.left-icon,
+        &.right-icon {
+          padding: $space-xs $space-xl $space-xs $space-xl;
+        }
+
+        &.clear-disabled {
+          &.left-icon {
+            padding: $space-xs $space-xs $space-xs $space-xl;
+          }
+
+          &.right-icon {
+            padding: $space-xs $space-xl $space-xs $space-xs;
+          }
+        }
+
+        &.clear-not-visible {
+          &.right-icon {
+            padding: $space-xs $space-xl $space-xs $space-xs;
+          }
+        }
+      }
+
+      &.pill-shape-with-icon-and-icon-button {
+        padding: $space-xs $space-xl $space-xs
+          $input-padding-medium-with-icon-and-icon-button;
+
+        &.left-icon {
+          padding: $space-xs $space-xl $space-xs
+            $input-padding-medium-with-icon-and-icon-button;
+        }
+
+        &.right-icon {
+          padding: $space-xs $input-padding-medium-with-icon-and-icon-button
+            $space-xs $space-xl;
+        }
+
+        &.clear-disabled {
+          &.left-icon {
+            padding: $space-xs $space-xs $space-xs
+              $input-padding-medium-with-icon-and-icon-button;
+          }
+
+          &.right-icon {
+            padding: $space-xs $input-padding-medium-with-icon-and-icon-button
+              $space-xs $space-xs;
+          }
+        }
+
+        &.clear-not-visible {
+          &.right-icon {
+            padding: $space-xs $input-padding-medium-with-icon-and-icon-button
+              $space-xs $space-xs;
+          }
+        }
+      }
     }
 
     &.input-small {
-        .icon-wrapper {
-            bottom: $space-xxxs;
-            height: $space-l;
-            width: $space-l;
+      font-size: $text-font-size-2;
+      height: $input-small-size;
+      line-height: $text-line-height-3;
+      padding: $space-xs $space-l $space-xs $space-s;
 
-            &.left-icon {
-                left: $space-xxs;
-            }
+      &.with-icon,
+      &.with-image-icon,
+      &.with-icon-button {
+        padding: $space-xs calc(#{$space-l} + $space-xxs) $space-xs $space-xl;
 
-            &.right-icon {
-                right: $space-xxs;
-            }
-
-            span {
-                height: $space-l;
-                padding: $space-xxs;
-            }
+        &.left-icon {
+          padding: $space-xs calc(#{$space-l} + $space-xxs) $space-xs $space-xl;
         }
 
-        .icon-button {
-            bottom: $space-xxxs;
-            height: $space-l;
-            padding: $space-xxs;
-
-            &.left-icon {
-                left: $space-xxxs;
-            }
-
-            &.right-icon {
-                right: $space-xxxs;
-            }
+        &.right-icon {
+          padding: $space-xs $space-xl $space-xs calc(#{$space-l} + $space-xxs);
         }
 
-        .clear-icon-button {
-            bottom: $space-xxxs;
-            height: $space-l;
-            padding: $space-xxs;
-            right: $space-xxxs;
-            width: $space-l;
+        &.clear-disabled {
+          &.left-icon {
+            padding: $space-xs $space-xs $space-xs $space-xl;
+          }
+
+          &.right-icon {
+            padding: $space-xs $space-xl $space-xs $space-xs;
+          }
         }
 
-        .icon-wrapper:not(:empty) + .icon-button {
-            &.left-icon {
-                left: $space-xl;
-            }
+        &.clear-not-visible {
+          &.right-icon {
+            padding: $space-xs $space-xl $space-xs $space-xs;
+          }
+        }
+      }
 
-            &.right-icon {
-                right: $space-xl;
-            }
+      &.with-icon-and-icon-button {
+        padding: $space-xs calc(#{$space-l} + $space-xxs) $space-xs
+          $input-padding-small-with-icon-and-icon-button;
+
+        &.left-icon {
+          padding: $space-xs calc(#{$space-l} + $space-xxs) $space-xs
+            $input-padding-small-with-icon-and-icon-button;
         }
 
-        .text-area {
-            font-size: $text-font-size-2;
-            line-height: $text-line-height-3;
-            min-height: calc($text-line-height-3 + $space-xxxs + $space-xs * 2);
+        &.right-icon {
+          padding: $space-xs $input-padding-small-with-icon-and-icon-button
+            $space-xs calc(#{$space-l} + $space-xxs);
         }
+
+        &.clear-disabled {
+          &.left-icon {
+            padding: $space-xs $space-xs $space-xs
+              $input-padding-small-with-icon-and-icon-button;
+          }
+
+          &.right-icon {
+            padding: $space-xs $input-padding-small-with-icon-and-icon-button
+              $space-xs $space-xs;
+          }
+        }
+
+        &.clear-not-visible {
+          &.right-icon {
+            padding: $space-xs $input-padding-small-with-icon-and-icon-button
+              $space-xs $space-xs;
+          }
+        }
+      }
+
+      &.pill-shape-with-icon,
+      &.pill-shape-with-image-icon {
+        padding: $space-xs calc(#{$space-l} + $space-xxs) $space-xs $space-xl;
+
+        &.left-icon {
+          padding: $space-xs calc(#{$space-l} + $space-xxs) $space-xs $space-xl;
+        }
+
+        &.right-icon {
+          padding: $space-xs $space-xl $space-xs calc(#{$space-l} + $space-xxs);
+        }
+
+        &.clear-disabled {
+          &.left-icon {
+            padding: $space-xs $space-xs $space-xs $space-xl;
+          }
+
+          &.right-icon {
+            padding: $space-xs $space-xl $space-xs $space-xs;
+          }
+        }
+
+        &.clear-not-visible {
+          &.right-icon {
+            padding: $space-xs $space-xl $space-xs $space-xs;
+          }
+        }
+      }
+
+      &.pill-shape-with-icon-button {
+        padding: $space-xs $space-xl $space-xs $space-xl;
+
+        &.left-icon,
+        &.right-icon {
+          padding: $space-xs $space-xl $space-xs $space-xl;
+        }
+
+        &.clear-disabled {
+          &.left-icon {
+            padding: $space-xs $space-xs $space-xs $space-xl;
+          }
+
+          &.right-icon {
+            padding: $space-xs $space-xl $space-xs $space-xs;
+          }
+        }
+
+        &.clear-not-visible {
+          &.right-icon {
+            padding: $space-xs $space-xl $space-xs $space-xs;
+          }
+        }
+      }
+
+      $input-padding-small-with-icon-and-icon-button-local: 28px;
+
+      &.pill-shape-with-icon-and-icon-button {
+        padding: $space-xs $input-padding-small-with-icon-and-icon-button-local
+          $space-xs $input-padding-small-with-icon-and-icon-button;
+
+        &.left-icon {
+          padding: $space-xs
+            $input-padding-small-with-icon-and-icon-button-local $space-xs
+            $input-padding-small-with-icon-and-icon-button;
+        }
+
+        &.right-icon {
+          padding: $space-xs $input-padding-small-with-icon-and-icon-button
+            $space-xs $input-padding-small-with-icon-and-icon-button-local;
+        }
+
+        &.clear-disabled {
+          &.left-icon {
+            padding: $space-xs $space-xs $space-xs
+              $input-padding-small-with-icon-and-icon-button;
+          }
+
+          &.right-icon {
+            padding: $space-xs $input-padding-small-with-icon-and-icon-button
+              $space-xs $space-xs;
+          }
+        }
+
+        &.clear-not-visible {
+          &.right-icon {
+            padding: $space-xs $input-padding-small-with-icon-and-icon-button
+              $space-xs $space-xs;
+          }
+        }
+      }
     }
 
     &.input-stretch {
-        width: 100%;
+      width: 100%;
+    }
+  }
+
+  .icon-wrapper {
+    bottom: 0;
+    height: $input-medium-size;
+    position: absolute;
+    width: $input-medium-size;
+
+    &.left-icon {
+      left: $space-xxs;
     }
 
-    &.isExpandable {
-        .expandable-wrapper {
-            position: relative;
-        }
-
-        .input-group {
-            position: absolute;
-            left: 0;
-
-            input {
-                width: 0;
-
-                &::placeholder {
-                    transition: opacity $motion-duration-extra-fast
-                        $motion-easing-easeinout $motion-delay-s;
-                }
-            }
-        }
-
-        .expandable-thumb {
-            position: absolute;
-            left: 0;
-        }
-
-        .overlay {
-            position: absolute;
-            left: 0;
-            top: 0;
-            height: 100%;
-            width: 200%;
-            z-index: -1;
-            background: $expandable-header-gradient;
-        }
-
-        &.expand-right {
-            .input-group,
-            .overlay {
-                left: unset;
-                right: 10px;
-            }
-            .overlay {
-                transform: rotate(180deg);
-            }
-        }
-
-        input,
-        .input-group,
-        .overlay {
-            transition: all $motion-duration-extra-fast $motion-easing-easeinout;
-        }
-
-        .input-group:focus-within {
-            @each $size-name, $size-value in $input-size-map {
-                &.input-#{$size-name} {
-                    width: auto;
-                }
-            }
-
-            ~ .action-wrapper {
-                display: block;
-            }
-
-            ~ .expandable-thumb {
-                display: none;
-            }
-        }
-
-        // Set Rules
-        .input-group:hover > input,
-        .input-group:focus-within > input,
-        input:focus,
-        input:not(:placeholder-shown) {
-            @each $size-name, $size-value in $input-size-map {
-                &.input-#{$size-name} {
-                    width: auto;
-                }
-            }
-
-            ~ .action-wrapper {
-                display: block;
-            }
-
-            ~ .expandable-thumb {
-                display: none;
-            }
-        }
-
-        // Unset Rules
-        @each $size-name, $size-value in $input-size-map {
-            &.input-#{$size-name} > .expandable-wrapper {
-                min-width: $size-value;
-                min-height: $size-value;
-            }
-
-            .input-group:not(:hover):not(:focus-within)
-                input.input-#{$size-name}:placeholder-shown {
-                min-width: $size-value;
-                padding: 0;
-                overflow: hidden;
-
-                // Internet Explorer 10–11
-                &:-ms-input-placeholder {
-                    opacity: 0;
-                    font-size: 0;
-                }
-
-                // Edge
-                &::-ms-input-placeholder {
-                    opacity: 0;
-                    font-size: 0;
-                }
-
-                &::placeholder {
-                    opacity: 0;
-                    font-size: 0;
-                }
-
-                ~ .action-wrapper {
-                    display: none;
-                }
-            }
-        }
+    &.right-icon {
+      right: $space-xxs;
     }
+
+    span {
+      padding: $space-xs $space-xxs;
+    }
+
+    img {
+      display: inline-block;
+      height: 100%;
+      padding: 3px 3px;
+      max-width: 30px;
+      vertical-align: middle;
+    }
+
+    svg {
+      color: var(--grey-color-60);
+    }
+  }
+
+  .icon-button {
+    bottom: 1px;
+    color: var(--grey-color-60);
+    height: $input-small-size;
+    padding: $space-xxs;
+    position: absolute;
+    transition: none;
+
+    &.left-icon {
+      left: $space-xxxs;
+    }
+
+    &.right-icon {
+      right: $space-xxxs;
+    }
+
+    svg {
+      color: var(--grey-color-60);
+    }
+
+    &:active,
+    &:focus {
+      background-color: transparent;
+
+      svg {
+        color: var(--grey-color-60);
+      }
+    }
+
+    &:hover {
+      background-color: transparent;
+      outline-color: transparent;
+
+      svg {
+        color: var(--grey-color-80);
+      }
+    }
+  }
+
+  .clear-icon-button {
+    bottom: 1px;
+    color: var(--grey-color-60);
+    height: 35px;
+    position: absolute;
+    right: $space-xxxs;
+    transition: none;
+    width: 35px;
+
+    &.left-icon {
+      right: $space-xxxs;
+    }
+
+    &.right-icon {
+      left: $space-xxxs;
+    }
+
+    &:active,
+    &:hover {
+      background-color: transparent;
+      color: var(--grey-color-80);
+      outline-color: transparent;
+
+      svg {
+        color: var(--grey-color-80);
+      }
+    }
+
+    &:focus-visible {
+      outline: none;
+    }
+  }
+
+  .icon-wrapper:not(:empty) + .icon-button {
+    &.left-icon {
+      left: $space-xl;
+    }
+
+    &.right-icon {
+      right: $space-xl;
+    }
+  }
+
+  .text-area {
+    background-color: var(--background-color);
+    border: 1px solid var(--input-border-color);
+    border-radius: $border-radius-m;
+    box-sizing: border-box;
+    color: var(--text-primary-color);
+    font-family: $octuple-font-family;
+    font-size: $text-font-size-3;
+    line-height: $text-line-height-4;
+    min-height: calc($text-line-height-4 + $space-xxxs + $space-xs * 2);
+    min-width: 320px;
+    padding: $space-xs;
+
+    &::-webkit-resizer {
+      display: none;
+    }
+
+    &.text-area-no-expand {
+      resize: none;
+    }
+
+    &.pill-shape {
+      border-radius: $border-radius-xl;
+      padding: $space-xs $space-s;
+    }
+
+    &:focus:not(.underline) {
+      border-color: $focus-visible-shadow-color;
+      transition: border-color $motion-duration-extra-fast
+        $motion-easing-easeinout;
+    }
+
+    &:disabled {
+      opacity: $disabled-alpha-value;
+      cursor: not-allowed;
+    }
+
+    &.read-only {
+      background-color: var(--grey-color-10);
+      color: var(--text-primary-color);
+    }
+
+    &:hover:not([disabled]):not(.underline) {
+      border-color: var(--input-border-color-active);
+    }
+
+    &.status-success {
+      color: var(--text-primary-color);
+      border-color: var(--input-border-color);
+    }
+
+    &.status-warning {
+      color: var(--warning-color);
+      border-color: var(--warning-color);
+
+      &::placeholder {
+        color: var(--warning-color);
+      }
+    }
+
+    &.status-error {
+      color: var(--error-color);
+      border-color: var(--error-color);
+
+      &::placeholder {
+        color: var(--error-color);
+      }
+    }
+
+    // TODO: work with UXDs on validating state
+    &.status-validating {
+      border-color: var(--input-border-color);
+    }
+
+    // TODO: work with UXDs on feedback state
+    &.has-feedback {
+      border-color: var(--input-border-color);
+    }
+
+    &.underline {
+      border-color: transparent;
+    }
+
+    &.inline {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    &.input-stretch {
+      width: 100%;
+    }
+  }
+
+  .text-area-resize-icon {
+    position: absolute;
+    bottom: $space-xs;
+    right: $space-xxs;
+  }
+
+  &.pill-shape {
+    .text-area-resize-icon {
+      bottom: 14px;
+      right: 10px;
+    }
+  }
+
+  &.inline {
+    display: flex;
+    flex-flow: row wrap;
+  }
+
+  .input-group,
+  .text-area-group {
+    position: relative;
+
+    &.inline {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+
+      .text-area-resize-icon {
+        bottom: $space-xxs;
+      }
+
+      &.pill-shape {
+        .text-area-resize-icon {
+          bottom: 10px;
+        }
+      }
+    }
+  }
+
+  &.pill-shape {
+    .input-group,
+    .text-area-group {
+      &.inline {
+        .text-area-resize-icon {
+          bottom: 10px;
+        }
+      }
+    }
+  }
+
+  &.underline {
+    .input-group,
+    .text-area-group {
+      &:before {
+        border-bottom: 1px solid var(--input-border-color);
+        left: 0;
+        bottom: 0;
+        content: '';
+        position: absolute;
+        right: 0;
+        transition: border-bottom-color $motion-duration-extra-fast
+          $motion-easing-easeinout;
+        pointer-events: none;
+      }
+
+      &:after {
+        border-bottom: 1px solid var(--primary-color-60);
+        left: 0;
+        bottom: 0;
+        content: '';
+        position: absolute;
+        right: 0;
+        transform: scaleX(0);
+        transition: transform $motion-duration-extra-fast
+          $motion-easing-easeinout;
+        pointer-events: none;
+      }
+
+      &:hover {
+        &:before {
+          border-color: var(--input-border-color-active);
+        }
+      }
+
+      &.status-success {
+        &:before {
+          border-color: var(--input-border-color);
+        }
+
+        &:after {
+          border-color: var(--primary-color-60);
+        }
+
+        &:hover {
+          &:before {
+            border-color: var(--input-border-color-active);
+          }
+        }
+      }
+
+      &.status-warning {
+        &:before {
+          border-color: var(--warning-color);
+        }
+
+        &:after {
+          border-color: var(--warning-color);
+        }
+
+        &:hover {
+          &:before {
+            border-color: var(--warning-color);
+          }
+        }
+      }
+
+      &.status-error {
+        &:before {
+          border-color: var(--error-color);
+        }
+
+        &:after {
+          border-color: var(--error-color);
+        }
+
+        &:hover {
+          &:before {
+            border-color: var(--error-color);
+          }
+        }
+      }
+
+      &:focus-within {
+        &:after {
+          transform: scaleX(1) translateX(0px);
+        }
+      }
+    }
+  }
+
+  &.disabled {
+    .clear-icon-button,
+    .icon-wrapper,
+    .icon-button,
+    input,
+    textarea {
+      opacity: $disabled-alpha-value;
+      cursor: not-allowed;
+    }
+
+    &.underline {
+      .input-group,
+      .text-area-group {
+        &:before {
+          opacity: $disabled-alpha-value;
+        }
+
+        &:after {
+          border-bottom: 1px solid var(--input-border-color);
+          left: 0;
+          bottom: 0;
+          content: '';
+          position: absolute;
+          right: 0;
+          transition: border-bottom-color $motion-duration-extra-fast
+            $motion-easing-easeinout;
+          pointer-events: none;
+        }
+
+        &:hover {
+          &:before {
+            border-color: var(--input-border-color);
+          }
+        }
+      }
+    }
+  }
+
+  &.input-large {
+    .icon-wrapper {
+      bottom: $space-xxxs;
+      height: $space-xxl;
+      width: $space-xxl;
+
+      &.left-icon {
+        left: $space-xs;
+      }
+
+      &.right-icon {
+        right: $space-xs;
+      }
+
+      span {
+        height: $space-xxl;
+      }
+    }
+
+    .icon-button {
+      bottom: 0;
+      height: 44px;
+
+      &.left-icon {
+        left: $space-xs;
+      }
+
+      &.right-icon {
+        right: $space-xs;
+      }
+    }
+
+    .clear-icon-button {
+      bottom: $space-xxxs;
+      height: $space-xxl;
+      padding: $space-s;
+      right: $space-xxxs;
+      width: $space-xxl;
+    }
+
+    .icon-wrapper:not(:empty) + .icon-button {
+      &.left-icon {
+        left: calc($space-xxl + $space-xxs);
+      }
+
+      &.right-icon {
+        right: calc($space-xxl + $space-xxs);
+      }
+    }
+
+    .text-area {
+      font-size: $text-font-size-4;
+      line-height: $text-line-height-5;
+      min-height: calc($text-line-height-5 + $space-xxxs + $space-xs * 2);
+    }
+  }
+
+  &.input-medium {
+    .icon-wrapper {
+      bottom: 0;
+      height: $input-medium-size;
+      width: $input-medium-size;
+
+      &.left-icon {
+        left: $space-xs;
+      }
+
+      &.right-icon {
+        right: $space-xs;
+      }
+
+      span {
+        height: $input-medium-size;
+      }
+    }
+
+    .icon-button {
+      bottom: $space-xxs;
+      height: 28px;
+      padding: $space-xxs;
+
+      &.left-icon {
+        left: $space-xxs;
+      }
+
+      &.right-icon {
+        right: $space-xxs;
+      }
+    }
+
+    .clear-icon-button {
+      bottom: 1px;
+      height: 35px;
+      padding: 6px 10px;
+      right: 1px;
+      width: 35px;
+    }
+
+    .icon-wrapper:not(:empty) + .icon-button {
+      &.left-icon {
+        left: $space-xxl;
+      }
+
+      &.right-icon {
+        right: $space-xxl;
+      }
+    }
+
+    .text-area {
+      font-size: $text-font-size-3;
+      line-height: $text-line-height-4;
+      min-height: calc($text-line-height-4 + $space-xxxs + $space-xs * 2);
+    }
+  }
+
+  &.input-small {
+    .icon-wrapper {
+      bottom: $space-xxxs;
+      height: $space-l;
+      width: $space-l;
+
+      &.left-icon {
+        left: $space-xxs;
+      }
+
+      &.right-icon {
+        right: $space-xxs;
+      }
+
+      span {
+        height: $space-l;
+        padding: $space-xxs;
+      }
+    }
+
+    .icon-button {
+      bottom: $space-xxxs;
+      height: $space-l;
+      padding: $space-xxs;
+
+      &.left-icon {
+        left: $space-xxxs;
+      }
+
+      &.right-icon {
+        right: $space-xxxs;
+      }
+    }
+
+    .clear-icon-button {
+      bottom: $space-xxxs;
+      height: $space-l;
+      padding: $space-xxs;
+      right: $space-xxxs;
+      width: $space-l;
+    }
+
+    .icon-wrapper:not(:empty) + .icon-button {
+      &.left-icon {
+        left: $space-xl;
+      }
+
+      &.right-icon {
+        right: $space-xl;
+      }
+    }
+
+    .text-area {
+      font-size: $text-font-size-2;
+      line-height: $text-line-height-3;
+      min-height: calc($text-line-height-3 + $space-xxxs + $space-xs * 2);
+    }
+  }
+
+  &.input-stretch {
+    width: 100%;
+  }
+
+  &.isExpandable {
+    .expandable-wrapper {
+      position: relative;
+    }
+
+    .input-group {
+      position: absolute;
+      left: 0;
+
+      input {
+        width: 0;
+
+        &::placeholder {
+          transition: opacity $motion-duration-extra-fast
+            $motion-easing-easeinout $motion-delay-s;
+        }
+      }
+    }
+
+    .expandable-thumb {
+      position: absolute;
+      left: 0;
+    }
+
+    .overlay {
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 200%;
+      z-index: -1;
+      background: $expandable-header-gradient;
+    }
+
+    &.expand-right {
+      .input-group,
+      .overlay {
+        left: unset;
+        right: 10px;
+      }
+      .overlay {
+        transform: rotate(180deg);
+      }
+    }
+
+    input,
+    .input-group,
+    .overlay {
+      transition: all $motion-duration-extra-fast $motion-easing-easeinout;
+    }
+
+    .input-group:focus-within {
+      @each $size-name, $size-value in $input-size-map {
+        &.input-#{$size-name} {
+          width: auto;
+        }
+      }
+
+      ~ .action-wrapper {
+        display: block;
+      }
+
+      ~ .expandable-thumb {
+        display: none;
+      }
+    }
+
+    // Set Rules
+    .input-group:hover > input,
+    .input-group:focus-within > input,
+    input:focus,
+    input:not(:placeholder-shown) {
+      @each $size-name, $size-value in $input-size-map {
+        &.input-#{$size-name} {
+          width: auto;
+        }
+      }
+
+      ~ .action-wrapper {
+        display: block;
+      }
+
+      ~ .expandable-thumb {
+        display: none;
+      }
+    }
+
+    // Unset Rules
+    @each $size-name, $size-value in $input-size-map {
+      &.input-#{$size-name} > .expandable-wrapper {
+        min-width: $size-value;
+        min-height: $size-value;
+      }
+
+      .input-group:not(:hover):not(:focus-within)
+        input.input-#{$size-name}:placeholder-shown {
+        min-width: $size-value;
+        padding: 0;
+        overflow: hidden;
+
+        // Internet Explorer 10–11
+        &:-ms-input-placeholder {
+          opacity: 0;
+          font-size: 0;
+        }
+
+        // Edge
+        &::-ms-input-placeholder {
+          opacity: 0;
+          font-size: 0;
+        }
+
+        &::placeholder {
+          opacity: 0;
+          font-size: 0;
+        }
+
+        ~ .action-wrapper {
+          display: none;
+        }
+      }
+    }
+  }
 }
 
 :global(.focus-visible) {
-    .input-wrapper {
-        input {
-            &.focus-visible,
-            &:focus-visible {
-                border-color: var(--background-color);
-                box-shadow: $focus-visible-box-shadow;
-
-                &.underline {
-                    border-color: transparent;
-                    box-shadow: none;
-                }
-            }
-        }
+  .input-wrapper {
+    input {
+      &.focus-visible,
+      &:focus-visible {
+        border-color: var(--background-color);
+        box-shadow: $focus-visible-box-shadow;
 
         &.underline {
-            .input-group,
-            .text-area-group {
-                &:after {
-                    border-bottom-color: $focus-visible-shadow-color;
-                    border-bottom-width: $space-xxxs;
-                }
-            }
+          border-color: transparent;
+          box-shadow: none;
         }
-
-        .icon-button {
-            &.focus-visible,
-            &:focus-visible {
-                background-color: transparent;
-
-                svg {
-                    color: var(--grey-color-60);
-                }
-            }
-        }
-
-        .clear-icon-button {
-            &.focus-visible,
-            &:focus-visible {
-                background-color: transparent;
-                box-shadow: $focus-visible-box-shadow;
-
-                svg {
-                    color: var(--grey-color-80);
-                }
-            }
-        }
-
-        .text-area {
-            &.focus-visible,
-            &:focus-visible {
-                border-color: var(--background-color);
-                box-shadow: $focus-visible-box-shadow;
-
-                &.underline {
-                    border-color: transparent;
-                    box-shadow: none;
-                }
-            }
-        }
+      }
     }
+
+    &.underline {
+      .input-group,
+      .text-area-group {
+        &:after {
+          border-bottom-color: $focus-visible-shadow-color;
+          border-bottom-width: $space-xxxs;
+        }
+      }
+    }
+
+    .icon-button {
+      &.focus-visible,
+      &:focus-visible {
+        background-color: transparent;
+
+        svg {
+          color: var(--grey-color-60);
+        }
+      }
+    }
+
+    .clear-icon-button {
+      &.focus-visible,
+      &:focus-visible {
+        background-color: transparent;
+        box-shadow: $focus-visible-box-shadow;
+
+        svg {
+          color: var(--grey-color-80);
+        }
+      }
+    }
+
+    .text-area {
+      &.focus-visible,
+      &:focus-visible {
+        border-color: var(--background-color);
+        box-shadow: $focus-visible-box-shadow;
+
+        &.underline {
+          border-color: transparent;
+          box-shadow: none;
+        }
+      }
+    }
+  }
 }
 
 @import './Styles/rtl';

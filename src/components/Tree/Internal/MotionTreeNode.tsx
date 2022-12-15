@@ -9,131 +9,122 @@ import { getTreeNodeProps, TreeNodeRequiredProps } from './utils/treeUtil';
 import styles from './octree.module.scss';
 
 interface MotionTreeNodeProps extends Omit<TreeNodeProps, 'domRef'> {
-    active: boolean;
-    motion?: any;
-    motionNodes?: FlattenNode[];
-    onMotionStart: () => void;
-    onMotionEnd: () => void;
-    motionType?: 'show' | 'hide';
+  active: boolean;
+  motion?: any;
+  motionNodes?: FlattenNode[];
+  onMotionStart: () => void;
+  onMotionEnd: () => void;
+  motionType?: 'show' | 'hide';
 
-    treeNodeRequiredProps: TreeNodeRequiredProps;
+  treeNodeRequiredProps: TreeNodeRequiredProps;
 }
 
 const MotionTreeNode: React.ForwardRefRenderFunction<
-    HTMLDivElement,
-    MotionTreeNodeProps
+  HTMLDivElement,
+  MotionTreeNodeProps
 > = (
-    {
-        classNames,
-        style,
-        motion,
-        motionNodes,
-        motionType,
-        onMotionStart: onOriginMotionStart,
-        onMotionEnd: onOriginMotionEnd,
-        active,
-        treeNodeRequiredProps,
-        ...props
-    },
-    ref
+  {
+    classNames,
+    style,
+    motion,
+    motionNodes,
+    motionType,
+    onMotionStart: onOriginMotionStart,
+    onMotionEnd: onOriginMotionEnd,
+    active,
+    treeNodeRequiredProps,
+    ...props
+  },
+  ref
 ) => {
-    const [visible, setVisible] = React.useState(true);
+  const [visible, setVisible] = React.useState(true);
 
-    const motionedRef = React.useRef(false);
+  const motionedRef = React.useRef(false);
 
-    const onMotionEnd = () => {
-        if (!motionedRef.current) {
-            onOriginMotionEnd();
-        }
-        motionedRef.current = true;
-    };
-
-    useEffect(() => {
-        if (motionNodes && motionType === 'hide' && visible) {
-            setVisible(false);
-        }
-    }, [motionNodes]);
-
-    useEffect(() => {
-        // Trigger motion only when patched
-        if (motionNodes) {
-            onOriginMotionStart();
-        }
-
-        return () => {
-            if (motionNodes) {
-                onMotionEnd();
-            }
-        };
-    }, []);
-
-    if (motionNodes) {
-        return (
-            <CSSMotion
-                ref={ref}
-                visible={visible}
-                {...motion}
-                motionAppear={motionType === 'show'}
-                onAppearEnd={onMotionEnd}
-                onLeaveEnd={onMotionEnd}
-            >
-                {(
-                    { classNames: motionClassName, style: motionStyle },
-                    motionRef
-                ) => (
-                    <div
-                        ref={motionRef}
-                        className={mergeClasses([
-                            'tree-treenode-motion',
-                            motionClassName,
-                        ])}
-                        style={motionStyle}
-                    >
-                        {motionNodes.map((treeNode: FlattenNode) => {
-                            const {
-                                data: { ...restProps },
-                                title,
-                                key,
-                                isStart,
-                                isEnd,
-                            } = treeNode;
-                            delete restProps.children;
-
-                            const treeNodeProps = getTreeNodeProps(
-                                key,
-                                treeNodeRequiredProps
-                            );
-
-                            return (
-                                <TreeNode
-                                    {...(restProps as Omit<
-                                        typeof restProps,
-                                        'children'
-                                    >)}
-                                    {...treeNodeProps}
-                                    title={title}
-                                    active={active}
-                                    data={treeNode.data}
-                                    key={key}
-                                    isStart={isStart}
-                                    isEnd={isEnd}
-                                />
-                            );
-                        })}
-                    </div>
-                )}
-            </CSSMotion>
-        );
+  const onMotionEnd = () => {
+    if (!motionedRef.current) {
+      onOriginMotionEnd();
     }
+    motionedRef.current = true;
+  };
+
+  useEffect(() => {
+    if (motionNodes && motionType === 'hide' && visible) {
+      setVisible(false);
+    }
+  }, [motionNodes]);
+
+  useEffect(() => {
+    // Trigger motion only when patched
+    if (motionNodes) {
+      onOriginMotionStart();
+    }
+
+    return () => {
+      if (motionNodes) {
+        onMotionEnd();
+      }
+    };
+  }, []);
+
+  if (motionNodes) {
     return (
-        <TreeNode
-            domRef={ref}
-            classNames={classNames}
-            style={style}
-            {...props}
-            active={active}
-        />
+      <CSSMotion
+        ref={ref}
+        visible={visible}
+        {...motion}
+        motionAppear={motionType === 'show'}
+        onAppearEnd={onMotionEnd}
+        onLeaveEnd={onMotionEnd}
+      >
+        {({ classNames: motionClassName, style: motionStyle }, motionRef) => (
+          <div
+            ref={motionRef}
+            className={mergeClasses(['tree-treenode-motion', motionClassName])}
+            style={motionStyle}
+          >
+            {motionNodes.map((treeNode: FlattenNode) => {
+              const {
+                data: { ...restProps },
+                title,
+                key,
+                isStart,
+                isEnd,
+              } = treeNode;
+              delete restProps.children;
+
+              const treeNodeProps = getTreeNodeProps(
+                key,
+                treeNodeRequiredProps
+              );
+
+              return (
+                <TreeNode
+                  {...(restProps as Omit<typeof restProps, 'children'>)}
+                  {...treeNodeProps}
+                  title={title}
+                  active={active}
+                  data={treeNode.data}
+                  key={key}
+                  isStart={isStart}
+                  isEnd={isEnd}
+                />
+              );
+            })}
+          </div>
+        )}
+      </CSSMotion>
     );
+  }
+  return (
+    <TreeNode
+      domRef={ref}
+      classNames={classNames}
+      style={style}
+      {...props}
+      active={active}
+    />
+  );
 };
 
 MotionTreeNode.displayName = 'MotionTreeNode';

@@ -6,7 +6,7 @@ import { canUseDom } from './';
 Enzyme.configure({ adapter: new Adapter() });
 
 describe('canUseDom', () => {
-    test('should return true when the function is called in the browser', () => {
-        expect(canUseDom()).toBe(true);
-    });
+  test('should return true when the function is called in the browser', () => {
+    expect(canUseDom()).toBe(true);
+  });
 });

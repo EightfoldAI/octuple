@@ -3,82 +3,82 @@ import { render } from '@testing-library/react';
 import { useMergedState } from './useMergedState';
 
 describe('useMergedState', () => {
-    const FC = ({ value }: { value: string }) => {
-        const [val, setVal] = useMergedState('empty', { value });
-        return (
-            <input
-                defaultValue={val}
-                onChange={(e) => {
-                    setVal(e.target.value);
-                }}
-            />
-        );
+  const FC = ({ value }: { value: string }) => {
+    const [val, setVal] = useMergedState('empty', { value });
+    return (
+      <input
+        defaultValue={val}
+        onChange={(e) => {
+          setVal(e.target.value);
+        }}
+      />
+    );
+  };
+
+  it('still control of to undefined', () => {
+    const { container, rerender } = render(<FC value="test" />);
+
+    expect(container.querySelector('input').value).toEqual('test');
+
+    rerender(<FC value={undefined} />);
+    expect(container.querySelector('input').value).toEqual('test');
+  });
+
+  it('correct defaultValue', () => {
+    const { container } = render(<FC value="test" />);
+
+    expect(container.querySelector('input').value).toEqual('test');
+  });
+
+  it('not rerender when setState as deps', () => {
+    let renderTimes = 0;
+
+    const Test = () => {
+      const [val, setVal] = useMergedState(0);
+
+      React.useEffect(() => {
+        renderTimes += 1;
+        expect(renderTimes < 10).toBeTruthy();
+
+        setVal(1);
+      }, [setVal]);
+
+      return <div>{val}</div>;
     };
 
-    it('still control of to undefined', () => {
-        const { container, rerender } = render(<FC value="test" />);
+    const { container } = render(<Test />);
+    expect(container.firstChild.textContent).toEqual('1');
+  });
 
-        expect(container.querySelector('input').value).toEqual('test');
+  it('React 18 should not reset to undefined', () => {
+    const Demo = () => {
+      const [val] = useMergedState(33, { value: undefined });
 
-        rerender(<FC value={undefined} />);
-        expect(container.querySelector('input').value).toEqual('test');
-    });
+      return <div>{val}</div>;
+    };
 
-    it('correct defaultValue', () => {
-        const { container } = render(<FC value="test" />);
+    const { container } = render(
+      <React.StrictMode>
+        <Demo />
+      </React.StrictMode>
+    );
 
-        expect(container.querySelector('input').value).toEqual('test');
-    });
+    expect(container.querySelector('div').textContent).toEqual('33');
+  });
 
-    it('not rerender when setState as deps', () => {
-        let renderTimes = 0;
+  it('postState', () => {
+    const Demo = () => {
+      const [val] = useMergedState(1, { postState: (v) => v * 2 });
 
-        const Test = () => {
-            const [val, setVal] = useMergedState(0);
+      return <div>{val}</div>;
+    };
 
-            React.useEffect(() => {
-                renderTimes += 1;
-                expect(renderTimes < 10).toBeTruthy();
+    const { container } = render(
+      <React.StrictMode>
+        <Demo />
+      </React.StrictMode>
+    );
 
-                setVal(1);
-            }, [setVal]);
-
-            return <div>{val}</div>;
-        };
-
-        const { container } = render(<Test />);
-        expect(container.firstChild.textContent).toEqual('1');
-    });
-
-    it('React 18 should not reset to undefined', () => {
-        const Demo = () => {
-            const [val] = useMergedState(33, { value: undefined });
-
-            return <div>{val}</div>;
-        };
-
-        const { container } = render(
-            <React.StrictMode>
-                <Demo />
-            </React.StrictMode>
-        );
-
-        expect(container.querySelector('div').textContent).toEqual('33');
-    });
-
-    it('postState', () => {
-        const Demo = () => {
-            const [val] = useMergedState(1, { postState: (v) => v * 2 });
-
-            return <div>{val}</div>;
-        };
-
-        const { container } = render(
-            <React.StrictMode>
-                <Demo />
-            </React.StrictMode>
-        );
-
-        expect(container.querySelector('div').textContent).toEqual('2');
-    });
+    expect(container.querySelector('div').textContent).toEqual('2');
+  });
 });

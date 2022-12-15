@@ -12,14 +12,14 @@ export type dir = 'inherit' | 'ltr' | 'rtl';
  * @param language
  */
 export const isValidLangFormat = (lang: string): boolean => {
-    if (!lang) {
-        return false;
-    }
+  if (!lang) {
+    return false;
+  }
 
-    const validRegex = '^[a-zA-Z]{2,3}([-/][a-zA-Z]{2,3})?$';
-    const regExp = new RegExp(validRegex);
+  const validRegex = '^[a-zA-Z]{2,3}([-/][a-zA-Z]{2,3})?$';
+  const regExp = new RegExp(validRegex);
 
-    return regExp.test(lang);
+  return regExp.test(lang);
 };
 
 /**
@@ -29,34 +29,31 @@ export const isValidLangFormat = (lang: string): boolean => {
  * @param optional language string
  */
 export const useCanvasDirection = (lang?: string): string => {
-    const [dir, setDir] = useState<dir>();
+  const [dir, setDir] = useState<dir>();
 
-    const getDirection = useCallback(
-        (lang: string) => {
-            if (document?.documentElement?.dir === 'rtl') {
-                setDir(document.documentElement.dir);
-            } else {
-                // only check first two chars of string to ensure no false positives (e.g. es-AR)
-                if (
-                    lang?.substring(0, 2) === 'ar' ||
-                    lang?.substring(0, 2) === 'he'
-                ) {
-                    setDir('rtl');
-                } else {
-                    setDir('ltr');
-                }
-            }
-        },
-        [dir]
+  const getDirection = useCallback(
+    (lang: string) => {
+      if (document?.documentElement?.dir === 'rtl') {
+        setDir(document.documentElement.dir);
+      } else {
+        // only check first two chars of string to ensure no false positives (e.g. es-AR)
+        if (lang?.substring(0, 2) === 'ar' || lang?.substring(0, 2) === 'he') {
+          setDir('rtl');
+        } else {
+          setDir('ltr');
+        }
+      }
+    },
+    [dir]
+  );
+
+  useEffect((): void => {
+    getDirection(
+      isValidLangFormat(lang)
+        ? lang
+        : window?.navigator?.userLanguage || window?.navigator?.language
     );
+  }, []);
 
-    useEffect((): void => {
-        getDirection(
-            isValidLangFormat(lang)
-                ? lang
-                : window?.navigator?.userLanguage || window?.navigator?.language
-        );
-    }, []);
-
-    return dir;
+  return dir;
 };

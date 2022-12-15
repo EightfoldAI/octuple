@@ -6,23 +6,23 @@ import { MenuSize } from '../../Menu.types';
 import styles from '../menuItem.module.scss';
 
 export const MenuItemCustom: FC<MenuItemCustomProps> = ({
-    index,
-    onChange,
-    size = MenuSize.medium,
-    ...item
+  index,
+  onChange,
+  size = MenuSize.medium,
+  ...item
 }) => {
-    const menuItemClasses = mergeClasses([
-        styles.menuItemCustom,
-        {
-            [styles.large]: size === MenuSize.large,
-            [styles.medium]: size === MenuSize.medium,
-            [styles.small]: size === MenuSize.small,
-        },
-    ]);
+  const menuItemClasses = mergeClasses([
+    styles.menuItemCustom,
+    {
+      [styles.large]: size === MenuSize.large,
+      [styles.medium]: size === MenuSize.medium,
+      [styles.small]: size === MenuSize.small,
+    },
+  ]);
 
-    return (
-        <div className={menuItemClasses}>
-            {item.render({ index, value: item, onChange })}
-        </div>
-    );
+  return (
+    <div className={menuItemClasses}>
+      {item.render({ index, value: item, onChange })}
+    </div>
+  );
 };

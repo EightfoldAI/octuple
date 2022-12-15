@@ -1,73 +1,73 @@
 // Export values for typescript consumption.
 :export {
-    maxCountFontSize: $text-font-size-3;
+  maxCountFontSize: $text-font-size-3;
 }
 
 .wrapper-style {
-    align-items: center;
-    display: flex;
-    font-family: var(--avatar-font-family);
-    justify-content: center;
-    border-radius: var(--avatar-border-radius);
-    color: var(--text-inverse-color);
+  align-items: center;
+  display: flex;
+  font-family: var(--avatar-font-family);
+  justify-content: center;
+  border-radius: var(--avatar-border-radius);
+  color: var(--text-inverse-color);
 
-    &.red {
-        background-color: var(--red-color-60);
-    }
+  &.red {
+    background-color: var(--red-color-60);
+  }
 
-    &.orange {
-        background-color: var(--orange-color-60);
-    }
+  &.orange {
+    background-color: var(--orange-color-60);
+  }
 
-    &.red-orange {
-        background-color: var(--redorange-color-60);
-    }
+  &.red-orange {
+    background-color: var(--redorange-color-60);
+  }
 
-    &.yellow {
-        background-color: var(--yellow-color-60);
-    }
+  &.yellow {
+    background-color: var(--yellow-color-60);
+  }
 
-    &.yellow-green {
-        background-color: var(--yellowgreen-color-60);
-    }
+  &.yellow-green {
+    background-color: var(--yellowgreen-color-60);
+  }
 
-    &.green {
-        background-color: var(--green-color-60);
-    }
+  &.green {
+    background-color: var(--green-color-60);
+  }
 
-    &.blue-green {
-        background-color: var(--bluegreen-color-60);
-    }
+  &.blue-green {
+    background-color: var(--bluegreen-color-60);
+  }
 
-    &.blue {
-        background-color: var(--blue-color-60);
-    }
+  &.blue {
+    background-color: var(--blue-color-60);
+  }
 
-    &.blue-violet {
-        background-color: var(--blueviolet-color-60);
-    }
+  &.blue-violet {
+    background-color: var(--blueviolet-color-60);
+  }
 
-    &.violet {
-        background-color: var(--violet-color-60);
-    }
+  &.violet {
+    background-color: var(--violet-color-60);
+  }
 
-    &.violet-red {
-        background-color: var(--violetred-color-60);
-    }
+  &.violet-red {
+    background-color: var(--violetred-color-60);
+  }
 
-    &.grey {
-        background-color: var(--grey-color-60);
-    }
+  &.grey {
+    background-color: var(--grey-color-60);
+  }
 }
 
 .round-image {
-    border-radius: var(--avatar-round-border-radius);
+  border-radius: var(--avatar-round-border-radius);
 }
 
 .image-style {
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
 }
 
 @import './Styles/group';

@@ -3,12 +3,12 @@ import { flushSync } from 'react-dom';
 import type { OcUploadProps } from './Internal';
 import OcUpload from './Internal';
 import {
-    OcFile,
-    ShowUploadListInterface,
-    UploadChangeParam,
-    UploadFile,
-    UploadLocale,
-    UploadSize,
+  OcFile,
+  ShowUploadListInterface,
+  UploadChangeParam,
+  UploadFile,
+  UploadLocale,
+  UploadSize,
 } from './Upload.types';
 import { UploadProps } from './Upload.types';
 import UploadList from './UploadList';
@@ -18,7 +18,7 @@ import { Stack } from '../Stack';
 import { file2Obj, getFileItem, removeFileItem, updateFileList } from './Utils';
 import DisabledContext, { Disabled } from '../ConfigProvider/DisabledContext';
 import LocaleReceiver, {
-    useLocaleReceiver,
+  useLocaleReceiver,
 } from '../LocaleProvider/LocaleReceiver';
 import { useCanvasDirection } from '../../hooks/useCanvasDirection';
 import { useMergedState } from '../../hooks/useMergedState';
@@ -32,665 +32,647 @@ export const LIST_IGNORE = `__LIST_IGNORE_${Date.now()}__`;
 export { UploadProps };
 
 const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (
-    props,
-    ref
+  props,
+  ref
 ) => {
-    const {
-        accept = '',
-        acceptedFileTypesText: defaultAcceptedFileTypesText,
-        action = '',
-        children,
-        classNames,
-        configContextProps = {
-            noDisabledContext: false,
-        },
-        data = {},
-        defaultFileList,
-        disabled = false,
-        downloadFileText: defaultDownloadFileText,
-        dragAndDropFileText: defaultDragAndDropFileText,
-        dragAndDropMultipleFilesText: defaultDragAndDropMultipleFilesText,
-        fileList,
-        iconRender,
-        isImageUrl,
-        itemRender,
-        listType = 'text',
-        locale = enUS,
-        maxCount,
-        multiple = false,
-        onChange,
-        onDownload,
-        onDrop,
-        onPreview,
-        onRemove,
-        onReplace,
-        previewFile,
-        previewFileText: defaultPreviewFileText,
-        progress,
-        removeFileText: defaultRemoveFileText,
-        replaceFileText: defaultReplaceFileText,
-        selectFileText: defaultSelectFileText,
-        selectMultipleFilesText: defaultSelectMultipleFilesText,
-        showUploadList = true,
-        size = UploadSize.Medium,
-        style,
-        supportServerRender = true,
-        type = 'select',
-        uploadErrorText: defaultUploadErrorText,
-        uploadingText: defaultUploadingText,
-    } = props;
+  const {
+    accept = '',
+    acceptedFileTypesText: defaultAcceptedFileTypesText,
+    action = '',
+    children,
+    classNames,
+    configContextProps = {
+      noDisabledContext: false,
+    },
+    data = {},
+    defaultFileList,
+    disabled = false,
+    downloadFileText: defaultDownloadFileText,
+    dragAndDropFileText: defaultDragAndDropFileText,
+    dragAndDropMultipleFilesText: defaultDragAndDropMultipleFilesText,
+    fileList,
+    iconRender,
+    isImageUrl,
+    itemRender,
+    listType = 'text',
+    locale = enUS,
+    maxCount,
+    multiple = false,
+    onChange,
+    onDownload,
+    onDrop,
+    onPreview,
+    onRemove,
+    onReplace,
+    previewFile,
+    previewFileText: defaultPreviewFileText,
+    progress,
+    removeFileText: defaultRemoveFileText,
+    replaceFileText: defaultReplaceFileText,
+    selectFileText: defaultSelectFileText,
+    selectMultipleFilesText: defaultSelectMultipleFilesText,
+    showUploadList = true,
+    size = UploadSize.Medium,
+    style,
+    supportServerRender = true,
+    type = 'select',
+    uploadErrorText: defaultUploadErrorText,
+    uploadingText: defaultUploadingText,
+  } = props;
 
-    const contextuallyDisabled: Disabled = useContext(DisabledContext);
-    const mergedDisabled: boolean = configContextProps.noDisabledContext
-        ? disabled
-        : contextuallyDisabled || disabled;
+  const contextuallyDisabled: Disabled = useContext(DisabledContext);
+  const mergedDisabled: boolean = configContextProps.noDisabledContext
+    ? disabled
+    : contextuallyDisabled || disabled;
 
-    const htmlDir: string = useCanvasDirection();
+  const htmlDir: string = useCanvasDirection();
 
-    // ============================ Strings ===========================
-    const [uploadLocale] = useLocaleReceiver('Upload');
-    let mergedLocale: UploadLocale;
+  // ============================ Strings ===========================
+  const [uploadLocale] = useLocaleReceiver('Upload');
+  let mergedLocale: UploadLocale;
 
-    if (locale) {
-        mergedLocale = locale;
-    } else {
-        mergedLocale = uploadLocale || locale;
+  if (locale) {
+    mergedLocale = locale;
+  } else {
+    mergedLocale = uploadLocale || locale;
+  }
+
+  const [acceptedFileTypesText, setAcceptedFileTypesText] = useState<string>(
+    defaultAcceptedFileTypesText
+  );
+  const [downloadFileText, setDownloadFileText] = useState<string>(
+    defaultDownloadFileText
+  );
+  const [dragAndDropFileText, setDragAndDropFileText] = useState<string>(
+    defaultDragAndDropFileText
+  );
+  const [dragAndDropMultipleFilesText, setDragAndDropMultipleFilesText] =
+    useState<string>(defaultDragAndDropMultipleFilesText);
+  const [previewFileText, setPreviewFileText] = useState<string>(
+    defaultPreviewFileText
+  );
+  const [removeFileText, setRemoveFileText] = useState<string>(
+    defaultRemoveFileText
+  );
+  const [replaceFileText, setReplaceFileText] = useState<string>(
+    defaultReplaceFileText
+  );
+  const [selectFileText, setSelectFileText] = useState<string>(
+    defaultSelectFileText
+  );
+  const [selectMultipleFilesText, setSelectMultipleFilesText] =
+    useState<string>(defaultSelectMultipleFilesText);
+  const [uploadErrorText, setUploadErrorText] = useState<string>(
+    defaultUploadErrorText
+  );
+  const [uploadingText, setUploadingText] =
+    useState<string>(defaultUploadingText);
+
+  // Locs: if the prop isn't provided use the loc defaults.
+  // If the mergedLocale is changed, update.
+  useEffect(() => {
+    setAcceptedFileTypesText(
+      props.acceptedFileTypesText
+        ? props.acceptedFileTypesText
+        : mergedLocale.lang!.acceptedFileTypesText
+    );
+    setDownloadFileText(
+      props.downloadFileText
+        ? props.downloadFileText
+        : mergedLocale.lang!.downloadFileText
+    );
+    setDragAndDropFileText(
+      props.dragAndDropFileText
+        ? props.dragAndDropFileText
+        : mergedLocale.lang!.dragAndDropFileText
+    );
+    setDragAndDropMultipleFilesText(
+      props.dragAndDropMultipleFilesText
+        ? props.dragAndDropMultipleFilesText
+        : mergedLocale.lang!.dragAndDropMultipleFilesText
+    );
+    setPreviewFileText(
+      props.previewFileText
+        ? props.previewFileText
+        : mergedLocale.lang!.previewFileText
+    );
+    setRemoveFileText(
+      props.removeFileText
+        ? props.removeFileText
+        : mergedLocale.lang!.removeFileText
+    );
+    setReplaceFileText(
+      props.replaceFileText
+        ? props.replaceFileText
+        : mergedLocale.lang!.replaceFileText
+    );
+    setSelectFileText(
+      props.selectFileText
+        ? props.selectFileText
+        : mergedLocale.lang!.selectFileText
+    );
+    setSelectMultipleFilesText(
+      props.selectMultipleFilesText
+        ? props.selectMultipleFilesText
+        : mergedLocale.lang!.selectMultipleFilesText
+    );
+    setUploadErrorText(
+      props.uploadErrorText
+        ? props.uploadErrorText
+        : mergedLocale.lang!.uploadErrorText
+    );
+    setUploadingText(
+      props.uploadingText
+        ? props.uploadingText
+        : mergedLocale.lang!.uploadingText
+    );
+  }, [mergedLocale]);
+
+  const [mergedFileList, setMergedFileList] = useMergedState(
+    defaultFileList || [],
+    {
+      value: fileList,
+      postState: (list) => list ?? [],
+    }
+  );
+
+  const [dropState, setDropState] = React.useState<string>('drop');
+
+  const upload: React.MutableRefObject<any> = React.useRef<any>();
+
+  warning(
+    'fileList' in props || !('value' in props),
+    '`value` is not a valid prop, do you mean `fileList`?'
+  );
+
+  // Control mode will auto fill file uid if not provided
+  useMemo(() => {
+    const timestamp = Date.now();
+
+    (fileList || []).forEach((file, index) => {
+      if (!file.uid && !Object.isFrozen(file)) {
+        file.uid = `__AUTO__${timestamp}_${index}__`;
+      }
+    });
+  }, [fileList]);
+
+  const onInternalChange = (
+    file: UploadFile,
+    changedFileList: UploadFile[],
+    event?: { percent: number }
+  ): void => {
+    let cloneList: UploadFile<any>[] = [...changedFileList];
+
+    // Cut to match count
+    if (maxCount === 1) {
+      cloneList = cloneList.slice(-1);
+    } else if (maxCount) {
+      cloneList = cloneList.slice(0, maxCount);
     }
 
-    const [acceptedFileTypesText, setAcceptedFileTypesText] = useState<string>(
-        defaultAcceptedFileTypesText
-    );
-    const [downloadFileText, setDownloadFileText] = useState<string>(
-        defaultDownloadFileText
-    );
-    const [dragAndDropFileText, setDragAndDropFileText] = useState<string>(
-        defaultDragAndDropFileText
-    );
-    const [dragAndDropMultipleFilesText, setDragAndDropMultipleFilesText] =
-        useState<string>(defaultDragAndDropMultipleFilesText);
-    const [previewFileText, setPreviewFileText] = useState<string>(
-        defaultPreviewFileText
-    );
-    const [removeFileText, setRemoveFileText] = useState<string>(
-        defaultRemoveFileText
-    );
-    const [replaceFileText, setReplaceFileText] = useState<string>(
-        defaultReplaceFileText
-    );
-    const [selectFileText, setSelectFileText] = useState<string>(
-        defaultSelectFileText
-    );
-    const [selectMultipleFilesText, setSelectMultipleFilesText] =
-        useState<string>(defaultSelectMultipleFilesText);
-    const [uploadErrorText, setUploadErrorText] = useState<string>(
-        defaultUploadErrorText
-    );
-    const [uploadingText, setUploadingText] =
-        useState<string>(defaultUploadingText);
+    // Prevent React 18 auto batch because input[upload] triggers process at the same time
+    // which causes fileList closure problem.
+    flushSync(() => {
+      setMergedFileList(cloneList);
+    });
 
-    // Locs: if the prop isn't provided use the loc defaults.
-    // If the mergedLocale is changed, update.
-    useEffect(() => {
-        setAcceptedFileTypesText(
-            props.acceptedFileTypesText
-                ? props.acceptedFileTypesText
-                : mergedLocale.lang!.acceptedFileTypesText
-        );
-        setDownloadFileText(
-            props.downloadFileText
-                ? props.downloadFileText
-                : mergedLocale.lang!.downloadFileText
-        );
-        setDragAndDropFileText(
-            props.dragAndDropFileText
-                ? props.dragAndDropFileText
-                : mergedLocale.lang!.dragAndDropFileText
-        );
-        setDragAndDropMultipleFilesText(
-            props.dragAndDropMultipleFilesText
-                ? props.dragAndDropMultipleFilesText
-                : mergedLocale.lang!.dragAndDropMultipleFilesText
-        );
-        setPreviewFileText(
-            props.previewFileText
-                ? props.previewFileText
-                : mergedLocale.lang!.previewFileText
-        );
-        setRemoveFileText(
-            props.removeFileText
-                ? props.removeFileText
-                : mergedLocale.lang!.removeFileText
-        );
-        setReplaceFileText(
-            props.replaceFileText
-                ? props.replaceFileText
-                : mergedLocale.lang!.replaceFileText
-        );
-        setSelectFileText(
-            props.selectFileText
-                ? props.selectFileText
-                : mergedLocale.lang!.selectFileText
-        );
-        setSelectMultipleFilesText(
-            props.selectMultipleFilesText
-                ? props.selectMultipleFilesText
-                : mergedLocale.lang!.selectMultipleFilesText
-        );
-        setUploadErrorText(
-            props.uploadErrorText
-                ? props.uploadErrorText
-                : mergedLocale.lang!.uploadErrorText
-        );
-        setUploadingText(
-            props.uploadingText
-                ? props.uploadingText
-                : mergedLocale.lang!.uploadingText
-        );
-    }, [mergedLocale]);
-
-    const [mergedFileList, setMergedFileList] = useMergedState(
-        defaultFileList || [],
-        {
-            value: fileList,
-            postState: (list) => list ?? [],
-        }
-    );
-
-    const [dropState, setDropState] = React.useState<string>('drop');
-
-    const upload: React.MutableRefObject<any> = React.useRef<any>();
-
-    warning(
-        'fileList' in props || !('value' in props),
-        '`value` is not a valid prop, do you mean `fileList`?'
-    );
-
-    // Control mode will auto fill file uid if not provided
-    useMemo(() => {
-        const timestamp = Date.now();
-
-        (fileList || []).forEach((file, index) => {
-            if (!file.uid && !Object.isFrozen(file)) {
-                file.uid = `__AUTO__${timestamp}_${index}__`;
-            }
-        });
-    }, [fileList]);
-
-    const onInternalChange = (
-        file: UploadFile,
-        changedFileList: UploadFile[],
-        event?: { percent: number }
-    ): void => {
-        let cloneList: UploadFile<any>[] = [...changedFileList];
-
-        // Cut to match count
-        if (maxCount === 1) {
-            cloneList = cloneList.slice(-1);
-        } else if (maxCount) {
-            cloneList = cloneList.slice(0, maxCount);
-        }
-
-        // Prevent React 18 auto batch because input[upload] triggers process at the same time
-        // which causes fileList closure problem.
-        flushSync(() => {
-            setMergedFileList(cloneList);
-        });
-
-        const changeInfo: UploadChangeParam<UploadFile> = {
-            file: file as UploadFile,
-            fileList: cloneList,
-        };
-
-        if (event) {
-            changeInfo.event = event;
-        }
-
-        onChange?.(changeInfo);
+    const changeInfo: UploadChangeParam<UploadFile> = {
+      file: file as UploadFile,
+      fileList: cloneList,
     };
 
-    const mergedBeforeUpload = async (
-        file: OcFile,
-        fileListArgs: OcFile[]
-    ): Promise<false | OcFile> => {
-        const { beforeUpload } = props;
+    if (event) {
+      changeInfo.event = event;
+    }
 
-        let parsedFile: File | Blob | string = file;
-        if (beforeUpload) {
-            const result = await beforeUpload(file, fileListArgs);
+    onChange?.(changeInfo);
+  };
 
-            if (result === false) {
-                return false;
-            }
+  const mergedBeforeUpload = async (
+    file: OcFile,
+    fileListArgs: OcFile[]
+  ): Promise<false | OcFile> => {
+    const { beforeUpload } = props;
 
-            // LIST_IGNORE, Add additional info to remove from the list.
-            delete (file as any)[LIST_IGNORE];
-            if ((result as any) === LIST_IGNORE) {
-                Object.defineProperty(file, LIST_IGNORE, {
-                    value: true,
-                    configurable: true,
-                });
-                return false;
-            }
+    let parsedFile: File | Blob | string = file;
+    if (beforeUpload) {
+      const result = await beforeUpload(file, fileListArgs);
 
-            if (typeof result === 'object' && result) {
-                parsedFile = result as File;
-            }
-        }
+      if (result === false) {
+        return false;
+      }
 
-        return parsedFile as OcFile;
-    };
-
-    const onBatchStart: OcUploadProps['onBatchStart'] = (
-        batchFileInfoList
-    ): void => {
-        // Skip file which marked as `LIST_IGNORE`, these file will not add to file list
-        const filteredFileInfoList = batchFileInfoList.filter(
-            (info) => !(info.file as any)[LIST_IGNORE]
-        );
-
-        // Nothing to do since no file need upload
-        if (!filteredFileInfoList.length) {
-            return;
-        }
-
-        const objectFileList = filteredFileInfoList.map((info) =>
-            file2Obj(info.file as OcFile)
-        );
-
-        // Concat new files with prev files
-        let newFileList: UploadFile<any>[] = [...mergedFileList];
-
-        objectFileList.forEach((fileObj) => {
-            // Replace file if exist
-            newFileList = updateFileList(fileObj, newFileList);
+      // LIST_IGNORE, Add additional info to remove from the list.
+      delete (file as any)[LIST_IGNORE];
+      if ((result as any) === LIST_IGNORE) {
+        Object.defineProperty(file, LIST_IGNORE, {
+          value: true,
+          configurable: true,
         });
+        return false;
+      }
 
-        objectFileList.forEach((fileObj, index) => {
-            // Repeat trigger `onChange` event for compatibility
-            let triggerFileObj: UploadFile = fileObj;
+      if (typeof result === 'object' && result) {
+        parsedFile = result as File;
+      }
+    }
 
-            if (!filteredFileInfoList[index].parsedFile) {
-                // `beforeUpload` return false
-                const { originFileObj } = fileObj;
-                let clone;
+    return parsedFile as OcFile;
+  };
 
-                try {
-                    clone = new File([originFileObj], originFileObj.name, {
-                        type: originFileObj.type,
-                    }) as any as UploadFile;
-                } catch (e) {
-                    clone = new Blob([originFileObj], {
-                        type: originFileObj.type,
-                    }) as any as UploadFile;
-                    clone.name = originFileObj.name;
-                    clone.lastModifiedDate = new Date();
-                    clone.lastModified = new Date().getTime();
-                }
+  const onBatchStart: OcUploadProps['onBatchStart'] = (
+    batchFileInfoList
+  ): void => {
+    // Skip file which marked as `LIST_IGNORE`, these file will not add to file list
+    const filteredFileInfoList = batchFileInfoList.filter(
+      (info) => !(info.file as any)[LIST_IGNORE]
+    );
 
-                clone.uid = fileObj.uid;
-                triggerFileObj = clone;
-            } else {
-                // Inject `uploading` status
-                fileObj.status = 'uploading';
-            }
+    // Nothing to do since no file need upload
+    if (!filteredFileInfoList.length) {
+      return;
+    }
 
-            onInternalChange(triggerFileObj, newFileList);
-        });
-    };
+    const objectFileList = filteredFileInfoList.map((info) =>
+      file2Obj(info.file as OcFile)
+    );
 
-    const onSuccess = (response: any, file: OcFile, xhr: any): void => {
+    // Concat new files with prev files
+    let newFileList: UploadFile<any>[] = [...mergedFileList];
+
+    objectFileList.forEach((fileObj) => {
+      // Replace file if exist
+      newFileList = updateFileList(fileObj, newFileList);
+    });
+
+    objectFileList.forEach((fileObj, index) => {
+      // Repeat trigger `onChange` event for compatibility
+      let triggerFileObj: UploadFile = fileObj;
+
+      if (!filteredFileInfoList[index].parsedFile) {
+        // `beforeUpload` return false
+        const { originFileObj } = fileObj;
+        let clone;
+
         try {
-            if (typeof response === 'string') {
-                response = JSON.parse(response);
-            }
+          clone = new File([originFileObj], originFileObj.name, {
+            type: originFileObj.type,
+          }) as any as UploadFile;
         } catch (e) {
-            /* no op */
+          clone = new Blob([originFileObj], {
+            type: originFileObj.type,
+          }) as any as UploadFile;
+          clone.name = originFileObj.name;
+          clone.lastModifiedDate = new Date();
+          clone.lastModified = new Date().getTime();
         }
 
-        if (!getFileItem(file, mergedFileList)) {
-            return;
-        }
+        clone.uid = fileObj.uid;
+        triggerFileObj = clone;
+      } else {
+        // Inject `uploading` status
+        fileObj.status = 'uploading';
+      }
 
-        const targetItem = file2Obj(file);
-        targetItem.status = 'done';
-        targetItem.percent = 100;
-        targetItem.response = response;
-        targetItem.xhr = xhr;
+      onInternalChange(triggerFileObj, newFileList);
+    });
+  };
 
-        const nextFileList = updateFileList(targetItem, mergedFileList);
+  const onSuccess = (response: any, file: OcFile, xhr: any): void => {
+    try {
+      if (typeof response === 'string') {
+        response = JSON.parse(response);
+      }
+    } catch (e) {
+      /* no op */
+    }
 
-        onInternalChange(targetItem, nextFileList);
-    };
+    if (!getFileItem(file, mergedFileList)) {
+      return;
+    }
 
-    const onProgress = (e: { percent: number }, file: OcFile): void => {
-        if (!getFileItem(file, mergedFileList)) {
-            return;
-        }
+    const targetItem = file2Obj(file);
+    targetItem.status = 'done';
+    targetItem.percent = 100;
+    targetItem.response = response;
+    targetItem.xhr = xhr;
 
-        const targetItem = file2Obj(file);
-        targetItem.status = 'uploading';
-        targetItem.percent = e.percent;
+    const nextFileList = updateFileList(targetItem, mergedFileList);
 
-        const nextFileList = updateFileList(targetItem, mergedFileList);
+    onInternalChange(targetItem, nextFileList);
+  };
 
-        onInternalChange(targetItem, nextFileList, e);
-    };
+  const onProgress = (e: { percent: number }, file: OcFile): void => {
+    if (!getFileItem(file, mergedFileList)) {
+      return;
+    }
 
-    const onError = (error: Error, response: any, file: OcFile): void => {
-        if (!getFileItem(file, mergedFileList)) {
-            return;
-        }
+    const targetItem = file2Obj(file);
+    targetItem.status = 'uploading';
+    targetItem.percent = e.percent;
 
-        const targetItem = file2Obj(file);
-        targetItem.error = error;
-        targetItem.response = response;
-        targetItem.status = 'error';
+    const nextFileList = updateFileList(targetItem, mergedFileList);
 
-        const nextFileList = updateFileList(targetItem, mergedFileList);
+    onInternalChange(targetItem, nextFileList, e);
+  };
 
-        onInternalChange(targetItem, nextFileList);
-    };
+  const onError = (error: Error, response: any, file: OcFile): void => {
+    if (!getFileItem(file, mergedFileList)) {
+      return;
+    }
 
-    const handleRemove = (file: UploadFile): void => {
-        let currentFile: UploadFile;
-        Promise.resolve(
-            typeof onRemove === 'function' ? onRemove(file) : onRemove
-        ).then((ret) => {
-            // Prevent removing file
-            if (ret === false) {
-                return;
-            }
+    const targetItem = file2Obj(file);
+    targetItem.error = error;
+    targetItem.response = response;
+    targetItem.status = 'error';
 
-            const removedFileList = removeFileItem(file, mergedFileList);
+    const nextFileList = updateFileList(targetItem, mergedFileList);
 
-            if (removedFileList) {
-                currentFile = { ...file, status: 'removed' };
-                mergedFileList?.forEach((item) => {
-                    const matchKey =
-                        currentFile.uid !== undefined ? 'uid' : 'name';
-                    if (
-                        item[matchKey] === currentFile[matchKey] &&
-                        !Object.isFrozen(item)
-                    ) {
-                        item.status = 'removed';
-                    }
-                });
-                upload.current?.abort(currentFile);
+    onInternalChange(targetItem, nextFileList);
+  };
 
-                onInternalChange(currentFile, removedFileList);
-            }
+  const handleRemove = (file: UploadFile): void => {
+    let currentFile: UploadFile;
+    Promise.resolve(
+      typeof onRemove === 'function' ? onRemove(file) : onRemove
+    ).then((ret) => {
+      // Prevent removing file
+      if (ret === false) {
+        return;
+      }
+
+      const removedFileList = removeFileItem(file, mergedFileList);
+
+      if (removedFileList) {
+        currentFile = { ...file, status: 'removed' };
+        mergedFileList?.forEach((item) => {
+          const matchKey = currentFile.uid !== undefined ? 'uid' : 'name';
+          if (
+            item[matchKey] === currentFile[matchKey] &&
+            !Object.isFrozen(item)
+          ) {
+            item.status = 'removed';
+          }
         });
-    };
+        upload.current?.abort(currentFile);
 
-    const handleReplace = (file: UploadFile): void => {
-        Promise.resolve(
-            typeof onReplace === 'function' ? onReplace(file) : onReplace
-        );
-    };
+        onInternalChange(currentFile, removedFileList);
+      }
+    });
+  };
 
-    const onFileDrop = (e: React.DragEvent<HTMLDivElement>): void => {
-        setDropState(e.type);
+  const handleReplace = (file: UploadFile): void => {
+    Promise.resolve(
+      typeof onReplace === 'function' ? onReplace(file) : onReplace
+    );
+  };
 
-        if (e.type === 'drop') {
-            onDrop?.(e);
-        }
-    };
+  const onFileDrop = (e: React.DragEvent<HTMLDivElement>): void => {
+    setDropState(e.type);
 
-    // Test handler
-    React.useImperativeHandle(ref, () => ({
-        onBatchStart,
-        onSuccess,
-        onProgress,
-        onError,
-        fileList: mergedFileList,
-        upload: upload.current,
-    }));
-
-    const ocUploadProps = {
-        onBatchStart,
-        onError,
-        onProgress,
-        onSuccess,
-        ...props,
-        accept,
-        action,
-        beforeUpload: mergedBeforeUpload,
-        data,
-        disabled: mergedDisabled,
-        multiple,
-        onChange: undefined,
-        supportServerRender,
-    } as OcUploadProps;
-
-    delete ocUploadProps.classNames;
-    delete ocUploadProps.style;
-
-    // Remove id to avoid open by label when trigger is hidden
-    if (!children || mergedDisabled) {
-        delete ocUploadProps.id;
+    if (e.type === 'drop') {
+      onDrop?.(e);
     }
+  };
 
-    const renderUploadList = (
-        button?: React.ReactNode,
-        buttonVisible?: boolean
-    ) =>
-        showUploadList ? (
-            <LocaleReceiver componentName={'Upload'} defaultLocale={enUS}>
-                {(_contextLocale: UploadLocale) => {
-                    const {
-                        downloadIcon,
-                        previewIcon,
-                        removeIcon,
-                        replaceIcon,
-                        showDownloadIconButton: showDownloadIconButton,
-                        showPreviewIconButton: showPreviewIconButton,
-                        showRemoveIconButton: showRemoveIconButton,
-                        showReplaceButton: showReplaceButton,
-                    } = typeof showUploadList === 'boolean'
-                        ? ({} as ShowUploadListInterface)
-                        : showUploadList;
-                    return (
-                        <UploadList
-                            appendAction={button}
-                            appendActionVisible={buttonVisible}
-                            downloadFileText={downloadFileText}
-                            downloadIcon={downloadIcon}
-                            iconRender={iconRender}
-                            isImageUrl={isImageUrl}
-                            itemRender={itemRender}
-                            items={mergedFileList}
-                            listType={listType}
-                            maxCount={maxCount}
-                            onDownload={onDownload}
-                            onPreview={onPreview}
-                            onRemove={handleRemove}
-                            onReplace={handleReplace}
-                            previewFile={previewFile}
-                            previewFileText={previewFileText}
-                            previewIcon={previewIcon}
-                            progress={progress}
-                            removeFileText={removeFileText}
-                            removeIcon={removeIcon}
-                            replaceFileText={replaceFileText}
-                            replaceIcon={replaceIcon}
-                            showDownloadIconButton={showDownloadIconButton}
-                            showPreviewIconButton={showPreviewIconButton}
-                            showRemoveIconButton={
-                                !mergedDisabled && showRemoveIconButton
-                            }
-                            showReplaceButton={
-                                !mergedDisabled && showReplaceButton
-                            }
-                            size={size}
-                            uploadErrorText={uploadErrorText}
-                            uploadingText={uploadingText}
-                        />
-                    );
-                }}
-            </LocaleReceiver>
-        ) : (
-            button
-        );
+  // Test handler
+  React.useImperativeHandle(ref, () => ({
+    onBatchStart,
+    onSuccess,
+    onProgress,
+    onError,
+    fileList: mergedFileList,
+    upload: upload.current,
+  }));
 
-    if (type === 'drop') {
-        const renderIcon = (): JSX.Element => (
-            <Icon
-                classNames={styles.uploadDropIcon}
-                path={IconName.mdiFileUploadOutline}
-                size={'48px'}
+  const ocUploadProps = {
+    onBatchStart,
+    onError,
+    onProgress,
+    onSuccess,
+    ...props,
+    accept,
+    action,
+    beforeUpload: mergedBeforeUpload,
+    data,
+    disabled: mergedDisabled,
+    multiple,
+    onChange: undefined,
+    supportServerRender,
+  } as OcUploadProps;
+
+  delete ocUploadProps.classNames;
+  delete ocUploadProps.style;
+
+  // Remove id to avoid open by label when trigger is hidden
+  if (!children || mergedDisabled) {
+    delete ocUploadProps.id;
+  }
+
+  const renderUploadList = (
+    button?: React.ReactNode,
+    buttonVisible?: boolean
+  ) =>
+    showUploadList ? (
+      <LocaleReceiver componentName={'Upload'} defaultLocale={enUS}>
+        {(_contextLocale: UploadLocale) => {
+          const {
+            downloadIcon,
+            previewIcon,
+            removeIcon,
+            replaceIcon,
+            showDownloadIconButton: showDownloadIconButton,
+            showPreviewIconButton: showPreviewIconButton,
+            showRemoveIconButton: showRemoveIconButton,
+            showReplaceButton: showReplaceButton,
+          } = typeof showUploadList === 'boolean'
+            ? ({} as ShowUploadListInterface)
+            : showUploadList;
+          return (
+            <UploadList
+              appendAction={button}
+              appendActionVisible={buttonVisible}
+              downloadFileText={downloadFileText}
+              downloadIcon={downloadIcon}
+              iconRender={iconRender}
+              isImageUrl={isImageUrl}
+              itemRender={itemRender}
+              items={mergedFileList}
+              listType={listType}
+              maxCount={maxCount}
+              onDownload={onDownload}
+              onPreview={onPreview}
+              onRemove={handleRemove}
+              onReplace={handleReplace}
+              previewFile={previewFile}
+              previewFileText={previewFileText}
+              previewIcon={previewIcon}
+              progress={progress}
+              removeFileText={removeFileText}
+              removeIcon={removeIcon}
+              replaceFileText={replaceFileText}
+              replaceIcon={replaceIcon}
+              showDownloadIconButton={showDownloadIconButton}
+              showPreviewIconButton={showPreviewIconButton}
+              showRemoveIconButton={!mergedDisabled && showRemoveIconButton}
+              showReplaceButton={!mergedDisabled && showReplaceButton}
+              size={size}
+              uploadErrorText={uploadErrorText}
+              uploadingText={uploadingText}
             />
-        );
-        const renderText = (): JSX.Element => (
-            <Stack direction={'vertical'}>
-                <div className={styles.uploadDropText}>
-                    {maxCount === 1
-                        ? dragAndDropFileText
-                        : dragAndDropMultipleFilesText}
-                </div>
-                <div className={styles.uploadDropHintText}>
-                    {acceptedFileTypesText}
-                </div>
-            </Stack>
-        );
-        const renderButton = (): JSX.Element => (
-            <PrimaryButton
-                classNames={styles.uploadDropButton}
-                disabled={mergedDisabled}
-                htmlType={'button'}
-                onKeyDown={(event) => event.preventDefault()}
-                text={maxCount === 1 ? selectFileText : selectMultipleFilesText}
-            />
-        );
-        const renderDropzone = (): JSX.Element => {
-            return (
-                <>
-                    {size === UploadSize.Large && (
-                        <Stack
-                            direction={'vertical'}
-                            fullWidth
-                            gap={'ml'}
-                            justify={'center'}
-                        >
-                            {renderIcon()}
-                            {renderText()}
-                            {renderButton()}
-                        </Stack>
-                    )}
-                    {size === UploadSize.Medium && (
-                        <Stack direction={'vertical'} gap={'m'}>
-                            <Stack direction={'horizontal'} gap={'xs'}>
-                                {renderIcon()}
-                                {renderText()}
-                            </Stack>
-                            {renderButton()}
-                        </Stack>
-                    )}
-                    {size === UploadSize.Small && (
-                        <Stack
-                            direction={'horizontal'}
-                            fullWidth
-                            justify={'space-evenly'}
-                        >
-                            {renderIcon()}
-                            {renderText()}
-                            {renderButton()}
-                        </Stack>
-                    )}
-                </>
-            );
-        };
-        const dropClassNames: string = mergeClasses([
-            styles.upload,
-            { [styles.uploadLarge]: size === UploadSize.Large },
-            { [styles.uploadMedium]: size === UploadSize.Medium },
-            { [styles.uploadSmall]: size === UploadSize.Small },
-            { [styles.uploadDrop]: true },
-            {
-                ['upload-drop-uploading']: mergedFileList.some(
-                    (file) => file.status === 'uploading'
-                ),
-            },
-            { [styles.uploadDropHover]: dropState === 'dragover' },
-            { [styles.uploadDisabled]: mergedDisabled },
-            { [styles.uploadRtl]: htmlDir === 'rtl' },
-            classNames,
-        ]);
-        return (
-            <>
-                <div
-                    className={dropClassNames}
-                    onDrop={onFileDrop}
-                    onDragOver={onFileDrop}
-                    onDragLeave={onFileDrop}
-                    style={style}
-                >
-                    <OcUpload
-                        {...ocUploadProps}
-                        ref={upload}
-                        className={styles.uploadButton}
-                    >
-                        <div className={styles.uploadDropContainer}>
-                            {!children && (
-                                <>
-                                    {!maxCount && renderDropzone()}
-                                    {maxCount === 1 && (
-                                        <>
-                                            {mergedFileList.length === 0 &&
-                                                renderDropzone()}
-                                            {mergedFileList.length > 0 &&
-                                                renderUploadList()}
-                                        </>
-                                    )}
-                                </>
-                            )}
-                            {!!children && children}
-                        </div>
-                    </OcUpload>
-                </div>
-                {!maxCount && renderUploadList()}
-            </>
-        );
-    }
+          );
+        }}
+      </LocaleReceiver>
+    ) : (
+      button
+    );
 
-    const uploadButtonClassNames: string = mergeClasses([
-        styles.upload,
-        { [styles.uploadSelect]: true },
-        { [styles.uploadSelectPictureCard]: listType === 'picture-card' },
-        { [styles.uploadDisabled]: mergedDisabled },
-        { [styles.uploadRtl]: htmlDir === 'rtl' },
-    ]);
-
-    const renderUploadButton = (
-        uploadButtonStyle?: React.CSSProperties
-    ): JSX.Element => (
-        <div className={uploadButtonClassNames} style={uploadButtonStyle}>
-            <OcUpload {...ocUploadProps} ref={upload} />
+  if (type === 'drop') {
+    const renderIcon = (): JSX.Element => (
+      <Icon
+        classNames={styles.uploadDropIcon}
+        path={IconName.mdiFileUploadOutline}
+        size={'48px'}
+      />
+    );
+    const renderText = (): JSX.Element => (
+      <Stack direction={'vertical'}>
+        <div className={styles.uploadDropText}>
+          {maxCount === 1 ? dragAndDropFileText : dragAndDropMultipleFilesText}
         </div>
+        <div className={styles.uploadDropHintText}>{acceptedFileTypesText}</div>
+      </Stack>
     );
-
-    const uploadButton: JSX.Element = renderUploadButton(
-        children ? undefined : { display: 'none' }
+    const renderButton = (): JSX.Element => (
+      <PrimaryButton
+        classNames={styles.uploadDropButton}
+        disabled={mergedDisabled}
+        htmlType={'button'}
+        onKeyDown={(event) => event.preventDefault()}
+        text={maxCount === 1 ? selectFileText : selectMultipleFilesText}
+      />
     );
-
-    if (listType === 'picture-card') {
-        return (
-            <span
-                className={mergeClasses(
-                    styles.uploadPictureCardWrapper,
-                    classNames
-                )}
+    const renderDropzone = (): JSX.Element => {
+      return (
+        <>
+          {size === UploadSize.Large && (
+            <Stack
+              direction={'vertical'}
+              fullWidth
+              gap={'ml'}
+              justify={'center'}
             >
-                {renderUploadList(uploadButton, !!children)}
-            </span>
-        );
-    }
-
+              {renderIcon()}
+              {renderText()}
+              {renderButton()}
+            </Stack>
+          )}
+          {size === UploadSize.Medium && (
+            <Stack direction={'vertical'} gap={'m'}>
+              <Stack direction={'horizontal'} gap={'xs'}>
+                {renderIcon()}
+                {renderText()}
+              </Stack>
+              {renderButton()}
+            </Stack>
+          )}
+          {size === UploadSize.Small && (
+            <Stack direction={'horizontal'} fullWidth justify={'space-evenly'}>
+              {renderIcon()}
+              {renderText()}
+              {renderButton()}
+            </Stack>
+          )}
+        </>
+      );
+    };
+    const dropClassNames: string = mergeClasses([
+      styles.upload,
+      { [styles.uploadLarge]: size === UploadSize.Large },
+      { [styles.uploadMedium]: size === UploadSize.Medium },
+      { [styles.uploadSmall]: size === UploadSize.Small },
+      { [styles.uploadDrop]: true },
+      {
+        ['upload-drop-uploading']: mergedFileList.some(
+          (file) => file.status === 'uploading'
+        ),
+      },
+      { [styles.uploadDropHover]: dropState === 'dragover' },
+      { [styles.uploadDisabled]: mergedDisabled },
+      { [styles.uploadRtl]: htmlDir === 'rtl' },
+      classNames,
+    ]);
     return (
-        <span className={classNames}>
-            {uploadButton}
-            {renderUploadList()}
-        </span>
+      <>
+        <div
+          className={dropClassNames}
+          onDrop={onFileDrop}
+          onDragOver={onFileDrop}
+          onDragLeave={onFileDrop}
+          style={style}
+        >
+          <OcUpload
+            {...ocUploadProps}
+            ref={upload}
+            className={styles.uploadButton}
+          >
+            <div className={styles.uploadDropContainer}>
+              {!children && (
+                <>
+                  {!maxCount && renderDropzone()}
+                  {maxCount === 1 && (
+                    <>
+                      {mergedFileList.length === 0 && renderDropzone()}
+                      {mergedFileList.length > 0 && renderUploadList()}
+                    </>
+                  )}
+                </>
+              )}
+              {!!children && children}
+            </div>
+          </OcUpload>
+        </div>
+        {!maxCount && renderUploadList()}
+      </>
     );
+  }
+
+  const uploadButtonClassNames: string = mergeClasses([
+    styles.upload,
+    { [styles.uploadSelect]: true },
+    { [styles.uploadSelectPictureCard]: listType === 'picture-card' },
+    { [styles.uploadDisabled]: mergedDisabled },
+    { [styles.uploadRtl]: htmlDir === 'rtl' },
+  ]);
+
+  const renderUploadButton = (
+    uploadButtonStyle?: React.CSSProperties
+  ): JSX.Element => (
+    <div className={uploadButtonClassNames} style={uploadButtonStyle}>
+      <OcUpload {...ocUploadProps} ref={upload} />
+    </div>
+  );
+
+  const uploadButton: JSX.Element = renderUploadButton(
+    children ? undefined : { display: 'none' }
+  );
+
+  if (listType === 'picture-card') {
+    return (
+      <span
+        className={mergeClasses(styles.uploadPictureCardWrapper, classNames)}
+      >
+        {renderUploadList(uploadButton, !!children)}
+      </span>
+    );
+  }
+
+  return (
+    <span className={classNames}>
+      {uploadButton}
+      {renderUploadList()}
+    </span>
+  );
 };
 
 const Upload = React.forwardRef<unknown, UploadProps>(InternalUpload);

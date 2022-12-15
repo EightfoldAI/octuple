@@ -4,22 +4,21 @@ import InternalUpload, { LIST_IGNORE } from './Upload';
 
 export { DropzoneProps } from './Dropzone';
 export {
-    OcFile,
-    UploadChangeParam,
-    UploadFile,
-    UploadListProps,
-    UploadProps,
-    UploadSize,
+  OcFile,
+  UploadChangeParam,
+  UploadFile,
+  UploadListProps,
+  UploadProps,
+  UploadSize,
 } from './Upload.types';
 
 type InternalUploadType = typeof InternalUpload;
 interface UploadInterface<T = any> extends InternalUploadType {
-    <U extends T>(
-        props: React.PropsWithChildren<UploadProps<U>> &
-            React.RefAttributes<any>
-    ): React.ReactElement;
-    Dropzone: typeof Dropzone;
-    LIST_IGNORE: string;
+  <U extends T>(
+    props: React.PropsWithChildren<UploadProps<U>> & React.RefAttributes<any>
+  ): React.ReactElement;
+  Dropzone: typeof Dropzone;
+  LIST_IGNORE: string;
 }
 
 const Upload = InternalUpload as UploadInterface;

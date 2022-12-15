@@ -3,4 +3,4 @@
  * @param e {React.MouseEvent}
  */
 export const stopPropagation = (e: React.MouseEvent<any>) =>
-    e.stopPropagation();
+  e.stopPropagation();

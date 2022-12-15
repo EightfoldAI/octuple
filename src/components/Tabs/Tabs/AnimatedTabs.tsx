@@ -7,53 +7,52 @@ import { Flipper } from 'react-flip-toolkit';
 import styles from '../tabs.module.scss';
 
 export const AnimatedTabs: FC<TabsProps> = React.forwardRef(
-    (
-        {
-            bordered = true,
-            children,
-            classNames,
-            onChange,
-            scrollable,
-            divider = true,
-            size = TabSize.Medium,
-            style,
-            underlined = false,
-            variant = TabVariant.default,
-            ...rest
-        },
-        ref: Ref<HTMLDivElement>
-    ) => {
-        const { currentActiveTab } = useTabs();
-        const tabClassName: string = mergeClasses([
-            styles.tabWrap,
-            {
-                [styles.underlined]:
-                    underlined &&
-                    variant !== TabVariant.pill &&
-                    variant !== TabVariant.stat,
-                [styles.large]: size === TabSize.Large,
-                [styles.small]:
-                    variant === TabVariant.small || size === TabSize.Small,
-                [styles.pill]: variant === TabVariant.pill,
-                [styles.stat]: variant === TabVariant.stat,
-                [styles.bordered]: variant === TabVariant.stat && bordered,
-                [styles.divider]: variant === TabVariant.stat && divider,
-                [styles.scrollable]: scrollable,
-            },
-            classNames,
-        ]);
-        return (
-            <Flipper flipKey={currentActiveTab}>
-                <div
-                    {...rest}
-                    ref={ref}
-                    role="tablist"
-                    className={tabClassName}
-                    style={style}
-                >
-                    {children}
-                </div>
-            </Flipper>
-        );
-    }
+  (
+    {
+      bordered = true,
+      children,
+      classNames,
+      onChange,
+      scrollable,
+      divider = true,
+      size = TabSize.Medium,
+      style,
+      underlined = false,
+      variant = TabVariant.default,
+      ...rest
+    },
+    ref: Ref<HTMLDivElement>
+  ) => {
+    const { currentActiveTab } = useTabs();
+    const tabClassName: string = mergeClasses([
+      styles.tabWrap,
+      {
+        [styles.underlined]:
+          underlined &&
+          variant !== TabVariant.pill &&
+          variant !== TabVariant.stat,
+        [styles.large]: size === TabSize.Large,
+        [styles.small]: variant === TabVariant.small || size === TabSize.Small,
+        [styles.pill]: variant === TabVariant.pill,
+        [styles.stat]: variant === TabVariant.stat,
+        [styles.bordered]: variant === TabVariant.stat && bordered,
+        [styles.divider]: variant === TabVariant.stat && divider,
+        [styles.scrollable]: scrollable,
+      },
+      classNames,
+    ]);
+    return (
+      <Flipper flipKey={currentActiveTab}>
+        <div
+          {...rest}
+          ref={ref}
+          role="tablist"
+          className={tabClassName}
+          style={style}
+        >
+          {children}
+        </div>
+      </Flipper>
+    );
+  }
 );

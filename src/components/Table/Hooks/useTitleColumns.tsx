@@ -1,39 +1,35 @@
 import { useCallback } from 'react';
 import type {
-    TransformColumns,
-    ColumnTitleProps,
-    ColumnsType,
+  TransformColumns,
+  ColumnTitleProps,
+  ColumnsType,
 } from '../Table.types';
 import { renderColumnTitle } from '../utlities';
 
 function fillTitle<RecordType>(
-    columns: ColumnsType<RecordType>,
-    columnTitleProps: ColumnTitleProps<RecordType>
+  columns: ColumnsType<RecordType>,
+  columnTitleProps: ColumnTitleProps<RecordType>
 ) {
-    return columns.map((column) => {
-        const cloneColumn = { ...column };
+  return columns.map((column) => {
+    const cloneColumn = { ...column };
 
-        cloneColumn.title = renderColumnTitle(column.title, columnTitleProps);
+    cloneColumn.title = renderColumnTitle(column.title, columnTitleProps);
 
-        if ('children' in cloneColumn) {
-            cloneColumn.children = fillTitle(
-                cloneColumn.children,
-                columnTitleProps
-            );
-        }
+    if ('children' in cloneColumn) {
+      cloneColumn.children = fillTitle(cloneColumn.children, columnTitleProps);
+    }
 
-        return cloneColumn;
-    });
+    return cloneColumn;
+  });
 }
 
 export default function useTitleColumns<RecordType>(
-    columnTitleProps: ColumnTitleProps<RecordType>
+  columnTitleProps: ColumnTitleProps<RecordType>
 ): [TransformColumns<RecordType>] {
-    const filledColumns = useCallback(
-        (columns: ColumnsType<RecordType>) =>
-            fillTitle(columns, columnTitleProps),
-        [columnTitleProps]
-    );
+  const filledColumns = useCallback(
+    (columns: ColumnsType<RecordType>) => fillTitle(columns, columnTitleProps),
+    [columnTitleProps]
+  );
 
-    return [filledColumns];
+  return [filledColumns];
 }

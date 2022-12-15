@@ -1,7 +1,7 @@
 import type { ColumnType } from './OcTable.types';
 
 export interface ColumnProps<RecordType> extends ColumnType<RecordType> {
-    children?: null;
+  children?: null;
 }
 
 /**
@@ -10,7 +10,7 @@ export interface ColumnProps<RecordType> extends ColumnType<RecordType> {
  */
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 function Column<RecordType>(_: ColumnProps<RecordType>): any {
-    return null;
+  return null;
 }
 
 export default Column;

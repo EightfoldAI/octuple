@@ -17,72 +17,70 @@ const defaultServerErrorImg = <DefaultServerErrorImg />;
 const defaultTasksCompleteImg = <DefaultTasksCompleteImg />;
 
 export const Empty: FC<EmptyProps> = React.forwardRef(
-    (
-        {
-            children,
-            classNames,
-            description,
-            image,
-            imageStyle,
-            mode = EmptyMode.data,
-            title,
-            ...rest
-        },
-        ref: Ref<HTMLDivElement>
-    ) => {
-        const htmlDir: string = useCanvasDirection();
+  (
+    {
+      children,
+      classNames,
+      description,
+      image,
+      imageStyle,
+      mode = EmptyMode.data,
+      title,
+      ...rest
+    },
+    ref: Ref<HTMLDivElement>
+  ) => {
+    const htmlDir: string = useCanvasDirection();
 
-        const getDefaultImage = (mode: EmptyMode): JSX.Element => {
-            switch (mode) {
-                case EmptyMode.data:
-                    return defaultEmptyDataImg;
-                case EmptyMode.error:
-                    return defaultServerErrorImg;
-                case EmptyMode.messages:
-                    return defaultEmptyMessagesImg;
-                case EmptyMode.search:
-                    return defaultEmptySearchImg;
-                case EmptyMode.tasks:
-                    return defaultTasksCompleteImg;
-                default:
-                    return defaultEmptyDataImg;
-            }
-        };
+    const getDefaultImage = (mode: EmptyMode): JSX.Element => {
+      switch (mode) {
+        case EmptyMode.data:
+          return defaultEmptyDataImg;
+        case EmptyMode.error:
+          return defaultServerErrorImg;
+        case EmptyMode.messages:
+          return defaultEmptyMessagesImg;
+        case EmptyMode.search:
+          return defaultEmptySearchImg;
+        case EmptyMode.tasks:
+          return defaultTasksCompleteImg;
+        default:
+          return defaultEmptyDataImg;
+      }
+    };
 
-        let imageNode: React.ReactNode = null;
+    let imageNode: React.ReactNode = null;
 
-        if (image) {
-            if (typeof image === 'string') {
-                imageNode = <img alt={description} src={image} />;
-            } else {
-                imageNode = image;
-            }
-        } else {
-            imageNode = getDefaultImage(mode);
-        }
-
-        return (
-            <div
-                {...rest}
-                ref={ref}
-                className={mergeClasses([
-                    styles.empty,
-                    { [styles.emptyDefault]: image === getDefaultImage(mode) },
-                    { [styles.emptyRtl]: htmlDir === 'rtl' },
-                    classNames,
-                ])}
-            >
-                <div className={styles.emptyImage} style={imageStyle}>
-                    {imageNode}
-                </div>
-                {title && <div className={styles.emptyTitle}>{title}</div>}
-                {description && (
-                    <div className={styles.emptyDescription}>{description}</div>
-                )}
-                {children && (
-                    <div className={styles.emptyFooter}>{children}</div>
-                )}
-            </div>
-        );
+    if (image) {
+      if (typeof image === 'string') {
+        imageNode = <img alt={description} src={image} />;
+      } else {
+        imageNode = image;
+      }
+    } else {
+      imageNode = getDefaultImage(mode);
     }
+
+    return (
+      <div
+        {...rest}
+        ref={ref}
+        className={mergeClasses([
+          styles.empty,
+          { [styles.emptyDefault]: image === getDefaultImage(mode) },
+          { [styles.emptyRtl]: htmlDir === 'rtl' },
+          classNames,
+        ])}
+      >
+        <div className={styles.emptyImage} style={imageStyle}>
+          {imageNode}
+        </div>
+        {title && <div className={styles.emptyTitle}>{title}</div>}
+        {description && (
+          <div className={styles.emptyDescription}>{description}</div>
+        )}
+        {children && <div className={styles.emptyFooter}>{children}</div>}
+      </div>
+    );
+  }
 );

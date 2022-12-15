@@ -18,11 +18,11 @@
 Octuple creates a shared language and visual consistency across different pages and channels.
 It represents a collection of assets, utilities, and React components for building web applications.
 
--   Design (and development) work can be created and replicated quickly and at scale.
--   Alleviates strain on design resources to focus on larger, more complex problems.
--   Creates a unified language within and between crossfunctional teams.
--   Creates visual consistency across products, channels, and (potentially siloed) departments.
--   Serves as an educational tool and reference for junior-level designers and content contributors.
+- Design (and development) work can be created and replicated quickly and at scale.
+- Alleviates strain on design resources to focus on larger, more complex problems.
+- Creates a unified language within and between crossfunctional teams.
+- Creates visual consistency across products, channels, and (potentially siloed) departments.
+- Serves as an educational tool and reference for junior-level designers and content contributors.
 
 Visit the Octuple [Storybook site](https://eightfoldai.github.io/octuple.github.io/).
 
@@ -52,9 +52,9 @@ npm install @eightfold.ai/octuple
 import { PrimaryButton } from '@eightfold.ai/octuple';
 
 export const App = () => (
-    <>
-        <PrimaryButton text={'Button'} />
-    </>
+  <>
+    <PrimaryButton text={'Button'} />
+  </>
 );
 ```
 

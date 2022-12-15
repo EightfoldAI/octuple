@@ -1,183 +1,183 @@
 {
-    "IcoMoonType": "selection",
-    "icons": [
-        {
-            "icon": {
-                "paths": [
-                    "M102.4 153.6v716.8h241.912v-139.999h79.375v139.999h241.912v-716.8h-563.2zM181.777 233.867h81.268v78.399h-81.268v-78.399zM344.312 233.867h79.375v78.399h-79.375v-78.399zM504.955 233.867h81.267v78.399h-81.267v-78.399zM181.777 392.532h81.268v80.269h-81.268v-80.269zM344.312 392.532h79.375v80.269h-79.375v-80.269zM504.955 392.532h81.267v80.269h-81.267v-80.269zM181.777 551.201h81.268v80.266h-81.268v-80.266zM344.312 551.201h79.375v80.266h-79.375v-80.266zM504.955 551.201h81.267v80.266h-81.267v-80.266zM181.777 711.734h81.268v78.4h-81.268v-78.4zM504.955 711.734h81.267v78.4h-81.267v-78.4z",
-                    "M598.536 358.4h108.529c14.303 0 26.501 5.478 36.598 16.435 10.936 10.112 16.404 22.333 16.404 36.662v54.359h108.531c14.303 0 26.501 5.478 36.598 16.435 10.936 10.115 16.404 22.756 16.404 37.926v295.821c0 15.171-5.468 28.234-16.404 39.191-10.097 10.115-22.295 15.171-36.598 15.171h-431.596c-14.303 0-26.921-5.056-37.86-15.171-10.094-10.957-15.142-24.020-15.142-39.191v-295.821c0-15.171 5.048-27.812 15.142-37.926 10.939-10.957 23.557-16.435 37.86-16.435h108.531v-54.359c0-14.328 5.046-26.55 15.142-36.662 10.936-10.957 23.557-16.435 37.86-16.435zM707.064 465.856v-54.359h-108.529v54.359h108.529z"
-                ],
-                "attrs": [
-                    { "fill": "rgb(80, 206, 225)" },
-                    { "fill": "rgb(20, 109, 166)", "opacity": 0.6 }
-                ],
-                "isMulticolor": true,
-                "isMulticolor2": true,
-                "grid": 0,
-                "tags": ["CareerHub"],
-                "colorPermutations": {
-                    "201091661802062251": [{ "f": 1 }, { "f": 0 }]
-                }
-            },
-            "attrs": [
-                { "fill": "rgb(80, 206, 225)" },
-                { "fill": "rgb(20, 109, 166)", "opacity": 0.6 }
-            ],
-            "properties": {
-                "order": 3,
-                "id": 0,
-                "name": "CareerHub",
-                "prevSize": 32,
-                "code": 59648,
-                "codes": [59648, 59649]
-            },
-            "setIdx": 0,
-            "setId": 2,
-            "iconIdx": 0
-        },
-        {
-            "icon": {
-                "paths": [
-                    "M1024 608l-192-192v-288h-128v160l-192-192-512 512v32h128v320h320v-192h128v192h320v-320h128z"
-                ],
-                "tags": ["home", "house"],
-                "defaultCode": 59650,
-                "grid": 16,
-                "attrs": []
-            },
-            "attrs": [],
-            "properties": {
-                "ligatures": "home3, house3",
-                "name": "home3",
-                "order": 4,
-                "id": 3,
-                "prevSize": 32,
-                "code": 59650
-            },
-            "setIdx": 1,
-            "setId": 1,
-            "iconIdx": 2
-        },
-        {
-            "icon": {
-                "paths": [
-                    "M0 1024h512v-1024h-512v1024zM320 128h128v128h-128v-128zM320 384h128v128h-128v-128zM320 640h128v128h-128v-128zM64 128h128v128h-128v-128zM64 384h128v128h-128v-128zM64 640h128v128h-128v-128zM576 320h448v64h-448zM576 1024h128v-256h192v256h128v-576h-448z"
-                ],
-                "tags": ["office", "buildings", "work"],
-                "defaultCode": 59651,
-                "grid": 16,
-                "attrs": []
-            },
-            "attrs": [],
-            "properties": {
-                "ligatures": "office, buildings",
-                "name": "office",
-                "order": 5,
-                "id": 4,
-                "prevSize": 32,
-                "code": 59651
-            },
-            "setIdx": 1,
-            "setId": 1,
-            "iconIdx": 3
-        },
-        {
-            "icon": {
-                "paths": [
-                    "M896 256v-128h-896v704c0 35.346 28.654 64 64 64h864c53.022 0 96-42.978 96-96v-544h-128zM832 832h-768v-640h768v640zM128 320h640v64h-640zM512 448h256v64h-256zM512 576h256v64h-256zM512 704h192v64h-192zM128 448h320v320h-320z"
-                ],
-                "tags": ["newspaper", "news", "paper"],
-                "defaultCode": 59652,
-                "grid": 16,
-                "attrs": []
-            },
-            "attrs": [],
-            "properties": {
-                "ligatures": "newspaper, news",
-                "name": "newspaper",
-                "order": 6,
-                "id": 5,
-                "prevSize": 32,
-                "code": 59652
-            },
-            "setIdx": 1,
-            "setId": 1,
-            "iconIdx": 4
-        },
-        {
-            "icon": {
-                "paths": [
-                    "M864 0c88.364 0 160 71.634 160 160 0 36.020-11.91 69.258-32 96l-64 64-224-224 64-64c26.742-20.090 59.978-32 96-32zM64 736l-64 288 288-64 592-592-224-224-592 592zM715.578 363.578l-448 448-55.156-55.156 448-448 55.156 55.156z"
-                ],
-                "tags": ["pencil", "write", "edit"],
-                "defaultCode": 59653,
-                "grid": 16,
-                "attrs": []
-            },
-            "attrs": [],
-            "properties": {
-                "ligatures": "pencil, write",
-                "name": "pencil",
-                "order": 7,
-                "id": 6,
-                "prevSize": 32,
-                "code": 59653
-            },
-            "setIdx": 1,
-            "setId": 1,
-            "iconIdx": 5
-        },
-        {
-            "icon": {
-                "paths": [
-                    "M384 640l128-64 448-448-64-64-448 448-64 128zM289.3 867.098c-31.632-66.728-65.666-100.762-132.396-132.394l99.096-272.792 128-77.912 384-384h-192l-384 384-192 640 640-192 384-384v-192l-384 384-77.912 128z"
-                ],
-                "tags": ["pencil", "write", "edit"],
-                "defaultCode": 59654,
-                "grid": 16,
-                "attrs": []
-            },
-            "attrs": [],
-            "properties": {
-                "ligatures": "pencil2, write2",
-                "name": "pencil2",
-                "order": 8,
-                "id": 7,
-                "prevSize": 32,
-                "code": 59654
-            },
-            "setIdx": 1,
-            "setId": 1,
-            "iconIdx": 6
+  "IcoMoonType": "selection",
+  "icons": [
+    {
+      "icon": {
+        "paths": [
+          "M102.4 153.6v716.8h241.912v-139.999h79.375v139.999h241.912v-716.8h-563.2zM181.777 233.867h81.268v78.399h-81.268v-78.399zM344.312 233.867h79.375v78.399h-79.375v-78.399zM504.955 233.867h81.267v78.399h-81.267v-78.399zM181.777 392.532h81.268v80.269h-81.268v-80.269zM344.312 392.532h79.375v80.269h-79.375v-80.269zM504.955 392.532h81.267v80.269h-81.267v-80.269zM181.777 551.201h81.268v80.266h-81.268v-80.266zM344.312 551.201h79.375v80.266h-79.375v-80.266zM504.955 551.201h81.267v80.266h-81.267v-80.266zM181.777 711.734h81.268v78.4h-81.268v-78.4zM504.955 711.734h81.267v78.4h-81.267v-78.4z",
+          "M598.536 358.4h108.529c14.303 0 26.501 5.478 36.598 16.435 10.936 10.112 16.404 22.333 16.404 36.662v54.359h108.531c14.303 0 26.501 5.478 36.598 16.435 10.936 10.115 16.404 22.756 16.404 37.926v295.821c0 15.171-5.468 28.234-16.404 39.191-10.097 10.115-22.295 15.171-36.598 15.171h-431.596c-14.303 0-26.921-5.056-37.86-15.171-10.094-10.957-15.142-24.020-15.142-39.191v-295.821c0-15.171 5.048-27.812 15.142-37.926 10.939-10.957 23.557-16.435 37.86-16.435h108.531v-54.359c0-14.328 5.046-26.55 15.142-36.662 10.936-10.957 23.557-16.435 37.86-16.435zM707.064 465.856v-54.359h-108.529v54.359h108.529z"
+        ],
+        "attrs": [
+          { "fill": "rgb(80, 206, 225)" },
+          { "fill": "rgb(20, 109, 166)", "opacity": 0.6 }
+        ],
+        "isMulticolor": true,
+        "isMulticolor2": true,
+        "grid": 0,
+        "tags": ["CareerHub"],
+        "colorPermutations": {
+          "201091661802062251": [{ "f": 1 }, { "f": 0 }]
         }
-    ],
-    "height": 1024,
-    "metadata": { "name": "icomoon" },
-    "preferences": {
-        "showGlyphs": true,
-        "showQuickUse": true,
-        "showQuickUse2": true,
-        "showSVGs": true,
-        "fontPref": {
-            "prefix": "icon-",
-            "metadata": { "fontFamily": "icomoon" },
-            "metrics": { "emSize": 1024, "baseline": 6.25, "whitespace": 50 },
-            "embed": false,
-            "autoHost": true
-        },
-        "imagePref": {
-            "prefix": "icon-",
-            "png": true,
-            "useClassSelector": true,
-            "color": 0,
-            "bgColor": 16777215,
-            "classSelector": ".icon"
-        },
-        "historySize": 50,
-        "showCodes": true,
-        "gridSize": 16,
-        "quickUsageToken": {
-            "UntitledProject": "NWRmNjcxZTJiOGY2NjdmMjViNzdkOTliNWFiOWJhOGUjMSMxNjUzMDI0ODA4IyMjMTFiZDJhZjI4MDkz"
-        }
+      },
+      "attrs": [
+        { "fill": "rgb(80, 206, 225)" },
+        { "fill": "rgb(20, 109, 166)", "opacity": 0.6 }
+      ],
+      "properties": {
+        "order": 3,
+        "id": 0,
+        "name": "CareerHub",
+        "prevSize": 32,
+        "code": 59648,
+        "codes": [59648, 59649]
+      },
+      "setIdx": 0,
+      "setId": 2,
+      "iconIdx": 0
+    },
+    {
+      "icon": {
+        "paths": [
+          "M1024 608l-192-192v-288h-128v160l-192-192-512 512v32h128v320h320v-192h128v192h320v-320h128z"
+        ],
+        "tags": ["home", "house"],
+        "defaultCode": 59650,
+        "grid": 16,
+        "attrs": []
+      },
+      "attrs": [],
+      "properties": {
+        "ligatures": "home3, house3",
+        "name": "home3",
+        "order": 4,
+        "id": 3,
+        "prevSize": 32,
+        "code": 59650
+      },
+      "setIdx": 1,
+      "setId": 1,
+      "iconIdx": 2
+    },
+    {
+      "icon": {
+        "paths": [
+          "M0 1024h512v-1024h-512v1024zM320 128h128v128h-128v-128zM320 384h128v128h-128v-128zM320 640h128v128h-128v-128zM64 128h128v128h-128v-128zM64 384h128v128h-128v-128zM64 640h128v128h-128v-128zM576 320h448v64h-448zM576 1024h128v-256h192v256h128v-576h-448z"
+        ],
+        "tags": ["office", "buildings", "work"],
+        "defaultCode": 59651,
+        "grid": 16,
+        "attrs": []
+      },
+      "attrs": [],
+      "properties": {
+        "ligatures": "office, buildings",
+        "name": "office",
+        "order": 5,
+        "id": 4,
+        "prevSize": 32,
+        "code": 59651
+      },
+      "setIdx": 1,
+      "setId": 1,
+      "iconIdx": 3
+    },
+    {
+      "icon": {
+        "paths": [
+          "M896 256v-128h-896v704c0 35.346 28.654 64 64 64h864c53.022 0 96-42.978 96-96v-544h-128zM832 832h-768v-640h768v640zM128 320h640v64h-640zM512 448h256v64h-256zM512 576h256v64h-256zM512 704h192v64h-192zM128 448h320v320h-320z"
+        ],
+        "tags": ["newspaper", "news", "paper"],
+        "defaultCode": 59652,
+        "grid": 16,
+        "attrs": []
+      },
+      "attrs": [],
+      "properties": {
+        "ligatures": "newspaper, news",
+        "name": "newspaper",
+        "order": 6,
+        "id": 5,
+        "prevSize": 32,
+        "code": 59652
+      },
+      "setIdx": 1,
+      "setId": 1,
+      "iconIdx": 4
+    },
+    {
+      "icon": {
+        "paths": [
+          "M864 0c88.364 0 160 71.634 160 160 0 36.020-11.91 69.258-32 96l-64 64-224-224 64-64c26.742-20.090 59.978-32 96-32zM64 736l-64 288 288-64 592-592-224-224-592 592zM715.578 363.578l-448 448-55.156-55.156 448-448 55.156 55.156z"
+        ],
+        "tags": ["pencil", "write", "edit"],
+        "defaultCode": 59653,
+        "grid": 16,
+        "attrs": []
+      },
+      "attrs": [],
+      "properties": {
+        "ligatures": "pencil, write",
+        "name": "pencil",
+        "order": 7,
+        "id": 6,
+        "prevSize": 32,
+        "code": 59653
+      },
+      "setIdx": 1,
+      "setId": 1,
+      "iconIdx": 5
+    },
+    {
+      "icon": {
+        "paths": [
+          "M384 640l128-64 448-448-64-64-448 448-64 128zM289.3 867.098c-31.632-66.728-65.666-100.762-132.396-132.394l99.096-272.792 128-77.912 384-384h-192l-384 384-192 640 640-192 384-384v-192l-384 384-77.912 128z"
+        ],
+        "tags": ["pencil", "write", "edit"],
+        "defaultCode": 59654,
+        "grid": 16,
+        "attrs": []
+      },
+      "attrs": [],
+      "properties": {
+        "ligatures": "pencil2, write2",
+        "name": "pencil2",
+        "order": 8,
+        "id": 7,
+        "prevSize": 32,
+        "code": 59654
+      },
+      "setIdx": 1,
+      "setId": 1,
+      "iconIdx": 6
     }
+  ],
+  "height": 1024,
+  "metadata": { "name": "icomoon" },
+  "preferences": {
+    "showGlyphs": true,
+    "showQuickUse": true,
+    "showQuickUse2": true,
+    "showSVGs": true,
+    "fontPref": {
+      "prefix": "icon-",
+      "metadata": { "fontFamily": "icomoon" },
+      "metrics": { "emSize": 1024, "baseline": 6.25, "whitespace": 50 },
+      "embed": false,
+      "autoHost": true
+    },
+    "imagePref": {
+      "prefix": "icon-",
+      "png": true,
+      "useClassSelector": true,
+      "color": 0,
+      "bgColor": 16777215,
+      "classSelector": ".icon"
+    },
+    "historySize": 50,
+    "showCodes": true,
+    "gridSize": 16,
+    "quickUsageToken": {
+      "UntitledProject": "NWRmNjcxZTJiOGY2NjdmMjViNzdkOTliNWFiOWJhOGUjMSMxNjUzMDI0ODA4IyMjMTFiZDJhZjI4MDkz"
+    }
+  }
 }

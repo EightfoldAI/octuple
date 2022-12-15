@@ -9,15 +9,15 @@ import TimePicker from '../DateTimePicker/TimePicker/Locale/fi_FI';
 import Upload from '../Upload/Locale/fi_FI';
 
 const localeValues: Locale = {
-    locale: 'fi',
-    DatePicker,
-    Dialog,
-    InfoBar,
-    Pagination,
-    Panel,
-    Table,
-    TimePicker,
-    Upload,
+  locale: 'fi',
+  DatePicker,
+  Dialog,
+  InfoBar,
+  Pagination,
+  Panel,
+  Table,
+  TimePicker,
+  Upload,
 };
 
 export default localeValues;

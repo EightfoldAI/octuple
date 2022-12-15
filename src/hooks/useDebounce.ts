@@ -8,12 +8,12 @@ import { debounce } from '../shared/utilities';
  * @returns a debounced function that resolves to a value after certain amount of time. Or never resolves if terminated.
  */
 export const useDebounce = <A = unknown, R = void>(
-    fn: (args: A) => R,
-    ms: number
+  fn: (args: A) => R,
+  ms: number
 ): ((args: A) => Promise<R>) => {
-    const [debouncedFun, teardown] = debounce<A, R>(fn, ms);
+  const [debouncedFun, teardown] = debounce<A, R>(fn, ms);
 
-    useEffect(() => () => teardown(), []);
+  useEffect(() => () => teardown(), []);
 
-    return debouncedFun;
+  return debouncedFun;
 };

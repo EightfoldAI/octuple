@@ -3,10 +3,10 @@ import type { ColumnProps } from './Column';
 import type { ColumnType } from './OcTable.types';
 
 export interface ColumnGroupProps<RecordType>
-    extends Omit<ColumnType<RecordType>, 'children'> {
-    children:
-        | ReactElement<ColumnProps<RecordType>>
-        | readonly ReactElement<ColumnProps<RecordType>>[];
+  extends Omit<ColumnType<RecordType>, 'children'> {
+  children:
+    | ReactElement<ColumnProps<RecordType>>
+    | readonly ReactElement<ColumnProps<RecordType>>[];
 }
 
 /**
@@ -15,7 +15,7 @@ export interface ColumnGroupProps<RecordType>
  */
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 function ColumnGroup<RecordType>(_: ColumnGroupProps<RecordType>): any {
-    return null;
+  return null;
 }
 
 export default ColumnGroup;

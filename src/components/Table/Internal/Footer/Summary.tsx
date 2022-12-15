@@ -7,7 +7,7 @@ import Row from './Row';
  * Syntactic sugar. Does not support HOC.
  */
 function Summary({ children }: SummaryProps) {
-    return children as React.ReactElement;
+  return children as React.ReactElement;
 }
 
 Summary.Row = Row;

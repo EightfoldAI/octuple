@@ -1,137 +1,137 @@
 .field-label {
+  padding-bottom: $space-xxxs;
+
+  &.large {
+    padding-bottom: $space-xs;
+  }
+
+  &.medium {
     padding-bottom: $space-xxxs;
+  }
+
+  &.small {
+    padding-bottom: $space-xxxs;
+  }
+
+  .text-style {
+    color: var(--text-primary-color);
+    font-family: $octuple-font-family;
 
     &.large {
-        padding-bottom: $space-xs;
+      font-size: $text-font-size-5;
+      font-weight: $text-font-weight-semibold;
+      line-height: $text-line-height-3;
     }
 
     &.medium {
-        padding-bottom: $space-xxxs;
+      font-size: $text-font-size-3;
+      font-weight: $text-font-weight-semibold;
+      line-height: $text-line-height-2;
     }
 
     &.small {
-        padding-bottom: $space-xxxs;
+      font-size: $text-font-size-2;
+      font-weight: $text-font-weight-semibold;
+      line-height: $text-line-height-1;
     }
+  }
 
-    .text-style {
-        color: var(--text-primary-color);
-        font-family: $octuple-font-family;
+  &.inline {
+    display: inline-block;
+    flex-grow: 0;
+    padding-bottom: 0;
+  }
 
-        &.large {
-            font-size: $text-font-size-5;
-            font-weight: $text-font-weight-semibold;
-            line-height: $text-line-height-3;
-        }
+  &.large.inline {
+    margin-right: $space-l;
+    padding-top: $space-s;
+  }
 
-        &.medium {
-            font-size: $text-font-size-3;
-            font-weight: $text-font-weight-semibold;
-            line-height: $text-line-height-2;
-        }
+  &.medium.inline {
+    margin-right: $space-m;
+    padding-top: $space-xs;
+  }
 
-        &.small {
-            font-size: $text-font-size-2;
-            font-weight: $text-font-weight-semibold;
-            line-height: $text-line-height-1;
-        }
-    }
-
-    &.inline {
-        display: inline-block;
-        flex-grow: 0;
-        padding-bottom: 0;
-    }
-
-    &.large.inline {
-        margin-right: $space-l;
-        padding-top: $space-s;
-    }
-
-    &.medium.inline {
-        margin-right: $space-m;
-        padding-top: $space-xs;
-    }
-
-    &.small.inline {
-        margin-right: $space-s;
-        padding-top: $space-xxs;
-    }
+  &.small.inline {
+    margin-right: $space-s;
+    padding-top: $space-xxs;
+  }
 }
 
 .field-label-icon-button {
-    display: inline-block;
+  display: inline-block;
+  margin-left: 4px;
+  position: relative;
+  top: 2px;
+  vertical-align: top;
+
+  &.large {
+    margin-left: 8px;
+    top: 4px;
+  }
+
+  &.medium {
     margin-left: 4px;
-    position: relative;
     top: 2px;
-    vertical-align: top;
+  }
 
-    &.large {
-        margin-left: 8px;
-        top: 4px;
-    }
+  &.small {
+    margin-left: 4px;
+    top: 2px;
+  }
 
-    &.medium {
-        margin-left: 4px;
-        top: 2px;
-    }
-
-    &.small {
-        margin-left: 4px;
-        top: 2px;
-    }
-
-    .label-icon-button {
-        box-sizing: border-box;
-        border-width: 1px;
-    }
+  .label-icon-button {
+    box-sizing: border-box;
+    border-width: 1px;
+  }
 }
 
 .field-label-rtl {
-    &.large.inline {
-        margin-left: $space-l;
-        margin-right: unset;
+  &.large.inline {
+    margin-left: $space-l;
+    margin-right: unset;
+  }
+
+  &.medium.inline {
+    margin-left: $space-m;
+    margin-right: unset;
+  }
+
+  &.small.inline {
+    margin-left: $space-s;
+    margin-right: unset;
+  }
+
+  .field-label-icon-button {
+    margin-left: unset;
+    margin-right: 4px;
+
+    &.large {
+      margin-left: unset;
+      margin-right: 8px;
     }
 
-    &.medium.inline {
-        margin-left: $space-m;
-        margin-right: unset;
+    &.medium {
+      margin-left: unset;
+      margin-right: 4px;
     }
 
-    &.small.inline {
-        margin-left: $space-s;
-        margin-right: unset;
+    &.small {
+      margin-left: unset;
+      margin-right: 4px;
     }
-
-    .field-label-icon-button {
-        margin-left: unset;
-        margin-right: 4px;
-
-        &.large {
-            margin-left: unset;
-            margin-right: 8px;
-        }
-
-        &.medium {
-            margin-left: unset;
-            margin-right: 4px;
-        }
-
-        &.small {
-            margin-left: unset;
-            margin-right: 4px;
-        }
-    }
+  }
 }
 
 :global(.focus-visible) {
-    .field-label-icon-button {
-        .label-icon-button {
-            &:focus-visible {
-                background-color: transparent;
-                outline: 2px solid var(--primary-color-40);
-                outline-offset: -2px;
-                padding: 0;
-            }
-        }
+  .field-label-icon-button {
+    .label-icon-button {
+      &:focus-visible {
+        background-color: transparent;
+        outline: 2px solid var(--primary-color-40);
+        outline-offset: -2px;
+        padding: 0;
+      }
     }
+  }
 }

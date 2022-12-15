@@ -1,1641 +1,1640 @@
 @import '../DatePicker/Styles/mixins';
 
 .picker {
-    border: $picker-border;
-    border-radius: $picker-border-radius;
-    display: inline-flex;
+  border: $picker-border;
+  border-radius: $picker-border-radius;
+  display: inline-flex;
+  font-family: $octuple-font-family;
+
+  // Picker default styles are of size medium.
+  &-body {
+    padding: $space-xs $space-m $space-xs $space-m;
+  }
+
+  &-large &-body {
+    padding: $space-xs $space-m $space-m $space-m;
+  }
+
+  &-medium &-body {
+    padding: $space-xs $space-m $space-xs $space-m;
+  }
+
+  &-small &-body {
+    padding: $space-xxs $space-m $space-xs $space-m;
+  }
+
+  &-content {
+    width: 100%;
+    text-align: center;
+    border-collapse: separate;
+    border-spacing: 0;
+
+    thead {
+      tr {
+        th {
+          color: $picker-header-cell-foreground-color;
+          font-weight: $text-font-weight-semibold;
+        }
+      }
+    }
+  }
+
+  &-large &-content {
+    thead {
+      tr {
+        th {
+          font-size: $picker-font-size-l;
+        }
+      }
+    }
+  }
+
+  &-medium &-content {
+    thead {
+      tr {
+        th {
+          font-size: $picker-font-size-m;
+        }
+      }
+    }
+  }
+
+  &-small &-content {
+    thead {
+      tr {
+        th {
+          font-size: $picker-font-size-s;
+        }
+      }
+    }
+  }
+
+  &:hover:not(.picker-disabled):not(.picker-underline):not(.picker-borderless) {
+    border-color: var(--grey-color-60);
+  }
+
+  &-focused:not(.picker-disabled):not(.picker-underline):not(.picker-borderless) {
+    border-color: $focus-visible-shadow-color;
+  }
+
+  &-disabled {
+    @include disabled();
+  }
+
+  &-borderless {
+    border-color: transparent;
+    box-shadow: none;
+    outline: none;
+  }
+
+  &-partial {
+    display: inline-block;
+    vertical-align: top;
+    background: $picker-background-color;
+    border-radius: $border-radius-m;
+    box-shadow: $picker-box-shadow;
+
+    &-focused {
+      border-color: $focus-visible-shadow-color;
+    }
+  }
+
+  &-decade-partial,
+  &-year-partial,
+  &-quarter-partial,
+  &-month-partial,
+  &-week-partial,
+  &-date-partial,
+  &-time-partial {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &-header {
+    border-bottom: 1px solid var(--grey-color-20);
+    display: flex;
+    margin: 0 $space-m $space-m $space-m;
+    padding: $space-m 0 $space-s 0;
+
+    > * {
+      flex: none;
+    }
+
+    &-view {
+      flex: auto;
+      flex-shrink: 0;
+      height: 28px;
+      text-align: center;
+
+      &:not(button) {
+        line-height: 28px;
+      }
+    }
+  }
+
+  &-large &-header {
+    margin: 0 $space-m $space-m $space-m;
+    padding: $space-m 0 $space-s 0;
+  }
+
+  &-medium &-header {
+    margin: 0 $space-m $space-m $space-m;
+    padding: $space-m 0 $space-s 0;
+  }
+
+  &-small &-header {
+    margin: 0 $space-m $space-xs $space-m;
+    padding: $space-xs 0 $space-xs 0;
+  }
+
+  &-cell {
+    background: $picker-cell-background-color;
+    border-bottom: $picker-cell-border;
+    border-top: $picker-cell-border;
+    color: $picker-cell-foreground-color;
+    height: $picker-cell-height-m;
+    opacity: $disabled-alpha-value;
+    width: $picker-cell-width-m;
+
+    &-disabled > &-inner {
+      @include disabled();
+    }
+
+    &-inner {
+      display: inline-block;
+      box-sizing: border-box;
+      height: $picker-cell-height-m;
+      margin: 0;
+      padding: 0;
+      font-family: $octuple-font-family;
+      font-size: $picker-font-size-m;
+      font-weight: $text-font-weight-regular;
+      line-height: $picker-cell-height-m;
+      border-radius: 50%;
+      outline: none;
+      cursor: pointer;
+      text-align: center;
+      transition: background $motion-duration-extra-fast,
+        border $motion-duration-extra-fast;
+      width: $picker-cell-width-m;
+
+      &:hover {
+        background: $picker-cell-background-color-hover;
+        color: $picker-cell-foreground-color-hover;
+      }
+    }
+
+    &-in-view,
+    &-week {
+      opacity: 1;
+    }
+
+    &-in-range {
+      background: $picker-cell-background-color-active;
+      color: $picker-cell-foreground-color-active;
+    }
+
+    &-range-hover {
+      background: $picker-cell-background-color-active;
+      color: $picker-cell-foreground-color-hover;
+    }
+
+    &-range-hover-start {
+      background: $picker-cell-range-start-background-color-hover;
+
+      &.picker-cell-inner {
+        &:hover {
+          background: $picker-cell-range-start-background-color-hover;
+          color: $picker-cell-foreground-color-hover;
+        }
+      }
+    }
+
+    &-range-hover-end {
+      background: $picker-cell-range-end-background-color-hover;
+      color: $picker-cell-foreground-color-hover;
+
+      &.picker-cell-inner {
+        &:hover {
+          background: $picker-cell-range-start-background-color-hover;
+          color: $picker-cell-foreground-color-hover;
+        }
+      }
+    }
+
+    &-today > &-inner {
+      background: $picker-cell-today-background-color;
+      color: $picker-cell-today-foreground-color;
+      outline: 1px solid $picker-cell-today-background-color;
+    }
+
+    &-selected > &-inner {
+      background: $picker-cell-selected-background-color-active;
+      color: $picker-cell-foreground-color-active;
+    }
+
+    &-range-start {
+      background: $picker-cell-range-start-background-color-active;
+      color: $picker-cell-foreground-color-active;
+    }
+
+    &-range-end {
+      background: $picker-cell-range-end-background-color-active;
+      color: $picker-cell-foreground-color-active;
+    }
+
+    &-range-start:not(&-range-hover),
+    &-range-hover-start {
+      border-bottom-left-radius: $picker-cell-border-radius-m;
+      border-top-left-radius: $picker-cell-border-radius-m;
+    }
+
+    &-range-end:not(&-range-hover),
+    &-range-hover-end {
+      border-bottom-right-radius: $picker-cell-border-radius-m;
+      border-top-right-radius: $picker-cell-border-radius-m;
+    }
+  }
+
+  &-large &-cell {
+    height: $picker-cell-height-l;
+    width: $picker-cell-width-l;
+
+    &-inner {
+      height: $picker-cell-height-l;
+      font-size: $picker-font-size-l;
+      line-height: $picker-cell-height-l;
+      width: $picker-cell-width-l;
+    }
+
+    &-range-start:not(&-range-hover),
+    &-range-hover-start {
+      border-bottom-left-radius: $picker-cell-border-radius-l;
+      border-top-left-radius: $picker-cell-border-radius-l;
+    }
+    &-range-end:not(&-range-hover),
+    &-range-hover-end {
+      border-bottom-right-radius: $picker-cell-border-radius-l;
+      border-top-right-radius: $picker-cell-border-radius-l;
+    }
+  }
+
+  &-medium &-cell {
+    height: $picker-cell-height-m;
+    width: $picker-cell-width-m;
+
+    &-inner {
+      height: $picker-cell-height-m;
+      font-size: $picker-font-size-m;
+      line-height: $picker-cell-height-m;
+      width: $picker-cell-width-m;
+    }
+
+    &-range-start:not(&-range-hover),
+    &-range-hover-start {
+      border-bottom-left-radius: $picker-cell-border-radius-m;
+      border-top-left-radius: $picker-cell-border-radius-m;
+    }
+    &-range-end:not(&-range-hover),
+    &-range-hover-end {
+      border-bottom-right-radius: $picker-cell-border-radius-m;
+      border-top-right-radius: $picker-cell-border-radius-m;
+    }
+  }
+
+  &-small &-cell {
+    height: $picker-cell-height-s;
+    width: $picker-cell-width-s;
+
+    &-inner {
+      height: $picker-cell-height-s;
+      font-size: $picker-font-size-s;
+      line-height: $picker-cell-height-s;
+      width: $picker-cell-width-s;
+    }
+
+    &-range-start:not(&-range-hover),
+    &-range-hover-start {
+      border-bottom-left-radius: $picker-cell-border-radius-s;
+      border-top-left-radius: $picker-cell-border-radius-s;
+    }
+    &-range-end:not(&-range-hover),
+    &-range-hover-end {
+      border-bottom-right-radius: $picker-cell-border-radius-s;
+      border-top-right-radius: $picker-cell-border-radius-s;
+    }
+  }
+
+  &-decade-partial,
+  &-year-partial,
+  &-month-partial,
+  &-time-partial {
+    .picker-cell {
+      &-inner {
+        border-radius: $picker-cell-border-radius-m;
+        font-family: $octuple-font-family;
+      }
+    }
+  }
+
+  &-large &-decade-partial,
+  &-large &-year-partial,
+  &-large &-month-partial,
+  &-large &-time-partial {
+    .picker-cell {
+      &-inner {
+        border-radius: $picker-cell-border-radius-l;
+      }
+    }
+  }
+
+  &-medium &-decade-partial,
+  &-medium &-year-partial,
+  &-medium &-month-partial,
+  &-medium &-time-partial {
+    .picker-cell {
+      &-inner {
+        border-radius: $picker-cell-border-radius-m;
+      }
+    }
+  }
+
+  &-small &-decade-partial,
+  &-small &-year-partial,
+  &-small &-month-partial,
+  &-small &-time-partial {
+    .picker-cell {
+      &-inner {
+        border-radius: $picker-cell-border-radius-s;
+      }
+    }
+  }
+
+  &-large &-decade-partial {
+    .picker-cell-inner {
+      width: 120px;
+    }
+  }
+
+  &-medium &-decade-partial {
+    .picker-cell-inner {
+      width: 96px;
+    }
+  }
+
+  &-small &-decade-partial {
+    .picker-cell-inner {
+      width: 88px;
+    }
+  }
+
+  &-decade-partial,
+  &-year-partial,
+  &-quarter-partial,
+  &-month-partial {
+    .picker-body {
+      padding: $space-m;
+    }
+
+    .picker-header {
+      margin: 0 $space-m;
+      padding: $space-m 0 $space-s 0;
+    }
+  }
+
+  &-time-partial {
+    .picker-header {
+      margin: 0;
+      padding: 0 0 $space-s 0;
+
+      &-view {
+        color: $picker-foreground-color;
+        font-size: $picker-font-size-m;
+        height: $picker-header-height-m;
+        padding: 10px 14px;
+      }
+    }
+  }
+
+  &-large &-time-partial {
+    .picker-header {
+      &-view {
+        font-size: $picker-font-size-l;
+        height: $picker-header-height-l;
+        padding: 10px 14px;
+      }
+    }
+  }
+
+  &-medium &-time-partial {
+    .picker-header {
+      padding: 0 0 $space-s 0;
+
+      &-view {
+        font-size: $picker-font-size-m;
+        height: $picker-header-height-m;
+        padding: $space-xxs 14px;
+      }
+    }
+  }
+
+  &-small &-time-partial {
+    .picker-header {
+      padding: 0 0 $space-xs 0;
+
+      &-view {
+        font-size: $picker-font-size-s;
+        height: $picker-header-height-s;
+        padding: $space-xxxs 14px;
+      }
+    }
+  }
+
+  &-footer {
+    border-top: $picker-border;
+    display: flex;
     font-family: $octuple-font-family;
+    justify-content: center;
+    padding: $space-m;
+  }
 
-    // Picker default styles are of size medium.
-    &-body {
-        padding: $space-xs $space-m $space-xs $space-m;
+  &-large &-footer {
+    padding: $space-m;
+  }
+
+  &-medium &-footer {
+    padding: $space-m;
+  }
+
+  &-small &-footer {
+    padding: $space-s;
+  }
+
+  &-footer-extra {
+    border-top: $picker-border;
+    font-family: $octuple-font-family;
+    padding: $space-m;
+  }
+
+  &-ranges {
+    display: unset;
+    justify-content: unset;
+    list-style: none;
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+    width: 100%;
+
+    li {
+      display: inline-block;
     }
+  }
 
-    &-large &-body {
-        padding: $space-xs $space-m $space-m $space-m;
+  &-preset {
+    margin-right: $space-m;
+  }
+
+  &-ok {
+    float: right;
+  }
+
+  &-year-partial,
+  &-month-partial {
+    .picker-cell-inner {
+      width: 56px;
     }
+  }
 
-    &-medium &-body {
-        padding: $space-xs $space-m $space-xs $space-m;
-    }
-
-    &-small &-body {
-        padding: $space-xxs $space-m $space-xs $space-m;
-    }
-
-    &-content {
-        width: 100%;
-        text-align: center;
-        border-collapse: separate;
-        border-spacing: 0;
-
-        thead {
-            tr {
-                th {
-                    color: $picker-header-cell-foreground-color;
-                    font-weight: $text-font-weight-semibold;
-                }
-            }
-        }
-    }
-
-    &-large &-content {
-        thead {
-            tr {
-                th {
-                    font-size: $picker-font-size-l;
-                }
-            }
-        }
-    }
-
-    &-medium &-content {
-        thead {
-            tr {
-                th {
-                    font-size: $picker-font-size-m;
-                }
-            }
-        }
-    }
-
-    &-small &-content {
-        thead {
-            tr {
-                th {
-                    font-size: $picker-font-size-s;
-                }
-            }
-        }
-    }
-
-    &:hover:not(.picker-disabled):not(.picker-underline):not(.picker-borderless) {
-        border-color: var(--grey-color-60);
-    }
-
-    &-focused:not(.picker-disabled):not(.picker-underline):not(.picker-borderless) {
-        border-color: $focus-visible-shadow-color;
-    }
-
-    &-disabled {
-        @include disabled();
-    }
-
-    &-borderless {
-        border-color: transparent;
-        box-shadow: none;
-        outline: none;
-    }
-
-    &-partial {
-        display: inline-block;
-        vertical-align: top;
-        background: $picker-background-color;
-        border-radius: $border-radius-m;
-        box-shadow: $picker-box-shadow;
-
-        &-focused {
-            border-color: $focus-visible-shadow-color;
-        }
-    }
-
-    &-decade-partial,
-    &-year-partial,
-    &-quarter-partial,
-    &-month-partial,
-    &-week-partial,
-    &-date-partial,
-    &-time-partial {
-        display: flex;
-        flex-direction: column;
-    }
-
-    &-header {
-        border-bottom: 1px solid var(--grey-color-20);
-        display: flex;
-        margin: 0 $space-m $space-m $space-m;
-        padding: $space-m 0 $space-s 0;
-
-        > * {
-            flex: none;
+  &-week-partial {
+    &-row {
+      &:hover,
+      &:has(.picker-cell-range-start),
+      &:has(.picker-cell-range-end) {
+        .picker-cell {
+          background: $picker-cell-background-color-hover;
+          color: $picker-cell-foreground-color-hover;
         }
 
-        &-view {
-            flex: auto;
-            flex-shrink: 0;
-            height: 28px;
-            text-align: center;
-
-            &:not(button) {
-                line-height: 28px;
-            }
+        .picker-cell:first-of-type {
+          border-bottom-left-radius: $picker-cell-border-radius-m;
+          border-top-left-radius: $picker-cell-border-radius-m;
         }
+
+        .picker-cell:last-of-type {
+          border-bottom-right-radius: $picker-cell-border-radius-m;
+          border-top-right-radius: $picker-cell-border-radius-m;
+        }
+
+        .picker-cell:not(:first-of-type) {
+          border-bottom-left-radius: 0;
+          border-top-left-radius: 0;
+        }
+
+        .picker-cell:not(:last-of-type) {
+          border-bottom-right-radius: 0;
+          border-top-right-radius: 0;
+        }
+      }
+
+      &:has(.picker-cell-range-start) {
+        .picker-cell:last-of-type {
+          border-bottom-right-radius: 0;
+          border-top-right-radius: 0;
+        }
+      }
+
+      &:has(.picker-cell-range-end) {
+        .picker-cell:first-of-type {
+          border-bottom-left-radius: 0;
+          border-top-left-radius: 0;
+        }
+      }
+
+      &-selected {
+        .picker-cell {
+          background: $picker-cell-background-color-active;
+          color: $picker-cell-foreground-color-active;
+        }
+
+        .picker-cell:first-of-type {
+          border-bottom-left-radius: $picker-cell-border-radius-m;
+          border-top-left-radius: $picker-cell-border-radius-m;
+        }
+
+        .picker-cell:last-of-type {
+          border-bottom-right-radius: $picker-cell-border-radius-m;
+          border-top-right-radius: $picker-cell-border-radius-m;
+        }
+
+        .picker-cell:not(:first-of-type) {
+          border-bottom-left-radius: 0;
+          border-top-left-radius: 0;
+        }
+
+        .picker-cell:not(:last-of-type) {
+          border-bottom-right-radius: 0;
+          border-top-right-radius: 0;
+        }
+      }
     }
 
-    &-large &-header {
-        margin: 0 $space-m $space-m $space-m;
-        padding: $space-m 0 $space-s 0;
+    .picker-cell-week {
+      color: $picker-foreground-color;
+      font-weight: $text-font-weight-regular;
+      font-size: $picker-font-size-m;
     }
 
-    &-medium &-header {
-        margin: 0 $space-m $space-m $space-m;
-        padding: $space-m 0 $space-s 0;
+    .picker-cell:hover > .picker-cell-inner,
+    .picker-cell-selected > .picker-cell-inner {
+      background: transparent;
+    }
+  }
+
+  &-large &-week-partial {
+    &-row {
+      &:hover,
+      &:has(.picker-cell-range-start),
+      &:has(.picker-cell-range-end) {
+        .picker-cell:first-of-type {
+          border-bottom-left-radius: $picker-cell-border-radius-l;
+          border-top-left-radius: $picker-cell-border-radius-l;
+        }
+
+        .picker-cell:last-of-type {
+          border-bottom-right-radius: $picker-cell-border-radius-l;
+          border-top-right-radius: $picker-cell-border-radius-l;
+        }
+
+        .picker-cell:not(:first-of-type) {
+          border-bottom-left-radius: 0;
+          border-top-left-radius: 0;
+        }
+
+        .picker-cell:not(:last-of-type) {
+          border-bottom-right-radius: 0;
+          border-top-right-radius: 0;
+        }
+      }
+
+      &:has(.picker-cell-range-start) {
+        .picker-cell:last-of-type {
+          border-bottom-right-radius: 0;
+          border-top-right-radius: 0;
+        }
+      }
+
+      &:has(.picker-cell-range-end) {
+        .picker-cell:first-of-type {
+          border-bottom-left-radius: 0;
+          border-top-left-radius: 0;
+        }
+      }
+
+      &-selected {
+        .picker-cell:first-of-type {
+          border-bottom-left-radius: $picker-cell-border-radius-l;
+          border-top-left-radius: $picker-cell-border-radius-l;
+        }
+
+        .picker-cell:last-of-type {
+          border-bottom-right-radius: $picker-cell-border-radius-l;
+          border-top-right-radius: $picker-cell-border-radius-l;
+        }
+
+        .picker-cell:not(:first-of-type) {
+          border-bottom-left-radius: 0;
+          border-top-left-radius: 0;
+        }
+
+        .picker-cell:not(:last-of-type) {
+          border-bottom-right-radius: 0;
+          border-top-right-radius: 0;
+        }
+      }
     }
 
-    &-small &-header {
-        margin: 0 $space-m $space-xs $space-m;
-        padding: $space-xs 0 $space-xs 0;
+    .picker-cell-week {
+      font-size: $picker-font-size-l;
+    }
+  }
+
+  &-medium &-week-partial {
+    &-row {
+      &:hover,
+      &:has(.picker-cell-range-start),
+      &:has(.picker-cell-range-end) {
+        .picker-cell:first-of-type {
+          border-bottom-left-radius: $picker-cell-border-radius-m;
+          border-top-left-radius: $picker-cell-border-radius-m;
+        }
+
+        .picker-cell:last-of-type {
+          border-bottom-right-radius: $picker-cell-border-radius-m;
+          border-top-right-radius: $picker-cell-border-radius-m;
+        }
+
+        .picker-cell:not(:first-of-type) {
+          border-bottom-left-radius: 0;
+          border-top-left-radius: 0;
+        }
+
+        .picker-cell:not(:last-of-type) {
+          border-bottom-right-radius: 0;
+          border-top-right-radius: 0;
+        }
+      }
+
+      &:has(.picker-cell-range-start) {
+        .picker-cell:last-of-type {
+          border-bottom-right-radius: 0;
+          border-top-right-radius: 0;
+        }
+      }
+
+      &:has(.picker-cell-range-end) {
+        .picker-cell:first-of-type {
+          border-bottom-left-radius: 0;
+          border-top-left-radius: 0;
+        }
+      }
+
+      &-selected {
+        .picker-cell:first-of-type {
+          border-bottom-left-radius: $picker-cell-border-radius-m;
+          border-top-left-radius: $picker-cell-border-radius-m;
+        }
+
+        .picker-cell:last-of-type {
+          border-bottom-right-radius: $picker-cell-border-radius-m;
+          border-top-right-radius: $picker-cell-border-radius-m;
+        }
+
+        .picker-cell:not(:first-of-type) {
+          border-bottom-left-radius: 0;
+          border-top-left-radius: 0;
+        }
+
+        .picker-cell:not(:last-of-type) {
+          border-bottom-right-radius: 0;
+          border-top-right-radius: 0;
+        }
+      }
+    }
+
+    .picker-cell-week {
+      font-size: $picker-font-size-m;
+    }
+  }
+
+  &-small &-week-partial {
+    &-row {
+      &:hover,
+      &:has(.picker-cell-range-start),
+      &:has(.picker-cell-range-end) {
+        .picker-cell:first-of-type {
+          border-bottom-left-radius: $picker-cell-border-radius-s;
+          border-top-left-radius: $picker-cell-border-radius-s;
+        }
+
+        .picker-cell:last-of-type {
+          border-bottom-right-radius: $picker-cell-border-radius-s;
+          border-top-right-radius: $picker-cell-border-radius-s;
+        }
+
+        .picker-cell:not(:first-of-type) {
+          border-bottom-left-radius: 0;
+          border-top-left-radius: 0;
+        }
+
+        .picker-cell:not(:last-of-type) {
+          border-bottom-right-radius: 0;
+          border-top-right-radius: 0;
+        }
+      }
+
+      &:has(.picker-cell-range-start) {
+        .picker-cell:last-of-type {
+          border-bottom-right-radius: 0;
+          border-top-right-radius: 0;
+        }
+      }
+
+      &:has(.picker-cell-range-end) {
+        .picker-cell:first-of-type {
+          border-bottom-left-radius: 0;
+          border-top-left-radius: 0;
+        }
+      }
+
+      &-selected {
+        .picker-cell:first-of-type {
+          border-bottom-left-radius: $picker-cell-border-radius-s;
+          border-top-left-radius: $picker-cell-border-radius-s;
+        }
+
+        .picker-cell:last-of-type {
+          border-bottom-right-radius: $picker-cell-border-radius-s;
+          border-top-right-radius: $picker-cell-border-radius-s;
+        }
+
+        .picker-cell:not(:first-of-type) {
+          border-bottom-left-radius: 0;
+          border-top-left-radius: 0;
+        }
+
+        .picker-cell:not(:last-of-type) {
+          border-bottom-right-radius: 0;
+          border-top-right-radius: 0;
+        }
+      }
+    }
+
+    .picker-cell-week {
+      font-size: $picker-font-size-s;
+    }
+  }
+
+  &-time-partial {
+    margin: $space-m 0 0;
+    padding: 0 $space-m;
+    width: auto;
+
+    .picker-content {
+      display: flex;
+      max-height: 360px;
     }
 
     &-cell {
-        background: $picker-cell-background-color;
-        border-bottom: $picker-cell-border;
-        border-top: $picker-cell-border;
+      &-inner {
         color: $picker-cell-foreground-color;
-        height: $picker-cell-height-m;
-        opacity: $disabled-alpha-value;
-        width: $picker-cell-width-m;
-
-        &-disabled > &-inner {
-            @include disabled();
-        }
-
-        &-inner {
-            display: inline-block;
-            box-sizing: border-box;
-            height: $picker-cell-height-m;
-            margin: 0;
-            padding: 0;
-            font-family: $octuple-font-family;
-            font-size: $picker-font-size-m;
-            font-weight: $text-font-weight-regular;
-            line-height: $picker-cell-height-m;
-            border-radius: 50%;
-            outline: none;
-            cursor: pointer;
-            text-align: center;
-            transition: background $motion-duration-extra-fast,
-                border $motion-duration-extra-fast;
-            width: $picker-cell-width-m;
-
-            &:hover {
-                background: $picker-cell-background-color-hover;
-                color: $picker-cell-foreground-color-hover;
-            }
-        }
-
-        &-in-view,
-        &-week {
-            opacity: 1;
-        }
-
-        &-in-range {
-            background: $picker-cell-background-color-active;
-            color: $picker-cell-foreground-color-active;
-        }
-
-        &-range-hover {
-            background: $picker-cell-background-color-active;
-            color: $picker-cell-foreground-color-hover;
-        }
-
-        &-range-hover-start {
-            background: $picker-cell-range-start-background-color-hover;
-
-            &.picker-cell-inner {
-                &:hover {
-                    background: $picker-cell-range-start-background-color-hover;
-                    color: $picker-cell-foreground-color-hover;
-                }
-            }
-        }
-
-        &-range-hover-end {
-            background: $picker-cell-range-end-background-color-hover;
-            color: $picker-cell-foreground-color-hover;
-
-            &.picker-cell-inner {
-                &:hover {
-                    background: $picker-cell-range-start-background-color-hover;
-                    color: $picker-cell-foreground-color-hover;
-                }
-            }
-        }
-
-        &-today > &-inner {
-            background: $picker-cell-today-background-color;
-            color: $picker-cell-today-foreground-color;
-            outline: 1px solid $picker-cell-today-background-color;
-        }
-
-        &-selected > &-inner {
-            background: $picker-cell-selected-background-color-active;
-            color: $picker-cell-foreground-color-active;
-        }
-
-        &-range-start {
-            background: $picker-cell-range-start-background-color-active;
-            color: $picker-cell-foreground-color-active;
-        }
-
-        &-range-end {
-            background: $picker-cell-range-end-background-color-active;
-            color: $picker-cell-foreground-color-active;
-        }
-
-        &-range-start:not(&-range-hover),
-        &-range-hover-start {
-            border-bottom-left-radius: $picker-cell-border-radius-m;
-            border-top-left-radius: $picker-cell-border-radius-m;
-        }
-
-        &-range-end:not(&-range-hover),
-        &-range-hover-end {
-            border-bottom-right-radius: $picker-cell-border-radius-m;
-            border-top-right-radius: $picker-cell-border-radius-m;
-        }
-    }
-
-    &-large &-cell {
-        height: $picker-cell-height-l;
-        width: $picker-cell-width-l;
-
-        &-inner {
-            height: $picker-cell-height-l;
-            font-size: $picker-font-size-l;
-            line-height: $picker-cell-height-l;
-            width: $picker-cell-width-l;
-        }
-
-        &-range-start:not(&-range-hover),
-        &-range-hover-start {
-            border-bottom-left-radius: $picker-cell-border-radius-l;
-            border-top-left-radius: $picker-cell-border-radius-l;
-        }
-        &-range-end:not(&-range-hover),
-        &-range-hover-end {
-            border-bottom-right-radius: $picker-cell-border-radius-l;
-            border-top-right-radius: $picker-cell-border-radius-l;
-        }
-    }
-
-    &-medium &-cell {
-        height: $picker-cell-height-m;
-        width: $picker-cell-width-m;
-
-        &-inner {
-            height: $picker-cell-height-m;
-            font-size: $picker-font-size-m;
-            line-height: $picker-cell-height-m;
-            width: $picker-cell-width-m;
-        }
-
-        &-range-start:not(&-range-hover),
-        &-range-hover-start {
-            border-bottom-left-radius: $picker-cell-border-radius-m;
-            border-top-left-radius: $picker-cell-border-radius-m;
-        }
-        &-range-end:not(&-range-hover),
-        &-range-hover-end {
-            border-bottom-right-radius: $picker-cell-border-radius-m;
-            border-top-right-radius: $picker-cell-border-radius-m;
-        }
-    }
-
-    &-small &-cell {
-        height: $picker-cell-height-s;
-        width: $picker-cell-width-s;
-
-        &-inner {
-            height: $picker-cell-height-s;
-            font-size: $picker-font-size-s;
-            line-height: $picker-cell-height-s;
-            width: $picker-cell-width-s;
-        }
-
-        &-range-start:not(&-range-hover),
-        &-range-hover-start {
-            border-bottom-left-radius: $picker-cell-border-radius-s;
-            border-top-left-radius: $picker-cell-border-radius-s;
-        }
-        &-range-end:not(&-range-hover),
-        &-range-hover-end {
-            border-bottom-right-radius: $picker-cell-border-radius-s;
-            border-top-right-radius: $picker-cell-border-radius-s;
-        }
-    }
-
-    &-decade-partial,
-    &-year-partial,
-    &-month-partial,
-    &-time-partial {
-        .picker-cell {
-            &-inner {
-                border-radius: $picker-cell-border-radius-m;
-                font-family: $octuple-font-family;
-            }
-        }
-    }
-
-    &-large &-decade-partial,
-    &-large &-year-partial,
-    &-large &-month-partial,
-    &-large &-time-partial {
-        .picker-cell {
-            &-inner {
-                border-radius: $picker-cell-border-radius-l;
-            }
-        }
-    }
-
-    &-medium &-decade-partial,
-    &-medium &-year-partial,
-    &-medium &-month-partial,
-    &-medium &-time-partial {
-        .picker-cell {
-            &-inner {
-                border-radius: $picker-cell-border-radius-m;
-            }
-        }
-    }
-
-    &-small &-decade-partial,
-    &-small &-year-partial,
-    &-small &-month-partial,
-    &-small &-time-partial {
-        .picker-cell {
-            &-inner {
-                border-radius: $picker-cell-border-radius-s;
-            }
-        }
-    }
-
-    &-large &-decade-partial {
-        .picker-cell-inner {
-            width: 120px;
-        }
-    }
-
-    &-medium &-decade-partial {
-        .picker-cell-inner {
-            width: 96px;
-        }
-    }
-
-    &-small &-decade-partial {
-        .picker-cell-inner {
-            width: 88px;
-        }
-    }
-
-    &-decade-partial,
-    &-year-partial,
-    &-quarter-partial,
-    &-month-partial {
-        .picker-body {
-            padding: $space-m;
-        }
-
-        .picker-header {
-            margin: 0 $space-m;
-            padding: $space-m 0 $space-s 0;
-        }
-    }
-
-    &-time-partial {
-        .picker-header {
-            margin: 0;
-            padding: 0 0 $space-s 0;
-
-            &-view {
-                color: $picker-foreground-color;
-                font-size: $picker-font-size-m;
-                height: $picker-header-height-m;
-                padding: 10px 14px;
-            }
-        }
-    }
-
-    &-large &-time-partial {
-        .picker-header {
-            &-view {
-                font-size: $picker-font-size-l;
-                height: $picker-header-height-l;
-                padding: 10px 14px;
-            }
-        }
-    }
-
-    &-medium &-time-partial {
-        .picker-header {
-            padding: 0 0 $space-s 0;
-
-            &-view {
-                font-size: $picker-font-size-m;
-                height: $picker-header-height-m;
-                padding: $space-xxs 14px;
-            }
-        }
-    }
-
-    &-small &-time-partial {
-        .picker-header {
-            padding: 0 0 $space-xs 0;
-
-            &-view {
-                font-size: $picker-font-size-s;
-                height: $picker-header-height-s;
-                padding: $space-xxxs 14px;
-            }
-        }
-    }
-
-    &-footer {
-        border-top: $picker-border;
-        display: flex;
         font-family: $octuple-font-family;
-        justify-content: center;
-        padding: $space-m;
-    }
-
-    &-large &-footer {
-        padding: $space-m;
-    }
-
-    &-medium &-footer {
-        padding: $space-m;
-    }
-
-    &-small &-footer {
-        padding: $space-s;
-    }
-
-    &-footer-extra {
-        border-top: $picker-border;
-        font-family: $octuple-font-family;
-        padding: $space-m;
-    }
-
-    &-ranges {
-        display: unset;
-        justify-content: unset;
-        list-style: none;
+        font-weight: $text-font-weight-regular;
+        height: $picker-cell-height-m;
+        line-height: $picker-cell-height-m;
         margin: 0;
-        overflow: hidden;
+        text-align: center;
+        width: $picker-cell-width-m;
+      }
+
+      &-selected > &-inner {
+        background: $picker-cell-selected-background-color-active;
+        border-radius: $picker-cell-border-radius-m;
+        color: $picker-cell-foreground-color-active;
+      }
+
+      &-disabled {
+        opacity: $disabled-alpha-value;
+      }
+    }
+
+    &-column {
+      @include scroll-bars();
+
+      background: $picker-column-background-color;
+      flex: none;
+      width: 60px;
+      margin: 0;
+      padding: $space-xs 0;
+      overflow-x: hidden;
+      overflow-y: hidden;
+      font-size: $picker-font-size-m;
+      text-align: left;
+      list-style: none;
+      transition: background $motion-duration-extra-fast;
+
+      &-active {
+        background: $picker-column-background-color-active;
+        color: $picker-column-foreground-color-active;
+      }
+
+      &:hover {
+        overflow-y: auto;
+      }
+
+      li {
+        cursor: pointer;
+        margin: 0;
         padding: 0;
-        width: 100%;
+      }
+    }
+  }
 
-        li {
-            display: inline-block;
-        }
+  &-large &-time-partial {
+    margin: $space-m 0 0;
+    padding: 0 $space-m;
+
+    .picker-content {
+      max-height: 360px;
     }
 
-    &-preset {
-        margin-right: $space-m;
+    &-column {
+      width: 60px;
+      padding: $space-xs 0;
+      font-size: $picker-font-size-l;
     }
 
-    &-ok {
-        float: right;
+    &-cell {
+      &-inner {
+        width: $picker-cell-width-l;
+        height: $picker-cell-height-l;
+        line-height: $picker-cell-height-l;
+      }
+
+      &-selected > &-inner {
+        border-radius: $picker-cell-border-radius-l;
+      }
+    }
+  }
+
+  &-medium &-time-partial {
+    margin: $space-m 0 0;
+    padding: 0 $space-m;
+
+    .picker-content {
+      max-height: 300px;
     }
 
-    &-year-partial,
-    &-month-partial {
-        .picker-cell-inner {
-            width: 56px;
-        }
+    &-column {
+      width: 60px;
+      padding: $space-xs 0;
+      font-size: $picker-font-size-m;
     }
 
-    &-week-partial {
-        &-row {
-            &:hover,
-            &:has(.picker-cell-range-start),
-            &:has(.picker-cell-range-end) {
-                .picker-cell {
-                    background: $picker-cell-background-color-hover;
-                    color: $picker-cell-foreground-color-hover;
-                }
+    &-cell {
+      &-inner {
+        width: $picker-cell-width-m;
+        height: $picker-cell-height-m;
+        line-height: $picker-cell-height-m;
+      }
 
-                .picker-cell:first-of-type {
-                    border-bottom-left-radius: $picker-cell-border-radius-m;
-                    border-top-left-radius: $picker-cell-border-radius-m;
-                }
+      &-selected > &-inner {
+        border-radius: $picker-cell-border-radius-m;
+      }
+    }
+  }
 
-                .picker-cell:last-of-type {
-                    border-bottom-right-radius: $picker-cell-border-radius-m;
-                    border-top-right-radius: $picker-cell-border-radius-m;
-                }
+  &-small &-time-partial {
+    margin: $space-xs 0 0;
+    padding: 0 $space-m;
 
-                .picker-cell:not(:first-of-type) {
-                    border-bottom-left-radius: 0;
-                    border-top-left-radius: 0;
-                }
-
-                .picker-cell:not(:last-of-type) {
-                    border-bottom-right-radius: 0;
-                    border-top-right-radius: 0;
-                }
-            }
-
-            &:has(.picker-cell-range-start) {
-                .picker-cell:last-of-type {
-                    border-bottom-right-radius: 0;
-                    border-top-right-radius: 0;
-                }
-            }
-
-            &:has(.picker-cell-range-end) {
-                .picker-cell:first-of-type {
-                    border-bottom-left-radius: 0;
-                    border-top-left-radius: 0;
-                }
-            }
-
-            &-selected {
-                .picker-cell {
-                    background: $picker-cell-background-color-active;
-                    color: $picker-cell-foreground-color-active;
-                }
-
-                .picker-cell:first-of-type {
-                    border-bottom-left-radius: $picker-cell-border-radius-m;
-                    border-top-left-radius: $picker-cell-border-radius-m;
-                }
-
-                .picker-cell:last-of-type {
-                    border-bottom-right-radius: $picker-cell-border-radius-m;
-                    border-top-right-radius: $picker-cell-border-radius-m;
-                }
-
-                .picker-cell:not(:first-of-type) {
-                    border-bottom-left-radius: 0;
-                    border-top-left-radius: 0;
-                }
-
-                .picker-cell:not(:last-of-type) {
-                    border-bottom-right-radius: 0;
-                    border-top-right-radius: 0;
-                }
-            }
-        }
-
-        .picker-cell-week {
-            color: $picker-foreground-color;
-            font-weight: $text-font-weight-regular;
-            font-size: $picker-font-size-m;
-        }
-
-        .picker-cell:hover > .picker-cell-inner,
-        .picker-cell-selected > .picker-cell-inner {
-            background: transparent;
-        }
+    .picker-content {
+      max-height: 240px;
     }
 
-    &-large &-week-partial {
-        &-row {
-            &:hover,
-            &:has(.picker-cell-range-start),
-            &:has(.picker-cell-range-end) {
-                .picker-cell:first-of-type {
-                    border-bottom-left-radius: $picker-cell-border-radius-l;
-                    border-top-left-radius: $picker-cell-border-radius-l;
-                }
-
-                .picker-cell:last-of-type {
-                    border-bottom-right-radius: $picker-cell-border-radius-l;
-                    border-top-right-radius: $picker-cell-border-radius-l;
-                }
-
-                .picker-cell:not(:first-of-type) {
-                    border-bottom-left-radius: 0;
-                    border-top-left-radius: 0;
-                }
-
-                .picker-cell:not(:last-of-type) {
-                    border-bottom-right-radius: 0;
-                    border-top-right-radius: 0;
-                }
-            }
-
-            &:has(.picker-cell-range-start) {
-                .picker-cell:last-of-type {
-                    border-bottom-right-radius: 0;
-                    border-top-right-radius: 0;
-                }
-            }
-
-            &:has(.picker-cell-range-end) {
-                .picker-cell:first-of-type {
-                    border-bottom-left-radius: 0;
-                    border-top-left-radius: 0;
-                }
-            }
-
-            &-selected {
-                .picker-cell:first-of-type {
-                    border-bottom-left-radius: $picker-cell-border-radius-l;
-                    border-top-left-radius: $picker-cell-border-radius-l;
-                }
-
-                .picker-cell:last-of-type {
-                    border-bottom-right-radius: $picker-cell-border-radius-l;
-                    border-top-right-radius: $picker-cell-border-radius-l;
-                }
-
-                .picker-cell:not(:first-of-type) {
-                    border-bottom-left-radius: 0;
-                    border-top-left-radius: 0;
-                }
-
-                .picker-cell:not(:last-of-type) {
-                    border-bottom-right-radius: 0;
-                    border-top-right-radius: 0;
-                }
-            }
-        }
-
-        .picker-cell-week {
-            font-size: $picker-font-size-l;
-        }
+    &-column {
+      width: 44px;
+      padding: $space-xs 0;
+      font-size: $picker-font-size-s;
     }
 
-    &-medium &-week-partial {
-        &-row {
-            &:hover,
-            &:has(.picker-cell-range-start),
-            &:has(.picker-cell-range-end) {
-                .picker-cell:first-of-type {
-                    border-bottom-left-radius: $picker-cell-border-radius-m;
-                    border-top-left-radius: $picker-cell-border-radius-m;
-                }
+    &-cell {
+      &-inner {
+        width: $picker-cell-width-s;
+        height: $picker-cell-height-s;
+        line-height: $picker-cell-height-s;
+      }
 
-                .picker-cell:last-of-type {
-                    border-bottom-right-radius: $picker-cell-border-radius-m;
-                    border-top-right-radius: $picker-cell-border-radius-m;
-                }
+      &-selected > &-inner {
+        border-radius: $picker-cell-border-radius-s;
+      }
+    }
+  }
 
-                .picker-cell:not(:first-of-type) {
-                    border-bottom-left-radius: 0;
-                    border-top-left-radius: 0;
-                }
+  &-datetime-partial {
+    display: flex;
 
-                .picker-cell:not(:last-of-type) {
-                    border-bottom-right-radius: 0;
-                    border-top-right-radius: 0;
-                }
-            }
-
-            &:has(.picker-cell-range-start) {
-                .picker-cell:last-of-type {
-                    border-bottom-right-radius: 0;
-                    border-top-right-radius: 0;
-                }
-            }
-
-            &:has(.picker-cell-range-end) {
-                .picker-cell:first-of-type {
-                    border-bottom-left-radius: 0;
-                    border-top-left-radius: 0;
-                }
-            }
-
-            &-selected {
-                .picker-cell:first-of-type {
-                    border-bottom-left-radius: $picker-cell-border-radius-m;
-                    border-top-left-radius: $picker-cell-border-radius-m;
-                }
-
-                .picker-cell:last-of-type {
-                    border-bottom-right-radius: $picker-cell-border-radius-m;
-                    border-top-right-radius: $picker-cell-border-radius-m;
-                }
-
-                .picker-cell:not(:first-of-type) {
-                    border-bottom-left-radius: 0;
-                    border-top-left-radius: 0;
-                }
-
-                .picker-cell:not(:last-of-type) {
-                    border-bottom-right-radius: 0;
-                    border-top-right-radius: 0;
-                }
-            }
-        }
-
-        .picker-cell-week {
-            font-size: $picker-font-size-m;
-        }
+    .picker-time-partial {
+      border-left: $picker-border;
     }
 
-    &-small &-week-partial {
-        &-row {
-            &:hover,
-            &:has(.picker-cell-range-start),
-            &:has(.picker-cell-range-end) {
-                .picker-cell:first-of-type {
-                    border-bottom-left-radius: $picker-cell-border-radius-s;
-                    border-top-left-radius: $picker-cell-border-radius-s;
-                }
-
-                .picker-cell:last-of-type {
-                    border-bottom-right-radius: $picker-cell-border-radius-s;
-                    border-top-right-radius: $picker-cell-border-radius-s;
-                }
-
-                .picker-cell:not(:first-of-type) {
-                    border-bottom-left-radius: 0;
-                    border-top-left-radius: 0;
-                }
-
-                .picker-cell:not(:last-of-type) {
-                    border-bottom-right-radius: 0;
-                    border-top-right-radius: 0;
-                }
-            }
-
-            &:has(.picker-cell-range-start) {
-                .picker-cell:last-of-type {
-                    border-bottom-right-radius: 0;
-                    border-top-right-radius: 0;
-                }
-            }
-
-            &:has(.picker-cell-range-end) {
-                .picker-cell:first-of-type {
-                    border-bottom-left-radius: 0;
-                    border-top-left-radius: 0;
-                }
-            }
-
-            &-selected {
-                .picker-cell:first-of-type {
-                    border-bottom-left-radius: $picker-cell-border-radius-s;
-                    border-top-left-radius: $picker-cell-border-radius-s;
-                }
-
-                .picker-cell:last-of-type {
-                    border-bottom-right-radius: $picker-cell-border-radius-s;
-                    border-top-right-radius: $picker-cell-border-radius-s;
-                }
-
-                .picker-cell:not(:first-of-type) {
-                    border-bottom-left-radius: 0;
-                    border-top-left-radius: 0;
-                }
-
-                .picker-cell:not(:last-of-type) {
-                    border-bottom-right-radius: 0;
-                    border-top-right-radius: 0;
-                }
-            }
-        }
-
-        .picker-cell-week {
-            font-size: $picker-font-size-s;
-        }
+    .picker-date-partial,
+    .picker-time-partial {
+      transition: opacity $motion-duration-extra-fast;
     }
 
-    &-time-partial {
-        margin: $space-m 0 0;
-        padding: 0 $space-m;
-        width: auto;
-
-        .picker-content {
-            display: flex;
-            max-height: 360px;
-        }
-
-        &-cell {
-            &-inner {
-                color: $picker-cell-foreground-color;
-                font-family: $octuple-font-family;
-                font-weight: $text-font-weight-regular;
-                height: $picker-cell-height-m;
-                line-height: $picker-cell-height-m;
-                margin: 0;
-                text-align: center;
-                width: $picker-cell-width-m;
-            }
-
-            &-selected > &-inner {
-                background: $picker-cell-selected-background-color-active;
-                border-radius: $picker-cell-border-radius-m;
-                color: $picker-cell-foreground-color-active;
-            }
-
-            &-disabled {
-                opacity: $disabled-alpha-value;
-            }
-        }
-
-        &-column {
-            @include scroll-bars();
-
-            background: $picker-column-background-color;
-            flex: none;
-            width: 60px;
-            margin: 0;
-            padding: $space-xs 0;
-            overflow-x: hidden;
-            overflow-y: hidden;
-            font-size: $picker-font-size-m;
-            text-align: left;
-            list-style: none;
-            transition: background $motion-duration-extra-fast;
-
-            &-active {
-                background: $picker-column-background-color-active;
-                color: $picker-column-foreground-color-active;
-            }
-
-            &:hover {
-                overflow-y: auto;
-            }
-
-            li {
-                cursor: pointer;
-                margin: 0;
-                padding: 0;
-            }
-        }
-    }
-
-    &-large &-time-partial {
-        margin: $space-m 0 0;
-        padding: 0 $space-m;
-
-        .picker-content {
-            max-height: 360px;
-        }
-
-        &-column {
-            width: 60px;
-            padding: $space-xs 0;
-            font-size: $picker-font-size-l;
-        }
-
-        &-cell {
-            &-inner {
-                width: $picker-cell-width-l;
-                height: $picker-cell-height-l;
-                line-height: $picker-cell-height-l;
-            }
-
-            &-selected > &-inner {
-                border-radius: $picker-cell-border-radius-l;
-            }
-        }
-    }
-
-    &-medium &-time-partial {
-        margin: $space-m 0 0;
-        padding: 0 $space-m;
-
-        .picker-content {
-            max-height: 300px;
-        }
-
-        &-column {
-            width: 60px;
-            padding: $space-xs 0;
-            font-size: $picker-font-size-m;
-        }
-
-        &-cell {
-            &-inner {
-                width: $picker-cell-width-m;
-                height: $picker-cell-height-m;
-                line-height: $picker-cell-height-m;
-            }
-
-            &-selected > &-inner {
-                border-radius: $picker-cell-border-radius-m;
-            }
-        }
-    }
-
-    &-small &-time-partial {
-        margin: $space-xs 0 0;
-        padding: 0 $space-m;
-
-        .picker-content {
-            max-height: 240px;
-        }
-
-        &-column {
-            width: 44px;
-            padding: $space-xs 0;
-            font-size: $picker-font-size-s;
-        }
-
-        &-cell {
-            &-inner {
-                width: $picker-cell-width-s;
-                height: $picker-cell-height-s;
-                line-height: $picker-cell-height-s;
-            }
-
-            &-selected > &-inner {
-                border-radius: $picker-cell-border-radius-s;
-            }
-        }
-    }
-
-    &-datetime-partial {
-        display: flex;
-
-        .picker-time-partial {
-            border-left: $picker-border;
-        }
-
-        .picker-date-partial,
-        .picker-time-partial {
-            transition: opacity $motion-duration-extra-fast;
-        }
+    &-active {
+      .picker-date-partial,
+      .picker-time-partial {
+        opacity: 0.3;
 
         &-active {
-            .picker-date-partial,
-            .picker-time-partial {
-                opacity: 0.3;
-
-                &-active {
-                    opacity: 1;
-                }
-            }
+          opacity: 1;
         }
+      }
+    }
+  }
+
+  &-input {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    width: 100%;
+
+    input {
+      @include placeholder();
+
+      background-color: transparent;
+      background-image: none;
+      border: none;
+      box-sizing: border-box;
+      color: $picker-input-foreground-color;
+      display: inline-block;
+      font-family: $octuple-font-family;
+      font-size: $picker-font-size-m;
+      height: $picker-input-height-m;
+      line-height: $picker-line-height-m;
+      min-width: fit-content;
+      padding: $space-xs calc(#{$space-xxl} + #{$space-xs}) $space-xs $space-xs;
+      position: relative;
+      width: 100%;
+
+      &-disabled,
+      &[disabled] {
+        cursor: not-allowed;
+      }
     }
 
-    &-input {
-        position: relative;
-        display: inline-flex;
-        align-items: center;
-        width: 100%;
+    &:hover {
+      .picker-clear {
+        opacity: 1;
+      }
+    }
 
-        input {
-            @include placeholder();
+    &-placeholder {
+      input {
+        color: $picker-input-placeholder-color;
 
-            background-color: transparent;
-            background-image: none;
-            border: none;
-            box-sizing: border-box;
-            color: $picker-input-foreground-color;
-            display: inline-block;
-            font-family: $octuple-font-family;
-            font-size: $picker-font-size-m;
-            height: $picker-input-height-m;
-            line-height: $picker-line-height-m;
-            min-width: fit-content;
-            padding: $space-xs calc(#{$space-xxl} + #{$space-xs}) $space-xs
-                $space-xs;
-            position: relative;
-            width: 100%;
-
-            &-disabled,
-            &[disabled] {
-                cursor: not-allowed;
-            }
+        &-disabled,
+        &[disabled] {
+          @include placeholder($picker-input-foreground-color);
         }
-
-        &:hover {
-            .picker-clear {
-                opacity: 1;
-            }
-        }
-
-        &-placeholder {
-            input {
-                color: $picker-input-placeholder-color;
-
-                &-disabled,
-                &[disabled] {
-                    @include placeholder($picker-input-foreground-color);
-                }
-            }
-        }
+      }
     }
+  }
 
-    &-underline {
-        .picker-input {
-            &:before {
-                border-bottom: 1px solid var(--border-color);
-                left: 0;
-                bottom: 0;
-                content: '';
-                position: absolute;
-                right: 0;
-                transition: border-bottom-color $motion-duration-extra-fast
-                    $motion-easing-easeinout;
-                pointer-events: none;
-            }
-
-            &:after {
-                border-bottom: 1px solid var(--primary-color-60);
-                left: 0;
-                bottom: 0;
-                content: '';
-                position: absolute;
-                right: 0;
-                transform: scaleX(0);
-                transition: transform $motion-duration-extra-fast
-                    $motion-easing-easeinout;
-                pointer-events: none;
-            }
-
-            &:hover {
-                &:before {
-                    border-color: var(--grey-color-60);
-                }
-            }
-
-            &:focus-within {
-                &:after {
-                    transform: scaleX(1) translateX(0px);
-                }
-            }
-        }
-    }
-
-    &-disabled {
-        &.picker-underline {
-            .picker-input {
-                &:after {
-                    border-bottom: 1px solid var(--border-color);
-                    left: 0;
-                    bottom: 0;
-                    content: '';
-                    position: absolute;
-                    right: 0;
-                    transition: border-bottom-color $motion-duration-extra-fast
-                        $motion-easing-easeinout;
-                    pointer-events: none;
-                }
-
-                &:hover {
-                    &:before {
-                        border-color: var(--border-color);
-                    }
-                }
-            }
-        }
-    }
-
-    &-status-error &-input {
-        input {
-            color: var(--disruptive-color-80);
-        }
-    }
-
-    &-suffix {
-        display: flex;
-        flex: none;
-        align-self: center;
-        line-height: 1;
-        pointer-events: none;
-
-        > * {
-            vertical-align: top;
-
-            &:not(:last-child) {
-                margin-right: $space-xs;
-            }
-        }
-    }
-
-    &-small &-suffix {
-        margin: 0 calc($space-xxs / 2);
-    }
-
-    &-medium &-suffix {
-        margin: 0 calc($space-m / 2);
-    }
-
-    &-large &-suffix {
-        margin: 0 calc($space-l / 2);
-    }
-
-    &-clear {
+  &-underline {
+    .picker-input {
+      &:before {
+        border-bottom: 1px solid var(--border-color);
+        left: 0;
+        bottom: 0;
+        content: '';
         position: absolute;
         right: 0;
-        color: $picker-input-clear-icon-color;
-        line-height: 1;
-        background: $picker-input-background-color;
-        cursor: pointer;
-        opacity: 0;
-        top: 50%;
-        transform: translateY(-50%);
-        transition: opacity $motion-duration-extra-fast,
-            color $motion-duration-extra-fast;
+        transition: border-bottom-color $motion-duration-extra-fast
+          $motion-easing-easeinout;
+        pointer-events: none;
+      }
 
-        > * {
-            vertical-align: top;
+      &:after {
+        border-bottom: 1px solid var(--primary-color-60);
+        left: 0;
+        bottom: 0;
+        content: '';
+        position: absolute;
+        right: 0;
+        transform: scaleX(0);
+        transition: transform $motion-duration-extra-fast
+          $motion-easing-easeinout;
+        pointer-events: none;
+      }
+
+      &:hover {
+        &:before {
+          border-color: var(--grey-color-60);
         }
+      }
 
-        &-btn:after {
-            content: '×';
+      &:focus-within {
+        &:after {
+          transform: scaleX(1) translateX(0px);
+        }
+      }
+    }
+  }
+
+  &-disabled {
+    &.picker-underline {
+      .picker-input {
+        &:after {
+          border-bottom: 1px solid var(--border-color);
+          left: 0;
+          bottom: 0;
+          content: '';
+          position: absolute;
+          right: 0;
+          transition: border-bottom-color $motion-duration-extra-fast
+            $motion-easing-easeinout;
+          pointer-events: none;
         }
 
         &:hover {
-            color: $picker-input-clear-icon-color-active;
+          &:before {
+            border-color: var(--border-color);
+          }
         }
+      }
+    }
+  }
+
+  &-status-error &-input {
+    input {
+      color: var(--disruptive-color-80);
+    }
+  }
+
+  &-suffix {
+    display: flex;
+    flex: none;
+    align-self: center;
+    line-height: 1;
+    pointer-events: none;
+
+    > * {
+      vertical-align: top;
+
+      &:not(:last-child) {
+        margin-right: $space-xs;
+      }
+    }
+  }
+
+  &-small &-suffix {
+    margin: 0 calc($space-xxs / 2);
+  }
+
+  &-medium &-suffix {
+    margin: 0 calc($space-m / 2);
+  }
+
+  &-large &-suffix {
+    margin: 0 calc($space-l / 2);
+  }
+
+  &-clear {
+    position: absolute;
+    right: 0;
+    color: $picker-input-clear-icon-color;
+    line-height: 1;
+    background: $picker-input-background-color;
+    cursor: pointer;
+    opacity: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: opacity $motion-duration-extra-fast,
+      color $motion-duration-extra-fast;
+
+    > * {
+      vertical-align: top;
     }
 
-    &-range {
-        position: relative;
-        display: inline-flex;
-
-        .picker-clear {
-            right: $space-xs;
-        }
-
-        &:hover {
-            .picker-clear {
-                opacity: 1;
-            }
-        }
-
-        &-wrapper {
-            display: flex;
-        }
-
-        .picker-active-bar {
-            bottom: 0;
-            height: $space-xxxs;
-            background: $picker-input-active-bar-color;
-            border: 1px solid transparent;
-            border-radius: $border-radius-xs;
-            opacity: 0;
-            transition: all $motion-duration-extra-fast;
-            pointer-events: none;
-        }
-
-        &.picker-focused {
-            .picker-active-bar {
-                opacity: 1;
-            }
-        }
+    &-btn:after {
+      content: '×';
     }
 
-    &-underline {
-        &.picker-range {
-            .picker-input {
-                &:before {
-                    right: -$space-ml;
-                }
+    &:hover {
+      color: $picker-input-clear-icon-color-active;
+    }
+  }
 
-                &:after {
-                    right: -$space-ml;
-                }
-            }
-        }
+  &-range {
+    position: relative;
+    display: inline-flex;
+
+    .picker-clear {
+      right: $space-xs;
     }
 
-    &-large &-range {
-        .picker-clear {
-            right: $space-s;
-            transform: translateY(-$space-s);
-        }
+    &:hover {
+      .picker-clear {
+        opacity: 1;
+      }
     }
 
-    &-partial-container {
-        overflow: hidden;
-        vertical-align: top;
-        background: $picker-background-color;
-        border-radius: $picker-border-radius;
-        box-shadow: $picker-box-shadow;
-        transition: margin $motion-duration-extra-fast;
-
-        .picker-partials {
-            display: inline-flex;
-            flex-wrap: nowrap;
-            direction: ltr;
-        }
-
-        .picker-partial {
-            vertical-align: top;
-            background: transparent;
-            border-width: 0 0 $picker-border-width 0;
-            border-radius: 0;
-            box-shadow: none;
-
-            .picker-content,
-            table {
-                text-align: center;
-            }
-
-            &-focused {
-                border-color: $picker-border-color;
-            }
-        }
+    &-wrapper {
+      display: flex;
     }
 
-    &-rtl {
-        direction: rtl;
-
-        .picker-clear {
-            left: 0;
-            right: unset;
-        }
-
-        &.picker-range {
-            .picker-clear {
-                left: $picker-input-padding-horizontal-l;
-                right: unset;
-            }
-        }
+    .picker-active-bar {
+      bottom: 0;
+      height: $space-xxxs;
+      background: $picker-input-active-bar-color;
+      border: 1px solid transparent;
+      border-radius: $border-radius-xs;
+      opacity: 0;
+      transition: all $motion-duration-extra-fast;
+      pointer-events: none;
     }
 
-    &-partial-rtl {
-        direction: rtl;
-
-        .picker-datetime-partial {
-            .picker-time-partial {
-                border-left: none;
-                border-right: $picker-border;
-            }
-        }
-
-        .picker-ok {
-            float: left;
-        }
-
-        .picker-cell {
-            height: $picker-cell-height-m;
-            width: $picker-cell-width-m;
-
-            &-inner {
-                height: $picker-cell-height-m;
-                width: $picker-cell-width-m;
-            }
-
-            &-range-start:not(&-range-hover),
-            &-range-hover-start {
-                border-bottom-left-radius: 0;
-                border-top-left-radius: 0;
-                border-bottom-right-radius: $picker-cell-border-radius-m;
-                border-top-right-radius: $picker-cell-border-radius-m;
-            }
-
-            &-range-end:not(&-range-hover),
-            &-range-hover-end {
-                border-bottom-left-radius: $picker-cell-border-radius-m;
-                border-top-left-radius: $picker-cell-border-radius-m;
-                border-bottom-right-radius: 0;
-                border-top-right-radius: 0;
-            }
-        }
-
-        &.picker-large .picker-cell {
-            height: $picker-cell-height-l;
-            width: $picker-cell-width-l;
-
-            &-inner {
-                height: $picker-cell-height-l;
-                width: $picker-cell-width-l;
-            }
-
-            &-range-start:not(&-range-hover),
-            &-range-hover-start {
-                border-bottom-left-radius: 0;
-                border-top-left-radius: 0;
-                border-bottom-right-radius: $picker-cell-border-radius-l;
-                border-top-right-radius: $picker-cell-border-radius-l;
-            }
-            &-range-end:not(&-range-hover),
-            &-range-hover-end {
-                border-bottom-left-radius: $picker-cell-border-radius-l;
-                border-top-left-radius: $picker-cell-border-radius-l;
-                border-bottom-right-radius: 0;
-                border-top-right-radius: 0;
-            }
-        }
-
-        &.picker-medium .picker-cell {
-            height: $picker-cell-height-m;
-            width: $picker-cell-width-m;
-
-            &-inner {
-                height: $picker-cell-height-m;
-                width: $picker-cell-width-m;
-            }
-
-            &-range-start:not(&-range-hover),
-            &-range-hover-start {
-                border-bottom-left-radius: 0;
-                border-top-left-radius: 0;
-                border-bottom-right-radius: $picker-cell-border-radius-m;
-                border-top-right-radius: $picker-cell-border-radius-m;
-            }
-            &-range-end:not(&-range-hover),
-            &-range-hover-end {
-                border-bottom-left-radius: $picker-cell-border-radius-m;
-                border-top-left-radius: $picker-cell-border-radius-m;
-                border-bottom-right-radius: 0;
-                border-top-right-radius: 0;
-            }
-        }
-
-        &.picker-small .picker-cell {
-            height: $picker-cell-height-s;
-            width: $picker-cell-width-s;
-
-            &-inner {
-                height: $picker-cell-height-s;
-                width: $picker-cell-width-s;
-            }
-
-            &-range-start:not(&-range-hover),
-            &-range-hover-start {
-                border-bottom-left-radius: 0;
-                border-top-left-radius: 0;
-                border-bottom-right-radius: $picker-cell-border-radius-s;
-                border-top-right-radius: $picker-cell-border-radius-s;
-            }
-            &-range-end:not(&-range-hover),
-            &-range-hover-end {
-                border-bottom-left-radius: $picker-cell-border-radius-s;
-                border-top-left-radius: $picker-cell-border-radius-s;
-                border-bottom-right-radius: 0;
-                border-top-right-radius: 0;
-            }
-        }
-
-        .picker-week-partial {
-            &-row {
-                &:hover,
-                &:has(.picker-cell-range-start),
-                &:has(.picker-cell-range-end) {
-                    .picker-cell:not(:first-of-type):not(:last-of-type) {
-                        border-bottom-left-radius: 0;
-                        border-top-left-radius: 0;
-                        border-bottom-right-radius: 0;
-                        border-top-right-radius: 0;
-                    }
-
-                    .picker-cell:first-of-type {
-                        border-bottom-left-radius: 0;
-                        border-top-left-radius: 0;
-                        border-bottom-right-radius: $picker-cell-border-radius-m;
-                        border-top-right-radius: $picker-cell-border-radius-m;
-                    }
-
-                    .picker-cell:last-of-type {
-                        border-bottom-left-radius: $picker-cell-border-radius-m;
-                        border-top-left-radius: $picker-cell-border-radius-m;
-                        border-bottom-right-radius: 0;
-                        border-top-right-radius: 0;
-                    }
-                }
-
-                &:has(.picker-cell-range-start) {
-                    .picker-cell:last-of-type {
-                        border-bottom-left-radius: 0;
-                        border-top-left-radius: 0;
-                    }
-                }
-
-                &:has(.picker-cell-range-end) {
-                    .picker-cell:first-of-type {
-                        border-bottom-right-radius: 0;
-                        border-top-right-radius: 0;
-                    }
-                }
-
-                &-selected {
-                    .picker-cell:not(:first-of-type):not(:last-of-type) {
-                        border-bottom-left-radius: 0;
-                        border-top-left-radius: 0;
-                        border-bottom-right-radius: 0;
-                        border-top-right-radius: 0;
-                    }
-
-                    .picker-cell:first-of-type {
-                        border-bottom-left-radius: 0;
-                        border-top-left-radius: 0;
-                        border-bottom-right-radius: $picker-cell-border-radius-m;
-                        border-top-right-radius: $picker-cell-border-radius-m;
-                    }
-
-                    .picker-cell:last-of-type {
-                        border-bottom-left-radius: $picker-cell-border-radius-m;
-                        border-top-left-radius: $picker-cell-border-radius-m;
-                        border-bottom-right-radius: 0;
-                        border-top-right-radius: 0;
-                    }
-                }
-            }
-        }
-
-        &.picker-large .picker-week-partial {
-            &-row {
-                &:hover,
-                &:has(.picker-cell-range-start),
-                &:has(.picker-cell-range-end) {
-                    .picker-cell:not(:first-of-type):not(:last-of-type) {
-                        border-bottom-left-radius: 0;
-                        border-top-left-radius: 0;
-                        border-bottom-right-radius: 0;
-                        border-top-right-radius: 0;
-                    }
-
-                    .picker-cell:first-of-type {
-                        border-bottom-left-radius: 0;
-                        border-top-left-radius: 0;
-                        border-bottom-right-radius: $picker-cell-border-radius-l;
-                        border-top-right-radius: $picker-cell-border-radius-l;
-                    }
-
-                    .picker-cell:last-of-type {
-                        border-bottom-left-radius: $picker-cell-border-radius-l;
-                        border-top-left-radius: $picker-cell-border-radius-l;
-                        border-bottom-right-radius: 0;
-                        border-top-right-radius: 0;
-                    }
-                }
-
-                &:has(.picker-cell-range-start) {
-                    .picker-cell:last-of-type {
-                        border-bottom-left-radius: 0;
-                        border-top-left-radius: 0;
-                    }
-                }
-
-                &:has(.picker-cell-range-end) {
-                    .picker-cell:first-of-type {
-                        border-bottom-right-radius: 0;
-                        border-top-right-radius: 0;
-                    }
-                }
-
-                &-selected {
-                    .picker-cell:not(:first-of-type):not(:last-of-type) {
-                        border-bottom-left-radius: 0;
-                        border-top-left-radius: 0;
-                        border-bottom-right-radius: 0;
-                        border-top-right-radius: 0;
-                    }
-
-                    .picker-cell:first-of-type {
-                        border-bottom-left-radius: 0;
-                        border-top-left-radius: 0;
-                        border-bottom-right-radius: $picker-cell-border-radius-l;
-                        border-top-right-radius: $picker-cell-border-radius-l;
-                    }
-
-                    .picker-cell:last-of-type {
-                        border-bottom-left-radius: $picker-cell-border-radius-l;
-                        border-top-left-radius: $picker-cell-border-radius-l;
-                        border-bottom-right-radius: 0;
-                        border-top-right-radius: 0;
-                    }
-                }
-            }
-        }
-
-        &.picker-medium .picker-week-partial {
-            &-row {
-                &:hover,
-                &:has(.picker-cell-range-start),
-                &:has(.picker-cell-range-end) {
-                    .picker-cell:not(:first-of-type):not(:last-of-type) {
-                        border-bottom-left-radius: 0;
-                        border-top-left-radius: 0;
-                        border-bottom-right-radius: 0;
-                        border-top-right-radius: 0;
-                    }
-
-                    .picker-cell:first-of-type {
-                        border-bottom-left-radius: 0;
-                        border-top-left-radius: 0;
-                        border-bottom-right-radius: $picker-cell-border-radius-m;
-                        border-top-right-radius: $picker-cell-border-radius-m;
-                    }
-
-                    .picker-cell:last-of-type {
-                        border-bottom-left-radius: $picker-cell-border-radius-m;
-                        border-top-left-radius: $picker-cell-border-radius-m;
-                        border-bottom-right-radius: 0;
-                        border-top-right-radius: 0;
-                    }
-                }
-
-                &:has(.picker-cell-range-start) {
-                    .picker-cell:last-of-type {
-                        border-bottom-left-radius: 0;
-                        border-top-left-radius: 0;
-                    }
-                }
-
-                &:has(.picker-cell-range-end) {
-                    .picker-cell:first-of-type {
-                        border-bottom-right-radius: 0;
-                        border-top-right-radius: 0;
-                    }
-                }
-
-                &-selected {
-                    .picker-cell:not(:first-of-type):not(:last-of-type) {
-                        border-bottom-left-radius: 0;
-                        border-top-left-radius: 0;
-                        border-bottom-right-radius: 0;
-                        border-top-right-radius: 0;
-                    }
-
-                    .picker-cell:first-of-type {
-                        border-bottom-left-radius: 0;
-                        border-top-left-radius: 0;
-                        border-bottom-right-radius: $picker-cell-border-radius-m;
-                        border-top-right-radius: $picker-cell-border-radius-m;
-                    }
-
-                    .picker-cell:last-of-type {
-                        border-bottom-left-radius: $picker-cell-border-radius-m;
-                        border-top-left-radius: $picker-cell-border-radius-m;
-                        border-bottom-right-radius: 0;
-                        border-top-right-radius: 0;
-                    }
-                }
-            }
-        }
-
-        &.picker-small .picker-week-partial {
-            &-row {
-                &:hover,
-                &:has(.picker-cell-range-start),
-                &:has(.picker-cell-range-end) {
-                    .picker-cell:not(:first-of-type):not(:last-of-type) {
-                        border-bottom-left-radius: 0;
-                        border-top-left-radius: 0;
-                        border-bottom-right-radius: 0;
-                        border-top-right-radius: 0;
-                    }
-
-                    .picker-cell:first-of-type {
-                        border-bottom-left-radius: 0;
-                        border-top-left-radius: 0;
-                        border-bottom-right-radius: $picker-cell-border-radius-s;
-                        border-top-right-radius: $picker-cell-border-radius-s;
-                    }
-
-                    .picker-cell:last-of-type {
-                        border-bottom-left-radius: $picker-cell-border-radius-s;
-                        border-top-left-radius: $picker-cell-border-radius-s;
-                        border-bottom-right-radius: 0;
-                        border-top-right-radius: 0;
-                    }
-                }
-
-                &:has(.picker-cell-range-start) {
-                    .picker-cell:last-of-type {
-                        border-bottom-left-radius: 0;
-                        border-top-left-radius: 0;
-                    }
-                }
-
-                &:has(.picker-cell-range-end) {
-                    .picker-cell:first-of-type {
-                        border-bottom-right-radius: 0;
-                        border-top-right-radius: 0;
-                    }
-                }
-
-                &-selected {
-                    .picker-cell:not(:first-of-type):not(:last-of-type) {
-                        border-bottom-left-radius: 0;
-                        border-top-left-radius: 0;
-                        border-bottom-right-radius: 0;
-                        border-top-right-radius: 0;
-                    }
-
-                    .picker-cell:first-of-type {
-                        border-bottom-left-radius: 0;
-                        border-top-left-radius: 0;
-                        border-bottom-right-radius: $picker-cell-border-radius-s;
-                        border-top-right-radius: $picker-cell-border-radius-s;
-                    }
-
-                    .picker-cell:last-of-type {
-                        border-bottom-left-radius: $picker-cell-border-radius-s;
-                        border-top-left-radius: $picker-cell-border-radius-s;
-                        border-bottom-right-radius: 0;
-                        border-top-right-radius: 0;
-                    }
-                }
-            }
-        }
+    &.picker-focused {
+      .picker-active-bar {
+        opacity: 1;
+      }
     }
+  }
+
+  &-underline {
+    &.picker-range {
+      .picker-input {
+        &:before {
+          right: -$space-ml;
+        }
+
+        &:after {
+          right: -$space-ml;
+        }
+      }
+    }
+  }
+
+  &-large &-range {
+    .picker-clear {
+      right: $space-s;
+      transform: translateY(-$space-s);
+    }
+  }
+
+  &-partial-container {
+    overflow: hidden;
+    vertical-align: top;
+    background: $picker-background-color;
+    border-radius: $picker-border-radius;
+    box-shadow: $picker-box-shadow;
+    transition: margin $motion-duration-extra-fast;
+
+    .picker-partials {
+      display: inline-flex;
+      flex-wrap: nowrap;
+      direction: ltr;
+    }
+
+    .picker-partial {
+      vertical-align: top;
+      background: transparent;
+      border-width: 0 0 $picker-border-width 0;
+      border-radius: 0;
+      box-shadow: none;
+
+      .picker-content,
+      table {
+        text-align: center;
+      }
+
+      &-focused {
+        border-color: $picker-border-color;
+      }
+    }
+  }
+
+  &-rtl {
+    direction: rtl;
+
+    .picker-clear {
+      left: 0;
+      right: unset;
+    }
+
+    &.picker-range {
+      .picker-clear {
+        left: $picker-input-padding-horizontal-l;
+        right: unset;
+      }
+    }
+  }
+
+  &-partial-rtl {
+    direction: rtl;
+
+    .picker-datetime-partial {
+      .picker-time-partial {
+        border-left: none;
+        border-right: $picker-border;
+      }
+    }
+
+    .picker-ok {
+      float: left;
+    }
+
+    .picker-cell {
+      height: $picker-cell-height-m;
+      width: $picker-cell-width-m;
+
+      &-inner {
+        height: $picker-cell-height-m;
+        width: $picker-cell-width-m;
+      }
+
+      &-range-start:not(&-range-hover),
+      &-range-hover-start {
+        border-bottom-left-radius: 0;
+        border-top-left-radius: 0;
+        border-bottom-right-radius: $picker-cell-border-radius-m;
+        border-top-right-radius: $picker-cell-border-radius-m;
+      }
+
+      &-range-end:not(&-range-hover),
+      &-range-hover-end {
+        border-bottom-left-radius: $picker-cell-border-radius-m;
+        border-top-left-radius: $picker-cell-border-radius-m;
+        border-bottom-right-radius: 0;
+        border-top-right-radius: 0;
+      }
+    }
+
+    &.picker-large .picker-cell {
+      height: $picker-cell-height-l;
+      width: $picker-cell-width-l;
+
+      &-inner {
+        height: $picker-cell-height-l;
+        width: $picker-cell-width-l;
+      }
+
+      &-range-start:not(&-range-hover),
+      &-range-hover-start {
+        border-bottom-left-radius: 0;
+        border-top-left-radius: 0;
+        border-bottom-right-radius: $picker-cell-border-radius-l;
+        border-top-right-radius: $picker-cell-border-radius-l;
+      }
+      &-range-end:not(&-range-hover),
+      &-range-hover-end {
+        border-bottom-left-radius: $picker-cell-border-radius-l;
+        border-top-left-radius: $picker-cell-border-radius-l;
+        border-bottom-right-radius: 0;
+        border-top-right-radius: 0;
+      }
+    }
+
+    &.picker-medium .picker-cell {
+      height: $picker-cell-height-m;
+      width: $picker-cell-width-m;
+
+      &-inner {
+        height: $picker-cell-height-m;
+        width: $picker-cell-width-m;
+      }
+
+      &-range-start:not(&-range-hover),
+      &-range-hover-start {
+        border-bottom-left-radius: 0;
+        border-top-left-radius: 0;
+        border-bottom-right-radius: $picker-cell-border-radius-m;
+        border-top-right-radius: $picker-cell-border-radius-m;
+      }
+      &-range-end:not(&-range-hover),
+      &-range-hover-end {
+        border-bottom-left-radius: $picker-cell-border-radius-m;
+        border-top-left-radius: $picker-cell-border-radius-m;
+        border-bottom-right-radius: 0;
+        border-top-right-radius: 0;
+      }
+    }
+
+    &.picker-small .picker-cell {
+      height: $picker-cell-height-s;
+      width: $picker-cell-width-s;
+
+      &-inner {
+        height: $picker-cell-height-s;
+        width: $picker-cell-width-s;
+      }
+
+      &-range-start:not(&-range-hover),
+      &-range-hover-start {
+        border-bottom-left-radius: 0;
+        border-top-left-radius: 0;
+        border-bottom-right-radius: $picker-cell-border-radius-s;
+        border-top-right-radius: $picker-cell-border-radius-s;
+      }
+      &-range-end:not(&-range-hover),
+      &-range-hover-end {
+        border-bottom-left-radius: $picker-cell-border-radius-s;
+        border-top-left-radius: $picker-cell-border-radius-s;
+        border-bottom-right-radius: 0;
+        border-top-right-radius: 0;
+      }
+    }
+
+    .picker-week-partial {
+      &-row {
+        &:hover,
+        &:has(.picker-cell-range-start),
+        &:has(.picker-cell-range-end) {
+          .picker-cell:not(:first-of-type):not(:last-of-type) {
+            border-bottom-left-radius: 0;
+            border-top-left-radius: 0;
+            border-bottom-right-radius: 0;
+            border-top-right-radius: 0;
+          }
+
+          .picker-cell:first-of-type {
+            border-bottom-left-radius: 0;
+            border-top-left-radius: 0;
+            border-bottom-right-radius: $picker-cell-border-radius-m;
+            border-top-right-radius: $picker-cell-border-radius-m;
+          }
+
+          .picker-cell:last-of-type {
+            border-bottom-left-radius: $picker-cell-border-radius-m;
+            border-top-left-radius: $picker-cell-border-radius-m;
+            border-bottom-right-radius: 0;
+            border-top-right-radius: 0;
+          }
+        }
+
+        &:has(.picker-cell-range-start) {
+          .picker-cell:last-of-type {
+            border-bottom-left-radius: 0;
+            border-top-left-radius: 0;
+          }
+        }
+
+        &:has(.picker-cell-range-end) {
+          .picker-cell:first-of-type {
+            border-bottom-right-radius: 0;
+            border-top-right-radius: 0;
+          }
+        }
+
+        &-selected {
+          .picker-cell:not(:first-of-type):not(:last-of-type) {
+            border-bottom-left-radius: 0;
+            border-top-left-radius: 0;
+            border-bottom-right-radius: 0;
+            border-top-right-radius: 0;
+          }
+
+          .picker-cell:first-of-type {
+            border-bottom-left-radius: 0;
+            border-top-left-radius: 0;
+            border-bottom-right-radius: $picker-cell-border-radius-m;
+            border-top-right-radius: $picker-cell-border-radius-m;
+          }
+
+          .picker-cell:last-of-type {
+            border-bottom-left-radius: $picker-cell-border-radius-m;
+            border-top-left-radius: $picker-cell-border-radius-m;
+            border-bottom-right-radius: 0;
+            border-top-right-radius: 0;
+          }
+        }
+      }
+    }
+
+    &.picker-large .picker-week-partial {
+      &-row {
+        &:hover,
+        &:has(.picker-cell-range-start),
+        &:has(.picker-cell-range-end) {
+          .picker-cell:not(:first-of-type):not(:last-of-type) {
+            border-bottom-left-radius: 0;
+            border-top-left-radius: 0;
+            border-bottom-right-radius: 0;
+            border-top-right-radius: 0;
+          }
+
+          .picker-cell:first-of-type {
+            border-bottom-left-radius: 0;
+            border-top-left-radius: 0;
+            border-bottom-right-radius: $picker-cell-border-radius-l;
+            border-top-right-radius: $picker-cell-border-radius-l;
+          }
+
+          .picker-cell:last-of-type {
+            border-bottom-left-radius: $picker-cell-border-radius-l;
+            border-top-left-radius: $picker-cell-border-radius-l;
+            border-bottom-right-radius: 0;
+            border-top-right-radius: 0;
+          }
+        }
+
+        &:has(.picker-cell-range-start) {
+          .picker-cell:last-of-type {
+            border-bottom-left-radius: 0;
+            border-top-left-radius: 0;
+          }
+        }
+
+        &:has(.picker-cell-range-end) {
+          .picker-cell:first-of-type {
+            border-bottom-right-radius: 0;
+            border-top-right-radius: 0;
+          }
+        }
+
+        &-selected {
+          .picker-cell:not(:first-of-type):not(:last-of-type) {
+            border-bottom-left-radius: 0;
+            border-top-left-radius: 0;
+            border-bottom-right-radius: 0;
+            border-top-right-radius: 0;
+          }
+
+          .picker-cell:first-of-type {
+            border-bottom-left-radius: 0;
+            border-top-left-radius: 0;
+            border-bottom-right-radius: $picker-cell-border-radius-l;
+            border-top-right-radius: $picker-cell-border-radius-l;
+          }
+
+          .picker-cell:last-of-type {
+            border-bottom-left-radius: $picker-cell-border-radius-l;
+            border-top-left-radius: $picker-cell-border-radius-l;
+            border-bottom-right-radius: 0;
+            border-top-right-radius: 0;
+          }
+        }
+      }
+    }
+
+    &.picker-medium .picker-week-partial {
+      &-row {
+        &:hover,
+        &:has(.picker-cell-range-start),
+        &:has(.picker-cell-range-end) {
+          .picker-cell:not(:first-of-type):not(:last-of-type) {
+            border-bottom-left-radius: 0;
+            border-top-left-radius: 0;
+            border-bottom-right-radius: 0;
+            border-top-right-radius: 0;
+          }
+
+          .picker-cell:first-of-type {
+            border-bottom-left-radius: 0;
+            border-top-left-radius: 0;
+            border-bottom-right-radius: $picker-cell-border-radius-m;
+            border-top-right-radius: $picker-cell-border-radius-m;
+          }
+
+          .picker-cell:last-of-type {
+            border-bottom-left-radius: $picker-cell-border-radius-m;
+            border-top-left-radius: $picker-cell-border-radius-m;
+            border-bottom-right-radius: 0;
+            border-top-right-radius: 0;
+          }
+        }
+
+        &:has(.picker-cell-range-start) {
+          .picker-cell:last-of-type {
+            border-bottom-left-radius: 0;
+            border-top-left-radius: 0;
+          }
+        }
+
+        &:has(.picker-cell-range-end) {
+          .picker-cell:first-of-type {
+            border-bottom-right-radius: 0;
+            border-top-right-radius: 0;
+          }
+        }
+
+        &-selected {
+          .picker-cell:not(:first-of-type):not(:last-of-type) {
+            border-bottom-left-radius: 0;
+            border-top-left-radius: 0;
+            border-bottom-right-radius: 0;
+            border-top-right-radius: 0;
+          }
+
+          .picker-cell:first-of-type {
+            border-bottom-left-radius: 0;
+            border-top-left-radius: 0;
+            border-bottom-right-radius: $picker-cell-border-radius-m;
+            border-top-right-radius: $picker-cell-border-radius-m;
+          }
+
+          .picker-cell:last-of-type {
+            border-bottom-left-radius: $picker-cell-border-radius-m;
+            border-top-left-radius: $picker-cell-border-radius-m;
+            border-bottom-right-radius: 0;
+            border-top-right-radius: 0;
+          }
+        }
+      }
+    }
+
+    &.picker-small .picker-week-partial {
+      &-row {
+        &:hover,
+        &:has(.picker-cell-range-start),
+        &:has(.picker-cell-range-end) {
+          .picker-cell:not(:first-of-type):not(:last-of-type) {
+            border-bottom-left-radius: 0;
+            border-top-left-radius: 0;
+            border-bottom-right-radius: 0;
+            border-top-right-radius: 0;
+          }
+
+          .picker-cell:first-of-type {
+            border-bottom-left-radius: 0;
+            border-top-left-radius: 0;
+            border-bottom-right-radius: $picker-cell-border-radius-s;
+            border-top-right-radius: $picker-cell-border-radius-s;
+          }
+
+          .picker-cell:last-of-type {
+            border-bottom-left-radius: $picker-cell-border-radius-s;
+            border-top-left-radius: $picker-cell-border-radius-s;
+            border-bottom-right-radius: 0;
+            border-top-right-radius: 0;
+          }
+        }
+
+        &:has(.picker-cell-range-start) {
+          .picker-cell:last-of-type {
+            border-bottom-left-radius: 0;
+            border-top-left-radius: 0;
+          }
+        }
+
+        &:has(.picker-cell-range-end) {
+          .picker-cell:first-of-type {
+            border-bottom-right-radius: 0;
+            border-top-right-radius: 0;
+          }
+        }
+
+        &-selected {
+          .picker-cell:not(:first-of-type):not(:last-of-type) {
+            border-bottom-left-radius: 0;
+            border-top-left-radius: 0;
+            border-bottom-right-radius: 0;
+            border-top-right-radius: 0;
+          }
+
+          .picker-cell:first-of-type {
+            border-bottom-left-radius: 0;
+            border-top-left-radius: 0;
+            border-bottom-right-radius: $picker-cell-border-radius-s;
+            border-top-right-radius: $picker-cell-border-radius-s;
+          }
+
+          .picker-cell:last-of-type {
+            border-bottom-left-radius: $picker-cell-border-radius-s;
+            border-top-left-radius: $picker-cell-border-radius-s;
+            border-bottom-right-radius: 0;
+            border-top-right-radius: 0;
+          }
+        }
+      }
+    }
+  }
 }
 
 :global(.focus-visible) {
-    .picker {
-        &-focused {
-            border-color: transparent;
-            box-shadow: $focus-visible-box-shadow;
-        }
-
-        &-partial {
-            &-focused {
-                border-color: transparent;
-                box-shadow: $focus-visible-box-shadow, $picker-box-shadow;
-            }
-        }
+  .picker {
+    &-focused {
+      border-color: transparent;
+      box-shadow: $focus-visible-box-shadow;
     }
+
+    &-partial {
+      &-focused {
+        border-color: transparent;
+        box-shadow: $focus-visible-box-shadow, $picker-box-shadow;
+      }
+    }
+  }
 }

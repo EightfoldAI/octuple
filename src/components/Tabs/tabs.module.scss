@@ -1,520 +1,514 @@
 .tab-wrap {
+  display: flex;
+
+  &.scrollable {
+    overflow-x: scroll;
+    @include no-scrollbars;
+  }
+
+  &.underlined {
+    border-bottom: 1px solid var(--tab-underline);
+  }
+
+  .tab {
+    align-items: center;
+    border: none;
+    color: var(--tab-label);
+    cursor: pointer;
     display: flex;
+    font-family: $octuple-font-family;
+    justify-content: center;
+    padding: $space-s $space-m;
+    position: relative;
+    transition: background-color $motion-duration-fast $motion-easing-easeout 0s;
 
-    &.scrollable {
-        overflow-x: scroll;
-        @include no-scrollbars;
+    &:first-child {
+      padding-left: 0;
+      .tab-indicator {
+        width: calc(100% - calc(#{$space-xl / 2}));
+      }
     }
 
-    &.underlined {
-        border-bottom: 1px solid var(--tab-underline);
+    &:hover,
+    &:focus {
+      color: var(--tab-hover-label);
+      background: var(--tab-hover-background);
+      transition: all $motion-duration-fast $motion-easing-easeout 0s;
     }
+
+    &.active {
+      color: var(--tab-active-label);
+      background-color: var(--tab-active-background);
+      transition: transform $motion-duration-fast $motion-easing-easeout 0s;
+    }
+
+    &:disabled {
+      opacity: $disabled-alpha-value;
+      cursor: not-allowed;
+    }
+
+    &.inverse {
+      --tab-active-label: var(--text-inverse-color);
+    }
+
+    .tab-indicator {
+      position: absolute;
+      z-index: 1;
+      height: $space-xxxs;
+      bottom: 0;
+      width: calc(100% - #{$space-xl});
+      background: var(--tab-indicator-color);
+      border-radius: $space-xxs $space-xxs 0 0;
+    }
+
+    .label {
+      font-family: $octuple-font-family;
+      font-size: $text-font-size-3;
+      font-weight: $text-font-weight-semibold;
+      white-space: nowrap;
+    }
+
+    .badge,
+    .loader {
+      margin-left: $space-xs;
+    }
+
+    .icon + .label:not(:empty) {
+      margin-left: $space-xs;
+    }
+
+    // Hides the browser default keyboard focus-visible styles.
+    // Use the ConfigProvider instead.
+    &:focus-visible {
+      outline: none;
+    }
+
+    &-rtl {
+      &:first-child {
+        padding-left: $space-m;
+        padding-right: 0;
+      }
+
+      .tab-indicator {
+        border-radius: $space-xxs 0 0 $space-xxs;
+      }
+
+      .badge,
+      .loader {
+        margin-left: unset;
+        margin-right: $space-xs;
+      }
+
+      .icon + .label:not(:empty) {
+        margin-left: unset;
+        margin-right: $space-xs;
+      }
+    }
+  }
+
+  &.small {
+    --tab-active-background: var(--tab-small-active-background);
+    --tab-hover-background: var(--tab-small-hover-background);
 
     .tab {
-        align-items: center;
-        border: none;
-        color: var(--tab-label);
-        cursor: pointer;
-        display: flex;
-        font-family: $octuple-font-family;
-        justify-content: center;
-        padding: $space-s $space-m;
-        position: relative;
-        transition: background-color $motion-duration-fast
-            $motion-easing-easeout 0s;
+      padding: $space-l $space-m;
 
-        &:first-child {
-            padding-left: 0;
-            .tab-indicator {
-                width: calc(100% - calc(#{$space-xl / 2}));
-            }
+      .tab-indicator {
+        height: $space-xxs;
+      }
+    }
+  }
+
+  &.pill {
+    --tab-label: var(--tab-pill-label);
+    --tab-active-label: var(--tab-pill-active-label);
+    --tab-active-background: var(--tab-pill-active-background);
+    --tab-hover-label: var(--tab-pill-hover-label);
+    background-color: var(--tab-pill-background);
+    width: fit-content;
+    border-radius: $border-radius-xl;
+    padding: calc(#{$space-xs} - #{$space-xxxs});
+
+    .tab {
+      padding: $button-padding-vertical-medium $button-padding-horizontal-medium;
+      border-radius: $border-radius-xl;
+
+      &.active {
+        .badge {
+          --bg: var(--primary-color-10);
         }
+      }
 
-        &:hover,
-        &:focus {
-            color: var(--tab-hover-label);
-            background: var(--tab-hover-background);
-            transition: all $motion-duration-fast $motion-easing-easeout 0s;
-        }
+      .tab-indicator {
+        display: none;
+      }
+    }
+  }
 
-        &.active {
-            color: var(--tab-active-label);
-            background-color: var(--tab-active-background);
-            transition: transform $motion-duration-fast $motion-easing-easeout
-                0s;
-        }
+  &.large {
+    &.pill {
+      padding: $space-xs;
 
-        &:disabled {
-            opacity: $disabled-alpha-value;
-            cursor: not-allowed;
-        }
+      .tab {
+        padding: $button-padding-vertical-large $button-padding-horizontal-large;
 
-        &.inverse {
-            --tab-active-label: var(--text-inverse-color);
-        }
-
-        .tab-indicator {
-            position: absolute;
-            z-index: 1;
-            height: $space-xxxs;
-            bottom: 0;
-            width: calc(100% - #{$space-xl});
-            background: var(--tab-indicator-color);
-            border-radius: $space-xxs $space-xxs 0 0;
+        .badge {
+          font-size: $text-font-size-3;
+          height: $text-line-height-3;
+          line-height: $text-line-height-3;
+          margin-left: $space-xs;
         }
 
         .label {
-            font-family: $octuple-font-family;
-            font-size: $text-font-size-3;
-            font-weight: $text-font-weight-semibold;
-            white-space: nowrap;
+          font-size: $text-font-size-4;
+          line-height: $text-line-height-3;
         }
-
-        .badge,
-        .loader {
-            margin-left: $space-xs;
-        }
-
-        .icon + .label:not(:empty) {
-            margin-left: $space-xs;
-        }
-
-        // Hides the browser default keyboard focus-visible styles.
-        // Use the ConfigProvider instead.
-        &:focus-visible {
-            outline: none;
-        }
-
-        &-rtl {
-            &:first-child {
-                padding-left: $space-m;
-                padding-right: 0;
-            }
-
-            .tab-indicator {
-                border-radius: $space-xxs 0 0 $space-xxs;
-            }
-
-            .badge,
-            .loader {
-                margin-left: unset;
-                margin-right: $space-xs;
-            }
-
-            .icon + .label:not(:empty) {
-                margin-left: unset;
-                margin-right: $space-xs;
-            }
-        }
+      }
     }
+  }
 
-    &.small {
-        --tab-active-background: var(--tab-small-active-background);
-        --tab-hover-background: var(--tab-small-hover-background);
-
-        .tab {
-            padding: $space-l $space-m;
-
-            .tab-indicator {
-                height: $space-xxs;
-            }
-        }
-    }
-
+  &.medium {
     &.pill {
-        --tab-label: var(--tab-pill-label);
-        --tab-active-label: var(--tab-pill-active-label);
-        --tab-active-background: var(--tab-pill-active-background);
-        --tab-hover-label: var(--tab-pill-hover-label);
-        background-color: var(--tab-pill-background);
-        width: fit-content;
-        border-radius: $border-radius-xl;
-        padding: calc(#{$space-xs} - #{$space-xxxs});
+      padding: calc(#{$space-xs} - #{$space-xxxs});
 
-        .tab {
-            padding: $button-padding-vertical-medium
-                $button-padding-horizontal-medium;
-            border-radius: $border-radius-xl;
+      .tab {
+        padding: $button-padding-vertical-medium
+          $button-padding-horizontal-medium;
 
-            &.active {
-                .badge {
-                    --bg: var(--primary-color-10);
-                }
-            }
-
-            .tab-indicator {
-                display: none;
-            }
+        .badge {
+          font-size: $text-font-size-1;
+          height: $text-line-height-1;
+          line-height: $text-line-height-1;
+          margin-left: $space-xxs;
         }
+
+        .label {
+          font-size: $text-font-size-2;
+          line-height: $text-line-height-1;
+        }
+      }
+    }
+  }
+
+  &.small {
+    &.pill {
+      padding: $space-xxs;
+
+      .tab {
+        padding: $button-padding-vertical-small $button-padding-horizontal-small;
+
+        .badge {
+          font-size: $text-font-size-1;
+          height: $text-line-height-1;
+          line-height: $text-line-height-1;
+          margin-left: $space-xxs;
+        }
+
+        .label {
+          font-size: $text-font-size-2;
+          line-height: $text-line-height-1;
+        }
+      }
+    }
+  }
+
+  &.stat {
+    --bg: var(--background-color);
+    --border: var(--border-color);
+    --border-width: 1px;
+    align-items: center;
+    background: var(--bg);
+    border: var(--border-width) solid var(--bg);
+    border-radius: $border-radius-xl;
+    display: flex;
+    padding: $space-ml $space-s;
+    width: fit-content;
+
+    &.bordered {
+      border-color: var(--border);
     }
 
-    &.large {
-        &.pill {
-            padding: $space-xs;
+    .tab {
+      --active-border: var(--grey-color-60);
+      --bg: var(--background-color);
+      --border: var(--background-color);
+      --border-radius: 40px;
+      --divider-height: 84px;
+      --divider-width: 1px;
+      --height: 116px;
+      --hover-bg: var(--grey-color-20);
+      --hover-border: var(--grey-color-20);
+      --icon: var(--grey-color-70);
+      --icon-bg: var(--grey-color-20);
+      --icon-height: 72px;
+      --icon-width: 72px;
+      --label: var(--text-secondary-color);
+      --width: 200px;
+      background: var(--bg);
+      border: var(--border-width) solid var(--border);
+      border-radius: var(--border-radius);
+      color: var(--label);
+      font-family: $octuple-font-family;
+      font-weight: $text-font-weight-semibold;
+      height: var(--height);
+      margin: 0 $space-s;
+      padding: $space-ml $space-m;
+      transition: all $motion-duration-extra-fast $motion-easing-easeinout 0s;
+      width: var(--width);
 
-            .tab {
-                padding: $button-padding-vertical-large
-                    $button-padding-horizontal-large;
+      .icon {
+        background: var(--icon-bg);
+        border-radius: 50%;
+        color: var(--icon);
+        min-height: var(--icon-height);
+        min-width: var(--icon-width);
+        padding: $space-m;
 
-                .badge {
-                    font-size: $text-font-size-3;
-                    height: $text-line-height-3;
-                    line-height: $text-line-height-3;
-                    margin-left: $space-xs;
-                }
-
-                .label {
-                    font-size: $text-font-size-4;
-                    line-height: $text-line-height-3;
-                }
-            }
+        svg {
+          margin: 0 auto;
         }
+      }
+
+      .label,
+      .ratio-a,
+      .ratio-b {
+        text-align: start;
+      }
+
+      .label {
+        font-size: $text-font-size-3;
+        line-height: $text-line-height-3;
+      }
+
+      .ratio-a {
+        font-size: $text-font-size-7;
+        line-height: $text-line-height-6;
+      }
+
+      .ratio-b {
+        font-size: $text-font-size-5;
+        line-height: $text-line-height-6;
+        vertical-align: bottom;
+      }
+
+      &.red {
+        --active-border: var(--red-color-60);
+        --bg: var(--red-color-10);
+        --border: var(--red-color-10);
+        --icon: var(--red-color-70);
+        --icon-bg: var(--red-color-20);
+        --hover-bg: var(--red-color-20);
+        --hover-border: var(--red-color-20);
+      }
+
+      &.red-orange {
+        --active-border: var(--redorange-color-60);
+        --bg: var(--redorange-color-10);
+        --border: var(--redorange-color-10);
+        --icon: var(--redorange-color-70);
+        --icon-bg: var(--redorange-color-20);
+        --hover-bg: var(--redorange-color-20);
+        --hover-border: var(--redorange-color-20);
+      }
+
+      &.orange {
+        --active-border: var(--orange-color-60);
+        --bg: var(--orange-color-10);
+        --border: var(--orange-color-10);
+        --icon: var(--orange-color-70);
+        --icon-bg: var(--orange-color-20);
+        --hover-bg: var(--orange-color-20);
+        --hover-border: var(--orange-color-20);
+      }
+
+      &.yellow {
+        --active-border: var(--yellow-color-60);
+        --bg: var(--yellow-color-10);
+        --border: var(--yellow-color-10);
+        --icon: var(--yellow-color-70);
+        --icon-bg: var(--yellow-color-20);
+        --hover-bg: var(--yellow-color-20);
+        --hover-border: var(--yellow-color-20);
+      }
+
+      &.yellow-green {
+        --active-border: var(--yellowgreen-color-60);
+        --bg: var(--yellowgreen-color-10);
+        --border: var(--yellowgreen-color-10);
+        --icon: var(--yellowgreen-color-70);
+        --icon-bg: var(--yellowgreen-color-20);
+        --hover-bg: var(--yellowgreen-color-20);
+        --hover-border: var(--yellowgreen-color-20);
+      }
+
+      &.green {
+        --active-border: var(--green-color-60);
+        --bg: var(--green-color-10);
+        --border: var(--green-color-10);
+        --icon: var(--green-color-70);
+        --icon-bg: var(--green-color-20);
+        --hover-bg: var(--green-color-20);
+        --hover-border: var(--green-color-20);
+      }
+
+      &.blue-green {
+        --active-border: var(--bluegreen-color-60);
+        --bg: var(--bluegreen-color-10);
+        --border: var(--bluegreen-color-10);
+        --icon: var(--bluegreen-color-70);
+        --icon-bg: var(--bluegreen-color-20);
+        --hover-bg: var(--bluegreen-color-20);
+        --hover-border: var(--bluegreen-color-20);
+      }
+
+      &.blue {
+        --active-border: var(--blue-color-60);
+        --bg: var(--blue-color-10);
+        --border: var(--blue-color-10);
+        --icon: var(--blue-color-70);
+        --icon-bg: var(--blue-color-20);
+        --hover-bg: var(--blue-color-20);
+        --hover-border: var(--blue-color-20);
+      }
+
+      &.blue-violet {
+        --active-border: var(--blueviolet-color-60);
+        --bg: var(--blueviolet-color-10);
+        --border: var(--blueviolet-color-10);
+        --icon: var(--blueviolet-color-70);
+        --icon-bg: var(--blueviolet-color-20);
+        --hover-bg: var(--blueviolet-color-20);
+        --hover-border: var(--blueviolet-color-20);
+      }
+
+      &.violet {
+        --active-border: var(--violet-color-60);
+        --bg: var(--violet-color-10);
+        --border: var(--violet-color-10);
+        --icon: var(--violet-color-70);
+        --icon-bg: var(--violet-color-20);
+        --hover-bg: var(--violet-color-20);
+        --hover-border: var(--violet-color-20);
+      }
+
+      &.violet-red {
+        --active-border: var(--violetred-color-60);
+        --bg: var(--violetred-color-10);
+        --border: var(--violetred-color-10);
+        --icon: var(--violetred-color-70);
+        --icon-bg: var(--violetred-color-20);
+        --hover-bg: var(--violetred-color-20);
+        --hover-border: var(--violetred-color-20);
+      }
+
+      &.grey {
+        --active-border: var(--grey-color-60);
+        --bg: var(--grey-color-10);
+        --border: var(--grey-color-10);
+        --icon: var(--grey-color-70);
+        --icon-bg: var(--grey-color-20);
+        --hover-bg: var(--grey-color-20);
+        --hover-border: var(--grey-color-20);
+      }
+
+      &.read-only {
+        cursor: default;
+      }
+
+      &:focus:not(:disabled):not(.read-only),
+      &:hover:not(:disabled):not(.read-only) {
+        --bg: var(--hover-bg);
+        --border: var(--hover-bg);
+        --icon-bg: var(--hover-bg);
+      }
+
+      &.active:not(.read-only),
+      &.active:focus:not(.read-only),
+      &.active:hover:not(.read-only) {
+        --bg: var(--hover-bg);
+        --border: var(--active-border);
+        --icon-bg: var(--hover-bg);
+      }
     }
 
-    &.medium {
-        &.pill {
-            padding: calc(#{$space-xs} - #{$space-xxxs});
+    &.divider {
+      padding: $space-ml 0;
 
-            .tab {
-                padding: $button-padding-vertical-medium
-                    $button-padding-horizontal-medium;
+      .tab {
+        margin: 0 $space-ml;
 
-                .badge {
-                    font-size: $text-font-size-1;
-                    height: $text-line-height-1;
-                    line-height: $text-line-height-1;
-                    margin-left: $space-xxs;
-                }
-
-                .label {
-                    font-size: $text-font-size-2;
-                    line-height: $text-line-height-1;
-                }
-            }
+        &:not(:last-of-type) {
+          &:after {
+            background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' stroke='%23d9dce1' stroke-width='1' stroke-dasharray='2' stroke-dashoffset='0' stroke-linecap='round'/%3e%3c/svg%3e");
+            content: ' ';
+            height: var(--divider-height);
+            position: absolute;
+            right: calc(calc($space-ml + 1px) * -1);
+            width: var(--divider-width);
+          }
         }
+      }
     }
 
     &.small {
-        &.pill {
-            padding: $space-xxs;
+      padding: $space-s $space-xxs;
 
-            .tab {
-                padding: $button-padding-vertical-small
-                    $button-padding-horizontal-small;
+      .tab {
+        --border-radius: 24px;
+        --divider-height: 40px;
+        --height: 72px;
+        --icon-height: 48px;
+        --icon-width: 48px;
+        --width: 136px;
+        margin: 0 $space-xs;
+        padding: $space-s $space-xs;
 
-                .badge {
-                    font-size: $text-font-size-1;
-                    height: $text-line-height-1;
-                    line-height: $text-line-height-1;
-                    margin-left: $space-xxs;
-                }
-
-                .label {
-                    font-size: $text-font-size-2;
-                    line-height: $text-line-height-1;
-                }
-            }
+        .icon {
+          height: var(--icon-height);
+          padding: $space-xs;
+          width: var(--icon-width);
         }
-    }
 
-    &.stat {
-        --bg: var(--background-color);
-        --border: var(--border-color);
-        --border-width: 1px;
-        align-items: center;
-        background: var(--bg);
-        border: var(--border-width) solid var(--bg);
-        border-radius: $border-radius-xl;
-        display: flex;
-        padding: $space-ml $space-s;
-        width: fit-content;
-
-        &.bordered {
-            border-color: var(--border);
+        .label {
+          font-size: $text-font-size-2;
+          line-height: $text-line-height-2;
         }
+
+        .ratio-a {
+          font-size: $text-font-size-6;
+          line-height: $text-line-height-5;
+        }
+
+        .ratio-b {
+          font-size: $text-font-size-3;
+          line-height: $text-line-height-5;
+        }
+      }
+
+      &.divider {
+        padding: $space-s 0;
 
         .tab {
-            --active-border: var(--grey-color-60);
-            --bg: var(--background-color);
-            --border: var(--background-color);
-            --border-radius: 40px;
-            --divider-height: 84px;
-            --divider-width: 1px;
-            --height: 116px;
-            --hover-bg: var(--grey-color-20);
-            --hover-border: var(--grey-color-20);
-            --icon: var(--grey-color-70);
-            --icon-bg: var(--grey-color-20);
-            --icon-height: 72px;
-            --icon-width: 72px;
-            --label: var(--text-secondary-color);
-            --width: 200px;
-            background: var(--bg);
-            border: var(--border-width) solid var(--border);
-            border-radius: var(--border-radius);
-            color: var(--label);
-            font-family: $octuple-font-family;
-            font-weight: $text-font-weight-semibold;
-            height: var(--height);
-            margin: 0 $space-s;
-            padding: $space-ml $space-m;
-            transition: all $motion-duration-extra-fast $motion-easing-easeinout
-                0s;
-            width: var(--width);
+          margin: 0 $space-s;
 
-            .icon {
-                background: var(--icon-bg);
-                border-radius: 50%;
-                color: var(--icon);
-                min-height: var(--icon-height);
-                min-width: var(--icon-width);
-                padding: $space-m;
-
-                svg {
-                    margin: 0 auto;
-                }
+          &:not(:last-of-type) {
+            &:after {
+              right: calc(calc($space-s + 1px) * -1);
             }
-
-            .label,
-            .ratio-a,
-            .ratio-b {
-                text-align: start;
-            }
-
-            .label {
-                font-size: $text-font-size-3;
-                line-height: $text-line-height-3;
-            }
-
-            .ratio-a {
-                font-size: $text-font-size-7;
-                line-height: $text-line-height-6;
-            }
-
-            .ratio-b {
-                font-size: $text-font-size-5;
-                line-height: $text-line-height-6;
-                vertical-align: bottom;
-            }
-
-            &.red {
-                --active-border: var(--red-color-60);
-                --bg: var(--red-color-10);
-                --border: var(--red-color-10);
-                --icon: var(--red-color-70);
-                --icon-bg: var(--red-color-20);
-                --hover-bg: var(--red-color-20);
-                --hover-border: var(--red-color-20);
-            }
-
-            &.red-orange {
-                --active-border: var(--redorange-color-60);
-                --bg: var(--redorange-color-10);
-                --border: var(--redorange-color-10);
-                --icon: var(--redorange-color-70);
-                --icon-bg: var(--redorange-color-20);
-                --hover-bg: var(--redorange-color-20);
-                --hover-border: var(--redorange-color-20);
-            }
-
-            &.orange {
-                --active-border: var(--orange-color-60);
-                --bg: var(--orange-color-10);
-                --border: var(--orange-color-10);
-                --icon: var(--orange-color-70);
-                --icon-bg: var(--orange-color-20);
-                --hover-bg: var(--orange-color-20);
-                --hover-border: var(--orange-color-20);
-            }
-
-            &.yellow {
-                --active-border: var(--yellow-color-60);
-                --bg: var(--yellow-color-10);
-                --border: var(--yellow-color-10);
-                --icon: var(--yellow-color-70);
-                --icon-bg: var(--yellow-color-20);
-                --hover-bg: var(--yellow-color-20);
-                --hover-border: var(--yellow-color-20);
-            }
-
-            &.yellow-green {
-                --active-border: var(--yellowgreen-color-60);
-                --bg: var(--yellowgreen-color-10);
-                --border: var(--yellowgreen-color-10);
-                --icon: var(--yellowgreen-color-70);
-                --icon-bg: var(--yellowgreen-color-20);
-                --hover-bg: var(--yellowgreen-color-20);
-                --hover-border: var(--yellowgreen-color-20);
-            }
-
-            &.green {
-                --active-border: var(--green-color-60);
-                --bg: var(--green-color-10);
-                --border: var(--green-color-10);
-                --icon: var(--green-color-70);
-                --icon-bg: var(--green-color-20);
-                --hover-bg: var(--green-color-20);
-                --hover-border: var(--green-color-20);
-            }
-
-            &.blue-green {
-                --active-border: var(--bluegreen-color-60);
-                --bg: var(--bluegreen-color-10);
-                --border: var(--bluegreen-color-10);
-                --icon: var(--bluegreen-color-70);
-                --icon-bg: var(--bluegreen-color-20);
-                --hover-bg: var(--bluegreen-color-20);
-                --hover-border: var(--bluegreen-color-20);
-            }
-
-            &.blue {
-                --active-border: var(--blue-color-60);
-                --bg: var(--blue-color-10);
-                --border: var(--blue-color-10);
-                --icon: var(--blue-color-70);
-                --icon-bg: var(--blue-color-20);
-                --hover-bg: var(--blue-color-20);
-                --hover-border: var(--blue-color-20);
-            }
-
-            &.blue-violet {
-                --active-border: var(--blueviolet-color-60);
-                --bg: var(--blueviolet-color-10);
-                --border: var(--blueviolet-color-10);
-                --icon: var(--blueviolet-color-70);
-                --icon-bg: var(--blueviolet-color-20);
-                --hover-bg: var(--blueviolet-color-20);
-                --hover-border: var(--blueviolet-color-20);
-            }
-
-            &.violet {
-                --active-border: var(--violet-color-60);
-                --bg: var(--violet-color-10);
-                --border: var(--violet-color-10);
-                --icon: var(--violet-color-70);
-                --icon-bg: var(--violet-color-20);
-                --hover-bg: var(--violet-color-20);
-                --hover-border: var(--violet-color-20);
-            }
-
-            &.violet-red {
-                --active-border: var(--violetred-color-60);
-                --bg: var(--violetred-color-10);
-                --border: var(--violetred-color-10);
-                --icon: var(--violetred-color-70);
-                --icon-bg: var(--violetred-color-20);
-                --hover-bg: var(--violetred-color-20);
-                --hover-border: var(--violetred-color-20);
-            }
-
-            &.grey {
-                --active-border: var(--grey-color-60);
-                --bg: var(--grey-color-10);
-                --border: var(--grey-color-10);
-                --icon: var(--grey-color-70);
-                --icon-bg: var(--grey-color-20);
-                --hover-bg: var(--grey-color-20);
-                --hover-border: var(--grey-color-20);
-            }
-
-            &.read-only {
-                cursor: default;
-            }
-
-            &:focus:not(:disabled):not(.read-only),
-            &:hover:not(:disabled):not(.read-only) {
-                --bg: var(--hover-bg);
-                --border: var(--hover-bg);
-                --icon-bg: var(--hover-bg);
-            }
-
-            &.active:not(.read-only),
-            &.active:focus:not(.read-only),
-            &.active:hover:not(.read-only) {
-                --bg: var(--hover-bg);
-                --border: var(--active-border);
-                --icon-bg: var(--hover-bg);
-            }
+          }
         }
-
-        &.divider {
-            padding: $space-ml 0;
-
-            .tab {
-                margin: 0 $space-ml;
-
-                &:not(:last-of-type) {
-                    &:after {
-                        background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' stroke='%23d9dce1' stroke-width='1' stroke-dasharray='2' stroke-dashoffset='0' stroke-linecap='round'/%3e%3c/svg%3e");
-                        content: ' ';
-                        height: var(--divider-height);
-                        position: absolute;
-                        right: calc(calc($space-ml + 1px) * -1);
-                        width: var(--divider-width);
-                    }
-                }
-            }
-        }
-
-        &.small {
-            padding: $space-s $space-xxs;
-
-            .tab {
-                --border-radius: 24px;
-                --divider-height: 40px;
-                --height: 72px;
-                --icon-height: 48px;
-                --icon-width: 48px;
-                --width: 136px;
-                margin: 0 $space-xs;
-                padding: $space-s $space-xs;
-
-                .icon {
-                    height: var(--icon-height);
-                    padding: $space-xs;
-                    width: var(--icon-width);
-                }
-
-                .label {
-                    font-size: $text-font-size-2;
-                    line-height: $text-line-height-2;
-                }
-
-                .ratio-a {
-                    font-size: $text-font-size-6;
-                    line-height: $text-line-height-5;
-                }
-
-                .ratio-b {
-                    font-size: $text-font-size-3;
-                    line-height: $text-line-height-5;
-                }
-            }
-
-            &.divider {
-                padding: $space-s 0;
-
-                .tab {
-                    margin: 0 $space-s;
-
-                    &:not(:last-of-type) {
-                        &:after {
-                            right: calc(calc($space-s + 1px) * -1);
-                        }
-                    }
-                }
-            }
-        }
+      }
     }
+  }
 }
 
 :global(.focus-visible) {
-    .tab-wrap {
-        .tab {
-            &.focus-visible,
-            &:focus-visible {
-                box-shadow: $focus-visible-box-shadow;
-            }
-        }
+  .tab-wrap {
+    .tab {
+      &.focus-visible,
+      &:focus-visible {
+        box-shadow: $focus-visible-box-shadow;
+      }
     }
+  }
 }

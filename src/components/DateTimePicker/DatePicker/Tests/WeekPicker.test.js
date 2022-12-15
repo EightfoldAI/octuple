@@ -10,32 +10,32 @@ Enzyme.configure({ adapter: new Adapter() });
 const { WeekPicker } = DatePicker;
 
 describe('WeekPicker', () => {
-    beforeAll(() => {
-        Object.defineProperty(window, 'matchMedia', {
-            writable: true,
-            value: jest.fn().mockImplementation((query) => ({
-                matches: false,
-                media: query,
-                onchange: null,
-                addListener: jest.fn(), // Deprecated
-                removeListener: jest.fn(), // Deprecated
-                addEventListener: jest.fn(),
-                removeEventListener: jest.fn(),
-                dispatchEvent: jest.fn(),
-            })),
-        });
+  beforeAll(() => {
+    Object.defineProperty(window, 'matchMedia', {
+      writable: true,
+      value: jest.fn().mockImplementation((query) => ({
+        matches: false,
+        media: query,
+        onchange: null,
+        addListener: jest.fn(), // Deprecated
+        removeListener: jest.fn(), // Deprecated
+        addEventListener: jest.fn(),
+        removeEventListener: jest.fn(),
+        dispatchEvent: jest.fn(),
+      })),
     });
+  });
 
-    beforeEach(() => {
-        setMockDate();
-    });
+  beforeEach(() => {
+    setMockDate();
+  });
 
-    afterEach(() => {
-        resetMockDate();
-    });
+  afterEach(() => {
+    resetMockDate();
+  });
 
-    it('should support style prop', () => {
-        const wrapper = mount(<WeekPicker style={{ width: 400 }} />);
-        expect(wrapper.render()).toMatchSnapshot();
-    });
+  it('should support style prop', () => {
+    const wrapper = mount(<WeekPicker style={{ width: 400 }} />);
+    expect(wrapper.render()).toMatchSnapshot();
+  });
 });

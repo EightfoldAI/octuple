@@ -1,8 +1,8 @@
 const PIXEL_PATTERN: RegExp = /margin|padding|width|height|max|min|offset/;
 
 const removePixel = {
-    left: true,
-    top: true,
+  left: true,
+  top: true,
 };
 
 /**
@@ -11,9 +11,9 @@ const removePixel = {
  * @returns The computed style of a given element.
  */
 export const getComputedStyle = (element: HTMLElement) => {
-    return element.nodeType === 1
-        ? element.ownerDocument.defaultView.getComputedStyle(element, null)
-        : {};
+  return element.nodeType === 1
+    ? element.ownerDocument.defaultView.getComputedStyle(element, null)
+    : {};
 };
 
 /**
@@ -24,23 +24,23 @@ export const getComputedStyle = (element: HTMLElement) => {
  * @returns The style value of a given elementt.
  */
 export const getStyleValue = (
-    element: HTMLElement,
-    type: string,
-    value: any
+  element: HTMLElement,
+  type: string,
+  value: any
 ) => {
-    type = type.toLowerCase();
-    if (value === 'auto') {
-        if (type === 'height') {
-            return element.offsetHeight;
-        }
-        if (type === 'width') {
-            return element.offsetWidth;
-        }
+  type = type.toLowerCase();
+  if (value === 'auto') {
+    if (type === 'height') {
+      return element.offsetHeight;
     }
-    if (!(type in removePixel)) {
-        (removePixel as any)[type] = PIXEL_PATTERN.test(type);
+    if (type === 'width') {
+      return element.offsetWidth;
     }
-    return (removePixel as any)[type] ? parseFloat(value) || 0 : value;
+  }
+  if (!(type in removePixel)) {
+    (removePixel as any)[type] = PIXEL_PATTERN.test(type);
+  }
+  return (removePixel as any)[type] ? parseFloat(value) || 0 : value;
 };
 
 /**
@@ -49,10 +49,10 @@ export const getStyleValue = (
  * @returns The outer width of a given element.
  */
 export const getOuterWidth = (element: HTMLElement): number => {
-    if (element === document.body) {
-        return document.documentElement.clientWidth;
-    }
-    return element.offsetWidth;
+  if (element === document.body) {
+    return document.documentElement.clientWidth;
+  }
+  return element.offsetWidth;
 };
 
 /**
@@ -61,10 +61,10 @@ export const getOuterWidth = (element: HTMLElement): number => {
  * @returns The outer height of a given element.
  */
 export const getOuterHeight = (element: HTMLElement): number => {
-    if (element === document.body) {
-        return window.innerHeight || document.documentElement.clientHeight;
-    }
-    return element.offsetHeight;
+  if (element === document.body) {
+    return window.innerHeight || document.documentElement.clientHeight;
+  }
+  return element.offsetHeight;
 };
 
 /**
@@ -72,22 +72,22 @@ export const getOuterHeight = (element: HTMLElement): number => {
  * @returns The document width and height.
  */
 export const getDocSize = (): {
-    width: number;
-    height: number;
+  width: number;
+  height: number;
 } => {
-    const width: number = Math.max(
-        document.documentElement.scrollWidth,
-        document.body.scrollWidth
-    );
-    const height: number = Math.max(
-        document.documentElement.scrollHeight,
-        document.body.scrollHeight
-    );
+  const width: number = Math.max(
+    document.documentElement.scrollWidth,
+    document.body.scrollWidth
+  );
+  const height: number = Math.max(
+    document.documentElement.scrollHeight,
+    document.body.scrollHeight
+  );
 
-    return {
-        width,
-        height,
-    };
+  return {
+    width,
+    height,
+  };
 };
 
 /**
@@ -95,16 +95,16 @@ export const getDocSize = (): {
  * @returns The client size.
  */
 export const getClientSize = (): {
-    width: number;
-    height: number;
+  width: number;
+  height: number;
 } => {
-    const width: number = document.documentElement.clientWidth;
-    const height: number =
-        window.innerHeight || document.documentElement.clientHeight;
-    return {
-        width,
-        height,
-    };
+  const width: number = document.documentElement.clientWidth;
+  const height: number =
+    window.innerHeight || document.documentElement.clientHeight;
+  return {
+    width,
+    height,
+  };
 };
 
 /**
@@ -112,19 +112,19 @@ export const getClientSize = (): {
  * @returns The scroll position.
  */
 export const getScrollPosition = (): {
-    scrollLeft: number;
-    scrollTop: number;
+  scrollLeft: number;
+  scrollTop: number;
 } => {
-    return {
-        scrollLeft: Math.max(
-            document.documentElement.scrollLeft,
-            document.body.scrollLeft
-        ),
-        scrollTop: Math.max(
-            document.documentElement.scrollTop,
-            document.body.scrollTop
-        ),
-    };
+  return {
+    scrollLeft: Math.max(
+      document.documentElement.scrollLeft,
+      document.body.scrollLeft
+    ),
+    scrollTop: Math.max(
+      document.documentElement.scrollTop,
+      document.body.scrollTop
+    ),
+  };
 };
 
 /**
@@ -133,22 +133,22 @@ export const getScrollPosition = (): {
  * @returns The offset position of a given element.
  */
 export const getOffset = (
-    element: HTMLElement
+  element: HTMLElement
 ): {
-    left: number;
-    top: number;
+  left: number;
+  top: number;
 } => {
-    const box: DOMRect = element.getBoundingClientRect();
-    const docElem: HTMLElement = document.documentElement;
+  const box: DOMRect = element.getBoundingClientRect();
+  const docElem: HTMLElement = document.documentElement;
 
-    return {
-        left:
-            box.left +
-            (window.pageXOffset || docElem.scrollLeft) -
-            (docElem.clientLeft || document.body.clientLeft || 0),
-        top:
-            box.top +
-            (window.pageYOffset || docElem.scrollTop) -
-            (docElem.clientTop || document.body.clientTop || 0),
-    };
+  return {
+    left:
+      box.left +
+      (window.pageXOffset || docElem.scrollLeft) -
+      (docElem.clientLeft || document.body.clientLeft || 0),
+    top:
+      box.top +
+      (window.pageYOffset || docElem.scrollTop) -
+      (docElem.clientTop || document.body.clientTop || 0),
+  };
 };

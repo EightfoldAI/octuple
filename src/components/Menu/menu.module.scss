@@ -1,47 +1,47 @@
 .menu-container {
+  display: flex;
+  flex-direction: column;
+
+  .menu-header-container {
     display: flex;
-    flex-direction: column;
+    flex: 1;
 
-    .menu-header-container {
-        display: flex;
-        flex: 1;
-
-        &.large {
-            @include octuple-h4();
-            padding: $space-l $space-l $space-xs;
-        }
-
-        &.medium {
-            @include octuple-h5();
-            padding: $space-m $space-m $space-xs;
-        }
-
-        &.small {
-            @include octuple-h6();
-            padding: $space-m $space-m $space-xs;
-        }
-
-        .heading {
-            flex: 1;
-        }
+    &.large {
+      @include octuple-h4();
+      padding: $space-l $space-l $space-xs;
     }
 
-    .menu-footer-container {
-        background: var(--background-color);
-        position: sticky;
-        bottom: 0;
-        border-top: solid 1px var(--border-color);
-
-        &.large {
-            padding: $space-l;
-        }
-
-        &.medium {
-            padding: $space-m;
-        }
-
-        &.small {
-            padding: $space-s;
-        }
+    &.medium {
+      @include octuple-h5();
+      padding: $space-m $space-m $space-xs;
     }
+
+    &.small {
+      @include octuple-h6();
+      padding: $space-m $space-m $space-xs;
+    }
+
+    .heading {
+      flex: 1;
+    }
+  }
+
+  .menu-footer-container {
+    background: var(--background-color);
+    position: sticky;
+    bottom: 0;
+    border-top: solid 1px var(--border-color);
+
+    &.large {
+      padding: $space-l;
+    }
+
+    &.medium {
+      padding: $space-m;
+    }
+
+    &.small {
+      padding: $space-s;
+    }
+  }
 }

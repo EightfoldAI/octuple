@@ -1,13 +1,13 @@
 import type { CSSMotionProps } from '../../Motion/CSSMotion.types';
 
 interface GetMotionProps {
-    motion: CSSMotionProps;
+  motion: CSSMotionProps;
 }
 
 export function getMotion({ motion }: GetMotionProps): CSSMotionProps {
-    if (motion) {
-        return motion;
-    }
+  if (motion) {
+    return motion;
+  }
 
-    return null;
+  return null;
 }

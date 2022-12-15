@@ -9,18 +9,18 @@ import TimePicker from '../DateTimePicker/TimePicker/Locale/ms_MY';
 import Upload from '../Upload/Locale/ms_MY';
 
 const localeValues: Locale = {
-    locale: 'ms-my',
-    global: {
-        placeholder: 'Sila pilih',
-    },
-    DatePicker,
-    Dialog,
-    InfoBar,
-    Pagination,
-    Panel,
-    Table,
-    TimePicker,
-    Upload,
+  locale: 'ms-my',
+  global: {
+    placeholder: 'Sila pilih',
+  },
+  DatePicker,
+  Dialog,
+  InfoBar,
+  Pagination,
+  Panel,
+  Table,
+  TimePicker,
+  Upload,
 };
 
 export default localeValues;
