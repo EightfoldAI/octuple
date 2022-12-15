@@ -2,6 +2,38 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.20.2](https://github.com/EightfoldAI/octuple/compare/v2.20.1...v2.20.2) (2022-12-12)
+
+### Bug Fixes
+
+-   carousel and tabs: exports carousel slide and tab size ([#460](https://github.com/EightfoldAI/octuple/issues/460)) ([3789543](https://github.com/EightfoldAI/octuple/commits/37895433196e392dffb0b856caac7b92882006b1))
+
+### [2.20.1](https://github.com/EightfoldAI/octuple/compare/v2.20.0...v2.20.1) (2022-12-12)
+
+### Features
+
+-   add new material design icons ([#458](https://github.com/EightfoldAI/octuple/issues/458)) ([81c56ea](https://github.com/EightfoldAI/octuple/commits/81c56ead213acb8f34263cb5be86abfe8ca1e4e5))
+
+### Bug Fixes
+
+-   export stats tab ([#459](https://github.com/EightfoldAI/octuple/issues/459)) ([6eb35fd](https://github.com/EightfoldAI/octuple/commits/6eb35fd939a7a37758f81a5de59b90d039cfd9cc))
+
+## [2.20.0](https://github.com/EightfoldAI/octuple/compare/v2.19.0...v2.20.0) (2022-12-10)
+
+### Features
+
+-   carousel: add carousel component ([#448](https://github.com/EightfoldAI/octuple/issues/448)) ([1ce439f](https://github.com/EightfoldAI/octuple/commits/1ce439f225b0dbd972acd90e74d63025286093ac))
+-   extend navbar theming ([#456](https://github.com/EightfoldAI/octuple/issues/456)) ([95ac762](https://github.com/EightfoldAI/octuple/commits/95ac762c0848b5245c07ee70549e12ee7e1af013))
+-   tabs: Add support for large medium and small sizes to pill variant ([#455](https://github.com/EightfoldAI/octuple/issues/455)) ([c2af012](https://github.com/EightfoldAI/octuple/commits/c2af012d873057212b78810f70e7746568868843))
+-   varTheme based theming ([#446](https://github.com/EightfoldAI/octuple/issues/446)) ([a692b41](https://github.com/EightfoldAI/octuple/commits/a692b41afd7f30a9c7cd24d0e76216badc288731))
+
+### Bug Fixes
+
+-   datepicker: refine animations, updates icon buttons to round and fixes today and week styles ([#453](https://github.com/EightfoldAI/octuple/issues/453)) ([49516d3](https://github.com/EightfoldAI/octuple/commits/49516d3302c2cee40beaaf3f7fc8560a7453785b))
+-   pill: fixes pill button hover and active styles to inherit from pill ([#457](https://github.com/EightfoldAI/octuple/issues/457)) ([ec71c91](https://github.com/EightfoldAI/octuple/commits/ec71c911d33d5e07eb09989dd6c1fac90843b9bb))
+-   slider: slider track width when isrange and showmarkers false and values intersect ([#449](https://github.com/EightfoldAI/octuple/issues/449)) ([c9ca0b5](https://github.com/EightfoldAI/octuple/commits/c9ca0b539a47e6ff958bf48eac2bb4317705d652))
+-   table: updates large size insets so they are not the same as medium ([#454](https://github.com/EightfoldAI/octuple/issues/454)) ([b923215](https://github.com/EightfoldAI/octuple/commits/b9232152d2d252d15c63264c9a3575062fafe224))
+
 ## [2.19.0](https://github.com/EightfoldAI/octuple/compare/v2.18.2...v2.19.0) (2022-11-24)
 
 ### Features

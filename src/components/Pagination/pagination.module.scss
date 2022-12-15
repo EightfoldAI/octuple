@@ -1,6 +1,6 @@
 .pagination {
     --pager-button-active-foreground-color: var(--primary-color-70);
-    --pager-button-active-outline-color: var(--accent-color-20);
+    --pager-button-active-outline-color: var(--primary-color-60);
     --pager-button-active-background-color: var(--accent-color-20);
 
     align-items: center;
@@ -24,7 +24,7 @@
         &.active {
             color: var(--pager-button-active-foreground-color);
             background-color: var(--pager-button-active-background-color);
-            border-color: var(--pager-button-active-outline-color);
+            border: 1px solid var(--pager-button-active-outline-color);
 
             svg {
                 color: var(--pager-button-active-foreground-color);

@@ -38,6 +38,7 @@ export const Pagination: FC<PaginationProps> = React.forwardRef(
                 PaginationLayoutOptions.Next,
             ],
             locale = enUS,
+            loop = false,
             nextIconButtonAriaLabel: defaultNextIconButtonAriaLabel,
             onCurrentChange,
             onSizeChange,
@@ -152,6 +153,12 @@ export const Pagination: FC<PaginationProps> = React.forwardRef(
             setCurrentPage(currentPage);
         }, [currentPage]);
 
+        useEffect((): void => {
+            if (loop) {
+                setPageCount(pageCount);
+            }
+        }, [loop, pageCount]);
+
         const previous = (): void => {
             const oldVal: number = _currentPage;
             const newVal: number = _currentPage - 1;
@@ -159,8 +166,14 @@ export const Pagination: FC<PaginationProps> = React.forwardRef(
             setCurrentPage(newVal);
 
             if (newVal !== oldVal) {
-                onCurrentChange?.(newVal);
-                const inputVal: string = newVal.toString();
+                let inputVal: string;
+                if (loop && oldVal === 1) {
+                    onCurrentChange?.(getPageCount());
+                    inputVal = getPageCount().toString();
+                } else {
+                    onCurrentChange?.(newVal);
+                    inputVal = newVal.toString();
+                }
 
                 if (inputRef.current) {
                     inputRef.current.value = inputVal;
@@ -175,8 +188,14 @@ export const Pagination: FC<PaginationProps> = React.forwardRef(
             setCurrentPage(newVal);
 
             if (newVal !== oldVal) {
-                onCurrentChange?.(newVal);
-                const inputVal: string = newVal.toString();
+                let inputVal: string;
+                if (loop && oldVal === getPageCount()) {
+                    onCurrentChange?.(1);
+                    inputVal = '1';
+                } else {
+                    onCurrentChange?.(newVal);
+                    inputVal = newVal.toString();
+                }
 
                 if (inputRef.current) {
                     inputRef.current.value = inputVal;
@@ -356,7 +375,9 @@ export const Pagination: FC<PaginationProps> = React.forwardRef(
                                                 ])}
                                                 shape={ButtonShape.Rectangle}
                                                 key="previous"
-                                                disabled={_currentPage <= 1}
+                                                disabled={
+                                                    !loop && _currentPage <= 1
+                                                }
                                                 iconProps={{
                                                     role: 'presentation',
                                                     path:
@@ -432,8 +453,9 @@ export const Pagination: FC<PaginationProps> = React.forwardRef(
                                                 shape={ButtonShape.Rectangle}
                                                 key="next"
                                                 disabled={
-                                                    _currentPage ===
-                                                        getPageCount() ||
+                                                    (!loop &&
+                                                        _currentPage ===
+                                                            getPageCount()) ||
                                                     _pageCount === 0
                                                 }
                                                 iconProps={{

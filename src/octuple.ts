@@ -25,6 +25,8 @@ import {
 
 import { Card, CardSize, CardType } from './components/Card';
 
+import { Carousel, Slide } from './components/Carousel';
+
 import {
     CheckBox,
     CheckBoxGroup,
@@ -108,7 +110,7 @@ import { Spinner, SpinnerSize } from './components/Spinner';
 
 import { Stack } from './components/Stack';
 
-import { Tabs, Tab, TabVariant } from './components/Tabs';
+import { Stat, Tabs, Tab, TabSize, TabVariant } from './components/Tabs';
 
 import TimePicker from './components/DateTimePicker/TimePicker/TimePicker';
 
@@ -179,6 +181,7 @@ export {
     Card,
     CardSize,
     CardType,
+    Carousel,
     CheckBox,
     CheckBoxGroup,
     Col,
@@ -260,6 +263,7 @@ export {
     SecondaryButton,
     Shape,
     Size,
+    Slide,
     Slider,
     SliderMarks,
     snack,
@@ -269,6 +273,7 @@ export {
     Spinner,
     SpinnerSize,
     Stack,
+    Stat,
     SystemUIButton,
     Table,
     TablePaginationConfig,
@@ -276,6 +281,7 @@ export {
     TableRowSelection,
     TableSize,
     Tabs,
+    TabSize,
     Tab,
     TabVariant,
     TextArea,

@@ -31,6 +31,7 @@ export const AnimatedTabs: FC<TabsProps> = React.forwardRef(
                     underlined &&
                     variant !== TabVariant.pill &&
                     variant !== TabVariant.stat,
+                [styles.large]: size === TabSize.Large,
                 [styles.small]:
                     variant === TabVariant.small || size === TabSize.Small,
                 [styles.pill]: variant === TabVariant.pill,
