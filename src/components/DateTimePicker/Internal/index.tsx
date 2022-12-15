@@ -3,8 +3,8 @@ import OcPickerPartial from './OcPickerPartial';
 import OcRangePicker from './OcRangePicker';
 import type { OcPickerProps } from './OcPicker.types';
 import type {
-    OcPickerPartialProps,
-    OcRangePickerProps,
+  OcPickerPartialProps,
+  OcRangePickerProps,
 } from './OcPicker.types';
 
 export { OcPickerPartial, OcRangePicker };

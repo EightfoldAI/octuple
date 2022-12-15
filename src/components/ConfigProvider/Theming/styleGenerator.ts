@@ -1,17 +1,17 @@
 import {
-    IGetFontStyle,
-    IRegisterFont,
-    FontOptions,
-    OcFont,
+  IGetFontStyle,
+  IRegisterFont,
+  FontOptions,
+  OcFont,
 } from './Font.types';
 import {
-    IGetStyle,
-    IRegisterTheme,
-    OcTheme,
-    OcThemeNames,
-    ThemeName,
-    ThemeOptions,
-    Variables,
+  IGetStyle,
+  IRegisterTheme,
+  OcTheme,
+  OcThemeNames,
+  ThemeName,
+  ThemeOptions,
+  Variables,
 } from './Theming.types';
 import { TinyColor } from '@ctrl/tinycolor';
 import generate from './generate';
@@ -23,242 +23,239 @@ const THEME_CONTAINER_ID = 'octuple-theme';
 const FONT_CONTAINER_ID = 'octuple-font';
 
 interface Options {
-    attachTo?: Element;
-    csp?: { nonce?: string };
-    prepend?: boolean;
-    mark?: string;
+  attachTo?: Element;
+  csp?: { nonce?: string };
+  prepend?: boolean;
+  mark?: string;
 }
 
 export function getStyle(themeOptions: ThemeOptions): IGetStyle {
-    let variables: Variables = {};
+  let variables: Variables = {};
 
-    const fillColor = (
-        colorPalettes: string[],
-        type: string
-    ): Record<string, string> =>
-        colorPalettes.reduce((acc, color, index) => {
-            const key: string = `${type}-${(index + 1) * 10}`;
-            acc[key] = color;
-            return acc;
-        }, variables);
+  const fillColor = (
+    colorPalettes: string[],
+    type: string
+  ): Record<string, string> =>
+    colorPalettes.reduce((acc, color, index) => {
+      const key: string = `${type}-${(index + 1) * 10}`;
+      acc[key] = color;
+      return acc;
+    }, variables);
 
-    const generatePalette = (colorVal: string, type: string): void => {
-        const baseColor = new TinyColor(colorVal);
-        const colorPalettes = generate(baseColor.toRgbString(), {});
-        fillColor(colorPalettes, type);
+  const generatePalette = (colorVal: string, type: string): void => {
+    const baseColor = new TinyColor(colorVal);
+    const colorPalettes = generate(baseColor.toRgbString(), {});
+    fillColor(colorPalettes, type);
+  };
+
+  const themeName: ThemeName = themeOptions.name;
+
+  const theme: OcTheme = {
+    ...themeDefaults,
+    ...OcThemes?.[themeName as OcThemeNames],
+    ...themeOptions.customTheme,
+  };
+
+  const accentTheme: OcTheme = {
+    ...OcThemes?.[theme.accentName as OcThemeNames],
+  };
+
+  // ================ Use existing primary palette ================
+  if (theme.palette) {
+    fillColor([...theme.palette].reverse(), 'primary-color');
+    variables[`primary-color`] = theme.primaryColor;
+  }
+
+  // ================ Use existing accent palette ================
+  if (accentTheme.palette) {
+    fillColor([...accentTheme.palette].reverse(), 'accent-color');
+    variables[`accent-color`] = accentTheme.primaryColor;
+  }
+
+  // ================ Custom primary palette ================
+  if (themeOptions.customTheme?.primaryColor) {
+    generatePalette(theme.primaryColor, 'primary-color');
+    variables[`primary-color`] = theme.primaryColor;
+  }
+
+  // ================ Custom accent palette ================
+  if (themeOptions.customTheme?.accentColor) {
+    generatePalette(theme.accentColor, 'accent-color');
+    variables[`accent-color`] = theme.accentColor;
+  }
+
+  // ================ Disruptive palette ================
+  if (!theme.disruptiveColor) {
+    fillColor([...OcThemes.red.palette].reverse(), 'disruptive-color');
+    variables[`disruptive-color`] = OcThemes.red.primaryColor;
+  } else {
+    generatePalette(theme.disruptiveColor, 'disruptive-color');
+    variables[`disruptive-color`] = theme.disruptiveColor;
+  }
+
+  // ================ Background Color ================
+  if (theme.backgroundColor) {
+    variables[`background-color`] = theme.backgroundColor;
+  }
+
+  const themePrimaryColor: TinyColor = new TinyColor(theme.primaryColor);
+
+  // ================ Text Color ================
+  if (theme.textColor) {
+    variables[`text-primary-color`] = themePrimaryColor.isDark()
+      ? theme.textColor
+      : theme.textColorInverse;
+  }
+
+  if (theme.textColorSecondary) {
+    variables[`text-secondary-color`] = theme.textColorSecondary;
+  }
+
+  if (theme.textColorInverse) {
+    variables[`text-inverse-color`] = themePrimaryColor.isDark()
+      ? theme.textColorInverse
+      : theme.textColor;
+  }
+
+  // ================ Success Color ================
+  if (theme.successColor) {
+    variables[`success-color`] = theme.successColor;
+  }
+
+  // ================ Warning Color ================
+  if (theme.warningColor) {
+    variables[`warning-color`] = theme.warningColor;
+  }
+
+  // ================= Error Color =================
+  if (theme.errorColor) {
+    variables[`error-color`] = theme.errorColor;
+  }
+
+  // ================= Info Color ==================
+  if (theme.infoColor) {
+    variables[`info-color`] = theme.infoColor;
+  }
+
+  // ================= Tabs theme ==================
+  if (theme.tabsTheme) {
+    variables = {
+      ...variables,
+      ...themeGenerator(theme.tabsTheme, 'tab'),
     };
+  }
 
-    const themeName: ThemeName = themeOptions.name;
-
-    const theme: OcTheme = {
-        ...themeDefaults,
-        ...OcThemes?.[themeName as OcThemeNames],
-        ...themeOptions.customTheme,
+  // ================= Navbar theme ==================
+  if (theme.navbarTheme) {
+    variables = {
+      ...variables,
+      ...themeGenerator(theme.navbarTheme, 'navbar'),
     };
+  }
 
-    const accentTheme: OcTheme = {
-        ...OcThemes?.[theme.accentName as OcThemeNames],
+  // ================= var theming ==================
+  if (theme.varTheme) {
+    variables = {
+      ...variables,
+      ...theme.varTheme,
     };
+  }
 
-    // ================ Use existing primary palette ================
-    if (theme.palette) {
-        fillColor([...theme.palette].reverse(), 'primary-color');
-        variables[`primary-color`] = theme.primaryColor;
-    }
-
-    // ================ Use existing accent palette ================
-    if (accentTheme.palette) {
-        fillColor([...accentTheme.palette].reverse(), 'accent-color');
-        variables[`accent-color`] = accentTheme.primaryColor;
-    }
-
-    // ================ Custom primary palette ================
-    if (themeOptions.customTheme?.primaryColor) {
-        generatePalette(theme.primaryColor, 'primary-color');
-        variables[`primary-color`] = theme.primaryColor;
-    }
-
-    // ================ Custom accent palette ================
-    if (themeOptions.customTheme?.accentColor) {
-        generatePalette(theme.accentColor, 'accent-color');
-        variables[`accent-color`] = theme.accentColor;
-    }
-
-    // ================ Disruptive palette ================
-    if (!theme.disruptiveColor) {
-        fillColor([...OcThemes.red.palette].reverse(), 'disruptive-color');
-        variables[`disruptive-color`] = OcThemes.red.primaryColor;
-    } else {
-        generatePalette(theme.disruptiveColor, 'disruptive-color');
-        variables[`disruptive-color`] = theme.disruptiveColor;
-    }
-
-    // ================ Background Color ================
-    if (theme.backgroundColor) {
-        variables[`background-color`] = theme.backgroundColor;
-    }
-
-    const themePrimaryColor: TinyColor = new TinyColor(theme.primaryColor);
-
-    // ================ Text Color ================
-    if (theme.textColor) {
-        variables[`text-primary-color`] = themePrimaryColor.isDark()
-            ? theme.textColor
-            : theme.textColorInverse;
-    }
-
-    if (theme.textColorSecondary) {
-        variables[`text-secondary-color`] = theme.textColorSecondary;
-    }
-
-    if (theme.textColorInverse) {
-        variables[`text-inverse-color`] = themePrimaryColor.isDark()
-            ? theme.textColorInverse
-            : theme.textColor;
-    }
-
-    // ================ Success Color ================
-    if (theme.successColor) {
-        variables[`success-color`] = theme.successColor;
-    }
-
-    // ================ Warning Color ================
-    if (theme.warningColor) {
-        variables[`warning-color`] = theme.warningColor;
-    }
-
-    // ================= Error Color =================
-    if (theme.errorColor) {
-        variables[`error-color`] = theme.errorColor;
-    }
-
-    // ================= Info Color ==================
-    if (theme.infoColor) {
-        variables[`info-color`] = theme.infoColor;
-    }
-
-    // ================= Tabs theme ==================
-    if (theme.tabsTheme) {
-        variables = {
-            ...variables,
-            ...themeGenerator(theme.tabsTheme, 'tab'),
-        };
-    }
-
-    // ================= Navbar theme ==================
-    if (theme.navbarTheme) {
-        variables = {
-            ...variables,
-            ...themeGenerator(theme.navbarTheme, 'navbar'),
-        };
-    }
-
-    // ================= var theming ==================
-    if (theme.varTheme) {
-        variables = {
-            ...variables,
-            ...theme.varTheme,
-        };
-    }
-
-    return {
-        variables,
-        light: themePrimaryColor.isLight(),
-        themeName,
-    };
+  return {
+    variables,
+    light: themePrimaryColor.isLight(),
+    themeName,
+  };
 }
 
 export function getFontStyle(fontOptions: FontOptions): IGetFontStyle {
-    let variables: Variables = {};
+  let variables: Variables = {};
 
-    const font: OcFont = {
-        ...fontDefaults,
-        ...fontOptions.customFont,
-    };
+  const font: OcFont = {
+    ...fontDefaults,
+    ...fontOptions.customFont,
+  };
 
-    // ================= Primary Font ==================
-    if (font.fontFamily) {
-        variables[`font-family`] = font.fontFamily;
-    }
+  // ================= Primary Font ==================
+  if (font.fontFamily) {
+    variables[`font-family`] = font.fontFamily;
+  }
 
-    // ================= Font Stack ==================
-    if (font.fontStack) {
-        variables[`font-stack`] = font.fontStack;
-    }
+  // ================= Font Stack ==================
+  if (font.fontStack) {
+    variables[`font-stack`] = font.fontStack;
+  }
 
-    // ================= Font Size ==================
-    if (font.fontSize) {
-        variables[`font-size`] = `${font.fontSize}px`;
-    }
+  // ================= Font Size ==================
+  if (font.fontSize) {
+    variables[`font-size`] = `${font.fontSize}px`;
+  }
 
-    return { variables };
+  return { variables };
 }
 
 function getContainer(option: Options): Element {
-    if (option.attachTo) {
-        return option.attachTo;
-    }
+  if (option.attachTo) {
+    return option.attachTo;
+  }
 
-    const head = document.querySelector('head');
-    return head || document.body;
+  const head = document.querySelector('head');
+  return head || document.body;
 }
 
 export function injectCSS(
-    variables: Variables,
-    id: string,
-    option: Options = {}
+  variables: Variables,
+  id: string,
+  option: Options = {}
 ): HTMLStyleElement {
-    const css = `
+  const css = `
           :root {
             ${Object.keys(variables)
-                .map((key) => `--${key}: ${variables[key]};`)
-                .join('\n')}
+              .map((key) => `--${key}: ${variables[key]};`)
+              .join('\n')}
           }
           `.trim();
-    const styleNode: HTMLStyleElement =
-        (document.getElementById(id) as HTMLStyleElement) ||
-        document.createElement('style');
-    styleNode.id = id;
-    if (option.csp?.nonce) {
-        styleNode.nonce = option.csp?.nonce;
-    }
-    styleNode.innerHTML = css;
+  const styleNode: HTMLStyleElement =
+    (document.getElementById(id) as HTMLStyleElement) ||
+    document.createElement('style');
+  styleNode.id = id;
+  if (option.csp?.nonce) {
+    styleNode.nonce = option.csp?.nonce;
+  }
+  styleNode.innerHTML = css;
 
-    const container: Element = getContainer(option);
-    const { firstChild } = container;
+  const container: Element = getContainer(option);
+  const { firstChild } = container;
 
-    if (option.prepend && container.prepend) {
-        // Use `prepend` first
-        container.prepend(styleNode);
-    } else if (option.prepend && firstChild) {
-        // Fallback to `insertBefore` like IE not support `prepend`
-        container.insertBefore(styleNode, firstChild);
-    } else {
-        container.appendChild(styleNode);
-    }
+  if (option.prepend && container.prepend) {
+    // Use `prepend` first
+    container.prepend(styleNode);
+  } else if (option.prepend && firstChild) {
+    // Fallback to `insertBefore` like IE not support `prepend`
+    container.insertBefore(styleNode, firstChild);
+  } else {
+    container.appendChild(styleNode);
+  }
 
-    return styleNode;
+  return styleNode;
 }
 
 export function registerTheme(themeOptions: ThemeOptions): IRegisterTheme {
-    const { themeName, light, variables } = getStyle(themeOptions);
-    const styleNode: HTMLStyleElement = injectCSS(
-        variables,
-        THEME_CONTAINER_ID
-    );
-    return {
-        themeName,
-        light,
-        variables,
-        styleNode,
-    };
+  const { themeName, light, variables } = getStyle(themeOptions);
+  const styleNode: HTMLStyleElement = injectCSS(variables, THEME_CONTAINER_ID);
+  return {
+    themeName,
+    light,
+    variables,
+    styleNode,
+  };
 }
 
 export function registerFont(fontOptions: FontOptions): IRegisterFont {
-    const { variables } = getFontStyle(fontOptions);
-    const styleNode: HTMLStyleElement = injectCSS(variables, FONT_CONTAINER_ID);
-    return {
-        variables,
-        styleNode,
-    };
+  const { variables } = getFontStyle(fontOptions);
+  const styleNode: HTMLStyleElement = injectCSS(variables, FONT_CONTAINER_ID);
+  return {
+    variables,
+    styleNode,
+  };
 }

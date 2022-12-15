@@ -1,20 +1,20 @@
 .badge {
-    @include octuple-h6();
-    background-color: var(--badge-background-color);
-    border-radius: $space-m;
-    color: var(--badge-text-color);
-    font-family: var(--badge-font-family);
-    padding: 0 $space-xxs;
-    width: fit-content;
-    height: fit-content;
+  @include octuple-h6();
+  background-color: var(--badge-background-color);
+  border-radius: $space-m;
+  color: var(--badge-text-color);
+  font-family: var(--badge-font-family);
+  padding: 0 $space-xxs;
+  width: fit-content;
+  height: fit-content;
 
-    &.active {
-        background-color: var(--badge-active-background-color);
-        color: var(--badge-active-text-color);
+  &.active {
+    background-color: var(--badge-active-background-color);
+    color: var(--badge-active-text-color);
 
-        &.disruptive {
-            background-color: var(--badge-disruptive-background-color);
-            color: var(--badge-disruptive-text-color);
-        }
+    &.disruptive {
+      background-color: var(--badge-disruptive-background-color);
+      color: var(--badge-disruptive-text-color);
     }
+  }
 }

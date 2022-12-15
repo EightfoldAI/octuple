@@ -1,45 +1,45 @@
 .info-bar {
+  background-color: var(--info-bar-background-color);
+  border-radius: var(--info-bar-border-radius);
+  color: var(--info-bar-text-color);
+  display: flex;
+  font-family: $octuple-font-family;
+  gap: $space-m;
+  padding: $space-ml;
+  width: 100%;
+
+  &.neutral {
     background-color: var(--info-bar-background-color);
-    border-radius: var(--info-bar-border-radius);
     color: var(--info-bar-text-color);
+  }
+
+  &.positive {
+    background-color: var(--info-bar-positive-background-color);
+    color: var(--info-bar-positive-text-color);
+  }
+
+  &.warning {
+    background-color: var(--info-bar-warning-background-color);
+    color: var(--info-bar-warning-text-color);
+  }
+
+  &.disruptive {
+    background-color: var(--info-bar-disruptive-background-color);
+    color: var(--info-bar-disruptive-text-color);
+  }
+
+  .icon {
+    color: inherit;
+  }
+
+  .message {
+    flex: 1;
     display: flex;
-    font-family: $octuple-font-family;
-    gap: $space-m;
-    padding: $space-ml;
-    width: 100%;
+    align-items: center;
+    color: inherit;
+  }
 
-    &.neutral {
-        background-color: var(--info-bar-background-color);
-        color: var(--info-bar-text-color);
-    }
-
-    &.positive {
-        background-color: var(--info-bar-positive-background-color);
-        color: var(--info-bar-positive-text-color);
-    }
-
-    &.warning {
-        background-color: var(--info-bar-warning-background-color);
-        color: var(--info-bar-warning-text-color);
-    }
-
-    &.disruptive {
-        background-color: var(--info-bar-disruptive-background-color);
-        color: var(--info-bar-disruptive-text-color);
-    }
-
-    .icon {
-        color: inherit;
-    }
-
-    .message {
-        flex: 1;
-        display: flex;
-        align-items: center;
-        color: inherit;
-    }
-
-    .buttons-container {
-        padding: $space-m;
-    }
+  .buttons-container {
+    padding: $space-m;
+  }
 }

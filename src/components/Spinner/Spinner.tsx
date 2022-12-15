@@ -6,15 +6,15 @@ import { mergeClasses } from '../../shared/utilities';
 import styles from './spinner.module.scss';
 
 export const Spinner: FC<SpinnerProps> = ({
-    size = SpinnerSize.Default,
-    classNames,
-    ...rest
+  size = SpinnerSize.Default,
+  classNames,
+  ...rest
 }) => (
-    <Icon
-        {...rest}
-        classNames={mergeClasses([styles.spinner, classNames])}
-        spin={0.8}
-        size={size}
-        path={IconName.mdiLoading}
-    />
+  <Icon
+    {...rest}
+    classNames={mergeClasses([styles.spinner, classNames])}
+    spin={0.8}
+    size={size}
+    path={IconName.mdiLoading}
+  />
 );

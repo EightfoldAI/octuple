@@ -6,42 +6,42 @@ import { SummaryCellProps } from './Footer.types';
 import { getCellFixedInfo } from '../Utilities/fixUtil';
 
 export default function SummaryCell({
-    classNames,
-    index,
-    children,
-    colSpan = 1,
-    rowSpan,
-    align,
-    verticalAlign,
+  classNames,
+  index,
+  children,
+  colSpan = 1,
+  rowSpan,
+  align,
+  verticalAlign,
 }: SummaryCellProps) {
-    const { direction } = useContext(TableContext);
-    const { scrollColumnIndex, stickyOffsets, flattenColumns } =
-        useContext(SummaryContext);
-    const lastIndex = index + colSpan - 1;
-    const mergedColSpan =
-        lastIndex + 1 === scrollColumnIndex ? colSpan + 1 : colSpan;
+  const { direction } = useContext(TableContext);
+  const { scrollColumnIndex, stickyOffsets, flattenColumns } =
+    useContext(SummaryContext);
+  const lastIndex = index + colSpan - 1;
+  const mergedColSpan =
+    lastIndex + 1 === scrollColumnIndex ? colSpan + 1 : colSpan;
 
-    const fixedInfo = getCellFixedInfo(
-        index,
-        index + mergedColSpan - 1,
-        flattenColumns,
-        stickyOffsets,
-        direction
-    );
+  const fixedInfo = getCellFixedInfo(
+    index,
+    index + mergedColSpan - 1,
+    flattenColumns,
+    stickyOffsets,
+    direction
+  );
 
-    return (
-        <Cell
-            classNames={classNames}
-            index={index}
-            component="td"
-            record={null}
-            dataIndex={null}
-            align={align}
-            verticalAlign={verticalAlign}
-            colSpan={mergedColSpan}
-            rowSpan={rowSpan}
-            render={() => children}
-            {...fixedInfo}
-        />
-    );
+  return (
+    <Cell
+      classNames={classNames}
+      index={index}
+      component="td"
+      record={null}
+      dataIndex={null}
+      align={align}
+      verticalAlign={verticalAlign}
+      colSpan={mergedColSpan}
+      rowSpan={rowSpan}
+      render={() => children}
+      {...fixedInfo}
+    />
+  );
 }

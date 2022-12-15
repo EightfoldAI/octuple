@@ -9,15 +9,15 @@ import TimePicker from '../DateTimePicker/TimePicker/Locale/pt_PT';
 import Upload from '../Upload/Locale/pt_PT';
 
 const localeValues: Locale = {
-    locale: 'pt',
-    DatePicker,
-    Dialog,
-    InfoBar,
-    Pagination,
-    Panel,
-    Table,
-    TimePicker,
-    Upload,
+  locale: 'pt',
+  DatePicker,
+  Dialog,
+  InfoBar,
+  Pagination,
+  Panel,
+  Table,
+  TimePicker,
+  Upload,
 };
 
 export default localeValues;

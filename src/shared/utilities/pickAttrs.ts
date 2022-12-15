@@ -25,13 +25,13 @@ const ariaPrefix: string = 'aria-';
 const dataPrefix: string = 'data-';
 
 const match = (key: string, prefix: string): boolean => {
-    return key.indexOf(prefix) === 0;
+  return key.indexOf(prefix) === 0;
 };
 
 export interface PickConfig {
-    aria?: boolean;
-    data?: boolean;
-    attr?: boolean;
+  aria?: boolean;
+  data?: boolean;
+  attr?: boolean;
 }
 
 /**
@@ -40,38 +40,38 @@ export interface PickConfig {
  * @param ariaOnly boolean | { aria?: boolean; data?: boolean; attr?: boolean; } filter config
  */
 export const pickAttrs = (
-    props: object,
-    ariaOnly: boolean | PickConfig = false
+  props: object,
+  ariaOnly: boolean | PickConfig = false
 ) => {
-    let mergedConfig: PickConfig;
-    if (ariaOnly === false) {
-        mergedConfig = {
-            aria: true,
-            data: true,
-            attr: true,
-        };
-    } else if (ariaOnly === true) {
-        mergedConfig = {
-            aria: true,
-        };
-    } else {
-        mergedConfig = {
-            ...ariaOnly,
-        };
-    }
+  let mergedConfig: PickConfig;
+  if (ariaOnly === false) {
+    mergedConfig = {
+      aria: true,
+      data: true,
+      attr: true,
+    };
+  } else if (ariaOnly === true) {
+    mergedConfig = {
+      aria: true,
+    };
+  } else {
+    mergedConfig = {
+      ...ariaOnly,
+    };
+  }
 
-    const attrs = {};
-    Object.keys(props).forEach((key) => {
-        if (
-            // Aria
-            (mergedConfig.aria && (key === 'role' || match(key, ariaPrefix))) ||
-            // Data
-            (mergedConfig.data && match(key, dataPrefix)) ||
-            // Attr
-            (mergedConfig.attr && propList.includes(key))
-        ) {
-            (<any>attrs)[key] = (<any>props)[key];
-        }
-    });
-    return attrs;
+  const attrs = {};
+  Object.keys(props).forEach((key) => {
+    if (
+      // Aria
+      (mergedConfig.aria && (key === 'role' || match(key, ariaPrefix))) ||
+      // Data
+      (mergedConfig.data && match(key, dataPrefix)) ||
+      // Attr
+      (mergedConfig.attr && propList.includes(key))
+    ) {
+      (<any>attrs)[key] = (<any>props)[key];
+    }
+  });
+  return attrs;
 };

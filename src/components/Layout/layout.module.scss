@@ -1,168 +1,168 @@
 .layout {
-    display: flex;
+  display: flex;
+  flex: auto;
+  flex-direction: column;
+  font-family: $octuple-font-family;
+  height: 100%;
+
+  /* fix firefox can't set height smaller than content on flex item */
+  min-height: 0;
+
+  &.octuple {
+    @include octuple-chrome();
+  }
+
+  &,
+  * {
+    box-sizing: border-box;
+  }
+
+  &-has-aside {
+    flex-direction: row;
+
+    > .layout,
+    > .layout-content {
+      width: 0; // keep the content from exceeding the container
+    }
+  }
+
+  &-nav {
+    height: $layout-nav-height;
+    color: $layout-nav-color;
+    background: $layout-nav-background;
+  }
+
+  &-nav,
+  &-header,
+  &-footer {
+    flex: 0 0 auto;
+  }
+
+  &-header {
+    height: $layout-header-height;
+    padding: 0 $space-m;
+    color: $layout-header-color;
+    line-height: $layout-header-height;
+    background: $layout-header-background;
+  }
+
+  &-content {
+    color: $layout-content-color;
+    background: $layout-content-background;
+  }
+
+  &-footer {
+    padding: $space-m;
+    color: $layout-footer-color;
+    font-size: $text-font-size-3;
+    background: $layout-footer-background;
+  }
+
+  &-article,
+  &-content,
+  &-section {
     flex: auto;
-    flex-direction: column;
-    font-family: $octuple-font-family;
-    height: 100%;
 
     /* fix firefox can't set height smaller than content on flex item */
     min-height: 0;
+  }
 
-    &.octuple {
-        @include octuple-chrome();
+  &-aside {
+    position: relative;
+
+    /* fix firefox can't set width smaller than content on flex item */
+    min-width: 0;
+    background: $layout-aside-background;
+    color: $layout-aside-color;
+    transition: all 0.2s;
+
+    &-children {
+      height: 100%;
+      margin-top: -0.1px;
+      // Hack for fixing margin collaspe bug
+      // solution from https://stackoverflow.com/a/33132624/3040605
+      padding-top: 0.1px;
+
+      .menu-inline-collapsed {
+        width: auto;
+      }
     }
 
-    &,
-    * {
-        box-sizing: border-box;
+    &-has-trigger {
+      padding-bottom: $layout-trigger-height;
     }
 
-    &-has-aside {
-        flex-direction: row;
+    &-right {
+      order: 1;
+    }
 
-        > .layout,
-        > .layout-content {
-            width: 0; // keep the content from exceeding the container
+    &-collapsed {
+      position: relative;
+    }
+
+    &-below {
+      position: relative;
+    }
+
+    &-trigger {
+      height: $layout-trigger-height;
+      color: $layout-trigger-color;
+      line-height: $layout-trigger-height;
+      text-align: center;
+      background: $layout-trigger-background;
+      cursor: pointer;
+      padding: $space-s;
+      transition: all 0.2s;
+    }
+
+    &-zero-width {
+      > * {
+        overflow: hidden;
+      }
+
+      &-trigger {
+        position: absolute;
+        top: $layout-header-height;
+        right: -$layout-zero-trigger-width;
+        z-index: 1;
+        width: $layout-zero-trigger-width;
+        height: $layout-zero-trigger-height;
+        color: $layout-trigger-color;
+        font-size: calc($layout-zero-trigger-width / 2);
+        line-height: $layout-zero-trigger-height;
+        text-align: center;
+        background: var(--primary-color);
+        border-radius: 0 $border-radius-xs $border-radius-xs 0;
+        cursor: pointer;
+        padding: $space-xxs;
+        transition: background 0.3s ease;
+
+        &:after {
+          position: absolute;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          background: transparent;
+          transition: all 0.3s;
+          content: '';
         }
-    }
 
-    &-nav {
-        height: $layout-nav-height;
-        color: $layout-nav-color;
-        background: $layout-nav-background;
-    }
-
-    &-nav,
-    &-header,
-    &-footer {
-        flex: 0 0 auto;
-    }
-
-    &-header {
-        height: $layout-header-height;
-        padding: 0 $space-m;
-        color: $layout-header-color;
-        line-height: $layout-header-height;
-        background: $layout-header-background;
-    }
-
-    &-content {
-        color: $layout-content-color;
-        background: $layout-content-background;
-    }
-
-    &-footer {
-        padding: $space-m;
-        color: $layout-footer-color;
-        font-size: $text-font-size-3;
-        background: $layout-footer-background;
-    }
-
-    &-article,
-    &-content,
-    &-section {
-        flex: auto;
-
-        /* fix firefox can't set height smaller than content on flex item */
-        min-height: 0;
-    }
-
-    &-aside {
-        position: relative;
-
-        /* fix firefox can't set width smaller than content on flex item */
-        min-width: 0;
-        background: $layout-aside-background;
-        color: $layout-aside-color;
-        transition: all 0.2s;
-
-        &-children {
-            height: 100%;
-            margin-top: -0.1px;
-            // Hack for fixing margin collaspe bug
-            // solution from https://stackoverflow.com/a/33132624/3040605
-            padding-top: 0.1px;
-
-            .menu-inline-collapsed {
-                width: auto;
-            }
+        &:hover:after {
+          background: rgba(255, 255, 255, 0.1);
         }
 
-        &-has-trigger {
-            padding-bottom: $layout-trigger-height;
+        &-left {
+          border-radius: 0 $border-radius-xs $border-radius-xs 0;
         }
 
         &-right {
-            order: 1;
+          left: -$layout-zero-trigger-width;
+          border-radius: $border-radius-xs 0 0 $border-radius-xs;
         }
-
-        &-collapsed {
-            position: relative;
-        }
-
-        &-below {
-            position: relative;
-        }
-
-        &-trigger {
-            height: $layout-trigger-height;
-            color: $layout-trigger-color;
-            line-height: $layout-trigger-height;
-            text-align: center;
-            background: $layout-trigger-background;
-            cursor: pointer;
-            padding: $space-s;
-            transition: all 0.2s;
-        }
-
-        &-zero-width {
-            > * {
-                overflow: hidden;
-            }
-
-            &-trigger {
-                position: absolute;
-                top: $layout-header-height;
-                right: -$layout-zero-trigger-width;
-                z-index: 1;
-                width: $layout-zero-trigger-width;
-                height: $layout-zero-trigger-height;
-                color: $layout-trigger-color;
-                font-size: calc($layout-zero-trigger-width / 2);
-                line-height: $layout-zero-trigger-height;
-                text-align: center;
-                background: var(--primary-color);
-                border-radius: 0 $border-radius-xs $border-radius-xs 0;
-                cursor: pointer;
-                padding: $space-xxs;
-                transition: background 0.3s ease;
-
-                &:after {
-                    position: absolute;
-                    top: 0;
-                    right: 0;
-                    bottom: 0;
-                    left: 0;
-                    background: transparent;
-                    transition: all 0.3s;
-                    content: '';
-                }
-
-                &:hover:after {
-                    background: rgba(255, 255, 255, 0.1);
-                }
-
-                &-left {
-                    border-radius: 0 $border-radius-xs $border-radius-xs 0;
-                }
-
-                &-right {
-                    left: -$layout-zero-trigger-width;
-                    border-radius: $border-radius-xs 0 0 $border-radius-xs;
-                }
-            }
-        }
+      }
     }
+  }
 }
 
 @import './Styles/rtl';

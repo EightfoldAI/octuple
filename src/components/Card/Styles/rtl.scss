@@ -1,34 +1,34 @@
 .card {
-    &-rtl {
-        .header {
-            .main-header {
-                .title {
-                    margin-left: unset;
-                    margin-right: $space-xs;
-                }
-
-                &-button {
-                    margin-left: $space-l;
-                    margin-right: unset;
-                }
-
-                &-buttons {
-                    button {
-                        margin-left: unset;
-                        margin-right: $space-xs;
-                    }
-                }
-            }
-
-            .button-icon {
-                left: $disabled-zero;
-                right: unset;
-            }
+  &-rtl {
+    .header {
+      .main-header {
+        .title {
+          margin-left: unset;
+          margin-right: $space-xs;
         }
 
-        .footer {
-            padding-left: 40px;
-            padding-right: unset;
+        &-button {
+          margin-left: $space-l;
+          margin-right: unset;
         }
+
+        &-buttons {
+          button {
+            margin-left: unset;
+            margin-right: $space-xs;
+          }
+        }
+      }
+
+      .button-icon {
+        left: $disabled-zero;
+        right: unset;
+      }
     }
+
+    .footer {
+      padding-left: 40px;
+      padding-right: unset;
+    }
+  }
 }

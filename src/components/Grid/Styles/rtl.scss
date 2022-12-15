@@ -1,13 +1,13 @@
 @import './mixins';
 
 .row {
-    &-rtl {
-        direction: rtl;
-    }
+  &-rtl {
+    direction: rtl;
+  }
 }
 
 .col {
-    &-rtl {
-        direction: rtl;
-    }
+  &-rtl {
+    direction: rtl;
+  }
 }

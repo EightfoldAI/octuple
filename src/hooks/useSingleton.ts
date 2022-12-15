@@ -5,13 +5,13 @@ import { useRef } from 'react';
  * @param callBack Code to run.
  */
 export const useSingleton = (callBack = () => {}): void => {
-    const hasBeenCalled = useRef(false);
+  const hasBeenCalled = useRef(false);
 
-    if (hasBeenCalled.current) {
-        return;
-    }
+  if (hasBeenCalled.current) {
+    return;
+  }
 
-    callBack();
+  callBack();
 
-    hasBeenCalled.current = true;
+  hasBeenCalled.current = true;
 };

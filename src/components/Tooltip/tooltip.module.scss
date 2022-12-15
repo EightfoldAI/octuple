@@ -1,93 +1,93 @@
 $tooltip-arrow-shadow: 1px 1px 2px rgba(15, 20, 31, 0.12);
 
 .referenceWrapper {
-    display: inline-block;
-    cursor: pointer;
+  display: inline-block;
+  cursor: pointer;
 
-    &.disabled {
-        cursor: auto;
-    }
+  &.disabled {
+    cursor: auto;
+  }
 
-    .no-pointer-events {
-        pointer-events: none;
-    }
+  .no-pointer-events {
+    pointer-events: none;
+  }
 }
 
 .tooltip {
-    --bg: var(--background-color);
-    --text-color: var(--text-primary-color);
-    display: none;
-    box-shadow: $shadow-object-xs;
-    background: var(--bg);
-    color: var(--text-color);
-    font-family: $octuple-font-family;
-    font-size: $text-font-size-1;
-    text-align: center;
-    z-index: $z-index-400;
-    padding: $space-xs;
-    border-radius: $border-radius-s;
-    overflow-wrap: break-word;
+  --bg: var(--background-color);
+  --text-color: var(--text-primary-color);
+  display: none;
+  box-shadow: $shadow-object-xs;
+  background: var(--bg);
+  color: var(--text-color);
+  font-family: $octuple-font-family;
+  font-size: $text-font-size-1;
+  text-align: center;
+  z-index: $z-index-400;
+  padding: $space-xs;
+  border-radius: $border-radius-s;
+  overflow-wrap: break-word;
 
-    &.dark {
-        --bg: var(--grey-color-80);
-        --text-color: var(--text-inverse-color);
-    }
+  &.dark {
+    --bg: var(--grey-color-80);
+    --text-color: var(--text-inverse-color);
+  }
+
+  .arrow {
+    width: 8px;
+    height: 8px;
+    z-index: -1;
+    background: inherit;
+    box-shadow: $tooltip-arrow-shadow;
+  }
+
+  &.top {
+    transform-origin: bottom center;
 
     .arrow {
-        width: 8px;
-        height: 8px;
-        z-index: -1;
-        background: inherit;
-        box-shadow: $tooltip-arrow-shadow;
+      transform: rotate(45deg);
     }
+  }
 
-    &.top {
-        transform-origin: bottom center;
+  &.left {
+    transform-origin: right center;
 
-        .arrow {
-            transform: rotate(45deg);
-        }
+    .arrow {
+      transform: rotate(315deg);
     }
+  }
 
-    &.left {
-        transform-origin: right center;
+  &.right {
+    transform-origin: left center;
 
-        .arrow {
-            transform: rotate(315deg);
-        }
+    .arrow {
+      transform: rotate(135deg);
     }
+  }
 
-    &.right {
-        transform-origin: left center;
+  &.bottom {
+    transform-origin: top center;
 
-        .arrow {
-            transform: rotate(135deg);
-        }
+    .arrow {
+      transform: rotate(225deg);
     }
+  }
 
-    &.bottom {
-        transform-origin: top center;
+  &.visible {
+    display: block;
+    animation: scaleTooltip $motion-duration-extra-fast $motion-easing-easeinout
+      0s;
+  }
 
-        .arrow {
-            transform: rotate(225deg);
-        }
-    }
+  &.small {
+    max-width: 140px;
+  }
 
-    &.visible {
-        display: block;
-        animation: scaleTooltip $motion-duration-extra-fast
-            $motion-easing-easeinout 0s;
-    }
+  &.medium {
+    max-width: 240px;
+  }
 
-    &.small {
-        max-width: 140px;
-    }
-
-    &.medium {
-        max-width: 240px;
-    }
-
-    &.large {
-        max-width: 360px;
-    }
+  &.large {
+    max-width: 360px;
+  }
 }

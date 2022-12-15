@@ -1,7 +1,7 @@
 import type { TimePickerLocale } from '../TimePicker.types';
 
 const locale: TimePickerLocale = {
-    placeholder: 'Wybierz godzinę',
+  placeholder: 'Wybierz godzinę',
 };
 
 export default locale;

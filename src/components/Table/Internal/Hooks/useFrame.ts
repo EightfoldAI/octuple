@@ -6,75 +6,75 @@ export type Updater<State> = (prev: State) => State;
  * Execute code before next frame but async
  */
 export function useLayoutState<State>(
-    defaultState: State
+  defaultState: State
 ): [State, (updater: Updater<State>) => void] {
-    const stateRef = useRef(defaultState);
-    const [, forceUpdate] = useState({});
+  const stateRef = useRef(defaultState);
+  const [, forceUpdate] = useState({});
 
-    const lastPromiseRef = useRef<Promise<void>>(null);
-    const updateBatchRef = useRef<Updater<State>[]>([]);
+  const lastPromiseRef = useRef<Promise<void>>(null);
+  const updateBatchRef = useRef<Updater<State>[]>([]);
 
-    function setFrameState(updater: Updater<State>) {
-        updateBatchRef.current.push(updater);
+  function setFrameState(updater: Updater<State>) {
+    updateBatchRef.current.push(updater);
 
-        const promise = Promise.resolve();
-        lastPromiseRef.current = promise;
+    const promise = Promise.resolve();
+    lastPromiseRef.current = promise;
 
-        promise.then(() => {
-            if (lastPromiseRef.current === promise) {
-                const prevBatch = updateBatchRef.current;
-                const prevState = stateRef.current;
-                updateBatchRef.current = [];
+    promise.then(() => {
+      if (lastPromiseRef.current === promise) {
+        const prevBatch = updateBatchRef.current;
+        const prevState = stateRef.current;
+        updateBatchRef.current = [];
 
-                prevBatch.forEach((batchUpdater) => {
-                    stateRef.current = batchUpdater(stateRef.current);
-                });
-
-                lastPromiseRef.current = null;
-
-                if (prevState !== stateRef.current) {
-                    forceUpdate({});
-                }
-            }
+        prevBatch.forEach((batchUpdater) => {
+          stateRef.current = batchUpdater(stateRef.current);
         });
-    }
 
-    useEffect(
-        () => () => {
-            lastPromiseRef.current = null;
-        },
-        []
-    );
+        lastPromiseRef.current = null;
 
-    return [stateRef.current, setFrameState];
+        if (prevState !== stateRef.current) {
+          forceUpdate({});
+        }
+      }
+    });
+  }
+
+  useEffect(
+    () => () => {
+      lastPromiseRef.current = null;
+    },
+    []
+  );
+
+  return [stateRef.current, setFrameState];
 }
 
 /** Lock frame, when frame pass reset the lock. */
 export function useTimeoutLock<State>(
-    defaultState?: State
+  defaultState?: State
 ): [(state: State) => void, () => State | null] {
-    const frameRef = useRef<State | null>(defaultState || null);
-    const timeoutRef = useRef<number>();
+  const frameRef = useRef<State | null>(defaultState || null);
+  const timeoutRef = useRef<number>();
 
-    function cleanUp() {
-        window.clearTimeout(timeoutRef.current);
-    }
+  function cleanUp() {
+    window.clearTimeout(timeoutRef.current);
+  }
 
-    function setState(newState: State) {
-        frameRef.current = newState;
-        cleanUp();
+  function setState(newState: State) {
+    frameRef.current = newState;
+    cleanUp();
 
-        timeoutRef.current = window.setTimeout(() => {
-            frameRef.current = null;
-            timeoutRef.current = undefined;
-        }, 100);
-    }
+    timeoutRef.current = window.setTimeout(() => {
+      frameRef.current = null;
+      timeoutRef.current = undefined;
+    }, 100);
+  }
 
-    function getState() {
-        return frameRef.current;
-    }
+  function getState() {
+    return frameRef.current;
+  }
 
-    useEffect(() => cleanUp, []);
+  useEffect(() => cleanUp, []);
 
-    return [setState, getState];
+  return [setState, getState];
 }
