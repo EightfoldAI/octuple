@@ -46,26 +46,26 @@ $skeleton-wave-background: linear-gradient(
     }
 
     &.pill {
-        border-radius: $corner-radius-xl;
+        border-radius: $border-radius-xl;
     }
 
     &.button-small {
-        border-radius: $corner-radius-xl;
+        border-radius: $border-radius-xl;
         height: 28px;
     }
 
     &.button-medium {
-        border-radius: $corner-radius-xl;
+        border-radius: $border-radius-xl;
         height: 36px;
     }
 
     &.button-large {
-        border-radius: $corner-radius-xl;
+        border-radius: $border-radius-xl;
         height: 44px;
     }
 
     &.rounded {
-        border-radius: $corner-radius-m;
+        border-radius: $border-radius-m;
     }
 
     &.circular {

@@ -341,11 +341,11 @@ $label-no-value-margin-bottom: 15px;
 
 // Corner-radius Definitions
 
-$corner-radius-xs: var(--border-radius-xs);
-$corner-radius-s: var(--border-radius-s);
-$corner-radius-m: var(--border-radius-m);
-$corner-radius-l: var(--border-radius-l);
-$corner-radius-xl: var(--border-radius-xl);
+$border-radius-xs: var(--border-radius-xs);
+$border-radius-s: var(--border-radius-s);
+$border-radius-m: var(--border-radius-m);
+$border-radius-l: var(--border-radius-l);
+$border-radius-xl: var(--border-radius-xl);
 
 // Speed / Duration Definitions
 
@@ -530,7 +530,7 @@ $tree-child-padding: 18px;
 // Picker
 
 $picker-arrow-size: 8px;
-$picker-border-radius: $corner-radius-m;
+$picker-border-radius: $border-radius-m;
 $picker-cell-border-radius-l: 24px;
 $picker-cell-border-radius-m: 18px;
 $picker-cell-border-radius-s: 14px;

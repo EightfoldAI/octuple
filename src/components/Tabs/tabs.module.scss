@@ -128,13 +128,13 @@
         --tab-hover-label: var(--tab-pill-hover-label);
         background-color: var(--tab-pill-background);
         width: fit-content;
-        border-radius: $corner-radius-xl;
+        border-radius: $border-radius-xl;
         padding: calc(#{$space-xs} - #{$space-xxxs});
 
         .tab {
             padding: $button-padding-vertical-medium
                 $button-padding-horizontal-medium;
-            border-radius: $corner-radius-xl;
+            border-radius: $border-radius-xl;
 
             &.active {
                 .badge {
@@ -224,7 +224,7 @@
         align-items: center;
         background: var(--bg);
         border: var(--border-width) solid var(--bg);
-        border-radius: $corner-radius-xl;
+        border-radius: $border-radius-xl;
         display: flex;
         padding: $space-ml $space-s;
         width: fit-content;

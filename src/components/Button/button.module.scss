@@ -611,12 +611,12 @@
     &.split-left {
         border-bottom-left-radius: 0;
         border-top-left-radius: 0;
-        border-bottom-right-radius: $corner-radius-s;
-        border-top-right-radius: $corner-radius-s;
+        border-bottom-right-radius: $border-radius-s;
+        border-top-right-radius: $border-radius-s;
 
         &.pill-shape {
-            border-bottom-right-radius: $corner-radius-xl;
-            border-top-right-radius: $corner-radius-xl;
+            border-bottom-right-radius: $border-radius-xl;
+            border-top-right-radius: $border-radius-xl;
         }
 
         .button-text-large {
@@ -642,14 +642,14 @@
     }
 
     &.split-right {
-        border-bottom-left-radius: $corner-radius-s;
-        border-top-left-radius: $corner-radius-s;
+        border-bottom-left-radius: $border-radius-s;
+        border-top-left-radius: $border-radius-s;
         border-bottom-right-radius: 0;
         border-top-right-radius: 0;
 
         &.pill-shape {
-            border-bottom-left-radius: $corner-radius-xl;
-            border-top-left-radius: $corner-radius-xl;
+            border-bottom-left-radius: $border-radius-xl;
+            border-top-left-radius: $border-radius-xl;
         }
 
         .button-text-large {
