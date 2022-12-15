@@ -181,6 +181,11 @@ export interface InputProps<T>
      */
     ariaLabel?: string;
     /**
+     * Indicates the autocomplete attribute value for the input field.
+     * @default undefined
+     */
+    autocomplete?: string;
+    /**
      * The input autoFocus attribute.
      * @default false
      */

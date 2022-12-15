@@ -111,6 +111,9 @@ export default {
         },
     },
     argTypes: {
+        autocomplete: {
+            control: { type: 'text' },
+        },
         inline: {
             options: [true, false],
             control: { type: 'inline-radio' },
@@ -155,6 +158,7 @@ export const Search_Box = Search_Box_Story.bind({});
 Search_Box.args = {
     allowDisabledFocus: false,
     ariaLabel: 'Search',
+    autocomplete: undefined,
     autoFocus: true,
     classNames: 'my-searchbox-class',
     clearButtonAriaLabel: 'Clear',
