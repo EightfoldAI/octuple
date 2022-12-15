@@ -47,7 +47,6 @@ One-time setup activities to start contributing:
 - Choose a local folder for the cloned files
 - Clone the repository to your local machine
 - Configure the upstream remote value
-- Configure git to ignore specified commits via `git config blame.ignoreRevsFile .git-blame-ignore-revs`
 
 ### Overview
 
