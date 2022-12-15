@@ -295,7 +295,7 @@
     --table-header-font-size: 14px;
     --table-header-line-height: 24px;
     --table-footer-font-size: 16px;
-    --table-footer-aline-height: 24px;
+    --table-footer-line-height: 24px;
     --table-font-size: 14px;
     --table-font-size-md: 14px;
     --table-font-size-sm: 14px;
@@ -305,7 +305,7 @@
 
     // ------ Generic button vars ------
     --button-font-family: var(--font-stack-full);
-    --button-border-radius: --border-radius-s;
+    --button-border-radius: var(--border-radius-s);
     --button-round-shape-border-radius: 50%;
     --button-pill-shape-border-radius: var(--border-radius-xl);
     // TODO: button text/font related vars
