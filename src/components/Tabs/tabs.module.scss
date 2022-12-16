@@ -14,6 +14,7 @@
     align-items: center;
     border: none;
     color: var(--tab-label);
+    background: var(--tab-background);
     cursor: pointer;
     display: flex;
     font-family: $octuple-font-family;
@@ -126,12 +127,12 @@
     --tab-hover-label: var(--tab-pill-hover-label);
     background-color: var(--tab-pill-background);
     width: fit-content;
-    border-radius: $border-radius-xl;
-    padding: calc(#{$space-xs} - #{$space-xxxs});
+    border-radius: var(--tab-pill-border-radius);
+    padding: var(--tab-pill-medium-padding);
 
     .tab {
       padding: $button-padding-vertical-medium $button-padding-horizontal-medium;
-      border-radius: $border-radius-xl;
+      border-radius: var(--tab-pill-border-radius);
 
       &.active {
         .badge {
@@ -147,7 +148,7 @@
 
   &.large {
     &.pill {
-      padding: $space-xs;
+      padding: var(--tab-pill-large-padding);
 
       .tab {
         padding: $button-padding-vertical-large $button-padding-horizontal-large;
@@ -169,7 +170,7 @@
 
   &.medium {
     &.pill {
-      padding: calc(#{$space-xs} - #{$space-xxxs});
+      padding: var(--tab-pill-medium-padding);
 
       .tab {
         padding: $button-padding-vertical-medium
@@ -192,7 +193,7 @@
 
   &.small {
     &.pill {
-      padding: $space-xxs;
+      padding: var(--tab-pill-small-padding);
 
       .tab {
         padding: $button-padding-vertical-small $button-padding-horizontal-small;
@@ -228,21 +229,38 @@
       border-color: var(--border);
     }
 
+    &:not(.bordered) {
+      padding: 0;
+
+      &.divider {
+        padding: 0;
+
+        .tab {
+          &:first-of-type {
+            margin-left: 0;
+          }
+          &:last-of-type {
+            margin-right: 0;
+          }
+        }
+      }
+    }
+
     .tab {
-      --active-border: var(--grey-color-60);
-      --bg: var(--background-color);
-      --border: var(--background-color);
-      --border-radius: 40px;
+      --active-border: var(stat-tab-active-border-color);
+      --bg: var(--stat-tab-background-color);
+      --border: var(--stat-tab-border-color);
+      --border-radius: var(--stat-tab-border-radius);
       --divider-height: 84px;
       --divider-width: 1px;
       --height: 116px;
-      --hover-bg: var(--grey-color-20);
-      --hover-border: var(--grey-color-20);
-      --icon: var(--grey-color-70);
-      --icon-bg: var(--grey-color-20);
+      --hover-bg: var(--stat-tab-hover-background-color);
+      --hover-border: var(--stat-tab-hover-border-color);
+      --icon: var(--stat-tab-icon-color);
+      --icon-bg: var(--stat-tab-icon-background-color);
       --icon-height: 72px;
       --icon-width: 72px;
-      --label: var(--text-secondary-color);
+      --label: var(--stat-tab-label-color);
       --width: 200px;
       background: var(--bg);
       border: var(--border-width) solid var(--border);
