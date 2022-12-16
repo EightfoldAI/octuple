@@ -130,7 +130,7 @@
 }
 
 @mixin octuple-hr {
-  background-color: $divider-line-color;
+  background-color: var(--horizontal-rule-color);
   width: 100%;
 }
 
