@@ -108,8 +108,8 @@ export interface CarouselProps
      */
     nextIconButtonAriaLabel?: string;
     /**
-     Callback fired on mouse enter event.
-    */
+     * Callback fired on mouse enter event.
+     */
     onMouseEnter?: () => React.MouseEventHandler;
     /**
      * Callback fired when a Carousel transition ends.

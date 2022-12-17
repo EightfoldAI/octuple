@@ -1,0 +1,128 @@
+import React from 'react';
+import { Stories } from '@storybook/addon-docs';
+import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Step, Stepper, StepperSize, StepperVariant } from './';
+import { Col, Row } from '../Grid';
+
+export default {
+    title: 'Stepper',
+    parameters: {
+        docs: {
+            page: (): JSX.Element => (
+                <main>
+                    <article>
+                        <section>
+                            <h1>Stepper</h1>
+                            <p>
+                                The Stepper component should be used with a
+                                small number of steps, and should display next
+                                to the items to be completed in numerical order.
+                                The Stepper indicated the number of steps, and
+                                whether or not the steps have been completed.
+                            </p>
+                        </section>
+                        <section>
+                            <Stories includePrimary title="" />
+                        </section>
+                    </article>
+                </main>
+            ),
+        },
+    },
+    argTypes: {},
+} as ComponentMeta<typeof Stepper>;
+
+const Default_Story: ComponentStory<typeof Stepper> = (args) => {
+    const workflow: Step[] = [1, 2, 3, 4, 5].map((i) => ({
+        index: i,
+        content: `Step label ${i}`,
+        complete: i > args.index ? false : true,
+    }));
+
+    return (
+        <Row>
+            <Col span="12">
+                <Stepper {...args} steps={workflow} />
+            </Col>
+        </Row>
+    );
+};
+
+export const Default_Horizontal_Small = Default_Story.bind({});
+export const Default_Horizontal_Small_Required = Default_Story.bind({});
+export const Default_Horizontal_Small_Read_Only = Default_Story.bind({});
+export const Default_Horizontal_Medium = Default_Story.bind({});
+export const Default_Horizontal_Medium_Required = Default_Story.bind({});
+export const Default_Horizontal_Medium_Read_Only = Default_Story.bind({});
+export const Default_Vertical = Default_Story.bind({});
+export const Default_Vertical_Required = Default_Story.bind({});
+export const Default_Vertical_Read_Only = Default_Story.bind({});
+export const Default_Vertical_Scroll = Default_Story.bind({});
+
+const stepperArgs: Object = {
+    activeStepIndex: 2,
+    classNames: 'my-stepper',
+    id: 'myStepperId',
+    index: 2,
+    layout: 'horizontal',
+    readonly: false,
+    required: false,
+    size: StepperSize.Medium,
+    steps: [],
+    variant: StepperVariant.Default,
+    'data-test-id': 'myStepperTestId',
+};
+
+Default_Horizontal_Small.args = {
+    ...stepperArgs,
+    size: StepperSize.Small,
+};
+
+Default_Horizontal_Small_Required.args = {
+    ...stepperArgs,
+    required: true,
+    size: StepperSize.Small,
+};
+
+Default_Horizontal_Small_Read_Only.args = {
+    ...stepperArgs,
+    readonly: true,
+    size: StepperSize.Small,
+};
+
+Default_Horizontal_Medium.args = {
+    ...stepperArgs,
+};
+
+Default_Horizontal_Medium_Required.args = {
+    ...stepperArgs,
+    required: true,
+};
+
+Default_Horizontal_Medium_Read_Only.args = {
+    ...stepperArgs,
+    readonly: true,
+};
+
+Default_Vertical.args = {
+    ...stepperArgs,
+    layout: 'vertical',
+};
+
+Default_Vertical_Required.args = {
+    ...stepperArgs,
+    layout: 'vertical',
+    required: true,
+};
+
+Default_Vertical_Read_Only.args = {
+    ...stepperArgs,
+    layout: 'vertical',
+    readonly: true,
+};
+
+Default_Vertical_Scroll.args = {
+    ...stepperArgs,
+    height: 400,
+    layout: 'vertical',
+};

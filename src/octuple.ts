@@ -112,6 +112,13 @@ import { Stack } from './components/Stack';
 
 import { Stat, Tabs, Tab, TabSize, TabVariant } from './components/Tabs';
 
+import {
+    Step,
+    Stepper,
+    StepperSize,
+    StepperVariant,
+} from './components/Stepper';
+
 import TimePicker from './components/DateTimePicker/TimePicker/TimePicker';
 
 import { Tooltip, TooltipTheme, TooltipSize } from './components/Tooltip';
@@ -274,6 +281,10 @@ export {
     SpinnerSize,
     Stack,
     Stat,
+    Step,
+    Stepper,
+    StepperSize,
+    StepperVariant,
     SystemUIButton,
     Table,
     TablePaginationConfig,
