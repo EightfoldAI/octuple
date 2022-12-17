@@ -6,31 +6,31 @@ import type { FilterSearchType } from '../../Table.types';
 import styles from '../../Styles/table.module.scss';
 
 interface FilterSearchProps {
-    onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-    filterSearch: FilterSearchType;
-    filterSearchPlaceholderText: string;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  filterSearch: FilterSearchType;
+  filterSearchPlaceholderText: string;
 }
 
 const FilterSearch: FC<FilterSearchProps> = ({
-    onChange,
-    filterSearch,
-    filterSearchPlaceholderText,
+  onChange,
+  filterSearch,
+  filterSearchPlaceholderText,
 }) => {
-    if (!filterSearch) {
-        return null;
-    }
-    return (
-        <div className={styles.tableFilterDropdownSearch}>
-            <TextInput
-                iconProps={{
-                    path: IconName.mdiMagnify,
-                }}
-                placeholder={filterSearchPlaceholderText}
-                onChange={onChange}
-                classNames={styles.tableFilterDropdownSearchInput}
-            />
-        </div>
-    );
+  if (!filterSearch) {
+    return null;
+  }
+  return (
+    <div className={styles.tableFilterDropdownSearch}>
+      <TextInput
+        iconProps={{
+          path: IconName.mdiMagnify,
+        }}
+        placeholder={filterSearchPlaceholderText}
+        onChange={onChange}
+        classNames={styles.tableFilterDropdownSearchInput}
+      />
+    </div>
+  );
 };
 
 export default FilterSearch;

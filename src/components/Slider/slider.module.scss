@@ -29,1026 +29,1016 @@ $small-marker-top: 0;
 
 // Export values for typescript consumption.
 :export {
-    largeSliderInlineMargin: strip-units($large-slider-inline-margin);
-    mediumSliderInlineMargin: strip-units($medium-slider-inline-margin);
-    smallSliderInlineMargin: strip-units($small-slider-inline-margin);
+  largeSliderInlineMargin: strip-units($large-slider-inline-margin);
+  mediumSliderInlineMargin: strip-units($medium-slider-inline-margin);
+  smallSliderInlineMargin: strip-units($small-slider-inline-margin);
 
-    largeThumbDiameter: strip-units($large-slider-height);
-    mediumThumbDiameter: strip-units($medium-slider-height);
-    smallThumbDiameter: strip-units($small-slider-height);
+  largeThumbDiameter: strip-units($large-slider-height);
+  mediumThumbDiameter: strip-units($medium-slider-height);
+  smallThumbDiameter: strip-units($small-slider-height);
 }
 
 // Default size is medium
 .slider-container {
-    --slider-default-track-color: var(--primary-color-60);
-    --slider-default-rail-color: var(--primary-color-10);
-    --slider-default-rail-border-color: var(--primary-color-60);
-    --slider-default-value-text-color: var(--text-secondary-color);
-    --slider-min-max-labels-color: var(--grey-color-60);
-    --slider-default-thumb-color: var(--accent-color-20);
-    --slider-default-marker-background: var(--background-color);
+  --slider-default-track-color: var(--primary-color-60);
+  --slider-default-rail-color: var(--primary-color-10);
+  --slider-default-rail-border-color: var(--primary-color-60);
+  --slider-default-value-text-color: var(--text-secondary-color);
+  --slider-min-max-labels-color: var(--grey-color-60);
+  --slider-default-thumb-color: var(--accent-color-20);
+  --slider-default-marker-background: var(--background-color);
 
-    font-family: $octuple-font-family;
-    height: $medium-slider-height + $medium-label-height;
+  font-family: $octuple-font-family;
+  height: $medium-slider-height + $medium-label-height;
+  position: relative;
+
+  .slider {
     position: relative;
+    height: $medium-slider-height;
+
+    &-dot {
+      background-color: var(--slider-default-rail-color);
+      border: 1px solid var(--slider-default-rail-border-color);
+      border-radius: 50%;
+      cursor: pointer;
+      height: calc($medium-track-height * 2);
+      position: absolute;
+      top: calc($medium-rail-top - calc($border-offset * 2));
+      width: calc($medium-track-height * 2);
+
+      &-active {
+        border-color: var(--slider-default-track-color);
+        border-width: 2px;
+      }
+    }
+
+    &-mark {
+      left: calc($medium-slider-height / 2);
+      position: absolute;
+      top: calc(
+        $medium-rail-top - calc($medium-slider-height + $medium-track-height)
+      );
+      width: calc(100% - $medium-slider-height);
+    }
+
+    &-mark-text {
+      color: var(--slider-default-value-text-color);
+      cursor: pointer;
+      display: inline-block;
+      font-family: $octuple-font-family;
+      font-size: $text-font-size-2;
+      padding: 0 $space-xxxs;
+      position: absolute;
+      text-align: center;
+      white-space: nowrap;
+
+      &-active {
+        color: var(--slider-default-value-text-color);
+      }
+    }
+
+    &-step {
+      background: transparent;
+      height: $medium-track-height;
+      left: calc($medium-slider-height / 2);
+      pointer-events: none;
+      position: absolute;
+      width: calc(100% - $medium-slider-height);
+    }
+
+    &-tooltip {
+      min-width: max-content;
+    }
+  }
+
+  .slider-rail,
+  .slider-track,
+  .rail-marker-segments {
+    border-radius: $border-radius-xs;
+    cursor: pointer;
+    height: $medium-track-height;
+    left: 0;
+    position: absolute;
+    top: $medium-rail-top;
+    width: 100%;
+  }
+
+  // The slider rail needs to be 2px thinner than the track to prevent layered border-radius flicker.
+  .slider-rail {
+    background-color: var(--slider-default-rail-color);
+    border: 1px solid var(--slider-default-rail-border-color);
+
+    &-opacity {
+      opacity: 0;
+    }
+  }
+
+  .slider-track {
+    background-color: var(--slider-default-track-color);
+    border: 1px solid var(--slider-default-track-color);
+
+    &-opacity {
+      opacity: 0;
+    }
+  }
+
+  .slider-rail:not(.slider-rail-opacity),
+  .slider-track:not(.slider-track-opacity) {
+    left: calc($medium-slider-height / 2);
+    width: calc(100% - $medium-slider-height);
+  }
+
+  // Account for the border offsets to prevent layered border-radius flicker.
+  .slider-rail:not(.slider-rail-opacity) {
+    left: calc($medium-slider-height / 2);
+    margin: 0 $border-offset;
+    width: calc(calc(100% - $medium-slider-height) - calc($border-offset * 2));
+  }
+
+  .rail-marker-segment {
+    background-color: var(--slider-default-rail-color);
+    border: 1px solid var(--slider-default-rail-border-color);
+    border-radius: $border-radius-xs;
+    height: $medium-track-height;
+    position: absolute;
+    top: $medium-marker-top;
+
+    &-hidden {
+      display: none;
+    }
+
+    &.active {
+      background-color: var(--slider-default-track-color);
+      border: 1px solid var(--slider-default-track-color);
+    }
+  }
+
+  .slider-track {
+    background-color: var(--slider-default-track-color);
+  }
+
+  .slider-labels {
+    opacity: 0;
+  }
+
+  .slider-label-spacer {
+    margin: 0 $space-xxs;
+  }
+
+  .slider-value {
+    bottom: 0;
+    color: var(--slider-default-value-text-color);
+    font-family: $octuple-font-family;
+    font-size: $text-font-size-2;
+    padding: 0 $space-xxxs;
+    position: absolute;
+    white-space: nowrap;
+  }
+
+  .extremity-label {
+    color: var(--slider-min-max-labels-color);
+    font-family: $octuple-font-family;
+    font-size: $text-font-size-2;
+    position: absolute;
+    bottom: 0;
+    opacity: 0;
+
+    &.max-label {
+      right: calc($medium-slider-height / 2);
+    }
+
+    &.min-label {
+      left: calc($medium-slider-height / 2);
+    }
+
+    &-inline {
+      bottom: unset;
+      margin-top: $space-xxxs;
+      position: relative;
+
+      &.max-label {
+        margin-left: $medium-slider-inline-margin;
+        right: unset;
+      }
+
+      &.min-label {
+        left: unset;
+        margin-right: $medium-slider-inline-margin;
+      }
+    }
+  }
+
+  .extremity-range-label {
+    opacity: 0;
+  }
+
+  .slider-range-labels {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+
+    .slider-value {
+      margin-top: $space-xxs;
+      position: relative;
+    }
+  }
+
+  .label-visible {
+    opacity: 1;
+  }
+
+  // Removing the default appearance
+  .thumb,
+  .thumb::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    -webkit-tap-highlight-color: transparent;
+    background-image: url("data:image/svg+xml,%3Csvg width='4' height='7' viewBox='0 0 4 7' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0H1.34375V1.34375H0V0ZM2.65625 0H4V1.34375H2.65625V0ZM0 2.65625H1.34375V4H0V2.65625ZM2.65625 2.65625H4V4H2.65625V2.65625ZM0 5.34375H1.34375V6.65625H0V5.34375ZM2.65625 5.34375H4V6.65625H2.65625V5.34375Z' fill='%23343c4c'/%3E%3C/svg%3E%0A");
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .thumb {
+    box-shadow: $shadow-object-s;
+    cursor: pointer;
+    display: block;
+    height: 0;
+    opacity: 1;
+    pointer-events: none;
+    position: absolute;
+    top: $medium-rail-top;
+    width: 100%;
+
+    &-hidden {
+      opacity: 0;
+    }
+  }
+
+  // Firefox fix for thumb position
+  @-moz-document url-prefix() {
+    .thumb {
+      top: calc($medium-rail-top + $space-xxxs);
+    }
+  }
+
+  .thumb {
+    // For Chrome browsers
+    &::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      background-color: var(--slider-default-thumb-color);
+      border: none;
+      border-radius: 50%;
+      box-shadow: $shadow-object-s;
+      cursor: pointer;
+      height: $medium-slider-height;
+      margin-top: $space-xxs;
+      pointer-events: all;
+      position: relative;
+      width: $medium-slider-height;
+    }
+
+    // For Firefox browsers
+    &::-moz-range-thumb {
+      background-color: var(--slider-default-thumb-color);
+      background-image: url("data:image/svg+xml,%3Csvg width='4' height='7' viewBox='0 0 4 7' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0H1.34375V1.34375H0V0ZM2.65625 0H4V1.34375H2.65625V0ZM0 2.65625H1.34375V4H0V2.65625ZM2.65625 2.65625H4V4H2.65625V2.65625ZM0 5.34375H1.34375V6.65625H0V5.34375ZM2.65625 5.34375H4V6.65625H2.65625V5.34375Z' fill='%23343c4c'/%3E%3C/svg%3E%0A");
+      background-position: center;
+      background-repeat: no-repeat;
+      border: none;
+      border-radius: 50%;
+      box-shadow: $shadow-object-s;
+      cursor: pointer;
+      height: $medium-slider-height;
+      margin-top: $space-xxs;
+      pointer-events: all;
+      position: relative;
+      width: $medium-slider-height;
+    }
+  }
+
+  &.show-markers {
+    .thumb {
+      margin-left: -$medium-thumb-offset;
+    }
+  }
+
+  &-inline {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: row;
+    vertical-align: top;
 
     .slider {
-        position: relative;
-        height: $medium-slider-height;
+      flex: 1;
+    }
 
-        &-dot {
-            background-color: var(--slider-default-rail-color);
-            border: 1px solid var(--slider-default-rail-border-color);
-            border-radius: 50%;
-            cursor: pointer;
-            height: calc($medium-track-height * 2);
-            position: absolute;
-            top: calc($medium-rail-top - calc($border-offset * 2));
-            width: calc($medium-track-height * 2);
+    .slider-range-labels {
+      bottom: 0;
+      left: 50%;
+      position: absolute;
+    }
+  }
 
-            &-active {
-                border-color: var(--slider-default-track-color);
-                border-width: 2px;
-            }
-        }
+  &.slider-large {
+    height: $large-slider-height + $large-label-height;
 
-        &-mark {
-            left: calc($medium-slider-height / 2);
-            position: absolute;
-            top: calc(
-                $medium-rail-top -
-                    calc($medium-slider-height + $medium-track-height)
-            );
-            width: calc(100% - $medium-slider-height);
-        }
+    .slider {
+      height: $large-slider-height;
 
-        &-mark-text {
-            color: var(--slider-default-value-text-color);
-            cursor: pointer;
-            display: inline-block;
-            font-family: $octuple-font-family;
-            font-size: $text-font-size-2;
-            padding: 0 $space-xxxs;
-            position: absolute;
-            text-align: center;
-            white-space: nowrap;
+      &-dot {
+        height: calc($large-track-height * 2);
+        top: calc($large-rail-top - calc($border-offset * 3));
+        width: calc($large-track-height * 2);
+      }
 
-            &-active {
-                color: var(--slider-default-value-text-color);
-            }
-        }
+      &-mark {
+        left: calc($large-slider-height / 2);
+        top: calc(
+          $large-rail-top - calc($large-slider-height + $large-track-height)
+        );
+        width: calc(100% - $large-slider-height);
+      }
 
-        &-step {
-            background: transparent;
-            height: $medium-track-height;
-            left: calc($medium-slider-height / 2);
-            pointer-events: none;
-            position: absolute;
-            width: calc(100% - $medium-slider-height);
-        }
+      &-mark-text {
+        font-size: $text-font-size-3;
+      }
 
-        &-tooltip {
-            min-width: max-content;
-        }
+      &-step {
+        height: $large-track-height;
+        left: calc($large-slider-height / 2);
+        width: calc(100% - $large-slider-height);
+      }
     }
 
     .slider-rail,
     .slider-track,
     .rail-marker-segments {
-        border-radius: $corner-radius-xs;
-        cursor: pointer;
-        height: $medium-track-height;
-        left: 0;
-        position: absolute;
-        top: $medium-rail-top;
-        width: 100%;
-    }
-
-    // The slider rail needs to be 2px thinner than the track to prevent layered border-radius flicker.
-    .slider-rail {
-        background-color: var(--slider-default-rail-color);
-        border: 1px solid var(--slider-default-rail-border-color);
-
-        &-opacity {
-            opacity: 0;
-        }
-    }
-
-    .slider-track {
-        background-color: var(--slider-default-track-color);
-        border: 1px solid var(--slider-default-track-color);
-
-        &-opacity {
-            opacity: 0;
-        }
+      border-radius: $border-radius-m;
+      height: $large-track-height;
+      top: $large-rail-top;
     }
 
     .slider-rail:not(.slider-rail-opacity),
     .slider-track:not(.slider-track-opacity) {
-        left: calc($medium-slider-height / 2);
-        width: calc(100% - $medium-slider-height);
+      left: calc($large-slider-height / 2);
+      width: calc(100% - $large-slider-height);
     }
 
-    // Account for the border offsets to prevent layered border-radius flicker.
     .slider-rail:not(.slider-rail-opacity) {
-        left: calc($medium-slider-height / 2);
-        margin: 0 $border-offset;
-        width: calc(
-            calc(100% - $medium-slider-height) - calc($border-offset * 2)
-        );
+      left: calc($large-slider-height / 2);
+      width: calc(calc(100% - $large-slider-height) - calc($border-offset * 2));
     }
 
     .rail-marker-segment {
-        background-color: var(--slider-default-rail-color);
-        border: 1px solid var(--slider-default-rail-border-color);
-        border-radius: $corner-radius-xs;
-        height: $medium-track-height;
-        position: absolute;
-        top: $medium-marker-top;
-
-        &-hidden {
-            display: none;
-        }
-
-        &.active {
-            background-color: var(--slider-default-track-color);
-            border: 1px solid var(--slider-default-track-color);
-        }
-    }
-
-    .slider-track {
-        background-color: var(--slider-default-track-color);
-    }
-
-    .slider-labels {
-        opacity: 0;
-    }
-
-    .slider-label-spacer {
-        margin: 0 $space-xxs;
+      border-radius: $border-radius-m;
+      height: $large-track-height;
+      top: $large-marker-top;
     }
 
     .slider-value {
-        bottom: 0;
-        color: var(--slider-default-value-text-color);
-        font-family: $octuple-font-family;
-        font-size: $text-font-size-2;
-        padding: 0 $space-xxxs;
-        position: absolute;
-        white-space: nowrap;
+      font-size: $text-font-size-3;
+      white-space: nowrap;
     }
 
     .extremity-label {
-        color: var(--slider-min-max-labels-color);
-        font-family: $octuple-font-family;
-        font-size: $text-font-size-2;
-        position: absolute;
-        bottom: 0;
-        opacity: 0;
+      font-size: $text-font-size-3;
+
+      &.max-label {
+        right: calc($large-slider-height / 2);
+      }
+
+      &.min-label {
+        left: calc($large-slider-height / 2);
+      }
+
+      &-inline {
+        margin-top: $space-xxs;
 
         &.max-label {
-            right: calc($medium-slider-height / 2);
+          margin-left: $large-slider-inline-margin;
+          right: unset;
         }
 
         &.min-label {
-            left: calc($medium-slider-height / 2);
+          left: unset;
+          margin-right: $large-slider-inline-margin;
         }
-
-        &-inline {
-            bottom: unset;
-            margin-top: $space-xxxs;
-            position: relative;
-
-            &.max-label {
-                margin-left: $medium-slider-inline-margin;
-                right: unset;
-            }
-
-            &.min-label {
-                left: unset;
-                margin-right: $medium-slider-inline-margin;
-            }
-        }
-    }
-
-    .extremity-range-label {
-        opacity: 0;
+      }
     }
 
     .slider-range-labels {
-        align-items: center;
-        display: flex;
-        justify-content: center;
-
-        .slider-value {
-            margin-top: $space-xxs;
-            position: relative;
-        }
+      .slider-value {
+        margin-top: calc($space-xs - $space-xxxs);
+      }
     }
 
-    .label-visible {
-        opacity: 1;
-    }
-
-    // Removing the default appearance
     .thumb,
     .thumb::-webkit-slider-thumb {
-        -webkit-appearance: none;
-        -webkit-tap-highlight-color: transparent;
-        background-image: url("data:image/svg+xml,%3Csvg width='4' height='7' viewBox='0 0 4 7' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0H1.34375V1.34375H0V0ZM2.65625 0H4V1.34375H2.65625V0ZM0 2.65625H1.34375V4H0V2.65625ZM2.65625 2.65625H4V4H2.65625V2.65625ZM0 5.34375H1.34375V6.65625H0V5.34375ZM2.65625 5.34375H4V6.65625H2.65625V5.34375Z' fill='%23343c4c'/%3E%3C/svg%3E%0A");
+      background-image: url("data:image/svg+xml,%3Csvg width='4' height='12' viewBox='0 0 4 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0H1.34375V1.34375H0V0ZM2.65625 0H4V1.34375H2.65625V0ZM0 2.65625H1.34375V4H0V2.65625ZM2.65625 2.65625H4V4H2.65625V2.65625ZM0 5.34375H1.34375V6.65625H0V5.34375ZM2.65625 5.34375H4V6.65625H2.65625V5.34375ZM0 8H1.34375V9.34375H0V8ZM2.65625 8H4V9.34375H2.65625V8ZM0 10.6562H1.34375V12H0V10.6562ZM2.65625 10.6562H4V12H2.65625V10.6562Z' fill='%23343c4c'/%3E%3C/svg%3E%0A");
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    .thumb {
+      top: $large-rail-top;
+    }
+
+    @-moz-document url-prefix() {
+      .thumb {
+        top: calc($large-rail-top + $space-xxxs);
+      }
+    }
+
+    .thumb {
+      &::-webkit-slider-thumb {
+        height: $large-slider-height;
+        margin-top: $space-xxs;
+        width: $large-slider-height;
+      }
+
+      &::-moz-range-thumb {
+        background-image: url("data:image/svg+xml,%3Csvg width='4' height='12' viewBox='0 0 4 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0H1.34375V1.34375H0V0ZM2.65625 0H4V1.34375H2.65625V0ZM0 2.65625H1.34375V4H0V2.65625ZM2.65625 2.65625H4V4H2.65625V2.65625ZM0 5.34375H1.34375V6.65625H0V5.34375ZM2.65625 5.34375H4V6.65625H2.65625V5.34375ZM0 8H1.34375V9.34375H0V8ZM2.65625 8H4V9.34375H2.65625V8ZM0 10.6562H1.34375V12H0V10.6562ZM2.65625 10.6562H4V12H2.65625V10.6562Z' fill='%23343c4c'/%3E%3C/svg%3E%0A");
         background-position: center;
         background-repeat: no-repeat;
-    }
-
-    .thumb {
-        box-shadow: $shadow-object-s;
-        cursor: pointer;
-        display: block;
-        height: 0;
-        opacity: 1;
-        pointer-events: none;
-        position: absolute;
-        top: $medium-rail-top;
-        width: 100%;
-
-        &-hidden {
-            opacity: 0;
-        }
-    }
-
-    // Firefox fix for thumb position
-    @-moz-document url-prefix() {
-        .thumb {
-            top: calc($medium-rail-top + $space-xxxs);
-        }
-    }
-
-    .thumb {
-        // For Chrome browsers
-        &::-webkit-slider-thumb {
-            -webkit-appearance: none;
-            background-color: var(--slider-default-thumb-color);
-            border: none;
-            border-radius: 50%;
-            box-shadow: $shadow-object-s;
-            cursor: pointer;
-            height: $medium-slider-height;
-            margin-top: $space-xxs;
-            pointer-events: all;
-            position: relative;
-            width: $medium-slider-height;
-        }
-
-        // For Firefox browsers
-        &::-moz-range-thumb {
-            background-color: var(--slider-default-thumb-color);
-            background-image: url("data:image/svg+xml,%3Csvg width='4' height='7' viewBox='0 0 4 7' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0H1.34375V1.34375H0V0ZM2.65625 0H4V1.34375H2.65625V0ZM0 2.65625H1.34375V4H0V2.65625ZM2.65625 2.65625H4V4H2.65625V2.65625ZM0 5.34375H1.34375V6.65625H0V5.34375ZM2.65625 5.34375H4V6.65625H2.65625V5.34375Z' fill='%23343c4c'/%3E%3C/svg%3E%0A");
-            background-position: center;
-            background-repeat: no-repeat;
-            border: none;
-            border-radius: 50%;
-            box-shadow: $shadow-object-s;
-            cursor: pointer;
-            height: $medium-slider-height;
-            margin-top: $space-xxs;
-            pointer-events: all;
-            position: relative;
-            width: $medium-slider-height;
-        }
+        height: $large-slider-height;
+        margin-top: $space-xxs;
+        width: $large-slider-height;
+      }
     }
 
     &.show-markers {
-        .thumb {
-            margin-left: -$medium-thumb-offset;
-        }
+      .thumb {
+        margin-left: -$space-xxs;
+      }
+    }
+  }
+
+  &.slider-medium {
+    height: $medium-slider-height + $medium-label-height;
+
+    .slider {
+      height: $medium-slider-height;
+
+      &-dot {
+        height: calc($medium-track-height * 2);
+        top: calc($medium-rail-top - calc($border-offset * 2));
+        width: calc($medium-track-height * 2);
+      }
+
+      &-mark {
+        left: calc($medium-slider-height / 2);
+        top: calc(
+          $medium-rail-top - calc($medium-slider-height + $medium-track-height)
+        );
+        width: calc(100% - $medium-slider-height);
+      }
+
+      &-mark-text {
+        font-size: $text-font-size-2;
+      }
+
+      &-step {
+        height: $medium-track-height;
+        left: calc($medium-slider-height / 2);
+        width: calc(100% - $medium-slider-height);
+      }
     }
 
-    &-inline {
-        align-items: flex-start;
-        display: flex;
-        flex-direction: row;
-        vertical-align: top;
+    .slider-rail,
+    .slider-track,
+    .rail-marker-segments {
+      border-radius: $border-radius-xs;
+      height: $medium-track-height;
+      top: $medium-rail-top;
+    }
 
-        .slider {
-            flex: 1;
+    .slider-rail:not(.slider-rail-opacity),
+    .slider-track:not(.slider-track-opacity) {
+      left: calc($medium-slider-height / 2);
+      width: calc(100% - $medium-slider-height);
+    }
+
+    .slider-rail:not(.slider-rail-opacity) {
+      left: calc($medium-slider-height / 2);
+      width: calc(
+        calc(100% - $medium-slider-height) - calc($border-offset * 2)
+      );
+    }
+
+    .rail-marker-segment {
+      border-radius: $border-radius-xs;
+      height: $medium-track-height;
+      top: $medium-marker-top;
+    }
+
+    .slider-value {
+      font-size: $text-font-size-2;
+    }
+
+    .extremity-label {
+      font-size: $text-font-size-2;
+
+      &.max-label {
+        right: calc($medium-slider-height / 2);
+      }
+
+      &.min-label {
+        left: calc($medium-slider-height / 2);
+      }
+
+      &-inline {
+        margin-top: $space-xxxs;
+
+        &.max-label {
+          margin-left: $medium-slider-inline-margin;
+          right: unset;
         }
 
-        .slider-range-labels {
-            bottom: 0;
-            left: 50%;
-            position: absolute;
+        &.min-label {
+          left: unset;
+          margin-right: $medium-slider-inline-margin;
         }
+      }
+    }
+
+    .slider-range-labels {
+      .slider-value {
+        margin-top: $space-xxs;
+      }
+    }
+
+    .thumb,
+    .thumb::-webkit-slider-thumb {
+      background-image: url("data:image/svg+xml,%3Csvg width='4' height='7' viewBox='0 0 4 7' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0H1.34375V1.34375H0V0ZM2.65625 0H4V1.34375H2.65625V0ZM0 2.65625H1.34375V4H0V2.65625ZM2.65625 2.65625H4V4H2.65625V2.65625ZM0 5.34375H1.34375V6.65625H0V5.34375ZM2.65625 5.34375H4V6.65625H2.65625V5.34375Z' fill='%23343c4c'/%3E%3C/svg%3E%0A");
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    .thumb {
+      top: $medium-rail-top;
+    }
+
+    @-moz-document url-prefix() {
+      .thumb {
+        top: calc($medium-rail-top + $space-xxxs);
+      }
+    }
+
+    .thumb {
+      &::-webkit-slider-thumb {
+        height: $medium-slider-height;
+        margin-top: $space-xxs;
+        width: $medium-slider-height;
+      }
+
+      &::-moz-range-thumb {
+        background-image: url("data:image/svg+xml,%3Csvg width='4' height='7' viewBox='0 0 4 7' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0H1.34375V1.34375H0V0ZM2.65625 0H4V1.34375H2.65625V0ZM0 2.65625H1.34375V4H0V2.65625ZM2.65625 2.65625H4V4H2.65625V2.65625ZM0 5.34375H1.34375V6.65625H0V5.34375ZM2.65625 5.34375H4V6.65625H2.65625V5.34375Z' fill='%23343c4c'/%3E%3C/svg%3E%0A");
+        background-position: center;
+        background-repeat: no-repeat;
+        height: $medium-slider-height;
+        margin-top: $space-xxs;
+        width: $medium-slider-height;
+      }
+    }
+
+    &.show-markers {
+      .thumb {
+        margin-left: -$medium-thumb-offset;
+      }
+    }
+  }
+
+  &.slider-small {
+    height: $small-slider-height + $small-label-height;
+
+    .slider {
+      height: $small-slider-height;
+
+      &-dot {
+        height: calc($small-track-height * 2);
+        top: calc($small-rail-top - calc($border-offset * 2));
+        width: calc($small-track-height * 2);
+      }
+
+      &-mark {
+        left: calc($small-slider-height / 2);
+        top: calc(
+          $small-rail-top - calc($small-slider-height + $small-track-height)
+        );
+        width: calc(100% - $small-slider-height);
+      }
+
+      &-marks {
+        left: calc($small-slider-height / 2);
+        width: calc(100% - calc($small-slider-height / 2));
+      }
+
+      &-mark-text {
+        font-size: $text-font-size-1;
+      }
+
+      &-step {
+        height: $small-track-height;
+        left: calc($small-slider-height / 2);
+        width: calc(100% - $small-slider-height);
+      }
+    }
+
+    .slider-rail,
+    .slider-track,
+    .rail-marker-segments {
+      border-radius: $border-radius-xs;
+      height: $small-track-height;
+      top: $small-rail-top;
+    }
+
+    .slider-rail:not(.slider-rail-opacity),
+    .slider-track:not(.slider-track-opacity) {
+      left: calc($small-slider-height / 2);
+      width: calc(100% - $small-slider-height);
+    }
+
+    .slider-rail:not(.slider-rail-opacity) {
+      left: calc($small-slider-height / 2);
+      width: calc(calc(100% - $small-slider-height) - calc($border-offset * 2));
+    }
+
+    .rail-marker-segment {
+      border-radius: $border-radius-xs;
+      height: $small-track-height;
+      top: $small-marker-top;
+    }
+
+    .slider-value {
+      font-size: $text-font-size-1;
+    }
+
+    .extremity-label {
+      font-size: $text-font-size-1;
+
+      &.max-label {
+        right: calc($small-slider-height / 2);
+      }
+
+      &.min-label {
+        left: calc($small-slider-height / 2);
+      }
+
+      &-inline {
+        margin-top: 0;
+
+        &.max-label {
+          margin-left: $small-slider-inline-margin;
+          right: unset;
+        }
+
+        &.min-label {
+          left: unset;
+          margin-right: $small-slider-inline-margin;
+        }
+      }
+    }
+
+    .slider-range-labels {
+      .slider-value {
+        margin-top: $space-xxxs;
+      }
+    }
+
+    .thumb,
+    .thumb::-webkit-slider-thumb {
+      background-image: url("data:image/svg+xml,%3Csvg width='4' height='4' viewBox='0 0 4 4' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0H1.34375V1.34375H0V0ZM2.65625 0H4V1.34375H2.65625V0ZM0 2.65625H1.34375V4H0V2.65625ZM2.65625 2.65625H4V4H2.65625V2.65625Z' fill='%23343c4c'/%3E%3C/svg%3E%0A");
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    .thumb {
+      top: $small-rail-top;
+    }
+
+    @-moz-document url-prefix() {
+      .thumb {
+        top: calc($small-rail-top + $space-xxxs);
+      }
+    }
+
+    .thumb {
+      &::-webkit-slider-thumb {
+        box-shadow: $shadow-object-xs;
+        height: $small-slider-height;
+        margin-top: $space-xxs;
+        width: $small-slider-height;
+      }
+
+      &::-moz-range-thumb {
+        background-image: url("data:image/svg+xml,%3Csvg width='4' height='4' viewBox='0 0 4 4' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0H1.34375V1.34375H0V0ZM2.65625 0H4V1.34375H2.65625V0ZM0 2.65625H1.34375V4H0V2.65625ZM2.65625 2.65625H4V4H2.65625V2.65625Z' fill='%23343c4c'/%3E%3C/svg%3E%0A");
+        background-position: center;
+        background-repeat: no-repeat;
+        box-shadow: $shadow-object-xs;
+        height: $small-slider-height;
+        margin-top: $space-xxs;
+        width: $small-slider-height;
+      }
+    }
+
+    &.show-markers {
+      .thumb {
+        margin-left: -$space-xxxs;
+      }
+    }
+  }
+
+  &-rtl {
+    .slider {
+      &-mark {
+        left: unset;
+        right: calc($medium-slider-height / 2);
+      }
+
+      &-step {
+        left: unset;
+        right: calc($medium-slider-height / 2);
+      }
+    }
+
+    .slider-rail,
+    .slider-track,
+    .rail-marker-segments {
+      left: unset;
+      right: 0;
+    }
+
+    .slider-rail:not(.slider-rail-opacity),
+    .slider-track:not(.slider-track-opacity) {
+      left: unset;
+      right: calc($medium-slider-height / 2);
+    }
+
+    .slider-rail:not(.slider-rail-opacity) {
+      left: unset;
+      right: calc($medium-slider-height / 2);
+    }
+
+    .extremity-label {
+      &.max-label {
+        right: unset;
+        left: calc($medium-slider-height / 2);
+      }
+
+      &.min-label {
+        left: unset;
+        right: calc($medium-slider-height / 2);
+      }
+
+      &-inline {
+        &.max-label {
+          left: unset;
+          margin-left: unset;
+          margin-right: $medium-slider-inline-margin;
+        }
+
+        &.min-label {
+          margin-left: $medium-slider-inline-margin;
+          margin-right: unset;
+          right: unset;
+        }
+      }
+    }
+
+    &.show-markers {
+      .thumb {
+        margin-left: unset;
+        margin-right: -$medium-thumb-offset;
+      }
+    }
+
+    &.slider-container-inline {
+      .slider-range-labels {
+        left: unset;
+        right: 50%;
+      }
     }
 
     &.slider-large {
-        height: $large-slider-height + $large-label-height;
-
-        .slider {
-            height: $large-slider-height;
-
-            &-dot {
-                height: calc($large-track-height * 2);
-                top: calc($large-rail-top - calc($border-offset * 3));
-                width: calc($large-track-height * 2);
-            }
-
-            &-mark {
-                left: calc($large-slider-height / 2);
-                top: calc(
-                    $large-rail-top -
-                        calc($large-slider-height + $large-track-height)
-                );
-                width: calc(100% - $large-slider-height);
-            }
-
-            &-mark-text {
-                font-size: $text-font-size-3;
-            }
-
-            &-step {
-                height: $large-track-height;
-                left: calc($large-slider-height / 2);
-                width: calc(100% - $large-slider-height);
-            }
+      .slider {
+        &-mark {
+          left: unset;
+          right: calc($large-slider-height / 2);
         }
 
-        .slider-rail,
-        .slider-track,
-        .rail-marker-segments {
-            border-radius: $corner-radius-m;
-            height: $large-track-height;
-            top: $large-rail-top;
+        &-step {
+          left: unset;
+          right: calc($large-slider-height / 2);
+        }
+      }
+
+      .slider-rail:not(.slider-rail-opacity),
+      .slider-track:not(.slider-track-opacity) {
+        left: unset;
+        right: calc($large-slider-height / 2);
+      }
+
+      .slider-rail:not(.slider-rail-opacity) {
+        left: unset;
+        right: calc($large-slider-height / 2);
+      }
+
+      .extremity-label {
+        &.max-label {
+          right: unset;
+          left: calc($large-slider-height / 2);
         }
 
-        .slider-rail:not(.slider-rail-opacity),
-        .slider-track:not(.slider-track-opacity) {
-            left: calc($large-slider-height / 2);
-            width: calc(100% - $large-slider-height);
+        &.min-label {
+          left: unset;
+          right: calc($large-slider-height / 2);
         }
 
-        .slider-rail:not(.slider-rail-opacity) {
-            left: calc($large-slider-height / 2);
-            width: calc(
-                calc(100% - $large-slider-height) - calc($border-offset * 2)
-            );
+        &-inline {
+          &.max-label {
+            left: unset;
+            margin-left: unset;
+            margin-right: $large-slider-inline-margin;
+          }
+
+          &.min-label {
+            margin-left: $large-slider-inline-margin;
+            margin-right: unset;
+            right: unset;
+          }
         }
+      }
 
-        .rail-marker-segment {
-            border-radius: $corner-radius-m;
-            height: $large-track-height;
-            top: $large-marker-top;
-        }
-
-        .slider-value {
-            font-size: $text-font-size-3;
-            white-space: nowrap;
-        }
-
-        .extremity-label {
-            font-size: $text-font-size-3;
-
-            &.max-label {
-                right: calc($large-slider-height / 2);
-            }
-
-            &.min-label {
-                left: calc($large-slider-height / 2);
-            }
-
-            &-inline {
-                margin-top: $space-xxs;
-
-                &.max-label {
-                    margin-left: $large-slider-inline-margin;
-                    right: unset;
-                }
-
-                &.min-label {
-                    left: unset;
-                    margin-right: $large-slider-inline-margin;
-                }
-            }
-        }
-
-        .slider-range-labels {
-            .slider-value {
-                margin-top: calc($space-xs - $space-xxxs);
-            }
-        }
-
-        .thumb,
-        .thumb::-webkit-slider-thumb {
-            background-image: url("data:image/svg+xml,%3Csvg width='4' height='12' viewBox='0 0 4 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0H1.34375V1.34375H0V0ZM2.65625 0H4V1.34375H2.65625V0ZM0 2.65625H1.34375V4H0V2.65625ZM2.65625 2.65625H4V4H2.65625V2.65625ZM0 5.34375H1.34375V6.65625H0V5.34375ZM2.65625 5.34375H4V6.65625H2.65625V5.34375ZM0 8H1.34375V9.34375H0V8ZM2.65625 8H4V9.34375H2.65625V8ZM0 10.6562H1.34375V12H0V10.6562ZM2.65625 10.6562H4V12H2.65625V10.6562Z' fill='%23343c4c'/%3E%3C/svg%3E%0A");
-            background-position: center;
-            background-repeat: no-repeat;
-        }
-
+      &.show-markers {
         .thumb {
-            top: $large-rail-top;
+          margin-left: unset;
+          margin-right: -$space-xxs;
         }
-
-        @-moz-document url-prefix() {
-            .thumb {
-                top: calc($large-rail-top + $space-xxxs);
-            }
-        }
-
-        .thumb {
-            &::-webkit-slider-thumb {
-                height: $large-slider-height;
-                margin-top: $space-xxs;
-                width: $large-slider-height;
-            }
-
-            &::-moz-range-thumb {
-                background-image: url("data:image/svg+xml,%3Csvg width='4' height='12' viewBox='0 0 4 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0H1.34375V1.34375H0V0ZM2.65625 0H4V1.34375H2.65625V0ZM0 2.65625H1.34375V4H0V2.65625ZM2.65625 2.65625H4V4H2.65625V2.65625ZM0 5.34375H1.34375V6.65625H0V5.34375ZM2.65625 5.34375H4V6.65625H2.65625V5.34375ZM0 8H1.34375V9.34375H0V8ZM2.65625 8H4V9.34375H2.65625V8ZM0 10.6562H1.34375V12H0V10.6562ZM2.65625 10.6562H4V12H2.65625V10.6562Z' fill='%23343c4c'/%3E%3C/svg%3E%0A");
-                background-position: center;
-                background-repeat: no-repeat;
-                height: $large-slider-height;
-                margin-top: $space-xxs;
-                width: $large-slider-height;
-            }
-        }
-
-        &.show-markers {
-            .thumb {
-                margin-left: -$space-xxs;
-            }
-        }
+      }
     }
 
     &.slider-medium {
-        height: $medium-slider-height + $medium-label-height;
-
-        .slider {
-            height: $medium-slider-height;
-
-            &-dot {
-                height: calc($medium-track-height * 2);
-                top: calc($medium-rail-top - calc($border-offset * 2));
-                width: calc($medium-track-height * 2);
-            }
-
-            &-mark {
-                left: calc($medium-slider-height / 2);
-                top: calc(
-                    $medium-rail-top -
-                        calc($medium-slider-height + $medium-track-height)
-                );
-                width: calc(100% - $medium-slider-height);
-            }
-
-            &-mark-text {
-                font-size: $text-font-size-2;
-            }
-
-            &-step {
-                height: $medium-track-height;
-                left: calc($medium-slider-height / 2);
-                width: calc(100% - $medium-slider-height);
-            }
+      .slider {
+        &-mark {
+          left: unset;
+          right: calc($medium-slider-height / 2);
         }
 
-        .slider-rail,
-        .slider-track,
-        .rail-marker-segments {
-            border-radius: $corner-radius-xs;
-            height: $medium-track-height;
-            top: $medium-rail-top;
+        &-step {
+          left: unset;
+          right: calc($medium-slider-height / 2);
+        }
+      }
+
+      .slider-rail:not(.slider-rail-opacity),
+      .slider-track:not(.slider-track-opacity) {
+        left: unset;
+        right: calc($medium-slider-height / 2);
+      }
+
+      .slider-rail:not(.slider-rail-opacity) {
+        left: unset;
+        right: calc($medium-slider-height / 2);
+      }
+
+      .extremity-label {
+        &.max-label {
+          right: unset;
+          left: calc($medium-slider-height / 2);
         }
 
-        .slider-rail:not(.slider-rail-opacity),
-        .slider-track:not(.slider-track-opacity) {
-            left: calc($medium-slider-height / 2);
-            width: calc(100% - $medium-slider-height);
+        &.min-label {
+          left: unset;
+          right: calc($medium-slider-height / 2);
         }
 
-        .slider-rail:not(.slider-rail-opacity) {
-            left: calc($medium-slider-height / 2);
-            width: calc(
-                calc(100% - $medium-slider-height) - calc($border-offset * 2)
-            );
+        &-inline {
+          &.max-label {
+            left: unset;
+            margin-left: unset;
+            margin-right: $medium-slider-inline-margin;
+          }
+
+          &.min-label {
+            margin-left: $medium-slider-inline-margin;
+            margin-right: unset;
+            right: unset;
+          }
         }
+      }
 
-        .rail-marker-segment {
-            border-radius: $corner-radius-xs;
-            height: $medium-track-height;
-            top: $medium-marker-top;
-        }
-
-        .slider-value {
-            font-size: $text-font-size-2;
-        }
-
-        .extremity-label {
-            font-size: $text-font-size-2;
-
-            &.max-label {
-                right: calc($medium-slider-height / 2);
-            }
-
-            &.min-label {
-                left: calc($medium-slider-height / 2);
-            }
-
-            &-inline {
-                margin-top: $space-xxxs;
-
-                &.max-label {
-                    margin-left: $medium-slider-inline-margin;
-                    right: unset;
-                }
-
-                &.min-label {
-                    left: unset;
-                    margin-right: $medium-slider-inline-margin;
-                }
-            }
-        }
-
-        .slider-range-labels {
-            .slider-value {
-                margin-top: $space-xxs;
-            }
-        }
-
-        .thumb,
-        .thumb::-webkit-slider-thumb {
-            background-image: url("data:image/svg+xml,%3Csvg width='4' height='7' viewBox='0 0 4 7' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0H1.34375V1.34375H0V0ZM2.65625 0H4V1.34375H2.65625V0ZM0 2.65625H1.34375V4H0V2.65625ZM2.65625 2.65625H4V4H2.65625V2.65625ZM0 5.34375H1.34375V6.65625H0V5.34375ZM2.65625 5.34375H4V6.65625H2.65625V5.34375Z' fill='%23343c4c'/%3E%3C/svg%3E%0A");
-            background-position: center;
-            background-repeat: no-repeat;
-        }
-
+      &.show-markers {
         .thumb {
-            top: $medium-rail-top;
+          margin-left: unset;
+          margin-right: -$medium-thumb-offset;
         }
-
-        @-moz-document url-prefix() {
-            .thumb {
-                top: calc($medium-rail-top + $space-xxxs);
-            }
-        }
-
-        .thumb {
-            &::-webkit-slider-thumb {
-                height: $medium-slider-height;
-                margin-top: $space-xxs;
-                width: $medium-slider-height;
-            }
-
-            &::-moz-range-thumb {
-                background-image: url("data:image/svg+xml,%3Csvg width='4' height='7' viewBox='0 0 4 7' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0H1.34375V1.34375H0V0ZM2.65625 0H4V1.34375H2.65625V0ZM0 2.65625H1.34375V4H0V2.65625ZM2.65625 2.65625H4V4H2.65625V2.65625ZM0 5.34375H1.34375V6.65625H0V5.34375ZM2.65625 5.34375H4V6.65625H2.65625V5.34375Z' fill='%23343c4c'/%3E%3C/svg%3E%0A");
-                background-position: center;
-                background-repeat: no-repeat;
-                height: $medium-slider-height;
-                margin-top: $space-xxs;
-                width: $medium-slider-height;
-            }
-        }
-
-        &.show-markers {
-            .thumb {
-                margin-left: -$medium-thumb-offset;
-            }
-        }
+      }
     }
 
     &.slider-small {
-        height: $small-slider-height + $small-label-height;
-
-        .slider {
-            height: $small-slider-height;
-
-            &-dot {
-                height: calc($small-track-height * 2);
-                top: calc($small-rail-top - calc($border-offset * 2));
-                width: calc($small-track-height * 2);
-            }
-
-            &-mark {
-                left: calc($small-slider-height / 2);
-                top: calc(
-                    $small-rail-top -
-                        calc($small-slider-height + $small-track-height)
-                );
-                width: calc(100% - $small-slider-height);
-            }
-
-            &-marks {
-                left: calc($small-slider-height / 2);
-                width: calc(100% - calc($small-slider-height / 2));
-            }
-
-            &-mark-text {
-                font-size: $text-font-size-1;
-            }
-
-            &-step {
-                height: $small-track-height;
-                left: calc($small-slider-height / 2);
-                width: calc(100% - $small-slider-height);
-            }
+      .slider {
+        &-mark {
+          left: unset;
+          right: calc($small-slider-height / 2);
         }
 
-        .slider-rail,
-        .slider-track,
-        .rail-marker-segments {
-            border-radius: $corner-radius-xs;
-            height: $small-track-height;
-            top: $small-rail-top;
+        &-step {
+          left: unset;
+          right: calc($small-slider-height / 2);
+        }
+      }
+
+      .slider-rail:not(.slider-rail-opacity),
+      .slider-track:not(.slider-track-opacity) {
+        left: unset;
+        right: calc($small-slider-height / 2);
+      }
+
+      .slider-rail:not(.slider-rail-opacity) {
+        left: unset;
+        right: calc($small-slider-height / 2);
+      }
+
+      .extremity-label {
+        &.max-label {
+          right: unset;
+          left: calc($small-slider-height / 2);
         }
 
-        .slider-rail:not(.slider-rail-opacity),
-        .slider-track:not(.slider-track-opacity) {
-            left: calc($small-slider-height / 2);
-            width: calc(100% - $small-slider-height);
+        &.min-label {
+          left: unset;
+          right: calc($small-slider-height / 2);
         }
 
-        .slider-rail:not(.slider-rail-opacity) {
-            left: calc($small-slider-height / 2);
-            width: calc(
-                calc(100% - $small-slider-height) - calc($border-offset * 2)
-            );
+        &-inline {
+          &.max-label {
+            left: unset;
+            margin-left: unset;
+            margin-right: $small-slider-inline-margin;
+          }
+
+          &.min-label {
+            margin-left: $small-slider-inline-margin;
+            margin-right: unset;
+            right: unset;
+          }
         }
+      }
 
-        .rail-marker-segment {
-            border-radius: $corner-radius-xs;
-            height: $small-track-height;
-            top: $small-marker-top;
-        }
-
-        .slider-value {
-            font-size: $text-font-size-1;
-        }
-
-        .extremity-label {
-            font-size: $text-font-size-1;
-
-            &.max-label {
-                right: calc($small-slider-height / 2);
-            }
-
-            &.min-label {
-                left: calc($small-slider-height / 2);
-            }
-
-            &-inline {
-                margin-top: 0;
-
-                &.max-label {
-                    margin-left: $small-slider-inline-margin;
-                    right: unset;
-                }
-
-                &.min-label {
-                    left: unset;
-                    margin-right: $small-slider-inline-margin;
-                }
-            }
-        }
-
-        .slider-range-labels {
-            .slider-value {
-                margin-top: $space-xxxs;
-            }
-        }
-
-        .thumb,
-        .thumb::-webkit-slider-thumb {
-            background-image: url("data:image/svg+xml,%3Csvg width='4' height='4' viewBox='0 0 4 4' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0H1.34375V1.34375H0V0ZM2.65625 0H4V1.34375H2.65625V0ZM0 2.65625H1.34375V4H0V2.65625ZM2.65625 2.65625H4V4H2.65625V2.65625Z' fill='%23343c4c'/%3E%3C/svg%3E%0A");
-            background-position: center;
-            background-repeat: no-repeat;
-        }
-
+      &.show-markers {
         .thumb {
-            top: $small-rail-top;
+          margin-left: unset;
+          margin-right: -$space-xxxs;
         }
-
-        @-moz-document url-prefix() {
-            .thumb {
-                top: calc($small-rail-top + $space-xxxs);
-            }
-        }
-
-        .thumb {
-            &::-webkit-slider-thumb {
-                box-shadow: $shadow-object-xs;
-                height: $small-slider-height;
-                margin-top: $space-xxs;
-                width: $small-slider-height;
-            }
-
-            &::-moz-range-thumb {
-                background-image: url("data:image/svg+xml,%3Csvg width='4' height='4' viewBox='0 0 4 4' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0H1.34375V1.34375H0V0ZM2.65625 0H4V1.34375H2.65625V0ZM0 2.65625H1.34375V4H0V2.65625ZM2.65625 2.65625H4V4H2.65625V2.65625Z' fill='%23343c4c'/%3E%3C/svg%3E%0A");
-                background-position: center;
-                background-repeat: no-repeat;
-                box-shadow: $shadow-object-xs;
-                height: $small-slider-height;
-                margin-top: $space-xxs;
-                width: $small-slider-height;
-            }
-        }
-
-        &.show-markers {
-            .thumb {
-                margin-left: -$space-xxxs;
-            }
-        }
+      }
     }
-
-    &-rtl {
-        .slider {
-            &-mark {
-                left: unset;
-                right: calc($medium-slider-height / 2);
-            }
-
-            &-step {
-                left: unset;
-                right: calc($medium-slider-height / 2);
-            }
-        }
-
-        .slider-rail,
-        .slider-track,
-        .rail-marker-segments {
-            left: unset;
-            right: 0;
-        }
-
-        .slider-rail:not(.slider-rail-opacity),
-        .slider-track:not(.slider-track-opacity) {
-            left: unset;
-            right: calc($medium-slider-height / 2);
-        }
-
-        .slider-rail:not(.slider-rail-opacity) {
-            left: unset;
-            right: calc($medium-slider-height / 2);
-        }
-
-        .extremity-label {
-            &.max-label {
-                right: unset;
-                left: calc($medium-slider-height / 2);
-            }
-
-            &.min-label {
-                left: unset;
-                right: calc($medium-slider-height / 2);
-            }
-
-            &-inline {
-                &.max-label {
-                    left: unset;
-                    margin-left: unset;
-                    margin-right: $medium-slider-inline-margin;
-                }
-
-                &.min-label {
-                    margin-left: $medium-slider-inline-margin;
-                    margin-right: unset;
-                    right: unset;
-                }
-            }
-        }
-
-        &.show-markers {
-            .thumb {
-                margin-left: unset;
-                margin-right: -$medium-thumb-offset;
-            }
-        }
-
-        &.slider-container-inline {
-            .slider-range-labels {
-                left: unset;
-                right: 50%;
-            }
-        }
-
-        &.slider-large {
-            .slider {
-                &-mark {
-                    left: unset;
-                    right: calc($large-slider-height / 2);
-                }
-
-                &-step {
-                    left: unset;
-                    right: calc($large-slider-height / 2);
-                }
-            }
-
-            .slider-rail:not(.slider-rail-opacity),
-            .slider-track:not(.slider-track-opacity) {
-                left: unset;
-                right: calc($large-slider-height / 2);
-            }
-
-            .slider-rail:not(.slider-rail-opacity) {
-                left: unset;
-                right: calc($large-slider-height / 2);
-            }
-
-            .extremity-label {
-                &.max-label {
-                    right: unset;
-                    left: calc($large-slider-height / 2);
-                }
-
-                &.min-label {
-                    left: unset;
-                    right: calc($large-slider-height / 2);
-                }
-
-                &-inline {
-                    &.max-label {
-                        left: unset;
-                        margin-left: unset;
-                        margin-right: $large-slider-inline-margin;
-                    }
-
-                    &.min-label {
-                        margin-left: $large-slider-inline-margin;
-                        margin-right: unset;
-                        right: unset;
-                    }
-                }
-            }
-
-            &.show-markers {
-                .thumb {
-                    margin-left: unset;
-                    margin-right: -$space-xxs;
-                }
-            }
-        }
-
-        &.slider-medium {
-            .slider {
-                &-mark {
-                    left: unset;
-                    right: calc($medium-slider-height / 2);
-                }
-
-                &-step {
-                    left: unset;
-                    right: calc($medium-slider-height / 2);
-                }
-            }
-
-            .slider-rail:not(.slider-rail-opacity),
-            .slider-track:not(.slider-track-opacity) {
-                left: unset;
-                right: calc($medium-slider-height / 2);
-            }
-
-            .slider-rail:not(.slider-rail-opacity) {
-                left: unset;
-                right: calc($medium-slider-height / 2);
-            }
-
-            .extremity-label {
-                &.max-label {
-                    right: unset;
-                    left: calc($medium-slider-height / 2);
-                }
-
-                &.min-label {
-                    left: unset;
-                    right: calc($medium-slider-height / 2);
-                }
-
-                &-inline {
-                    &.max-label {
-                        left: unset;
-                        margin-left: unset;
-                        margin-right: $medium-slider-inline-margin;
-                    }
-
-                    &.min-label {
-                        margin-left: $medium-slider-inline-margin;
-                        margin-right: unset;
-                        right: unset;
-                    }
-                }
-            }
-
-            &.show-markers {
-                .thumb {
-                    margin-left: unset;
-                    margin-right: -$medium-thumb-offset;
-                }
-            }
-        }
-
-        &.slider-small {
-            .slider {
-                &-mark {
-                    left: unset;
-                    right: calc($small-slider-height / 2);
-                }
-
-                &-step {
-                    left: unset;
-                    right: calc($small-slider-height / 2);
-                }
-            }
-
-            .slider-rail:not(.slider-rail-opacity),
-            .slider-track:not(.slider-track-opacity) {
-                left: unset;
-                right: calc($small-slider-height / 2);
-            }
-
-            .slider-rail:not(.slider-rail-opacity) {
-                left: unset;
-                right: calc($small-slider-height / 2);
-            }
-
-            .extremity-label {
-                &.max-label {
-                    right: unset;
-                    left: calc($small-slider-height / 2);
-                }
-
-                &.min-label {
-                    left: unset;
-                    right: calc($small-slider-height / 2);
-                }
-
-                &-inline {
-                    &.max-label {
-                        left: unset;
-                        margin-left: unset;
-                        margin-right: $small-slider-inline-margin;
-                    }
-
-                    &.min-label {
-                        margin-left: $small-slider-inline-margin;
-                        margin-right: unset;
-                        right: unset;
-                    }
-                }
-            }
-
-            &.show-markers {
-                .thumb {
-                    margin-left: unset;
-                    margin-right: -$space-xxxs;
-                }
-            }
-        }
-    }
+  }
 }
 
 .slider-disabled,
 .slider-readonly {
-    cursor: not-allowed;
+  cursor: not-allowed;
 
-    .slider {
-        opacity: $disabled-alpha-value;
-        pointer-events: none;
+  .slider {
+    opacity: $disabled-alpha-value;
+    pointer-events: none;
+  }
+
+  .thumb {
+    &:focus::-webkit-slider-thumb {
+      cursor: not-allowed;
     }
 
-    .thumb {
-        &:focus::-webkit-slider-thumb {
-            cursor: not-allowed;
-        }
-
-        &::-webkit-slider-thumb {
-            cursor: not-allowed;
-        }
-
-        &::-moz-range-thumb {
-            cursor: not-allowed;
-        }
-
-        &:focus::-moz-range-thumb {
-            cursor: not-allowed;
-        }
+    &::-webkit-slider-thumb {
+      cursor: not-allowed;
     }
+
+    &::-moz-range-thumb {
+      cursor: not-allowed;
+    }
+
+    &:focus::-moz-range-thumb {
+      cursor: not-allowed;
+    }
+  }
 }
 
 .slider-readonly {
-    .slider {
-        opacity: 1;
-    }
+  .slider {
+    opacity: 1;
+  }
 }
 
 :global(.focus-visible) {
-    .slider-container {
-        .thumb {
-            &:focus-visible::-webkit-slider-thumb {
-                outline: $space-xxxs solid var(--primary-color-40);
-                outline-offset: 1px;
-            }
+  .slider-container {
+    .thumb {
+      &:focus-visible::-webkit-slider-thumb {
+        outline: $space-xxxs solid var(--primary-color-40);
+        outline-offset: 1px;
+      }
 
-            &:focus-visible::-moz-range-thumb {
-                outline: $space-xxxs solid var(--primary-color-40);
-                outline-offset: 1px;
-            }
-        }
+      &:focus-visible::-moz-range-thumb {
+        outline: $space-xxxs solid var(--primary-color-40);
+        outline-offset: 1px;
+      }
     }
+  }
 }

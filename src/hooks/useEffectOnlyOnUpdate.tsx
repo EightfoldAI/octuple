@@ -6,16 +6,16 @@ import React, { useEffect, useRef } from 'react';
  * @param dependencies list of deps which will trigger callback on update.
  */
 export const useEffectOnlyOnUpdate = (
-    callback: React.EffectCallback,
-    dependencies: React.DependencyList
+  callback: React.EffectCallback,
+  dependencies: React.DependencyList
 ) => {
-    const didMount = useRef(false);
+  const didMount = useRef(false);
 
-    useEffect(() => {
-        if (didMount.current) {
-            callback();
-        } else {
-            didMount.current = true;
-        }
-    }, [callback, dependencies]);
+  useEffect(() => {
+    if (didMount.current) {
+      callback();
+    } else {
+      didMount.current = true;
+    }
+  }, [callback, dependencies]);
 };

@@ -3,14 +3,14 @@ import TimePickerLocale from '../../TimePicker/Locale/es_ES';
 import type { PickerLocale } from '../Generate/Generate.types';
 
 const locale: PickerLocale = {
-    lang: {
-        placeholder: 'Seleccionar fecha',
-        rangePlaceholder: ['Fecha inicial', 'Fecha final'],
-        ...CalendarLocale,
-    },
-    timePickerLocale: {
-        ...TimePickerLocale,
-    },
+  lang: {
+    placeholder: 'Seleccionar fecha',
+    rangePlaceholder: ['Fecha inicial', 'Fecha final'],
+    ...CalendarLocale,
+  },
+  timePickerLocale: {
+    ...TimePickerLocale,
+  },
 };
 
 export default locale;

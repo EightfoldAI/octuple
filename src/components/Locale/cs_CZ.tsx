@@ -10,19 +10,19 @@ import TimePicker from '../DateTimePicker/TimePicker/Locale/cs_CZ';
 import Upload from '../Upload/Locale/cs_CZ';
 
 const localeValues: Locale = {
-    locale: 'cs',
-    global: {
-        placeholder: 'Prosím vyber',
-    },
-    DatePicker,
-    Dialog,
-    InfoBar,
-    Pagination,
-    Panel,
-    Stepper,
-    Table,
-    TimePicker,
-    Upload,
+  locale: 'cs',
+  global: {
+    placeholder: 'Prosím vyber',
+  },
+  DatePicker,
+  Dialog,
+  InfoBar,
+  Pagination,
+  Panel,
+  Stepper,
+  Table,
+  TimePicker,
+  Upload,
 };
 
 export default localeValues;

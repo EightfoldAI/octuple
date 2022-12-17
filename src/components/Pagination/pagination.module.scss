@@ -1,210 +1,210 @@
 .pagination {
-    --pager-button-active-foreground-color: var(--primary-color-70);
-    --pager-button-active-outline-color: var(--accent-color-20);
-    --pager-button-active-background-color: var(--accent-color-20);
+  --pager-button-active-foreground-color: var(--primary-color-70);
+  --pager-button-active-outline-color: var(--primary-color-60);
+  --pager-button-active-background-color: var(--accent-color-20);
 
-    align-items: center;
-    display: flex;
-    font-family: $octuple-font-family;
-    padding: $space-xxs 0;
+  align-items: center;
+  display: flex;
+  font-family: $octuple-font-family;
+  padding: $space-xxs 0;
 
-    span,
+  span,
+  .pagination-button {
+    display: inline-block;
+    vertical-align: top;
+    box-sizing: border-box;
+  }
+
+  .pagination-button {
+    &:hover {
+      background: var(--accent-color-10);
+    }
+
+    &:active,
+    &.active {
+      color: var(--pager-button-active-foreground-color);
+      background-color: var(--pager-button-active-background-color);
+      border: 1px solid var(--pager-button-active-outline-color);
+
+      svg {
+        color: var(--pager-button-active-foreground-color);
+      }
+    }
+  }
+
+  .pagination-next {
+    margin-left: $space-xxs;
+  }
+
+  .pagination-previous {
+    margin-right: $space-xxs;
+  }
+
+  .sizes {
+    display: none;
+    margin: 0 $space-xs;
+  }
+
+  .jump {
+    box-sizing: border-box;
+    display: none;
+    font-size: $text-font-size-2;
+    height: 28px;
+    line-height: $text-line-height-4;
+    margin: 0 0 0 $space-xs;
+    vertical-align: top;
+
+    .editor {
+      box-sizing: border-box;
+      height: 28px;
+      min-width: unset;
+      margin: 0 0 0 $space-xs;
+      padding-left: $space-xs;
+      width: 72px;
+    }
+  }
+
+  .total {
+    box-sizing: border-box;
+    display: none;
+    font-size: $text-font-size-2;
+    height: 28px;
+    line-height: $text-line-height-4;
+    margin: 0 $space-xs 0 0;
+    min-width: 28px;
+    vertical-align: top;
+  }
+
+  .pager {
+    user-select: none;
+    list-style: none;
+    display: inline-block;
+    vertical-align: top;
+    padding: 0;
+    margin: 0;
+
+    li {
+      padding: 0 $space-xxs;
+      vertical-align: top;
+      display: inline-block;
+      box-sizing: border-box;
+      text-align: center;
+      margin: 0;
+    }
+  }
+
+  .page-tracker {
+    opacity: 50%;
+    padding-top: $space-xxs;
+  }
+
+  &.dots {
+    span {
+      vertical-align: middle;
+    }
+
     .pagination-button {
+      border-radius: 100%;
+      height: 24px;
+      min-height: 24px;
+      min-width: 24px;
+      padding: 0;
+      width: 24px;
+      vertical-align: middle;
+      outline: solid 1px var(--accent-color-60);
+      outline-offset: -1px;
+
+      span,
+      svg {
         display: inline-block;
-        vertical-align: top;
-        box-sizing: border-box;
+        font-size: $text-font-size-2;
+        line-height: 24px;
+      }
+
+      svg {
+        margin-top: $space-xxxs;
+      }
     }
 
-    .pagination-button {
-        &:hover {
-            background: var(--accent-color-10);
-        }
-
-        &:active,
-        &.active {
-            color: var(--pager-button-active-foreground-color);
-            background-color: var(--pager-button-active-background-color);
-            border-color: var(--pager-button-active-outline-color);
-
-            svg {
-                color: var(--pager-button-active-foreground-color);
-            }
-        }
-    }
-
-    .pagination-next {
-        margin-left: $space-xxs;
-    }
-
+    .pagination-next,
     .pagination-previous {
-        margin-right: $space-xxs;
-    }
-
-    .sizes {
-        display: none;
-        margin: 0 $space-xs;
+      outline-color: transparent;
     }
 
     .jump {
-        box-sizing: border-box;
-        display: none;
-        font-size: $text-font-size-2;
-        height: 28px;
-        line-height: $text-line-height-4;
-        margin: 0 0 0 $space-xs;
-        vertical-align: top;
+      height: 24px;
+      line-height: 24px;
+      vertical-align: middle;
 
-        .editor {
-            box-sizing: border-box;
-            height: 28px;
-            min-width: unset;
-            margin: 0 0 0 $space-xs;
-            padding-left: $space-xs;
-            width: 72px;
-        }
-    }
-
-    .total {
-        box-sizing: border-box;
-        display: none;
+      .editor {
         font-size: $text-font-size-2;
-        height: 28px;
-        line-height: $text-line-height-4;
-        margin: 0 $space-xs 0 0;
-        min-width: 28px;
-        vertical-align: top;
+        height: 24px;
+        width: 56px;
+      }
     }
 
     .pager {
-        user-select: none;
-        list-style: none;
-        display: inline-block;
-        vertical-align: top;
-        padding: 0;
-        margin: 0;
+      vertical-align: middle;
 
-        li {
-            padding: 0 $space-xxs;
-            vertical-align: top;
-            display: inline-block;
-            box-sizing: border-box;
-            text-align: center;
-            margin: 0;
-        }
+      li {
+        vertical-align: middle;
+      }
     }
 
-    .page-tracker {
-        opacity: 50%;
-        padding-top: $space-xxs;
+    .total {
+      height: 24px;
+      line-height: 24px;
+      margin: 0 $space-xs 0 0;
+      min-width: 24px;
+      vertical-align: middle;
+    }
+  }
+
+  &-rtl {
+    .pagination-next {
+      margin-left: unset;
+      margin-right: $space-xxs;
+    }
+
+    .pagination-previous {
+      margin-left: $space-xxs;
+      margin-right: unset;
+    }
+
+    .jump {
+      margin: 0 $space-xs 0 0;
+
+      .editor {
+        margin: 0 $space-xs 0 0;
+        padding-left: unset;
+        padding-right: $space-xs;
+      }
+    }
+
+    .total {
+      margin: 0 0 0 $space-xs;
     }
 
     &.dots {
-        span {
-            vertical-align: middle;
-        }
-
-        .pagination-button {
-            border-radius: 100%;
-            height: 24px;
-            min-height: 24px;
-            min-width: 24px;
-            padding: 0;
-            width: 24px;
-            vertical-align: middle;
-            outline: solid 1px var(--accent-color-60);
-            outline-offset: -1px;
-
-            span,
-            svg {
-                display: inline-block;
-                font-size: $text-font-size-2;
-                line-height: 24px;
-            }
-
-            svg {
-                margin-top: $space-xxxs;
-            }
-        }
-
-        .pagination-next,
-        .pagination-previous {
-            outline-color: transparent;
-        }
-
-        .jump {
-            height: 24px;
-            line-height: 24px;
-            vertical-align: middle;
-
-            .editor {
-                font-size: $text-font-size-2;
-                height: 24px;
-                width: 56px;
-            }
-        }
-
-        .pager {
-            vertical-align: middle;
-
-            li {
-                vertical-align: middle;
-            }
-        }
-
-        .total {
-            height: 24px;
-            line-height: 24px;
-            margin: 0 $space-xs 0 0;
-            min-width: 24px;
-            vertical-align: middle;
-        }
+      .total {
+        margin: 0 0 0 $space-xs;
+      }
     }
-
-    &-rtl {
-        .pagination-next {
-            margin-left: unset;
-            margin-right: $space-xxs;
-        }
-
-        .pagination-previous {
-            margin-left: $space-xxs;
-            margin-right: unset;
-        }
-
-        .jump {
-            margin: 0 $space-xs 0 0;
-
-            .editor {
-                margin: 0 $space-xs 0 0;
-                padding-left: unset;
-                padding-right: $space-xs;
-            }
-        }
-
-        .total {
-            margin: 0 0 0 $space-xs;
-        }
-
-        &.dots {
-            .total {
-                margin: 0 0 0 $space-xs;
-            }
-        }
-    }
+  }
 }
 
 @media (min-width: $small-screen-size) {
-    .pagination {
-        .jump {
-            display: inline-flex;
-        }
-
-        .sizes {
-            display: inline-block;
-        }
-
-        .total {
-            display: inline-block;
-        }
+  .pagination {
+    .jump {
+      display: inline-flex;
     }
+
+    .sizes {
+      display: inline-block;
+    }
+
+    .total {
+      display: inline-block;
+    }
+  }
 }

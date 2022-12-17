@@ -3,7 +3,7 @@ import { useBreakpoint as useInternalBreakpoint } from '../../hooks/useBreakpoin
 import { Row } from './Row';
 
 function useBreakpoint() {
-    return useInternalBreakpoint();
+  return useInternalBreakpoint();
 }
 
 export { ColProps, ColSize, RowProps } from './Grid.types';

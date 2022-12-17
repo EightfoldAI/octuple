@@ -1,49 +1,49 @@
 .main-wrapper {
-    display: inline-block;
-    font-family: $octuple-font-family;
-    white-space: nowrap;
+  display: inline-block;
+  font-family: $octuple-font-family;
+  white-space: nowrap;
 
-    .reference-wrapper {
-        display: flex;
-        cursor: pointer;
-        padding: $space-xs;
+  .reference-wrapper {
+    display: flex;
+    cursor: pointer;
+    padding: $space-xs;
 
-        &:focus-visible {
-            outline: $space-xxxs solid var(--primary-color-80);
-        }
-
-        &.disabled {
-            pointer-events: none;
-            cursor: auto;
-        }
+    &:focus-visible {
+      outline: $space-xxxs solid var(--primary-color-80);
     }
+
+    &.disabled {
+      pointer-events: none;
+      cursor: auto;
+    }
+  }
 }
 
 .dropdown-wrapper {
-    background: var(--background-color);
-    padding: $space-xs;
-    box-shadow: $shadow-object-m;
-    border-radius: $corner-radius-xl;
-    font-family: $octuple-font-family;
-    transition: all $motion-duration-fast $motion-easing-easeout;
-    min-width: 200px;
-    opacity: 0;
-    white-space: normal;
-    z-index: $z-index-400;
-    max-height: min(50vh, 600px);
-    overflow-y: auto;
+  background: var(--background-color);
+  padding: $space-xs;
+  box-shadow: $shadow-object-m;
+  border-radius: $border-radius-xl;
+  font-family: $octuple-font-family;
+  transition: all $motion-duration-fast $motion-easing-easeout;
+  min-width: 200px;
+  opacity: 0;
+  white-space: normal;
+  z-index: $z-index-400;
+  max-height: min(50vh, 600px);
+  overflow-y: auto;
 
-    &.open {
-        animation: slideUpIn $motion-duration-extra-fast
-            $motion-easing-easeinout 0s forwards;
-    }
+  &.open {
+    animation: slideUpIn $motion-duration-extra-fast $motion-easing-easeinout 0s
+      forwards;
+  }
 
-    &.close {
-        animation: slideUpOut $motion-duration-extra-fast
-            $motion-easing-easeinout 0s forwards;
-    }
+  &.close {
+    animation: slideUpOut $motion-duration-extra-fast $motion-easing-easeinout
+      0s forwards;
+  }
 
-    &.no-padding {
-        padding: 0;
-    }
+  &.no-padding {
+    padding: 0;
+  }
 }

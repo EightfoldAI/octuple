@@ -1,15 +1,15 @@
 .list-container {
-    display: flex;
-    font-family: $octuple-font-family;
-    list-style: none;
-    margin: 0;
-    padding: 0;
+  display: flex;
+  font-family: $octuple-font-family;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 
-    &.vertical {
-        flex-direction: column;
-    }
+  &.vertical {
+    flex-direction: column;
+  }
 
-    .list-item {
-        list-style-type: none;
-    }
+  .list-item {
+    list-style-type: none;
+  }
 }

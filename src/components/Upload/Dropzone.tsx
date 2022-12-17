@@ -5,10 +5,10 @@ import Upload from './Upload';
 export type DropzoneProps = UploadProps & { height?: number };
 
 const InternalDropzone: React.ForwardRefRenderFunction<
-    unknown,
-    DropzoneProps
+  unknown,
+  DropzoneProps
 > = ({ style, height, ...rest }, ref) => (
-    <Upload ref={ref} {...rest} type="drop" style={{ ...style, height }} />
+  <Upload ref={ref} {...rest} type="drop" style={{ ...style, height }} />
 );
 
 const Dropzone = React.forwardRef(InternalDropzone) as React.FC<DropzoneProps>;

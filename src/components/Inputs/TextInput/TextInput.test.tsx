@@ -9,17 +9,17 @@ Enzyme.configure({ adapter: new Adapter() });
 let matchMedia: any;
 
 describe('TextInput', () => {
-    beforeAll(() => {
-        matchMedia = new MatchMediaMock();
-    });
-    afterEach(() => {
-        matchMedia.clear();
-    });
-    /*
-     * Functionality Tests
-     */
-    test('text input renders', () => {
-        const wrapper = mount(<TextInput />);
-        expect(wrapper.containsMatchingElement(<TextInput />)).toEqual(true);
-    });
+  beforeAll(() => {
+    matchMedia = new MatchMediaMock();
+  });
+  afterEach(() => {
+    matchMedia.clear();
+  });
+  /*
+   * Functionality Tests
+   */
+  test('text input renders', () => {
+    const wrapper = mount(<TextInput />);
+    expect(wrapper.containsMatchingElement(<TextInput />)).toEqual(true);
+  });
 });

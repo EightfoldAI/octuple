@@ -2,44 +2,44 @@ import React, { useRef, useEffect, useState } from 'react';
 import { mergeClasses } from '../../../shared/utilities';
 import { useMergedState } from '../../../hooks/useMergedState';
 import type {
-    EventValue,
-    PartialMode,
-    OcPickerMode,
-    OcPickerRefConfig,
-    RangeInfo,
-    RangeValue,
-    CustomFormat,
+  EventValue,
+  PartialMode,
+  OcPickerMode,
+  OcPickerRefConfig,
+  RangeInfo,
+  RangeValue,
+  CustomFormat,
 } from './OcPicker.types';
 import {
-    OcRangePickerBaseProps,
-    OcRangePickerDateProps,
-    OcRangePickerTimeProps,
-    OcRangePickerProps,
+  OcRangePickerBaseProps,
+  OcRangePickerDateProps,
+  OcRangePickerTimeProps,
+  OcRangePickerProps,
 } from './OcPicker.types';
 import type { SharedTimeProps } from './Partials/TimePartial/Time.types';
 import OcPickerTrigger from './OcPickerTrigger';
 import OcPickerPartial from './OcPickerPartial';
 import usePickerInput from './Hooks/usePickerInput';
 import getDataOrAriaProps, {
-    toArray,
-    getValue,
-    updateValues,
+  toArray,
+  getValue,
+  updateValues,
 } from './Utils/miscUtil';
 import {
-    getDefaultFormat,
-    getInputSize,
-    elementsContains,
+  getDefaultFormat,
+  getInputSize,
+  elementsContains,
 } from './Utils/uiUtil';
 import type { ContextOperationRefProps } from './PartialContext';
 import PartialContext from './PartialContext';
 import {
-    isEqual,
-    getClosingViewDate,
-    isSameDate,
-    isSameWeek,
-    isSameQuarter,
-    formatValue,
-    parseValue,
+  isEqual,
+  getClosingViewDate,
+  isSameDate,
+  isSameWeek,
+  isSameQuarter,
+  formatValue,
+  parseValue,
 } from './Utils/dateUtil';
 import useValueTexts from './Hooks/useValueTexts';
 import useTextValueMapping from './Hooks/useTextValueMapping';
@@ -58,1312 +58,1236 @@ import styles from './ocpicker.module.scss';
 import triggerStyles from '../../Trigger/trigger.module.scss';
 
 function reorderValues<DateType>(
-    values: RangeValue<DateType>,
-    generateConfig: GenerateConfig<DateType>
+  values: RangeValue<DateType>,
+  generateConfig: GenerateConfig<DateType>
 ): RangeValue<DateType> {
-    if (
-        values &&
-        values[0] &&
-        values[1] &&
-        generateConfig.isAfter(values[0], values[1])
-    ) {
-        return [values[1], values[0]];
-    }
+  if (
+    values &&
+    values[0] &&
+    values[1] &&
+    generateConfig.isAfter(values[0], values[1])
+  ) {
+    return [values[1], values[0]];
+  }
 
-    return values;
+  return values;
 }
 
 function canValueTrigger<DateType>(
-    value: EventValue<DateType>,
-    index: number,
-    disabled: [boolean, boolean],
-    allowEmpty?: [boolean, boolean] | null
+  value: EventValue<DateType>,
+  index: number,
+  disabled: [boolean, boolean],
+  allowEmpty?: [boolean, boolean] | null
 ): boolean {
-    if (value) {
-        return true;
-    }
+  if (value) {
+    return true;
+  }
 
-    if (allowEmpty && allowEmpty[index]) {
-        return true;
-    }
+  if (allowEmpty && allowEmpty[index]) {
+    return true;
+  }
 
-    if (disabled[(index + 1) % 2]) {
-        return true;
-    }
+  if (disabled[(index + 1) % 2]) {
+    return true;
+  }
 
-    return false;
+  return false;
 }
 
 type OmitType<DateType> = Omit<OcRangePickerBaseProps<DateType>, 'picker'> &
-    Omit<OcRangePickerDateProps<DateType>, 'picker'> &
-    Omit<OcRangePickerTimeProps<DateType>, 'picker'>;
+  Omit<OcRangePickerDateProps<DateType>, 'picker'> &
+  Omit<OcRangePickerTimeProps<DateType>, 'picker'>;
 
 type MergedOcRangePickerProps<DateType> = {
-    picker?: OcPickerMode;
+  picker?: OcPickerMode;
 } & OmitType<DateType>;
 
 function InnerRangePicker<DateType>(props: OcRangePickerProps<DateType>) {
-    const {
-        activePickerIndex,
-        allowClear,
-        allowEmpty,
-        autoComplete = 'off',
-        autoFocus,
-        bordered = true,
-        classNames,
-        clearIconAriaLabelText,
-        clearIcon,
-        components,
-        dateRender,
-        defaultOpen,
-        defaultPickerValue,
-        defaultValue,
-        direction,
-        disabled,
-        disabledDate,
-        disabledTime,
-        dropdownAlign,
-        dropdownClassNames,
-        format,
-        generateConfig,
-        getPopupContainer,
-        id,
-        inputReadOnly,
-        locale,
-        mode,
-        nowText,
-        okText,
-        onBlur,
-        onCalendarChange,
-        onChange,
-        onClick,
-        onFocus,
-        onKeyDown,
-        onMouseDown,
-        onMouseEnter,
-        onMouseLeave,
-        onMouseUp,
-        onOk,
-        onOpenChange,
-        onPartialChange,
-        open,
-        order,
-        partialRender,
-        picker = 'date',
-        pickerRef,
-        placeholder,
-        popupPlacement,
-        popupStyle,
-        ranges,
-        renderExtraFooter,
-        separator = ',',
-        shape = DatePickerShape.Rectangle,
-        showTime,
-        size = DatePickerSize.Medium,
-        style,
-        suffixIcon,
-        use12Hours,
-        todayText,
-        value,
-    } = props as MergedOcRangePickerProps<DateType>;
+  const {
+    activePickerIndex,
+    allowClear,
+    allowEmpty,
+    autoComplete = 'off',
+    autoFocus,
+    bordered = true,
+    classNames,
+    clearIconAriaLabelText,
+    clearIcon,
+    components,
+    dateRender,
+    defaultOpen,
+    defaultPickerValue,
+    defaultValue,
+    direction,
+    disabled,
+    disabledDate,
+    disabledTime,
+    dropdownAlign,
+    dropdownClassNames,
+    format,
+    generateConfig,
+    getPopupContainer,
+    id,
+    inputReadOnly,
+    locale,
+    mode,
+    nowText,
+    okText,
+    onBlur,
+    onCalendarChange,
+    onChange,
+    onClick,
+    onFocus,
+    onKeyDown,
+    onMouseDown,
+    onMouseEnter,
+    onMouseLeave,
+    onMouseUp,
+    onOk,
+    onOpenChange,
+    onPartialChange,
+    open,
+    order,
+    partialRender,
+    picker = 'date',
+    pickerRef,
+    placeholder,
+    popupPlacement,
+    popupStyle,
+    ranges,
+    renderExtraFooter,
+    separator = ',',
+    shape = DatePickerShape.Rectangle,
+    showTime,
+    size = DatePickerSize.Medium,
+    style,
+    suffixIcon,
+    use12Hours,
+    todayText,
+    value,
+  } = props as MergedOcRangePickerProps<DateType>;
 
-    const needConfirmButton: boolean =
-        (picker === 'date' && !!showTime) || picker === 'time';
+  const needConfirmButton: boolean =
+    (picker === 'date' && !!showTime) || picker === 'time';
 
-    // We record opened status here in case repeat open with picker
-    const openRecordsRef: React.MutableRefObject<Record<number, boolean>> =
-        useRef<Record<number, boolean>>({});
+  // We record opened status here in case repeat open with picker
+  const openRecordsRef: React.MutableRefObject<Record<number, boolean>> =
+    useRef<Record<number, boolean>>({});
 
-    const containerRef: React.MutableRefObject<HTMLDivElement> =
-        useRef<HTMLDivElement>(null);
-    const partialDivRef: React.MutableRefObject<HTMLDivElement> =
-        useRef<HTMLDivElement>(null);
-    const startInputDivRef: React.MutableRefObject<HTMLDivElement> =
-        useRef<HTMLDivElement>(null);
-    const endInputDivRef: React.MutableRefObject<HTMLDivElement> =
-        useRef<HTMLDivElement>(null);
-    const separatorRef: React.MutableRefObject<HTMLDivElement> =
-        useRef<HTMLDivElement>(null);
-    const startInputRef: React.MutableRefObject<HTMLInputElement> =
-        useRef<HTMLInputElement>(null);
-    const endInputRef: React.MutableRefObject<HTMLInputElement> =
-        useRef<HTMLInputElement>(null);
-    const arrowRef: React.MutableRefObject<HTMLDivElement> =
-        useRef<HTMLDivElement>(null);
+  const containerRef: React.MutableRefObject<HTMLDivElement> =
+    useRef<HTMLDivElement>(null);
+  const partialDivRef: React.MutableRefObject<HTMLDivElement> =
+    useRef<HTMLDivElement>(null);
+  const startInputDivRef: React.MutableRefObject<HTMLDivElement> =
+    useRef<HTMLDivElement>(null);
+  const endInputDivRef: React.MutableRefObject<HTMLDivElement> =
+    useRef<HTMLDivElement>(null);
+  const separatorRef: React.MutableRefObject<HTMLDivElement> =
+    useRef<HTMLDivElement>(null);
+  const startInputRef: React.MutableRefObject<HTMLInputElement> =
+    useRef<HTMLInputElement>(null);
+  const endInputRef: React.MutableRefObject<HTMLInputElement> =
+    useRef<HTMLInputElement>(null);
+  const arrowRef: React.MutableRefObject<HTMLDivElement> =
+    useRef<HTMLDivElement>(null);
 
-    const formatList: (string | CustomFormat<DateType>)[] = toArray(
-        getDefaultFormat<DateType>(format, picker, showTime, use12Hours)
-    );
+  const formatList: (string | CustomFormat<DateType>)[] = toArray(
+    getDefaultFormat<DateType>(format, picker, showTime, use12Hours)
+  );
 
-    // Active picker
-    const [mergedActivePickerIndex, setMergedActivePickerIndex] =
-        useMergedState<0 | 1>(0, {
-            value: activePickerIndex,
-        });
+  // Active picker
+  const [mergedActivePickerIndex, setMergedActivePickerIndex] = useMergedState<
+    0 | 1
+  >(0, {
+    value: activePickerIndex,
+  });
 
-    // Operation ref
-    const operationRef: React.MutableRefObject<ContextOperationRefProps | null> =
-        useRef<ContextOperationRefProps>(null);
+  // Operation ref
+  const operationRef: React.MutableRefObject<ContextOperationRefProps | null> =
+    useRef<ContextOperationRefProps>(null);
 
-    const mergedDisabled: [boolean, boolean] = React.useMemo<
-        [boolean, boolean]
-    >(() => {
-        if (Array.isArray(disabled)) {
-            return disabled;
-        }
-
-        return [disabled || false, disabled || false];
-    }, [disabled]);
-
-    const [mergedValue, setInnerValue] = useMergedState<RangeValue<DateType>>(
-        null,
-        {
-            value,
-            defaultValue,
-            postState: (values) =>
-                picker === 'time' && !order
-                    ? values
-                    : reorderValues(values, generateConfig),
-        }
-    );
-
-    // Config view partial
-    const [getViewDate, setViewDate] = useRangeViewDates({
-        values: mergedValue,
-        picker,
-        defaultDates: defaultPickerValue,
-        generateConfig,
-    });
-
-    const [selectedValue, setSelectedValue] = useMergedState(mergedValue, {
-        postState: (values) => {
-            let postValues: [DateType, DateType] = values;
-
-            if (mergedDisabled[0] && mergedDisabled[1]) {
-                return postValues;
-            }
-
-            // Fill disabled unit
-            for (let i: number = 0; i < 2; i += 1) {
-                if (
-                    mergedDisabled[i] &&
-                    !getValue(postValues, i) &&
-                    !getValue(allowEmpty, i)
-                ) {
-                    postValues = updateValues(
-                        postValues,
-                        generateConfig.getNow(),
-                        i
-                    );
-                }
-            }
-            return postValues;
-        },
-    });
-
-    const [mergedModes, setInnerModes] = useMergedState<
-        [PartialMode, PartialMode]
-    >([picker, picker], {
-        value: mode,
-    });
-
-    useEffect(() => {
-        setInnerModes([picker, picker]);
-    }, [picker]);
-
-    const triggerModesChange = (
-        modes: [PartialMode, PartialMode],
-        values: RangeValue<DateType>
-    ) => {
-        setInnerModes(modes);
-
-        if (onPartialChange) {
-            onPartialChange(values, modes);
-        }
-    };
-
-    const [disabledStartDate, disabledEndDate] = useRangeDisabled(
-        {
-            picker,
-            selectedValue,
-            locale,
-            disabled: mergedDisabled,
-            disabledDate,
-            generateConfig,
-        },
-        openRecordsRef.current[1],
-        openRecordsRef.current[0]
-    );
-
-    const [mergedOpen, triggerInnerOpen] = useMergedState(false, {
-        value: open,
-        defaultValue: defaultOpen,
-        postState: (postOpen) =>
-            mergedDisabled[mergedActivePickerIndex] ? false : postOpen,
-        onChange: (newOpen: boolean) => {
-            if (onOpenChange) {
-                onOpenChange(newOpen);
-            }
-
-            if (
-                !newOpen &&
-                operationRef.current &&
-                operationRef.current.onClose
-            ) {
-                operationRef.current.onClose();
-            }
-        },
-    });
-
-    const startOpen: boolean = mergedOpen && mergedActivePickerIndex === 0;
-    const endOpen: boolean = mergedOpen && mergedActivePickerIndex === 1;
-
-    // Popup min width
-    const [popupMinWidth, setPopupMinWidth] = useState(0);
-    useEffect(() => {
-        if (!mergedOpen && containerRef.current) {
-            setPopupMinWidth(containerRef.current.offsetWidth);
-        }
-    }, [mergedOpen]);
-
-    const triggerRef: React.MutableRefObject<any> = React.useRef<any>();
-
-    function triggerOpen(newOpen: boolean, index: 0 | 1) {
-        if (newOpen) {
-            clearTimeout(triggerRef.current);
-            openRecordsRef.current[index] = true;
-
-            setMergedActivePickerIndex(index);
-            triggerInnerOpen(newOpen);
-
-            // Open to reset view date
-            if (!mergedOpen) {
-                setViewDate(null, index);
-            }
-        } else if (mergedActivePickerIndex === index) {
-            triggerInnerOpen(newOpen);
-
-            // Clean up async
-            // This ensures ref doesn't quick refresh in case user opens another input with blur trigger
-            const openRecords = openRecordsRef.current;
-            triggerRef.current = setTimeout(() => {
-                if (openRecords === openRecordsRef.current) {
-                    openRecordsRef.current = {};
-                }
-            });
-        }
+  const mergedDisabled: [boolean, boolean] = React.useMemo<
+    [boolean, boolean]
+  >(() => {
+    if (Array.isArray(disabled)) {
+      return disabled;
     }
 
-    function triggerOpenAndFocus(index: 0 | 1): void {
-        triggerOpen(true, index);
-        // Use setTimeout to make sure partial DOM exists
-        setTimeout(() => {
-            const inputRef = [startInputRef, endInputRef][index];
-            if (inputRef.current) {
-                inputRef.current.focus();
-            }
-        }, 0);
+    return [disabled || false, disabled || false];
+  }, [disabled]);
+
+  const [mergedValue, setInnerValue] = useMergedState<RangeValue<DateType>>(
+    null,
+    {
+      value,
+      defaultValue,
+      postState: (values) =>
+        picker === 'time' && !order
+          ? values
+          : reorderValues(values, generateConfig),
+    }
+  );
+
+  // Config view partial
+  const [getViewDate, setViewDate] = useRangeViewDates({
+    values: mergedValue,
+    picker,
+    defaultDates: defaultPickerValue,
+    generateConfig,
+  });
+
+  const [selectedValue, setSelectedValue] = useMergedState(mergedValue, {
+    postState: (values) => {
+      let postValues: [DateType, DateType] = values;
+
+      if (mergedDisabled[0] && mergedDisabled[1]) {
+        return postValues;
+      }
+
+      // Fill disabled unit
+      for (let i: number = 0; i < 2; i += 1) {
+        if (
+          mergedDisabled[i] &&
+          !getValue(postValues, i) &&
+          !getValue(allowEmpty, i)
+        ) {
+          postValues = updateValues(postValues, generateConfig.getNow(), i);
+        }
+      }
+      return postValues;
+    },
+  });
+
+  const [mergedModes, setInnerModes] = useMergedState<
+    [PartialMode, PartialMode]
+  >([picker, picker], {
+    value: mode,
+  });
+
+  useEffect(() => {
+    setInnerModes([picker, picker]);
+  }, [picker]);
+
+  const triggerModesChange = (
+    modes: [PartialMode, PartialMode],
+    values: RangeValue<DateType>
+  ) => {
+    setInnerModes(modes);
+
+    if (onPartialChange) {
+      onPartialChange(values, modes);
+    }
+  };
+
+  const [disabledStartDate, disabledEndDate] = useRangeDisabled(
+    {
+      picker,
+      selectedValue,
+      locale,
+      disabled: mergedDisabled,
+      disabledDate,
+      generateConfig,
+    },
+    openRecordsRef.current[1],
+    openRecordsRef.current[0]
+  );
+
+  const [mergedOpen, triggerInnerOpen] = useMergedState(false, {
+    value: open,
+    defaultValue: defaultOpen,
+    postState: (postOpen) =>
+      mergedDisabled[mergedActivePickerIndex] ? false : postOpen,
+    onChange: (newOpen: boolean) => {
+      if (onOpenChange) {
+        onOpenChange(newOpen);
+      }
+
+      if (!newOpen && operationRef.current && operationRef.current.onClose) {
+        operationRef.current.onClose();
+      }
+    },
+  });
+
+  const startOpen: boolean = mergedOpen && mergedActivePickerIndex === 0;
+  const endOpen: boolean = mergedOpen && mergedActivePickerIndex === 1;
+
+  // Popup min width
+  const [popupMinWidth, setPopupMinWidth] = useState(0);
+  useEffect(() => {
+    if (!mergedOpen && containerRef.current) {
+      setPopupMinWidth(containerRef.current.offsetWidth);
+    }
+  }, [mergedOpen]);
+
+  const triggerRef: React.MutableRefObject<any> = React.useRef<any>();
+
+  function triggerOpen(newOpen: boolean, index: 0 | 1) {
+    if (newOpen) {
+      clearTimeout(triggerRef.current);
+      openRecordsRef.current[index] = true;
+
+      setMergedActivePickerIndex(index);
+      triggerInnerOpen(newOpen);
+
+      // Open to reset view date
+      if (!mergedOpen) {
+        setViewDate(null, index);
+      }
+    } else if (mergedActivePickerIndex === index) {
+      triggerInnerOpen(newOpen);
+
+      // Clean up async
+      // This ensures ref doesn't quick refresh in case user opens another input with blur trigger
+      const openRecords = openRecordsRef.current;
+      triggerRef.current = setTimeout(() => {
+        if (openRecords === openRecordsRef.current) {
+          openRecordsRef.current = {};
+        }
+      });
+    }
+  }
+
+  function triggerOpenAndFocus(index: 0 | 1): void {
+    triggerOpen(true, index);
+    // Use setTimeout to make sure partial DOM exists
+    setTimeout(() => {
+      const inputRef = [startInputRef, endInputRef][index];
+      if (inputRef.current) {
+        inputRef.current.focus();
+      }
+    }, 0);
+  }
+
+  function triggerChange(
+    newValue: RangeValue<DateType>,
+    sourceIndex: 0 | 1
+  ): void {
+    let values: [DateType, DateType] = newValue;
+    let startValue: DateType = getValue(values, 0);
+    let endValue: DateType = getValue(values, 1);
+
+    // Format start & end values
+    if (
+      startValue &&
+      endValue &&
+      generateConfig.isAfter(startValue, endValue)
+    ) {
+      if (
+        // WeekPicker only compare week
+        (picker === 'week' &&
+          !isSameWeek(generateConfig, locale.locale, startValue, endValue)) ||
+        // QuotaPicker only compare week
+        (picker === 'quarter' &&
+          !isSameQuarter(generateConfig, startValue, endValue)) ||
+        // Other non-TimePicker compare date
+        (picker !== 'week' &&
+          picker !== 'quarter' &&
+          picker !== 'time' &&
+          !isSameDate(generateConfig, startValue, endValue))
+      ) {
+        // Clean up end date when start date is after end date
+        if (sourceIndex === 0) {
+          values = [startValue, null];
+          endValue = null;
+        } else {
+          startValue = null;
+          values = [null, endValue];
+        }
+
+        // Clean up cache since invalidate
+        openRecordsRef.current = {
+          [sourceIndex]: true,
+        };
+      } else if (picker !== 'time' || order !== false) {
+        // Reorder when in same date
+        values = reorderValues(values, generateConfig);
+      }
     }
 
-    function triggerChange(
-        newValue: RangeValue<DateType>,
-        sourceIndex: 0 | 1
-    ): void {
-        let values: [DateType, DateType] = newValue;
-        let startValue: DateType = getValue(values, 0);
-        let endValue: DateType = getValue(values, 1);
+    setSelectedValue(values);
 
-        // Format start & end values
-        if (
-            startValue &&
-            endValue &&
-            generateConfig.isAfter(startValue, endValue)
-        ) {
-            if (
-                // WeekPicker only compare week
-                (picker === 'week' &&
-                    !isSameWeek(
-                        generateConfig,
-                        locale.locale,
-                        startValue,
-                        endValue
-                    )) ||
-                // QuotaPicker only compare week
-                (picker === 'quarter' &&
-                    !isSameQuarter(generateConfig, startValue, endValue)) ||
-                // Other non-TimePicker compare date
-                (picker !== 'week' &&
-                    picker !== 'quarter' &&
-                    picker !== 'time' &&
-                    !isSameDate(generateConfig, startValue, endValue))
-            ) {
-                // Clean up end date when start date is after end date
-                if (sourceIndex === 0) {
-                    values = [startValue, null];
-                    endValue = null;
-                } else {
-                    startValue = null;
-                    values = [null, endValue];
-                }
-
-                // Clean up cache since invalidate
-                openRecordsRef.current = {
-                    [sourceIndex]: true,
-                };
-            } else if (picker !== 'time' || order !== false) {
-                // Reorder when in same date
-                values = reorderValues(values, generateConfig);
-            }
-        }
-
-        setSelectedValue(values);
-
-        const startStr: string =
-            values && values[0]
-                ? formatValue(values[0], {
-                      generateConfig,
-                      locale,
-                      format: formatList[0],
-                  })
-                : '';
-        const endStr: string =
-            values && values[1]
-                ? formatValue(values[1], {
-                      generateConfig,
-                      locale,
-                      format: formatList[0],
-                  })
-                : '';
-
-        if (onCalendarChange) {
-            const info: RangeInfo = {
-                range: sourceIndex === 0 ? 'start' : 'end',
-            };
-
-            onCalendarChange(values, [startStr, endStr], info);
-        }
-
-        // Trigger `onChange` event
-        const canStartValueTrigger: boolean = canValueTrigger(
-            startValue,
-            0,
-            mergedDisabled,
-            allowEmpty
-        );
-        const canEndValueTrigger: boolean = canValueTrigger(
-            endValue,
-            1,
-            mergedDisabled,
-            allowEmpty
-        );
-
-        const canTrigger: boolean =
-            values === null || (canStartValueTrigger && canEndValueTrigger);
-
-        if (canTrigger) {
-            // Trigger onChange only when value is validate
-            setInnerValue(values);
-
-            if (
-                onChange &&
-                (!isEqual(
-                    generateConfig,
-                    getValue(mergedValue, 0),
-                    startValue
-                ) ||
-                    !isEqual(
-                        generateConfig,
-                        getValue(mergedValue, 1),
-                        endValue
-                    ))
-            ) {
-                onChange(values, [startStr, endStr]);
-            }
-        }
-
-        // Always open another picker if possible
-        let nextOpenIndex: 0 | 1 = null;
-        if (sourceIndex === 0 && !mergedDisabled[1]) {
-            nextOpenIndex = 1;
-        } else if (sourceIndex === 1 && !mergedDisabled[0]) {
-            nextOpenIndex = 0;
-        }
-
-        if (
-            nextOpenIndex !== null &&
-            nextOpenIndex !== mergedActivePickerIndex &&
-            (!openRecordsRef.current[nextOpenIndex] ||
-                !getValue(values, nextOpenIndex)) &&
-            getValue(values, sourceIndex)
-        ) {
-            // Delay to focus to avoid input blur trigger expired selectedValues
-            triggerOpenAndFocus(nextOpenIndex);
-        } else {
-            triggerOpen(false, sourceIndex);
-        }
-    }
-
-    const forwardKeyDown = (e: React.KeyboardEvent<HTMLElement>): boolean => {
-        if (
-            mergedOpen &&
-            operationRef.current &&
-            operationRef.current.onKeyDown
-        ) {
-            // Let popup partial handle keyboard
-            return operationRef.current.onKeyDown(e);
-        }
-
-        return null;
-    };
-
-    const sharedTextHooksProps = {
-        formatList,
-        generateConfig,
-        locale,
-    };
-
-    const [startValueTexts, firstStartValueText] = useValueTexts<DateType>(
-        getValue(selectedValue, 0),
-        sharedTextHooksProps
-    );
-
-    const [endValueTexts, firstEndValueText] = useValueTexts<DateType>(
-        getValue(selectedValue, 1),
-        sharedTextHooksProps
-    );
-
-    const onTextChange = (newText: string, index: 0 | 1): void => {
-        const inputDate: DateType = parseValue(newText, {
-            locale,
-            formatList,
-            generateConfig,
-        });
-
-        const disabledFunc: (date: DateType) => boolean =
-            index === 0 ? disabledStartDate : disabledEndDate;
-
-        if (inputDate && !disabledFunc(inputDate)) {
-            setSelectedValue(updateValues(selectedValue, inputDate, index));
-            setViewDate(inputDate, index);
-        }
-    };
-
-    const [startText, triggerStartTextChange, resetStartText] =
-        useTextValueMapping({
-            valueTexts: startValueTexts,
-            onTextChange: (newText) => onTextChange(newText, 0),
-        });
-
-    const [endText, triggerEndTextChange, resetEndText] = useTextValueMapping({
-        valueTexts: endValueTexts,
-        onTextChange: (newText) => onTextChange(newText, 1),
-    });
-
-    const [rangeHoverValue, setRangeHoverValue] =
-        useState<RangeValue<DateType>>(null);
-
-    const [hoverRangedValue, setHoverRangedValue] =
-        useState<RangeValue<DateType>>(null);
-
-    const [startHoverValue, onStartEnter, onStartLeave] = useHoverValue(
-        startText,
-        {
-            formatList,
-            generateConfig,
-            locale,
-        }
-    );
-
-    const [endHoverValue, onEndEnter, onEndLeave] = useHoverValue(endText, {
-        formatList,
-        generateConfig,
-        locale,
-    });
-
-    const onDateMouseEnter = (date: DateType): void => {
-        setHoverRangedValue(
-            updateValues(selectedValue, date, mergedActivePickerIndex)
-        );
-        if (mergedActivePickerIndex === 0) {
-            onStartEnter(date);
-        } else {
-            onEndEnter(date);
-        }
-    };
-
-    const onDateMouseLeave = (): void => {
-        setHoverRangedValue(
-            updateValues(selectedValue, null, mergedActivePickerIndex)
-        );
-        if (mergedActivePickerIndex === 0) {
-            onStartLeave();
-        } else {
-            onEndLeave();
-        }
-    };
-
-    const getSharedInputHookProps = (index: 0 | 1, resetText: () => void) => ({
-        blurToCancel: needConfirmButton,
-        forwardKeyDown,
-        onBlur,
-        isClickOutside: (target: EventTarget | null): boolean =>
-            !elementsContains(
-                [
-                    partialDivRef.current,
-                    startInputDivRef.current,
-                    endInputDivRef.current,
-                    containerRef.current,
-                ],
-                target as HTMLElement
-            ),
-        onFocus: (e: React.FocusEvent<HTMLInputElement>): void => {
-            setMergedActivePickerIndex(index);
-            if (onFocus) {
-                onFocus(e);
-            }
-        },
-        triggerOpen: (newOpen: boolean): void => {
-            triggerOpen(newOpen, index);
-        },
-        onSubmit: (): boolean => {
-            if (
-                // When user typing disabledDate with keyboard and enter, this value will be empty
-                !selectedValue ||
-                // Normal disabled check
-                (disabledDate && disabledDate(selectedValue[index]))
-            ) {
-                return false;
-            }
-
-            triggerChange(selectedValue, index);
-            resetText();
-
-            return null;
-        },
-        onCancel: (): void => {
-            triggerOpen(false, index);
-            setSelectedValue(mergedValue);
-            resetText();
-        },
-    });
-
-    const [startInputProps, { focused: startFocused, typing: startTyping }] =
-        usePickerInput({
-            ...getSharedInputHookProps(0, resetStartText),
-            open: startOpen,
-            value: startText,
-            onKeyDown: (e, preventDefault) => {
-                onKeyDown?.(e, preventDefault);
-            },
-        });
-
-    const [endInputProps, { focused: endFocused, typing: endTyping }] =
-        usePickerInput({
-            ...getSharedInputHookProps(1, resetEndText),
-            open: endOpen,
-            value: endText,
-            onKeyDown: (e, preventDefault) => {
-                onKeyDown?.(e, preventDefault);
-            },
-        });
-
-    const onPickerClick = (e: React.MouseEvent<HTMLDivElement>) => {
-        // When click inside the picker & outside the picker's input elements
-        // the partial should still be opened
-        if (onClick) {
-            onClick(e);
-        }
-        if (
-            !mergedOpen &&
-            !startInputRef.current.contains(e.target as Node) &&
-            !endInputRef.current.contains(e.target as Node)
-        ) {
-            if (!mergedDisabled[0]) {
-                triggerOpenAndFocus(0);
-            } else if (!mergedDisabled[1]) {
-                triggerOpenAndFocus(1);
-            }
-        }
-    };
-
-    const onPickerMouseDown = (e: React.MouseEvent<HTMLDivElement>): void => {
-        // shouldn't affect input elements if picker is active
-        if (onMouseDown) {
-            onMouseDown(e);
-        }
-        if (
-            mergedOpen &&
-            (startFocused || endFocused) &&
-            !startInputRef.current.contains(e.target as Node) &&
-            !endInputRef.current.contains(e.target as Node)
-        ) {
-            e.preventDefault();
-        }
-    };
-
-    // Close should sync back with text value
     const startStr: string =
-        mergedValue && mergedValue[0]
-            ? formatValue(mergedValue[0], {
-                  locale,
-                  format: 'YYYYMMDDHHmmss',
-                  generateConfig,
-              })
-            : '';
+      values && values[0]
+        ? formatValue(values[0], {
+            generateConfig,
+            locale,
+            format: formatList[0],
+          })
+        : '';
     const endStr: string =
-        mergedValue && mergedValue[1]
-            ? formatValue(mergedValue[1], {
-                  locale,
-                  format: 'YYYYMMDDHHmmss',
-                  generateConfig,
-              })
-            : '';
+      values && values[1]
+        ? formatValue(values[1], {
+            generateConfig,
+            locale,
+            format: formatList[0],
+          })
+        : '';
 
-    useEffect(() => {
-        if (!mergedOpen) {
-            setSelectedValue(mergedValue);
+    if (onCalendarChange) {
+      const info: RangeInfo = {
+        range: sourceIndex === 0 ? 'start' : 'end',
+      };
 
-            if (!startValueTexts.length || startValueTexts[0] === '') {
-                triggerStartTextChange('');
-            } else if (firstStartValueText !== startText) {
-                resetStartText();
-            }
-            if (!endValueTexts.length || endValueTexts[0] === '') {
-                triggerEndTextChange('');
-            } else if (firstEndValueText !== endText) {
-                resetEndText();
-            }
-        }
-    }, [mergedOpen, startValueTexts, endValueTexts]);
-
-    // Sync innerValue with control mode
-    useEffect(() => {
-        setSelectedValue(mergedValue);
-    }, [startStr, endStr]);
-
-    if (pickerRef) {
-        pickerRef.current = {
-            focus: () => {
-                if (startInputRef.current) {
-                    startInputRef.current.focus();
-                }
-            },
-            blur: () => {
-                if (startInputRef.current) {
-                    startInputRef.current.blur();
-                }
-                if (endInputRef.current) {
-                    endInputRef.current.blur();
-                }
-            },
-        };
+      onCalendarChange(values, [startStr, endStr], info);
     }
 
-    const rangeLabels: string[] = Object.keys(ranges || {});
-
-    const rangeList: {
-        label: string;
-        onClick: () => void;
-        onMouseEnter: () => void;
-        onMouseLeave: () => void;
-    }[] = rangeLabels.map((label: string) => {
-        const range: [DateType, DateType] | (() => [DateType, DateType]) =
-            ranges![label];
-        const newValues: [DateType, DateType] =
-            typeof range === 'function' ? range() : range;
-
-        return {
-            label,
-            onClick: () => {
-                triggerChange(newValues, null);
-                triggerOpen(false, mergedActivePickerIndex);
-            },
-            onMouseEnter: () => {
-                setRangeHoverValue(newValues);
-            },
-            onMouseLeave: () => {
-                setRangeHoverValue(null);
-            },
-        };
-    });
-
-    function renderPartial(
-        partialPosition: 'left' | 'right' | false = false,
-        partialProps: Partial<OcPickerPartialProps<DateType>> = {}
-    ): JSX.Element {
-        let partialHoverRangedValue: RangeValue<DateType> = null;
-        if (
-            mergedOpen &&
-            hoverRangedValue &&
-            hoverRangedValue[0] &&
-            hoverRangedValue[1] &&
-            generateConfig.isAfter(hoverRangedValue[1], hoverRangedValue[0])
-        ) {
-            partialHoverRangedValue = hoverRangedValue;
-        }
-
-        let partialShowTime: boolean | SharedTimeProps<DateType> | undefined =
-            showTime as SharedTimeProps<DateType>;
-        if (showTime && typeof showTime === 'object' && showTime.defaultValue) {
-            const timeDefaultValues: DateType[] = showTime.defaultValue!;
-            partialShowTime = {
-                ...showTime,
-                defaultValue:
-                    getValue(timeDefaultValues, mergedActivePickerIndex) ||
-                    undefined,
-            };
-        }
-
-        let partialDateRender: DateRender<DateType> | null = null;
-        if (dateRender) {
-            partialDateRender = (date, today) =>
-                dateRender(date, today, {
-                    range: mergedActivePickerIndex ? 'end' : 'start',
-                });
-        }
-
-        return (
-            <RangeContext.Provider
-                value={{
-                    inRange: true,
-                    partialPosition,
-                    rangedValue: rangeHoverValue || selectedValue,
-                    hoverRangedValue: partialHoverRangedValue,
-                }}
-            >
-                <OcPickerPartial<DateType>
-                    {...(props as any)}
-                    {...partialProps}
-                    dateRender={partialDateRender}
-                    showTime={partialShowTime}
-                    mode={mergedModes[mergedActivePickerIndex]}
-                    generateConfig={generateConfig}
-                    style={undefined}
-                    direction={direction}
-                    disabledDate={
-                        mergedActivePickerIndex === 0
-                            ? disabledStartDate
-                            : disabledEndDate
-                    }
-                    disabledTime={(date: DateType) => {
-                        if (disabledTime) {
-                            return disabledTime(
-                                date,
-                                mergedActivePickerIndex === 0 ? 'start' : 'end'
-                            );
-                        }
-                        return false;
-                    }}
-                    classNames={mergeClasses([
-                        {
-                            [styles.pickerPartialFocused]:
-                                mergedActivePickerIndex === 0
-                                    ? !startTyping
-                                    : !endTyping,
-                        },
-                    ])}
-                    value={getValue(selectedValue, mergedActivePickerIndex)}
-                    locale={locale}
-                    tabIndex={-1}
-                    onPartialChange={(date: DateType, newMode: PartialMode) => {
-                        // clear hover value when partial change
-                        if (mergedActivePickerIndex === 0) {
-                            onStartLeave(true);
-                        }
-                        if (mergedActivePickerIndex === 1) {
-                            onEndLeave(true);
-                        }
-                        triggerModesChange(
-                            updateValues(
-                                mergedModes,
-                                newMode,
-                                mergedActivePickerIndex
-                            ),
-                            updateValues(
-                                selectedValue,
-                                date,
-                                mergedActivePickerIndex
-                            )
-                        );
-
-                        let viewDate = date;
-                        if (
-                            partialPosition === 'right' &&
-                            mergedModes[mergedActivePickerIndex] === newMode
-                        ) {
-                            viewDate = getClosingViewDate(
-                                viewDate,
-                                newMode as OcPickerMode,
-                                generateConfig,
-                                -1
-                            );
-                        }
-                        setViewDate(viewDate, mergedActivePickerIndex);
-                    }}
-                    nowText={nowText}
-                    okText={okText}
-                    todayText={todayText}
-                    onOk={null}
-                    onSelect={undefined}
-                    onChange={undefined}
-                    defaultValue={
-                        mergedActivePickerIndex === 0
-                            ? getValue(selectedValue, 1)
-                            : getValue(selectedValue, 0)
-                    }
-                    size={size}
-                />
-            </RangeContext.Provider>
-        );
-    }
-
-    let arrowLeft: number = 0;
-    let partialLeft: number = 0;
-    if (
-        mergedActivePickerIndex &&
-        startInputDivRef.current &&
-        separatorRef.current &&
-        partialDivRef.current
-    ) {
-        // Arrow offset
-        arrowLeft =
-            startInputDivRef.current.offsetWidth +
-            separatorRef.current.offsetWidth;
-
-        // If partialWidth - arrowWidth + arrowMarginLeft < arrowLeft, partial should move to right side.
-        // If offsetLeft > arrowLeft, arrow position is absolutely right, because arrowLeft is not calculated with arrow margin.
-        if (
-            partialDivRef.current.offsetWidth &&
-            arrowRef.current.offsetWidth &&
-            arrowLeft >
-                partialDivRef.current.offsetWidth -
-                    (arrowRef.current.offsetWidth +
-                        parseInt(arrowRef.current.style.marginLeft, 10)) -
-                    (direction === 'rtl' ||
-                    arrowRef.current.offsetLeft > arrowLeft
-                        ? 0
-                        : arrowRef.current.offsetLeft)
-        ) {
-            partialLeft = arrowLeft;
-        }
-    }
-
-    const arrowPositionStyle =
-        direction === 'rtl' ? { right: arrowLeft } : { left: arrowLeft };
-
-    function renderPartials(): JSX.Element {
-        let partials: React.ReactNode;
-        const extraNode: React.ReactNode = getExtraFooter(
-            mergedModes[mergedActivePickerIndex],
-            renderExtraFooter
-        );
-
-        const rangesNode: JSX.Element = getRanges({
-            components,
-            needConfirmButton,
-            okDisabled:
-                !getValue(selectedValue, mergedActivePickerIndex) ||
-                (disabledDate &&
-                    disabledDate(selectedValue[mergedActivePickerIndex])),
-            nowText,
-            okText,
-            onOk: () => {
-                if (getValue(selectedValue, mergedActivePickerIndex)) {
-                    // triggerChangeOld(selectedValue);
-                    triggerChange(selectedValue, mergedActivePickerIndex);
-                    if (onOk) {
-                        onOk(selectedValue);
-                    }
-                }
-            },
-            rangeList,
-            size: size,
-        });
-
-        if (picker !== 'time' && !showTime) {
-            const viewDate: DateType = getViewDate(mergedActivePickerIndex);
-            const nextViewDate: DateType = getClosingViewDate(
-                viewDate,
-                picker,
-                generateConfig
-            );
-            const currentMode: PartialMode =
-                mergedModes[mergedActivePickerIndex];
-
-            const showDoublePartial: boolean = currentMode === picker;
-            const leftPartial: JSX.Element = renderPartial(
-                showDoublePartial ? 'left' : false,
-                {
-                    pickerValue: viewDate,
-                    onPickerValueChange: (newViewDate: DateType) => {
-                        setViewDate(newViewDate, mergedActivePickerIndex);
-                    },
-                }
-            );
-            const rightPartial: JSX.Element = renderPartial('right', {
-                pickerValue: nextViewDate,
-                onPickerValueChange: (newViewDate: DateType) => {
-                    setViewDate(
-                        getClosingViewDate(
-                            newViewDate,
-                            picker,
-                            generateConfig,
-                            -1
-                        ),
-                        mergedActivePickerIndex
-                    );
-                },
-            });
-
-            if (direction === 'rtl') {
-                partials = (
-                    <>
-                        {rightPartial}
-                        {showDoublePartial && leftPartial}
-                    </>
-                );
-            } else {
-                partials = (
-                    <>
-                        {leftPartial}
-                        {showDoublePartial && rightPartial}
-                    </>
-                );
-            }
-        } else {
-            partials = renderPartial();
-        }
-
-        let mergedNodes: React.ReactNode = (
-            <>
-                <div className={styles.pickerPartials}>{partials}</div>
-                {extraNode && (
-                    <div className={styles.pickerFooterExtra}>{extraNode}</div>
-                )}
-                {rangesNode && (
-                    <div className={styles.pickerFooter}>{rangesNode}</div>
-                )}
-            </>
-        );
-
-        if (partialRender) {
-            mergedNodes = partialRender(mergedNodes);
-        }
-
-        return (
-            <div
-                className={styles.pickerPartialContainer}
-                style={{ marginLeft: partialLeft }}
-                ref={partialDivRef}
-                onMouseDown={(
-                    e: React.MouseEvent<HTMLDivElement, MouseEvent>
-                ) => {
-                    e.preventDefault();
-                }}
-            >
-                {mergedNodes}
-            </div>
-        );
-    }
-
-    const rangePartial: JSX.Element = (
-        <div
-            className={mergeClasses([
-                styles.pickerRangeWrapper,
-                `picker-${picker}-range-wrapper`,
-            ])}
-            style={{ minWidth: popupMinWidth }}
-        >
-            <div
-                ref={arrowRef}
-                className={triggerStyles.pickerRangeArrow}
-                style={arrowPositionStyle}
-            />
-            {renderPartials()}
-        </div>
+    // Trigger `onChange` event
+    const canStartValueTrigger: boolean = canValueTrigger(
+      startValue,
+      0,
+      mergedDisabled,
+      allowEmpty
+    );
+    const canEndValueTrigger: boolean = canValueTrigger(
+      endValue,
+      1,
+      mergedDisabled,
+      allowEmpty
     );
 
-    let suffixNode: React.ReactNode;
-    if (suffixIcon) {
-        suffixNode = <span className={styles.pickerSuffix}>{suffixIcon}</span>;
+    const canTrigger: boolean =
+      values === null || (canStartValueTrigger && canEndValueTrigger);
+
+    if (canTrigger) {
+      // Trigger onChange only when value is validate
+      setInnerValue(values);
+
+      if (
+        onChange &&
+        (!isEqual(generateConfig, getValue(mergedValue, 0), startValue) ||
+          !isEqual(generateConfig, getValue(mergedValue, 1), endValue))
+      ) {
+        onChange(values, [startStr, endStr]);
+      }
     }
 
-    let clearNode: React.ReactNode;
+    // Always open another picker if possible
+    let nextOpenIndex: 0 | 1 = null;
+    if (sourceIndex === 0 && !mergedDisabled[1]) {
+      nextOpenIndex = 1;
+    } else if (sourceIndex === 1 && !mergedDisabled[0]) {
+      nextOpenIndex = 0;
+    }
+
     if (
-        allowClear &&
-        ((getValue(mergedValue, 0) && !mergedDisabled[0]) ||
-            (getValue(mergedValue, 1) && !mergedDisabled[1]))
+      nextOpenIndex !== null &&
+      nextOpenIndex !== mergedActivePickerIndex &&
+      (!openRecordsRef.current[nextOpenIndex] ||
+        !getValue(values, nextOpenIndex)) &&
+      getValue(values, sourceIndex)
     ) {
-        clearNode = (
-            <span
-                aria-label={clearIconAriaLabelText}
-                onMouseDown={(
-                    e: React.MouseEvent<HTMLSpanElement, MouseEvent>
-                ) => {
-                    e.preventDefault();
-                    e.stopPropagation();
-                }}
-                onMouseUp={(
-                    e: React.MouseEvent<HTMLSpanElement, MouseEvent>
-                ) => {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    let values = mergedValue;
+      // Delay to focus to avoid input blur trigger expired selectedValues
+      triggerOpenAndFocus(nextOpenIndex);
+    } else {
+      triggerOpen(false, sourceIndex);
+    }
+  }
 
-                    if (!mergedDisabled[0]) {
-                        values = updateValues(values, null, 0);
-                    }
-                    if (!mergedDisabled[1]) {
-                        values = updateValues(values, null, 1);
-                    }
-
-                    triggerChange(values, null);
-                    triggerOpen(false, mergedActivePickerIndex);
-                }}
-                className={styles.pickerClear}
-                role="button"
-            >
-                {clearIcon || <span className={styles.pickerClearBtn} />}
-            </span>
-        );
+  const forwardKeyDown = (e: React.KeyboardEvent<HTMLElement>): boolean => {
+    if (mergedOpen && operationRef.current && operationRef.current.onKeyDown) {
+      // Let popup partial handle keyboard
+      return operationRef.current.onKeyDown(e);
     }
 
-    const inputSharedProps = {
-        size: getInputSize(picker, formatList[0], generateConfig),
-    };
+    return null;
+  };
 
-    let activeBarLeft: number = 0;
-    let activeBarWidth: number = 0;
+  const sharedTextHooksProps = {
+    formatList,
+    generateConfig,
+    locale,
+  };
+
+  const [startValueTexts, firstStartValueText] = useValueTexts<DateType>(
+    getValue(selectedValue, 0),
+    sharedTextHooksProps
+  );
+
+  const [endValueTexts, firstEndValueText] = useValueTexts<DateType>(
+    getValue(selectedValue, 1),
+    sharedTextHooksProps
+  );
+
+  const onTextChange = (newText: string, index: 0 | 1): void => {
+    const inputDate: DateType = parseValue(newText, {
+      locale,
+      formatList,
+      generateConfig,
+    });
+
+    const disabledFunc: (date: DateType) => boolean =
+      index === 0 ? disabledStartDate : disabledEndDate;
+
+    if (inputDate && !disabledFunc(inputDate)) {
+      setSelectedValue(updateValues(selectedValue, inputDate, index));
+      setViewDate(inputDate, index);
+    }
+  };
+
+  const [startText, triggerStartTextChange, resetStartText] =
+    useTextValueMapping({
+      valueTexts: startValueTexts,
+      onTextChange: (newText) => onTextChange(newText, 0),
+    });
+
+  const [endText, triggerEndTextChange, resetEndText] = useTextValueMapping({
+    valueTexts: endValueTexts,
+    onTextChange: (newText) => onTextChange(newText, 1),
+  });
+
+  const [rangeHoverValue, setRangeHoverValue] =
+    useState<RangeValue<DateType>>(null);
+
+  const [hoverRangedValue, setHoverRangedValue] =
+    useState<RangeValue<DateType>>(null);
+
+  const [startHoverValue, onStartEnter, onStartLeave] = useHoverValue(
+    startText,
+    {
+      formatList,
+      generateConfig,
+      locale,
+    }
+  );
+
+  const [endHoverValue, onEndEnter, onEndLeave] = useHoverValue(endText, {
+    formatList,
+    generateConfig,
+    locale,
+  });
+
+  const onDateMouseEnter = (date: DateType): void => {
+    setHoverRangedValue(
+      updateValues(selectedValue, date, mergedActivePickerIndex)
+    );
+    if (mergedActivePickerIndex === 0) {
+      onStartEnter(date);
+    } else {
+      onEndEnter(date);
+    }
+  };
+
+  const onDateMouseLeave = (): void => {
+    setHoverRangedValue(
+      updateValues(selectedValue, null, mergedActivePickerIndex)
+    );
+    if (mergedActivePickerIndex === 0) {
+      onStartLeave();
+    } else {
+      onEndLeave();
+    }
+  };
+
+  const getSharedInputHookProps = (index: 0 | 1, resetText: () => void) => ({
+    blurToCancel: needConfirmButton,
+    forwardKeyDown,
+    onBlur,
+    isClickOutside: (target: EventTarget | null): boolean =>
+      !elementsContains(
+        [
+          partialDivRef.current,
+          startInputDivRef.current,
+          endInputDivRef.current,
+          containerRef.current,
+        ],
+        target as HTMLElement
+      ),
+    onFocus: (e: React.FocusEvent<HTMLInputElement>): void => {
+      setMergedActivePickerIndex(index);
+      if (onFocus) {
+        onFocus(e);
+      }
+    },
+    triggerOpen: (newOpen: boolean): void => {
+      triggerOpen(newOpen, index);
+    },
+    onSubmit: (): boolean => {
+      if (
+        // When user typing disabledDate with keyboard and enter, this value will be empty
+        !selectedValue ||
+        // Normal disabled check
+        (disabledDate && disabledDate(selectedValue[index]))
+      ) {
+        return false;
+      }
+
+      triggerChange(selectedValue, index);
+      resetText();
+
+      return null;
+    },
+    onCancel: (): void => {
+      triggerOpen(false, index);
+      setSelectedValue(mergedValue);
+      resetText();
+    },
+  });
+
+  const [startInputProps, { focused: startFocused, typing: startTyping }] =
+    usePickerInput({
+      ...getSharedInputHookProps(0, resetStartText),
+      open: startOpen,
+      value: startText,
+      onKeyDown: (e, preventDefault) => {
+        onKeyDown?.(e, preventDefault);
+      },
+    });
+
+  const [endInputProps, { focused: endFocused, typing: endTyping }] =
+    usePickerInput({
+      ...getSharedInputHookProps(1, resetEndText),
+      open: endOpen,
+      value: endText,
+      onKeyDown: (e, preventDefault) => {
+        onKeyDown?.(e, preventDefault);
+      },
+    });
+
+  const onPickerClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    // When click inside the picker & outside the picker's input elements
+    // the partial should still be opened
+    if (onClick) {
+      onClick(e);
+    }
     if (
-        startInputDivRef.current &&
-        endInputDivRef.current &&
-        separatorRef.current
+      !mergedOpen &&
+      !startInputRef.current.contains(e.target as Node) &&
+      !endInputRef.current.contains(e.target as Node)
     ) {
-        if (
-            mergedActivePickerIndex === 0 &&
-            shape === DatePickerShape.Underline
-        ) {
-            activeBarWidth = startInputDivRef.current.offsetWidth + 20;
-        } else if (
-            mergedActivePickerIndex === 0 &&
-            shape === DatePickerShape.Pill
-        ) {
-            activeBarLeft = 14;
-            activeBarWidth = startInputDivRef.current.offsetWidth - 14;
-        } else if (mergedActivePickerIndex === 0) {
-            activeBarLeft = 8;
-            activeBarWidth = startInputDivRef.current.offsetWidth - 8;
-        } else if (shape === DatePickerShape.Underline) {
-            activeBarLeft = arrowLeft;
-            activeBarWidth = endInputDivRef.current.offsetWidth + 20;
-        } else {
-            activeBarLeft = arrowLeft;
-            activeBarWidth = endInputDivRef.current.offsetWidth;
-        }
+      if (!mergedDisabled[0]) {
+        triggerOpenAndFocus(0);
+      } else if (!mergedDisabled[1]) {
+        triggerOpenAndFocus(1);
+      }
     }
-    const activeBarPositionStyle =
-        direction === 'rtl'
-            ? { right: activeBarLeft }
-            : { left: activeBarLeft };
-    const onContextSelect = (
-        date: DateType,
-        type: 'key' | 'mouse' | 'submit'
-    ) => {
-        const values: [DateType, DateType] = updateValues(
-            selectedValue,
-            date,
-            mergedActivePickerIndex
-        );
+  };
 
-        if (type === 'submit' || (type !== 'key' && !needConfirmButton)) {
-            // triggerChange will also update selected values
-            triggerChange(values, mergedActivePickerIndex);
-            // clear hover value style
-            if (mergedActivePickerIndex === 0) {
-                onStartLeave();
-            } else {
-                onEndLeave();
-            }
-        } else {
-            setSelectedValue(values);
+  const onPickerMouseDown = (e: React.MouseEvent<HTMLDivElement>): void => {
+    // shouldn't affect input elements if picker is active
+    if (onMouseDown) {
+      onMouseDown(e);
+    }
+    if (
+      mergedOpen &&
+      (startFocused || endFocused) &&
+      !startInputRef.current.contains(e.target as Node) &&
+      !endInputRef.current.contains(e.target as Node)
+    ) {
+      e.preventDefault();
+    }
+  };
+
+  // Close should sync back with text value
+  const startStr: string =
+    mergedValue && mergedValue[0]
+      ? formatValue(mergedValue[0], {
+          locale,
+          format: 'YYYYMMDDHHmmss',
+          generateConfig,
+        })
+      : '';
+  const endStr: string =
+    mergedValue && mergedValue[1]
+      ? formatValue(mergedValue[1], {
+          locale,
+          format: 'YYYYMMDDHHmmss',
+          generateConfig,
+        })
+      : '';
+
+  useEffect(() => {
+    if (!mergedOpen) {
+      setSelectedValue(mergedValue);
+
+      if (!startValueTexts.length || startValueTexts[0] === '') {
+        triggerStartTextChange('');
+      } else if (firstStartValueText !== startText) {
+        resetStartText();
+      }
+      if (!endValueTexts.length || endValueTexts[0] === '') {
+        triggerEndTextChange('');
+      } else if (firstEndValueText !== endText) {
+        resetEndText();
+      }
+    }
+  }, [mergedOpen, startValueTexts, endValueTexts]);
+
+  // Sync innerValue with control mode
+  useEffect(() => {
+    setSelectedValue(mergedValue);
+  }, [startStr, endStr]);
+
+  if (pickerRef) {
+    pickerRef.current = {
+      focus: () => {
+        if (startInputRef.current) {
+          startInputRef.current.focus();
         }
+      },
+      blur: () => {
+        if (startInputRef.current) {
+          startInputRef.current.blur();
+        }
+        if (endInputRef.current) {
+          endInputRef.current.blur();
+        }
+      },
     };
+  }
+
+  const rangeLabels: string[] = Object.keys(ranges || {});
+
+  const rangeList: {
+    label: string;
+    onClick: () => void;
+    onMouseEnter: () => void;
+    onMouseLeave: () => void;
+  }[] = rangeLabels.map((label: string) => {
+    const range: [DateType, DateType] | (() => [DateType, DateType]) =
+      ranges![label];
+    const newValues: [DateType, DateType] =
+      typeof range === 'function' ? range() : range;
+
+    return {
+      label,
+      onClick: () => {
+        triggerChange(newValues, null);
+        triggerOpen(false, mergedActivePickerIndex);
+      },
+      onMouseEnter: () => {
+        setRangeHoverValue(newValues);
+      },
+      onMouseLeave: () => {
+        setRangeHoverValue(null);
+      },
+    };
+  });
+
+  function renderPartial(
+    partialPosition: 'left' | 'right' | false = false,
+    partialProps: Partial<OcPickerPartialProps<DateType>> = {}
+  ): JSX.Element {
+    let partialHoverRangedValue: RangeValue<DateType> = null;
+    if (
+      mergedOpen &&
+      hoverRangedValue &&
+      hoverRangedValue[0] &&
+      hoverRangedValue[1] &&
+      generateConfig.isAfter(hoverRangedValue[1], hoverRangedValue[0])
+    ) {
+      partialHoverRangedValue = hoverRangedValue;
+    }
+
+    let partialShowTime: boolean | SharedTimeProps<DateType> | undefined =
+      showTime as SharedTimeProps<DateType>;
+    if (showTime && typeof showTime === 'object' && showTime.defaultValue) {
+      const timeDefaultValues: DateType[] = showTime.defaultValue!;
+      partialShowTime = {
+        ...showTime,
+        defaultValue:
+          getValue(timeDefaultValues, mergedActivePickerIndex) || undefined,
+      };
+    }
+
+    let partialDateRender: DateRender<DateType> | null = null;
+    if (dateRender) {
+      partialDateRender = (date, today) =>
+        dateRender(date, today, {
+          range: mergedActivePickerIndex ? 'end' : 'start',
+        });
+    }
 
     return (
-        <PartialContext.Provider
-            value={{
-                operationRef,
-                hideHeader: picker === 'time',
-                onDateMouseEnter,
-                onDateMouseLeave,
-                hideRanges: true,
-                onSelect: onContextSelect,
-                open: mergedOpen,
-            }}
-        >
-            <OcPickerTrigger
-                visible={mergedOpen}
-                popupElement={rangePartial}
-                popupStyle={popupStyle}
-                popupPlacement={popupPlacement}
-                dropdownClassNames={dropdownClassNames}
-                dropdownAlign={dropdownAlign}
-                getPopupContainer={getPopupContainer}
-                range
-                direction={direction}
-            >
-                <div
-                    ref={containerRef}
-                    className={mergeClasses([
-                        styles.picker,
-                        styles.pickerRange,
-                        classNames,
-                        {
-                            [styles.pickerUnderline]:
-                                shape === DatePickerShape.Underline,
-                        },
-                        { [styles.pickerBorderless]: !bordered },
-                        {
-                            [styles.pickerDisabled]:
-                                mergedDisabled[0] && mergedDisabled[1],
-                        },
-                        {
-                            [styles.pickerFocused]:
-                                mergedActivePickerIndex === 0
-                                    ? startFocused
-                                    : endFocused,
-                        },
-                        { [styles.pickerRtl]: direction === 'rtl' },
-                    ])}
-                    style={style}
-                    onClick={onPickerClick}
-                    onMouseEnter={onMouseEnter}
-                    onMouseLeave={onMouseLeave}
-                    onMouseDown={onPickerMouseDown}
-                    onMouseUp={onMouseUp}
-                    {...getDataOrAriaProps(props)}
-                >
-                    <div
-                        className={mergeClasses([
-                            styles.pickerInput,
-                            {
-                                ['picker-input-active']:
-                                    mergedActivePickerIndex === 0,
-                            },
-                            {
-                                [styles.pickerInputPlaceholder]:
-                                    !!startHoverValue,
-                            },
-                        ])}
-                        ref={startInputDivRef}
-                    >
-                        <input
-                            id={id}
-                            disabled={mergedDisabled[0]}
-                            readOnly={
-                                inputReadOnly ||
-                                typeof formatList[0] === 'function' ||
-                                !startTyping
-                            }
-                            value={startHoverValue || startText}
-                            onChange={(
-                                e: React.ChangeEvent<HTMLInputElement>
-                            ) => {
-                                triggerStartTextChange(e.target.value);
-                            }}
-                            autoFocus={autoFocus}
-                            placeholder={getValue(placeholder, 0) || ''}
-                            ref={startInputRef}
-                            {...startInputProps}
-                            {...inputSharedProps}
-                            autoComplete={autoComplete}
-                        />
-                    </div>
-                    <div
-                        className={'picker-range-separator'}
-                        ref={separatorRef}
-                    >
-                        {separator}
-                    </div>
-                    <div
-                        className={mergeClasses([
-                            styles.pickerInput,
-                            {
-                                ['picker-input-active']:
-                                    mergedActivePickerIndex === 1,
-                            },
-                            {
-                                [styles.pickerInputPlaceholder]:
-                                    !!endHoverValue,
-                            },
-                        ])}
-                        ref={endInputDivRef}
-                    >
-                        <input
-                            disabled={mergedDisabled[1]}
-                            readOnly={
-                                inputReadOnly ||
-                                typeof formatList[0] === 'function' ||
-                                !endTyping
-                            }
-                            value={endHoverValue || endText}
-                            onChange={(
-                                e: React.ChangeEvent<HTMLInputElement>
-                            ) => {
-                                triggerEndTextChange(e.target.value);
-                            }}
-                            placeholder={getValue(placeholder, 1) || ''}
-                            ref={endInputRef}
-                            {...endInputProps}
-                            {...inputSharedProps}
-                            autoComplete={autoComplete}
-                        />
-                    </div>
-                    <div
-                        className={styles.pickerActiveBar}
-                        style={{
-                            ...activeBarPositionStyle,
-                            width: activeBarWidth,
-                            position: 'absolute',
-                        }}
-                    />
-                    {suffixNode}
-                    {clearNode}
-                </div>
-            </OcPickerTrigger>
-        </PartialContext.Provider>
+      <RangeContext.Provider
+        value={{
+          inRange: true,
+          partialPosition,
+          rangedValue: rangeHoverValue || selectedValue,
+          hoverRangedValue: partialHoverRangedValue,
+        }}
+      >
+        <OcPickerPartial<DateType>
+          {...(props as any)}
+          {...partialProps}
+          dateRender={partialDateRender}
+          showTime={partialShowTime}
+          mode={mergedModes[mergedActivePickerIndex]}
+          generateConfig={generateConfig}
+          style={undefined}
+          direction={direction}
+          disabledDate={
+            mergedActivePickerIndex === 0 ? disabledStartDate : disabledEndDate
+          }
+          disabledTime={(date: DateType) => {
+            if (disabledTime) {
+              return disabledTime(
+                date,
+                mergedActivePickerIndex === 0 ? 'start' : 'end'
+              );
+            }
+            return false;
+          }}
+          classNames={mergeClasses([
+            {
+              [styles.pickerPartialFocused]:
+                mergedActivePickerIndex === 0 ? !startTyping : !endTyping,
+            },
+          ])}
+          value={getValue(selectedValue, mergedActivePickerIndex)}
+          locale={locale}
+          tabIndex={-1}
+          onPartialChange={(date: DateType, newMode: PartialMode) => {
+            // clear hover value when partial change
+            if (mergedActivePickerIndex === 0) {
+              onStartLeave(true);
+            }
+            if (mergedActivePickerIndex === 1) {
+              onEndLeave(true);
+            }
+            triggerModesChange(
+              updateValues(mergedModes, newMode, mergedActivePickerIndex),
+              updateValues(selectedValue, date, mergedActivePickerIndex)
+            );
+
+            let viewDate = date;
+            if (
+              partialPosition === 'right' &&
+              mergedModes[mergedActivePickerIndex] === newMode
+            ) {
+              viewDate = getClosingViewDate(
+                viewDate,
+                newMode as OcPickerMode,
+                generateConfig,
+                -1
+              );
+            }
+            setViewDate(viewDate, mergedActivePickerIndex);
+          }}
+          nowText={nowText}
+          okText={okText}
+          todayText={todayText}
+          onOk={null}
+          onSelect={undefined}
+          onChange={undefined}
+          defaultValue={
+            mergedActivePickerIndex === 0
+              ? getValue(selectedValue, 1)
+              : getValue(selectedValue, 0)
+          }
+          size={size}
+        />
+      </RangeContext.Provider>
     );
+  }
+
+  let arrowLeft: number = 0;
+  let partialLeft: number = 0;
+  if (
+    mergedActivePickerIndex &&
+    startInputDivRef.current &&
+    separatorRef.current &&
+    partialDivRef.current
+  ) {
+    // Arrow offset
+    arrowLeft =
+      startInputDivRef.current.offsetWidth + separatorRef.current.offsetWidth;
+
+    // If partialWidth - arrowWidth + arrowMarginLeft < arrowLeft, partial should move to right side.
+    // If offsetLeft > arrowLeft, arrow position is absolutely right, because arrowLeft is not calculated with arrow margin.
+    if (
+      partialDivRef.current.offsetWidth &&
+      arrowRef.current.offsetWidth &&
+      arrowLeft >
+        partialDivRef.current.offsetWidth -
+          (arrowRef.current.offsetWidth +
+            parseInt(arrowRef.current.style.marginLeft, 10)) -
+          (direction === 'rtl' || arrowRef.current.offsetLeft > arrowLeft
+            ? 0
+            : arrowRef.current.offsetLeft)
+    ) {
+      partialLeft = arrowLeft;
+    }
+  }
+
+  const arrowPositionStyle =
+    direction === 'rtl' ? { right: arrowLeft } : { left: arrowLeft };
+
+  function renderPartials(): JSX.Element {
+    let partials: React.ReactNode;
+    const extraNode: React.ReactNode = getExtraFooter(
+      mergedModes[mergedActivePickerIndex],
+      renderExtraFooter
+    );
+
+    const rangesNode: JSX.Element = getRanges({
+      components,
+      needConfirmButton,
+      okDisabled:
+        !getValue(selectedValue, mergedActivePickerIndex) ||
+        (disabledDate && disabledDate(selectedValue[mergedActivePickerIndex])),
+      nowText,
+      okText,
+      onOk: () => {
+        if (getValue(selectedValue, mergedActivePickerIndex)) {
+          // triggerChangeOld(selectedValue);
+          triggerChange(selectedValue, mergedActivePickerIndex);
+          if (onOk) {
+            onOk(selectedValue);
+          }
+        }
+      },
+      rangeList,
+      size: size,
+    });
+
+    if (picker !== 'time' && !showTime) {
+      const viewDate: DateType = getViewDate(mergedActivePickerIndex);
+      const nextViewDate: DateType = getClosingViewDate(
+        viewDate,
+        picker,
+        generateConfig
+      );
+      const currentMode: PartialMode = mergedModes[mergedActivePickerIndex];
+
+      const showDoublePartial: boolean = currentMode === picker;
+      const leftPartial: JSX.Element = renderPartial(
+        showDoublePartial ? 'left' : false,
+        {
+          pickerValue: viewDate,
+          onPickerValueChange: (newViewDate: DateType) => {
+            setViewDate(newViewDate, mergedActivePickerIndex);
+          },
+        }
+      );
+      const rightPartial: JSX.Element = renderPartial('right', {
+        pickerValue: nextViewDate,
+        onPickerValueChange: (newViewDate: DateType) => {
+          setViewDate(
+            getClosingViewDate(newViewDate, picker, generateConfig, -1),
+            mergedActivePickerIndex
+          );
+        },
+      });
+
+      if (direction === 'rtl') {
+        partials = (
+          <>
+            {rightPartial}
+            {showDoublePartial && leftPartial}
+          </>
+        );
+      } else {
+        partials = (
+          <>
+            {leftPartial}
+            {showDoublePartial && rightPartial}
+          </>
+        );
+      }
+    } else {
+      partials = renderPartial();
+    }
+
+    let mergedNodes: React.ReactNode = (
+      <>
+        <div className={styles.pickerPartials}>{partials}</div>
+        {extraNode && (
+          <div className={styles.pickerFooterExtra}>{extraNode}</div>
+        )}
+        {rangesNode && <div className={styles.pickerFooter}>{rangesNode}</div>}
+      </>
+    );
+
+    if (partialRender) {
+      mergedNodes = partialRender(mergedNodes);
+    }
+
+    return (
+      <div
+        className={styles.pickerPartialContainer}
+        style={{ marginLeft: partialLeft }}
+        ref={partialDivRef}
+        onMouseDown={(e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+          e.preventDefault();
+        }}
+      >
+        {mergedNodes}
+      </div>
+    );
+  }
+
+  const rangePartial: JSX.Element = (
+    <div
+      className={mergeClasses([
+        styles.pickerRangeWrapper,
+        `picker-${picker}-range-wrapper`,
+      ])}
+      style={{ minWidth: popupMinWidth }}
+    >
+      <div
+        ref={arrowRef}
+        className={triggerStyles.pickerRangeArrow}
+        style={arrowPositionStyle}
+      />
+      {renderPartials()}
+    </div>
+  );
+
+  let suffixNode: React.ReactNode;
+  if (suffixIcon) {
+    suffixNode = <span className={styles.pickerSuffix}>{suffixIcon}</span>;
+  }
+
+  let clearNode: React.ReactNode;
+  if (
+    allowClear &&
+    ((getValue(mergedValue, 0) && !mergedDisabled[0]) ||
+      (getValue(mergedValue, 1) && !mergedDisabled[1]))
+  ) {
+    clearNode = (
+      <span
+        aria-label={clearIconAriaLabelText}
+        onMouseDown={(e: React.MouseEvent<HTMLSpanElement, MouseEvent>) => {
+          e.preventDefault();
+          e.stopPropagation();
+        }}
+        onMouseUp={(e: React.MouseEvent<HTMLSpanElement, MouseEvent>) => {
+          e.preventDefault();
+          e.stopPropagation();
+          let values = mergedValue;
+
+          if (!mergedDisabled[0]) {
+            values = updateValues(values, null, 0);
+          }
+          if (!mergedDisabled[1]) {
+            values = updateValues(values, null, 1);
+          }
+
+          triggerChange(values, null);
+          triggerOpen(false, mergedActivePickerIndex);
+        }}
+        className={styles.pickerClear}
+        role="button"
+      >
+        {clearIcon || <span className={styles.pickerClearBtn} />}
+      </span>
+    );
+  }
+
+  const inputSharedProps = {
+    size: getInputSize(picker, formatList[0], generateConfig),
+  };
+
+  let activeBarLeft: number = 0;
+  let activeBarWidth: number = 0;
+  if (
+    startInputDivRef.current &&
+    endInputDivRef.current &&
+    separatorRef.current
+  ) {
+    if (mergedActivePickerIndex === 0 && shape === DatePickerShape.Underline) {
+      activeBarWidth = startInputDivRef.current.offsetWidth + 20;
+    } else if (
+      mergedActivePickerIndex === 0 &&
+      shape === DatePickerShape.Pill
+    ) {
+      activeBarLeft = 14;
+      activeBarWidth = startInputDivRef.current.offsetWidth - 14;
+    } else if (mergedActivePickerIndex === 0) {
+      activeBarLeft = 8;
+      activeBarWidth = startInputDivRef.current.offsetWidth - 8;
+    } else if (shape === DatePickerShape.Underline) {
+      activeBarLeft = arrowLeft;
+      activeBarWidth = endInputDivRef.current.offsetWidth + 20;
+    } else {
+      activeBarLeft = arrowLeft;
+      activeBarWidth = endInputDivRef.current.offsetWidth;
+    }
+  }
+  const activeBarPositionStyle =
+    direction === 'rtl' ? { right: activeBarLeft } : { left: activeBarLeft };
+  const onContextSelect = (
+    date: DateType,
+    type: 'key' | 'mouse' | 'submit'
+  ) => {
+    const values: [DateType, DateType] = updateValues(
+      selectedValue,
+      date,
+      mergedActivePickerIndex
+    );
+
+    if (type === 'submit' || (type !== 'key' && !needConfirmButton)) {
+      // triggerChange will also update selected values
+      triggerChange(values, mergedActivePickerIndex);
+      // clear hover value style
+      if (mergedActivePickerIndex === 0) {
+        onStartLeave();
+      } else {
+        onEndLeave();
+      }
+    } else {
+      setSelectedValue(values);
+    }
+  };
+
+  return (
+    <PartialContext.Provider
+      value={{
+        operationRef,
+        hideHeader: picker === 'time',
+        onDateMouseEnter,
+        onDateMouseLeave,
+        hideRanges: true,
+        onSelect: onContextSelect,
+        open: mergedOpen,
+      }}
+    >
+      <OcPickerTrigger
+        visible={mergedOpen}
+        popupElement={rangePartial}
+        popupStyle={popupStyle}
+        popupPlacement={popupPlacement}
+        dropdownClassNames={dropdownClassNames}
+        dropdownAlign={dropdownAlign}
+        getPopupContainer={getPopupContainer}
+        range
+        direction={direction}
+      >
+        <div
+          ref={containerRef}
+          className={mergeClasses([
+            styles.picker,
+            styles.pickerRange,
+            classNames,
+            {
+              [styles.pickerUnderline]: shape === DatePickerShape.Underline,
+            },
+            { [styles.pickerBorderless]: !bordered },
+            {
+              [styles.pickerDisabled]: mergedDisabled[0] && mergedDisabled[1],
+            },
+            {
+              [styles.pickerFocused]:
+                mergedActivePickerIndex === 0 ? startFocused : endFocused,
+            },
+            { [styles.pickerRtl]: direction === 'rtl' },
+          ])}
+          style={style}
+          onClick={onPickerClick}
+          onMouseEnter={onMouseEnter}
+          onMouseLeave={onMouseLeave}
+          onMouseDown={onPickerMouseDown}
+          onMouseUp={onMouseUp}
+          {...getDataOrAriaProps(props)}
+        >
+          <div
+            className={mergeClasses([
+              styles.pickerInput,
+              {
+                ['picker-input-active']: mergedActivePickerIndex === 0,
+              },
+              {
+                [styles.pickerInputPlaceholder]: !!startHoverValue,
+              },
+            ])}
+            ref={startInputDivRef}
+          >
+            <input
+              id={id}
+              disabled={mergedDisabled[0]}
+              readOnly={
+                inputReadOnly ||
+                typeof formatList[0] === 'function' ||
+                !startTyping
+              }
+              value={startHoverValue || startText}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                triggerStartTextChange(e.target.value);
+              }}
+              autoFocus={autoFocus}
+              placeholder={getValue(placeholder, 0) || ''}
+              ref={startInputRef}
+              {...startInputProps}
+              {...inputSharedProps}
+              autoComplete={autoComplete}
+            />
+          </div>
+          <div className={'picker-range-separator'} ref={separatorRef}>
+            {separator}
+          </div>
+          <div
+            className={mergeClasses([
+              styles.pickerInput,
+              {
+                ['picker-input-active']: mergedActivePickerIndex === 1,
+              },
+              {
+                [styles.pickerInputPlaceholder]: !!endHoverValue,
+              },
+            ])}
+            ref={endInputDivRef}
+          >
+            <input
+              disabled={mergedDisabled[1]}
+              readOnly={
+                inputReadOnly ||
+                typeof formatList[0] === 'function' ||
+                !endTyping
+              }
+              value={endHoverValue || endText}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                triggerEndTextChange(e.target.value);
+              }}
+              placeholder={getValue(placeholder, 1) || ''}
+              ref={endInputRef}
+              {...endInputProps}
+              {...inputSharedProps}
+              autoComplete={autoComplete}
+            />
+          </div>
+          <div
+            className={styles.pickerActiveBar}
+            style={{
+              ...activeBarPositionStyle,
+              width: activeBarWidth,
+              position: 'absolute',
+            }}
+          />
+          {suffixNode}
+          {clearNode}
+        </div>
+      </OcPickerTrigger>
+    </PartialContext.Provider>
+  );
 }
 
 // Wrap with class component to enable pass generic with instance method
 class OcRangePicker<DateType> extends React.Component<
-    OcRangePickerProps<DateType>
+  OcRangePickerProps<DateType>
 > {
-    pickerRef: React.RefObject<OcPickerRefConfig> =
-        React.createRef<OcPickerRefConfig>();
+  pickerRef: React.RefObject<OcPickerRefConfig> =
+    React.createRef<OcPickerRefConfig>();
 
-    focus = (): void => {
-        if (this.pickerRef.current) {
-            this.pickerRef.current.focus();
-        }
-    };
-
-    blur = (): void => {
-        if (this.pickerRef.current) {
-            this.pickerRef.current.blur();
-        }
-    };
-
-    render() {
-        return (
-            <InnerRangePicker<DateType>
-                {...this.props}
-                pickerRef={
-                    this.pickerRef as React.MutableRefObject<OcPickerRefConfig>
-                }
-            />
-        );
+  focus = (): void => {
+    if (this.pickerRef.current) {
+      this.pickerRef.current.focus();
     }
+  };
+
+  blur = (): void => {
+    if (this.pickerRef.current) {
+      this.pickerRef.current.blur();
+    }
+  };
+
+  render() {
+    return (
+      <InnerRangePicker<DateType>
+        {...this.props}
+        pickerRef={this.pickerRef as React.MutableRefObject<OcPickerRefConfig>}
+      />
+    );
+  }
 }
 
 export default OcRangePicker;

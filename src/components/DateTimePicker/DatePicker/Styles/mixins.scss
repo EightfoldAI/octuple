@@ -1,216 +1,216 @@
 // strip units helper
 @function strip-units($number) {
-    @return $number / ($number * 0 + 1);
+  @return $number / ($number * 0 + 1);
 }
 
 $picker-input-padding-vertical: max(
-    (
-            round(
-                    (
-                            (
-                                (
-                                        strip-units($picker-input-height-s) -
-                                            strip-units($picker-font-size-m) *
-                                            strip-units($picker-line-height-m)
-                                    ) / 2
-                            )
-                        ) * 10
-                ) / 10
-        ) - strip-units($picker-border-width),
-    0
+  (
+      round(
+          (
+              (
+                (
+                    strip-units($picker-input-height-s) -
+                      strip-units($picker-font-size-m) *
+                      strip-units($picker-line-height-m)
+                  ) / 2
+              )
+            ) * 10
+        ) / 10
+    ) - strip-units($picker-border-width),
+  0
 );
 
 // Picker padding
 @mixin picker-padding($input-height, $font-size, $padding-horizontal) {
-    // font height is probably 22.0001, So using floor is better
-    $font-height: floor(
-            strip-units($font-size) * strip-units($padding-horizontal)
-        ) + 2;
-    $padding-top: max(
-        calc((strip-units($input-height) - strip-units($font-height)) / 2),
-        0
-    );
-    $padding-bottom: max(
-        strip-units($input-height) - strip-units($font-height) -
-            strip-units($padding-top),
-        0
-    );
-    padding: $padding-top $padding-horizontal $padding-bottom 0;
+  // font height is probably 22.0001, So using floor is better
+  $font-height: floor(
+      strip-units($font-size) * strip-units($padding-horizontal)
+    ) + 2;
+  $padding-top: max(
+    calc((strip-units($input-height) - strip-units($font-height)) / 2),
+    0
+  );
+  $padding-bottom: max(
+    strip-units($input-height) - strip-units($font-height) -
+      strip-units($padding-top),
+    0
+  );
+  padding: $padding-top $padding-horizontal $padding-bottom 0;
 }
 
 @mixin picker-padding-rtl($input-height, $font-size, $padding-horizontal) {
-    // font height is probably 22.0001, So using floor is better
-    $font-height: floor(
-            strip-units($font-size) * strip-units($padding-horizontal)
-        ) + 2;
-    $padding-top: max(
-        calc((strip-units($input-height) - strip-units($font-height)) / 2),
-        0
-    );
-    $padding-bottom: max(
-        strip-units($input-height) - strip-units($font-height) -
-            strip-units($padding-top),
-        0
-    );
-    padding: $padding-top 0 $padding-bottom $padding-horizontal;
+  // font height is probably 22.0001, So using floor is better
+  $font-height: floor(
+      strip-units($font-size) * strip-units($padding-horizontal)
+    ) + 2;
+  $padding-top: max(
+    calc((strip-units($input-height) - strip-units($font-height)) / 2),
+    0
+  );
+  $padding-bottom: max(
+    strip-units($input-height) - strip-units($font-height) -
+      strip-units($padding-top),
+    0
+  );
+  padding: $padding-top 0 $padding-bottom $padding-horizontal;
 }
 
 // Picker scroll bars
 @mixin scroll-bars() {
-    -ms-overflow-style: none;
+  -ms-overflow-style: none;
 
-    &::-webkit-scrollbar {
-        background-color: transparent;
+  &::-webkit-scrollbar {
+    background-color: transparent;
+    height: 16px;
+    width: 16px;
+  }
+
+  &::-webkit-scrollbar-corner {
+    background-color: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: transparent;
+  }
+
+  &::-webkit-scrollbar-track {
+    -webkit-box-shadow: none;
+    background-color: transparent;
+  }
+
+  @supports (overflow: overlay) {
+    overflow: overlay;
+
+    &:focus-within,
+    &:focus-visible,
+    &:hover,
+    &:hover:focus {
+      &::-webkit-scrollbar {
+        display: block;
         height: 16px;
         width: 16px;
-    }
+      }
 
-    &::-webkit-scrollbar-corner {
+      &::-webkit-scrollbar-button {
+        display: none;
+      }
+
+      &::-webkit-scrollbar-corner {
         background-color: transparent;
-    }
+      }
 
-    &::-webkit-scrollbar-thumb {
+      &::-webkit-scrollbar-track {
         background-color: transparent;
-    }
+      }
 
-    &::-webkit-scrollbar-track {
+      &::-webkit-scrollbar-track-piece {
+        background-color: transparent;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background-color: transparent;
+        border: 5px solid transparent;
+        border-radius: 24px;
+        box-shadow: 4px 0px 0px 4px rgba(105, 113, 127, 0.7) inset;
+      }
+    }
+  }
+
+  @supports not (overflow: overlay) {
+    overflow: auto;
+
+    &:focus-within,
+    &:focus-visible,
+    &:hover,
+    &:hover:focus {
+      -ms-overflow-style: none;
+      scrollbar-width: thin;
+
+      &::-webkit-scrollbar {
+        background-color: $picker-background-color;
+        height: 16px;
+        width: 16px;
+      }
+
+      &::-webkit-scrollbar-corner {
+        background-color: $picker-background-color;
+        border: 1px solid $picker-background-color;
+        border-bottom-right-radius: $picker-border-radius;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background-color: transparent;
+        border: 5px solid transparent;
+        border-radius: 24px;
+        box-shadow: 4px 0px 0px 4px rgba(105, 113, 127, 0.7) inset;
+      }
+
+      &::-webkit-scrollbar-track {
         -webkit-box-shadow: none;
-        background-color: transparent;
+        background-color: $picker-background-color;
+      }
     }
-
-    @supports (overflow: overlay) {
-        overflow: overlay;
-
-        &:focus-within,
-        &:focus-visible,
-        &:hover,
-        &:hover:focus {
-            &::-webkit-scrollbar {
-                display: block;
-                height: 16px;
-                width: 16px;
-            }
-
-            &::-webkit-scrollbar-button {
-                display: none;
-            }
-
-            &::-webkit-scrollbar-corner {
-                background-color: transparent;
-            }
-
-            &::-webkit-scrollbar-track {
-                background-color: transparent;
-            }
-
-            &::-webkit-scrollbar-track-piece {
-                background-color: transparent;
-            }
-
-            &::-webkit-scrollbar-thumb {
-                background-color: transparent;
-                border: 5px solid transparent;
-                border-radius: 24px;
-                box-shadow: 4px 0px 0px 4px rgba(105, 113, 127, 0.7) inset;
-            }
-        }
-    }
-
-    @supports not (overflow: overlay) {
-        overflow: auto;
-
-        &:focus-within,
-        &:focus-visible,
-        &:hover,
-        &:hover:focus {
-            -ms-overflow-style: none;
-            scrollbar-width: thin;
-
-            &::-webkit-scrollbar {
-                background-color: $picker-background-color;
-                height: 16px;
-                width: 16px;
-            }
-
-            &::-webkit-scrollbar-corner {
-                background-color: $picker-background-color;
-                border: 1px solid $picker-background-color;
-                border-bottom-right-radius: $picker-border-radius;
-            }
-
-            &::-webkit-scrollbar-thumb {
-                background-color: transparent;
-                border: 5px solid transparent;
-                border-radius: 24px;
-                box-shadow: 4px 0px 0px 4px rgba(105, 113, 127, 0.7) inset;
-            }
-
-            &::-webkit-scrollbar-track {
-                -webkit-box-shadow: none;
-                background-color: $picker-background-color;
-            }
-        }
-    }
+  }
 }
 
 // Input placeholder text mixin
 @mixin placeholder($color: $picker-input-placeholder-color) {
-    // Firefox
-    &::-moz-placeholder {
-        opacity: 1; // Override Firefox's unusual default opacity; see https://github.com/twbs/bootstrap/pull/11526
-    }
+  // Firefox
+  &::-moz-placeholder {
+    opacity: 1; // Override Firefox's unusual default opacity; see https://github.com/twbs/bootstrap/pull/11526
+  }
 
-    &::placeholder {
-        color: $color;
-    }
+  &::placeholder {
+    color: $color;
+  }
 
-    &:placeholder-shown {
-        text-overflow: ellipsis;
-    }
+  &:placeholder-shown {
+    text-overflow: ellipsis;
+  }
 }
 
 // Input sizes
 @mixin input-size-1() {
-    font-size: $picker-font-size-l;
-    height: $picker-input-height-l;
-    line-height: $picker-line-height-l;
-    padding: $picker-input-padding-vertical calc(#{$space-xxl} + 4px)
-        $picker-input-padding-vertical $space-s;
+  font-size: $picker-font-size-l;
+  height: $picker-input-height-l;
+  line-height: $picker-line-height-l;
+  padding: $picker-input-padding-vertical calc(#{$space-xxl} + 4px)
+    $picker-input-padding-vertical $space-s;
 }
 
 @mixin input-size-2() {
-    font-size: $picker-font-size-m;
-    height: $picker-input-height-m;
-    line-height: $picker-line-height-m;
-    padding: $picker-input-padding-vertical $picker-input-padding-horizontal-m;
+  font-size: $picker-font-size-m;
+  height: $picker-input-height-m;
+  line-height: $picker-line-height-m;
+  padding: $picker-input-padding-vertical $picker-input-padding-horizontal-m;
 }
 
 @mixin input-size-3() {
-    font-size: $picker-font-size-s;
-    height: $picker-input-height-s;
-    line-height: $picker-line-height-s;
-    padding: $picker-input-padding-vertical $picker-input-padding-horizontal-s;
+  font-size: $picker-font-size-s;
+  height: $picker-input-height-s;
+  line-height: $picker-line-height-s;
+  padding: $picker-input-padding-vertical $picker-input-padding-horizontal-s;
 }
 
 // Input visual states
 @mixin active(
-    $borderColor: $picker-border-color-active,
-    $hoverBorderColor: $picker-input-border-color-active,
-    $outlineColor: $picker-outline-color
+  $borderColor: $picker-border-color-active,
+  $hoverBorderColor: $picker-input-border-color-active,
+  $outlineColor: $picker-outline-color
 ) {
-    border-color: $hoverBorderColor;
-    box-shadow: $picker-input-outline-offset $picker-outline-blur
-        $picker-outline-width $outlineColor;
-    border-right-width: $picker-border-width;
-    outline: 0;
+  border-color: $hoverBorderColor;
+  box-shadow: $picker-input-outline-offset $picker-outline-blur
+    $picker-outline-width $outlineColor;
+  border-right-width: $picker-border-width;
+  outline: 0;
 }
 
 @mixin hover($color: $picker-input-border-color-hover) {
-    border-color: $color;
-    border-right-width: $picker-border-width;
+  border-color: $color;
+  border-right-width: $picker-border-width;
 }
 
 @mixin disabled() {
-    cursor: not-allowed;
-    opacity: $disabled-alpha-value;
+  cursor: not-allowed;
+  opacity: $disabled-alpha-value;
 }

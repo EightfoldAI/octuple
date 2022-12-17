@@ -3,14 +3,14 @@ import TimePickerLocale from '../../TimePicker/Locale/cs_CZ';
 import type { PickerLocale } from '../Generate/Generate.types';
 
 const locale: PickerLocale = {
-    lang: {
-        placeholder: 'Vybrat datum',
-        rangePlaceholder: ['Od', 'Do'],
-        ...CalendarLocale,
-    },
-    timePickerLocale: {
-        ...TimePickerLocale,
-    },
+  lang: {
+    placeholder: 'Vybrat datum',
+    rangePlaceholder: ['Od', 'Do'],
+    ...CalendarLocale,
+  },
+  timePickerLocale: {
+    ...TimePickerLocale,
+  },
 };
 
 export default locale;

@@ -1,48 +1,48 @@
 .dialog {
-    font-family: $octuple-font-family;
-    transform-origin: 50% 50%;
+  font-family: $octuple-font-family;
+  transform-origin: 50% 50%;
+  width: 352px;
+
+  &.small {
     width: 352px;
-
-    &.small {
-        width: 352px;
-        @media (max-width: $small-screen-size) {
-            width: 80vw;
-        }
+    @media (max-width: $small-screen-size) {
+      width: 80vw;
     }
+  }
 
-    &.medium {
-        width: 560px;
-        @media (max-width: $small-screen-size) {
-            width: 90vw;
-        }
+  &.medium {
+    width: 560px;
+    @media (max-width: $small-screen-size) {
+      width: 90vw;
     }
+  }
 
+  .header {
+    font-size: $text-font-size-5;
+    font-weight: $text-font-weight-semibold;
+    margin-bottom: $space-s;
+  }
+
+  .body {
+    font-size: $text-font-size-3;
+    font-weight: $text-font-weight-regular;
+    line-height: $text-line-height-3;
+  }
+
+  .footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    gap: $space-xs;
+  }
+
+  &.no-body-padding {
     .header {
-        font-size: $text-font-size-5;
-        font-weight: $text-font-weight-semibold;
-        margin-bottom: $space-s;
+      padding-bottom: $space-s;
     }
 
     .body {
-        font-size: $text-font-size-3;
-        font-weight: $text-font-weight-regular;
-        line-height: $text-line-height-3;
+      padding-bottom: 0;
     }
-
-    .footer {
-        display: flex;
-        flex-direction: row;
-        justify-content: flex-end;
-        gap: $space-xs;
-    }
-
-    &.no-body-padding {
-        .header {
-            padding-bottom: $space-s;
-        }
-
-        .body {
-            padding-bottom: 0;
-        }
-    }
+  }
 }

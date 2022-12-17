@@ -10,16 +10,16 @@ import TimePicker from '../DateTimePicker/TimePicker/Locale/hu_HU';
 import Upload from '../Upload/Locale/hu_HU';
 
 const localeValues: Locale = {
-    locale: 'hu',
-    DatePicker,
-    Dialog,
-    InfoBar,
-    Pagination,
-    Panel,
-    Stepper,
-    Table,
-    TimePicker,
-    Upload,
+  locale: 'hu',
+  DatePicker,
+  Dialog,
+  InfoBar,
+  Pagination,
+  Panel,
+  Stepper,
+  Table,
+  TimePicker,
+  Upload,
 };
 
 export default localeValues;

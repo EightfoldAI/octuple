@@ -1,10 +1,10 @@
 import Tree from './OcTree';
 import TreeNode from './TreeNode';
 import type {
-    BasicDataNode,
-    FieldDataNode,
-    TreeNodeProps,
-    OcTreeProps,
+  BasicDataNode,
+  FieldDataNode,
+  TreeNodeProps,
+  OcTreeProps,
 } from './OcTree.types';
 
 export { TreeNode };

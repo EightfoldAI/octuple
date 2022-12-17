@@ -1,7 +1,7 @@
 import React, { createContext } from 'react';
 
 interface TriggerContextProps {
-    onPopupMouseDown: React.MouseEventHandler<HTMLElement>;
+  onPopupMouseDown: React.MouseEventHandler<HTMLElement>;
 }
 
 const TriggerContext = createContext<TriggerContextProps>(null);

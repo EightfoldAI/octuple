@@ -72,8 +72,8 @@ export const Component: FC<ComponentProps> = ({
 
 Defining a scss module
 
--   Create a file called `/src/components/Component/component.module.scss`
--   Use kebab case for the class names, they can be referenced in the component using camel case.
+- Create a file called `/src/components/Component/component.module.scss`
+- Use kebab case for the class names, they can be referenced in the component using camel case.
 
 For eg: `styles.componentWrapper` as apposed to `styles['component-wrapper']`
 
@@ -131,7 +131,7 @@ export interface ComponentProps {
 
 Create a file called `/src/components/Component/index.ts`
 
--   Export all the components and typing created
+- Export all the components and typing created
 
 ```ts
 export * from './Component.types';
@@ -150,22 +150,22 @@ import React from 'react';
 import { Component, SecondaryComponent } from './';
 
 export default {
-    title: 'Component',
-    component: Component,
+  title: 'Component',
+  component: Component,
 };
 
 export const Primary = () => (
-    <>
-        <p>Primary</p>
-        <Component />
-    </>
+  <>
+    <p>Primary</p>
+    <Component />
+  </>
 );
 
 export const Secondary = () => (
-    <>
-        <p>Secondary</p>
-        <SecondaryComponent />
-    </>
+  <>
+    <p>Secondary</p>
+    <SecondaryComponent />
+  </>
 );
 ```
 

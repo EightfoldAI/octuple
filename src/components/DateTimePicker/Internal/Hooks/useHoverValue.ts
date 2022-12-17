@@ -3,42 +3,42 @@ import type { ValueTextConfig } from './useValueTexts';
 import useValueTexts from './useValueTexts';
 
 export default function useHoverValue<DateType>(
-    valueText: string,
-    { formatList, generateConfig, locale }: ValueTextConfig<DateType>
+  valueText: string,
+  { formatList, generateConfig, locale }: ValueTextConfig<DateType>
 ): [string, (date: DateType) => void, (immediately?: boolean) => void] {
-    const [value, internalSetValue] = useState<DateType>(null);
-    const raf: React.MutableRefObject<any> = useRef(null);
+  const [value, internalSetValue] = useState<DateType>(null);
+  const raf: React.MutableRefObject<any> = useRef(null);
 
-    function setValue(val: DateType, immediately: boolean = false) {
-        cancelAnimationFrame(raf.current);
-        if (immediately) {
-            internalSetValue(val);
-            return;
-        }
-        raf.current = requestAnimationFrame(() => {
-            internalSetValue(val);
-        });
+  function setValue(val: DateType, immediately: boolean = false) {
+    cancelAnimationFrame(raf.current);
+    if (immediately) {
+      internalSetValue(val);
+      return;
     }
-
-    const [, firstText] = useValueTexts(value, {
-        formatList,
-        generateConfig,
-        locale,
+    raf.current = requestAnimationFrame(() => {
+      internalSetValue(val);
     });
+  }
 
-    function onEnter(date: DateType) {
-        setValue(date);
-    }
+  const [, firstText] = useValueTexts(value, {
+    formatList,
+    generateConfig,
+    locale,
+  });
 
-    function onLeave(immediately: boolean = false) {
-        setValue(null, immediately);
-    }
+  function onEnter(date: DateType) {
+    setValue(date);
+  }
 
-    useEffect(() => {
-        onLeave(true);
-    }, [valueText]);
+  function onLeave(immediately: boolean = false) {
+    setValue(null, immediately);
+  }
 
-    useEffect(() => () => cancelAnimationFrame(raf.current), []);
+  useEffect(() => {
+    onLeave(true);
+  }, [valueText]);
 
-    return [firstText, onEnter, onLeave];
+  useEffect(() => () => cancelAnimationFrame(raf.current), []);
+
+  return [firstText, onEnter, onLeave];
 }

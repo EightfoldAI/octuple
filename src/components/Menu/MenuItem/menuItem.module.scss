@@ -1,210 +1,208 @@
 .menu-item {
-    --background: transparent;
-    background: var(--background);
-    color: var(--label);
+  --background: transparent;
+  background: var(--background);
+  color: var(--label);
+  display: flex;
+  align-items: center;
+  gap: $space-xs;
+  border-radius: $border-radius-xl;
+  cursor: pointer;
+  font-weight: $text-font-weight-regular;
+  transition: all $motion-duration-extra-fast $motion-easing-easeinout 0s;
+  margin: $space-xxs 0;
+  white-space: nowrap;
+
+  $text-font-size-map: (
+    small: $text-font-size-1,
+    medium: $text-font-size-2,
+    large: $text-font-size-3,
+  );
+
+  .menu-item-wrapper {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+
+  .item-text {
     display: flex;
     align-items: center;
     gap: $space-xs;
-    border-radius: $corner-radius-xl;
-    cursor: pointer;
-    font-weight: $text-font-weight-regular;
-    transition: all $motion-duration-extra-fast $motion-easing-easeinout 0s;
-    margin: $space-xxs 0;
-    white-space: nowrap;
+  }
 
-    $text-font-size-map: (
-        small: $text-font-size-1,
-        medium: $text-font-size-2,
-        large: $text-font-size-3,
-    );
+  .item-sub-text {
+    text-align: left;
+    color: var(--grey-color-60);
+    @each $size-name, $size-value in $text-font-size-map {
+      &.#{$size-name} {
+        font-size: $size-value;
+      }
+    }
+  }
 
-    .menu-item-wrapper {
-        display: flex;
-        flex-direction: column;
-        flex: 1;
+  &.large {
+    min-height: 44px;
+    font-size: $text-font-size-4;
+    line-height: $text-line-height-3;
+    padding: $button-padding-vertical-medium $button-padding-horizontal-medium;
+    margin: 0 $space-xs $space-xs;
+  }
+
+  &.medium {
+    min-height: 36px;
+    font-size: $text-font-size-3;
+    line-height: $text-line-height-2;
+    padding: $button-padding-vertical-medium $button-padding-horizontal-medium;
+    margin: 0 $space-xxs $space-xs;
+  }
+
+  &.small {
+    min-height: 28px;
+    font-size: $text-font-size-2;
+    line-height: $text-line-height-1;
+    padding: $space-xxs $space-xs;
+    margin: 0 $space-xxs $space-xxs;
+  }
+
+  &.primary {
+    --label: var(--primary-color-70);
+
+    &:hover {
+      --background: var(--accent-color-10);
     }
 
-    .item-text {
-        display: flex;
-        align-items: center;
-        gap: $space-xs;
+    &.active,
+    &:active {
+      --background: var(--accent-color-20);
+    }
+  }
+
+  &.disruptive {
+    --label: var(--disruptive-color);
+
+    &:hover {
+      --background: var(--disruptive-color-10);
     }
 
-    .item-sub-text {
-        text-align: left;
-        color: var(--grey-color-60);
-        @each $size-name, $size-value in $text-font-size-map {
-            &.#{$size-name} {
-                font-size: $size-value;
-            }
-        }
+    &.active,
+    &:active {
+      --background: var(--disruptive-color-20);
+    }
+  }
+
+  &.neutral {
+    --active-background: var(--grey-color-10);
+    --label: var(--grey-color-90);
+
+    &:hover {
+      --background: var(--grey-color-10);
     }
 
-    &.large {
-        min-height: 44px;
-        font-size: $text-font-size-4;
-        line-height: $text-line-height-3;
-        padding: $button-padding-vertical-medium
-            $button-padding-horizontal-medium;
-        margin: 0 $space-xs $space-xs;
+    &.active,
+    &:active {
+      --background: var(--grey-color-20);
     }
+  }
 
-    &.medium {
-        min-height: 36px;
-        font-size: $text-font-size-3;
-        line-height: $text-line-height-2;
-        padding: $button-padding-vertical-medium
-            $button-padding-horizontal-medium;
-        margin: 0 $space-xxs $space-xs;
-    }
+  &[disabled] {
+    pointer-events: none;
+    opacity: $disabled-alpha-value;
+    cursor: not-allowed;
+  }
 
-    &.small {
-        min-height: 28px;
-        font-size: $text-font-size-2;
-        line-height: $text-line-height-1;
-        padding: $space-xxs $space-xs;
-        margin: 0 $space-xxs $space-xxs;
-    }
+  &.menu-link {
+    text-decoration: none;
+  }
 
-    &.primary {
-        --label: var(--primary-color-70);
+  .label {
+    flex: 1;
+    display: flex;
+    align-content: flex-start;
+  }
 
-        &:hover {
-            --background: var(--accent-color-10);
-        }
+  &:first-child {
+    margin-top: $space-xs;
+  }
 
-        &.active,
-        &:active {
-            --background: var(--accent-color-20);
-        }
-    }
+  &:last-child {
+    margin-bottom: $space-xs;
+  }
 
-    &.disruptive {
-        --label: var(--disruptive-color);
-
-        &:hover {
-            --background: var(--disruptive-color-10);
-        }
-
-        &.active,
-        &:active {
-            --background: var(--disruptive-color-20);
-        }
-    }
-
-    &.neutral {
-        --active-background: var(--grey-color-10);
-        --label: var(--grey-color-90);
-
-        &:hover {
-            --background: var(--grey-color-10);
-        }
-
-        &.active,
-        &:active {
-            --background: var(--grey-color-20);
-        }
-    }
-
-    &[disabled] {
-        pointer-events: none;
-        opacity: $disabled-alpha-value;
-        cursor: not-allowed;
-    }
-
-    &.menu-link {
-        text-decoration: none;
-    }
-
-    .label {
-        flex: 1;
-        display: flex;
-        align-content: flex-start;
-    }
-
-    &:first-child {
-        margin-top: $space-xs;
-    }
-
-    &:last-child {
-        margin-bottom: $space-xs;
-    }
-
-    // Hides the browser default keyboard focus-visible styles.
-    // Use the ConfigProvider instead.
-    &:focus-visible {
-        outline: none;
-    }
+  // Hides the browser default keyboard focus-visible styles.
+  // Use the ConfigProvider instead.
+  &:focus-visible {
+    outline: none;
+  }
 }
 
 .menu-item-sub-header {
-    color: var(--grey-color-60);
+  color: var(--grey-color-60);
+  padding: $space-s $space-xxs $space-s;
+  border-bottom: solid 1px var(--border-color);
+  margin: 0 $space-m $space-m;
+  font-weight: $text-font-weight-semibold;
+  white-space: nowrap;
+
+  &:first-child {
+    padding-top: 0;
+  }
+
+  &.large {
     padding: $space-s $space-xxs $space-s;
-    border-bottom: solid 1px var(--border-color);
-    margin: 0 $space-m $space-m;
-    font-weight: $text-font-weight-semibold;
-    white-space: nowrap;
+    @include octuple-content-large();
+  }
 
-    &:first-child {
-        padding-top: 0;
-    }
+  &.medium {
+    padding: $space-s $space-xxxs $space-s;
+    @include octuple-content-medium();
+  }
 
-    &.large {
-        padding: $space-s $space-xxs $space-s;
-        @include octuple-content-large();
-    }
-
-    &.medium {
-        padding: $space-s $space-xxxs $space-s;
-        @include octuple-content-medium();
-    }
-
-    &.small {
-        padding: $space-s $space-xxxs $space-s;
-        @include octuple-content-small();
-    }
+  &.small {
+    padding: $space-s $space-xxxs $space-s;
+    @include octuple-content-small();
+  }
 }
 
 .menu-item-custom {
-    margin-bottom: $space-m;
+  margin-bottom: $space-m;
 
-    &.large {
-        padding: 0 $space-l;
-    }
+  &.large {
+    padding: 0 $space-l;
+  }
 
-    &.medium {
-        padding: 0 $space-m;
-    }
+  &.medium {
+    padding: 0 $space-m;
+  }
 
-    &.small {
-        padding: 0 $space-s;
-    }
+  &.small {
+    padding: 0 $space-s;
+  }
 }
 
 :global(.focus-visible) {
-    .menu-item {
-        &:focus-visible {
-            outline-offset: -1px;
-            outline-width: $space-xxxs;
-            outline-style: solid;
-        }
-
-        &.primary {
-            &:focus-visible {
-                outline-color: var(--blueviolet-color-50);
-            }
-        }
-
-        &.disruptive {
-            &:focus-visible {
-                outline-color: var(--blueviolet-color-50);
-            }
-        }
-
-        &.neutral {
-            &:focus-visible {
-                outline-color: var(--blueviolet-color-50);
-            }
-        }
+  .menu-item {
+    &:focus-visible {
+      outline-offset: -1px;
+      outline-width: $space-xxxs;
+      outline-style: solid;
     }
+
+    &.primary {
+      &:focus-visible {
+        outline-color: var(--blueviolet-color-50);
+      }
+    }
+
+    &.disruptive {
+      &:focus-visible {
+        outline-color: var(--blueviolet-color-50);
+      }
+    }
+
+    &.neutral {
+      &:focus-visible {
+        outline-color: var(--blueviolet-color-50);
+      }
+    }
+  }
 }

@@ -21,7 +21,7 @@ export type Argument = Value | Mapping | ArgumentArray;
  * Conditionally wrapped component props.
  */
 export type ConditonalWrapperProps = {
-    children: React.ReactElement;
-    condition?: boolean;
-    wrapper: (children: React.ReactElement) => JSX.Element;
+  children: React.ReactElement;
+  condition?: boolean;
+  wrapper: (children: React.ReactElement) => JSX.Element;
 };

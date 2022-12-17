@@ -1,7 +1,7 @@
 import type {
-    DatePickerShape,
-    DatePickerSize,
-    PartialSharedProps,
+  DatePickerShape,
+  DatePickerSize,
+  PartialSharedProps,
 } from '../../OcPicker.types';
 import type { GenerateConfig } from '../../Generate';
 import { Shape, Size } from '../../../../ConfigProvider';
@@ -14,57 +14,57 @@ export const DECADE_ROW_COUNT: number = 4;
 export type DecadePartialProps<DateType> = PartialSharedProps<DateType>;
 
 export type YearHeaderProps<DateType> = {
-    /**
-     * Generates the configured dates.
-     */
-    generateConfig: GenerateConfig<DateType>;
-    /**
-     * Callback executed onNextDecades event.
-     */
-    onNextDecades: () => void;
-    /**
-     * Callback executed onPrevDecades event.
-     */
-    onPrevDecades: () => void;
-    /**
-     * The DatePicker shape.
-     */
-    shape?: DatePickerShape | Shape;
-    /**
-     * The DatePicker size.
-     * @default DatePickerSize.Medium
-     */
-    size?: DatePickerSize | Size;
-    /**
-     * The current year.
-     */
-    viewDate: DateType;
+  /**
+   * Generates the configured dates.
+   */
+  generateConfig: GenerateConfig<DateType>;
+  /**
+   * Callback executed onNextDecades event.
+   */
+  onNextDecades: () => void;
+  /**
+   * Callback executed onPrevDecades event.
+   */
+  onPrevDecades: () => void;
+  /**
+   * The DatePicker shape.
+   */
+  shape?: DatePickerShape | Shape;
+  /**
+   * The DatePicker size.
+   * @default DatePickerSize.Medium
+   */
+  size?: DatePickerSize | Size;
+  /**
+   * The current year.
+   */
+  viewDate: DateType;
 };
 
 export type YearBodyProps<DateType> = {
-    /**
-     * Whether the date is disabled.
-     */
-    disabledDate?: (date: DateType) => boolean;
-    /**
-     * Generates the configured dates.
-     */
-    generateConfig: GenerateConfig<DateType>;
-    /**
-     * Callback executed onSelect event.
-     */
-    onSelect: (value: DateType) => void;
-    /**
-     * The DatePicker shape.
-     */
-    shape?: DatePickerShape | Shape;
-    /**
-     * The DatePicker size.
-     * @default DatePickerSize.Medium
-     */
-    size?: DatePickerSize | Size;
-    /**
-     * The current decade year.
-     */
-    viewDate: DateType;
+  /**
+   * Whether the date is disabled.
+   */
+  disabledDate?: (date: DateType) => boolean;
+  /**
+   * Generates the configured dates.
+   */
+  generateConfig: GenerateConfig<DateType>;
+  /**
+   * Callback executed onSelect event.
+   */
+  onSelect: (value: DateType) => void;
+  /**
+   * The DatePicker shape.
+   */
+  shape?: DatePickerShape | Shape;
+  /**
+   * The DatePicker size.
+   * @default DatePickerSize.Medium
+   */
+  size?: DatePickerSize | Size;
+  /**
+   * The current decade year.
+   */
+  viewDate: DateType;
 };

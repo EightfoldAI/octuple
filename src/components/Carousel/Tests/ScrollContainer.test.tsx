@@ -11,68 +11,68 @@ Enzyme.configure({ adapter: new Adapter() });
 let matchMedia: any;
 
 const setup = ({ classNames, ref, onScroll }: ScrollContainerProps) => {
-    return render(
-        <ScrollContainer classNames={classNames} onScroll={onScroll} ref={ref}>
-            Child
-        </ScrollContainer>
-    );
+  return render(
+    <ScrollContainer classNames={classNames} onScroll={onScroll} ref={ref}>
+      Child
+    </ScrollContainer>
+  );
 };
 
 describe('ScrollContainer', () => {
-    beforeAll(() => {
-        matchMedia = new MatchMediaMock();
-    });
-    afterEach(() => {
-        matchMedia.clear();
-    });
+  beforeAll(() => {
+    matchMedia = new MatchMediaMock();
+  });
+  afterEach(() => {
+    matchMedia.clear();
+  });
 
-    describe('classNames', () => {
-        test('default', () => {
-            const ref: React.Ref<HTMLUListElement> = { current: null };
-            const { container } = setup({ ref });
+  describe('classNames', () => {
+    test('default', () => {
+      const ref: React.Ref<HTMLUListElement> = { current: null };
+      const { container } = setup({ ref });
 
-            expect(
-                container.firstElementChild.classList.contains(
-                    'carousel-auto-scroll-container'
-                )
-            ).toBeTruthy();
-        });
-
-        test('custom', () => {
-            const classNames = 'test123';
-
-            const ref: React.Ref<HTMLUListElement> = { current: null };
-            const { container } = setup({ classNames, ref });
-
-            expect(
-                container.firstElementChild.classList.contains(
-                    'carousel-auto-scroll-container'
-                )
-            ).toBeTruthy();
-            expect(
-                container.firstElementChild.classList.contains(classNames)
-            ).toBeTruthy();
-        });
+      expect(
+        container.firstElementChild.classList.contains(
+          'carousel-auto-scroll-container'
+        )
+      ).toBeTruthy();
     });
 
-    test('should render children and use ref', () => {
-        const ref: React.Ref<HTMLUListElement> = { current: null };
-        const { container, getByText } = setup({ ref });
+    test('custom', () => {
+      const classNames = 'test123';
 
-        expect(ref.current).toEqual(container.firstElementChild);
-        expect(getByText('Child')).toBeTruthy();
+      const ref: React.Ref<HTMLUListElement> = { current: null };
+      const { container } = setup({ classNames, ref });
+
+      expect(
+        container.firstElementChild.classList.contains(
+          'carousel-auto-scroll-container'
+        )
+      ).toBeTruthy();
+      expect(
+        container.firstElementChild.classList.contains(classNames)
+      ).toBeTruthy();
+    });
+  });
+
+  test('should render children and use ref', () => {
+    const ref: React.Ref<HTMLUListElement> = { current: null };
+    const { container, getByText } = setup({ ref });
+
+    expect(ref.current).toEqual(container.firstElementChild);
+    expect(getByText('Child')).toBeTruthy();
+  });
+
+  test.skip('should fire onScroll', () => {
+    const onScroll = jest.fn();
+    const ref: React.Ref<HTMLUListElement> = { current: null };
+    const { container } = setup({ onScroll, ref });
+
+    expect(onScroll).toHaveBeenCalledTimes(0);
+    act(() => {
+      fireEvent.scroll(container.firstElementChild);
     });
 
-    test.skip('should fire onScroll', () => {
-        const onScroll = jest.fn();
-        const ref: React.Ref<HTMLUListElement> = { current: null };
-        const { container } = setup({ onScroll, ref });
-
-        expect(onScroll).toHaveBeenCalledTimes(0);
-        act(() => {
-            fireEvent.scroll(container.firstElementChild);
-        });
-
-        expect(onScroll).toHaveBeenCalledTimes(1);
-    });
+    expect(onScroll).toHaveBeenCalledTimes(1);
+  });
 });

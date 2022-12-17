@@ -6,16 +6,16 @@ import { MenuItemLink } from './MenuItemLink';
 import { MenuItemSubHeader } from './MenuItemSubHeader';
 
 const TYPE_TO_MENU_ITEM_MAP: Record<
-    MenuItemType,
-    JSXElementConstructor<any>
+  MenuItemType,
+  JSXElementConstructor<any>
 > = {
-    [MenuItemType.button]: MenuItemButton,
-    [MenuItemType.custom]: MenuItemCustom,
-    [MenuItemType.link]: MenuItemLink,
-    [MenuItemType.subHeader]: MenuItemSubHeader,
+  [MenuItemType.button]: MenuItemButton,
+  [MenuItemType.custom]: MenuItemCustom,
+  [MenuItemType.link]: MenuItemLink,
+  [MenuItemType.subHeader]: MenuItemSubHeader,
 };
 
 export const MenuItem: FC<MenuItemProps> = ({ type, ...rest }) => {
-    const Component = TYPE_TO_MENU_ITEM_MAP?.[type] ?? null;
-    return <Component {...rest} />;
+  const Component = TYPE_TO_MENU_ITEM_MAP?.[type] ?? null;
+  return <Component {...rest} />;
 };

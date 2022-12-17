@@ -3,50 +3,46 @@ import type { GetRowKey, Key } from '../OcTable.types';
 
 // recursion (flat tree structure)
 function flatRecord<T>(
-    record: T,
-    indent: number,
-    childrenColumnName: string,
-    expandedKeys: Set<Key>,
-    getRowKey: GetRowKey<T>,
-    index: number
+  record: T,
+  indent: number,
+  childrenColumnName: string,
+  expandedKeys: Set<Key>,
+  getRowKey: GetRowKey<T>,
+  index: number
 ): any {
-    const arr = [];
+  const arr = [];
 
-    arr.push({
-        record,
-        indent,
-        index,
-    });
+  arr.push({
+    record,
+    indent,
+    index,
+  });
 
-    const key = getRowKey(record);
+  const key = getRowKey(record);
 
-    const expanded = expandedKeys?.has(key);
+  const expanded = expandedKeys?.has(key);
 
-    if (
-        record &&
-        Array.isArray((record as any)[childrenColumnName]) &&
-        expanded
-    ) {
-        // expanded state, flat record
-        for (
-            let i = 0;
-            i < (record as any)[childrenColumnName].length;
-            i += 1
-        ) {
-            const tempArr = flatRecord(
-                (record as any)[childrenColumnName][i],
-                indent + 1,
-                childrenColumnName,
-                expandedKeys,
-                getRowKey,
-                i
-            );
+  if (
+    record &&
+    Array.isArray((record as any)[childrenColumnName]) &&
+    expanded
+  ) {
+    // expanded state, flat record
+    for (let i = 0; i < (record as any)[childrenColumnName].length; i += 1) {
+      const tempArr = flatRecord(
+        (record as any)[childrenColumnName][i],
+        indent + 1,
+        childrenColumnName,
+        expandedKeys,
+        getRowKey,
+        i
+      );
 
-            arr.push(...tempArr);
-        }
+      arr.push(...tempArr);
     }
+  }
 
-    return arr;
+  return arr;
 }
 
 /**
@@ -61,42 +57,42 @@ function flatRecord<T>(
  * @returns flattened data
  */
 export default function useFlattenRecords<T>(
-    data: any,
-    childrenColumnName: string,
-    expandedKeys: Set<Key>,
-    getRowKey: GetRowKey<T>
+  data: any,
+  childrenColumnName: string,
+  expandedKeys: Set<Key>,
+  getRowKey: GetRowKey<T>
 ) {
-    const arr: { record: T; indent: number; index: number }[] = useMemo(() => {
-        if (expandedKeys?.size) {
-            const temp: { record: T; indent: number; index: number }[] = [];
+  const arr: { record: T; indent: number; index: number }[] = useMemo(() => {
+    if (expandedKeys?.size) {
+      const temp: { record: T; indent: number; index: number }[] = [];
 
-            // collect flattened record
-            for (let i = 0; i < data?.length; i += 1) {
-                const record = data[i];
+      // collect flattened record
+      for (let i = 0; i < data?.length; i += 1) {
+        const record = data[i];
 
-                temp.push(
-                    ...flatRecord<T>(
-                        record,
-                        0,
-                        childrenColumnName,
-                        expandedKeys,
-                        getRowKey,
-                        i
-                    )
-                );
-            }
+        temp.push(
+          ...flatRecord<T>(
+            record,
+            0,
+            childrenColumnName,
+            expandedKeys,
+            getRowKey,
+            i
+          )
+        );
+      }
 
-            return temp;
-        }
+      return temp;
+    }
 
-        return data?.map((item: any, index: number) => {
-            return {
-                record: item,
-                indent: 0,
-                index,
-            };
-        });
-    }, [data, childrenColumnName, expandedKeys, getRowKey]);
+    return data?.map((item: any, index: number) => {
+      return {
+        record: item,
+        indent: 0,
+        index,
+      };
+    });
+  }, [data, childrenColumnName, expandedKeys, getRowKey]);
 
-    return arr;
+  return arr;
 }

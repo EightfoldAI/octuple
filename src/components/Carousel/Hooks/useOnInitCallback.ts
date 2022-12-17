@@ -1,22 +1,22 @@
 import { useEffect, useState } from 'react';
 
 interface CallbackProps {
-    callback: () => void;
-    condition?: boolean;
+  callback: () => void;
+  condition?: boolean;
 }
 
 export const useOnInitCallback = ({
-    callback,
-    condition,
+  callback,
+  condition,
 }: CallbackProps): boolean => {
-    const [callbackTriggered, setCallbackTriggered] = useState(false);
+  const [callbackTriggered, setCallbackTriggered] = useState(false);
 
-    useEffect(() => {
-        if (condition && !callbackTriggered) {
-            setCallbackTriggered(true);
-            callback();
-        }
-    }, [condition, callbackTriggered]);
+  useEffect(() => {
+    if (condition && !callbackTriggered) {
+      setCallbackTriggered(true);
+      callback();
+    }
+  }, [condition, callbackTriggered]);
 
-    return callbackTriggered;
+  return callbackTriggered;
 };

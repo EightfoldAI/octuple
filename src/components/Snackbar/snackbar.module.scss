@@ -1,55 +1,55 @@
 .snackbar {
-    align-items: center;
-    box-shadow: $shadow-object-l;
-    border: none;
-    font-family: $octuple-font-family;
-    min-width: 21vw;
-    max-width: min(42vw, 640px);
-    animation: slideUpIn $motion-duration-extra-fast $motion-easing-easeinout 0s
-        forwards;
-    margin-bottom: $space-s;
-    background-color: var(--white-color);
+  align-items: center;
+  box-shadow: $shadow-object-l;
+  border: none;
+  font-family: $octuple-font-family;
+  min-width: 21vw;
+  max-width: min(42vw, 640px);
+  animation: slideUpIn $motion-duration-extra-fast $motion-easing-easeinout 0s
+    forwards;
+  margin-bottom: $space-s;
+  background-color: var(--white-color);
 
-    @media (max-width: $small-screen-size) {
-        max-width: 90vw;
-    }
+  @media (max-width: $small-screen-size) {
+    max-width: 90vw;
+  }
 
-    @media (min-width: $small-screen-size) and (max-width: $medium-screen-size) {
-        max-width: min(80vw, 640px);
-    }
+  @media (min-width: $small-screen-size) and (max-width: $medium-screen-size) {
+    max-width: min(80vw, 640px);
+  }
 }
 
 .snackbar-container {
-    font-family: $octuple-font-family;
-    position: fixed;
-    width: fit-content;
-    z-index: $z-index-600;
+  font-family: $octuple-font-family;
+  position: fixed;
+  width: fit-content;
+  z-index: $z-index-600;
 
-    &.top-center,
-    &.bottom-center {
-        left: 50%;
-        transform: translateX(-50%);
-    }
+  &.top-center,
+  &.bottom-center {
+    left: 50%;
+    transform: translateX(-50%);
+  }
 
-    &.top-center,
-    &.top-left,
-    &.top-right {
-        top: $space-m;
-    }
+  &.top-center,
+  &.top-left,
+  &.top-right {
+    top: $space-m;
+  }
 
-    &.bottom-center,
-    &.bottom-left,
-    &.bottom-right {
-        bottom: $space-m;
-    }
+  &.bottom-center,
+  &.bottom-left,
+  &.bottom-right {
+    bottom: $space-m;
+  }
 
-    &.top-left,
-    &.bottom-left {
-        left: $space-m;
-    }
+  &.top-left,
+  &.bottom-left {
+    left: $space-m;
+  }
 
-    &.top-right,
-    &.bottom-right {
-        right: $space-m;
-    }
+  &.top-right,
+  &.bottom-right {
+    right: $space-m;
+  }
 }

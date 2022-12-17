@@ -1,30 +1,30 @@
 @import './mixins';
 
 .picker {
-    &-status-error {
-        input {
-            @include placeholder(var(--disruptive-color-80));
-        }
-
-        border-color: var(--disruptive-color-80);
-        color: var(--disruptive-color-80);
+  &-status-error {
+    input {
+      @include placeholder(var(--disruptive-color-80));
     }
 
-    &-status-warning {
-        input {
-            @include placeholder(var(--warning-color));
-        }
+    border-color: var(--disruptive-color-80);
+    color: var(--disruptive-color-80);
+  }
 
-        border-color: var(--warning-color);
-        color: var(--warning-color);
+  &-status-warning {
+    input {
+      @include placeholder(var(--warning-color));
     }
 
-    &-status-success {
-        input {
-            @include placeholder($picker-input-foreground-color);
-        }
+    border-color: var(--warning-color);
+    color: var(--warning-color);
+  }
 
-        border-color: var(--border-color);
-        color: var(--text-primary-color);
+  &-status-success {
+    input {
+      @include placeholder($picker-input-foreground-color);
     }
+
+    border-color: var(--border-color);
+    color: var(--text-primary-color);
+  }
 }

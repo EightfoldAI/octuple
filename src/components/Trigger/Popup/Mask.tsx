@@ -7,41 +7,38 @@ import { getMotion } from '../Utils/util';
 import styles from '../trigger.module.scss';
 
 export interface MaskProps {
-    visible?: boolean;
-    zIndex?: number;
-    mask?: boolean;
-    maskMotion?: CSSMotionProps;
+  visible?: boolean;
+  zIndex?: number;
+  mask?: boolean;
+  maskMotion?: CSSMotionProps;
 }
 
 export default function Mask(props: MaskProps) {
-    const { visible, zIndex, mask, maskMotion } = props;
+  const { visible, zIndex, mask, maskMotion } = props;
 
-    if (!mask) {
-        return null;
-    }
+  if (!mask) {
+    return null;
+  }
 
-    let motion: CSSMotionProps = {};
+  let motion: CSSMotionProps = {};
 
-    if (maskMotion) {
-        motion = {
-            motionAppear: true,
-            ...getMotion({
-                motion: maskMotion,
-            }),
-        };
-    }
+  if (maskMotion) {
+    motion = {
+      motionAppear: true,
+      ...getMotion({
+        motion: maskMotion,
+      }),
+    };
+  }
 
-    return (
-        <CSSMotion {...motion} visible={visible} removeOnLeave>
-            {({ classNames }) => (
-                <div
-                    style={{ zIndex }}
-                    className={mergeClasses([
-                        styles.triggerPopupMask,
-                        classNames,
-                    ])}
-                />
-            )}
-        </CSSMotion>
-    );
+  return (
+    <CSSMotion {...motion} visible={visible} removeOnLeave>
+      {({ classNames }) => (
+        <div
+          style={{ zIndex }}
+          className={mergeClasses([styles.triggerPopupMask, classNames])}
+        />
+      )}
+    </CSSMotion>
+  );
 }

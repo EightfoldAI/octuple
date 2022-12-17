@@ -10,16 +10,16 @@ import TimePicker from '../DateTimePicker/TimePicker/Locale/da_DK';
 import Upload from '../Upload/Locale/da_DK';
 
 const localeValues: Locale = {
-    locale: 'da',
-    DatePicker,
-    Dialog,
-    InfoBar,
-    Pagination,
-    Panel,
-    Stepper,
-    Table,
-    TimePicker,
-    Upload,
+  locale: 'da',
+  DatePicker,
+  Dialog,
+  InfoBar,
+  Pagination,
+  Panel,
+  Stepper,
+  Table,
+  TimePicker,
+  Upload,
 };
 
 export default localeValues;

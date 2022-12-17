@@ -3,121 +3,121 @@ $multi-select-count-offset: 54px;
 
 // Export values for typescript consumption.
 :export {
-    inputPaddingHorizontal: strip-units($input-padding-horizontal);
-    multiSelectCountOffset: strip-units($multi-select-count-offset);
+  inputPaddingHorizontal: strip-units($input-padding-horizontal);
+  multiSelectCountOffset: strip-units($multi-select-count-offset);
 }
 
 .select-wrapper {
-    font-family: $octuple-font-family;
-    position: relative;
+  font-family: $octuple-font-family;
+  position: relative;
+  width: 100%;
+
+  // The minimum width required to ensure multi-select pills have enough room for 1 pill + the count
+  min-width: 256px;
+
+  &-disabled {
+    cursor: not-allowed;
+  }
+
+  .select-dropdown-overlay {
+    padding: 0;
+
+    .select-spinner {
+      margin: 10px auto;
+      position: relative;
+    }
+  }
+
+  .select-dropdown-main-wrapper {
     width: 100%;
+  }
 
-    // The minimum width required to ensure multi-select pills have enough room for 1 pill + the count
-    min-width: 256px;
+  .select-input {
+    cursor: pointer;
+  }
 
-    &-disabled {
-        cursor: not-allowed;
+  .multi-select-pills {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    left: $space-xs;
+    right: $space-xxl;
+    pointer-events: none;
+    position: absolute;
+    top: 6px;
+    z-index: 1;
+  }
+
+  .multi-select-pill {
+    margin-right: $space-xs;
+    max-width: 144px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    pointer-events: all;
+
+    span {
+      @include text-overflow;
+      max-width: 128px;
     }
+  }
 
-    .select-dropdown-overlay {
-        padding: 0;
+  .multi-select-count {
+    margin-right: $space-xs;
+  }
 
-        .select-spinner {
-            margin: 10px auto;
-            position: relative;
-        }
-    }
+  .selected-option {
+    background-color: var(--primary-color-10);
+    color: var(--primary-color-80);
+  }
 
-    .select-dropdown-main-wrapper {
-        width: 100%;
-    }
-
-    .select-input {
-        cursor: pointer;
-    }
-
+  &.select-large {
     .multi-select-pills {
-        align-items: center;
-        display: flex;
-        flex-direction: row;
-        left: $space-xs;
-        right: $space-xxl;
-        pointer-events: none;
-        position: absolute;
-        top: 6px;
-        z-index: 1;
+      top: 7px;
+    }
+  }
+
+  &.select-medium {
+    .multi-select-pills {
+      top: 5px;
+    }
+  }
+
+  &.select-small {
+    .multi-select-pills {
+      top: 4px;
+
+      .multi-select-count,
+      .multi-select-pill {
+        padding: 2px 12px;
+      }
+    }
+  }
+
+  &-rtl {
+    .multi-select-pills {
+      left: $space-xxl;
+      right: $space-xs;
     }
 
     .multi-select-pill {
-        margin-right: $space-xs;
-        max-width: 144px;
-        text-align: center;
-        display: flex;
-        justify-content: center;
-        pointer-events: all;
-
-        span {
-            @include text-overflow;
-            max-width: 128px;
-        }
+      margin-left: $space-xs;
+      margin-right: 0;
     }
 
     .multi-select-count {
-        margin-right: $space-xs;
+      margin-left: $space-xs;
+      margin-right: 0;
     }
-
-    .selected-option {
-        background-color: var(--primary-color-10);
-        color: var(--primary-color-80);
-    }
-
-    &.select-large {
-        .multi-select-pills {
-            top: 7px;
-        }
-    }
-
-    &.select-medium {
-        .multi-select-pills {
-            top: 5px;
-        }
-    }
-
-    &.select-small {
-        .multi-select-pills {
-            top: 4px;
-
-            .multi-select-count,
-            .multi-select-pill {
-                padding: 2px 12px;
-            }
-        }
-    }
-
-    &-rtl {
-        .multi-select-pills {
-            left: $space-xxl;
-            right: $space-xs;
-        }
-
-        .multi-select-pill {
-            margin-left: $space-xs;
-            margin-right: 0;
-        }
-
-        .multi-select-count {
-            margin-left: $space-xs;
-            margin-right: 0;
-        }
-    }
+  }
 }
 
 .select-menu-empty {
-    color: var(--grey-color-60);
-    margin: $space-m;
-    position: relative;
+  color: var(--grey-color-60);
+  margin: $space-m;
+  position: relative;
 }
 
 .select-tooltip {
-    max-width: unset;
+  max-width: unset;
 }

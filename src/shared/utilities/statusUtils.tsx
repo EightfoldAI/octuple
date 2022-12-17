@@ -5,6 +5,6 @@ const InputStatuses = tuple('success', 'warning', 'error', 'validating', '');
 export type InputStatus = typeof InputStatuses[number];
 
 export const getMergedStatus = (
-    contextStatus?: ValidateStatus,
-    customStatus?: InputStatus
+  contextStatus?: ValidateStatus,
+  customStatus?: InputStatus
 ) => customStatus || contextStatus;

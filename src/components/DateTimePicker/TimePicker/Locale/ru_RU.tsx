@@ -2,8 +2,8 @@
 import type { TimePickerLocale } from '../TimePicker.types';
 
 const locale: TimePickerLocale = {
-    placeholder: 'Выберите время',
-    rangePlaceholder: ['Время начала', 'Время окончания'],
+  placeholder: 'Выберите время',
+  rangePlaceholder: ['Время начала', 'Время окончания'],
 };
 
 export default locale;

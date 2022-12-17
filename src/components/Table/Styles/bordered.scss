@@ -2,563 +2,559 @@
 @import './mixins';
 
 .table-wrapper {
-    .table {
-        &-bordered {
-            @include table-border();
+  .table {
+    &-bordered {
+      @include table-border();
 
-            .table-title {
-                border: $table-border;
-                border-bottom: 0;
+      .table-title {
+        border: $table-border;
+        border-bottom: 0;
+      }
+
+      table {
+        border-collapse: separate;
+        border-spacing: 0;
+
+        thead tr th,
+        tbody tr td,
+        tfoot tr th,
+        tfoot tr td {
+          border-right: $table-border-width $table-border-style
+            $table-border-color;
+
+          &:last-of-type {
+            border-right: none;
+          }
+        }
+
+        thead {
+          tr th {
+            border-bottom: $table-border;
+          }
+
+          tr th {
+            &:before {
+              background-color: transparent !important;
             }
+          }
+        }
 
-            table {
-                border-collapse: separate;
-                border-spacing: 0;
+        // Fixed right should provide additional border
+        thead tr,
+        tbody tr,
+        tfoot tr {
+          .table-cell-fix-right-first:after {
+            border-right: $table-border-style;
+          }
+        }
 
-                thead tr th,
-                tbody tr td,
-                tfoot tr th,
-                tfoot tr td {
-                    border-right: $table-border-width $table-border-style
-                        $table-border-color;
+        tbody {
+          tr:not(:last-of-type) td {
+            border-bottom: $table-border;
+          }
 
-                    &:last-of-type {
-                        border-right: none;
-                    }
-                }
+          tr:last-of-type td {
+            border-bottom: none;
+          }
+        }
+      }
 
-                thead {
-                    tr th {
-                        border-bottom: $table-border;
-                    }
+      table tbody tr td {
+        .table-expanded-row-fixed {
+          margin: -$table-padding-vertical (-$table-padding-horizontal - 1);
 
-                    tr th {
-                        &:before {
-                            background-color: transparent !important;
-                        }
-                    }
-                }
+          &:after {
+            position: absolute;
+            top: 0;
+            right: 1px;
+            bottom: 0;
+            border-right: $table-border;
+            content: '';
+          }
+        }
+      }
 
-                // Fixed right should provide additional border
-                thead tr,
-                tbody tr,
-                tfoot tr {
-                    .table-cell-fix-right-first:after {
-                        border-right: $table-border-style;
-                    }
-                }
-
-                tbody {
-                    tr:not(:last-of-type) td {
-                        border-bottom: $table-border;
-                    }
-
-                    tr:last-of-type td {
-                        border-bottom: none;
-                    }
-                }
+      &.table-scroll-horizontal {
+        .table-container .table-body {
+          table tbody {
+            tr.table-expanded-row,
+            tr.table-placeholder {
+              td {
+                border-right: 0;
+              }
             }
+          }
+        }
+      }
 
+      &.table-middle {
+        .table-container {
+          .table-content,
+          .table-body {
             table tbody tr td {
-                .table-expanded-row-fixed {
-                    margin: -$table-padding-vertical
-                        (-$table-padding-horizontal - 1);
-
-                    &:after {
-                        position: absolute;
-                        top: 0;
-                        right: 1px;
-                        bottom: 0;
-                        border-right: $table-border;
-                        content: '';
-                    }
-                }
+              .table-expanded-row-fixed {
+                margin: -$table-padding-vertical-md
+                  (-$table-padding-horizontal-md - 1);
+              }
             }
-
-            &.table-scroll-horizontal {
-                .table-container .table-body {
-                    table tbody {
-                        tr.table-expanded-row,
-                        tr.table-placeholder {
-                            td {
-                                border-right: 0;
-                            }
-                        }
-                    }
-                }
-            }
-
-            &.table-middle {
-                .table-container {
-                    .table-content,
-                    .table-body {
-                        table tbody tr td {
-                            .table-expanded-row-fixed {
-                                margin: -$table-padding-vertical-md
-                                    (-$table-padding-horizontal-md - 1);
-                            }
-                        }
-                    }
-                }
-            }
-
-            &.table-small {
-                .table-container {
-                    .table-content,
-                    .table-body {
-                        table tbody tr td {
-                            .table-expanded-row-fixed {
-                                margin: -$table-padding-vertical-sm
-                                    (-$table-padding-horizontal-sm - 1);
-                            }
-                        }
-                    }
-                }
-            }
-
-            .table-footer {
-                border: $table-border;
-                border-top: 0;
-            }
-
-            .table-cell {
-                .table-container:first-child {
-                    border-top: 0;
-                }
-
-                &-scrollbar:not([rowspan]) {
-                    box-shadow: 0 1px 0 1px $table-header-background-color;
-                }
-            }
+          }
         }
+      }
 
-        &-cell-bordered {
-            .table-title {
-                border: $table-border;
-                border-bottom: 0;
-            }
-
-            table {
-                border-collapse: separate;
-                border-spacing: 0;
-
-                thead tr th,
-                tfoot tr th {
-                    border-left: none;
-                    border-right: none;
-                }
-
-                tbody tr td,
-                tfoot tr td {
-                    &:first-of-type {
-                        border-left: none;
-                    }
-
-                    border-right: $table-border-width $table-border-style
-                        $table-border-color;
-
-                    &:last-of-type {
-                        border-right: none;
-                    }
-                }
-
-                thead {
-                    tr th {
-                        border-bottom: $table-border;
-                    }
-
-                    tr th {
-                        &:before {
-                            background-color: transparent !important;
-                        }
-                    }
-                }
-
-                tbody tr,
-                tfoot tr {
-                    .table-cell-fix-right-first:after {
-                        border-right: $table-border-style;
-                    }
-                }
-
-                tbody {
-                    tr:not(:last-of-type) td {
-                        border-bottom: $table-border;
-                    }
-                }
-            }
-
+      &.table-small {
+        .table-container {
+          .table-content,
+          .table-body {
             table tbody tr td {
-                .table-expanded-row-fixed {
-                    margin: -$table-padding-vertical
-                        (-$table-padding-horizontal - 1);
-
-                    &:after {
-                        position: absolute;
-                        top: 0;
-                        right: 1px;
-                        bottom: 0;
-                        border-right: $table-border;
-                        content: '';
-                    }
-                }
+              .table-expanded-row-fixed {
+                margin: -$table-padding-vertical-sm
+                  (-$table-padding-horizontal-sm - 1);
+              }
             }
+          }
+        }
+      }
 
-            &.table-middle {
-                .table-container {
-                    .table-content,
-                    .table-body {
-                        table tbody tr td {
-                            .table-expanded-row-fixed {
-                                margin: -$table-padding-vertical-md
-                                    (-$table-padding-horizontal-md - 1);
-                            }
-                        }
-                    }
-                }
-            }
+      .table-footer {
+        border: $table-border;
+        border-top: 0;
+      }
 
-            &.table-small {
-                .table-container {
-                    .table-content,
-                    .table-body {
-                        table tbody tr td {
-                            .table-expanded-row-fixed {
-                                margin: -$table-padding-vertical-sm
-                                    (-$table-padding-horizontal-sm - 1);
-                            }
-                        }
-                    }
-                }
-            }
-
-            .table-footer {
-                border: $table-border;
-                border-top: 0;
-            }
-
-            .table-cell {
-                .table-container:first-child {
-                    border-top: 0;
-                }
-
-                &-scrollbar:not([rowspan]) {
-                    box-shadow: 0 1px 0 1px $table-header-background-color;
-                }
-            }
+      .table-cell {
+        .table-container:first-child {
+          border-top: 0;
         }
 
-        &-header-bordered {
-            .table-title {
-                border: $table-border;
-                border-bottom: 0;
-            }
-
-            table {
-                border-collapse: separate;
-                border-spacing: 0;
-
-                thead tr th,
-                tfoot tr th {
-                    &:first-of-type {
-                        border-left: none;
-                    }
-
-                    border-right: $table-border-width $table-border-style
-                        $table-border-color;
-
-                    &:last-of-type {
-                        border-right: none;
-                    }
-                }
-
-                tbody tr td,
-                tfoot tr td {
-                    border-left: none;
-                    border-right: none;
-                }
-
-                thead {
-                    tr th {
-                        border-bottom: $table-border;
-                    }
-
-                    tr th {
-                        &:before {
-                            background-color: transparent !important;
-                        }
-                    }
-                }
-
-                thead tr,
-                tbody tr,
-                tfoot tr {
-                    .table-cell-fix-right-first:after {
-                        border-right: $table-border-style;
-                    }
-                }
-
-                tbody {
-                    tr td {
-                        border-bottom: none;
-                    }
-                }
-            }
-
-            table tbody tr td {
-                .table-expanded-row-fixed {
-                    margin: -$table-padding-vertical
-                        (-$table-padding-horizontal - 1);
-
-                    &:after {
-                        position: absolute;
-                        top: 0;
-                        right: 1px;
-                        bottom: 0;
-                        border-right: $table-border;
-                        content: '';
-                    }
-                }
-            }
-
-            &.table-middle {
-                .table-container {
-                    .table-content,
-                    .table-body {
-                        table tbody tr td {
-                            .table-expanded-row-fixed {
-                                margin: -$table-padding-vertical-md
-                                    (-$table-padding-horizontal-md - 1);
-                            }
-                        }
-                    }
-                }
-            }
-
-            &.table-small {
-                .table-container {
-                    .table-content,
-                    .table-body {
-                        table tbody tr td {
-                            .table-expanded-row-fixed {
-                                margin: -$table-padding-vertical-sm
-                                    (-$table-padding-horizontal-sm - 1);
-                            }
-                        }
-                    }
-                }
-            }
-
-            .table-footer {
-                border: $table-border;
-            }
-
-            .table-cell {
-                .table-container:first-child {
-                    border-top: 0;
-                }
-
-                &-scrollbar:not([rowspan]) {
-                    box-shadow: 0 1px 0 1px $table-header-background-color;
-                }
-            }
+        &-scrollbar:not([rowspan]) {
+          box-shadow: 0 1px 0 1px $table-header-background-color;
         }
-
-        &-header-bottom-bordered {
-            table {
-                thead {
-                    tr th {
-                        border-bottom: $table-border;
-                    }
-                }
-            }
-        }
-
-        &-inner-bordered {
-            .table-title {
-                border: $table-border;
-                border-bottom: 0;
-            }
-
-            table {
-                border-collapse: separate;
-                border-spacing: 0;
-
-                thead tr th,
-                tbody tr td,
-                tfoot tr th,
-                tfoot tr td {
-                    &:first-of-type {
-                        border-left: none;
-                    }
-
-                    border-right: $table-border-width $table-border-style
-                        $table-border-color;
-
-                    &:last-of-type {
-                        border-right: none;
-                    }
-                }
-                thead {
-                    tr th {
-                        border-bottom: $table-border;
-                    }
-
-                    tr th {
-                        &:before {
-                            background-color: transparent !important;
-                        }
-                    }
-                }
-
-                thead tr,
-                tbody tr,
-                tfoot tr {
-                    .table-cell-fix-right-first:after {
-                        border-right: $table-border-style;
-                    }
-                }
-
-                tbody {
-                    tr:not(:last-of-type) td {
-                        border-bottom: $table-border;
-                    }
-                }
-            }
-
-            table tbody tr td {
-                .table-expanded-row-fixed {
-                    margin: -$table-padding-vertical
-                        (-$table-padding-horizontal - 1);
-
-                    &:after {
-                        position: absolute;
-                        top: 0;
-                        right: 1px;
-                        bottom: 0;
-                        border-right: $table-border;
-                        content: '';
-                    }
-                }
-            }
-
-            &.table-middle {
-                .table-container {
-                    .table-content,
-                    .table-body {
-                        table tbody tr td {
-                            .table-expanded-row-fixed {
-                                margin: -$table-padding-vertical-md
-                                    (-$table-padding-horizontal-md - 1);
-                            }
-                        }
-                    }
-                }
-            }
-
-            &.table-small {
-                .table-container {
-                    .table-content,
-                    .table-body {
-                        table tbody tr td {
-                            .table-expanded-row-fixed {
-                                margin: -$table-padding-vertical-sm
-                                    (-$table-padding-horizontal-sm - 1);
-                            }
-                        }
-                    }
-                }
-            }
-
-            .table-footer {
-                border: $table-border;
-                border-top: 0;
-            }
-
-            .table-cell {
-                .table-container:first-child {
-                    border-top: 0;
-                }
-
-                &-scrollbar:not([rowspan]) {
-                    box-shadow: 0 1px 0 1px $table-header-background-color;
-                }
-            }
-        }
-
-        &-outer-bordered {
-            @include table-border();
-        }
-
-        &-row-bordered {
-            .table-title {
-                border-bottom: $table-border;
-            }
-
-            table {
-                border-collapse: separate;
-                border-spacing: 0;
-
-                thead {
-                    tr th {
-                        border-bottom: $table-border;
-                    }
-
-                    tr th {
-                        &:before {
-                            background-color: transparent !important;
-                        }
-                    }
-                }
-
-                tbody {
-                    tr:not(:last-of-type) td {
-                        border-bottom: $table-border;
-                    }
-                }
-            }
-
-            &.table-middle {
-                .table-container {
-                    .table-content,
-                    .table-body {
-                        table tbody tr td {
-                            .table-expanded-row-fixed {
-                                margin: -$table-padding-vertical-md
-                                    (-$table-padding-horizontal-md - 1);
-                            }
-                        }
-                    }
-                }
-            }
-
-            &.table-small {
-                .table-container {
-                    .table-content,
-                    .table-body {
-                        table tbody tr td {
-                            .table-expanded-row-fixed {
-                                margin: -$table-padding-vertical-sm
-                                    (-$table-padding-horizontal-sm - 1);
-                            }
-                        }
-                    }
-                }
-            }
-
-            .table-footer {
-                border-top: $table-border;
-            }
-
-            .table-cell {
-                .table-container:first-child {
-                    border-top: 0;
-                }
-
-                &-scrollbar:not([rowspan]) {
-                    box-shadow: 0 1px 0 1px $table-header-background-color;
-                }
-            }
-        }
+      }
     }
+
+    &-cell-bordered {
+      .table-title {
+        border: $table-border;
+        border-bottom: 0;
+      }
+
+      table {
+        border-collapse: separate;
+        border-spacing: 0;
+
+        thead tr th,
+        tfoot tr th {
+          border-left: none;
+          border-right: none;
+        }
+
+        tbody tr td,
+        tfoot tr td {
+          &:first-of-type {
+            border-left: none;
+          }
+
+          border-right: $table-border-width $table-border-style
+            $table-border-color;
+
+          &:last-of-type {
+            border-right: none;
+          }
+        }
+
+        thead {
+          tr th {
+            border-bottom: $table-border;
+          }
+
+          tr th {
+            &:before {
+              background-color: transparent !important;
+            }
+          }
+        }
+
+        tbody tr,
+        tfoot tr {
+          .table-cell-fix-right-first:after {
+            border-right: $table-border-style;
+          }
+        }
+
+        tbody {
+          tr:not(:last-of-type) td {
+            border-bottom: $table-border;
+          }
+        }
+      }
+
+      table tbody tr td {
+        .table-expanded-row-fixed {
+          margin: -$table-padding-vertical (-$table-padding-horizontal - 1);
+
+          &:after {
+            position: absolute;
+            top: 0;
+            right: 1px;
+            bottom: 0;
+            border-right: $table-border;
+            content: '';
+          }
+        }
+      }
+
+      &.table-middle {
+        .table-container {
+          .table-content,
+          .table-body {
+            table tbody tr td {
+              .table-expanded-row-fixed {
+                margin: -$table-padding-vertical-md
+                  (-$table-padding-horizontal-md - 1);
+              }
+            }
+          }
+        }
+      }
+
+      &.table-small {
+        .table-container {
+          .table-content,
+          .table-body {
+            table tbody tr td {
+              .table-expanded-row-fixed {
+                margin: -$table-padding-vertical-sm
+                  (-$table-padding-horizontal-sm - 1);
+              }
+            }
+          }
+        }
+      }
+
+      .table-footer {
+        border: $table-border;
+        border-top: 0;
+      }
+
+      .table-cell {
+        .table-container:first-child {
+          border-top: 0;
+        }
+
+        &-scrollbar:not([rowspan]) {
+          box-shadow: 0 1px 0 1px $table-header-background-color;
+        }
+      }
+    }
+
+    &-header-bordered {
+      .table-title {
+        border: $table-border;
+        border-bottom: 0;
+      }
+
+      table {
+        border-collapse: separate;
+        border-spacing: 0;
+
+        thead tr th,
+        tfoot tr th {
+          &:first-of-type {
+            border-left: none;
+          }
+
+          border-right: $table-border-width $table-border-style
+            $table-border-color;
+
+          &:last-of-type {
+            border-right: none;
+          }
+        }
+
+        tbody tr td,
+        tfoot tr td {
+          border-left: none;
+          border-right: none;
+        }
+
+        thead {
+          tr th {
+            border-bottom: $table-border;
+          }
+
+          tr th {
+            &:before {
+              background-color: transparent !important;
+            }
+          }
+        }
+
+        thead tr,
+        tbody tr,
+        tfoot tr {
+          .table-cell-fix-right-first:after {
+            border-right: $table-border-style;
+          }
+        }
+
+        tbody {
+          tr td {
+            border-bottom: none;
+          }
+        }
+      }
+
+      table tbody tr td {
+        .table-expanded-row-fixed {
+          margin: -$table-padding-vertical (-$table-padding-horizontal - 1);
+
+          &:after {
+            position: absolute;
+            top: 0;
+            right: 1px;
+            bottom: 0;
+            border-right: $table-border;
+            content: '';
+          }
+        }
+      }
+
+      &.table-middle {
+        .table-container {
+          .table-content,
+          .table-body {
+            table tbody tr td {
+              .table-expanded-row-fixed {
+                margin: -$table-padding-vertical-md
+                  (-$table-padding-horizontal-md - 1);
+              }
+            }
+          }
+        }
+      }
+
+      &.table-small {
+        .table-container {
+          .table-content,
+          .table-body {
+            table tbody tr td {
+              .table-expanded-row-fixed {
+                margin: -$table-padding-vertical-sm
+                  (-$table-padding-horizontal-sm - 1);
+              }
+            }
+          }
+        }
+      }
+
+      .table-footer {
+        border: $table-border;
+      }
+
+      .table-cell {
+        .table-container:first-child {
+          border-top: 0;
+        }
+
+        &-scrollbar:not([rowspan]) {
+          box-shadow: 0 1px 0 1px $table-header-background-color;
+        }
+      }
+    }
+
+    &-header-bottom-bordered {
+      table {
+        thead {
+          tr th {
+            border-bottom: $table-border;
+          }
+        }
+      }
+    }
+
+    &-inner-bordered {
+      .table-title {
+        border: $table-border;
+        border-bottom: 0;
+      }
+
+      table {
+        border-collapse: separate;
+        border-spacing: 0;
+
+        thead tr th,
+        tbody tr td,
+        tfoot tr th,
+        tfoot tr td {
+          &:first-of-type {
+            border-left: none;
+          }
+
+          border-right: $table-border-width $table-border-style
+            $table-border-color;
+
+          &:last-of-type {
+            border-right: none;
+          }
+        }
+        thead {
+          tr th {
+            border-bottom: $table-border;
+          }
+
+          tr th {
+            &:before {
+              background-color: transparent !important;
+            }
+          }
+        }
+
+        thead tr,
+        tbody tr,
+        tfoot tr {
+          .table-cell-fix-right-first:after {
+            border-right: $table-border-style;
+          }
+        }
+
+        tbody {
+          tr:not(:last-of-type) td {
+            border-bottom: $table-border;
+          }
+        }
+      }
+
+      table tbody tr td {
+        .table-expanded-row-fixed {
+          margin: -$table-padding-vertical (-$table-padding-horizontal - 1);
+
+          &:after {
+            position: absolute;
+            top: 0;
+            right: 1px;
+            bottom: 0;
+            border-right: $table-border;
+            content: '';
+          }
+        }
+      }
+
+      &.table-middle {
+        .table-container {
+          .table-content,
+          .table-body {
+            table tbody tr td {
+              .table-expanded-row-fixed {
+                margin: -$table-padding-vertical-md
+                  (-$table-padding-horizontal-md - 1);
+              }
+            }
+          }
+        }
+      }
+
+      &.table-small {
+        .table-container {
+          .table-content,
+          .table-body {
+            table tbody tr td {
+              .table-expanded-row-fixed {
+                margin: -$table-padding-vertical-sm
+                  (-$table-padding-horizontal-sm - 1);
+              }
+            }
+          }
+        }
+      }
+
+      .table-footer {
+        border: $table-border;
+        border-top: 0;
+      }
+
+      .table-cell {
+        .table-container:first-child {
+          border-top: 0;
+        }
+
+        &-scrollbar:not([rowspan]) {
+          box-shadow: 0 1px 0 1px $table-header-background-color;
+        }
+      }
+    }
+
+    &-outer-bordered {
+      @include table-border();
+    }
+
+    &-row-bordered {
+      .table-title {
+        border-bottom: $table-border;
+      }
+
+      table {
+        border-collapse: separate;
+        border-spacing: 0;
+
+        thead {
+          tr th {
+            border-bottom: $table-border;
+          }
+
+          tr th {
+            &:before {
+              background-color: transparent !important;
+            }
+          }
+        }
+
+        tbody {
+          tr:not(:last-of-type) td {
+            border-bottom: $table-border;
+          }
+        }
+      }
+
+      &.table-middle {
+        .table-container {
+          .table-content,
+          .table-body {
+            table tbody tr td {
+              .table-expanded-row-fixed {
+                margin: -$table-padding-vertical-md
+                  (-$table-padding-horizontal-md - 1);
+              }
+            }
+          }
+        }
+      }
+
+      &.table-small {
+        .table-container {
+          .table-content,
+          .table-body {
+            table tbody tr td {
+              .table-expanded-row-fixed {
+                margin: -$table-padding-vertical-sm
+                  (-$table-padding-horizontal-sm - 1);
+              }
+            }
+          }
+        }
+      }
+
+      .table-footer {
+        border-top: $table-border;
+      }
+
+      .table-cell {
+        .table-container:first-child {
+          border-top: 0;
+        }
+
+        &-scrollbar:not([rowspan]) {
+          box-shadow: 0 1px 0 1px $table-header-background-color;
+        }
+      }
+    }
+  }
 }

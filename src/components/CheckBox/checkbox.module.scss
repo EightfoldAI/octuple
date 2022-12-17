@@ -1,632 +1,632 @@
 .selector {
+  display: flex;
+  font-family: $octuple-font-family;
+  position: relative;
+  width: fit-content;
+
+  input {
+    position: absolute;
+    opacity: 0;
+    height: 100%;
+    width: 100%;
+    cursor: pointer;
+    z-index: 1;
+
+    &[disabled] {
+      cursor: not-allowed;
+
+      & + label {
+        opacity: $disabled-alpha-value;
+        cursor: not-allowed;
+      }
+    }
+
+    & + label {
+      &.align-start {
+        align-items: flex-start;
+        display: flex;
+      }
+
+      &.align-start .checkmark {
+        margin-top: $space-xxxs;
+      }
+
+      &.align-end {
+        align-items: flex-end;
+        display: flex;
+      }
+
+      .checkmark {
+        border: $space-xxxs solid var(--grey-color-70);
+        border-radius: $border-radius-xs;
+        height: $checkmark-medium-height;
+        width: $checkmark-medium-width;
+        min-height: $checkmark-medium-height;
+        min-width: $checkmark-medium-width;
+        left: 0;
+        position: relative;
+        top: 0;
+        transition: all $motion-duration-extra-fast $motion-ease-in-back
+          $motion-delay-s;
+
+        &:after {
+          border: solid var(--primary-color);
+          border-width: 0 $space-xxxs $space-xxxs 0;
+          content: '';
+          display: block;
+          height: $checkmark-medium-after-height;
+          left: $checkmark-medium-after-left;
+          opacity: 0;
+          position: absolute;
+          top: $checkmark-medium-after-top;
+          transform: rotate(45deg) scale(0);
+          transition: all $motion-duration-extra-fast $motion-ease-in-back
+            $motion-delay-s;
+          width: $checkmark-medium-after-width;
+        }
+
+        &.toggle {
+          border: $space-xxxs solid var(--grey-color-70);
+          border-radius: $toggle-medium-height;
+          min-height: $toggle-medium-height;
+          height: $toggle-medium-height;
+          left: 0;
+          min-width: $toggle-medium-width;
+          position: relative;
+          top: 0;
+          transition: all $motion-duration-extra-fast $motion-ease-in-back
+            $motion-delay-s;
+          width: $toggle-medium-width;
+
+          &:after {
+            background-color: var(--grey-color-70);
+            border: solid var(--grey-color-70);
+            border-radius: 50%;
+            border-width: $space-xxxs;
+            content: '';
+            display: block;
+            height: $toggle-medium-after-height;
+            left: $toggle-medium-after-left;
+            opacity: 1;
+            position: absolute;
+            top: $toggle-medium-after-top;
+            transform: none;
+            transition: all $motion-duration-extra-fast $motion-ease-in-back
+              $motion-delay-s;
+            width: $toggle-medium-after-width;
+          }
+        }
+      }
+    }
+
+    &:not(.disabled):not([disabled]):active + label {
+      .checkmark {
+        border: $space-xxxs solid var(--primary-color-70);
+        background-color: var(--accent-color-30);
+
+        &.toggle {
+          border: $space-xxxs solid var(--primary-color-70);
+          background-color: var(--accent-color-30);
+
+          &:after {
+            background-color: var(--primary-color-70);
+            border-color: var(--primary-color-70);
+          }
+        }
+      }
+    }
+
+    &:not(.disabled):not([disabled]):hover + label {
+      .checkmark {
+        border: $space-xxxs solid var(--primary-color-70);
+        background-color: var(--accent-color-10);
+
+        &.toggle {
+          border: $space-xxxs solid var(--primary-color-70);
+          background-color: var(--accent-color-10);
+
+          &:after {
+            background-color: var(--primary-color-70);
+            border-color: var(--primary-color-70);
+          }
+        }
+      }
+    }
+  }
+
+  input:checked {
+    &[disabled] {
+      cursor: not-allowed;
+    }
+
+    & + label {
+      transition: all $motion-duration-extra-fast $motion-ease-out-back
+        $motion-delay-s;
+
+      .checkmark {
+        background-color: var(--accent-color-30);
+        border: $space-xxxs solid var(--primary-color-70);
+
+        &.toggle {
+          background-color: var(--accent-color-30);
+          border: $space-xxxs solid var(--primary-color-70);
+
+          &:after {
+            background-color: var(--primary-color-70);
+            border-color: var(--primary-color-70);
+          }
+        }
+      }
+
+      .checkmark {
+        &:after {
+          border-color: var(--primary-color-70);
+          opacity: 1;
+          transform: rotate(45deg) scale(0.7);
+          transition: all $motion-duration-extra-fast $motion-ease-out-back
+            $motion-delay-s;
+        }
+
+        &.toggle {
+          &:after {
+            background-color: var(--primary-color-70);
+            border-color: var(--primary-color-70);
+            left: $toggle-medium-after-left-checked;
+            opacity: 1;
+            transform: none;
+            transition: all $motion-duration-extra-fast $motion-ease-out-back
+              $motion-delay-s;
+          }
+        }
+      }
+    }
+
+    &:not(.disabled):not([disabled]):active + label {
+      .checkmark {
+        transform: scale(0.98);
+        background-color: var(--accent-color-10);
+        border: $space-xxxs solid var(--primary-color-70);
+
+        &.toggle {
+          transform: scale(0.98);
+          background-color: var(--accent-color-10);
+          border: $space-xxxs solid var(--primary-color-70);
+
+          &:after {
+            background-color: var(--primary-color-70);
+            border-color: var(--primary-color-70);
+          }
+        }
+      }
+    }
+
+    &:not(.disabled):not([disabled]):hover + label {
+      .checkmark {
+        background-color: var(--accent-color-20);
+        border: $space-xxxs solid var(--primary-color-70);
+
+        &.toggle {
+          background-color: var(--accent-color-20);
+          border: $space-xxxs solid var(--primary-color-70);
+
+          &:after {
+            background-color: var(--primary-color-70);
+            border-color: var(--primary-color-70);
+          }
+        }
+      }
+    }
+  }
+
+  label {
     display: flex;
-    font-family: $octuple-font-family;
-    position: relative;
-    width: fit-content;
+    align-items: center;
+    margin-bottom: 0;
+    font-weight: $text-font-weight-regular;
+  }
 
+  .selector-label {
+    font-size: $text-font-size-2;
+
+    &-end {
+      margin-left: $space-xs;
+    }
+
+    &-start {
+      margin-right: $space-xs;
+    }
+  }
+
+  &-large {
     input {
-        position: absolute;
-        opacity: 0;
-        height: 100%;
-        width: 100%;
-        cursor: pointer;
-        z-index: 1;
+      & + label {
+        .checkmark {
+          min-height: $checkmark-large-height;
+          height: $checkmark-large-height;
+          width: $checkmark-large-width;
+          min-width: $checkmark-large-width;
 
-        &[disabled] {
-            cursor: not-allowed;
+          &:after {
+            height: $checkmark-large-after-height;
+            left: $checkmark-large-after-left;
+            top: $checkmark-large-after-top;
+            width: $checkmark-large-after-width;
+          }
 
-            & + label {
-                opacity: $disabled-alpha-value;
-                cursor: not-allowed;
+          &.toggle {
+            border-radius: $toggle-large-height;
+            min-height: $toggle-large-height;
+            height: $toggle-large-height;
+            min-width: $toggle-large-width;
+            width: $toggle-large-width;
+
+            &:after {
+              height: $toggle-large-after-height;
+              left: $toggle-large-after-left;
+              top: $toggle-large-after-top;
+              width: $toggle-large-after-width;
             }
+          }
         }
-
-        & + label {
-            &.align-start {
-                align-items: flex-start;
-                display: flex;
-            }
-
-            &.align-start .checkmark {
-                margin-top: $space-xxxs;
-            }
-
-            &.align-end {
-                align-items: flex-end;
-                display: flex;
-            }
-
-            .checkmark {
-                border: $space-xxxs solid var(--grey-color-70);
-                border-radius: $corner-radius-xs;
-                height: $checkmark-medium-height;
-                width: $checkmark-medium-width;
-                min-height: $checkmark-medium-height;
-                min-width: $checkmark-medium-width;
-                left: 0;
-                position: relative;
-                top: 0;
-                transition: all $motion-duration-extra-fast $motion-ease-in-back
-                    $motion-delay-s;
-
-                &:after {
-                    border: solid var(--primary-color);
-                    border-width: 0 $space-xxxs $space-xxxs 0;
-                    content: '';
-                    display: block;
-                    height: $checkmark-medium-after-height;
-                    left: $checkmark-medium-after-left;
-                    opacity: 0;
-                    position: absolute;
-                    top: $checkmark-medium-after-top;
-                    transform: rotate(45deg) scale(0);
-                    transition: all $motion-duration-extra-fast
-                        $motion-ease-in-back $motion-delay-s;
-                    width: $checkmark-medium-after-width;
-                }
-
-                &.toggle {
-                    border: $space-xxxs solid var(--grey-color-70);
-                    border-radius: $toggle-medium-height;
-                    min-height: $toggle-medium-height;
-                    height: $toggle-medium-height;
-                    left: 0;
-                    min-width: $toggle-medium-width;
-                    position: relative;
-                    top: 0;
-                    transition: all $motion-duration-extra-fast
-                        $motion-ease-in-back $motion-delay-s;
-                    width: $toggle-medium-width;
-
-                    &:after {
-                        background-color: var(--grey-color-70);
-                        border: solid var(--grey-color-70);
-                        border-radius: 50%;
-                        border-width: $space-xxxs;
-                        content: '';
-                        display: block;
-                        height: $toggle-medium-after-height;
-                        left: $toggle-medium-after-left;
-                        opacity: 1;
-                        position: absolute;
-                        top: $toggle-medium-after-top;
-                        transform: none;
-                        transition: all $motion-duration-extra-fast
-                            $motion-ease-in-back $motion-delay-s;
-                        width: $toggle-medium-after-width;
-                    }
-                }
-            }
-        }
-
-        &:not(.disabled):not([disabled]):active + label {
-            .checkmark {
-                border: $space-xxxs solid var(--primary-color-70);
-                background-color: var(--accent-color-30);
-
-                &.toggle {
-                    border: $space-xxxs solid var(--primary-color-70);
-                    background-color: var(--accent-color-30);
-
-                    &:after {
-                        background-color: var(--primary-color-70);
-                        border-color: var(--primary-color-70);
-                    }
-                }
-            }
-        }
-
-        &:not(.disabled):not([disabled]):hover + label {
-            .checkmark {
-                border: $space-xxxs solid var(--primary-color-70);
-                background-color: var(--accent-color-10);
-
-                &.toggle {
-                    border: $space-xxxs solid var(--primary-color-70);
-                    background-color: var(--accent-color-10);
-
-                    &:after {
-                        background-color: var(--primary-color-70);
-                        border-color: var(--primary-color-70);
-                    }
-                }
-            }
-        }
+      }
     }
 
     input:checked {
-        &[disabled] {
-            cursor: not-allowed;
-        }
+      & + label {
+        .checkmark {
+          &:after {
+            transform: rotate(45deg) scale(0.76);
+          }
 
-        & + label {
-            transition: all $motion-duration-extra-fast $motion-ease-out-back
-                $motion-delay-s;
-
-            .checkmark {
-                background-color: var(--accent-color-30);
-                border: $space-xxxs solid var(--primary-color-70);
-
-                &.toggle {
-                    background-color: var(--accent-color-30);
-                    border: $space-xxxs solid var(--primary-color-70);
-
-                    &:after {
-                        background-color: var(--primary-color-70);
-                        border-color: var(--primary-color-70);
-                    }
-                }
+          &.toggle {
+            &:after {
+              left: $toggle-large-after-left-checked;
             }
-
-            .checkmark {
-                &:after {
-                    border-color: var(--primary-color-70);
-                    opacity: 1;
-                    transform: rotate(45deg) scale(0.7);
-                    transition: all $motion-duration-extra-fast
-                        $motion-ease-out-back $motion-delay-s;
-                }
-
-                &.toggle {
-                    &:after {
-                        background-color: var(--primary-color-70);
-                        border-color: var(--primary-color-70);
-                        left: $toggle-medium-after-left-checked;
-                        opacity: 1;
-                        transform: none;
-                        transition: all $motion-duration-extra-fast
-                            $motion-ease-out-back $motion-delay-s;
-                    }
-                }
-            }
+          }
         }
-
-        &:not(.disabled):not([disabled]):active + label {
-            .checkmark {
-                transform: scale(0.98);
-                background-color: var(--accent-color-10);
-                border: $space-xxxs solid var(--primary-color-70);
-
-                &.toggle {
-                    transform: scale(0.98);
-                    background-color: var(--accent-color-10);
-                    border: $space-xxxs solid var(--primary-color-70);
-
-                    &:after {
-                        background-color: var(--primary-color-70);
-                        border-color: var(--primary-color-70);
-                    }
-                }
-            }
-        }
-
-        &:not(.disabled):not([disabled]):hover + label {
-            .checkmark {
-                background-color: var(--accent-color-20);
-                border: $space-xxxs solid var(--primary-color-70);
-
-                &.toggle {
-                    background-color: var(--accent-color-20);
-                    border: $space-xxxs solid var(--primary-color-70);
-
-                    &:after {
-                        background-color: var(--primary-color-70);
-                        border-color: var(--primary-color-70);
-                    }
-                }
-            }
-        }
-    }
-
-    label {
-        display: flex;
-        align-items: center;
-        margin-bottom: 0;
-        font-weight: $text-font-weight-regular;
+      }
     }
 
     .selector-label {
-        font-size: $text-font-size-2;
+      font-size: $text-font-size-3;
 
+      &-end {
+        margin-left: $space-m;
+      }
+
+      &-start {
+        margin-right: $space-m;
+      }
+    }
+  }
+
+  &-medium {
+    input {
+      & + label {
+        .checkmark {
+          min-height: $checkmark-medium-height;
+          height: $checkmark-medium-height;
+          min-width: $checkmark-medium-width;
+          width: $checkmark-medium-width;
+
+          &:after {
+            height: $checkmark-medium-after-height;
+            left: $checkmark-medium-after-left;
+            top: $checkmark-medium-after-top;
+            width: $checkmark-medium-after-width;
+          }
+
+          &.toggle {
+            border-radius: $toggle-medium-height;
+            min-height: $toggle-medium-height;
+            height: $toggle-medium-height;
+            min-width: $toggle-medium-width;
+            width: $toggle-medium-width;
+
+            &:after {
+              height: $toggle-medium-after-height;
+              left: $toggle-medium-after-left;
+              top: $toggle-medium-after-top;
+              width: $toggle-medium-after-width;
+            }
+          }
+        }
+      }
+    }
+
+    input:checked {
+      & + label {
+        .checkmark {
+          &:after {
+            transform: rotate(45deg) scale(0.7);
+          }
+
+          &.toggle {
+            &:after {
+              left: $toggle-medium-after-left-checked;
+            }
+          }
+        }
+      }
+    }
+
+    .selector-label {
+      font-size: $text-font-size-2;
+
+      &-end {
+        margin-left: $space-xs;
+      }
+
+      &-start {
+        margin-right: $space-xs;
+      }
+    }
+  }
+
+  &-small {
+    input {
+      & + label {
+        .checkmark {
+          min-height: $checkmark-small-height;
+          height: $checkmark-small-height;
+          min-width: $checkmark-small-width;
+          width: $checkmark-small-width;
+
+          &:after {
+            height: $checkmark-small-after-height;
+            left: $checkmark-small-after-left;
+            top: $checkmark-small-after-top;
+            width: $checkmark-small-after-width;
+          }
+
+          &.toggle {
+            border-radius: $toggle-small-height;
+            min-height: $toggle-small-height;
+            height: $toggle-small-height;
+            min-width: $toggle-small-width;
+            width: $toggle-small-width;
+
+            &:after {
+              height: $toggle-small-after-height;
+              left: $toggle-small-after-left;
+              top: $toggle-small-after-top;
+              width: $toggle-small-after-width;
+            }
+          }
+        }
+      }
+    }
+
+    input:checked {
+      & + label {
+        .checkmark {
+          &.toggle {
+            &:after {
+              left: $toggle-small-after-left-checked;
+            }
+          }
+        }
+      }
+    }
+
+    .selector-label {
+      font-size: $text-font-size-1;
+
+      &-end {
+        margin-left: $space-xxs;
+      }
+
+      &-start {
+        margin-right: $space-xxs;
+      }
+    }
+  }
+
+  &.disabled {
+    input {
+      cursor: not-allowed;
+
+      & + label {
+        .checkmark {
+          opacity: 50%;
+
+          &.toggle {
+            opacity: 50%;
+          }
+        }
+      }
+    }
+
+    input:checked {
+      cursor: not-allowed;
+    }
+  }
+
+  &-rtl {
+    .selector-label {
+      &-end {
+        margin-left: 0;
+        margin-right: $space-xs;
+      }
+
+      &-start {
+        margin-left: $space-xs;
+        margin-right: 0;
+      }
+    }
+
+    &-large {
+      .selector-label {
         &-end {
-            margin-left: $space-xs;
+          margin-left: 0;
+          margin-right: $space-m;
         }
 
         &-start {
-            margin-right: $space-xs;
+          margin-left: $space-m;
+          margin-right: 0;
         }
-    }
-
-    &-large {
-        input {
-            & + label {
-                .checkmark {
-                    min-height: $checkmark-large-height;
-                    height: $checkmark-large-height;
-                    width: $checkmark-large-width;
-                    min-width: $checkmark-large-width;
-
-                    &:after {
-                        height: $checkmark-large-after-height;
-                        left: $checkmark-large-after-left;
-                        top: $checkmark-large-after-top;
-                        width: $checkmark-large-after-width;
-                    }
-
-                    &.toggle {
-                        border-radius: $toggle-large-height;
-                        min-height: $toggle-large-height;
-                        height: $toggle-large-height;
-                        min-width: $toggle-large-width;
-                        width: $toggle-large-width;
-
-                        &:after {
-                            height: $toggle-large-after-height;
-                            left: $toggle-large-after-left;
-                            top: $toggle-large-after-top;
-                            width: $toggle-large-after-width;
-                        }
-                    }
-                }
-            }
-        }
-
-        input:checked {
-            & + label {
-                .checkmark {
-                    &:after {
-                        transform: rotate(45deg) scale(0.76);
-                    }
-
-                    &.toggle {
-                        &:after {
-                            left: $toggle-large-after-left-checked;
-                        }
-                    }
-                }
-            }
-        }
-
-        .selector-label {
-            font-size: $text-font-size-3;
-
-            &-end {
-                margin-left: $space-m;
-            }
-
-            &-start {
-                margin-right: $space-m;
-            }
-        }
+      }
     }
 
     &-medium {
-        input {
-            & + label {
-                .checkmark {
-                    min-height: $checkmark-medium-height;
-                    height: $checkmark-medium-height;
-                    min-width: $checkmark-medium-width;
-                    width: $checkmark-medium-width;
-
-                    &:after {
-                        height: $checkmark-medium-after-height;
-                        left: $checkmark-medium-after-left;
-                        top: $checkmark-medium-after-top;
-                        width: $checkmark-medium-after-width;
-                    }
-
-                    &.toggle {
-                        border-radius: $toggle-medium-height;
-                        min-height: $toggle-medium-height;
-                        height: $toggle-medium-height;
-                        min-width: $toggle-medium-width;
-                        width: $toggle-medium-width;
-
-                        &:after {
-                            height: $toggle-medium-after-height;
-                            left: $toggle-medium-after-left;
-                            top: $toggle-medium-after-top;
-                            width: $toggle-medium-after-width;
-                        }
-                    }
-                }
-            }
+      .selector-label {
+        &-end {
+          margin-left: 0;
+          margin-right: $space-xs;
         }
 
-        input:checked {
-            & + label {
-                .checkmark {
-                    &:after {
-                        transform: rotate(45deg) scale(0.7);
-                    }
-
-                    &.toggle {
-                        &:after {
-                            left: $toggle-medium-after-left-checked;
-                        }
-                    }
-                }
-            }
+        &-start {
+          margin-left: $space-xs;
+          margin-right: 0;
         }
-
-        .selector-label {
-            font-size: $text-font-size-2;
-
-            &-end {
-                margin-left: $space-xs;
-            }
-
-            &-start {
-                margin-right: $space-xs;
-            }
-        }
+      }
     }
 
     &-small {
-        input {
-            & + label {
-                .checkmark {
-                    min-height: $checkmark-small-height;
-                    height: $checkmark-small-height;
-                    min-width: $checkmark-small-width;
-                    width: $checkmark-small-width;
-
-                    &:after {
-                        height: $checkmark-small-after-height;
-                        left: $checkmark-small-after-left;
-                        top: $checkmark-small-after-top;
-                        width: $checkmark-small-after-width;
-                    }
-
-                    &.toggle {
-                        border-radius: $toggle-small-height;
-                        min-height: $toggle-small-height;
-                        height: $toggle-small-height;
-                        min-width: $toggle-small-width;
-                        width: $toggle-small-width;
-
-                        &:after {
-                            height: $toggle-small-after-height;
-                            left: $toggle-small-after-left;
-                            top: $toggle-small-after-top;
-                            width: $toggle-small-after-width;
-                        }
-                    }
-                }
-            }
+      .selector-label {
+        &-end {
+          margin-left: 0;
+          margin-right: $space-xxs;
         }
 
-        input:checked {
-            & + label {
-                .checkmark {
-                    &.toggle {
-                        &:after {
-                            left: $toggle-small-after-left-checked;
-                        }
-                    }
-                }
-            }
+        &-start {
+          margin-left: $space-xxs;
+          margin-right: 0;
         }
-
-        .selector-label {
-            font-size: $text-font-size-1;
-
-            &-end {
-                margin-left: $space-xxs;
-            }
-
-            &-start {
-                margin-right: $space-xxs;
-            }
-        }
+      }
     }
-
-    &.disabled {
-        input {
-            cursor: not-allowed;
-
-            & + label {
-                .checkmark {
-                    opacity: 50%;
-
-                    &.toggle {
-                        opacity: 50%;
-                    }
-                }
-            }
-        }
-
-        input:checked {
-            cursor: not-allowed;
-        }
-    }
-
-    &-rtl {
-        .selector-label {
-            &-end {
-                margin-left: 0;
-                margin-right: $space-xs;
-            }
-
-            &-start {
-                margin-left: $space-xs;
-                margin-right: 0;
-            }
-        }
-
-        &-large {
-            .selector-label {
-                &-end {
-                    margin-left: 0;
-                    margin-right: $space-m;
-                }
-
-                &-start {
-                    margin-left: $space-m;
-                    margin-right: 0;
-                }
-            }
-        }
-
-        &-medium {
-            .selector-label {
-                &-end {
-                    margin-left: 0;
-                    margin-right: $space-xs;
-                }
-
-                &-start {
-                    margin-left: $space-xs;
-                    margin-right: 0;
-                }
-            }
-        }
-
-        &-small {
-            .selector-label {
-                &-end {
-                    margin-left: 0;
-                    margin-right: $space-xxs;
-                }
-
-                &-start {
-                    margin-left: $space-xxs;
-                    margin-right: 0;
-                }
-            }
-        }
-    }
+  }
 }
 
 :global(.focus-visible) {
-    input[type='checkbox'] {
-        &:checked {
-            &:focus-visible + label {
-                .checkmark {
-                    outline: $space-xxxs solid var(--primary-color-50);
-                    outline-offset: $selector-outline-offset;
+  input[type='checkbox'] {
+    &:checked {
+      &:focus-visible + label {
+        .checkmark {
+          outline: $space-xxxs solid var(--primary-color-50);
+          outline-offset: $selector-outline-offset;
 
-                    &.toggle {
-                        outline: $space-xxxs solid var(--primary-color-50);
-                        outline-offset: $selector-outline-offset;
-                    }
-                }
+          &.toggle {
+            outline: $space-xxxs solid var(--primary-color-50);
+            outline-offset: $selector-outline-offset;
+          }
+        }
+      }
+    }
+
+    &:focus-visible + label {
+      .checkmark {
+        border: $space-xxxs solid var(--primary-color);
+        outline: $space-xxxs solid var(--primary-color-50);
+        outline-offset: $selector-outline-offset;
+
+        &.toggle {
+          border: $space-xxxs solid var(--primary-color);
+          outline: $space-xxxs solid var(--primary-color-50);
+          outline-offset: $selector-outline-offset;
+
+          &:after {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+          }
+        }
+      }
+    }
+
+    &[disabled] {
+      &:checked {
+        &:focus-visible + label {
+          .checkmark {
+            outline: none;
+
+            &.toggle {
+              outline: none;
             }
+          }
+        }
+      }
+
+      &:focus-visible + label {
+        .checkmark {
+          outline: none;
+          border: $space-xxxs solid var(--grey-color-70);
+
+          &.toggle {
+            outline: none;
+            border: $space-xxxs solid var(--grey-color-70);
+
+            &:after {
+              background-color: var(--primary-color-70);
+              border-color: var(--primary-color-70);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .selector {
+    &.disabled {
+      input {
+        &:checked {
+          &:focus-visible + label {
+            .checkmark {
+              outline: none;
+
+              &.toggle {
+                outline: none;
+              }
+            }
+          }
         }
 
         &:focus-visible + label {
-            .checkmark {
-                border: $space-xxxs solid var(--primary-color);
-                outline: $space-xxxs solid var(--primary-color-50);
-                outline-offset: $selector-outline-offset;
+          .checkmark {
+            outline: none;
+            border: $space-xxxs solid var(--grey-color-70);
 
-                &.toggle {
-                    border: $space-xxxs solid var(--primary-color);
-                    outline: $space-xxxs solid var(--primary-color-50);
-                    outline-offset: $selector-outline-offset;
+            &.toggle {
+              outline: none;
+              border: $space-xxxs solid var(--grey-color-70);
 
-                    &:after {
-                        background-color: var(--primary-color);
-                        border-color: var(--primary-color);
-                    }
-                }
+              &:after {
+                background-color: var(--primary-color-70);
+                border-color: var(--primary-color-70);
+              }
             }
+          }
         }
-
-        &[disabled] {
-            &:checked {
-                &:focus-visible + label {
-                    .checkmark {
-                        outline: none;
-
-                        &.toggle {
-                            outline: none;
-                        }
-                    }
-                }
-            }
-
-            &:focus-visible + label {
-                .checkmark {
-                    outline: none;
-                    border: $space-xxxs solid var(--grey-color-70);
-
-                    &.toggle {
-                        outline: none;
-                        border: $space-xxxs solid var(--grey-color-70);
-
-                        &:after {
-                            background-color: var(--primary-color-70);
-                            border-color: var(--primary-color-70);
-                        }
-                    }
-                }
-            }
-        }
+      }
     }
-
-    .selector {
-        &.disabled {
-            input {
-                &:checked {
-                    &:focus-visible + label {
-                        .checkmark {
-                            outline: none;
-
-                            &.toggle {
-                                outline: none;
-                            }
-                        }
-                    }
-                }
-
-                &:focus-visible + label {
-                    .checkmark {
-                        outline: none;
-                        border: $space-xxxs solid var(--grey-color-70);
-
-                        &.toggle {
-                            outline: none;
-                            border: $space-xxxs solid var(--grey-color-70);
-
-                            &:after {
-                                background-color: var(--primary-color-70);
-                                border-color: var(--primary-color-70);
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
+  }
 }
 
 .checkbox-group {
-    display: flex;
+  display: flex;
+  gap: $space-s;
+
+  &.vertical {
+    flex-direction: column;
+  }
+
+  &.horizontal {
+    flex-direction: row;
+  }
+
+  &-large {
+    gap: $space-m;
+  }
+
+  &-medium {
     gap: $space-s;
+  }
 
-    &.vertical {
-        flex-direction: column;
-    }
-
-    &.horizontal {
-        flex-direction: row;
-    }
-
-    &-large {
-        gap: $space-m;
-    }
-
-    &-medium {
-        gap: $space-s;
-    }
-
-    &-small {
-        gap: $space-xs;
-    }
+  &-small {
+    gap: $space-xs;
+  }
 }
 
 .label-no-value {
-    margin-bottom: $label-no-value-margin-bottom;
+  margin-bottom: $label-no-value-margin-bottom;
 }

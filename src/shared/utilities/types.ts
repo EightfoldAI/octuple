@@ -8,10 +8,10 @@ export const tupleNum = <T extends number[]>(...args: T) => args;
  * performing indexing
  */
 export type ElementOf<T> = T extends (infer E)[]
-    ? E
-    : T extends readonly (infer F)[]
-    ? F
-    : never;
+  ? E
+  : T extends readonly (infer F)[]
+  ? F
+  : never;
 
 /** https://github.com/Microsoft/TypeScript/issues/29729 */
 export type LiteralUnion<T extends U, U> = T | (U & {});

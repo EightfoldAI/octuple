@@ -3,23 +3,23 @@ $border-color: var(--grey-color-20);
 $border: $border-width solid $border-color;
 
 @mixin operation-unit() {
-    color: var(--primary-color);
-    text-decoration: none;
-    outline: none;
-    cursor: pointer;
-    transition: color 0.3s;
+  color: var(--primary-color);
+  text-decoration: none;
+  outline: none;
+  cursor: pointer;
+  transition: color 0.3s;
 
-    &:focus,
-    &:hover {
-        color: var(--primary-color-80);
-    }
+  &:focus,
+  &:hover {
+    color: var(--primary-color-80);
+  }
 
-    &:active {
-        color: var(--primary-color-80);
-    }
+  &:active {
+    color: var(--primary-color-80);
+  }
 }
 
 @mixin table-border() {
-    border: $table-border;
-    border-radius: $table-border-radius;
+  border: $table-border;
+  border-radius: $table-border-radius;
 }

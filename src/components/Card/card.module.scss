@@ -1,153 +1,151 @@
 .card {
-    --bg-color: $background-color-white;
+  background-color: --card-background-color;
+  border-radius: var(--card-border-radius);
+  color: var(--card-text-color);
+  display: block;
+  font-family: var(--card-font-family);
+  gap: $space-m;
+  padding: $space-ml;
+  width: 360px;
+  position: relative;
 
-    background-color: var(--bg-color);
-    border-radius: $corner-radius-xl;
-    color: var(--black-color);
-    display: block;
-    font-family: $octuple-font-family;
-    gap: $space-m;
-    padding: $space-ml;
-    width: 360px;
-    position: relative;
+  &-bordered {
+    border: 1px solid var(--border-color);
+  }
 
-    &-bordered {
-        border: 1px solid var(--border-color);
-    }
+  .icon {
+    color: inherit;
+  }
 
-    .icon {
-        color: inherit;
-    }
+  .message {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    color: inherit;
+  }
 
-    .message {
-        flex: 1;
-        display: flex;
-        align-items: center;
-        color: inherit;
-    }
+  .buttons-container {
+    padding: $space-m;
+  }
 
-    .buttons-container {
-        padding: $space-m;
-    }
+  &-large {
+    height: 278px;
+  }
 
-    &-large {
-        height: 278px;
-    }
+  &-medium,
+  &-small {
+    height: 260px;
+  }
 
-    &-medium,
-    &-small {
-        height: 260px;
-    }
+  &.disabled {
+    opacity: $disabled-alpha-value;
+    cursor: not-allowed;
+  }
 
-    &.disabled {
-        opacity: $disabled-alpha-value;
-        cursor: not-allowed;
-    }
+  &.drop-shadow {
+    box-shadow: $shadow-object-m;
+  }
 
-    &.drop-shadow {
-        box-shadow: $shadow-object-m;
-    }
+  .header {
+    @include octuple-h4();
+    display: flex;
+    flex-direction: row;
+    margin-bottom: $space-ml;
+    padding: $disabled-zero;
 
-    .header {
-        @include octuple-h4();
-        display: flex;
-        flex-direction: row;
-        margin-bottom: $space-ml;
-        padding: $disabled-zero;
-
-        .main-header {
-            display: flex;
-            .icon {
-                height: fit-content;
-                padding-top: $space-xs;
-            }
-
-            .title {
-                margin-left: $space-xs;
-            }
-
-            &-button {
-                margin-right: $space-l;
-                padding: $disabled-zero;
-                padding-bottom: $space-s;
-                background-color: $background-color-white;
-            }
-
-            &-buttons {
-                align-items: flex-end;
-                align-self: start;
-                height: fit-content;
-                justify-content: right;
-                white-space: nowrap;
-
-                button {
-                    margin-left: $space-xs;
-                }
-            }
-        }
-
-        .sub-header {
-            opacity: 50%;
-            font-style: normal;
-            font-weight: $text-font-weight-regular;
-            font-size: $text-font-size-3;
-            line-height: $text-line-height-3;
-            display: flex;
-
-            .separator {
-                height: $space-xxs;
-                width: $space-xxs;
-                margin-right: $space-xs;
-                margin-left: $space-xs;
-                margin-top: $space-s;
-            }
-        }
-
-        .button-icon {
-            position: absolute;
-            right: $disabled-zero;
-            background-color: $background-color-white;
-        }
-    }
-
-    .body {
-        display: flex;
-        flex-direction: column;
-        overflow-y: auto;
-        overflow-x: hidden;
-        flex: 1;
-        line-height: normal;
-
-        .list {
-            margin-bottom: $space-ml;
-
-            &-item {
-                display: flex;
-            }
-
-            ul {
-                flex-wrap: wrap;
-                display: -webkit-inline-box;
-            }
-        }
-    }
-
-    .footer {
+    .main-header {
+      display: flex;
+      .icon {
+        height: fit-content;
         padding-top: $space-xs;
-        bottom: $space-l;
-        position: absolute;
-        width: 100%;
-        padding-right: 40px;
+      }
 
-        .container {
-            display: flex;
-            justify-content: space-between;
+      .title {
+        margin-left: $space-xs;
+      }
 
-            .content {
-                display: flex;
-            }
+      &-button {
+        margin-right: $space-l;
+        padding: $disabled-zero;
+        padding-bottom: $space-s;
+        background-color: $background-color-white;
+      }
+
+      &-buttons {
+        align-items: flex-end;
+        align-self: start;
+        height: fit-content;
+        justify-content: right;
+        white-space: nowrap;
+
+        button {
+          margin-left: $space-xs;
         }
+      }
     }
+
+    .sub-header {
+      opacity: 50%;
+      font-style: normal;
+      font-weight: $text-font-weight-regular;
+      font-size: $text-font-size-3;
+      line-height: $text-line-height-3;
+      display: flex;
+
+      .separator {
+        height: $space-xxs;
+        width: $space-xxs;
+        margin-right: $space-xs;
+        margin-left: $space-xs;
+        margin-top: $space-s;
+      }
+    }
+
+    .button-icon {
+      position: absolute;
+      right: $disabled-zero;
+      background-color: $background-color-white;
+    }
+  }
+
+  .body {
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    overflow-x: hidden;
+    flex: 1;
+    line-height: normal;
+
+    .list {
+      margin-bottom: $space-ml;
+
+      &-item {
+        display: flex;
+      }
+
+      ul {
+        flex-wrap: wrap;
+        display: -webkit-inline-box;
+      }
+    }
+  }
+
+  .footer {
+    padding-top: $space-xs;
+    bottom: $space-l;
+    position: absolute;
+    width: 100%;
+    padding-right: 40px;
+
+    .container {
+      display: flex;
+      justify-content: space-between;
+
+      .content {
+        display: flex;
+      }
+    }
+  }
 }
 
 @import './Styles/rtl';

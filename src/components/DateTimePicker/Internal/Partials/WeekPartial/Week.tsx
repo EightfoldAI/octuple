@@ -8,36 +8,31 @@ import { DatePickerSize } from '../../OcPicker.types';
 import styles from '../../ocpicker.module.scss';
 
 function WeekPartial<DateType>(props: WeekPartialProps<DateType>) {
-    const {
-        generateConfig,
-        locale,
-        size = DatePickerSize.Medium,
-        value,
-    } = props;
-    const rowClassNames = (date: DateType): string =>
-        mergeClasses([
-            styles.pickerWeekPartialRow,
-            {
-                [styles.pickerWeekPartialRowSelected]: isSameWeek(
-                    generateConfig,
-                    locale.locale,
-                    value,
-                    date
-                ),
-            },
-        ]);
+  const { generateConfig, locale, size = DatePickerSize.Medium, value } = props;
+  const rowClassNames = (date: DateType): string =>
+    mergeClasses([
+      styles.pickerWeekPartialRow,
+      {
+        [styles.pickerWeekPartialRowSelected]: isSameWeek(
+          generateConfig,
+          locale.locale,
+          value,
+          date
+        ),
+      },
+    ]);
 
-    return (
-        <DatePartial
-            {...props}
-            partialName="week"
-            rowClassNames={rowClassNames}
-            keyboardConfig={{
-                onLeftRight: null,
-            }}
-            size={size}
-        />
-    );
+  return (
+    <DatePartial
+      {...props}
+      partialName="week"
+      rowClassNames={rowClassNames}
+      keyboardConfig={{
+        onLeftRight: null,
+      }}
+      size={size}
+    />
+  );
 }
 
 export default WeekPartial;

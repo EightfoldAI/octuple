@@ -2,125 +2,124 @@ $dialog-body-top-shadow: inset 0 11px 8px -10px var(--grey-color-20);
 $dialog-body-bottom-shadow: inset 0 -11px 8px -10px var(--grey-color-20);
 
 .dialog-backdrop {
-    &:not(.modeless) {
-        @include backdrop;
+  &:not(.modeless) {
+    @include backdrop;
+  }
+
+  &.modeless {
+    @include no-backdrop;
+  }
+
+  align-items: center;
+  display: flex;
+  font-family: $octuple-font-family;
+  justify-content: center;
+
+  .dialog {
+    position: absolute;
+    padding: $space-l 0;
+    background: var(--background-color);
+    border-radius: $border-radius-xl;
+    box-shadow: $shadow-object-l;
+    opacity: 0;
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 $space-xl;
+
+      &-button {
+        margin-right: $space-m;
+      }
+
+      &-buttons {
+        align-items: flex-end;
+        align-self: start;
+        height: fit-content;
+        justify-content: right;
+        white-space: nowrap;
+
+        button {
+          margin-left: $space-xs;
+        }
+      }
+    }
+
+    &.no-body-padding {
+      padding: 0;
+
+      .header {
+        padding: $space-ml $space-ml $space-s $space-ml;
+      }
+
+      .footer {
+        padding: $space-ml;
+      }
+    }
+
+    .footer {
+      padding: $space-ml $space-xl 0;
+    }
+
+    &-rtl {
+      .header {
+        &-button {
+          margin-left: $space-m;
+          margin-right: unset;
+        }
+
+        &-buttons {
+          button {
+            margin-left: unset;
+            margin-right: $space-xs;
+          }
+        }
+      }
+
+      .footer {
+        padding: $space-ml 0 0 $space-xl;
+      }
+    }
+  }
+
+  .body {
+    padding: 0 $space-xl;
+    transition: box-shadow $motion-duration-extra-fast $motion-easing-easeinout;
+  }
+
+  .body-top-shadow {
+    box-shadow: $dialog-body-top-shadow;
+  }
+
+  .body-bottom-shadow {
+    box-shadow: $dialog-body-bottom-shadow;
+  }
+
+  .body-top-bottom-shadow {
+    box-shadow: $dialog-body-top-shadow, $dialog-body-bottom-shadow;
+  }
+
+  &.visible {
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+
+    .dialog {
+      animation: scaleIn $motion-duration-extra-fast $motion-easing-easeinout 0s
+        forwards;
     }
 
     &.modeless {
-        @include no-backdrop;
+      pointer-events: none;
+
+      .dialog {
+        pointer-events: all;
+      }
     }
 
-    align-items: center;
-    display: flex;
-    font-family: $octuple-font-family;
-    justify-content: center;
-
-    .dialog {
-        position: absolute;
-        padding: $space-l 0;
-        background: var(--background-color);
-        border-radius: $corner-radius-xl;
-        box-shadow: $shadow-object-l;
-        opacity: 0;
-
-        .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 $space-xl;
-
-            &-button {
-                margin-right: $space-m;
-            }
-
-            &-buttons {
-                align-items: flex-end;
-                align-self: start;
-                height: fit-content;
-                justify-content: right;
-                white-space: nowrap;
-
-                button {
-                    margin-left: $space-xs;
-                }
-            }
-        }
-
-        &.no-body-padding {
-            padding: 0;
-
-            .header {
-                padding: $space-ml $space-ml $space-s $space-ml;
-            }
-
-            .footer {
-                padding: $space-ml;
-            }
-        }
-
-        .footer {
-            padding: $space-ml $space-xl 0;
-        }
-
-        &-rtl {
-            .header {
-                &-button {
-                    margin-left: $space-m;
-                    margin-right: unset;
-                }
-
-                &-buttons {
-                    button {
-                        margin-left: unset;
-                        margin-right: $space-xs;
-                    }
-                }
-            }
-
-            .footer {
-                padding: $space-ml 0 0 $space-xl;
-            }
-        }
+    &.modeless-mask {
+      pointer-events: auto;
     }
-
-    .body {
-        padding: 0 $space-xl;
-        transition: box-shadow $motion-duration-extra-fast
-            $motion-easing-easeinout;
-    }
-
-    .body-top-shadow {
-        box-shadow: $dialog-body-top-shadow;
-    }
-
-    .body-bottom-shadow {
-        box-shadow: $dialog-body-bottom-shadow;
-    }
-
-    .body-top-bottom-shadow {
-        box-shadow: $dialog-body-top-shadow, $dialog-body-bottom-shadow;
-    }
-
-    &.visible {
-        visibility: visible;
-        opacity: 1;
-        pointer-events: auto;
-
-        .dialog {
-            animation: scaleIn $motion-duration-extra-fast
-                $motion-easing-easeinout 0s forwards;
-        }
-
-        &.modeless {
-            pointer-events: none;
-
-            .dialog {
-                pointer-events: all;
-            }
-        }
-
-        &.modeless-mask {
-            pointer-events: auto;
-        }
-    }
+  }
 }
