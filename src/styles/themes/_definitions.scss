@@ -54,15 +54,7 @@ $color-tertiary-blue: var(--blue-color-60);
 $color-tertiary-violet: var(--violet-color-60);
 $color-tertiary-grey: var(--grey-color-60);
 
-$text-color-primary: var(--grey-color-90);
-$text-color-secondary: var(--grey-color-80);
-
-$card-background-color: var(--background-color);
-$background-color-white: var(--background-color);
-
 $input-field-color-enabled: var(--grey-color-40);
-
-$divider-line-color: var(--grey-color-40);
 
 // Gradient Definitions
 
@@ -92,7 +84,7 @@ $expandable-header-gradient: linear-gradient(
   270deg,
   hsla(0, 0%, 100%, 0) 22.25%,
   hsla(0, 0%, 100%, 0.995) 41.17%,
-  $background-color-white 80.83%
+  var(--background-color) 80.83%
 );
 
 // Shadow Definitions
