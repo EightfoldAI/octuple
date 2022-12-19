@@ -1,2 +1,6 @@
+# To leverage this file and skip commits marked for ignore by git blame,
+# use command `git config blame.ignoreRevsFile .git-blame-ignore-revs`
+# to configure git to skip the below commits.
+
 # Moving to two space indent
 2b2c5710fe8160604ef78fa3bc1a1f3752e5e255
