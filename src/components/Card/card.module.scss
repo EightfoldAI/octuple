@@ -68,7 +68,7 @@
         margin-right: $space-l;
         padding: $disabled-zero;
         padding-bottom: $space-s;
-        background-color: $background-color-white;
+        background-color: var(--card-background-color);
       }
 
       &-buttons {
@@ -104,7 +104,7 @@
     .button-icon {
       position: absolute;
       right: $disabled-zero;
-      background-color: $background-color-white;
+      background-color: var(--card-background-color);
     }
   }
 

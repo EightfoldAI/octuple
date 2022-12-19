@@ -184,6 +184,7 @@
   --backdrop-filter: blur(5px);
 
   --anchor-color: var(--primary-color-70);
+  --horizontal-rule-color: var(--grey-color-40);
 
   --border-radius-xs: 2px;
   --border-radius-s: 4px;
@@ -193,6 +194,7 @@
 
   // ------ Tabs theme ------
   --tab-label: var(--text-secondary-color);
+  --tab-background: transparent;
   --tab-active-label: var(--primary-color-70);
   --tab-active-background: transparent;
   --tab-hover-label: var(--primary-color);
@@ -200,6 +202,10 @@
   --tab-indicator-color: var(--primary-color-70);
   --tab-small-active-background: transparent;
   --tab-small-hover-background: transparent;
+  --tab-pill-border-radius: var(--border-radius-xl);
+  --tab-pill-large-padding: 8px;
+  --tab-pill-medium-padding: 6px;
+  --tab-pill-small-padding: 4px;
   --tab-pill-label: var(--text-secondary-color);
   --tab-pill-active-label: var(--primary-color-80);
   --tab-pill-active-background: var(--primary-color-20);
@@ -207,6 +213,25 @@
   --tab-pill-background: var(--grey-color-10);
   --tab-underline: var(--border-color);
   // ------ Tabs theme ------
+
+  // ------ Stat tab theme ------
+  --stat-tabs-border-radius: var(--border-radius-xl);
+  --stat-tabs-border-width: 1px;
+  --stat-tabs-border-style: solid;
+  --stat-tabs-border-color: var(--border-color);
+
+  // Individual tabs
+  --stat-tab-border-radius: 40px;
+  --stat-tab-label-color: var(--text-secondary-color);
+  --stat-tab-background-color: var(--background-color);
+  --stat-tab-border-color: var(--stat-tab-background-color);
+  --stat-tab-icon-color: var(--grey-color-70);
+  --stat-tab-icon-background-color: var(--grey-color-20);
+  --stat-tab-active-border-color: var(--grey-color-60);
+  --stat-tab-hover-background-color: var(--grey-color-20);
+  --stat-tab-hover-border-color: var(--grey-color-20);
+
+  // ------ Stat tab theme ------
 
   // ------ Navbar theme ------
   --navbar-background: var(--primary-color-80);
