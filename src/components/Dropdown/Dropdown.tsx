@@ -1,7 +1,6 @@
 import React, {
   cloneElement,
   FC,
-  Ref,
   SyntheticEvent,
   useEffect,
   useImperativeHandle,
@@ -70,7 +69,7 @@ export const Dropdown: FC<DropdownProps> = React.memo(
       });
 
       const [closing, setClosing] = useState<boolean>(false);
-      const [dropdownId] = useState<string>(uniqueId('dropdown-'));
+      const dropdownId: string = uniqueId('dropdown-');
 
       let timeout: ReturnType<typeof setTimeout>;
       const { x, y, reference, floating, strategy, update, refs } = useFloating(
