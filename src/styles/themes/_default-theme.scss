@@ -185,6 +185,11 @@
 
   --anchor-color: var(--primary-color-70);
 
+  --focus-visible-shadow-color: var(--blueviolet-color-50);
+  --focus-visible-shadow-width: 2px;
+  --focus-visible-box-shadow: 0 0 0 var(--focus-visible-shadow-width)
+    var(--focus-visible-shadow-color);
+
   --border-radius-xs: 2px;
   --border-radius-s: 4px;
   --border-radius-m: 8px;
