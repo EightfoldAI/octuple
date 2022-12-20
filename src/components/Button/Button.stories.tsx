@@ -352,7 +352,7 @@ Split.args = {
 Split_With_Counter.args = {
   ...buttonArgs,
   ariaLabel: 'Split Button',
-  counter: '9',
+  counter: '8',
   iconProps: null,
   split: true,
   splitButtonChecked: false,

@@ -199,13 +199,21 @@ export const BaseButton: FC<InternalButtonProps> = React.forwardRef(
     const getButtonLoader = (): JSX.Element =>
       loading && <Loader classNames={styles.loader} size={getLoaderSize()} />;
 
-    const getButtonIcon = (position = 'left'): JSX.Element => (
+    const getButtonIcon = (): JSX.Element => (
       <Icon
-        {...(position === 'left' ? iconProps : iconTwoProps)}
+        {...iconProps}
+        classNames={mergeClasses([styles.icon, iconProps.classNames])}
+        size={getButtonIconSize()}
+      />
+    );
+
+    const getTwoButtonIcon = (): JSX.Element => (
+      <Icon
+        {...iconTwoProps}
         classNames={mergeClasses([
           styles.icon,
-          (iconProps || iconTwoProps).classNames,
-          { [styles.iconTwo]: position === 'right' },
+          styles.iconTwo,
+          iconTwoProps.classNames,
         ])}
         size={getButtonIconSize()}
       />
@@ -238,23 +246,23 @@ export const BaseButton: FC<InternalButtonProps> = React.forwardRef(
           style={style}
           type={htmlType}
         >
-          <span>
-            {iconExists && !textExists && getButtonIcon()}
-            {iconTwoExists && !textExists && getButtonIcon('right')}
-          </span>
-
+          {iconExists && iconTwoExists && !textExists && (
+            <span>
+              {getButtonIcon()}
+              {getTwoButtonIcon()}
+            </span>
+          )}
+          {iconExists && !textExists && !iconTwoExists && getButtonIcon()}
           {counterExists && !textExists && !loading && (
             <Badge classNames={badgeClassNames}>{counter}</Badge>
           )}
-
           {iconExists && textExists && (
             <span>
               {getButtonIcon()}
               {getButtonContent(buttonTextClassNames, text)}
-              {iconTwoExists && getButtonIcon('right')}
+              {iconTwoExists && getTwoButtonIcon()}
             </span>
           )}
-
           {!iconExists && getButtonContent(buttonTextClassNames, text)}
           {getButtonLoader()}
         </button>
