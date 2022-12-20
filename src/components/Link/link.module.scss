@@ -23,7 +23,7 @@
   .link-style {
     &.focus-visible,
     &:focus-visible {
-      box-shadow: $focus-visible-box-shadow;
+      box-shadow: var(--focus-visible-box-shadow);
     }
   }
 }

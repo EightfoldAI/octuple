@@ -346,7 +346,7 @@
     }
 
     &:focus {
-      border-color: $focus-visible-shadow-color;
+      border-color: var(--focus-visible-shadow-color);
       transition: border-color $motion-duration-extra-fast
         $motion-easing-easeinout;
 
@@ -986,7 +986,7 @@
     }
 
     &:focus:not(.underline) {
-      border-color: $focus-visible-shadow-color;
+      border-color: var(--focus-visible-shadow-color);
       transition: border-color $motion-duration-extra-fast
         $motion-easing-easeinout;
     }
@@ -1540,7 +1540,7 @@
       &.focus-visible,
       &:focus-visible {
         border-color: var(--background-color);
-        box-shadow: $focus-visible-box-shadow;
+        box-shadow: var(--focus-visible-box-shadow);
 
         &.underline {
           border-color: transparent;
@@ -1553,7 +1553,7 @@
       .input-group,
       .text-area-group {
         &:after {
-          border-bottom-color: $focus-visible-shadow-color;
+          border-bottom-color: var(--focus-visible-shadow-color);
           border-bottom-width: $space-xxxs;
         }
       }
@@ -1574,7 +1574,7 @@
       &.focus-visible,
       &:focus-visible {
         background-color: transparent;
-        box-shadow: $focus-visible-box-shadow;
+        box-shadow: var(--focus-visible-box-shadow);
 
         svg {
           color: var(--grey-color-80);
@@ -1586,7 +1586,7 @@
       &.focus-visible,
       &:focus-visible {
         border-color: var(--background-color);
-        box-shadow: $focus-visible-box-shadow;
+        box-shadow: var(--focus-visible-box-shadow);
 
         &.underline {
           border-color: transparent;

@@ -1018,10 +1018,10 @@ $upload-picture-card-size: 104px;
       a {
         &.focus-visible,
         &:focus-visible {
-          box-shadow: $focus-visible-box-shadow;
+          box-shadow: var(--focus-visible-box-shadow);
 
           &.drop-shadow {
-            box-shadow: $focus-visible-box-shadow, $shadow-object-s;
+            box-shadow: var(--focus-visible-box-shadow), $shadow-object-s;
           }
         }
       }

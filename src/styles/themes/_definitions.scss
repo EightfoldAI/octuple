@@ -102,13 +102,6 @@ $shadow-panel-right: -1px 0px 2px rgba(15, 20, 31, 0.12),
   -8px 0px 32px rgba(15, 20, 31, 0.16);
 $shadow-panel-behind: 0px -4px 16px rgba(0, 0, 0, 0.12);
 
-// Focus visible Definitions
-
-$focus-visible-shadow-color: var(--blueviolet-color-50);
-$focus-visible-shadow-width: 2px;
-$focus-visible-box-shadow: 0 0 0 $focus-visible-shadow-width
-  $focus-visible-shadow-color;
-
 // Layout
 
 $layout-body-background: var(--background-color);
