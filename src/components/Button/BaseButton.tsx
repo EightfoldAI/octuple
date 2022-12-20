@@ -10,7 +10,7 @@ import {
   InternalButtonProps,
   SplitButton,
 } from './';
-import { Icon, IconSize } from '../Icon';
+import { Icon, IconProps, IconSize } from '../Icon';
 import { Badge } from '../Badge';
 import { Breakpoints, useMatchMedia } from '../../hooks/useMatchMedia';
 import { mergeClasses } from '../../shared/utilities';
@@ -40,6 +40,7 @@ export const BaseButton: FC<InternalButtonProps> = React.forwardRef(
       floatingButtonProps,
       htmlType,
       iconProps,
+      iconTwoProps,
       id,
       onClick,
       onContextMenu,
@@ -76,6 +77,7 @@ export const BaseButton: FC<InternalButtonProps> = React.forwardRef(
 
     const counterExists: boolean = !!counter;
     const iconExists: boolean = !!iconProps;
+    const iconTwoExists: boolean = !!iconTwoProps;
     const textExists: boolean = !!text;
 
     const buttonBaseSharedClassNames: string = mergeClasses([
@@ -197,10 +199,14 @@ export const BaseButton: FC<InternalButtonProps> = React.forwardRef(
     const getButtonLoader = (): JSX.Element =>
       loading && <Loader classNames={styles.loader} size={getLoaderSize()} />;
 
-    const getButtonIcon = (): JSX.Element => (
+    const getButtonIcon = (position = 'left'): JSX.Element => (
       <Icon
-        {...iconProps}
-        classNames={mergeClasses([styles.icon, iconProps.classNames])}
+        {...(position === 'left' ? iconProps : iconTwoProps)}
+        classNames={mergeClasses([
+          styles.icon,
+          (iconProps || iconTwoProps).classNames,
+          { [styles.iconTwo]: position === 'right' },
+        ])}
         size={getButtonIconSize()}
       />
     );
@@ -232,16 +238,23 @@ export const BaseButton: FC<InternalButtonProps> = React.forwardRef(
           style={style}
           type={htmlType}
         >
-          {iconExists && !textExists && getButtonIcon()}
+          <span>
+            {iconExists && !textExists && getButtonIcon()}
+            {iconTwoExists && !textExists && getButtonIcon('right')}
+          </span>
+
           {counterExists && !textExists && !loading && (
             <Badge classNames={badgeClassNames}>{counter}</Badge>
           )}
+
           {iconExists && textExists && (
             <span>
               {getButtonIcon()}
               {getButtonContent(buttonTextClassNames, text)}
+              {iconTwoExists && getButtonIcon('right')}
             </span>
           )}
+
           {!iconExists && getButtonContent(buttonTextClassNames, text)}
           {getButtonLoader()}
         </button>

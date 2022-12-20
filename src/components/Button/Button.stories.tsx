@@ -211,6 +211,12 @@ const Floating_Button_Story: ComponentStory<typeof PrimaryButton> = (args) => (
 
 export const Floating_Button = Floating_Button_Story.bind({});
 
+const Two_Icons_Button_Story: ComponentStory<typeof PrimaryButton> = (args) => (
+  <PrimaryButton {...args} />
+);
+
+export const Two_Icons_Button = Two_Icons_Button_Story.bind({});
+
 const buttonArgs: Object = {
   alignIcon: ButtonIconAlign.Left,
   alignText: ButtonTextAlign.Center,
@@ -360,4 +366,13 @@ Floating_Button.args = {
   },
   shape: ButtonShape.Round,
   text: null,
+};
+
+Two_Icons_Button.args = {
+  ...buttonArgs,
+  ariaLabel: 'Primary Button',
+  text: 'Primary Button',
+  iconTwoProps: {
+    path: IconName.mdiChevronDown,
+  },
 };
