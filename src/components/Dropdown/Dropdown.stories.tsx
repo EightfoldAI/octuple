@@ -150,6 +150,28 @@ const Dropdown_Button_Story: ComponentStory<typeof Dropdown> = (args) => {
 
 export const Dropdown_Button = Dropdown_Button_Story.bind({});
 
+const Dropdown_IconButton_Story: ComponentStory<typeof Dropdown> = (args) => {
+  const [visible, setVisibility] = useState(false);
+  return (
+    <Dropdown
+      {...args}
+      onVisibleChange={(isVisible) => setVisibility(isVisible)}
+    >
+      <DefaultButton
+        iconProps={{
+          path: IconName.mdiAccount,
+        }}
+        prefixIconProps={{
+          path: IconName.mdiChevronDown,
+          rotate: visible ? 180 : 0,
+        }}
+      />
+    </Dropdown>
+  );
+};
+
+export const Dropdown_IconButton = Dropdown_IconButton_Story.bind({});
+
 const Dropdown_Div_Story: ComponentStory<typeof Dropdown> = (args) => {
   const [visible, setVisibility] = useState(false);
   return (
@@ -187,5 +209,9 @@ Dropdown_Button.args = {
 };
 
 Dropdown_Div.args = {
+  ...dropdownArgs,
+};
+
+Dropdown_IconButton.args = {
   ...dropdownArgs,
 };

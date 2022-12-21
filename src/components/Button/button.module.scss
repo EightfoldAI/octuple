@@ -19,7 +19,7 @@
   .icon + .button-text-large:not(:empty) {
     margin-left: $button-spacer-large;
 
-    + .icon-two {
+    + .prefix-icon {
       margin-left: $button-spacer-large;
     }
   }
@@ -27,7 +27,7 @@
   .icon + .button-text-medium:not(:empty) {
     margin-left: $button-spacer-medium;
 
-    + .icon-two {
+    + .prefix-icon {
       margin-left: $button-spacer-medium;
     }
   }
@@ -35,7 +35,7 @@
   .icon + .button-text-small:not(:empty) {
     margin-left: $button-spacer-small;
 
-    + .icon-two {
+    + .prefix-icon {
       margin-left: $button-spacer-small;
     }
   }

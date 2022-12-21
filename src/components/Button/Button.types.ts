@@ -158,7 +158,7 @@ export interface ButtonProps extends NativeButtonProps {
   /**
    * The button icon props.
    */
-  iconTwoProps?: IconProps;
+  prefixIconProps?: IconProps;
   /**
    * The button id.
    */

@@ -40,7 +40,7 @@ export const BaseButton: FC<InternalButtonProps> = React.forwardRef(
       floatingButtonProps,
       htmlType,
       iconProps,
-      iconTwoProps,
+      prefixIconProps,
       id,
       onClick,
       onContextMenu,
@@ -77,7 +77,7 @@ export const BaseButton: FC<InternalButtonProps> = React.forwardRef(
 
     const counterExists: boolean = !!counter;
     const iconExists: boolean = !!iconProps;
-    const iconTwoExists: boolean = !!iconTwoProps;
+    const prefixIconExists: boolean = !!prefixIconProps;
     const textExists: boolean = !!text;
 
     const buttonBaseSharedClassNames: string = mergeClasses([
@@ -207,13 +207,13 @@ export const BaseButton: FC<InternalButtonProps> = React.forwardRef(
       />
     );
 
-    const getTwoButtonIcon = (): JSX.Element => (
+    const getPrefixIcon = (): JSX.Element => (
       <Icon
-        {...iconTwoProps}
+        {...prefixIconProps}
         classNames={mergeClasses([
           styles.icon,
-          styles.iconTwo,
-          iconTwoProps.classNames,
+          styles.prefixIcon,
+          prefixIconProps.classNames,
         ])}
         size={getButtonIconSize()}
       />
@@ -246,13 +246,13 @@ export const BaseButton: FC<InternalButtonProps> = React.forwardRef(
           style={style}
           type={htmlType}
         >
-          {iconExists && iconTwoExists && !textExists && (
+          {iconExists && prefixIconExists && !textExists && (
             <span>
               {getButtonIcon()}
-              {getTwoButtonIcon()}
+              {getPrefixIcon()}
             </span>
           )}
-          {iconExists && !textExists && !iconTwoExists && getButtonIcon()}
+          {iconExists && !textExists && !prefixIconExists && getButtonIcon()}
           {counterExists && !textExists && !loading && (
             <Badge classNames={badgeClassNames}>{counter}</Badge>
           )}
@@ -260,7 +260,7 @@ export const BaseButton: FC<InternalButtonProps> = React.forwardRef(
             <span>
               {getButtonIcon()}
               {getButtonContent(buttonTextClassNames, text)}
-              {iconTwoExists && getTwoButtonIcon()}
+              {prefixIconExists && getPrefixIcon()}
             </span>
           )}
           {!iconExists && getButtonContent(buttonTextClassNames, text)}
