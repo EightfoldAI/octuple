@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.20.3](https://github.com/EightfoldAI/octuple/compare/v2.20.2...v2.20.3) (2022-12-22)
+
+### Features
+
+- add support for autocomplete attribute to TextInput and SearchBox ([#467](https://github.com/EightfoldAI/octuple/issues/467)) ([298cd97](https://github.com/EightfoldAI/octuple/commits/298cd97fc566ce8d5c6fd9c001c4e81f484b6002))
+- extend var theming implementation ([#465](https://github.com/EightfoldAI/octuple/issues/465)) ([fb9954d](https://github.com/EightfoldAI/octuple/commits/fb9954d107db828a2573845cdcb9f086ee365e77))
+- make focus highlighting varTheme friendly ([#474](https://github.com/EightfoldAI/octuple/issues/474)) ([b3046fe](https://github.com/EightfoldAI/octuple/commits/b3046fe91a6c6a6073b51d234509d73a6a12e5be))
+
+### Bug Fixes
+
+- added position left on expandable search ([#463](https://github.com/EightfoldAI/octuple/issues/463)) ([ad73e14](https://github.com/EightfoldAI/octuple/commits/ad73e1413bc4ed661045ce0e698cb3a3a33893ad))
+- input border color ([#452](https://github.com/EightfoldAI/octuple/issues/452)) ([9e708cb](https://github.com/EightfoldAI/octuple/commits/9e708cb52185fbeb99d3d2bd458d6ee941a7b49b))
+- only generate a unique id once ([#472](https://github.com/EightfoldAI/octuple/issues/472)) ([70effc7](https://github.com/EightfoldAI/octuple/commits/70effc7fff448411a501d6fcea12f193f71f533b))
+- remove padding from borderless stat-tabs, extend varTheme ([#470](https://github.com/EightfoldAI/octuple/issues/470)) ([c70f2dd](https://github.com/EightfoldAI/octuple/commits/c70f2dd27503c74f00c73f9f3032492da924bb00))
+- switch to two space indent ([#468](https://github.com/EightfoldAI/octuple/issues/468)) ([2b2c571](https://github.com/EightfoldAI/octuple/commits/2b2c5710fe8160604ef78fa3bc1a1f3752e5e255))
+- update git-blame-ignore-revs to correct commit hash ([#469](https://github.com/EightfoldAI/octuple/issues/469)) ([3554159](https://github.com/EightfoldAI/octuple/commits/355415975812e71f474e464facabf31b51db704a))
+
 ### [2.20.2](https://github.com/EightfoldAI/octuple/compare/v2.20.1...v2.20.2) (2022-12-12)
 
 ### Bug Fixes
