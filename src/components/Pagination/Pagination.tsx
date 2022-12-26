@@ -280,7 +280,7 @@ export const Pagination: FC<PaginationProps> = React.forwardRef(
       return <Menu onChange={onSizeChangeHandler} items={getItems()} />;
     };
 
-    const moreThanOnePage: boolean = _total > 1;
+    const moreThanOnePage: boolean = getPageCount() > 1;
 
     const paginationWrapperClassNames: string = mergeClasses([
       classNames,
