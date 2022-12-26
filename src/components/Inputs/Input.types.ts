@@ -267,6 +267,14 @@ export interface InputProps<T>
   /**
    * The input name.
    */
+  max?: number;
+  /**
+   * The input max value.
+   */
+  min?: number;
+  /**
+   * The input min value.
+   */
   name?: string;
   /**
    * The input onBlur event handler.
