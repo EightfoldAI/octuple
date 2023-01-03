@@ -78,7 +78,7 @@ export const Stack: FC<StackProps> = React.forwardRef(
       { [styles.horizontal]: direction === 'horizontal' },
       { [styles.stackRtl]: htmlDir === 'rtl' },
       styles[gap],
-      styles[`gap-${flexGap}`],
+      { [styles[`gap-${flexGap}`]]: flexGap },
     ]);
 
     return (
