@@ -255,7 +255,7 @@
     }
 
     .tab {
-      --active-border: var(stat-tab-active-border-color);
+      --active-border: var(--stat-tab-active-border-color);
       --bg: var(--stat-tab-background-color);
       --border: var(--stat-tab-border-color);
       --border-radius: var(--stat-tab-border-radius);
@@ -435,6 +435,39 @@
         --icon-bg: var(--grey-color-20);
         --hover-bg: var(--grey-color-20);
         --hover-border: var(--grey-color-20);
+      }
+
+      &.status-error {
+        --active-border: var(--error-border-color);
+        --bg: var(--white-color);
+        --border: var(--white-color);
+        --icon: var(--error-color);
+        --icon-bg: var(--error-background-color);
+        --hover-bg: var(--error-background-color);
+        --hover-border: var(--error-border-color);
+        --label: var(--error-color);
+      }
+
+      &.status-success {
+        --active-border: var(--success-border-color);
+        --bg: var(--white-color);
+        --border: var(--white-color);
+        --icon: var(--success-color);
+        --icon-bg: var(--success-background-color);
+        --hover-bg: var(--success-background-color);
+        --hover-border: var(--success-border-color);
+        --label: var(--success-color);
+      }
+
+      &.status-warning {
+        --active-border: var(--warning-border-color);
+        --bg: var(--white-color);
+        --border: var(--white-color);
+        --icon: var(--warning-color);
+        --icon-bg: var(--warning-background-color);
+        --hover-bg: var(--warning-background-color);
+        --hover-border: var(--warning-border-color);
+        --label: var(--warning-color);
       }
 
       &.read-only {

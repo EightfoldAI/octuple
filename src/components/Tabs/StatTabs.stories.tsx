@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Stories } from '@storybook/addon-docs';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Stat, StatThemeNames, Tabs, TabSize, TabVariant } from './';
+import type { StatValidationStatus } from './';
 import { IconName } from '../Icon';
 
 export default {
@@ -90,6 +91,7 @@ const statTabs = [1, 2, 3, 4].map((i) => ({
   label: `Label ${i}`,
   ratioA: 2,
   ratioB: '(5%)',
+  status: i === 3 ? ('success' as StatValidationStatus) : null,
   value: `tab${i}`,
   ...(i === 4 ? { disabled: true } : {}),
 }));
@@ -100,6 +102,7 @@ const statTabsThemed = [1, 2, 3, 4].map((i) => ({
   label: `Label ${i}`,
   ratioA: 2,
   ratioB: '(5%)',
+  status: i === 3 ? ('success' as StatValidationStatus) : null,
   value: `tab${i}`,
   ...(i === 2 ? { theme: themes[8] } : {}),
   ...(i === 4 ? { disabled: true } : {}),
