@@ -10,7 +10,7 @@ import {
   InternalButtonProps,
   SplitButton,
 } from './';
-import { Icon, IconSize } from '../Icon';
+import { Icon, IconProps, IconSize } from '../Icon';
 import { Badge } from '../Badge';
 import { Breakpoints, useMatchMedia } from '../../hooks/useMatchMedia';
 import { mergeClasses } from '../../shared/utilities';
@@ -40,6 +40,7 @@ export const BaseButton: FC<InternalButtonProps> = React.forwardRef(
       floatingButtonProps,
       htmlType,
       iconProps,
+      prefixIconProps,
       id,
       onClick,
       onContextMenu,
@@ -76,6 +77,7 @@ export const BaseButton: FC<InternalButtonProps> = React.forwardRef(
 
     const counterExists: boolean = !!counter;
     const iconExists: boolean = !!iconProps;
+    const prefixIconExists: boolean = !!prefixIconProps;
     const textExists: boolean = !!text;
 
     const buttonBaseSharedClassNames: string = mergeClasses([
@@ -205,6 +207,18 @@ export const BaseButton: FC<InternalButtonProps> = React.forwardRef(
       />
     );
 
+    const getPrefixIcon = (): JSX.Element => (
+      <Icon
+        {...prefixIconProps}
+        classNames={mergeClasses([
+          styles.icon,
+          styles.prefixIcon,
+          prefixIconProps.classNames,
+        ])}
+        size={getButtonIconSize()}
+      />
+    );
+
     const getButtonContent = (
       buttonTextClassNames: string,
       text: string
@@ -232,7 +246,13 @@ export const BaseButton: FC<InternalButtonProps> = React.forwardRef(
           style={style}
           type={htmlType}
         >
-          {iconExists && !textExists && getButtonIcon()}
+          {iconExists && prefixIconExists && !textExists && (
+            <span>
+              {getButtonIcon()}
+              {getPrefixIcon()}
+            </span>
+          )}
+          {iconExists && !textExists && !prefixIconExists && getButtonIcon()}
           {counterExists && !textExists && !loading && (
             <Badge classNames={badgeClassNames}>{counter}</Badge>
           )}
@@ -240,6 +260,7 @@ export const BaseButton: FC<InternalButtonProps> = React.forwardRef(
             <span>
               {getButtonIcon()}
               {getButtonContent(buttonTextClassNames, text)}
+              {prefixIconExists && getPrefixIcon()}
             </span>
           )}
           {!iconExists && getButtonContent(buttonTextClassNames, text)}
