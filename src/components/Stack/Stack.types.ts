@@ -12,7 +12,6 @@ export type StackGap =
   | 'l'
   | 'xl'
   | 'xxl'
-  | 'xxl'
   | 'xxxl';
 
 type StackIntrinsicProps = {
@@ -36,9 +35,14 @@ type StackIntrinsicProps = {
    */
   fullWidth?: boolean;
   /**
+   * @deprecated Use flex gap instead
    * Space between the child elements
    */
   gap?: StackGap;
+  /**
+   * Flex gap between child elements
+   */
+  flexGap?: StackGap;
   /**
    * Enable stack as an inline element
    */

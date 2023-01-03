@@ -1,10 +1,11 @@
 import React, { FC, Ref } from 'react';
-import styles from './stack.module.scss';
 import { mergeClasses } from '../../shared/utilities';
 import { StackBreakpoint, StackProps } from './Stack.types';
 import { useMatchMedia } from '../../octuple';
 import { Breakpoints } from '../../hooks/useMatchMedia';
 import { useCanvasDirection } from '../../hooks/useCanvasDirection';
+
+import styles from './stack.module.scss';
 
 export const Stack: FC<StackProps> = React.forwardRef(
   (
@@ -16,6 +17,7 @@ export const Stack: FC<StackProps> = React.forwardRef(
       align: defaultAlign,
       wrap: defaultWrap,
       gap: defaultGap,
+      flexGap: defaultFlexGap,
       style = {},
       classNames,
       breakpoints = {},
@@ -59,11 +61,12 @@ export const Stack: FC<StackProps> = React.forwardRef(
         align: defaultAlign,
         wrap: defaultWrap,
         gap: defaultGap,
+        flexGap: defaultFlexGap,
       },
       ...(activeBreakPointStackProps || {}),
     };
 
-    const { fullWidth, direction, justify, inline, align, wrap, gap } =
+    const { fullWidth, direction, justify, inline, align, wrap, gap, flexGap } =
       resolvedStackIntrinsicProps;
 
     const stackClassName: string = mergeClasses([
@@ -75,6 +78,7 @@ export const Stack: FC<StackProps> = React.forwardRef(
       { [styles.horizontal]: direction === 'horizontal' },
       { [styles.stackRtl]: htmlDir === 'rtl' },
       styles[gap],
+      styles[`gap-${flexGap}`],
     ]);
 
     return (
