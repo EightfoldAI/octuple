@@ -59,14 +59,14 @@
   &.slide-up-enter.trigger-popup-placement-bottomRight {
     animation-name: slideUpIn;
     animation-duration: $motion-duration-extra-fast;
-    animation-timing-function: $motion-easing-easein;
+    animation-timing-function: $motion-easing-easeout;
   }
 
   &.slide-up-leave.trigger-popup-placement-bottomLeft,
   &.slide-up-leave.trigger-popup-placement-bottomRight {
     animation-name: slideUpOut;
     animation-duration: $motion-duration-extra-fast;
-    animation-timing-function: $motion-easing-easeinout;
+    animation-timing-function: $motion-easing-easein;
   }
 
   &-placement-topLeft,
@@ -82,14 +82,14 @@
   &.slide-up-enter.trigger-popup-placement-topRight {
     animation-name: slideDownIn;
     animation-duration: $motion-duration-extra-fast;
-    animation-timing-function: $motion-easing-easein;
+    animation-timing-function: $motion-easing-easeout;
   }
 
   &.slide-up-leave.trigger-popup-placement-topLeft,
   &.slide-up-leave.trigger-popup-placement-topRight {
     animation-name: slideDownOut;
     animation-duration: $motion-duration-extra-fast;
-    animation-timing-function: $motion-easing-easeinout;
+    animation-timing-function: $motion-easing-easein;
   }
 
   &-range {
@@ -126,13 +126,13 @@
   &-zoom-appear {
     opacity: 0;
     @include effect();
-    animation-timing-function: $motion-easing-easein;
+    animation-timing-function: $motion-easing-easeout;
     animation-play-state: paused;
   }
 
   &-zoom-leave {
     @include effect();
-    animation-timing-function: $motion-easing-easeinout;
+    animation-timing-function: $motion-easing-easein;
     animation-play-state: paused;
   }
 
