@@ -21,30 +21,30 @@ export interface LabelIconButtonProps extends ButtonProps {
    * The tooltip props.
    * @default false
    */
-  tooltipprops?: TooltipProps;
+  tooltipProps?: TooltipProps;
   /**
    * Unique id used to target element for testing.
    */
   'data-test-id'?: string;
   /**
-   * @deprecated Use labelIconButtonProps.tooltipprops instead.
+   * @deprecated Use labelIconButtonProps.tooltipProps instead.
    * Content to show on the tooltip.
    */
   toolTipContent?: React.ReactNode;
   /**
-   * @deprecated Use labelIconButtonProps.tooltipprops instead.
+   * @deprecated Use labelIconButtonProps.tooltipProps instead.
    * Placement of the tooltip.
    * @default top
    */
   toolTipPlacement?: Placement;
   /**
-   * @deprecated Use labelIconButtonProps.tooltipprops instead.
+   * @deprecated Use labelIconButtonProps.tooltipProps instead.
    * Positioning strategy for the tooltip.
    * @default absolute
    */
   toolTipPositionStrategy?: Strategy;
   /**
-   * @deprecated Use labelIconButtonProps.tooltipprops instead.
+   * @deprecated Use labelIconButtonProps.tooltipProps instead.
    * Theme of the tooltip.
    * @default light
    */

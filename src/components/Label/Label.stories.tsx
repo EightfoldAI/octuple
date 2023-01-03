@@ -80,7 +80,7 @@ Default_Info_Button.args = {
   size: LabelSize.Medium,
   labelIconButtonProps: {
     show: true,
-    tooltipprops: {
+    tooltipProps: {
       content: 'A tooltip',
       placement: 'right',
       portal: true,
