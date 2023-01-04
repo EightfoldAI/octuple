@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.20.7](https://github.com/EightfoldAI/octuple/compare/v2.20.6...v2.20.7) (2023-01-04)
+
+### Bug Fixes
+
+- carousel: limit auto scroll to x axis only ([#490](https://github.com/EightfoldAI/octuple/issues/490)) ([720e4d2](https://github.com/EightfoldAI/octuple/commits/720e4d29f25be15af6d847addccf20c78f70518f))
+
 ### [2.20.6](https://github.com/EightfoldAI/octuple/compare/v2.20.5...v2.20.6) (2023-01-04)
 
 ### Features
