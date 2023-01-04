@@ -18,14 +18,26 @@
 
   .icon + .button-text-large:not(:empty) {
     margin-left: $button-spacer-large;
+
+    + .prefix-icon {
+      margin-left: $button-spacer-large;
+    }
   }
 
   .icon + .button-text-medium:not(:empty) {
     margin-left: $button-spacer-medium;
+
+    + .prefix-icon {
+      margin-left: $button-spacer-medium;
+    }
   }
 
   .icon + .button-text-small:not(:empty) {
     margin-left: $button-spacer-small;
+
+    + .prefix-icon {
+      margin-left: $button-spacer-small;
+    }
   }
 
   &.pill-shape {

@@ -2,6 +2,44 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.20.7](https://github.com/EightfoldAI/octuple/compare/v2.20.6...v2.20.7) (2023-01-04)
+
+### Bug Fixes
+
+- carousel: limit auto scroll to x axis only ([#490](https://github.com/EightfoldAI/octuple/issues/490)) ([720e4d2](https://github.com/EightfoldAI/octuple/commits/720e4d29f25be15af6d847addccf20c78f70518f))
+
+### [2.20.6](https://github.com/EightfoldAI/octuple/compare/v2.20.5...v2.20.6) (2023-01-04)
+
+### Features
+
+- second icon on button ([#475](https://github.com/EightfoldAI/octuple/issues/475)) ([d06a7aa](https://github.com/EightfoldAI/octuple/commits/d06a7aa9e6a35a0b93ab6f1c0afe605fde1606ca))
+- stack: use flex gap instead of margins ([#483](https://github.com/EightfoldAI/octuple/issues/483)) ([476d978](https://github.com/EightfoldAI/octuple/commits/476d978f3c1fb3a334ea9c5d1e01763a18ca974c))
+- stat tabs: enable stat themes by validation status ([#486](https://github.com/EightfoldAI/octuple/issues/486)) ([757d5e2](https://github.com/EightfoldAI/octuple/commits/757d5e25a7a1a585720fe827c803ec4a55249542))
+
+### Bug Fixes
+
+- expandable search overlay zindex fix ([#482](https://github.com/EightfoldAI/octuple/issues/482)) ([fd0e29e](https://github.com/EightfoldAI/octuple/commits/fd0e29e77d18e3ace3e2993e48351ea54590bd22))
+- label: exposes all tooltip props and fixes hover pixel shift ([#484](https://github.com/EightfoldAI/octuple/issues/484)) ([6945528](https://github.com/EightfoldAI/octuple/commits/6945528acd405831a8752488c90fbaed53df042a))
+- pagination: updates border css property to outline, fixing pixel shift regression ([#487](https://github.com/EightfoldAI/octuple/issues/487)) ([8d5f14d](https://github.com/EightfoldAI/octuple/commits/8d5f14dd55cd2c1b4f61f49ef2657903a360235a))
+- picker: fixes trigger hide animation curves and updates slide out animations ([#485](https://github.com/EightfoldAI/octuple/issues/485)) ([d635a00](https://github.com/EightfoldAI/octuple/commits/d635a0088d687ab468e361c94205b7d4af6e51c6))
+- upload: fixes rendering error caused by hooks in class component uid utility regression ([#488](https://github.com/EightfoldAI/octuple/issues/488)) ([1f0ddfb](https://github.com/EightfoldAI/octuple/commits/1f0ddfb10646c8bbd2ef99174f3ede74832033a2))
+
+### [2.20.5](https://github.com/EightfoldAI/octuple/compare/v2.20.4...v2.20.5) (2023-01-04)
+
+### Features
+
+- second icon on button ([#475](https://github.com/EightfoldAI/octuple/issues/475)) ([d06a7aa](https://github.com/EightfoldAI/octuple/commits/d06a7aa9e6a35a0b93ab6f1c0afe605fde1606ca))
+- stack: use flex gap instead of margins ([#483](https://github.com/EightfoldAI/octuple/issues/483)) ([476d978](https://github.com/EightfoldAI/octuple/commits/476d978f3c1fb3a334ea9c5d1e01763a18ca974c))
+- stat tabs: enable stat themes by validation status ([#486](https://github.com/EightfoldAI/octuple/issues/486)) ([757d5e2](https://github.com/EightfoldAI/octuple/commits/757d5e25a7a1a585720fe827c803ec4a55249542))
+
+### Bug Fixes
+
+- expandable search overlay zindex fix ([#482](https://github.com/EightfoldAI/octuple/issues/482)) ([fd0e29e](https://github.com/EightfoldAI/octuple/commits/fd0e29e77d18e3ace3e2993e48351ea54590bd22))
+- label: exposes all tooltip props and fixes hover pixel shift ([#484](https://github.com/EightfoldAI/octuple/issues/484)) ([6945528](https://github.com/EightfoldAI/octuple/commits/6945528acd405831a8752488c90fbaed53df042a))
+- pagination: updates border css property to outline, fixing pixel shift regression ([#487](https://github.com/EightfoldAI/octuple/issues/487)) ([8d5f14d](https://github.com/EightfoldAI/octuple/commits/8d5f14dd55cd2c1b4f61f49ef2657903a360235a))
+- picker: fixes trigger hide animation curves and updates slide out animations ([#485](https://github.com/EightfoldAI/octuple/issues/485)) ([d635a00](https://github.com/EightfoldAI/octuple/commits/d635a0088d687ab468e361c94205b7d4af6e51c6))
+- upload: fixes rendering error caused by hooks in class component uid utility regression ([#488](https://github.com/EightfoldAI/octuple/issues/488)) ([1f0ddfb](https://github.com/EightfoldAI/octuple/commits/1f0ddfb10646c8bbd2ef99174f3ede74832033a2))
+
 ### [2.20.4](https://github.com/EightfoldAI/octuple/compare/v2.20.2...v2.20.4) (2022-12-28)
 
 ### Features

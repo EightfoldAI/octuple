@@ -4,6 +4,7 @@ import { IconName } from '../Icon';
 import { OcBaseProps } from '../OcBase';
 import { Ref } from 'react';
 import { Value } from '../ConfigProvider';
+import { InputStatus } from '../../shared/utilities';
 
 export type SelectTabEvent<E = HTMLElement> =
   | React.MouseEvent<E>
@@ -33,6 +34,7 @@ export enum TabVariant {
 }
 
 export type StatThemeNames = OcThemeNames;
+export type StatValidationStatus = InputStatus;
 
 export interface TabsContextProps {
   /**
@@ -143,6 +145,10 @@ export interface StatProps extends Omit<TabProps, 'badgeContent'> {
    * The stat tab 'b' ratio value, e.g. 1/[2].
    */
   ratioB?: string | number;
+  /**
+   * the validation status.
+   */
+  status?: StatValidationStatus;
   /**
    * Theme of the stat tab.
    */

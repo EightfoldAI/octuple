@@ -114,7 +114,8 @@
       height: max-content;
       list-style: none;
       margin: 0;
-      overflow: auto;
+      overflow: hidden;
+      overflow-x: auto;
       padding: 0;
       position: relative;
       scrollbar-width: none; /* Firefox */

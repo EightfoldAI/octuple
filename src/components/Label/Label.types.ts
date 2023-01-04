@@ -1,6 +1,6 @@
 import { ButtonProps } from '../Button';
 import { Placement, Strategy } from '@floating-ui/react-dom';
-import { TooltipTheme } from '../Tooltip';
+import { TooltipTheme, TooltipProps } from '../Tooltip';
 import { OcBaseProps } from '../OcBase';
 import { Size } from '../ConfigProvider';
 
@@ -13,33 +13,42 @@ export enum LabelSize {
 
 export interface LabelIconButtonProps extends ButtonProps {
   /**
-   * The label icon button is shown
+   * The label icon button is shown.
    * @default false
    */
   show?: boolean;
   /**
-   * Content to show on the tooltip
+   * The tooltip props.
+   * @default false
+   */
+  tooltipProps?: TooltipProps;
+  /**
+   * Unique id used to target element for testing.
+   */
+  'data-test-id'?: string;
+  /**
+   * @deprecated Use labelIconButtonProps.tooltipProps instead.
+   * Content to show on the tooltip.
    */
   toolTipContent?: React.ReactNode;
   /**
-   * Placement of the tooltip
+   * @deprecated Use labelIconButtonProps.tooltipProps instead.
+   * Placement of the tooltip.
    * @default top
    */
   toolTipPlacement?: Placement;
   /**
-   * Positioning strategy for the tooltip
+   * @deprecated Use labelIconButtonProps.tooltipProps instead.
+   * Positioning strategy for the tooltip.
    * @default absolute
    */
   toolTipPositionStrategy?: Strategy;
   /**
-   * Theme of the tooltip
+   * @deprecated Use labelIconButtonProps.tooltipProps instead.
+   * Theme of the tooltip.
    * @default light
    */
   toolTipTheme?: TooltipTheme;
-  /**
-   * Unique id used to target element for testing
-   */
-  'data-test-id'?: string;
 }
 
 export interface LabelProps extends OcBaseProps<HTMLDivElement> {

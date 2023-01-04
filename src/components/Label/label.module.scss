@@ -82,7 +82,7 @@
 
   .label-icon-button {
     box-sizing: border-box;
-    border-width: 1px;
+    border-width: var(--button-default-border-width);
   }
 }
 
