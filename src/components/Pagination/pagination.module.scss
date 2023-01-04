@@ -24,7 +24,7 @@
     &.active {
       color: var(--pager-button-active-foreground-color);
       background-color: var(--pager-button-active-background-color);
-      border: 1px solid var(--pager-button-active-outline-color);
+      outline: 1px solid var(--pager-button-active-outline-color);
 
       svg {
         color: var(--pager-button-active-foreground-color);
