@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.20.6](https://github.com/EightfoldAI/octuple/compare/v2.20.5...v2.20.6) (2023-01-04)
+
 ### [2.20.5](https://github.com/EightfoldAI/octuple/compare/v2.20.4...v2.20.5) (2023-01-04)
 
 ### Features
