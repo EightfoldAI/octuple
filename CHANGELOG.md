@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.20.8](https://github.com/EightfoldAI/octuple/compare/v2.20.7...v2.20.8) (2023-01-04)
+
+### Bug Fixes
+
+- watch extra item width, padding and line to show for useMaxVisibleSections hook ([#491](https://github.com/EightfoldAI/octuple/issues/491)) ([b85260b](https://github.com/EightfoldAI/octuple/commits/b85260bfb092facbcbd818cab97a442f1d2af25e))
+
 ### [2.20.7](https://github.com/EightfoldAI/octuple/compare/v2.20.6...v2.20.7) (2023-01-04)
 
 ### Bug Fixes
