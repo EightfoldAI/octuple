@@ -96,6 +96,7 @@ export const Label: FC<LabelProps> = ({
             placement={labelIconButtonProps?.toolTipPlacement || 'top'}
             positionStrategy={labelIconButtonProps?.toolTipPositionStrategy}
             theme={labelIconButtonProps?.toolTipTheme}
+            {...labelIconButtonProps.tooltipProps}
           >
             <DefaultButton
               classNames={styles.labelIconButton}

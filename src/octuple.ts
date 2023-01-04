@@ -110,7 +110,14 @@ import { Spinner, SpinnerSize } from './components/Spinner';
 
 import { Stack } from './components/Stack';
 
-import { Stat, Tabs, Tab, TabSize, TabVariant } from './components/Tabs';
+import {
+  Stat,
+  StatValidationStatus,
+  Tabs,
+  Tab,
+  TabSize,
+  TabVariant,
+} from './components/Tabs';
 
 import {
   Step,
@@ -281,6 +288,7 @@ export {
   SpinnerSize,
   Stack,
   Stat,
+  StatValidationStatus,
   Step,
   Stepper,
   StepperSize,

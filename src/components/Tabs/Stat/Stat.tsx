@@ -24,6 +24,7 @@ export const Stat: FC<StatProps> = React.forwardRef(
       ratioA,
       ratioB,
       size = TabSize.Medium,
+      status,
       theme,
       value,
       ...rest
@@ -49,6 +50,9 @@ export const Stat: FC<StatProps> = React.forwardRef(
       {
         [styles.readOnly]: !!readOnly,
         [styles.active]: isActive && !readOnly,
+        [styles.statusSuccess]: status === 'success',
+        [styles.statusWarning]: status === 'warning',
+        [styles.statusError]: status === 'error',
         [styles.tabRtl]: htmlDir === 'rtl',
       },
       classNames,

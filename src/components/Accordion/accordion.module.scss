@@ -118,7 +118,7 @@
     .accordion-summary {
       &.focus-visible,
       &:focus-visible {
-        border: 2px solid $focus-visible-shadow-color;
+        border: 2px solid var(--focus-visible-shadow-color);
         border-radius: $border-radius-xl;
         padding: calc(#{$space-l} - 2px);
 

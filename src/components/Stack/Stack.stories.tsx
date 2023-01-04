@@ -86,7 +86,7 @@ export default {
       options: ['wrap', 'nowrap', 'wrap-reverse'],
       control: { type: 'radio' },
     },
-    gap: {
+    flexGap: {
       options: ['xxxs', 'xxs', 'xs', 's', 'm', 'l', 'xl', 'xxl', 'xxl', 'xxxl'],
       control: { type: 'select' },
     },
@@ -124,7 +124,7 @@ const stackArgs: Object = {
   inline: false,
   align: '',
   wrap: '',
-  gap: '',
+  flexGap: '',
   style: {
     backgroundColor: 'aquamarine',
   },
@@ -159,34 +159,34 @@ const stackArgs: Object = {
 
 Horizontal.args = {
   ...stackArgs,
-  gap: 'm',
+  flexGap: 'm',
 };
 
 Vertical.args = {
   ...stackArgs,
   direction: 'vertical',
-  gap: 'l',
+  flexGap: 'l',
 };
 
 Responsive.args = {
   ...stackArgs,
   direction: 'vertical',
-  gap: 'l',
+  flexGap: 'l',
   breakpoints: {
     xsmall: {
-      gap: 'xxxs',
+      flexGap: 'xxxs',
       direction: 'vertical',
     },
     small: {
-      gap: 's',
+      flexGap: 's',
       direction: 'vertical',
     },
     medium: {
-      gap: 'xl',
+      flexGap: 'xl',
       direction: 'horizontal',
     },
     large: {
-      gap: 'xxxl',
+      flexGap: 'xxxl',
       direction: 'horizontal',
     },
   },
@@ -205,49 +205,49 @@ Sample_Nav_List.args = {
   style: {},
   children: (
     <>
-      <Stack direction="vertical" gap="m" classNames={styles.group}>
+      <Stack direction="vertical" flexGap="m" classNames={styles.group}>
         <h3>Title</h3>
-        <Stack direction="vertical" gap="xs">
+        <Stack direction="vertical" flexGap="xs">
           <p>subheading</p>
           <p>subheading</p>
         </Stack>
       </Stack>
-      <Stack direction="vertical" gap="m" classNames={styles.group}>
+      <Stack direction="vertical" flexGap="m" classNames={styles.group}>
         <h3>Title</h3>
-        <Stack direction="vertical" gap="xs">
-          <p>subheading</p>
-          <p>subheading</p>
-          <p>subheading</p>
-          <p>subheading</p>
-        </Stack>
-      </Stack>
-      <Stack direction="vertical" gap="m" classNames={styles.group}>
-        <h3>Title</h3>
-        <Stack direction="vertical" gap="xs">
-          <p>subheading</p>
-          <p>subheading</p>
-        </Stack>
-      </Stack>
-      <Stack direction="vertical" gap="m" classNames={styles.group}>
-        <h3>Title</h3>
-        <Stack direction="vertical" gap="xs">
-          <p>subheading</p>
-          <p>subheading</p>
-          <p>subheading</p>
-        </Stack>
-      </Stack>
-      <Stack direction="vertical" gap="m" classNames={styles.group}>
-        <h3>Title</h3>
-        <Stack direction="vertical" gap="xs">
+        <Stack direction="vertical" flexGap="xs">
           <p>subheading</p>
           <p>subheading</p>
           <p>subheading</p>
           <p>subheading</p>
         </Stack>
       </Stack>
-      <Stack direction="vertical" gap="m" classNames={styles.group}>
+      <Stack direction="vertical" flexGap="m" classNames={styles.group}>
         <h3>Title</h3>
-        <Stack direction="vertical" gap="xs">
+        <Stack direction="vertical" flexGap="xs">
+          <p>subheading</p>
+          <p>subheading</p>
+        </Stack>
+      </Stack>
+      <Stack direction="vertical" flexGap="m" classNames={styles.group}>
+        <h3>Title</h3>
+        <Stack direction="vertical" flexGap="xs">
+          <p>subheading</p>
+          <p>subheading</p>
+          <p>subheading</p>
+        </Stack>
+      </Stack>
+      <Stack direction="vertical" flexGap="m" classNames={styles.group}>
+        <h3>Title</h3>
+        <Stack direction="vertical" flexGap="xs">
+          <p>subheading</p>
+          <p>subheading</p>
+          <p>subheading</p>
+          <p>subheading</p>
+        </Stack>
+      </Stack>
+      <Stack direction="vertical" flexGap="m" classNames={styles.group}>
+        <h3>Title</h3>
+        <Stack direction="vertical" flexGap="xs">
           <p>subheading</p>
           <p>subheading</p>
           <p>subheading</p>

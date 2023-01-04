@@ -2,6 +2,84 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.20.8](https://github.com/EightfoldAI/octuple/compare/v2.20.7...v2.20.8) (2023-01-04)
+
+### Bug Fixes
+
+- watch extra item width, padding and line to show for useMaxVisibleSections hook ([#491](https://github.com/EightfoldAI/octuple/issues/491)) ([b85260b](https://github.com/EightfoldAI/octuple/commits/b85260bfb092facbcbd818cab97a442f1d2af25e))
+
+### [2.20.7](https://github.com/EightfoldAI/octuple/compare/v2.20.6...v2.20.7) (2023-01-04)
+
+### Bug Fixes
+
+- carousel: limit auto scroll to x axis only ([#490](https://github.com/EightfoldAI/octuple/issues/490)) ([720e4d2](https://github.com/EightfoldAI/octuple/commits/720e4d29f25be15af6d847addccf20c78f70518f))
+
+### [2.20.6](https://github.com/EightfoldAI/octuple/compare/v2.20.5...v2.20.6) (2023-01-04)
+
+### Features
+
+- second icon on button ([#475](https://github.com/EightfoldAI/octuple/issues/475)) ([d06a7aa](https://github.com/EightfoldAI/octuple/commits/d06a7aa9e6a35a0b93ab6f1c0afe605fde1606ca))
+- stack: use flex gap instead of margins ([#483](https://github.com/EightfoldAI/octuple/issues/483)) ([476d978](https://github.com/EightfoldAI/octuple/commits/476d978f3c1fb3a334ea9c5d1e01763a18ca974c))
+- stat tabs: enable stat themes by validation status ([#486](https://github.com/EightfoldAI/octuple/issues/486)) ([757d5e2](https://github.com/EightfoldAI/octuple/commits/757d5e25a7a1a585720fe827c803ec4a55249542))
+
+### Bug Fixes
+
+- expandable search overlay zindex fix ([#482](https://github.com/EightfoldAI/octuple/issues/482)) ([fd0e29e](https://github.com/EightfoldAI/octuple/commits/fd0e29e77d18e3ace3e2993e48351ea54590bd22))
+- label: exposes all tooltip props and fixes hover pixel shift ([#484](https://github.com/EightfoldAI/octuple/issues/484)) ([6945528](https://github.com/EightfoldAI/octuple/commits/6945528acd405831a8752488c90fbaed53df042a))
+- pagination: updates border css property to outline, fixing pixel shift regression ([#487](https://github.com/EightfoldAI/octuple/issues/487)) ([8d5f14d](https://github.com/EightfoldAI/octuple/commits/8d5f14dd55cd2c1b4f61f49ef2657903a360235a))
+- picker: fixes trigger hide animation curves and updates slide out animations ([#485](https://github.com/EightfoldAI/octuple/issues/485)) ([d635a00](https://github.com/EightfoldAI/octuple/commits/d635a0088d687ab468e361c94205b7d4af6e51c6))
+- upload: fixes rendering error caused by hooks in class component uid utility regression ([#488](https://github.com/EightfoldAI/octuple/issues/488)) ([1f0ddfb](https://github.com/EightfoldAI/octuple/commits/1f0ddfb10646c8bbd2ef99174f3ede74832033a2))
+
+### [2.20.5](https://github.com/EightfoldAI/octuple/compare/v2.20.4...v2.20.5) (2023-01-04)
+
+### Features
+
+- second icon on button ([#475](https://github.com/EightfoldAI/octuple/issues/475)) ([d06a7aa](https://github.com/EightfoldAI/octuple/commits/d06a7aa9e6a35a0b93ab6f1c0afe605fde1606ca))
+- stack: use flex gap instead of margins ([#483](https://github.com/EightfoldAI/octuple/issues/483)) ([476d978](https://github.com/EightfoldAI/octuple/commits/476d978f3c1fb3a334ea9c5d1e01763a18ca974c))
+- stat tabs: enable stat themes by validation status ([#486](https://github.com/EightfoldAI/octuple/issues/486)) ([757d5e2](https://github.com/EightfoldAI/octuple/commits/757d5e25a7a1a585720fe827c803ec4a55249542))
+
+### Bug Fixes
+
+- expandable search overlay zindex fix ([#482](https://github.com/EightfoldAI/octuple/issues/482)) ([fd0e29e](https://github.com/EightfoldAI/octuple/commits/fd0e29e77d18e3ace3e2993e48351ea54590bd22))
+- label: exposes all tooltip props and fixes hover pixel shift ([#484](https://github.com/EightfoldAI/octuple/issues/484)) ([6945528](https://github.com/EightfoldAI/octuple/commits/6945528acd405831a8752488c90fbaed53df042a))
+- pagination: updates border css property to outline, fixing pixel shift regression ([#487](https://github.com/EightfoldAI/octuple/issues/487)) ([8d5f14d](https://github.com/EightfoldAI/octuple/commits/8d5f14dd55cd2c1b4f61f49ef2657903a360235a))
+- picker: fixes trigger hide animation curves and updates slide out animations ([#485](https://github.com/EightfoldAI/octuple/issues/485)) ([d635a00](https://github.com/EightfoldAI/octuple/commits/d635a0088d687ab468e361c94205b7d4af6e51c6))
+- upload: fixes rendering error caused by hooks in class component uid utility regression ([#488](https://github.com/EightfoldAI/octuple/issues/488)) ([1f0ddfb](https://github.com/EightfoldAI/octuple/commits/1f0ddfb10646c8bbd2ef99174f3ede74832033a2))
+
+### [2.20.4](https://github.com/EightfoldAI/octuple/compare/v2.20.2...v2.20.4) (2022-12-28)
+
+### Features
+
+- add support for autocomplete attribute to TextInput and SearchBox ([#467](https://github.com/EightfoldAI/octuple/issues/467)) ([298cd97](https://github.com/EightfoldAI/octuple/commits/298cd97fc566ce8d5c6fd9c001c4e81f484b6002))
+- extend var theming implementation ([#465](https://github.com/EightfoldAI/octuple/issues/465)) ([fb9954d](https://github.com/EightfoldAI/octuple/commits/fb9954d107db828a2573845cdcb9f086ee365e77))
+- make focus highlighting varTheme friendly ([#474](https://github.com/EightfoldAI/octuple/issues/474)) ([b3046fe](https://github.com/EightfoldAI/octuple/commits/b3046fe91a6c6a6073b51d234509d73a6a12e5be))
+
+### Bug Fixes
+
+- added position left on expandable search ([#463](https://github.com/EightfoldAI/octuple/issues/463)) ([ad73e14](https://github.com/EightfoldAI/octuple/commits/ad73e1413bc4ed661045ce0e698cb3a3a33893ad))
+- input border color ([#452](https://github.com/EightfoldAI/octuple/issues/452)) ([9e708cb](https://github.com/EightfoldAI/octuple/commits/9e708cb52185fbeb99d3d2bd458d6ee941a7b49b))
+- only generate a unique id once ([#472](https://github.com/EightfoldAI/octuple/issues/472)) ([70effc7](https://github.com/EightfoldAI/octuple/commits/70effc7fff448411a501d6fcea12f193f71f533b))
+- remove padding from borderless stat-tabs, extend varTheme ([#470](https://github.com/EightfoldAI/octuple/issues/470)) ([c70f2dd](https://github.com/EightfoldAI/octuple/commits/c70f2dd27503c74f00c73f9f3032492da924bb00))
+- skeleton: use lighter colors in skeleton ([#478](https://github.com/EightfoldAI/octuple/issues/478)) ([11086bd](https://github.com/EightfoldAI/octuple/commits/11086bd615bef49661857e727eb6449a43f782de))
+- switch to two space indent ([#468](https://github.com/EightfoldAI/octuple/issues/468)) ([2b2c571](https://github.com/EightfoldAI/octuple/commits/2b2c5710fe8160604ef78fa3bc1a1f3752e5e255))
+- twoStateButton: vertical align counter ([#477](https://github.com/EightfoldAI/octuple/issues/477)) ([03b3c1d](https://github.com/EightfoldAI/octuple/commits/03b3c1d0d3a55ba8241a59e2c23946ac8f4bf7fc))
+- update git-blame-ignore-revs to correct commit hash ([#469](https://github.com/EightfoldAI/octuple/issues/469)) ([3554159](https://github.com/EightfoldAI/octuple/commits/355415975812e71f474e464facabf31b51db704a))
+
+### [2.20.3](https://github.com/EightfoldAI/octuple/compare/v2.20.2...v2.20.3) (2022-12-22)
+
+### Features
+
+- add support for autocomplete attribute to TextInput and SearchBox ([#467](https://github.com/EightfoldAI/octuple/issues/467)) ([298cd97](https://github.com/EightfoldAI/octuple/commits/298cd97fc566ce8d5c6fd9c001c4e81f484b6002))
+- extend var theming implementation ([#465](https://github.com/EightfoldAI/octuple/issues/465)) ([fb9954d](https://github.com/EightfoldAI/octuple/commits/fb9954d107db828a2573845cdcb9f086ee365e77))
+- make focus highlighting varTheme friendly ([#474](https://github.com/EightfoldAI/octuple/issues/474)) ([b3046fe](https://github.com/EightfoldAI/octuple/commits/b3046fe91a6c6a6073b51d234509d73a6a12e5be))
+
+### Bug Fixes
+
+- added position left on expandable search ([#463](https://github.com/EightfoldAI/octuple/issues/463)) ([ad73e14](https://github.com/EightfoldAI/octuple/commits/ad73e1413bc4ed661045ce0e698cb3a3a33893ad))
+- input border color ([#452](https://github.com/EightfoldAI/octuple/issues/452)) ([9e708cb](https://github.com/EightfoldAI/octuple/commits/9e708cb52185fbeb99d3d2bd458d6ee941a7b49b))
+- only generate a unique id once ([#472](https://github.com/EightfoldAI/octuple/issues/472)) ([70effc7](https://github.com/EightfoldAI/octuple/commits/70effc7fff448411a501d6fcea12f193f71f533b))
+- remove padding from borderless stat-tabs, extend varTheme ([#470](https://github.com/EightfoldAI/octuple/issues/470)) ([c70f2dd](https://github.com/EightfoldAI/octuple/commits/c70f2dd27503c74f00c73f9f3032492da924bb00))
+
 ### [2.20.2](https://github.com/EightfoldAI/octuple/compare/v2.20.1...v2.20.2) (2022-12-12)
 
 ### Bug Fixes

@@ -296,7 +296,7 @@
       transition: all 0.3s;
 
       &:hover {
-        color: $text-color-secondary;
+        color: var(--text-secondary-color);
         background: $table-header-filter-active-background-color;
       }
 
@@ -745,7 +745,7 @@
       &-row-expand-icon {
         &.focus-visible,
         &:focus-visible {
-          box-shadow: $focus-visible-box-shadow;
+          box-shadow: var(--focus-visible-box-shadow);
         }
       }
     }

@@ -74,7 +74,7 @@
   }
 
   &-focused:not(.picker-disabled):not(.picker-underline):not(.picker-borderless) {
-    border-color: $focus-visible-shadow-color;
+    border-color: var(--focus-visible-shadow-color);
   }
 
   &-disabled {
@@ -95,7 +95,7 @@
     box-shadow: $picker-box-shadow;
 
     &-focused {
-      border-color: $focus-visible-shadow-color;
+      border-color: var(--focus-visible-shadow-color);
     }
   }
 
@@ -1627,13 +1627,13 @@
   .picker {
     &-focused {
       border-color: transparent;
-      box-shadow: $focus-visible-box-shadow;
+      box-shadow: var(--focus-visible-box-shadow);
     }
 
     &-partial {
       &-focused {
         border-color: transparent;
-        box-shadow: $focus-visible-box-shadow, $picker-box-shadow;
+        box-shadow: var(--focus-visible-box-shadow), $picker-box-shadow;
       }
     }
   }
