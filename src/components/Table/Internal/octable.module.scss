@@ -132,7 +132,7 @@
       z-index: 1;
     }
 
-    &-fix-right:last-child:not(&-fix-sticky) {
+    &-fix-right:last-child {
       border-right-color: transparent;
     }
 
@@ -239,6 +239,16 @@
     }
   }
 
+  &-bordered {
+    &.table-ping-right {
+      .table-cell-fix-right-first:after,
+      .table-cell-fix-right-last:after {
+        border-right: $table-border;
+        left: 0;
+      }
+    }
+  }
+
   &-expand-icon-col {
     width: 84px;
   }
@@ -257,6 +267,14 @@
       line-height: $text-line-height-1;
       color: $table-header-color;
       text-align: left;
+    }
+
+    .table-cell-fix-left-first,
+    .table-cell-fix-left-last,
+    .table-cell-fix-right-first,
+    .table-cell-fix-right-last {
+      overflow: clip;
+      overflow-clip-margin: $space-xs;
     }
 
     tr:first-of-type {
@@ -297,14 +315,6 @@
     color: $table-header-foreground-color;
   }
 
-  &-placeholder {
-    &:nth-child(odd) td {
-      background-color: $table-background-color !important;
-    }
-
-    text-align: center;
-  }
-
   tbody {
     tr {
       &:last-of-type {
@@ -325,6 +335,10 @@
         }
       }
     }
+  }
+
+  &-placeholder {
+    text-align: center;
   }
 
   &-container {
@@ -472,10 +486,6 @@
         border-left-color: transparent;
       }
 
-      &-fix-left-first {
-        box-shadow: 1px 0 0 $table-border-color;
-      }
-
       &-fix-right-first,
       &-fix-right-last {
         box-shadow: none;
@@ -522,6 +532,17 @@
       .table-cell-fix-right-first:after,
       .table-cell-fix-right-last:after {
         box-shadow: $table-fixed-left-box-shadow;
+      }
+    }
+
+    // TODO: handle internal ping styles for other border props e.g. header-border
+    &.table-bordered {
+      &.table-ping-left {
+        .table-cell-fix-left-first:after,
+        .table-cell-fix-left-last:after {
+          border-left: $table-border;
+          right: 0;
+        }
       }
     }
 

@@ -762,6 +762,7 @@ function InternalTable<RecordType extends object = any>(
                 },
                 { [styles.tableEmpty]: rawData.length === 0 },
               ])}
+              bordered={bordered}
               data={pageData}
               locale={locale!.lang}
               rowKey={getRowKey}

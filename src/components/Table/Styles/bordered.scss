@@ -21,7 +21,11 @@
         tfoot tr td {
           border-right: $table-border-width $table-border-style
             $table-border-color;
+        }
 
+        tbody tr td,
+        tfoot tr th,
+        tfoot tr td {
           &:last-of-type {
             border-right: none;
           }
@@ -264,10 +268,6 @@
 
           border-right: $table-border-width $table-border-style
             $table-border-color;
-
-          &:last-of-type {
-            border-right: none;
-          }
         }
 
         tbody tr td,
@@ -388,14 +388,24 @@
           &:first-of-type {
             border-left: none;
           }
+        }
 
+        thead tr th,
+        tbody tr td,
+        tfoot tr th,
+        tfoot tr td {
           border-right: $table-border-width $table-border-style
             $table-border-color;
+        }
 
+        tbody tr td,
+        tfoot tr th,
+        tfoot tr td {
           &:last-of-type {
             border-right: none;
           }
         }
+
         thead {
           tr th {
             border-bottom: $table-border;

@@ -386,6 +386,26 @@
       }
     }
 
+    &-empty {
+      tbody {
+        tr {
+          text-align: center;
+
+          &:nth-child(odd) {
+            td {
+              background-color: $table-background-color;
+            }
+
+            &:hover {
+              td {
+                background-color: $table-background-color;
+              }
+            }
+          }
+        }
+      }
+    }
+
     &-selection {
       position: relative;
       display: inline-flex;
