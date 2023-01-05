@@ -1,4 +1,4 @@
-import { OcBaseTheme, OcTheme, OcThemeNames } from './Theming.types';
+import { OcBaseTheme, OcTheme, OcThemeName } from './Theming.types';
 
 export const themeDefaults: OcBaseTheme = {
   textColor: '#1A212E',
@@ -248,7 +248,7 @@ export const grey: OcTheme = {
   ],
 };
 
-const themes: Record<OcThemeNames, OcTheme> = {
+const themes: Record<OcThemeName, OcTheme> = {
   red,
   redOrange,
   orange,

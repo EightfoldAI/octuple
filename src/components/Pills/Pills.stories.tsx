@@ -2,7 +2,7 @@ import React from 'react';
 import { Stories } from '@storybook/addon-docs';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Pill, PillSize, PillType } from './';
-import { OcThemeNames } from '../ConfigProvider';
+import { OcThemeName } from '../ConfigProvider';
 import { IconName } from '../Icon';
 import { Stack } from '../Stack';
 
@@ -51,7 +51,7 @@ export default {
   },
 } as ComponentMeta<typeof Pill>;
 
-const themes: OcThemeNames[] = [
+const themes: OcThemeName[] = [
   'red',
   'redOrange',
   'orange',
