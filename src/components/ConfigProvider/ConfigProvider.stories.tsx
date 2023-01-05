@@ -14,7 +14,7 @@ import { CompactPicker } from 'react-color';
 import {
   ConfigProvider,
   FontOptions,
-  OcThemeNames,
+  OcThemeName,
   ThemeOptions,
   useConfig,
 } from './';
@@ -65,7 +65,7 @@ const ThemedComponents: FC = () => {
   const [customAccentColor, setCustomAccentColor] = useState<string>('');
   const { fontOptions, setFontOptions } = useConfig();
   const { themeOptions, setThemeOptions } = useConfig();
-  const themes: OcThemeNames[] = [
+  const themes: OcThemeName[] = [
     'red',
     'redOrange',
     'orange',
@@ -122,7 +122,7 @@ const ThemedComponents: FC = () => {
             value={themeOptions.name}
             onChange={(e) => {
               setThemeOptions({
-                name: e.target.value as OcThemeNames,
+                name: e.target.value as OcThemeName,
               });
             }}
             style={{ fontSize: '1rem' }}

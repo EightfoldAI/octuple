@@ -1,5 +1,5 @@
 import React, { ReactNode, Ref } from 'react';
-import { OcThemeNames } from '../ConfigProvider';
+import { OcThemeName } from '../ConfigProvider';
 import { IconProps } from '../Icon';
 import { ListProps } from '../List';
 import { TooltipProps } from '../Tooltip';
@@ -33,7 +33,7 @@ interface BaseAvatarProps extends OcBaseProps<HTMLSpanElement> {
    * theme of the fallback avatar
    * @default ''
    */
-  theme?: OcThemeNames;
+  theme?: OcThemeName;
   /**
    * Type of avatar style
    * @default 'square'

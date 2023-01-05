@@ -1,5 +1,5 @@
 import React, { FC, Ref } from 'react';
-import { StatProps, StatThemeNames, TabSize } from '../Tabs.types';
+import { StatProps, StatThemeName, TabSize } from '../Tabs.types';
 import { useTabs } from '../Tabs.context';
 import { Icon } from '../../Icon';
 import { Loader } from '../../Loader';
@@ -36,7 +36,7 @@ export const Stat: FC<StatProps> = React.forwardRef(
     const { currentActiveTab, statgrouptheme, readOnly, onTabClick } =
       useTabs();
 
-    const mergedTheme: StatThemeNames = theme ?? statgrouptheme;
+    const mergedTheme: StatThemeName = theme ?? statgrouptheme;
 
     const iconExists: boolean = !!icon;
     const labelExists: boolean = !!label;
