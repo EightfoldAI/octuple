@@ -132,7 +132,7 @@
       z-index: 1;
     }
 
-    &-fix-right:last-child {
+    &-fix-right:last-child:not(&-fix-sticky) {
       border-right-color: transparent;
     }
 
