@@ -1,5 +1,5 @@
 import React from 'react';
-import { OcThemeNames } from '../ConfigProvider';
+import { OcThemeName } from '../ConfigProvider';
 import { IconName } from '../Icon';
 import { OcBaseProps } from '../OcBase';
 import { Ref } from 'react';
@@ -33,7 +33,7 @@ export enum TabVariant {
   small = 'small',
 }
 
-export type StatThemeNames = OcThemeNames;
+export type StatThemeName = OcThemeName;
 export type StatValidationStatus = InputStatus;
 
 export interface TabsContextProps {
@@ -58,7 +58,7 @@ export interface TabsContextProps {
   /**
    * Theme of the Stat Tab group.
    */
-  statgrouptheme?: StatThemeNames;
+  statgrouptheme?: StatThemeName;
   /**
    * The value of the selected tab.
    */
@@ -92,7 +92,7 @@ export interface ITabsContext {
   /**
    * Theme of the Stat Tab group.
    */
-  statgrouptheme?: StatThemeNames;
+  statgrouptheme?: StatThemeName;
   /**
    * Variant of the Tabs.
    * @default default
@@ -152,7 +152,7 @@ export interface StatProps extends Omit<TabProps, 'badgeContent'> {
   /**
    * Theme of the stat tab.
    */
-  theme?: StatThemeNames;
+  theme?: StatThemeName;
 }
 
 export interface TabsProps extends Omit<OcBaseProps<HTMLElement>, 'onChange'> {
@@ -200,7 +200,7 @@ export interface TabsProps extends Omit<OcBaseProps<HTMLElement>, 'onChange'> {
   /**
    * Theme of the Stat Tab group.
    */
-  statgrouptheme?: StatThemeNames;
+  statgrouptheme?: StatThemeName;
   /**
    * If the tabs should have an underline/penline beneath them.
    * NOTE: won't be applied if pill variant is used.

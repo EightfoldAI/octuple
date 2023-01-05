@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Stories } from '@storybook/addon-docs';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Stat, StatThemeNames, Tabs, TabSize, TabVariant } from './';
+import { Stat, StatThemeName, Tabs, TabSize, TabVariant } from './';
 import type { StatValidationStatus } from './';
 import { IconName } from '../Icon';
 
@@ -70,7 +70,7 @@ export default {
   },
 } as ComponentMeta<typeof Tabs>;
 
-const themes: StatThemeNames[] = [
+const themes: StatThemeName[] = [
   'red',
   'redOrange',
   'orange',
