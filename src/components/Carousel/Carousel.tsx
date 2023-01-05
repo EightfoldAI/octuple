@@ -375,7 +375,8 @@ export const Carousel: FC<CarouselProps> = React.forwardRef(
       } = React.useContext(VisibilityContext);
 
       const [nextDisabled, setNextDisabled] = useState(
-        !visibleElements?.length && isLastItemVisible
+        !initComplete ||
+          (initComplete && !visibleElements?.length && isLastItemVisible)
       );
 
       const [previousDisabled, setPreviousDisabled] = useState(
