@@ -1412,6 +1412,7 @@
   &.isExpandable {
     .expandable-wrapper {
       position: relative;
+      z-index: 1;
     }
 
     .input-group {

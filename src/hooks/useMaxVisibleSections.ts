@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 export const useMaxVisibleSections = (
   containerRef: React.MutableRefObject<HTMLElement>,
@@ -54,7 +54,7 @@ export const useMaxVisibleSections = (
     }
     computeVisibleSections();
     return () => {};
-  }, [itemsRef, itemsLength]);
+  }, [itemsRef, itemsLength, extraItemWidth, itemPadding, linesToShow]);
 
   useEffect(() => {
     if (!containerRef.current) {
