@@ -163,7 +163,7 @@ export const ScrollMenu: FC<ScrollMenuProps> = forwardRef(
       >
         <VisibilityContext.Provider value={context}>
           <div className={innerWrapperClassName}>
-            {LeftArrow}
+            {!context?.isFirstItemVisible && LeftArrow}
             <ScrollContainer
               classNames={scrollContainerClassNames}
               containerPadding={containerPadding}
@@ -181,7 +181,7 @@ export const ScrollMenu: FC<ScrollMenuProps> = forwardRef(
                 {children}
               </MenuItems>
             </ScrollContainer>
-            {RightArrow}
+            {!context?.isLastItemVisible && RightArrow}
           </div>
         </VisibilityContext.Provider>
       </div>

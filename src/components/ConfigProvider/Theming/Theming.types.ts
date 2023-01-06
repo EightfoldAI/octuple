@@ -5,7 +5,7 @@ export type Value = string;
 
 export type OcCustomThemeName = string;
 
-export type OcThemeNames =
+export type OcThemeName =
   | 'red'
   | 'redOrange'
   | 'orange'
@@ -19,7 +19,7 @@ export type OcThemeNames =
   | 'violetRed'
   | 'grey';
 
-export type ThemeName = OcThemeNames | OcCustomThemeName;
+export type ThemeName = OcThemeName | OcCustomThemeName;
 
 /**
  * Used to theme based purely on css var overrides.
@@ -48,7 +48,7 @@ export interface OcBaseTheme {
 export interface OcTheme extends OcBaseTheme {
   /**
    * Name of accent theme.
-   * @type {OcCustomThemeName|OcThemeNames}
+   * @type {OcCustomThemeName|OcThemeName}
    * @default blueGreen
    */
   accentName?: ThemeName;
@@ -61,7 +61,7 @@ export interface OcTheme extends OcBaseTheme {
 export interface ThemeOptions {
   /**
    * Name of the theme.
-   * @type {OcCustomThemeName|OcThemeNames}
+   * @type {OcCustomThemeName|OcThemeName}
    * @default blue
    */
   name?: ThemeName;

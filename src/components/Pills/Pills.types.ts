@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { IconProps } from '../Icon';
-import { OcThemeNames } from '../ConfigProvider';
+import { OcThemeName } from '../ConfigProvider';
 import { ButtonProps } from '../Button';
 import { OcBaseProps } from '../OcBase';
 import { ConfigContextProps } from '../ConfigProvider';
@@ -83,7 +83,7 @@ export interface PillProps extends OcBaseProps<HTMLElement> {
    * Theme of the pill
    * @default blue
    */
-  theme?: OcThemeNames;
+  theme?: OcThemeName;
   /**
    * Type of the pill
    * @default PillType.default
