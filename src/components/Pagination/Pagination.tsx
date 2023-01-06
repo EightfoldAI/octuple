@@ -280,7 +280,7 @@ export const Pagination: FC<PaginationProps> = React.forwardRef(
       return <Menu onChange={onSizeChangeHandler} items={getItems()} />;
     };
 
-    const moreThanOnePage: boolean = _total > 1;
+    const moreThanOnePage: boolean = getPageCount() > 1;
 
     const paginationWrapperClassNames: string = mergeClasses([
       classNames,
@@ -305,7 +305,9 @@ export const Pagination: FC<PaginationProps> = React.forwardRef(
               {_total > 0 && (
                 <>
                   {layout.includes(PaginationLayoutOptions.Sizes) &&
-                    moreThanOnePage && (
+                    _pageSizes.find(
+                      (pageSize) => Math.ceil(total / pageSize) > 1
+                    ) && (
                       <span className={styles.sizes} key="sizes">
                         <Dropdown
                           overlay={Overlay(_pageSizes)}
@@ -437,8 +439,8 @@ export const Pagination: FC<PaginationProps> = React.forwardRef(
                           ref={inputRef}
                           classNames={styles.editor}
                           shape={TextInputShape.Pill}
-                          minlength={1}
-                          maxlength={_pageCount}
+                          min={1}
+                          max={_pageCount}
                           numbersOnly
                           defaultValue={
                             _currentPage > getPageCount() || _currentPage <= 0
