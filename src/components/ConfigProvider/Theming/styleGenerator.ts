@@ -8,7 +8,7 @@ import {
   IGetStyle,
   IRegisterTheme,
   OcTheme,
-  OcThemeNames,
+  OcThemeName,
   ThemeName,
   ThemeOptions,
   Variables,
@@ -52,12 +52,12 @@ export function getStyle(themeOptions: ThemeOptions): IGetStyle {
 
   const theme: OcTheme = {
     ...themeDefaults,
-    ...OcThemes?.[themeName as OcThemeNames],
+    ...OcThemes?.[themeName as OcThemeName],
     ...themeOptions.customTheme,
   };
 
   const accentTheme: OcTheme = {
-    ...OcThemes?.[theme.accentName as OcThemeNames],
+    ...OcThemes?.[theme.accentName as OcThemeName],
   };
 
   // ================ Use existing primary palette ================

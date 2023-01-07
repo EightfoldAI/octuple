@@ -58,6 +58,8 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
       labelProps,
       maxlength,
       minlength,
+      max,
+      min,
       name,
       numbersOnly = false,
       onBlur,
@@ -422,6 +424,8 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
               id={mergedFormItemInput ? id : inputId}
               maxLength={maxlength}
               minLength={minlength}
+              max={max}
+              min={min}
               name={name}
               onChange={!allowDisabledFocus ? handleChange : null}
               onBlur={!allowDisabledFocus ? onBlur : null}
