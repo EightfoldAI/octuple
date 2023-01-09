@@ -404,6 +404,10 @@ export interface MemoTableContentProps {
 
 export interface OcTableProps<RecordType = unknown> {
   /**
+   * Show all Table borders.
+   */
+  bordered?: boolean;
+  /**
    * The Table custom class names.
    */
   classNames?: string;

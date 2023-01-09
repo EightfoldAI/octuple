@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.20.9](https://github.com/EightfoldAI/octuple/compare/v2.20.8...v2.20.9) (2023-01-09)
+
+### Bug Fixes
+
+- carousel: arrow blinks when its edge meets window edge ([#494](https://github.com/EightfoldAI/octuple/issues/494)) ([4785002](https://github.com/EightfoldAI/octuple/commits/478500296a5a68541ad2ae2dfcd69946a0532666))
+- configprovider: export OcThemeNames from a better location, rename to OcThemeName ([#495](https://github.com/EightfoldAI/octuple/issues/495)) ([e85d360](https://github.com/EightfoldAI/octuple/commits/e85d3607fef5dc9f302233d9e528dc5080aa6cf4))
+- logical fixes in Pagination component ([#479](https://github.com/EightfoldAI/octuple/issues/479)) ([1be8dcb](https://github.com/EightfoldAI/octuple/commits/1be8dcbeaa3bab6e51d130b62d8690b752d57636))
+
 ### [2.20.8](https://github.com/EightfoldAI/octuple/compare/v2.20.7...v2.20.8) (2023-01-04)
 
 ### Bug Fixes

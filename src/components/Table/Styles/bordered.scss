@@ -21,7 +21,11 @@
         tfoot tr td {
           border-right: $table-border-width $table-border-style
             $table-border-color;
+        }
 
+        tbody tr td,
+        tfoot tr th,
+        tfoot tr td {
           &:last-of-type {
             border-right: none;
           }
@@ -61,7 +65,8 @@
 
       table tbody tr td {
         .table-expanded-row-fixed {
-          margin: -$table-padding-vertical (-$table-padding-horizontal - 1);
+          margin: -$table-padding-vertical
+            calc(calc($table-padding-horizontal - 1px) * -1);
 
           &:after {
             position: absolute;
@@ -94,7 +99,7 @@
             table tbody tr td {
               .table-expanded-row-fixed {
                 margin: -$table-padding-vertical-md
-                  (-$table-padding-horizontal-md - 1);
+                  calc(calc($table-padding-horizontal-md - 1px) * -1);
               }
             }
           }
@@ -108,7 +113,7 @@
             table tbody tr td {
               .table-expanded-row-fixed {
                 margin: -$table-padding-vertical-sm
-                  (-$table-padding-horizontal-sm - 1);
+                  calc(calc($table-padding-horizontal-sm - 1px) * -1);
               }
             }
           }
@@ -189,7 +194,8 @@
 
       table tbody tr td {
         .table-expanded-row-fixed {
-          margin: -$table-padding-vertical (-$table-padding-horizontal - 1);
+          margin: -$table-padding-vertical
+            calc(calc($table-padding-horizontal - 1px) * -1);
 
           &:after {
             position: absolute;
@@ -209,7 +215,7 @@
             table tbody tr td {
               .table-expanded-row-fixed {
                 margin: -$table-padding-vertical-md
-                  (-$table-padding-horizontal-md - 1);
+                  calc(calc($table-padding-horizontal-md - 1px) * -1);
               }
             }
           }
@@ -223,7 +229,7 @@
             table tbody tr td {
               .table-expanded-row-fixed {
                 margin: -$table-padding-vertical-sm
-                  (-$table-padding-horizontal-sm - 1);
+                  calc(calc($table-padding-horizontal-sm - 1px) * -1);
               }
             }
           }
@@ -264,10 +270,6 @@
 
           border-right: $table-border-width $table-border-style
             $table-border-color;
-
-          &:last-of-type {
-            border-right: none;
-          }
         }
 
         tbody tr td,
@@ -305,7 +307,8 @@
 
       table tbody tr td {
         .table-expanded-row-fixed {
-          margin: -$table-padding-vertical (-$table-padding-horizontal - 1);
+          margin: -$table-padding-vertical
+            calc(calc($table-padding-horizontal - 1px) * -1);
 
           &:after {
             position: absolute;
@@ -325,7 +328,7 @@
             table tbody tr td {
               .table-expanded-row-fixed {
                 margin: -$table-padding-vertical-md
-                  (-$table-padding-horizontal-md - 1);
+                  calc(calc($table-padding-horizontal-md - 1px) * -1);
               }
             }
           }
@@ -339,7 +342,7 @@
             table tbody tr td {
               .table-expanded-row-fixed {
                 margin: -$table-padding-vertical-sm
-                  (-$table-padding-horizontal-sm - 1);
+                  calc(calc($table-padding-horizontal-sm - 1px) * -1);
               }
             }
           }
@@ -388,14 +391,24 @@
           &:first-of-type {
             border-left: none;
           }
+        }
 
+        thead tr th,
+        tbody tr td,
+        tfoot tr th,
+        tfoot tr td {
           border-right: $table-border-width $table-border-style
             $table-border-color;
+        }
 
+        tbody tr td,
+        tfoot tr th,
+        tfoot tr td {
           &:last-of-type {
             border-right: none;
           }
         }
+
         thead {
           tr th {
             border-bottom: $table-border;
@@ -425,7 +438,8 @@
 
       table tbody tr td {
         .table-expanded-row-fixed {
-          margin: -$table-padding-vertical (-$table-padding-horizontal - 1);
+          margin: -$table-padding-vertical
+            calc(calc($table-padding-horizontal - 1px) * -1);
 
           &:after {
             position: absolute;
@@ -445,7 +459,7 @@
             table tbody tr td {
               .table-expanded-row-fixed {
                 margin: -$table-padding-vertical-md
-                  (-$table-padding-horizontal-md - 1);
+                  calc(calc($table-padding-horizontal-md - 1px) * -1);
               }
             }
           }
@@ -459,7 +473,7 @@
             table tbody tr td {
               .table-expanded-row-fixed {
                 margin: -$table-padding-vertical-sm
-                  (-$table-padding-horizontal-sm - 1);
+                  calc(calc($table-padding-horizontal-sm - 1px) * -1);
               }
             }
           }
@@ -521,7 +535,7 @@
             table tbody tr td {
               .table-expanded-row-fixed {
                 margin: -$table-padding-vertical-md
-                  (-$table-padding-horizontal-md - 1);
+                  calc(calc($table-padding-horizontal-md - 1px) * -1);
               }
             }
           }
@@ -535,7 +549,7 @@
             table tbody tr td {
               .table-expanded-row-fixed {
                 margin: -$table-padding-vertical-sm
-                  (-$table-padding-horizontal-sm - 1);
+                  calc(calc($table-padding-horizontal-sm - 1px) * -1);
               }
             }
           }

@@ -72,7 +72,7 @@ function InternalTable<RecordType extends object = any>(
 ) {
   const {
     alternateRowColor = true,
-    bordered,
+    bordered = false,
     cancelSortText: defaultCancelSortText,
     cellBordered = false,
     children,
@@ -762,6 +762,7 @@ function InternalTable<RecordType extends object = any>(
                 },
                 { [styles.tableEmpty]: rawData.length === 0 },
               ])}
+              bordered={bordered}
               data={pageData}
               locale={locale!.lang}
               rowKey={getRowKey}

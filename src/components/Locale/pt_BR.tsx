@@ -5,6 +5,7 @@ import Dialog from '../Dialog/BaseDialog/Locale/pt_BR';
 import InfoBar from '../InfoBar/Locale/pt_BR';
 import Pagination from '../Pagination/Locale/pt_BR';
 import Panel from '../Panel/Locale/pt_BR';
+import Stepper from '../Stepper/Locale/pt_BR';
 import Table from '../Table/Locale/pt_BR';
 import TimePicker from '../DateTimePicker/TimePicker/Locale/pt_BR';
 import Upload from '../Upload/Locale/pt_BR';
@@ -71,6 +72,7 @@ const localeValues: Locale = {
   InfoBar,
   Pagination,
   Panel,
+  Stepper,
   Table,
   TimePicker,
   Upload,

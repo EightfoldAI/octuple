@@ -120,13 +120,17 @@
             tbody tr td,
             tfoot tr th,
             tfoot tr td {
-              border-right: none;
-
               border-left: $table-border-width $table-border-style
                 $table-border-color;
+              border-right: none;
+            }
 
+            tbody tr td,
+            tfoot tr th,
+            tfoot tr td {
               &:last-of-type {
-                border-left: none;
+                border-left: $table-border-width $table-border-style
+                  $table-border-color;
                 border-right: none;
               }
             }
