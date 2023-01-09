@@ -88,6 +88,7 @@ function OcTable<RecordType extends DefaultRecordType>(
   props: OcTableProps<RecordType>
 ) {
   const {
+    bordered,
     classNames,
     rowClassName,
     style,
@@ -671,6 +672,7 @@ function OcTable<RecordType extends DefaultRecordType>(
     <div
       className={mergeClasses([
         styles.table,
+        { [styles.tableBordered]: bordered },
         { [styles.tableRtl]: direction === 'rtl' },
         { [styles.tablePingLeft]: pingedLeft },
         { [styles.tablePingRight]: pingedRight },
