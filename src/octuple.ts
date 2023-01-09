@@ -35,7 +35,12 @@ import {
   SelectorSize,
 } from './components/CheckBox';
 
-import { ConfigProvider, Shape, Size } from './components/ConfigProvider';
+import {
+  ConfigProvider,
+  OcThemeName,
+  Shape,
+  Size,
+} from './components/ConfigProvider';
 
 import Cropper from './components/Upload/Cropper';
 
@@ -112,6 +117,7 @@ import { Stack } from './components/Stack';
 
 import {
   Stat,
+  StatThemeName,
   StatValidationStatus,
   Tabs,
   Tab,
@@ -246,6 +252,7 @@ export {
   NavbarContent,
   NeutralButton,
   OcFile,
+  OcThemeName,
   Pagination,
   PaginationLayoutOptions,
   Panel,
@@ -288,6 +295,7 @@ export {
   SpinnerSize,
   Stack,
   Stat,
+  StatThemeName,
   StatValidationStatus,
   Step,
   Stepper,

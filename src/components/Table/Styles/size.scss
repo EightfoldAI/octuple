@@ -14,7 +14,7 @@
     }
 
     &-filter-trigger {
-      margin-right: -($table-padding-horizontal / 2);
+      margin-right: calc(($table-padding-horizontal / 2) * -1);
     }
 
     &-expanded-row-fixed {
@@ -25,7 +25,7 @@
       .table-wrapper:only-child {
         .table {
           margin: -$table-padding-vertical -$table-padding-horizontal -$table-padding-vertical
-            ($table-padding-horizontal + ceil((14 * 1.4)));
+            calc($table-padding-horizontal + ceil((14 * 1.4)));
         }
       }
     }
@@ -44,12 +44,21 @@
         padding: $table-padding-vertical-lg $table-padding-horizontal-lg;
       }
 
+      &.table-bordered {
+        &.table-ping-right {
+          .table-cell-fix-right-first,
+          .table-cell-fix-right-last {
+            padding-left: calc($table-padding-horizontal-lg - 1px);
+          }
+        }
+      }
+
       .table-title {
         padding: $table-padding-vertical-lg $table-padding-horizontal-lg;
       }
 
       .table-filter-trigger {
-        margin-right: -($table-padding-horizontal-lg / 2);
+        margin-right: calc(($table-padding-horizontal-lg / 2) * -1);
       }
 
       .table-expanded-row-fixed {
@@ -60,13 +69,13 @@
         .table-wrapper:only-child {
           .table {
             margin: -$table-padding-vertical-lg -$table-padding-horizontal-lg -$table-padding-vertical-lg
-              ($table-padding-horizontal-lg + ceil((14 * 1.4)));
+              calc($table-padding-horizontal-lg + ceil((14 * 1.4)));
           }
         }
       }
 
       .table-selection-column {
-        padding-inline-start: ($table-padding-horizontal-lg / 4);
+        padding-inline-start: calc($table-padding-horizontal-lg / 4);
       }
     }
 
@@ -78,6 +87,15 @@
       tfoot tr th,
       tfoot tr td {
         padding: $table-padding-vertical-md $table-padding-horizontal-md;
+      }
+
+      &.table-bordered {
+        &.table-ping-right {
+          .table-cell-fix-right-first,
+          .table-cell-fix-right-last {
+            padding-left: calc($table-padding-horizontal-md - 1px);
+          }
+        }
       }
 
       .table-title {
@@ -96,13 +114,13 @@
         .table-wrapper:only-child {
           .table {
             margin: -$table-padding-vertical-md -$table-padding-horizontal-md -$table-padding-vertical-md
-              ($table-padding-horizontal-md + ceil((14 * 1.4)));
+              calc($table-padding-horizontal-md + ceil((14 * 1.4)));
           }
         }
       }
 
       .table-selection-column {
-        padding-inline-start: ($table-padding-horizontal-md / 4);
+        padding-inline-start: calc($table-padding-horizontal-md / 4);
       }
     }
 
@@ -116,6 +134,15 @@
         padding: $table-padding-vertical-sm $table-padding-horizontal-sm;
       }
 
+      &.table-bordered {
+        &.table-ping-right {
+          .table-cell-fix-right-first,
+          .table-cell-fix-right-last {
+            padding-left: calc($table-padding-horizontal-sm - 1px);
+          }
+        }
+      }
+
       .table-title {
         padding: $table-padding-vertical-sm $table-padding-horizontal-sm;
       }
@@ -125,7 +152,7 @@
       }
 
       .table-filter-trigger {
-        margin-right: -($table-padding-horizontal-sm / 2);
+        margin-right: calc(calc($table-padding-horizontal-sm / 2) * -1);
       }
 
       .table-expanded-row-fixed {
@@ -136,13 +163,13 @@
         .table-wrapper:only-child {
           .table {
             margin: -$table-padding-vertical-sm -$table-padding-horizontal-sm -$table-padding-vertical-sm
-              ($table-padding-horizontal-sm + ceil((14 * 1.4)));
+              calc($table-padding-horizontal-sm + ceil((14 * 1.4)));
           }
         }
       }
 
       .table-selection-column {
-        padding-inline-start: ($table-padding-horizontal-sm / 4);
+        padding-inline-start: calc($table-padding-horizontal-sm / 4);
       }
     }
   }
