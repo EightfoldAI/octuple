@@ -5,6 +5,7 @@ import { mergeClasses } from '../../shared/utilities';
 import {
   CheckBox,
   CheckboxGroupProps,
+  CheckboxValueType,
   LabelAlign,
   LabelPosition,
   SelectorSize,
@@ -106,14 +107,16 @@ export const CheckBoxGroup: FC<CheckboxGroupProps> = React.forwardRef(
             checked={value?.includes(item.value)}
             key={item.value}
             onChange={() => {
-              const optionIndex = value?.indexOf(item.value);
-              const newValue = [...value];
-              if (optionIndex === -1) {
-                newValue.push(item.value);
-              } else {
-                newValue.splice(optionIndex, 1);
+              if (value) {
+                const optionIndex: number = value?.indexOf(item.value);
+                const newValue: CheckboxValueType[] = [...value];
+                if (optionIndex === -1) {
+                  newValue.push(item.value);
+                } else {
+                  newValue.splice(optionIndex, 1);
+                }
+                onChange?.(newValue);
               }
-              onChange?.(newValue);
             }}
             size={mergedSize}
           />
