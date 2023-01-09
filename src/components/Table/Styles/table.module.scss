@@ -82,7 +82,7 @@
           font-weight: 500;
           text-align: left;
           background: $table-header-background-color;
-          transition: background 0.3s ease;
+          transition: background $motion-duration-extra-fast ease;
 
           &[colspan]:not([colspan='1']) {
             text-align: center;
@@ -96,7 +96,7 @@
             height: 1.6em;
             background-color: $table-header-cell-split-color;
             transform: translateY(-50%);
-            transition: background-color 0.3s;
+            transition: background-color $motion-duration-extra-fast;
             content: '';
           }
         }
@@ -112,13 +112,13 @@
     &-tbody {
       tr {
         td {
-          transition: background 0.3s;
+          transition: background $motion-duration-extra-fast;
 
           .table-wrapper:only-child,
           .table-expanded-row-fixed > .table-wrapper:only-child {
             .table {
               margin: -$table-padding-vertical -$table-padding-horizontal -$table-padding-vertical
-                ($table-padding-horizontal + ceil(14px * 1.4));
+                calc($table-padding-horizontal + ceil(14px * 1.4));
 
               &-tbody > tr:last-child > td {
                 border-bottom: 0;
@@ -196,7 +196,7 @@
     &-thead th.table-column-has-sorters {
       outline: none;
       cursor: pointer;
-      transition: all 0.3s;
+      transition: all $motion-duration-extra-fast;
 
       &:hover {
         background: $table-header-sort-active-background-color;
@@ -252,7 +252,7 @@
       margin-left: $space-xxs;
       color: $table-header-icon-color;
       font-size: 0;
-      transition: color 0.3s;
+      transition: color $motion-duration-extra-fast;
 
       &-inner {
         display: inline-flex;
@@ -287,13 +287,13 @@
       position: relative;
       display: flex;
       align-items: center;
-      margin: -4px calc(-#{$table-padding-horizontal} / 2) -4px 4px;
+      margin: -4px calc(calc(#{$table-padding-horizontal} / 2) * -1) -4px 4px;
       padding: 0 4px;
       color: $table-header-icon-color;
       font-size: $table-font-size-sm;
       border-radius: $table-border-radius;
       cursor: pointer;
-      transition: all 0.3s;
+      transition: all $motion-duration-extra-fast;
 
       &:hover {
         color: var(--text-secondary-color);
@@ -416,7 +416,7 @@
         top: 0;
         z-index: 1;
         cursor: pointer;
-        transition: all 0.3s;
+        transition: all $motion-duration-extra-fast;
         margin-inline-start: 100%;
         padding-inline-start: calc(#{$table-padding-horizontal} / 4);
 
@@ -456,15 +456,15 @@
       width: 18px;
       height: 18px;
       padding: 0;
-      margin: 2px 16px 0 16px;
+      margin: 2px $space-m 0 $space-m;
       color: inherit;
       line-height: 18px;
       background: $table-expand-icon-background-color;
       border: 2px $table-border-style var(--grey-color-70);
-      border-radius: 4px;
+      border-radius: $border-radius-s;
       outline: none;
       transform: scale(unit(22) / unit(18));
-      transition: all 0.3s;
+      transition: all $motion-duration-extra-fast;
       user-select: none;
 
       &:focus,
@@ -477,7 +477,7 @@
       &:after {
         position: absolute;
         background: currentcolor;
-        transition: transform 0.3s ease-out;
+        transition: transform $motion-duration-extra-fast ease-out;
         content: '';
       }
 
@@ -593,7 +593,7 @@
       bottom: -1px;
       width: 30px;
       transform: translateX(100%);
-      transition: box-shadow 0.3s;
+      transition: box-shadow $motion-duration-extra-fast;
       content: '';
       pointer-events: none;
     }
@@ -606,7 +606,7 @@
       left: 0;
       width: 30px;
       transform: translateX(-100%);
-      transition: box-shadow 0.3s;
+      transition: box-shadow $motion-duration-extra-fast;
       content: '';
       pointer-events: none;
     }
@@ -619,7 +619,7 @@
         bottom: 0;
         z-index: 1;
         width: 30px;
-        transition: box-shadow 0.3s;
+        transition: box-shadow $motion-duration-extra-fast;
         content: '';
         pointer-events: none;
       }
