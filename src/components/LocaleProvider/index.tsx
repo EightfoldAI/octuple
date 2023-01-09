@@ -5,6 +5,7 @@ import type { PaginationLocale } from '../Pagination';
 import type { PanelLocale } from '../Panel';
 import type { InfoBarLocale } from '../InfoBar';
 import type { PickerLocale as DatePickerLocale } from '../DateTimePicker/DatePicker/Generate/Generate.types';
+import type { StepperLocale } from '../Stepper';
 import type { TableLocale } from '../Table/Table.types';
 import type { UploadLocale } from '../Upload/Upload.types';
 import type { ValidateMessages } from '../Form/Internal/OcForm.types';
@@ -22,6 +23,7 @@ export interface Locale {
   InfoBar?: InfoBarLocale;
   Pagination?: PaginationLocale;
   Panel?: PanelLocale;
+  Stepper?: StepperLocale;
   Table?: TableLocale;
   TimePicker?: Record<string, any>;
   Upload?: UploadLocale;

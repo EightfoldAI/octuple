@@ -125,6 +125,13 @@ import {
   TabVariant,
 } from './components/Tabs';
 
+import {
+  Step,
+  Stepper,
+  StepperSize,
+  StepperVariant,
+} from './components/Stepper';
+
 import TimePicker from './components/DateTimePicker/TimePicker/TimePicker';
 
 import { Tooltip, TooltipTheme, TooltipSize } from './components/Tooltip';
@@ -290,6 +297,10 @@ export {
   Stat,
   StatThemeName,
   StatValidationStatus,
+  Step,
+  Stepper,
+  StepperSize,
+  StepperVariant,
   SystemUIButton,
   Table,
   TablePaginationConfig,
