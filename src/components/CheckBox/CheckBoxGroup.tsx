@@ -108,7 +108,7 @@ export const CheckBoxGroup: FC<CheckboxGroupProps> = React.forwardRef(
             key={item.value}
             onChange={() => {
               if (value) {
-                const optionIndex: number = value?.indexOf(item.value);
+                const optionIndex: number = value.indexOf(item.value);
                 const newValue: CheckboxValueType[] = [...value];
                 if (optionIndex === -1) {
                   newValue.push(item.value);
