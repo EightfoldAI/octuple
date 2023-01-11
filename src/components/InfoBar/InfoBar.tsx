@@ -2,7 +2,7 @@ import React, { FC, Ref, useEffect, useState } from 'react';
 import { InfoBarLocale, InfoBarsProps, InfoBarType } from './InfoBar.types';
 import { Icon, IconName } from '../Icon';
 import { mergeClasses } from '../../shared/utilities';
-import { SystemUIButton } from '../Button';
+import { ButtonShape, SystemUIButton } from '../Button';
 import LocaleReceiver, {
   useLocaleReceiver,
 } from '../LocaleProvider/LocaleReceiver';
@@ -99,9 +99,10 @@ export const InfoBar: FC<InfoBarsProps> = React.forwardRef(
               )}
               {closable && (
                 <SystemUIButton
-                  iconProps={{ path: closeIcon }}
                   ariaLabel={closeButtonAriaLabelText}
+                  iconProps={{ path: closeIcon }}
                   onClick={onClose}
+                  shape={ButtonShape.Round}
                   {...closeButtonProps}
                   disruptive={type === InfoBarType.disruptive}
                 />
