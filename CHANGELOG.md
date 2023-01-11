@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.21.0](https://github.com/EightfoldAI/octuple/compare/v2.20.9...v2.21.0) (2023-01-11)
+
+### Features
+
+- stepper: adds stepper component ([#471](https://github.com/EightfoldAI/octuple/issues/471)) ([50ddcb3](https://github.com/EightfoldAI/octuple/commits/50ddcb3d7f354dafc4f2f8537057072556929dd4))
+
+### Bug Fixes
+
+- inputs: border color used for inputs is not a11y friendly ([#499](https://github.com/EightfoldAI/octuple/issues/499)) ([cb386bd](https://github.com/EightfoldAI/octuple/commits/cb386bdf6f8a17b14423811204c48386fd04f990))
+- selectors: adds null value check to checkbox group onchange ([#497](https://github.com/EightfoldAI/octuple/issues/497)) ([b4a5dc2](https://github.com/EightfoldAI/octuple/commits/b4a5dc2eb864d99f48e1acd6b678343ee763c516))
+- table: groups header right border on last element in n+1 rows is 0 when bordered prop is true ([#492](https://github.com/EightfoldAI/octuple/issues/492)) ([96150f8](https://github.com/EightfoldAI/octuple/commits/96150f892d106954266f378c50424c1b31c10aa9))
+
 ### [2.20.9](https://github.com/EightfoldAI/octuple/compare/v2.20.8...v2.20.9) (2023-01-09)
 
 ### Bug Fixes
