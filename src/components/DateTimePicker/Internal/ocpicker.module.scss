@@ -70,7 +70,7 @@
   }
 
   &:hover:not(.picker-disabled):not(.picker-underline):not(.picker-borderless) {
-    border-color: var(--grey-color-60);
+    border-color: var(--input-border-color);
   }
 
   &-focused:not(.picker-disabled):not(.picker-underline):not(.picker-borderless) {
@@ -1015,7 +1015,7 @@
   &-underline {
     .picker-input {
       &:before {
-        border-bottom: 1px solid var(--border-color);
+        border-bottom: 1px solid var(--input-border-color);
         left: 0;
         bottom: 0;
         content: '';
@@ -1027,7 +1027,7 @@
       }
 
       &:after {
-        border-bottom: 1px solid var(--primary-color-60);
+        border-bottom: 1px solid var(--input-border-color-underline-active);
         left: 0;
         bottom: 0;
         content: '';
@@ -1041,7 +1041,7 @@
 
       &:hover {
         &:before {
-          border-color: var(--grey-color-60);
+          border-color: var(--input-border-color-underline-hover);
         }
       }
 
