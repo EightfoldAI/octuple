@@ -203,6 +203,13 @@
   --border-radius-l: 16px;
   --border-radius-xl: 24px;
 
+  // ------ Input theme ------
+  --input-border-color: var(--grey-color-60);
+  --input-border-color-active: var(--grey-color-80);
+  --input-border-color-hover: var(--input-border-color-active);
+  --input-border-color-underline-active: var(--primary-color-70);
+  --input-border-color-underline-hover: var(--input-border-color-active);
+
   // ------ Tabs theme ------
   --tab-label: var(--text-secondary-color);
   --tab-background: transparent;
@@ -257,8 +264,8 @@
   // ------ Picker theme ------
   --picker-background-color: var(--background-color);
   --picker-foreground-color: var(--text-secondary-color);
-  --picker-border-color: var(--border-color);
-  --picker-border-color-active: var(--primary-color);
+  --picker-border-color: var(--input-border-color);
+  --picker-border-color-active: var(--input-border-color-active);
   --picker-cell-background-color: var(--background-color);
   --picker-cell-background-color-active: var(--primary-color-20);
   --picker-cell-background-color-hover: var(--accent-color-30);

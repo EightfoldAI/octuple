@@ -49,16 +49,16 @@
   &-status-success.picker-underline {
     div {
       &:before {
-        border-color: var(--border-color);
+        border-color: var(--input-border-color);
       }
 
       &:after {
-        border-color: var(--primary-color-60);
+        border-color: var(--input-border-color-underline-active);
       }
 
       &:hover {
         &:before {
-          border-color: var(--grey-color-60);
+          border-color: var(--input-border-color-underline-hover);
         }
       }
     }
