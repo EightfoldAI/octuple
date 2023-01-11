@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.21.1](https://github.com/EightfoldAI/octuple/compare/v2.21.0...v2.21.1) (2023-01-11)
+
+### Bug Fixes
+
+- infobar: close icon button should be round ([#500](https://github.com/EightfoldAI/octuple/issues/500)) ([1f7fd60](https://github.com/EightfoldAI/octuple/commits/1f7fd60bf74b37abcafda0bb34b641bc9c657c28))
+
 ## [2.21.0](https://github.com/EightfoldAI/octuple/compare/v2.20.9...v2.21.0) (2023-01-11)
 
 ### Features
