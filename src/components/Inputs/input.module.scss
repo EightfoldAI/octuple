@@ -1,7 +1,4 @@
 .input-wrapper {
-  --input-border-color: var(--grey-color-60);
-  --input-border-color-active: var(--grey-color-80);
-
   position: relative;
   width: fit-content;
   $input-small-size: 28px;
@@ -338,7 +335,7 @@
     }
 
     &:hover:not([disabled]) {
-      border-color: var(--input-border-color-active);
+      border-color: var(--input-border-color-hover);
 
       &.underline {
         border-color: transparent;
@@ -1002,7 +999,7 @@
     }
 
     &:hover:not([disabled]):not(.underline) {
-      border-color: var(--input-border-color-active);
+      border-color: var(--input-border-color-hover);
     }
 
     &.status-success {
@@ -1119,7 +1116,7 @@
       }
 
       &:after {
-        border-bottom: 1px solid var(--primary-color-60);
+        border-bottom: 1px solid var(--input-border-color-underline-active);
         left: 0;
         bottom: 0;
         content: '';
@@ -1133,7 +1130,7 @@
 
       &:hover {
         &:before {
-          border-color: var(--input-border-color-active);
+          border-color: var(--input-border-color-underline-hover);
         }
       }
 
@@ -1143,12 +1140,12 @@
         }
 
         &:after {
-          border-color: var(--primary-color-60);
+          border-color: var(--input-border-color-underline-active);
         }
 
         &:hover {
           &:before {
-            border-color: var(--input-border-color-active);
+            border-color: var(--input-border-color-underline-hover);
           }
         }
       }
