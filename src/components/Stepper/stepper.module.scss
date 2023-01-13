@@ -192,26 +192,27 @@
               padding: $button-padding-vertical-large - 1
                 $button-padding-horizontal-large - 1;
 
-              &.complete {
-                padding: 9px;
-              }
-
               &:hover:not(.active) {
                 background-color: var(--step-default-hover-background-color);
                 border-color: var(--step-default-hover-border-color);
                 color: var(--step-default-hover-icon-color);
               }
 
-              &.active {
-                background-color: var(--step-default-active-background-color);
-                border-color: var(--step-default-active-border-color);
-                color: var(--step-default-active-icon-color);
-              }
-
               &.complete {
                 background-color: var(--step-default-complete-background-color);
                 border-color: var(--step-default-complete-border-color);
                 color: var(--step-default-complete-icon-color);
+                padding: 9px;
+              }
+
+              &.active {
+                background-color: var(--step-default-active-background-color);
+                border-color: var(--step-default-active-border-color);
+                color: var(--step-default-active-icon-color);
+
+                &:hover {
+                  background-color: var(--step-default-hover-background-color);
+                }
               }
             }
 
