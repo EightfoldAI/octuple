@@ -127,6 +127,7 @@ import {
 
 import {
   Step,
+  StepSize,
   Stepper,
   StepperLineStyle,
   StepperSize,
@@ -301,6 +302,7 @@ export {
   StatThemeName,
   StatValidationStatus,
   Step,
+  StepSize,
   Stepper,
   StepperLineStyle,
   StepperSize,
