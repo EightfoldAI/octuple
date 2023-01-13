@@ -9,14 +9,19 @@ import React, {
 import {
   Step,
   StepIndex,
+  StepSize,
+  StepperLineStyle,
   StepperLocale,
   StepperProps,
   StepperSize,
+  StepperThemeName,
   StepperVariant,
+  StepperValidationStatus,
 } from './Stepper.types';
 import {
   ButtonShape,
   ButtonSize,
+  DefaultButton,
   NeutralButton,
   PrimaryButton,
   SecondaryButton,
@@ -41,8 +46,8 @@ export const Stepper: FC<StepperProps> = React.forwardRef(
       height,
       index = 0,
       layout = 'horizontal',
+      lineStyle,
       locale = enUS,
-      nodeAriaLabelText: defaultNodeAriaLabelText,
       onChange,
       readonly = true,
       required = false,
@@ -52,6 +57,8 @@ export const Stepper: FC<StepperProps> = React.forwardRef(
       scrollRightAriaLabelText: defaultScrollRightAriaLabelText,
       scrollUpAriaLabelText: defaultScrollUpAriaLabelText,
       size = StepperSize.Medium,
+      theme,
+      status,
       steps,
       style,
       variant = StepperVariant.Default,
@@ -71,7 +78,7 @@ export const Stepper: FC<StepperProps> = React.forwardRef(
     const [nextDisabled, setNextDisabled] = useState<boolean>(false);
     const [previousDisabled, setPreviousDisabled] = useState<boolean>(false);
 
-    const mergedScrollabe: boolean = props.scrollable
+    const mergedScrollable: boolean = props.scrollable
       ? props.scrollable
       : _scrollable;
 
@@ -93,11 +100,6 @@ export const Stepper: FC<StepperProps> = React.forwardRef(
       defaultCompleteAriaLabelText
     );
 
-    // TODO: Use when Timeline variant is ready
-    const [nodeAriaLabelText, setNodeAriaLabelText] = useState<string>(
-      defaultNodeAriaLabelText
-    );
-
     const [scrollDownAriaLabelText, setScrollDownAriaLabelText] =
       useState<string>(defaultScrollDownAriaLabelText);
     const [scrollLeftAriaLabelText, setScrollLeftAriaLabelText] =
@@ -115,11 +117,6 @@ export const Stepper: FC<StepperProps> = React.forwardRef(
         props.completeAriaLabelText
           ? props.completeAriaLabelText
           : mergedLocale.lang!.completeAriaLabelText
-      );
-      setNodeAriaLabelText(
-        props.nodeAriaLabelText
-          ? props.nodeAriaLabelText
-          : mergedLocale.lang!.nodeAriaLabelText
       );
       setScrollDownAriaLabelText(
         props.scrollDownAriaLabelText
@@ -143,29 +140,63 @@ export const Stepper: FC<StepperProps> = React.forwardRef(
       );
     }, [mergedLocale]);
 
+    const innerSeparatorClassNames: string = mergeClasses([
+      styles.innerSeparator,
+      {
+        [styles.dash]: lineStyle === StepperLineStyle.Dash,
+        [styles.dot]: lineStyle === StepperLineStyle.Dot,
+        [styles.solid]: lineStyle === StepperLineStyle.Solid,
+        [styles.timeline]: variant === StepperVariant.Timeline,
+      },
+    ]);
+
     const stepperClassNames: string = mergeClasses([
       styles.stepper,
       {
+        [styles.timeline]: variant === StepperVariant.Timeline,
         [styles.medium]: size === StepperSize.Medium,
         [styles.small]: size === StepperSize.Small,
         [styles.vertical]: layout === 'vertical',
         [styles.stepperRtl]: htmlDir === 'rtl',
       },
+      classNames,
     ]);
 
-    const activeCircleClassNames: string = mergeClasses([
-      styles.circle,
-      styles.active,
+    const stepSizeToIconSizeMap = new Map<StepSize, IconSize>([
+      [StepSize.Large, IconSize.Large],
+      [StepSize.Medium, IconSize.Medium],
+      [StepSize.Small, IconSize.Small],
     ]);
 
-    const visitedCircleClassNames: string = mergeClasses([
-      styles.circle,
-      styles.visited,
-    ]);
-
-    const circle = (index: number, classes: string): JSX.Element => (
-      <div className={classes}>{index + 1}</div>
-    );
+    const circle = (
+      index: number,
+      classes: string,
+      complete: boolean,
+      size: StepSize,
+      active?: boolean,
+      icon?: IconName
+    ): JSX.Element => {
+      if (variant === StepperVariant.Default) {
+        return <div className={classes}>{index + 1}</div>;
+      }
+      return (
+        <div className={classes}>
+          <Icon
+            path={
+              complete || active
+                ? icon
+                  ? icon
+                  : IconName.mdiCircle
+                : icon
+                ? icon
+                : IconName.mdiCircleOutline
+            }
+            size={stepSizeToIconSizeMap.get(size)}
+            classNames={styles.checkIcon}
+          />
+        </div>
+      );
+    };
 
     const handleOnClick = (
       event: React.MouseEvent<HTMLButtonElement>,
@@ -222,10 +253,58 @@ export const Stepper: FC<StepperProps> = React.forwardRef(
       }
     };
 
+    const stepSizeToButtonSizeMap = new Map<StepSize, ButtonSize>([
+      [StepSize.Large, ButtonSize.Large],
+      [StepSize.Medium, ButtonSize.Medium],
+      [StepSize.Small, ButtonSize.Small],
+    ]);
+
+    const defaultButton = (
+      index: number,
+      complete: boolean,
+      size: StepSize,
+      active?: boolean,
+      ariaLabel?: string,
+      icon?: IconName,
+      status?: StepperValidationStatus,
+      theme?: StepperThemeName
+    ): JSX.Element => (
+      <DefaultButton
+        ariaLabel={ariaLabel}
+        classNames={mergeClasses([
+          styles.circleButton,
+          styles.circleDefaultButton,
+          { [styles.active]: !!active },
+          (styles as any)[`${size}`],
+          (styles as any)[`${theme}`],
+          (styles as any)[`${status}`],
+        ])}
+        iconProps={
+          complete || active
+            ? {
+                path: icon ? icon : IconName.mdiCircle,
+                classNames: styles.checkIcon,
+              }
+            : {
+                path: icon ? icon : IconName.mdiCircleOutline,
+                classNames: styles.checkIcon,
+              }
+        }
+        onClick={(event: React.MouseEvent<HTMLButtonElement, MouseEvent>) =>
+          handleOnClick(event, index)
+        }
+        shape={ButtonShape.Round}
+        size={stepSizeToButtonSizeMap.get(size)}
+      />
+    );
+
     const primaryButton = (
       index: number,
       complete: boolean,
-      active?: boolean
+      size: StepSize,
+      active?: boolean,
+      status?: StepperValidationStatus,
+      theme?: StepperThemeName
     ): JSX.Element => (
       <PrimaryButton
         ariaLabel={
@@ -240,6 +319,9 @@ export const Stepper: FC<StepperProps> = React.forwardRef(
           styles.circlePrimaryButton,
           { [styles.active]: !!active },
           { [styles.complete]: !!complete },
+          (styles as any)[`${size}`],
+          (styles as any)[`${theme}`],
+          (styles as any)[`${status}`],
         ])}
         iconProps={
           complete
@@ -253,20 +335,31 @@ export const Stepper: FC<StepperProps> = React.forwardRef(
           handleOnClick(event, index)
         }
         shape={ButtonShape.Round}
-        size={ButtonSize.Large}
+        size={stepSizeToButtonSizeMap.get(size)}
         text={complete ? null : `${index + 1}`}
       />
     );
 
-    const secondaryButton = (index: number): JSX.Element => (
+    const secondaryButton = (
+      index: number,
+      size: StepSize,
+      status?: StepperValidationStatus,
+      theme?: StepperThemeName
+    ): JSX.Element => (
       <SecondaryButton
         ariaLabel={`${index + 1}`}
-        classNames={styles.circleButton}
+        classNames={mergeClasses([
+          styles.circleButton,
+          styles.circleSecondaryButton,
+          (styles as any)[`${size}`],
+          (styles as any)[`${theme}`],
+          (styles as any)[`${status}`],
+        ])}
         onClick={(event: React.MouseEvent<HTMLButtonElement, MouseEvent>) =>
           handleOnClick(event, index)
         }
         shape={ButtonShape.Round}
-        size={ButtonSize.Large}
+        size={stepSizeToButtonSizeMap.get(size)}
         text={`${index + 1}`}
       />
     );
@@ -299,6 +392,18 @@ export const Stepper: FC<StepperProps> = React.forwardRef(
       return labelText;
     };
 
+    const getCombinedStepSize = (current: StepSize): StepSize => {
+      let size: StepSize;
+      steps?.forEach((step: Step) => {
+        if (step.size === StepSize.Medium && current !== StepSize.Medium) {
+          size = StepSize.Medium;
+        } else if (step.size === StepSize.Large && current !== StepSize.Large) {
+          size = StepSize.Large;
+        }
+      });
+      return size;
+    };
+
     const updateLayout = (): void => {
       const steps: HTMLUListElement = stepsRef.current;
 
@@ -315,11 +420,13 @@ export const Stepper: FC<StepperProps> = React.forwardRef(
 
     useLayoutEffect(() => {
       updateLayout();
-    }, [mergedScrollabe, steps]);
+    }, [mergedScrollable, steps]);
 
     return (
       <LocaleReceiver componentName={'Stepper'} defaultLocale={enUS}>
-        {(_contextLocale: StepperLocale) => {
+        {(contextLocale: StepperLocale) => {
+          const locale = { ...contextLocale, ...mergedLocale };
+
           return (
             <ResizeObserver onResize={updateLayout}>
               <div
@@ -331,7 +438,7 @@ export const Stepper: FC<StepperProps> = React.forwardRef(
                   width: width && layout === 'horizontal' ? width : 'unset',
                 }}
               >
-                {mergedScrollabe && (
+                {mergedScrollable && (
                   <NeutralButton
                     ariaLabel={previousAriaLabel()}
                     classNames={styles.previous}
@@ -359,28 +466,92 @@ export const Stepper: FC<StepperProps> = React.forwardRef(
                 >
                   <ul className={styles.steps} ref={stepsRef}>
                     {steps.map((step: Step, index: number) => {
-                      let stepItem = null;
+                      const combinedStepSize: StepSize = getCombinedStepSize(
+                        step.size
+                      );
+                      const mergedTheme: StepperThemeName = step.theme ?? theme;
+                      const mergedStatus: StepperValidationStatus =
+                        step.status ?? status;
+                      let stepItem: JSX.Element;
+                      let nodeAriaLabel: string;
+                      if (!step.nodeAriaLabelText) {
+                        nodeAriaLabel = locale!.lang.nodeAriaLabelText;
+                      } else {
+                        nodeAriaLabel = step.nodeAriaLabelText;
+                      }
+                      if (variant === StepperVariant.Timeline && !step.size) {
+                        step.size = StepSize.Small;
+                      } else if (
+                        variant === StepperVariant.Default &&
+                        !step.size
+                      ) {
+                        step.size = StepSize.Large;
+                      }
                       if (index < currentActiveStep) {
                         stepItem = (
                           <>
                             {readonly && (
-                              <div className={visitedCircleClassNames}>
+                              <div
+                                className={mergeClasses([
+                                  styles.circle,
+                                  styles.complete,
+                                  (styles as any)[`${mergedTheme}`],
+                                  (styles as any)[`${mergedStatus}`],
+                                  (styles as any)[`${step.size}`],
+                                ])}
+                              >
                                 <Icon
-                                  path={IconName.mdiCheck}
-                                  size={IconSize.Large}
+                                  path={
+                                    variant === StepperVariant.Timeline
+                                      ? step.nodeIcon
+                                        ? step.nodeIcon
+                                        : IconName.mdiCircle
+                                      : IconName.mdiCheck
+                                  }
+                                  size={stepSizeToIconSizeMap.get(step.size)}
                                   classNames={styles.checkIcon}
                                 />
                               </div>
                             )}
-                            {!readonly && (
+                            {!readonly && variant === StepperVariant.Default && (
                               <>
-                                {!step.complete && secondaryButton(index)}
+                                {!step.complete &&
+                                  secondaryButton(
+                                    index,
+                                    step.size,
+                                    mergedStatus,
+                                    mergedTheme
+                                  )}
                                 {step.complete &&
-                                  primaryButton(index, step.complete)}
+                                  primaryButton(
+                                    index,
+                                    step.complete,
+                                    step.size,
+                                    false,
+                                    mergedStatus,
+                                    mergedTheme
+                                  )}
                               </>
                             )}
+                            {!readonly &&
+                              variant === StepperVariant.Timeline &&
+                              defaultButton(
+                                index,
+                                step.complete,
+                                step.size,
+                                false,
+                                nodeAriaLabel,
+                                step.nodeIcon,
+                                mergedStatus,
+                                mergedTheme
+                              )}
                             {size === StepperSize.Medium && (
-                              <div className={styles.contentInner}>
+                              <div
+                                className={mergeClasses([
+                                  styles.contentInner,
+                                  (styles as any)[`${combinedStepSize}`],
+                                ])}
+                              >
                                 {step.content}
                               </div>
                             )}
@@ -389,10 +560,49 @@ export const Stepper: FC<StepperProps> = React.forwardRef(
                       } else if (index === currentActiveStep) {
                         stepItem = (
                           <>
-                            {readonly && circle(index, activeCircleClassNames)}
+                            {readonly &&
+                              circle(
+                                index,
+                                mergeClasses([
+                                  styles.circle,
+                                  styles.active,
+                                  (styles as any)[`${mergedTheme}`],
+                                  (styles as any)[`${mergedStatus}`],
+                                  (styles as any)[`${step.size}`],
+                                ]),
+                                step.complete,
+                                step.size,
+                                true,
+                                step.nodeIcon
+                              )}
                             {!readonly &&
-                              primaryButton(index, step.complete, true)}
-                            <div className={styles.contentInner}>
+                              variant === StepperVariant.Default &&
+                              primaryButton(
+                                index,
+                                step.complete,
+                                step.size,
+                                true,
+                                mergedStatus,
+                                mergedTheme
+                              )}
+                            {!readonly &&
+                              variant === StepperVariant.Timeline &&
+                              defaultButton(
+                                index,
+                                step.complete,
+                                step.size,
+                                true,
+                                nodeAriaLabel,
+                                step.nodeIcon,
+                                mergedStatus,
+                                mergedTheme
+                              )}
+                            <div
+                              className={mergeClasses([
+                                styles.contentInner,
+                                (styles as any)[`${combinedStepSize}`],
+                              ])}
+                            >
                               {step.content}
                             </div>
                           </>
@@ -400,26 +610,129 @@ export const Stepper: FC<StepperProps> = React.forwardRef(
                       } else {
                         stepItem = (
                           <>
-                            {readonly && circle(index, styles.circle)}
-                            {!readonly && (
+                            {readonly &&
+                              circle(
+                                index,
+                                mergeClasses([
+                                  styles.circle,
+                                  (styles as any)[`${mergedTheme}`],
+                                  (styles as any)[`${mergedStatus}`],
+                                  (styles as any)[`${step.size}`],
+                                ]),
+                                step.complete,
+                                step.size,
+                                false,
+                                step.nodeIcon
+                              )}
+                            {!readonly && variant === StepperVariant.Default && (
                               <>
                                 {!step.complete &&
                                   required &&
                                   index > activeStepIndex &&
-                                  circle(index, styles.circle)}
+                                  circle(
+                                    index,
+                                    mergeClasses([
+                                      styles.circle,
+                                      (styles as any)[`${mergedTheme}`],
+                                      (styles as any)[`${mergedStatus}`],
+                                      (styles as any)[`${step.size}`],
+                                    ]),
+                                    step.complete,
+                                    step.size,
+                                    false,
+                                    step.nodeIcon
+                                  )}
                                 {!step.complete &&
                                   !required &&
-                                  secondaryButton(index)}
+                                  secondaryButton(
+                                    index,
+                                    step.size,
+                                    mergedStatus,
+                                    mergedTheme
+                                  )}
                                 {!step.complete &&
                                   required &&
                                   index <= activeStepIndex &&
-                                  secondaryButton(index)}
+                                  secondaryButton(
+                                    index,
+                                    step.size,
+                                    mergedStatus,
+                                    mergedTheme
+                                  )}
                                 {step.complete &&
-                                  primaryButton(index, step.complete)}
+                                  primaryButton(
+                                    index,
+                                    step.complete,
+                                    step.size,
+                                    false,
+                                    mergedStatus,
+                                    mergedTheme
+                                  )}
+                              </>
+                            )}
+                            {!readonly && variant === StepperVariant.Timeline && (
+                              <>
+                                {!step.complete &&
+                                  required &&
+                                  index > activeStepIndex &&
+                                  circle(
+                                    index,
+                                    mergeClasses([
+                                      styles.circle,
+                                      (styles as any)[`${mergedTheme}`],
+                                      (styles as any)[`${mergedStatus}`],
+                                      (styles as any)[`${step.size}`],
+                                    ]),
+                                    step.complete,
+                                    step.size,
+                                    false,
+                                    step.nodeIcon
+                                  )}
+                                {!step.complete &&
+                                  !required &&
+                                  defaultButton(
+                                    index,
+                                    step.complete,
+                                    step.size,
+                                    false,
+                                    nodeAriaLabel,
+                                    step.nodeIcon,
+                                    mergedStatus,
+                                    mergedTheme
+                                  )}
+                                {!step.complete &&
+                                  required &&
+                                  index <= activeStepIndex &&
+                                  defaultButton(
+                                    index,
+                                    step.complete,
+                                    step.size,
+                                    false,
+                                    nodeAriaLabel,
+                                    step.nodeIcon,
+                                    mergedStatus,
+                                    mergedTheme
+                                  )}
+                                {step.complete &&
+                                  defaultButton(
+                                    index,
+                                    step.complete,
+                                    step.size,
+                                    false,
+                                    nodeAriaLabel,
+                                    step.nodeIcon,
+                                    mergedStatus,
+                                    mergedTheme
+                                  )}
                               </>
                             )}
                             {size === StepperSize.Medium && (
-                              <div className={styles.contentInner}>
+                              <div
+                                className={mergeClasses([
+                                  styles.contentInner,
+                                  (styles as any)[`${combinedStepSize}`],
+                                ])}
+                              >
                                 {step.content}
                               </div>
                             )}
@@ -431,14 +744,46 @@ export const Stepper: FC<StepperProps> = React.forwardRef(
                           {index > 0 &&
                             size === StepperSize.Small &&
                             layout === 'horizontal' && (
-                              <hr className={styles.separator} />
+                              <hr
+                                aria-hidden="true"
+                                className={mergeClasses([
+                                  styles.separator,
+                                  {
+                                    [styles.dash]:
+                                      lineStyle === StepperLineStyle.Dash,
+                                    [styles.dot]:
+                                      lineStyle === StepperLineStyle.Dot,
+                                    [styles.solid]:
+                                      lineStyle === StepperLineStyle.Solid,
+                                    [styles.timeline]:
+                                      variant === StepperVariant.Timeline,
+                                  },
+                                  (styles as any)[`${step.size}`],
+                                  (styles as any)[`${theme}`],
+                                  (styles as any)[`${status}`],
+                                ])}
+                              />
                             )}
                           <li className={styles.step}>
                             {layout === 'vertical' && (
-                              <hr className={styles.innerSeparator} />
+                              <hr
+                                className={mergeClasses([
+                                  innerSeparatorClassNames,
+                                  (styles as any)[`${step.size}`],
+                                  (styles as any)[`${theme}`],
+                                  (styles as any)[`${status}`],
+                                ])}
+                              />
                             )}
                             {size !== StepperSize.Small && (
-                              <hr className={styles.innerSeparator} />
+                              <hr
+                                className={mergeClasses([
+                                  innerSeparatorClassNames,
+                                  (styles as any)[`${step.size}`],
+                                  (styles as any)[`${theme}`],
+                                  (styles as any)[`${status}`],
+                                ])}
+                              />
                             )}
                             <div className={styles.content}>{stepItem}</div>
                           </li>
@@ -447,7 +792,7 @@ export const Stepper: FC<StepperProps> = React.forwardRef(
                     })}
                   </ul>
                 </div>
-                {mergedScrollabe && (
+                {mergedScrollable && (
                   <NeutralButton
                     ariaLabel={nextAriaLabel()}
                     classNames={styles.next}
@@ -457,7 +802,6 @@ export const Stepper: FC<StepperProps> = React.forwardRef(
                         htmlDir === 'rtl'
                           ? IconName.mdiChevronLeft
                           : IconName.mdiChevronRight,
-                      size: IconSize.Large,
                       classNames: styles.checkIcon,
                     }}
                     onClick={

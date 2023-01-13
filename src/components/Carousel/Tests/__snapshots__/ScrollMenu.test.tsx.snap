@@ -31,6 +31,7 @@ exports[`ScrollMenu Children and buttons LeftArrow, ScrollContainer, MenuItems, 
           </div>
         </li>
         <div
+          aria-hidden="true"
           class="carousel-scroll-menu-separator"
           data-index="0.1"
           data-key="test1-separator"
@@ -85,6 +86,7 @@ exports[`ScrollMenu should render without props 1`] = `
           </div>
         </li>
         <div
+          aria-hidden="true"
           class="carousel-scroll-menu-separator"
           data-index="0.1"
           data-key="test1-separator"

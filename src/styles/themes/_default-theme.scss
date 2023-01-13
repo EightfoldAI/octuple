@@ -173,12 +173,30 @@
   --success-color: #2b715f;
   --success-background-color: #b9f4e4;
   --success-border-color: #3d8f79;
+  --success-active-color: #1b5143;
+  --success-active-background-color: #b9f4e4;
+  --success-active-border-color: #3d8f79;
+  --success-hover-color: #3d8f79;
+  --success-hover-background-color: #b9f4e4;
+  --success-hover-border-color: #3d8f79;
   --warning-color: #9d6309;
   --warning-background-color: #ffe3b0;
   --warning-border-color: #c97e19;
+  --warning-active-color: #6c4500;
+  --warning-active-background-color: #ffe3b0;
+  --warning-active-border-color: #c97e19;
+  --warning-hover-color: #ce811a;
+  --warning-hover-background-color: #ffe3b0;
+  --warning-hover-border-color: #c97e19;
   --error-color: #993838;
   --error-background-color: #ffc6c6;
   --error-border-color: #c15151;
+  --error-active-color: #6c2222;
+  --error-active-background-color: #ffc6c6;
+  --error-active-border-color: #c15151;
+  --error-hover-color: #c45353;
+  --error-hover-background-color: #ffc6c6;
+  --error-hover-border-color: #c15151;
   --info-color: #4f5666;
   --white-color: #fff;
   --black-color: #000;
@@ -571,4 +589,40 @@
   --info-bar-disruptive-background-color: var(--disruptive-color-10);
   --info-bar-disruptive-text-color: var(--disruptive-color-70);
   // ------ Info Bar theme ------
+
+  // ------ Stepper/Timeline theme ------
+  --stepper-line-color: var(--primary-color-60);
+  --stepper-line-horizontal-offset: 6px;
+  --stepper-line-width: 1px;
+  --stepper-line-vertical-offset: 14px;
+  --step-default-active-background-color: var(--accent-color-20);
+  --step-default-active-border-color: var(--accent-color-60);
+  --step-default-active-icon-color: var(--primary-color-80);
+  --step-default-background-color: var(--background-color);
+  --step-default-box-shadow: 0 0 0 2px var(--background-color);
+  --step-default-border-color: var(--accent-color-60);
+  --step-default-icon-color: var(--primary-color-80);
+  --step-default-hover-background-color: var(--background-color);
+  --step-default-hover-border-color: var(--step-default-active-border-color);
+  --step-default-hover-icon-color: var(--step-default-icon-color);
+  --step-default-complete-background-color: var(--accent-color-20);
+  --step-default-complete-border-color: var(
+    --step-default-active-background-color
+  );
+  --step-default-complete-icon-color: var(--primary-color-80);
+  --step-timeline-active-background-color: var(--primary-color-20);
+  --step-timeline-active-border-color: var(--primary-color-60);
+  --step-timeline-active-icon-color: var(--primary-color-80);
+  --step-timeline-background-color: var(--primary-color-10);
+  --step-timeline-box-shadow: 0 0 0 2px var(--background-color);
+  --step-timeline-border-color: var(--step-timeline-background-color);
+  --step-timeline-icon-color: var(--primary-color-70);
+  --step-timeline-hover-background-color: var(--background-color);
+  --step-timeline-hover-border-color: var(--step-timeline-active-border-color);
+  --step-timeline-hover-icon-color: var(--step-timeline-icon-color);
+  --step-timeline-complete-background-color: var(
+    --step-timeline-background-color
+  );
+  --step-timeline-complete-border-color: var(--step-timeline-background-color);
+  --step-timeline-complete-icon-color: var(--step-timeline-icon-color);
 }
