@@ -168,6 +168,20 @@ export const Stepper: FC<StepperProps> = React.forwardRef(
       [StepSize.Small, IconSize.Small],
     ]);
 
+    const getIcon = (
+      customIcon: IconName,
+      active?: boolean,
+      complete?: boolean
+    ): IconName => {
+      let icon: IconName;
+      if (active || complete) {
+        icon = customIcon ? customIcon : IconName.mdiCircle;
+      } else {
+        icon = customIcon ? customIcon : IconName.mdiCircleOutline;
+      }
+      return icon;
+    };
+
     const circle = (
       index: number,
       classes: string,
@@ -182,15 +196,7 @@ export const Stepper: FC<StepperProps> = React.forwardRef(
       return (
         <div className={classes}>
           <Icon
-            path={
-              complete || active
-                ? icon
-                  ? icon
-                  : IconName.mdiCircle
-                : icon
-                ? icon
-                : IconName.mdiCircleOutline
-            }
+            path={getIcon(icon, active, complete)}
             size={stepSizeToIconSizeMap.get(size)}
             classNames={styles.checkIcon}
           />
@@ -279,17 +285,10 @@ export const Stepper: FC<StepperProps> = React.forwardRef(
           (styles as any)[`${theme}`],
           (styles as any)[`${status}`],
         ])}
-        iconProps={
-          complete || active
-            ? {
-                path: icon ? icon : IconName.mdiCircle,
-                classNames: styles.checkIcon,
-              }
-            : {
-                path: icon ? icon : IconName.mdiCircleOutline,
-                classNames: styles.checkIcon,
-              }
-        }
+        iconProps={{
+          path: getIcon(icon, active, complete),
+          classNames: styles.checkIcon,
+        }}
         onClick={(event: React.MouseEvent<HTMLButtonElement, MouseEvent>) =>
           handleOnClick(event, index)
         }
@@ -392,6 +391,8 @@ export const Stepper: FC<StepperProps> = React.forwardRef(
       return labelText;
     };
 
+    // Takes the unique size of each step and returns a combined value
+    // used to determine the overall layout of the Stepper.
     const getCombinedStepSize = (current: StepSize): StepSize => {
       let size: StepSize;
       steps?.forEach((step: Step) => {
@@ -473,12 +474,9 @@ export const Stepper: FC<StepperProps> = React.forwardRef(
                       const mergedStatus: StepperValidationStatus =
                         step.status ?? status;
                       let stepItem: JSX.Element;
-                      let nodeAriaLabel: string;
-                      if (!step.nodeAriaLabelText) {
-                        nodeAriaLabel = locale!.lang.nodeAriaLabelText;
-                      } else {
-                        nodeAriaLabel = step.nodeAriaLabelText;
-                      }
+                      let nodeAriaLabel: string = !step.nodeAriaLabelText
+                        ? locale!.lang.nodeAriaLabelText
+                        : step.nodeAriaLabelText;
                       if (variant === StepperVariant.Timeline && !step.size) {
                         step.size = StepSize.Small;
                       } else if (
