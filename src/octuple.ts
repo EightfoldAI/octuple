@@ -127,8 +127,12 @@ import {
 
 import {
   Step,
+  StepSize,
   Stepper,
+  StepperLineStyle,
   StepperSize,
+  StepperThemeName,
+  StepperValidationStatus,
   StepperVariant,
 } from './components/Stepper';
 
@@ -298,8 +302,12 @@ export {
   StatThemeName,
   StatValidationStatus,
   Step,
+  StepSize,
   Stepper,
+  StepperLineStyle,
   StepperSize,
+  StepperThemeName,
+  StepperValidationStatus,
   StepperVariant,
   SystemUIButton,
   Table,

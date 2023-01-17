@@ -1,7 +1,13 @@
 import React from 'react';
 import { Stories } from '@storybook/addon-docs';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { Step, Stepper, StepperSize, StepperVariant } from './';
+import {
+  Step,
+  Stepper,
+  StepperLineStyle,
+  StepperSize,
+  StepperVariant,
+} from './';
 import { Col, Row } from '../Grid';
 
 export default {
@@ -16,7 +22,7 @@ export default {
               <p>
                 The Stepper component should be used with a small number of
                 steps, and should display next to the items to be completed in
-                numerical order. The Stepper indicated the number of steps, and
+                numerical order. The Stepper indicates the number of steps, and
                 whether or not the steps have been completed.
               </p>
             </section>
@@ -51,6 +57,14 @@ export default {
       options: ['horizontal', 'vertical'],
       control: { type: 'inline-radio' },
     },
+    lineStyle: {
+      options: [
+        StepperLineStyle.Dash,
+        StepperLineStyle.Dot,
+        StepperLineStyle.Solid,
+      ],
+      control: { type: 'inline-radio' },
+    },
     nodeAriaLabelText: {
       control: 'text',
     },
@@ -79,8 +93,29 @@ export default {
       options: [StepperSize.Medium, StepperSize.Small],
       control: { type: 'inline-radio' },
     },
+    status: {
+      options: ['error', 'success', 'warning'],
+      control: { type: 'inline-radio' },
+    },
     steps: {
       control: 'object',
+    },
+    theme: {
+      options: [
+        'red',
+        'redOrange',
+        'orange',
+        'yellow',
+        'yellowGreen',
+        'green',
+        'blueGreen',
+        'blue',
+        'blueViolet',
+        'violet',
+        'violetRed',
+        'grey',
+      ],
+      control: 'select',
     },
     variant: {
       options: [StepperVariant.Default, StepperVariant.Timeline],
@@ -93,7 +128,7 @@ export default {
 } as ComponentMeta<typeof Stepper>;
 
 const Default_Story: ComponentStory<typeof Stepper> = (args) => {
-  const workflow: Step[] = [1, 2, 3, 4, 5].map((i) => ({
+  const workflow: Step[] = [1, 2, 3, 4, 5].map((i: number) => ({
     index: i,
     content: `Step label ${i}`,
     complete: i > args.index ? false : true,

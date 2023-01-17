@@ -7,18 +7,17 @@
   .next {
     align-self: flex-start;
     margin-left: $space-m;
-    margin-top: $space-xs;
   }
 
   .previous {
     align-self: flex-start;
     margin-right: $space-m;
-    margin-top: $space-xs;
   }
 
   .steps-container {
     overflow: hidden;
     overflow-x: auto;
+    padding: $space-xxxs;
     position: relative;
     scrollbar-width: none; /* Firefox */
     width: 100%;
@@ -30,7 +29,7 @@
 
     .steps {
       align-items: flex-start;
-      color: var(--primary-color-60);
+      color: var(--stepper-line-color);
       display: flex;
       flex-direction: row;
       justify-content: flex-start;
@@ -42,10 +41,23 @@
 
       .separator {
         border: none;
-        border-bottom: 1px solid var(--primary-color-60);
-        margin-top: $space-xs;
+        border-bottom: 1px solid var(--stepper-line-color);
+        margin-top: calc(var(--stepper-line-horizontal-offset) + $space-xxxs);
         min-width: 48px;
         width: 100%;
+
+        &.dash,
+        &.timeline {
+          border-bottom-style: dashed;
+        }
+
+        &.dot {
+          border-bottom-style: dotted;
+        }
+
+        &.solid {
+          border-bottom-style: solid;
+        }
       }
 
       .step {
@@ -57,12 +69,25 @@
 
         .inner-separator {
           border: none;
-          border-bottom: 1px solid var(--primary-color-60);
+          border-bottom: 1px solid var(--stepper-line-color);
           display: none;
-          top: 14px;
+          top: var(--stepper-line-horizontal-offset);
           position: absolute;
           width: 100%;
           z-index: 0;
+
+          &.dash,
+          &.timeline {
+            border-bottom-style: dashed;
+          }
+
+          &.dot {
+            border-bottom-style: dotted;
+          }
+
+          &.solid {
+            border-bottom-style: solid;
+          }
         }
 
         .content {
@@ -78,16 +103,28 @@
             line-height: $text-line-height-3;
             margin: $space-xs 0;
             width: max-content;
+
+            &.large {
+              margin: $space-m 0;
+            }
+
+            &.medium {
+              margin: $space-s 0;
+            }
+
+            &.small {
+              margin: $space-xs 0;
+            }
           }
 
           .circle {
             align-items: center;
-            background: var(--background-color);
-            border-color: var(--accent-color-60);
+            background: var(--step-default-background-color);
+            border-color: var(--step-default-border-color);
             border-style: solid;
             border-radius: 50%;
             border-width: 1px;
-            color: var(--primary-color-80);
+            color: var(--step-default-icon-color);
             display: flex;
             flex-direction: row;
             font-size: $text-font-size-4;
@@ -102,14 +139,34 @@
             }
 
             &.active {
-              background-color: var(--accent-color-20);
-              color: var(--primary-color-80);
+              background-color: var(--step-default-active-background-color);
+              color: var(--step-default-active-icon-color);
             }
 
-            &.visited {
-              background-color: var(--accent-color-20);
-              border-style: none;
-              color: var(--primary-color-80);
+            &.complete {
+              background-color: var(--step-default-complete-background-color);
+              border-color: var(--step-default-complete-border-color);
+              color: var(--step-default-complete-icon-color);
+            }
+
+            &.large {
+              height: 44px;
+              margin-top: -$space-xs;
+              font-size: $text-font-size-4;
+              width: 44px;
+            }
+
+            &.medium {
+              height: 36px;
+              margin-top: -$space-xxs;
+              font-size: $text-font-size-3;
+              width: 36px;
+            }
+
+            &.small {
+              height: 28px;
+              font-size: $text-font-size-2;
+              width: 28px;
             }
           }
 
@@ -127,21 +184,106 @@
             width: 44px;
             z-index: 1;
 
-            &.circle-primary-button {
-              border: 1px solid var(--accent-color-20);
+            &.circle-primary-button,
+            &.circle-secondary-button {
+              background-color: var(--step-default-background-color);
+              border: 1px solid var(--step-default-complete-border-color);
+              color: var(--step-default-icon-color);
               padding: $button-padding-vertical-large - 1
                 $button-padding-horizontal-large - 1;
 
+              &:hover:not(.active) {
+                background-color: var(--step-default-hover-background-color);
+                border-color: var(--step-default-hover-border-color);
+                color: var(--step-default-hover-icon-color);
+              }
+
               &.complete {
+                background-color: var(--step-default-complete-background-color);
+                border-color: var(--step-default-complete-border-color);
+                color: var(--step-default-complete-icon-color);
                 padding: 9px;
               }
 
+              &.active {
+                background-color: var(--step-default-active-background-color);
+                border-color: var(--step-default-active-border-color);
+                color: var(--step-default-active-icon-color);
+
+                &:hover {
+                  background-color: var(--step-default-hover-background-color);
+                }
+              }
+            }
+
+            &.circle-secondary-button {
+              background-color: var(--step-default-background-color);
+              border: 1px solid var(--step-default-border-color);
+              color: var(--step-default-icon-color);
+
               &:hover:not(.active) {
-                border-color: var(--accent-color-60);
+                background-color: var(--step-default-hover-background-color);
+                border-color: var(--step-default-hover-border-color);
+                color: var(--step-default-hover-icon-color);
               }
 
               &.active {
-                border-color: var(--accent-color-60);
+                background-color: var(--step-default-active-background-color);
+                border-color: var(--step-default-active-border-color);
+                color: var(--step-default-active-icon-color);
+              }
+
+              &.complete {
+                background-color: var(--step-default-complete-background-color);
+                border-color: var(--step-default-complete-border-color);
+                color: var(--step-default-complete-icon-color);
+              }
+            }
+
+            &.large {
+              height: 44px;
+              width: 44px;
+
+              &.circle-primary-button,
+              &.circle-secondary-button {
+                margin-top: -$space-xs;
+                padding: $button-padding-vertical-large - 1
+                  $button-padding-horizontal-large - 1;
+
+                &.complete {
+                  padding: 9px;
+                }
+              }
+            }
+
+            &.medium {
+              height: 36px;
+              width: 36px;
+
+              &.circle-primary-button,
+              &.circle-secondary-button {
+                margin-top: -$space-xxs;
+                padding: $button-padding-vertical-medium - 1
+                  $button-padding-horizontal-medium - 1;
+
+                &.complete {
+                  padding: 6px;
+                }
+              }
+            }
+
+            &.small {
+              height: 28px;
+              width: 28px;
+
+              &.circle-primary-button,
+              &.circle-secondary-button {
+                padding: $button-padding-vertical-small - 1
+                  $button-padding-horizontal-small - 1;
+
+                &.complete {
+                  padding: 3px;
+                }
               }
             }
           }
@@ -155,6 +297,144 @@
         &:not(:last-of-type) {
           .inner-separator {
             display: block;
+          }
+        }
+      }
+    }
+  }
+
+  &.timeline {
+    .steps-container {
+      .steps {
+        .step {
+          .content {
+            .content-inner {
+              &.large {
+                margin: $space-m 0;
+              }
+
+              &.medium {
+                margin: $space-s 0;
+              }
+
+              &.small {
+                margin: $space-xs 0;
+              }
+            }
+
+            .circle {
+              background: var(--step-timeline-background-color);
+              border-color: var(--step-timeline-border-color);
+              border-style: solid;
+              box-shadow: var(--step-timeline-box-shadow);
+              color: var(--step-timeline-icon-color);
+              font-size: $text-font-size-2;
+              font-weight: $text-font-weight-semibold;
+              height: 28px;
+              width: 28px;
+
+              &.active {
+                background-color: var(--step-timeline-active-background-color);
+                border-color: var(--step-timeline-active-border-color);
+                color: var(--step-timeline-active-icon-color);
+              }
+
+              &.complete {
+                background-color: var(
+                  --step-timeline-complete-background-color
+                );
+                border-color: var(--step-timeline-complete-border-color);
+                color: var(--step-timeline-complete-icon-color);
+              }
+
+              &.large {
+                height: 44px;
+                margin-top: -$space-xs;
+                font-size: $text-font-size-4;
+                width: 44px;
+              }
+
+              &.medium {
+                height: 36px;
+                margin-top: -$space-xxs;
+                font-size: $text-font-size-3;
+                width: 36px;
+              }
+
+              &.small {
+                height: 28px;
+                font-size: $text-font-size-2;
+                width: 28px;
+              }
+            }
+
+            .circle-button {
+              height: 28px;
+              width: 28px;
+
+              &.circle-default-button {
+                background-color: var(--step-timeline-background-color);
+                border: 1px solid var(--step-timeline-border-color);
+                box-shadow: var(--step-timeline-box-shadow);
+                color: var(--step-timeline-icon-color);
+                padding: $button-padding-vertical-small - 1;
+
+                &:hover:not(.active) {
+                  background-color: var(--step-timeline-hover-background-color);
+                  border-color: var(--step-timeline-hover-border-color);
+                  color: var(--step-timeline-hover-icon-color);
+                }
+
+                &.active {
+                  background-color: var(
+                    --step-timeline-active-background-color
+                  );
+                  border-color: var(--step-timeline-active-border-color);
+                  color: var(--step-timeline-active-icon-color);
+                }
+              }
+
+              &.large {
+                height: 44px;
+                width: 44px;
+
+                &.circle-default-button {
+                  margin-top: -$space-xs;
+                  padding: $button-padding-vertical-large - 1;
+
+                  &.complete {
+                    padding: 9px;
+                  }
+                }
+              }
+
+              &.medium {
+                height: 36px;
+                width: 36px;
+
+                &.circle-default-button {
+                  margin-top: -$space-xxs;
+                  padding: $button-padding-vertical-medium - 1;
+
+                  &.complete {
+                    padding: 6px;
+                  }
+                }
+              }
+
+              &.small {
+                height: 28px;
+                width: 28px;
+
+                &.circle-default-button {
+                  padding: $button-padding-vertical-small - 1;
+
+                  &.complete {
+                    padding: 3px;
+                  }
+                }
+              }
+            }
           }
         }
       }
@@ -196,6 +476,39 @@
 
             .content-inner {
               margin: 0 $space-xs;
+
+              &.large,
+              &.medium {
+                margin: 0 $space-xs;
+              }
+            }
+
+            .circle {
+              &.large {
+                margin-top: 0;
+              }
+
+              &.medium {
+                margin-top: 0;
+              }
+            }
+
+            .circle-button {
+              &.large {
+                &.circle-default-button,
+                &.circle-primary-button,
+                &.circle-secondary-button {
+                  margin-top: 0;
+                }
+              }
+
+              &.medium {
+                &.circle-default-button,
+                &.circle-primary-button,
+                &.circle-secondary-button {
+                  margin-top: 0;
+                }
+              }
             }
           }
         }
@@ -209,14 +522,14 @@
     justify-content: flex-start;
 
     .next {
-      margin-left: $space-xs;
+      margin-left: 3px;
       margin-top: $space-m;
       transform: rotate(90deg);
     }
 
     .previous {
       margin-bottom: $space-m;
-      margin-left: $space-xs;
+      margin-left: 3px;
       margin-right: unset;
       margin-top: unset;
       transform: rotate(90deg);
@@ -241,11 +554,28 @@
 
           .inner-separator {
             border-bottom: none;
-            border-left: 1px solid var(--primary-color-60);
+            border-left: var(--stepper-line-width) solid
+              var(--stepper-line-color);
             height: 100%;
-            left: 22px;
+            left: var(--stepper-line-vertical-offset);
             top: $space-l;
-            width: 1px;
+            width: var(--stepper-line-width);
+
+            &.dash,
+            &.timeline {
+              border-bottom-style: none;
+              border-left-style: dashed;
+            }
+
+            &.dot {
+              border-bottom-style: none;
+              border-left-style: dotted;
+            }
+
+            &.solid {
+              border-bottom-style: none;
+              border-left-style: solid;
+            }
           }
 
           .content {
@@ -253,7 +583,50 @@
             margin-right: unset;
 
             .content-inner {
-              margin: 10px;
+              align-items: center;
+              display: flex;
+              justify-content: center;
+              margin: auto $space-xs auto $space-l;
+
+              &.large {
+                margin: auto $space-xs auto $space-xl;
+              }
+
+              &.medium {
+                margin: auto $space-xs auto 28px;
+              }
+            }
+
+            .circle {
+              &.large {
+                margin-left: -$space-xs;
+                margin-top: unset;
+              }
+
+              &.medium {
+                margin-left: -$space-xxs;
+                margin-top: unset;
+              }
+            }
+
+            .circle-button {
+              &.large {
+                &.circle-default-button,
+                &.circle-primary-button,
+                &.circle-secondary-button {
+                  margin-left: -$space-xs;
+                  margin-top: unset;
+                }
+              }
+
+              &.medium {
+                &.circle-default-button,
+                &.circle-primary-button,
+                &.circle-secondary-button {
+                  margin-left: -$space-xxs;
+                  margin-top: unset;
+                }
+              }
             }
           }
 
@@ -270,10 +643,40 @@
       .steps-container {
         .steps {
           .step {
+            .content {
+              .content-inner {
+                margin: auto $space-xs;
+
+                &.large {
+                  margin: auto $space-m;
+                }
+
+                &.medium {
+                  margin: auto $space-s;
+                }
+
+                &.small {
+                  margin: auto $space-xs;
+                }
+              }
+            }
+
             &:not(:last-of-type) {
               .content {
                 margin-bottom: $space-xl;
               }
+            }
+          }
+        }
+      }
+    }
+
+    &.timeline {
+      .steps-container {
+        .steps {
+          .step {
+            .inner-separator {
+              top: $space-ml;
             }
           }
         }
@@ -310,13 +713,13 @@
     &.vertical {
       .next {
         margin-left: unset;
-        margin-right: $space-xs;
+        margin-right: 3px;
         transform: rotate(-90deg);
       }
 
       .previous {
         margin-left: unset;
-        margin-right: $space-xs;
+        margin-right: 3px;
         transform: rotate(-90deg);
       }
 
@@ -325,11 +728,620 @@
           .step {
             .inner-separator {
               left: unset;
-              right: 20px;
+              right: calc(var(--stepper-line-vertical-offset) - $space-xxxs);
             }
+
             .content {
               margin-left: unset;
+
+              .content-inner {
+                margin: auto $space-l auto $space-xs;
+
+                &.large {
+                  margin: auto $space-xl auto $space-xs;
+                }
+
+                &.medium {
+                  margin: auto 28px auto $space-xs;
+                }
+              }
+
+              .circle {
+                &.large {
+                  margin-left: unset;
+                  margin-right: -$space-xs;
+                }
+
+                &.medium {
+                  margin-left: unset;
+                  margin-right: -$space-xxs;
+                }
+              }
+
+              .circle-button {
+                &.large {
+                  &.circle-default-button,
+                  &.circle-primary-button,
+                  &.circle-secondary-button {
+                    margin-left: unset;
+                    margin-right: -$space-xs;
+                  }
+                }
+
+                &.medium {
+                  &.circle-default-button,
+                  &.circle-primary-button,
+                  &.circle-secondary-button {
+                    margin-left: unset;
+                    margin-right: -$space-xxs;
+                  }
+                }
+              }
             }
+          }
+        }
+      }
+    }
+  }
+
+  // Default and shared properties
+  .steps-container {
+    .steps {
+      .separator {
+        border-bottom-color: var(--stepper-line-color);
+        border-left-color: var(--stepper-line-color);
+        border-bottom-width: var(--stepper-line-width);
+        border-left-width: var(--stepper-line-width);
+      }
+
+      .step {
+        .inner-separator {
+          border-bottom-color: var(--stepper-line-color);
+          border-left-color: var(--stepper-line-color);
+          border-bottom-width: var(--stepper-line-width);
+          border-left-width: var(--stepper-line-width);
+        }
+      }
+
+      .separator,
+      .step .inner-separator,
+      .step .content .circle,
+      .step .content .circle-button.circle-primary-button,
+      .step .content .circle-button.circle-secondary-button {
+        &.red {
+          --step-default-active-background-color: var(--red-color-20);
+          --step-default-active-border-color: var(--red-color-60);
+          --step-default-active-icon-color: var(--red-color-80);
+          --step-default-background-color: var(--background-color);
+          --step-default-border-color: var(--red-color-60);
+          --step-default-icon-color: var(--red-color-70);
+          --step-default-hover-background-color: var(--red-color-10);
+          --step-default-hover-border-color: var(--red-color-60);
+          --step-default-hover-icon-color: var(--red-color-70);
+          --stepper-line-color: var(--red-color-60);
+          --step-default-complete-background-color: var(--red-color-20);
+          --step-default-complete-border-color: var(--red-color-20);
+          --step-default-complete-icon-color: var(--red-color-70);
+        }
+
+        &.red-orange {
+          --step-default-active-background-color: var(--redorange-color-20);
+          --step-default-active-border-color: var(--redorange-color-60);
+          --step-default-active-icon-color: var(--redorange-color-80);
+          --step-default-background-color: var(--background-color);
+          --step-default-border-color: var(--redorange-color-60);
+          --step-default-icon-color: var(--redorange-color-70);
+          --step-default-hover-background-color: var(--redorange-color-10);
+          --step-default-hover-border-color: var(--redorange-color-60);
+          --step-default-hover-icon-color: var(--redorange-color-70);
+          --stepper-line-color: var(--redorange-color-60);
+          --step-default-complete-background-color: var(--redorange-color-20);
+          --step-default-complete-border-color: var(--redorange-color-20);
+          --step-default-complete-icon-color: var(--redorange-color-70);
+        }
+
+        &.orange {
+          --step-default-active-background-color: var(--orange-color-20);
+          --step-default-active-border-color: var(--orange-color-60);
+          --step-default-active-icon-color: var(--orange-color-80);
+          --step-default-background-color: var(--background-color);
+          --step-default-border-color: var(--orange-color-60);
+          --step-default-icon-color: var(--orange-color-70);
+          --step-default-hover-background-color: var(--orange-color-10);
+          --step-default-hover-border-color: var(--orange-color-60);
+          --step-default-hover-icon-color: var(--orange-color-70);
+          --stepper-line-color: var(--orange-color-60);
+          --step-default-complete-background-color: var(--orange-color-20);
+          --step-default-complete-border-color: var(--orange-color-20);
+          --step-default-complete-icon-color: var(--orange-color-70);
+        }
+
+        &.yellow {
+          --step-default-active-background-color: var(--yellow-color-20);
+          --step-default-active-border-color: var(--yellow-color-60);
+          --step-default-active-icon-color: var(--yellow-color-80);
+          --step-default-background-color: var(--background-color);
+          --step-default-border-color: var(--yellow-color-60);
+          --step-default-icon-color: var(--yellow-color-70);
+          --step-default-hover-background-color: var(--yellow-color-10);
+          --step-default-hover-border-color: var(--yellow-color-60);
+          --step-default-hover-icon-color: var(--yellow-color-70);
+          --stepper-line-color: var(--yellow-color-60);
+          --step-default-complete-background-color: var(--yellow-color-20);
+          --step-default-complete-border-color: var(--yellow-color-20);
+          --step-default-complete-icon-color: var(--yellow-color-70);
+        }
+
+        &.yellow-green {
+          --step-default-active-background-color: var(--yellowgreen-color-20);
+          --step-default-active-border-color: var(--yellowgreen-color-60);
+          --step-default-active-icon-color: var(--yellowgreen-color-80);
+          --step-default-background-color: var(--background-color);
+          --step-default-border-color: var(--yellowgreen-color-60);
+          --step-default-icon-color: var(--yellowgreen-color-70);
+          --step-default-hover-background-color: var(--yellowgreen-color-10);
+          --step-default-hover-border-color: var(--yellowgreen-color-60);
+          --step-default-hover-icon-color: var(--yellowgreen-color-70);
+          --stepper-line-color: var(--yellowgreen-color-60);
+          --step-default-complete-background-color: var(--yellowgreen-color-20);
+          --step-default-complete-border-color: var(--yellowgreen-color-20);
+          --step-default-complete-icon-color: var(--yellowgreen-color-70);
+        }
+
+        &.green {
+          --step-default-active-background-color: var(--green-color-20);
+          --step-default-active-border-color: var(--green-color-60);
+          --step-default-active-icon-color: var(--green-color-80);
+          --step-default-background-color: var(--background-color);
+          --step-default-border-color: var(--green-color-60);
+          --step-default-icon-color: var(--green-color-70);
+          --step-default-hover-background-color: var(--green-color-10);
+          --step-default-hover-border-color: var(--green-color-60);
+          --step-default-hover-icon-color: var(--green-color-70);
+          --stepper-line-color: var(--green-color-60);
+          --step-default-complete-background-color: var(--green-color-20);
+          --step-default-complete-border-color: var(--green-color-20);
+          --step-default-complete-icon-color: var(--green-color-70);
+        }
+
+        &.blue-green {
+          --step-default-active-background-color: var(--bluegreen-color-20);
+          --step-default-active-border-color: var(--bluegreen-color-60);
+          --step-default-active-icon-color: var(--bluegreen-color-80);
+          --step-default-background-color: var(--background-color);
+          --step-default-border-color: var(--bluegreen-color-60);
+          --step-default-icon-color: var(--bluegreen-color-70);
+          --step-default-hover-background-color: var(--bluegreen-color-10);
+          --step-default-hover-border-color: var(--bluegreen-color-60);
+          --step-default-hover-icon-color: var(--bluegreen-color-70);
+          --stepper-line-color: var(--bluegreen-color-60);
+          --step-default-complete-background-color: var(--bluegreen-color-20);
+          --step-default-complete-border-color: var(--bluegreen-color-20);
+          --step-default-complete-icon-color: var(--bluegreen-color-70);
+        }
+
+        &.blue {
+          --step-default-active-background-color: var(--blue-color-20);
+          --step-default-active-border-color: var(--blue-color-60);
+          --step-default-active-icon-color: var(--blue-color-80);
+          --step-default-background-color: var(--background-color);
+          --step-default-border-color: var(--blue-color-60);
+          --step-default-icon-color: var(--blue-color-70);
+          --step-default-hover-background-color: var(--blue-color-10);
+          --step-default-hover-border-color: var(--blue-color-60);
+          --step-default-hover-icon-color: var(--blue-color-70);
+          --stepper-line-color: var(--blue-color-60);
+          --step-default-complete-background-color: var(--blue-color-20);
+          --step-default-complete-border-color: var(--blue-color-20);
+          --step-default-complete-icon-color: var(--blue-color-70);
+        }
+
+        &.blue-violet {
+          --step-default-active-background-color: var(--blueviolet-color-20);
+          --step-default-active-border-color: var(--blueviolet-color-60);
+          --step-default-active-icon-color: var(--blueviolet-color-80);
+          --step-default-background-color: var(--background-color);
+          --step-default-border-color: var(--blueviolet-color-60);
+          --step-default-icon-color: var(--blueviolet-color-70);
+          --step-default-hover-background-color: var(--blueviolet-color-10);
+          --step-default-hover-border-color: var(--blueviolet-color-60);
+          --step-default-hover-icon-color: var(--blueviolet-color-70);
+          --stepper-line-color: var(--blueviolet-color-60);
+          --step-default-complete-background-color: var(--blueviolet-color-20);
+          --step-default-complete-border-color: var(--blueviolet-color-20);
+          --step-default-complete-icon-color: var(--blueviolet-color-70);
+        }
+
+        &.violet {
+          --step-default-active-background-color: var(--violet-color-20);
+          --step-default-active-border-color: var(--violet-color-60);
+          --step-default-active-icon-color: var(--violet-color-80);
+          --step-default-background-color: var(--background-color);
+          --step-default-border-color: var(--violet-color-60);
+          --step-default-icon-color: var(--violet-color-70);
+          --step-default-hover-background-color: var(--violet-color-10);
+          --step-default-hover-border-color: var(--violet-color-60);
+          --step-default-hover-icon-color: var(--violet-color-70);
+          --stepper-line-color: var(--violet-color-60);
+          --step-default-complete-background-color: var(--violet-color-20);
+          --step-default-complete-border-color: var(--violet-color-20);
+          --step-default-complete-icon-color: var(--violet-color-70);
+        }
+
+        &.violet-red {
+          --step-default-active-background-color: var(--violetred-color-20);
+          --step-default-active-border-color: var(--violetred-color-60);
+          --step-default-active-icon-color: var(--violetred-color-80);
+          --step-default-background-color: var(--background-color);
+          --step-default-border-color: var(--violetred-color-60);
+          --step-default-icon-color: var(--violetred-color-70);
+          --step-default-hover-background-color: var(--violetred-color-10);
+          --step-default-hover-border-color: var(--violetred-color-60);
+          --step-default-hover-icon-color: var(--violetred-color-70);
+          --stepper-line-color: var(--violetred-color-60);
+          --step-default-complete-background-color: var(--violetred-color-20);
+          --step-default-complete-border-color: var(--violetred-color-20);
+          --step-default-complete-icon-color: var(--violetred-color-70);
+        }
+
+        &.grey {
+          --step-default-active-background-color: var(--grey-color-20);
+          --step-default-active-border-color: var(--grey-color-60);
+          --step-default-active-icon-color: var(--grey-color-80);
+          --step-default-background-color: var(--background-color);
+          --step-default-border-color: var(--grey-color-60);
+          --step-default-icon-color: var(--grey-color-70);
+          --step-default-hover-background-color: var(--grey-color-10);
+          --step-default-hover-border-color: var(--grey-color-60);
+          --step-default-hover-icon-color: var(--grey-color-70);
+          --stepper-line-color: var(--grey-color-60);
+          --step-default-complete-background-color: var(--grey-color-20);
+          --step-default-complete-border-color: var(--grey-color-20);
+          --step-default-complete-icon-color: var(--grey-color-70);
+        }
+
+        &.error {
+          --step-default-active-background-color: var(
+            --error-active-background-color
+          );
+          --step-default-active-border-color: var(--error-active-border-color);
+          --step-default-active-icon-color: var(--error-active-color);
+          --step-default-background-color: var(--error-background-color);
+          --step-default-border-color: var(--error-background-color);
+          --step-default-icon-color: var(--error-color);
+          --step-default-hover-background-color: var(
+            --error-hover-background-color
+          );
+          --step-default-hover-border-color: var(--error-hover-border-color);
+          --step-default-hover-icon-color: var(--error-hover-color);
+          --stepper-line-color: var(--error-color);
+          --step-default-complete-background-color: var(
+            --error-background-color
+          );
+          --step-default-complete-border-color: var(--error-border-color);
+          --step-default-complete-icon-color: var(--error-color);
+        }
+
+        &.success {
+          --step-default-active-background-color: var(
+            --success-active-background-color
+          );
+          --step-default-active-border-color: var(
+            --success-active-border-color
+          );
+          --step-default-active-icon-color: var(--success-active-color);
+          --step-default-background-color: var(--success-background-color);
+          --step-default-border-color: var(--success-background-color);
+          --step-default-icon-color: var(--success-color);
+          --step-default-hover-background-color: var(
+            --success-hover-background-color
+          );
+          --step-default-hover-border-color: var(--success-hover-border-color);
+          --step-default-hover-icon-color: var(--success-hover-color);
+          --stepper-line-color: var(--success-color);
+          --step-default-complete-background-color: var(
+            --success-background-color
+          );
+          --step-default-complete-border-color: var(--success-border-color);
+          --step-default-complete-icon-color: var(--success-color);
+        }
+
+        &.warning {
+          --step-default-active-background-color: var(
+            --warning-active-background-color
+          );
+          --step-default-active-border-color: var(
+            --warning-active-border-color
+          );
+          --step-default-active-icon-color: var(--warning-active-color);
+          --step-default-background-color: var(--warning-background-color);
+          --step-default-border-color: var(--warning-background-color);
+          --step-default-icon-color: var(--warning-color);
+          --step-default-hover-background-color: var(
+            --warning-hover-background-color
+          );
+          --step-default-hover-border-color: var(--warning-hover-border-color);
+          --step-default-hover-icon-color: var(--warning-hover-color);
+          --stepper-line-color: var(--warning-color);
+          --step-default-complete-background-color: var(
+            --warning-background-color
+          );
+          --step-default-complete-border-color: var(--warning-border-color);
+          --step-default-complete-icon-color: var(--warning-color);
+        }
+      }
+    }
+  }
+
+  // Timeline theme properties
+  &.timeline {
+    .steps-container {
+      .steps {
+        .step .content .circle,
+        .step .content .circle-button.circle-default-button {
+          &.red {
+            --step-timeline-active-background-color: var(--red-color-20);
+            --step-timeline-active-border-color: var(--red-color-60);
+            --step-timeline-active-icon-color: var(--red-color-80);
+            --step-timeline-background-color: var(--red-color-10);
+            --step-timeline-border-color: var(--red-color-10);
+            --step-timeline-icon-color: var(--red-color-70);
+            --step-timeline-hover-background-color: var(--background-color);
+            --step-timeline-hover-border-color: var(--red-color-60);
+            --step-timeline-hover-icon-color: var(--red-color-70);
+            --step-timeline-complete-background-color: var(--red-color-10);
+            --step-timeline-complete-border-color: var(--red-color-10);
+            --step-timeline-complete-icon-color: var(--red-color-70);
+          }
+
+          &.red-orange {
+            --step-timeline-active-background-color: var(--redorange-color-20);
+            --step-timeline-active-border-color: var(--redorange-color-60);
+            --step-timeline-active-icon-color: var(--redorange-color-80);
+            --step-timeline-background-color: var(--redorange-color-10);
+            --step-timeline-border-color: var(--redorange-color-10);
+            --step-timeline-icon-color: var(--redorange-color-70);
+            --step-timeline-hover-background-color: var(--background-color);
+            --step-timeline-hover-border-color: var(--redorange-color-60);
+            --step-timeline-hover-icon-color: var(--redorange-color-70);
+            --step-timeline-complete-background-color: var(
+              --redorange-color-10
+            );
+            --step-timeline-complete-border-color: var(--redorange-color-10);
+            --step-timeline-complete-icon-color: var(--redorange-color-70);
+          }
+
+          &.orange {
+            --step-timeline-active-background-color: var(--orange-color-20);
+            --step-timeline-active-border-color: var(--orange-color-60);
+            --step-timeline-active-icon-color: var(--orange-color-80);
+            --step-timeline-background-color: var(--orange-color-10);
+            --step-timeline-border-color: var(--orange-color-10);
+            --step-timeline-icon-color: var(--orange-color-70);
+            --step-timeline-hover-background-color: var(--background-color);
+            --step-timeline-hover-border-color: var(--orange-color-60);
+            --step-timeline-hover-icon-color: var(--orange-color-70);
+            --step-timeline-complete-background-color: var(--orange-color-10);
+            --step-timeline-complete-border-color: var(--orange-color-10);
+            --step-timeline-complete-icon-color: var(--orange-color-70);
+          }
+
+          &.yellow {
+            --step-timeline-active-background-color: var(--yellow-color-20);
+            --step-timeline-active-border-color: var(--yellow-color-60);
+            --step-timeline-active-icon-color: var(--yellow-color-80);
+            --step-timeline-background-color: var(--yellow-color-10);
+            --step-timeline-border-color: var(--yellow-color-10);
+            --step-timeline-icon-color: var(--yellow-color-70);
+            --step-timeline-hover-background-color: var(--background-color);
+            --step-timeline-hover-border-color: var(--yellow-color-60);
+            --step-timeline-hover-icon-color: var(--yellow-color-70);
+            --step-timeline-complete-background-color: var(--yellow-color-10);
+            --step-timeline-complete-border-color: var(--yellow-color-10);
+            --step-timeline-complete-icon-color: var(--yellow-color-70);
+          }
+
+          &.yellow-green {
+            --step-timeline-active-background-color: var(
+              --yellowgreen-color-20
+            );
+            --step-timeline-active-border-color: var(--yellowgreen-color-60);
+            --step-timeline-active-icon-color: var(--yellowgreen-color-80);
+            --step-timeline-background-color: var(--yellowgreen-color-10);
+            --step-timeline-border-color: var(--yellowgreen-color-10);
+            --step-timeline-icon-color: var(--yellowgreen-color-70);
+            --step-timeline-hover-background-color: var(--background-color);
+            --step-timeline-hover-border-color: var(--yellowgreen-color-60);
+            --step-timeline-hover-icon-color: var(--yellowgreen-color-70);
+            --step-timeline-complete-background-color: var(
+              --yellowgreen-color-10
+            );
+            --step-timeline-complete-border-color: var(--yellowgreen-color-10);
+            --step-timeline-complete-icon-color: var(--yellowgreen-color-70);
+          }
+
+          &.green {
+            --step-timeline-active-background-color: var(--green-color-20);
+            --step-timeline-active-border-color: var(--green-color-60);
+            --step-timeline-active-icon-color: var(--green-color-80);
+            --step-timeline-background-color: var(--green-color-10);
+            --step-timeline-border-color: var(--green-color-10);
+            --step-timeline-icon-color: var(--green-color-70);
+            --step-timeline-hover-background-color: var(--background-color);
+            --step-timeline-hover-border-color: var(--green-color-60);
+            --step-timeline-hover-icon-color: var(--green-color-70);
+            --step-timeline-complete-background-color: var(--green-color-10);
+            --step-timeline-complete-border-color: var(--green-color-10);
+            --step-timeline-complete-icon-color: var(--green-color-70);
+          }
+
+          &.blue-green {
+            --step-timeline-active-background-color: var(--bluegreen-color-20);
+            --step-timeline-active-border-color: var(--bluegreen-color-60);
+            --step-timeline-active-icon-color: var(--bluegreen-color-80);
+            --step-timeline-background-color: var(--bluegreen-color-10);
+            --step-timeline-border-color: var(--bluegreen-color-10);
+            --step-timeline-icon-color: var(--bluegreen-color-70);
+            --step-timeline-hover-background-color: var(--background-color);
+            --step-timeline-hover-border-color: var(--bluegreen-color-60);
+            --step-timeline-hover-icon-color: var(--bluegreen-color-70);
+            --step-timeline-complete-background-color: var(
+              --bluegreen-color-10
+            );
+            --step-timeline-complete-border-color: var(--bluegreen-color-10);
+            --step-timeline-complete-icon-color: var(--bluegreen-color-70);
+          }
+
+          &.blue {
+            --step-timeline-active-background-color: var(--blue-color-20);
+            --step-timeline-active-border-color: var(--blue-color-60);
+            --step-timeline-active-icon-color: var(--blue-color-80);
+            --step-timeline-background-color: var(--blue-color-10);
+            --step-timeline-border-color: var(--blue-color-10);
+            --step-timeline-icon-color: var(--blue-color-70);
+            --step-timeline-hover-background-color: var(--background-color);
+            --step-timeline-hover-border-color: var(--blue-color-60);
+            --step-timeline-hover-icon-color: var(--blue-color-70);
+            --step-timeline-complete-background-color: var(--blue-color-10);
+            --step-timeline-complete-border-color: var(--blue-color-10);
+            --step-timeline-complete-icon-color: var(--blue-color-70);
+          }
+
+          &.blue-violet {
+            --step-timeline-active-background-color: var(--blueviolet-color-20);
+            --step-timeline-active-border-color: var(--blueviolet-color-60);
+            --step-timeline-active-icon-color: var(--blueviolet-color-80);
+            --step-timeline-background-color: var(--blueviolet-color-10);
+            --step-timeline-border-color: var(--blueviolet-color-10);
+            --step-timeline-icon-color: var(--blueviolet-color-70);
+            --step-timeline-hover-background-color: var(--background-color);
+            --step-timeline-hover-border-color: var(--blueviolet-color-60);
+            --step-timeline-hover-icon-color: var(--blueviolet-color-70);
+            --step-timeline-complete-background-color: var(
+              --blueviolet-color-10
+            );
+            --step-timeline-complete-border-color: var(--blueviolet-color-10);
+            --step-timeline-complete-icon-color: var(--blueviolet-color-70);
+          }
+
+          &.violet {
+            --step-timeline-active-background-color: var(--violet-color-20);
+            --step-timeline-active-border-color: var(--violet-color-60);
+            --step-timeline-active-icon-color: var(--violet-color-80);
+            --step-timeline-background-color: var(--violet-color-10);
+            --step-timeline-border-color: var(--violet-color-10);
+            --step-timeline-icon-color: var(--violet-color-70);
+            --step-timeline-hover-background-color: var(--background-color);
+            --step-timeline-hover-border-color: var(--violet-color-60);
+            --step-timeline-hover-icon-color: var(--violet-color-70);
+            --step-timeline-complete-background-color: var(--violet-color-10);
+            --step-timeline-complete-border-color: var(--violet-color-10);
+            --step-timeline-complete-icon-color: var(--violet-color-70);
+          }
+
+          &.violet-red {
+            --step-timeline-active-background-color: var(--violetred-color-20);
+            --step-timeline-active-border-color: var(--violetred-color-60);
+            --step-timeline-active-icon-color: var(--violetred-color-80);
+            --step-timeline-background-color: var(--violetred-color-10);
+            --step-timeline-border-color: var(--violetred-color-10);
+            --step-timeline-icon-color: var(--violetred-color-70);
+            --step-timeline-hover-background-color: var(--background-color);
+            --step-timeline-hover-border-color: var(--violetred-color-60);
+            --step-timeline-hover-icon-color: var(--violetred-color-70);
+            --step-timeline-complete-background-color: var(
+              --violetred-color-10
+            );
+            --step-timeline-complete-border-color: var(--violetred-color-10);
+            --step-timeline-complete-icon-color: var(--violetred-color-70);
+          }
+
+          &.grey {
+            --step-timeline-active-background-color: var(--grey-color-20);
+            --step-timeline-active-border-color: var(--grey-color-60);
+            --step-timeline-active-icon-color: var(--grey-color-80);
+            --step-timeline-background-color: var(--grey-color-10);
+            --step-timeline-border-color: var(--grey-color-10);
+            --step-timeline-icon-color: var(--grey-color-70);
+            --step-timeline-hover-background-color: var(--background-color);
+            --step-timeline-hover-border-color: var(--grey-color-60);
+            --step-timeline-hover-icon-color: var(--grey-color-70);
+            --step-timeline-complete-background-color: var(--grey-color-10);
+            --step-timeline-complete-border-color: var(--grey-color-10);
+            --step-timeline-complete-icon-color: var(--grey-color-70);
+          }
+
+          &.error {
+            --step-timeline-active-background-color: var(
+              --error-active-background-color
+            );
+            --step-timeline-active-border-color: var(
+              --error-active-border-color
+            );
+            --step-timeline-active-icon-color: var(--error-active-color);
+            --step-timeline-background-color: var(--error-background-color);
+            --step-timeline-border-color: var(--error-background-color);
+            --step-timeline-icon-color: var(--error-color);
+            --step-timeline-hover-background-color: var(
+              --error-hover-background-color
+            );
+            --step-timeline-hover-border-color: var(--error-hover-border-color);
+            --step-timeline-hover-icon-color: var(--error-hover-color);
+            --step-timeline-complete-background-color: var(
+              --error-background-color
+            );
+            --step-timeline-complete-border-color: var(--error-border-color);
+            --step-timeline-complete-icon-color: var(--error-color);
+          }
+
+          &.success {
+            --step-timeline-active-background-color: var(
+              --success-active-background-color
+            );
+            --step-timeline-active-border-color: var(
+              --success-active-border-color
+            );
+            --step-timeline-active-icon-color: var(--success-active-color);
+            --step-timeline-background-color: var(--success-background-color);
+            --step-timeline-border-color: var(--success-background-color);
+            --step-timeline-icon-color: var(--success-color);
+            --step-timeline-hover-background-color: var(
+              --success-hover-background-color
+            );
+            --step-timeline-hover-border-color: var(
+              --success-hover-border-color
+            );
+            --step-timeline-hover-icon-color: var(--success-hover-color);
+            --step-timeline-complete-background-color: var(
+              --success-background-color
+            );
+            --step-timeline-complete-border-color: var(--success-border-color);
+            --step-timeline-complete-icon-color: var(--success-color);
+          }
+
+          &.warning {
+            --step-timeline-active-background-color: var(
+              --warning-active-background-color
+            );
+            --step-timeline-active-border-color: var(
+              --warning-active-border-color
+            );
+            --step-timeline-active-icon-color: var(--warning-active-color);
+            --step-timeline-background-color: var(--warning-background-color);
+            --step-timeline-border-color: var(--warning-background-color);
+            --step-timeline-icon-color: var(--warning-color);
+            --step-timeline-hover-background-color: var(
+              --warning-hover-background-color
+            );
+            --step-timeline-hover-border-color: var(
+              --warning-hover-border-color
+            );
+            --step-timeline-hover-icon-color: var(--warning-hover-color);
+            --step-timeline-complete-background-color: var(
+              --warning-background-color
+            );
+            --step-timeline-complete-border-color: var(--warning-border-color);
+            --step-timeline-complete-icon-color: var(--warning-color);
           }
         }
       }
