@@ -1,6 +1,7 @@
 import React, { FC } from 'react';
 import { Stories } from '@storybook/addon-docs';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { useArgs } from '@storybook/client-api';
 import {
   Stepper,
   StepperLineStyle,
@@ -167,21 +168,89 @@ const Default_Story: ComponentStory<typeof Stepper> = (args) => {
   );
 };
 
+const Show_Small_Active_Index_Story: ComponentStory<typeof Stepper> = (
+  args
+) => {
+  const [_, updateArgs] = useArgs();
+
+  const handle = (index: number = 3) => {
+    updateArgs({
+      ...args,
+      activeStepIndex: index,
+      index: index,
+      steps: [1, 2, 3, 4, 5].map((i: number) => ({
+        index: i,
+        content: `Timeline label ${i}`,
+        complete: i > 2 ? false : true,
+        nodeAriaLabelText: i === 5 ? 'Finish' : null,
+        nodeIcon: i === 5 ? IconName.mdiFlagCheckered : null,
+        size: i === index + 1 ? StepSize.Large : StepSize.Small,
+      })),
+    });
+  };
+
+  return (
+    <Row>
+      <Col span="12">
+        <Stepper {...args} onChange={(step: number) => handle(step)} />
+      </Col>
+    </Row>
+  );
+};
+
+const Show_Medium_Active_Index_Story: ComponentStory<typeof Stepper> = (
+  args
+) => {
+  const [_, updateArgs] = useArgs();
+
+  const handle = (index: number = 3) => {
+    updateArgs({
+      ...args,
+      activeStepIndex: index,
+      index: index,
+      steps: [1, 2, 3, 4, 5].map((i: number) => ({
+        index: i,
+        content: <TimelineItem index={i} />,
+        complete: i > 2 ? false : true,
+        nodeAriaLabelText: i === 5 ? 'Finish' : null,
+        nodeIcon: i === 5 ? IconName.mdiFlagCheckered : null,
+        size: i === index + 1 ? StepSize.Large : StepSize.Small,
+      })),
+    });
+  };
+
+  return (
+    <Row>
+      <Col span="12">
+        <Stepper {...args} onChange={(step: number) => handle(step)} />
+      </Col>
+    </Row>
+  );
+};
+
 export const Default_Horizontal_Small = Default_Story.bind({});
 export const Default_Horizontal_Small_Required = Default_Story.bind({});
 export const Default_Horizontal_Small_Read_Only = Default_Story.bind({});
+export const Default_Horizontal_Small_Show_Active_Index =
+  Show_Small_Active_Index_Story.bind({});
 export const Default_Horizontal_Small_Custom = Default_Story.bind({});
 export const Default_Horizontal_Medium = Default_Story.bind({});
 export const Default_Horizontal_Medium_Required = Default_Story.bind({});
 export const Default_Horizontal_Medium_Read_Only = Default_Story.bind({});
+export const Default_Horizontal_Medium_Show_Active_Index =
+  Show_Medium_Active_Index_Story.bind({});
 export const Default_Horizontal_Medium_Custom = Default_Story.bind({});
 export const Default_Vertical_Small = Default_Story.bind({});
 export const Default_Vertical_Small_Required = Default_Story.bind({});
 export const Default_Vertical_Small_Read_Only = Default_Story.bind({});
+export const Default_Vertical_Small_Show_Active_Index =
+  Show_Small_Active_Index_Story.bind({});
 export const Default_Vertical_Small_Custom = Default_Story.bind({});
 export const Default_Vertical_Medium = Default_Story.bind({});
 export const Default_Vertical_Medium_Required = Default_Story.bind({});
 export const Default_Vertical_Medium_Read_Only = Default_Story.bind({});
+export const Default_Vertical_Medium_Show_Active_Index =
+  Show_Medium_Active_Index_Story.bind({});
 export const Default_Vertical_Medium_Scroll = Default_Story.bind({});
 export const Default_Vertical_Medium_Custom = Default_Story.bind({});
 
@@ -245,6 +314,20 @@ Default_Horizontal_Small_Read_Only.args = {
   })),
 };
 
+Default_Horizontal_Small_Show_Active_Index.args = {
+  ...timelineArgs,
+  showActiveStepIndex: true,
+  size: StepperSize.Small,
+  steps: [1, 2, 3, 4, 5].map((i: number) => ({
+    index: i,
+    content: `Timeline label ${i}`,
+    complete: i > 2 ? false : true,
+    nodeAriaLabelText: i === 5 ? 'Finish' : null,
+    nodeIcon: i === 5 ? IconName.mdiFlagCheckered : null,
+    size: i === 3 ? StepSize.Large : StepSize.Small,
+  })),
+};
+
 Default_Horizontal_Small_Custom.args = {
   ...timelineArgs,
   classNames: 'custom-stepper-line',
@@ -280,6 +363,19 @@ Default_Horizontal_Medium_Required.args = {
 Default_Horizontal_Medium_Read_Only.args = {
   ...timelineArgs,
   readonly: true,
+};
+
+Default_Horizontal_Medium_Show_Active_Index.args = {
+  ...timelineArgs,
+  showActiveStepIndex: true,
+  steps: [1, 2, 3, 4, 5].map((i: number) => ({
+    index: i,
+    content: <TimelineItem index={i} />,
+    complete: i > 2 ? false : true,
+    nodeAriaLabelText: i === 5 ? 'Finish' : null,
+    nodeIcon: i === 5 ? IconName.mdiFlagCheckered : null,
+    size: i === 3 ? StepSize.Large : StepSize.Small,
+  })),
 };
 
 Default_Horizontal_Medium_Custom.args = {
@@ -345,6 +441,21 @@ Default_Vertical_Small_Read_Only.args = {
   })),
 };
 
+Default_Vertical_Small_Show_Active_Index.args = {
+  ...timelineArgs,
+  layout: 'vertical',
+  showActiveStepIndex: true,
+  size: StepperSize.Small,
+  steps: [1, 2, 3, 4, 5].map((i: number) => ({
+    index: i,
+    content: `Timeline label ${i}`,
+    complete: i > 2 ? false : true,
+    nodeAriaLabelText: i === 5 ? 'Finish' : null,
+    nodeIcon: i === 5 ? IconName.mdiFlagCheckered : null,
+    size: i === 3 ? StepSize.Large : StepSize.Small,
+  })),
+};
+
 Default_Vertical_Small_Custom.args = {
   ...timelineArgs,
   classNames: 'custom-stepper-line',
@@ -384,6 +495,20 @@ Default_Vertical_Medium_Read_Only.args = {
   ...timelineArgs,
   layout: 'vertical',
   readonly: true,
+};
+
+Default_Vertical_Medium_Show_Active_Index.args = {
+  ...timelineArgs,
+  layout: 'vertical',
+  showActiveStepIndex: true,
+  steps: [1, 2, 3, 4, 5].map((i: number) => ({
+    index: i,
+    content: <TimelineItem index={i} />,
+    complete: i > 2 ? false : true,
+    nodeAriaLabelText: i === 5 ? 'Finish' : null,
+    nodeIcon: i === 5 ? IconName.mdiFlagCheckered : null,
+    size: i === 3 ? StepSize.Large : StepSize.Small,
+  })),
 };
 
 Default_Vertical_Medium_Scroll.args = {
