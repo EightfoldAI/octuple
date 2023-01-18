@@ -816,7 +816,7 @@ const fixedCols: ColumnsType<DataType> = [
   {
     title: 'Role',
     dataIndex: 'title',
-    // fixed: 'left',
+    fixed: 'left',
     width: 144,
   },
   {
@@ -833,7 +833,7 @@ const fixedCols: ColumnsType<DataType> = [
         </Stack>
       </Stack>
     ),
-    // fixed: 'left',
+    fixed: 'left',
     width: 320,
   },
   {
