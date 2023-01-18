@@ -1,4 +1,5 @@
 import type * as React from 'react';
+import { RefObject } from 'react';
 
 export type Key = React.Key;
 
@@ -402,6 +403,21 @@ export interface MemoTableContentProps {
   props: any;
 }
 
+export interface ScrollerProps<RecordType> {
+  columns: ColumnsType<RecordType>;
+  flattenColumns: readonly ColumnType<RecordType>[];
+  scrollBodyRef: RefObject<HTMLDivElement>;
+  stickyOffsets: StickyOffsets;
+  scrollHeaderRef?: RefObject<HTMLDivElement>;
+}
+
+export type ScrollerRef = {
+  /**
+   * Helper method to handle body scroll changes
+   */
+  onBodyScroll: () => void;
+};
+
 export interface OcTableProps<RecordType = unknown> {
   /**
    * Show all Table borders.
@@ -523,6 +539,11 @@ export interface OcTableProps<RecordType = unknown> {
    * the scroll area, could be string or number.
    */
   scroll?: { x?: number | true | string; y?: number | string };
+  /**
+   * Button scroller for a horizontal scroll table
+   * @default false
+   */
+  showScroller?: boolean;
   /**
    * Callback fired on row hover
    * @param index - Index of the row element

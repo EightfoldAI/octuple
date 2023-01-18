@@ -816,7 +816,7 @@ const fixedCols: ColumnsType<DataType> = [
   {
     title: 'Role',
     dataIndex: 'title',
-    fixed: 'left',
+    // fixed: 'left',
     width: 144,
   },
   {
@@ -833,7 +833,7 @@ const fixedCols: ColumnsType<DataType> = [
         </Stack>
       </Stack>
     ),
-    fixed: 'left',
+    // fixed: 'left',
     width: 320,
   },
   {
@@ -1374,6 +1374,10 @@ export const Header_And_Footer = Table_Base_Story.bind({});
 export const Fixed_Header = Table_Wrapped_Story.bind({});
 export const Fixed_Columns = Table_Wrapped_Story.bind({});
 export const Fixed_Columns_and_Header = Table_Wrapped_Story.bind({});
+export const Fixed_Columns_with_Scroller = Table_Wrapped_Story.bind({});
+export const Fixed_Columns_and_Header_with_Scroller = Table_Wrapped_Story.bind(
+  {}
+);
 export const Selection = Table_Base_Story.bind({});
 export const Expandable_Row = Table_Base_Story.bind({});
 export const Order_Select_And_Expand_Column = Table_Base_Story.bind({});
@@ -1517,6 +1521,27 @@ Fixed_Columns_and_Header.args = {
   style: {
     width: '100%',
   },
+  sticky: true,
+};
+
+Fixed_Columns_with_Scroller.args = {
+  ...tableArgs,
+  columns: fixedCols,
+  scroll: { x: 900 },
+  showScroller: true,
+  style: {
+    width: '100%',
+  },
+};
+
+Fixed_Columns_and_Header_with_Scroller.args = {
+  ...tableArgs,
+  columns: fixedCols,
+  scroll: { x: 900, y: 320 },
+  style: {
+    width: '100%',
+  },
+  showScroller: true,
   sticky: true,
 };
 

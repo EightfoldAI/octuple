@@ -174,6 +174,11 @@ export interface ColumnType<RecordType>
    * The Column title.
    */
   title?: ColumnTitle<RecordType>;
+  /**
+   * Button scroller for a horizontal scroll table
+   * @default false
+   */
+  showScroller?: boolean;
 }
 
 export interface ColumnGroupType<RecordType>
