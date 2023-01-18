@@ -56,11 +56,12 @@ export const Stepper: FC<StepperProps> = React.forwardRef(
       scrollLeftAriaLabelText: defaultScrollLeftAriaLabelText,
       scrollRightAriaLabelText: defaultScrollRightAriaLabelText,
       scrollUpAriaLabelText: defaultScrollUpAriaLabelText,
+      showActiveStepIndex,
       size = StepperSize.Medium,
-      theme,
       status,
       steps,
       style,
+      theme,
       variant = StepperVariant.Default,
       width,
       'data-test-id': dataTestId,
@@ -285,15 +286,20 @@ export const Stepper: FC<StepperProps> = React.forwardRef(
           (styles as any)[`${theme}`],
           (styles as any)[`${status}`],
         ])}
-        iconProps={{
-          path: getIcon(icon, active, complete),
-          classNames: styles.checkIcon,
-        }}
+        iconProps={
+          active && showActiveStepIndex
+            ? null
+            : {
+                path: getIcon(icon, active, complete),
+                classNames: styles.checkIcon,
+              }
+        }
         onClick={(event: React.MouseEvent<HTMLButtonElement, MouseEvent>) =>
           handleOnClick(event, index)
         }
         shape={ButtonShape.Round}
         size={stepSizeToButtonSizeMap.get(size)}
+        text={active && showActiveStepIndex ? `${index + 1}` : null}
       />
     );
 

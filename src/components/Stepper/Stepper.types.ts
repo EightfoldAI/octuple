@@ -205,6 +205,11 @@ export interface StepperProps
    */
   scrollUpAriaLabelText?: string;
   /**
+   * Show active step index.
+   * Use when step is an icon, but an index is desired for the active step.
+   */
+  showActiveStepIndex?: boolean;
+  /**
    * The Stepper size.
    * @default StepperSize.Medium
    */
@@ -214,13 +219,13 @@ export interface StepperProps
    */
   status?: StepperValidationStatus;
   /**
-   * Theme of the Stepper.
-   */
-  theme?: StepperThemeName;
-  /**
    * The Stepper Steps.
    */
   steps?: Step[];
+  /**
+   * Theme of the Stepper.
+   */
+  theme?: StepperThemeName;
   /**
    * The Stepper variant.
    * options: Default, Timeline
