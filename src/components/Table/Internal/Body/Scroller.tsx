@@ -54,7 +54,7 @@ export const Scroller = React.forwardRef(
       [columns]
     );
 
-    const leftButtonLeft: number = useMemo(
+    const leftButtonOffset: number = useMemo(
       () =>
         stickyOffsets.left[flattenColumns.findIndex((column) => !column.fixed)],
       [stickyOffsets, flattenColumns]
