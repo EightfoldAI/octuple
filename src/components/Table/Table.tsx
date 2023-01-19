@@ -89,6 +89,8 @@ function InternalTable<RecordType extends object = any>(
     filterEmptyText: defaultFilterEmptyText,
     filterResetText: defaultFilterResetText,
     filterSearchPlaceholderText: defaultFilterSearchPlaceholderText,
+    scrollLeftAriaLabel: defaultScrollLeftAriaLabel,
+    scrollRightAriaLabel: defaultScrollRightAriaLabel,
     getPopupContainer,
     headerBordered = false,
     headerBottomBordered = false,
@@ -229,6 +231,12 @@ function InternalTable<RecordType extends object = any>(
   const [cancelSortText, setCancelSortText] = useState<string>(
     defaultCancelSortText
   );
+  const [scrollLeftAriaLabel, setScrollLeftAriaLabel] = useState<string>(
+    defaultScrollLeftAriaLabel
+  );
+  const [scrollRightAriaLabel, setScrollRightAriaLabel] = useState<string>(
+    defaultScrollRightAriaLabel
+  );
 
   // Locs: if the prop isn't provided use the loc defaults.
   // If the mergedLocale is changed, update.
@@ -301,6 +309,12 @@ function InternalTable<RecordType extends object = any>(
       props.cancelSortText
         ? props.cancelSortText
         : mergedLocale.lang!.cancelSortText
+    );
+    setScrollLeftAriaLabel(
+      props.scrollLeftAriaLabel ?? mergedLocale.lang!.scrollLeftAriaLabel
+    );
+    setScrollRightAriaLabel(
+      props.scrollRightAriaLabel ?? mergedLocale.lang!.scrollRightAriaLabel
     );
   }, [mergedLocale]);
 
@@ -773,6 +787,8 @@ function InternalTable<RecordType extends object = any>(
               }
               onRowHoverEnter={onRowHoverEnter}
               onRowHoverLeave={onRowHoverLeave}
+              scrollLeftAriaLabel={scrollLeftAriaLabel}
+              scrollRightAriaLabel={scrollRightAriaLabel}
             />
             {bottomPaginationNode}
           </div>

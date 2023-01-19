@@ -76,6 +76,14 @@ export type Locale = {
    * The Table `Click to cancel sorting` string.
    */
   cancelSortText?: string;
+  /**
+   * The Table `Scroll right` string
+   */
+  scrollRightAriaLabel?: string;
+  /**
+   * The Table `Scroll left` string
+   */
+  scrollLeftAriaLabel?: string;
 };
 
 // ==================== Row =====================
@@ -409,6 +417,16 @@ export interface ScrollerProps<RecordType> {
   scrollBodyRef: RefObject<HTMLDivElement>;
   stickyOffsets: StickyOffsets;
   scrollHeaderRef?: RefObject<HTMLDivElement>;
+  /**
+   * The Table scroller right button aria label
+   * @default 'Scroll right'
+   */
+  scrollRightAriaLabel?: string;
+  /**
+   * The Table scroller left button aria label
+   * @default 'Scroll left'
+   */
+  scrollLeftAriaLabel?: string;
 }
 
 export type ScrollerRef = {
@@ -566,4 +584,14 @@ export interface OcTableProps<RecordType = unknown> {
     rowKey: React.Key,
     event: React.MouseEvent<HTMLElement>
   ) => void;
+  /**
+   * The Table scroller right button aria label
+   * @default 'Scroll right'
+   */
+  scrollRightAriaLabel?: string;
+  /**
+   * The Table scroller left button aria label
+   * @default 'Scroll left'
+   */
+  scrollLeftAriaLabel?: string;
 }

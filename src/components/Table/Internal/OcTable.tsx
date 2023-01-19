@@ -118,6 +118,8 @@ function OcTable<RecordType extends DefaultRecordType>(
     onRowHoverEnter,
     onRowHoverLeave,
     showScroller,
+    scrollLeftAriaLabel,
+    scrollRightAriaLabel,
   } = props;
 
   const mergedData = data || EMPTY_DATA;
@@ -403,7 +405,7 @@ function OcTable<RecordType extends DefaultRecordType>(
     scrollerRef.current?.onBodyScroll?.();
   };
 
-  const triggerOnScroll = () => {
+  const triggerOnScroll = (): void => {
     if (horizonScroll && scrollBodyRef.current) {
       onScroll({
         currentTarget: scrollBodyRef.current,
@@ -414,7 +416,7 @@ function OcTable<RecordType extends DefaultRecordType>(
     }
   };
 
-  const onFullTableResize = ({ width }: SizeInfo) => {
+  const onFullTableResize = ({ width }: SizeInfo): void => {
     if (width !== componentWidth) {
       triggerOnScroll();
       setComponentWidth(
@@ -559,6 +561,8 @@ function OcTable<RecordType extends DefaultRecordType>(
               scrollBodyRef={scrollBodyRef}
               stickyOffsets={stickyOffsets}
               scrollHeaderRef={scrollHeaderRef}
+              scrollLeftAriaLabel={scrollLeftAriaLabel}
+              scrollRightAriaLabel={scrollRightAriaLabel}
             />
           )}
           <TableComponent
@@ -663,6 +667,8 @@ function OcTable<RecordType extends DefaultRecordType>(
             {...columnContext}
             scrollBodyRef={scrollBodyRef}
             stickyOffsets={stickyOffsets}
+            scrollLeftAriaLabel={scrollLeftAriaLabel}
+            scrollRightAriaLabel={scrollRightAriaLabel}
           />
         )}
         <TableComponent

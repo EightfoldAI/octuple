@@ -14,7 +14,7 @@ import { useDebounce } from '../../../../hooks/useDebounce';
 
 import styles from '../octable.module.scss';
 
-const BUTTON_HEIGHT = 36;
+const BUTTON_HEIGHT: number = 36;
 
 export const Scroller = React.forwardRef(
   <RecordType,>(
@@ -24,6 +24,8 @@ export const Scroller = React.forwardRef(
       scrollBodyRef,
       stickyOffsets,
       scrollHeaderRef,
+      scrollLeftAriaLabel,
+      scrollRightAriaLabel,
     }: ScrollerProps<RecordType>,
     ref: ForwardedRef<ScrollerRef>
   ) => {
@@ -31,6 +33,8 @@ export const Scroller = React.forwardRef(
     const [leftButtonVisible, setLeftButtonVisible] = useState<boolean>(false);
     const [rightButtonVisible, setRightButtonVisible] = useState<boolean>(true);
     const [buttonStyle, setButtonStyle] = useState<React.CSSProperties>({});
+
+    // todo @yash: handle rtl
 
     const scrollOffsets: number[] = useMemo(
       () =>
@@ -56,7 +60,7 @@ export const Scroller = React.forwardRef(
       [stickyOffsets, flattenColumns]
     );
 
-    const rightButtonRight: number = useMemo(
+    const rightButtonOffset: number = useMemo(
       () =>
         stickyOffsets.right[
           flattenColumns.findIndex((column) => column.fixed === 'right') - 1
@@ -64,7 +68,7 @@ export const Scroller = React.forwardRef(
       [stickyOffsets, flattenColumns]
     );
 
-    const computePosition = useCallback(() => {
+    const computePosition = useCallback((): void => {
       if (!scrollBodyRef.current) {
         return;
       }
@@ -109,15 +113,15 @@ export const Scroller = React.forwardRef(
 
     const debouncedComputePosition = useDebounce(computePosition, 500);
 
-    const onMouseEnter = useCallback(() => {
+    const onMouseEnter = useCallback((): void => {
       setVisible(true);
       computePosition();
     }, []);
 
-    const onMouseLeave = useCallback(() => setVisible(false), []);
+    const onMouseLeave = useCallback((): void => setVisible(false), []);
 
     const onClick = (scrollDirection: 'left' | 'right'): void => {
-      let scrollLeft;
+      let scrollLeft: number;
       if (scrollDirection === 'left') {
         scrollLeft = scrollOffsets
           .slice()
@@ -138,9 +142,9 @@ export const Scroller = React.forwardRef(
     };
 
     const onBodyScroll = (): void => {
-      const bodyScrollLeft = scrollBodyRef.current.scrollLeft;
-      const bodyWidth = scrollBodyRef.current.clientWidth;
-      const bodyScrollWidth = scrollBodyRef.current.scrollWidth;
+      const bodyScrollLeft: number = scrollBodyRef.current.scrollLeft;
+      const bodyWidth: number = scrollBodyRef.current.clientWidth;
+      const bodyScrollWidth: number = scrollBodyRef.current.scrollWidth;
       if (bodyScrollLeft === 0) {
         setLeftButtonVisible(false);
         setRightButtonVisible(true);
@@ -180,7 +184,7 @@ export const Scroller = React.forwardRef(
         <SecondaryButton
           classNames={styles.scrollerButton}
           style={{
-            left: leftButtonLeft,
+            left: leftButtonOffset,
             opacity: leftButtonVisible && visible ? 1 : 0,
             ...buttonStyle,
           }}
@@ -190,11 +194,12 @@ export const Scroller = React.forwardRef(
             path: IconName.mdiChevronLeft,
           }}
           onClick={() => onClick('left')}
+          ariaLabel={scrollLeftAriaLabel}
         />
         <SecondaryButton
           classNames={styles.scrollerButton}
           style={{
-            right: rightButtonRight,
+            right: rightButtonOffset,
             opacity: rightButtonVisible && visible ? 1 : 0,
             ...buttonStyle,
           }}
@@ -204,6 +209,7 @@ export const Scroller = React.forwardRef(
             path: IconName.mdiChevronRight,
           }}
           onClick={() => onClick('right')}
+          ariaLabel={scrollRightAriaLabel}
         />
       </>
     );
