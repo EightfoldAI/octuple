@@ -585,6 +585,8 @@
   }
 
   .scroller-button {
+    max-width: 36px;
+    min-width: 36px;
     position: absolute;
     z-index: 5;
   }

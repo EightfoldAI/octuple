@@ -17,6 +17,8 @@ const locale: TableLocale = {
     triggerDescText: 'คลิกเพื่อเรียงลําดับจากมากไปหาน้อย',
     triggerAscText: 'คลิกเพื่อจัดเรียงจากน้อยไปมาก',
     cancelSortText: 'ยกเลิกการเรียงลําดับ',
+    scrollLeftAriaLabelText: 'เลื่อนไปทางซ้าย',
+    scrollRightAriaLabelText: 'เลื่อนไปทางขวา',
   },
 };
 

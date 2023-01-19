@@ -79,11 +79,11 @@ export type Locale = {
   /**
    * The Table `Scroll right` string
    */
-  scrollRightAriaLabel?: string;
+  scrollRightAriaLabelText?: string;
   /**
    * The Table `Scroll left` string
    */
-  scrollLeftAriaLabel?: string;
+  scrollLeftAriaLabelText?: string;
 };
 
 // ==================== Row =====================
@@ -421,12 +421,12 @@ export interface ScrollerProps<RecordType> {
    * The Table scroller right button aria label
    * @default 'Scroll right'
    */
-  scrollRightAriaLabel?: string;
+  scrollRightAriaLabelText?: string;
   /**
    * The Table scroller left button aria label
    * @default 'Scroll left'
    */
-  scrollLeftAriaLabel?: string;
+  scrollLeftAriaLabelText?: string;
 }
 
 export type ScrollerRef = {
@@ -588,10 +588,10 @@ export interface OcTableProps<RecordType = unknown> {
    * The Table scroller right button aria label
    * @default 'Scroll right'
    */
-  scrollRightAriaLabel?: string;
+  scrollRightAriaLabelText?: string;
   /**
    * The Table scroller left button aria label
    * @default 'Scroll left'
    */
-  scrollLeftAriaLabel?: string;
+  scrollLeftAriaLabelText?: string;
 }

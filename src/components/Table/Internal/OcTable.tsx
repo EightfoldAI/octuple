@@ -118,8 +118,8 @@ function OcTable<RecordType extends DefaultRecordType>(
     onRowHoverEnter,
     onRowHoverLeave,
     showScroller,
-    scrollLeftAriaLabel,
-    scrollRightAriaLabel,
+    scrollLeftAriaLabelText,
+    scrollRightAriaLabelText,
   } = props;
 
   const mergedData = data || EMPTY_DATA;
@@ -561,8 +561,8 @@ function OcTable<RecordType extends DefaultRecordType>(
               scrollBodyRef={scrollBodyRef}
               stickyOffsets={stickyOffsets}
               scrollHeaderRef={scrollHeaderRef}
-              scrollLeftAriaLabel={scrollLeftAriaLabel}
-              scrollRightAriaLabel={scrollRightAriaLabel}
+              scrollLeftAriaLabelText={scrollLeftAriaLabelText}
+              scrollRightAriaLabelText={scrollRightAriaLabelText}
             />
           )}
           <TableComponent
@@ -667,8 +667,8 @@ function OcTable<RecordType extends DefaultRecordType>(
             {...columnContext}
             scrollBodyRef={scrollBodyRef}
             stickyOffsets={stickyOffsets}
-            scrollLeftAriaLabel={scrollLeftAriaLabel}
-            scrollRightAriaLabel={scrollRightAriaLabel}
+            scrollLeftAriaLabelText={scrollLeftAriaLabelText}
+            scrollRightAriaLabelText={scrollRightAriaLabelText}
           />
         )}
         <TableComponent

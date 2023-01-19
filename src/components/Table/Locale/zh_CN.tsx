@@ -17,6 +17,8 @@ const locale: TableLocale = {
     triggerDescText: '单击以降序排序',
     triggerAscText: '点击升序排序',
     cancelSortText: '单击以取消排序',
+    scrollLeftAriaLabelText: '向左滚动',
+    scrollRightAriaLabelText: '向右滚动',
   },
 };
 

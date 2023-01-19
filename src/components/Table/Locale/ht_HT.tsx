@@ -17,6 +17,8 @@ const locale: TableLocale = {
     triggerDescText: 'Klike sou sòt desandans',
     triggerAscText: 'Klike sou sòt de asanblaj',
     cancelSortText: 'Klike sou anile klasman',
+    scrollLeftAriaLabelText: 'Woulo kite',
+    scrollRightAriaLabelText: 'Woulo liv',
   },
 };
 

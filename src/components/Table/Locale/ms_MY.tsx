@@ -17,6 +17,8 @@ const locale: TableLocale = {
     triggerDescText: 'Klik untuk mengisih menurun',
     triggerAscText: 'Klik untuk mengisih menaik',
     cancelSortText: 'Klik untuk membatalkan pengisihan',
+    scrollLeftAriaLabelText: 'Skrol ke kiri',
+    scrollRightAriaLabelText: 'Skrol ke kanan',
   },
 };
 
