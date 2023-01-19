@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.22.0](https://github.com/EightfoldAI/octuple/compare/v2.21.1...v2.22.0) (2023-01-19)
+
+### Features
+
+- scroller for horizontally scrollable table ([#507](https://github.com/EightfoldAI/octuple/issues/507)) ([e96f791](https://github.com/EightfoldAI/octuple/commits/e96f791b0f60ec61be76a2030e1a08a4bfcaf981))
+- stepper: adds show active step index prop ([#505](https://github.com/EightfoldAI/octuple/issues/505)) ([6d0176f](https://github.com/EightfoldAI/octuple/commits/6d0176fd633de57d26a674c4cb14e4afa66b3dfc))
+- stepper: adds timeline variant ([#504](https://github.com/EightfoldAI/octuple/issues/504)) ([62f433f](https://github.com/EightfoldAI/octuple/commits/62f433f6bef48eb6d489fed413eebdd2c8ea341d))
+
 ### [2.21.1](https://github.com/EightfoldAI/octuple/compare/v2.21.0...v2.21.1) (2023-01-11)
 
 ### Bug Fixes
