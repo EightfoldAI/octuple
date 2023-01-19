@@ -17,6 +17,8 @@ const locale: TableLocale = {
     triggerDescText: 'Azalan sıralamak için tıklayın',
     triggerAscText: 'Artan sıralamak için tıklayın',
     cancelSortText: 'Sıralamayı iptal etmek için tıklayın',
+    scrollLeftAriaLabelText: 'Sola kaydırın',
+    scrollRightAriaLabelText: 'Sağa kaydırın',
   },
 };
 

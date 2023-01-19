@@ -17,6 +17,8 @@ const locale: TableLocale = {
     triggerDescText: 'Klik for at sortere faldende',
     triggerAscText: 'Klik for at sortere stigende',
     cancelSortText: 'Klik for at annullere sortering',
+    scrollLeftAriaLabelText: 'Rul til venstre',
+    scrollRightAriaLabelText: 'Rul til højre',
   },
 };
 

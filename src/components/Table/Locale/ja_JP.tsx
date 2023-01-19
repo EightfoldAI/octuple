@@ -17,6 +17,8 @@ const locale: TableLocale = {
     triggerDescText: 'クリックで降順にソート',
     triggerAscText: 'クリックで昇順にソート',
     cancelSortText: 'ソートをキャンセル',
+    scrollLeftAriaLabelText: '左にスクロール',
+    scrollRightAriaLabelText: '右にスクロール',
   },
 };
 

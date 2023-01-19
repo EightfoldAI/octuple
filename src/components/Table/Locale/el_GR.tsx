@@ -17,6 +17,8 @@ const locale: TableLocale = {
     triggerDescText: 'Κάντε κλικ για να ταξινομήσετε φθίνουσα',
     triggerAscText: 'Κάντε κλικ για αύξουσα ταξινόμηση',
     cancelSortText: 'Κάντε κλικ για να ακυρώσετε την ταξινόμηση',
+    scrollLeftAriaLabelText: 'Κύλιση προς τα αριστερά',
+    scrollRightAriaLabelText: 'Κύλιση προς τα δεξιά',
   },
 };
 

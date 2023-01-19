@@ -89,8 +89,8 @@ function InternalTable<RecordType extends object = any>(
     filterEmptyText: defaultFilterEmptyText,
     filterResetText: defaultFilterResetText,
     filterSearchPlaceholderText: defaultFilterSearchPlaceholderText,
-    scrollLeftAriaLabel: defaultScrollLeftAriaLabel,
-    scrollRightAriaLabel: defaultScrollRightAriaLabel,
+    scrollLeftAriaLabelText: defaultScrollLeftAriaLabelText,
+    scrollRightAriaLabelText: defaultScrollRightAriaLabelText,
     getPopupContainer,
     headerBordered = false,
     headerBottomBordered = false,
@@ -231,11 +231,11 @@ function InternalTable<RecordType extends object = any>(
   const [cancelSortText, setCancelSortText] = useState<string>(
     defaultCancelSortText
   );
-  const [scrollLeftAriaLabel, setScrollLeftAriaLabel] = useState<string>(
-    defaultScrollLeftAriaLabel
+  const [scrollLeftAriaLabelText, setScrollLeftAriaLabel] = useState<string>(
+    defaultScrollLeftAriaLabelText
   );
-  const [scrollRightAriaLabel, setScrollRightAriaLabel] = useState<string>(
-    defaultScrollRightAriaLabel
+  const [scrollRightAriaLabelText, setScrollRightAriaLabel] = useState<string>(
+    defaultScrollRightAriaLabelText
   );
 
   // Locs: if the prop isn't provided use the loc defaults.
@@ -311,10 +311,12 @@ function InternalTable<RecordType extends object = any>(
         : mergedLocale.lang!.cancelSortText
     );
     setScrollLeftAriaLabel(
-      props.scrollLeftAriaLabel ?? mergedLocale.lang!.scrollLeftAriaLabel
+      props.scrollLeftAriaLabelText ??
+        mergedLocale.lang!.scrollLeftAriaLabelText
     );
     setScrollRightAriaLabel(
-      props.scrollRightAriaLabel ?? mergedLocale.lang!.scrollRightAriaLabel
+      props.scrollRightAriaLabelText ??
+        mergedLocale.lang!.scrollRightAriaLabelText
     );
   }, [mergedLocale]);
 
@@ -787,8 +789,8 @@ function InternalTable<RecordType extends object = any>(
               }
               onRowHoverEnter={onRowHoverEnter}
               onRowHoverLeave={onRowHoverLeave}
-              scrollLeftAriaLabel={scrollLeftAriaLabel}
-              scrollRightAriaLabel={scrollRightAriaLabel}
+              scrollLeftAriaLabelText={scrollLeftAriaLabelText}
+              scrollRightAriaLabelText={scrollRightAriaLabelText}
             />
             {bottomPaginationNode}
           </div>

@@ -17,6 +17,8 @@ const locale: TableLocale = {
     triggerDescText: '내림차순을 클릭하여 정렬합니다.',
     triggerAscText: '오름차순을 정렬하려면 클릭하십시오.',
     cancelSortText: '정렬을 취소하려면 클릭하십시오.',
+    scrollLeftAriaLabelText: '왼쪽으로 스크롤',
+    scrollRightAriaLabelText: '오른쪽으로 스크롤',
   },
 };
 

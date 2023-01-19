@@ -17,6 +17,8 @@ const locale: TableLocale = {
     triggerDescText: 'Натисніть, щоб відсортувати за спаданням',
     triggerAscText: 'Натисніть, щоб відсортувати за зростанням',
     cancelSortText: 'Натисніть, щоб скасувати сортування',
+    scrollLeftAriaLabelText: 'Прокручування вліво',
+    scrollRightAriaLabelText: 'Прокручування вправо',
   },
 };
 

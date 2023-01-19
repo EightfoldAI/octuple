@@ -24,8 +24,8 @@ export const Scroller = React.forwardRef(
       scrollBodyRef,
       stickyOffsets,
       scrollHeaderRef,
-      scrollLeftAriaLabel,
-      scrollRightAriaLabel,
+      scrollLeftAriaLabelText,
+      scrollRightAriaLabelText,
     }: ScrollerProps<RecordType>,
     ref: ForwardedRef<ScrollerRef>
   ) => {
@@ -194,7 +194,7 @@ export const Scroller = React.forwardRef(
             path: IconName.mdiChevronLeft,
           }}
           onClick={() => onClick('left')}
-          ariaLabel={scrollLeftAriaLabel}
+          ariaLabel={scrollLeftAriaLabelText}
         />
         <SecondaryButton
           classNames={styles.scrollerButton}
@@ -209,7 +209,7 @@ export const Scroller = React.forwardRef(
             path: IconName.mdiChevronRight,
           }}
           onClick={() => onClick('right')}
-          ariaLabel={scrollRightAriaLabel}
+          ariaLabel={scrollRightAriaLabelText}
         />
       </>
     );
