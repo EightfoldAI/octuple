@@ -116,6 +116,21 @@ const With_Button_Story: ComponentStory<typeof Pill> = (args) => (
 
 export const With_Button = With_Button_Story.bind({});
 
+const With_Long_Text_Story: ComponentStory<typeof Pill> = (args) => (
+  <Stack direction="vertical" gap="l" style={{ width: 216 }}>
+    {themes.map((theme) => (
+      <Pill
+        {...args}
+        label={'Some very long text is present here'}
+        theme={theme}
+        key={theme}
+      />
+    ))}
+  </Stack>
+);
+
+export const With_Long_Text = With_Long_Text_Story.bind({});
+
 const pillArgs: Object = {
   size: PillSize.Large,
   type: PillType.default,
@@ -166,4 +181,9 @@ Custom_Closable.args = {
 With_Button.args = {
   ...pillArgs,
   type: PillType.withButton,
+};
+
+With_Long_Text.args = {
+  ...pillArgs,
+  lineClamp: 1,
 };
