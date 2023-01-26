@@ -40,6 +40,14 @@ export enum ButtonType {
   SystemUI = 'systemui',
 }
 
+export enum NudgeAnimation {
+  Background = 'background',
+  Bounce = 'bounce',
+  Conic = 'conic',
+  Ring = 'ring',
+  Size = 'size',
+}
+
 export interface InternalButtonProps extends ButtonProps {
   /**
    * Determines the button type.
@@ -57,6 +65,29 @@ export interface FloatingButtonProps {
    * @default false
    */
   enabled?: boolean;
+}
+
+export interface NudgeProps {
+  /**
+   * The button nudge animation.
+   * @default ButtonHintAnimation.Background
+   */
+  animation?: NudgeAnimation;
+  /**
+   * Determines if the button nudge animation is enabled.
+   * @default false
+   */
+  enabled?: boolean;
+  /**
+   * The number of times the button nudge animates.
+   * @default 1
+   */
+  iterations?: number;
+  /**
+   * The amount of time in milliseconds between nudges.
+   * @default 2000ms
+   */
+  delay?: number;
 }
 
 export type NativeButtonProps = Omit<OcBaseProps<HTMLButtonElement>, 'type'>;
@@ -147,6 +178,11 @@ export interface ButtonProps extends NativeButtonProps {
    * The button is always floating on bottom right corner.
    */
   floatingButtonProps?: FloatingButtonProps;
+  /**
+   * The button nudge props.
+   * @experimental
+   */
+  nudgeProps?: NudgeProps;
   /**
    * The button html type.
    */

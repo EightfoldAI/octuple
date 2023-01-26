@@ -3,6 +3,7 @@ import { Stories } from '@storybook/addon-docs';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import {
   BaseButton,
+  NudgeAnimation,
   ButtonIconAlign,
   ButtonShape,
   ButtonSize,
@@ -226,6 +227,7 @@ const buttonArgs: Object = {
   floatingButtonProps: {
     enabled: false,
   },
+  nudgeProps: null,
   htmlType: 'button',
   iconProps: {
     path: IconName.mdiCardsHeart,
@@ -357,6 +359,12 @@ Floating_Button.args = {
   ...buttonArgs,
   floatingButtonProps: {
     enabled: true,
+  },
+  nudgeProps: {
+    animation: NudgeAnimation.Background,
+    delay: 5000,
+    enabled: true,
+    iterations: 5,
   },
   shape: ButtonShape.Round,
   text: null,

@@ -1,4 +1,4 @@
-import React, { FC, Ref, useContext } from 'react';
+import React, { FC, Ref, useContext, useRef, useState } from 'react';
 import DisabledContext, {
   Disabled,
 } from '../../ConfigProvider/DisabledContext';
@@ -8,18 +8,21 @@ import {
   ButtonSize,
   ButtonTextAlign,
   ButtonType,
+  NudgeAnimation,
   SplitButtonProps,
 } from '../';
 import { Icon, IconName, IconSize } from '../../Icon';
 import { Breakpoints, useMatchMedia } from '../../../hooks/useMatchMedia';
 import { mergeClasses } from '../../../shared/utilities';
 import { useCanvasDirection } from '../../../hooks/useCanvasDirection';
+import { useInterval } from '../../../hooks/useInterval';
+import { useMergedRefs } from '../../../hooks/useMergedRefs';
 
 import styles from '../button.module.scss';
 
 export const SplitButton: FC<SplitButtonProps> = React.forwardRef(
-  (
-    {
+  (props: SplitButtonProps, ref: Ref<HTMLButtonElement>) => {
+    const {
       alignText = ButtonTextAlign.Center,
       allowDisabledFocus = false,
       ariaLabel,
@@ -34,6 +37,7 @@ export const SplitButton: FC<SplitButtonProps> = React.forwardRef(
       dropShadow = false,
       iconProps,
       id,
+      nudgeProps,
       onClick,
       shape = ButtonShape.Pill,
       size = ButtonSize.Medium,
@@ -41,13 +45,16 @@ export const SplitButton: FC<SplitButtonProps> = React.forwardRef(
       style,
       type,
       ...rest
-    },
-    ref: Ref<HTMLButtonElement>
-  ) => {
+    } = props;
     const largeScreenActive: boolean = useMatchMedia(Breakpoints.Large);
     const mediumScreenActive: boolean = useMatchMedia(Breakpoints.Medium);
     const smallScreenActive: boolean = useMatchMedia(Breakpoints.Small);
     const xSmallScreenActive: boolean = useMatchMedia(Breakpoints.XSmall);
+
+    const internalRef: React.MutableRefObject<HTMLButtonElement> =
+      useRef<HTMLButtonElement>(null);
+
+    const mergedRef = useMergedRefs(internalRef, ref);
 
     const htmlDir: string = useCanvasDirection();
 
@@ -60,6 +67,43 @@ export const SplitButton: FC<SplitButtonProps> = React.forwardRef(
     const mergedSize = configContextProps.noSizeContext
       ? size
       : contextuallySized || size;
+
+    const [nudgeIterations, setNudgeIterations] = useState<number>(0);
+    const innerNudgeRef: React.MutableRefObject<HTMLSpanElement> =
+      useRef<HTMLSpanElement>(null);
+
+    useInterval(
+      (): void => {
+        setNudgeIterations(nudgeIterations + 1);
+        if (Math.abs(nudgeIterations % 2) === 1) {
+          if (nudgeProps?.animation === NudgeAnimation.Bounce) {
+            internalRef?.current.classList.add(
+              (styles as any)[nudgeProps.animation]
+            );
+          } else {
+            innerNudgeRef?.current.classList.add(
+              (styles as any)[nudgeProps?.animation]
+            );
+          }
+        } else {
+          if (nudgeProps?.animation === NudgeAnimation.Bounce) {
+            internalRef?.current.classList.remove(
+              (styles as any)[nudgeProps.animation]
+            );
+          } else {
+            innerNudgeRef?.current.classList.remove(
+              (styles as any)[nudgeProps?.animation]
+            );
+          }
+        }
+      },
+      !disruptive &&
+        nudgeProps?.enabled &&
+        nudgeProps?.animation !== NudgeAnimation.Conic &&
+        nudgeIterations !== nudgeProps?.iterations * 2
+        ? nudgeProps?.delay / 2
+        : null
+    );
 
     const splitButtonClassNames: string = mergeClasses([
       classNames,
@@ -88,6 +132,12 @@ export const SplitButton: FC<SplitButtonProps> = React.forwardRef(
       { [styles.splitRight]: split },
       {
         [styles.disabled]: allowDisabledFocus || mergedDisabled,
+      },
+      {
+        [styles.buttonConic]:
+          !disruptive &&
+          nudgeProps?.enabled &&
+          nudgeProps?.animation === NudgeAnimation.Conic,
       },
     ]);
 
@@ -171,7 +221,7 @@ export const SplitButton: FC<SplitButtonProps> = React.forwardRef(
     return (
       <button
         {...rest}
-        ref={ref}
+        ref={mergedRef}
         aria-checked={split ? !!checked : undefined}
         aria-disabled={mergedDisabled}
         aria-label={ariaLabel}
@@ -184,13 +234,29 @@ export const SplitButton: FC<SplitButtonProps> = React.forwardRef(
         style={style}
         type="button"
       >
-        {htmlDir === 'rtl' && (
-          <span className={splitDividerClassNames} aria-hidden="true"></span>
-        )}
+        {!disruptive &&
+          nudgeProps?.enabled &&
+          nudgeProps?.animation !== NudgeAnimation.Bounce && (
+            <span
+              aria-hidden="true"
+              className={mergeClasses([
+                styles.innerNudge,
+                {
+                  [styles.conic]: nudgeProps.animation === NudgeAnimation.Conic,
+                },
+              ])}
+              ref={innerNudgeRef}
+            />
+          )}
+        {nudgeProps?.animation !== NudgeAnimation.Conic &&
+          htmlDir === 'rtl' && (
+            <span className={splitDividerClassNames} aria-hidden="true"></span>
+          )}
         {getButtonIcon()}
-        {htmlDir !== 'rtl' && (
-          <span className={splitDividerClassNames} aria-hidden="true"></span>
-        )}
+        {nudgeProps?.animation !== NudgeAnimation.Conic &&
+          htmlDir !== 'rtl' && (
+            <span className={splitDividerClassNames} aria-hidden="true"></span>
+          )}
       </button>
     );
   }

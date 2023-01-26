@@ -26,6 +26,7 @@ export const PrimaryButton: FC<ButtonProps> = React.forwardRef(
       disruptive = false,
       dropShadow = false,
       floatingButtonProps,
+      nudgeProps,
       htmlType,
       iconProps,
       onClick,
@@ -65,6 +66,7 @@ export const PrimaryButton: FC<ButtonProps> = React.forwardRef(
         disruptive={disruptive}
         dropShadow={dropShadow}
         floatingButtonProps={floatingButtonProps}
+        nudgeProps={nudgeProps}
         htmlType={htmlType}
         iconProps={iconProps}
         onClick={onClick}
