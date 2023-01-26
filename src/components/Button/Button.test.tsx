@@ -6,11 +6,11 @@ import { ButtonSize } from './Button.types';
 import {
   DefaultButton,
   NeutralButton,
-  NudgeAnimation,
   PrimaryButton,
   SecondaryButton,
   SystemUIButton,
 } from './';
+import { NudgeAnimation } from './Nudge';
 import { fireEvent, getByTestId, render } from '@testing-library/react';
 
 Enzyme.configure({ adapter: new Adapter() });

@@ -63,7 +63,7 @@ export const Icon: FC<IconProps> = ({
       className={iconClassNames}
       id={id}
       role={role}
-      style={style}
+      style={style ? style : null}
     >
       {iconComponent}
     </span>

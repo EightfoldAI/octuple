@@ -17,7 +17,6 @@ import {
   ButtonIconAlign,
   DefaultButton,
   NeutralButton,
-  NudgeAnimation,
   PrimaryButton,
   SecondaryButton,
   SystemUIButton,
@@ -79,6 +78,8 @@ import { Menu, MenuItemType, MenuVariant, MenuSize } from './components/Menu';
 import { Modal, ModalSize } from './components/Modal';
 
 import { Navbar, NavbarContent } from './components/Navbar';
+
+import { NudgeAnimation } from './components/Button/Nudge';
 
 import { Pagination, PaginationLayoutOptions } from './components/Pagination';
 

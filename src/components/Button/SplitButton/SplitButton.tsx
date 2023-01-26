@@ -1,4 +1,4 @@
-import React, { FC, Ref, useContext, useRef, useState } from 'react';
+import React, { FC, Ref, useContext, useRef } from 'react';
 import DisabledContext, {
   Disabled,
 } from '../../ConfigProvider/DisabledContext';
@@ -8,15 +8,15 @@ import {
   ButtonSize,
   ButtonTextAlign,
   ButtonType,
-  NudgeAnimation,
   SplitButtonProps,
 } from '../';
 import { Icon, IconName, IconSize } from '../../Icon';
+import { InnerNudge, NudgeAnimation } from '../Nudge';
 import { Breakpoints, useMatchMedia } from '../../../hooks/useMatchMedia';
 import { mergeClasses } from '../../../shared/utilities';
 import { useCanvasDirection } from '../../../hooks/useCanvasDirection';
-import { useInterval } from '../../../hooks/useInterval';
 import { useMergedRefs } from '../../../hooks/useMergedRefs';
+import { useNudge } from '../Nudge/Hooks/useNudge';
 
 import styles from '../button.module.scss';
 
@@ -68,42 +68,10 @@ export const SplitButton: FC<SplitButtonProps> = React.forwardRef(
       ? size
       : contextuallySized || size;
 
-    const [nudgeIterations, setNudgeIterations] = useState<number>(0);
     const innerNudgeRef: React.MutableRefObject<HTMLSpanElement> =
       useRef<HTMLSpanElement>(null);
 
-    useInterval(
-      (): void => {
-        setNudgeIterations(nudgeIterations + 1);
-        if (Math.abs(nudgeIterations % 2) === 1) {
-          if (nudgeProps?.animation === NudgeAnimation.Bounce) {
-            internalRef?.current.classList.add(
-              (styles as any)[nudgeProps.animation]
-            );
-          } else {
-            innerNudgeRef?.current.classList.add(
-              (styles as any)[nudgeProps?.animation]
-            );
-          }
-        } else {
-          if (nudgeProps?.animation === NudgeAnimation.Bounce) {
-            internalRef?.current.classList.remove(
-              (styles as any)[nudgeProps.animation]
-            );
-          } else {
-            innerNudgeRef?.current.classList.remove(
-              (styles as any)[nudgeProps?.animation]
-            );
-          }
-        }
-      },
-      !disruptive &&
-        nudgeProps?.enabled &&
-        nudgeProps?.animation !== NudgeAnimation.Conic &&
-        nudgeIterations !== nudgeProps?.iterations * 2
-        ? nudgeProps?.delay / 2
-        : null
-    );
+    useNudge(disruptive, nudgeProps, [internalRef, innerNudgeRef]);
 
     const splitButtonClassNames: string = mergeClasses([
       classNames,
@@ -234,20 +202,19 @@ export const SplitButton: FC<SplitButtonProps> = React.forwardRef(
         style={style}
         type="button"
       >
-        {!disruptive &&
-          nudgeProps?.enabled &&
-          nudgeProps?.animation !== NudgeAnimation.Bounce && (
-            <span
-              aria-hidden="true"
-              className={mergeClasses([
-                styles.innerNudge,
-                {
-                  [styles.conic]: nudgeProps.animation === NudgeAnimation.Conic,
-                },
-              ])}
-              ref={innerNudgeRef}
-            />
-          )}
+        <InnerNudge
+          classNames={mergeClasses([
+            styles.innerNudge,
+            {
+              [styles.conic]: nudgeProps?.animation === NudgeAnimation.Conic,
+            },
+          ])}
+          disruptive={disruptive}
+          id={id ? `${id}-nudge` : 'split-nudge'}
+          nudgeProps={nudgeProps}
+          ref={innerNudgeRef}
+          style={style}
+        />
         {nudgeProps?.animation !== NudgeAnimation.Conic &&
           htmlDir === 'rtl' && (
             <span className={splitDividerClassNames} aria-hidden="true"></span>

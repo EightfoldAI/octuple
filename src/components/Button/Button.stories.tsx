@@ -3,7 +3,6 @@ import { Stories } from '@storybook/addon-docs';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import {
   BaseButton,
-  NudgeAnimation,
   ButtonIconAlign,
   ButtonShape,
   ButtonSize,
@@ -16,6 +15,7 @@ import {
   SystemUIButton,
 } from './';
 import { IconName } from '../Icon';
+import { NudgeAnimation } from './Nudge';
 
 export default {
   title: 'Button',

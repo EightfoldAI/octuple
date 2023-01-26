@@ -2,6 +2,7 @@ import React, { Ref } from 'react';
 import { IconProps } from '../Icon';
 import { OcBaseProps } from '../OcBase';
 import { ConfigContextProps, Shape, Size } from '../ConfigProvider';
+import { NudgeProps } from './Nudge/Nudge.types';
 
 export enum ButtonIconAlign {
   Left = 'left',
@@ -40,14 +41,6 @@ export enum ButtonType {
   SystemUI = 'systemui',
 }
 
-export enum NudgeAnimation {
-  Background = 'background',
-  Bounce = 'bounce',
-  Conic = 'conic',
-  Ring = 'ring',
-  Size = 'size',
-}
-
 export interface InternalButtonProps extends ButtonProps {
   /**
    * Determines the button type.
@@ -65,29 +58,6 @@ export interface FloatingButtonProps {
    * @default false
    */
   enabled?: boolean;
-}
-
-export interface NudgeProps {
-  /**
-   * The button nudge animation.
-   * @default ButtonHintAnimation.Background
-   */
-  animation?: NudgeAnimation;
-  /**
-   * Determines if the button nudge animation is enabled.
-   * @default false
-   */
-  enabled?: boolean;
-  /**
-   * The number of times the button nudge animates.
-   * @default 1
-   */
-  iterations?: number;
-  /**
-   * The amount of time in milliseconds between nudges.
-   * @default 2000ms
-   */
-  delay?: number;
 }
 
 export type NativeButtonProps = Omit<OcBaseProps<HTMLButtonElement>, 'type'>;
