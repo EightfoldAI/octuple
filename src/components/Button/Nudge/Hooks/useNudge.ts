@@ -21,7 +21,7 @@ export const useNudge = (
   // give the delay the value of the delay passed from props divided by two.
   // The iterations passed from props are multiplied by two to simulate iteration delay
   // not provided by the CSS animation selector property. For every odd iteration,
-  // add the CSS animation selector class, for every odd, remove it.
+  // add the CSS animation selector class, for every even, remove it.
   // If the conditional expression is not met, return null and
   // the useInterval hook will not schedule.
   const delay = (): number => {
