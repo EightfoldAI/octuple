@@ -25,6 +25,14 @@
     &.xsmall {
       font-size: $text-font-size-2;
     }
+
+    &.line-clamp {
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      word-break: break-all;
+      overflow-y: hidden;
+      text-overflow: ellipsis;
+    }
   }
 
   &.readOnly {

@@ -77,6 +77,10 @@ export interface PillProps extends OcBaseProps<HTMLElement> {
    */
   label: string;
   /**
+   * Maximum number of lines the pill label can have
+   */
+  lineClamp?: number;
+  /**
    * Callback called on click of the button right of the pill
    */
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
