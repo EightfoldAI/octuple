@@ -135,6 +135,7 @@ const pillArgs: Object = {
   size: PillSize.Large,
   type: PillType.default,
   label: 'Pill label',
+  lineClamp: 0,
   disabled: false,
   configContextProps: {
     noDisabledContext: false,
