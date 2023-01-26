@@ -84,7 +84,7 @@ import { Pagination, PaginationLayoutOptions } from './components/Pagination';
 
 import { PersistentBar, PersistentBarType } from './components/PersistentBar';
 
-import { Pill, PillSize, PillType } from './components/Pills';
+import { Pill, PillSize, PillThemeName, PillType } from './components/Pills';
 
 import {
   SearchBox,
@@ -269,6 +269,7 @@ export {
   PersistentBarType,
   Pill,
   PillSize,
+  PillThemeName,
   PillType,
   Portal,
   PrimaryButton,

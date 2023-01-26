@@ -416,10 +416,7 @@ export const Pagination: FC<PaginationProps> = React.forwardRef(
                         ])}
                         shape={ButtonShape.Rectangle}
                         key="next"
-                        disabled={
-                          (!loop && _currentPage === getPageCount()) ||
-                          _pageCount === 0
-                        }
+                        disabled={!loop && _currentPage === getPageCount()}
                         iconProps={{
                           role: 'presentation',
                           path:
