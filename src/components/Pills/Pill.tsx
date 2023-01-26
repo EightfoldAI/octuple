@@ -86,7 +86,7 @@ export const Pill: FC<PillProps> = React.forwardRef(
         )}
         <span
           className={labelClassName}
-          style={lineClamp && { WebkitLineClamp: lineClamp }}
+          style={lineClamp ? { WebkitLineClamp: lineClamp } : null}
         >
           {label}
         </span>
