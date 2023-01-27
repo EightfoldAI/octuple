@@ -34,6 +34,7 @@ import type {
   TableLayout,
   OcTableProps,
   TriggerEventHandler,
+  ScrollerRef,
 } from './OcTable.types';
 import TableContext from './Context/TableContext';
 import BodyContext from './Context/BodyContext';
@@ -61,6 +62,7 @@ import Summary from './Footer/Summary';
 import StickyContext from './Context/StickyContext';
 import ExpandedRowContext from './Context/ExpandedRowContext';
 import { EXPAND_COLUMN } from './constant';
+import { Scroller } from './Body/Scroller';
 
 import styles from './octable.module.scss';
 
@@ -115,6 +117,9 @@ function OcTable<RecordType extends DefaultRecordType>(
     headerClassName,
     onRowHoverEnter,
     onRowHoverLeave,
+    showScroller,
+    scrollLeftAriaLabelText,
+    scrollRightAriaLabelText,
   } = props;
 
   const mergedData = data || EMPTY_DATA;
@@ -267,8 +272,9 @@ function OcTable<RecordType extends DefaultRecordType>(
   const scrollHeaderRef = useRef<HTMLDivElement>();
   const scrollBodyRef = useRef<HTMLDivElement>();
   const scrollSummaryRef = useRef<HTMLDivElement>();
-  const [pingedLeft, setPingedLeft] = useState(false);
-  const [pingedRight, setPingedRight] = useState(false);
+  const scrollerRef = useRef<ScrollerRef>(null);
+  const [pingedLeft, setPingedLeft] = useState<boolean>(false);
+  const [pingedRight, setPingedRight] = useState<boolean>(false);
   const [colsWidths, updateColsWidths] = useLayoutState(
     new Map<React.Key, number>()
   );
@@ -395,9 +401,11 @@ function OcTable<RecordType extends DefaultRecordType>(
         setPingedRight(mergedScrollLeft < scrollWidth - clientWidth);
       }
     }
+
+    scrollerRef.current?.onBodyScroll?.();
   };
 
-  const triggerOnScroll = () => {
+  const triggerOnScroll = (): void => {
     if (horizonScroll && scrollBodyRef.current) {
       onScroll({
         currentTarget: scrollBodyRef.current,
@@ -408,7 +416,7 @@ function OcTable<RecordType extends DefaultRecordType>(
     }
   };
 
-  const onFullTableResize = ({ width }: SizeInfo) => {
+  const onFullTableResize = ({ width }: SizeInfo): void => {
     if (width !== componentWidth) {
       triggerOnScroll();
       setComponentWidth(
@@ -546,6 +554,17 @@ function OcTable<RecordType extends DefaultRecordType>(
           ref={scrollBodyRef}
           className={styles.tableBody}
         >
+          {horizonScroll && showScroller && (
+            <Scroller
+              ref={scrollerRef}
+              {...columnContext}
+              scrollBodyRef={scrollBodyRef}
+              stickyOffsets={stickyOffsets}
+              scrollHeaderRef={scrollHeaderRef}
+              scrollLeftAriaLabelText={scrollLeftAriaLabelText}
+              scrollRightAriaLabelText={scrollRightAriaLabelText}
+            />
+          )}
           <TableComponent
             style={{
               ...scrollTableStyle,
@@ -642,6 +661,16 @@ function OcTable<RecordType extends DefaultRecordType>(
         onScroll={onScroll}
         ref={scrollBodyRef}
       >
+        {horizonScroll && showScroller && (
+          <Scroller
+            ref={scrollerRef}
+            {...columnContext}
+            scrollBodyRef={scrollBodyRef}
+            stickyOffsets={stickyOffsets}
+            scrollLeftAriaLabelText={scrollLeftAriaLabelText}
+            scrollRightAriaLabelText={scrollRightAriaLabelText}
+          />
+        )}
         <TableComponent
           style={{
             ...scrollTableStyle,

@@ -17,6 +17,8 @@ const locale: TableLocale = {
     triggerDescText: 'Clique para classificar a descida',
     triggerAscText: 'Clique para classificar ascendente',
     cancelSortText: 'Clique para cancelar a triagem',
+    scrollLeftAriaLabelText: 'Rolar para a esquerda',
+    scrollRightAriaLabelText: 'Rolar para a direita',
   },
 };
 

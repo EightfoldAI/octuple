@@ -17,6 +17,8 @@ const locale: TableLocale = {
     triggerDescText: 'Klikni pro sestupné řazení',
     triggerAscText: 'Klikni pro vzestupné řazení',
     cancelSortText: 'Klikni pro zrušení řazení',
+    scrollLeftAriaLabelText: 'Posuňte se doleva',
+    scrollRightAriaLabelText: 'Posuňte se doprava',
   },
 };
 

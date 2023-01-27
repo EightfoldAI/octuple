@@ -28,6 +28,7 @@ export const SecondaryButton: FC<ButtonProps> = React.forwardRef(
       floatingButtonProps,
       htmlType,
       iconProps,
+      nudgeProps,
       onClick,
       text,
       shape = ButtonShape.Pill,
@@ -66,6 +67,7 @@ export const SecondaryButton: FC<ButtonProps> = React.forwardRef(
         floatingButtonProps={floatingButtonProps}
         htmlType={htmlType}
         iconProps={iconProps}
+        nudgeProps={nudgeProps}
         onClick={onClick}
         shape={shape}
         size={size}

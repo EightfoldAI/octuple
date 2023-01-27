@@ -17,6 +17,8 @@ const locale: TableLocale = {
     triggerDescText: 'Lajittele laskevasti',
     triggerAscText: 'Lajittele nousevasti',
     cancelSortText: 'Peruuta lajittelu',
+    scrollLeftAriaLabelText: 'Vieritä vasemmalle',
+    scrollRightAriaLabelText: 'Vieritä oikealle',
   },
 };
 

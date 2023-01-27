@@ -19,6 +19,7 @@ export const Pill: FC<PillProps> = React.forwardRef(
       },
       disabled = false,
       label,
+      lineClamp,
       iconProps,
       theme = 'blue',
       onClose,
@@ -55,22 +56,12 @@ export const Pill: FC<PillProps> = React.forwardRef(
       { [styles.medium]: size === PillSize.Medium },
       { [styles.small]: size === PillSize.Small },
       { [styles.xsmall]: size === PillSize.XSmall },
+      { [styles.lineClamp]: lineClamp },
     ]);
     const tagClassName: string = mergeClasses([
       styles.tagPills,
       classNames,
-      { [styles.red]: theme === 'red' },
-      { [styles.redOrange]: theme === 'redOrange' },
-      { [styles.orange]: theme === 'orange' },
-      { [styles.yellow]: theme === 'yellow' },
-      { [styles.yellowGreen]: theme === 'yellowGreen' },
-      { [styles.green]: theme === 'green' },
-      { [styles.blueGreen]: theme === 'blueGreen' },
-      { [styles.blue]: theme === 'blue' },
-      { [styles.blueViolet]: theme === 'blueViolet' },
-      { [styles.violet]: theme === 'violet' },
-      { [styles.violetRed]: theme === 'violetRed' },
-      { [styles.grey]: theme === 'grey' },
+      (styles as any)[theme],
       { [styles.xsmall]: size === PillSize.XSmall },
       { [styles.tagPillsDisabled]: mergedDisabled },
       { [styles.tagPillsRtl]: htmlDir === 'rtl' },
@@ -93,7 +84,12 @@ export const Pill: FC<PillProps> = React.forwardRef(
             classNames={styles.icon}
           />
         )}
-        <span className={labelClassName}>{label}</span>
+        <span
+          className={labelClassName}
+          style={lineClamp ? { WebkitLineClamp: lineClamp } : null}
+        >
+          {label}
+        </span>
         {type === PillType.withButton && (
           <DefaultButton
             {...pillButtonProps}
@@ -104,8 +100,8 @@ export const Pill: FC<PillProps> = React.forwardRef(
         )}
         {type === PillType.closable && (
           <DefaultButton
-            {...closeButtonProps}
             iconProps={{ path: IconName.mdiClose }}
+            {...closeButtonProps}
             onClick={!mergedDisabled ? onClose : null}
             size={pillSizeToButtonSizeMap.get(size)}
             classNames={styles.closeButton}

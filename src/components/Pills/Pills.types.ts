@@ -34,6 +34,21 @@ export type pillButtonProps = Omit<
   'onClick' | 'size' | 'classNames'
 >;
 
+export type PillThemeName =
+  | 'red'
+  | 'redOrange'
+  | 'orange'
+  | 'yellow'
+  | 'yellowGreen'
+  | 'green'
+  | 'blueGreen'
+  | 'blue'
+  | 'blueViolet'
+  | 'violet'
+  | 'violetRed'
+  | 'grey'
+  | 'white';
+
 export interface PillProps extends OcBaseProps<HTMLElement> {
   /**
    * Props for the close button,
@@ -62,6 +77,10 @@ export interface PillProps extends OcBaseProps<HTMLElement> {
    */
   label: string;
   /**
+   * Maximum number of lines the pill label can have
+   */
+  lineClamp?: number;
+  /**
    * Callback called on click of the button right of the pill
    */
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
@@ -83,7 +102,7 @@ export interface PillProps extends OcBaseProps<HTMLElement> {
    * Theme of the pill
    * @default blue
    */
-  theme?: OcThemeName;
+  theme?: OcThemeName | PillThemeName;
   /**
    * Type of the pill
    * @default PillType.default

@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.23.0](https://github.com/EightfoldAI/octuple/compare/v2.22.0...v2.23.0) (2023-01-27)
+
+### Features
+
+- pill text ellipse ([#511](https://github.com/EightfoldAI/octuple/issues/511)) ([0211fc2](https://github.com/EightfoldAI/octuple/commits/0211fc2f818c61fc54e3eb1bce26f3dc465fc5c0))
+- pill: enable white theme and custom close icon ([#510](https://github.com/EightfoldAI/octuple/issues/510)) ([f97a7df](https://github.com/EightfoldAI/octuple/commits/f97a7dfe9d490aea9d63a1a60bd3a0b0c1e13ba9))
+
+### Bug Fixes
+
+- dropdown now stays within the viewport ([#512](https://github.com/EightfoldAI/octuple/issues/512)) ([d93f0fd](https://github.com/EightfoldAI/octuple/commits/d93f0fd82ab6f6f33ba62dfa6c5df13d5bad59ab))
+- infobar: updates the default role prop value to alert ([#516](https://github.com/EightfoldAI/octuple/issues/516)) ([a8614a6](https://github.com/EightfoldAI/octuple/commits/a8614a63c1f66310dc0553fc88b5a511683d4488))
+- pagination: disable next button only when current page is equal to total page count ([#509](https://github.com/EightfoldAI/octuple/issues/509)) ([50588d2](https://github.com/EightfoldAI/octuple/commits/50588d26cc2f8adcae798a7b5dea0b376c5c1127))
+- pill: handle jsx when lineclamp is null or zero ([#515](https://github.com/EightfoldAI/octuple/issues/515)) ([7c46458](https://github.com/EightfoldAI/octuple/commits/7c464584ef29c8dc56dfd9ffae7b13a0d15029e1))
+
+## [2.22.0](https://github.com/EightfoldAI/octuple/compare/v2.21.1...v2.22.0) (2023-01-19)
+
+### Features
+
+- scroller for horizontally scrollable table ([#507](https://github.com/EightfoldAI/octuple/issues/507)) ([e96f791](https://github.com/EightfoldAI/octuple/commits/e96f791b0f60ec61be76a2030e1a08a4bfcaf981))
+- stepper: adds show active step index prop ([#505](https://github.com/EightfoldAI/octuple/issues/505)) ([6d0176f](https://github.com/EightfoldAI/octuple/commits/6d0176fd633de57d26a674c4cb14e4afa66b3dfc))
+- stepper: adds timeline variant ([#504](https://github.com/EightfoldAI/octuple/issues/504)) ([62f433f](https://github.com/EightfoldAI/octuple/commits/62f433f6bef48eb6d489fed413eebdd2c8ea341d))
+
 ### [2.21.1](https://github.com/EightfoldAI/octuple/compare/v2.21.0...v2.21.1) (2023-01-11)
 
 ### Bug Fixes

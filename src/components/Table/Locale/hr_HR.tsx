@@ -17,6 +17,8 @@ const locale: TableLocale = {
     triggerDescText: 'Kliknite za sortiranje silazno',
     triggerAscText: 'Kliknite za sortiranje uzlazno',
     cancelSortText: 'Kliknite da biste otkazali sortiranje',
+    scrollLeftAriaLabelText: 'Pomicanje ulijevo',
+    scrollRightAriaLabelText: 'Pomicanje udesno',
   },
 };
 

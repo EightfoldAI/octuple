@@ -1,4 +1,4 @@
-import React, { FC, Ref, useContext } from 'react';
+import React, { FC, Ref, useContext, useEffect, useRef, useState } from 'react';
 import DisabledContext, { Disabled } from '../ConfigProvider/DisabledContext';
 import { SizeContext, Size } from '../ConfigProvider';
 import {
@@ -10,18 +10,21 @@ import {
   InternalButtonProps,
   SplitButton,
 } from './';
-import { Icon, IconProps, IconSize } from '../Icon';
+import { Icon, IconSize } from '../Icon';
 import { Badge } from '../Badge';
+import { InnerNudge, NudgeAnimation, NudgeProps } from './Nudge';
 import { Breakpoints, useMatchMedia } from '../../hooks/useMatchMedia';
 import { mergeClasses } from '../../shared/utilities';
 import { Loader, LoaderSize } from '../Loader';
 import { useCanvasDirection } from '../../hooks/useCanvasDirection';
+import { useMergedRefs } from '../../hooks/useMergedRefs';
+import { useNudge } from './Nudge/Hooks/useNudge';
 
 import styles from './button.module.scss';
 
 export const BaseButton: FC<InternalButtonProps> = React.forwardRef(
-  (
-    {
+  (props: InternalButtonProps, ref: Ref<HTMLButtonElement>) => {
+    const {
       alignIcon = ButtonIconAlign.Left,
       alignText = ButtonTextAlign.Center,
       allowDisabledFocus = false,
@@ -38,6 +41,7 @@ export const BaseButton: FC<InternalButtonProps> = React.forwardRef(
       disruptive = false,
       dropShadow = false,
       floatingButtonProps,
+      nudgeProps: defaultNudgeProps,
       htmlType,
       iconProps,
       prefixIconProps,
@@ -55,13 +59,16 @@ export const BaseButton: FC<InternalButtonProps> = React.forwardRef(
       type,
       loading = false,
       ...rest
-    },
-    ref: Ref<HTMLButtonElement>
-  ) => {
+    } = props;
     const largeScreenActive: boolean = useMatchMedia(Breakpoints.Large);
     const mediumScreenActive: boolean = useMatchMedia(Breakpoints.Medium);
     const smallScreenActive: boolean = useMatchMedia(Breakpoints.Small);
     const xSmallScreenActive: boolean = useMatchMedia(Breakpoints.XSmall);
+
+    const internalRef: React.MutableRefObject<HTMLButtonElement> =
+      useRef<HTMLButtonElement>(null);
+
+    const mergedRef = useMergedRefs(internalRef, ref);
 
     const htmlDir: string = useCanvasDirection();
 
@@ -79,6 +86,25 @@ export const BaseButton: FC<InternalButtonProps> = React.forwardRef(
     const iconExists: boolean = !!iconProps;
     const prefixIconExists: boolean = !!prefixIconProps;
     const textExists: boolean = !!text;
+
+    const [nudgeProps, setNudgeProps] = useState<NudgeProps>(defaultNudgeProps);
+    const innerNudgeRef: React.MutableRefObject<HTMLSpanElement> =
+      useRef<HTMLSpanElement>(null);
+
+    useEffect(() => {
+      setNudgeProps(
+        props.nudgeProps
+          ? props.nudgeProps
+          : {
+              animation: NudgeAnimation.Background,
+              delay: 2000,
+              iterations: 1,
+              enabled: false,
+            }
+      );
+    }, [nudgeProps?.enabled]);
+
+    useNudge(disruptive, nudgeProps, [internalRef, innerNudgeRef]);
 
     const buttonBaseSharedClassNames: string = mergeClasses([
       classNames,
@@ -109,6 +135,12 @@ export const BaseButton: FC<InternalButtonProps> = React.forwardRef(
       { [styles.dropShadow]: dropShadow },
       { [styles.floating]: floatingButtonProps?.enabled },
       { [styles.buttonRtl]: htmlDir === 'rtl' },
+      {
+        [styles.buttonConic]:
+          !disruptive &&
+          nudgeProps?.enabled &&
+          nudgeProps?.animation === NudgeAnimation.Conic,
+      },
     ]);
 
     const buttonBaseClassNames: string = mergeClasses([
@@ -232,8 +264,8 @@ export const BaseButton: FC<InternalButtonProps> = React.forwardRef(
     return (
       <>
         <button
-          ref={ref}
           {...rest}
+          ref={mergedRef}
           aria-checked={toggle ? !!checked : undefined}
           aria-disabled={mergedDisabled || loading}
           aria-label={ariaLabel}
@@ -246,6 +278,19 @@ export const BaseButton: FC<InternalButtonProps> = React.forwardRef(
           style={style}
           type={htmlType}
         >
+          <InnerNudge
+            classNames={mergeClasses([
+              styles.innerNudge,
+              {
+                [styles.conic]: nudgeProps?.animation === NudgeAnimation.Conic,
+              },
+            ])}
+            disruptive={disruptive}
+            id={id ? `${id}-nudge` : 'button-nudge'}
+            nudgeProps={nudgeProps}
+            ref={innerNudgeRef}
+            style={style}
+          />
           {iconExists && prefixIconExists && !textExists && (
             <span>
               {getButtonIcon()}
@@ -275,6 +320,7 @@ export const BaseButton: FC<InternalButtonProps> = React.forwardRef(
             checked={splitButtonChecked}
             disruptive={disruptive}
             dropShadow={dropShadow}
+            nudgeProps={nudgeProps}
             onClick={
               !splitButtonProps?.allowDisabledFocus ? onContextMenu : null
             }

@@ -17,6 +17,8 @@ const locale: TableLocale = {
     triggerDescText: 'Kattintson a csökkenő rendezéshez',
     triggerAscText: 'Kattintson a növekvő rendezéshez',
     cancelSortText: 'Kattintson a rendezés megszakításához',
+    scrollLeftAriaLabelText: 'Görgetés balra',
+    scrollRightAriaLabelText: 'Görgetés jobbra',
   },
 };
 

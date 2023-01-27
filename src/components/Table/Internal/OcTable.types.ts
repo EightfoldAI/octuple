@@ -1,4 +1,5 @@
 import type * as React from 'react';
+import { RefObject } from 'react';
 
 export type Key = React.Key;
 
@@ -75,6 +76,14 @@ export type Locale = {
    * The Table `Click to cancel sorting` string.
    */
   cancelSortText?: string;
+  /**
+   * The Table `Scroll right` string
+   */
+  scrollRightAriaLabelText?: string;
+  /**
+   * The Table `Scroll left` string
+   */
+  scrollLeftAriaLabelText?: string;
 };
 
 // ==================== Row =====================
@@ -402,6 +411,31 @@ export interface MemoTableContentProps {
   props: any;
 }
 
+export interface ScrollerProps<RecordType> {
+  columns: ColumnsType<RecordType>;
+  flattenColumns: readonly ColumnType<RecordType>[];
+  scrollBodyRef: RefObject<HTMLDivElement>;
+  stickyOffsets: StickyOffsets;
+  scrollHeaderRef?: RefObject<HTMLDivElement>;
+  /**
+   * The Table scroller right button aria label
+   * @default 'Scroll right'
+   */
+  scrollRightAriaLabelText?: string;
+  /**
+   * The Table scroller left button aria label
+   * @default 'Scroll left'
+   */
+  scrollLeftAriaLabelText?: string;
+}
+
+export type ScrollerRef = {
+  /**
+   * Helper method to handle body scroll changes
+   */
+  onBodyScroll: () => void;
+};
+
 export interface OcTableProps<RecordType = unknown> {
   /**
    * Show all Table borders.
@@ -524,6 +558,11 @@ export interface OcTableProps<RecordType = unknown> {
    */
   scroll?: { x?: number | true | string; y?: number | string };
   /**
+   * Button scroller for a horizontal scroll table
+   * @default false
+   */
+  showScroller?: boolean;
+  /**
    * Callback fired on row hover
    * @param index - Index of the row element
    * @param rowKey - Unique row identifier
@@ -545,4 +584,14 @@ export interface OcTableProps<RecordType = unknown> {
     rowKey: React.Key,
     event: React.MouseEvent<HTMLElement>
   ) => void;
+  /**
+   * The Table scroller right button aria label
+   * @default 'Scroll right'
+   */
+  scrollRightAriaLabelText?: string;
+  /**
+   * The Table scroller left button aria label
+   * @default 'Scroll left'
+   */
+  scrollLeftAriaLabelText?: string;
 }

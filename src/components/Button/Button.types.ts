@@ -2,6 +2,7 @@ import React, { Ref } from 'react';
 import { IconProps } from '../Icon';
 import { OcBaseProps } from '../OcBase';
 import { ConfigContextProps, Shape, Size } from '../ConfigProvider';
+import { NudgeProps } from './Nudge/Nudge.types';
 
 export enum ButtonIconAlign {
   Left = 'left',
@@ -147,6 +148,11 @@ export interface ButtonProps extends NativeButtonProps {
    * The button is always floating on bottom right corner.
    */
   floatingButtonProps?: FloatingButtonProps;
+  /**
+   * The button nudge props.
+   * @experimental
+   */
+  nudgeProps?: NudgeProps;
   /**
    * The button html type.
    */

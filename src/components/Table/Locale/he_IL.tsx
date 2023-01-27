@@ -17,6 +17,8 @@ const locale: TableLocale = {
     triggerDescText: 'לחץ על מיון לפי סדר יורד',
     triggerAscText: 'לחץ על מיון לפי סדר עולה',
     cancelSortText: 'לחץ כדי לבטל את המיון',
+    scrollLeftAriaLabelText: 'גלילה שמאלה',
+    scrollRightAriaLabelText: 'גלילה ימינה',
   },
 };
 

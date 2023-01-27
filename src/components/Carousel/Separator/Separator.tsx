@@ -9,6 +9,7 @@ export const Separator: FC<SeparatorProps> = memo((props: SeparatorProps) => {
 
   return (
     <div
+      aria-hidden="true"
       className={classNames}
       {...{ [dataKeyAttribute]: id, [dataIndexAttribute]: index }}
       ref={ref}

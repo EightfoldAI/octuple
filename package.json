@@ -1,6 +1,6 @@
 {
   "name": "@eightfold.ai/octuple",
-  "version": "2.21.1",
+  "version": "2.23.0",
   "license": "MIT",
   "main": "lib/octuple.js",
   "types": "lib/octuple.d.ts",

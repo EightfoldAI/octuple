@@ -1,5 +1,8 @@
 import React from 'react';
+import { OcThemeName } from '../ConfigProvider';
+import { IconName } from '../Icon';
 import { OcBaseProps } from '../OcBase';
+import { InputStatus } from '../../shared/utilities';
 
 export type SelectStepEvent<E = HTMLElement> =
   | React.MouseEvent<E>
@@ -14,6 +17,12 @@ export type OnChangeHandler = (
 
 export type ItemLayout = 'horizontal' | 'vertical';
 
+export enum StepSize {
+  Large = 'large',
+  Medium = 'medium',
+  Small = 'small',
+}
+
 export enum StepperSize {
   Medium = 'medium',
   Small = 'small',
@@ -23,6 +32,15 @@ export enum StepperVariant {
   Default = 'default',
   Timeline = 'timeline',
 }
+
+export enum StepperLineStyle {
+  Dash = 'dash',
+  Dot = 'dot',
+  Solid = 'solid',
+}
+
+export type StepperThemeName = OcThemeName;
+export type StepperValidationStatus = InputStatus;
 
 type Locale = {
   /**
@@ -61,12 +79,8 @@ export type StepperLocale = {
 
 export interface Step extends OcBaseProps<HTMLDivElement> {
   /**
-   * The Step index.
-   */
-  index?: StepIndex;
-  /**
-   * Whether the step is complete.
-   * Use when the stepper isn't readonly.
+   * Whether the Step is complete.
+   * Use when the Stepper isn't readonly.
    */
   complete?: boolean;
   /**
@@ -74,17 +88,43 @@ export interface Step extends OcBaseProps<HTMLDivElement> {
    */
   completeAriaLabelText?: string;
   /**
-   * Step content.
+   * The Step content.
    */
   content?: React.ReactNode;
+  /*
+   * The Step index.
+   */
+  index?: StepIndex;
   /**
    * The Stepper custom `Node` button aria label string.
+   * Used when `variant` is StepperVariant.Timeline.
+   * @default 'Node'
    */
   nodeAriaLabelText?: string;
+  /**
+   * The Stepper custom `Node` button icon.
+   * Used when `variant` is StepperVariant.Timeline.
+   */
+  nodeIcon?: IconName;
+  /**
+   * The individual Step size.
+   * The default depends on the chosen variant:
+   * StepSize.Large for Default
+   * StepSize.Small for Timeline
+   */
+  size?: StepSize;
+  /**
+   * The validation status.
+   */
+  status?: StepperValidationStatus;
   /**
    * Custom Step style.
    */
   style?: React.CSSProperties;
+  /**
+   * Theme of the step.
+   */
+  theme?: StepperThemeName;
 }
 
 export interface StepperProps
@@ -116,22 +156,21 @@ export interface StepperProps
    */
   layout?: ItemLayout;
   /**
+   * The optional Stepper line style.
+   * Options: `dash`, `dot`, `solid`
+   */
+  lineStyle?: StepperLineStyle;
+  /**
    * The Stepper locale.
    * @default 'enUS'
    */
   locale?: StepperLocale;
   /**
-   * The Stepper `Node` button aria label string.
-   * Used when `variant` is StepperVariant.Timeline.
-   * @default 'Node'
-   */
-  nodeAriaLabelText?: string;
-  /**
    * The onChange event handler.
    */
   onChange?: OnChangeHandler;
   /**
-   * The stepper is read only.
+   * The Stepper is read only.
    * @default true
    */
   readonly?: boolean;
@@ -166,13 +205,27 @@ export interface StepperProps
    */
   scrollUpAriaLabelText?: string;
   /**
+   * Show active step index.
+   * Use when step is an icon, but an index is desired for the active step.
+   */
+  showActiveStepIndex?: boolean;
+  /**
    * The Stepper size.
+   * @default StepperSize.Medium
    */
   size?: StepperSize;
+  /**
+   * The validation status.
+   */
+  status?: StepperValidationStatus;
   /**
    * The Stepper Steps.
    */
   steps?: Step[];
+  /**
+   * Theme of the Stepper.
+   */
+  theme?: StepperThemeName;
   /**
    * The Stepper variant.
    * options: Default, Timeline

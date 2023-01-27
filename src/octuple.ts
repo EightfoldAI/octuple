@@ -79,11 +79,13 @@ import { Modal, ModalSize } from './components/Modal';
 
 import { Navbar, NavbarContent } from './components/Navbar';
 
+import { NudgeAnimation } from './components/Button/Nudge';
+
 import { Pagination, PaginationLayoutOptions } from './components/Pagination';
 
 import { PersistentBar, PersistentBarType } from './components/PersistentBar';
 
-import { Pill, PillSize, PillType } from './components/Pills';
+import { Pill, PillSize, PillThemeName, PillType } from './components/Pills';
 
 import {
   SearchBox,
@@ -127,8 +129,12 @@ import {
 
 import {
   Step,
+  StepSize,
   Stepper,
+  StepperLineStyle,
   StepperSize,
+  StepperThemeName,
+  StepperValidationStatus,
   StepperVariant,
 } from './components/Stepper';
 
@@ -251,6 +257,7 @@ export {
   Navbar,
   NavbarContent,
   NeutralButton,
+  NudgeAnimation,
   OcFile,
   OcThemeName,
   Pagination,
@@ -263,6 +270,7 @@ export {
   PersistentBarType,
   Pill,
   PillSize,
+  PillThemeName,
   PillType,
   Portal,
   PrimaryButton,
@@ -298,8 +306,12 @@ export {
   StatThemeName,
   StatValidationStatus,
   Step,
+  StepSize,
   Stepper,
+  StepperLineStyle,
   StepperSize,
+  StepperThemeName,
+  StepperValidationStatus,
   StepperVariant,
   SystemUIButton,
   Table,

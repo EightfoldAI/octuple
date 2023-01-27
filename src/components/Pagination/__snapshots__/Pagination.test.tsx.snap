@@ -1,0 +1,738 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pagination Pagination should render as dots 1`] = `
+<div>
+  <div
+    class="pagination dots"
+    role="navigation"
+  >
+    <span />
+    <button
+      aria-disabled="true"
+      aria-label="Previous"
+      class="pagination-button pagination-previous button button-neutral button-medium icon-left disabled"
+      disabled=""
+    >
+      <span
+        aria-hidden="false"
+        class="icon icon-wrapper"
+        role="presentation"
+      >
+        <svg
+          role="presentation"
+          style="width: 20px; height: 20px;"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z"
+            style="fill: currentColor;"
+          />
+        </svg>
+      </span>
+    </button>
+    <ul
+      class="pager"
+    >
+      <li>
+        <button
+          aria-current="true"
+          aria-disabled="false"
+          class="pagination-button active button button-neutral button-medium"
+        >
+          <span
+            class="button-text-medium"
+          >
+            1
+          </span>
+        </button>
+      </li>
+      <li>
+        <button
+          aria-current="false"
+          aria-disabled="false"
+          class="pagination-button button button-neutral button-medium"
+        >
+          <span
+            class="button-text-medium"
+          >
+            2
+          </span>
+        </button>
+      </li>
+      <li>
+        <button
+          aria-current="false"
+          aria-disabled="false"
+          class="pagination-button button button-neutral button-medium"
+        >
+          <span
+            class="button-text-medium"
+          >
+            3
+          </span>
+        </button>
+      </li>
+      <li>
+        <button
+          aria-current="false"
+          aria-disabled="false"
+          class="pagination-button button button-neutral button-medium"
+        >
+          <span
+            class="button-text-medium"
+          >
+            4
+          </span>
+        </button>
+      </li>
+      <li>
+        <button
+          aria-current="false"
+          aria-disabled="false"
+          class="pagination-button button button-neutral button-medium"
+        >
+          <span
+            class="button-text-medium"
+          >
+            5
+          </span>
+        </button>
+      </li>
+    </ul>
+    <button
+      aria-disabled="false"
+      aria-label="Next"
+      class="pagination-button pagination-next button button-neutral button-medium icon-left"
+    >
+      <span
+        aria-hidden="false"
+        class="icon icon-wrapper"
+        role="presentation"
+      >
+        <svg
+          role="presentation"
+          style="width: 20px; height: 20px;"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
+            style="fill: currentColor;"
+          />
+        </svg>
+      </span>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Pagination Pagination should render as simplified 1`] = `
+<div>
+  <div
+    class="pagination"
+    role="navigation"
+  >
+    <span />
+    <button
+      aria-disabled="true"
+      aria-label="Previous"
+      class="pagination-button pagination-previous button button-neutral button-medium icon-left disabled"
+      disabled=""
+    >
+      <span
+        aria-hidden="false"
+        class="icon icon-wrapper"
+        role="presentation"
+      >
+        <svg
+          role="presentation"
+          style="width: 20px; height: 20px;"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z"
+            style="fill: currentColor;"
+          />
+        </svg>
+      </span>
+    </button>
+    <ul
+      class="pager page-tracker"
+    >
+      <li>
+        <span>
+          1 of
+        </span>
+      </li>
+      <li>
+        <span>
+          5
+        </span>
+      </li>
+    </ul>
+    <button
+      aria-disabled="false"
+      aria-label="Next"
+      class="pagination-button pagination-next button button-neutral button-medium icon-left"
+    >
+      <span
+        aria-hidden="false"
+        class="icon icon-wrapper"
+        role="presentation"
+      >
+        <svg
+          role="presentation"
+          style="width: 20px; height: 20px;"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
+            style="fill: currentColor;"
+          />
+        </svg>
+      </span>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Pagination Pagination should render normally 1`] = `
+<div>
+  <div
+    class="pagination"
+    role="navigation"
+  >
+    <span />
+    <button
+      aria-disabled="true"
+      aria-label="Previous"
+      class="pagination-button pagination-previous button button-neutral button-medium icon-left disabled"
+      disabled=""
+    >
+      <span
+        aria-hidden="false"
+        class="icon icon-wrapper"
+        role="presentation"
+      >
+        <svg
+          role="presentation"
+          style="width: 20px; height: 20px;"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z"
+            style="fill: currentColor;"
+          />
+        </svg>
+      </span>
+    </button>
+    <ul
+      class="pager"
+    >
+      <li>
+        <button
+          aria-current="true"
+          aria-disabled="false"
+          class="pagination-button active button button-neutral button-medium"
+        >
+          <span
+            class="button-text-medium"
+          >
+            1
+          </span>
+        </button>
+      </li>
+      <li>
+        <button
+          aria-current="false"
+          aria-disabled="false"
+          class="pagination-button button button-neutral button-medium"
+        >
+          <span
+            class="button-text-medium"
+          >
+            2
+          </span>
+        </button>
+      </li>
+      <li>
+        <button
+          aria-current="false"
+          aria-disabled="false"
+          class="pagination-button button button-neutral button-medium"
+        >
+          <span
+            class="button-text-medium"
+          >
+            3
+          </span>
+        </button>
+      </li>
+      <li>
+        <button
+          aria-current="false"
+          aria-disabled="false"
+          class="pagination-button button button-neutral button-medium"
+        >
+          <span
+            class="button-text-medium"
+          >
+            4
+          </span>
+        </button>
+      </li>
+      <li>
+        <button
+          aria-current="false"
+          aria-disabled="false"
+          class="pagination-button button button-neutral button-medium"
+        >
+          <span
+            class="button-text-medium"
+          >
+            5
+          </span>
+        </button>
+      </li>
+    </ul>
+    <button
+      aria-disabled="false"
+      aria-label="Next"
+      class="pagination-button pagination-next button button-neutral button-medium icon-left"
+    >
+      <span
+        aria-hidden="false"
+        class="icon icon-wrapper"
+        role="presentation"
+      >
+        <svg
+          role="presentation"
+          style="width: 20px; height: 20px;"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
+            style="fill: currentColor;"
+          />
+        </svg>
+      </span>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Pagination Pagination should render with all elements 1`] = `
+<div>
+  <div
+    class="pagination"
+    role="navigation"
+  >
+    <span
+      class="sizes"
+    >
+      <div
+        class="main-wrapper"
+      >
+        <button
+          aria-controls="dropdown-"
+          aria-disabled="false"
+          aria-expanded="false"
+          aria-haspopup="true"
+          aria-label="Selected page size"
+          class="button button-neutral button-medium icon-right"
+          role="button"
+          tabindex="0"
+        >
+          <span>
+            <span
+              aria-hidden="false"
+              class="icon icon-wrapper"
+              role="presentation"
+            >
+              <svg
+                role="presentation"
+                style="width: 20px; height: 20px;"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"
+                  style="fill: currentColor;"
+                />
+              </svg>
+            </span>
+            <span
+              class="button-text-medium"
+            >
+              100 / page
+            </span>
+          </span>
+        </button>
+      </div>
+    </span>
+    <span
+      class="total"
+    >
+      Total 400
+    </span>
+    <button
+      aria-disabled="false"
+      aria-label="Previous"
+      class="pagination-button pagination-previous button button-neutral button-medium icon-left"
+    >
+      <span
+        aria-hidden="false"
+        class="icon icon-wrapper"
+        role="presentation"
+      >
+        <svg
+          role="presentation"
+          style="width: 20px; height: 20px;"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z"
+            style="fill: currentColor;"
+          />
+        </svg>
+      </span>
+    </button>
+    <ul
+      class="pager"
+    >
+      <li>
+        <button
+          aria-current="false"
+          aria-disabled="false"
+          class="pagination-button button button-neutral button-medium"
+        >
+          <span
+            class="button-text-medium"
+          >
+            1
+          </span>
+        </button>
+      </li>
+      <li>
+        <button
+          aria-current="false"
+          aria-disabled="false"
+          class="pagination-button button button-neutral button-medium"
+        >
+          <span
+            class="button-text-medium"
+          >
+            2
+          </span>
+        </button>
+      </li>
+      <li>
+        <button
+          aria-current="false"
+          aria-disabled="false"
+          class="pagination-button button button-neutral button-medium"
+        >
+          <span
+            class="button-text-medium"
+          >
+            3
+          </span>
+        </button>
+      </li>
+      <li>
+        <button
+          aria-current="true"
+          aria-disabled="false"
+          class="pagination-button active button button-neutral button-medium"
+        >
+          <span
+            class="button-text-medium"
+          >
+            4
+          </span>
+        </button>
+      </li>
+    </ul>
+    <button
+      aria-disabled="true"
+      aria-label="Next"
+      class="pagination-button pagination-next button button-neutral button-medium icon-left disabled"
+      disabled=""
+    >
+      <span
+        aria-hidden="false"
+        class="icon icon-wrapper"
+        role="presentation"
+      >
+        <svg
+          role="presentation"
+          style="width: 20px; height: 20px;"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
+            style="fill: currentColor;"
+          />
+        </svg>
+      </span>
+    </button>
+    <span
+      class="jump"
+    >
+      Go to
+      <div
+        class="input-wrapper input-medium left-icon"
+      >
+        <div
+          class="expandable-wrapper"
+        >
+          <div
+            class="input-group left-icon"
+          >
+            <input
+              aria-disabled="false"
+              class="editor input-medium pill-shape left-icon clear-not-visible"
+              id="input-"
+              max="4"
+              min="1"
+              role="textbox"
+              tabindex="0"
+              type="number"
+              value="4"
+            />
+            <div
+              class="action-wrapper"
+            >
+              <div
+                class="overlay"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+`;
+
+exports[`Pagination Pagination should render with some elements 1`] = `
+<div>
+  <div
+    class="pagination"
+    role="navigation"
+  >
+    <span />
+    <button
+      aria-disabled="false"
+      aria-label="Previous"
+      class="pagination-button pagination-previous button button-neutral button-medium icon-left"
+    >
+      <span
+        aria-hidden="false"
+        class="icon icon-wrapper"
+        role="presentation"
+      >
+        <svg
+          role="presentation"
+          style="width: 20px; height: 20px;"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z"
+            style="fill: currentColor;"
+          />
+        </svg>
+      </span>
+    </button>
+    <ul
+      class="pager"
+    >
+      <li>
+        <button
+          aria-current="false"
+          aria-disabled="false"
+          class="pagination-button button button-neutral button-medium"
+        >
+          <span
+            class="button-text-medium"
+          >
+            1
+          </span>
+        </button>
+      </li>
+      <li>
+        <button
+          aria-current="false"
+          aria-disabled="false"
+          class="pagination-button button button-neutral button-medium"
+        >
+          <span
+            class="button-text-medium"
+          >
+            2
+          </span>
+        </button>
+      </li>
+      <li>
+        <button
+          aria-current="false"
+          aria-disabled="false"
+          class="pagination-button button button-neutral button-medium"
+        >
+          <span
+            class="button-text-medium"
+          >
+            3
+          </span>
+        </button>
+      </li>
+      <li>
+        <button
+          aria-current="false"
+          aria-disabled="false"
+          class="pagination-button button button-neutral button-medium"
+        >
+          <span
+            class="button-text-medium"
+          >
+            4
+          </span>
+        </button>
+      </li>
+      <li>
+        <button
+          aria-current="true"
+          aria-disabled="false"
+          class="pagination-button active button button-neutral button-medium"
+        >
+          <span
+            class="button-text-medium"
+          >
+            5
+          </span>
+        </button>
+      </li>
+      <li>
+        <button
+          aria-current="false"
+          aria-disabled="false"
+          class="pagination-button button button-neutral button-medium"
+        >
+          <span
+            class="button-text-medium"
+          >
+            6
+          </span>
+        </button>
+      </li>
+      <li>
+        <button
+          aria-current="false"
+          aria-disabled="false"
+          class="pagination-button button button-neutral button-medium"
+        >
+          <span
+            class="button-text-medium"
+          >
+            7
+          </span>
+        </button>
+      </li>
+      <li>
+        <button
+          aria-current="false"
+          aria-disabled="false"
+          class="pagination-button button button-neutral button-medium"
+        >
+          <span
+            class="button-text-medium"
+          >
+            8
+          </span>
+        </button>
+      </li>
+      <li>
+        <button
+          aria-current="false"
+          aria-disabled="false"
+          class="pagination-button button button-neutral button-medium"
+        >
+          <span
+            class="button-text-medium"
+          >
+            9
+          </span>
+        </button>
+      </li>
+      <li>
+        <button
+          aria-current="false"
+          aria-disabled="false"
+          class="pagination-button button button-neutral button-medium"
+        >
+          <span
+            class="button-text-medium"
+          >
+            10
+          </span>
+        </button>
+      </li>
+    </ul>
+    <button
+      aria-disabled="false"
+      aria-label="Next"
+      class="pagination-button pagination-next button button-neutral button-medium icon-left"
+    >
+      <span
+        aria-hidden="false"
+        class="icon icon-wrapper"
+        role="presentation"
+      >
+        <svg
+          role="presentation"
+          style="width: 20px; height: 20px;"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
+            style="fill: currentColor;"
+          />
+        </svg>
+      </span>
+    </button>
+    <span
+      class="jump"
+    >
+      Go to
+      <div
+        class="input-wrapper input-medium left-icon"
+      >
+        <div
+          class="expandable-wrapper"
+        >
+          <div
+            class="input-group left-icon"
+          >
+            <input
+              aria-disabled="false"
+              class="editor input-medium pill-shape left-icon clear-not-visible"
+              id="input-"
+              max="10"
+              min="1"
+              role="textbox"
+              tabindex="0"
+              type="number"
+              value="5"
+            />
+            <div
+              class="action-wrapper"
+            >
+              <div
+                class="overlay"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+`;
