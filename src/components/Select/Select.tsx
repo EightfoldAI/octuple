@@ -70,6 +70,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
       pillProps = {},
       placeholder = 'Select',
       shape = SelectShape.Rectangle,
+      showEmptyDropdown = true,
       size = SelectSize.Medium,
       spinner = (
         <Spinner classNames={styles.selectSpinner} size={SpinnerSize.Small} />
@@ -535,7 +536,9 @@ export const Select: FC<SelectProps> = React.forwardRef(
             onVisibleChange={(isVisible) => setDropdownVisibility(isVisible)}
             overlay={isLoading ? spinner : <OptionMenu options={options} />}
             showDropdown={showDropdown}
-            visible={dropdownVisible}
+            visible={
+              dropdownVisible && (showEmptyDropdown || options.length > 0)
+            }
             ref={dropdownRef}
           >
             <TextInput
