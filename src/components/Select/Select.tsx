@@ -538,7 +538,10 @@ export const Select: FC<SelectProps> = React.forwardRef(
             showDropdown={showDropdown}
             visible={
               dropdownVisible &&
-              (showEmptyDropdown || isLoading || options.length > 0)
+              (showEmptyDropdown ||
+                isLoading ||
+                searchQuery.length > 0 ||
+                options.length > 0)
             }
             ref={dropdownRef}
           >
