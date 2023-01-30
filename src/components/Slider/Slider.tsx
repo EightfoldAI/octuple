@@ -4,6 +4,7 @@ import React, {
   Ref,
   RefObject,
   useContext,
+  useEffect,
   useLayoutEffect,
   useMemo,
   useRef,
@@ -129,8 +130,15 @@ export const Slider: FC<SliderProps> = React.forwardRef(
 
     const isRange: boolean = Array.isArray(value);
     const [values, setValues] = useState<number[]>(
-      Array.isArray(value) ? value.sort(asc) : [value]
+      isRange ? value.sort(asc) : [value]
     );
+
+    useEffect(() => {
+      if (value !== values) {
+        setValues(Array.isArray(value) ? value.sort(asc) : [value]);
+      }
+    }, [value]);
+
     const sliderRef: React.MutableRefObject<HTMLDivElement> =
       useRef<HTMLDivElement>(null);
     const railRef: React.MutableRefObject<HTMLDivElement> =
