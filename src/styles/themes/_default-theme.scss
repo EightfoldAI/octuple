@@ -375,6 +375,12 @@
   --button-border-radius: var(--border-radius-s);
   --button-round-shape-border-radius: 50%;
   --button-pill-shape-border-radius: var(--border-radius-xl);
+  --button-nudge-background-color-primary: var(--white-color);
+  --button-nudge-background-color-secondary: var(--accent-color-20);
+  --button-nudge-background-color-tertiary: var(--white-color);
+  --button-nudge-gradient-color-one: var(--primary-color-60);
+  --button-nudge-gradient-color-two: var(--primary-color-20);
+  --button-nudge-gradient-color-three: var(--primary-color-60);
   // TODO: button text/font related vars
   // ------ Generic button vars ------
 

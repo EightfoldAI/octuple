@@ -1,4 +1,4 @@
-import React, { FC, Ref, useContext } from 'react';
+import React, { FC, Ref, useContext, useEffect, useRef, useState } from 'react';
 import DisabledContext, {
   Disabled,
 } from '../../ConfigProvider/DisabledContext';
@@ -12,15 +12,18 @@ import {
 } from '../';
 import { Badge } from '../../Badge';
 import { Icon, IconSize } from '../../Icon';
+import { InnerNudge, NudgeAnimation, NudgeProps } from '../Nudge';
 import { Breakpoints, useMatchMedia } from '../../../hooks/useMatchMedia';
 import { mergeClasses } from '../../../shared/utilities';
 import { useCanvasDirection } from '../../../hooks/useCanvasDirection';
+import { useMergedRefs } from '../../../hooks/useMergedRefs';
+import { useNudge } from '../Nudge/Hooks/useNudge';
 
 import styles from '../button.module.scss';
 
 export const TwoStateButton: FC<TwoStateButtonProps> = React.forwardRef(
-  (
-    {
+  (props: TwoStateButtonProps, ref: Ref<HTMLButtonElement>) => {
+    const {
       alignText = ButtonTextAlign.Center,
       allowDisabledFocus = false,
       ariaLabel,
@@ -38,6 +41,7 @@ export const TwoStateButton: FC<TwoStateButtonProps> = React.forwardRef(
       iconOneProps,
       iconTwoProps,
       id,
+      nudgeProps: defaultNudgeProps,
       onClick,
       shape = ButtonShape.Pill,
       size = ButtonSize.Medium,
@@ -46,13 +50,16 @@ export const TwoStateButton: FC<TwoStateButtonProps> = React.forwardRef(
       toggle,
       type,
       ...rest
-    },
-    ref: Ref<HTMLButtonElement>
-  ) => {
+    } = props;
     const largeScreenActive: boolean = useMatchMedia(Breakpoints.Large);
     const mediumScreenActive: boolean = useMatchMedia(Breakpoints.Medium);
     const smallScreenActive: boolean = useMatchMedia(Breakpoints.Small);
     const xSmallScreenActive: boolean = useMatchMedia(Breakpoints.XSmall);
+
+    const internalRef: React.MutableRefObject<HTMLButtonElement> =
+      useRef<HTMLButtonElement>(null);
+
+    const mergedRef = useMergedRefs(internalRef, ref);
 
     const htmlDir: string = useCanvasDirection();
 
@@ -70,6 +77,25 @@ export const TwoStateButton: FC<TwoStateButtonProps> = React.forwardRef(
     const iconOneExists: boolean = !!iconOneProps;
     const iconTwoExists: boolean = !!iconTwoProps;
     const textExists: boolean = !!text;
+
+    const [nudgeProps, setNudgeProps] = useState<NudgeProps>(defaultNudgeProps);
+    const innerNudgeRef: React.MutableRefObject<HTMLSpanElement> =
+      useRef<HTMLSpanElement>(null);
+
+    useEffect(() => {
+      setNudgeProps(
+        props.nudgeProps
+          ? props.nudgeProps
+          : {
+              animation: NudgeAnimation.Background,
+              delay: 2000,
+              iterations: 1,
+              enabled: false,
+            }
+      );
+    }, [nudgeProps?.enabled]);
+
+    useNudge(disruptive, nudgeProps, [internalRef, innerNudgeRef]);
 
     const twoStateButtonClassNames: string = mergeClasses([
       classNames,
@@ -170,7 +196,7 @@ export const TwoStateButton: FC<TwoStateButtonProps> = React.forwardRef(
     return (
       <button
         {...rest}
-        ref={ref}
+        ref={mergedRef}
         aria-checked={toggle ? !!checked : undefined}
         aria-disabled={mergedDisabled}
         aria-label={ariaLabel}
@@ -183,6 +209,19 @@ export const TwoStateButton: FC<TwoStateButtonProps> = React.forwardRef(
         style={style}
         type="button"
       >
+        <InnerNudge
+          classNames={mergeClasses([
+            styles.innerNudge,
+            {
+              [styles.conic]: nudgeProps?.animation === NudgeAnimation.Conic,
+            },
+          ])}
+          disruptive={disruptive}
+          id={id ? `${id}-nudge` : 'two-state-nudge'}
+          nudgeProps={nudgeProps}
+          ref={innerNudgeRef}
+          style={style}
+        />
         <span className={styles.twoStateButtonContent}>
           <span className={styles.column + ' ' + styles.columnOne}>
             {iconOneExists && getButtonIcon('left')}

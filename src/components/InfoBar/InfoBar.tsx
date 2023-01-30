@@ -23,7 +23,7 @@ export const InfoBar: FC<InfoBarsProps> = React.forwardRef(
       icon,
       locale = enUS,
       onClose,
-      role = 'presentation',
+      role = 'alert',
       style,
       type = InfoBarType.neutral,
       ...rest

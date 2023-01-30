@@ -10,6 +10,11 @@
   white-space: nowrap;
   position: relative;
 
+  span:not(.inner-nudge):not(.split-divider) {
+    position: relative;
+    z-index: 1;
+  }
+
   span:not(.column):not(.counter) {
     align-items: center;
     display: flex;
@@ -114,7 +119,7 @@
   }
 
   &.icon-right {
-    span:not(.counter) {
+    span:not(.counter):not(.inner-nudge) {
       transform: scaleX(-1);
     }
 
@@ -146,13 +151,210 @@
     z-index: $z-index-400;
   }
 
+  .inner-nudge {
+    align-items: center;
+    background: inherit;
+    border-radius: inherit;
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 0;
+
+    &.background {
+      overflow: hidden;
+
+      &:after {
+        animation: $motion-duration-slow $motion-easing-easeinout 1
+          nudgeBackgroundAfter;
+        background: linear-gradient(
+          to right,
+          transparent 0%,
+          var(--button-nudge-background-color-primary) 100%
+        );
+        content: '';
+        height: 200px;
+        left: -120%;
+        min-width: $space-l;
+        position: absolute;
+        top: -88px;
+        transform: rotate(45deg);
+        width: 50%;
+      }
+
+      &:before {
+        animation: $motion-duration-slow $motion-easing-easeinout 1
+          nudgeBackgroundBefore;
+        background: linear-gradient(
+          to right,
+          transparent 0%,
+          var(--button-nudge-background-color-primary) 100%
+        );
+        content: '';
+        height: 88px;
+        left: -100%;
+        position: absolute;
+        top: -22px;
+        transform: rotate(45deg);
+        width: $space-xs;
+      }
+    }
+
+    &.conic {
+      overflow: hidden;
+
+      &:before {
+        animation: 2000ms linear infinite nudgeConic;
+        background: conic-gradient(
+          var(--button-nudge-gradient-color-one),
+          var(--button-nudge-gradient-color-two),
+          var(--button-nudge-gradient-color-three)
+        );
+        border-radius: 100%;
+        content: '';
+        display: block;
+        height: 1024px;
+        left: 50%;
+        position: absolute;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 1024px;
+      }
+
+      &:after {
+        background: inherit;
+        border-radius: inherit;
+        content: '';
+        height: calc(100% - $space-xxs);
+        left: $space-xxxs;
+        position: absolute;
+        top: $space-xxxs;
+        width: calc(100% - $space-xxs);
+        z-index: 0;
+      }
+    }
+
+    &.ring {
+      &:after {
+        animation: $motion-duration-fast $motion-easing-easeinout 1
+          nudgeRingMedium;
+        border: $space-xxs solid var(--primary-color-20);
+        border-radius: 100%;
+        content: '';
+        height: 14px;
+        left: 50%;
+        opacity: 0;
+        position: absolute;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 14px;
+        z-index: 0;
+      }
+    }
+
+    &.size {
+      overflow: visible;
+
+      &:after {
+        animation: $motion-duration-fast $motion-easing-easeinout 1 nudgeSize;
+        background: inherit;
+        border-radius: inherit;
+        content: '';
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        z-index: 0;
+      }
+    }
+  }
+
+  &.bounce {
+    animation-duration: 1s;
+    animation-name: nudgeBounce;
+    animation-fill-mode: both;
+    transform-origin: center bottom;
+  }
+
+  &.round-shape {
+    .inner-nudge {
+      &.background {
+        &:after {
+          animation-duration: $motion-duration-normal;
+        }
+
+        &:before {
+          animation-duration: $motion-duration-normal;
+        }
+      }
+
+      &.size {
+        overflow: visible;
+
+        &:after {
+          animation: $motion-duration-fast $motion-easing-easeinout 1 nudgeSize;
+          background: inherit;
+          border-radius: inherit;
+          content: '';
+          height: 100%;
+          left: 0;
+          position: absolute;
+          top: 0;
+          width: 100%;
+          z-index: 0;
+        }
+      }
+    }
+  }
+
+  &.split-left {
+    .inner-nudge {
+      &.conic {
+        &:after {
+          width: calc(100% - $space-xxxs);
+        }
+      }
+
+      &.size {
+        overflow: visible;
+
+        &:after {
+          animation: $motion-duration-fast $motion-easing-easeinout 1 nudgeSize;
+          background: inherit;
+          border-radius: inherit;
+          content: '';
+          height: 100%;
+          left: 0;
+          position: absolute;
+          top: 0;
+          width: 100%;
+          z-index: 0;
+        }
+      }
+    }
+  }
+
   &-large {
     height: 44px;
     padding: $button-padding-vertical-large $button-padding-horizontal-large;
 
     &.floating.round-shape {
+      min-height: 44px;
+      min-width: 44px;
       width: 44px;
       height: 44px;
+    }
+
+    .inner-nudge {
+      &.ring {
+        &:after {
+          animation-name: nudgeRingLarge;
+        }
+      }
     }
   }
 
@@ -161,8 +363,18 @@
     padding: $button-padding-vertical-medium $button-padding-horizontal-medium;
 
     &.floating.round-shape {
+      min-height: 36px;
+      min-width: 36px;
       width: 36px;
       height: 36px;
+    }
+
+    .inner-nudge {
+      &.ring {
+        &:after {
+          animation-name: nudgeRingMedium;
+        }
+      }
     }
   }
 
@@ -171,8 +383,18 @@
     padding: $button-padding-vertical-small $button-padding-horizontal-small;
 
     &.floating.round-shape {
+      min-height: 28px;
+      min-width: 28px;
       width: 28px;
       height: 28px;
+    }
+
+    .inner-nudge {
+      &.ring {
+        &:after {
+          animation-name: nudgeRingSmall;
+        }
+      }
     }
   }
 
@@ -266,6 +488,23 @@
   border-style: var(--button-primary-border-style);
   border-color: var(--button-primary-border-color);
 
+  &.button-conic {
+    border-color: transparent;
+  }
+
+  .inner-nudge {
+    &.size {
+      &:after {
+        border-width: var(--button-primary-border-width);
+        border-style: var(--button-primary-border-style);
+        border-color: var(--button-primary-border-color);
+        height: calc(100% + calc(var(--button-primary-border-width) * 2));
+        margin: calc(var(--button-primary-border-width) * -1);
+        width: calc(100% + calc(var(--button-primary-border-width) * 2));
+      }
+    }
+  }
+
   &:hover:not([disabled]) {
     color: var(--button-primary-hover-text-color);
     background-color: var(--button-primary-hover-background-color);
@@ -304,6 +543,41 @@
     border-width: var(--button-secondary-active-border-width);
     border-style: var(--button-secondary-active-border-style);
     border-color: var(--button-secondary-active-border-color);
+  }
+
+  &.button-conic {
+    border-color: transparent;
+  }
+
+  .inner-nudge {
+    &.background {
+      &:after {
+        background: linear-gradient(
+          to right,
+          transparent 0%,
+          var(--button-nudge-background-color-secondary) 100%
+        );
+      }
+
+      &:before {
+        background: linear-gradient(
+          to right,
+          transparent 0%,
+          var(--button-nudge-background-color-secondary) 100%
+        );
+      }
+    }
+
+    &.size {
+      &:after {
+        border-width: var(--button-secondary-border-width);
+        border-style: var(--button-secondary-border-style);
+        border-color: var(--button-secondary-border-color);
+        height: calc(100% + calc(var(--button-secondary-border-width) * 2));
+        margin: calc(var(--button-secondary-border-width) * -1);
+        width: calc(100% + calc(var(--button-secondary-border-width) * 2));
+      }
+    }
   }
 
   // The additional Secondary Button border requires some padding pixel pushing.
@@ -380,6 +654,23 @@
   border-style: var(--button-default-border-style);
   border-color: var(--button-default-border-color);
 
+  &.button-conic {
+    border-color: transparent;
+  }
+
+  .inner-nudge {
+    &.size {
+      &:after {
+        border-width: var(--button-default-border-width);
+        border-style: var(--button-default-border-style);
+        border-color: var(--button-default-border-color);
+        height: calc(100% + calc(var(--button-default-border-width) * 2));
+        margin: calc(var(--button-default-border-width) * -1);
+        width: calc(100% + calc(var(--button-default-border-width) * 2));
+      }
+    }
+  }
+
   &:hover:not([disabled]) {
     color: var(--button-default-hover-text-color);
     background-color: var(--button-default-hover-background-color);
@@ -441,6 +732,26 @@
   --color: var(--grey-color-60);
   color: var(--color);
 
+  .inner-nudge {
+    &.background {
+      &:after {
+        background: linear-gradient(
+          to right,
+          transparent 0%,
+          var(--button-nudge-background-color-secondary) 100%
+        );
+      }
+
+      &:before {
+        background: linear-gradient(
+          to right,
+          transparent 0%,
+          var(--button-nudge-background-color-secondary) 100%
+        );
+      }
+    }
+  }
+
   &.transparent {
     background: transparent;
   }
@@ -460,6 +771,49 @@
 
 .split-button {
   position: relative;
+
+  .inner-nudge {
+    &.background {
+      &:after {
+        animation-duration: $motion-duration-normal;
+        animation-delay: $motion-duration-fast;
+      }
+
+      &:before {
+        animation-duration: $motion-duration-normal;
+        animation-delay: $motion-duration-fast;
+      }
+    }
+
+    &.conic {
+      &:after {
+        width: calc(100% - $space-xxs);
+      }
+    }
+
+    &.ring {
+      &:after {
+        display: none;
+      }
+    }
+
+    &.size {
+      overflow: visible;
+
+      &:after {
+        animation: $motion-duration-fast $motion-easing-easeinout 1 nudgeSize;
+        background: inherit;
+        border-radius: inherit;
+        content: '';
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        z-index: 0;
+      }
+    }
+  }
 
   .split-divider {
     position: absolute;
@@ -610,6 +964,62 @@
     margin-right: $button-spacer-small;
   }
 
+  .inner-nudge {
+    &.background {
+      &:after {
+        animation-name: nudgeBackgroundAfterRtl;
+        background: linear-gradient(
+          to left,
+          transparent 0%,
+          var(--button-nudge-background-color-primary) 100%
+        );
+        left: unset;
+        right: -120%;
+        transform: rotate(-45deg);
+      }
+
+      &:before {
+        animation-name: nudgeBackgroundBeforeRtl;
+        background: linear-gradient(
+          to left,
+          transparent 0%,
+          var(--button-nudge-background-color-primary) 100%
+        );
+        left: unset;
+        right: -100%;
+        transform: rotate(-45deg);
+      }
+    }
+
+    &.conic {
+      &:before {
+        animation-name: nudgeConicRtl;
+      }
+
+      &:after {
+        left: unset;
+        right: $space-xxxs;
+      }
+    }
+
+    &.size {
+      overflow: visible;
+
+      &:after {
+        animation: $motion-duration-fast $motion-easing-easeinout 1 nudgeSize;
+        background: inherit;
+        border-radius: inherit;
+        content: '';
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        z-index: 0;
+      }
+    }
+  }
+
   &.split-left {
     border-bottom-left-radius: 0;
     border-top-left-radius: 0;
@@ -649,6 +1059,25 @@
     border-bottom-right-radius: 0;
     border-top-right-radius: 0;
 
+    .inner-nudge {
+      &.size {
+        overflow: visible;
+
+        &:after {
+          animation: $motion-duration-fast $motion-easing-easeinout 1 nudgeSize;
+          background: inherit;
+          border-radius: inherit;
+          content: '';
+          height: 100%;
+          left: 0;
+          position: absolute;
+          top: 0;
+          width: 100%;
+          z-index: 0;
+        }
+      }
+    }
+
     &.pill-shape {
       border-bottom-left-radius: $border-radius-xl;
       border-top-left-radius: $border-radius-xl;
@@ -672,6 +1101,61 @@
       &.counter {
         margin-left: $space-xxs;
         margin-right: 0;
+      }
+    }
+  }
+
+  &.button-secondary {
+    .inner-nudge {
+      &.background {
+        &:after {
+          background: linear-gradient(
+            to left,
+            transparent 0%,
+            var(--button-nudge-background-color-secondary) 100%
+          );
+        }
+
+        &:before {
+          background: linear-gradient(
+            to left,
+            transparent 0%,
+            var(--button-nudge-background-color-secondary) 100%
+          );
+        }
+      }
+
+      &.size {
+        &:after {
+          border-width: var(--button-secondary-border-width);
+          border-style: var(--button-secondary-border-style);
+          border-color: var(--button-secondary-border-color);
+          height: calc(100% + calc(var(--button-secondary-border-width) * 2));
+          margin: calc(var(--button-secondary-border-width) * -1);
+          width: calc(100% + calc(var(--button-secondary-border-width) * 2));
+        }
+      }
+    }
+  }
+
+  &.button-system-ui {
+    .inner-nudge {
+      &.background {
+        &:after {
+          background: linear-gradient(
+            to left,
+            transparent 0%,
+            var(--button-nudge-background-color-secondary) 100%
+          );
+        }
+
+        &:before {
+          background: linear-gradient(
+            to left,
+            transparent 0%,
+            var(--button-nudge-background-color-secondary) 100%
+          );
+        }
       }
     }
   }
