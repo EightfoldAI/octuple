@@ -130,7 +130,7 @@ export const Slider: FC<SliderProps> = React.forwardRef(
 
     const isRange: boolean = Array.isArray(value);
     const [values, setValues] = useState<number[]>(
-      isRange ? value.sort(asc) : [value]
+      Array.isArray(value) ? value.sort(asc) : [value]
     );
 
     useEffect(() => {
