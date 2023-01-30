@@ -537,7 +537,8 @@ export const Select: FC<SelectProps> = React.forwardRef(
             overlay={isLoading ? spinner : <OptionMenu options={options} />}
             showDropdown={showDropdown}
             visible={
-              dropdownVisible && (showEmptyDropdown || options.length > 0)
+              dropdownVisible &&
+              (showEmptyDropdown || isLoading || options.length > 0)
             }
             ref={dropdownRef}
           >
