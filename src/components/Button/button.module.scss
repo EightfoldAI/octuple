@@ -138,8 +138,8 @@
 
   .counter {
     background-color: var(--button-counter-default-background-color);
+    color: var(--button-counter-default-text-color);
     display: inline-block;
-    padding: 0 $space-xxs;
     text-align: center;
     width: fit-content;
   }
@@ -482,6 +482,12 @@
 }
 
 .button-primary {
+  --button-counter-default-background-color: var(--accent-color-10);
+  --button-counter-hover-background-color: var(--accent-color-20);
+  --button-counter-checked-background-color: var(--accent-color-10);
+  --button-counter-focus-background-color: var(--accent-color-10);
+  --button-counter-active-background-color: var(--accent-color-10);
+
   color: var(--button-primary-text-color);
   background-color: var(--button-primary-background-color);
   border-width: var(--button-primary-border-width);
@@ -523,6 +529,12 @@
 }
 
 .button-secondary {
+  --button-counter-default-background-color: var(--primary-color-20);
+  --button-counter-hover-background-color: var(--primary-color-20);
+  --button-counter-checked-background-color: var(--primary-color-10);
+  --button-counter-focus-background-color: var(--primary-color-20);
+  --button-counter-active-background-color: var(--primary-color-10);
+
   color: var(--button-secondary-text-color);
   background-color: var(--button-secondary-background-color);
   border-width: var(--button-secondary-border-width);
@@ -598,6 +610,13 @@
 }
 
 .button-primary-disruptive {
+  --button-counter-default-background-color: var(--disruptive-color-10);
+  --button-counter-hover-background-color: var(--disruptive-color-20);
+  --button-counter-checked-background-color: var(--disruptive-color-10);
+  --button-counter-focus-background-color: var(--disruptive-color-10);
+  --button-counter-active-background-color: var(--disruptive-color-10);
+  --button-counter-default-text-color: var(--disruptive-color-80);
+
   color: var(--button-primary-disruptive-text-color);
   background-color: var(--button-primary-disruptive-background-color);
   border-width: var(--button-primary-disruptive-border-width);
@@ -622,6 +641,13 @@
 }
 
 .button-secondary-disruptive {
+  --button-counter-default-background-color: var(--disruptive-color-20);
+  --button-counter-hover-background-color: var(--disruptive-color-20);
+  --button-counter-checked-background-color: var(--disruptive-color-10);
+  --button-counter-focus-background-color: var(--disruptive-color-20);
+  --button-counter-active-background-color: var(--disruptive-color-10);
+  --button-counter-default-text-color: var(--disruptive-color-80);
+
   color: var(--button-secondary-disruptive-text-color);
   background-color: var(--button-secondary-disruptive-background-color);
   border-width: var(--button-secondary-disruptive-border-width);
@@ -648,6 +674,12 @@
 }
 
 .button-default {
+  --button-counter-default-background-color: var(--primary-color-20);
+  --button-counter-hover-background-color: var(--primary-color-20);
+  --button-counter-checked-background-color: var(--primary-color-10);
+  --button-counter-focus-background-color: var(--primary-color-20);
+  --button-counter-active-background-color: var(--primary-color-10);
+
   color: var(--button-default-text-color);
   background-color: var(--button-default-background-color);
   border-width: var(--button-default-border-width);
@@ -689,6 +721,13 @@
 }
 
 .button-disruptive {
+  --button-counter-default-background-color: var(--disruptive-color-20);
+  --button-counter-hover-background-color: var(--disruptive-color-20);
+  --button-counter-checked-background-color: var(--disruptive-color-10);
+  --button-counter-focus-background-color: var(--disruptive-color-20);
+  --button-counter-active-background-color: var(--disruptive-color-10);
+  --button-counter-default-text-color: var(--disruptive-color-80);
+
   color: var(--button-default-disruptive-text-color);
   background-color: var(--button-default-disruptive-background-color);
   border-width: var(--button-default-disruptive-border-width);
@@ -713,6 +752,8 @@
 }
 
 .button-neutral {
+  --button-counter-default-text-color: var(--grey-color-80);
+
   --bg: var(--grey-color-10);
   --color: var(--text-secondary-color);
   color: var(--color);
@@ -728,6 +769,8 @@
 }
 
 .button-system-ui {
+  --button-counter-default-text-color: var(--grey-color-80);
+
   --bg: var(--background-color);
   --color: var(--grey-color-60);
   color: var(--color);
@@ -872,6 +915,13 @@
 }
 
 .two-state-button {
+  --button-counter-default-background-color: var(--green-color-20);
+  --button-counter-hover-background-color: var(--green-color-20);
+  --button-counter-checked-background-color: var(--green-color-10);
+  --button-counter-focus-background-color: var(--green-color-20);
+  --button-counter-active-background-color: var(--green-color-10);
+  --button-counter-default-text-color: var(--grey-color-80);
+
   --bg: var(--grey-color-10);
   --color: var(--grey-color-70);
   background-color: var(--bg);
