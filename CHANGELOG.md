@@ -2,17 +2,6 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-## [2.24.0](https://github.com/EightfoldAI/octuple/compare/v2.23.0...v2.24.0) (2023-01-31)
-
-### Features
-
-- button: adds button nudge animation ([#513](https://github.com/EightfoldAI/octuple/issues/513)) ([69911fd](https://github.com/EightfoldAI/octuple/commits/69911fd382121092c5b88534e5e5be4983093c7d))
-
-### Bug Fixes
-
-- badge: updates color palette to match the latest design and improves accessibililty ([#518](https://github.com/EightfoldAI/octuple/issues/518)) ([9831512](https://github.com/EightfoldAI/octuple/commits/98315124e665481f5b59c7d589b851fce2515824))
-- slider: update state when value changes externally ([#520](https://github.com/EightfoldAI/octuple/issues/520)) ([96dd188](https://github.com/EightfoldAI/octuple/commits/96dd188dcc8f10f3c16eda7b4b6b0081e189c17f))
-
 ## [2.23.0](https://github.com/EightfoldAI/octuple/compare/v2.22.0...v2.23.0) (2023-01-27)
 
 ### Features
