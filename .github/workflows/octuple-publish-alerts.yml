@@ -3,7 +3,7 @@ name: Octuple Publish Alerts
 # Only trigger when the npm-publish workflow succeeded
 on:
   workflow_run:
-    workflows: ["Publish Octuple"]
+    workflows: [Publish Octuple]
     types:
       - completed
 
