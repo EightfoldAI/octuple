@@ -4,11 +4,11 @@
   font-size: $text-font-size-2;
 
   &.primary {
-    color: var(--primary-color);
+    color: var(--anchor-color);
 
     &:active,
     &:hover {
-      color: var(--primary-color-90);
+      color: var(--anchor-hover-color);
     }
   }
 
