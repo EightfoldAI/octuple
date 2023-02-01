@@ -227,4 +227,12 @@ describe('Button', () => {
     await sleep(500);
     expect(container.getElementsByClassName('size')).toHaveLength(1);
   });
+
+  test('Button is loading', () => {
+    const { container } = render(
+      <PrimaryButton loading size={ButtonSize.Medium} text="test" />
+    );
+    expect(container.getElementsByClassName('loader')).toHaveLength(1);
+    expect(container).toMatchSnapshot();
+  });
 });
