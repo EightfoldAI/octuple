@@ -428,16 +428,14 @@
 
   // ------ Default Disruptive Button theme ------
   --button-default-disruptive-text-color: var(--disruptive-color-70);
-  --button-default-disruptive-background-color: var(--background-color);
+  --button-default-disruptive-background-color: var(--disruptive-color-10);
   --button-default-disruptive-border-width: 0;
   --button-default-disruptive-border-style: solid;
   --button-default-disruptive-border-color: var(
     --button-default-disruptive-background-color
   );
   --button-default-disruptive-hover-text-color: var(--disruptive-color-70);
-  --button-default-disruptive-hover-background-color: var(
-    --disruptive-color-10
-  );
+  --button-default-disruptive-hover-background-color: var(--background-color);
   --button-default-disruptive-hover-border-width: var(
     --button-default-disruptive-border-width
   );
@@ -582,17 +580,19 @@
 
   // ------ Button Counter theme ------
   --button-counter-default-background-color: var(--grey-color-20);
-  --button-counter-hover-background-color: var(--primary-color-20);
-  --button-counter-checked-background-color: var(--primary-color-10);
-  --button-counter-focus-background-color: var(--primary-color-20);
-  --button-counter-active-background-color: var(--primary-color-10);
+  --button-counter-hover-background-color: var(--grey-color-20);
+  --button-counter-checked-background-color: var(--grey-color-10);
+  --button-counter-focus-background-color: var(--grey-color-20);
+  --button-counter-active-background-color: var(--grey-color-10);
+  --button-counter-default-text-color: var(--primary-color-80);
   // ------ Button Counter theme ------
 
   // ------ Badge theme ------
   --badge-font-family: var(--font-stack-full);
   --badge-background-color: var(--grey-color-20);
+  --badge-border-radius: 6px;
   --badge-text-color: var(--grey-color-80);
-  --badge-active-background-color: var(--accent-color-30);
+  --badge-active-background-color: var(--primary-color-20);
   --badge-active-text-color: var(--primary-color-80);
   --badge-disruptive-background-color: var(--disruptive-color-20);
   --badge-disruptive-text-color: var(--disruptive-color);

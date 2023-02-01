@@ -53,3 +53,16 @@
     right: $space-m;
   }
 }
+
+@keyframes slideUpIn {
+  0% {
+    opacity: 0;
+    transform: scaleY(0.8);
+    transform-origin: 0% 0%;
+  }
+  100% {
+    opacity: 1;
+    transform: scaleY(1);
+    transform-origin: 0% 0%;
+  }
+}
