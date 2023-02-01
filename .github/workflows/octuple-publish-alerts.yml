@@ -8,6 +8,16 @@ on:
       - completed
 
 jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+      - run: yarn
+      - run: yarn test
+
   octuple-publish-alerts:
     needs: build
     runs-on: ubuntu-latest
