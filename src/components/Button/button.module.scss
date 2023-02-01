@@ -9,6 +9,7 @@
   transition: all $motion-duration-extra-fast $motion-easing-easeinout 0s;
   white-space: nowrap;
   position: relative;
+  z-index: 0;
 
   span:not(.inner-nudge):not(.split-divider) {
     position: relative;
