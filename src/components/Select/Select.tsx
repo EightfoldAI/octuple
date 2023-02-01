@@ -213,7 +213,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
       event: React.ChangeEvent<HTMLInputElement>
     ): void => {
       const { target } = event;
-      const value: string = target?.value;
+      const value: string = target?.value || '';
       const valueLowerCase: string = value?.toLowerCase();
       setSearchQuery(valueLowerCase);
       if (loadOptions) {
