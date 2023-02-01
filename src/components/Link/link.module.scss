@@ -6,7 +6,8 @@
   &.primary {
     color: var(--anchor-color);
 
-    &:active &:hover {
+    &:active,
+    &:hover {
       color: var(--anchor-hover-color);
     }
   }
