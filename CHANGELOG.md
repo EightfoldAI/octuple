@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.25.0](https://github.com/EightfoldAI/octuple/compare/v2.24.0...v2.25.0) (2023-02-01)
+
+### Features
+
+- extend css var implementation ([#526](https://github.com/EightfoldAI/octuple/issues/526)) ([b0a3cae](https://github.com/EightfoldAI/octuple/commits/b0a3caeeef4687959650d51f6b75dca5dab8d81a))
+
+### Bug Fixes
+
+- button: update button loader z index to map to updated layout with nudge option ([#525](https://github.com/EightfoldAI/octuple/issues/525)) ([3a29afd](https://github.com/EightfoldAI/octuple/commits/3a29afd50d6d238e9162f682acd8b4f9d8371237))
+- css modules: moves keyframes into modules reducing dupes and compiled css size ([#524](https://github.com/EightfoldAI/octuple/issues/524)) ([17b9cee](https://github.com/EightfoldAI/octuple/commits/17b9cee08dbe8a335453d5c184de54c9acf79cfe))
+- picker: ensure keyboard navigation selected styles are implemented in year mode ([#523](https://github.com/EightfoldAI/octuple/issues/523)) ([3582bc4](https://github.com/EightfoldAI/octuple/commits/3582bc413c4ade3ffcb10f811df3930f010cd958))
+
 ## [2.24.0](https://github.com/EightfoldAI/octuple/compare/v2.23.0...v2.24.0) (2023-01-31)
 
 ### Features
