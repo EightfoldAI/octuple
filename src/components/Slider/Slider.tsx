@@ -18,17 +18,18 @@ import SliderContext, { SliderContextProps } from './Context';
 import Marks from './Marks';
 import Steps from './Steps';
 import {
-  LARGE_INLINE_MARGIN_OFFSET,
+  LARGE_MARKER_OFFSET,
   LARGE_THUMB_DIAMETER,
   LARGE_THUMB_RADIUS,
   Marker,
-  MEDIUM_INLINE_MARGIN_OFFSET,
+  MEDIUM_MARKER_OFFSET,
   MEDIUM_THUMB_DIAMETER,
   MEDIUM_THUMB_RADIUS,
   SliderMarker,
   SliderProps,
   SliderSize,
-  SMALL_INLINE_MARGIN_OFFSET,
+  SliderTrackColor,
+  SMALL_MARKER_OFFSET,
   SMALL_THUMB_DIAMETER,
   SMALL_THUMB_RADIUS,
   THUMB_TOOLTIP_Y_OFFSET,
@@ -84,11 +85,14 @@ export const Slider: FC<SliderProps> = React.forwardRef(
       containerClassNames,
       disabled = false,
       dots = false,
+      dotClassNames,
       dotStyle,
       formItemInput = false,
       hideMax = false,
       hideMin = false,
+      hideRail = false,
       hideThumb = false,
+      hideTrack = false,
       hideValue = false,
       id,
       included = true,
@@ -107,6 +111,7 @@ export const Slider: FC<SliderProps> = React.forwardRef(
       step = 1,
       tooltipContent,
       tooltipProps,
+      trackColor,
       type = 'default',
       value,
       valueLabel,
@@ -194,7 +199,11 @@ export const Slider: FC<SliderProps> = React.forwardRef(
     };
 
     const isMarkerSegmentActive = (markerValue: number): boolean => {
-      const markerPct = valueToPercent(markerValue, mergedMin, mergedMax);
+      const markerPct: number = valueToPercent(
+        markerValue,
+        mergedMin,
+        mergedMax
+      );
       const segmentRangeOffset: number = 1;
       return isRange
         ? markerPct >=
@@ -211,58 +220,58 @@ export const Slider: FC<SliderProps> = React.forwardRef(
     const thumbGeometry = (): {
       diameter: number;
       radius: number;
-      inlineLabelOffset: number;
+      showMarkerOffset: number;
     } => {
       switch (mergedSize) {
         case SliderSize.Large:
           return {
             diameter: LARGE_THUMB_DIAMETER,
             radius: LARGE_THUMB_RADIUS,
-            inlineLabelOffset: LARGE_INLINE_MARGIN_OFFSET,
+            showMarkerOffset: LARGE_MARKER_OFFSET,
           };
         case SliderSize.Medium:
           return {
             diameter: MEDIUM_THUMB_DIAMETER,
             radius: MEDIUM_THUMB_RADIUS,
-            inlineLabelOffset: MEDIUM_INLINE_MARGIN_OFFSET,
+            showMarkerOffset: MEDIUM_MARKER_OFFSET,
           };
         case SliderSize.Small:
           return {
             diameter: SMALL_THUMB_DIAMETER,
             radius: SMALL_THUMB_RADIUS,
-            inlineLabelOffset: SMALL_INLINE_MARGIN_OFFSET,
+            showMarkerOffset: SMALL_MARKER_OFFSET,
           };
         case SliderSize.Flex:
           if (largeScreenActive) {
             return {
               diameter: SMALL_THUMB_DIAMETER,
               radius: SMALL_THUMB_RADIUS,
-              inlineLabelOffset: SMALL_INLINE_MARGIN_OFFSET,
+              showMarkerOffset: SMALL_MARKER_OFFSET,
             };
           } else if (mediumScreenActive) {
             return {
               diameter: MEDIUM_THUMB_DIAMETER,
               radius: MEDIUM_THUMB_RADIUS,
-              inlineLabelOffset: MEDIUM_INLINE_MARGIN_OFFSET,
+              showMarkerOffset: MEDIUM_MARKER_OFFSET,
             };
           } else if (smallScreenActive) {
             return {
               diameter: MEDIUM_THUMB_DIAMETER,
               radius: MEDIUM_THUMB_RADIUS,
-              inlineLabelOffset: MEDIUM_INLINE_MARGIN_OFFSET,
+              showMarkerOffset: MEDIUM_MARKER_OFFSET,
             };
           } else if (xSmallScreenActive) {
             return {
               diameter: LARGE_THUMB_DIAMETER,
               radius: LARGE_THUMB_RADIUS,
-              inlineLabelOffset: LARGE_INLINE_MARGIN_OFFSET,
+              showMarkerOffset: LARGE_MARKER_OFFSET,
             };
           }
         default:
           return {
             diameter: MEDIUM_THUMB_DIAMETER,
             radius: MEDIUM_THUMB_RADIUS,
-            inlineLabelOffset: MEDIUM_INLINE_MARGIN_OFFSET,
+            showMarkerOffset: MEDIUM_MARKER_OFFSET,
           };
       }
     };
@@ -342,18 +351,20 @@ export const Slider: FC<SliderProps> = React.forwardRef(
       }
 
       if (!isRange) {
-        const lowerLabelOffset: number = lowerLabelRef.current.offsetWidth / 2;
-        const inlineLabelOffest: number =
-          labelPosition === 'inline' ? thumbGeometry().inlineLabelOffset : 0;
+        const lowerLabelOffset: number =
+          lowerLabelRef.current?.offsetWidth / 2 -
+          sliderRef.current?.offsetLeft;
+        const showMarkerOffest: number =
+          showMarkers === true ? thumbGeometry().showMarkerOffset : 0;
 
         if (htmlDir === 'rtl') {
           lowerLabelRef.current.style.right = `${
-            lowerThumbOffset - lowerLabelOffset + inlineLabelOffest
+            lowerThumbOffset - lowerLabelOffset - showMarkerOffest
           }px`;
           lowerLabelRef.current.style.left = 'unset';
         } else {
           lowerLabelRef.current.style.left = `${
-            lowerThumbOffset - lowerLabelOffset + inlineLabelOffest
+            lowerThumbOffset - lowerLabelOffset - showMarkerOffest
           }px`;
           lowerLabelRef.current.style.right = 'unset';
         }
@@ -532,7 +543,7 @@ export const Slider: FC<SliderProps> = React.forwardRef(
     };
 
     const changeToCloseValue = (newValue: number) => {
-      if (!disabled) {
+      if (!readOnly && !disabled) {
         let valueIndex: number = 0;
         let valueDist: number = mergedMax - mergedMin;
 
@@ -646,7 +657,7 @@ export const Slider: FC<SliderProps> = React.forwardRef(
     // Update markers when shown
     useLayoutEffect(() => {
       updateLayout();
-    }, [showLabels, showMarkers, value, values]);
+    }, [labelPosition, showLabels, showMarkers, value, values]);
 
     const context: SliderContextProps = useMemo<SliderContextProps>(
       () => ({
@@ -716,9 +727,15 @@ export const Slider: FC<SliderProps> = React.forwardRef(
             >
               <div
                 ref={railRef}
-                className={mergeClasses(styles.sliderRail, {
-                  [styles.sliderRailOpacity]: showMarkers,
-                })}
+                className={mergeClasses([
+                  styles.sliderRail,
+                  {
+                    [styles.data]: type === 'data',
+                  },
+                  {
+                    [styles.sliderRailOpacity]: !!hideTrack || !!showMarkers,
+                  },
+                ])}
                 onMouseDown={
                   !allowDisabledFocus && !readOnly ? onSliderMouseDown : null
                 }
@@ -728,7 +745,20 @@ export const Slider: FC<SliderProps> = React.forwardRef(
                 className={mergeClasses([
                   styles.sliderTrack,
                   {
-                    [styles.sliderTrackOpacity]: showMarkers || !included,
+                    [styles.green]:
+                      !!trackColor && trackColor === SliderTrackColor.Green,
+                  },
+                  {
+                    [styles.orange]:
+                      !!trackColor && trackColor === SliderTrackColor.Orange,
+                  },
+                  {
+                    [styles.red]:
+                      !!trackColor && trackColor === SliderTrackColor.Red,
+                  },
+                  {
+                    [styles.sliderTrackOpacity]:
+                      !!hideTrack || !!showMarkers || !included,
                   },
                 ])}
                 onMouseDown={
@@ -741,9 +771,23 @@ export const Slider: FC<SliderProps> = React.forwardRef(
                     return (
                       <div
                         className={mergeClasses(styles.railMarkerSegment, {
+                          [styles.data]: type === 'data',
                           [styles.active]: isMarkerSegmentActive(mark.value),
+                          [styles.green]:
+                            isMarkerSegmentActive(mark.value) &&
+                            !!trackColor &&
+                            trackColor === SliderTrackColor.Green,
+                          [styles.orange]:
+                            isMarkerSegmentActive(mark.value) &&
+                            !!trackColor &&
+                            trackColor === SliderTrackColor.Orange,
+                          [styles.red]:
+                            isMarkerSegmentActive(mark.value) &&
+                            !!trackColor &&
+                            trackColor === SliderTrackColor.Red,
                           [styles.railMarkerSegmentHidden]:
                             index === markers.length - 1,
+                          [styles.railMarkerSegmentOpacity]: !!hideTrack,
                         })}
                         key={index}
                         onMouseDown={
@@ -760,8 +804,11 @@ export const Slider: FC<SliderProps> = React.forwardRef(
               <Steps
                 activeStyle={activeDotStyle}
                 dots={dots}
+                classNames={dotClassNames}
                 marks={markList}
                 style={dotStyle}
+                trackColor={trackColor}
+                type={type}
               />
               <Marks
                 marks={markList}
@@ -771,17 +818,18 @@ export const Slider: FC<SliderProps> = React.forwardRef(
               />
               {values.map((val: number, index: number) => (
                 <Tooltip
+                  classNames={mergeClasses([
+                    styles.sliderTooltip,
+                    tooltipProps?.classNames,
+                  ])}
+                  content={getTooltipContentByValue(val)}
+                  key={`value-tooltip-${index}`}
                   offset={thumbGeometry().diameter + THUMB_TOOLTIP_Y_OFFSET}
                   placement={'top'}
                   portal
                   portalRoot={sliderRef.current}
                   theme={TooltipTheme.dark}
                   {...tooltipProps}
-                  classNames={mergeClasses([
-                    styles.sliderTooltip,
-                    tooltipProps?.classNames,
-                  ])}
-                  content={getTooltipContentByValue(val)}
                   tooltipStyle={getTooltipStyles(
                     htmlDir,
                     tooltipProps?.style,
@@ -812,6 +860,7 @@ export const Slider: FC<SliderProps> = React.forwardRef(
                     max={mergedMax}
                     name={getIdentifier(name, index)}
                     type="range"
+                    readOnly={readOnly}
                     step={mergedStep}
                     value={val}
                   />

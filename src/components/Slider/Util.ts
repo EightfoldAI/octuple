@@ -11,7 +11,7 @@ export const getDirectionStyle = (
   min: number,
   max: number
 ): React.CSSProperties => {
-  const offset = getOffset(value, min, max);
+  const offset: number = getOffset(value, min, max);
 
   const positionStyle: React.CSSProperties = {};
 

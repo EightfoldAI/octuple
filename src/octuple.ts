@@ -109,7 +109,12 @@ import {
 
 import { Select, SelectShape, SelectSize } from './components/Select';
 
-import { Slider, SliderMarks } from './components/Slider';
+import {
+  Slider,
+  SliderMarks,
+  SliderSize,
+  SliderTrackColor,
+} from './components/Slider';
 
 import { SnackbarContainer, Snackbar, snack } from './components/Snackbar';
 
@@ -295,6 +300,8 @@ export {
   Slide,
   Slider,
   SliderMarks,
+  SliderSize,
+  SliderTrackColor,
   snack,
   Snackbar,
   SnackbarContainer,
