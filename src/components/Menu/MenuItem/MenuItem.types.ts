@@ -94,6 +94,10 @@ export interface MenuItemLinkProps
    * Display label of the menu item
    */
   text?: string;
+  /**
+   * Display sub text of the menu item
+   */
+  subText?: string;
 }
 
 export interface MenuItemSubHeaderProps
