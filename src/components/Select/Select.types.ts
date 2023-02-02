@@ -129,6 +129,11 @@ export interface SelectProps extends OcBaseProps<HTMLDivElement> {
    */
   shape?: SelectShape | Shape;
   /**
+   * Pass `true` to show `emptyText` when zero `options` are passed.
+   * @default true
+   */
+  showEmptyDropdown?: boolean;
+  /**
    * The select size.
    * @default SelectSize.Medium
    */

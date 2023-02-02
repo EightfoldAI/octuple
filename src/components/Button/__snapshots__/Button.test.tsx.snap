@@ -30,6 +30,35 @@ exports[`Button Button is large 1`] = `
 </div>
 `;
 
+exports[`Button Button is loading 1`] = `
+<div>
+  <button
+    aria-disabled="true"
+    class="button button-primary button-medium pill-shape loading"
+    disabled=""
+  >
+    <span
+      class="button-text-medium"
+    >
+      test
+    </span>
+    <div
+      class="loader-container loader"
+    >
+      <div
+        class="dot medium"
+      />
+      <div
+        class="dot medium"
+      />
+      <div
+        class="dot medium"
+      />
+    </div>
+  </button>
+</div>
+`;
+
 exports[`Button Button is medium 1`] = `
 <div>
   <button
