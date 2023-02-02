@@ -114,6 +114,13 @@ const LinkOverlay = (args: any) => (
         href: 'https://facebook.com',
         target: '_blank',
       },
+      {
+        type: MenuItemType.link,
+        text: 'Facebook link',
+        subText: 'This is a sub text',
+        href: 'https://facebook.com',
+        target: '_blank',
+      },
     ]}
     onChange={(item) => {
       args.onChange(item);
