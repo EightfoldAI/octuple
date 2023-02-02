@@ -4,7 +4,7 @@ import Enzyme, { mount, ReactWrapper } from 'enzyme';
 import MatchMediaMock from 'jest-matchmedia-mock';
 import { render, fireEvent } from '@testing-library/react';
 
-import { Slider } from './';
+import { Slider, SliderTrackColor } from './';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -143,8 +143,18 @@ describe('Slider', () => {
     expect(vals[1]).toEqual(10);
   });
 
+  test('should render normally when `hideRail=true`', () => {
+    const { container } = render(<Slider hideRail value={50} />);
+    expect(() => container).not.toThrowError();
+  });
+
   test('should render normally when `hideThumb=true`', () => {
     const { container } = render(<Slider hideThumb value={50} />);
+    expect(() => container).not.toThrowError();
+  });
+
+  test('should render normally when `hideTrack=true`', () => {
+    const { container } = render(<Slider hideTrack value={50} />);
     expect(() => container).not.toThrowError();
   });
 
@@ -168,6 +178,16 @@ describe('Slider', () => {
     expect(container2.getElementsByClassName('slider-dot')).toHaveLength(11);
     expect(container2.getElementsByClassName('slider-dot-active')).toHaveLength(
       4
+    );
+  });
+
+  test('should render dots with custom class', () => {
+    const { container: container1 } = render(
+      <Slider value={50} step={10} dots dotClassNames="dot-test-class" />
+    );
+    expect(container1.getElementsByClassName('slider-dot')).toHaveLength(11);
+    expect(container1.getElementsByClassName('dot-test-class')).toHaveLength(
+      11
     );
   });
 
@@ -256,5 +276,26 @@ describe('Slider', () => {
     expect(
       container.getElementsByClassName('thumb')[0].getAttribute('value')
     ).toBe('30');
+  });
+
+  test('should render green track color', () => {
+    const { container: container1 } = render(
+      <Slider value={50} step={10} trackColor={SliderTrackColor.Green} />
+    );
+    expect(container1.getElementsByClassName('green')).toHaveLength(1);
+  });
+
+  test('should render orange track color', () => {
+    const { container: container1 } = render(
+      <Slider value={50} step={10} trackColor={SliderTrackColor.Orange} />
+    );
+    expect(container1.getElementsByClassName('orange')).toHaveLength(1);
+  });
+
+  test('should render red track color', () => {
+    const { container: container1 } = render(
+      <Slider value={50} step={10} trackColor={SliderTrackColor.Red} />
+    );
+    expect(container1.getElementsByClassName('red')).toHaveLength(1);
   });
 });
