@@ -1,15 +1,95 @@
 .link-style {
   cursor: pointer;
+  display: inline-block;
   font-family: $octuple-font-family;
   font-size: $text-font-size-2;
+  text-decoration: underline;
+  width: fit-content;
+
+  &.neutral {
+    color: var(--anchor-color-neutral);
+
+    &:active {
+      color: var(--anchor-active-color-neutral);
+    }
+
+    &:hover {
+      color: var(--anchor-hover-color-neutral);
+    }
+
+    &:visited {
+      color: var(--anchor-visited-color-neutral);
+    }
+  }
 
   &.primary {
-    color: var(--anchor-color);
+    color: var(--anchor-color-primary);
 
-    &:active,
-    &:hover {
-      color: var(--anchor-hover-color);
+    &:active {
+      color: var(--anchor-active-color-primary);
     }
+
+    &:hover {
+      color: var(--anchor-hover-color-primary);
+    }
+
+    &:visited {
+      color: var(--anchor-visited-color-primary);
+    }
+  }
+
+  &.secondary {
+    color: var(--anchor-color-secondary);
+
+    &:active {
+      color: var(--anchor-active-color-secondary);
+    }
+
+    &:hover {
+      color: var(--anchor-hover-color-secondary);
+    }
+
+    &:visited {
+      color: var(--anchor-visited-color-secondary);
+    }
+  }
+
+  &.disruptive {
+    color: var(--anchor-color-disruptive);
+
+    &:active {
+      color: var(--anchor-active-color-disruptive);
+    }
+
+    &:hover {
+      color: var(--anchor-hover-color-disruptive);
+    }
+
+    &:visited {
+      color: var(--anchor-visited-color-disruptive);
+    }
+  }
+
+  &.disruptive,
+  &.neutral,
+  &.primary,
+  &.secondary {
+    text-decoration: none;
+  }
+
+  &:active:not(.disabled),
+  &:hover:not(.disabled) {
+    text-decoration: underline;
+  }
+
+  &.underline {
+    text-decoration: underline;
+  }
+
+  &.disabled {
+    cursor: not-allowed;
+    opacity: $disabled-alpha-value;
+    text-decoration: none;
   }
 
   // Hides the browser default keyboard focus-visible styles.
@@ -24,6 +104,7 @@
     &.focus-visible,
     &:focus-visible {
       box-shadow: var(--focus-visible-box-shadow);
+      text-decoration: underline;
     }
   }
 }
