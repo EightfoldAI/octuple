@@ -1,0 +1,167 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button Button is default 1`] = `
+<div>
+  <button
+    aria-disabled="false"
+    class="button button-default button-medium pill-shape"
+  >
+    <span
+      class="button-text-medium"
+    >
+      test default
+    </span>
+  </button>
+</div>
+`;
+
+exports[`Button Button is large 1`] = `
+<div>
+  <button
+    aria-disabled="false"
+    class="button button-primary button-large pill-shape"
+  >
+    <span
+      class="button-text-large"
+    >
+      test
+    </span>
+  </button>
+</div>
+`;
+
+exports[`Button Button is loading 1`] = `
+<div>
+  <button
+    aria-disabled="true"
+    class="button button-primary button-medium pill-shape loading"
+    disabled=""
+  >
+    <span
+      class="button-text-medium"
+    >
+      test
+    </span>
+    <div
+      class="loader-container loader"
+    >
+      <div
+        class="dot medium"
+      />
+      <div
+        class="dot medium"
+      />
+      <div
+        class="dot medium"
+      />
+    </div>
+  </button>
+</div>
+`;
+
+exports[`Button Button is medium 1`] = `
+<div>
+  <button
+    aria-disabled="false"
+    class="button button-primary button-medium pill-shape"
+  >
+    <span
+      class="button-text-medium"
+    >
+      test
+    </span>
+  </button>
+</div>
+`;
+
+exports[`Button Button is neutral 1`] = `
+<div>
+  <button
+    aria-disabled="false"
+    class="button button-neutral button-medium pill-shape"
+  >
+    <span
+      class="button-text-medium"
+    >
+      test neutral
+    </span>
+  </button>
+</div>
+`;
+
+exports[`Button Button is primary 1`] = `
+<div>
+  <button
+    aria-disabled="false"
+    class="button button-primary button-medium pill-shape"
+  >
+    <span
+      class="button-text-medium"
+    >
+      test
+    </span>
+  </button>
+</div>
+`;
+
+exports[`Button Button is secondary 1`] = `
+<div>
+  <button
+    aria-disabled="false"
+    class="button button-secondary button-medium pill-shape"
+  >
+    <span
+      class="button-text-medium"
+    >
+      test secondary
+    </span>
+  </button>
+</div>
+`;
+
+exports[`Button Button is small 1`] = `
+<div>
+  <button
+    aria-disabled="false"
+    class="button button-primary button-small pill-shape"
+  >
+    <span
+      class="button-text-small"
+    >
+      test
+    </span>
+  </button>
+</div>
+`;
+
+exports[`Button Button is system ui 1`] = `
+<div>
+  <button
+    aria-disabled="false"
+    class="button button-system-ui button-medium pill-shape"
+  >
+    <span
+      class="button-text-medium"
+    >
+      test system ui
+    </span>
+  </button>
+</div>
+`;
+
+exports[`Button simulate click on disabled button 1`] = `
+<div>
+  <button
+    aria-disabled="true"
+    class="button button-primary button-medium pill-shape disabled"
+    data-testid="button-3"
+    disabled=""
+  >
+    <span
+      class="button-text-medium"
+    >
+      test Button
+    </span>
+  </button>
+</div>
+`;

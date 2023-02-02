@@ -208,6 +208,7 @@
   --backdrop-filter: blur(5px);
 
   --anchor-color: var(--primary-color-70);
+  --anchor-hover-color: var(--primary-color-90);
   --horizontal-rule-color: var(--grey-color-40);
 
   --focus-visible-shadow-color: var(--blueviolet-color-50);
@@ -220,6 +221,7 @@
   --border-radius-m: 8px;
   --border-radius-l: 16px;
   --border-radius-xl: 24px;
+  --border-radius-round: 50%;
 
   // ------ Input theme ------
   --input-border-color: var(--grey-color-60);
@@ -227,6 +229,24 @@
   --input-border-color-hover: var(--input-border-color-active);
   --input-border-color-underline-active: var(--primary-color-70);
   --input-border-color-underline-hover: var(--input-border-color-active);
+  --input-background-color: var(--background-color);
+  --input-border-color: var(--grey-color-60);
+  --input-border-color-active: var(--grey-color-80);
+  --input-text-color: var(--text-primary-color);
+  --input-placeholder-text-color: var(--text-secondary-color);
+  --input-readonly-background-color: var(--grey-color-10);
+  --input-readonly-text-color: var(--text-primary-color);
+  --input-success-text-color: var(--text-primary-color);
+  --input-success-border-color: var(--input-border-color);
+  --input-success-text-color: var(--text-primary-color);
+  --input-success-border-color: var(--input-border-color);
+  --input-warning-text-color: var(--warning-color);
+  --input-warning-border-color: var(--warning-color);
+  --input-warning-placeholder-color: var(--warning-color);
+  --input-error-text-color: var(--error-color);
+  --input-error-border-color: var(--error-color);
+  --input-error-placeholder-color: var(--error-color);
+  --input-disabled-placeholder-text-color: var(--text-tertiary-color);
 
   // ------ Tabs theme ------
   --tab-label: var(--text-secondary-color);
@@ -373,8 +393,14 @@
   // ------ Generic button vars ------
   --button-font-family: var(--font-stack-full);
   --button-border-radius: var(--border-radius-s);
-  --button-round-shape-border-radius: 50%;
+  --button-round-shape-border-radius: var(--border-radius-round);
   --button-pill-shape-border-radius: var(--border-radius-xl);
+  --button-nudge-background-color-primary: var(--white-color);
+  --button-nudge-background-color-secondary: var(--accent-color-20);
+  --button-nudge-background-color-tertiary: var(--white-color);
+  --button-nudge-gradient-color-one: var(--primary-color-60);
+  --button-nudge-gradient-color-two: var(--primary-color-20);
+  --button-nudge-gradient-color-three: var(--primary-color-60);
   // TODO: button text/font related vars
   // ------ Generic button vars ------
 
@@ -402,16 +428,14 @@
 
   // ------ Default Disruptive Button theme ------
   --button-default-disruptive-text-color: var(--disruptive-color-70);
-  --button-default-disruptive-background-color: var(--background-color);
+  --button-default-disruptive-background-color: var(--disruptive-color-10);
   --button-default-disruptive-border-width: 0;
   --button-default-disruptive-border-style: solid;
   --button-default-disruptive-border-color: var(
     --button-default-disruptive-background-color
   );
   --button-default-disruptive-hover-text-color: var(--disruptive-color-70);
-  --button-default-disruptive-hover-background-color: var(
-    --disruptive-color-10
-  );
+  --button-default-disruptive-hover-background-color: var(--background-color);
   --button-default-disruptive-hover-border-width: var(
     --button-default-disruptive-border-width
   );
@@ -556,17 +580,19 @@
 
   // ------ Button Counter theme ------
   --button-counter-default-background-color: var(--grey-color-20);
-  --button-counter-hover-background-color: var(--primary-color-20);
-  --button-counter-checked-background-color: var(--primary-color-10);
-  --button-counter-focus-background-color: var(--primary-color-20);
-  --button-counter-active-background-color: var(--primary-color-10);
+  --button-counter-hover-background-color: var(--grey-color-20);
+  --button-counter-checked-background-color: var(--grey-color-10);
+  --button-counter-focus-background-color: var(--grey-color-20);
+  --button-counter-active-background-color: var(--grey-color-10);
+  --button-counter-default-text-color: var(--primary-color-80);
   // ------ Button Counter theme ------
 
   // ------ Badge theme ------
   --badge-font-family: var(--font-stack-full);
   --badge-background-color: var(--grey-color-20);
+  --badge-border-radius: 6px;
   --badge-text-color: var(--grey-color-80);
-  --badge-active-background-color: var(--accent-color-30);
+  --badge-active-background-color: var(--primary-color-20);
   --badge-active-text-color: var(--primary-color-80);
   --badge-disruptive-background-color: var(--disruptive-color-20);
   --badge-disruptive-text-color: var(--disruptive-color);
@@ -582,7 +608,18 @@
   --card-background-color: var(--background-color);
   --card-font-family: var(--font-stack-full);
   --card-text-color: var(--black-color);
+  --card-border-color: var(--grey-color-20);
   --card-border-radius: var(--border-radius-xl);
+  --card-border-width: 1px;
+  --card-border-style: solid;
+  --card-border: var(--card-border-width) var(--card-border-style)
+    var(--card-border-color);
+  --card-hover-box-shadow: 0 4px 16px 0 #0f141f29;
+
+  // TODO: component implementation
+  --card-selected-border: 1px solid var(--blue-color-60);
+  --card-selected-box-shadow: 0px 1px 2px rgba(15, 20, 31, 0.12);
+  --card-hover-border: 1px solid var(--grey-color-30);
   // ------ Card theme ------
 
   // ------ Info Bar theme ------
@@ -632,4 +669,29 @@
   );
   --step-timeline-complete-border-color: var(--step-timeline-background-color);
   --step-timeline-complete-icon-color: var(--step-timeline-icon-color);
+
+  // ------ Highlight box theme ------
+  --highlight-background-color: var(--yellowgreen-color-10);
+  --highlight-border-color: var(--yellowgreen-color-30);
+  --highlight-foreground-color: var(--yellowgreen-color-80);
+  // ------ Highlight box theme ------
+
+  // ------ Dropdown theme ------
+  --dropdown-background-color: var(--background-color);
+  // ------ Dropdown theme ------
+
+  // ------ Skeleton theme ------
+  --skeleton-background-color: var(--grey-color-10);
+  --skeleton-shimmer-color: #eaedf1;
+  --skeleton-wave-background: linear-gradient(
+    90deg,
+    transparent,
+    var(--skeleton-shimmer-color),
+    transparent
+  );
+  // ------ Skeleton theme ------
+
+  // ------ Spinner theme ------
+  --spinner-color: var(--primary-color);
+  // ------ Spinner theme ------
 }

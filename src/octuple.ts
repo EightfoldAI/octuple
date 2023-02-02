@@ -79,6 +79,8 @@ import { Modal, ModalSize } from './components/Modal';
 
 import { Navbar, NavbarContent } from './components/Navbar';
 
+import { NudgeAnimation } from './components/Button/Nudge';
+
 import { Pagination, PaginationLayoutOptions } from './components/Pagination';
 
 import { PersistentBar, PersistentBarType } from './components/PersistentBar';
@@ -255,6 +257,7 @@ export {
   Navbar,
   NavbarContent,
   NeutralButton,
+  NudgeAnimation,
   OcFile,
   OcThemeName,
   Pagination,

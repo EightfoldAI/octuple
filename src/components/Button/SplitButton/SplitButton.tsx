@@ -1,4 +1,4 @@
-import React, { FC, Ref, useContext } from 'react';
+import React, { FC, Ref, useContext, useRef } from 'react';
 import DisabledContext, {
   Disabled,
 } from '../../ConfigProvider/DisabledContext';
@@ -11,15 +11,18 @@ import {
   SplitButtonProps,
 } from '../';
 import { Icon, IconName, IconSize } from '../../Icon';
+import { InnerNudge, NudgeAnimation } from '../Nudge';
 import { Breakpoints, useMatchMedia } from '../../../hooks/useMatchMedia';
 import { mergeClasses } from '../../../shared/utilities';
 import { useCanvasDirection } from '../../../hooks/useCanvasDirection';
+import { useMergedRefs } from '../../../hooks/useMergedRefs';
+import { useNudge } from '../Nudge/Hooks/useNudge';
 
 import styles from '../button.module.scss';
 
 export const SplitButton: FC<SplitButtonProps> = React.forwardRef(
-  (
-    {
+  (props: SplitButtonProps, ref: Ref<HTMLButtonElement>) => {
+    const {
       alignText = ButtonTextAlign.Center,
       allowDisabledFocus = false,
       ariaLabel,
@@ -34,6 +37,7 @@ export const SplitButton: FC<SplitButtonProps> = React.forwardRef(
       dropShadow = false,
       iconProps,
       id,
+      nudgeProps,
       onClick,
       shape = ButtonShape.Pill,
       size = ButtonSize.Medium,
@@ -41,13 +45,16 @@ export const SplitButton: FC<SplitButtonProps> = React.forwardRef(
       style,
       type,
       ...rest
-    },
-    ref: Ref<HTMLButtonElement>
-  ) => {
+    } = props;
     const largeScreenActive: boolean = useMatchMedia(Breakpoints.Large);
     const mediumScreenActive: boolean = useMatchMedia(Breakpoints.Medium);
     const smallScreenActive: boolean = useMatchMedia(Breakpoints.Small);
     const xSmallScreenActive: boolean = useMatchMedia(Breakpoints.XSmall);
+
+    const internalRef: React.MutableRefObject<HTMLButtonElement> =
+      useRef<HTMLButtonElement>(null);
+
+    const mergedRef = useMergedRefs(internalRef, ref);
 
     const htmlDir: string = useCanvasDirection();
 
@@ -60,6 +67,11 @@ export const SplitButton: FC<SplitButtonProps> = React.forwardRef(
     const mergedSize = configContextProps.noSizeContext
       ? size
       : contextuallySized || size;
+
+    const innerNudgeRef: React.MutableRefObject<HTMLSpanElement> =
+      useRef<HTMLSpanElement>(null);
+
+    useNudge(disruptive, nudgeProps, [internalRef, innerNudgeRef]);
 
     const splitButtonClassNames: string = mergeClasses([
       classNames,
@@ -88,6 +100,12 @@ export const SplitButton: FC<SplitButtonProps> = React.forwardRef(
       { [styles.splitRight]: split },
       {
         [styles.disabled]: allowDisabledFocus || mergedDisabled,
+      },
+      {
+        [styles.buttonConic]:
+          !disruptive &&
+          nudgeProps?.enabled &&
+          nudgeProps?.animation === NudgeAnimation.Conic,
       },
     ]);
 
@@ -171,7 +189,7 @@ export const SplitButton: FC<SplitButtonProps> = React.forwardRef(
     return (
       <button
         {...rest}
-        ref={ref}
+        ref={mergedRef}
         aria-checked={split ? !!checked : undefined}
         aria-disabled={mergedDisabled}
         aria-label={ariaLabel}
@@ -184,13 +202,28 @@ export const SplitButton: FC<SplitButtonProps> = React.forwardRef(
         style={style}
         type="button"
       >
-        {htmlDir === 'rtl' && (
-          <span className={splitDividerClassNames} aria-hidden="true"></span>
-        )}
+        <InnerNudge
+          classNames={mergeClasses([
+            styles.innerNudge,
+            {
+              [styles.conic]: nudgeProps?.animation === NudgeAnimation.Conic,
+            },
+          ])}
+          disruptive={disruptive}
+          id={id ? `${id}-nudge` : 'split-nudge'}
+          nudgeProps={nudgeProps}
+          ref={innerNudgeRef}
+          style={style}
+        />
+        {nudgeProps?.animation !== NudgeAnimation.Conic &&
+          htmlDir === 'rtl' && (
+            <span className={splitDividerClassNames} aria-hidden="true"></span>
+          )}
         {getButtonIcon()}
-        {htmlDir !== 'rtl' && (
-          <span className={splitDividerClassNames} aria-hidden="true"></span>
-        )}
+        {nudgeProps?.animation !== NudgeAnimation.Conic &&
+          htmlDir !== 'rtl' && (
+            <span className={splitDividerClassNames} aria-hidden="true"></span>
+          )}
       </button>
     );
   }

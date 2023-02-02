@@ -122,7 +122,7 @@
             background: var(--step-default-background-color);
             border-color: var(--step-default-border-color);
             border-style: solid;
-            border-radius: 50%;
+            border-radius: var(--border-radius-round);
             border-width: 1px;
             color: var(--step-default-icon-color);
             display: flex;
@@ -171,7 +171,7 @@
           }
 
           .circle-button {
-            border-radius: 50%;
+            border-radius: var(--border-radius-round);
             display: flex;
             flex-direction: row;
             height: 44px;

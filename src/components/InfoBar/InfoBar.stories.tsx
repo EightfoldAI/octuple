@@ -75,7 +75,7 @@ const infoBarArgs: Object = {
   },
   closeIcon: IconName.mdiClose,
   icon: IconName.mdiCheckCircle,
-  role: 'presentation',
+  role: 'alert',
   type: InfoBarType.positive,
 };
 

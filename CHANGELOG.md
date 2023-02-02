@@ -2,6 +2,43 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.25.0](https://github.com/EightfoldAI/octuple/compare/v2.24.0...v2.25.0) (2023-02-01)
+
+### Features
+
+- extend css var implementation ([#526](https://github.com/EightfoldAI/octuple/issues/526)) ([b0a3cae](https://github.com/EightfoldAI/octuple/commits/b0a3caeeef4687959650d51f6b75dca5dab8d81a))
+
+### Bug Fixes
+
+- button: update button loader z index to map to updated layout with nudge option ([#525](https://github.com/EightfoldAI/octuple/issues/525)) ([3a29afd](https://github.com/EightfoldAI/octuple/commits/3a29afd50d6d238e9162f682acd8b4f9d8371237))
+- css modules: moves keyframes into modules reducing dupes and compiled css size ([#524](https://github.com/EightfoldAI/octuple/issues/524)) ([17b9cee](https://github.com/EightfoldAI/octuple/commits/17b9cee08dbe8a335453d5c184de54c9acf79cfe))
+- picker: ensure keyboard navigation selected styles are implemented in year mode ([#523](https://github.com/EightfoldAI/octuple/issues/523)) ([3582bc4](https://github.com/EightfoldAI/octuple/commits/3582bc413c4ade3ffcb10f811df3930f010cd958))
+
+## [2.24.0](https://github.com/EightfoldAI/octuple/compare/v2.23.0...v2.24.0) (2023-01-31)
+
+### Features
+
+- button: adds button nudge animation ([#513](https://github.com/EightfoldAI/octuple/issues/513)) ([69911fd](https://github.com/EightfoldAI/octuple/commits/69911fd382121092c5b88534e5e5be4983093c7d))
+
+### Bug Fixes
+
+- badge: updates color palette to match the latest design and improves accessibililty ([#518](https://github.com/EightfoldAI/octuple/issues/518)) ([9831512](https://github.com/EightfoldAI/octuple/commits/98315124e665481f5b59c7d589b851fce2515824))
+- slider: update state when value changes externally ([#520](https://github.com/EightfoldAI/octuple/issues/520)) ([96dd188](https://github.com/EightfoldAI/octuple/commits/96dd188dcc8f10f3c16eda7b4b6b0081e189c17f))
+
+## [2.23.0](https://github.com/EightfoldAI/octuple/compare/v2.22.0...v2.23.0) (2023-01-27)
+
+### Features
+
+- pill text ellipse ([#511](https://github.com/EightfoldAI/octuple/issues/511)) ([0211fc2](https://github.com/EightfoldAI/octuple/commits/0211fc2f818c61fc54e3eb1bce26f3dc465fc5c0))
+- pill: enable white theme and custom close icon ([#510](https://github.com/EightfoldAI/octuple/issues/510)) ([f97a7df](https://github.com/EightfoldAI/octuple/commits/f97a7dfe9d490aea9d63a1a60bd3a0b0c1e13ba9))
+
+### Bug Fixes
+
+- dropdown now stays within the viewport ([#512](https://github.com/EightfoldAI/octuple/issues/512)) ([d93f0fd](https://github.com/EightfoldAI/octuple/commits/d93f0fd82ab6f6f33ba62dfa6c5df13d5bad59ab))
+- infobar: updates the default role prop value to alert ([#516](https://github.com/EightfoldAI/octuple/issues/516)) ([a8614a6](https://github.com/EightfoldAI/octuple/commits/a8614a63c1f66310dc0553fc88b5a511683d4488))
+- pagination: disable next button only when current page is equal to total page count ([#509](https://github.com/EightfoldAI/octuple/issues/509)) ([50588d2](https://github.com/EightfoldAI/octuple/commits/50588d26cc2f8adcae798a7b5dea0b376c5c1127))
+- pill: handle jsx when lineclamp is null or zero ([#515](https://github.com/EightfoldAI/octuple/issues/515)) ([7c46458](https://github.com/EightfoldAI/octuple/commits/7c464584ef29c8dc56dfd9ffae7b13a0d15029e1))
+
 ## [2.22.0](https://github.com/EightfoldAI/octuple/compare/v2.21.1...v2.22.0) (2023-01-19)
 
 ### Features

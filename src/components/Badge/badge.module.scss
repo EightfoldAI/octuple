@@ -1,7 +1,7 @@
 .badge {
   @include octuple-h6();
   background-color: var(--badge-background-color);
-  border-radius: $space-m;
+  border-radius: var(--badge-border-radius);
   color: var(--badge-text-color);
   font-family: var(--badge-font-family);
   padding: 0 $space-xxs;

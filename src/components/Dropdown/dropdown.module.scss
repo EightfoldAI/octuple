@@ -20,7 +20,7 @@
 }
 
 .dropdown-wrapper {
-  background: var(--background-color);
+  background: var(--dropdown-background-color);
   padding: $space-xs;
   box-shadow: $shadow-object-m;
   border-radius: $border-radius-xl;
@@ -30,7 +30,7 @@
   opacity: 0;
   white-space: normal;
   z-index: $z-index-400;
-  max-height: min(50vh, 600px);
+  max-height: min(45vh, 600px);
   overflow-y: auto;
 
   &.open {
@@ -45,5 +45,36 @@
 
   &.no-padding {
     padding: 0;
+  }
+}
+
+@keyframes slideUpIn {
+  0% {
+    opacity: 0;
+    transform: scaleY(0.8);
+    transform-origin: 0% 0%;
+  }
+  100% {
+    opacity: 1;
+    transform: scaleY(1);
+    transform-origin: 0% 0%;
+  }
+}
+
+@keyframes slideUpOut {
+  0% {
+    opacity: 1;
+    transform: scaleY(1);
+    transform-origin: 0% 0%;
+  }
+  20% {
+    opacity: 1;
+    transform: scaleY(1);
+    transform-origin: 0% 0%;
+  }
+  100% {
+    opacity: 0;
+    transform: scaleY(0.8);
+    transform-origin: 0% 0%;
   }
 }
