@@ -13,6 +13,7 @@ export const MenuItemLink: FC<MenuItemLinkProps> = ({
   active,
   classNames,
   text,
+  subText,
   iconProps,
   counter,
   ...rest
@@ -31,11 +32,26 @@ export const MenuItemLink: FC<MenuItemLinkProps> = ({
     },
     classNames,
   ]);
+
+  const itemSubTextClasses: string = mergeClasses([
+    styles.itemSubText,
+    {
+      [styles.small]: size === MenuSize.small,
+      [styles.medium]: size === MenuSize.medium,
+      [styles.large]: size === MenuSize.large,
+    },
+  ]);
+
   return (
     <Link classNames={menuItemClasses} {...rest} role="menuitem">
       {iconProps && <Icon {...iconProps} />}
-      <span className={styles.label}>{text}</span>
-      {counter && <span>{counter}</span>}
+      <span className={styles.menuItemWrapper}>
+        <span className={styles.itemText}>
+          <span className={styles.label}>{text}</span>
+          {counter && <span>{counter}</span>}
+        </span>
+        {subText && <span className={itemSubTextClasses}>{subText}</span>}
+      </span>
     </Link>
   );
 };
