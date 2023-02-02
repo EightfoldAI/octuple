@@ -208,7 +208,25 @@
   --backdrop-filter: blur(5px);
 
   --anchor-color: var(--primary-color-70);
+  --anchor-disruptive-color: var(--disruptive-color-70);
+  --anchor-neutral-color: var(--grey-color-70);
+  --anchor-primary-color: var(--primary-color-70);
+  --anchor-secondary-color: var(--grey-color-90);
+  --anchor-active-color: var(--primary-color-80);
+  --anchor-disruptive-active-color: var(--disruptive-color-80);
+  --anchor-neutral-active-color: var(--grey-color-80);
+  --anchor-primary-active-color: var(--primary-color-80);
+  --anchor-secondary-active-color: var(--grey-color-90);
   --anchor-hover-color: var(--primary-color-90);
+  --anchor-disruptive-hover-color: var(--disruptive-color-70);
+  --anchor-neutral-hover-color: var(--primary-color-70);
+  --anchor-primary-hover-color: var(--primary-color-70);
+  --anchor-secondary-hover-color: var(--primary-color-70);
+  --anchor-visited-color: var(--violet-color-70);
+  --anchor-disruptive-visited-color: var(--violet-color-70);
+  --anchor-neutral-visited-color: var(--violet-color-70);
+  --anchor-primary-visited-color: var(--violet-color-70);
+  --anchor-secondary-visited-color: var(--violet-color-80);
   --horizontal-rule-color: var(--grey-color-40);
 
   --focus-visible-shadow-color: var(--blueviolet-color-50);
