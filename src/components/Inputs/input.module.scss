@@ -13,11 +13,11 @@
 
   input {
     @include text-overflow;
-    background-color: var(--background-color);
+    background-color: var(--input-background-color);
     border: 1px solid var(--input-border-color);
     border-radius: $border-radius-m;
     box-sizing: border-box;
-    color: var(--text-primary-color);
+    color: var(--input-text-color);
     font-family: $octuple-font-family;
     font-size: $text-font-size-3;
     line-height: $text-line-height-1;
@@ -26,6 +26,10 @@
 
     &::-webkit-search-cancel-button {
       -webkit-appearance: none;
+    }
+
+    &::placeholder {
+      color: var(--input-placeholder-text-color);
     }
 
     &.with-icon,
@@ -140,8 +144,8 @@
     }
 
     &.read-only {
-      background-color: var(--grey-color-10);
-      color: var(--text-primary-color);
+      background-color: var(--input-readonly-background-color);
+      color: var(--input-readonly-text-color);
     }
 
     &:focus ~ .icon-button {
@@ -163,7 +167,7 @@
     }
 
     &:disabled::placeholder {
-      color: var(--text-primary-color);
+      color: var(--input-disabled-placeholder-text-color);
     }
 
     &.pill-shape {
@@ -290,25 +294,25 @@
     }
 
     &.status-success {
-      color: var(--text-primary-color);
-      border-color: var(--input-border-color);
+      color: var(--input-success-text-color);
+      border-color: var(--input-success-border-color);
     }
 
     &.status-warning {
-      color: var(--warning-color);
-      border-color: var(--warning-color);
+      color: var(--input-warning-text-color);
+      border-color: var(--input-warning-border-color);
 
       &::placeholder {
-        color: var(--warning-color);
+        color: var(--input-warning-placeholder-color);
       }
     }
 
     &.status-error {
-      color: var(--error-color);
-      border-color: var(--error-color);
+      color: var(--input-error-text-color);
+      border-color: var(--input-error-border-color);
 
       &::placeholder {
-        color: var(--error-color);
+        color: var(--input-error-placeholder-color);
       }
     }
 
@@ -957,11 +961,11 @@
   }
 
   .text-area {
-    background-color: var(--background-color);
+    background-color: var(--input-background-color);
     border: 1px solid var(--input-border-color);
     border-radius: $border-radius-m;
     box-sizing: border-box;
-    color: var(--text-primary-color);
+    color: var(--input-text-color);
     font-family: $octuple-font-family;
     font-size: $text-font-size-3;
     line-height: $text-line-height-4;
@@ -994,8 +998,8 @@
     }
 
     &.read-only {
-      background-color: var(--grey-color-10);
-      color: var(--text-primary-color);
+      background-color: var(--input-readonly-background-color);
+      color: var(--input-readonly-text-color);
     }
 
     &:hover:not([disabled]):not(.underline) {
@@ -1003,25 +1007,25 @@
     }
 
     &.status-success {
-      color: var(--text-primary-color);
-      border-color: var(--input-border-color);
+      color: var(--input-success-text-color);
+      border-color: var(--input-success-border-color);
     }
 
     &.status-warning {
-      color: var(--warning-color);
-      border-color: var(--warning-color);
+      color: var(--input-warning-text-color);
+      border-color: var(--input-warning-border-color);
 
       &::placeholder {
-        color: var(--warning-color);
+        color: var(--input-warning-text-color);
       }
     }
 
     &.status-error {
-      color: var(--error-color);
-      border-color: var(--error-color);
+      color: var(--input-error-text-color);
+      border-color: var(--input-error-border-color);
 
       &::placeholder {
-        color: var(--error-color);
+        color: var(--input-error-text-color);
       }
     }
 
@@ -1136,7 +1140,7 @@
 
       &.status-success {
         &:before {
-          border-color: var(--input-border-color);
+          border-color: var(--input-success-border-color);
         }
 
         &:after {
@@ -1152,32 +1156,32 @@
 
       &.status-warning {
         &:before {
-          border-color: var(--warning-color);
+          border-color: var(--input-warning-border-color);
         }
 
         &:after {
-          border-color: var(--warning-color);
+          border-color: var(--input-warning-border-color);
         }
 
         &:hover {
           &:before {
-            border-color: var(--warning-color);
+            border-color: var(--input-warning-border-color);
           }
         }
       }
 
       &.status-error {
         &:before {
-          border-color: var(--error-color);
+          border-color: var(--input-error-border-color);
         }
 
         &:after {
-          border-color: var(--error-color);
+          border-color: var(--input-error-border-color);
         }
 
         &:hover {
           &:before {
-            border-color: var(--error-color);
+            border-color: var(--input-error-border-color);
           }
         }
       }
@@ -1537,7 +1541,7 @@
     input {
       &.focus-visible,
       &:focus-visible {
-        border-color: var(--background-color);
+        border-color: var(--input-background-color);
         box-shadow: var(--focus-visible-box-shadow);
 
         &.underline {
@@ -1583,7 +1587,7 @@
     .text-area {
       &.focus-visible,
       &:focus-visible {
-        border-color: var(--background-color);
+        border-color: var(--input-background-color);
         box-shadow: var(--focus-visible-box-shadow);
 
         &.underline {

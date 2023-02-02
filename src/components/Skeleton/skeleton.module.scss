@@ -1,12 +1,5 @@
 $skeleton-pulse-animation: pulse 1.5s ease-in-out 0.5s infinite;
 $skeleton-wave-animation: wave 1.6s linear 0.5s infinite;
-$skeleton-shimmer-color: #eaedf1;
-$skeleton-wave-background: linear-gradient(
-  90deg,
-  transparent,
-  $skeleton-shimmer-color,
-  transparent
-);
 
 .skeleton-container {
   position: relative;
@@ -15,7 +8,7 @@ $skeleton-wave-background: linear-gradient(
 }
 
 .skeleton {
-  background: var(--grey-color-10);
+  background: var(--skeleton-background-color);
 
   &.pulse {
     animation: $skeleton-pulse-animation;
@@ -27,7 +20,7 @@ $skeleton-wave-background: linear-gradient(
 
     &:after {
       animation: $skeleton-wave-animation;
-      background: $skeleton-wave-background;
+      background: var(--skeleton-wave-background);
       content: '';
       position: absolute;
       transform: translateX(-100%);
