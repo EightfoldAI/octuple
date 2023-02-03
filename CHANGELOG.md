@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.26.0](https://github.com/EightfoldAI/octuple/compare/v2.25.0...v2.26.0) (2023-02-03)
+
+### Features
+
+- add subtext in link menu item ([#530](https://github.com/EightfoldAI/octuple/issues/530)) ([bc28cdc](https://github.com/EightfoldAI/octuple/commits/bc28cdca59752c062dd8ec29fe5c517c3d51f1ff))
+- link: adds variants with var theme styles and improves api ([#531](https://github.com/EightfoldAI/octuple/issues/531)) ([aa22ddb](https://github.com/EightfoldAI/octuple/commits/aa22ddb9cfd53883725695bd19e534dc82d2ff33))
+- optionally show empty dropdown ([#517](https://github.com/EightfoldAI/octuple/issues/517)) ([5e121cb](https://github.com/EightfoldAI/octuple/commits/5e121cbd5355597b4d033d0fb5a71028de618b6d))
+
+### Bug Fixes
+
+- preserve case in Select ([#519](https://github.com/EightfoldAI/octuple/issues/519)) ([9427fcd](https://github.com/EightfoldAI/octuple/commits/9427fcda961096c7c78b344cbe653e04d4b6b6d2))
+
 ## [2.25.0](https://github.com/EightfoldAI/octuple/compare/v2.24.0...v2.25.0) (2023-02-01)
 
 ### Features
