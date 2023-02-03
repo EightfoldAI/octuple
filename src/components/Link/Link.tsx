@@ -11,10 +11,7 @@ export const Link: FC<LinkProps> = React.forwardRef(
       href,
       classNames,
       children,
-      disabled = false,
-      onClick,
       target = '_self',
-      underline,
       variant = 'default',
       style,
       'data-test-id': dataTestId,
@@ -22,38 +19,20 @@ export const Link: FC<LinkProps> = React.forwardRef(
     },
     ref: Ref<HTMLAnchorElement>
   ) => {
-    const linkClassNames: string = mergeClasses([
+    const linkClasses: string = mergeClasses([
       styles.linkStyle,
-      { [styles.neutral]: variant === 'neutral' },
       { [styles.primary]: variant === 'primary' },
-      { [styles.secondary]: variant === 'secondary' },
-      { [styles.disruptive]: variant === 'disruptive' },
-      { [styles.underline]: !!underline },
-      { [styles.disabled]: disabled },
       classNames,
     ]);
-
-    const handleOnClick = (
-      event: React.MouseEvent<HTMLAnchorElement, MouseEvent>
-    ): void => {
-      if (disabled) {
-        event.preventDefault();
-        return;
-      }
-      onClick?.(event);
-    };
 
     return (
       <a
         {...rest}
         ref={ref}
-        role="link"
-        aria-disabled={disabled}
-        className={linkClassNames}
         href={href}
-        onClick={handleOnClick}
-        style={style}
+        className={linkClasses}
         target={target}
+        style={style}
         data-test-id={dataTestId}
       >
         {children}
