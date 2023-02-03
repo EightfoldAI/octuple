@@ -4,8 +4,13 @@
   font-family: $octuple-font-family;
   font-weight: $text-font-weight-semibold;
   font-size: $text-font-size-2;
-  text-decoration: underline;
+  text-decoration: none;
   width: fit-content;
+
+  &.full-width {
+    display: inline;
+    width: unset; // Ensure width is unset to be safe accross all browsers
+  }
 
   &.neutral {
     color: var(--anchor-neutral-color);
@@ -69,13 +74,6 @@
     &:visited {
       color: var(--anchor-disruptive-visited-color);
     }
-  }
-
-  &.disruptive,
-  &.neutral,
-  &.primary,
-  &.secondary {
-    text-decoration: none;
   }
 
   &:active:not(.disabled),

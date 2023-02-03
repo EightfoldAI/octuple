@@ -51,8 +51,8 @@ export default {
   },
   argTypes: {
     variant: {
-      options: ['default', 'primary'],
-      control: { type: 'inline-radio' },
+      options: ['default', 'primary', 'secondary', 'neutral', 'disruptive'],
+      control: { type: 'inline' },
     },
     onClick: {
       action: 'click',
@@ -97,6 +97,7 @@ const linkArgs: Object = {
       Default
     </span>
   ),
+  fullWidth: true,
   target: '_self',
   variant: 'default',
 };
@@ -119,6 +120,7 @@ Primary.args = {
       Primary
     </span>
   ),
+  fullWidth: false,
   variant: 'primary',
 };
 
@@ -136,6 +138,7 @@ Neutral.args = {
       Neutral
     </span>
   ),
+  fullWidth: false,
   variant: 'neutral',
 };
 
@@ -153,6 +156,7 @@ Secondary.args = {
       Secondary
     </span>
   ),
+  fullWidth: false,
   variant: 'secondary',
 };
 
@@ -170,6 +174,7 @@ Disruptive.args = {
       Disruptive
     </span>
   ),
+  fullWidth: false,
   variant: 'disruptive',
 };
 
@@ -187,6 +192,7 @@ Primary_Underline.args = {
       Primary
     </span>
   ),
+  fullWidth: false,
   underline: true,
   variant: 'primary',
 };
@@ -205,6 +211,7 @@ Neutral_Underline.args = {
       Neutral
     </span>
   ),
+  fullWidth: false,
   underline: true,
   variant: 'neutral',
 };
@@ -223,6 +230,7 @@ Secondary_Underline.args = {
       Secondary
     </span>
   ),
+  fullWidth: false,
   underline: true,
   variant: 'secondary',
 };
@@ -241,6 +249,7 @@ Disruptive_Underline.args = {
       Disruptive
     </span>
   ),
+  fullWidth: false,
   underline: true,
   variant: 'disruptive',
 };
@@ -260,6 +269,7 @@ Default_Disabled.args = {
     </span>
   ),
   disabled: true,
+  fullWidth: false,
 };
 
 Primary_Disabled.args = {
@@ -277,6 +287,7 @@ Primary_Disabled.args = {
     </span>
   ),
   disabled: true,
+  fullWidth: false,
   variant: 'primary',
 };
 
@@ -295,6 +306,7 @@ Neutral_Disabled.args = {
     </span>
   ),
   disabled: true,
+  fullWidth: false,
   variant: 'neutral',
 };
 
@@ -313,6 +325,7 @@ Secondary_Disabled.args = {
     </span>
   ),
   disabled: true,
+  fullWidth: false,
   variant: 'secondary',
 };
 
@@ -331,5 +344,6 @@ Disruptive_Disabled.args = {
     </span>
   ),
   disabled: true,
+  fullWidth: false,
   variant: 'disruptive',
 };

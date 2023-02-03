@@ -17,6 +17,11 @@ export interface LinkProps
    */
   disabled?: boolean;
   /**
+   * Whether the Link display is inline and width is unset.
+   * @default true
+   */
+  fullWidth?: boolean;
+  /**
    * The Link onClick event handler.
    */
   onClick?: React.MouseEventHandler<HTMLAnchorElement>;

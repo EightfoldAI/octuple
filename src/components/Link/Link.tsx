@@ -12,6 +12,7 @@ export const Link: FC<LinkProps> = React.forwardRef(
       classNames,
       children,
       disabled = false,
+      fullWidth = true,
       onClick,
       target = '_self',
       underline,
@@ -24,6 +25,7 @@ export const Link: FC<LinkProps> = React.forwardRef(
   ) => {
     const linkClassNames: string = mergeClasses([
       styles.linkStyle,
+      { [styles.fullWidth]: !!fullWidth },
       { [styles.neutral]: variant === 'neutral' },
       { [styles.primary]: variant === 'primary' },
       { [styles.secondary]: variant === 'secondary' },
