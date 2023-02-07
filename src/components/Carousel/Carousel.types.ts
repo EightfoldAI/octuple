@@ -12,6 +12,9 @@ import { autoScrollApiType } from './autoScrollApi';
 import { OcBaseProps } from '../OcBase';
 import { PaginationLocale } from '../Pagination';
 
+export const DEFAULT_GAP_WIDTH: number = 4;
+export const OCCLUSION_AVOIDANCE_BUFFER: number = 72;
+
 export type CarouselTransition = 'push' | 'crossfade';
 export type CarouselType = 'slide' | 'scroll';
 export type CustomScrollBehavior<T> =
@@ -136,6 +139,12 @@ export interface CarouselProps
    * @default 'Previous'
    */
   previousIconButtonAriaLabel?: string;
+  /**
+   * Whether to scroll by 1 item.
+   * Use when type is 'scroll'
+   * @default false
+   */
+  single?: boolean;
   /**
    * Set type of slide transition.
    * @default 'push'

@@ -12,6 +12,10 @@ import {
   CarouselProps,
   CustomScrollBehavior,
   DataType,
+  DEFAULT_GAP_WIDTH,
+  IntersectionObserverItem,
+  ItemOrElement,
+  OCCLUSION_AVOIDANCE_BUFFER,
   scrollToItemOptions,
 } from './Carousel.types';
 import { ScrollMenu, VisibilityContext } from './ScrollMenu/ScrollMenu';
@@ -65,6 +69,7 @@ export const Carousel: FC<CarouselProps> = React.forwardRef(
       pagination = true,
       pause = 'hover',
       previousIconButtonAriaLabel: defaultPreviousIconButtonAriaLabel,
+      single = false,
       style,
       transition = 'push',
       type = 'slide',
@@ -85,6 +90,8 @@ export const Carousel: FC<CarouselProps> = React.forwardRef(
       useRef<HTMLDivElement>(null);
     const previousButtonRef: React.MutableRefObject<HTMLButtonElement> =
       useRef<HTMLButtonElement>(null);
+    const scrollMenuRef: React.MutableRefObject<HTMLDivElement> =
+      useRef<HTMLDivElement>(null);
     const forkedRef: (node: any) => void = useForkedRef(ref, carouselRef);
     const data: DataType = useRef<DataType>({}).current;
     const [active, setActive] = useState<number>(activeIndex);
@@ -93,6 +100,7 @@ export const Carousel: FC<CarouselProps> = React.forwardRef(
     const [direction, setDirection] = useState<string>('next');
     const [itemsNumber, setItemsNumber] = useState<number>(0);
     const [visible, setVisible] = useState<boolean>();
+    const [mouseEnter, setMouseEnter] = useState<boolean>(false);
 
     // ============================ Strings ===========================
     const [paginationLocale] = useLocaleReceiver('Pagination');
@@ -145,6 +153,22 @@ export const Carousel: FC<CarouselProps> = React.forwardRef(
 
       return () => {
         window.removeEventListener('scroll', handleScroll);
+      };
+    });
+
+    useEffect(() => {
+      if (scrollMenuRef?.current) {
+        scrollMenuRef.current.addEventListener('wheel', preventYScroll, false);
+      }
+
+      return () => {
+        if (scrollMenuRef?.current) {
+          scrollMenuRef.current.removeEventListener(
+            'wheel',
+            preventYScroll,
+            false
+          );
+        }
       };
     });
 
@@ -246,25 +270,68 @@ export const Carousel: FC<CarouselProps> = React.forwardRef(
 
     const handleOnWheel = (
       apiObj: scrollVisibilityApiType,
-      ev: React.WheelEvent
+      event: React.WheelEvent
     ): void => {
-      const isTouchpad = Math.abs(ev.deltaX) !== 0 || Math.abs(ev.deltaY) < 15;
+      const isTouchpad =
+        Math.abs(event.deltaX) !== 0 || Math.abs(event.deltaY) < 15;
 
       if (isTouchpad) {
-        ev.stopPropagation();
+        event.stopPropagation();
         return;
       }
 
-      if (ev.deltaY < 0) {
-        apiObj.scrollNext();
-      } else if (ev.deltaY > 0) {
-        apiObj.scrollPrev();
+      if (props.single) {
+        if (event.deltaY < 0) {
+          apiObj.scrollBySingleItem(
+            apiObj.getNextElement(),
+            'smooth',
+            htmlDir === 'rtl' ? 'previous' : 'next',
+            !!props.carouselScrollMenuProps?.gap
+              ? props.carouselScrollMenuProps?.gap
+              : DEFAULT_GAP_WIDTH,
+            apiObj.isFirstItemVisible
+              ? -DEFAULT_GAP_WIDTH
+              : OCCLUSION_AVOIDANCE_BUFFER
+          );
+        } else if (event.deltaY > 0) {
+          const gapWidth: number = !!props.carouselScrollMenuProps?.gap
+            ? props.carouselScrollMenuProps?.gap
+            : DEFAULT_GAP_WIDTH;
+          apiObj.scrollBySingleItem(
+            apiObj.getPrevElement(),
+            'smooth',
+            htmlDir === 'rtl' ? 'next' : 'previous',
+            gapWidth,
+            apiObj.isLastItemVisible ? gapWidth : OCCLUSION_AVOIDANCE_BUFFER
+          );
+        }
+      } else {
+        if (event.deltaY < 0) {
+          apiObj.scrollNextGroup();
+        } else if (event.deltaY > 0) {
+          apiObj.scrollPrevGroup();
+        }
+      }
+    };
+
+    const preventYScroll = (event: { preventDefault: () => void }): void => {
+      if (mouseEnter) {
+        event.preventDefault();
       }
     };
 
     const nextButton = (
+      getNextElement?: () => IntersectionObserverItem,
+      isFirstItemVisible?: boolean,
       nextDisabled?: boolean,
-      scrollNext?: <T>(
+      scrollBySingleItem?: <T>(
+        target?: ItemOrElement,
+        behavior?: CustomScrollBehavior<T>,
+        direction?: string,
+        gap?: number,
+        offset?: number
+      ) => void | T | Promise<T>,
+      scrollNextGroup?: <T>(
         behavior?: CustomScrollBehavior<T>,
         inline?: ScrollLogicalPosition,
         block?: ScrollLogicalPosition,
@@ -301,7 +368,19 @@ export const Carousel: FC<CarouselProps> = React.forwardRef(
                 key="carousel-next"
                 onClick={() =>
                   props.type === 'scroll'
-                    ? scrollNext()
+                    ? props.single
+                      ? scrollBySingleItem(
+                          getNextElement(),
+                          'smooth',
+                          htmlDir === 'rtl' ? 'previous' : 'next',
+                          !!props.carouselScrollMenuProps?.gap
+                            ? props.carouselScrollMenuProps?.gap
+                            : DEFAULT_GAP_WIDTH,
+                          isFirstItemVisible
+                            ? -DEFAULT_GAP_WIDTH
+                            : OCCLUSION_AVOIDANCE_BUFFER
+                        )
+                      : scrollNextGroup()
                     : handleControlClick('next')
                 }
                 ref={nextButtonRef}
@@ -315,14 +394,26 @@ export const Carousel: FC<CarouselProps> = React.forwardRef(
     };
 
     const previousButton = (
+      getPrevElement?: () => IntersectionObserverItem,
+      isLastItemVisible?: boolean,
       previousDisabled?: boolean,
-      scrollPrev?: <T>(
+      scrollBySingleItem?: <T>(
+        target?: ItemOrElement,
+        behavior?: CustomScrollBehavior<T>,
+        direction?: string,
+        gap?: number,
+        offset?: number
+      ) => void | T | Promise<T>,
+      scrollPrevGroup?: <T>(
         behavior?: CustomScrollBehavior<T>,
         inline?: ScrollLogicalPosition,
         block?: ScrollLogicalPosition,
         { duration, ease, boundary }?: scrollToItemOptions
       ) => unknown
     ): JSX.Element => {
+      const gapWidth: number = !!props.carouselScrollMenuProps?.gap
+        ? props.carouselScrollMenuProps?.gap
+        : DEFAULT_GAP_WIDTH;
       return (
         <>
           {!previousDisabled && (
@@ -351,7 +442,17 @@ export const Carousel: FC<CarouselProps> = React.forwardRef(
                 key="carousel-previous"
                 onClick={() =>
                   props.type === 'scroll'
-                    ? scrollPrev()
+                    ? props.single
+                      ? scrollBySingleItem(
+                          getPrevElement(),
+                          'smooth',
+                          htmlDir === 'rtl' ? 'next' : 'previous',
+                          gapWidth,
+                          isLastItemVisible
+                            ? gapWidth
+                            : OCCLUSION_AVOIDANCE_BUFFER
+                        )
+                      : scrollPrevGroup()
                     : handleControlClick('previous')
                 }
                 ref={previousButtonRef}
@@ -366,11 +467,14 @@ export const Carousel: FC<CarouselProps> = React.forwardRef(
 
     const autoScrollButton = (direction?: string): JSX.Element => {
       const {
+        getNextElement,
+        getPrevElement,
         initComplete,
         isFirstItemVisible,
         isLastItemVisible,
-        scrollNext,
-        scrollPrev,
+        scrollBySingleItem,
+        scrollNextGroup,
+        scrollPrevGroup,
         visibleElements,
       } = React.useContext(VisibilityContext);
 
@@ -396,10 +500,22 @@ export const Carousel: FC<CarouselProps> = React.forwardRef(
       ]);
 
       if (direction === 'next') {
-        return nextButton(nextDisabled, scrollNext);
+        return nextButton(
+          getNextElement,
+          isFirstItemVisible,
+          nextDisabled,
+          scrollBySingleItem,
+          scrollNextGroup
+        );
       }
 
-      return previousButton(previousDisabled, scrollPrev);
+      return previousButton(
+        getPrevElement,
+        isLastItemVisible,
+        previousDisabled,
+        scrollBySingleItem,
+        scrollPrevGroup
+      );
     };
 
     return (
@@ -409,8 +525,12 @@ export const Carousel: FC<CarouselProps> = React.forwardRef(
             <div
               className={carouselClassNames}
               data-test-id={dataTestId}
-              onMouseEnter={type === 'slide' ? handlePause : null}
-              onMouseLeave={type === 'slide' ? handleCycle : null}
+              onMouseEnter={
+                type === 'slide' ? handlePause : () => setMouseEnter(true)
+              }
+              onMouseLeave={
+                type === 'slide' ? handleCycle : () => setMouseEnter(false)
+              }
               {...rest}
               ref={forkedRef}
             >
@@ -460,6 +580,7 @@ export const Carousel: FC<CarouselProps> = React.forwardRef(
                       previousButton={() => autoScrollButton('previous')}
                       rtl={htmlDir === 'rtl'}
                       {...carouselScrollMenuProps}
+                      ref={scrollMenuRef}
                     >
                       {carouselScrollMenuProps?.children}
                     </ScrollMenu>
