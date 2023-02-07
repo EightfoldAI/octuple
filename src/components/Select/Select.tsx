@@ -214,8 +214,9 @@ export const Select: FC<SelectProps> = React.forwardRef(
       event: React.ChangeEvent<HTMLInputElement>
     ): void => {
       const { target } = event;
-      const value: string = target?.value?.toLowerCase();
-      setSearchQuery(value);
+      const value: string = target?.value || '';
+      const valueLowerCase: string = value?.toLowerCase();
+      setSearchQuery(valueLowerCase);
       if (loadOptions) {
         return loadOptions(value);
       }
@@ -225,7 +226,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
             ...opt,
             hideOption: filterOption
               ? !filterOption(opt, value)
-              : !opt.text.toLowerCase().includes(value),
+              : !opt.text.toLowerCase().includes(valueLowerCase),
           }))
         );
       } else {
