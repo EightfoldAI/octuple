@@ -90,7 +90,7 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
     const [inputValue, setInputValue] = useState(value);
 
     const [clearButtonShown, _setClearButtonShown] = useState<boolean>(false);
-    const inputId: string = uniqueId(id || 'input-');
+    const inputId: string = !!id ? id : uniqueId('input-');
 
     const clearButtonRef: React.MutableRefObject<HTMLButtonElement> =
       useRef<HTMLButtonElement>(null);
