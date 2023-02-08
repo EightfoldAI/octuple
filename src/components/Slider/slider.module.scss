@@ -73,16 +73,16 @@ $small-marker-top: 0;
         border-color: var(--slider-track-border-color);
         border-width: 2px;
 
-        &.green {
-          border-color: var(--slider-track-green-border-color);
+        &.success {
+          border-color: var(--slider-track-success-border-color);
         }
 
-        &.orange {
-          border-color: var(--slider-track-orange-border-color);
+        &.warning {
+          border-color: var(--slider-track-warning-border-color);
         }
 
-        &.red {
-          border-color: var(--slider-track-red-border-color);
+        &.error {
+          border-color: var(--slider-track-error-border-color);
         }
       }
     }
@@ -157,19 +157,19 @@ $small-marker-top: 0;
     background-color: var(--slider-track-background-color);
     border: 1px solid var(--slider-track-border-color);
 
-    &.green {
-      background-color: var(--slider-track-green-background-color);
-      border-color: var(--slider-track-green-border-color);
+    &.success {
+      background-color: var(--slider-track-success-background-color);
+      border-color: var(--slider-track-success-border-color);
     }
 
-    &.orange {
-      background-color: var(--slider-track-orange-background-color);
-      border-color: var(--slider-track-orange-border-color);
+    &.warning {
+      background-color: var(--slider-track-warning-background-color);
+      border-color: var(--slider-track-warning-border-color);
     }
 
-    &.red {
-      background-color: var(--slider-track-red-background-color);
-      border-color: var(--slider-track-red-border-color);
+    &.error {
+      background-color: var(--slider-track-error-background-color);
+      border-color: var(--slider-track-error-border-color);
     }
 
     &-opacity {
@@ -215,19 +215,19 @@ $small-marker-top: 0;
       background-color: var(--slider-track-background-color);
       border: 1px solid var(--slider-track-border-color);
 
-      &.green {
-        background-color: var(--slider-track-green-background-color);
-        border-color: var(--slider-track-green-border-color);
+      &.success {
+        background-color: var(--slider-track-success-background-color);
+        border-color: var(--slider-track-success-border-color);
       }
 
-      &.orange {
-        background-color: var(--slider-track-orange-background-color);
-        border-color: var(--slider-track-orange-border-color);
+      &.warning {
+        background-color: var(--slider-track-warning-background-color);
+        border-color: var(--slider-track-warning-border-color);
       }
 
-      &.red {
-        background-color: var(--slider-track-red-background-color);
-        border-color: var(--slider-track-red-border-color);
+      &.error {
+        background-color: var(--slider-track-error-background-color);
+        border-color: var(--slider-track-error-border-color);
       }
     }
   }

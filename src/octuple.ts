@@ -113,7 +113,7 @@ import {
   Slider,
   SliderMarks,
   SliderSize,
-  SliderTrackColor,
+  SliderTrackStatus,
 } from './components/Slider';
 
 import { SnackbarContainer, Snackbar, snack } from './components/Snackbar';
@@ -301,7 +301,7 @@ export {
   Slider,
   SliderMarks,
   SliderSize,
-  SliderTrackColor,
+  SliderTrackStatus,
   snack,
   Snackbar,
   SnackbarContainer,

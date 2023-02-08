@@ -6,7 +6,7 @@ import Dot from './Dot';
 import styles from '../slider.module.scss';
 
 export default function Steps(props: StepsProps) {
-  const { activeStyle, classNames, dots, marks, style, trackColor, type } =
+  const { activeStyle, classNames, dots, marks, style, trackStatus, type } =
     props;
   const { min, max, step } = React.useContext(SliderContext);
 
@@ -38,7 +38,7 @@ export default function Steps(props: StepsProps) {
           classNames={classNames}
           key={dotValue}
           style={style}
-          trackColor={trackColor}
+          trackStatus={trackStatus}
           type={type}
           value={dotValue}
         />

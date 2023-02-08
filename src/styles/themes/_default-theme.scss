@@ -715,12 +715,12 @@
   --slider-thumb-color: var(--accent-color-20);
   --slider-track-background-color: var(--primary-color-60);
   --slider-track-border-color: var(--primary-color-60);
-  --slider-track-green-background-color: var(--green-color-30);
-  --slider-track-green-border-color: var(--green-color-60);
-  --slider-track-orange-background-color: var(--orange-color-30);
-  --slider-track-orange-border-color: var(--orange-color-60);
-  --slider-track-red-background-color: var(--red-color-30);
-  --slider-track-red-border-color: var(--red-color-60);
+  --slider-track-success-background-color: var(--green-color-30);
+  --slider-track-success-border-color: var(--green-color-60);
+  --slider-track-warning-background-color: var(--orange-color-30);
+  --slider-track-warning-border-color: var(--orange-color-60);
+  --slider-track-error-background-color: var(--red-color-30);
+  --slider-track-error-border-color: var(--red-color-60);
   --slider-value-text-color: var(--text-secondary-color);
   // ------ Slider theme ------
 }

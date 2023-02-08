@@ -28,7 +28,7 @@ import {
   SliderMarker,
   SliderProps,
   SliderSize,
-  SliderTrackColor,
+  SliderTrackStatus,
   SMALL_MARKER_OFFSET,
   SMALL_THUMB_DIAMETER,
   SMALL_THUMB_RADIUS,
@@ -111,7 +111,7 @@ export const Slider: FC<SliderProps> = React.forwardRef(
       step = 1,
       tooltipContent,
       tooltipProps,
-      trackColor,
+      trackStatus,
       type = 'default',
       value,
       valueLabel,
@@ -745,16 +745,18 @@ export const Slider: FC<SliderProps> = React.forwardRef(
                 className={mergeClasses([
                   styles.sliderTrack,
                   {
-                    [styles.green]:
-                      !!trackColor && trackColor === SliderTrackColor.Green,
+                    [styles.success]:
+                      !!trackStatus &&
+                      trackStatus === SliderTrackStatus.Success,
                   },
                   {
-                    [styles.orange]:
-                      !!trackColor && trackColor === SliderTrackColor.Orange,
+                    [styles.warning]:
+                      !!trackStatus &&
+                      trackStatus === SliderTrackStatus.Warning,
                   },
                   {
-                    [styles.red]:
-                      !!trackColor && trackColor === SliderTrackColor.Red,
+                    [styles.error]:
+                      !!trackStatus && trackStatus === SliderTrackStatus.Error,
                   },
                   {
                     [styles.sliderTrackOpacity]:
@@ -773,18 +775,18 @@ export const Slider: FC<SliderProps> = React.forwardRef(
                         className={mergeClasses(styles.railMarkerSegment, {
                           [styles.data]: type === 'data',
                           [styles.active]: isMarkerSegmentActive(mark.value),
-                          [styles.green]:
+                          [styles.success]:
                             isMarkerSegmentActive(mark.value) &&
-                            !!trackColor &&
-                            trackColor === SliderTrackColor.Green,
-                          [styles.orange]:
+                            !!trackStatus &&
+                            trackStatus === SliderTrackStatus.Success,
+                          [styles.warning]:
                             isMarkerSegmentActive(mark.value) &&
-                            !!trackColor &&
-                            trackColor === SliderTrackColor.Orange,
-                          [styles.red]:
+                            !!trackStatus &&
+                            trackStatus === SliderTrackStatus.Warning,
+                          [styles.error]:
                             isMarkerSegmentActive(mark.value) &&
-                            !!trackColor &&
-                            trackColor === SliderTrackColor.Red,
+                            !!trackStatus &&
+                            trackStatus === SliderTrackStatus.Error,
                           [styles.railMarkerSegmentHidden]:
                             index === markers.length - 1,
                           [styles.railMarkerSegmentOpacity]: !!hideTrack,
@@ -807,7 +809,7 @@ export const Slider: FC<SliderProps> = React.forwardRef(
                 classNames={dotClassNames}
                 marks={markList}
                 style={dotStyle}
-                trackColor={trackColor}
+                trackStatus={trackStatus}
                 type={type}
               />
               <Marks

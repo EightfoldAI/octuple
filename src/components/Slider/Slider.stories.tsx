@@ -1,10 +1,9 @@
 import React, { useRef, useState } from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { Slider, SliderSize, SliderTrackColor } from './';
+import { Slider, SliderSize, SliderTrackStatus } from './';
 import { Stack } from '../Stack';
 import { Col, Row } from '../Grid';
 import { PrimaryButton } from '../Button';
-import { IconName, IconSize } from '../Icon';
 import { useArgs } from '@storybook/client-api';
 import { ConfigProvider } from '../ConfigProvider';
 
@@ -915,7 +914,7 @@ const Data_Active_Story: ComponentStory<typeof Slider> = (args) => {
       updateArgs({
         ...args,
         marks: updateMarks(targetSlidingValue),
-        trackColor: SliderTrackColor.Red,
+        trackStatus: SliderTrackStatus.Error,
         value: [targetSlidingValue, persistedUpperValue],
       });
     } else if (targetSlidingValue === benchmarkValue) {
@@ -923,7 +922,7 @@ const Data_Active_Story: ComponentStory<typeof Slider> = (args) => {
       updateArgs({
         ...args,
         marks: updateMarks(targetSlidingValue, benchmarkValue),
-        trackColor: SliderTrackColor.Red,
+        trackStatus: SliderTrackStatus.Error,
         value: [targetSlidingValue, persistedUpperValue],
       });
     } else if (targetSlidingValue === persistedUpperValue) {
@@ -931,7 +930,7 @@ const Data_Active_Story: ComponentStory<typeof Slider> = (args) => {
       updateArgs({
         ...args,
         marks: updateMarks(targetSlidingValue, null, persistedUpperValue),
-        trackColor: SliderTrackColor.Green,
+        trackStatus: SliderTrackStatus.Success,
         value: [targetSlidingValue, persistedUpperValue],
       });
     } else {
@@ -942,7 +941,7 @@ const Data_Active_Story: ComponentStory<typeof Slider> = (args) => {
       updateArgs({
         ...args,
         marks: updateMarks(targetSlidingValue),
-        trackColor: SliderTrackColor.Green,
+        trackStatus: SliderTrackStatus.Success,
         value: [persistedUpperValue, targetSlidingValue],
       });
     }
@@ -1189,7 +1188,7 @@ Data_Inactive.args = {
   readOnly: true,
   showLabels: true,
   showMarkers: true,
-  trackColor: SliderTrackColor.Green,
+  trackStatus: SliderTrackStatus.Success,
   type: 'data',
   value: [1, 3],
 };
@@ -1221,7 +1220,7 @@ Data_Active.args = {
   readOnly: true,
   showLabels: true,
   showMarkers: true,
-  trackColor: SliderTrackColor.Red,
+  trackStatus: SliderTrackStatus.Error,
   type: 'data',
   value: [1, 3],
 };

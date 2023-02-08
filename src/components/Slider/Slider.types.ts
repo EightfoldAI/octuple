@@ -44,10 +44,10 @@ export enum SliderSize {
   Small = 'small',
 }
 
-export enum SliderTrackColor {
-  Green = 'green',
-  Orange = 'orange',
-  Red = 'red',
+export enum SliderTrackStatus {
+  Error = 'error',
+  Success = 'success',
+  Warning = 'warning',
 }
 
 export enum MarkerType {
@@ -133,10 +133,10 @@ export interface DotProps {
    */
   style?: React.CSSProperties | ((dotValue: number) => React.CSSProperties);
   /**
-   * The Slider track color.
-   * Options: green, orange, and red.
+   * The Slider track status.
+   * Options: success, warning, and error.
    */
-  trackColor?: SliderTrackColor;
+  trackStatus?: SliderTrackStatus;
   /**
    * The type of Slider.
    * @default 'default'
@@ -172,10 +172,10 @@ export interface StepsProps {
    */
   style?: React.CSSProperties | ((dotValue: number) => React.CSSProperties);
   /**
-   * The Slider track color.
-   * Options: green, orange, and red.
+   * The Slider track status.
+   * Options: success, warning, and error.
    */
-  trackColor?: SliderTrackColor;
+  trackStatus?: SliderTrackStatus;
   /**
    * The type of Slider.
    * @default 'default'
@@ -350,10 +350,10 @@ export interface SliderInputProps
    */
   tooltipProps?: Omit<TooltipProps, 'content'>;
   /**
-   * The Slider track color.
-   * Options: green, orange, and red.
+   * The Slider track status.
+   * Options: success, warning, and error.
    */
-  trackColor?: SliderTrackColor;
+  trackStatus?: SliderTrackStatus;
   /**
    * The type of Slider.
    * @default 'default'

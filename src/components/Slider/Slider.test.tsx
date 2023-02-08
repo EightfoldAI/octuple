@@ -2,9 +2,8 @@ import React from 'react';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import Enzyme, { mount, ReactWrapper } from 'enzyme';
 import MatchMediaMock from 'jest-matchmedia-mock';
+import { Slider, SliderTrackStatus } from './';
 import { render, fireEvent } from '@testing-library/react';
-
-import { Slider, SliderTrackColor } from './';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -278,24 +277,24 @@ describe('Slider', () => {
     ).toBe('30');
   });
 
-  test('should render green track color', () => {
+  test('should render success track color', () => {
     const { container: container1 } = render(
-      <Slider value={50} step={10} trackColor={SliderTrackColor.Green} />
+      <Slider value={50} step={10} trackStatus={SliderTrackStatus.Success} />
     );
-    expect(container1.getElementsByClassName('green')).toHaveLength(1);
+    expect(container1.getElementsByClassName('success')).toHaveLength(1);
   });
 
-  test('should render orange track color', () => {
+  test('should render warning track color', () => {
     const { container: container1 } = render(
-      <Slider value={50} step={10} trackColor={SliderTrackColor.Orange} />
+      <Slider value={50} step={10} trackStatus={SliderTrackStatus.Warning} />
     );
-    expect(container1.getElementsByClassName('orange')).toHaveLength(1);
+    expect(container1.getElementsByClassName('warning')).toHaveLength(1);
   });
 
-  test('should render red track color', () => {
+  test('should render error track color', () => {
     const { container: container1 } = render(
-      <Slider value={50} step={10} trackColor={SliderTrackColor.Red} />
+      <Slider value={50} step={10} trackStatus={SliderTrackStatus.Error} />
     );
-    expect(container1.getElementsByClassName('red')).toHaveLength(1);
+    expect(container1.getElementsByClassName('error')).toHaveLength(1);
   });
 });

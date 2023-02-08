@@ -1,13 +1,20 @@
 import React from 'react';
 import SliderContext from '../Context';
-import { DotProps, SliderTrackColor } from '../Slider.types';
+import { DotProps, SliderTrackStatus } from '../Slider.types';
 import { getDirectionStyle } from '../Util';
 import { mergeClasses } from '../../../shared/utilities';
 
 import styles from '../slider.module.scss';
 
 export default function Dot(props: DotProps) {
-  const { activeStyle, classNames, style, trackColor, type, value } = props;
+  const {
+    activeStyle,
+    classNames,
+    style,
+    trackStatus: trackStatus,
+    type,
+    value,
+  } = props;
   const { min, max, direction, included, includedStart, includedEnd } =
     React.useContext(SliderContext);
 
@@ -34,14 +41,16 @@ export default function Dot(props: DotProps) {
           [styles.data]: type === 'data',
         },
         {
-          [styles.green]: !!trackColor && trackColor === SliderTrackColor.Green,
+          [styles.success]:
+            !!trackStatus && trackStatus === SliderTrackStatus.Success,
         },
         {
-          [styles.orange]:
-            !!trackColor && trackColor === SliderTrackColor.Orange,
+          [styles.warning]:
+            !!trackStatus && trackStatus === SliderTrackStatus.Warning,
         },
         {
-          [styles.red]: !!trackColor && trackColor === SliderTrackColor.Red,
+          [styles.error]:
+            !!trackStatus && trackStatus === SliderTrackStatus.Error,
         },
         { [styles.sliderDotActive]: active },
         classNames,
