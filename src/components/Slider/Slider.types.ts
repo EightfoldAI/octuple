@@ -27,6 +27,10 @@ export const SMALL_THUMB_RADIUS: number = SMALL_THUMB_DIAMETER / 2;
 
 export const THUMB_TOOLTIP_Y_OFFSET: number = 8;
 
+export const LARGE_MARKER_OFFSET: number = +styles.largeMarkerOffset;
+export const MEDIUM_MARKER_OFFSET: number = +styles.mediumMarkerOffset;
+export const SMALL_MARKER_OFFSET: number = +styles.smallMarkerOffset;
+
 export type SliderLabelPosition = 'bottom' | 'inline';
 
 export type SliderMarks = SliderProps['marks'];
@@ -39,7 +43,25 @@ export enum SliderSize {
   Medium = 'medium',
   Small = 'small',
 }
+
+export enum SliderTrackStatus {
+  Error = 'error',
+  Success = 'success',
+  Warning = 'warning',
+}
+
+export enum MarkerType {
+  Benchmark = 'benchmark',
+  Origin = 'origin',
+  Delta = 'delta',
+  Target = 'target',
+}
+
 export interface Marker {
+  /**
+   * Custom Marker class names.
+   */
+  classNames?: string;
   /**
    * Custom Marker label.
    */
@@ -48,6 +70,10 @@ export interface Marker {
    * Custom Marker style.
    */
   style?: React.CSSProperties;
+  /**
+   * The marker type.
+   */
+  type?: boolean;
 }
 
 export interface SliderMarker extends Marker {
@@ -62,6 +88,10 @@ export interface MarkProps {
    * The Mark renderer.
    */
   children?: React.ReactNode;
+  /**
+   * Custom Mark class names.
+   */
+  classNames?: string;
   /**
    * Callback executed on Mark click.
    */
@@ -95,9 +125,23 @@ export interface DotProps {
     | React.CSSProperties
     | ((dotValue: number) => React.CSSProperties);
   /**
+   * Custom class names.
+   */
+  classNames?: string;
+  /**
    * Custom dot style.
    */
   style?: React.CSSProperties | ((dotValue: number) => React.CSSProperties);
+  /**
+   * The Slider track status.
+   * Options: success, warning, and error.
+   */
+  trackStatus?: SliderTrackStatus;
+  /**
+   * The type of Slider.
+   * @default 'default'
+   */
+  type?: SliderType;
   /**
    * The step dot value.
    */
@@ -112,6 +156,10 @@ export interface StepsProps {
     | React.CSSProperties
     | ((dotValue: number) => React.CSSProperties);
   /**
+   * Custom class names.
+   */
+  classNames?: string;
+  /**
    * The step dots.
    */
   dots?: boolean;
@@ -123,6 +171,16 @@ export interface StepsProps {
    * Custom dot style.
    */
   style?: React.CSSProperties | ((dotValue: number) => React.CSSProperties);
+  /**
+   * The Slider track status.
+   * Options: success, warning, and error.
+   */
+  trackStatus?: SliderTrackStatus;
+  /**
+   * The type of Slider.
+   * @default 'default'
+   */
+  type?: SliderType;
 }
 
 export interface SliderProps extends SliderInputProps {
@@ -179,6 +237,10 @@ export interface SliderInputProps
    */
   dots?: boolean;
   /**
+   * Slider step dots custom class names.
+   */
+  dotClassNames?: string;
+  /**
    * Custom dot style.
    */
   dotStyle?: React.CSSProperties | ((dotValue: number) => React.CSSProperties);
@@ -198,10 +260,20 @@ export interface SliderInputProps
    */
   hideMin?: boolean;
   /**
+   * Whether to hide the Slider rail.
+   * @default false
+   */
+  hideRail?: boolean;
+  /**
    * Whether to hide the Slider thumb until rail is clicked.
    * @default false
    */
   hideThumb?: boolean;
+  /**
+   * Whether to hide the Slider track.
+   * @default false
+   */
+  hideTrack?: boolean;
   /**
    * Hide the value of the Slider.
    * @default false
@@ -227,7 +299,7 @@ export interface SliderInputProps
    * Slider custom marks, type of key must be number,
    * and must in closed interval [min, max], each mark may declare its own style.
    */
-  marks?: Record<string | number, React.ReactNode | Marker>;
+  marks?: Record<string | number, React.ReactNode | SliderMarker>;
   /**
    * The maximum value of the Slider.
    * @default 100
@@ -277,6 +349,11 @@ export interface SliderInputProps
    * Max tooltip props.
    */
   tooltipProps?: Omit<TooltipProps, 'content'>;
+  /**
+   * The Slider track status.
+   * Options: success, warning, and error.
+   */
+  trackStatus?: SliderTrackStatus;
   /**
    * The type of Slider.
    * @default 'default'
