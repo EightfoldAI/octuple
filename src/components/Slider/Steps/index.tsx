@@ -6,7 +6,8 @@ import Dot from './Dot';
 import styles from '../slider.module.scss';
 
 export default function Steps(props: StepsProps) {
-  const { activeStyle, dots, marks, style } = props;
+  const { activeStyle, classNames, dots, marks, style, trackStatus, type } =
+    props;
   const { min, max, step } = React.useContext(SliderContext);
 
   const stepDots = React.useMemo(() => {
@@ -34,8 +35,11 @@ export default function Steps(props: StepsProps) {
       {stepDots.map((dotValue: number) => (
         <Dot
           activeStyle={activeStyle}
+          classNames={classNames}
           key={dotValue}
           style={style}
+          trackStatus={trackStatus}
+          type={type}
           value={dotValue}
         />
       ))}
