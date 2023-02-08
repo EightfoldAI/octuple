@@ -13,7 +13,7 @@ $large-marker-top: 0;
 $medium-slider-height: 22px;
 $medium-slider-inline-margin: $space-xs;
 $medium-label-height: 20px;
-$medium-thumb-offset: 3px;
+$medium-thumb-offset: 4px;
 $medium-track-height: 4px;
 $medium-vertical-center: calc($medium-slider-height / 2);
 $medium-rail-top: $medium-vertical-center - calc($medium-track-height / 2);
@@ -36,18 +36,14 @@ $small-marker-top: 0;
   largeThumbDiameter: strip-units($large-slider-height);
   mediumThumbDiameter: strip-units($medium-slider-height);
   smallThumbDiameter: strip-units($small-slider-height);
+
+  largeMarkerOffset: strip-units($space-xxs);
+  mediumMarkerOffset: strip-units($medium-thumb-offset);
+  smallMarkerOffset: strip-units($space-xxxs);
 }
 
 // Default size is medium
 .slider-container {
-  --slider-default-track-color: var(--primary-color-60);
-  --slider-default-rail-color: var(--primary-color-10);
-  --slider-default-rail-border-color: var(--primary-color-60);
-  --slider-default-value-text-color: var(--text-secondary-color);
-  --slider-min-max-labels-color: var(--grey-color-60);
-  --slider-default-thumb-color: var(--accent-color-20);
-  --slider-default-marker-background: var(--background-color);
-
   font-family: $octuple-font-family;
   height: $medium-slider-height + $medium-label-height;
   position: relative;
@@ -57,8 +53,8 @@ $small-marker-top: 0;
     height: $medium-slider-height;
 
     &-dot {
-      background-color: var(--slider-default-rail-color);
-      border: 1px solid var(--slider-default-rail-border-color);
+      background-color: var(--slider-rail-background-color);
+      border: 1px solid var(--slider-rail-border-color);
       border-radius: 50%;
       cursor: pointer;
       height: calc($medium-track-height * 2);
@@ -66,9 +62,28 @@ $small-marker-top: 0;
       top: calc($medium-rail-top - calc($border-offset * 2));
       width: calc($medium-track-height * 2);
 
+      &:not(.slider-dot-active) {
+        &.data {
+          background-color: var(--slider-data-dot-background-color);
+          border-color: var(--slider-data-rail-border-color);
+        }
+      }
+
       &-active {
-        border-color: var(--slider-default-track-color);
+        border-color: var(--slider-track-border-color);
         border-width: 2px;
+
+        &.success {
+          border-color: var(--slider-track-success-border-color);
+        }
+
+        &.warning {
+          border-color: var(--slider-track-warning-border-color);
+        }
+
+        &.error {
+          border-color: var(--slider-track-error-border-color);
+        }
       }
     }
 
@@ -82,7 +97,7 @@ $small-marker-top: 0;
     }
 
     &-mark-text {
-      color: var(--slider-default-value-text-color);
+      color: var(--slider-value-text-color);
       cursor: pointer;
       display: inline-block;
       font-family: $octuple-font-family;
@@ -93,7 +108,7 @@ $small-marker-top: 0;
       white-space: nowrap;
 
       &-active {
-        color: var(--slider-default-value-text-color);
+        color: var(--slider-value-text-color);
       }
     }
 
@@ -125,8 +140,13 @@ $small-marker-top: 0;
 
   // The slider rail needs to be 2px thinner than the track to prevent layered border-radius flicker.
   .slider-rail {
-    background-color: var(--slider-default-rail-color);
-    border: 1px solid var(--slider-default-rail-border-color);
+    background-color: var(--slider-rail-background-color);
+    border: 1px solid var(--slider-rail-border-color);
+
+    &.data {
+      background-color: var(--slider-data-rail-background-color);
+      border-color: var(--slider-data-rail-border-color);
+    }
 
     &-opacity {
       opacity: 0;
@@ -134,8 +154,23 @@ $small-marker-top: 0;
   }
 
   .slider-track {
-    background-color: var(--slider-default-track-color);
-    border: 1px solid var(--slider-default-track-color);
+    background-color: var(--slider-track-background-color);
+    border: 1px solid var(--slider-track-border-color);
+
+    &.success {
+      background-color: var(--slider-track-success-background-color);
+      border-color: var(--slider-track-success-border-color);
+    }
+
+    &.warning {
+      background-color: var(--slider-track-warning-background-color);
+      border-color: var(--slider-track-warning-border-color);
+    }
+
+    &.error {
+      background-color: var(--slider-track-error-background-color);
+      border-color: var(--slider-track-error-border-color);
+    }
 
     &-opacity {
       opacity: 0;
@@ -156,8 +191,8 @@ $small-marker-top: 0;
   }
 
   .rail-marker-segment {
-    background-color: var(--slider-default-rail-color);
-    border: 1px solid var(--slider-default-rail-border-color);
+    background-color: var(--slider-rail-background-color);
+    border: 1px solid var(--slider-rail-border-color);
     border-radius: $border-radius-xs;
     height: $medium-track-height;
     position: absolute;
@@ -167,14 +202,38 @@ $small-marker-top: 0;
       display: none;
     }
 
+    &-opacity {
+      opacity: 0;
+    }
+
+    &.data {
+      background-color: var(--slider-data-rail-background-color);
+      border-color: var(--slider-data-rail-border-color);
+    }
+
     &.active {
-      background-color: var(--slider-default-track-color);
-      border: 1px solid var(--slider-default-track-color);
+      background-color: var(--slider-track-background-color);
+      border: 1px solid var(--slider-track-border-color);
+
+      &.success {
+        background-color: var(--slider-track-success-background-color);
+        border-color: var(--slider-track-success-border-color);
+      }
+
+      &.warning {
+        background-color: var(--slider-track-warning-background-color);
+        border-color: var(--slider-track-warning-border-color);
+      }
+
+      &.error {
+        background-color: var(--slider-track-error-background-color);
+        border-color: var(--slider-track-error-border-color);
+      }
     }
   }
 
   .slider-track {
-    background-color: var(--slider-default-track-color);
+    background-color: var(--slider-track-background-color);
   }
 
   .slider-labels {
@@ -187,7 +246,7 @@ $small-marker-top: 0;
 
   .slider-value {
     bottom: 0;
-    color: var(--slider-default-value-text-color);
+    color: var(--slider-value-text-color);
     font-family: $octuple-font-family;
     font-size: $text-font-size-2;
     padding: 0 $space-xxxs;
@@ -196,7 +255,7 @@ $small-marker-top: 0;
   }
 
   .extremity-label {
-    color: var(--slider-min-max-labels-color);
+    color: var(--slider-extremity-text-color);
     font-family: $octuple-font-family;
     font-size: $text-font-size-2;
     position: absolute;
@@ -259,7 +318,7 @@ $small-marker-top: 0;
 
   .thumb {
     box-shadow: $shadow-object-s;
-    cursor: pointer;
+    cursor: grab;
     display: block;
     height: 0;
     opacity: 1;
@@ -267,6 +326,10 @@ $small-marker-top: 0;
     position: absolute;
     top: $medium-rail-top;
     width: 100%;
+
+    &:active {
+      cursor: grabbing;
+    }
 
     &-hidden {
       opacity: 0;
@@ -284,21 +347,25 @@ $small-marker-top: 0;
     // For Chrome browsers
     &::-webkit-slider-thumb {
       -webkit-appearance: none;
-      background-color: var(--slider-default-thumb-color);
+      background-color: var(--slider-thumb-color);
       border: none;
       border-radius: 50%;
       box-shadow: $shadow-object-s;
-      cursor: pointer;
+      cursor: grab;
       height: $medium-slider-height;
       margin-top: $space-xxs;
       pointer-events: all;
       position: relative;
       width: $medium-slider-height;
+
+      &:active {
+        cursor: grabbing;
+      }
     }
 
     // For Firefox browsers
     &::-moz-range-thumb {
-      background-color: var(--slider-default-thumb-color);
+      background-color: var(--slider-thumb-color);
       background-image: url("data:image/svg+xml,%3Csvg width='4' height='7' viewBox='0 0 4 7' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0H1.34375V1.34375H0V0ZM2.65625 0H4V1.34375H2.65625V0ZM0 2.65625H1.34375V4H0V2.65625ZM2.65625 2.65625H4V4H2.65625V2.65625ZM0 5.34375H1.34375V6.65625H0V5.34375ZM2.65625 5.34375H4V6.65625H2.65625V5.34375Z' fill='%23343c4c'/%3E%3C/svg%3E%0A");
       background-position: center;
       background-repeat: no-repeat;
@@ -315,6 +382,16 @@ $small-marker-top: 0;
   }
 
   &.show-markers {
+    .slider {
+      &-dot {
+        margin-left: -3px;
+      }
+
+      &-mark-text {
+        margin-left: -$space-xxxs;
+      }
+    }
+
     .thumb {
       margin-left: -$medium-thumb-offset;
     }
@@ -465,6 +542,16 @@ $small-marker-top: 0;
     }
 
     &.show-markers {
+      .slider {
+        &-dot {
+          margin-left: -$space-xxs;
+        }
+
+        &-mark-text {
+          margin-left: -$space-xxs;
+        }
+      }
+
       .thumb {
         margin-left: -$space-xxs;
       }
@@ -600,6 +687,16 @@ $small-marker-top: 0;
     }
 
     &.show-markers {
+      .slider {
+        &-dot {
+          margin-left: -3px;
+        }
+
+        &-mark-text {
+          margin-left: -$space-xxs;
+        }
+      }
+
       .thumb {
         margin-left: -$medium-thumb-offset;
       }
@@ -740,6 +837,16 @@ $small-marker-top: 0;
     }
 
     &.show-markers {
+      .slider {
+        &-dot {
+          margin-left: -$space-xxxs;
+        }
+
+        &-mark-text {
+          margin-left: -$space-xxxs;
+        }
+      }
+
       .thumb {
         margin-left: -$space-xxxs;
       }
@@ -804,6 +911,18 @@ $small-marker-top: 0;
     }
 
     &.show-markers {
+      .slider {
+        &-dot {
+          margin-left: unset;
+          margin-right: -3px;
+        }
+
+        &-mark-text {
+          margin-left: unset;
+          margin-right: -$space-xxs;
+        }
+      }
+
       .thumb {
         margin-left: unset;
         margin-right: -$medium-thumb-offset;
@@ -868,6 +987,18 @@ $small-marker-top: 0;
       }
 
       &.show-markers {
+        .slider {
+          &-dot {
+            margin-left: unset;
+            margin-right: -$space-xxs;
+          }
+
+          &-mark-text {
+            margin-left: unset;
+            margin-right: -$space-xxs;
+          }
+        }
+
         .thumb {
           margin-left: unset;
           margin-right: -$space-xxs;
@@ -926,6 +1057,18 @@ $small-marker-top: 0;
       }
 
       &.show-markers {
+        .slider {
+          &-dot {
+            margin-left: unset;
+            margin-right: -3px;
+          }
+
+          &-mark-text {
+            margin-left: unset;
+            margin-right: -$space-xxs;
+          }
+        }
+
         .thumb {
           margin-left: unset;
           margin-right: -$medium-thumb-offset;
@@ -984,6 +1127,18 @@ $small-marker-top: 0;
       }
 
       &.show-markers {
+        .slider {
+          &-dot {
+            margin-left: unset;
+            margin-right: -$space-xxxs;
+          }
+
+          &-mark-text {
+            margin-left: unset;
+            margin-right: -$space-xxxs;
+          }
+        }
+
         .thumb {
           margin-left: unset;
           margin-right: -$space-xxxs;

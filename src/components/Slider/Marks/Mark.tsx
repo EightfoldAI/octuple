@@ -7,7 +7,7 @@ import { mergeClasses } from '../../../shared/utilities';
 import styles from '../slider.module.scss';
 
 export default function Mark(props: MarkProps) {
-  const { style, children, value, onClick } = props;
+  const { children, classNames, onClick, style, value } = props;
   const { direction, included, includedEnd, includedStart, min, max } =
     React.useContext(SliderContext);
 
@@ -21,6 +21,7 @@ export default function Mark(props: MarkProps) {
           [styles.sliderMarkTextActive]:
             included && includedStart <= value && value <= includedEnd,
         },
+        classNames,
       ])}
       style={{
         ...positionStyle,

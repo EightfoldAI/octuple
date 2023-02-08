@@ -2,9 +2,8 @@ import React from 'react';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import Enzyme, { mount, ReactWrapper } from 'enzyme';
 import MatchMediaMock from 'jest-matchmedia-mock';
+import { Slider, SliderTrackStatus } from './';
 import { render, fireEvent } from '@testing-library/react';
-
-import { Slider } from './';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -143,8 +142,18 @@ describe('Slider', () => {
     expect(vals[1]).toEqual(10);
   });
 
+  test('should render normally when `hideRail=true`', () => {
+    const { container } = render(<Slider hideRail value={50} />);
+    expect(() => container).not.toThrowError();
+  });
+
   test('should render normally when `hideThumb=true`', () => {
     const { container } = render(<Slider hideThumb value={50} />);
+    expect(() => container).not.toThrowError();
+  });
+
+  test('should render normally when `hideTrack=true`', () => {
+    const { container } = render(<Slider hideTrack value={50} />);
     expect(() => container).not.toThrowError();
   });
 
@@ -168,6 +177,16 @@ describe('Slider', () => {
     expect(container2.getElementsByClassName('slider-dot')).toHaveLength(11);
     expect(container2.getElementsByClassName('slider-dot-active')).toHaveLength(
       4
+    );
+  });
+
+  test('should render dots with custom class', () => {
+    const { container: container1 } = render(
+      <Slider value={50} step={10} dots dotClassNames="dot-test-class" />
+    );
+    expect(container1.getElementsByClassName('slider-dot')).toHaveLength(11);
+    expect(container1.getElementsByClassName('dot-test-class')).toHaveLength(
+      11
     );
   });
 
@@ -256,5 +275,26 @@ describe('Slider', () => {
     expect(
       container.getElementsByClassName('thumb')[0].getAttribute('value')
     ).toBe('30');
+  });
+
+  test('should render success track color', () => {
+    const { container: container1 } = render(
+      <Slider value={50} step={10} trackStatus={SliderTrackStatus.Success} />
+    );
+    expect(container1.getElementsByClassName('success')).toHaveLength(1);
+  });
+
+  test('should render warning track color', () => {
+    const { container: container1 } = render(
+      <Slider value={50} step={10} trackStatus={SliderTrackStatus.Warning} />
+    );
+    expect(container1.getElementsByClassName('warning')).toHaveLength(1);
+  });
+
+  test('should render error track color', () => {
+    const { container: container1 } = render(
+      <Slider value={50} step={10} trackStatus={SliderTrackStatus.Error} />
+    );
+    expect(container1.getElementsByClassName('error')).toHaveLength(1);
   });
 });
