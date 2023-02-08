@@ -88,7 +88,7 @@ export interface ConfigProviderProps {
   size?: Size;
   /**
    * Options for theming
-   * @default { name: 'blue', useSystemTheme: false, customTheme: null }
+   * @default { name: 'blue', customTheme: null }
    */
   themeOptions?: ThemeOptions;
 }
