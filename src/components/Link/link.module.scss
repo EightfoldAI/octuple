@@ -4,7 +4,6 @@
   font-family: $octuple-font-family;
   font-weight: $text-font-weight-semibold;
   font-size: $text-font-size-2;
-  text-decoration: none;
   width: fit-content;
 
   &.full-width {
@@ -75,9 +74,16 @@
     }
   }
 
-  &:active:not(.disabled),
-  &:hover:not(.disabled) {
-    text-decoration: underline;
+  &.neutral,
+  &.primary,
+  &.secondary,
+  &.disruptive {
+    text-decoration: none;
+
+    &:active:not(.disabled),
+    &:hover:not(.disabled) {
+      text-decoration: underline;
+    }
   }
 
   &.underline {
