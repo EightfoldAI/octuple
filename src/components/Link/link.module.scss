@@ -8,7 +8,6 @@
   width: fit-content;
 
   &.full-width {
-    display: inline;
     width: unset; // Ensure width is unset to be safe accross all browsers
   }
 
