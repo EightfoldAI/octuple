@@ -103,6 +103,12 @@ const AvatarStatusIcons: FC<BaseAvatarProps> = React.forwardRef(
                 ...statusIconsPosition(position, iconProps),
               }}
               onClick={iconProps.onClick}
+              {...(iconProps.onClick
+                ? {
+                    role: 'button',
+                    className: styles.avatarStatusBtn,
+                  }
+                : {})}
             >
               <Icon {...iconProps} />
             </div>

@@ -70,5 +70,10 @@
   object-fit: cover;
 }
 
+.avatar-status-btn:hover {
+  cursor: pointer;
+  filter: brightness(85%);
+}
+
 @import './Styles/group';
 @import './Styles/rtl';

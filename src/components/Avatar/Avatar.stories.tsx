@@ -88,10 +88,14 @@ const Avatar_StatusIcon_Story: ComponentStory<typeof Avatar> = (args) => {
   const examples: AvatarProps[] = [
     {
       statusIcons: {
-        [StatusIconsPosition.TopRight]: statusIconProps,
+        [StatusIconsPosition.TopRight]: {
+          ...statusIconProps,
+          onClick: (e) => alert(`Clicked pencil icon`),
+        },
         [StatusIconsPosition.Bottom]: {
           ...statusIconProps,
           path: IconName.mdiClock,
+          onClick: (e) => alert(`Clicked clock icon`),
         },
       },
       hashingFunction: () => 0,
@@ -100,10 +104,14 @@ const Avatar_StatusIcon_Story: ComponentStory<typeof Avatar> = (args) => {
     },
     {
       statusIcons: {
-        [StatusIconsPosition.BottomRight]: statusIconProps,
+        [StatusIconsPosition.BottomRight]: {
+          ...statusIconProps,
+          onClick: (e) => alert(`Clicked pencil icon`),
+        },
         [StatusIconsPosition.BottomLeft]: {
           ...statusIconProps,
           path: IconName.mdiClock,
+          onClick: (e) => alert(`Clicked clock icon`),
         },
       },
       iconProps: {
