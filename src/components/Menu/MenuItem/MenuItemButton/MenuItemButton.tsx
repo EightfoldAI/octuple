@@ -88,8 +88,8 @@ export const MenuItemButton: FC<MenuItemButtonProps> = ({
           <span className={styles.label}>{text}</span>
           {counter && <span>{counter}</span>}
         </span>
+        {subText && <span className={itemSubTextClasses}>{subText}</span>}
       </span>
-      {subText && <span className={itemSubTextClasses}>{subText}</span>}
     </button>
   );
 };
