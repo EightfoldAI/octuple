@@ -1,8 +1,9 @@
-import React, { FC } from 'react';
+import React, { FC, useRef } from 'react';
 import { MenuItemButtonProps } from '../MenuItem.types';
 import { MenuSize, MenuVariant } from '../../Menu.types';
 import { mergeClasses } from '../../../../shared/utilities';
 import { Icon } from '../../../Icon';
+import { ButtonShape, ButtonSize, NeutralButton } from '../../../Button';
 
 import styles from '../menuItem.module.scss';
 
@@ -19,8 +20,10 @@ export const MenuItemButton: FC<MenuItemButtonProps> = ({
   active,
   counter,
   type,
+  secondaryButtonProps,
   ...rest
 }) => {
+  const secondaryButtonRef = useRef<HTMLButtonElement>(null);
   const menuItemClasses: string = mergeClasses([
     styles.menuItem,
     {
@@ -46,7 +49,11 @@ export const MenuItemButton: FC<MenuItemButtonProps> = ({
 
   return (
     <button
-      onClick={() => onClick?.(value)}
+      onClick={(e) => {
+        if (!secondaryButtonRef?.current?.contains?.(e.target as Node)) {
+          onClick?.(value);
+        }
+      }}
       tabIndex={tabIndex}
       role="menuitem"
       className={menuItemClasses}
@@ -56,7 +63,17 @@ export const MenuItemButton: FC<MenuItemButtonProps> = ({
       <span className={styles.menuItemWrapper}>
         <span className={styles.itemText}>
           <span className={styles.label}>{text}</span>
-          {counter && <span>{counter}</span>}
+          <span className={styles.actionWrapper}>
+            {counter && <span>{counter}</span>}
+            {secondaryButtonProps && (
+              <NeutralButton
+                ref={secondaryButtonRef}
+                size={ButtonSize.Small}
+                shape={ButtonShape.Round}
+                {...secondaryButtonProps}
+              />
+            )}
+          </span>
         </span>
         {subText && <span className={itemSubTextClasses}>{subText}</span>}
       </span>

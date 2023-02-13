@@ -120,6 +120,12 @@
     align-content: flex-start;
   }
 
+  .action-wrapper {
+    align-items: center;
+    display: flex;
+    gap: $space-xxs;
+  }
+
   &:first-child {
     margin-top: $space-xs;
   }
