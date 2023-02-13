@@ -24,6 +24,18 @@
     flex: 1;
   }
 
+  .menu-secondary-wrapper {
+    display: flex;
+    justify-content: space-between;
+    flex: 1;
+
+    .menu-inner-button {
+      align-items: center;
+      display: flex;
+      gap: $space-xs;
+    }
+  }
+
   .item-text {
     display: flex;
     align-items: center;
