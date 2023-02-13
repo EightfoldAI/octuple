@@ -1,8 +1,9 @@
 import React from 'react';
 import { Stories } from '@storybook/addon-docs';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { IconName } from '../Icon';
-import { Avatar } from './';
+import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { IconName, IconSize } from '../Icon';
+import { Avatar, AvatarProps, StatusIconsPosition } from './';
+import { Stack } from '../Stack';
 
 export default {
   title: 'Avatar',
@@ -75,6 +76,83 @@ const Avatar_Fallback_Hashing_Story: ComponentStory<typeof Avatar> = (args) => (
 
 export const Avatar_Fallback_Hashing = Avatar_Fallback_Hashing_Story.bind({});
 
+const Avatar_StatusIcon_Story: ComponentStory<typeof Avatar> = (args) => {
+  const statusIconProps = {
+    path: IconName.mdiPencil,
+    size: IconSize.XSmall,
+    type: 'round',
+    backgroundColor: 'var(--blue-color-100)',
+    padding: '6px',
+  };
+
+  const examples: AvatarProps[] = [
+    {
+      statusIcons: {
+        [StatusIconsPosition.TopRight]: statusIconProps,
+        [StatusIconsPosition.Bottom]: {
+          ...statusIconProps,
+          path: IconName.mdiClock,
+        },
+      },
+      hashingFunction: () => 0,
+      children: 'AB',
+      fontSize: '48px',
+    },
+    {
+      statusIcons: {
+        [StatusIconsPosition.BottomRight]: statusIconProps,
+        [StatusIconsPosition.BottomLeft]: {
+          ...statusIconProps,
+          path: IconName.mdiClock,
+        },
+      },
+      iconProps: {
+        path: IconName.mdiAccount,
+        size: '80px',
+      },
+      style: {
+        backgroundColor: 'var(--blue-color-50)',
+      },
+    },
+    {
+      statusIcons: {
+        [StatusIconsPosition.Left]: {
+          ...statusIconProps,
+          backgroundColor: 'var(--blue-color-20)',
+          path: IconName.mdiMagnify,
+        },
+        [StatusIconsPosition.TopLeft]: {
+          ...statusIconProps,
+          backgroundColor: 'var(--red-color-30)',
+          path: IconName.mdiClock,
+        },
+        [StatusIconsPosition.Top]: {
+          ...statusIconProps,
+          backgroundColor: 'var(--red-color-30)',
+          path: IconName.mdiBell,
+        },
+        [StatusIconsPosition.Right]: {
+          ...statusIconProps,
+          backgroundColor: 'var(--blue-color-20)',
+          path: IconName.mdiCalendar,
+        },
+      },
+      src: imageProps.src,
+      alt: imageProps.alt,
+    },
+  ];
+
+  return (
+    <Stack direction="vertical" flexGap="l">
+      {examples.map((value: AvatarProps, index) => {
+        return <Avatar key={index} {...args} {...value} />;
+      })}
+    </Stack>
+  );
+};
+
+export const Avatar_StatusIcon = Avatar_StatusIcon_Story.bind({});
+
 const avatarArgs: Object = {
   children: 'JD',
   classNames: 'my-avatar-class',
@@ -89,6 +167,12 @@ Avatar_Default.args = {
   ...avatarArgs,
   src: imageProps.src,
   alt: imageProps.alt,
+};
+
+Avatar_StatusIcon.args = {
+  ...avatarArgs,
+  type: 'round',
+  size: '100px',
 };
 
 Avatar_Icon.args = {

@@ -5,7 +5,22 @@ import { ListProps } from '../List';
 import { TooltipProps } from '../Tooltip';
 import { OcBaseProps } from '../OcBase';
 
-interface BaseAvatarProps extends OcBaseProps<HTMLSpanElement> {
+export enum StatusIconsPosition {
+  Top = 'top',
+  Bottom = 'bottom',
+  Left = 'left',
+  Right = 'right',
+  TopRight = 'topright',
+  TopLeft = 'topleft',
+  BottomRight = 'bottomright',
+  BottomLeft = 'bottomleft',
+}
+
+export type StatusIconsMap = {
+  [key in StatusIconsPosition]?: StatusIconsProps;
+};
+
+export interface BaseAvatarProps extends OcBaseProps<HTMLSpanElement> {
   /**
    * Avatar fallback font size
    * @default '18px'
@@ -39,6 +54,29 @@ interface BaseAvatarProps extends OcBaseProps<HTMLSpanElement> {
    * @default 'square'
    */
   type?: 'round' | 'square';
+  /**
+   * Status icons which are to be placed on top of the avatar
+   * @default {}
+   */
+  statusIcons?: StatusIconsMap;
+}
+
+export interface StatusIconsProps extends IconProps {
+  /**
+   * Background color
+   * @default '#fff'
+   */
+  backgroundColor?: string;
+  /**
+   * Icon padding
+   * @default '6px'
+   */
+  padding?: string;
+  /**
+   * Icon onClick event handler.
+   * @default undefined
+   */
+  onClick?: React.MouseEventHandler<HTMLDivElement>;
 }
 
 export interface AvatarIconProps extends BaseAvatarProps {

@@ -1,8 +1,15 @@
-import React, { Ref, FC, useMemo } from 'react';
+import React, { FC, Ref, useMemo } from 'react';
 
 // Styles:
 import styles from './avatar.module.scss';
-import { AvatarProps, AvatarFallbackProps, AvatarIconProps } from './';
+import {
+  AvatarFallbackProps,
+  AvatarIconProps,
+  AvatarProps,
+  BaseAvatarProps,
+  StatusIconsPosition,
+  StatusIconsProps,
+} from './';
 import { mergeClasses } from '../../shared/utilities';
 import { Icon } from '../Icon';
 
@@ -20,6 +27,91 @@ export const AVATAR_THEME_SET = [
   styles.violetRed,
   styles.grey,
 ];
+
+const AvatarStatusIcons: FC<BaseAvatarProps> = React.forwardRef(
+  ({ statusIcons, size }) => {
+    const getStatusIconStyle = (
+      iconProps: StatusIconsProps
+    ): React.CSSProperties => {
+      return {
+        position: 'absolute',
+        borderRadius: '50%',
+        background: iconProps.backgroundColor || '#fff',
+        padding: iconProps.padding || '6px',
+      };
+    };
+
+    const statusIconsPosition = (
+      subIconPos: StatusIconsPosition,
+      icon: StatusIconsProps
+    ): React.CSSProperties => {
+      const outerWidth = size;
+      const innerWidth = `(${icon.size} + (2 * ${icon.padding}))`;
+
+      switch (subIconPos) {
+        case StatusIconsPosition.Top:
+          return {
+            top: `calc(-1 * ${innerWidth} / 2)`,
+            left: `calc((${outerWidth} - ${innerWidth}) / 2)`,
+          };
+        case StatusIconsPosition.Bottom:
+          return {
+            bottom: `calc(-1 * ${innerWidth} / 2)`,
+            left: `calc((${outerWidth} - ${innerWidth}) / 2)`,
+          };
+        case StatusIconsPosition.Left:
+          return {
+            bottom: `calc((${outerWidth} - ${innerWidth}) / 2)`,
+            left: `calc(-1 * ${innerWidth} / 2)`,
+          };
+        case StatusIconsPosition.Right:
+          return {
+            bottom: `calc((${outerWidth} - ${innerWidth}) / 2)`,
+            right: `calc(-1 * ${innerWidth} / 2)`,
+          };
+        case StatusIconsPosition.TopRight:
+          return {
+            top: `0`,
+            right: `0`,
+          };
+        case StatusIconsPosition.TopLeft:
+          return {
+            top: `0`,
+            left: `0`,
+          };
+        case StatusIconsPosition.BottomRight:
+          return {
+            bottom: `0`,
+            right: `0`,
+          };
+        case StatusIconsPosition.BottomLeft:
+          return {
+            bottom: `0`,
+            left: `0`,
+          };
+      }
+    };
+
+    return (
+      <>
+        {Object.keys(statusIcons).map((position: StatusIconsPosition) => {
+          const iconProps = statusIcons[position];
+          return (
+            <div
+              style={{
+                ...getStatusIconStyle(iconProps),
+                ...statusIconsPosition(position, iconProps),
+              }}
+              onClick={iconProps.onClick}
+            >
+              <Icon {...iconProps} />
+            </div>
+          );
+        })}
+      </>
+    );
+  }
+);
 
 const AvatarFallback: FC<AvatarFallbackProps> = React.forwardRef(
   (
@@ -64,7 +156,10 @@ const AvatarFallback: FC<AvatarFallbackProps> = React.forwardRef(
 );
 
 const AvatarIcon: FC<AvatarIconProps> = React.forwardRef(
-  ({ iconProps, fontSize, classNames, style }, ref: Ref<HTMLDivElement>) => {
+  (
+    { iconProps, fontSize, classNames, style, children },
+    ref: Ref<HTMLDivElement>
+  ) => {
     const wrapperClasses: string = mergeClasses([
       styles.wrapperStyle,
       styles.avatar,
@@ -74,6 +169,7 @@ const AvatarIcon: FC<AvatarIconProps> = React.forwardRef(
     return (
       <div ref={ref} className={wrapperClasses} style={style}>
         <Icon size={fontSize} {...iconProps} />
+        {children}
       </div>
     );
   }
@@ -90,6 +186,7 @@ export const Avatar: FC<AvatarProps> = React.forwardRef(
       style = {},
       fontSize = '18px',
       iconProps,
+      statusIcons = {},
       children,
       hashingFunction,
       theme,
@@ -110,6 +207,7 @@ export const Avatar: FC<AvatarProps> = React.forwardRef(
       minHeight: size,
       fontSize: fontSize,
       ...style,
+      ...(Object.keys(statusIcons).length > 0 ? { position: 'relative' } : {}),
     };
 
     if (src) {
@@ -122,6 +220,7 @@ export const Avatar: FC<AvatarProps> = React.forwardRef(
             width={size}
             height={size}
           />
+          <AvatarStatusIcons statusIcons={statusIcons} size={size} />
         </div>
       );
     }
@@ -136,7 +235,9 @@ export const Avatar: FC<AvatarProps> = React.forwardRef(
           style={wrapperContainerStyle}
           fontSize={fontSize}
           ref={ref}
-        />
+        >
+          <AvatarStatusIcons statusIcons={statusIcons} size={size} />
+        </AvatarIcon>
       );
     }
 
@@ -150,6 +251,7 @@ export const Avatar: FC<AvatarProps> = React.forwardRef(
         randomiseTheme={randomiseTheme}
       >
         {children}
+        <AvatarStatusIcons statusIcons={statusIcons} size={size} />
       </AvatarFallback>
     );
   }
