@@ -51,8 +51,8 @@ export default {
   },
   argTypes: {
     variant: {
-      options: ['default', 'primary'],
-      control: { type: 'inline-radio' },
+      options: ['default', 'primary', 'secondary', 'neutral', 'disruptive'],
+      control: { type: 'inline' },
     },
     onClick: {
       action: 'click',
@@ -60,27 +60,46 @@ export default {
   },
 } as ComponentMeta<typeof Link>;
 
-const Default_Story: ComponentStory<typeof Link> = (args) => <Link {...args} />;
+const Link_Story: ComponentStory<typeof Link> = (args) => {
+  // Prevents :visited from persisting
+  const testAnchor = (): string => {
+    return `#${Math.floor(Math.random() * 1000)}-eftestanchor`;
+  };
+  return <Link {...args} href={testAnchor()} />;
+};
 
-export const Default = Default_Story.bind({});
-
-const Primary_Story: ComponentStory<typeof Link> = (args) => <Link {...args} />;
-
-export const Primary = Primary_Story.bind({});
-
-const Default_Disabled_Story: ComponentStory<typeof Link> = (args) => (
-  <Link {...args} />
-);
-
-export const Default_Disabled = Default_Disabled_Story.bind({});
+export const Default = Link_Story.bind({});
+export const Primary = Link_Story.bind({});
+export const Secondary = Link_Story.bind({});
+export const Neutral = Link_Story.bind({});
+export const Disruptive = Link_Story.bind({});
+export const Primary_Underline = Link_Story.bind({});
+export const Secondary_Underline = Link_Story.bind({});
+export const Neutral_Underline = Link_Story.bind({});
+export const Disruptive_Underline = Link_Story.bind({});
+export const Default_Disabled = Link_Story.bind({});
+export const Primary_Disabled = Link_Story.bind({});
+export const Secondary_Disabled = Link_Story.bind({});
+export const Neutral_Disabled = Link_Story.bind({});
+export const Disruptive_Disabled = Link_Story.bind({});
 
 const linkArgs: Object = {
-  href: 'https://eightfold.ai',
   classNames: 'my-link-class',
-  children: 'Eightfold',
+  children: (
+    <span
+      style={{
+        alignItems: 'center',
+        display: 'flex',
+        flexDirection: 'row',
+      }}
+    >
+      <Icon path={IconName.mdiBookmark} />
+      Default
+    </span>
+  ),
+  fullWidth: true,
   target: '_self',
   variant: 'default',
-  style: {},
 };
 
 Default.args = {
@@ -89,11 +108,6 @@ Default.args = {
 
 Primary.args = {
   ...linkArgs,
-  href: 'https://eightfold.ai',
-  variant: 'primary',
-  style: {
-    maxWidth: '100px',
-  },
   children: (
     <span
       style={{
@@ -102,16 +116,146 @@ Primary.args = {
         flexDirection: 'row',
       }}
     >
-      <Icon path={IconName.mdiAccount} />
-      User Profile
+      <Icon path={IconName.mdiBookmark} />
+      Primary
     </span>
   ),
+  fullWidth: false,
+  variant: 'primary',
+};
+
+Neutral.args = {
+  ...linkArgs,
+  children: (
+    <span
+      style={{
+        alignItems: 'center',
+        display: 'flex',
+        flexDirection: 'row',
+      }}
+    >
+      <Icon path={IconName.mdiBookmark} />
+      Neutral
+    </span>
+  ),
+  fullWidth: false,
+  variant: 'neutral',
+};
+
+Secondary.args = {
+  ...linkArgs,
+  children: (
+    <span
+      style={{
+        alignItems: 'center',
+        display: 'flex',
+        flexDirection: 'row',
+      }}
+    >
+      <Icon path={IconName.mdiBookmark} />
+      Secondary
+    </span>
+  ),
+  fullWidth: false,
+  variant: 'secondary',
+};
+
+Disruptive.args = {
+  ...linkArgs,
+  children: (
+    <span
+      style={{
+        alignItems: 'center',
+        display: 'flex',
+        flexDirection: 'row',
+      }}
+    >
+      <Icon path={IconName.mdiBookmark} />
+      Disruptive
+    </span>
+  ),
+  fullWidth: false,
+  variant: 'disruptive',
+};
+
+Primary_Underline.args = {
+  ...linkArgs,
+  children: (
+    <span
+      style={{
+        alignItems: 'center',
+        display: 'flex',
+        flexDirection: 'row',
+      }}
+    >
+      <Icon path={IconName.mdiBookmark} />
+      Primary
+    </span>
+  ),
+  fullWidth: false,
+  underline: true,
+  variant: 'primary',
+};
+
+Neutral_Underline.args = {
+  ...linkArgs,
+  children: (
+    <span
+      style={{
+        alignItems: 'center',
+        display: 'flex',
+        flexDirection: 'row',
+      }}
+    >
+      <Icon path={IconName.mdiBookmark} />
+      Neutral
+    </span>
+  ),
+  fullWidth: false,
+  underline: true,
+  variant: 'neutral',
+};
+
+Secondary_Underline.args = {
+  ...linkArgs,
+  children: (
+    <span
+      style={{
+        alignItems: 'center',
+        display: 'flex',
+        flexDirection: 'row',
+      }}
+    >
+      <Icon path={IconName.mdiBookmark} />
+      Secondary
+    </span>
+  ),
+  fullWidth: false,
+  underline: true,
+  variant: 'secondary',
+};
+
+Disruptive_Underline.args = {
+  ...linkArgs,
+  children: (
+    <span
+      style={{
+        alignItems: 'center',
+        display: 'flex',
+        flexDirection: 'row',
+      }}
+    >
+      <Icon path={IconName.mdiBookmark} />
+      Disruptive
+    </span>
+  ),
+  fullWidth: false,
+  underline: true,
+  variant: 'disruptive',
 };
 
 Default_Disabled.args = {
   ...linkArgs,
-  href: 'https://eightfold.ai',
-  onClick: (e: React.MouseEvent) => e.preventDefault(),
   children: (
     <span
       style={{
@@ -120,8 +264,86 @@ Default_Disabled.args = {
         flexDirection: 'row',
       }}
     >
-      <Icon path={IconName.mdiAccount} />
-      User Profile
+      <Icon path={IconName.mdiBookmark} />
+      Default
     </span>
   ),
+  disabled: true,
+  fullWidth: false,
+};
+
+Primary_Disabled.args = {
+  ...linkArgs,
+  children: (
+    <span
+      style={{
+        alignItems: 'center',
+        display: 'flex',
+        flexDirection: 'row',
+      }}
+    >
+      <Icon path={IconName.mdiBookmark} />
+      Primary
+    </span>
+  ),
+  disabled: true,
+  fullWidth: false,
+  variant: 'primary',
+};
+
+Neutral_Disabled.args = {
+  ...linkArgs,
+  children: (
+    <span
+      style={{
+        alignItems: 'center',
+        display: 'flex',
+        flexDirection: 'row',
+      }}
+    >
+      <Icon path={IconName.mdiBookmark} />
+      Neutral
+    </span>
+  ),
+  disabled: true,
+  fullWidth: false,
+  variant: 'neutral',
+};
+
+Secondary_Disabled.args = {
+  ...linkArgs,
+  children: (
+    <span
+      style={{
+        alignItems: 'center',
+        display: 'flex',
+        flexDirection: 'row',
+      }}
+    >
+      <Icon path={IconName.mdiBookmark} />
+      Secondary
+    </span>
+  ),
+  disabled: true,
+  fullWidth: false,
+  variant: 'secondary',
+};
+
+Disruptive_Disabled.args = {
+  ...linkArgs,
+  children: (
+    <span
+      style={{
+        alignItems: 'center',
+        display: 'flex',
+        flexDirection: 'row',
+      }}
+    >
+      <Icon path={IconName.mdiBookmark} />
+      Disruptive
+    </span>
+  ),
+  disabled: true,
+  fullWidth: false,
+  variant: 'disruptive',
 };
