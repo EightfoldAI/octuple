@@ -3,6 +3,7 @@ import { MenuItemButtonProps } from '../MenuItem.types';
 import { MenuSize, MenuVariant } from '../../Menu.types';
 import { mergeClasses } from '../../../../shared/utilities';
 import { Icon } from '../../../Icon';
+import { ButtonShape, ButtonSize, NeutralButton } from '../../../Button';
 
 import styles from '../menuItem.module.scss';
 
@@ -19,6 +20,7 @@ export const MenuItemButton: FC<MenuItemButtonProps> = ({
   active,
   counter,
   type,
+  secondaryButtonProps,
   ...rest
 }) => {
   const menuItemClasses: string = mergeClasses([
@@ -44,7 +46,35 @@ export const MenuItemButton: FC<MenuItemButtonProps> = ({
     },
   ]);
 
-  return (
+  return secondaryButtonProps ? (
+    <li role="menuitem" tabIndex={tabIndex} className={menuItemClasses}>
+      <span className={styles.menuSecondaryWrapper}>
+        <button
+          className={styles.menuInnerButton}
+          {...rest}
+          onClick={() => onClick?.(value)}
+        >
+          {iconProps && <Icon {...iconProps} />}
+          <span className={styles.menuItemWrapper}>
+            <span className={styles.itemText}>
+              <span className={styles.label}>{text}</span>
+            </span>
+          </span>
+        </button>
+        <span className={styles.menuInnerButton}>
+          {counter && <span>{counter}</span>}
+          {secondaryButtonProps && (
+            <NeutralButton
+              size={ButtonSize.Small}
+              shape={ButtonShape.Round}
+              {...secondaryButtonProps}
+            />
+          )}
+        </span>
+      </span>
+      {subText && <span className={itemSubTextClasses}>{subText}</span>}
+    </li>
+  ) : (
     <button
       onClick={() => onClick?.(value)}
       tabIndex={tabIndex}
