@@ -70,9 +70,10 @@
   object-fit: cover;
 }
 
-.avatar-status-btn:hover {
-  cursor: pointer;
-  filter: brightness(85%);
+.avatar-status-btn {
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 @import './Styles/group';

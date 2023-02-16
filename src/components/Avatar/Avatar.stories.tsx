@@ -1,8 +1,13 @@
 import React from 'react';
 import { Stories } from '@storybook/addon-docs';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { IconName, IconSize } from '../Icon';
-import { Avatar, AvatarProps, StatusIconsPosition } from './';
+import { IconName } from '../Icon';
+import {
+  Avatar,
+  AvatarProps,
+  StatusItemsPosition,
+  getStatusItemSizeAndPadding,
+} from './';
 import { Stack } from '../Stack';
 
 export default {
@@ -76,44 +81,94 @@ const Avatar_Fallback_Hashing_Story: ComponentStory<typeof Avatar> = (args) => (
 
 export const Avatar_Fallback_Hashing = Avatar_Fallback_Hashing_Story.bind({});
 
-const Avatar_StatusIcon_Story: ComponentStory<typeof Avatar> = (args) => {
-  const statusIconProps = {
-    path: IconName.mdiPencil,
-    size: IconSize.XSmall,
-    type: 'round',
+const Avatar_StatusItem_Story: ComponentStory<typeof Avatar> = (args) => {
+  const avatarSize = 100;
+  const [statusItemSize, statusItemPadding] =
+    getStatusItemSizeAndPadding(avatarSize);
+  args.size = `${avatarSize}px`;
+
+  const statusItemProps = {
     backgroundColor: 'var(--blue-color-100)',
-    padding: '6px',
+    padding: `${statusItemPadding}px`,
+    path: IconName.mdiPencil,
+    size: `${statusItemSize}px`,
+    type: 'round',
   };
 
   const examples: AvatarProps[] = [
     {
-      statusIcons: {
-        [StatusIconsPosition.TopRight]: {
-          ...statusIconProps,
-          onClick: (e) => alert(`Clicked pencil icon`),
+      children: 'A',
+      fontSize: '18px',
+      hashingFunction: () => 0,
+      size: '32px',
+      outline: {
+        outlineColor: 'var(--green-color-60)',
+        outlineOffset: '1px',
+        outlineStyle: 'solid',
+        outlineWidth: '2px',
+      },
+      statusItems: {
+        [StatusItemsPosition.Bottom]: {
+          ...statusItemProps,
+          ariaLabel: 'Clock icon',
+          backgroundColor: 'var(--green-color-20)',
+          color: 'var(--green-color-70)',
+          padding: '2px',
+          path: IconName.mdiHome,
+          size: '6px',
         },
-        [StatusIconsPosition.Bottom]: {
-          ...statusIconProps,
-          path: IconName.mdiClock,
-          onClick: (e) => alert(`Clicked clock icon`),
+        [StatusItemsPosition.TopRight]: {
+          ...statusItemProps,
+          ariaLabel: 'Pencil icon',
+          backgroundColor: 'var(--green-color-20)',
+          color: 'var(--green-color-70)',
+          padding: '2px',
+          path: IconName.mdiPencil,
+          size: '6px',
         },
       },
-      hashingFunction: () => 0,
-      children: 'AB',
-      fontSize: '48px',
     },
     {
-      statusIcons: {
-        [StatusIconsPosition.BottomRight]: {
-          ...statusIconProps,
-          onClick: (e) => alert(`Clicked pencil icon`),
+      children: 'AB',
+      fontSize: '48px',
+      hashingFunction: () => 0,
+      outline: {
+        outlineColor: 'var(--blue-color-60)',
+        outlineOffset: '2px',
+        outlineStyle: 'solid',
+        outlineWidth: '4px',
+      },
+      statusItems: {
+        [StatusItemsPosition.TopRight]: {
+          ...statusItemProps,
+          ariaLabel: 'Pencil icon',
+          backgroundColor: 'var(--red-color-20)',
+          color: 'var(--red-color-70)',
+          onClick: () => alert('Clicked pencil icon'),
+          outline: {
+            outlineColor: 'var(--red-color-60)',
+            outlineOffset: '0px',
+            outlineStyle: 'solid',
+            outlineWidth: '2px',
+          },
         },
-        [StatusIconsPosition.BottomLeft]: {
-          ...statusIconProps,
+        [StatusItemsPosition.Bottom]: {
+          ...statusItemProps,
+          ariaLabel: 'Clock icon',
+          backgroundColor: 'var(--grey-color-10)',
+          color: 'var(--grey-color-70)',
+          onClick: () => alert('Clicked clock icon'),
+          outline: {
+            outlineColor: 'var(--grey-color-80)',
+            outlineOffset: '0px',
+            outlineStyle: 'solid',
+            outlineWidth: '2px',
+          },
           path: IconName.mdiClock,
-          onClick: (e) => alert(`Clicked clock icon`),
         },
       },
+    },
+    {
       iconProps: {
         path: IconName.mdiAccount,
         size: '80px',
@@ -121,32 +176,49 @@ const Avatar_StatusIcon_Story: ComponentStory<typeof Avatar> = (args) => {
       style: {
         backgroundColor: 'var(--blue-color-50)',
       },
-    },
-    {
-      statusIcons: {
-        [StatusIconsPosition.Left]: {
-          ...statusIconProps,
-          backgroundColor: 'var(--blue-color-20)',
-          path: IconName.mdiMagnify,
+      statusItems: {
+        [StatusItemsPosition.BottomRight]: {
+          ...statusItemProps,
+          ariaLabel: 'Pencil icon',
+          onClick: () => alert('Clicked pencil icon'),
         },
-        [StatusIconsPosition.TopLeft]: {
-          ...statusIconProps,
-          backgroundColor: 'var(--red-color-30)',
+        [StatusItemsPosition.BottomLeft]: {
+          ...statusItemProps,
+          ariaLabel: 'Clock icon',
+          onClick: () => alert('Clicked clock icon'),
           path: IconName.mdiClock,
         },
-        [StatusIconsPosition.Top]: {
-          ...statusIconProps,
+      },
+    },
+    {
+      alt: imageProps.alt,
+      src: imageProps.src,
+      statusItems: {
+        [StatusItemsPosition.Left]: {
+          ...statusItemProps,
+          ariaLabel: 'Magnify icon',
+          backgroundColor: 'var(--blue-color-20)',
+          onClick: () => alert('Clicked magnify icon'),
+          path: IconName.mdiMagnify,
+        },
+        [StatusItemsPosition.TopLeft]: {
+          ...statusItemProps,
+          ariaLabel: 'Clock icon',
+          backgroundColor: 'var(--red-color-30)',
+          onClick: () => alert('Clicked clock icon'),
+          path: IconName.mdiClock,
+        },
+        [StatusItemsPosition.Top]: {
+          ...statusItemProps,
           backgroundColor: 'var(--red-color-30)',
           path: IconName.mdiBell,
         },
-        [StatusIconsPosition.Right]: {
-          ...statusIconProps,
+        [StatusItemsPosition.Right]: {
+          ...statusItemProps,
           backgroundColor: 'var(--blue-color-20)',
           path: IconName.mdiCalendar,
         },
       },
-      src: imageProps.src,
-      alt: imageProps.alt,
     },
   ];
 
@@ -159,7 +231,7 @@ const Avatar_StatusIcon_Story: ComponentStory<typeof Avatar> = (args) => {
   );
 };
 
-export const Avatar_StatusIcon = Avatar_StatusIcon_Story.bind({});
+export const Avatar_StatusItem = Avatar_StatusItem_Story.bind({});
 
 const avatarArgs: Object = {
   children: 'JD',
@@ -177,10 +249,9 @@ Avatar_Default.args = {
   alt: imageProps.alt,
 };
 
-Avatar_StatusIcon.args = {
+Avatar_StatusItem.args = {
   ...avatarArgs,
   type: 'round',
-  size: '100px',
 };
 
 Avatar_Icon.args = {

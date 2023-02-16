@@ -5,7 +5,11 @@ import { ListProps } from '../List';
 import { TooltipProps } from '../Tooltip';
 import { OcBaseProps } from '../OcBase';
 
-export enum StatusIconsPosition {
+export type StatusItemsMap = {
+  [key in StatusItemsPosition]?: StatusItemsProps;
+};
+
+export enum StatusItemsPosition {
   Top = 'top',
   Bottom = 'bottom',
   Left = 'left',
@@ -16,9 +20,51 @@ export enum StatusIconsPosition {
   BottomLeft = 'bottomleft',
 }
 
-export type StatusIconsMap = {
-  [key in StatusIconsPosition]?: StatusIconsProps;
-};
+export interface OutlineProps {
+  /**
+   * Outline color
+   */
+  outlineColor: string;
+  /**
+   * Outline offset
+   */
+  outlineOffset: string;
+  /**
+   * Outline style
+   */
+  outlineStyle: string;
+  /**
+   * Outline width
+   */
+  outlineWidth: string;
+}
+
+export interface StatusItemsProps extends IconProps {
+  /**
+   * Interactive element label
+   * @default undefined
+   */
+  ariaLabel?: string;
+  /**
+   * Background color
+   * @default 'var(--white-color)'
+   */
+  backgroundColor?: string;
+  /**
+   * Icon onClick event handler.
+   * @default undefined
+   */
+  onClick?: React.MouseEventHandler<HTMLDivElement>;
+  /**
+   * Status item outline
+   * @default undefined
+   */
+  outline?: OutlineProps;
+  /**
+   * Icon padding
+   */
+  padding: string;
+}
 
 export interface BaseAvatarProps extends OcBaseProps<HTMLSpanElement> {
   /**
@@ -30,6 +76,11 @@ export interface BaseAvatarProps extends OcBaseProps<HTMLSpanElement> {
    * Function that returns avatar index
    */
   hashingFunction?: () => number;
+  /**
+   * Avatar outline
+   * @default undefined
+   */
+  outline?: OutlineProps;
   /**
    * Should randomise theme
    * @default false
@@ -45,6 +96,11 @@ export interface BaseAvatarProps extends OcBaseProps<HTMLSpanElement> {
    */
   size?: string;
   /**
+   * Status icons which are to be placed on top of the avatar
+   * @default {}
+   */
+  statusItems?: StatusItemsMap;
+  /**
    * theme of the fallback avatar
    * @default ''
    */
@@ -54,29 +110,6 @@ export interface BaseAvatarProps extends OcBaseProps<HTMLSpanElement> {
    * @default 'square'
    */
   type?: 'round' | 'square';
-  /**
-   * Status icons which are to be placed on top of the avatar
-   * @default {}
-   */
-  statusIcons?: StatusIconsMap;
-}
-
-export interface StatusIconsProps extends IconProps {
-  /**
-   * Background color
-   * @default '#fff'
-   */
-  backgroundColor?: string;
-  /**
-   * Icon padding
-   * @default '6px'
-   */
-  padding?: string;
-  /**
-   * Icon onClick event handler.
-   * @default undefined
-   */
-  onClick?: React.MouseEventHandler<HTMLDivElement>;
 }
 
 export interface AvatarIconProps extends BaseAvatarProps {

@@ -7,11 +7,12 @@ import {
   AvatarIconProps,
   AvatarProps,
   BaseAvatarProps,
-  StatusIconsPosition,
-  StatusIconsProps,
+  StatusItemsPosition,
+  StatusItemsProps,
 } from './';
 import { mergeClasses } from '../../shared/utilities';
 import { Icon } from '../Icon';
+import { useCanvasDirection } from '../../hooks/useCanvasDirection';
 
 export const AVATAR_THEME_SET = [
   styles.red,
@@ -28,89 +29,132 @@ export const AVATAR_THEME_SET = [
   styles.grey,
 ];
 
-const AvatarStatusIcons: FC<BaseAvatarProps> = React.forwardRef(
-  ({ statusIcons, size }) => {
-    const getStatusIconStyle = (
-      iconProps: StatusIconsProps
+export const getStatusItemSizeAndPadding = (
+  avatarSize: number
+): [number, number] => {
+  const statusItemSize: number = (avatarSize * 16) / 100;
+  return [statusItemSize, (statusItemSize * 6) / 16];
+};
+
+const AvatarStatusItems: FC<BaseAvatarProps> = React.forwardRef(
+  ({ outline, size, statusItems }) => {
+    const htmlDir: string = useCanvasDirection();
+
+    const getPositionForRtl = (
+      statusItemPos: StatusItemsPosition
+    ): StatusItemsPosition => {
+      switch (statusItemPos) {
+        case StatusItemsPosition.Left:
+          return StatusItemsPosition.Right;
+        case StatusItemsPosition.Right:
+          return StatusItemsPosition.Left;
+        case StatusItemsPosition.TopLeft:
+          return StatusItemsPosition.TopRight;
+        case StatusItemsPosition.TopRight:
+          return StatusItemsPosition.TopLeft;
+        case StatusItemsPosition.BottomLeft:
+          return StatusItemsPosition.BottomRight;
+        case StatusItemsPosition.BottomRight:
+          return StatusItemsPosition.BottomLeft;
+        default:
+          return statusItemPos;
+      }
+    };
+
+    const getStatusItemBasicStyle = (
+      statusItemProps: StatusItemsProps
     ): React.CSSProperties => {
       return {
         position: 'absolute',
         borderRadius: '50%',
-        background: iconProps.backgroundColor || '#fff',
-        padding: iconProps.padding || '6px',
+        background: statusItemProps.backgroundColor || 'var(--white-color)',
+        padding: statusItemProps.padding,
       };
     };
 
-    const statusIconsPosition = (
-      subIconPos: StatusIconsPosition,
-      icon: StatusIconsProps
+    const getStatusItemPositionStyle = (
+      itemPos: StatusItemsPosition,
+      itemProps: StatusItemsProps
     ): React.CSSProperties => {
-      const outerWidth = size;
-      const innerWidth = `(${icon.size} + (2 * ${icon.padding}))`;
+      const outlineWidth: string = outline ? outline.outlineWidth : '0px'; // Avatar outline width
+      const avatarWidth: string = size;
+      const itemWidth: string = `(${itemProps.size} + (2 * ${itemProps.padding}))`; // Status item width
 
-      switch (subIconPos) {
-        case StatusIconsPosition.Top:
+      switch (htmlDir === 'rtl' ? getPositionForRtl(itemPos) : itemPos) {
+        case StatusItemsPosition.TopRight:
           return {
-            top: `calc(-1 * ${innerWidth} / 2)`,
-            left: `calc((${outerWidth} - ${innerWidth}) / 2)`,
+            top: `calc(-1 * ${outlineWidth})`,
+            right: `calc(-1 * ${outlineWidth})`,
           };
-        case StatusIconsPosition.Bottom:
+        case StatusItemsPosition.TopLeft:
           return {
-            bottom: `calc(-1 * ${innerWidth} / 2)`,
-            left: `calc((${outerWidth} - ${innerWidth}) / 2)`,
+            top: `calc(-1 * ${outlineWidth})`,
+            left: `calc(-1 * ${outlineWidth})`,
           };
-        case StatusIconsPosition.Left:
+        case StatusItemsPosition.BottomRight:
           return {
-            bottom: `calc((${outerWidth} - ${innerWidth}) / 2)`,
-            left: `calc(-1 * ${innerWidth} / 2)`,
+            bottom: `calc(-1 * ${outlineWidth})`,
+            right: `calc(-1 * ${outlineWidth})`,
           };
-        case StatusIconsPosition.Right:
+        case StatusItemsPosition.BottomLeft:
           return {
-            bottom: `calc((${outerWidth} - ${innerWidth}) / 2)`,
-            right: `calc(-1 * ${innerWidth} / 2)`,
+            bottom: `calc(-1 * ${outlineWidth})`,
+            left: `calc(-1 * ${outlineWidth})`,
           };
-        case StatusIconsPosition.TopRight:
+        case StatusItemsPosition.Left:
           return {
-            top: `0`,
-            right: `0`,
+            bottom: `calc((${avatarWidth} - ${itemWidth}) / 2)`,
+            left: `calc(-1 * ${itemWidth} / 2 - ${outlineWidth})`,
           };
-        case StatusIconsPosition.TopLeft:
+        case StatusItemsPosition.Right:
           return {
-            top: `0`,
-            left: `0`,
+            bottom: `calc((${avatarWidth} - ${itemWidth}) / 2)`,
+            right: `calc(-1 * ${itemWidth} / 2 - ${outlineWidth})`,
           };
-        case StatusIconsPosition.BottomRight:
+        case StatusItemsPosition.Top:
           return {
-            bottom: `0`,
-            right: `0`,
+            top: `calc(-1 * ${itemWidth} / 2 - ${outlineWidth})`,
+            left: `calc((${avatarWidth} - ${itemWidth}) / 2)`,
           };
-        case StatusIconsPosition.BottomLeft:
+        case StatusItemsPosition.Bottom:
+        default:
           return {
-            bottom: `0`,
-            left: `0`,
+            bottom: `calc(-1 * ${itemWidth} / 2 - ${outlineWidth})`,
+            left: `calc((${avatarWidth} - ${itemWidth}) / 2)`,
           };
       }
     };
 
     return (
       <>
-        {Object.keys(statusIcons).map((position: StatusIconsPosition) => {
-          const iconProps = statusIcons[position];
+        {Object.keys(statusItems).map((position: StatusItemsPosition) => {
+          const statusItemProps: StatusItemsProps = statusItems[position];
           return (
             <div
               style={{
-                ...getStatusIconStyle(iconProps),
-                ...statusIconsPosition(position, iconProps),
+                ...getStatusItemBasicStyle(statusItemProps),
+                ...getStatusItemPositionStyle(position, statusItemProps),
+                ...(statusItemProps.outline
+                  ? {
+                      'outline-color': statusItemProps.outline.outlineColor,
+                      'outline-offset': statusItemProps.outline.outlineOffset,
+                      'outline-style': statusItemProps.outline.outlineStyle,
+                      'outline-width': statusItemProps.outline.outlineWidth,
+                    }
+                  : {}),
               }}
-              onClick={iconProps.onClick}
-              {...(iconProps.onClick
+              {...(statusItemProps.onClick
                 ? {
-                    role: 'button',
                     className: styles.avatarStatusBtn,
+                    onClick: statusItemProps.onClick,
+                    role: 'button',
                   }
                 : {})}
+              {...(statusItemProps.ariaLabel
+                ? { 'aria-label': statusItemProps.ariaLabel }
+                : {})}
             >
-              <Icon {...iconProps} />
+              <Icon {...statusItemProps} />
             </div>
           );
         })}
@@ -163,7 +207,7 @@ const AvatarFallback: FC<AvatarFallbackProps> = React.forwardRef(
 
 const AvatarIcon: FC<AvatarIconProps> = React.forwardRef(
   (
-    { iconProps, fontSize, classNames, style, children },
+    { children, classNames, fontSize, iconProps, style },
     ref: Ref<HTMLDivElement>
   ) => {
     const wrapperClasses: string = mergeClasses([
@@ -192,7 +236,8 @@ export const Avatar: FC<AvatarProps> = React.forwardRef(
       style = {},
       fontSize = '18px',
       iconProps,
-      statusIcons = {},
+      outline = undefined,
+      statusItems = {},
       children,
       hashingFunction,
       theme,
@@ -213,7 +258,15 @@ export const Avatar: FC<AvatarProps> = React.forwardRef(
       minHeight: size,
       fontSize: fontSize,
       ...style,
-      ...(Object.keys(statusIcons).length > 0 ? { position: 'relative' } : {}),
+      ...(Object.keys(statusItems).length > 0 ? { position: 'relative' } : {}),
+      ...(outline
+        ? {
+            'outline-color': outline.outlineColor,
+            'outline-offset': outline.outlineOffset,
+            'outline-style': outline.outlineStyle,
+            'outline-width': outline.outlineWidth,
+          }
+        : {}),
     };
 
     if (src) {
@@ -226,7 +279,11 @@ export const Avatar: FC<AvatarProps> = React.forwardRef(
             width={size}
             height={size}
           />
-          <AvatarStatusIcons statusIcons={statusIcons} size={size} />
+          <AvatarStatusItems
+            outline={outline}
+            size={size}
+            statusItems={statusItems}
+          />
         </div>
       );
     }
@@ -242,7 +299,11 @@ export const Avatar: FC<AvatarProps> = React.forwardRef(
           fontSize={fontSize}
           ref={ref}
         >
-          <AvatarStatusIcons statusIcons={statusIcons} size={size} />
+          <AvatarStatusItems
+            outline={outline}
+            size={size}
+            statusItems={statusItems}
+          />
         </AvatarIcon>
       );
     }
@@ -257,7 +318,11 @@ export const Avatar: FC<AvatarProps> = React.forwardRef(
         randomiseTheme={randomiseTheme}
       >
         {children}
-        <AvatarStatusIcons statusIcons={statusIcons} size={size} />
+        <AvatarStatusItems
+          outline={outline}
+          size={size}
+          statusItems={statusItems}
+        />
       </AvatarFallback>
     );
   }
