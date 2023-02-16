@@ -79,6 +79,8 @@ import { Modal, ModalSize } from './components/Modal';
 
 import { Navbar, NavbarContent } from './components/Navbar';
 
+import { NudgeAnimation } from './components/Button/Nudge';
+
 import { Pagination, PaginationLayoutOptions } from './components/Pagination';
 
 import { PersistentBar, PersistentBarType } from './components/PersistentBar';
@@ -107,7 +109,12 @@ import {
 
 import { Select, SelectShape, SelectSize } from './components/Select';
 
-import { Slider, SliderMarks } from './components/Slider';
+import {
+  Slider,
+  SliderMarks,
+  SliderSize,
+  SliderTrackStatus,
+} from './components/Slider';
 
 import { SnackbarContainer, Snackbar, snack } from './components/Snackbar';
 
@@ -255,6 +262,7 @@ export {
   Navbar,
   NavbarContent,
   NeutralButton,
+  NudgeAnimation,
   OcFile,
   OcThemeName,
   Pagination,
@@ -292,6 +300,8 @@ export {
   Slide,
   Slider,
   SliderMarks,
+  SliderSize,
+  SliderTrackStatus,
   snack,
   Snackbar,
   SnackbarContainer,

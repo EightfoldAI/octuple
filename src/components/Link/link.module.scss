@@ -1,15 +1,99 @@
 .link-style {
   cursor: pointer;
   font-family: $octuple-font-family;
+  font-weight: $text-font-weight-semibold;
   font-size: $text-font-size-2;
+  width: fit-content;
+
+  &.full-width {
+    width: unset; // Ensure width is unset to be safe accross all browsers
+  }
+
+  &.neutral {
+    color: var(--anchor-neutral-color);
+
+    &:active {
+      color: var(--anchor-neutral-active-color);
+    }
+
+    &:hover {
+      color: var(--anchor-neutral-hover-color);
+    }
+
+    &:visited {
+      color: var(--anchor-neutral-visited-color);
+    }
+  }
 
   &.primary {
-    color: var(--primary-color);
+    color: var(--anchor-primary-color);
 
-    &:active,
-    &:hover {
-      color: var(--primary-color-90);
+    &:active {
+      color: var(--anchor-primary-active-color);
     }
+
+    &:hover {
+      color: var(--anchor-primary-hover-color);
+    }
+
+    &:visited {
+      color: var(--anchor-primary-visited-color);
+    }
+  }
+
+  &.secondary {
+    color: var(--anchor-secondary-color);
+
+    &:active {
+      color: var(--anchor-secondary-active-color);
+    }
+
+    &:hover {
+      color: var(--anchor-secondary-hover-color);
+    }
+
+    &:visited {
+      color: var(--anchor-secondary-visited-color);
+    }
+  }
+
+  &.disruptive {
+    color: var(--anchor-disruptive-color);
+
+    &:active {
+      color: var(--anchor-disruptive-active-color);
+    }
+
+    &:hover {
+      color: var(--anchor-disruptive-hover-color);
+    }
+
+    &:visited {
+      color: var(--anchor-disruptive-visited-color);
+    }
+  }
+
+  &.neutral,
+  &.primary,
+  &.secondary,
+  &.disruptive {
+    display: inline-block;
+    text-decoration: none;
+
+    &:active:not(.disabled),
+    &:hover:not(.disabled) {
+      text-decoration: underline;
+    }
+  }
+
+  &.underline {
+    text-decoration: underline;
+  }
+
+  &.disabled {
+    cursor: not-allowed;
+    opacity: $disabled-alpha-value;
+    text-decoration: none;
   }
 
   // Hides the browser default keyboard focus-visible styles.
@@ -24,6 +108,7 @@
     &.focus-visible,
     &:focus-visible {
       box-shadow: var(--focus-visible-box-shadow);
+      text-decoration: underline;
     }
   }
 }

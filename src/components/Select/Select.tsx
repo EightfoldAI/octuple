@@ -70,6 +70,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
       pillProps = {},
       placeholder = 'Select',
       shape = SelectShape.Rectangle,
+      showEmptyDropdown = true,
       size = SelectSize.Medium,
       spinner = (
         <Spinner classNames={styles.selectSpinner} size={SpinnerSize.Small} />
@@ -213,8 +214,9 @@ export const Select: FC<SelectProps> = React.forwardRef(
       event: React.ChangeEvent<HTMLInputElement>
     ): void => {
       const { target } = event;
-      const value: string = target?.value?.toLowerCase();
-      setSearchQuery(value);
+      const value: string = target?.value || '';
+      const valueLowerCase: string = value?.toLowerCase();
+      setSearchQuery(valueLowerCase);
       if (loadOptions) {
         return loadOptions(value);
       }
@@ -224,7 +226,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
             ...opt,
             hideOption: filterOption
               ? !filterOption(opt, value)
-              : !opt.text.toLowerCase().includes(value),
+              : !opt.text.toLowerCase().includes(valueLowerCase),
           }))
         );
       } else {
@@ -535,7 +537,13 @@ export const Select: FC<SelectProps> = React.forwardRef(
             onVisibleChange={(isVisible) => setDropdownVisibility(isVisible)}
             overlay={isLoading ? spinner : <OptionMenu options={options} />}
             showDropdown={showDropdown}
-            visible={dropdownVisible}
+            visible={
+              dropdownVisible &&
+              (showEmptyDropdown ||
+                isLoading ||
+                searchQuery.length > 0 ||
+                options.length > 0)
+            }
             ref={dropdownRef}
           >
             <TextInput

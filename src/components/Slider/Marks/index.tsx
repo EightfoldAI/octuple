@@ -14,8 +14,14 @@ export default function Marks(props: MarksProps) {
 
   return (
     <div className={styles.sliderMark}>
-      {marks.map(({ value, style, label }) => (
-        <Mark key={value} style={style} value={value} onClick={onClick}>
+      {marks.map(({ classNames, label, style, value }) => (
+        <Mark
+          classNames={classNames}
+          key={value}
+          style={style}
+          value={value}
+          onClick={onClick}
+        >
           {label}
         </Mark>
       ))}

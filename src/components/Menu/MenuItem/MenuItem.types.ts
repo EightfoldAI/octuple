@@ -3,6 +3,7 @@ import { MenuSize, MenuVariant } from '../Menu.types';
 import { OcBaseProps } from '../../OcBase';
 import { IconProps } from '../../Icon';
 import { LinkProps } from '../../Link';
+import { ButtonProps } from '../../Button';
 
 export enum MenuItemType {
   button = 'button',
@@ -68,6 +69,10 @@ export interface MenuItemButtonProps
    * Display sub text of the menu item
    */
   subText?: string;
+  /**
+   * Secondary action button for the menu item
+   */
+  secondaryButtonProps?: Omit<ButtonProps, 'text' | 'shape'>;
 }
 
 export interface MenuItemLinkProps
@@ -94,6 +99,10 @@ export interface MenuItemLinkProps
    * Display label of the menu item
    */
   text?: string;
+  /**
+   * Display sub text of the menu item
+   */
+  subText?: string;
 }
 
 export interface MenuItemSubHeaderProps

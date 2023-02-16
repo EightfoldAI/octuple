@@ -1,5 +1,5 @@
 .card {
-  background-color: --card-background-color;
+  background-color: var(--card-background-color);
   border-radius: var(--card-border-radius);
   color: var(--card-text-color);
   display: block;

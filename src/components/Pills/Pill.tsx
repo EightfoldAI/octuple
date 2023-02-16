@@ -19,6 +19,7 @@ export const Pill: FC<PillProps> = React.forwardRef(
       },
       disabled = false,
       label,
+      lineClamp,
       iconProps,
       theme = 'blue',
       onClose,
@@ -55,6 +56,7 @@ export const Pill: FC<PillProps> = React.forwardRef(
       { [styles.medium]: size === PillSize.Medium },
       { [styles.small]: size === PillSize.Small },
       { [styles.xsmall]: size === PillSize.XSmall },
+      { [styles.lineClamp]: lineClamp },
     ]);
     const tagClassName: string = mergeClasses([
       styles.tagPills,
@@ -82,7 +84,12 @@ export const Pill: FC<PillProps> = React.forwardRef(
             classNames={styles.icon}
           />
         )}
-        <span className={labelClassName}>{label}</span>
+        <span
+          className={labelClassName}
+          style={lineClamp ? { WebkitLineClamp: lineClamp } : null}
+        >
+          {label}
+        </span>
         {type === PillType.withButton && (
           <DefaultButton
             {...pillButtonProps}

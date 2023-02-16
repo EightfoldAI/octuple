@@ -18,6 +18,7 @@ exports[`Tabs pill tabs large snapshot 1`] = `
         aria-hidden={false}
         className="icon icon-wrapper"
         role="presentation"
+        style={null}
       >
         <svg
           role="presentation"
@@ -62,6 +63,7 @@ exports[`Tabs pill tabs large snapshot 1`] = `
         aria-hidden={false}
         className="icon icon-wrapper"
         role="presentation"
+        style={null}
       >
         <svg
           role="presentation"
@@ -100,6 +102,7 @@ exports[`Tabs pill tabs large snapshot 1`] = `
         aria-hidden={false}
         className="icon icon-wrapper"
         role="presentation"
+        style={null}
       >
         <svg
           role="presentation"
@@ -139,6 +142,7 @@ exports[`Tabs pill tabs large snapshot 1`] = `
         aria-hidden={false}
         className="icon icon-wrapper"
         role="presentation"
+        style={null}
       >
         <svg
           role="presentation"
@@ -188,6 +192,7 @@ exports[`Tabs pill tabs medium (default) snapshot 1`] = `
         aria-hidden={false}
         className="icon icon-wrapper"
         role="presentation"
+        style={null}
       >
         <svg
           role="presentation"
@@ -232,6 +237,7 @@ exports[`Tabs pill tabs medium (default) snapshot 1`] = `
         aria-hidden={false}
         className="icon icon-wrapper"
         role="presentation"
+        style={null}
       >
         <svg
           role="presentation"
@@ -270,6 +276,7 @@ exports[`Tabs pill tabs medium (default) snapshot 1`] = `
         aria-hidden={false}
         className="icon icon-wrapper"
         role="presentation"
+        style={null}
       >
         <svg
           role="presentation"
@@ -309,6 +316,7 @@ exports[`Tabs pill tabs medium (default) snapshot 1`] = `
         aria-hidden={false}
         className="icon icon-wrapper"
         role="presentation"
+        style={null}
       >
         <svg
           role="presentation"
@@ -358,6 +366,7 @@ exports[`Tabs pill tabs medium (set) snapshot 1`] = `
         aria-hidden={false}
         className="icon icon-wrapper"
         role="presentation"
+        style={null}
       >
         <svg
           role="presentation"
@@ -402,6 +411,7 @@ exports[`Tabs pill tabs medium (set) snapshot 1`] = `
         aria-hidden={false}
         className="icon icon-wrapper"
         role="presentation"
+        style={null}
       >
         <svg
           role="presentation"
@@ -440,6 +450,7 @@ exports[`Tabs pill tabs medium (set) snapshot 1`] = `
         aria-hidden={false}
         className="icon icon-wrapper"
         role="presentation"
+        style={null}
       >
         <svg
           role="presentation"
@@ -479,6 +490,7 @@ exports[`Tabs pill tabs medium (set) snapshot 1`] = `
         aria-hidden={false}
         className="icon icon-wrapper"
         role="presentation"
+        style={null}
       >
         <svg
           role="presentation"
@@ -528,6 +540,7 @@ exports[`Tabs pill tabs small snapshot 1`] = `
         aria-hidden={false}
         className="icon icon-wrapper"
         role="presentation"
+        style={null}
       >
         <svg
           role="presentation"
@@ -572,6 +585,7 @@ exports[`Tabs pill tabs small snapshot 1`] = `
         aria-hidden={false}
         className="icon icon-wrapper"
         role="presentation"
+        style={null}
       >
         <svg
           role="presentation"
@@ -610,6 +624,7 @@ exports[`Tabs pill tabs small snapshot 1`] = `
         aria-hidden={false}
         className="icon icon-wrapper"
         role="presentation"
+        style={null}
       >
         <svg
           role="presentation"
@@ -649,6 +664,7 @@ exports[`Tabs pill tabs small snapshot 1`] = `
         aria-hidden={false}
         className="icon icon-wrapper"
         role="presentation"
+        style={null}
       >
         <svg
           role="presentation"
@@ -708,6 +724,7 @@ exports[`Tabs stat tabs medium snapshot 1`] = `
           aria-hidden={false}
           className="icon icon-wrapper"
           role="presentation"
+          style={null}
         >
           <svg
             role="presentation"
@@ -773,6 +790,7 @@ exports[`Tabs stat tabs medium snapshot 1`] = `
           aria-hidden={false}
           className="icon icon-wrapper"
           role="presentation"
+          style={null}
         >
           <svg
             role="presentation"
@@ -838,6 +856,7 @@ exports[`Tabs stat tabs medium snapshot 1`] = `
           aria-hidden={false}
           className="icon icon-wrapper"
           role="presentation"
+          style={null}
         >
           <svg
             role="presentation"
@@ -904,6 +923,7 @@ exports[`Tabs stat tabs medium snapshot 1`] = `
           aria-hidden={false}
           className="icon icon-wrapper"
           role="presentation"
+          style={null}
         >
           <svg
             role="presentation"
@@ -980,6 +1000,7 @@ exports[`Tabs stat tabs small snapshot 1`] = `
           aria-hidden={false}
           className="icon icon-wrapper"
           role="presentation"
+          style={null}
         >
           <svg
             role="presentation"
@@ -1045,6 +1066,7 @@ exports[`Tabs stat tabs small snapshot 1`] = `
           aria-hidden={false}
           className="icon icon-wrapper"
           role="presentation"
+          style={null}
         >
           <svg
             role="presentation"
@@ -1110,6 +1132,7 @@ exports[`Tabs stat tabs small snapshot 1`] = `
           aria-hidden={false}
           className="icon icon-wrapper"
           role="presentation"
+          style={null}
         >
           <svg
             role="presentation"
@@ -1176,6 +1199,7 @@ exports[`Tabs stat tabs small snapshot 1`] = `
           aria-hidden={false}
           className="icon icon-wrapper"
           role="presentation"
+          style={null}
         >
           <svg
             role="presentation"
@@ -1242,6 +1266,7 @@ exports[`Tabs tabs snapshot 1`] = `
         aria-hidden={false}
         className="icon icon-wrapper"
         role="presentation"
+        style={null}
       >
         <svg
           role="presentation"
@@ -1286,6 +1311,7 @@ exports[`Tabs tabs snapshot 1`] = `
         aria-hidden={false}
         className="icon icon-wrapper"
         role="presentation"
+        style={null}
       >
         <svg
           role="presentation"
@@ -1324,6 +1350,7 @@ exports[`Tabs tabs snapshot 1`] = `
         aria-hidden={false}
         className="icon icon-wrapper"
         role="presentation"
+        style={null}
       >
         <svg
           role="presentation"
@@ -1363,6 +1390,7 @@ exports[`Tabs tabs snapshot 1`] = `
         aria-hidden={false}
         className="icon icon-wrapper"
         role="presentation"
+        style={null}
       >
         <svg
           role="presentation"

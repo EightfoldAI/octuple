@@ -71,7 +71,7 @@ export const TextArea: FC<TextAreaProps> = React.forwardRef(
 
     const htmlDir: string = useCanvasDirection();
 
-    const textAreaId: string = uniqueId(id || 'textarea-');
+    const textAreaId: string = !!id ? id : uniqueId('textarea-');
     const [inputValue, setInputValue] = useState(value);
 
     const {

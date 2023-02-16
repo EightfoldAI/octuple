@@ -2,6 +2,76 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.28.1](https://github.com/EightfoldAI/octuple/compare/v2.28.0...v2.28.1) (2023-02-14)
+
+### Bug Fixes
+
+- link: isolate css display inline block to variants other than default ([#541](https://github.com/EightfoldAI/octuple/issues/541)) ([0fafb06](https://github.com/EightfoldAI/octuple/commits/0fafb062407c40a5fe419a9b2efdb515a9ed1543))
+
+## [2.28.0](https://github.com/EightfoldAI/octuple/compare/v2.27.0...v2.28.0) (2023-02-14)
+
+### Features
+
+- add secondary button in menu item ([#540](https://github.com/EightfoldAI/octuple/issues/540)) ([e75f047](https://github.com/EightfoldAI/octuple/commits/e75f0476810a6246f302b94396060cc333ab8f58))
+- link: adds variants with var theme styles and improves api ([#535](https://github.com/EightfoldAI/octuple/issues/535)) ([9539e78](https://github.com/EightfoldAI/octuple/commits/9539e78d7fd33cd0f24fd82264b26ee5717ccbbc))
+- slider: enable basic data comparison slider implementations ([#529](https://github.com/EightfoldAI/octuple/issues/529)) ([7c6bae2](https://github.com/EightfoldAI/octuple/commits/7c6bae277bc7d3e2302122bb4b6c78be218d1dfd))
+
+### Bug Fixes
+
+- do not provide default colors for ConfigProvider ([#538](https://github.com/EightfoldAI/octuple/issues/538)) ([4242cc9](https://github.com/EightfoldAI/octuple/commits/4242cc913ca26d61260e32ceb899c22f1d5885f8))
+- input: ensure id passed from props does not append uuid ([#532](https://github.com/EightfoldAI/octuple/issues/532)) ([3921c72](https://github.com/EightfoldAI/octuple/commits/3921c728963c7afa2890588179e86f67f6501358))
+
+## [2.27.0](https://github.com/EightfoldAI/octuple/compare/v2.26.0...v2.27.0) (2023-02-03)
+
+## [2.26.0](https://github.com/EightfoldAI/octuple/compare/v2.25.0...v2.26.0) (2023-02-03)
+
+### Features
+
+- add subtext in link menu item ([#530](https://github.com/EightfoldAI/octuple/issues/530)) ([bc28cdc](https://github.com/EightfoldAI/octuple/commits/bc28cdca59752c062dd8ec29fe5c517c3d51f1ff))
+- link: adds variants with var theme styles and improves api ([#531](https://github.com/EightfoldAI/octuple/issues/531)) ([aa22ddb](https://github.com/EightfoldAI/octuple/commits/aa22ddb9cfd53883725695bd19e534dc82d2ff33))
+- optionally show empty dropdown ([#517](https://github.com/EightfoldAI/octuple/issues/517)) ([5e121cb](https://github.com/EightfoldAI/octuple/commits/5e121cbd5355597b4d033d0fb5a71028de618b6d))
+
+### Bug Fixes
+
+- preserve case in Select ([#519](https://github.com/EightfoldAI/octuple/issues/519)) ([9427fcd](https://github.com/EightfoldAI/octuple/commits/9427fcda961096c7c78b344cbe653e04d4b6b6d2))
+
+## [2.25.0](https://github.com/EightfoldAI/octuple/compare/v2.24.0...v2.25.0) (2023-02-01)
+
+### Features
+
+- extend css var implementation ([#526](https://github.com/EightfoldAI/octuple/issues/526)) ([b0a3cae](https://github.com/EightfoldAI/octuple/commits/b0a3caeeef4687959650d51f6b75dca5dab8d81a))
+
+### Bug Fixes
+
+- button: update button loader z index to map to updated layout with nudge option ([#525](https://github.com/EightfoldAI/octuple/issues/525)) ([3a29afd](https://github.com/EightfoldAI/octuple/commits/3a29afd50d6d238e9162f682acd8b4f9d8371237))
+- css modules: moves keyframes into modules reducing dupes and compiled css size ([#524](https://github.com/EightfoldAI/octuple/issues/524)) ([17b9cee](https://github.com/EightfoldAI/octuple/commits/17b9cee08dbe8a335453d5c184de54c9acf79cfe))
+- picker: ensure keyboard navigation selected styles are implemented in year mode ([#523](https://github.com/EightfoldAI/octuple/issues/523)) ([3582bc4](https://github.com/EightfoldAI/octuple/commits/3582bc413c4ade3ffcb10f811df3930f010cd958))
+
+## [2.24.0](https://github.com/EightfoldAI/octuple/compare/v2.23.0...v2.24.0) (2023-01-31)
+
+### Features
+
+- button: adds button nudge animation ([#513](https://github.com/EightfoldAI/octuple/issues/513)) ([69911fd](https://github.com/EightfoldAI/octuple/commits/69911fd382121092c5b88534e5e5be4983093c7d))
+
+### Bug Fixes
+
+- badge: updates color palette to match the latest design and improves accessibililty ([#518](https://github.com/EightfoldAI/octuple/issues/518)) ([9831512](https://github.com/EightfoldAI/octuple/commits/98315124e665481f5b59c7d589b851fce2515824))
+- slider: update state when value changes externally ([#520](https://github.com/EightfoldAI/octuple/issues/520)) ([96dd188](https://github.com/EightfoldAI/octuple/commits/96dd188dcc8f10f3c16eda7b4b6b0081e189c17f))
+
+## [2.23.0](https://github.com/EightfoldAI/octuple/compare/v2.22.0...v2.23.0) (2023-01-27)
+
+### Features
+
+- pill text ellipse ([#511](https://github.com/EightfoldAI/octuple/issues/511)) ([0211fc2](https://github.com/EightfoldAI/octuple/commits/0211fc2f818c61fc54e3eb1bce26f3dc465fc5c0))
+- pill: enable white theme and custom close icon ([#510](https://github.com/EightfoldAI/octuple/issues/510)) ([f97a7df](https://github.com/EightfoldAI/octuple/commits/f97a7dfe9d490aea9d63a1a60bd3a0b0c1e13ba9))
+
+### Bug Fixes
+
+- dropdown now stays within the viewport ([#512](https://github.com/EightfoldAI/octuple/issues/512)) ([d93f0fd](https://github.com/EightfoldAI/octuple/commits/d93f0fd82ab6f6f33ba62dfa6c5df13d5bad59ab))
+- infobar: updates the default role prop value to alert ([#516](https://github.com/EightfoldAI/octuple/issues/516)) ([a8614a6](https://github.com/EightfoldAI/octuple/commits/a8614a63c1f66310dc0553fc88b5a511683d4488))
+- pagination: disable next button only when current page is equal to total page count ([#509](https://github.com/EightfoldAI/octuple/issues/509)) ([50588d2](https://github.com/EightfoldAI/octuple/commits/50588d26cc2f8adcae798a7b5dea0b376c5c1127))
+- pill: handle jsx when lineclamp is null or zero ([#515](https://github.com/EightfoldAI/octuple/issues/515)) ([7c46458](https://github.com/EightfoldAI/octuple/commits/7c464584ef29c8dc56dfd9ffae7b13a0d15029e1))
+
 ## [2.22.0](https://github.com/EightfoldAI/octuple/compare/v2.21.1...v2.22.0) (2023-01-19)
 
 ### Features

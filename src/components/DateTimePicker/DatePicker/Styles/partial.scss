@@ -50,7 +50,7 @@ $picker-time-partial-cell-height: 28px;
       z-index: 1;
       border: $picker-border-width $picker-border-style
         $picker-border-color-active;
-      border-radius: 50%;
+      border-radius: var(--border-radius-round);
       content: '';
     }
   }

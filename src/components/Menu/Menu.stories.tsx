@@ -1,7 +1,7 @@
 import React from 'react';
 import { Stories } from '@storybook/addon-docs';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { Menu, MenuItemType, MenuProps, MenuSize, MenuVariant } from './';
+import { Menu, MenuItemType, MenuSize, MenuVariant } from './';
 import { Dropdown } from '../Dropdown';
 import { DefaultButton } from '../Button';
 import { RadioGroup } from '../RadioButton';
@@ -59,6 +59,14 @@ const BasicOverlay = (args: any) => (
         text: 'Date',
         value: 'date 1',
         counter: '8',
+        secondaryButtonProps: {
+          iconProps: {
+            path: IconName.mdiTrashCan,
+          },
+          onClick: () => {
+            console.log('Delete clicked');
+          },
+        },
       },
       {
         text: 'Thumbs up',
@@ -111,6 +119,13 @@ const LinkOverlay = (args: any) => (
       {
         type: MenuItemType.link,
         text: 'Facebook link',
+        href: 'https://facebook.com',
+        target: '_blank',
+      },
+      {
+        type: MenuItemType.link,
+        text: 'Facebook link',
+        subText: 'This is a sub text',
         href: 'https://facebook.com',
         target: '_blank',
       },
