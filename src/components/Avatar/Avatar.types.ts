@@ -14,13 +14,13 @@ export enum StatusItemsPosition {
   Bottom = 'bottom',
   Left = 'left',
   Right = 'right',
-  TopRight = 'topright',
-  TopLeft = 'topleft',
-  BottomRight = 'bottomright',
-  BottomLeft = 'bottomleft',
+  TopRight = 'topRight',
+  TopLeft = 'topLeft',
+  BottomRight = 'bottomRight',
+  BottomLeft = 'bottomLeft',
 }
 
-export interface OutlineProps {
+export interface AvatarOutlineProps {
   /**
    * Outline color
    */
@@ -59,7 +59,7 @@ export interface StatusItemsProps extends IconProps {
    * Status item outline
    * @default undefined
    */
-  outline?: OutlineProps;
+  outline?: AvatarOutlineProps;
   /**
    * Icon padding
    */
@@ -80,7 +80,7 @@ export interface BaseAvatarProps extends OcBaseProps<HTMLSpanElement> {
    * Avatar outline
    * @default undefined
    */
-  outline?: OutlineProps;
+  outline?: AvatarOutlineProps;
   /**
    * Should randomise theme
    * @default false

@@ -36,41 +36,22 @@ export const getStatusItemSizeAndPadding = (
   return [statusItemSize, (statusItemSize * 6) / 16];
 };
 
+const statusItemPositionRtlMap: {
+  [key in StatusItemsPosition]: StatusItemsPosition;
+} = {
+  [StatusItemsPosition.Top]: StatusItemsPosition.Top,
+  [StatusItemsPosition.Bottom]: StatusItemsPosition.Bottom,
+  [StatusItemsPosition.Left]: StatusItemsPosition.Right,
+  [StatusItemsPosition.Right]: StatusItemsPosition.Left,
+  [StatusItemsPosition.TopRight]: StatusItemsPosition.TopLeft,
+  [StatusItemsPosition.TopLeft]: StatusItemsPosition.TopRight,
+  [StatusItemsPosition.BottomRight]: StatusItemsPosition.BottomLeft,
+  [StatusItemsPosition.BottomLeft]: StatusItemsPosition.BottomRight,
+};
+
 const AvatarStatusItems: FC<BaseAvatarProps> = React.forwardRef(
   ({ outline, size, statusItems }) => {
     const htmlDir: string = useCanvasDirection();
-
-    const getPositionForRtl = (
-      statusItemPos: StatusItemsPosition
-    ): StatusItemsPosition => {
-      switch (statusItemPos) {
-        case StatusItemsPosition.Left:
-          return StatusItemsPosition.Right;
-        case StatusItemsPosition.Right:
-          return StatusItemsPosition.Left;
-        case StatusItemsPosition.TopLeft:
-          return StatusItemsPosition.TopRight;
-        case StatusItemsPosition.TopRight:
-          return StatusItemsPosition.TopLeft;
-        case StatusItemsPosition.BottomLeft:
-          return StatusItemsPosition.BottomRight;
-        case StatusItemsPosition.BottomRight:
-          return StatusItemsPosition.BottomLeft;
-        default:
-          return statusItemPos;
-      }
-    };
-
-    const getStatusItemBasicStyle = (
-      statusItemProps: StatusItemsProps
-    ): React.CSSProperties => {
-      return {
-        position: 'absolute',
-        borderRadius: '50%',
-        background: statusItemProps.backgroundColor || 'var(--white-color)',
-        padding: statusItemProps.padding,
-      };
-    };
 
     const getStatusItemPositionStyle = (
       itemPos: StatusItemsPosition,
@@ -80,7 +61,7 @@ const AvatarStatusItems: FC<BaseAvatarProps> = React.forwardRef(
       const avatarWidth: string = size;
       const itemWidth: string = `(${itemProps.size} + (2 * ${itemProps.padding}))`; // Status item width
 
-      switch (htmlDir === 'rtl' ? getPositionForRtl(itemPos) : itemPos) {
+      switch (htmlDir === 'rtl' ? statusItemPositionRtlMap[itemPos] : itemPos) {
         case StatusItemsPosition.TopRight:
           return {
             top: `calc(-1 * ${outlineWidth})`,
@@ -132,7 +113,11 @@ const AvatarStatusItems: FC<BaseAvatarProps> = React.forwardRef(
           return (
             <div
               style={{
-                ...getStatusItemBasicStyle(statusItemProps),
+                position: 'absolute',
+                borderRadius: '50%',
+                background:
+                  statusItemProps.backgroundColor || 'var(--white-color)',
+                padding: statusItemProps.padding,
                 ...getStatusItemPositionStyle(position, statusItemProps),
                 ...(statusItemProps.outline
                   ? {
@@ -236,7 +221,7 @@ export const Avatar: FC<AvatarProps> = React.forwardRef(
       style = {},
       fontSize = '18px',
       iconProps,
-      outline = undefined,
+      outline,
       statusItems = {},
       children,
       hashingFunction,
