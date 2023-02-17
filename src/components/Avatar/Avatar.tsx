@@ -112,6 +112,7 @@ const AvatarStatusItems: FC<BaseAvatarProps> = React.forwardRef(
           const statusItemProps: StatusItemsProps = statusItems[position];
           return (
             <div
+              key={position}
               style={{
                 position: 'absolute',
                 borderRadius: '50%',
@@ -121,16 +122,16 @@ const AvatarStatusItems: FC<BaseAvatarProps> = React.forwardRef(
                 ...getStatusItemPositionStyle(position, statusItemProps),
                 ...(statusItemProps.outline
                   ? {
-                      'outline-color': statusItemProps.outline.outlineColor,
-                      'outline-offset': statusItemProps.outline.outlineOffset,
-                      'outline-style': statusItemProps.outline.outlineStyle,
-                      'outline-width': statusItemProps.outline.outlineWidth,
+                      outlineColor: statusItemProps.outline.outlineColor,
+                      outlineOffset: statusItemProps.outline.outlineOffset,
+                      outlineStyle: statusItemProps.outline.outlineStyle,
+                      outlineWidth: statusItemProps.outline.outlineWidth,
                     }
                   : {}),
               }}
               {...(statusItemProps.onClick
                 ? {
-                    className: styles.avatarStatusBtn,
+                    className: styles.avatarStatusItem,
                     onClick: statusItemProps.onClick,
                     role: 'button',
                   }
@@ -246,10 +247,10 @@ export const Avatar: FC<AvatarProps> = React.forwardRef(
       ...(Object.keys(statusItems).length > 0 ? { position: 'relative' } : {}),
       ...(outline
         ? {
-            'outline-color': outline.outlineColor,
-            'outline-offset': outline.outlineOffset,
-            'outline-style': outline.outlineStyle,
-            'outline-width': outline.outlineWidth,
+            outlineColor: outline.outlineColor,
+            outlineOffset: outline.outlineOffset,
+            outlineStyle: outline.outlineStyle,
+            outlineWidth: outline.outlineWidth,
           }
         : {}),
     };
