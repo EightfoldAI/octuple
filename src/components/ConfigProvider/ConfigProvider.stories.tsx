@@ -549,30 +549,6 @@ Theming.args = {
   // customizations the storybook user has applied so far.
   themeOptions: {
     name: 'blue',
-    customTheme: {
-      varTheme: undefined,
-      tabsTheme: {
-        label: '--text-secondary-color',
-        activeLabel: '--primary-color',
-        activeBackground: 'transparent',
-        hoverLabel: '--primary-color',
-        hoverBackground: 'transparent',
-        indicatorColor: '--primary-color',
-        smallActiveBackground: 'transparent',
-        smallHoverBackground: 'transparent',
-        pillLabel: '--text-secondary-color',
-        pillActiveLabel: '--primary-color',
-        pillActiveBackground: '--accent-color-20',
-        pillHoverLabel: '--primary-color',
-        pillBackground: '--grey-color-10',
-      },
-      navbarTheme: {
-        background: '--primary-color-80',
-        textColor: '--primary-color-10',
-        textHoverBackground: '--primary-color-80',
-        textHoverColor: '--primary-color-20',
-      },
-    },
   } as ThemeOptions,
   icomoonIconSet: {},
   children: <ThemedComponents />,

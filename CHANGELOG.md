@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.28.1](https://github.com/EightfoldAI/octuple/compare/v2.28.0...v2.28.1) (2023-02-14)
+
+### Bug Fixes
+
+- link: isolate css display inline block to variants other than default ([#541](https://github.com/EightfoldAI/octuple/issues/541)) ([0fafb06](https://github.com/EightfoldAI/octuple/commits/0fafb062407c40a5fe419a9b2efdb515a9ed1543))
+
+## [2.28.0](https://github.com/EightfoldAI/octuple/compare/v2.27.0...v2.28.0) (2023-02-14)
+
+### Features
+
+- add secondary button in menu item ([#540](https://github.com/EightfoldAI/octuple/issues/540)) ([e75f047](https://github.com/EightfoldAI/octuple/commits/e75f0476810a6246f302b94396060cc333ab8f58))
+- link: adds variants with var theme styles and improves api ([#535](https://github.com/EightfoldAI/octuple/issues/535)) ([9539e78](https://github.com/EightfoldAI/octuple/commits/9539e78d7fd33cd0f24fd82264b26ee5717ccbbc))
+- slider: enable basic data comparison slider implementations ([#529](https://github.com/EightfoldAI/octuple/issues/529)) ([7c6bae2](https://github.com/EightfoldAI/octuple/commits/7c6bae277bc7d3e2302122bb4b6c78be218d1dfd))
+
+### Bug Fixes
+
+- do not provide default colors for ConfigProvider ([#538](https://github.com/EightfoldAI/octuple/issues/538)) ([4242cc9](https://github.com/EightfoldAI/octuple/commits/4242cc913ca26d61260e32ceb899c22f1d5885f8))
+- input: ensure id passed from props does not append uuid ([#532](https://github.com/EightfoldAI/octuple/issues/532)) ([3921c72](https://github.com/EightfoldAI/octuple/commits/3921c728963c7afa2890588179e86f67f6501358))
+
 ## [2.27.0](https://github.com/EightfoldAI/octuple/compare/v2.26.0...v2.27.0) (2023-02-03)
 
 ## [2.26.0](https://github.com/EightfoldAI/octuple/compare/v2.25.0...v2.26.0) (2023-02-03)
