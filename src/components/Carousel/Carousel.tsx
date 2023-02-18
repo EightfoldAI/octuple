@@ -6,6 +6,7 @@ import React, {
   useState,
   useEffect,
   useRef,
+  useLayoutEffect,
 } from 'react';
 import {
   CarouselContext,
@@ -26,6 +27,7 @@ import {
   PaginationLayoutOptions,
   PaginationLocale,
 } from '../Pagination';
+import { ResizeObserver } from '../../shared/ResizeObserver/ResizeObserver';
 import { useForkedRef } from '../../hooks/useForkedRef';
 import { useCanvasDirection } from '../../hooks/useCanvasDirection';
 import LocaleReceiver, {
@@ -101,6 +103,7 @@ export const Carousel: FC<CarouselProps> = React.forwardRef(
     const [itemsNumber, setItemsNumber] = useState<number>(0);
     const [visible, setVisible] = useState<boolean>();
     const [mouseEnter, setMouseEnter] = useState<boolean>(false);
+    const [_single, setSingle] = useState<boolean>(single);
 
     // ============================ Strings ===========================
     const [paginationLocale] = useLocaleReceiver('Pagination');
@@ -268,6 +271,47 @@ export const Carousel: FC<CarouselProps> = React.forwardRef(
       }
     };
 
+    const handleGroupScrollOnWheel = (
+      apiObj: scrollVisibilityApiType,
+      event: React.WheelEvent
+    ): void => {
+      if (event.deltaY < 0) {
+        apiObj.scrollNextGroup();
+      } else if (event.deltaY > 0) {
+        apiObj.scrollPrevGroup();
+      }
+    };
+
+    const handleSingleItemScrollOnWheel = (
+      apiObj: scrollVisibilityApiType,
+      event: React.WheelEvent
+    ): void => {
+      if (event.deltaY < 0) {
+        apiObj.scrollBySingleItem(
+          apiObj.getNextElement(),
+          'smooth',
+          htmlDir === 'rtl' ? 'previous' : 'next',
+          !!props.carouselScrollMenuProps?.gap
+            ? props.carouselScrollMenuProps?.gap
+            : DEFAULT_GAP_WIDTH,
+          apiObj.isFirstItemVisible
+            ? -DEFAULT_GAP_WIDTH
+            : OCCLUSION_AVOIDANCE_BUFFER
+        );
+      } else if (event.deltaY > 0) {
+        const gapWidth: number = !!props.carouselScrollMenuProps?.gap
+          ? props.carouselScrollMenuProps?.gap
+          : DEFAULT_GAP_WIDTH;
+        apiObj.scrollBySingleItem(
+          apiObj.getPrevElement(),
+          'smooth',
+          htmlDir === 'rtl' ? 'next' : 'previous',
+          gapWidth,
+          apiObj.isLastItemVisible ? gapWidth : OCCLUSION_AVOIDANCE_BUFFER
+        );
+      }
+    };
+
     const handleOnWheel = (
       apiObj: scrollVisibilityApiType,
       event: React.WheelEvent
@@ -280,37 +324,10 @@ export const Carousel: FC<CarouselProps> = React.forwardRef(
         return;
       }
 
-      if (props.single) {
-        if (event.deltaY < 0) {
-          apiObj.scrollBySingleItem(
-            apiObj.getNextElement(),
-            'smooth',
-            htmlDir === 'rtl' ? 'previous' : 'next',
-            !!props.carouselScrollMenuProps?.gap
-              ? props.carouselScrollMenuProps?.gap
-              : DEFAULT_GAP_WIDTH,
-            apiObj.isFirstItemVisible
-              ? -DEFAULT_GAP_WIDTH
-              : OCCLUSION_AVOIDANCE_BUFFER
-          );
-        } else if (event.deltaY > 0) {
-          const gapWidth: number = !!props.carouselScrollMenuProps?.gap
-            ? props.carouselScrollMenuProps?.gap
-            : DEFAULT_GAP_WIDTH;
-          apiObj.scrollBySingleItem(
-            apiObj.getPrevElement(),
-            'smooth',
-            htmlDir === 'rtl' ? 'next' : 'previous',
-            gapWidth,
-            apiObj.isLastItemVisible ? gapWidth : OCCLUSION_AVOIDANCE_BUFFER
-          );
-        }
+      if (_single) {
+        handleSingleItemScrollOnWheel(apiObj, event);
       } else {
-        if (event.deltaY < 0) {
-          apiObj.scrollNextGroup();
-        } else if (event.deltaY > 0) {
-          apiObj.scrollPrevGroup();
-        }
+        handleGroupScrollOnWheel(apiObj, event);
       }
     };
 
@@ -368,7 +385,7 @@ export const Carousel: FC<CarouselProps> = React.forwardRef(
                 key="carousel-next"
                 onClick={() =>
                   props.type === 'scroll'
-                    ? props.single
+                    ? _single
                       ? scrollBySingleItem(
                           getNextElement(),
                           'smooth',
@@ -442,7 +459,7 @@ export const Carousel: FC<CarouselProps> = React.forwardRef(
                 key="carousel-previous"
                 onClick={() =>
                   props.type === 'scroll'
-                    ? props.single
+                    ? _single
                       ? scrollBySingleItem(
                           getPrevElement(),
                           'smooth',
@@ -518,6 +535,25 @@ export const Carousel: FC<CarouselProps> = React.forwardRef(
       );
     };
 
+    const updateScrollMode = (): void => {
+      if (type !== 'scroll') {
+        return;
+      }
+
+      console.log(scrollMenuRef.current?.offsetWidth);
+
+      if (!single) {
+        setSingle(scrollMenuRef.current?.offsetWidth <= 680);
+      }
+    };
+
+    useLayoutEffect(() => {
+      if (type !== 'scroll') {
+        return;
+      }
+      updateScrollMode();
+    }, [_single]);
+
     return (
       <LocaleReceiver componentName={'Pagination'} defaultLocale={enUS}>
         {(_contextLocale: PaginationLocale) => {
@@ -574,16 +610,18 @@ export const Carousel: FC<CarouselProps> = React.forwardRef(
                       return null;
                     })}
                   {type === 'scroll' && (
-                    <ScrollMenu
-                      nextButton={() => autoScrollButton('next')}
-                      onWheel={handleOnWheel}
-                      previousButton={() => autoScrollButton('previous')}
-                      rtl={htmlDir === 'rtl'}
-                      {...carouselScrollMenuProps}
-                      ref={scrollMenuRef}
-                    >
-                      {carouselScrollMenuProps?.children}
-                    </ScrollMenu>
+                    <ResizeObserver onResize={updateScrollMode}>
+                      <ScrollMenu
+                        nextButton={() => autoScrollButton('next')}
+                        onWheel={handleOnWheel}
+                        previousButton={() => autoScrollButton('previous')}
+                        rtl={htmlDir === 'rtl'}
+                        {...carouselScrollMenuProps}
+                        ref={scrollMenuRef}
+                      >
+                        {carouselScrollMenuProps?.children}
+                      </ScrollMenu>
+                    </ResizeObserver>
                   )}
                 </div>
                 {controls && type === 'slide' && (
