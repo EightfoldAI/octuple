@@ -96,6 +96,7 @@ const Scroll_Story: ComponentStory<typeof Carousel> = (args) => (
 
 export const Slider = Slide_Story.bind({});
 export const Scroller = Scroll_Story.bind({});
+export const Scroller_Single = Scroll_Story.bind({});
 
 const carouselArgs: Object = {
   classNames: 'my-carousel',
@@ -112,6 +113,7 @@ Slider.args = {
   interval: 5000,
   loop: true,
   pause: 'hover',
+  single: false,
   transition: 'push',
   type: 'slide',
 };
@@ -141,5 +143,34 @@ Scroller.args = {
     gap: 24,
   },
   id: 'myCarouselScrollId',
+  type: 'scroll',
+};
+
+Scroller_Single.args = {
+  ...carouselArgs,
+  carouselScrollMenuProps: {
+    children: sampleList.map((item: SampleItem) => (
+      <div
+        key={item.key}
+        style={{
+          alignItems: 'center',
+          background: 'var(--grey-color-20)',
+          boxShadow:
+            '0px 1px 2px rgba(15, 20, 31, 0.12), 0px 2px 8px rgba(15, 20, 31, 0.16)',
+          display: 'flex',
+          height: 200,
+          justifyContent: 'center',
+          padding: 20,
+          width: 200,
+        }}
+      >
+        {item.name}
+      </div>
+    )),
+    containerPadding: 8,
+    gap: 24,
+  },
+  id: 'myCarouselScrollId',
+  single: true,
   type: 'scroll',
 };

@@ -73,14 +73,43 @@ class ItemsMap extends Map<Item[0], Item[1]> {
     );
     return [arr, current];
   }
+
+  public prevGroup(
+    item: string | IntersectionObserverItem,
+    onlyItems?: boolean
+  ): IntersectionObserverItem | undefined {
+    const [arr, current] = this.getCurrentPos(item, !!onlyItems);
+
+    // We scroll to the previous plus two so the next button
+    // doesn't occlude the last occluded item of the initial group.
+    // ---------------------       ---------------------      ----------------------
+    // <4 | {5} | 6 | 7 | 8>  -->  <1 | 2 | 3 | {4} | 5> -->  | {1} | 2 | 3 | 4 | 5>
+    // ---------------------       ---------------------      ----------------------
+    return current !== -1 ? arr[current + 2]?.[1] : undefined;
+  }
+
+  public nextGroup(
+    item: IntersectionObserverItem | string,
+    onlyItems?: boolean
+  ): IntersectionObserverItem | undefined {
+    const [arr, current] = this.getCurrentPos(item, !!onlyItems);
+
+    // We scroll to the next minus one so the previous button
+    // doesn't occlude the last occluded item of the initial group.
+    // ----------------------       ---------------------       -----------------------
+    // | {1} | 2 | 3 | 4 | 5>  -->  <4 | {5} | 6 | 7 | 8>  -->  <7 | {8} | 9 | 10 | 11>
+    // ----------------------       ---------------------       -----------------------
+    return current !== -1 ? arr[current - 1]?.[1] : undefined;
+  }
+
   public prev(
     item: string | IntersectionObserverItem,
     onlyItems?: boolean
   ): IntersectionObserverItem | undefined {
     const [arr, current] = this.getCurrentPos(item, !!onlyItems);
 
-    // We scroll to the previous plus two so the arrow button doesn't occlude the target item.
-    return current !== -1 ? arr[current + 2]?.[1] : undefined;
+    // When single scroll, only ever decrement by 1, don't adjust for occlusion.
+    return current !== -1 ? arr[current - 1]?.[1] : undefined;
   }
 
   public next(
@@ -89,8 +118,8 @@ class ItemsMap extends Map<Item[0], Item[1]> {
   ): IntersectionObserverItem | undefined {
     const [arr, current] = this.getCurrentPos(item, !!onlyItems);
 
-    // We scroll to the next minus one so the arrow button doesn't occlude the target item.
-    return current !== -1 ? arr[current - 1]?.[1] : undefined;
+    // When single scroll, only ever increment by 1, don't adjust for occlusion.
+    return current !== -1 ? arr[current + 1]?.[1] : undefined;
   }
 
   public getVisible(): Item[] {
