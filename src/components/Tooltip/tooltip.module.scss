@@ -1,8 +1,12 @@
-$tooltip-arrow-shadow: 1px 1px 2px rgba(15, 20, 31, 0.12);
+$tooltip-arrow-shadow: 0px 1px 2px rgba(15, 20, 31, 0.12);
 
 .referenceWrapper {
-  display: inline-block;
   cursor: pointer;
+  display: inline-block;
+
+  &.trigger-above {
+    z-index: $z-index-500;
+  }
 
   &.disabled {
     cursor: auto;
@@ -16,17 +20,37 @@ $tooltip-arrow-shadow: 1px 1px 2px rgba(15, 20, 31, 0.12);
 .tooltip {
   --bg: var(--background-color);
   --text-color: var(--text-primary-color);
-  display: none;
-  box-shadow: $shadow-object-xs;
   background: var(--bg);
+  border-radius: $border-radius-s;
+  box-shadow: $shadow-object-s;
   color: var(--text-color);
   font-family: $octuple-font-family;
   font-size: $text-font-size-1;
+  overflow-wrap: break-word;
+  padding: $space-xs;
   text-align: center;
   z-index: $z-index-400;
-  padding: $space-xs;
-  border-radius: $border-radius-s;
-  overflow-wrap: break-word;
+
+  // When Popup, adds a pixel buffer equal to the width of the arrow to prevent
+  // floating ui dismiss when hovering from reference to floating element.
+  // Especially helpful when trigger is hover.
+  &.popup {
+    &:after {
+      bottom: -$space-xs;
+      content: '';
+      left: -$space-xs;
+      padding: $space-xs;
+      position: absolute;
+      right: -$space-xs;
+      top: -$space-xs;
+    }
+  }
+
+  // Hides the browser default keyboard focus-visible styles.
+  // Use the ConfigProvider instead.
+  &:focus-visible {
+    outline: none;
+  }
 
   &.dark {
     --bg: var(--grey-color-80);
@@ -34,23 +58,55 @@ $tooltip-arrow-shadow: 1px 1px 2px rgba(15, 20, 31, 0.12);
   }
 
   .arrow {
-    width: 8px;
-    height: 8px;
-    z-index: -1;
     background: inherit;
     box-shadow: $tooltip-arrow-shadow;
+    height: $space-xs;
+    width: $space-xs;
+    z-index: -1;
   }
 
-  &.top {
-    transform-origin: bottom center;
+  &.bottom {
+    transform-origin: top center;
 
     .arrow {
-      transform: rotate(45deg);
+      transform: rotate(225deg);
+    }
+  }
+
+  &.bottom-end {
+    transform-origin: top right;
+
+    .arrow {
+      transform: rotate(225deg);
+    }
+  }
+
+  &.bottom-start {
+    transform-origin: top left;
+
+    .arrow {
+      transform: rotate(225deg);
     }
   }
 
   &.left {
     transform-origin: right center;
+
+    .arrow {
+      transform: rotate(315deg);
+    }
+  }
+
+  &.left-start {
+    transform-origin: right top;
+
+    .arrow {
+      transform: rotate(315deg);
+    }
+  }
+
+  &.left-end {
+    transform-origin: right bottom;
 
     .arrow {
       transform: rotate(315deg);
@@ -65,18 +121,60 @@ $tooltip-arrow-shadow: 1px 1px 2px rgba(15, 20, 31, 0.12);
     }
   }
 
-  &.bottom {
-    transform-origin: top center;
+  &.right-start {
+    transform-origin: left top;
 
     .arrow {
-      transform: rotate(225deg);
+      transform: rotate(135deg);
+    }
+  }
+
+  &.right-end {
+    transform-origin: left bottom;
+
+    .arrow {
+      transform: rotate(135deg);
+    }
+  }
+
+  &.top {
+    transform-origin: bottom center;
+
+    .arrow {
+      transform: rotate(45deg);
+    }
+  }
+
+  &.top-start {
+    transform-origin: bottom left;
+
+    .arrow {
+      transform: rotate(45deg);
+    }
+  }
+
+  &.top-end {
+    transform-origin: bottom right;
+
+    .arrow {
+      transform: rotate(45deg);
     }
   }
 
   &.visible {
     display: block;
-    animation: scaleTooltip $motion-duration-extra-fast $motion-easing-easeinout
-      0s;
+    animation: scaleTooltipIn $motion-duration-extra-fast
+      $motion-easing-easeinout 0s forwards;
+  }
+
+  &.hiding {
+    animation: scaleTooltipOut $motion-duration-extra-fast
+      $motion-easing-easeinout 0s forwards;
+    pointer-events: none;
+  }
+
+  &.hidden {
+    display: none;
   }
 
   &.small {
@@ -92,13 +190,50 @@ $tooltip-arrow-shadow: 1px 1px 2px rgba(15, 20, 31, 0.12);
   }
 }
 
-@keyframes scaleTooltip {
-  from {
-    transform: scale(0);
-    opacity: 0;
+:global(.focus-visible) {
+  .tooltip {
+    // Currently, the design for default tooltips do not include them in a
+    // persisted focus loop, leave 'as-is' for now to prevent UI regressions.
+    &.popup {
+      &.focus-visible,
+      &:focus-visible {
+        &:after {
+          bottom: 0;
+          border-radius: $border-radius-s;
+          content: '';
+          box-shadow: var(--focus-visible-box-shadow);
+          left: 0;
+          position: absolute;
+          right: 0;
+          top: 0;
+        }
+      }
+    }
   }
-  to {
-    transform: scale(1);
+}
+
+@keyframes scaleTooltipIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
     opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes scaleTooltipOut {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  20% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.8);
   }
 }
