@@ -15,8 +15,9 @@ $skeleton-wave-animation: wave 1.6s linear 0.5s infinite;
   }
 
   &.wave {
-    position: relative;
     overflow: hidden;
+    position: relative;
+    transform: translateZ(0); // Ensures wave crop in Safari
 
     &:after {
       animation: $skeleton-wave-animation;
