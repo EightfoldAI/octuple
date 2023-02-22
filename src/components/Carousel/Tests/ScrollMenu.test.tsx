@@ -473,13 +473,22 @@ function comparePublicApi(call: autoScrollApiType) {
   const {
     getItemById,
     getItemByIndex,
+    getNextElement,
+    getNextElementGroup,
     getNextItem,
+    getNextItemGroup,
+    getPrevElement,
+    getPrevElementGroup,
     getPrevItem,
+    getPrevItemGroup,
     isItemVisible,
     isLastItem,
     scrollNext,
+    scrollNextGroup,
     scrollPrev,
+    scrollPrevGroup,
     scrollToItem,
+    scrollBySingleItem,
     visibleElementsWithSeparators,
     visibleElements,
     initComplete,
@@ -491,11 +500,20 @@ function comparePublicApi(call: autoScrollApiType) {
 
   expect(getItemById).toEqual(expect.any(Function));
   expect(getItemByIndex).toEqual(expect.any(Function));
+  expect(getNextElement).toEqual(expect.any(Function));
+  expect(getNextElementGroup).toEqual(expect.any(Function));
   expect(getNextItem).toEqual(expect.any(Function));
+  expect(getNextItemGroup).toEqual(expect.any(Function));
+  expect(getPrevElement).toEqual(expect.any(Function));
+  expect(getPrevElementGroup).toEqual(expect.any(Function));
   expect(getPrevItem).toEqual(expect.any(Function));
+  expect(getPrevItemGroup).toEqual(expect.any(Function));
   expect(isItemVisible).toEqual(expect.any(Function));
   expect(isLastItem).toEqual(expect.any(Function));
+  expect(scrollBySingleItem).toEqual(expect.any(Function));
   expect(scrollNext).toEqual(expect.any(Function));
+  expect(scrollNextGroup).toEqual(expect.any(Function));
+  expect(scrollPrevGroup).toEqual(expect.any(Function));
   expect(scrollPrev).toEqual(expect.any(Function));
   expect(scrollToItem).toEqual(expect.any(Function));
   expect(visibleElementsWithSeparators).toEqual(defaultItemsWithSeparators);
