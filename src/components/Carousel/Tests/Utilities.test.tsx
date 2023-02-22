@@ -1,14 +1,5 @@
 import React from 'react';
-import {
-  filterSeparators,
-  getElementOrConstructor,
-  getItemElementById,
-  getItemElementByIndex,
-  getItemId,
-  getNodesFromRefs,
-  observerEntriesToItems,
-  scrollToItem,
-} from '../Utilities';
+import * as utilities from '../Utilities';
 import { observerOptions } from '../Settings';
 import { IntersectionObserverItem } from '../Carousel.types';
 import scrollIntoView from 'smooth-scroll-into-view-if-needed';
@@ -22,7 +13,7 @@ describe('getNodesFromRefs', () => {
       node2: { current: null as any },
     };
 
-    expect(getNodesFromRefs(refs)).toEqual([]);
+    expect(utilities.getNodesFromRefs(refs)).toEqual([]);
   });
 
   test('should return array of nodes for existing regs', () => {
@@ -33,13 +24,13 @@ describe('getNodesFromRefs', () => {
 
     const result = Object.values(refs).map((ref) => ref.current);
 
-    expect(getNodesFromRefs(refs as any)).toEqual(result);
+    expect(utilities.getNodesFromRefs(refs as any)).toEqual(result);
   });
 });
 
 describe('observerEntriesToItems', () => {
   test('should return empty array if no entries', () => {
-    expect(observerEntriesToItems([], observerOptions)).toEqual([]);
+    expect(utilities.observerEntriesToItems([], observerOptions)).toEqual([]);
   });
 
   test('should return items if entries exist', () => {
@@ -98,7 +89,10 @@ describe('observerEntriesToItems', () => {
     ];
 
     expect(
-      observerEntriesToItems(entries, { ...observerOptions, ratio: 0.5 })
+      utilities.observerEntriesToItems(entries, {
+        ...observerOptions,
+        ratio: 0.5,
+      })
     ).toEqual(result);
   });
 });
@@ -120,7 +114,7 @@ describe('scrollToItem', () => {
       duration: 400,
     };
 
-    scrollToItem(item);
+    utilities.scrollToItem(item);
 
     expect(scrollIntoView).toHaveBeenCalledTimes(1);
     expect(scrollIntoView).toHaveBeenNthCalledWith(
@@ -140,7 +134,14 @@ describe('scrollToItem', () => {
     } as unknown as IntersectionObserverItem;
 
     const noPolyfill = true;
-    scrollToItem(item, undefined, undefined, undefined, undefined, noPolyfill);
+    utilities.scrollToItem(
+      item,
+      undefined,
+      undefined,
+      undefined,
+      undefined,
+      noPolyfill
+    );
 
     expect(scrollIntoView).not.toHaveBeenCalled();
     expect(standartScrollIntoViewMock).toHaveBeenCalled();
@@ -156,7 +157,7 @@ describe('scrollToItem', () => {
       ease: (t: number) => t / 2,
       boundary: document.createElement('div'),
     };
-    scrollToItem(item, 'auto', 'end', 'center', options);
+    utilities.scrollToItem(item, 'auto', 'end', 'center', options);
 
     expect(scrollIntoView).toHaveBeenCalledTimes(1);
     expect(scrollIntoView).toHaveBeenNthCalledWith(1, item.entry.target, {
@@ -168,7 +169,7 @@ describe('scrollToItem', () => {
   });
 
   test('should not scroll if target not provided', () => {
-    scrollToItem(undefined);
+    utilities.scrollToItem(undefined);
 
     expect(scrollIntoView).not.toHaveBeenCalled();
   });
@@ -182,7 +183,7 @@ describe('getItemElementById', () => {
     <div>other node</div>
     <div data-key=123 />other2</div>`;
 
-    const result = getItemElementById(id);
+    const result = utilities.getItemElementById(id);
 
     expect(result instanceof HTMLDivElement).toBeTruthy();
     expect(result?.textContent).toEqual(id);
@@ -195,9 +196,9 @@ describe('getItemElementById', () => {
     <div>other node</div>
     <div data-key=123 />other2</div>`;
 
-    expect(getItemElementById('test456')).toEqual(null);
-    expect(getItemElementById(456)).toEqual(null);
-    expect(getItemElementById('')).toEqual(null);
+    expect(utilities.getItemElementById('test456')).toEqual(null);
+    expect(utilities.getItemElementById(456)).toEqual(null);
+    expect(utilities.getItemElementById('')).toEqual(null);
   });
 });
 
@@ -209,7 +210,7 @@ describe('getItemElementByIndex', () => {
     <div>other node</div>
     <div data-key=123 />other2</div>`;
 
-    const result = getItemElementByIndex(index);
+    const result = utilities.getItemElementByIndex(index);
 
     expect(result instanceof HTMLDivElement).toBeTruthy();
     expect(result?.textContent).toEqual(index);
@@ -222,9 +223,9 @@ describe('getItemElementByIndex', () => {
     <div>other node</div>
     <div data-key=123 />other2</div>`;
 
-    expect(getItemElementByIndex('456')).toEqual(null);
-    expect(getItemElementByIndex(456)).toEqual(null);
-    expect(getItemElementByIndex('')).toEqual(null);
+    expect(utilities.getItemElementByIndex('456')).toEqual(null);
+    expect(utilities.getItemElementByIndex(456)).toEqual(null);
+    expect(utilities.getItemElementByIndex('')).toEqual(null);
   });
 });
 
@@ -233,24 +234,24 @@ describe('getElementOrConstructor', () => {
   const JsxElemConstructor = () => JsxElem;
 
   test('should return jsx element if jsx elem passed', () => {
-    expect(getElementOrConstructor(JsxElem)).toEqual(JsxElem);
+    expect(utilities.getElementOrConstructor(JsxElem)).toEqual(JsxElem);
   });
 
   test('should return a jsx elem if constructor passed', () => {
-    expect(getElementOrConstructor(JsxElemConstructor)).toEqual(
+    expect(utilities.getElementOrConstructor(JsxElemConstructor)).toEqual(
       <JsxElemConstructor />
     );
   });
 
   test('should return null if no element passed', () => {
-    expect(getElementOrConstructor(undefined)).toEqual(null);
+    expect(utilities.getElementOrConstructor(undefined)).toEqual(null);
   });
 });
 
 describe('filterSeparators', () => {
   test('should filter separators from items', () => {
     expect(
-      filterSeparators([
+      utilities.filterSeparators([
         'test0',
         'test0-separator',
         'test1',
@@ -266,8 +267,11 @@ describe('filterSeparators', () => {
   });
 
   test('should return argument if nothing to filter', () => {
-    expect(filterSeparators(['test0', 'test1'])).toEqual(['test0', 'test1']);
-    expect(filterSeparators([])).toEqual([]);
+    expect(utilities.filterSeparators(['test0', 'test1'])).toEqual([
+      'test0',
+      'test1',
+    ]);
+    expect(utilities.filterSeparators([])).toEqual([]);
   });
 });
 
@@ -279,23 +283,25 @@ describe('getItemId', () => {
     );
 
     it('should return itemId if exists', () => {
-      expect(getItemId(<Elem itemId={id} />)).toEqual(id);
-      expect(getItemId(<Elem itemId={id} key={id} />)).toEqual(id);
+      expect(utilities.getItemId(<Elem itemId={id} />)).toEqual(id);
+      expect(utilities.getItemId(<Elem itemId={id} key={id} />)).toEqual(id);
     });
 
     it('should work if "id" is number', () => {
       const id = 123;
       const expected = String(id);
-      expect(getItemId(<Elem itemId={id} />)).toEqual(expected);
-      expect(getItemId(<Elem itemId={id} key={id} />)).toEqual(expected);
+      expect(utilities.getItemId(<Elem itemId={id} />)).toEqual(expected);
+      expect(utilities.getItemId(<Elem itemId={id} key={id} />)).toEqual(
+        expected
+      );
     });
 
     it('should return key if itemId does not exists', () => {
-      expect(getItemId(<Elem key={id} />)).toEqual(id);
+      expect(utilities.getItemId(<Elem key={id} />)).toEqual(id);
     });
 
     it('should return empty string if itemId and key does not exists', () => {
-      expect(getItemId(<Elem />)).toEqual('');
+      expect(utilities.getItemId(<Elem />)).toEqual('');
     });
   });
 });

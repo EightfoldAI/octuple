@@ -1,6 +1,7 @@
 import {
   filterSeparators,
   scrollToItem,
+  scrollBySingleItem,
   getItemElementById,
   getItemElementByIndex,
 } from './Utilities';
@@ -42,6 +43,18 @@ export const autoScrollApi = (
   const isItemVisible: (id: string) => boolean = (id: string) =>
     visibleElements.includes(String(id));
 
+  const getPrevItemGroup: () => IntersectionObserverItem = () =>
+    items.prevGroup(items.getVisible()?.[0]?.[1]);
+
+  const getPrevElementGroup: () => IntersectionObserverItem = () =>
+    items.prevGroup(items.getVisibleElements()?.[0]?.[1], true);
+
+  const getNextItemGroup: () => IntersectionObserverItem = () =>
+    items.nextGroup(items.getVisible()?.slice?.(-1)?.[0]?.[1]);
+
+  const getNextElementGroup: () => IntersectionObserverItem = () =>
+    items.nextGroup(items.getVisibleElements()?.slice?.(-1)?.[0]?.[1], true);
+
   const getPrevItem: () => IntersectionObserverItem = () =>
     items.prev(items.getVisible()?.[0]?.[1]);
 
@@ -56,6 +69,60 @@ export const autoScrollApi = (
 
   const isLastItem: (id: string) => boolean = (id: string) =>
     items.last() === getItemById(id);
+
+  const scrollPrevGroup = <T>(
+    behavior?: CustomScrollBehavior<T>,
+    inline?: ScrollLogicalPosition,
+    block?: ScrollLogicalPosition,
+    {
+      duration,
+      ease,
+      boundary = boundaryElement?.current,
+    }: scrollToItemOptions = {}
+  ) => {
+    const _behavior = (behavior ??
+      transitionOptions?.behavior) as ScrollBehavior;
+
+    return scrollToItem(
+      getPrevItemGroup(),
+      _behavior,
+      inline || 'end',
+      block || 'nearest',
+      {
+        boundary,
+        duration: duration ?? transitionOptions?.duration,
+        ease: ease ?? transitionOptions?.ease,
+      },
+      rtl || noPolyfill
+    );
+  };
+
+  const scrollNextGroup = <T>(
+    behavior?: CustomScrollBehavior<T>,
+    inline?: ScrollLogicalPosition,
+    block?: ScrollLogicalPosition,
+    {
+      duration,
+      ease,
+      boundary = boundaryElement?.current,
+    }: scrollToItemOptions = {}
+  ) => {
+    const _behavior = (behavior ??
+      transitionOptions?.behavior) as ScrollBehavior;
+
+    return scrollToItem(
+      getNextItemGroup(),
+      _behavior,
+      inline || 'start',
+      block || 'nearest',
+      {
+        boundary,
+        duration: duration ?? transitionOptions?.duration,
+        ease: ease ?? transitionOptions?.ease,
+      },
+      rtl || noPolyfill
+    );
+  };
 
   const scrollPrev = <T>(
     behavior?: CustomScrollBehavior<T>,
@@ -117,15 +184,39 @@ export const autoScrollApi = (
     getItemByIndex,
     getItemElementByIndex,
     getNextItem,
+    getNextItemGroup,
     getNextElement,
+    getNextElementGroup,
     getPrevItem,
+    getPrevItemGroup,
     getPrevElement,
+    getPrevElementGroup,
     isFirstItemVisible,
     isItemVisible,
     isLastItem,
     isLastItemVisible,
+    scrollBySingleItem: <T>(
+      target?: ItemOrElement,
+      behavior?: CustomScrollBehavior<T>,
+      direction?: string,
+      gap?: number,
+      offset?: number
+    ) => {
+      const _behavior: string | Function =
+        behavior ?? transitionOptions?.behavior;
+
+      return scrollBySingleItem(
+        target,
+        _behavior as ScrollBehavior | CustomScrollBehavior<T>,
+        direction,
+        gap,
+        offset
+      );
+    },
     scrollNext,
+    scrollNextGroup,
     scrollPrev,
+    scrollPrevGroup,
     scrollToItem: <T>(
       target?: ItemOrElement,
       behavior?: CustomScrollBehavior<T>,
