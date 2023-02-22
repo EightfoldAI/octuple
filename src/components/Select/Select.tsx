@@ -363,6 +363,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
             classNames={styles.selectTooltip}
             content={value.text}
             disabled={!isPillEllipsisActive(document?.getElementById(value.id))}
+            id={`selectTooltip${index}`}
             key={`select-tooltip-${index}`}
             placement={'top'}
             theme={TooltipTheme.dark}
