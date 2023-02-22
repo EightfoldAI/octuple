@@ -1,5 +1,287 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Select Renders with default value 1`] = `
+<div>
+  <div
+    class="select-wrapper select-medium"
+  >
+    <div
+      class="select-dropdown-main-wrapper main-wrapper"
+    >
+      <div
+        class="input-wrapper input-medium input-stretch right-icon"
+      >
+        <div
+          class="expandable-wrapper"
+        >
+          <div
+            class="input-group right-icon"
+          >
+            <input
+              aria-controls="dropdown-"
+              aria-disabled="false"
+              aria-expanded="false"
+              aria-haspopup="true"
+              class="select-input input-medium with-icon-button input-stretch right-icon clear-disabled clear-not-visible"
+              id="input-"
+              placeholder="Select"
+              readonly=""
+              role="textbox"
+              tabindex="0"
+              type="text"
+              value="Option 2"
+            />
+            <div
+              class="action-wrapper"
+            >
+              <div
+                class="overlay"
+              />
+              <button
+                aria-disabled="false"
+                class="icon-button right-icon button button-system-ui transparent button-medium icon-left"
+                type="button"
+              >
+                <span
+                  aria-hidden="false"
+                  class="icon icon-wrapper"
+                  role="presentation"
+                >
+                  <svg
+                    role="presentation"
+                    style="width: 20px; height: 20px;"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"
+                      style="fill: currentColor;"
+                    />
+                  </svg>
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Select Renders with default values when multiple 1`] = `
+<div>
+  <div
+    class="select-wrapper select-medium"
+  >
+    <div
+      class="multi-select-pills"
+    >
+      <div
+        class="reference-wrapper disabled"
+        id="mj3q1md"
+      >
+        <div
+          class="tag-pills multi-select-pill blue-green"
+          id="Option 2-1"
+          style="visibility: hidden;"
+        >
+          <span
+            class="label medium"
+          >
+            Option 2
+          </span>
+          <button
+            aria-disabled="false"
+            class="close-button button button-default button-small pill-shape icon-left"
+          >
+            <span
+              aria-hidden="false"
+              class="icon icon-wrapper"
+              role="presentation"
+            >
+              <svg
+                role="presentation"
+                style="width: 16px; height: 16px;"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"
+                  style="fill: currentColor;"
+                />
+              </svg>
+            </span>
+          </button>
+        </div>
+      </div>
+      <div
+        class="reference-wrapper disabled"
+        id="3cv6hqs"
+      >
+        <div
+          class="tag-pills multi-select-pill blue-green"
+          id="Option 3-2"
+          style="visibility: hidden;"
+        >
+          <span
+            class="label medium"
+          >
+            Option 3
+          </span>
+          <button
+            aria-disabled="false"
+            class="close-button button button-default button-small pill-shape icon-left"
+          >
+            <span
+              aria-hidden="false"
+              class="icon icon-wrapper"
+              role="presentation"
+            >
+              <svg
+                role="presentation"
+                style="width: 16px; height: 16px;"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"
+                  style="fill: currentColor;"
+                />
+              </svg>
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div
+      class="select-dropdown-main-wrapper main-wrapper"
+    >
+      <div
+        class="input-wrapper input-medium input-stretch right-icon"
+      >
+        <div
+          class="expandable-wrapper"
+        >
+          <div
+            class="input-group right-icon"
+          >
+            <input
+              aria-controls="dropdown-"
+              aria-disabled="false"
+              aria-expanded="false"
+              aria-haspopup="true"
+              class="select-input input-medium with-icon-button input-stretch right-icon clear-disabled clear-not-visible"
+              id="input-"
+              placeholder=""
+              readonly=""
+              role="textbox"
+              tabindex="0"
+              type="text"
+              value=""
+            />
+            <div
+              class="action-wrapper"
+            >
+              <div
+                class="overlay"
+              />
+              <button
+                aria-disabled="false"
+                class="icon-button right-icon button button-system-ui transparent button-medium icon-left"
+                type="button"
+              >
+                <span
+                  aria-hidden="false"
+                  class="icon icon-wrapper"
+                  role="presentation"
+                >
+                  <svg
+                    role="presentation"
+                    style="width: 20px; height: 20px;"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"
+                      style="fill: currentColor;"
+                    />
+                  </svg>
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Select Renders without crashing 1`] = `
+<div>
+  <div
+    class="select-wrapper select-medium"
+  >
+    <div
+      class="select-dropdown-main-wrapper main-wrapper"
+    >
+      <div
+        class="input-wrapper input-medium input-stretch right-icon"
+      >
+        <div
+          class="expandable-wrapper"
+        >
+          <div
+            class="input-group right-icon"
+          >
+            <input
+              aria-controls="dropdown-"
+              aria-disabled="false"
+              aria-expanded="false"
+              aria-haspopup="true"
+              class="select-input input-medium with-icon-button input-stretch right-icon clear-disabled clear-not-visible"
+              id="input-"
+              placeholder="Select"
+              readonly=""
+              role="textbox"
+              tabindex="0"
+              type="text"
+              value=""
+            />
+            <div
+              class="action-wrapper"
+            >
+              <div
+                class="overlay"
+              />
+              <button
+                aria-disabled="false"
+                class="icon-button right-icon button button-system-ui transparent button-medium icon-left"
+                type="button"
+              >
+                <span
+                  aria-hidden="false"
+                  class="icon icon-wrapper"
+                  role="presentation"
+                >
+                  <svg
+                    role="presentation"
+                    style="width: 20px; height: 20px;"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"
+                      style="fill: currentColor;"
+                    />
+                  </svg>
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`Select Select is large 1`] = `
 <div
   class="select-wrapper select-large"
