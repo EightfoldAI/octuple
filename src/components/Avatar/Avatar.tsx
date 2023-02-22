@@ -66,7 +66,7 @@ const statusItemPositionRtlMap: {
 };
 
 const AvatarStatusItems: FC<BaseAvatarProps> = React.forwardRef(
-  ({ outline, size, statusItems }) => {
+  ({ outline, size, statusItems }, ref: Ref<HTMLDivElement>) => {
     const htmlDir: string = useCanvasDirection();
 
     const getStatusItemPositionStyle = (
@@ -133,6 +133,7 @@ const AvatarStatusItems: FC<BaseAvatarProps> = React.forwardRef(
           return (
             <div
               key={position}
+              ref={ref}
               style={{
                 position: 'absolute',
                 borderRadius: '50%',
