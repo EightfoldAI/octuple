@@ -83,13 +83,11 @@ export const Avatar_Fallback_Hashing = Avatar_Fallback_Hashing_Story.bind({});
 
 const Avatar_StatusItem_Story: ComponentStory<typeof Avatar> = (args) => {
   const avatarSize = 100;
-  const [statusItemSize, statusItemPadding] =
-    getStatusItemSizeAndPadding(avatarSize);
+  const [statusItemSize] = getStatusItemSizeAndPadding(avatarSize);
   args.size = `${avatarSize}px`;
 
   const statusItemProps = {
     backgroundColor: 'var(--blue-color-100)',
-    padding: `${statusItemPadding}px`,
     path: IconName.mdiPencil,
     size: `${statusItemSize}px`,
     type: 'round',
@@ -102,9 +100,9 @@ const Avatar_StatusItem_Story: ComponentStory<typeof Avatar> = (args) => {
       hashingFunction: () => 0,
       size: '32px',
       outline: {
-        outlineColor: 'var(--green-color-60)',
+        // outlineColor: 'var(--green-color-60)',
         outlineOffset: '1px',
-        outlineStyle: 'solid',
+        // outlineStyle: 'solid',
         outlineWidth: '2px',
       },
       statusItems: {
@@ -113,7 +111,7 @@ const Avatar_StatusItem_Story: ComponentStory<typeof Avatar> = (args) => {
           ariaLabel: 'Clock icon',
           backgroundColor: 'var(--green-color-20)',
           color: 'var(--green-color-70)',
-          padding: '2px',
+          wrapperStyle: { padding: '2px' },
           path: IconName.mdiHome,
           size: '6px',
         },
@@ -122,7 +120,7 @@ const Avatar_StatusItem_Story: ComponentStory<typeof Avatar> = (args) => {
           ariaLabel: 'Pencil icon',
           backgroundColor: 'var(--green-color-20)',
           color: 'var(--green-color-70)',
-          padding: '2px',
+          wrapperStyle: { padding: '2px' },
           path: IconName.mdiPencil,
           size: '6px',
         },
@@ -158,12 +156,7 @@ const Avatar_StatusItem_Story: ComponentStory<typeof Avatar> = (args) => {
           backgroundColor: 'var(--grey-color-10)',
           color: 'var(--grey-color-70)',
           onClick: () => alert('Clicked clock icon'),
-          outline: {
-            outlineColor: 'var(--grey-color-80)',
-            outlineOffset: '0px',
-            outlineStyle: 'solid',
-            outlineWidth: '2px',
-          },
+          outline: {},
           path: IconName.mdiClock,
         },
       },

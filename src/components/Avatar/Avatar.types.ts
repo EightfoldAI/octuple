@@ -24,25 +24,24 @@ export interface AvatarOutlineProps {
   /**
    * Outline color
    */
-  outlineColor: string;
+  outlineColor?: string;
   /**
    * Outline offset
    */
-  outlineOffset: string;
+  outlineOffset?: string;
   /**
    * Outline style
    */
-  outlineStyle: string;
+  outlineStyle?: string;
   /**
    * Outline width
    */
-  outlineWidth: string;
+  outlineWidth?: string;
 }
 
 export interface StatusItemsProps extends IconProps {
   /**
    * Interactive element label
-   * @default undefined
    */
   ariaLabel?: string;
   /**
@@ -52,18 +51,22 @@ export interface StatusItemsProps extends IconProps {
   backgroundColor?: string;
   /**
    * Icon onClick event handler.
-   * @default undefined
    */
   onClick?: React.MouseEventHandler<HTMLDivElement>;
   /**
    * Status item outline
-   * @default undefined
+   *
+   * Defaults when `outline` is truthy are `{ outlineColor: 'var(--grey-color-80)', outlineOffset: '0px', outlineStyle: 'solid', outlineWidth: '2px' }`
    */
   outline?: AvatarOutlineProps;
   /**
-   * Icon padding
+   * Style for status item wrapper
    */
-  padding: string;
+  wrapperStyle?: React.CSSProperties;
+  /**
+   * Class for status item wrapper
+   */
+  wrapperClassName?: string;
 }
 
 export interface BaseAvatarProps extends OcBaseProps<HTMLSpanElement> {
@@ -78,7 +81,8 @@ export interface BaseAvatarProps extends OcBaseProps<HTMLSpanElement> {
   hashingFunction?: () => number;
   /**
    * Avatar outline
-   * @default undefined
+   *
+   * Defaults when `outline` is truthy are `{ outlineColor: 'var(--green-color-60)', outlineOffset: '2px', outlineStyle: 'solid', outlineWidth: '4px' }`
    */
   outline?: AvatarOutlineProps;
   /**

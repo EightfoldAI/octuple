@@ -5,6 +5,7 @@ import styles from './avatar.module.scss';
 import {
   AvatarFallbackProps,
   AvatarIconProps,
+  AvatarOutlineProps,
   AvatarProps,
   BaseAvatarProps,
   StatusItemsPosition,
@@ -32,8 +33,23 @@ export const AVATAR_THEME_SET = [
 export const getStatusItemSizeAndPadding = (
   avatarSize: number
 ): [number, number] => {
+  // Returns: [status item size, status item padding]
   const statusItemSize: number = (avatarSize * 16) / 100;
   return [statusItemSize, (statusItemSize * 6) / 16];
+};
+
+const StatusItemOutlineDefaults: React.CSSProperties = {
+  outlineColor: 'var(--grey-color-80)',
+  outlineOffset: '0px',
+  outlineStyle: 'solid',
+  outlineWidth: '2px',
+};
+
+const AvatarOutlineDefaults: React.CSSProperties = {
+  outlineColor: 'var(--green-color-60)',
+  outlineOffset: '2px',
+  outlineStyle: 'solid',
+  outlineWidth: '4px',
 };
 
 const statusItemPositionRtlMap: {
@@ -55,11 +71,12 @@ const AvatarStatusItems: FC<BaseAvatarProps> = React.forwardRef(
 
     const getStatusItemPositionStyle = (
       itemPos: StatusItemsPosition,
-      itemProps: StatusItemsProps
+      itemProps: StatusItemsProps,
+      wrapperPadding: string | number
     ): React.CSSProperties => {
-      const outlineWidth: string = outline ? outline.outlineWidth : '0px'; // Avatar outline width
+      const outlineWidth: string = outline?.outlineWidth ?? '0px'; // Avatar outline width
       const avatarWidth: string = size;
-      const itemWidth: string = `(${itemProps.size} + (2 * ${itemProps.padding}))`; // Status item width
+      const itemWidth: string = `(${itemProps.size} + (2 * ${wrapperPadding}))`; // Status item width
 
       switch (htmlDir === 'rtl' ? statusItemPositionRtlMap[itemPos] : itemPos) {
         case StatusItemsPosition.TopRight:
@@ -110,6 +127,9 @@ const AvatarStatusItems: FC<BaseAvatarProps> = React.forwardRef(
       <>
         {Object.keys(statusItems).map((position: StatusItemsPosition) => {
           const statusItemProps: StatusItemsProps = statusItems[position];
+          // 0.06 factor is chosen based on design
+          const wrapperPadding: string | number =
+            statusItemProps?.wrapperStyle?.padding ?? `(${size} * 0.06)`;
           return (
             <div
               key={position}
@@ -117,18 +137,32 @@ const AvatarStatusItems: FC<BaseAvatarProps> = React.forwardRef(
                 position: 'absolute',
                 borderRadius: '50%',
                 background:
-                  statusItemProps.backgroundColor || 'var(--white-color)',
-                padding: statusItemProps.padding,
-                ...getStatusItemPositionStyle(position, statusItemProps),
+                  statusItemProps.backgroundColor ?? 'var(--white-color)',
+                padding: `calc(${wrapperPadding})`,
+                ...getStatusItemPositionStyle(
+                  position,
+                  statusItemProps,
+                  wrapperPadding
+                ),
                 ...(statusItemProps.outline
                   ? {
-                      outlineColor: statusItemProps.outline.outlineColor,
-                      outlineOffset: statusItemProps.outline.outlineOffset,
-                      outlineStyle: statusItemProps.outline.outlineStyle,
-                      outlineWidth: statusItemProps.outline.outlineWidth,
+                      outlineColor:
+                        statusItemProps.outline?.outlineColor ??
+                        StatusItemOutlineDefaults.outlineColor,
+                      outlineOffset:
+                        statusItemProps.outline?.outlineOffset ??
+                        StatusItemOutlineDefaults.outlineOffset,
+                      outlineStyle:
+                        statusItemProps.outline?.outlineStyle ??
+                        StatusItemOutlineDefaults.outlineStyle,
+                      outlineWidth:
+                        statusItemProps.outline?.outlineWidth ??
+                        StatusItemOutlineDefaults.outlineWidth,
                     }
                   : {}),
+                ...(statusItemProps.wrapperStyle ?? {}),
               }}
+              className={statusItemProps.wrapperClassName ?? ''}
               {...(statusItemProps.onClick
                 ? {
                     className: styles.avatarStatusItem,
@@ -237,6 +271,20 @@ export const Avatar: FC<AvatarProps> = React.forwardRef(
       { [styles.roundImage]: type === 'round' },
     ]);
 
+    let calculatedOutline: AvatarOutlineProps = undefined;
+    if (outline !== undefined) {
+      calculatedOutline = {
+        outlineColor:
+          outline?.outlineColor ?? AvatarOutlineDefaults.outlineColor,
+        outlineOffset:
+          outline?.outlineOffset ?? AvatarOutlineDefaults.outlineOffset,
+        outlineStyle:
+          outline?.outlineStyle ?? AvatarOutlineDefaults.outlineStyle,
+        outlineWidth:
+          outline?.outlineWidth ?? AvatarOutlineDefaults.outlineWidth,
+      };
+    }
+
     const wrapperContainerStyle: React.CSSProperties = {
       width: size,
       height: size,
@@ -245,14 +293,7 @@ export const Avatar: FC<AvatarProps> = React.forwardRef(
       fontSize: fontSize,
       ...style,
       ...(Object.keys(statusItems).length > 0 ? { position: 'relative' } : {}),
-      ...(outline
-        ? {
-            outlineColor: outline.outlineColor,
-            outlineOffset: outline.outlineOffset,
-            outlineStyle: outline.outlineStyle,
-            outlineWidth: outline.outlineWidth,
-          }
-        : {}),
+      ...(calculatedOutline ?? {}),
     };
 
     if (src) {
@@ -266,7 +307,7 @@ export const Avatar: FC<AvatarProps> = React.forwardRef(
             height={size}
           />
           <AvatarStatusItems
-            outline={outline}
+            outline={calculatedOutline}
             size={size}
             statusItems={statusItems}
           />
@@ -286,7 +327,7 @@ export const Avatar: FC<AvatarProps> = React.forwardRef(
           ref={ref}
         >
           <AvatarStatusItems
-            outline={outline}
+            outline={calculatedOutline}
             size={size}
             statusItems={statusItems}
           />
@@ -305,7 +346,7 @@ export const Avatar: FC<AvatarProps> = React.forwardRef(
       >
         {children}
         <AvatarStatusItems
-          outline={outline}
+          outline={calculatedOutline}
           size={size}
           statusItems={statusItems}
         />
