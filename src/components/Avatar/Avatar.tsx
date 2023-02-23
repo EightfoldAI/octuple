@@ -278,11 +278,13 @@ export const Avatar: FC<AvatarProps> = React.forwardRef(
         outlineColor:
           outline?.outlineColor ?? AvatarOutlineDefaults.outlineColor,
         outlineOffset:
-          outline?.outlineOffset ?? AvatarOutlineDefaults.outlineOffset,
+          outline?.outlineOffset ??
+          AvatarOutlineDefaults.outlineOffset.toString(),
         outlineStyle:
           outline?.outlineStyle ?? AvatarOutlineDefaults.outlineStyle,
         outlineWidth:
-          outline?.outlineWidth ?? AvatarOutlineDefaults.outlineWidth,
+          outline?.outlineWidth ??
+          AvatarOutlineDefaults.outlineWidth.toString(),
       };
     }
 
