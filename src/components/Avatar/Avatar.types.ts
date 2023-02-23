@@ -97,6 +97,11 @@ interface MaxAvatarProps extends BaseAvatarProps {
 interface AvatarListProps
   extends Omit<ListProps<ReactNode>, 'footer' | 'header' | 'layout'> {}
 
+export enum AvatarGroupStyle {
+  Overlapped = 'overlapped',
+  Spaced = 'spaced',
+}
+
 export interface AvatarGroupProps extends OcBaseProps<HTMLDivElement> {
   /**
    * Avatar group List props.
@@ -111,6 +116,11 @@ export interface AvatarGroupProps extends OcBaseProps<HTMLDivElement> {
    * @default '18px'
    */
   fontSize?: string;
+  /**
+   * Avatar grouping style
+   * @default AvatarGroupStyle.Overlapped
+   */
+  groupStyle?: AvatarGroupStyle;
   /**
    * Avatar group max props.
    */

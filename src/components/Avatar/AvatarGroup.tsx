@@ -1,5 +1,5 @@
 import React, { Ref } from 'react';
-import { Avatar, AvatarGroupProps } from '.';
+import { Avatar, AvatarGroupProps, AvatarGroupStyle } from '.';
 import { List } from '../List';
 import { Tooltip } from '../Tooltip';
 import { useCanvasDirection } from '../../hooks/useCanvasDirection';
@@ -18,6 +18,7 @@ export const AvatarGroup: React.FC<AvatarGroupProps> = React.forwardRef(
       avatarListProps,
       children,
       classNames,
+      groupStyle = AvatarGroupStyle.Overlapped,
       maxProps,
       size,
       style,
@@ -30,8 +31,14 @@ export const AvatarGroup: React.FC<AvatarGroupProps> = React.forwardRef(
     const maxCount: number = maxProps?.count;
 
     const avatarGroupClassNames: string = mergeClasses([
-      styles.avatarGroup,
-      { [styles.avatarGroupRtl]: htmlDir === 'rtl' },
+      groupStyle === AvatarGroupStyle.Overlapped
+        ? styles.avatarGroup
+        : styles.avatarGroupSpaced,
+      {
+        [groupStyle === AvatarGroupStyle.Overlapped
+          ? styles.avatarGroupRtl
+          : styles.avatarGroupSpacedRtl]: htmlDir === 'rtl',
+      },
       classNames,
     ]);
 
@@ -67,7 +74,9 @@ export const AvatarGroup: React.FC<AvatarGroupProps> = React.forwardRef(
         fontSize={styles.maxCountFontSize}
         {...maxProps}
         classNames={mergeClasses([
-          styles.avatarGroupMaxCount,
+          groupStyle === AvatarGroupStyle.Overlapped
+            ? styles.avatarGroupMaxCount
+            : styles.avatarGroupSpacedMaxCount,
           maxProps?.classNames,
         ])}
       >
@@ -91,7 +100,9 @@ export const AvatarGroup: React.FC<AvatarGroupProps> = React.forwardRef(
           <Tooltip
             {...maxProps.tooltipProps}
             classNames={mergeClasses([
-              styles.avatarGroupTooltip,
+              groupStyle === AvatarGroupStyle.Overlapped
+                ? styles.avatarGroupTooltip
+                : styles.avatarGroupSpacedTooltip,
               maxProps.tooltipProps.classNames,
             ])}
             content={maxProps.tooltipProps.content}

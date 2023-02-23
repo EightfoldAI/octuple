@@ -1,7 +1,7 @@
 import React from 'react';
 import { Stories } from '@storybook/addon-docs';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Avatar, AvatarGroup } from '.';
+import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Avatar, AvatarGroup, AvatarGroupStyle } from '.';
 import { Tooltip, TooltipSize, TooltipTheme } from '../Tooltip';
 
 export default {
@@ -131,6 +131,8 @@ const Basic_Story: ComponentStory<typeof AvatarGroup> = (args) => (
 
 export const Basic = Basic_Story.bind({});
 
+export const Basic_Spaced = Basic_Story.bind({});
+
 const List_Story: ComponentStory<typeof AvatarGroup> = (args) => (
   <AvatarGroup
     {...args}
@@ -165,6 +167,8 @@ const List_Story: ComponentStory<typeof AvatarGroup> = (args) => (
 
 export const List_Group = List_Story.bind({});
 
+export const List_Group_Spaced = List_Story.bind({});
+
 const avatarGroupArgs: Object = {
   classNames: 'my-avatar-group-class',
   'data-test-id': 'my-avatar-group-test-id',
@@ -179,6 +183,16 @@ Basic.args = {
   ...avatarGroupArgs,
 };
 
+Basic_Spaced.args = {
+  ...avatarGroupArgs,
+  groupStyle: AvatarGroupStyle.Spaced,
+};
+
 List_Group.args = {
   ...avatarGroupArgs,
+};
+
+List_Group_Spaced.args = {
+  ...avatarGroupArgs,
+  groupStyle: AvatarGroupStyle.Spaced,
 };
