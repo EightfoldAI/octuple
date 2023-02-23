@@ -5,25 +5,10 @@
     margin-left: -$space-xs;
   }
 
-  .avatar {
-    border: $space-xxxs solid var(--background-color);
-  }
-
-  &-tooltip {
-    display: inline-block;
-  }
-
-  &-max-count {
-    background-color: var(--grey-color-20);
-    color: var(--text-secondary-color);
-  }
-}
-
-.avatar-group-spaced {
-  display: inline-flex;
-
-  :not(:first-child):not(.avatar-group-spaced-tooltip) {
-    margin-left: -$space-xxxs;
+  &.spaced {
+    :not(:first-child):not(.avatar-group-tooltip) {
+      margin-left: -$space-xxxs;
+    }
   }
 
   .avatar {

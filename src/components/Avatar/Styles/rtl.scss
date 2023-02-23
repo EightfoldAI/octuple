@@ -5,13 +5,13 @@
       margin-left: 0;
     }
   }
-}
 
-.avatar-group-spaced {
-  &-rtl {
-    :not(:first-child):not(.avatar-group-spaced-tooltip) {
-      margin-right: -$space-xxxs;
-      margin-left: 0;
+  &.spaced {
+    &-rtl {
+      :not(:first-child):not(.avatar-group-spaced-tooltip) {
+        margin-right: -$space-xxxs;
+        margin-left: 0;
+      }
     }
   }
 }

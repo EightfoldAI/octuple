@@ -31,14 +31,11 @@ export const AvatarGroup: React.FC<AvatarGroupProps> = React.forwardRef(
     const maxCount: number = maxProps?.count;
 
     const avatarGroupClassNames: string = mergeClasses([
-      { [styles.avatarGroup]: groupStyle === AvatarGroupVariant.Overlapped },
-      { [styles.avatarGroupSpaced]: groupStyle === AvatarGroupVariant.Spaced },
+      styles.avatarGroup,
+      { [styles.spaced]: groupStyle === AvatarGroupVariant.Spaced },
+      { [styles.avatarGroupRtl]: htmlDir === 'rtl' },
       {
-        [styles.avatarGroupRtl]:
-          htmlDir === 'rtl' && groupStyle === AvatarGroupVariant.Overlapped,
-      },
-      {
-        [styles.avatarGroupSpacedRtl]:
+        [styles.spacedRtl]:
           htmlDir === 'rtl' && groupStyle === AvatarGroupVariant.Spaced,
       },
       classNames,
@@ -76,14 +73,7 @@ export const AvatarGroup: React.FC<AvatarGroupProps> = React.forwardRef(
         fontSize={styles.maxCountFontSize}
         {...maxProps}
         classNames={mergeClasses([
-          {
-            [styles.avatarGroupMaxCount]:
-              groupStyle === AvatarGroupVariant.Overlapped,
-          },
-          {
-            [styles.avatarGroupSpacedMaxCount]:
-              groupStyle === AvatarGroupVariant.Spaced,
-          },
+          styles.avatarGroupMaxCount,
           maxProps?.classNames,
         ])}
       >
@@ -107,14 +97,7 @@ export const AvatarGroup: React.FC<AvatarGroupProps> = React.forwardRef(
           <Tooltip
             {...maxProps.tooltipProps}
             classNames={mergeClasses([
-              {
-                [styles.avatarGroupTooltip]:
-                  groupStyle === AvatarGroupVariant.Overlapped,
-              },
-              {
-                [styles.avatarGroupSpacedTooltip]:
-                  groupStyle === AvatarGroupVariant.Spaced,
-              },
+              styles.avatarGroupTooltip,
               maxProps.tooltipProps.classNames,
             ])}
             content={maxProps.tooltipProps.content}
