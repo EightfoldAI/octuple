@@ -15,7 +15,7 @@ import { Modal } from '../../Modal';
 import { ConfigProvider } from '../../ConfigProvider';
 import zhCN from '../../Locale/zh_CN';
 import { sleep } from '../../../tests/Utilities';
-import { fireEvent, render } from '@testing-library/react';
+import { fireEvent, render, waitFor } from '@testing-library/react';
 import 'jest-specific-snapshot';
 
 const { RangePicker } = DatePicker;
@@ -944,30 +944,38 @@ describe('Form', () => {
   });
 
   describe('tooltip', () => {
-    test('ReactNode', () => {
-      const wrapper = mount(
+    test('ReactNode', async () => {
+      const { container, getByTestId } = render(
         <Form>
-          <Form.Item label="lola" tooltip={<span>Mia</span>}>
+          <Form.Item
+            label="lola"
+            tooltip={<span data-testid="tooltip-1">Mia</span>}
+          >
             <TextInput />
           </Form.Item>
         </Form>
       );
 
-      const tooltipProps = wrapper.find('Tooltip').props();
-      expect(tooltipProps.content).toEqual(<span>Mia</span>);
+      fireEvent.mouseOver(container.querySelector('.reference-wrapper'));
+      await waitFor(() => getByTestId('tooltip-1'));
+      expect(getByTestId('tooltip-1').innerHTML).toBe('Mia');
     });
 
-    test('config', () => {
-      const wrapper = mount(
+    test('config', async () => {
+      const { container, getByTestId } = render(
         <Form>
-          <Form.Item label="lola" tooltip={{ content: 'Mia' }}>
+          <Form.Item
+            label="lola"
+            tooltip={{ content: <span data-testid="tooltip-2">Mia</span> }}
+          >
             <TextInput />
           </Form.Item>
         </Form>
       );
 
-      const tooltipProps = wrapper.find('Tooltip').props();
-      expect(tooltipProps.content).toEqual('Mia');
+      fireEvent.mouseOver(container.querySelector('.reference-wrapper'));
+      await waitFor(() => getByTestId('tooltip-2'));
+      expect(getByTestId('tooltip-2').innerHTML).toBe('Mia');
     });
   });
 

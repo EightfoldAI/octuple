@@ -158,6 +158,8 @@ import {
   PanelHeader,
 } from './components/Panel';
 
+import { Popup, PopupSize, PopupTheme } from './components/Popup';
+
 import { Portal } from './components/Portal';
 
 import { RadioButton, RadioGroup } from './components/RadioButton';
@@ -277,6 +279,9 @@ export {
   PillSize,
   PillThemeName,
   PillType,
+  Popup,
+  PopupSize,
+  PopupTheme,
   Portal,
   PrimaryButton,
   Progress,

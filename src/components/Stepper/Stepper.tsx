@@ -219,12 +219,16 @@ export const Stepper: FC<StepperProps> = React.forwardRef(
         setNextDisabled(
           htmlDir === 'rtl'
             ? steps?.scrollLeft === steps?.offsetWidth - steps?.scrollWidth
-            : steps?.scrollLeft === steps?.scrollWidth - steps?.offsetWidth
+            : Math.abs(
+                steps?.scrollWidth - steps?.offsetWidth - steps?.scrollLeft
+              ) < 1
         );
         setPreviousDisabled(steps?.scrollLeft === 0);
       } else {
         setNextDisabled(
-          steps?.scrollTop === steps?.scrollHeight - steps?.offsetHeight
+          Math.abs(
+            steps?.scrollHeight - steps?.offsetHeight - steps?.scrollTop
+          ) < 1
         );
         setPreviousDisabled(steps?.scrollTop === 0);
       }

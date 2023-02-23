@@ -81,6 +81,10 @@ export default {
     },
   },
   argTypes: {
+    trigger: {
+      options: ['click', 'hover', 'contextmenu'],
+      control: { type: 'radio' },
+    },
     placement: {
       options: [
         'top',
@@ -110,6 +114,10 @@ export default {
       options: [true, false],
       control: { type: 'inline-radio' },
     },
+    triggerAbove: {
+      options: [true, false],
+      control: { type: 'inline-radio' },
+    },
   },
 } as ComponentMeta<typeof Tooltip>;
 
@@ -128,8 +136,10 @@ Tooltips.args = {
   visibleArrow: true,
   classNames: 'my-tooltip-class',
   openDelay: 0,
-  hideAfter: 0,
+  hideAfter: 200,
   tabIndex: 0,
+  trigger: 'hover',
+  triggerAbove: false,
   positionStrategy: 'absolute',
   portal: false,
   portalId: 'my-portal-id',
@@ -141,4 +151,5 @@ Tooltips.args = {
       text="Show Tooltip"
     />
   ),
+  height: null,
 };
