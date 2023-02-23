@@ -31,13 +31,15 @@ export const AvatarGroup: React.FC<AvatarGroupProps> = React.forwardRef(
     const maxCount: number = maxProps?.count;
 
     const avatarGroupClassNames: string = mergeClasses([
-      groupStyle === AvatarGroupVariant.Overlapped
-        ? styles.avatarGroup
-        : styles.avatarGroupSpaced,
+      { [styles.avatarGroup]: groupStyle === AvatarGroupVariant.Overlapped },
+      { [styles.avatarGroupSpaced]: groupStyle === AvatarGroupVariant.Spaced },
       {
-        [groupStyle === AvatarGroupVariant.Overlapped
-          ? styles.avatarGroupRtl
-          : styles.avatarGroupSpacedRtl]: htmlDir === 'rtl',
+        [styles.avatarGroupRtl]:
+          htmlDir === 'rtl' && groupStyle === AvatarGroupVariant.Overlapped,
+      },
+      {
+        [styles.avatarGroupSpacedRtl]:
+          htmlDir === 'rtl' && groupStyle === AvatarGroupVariant.Spaced,
       },
       classNames,
     ]);
@@ -74,9 +76,14 @@ export const AvatarGroup: React.FC<AvatarGroupProps> = React.forwardRef(
         fontSize={styles.maxCountFontSize}
         {...maxProps}
         classNames={mergeClasses([
-          groupStyle === AvatarGroupVariant.Overlapped
-            ? styles.avatarGroupMaxCount
-            : styles.avatarGroupSpacedMaxCount,
+          {
+            [styles.avatarGroupMaxCount]:
+              groupStyle === AvatarGroupVariant.Overlapped,
+          },
+          {
+            [styles.avatarGroupSpacedMaxCount]:
+              groupStyle === AvatarGroupVariant.Spaced,
+          },
           maxProps?.classNames,
         ])}
       >
@@ -100,9 +107,14 @@ export const AvatarGroup: React.FC<AvatarGroupProps> = React.forwardRef(
           <Tooltip
             {...maxProps.tooltipProps}
             classNames={mergeClasses([
-              groupStyle === AvatarGroupVariant.Overlapped
-                ? styles.avatarGroupTooltip
-                : styles.avatarGroupSpacedTooltip,
+              {
+                [styles.avatarGroupTooltip]:
+                  groupStyle === AvatarGroupVariant.Overlapped,
+              },
+              {
+                [styles.avatarGroupSpacedTooltip]:
+                  groupStyle === AvatarGroupVariant.Spaced,
+              },
               maxProps.tooltipProps.classNames,
             ])}
             content={maxProps.tooltipProps.content}
