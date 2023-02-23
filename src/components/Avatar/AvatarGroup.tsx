@@ -34,10 +34,6 @@ export const AvatarGroup: React.FC<AvatarGroupProps> = React.forwardRef(
       styles.avatarGroup,
       { [styles.spaced]: groupStyle === AvatarGroupVariant.Spaced },
       { [styles.avatarGroupRtl]: htmlDir === 'rtl' },
-      {
-        [styles.spacedRtl]:
-          htmlDir === 'rtl' && groupStyle === AvatarGroupVariant.Spaced,
-      },
       classNames,
     ]);
 

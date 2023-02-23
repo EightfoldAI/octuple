@@ -4,10 +4,8 @@
       margin-right: -$space-xs;
       margin-left: 0;
     }
-  }
 
-  &.spaced {
-    &-rtl {
+    &.spaced {
       :not(:first-child):not(.avatar-group-spaced-tooltip) {
         margin-right: -$space-xxxs;
         margin-left: 0;
