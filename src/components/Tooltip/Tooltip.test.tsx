@@ -24,9 +24,12 @@ describe('Tooltip', () => {
     matchMedia.clear();
   });
 
-  test('Tooltip shows and hides', async () => {
+  test('Tooltip shows and hides on hover', async () => {
     const { container } = render(
-      <Tooltip content={<div data-testid="tooltip">This is a tooltip.</div>}>
+      <Tooltip
+        content={<div data-testid="tooltip">This is a tooltip.</div>}
+        trigger="hover"
+      >
         <div className="test-div">test</div>
       </Tooltip>
     );
@@ -36,6 +39,44 @@ describe('Tooltip', () => {
     fireEvent.mouseOut(container.querySelector('.test-div'));
     await waitForElementToBeRemoved(() => screen.getByTestId('tooltip'));
     expect(container.querySelector('.tooltip')).toBeFalsy();
+  });
+
+  test('Tooltip shows and hides on focus and blur', async () => {
+    const { container } = render(
+      <Tooltip
+        content={<div data-testid="tooltip">This is a tooltip.</div>}
+        trigger="hover"
+      >
+        <div className="test-div">test</div>
+      </Tooltip>
+    );
+    fireEvent.focus(container.querySelector('.test-div'));
+    await waitFor(() => screen.getByTestId('tooltip'));
+    expect(container.querySelector('.tooltip')).toBeTruthy();
+    fireEvent.blur(container.querySelector('.test-div'));
+    await waitForElementToBeRemoved(() => screen.getByTestId('tooltip'));
+    expect(container.querySelector('.tooltip')).toBeFalsy();
+  });
+
+  test('Tooltip uses custom width and height', async () => {
+    const { container } = render(
+      <Tooltip
+        content={<div data-testid="tooltip">This is a tooltip.</div>}
+        height={500}
+        width={500}
+      >
+        <div className="test-div">test</div>
+      </Tooltip>
+    );
+    fireEvent.mouseOver(container.querySelector('.test-div'));
+    await waitFor(() => screen.getByTestId('tooltip'));
+    expect(container.querySelector('.tooltip')).toBeTruthy();
+    expect(container.querySelector('.tooltip').getAttribute('style')).toContain(
+      'height: 500px'
+    );
+    expect(container.querySelector('.tooltip').getAttribute('style')).toContain(
+      'width: 500px'
+    );
   });
 
   test('Tooltip is large', async () => {
