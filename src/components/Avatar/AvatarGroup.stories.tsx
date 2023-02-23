@@ -1,7 +1,7 @@
 import React from 'react';
 import { Stories } from '@storybook/addon-docs';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { Avatar, AvatarGroup, AvatarGroupStyle } from '.';
+import { Avatar, AvatarGroup, AvatarGroupVariant } from '.';
 import { Tooltip, TooltipSize, TooltipTheme } from '../Tooltip';
 
 export default {
@@ -185,7 +185,7 @@ Basic.args = {
 
 Basic_Spaced.args = {
   ...avatarGroupArgs,
-  groupStyle: AvatarGroupStyle.Spaced,
+  groupStyle: AvatarGroupVariant.Spaced,
 };
 
 List_Group.args = {
@@ -194,5 +194,5 @@ List_Group.args = {
 
 List_Group_Spaced.args = {
   ...avatarGroupArgs,
-  groupStyle: AvatarGroupStyle.Spaced,
+  groupStyle: AvatarGroupVariant.Spaced,
 };

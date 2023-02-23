@@ -1,5 +1,5 @@
 import React, { Ref } from 'react';
-import { Avatar, AvatarGroupProps, AvatarGroupStyle } from '.';
+import { Avatar, AvatarGroupProps, AvatarGroupVariant } from '.';
 import { List } from '../List';
 import { Tooltip } from '../Tooltip';
 import { useCanvasDirection } from '../../hooks/useCanvasDirection';
@@ -18,7 +18,7 @@ export const AvatarGroup: React.FC<AvatarGroupProps> = React.forwardRef(
       avatarListProps,
       children,
       classNames,
-      groupStyle = AvatarGroupStyle.Overlapped,
+      groupStyle = AvatarGroupVariant.Overlapped,
       maxProps,
       size,
       style,
@@ -31,11 +31,11 @@ export const AvatarGroup: React.FC<AvatarGroupProps> = React.forwardRef(
     const maxCount: number = maxProps?.count;
 
     const avatarGroupClassNames: string = mergeClasses([
-      groupStyle === AvatarGroupStyle.Overlapped
+      groupStyle === AvatarGroupVariant.Overlapped
         ? styles.avatarGroup
         : styles.avatarGroupSpaced,
       {
-        [groupStyle === AvatarGroupStyle.Overlapped
+        [groupStyle === AvatarGroupVariant.Overlapped
           ? styles.avatarGroupRtl
           : styles.avatarGroupSpacedRtl]: htmlDir === 'rtl',
       },
@@ -74,7 +74,7 @@ export const AvatarGroup: React.FC<AvatarGroupProps> = React.forwardRef(
         fontSize={styles.maxCountFontSize}
         {...maxProps}
         classNames={mergeClasses([
-          groupStyle === AvatarGroupStyle.Overlapped
+          groupStyle === AvatarGroupVariant.Overlapped
             ? styles.avatarGroupMaxCount
             : styles.avatarGroupSpacedMaxCount,
           maxProps?.classNames,
@@ -100,7 +100,7 @@ export const AvatarGroup: React.FC<AvatarGroupProps> = React.forwardRef(
           <Tooltip
             {...maxProps.tooltipProps}
             classNames={mergeClasses([
-              groupStyle === AvatarGroupStyle.Overlapped
+              groupStyle === AvatarGroupVariant.Overlapped
                 ? styles.avatarGroupTooltip
                 : styles.avatarGroupSpacedTooltip,
               maxProps.tooltipProps.classNames,
