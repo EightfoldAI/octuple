@@ -103,7 +103,7 @@ Popups.args = {
       >
         <img
           src="https://static.vscdn.net/images/career_hub/upskilling/more_projects.svg"
-          style={{ margin: 4, width: 'calc(100% - 8px)' }}
+          style={{ height: 172, margin: 4, width: 'calc(100% - 8px)' }}
         />
         <div className="octuple">
           <div className="octuple-content" style={{ padding: '16px' }}>
