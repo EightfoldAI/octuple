@@ -643,12 +643,19 @@
   // ------ Info Bar theme ------
   --info-bar-border-radius: var(--border-radius-xl);
   --info-bar-background-color: var(--grey-color-10);
+  --info-bar-button-active-background-color: var(--grey-color-20);
+  --info-bar-button-hover-background-color: var(--background-color);
   --info-bar-text-color: var(--grey-color-70);
   --info-bar-positive-background-color: var(--green-color-10);
+  --info-bar-positive-button-active-background-color: var(--green-color-20);
   --info-bar-positive-text-color: var(--green-color-70);
   --info-bar-warning-background-color: var(--orange-color-10);
+  --info-bar-warning-button-active-background-color: var(--orange-color-20);
   --info-bar-warning-text-color: var(--orange-color-70);
   --info-bar-disruptive-background-color: var(--disruptive-color-10);
+  --info-bar-disruptive-button-active-background-color: var(
+    --disruptive-color-20
+  );
   --info-bar-disruptive-text-color: var(--disruptive-color-70);
   // ------ Info Bar theme ------
 
