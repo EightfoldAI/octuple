@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.30.0](https://github.com/EightfoldAI/octuple/compare/v2.29.0...v2.30.0) (2023-02-24)
+
+### Features
+
+- popup: adds popup component ([#543](https://github.com/EightfoldAI/octuple/issues/543)) ([5912141](https://github.com/EightfoldAI/octuple/commits/5912141e32582cec817837e9b0ff28d8b5dc8b5b))
+
+### Bug Fixes
+
+- infobar: buttons should have transparent background and inherit color ([#548](https://github.com/EightfoldAI/octuple/issues/548)) ([2e0da40](https://github.com/EightfoldAI/octuple/commits/2e0da401e285af9ff1f9ee0caa08b60628fe1a3d))
+- popup: do not toggle when no content or disabled ([#553](https://github.com/EightfoldAI/octuple/issues/553)) ([12a2e88](https://github.com/EightfoldAI/octuple/commits/12a2e88ee68215f396a4418c3673f5a1ea7bb2e0))
+- select: improves select by adding props and enabling default value array ([#545](https://github.com/EightfoldAI/octuple/issues/545)) ([1b13981](https://github.com/EightfoldAI/octuple/commits/1b1398132026f03ae9a6f8d838f76c1f2bdcfc2c))
+- stepper: Handle decimal scrollLeft value for scroll buttons ([#546](https://github.com/EightfoldAI/octuple/issues/546)) ([49340dd](https://github.com/EightfoldAI/octuple/commits/49340ddaeb8646ae1c011f136dd9dce2e832da25))
+
 ## [2.29.0](https://github.com/EightfoldAI/octuple/compare/v2.28.1...v2.29.0) (2023-02-23)
 
 ### Features
