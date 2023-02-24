@@ -93,8 +93,12 @@ export const InfoBar: FC<InfoBarsProps> = React.forwardRef(
               <div className={messageClasses}>{content}</div>
               {actionButtonProps && (
                 <SystemUIButton
+                  transparent
                   {...actionButtonProps}
-                  disruptive={type === InfoBarType.disruptive}
+                  classNames={mergeClasses([
+                    styles.actionButton,
+                    actionButtonProps.classNames,
+                  ])}
                 />
               )}
               {closable && (
@@ -103,8 +107,12 @@ export const InfoBar: FC<InfoBarsProps> = React.forwardRef(
                   iconProps={{ path: closeIcon }}
                   onClick={onClose}
                   shape={ButtonShape.Round}
+                  transparent
                   {...closeButtonProps}
-                  disruptive={type === InfoBarType.disruptive}
+                  classNames={mergeClasses([
+                    styles.closeButton,
+                    closeButtonProps?.classNames,
+                  ])}
                 />
               )}
             </div>
