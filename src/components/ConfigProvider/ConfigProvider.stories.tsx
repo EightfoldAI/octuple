@@ -80,6 +80,42 @@ import ukUA from '../Locale/uk_UA'; // Yкраїнська
 import zhCN from '../Locale/zh_CN'; // 中文 (简体)
 import zhTW from '../Locale/zh_TW'; // 中文 (繁體)
 
+// Dayjs locales
+import 'dayjs/locale/cs';
+import 'dayjs/locale/da';
+import 'dayjs/locale/de';
+import 'dayjs/locale/el';
+import 'dayjs/locale/en';
+import 'dayjs/locale/en-gb';
+import 'dayjs/locale/es';
+import 'dayjs/locale/es-do';
+import 'dayjs/locale/es-mx';
+import 'dayjs/locale/fi';
+import 'dayjs/locale/fr'; // Use fr for fr-BE too
+import 'dayjs/locale/fr-ca';
+import 'dayjs/locale/he';
+// import 'dayjs/locale/hi'; uncomment when Hindi locale is added
+import 'dayjs/locale/hr';
+import 'dayjs/locale/ht';
+import 'dayjs/locale/hu';
+import 'dayjs/locale/it';
+import 'dayjs/locale/ja';
+import 'dayjs/locale/ko';
+import 'dayjs/locale/ms-my';
+import 'dayjs/locale/nb';
+import 'dayjs/locale/nl-be';
+import 'dayjs/locale/nl';
+import 'dayjs/locale/pl';
+import 'dayjs/locale/pt';
+import 'dayjs/locale/pt-br';
+import 'dayjs/locale/ru';
+import 'dayjs/locale/sv';
+import 'dayjs/locale/th';
+import 'dayjs/locale/tr';
+import 'dayjs/locale/uk';
+import 'dayjs/locale/zh-cn';
+import 'dayjs/locale/zh-tw';
+
 const { Dropzone } = Upload;
 const { RangePicker } = DatePicker;
 
@@ -690,6 +726,47 @@ const Locale_Story: ComponentStory<typeof ConfigProvider> = (args) => {
     zh_TW: zhTW,
   };
 
+  const localeToDayJsLocale = (locale: string): string => {
+    const localeMap: { [key: string]: string } = {
+      cs_CZ: 'cs',
+      da_DK: 'da',
+      de_DE: 'de',
+      el_GR: 'el',
+      en_GB: 'el-gb',
+      en_US: 'en',
+      es_ES: 'es',
+      es_DO: 'es-do',
+      es_MX: 'es-mx',
+      fi_FI: 'fi',
+      fr_BE: 'fr', // use fr for fr-be
+      fr_CA: 'fr-ca',
+      fr_FR: 'fr',
+      he_IL: 'he',
+      hr_HR: 'hr',
+      ht_HT: 'ht',
+      hu_HU: 'hu',
+      it_IT: 'it',
+      ja_JP: 'ja',
+      ko_KR: 'ko',
+      ms_MY: 'ms-my',
+      nb_NO: 'nb',
+      nl_BE: 'nl-be',
+      nl_NL: 'nl',
+      pl_PL: 'pl',
+      pt_BR: 'pt-br',
+      pt_PT: 'pt',
+      ru_RU: 'ru',
+      sv_SE: 'sv',
+      th_TH: 'th',
+      tr_TR: 'tr',
+      uk_UA: 'uk',
+      zh_CN: 'zh-cn',
+      zh_TW: 'zh-tw',
+    };
+
+    return localeMap[locale] || '';
+  };
+
   const onLocaleChange = useCallback(
     (options: SelectOption[]) => {
       options.forEach((option: SelectOption) => {
@@ -703,11 +780,11 @@ const Locale_Story: ComponentStory<typeof ConfigProvider> = (args) => {
             locale: locales[optionString],
           });
           setLocaleValue(optionString);
-          dayjs.locale(optionString);
+          dayjs.locale(localeToDayJsLocale(optionString));
         }
       });
     },
-    [args, locale, localeValues, locales, updateArgs]
+    [args, dayjs, locale, localeValues, locales, updateArgs]
   );
 
   const onDateChange: DatePickerProps['onChange'] = (
