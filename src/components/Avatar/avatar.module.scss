@@ -70,5 +70,9 @@
   object-fit: cover;
 }
 
+.avatar-status-item {
+  cursor: pointer;
+}
+
 @import './Styles/group';
 @import './Styles/rtl';

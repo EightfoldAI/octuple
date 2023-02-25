@@ -7,6 +7,8 @@ on:
     types:
       - completed
 
+env:
+  NODE_VERSION: 16.14.2
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -25,8 +27,21 @@ jobs:
       - name: Get version from tag
         id: tag_name
         run: |
-          echo ::set-output name=current_version::${GITHUB_REF#refs/tags/v}
+          echo ::set-output name=current_version::${{ github.event.workflow_run.head_commit.tag_name }}
         shell: bash
+      - name: Prerelease check
+        id: prerelease_check
+        if: contains(steps.tag_name.outputs.current_version, '-')
+        run: |
+          echo ::set-output name=prerelease::true
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          registry-url: https://registry.npmjs.org/
+      - name: Run Yarn
+        run: yarn
       - name: Get Changelog Entry
         id: changelog_reader
         uses: artlaman/conventional-changelog-reader-action@v1.1.0

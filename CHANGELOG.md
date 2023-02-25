@@ -2,6 +2,32 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.30.0](https://github.com/EightfoldAI/octuple/compare/v2.29.0...v2.30.0) (2023-02-24)
+
+### Features
+
+- popup: adds popup component ([#543](https://github.com/EightfoldAI/octuple/issues/543)) ([5912141](https://github.com/EightfoldAI/octuple/commits/5912141e32582cec817837e9b0ff28d8b5dc8b5b))
+
+### Bug Fixes
+
+- infobar: buttons should have transparent background and inherit color ([#548](https://github.com/EightfoldAI/octuple/issues/548)) ([2e0da40](https://github.com/EightfoldAI/octuple/commits/2e0da401e285af9ff1f9ee0caa08b60628fe1a3d))
+- popup: do not toggle when no content or disabled ([#553](https://github.com/EightfoldAI/octuple/issues/553)) ([12a2e88](https://github.com/EightfoldAI/octuple/commits/12a2e88ee68215f396a4418c3673f5a1ea7bb2e0))
+- select: improves select by adding props and enabling default value array ([#545](https://github.com/EightfoldAI/octuple/issues/545)) ([1b13981](https://github.com/EightfoldAI/octuple/commits/1b1398132026f03ae9a6f8d838f76c1f2bdcfc2c))
+- stepper: Handle decimal scrollLeft value for scroll buttons ([#546](https://github.com/EightfoldAI/octuple/issues/546)) ([49340dd](https://github.com/EightfoldAI/octuple/commits/49340ddaeb8646ae1c011f136dd9dce2e832da25))
+
+## [2.29.0](https://github.com/EightfoldAI/octuple/compare/v2.28.1...v2.29.0) (2023-02-23)
+
+### Features
+
+- Avatar status icons ([#539](https://github.com/EightfoldAI/octuple/issues/539)) ([76304f3](https://github.com/EightfoldAI/octuple/commits/76304f3a36f32d41317db5af00d2add4f0f8dc6d))
+- carousel: add single prop and update api to support single item scroll ([#537](https://github.com/EightfoldAI/octuple/issues/537)) ([5ca8835](https://github.com/EightfoldAI/octuple/commits/5ca8835a28c6f18731d3a18b11c0f32d6c7dd47f))
+
+### Bug Fixes
+
+- menulinks: fix font weight ([#551](https://github.com/EightfoldAI/octuple/issues/551)) ([17037dc](https://github.com/EightfoldAI/octuple/commits/17037dc3b90ed289854ced573931f992bfb38b41))
+- nudge: removes unnecessary border calculations in css ([#547](https://github.com/EightfoldAI/octuple/issues/547)) ([a0c01c7](https://github.com/EightfoldAI/octuple/commits/a0c01c7bd7a0b9cd187ceee773555603628c2bb4))
+- skeleton: ensure wave overflow is hidden in safari browser ([#544](https://github.com/EightfoldAI/octuple/issues/544)) ([25b084e](https://github.com/EightfoldAI/octuple/commits/25b084eb82225f89666346494d2e2ef64890e826))
+
 ### [2.28.1](https://github.com/EightfoldAI/octuple/compare/v2.28.0...v2.28.1) (2023-02-14)
 
 ### Bug Fixes
