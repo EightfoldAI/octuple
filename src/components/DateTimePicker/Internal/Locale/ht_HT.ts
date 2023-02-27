@@ -23,7 +23,7 @@ const locale: Locale = {
   previousMonth: 'Mwa anvan (PageUp)',
   previousYear: 'Ane pase a (Control + left)',
   shortMonths: 'jan_fev_mas_avr_me_jen_jiyè_out_sept_okt_nov_des'.split('_'),
-  shortWeekDays: 'dim_len_mad_mèk_jed_van_sam'.split('_'),
+  shortWeekDays: 'di_le_ma_mè_je_va_sa'.split('_'),
   timeSelect: 'chwazi tan',
   today: 'Jodi a',
   weekSelect: 'Chwazi yon semèn',

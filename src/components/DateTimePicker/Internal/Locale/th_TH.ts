@@ -24,7 +24,7 @@ const locale: Locale = {
   previousYear: 'ปีก่อนหน้า (Control + left)',
   shortMonths:
     'ม.ค._ก.พ._มี.ค._เม.ย._พ.ค._มิ.ย._ก.ค._ส.ค._ก.ย._ต.ค._พ.ย._ธ.ค.'.split('_'),
-  shortWeekDays: 'อาทิตย์_จันทร์_อังคาร_พุธ_พฤหัส_ศุกร์_เสาร์'.split('_'),
+  shortWeekDays: 'อา._จ._อ._พ._พฤ._ศ._ส.'.split('_'),
   timeSelect: 'เลือกเวลา',
   today: 'วันนี้',
   year: 'ปี',

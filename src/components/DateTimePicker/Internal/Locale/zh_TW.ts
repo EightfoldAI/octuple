@@ -22,7 +22,7 @@ const locale: Locale = {
   previousMonth: '上個月 (翻頁上鍵)',
   previousYear: '上一年 (Control鍵加左方向鍵)',
   shortMonths: '1月_2月_3月_4月_5月_6月_7月_8月_9月_10月_11月_12月'.split('_'),
-  shortWeekDays: '週日_週一_週二_週三_週四_週五_週六'.split('_'),
+  shortWeekDays: '日_一_二_三_四_五_六'.split('_'),
   timeSelect: '選擇時間',
   today: '今天',
   weekSelect: '選擇周',

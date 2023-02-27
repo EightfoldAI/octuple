@@ -22,7 +22,7 @@ const locale: Locale = {
   previousMonth: 'Bulan lepas',
   previousYear: 'Tahun lepas (Ctrl+left)',
   shortMonths: 'Jan_Feb_Mac_Apr_Mei_Jun_Jul_Ogs_Sep_Okt_Nov_Dis'.split('_'),
-  shortWeekDays: 'Ahd_Isn_Sel_Rab_Kha_Jum_Sab'.split('_'),
+  shortWeekDays: 'Ah_Is_Sl_Rb_Km_Jm_Sb'.split('_'),
   timeSelect: 'Pilih masa',
   today: 'Hari ini',
   weekSelect: 'Pilih minggu',

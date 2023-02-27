@@ -25,7 +25,7 @@ const locale: Locale = {
   shortMonths: 'янв_февр_мар_апр_мая_июня_июля_авг_сент_окт_нояб_дек'.split(
     '_'
   ),
-  shortWeekDays: 'вск_пнд_втр_срд_чтв_птн_сбт'.split('_'),
+  shortWeekDays: 'вс_пн_вт_ср_чт_пт_сб'.split('_'),
   timeSelect: 'Выбрать время',
   today: 'Сегодня',
   year: 'Год',

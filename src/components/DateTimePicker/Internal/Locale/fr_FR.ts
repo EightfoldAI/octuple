@@ -25,7 +25,7 @@ const locale: Locale = {
   shortMonths: 'janv_févr_mars_avr_mai_juin_juil_août_sept_oct_nov_déc'.split(
     '_'
   ),
-  shortWeekDays: 'dim_lun_mar_mer_jeu_ven_sam'.split('_'),
+  shortWeekDays: 'di_lu_ma_me_je_ve_sa'.split('_'),
   timeSelect: "Sélectionner l'heure",
   today: "Aujourd'hui",
   year: 'Année',

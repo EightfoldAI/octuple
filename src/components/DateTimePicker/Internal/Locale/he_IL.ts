@@ -23,7 +23,7 @@ const locale: Locale = {
   previousMonth: 'חודש קודם (PageUp)',
   previousYear: 'שנה שעברה (Control + left)',
   shortMonths: 'ינו_פבר_מרץ_אפר_מאי_יונ_יול_אוג_ספט_אוק_נוב_דצמ'.split('_'),
-  shortWeekDays: 'א׳_ב׳_ג׳_ד׳_ה׳_ו׳_ש׳'.split('_'),
+  shortWeekDays: 'א׳_ב׳_ג׳_ד׳_ה׳_ו_ש׳'.split('_'),
   timeSelect: 'בחר שעה',
   today: 'היום',
   weekSelect: 'בחר שבוע',

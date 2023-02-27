@@ -23,7 +23,7 @@ const locale: Locale = {
   previousMonth: 'Il mese scorso (PageUp)',
   previousYear: "L'anno scorso (Control + sinistra)",
   shortMonths: 'gen_feb_mar_apr_mag_giu_lug_ago_set_ott_nov_dic'.split('_'),
-  shortWeekDays: 'dom_lun_mar_mer_gio_ven_sab'.split('_'),
+  shortWeekDays: 'do_lu_ma_me_gi_ve_sa'.split('_'),
   timeSelect: "Seleziona l'ora",
   today: 'Oggi',
   year: 'Anno',

@@ -23,7 +23,7 @@ const locale: Locale = {
   previousMonth: 'Προηγούμενος μήνας (PageUp)',
   previousYear: 'Προηγούμενο έτος (Control + αριστερά)',
   shortMonths: 'Ιαν_Φεβ_Μαρ_Απρ_Μαι_Ιουν_Ιουλ_Αυγ_Σεπτ_Οκτ_Νοε_Δεκ'.split('_'),
-  shortWeekDays: 'Κυρ_Δευ_Τρι_Τετ_Πεμ_Παρ_Σαβ'.split('_'),
+  shortWeekDays: 'Κυ_Δε_Τρ_Τε_Πε_Πα_Σα'.split('_'),
   timeSelect: 'Επιλογή ώρας',
   today: 'Σήμερα',
   year: 'Έτος',

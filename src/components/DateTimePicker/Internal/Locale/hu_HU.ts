@@ -23,7 +23,7 @@ const locale: Locale = {
   previousMonth: 'Előző hónap (PageUp)', // 'Previous month (PageUp)',
   previousYear: 'Múlt év (Control + left)', // 'Last year (Control + left)',
   shortMonths: 'jan_feb_márc_ápr_máj_jún_júl_aug_szept_okt_nov_dec'.split('_'),
-  shortWeekDays: 'vas_hét_kedd_sze_csüt_pén_szo'.split('_'),
+  shortWeekDays: 'v_h_k_sze_cs_p_szo'.split('_'),
   timeSelect: 'Időpont kiválasztása', // 'Select time',
   today: 'Ma', // 'Today',
   year: 'Év', // 'Year',

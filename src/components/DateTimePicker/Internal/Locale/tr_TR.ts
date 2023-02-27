@@ -23,7 +23,7 @@ const locale: Locale = {
   previousMonth: 'Önceki Ay (PageUp)',
   previousYear: 'Önceki Yıl (Control + Sol)',
   shortMonths: 'Oca_Şub_Mar_Nis_May_Haz_Tem_Ağu_Eyl_Eki_Kas_Ara'.split('_'),
-  shortWeekDays: 'Paz_Pts_Sal_Çar_Per_Cum_Cts'.split('_'),
+  shortWeekDays: 'Pz_Pt_Sa_Ça_Pe_Cu_Ct'.split('_'),
   timeSelect: 'Zaman Seç',
   today: 'Bugün',
   year: 'Yıl',
