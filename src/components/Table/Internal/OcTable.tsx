@@ -509,11 +509,10 @@ function OcTable<RecordType extends DefaultRecordType>(
       onRow={onRow}
       emptyNode={emptyNode}
       childrenColumnName={mergedChildrenColumnName}
-      onRowHoverEnter={(i, r, e) => {
-        const hoveredCell = e.target as HTMLElement;
+      onRowHoverEnter={(index, key, event) => {
+        const hoveredCell = event.target as HTMLElement;
         setHoveredRowBoundingRect(hoveredCell.getBoundingClientRect());
-        console.log(hoveredCell.getBoundingClientRect());
-        onRowHoverEnter?.(i, r, e);
+        onRowHoverEnter?.(index, key, event);
       }}
       onRowHoverLeave={onRowHoverLeave}
     />
