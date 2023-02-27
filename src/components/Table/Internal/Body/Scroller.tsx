@@ -14,6 +14,7 @@ import { ScrollerProps, ScrollerRef } from '../OcTable.types';
 import styles from '../octable.module.scss';
 
 const BUTTON_HEIGHT: number = 36;
+const BUTTON_PADDING: number = 2;
 
 export const Scroller = React.forwardRef(
   <RecordType,>(
@@ -158,7 +159,7 @@ export const Scroller = React.forwardRef(
         <SecondaryButton
           classNames={styles.scrollerButton}
           style={{
-            left: leftButtonOffset,
+            left: leftButtonOffset + BUTTON_PADDING,
             opacity: leftButtonVisible && visible ? 1 : 0,
             top: getButtonTop(),
           }}
@@ -173,7 +174,7 @@ export const Scroller = React.forwardRef(
         <SecondaryButton
           classNames={styles.scrollerButton}
           style={{
-            right: rightButtonOffset,
+            right: rightButtonOffset + BUTTON_PADDING,
             opacity: rightButtonVisible && visible ? 1 : 0,
             top: getButtonTop(),
           }}
