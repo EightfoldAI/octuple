@@ -427,6 +427,7 @@ export interface ScrollerProps<RecordType> {
    * @default 'Scroll left'
    */
   scrollLeftAriaLabelText?: string;
+  hoveredRowBoundingRect?: DOMRect;
 }
 
 export type ScrollerRef = {

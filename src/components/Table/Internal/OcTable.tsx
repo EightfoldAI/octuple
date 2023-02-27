@@ -278,6 +278,8 @@ function OcTable<RecordType extends DefaultRecordType>(
   const [colsWidths, updateColsWidths] = useLayoutState(
     new Map<React.Key, number>()
   );
+  const [hoveredRowBoundingRect, setHoveredRowBoundingRect] =
+    useState<DOMRect>(null);
 
   // Convert map to number width
   const colsKeys = getColumnsKey(flattenColumns);
@@ -506,7 +508,12 @@ function OcTable<RecordType extends DefaultRecordType>(
       onRow={onRow}
       emptyNode={emptyNode}
       childrenColumnName={mergedChildrenColumnName}
-      onRowHoverEnter={onRowHoverEnter}
+      onRowHoverEnter={(i, r, e) => {
+        const hoveredCell = e.target as HTMLElement;
+        setHoveredRowBoundingRect(hoveredCell.getBoundingClientRect());
+        console.log(hoveredCell.getBoundingClientRect());
+        onRowHoverEnter?.(i, r, e);
+      }}
       onRowHoverLeave={onRowHoverLeave}
     />
   );
@@ -563,6 +570,7 @@ function OcTable<RecordType extends DefaultRecordType>(
               scrollHeaderRef={scrollHeaderRef}
               scrollLeftAriaLabelText={scrollLeftAriaLabelText}
               scrollRightAriaLabelText={scrollRightAriaLabelText}
+              hoveredRowBoundingRect={hoveredRowBoundingRect}
             />
           )}
           <TableComponent
@@ -669,6 +677,7 @@ function OcTable<RecordType extends DefaultRecordType>(
             stickyOffsets={stickyOffsets}
             scrollLeftAriaLabelText={scrollLeftAriaLabelText}
             scrollRightAriaLabelText={scrollRightAriaLabelText}
+            hoveredRowBoundingRect={hoveredRowBoundingRect}
           />
         )}
         <TableComponent
