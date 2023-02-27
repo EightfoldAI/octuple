@@ -23,6 +23,7 @@ export const Scroller = React.forwardRef(
       scrollBodyRef,
       stickyOffsets,
       scrollHeaderRef,
+      titleRef,
       scrollLeftAriaLabelText,
       scrollRightAriaLabelText,
       hoveredRowBoundingRect,
@@ -67,12 +68,15 @@ export const Scroller = React.forwardRef(
       [stickyOffsets, flattenColumns]
     );
 
-    const getButtonStyle = (): number => {
+    const getButtonTop = (): number => {
       if (!scrollBodyRef.current) {
         return 0;
       }
       const { top: scrollBodyTop } =
         scrollBodyRef.current.getBoundingClientRect();
+      const { height: titleHeight = 0 } =
+        titleRef.current?.getBoundingClientRect?.() || {};
+
       const { top: rowTop, height: rowHeight } = hoveredRowBoundingRect ?? {};
       const { height: stickyHeaderHeight = 0 } =
         scrollHeaderRef?.current?.getBoundingClientRect?.() || {};
@@ -81,7 +85,8 @@ export const Scroller = React.forwardRef(
         scrollBodyTop +
         stickyHeaderHeight +
         rowHeight / 2 -
-        BUTTON_HEIGHT / 2
+        BUTTON_HEIGHT / 2 +
+        titleHeight
       );
     };
 
@@ -155,7 +160,7 @@ export const Scroller = React.forwardRef(
           style={{
             left: leftButtonOffset,
             opacity: leftButtonVisible && visible ? 1 : 0,
-            top: getButtonStyle(),
+            top: getButtonTop(),
           }}
           shape={ButtonShape.Round}
           size={ButtonSize.Medium}
@@ -170,7 +175,7 @@ export const Scroller = React.forwardRef(
           style={{
             right: rightButtonOffset,
             opacity: rightButtonVisible && visible ? 1 : 0,
-            top: getButtonStyle(),
+            top: getButtonTop(),
           }}
           shape={ButtonShape.Round}
           size={ButtonSize.Medium}

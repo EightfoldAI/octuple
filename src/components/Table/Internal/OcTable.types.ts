@@ -418,6 +418,10 @@ export interface ScrollerProps<RecordType> {
   stickyOffsets: StickyOffsets;
   scrollHeaderRef?: RefObject<HTMLDivElement>;
   /**
+   * Ref of the table title
+   */
+  titleRef?: RefObject<HTMLDivElement>;
+  /**
    * The Table scroller right button aria label
    * @default 'Scroll right'
    */
@@ -427,6 +431,9 @@ export interface ScrollerProps<RecordType> {
    * @default 'Scroll left'
    */
   scrollLeftAriaLabelText?: string;
+  /**
+   * DOMRect of the hovered row
+   */
   hoveredRowBoundingRect?: DOMRect;
 }
 

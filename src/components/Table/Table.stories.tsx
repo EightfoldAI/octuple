@@ -1188,16 +1188,9 @@ const Table_Base_Story: ComponentStory<typeof Table> = (args) => {
 
 const Table_Wrapped_Story: ComponentStory<typeof Table> = (args) => {
   return (
-    <>
-      <div
-        style={{
-          height: 500,
-        }}
-      ></div>
-      <div style={{ width: 900, height: 2000 }}>
-        <Table {...args} />
-      </div>
-    </>
+    <div style={{ width: 900, height: 2000 }}>
+      <Table {...args} />
+    </div>
   );
 };
 
