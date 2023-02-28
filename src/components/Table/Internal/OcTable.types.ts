@@ -431,10 +431,6 @@ export interface ScrollerProps<RecordType> {
    * @default 'Scroll left'
    */
   scrollLeftAriaLabelText?: string;
-  /**
-   * DOMRect of the hovered row
-   */
-  hoveredRowBoundingRect?: DOMRect;
 }
 
 export type ScrollerRef = {
@@ -442,6 +438,10 @@ export type ScrollerRef = {
    * Helper method to handle body scroll changes
    */
   onBodyScroll: () => void;
+  /**
+   * Helper method triggered on hover of a row
+   */
+  onRowHover: (boundingRect: DOMRect) => void;
 };
 
 export interface OcTableProps<RecordType = unknown> {

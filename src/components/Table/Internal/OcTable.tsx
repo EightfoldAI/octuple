@@ -279,8 +279,6 @@ function OcTable<RecordType extends DefaultRecordType>(
   const [colsWidths, updateColsWidths] = useLayoutState(
     new Map<React.Key, number>()
   );
-  const [hoveredRowBoundingRect, setHoveredRowBoundingRect] =
-    useState<DOMRect>(null);
 
   // Convert map to number width
   const colsKeys = getColumnsKey(flattenColumns);
@@ -498,7 +496,15 @@ function OcTable<RecordType extends DefaultRecordType>(
     return emptyText;
   }, [hasData, emptyText]);
 
-  // Body
+  const _onRowHoverEnter = useCallback(
+    (index: number, key: Key, event: React.MouseEvent<HTMLElement>) => {
+      const hoveredCell = event.target as HTMLElement;
+      scrollerRef.current?.onRowHover?.(hoveredCell.getBoundingClientRect());
+      onRowHoverEnter?.(index, key, event);
+    },
+    []
+  );
+
   const bodyTable = (
     <Body
       data={mergedData}
@@ -509,11 +515,7 @@ function OcTable<RecordType extends DefaultRecordType>(
       onRow={onRow}
       emptyNode={emptyNode}
       childrenColumnName={mergedChildrenColumnName}
-      onRowHoverEnter={(index, key, event) => {
-        const hoveredCell = event.target as HTMLElement;
-        setHoveredRowBoundingRect(hoveredCell.getBoundingClientRect());
-        onRowHoverEnter?.(index, key, event);
-      }}
+      onRowHoverEnter={_onRowHoverEnter}
       onRowHoverLeave={onRowHoverLeave}
     />
   );
@@ -571,7 +573,6 @@ function OcTable<RecordType extends DefaultRecordType>(
               titleRef={titleRef}
               scrollLeftAriaLabelText={scrollLeftAriaLabelText}
               scrollRightAriaLabelText={scrollRightAriaLabelText}
-              hoveredRowBoundingRect={hoveredRowBoundingRect}
             />
           )}
           <TableComponent
@@ -679,7 +680,6 @@ function OcTable<RecordType extends DefaultRecordType>(
             stickyOffsets={stickyOffsets}
             scrollLeftAriaLabelText={scrollLeftAriaLabelText}
             scrollRightAriaLabelText={scrollRightAriaLabelText}
-            hoveredRowBoundingRect={hoveredRowBoundingRect}
           />
         )}
         <TableComponent

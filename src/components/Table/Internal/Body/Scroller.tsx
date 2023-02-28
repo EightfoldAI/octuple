@@ -27,14 +27,14 @@ export const Scroller = React.forwardRef(
       titleRef,
       scrollLeftAriaLabelText,
       scrollRightAriaLabelText,
-      hoveredRowBoundingRect,
     }: ScrollerProps<RecordType>,
     ref: ForwardedRef<ScrollerRef>
   ) => {
     const [visible, setVisible] = useState<boolean>(false);
     const [leftButtonVisible, setLeftButtonVisible] = useState<boolean>(false);
     const [rightButtonVisible, setRightButtonVisible] = useState<boolean>(true);
-
+    const [hoveredRowBoundingRect, setHoveredRowBoundingRect] =
+      useState<DOMRect>(null);
     // todo @yash: handle rtl
 
     const scrollOffsets: number[] = useMemo(
@@ -137,6 +137,7 @@ export const Scroller = React.forwardRef(
 
     useImperativeHandle(ref, () => ({
       onBodyScroll,
+      onRowHover: setHoveredRowBoundingRect,
     }));
 
     useEffect(() => {
