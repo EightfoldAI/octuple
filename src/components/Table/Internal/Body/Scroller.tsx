@@ -10,11 +10,11 @@ import { ButtonShape, ButtonSize, SecondaryButton } from '../../../Button';
 import { IconName } from '../../../Icon';
 import { ColumnType } from '../../Table.types';
 import { ScrollerProps, ScrollerRef } from '../OcTable.types';
-import { useDebounce } from '../../../../hooks/useDebounce';
 
 import styles from '../octable.module.scss';
 
 const BUTTON_HEIGHT: number = 36;
+const BUTTON_PADDING: number = 2;
 
 export const Scroller = React.forwardRef(
   <RecordType,>(
@@ -24,6 +24,7 @@ export const Scroller = React.forwardRef(
       scrollBodyRef,
       stickyOffsets,
       scrollHeaderRef,
+      titleRef,
       scrollLeftAriaLabelText,
       scrollRightAriaLabelText,
     }: ScrollerProps<RecordType>,
@@ -32,8 +33,8 @@ export const Scroller = React.forwardRef(
     const [visible, setVisible] = useState<boolean>(false);
     const [leftButtonVisible, setLeftButtonVisible] = useState<boolean>(false);
     const [rightButtonVisible, setRightButtonVisible] = useState<boolean>(true);
-    const [buttonStyle, setButtonStyle] = useState<React.CSSProperties>({});
-
+    const [hoveredRowBoundingRect, setHoveredRowBoundingRect] =
+      useState<DOMRect>(null);
     // todo @yash: handle rtl
 
     const scrollOffsets: number[] = useMemo(
@@ -68,54 +69,30 @@ export const Scroller = React.forwardRef(
       [stickyOffsets, flattenColumns]
     );
 
-    const computePosition = useCallback((): void => {
+    const getButtonTop = (): number => {
       if (!scrollBodyRef.current) {
-        return;
+        return 0;
       }
-      const {
-        height: scrollBodyHeight,
-        top: scrollBodyTop,
-        bottom: scrollBodyBottom,
-      } = scrollBodyRef.current.getBoundingClientRect();
+      const { top: scrollBodyTop } =
+        scrollBodyRef.current.getBoundingClientRect();
+      const { height: titleHeight = 0 } =
+        titleRef.current?.getBoundingClientRect?.() || {};
+
+      const { top: rowTop, height: rowHeight } = hoveredRowBoundingRect ?? {};
       const { height: stickyHeaderHeight = 0 } =
         scrollHeaderRef?.current?.getBoundingClientRect?.() || {};
-      const { height: viewportHeight } = document.body.getBoundingClientRect();
-
-      let buttonTop: number = 0;
-
-      if (scrollBodyTop > 0) {
-        // When the top of the table is in the viewport
-
-        if (scrollBodyBottom > viewportHeight) {
-          // When bottom of the table is out of the viewport
-          buttonTop = (viewportHeight - scrollBodyTop) / 2;
-        } else if (scrollBodyBottom < viewportHeight) {
-          // When full table is in the viewport
-          buttonTop = scrollBodyHeight / 2;
-        }
-      } else if (scrollBodyTop < 0) {
-        // When the top of the table is out the viewport
-
-        if (scrollBodyBottom > viewportHeight) {
-          // When bottom of the table is out of the viewport
-          buttonTop = Math.abs(scrollBodyTop) + viewportHeight / 2;
-        } else if (scrollBodyBottom < viewportHeight) {
-          // When bottom of the table is in the viewport
-          buttonTop =
-            Math.abs(scrollBodyTop) +
-            (viewportHeight - (viewportHeight - scrollBodyBottom)) / 2;
-        }
-      }
-      setButtonStyle({
-        top: buttonTop + stickyHeaderHeight - BUTTON_HEIGHT / 2,
-      });
-    }, []);
-
-    const debouncedComputePosition = useDebounce(computePosition, 500);
+      return (
+        rowTop -
+        scrollBodyTop +
+        stickyHeaderHeight +
+        rowHeight / 2 -
+        BUTTON_HEIGHT / 2 +
+        titleHeight
+      );
+    };
 
     const onMouseEnter = useCallback((): void => {
       setVisible(true);
-      computePosition();
     }, []);
 
     const onMouseLeave = useCallback((): void => setVisible(false), []);
@@ -160,14 +137,13 @@ export const Scroller = React.forwardRef(
 
     useImperativeHandle(ref, () => ({
       onBodyScroll,
+      onRowHover: setHoveredRowBoundingRect,
     }));
 
     useEffect(() => {
-      document.addEventListener('scroll', debouncedComputePosition);
       scrollBodyRef.current?.addEventListener?.('mouseenter', onMouseEnter);
       scrollBodyRef.current?.addEventListener?.('mouseleave', onMouseLeave);
       return () => {
-        document.removeEventListener('scroll', debouncedComputePosition);
         scrollBodyRef.current?.removeEventListener?.(
           'mouseenter',
           onMouseEnter
@@ -184,9 +160,9 @@ export const Scroller = React.forwardRef(
         <SecondaryButton
           classNames={styles.scrollerButton}
           style={{
-            left: leftButtonOffset,
+            left: leftButtonOffset + BUTTON_PADDING,
             opacity: leftButtonVisible && visible ? 1 : 0,
-            ...buttonStyle,
+            top: getButtonTop(),
           }}
           shape={ButtonShape.Round}
           size={ButtonSize.Medium}
@@ -199,9 +175,9 @@ export const Scroller = React.forwardRef(
         <SecondaryButton
           classNames={styles.scrollerButton}
           style={{
-            right: rightButtonOffset,
+            right: rightButtonOffset + BUTTON_PADDING,
             opacity: rightButtonVisible && visible ? 1 : 0,
-            ...buttonStyle,
+            top: getButtonTop(),
           }}
           shape={ButtonShape.Round}
           size={ButtonSize.Medium}
