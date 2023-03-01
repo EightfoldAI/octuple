@@ -195,7 +195,7 @@ export interface AvatarGroupProps extends OcBaseProps<HTMLDivElement> {
    * Avatar grouping variant
    * @default AvatarGroupVariant.Overlapped
    */
-  groupStyle?: AvatarGroupVariant;
+  groupVariant?: AvatarGroupVariant;
   /**
    * Avatar group max props.
    */

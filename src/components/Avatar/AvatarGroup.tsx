@@ -18,7 +18,7 @@ export const AvatarGroup: React.FC<AvatarGroupProps> = React.forwardRef(
       avatarListProps,
       children,
       classNames,
-      groupStyle = AvatarGroupVariant.Overlapped,
+      groupVariant = AvatarGroupVariant.Overlapped,
       maxProps,
       size,
       style,
@@ -32,7 +32,7 @@ export const AvatarGroup: React.FC<AvatarGroupProps> = React.forwardRef(
 
     const avatarGroupClassNames: string = mergeClasses([
       styles.avatarGroup,
-      { [styles.spaced]: groupStyle === AvatarGroupVariant.Spaced },
+      { [styles.spaced]: groupVariant === AvatarGroupVariant.Spaced },
       { [styles.avatarGroupRtl]: htmlDir === 'rtl' },
       classNames,
     ]);

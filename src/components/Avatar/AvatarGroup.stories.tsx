@@ -185,7 +185,7 @@ Basic.args = {
 
 Basic_Spaced.args = {
   ...avatarGroupArgs,
-  groupStyle: AvatarGroupVariant.Spaced,
+  groupVariant: AvatarGroupVariant.Spaced,
 };
 
 List_Group.args = {
@@ -194,5 +194,5 @@ List_Group.args = {
 
 List_Group_Spaced.args = {
   ...avatarGroupArgs,
-  groupStyle: AvatarGroupVariant.Spaced,
+  groupVariant: AvatarGroupVariant.Spaced,
 };
