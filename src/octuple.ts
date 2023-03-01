@@ -4,7 +4,13 @@ import {
   AccordionSize,
 } from './components/Accordion';
 
-import { AVATAR_THEME_SET, Avatar, AvatarGroup } from './components/Avatar';
+import {
+  AVATAR_THEME_SET,
+  Avatar,
+  AvatarGroup,
+  AvatarGroupVariant,
+  StatusItemsPosition,
+} from './components/Avatar';
 
 import { Badge } from './components/Badge';
 
@@ -204,6 +210,7 @@ export {
   AVATAR_THEME_SET,
   Avatar,
   AvatarGroup,
+  AvatarGroupVariant,
   Badge,
   ButtonIconAlign,
   ButtonShape,
@@ -316,6 +323,7 @@ export {
   Stack,
   Stat,
   StatThemeName,
+  StatusItemsPosition,
   StatValidationStatus,
   Step,
   StepSize,
