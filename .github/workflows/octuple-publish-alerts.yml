@@ -7,6 +7,8 @@ on:
     types:
       - completed
 
+env:
+  NODE_VERSION: 16.14.2
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -25,7 +27,7 @@ jobs:
       - name: Get version from tag
         id: tag_name
         run: |
-          echo ::set-output name=current_version::${GITHUB_REF#refs/tags/v}
+          echo ::set-output name=current_version::${{ github.event.workflow_run.head_commit.tag_name }}
         shell: bash
       - name: Prerelease check
         id: prerelease_check

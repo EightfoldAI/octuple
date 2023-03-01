@@ -50,13 +50,6 @@ export enum SliderTrackStatus {
   Warning = 'warning',
 }
 
-export enum MarkerType {
-  Benchmark = 'benchmark',
-  Origin = 'origin',
-  Delta = 'delta',
-  Target = 'target',
-}
-
 export interface Marker {
   /**
    * Custom Marker class names.
@@ -70,10 +63,6 @@ export interface Marker {
    * Custom Marker style.
    */
   style?: React.CSSProperties;
-  /**
-   * The marker type.
-   */
-  type?: boolean;
 }
 
 export interface SliderMarker extends Marker {

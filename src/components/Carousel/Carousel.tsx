@@ -40,6 +40,8 @@ import styles from './carousel.module.scss';
 
 type scrollVisibilityApiType = React.ContextType<typeof VisibilityContext>;
 
+const SCROLL_LOCK_WAIT_IN_MILLISECONDS: number = 40;
+
 const isVisible = (element: HTMLDivElement): boolean => {
   const rect: DOMRect = element.getBoundingClientRect();
   return (
@@ -103,7 +105,10 @@ export const Carousel: FC<CarouselProps> = React.forwardRef(
     const [itemsNumber, setItemsNumber] = useState<number>(0);
     const [visible, setVisible] = useState<boolean>();
     const [mouseEnter, setMouseEnter] = useState<boolean>(false);
+    const [scrollLock, setScrollLock] = useState<boolean>(false);
+    const timerRef = useRef<NodeJS.Timeout>();
     const [_single, setSingle] = useState<boolean>(single);
+    const [_visibleElements, setVisibleElements] = useState<number>(0);
 
     // ============================ Strings ===========================
     const [paginationLocale] = useLocaleReceiver('Pagination');
@@ -152,7 +157,7 @@ export const Carousel: FC<CarouselProps> = React.forwardRef(
     }, [animating]);
 
     useEffect(() => {
-      window.addEventListener('scroll', handleScroll);
+      window.addEventListener('scroll', handleScroll, { passive: true });
 
       return () => {
         window.removeEventListener('scroll', handleScroll);
@@ -161,16 +166,15 @@ export const Carousel: FC<CarouselProps> = React.forwardRef(
 
     useEffect(() => {
       if (scrollMenuRef?.current) {
-        scrollMenuRef.current.addEventListener('wheel', preventYScroll, false);
+        // passive: false, to ensure prevent default
+        scrollMenuRef.current.addEventListener('wheel', preventYScroll, {
+          passive: false,
+        });
       }
 
       return () => {
         if (scrollMenuRef?.current) {
-          scrollMenuRef.current.removeEventListener(
-            'wheel',
-            preventYScroll,
-            false
-          );
+          scrollMenuRef.current.removeEventListener('wheel', preventYScroll);
         }
       };
     });
@@ -275,9 +279,9 @@ export const Carousel: FC<CarouselProps> = React.forwardRef(
       apiObj: scrollVisibilityApiType,
       event: React.WheelEvent
     ): void => {
-      if (event.deltaY < 0) {
+      if (event.deltaY < 0 || event.deltaX < 0) {
         apiObj.scrollNextGroup();
-      } else if (event.deltaY > 0) {
+      } else if (event.deltaY > 0 || event.deltaX > 0) {
         apiObj.scrollPrevGroup();
       }
     };
@@ -286,7 +290,7 @@ export const Carousel: FC<CarouselProps> = React.forwardRef(
       apiObj: scrollVisibilityApiType,
       event: React.WheelEvent
     ): void => {
-      if (event.deltaY < 0) {
+      if (event.deltaY < 0 || event.deltaX < 0) {
         apiObj.scrollBySingleItem(
           apiObj.getNextElement(),
           'smooth',
@@ -298,7 +302,7 @@ export const Carousel: FC<CarouselProps> = React.forwardRef(
             ? -DEFAULT_GAP_WIDTH
             : OCCLUSION_AVOIDANCE_BUFFER
         );
-      } else if (event.deltaY > 0) {
+      } else if (event.deltaY > 0 || event.deltaX > 0) {
         const gapWidth: number = !!props.carouselScrollMenuProps?.gap
           ? props.carouselScrollMenuProps?.gap
           : DEFAULT_GAP_WIDTH;
@@ -316,23 +320,25 @@ export const Carousel: FC<CarouselProps> = React.forwardRef(
       apiObj: scrollVisibilityApiType,
       event: React.WheelEvent
     ): void => {
-      const isTouchpad =
-        Math.abs(event.deltaX) !== 0 || Math.abs(event.deltaY) < 15;
-
-      if (isTouchpad) {
-        event.stopPropagation();
-        return;
-      }
-
-      if (_single) {
-        handleSingleItemScrollOnWheel(apiObj, event);
-      } else {
-        handleGroupScrollOnWheel(apiObj, event);
+      // Prevent spamming of scroll.
+      clearTimeout(timerRef.current);
+      timerRef.current = setTimeout(
+        () => setScrollLock(false),
+        SCROLL_LOCK_WAIT_IN_MILLISECONDS
+      );
+      if (!scrollLock) {
+        setScrollLock(true);
+        if (_single) {
+          handleSingleItemScrollOnWheel(apiObj, event);
+        } else {
+          handleGroupScrollOnWheel(apiObj, event);
+        }
       }
     };
 
     const preventYScroll = (event: { preventDefault: () => void }): void => {
-      if (mouseEnter) {
+      // Prevent document scroll only when hovering over a carousel that may be scrolled.
+      if (mouseEnter && (previousButtonRef.current || nextButtonRef.current)) {
         event.preventDefault();
       }
     };
@@ -508,6 +514,7 @@ export const Carousel: FC<CarouselProps> = React.forwardRef(
         if (initComplete && visibleElements?.length) {
           setPreviousDisabled(isFirstItemVisible);
           setNextDisabled(isLastItemVisible);
+          setVisibleElements(visibleElements.length);
         }
       }, [
         initComplete,
@@ -540,10 +547,9 @@ export const Carousel: FC<CarouselProps> = React.forwardRef(
         return;
       }
 
-      console.log(scrollMenuRef.current?.offsetWidth);
-
       if (!single) {
-        setSingle(scrollMenuRef.current?.offsetWidth <= 680);
+        // If the number of visible elements is less than 3, swap to single scroll.
+        setSingle(_visibleElements < 3);
       }
     };
 
@@ -552,7 +558,7 @@ export const Carousel: FC<CarouselProps> = React.forwardRef(
         return;
       }
       updateScrollMode();
-    }, [_single]);
+    }, [_single, _visibleElements]);
 
     return (
       <LocaleReceiver componentName={'Pagination'} defaultLocale={enUS}>

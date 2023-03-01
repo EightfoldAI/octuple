@@ -113,6 +113,9 @@ export const Tooltip: FC<TooltipProps> = React.memo(
       const toggle: Function =
         (show: boolean, showTooltip = (show: boolean) => show): Function =>
         (e: SyntheticEvent): void => {
+          if (!content || disabled) {
+            return;
+          }
           // to control the toggle behaviour
           const updatedShow: boolean = showTooltip(show);
           if (PREVENT_DEFAULT_TRIGGERS.includes(trigger)) {

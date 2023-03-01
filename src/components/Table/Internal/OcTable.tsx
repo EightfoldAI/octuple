@@ -272,6 +272,7 @@ function OcTable<RecordType extends DefaultRecordType>(
   const scrollHeaderRef = useRef<HTMLDivElement>();
   const scrollBodyRef = useRef<HTMLDivElement>();
   const scrollSummaryRef = useRef<HTMLDivElement>();
+  const titleRef = useRef<HTMLDivElement>(null);
   const scrollerRef = useRef<ScrollerRef>(null);
   const [pingedLeft, setPingedLeft] = useState<boolean>(false);
   const [pingedRight, setPingedRight] = useState<boolean>(false);
@@ -495,7 +496,15 @@ function OcTable<RecordType extends DefaultRecordType>(
     return emptyText;
   }, [hasData, emptyText]);
 
-  // Body
+  const _onRowHoverEnter = useCallback(
+    (index: number, key: Key, event: React.MouseEvent<HTMLElement>) => {
+      const hoveredCell = event.target as HTMLElement;
+      scrollerRef.current?.onRowHover?.(hoveredCell.getBoundingClientRect());
+      onRowHoverEnter?.(index, key, event);
+    },
+    []
+  );
+
   const bodyTable = (
     <Body
       data={mergedData}
@@ -506,7 +515,7 @@ function OcTable<RecordType extends DefaultRecordType>(
       onRow={onRow}
       emptyNode={emptyNode}
       childrenColumnName={mergedChildrenColumnName}
-      onRowHoverEnter={onRowHoverEnter}
+      onRowHoverEnter={_onRowHoverEnter}
       onRowHoverLeave={onRowHoverLeave}
     />
   );
@@ -561,6 +570,7 @@ function OcTable<RecordType extends DefaultRecordType>(
               scrollBodyRef={scrollBodyRef}
               stickyOffsets={stickyOffsets}
               scrollHeaderRef={scrollHeaderRef}
+              titleRef={titleRef}
               scrollLeftAriaLabelText={scrollLeftAriaLabelText}
               scrollRightAriaLabelText={scrollRightAriaLabelText}
             />
@@ -666,6 +676,7 @@ function OcTable<RecordType extends DefaultRecordType>(
             ref={scrollerRef}
             {...columnContext}
             scrollBodyRef={scrollBodyRef}
+            titleRef={titleRef}
             stickyOffsets={stickyOffsets}
             scrollLeftAriaLabelText={scrollLeftAriaLabelText}
             scrollRightAriaLabelText={scrollRightAriaLabelText}
@@ -730,7 +741,7 @@ function OcTable<RecordType extends DefaultRecordType>(
         props={{ ...props, stickyOffsets, mergedExpandedKeys }}
       >
         {title && (
-          <FrameWrapper classNames={styles.tableTitle}>
+          <FrameWrapper ref={titleRef} classNames={styles.tableTitle}>
             {title(mergedData)}
           </FrameWrapper>
         )}
