@@ -5,6 +5,12 @@
     margin-left: -$space-xs;
   }
 
+  &.spaced {
+    :not(:first-child):not(.avatar-group-tooltip) {
+      margin-left: -$space-xxxs;
+    }
+  }
+
   .avatar {
     border: $space-xxxs solid var(--background-color);
   }
