@@ -1,4 +1,4 @@
-import React, { FC, useState, useRef, useCallback } from 'react';
+import React, { FC, useState, useRef, useCallback, useEffect } from 'react';
 import { Stories } from '@storybook/addon-docs';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { useArgs } from '@storybook/client-api';
@@ -115,6 +115,7 @@ import 'dayjs/locale/tr';
 import 'dayjs/locale/uk';
 import 'dayjs/locale/zh-cn';
 import 'dayjs/locale/zh-tw';
+import { useDarkMode } from 'storybook-dark-mode';
 
 const { Dropzone } = Upload;
 const { RangePicker } = DatePicker;
@@ -154,6 +155,15 @@ const ThemedComponents: FC = () => {
   const [customAccentColor, setCustomAccentColor] = useState<string>('');
   const { fontOptions, setFontOptions } = useConfig();
   const { themeOptions, setThemeOptions } = useConfig();
+
+  const dark = useDarkMode();
+
+  useEffect(() => {
+    setThemeOptions({
+      ...themeOptions,
+      dark,
+    });
+  }, [dark]);
   const themes: OcThemeName[] = [
     'red',
     'redOrange',

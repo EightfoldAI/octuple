@@ -71,6 +71,8 @@ export interface ThemeOptions {
    * @default null
    */
   customTheme?: OcBaseTheme;
+
+  dark?: boolean;
 }
 
 export type Variables = Record<string, Value>;
