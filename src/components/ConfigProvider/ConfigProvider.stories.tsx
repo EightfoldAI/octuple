@@ -193,7 +193,7 @@ const ThemedComponents: FC = () => {
 
   return (
     <Stack direction="vertical" flexGap="xxl">
-      <h1 style={{ marginBottom: 0 }}>
+      <h1 style={{ marginBottom: 0, color: 'var(--text-primary-color)' }}>
         Selected Theme:
         <span
           style={{
@@ -214,7 +214,11 @@ const ThemedComponents: FC = () => {
           | Accent
         </span>
       </h1>
-      <Stack direction="horizontal" flexGap="m" style={{ marginTop: 0 }}>
+      <Stack
+        direction="horizontal"
+        flexGap="m"
+        style={{ marginTop: 0, color: 'var(--text-primary-color)' }}
+      >
         <div>
           <p>Predefined</p>
           <select
