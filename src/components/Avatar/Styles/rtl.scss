@@ -7,7 +7,7 @@
 
     &.spaced {
       :not(:first-child):not(.avatar-group-spaced-tooltip) {
-        margin-right: -$space-xxxs;
+        margin-right: $space-xxxs;
         margin-left: 0;
       }
     }

@@ -14,6 +14,8 @@ import {
 import { mergeClasses } from '../../shared/utilities';
 import { Icon } from '../Icon';
 import { useCanvasDirection } from '../../hooks/useCanvasDirection';
+import { Tooltip } from '../Tooltip';
+import { ConditionalWrapper } from '../../shared/utilities';
 
 export const AVATAR_THEME_SET = [
   styles.red,
@@ -263,6 +265,7 @@ export const Avatar: FC<AvatarProps> = React.forwardRef(
       hashingFunction,
       theme,
       randomiseTheme,
+      tooltipProps = undefined,
     },
     ref: Ref<HTMLDivElement>
   ) => {
@@ -301,20 +304,30 @@ export const Avatar: FC<AvatarProps> = React.forwardRef(
 
     if (src) {
       return (
-        <div ref={ref} style={wrapperContainerStyle} className={classNames}>
-          <img
-            src={src}
-            className={imageClasses}
-            alt={alt}
-            width={size}
-            height={size}
-          />
-          <AvatarStatusItems
-            outline={calculatedOutline}
-            size={size}
-            statusItems={statusItems}
-          />
-        </div>
+        <ConditionalWrapper
+          condition={tooltipProps !== undefined}
+          wrapper={(
+            children: React.ReactElement<
+              any,
+              string | React.JSXElementConstructor<any>
+            >
+          ): JSX.Element => <Tooltip {...tooltipProps}>{children}</Tooltip>}
+        >
+          <div ref={ref} style={wrapperContainerStyle} className={classNames}>
+            <img
+              src={src}
+              className={imageClasses}
+              alt={alt}
+              width={size}
+              height={size}
+            />
+            <AvatarStatusItems
+              outline={calculatedOutline}
+              size={size}
+              statusItems={statusItems}
+            />
+          </div>
+        </ConditionalWrapper>
       );
     }
 
@@ -322,38 +335,58 @@ export const Avatar: FC<AvatarProps> = React.forwardRef(
 
     if (iconProps) {
       return (
-        <AvatarIcon
-          iconProps={iconProps}
+        <ConditionalWrapper
+          condition={tooltipProps !== undefined}
+          wrapper={(
+            children: React.ReactElement<
+              any,
+              string | React.JSXElementConstructor<any>
+            >
+          ): JSX.Element => <Tooltip {...tooltipProps}>{children}</Tooltip>}
+        >
+          <AvatarIcon
+            iconProps={iconProps}
+            classNames={wrapperClasses}
+            style={wrapperContainerStyle}
+            fontSize={fontSize}
+            ref={ref}
+          >
+            <AvatarStatusItems
+              outline={calculatedOutline}
+              size={size}
+              statusItems={statusItems}
+            />
+          </AvatarIcon>
+        </ConditionalWrapper>
+      );
+    }
+
+    return (
+      <ConditionalWrapper
+        condition={tooltipProps !== undefined}
+        wrapper={(
+          children: React.ReactElement<
+            any,
+            string | React.JSXElementConstructor<any>
+          >
+        ): JSX.Element => <Tooltip {...tooltipProps}>{children}</Tooltip>}
+      >
+        <AvatarFallback
           classNames={wrapperClasses}
           style={wrapperContainerStyle}
-          fontSize={fontSize}
           ref={ref}
+          hashingFunction={hashingFunction}
+          theme={theme}
+          randomiseTheme={randomiseTheme}
         >
+          {children}
           <AvatarStatusItems
             outline={calculatedOutline}
             size={size}
             statusItems={statusItems}
           />
-        </AvatarIcon>
-      );
-    }
-
-    return (
-      <AvatarFallback
-        classNames={wrapperClasses}
-        style={wrapperContainerStyle}
-        ref={ref}
-        hashingFunction={hashingFunction}
-        theme={theme}
-        randomiseTheme={randomiseTheme}
-      >
-        {children}
-        <AvatarStatusItems
-          outline={calculatedOutline}
-          size={size}
-          statusItems={statusItems}
-        />
-      </AvatarFallback>
+        </AvatarFallback>
+      </ConditionalWrapper>
     );
   }
 );

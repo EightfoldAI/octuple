@@ -136,6 +136,10 @@ export interface AvatarProps
    * Image alt text
    */
   alt?: string;
+  /**
+   * Hover tooltip
+   */
+  tooltipProps?: TooltipProps;
 }
 
 interface MaxAvatarProps extends BaseAvatarProps {

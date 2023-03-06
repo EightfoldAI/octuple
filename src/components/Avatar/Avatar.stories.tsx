@@ -9,6 +9,7 @@ import {
   getStatusItemSizeAndPadding,
 } from './';
 import { Stack } from '../Stack';
+import { TooltipTheme } from '../Tooltip';
 
 export default {
   title: 'Avatar',
@@ -226,6 +227,12 @@ const Avatar_StatusItem_Story: ComponentStory<typeof Avatar> = (args) => {
 
 export const Avatar_StatusItem = Avatar_StatusItem_Story.bind({});
 
+const Avatar_Tooltip_Story: ComponentStory<typeof Avatar> = (args) => (
+  <Avatar {...args} theme="red" />
+);
+
+export const Avatar_Tooltip = Avatar_Tooltip_Story.bind({});
+
 const avatarArgs: Object = {
   children: 'JD',
   classNames: 'my-avatar-class',
@@ -285,4 +292,14 @@ Avatar_Fallback_Hashing.args = {
   ...avatarArgs,
   children: 'HF',
   type: 'round',
+};
+
+Avatar_Tooltip.args = {
+  ...avatarArgs,
+  children: 'A',
+  type: 'round',
+  tooltipProps: {
+    content: 'Tooltip text',
+    theme: TooltipTheme.dark,
+  },
 };
