@@ -1,0 +1,751 @@
+:root {
+  --primary-color-10: #00060a;
+  --primary-color-20: #002a47;
+  --primary-color-30: #054d7b;
+  --primary-color-40: #146da6;
+  --primary-color-50: #2c8cc9;
+  --primary-color-60: #47a4df;
+  --primary-color-70: #68baef;
+  --primary-color-80: #8ed0fa;
+  --primary-color-90: #bce4ff;
+  --primary-color-100: #ebf7ff;
+  --primary-color: #bce4ff;
+  --accent-color-10: #00090a;
+  --accent-color-20: #00333b;
+  --accent-color-30: #025966;
+  --accent-color-40: #0b7b8b;
+  --accent-color-50: #1999ac;
+  --accent-color-60: #2db3c7;
+  --accent-color-70: #50cee1;
+  --accent-color-80: #7be4f4;
+  --accent-color-90: #b0f3fe;
+  --accent-color-100: #ebfdff;
+  --accent-color: #b0f3fe;
+  --disruptive-color-10: #0a0202;
+  --disruptive-color-20: #3b1010;
+  --disruptive-color-30: #6c2222;
+  --disruptive-color-40: #993838;
+  --disruptive-color-50: #c45353;
+  --disruptive-color-60: #e46f6f;
+  --disruptive-color-70: #f48686;
+  --disruptive-color-80: #ffa3a3;
+  --disruptive-color-90: #ffc6c6;
+  --disruptive-color-100: #ffefef;
+  --disruptive-color: #b0f3fe;
+  --red-color-10: #0a0202;
+  --red-color-20: #3b1010;
+  --red-color-30: #6c2222;
+  --red-color-40: #993838;
+  --red-color-50: #c15151;
+  --red-color-60: #e46f6f;
+  --red-color-70: #f48686;
+  --red-color-80: #ffa3a3;
+  --red-color-90: #ffc6c6;
+  --red-color-100: #ffefef;
+  --red-color: #ffa3a3;
+  --redorange-color-10: #1f0c03;
+  --redorange-color-20: #4c1f0c;
+  --redorange-color-30: #78351a;
+  --redorange-color-40: #a54d2c;
+  --redorange-color-50: #d26743;
+  --redorange-color-60: #f8845f;
+  --redorange-color-70: #ff9977;
+  --redorange-color-80: #ffb396;
+  --redorange-color-90: #ffd1bd;
+  --redorange-color-100: #fff2ed;
+  --redorange-color: #ffb396;
+  --orange-color-10: #0a0700;
+  --orange-color-20: #3b2600;
+  --orange-color-30: #6c4500;
+  --orange-color-40: #9d6309;
+  --orange-color-50: #c97e19;
+  --orange-color-60: #f29d31;
+  --orange-color-70: #ffb650;
+  --orange-color-80: #ffcd78;
+  --orange-color-90: #ffe3b0;
+  --orange-color-100: #fff8eb;
+  --orange-color: #ffcd78;
+  --yellow-color-10: #0a0a00;
+  --yellow-color-20: #333100;
+  --yellow-color-30: #5c5500;
+  --yellow-color-40: #857600;
+  --yellow-color-50: #a88f00;
+  --yellow-color-60: #d6ad00;
+  --yellow-color-70: #f1c40f;
+  --yellow-color-80: #ffe44e;
+  --yellow-color-90: #fff89c;
+  --yellow-color-100: #ffffeb;
+  --yellow-color: #ffe44e;
+  --yellowgreen-color-10: #131300;
+  --yellowgreen-color-20: #343500;
+  --yellowgreen-color-30: #525400;
+  --yellowgreen-color-40: #6d6f00;
+  --yellowgreen-color-50: #858707;
+  --yellowgreen-color-60: #abae1f;
+  --yellowgreen-color-70: #cacd46;
+  --yellowgreen-color-80: #e2e575;
+  --yellowgreen-color-90: #f3f5b0;
+  --yellowgreen-color-100: #fdfeeb;
+  --yellowgreen-color: #e2e575;
+  --green-color-10: #030a08;
+  --green-color-20: #0e2e26;
+  --green-color-30: #1b5143;
+  --green-color-40: #2b715f;
+  --green-color-50: #3d8f79;
+  --green-color-60: #51ab93;
+  --green-color-70: #67c5ac;
+  --green-color-80: #8ce1ca;
+  --green-color-90: #b9f4e4;
+  --green-color-100: #f0fefa;
+  --green-color: #8ce1ca;
+  --bluegreen-color-10: #00090a;
+  --bluegreen-color-20: #00333b;
+  --bluegreen-color-30: #025966;
+  --bluegreen-color-40: #0b7b8b;
+  --bluegreen-color-50: #1999ac;
+  --bluegreen-color-60: #2db3c7;
+  --bluegreen-color-70: #50cee1;
+  --bluegreen-color-80: #7be4f4;
+  --bluegreen-color-90: #b0f3fe;
+  --bluegreen-color-100: #ebfdff;
+  --bluegreen-color: #7be4f4;
+  --blue-color-10: #00060a;
+  --blue-color-20: #002a47;
+  --blue-color-30: #054d7b;
+  --blue-color-40: #146da6;
+  --blue-color-50: #2c8cc9;
+  --blue-color-60: #47a4df;
+  --blue-color-70: #68baef;
+  --blue-color-80: #8ed0fa;
+  --blue-color-90: #bce4ff;
+  --blue-color-100: #ebf7ff;
+  --blue-color: #8ed0fa;
+  --blueviolet-color-10: #090b1f;
+  --blueviolet-color-20: #191d4a;
+  --blueviolet-color-30: #2b3271;
+  --blueviolet-color-40: #414996;
+  --blueviolet-color-50: #5962b7;
+  --blueviolet-color-60: #757ed6;
+  --blueviolet-color-70: #8c95e8;
+  --blueviolet-color-80: #a9b0f5;
+  --blueviolet-color-90: #cacffc;
+  --blueviolet-color-100: #f1f2ff;
+  --blueviolet-color: #a9b0f5;
+  --violet-color-10: #060106;
+  --violet-color-20: #350e31;
+  --violet-color-30: #5d2156;
+  --violet-color-40: #7e3a77;
+  --violet-color-50: #975590;
+  --violet-color-60: #ae72a8;
+  --violet-color-70: #c491bf;
+  --violet-color-80: #d8b1d4;
+  --violet-color-90: #ead3e8;
+  --violet-color-100: #fbf6fb;
+  --violet-color: #d8b1d4;
+  --violetred-color-10: #1f0816;
+  --violetred-color-20: #491635;
+  --violetred-color-30: #702853;
+  --violetred-color-40: #943d71;
+  --violetred-color-50: #b5548e;
+  --violetred-color-60: #d36fab;
+  --violetred-color-70: #e688c0;
+  --violetred-color-80: #f3a5d4;
+  --violetred-color-90: #fcc8e7;
+  --violetred-color-100: #fff0f9;
+  --violetred-color: #f3a5d4;
+  --grey-color-10: #05070a;
+  --grey-color-20: #1a212e;
+  --grey-color-30: #343c4c;
+  --grey-color-40: #4f5666;
+  --grey-color-50: #69717f;
+  --grey-color-60: #858b98;
+  --grey-color-70: #a1a6b1;
+  --grey-color-80: #bdc1c9;
+  --grey-color-90: #d9dce1;
+  --grey-color-100: #f6f7f8;
+  --grey-color: #bdc1c9;
+  --background-color: #1a212e;
+  --border-color: #343c4c;
+  --text-primary-color: #ffffff;
+  --text-secondary-color: #bdc1c9;
+  --text-tertiary-color: #a1a6b1;
+  --text-inverse-color: #000;
+  --success-color: #8ce1ca;
+  --success-background-color: #b9f4e4;
+  --success-border-color: #67c5ac;
+  --success-active-color: #b9f4e4;
+  --success-active-background-color: #b9f4e4;
+  --success-active-border-color: #67c5ac;
+  --success-hover-color: #67c5ac;
+  --success-hover-background-color: #b9f4e4;
+  --success-hover-border-color: #67c5ac;
+  --warning-color: #ffcd78;
+  --warning-background-color: #6c4500;
+  --warning-border-color: #ffb650;
+  --warning-active-color: #ffe3b0;
+  --warning-active-background-color: #6c4500;
+  --warning-active-border-color: #ffb650;
+  --warning-hover-color: #ffb650;
+  --warning-hover-background-color: #6c4500;
+  --warning-hover-border-color: #ffb650;
+  --error-color: #ffa3a3;
+  --error-background-color: #6c2222;
+  --error-border-color: #f48686;
+  --error-active-color: #ffc6c6;
+  --error-active-background-color: #6c2222;
+  --error-active-border-color: #f48686;
+  --error-hover-color: #f48686;
+  --error-hover-background-color: #6c2222;
+  --error-hover-border-color: #f48686;
+  --info-color: #a1a6b1;
+  --white-color: #000;
+  --black-color: #fff;
+  --font-family: 'Source Sans Pro';
+  --font-stack: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+  --font-stack-full: var(--font-family), var(--font-stack);
+  --font-size: 16px;
+  --backdrop-filter: blur(5px);
+
+  --anchor-color: var(--primary-color-80);
+  --anchor-disruptive-color: var(--disruptive-color-80);
+  --anchor-neutral-color: var(--grey-color-80);
+  --anchor-primary-color: var(--primary-color-80);
+  --anchor-secondary-color: var(--grey-color-100);
+  --anchor-active-color: var(--primary-color-90);
+  --anchor-disruptive-active-color: var(--disruptive-color-90);
+  --anchor-neutral-active-color: var(--grey-color-90);
+  --anchor-primary-active-color: var(--primary-color-90);
+  --anchor-secondary-active-color: var(--grey-color-100);
+  --anchor-hover-color: var(--primary-color-100);
+  --anchor-disruptive-hover-color: var(--disruptive-color-80);
+  --anchor-neutral-hover-color: var(--primary-color-80);
+  --anchor-primary-hover-color: var(--primary-color-80);
+  --anchor-secondary-hover-color: var(--primary-color-80);
+  --anchor-visited-color: var(--violet-color-80);
+  --anchor-disruptive-visited-color: var(--violet-color-80);
+  --anchor-neutral-visited-color: var(--violet-color-80);
+  --anchor-primary-visited-color: var(--violet-color-80);
+  --anchor-secondary-visited-color: var(--violet-color-90);
+  --horizontal-rule-color: var(--grey-color-50);
+
+  --focus-visible-shadow-color: var(--blueviolet-color-60);
+  --focus-visible-shadow-width: 2px;
+  --focus-visible-box-shadow: 0 0 0 var(--focus-visible-shadow-width)
+    var(--focus-visible-shadow-color);
+
+  --border-radius-xs: 2px;
+  --border-radius-s: 4px;
+  --border-radius-m: 8px;
+  --border-radius-l: 16px;
+  --border-radius-xl: 24px;
+  --border-radius-round: 50%;
+
+  // ------ Input theme ------
+  --input-border-color: var(--grey-color-70);
+  --input-border-color-active: var(--grey-color-90);
+  --input-border-color-hover: var(--input-border-color-active);
+  --input-border-color-underline-active: var(--primary-color-90);
+  --input-border-color-underline-hover: var(--input-border-color-active);
+  --input-background-color: var(--background-color);
+  --input-border-color: var(--grey-color-70);
+  --input-border-color-active: var(--grey-color-90);
+  --input-text-color: var(--text-primary-color);
+  --input-placeholder-text-color: var(--text-secondary-color);
+  --input-readonly-background-color: var(--grey-color-20);
+  --input-readonly-text-color: var(--text-primary-color);
+  --input-success-text-color: var(--text-primary-color);
+  --input-success-border-color: var(--input-border-color);
+  --input-success-text-color: var(--text-primary-color);
+  --input-success-border-color: var(--input-border-color);
+  --input-warning-text-color: var(--warning-color);
+  --input-warning-border-color: var(--warning-color);
+  --input-warning-placeholder-color: var(--warning-color);
+  --input-error-text-color: var(--error-color);
+  --input-error-border-color: var(--error-color);
+  --input-error-placeholder-color: var(--error-color);
+  --input-disabled-placeholder-text-color: var(--text-tertiary-color);
+
+  // ------ Tabs theme ------
+  --tab-label: var(--text-secondary-color);
+  --tab-background: transparent;
+  --tab-active-label: var(--primary-color-80);
+  --tab-active-background: transparent;
+  --tab-hover-label: var(--primary-color);
+  --tab-hover-background: transparent;
+  --tab-indicator-color: var(--primary-color-80);
+  --tab-small-active-background: transparent;
+  --tab-small-hover-background: transparent;
+  --tab-pill-border-radius: var(--border-radius-xl);
+  --tab-pill-large-padding: 8px;
+  --tab-pill-medium-padding: 6px;
+  --tab-pill-small-padding: 4px;
+  --tab-pill-label: var(--text-secondary-color);
+  --tab-pill-active-label: var(--primary-color-90);
+  --tab-pill-active-background: var(--primary-color-30);
+  --tab-pill-hover-label: var(--primary-color);
+  --tab-pill-background: var(--grey-color-20);
+  --tab-underline: var(--border-color);
+  // ------ Tabs theme ------
+
+  // ------ Stat tab theme ------
+  --stat-tabs-border-radius: var(--border-radius-xl);
+  --stat-tabs-border-width: 1px;
+  --stat-tabs-border-style: solid;
+  --stat-tabs-border-color: var(--border-color);
+
+  // Individual tabs
+  --stat-tab-border-radius: 40px;
+  --stat-tab-label-color: var(--text-secondary-color);
+  --stat-tab-background-color: var(--background-color);
+  --stat-tab-border-color: var(--stat-tab-background-color);
+  --stat-tab-icon-color: var(--grey-color-80);
+  --stat-tab-icon-background-color: var(--grey-color-30);
+  --stat-tab-active-border-color: var(--grey-color-70);
+  --stat-tab-hover-background-color: var(--grey-color-30);
+  --stat-tab-hover-border-color: var(--grey-color-30);
+
+  // ------ Stat tab theme ------
+
+  // ------ Navbar theme ------
+  --navbar-background: var(--primary-color-90);
+  --navbar-text-color: var(--text-inverse-color);
+  --navbar-text-hover-background: var(--navbar-background);
+  --navbar-text-hover-color: var(--navbar-text-color);
+  --navbar-backdrop-filter: var(--backdrop-filter);
+  --navbar-border-bottom: 1px solid transparent;
+  --navbar-box-shadow: 0 1px 3px rgb(50 50 93 / 25%);
+  // ------ Navbar theme ------
+
+  // ------ Picker theme ------
+  --picker-background-color: var(--background-color);
+  --picker-foreground-color: var(--text-secondary-color);
+  --picker-border-color: var(--input-border-color);
+  --picker-border-color-active: var(--input-border-color-active);
+  --picker-cell-background-color: var(--background-color);
+  --picker-cell-background-color-active: var(--primary-color-30);
+  --picker-cell-background-color-hover: var(--accent-color-40);
+  --picker-cell-today-background-color: var(--accent-color-40);
+  --picker-cell-today-foreground-color: var(--primary-color);
+  --picker-cell-selected-background-color-active: var(--accent-color-40);
+  --picker-cell-range-start-background-color-hover: var(--accent-color-40);
+  --picker-cell-range-start-background-color-active: var(--accent-color-40);
+  --picker-cell-range-end-background-color-hover: var(--accent-color-40);
+  --picker-cell-range-end-background-color-active: var(--accent-color-40);
+  --picker-cell-foreground-color: var(--text-tertiary-color);
+  --picker-cell-foreground-color-active: var(--primary-color);
+  --picker-cell-foreground-color-hover: var(--primary-color);
+  --picker-column-background-color: var(--background-color);
+  --picker-column-background-color-active: var(--primary-color-20);
+  --picker-column-background-color-hover: var(--primary-color-30);
+  --picker-column-foreground-color: var(--text-secondary-color);
+  --picker-column-foreground-color-active: var(--primary-color);
+  --picker-column-foreground-color-hover: var(--primary-color);
+  --picker-header-cell-foreground-color: var(--grey-color-70);
+  --picker-input-active-bar-color: var(--primary-color);
+  --picker-input-background-color: var(--background-color);
+  --picker-input-border-color-active: var(--primary-color-50);
+  --picker-input-border-color-hover: var(--primary-color-50);
+  --picker-input-clear-icon-color: var(--grey-color-70);
+  --picker-input-clear-icon-color-active: var(--grey-color-70);
+  --picker-input-foreground-color: var(--text-primary-color);
+  --picker-input-placeholder-color: var(--grey-color-70);
+  --picker-outline-color: var(--primary-color-50);
+  // ------ Picker theme ------
+
+  // ------ Table theme ------
+  --table-background-color: var(--background-color);
+  --table-foreground-color: var(--text-primary-color);
+  --table-background-alternate-color: var(--grey-color-20);
+  --table-border-color: var(--grey-color-30);
+  --table-border-active-color: transparent;
+  --table-header-background-color: var(--background-color);
+  --table-header-foreground-color: var(--text-primary-color);
+  --table-header-icon-color: var(--grey-color-50);
+  --table-header-icon-hover-color: var(--primary-color-90);
+  --table-header-cell-split-color: var(--grey-color-30);
+  --table-body-sort-background-color: var(--background-color);
+  --table-header-sort-background-color: var(--background-color);
+  --table-header-sort-active-background-color: var(--grey-color-20);
+  --table-header-filter-background-color: var(--background-color);
+  --table-header-filter-active-background-color: var(--grey-color-20);
+  --table-header-filter-dropdown-background-color: var(--background-color);
+  --table-header-filter-buttons-background-color: var(--background-color);
+  --table-expand-icon-background-color: var(--background-color);
+  --table-row-hover-background-color: var(--accent-color-20);
+  --table-row-selected-background-color: var(--grey-color-20);
+  --table-row-selected-hover-background-color: var(--accent-color-20);
+  --table-row-selected-foregroud-color: var(--text-primary-color);
+  --table-row-expanded-background-color: var(--grey-color-20);
+  --table-body-selected-sort-background-color: var(--grey-color-20);
+  --table-footer-background-color: var(--background-color);
+  --table-footer-foreground-color: var(--text-primary-color);
+
+  --table-border-radius: var(--border-radius-xl);
+  --table-border-style: solid;
+  --table-border-width: 1px;
+  --table-padding-vertical: 8px;
+  --table-padding-horizontal: 16px;
+  --table-padding-vertical-lg: 24px;
+  --table-padding-horizontal-lg: 16px;
+  --table-padding-vertical-md: 12px;
+  --table-padding-horizontal-md: 8px;
+  --table-padding-vertical-sm: 8px;
+  --table-padding-horizontal-sm: 8px;
+  --table-box-shadow: 0 1px 2px rgba(15, 20, 31, 0.08),
+    0 2px 8px rgba(15, 20, 31, 0.08);
+  --table-fixed-left-box-shadow: inset 32px 0 8px -32px rgba(15, 20, 31, 0.08);
+  --table-fixed-right-box-shadow: inset -32px 0 8px -32px rgba(15, 20, 31, 0.08);
+  --table-header-font-size: 14px;
+  --table-header-line-height: 24px;
+  --table-footer-font-size: 16px;
+  --table-footer-line-height: 24px;
+  --table-font-size: 14px;
+  --table-font-size-lg: 14px;
+  --table-font-size-md: 14px;
+  --table-font-size-sm: 14px;
+  --table-line-height: 20px;
+  --table-selection-column-width: 80px;
+  // ------ Table theme ------
+
+  // ------ Generic button vars ------
+  --button-font-family: var(--font-stack-full);
+  --button-border-radius: var(--border-radius-s);
+  --button-round-shape-border-radius: var(--border-radius-round);
+  --button-pill-shape-border-radius: var(--border-radius-xl);
+  --button-nudge-background-color-primary: var(--white-color);
+  --button-nudge-background-color-secondary: var(--accent-color-30);
+  --button-nudge-background-color-tertiary: var(--white-color);
+  --button-nudge-gradient-color-one: var(--primary-color-70);
+  --button-nudge-gradient-color-two: var(--primary-color-30);
+  --button-nudge-gradient-color-three: var(--primary-color-70);
+  // TODO: button text/font related vars
+  // ------ Generic button vars ------
+
+  // ------ Default Button theme ------
+  --button-default-text-color: var(--primary-color-80);
+  --button-default-background-color: var(--primary-color-20);
+  --button-default-border-width: 0;
+  --button-default-border-style: solid;
+  --button-default-border-color: var(--button-default-background-color);
+  --button-default-hover-text-color: var(--button-default-text-color);
+  --button-default-hover-background-color: var(--background-color);
+  --button-default-hover-border-width: var(--button-default-border-width);
+  --button-default-hover-border-style: var(--button-default-border-style);
+  --button-default-hover-border-color: var(
+    --button-default-hover-background-color
+  );
+  --button-default-active-text-color: var(--primary-color-90);
+  --button-default-active-background-color: var(--primary-color-30);
+  --button-default-active-border-width: var(--button-default-border-width);
+  --button-default-active-border-style: var(--button-default-border-style);
+  --button-default-active-border-color: var(
+    --button-default-active-background-color
+  );
+  // ------ Default Button theme ------
+
+  // ------ Default Disruptive Button theme ------
+  --button-default-disruptive-text-color: var(--disruptive-color-80);
+  --button-default-disruptive-background-color: var(--disruptive-color-20);
+  --button-default-disruptive-border-width: 0;
+  --button-default-disruptive-border-style: solid;
+  --button-default-disruptive-border-color: var(
+    --button-default-disruptive-background-color
+  );
+  --button-default-disruptive-hover-text-color: var(--disruptive-color-80);
+  --button-default-disruptive-hover-background-color: var(--background-color);
+  --button-default-disruptive-hover-border-width: var(
+    --button-default-disruptive-border-width
+  );
+  --button-default-disruptive-hover-border-style: var(
+    --button-default-disruptive-border-style
+  );
+  --button-default-disruptive-hover-border-color: var(
+    --button-default-disruptive-hover-background-color
+  );
+  --button-default-disruptive-active-text-color: var(--disruptive-color-90);
+  --button-default-disruptive-active-background-color: var(
+    --disruptive-color-30
+  );
+  --button-default-disruptive-active-border-width: var(
+    --button-default-disruptive-border-width
+  );
+  --button-default-disruptive-active-border-style: var(
+    --button-default-disruptive-border-style
+  );
+  --button-default-disruptive-active-border-color: var(
+    --button-default-disruptive-active-background-color
+  );
+  // ------ Default Disruptive Button theme ------
+
+  // ------ Primary Button theme ------
+  --button-primary-text-color: var(--primary-color-90);
+  --button-primary-background-color: var(--accent-color-30);
+  --button-primary-border-width: 0;
+  --button-primary-border-style: solid;
+  --button-primary-border-color: var(--button-primary-background-color);
+  --button-primary-hover-text-color: var(--button-primary-text-color);
+  --button-primary-hover-background-color: var(--accent-color-20);
+  --button-primary-hover-border-width: var(--button-primary-border-width);
+  --button-primary-hover-border-style: var(--button-primary-border-style);
+  --button-primary-hover-border-color: var(
+    --button-primary-hover-background-color
+  );
+  --button-primary-active-text-color: var(--button-primary-text-color);
+  --button-primary-active-background-color: var(--accent-color-40);
+  --button-primary-active-border-width: var(--button-primary-border-width);
+  --button-primary-active-border-style: var(--button-primary-border-style);
+  --button-primary-active-border-color: var(
+    --button-primary-active-background-color
+  );
+  // ------ Primary Button theme ------
+
+  // ------ Primary Disruptive Button theme ------
+  --button-primary-disruptive-text-color: var(--disruptive-color-90);
+  --button-primary-disruptive-background-color: var(--disruptive-color-30);
+  --button-primary-disruptive-border-width: 0;
+  --button-primary-disruptive-border-style: solid;
+  --button-primary-disruptive-border-color: var(
+    --button-primary-disruptive-background-color
+  );
+  --button-primary-disruptive-hover-text-color: var(
+    --button-primary-disruptive-text-color
+  );
+  --button-primary-disruptive-hover-background-color: var(
+    --disruptive-color-20
+  );
+  --button-primary-disruptive-hover-border-width: var(
+    --button-primary-disruptive-border-width
+  );
+  --button-primary-disruptive-hover-border-style: var(
+    --button-primary-disruptive-border-style
+  );
+  --button-primary-disruptive-hover-border-color: var(
+    --button-primary-disruptive-hover-background-color
+  );
+  --button-primary-disruptive-active-text-color: var(
+    --button-primary-disruptive-text-color
+  );
+  --button-primary-disruptive-active-background-color: var(
+    --disruptive-color-40
+  );
+  --button-primary-disruptive-active-border-width: var(
+    --button-primary-disruptive-border-width
+  );
+  --button-primary-disruptive-active-border-style: var(
+    --button-primary-disruptive-border-style
+  );
+  --button-primary-disruptive-active-border-color: var(
+    --button-primary-disruptive-active-background-color
+  );
+  // ------ Primary Disruptive Button theme ------
+
+  // ------ Secondary Button theme ------
+  --button-secondary-text-color: var(--primary-color-80);
+  --button-secondary-background-color: var(--background-color);
+  --button-secondary-border-width: 1px;
+  --button-secondary-border-style: solid;
+  --button-secondary-border-color: var(--accent-color-70);
+  --button-secondary-hover-text-color: var(--button-secondary-text-color);
+  --button-secondary-hover-background-color: var(--accent-color-20);
+  --button-secondary-hover-border-width: var(--button-secondary-border-width);
+  --button-secondary-hover-border-style: var(--button-secondary-border-style);
+  --button-secondary-hover-border-color: var(--button-secondary-border-color);
+  --button-secondary-active-text-color: var(--button-secondary-text-color);
+  --button-secondary-active-background-color: var(--accent-color-30);
+  --button-secondary-active-border-width: var(--button-secondary-border-width);
+  --button-secondary-active-border-style: var(--button-secondary-border-style);
+  --button-secondary-active-border-color: var(--button-secondary-border-color);
+  // ------ Secondary Button theme ------
+
+  // ------ Secondary Disruptive Button theme ------
+  --button-secondary-disruptive-text-color: var(--disruptive-color-80);
+  --button-secondary-disruptive-background-color: var(--background-color);
+  --button-secondary-disruptive-border-width: 1px;
+  --button-secondary-disruptive-border-style: solid;
+  --button-secondary-disruptive-border-color: var(--disruptive-color-80);
+  --button-secondary-disruptive-hover-text-color: var(
+    --button-secondary-disruptive-text-color
+  );
+  --button-secondary-disruptive-hover-background-color: var(
+    --disruptive-color-20
+  );
+  --button-secondary-disruptive-hover-border-width: var(
+    --button-secondary-disruptive-border-width
+  );
+  --button-secondary-disruptive-hover-border-style: var(
+    --button-secondary-disruptive-border-style
+  );
+  --button-secondary-disruptive-hover-border-color: var(
+    --button-secondary-disruptive-hover-background-color
+  );
+  --button-secondary-disruptive-active-text-color: var(
+    --button-secondary-disruptive-text-color
+  );
+  --button-secondary-disruptive-active-background-color: var(
+    --disruptive-color-30
+  );
+  --button-secondary-disruptive-active-border-width: var(
+    --button-secondary-disruptive-border-width
+  );
+  --button-secondary-disruptive-active-border-style: var(
+    --button-secondary-disruptive-border-style
+  );
+  --button-secondary-disruptive-active-border-color: var(
+    --button-secondary-disruptive-active-background-color
+  );
+  // ------ Secondary Disruptive Button theme ------
+
+  // ------ Button Counter theme ------
+  --button-counter-default-background-color: var(--grey-color-30);
+  --button-counter-hover-background-color: var(--grey-color-30);
+  --button-counter-checked-background-color: var(--grey-color-20);
+  --button-counter-focus-background-color: var(--grey-color-30);
+  --button-counter-active-background-color: var(--grey-color-20);
+  --button-counter-default-text-color: var(--primary-color-90);
+  // ------ Button Counter theme ------
+
+  // ------ Badge theme ------
+  --badge-font-family: var(--font-stack-full);
+  --badge-background-color: var(--grey-color-30);
+  --badge-border-radius: 6px;
+  --badge-text-color: var(--grey-color-90);
+  --badge-active-background-color: var(--primary-color-30);
+  --badge-active-text-color: var(--primary-color-90);
+  --badge-disruptive-background-color: var(--disruptive-color-30);
+  --badge-disruptive-text-color: var(--disruptive-color);
+  // ------ Badge theme ------
+
+  // ------ Avatar theme ------
+  --avatar-font-family: var(--font-stack-full);
+  --avatar-border-radius: 0;
+  --avatar-round-border-radius: 50%;
+  // ------ Avatar theme ------
+
+  // ------ Card theme ------
+  --card-background-color: var(--background-color);
+  --card-font-family: var(--font-stack-full);
+  --card-text-color: var(--black-color);
+  --card-border-color: var(--grey-color-30);
+  --card-border-radius: var(--border-radius-xl);
+  --card-border-width: 1px;
+  --card-border-style: solid;
+  --card-border: var(--card-border-width) var(--card-border-style)
+    var(--card-border-color);
+  --card-hover-box-shadow: 0 4px 16px 0 #0f141f29;
+
+  // TODO: component implementation
+  --card-selected-border: 1px solid var(--blue-color-70);
+  --card-selected-box-shadow: 0px 1px 2px rgba(15, 20, 31, 0.12);
+  --card-hover-border: 1px solid var(--grey-color-40);
+  // ------ Card theme ------
+
+  // ------ Info Bar theme ------
+  --info-bar-border-radius: var(--border-radius-xl);
+  --info-bar-background-color: var(--grey-color-20);
+  --info-bar-button-active-background-color: var(--grey-color-30);
+  --info-bar-button-hover-background-color: var(--background-color);
+  --info-bar-text-color: var(--grey-color-80);
+  --info-bar-positive-background-color: var(--green-color-20);
+  --info-bar-positive-button-active-background-color: var(--green-color-30);
+  --info-bar-positive-text-color: var(--green-color-80);
+  --info-bar-warning-background-color: var(--orange-color-20);
+  --info-bar-warning-button-active-background-color: var(--orange-color-30);
+  --info-bar-warning-text-color: var(--orange-color-80);
+  --info-bar-disruptive-background-color: var(--disruptive-color-20);
+  --info-bar-disruptive-button-active-background-color: var(
+    --disruptive-color-30
+  );
+  --info-bar-disruptive-text-color: var(--disruptive-color-80);
+  // ------ Info Bar theme ------
+
+  // ------ Stepper/Timeline theme ------
+  --stepper-line-color: var(--primary-color-70);
+  --stepper-line-horizontal-offset: 6px;
+  --stepper-line-width: 1px;
+  --stepper-line-vertical-offset: 14px;
+  --step-default-active-background-color: var(--accent-color-30);
+  --step-default-active-border-color: var(--accent-color-70);
+  --step-default-active-icon-color: var(--primary-color-90);
+  --step-default-background-color: var(--background-color);
+  --step-default-box-shadow: 0 0 0 2px var(--background-color);
+  --step-default-border-color: var(--accent-color-70);
+  --step-default-icon-color: var(--primary-color-90);
+  --step-default-hover-background-color: var(--accent-color-20);
+  --step-default-hover-border-color: var(--step-default-active-border-color);
+  --step-default-hover-icon-color: var(--step-default-icon-color);
+  --step-default-complete-background-color: var(--accent-color-30);
+  --step-default-complete-border-color: var(
+    --step-default-active-background-color
+  );
+  --step-default-complete-icon-color: var(--primary-color-90);
+  --step-timeline-active-background-color: var(--primary-color-30);
+  --step-timeline-active-border-color: var(--primary-color-70);
+  --step-timeline-active-icon-color: var(--primary-color-90);
+  --step-timeline-background-color: var(--primary-color-20);
+  --step-timeline-box-shadow: 0 0 0 2px var(--background-color);
+  --step-timeline-border-color: var(--step-timeline-background-color);
+  --step-timeline-icon-color: var(--primary-color-80);
+  --step-timeline-hover-background-color: var(--background-color);
+  --step-timeline-hover-border-color: var(--step-timeline-active-border-color);
+  --step-timeline-hover-icon-color: var(--step-timeline-icon-color);
+  --step-timeline-complete-background-color: var(
+    --step-timeline-background-color
+  );
+  --step-timeline-complete-border-color: var(--step-timeline-background-color);
+  --step-timeline-complete-icon-color: var(--step-timeline-icon-color);
+
+  // ------ Highlight box theme ------
+  --highlight-background-color: var(--yellowgreen-color-20);
+  --highlight-border-color: var(--yellowgreen-color-40);
+  --highlight-foreground-color: var(--yellowgreen-color-90);
+  // ------ Highlight box theme ------
+
+  // ------ Dropdown theme ------
+  --dropdown-background-color: var(--background-color);
+  // ------ Dropdown theme ------
+
+  // ------ Skeleton theme ------
+  --skeleton-background-color: var(--grey-color-20);
+  --skeleton-shimmer-color: #343c4c;
+  --skeleton-wave-background: linear-gradient(
+    90deg,
+    transparent,
+    var(--skeleton-shimmer-color),
+    transparent
+  );
+  // ------ Skeleton theme ------
+
+  // ------ Spinner theme ------
+  --spinner-color: var(--primary-color);
+  // ------ Spinner theme ------
+
+  // ------ Slider theme ------
+  --slider-data-active-mark-one-background-color: var(--grey-color-40);
+  --slider-data-active-mark-one-border-color: var(--grey-color-70);
+  --slider-data-dot-background-color: var(--grey-color-20);
+  --slider-data-inactive-mark-one-background-color: var(--violet-color-40);
+  --slider-data-inactive-mark-one-border-color: var(--violetred-color-70);
+  --slider-data-inactive-mark-two-background-color: var(--blue-color-30);
+  --slider-data-inactive-mark-two-border-color: var(--blueviolet-color-70);
+  --slider-data-inactive-mark-three-background-color: var(--orange-color-40);
+  --slider-data-inactive-mark-three-border-color: var(--orange-color-70);
+  --slider-data-rail-background-color: var(--grey-color-40);
+  --slider-data-rail-border-color: var(--grey-color-70);
+  --slider-extremity-text-color: var(--grey-color-70);
+  --slider-benchmark-background-color: var(--grey-color-40);
+  --slider-benchmark-border-color: var(--grey-color-70);
+  --slider-rail-background-color: var(--accent-color-20);
+  --slider-rail-border-color: var(--primary-color-70);
+  --slider-thumb-color: var(--accent-color-30);
+  --slider-track-background-color: var(--primary-color-70);
+  --slider-track-border-color: var(--primary-color-70);
+  --slider-track-success-background-color: var(--green-color-40);
+  --slider-track-success-border-color: var(--green-color-70);
+  --slider-track-warning-background-color: var(--orange-color-40);
+  --slider-track-warning-border-color: var(--orange-color-70);
+  --slider-track-error-background-color: var(--red-color-40);
+  --slider-track-error-border-color: var(--red-color-70);
+  --slider-value-text-color: var(--text-secondary-color);
+  // ------ Slider theme ------
+}
