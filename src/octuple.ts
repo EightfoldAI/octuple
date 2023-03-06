@@ -46,6 +46,7 @@ import {
   OcThemeName,
   Shape,
   Size,
+  useConfig,
 } from './components/ConfigProvider';
 
 import Cropper from './components/Upload/Cropper';
@@ -359,6 +360,7 @@ export {
   UploadProps,
   UploadSize,
   useBoolean,
+  useConfig,
   useMatchMedia,
   useMaxVisibleSections,
   useOnClickOutside,
