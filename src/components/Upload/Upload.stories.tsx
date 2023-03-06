@@ -1,8 +1,14 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Stories } from '@storybook/addon-docs';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import Upload from '.';
-import { OcFile, UploadFile, UploadProps, UploadSize } from './Upload.types';
+import {
+  OcFile,
+  UploadFile,
+  UploadFileStatus,
+  UploadProps,
+  UploadSize,
+} from './Upload.types';
 import Cropper from './Cropper';
 import { Modal } from '../Modal';
 import { IconName } from '../Icon';
@@ -507,6 +513,77 @@ const Image_Editor_Story: ComponentStory<typeof Upload> = () => {
   );
 };
 
+const Basic_Deferred_API_Story: ComponentStory<typeof Upload> = () => {
+  const [data, setData] = useState<Record<string, unknown>>({});
+  const [thumbUrl, setThumbUrl] = useState<string>('');
+
+  const [fileList, setFileList] = useState<UploadFile[]>([]);
+
+  const onChange: UploadProps['onChange'] = async (info: any) => {
+    await generateThumbAsync(info.file).then(() => {
+      setData({
+        ...info.file,
+        name: info.file.name,
+        percent: 100,
+        status: 'done',
+        thumbUrl: info.file.preview,
+      });
+    });
+  };
+
+  const getBase64 = (file: OcFile): Promise<string> =>
+    new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = () => resolve(reader.result as string);
+      reader.onerror = (error) => reject(error);
+    });
+
+  const generateThumbAsync = async (file: UploadFile): Promise<void> => {
+    if (!file.url && !file.preview) {
+      file.preview = await getBase64(file.originFileObj as OcFile);
+    }
+    setThumbUrl(file.url || (file.preview as string));
+  };
+
+  const props: UploadProps = {
+    customRequest() {
+      return true;
+    },
+    data: data,
+    fileList: fileList,
+    listType: 'picture',
+    maxCount: 1,
+    name: 'file',
+    onChange: onChange,
+  };
+
+  useEffect(() => {
+    if (data.status === 'done') {
+      setFileList([
+        {
+          ...data,
+          uid: data.uid as string,
+          name: data.name as string,
+          status: data.status as UploadFileStatus,
+          thumbUrl: data.thumbUrl as string,
+        },
+      ]);
+      snack.servePositive({
+        ...snackArgs,
+        content: `${data.name} file uploaded successfully`,
+      });
+    }
+  }, [data]);
+
+  return (
+    <>
+      <Dropzone {...props} />
+      <SnackbarContainer />
+    </>
+  );
+};
+
 export const Basic = Basic_Story.bind({});
 export const Basic_With_Upload_List = Basic_With_Upload_List_Story.bind({});
 export const Drag_and_Drop_Single_Small = Drag_and_Drop_Single_Small_Story.bind(
@@ -525,6 +602,7 @@ export const Drag_and_Drop_Multiple_Large =
   Drag_and_Drop_Multiple_Large_Story.bind({});
 export const Image_List = Image_List_Story.bind({});
 export const Image_Editor = Image_Editor_Story.bind({});
+export const Basic_Deferred_API = Basic_Deferred_API_Story.bind({});
 
 const uploadArgs: Object = {};
 
@@ -565,5 +643,9 @@ Image_List.args = {
 };
 
 Image_Editor.args = {
+  ...uploadArgs,
+};
+
+Basic_Deferred_API.args = {
   ...uploadArgs,
 };
