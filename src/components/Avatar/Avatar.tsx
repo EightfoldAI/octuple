@@ -72,55 +72,43 @@ const AvatarStatusItems: FC<BaseAvatarProps> = React.forwardRef(
     const htmlDir: string = useCanvasDirection();
 
     const getStatusItemPositionStyle = (
-      itemPos: StatusItemsPosition,
-      itemProps: StatusItemsProps,
-      wrapperPadding: string | number
+      itemPos: StatusItemsPosition
     ): React.CSSProperties => {
       const outlineWidth: string = outline?.outlineWidth ?? '0px'; // Avatar outline width
-      const avatarWidth: string = size;
-      const itemWidth: string = `(${itemProps.size} + (2 * ${wrapperPadding}))`; // Status item width
+      const outlineOffset: string = outline?.outlineOffset ?? '0px'; // Avatar outline offset
+      const radius: string = `calc((${size} + ${outlineWidth} + ${outlineOffset}) / 2)`;
 
       switch (htmlDir === 'rtl' ? statusItemPositionRtlMap[itemPos] : itemPos) {
         case StatusItemsPosition.TopRight:
           return {
-            top: `calc(-1 * ${outlineWidth})`,
-            right: `calc(-1 * ${outlineWidth})`,
+            transform: `rotate(${-45}deg) translate(${radius}) rotate(${45}deg)`,
           };
         case StatusItemsPosition.TopLeft:
           return {
-            top: `calc(-1 * ${outlineWidth})`,
-            left: `calc(-1 * ${outlineWidth})`,
+            transform: `rotate(${-135}deg) translate(${radius}) rotate(${135}deg)`,
           };
         case StatusItemsPosition.BottomRight:
           return {
-            bottom: `calc(-1 * ${outlineWidth})`,
-            right: `calc(-1 * ${outlineWidth})`,
+            transform: `rotate(${45}deg) translate(${radius}) rotate(${-45}deg)`,
           };
         case StatusItemsPosition.BottomLeft:
           return {
-            bottom: `calc(-1 * ${outlineWidth})`,
-            left: `calc(-1 * ${outlineWidth})`,
+            transform: `rotate(${135}deg) translate(${radius}) rotate(${-135}deg)`,
           };
         case StatusItemsPosition.Left:
           return {
-            bottom: `calc((${avatarWidth} - ${itemWidth}) / 2)`,
-            left: `calc(-1 * ${itemWidth} / 2 - ${outlineWidth})`,
+            transform: `rotate(${180}deg) translate(${radius}) rotate(${-180}deg)`,
           };
         case StatusItemsPosition.Right:
-          return {
-            bottom: `calc((${avatarWidth} - ${itemWidth}) / 2)`,
-            right: `calc(-1 * ${itemWidth} / 2 - ${outlineWidth})`,
-          };
+          return { transform: `translate(${radius})` };
         case StatusItemsPosition.Top:
           return {
-            top: `calc(-1 * ${itemWidth} / 2 - ${outlineWidth})`,
-            left: `calc((${avatarWidth} - ${itemWidth}) / 2)`,
+            transform: `rotate(${-90}deg) translate(${radius}) rotate(${90}deg)`,
           };
         case StatusItemsPosition.Bottom:
         default:
           return {
-            bottom: `calc(-1 * ${itemWidth} / 2 - ${outlineWidth})`,
-            left: `calc((${avatarWidth} - ${itemWidth}) / 2)`,
+            transform: `rotate(${90}deg) translate(${radius}) rotate(${-90}deg)`,
           };
       }
     };
@@ -137,16 +125,13 @@ const AvatarStatusItems: FC<BaseAvatarProps> = React.forwardRef(
               key={position}
               ref={ref}
               style={{
+                display: 'flex',
                 position: 'absolute',
-                borderRadius: '50%',
+                borderRadius: '999px',
                 background:
                   statusItemProps.backgroundColor ?? 'var(--white-color)',
                 padding: `calc(${wrapperPadding})`,
-                ...getStatusItemPositionStyle(
-                  position,
-                  statusItemProps,
-                  wrapperPadding
-                ),
+                ...getStatusItemPositionStyle(position),
                 ...(statusItemProps.outline
                   ? {
                       outlineColor:
@@ -177,6 +162,7 @@ const AvatarStatusItems: FC<BaseAvatarProps> = React.forwardRef(
                 ? { 'aria-label': statusItemProps.ariaLabel }
                 : {})}
             >
+              {statusItemProps.text ?? ''}
               <Icon {...statusItemProps} />
             </div>
           );
@@ -313,7 +299,11 @@ export const Avatar: FC<AvatarProps> = React.forwardRef(
             >
           ): JSX.Element => <Tooltip {...tooltipProps}>{children}</Tooltip>}
         >
-          <div ref={ref} style={wrapperContainerStyle} className={classNames}>
+          <div
+            ref={ref}
+            style={wrapperContainerStyle}
+            className={`${classNames} ${styles.avatarImgWrapper}`}
+          >
             <img
               src={src}
               className={imageClasses}

@@ -206,11 +206,13 @@ const Avatar_StatusItem_Story: ComponentStory<typeof Avatar> = (args) => {
           ...statusItemProps,
           backgroundColor: 'var(--red-color-30)',
           path: IconName.mdiBell,
+          text: '4',
         },
         [StatusItemsPosition.Right]: {
           ...statusItemProps,
           backgroundColor: 'var(--blue-color-20)',
           path: IconName.mdiCalendar,
+          text: '20',
         },
       },
     },

@@ -67,6 +67,10 @@ export interface StatusItemsProps extends IconProps {
    * Class for status item wrapper
    */
   wrapperClassName?: string;
+  /**
+   * Text present with icon
+   */
+  text?: string;
 }
 
 export interface BaseAvatarProps extends OcBaseProps<HTMLSpanElement> {

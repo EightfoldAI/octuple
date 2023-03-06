@@ -74,5 +74,12 @@
   cursor: pointer;
 }
 
+.avatar-img-wrapper {
+  align-items: center;
+  display: flex;
+  font-family: var(--avatar-font-family);
+  justify-content: center;
+}
+
 @import './Styles/group';
 @import './Styles/rtl';
