@@ -1,5 +1,5 @@
 import React, { Ref } from 'react';
-import { Avatar, AvatarGroupProps } from '.';
+import { Avatar, AvatarGroupProps, AvatarGroupVariant } from '.';
 import { List } from '../List';
 import { Tooltip } from '../Tooltip';
 import { useCanvasDirection } from '../../hooks/useCanvasDirection';
@@ -18,6 +18,7 @@ export const AvatarGroup: React.FC<AvatarGroupProps> = React.forwardRef(
       avatarListProps,
       children,
       classNames,
+      groupVariant = AvatarGroupVariant.Overlapped,
       maxProps,
       size,
       style,
@@ -31,6 +32,7 @@ export const AvatarGroup: React.FC<AvatarGroupProps> = React.forwardRef(
 
     const avatarGroupClassNames: string = mergeClasses([
       styles.avatarGroup,
+      { [styles.spaced]: groupVariant === AvatarGroupVariant.Spaced },
       { [styles.avatarGroupRtl]: htmlDir === 'rtl' },
       classNames,
     ]);
