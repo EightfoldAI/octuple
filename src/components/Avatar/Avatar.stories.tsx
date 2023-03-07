@@ -124,6 +124,7 @@ const Avatar_StatusItem_Story: ComponentStory<typeof Avatar> = (args) => {
           wrapperStyle: { padding: '2px' },
           path: IconName.mdiPencil,
           size: '6px',
+          text: '20',
         },
       },
     },

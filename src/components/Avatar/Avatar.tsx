@@ -162,7 +162,18 @@ const AvatarStatusItems: FC<BaseAvatarProps> = React.forwardRef(
                 ? { 'aria-label': statusItemProps.ariaLabel }
                 : {})}
             >
-              {statusItemProps.text ?? ''}
+              {statusItemProps.text ? (
+                <span
+                  style={{
+                    fontSize: `calc(2px + ${statusItemProps.size})`,
+                    color: statusItemProps.color,
+                  }}
+                >
+                  {statusItemProps.text}
+                </span>
+              ) : (
+                ''
+              )}
               <Icon {...statusItemProps} />
             </div>
           );
