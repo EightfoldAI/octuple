@@ -290,12 +290,12 @@
   // ------ Stat tab theme ------
 
   // ------ Navbar theme ------
-  --navbar-background: var(--primary-color-80);
-  --navbar-text-color: var(--text-inverse-color);
+  --navbar-background: #ffffffe6;
+  --navbar-text-color: var(--grey-color-70);
   --navbar-text-hover-background: var(--navbar-background);
-  --navbar-text-hover-color: var(--navbar-text-color);
+  --navbar-text-hover-color: var(--primary-color);
   --navbar-backdrop-filter: var(--backdrop-filter);
-  --navbar-border-bottom: 1px solid transparent;
+  --navbar-border-bottom: 1px solid var(--border-color);
   --navbar-box-shadow: 0 1px 3px rgb(50 50 93 / 25%);
   // ------ Navbar theme ------
 
