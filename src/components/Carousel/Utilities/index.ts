@@ -6,3 +6,4 @@ export * from './getItemId';
 export * from './getNodesFromRefs';
 export * from './observerEntriesToItems';
 export * from './scrollToItem';
+export * from './scrollBySingleItem';

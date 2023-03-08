@@ -174,6 +174,28 @@ describe('autoScrollApi', () => {
       });
     });
 
+    describe('scrollBySingleItem', () => {
+      test('should call scrollBy', () => {
+        const scrollBySingleItemSpy = jest.spyOn(
+          utilities,
+          'scrollBySingleItem'
+        );
+        const { items, visibleElementsWithSeparators } = setup([0.7, 0, 0]);
+        const boundary = { current: document.createElement('div') };
+        autoScrollApi(
+          items,
+          visibleElementsWithSeparators,
+          boundary
+        ).scrollBySingleItem(
+          document.createElement('div'),
+          'smooth',
+          'next',
+          8
+        );
+        expect(scrollBySingleItemSpy).toHaveBeenCalledTimes(1);
+      });
+    });
+
     test('getItemElementById', () => {
       const { items, visibleElementsWithSeparators } = setup([0.7, 0, 0]);
 
@@ -322,11 +344,11 @@ describe('autoScrollApi', () => {
 
       expect(
         autoScrollApi(items, visibleElementsWithSeparators).getPrevItem()
-      ).toEqual(nodes[0.1]);
+      ).toEqual(nodes[0]);
     });
 
     test('does not have previous item', () => {
-      const { items, visibleElementsWithSeparators } = setup([0, 0.1, 1]);
+      const { items, visibleElementsWithSeparators } = setup([1, 0.1, 0.3]);
 
       expect(
         autoScrollApi(items, visibleElementsWithSeparators).getPrevItem()
@@ -334,18 +356,38 @@ describe('autoScrollApi', () => {
     });
   });
 
+  describe('getPrevItemGroup', () => {
+    test('have previous item group', () => {
+      const { items, nodes, visibleElementsWithSeparators } = setup([
+        0.1, 1, 0.9,
+      ]);
+
+      expect(
+        autoScrollApi(items, visibleElementsWithSeparators).getPrevItemGroup()
+      ).toEqual(nodes[0.1]);
+    });
+
+    test('does not have previous item group', () => {
+      const { items, visibleElementsWithSeparators } = setup([0, 0.1, 1]);
+
+      expect(
+        autoScrollApi(items, visibleElementsWithSeparators).getPrevItemGroup()
+      ).toEqual(undefined);
+    });
+  });
+
   describe('getPrevElement', () => {
-    test('have previous item', () => {
+    test('have previous element', () => {
       const { items, nodes, visibleElementsWithSeparators } = setup([
         0.1, 1, 0.9,
       ]);
 
       expect(
         autoScrollApi(items, visibleElementsWithSeparators).getPrevElement()
-      ).toEqual(nodes[0.1]);
+      ).toEqual(nodes[0]);
     });
 
-    test('does not have previous item', () => {
+    test('does not have previous element', () => {
       const { items, visibleElementsWithSeparators } = setup([1, 0.1, 0.3]);
 
       expect(
@@ -354,18 +396,44 @@ describe('autoScrollApi', () => {
     });
   });
 
+  describe('getPrevElementGroup', () => {
+    test('have previous element group', () => {
+      const { items, nodes, visibleElementsWithSeparators } = setup([
+        0.1, 1, 0.9,
+      ]);
+
+      expect(
+        autoScrollApi(
+          items,
+          visibleElementsWithSeparators
+        ).getPrevElementGroup()
+      ).toEqual(nodes[0.1]);
+    });
+
+    test('does not have previous element group', () => {
+      const { items, visibleElementsWithSeparators } = setup([1, 0.1, 0.3]);
+
+      expect(
+        autoScrollApi(
+          items,
+          visibleElementsWithSeparators
+        ).getPrevElementGroup()
+      ).toEqual(undefined);
+    });
+  });
+
   describe('getNextItem', () => {
     test('have next item', () => {
       const { items, nodes, visibleElementsWithSeparators } = setup([
-        1, 1, 1.1,
+        1, 1, 0.3,
       ]);
       expect(
         autoScrollApi(items, visibleElementsWithSeparators).getNextItem()
-      ).toEqual(nodes[1]);
+      ).toEqual(nodes[2]);
     });
 
     test('does not have next item', () => {
-      const { items, visibleElementsWithSeparators } = setup([0, 0.1]);
+      const { items, visibleElementsWithSeparators } = setup([0, 0.1, 0.9]);
 
       expect(
         autoScrollApi(items, visibleElementsWithSeparators).getNextItem()
@@ -373,21 +441,65 @@ describe('autoScrollApi', () => {
     });
   });
 
+  describe('getNextItemGroup', () => {
+    test('have next item group', () => {
+      const { items, nodes, visibleElementsWithSeparators } = setup([
+        1, 1, 1.1,
+      ]);
+      expect(
+        autoScrollApi(items, visibleElementsWithSeparators).getNextItemGroup()
+      ).toEqual(nodes[1]);
+    });
+
+    test('does not have next item group', () => {
+      const { items, visibleElementsWithSeparators } = setup([0, 0.1]);
+
+      expect(
+        autoScrollApi(items, visibleElementsWithSeparators).getNextItemGroup()
+      ).toEqual(undefined);
+    });
+  });
+
   describe('getNextElement', () => {
-    test('have next item', () => {
+    test('have next element', () => {
+      const { items, nodes, visibleElementsWithSeparators } = setup([
+        1, 1, 0.1,
+      ]);
+      expect(
+        autoScrollApi(items, visibleElementsWithSeparators).getNextElement()
+      ).toEqual(nodes[2]);
+    });
+
+    test('does not have next element', () => {
+      const { items, visibleElementsWithSeparators } = setup([0, 0.1, 0.9]);
+
+      expect(
+        autoScrollApi(items, visibleElementsWithSeparators).getNextElement()
+      ).toEqual(undefined);
+    });
+  });
+
+  describe('getNextElementGroup', () => {
+    test('have next element group', () => {
       const { items, nodes, visibleElementsWithSeparators } = setup([
         0, 0.1, 1, 1.1, 2,
       ]);
       expect(
-        autoScrollApi(items, visibleElementsWithSeparators).getNextElement()
+        autoScrollApi(
+          items,
+          visibleElementsWithSeparators
+        ).getNextElementGroup()
       ).toEqual(nodes[0]);
     });
 
-    test('does not have next item', () => {
+    test('does not have next element group', () => {
       const { items, visibleElementsWithSeparators } = setup([0, 0.1]);
 
       expect(
-        autoScrollApi(items, visibleElementsWithSeparators).getNextElement()
+        autoScrollApi(
+          items,
+          visibleElementsWithSeparators
+        ).getNextElementGroup()
       ).toEqual(undefined);
     });
   });
@@ -416,7 +528,7 @@ describe('autoScrollApi', () => {
 
   describe('scrollPrev', () => {
     test('have previous item', () => {
-      const { items, nodes, visibleElementsWithSeparators } = setup([1, 2, 3]);
+      const { items, nodes, visibleElementsWithSeparators } = setup([0, 1, 1]);
 
       const boundary = { current: document.createElement('li') };
       autoScrollApi(
@@ -426,7 +538,7 @@ describe('autoScrollApi', () => {
       ).scrollPrev();
 
       expect(scrollIntoView).toHaveBeenCalledTimes(1);
-      expect(scrollIntoView).toHaveBeenNthCalledWith(1, nodes[2].entry.target, {
+      expect(scrollIntoView).toHaveBeenNthCalledWith(1, nodes[0].entry.target, {
         behavior: 'smooth',
         block: 'nearest',
         inline: 'end',
@@ -436,8 +548,37 @@ describe('autoScrollApi', () => {
       });
     });
 
+    describe('scrollPrevGroup', () => {
+      test('have previous group', () => {
+        const { items, nodes, visibleElementsWithSeparators } = setup([
+          1, 2, 3,
+        ]);
+
+        const boundary = { current: document.createElement('li') };
+        autoScrollApi(
+          items,
+          visibleElementsWithSeparators,
+          boundary
+        ).scrollPrevGroup();
+
+        expect(scrollIntoView).toHaveBeenCalledTimes(1);
+        expect(scrollIntoView).toHaveBeenNthCalledWith(
+          1,
+          nodes[2].entry.target,
+          {
+            behavior: 'smooth',
+            block: 'nearest',
+            inline: 'end',
+            duration: undefined,
+            ease: undefined,
+            boundary: boundary.current,
+          }
+        );
+      });
+    });
+
     test('no prev item', () => {
-      const { items, visibleElementsWithSeparators } = setup([0, 1]);
+      const { items, visibleElementsWithSeparators } = setup([1, 1, 1]);
 
       autoScrollApi(items, visibleElementsWithSeparators).scrollPrev();
 
@@ -445,7 +586,7 @@ describe('autoScrollApi', () => {
     });
 
     test('should pass rtl to scrollToItem', () => {
-      const { items, visibleElementsWithSeparators } = setup([0, 1, 2, 3]);
+      const { items, visibleElementsWithSeparators } = setup([0, 1, 1]);
       const scrollToItemSpy = jest.spyOn(utilities, 'scrollToItem');
 
       const rtl = true;
@@ -481,8 +622,35 @@ describe('autoScrollApi', () => {
       expect(noPolyfillrop).toEqual(noPolyfill);
     });
 
-    test('with transition options', () => {
+    test('group with transition options', () => {
       const { items, nodes, visibleElementsWithSeparators } = setup([1, 2, 3]);
+
+      const boundary = { current: document.createElement('div') };
+      const transitionOptions = {
+        duration: 400,
+        ease: (t: number) => t,
+        behavior: () => false,
+      };
+      autoScrollApi(
+        items,
+        visibleElementsWithSeparators,
+        boundary,
+        transitionOptions
+      ).scrollPrevGroup();
+
+      expect(scrollIntoView).toHaveBeenCalledTimes(1);
+      expect(scrollIntoView).toHaveBeenNthCalledWith(1, nodes[2].entry.target, {
+        behavior: transitionOptions.behavior,
+        block: 'nearest',
+        inline: 'end',
+        duration: transitionOptions.duration,
+        ease: transitionOptions.ease,
+        boundary: boundary.current,
+      });
+    });
+
+    test('default with transition options', () => {
+      const { items, nodes, visibleElementsWithSeparators } = setup([0, 1, 1]);
 
       const boundary = { current: document.createElement('div') };
       const transitionOptions = {
@@ -498,7 +666,7 @@ describe('autoScrollApi', () => {
       ).scrollPrev();
 
       expect(scrollIntoView).toHaveBeenCalledTimes(1);
-      expect(scrollIntoView).toHaveBeenNthCalledWith(1, nodes[2].entry.target, {
+      expect(scrollIntoView).toHaveBeenNthCalledWith(1, nodes[0].entry.target, {
         behavior: transitionOptions.behavior,
         block: 'nearest',
         inline: 'end',
@@ -508,7 +676,7 @@ describe('autoScrollApi', () => {
       });
     });
 
-    test('arguments should have priority over transitionOptions', () => {
+    test('group arguments should have priority over transitionOptions', () => {
       const { items, nodes, visibleElementsWithSeparators } = setup([1, 2, 3]);
 
       const boundary = { current: document.createElement('div') };
@@ -522,7 +690,7 @@ describe('autoScrollApi', () => {
         visibleElementsWithSeparators,
         boundary,
         transitionOptions
-      ).scrollPrev('auto', 'center', 'center');
+      ).scrollPrevGroup('auto', 'center', 'center');
 
       expect(scrollIntoView).toHaveBeenCalledTimes(1);
       expect(scrollIntoView).toHaveBeenNthCalledWith(1, nodes[2].entry.target, {
@@ -536,11 +704,36 @@ describe('autoScrollApi', () => {
     });
   });
 
+  test('default arguments should have priority over transitionOptions', () => {
+    const { items, nodes, visibleElementsWithSeparators } = setup([0, 1, 1]);
+
+    const boundary = { current: document.createElement('div') };
+    const transitionOptions = {
+      duration: 500,
+      ease: (t: number) => t,
+      behavior: () => false,
+    };
+    autoScrollApi(
+      items,
+      visibleElementsWithSeparators,
+      boundary,
+      transitionOptions
+    ).scrollPrev('auto', 'center', 'center');
+
+    expect(scrollIntoView).toHaveBeenCalledTimes(1);
+    expect(scrollIntoView).toHaveBeenNthCalledWith(1, nodes[0].entry.target, {
+      behavior: 'auto',
+      block: 'center',
+      inline: 'center',
+      duration: transitionOptions.duration,
+      ease: transitionOptions.ease,
+      boundary: boundary.current,
+    });
+  });
+
   describe('scrollNext', () => {
     test('have next item', () => {
-      const { items, nodes, visibleElementsWithSeparators } = setup([
-        1, 2, 3, 4,
-      ]);
+      const { items, nodes, visibleElementsWithSeparators } = setup([1, 1, 0]);
 
       const boundary = { current: document.createElement('li') };
       autoScrollApi(
@@ -550,13 +743,42 @@ describe('autoScrollApi', () => {
       ).scrollNext();
 
       expect(scrollIntoView).toHaveBeenCalledTimes(1);
-      expect(scrollIntoView).toHaveBeenNthCalledWith(1, nodes[1].entry.target, {
+      expect(scrollIntoView).toHaveBeenNthCalledWith(1, nodes[2].entry.target, {
         behavior: 'smooth',
         block: 'nearest',
         inline: 'start',
         duration: undefined,
         ease: undefined,
         boundary: boundary.current,
+      });
+    });
+
+    describe('scrollNextGroup', () => {
+      test('have next group', () => {
+        const { items, nodes, visibleElementsWithSeparators } = setup([
+          1, 2, 3, 4,
+        ]);
+
+        const boundary = { current: document.createElement('li') };
+        autoScrollApi(
+          items,
+          visibleElementsWithSeparators,
+          boundary
+        ).scrollNextGroup();
+
+        expect(scrollIntoView).toHaveBeenCalledTimes(1);
+        expect(scrollIntoView).toHaveBeenNthCalledWith(
+          1,
+          nodes[1].entry.target,
+          {
+            behavior: 'smooth',
+            block: 'nearest',
+            inline: 'start',
+            duration: undefined,
+            ease: undefined,
+            boundary: boundary.current,
+          }
+        );
       });
     });
 
@@ -605,7 +827,34 @@ describe('autoScrollApi', () => {
       expect(noPolyfillrop).toEqual(noPolyfill);
     });
 
-    test('with transition options', () => {
+    test('group with transition options', () => {
+      const { items, nodes, visibleElementsWithSeparators } = setup([1, 1, 0]);
+
+      const boundary = { current: document.createElement('li') };
+      const transitionOptions = {
+        duration: 400,
+        ease: (t: number) => t,
+        behavior: () => false,
+      };
+      autoScrollApi(
+        items,
+        visibleElementsWithSeparators,
+        boundary,
+        transitionOptions
+      ).scrollNextGroup();
+
+      expect(scrollIntoView).toHaveBeenCalledTimes(1);
+      expect(scrollIntoView).toHaveBeenNthCalledWith(1, nodes[0].entry.target, {
+        behavior: transitionOptions.behavior,
+        block: 'nearest',
+        inline: 'start',
+        duration: transitionOptions.duration,
+        ease: transitionOptions.ease,
+        boundary: boundary.current,
+      });
+    });
+
+    test('default with transition options', () => {
       const { items, nodes, visibleElementsWithSeparators } = setup([1, 1, 0]);
 
       const boundary = { current: document.createElement('li') };
@@ -622,7 +871,7 @@ describe('autoScrollApi', () => {
       ).scrollNext();
 
       expect(scrollIntoView).toHaveBeenCalledTimes(1);
-      expect(scrollIntoView).toHaveBeenNthCalledWith(1, nodes[0].entry.target, {
+      expect(scrollIntoView).toHaveBeenNthCalledWith(1, nodes[2].entry.target, {
         behavior: transitionOptions.behavior,
         block: 'nearest',
         inline: 'start',
@@ -632,7 +881,34 @@ describe('autoScrollApi', () => {
       });
     });
 
-    test('arguments should have priority over transitionOptions', () => {
+    test('group arguments should have priority over transitionOptions', () => {
+      const { items, nodes, visibleElementsWithSeparators } = setup([1, 1, 0]);
+
+      const boundary = { current: document.createElement('div') };
+      const transitionOptions = {
+        duration: 400,
+        ease: (t: number) => t,
+        behavior: () => false,
+      };
+      autoScrollApi(
+        items,
+        visibleElementsWithSeparators,
+        boundary,
+        transitionOptions
+      ).scrollNextGroup('auto', 'center', 'center');
+
+      expect(scrollIntoView).toHaveBeenCalledTimes(1);
+      expect(scrollIntoView).toHaveBeenNthCalledWith(1, nodes[0].entry.target, {
+        behavior: 'auto',
+        block: 'center',
+        inline: 'center',
+        duration: transitionOptions.duration,
+        ease: transitionOptions.ease,
+        boundary: boundary.current,
+      });
+    });
+
+    test('default arguments should have priority over transitionOptions', () => {
       const { items, nodes, visibleElementsWithSeparators } = setup([1, 1, 0]);
 
       const boundary = { current: document.createElement('div') };
@@ -649,7 +925,7 @@ describe('autoScrollApi', () => {
       ).scrollNext('auto', 'center', 'center');
 
       expect(scrollIntoView).toHaveBeenCalledTimes(1);
-      expect(scrollIntoView).toHaveBeenNthCalledWith(1, nodes[0].entry.target, {
+      expect(scrollIntoView).toHaveBeenNthCalledWith(1, nodes[2].entry.target, {
         behavior: 'auto',
         block: 'center',
         inline: 'center',

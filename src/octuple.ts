@@ -4,7 +4,13 @@ import {
   AccordionSize,
 } from './components/Accordion';
 
-import { AVATAR_THEME_SET, Avatar, AvatarGroup } from './components/Avatar';
+import {
+  AVATAR_THEME_SET,
+  Avatar,
+  AvatarGroup,
+  AvatarGroupVariant,
+  StatusItemsPosition,
+} from './components/Avatar';
 
 import { Badge } from './components/Badge';
 
@@ -158,6 +164,8 @@ import {
   PanelHeader,
 } from './components/Panel';
 
+import { Popup, PopupSize, PopupTheme } from './components/Popup';
+
 import { Portal } from './components/Portal';
 
 import { RadioButton, RadioGroup } from './components/RadioButton';
@@ -179,6 +187,7 @@ import Table, {
 import Upload, {
   OcFile,
   UploadFile,
+  UploadFileStatus,
   UploadProps,
   UploadSize,
 } from './components/Upload';
@@ -202,6 +211,7 @@ export {
   AVATAR_THEME_SET,
   Avatar,
   AvatarGroup,
+  AvatarGroupVariant,
   Badge,
   ButtonIconAlign,
   ButtonShape,
@@ -277,6 +287,9 @@ export {
   PillSize,
   PillThemeName,
   PillType,
+  Popup,
+  PopupSize,
+  PopupTheme,
   Portal,
   PrimaryButton,
   Progress,
@@ -311,6 +324,7 @@ export {
   Stack,
   Stat,
   StatThemeName,
+  StatusItemsPosition,
   StatValidationStatus,
   Step,
   StepSize,
@@ -343,6 +357,7 @@ export {
   TwoStateButton,
   Upload,
   UploadFile,
+  UploadFileStatus,
   UploadProps,
   UploadSize,
   useBoolean,

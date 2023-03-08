@@ -366,13 +366,32 @@ describe('ItemsMap', () => {
   describe('previous item', () => {
     describe('by key', () => {
       describe('with separators', () => {
+        test('have previous item group', () => {
+          const map = new ItemsMap();
+
+          map.set(data);
+
+          expect(map.nextGroup(data[2][1])).toEqual(data[1][1]);
+          expect(map.nextGroup(data[1][1])).toEqual(data[0][1]);
+        });
+
+        test('does not have prev item group', () => {
+          const map = new ItemsMap();
+
+          map.set(data);
+
+          const key = data[1][0];
+
+          expect(map.prevGroup(key)).toEqual(undefined);
+        });
+
         test('have previous item', () => {
           const map = new ItemsMap();
 
           map.set(data);
 
-          expect(map.next(data[2][1])).toEqual(data[1][1]);
-          expect(map.next(data[1][1])).toEqual(data[0][1]);
+          expect(map.prev(data[1][0])).toEqual(data[0][1]);
+          expect(map.prev(data[2][0])).toEqual(data[1][1]);
         });
 
         test('does not have prev item', () => {
@@ -380,7 +399,7 @@ describe('ItemsMap', () => {
 
           map.set(data);
 
-          const key = data[1][0];
+          const key = data[0][0];
 
           expect(map.prev(key)).toEqual(undefined);
         });
@@ -389,16 +408,39 @@ describe('ItemsMap', () => {
       describe('without separators', () => {
         const onlyItems = true;
 
+        test('have previous item group', () => {
+          const map = new ItemsMap();
+
+          map.set(dataWithSeparators);
+
+          expect(map.nextGroup(dataWithSeparators[4][1], onlyItems)).toEqual(
+            dataWithSeparators[2][1]
+          );
+          expect(map.nextGroup(dataWithSeparators[2][1], onlyItems)).toEqual(
+            dataWithSeparators[0][1]
+          );
+        });
+
+        test('does not have prev item group', () => {
+          const map = new ItemsMap();
+
+          map.set(dataWithSeparators);
+
+          expect(map.prevGroup(dataWithSeparators[1][0], onlyItems)).toEqual(
+            undefined
+          );
+        });
+
         test('have previous item', () => {
           const map = new ItemsMap();
 
           map.set(dataWithSeparators);
 
-          expect(map.next(dataWithSeparators[4][1], onlyItems)).toEqual(
-            dataWithSeparators[2][1]
-          );
-          expect(map.next(dataWithSeparators[2][1], onlyItems)).toEqual(
+          expect(map.prev(dataWithSeparators[2][0], onlyItems)).toEqual(
             dataWithSeparators[0][1]
+          );
+          expect(map.prev(dataWithSeparators[4][0], onlyItems)).toEqual(
+            dataWithSeparators[2][1]
           );
         });
 
@@ -407,7 +449,7 @@ describe('ItemsMap', () => {
 
           map.set(dataWithSeparators);
 
-          expect(map.prev(dataWithSeparators[1][0], onlyItems)).toEqual(
+          expect(map.prev(dataWithSeparators[0][0], onlyItems)).toEqual(
             undefined
           );
         });
@@ -421,19 +463,38 @@ describe('ItemsMap', () => {
 
       const item = 'aaa';
 
-      expect(map.prev(item)).toEqual(undefined);
-      expect(map.prev('')).toEqual(undefined);
+      expect(map.prevGroup(item)).toEqual(undefined);
+      expect(map.prevGroup('')).toEqual(undefined);
     });
 
     describe('by value', () => {
       describe('with separators', () => {
+        test('have previous item group', () => {
+          const map = new ItemsMap();
+
+          map.set(data);
+
+          expect(map.nextGroup(data[2][1])).toEqual(data[1][1]);
+          expect(map.nextGroup(data[1][1])).toEqual(data[0][1]);
+        });
+
+        test('does not have prev item group', () => {
+          const map = new ItemsMap();
+
+          map.set(data);
+
+          const item = data[2][1];
+
+          expect(map.prevGroup(item)).toEqual(undefined);
+        });
+
         test('have previous item', () => {
           const map = new ItemsMap();
 
           map.set(data);
 
-          expect(map.next(data[2][1])).toEqual(data[1][1]);
-          expect(map.next(data[1][1])).toEqual(data[0][1]);
+          expect(map.prev(data[1][1])).toEqual(data[0][1]);
+          expect(map.prev(data[2][1])).toEqual(data[1][1]);
         });
 
         test('does not have prev item', () => {
@@ -441,7 +502,7 @@ describe('ItemsMap', () => {
 
           map.set(data);
 
-          const item = data[2][1];
+          const item = data[0][1];
 
           expect(map.prev(item)).toEqual(undefined);
         });
@@ -450,16 +511,39 @@ describe('ItemsMap', () => {
       describe('without separators', () => {
         const onlyItems = true;
 
+        test('have previous item group', () => {
+          const map = new ItemsMap();
+
+          map.set(dataWithSeparators);
+
+          expect(map.nextGroup(dataWithSeparators[4][1], onlyItems)).toEqual(
+            dataWithSeparators[2][1]
+          );
+          expect(map.nextGroup(dataWithSeparators[2][1], onlyItems)).toEqual(
+            dataWithSeparators[0][1]
+          );
+        });
+
+        test('does not have prev item group', () => {
+          const map = new ItemsMap();
+
+          map.set(dataWithSeparators);
+
+          expect(map.prevGroup(dataWithSeparators[2][1], onlyItems)).toEqual(
+            undefined
+          );
+        });
+
         test('have previous item', () => {
           const map = new ItemsMap();
 
           map.set(dataWithSeparators);
 
-          expect(map.next(dataWithSeparators[4][1], onlyItems)).toEqual(
-            dataWithSeparators[2][1]
-          );
-          expect(map.next(dataWithSeparators[2][1], onlyItems)).toEqual(
+          expect(map.prev(dataWithSeparators[2][1], onlyItems)).toEqual(
             dataWithSeparators[0][1]
+          );
+          expect(map.prev(dataWithSeparators[4][1], onlyItems)).toEqual(
+            dataWithSeparators[2][1]
           );
         });
 
@@ -468,7 +552,7 @@ describe('ItemsMap', () => {
 
           map.set(dataWithSeparators);
 
-          expect(map.prev(dataWithSeparators[2][1], onlyItems)).toEqual(
+          expect(map.prev(dataWithSeparators[0][1], onlyItems)).toEqual(
             undefined
           );
         });
@@ -479,13 +563,32 @@ describe('ItemsMap', () => {
   describe('next item', () => {
     describe('by key', () => {
       describe('with separators', () => {
+        test('have next item group', () => {
+          const map = new ItemsMap();
+
+          map.set(data);
+
+          expect(map.nextGroup(data[1][1])).toEqual(data[0][1]);
+          expect(map.nextGroup(data[2][1])).toEqual(data[1][1]);
+        });
+
+        test('does not have next item group', () => {
+          const map = new ItemsMap();
+
+          map.set(data);
+
+          const key = data[0][0];
+
+          expect(map.nextGroup(key)).toEqual(undefined);
+        });
+
         test('have next item', () => {
           const map = new ItemsMap();
 
           map.set(data);
 
-          expect(map.next(data[1][1])).toEqual(data[0][1]);
-          expect(map.next(data[2][1])).toEqual(data[1][1]);
+          expect(map.next(data[0][0])).toEqual(data[1][1]);
+          expect(map.next(data[1][0])).toEqual(data[2][1]);
         });
 
         test('does not have next item', () => {
@@ -493,7 +596,7 @@ describe('ItemsMap', () => {
 
           map.set(data);
 
-          const key = data[0][0];
+          const key = data[2][0];
 
           expect(map.next(key)).toEqual(undefined);
         });
@@ -502,16 +605,39 @@ describe('ItemsMap', () => {
       describe('without separators', () => {
         const onlyItems = true;
 
+        test('have next item group', () => {
+          const map = new ItemsMap();
+
+          map.set(dataWithSeparators);
+
+          expect(map.nextGroup(dataWithSeparators[4][1], onlyItems)).toEqual(
+            dataWithSeparators[2][1]
+          );
+          expect(map.nextGroup(dataWithSeparators[2][1], onlyItems)).toEqual(
+            dataWithSeparators[0][1]
+          );
+        });
+
+        test('does not have next item group', () => {
+          const map = new ItemsMap();
+
+          map.set(dataWithSeparators);
+
+          expect(map.nextGroup(dataWithSeparators[1][0], onlyItems)).toEqual(
+            undefined
+          );
+        });
+
         test('have next item', () => {
           const map = new ItemsMap();
 
           map.set(dataWithSeparators);
 
-          expect(map.next(dataWithSeparators[4][1], onlyItems)).toEqual(
+          expect(map.next(dataWithSeparators[0][0], onlyItems)).toEqual(
             dataWithSeparators[2][1]
           );
-          expect(map.next(dataWithSeparators[2][1], onlyItems)).toEqual(
-            dataWithSeparators[0][1]
+          expect(map.next(dataWithSeparators[2][0], onlyItems)).toEqual(
+            dataWithSeparators[4][1]
           );
         });
 
@@ -520,7 +646,7 @@ describe('ItemsMap', () => {
 
           map.set(dataWithSeparators);
 
-          expect(map.next(dataWithSeparators[1][0], onlyItems)).toEqual(
+          expect(map.next(dataWithSeparators[4][0], onlyItems)).toEqual(
             undefined
           );
         });
@@ -534,19 +660,38 @@ describe('ItemsMap', () => {
 
       const item = 'aaa';
 
-      expect(map.next(item)).toEqual(undefined);
-      expect(map.next('')).toEqual(undefined);
+      expect(map.nextGroup(item)).toEqual(undefined);
+      expect(map.nextGroup('')).toEqual(undefined);
     });
 
     describe('by value', () => {
       describe('without separators', () => {
+        test('have next item group', () => {
+          const map = new ItemsMap();
+
+          map.set(data);
+
+          expect(map.nextGroup(data[1][1])).toEqual(data[0][1]);
+          expect(map.nextGroup(data[2][1])).toEqual(data[1][1]);
+        });
+
+        test('does not have next item group', () => {
+          const map = new ItemsMap();
+
+          map.set(data);
+
+          const item = data.slice(-3)[0][1];
+
+          expect(map.nextGroup(item)).toEqual(undefined);
+        });
+
         test('have next item', () => {
           const map = new ItemsMap();
 
           map.set(data);
 
-          expect(map.next(data[1][1])).toEqual(data[0][1]);
-          expect(map.next(data[2][1])).toEqual(data[1][1]);
+          expect(map.next(data[0][1])).toEqual(data[1][1]);
+          expect(map.next(data[1][1])).toEqual(data[2][1]);
         });
 
         test('does not have next item', () => {
@@ -554,7 +699,7 @@ describe('ItemsMap', () => {
 
           map.set(data);
 
-          const item = data.slice(-3)[0][1];
+          const item = data.slice(-1)[0][1];
 
           expect(map.next(item)).toEqual(undefined);
         });
@@ -563,18 +708,41 @@ describe('ItemsMap', () => {
       describe('without separators', () => {
         const onlyItems = true;
 
-        test('have next item', () => {
+        test('have next item group', () => {
           const map = new ItemsMap();
 
           map.set(dataWithSeparators);
 
           console.log(dataWithSeparators);
 
-          expect(map.next(dataWithSeparators[4][1], onlyItems)).toEqual(
+          expect(map.nextGroup(dataWithSeparators[4][1], onlyItems)).toEqual(
+            dataWithSeparators[2][1]
+          );
+          expect(map.nextGroup(dataWithSeparators[2][1], onlyItems)).toEqual(
+            dataWithSeparators[0][1]
+          );
+        });
+
+        test('does not have next item group', () => {
+          const map = new ItemsMap();
+
+          map.set(dataWithSeparators);
+
+          const item = dataWithSeparators.slice(-2)[0][1];
+
+          expect(map.nextGroup(item, onlyItems)).toEqual(undefined);
+        });
+
+        test('have next item', () => {
+          const map = new ItemsMap();
+
+          map.set(dataWithSeparators);
+
+          expect(map.next(dataWithSeparators[0][1], onlyItems)).toEqual(
             dataWithSeparators[2][1]
           );
           expect(map.next(dataWithSeparators[2][1], onlyItems)).toEqual(
-            dataWithSeparators[0][1]
+            dataWithSeparators[4][1]
           );
         });
 
@@ -583,7 +751,7 @@ describe('ItemsMap', () => {
 
           map.set(dataWithSeparators);
 
-          const item = dataWithSeparators.slice(-2)[0][1];
+          const item = dataWithSeparators.slice(-1)[0][1];
 
           expect(map.next(item, onlyItems)).toEqual(undefined);
         });

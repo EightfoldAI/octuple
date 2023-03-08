@@ -11,25 +11,68 @@
   &.neutral {
     background-color: var(--info-bar-background-color);
     color: var(--info-bar-text-color);
+
+    .action-button,
+    .close-button {
+      &:active {
+        background-color: var(--info-bar-button-active-background-color);
+      }
+    }
   }
 
   &.positive {
     background-color: var(--info-bar-positive-background-color);
     color: var(--info-bar-positive-text-color);
+
+    .action-button,
+    .close-button {
+      &:active {
+        background-color: var(
+          --info-bar-positive-button-active-background-color
+        );
+      }
+    }
   }
 
   &.warning {
     background-color: var(--info-bar-warning-background-color);
     color: var(--info-bar-warning-text-color);
+
+    .action-button,
+    .close-button {
+      &:active {
+        background-color: var(
+          --info-bar-warning-button-active-background-color
+        );
+      }
+    }
   }
 
   &.disruptive {
     background-color: var(--info-bar-disruptive-background-color);
     color: var(--info-bar-disruptive-text-color);
+
+    .action-button,
+    .close-button {
+      &:active {
+        background-color: var(
+          --info-bar-disruptive-button-active-background-color
+        );
+      }
+    }
   }
 
+  .action-button,
+  .close-button,
   .icon {
     color: inherit;
+  }
+
+  .action-button,
+  .close-button {
+    &:hover {
+      background-color: var(--info-bar-button-hover-background-color);
+    }
   }
 
   .message {
@@ -37,9 +80,5 @@
     display: flex;
     align-items: center;
     color: inherit;
-  }
-
-  .buttons-container {
-    padding: $space-m;
   }
 }

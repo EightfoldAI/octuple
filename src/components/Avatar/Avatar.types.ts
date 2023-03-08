@@ -5,7 +5,71 @@ import { ListProps } from '../List';
 import { TooltipProps } from '../Tooltip';
 import { OcBaseProps } from '../OcBase';
 
-interface BaseAvatarProps extends OcBaseProps<HTMLSpanElement> {
+export type StatusItemsMap = {
+  [key in StatusItemsPosition]?: StatusItemsProps;
+};
+
+export enum StatusItemsPosition {
+  Top = 'top',
+  Bottom = 'bottom',
+  Left = 'left',
+  Right = 'right',
+  TopRight = 'topRight',
+  TopLeft = 'topLeft',
+  BottomRight = 'bottomRight',
+  BottomLeft = 'bottomLeft',
+}
+
+export interface AvatarOutlineProps {
+  /**
+   * Outline color
+   */
+  outlineColor?: string;
+  /**
+   * Outline offset
+   */
+  outlineOffset?: string;
+  /**
+   * Outline style
+   */
+  outlineStyle?: string;
+  /**
+   * Outline width
+   */
+  outlineWidth?: string;
+}
+
+export interface StatusItemsProps extends IconProps {
+  /**
+   * Interactive element label
+   */
+  ariaLabel?: string;
+  /**
+   * Background color
+   * @default 'var(--white-color)'
+   */
+  backgroundColor?: string;
+  /**
+   * Icon onClick event handler.
+   */
+  onClick?: React.MouseEventHandler<HTMLDivElement>;
+  /**
+   * Status item outline
+   *
+   * Defaults when `outline` is truthy are `{ outlineColor: 'var(--grey-color-80)', outlineOffset: '0px', outlineStyle: 'solid', outlineWidth: '2px' }`
+   */
+  outline?: AvatarOutlineProps;
+  /**
+   * Style for status item wrapper
+   */
+  wrapperStyle?: React.CSSProperties;
+  /**
+   * Class for status item wrapper
+   */
+  wrapperClassName?: string;
+}
+
+export interface BaseAvatarProps extends OcBaseProps<HTMLSpanElement> {
   /**
    * Avatar fallback font size
    * @default '18px'
@@ -15,6 +79,12 @@ interface BaseAvatarProps extends OcBaseProps<HTMLSpanElement> {
    * Function that returns avatar index
    */
   hashingFunction?: () => number;
+  /**
+   * Avatar outline
+   *
+   * Defaults when `outline` is truthy are `{ outlineColor: 'var(--green-color-60)', outlineOffset: '2px', outlineStyle: 'solid', outlineWidth: '4px' }`
+   */
+  outline?: AvatarOutlineProps;
   /**
    * Should randomise theme
    * @default false
@@ -29,6 +99,11 @@ interface BaseAvatarProps extends OcBaseProps<HTMLSpanElement> {
    * @default '32px'
    */
   size?: string;
+  /**
+   * Status icons which are to be placed on top of the avatar
+   * @default {}
+   */
+  statusItems?: StatusItemsMap;
   /**
    * theme of the fallback avatar
    * @default ''
@@ -97,6 +172,11 @@ interface MaxAvatarProps extends BaseAvatarProps {
 interface AvatarListProps
   extends Omit<ListProps<ReactNode>, 'footer' | 'header' | 'layout'> {}
 
+export enum AvatarGroupVariant {
+  Overlapped = 'overlapped',
+  Spaced = 'spaced',
+}
+
 export interface AvatarGroupProps extends OcBaseProps<HTMLDivElement> {
   /**
    * Avatar group List props.
@@ -111,6 +191,11 @@ export interface AvatarGroupProps extends OcBaseProps<HTMLDivElement> {
    * @default '18px'
    */
   fontSize?: string;
+  /**
+   * Avatar grouping variant
+   * @default AvatarGroupVariant.Overlapped
+   */
+  groupVariant?: AvatarGroupVariant;
   /**
    * Avatar group max props.
    */

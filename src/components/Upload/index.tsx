@@ -7,6 +7,7 @@ export {
   OcFile,
   UploadChangeParam,
   UploadFile,
+  UploadFileStatus,
   UploadListProps,
   UploadProps,
   UploadSize,
