@@ -187,6 +187,7 @@ import Table, {
 import Upload, {
   OcFile,
   UploadFile,
+  UploadFileStatus,
   UploadProps,
   UploadSize,
 } from './components/Upload';
@@ -356,6 +357,7 @@ export {
   TwoStateButton,
   Upload,
   UploadFile,
+  UploadFileStatus,
   UploadProps,
   UploadSize,
   useBoolean,
