@@ -299,7 +299,7 @@
   --stat-tab-label-color: var(--text-secondary-color);
   --stat-tab-background-color: var(--background-color);
   --stat-tab-border-color: var(--stat-tab-background-color);
-  --stat-tab-icon-color: var(--grey-color-70);
+  --stat-tab-icon-color: var(--stat-tab-label-color);
   --stat-tab-icon-background-color: var(--grey-color-20);
   --stat-tab-active-border-color: var(--grey-color-60);
   --stat-tab-hover-background-color: var(--grey-color-20);
@@ -308,13 +308,13 @@
   // ------ Stat tab theme ------
 
   // ------ Navbar theme ------
-  --navbar-background: var(--primary-color-80);
-  --navbar-text-color: var(--text-inverse-color);
+  --navbar-background: #ffffffe6;
+  --navbar-text-color: var(--text-secondary-color);
   --navbar-text-hover-background: var(--navbar-background);
-  --navbar-text-hover-color: var(--navbar-text-color);
+  --navbar-text-hover-color: var(--primary-color);
   --navbar-backdrop-filter: var(--backdrop-filter);
-  --navbar-border-bottom: 1px solid transparent;
-  --navbar-box-shadow: 0 1px 3px rgb(50 50 93 / 25%);
+  --navbar-border-bottom: 1px solid var(--grey-color-20);
+  --navbar-box-shadow: none;
   // ------ Navbar theme ------
 
   // ------ Picker theme ------
@@ -645,7 +645,7 @@
   --info-bar-background-color: var(--grey-color-10);
   --info-bar-button-active-background-color: var(--grey-color-20);
   --info-bar-button-hover-background-color: var(--background-color);
-  --info-bar-text-color: var(--grey-color-70);
+  --info-bar-text-color: var(--text-secondary-color);
   --info-bar-positive-background-color: var(--green-color-10);
   --info-bar-positive-button-active-background-color: var(--green-color-20);
   --info-bar-positive-text-color: var(--green-color-70);
