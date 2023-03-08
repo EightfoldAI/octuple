@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.31.0](https://github.com/EightfoldAI/octuple/compare/v2.29.0...v2.31.0) (2023-03-07)
+
+### Features
+
+- configprovider: update context then add locale story and unit tests ([#555](https://github.com/EightfoldAI/octuple/issues/555)) ([2e42f02](https://github.com/EightfoldAI/octuple/commits/2e42f02666cddbc4db78fab81acf60eda0916e67))
+- popup: adds popup component ([#543](https://github.com/EightfoldAI/octuple/issues/543)) ([5912141](https://github.com/EightfoldAI/octuple/commits/5912141e32582cec817837e9b0ff28d8b5dc8b5b))
+- Spaced avatar group style ([#550](https://github.com/EightfoldAI/octuple/issues/550)) ([993d98a](https://github.com/EightfoldAI/octuple/commits/993d98a92ffd9a99614722c16efd60dab4959bd0))
+- table: show scroller on table rows ([#556](https://github.com/EightfoldAI/octuple/issues/556)) ([e5c685c](https://github.com/EightfoldAI/octuple/commits/e5c685c372e0881fc74825200118e845b62532fa))
+
+### Bug Fixes
+
+- carousel: update wheel handler ([#557](https://github.com/EightfoldAI/octuple/issues/557)) ([f2655aa](https://github.com/EightfoldAI/octuple/commits/f2655aa4cb821d009d1a18fca8d10c6634fc39d8))
+- infobar: buttons should have transparent background and inherit color ([#548](https://github.com/EightfoldAI/octuple/issues/548)) ([2e0da40](https://github.com/EightfoldAI/octuple/commits/2e0da401e285af9ff1f9ee0caa08b60628fe1a3d))
+- popup: do not toggle when no content or disabled ([#553](https://github.com/EightfoldAI/octuple/issues/553)) ([12a2e88](https://github.com/EightfoldAI/octuple/commits/12a2e88ee68215f396a4418c3673f5a1ea7bb2e0))
+- select: improves select by adding props and enabling default value array ([#545](https://github.com/EightfoldAI/octuple/issues/545)) ([1b13981](https://github.com/EightfoldAI/octuple/commits/1b1398132026f03ae9a6f8d838f76c1f2bdcfc2c))
+- stepper: Handle decimal scrollLeft value for scroll buttons ([#546](https://github.com/EightfoldAI/octuple/issues/546)) ([49340dd](https://github.com/EightfoldAI/octuple/commits/49340ddaeb8646ae1c011f136dd9dce2e832da25))
+
 ## [2.30.0](https://github.com/EightfoldAI/octuple/compare/v2.29.0...v2.30.0) (2023-02-24)
 
 ### Features
