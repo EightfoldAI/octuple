@@ -71,7 +71,13 @@
 }
 
 .avatar-status-item {
-  cursor: pointer;
+  display: flex;
+  position: absolute;
+  border-radius: var(--avatar-status-item-border-radius);
+
+  .clickable {
+    cursor: pointer;
+  }
 }
 
 .avatar-img-wrapper {

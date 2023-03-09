@@ -125,11 +125,9 @@ const AvatarStatusItems: FC<BaseAvatarProps> = React.forwardRef(
               key={position}
               ref={ref}
               style={{
-                display: 'flex',
-                position: 'absolute',
-                borderRadius: '999px',
                 background:
-                  statusItemProps.backgroundColor ?? 'var(--white-color)',
+                  statusItemProps.backgroundColor ??
+                  'var(--avatar-status-item-background)',
                 padding: `calc(${wrapperPadding})`,
                 ...getStatusItemPositionStyle(position),
                 ...(statusItemProps.outline
@@ -150,10 +148,11 @@ const AvatarStatusItems: FC<BaseAvatarProps> = React.forwardRef(
                   : {}),
                 ...(statusItemProps.wrapperStyle ?? {}),
               }}
-              className={statusItemProps.wrapperClassName ?? ''}
+              className={`${styles.avatarStatusItem} ${
+                statusItemProps.wrapperClassName ?? ''
+              } ${statusItemProps.onClick ? styles.clickable : ''}`}
               {...(statusItemProps.onClick
                 ? {
-                    className: styles.avatarStatusItem,
                     onClick: statusItemProps.onClick,
                     role: 'button',
                   }
@@ -165,7 +164,7 @@ const AvatarStatusItems: FC<BaseAvatarProps> = React.forwardRef(
               {statusItemProps.text ? (
                 <span
                   style={{
-                    fontSize: `calc(2px + ${statusItemProps.size})`,
+                    fontSize: statusItemProps.size,
                     color: statusItemProps.color,
                   }}
                 >
@@ -303,12 +302,9 @@ export const Avatar: FC<AvatarProps> = React.forwardRef(
       return (
         <ConditionalWrapper
           condition={tooltipProps !== undefined}
-          wrapper={(
-            children: React.ReactElement<
-              any,
-              string | React.JSXElementConstructor<any>
-            >
-          ): JSX.Element => <Tooltip {...tooltipProps}>{children}</Tooltip>}
+          wrapper={(children: React.ReactNode): JSX.Element => (
+            <Tooltip {...tooltipProps}>{children}</Tooltip>
+          )}
         >
           <div
             ref={ref}
@@ -338,12 +334,9 @@ export const Avatar: FC<AvatarProps> = React.forwardRef(
       return (
         <ConditionalWrapper
           condition={tooltipProps !== undefined}
-          wrapper={(
-            children: React.ReactElement<
-              any,
-              string | React.JSXElementConstructor<any>
-            >
-          ): JSX.Element => <Tooltip {...tooltipProps}>{children}</Tooltip>}
+          wrapper={(children: React.ReactNode): JSX.Element => (
+            <Tooltip {...tooltipProps}>{children}</Tooltip>
+          )}
         >
           <AvatarIcon
             iconProps={iconProps}
@@ -365,12 +358,9 @@ export const Avatar: FC<AvatarProps> = React.forwardRef(
     return (
       <ConditionalWrapper
         condition={tooltipProps !== undefined}
-        wrapper={(
-          children: React.ReactElement<
-            any,
-            string | React.JSXElementConstructor<any>
-          >
-        ): JSX.Element => <Tooltip {...tooltipProps}>{children}</Tooltip>}
+        wrapper={(children: React.ReactNode): JSX.Element => (
+          <Tooltip {...tooltipProps}>{children}</Tooltip>
+        )}
       >
         <AvatarFallback
           classNames={wrapperClasses}
