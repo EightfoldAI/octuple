@@ -295,7 +295,6 @@ export const Avatar: FC<AvatarProps> = React.forwardRef(
       fontSize: fontSize,
       ...style,
       ...(Object.keys(statusItems).length > 0 ? { position: 'relative' } : {}),
-      ...(calculatedOutline ?? {}),
     };
 
     if (src) {
@@ -314,6 +313,7 @@ export const Avatar: FC<AvatarProps> = React.forwardRef(
             <img
               src={src}
               className={imageClasses}
+              style={calculatedOutline}
               alt={alt}
               width={size}
               height={size}
@@ -341,7 +341,7 @@ export const Avatar: FC<AvatarProps> = React.forwardRef(
           <AvatarIcon
             iconProps={iconProps}
             classNames={wrapperClasses}
-            style={wrapperContainerStyle}
+            style={{ ...wrapperContainerStyle, ...(calculatedOutline ?? {}) }}
             fontSize={fontSize}
             ref={ref}
           >
@@ -364,7 +364,7 @@ export const Avatar: FC<AvatarProps> = React.forwardRef(
       >
         <AvatarFallback
           classNames={wrapperClasses}
-          style={wrapperContainerStyle}
+          style={{ ...wrapperContainerStyle, ...(calculatedOutline ?? {}) }}
           ref={ref}
           hashingFunction={hashingFunction}
           theme={theme}
