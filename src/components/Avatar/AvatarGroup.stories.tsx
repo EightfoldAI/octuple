@@ -186,7 +186,7 @@ const Spaced_With_Avatar_Features_Story: ComponentStory<typeof AvatarGroup> = (
         padding: '21px',
         borderRadius: '16px',
       }}
-      groupVariant="overlapped"
+      groupVariant={AvatarGroupVariant.Spaced}
       avatarListProps={{
         items: sampleList,
         renderItem: (item: User) => (

@@ -167,6 +167,7 @@ const AvatarStatusItems: FC<BaseAvatarProps> = React.forwardRef(
                     fontSize: statusItemProps.size,
                     color: statusItemProps.color,
                   }}
+                  className={styles.avatarStatusItemText}
                 >
                   {statusItemProps.text}
                 </span>
