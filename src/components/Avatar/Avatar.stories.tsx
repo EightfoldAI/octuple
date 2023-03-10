@@ -202,12 +202,14 @@ const Avatar_StatusItem_Story: ComponentStory<typeof Avatar> = (args) => {
           backgroundColor: 'var(--red-color-30)',
           onClick: () => alert('Clicked clock icon'),
           path: IconName.mdiClock,
+          text: '3000',
         },
         [StatusItemsPosition.Top]: {
           ...statusItemProps,
           backgroundColor: 'var(--red-color-30)',
           path: IconName.mdiBell,
           text: '4',
+          textMaxLength: 2,
         },
         [StatusItemsPosition.Right]: {
           ...statusItemProps,

@@ -71,6 +71,11 @@ export interface StatusItemsProps extends IconProps {
    * Text present with icon
    */
   text?: string;
+  /**
+   * Text having length larger than this will not be shown
+   * @default 3
+   */
+  textMaxLength?: number;
 }
 
 export interface BaseAvatarProps extends OcBaseProps<HTMLSpanElement> {

@@ -40,6 +40,10 @@ export const getStatusItemSizeAndPadding = (
   return [statusItemSize, (statusItemSize * 6) / 16];
 };
 
+// 0.06 factor is chosen based on design
+const StatusItemWrapperPaddingFactor: number = 0.06;
+const DefaultStatusItemMaxTextLength: number = 3;
+
 const StatusItemOutlineDefaults: React.CSSProperties = {
   outlineColor: 'var(--grey-color-80)',
   outlineOffset: '0px',
@@ -117,9 +121,13 @@ const AvatarStatusItems: FC<BaseAvatarProps> = React.forwardRef(
       <>
         {Object.keys(statusItems).map((position: StatusItemsPosition) => {
           const statusItemProps: StatusItemsProps = statusItems[position];
-          // 0.06 factor is chosen based on design
+          const showStatusItemText: boolean =
+            statusItemProps.text &&
+            statusItemProps.text.length <=
+              (statusItemProps.textMaxLength ?? DefaultStatusItemMaxTextLength);
           const wrapperPadding: string | number =
-            statusItemProps?.wrapperStyle?.padding ?? `(${size} * 0.06)`;
+            statusItemProps?.wrapperStyle?.padding ??
+            `(${size} * ${StatusItemWrapperPaddingFactor})`;
           return (
             <div
               key={position}
@@ -161,7 +169,7 @@ const AvatarStatusItems: FC<BaseAvatarProps> = React.forwardRef(
                 ? { 'aria-label': statusItemProps.ariaLabel }
                 : {})}
             >
-              {statusItemProps.text ? (
+              {showStatusItemText ? (
                 <span
                   style={{
                     fontSize: statusItemProps.size,
