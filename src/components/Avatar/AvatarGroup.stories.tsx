@@ -169,63 +169,6 @@ export const List_Group = List_Story.bind({});
 
 export const List_Group_Spaced = List_Story.bind({});
 
-const Spaced_With_Avatar_Features_Story: ComponentStory<typeof AvatarGroup> = (
-  args
-) => {
-  const statusColors = [
-    'var(--success-color)',
-    'var(--error-border-color)',
-    'var(--accent-color-60)',
-    'var(--warning-border-color)',
-  ];
-  return (
-    <AvatarGroup
-      {...args}
-      style={{
-        background: 'rgba(217, 220, 225, 0.5)',
-        padding: '21px',
-        borderRadius: '16px',
-      }}
-      groupVariant={AvatarGroupVariant.Spaced}
-      avatarListProps={{
-        items: sampleList,
-        renderItem: (item: User) => (
-          <Avatar
-            alt={item.alt}
-            classNames={item.classNames}
-            data-test-id={item['data-test-id']}
-            fontSize={args.fontSize}
-            hashingFunction={() => 3}
-            randomiseTheme={item.randomiseTheme}
-            size={args.size}
-            src={item.img}
-            type={args.type}
-            outline={{
-              outlineColor: statusColors[parseInt(`${4 * Math.random()}`)],
-              outlineOffset: `${1 + Math.floor(2 * Math.random())}px`,
-              outlineStyle: 'solid',
-              outlineWidth: `${2 + 2 * Math.floor(2 * Math.random())}px`,
-            }}
-          >
-            {item.children}
-          </Avatar>
-        ),
-      }}
-      maxProps={{
-        count: 8,
-        tooltipProps: {
-          content: 'This is a tooltip.',
-          size: TooltipSize.Large,
-          theme: TooltipTheme.dark,
-        },
-      }}
-    />
-  );
-};
-
-export const Spaced_With_Avatar_Features =
-  Spaced_With_Avatar_Features_Story.bind({});
-
 const avatarGroupArgs: Object = {
   classNames: 'my-avatar-group-class',
   'data-test-id': 'my-avatar-group-test-id',
@@ -250,11 +193,6 @@ List_Group.args = {
 };
 
 List_Group_Spaced.args = {
-  ...avatarGroupArgs,
-  groupVariant: AvatarGroupVariant.Spaced,
-};
-
-Spaced_With_Avatar_Features.args = {
   ...avatarGroupArgs,
   groupVariant: AvatarGroupVariant.Spaced,
 };
