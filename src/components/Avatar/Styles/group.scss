@@ -1,16 +1,13 @@
 .avatar-group {
   display: inline-flex;
 
-  :not(:first-child):not(.avatar-group-tooltip) {
+  :not(:first-child):not(.avatar-group-tooltip):not(.avatar-status-item) {
     margin-left: -$space-xs;
   }
 
   &.spaced {
-    :not(:first-child):not(.avatar-group-tooltip) {
-      margin-left: $space-xxxs;
-    }
-    & .avatar {
-      border: 0;
+    :not(:first-child):not(.avatar-group-tooltip):not(.avatar-status-item) {
+      margin-left: -$space-xxxs;
     }
   }
 
