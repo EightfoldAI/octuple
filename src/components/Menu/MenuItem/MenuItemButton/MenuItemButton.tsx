@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import { MenuItemButtonProps, MenuItemIconAlign } from '../MenuItem.types';
 import { MenuSize, MenuVariant } from '../../Menu.types';
 import { mergeClasses } from '../../../../shared/utilities';
-import { Icon } from '../../../Icon';
+import { Icon, IconSize } from '../../../Icon';
 import { ButtonShape, ButtonSize, NeutralButton } from '../../../Button';
 
 import styles from '../menuItem.module.scss';
@@ -60,6 +60,15 @@ export const MenuItemButton: FC<MenuItemButtonProps> = ({
     onClick?.(value);
   };
 
+  const menuSizeToIconSizeMap: Map<MenuSize, IconSize> = new Map<
+    MenuSize,
+    IconSize
+  >([
+    [MenuSize.large, IconSize.Large],
+    [MenuSize.medium, IconSize.Medium],
+    [MenuSize.small, IconSize.Small],
+  ]);
+
   return secondaryButtonProps ? (
     <li role={role} tabIndex={tabIndex} className={menuItemClasses}>
       <span className={styles.menuSecondaryWrapper}>
@@ -70,7 +79,7 @@ export const MenuItemButton: FC<MenuItemButtonProps> = ({
           onClick={handleOnClick}
         >
           {iconProps && alignIcon === MenuItemIconAlign.Left && (
-            <Icon {...iconProps} />
+            <Icon size={menuSizeToIconSizeMap.get(size)} {...iconProps} />
           )}
           <span className={styles.menuItemWrapper}>
             <span className={styles.itemText}>
@@ -78,7 +87,7 @@ export const MenuItemButton: FC<MenuItemButtonProps> = ({
             </span>
           </span>
           {iconProps && alignIcon === MenuItemIconAlign.Right && (
-            <Icon {...iconProps} />
+            <Icon size={menuSizeToIconSizeMap.get(size)} {...iconProps} />
           )}
         </button>
         <span className={styles.menuInnerButton}>
@@ -104,7 +113,7 @@ export const MenuItemButton: FC<MenuItemButtonProps> = ({
         onClick={handleOnClick}
       >
         {iconProps && alignIcon === MenuItemIconAlign.Left && (
-          <Icon {...iconProps} />
+          <Icon size={menuSizeToIconSizeMap.get(size)} {...iconProps} />
         )}
         <span className={styles.menuItemWrapper}>
           <span className={styles.itemText}>
@@ -114,7 +123,7 @@ export const MenuItemButton: FC<MenuItemButtonProps> = ({
           {subText && <span className={itemSubTextClasses}>{subText}</span>}
         </span>
         {iconProps && alignIcon === MenuItemIconAlign.Right && (
-          <Icon {...iconProps} />
+          <Icon size={menuSizeToIconSizeMap.get(size)} {...iconProps} />
         )}
       </button>
     </li>
