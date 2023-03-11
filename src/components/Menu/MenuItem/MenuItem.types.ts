@@ -5,6 +5,11 @@ import { IconProps } from '../../Icon';
 import { LinkProps } from '../../Link';
 import { ButtonProps } from '../../Button';
 
+export enum MenuItemIconAlign {
+  Left = 'left',
+  Right = 'right',
+}
+
 export enum MenuItemType {
   button = 'button',
   custom = 'custom',
@@ -13,6 +18,11 @@ export enum MenuItemType {
 }
 
 export interface MenuItemProps {
+  /**
+   * The Menu item icon alignment.
+   * @default MenuItemIconAlign.Left
+   */
+  alignIcon?: MenuItemIconAlign;
   /**
    * Size of the menu
    * @default MenuSize.Medium
@@ -62,17 +72,17 @@ export interface MenuItemButtonProps
    */
   onClick?: (value: any) => void;
   /**
-   * Display label of the menu item
+   * Secondary action button for the menu item
    */
-  text?: string;
+  secondaryButtonProps?: Omit<ButtonProps, 'text' | 'shape'>;
   /**
    * Display sub text of the menu item
    */
   subText?: string;
   /**
-   * Secondary action button for the menu item
+   * Display label of the menu item
    */
-  secondaryButtonProps?: Omit<ButtonProps, 'text' | 'shape'>;
+  text?: string;
 }
 
 export interface MenuItemLinkProps
@@ -96,13 +106,13 @@ export interface MenuItemLinkProps
    */
   iconProps?: IconProps;
   /**
-   * Display label of the menu item
-   */
-  text?: string;
-  /**
    * Display sub text of the menu item
    */
   subText?: string;
+  /**
+   * Display label of the menu item
+   */
+  text?: string;
 }
 
 export interface MenuItemSubHeaderProps

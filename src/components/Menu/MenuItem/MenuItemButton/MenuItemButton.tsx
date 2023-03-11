@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { MenuItemButtonProps } from '../MenuItem.types';
+import { MenuItemButtonProps, MenuItemIconAlign } from '../MenuItem.types';
 import { MenuSize, MenuVariant } from '../../Menu.types';
 import { mergeClasses } from '../../../../shared/utilities';
 import { Icon } from '../../../Icon';
@@ -8,19 +8,22 @@ import { ButtonShape, ButtonSize, NeutralButton } from '../../../Button';
 import styles from '../menuItem.module.scss';
 
 export const MenuItemButton: FC<MenuItemButtonProps> = ({
-  iconProps,
-  text,
-  subText,
-  variant = MenuVariant.neutral,
-  size = MenuSize.medium,
-  classNames,
-  onClick,
-  tabIndex = 0,
-  value,
   active,
+  alignIcon,
+  classNames,
   counter,
-  type,
+  disabled,
+  iconProps,
+  onClick,
+  role = 'menuitem',
   secondaryButtonProps,
+  size = MenuSize.medium,
+  subText,
+  tabIndex = 0,
+  text,
+  type,
+  value,
+  variant = MenuVariant.neutral,
   ...rest
 }) => {
   const menuItemClasses: string = mergeClasses([
@@ -33,6 +36,7 @@ export const MenuItemButton: FC<MenuItemButtonProps> = ({
       [styles.primary]: variant === MenuVariant.primary,
       [styles.disruptive]: variant === MenuVariant.disruptive,
       [styles.active]: active,
+      [styles.disabled]: disabled,
     },
     classNames,
   ]);
@@ -46,25 +50,42 @@ export const MenuItemButton: FC<MenuItemButtonProps> = ({
     },
   ]);
 
+  const handleOnClick = (
+    event: React.MouseEvent<HTMLButtonElement | MouseEvent>
+  ): void => {
+    if (disabled) {
+      event.preventDefault();
+      return;
+    }
+    onClick?.(value);
+  };
+
   return secondaryButtonProps ? (
-    <li role="menuitem" tabIndex={tabIndex} className={menuItemClasses}>
+    <li role={role} tabIndex={tabIndex} className={menuItemClasses}>
       <span className={styles.menuSecondaryWrapper}>
         <button
           className={styles.menuInnerButton}
+          disabled={disabled}
           {...rest}
-          onClick={() => onClick?.(value)}
+          onClick={handleOnClick}
         >
-          {iconProps && <Icon {...iconProps} />}
+          {iconProps && alignIcon === MenuItemIconAlign.Left && (
+            <Icon {...iconProps} />
+          )}
           <span className={styles.menuItemWrapper}>
             <span className={styles.itemText}>
               <span className={styles.label}>{text}</span>
             </span>
           </span>
+          {iconProps && alignIcon === MenuItemIconAlign.Right && (
+            <Icon {...iconProps} />
+          )}
         </button>
         <span className={styles.menuInnerButton}>
           {counter && <span>{counter}</span>}
           {secondaryButtonProps && (
             <NeutralButton
+              disabled={disabled}
               size={ButtonSize.Small}
               shape={ButtonShape.Round}
               {...secondaryButtonProps}
@@ -75,21 +96,27 @@ export const MenuItemButton: FC<MenuItemButtonProps> = ({
       {subText && <span className={itemSubTextClasses}>{subText}</span>}
     </li>
   ) : (
-    <button
-      onClick={() => onClick?.(value)}
-      tabIndex={tabIndex}
-      role="menuitem"
-      className={menuItemClasses}
-      {...rest}
-    >
-      {iconProps && <Icon {...iconProps} />}
-      <span className={styles.menuItemWrapper}>
-        <span className={styles.itemText}>
-          <span className={styles.label}>{text}</span>
-          {counter && <span>{counter}</span>}
+    <li role={role} tabIndex={tabIndex} className={menuItemClasses}>
+      <button
+        className={styles.menuItemButton}
+        disabled={disabled}
+        {...rest}
+        onClick={handleOnClick}
+      >
+        {iconProps && alignIcon === MenuItemIconAlign.Left && (
+          <Icon {...iconProps} />
+        )}
+        <span className={styles.menuItemWrapper}>
+          <span className={styles.itemText}>
+            <span className={styles.label}>{text}</span>
+            {counter && <span>{counter}</span>}
+          </span>
+          {subText && <span className={itemSubTextClasses}>{subText}</span>}
         </span>
-        {subText && <span className={itemSubTextClasses}>{subText}</span>}
-      </span>
-    </button>
+        {iconProps && alignIcon === MenuItemIconAlign.Right && (
+          <Icon {...iconProps} />
+        )}
+      </button>
+    </li>
   );
 };

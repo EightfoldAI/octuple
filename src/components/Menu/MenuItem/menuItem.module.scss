@@ -18,6 +18,11 @@
     large: $text-font-size-3,
   );
 
+  .menu-item-button {
+    display: flex;
+    flex: 1;
+  }
+
   .menu-item-wrapper {
     display: flex;
     flex-direction: column;
@@ -116,10 +121,16 @@
     }
   }
 
-  &[disabled] {
-    pointer-events: none;
-    opacity: $disabled-alpha-value;
+  &.disabled {
     cursor: not-allowed;
+    opacity: $disabled-alpha-value;
+    pointer-events: none;
+  }
+
+  &[disabled],
+  > [disabled] {
+    cursor: not-allowed;
+    pointer-events: none;
   }
 
   &.menu-link {
