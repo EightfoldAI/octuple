@@ -42,6 +42,7 @@ export const getStatusItemSizeAndPadding = (
 // 0.06 factor is chosen based on design
 const StatusItemWrapperPaddingFactor: number = 0.06;
 const DefaultStatusItemMaxTextLength: number = 3;
+const MinStatusItemFontSize: number = 12;
 
 const StatusItemOutlineDefaults: React.CSSProperties = {
   outlineColor: 'var(--grey-color-80)',
@@ -89,7 +90,8 @@ const AvatarStatusItems: FC<BaseAvatarProps> = React.forwardRef(
       // We do slice to remove "px"
       setShowStatusItemsText((prevState) => ({
         ...prevState,
-        [position]: parseInt(styles.fontSize.slice(0, -2)) >= 12,
+        [position]:
+          parseInt(styles.fontSize.slice(0, -2)) >= MinStatusItemFontSize,
       }));
     };
 
