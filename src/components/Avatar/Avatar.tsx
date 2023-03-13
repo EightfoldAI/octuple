@@ -1,4 +1,4 @@
-import React, { FC, Ref, useMemo } from 'react';
+import React, { FC, Ref, useEffect, useMemo, useRef, useState } from 'react';
 
 // Styles:
 import styles from './avatar.module.scss';
@@ -11,11 +11,10 @@ import {
   StatusItemsPosition,
   StatusItemsProps,
 } from './';
-import { mergeClasses } from '../../shared/utilities';
+import { ConditionalWrapper, mergeClasses } from '../../shared/utilities';
 import { Icon } from '../Icon';
 import { useCanvasDirection } from '../../hooks/useCanvasDirection';
 import { Tooltip } from '../Tooltip';
-import { ConditionalWrapper } from '../../shared/utilities';
 
 export const AVATAR_THEME_SET = [
   styles.red,
@@ -73,7 +72,37 @@ const statusItemPositionRtlMap: {
 
 const AvatarStatusItems: FC<BaseAvatarProps> = React.forwardRef(
   ({ outline, size, statusItems }, ref: Ref<HTMLDivElement>) => {
+    const statusItemsRef = useRef<{
+      [key in StatusItemsPosition]?: HTMLSpanElement;
+    }>({});
+    const [showStatusItemsText, setShowStatusItemsText] = useState<{
+      [key in StatusItemsPosition]?: boolean;
+    }>({});
     const htmlDir: string = useCanvasDirection();
+
+    const updateStatusItemTextVisibility = (position: StatusItemsPosition) => {
+      const value = statusItemsRef.current[position];
+      if (value === undefined) {
+        return;
+      }
+      const styles = getComputedStyle(value); // getComputedStyle always outputs a pixel value
+      // We do slice to remove "px"
+      setShowStatusItemsText((prevState) => ({
+        ...prevState,
+        [position]: parseInt(styles.fontSize.slice(0, -2)) >= 12,
+      }));
+    };
+
+    useEffect(() => {
+      updateStatusItemTextVisibility(StatusItemsPosition.Top);
+      updateStatusItemTextVisibility(StatusItemsPosition.Bottom);
+      updateStatusItemTextVisibility(StatusItemsPosition.Left);
+      updateStatusItemTextVisibility(StatusItemsPosition.Right);
+      updateStatusItemTextVisibility(StatusItemsPosition.TopRight);
+      updateStatusItemTextVisibility(StatusItemsPosition.TopLeft);
+      updateStatusItemTextVisibility(StatusItemsPosition.BottomRight);
+      updateStatusItemTextVisibility(StatusItemsPosition.BottomLeft);
+    }, [statusItemsRef.current]);
 
     const getStatusItemPositionStyle = (
       itemPos: StatusItemsPosition
@@ -169,8 +198,9 @@ const AvatarStatusItems: FC<BaseAvatarProps> = React.forwardRef(
                 ? { 'aria-label': statusItemProps.ariaLabel }
                 : {})}
             >
-              {showStatusItemText ? (
+              {showStatusItemText && (showStatusItemsText[position] ?? true) ? (
                 <span
+                  ref={(el) => (statusItemsRef.current[position] = el)}
                   style={{
                     fontSize: statusItemProps.size,
                     color: statusItemProps.color,
