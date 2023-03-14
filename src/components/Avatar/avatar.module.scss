@@ -71,7 +71,24 @@
 }
 
 .avatar-status-item {
-  cursor: pointer;
+  display: flex;
+  position: absolute;
+  border-radius: var(--avatar-status-item-border-radius);
+
+  .clickable {
+    cursor: pointer;
+  }
+}
+
+.avatar-status-item-text {
+  margin-right: 2px;
+}
+
+.avatar-img-wrapper {
+  align-items: center;
+  display: flex;
+  font-family: var(--avatar-font-family);
+  justify-content: center;
 }
 
 @import './Styles/group';

@@ -9,6 +9,7 @@ import {
   getStatusItemSizeAndPadding,
 } from './';
 import { Stack } from '../Stack';
+import { TooltipTheme } from '../Tooltip';
 
 export default {
   title: 'Avatar',
@@ -123,6 +124,7 @@ const Avatar_StatusItem_Story: ComponentStory<typeof Avatar> = (args) => {
           wrapperStyle: { padding: '2px' },
           path: IconName.mdiPencil,
           size: '6px',
+          text: '20',
         },
       },
     },
@@ -200,16 +202,20 @@ const Avatar_StatusItem_Story: ComponentStory<typeof Avatar> = (args) => {
           backgroundColor: 'var(--red-color-30)',
           onClick: () => alert('Clicked clock icon'),
           path: IconName.mdiClock,
+          text: '3000',
         },
         [StatusItemsPosition.Top]: {
           ...statusItemProps,
           backgroundColor: 'var(--red-color-30)',
           path: IconName.mdiBell,
+          text: '4',
+          textMaxLength: 2,
         },
         [StatusItemsPosition.Right]: {
           ...statusItemProps,
           backgroundColor: 'var(--blue-color-20)',
           path: IconName.mdiCalendar,
+          text: '20',
         },
       },
     },
@@ -225,6 +231,12 @@ const Avatar_StatusItem_Story: ComponentStory<typeof Avatar> = (args) => {
 };
 
 export const Avatar_StatusItem = Avatar_StatusItem_Story.bind({});
+
+const Avatar_Tooltip_Story: ComponentStory<typeof Avatar> = (args) => (
+  <Avatar {...args} theme="red" />
+);
+
+export const Avatar_Tooltip = Avatar_Tooltip_Story.bind({});
 
 const avatarArgs: Object = {
   children: 'JD',
@@ -285,4 +297,14 @@ Avatar_Fallback_Hashing.args = {
   ...avatarArgs,
   children: 'HF',
   type: 'round',
+};
+
+Avatar_Tooltip.args = {
+  ...avatarArgs,
+  children: 'A',
+  type: 'round',
+  tooltipProps: {
+    content: 'Tooltip text',
+    theme: TooltipTheme.dark,
+  },
 };
