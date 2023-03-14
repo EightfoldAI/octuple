@@ -1,12 +1,12 @@
 .avatar-group {
   &-rtl {
-    :not(:first-child):not(.avatar-group-tooltip) {
+    :not(:first-child):not(.avatar-group-tooltip):not(.avatar-status-item) {
       margin-right: -$space-xs;
       margin-left: 0;
     }
 
     &.spaced {
-      :not(:first-child):not(.avatar-group-spaced-tooltip) {
+      :not(:first-child):not(.avatar-group-spaced-tooltip):not(.avatar-status-item) {
         margin-right: -$space-xxxs;
         margin-left: 0;
       }
