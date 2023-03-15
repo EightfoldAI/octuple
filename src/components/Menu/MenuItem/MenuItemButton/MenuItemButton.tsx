@@ -12,6 +12,7 @@ export const MenuItemButton: FC<MenuItemButtonProps> = ({
   alignIcon,
   classNames,
   counter,
+  direction,
   disabled,
   iconProps,
   onClick,
@@ -24,11 +25,14 @@ export const MenuItemButton: FC<MenuItemButtonProps> = ({
   type,
   value,
   variant = MenuVariant.neutral,
+  wrap = false,
   ...rest
 }) => {
   const menuItemClasses: string = mergeClasses([
     styles.menuItem,
     {
+      [styles.menuItemRtl]: direction === 'rtl',
+      [styles.wrap]: !!wrap,
       [styles.small]: size === MenuSize.small,
       [styles.medium]: size === MenuSize.medium,
       [styles.large]: size === MenuSize.large,
@@ -70,15 +74,16 @@ export const MenuItemButton: FC<MenuItemButtonProps> = ({
   ]);
 
   return secondaryButtonProps ? (
-    <li role={role} tabIndex={tabIndex} className={menuItemClasses}>
+    <li role={role} tabIndex={-1} className={menuItemClasses}>
       <span className={styles.menuSecondaryWrapper}>
         <button
-          className={styles.menuInnerButton}
+          className={styles.menuOuterButton}
           disabled={disabled}
+          tabIndex={tabIndex}
           {...rest}
           onClick={handleOnClick}
         >
-          {iconProps && alignIcon === MenuItemIconAlign.Left && (
+          {iconProps && alignIcon !== MenuItemIconAlign.Right && (
             <Icon size={menuSizeToIconSizeMap.get(size)} {...iconProps} />
           )}
           <span className={styles.menuItemWrapper}>
@@ -105,14 +110,15 @@ export const MenuItemButton: FC<MenuItemButtonProps> = ({
       {subText && <span className={itemSubTextClasses}>{subText}</span>}
     </li>
   ) : (
-    <li role={role} tabIndex={tabIndex} className={menuItemClasses}>
+    <li role={role} tabIndex={-1} className={menuItemClasses}>
       <button
         className={styles.menuItemButton}
         disabled={disabled}
+        tabIndex={tabIndex}
         {...rest}
         onClick={handleOnClick}
       >
-        {iconProps && alignIcon === MenuItemIconAlign.Left && (
+        {iconProps && alignIcon !== MenuItemIconAlign.Right && (
           <Icon size={menuSizeToIconSizeMap.get(size)} {...iconProps} />
         )}
         <span className={styles.menuItemWrapper}>

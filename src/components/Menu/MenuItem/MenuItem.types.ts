@@ -24,6 +24,10 @@ export interface MenuItemProps {
    */
   alignIcon?: MenuItemIconAlign;
   /**
+   * The canvas direction of the Menu.
+   */
+  direction?: string;
+  /**
    * Size of the menu
    * @default MenuSize.Medium
    */
@@ -42,6 +46,11 @@ export interface MenuItemProps {
    * @default MenuVariant.neutral
    */
   variant?: MenuVariant;
+  /**
+   * The text should wrap
+   * @default false
+   */
+  wrap?: boolean;
 }
 
 type NativeMenuButtonProps = Omit<OcBaseProps<HTMLButtonElement>, 'children'>;

@@ -6,6 +6,7 @@ import { MenuItemType } from './MenuItem/MenuItem.types';
 import { mergeClasses } from '../../shared/utilities';
 import { Stack } from '../Stack';
 import { ButtonSize, NeutralButton, PrimaryButton } from '../Button';
+import { useCanvasDirection } from '../../hooks/useCanvasDirection';
 
 import styles from './menu.module.scss';
 
@@ -16,24 +17,26 @@ const MENU_SIZE_TO_BUTTON_SIZE_MAP: Record<MenuSize, ButtonSize> = {
 };
 
 export const Menu: FC<MenuProps> = ({
-  items,
-  onChange,
-  variant = MenuVariant.neutral,
-  size = MenuSize.medium,
-  classNames,
-  style,
-  itemClassNames,
-  itemStyle,
-  header,
-  listType,
-  itemProps,
-  subHeader,
-  okButtonProps,
   cancelButtonProps,
-  onOk,
+  classNames,
+  header,
+  itemClassNames,
+  itemProps,
+  items,
+  itemStyle,
+  listType,
+  okButtonProps,
   onCancel,
+  onChange,
+  onOk,
+  size = MenuSize.medium,
+  style,
+  subHeader,
+  variant = MenuVariant.neutral,
   ...rest
 }) => {
+  const htmlDir: string = useCanvasDirection();
+
   const headerClasses: string = mergeClasses([
     styles.menuHeaderContainer,
     {
@@ -54,6 +57,7 @@ export const Menu: FC<MenuProps> = ({
 
   const getListItem = (item: MenuItemTypes, index: number): React.ReactNode => (
     <MenuItem
+      direction={htmlDir}
       key={`oc-menu-item-${index}`}
       variant={variant}
       size={size}

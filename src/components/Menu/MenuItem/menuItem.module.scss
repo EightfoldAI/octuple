@@ -12,6 +12,10 @@
   margin: $space-xxs 0;
   white-space: nowrap;
 
+  &.wrap {
+    white-space: normal;
+  }
+
   $text-font-size-map: (
     small: $text-font-size-1,
     medium: $text-font-size-2,
@@ -21,6 +25,13 @@
   .menu-item-button {
     display: flex;
     flex: 1;
+    gap: $space-xs;
+
+    // Hides the browser default keyboard focus-visible styles.
+    // Use the ConfigProvider instead.
+    &:focus-visible {
+      outline: none;
+    }
   }
 
   .menu-item-wrapper {
@@ -38,6 +49,17 @@
       align-items: center;
       display: flex;
       gap: $space-xs;
+    }
+
+    .menu-outer-button {
+      align-items: center;
+      display: flex;
+      flex: inherit;
+      gap: $space-xs;
+
+      &:focus-visible {
+        outline: none;
+      }
     }
   }
 
@@ -61,24 +83,39 @@
     min-height: 44px;
     font-size: $text-font-size-4;
     line-height: $text-line-height-3;
-    padding: $button-padding-vertical-medium $button-padding-horizontal-medium;
     margin: 0 $space-xs $space-xs;
+
+    .menu-item-button,
+    .menu-secondary-wrapper,
+    .menu-link {
+      padding: $button-padding-vertical-medium $button-padding-horizontal-medium;
+    }
   }
 
   &.medium {
     min-height: 36px;
     font-size: $text-font-size-3;
     line-height: $text-line-height-2;
-    padding: $button-padding-vertical-medium $button-padding-horizontal-medium;
     margin: 0 $space-xxs $space-xs;
+
+    .menu-item-button,
+    .menu-secondary-wrapper,
+    .menu-link {
+      padding: $button-padding-vertical-medium $button-padding-horizontal-medium;
+    }
   }
 
   &.small {
     min-height: 28px;
     font-size: $text-font-size-2;
     line-height: $text-line-height-1;
-    padding: $space-xxs $space-xs;
     margin: 0 $space-xxs $space-xxs;
+
+    .menu-item-button,
+    .menu-secondary-wrapper,
+    .menu-link {
+      padding: $space-xxs $space-xs;
+    }
   }
 
   &.primary {
@@ -133,15 +170,26 @@
     pointer-events: none;
   }
 
-  &.menu-link {
-    font-weight: $text-font-weight-regular;
+  .menu-link {
+    align-items: inherit;
+    color: inherit;
+    display: inherit;
+    flex: 1;
+    font-size: inherit;
+    font-weight: inherit;
+    gap: $space-xs;
     text-decoration: none;
+    white-space: inherit;
+
+    &:focus-visible {
+      box-shadow: none;
+    }
   }
 
   .label {
     flex: 1;
     display: flex;
-    align-content: flex-start;
+    text-align: left;
   }
 
   .action-wrapper {
@@ -158,10 +206,14 @@
     margin-bottom: $space-xs;
   }
 
-  // Hides the browser default keyboard focus-visible styles.
-  // Use the ConfigProvider instead.
   &:focus-visible {
     outline: none;
+  }
+
+  &-rtl {
+    .label {
+      text-align: right;
+    }
   }
 }
 
@@ -188,7 +240,7 @@
   }
 
   &.small {
-    padding: $space-s $space-xxxs $space-s;
+    padding: $space-s 0 $space-s;
     @include octuple-content-small();
   }
 }
@@ -211,27 +263,17 @@
 
 :global(.focus-visible) {
   .menu-item {
-    &:focus-visible {
-      outline-offset: -1px;
-      outline-width: $space-xxxs;
-      outline-style: solid;
-    }
-
-    &.primary {
-      &:focus-visible {
-        outline-color: var(--blueviolet-color-50);
-      }
+    &:focus-visible,
+    &:focus-within {
+      box-shadow: var(--focus-visible-box-shadow);
     }
 
     &.disruptive {
-      &:focus-visible {
-        outline-color: var(--blueviolet-color-50);
-      }
-    }
-
-    &.neutral {
-      &:focus-visible {
-        outline-color: var(--blueviolet-color-50);
+      &:focus-visible,
+      &:focus-within {
+        background-color: var(--disruptive-color-10);
+        box-shadow: 0 0 0 var(--focus-visible-shadow-width)
+          var(--disruptive-color-80);
       }
     }
   }

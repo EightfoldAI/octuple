@@ -6,6 +6,7 @@ import { Dropdown } from '../Dropdown';
 import { DefaultButton } from '../Button';
 import { RadioGroup } from '../RadioButton';
 import { IconName } from '../Icon';
+import { SelectorSize } from '../CheckBox/Checkbox.types';
 
 export default {
   title: 'Menu',
@@ -137,93 +138,102 @@ const LinkOverlay = (args: any) => (
   />
 );
 
-const SubHeaderOverlay = (args: any) => (
-  <Menu
-    {...args}
-    items={[
-      {
-        iconProps: {
-          path: IconName.mdiCalendar,
+const SubHeaderOverlay = (args: any) => {
+  const menuSizeToSelectorSizeSizeMap = new Map<MenuSize, SelectorSize>([
+    [MenuSize.large, SelectorSize.Large],
+    [MenuSize.medium, SelectorSize.Medium],
+    [MenuSize.small, SelectorSize.Small],
+  ]);
+
+  return (
+    <Menu
+      {...args}
+      items={[
+        {
+          iconProps: {
+            path: IconName.mdiCalendar,
+          },
+          text: 'Date',
+          value: 'date 1',
+          counter: '8',
         },
-        text: 'Date',
-        value: 'date 1',
-        counter: '8',
-      },
-      {
-        text: 'Thumbs up',
-        value: 'date 1',
-        disabled: true,
-      },
-      {
-        iconProps: {
-          path: IconName.mdiCalendar,
+        {
+          text: 'Thumbs up',
+          value: 'date 1',
+          disabled: true,
         },
-        text: 'Date',
-        value: 'date 1',
-        counter: '8',
-      },
-      {
-        text: 'Thumbs up',
-        value: 'date 1',
-      },
-      {
-        type: MenuItemType.subHeader,
-        text: 'Menu Type links',
-      },
-      {
-        type: MenuItemType.link,
-        text: 'Twitter link',
-        href: 'https://twitter.com',
-        target: '_blank',
-      },
-      {
-        type: MenuItemType.link,
-        text: 'Facebook link',
-        href: 'https://facebook.com',
-        target: '_blank',
-      },
-      {
-        type: MenuItemType.subHeader,
-        text: 'Menu type custom',
-      },
-      {
-        type: MenuItemType.custom,
-        render: ({ onChange }) => (
-          <RadioGroup
-            {...{
-              ariaLabel: 'Radio Group',
-              value: 'Radio1',
-              items: [1, 2, 3].map((i) => ({
-                value: `Radio${i}`,
-                label: `Radio${i}`,
-                name: 'group',
-                id: `oea2exk-${i}`,
-              })),
-              layout: 'vertical',
-            }}
-            onChange={onChange}
-          />
-        ),
-      },
-      {
-        iconProps: {
-          path: IconName.mdiCalendar,
+        {
+          iconProps: {
+            path: IconName.mdiCalendar,
+          },
+          text: 'Date',
+          value: 'date 1',
+          counter: '8',
         },
-        text: 'Date',
-        value: 'date 1',
-        counter: '8',
-      },
-      {
-        text: 'Thumbs up',
-        value: 'date 1',
-      },
-    ]}
-    onChange={(item) => {
-      args.onChange(item);
-      console.log(item);
-    }}
-  />
-);
+        {
+          text: 'Thumbs up',
+          value: 'date 1',
+        },
+        {
+          type: MenuItemType.subHeader,
+          text: 'Menu Type links',
+        },
+        {
+          type: MenuItemType.link,
+          text: 'Twitter link',
+          href: 'https://twitter.com',
+          target: '_blank',
+        },
+        {
+          type: MenuItemType.link,
+          text: 'Facebook link',
+          href: 'https://facebook.com',
+          target: '_blank',
+        },
+        {
+          type: MenuItemType.subHeader,
+          text: 'Menu type custom',
+        },
+        {
+          type: MenuItemType.custom,
+          render: ({ onChange }) => (
+            <RadioGroup
+              {...{
+                ariaLabel: 'Radio Group',
+                value: 'Radio1',
+                items: [1, 2, 3].map((i) => ({
+                  value: `Radio${i}`,
+                  label: `Radio${i}`,
+                  name: 'group',
+                  id: `oea2exk-${i}`,
+                })),
+                layout: 'vertical',
+              }}
+              onChange={onChange}
+              size={menuSizeToSelectorSizeSizeMap.get(args.size)}
+            />
+          ),
+        },
+        {
+          iconProps: {
+            path: IconName.mdiCalendar,
+          },
+          text: 'Date',
+          value: 'date 1',
+          counter: '8',
+        },
+        {
+          text: 'Thumbs up',
+          value: 'date 1',
+        },
+      ]}
+      onChange={(item) => {
+        args.onChange(item);
+        console.log(item);
+      }}
+    />
+  );
+};
 
 const Basic_Menu_Story: ComponentStory<typeof Menu> = (args) => (
   <Dropdown overlay={BasicOverlay(args)}>
