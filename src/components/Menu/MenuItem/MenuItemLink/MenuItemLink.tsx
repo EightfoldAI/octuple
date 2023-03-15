@@ -15,8 +15,10 @@ export const MenuItemLink: FC<MenuItemLinkProps> = ({
   direction,
   disabled,
   iconProps,
+  role = 'menuitem',
   size = MenuSize.medium,
   subText,
+  tabIndex = 0,
   text,
   variant = MenuVariant.neutral,
   wrap = false,
@@ -62,12 +64,12 @@ export const MenuItemLink: FC<MenuItemLinkProps> = ({
   );
 
   return (
-    <li role="menuitem" tabIndex={-1} className={menuItemClassNames}>
+    <li role={role} tabIndex={-1} className={menuItemClassNames}>
       <Link
         classNames={styles.menuLink}
         disabled={disabled}
         fullWidth
-        tabIndex={0}
+        tabIndex={tabIndex}
         {...rest}
       >
         {iconProps && alignIcon === MenuItemIconAlign.Left && getIcon()}
