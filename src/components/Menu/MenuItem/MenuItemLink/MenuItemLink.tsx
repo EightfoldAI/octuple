@@ -1,14 +1,15 @@
 import React, { FC } from 'react';
-import { MenuItemLinkProps } from '../MenuItem.types';
+import { MenuItemIconAlign, MenuItemLinkProps } from '../MenuItem.types';
 import { Link } from '../../../Link';
 import { mergeClasses } from '../../../../shared/utilities';
 import { MenuSize, MenuVariant } from '../../Menu.types';
-import { Icon } from '../../../Icon';
+import { Icon, IconSize } from '../../../Icon';
 
 import styles from '../menuItem.module.scss';
 
 export const MenuItemLink: FC<MenuItemLinkProps> = ({
   active,
+  alignIcon = MenuItemIconAlign.Left,
   classNames,
   counter,
   direction,
@@ -45,10 +46,21 @@ export const MenuItemLink: FC<MenuItemLinkProps> = ({
     },
   ]);
 
+  const menuSizeToIconSizeMap: Map<MenuSize, IconSize> = new Map<
+    MenuSize,
+    IconSize
+  >([
+    [MenuSize.large, IconSize.Large],
+    [MenuSize.medium, IconSize.Medium],
+    [MenuSize.small, IconSize.Small],
+  ]);
+
   return (
     <li role="menuitem" tabIndex={-1} className={menuItemClasses}>
       <Link classNames={styles.menuLink} fullWidth tabIndex={0} {...rest}>
-        {iconProps && <Icon {...iconProps} />}
+        {iconProps && alignIcon !== MenuItemIconAlign.Right && (
+          <Icon size={menuSizeToIconSizeMap.get(size)} {...iconProps} />
+        )}
         <span className={styles.menuItemWrapper}>
           <span className={styles.itemText}>
             <span className={styles.label}>{text}</span>
@@ -56,6 +68,9 @@ export const MenuItemLink: FC<MenuItemLinkProps> = ({
           </span>
           {subText && <span className={itemSubTextClasses}>{subText}</span>}
         </span>
+        {iconProps && alignIcon === MenuItemIconAlign.Right && (
+          <Icon size={menuSizeToIconSizeMap.get(size)} {...iconProps} />
+        )}
       </Link>
     </li>
   );
