@@ -67,6 +67,7 @@ export const Menu: FC<MenuProps> = ({
 
   const getListItem = (item: MenuItemTypes, index: number): React.ReactNode => (
     <MenuItem
+      classNames={itemClassNames}
       direction={htmlDir}
       key={`oc-menu-item-${index}`}
       variant={variant}
