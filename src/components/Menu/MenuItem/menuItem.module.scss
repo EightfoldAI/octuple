@@ -180,10 +180,6 @@
     gap: $space-xs;
     text-decoration: none;
     white-space: inherit;
-
-    &:focus-visible {
-      box-shadow: none;
-    }
   }
 
   .label {
@@ -278,6 +274,12 @@
         background-color: var(--disruptive-color-10);
         box-shadow: 0 0 0 var(--focus-visible-shadow-width)
           var(--disruptive-color-80);
+      }
+    }
+
+    .menu-link {
+      &:focus-visible {
+        box-shadow: none;
       }
     }
   }
