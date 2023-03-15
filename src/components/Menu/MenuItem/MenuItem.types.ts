@@ -5,6 +5,8 @@ import { IconProps } from '../../Icon';
 import { LinkProps } from '../../Link';
 import { ButtonProps } from '../../Button';
 
+export interface MenuIconProps extends Omit<IconProps, 'size'> {}
+
 export enum MenuItemIconAlign {
   Left = 'left',
   Right = 'right',
@@ -74,7 +76,7 @@ export interface MenuItemButtonProps
   /**
    * Menu item icon props
    */
-  iconProps?: IconProps;
+  iconProps?: MenuIconProps;
   /**
    * On Click handler of the menu item
    * @param value
@@ -113,7 +115,7 @@ export interface MenuItemLinkProps
   /**
    * Menu item icon props
    */
-  iconProps?: IconProps;
+  iconProps?: MenuIconProps;
   /**
    * Display sub text of the menu item
    */

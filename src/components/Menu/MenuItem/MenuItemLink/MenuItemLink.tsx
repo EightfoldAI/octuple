@@ -13,6 +13,7 @@ export const MenuItemLink: FC<MenuItemLinkProps> = ({
   classNames,
   counter,
   direction,
+  disabled,
   iconProps,
   size = MenuSize.medium,
   subText,
@@ -21,7 +22,7 @@ export const MenuItemLink: FC<MenuItemLinkProps> = ({
   wrap = false,
   ...rest
 }) => {
-  const menuItemClasses: string = mergeClasses([
+  const menuItemClassNames: string = mergeClasses([
     styles.menuItem,
     {
       [styles.menuItemRtl]: direction === 'rtl',
@@ -33,11 +34,12 @@ export const MenuItemLink: FC<MenuItemLinkProps> = ({
       [styles.primary]: variant === MenuVariant.primary,
       [styles.disruptive]: variant === MenuVariant.disruptive,
       [styles.active]: active,
+      [styles.disabled]: disabled,
     },
     classNames,
   ]);
 
-  const itemSubTextClasses: string = mergeClasses([
+  const itemSubTextClassNames: string = mergeClasses([
     styles.itemSubText,
     {
       [styles.small]: size === MenuSize.small,
@@ -55,22 +57,28 @@ export const MenuItemLink: FC<MenuItemLinkProps> = ({
     [MenuSize.small, IconSize.Small],
   ]);
 
+  const getIcon = (): JSX.Element => (
+    <Icon size={menuSizeToIconSizeMap.get(size)} {...iconProps} />
+  );
+
   return (
-    <li role="menuitem" tabIndex={-1} className={menuItemClasses}>
-      <Link classNames={styles.menuLink} fullWidth tabIndex={0} {...rest}>
-        {iconProps && alignIcon !== MenuItemIconAlign.Right && (
-          <Icon size={menuSizeToIconSizeMap.get(size)} {...iconProps} />
-        )}
+    <li role="menuitem" tabIndex={-1} className={menuItemClassNames}>
+      <Link
+        classNames={styles.menuLink}
+        disabled={disabled}
+        fullWidth
+        tabIndex={0}
+        {...rest}
+      >
+        {iconProps && alignIcon === MenuItemIconAlign.Left && getIcon()}
         <span className={styles.menuItemWrapper}>
           <span className={styles.itemText}>
             <span className={styles.label}>{text}</span>
             {counter && <span>{counter}</span>}
           </span>
-          {subText && <span className={itemSubTextClasses}>{subText}</span>}
+          {subText && <span className={itemSubTextClassNames}>{subText}</span>}
         </span>
-        {iconProps && alignIcon === MenuItemIconAlign.Right && (
-          <Icon size={menuSizeToIconSizeMap.get(size)} {...iconProps} />
-        )}
+        {iconProps && alignIcon === MenuItemIconAlign.Right && getIcon()}
       </Link>
     </li>
   );

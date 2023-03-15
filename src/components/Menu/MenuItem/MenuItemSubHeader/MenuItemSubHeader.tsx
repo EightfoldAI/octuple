@@ -11,7 +11,7 @@ export const MenuItemSubHeader: FC<MenuItemSubHeaderProps> = ({
   text,
   wrap,
 }) => {
-  const subHeaderClasses: string = mergeClasses([
+  const subHeaderClassNames: string = mergeClasses([
     styles.menuItemSubHeader,
     {
       [styles.menuItemRtl]: direction === 'rtl',
@@ -21,5 +21,5 @@ export const MenuItemSubHeader: FC<MenuItemSubHeaderProps> = ({
       [styles.small]: size === MenuSize.small,
     },
   ]);
-  return <span className={subHeaderClasses}>{text}</span>;
+  return <span className={subHeaderClassNames}>{text}</span>;
 };

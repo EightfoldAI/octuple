@@ -230,16 +230,20 @@
   }
 
   &.large {
+    margin: 0 $space-m $space-m;
     padding: $space-s $space-xxs $space-s;
     @include octuple-content-large();
   }
 
   &.medium {
+    margin: 0 $space-m $space-m;
+    margin: 0 $space-m $space-m;
     padding: $space-s $space-xxxs $space-s;
     @include octuple-content-medium();
   }
 
   &.small {
+    margin: 0 $space-s $space-m;
     padding: $space-s 0 $space-s;
     @include octuple-content-small();
   }

@@ -9,7 +9,7 @@ import styles from '../menuItem.module.scss';
 
 export const MenuItemButton: FC<MenuItemButtonProps> = ({
   active,
-  alignIcon,
+  alignIcon = MenuItemIconAlign.Left,
   classNames,
   counter,
   direction,
@@ -28,7 +28,7 @@ export const MenuItemButton: FC<MenuItemButtonProps> = ({
   wrap = false,
   ...rest
 }) => {
-  const menuItemClasses: string = mergeClasses([
+  const menuItemClassNames: string = mergeClasses([
     styles.menuItem,
     {
       [styles.menuItemRtl]: direction === 'rtl',
@@ -45,7 +45,7 @@ export const MenuItemButton: FC<MenuItemButtonProps> = ({
     classNames,
   ]);
 
-  const itemSubTextClasses: string = mergeClasses([
+  const itemSubTextClassNames: string = mergeClasses([
     styles.itemSubText,
     {
       [styles.small]: size === MenuSize.small,
@@ -64,6 +64,10 @@ export const MenuItemButton: FC<MenuItemButtonProps> = ({
     onClick?.(value);
   };
 
+  const getIcon = (): JSX.Element => (
+    <Icon size={menuSizeToIconSizeMap.get(size)} {...iconProps} />
+  );
+
   const menuSizeToIconSizeMap: Map<MenuSize, IconSize> = new Map<
     MenuSize,
     IconSize
@@ -74,7 +78,7 @@ export const MenuItemButton: FC<MenuItemButtonProps> = ({
   ]);
 
   return secondaryButtonProps ? (
-    <li role={role} tabIndex={-1} className={menuItemClasses}>
+    <li role={role} tabIndex={-1} className={menuItemClassNames}>
       <span className={styles.menuSecondaryWrapper}>
         <button
           className={styles.menuOuterButton}
@@ -83,17 +87,13 @@ export const MenuItemButton: FC<MenuItemButtonProps> = ({
           {...rest}
           onClick={handleOnClick}
         >
-          {iconProps && alignIcon !== MenuItemIconAlign.Right && (
-            <Icon size={menuSizeToIconSizeMap.get(size)} {...iconProps} />
-          )}
+          {iconProps && alignIcon !== MenuItemIconAlign.Right && getIcon()}
           <span className={styles.menuItemWrapper}>
             <span className={styles.itemText}>
               <span className={styles.label}>{text}</span>
             </span>
           </span>
-          {iconProps && alignIcon === MenuItemIconAlign.Right && (
-            <Icon size={menuSizeToIconSizeMap.get(size)} {...iconProps} />
-          )}
+          {iconProps && alignIcon === MenuItemIconAlign.Right && getIcon()}
         </button>
         <span className={styles.menuInnerButton}>
           {counter && <span>{counter}</span>}
@@ -107,10 +107,10 @@ export const MenuItemButton: FC<MenuItemButtonProps> = ({
           )}
         </span>
       </span>
-      {subText && <span className={itemSubTextClasses}>{subText}</span>}
+      {subText && <span className={itemSubTextClassNames}>{subText}</span>}
     </li>
   ) : (
-    <li role={role} tabIndex={-1} className={menuItemClasses}>
+    <li role={role} tabIndex={-1} className={menuItemClassNames}>
       <button
         className={styles.menuItemButton}
         disabled={disabled}
@@ -118,19 +118,15 @@ export const MenuItemButton: FC<MenuItemButtonProps> = ({
         {...rest}
         onClick={handleOnClick}
       >
-        {iconProps && alignIcon !== MenuItemIconAlign.Right && (
-          <Icon size={menuSizeToIconSizeMap.get(size)} {...iconProps} />
-        )}
+        {iconProps && alignIcon === MenuItemIconAlign.Left && getIcon()}
         <span className={styles.menuItemWrapper}>
           <span className={styles.itemText}>
             <span className={styles.label}>{text}</span>
             {counter && <span>{counter}</span>}
           </span>
-          {subText && <span className={itemSubTextClasses}>{subText}</span>}
+          {subText && <span className={itemSubTextClassNames}>{subText}</span>}
         </span>
-        {iconProps && alignIcon === MenuItemIconAlign.Right && (
-          <Icon size={menuSizeToIconSizeMap.get(size)} {...iconProps} />
-        )}
+        {iconProps && alignIcon === MenuItemIconAlign.Right && getIcon()}
       </button>
     </li>
   );
