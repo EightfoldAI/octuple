@@ -216,6 +216,7 @@ const Avatar_StatusItem_Story: ComponentStory<typeof Avatar> = (args) => {
           backgroundColor: 'var(--blue-color-20)',
           path: IconName.mdiCalendar,
           text: '20',
+          placeTextAfterIcon: true,
         },
       },
     },

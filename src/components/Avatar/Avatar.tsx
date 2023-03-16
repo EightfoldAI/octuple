@@ -160,6 +160,25 @@ const AvatarStatusItems: FC<BaseAvatarProps> = React.forwardRef(
           const wrapperPadding: string | number =
             statusItemProps?.wrapperStyle?.padding ??
             `(${size} * ${StatusItemWrapperPaddingFactor})`;
+          const statusItemTextClasses = mergeClasses([
+            styles.avatarStatusItemText,
+            { [styles.avatarStatusItemTextRtl]: htmlDir === 'rtl' },
+            { [styles.textMarginRight]: !statusItemProps.placeTextAfterIcon },
+            { [styles.textMarginLeft]: statusItemProps.placeTextAfterIcon },
+          ]);
+          const statusItemTextElement = (
+            <span
+              ref={(el) => (statusItemsRef.current[position] = el)}
+              style={{
+                color: statusItemProps.color,
+                fontSize: `calc(${statusItemProps.size} + ${StatusItemFontDiff})`,
+                lineHeight: statusItemProps.size,
+              }}
+              className={statusItemTextClasses}
+            >
+              {statusItemProps.text}
+            </span>
+          );
           return (
             <div
               key={position}
@@ -201,22 +220,17 @@ const AvatarStatusItems: FC<BaseAvatarProps> = React.forwardRef(
                 ? { 'aria-label': statusItemProps.ariaLabel }
                 : {})}
             >
-              {showStatusItemText && (showStatusItemsText[position] ?? true) ? (
-                <span
-                  ref={(el) => (statusItemsRef.current[position] = el)}
-                  style={{
-                    color: statusItemProps.color,
-                    fontSize: `calc(${statusItemProps.size} + ${StatusItemFontDiff})`,
-                    lineHeight: statusItemProps.size,
-                  }}
-                  className={styles.avatarStatusItemText}
-                >
-                  {statusItemProps.text}
-                </span>
-              ) : (
-                ''
-              )}
+              {showStatusItemText &&
+              (showStatusItemsText[position] ?? true) &&
+              !statusItemProps.placeTextAfterIcon
+                ? statusItemTextElement
+                : ''}
               <Icon {...statusItemProps} />
+              {showStatusItemText &&
+              (showStatusItemsText[position] ?? true) &&
+              statusItemProps.placeTextAfterIcon
+                ? statusItemTextElement
+                : ''}
             </div>
           );
         })}

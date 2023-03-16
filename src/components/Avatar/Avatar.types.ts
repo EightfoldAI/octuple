@@ -68,6 +68,11 @@ export interface StatusItemsProps extends IconProps {
    */
   wrapperClassName?: string;
   /**
+   * Place text after the icon if true
+   * @default false
+   */
+  placeTextAfterIcon?: boolean;
+  /**
    * Text present with icon
    */
   text?: string;

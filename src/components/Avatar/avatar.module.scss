@@ -81,8 +81,15 @@
 }
 
 .avatar-status-item-text {
-  margin-right: 2px;
   font-weight: 600;
+
+  &.text-margin-right {
+    margin-right: 2px;
+  }
+
+  &.text-margin-left {
+    margin-left: 2px;
+  }
 }
 
 .avatar-img-wrapper {

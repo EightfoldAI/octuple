@@ -13,3 +13,15 @@
     }
   }
 }
+
+.avatar-status-item-text-rtl {
+  &.text-margin-right {
+    margin-right: 0;
+    margin-left: 2px;
+  }
+
+  &.text-margin-left {
+    margin-left: 0;
+    margin-right: 2px;
+  }
+}
