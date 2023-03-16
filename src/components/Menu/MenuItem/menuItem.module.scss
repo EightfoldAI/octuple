@@ -33,6 +33,10 @@
       align-items: center;
       display: flex;
       gap: $space-xs;
+
+      &.btn-full-width {
+        flex: 1;
+      }
     }
   }
 

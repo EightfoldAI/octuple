@@ -46,11 +46,16 @@ export const MenuItemButton: FC<MenuItemButtonProps> = ({
     },
   ]);
 
+  const menuInnerButtonClasses: string = mergeClasses([
+    styles.menuInnerButton,
+    styles.btnFullWidth,
+  ]);
+
   return secondaryButtonProps ? (
     <li role="menuitem" tabIndex={tabIndex} className={menuItemClasses}>
       <span className={styles.menuSecondaryWrapper}>
         <button
-          className={styles.menuInnerButton}
+          className={menuInnerButtonClasses}
           {...rest}
           onClick={() => onClick?.(value)}
         >
