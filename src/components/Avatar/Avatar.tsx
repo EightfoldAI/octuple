@@ -43,6 +43,7 @@ export const getStatusItemSizeAndPadding = (
 const StatusItemWrapperPaddingFactor: number = 0.06;
 const DefaultStatusItemMaxTextLength: number = 3;
 const MinStatusItemFontSize: number = 12;
+const StatusItemFontDiff: string = '2px';
 
 const StatusItemOutlineDefaults: React.CSSProperties = {
   outlineColor: 'var(--grey-color-80)',
@@ -204,8 +205,9 @@ const AvatarStatusItems: FC<BaseAvatarProps> = React.forwardRef(
                 <span
                   ref={(el) => (statusItemsRef.current[position] = el)}
                   style={{
-                    fontSize: statusItemProps.size,
                     color: statusItemProps.color,
+                    fontSize: `calc(${statusItemProps.size} + ${StatusItemFontDiff})`,
+                    lineHeight: statusItemProps.size,
                   }}
                   className={styles.avatarStatusItemText}
                 >
