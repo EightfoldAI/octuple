@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.32.0](https://github.com/EightfoldAI/octuple/compare/v2.31.0...v2.32.0) (2023-03-15)
+
+### Bug Fixes
+
+- adjust navbar colors to match design system ([#561](https://github.com/EightfoldAI/octuple/issues/561)) ([4774be8](https://github.com/EightfoldAI/octuple/commits/4774be8f6e23ee688904736afc99a9d9a3703ef7))
+- upload: adds deferred api story and exports type ([#559](https://github.com/EightfoldAI/octuple/issues/559)) ([921bf1c](https://github.com/EightfoldAI/octuple/commits/921bf1c4f1673d1e52fc4f1ab9ebab30918b3a02))
+
 ## [2.31.0](https://github.com/EightfoldAI/octuple/compare/v2.29.0...v2.31.0) (2023-03-07)
 
 ### Features

@@ -67,7 +67,7 @@ export const AvatarGroup: React.FC<AvatarGroupProps> = React.forwardRef(
         size={size}
         type={type}
         fontSize={styles.maxCountFontSize}
-        {...maxProps}
+        {...{ ...maxProps, tooltipProps: undefined }}
         classNames={mergeClasses([
           styles.avatarGroupMaxCount,
           maxProps?.classNames,

@@ -34,7 +34,7 @@ export interface PopupProps
   showPopup?: (show: boolean) => boolean;
   /**
    * Size of the Popup.
-   * @default PopupSize.small
+   * @default PopupSize.Medium
    */
   size?: PopupSize;
 }

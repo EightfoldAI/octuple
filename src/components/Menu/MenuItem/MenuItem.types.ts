@@ -78,6 +78,14 @@ export interface MenuItemButtonProps
    */
   disabled?: boolean;
   /**
+   * Menu item opens a dropdown menu.
+   */
+  dropdownMenuItems?: DropdownMenuItemProps[];
+  /**
+   * The nested dropdown menu props
+   */
+  dropdownMenuProps?: NestedDropdownMenuProps;
+  /**
    * Menu item icon props
    */
   iconProps?: MenuIconProps;
@@ -90,14 +98,6 @@ export interface MenuItemButtonProps
    * Secondary action button for the menu item
    */
   secondaryButtonProps?: Omit<ButtonProps, 'text' | 'shape'>;
-  /**
-   * Menu item opens a dropdown menu.
-   */
-  dropdownMenuItems?: DropdownMenuItemProps[];
-  /**
-   * The nested dropdown menu props
-   */
-  dropdownMenuProps?: NestedDropdownMenuProps;
   /**
    * Display sub text of the menu item
    */

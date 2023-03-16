@@ -55,6 +55,11 @@ export interface MenuProps
    */
   onOk?: React.MouseEventHandler<HTMLButtonElement>;
   /**
+   * The menu aria role.
+   * @default 'menu'
+   */
+  role?: string;
+  /**
    * Size of the menu
    * @default MenuSize.Medium
    */

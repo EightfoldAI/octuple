@@ -82,6 +82,7 @@ import { List } from './components/List';
 import {
   CascadingMenu,
   Menu,
+  MenuItemIconAlign,
   MenuItemType,
   MenuVariant,
   MenuSize,
@@ -193,6 +194,7 @@ import Table, {
 import Upload, {
   OcFile,
   UploadFile,
+  UploadFileStatus,
   UploadProps,
   UploadSize,
 } from './components/Upload';
@@ -272,6 +274,7 @@ export {
   LoaderSize,
   MatchScore,
   Menu,
+  MenuItemIconAlign,
   MenuItemType,
   MenuVariant,
   MenuSize,
@@ -365,6 +368,7 @@ export {
   TwoStateButton,
   Upload,
   UploadFile,
+  UploadFileStatus,
   UploadProps,
   UploadSize,
   useBoolean,

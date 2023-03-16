@@ -23,9 +23,8 @@
   background: var(--dropdown-background-color);
   padding: $space-xs;
   box-shadow: $shadow-object-m;
-  border-radius: $border-radius-xl;
+  border-radius: $border-radius-l; // TODO: ENG-46367 Add DropdownSize type and handle mapping via trigger size, then L 24px, M 20px, S 16px border-radius determined by size of the trigger.
   font-family: $octuple-font-family;
-  transition: all $motion-duration-fast $motion-easing-easeout;
   min-width: 200px;
   opacity: 0;
   white-space: normal;
@@ -45,6 +44,20 @@
 
   &.no-padding {
     padding: 0;
+  }
+
+  // Hides the browser default keyboard focus-visible styles.
+  // Use the ConfigProvider instead.
+  &:focus-visible {
+    outline: none;
+  }
+}
+
+:global(.focus-visible) {
+  .dropdown-wrapper {
+    &:focus-visible {
+      box-shadow: var(--focus-visible-box-shadow);
+    }
   }
 }
 

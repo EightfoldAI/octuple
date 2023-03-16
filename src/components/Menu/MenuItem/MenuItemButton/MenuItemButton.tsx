@@ -110,7 +110,7 @@ export const MenuItemButton: FC<MenuItemButtonProps> = ({
           {...rest}
           onClick={handleOnClick}
         >
-          {iconProps && alignIcon !== MenuItemIconAlign.Right && getIcon()}
+          {iconProps && alignIcon === MenuItemIconAlign.Left && getIcon()}
           <span className={styles.menuItemWrapper}>
             <span className={styles.itemText}>
               <span className={styles.label}>{text}</span>

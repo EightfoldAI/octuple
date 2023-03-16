@@ -23,6 +23,7 @@ export const Menu: FC<MenuProps> = ({
   onCancel,
   onChange,
   onOk,
+  role = 'menu',
   size = MenuSize.medium,
   style,
   subHeader,
@@ -123,7 +124,7 @@ export const Menu: FC<MenuProps> = ({
       header={getHeader()}
       items={items}
       listType={listType}
-      role="menu"
+      role={role}
       style={style}
     />
   );

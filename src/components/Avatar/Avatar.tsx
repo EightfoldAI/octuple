@@ -1,4 +1,4 @@
-import React, { FC, Ref, useMemo } from 'react';
+import React, { FC, Ref, useEffect, useMemo, useRef, useState } from 'react';
 
 // Styles:
 import styles from './avatar.module.scss';
@@ -11,9 +11,10 @@ import {
   StatusItemsPosition,
   StatusItemsProps,
 } from './';
-import { mergeClasses } from '../../shared/utilities';
+import { ConditionalWrapper, mergeClasses } from '../../shared/utilities';
 import { Icon } from '../Icon';
 import { useCanvasDirection } from '../../hooks/useCanvasDirection';
+import { Tooltip } from '../Tooltip';
 
 export const AVATAR_THEME_SET = [
   styles.red,
@@ -37,6 +38,11 @@ export const getStatusItemSizeAndPadding = (
   const statusItemSize: number = (avatarSize * 16) / 100;
   return [statusItemSize, (statusItemSize * 6) / 16];
 };
+
+// 0.06 factor is chosen based on design
+const StatusItemWrapperPaddingFactor: number = 0.06;
+const DefaultStatusItemMaxTextLength: number = 3;
+const MinStatusItemFontSize: number = 12;
 
 const StatusItemOutlineDefaults: React.CSSProperties = {
   outlineColor: 'var(--grey-color-80)',
@@ -67,58 +73,77 @@ const statusItemPositionRtlMap: {
 
 const AvatarStatusItems: FC<BaseAvatarProps> = React.forwardRef(
   ({ outline, size, statusItems }, ref: Ref<HTMLDivElement>) => {
+    const statusItemsRef = useRef<{
+      [key in StatusItemsPosition]?: HTMLSpanElement;
+    }>({});
+    const [showStatusItemsText, setShowStatusItemsText] = useState<{
+      [key in StatusItemsPosition]?: boolean;
+    }>({});
     const htmlDir: string = useCanvasDirection();
 
+    const updateStatusItemTextVisibility = (position: StatusItemsPosition) => {
+      const value = statusItemsRef.current[position];
+      if (value === undefined) {
+        return;
+      }
+      const styles = getComputedStyle(value); // getComputedStyle always outputs a pixel value
+      // We do slice to remove "px"
+      setShowStatusItemsText((prevState) => ({
+        ...prevState,
+        [position]:
+          parseInt(styles.fontSize.slice(0, -2)) >= MinStatusItemFontSize,
+      }));
+    };
+
+    useEffect(() => {
+      updateStatusItemTextVisibility(StatusItemsPosition.Top);
+      updateStatusItemTextVisibility(StatusItemsPosition.Bottom);
+      updateStatusItemTextVisibility(StatusItemsPosition.Left);
+      updateStatusItemTextVisibility(StatusItemsPosition.Right);
+      updateStatusItemTextVisibility(StatusItemsPosition.TopRight);
+      updateStatusItemTextVisibility(StatusItemsPosition.TopLeft);
+      updateStatusItemTextVisibility(StatusItemsPosition.BottomRight);
+      updateStatusItemTextVisibility(StatusItemsPosition.BottomLeft);
+    }, [statusItemsRef.current]);
+
     const getStatusItemPositionStyle = (
-      itemPos: StatusItemsPosition,
-      itemProps: StatusItemsProps,
-      wrapperPadding: string | number
+      itemPos: StatusItemsPosition
     ): React.CSSProperties => {
       const outlineWidth: string = outline?.outlineWidth ?? '0px'; // Avatar outline width
-      const avatarWidth: string = size;
-      const itemWidth: string = `(${itemProps.size} + (2 * ${wrapperPadding}))`; // Status item width
+      const outlineOffset: string = outline?.outlineOffset ?? '0px'; // Avatar outline offset
+      const radius: string = `calc((${size} + ${outlineWidth} + ${outlineOffset}) / 2)`;
 
       switch (htmlDir === 'rtl' ? statusItemPositionRtlMap[itemPos] : itemPos) {
         case StatusItemsPosition.TopRight:
           return {
-            top: `calc(-1 * ${outlineWidth})`,
-            right: `calc(-1 * ${outlineWidth})`,
+            transform: `rotate(${-45}deg) translate(${radius}) rotate(${45}deg)`,
           };
         case StatusItemsPosition.TopLeft:
           return {
-            top: `calc(-1 * ${outlineWidth})`,
-            left: `calc(-1 * ${outlineWidth})`,
+            transform: `rotate(${-135}deg) translate(${radius}) rotate(${135}deg)`,
           };
         case StatusItemsPosition.BottomRight:
           return {
-            bottom: `calc(-1 * ${outlineWidth})`,
-            right: `calc(-1 * ${outlineWidth})`,
+            transform: `rotate(${45}deg) translate(${radius}) rotate(${-45}deg)`,
           };
         case StatusItemsPosition.BottomLeft:
           return {
-            bottom: `calc(-1 * ${outlineWidth})`,
-            left: `calc(-1 * ${outlineWidth})`,
+            transform: `rotate(${135}deg) translate(${radius}) rotate(${-135}deg)`,
           };
         case StatusItemsPosition.Left:
           return {
-            bottom: `calc((${avatarWidth} - ${itemWidth}) / 2)`,
-            left: `calc(-1 * ${itemWidth} / 2 - ${outlineWidth})`,
+            transform: `rotate(${180}deg) translate(${radius}) rotate(${-180}deg)`,
           };
         case StatusItemsPosition.Right:
-          return {
-            bottom: `calc((${avatarWidth} - ${itemWidth}) / 2)`,
-            right: `calc(-1 * ${itemWidth} / 2 - ${outlineWidth})`,
-          };
+          return { transform: `translate(${radius})` };
         case StatusItemsPosition.Top:
           return {
-            top: `calc(-1 * ${itemWidth} / 2 - ${outlineWidth})`,
-            left: `calc((${avatarWidth} - ${itemWidth}) / 2)`,
+            transform: `rotate(${-90}deg) translate(${radius}) rotate(${90}deg)`,
           };
         case StatusItemsPosition.Bottom:
         default:
           return {
-            bottom: `calc(-1 * ${itemWidth} / 2 - ${outlineWidth})`,
-            left: `calc((${avatarWidth} - ${itemWidth}) / 2)`,
+            transform: `rotate(${90}deg) translate(${radius}) rotate(${-90}deg)`,
           };
       }
     };
@@ -127,24 +152,23 @@ const AvatarStatusItems: FC<BaseAvatarProps> = React.forwardRef(
       <>
         {Object.keys(statusItems).map((position: StatusItemsPosition) => {
           const statusItemProps: StatusItemsProps = statusItems[position];
-          // 0.06 factor is chosen based on design
+          const showStatusItemText: boolean =
+            statusItemProps.text &&
+            statusItemProps.text.length <=
+              (statusItemProps.textMaxLength ?? DefaultStatusItemMaxTextLength);
           const wrapperPadding: string | number =
-            statusItemProps?.wrapperStyle?.padding ?? `(${size} * 0.06)`;
+            statusItemProps?.wrapperStyle?.padding ??
+            `(${size} * ${StatusItemWrapperPaddingFactor})`;
           return (
             <div
               key={position}
               ref={ref}
               style={{
-                position: 'absolute',
-                borderRadius: '50%',
                 background:
-                  statusItemProps.backgroundColor ?? 'var(--white-color)',
+                  statusItemProps.backgroundColor ??
+                  'var(--avatar-status-item-background)',
                 padding: `calc(${wrapperPadding})`,
-                ...getStatusItemPositionStyle(
-                  position,
-                  statusItemProps,
-                  wrapperPadding
-                ),
+                ...getStatusItemPositionStyle(position),
                 ...(statusItemProps.outline
                   ? {
                       outlineColor:
@@ -163,10 +187,11 @@ const AvatarStatusItems: FC<BaseAvatarProps> = React.forwardRef(
                   : {}),
                 ...(statusItemProps.wrapperStyle ?? {}),
               }}
-              className={statusItemProps.wrapperClassName ?? ''}
+              className={`${styles.avatarStatusItem} ${
+                statusItemProps.wrapperClassName ?? ''
+              } ${statusItemProps.onClick ? styles.clickable : ''}`}
               {...(statusItemProps.onClick
                 ? {
-                    className: styles.avatarStatusItem,
                     onClick: statusItemProps.onClick,
                     role: 'button',
                   }
@@ -175,6 +200,20 @@ const AvatarStatusItems: FC<BaseAvatarProps> = React.forwardRef(
                 ? { 'aria-label': statusItemProps.ariaLabel }
                 : {})}
             >
+              {showStatusItemText && (showStatusItemsText[position] ?? true) ? (
+                <span
+                  ref={(el) => (statusItemsRef.current[position] = el)}
+                  style={{
+                    fontSize: statusItemProps.size,
+                    color: statusItemProps.color,
+                  }}
+                  className={styles.avatarStatusItemText}
+                >
+                  {statusItemProps.text}
+                </span>
+              ) : (
+                ''
+              )}
               <Icon {...statusItemProps} />
             </div>
           );
@@ -263,6 +302,7 @@ export const Avatar: FC<AvatarProps> = React.forwardRef(
       hashingFunction,
       theme,
       randomiseTheme,
+      tooltipProps = undefined,
     },
     ref: Ref<HTMLDivElement>
   ) => {
@@ -296,25 +336,36 @@ export const Avatar: FC<AvatarProps> = React.forwardRef(
       fontSize: fontSize,
       ...style,
       ...(Object.keys(statusItems).length > 0 ? { position: 'relative' } : {}),
-      ...(calculatedOutline ?? {}),
     };
 
     if (src) {
       return (
-        <div ref={ref} style={wrapperContainerStyle} className={classNames}>
-          <img
-            src={src}
-            className={imageClasses}
-            alt={alt}
-            width={size}
-            height={size}
-          />
-          <AvatarStatusItems
-            outline={calculatedOutline}
-            size={size}
-            statusItems={statusItems}
-          />
-        </div>
+        <ConditionalWrapper
+          condition={tooltipProps !== undefined}
+          wrapper={(children: React.ReactNode): JSX.Element => (
+            <Tooltip {...tooltipProps}>{children}</Tooltip>
+          )}
+        >
+          <div
+            ref={ref}
+            style={wrapperContainerStyle}
+            className={`${classNames} ${styles.avatarImgWrapper}`}
+          >
+            <img
+              src={src}
+              className={imageClasses}
+              style={calculatedOutline}
+              alt={alt}
+              width={size}
+              height={size}
+            />
+            <AvatarStatusItems
+              outline={calculatedOutline}
+              size={size}
+              statusItems={statusItems}
+            />
+          </div>
+        </ConditionalWrapper>
       );
     }
 
@@ -322,38 +373,52 @@ export const Avatar: FC<AvatarProps> = React.forwardRef(
 
     if (iconProps) {
       return (
-        <AvatarIcon
-          iconProps={iconProps}
-          classNames={wrapperClasses}
-          style={wrapperContainerStyle}
-          fontSize={fontSize}
-          ref={ref}
+        <ConditionalWrapper
+          condition={tooltipProps !== undefined}
+          wrapper={(children: React.ReactNode): JSX.Element => (
+            <Tooltip {...tooltipProps}>{children}</Tooltip>
+          )}
         >
+          <AvatarIcon
+            iconProps={iconProps}
+            classNames={wrapperClasses}
+            style={{ ...wrapperContainerStyle, ...(calculatedOutline ?? {}) }}
+            fontSize={fontSize}
+            ref={ref}
+          >
+            <AvatarStatusItems
+              outline={calculatedOutline}
+              size={size}
+              statusItems={statusItems}
+            />
+          </AvatarIcon>
+        </ConditionalWrapper>
+      );
+    }
+
+    return (
+      <ConditionalWrapper
+        condition={tooltipProps !== undefined}
+        wrapper={(children: React.ReactNode): JSX.Element => (
+          <Tooltip {...tooltipProps}>{children}</Tooltip>
+        )}
+      >
+        <AvatarFallback
+          classNames={wrapperClasses}
+          style={{ ...wrapperContainerStyle, ...(calculatedOutline ?? {}) }}
+          ref={ref}
+          hashingFunction={hashingFunction}
+          theme={theme}
+          randomiseTheme={randomiseTheme}
+        >
+          {children}
           <AvatarStatusItems
             outline={calculatedOutline}
             size={size}
             statusItems={statusItems}
           />
-        </AvatarIcon>
-      );
-    }
-
-    return (
-      <AvatarFallback
-        classNames={wrapperClasses}
-        style={wrapperContainerStyle}
-        ref={ref}
-        hashingFunction={hashingFunction}
-        theme={theme}
-        randomiseTheme={randomiseTheme}
-      >
-        {children}
-        <AvatarStatusItems
-          outline={calculatedOutline}
-          size={size}
-          statusItems={statusItems}
-        />
-      </AvatarFallback>
+        </AvatarFallback>
+      </ConditionalWrapper>
     );
   }
 );
