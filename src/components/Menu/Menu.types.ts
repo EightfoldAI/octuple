@@ -5,6 +5,7 @@ import {
   MenuItemCustomProps,
   MenuItemLinkProps,
   MenuItemSubHeaderProps,
+  DropdownMenuItemProps,
 } from './MenuItem/MenuItem.types';
 import { ButtonProps } from '../Button';
 
@@ -24,7 +25,8 @@ export type MenuItemTypes =
   | MenuItemLinkProps
   | MenuItemButtonProps
   | MenuItemSubHeaderProps
-  | MenuItemCustomProps;
+  | MenuItemCustomProps
+  | DropdownMenuItemProps;
 
 export interface MenuProps
   extends Omit<
@@ -67,3 +69,5 @@ export interface MenuProps
    */
   variant?: MenuVariant;
 }
+
+export interface DropdownMenuProps extends MenuProps {}

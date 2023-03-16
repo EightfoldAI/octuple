@@ -79,7 +79,13 @@ import { Link } from './components/Link';
 
 import { List } from './components/List';
 
-import { Menu, MenuItemType, MenuVariant, MenuSize } from './components/Menu';
+import {
+  CascadingMenu,
+  Menu,
+  MenuItemType,
+  MenuVariant,
+  MenuSize,
+} from './components/Menu';
 
 import { Modal, ModalSize } from './components/Modal';
 
@@ -195,6 +201,8 @@ import { ResizeObserver } from './shared/ResizeObserver/ResizeObserver';
 
 import { useBoolean } from './hooks/useBoolean';
 
+import { useCanvasDirection } from './hooks/useCanvasDirection';
+
 import { useMatchMedia } from './hooks/useMatchMedia';
 
 import { useOnClickOutside } from './hooks/useOnClickOutside';
@@ -222,6 +230,7 @@ export {
   CardSize,
   CardType,
   Carousel,
+  CascadingMenu,
   CheckBox,
   CheckBoxGroup,
   Col,
@@ -359,6 +368,7 @@ export {
   UploadProps,
   UploadSize,
   useBoolean,
+  useCanvasDirection,
   useMatchMedia,
   useMaxVisibleSections,
   useOnClickOutside,

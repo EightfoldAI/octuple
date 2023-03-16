@@ -9,11 +9,11 @@ import React, {
 import {
   arrow,
   autoUpdate,
+  FloatingPortal,
   offset as fOffset,
   shift,
   useFloating,
-} from '@floating-ui/react-dom';
-import { FloatingPortal } from '@floating-ui/react-dom-interactions';
+} from '@floating-ui/react';
 import {
   ANIMATION_DURATION,
   PREVENT_DEFAULT_TRIGGERS,

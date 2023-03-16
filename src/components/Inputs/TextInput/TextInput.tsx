@@ -70,6 +70,7 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
       placeholder,
       required = false,
       readonly = false,
+      role = 'textbox',
       shape = TextInputShape.Rectangle,
       size = TextInputSize.Medium,
       status,
@@ -433,7 +434,7 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
               onKeyDown={!allowDisabledFocus ? onKeyDown : null}
               placeholder={placeholder}
               required={required}
-              role="textbox"
+              role={role}
               style={style}
               tabIndex={0}
               type={numbersOnly ? 'number' : htmlType}

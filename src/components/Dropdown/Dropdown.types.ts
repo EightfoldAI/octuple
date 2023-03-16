@@ -1,5 +1,5 @@
 import React, { Ref } from 'react';
-import { Placement, Strategy } from '@floating-ui/react-dom';
+import { Placement, Strategy } from '@floating-ui/react';
 
 export interface DropdownProps {
   /**
