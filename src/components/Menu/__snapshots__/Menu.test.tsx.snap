@@ -35,7 +35,7 @@ exports[`Menu Menu is large 1`] = `
           role="menu"
         >
           <li
-            class="menu-item large neutral"
+            class="menu-item large neutral my-menu-item-class"
             role="menuitem"
             tabindex="-1"
           >
@@ -78,7 +78,7 @@ exports[`Menu Menu is large 1`] = `
             </button>
           </li>
           <li
-            class="menu-item large neutral disabled"
+            class="menu-item large neutral disabled my-menu-item-class"
             role="menuitem"
             tabindex="-1"
           >
@@ -108,7 +108,7 @@ exports[`Menu Menu is large 1`] = `
             Sub header
           </span>
           <li
-            class="menu-item large neutral"
+            class="menu-item large neutral my-menu-item-class"
             role="menuitem"
             tabindex="-1"
           >
@@ -266,7 +266,7 @@ exports[`Menu Menu is medium 1`] = `
           role="menu"
         >
           <li
-            class="menu-item medium neutral"
+            class="menu-item medium neutral my-menu-item-class"
             role="menuitem"
             tabindex="-1"
           >
@@ -309,7 +309,7 @@ exports[`Menu Menu is medium 1`] = `
             </button>
           </li>
           <li
-            class="menu-item medium neutral disabled"
+            class="menu-item medium neutral disabled my-menu-item-class"
             role="menuitem"
             tabindex="-1"
           >
@@ -339,7 +339,7 @@ exports[`Menu Menu is medium 1`] = `
             Sub header
           </span>
           <li
-            class="menu-item medium neutral"
+            class="menu-item medium neutral my-menu-item-class"
             role="menuitem"
             tabindex="-1"
           >
@@ -497,7 +497,7 @@ exports[`Menu Menu is small 1`] = `
           role="menu"
         >
           <li
-            class="menu-item small neutral"
+            class="menu-item small neutral my-menu-item-class"
             role="menuitem"
             tabindex="-1"
           >
@@ -540,7 +540,7 @@ exports[`Menu Menu is small 1`] = `
             </button>
           </li>
           <li
-            class="menu-item small neutral disabled"
+            class="menu-item small neutral disabled my-menu-item-class"
             role="menuitem"
             tabindex="-1"
           >
@@ -570,7 +570,7 @@ exports[`Menu Menu is small 1`] = `
             Sub header
           </span>
           <li
-            class="menu-item small neutral"
+            class="menu-item small neutral my-menu-item-class"
             role="menuitem"
             tabindex="-1"
           >
