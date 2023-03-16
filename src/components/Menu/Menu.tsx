@@ -6,6 +6,7 @@ import { MenuItemType } from './MenuItem/MenuItem.types';
 import { mergeClasses } from '../../shared/utilities';
 import { Stack } from '../Stack';
 import { ButtonSize, NeutralButton, PrimaryButton } from '../Button';
+import { useCanvasDirection } from '../../hooks/useCanvasDirection';
 
 import styles from './menu.module.scss';
 
@@ -16,25 +17,36 @@ const MENU_SIZE_TO_BUTTON_SIZE_MAP: Record<MenuSize, ButtonSize> = {
 };
 
 export const Menu: FC<MenuProps> = ({
-  items,
-  onChange,
-  variant = MenuVariant.neutral,
-  size = MenuSize.medium,
-  classNames,
-  style,
-  itemClassNames,
-  itemStyle,
-  header,
-  listType,
-  itemProps,
-  subHeader,
-  okButtonProps,
   cancelButtonProps,
-  onOk,
+  classNames,
+  header,
+  itemClassNames,
+  itemProps,
+  items,
+  itemStyle,
+  listType,
+  okButtonProps,
   onCancel,
+  onChange,
+  onOk,
+  size = MenuSize.medium,
+  style,
+  subHeader,
+  variant = MenuVariant.neutral,
   ...rest
 }) => {
-  const headerClasses: string = mergeClasses([
+  const htmlDir: string = useCanvasDirection();
+
+  const footerClassNames: string = mergeClasses([
+    styles.menuFooterContainer,
+    {
+      [styles.large]: size === MenuSize.large,
+      [styles.medium]: size === MenuSize.medium,
+      [styles.small]: size === MenuSize.small,
+    },
+  ]);
+
+  const headerClassNames: string = mergeClasses([
     styles.menuHeaderContainer,
     {
       [styles.large]: size === MenuSize.large,
@@ -43,8 +55,9 @@ export const Menu: FC<MenuProps> = ({
     },
   ]);
 
-  const footerClasses: string = mergeClasses([
-    styles.menuFooterContainer,
+  const menuClassNames: string = mergeClasses([
+    classNames,
+    styles.menuContainer,
     {
       [styles.large]: size === MenuSize.large,
       [styles.medium]: size === MenuSize.medium,
@@ -54,6 +67,8 @@ export const Menu: FC<MenuProps> = ({
 
   const getListItem = (item: MenuItemTypes, index: number): React.ReactNode => (
     <MenuItem
+      classNames={itemClassNames}
+      direction={htmlDir}
       key={`oc-menu-item-${index}`}
       variant={variant}
       size={size}
@@ -66,14 +81,19 @@ export const Menu: FC<MenuProps> = ({
 
   const getHeader = (): JSX.Element =>
     header && (
-      <div className={headerClasses}>
+      <div className={headerClassNames}>
         <div className={styles.heading}>{header}</div>
       </div>
     );
 
   const getFooter = (): JSX.Element =>
     (cancelButtonProps || okButtonProps) && (
-      <Stack gap="s" justify="flex-end" fullWidth classNames={footerClasses}>
+      <Stack
+        flexGap="s"
+        justify="flex-end"
+        fullWidth
+        classNames={footerClassNames}
+      >
         {cancelButtonProps && (
           <NeutralButton
             {...cancelButtonProps}
@@ -91,27 +111,17 @@ export const Menu: FC<MenuProps> = ({
       </Stack>
     );
 
-  const menuClassNames = mergeClasses([
-    classNames,
-    styles.menuContainer,
-    {
-      [styles.large]: size === MenuSize.large,
-      [styles.medium]: size === MenuSize.medium,
-      [styles.small]: size === MenuSize.small,
-    },
-  ]);
-
   return (
     <List<MenuItemTypes>
       {...rest}
-      items={items}
       classNames={menuClassNames}
-      style={style}
-      header={getHeader()}
       footer={getFooter()}
+      getItem={getListItem}
+      header={getHeader()}
+      items={items}
       listType={listType}
       role="menu"
-      getItem={getListItem}
+      style={style}
     />
   );
 };
