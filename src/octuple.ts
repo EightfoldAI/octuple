@@ -79,7 +79,13 @@ import { Link } from './components/Link';
 
 import { List } from './components/List';
 
-import { Menu, MenuItemType, MenuVariant, MenuSize } from './components/Menu';
+import {
+  Menu,
+  MenuItemIconAlign,
+  MenuItemType,
+  MenuVariant,
+  MenuSize,
+} from './components/Menu';
 
 import { Modal, ModalSize } from './components/Modal';
 
@@ -264,6 +270,7 @@ export {
   LoaderSize,
   MatchScore,
   Menu,
+  MenuItemIconAlign,
   MenuItemType,
   MenuVariant,
   MenuSize,

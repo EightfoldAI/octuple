@@ -11,7 +11,7 @@ export const MenuItemCustom: FC<MenuItemCustomProps> = ({
   size = MenuSize.medium,
   ...item
 }) => {
-  const menuItemClasses = mergeClasses([
+  const menuItemClassNames: string = mergeClasses([
     styles.menuItemCustom,
     {
       [styles.large]: size === MenuSize.large,
@@ -21,7 +21,7 @@ export const MenuItemCustom: FC<MenuItemCustomProps> = ({
   ]);
 
   return (
-    <div className={menuItemClasses}>
+    <div className={menuItemClassNames}>
       {item.render({ index, value: item, onChange })}
     </div>
   );

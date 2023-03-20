@@ -5,6 +5,13 @@ import { IconProps } from '../../Icon';
 import { LinkProps } from '../../Link';
 import { ButtonProps } from '../../Button';
 
+export interface MenuIconProps extends Omit<IconProps, 'size'> {}
+
+export enum MenuItemIconAlign {
+  Left = 'left',
+  Right = 'right',
+}
+
 export enum MenuItemType {
   button = 'button',
   custom = 'custom',
@@ -13,6 +20,15 @@ export enum MenuItemType {
 }
 
 export interface MenuItemProps {
+  /**
+   * The Menu item icon alignment.
+   * @default MenuItemIconAlign.Left
+   */
+  alignIcon?: MenuItemIconAlign;
+  /**
+   * The canvas direction of the Menu.
+   */
+  direction?: string;
   /**
    * Size of the menu
    * @default MenuSize.Medium
@@ -32,6 +48,11 @@ export interface MenuItemProps {
    * @default MenuVariant.neutral
    */
   variant?: MenuVariant;
+  /**
+   * The text should wrap
+   * @default false
+   */
+  wrap?: boolean;
 }
 
 type NativeMenuButtonProps = Omit<OcBaseProps<HTMLButtonElement>, 'children'>;
@@ -55,24 +76,24 @@ export interface MenuItemButtonProps
   /**
    * Menu item icon props
    */
-  iconProps?: IconProps;
+  iconProps?: MenuIconProps;
   /**
    * On Click handler of the menu item
    * @param value
    */
   onClick?: (value: any) => void;
   /**
-   * Display label of the menu item
+   * Secondary action button for the menu item
    */
-  text?: string;
+  secondaryButtonProps?: Omit<ButtonProps, 'text' | 'shape'>;
   /**
    * Display sub text of the menu item
    */
   subText?: string;
   /**
-   * Secondary action button for the menu item
+   * Display label of the menu item
    */
-  secondaryButtonProps?: Omit<ButtonProps, 'text' | 'shape'>;
+  text?: string;
 }
 
 export interface MenuItemLinkProps
@@ -94,15 +115,15 @@ export interface MenuItemLinkProps
   /**
    * Menu item icon props
    */
-  iconProps?: IconProps;
-  /**
-   * Display label of the menu item
-   */
-  text?: string;
+  iconProps?: MenuIconProps;
   /**
    * Display sub text of the menu item
    */
   subText?: string;
+  /**
+   * Display label of the menu item
+   */
+  text?: string;
 }
 
 export interface MenuItemSubHeaderProps
