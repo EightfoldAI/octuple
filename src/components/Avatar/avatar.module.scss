@@ -88,8 +88,12 @@
   }
 
   &.text-margin-left {
-    margin-left: 0 !important;
+    margin-left: 2px;
   }
+}
+
+.avatar-status-item-icon {
+  margin: 0;
 }
 
 .avatar-img-wrapper {

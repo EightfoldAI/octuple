@@ -225,7 +225,10 @@ const AvatarStatusItems: FC<BaseAvatarProps> = React.forwardRef(
               !statusItemProps.placeTextAfterIcon
                 ? statusItemTextElement
                 : ''}
-              <Icon {...statusItemProps} />
+              <Icon
+                {...statusItemProps}
+                classNames={styles.avatarStatusItemIcon}
+              />
               {showStatusItemText &&
               (showStatusItemsText[position] ?? true) &&
               statusItemProps.placeTextAfterIcon
