@@ -29,7 +29,7 @@ describe('Panel', () => {
     );
   });
 
-  test('panel visibility', () => {
+  test('Panel visibility', () => {
     expect(wrapper.hasClass('visible')).not.toEqual(true);
     wrapper.setProps({
       visible: true,
@@ -37,7 +37,7 @@ describe('Panel', () => {
     expect(wrapper.hasClass('visible')).toBe(false);
   });
 
-  test('panel content', () => {
+  test('Panel content', () => {
     wrapper.setProps({
       visible: true,
       title,
@@ -47,7 +47,7 @@ describe('Panel', () => {
     expect(wrapper.find('.header').text()).toBe(title);
   });
 
-  test('panel actions', () => {
+  test('Panel actions', () => {
     const onClose = jest.fn();
     wrapper.setProps({
       visible: true,
@@ -65,7 +65,7 @@ describe('Panel', () => {
     expect(onClose).toHaveBeenCalledTimes(2);
   });
 
-  test('panel header actions exist', () => {
+  test('Panel header actions exist', () => {
     wrapper.setProps({
       visible: true,
       headerButtonProps: {
@@ -91,15 +91,36 @@ describe('Panel', () => {
     expect(wrapper.find('.header-action-button-3').length).toBeTruthy();
   });
 
-  test('panel no body padding', () => {
+  test('Panel no body padding', () => {
     wrapper.setProps({
       visible: true,
       bodyPadding: false,
     });
     expect(wrapper.find('.no-body-padding').length).toBeTruthy();
+    expect(wrapper.render()).toMatchSnapshot();
   });
 
-  test('panel overlay is hidden', () => {
+  test('Panel no header padding', () => {
+    wrapper.setProps({
+      visible: true,
+      headerPadding: false,
+    });
+    expect(wrapper.find('.no-header-padding').length).toBeTruthy();
+    expect(wrapper.render()).toMatchSnapshot();
+  });
+
+  test('Panel no body and header padding', () => {
+    wrapper.setProps({
+      visible: true,
+      bodyPadding: false,
+      headerPadding: false,
+    });
+    expect(wrapper.find('.no-body-padding').length).toBeTruthy();
+    expect(wrapper.find('.no-header-padding').length).toBeTruthy();
+    expect(wrapper.render()).toMatchSnapshot();
+  });
+
+  test('Panel overlay is hidden', () => {
     wrapper.setProps({
       visible: true,
       overlay: false,
