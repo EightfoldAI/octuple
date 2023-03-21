@@ -216,8 +216,8 @@ export const Tooltip: FC<TooltipProps> = React.memo(
 
       const tooltipStyles: object = {
         position: strategy,
-        top: y ?? '',
-        left: x ?? '',
+        top: Math.floor(y) ?? '',
+        left: Math.floor(x) ?? '',
         width: width ?? '',
         height: height ?? '',
         ...tooltipStyle,
