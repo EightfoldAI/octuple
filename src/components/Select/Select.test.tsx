@@ -92,7 +92,19 @@ describe('Select', () => {
     await sleep(ANIMATION_DURATION);
     const option = getByText('Option 1');
     fireEvent.click(option);
-    expect(handleChange).toHaveBeenCalledWith(['option1']);
+    expect(handleChange).toHaveBeenCalledWith(
+      ['option1'],
+      [
+        {
+          hideOption: false,
+          id: 'Option 1-0',
+          object: undefined,
+          selected: true,
+          text: 'Option 1',
+          value: 'option1',
+        },
+      ]
+    );
   });
 
   test('Selects multiple options', async () => {
@@ -112,7 +124,27 @@ describe('Select', () => {
     fireEvent.click(option1);
     const option2 = getByText('Option 2');
     fireEvent.click(option2);
-    expect(handleChange).toHaveBeenCalledWith(['option1', 'option2']);
+    expect(handleChange).toHaveBeenCalledWith(
+      ['option1', 'option2'],
+      [
+        {
+          hideOption: false,
+          id: 'Option 1-0',
+          object: undefined,
+          selected: true,
+          text: 'Option 1',
+          value: 'option1',
+        },
+        {
+          hideOption: false,
+          id: 'Option 2-1',
+          object: undefined,
+          selected: true,
+          text: 'Option 2',
+          value: 'option2',
+        },
+      ]
+    );
   });
 
   test('Renders with default value', () => {
@@ -142,7 +174,33 @@ describe('Select', () => {
     await sleep(ANIMATION_DURATION);
     const option1 = getByText('Option 1');
     fireEvent.click(option1);
-    expect(handleChange).toHaveBeenCalledWith(['option1']);
+    expect(handleChange).toHaveBeenCalledWith([], []);
+    expect(handleChange).toHaveBeenCalledWith(
+      ['option2'],
+      [
+        {
+          hideOption: false,
+          id: 'Option 2-1',
+          object: undefined,
+          selected: true,
+          text: 'Option 2',
+          value: 'option2',
+        },
+      ]
+    );
+    expect(handleChange).toHaveBeenCalledWith(
+      ['option1'],
+      [
+        {
+          hideOption: false,
+          id: 'Option 1-0',
+          object: undefined,
+          selected: true,
+          text: 'Option 1',
+          value: 'option1',
+        },
+      ]
+    );
   });
 
   test('Renders with default values when multiple', () => {
@@ -174,11 +232,35 @@ describe('Select', () => {
     await sleep(ANIMATION_DURATION);
     const option1 = getByText('Option 1');
     fireEvent.click(option1);
-    expect(handleChange).toHaveBeenCalledWith([
-      'option1',
-      'option2',
-      'option3',
-    ]);
+    expect(handleChange).toHaveBeenCalledWith(
+      ['option1', 'option2', 'option3'],
+      [
+        {
+          hideOption: false,
+          id: 'Option 1-0',
+          object: undefined,
+          selected: true,
+          text: 'Option 1',
+          value: 'option1',
+        },
+        {
+          hideOption: false,
+          id: 'Option 2-1',
+          object: undefined,
+          selected: true,
+          text: 'Option 2',
+          value: 'option2',
+        },
+        {
+          hideOption: false,
+          id: 'Option 3-2',
+          object: undefined,
+          selected: true,
+          text: 'Option 3',
+          value: 'option3',
+        },
+      ]
+    );
   });
 
   test('Renders with clear button', () => {
@@ -207,7 +289,21 @@ describe('Select', () => {
     await sleep(ANIMATION_DURATION);
     const clearButton = container.querySelector('.clear-icon-button');
     fireEvent.click(clearButton);
-    expect(handleChange).toHaveBeenCalledWith([]);
+    expect(handleChange).toHaveBeenCalledWith([], []);
+    expect(handleChange).toHaveBeenCalledWith(
+      ['option2'],
+      [
+        {
+          hideOption: false,
+          id: 'Option 2-1',
+          object: undefined,
+          selected: true,
+          text: 'Option 2',
+          value: 'option2',
+        },
+      ]
+    );
+    expect(handleChange).toHaveBeenCalledWith([], []);
   });
 
   test('Select clearable input value is cleared and clear button is no longer visible', async () => {

@@ -105,6 +105,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
         selected: false,
         hideOption: false,
         id: option.text + '-' + index,
+        object: option.object,
         ...option,
       }))
     );
@@ -128,10 +129,14 @@ export const Select: FC<SelectProps> = React.forwardRef(
       ? size
       : contextuallySized || size;
 
-    const getSelectedOptions = (): SelectOption['value'][] => {
+    const getSelectedOptionValues = (): SelectOption['value'][] => {
       return options
         .filter((option: SelectOption) => option.selected)
         .map((option: SelectOption) => option.value);
+    };
+
+    const getSelectedOptions = (): SelectOption['value'][] => {
+      return options.filter((option: SelectOption) => option.selected);
     };
 
     const { count, filled, width } = useMaxVisibleSections(
@@ -140,7 +145,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
       168,
       8,
       1,
-      getSelectedOptions().length
+      getSelectedOptionValues().length
     );
 
     useEffect(() => {
@@ -152,14 +157,15 @@ export const Select: FC<SelectProps> = React.forwardRef(
           selected: !!selected.find((opt) => opt.value === option.value),
           hideOption: false,
           id: option.text + index,
+          object: option.object,
           ...option,
         }))
       );
     }, [_options, isLoading]);
 
     useEffect(() => {
-      onOptionsChange?.(getSelectedOptions());
-    }, [getSelectedOptions().join('')]);
+      onOptionsChange?.(getSelectedOptionValues(), getSelectedOptions());
+    }, [getSelectedOptionValues().join('')]);
 
     useEffect(() => {
       const updatedOptions = options.map((opt) => ({
