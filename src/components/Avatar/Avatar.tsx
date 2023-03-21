@@ -8,6 +8,7 @@ import {
   AvatarOutlineProps,
   AvatarProps,
   BaseAvatarProps,
+  StatusItemIconAlign,
   StatusItemsPosition,
   StatusItemsProps,
 } from './';
@@ -153,6 +154,8 @@ const AvatarStatusItems: FC<BaseAvatarProps> = React.forwardRef(
       <>
         {Object.keys(statusItems).map((position: StatusItemsPosition) => {
           const statusItemProps: StatusItemsProps = statusItems[position];
+          const alignIcon: StatusItemIconAlign =
+            statusItemProps.alignIcon ?? StatusItemIconAlign.Right;
           const showStatusItemText: boolean =
             statusItemProps.text &&
             statusItemProps.text.length <=
@@ -163,21 +166,16 @@ const AvatarStatusItems: FC<BaseAvatarProps> = React.forwardRef(
           const statusItemTextClasses = mergeClasses([
             styles.avatarStatusItemText,
             { [styles.avatarStatusItemTextRtl]: htmlDir === 'rtl' },
-            { [styles.textMarginRight]: !statusItemProps.placeTextAfterIcon },
-            { [styles.textMarginLeft]: statusItemProps.placeTextAfterIcon },
+            {
+              [styles.textMarginRight]: alignIcon == StatusItemIconAlign.Right,
+            },
+            { [styles.textMarginLeft]: alignIcon == StatusItemIconAlign.Left },
           ]);
-          const statusItemTextElement = (
-            <span
-              ref={(el) => (statusItemsRef.current[position] = el)}
-              style={{
-                color: statusItemProps.color,
-                fontSize: `calc(${statusItemProps.size} + ${StatusItemFontDiff})`,
-                lineHeight: statusItemProps.size,
-              }}
-              className={statusItemTextClasses}
-            >
-              {statusItemProps.text}
-            </span>
+          const statusItemIconElement = (
+            <Icon
+              {...statusItemProps}
+              classNames={styles.avatarStatusItemIcon}
+            />
           );
           return (
             <div
@@ -220,20 +218,21 @@ const AvatarStatusItems: FC<BaseAvatarProps> = React.forwardRef(
                 ? { 'aria-label': statusItemProps.ariaLabel }
                 : {})}
             >
-              {showStatusItemText &&
-              (showStatusItemsText[position] ?? true) &&
-              !statusItemProps.placeTextAfterIcon
-                ? statusItemTextElement
-                : ''}
-              <Icon
-                {...statusItemProps}
-                classNames={styles.avatarStatusItemIcon}
-              />
-              {showStatusItemText &&
-              (showStatusItemsText[position] ?? true) &&
-              statusItemProps.placeTextAfterIcon
-                ? statusItemTextElement
-                : ''}
+              {alignIcon == StatusItemIconAlign.Left && statusItemIconElement}
+              {showStatusItemText && (showStatusItemsText[position] ?? true) && (
+                <span
+                  ref={(el) => (statusItemsRef.current[position] = el)}
+                  style={{
+                    color: statusItemProps.color,
+                    fontSize: `calc(${statusItemProps.size} + ${StatusItemFontDiff})`,
+                    lineHeight: statusItemProps.size,
+                  }}
+                  className={statusItemTextClasses}
+                >
+                  {statusItemProps.text}
+                </span>
+              )}
+              {alignIcon == StatusItemIconAlign.Right && statusItemIconElement}
             </div>
           );
         })}

@@ -20,6 +20,11 @@ export enum StatusItemsPosition {
   BottomLeft = 'bottomLeft',
 }
 
+export enum StatusItemIconAlign {
+  Left = 'left',
+  Right = 'right',
+}
+
 export interface AvatarOutlineProps {
   /**
    * Outline color
@@ -68,10 +73,10 @@ export interface StatusItemsProps extends IconProps {
    */
   wrapperClassName?: string;
   /**
-   * Place text after the icon if true
-   * @default false
+   * Status item icon alignment
+   * @default StatusItemIconAlign.Right
    */
-  placeTextAfterIcon?: boolean;
+  alignIcon?: StatusItemIconAlign;
   /**
    * Text present with icon
    */
