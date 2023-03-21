@@ -1,4 +1,4 @@
-import { Placement, Strategy } from '@floating-ui/react-dom';
+import { Placement, Strategy } from '@floating-ui/react';
 import React, { Ref } from 'react';
 import { OcBaseProps } from '../OcBase';
 

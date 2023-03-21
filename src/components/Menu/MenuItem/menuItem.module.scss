@@ -239,7 +239,7 @@
 
   &.small {
     margin: 0 $space-s $space-m;
-    padding: $space-s 0 $space-s;
+    padding: $space-s $space-xxxs $space-s;
     @include octuple-content-small();
   }
 }

@@ -6,20 +6,30 @@ import React, {
   useImperativeHandle,
   useState,
 } from 'react';
+import {
+  autoUpdate,
+  flip,
+  FloatingPortal,
+  offset as fOffset,
+  shift,
+  useFloating,
+} from '@floating-ui/react';
 import { DropdownProps, DropdownRef } from './Dropdown.types';
-import { autoUpdate, flip, shift, useFloating } from '@floating-ui/react-dom';
-import { offset as fOffset } from '@floating-ui/core';
+import { Menu } from '../Menu';
+import { useAccessibility } from '../../hooks/useAccessibility';
+import { useMergedState } from '../../hooks/useMergedState';
+import { useOnClickOutside } from '../../hooks/useOnClickOutside';
 import {
   ConditionalWrapper,
   mergeClasses,
   uniqueId,
 } from '../../shared/utilities';
-import { useOnClickOutside } from '../../hooks/useOnClickOutside';
-import { useAccessibility } from '../../hooks/useAccessibility';
+
 import styles from './dropdown.module.scss';
-import { FloatingPortal } from '@floating-ui/react-dom-interactions';
-import { Menu } from '../Menu';
-import { useMergedState } from '../../hooks/useMergedState';
+
+const ANIMATION_DURATION: number = 200;
+
+const PREVENT_DEFAULT_TRIGGERS: string[] = ['contextmenu'];
 
 const TRIGGER_TO_HANDLER_MAP_ON_ENTER = {
   click: 'onClick',
@@ -32,10 +42,6 @@ const TRIGGER_TO_HANDLER_MAP_ON_LEAVE = {
   hover: 'onMouseLeave',
   contextmenu: '',
 };
-
-const PREVENT_DEFAULT_TRIGGERS = ['contextmenu'];
-
-const ANIMATION_DURATION = 200;
 
 export const Dropdown: FC<DropdownProps> = React.memo(
   React.forwardRef<DropdownRef, DropdownProps>(
@@ -62,7 +68,7 @@ export const Dropdown: FC<DropdownProps> = React.memo(
         visible,
         width,
       },
-      ref
+      ref: React.ForwardedRef<DropdownRef>
     ) => {
       const [mergedVisible, setVisible] = useMergedState<boolean>(false, {
         value: visible,
