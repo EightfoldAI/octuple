@@ -118,10 +118,18 @@ export const Scroller = React.forwardRef(
       });
     };
 
+    const noScroller = (): boolean => {
+      return (
+        scrollBodyRef?.current?.clientWidth >=
+        scrollBodyRef?.current?.scrollWidth
+      );
+    };
+
     const onBodyScroll = (): void => {
       const bodyScrollLeft: number = scrollBodyRef.current.scrollLeft;
       const bodyWidth: number = scrollBodyRef.current.clientWidth;
       const bodyScrollWidth: number = scrollBodyRef.current.scrollWidth;
+
       if (bodyScrollLeft === 0) {
         setLeftButtonVisible(false);
         setRightButtonVisible(true);
@@ -154,6 +162,8 @@ export const Scroller = React.forwardRef(
         );
       };
     }, []);
+
+    if (noScroller()) return null;
 
     return (
       <>
