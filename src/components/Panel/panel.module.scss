@@ -113,25 +113,40 @@
     &.no-body-padding {
       padding: 0;
 
+      .footer {
+        padding: $space-m $space-xl $space-l $space-xl;
+      }
+
       .header {
         padding: $space-l $space-xl $space-m $space-xl;
       }
 
-      .footer {
-        padding: $space-m $space-xl $space-l $space-xl;
+      &.no-header-padding {
+        .header {
+          padding: 0;
+        }
       }
     }
 
     &.no-header-padding {
       padding: 0;
-      .header {
-        padding: 0;
-      }
+
       .body {
         padding: 0 $space-xl;
       }
+
       .footer {
         padding: $space-m $space-xl $space-l $space-xl;
+      }
+
+      .header {
+        padding: 0;
+      }
+
+      &.no-body-padding {
+        .body {
+          padding: 0;
+        }
       }
     }
   }
