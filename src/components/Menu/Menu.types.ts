@@ -5,6 +5,7 @@ import {
   MenuItemCustomProps,
   MenuItemLinkProps,
   MenuItemSubHeaderProps,
+  DropdownMenuItemProps,
 } from './MenuItem/MenuItem.types';
 import { ButtonProps } from '../Button';
 
@@ -24,7 +25,8 @@ export type MenuItemTypes =
   | MenuItemLinkProps
   | MenuItemButtonProps
   | MenuItemSubHeaderProps
-  | MenuItemCustomProps;
+  | MenuItemCustomProps
+  | DropdownMenuItemProps;
 
 export interface MenuProps
   extends Omit<
@@ -53,6 +55,11 @@ export interface MenuProps
    */
   onOk?: React.MouseEventHandler<HTMLButtonElement>;
   /**
+   * The menu aria role.
+   * @default 'menu'
+   */
+  role?: string;
+  /**
    * Size of the menu
    * @default MenuSize.Medium
    */
@@ -67,3 +74,5 @@ export interface MenuProps
    */
   variant?: MenuVariant;
 }
+
+export interface DropdownMenuProps extends MenuProps {}

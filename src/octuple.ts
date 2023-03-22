@@ -80,6 +80,7 @@ import { Link } from './components/Link';
 import { List } from './components/List';
 
 import {
+  CascadingMenu,
   Menu,
   MenuItemIconAlign,
   MenuItemType,
@@ -202,6 +203,8 @@ import { ResizeObserver } from './shared/ResizeObserver/ResizeObserver';
 
 import { useBoolean } from './hooks/useBoolean';
 
+import { useCanvasDirection } from './hooks/useCanvasDirection';
+
 import { useMatchMedia } from './hooks/useMatchMedia';
 
 import { useOnClickOutside } from './hooks/useOnClickOutside';
@@ -229,6 +232,7 @@ export {
   CardSize,
   CardType,
   Carousel,
+  CascadingMenu,
   CheckBox,
   CheckBoxGroup,
   Col,
@@ -368,6 +372,7 @@ export {
   UploadProps,
   UploadSize,
   useBoolean,
+  useCanvasDirection,
   useMatchMedia,
   useMaxVisibleSections,
   useOnClickOutside,

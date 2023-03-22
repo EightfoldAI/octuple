@@ -3,18 +3,12 @@ import { MenuItemTypes, MenuProps, MenuSize, MenuVariant } from './Menu.types';
 import { List } from '../List';
 import { MenuItem } from './MenuItem/MenuItem';
 import { MenuItemType } from './MenuItem/MenuItem.types';
-import { mergeClasses } from '../../shared/utilities';
 import { Stack } from '../Stack';
 import { ButtonSize, NeutralButton, PrimaryButton } from '../Button';
 import { useCanvasDirection } from '../../hooks/useCanvasDirection';
+import { mergeClasses } from '../../shared/utilities';
 
 import styles from './menu.module.scss';
-
-const MENU_SIZE_TO_BUTTON_SIZE_MAP: Record<MenuSize, ButtonSize> = {
-  [MenuSize.large]: ButtonSize.Large,
-  [MenuSize.medium]: ButtonSize.Medium,
-  [MenuSize.small]: ButtonSize.Small,
-};
 
 export const Menu: FC<MenuProps> = ({
   cancelButtonProps,
@@ -29,6 +23,7 @@ export const Menu: FC<MenuProps> = ({
   onCancel,
   onChange,
   onOk,
+  role = 'menu',
   size = MenuSize.medium,
   style,
   subHeader,
@@ -65,6 +60,15 @@ export const Menu: FC<MenuProps> = ({
     },
   ]);
 
+  const menuSizeToButtonSizeMap: Map<MenuSize, ButtonSize> = new Map<
+    MenuSize,
+    ButtonSize
+  >([
+    [MenuSize.large, ButtonSize.Large],
+    [MenuSize.medium, ButtonSize.Medium],
+    [MenuSize.small, ButtonSize.Small],
+  ]);
+
   const getListItem = (item: MenuItemTypes, index: number): React.ReactNode => (
     <MenuItem
       classNames={itemClassNames}
@@ -97,14 +101,14 @@ export const Menu: FC<MenuProps> = ({
         {cancelButtonProps && (
           <NeutralButton
             {...cancelButtonProps}
-            size={MENU_SIZE_TO_BUTTON_SIZE_MAP[size]}
+            size={menuSizeToButtonSizeMap.get(size)}
             onClick={onCancel}
           />
         )}
         {okButtonProps && (
           <PrimaryButton
             {...okButtonProps}
-            size={MENU_SIZE_TO_BUTTON_SIZE_MAP[size]}
+            size={menuSizeToButtonSizeMap.get(size)}
             onClick={onOk}
           />
         )}
@@ -120,7 +124,7 @@ export const Menu: FC<MenuProps> = ({
       header={getHeader()}
       items={items}
       listType={listType}
-      role="menu"
+      role={role}
       style={style}
     />
   );
