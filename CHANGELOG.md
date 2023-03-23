@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.33.0](https://github.com/EightfoldAI/octuple/compare/v2.32.0...v2.33.0) (2023-03-23)
+
+### Features
+
+- cascadingmenu: add cascading menu component ([#566](https://github.com/EightfoldAI/octuple/issues/566)) ([4f7ca8c](https://github.com/EightfoldAI/octuple/commits/4f7ca8c93722b4bc244bbdc8fe30d119fb5c126c))
+- menuitem: adds align icon prop and fixes list item rendering bug ([#563](https://github.com/EightfoldAI/octuple/issues/563)) ([65dde9a](https://github.com/EightfoldAI/octuple/commits/65dde9adfa93fc11375da78c45275a5826688131))
+
+### Bug Fixes
+
+- carousel: only handle wheel event when not using touchpad ([#568](https://github.com/EightfoldAI/octuple/issues/568)) ([045ba0e](https://github.com/EightfoldAI/octuple/commits/045ba0ee413cc9ab9a2099a408d6a19066ce2582))
+- no scrolling buttons when body does not have scroll bar ([#571](https://github.com/EightfoldAI/octuple/issues/571)) ([a64a582](https://github.com/EightfoldAI/octuple/commits/a64a582006ef0eb36be9da4d1e10e8c9145c0b88))
+- panel: body padding prop on panel does not work ([#569](https://github.com/EightfoldAI/octuple/issues/569)) ([f3ddff5](https://github.com/EightfoldAI/octuple/commits/f3ddff5bb484feff92abaea33a21e6fddc7d5eb7))
+- select: options change not reacting properly when value is an object ([#570](https://github.com/EightfoldAI/octuple/issues/570)) ([1cba3fd](https://github.com/EightfoldAI/octuple/commits/1cba3fd140e9c776f6f92d05d57fdafa15516c4b))
+- status item styles, add option to place status icon before status text ([#567](https://github.com/EightfoldAI/octuple/issues/567)) ([cdf866c](https://github.com/EightfoldAI/octuple/commits/cdf866c4fb7678e012212f14600bcc57dba5e8fb))
+- tooltip: fixes pixel position rounding error ([#572](https://github.com/EightfoldAI/octuple/issues/572)) ([4a5a70f](https://github.com/EightfoldAI/octuple/commits/4a5a70f19713abead765443c7d86f0f5f4c23b3d))
+
 ## [2.32.0](https://github.com/EightfoldAI/octuple/compare/v2.31.0...v2.32.0) (2023-03-15)
 
 ### Bug Fixes
