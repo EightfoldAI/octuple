@@ -9,6 +9,7 @@ import {
   Avatar,
   AvatarGroup,
   AvatarGroupVariant,
+  StatusItemIconAlign,
   StatusItemsPosition,
 } from './components/Avatar';
 
@@ -335,6 +336,7 @@ export {
   Stack,
   Stat,
   StatThemeName,
+  StatusItemIconAlign,
   StatusItemsPosition,
   StatValidationStatus,
   Step,

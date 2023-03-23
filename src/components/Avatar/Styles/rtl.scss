@@ -1,15 +1,27 @@
 .avatar-group {
   &-rtl {
-    :not(:first-child):not(.avatar-group-tooltip):not(.avatar-status-item) {
+    :not(:first-child):not(.avatar-group-tooltip):not(.avatar-status-item):not(.avatar-status-item-text):not(.avatar-status-item-icon) {
       margin-right: -$space-xs;
       margin-left: 0;
     }
 
     &.spaced {
-      :not(:first-child):not(.avatar-group-spaced-tooltip):not(.avatar-status-item) {
+      :not(:first-child):not(.avatar-group-spaced-tooltip):not(.avatar-status-item):not(.avatar-status-item-text):not(.avatar-status-item-icon) {
         margin-right: -$space-xxxs;
         margin-left: 0;
       }
     }
+  }
+}
+
+.avatar-status-item-text-rtl {
+  &.text-margin-right {
+    margin-right: 0;
+    margin-left: 2px;
+  }
+
+  &.text-margin-left {
+    margin-left: 0;
+    margin-right: 2px;
   }
 }

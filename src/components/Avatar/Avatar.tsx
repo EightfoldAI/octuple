@@ -8,6 +8,7 @@ import {
   AvatarOutlineProps,
   AvatarProps,
   BaseAvatarProps,
+  StatusItemIconAlign,
   StatusItemsPosition,
   StatusItemsProps,
 } from './';
@@ -43,6 +44,7 @@ export const getStatusItemSizeAndPadding = (
 const StatusItemWrapperPaddingFactor: number = 0.06;
 const DefaultStatusItemMaxTextLength: number = 3;
 const MinStatusItemFontSize: number = 12;
+const StatusItemFontDiff: string = '2px';
 
 const StatusItemOutlineDefaults: React.CSSProperties = {
   outlineColor: 'var(--grey-color-80)',
@@ -152,6 +154,8 @@ const AvatarStatusItems: FC<BaseAvatarProps> = React.forwardRef(
       <>
         {Object.keys(statusItems).map((position: StatusItemsPosition) => {
           const statusItemProps: StatusItemsProps = statusItems[position];
+          const alignIcon: StatusItemIconAlign =
+            statusItemProps.alignIcon ?? StatusItemIconAlign.Right;
           const showStatusItemText: boolean =
             statusItemProps.text &&
             statusItemProps.text.length <=
@@ -159,6 +163,20 @@ const AvatarStatusItems: FC<BaseAvatarProps> = React.forwardRef(
           const wrapperPadding: string | number =
             statusItemProps?.wrapperStyle?.padding ??
             `(${size} * ${StatusItemWrapperPaddingFactor})`;
+          const statusItemTextClasses = mergeClasses([
+            styles.avatarStatusItemText,
+            { [styles.avatarStatusItemTextRtl]: htmlDir === 'rtl' },
+            {
+              [styles.textMarginRight]: alignIcon == StatusItemIconAlign.Right,
+            },
+            { [styles.textMarginLeft]: alignIcon == StatusItemIconAlign.Left },
+          ]);
+          const statusItemIconElement = (
+            <Icon
+              {...statusItemProps}
+              classNames={styles.avatarStatusItemIcon}
+            />
+          );
           return (
             <div
               key={position}
@@ -200,21 +218,21 @@ const AvatarStatusItems: FC<BaseAvatarProps> = React.forwardRef(
                 ? { 'aria-label': statusItemProps.ariaLabel }
                 : {})}
             >
-              {showStatusItemText && (showStatusItemsText[position] ?? true) ? (
+              {alignIcon == StatusItemIconAlign.Left && statusItemIconElement}
+              {showStatusItemText && (showStatusItemsText[position] ?? true) && (
                 <span
                   ref={(el) => (statusItemsRef.current[position] = el)}
                   style={{
-                    fontSize: statusItemProps.size,
                     color: statusItemProps.color,
+                    fontSize: `calc(${statusItemProps.size} + ${StatusItemFontDiff})`,
+                    lineHeight: statusItemProps.size,
                   }}
-                  className={styles.avatarStatusItemText}
+                  className={statusItemTextClasses}
                 >
                   {statusItemProps.text}
                 </span>
-              ) : (
-                ''
               )}
-              <Icon {...statusItemProps} />
+              {alignIcon == StatusItemIconAlign.Right && statusItemIconElement}
             </div>
           );
         })}
