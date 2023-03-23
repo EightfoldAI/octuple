@@ -9,11 +9,11 @@ import React, {
 import {
   arrow,
   autoUpdate,
+  FloatingPortal,
   offset as fOffset,
   shift,
   useFloating,
-} from '@floating-ui/react-dom';
-import { FloatingPortal } from '@floating-ui/react-dom-interactions';
+} from '@floating-ui/react';
 import {
   ANIMATION_DURATION,
   PREVENT_DEFAULT_TRIGGERS,
@@ -216,8 +216,8 @@ export const Tooltip: FC<TooltipProps> = React.memo(
 
       const tooltipStyles: object = {
         position: strategy,
-        top: y ?? '',
-        left: x ?? '',
+        top: Math.floor(y) ?? '',
+        left: Math.floor(x) ?? '',
         width: width ?? '',
         height: height ?? '',
         ...tooltipStyle,
@@ -260,7 +260,7 @@ export const Tooltip: FC<TooltipProps> = React.memo(
                 [TRIGGER_TO_HANDLER_MAP_ON_ENTER[trigger]]: toggle(true),
               },
               onClick: toggle(!mergedVisible),
-              classNames: referenceWrapperClassNames,
+              className: referenceWrapperClassNames,
               'aria-controls': tooltipId?.current,
               'aria-expanded': mergedVisible,
               'aria-haspopup': true,

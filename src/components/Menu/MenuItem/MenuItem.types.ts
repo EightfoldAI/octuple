@@ -1,5 +1,5 @@
 import React from 'react';
-import { MenuSize, MenuVariant } from '../Menu.types';
+import { DropdownMenuProps, MenuSize, MenuVariant } from '../Menu.types';
 import { OcBaseProps } from '../../OcBase';
 import { IconProps } from '../../Icon';
 import { LinkProps } from '../../Link';
@@ -35,6 +35,10 @@ export interface MenuItemProps {
    */
   size?: MenuSize;
   /**
+   * Display label of the menu item
+   */
+  text?: string;
+  /**
    * Type of the menu
    * @default MenuType.button
    */
@@ -42,7 +46,7 @@ export interface MenuItemProps {
   /**
    * Value of the menu item
    */
-  value: any;
+  value?: any;
   /**
    * Variant of the menu item
    * @default MenuVariant.neutral
@@ -73,6 +77,14 @@ export interface MenuItemButtonProps
    * If menu item is disabled or not
    */
   disabled?: boolean;
+  /**
+   * Menu item opens a dropdown menu.
+   */
+  dropdownMenuItems?: DropdownMenuItemProps[];
+  /**
+   * The nested dropdown menu props
+   */
+  dropdownMenuProps?: NestedDropdownMenuProps;
   /**
    * Menu item icon props
    */
@@ -152,4 +164,24 @@ export interface MenuItemCustomProps
    * Method to render custom menu item
    */
   render?: (menuItemRender: IMenuItemRender) => React.ReactNode;
+  /**
+   * Menu item opens a dropdown menu.
+   */
+  dropdownMenuItems?: DropdownMenuItemProps[];
+  /**
+   * The nested dropdown menu props
+   */
+  dropdownMenuProps?: NestedDropdownMenuProps;
 }
+
+/**
+ * NOTE: Sub menus should only be triggered by buttons, not links or text.
+ */
+export type DropdownMenuItemProps =
+  | MenuItemButtonProps
+  | MenuItemLinkProps
+  | MenuItemSubHeaderProps
+  | MenuItemCustomProps;
+
+export interface NestedDropdownMenuProps
+  extends Omit<DropdownMenuProps, 'items'> {}

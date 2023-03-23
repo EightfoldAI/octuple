@@ -1,9 +1,10 @@
 import React, { FC } from 'react';
 import { MenuItemButtonProps, MenuItemIconAlign } from '../MenuItem.types';
 import { MenuSize, MenuVariant } from '../../Menu.types';
-import { mergeClasses } from '../../../../shared/utilities';
-import { Icon, IconSize } from '../../../Icon';
 import { ButtonShape, ButtonSize, NeutralButton } from '../../../Button';
+import { CascadingMenu } from '../../CascadingMenu';
+import { Icon, IconSize } from '../../../Icon';
+import { mergeClasses } from '../../../../shared/utilities';
 
 import styles from '../menuItem.module.scss';
 
@@ -14,6 +15,8 @@ export const MenuItemButton: FC<MenuItemButtonProps> = ({
   counter,
   direction,
   disabled,
+  dropdownMenuItems,
+  dropdownMenuProps,
   iconProps,
   onClick,
   role = 'menuitem',
@@ -77,8 +80,28 @@ export const MenuItemButton: FC<MenuItemButtonProps> = ({
     [MenuSize.small, IconSize.Small],
   ]);
 
-  return secondaryButtonProps ? (
-    <li role={role} tabIndex={-1} className={menuItemClassNames}>
+  const menuButton = (): JSX.Element => (
+    <button
+      className={styles.menuItemButton}
+      disabled={disabled}
+      tabIndex={tabIndex}
+      {...rest}
+      onClick={handleOnClick}
+    >
+      {iconProps && alignIcon === MenuItemIconAlign.Left && getIcon()}
+      <span className={styles.menuItemWrapper}>
+        <span className={styles.itemText}>
+          <span className={styles.label}>{text}</span>
+          {counter && <span>{counter}</span>}
+        </span>
+        {subText && <span className={itemSubTextClassNames}>{subText}</span>}
+      </span>
+      {iconProps && alignIcon === MenuItemIconAlign.Right && getIcon()}
+    </button>
+  );
+
+  const secondaryButton = (): JSX.Element => (
+    <>
       <span className={styles.menuSecondaryWrapper}>
         <button
           className={styles.menuOuterButton}
@@ -87,7 +110,7 @@ export const MenuItemButton: FC<MenuItemButtonProps> = ({
           {...rest}
           onClick={handleOnClick}
         >
-          {iconProps && alignIcon !== MenuItemIconAlign.Right && getIcon()}
+          {iconProps && alignIcon === MenuItemIconAlign.Left && getIcon()}
           <span className={styles.menuItemWrapper}>
             <span className={styles.itemText}>
               <span className={styles.label}>{text}</span>
@@ -108,26 +131,31 @@ export const MenuItemButton: FC<MenuItemButtonProps> = ({
         </span>
       </span>
       {subText && <span className={itemSubTextClassNames}>{subText}</span>}
-    </li>
-  ) : (
+    </>
+  );
+
+  const dropdownMenuButton = (): JSX.Element => (
+    <CascadingMenu
+      {...dropdownMenuProps}
+      items={dropdownMenuItems}
+      size={size}
+      variant={variant}
+    >
+      {menuButton()}
+    </CascadingMenu>
+  );
+
+  const renderedItem = (): JSX.Element => {
+    if (secondaryButtonProps) {
+      return secondaryButton();
+    }
+
+    return dropdownMenuItems ? dropdownMenuButton() : menuButton();
+  };
+
+  return (
     <li role={role} tabIndex={-1} className={menuItemClassNames}>
-      <button
-        className={styles.menuItemButton}
-        disabled={disabled}
-        tabIndex={tabIndex}
-        {...rest}
-        onClick={handleOnClick}
-      >
-        {iconProps && alignIcon === MenuItemIconAlign.Left && getIcon()}
-        <span className={styles.menuItemWrapper}>
-          <span className={styles.itemText}>
-            <span className={styles.label}>{text}</span>
-            {counter && <span>{counter}</span>}
-          </span>
-          {subText && <span className={itemSubTextClassNames}>{subText}</span>}
-        </span>
-        {iconProps && alignIcon === MenuItemIconAlign.Right && getIcon()}
-      </button>
+      {renderedItem()}
     </li>
   );
 };

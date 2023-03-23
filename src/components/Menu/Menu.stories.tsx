@@ -1,12 +1,20 @@
 import React from 'react';
 import { Stories } from '@storybook/addon-docs';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { Menu, MenuItemType, MenuSize, MenuVariant } from './';
+import {
+  Menu,
+  MenuItemIconAlign,
+  MenuItemType,
+  MenuSize,
+  MenuVariant,
+} from './';
 import { Dropdown } from '../Dropdown';
 import { DefaultButton } from '../Button';
 import { RadioGroup } from '../RadioButton';
 import { IconName } from '../Icon';
-import { SelectorSize } from '../CheckBox/Checkbox.types';
+import { useCanvasDirection } from '../../hooks/useCanvasDirection';
+import { SelectorSize } from '../CheckBox';
+import { CascadingMenu } from './CascadingMenu';
 
 export default {
   title: 'Menu',
@@ -58,7 +66,7 @@ const BasicOverlay = (args: any) => (
           path: IconName.mdiCalendar,
         },
         text: 'Date',
-        value: 'date 1',
+        value: 'menu 1',
         counter: '8',
         secondaryButtonProps: {
           iconProps: {
@@ -70,8 +78,8 @@ const BasicOverlay = (args: any) => (
         },
       },
       {
-        text: 'Thumbs up',
-        value: 'date 1',
+        text: 'Disabled button',
+        value: 'menu 2',
         disabled: true,
         subText: 'This is a sub text',
       },
@@ -80,24 +88,24 @@ const BasicOverlay = (args: any) => (
           path: IconName.mdiCalendar,
         },
         text: 'Date',
-        value: 'date 1',
+        value: 'menu 3',
         counter: '8',
       },
       {
-        text: 'Thumbs up',
-        value: 'date 1',
+        text: 'Button',
+        value: 'menu 4',
       },
       {
         iconProps: {
           path: IconName.mdiCalendar,
         },
         text: 'Date',
-        value: 'date 1',
+        value: 'menu 5',
         counter: '8',
       },
       {
-        text: 'Thumbs up',
-        value: 'date 1',
+        text: 'Button',
+        value: 'menu 6',
       },
     ]}
     onChange={(item) => {
@@ -138,13 +146,13 @@ const LinkOverlay = (args: any) => (
   />
 );
 
-const SubHeaderOverlay = (args: any) => {
-  const menuSizeToSelectorSizeSizeMap = new Map<MenuSize, SelectorSize>([
-    [MenuSize.large, SelectorSize.Large],
-    [MenuSize.medium, SelectorSize.Medium],
-    [MenuSize.small, SelectorSize.Small],
-  ]);
+const menuSizeToSelectorSizeSizeMap = new Map<MenuSize, SelectorSize>([
+  [MenuSize.large, SelectorSize.Large],
+  [MenuSize.medium, SelectorSize.Medium],
+  [MenuSize.small, SelectorSize.Small],
+]);
 
+const SubHeaderOverlay = (args: any) => {
   return (
     <Menu
       {...args}
@@ -154,12 +162,12 @@ const SubHeaderOverlay = (args: any) => {
             path: IconName.mdiCalendar,
           },
           text: 'Date',
-          value: 'date 1',
+          value: 'menu 1',
           counter: '8',
         },
         {
-          text: 'Thumbs up',
-          value: 'date 1',
+          text: 'Disabled button',
+          value: 'menu 2',
           disabled: true,
         },
         {
@@ -167,16 +175,16 @@ const SubHeaderOverlay = (args: any) => {
             path: IconName.mdiCalendar,
           },
           text: 'Date',
-          value: 'date 1',
+          value: 'menu 3',
           counter: '8',
         },
         {
-          text: 'Thumbs up',
-          value: 'date 1',
+          text: 'Button',
+          value: 'menu 4',
         },
         {
           type: MenuItemType.subHeader,
-          text: 'Menu Type links',
+          text: 'Sub header',
         },
         {
           type: MenuItemType.link,
@@ -219,12 +227,12 @@ const SubHeaderOverlay = (args: any) => {
             path: IconName.mdiCalendar,
           },
           text: 'Date',
-          value: 'date 1',
+          value: 'menu 5',
           counter: '8',
         },
         {
-          text: 'Thumbs up',
-          value: 'date 1',
+          text: 'Button',
+          value: 'menu 6',
         },
       ]}
       onChange={(item) => {
@@ -259,15 +267,168 @@ const Menu_Sub_Header_Story: ComponentStory<typeof Menu> = (args) => (
   </Dropdown>
 );
 
-export const BasicMenu = Basic_Menu_Story.bind({});
-export const LinkMenu = Menu_Story.bind({});
-export const MenuHeader = Menu_Header_Story.bind({});
-export const MenuSubHeader = Menu_Sub_Header_Story.bind({});
-export const MenuFooter = Menu_Header_Story.bind({});
+const Cascading_Menu_Story: ComponentStory<typeof Menu> = (args) => {
+  const htmlDir = useCanvasDirection();
+
+  return (
+    <CascadingMenu
+      {...args}
+      items={[
+        {
+          iconProps: {
+            path: IconName.mdiCalendar,
+          },
+          text: 'Button',
+          value: 'menu 1',
+          counter: '8',
+          secondaryButtonProps: {
+            iconProps: {
+              path: IconName.mdiTrashCan,
+            },
+            onClick: () => {
+              console.log('Delete clicked');
+            },
+          },
+        },
+        {
+          text: 'Disabled button',
+          value: 'menu 2',
+          disabled: true,
+          subText: 'This is a sub text',
+        },
+        {
+          iconProps: {
+            path: IconName.mdiCalendar,
+          },
+          text: 'Date',
+          value: 'menu 3',
+          counter: '8',
+        },
+        {
+          alignIcon: MenuItemIconAlign.Right,
+          iconProps: {
+            path:
+              htmlDir === 'rtl'
+                ? IconName.mdiChevronLeft
+                : IconName.mdiChevronRight,
+          },
+          dropdownMenuItems: [
+            {
+              text: 'Button',
+              value: 'subMenuA 1',
+            },
+            {
+              text: 'Button',
+              value: 'subMenuA 1',
+            },
+            {
+              text: 'Button',
+              value: 'subMenuA 1',
+            },
+            {
+              alignIcon: MenuItemIconAlign.Right,
+              iconProps: {
+                path:
+                  htmlDir === 'rtl'
+                    ? IconName.mdiChevronLeft
+                    : IconName.mdiChevronRight,
+              },
+              dropdownMenuItems: [
+                {
+                  type: MenuItemType.subHeader,
+                  text: 'Sub header',
+                },
+                {
+                  type: MenuItemType.custom,
+                  render: ({ onChange }) => (
+                    <RadioGroup
+                      {...{
+                        ariaLabel: 'Radio Group',
+                        value: 'Radio1',
+                        items: [1, 2, 3].map((i) => ({
+                          value: `Radio${i}`,
+                          label: `Radio${i}`,
+                          name: 'group',
+                          id: `oea2exk-${i}`,
+                        })),
+                        layout: 'vertical',
+                      }}
+                      onChange={onChange}
+                      size={menuSizeToSelectorSizeSizeMap.get(args.size)}
+                    />
+                  ),
+                },
+              ],
+              text: 'Sub menu',
+              value: 'subMenuA 2',
+            },
+          ],
+          text: 'Sub menu',
+          value: 'menu 4',
+          dropdownMenuProps: {
+            cancelButtonProps: {
+              ariaLabel: 'Cancel',
+              classNames: 'my-cancel-btn-class',
+              'data-test-id': 'my-cancel-btn-test-id',
+              iconProps: null,
+              id: 'myCancelButton',
+              text: 'Cancel',
+            },
+            okButtonProps: {
+              ariaLabel: 'Accept',
+              classNames: 'my-accept-btn-class',
+              'data-test-id': 'my-accept-btn-test-id',
+              iconProps: null,
+              id: 'myAcceptButton',
+              text: 'Accept',
+            },
+          },
+        },
+        {
+          text: 'Button',
+          value: 'menu 6',
+        },
+        {
+          text: 'Button',
+          value: 'menu 7',
+        },
+        {
+          type: MenuItemType.subHeader,
+          text: 'Sub header',
+        },
+        {
+          type: MenuItemType.link,
+          text: 'Twitter link',
+          href: 'https://twitter.com',
+          target: '_blank',
+        },
+        {
+          type: MenuItemType.link,
+          text: 'Facebook link',
+          href: 'https://facebook.com',
+          target: '_blank',
+        },
+      ]}
+      onChange={(item) => {
+        args.onChange(item);
+        console.log(item);
+      }}
+    >
+      <DefaultButton text={'Cascading menu'} />
+    </CascadingMenu>
+  );
+};
+
+export const Basic_Menu = Basic_Menu_Story.bind({});
+export const Link_Menu = Menu_Story.bind({});
+export const Menu_Header = Menu_Header_Story.bind({});
+export const Menu_Sub_Header = Menu_Sub_Header_Story.bind({});
+export const Menu_Footer = Menu_Header_Story.bind({});
+export const Cascading_Menu = Cascading_Menu_Story.bind({});
 
 const menuArgs: object = {
   variant: MenuVariant.neutral,
-  size: MenuSize.large,
+  size: MenuSize.medium,
   classNames: 'my-menu-class',
   style: {},
   itemClassNames: 'my-menu-item-class',
@@ -275,26 +436,26 @@ const menuArgs: object = {
   listType: 'ul',
 };
 
-BasicMenu.args = {
+Basic_Menu.args = {
   ...menuArgs,
 };
 
-LinkMenu.args = {
+Link_Menu.args = {
   ...menuArgs,
 };
 
-MenuHeader.args = {
-  header: 'Header 4 is used here',
+Menu_Header.args = {
+  header: 'Header',
   ...menuArgs,
 };
 
-MenuSubHeader.args = {
-  header: 'Header 4 is used here',
+Menu_Sub_Header.args = {
+  header: 'Header',
   ...menuArgs,
 };
 
-MenuFooter.args = {
-  header: 'Header 4 is used here',
+Menu_Footer.args = {
+  header: 'Header',
   ...menuArgs,
   cancelButtonProps: {
     ariaLabel: 'Cancel',
@@ -312,4 +473,9 @@ MenuFooter.args = {
     id: 'myAcceptButton',
     text: 'Accept',
   },
+};
+
+Cascading_Menu.args = {
+  header: 'Header',
+  ...menuArgs,
 };

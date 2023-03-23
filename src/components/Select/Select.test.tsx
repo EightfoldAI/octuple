@@ -51,8 +51,10 @@ describe('Select', () => {
   ];
 
   test('Renders without crashing', () => {
-    const { container, getByRole } = render(<Select options={options} />);
-    const select = getByRole('textbox');
+    const { container, getAllByPlaceholderText } = render(
+      <Select options={options} placeholder="Select test" />
+    );
+    const select = getAllByPlaceholderText('Select test');
     expect(() => container).not.toThrowError();
     expect(select).toBeTruthy();
     expect(container).toMatchSnapshot();
@@ -66,8 +68,10 @@ describe('Select', () => {
   });
 
   test('Opens the dropdown when clicked', async () => {
-    const { getByRole, getByText } = render(<Select options={options} />);
-    const select = getByRole('textbox');
+    const { getByPlaceholderText, getByText } = render(
+      <Select options={options} placeholder="Select test" />
+    );
+    const select = getByPlaceholderText('Select test');
     fireEvent.click(select);
     await sleep(ANIMATION_DURATION);
     const option = getByText('Option 1');
@@ -76,30 +80,71 @@ describe('Select', () => {
 
   test('Selects an option', async () => {
     const handleChange = jest.fn();
-    const { getByRole, getByText } = render(
-      <Select options={options} onOptionsChange={handleChange} />
+    const { getByPlaceholderText, getByText } = render(
+      <Select
+        options={options}
+        onOptionsChange={handleChange}
+        placeholder="Select test"
+      />
     );
-    const select = getByRole('textbox');
+    const select = getByPlaceholderText('Select test');
     fireEvent.click(select);
     await sleep(ANIMATION_DURATION);
     const option = getByText('Option 1');
     fireEvent.click(option);
-    expect(handleChange).toHaveBeenCalledWith(['option1']);
+    expect(handleChange).toHaveBeenCalledWith(
+      ['option1'],
+      [
+        {
+          hideOption: false,
+          id: 'Option 1-0',
+          object: undefined,
+          selected: true,
+          text: 'Option 1',
+          value: 'option1',
+        },
+      ]
+    );
   });
 
   test('Selects multiple options', async () => {
     const handleChange = jest.fn();
-    const { getByRole, getByText } = render(
-      <Select options={options} onOptionsChange={handleChange} multiple />
+    const { getByPlaceholderText, getByText } = render(
+      <Select
+        options={options}
+        onOptionsChange={handleChange}
+        multiple
+        placeholder="Select test"
+      />
     );
-    const select = getByRole('textbox');
+    const select = getByPlaceholderText('Select test');
     fireEvent.click(select);
     await sleep(ANIMATION_DURATION);
     const option1 = getByText('Option 1');
     fireEvent.click(option1);
     const option2 = getByText('Option 2');
     fireEvent.click(option2);
-    expect(handleChange).toHaveBeenCalledWith(['option1', 'option2']);
+    expect(handleChange).toHaveBeenCalledWith(
+      ['option1', 'option2'],
+      [
+        {
+          hideOption: false,
+          id: 'Option 1-0',
+          object: undefined,
+          selected: true,
+          text: 'Option 1',
+          value: 'option1',
+        },
+        {
+          hideOption: false,
+          id: 'Option 2-1',
+          object: undefined,
+          selected: true,
+          text: 'Option 2',
+          value: 'option2',
+        },
+      ]
+    );
   });
 
   test('Renders with default value', () => {
@@ -116,19 +161,46 @@ describe('Select', () => {
   test('Updates the selected value', async () => {
     const defaultValue = 'option2';
     const handleChange = jest.fn();
-    const { getByRole, getByText } = render(
+    const { getByPlaceholderText, getByText } = render(
       <Select
         options={options}
         defaultValue={defaultValue}
         onOptionsChange={handleChange}
+        placeholder="Select test"
       />
     );
-    const select = getByRole('textbox');
+    const select = getByPlaceholderText('Select test');
     fireEvent.click(select);
     await sleep(ANIMATION_DURATION);
     const option1 = getByText('Option 1');
     fireEvent.click(option1);
-    expect(handleChange).toHaveBeenCalledWith(['option1']);
+    expect(handleChange).toHaveBeenCalledWith([], []);
+    expect(handleChange).toHaveBeenCalledWith(
+      ['option2'],
+      [
+        {
+          hideOption: false,
+          id: 'Option 2-1',
+          object: undefined,
+          selected: true,
+          text: 'Option 2',
+          value: 'option2',
+        },
+      ]
+    );
+    expect(handleChange).toHaveBeenCalledWith(
+      ['option1'],
+      [
+        {
+          hideOption: false,
+          id: 'Option 1-0',
+          object: undefined,
+          selected: true,
+          text: 'Option 1',
+          value: 'option1',
+        },
+      ]
+    );
   });
 
   test('Renders with default values when multiple', () => {
@@ -147,7 +219,7 @@ describe('Select', () => {
   test('Updates the selected values when multiple', async () => {
     const defaultValue = ['option2', 'option3'];
     const handleChange = jest.fn();
-    const { getByRole, getByText } = render(
+    const { container, getByText } = render(
       <Select
         options={options}
         defaultValue={defaultValue}
@@ -155,16 +227,40 @@ describe('Select', () => {
         onOptionsChange={handleChange}
       />
     );
-    const select = getByRole('textbox');
+    const select = container.querySelector('.select-input');
     fireEvent.click(select);
     await sleep(ANIMATION_DURATION);
     const option1 = getByText('Option 1');
     fireEvent.click(option1);
-    expect(handleChange).toHaveBeenCalledWith([
-      'option1',
-      'option2',
-      'option3',
-    ]);
+    expect(handleChange).toHaveBeenCalledWith(
+      ['option1', 'option2', 'option3'],
+      [
+        {
+          hideOption: false,
+          id: 'Option 1-0',
+          object: undefined,
+          selected: true,
+          text: 'Option 1',
+          value: 'option1',
+        },
+        {
+          hideOption: false,
+          id: 'Option 2-1',
+          object: undefined,
+          selected: true,
+          text: 'Option 2',
+          value: 'option2',
+        },
+        {
+          hideOption: false,
+          id: 'Option 3-2',
+          object: undefined,
+          selected: true,
+          text: 'Option 3',
+          value: 'option3',
+        },
+      ]
+    );
   });
 
   test('Renders with clear button', () => {
@@ -179,20 +275,35 @@ describe('Select', () => {
   test('Handles clearing the selected value', async () => {
     const defaultValue = 'option2';
     const handleChange = jest.fn();
-    const { container, getByRole } = render(
+    const { container, getByPlaceholderText } = render(
       <Select
         options={options}
         defaultValue={defaultValue}
         onOptionsChange={handleChange}
         clearable
+        placeholder="Select test"
       />
     );
-    const select = getByRole('textbox');
+    const select = getByPlaceholderText('Select test');
     fireEvent.click(select);
     await sleep(ANIMATION_DURATION);
     const clearButton = container.querySelector('.clear-icon-button');
     fireEvent.click(clearButton);
-    expect(handleChange).toHaveBeenCalledWith([]);
+    expect(handleChange).toHaveBeenCalledWith([], []);
+    expect(handleChange).toHaveBeenCalledWith(
+      ['option2'],
+      [
+        {
+          hideOption: false,
+          id: 'Option 2-1',
+          object: undefined,
+          selected: true,
+          text: 'Option 2',
+          value: 'option2',
+        },
+      ]
+    );
+    expect(handleChange).toHaveBeenCalledWith([], []);
   });
 
   test('Select clearable input value is cleared and clear button is no longer visible', async () => {
@@ -266,10 +377,15 @@ describe('Select', () => {
 
   test('Does not open the dropdown when clicked and disabled', async () => {
     const handleChange = jest.fn();
-    const { container, getByRole } = render(
-      <Select options={options} onChange={handleChange} disabled />
+    const { container, getByPlaceholderText } = render(
+      <Select
+        options={options}
+        onChange={handleChange}
+        disabled
+        placeholder="Select test"
+      />
     );
-    const select = getByRole('textbox');
+    const select = getByPlaceholderText('Select test');
     fireEvent.click(select);
     await sleep(ANIMATION_DURATION);
     expect(container.querySelector('.dropdown')).toBeFalsy();
@@ -277,10 +393,10 @@ describe('Select', () => {
   });
 
   test('Renders with all options initially visible', async () => {
-    const { getAllByRole, getByRole } = render(
-      <Select options={options} filterable />
+    const { getAllByRole, getByPlaceholderText } = render(
+      <Select options={options} filterable placeholder="Select test" />
     );
-    const select = getByRole('textbox');
+    const select = getByPlaceholderText('Select test');
     fireEvent.click(select);
     await sleep(ANIMATION_DURATION);
     const listbox = getAllByRole('menuitem');
@@ -288,10 +404,10 @@ describe('Select', () => {
   });
 
   test('Filters the options when input value changes', async () => {
-    const { getByRole, getByText, queryByText } = render(
-      <Select options={options} filterable />
+    const { getByPlaceholderText, getByText, queryByText } = render(
+      <Select options={options} filterable placeholder="Select test" />
     );
-    const select = getByRole('textbox');
+    const select = getByPlaceholderText('Select test');
     fireEvent.click(select);
     userEvent.type(select, 'Option 1');
     await sleep(ANIMATION_DURATION);
@@ -306,11 +422,16 @@ describe('Select', () => {
   test('Calls onFocus and onBlur callbacks when Select is focused and blurred', () => {
     const handleFocus = jest.fn();
     const handleBlur = jest.fn();
-    const { getByRole } = render(
-      <Select options={options} onFocus={handleFocus} onBlur={handleBlur} />
+    const { getByPlaceholderText } = render(
+      <Select
+        options={options}
+        onFocus={handleFocus}
+        onBlur={handleBlur}
+        placeholder="Select test"
+      />
     );
 
-    const select = getByRole('textbox');
+    const select = getByPlaceholderText('Select test');
     fireEvent.focus(select);
     expect(handleFocus).toHaveBeenCalled();
 
