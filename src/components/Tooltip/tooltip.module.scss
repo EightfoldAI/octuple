@@ -3,9 +3,15 @@ $tooltip-arrow-shadow: 0px 1px 2px rgba(15, 20, 31, 0.12);
 .referenceWrapper {
   cursor: pointer;
   display: inline-block;
+  position: relative;
 
-  &.trigger-above {
+  // Ensure portaled tooltip triggers are above when triggerAbove.
+  &.trigger-above[aria-expanded='true'] {
     z-index: $z-index-500;
+
+    &.tooltip {
+      z-index: $z-index-400;
+    }
   }
 
   &.disabled {
@@ -14,6 +20,12 @@ $tooltip-arrow-shadow: 0px 1px 2px rgba(15, 20, 31, 0.12);
 
   .no-pointer-events {
     pointer-events: none;
+  }
+
+  // Hides the browser default keyboard focus-visible styles.
+  // Use the ConfigProvider instead.
+  &:focus-visible {
+    outline: none;
   }
 }
 
@@ -35,14 +47,17 @@ $tooltip-arrow-shadow: 0px 1px 2px rgba(15, 20, 31, 0.12);
   // floating ui dismiss when hovering from reference to floating element.
   // Especially helpful when trigger is hover.
   &.popup {
-    &:after {
-      bottom: -$space-xs;
-      content: '';
-      left: -$space-xs;
-      padding: $space-xs;
-      position: absolute;
-      right: -$space-xs;
-      top: -$space-xs;
+    cursor: default;
+    &.visible-arrow {
+      &:after {
+        bottom: -$space-xs;
+        content: '';
+        left: -$space-xs;
+        padding: $space-xs;
+        position: absolute;
+        right: -$space-xs;
+        top: -$space-xs;
+      }
     }
   }
 
@@ -199,7 +214,7 @@ $tooltip-arrow-shadow: 0px 1px 2px rgba(15, 20, 31, 0.12);
       &:focus-visible {
         &:after {
           bottom: 0;
-          border-radius: $border-radius-s;
+          border-radius: inherit;
           content: '';
           box-shadow: var(--focus-visible-box-shadow);
           left: 0;

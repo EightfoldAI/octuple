@@ -123,6 +123,7 @@ export const AvatarGroup: React.FC<AvatarGroupProps> = React.forwardRef(
           renderItem={avatarListProps?.renderItem}
           renderAdditionalItem={maxCountItem}
           style={style}
+          tabIndex={-1}
         />
       );
     }

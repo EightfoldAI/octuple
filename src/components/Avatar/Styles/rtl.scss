@@ -1,6 +1,6 @@
 .avatar-group {
   &-rtl {
-    :not(:first-child):not(.avatar-group-tooltip):not(.avatar-status-item):not(.avatar-status-item-text):not(.avatar-status-item-icon) {
+    :not(:first-child):not(.avatar-tooltip):not(.avatar-group-tooltip):not(.avatar-status-item):not(.avatar-status-item-text):not(.avatar-status-item-icon) {
       margin-right: -$space-xs;
       margin-left: 0;
     }

@@ -63,6 +63,10 @@ export interface TooltipProps extends Omit<OcBaseProps<HTMLDivElement>, 'ref'> {
    */
   height?: number;
   /**
+   * Manually control the minimum height of the Tooltip.
+   */
+  minHeight?: number;
+  /**
    * Offset of the Tooltip from the reference element.
    * @default 8
    */
