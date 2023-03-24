@@ -390,9 +390,9 @@ export const Avatar: FC<AvatarProps> = React.forwardRef(
     }, [size]);
 
     const popupClassNames: string = mergeClasses([
-      { [styles.avatarPopup]: !!popupVisible },
-      { [styles.avatarPopupVisible]: !!popupVisible },
-      { [styles.avatarPopupHidden]: !popupVisible },
+      { [styles.avatarPopup]: popupProps && !!popupVisible },
+      { [styles.avatarPopupVisible]: popupProps && !!popupVisible },
+      { [styles.avatarPopupHidden]: popupProps && !popupVisible },
       { [styles.round]: type === 'round' },
     ]);
 

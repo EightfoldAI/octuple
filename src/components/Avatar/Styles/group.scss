@@ -18,11 +18,14 @@
 
     &:hover {
       z-index: $z-index-500;
+    }
 
-      &.avatar-popup-visible {
-        animation: nudgeAvatar $motion-duration-extra-fast
-          $motion-easing-easeout;
-      }
+    &:hover:not(.avatar-popup-hidden):not(.avatar-popup-visible):not(:focus-visible) {
+      transform: translateY(-$motion-movement-s);
+    }
+
+    &.avatar-popup-visible {
+      animation: nudgeAvatar $motion-duration-extra-fast $motion-easing-easeout;
     }
   }
 

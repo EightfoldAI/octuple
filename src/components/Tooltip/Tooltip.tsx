@@ -249,7 +249,7 @@ export const Tooltip: FC<TooltipProps> = React.memo(
           if (type === TooltipType.Default) {
             if (node.props?.disabled) {
               return cloneElement(child, {
-                classNames: styles.noPointerEvents,
+                className: styles.disabled,
               });
             }
           }

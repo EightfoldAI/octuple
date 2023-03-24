@@ -4,7 +4,7 @@ exports[`Avatar Avatar size is 40px 1`] = `
 LoadedCheerio {
   "0": Node {
     "attribs": Object {
-      "class": "wrapper-style avatar avatar image-style avatar-popup-hidden avatar-popup-hidden",
+      "class": "wrapper-style avatar avatar image-style",
       "style": "width: 40px; height: 40px; min-width: 40px; min-height: 40px; font-size: 18px;",
       "tabindex": "0",
     },
@@ -132,7 +132,7 @@ exports[`Avatar Avatar type is round 1`] = `
 LoadedCheerio {
   "0": Node {
     "attribs": Object {
-      "class": "wrapper-style avatar avatar image-style avatar-popup-hidden round avatar-popup-hidden round",
+      "class": "wrapper-style avatar avatar image-style round round",
       "style": "width: 32px; height: 32px; min-width: 32px; min-height: 32px; font-size: 18px;",
       "tabindex": "0",
     },
@@ -260,7 +260,7 @@ exports[`Avatar Avatar type square is default 1`] = `
 LoadedCheerio {
   "0": Node {
     "attribs": Object {
-      "class": "wrapper-style avatar avatar image-style avatar-popup-hidden avatar-popup-hidden",
+      "class": "wrapper-style avatar avatar image-style",
       "style": "width: 32px; height: 32px; min-width: 32px; min-height: 32px; font-size: 18px;",
       "tabindex": "0",
     },
