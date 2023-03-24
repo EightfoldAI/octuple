@@ -75,6 +75,10 @@ const Basic_Story: ComponentStory<typeof AvatarGroup> = (args) => (
       onMouseEnter: action('maxcount-mouseenter'),
       onMouseLeave: action('maxcount-mouseleave'),
       tabIndex: 0,
+      tooltipProps: {
+        content: 'User 7, User 8, User 9, User 10',
+        theme: TooltipTheme.dark,
+      },
     }}
   >
     <Avatar
@@ -88,6 +92,10 @@ const Basic_Story: ComponentStory<typeof AvatarGroup> = (args) => (
       size={args.size}
       tabIndex={0}
       theme={'blue'}
+      tooltipProps={{
+        content: 'User 1',
+        theme: TooltipTheme.dark,
+      }}
       type={args.type}
     />
     <Avatar
@@ -99,6 +107,10 @@ const Basic_Story: ComponentStory<typeof AvatarGroup> = (args) => (
       size={args.size}
       tabIndex={0}
       theme={'green'}
+      tooltipProps={{
+        content: 'User 2',
+        theme: TooltipTheme.dark,
+      }}
       type={args.type}
     >
       AB
@@ -113,7 +125,7 @@ const Basic_Story: ComponentStory<typeof AvatarGroup> = (args) => (
       tabIndex={0}
       theme={'redOrange'}
       tooltipProps={{
-        content: 'User profile',
+        content: 'User 3',
         theme: TooltipTheme.dark,
       }}
       type={args.type}
@@ -129,6 +141,10 @@ const Basic_Story: ComponentStory<typeof AvatarGroup> = (args) => (
       size={args.size}
       tabIndex={0}
       theme={'blueViolet'}
+      tooltipProps={{
+        content: 'User 4',
+        theme: TooltipTheme.dark,
+      }}
       type={args.type}
     >
       EF
@@ -142,6 +158,10 @@ const Basic_Story: ComponentStory<typeof AvatarGroup> = (args) => (
       size={args.size}
       tabIndex={0}
       theme={'yellowGreen'}
+      tooltipProps={{
+        content: 'User 5',
+        theme: TooltipTheme.dark,
+      }}
       type={args.type}
     >
       GH
@@ -155,6 +175,10 @@ const Basic_Story: ComponentStory<typeof AvatarGroup> = (args) => (
       size={args.size}
       tabIndex={0}
       theme={'violetRed'}
+      tooltipProps={{
+        content: 'User 6',
+        theme: TooltipTheme.dark,
+      }}
       type={args.type}
     >
       IJ

@@ -74,7 +74,9 @@ export const AvatarGroup: React.FC<AvatarGroupProps> = React.forwardRef(
         ])}
       >
         {!!maxProps?.value && maxProps?.value}
-        {!maxProps?.value && `+${numChildren - maxCount}`}
+        {!maxProps?.value && avatarListProps
+          ? `+${numChildren - maxCount}`
+          : `+${maxCount}`}
       </Avatar>
     );
 
