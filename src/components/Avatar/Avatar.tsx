@@ -268,7 +268,6 @@ const AvatarFallback: FC<AvatarFallbackProps> = React.forwardRef(
 
     const avatarClasses: string = mergeClasses([
       styles.wrapperStyle,
-      styles.avatar,
       classNames,
       { [styles.red]: theme === 'red' },
       { [styles.redOrange]: theme === 'redOrange' },
@@ -317,7 +316,6 @@ const AvatarIcon: FC<AvatarIconProps> = React.forwardRef(
   ) => {
     const wrapperClasses: string = mergeClasses([
       styles.wrapperStyle,
-      styles.avatar,
       classNames,
     ]);
 
@@ -492,7 +490,6 @@ export const Avatar: FC<AvatarProps> = React.forwardRef(
 
     const wrapperClassNames: string = mergeClasses([
       imageClassNames,
-      popupClassNames,
       classNames,
     ]);
 
