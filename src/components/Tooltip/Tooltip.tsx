@@ -93,6 +93,9 @@ export const Tooltip: FC<TooltipProps> = React.memo(
       const tooltipId: React.MutableRefObject<string> = useRef<string>(
         id || uniqueId('tooltip-')
       );
+      const tooltipReferenceId: React.MutableRefObject<string> = useRef<string>(
+        `${tooltipId?.current}-reference`
+      );
 
       let timeout: ReturnType<typeof setTimeout>;
       const {
@@ -160,10 +163,15 @@ export const Tooltip: FC<TooltipProps> = React.memo(
       useOnClickOutside(
         refs.floating,
         (e) => {
+          const referenceElement: HTMLElement = document.getElementById(
+            tooltipReferenceId?.current
+          );
+          if (closeOnOutsideClick && closeOnReferenceClick) {
+            toggle(false)(e);
+          }
           if (
-            closeOnOutsideClick &&
-            closeOnReferenceClick &&
-            document.activeElement !== refs.reference.current
+            !closeOnReferenceClick &&
+            !referenceElement.contains(e.target as Node)
           ) {
             toggle(false)(e);
           }
@@ -323,6 +331,7 @@ export const Tooltip: FC<TooltipProps> = React.memo(
             ...{
               [TRIGGER_TO_HANDLER_MAP_ON_ENTER[trigger]]: toggle(true),
             },
+            id: tooltipReferenceId?.current,
             key: tooltipId?.current,
             onClick: handleReferenceClick,
             onKeyDown: handleReferenceKeyDown,
