@@ -367,6 +367,8 @@ export const Avatar: FC<AvatarProps> = React.forwardRef(
     },
     ref: Ref<HTMLDivElement>
   ) => {
+    const htmlDir: string = useCanvasDirection();
+
     const [popupTriggerSize, setPopupTriggerSize] = useState<number>(
       parseInt(size, 10)
     );
@@ -430,7 +432,10 @@ export const Avatar: FC<AvatarProps> = React.forwardRef(
         onVisibleChange={(isVisible) => setPopupVisibility(isVisible)}
         placement="bottom-start"
         popupStyle={{
-          margin: `0 -${Math.floor(popupTriggerSize / 4)}px`,
+          margin:
+            htmlDir === 'rtl'
+              ? `0 ${Math.floor(popupTriggerSize / 4)}px`
+              : `0 -${Math.floor(popupTriggerSize / 4)}px`,
           padding: `${Math.floor(popupTriggerSize / 3)}px`,
           paddingTop: `${Math.floor(popupTriggerSize / 1.5)}px`,
           borderRadius: `${Math.floor(popupTriggerSize / 4)}px`,
