@@ -11,6 +11,7 @@ export const Popup: FC<PopupProps> = React.forwardRef<PopupRef, PopupProps>(
     {
       classNames,
       closeOnPopupClick = false,
+      closeOnReferenceClick = true,
       id,
       showPopup,
       size = PopupSize.Medium,
@@ -43,6 +44,7 @@ export const Popup: FC<PopupProps> = React.forwardRef<PopupRef, PopupProps>(
         {...rest}
         classNames={popupClassNames}
         closeOnTooltipClick={closeOnPopupClick}
+        closeOnReferenceClick={closeOnReferenceClick}
         id={popupId}
         ref={ref}
         showTooltip={showPopup}

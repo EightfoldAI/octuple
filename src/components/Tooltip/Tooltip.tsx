@@ -17,6 +17,7 @@ import {
 } from '@floating-ui/react';
 import {
   ANIMATION_DURATION,
+  NO_ANIMATION_DURATION,
   PREVENT_DEFAULT_TRIGGERS,
   TooltipProps,
   TooltipRef,
@@ -28,7 +29,6 @@ import {
   TRIGGER_TO_HANDLER_MAP_ON_ENTER,
   TRIGGER_TO_HANDLER_MAP_ON_LEAVE,
 } from './Tooltip.types';
-import { useAccessibility } from '../../hooks/useAccessibility';
 import { useMergedState } from '../../hooks/useMergedState';
 import { useOnClickOutside } from '../../hooks/useOnClickOutside';
 import {
@@ -48,6 +48,7 @@ export const Tooltip: FC<TooltipProps> = React.memo(
         children,
         classNames,
         closeOnOutsideClick = true,
+        closeOnReferenceClick = true,
         closeOnTooltipClick = false,
         content,
         disabled,
@@ -159,7 +160,11 @@ export const Tooltip: FC<TooltipProps> = React.memo(
       useOnClickOutside(
         refs.floating,
         (e) => {
-          if (closeOnOutsideClick) {
+          if (
+            closeOnOutsideClick &&
+            closeOnReferenceClick &&
+            document.activeElement !== refs.reference.current
+          ) {
             toggle(false)(e);
           }
           onClickOutside?.(e);
@@ -167,18 +172,60 @@ export const Tooltip: FC<TooltipProps> = React.memo(
         mergedVisible
       );
 
-      useAccessibility(
-        trigger,
-        refs.reference,
-        toggle(true),
-        portal
-          ? (event) => {
-              if (event?.key === eventKeys.ENTER) {
-                toggle(false);
-              }
+      const handleReferenceClick = (event: React.MouseEvent): void => {
+        timeout && clearTimeout(timeout);
+        timeout = setTimeout(() => {
+          if (mergedVisible && closeOnReferenceClick) {
+            toggle(false)(event);
+          } else {
+            toggle(true)(event);
+          }
+        }, hideAfter);
+      };
+
+      const handleReferenceKeyDown = (event: React.KeyboardEvent): void => {
+        if (
+          event?.key === eventKeys.ENTER &&
+          document.activeElement === event.target
+        ) {
+          timeout && clearTimeout(timeout);
+          timeout = setTimeout(() => {
+            if (mergedVisible && closeOnReferenceClick) {
+              toggle(false)(event);
+            } else {
+              toggle(true)(event);
             }
-          : toggle(false)
-      );
+          }, hideAfter);
+        }
+        if (
+          event?.key === eventKeys.ESCAPE ||
+          (event?.key === eventKeys.TAB && event.shiftKey)
+        ) {
+          toggle(false)(event);
+        }
+      };
+
+      const handleFloatingKeyDown = (event: React.KeyboardEvent): void => {
+        if (event?.key === eventKeys.ESCAPE) {
+          toggle(false)(event);
+        }
+        if (event?.key === eventKeys.TAB) {
+          timeout && clearTimeout(timeout);
+          timeout = setTimeout(() => {
+            if (!refs.floating.current.matches(':focus-within')) {
+              toggle(false)(event);
+            }
+          }, NO_ANIMATION_DURATION);
+        }
+        if (event?.key === eventKeys.TAB && event.shiftKey) {
+          timeout && clearTimeout(timeout);
+          timeout = setTimeout(() => {
+            if (refs.floating.current.matches(':focus-within')) {
+              toggle(true)(event);
+            }
+          }, NO_ANIMATION_DURATION);
+        }
+      };
 
       // The placement type contains both `Side` and `Alignment`, joined by `-`.
       // e.g. placement: `${Side}-{Alignment}`
@@ -277,7 +324,8 @@ export const Tooltip: FC<TooltipProps> = React.memo(
               [TRIGGER_TO_HANDLER_MAP_ON_ENTER[trigger]]: toggle(true),
             },
             key: tooltipId?.current,
-            onClick: toggle(!mergedVisible),
+            onClick: handleReferenceClick,
+            onKeyDown: handleReferenceKeyDown,
             className: referenceWrapperClassNames,
             'aria-controls': tooltipId?.current,
             'aria-expanded': mergedVisible,
@@ -314,6 +362,9 @@ export const Tooltip: FC<TooltipProps> = React.memo(
                 closeOnTooltipClick && type === TooltipType.Popup
                   ? toggle(false, showTooltip)
                   : null
+              }
+              onKeyDown={
+                type === TooltipType.Popup ? handleFloatingKeyDown : null
               }
               ref={floating}
               role="tooltip"

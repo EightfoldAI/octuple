@@ -62,16 +62,22 @@ const sampleList: User[] = [
   img: i === 1 ? imageProps.src : null,
   key: `key-${i}`,
   name: `User ${i}`,
-  popupProps: { content: `User ${i}`, trigger: 'hover' },
+  popupProps: {
+    closeOnReferenceClick: false,
+    content: `User ${i}`,
+    trigger: 'hover',
+  },
   randomiseTheme: true,
 }));
 
 const Basic_Story: ComponentStory<typeof AvatarGroup> = (args) => (
   <AvatarGroup
     {...args}
+    animateOnHover
     maxProps={{
       count: 4,
       onClick: action('maxcount-click'),
+      onKeyDown: action('maxcount-keydown'),
       onMouseEnter: action('maxcount-mouseenter'),
       onMouseLeave: action('maxcount-mouseleave'),
       tabIndex: 0,
@@ -86,6 +92,7 @@ const Basic_Story: ComponentStory<typeof AvatarGroup> = (args) => (
       fontSize={args.fontSize}
       hashingFunction={() => 3}
       onClick={action('avatar-click')}
+      onKeyDown={action('avatar-keydown')}
       onMouseEnter={action('avatar-mouseenter')}
       onMouseLeave={action('avatar-mouseleave')}
       src={imageProps.src}
@@ -102,6 +109,7 @@ const Basic_Story: ComponentStory<typeof AvatarGroup> = (args) => (
       fontSize={args.fontSize}
       hashingFunction={() => 3}
       onClick={action('avatar-click')}
+      onKeyDown={action('avatar-keydown')}
       onMouseEnter={action('avatar-mouseenter')}
       onMouseLeave={action('avatar-mouseleave')}
       size={args.size}
@@ -119,6 +127,7 @@ const Basic_Story: ComponentStory<typeof AvatarGroup> = (args) => (
       fontSize={args.fontSize}
       hashingFunction={() => 3}
       onClick={action('avatar-click')}
+      onKeyDown={action('avatar-keydown')}
       onMouseEnter={action('avatar-mouseenter')}
       onMouseLeave={action('avatar-mouseleave')}
       size={args.size}
@@ -136,6 +145,7 @@ const Basic_Story: ComponentStory<typeof AvatarGroup> = (args) => (
       fontSize={args.fontSize}
       hashingFunction={() => 3}
       onClick={action('avatar-click')}
+      onKeyDown={action('avatar-keydown')}
       onMouseEnter={action('avatar-mouseenter')}
       onMouseLeave={action('avatar-mouseleave')}
       size={args.size}
@@ -153,6 +163,7 @@ const Basic_Story: ComponentStory<typeof AvatarGroup> = (args) => (
       fontSize={args.fontSize}
       hashingFunction={() => 3}
       onClick={action('avatar-click')}
+      onKeyDown={action('avatar-keydown')}
       onMouseEnter={action('avatar-mouseenter')}
       onMouseLeave={action('avatar-mouseleave')}
       size={args.size}
@@ -170,6 +181,7 @@ const Basic_Story: ComponentStory<typeof AvatarGroup> = (args) => (
       fontSize={args.fontSize}
       hashingFunction={() => 3}
       onClick={action('avatar-click')}
+      onKeyDown={action('avatar-keydown')}
       onMouseEnter={action('avatar-mouseenter')}
       onMouseLeave={action('avatar-mouseleave')}
       size={args.size}
@@ -193,6 +205,7 @@ export const Basic_Spaced = Basic_Story.bind({});
 const List_Story: ComponentStory<typeof AvatarGroup> = (args) => (
   <AvatarGroup
     {...args}
+    animateOnHover
     avatarListProps={{
       items: sampleList,
       renderItem: (item: User) => (
@@ -203,6 +216,7 @@ const List_Story: ComponentStory<typeof AvatarGroup> = (args) => (
           fontSize={args.fontSize}
           hashingFunction={() => 3}
           onClick={action('avatar-click')}
+          onKeyDown={action('avatar-keydown')}
           onMouseEnter={action('avatar-mouseenter')}
           onMouseLeave={action('avatar-mouseleave')}
           popupProps={item.popupProps}
@@ -218,6 +232,7 @@ const List_Story: ComponentStory<typeof AvatarGroup> = (args) => (
     maxProps={{
       count: 4,
       onClick: action('maxcount-click'),
+      onKeyDown: action('maxcount-keydown'),
       onMouseEnter: action('maxcount-mouseenter'),
       onMouseLeave: action('maxcount-mouseleave'),
       tooltipProps: {

@@ -110,6 +110,10 @@ export interface BaseAvatarProps extends OcBaseProps<HTMLDivElement> {
    */
   onClick?: React.MouseEventHandler<HTMLDivElement>;
   /**
+   * Callback called on Avatar keydown
+   */
+  onKeyDown?: React.KeyboardEventHandler<HTMLDivElement>;
+  /**
    * Callback called on Avatar mouse enter
    */
   onMouseEnter?: React.MouseEventHandler<HTMLDivElement>;
@@ -226,6 +230,11 @@ export enum AvatarGroupVariant {
 }
 
 export interface AvatarGroupProps extends OcBaseProps<HTMLDivElement> {
+  /**
+   * The Avatars should animate on hover.
+   * @default false
+   */
+  animateOnHover?: boolean;
   /**
    * Avatar group List props.
    */

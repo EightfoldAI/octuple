@@ -248,6 +248,7 @@ const AvatarFallback: FC<AvatarFallbackProps> = React.forwardRef(
       classNames,
       hashingFunction,
       onClick,
+      onKeyDown,
       onMouseEnter,
       onMouseLeave,
       randomiseTheme,
@@ -289,6 +290,7 @@ const AvatarFallback: FC<AvatarFallbackProps> = React.forwardRef(
         ref={ref}
         className={avatarClasses}
         onClick={onClick}
+        onKeyDown={onKeyDown}
         onMouseEnter={onMouseEnter}
         onMouseLeave={onMouseLeave}
         style={style}
@@ -308,6 +310,7 @@ const AvatarIcon: FC<AvatarIconProps> = React.forwardRef(
       fontSize,
       iconProps,
       onClick,
+      onKeyDown,
       onMouseEnter,
       onMouseLeave,
       style,
@@ -324,6 +327,7 @@ const AvatarIcon: FC<AvatarIconProps> = React.forwardRef(
         ref={ref}
         className={wrapperClasses}
         onClick={onClick}
+        onKeyDown={onKeyDown}
         onMouseEnter={onMouseEnter}
         onMouseLeave={onMouseLeave}
         style={style}
@@ -347,6 +351,7 @@ export const Avatar: FC<AvatarProps> = React.forwardRef(
       key,
       iconProps,
       onClick,
+      onKeyDown,
       onMouseEnter,
       onMouseLeave,
       outline,
@@ -471,6 +476,7 @@ export const Avatar: FC<AvatarProps> = React.forwardRef(
               className={imageClassNames}
               height={size}
               onClick={onClick}
+              onKeyDown={onKeyDown}
               onMouseEnter={onMouseEnter}
               onMouseLeave={onMouseLeave}
               src={src}
@@ -526,6 +532,7 @@ export const Avatar: FC<AvatarProps> = React.forwardRef(
             fontSize={fontSize}
             iconProps={iconProps}
             onClick={onClick}
+            onKeyDown={onKeyDown}
             onMouseEnter={onMouseEnter}
             onMouseLeave={onMouseLeave}
             ref={ref}
@@ -567,6 +574,7 @@ export const Avatar: FC<AvatarProps> = React.forwardRef(
           classNames={wrapperClassNames}
           hashingFunction={hashingFunction}
           onClick={onClick}
+          onKeyDown={onKeyDown}
           onMouseEnter={onMouseEnter}
           onMouseLeave={onMouseLeave}
           randomiseTheme={randomiseTheme}
