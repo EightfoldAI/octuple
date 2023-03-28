@@ -58,7 +58,7 @@ export const BaseDialog: FC<BaseDialogProps> = React.forwardRef(
     const labelId = uniqueId('dialog-label-');
     const bodyRef = useRef<HTMLDivElement>(null);
 
-    useScrollLock(parent, visible);
+    useScrollLock(parent, visible, htmlDir);
     const { showBottomShadow, showTopShadow, scrollRef } =
       useScrollShadow(bodyRef);
 

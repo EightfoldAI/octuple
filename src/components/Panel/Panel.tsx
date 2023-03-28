@@ -79,7 +79,7 @@ export const Panel = React.forwardRef<PanelRef, PanelProps>(
     const parentPanel = useContext<PanelRef>(PanelContext);
     const [internalPush, setPush] = useState<boolean>(false);
 
-    useScrollLock(parent, !scrollLock ? false : visible);
+    useScrollLock(parent, !scrollLock ? false : visible, htmlDir);
 
     // ============================ Strings ===========================
     const [panelLocale] = useLocaleReceiver('Panel');
