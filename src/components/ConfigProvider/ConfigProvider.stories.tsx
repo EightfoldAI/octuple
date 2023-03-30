@@ -350,7 +350,7 @@ const ThemedComponents: FC = () => {
                   labelProps={{ text: 'Var Theme' }}
                   name="varTheme"
                   placeholder={'{"navbar-background":"pink"}'}
-                  value={JSON.stringify(themeOptions.customTheme.varTheme)}
+                  value={JSON.stringify(themeOptions.customTheme?.varTheme)}
                 ></TextArea>
               </>
             }
