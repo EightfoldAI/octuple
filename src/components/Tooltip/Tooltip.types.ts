@@ -3,6 +3,7 @@ import React, { Ref } from 'react';
 import { OcBaseProps } from '../OcBase';
 
 export const ANIMATION_DURATION: number = 200;
+export const NO_ANIMATION_DURATION: number = 10;
 export const PREVENT_DEFAULT_TRIGGERS: string[] = ['contextmenu'];
 export const TOOLTIP_ARROW_WIDTH: number = 8;
 export const TOOLTIP_DEFAULT_OFFSET: number = TOOLTIP_ARROW_WIDTH;
@@ -40,6 +41,11 @@ export interface TooltipProps extends Omit<OcBaseProps<HTMLDivElement>, 'ref'> {
    */
   closeOnOutsideClick?: boolean;
   /**
+   * Should close Tooltip on reference click.
+   * @default true
+   */
+  closeOnReferenceClick?: boolean;
+  /**
    * Should close Tooltip on body click.
    * @default false
    */
@@ -62,6 +68,10 @@ export interface TooltipProps extends Omit<OcBaseProps<HTMLDivElement>, 'ref'> {
    * Manually control the height of the Tooltip.
    */
   height?: number;
+  /**
+   * Manually control the minimum height of the Tooltip.
+   */
+  minHeight?: number;
   /**
    * Offset of the Tooltip from the reference element.
    * @default 8
