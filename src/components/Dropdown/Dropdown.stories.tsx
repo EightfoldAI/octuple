@@ -121,11 +121,13 @@ const Overlay = () => (
         iconProps={{
           path: item.icon,
         }}
+        role="menuitem"
         style={{
           margin: '4px 0',
         }}
       />
     )}
+    role="menu"
   />
 );
 

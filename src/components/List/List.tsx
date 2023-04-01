@@ -15,7 +15,6 @@ export const List = <T extends any>({
   header,
   classNames,
   style,
-  tabIndex = 0,
   itemClassNames,
   itemStyle,
   listType = 'ul',
@@ -61,7 +60,6 @@ export const List = <T extends any>({
       key={getItemKey(item, index)}
       className={itemClasses}
       style={itemStyle}
-      tabIndex={tabIndex}
     >
       {renderItem(item)}
     </li>
