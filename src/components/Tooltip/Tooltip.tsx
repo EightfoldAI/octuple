@@ -9,6 +9,7 @@ import React, {
 import {
   arrow,
   autoUpdate,
+  FloatingFocusManager,
   FloatingPortal,
   offset as fOffset,
   shift,
@@ -16,6 +17,7 @@ import {
 } from '@floating-ui/react';
 import {
   ANIMATION_DURATION,
+  NO_ANIMATION_DURATION,
   PREVENT_DEFAULT_TRIGGERS,
   TooltipProps,
   TooltipRef,
@@ -27,12 +29,12 @@ import {
   TRIGGER_TO_HANDLER_MAP_ON_ENTER,
   TRIGGER_TO_HANDLER_MAP_ON_LEAVE,
 } from './Tooltip.types';
-import { useAccessibility } from '../../hooks/useAccessibility';
 import { useMergedState } from '../../hooks/useMergedState';
 import { useOnClickOutside } from '../../hooks/useOnClickOutside';
 import {
   cloneElement,
   ConditionalWrapper,
+  eventKeys,
   mergeClasses,
   uniqueId,
 } from '../../shared/utilities';
@@ -46,12 +48,14 @@ export const Tooltip: FC<TooltipProps> = React.memo(
         children,
         classNames,
         closeOnOutsideClick = true,
+        closeOnReferenceClick = true,
         closeOnTooltipClick = false,
         content,
         disabled,
         height,
         hideAfter = ANIMATION_DURATION,
         id,
+        minHeight,
         offset = TOOLTIP_DEFAULT_OFFSET,
         onClickOutside,
         onVisibleChange,
@@ -61,10 +65,13 @@ export const Tooltip: FC<TooltipProps> = React.memo(
         portalId,
         portalRoot,
         positionStrategy = 'absolute',
+        referenceOnClick,
+        referenceOnKeydown,
         showTooltip,
         size = TooltipSize.Small,
         tabIndex = 0,
         theme,
+        tooltipOnKeydown,
         tooltipStyle,
         trigger = 'hover',
         triggerAbove = false,
@@ -89,6 +96,9 @@ export const Tooltip: FC<TooltipProps> = React.memo(
       const tooltipId: React.MutableRefObject<string> = useRef<string>(
         id || uniqueId('tooltip-')
       );
+      const tooltipReferenceId: React.MutableRefObject<string> = useRef<string>(
+        `${tooltipId?.current}-reference`
+      );
 
       let timeout: ReturnType<typeof setTimeout>;
       const {
@@ -100,12 +110,16 @@ export const Tooltip: FC<TooltipProps> = React.memo(
         update,
         refs,
         middlewareData: { arrow: { x: arrowX, y: arrowY } = {} },
+        context,
       } = useFloating({
         placement,
         strategy: positionStrategy,
         middleware: [
           shift(),
-          arrow({ element: arrowRef, padding: TOOLTIP_ARROW_WIDTH }),
+          arrow({
+            element: arrowRef,
+            padding: visibleArrow ? TOOLTIP_ARROW_WIDTH : 0,
+          }),
           fOffset(offset),
         ],
       });
@@ -152,7 +166,16 @@ export const Tooltip: FC<TooltipProps> = React.memo(
       useOnClickOutside(
         refs.floating,
         (e) => {
-          if (closeOnOutsideClick) {
+          const referenceElement: HTMLElement = document.getElementById(
+            tooltipReferenceId?.current
+          );
+          if (closeOnOutsideClick && closeOnReferenceClick) {
+            toggle(false)(e);
+          }
+          if (
+            !closeOnReferenceClick &&
+            !referenceElement.contains(e.target as Node)
+          ) {
             toggle(false)(e);
           }
           onClickOutside?.(e);
@@ -160,18 +183,72 @@ export const Tooltip: FC<TooltipProps> = React.memo(
         mergedVisible
       );
 
-      useAccessibility(
-        trigger,
-        refs.reference,
-        toggle(true),
-        portal
-          ? (e) => {
-              if (e?.key == 'Enter') {
-                toggle(false);
-              }
+      const handleReferenceClick = (event: React.MouseEvent): void => {
+        event.stopPropagation();
+        if (disabled) {
+          return;
+        }
+        timeout && clearTimeout(timeout);
+        timeout = setTimeout(() => {
+          if (mergedVisible && closeOnReferenceClick) {
+            toggle(false)(event);
+          } else {
+            toggle(true)(event);
+          }
+        }, hideAfter);
+        referenceOnClick?.(event);
+      };
+
+      const handleReferenceKeyDown = (event: React.KeyboardEvent): void => {
+        event.stopPropagation();
+        if (disabled) {
+          return;
+        }
+        if (
+          event?.key === eventKeys.ENTER &&
+          document.activeElement === event.target
+        ) {
+          timeout && clearTimeout(timeout);
+          timeout = setTimeout(() => {
+            if (mergedVisible && closeOnReferenceClick) {
+              toggle(false)(event);
+            } else {
+              toggle(true)(event);
             }
-          : toggle(false)
-      );
+          }, hideAfter);
+        }
+        if (
+          event?.key === eventKeys.ESCAPE ||
+          (event?.key === eventKeys.TAB && event.shiftKey)
+        ) {
+          toggle(false)(event);
+        }
+        referenceOnKeydown?.(event);
+      };
+
+      const handleFloatingKeyDown = (event: React.KeyboardEvent): void => {
+        event.stopPropagation();
+        if (event?.key === eventKeys.ESCAPE) {
+          toggle(false)(event);
+        }
+        if (event?.key === eventKeys.TAB) {
+          timeout && clearTimeout(timeout);
+          timeout = setTimeout(() => {
+            if (!refs.floating.current.matches(':focus-within')) {
+              toggle(false)(event);
+            }
+          }, NO_ANIMATION_DURATION);
+        }
+        if (event?.key === eventKeys.TAB && event.shiftKey) {
+          timeout && clearTimeout(timeout);
+          timeout = setTimeout(() => {
+            if (refs.floating.current.matches(':focus-within')) {
+              toggle(true)(event);
+            }
+          }, NO_ANIMATION_DURATION);
+        }
+        tooltipOnKeydown?.(event);
+      };
 
       // The placement type contains both `Side` and `Alignment`, joined by `-`.
       // e.g. placement: `${Side}-{Alignment}`
@@ -179,6 +256,7 @@ export const Tooltip: FC<TooltipProps> = React.memo(
         styles.tooltip,
         { [styles.popup]: type === TooltipType.Popup },
         classNames,
+        { [styles.visibleArrow]: !!visibleArrow },
         { [styles.visible]: mergedVisible },
         { [styles.hiding]: hiding },
         { [styles.hidden]: !mergedVisible },
@@ -220,6 +298,7 @@ export const Tooltip: FC<TooltipProps> = React.memo(
         left: Math.floor(x) ?? '',
         width: width ?? '',
         height: height ?? '',
+        minHeight: minHeight ?? '',
         ...tooltipStyle,
       };
 
@@ -230,7 +309,7 @@ export const Tooltip: FC<TooltipProps> = React.memo(
         [staticSide]: `-${TOOLTIP_ARROW_WIDTH / 2}px`,
       };
 
-      const getChild = (
+      const getDefaultReferenceElement = (
         node: React.ReactNode
       ): JSX.Element | React.ReactNode => {
         if (React.isValidElement(node)) {
@@ -240,60 +319,92 @@ export const Tooltip: FC<TooltipProps> = React.memo(
           if (type === TooltipType.Default) {
             if (node.props?.disabled) {
               return cloneElement(child, {
-                classNames: styles.noPointerEvents,
+                className: styles.disabled,
               });
             }
           }
+        }
+        return node;
+      };
+
+      const getPopupReferenceElement = (
+        node: React.ReactNode
+      ): JSX.Element | React.ReactNode => {
+        if (React.isValidElement(node)) {
+          const child = React.Children.only(node) as React.ReactElement<any>;
 
           // Utilize tha same element clone pattern as Dropdown
           // for more complex Popup elements.
-          if (type === TooltipType.Popup) {
-            const referenceWrapperClassNames: string = mergeClasses([
-              styles.referenceWrapper,
-              { [styles.triggerAbove]: !!triggerAbove },
-              // Add any classnames added to the reference element
-              { [child.props.className]: child.props.className },
-              { [styles.disabled]: disabled },
-            ]);
-            return cloneElement(child, {
-              ...{
-                [TRIGGER_TO_HANDLER_MAP_ON_ENTER[trigger]]: toggle(true),
-              },
-              onClick: toggle(!mergedVisible),
-              className: referenceWrapperClassNames,
-              'aria-controls': tooltipId?.current,
-              'aria-expanded': mergedVisible,
-              'aria-haspopup': true,
-              role: 'button',
-              tabIndex: `${tabIndex}`,
-            });
-          }
+          const referenceWrapperClassNames: string = mergeClasses([
+            styles.referenceWrapper,
+            { [styles.triggerAbove]: !!triggerAbove },
+            // Add any classnames added to the reference element
+            { [child.props.className]: child.props.className },
+            { [styles.disabled]: disabled },
+          ]);
+          return cloneElement(child, {
+            ...{
+              [TRIGGER_TO_HANDLER_MAP_ON_ENTER[trigger]]: toggle(true),
+            },
+            id: tooltipReferenceId?.current,
+            key: tooltipId?.current,
+            onClick: handleReferenceClick,
+            onKeyDown: handleReferenceKeyDown,
+            className: referenceWrapperClassNames,
+            'aria-controls': tooltipId?.current,
+            'aria-expanded': mergedVisible,
+            'aria-haspopup': true,
+            role: 'button',
+            tabIndex: `${tabIndex}`,
+          });
         }
         return node;
       };
 
       const getTooltip = (): JSX.Element =>
         mergedVisible && (
-          <div
-            {...rest}
-            aria-hidden={!mergedVisible}
-            className={tooltipClassNames}
-            id={tooltipId?.current}
-            onClick={
-              closeOnTooltipClick && type === TooltipType.Popup
-                ? toggle(false, showTooltip)
-                : null
-            }
-            ref={floating}
-            role="tooltip"
-            style={tooltipStyles}
-            tabIndex={tabIndex}
-          >
-            {content}
-            {visibleArrow && (
-              <div className={styles.arrow} ref={arrowRef} style={arrowStyle} />
+          <ConditionalWrapper
+            condition={type === TooltipType.Popup}
+            wrapper={(children) => (
+              <FloatingFocusManager
+                context={context}
+                key={tooltipId?.current}
+                modal={false}
+                order={['reference', 'content']}
+                returnFocus={false}
+              >
+                {children}
+              </FloatingFocusManager>
             )}
-          </div>
+          >
+            <div
+              {...rest}
+              aria-hidden={!mergedVisible}
+              className={tooltipClassNames}
+              id={tooltipId?.current}
+              onClick={
+                closeOnTooltipClick && type === TooltipType.Popup
+                  ? toggle(false, showTooltip)
+                  : null
+              }
+              onKeyDown={
+                type === TooltipType.Popup ? handleFloatingKeyDown : null
+              }
+              ref={floating}
+              role="tooltip"
+              style={tooltipStyles}
+              tabIndex={tabIndex}
+            >
+              {content}
+              {visibleArrow && (
+                <div
+                  className={styles.arrow}
+                  ref={arrowRef}
+                  style={arrowStyle}
+                />
+              )}
+            </div>
+          </ConditionalWrapper>
         );
 
       const getConditionalWrapper = (): JSX.Element => (
@@ -301,7 +412,7 @@ export const Tooltip: FC<TooltipProps> = React.memo(
           condition={portal}
           wrapper={(children) => (
             <FloatingPortal id={portalId} root={portalRoot}>
-              {getChild(children)}
+              {children}
             </FloatingPortal>
           )}
         >
@@ -314,14 +425,14 @@ export const Tooltip: FC<TooltipProps> = React.memo(
           <div
             className={referenceWrapperClassNames}
             style={wrapperStyle}
-            id={tooltipId.current}
+            id={tooltipId?.current}
             onMouseEnter={toggle(true, showTooltip)}
             onMouseLeave={toggle(false, showTooltip)}
             onFocus={toggle(true, showTooltip)}
             onBlur={toggle(false, showTooltip)}
             ref={reference}
           >
-            {getChild(children)}
+            {getDefaultReferenceElement(children)}
           </div>
           {getConditionalWrapper()}
         </>
@@ -342,7 +453,7 @@ export const Tooltip: FC<TooltipProps> = React.memo(
               }
             : {})}
         >
-          {getChild(children)}
+          {getPopupReferenceElement(children)}
           {getConditionalWrapper()}
         </div>
       );

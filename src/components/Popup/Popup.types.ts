@@ -14,13 +14,24 @@ export enum PopupTheme {
 export interface PopupProps
   extends Omit<
     TooltipProps,
-    'closeOnTooltipClick' | 'showTooltip' | 'size' | 'tooltipStyle' | 'type'
+    | 'closeOnTooltipClick'
+    | 'showTooltip'
+    | 'size'
+    | 'tooltipOnKeydown'
+    | 'tooltipStyle'
+    | 'type'
   > {
   /**
    * Should close Popup on body click.
    * @default false
    */
   closeOnPopupClick?: boolean;
+  /**
+   * Callback executed on popup element keydown.
+   * @param event
+   * @returns (event: React.KeyboardEvent) => void
+   */
+  popupOnKeydown?: (event: React.KeyboardEvent) => void;
   /**
    * The Popup style.
    */

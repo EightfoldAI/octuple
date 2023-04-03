@@ -67,6 +67,17 @@ export interface DropdownProps {
    */
   positionStrategy?: Strategy;
   /**
+   * Callback executed on reference element click.
+   * @param event
+   * @returns (event: React.MouseEvent) => void
+   */
+  referenceOnClick?: (event: React.MouseEvent) => void;
+  /**
+   * The dropdown aria role.
+   * @default 'listbox'
+   */
+  role?: string;
+  /**
    * Callback to control the show/hide behavior of the dropdown.
    * triggered before the visible change
    * @param show {boolean}

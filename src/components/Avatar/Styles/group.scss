@@ -1,7 +1,7 @@
 .avatar-group {
   display: inline-flex;
 
-  :not(:first-child):not(.avatar-group-tooltip):not(.avatar-status-item):not(.avatar-status-item-text):not(.avatar-status-item-icon) {
+  :not(:first-child):not(.avatar-tooltip):not(.avatar-group-tooltip):not(.avatar-status-item):not(.avatar-status-item-text):not(.avatar-status-item-icon) {
     margin-left: -$space-xs;
   }
 
@@ -13,6 +13,26 @@
 
   .avatar {
     border: $space-xxxs solid var(--background-color);
+    position: relative;
+
+    &:hover {
+      z-index: $z-index-500;
+    }
+  }
+
+  &.animate {
+    .avatar {
+      transition: transform $motion-duration-extra-fast $motion-easing-easeout;
+
+      &:hover:not(.avatar-popup-hidden):not(.avatar-popup-visible):not(:focus-visible) {
+        transform: translateY(-$motion-movement-s);
+      }
+
+      &.avatar-popup-visible {
+        animation: nudgeAvatar $motion-duration-extra-fast
+          $motion-easing-easeout;
+      }
+    }
   }
 
   &-tooltip {
@@ -22,5 +42,17 @@
   &-max-count {
     background-color: var(--grey-color-20);
     color: var(--text-secondary-color);
+  }
+}
+
+@keyframes nudgeAvatar {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-$motion-movement-s);
+  }
+  100% {
+    transform: translateY(0);
   }
 }

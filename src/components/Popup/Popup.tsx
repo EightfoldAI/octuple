@@ -11,9 +11,14 @@ export const Popup: FC<PopupProps> = React.forwardRef<PopupRef, PopupProps>(
     {
       classNames,
       closeOnPopupClick = false,
+      closeOnReferenceClick = true,
       id,
+      popupOnKeydown,
+      referenceOnClick,
+      referenceOnKeydown,
       showPopup,
       size = PopupSize.Medium,
+      tabIndex = 0,
       trigger = 'click',
       popupStyle,
       ...rest
@@ -42,10 +47,15 @@ export const Popup: FC<PopupProps> = React.forwardRef<PopupRef, PopupProps>(
         {...rest}
         classNames={popupClassNames}
         closeOnTooltipClick={closeOnPopupClick}
+        closeOnReferenceClick={closeOnReferenceClick}
         id={popupId}
         ref={ref}
+        referenceOnClick={referenceOnClick}
+        referenceOnKeydown={referenceOnKeydown}
         showTooltip={showPopup}
         size={popupSizeToTooltipSizeMap.get(size)}
+        tabIndex={tabIndex}
+        tooltipOnKeydown={popupOnKeydown}
         tooltipStyle={popupStyle}
         trigger={trigger}
         type={TooltipType.Popup}

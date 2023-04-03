@@ -60,7 +60,7 @@ const Avatar_Icon_Story: ComponentStory<typeof Avatar> = (args) => (
 export const Avatar_Icon = Avatar_Icon_Story.bind({});
 
 const Avatar_Round_Story: ComponentStory<typeof Avatar> = (args) => (
-  <Avatar {...args} />
+  <Avatar popupProps={{ content: 'A popup' }} {...args} />
 );
 
 export const Avatar_Round = Avatar_Round_Story.bind({});

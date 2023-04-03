@@ -15,6 +15,7 @@ import styles from './avatar.module.scss';
 export const AvatarGroup: React.FC<AvatarGroupProps> = React.forwardRef(
   (
     {
+      animateOnHover = false,
       avatarListProps,
       children,
       classNames,
@@ -32,6 +33,7 @@ export const AvatarGroup: React.FC<AvatarGroupProps> = React.forwardRef(
 
     const avatarGroupClassNames: string = mergeClasses([
       styles.avatarGroup,
+      { [styles.animate]: !!animateOnHover },
       { [styles.spaced]: groupVariant === AvatarGroupVariant.Spaced },
       { [styles.avatarGroupRtl]: htmlDir === 'rtl' },
       classNames,
@@ -74,7 +76,9 @@ export const AvatarGroup: React.FC<AvatarGroupProps> = React.forwardRef(
         ])}
       >
         {!!maxProps?.value && maxProps?.value}
-        {!maxProps?.value && `+${numChildren - maxCount}`}
+        {!maxProps?.value && avatarListProps
+          ? `+${numChildren - maxCount}`
+          : `+${maxCount}`}
       </Avatar>
     );
 
@@ -123,6 +127,7 @@ export const AvatarGroup: React.FC<AvatarGroupProps> = React.forwardRef(
           renderItem={avatarListProps?.renderItem}
           renderAdditionalItem={maxCountItem}
           style={style}
+          tabIndex={-1}
         />
       );
     }
