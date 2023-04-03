@@ -171,7 +171,7 @@ export interface PaginationProps extends OcBaseProps<HTMLElement> {
    */
   simplified?: boolean;
   /**
-   * The Pagination total number of pages.
+   * The Pagination total number of items.
    * @default 1
    */
   total: number;
