@@ -67,6 +67,11 @@ export interface DropdownProps {
    */
   positionStrategy?: Strategy;
   /**
+   * The dropdown aria role.
+   * @default 'listbox'
+   */
+  role?: string;
+  /**
    * Callback to control the show/hide behavior of the dropdown.
    * triggered before the visible change
    * @param show {boolean}
