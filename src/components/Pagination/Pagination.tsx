@@ -52,6 +52,7 @@ export const Pagination: FC<PaginationProps> = React.forwardRef(
       quickNextIconButtonAriaLabel: defaultQuickNextIconButtonAriaLabel,
       quickPreviousIconButtonAriaLabel: defaultQuickPreviousIconButtonAriaLabel,
       total = 1,
+      restrictPageSizesPropToSizesLayout = false,
       totalText: defaultTotalText,
       selfControlled = true,
       'data-test-id': dataTestId,
@@ -139,9 +140,21 @@ export const Pagination: FC<PaginationProps> = React.forwardRef(
 
     useEffect((): void => {
       setTotal(total);
-      onSizeChangeHandler?.(
-        pageSizes.indexOf(pageSize) > -1 ? pageSize : pageSizes[0]
-      );
+      if (
+        restrictPageSizesPropToSizesLayout
+          ? layout.includes(PaginationLayoutOptions.Sizes)
+          : true
+      ) {
+        onSizeChangeHandler?.(
+          pageSizes.indexOf(pageSize) > -1 ? pageSize : pageSizes[0]
+        );
+      }
+      if (
+        restrictPageSizesPropToSizesLayout &&
+        !layout.includes(PaginationLayoutOptions.Sizes)
+      ) {
+        setPageCount(Math.ceil(total / _pageSize));
+      }
       jumpToPage?.(currentPage);
     }, []);
 

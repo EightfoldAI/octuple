@@ -137,6 +137,7 @@ export interface PaginationProps extends OcBaseProps<HTMLElement> {
   pageSizeButtonAriaLabel?: string;
   /**
    * The Pagination pageSizes array.
+   * pageSizes should be defined when layout uses PaginationLayoutOptions.Sizes
    * @default {[10, 20, 30, 40, 50, 100]}
    */
   pageSizes?: number[];
@@ -160,6 +161,12 @@ export interface PaginationProps extends OcBaseProps<HTMLElement> {
    * @default 'Previous 5'
    */
   quickPreviousIconButtonAriaLabel?: string;
+  /**
+   * pageSizes should only be defined for Sizes Layout.
+   * Recommended to turn this on as this is going to default behavior in future
+   * @default false
+   */
+  restrictPageSizesPropToSizesLayout?: boolean;
   /**
    * The Page change is controlled internally.
    * @default true
