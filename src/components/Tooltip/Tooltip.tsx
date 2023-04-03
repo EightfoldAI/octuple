@@ -65,10 +65,13 @@ export const Tooltip: FC<TooltipProps> = React.memo(
         portalId,
         portalRoot,
         positionStrategy = 'absolute',
+        referenceOnClick,
+        referenceOnKeydown,
         showTooltip,
         size = TooltipSize.Small,
         tabIndex = 0,
         theme,
+        tooltipOnKeydown,
         tooltipStyle,
         trigger = 'hover',
         triggerAbove = false,
@@ -181,6 +184,10 @@ export const Tooltip: FC<TooltipProps> = React.memo(
       );
 
       const handleReferenceClick = (event: React.MouseEvent): void => {
+        event.stopPropagation();
+        if (disabled) {
+          return;
+        }
         timeout && clearTimeout(timeout);
         timeout = setTimeout(() => {
           if (mergedVisible && closeOnReferenceClick) {
@@ -189,9 +196,14 @@ export const Tooltip: FC<TooltipProps> = React.memo(
             toggle(true)(event);
           }
         }, hideAfter);
+        referenceOnClick?.(event);
       };
 
       const handleReferenceKeyDown = (event: React.KeyboardEvent): void => {
+        event.stopPropagation();
+        if (disabled) {
+          return;
+        }
         if (
           event?.key === eventKeys.ENTER &&
           document.activeElement === event.target
@@ -211,9 +223,11 @@ export const Tooltip: FC<TooltipProps> = React.memo(
         ) {
           toggle(false)(event);
         }
+        referenceOnKeydown?.(event);
       };
 
       const handleFloatingKeyDown = (event: React.KeyboardEvent): void => {
+        event.stopPropagation();
         if (event?.key === eventKeys.ESCAPE) {
           toggle(false)(event);
         }
@@ -233,6 +247,7 @@ export const Tooltip: FC<TooltipProps> = React.memo(
             }
           }, NO_ANIMATION_DURATION);
         }
+        tooltipOnKeydown?.(event);
       };
 
       // The placement type contains both `Side` and `Alignment`, joined by `-`.

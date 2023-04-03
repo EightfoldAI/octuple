@@ -120,6 +120,18 @@ export interface TooltipProps extends Omit<OcBaseProps<HTMLDivElement>, 'ref'> {
    */
   ref?: Ref<TooltipRef>;
   /**
+   * Callback executed on reference element click.
+   * @param event
+   * @returns (event: React.MouseEvent) => void
+   */
+  referenceOnClick?: (event: React.MouseEvent) => void;
+  /**
+   * Callback executed on reference element keydown.
+   * @param event
+   * @returns (event: React.KeyboardEvent) => void
+   */
+  referenceOnKeydown?: (event: React.KeyboardEvent) => void;
+  /**
    * Callback to control the show/hide behavior of the Tooltip.
    * triggered before the visible change
    * @param show {boolean}
@@ -141,6 +153,12 @@ export interface TooltipProps extends Omit<OcBaseProps<HTMLDivElement>, 'ref'> {
    * @default light
    */
   theme?: TooltipTheme;
+  /**
+   * Callback executed on tooltip element keydown.
+   * @param event
+   * @returns (event: React.KeyboardEvent) => void
+   */
+  tooltipOnKeydown?: (event: React.KeyboardEvent) => void;
   /**
    * The Tooltip style.
    */

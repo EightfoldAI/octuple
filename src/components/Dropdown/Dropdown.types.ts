@@ -67,6 +67,12 @@ export interface DropdownProps {
    */
   positionStrategy?: Strategy;
   /**
+   * Callback executed on reference element click.
+   * @param event
+   * @returns (event: React.MouseEvent) => void
+   */
+  referenceOnClick?: (event: React.MouseEvent) => void;
+  /**
    * The dropdown aria role.
    * @default 'listbox'
    */
