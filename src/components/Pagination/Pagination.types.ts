@@ -89,6 +89,11 @@ export interface PaginationProps extends OcBaseProps<HTMLElement> {
    */
   goToText?: string;
   /**
+   * Hide pagination when there is a single page.
+   * @default false
+   */
+  hideWhenSinglePage?: boolean;
+  /**
    * The Pagination layout options.
    * @default {PaginationLayoutOptions.Previous, PaginationLayoutOptions.Pager, PaginationLayoutOptions.Next}
    */

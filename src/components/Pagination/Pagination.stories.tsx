@@ -109,6 +109,7 @@ const paginationArgs: Object = {
   ],
   pageSize: 10,
   pageSizes: [10, 20, 30, 40, 50, 100],
+  hideWhenSinglePage: false,
   total: 50,
   'data-test-id': 'myPaginationTestId',
 };

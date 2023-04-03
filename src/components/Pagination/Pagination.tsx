@@ -32,6 +32,7 @@ export const Pagination: FC<PaginationProps> = React.forwardRef(
       currentPage = 1,
       dots = false,
       goToText: defaultGoToText,
+      hideWhenSinglePage = false,
       layout = [
         PaginationLayoutOptions.Previous,
         PaginationLayoutOptions.Pager,
@@ -388,23 +389,25 @@ export const Pagination: FC<PaginationProps> = React.forwardRef(
                       }
                     />
                   ) : (
-                    <Pager
-                      currentPage={_currentPage}
-                      key="pager"
-                      locale={locale}
-                      onCurrentChange={handleCurrentChange}
-                      pageCount={getPageCount()}
-                      quickNextIconButtonAriaLabel={
-                        quickNextIconButtonAriaLabel
-                      }
-                      quickPreviousIconButtonAriaLabel={
-                        quickPreviousIconButtonAriaLabel
-                      }
-                      simplified={true}
-                      showLast={
-                        !layout.includes(PaginationLayoutOptions.NoLast)
-                      }
-                    />
+                    (hideWhenSinglePage ? moreThanOnePage : true) && (
+                      <Pager
+                        currentPage={_currentPage}
+                        key="pager"
+                        locale={locale}
+                        onCurrentChange={handleCurrentChange}
+                        pageCount={getPageCount()}
+                        quickNextIconButtonAriaLabel={
+                          quickNextIconButtonAriaLabel
+                        }
+                        quickPreviousIconButtonAriaLabel={
+                          quickPreviousIconButtonAriaLabel
+                        }
+                        simplified={true}
+                        showLast={
+                          !layout.includes(PaginationLayoutOptions.NoLast)
+                        }
+                      />
+                    )
                   )}
                   {layout.includes(PaginationLayoutOptions.Next) &&
                     moreThanOnePage && (
