@@ -63,6 +63,7 @@ export const Dropdown: FC<DropdownProps> = React.memo(
         placement = 'bottom-start',
         portal = false,
         positionStrategy = 'absolute',
+        referenceOnClick,
         role = 'listbox',
         showDropdown,
         style,
@@ -168,6 +169,15 @@ export const Dropdown: FC<DropdownProps> = React.memo(
         height: height ?? '',
       };
 
+      const handleReferenceClick = (event: React.MouseEvent): void => {
+        event.stopPropagation();
+        if (disabled) {
+          return;
+        }
+        toggle(!mergedVisible)(event);
+        referenceOnClick?.(event);
+      };
+
       const getReference = (): JSX.Element => {
         const child = React.Children.only(children) as React.ReactElement<any>;
         const referenceWrapperClasses: string = mergeClasses([
@@ -180,7 +190,7 @@ export const Dropdown: FC<DropdownProps> = React.memo(
           ...{
             [TRIGGER_TO_HANDLER_MAP_ON_ENTER[trigger]]: toggle(true),
           },
-          onClick: toggle(!mergedVisible),
+          onClick: handleReferenceClick,
           className: referenceWrapperClasses,
           'aria-controls': dropdownId,
           'aria-expanded': mergedVisible,
