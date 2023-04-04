@@ -9,6 +9,10 @@ $large-track-height: 6px;
 $large-vertical-center: calc($large-slider-height / 2);
 $large-rail-top: $large-vertical-center - calc($large-track-height / 2);
 $large-marker-top: 0;
+$large-max-label-offset: 18px;
+$large-max-label-offset-with-steps: 22px;
+$large-min-label-offset: 10px;
+$large-min-label-offset-with-steps: 6px;
 
 $medium-slider-height: 22px;
 $medium-slider-inline-margin: $space-xs;
@@ -18,6 +22,10 @@ $medium-track-height: 4px;
 $medium-vertical-center: calc($medium-slider-height / 2);
 $medium-rail-top: $medium-vertical-center - calc($medium-track-height / 2);
 $medium-marker-top: 0;
+$medium-max-label-offset: 13px;
+$medium-max-label-offset-with-steps: 17px;
+$medium-min-label-offset: 8px;
+$medium-min-label-offset-with-steps: 4px;
 
 $small-slider-height: 16px;
 $small-slider-inline-margin: $space-xs;
@@ -26,6 +34,10 @@ $small-track-height: 4px;
 $small-vertical-center: calc($small-slider-height / 2);
 $small-rail-top: $small-vertical-center - calc($small-track-height / 2);
 $small-marker-top: 0;
+$small-max-label-offset: 9px;
+$small-max-label-offset-with-steps: 11px;
+$small-min-label-offset: 5px;
+$small-min-label-offset-with-steps: 3px;
 
 // Export values for typescript consumption.
 :export {
@@ -263,11 +275,13 @@ $small-marker-top: 0;
     opacity: 0;
 
     &.max-label {
-      right: calc($medium-slider-height / 2);
+      right: $medium-max-label-offset;
+      width: $space-xs;
     }
 
     &.min-label {
-      left: calc($medium-slider-height / 2);
+      left: $medium-min-label-offset;
+      width: $space-xs;
     }
 
     &-inline {
@@ -392,6 +406,16 @@ $small-marker-top: 0;
       }
     }
 
+    .extremity-label {
+      &.max-label {
+        right: $medium-max-label-offset-with-steps;
+      }
+
+      &.min-label {
+        left: $medium-min-label-offset-with-steps;
+      }
+    }
+
     .thumb {
       margin-left: -$medium-thumb-offset;
     }
@@ -405,6 +429,16 @@ $small-marker-top: 0;
 
     .slider {
       flex: 1;
+    }
+
+    .extremity-label {
+      &.max-label {
+        width: auto;
+      }
+
+      &.min-label {
+        width: auto;
+      }
     }
 
     .slider-range-labels {
@@ -479,11 +513,11 @@ $small-marker-top: 0;
       font-size: $text-font-size-3;
 
       &.max-label {
-        right: calc($large-slider-height / 2);
+        right: $large-max-label-offset;
       }
 
       &.min-label {
-        left: calc($large-slider-height / 2);
+        left: $large-min-label-offset;
       }
 
       &-inline {
@@ -549,6 +583,16 @@ $small-marker-top: 0;
 
         &-mark-text {
           margin-left: -$space-xxs;
+        }
+      }
+
+      .extremity-label {
+        &.max-label {
+          right: $large-max-label-offset-with-steps;
+        }
+
+        &.min-label {
+          left: $large-min-label-offset-with-steps;
         }
       }
 
@@ -624,11 +668,11 @@ $small-marker-top: 0;
       font-size: $text-font-size-2;
 
       &.max-label {
-        right: calc($medium-slider-height / 2);
+        right: $medium-max-label-offset;
       }
 
       &.min-label {
-        left: calc($medium-slider-height / 2);
+        left: $medium-min-label-offset;
       }
 
       &-inline {
@@ -694,6 +738,16 @@ $small-marker-top: 0;
 
         &-mark-text {
           margin-left: -$space-xxs;
+        }
+      }
+
+      .extremity-label {
+        &.max-label {
+          right: $medium-max-label-offset-with-steps;
+        }
+
+        &.min-label {
+          left: $medium-min-label-offset-with-steps;
         }
       }
 
@@ -772,11 +826,11 @@ $small-marker-top: 0;
       font-size: $text-font-size-1;
 
       &.max-label {
-        right: calc($small-slider-height / 2);
+        right: $small-max-label-offset;
       }
 
       &.min-label {
-        left: calc($small-slider-height / 2);
+        left: $small-min-label-offset;
       }
 
       &-inline {
@@ -847,6 +901,16 @@ $small-marker-top: 0;
         }
       }
 
+      .extremity-label {
+        &.max-label {
+          right: $small-max-label-offset-with-steps;
+        }
+
+        &.min-label {
+          left: $small-min-label-offset-with-steps;
+        }
+      }
+
       .thumb {
         margin-left: -$space-xxxs;
       }
@@ -887,12 +951,12 @@ $small-marker-top: 0;
     .extremity-label {
       &.max-label {
         right: unset;
-        left: calc($medium-slider-height / 2);
+        left: $medium-max-label-offset;
       }
 
       &.min-label {
         left: unset;
-        right: calc($medium-slider-height / 2);
+        right: $medium-min-label-offset;
       }
 
       &-inline {
@@ -920,6 +984,18 @@ $small-marker-top: 0;
         &-mark-text {
           margin-left: unset;
           margin-right: -$space-xxs;
+        }
+      }
+
+      .extremity-label {
+        &.max-label {
+          right: unset;
+          left: $medium-max-label-offset-with-steps;
+        }
+
+        &.min-label {
+          left: unset;
+          right: $medium-min-label-offset-with-steps;
         }
       }
 
@@ -963,12 +1039,12 @@ $small-marker-top: 0;
       .extremity-label {
         &.max-label {
           right: unset;
-          left: calc($large-slider-height / 2);
+          left: $large-max-label-offset;
         }
 
         &.min-label {
           left: unset;
-          right: calc($large-slider-height / 2);
+          right: $large-min-label-offset;
         }
 
         &-inline {
@@ -996,6 +1072,18 @@ $small-marker-top: 0;
           &-mark-text {
             margin-left: unset;
             margin-right: -$space-xxs;
+          }
+        }
+
+        .extremity-label {
+          &.max-label {
+            left: $large-max-label-offset-with-steps;
+            right: unset;
+          }
+
+          &.min-label {
+            left: unset;
+            right: $large-min-label-offset-with-steps;
           }
         }
 
@@ -1033,12 +1121,12 @@ $small-marker-top: 0;
       .extremity-label {
         &.max-label {
           right: unset;
-          left: calc($medium-slider-height / 2);
+          left: $medium-max-label-offset;
         }
 
         &.min-label {
           left: unset;
-          right: calc($medium-slider-height / 2);
+          right: $medium-min-label-offset;
         }
 
         &-inline {
@@ -1066,6 +1154,18 @@ $small-marker-top: 0;
           &-mark-text {
             margin-left: unset;
             margin-right: -$space-xxs;
+          }
+        }
+
+        .extremity-label {
+          &.max-label {
+            left: $medium-max-label-offset-with-steps;
+            right: unset;
+          }
+
+          &.min-label {
+            left: unset;
+            right: $medium-min-label-offset-with-steps;
           }
         }
 
@@ -1103,12 +1203,12 @@ $small-marker-top: 0;
       .extremity-label {
         &.max-label {
           right: unset;
-          left: calc($small-slider-height / 2);
+          left: $small-max-label-offset;
         }
 
         &.min-label {
           left: unset;
-          right: calc($small-slider-height / 2);
+          right: $small-min-label-offset;
         }
 
         &-inline {
@@ -1136,6 +1236,18 @@ $small-marker-top: 0;
           &-mark-text {
             margin-left: unset;
             margin-right: -$space-xxxs;
+          }
+        }
+
+        .extremity-label {
+          &.max-label {
+            left: $small-max-label-offset-with-steps;
+            right: unset;
+          }
+
+          &.min-label {
+            left: unset;
+            right: $small-min-label-offset-with-steps;
           }
         }
 
