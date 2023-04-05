@@ -54,6 +54,12 @@ export enum PaginationLayoutOptions {
   NoLast = 'noLast',
 }
 
+export enum PaginationVisiblePagerCountSizeOptions {
+  Small = 'small',
+  Medium = 'medium',
+  Large = 'large',
+}
+
 export type PaginationLocale = {
   lang: Locale;
 };
@@ -192,4 +198,9 @@ export interface PaginationProps extends OcBaseProps<HTMLElement> {
    * @default 'Total'
    */
   totalText?: string;
+  /**
+   * Represents the number of list items (pages) are visible at any given time.
+   * @default PaginationVisiblePagerCountSizeOptions.Large
+   */
+  visiblePagerCountSize?: PaginationVisiblePagerCountSizeOptions;
 }

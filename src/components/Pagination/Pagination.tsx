@@ -4,6 +4,7 @@ import {
   PaginationLayoutOptions,
   PaginationLocale,
   PaginationProps,
+  PaginationVisiblePagerCountSizeOptions,
 } from './index';
 import {
   ButtonIconAlign,
@@ -55,6 +56,7 @@ export const Pagination: FC<PaginationProps> = React.forwardRef(
       restrictPageSizesPropToSizesLayout = false,
       totalText: defaultTotalText,
       selfControlled = true,
+      visiblePagerCountSize = PaginationVisiblePagerCountSizeOptions.Large,
       'data-test-id': dataTestId,
       ...rest
     } = props;
@@ -400,6 +402,7 @@ export const Pagination: FC<PaginationProps> = React.forwardRef(
                       showLast={
                         !layout.includes(PaginationLayoutOptions.NoLast)
                       }
+                      visiblePagerCountSize={visiblePagerCountSize}
                     />
                   ) : (
                     (hideWhenSinglePage ? moreThanOnePage : true) && (
@@ -419,6 +422,7 @@ export const Pagination: FC<PaginationProps> = React.forwardRef(
                         showLast={
                           !layout.includes(PaginationLayoutOptions.NoLast)
                         }
+                        visiblePagerCountSize={visiblePagerCountSize}
                       />
                     )
                   )}
