@@ -229,23 +229,19 @@ export const Pager: FC<PagerProps> = React.forwardRef(
           )}
         {!simplified && pageCount > 1 && showLast && (
           <li>
-            {!simplified ? (
-              <NeutralButton
-                aria-current={currentPage === pageCount}
-                classNames={mergeClasses([
-                  styles.paginationButton,
-                  {
-                    [styles.active]: currentPage === pageCount,
-                  },
-                ])}
-                onClick={() => onCurrentChange(pageCount)}
-                shape={ButtonShape.Rectangle}
-                size={ButtonSize.Medium}
-                text={pageCount.toLocaleString()}
-              />
-            ) : (
-              <span>{pageCount.toLocaleString()}</span>
-            )}
+            <NeutralButton
+              aria-current={currentPage === pageCount}
+              classNames={mergeClasses([
+                styles.paginationButton,
+                {
+                  [styles.active]: currentPage === pageCount,
+                },
+              ])}
+              onClick={() => onCurrentChange(pageCount)}
+              shape={ButtonShape.Rectangle}
+              size={ButtonSize.Medium}
+              text={pageCount.toLocaleString()}
+            />
           </li>
         )}
         {simplified && pageCount > 0 && showLast && (
