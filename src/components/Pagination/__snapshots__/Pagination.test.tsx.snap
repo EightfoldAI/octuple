@@ -162,8 +162,7 @@ exports[`Pagination Pagination should render as simplified 1`] = `
         <span>
           1 of
         </span>
-      </li>
-      <li>
+         
         <span>
           5
         </span>

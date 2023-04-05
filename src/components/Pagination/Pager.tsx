@@ -145,9 +145,12 @@ export const Pager: FC<PagerProps> = React.forwardRef(
                 text={'1'.toLocaleString()}
               />
             ) : (
-              <span>{`${currentPage.toLocaleString()} ${
-                locale.lang!.pagerText
-              }`}</span>
+              <>
+                <span>{`${currentPage.toLocaleString()} ${
+                  locale.lang!.pagerText
+                }`}</span>{' '}
+                {showLast && <span>{`${pageCount.toLocaleString()}`}</span>}
+              </>
             )}
           </li>
         )}
@@ -242,11 +245,6 @@ export const Pager: FC<PagerProps> = React.forwardRef(
               size={ButtonSize.Medium}
               text={pageCount.toLocaleString()}
             />
-          </li>
-        )}
-        {simplified && pageCount > 0 && showLast && (
-          <li>
-            <span>{pageCount.toLocaleString()}</span>
           </li>
         )}
       </ul>
