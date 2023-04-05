@@ -642,7 +642,8 @@ export const Carousel: FC<CarouselProps> = React.forwardRef(
                     onCurrentChange={(currentPage: number) =>
                       handleIndicatorClick(currentPage - 1)
                     }
-                    pageSizes={[1]}
+                    restrictPageSizesPropToSizesLayout
+                    pageSize={1}
                     total={itemsNumber}
                   />
                 )}

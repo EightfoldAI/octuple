@@ -1,5 +1,8 @@
 import React, { FC, useEffect, useCallback, useState, Ref } from 'react';
-import { PagerProps } from './Pagination.types';
+import {
+  PagerProps,
+  PaginationVisiblePagerCountSizeOptions,
+} from './Pagination.types';
 import { ButtonShape, ButtonSize, NeutralButton } from '../Button';
 import { IconName } from '../Icon';
 import { mergeClasses } from '../../shared/utilities';
@@ -9,11 +12,15 @@ import styles from './pagination.module.scss';
 /** Represents the number of pages from each edge of the list before we show quick buttons. */
 const EDGE_BUFFER_THRESHOLD: number = 5;
 
-/** Represents that only 7 list items (pages) are visible at any given time. */
-const PAGER_COUNT: number = 7;
-
 /** Represents a list too short to display meaningful quick buttons. */
 const SHORT_LIST_THRESHOLD: number = 10;
+
+/** Represents the number of list items (pages) visible at any given time. */
+const VISIBLE_PAGER_COUNT = {
+  [PaginationVisiblePagerCountSizeOptions.Small]: 3,
+  [PaginationVisiblePagerCountSizeOptions.Medium]: 5,
+  [PaginationVisiblePagerCountSizeOptions.Large]: 7,
+};
 
 export const Pager: FC<PagerProps> = React.forwardRef(
   (
@@ -26,6 +33,7 @@ export const Pager: FC<PagerProps> = React.forwardRef(
       quickPreviousIconButtonAriaLabel,
       simplified = false,
       showLast = true,
+      visiblePagerCountSize = PaginationVisiblePagerCountSizeOptions.Large,
       ...rest
     },
     ref: Ref<HTMLUListElement>
@@ -34,6 +42,8 @@ export const Pager: FC<PagerProps> = React.forwardRef(
     const [_quickNextActive, setQuickNextActive] = useState<boolean>(false);
     const [_quickPreviousActive, setQuickPreviousActive] =
       useState<boolean>(false);
+
+    const visiblePagerCount = VISIBLE_PAGER_COUNT?.[visiblePagerCountSize] || 7;
 
     /**
      * Updates the visible range of pages in the UL based upon list
@@ -69,7 +79,7 @@ export const Pager: FC<PagerProps> = React.forwardRef(
          * Only the quick previous button is visible.
          */
         if (afterQuickPrevious && !beforeQuickNext) {
-          const startPage = pageCount - (PAGER_COUNT - 2);
+          const startPage = pageCount - (visiblePagerCount - 2);
 
           for (let i: number = startPage; i < pageCount; ++i) {
             array.push(i);
@@ -83,7 +93,7 @@ export const Pager: FC<PagerProps> = React.forwardRef(
            * Only the quick next button is visible.
            */
         } else if (!afterQuickPrevious && beforeQuickNext) {
-          for (let i: number = 2; i < PAGER_COUNT; ++i) {
+          for (let i: number = 2; i < visiblePagerCount; ++i) {
             array.push(i);
           }
 
@@ -94,7 +104,7 @@ export const Pager: FC<PagerProps> = React.forwardRef(
            * position in the visible array. Both quick buttons are visible.
            */
         } else if (afterQuickPrevious && beforeQuickNext) {
-          const offset = Math.floor(PAGER_COUNT / 2) - 1;
+          const offset = Math.floor(visiblePagerCount / 2) - 1;
 
           for (
             let i: number = currentPage - offset;
@@ -145,9 +155,11 @@ export const Pager: FC<PagerProps> = React.forwardRef(
                 text={'1'.toLocaleString()}
               />
             ) : (
-              <span>{`${currentPage.toLocaleString()} ${
-                locale.lang!.pagerText
-              }`}</span>
+              <>
+                <span>{`${currentPage.toLocaleString()}`}</span>{' '}
+                {showLast && <span>{`${locale.lang!.pagerText}`}</span>}{' '}
+                {showLast && <span>{`${pageCount.toLocaleString()}`}</span>}
+              </>
             )}
           </li>
         )}
@@ -227,25 +239,21 @@ export const Pager: FC<PagerProps> = React.forwardRef(
               />
             </li>
           )}
-        {pageCount > 1 && showLast && (
+        {!simplified && pageCount > 1 && showLast && (
           <li>
-            {!simplified ? (
-              <NeutralButton
-                aria-current={currentPage === pageCount}
-                classNames={mergeClasses([
-                  styles.paginationButton,
-                  {
-                    [styles.active]: currentPage === pageCount,
-                  },
-                ])}
-                onClick={() => onCurrentChange(pageCount)}
-                shape={ButtonShape.Rectangle}
-                size={ButtonSize.Medium}
-                text={pageCount.toLocaleString()}
-              />
-            ) : (
-              <span>{pageCount.toLocaleString()}</span>
-            )}
+            <NeutralButton
+              aria-current={currentPage === pageCount}
+              classNames={mergeClasses([
+                styles.paginationButton,
+                {
+                  [styles.active]: currentPage === pageCount,
+                },
+              ])}
+              onClick={() => onCurrentChange(pageCount)}
+              shape={ButtonShape.Rectangle}
+              size={ButtonSize.Medium}
+              text={pageCount.toLocaleString()}
+            />
           </li>
         )}
       </ul>
