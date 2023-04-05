@@ -227,7 +227,7 @@ export const Pager: FC<PagerProps> = React.forwardRef(
               />
             </li>
           )}
-        {pageCount > 1 && showLast && (
+        {!simplified && pageCount > 1 && showLast && (
           <li>
             {!simplified ? (
               <NeutralButton
@@ -246,6 +246,11 @@ export const Pager: FC<PagerProps> = React.forwardRef(
             ) : (
               <span>{pageCount.toLocaleString()}</span>
             )}
+          </li>
+        )}
+        {simplified && pageCount > 0 && showLast && (
+          <li>
+            <span>{pageCount.toLocaleString()}</span>
           </li>
         )}
       </ul>
