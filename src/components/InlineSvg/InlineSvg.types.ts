@@ -1,6 +1,7 @@
+import { OcBaseProps } from '../OcBase';
 import { SkeletonVariant } from '../Skeleton';
 
-export interface InlineSvgProps {
+export interface InlineSvgProps extends OcBaseProps<HTMLDivElement> {
   /**
    * Custom classnames of the component
    */
