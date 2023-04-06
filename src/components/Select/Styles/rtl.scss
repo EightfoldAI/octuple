@@ -1,0 +1,60 @@
+.select-wrapper {
+  &-rtl {
+    .multi-select-pills {
+      left: $space-xxl;
+      right: $space-xs;
+    }
+
+    .multi-select-pill {
+      margin-left: $space-xs;
+      margin-right: 0;
+    }
+
+    .multi-select-count {
+      margin-left: $space-xs;
+      margin-right: 0;
+    }
+
+    &.select-large {
+      .select-input-group {
+        .select-clear-button-start-rtl {
+          right: 2px;
+          left: unset;
+        }
+
+        .select-clear-button-end-rtl {
+          right: unset;
+          left: 44px;
+        }
+      }
+    }
+
+    &.select-medium {
+      .select-input-group {
+        .select-clear-button-start-rtl {
+          right: 2px;
+          left: unset;
+        }
+
+        .select-clear-button-end-rtl {
+          right: unset;
+          left: 36px;
+        }
+      }
+    }
+
+    &.select-small {
+      .select-input-group {
+        .select-clear-button-start-rtl {
+          right: 2px;
+          left: unset;
+        }
+
+        .select-clear-button-end-rtl {
+          right: unset;
+          left: 28px;
+        }
+      }
+    }
+  }
+}

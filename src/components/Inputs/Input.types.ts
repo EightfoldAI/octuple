@@ -210,6 +210,10 @@ export interface InputProps<T>
    */
   clearButtonAriaLabel?: string;
   /**
+   * The input clear button custom class names.
+   */
+  clearButtonClassNames?: string;
+  /**
    * The input disabled state.
    * @default false
    */
@@ -230,6 +234,10 @@ export interface InputProps<T>
    * @default false
    */
   formItemInput?: boolean;
+  /**
+   * The input group custom class names.
+   */
+  groupClassNames?: string;
   /**
    * The input icon button props.
    */
