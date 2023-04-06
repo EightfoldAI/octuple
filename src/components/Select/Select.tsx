@@ -394,7 +394,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
     const componentClassNames: string = mergeClasses([
       styles.selectWrapper,
       {
-        [styles.selectMultiple]: !!multiple,
+        [styles.selectWrapperMultiple]: !!multiple,
       },
       {
         [styles.selectSmall]:
