@@ -418,6 +418,10 @@ export interface ScrollerProps<RecordType> {
   stickyOffsets: StickyOffsets;
   scrollHeaderRef?: RefObject<HTMLDivElement>;
   /**
+   * Ref of the table title
+   */
+  titleRef?: RefObject<HTMLDivElement>;
+  /**
    * The Table scroller right button aria label
    * @default 'Scroll right'
    */
@@ -434,6 +438,10 @@ export type ScrollerRef = {
    * Helper method to handle body scroll changes
    */
   onBodyScroll: () => void;
+  /**
+   * Helper method triggered on hover of a row
+   */
+  onRowHover: (boundingRect: DOMRect) => void;
 };
 
 export interface OcTableProps<RecordType = unknown> {

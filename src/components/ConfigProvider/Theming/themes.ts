@@ -1,36 +1,8 @@
 import { OcBaseTheme, OcTheme, OcThemeName } from './Theming.types';
 
-export const themeDefaults: OcBaseTheme = {
-  textColor: '#1A212E',
-  textColorSecondary: '#4F5666',
-  textColorInverse: '#fff',
-  backgroundColor: '#fff',
-  successColor: '#2B715F',
-  warningColor: '#9D6309',
-  infoColor: '#4F5666',
-  errorColor: '#993838',
-  tabsTheme: {
-    label: '#4F5666',
-    activeLabel: '#146DA6',
-    activeBackground: 'transparent',
-    hoverLabel: '#054D7B',
-    hoverBackground: 'transparent',
-    indicatorColor: '#146DA6',
-    smallActiveBackground: 'transparent',
-    smallHoverBackground: 'transparent',
-    pillLabel: '#4F5666',
-    pillActiveLabel: '#054D7B',
-    pillActiveBackground: '#B0F3FE',
-    pillHoverLabel: '#054D7B',
-    pillBackground: '#F6F7F8',
-  },
-  navbarTheme: {
-    background: '#054D7B',
-    textColor: '#fff',
-    textHoverBackground: '#054D7B',
-    textHoverColor: '#fff',
-  },
-};
+// NOTE: Theme should not provide defaults. The css variables provide
+// the defaults, and the ConfigProvider theme can override them accordingly.
+export const themeDefaults: OcBaseTheme = {};
 
 export const red: OcTheme = {
   primaryColor: '#6C2222',

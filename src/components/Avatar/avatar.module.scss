@@ -5,11 +5,10 @@
 
 .wrapper-style {
   align-items: center;
+  color: var(--text-inverse-color);
   display: flex;
   font-family: var(--avatar-font-family);
   justify-content: center;
-  border-radius: var(--avatar-border-radius);
-  color: var(--text-inverse-color);
 
   &.red {
     background-color: var(--red-color-60);
@@ -60,14 +59,82 @@
   }
 }
 
-.round-image {
-  border-radius: var(--avatar-round-border-radius);
-}
-
 .image-style {
   height: 100%;
   width: 100%;
   object-fit: cover;
+}
+
+.avatar-status-item {
+  display: flex;
+  position: absolute;
+  border-radius: var(--avatar-status-item-border-radius);
+
+  .clickable {
+    cursor: pointer;
+  }
+}
+
+.avatar-status-item-text {
+  font-weight: 600;
+
+  &.text-margin-right {
+    margin-right: 2px;
+  }
+
+  &.text-margin-left {
+    margin-left: 2px;
+  }
+}
+
+.avatar-status-item-icon {
+  margin: 0;
+}
+
+.avatar-img-wrapper {
+  align-items: center;
+  display: flex;
+  font-family: var(--avatar-font-family);
+  justify-content: center;
+}
+
+.avatar-popup {
+  z-index: $z-index-500;
+}
+
+.avatar-group-max-count,
+.avatar-popup,
+.avatar-popup-hidden,
+.avatar-popup-visible,
+.wrapper-style,
+.image-style,
+.avatar-img-wrapper {
+  border-radius: var(--avatar-border-radius);
+  position: relative;
+
+  &.round {
+    border-radius: var(--avatar-round-border-radius);
+  }
+
+  // Hides the browser default keyboard focus-visible styles.
+  // Use the ConfigProvider instead.
+  &:focus-visible {
+    outline: none;
+  }
+}
+
+:global(.focus-visible) {
+  .avatar-group-max-count,
+  .avatar-popup,
+  .avatar-popup-hidden,
+  .avatar-popup-visible,
+  .avatar-img-wrapper,
+  .image-style,
+  .wrapper-style {
+    &:focus-visible {
+      box-shadow: var(--focus-visible-box-shadow);
+    }
+  }
 }
 
 @import './Styles/group';

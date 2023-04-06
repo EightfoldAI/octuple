@@ -1,5 +1,5 @@
 import React, { Ref } from 'react';
-import { Avatar, AvatarGroupProps } from '.';
+import { Avatar, AvatarGroupProps, AvatarGroupVariant } from '.';
 import { List } from '../List';
 import { Tooltip } from '../Tooltip';
 import { useCanvasDirection } from '../../hooks/useCanvasDirection';
@@ -15,9 +15,11 @@ import styles from './avatar.module.scss';
 export const AvatarGroup: React.FC<AvatarGroupProps> = React.forwardRef(
   (
     {
+      animateOnHover = false,
       avatarListProps,
       children,
       classNames,
+      groupVariant = AvatarGroupVariant.Overlapped,
       maxProps,
       size,
       style,
@@ -31,6 +33,8 @@ export const AvatarGroup: React.FC<AvatarGroupProps> = React.forwardRef(
 
     const avatarGroupClassNames: string = mergeClasses([
       styles.avatarGroup,
+      { [styles.animate]: !!animateOnHover },
+      { [styles.spaced]: groupVariant === AvatarGroupVariant.Spaced },
       { [styles.avatarGroupRtl]: htmlDir === 'rtl' },
       classNames,
     ]);
@@ -65,14 +69,16 @@ export const AvatarGroup: React.FC<AvatarGroupProps> = React.forwardRef(
         size={size}
         type={type}
         fontSize={styles.maxCountFontSize}
-        {...maxProps}
+        {...{ ...maxProps, tooltipProps: undefined }}
         classNames={mergeClasses([
           styles.avatarGroupMaxCount,
           maxProps?.classNames,
         ])}
       >
         {!!maxProps?.value && maxProps?.value}
-        {!maxProps?.value && `+${numChildren - maxCount}`}
+        {!maxProps?.value && avatarListProps
+          ? `+${numChildren - maxCount}`
+          : `+${maxCount}`}
       </Avatar>
     );
 
@@ -121,6 +127,7 @@ export const AvatarGroup: React.FC<AvatarGroupProps> = React.forwardRef(
           renderItem={avatarListProps?.renderItem}
           renderAdditionalItem={maxCountItem}
           style={style}
+          tabIndex={-1}
         />
       );
     }

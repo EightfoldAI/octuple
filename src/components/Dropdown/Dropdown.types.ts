@@ -1,5 +1,5 @@
 import React, { Ref } from 'react';
-import { Placement, Strategy } from '@floating-ui/react-dom';
+import { Placement, Strategy } from '@floating-ui/react';
 
 export interface DropdownProps {
   /**
@@ -66,6 +66,17 @@ export interface DropdownProps {
    * @default absolute
    */
   positionStrategy?: Strategy;
+  /**
+   * Callback executed on reference element click.
+   * @param event
+   * @returns (event: React.MouseEvent) => void
+   */
+  referenceOnClick?: (event: React.MouseEvent) => void;
+  /**
+   * The dropdown aria role.
+   * @default 'listbox'
+   */
+  role?: string;
   /**
    * Callback to control the show/hide behavior of the dropdown.
    * triggered before the visible change

@@ -26,16 +26,26 @@ export interface SelectOption extends MenuItemButtonProps {
    */
   hideOption?: boolean;
   /**
-   * The select option id.
+   * The select option element id.
    */
   id?: string;
+  /**
+   * The optional select JSON object.
+   */
+  object?: object;
   /**
    * The select option selected state.
    */
   selected?: boolean;
 }
 
-export interface SelectProps extends OcBaseProps<HTMLDivElement> {
+export interface SelectProps
+  extends Omit<OcBaseProps<HTMLDivElement>, 'onFocus' | 'onBlur'> {
+  /**
+   * Indicates the autocomplete attribute value for the Select input field.
+   * @default undefined
+   */
+  autocomplete?: string;
   /**
    * Whether the select text input is clearable.
    * @default false
@@ -49,7 +59,7 @@ export interface SelectProps extends OcBaseProps<HTMLDivElement> {
    * The select default value.
    * @default ''
    */
-  defaultValue?: string;
+  defaultValue?: string | string[];
   /**
    * The select disabled state.
    * @default false
@@ -105,14 +115,27 @@ export interface SelectProps extends OcBaseProps<HTMLDivElement> {
    */
   multiple?: boolean;
   /**
+   * The Select onBlur event handler.
+   */
+  onBlur?: React.FocusEventHandler<HTMLInputElement>;
+  /**
    * Callback called when the clear button is clicked.
    */
   onClear?: () => void;
   /**
-   * Callback called when options are selected/unselected.
-   * @param options {SelectOption[]}
+   * The Select onFocus event handler.
    */
-  onOptionsChange?: (options: SelectOption[]) => void;
+  onFocus?: React.FocusEventHandler<HTMLInputElement>;
+  /**
+   * The Select onKeyDown event handler.
+   */
+  onKeyDown?: React.KeyboardEventHandler<HTMLInputElement>;
+  /**
+   * Callback called when options are selected/unselected.
+   * @param values {SelectOption['value'].value[]}
+   * @param options {SelectOption['value'][]}
+   */
+  onOptionsChange?: (values: SelectOption[], options?: SelectOption[]) => void;
   /**
    * The select options.
    * @default []

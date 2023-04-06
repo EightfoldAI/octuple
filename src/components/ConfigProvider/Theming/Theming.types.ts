@@ -66,12 +66,6 @@ export interface ThemeOptions {
    */
   name?: ThemeName;
   /**
-   * Use system theme or not
-   * @default false
-   * @experimental
-   */
-  useSystemTheme?: boolean;
-  /**
    * Define a custom theme palette
    * @type {OcBaseTheme}
    * @default null

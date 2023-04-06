@@ -4,7 +4,14 @@ import {
   AccordionSize,
 } from './components/Accordion';
 
-import { AVATAR_THEME_SET, Avatar, AvatarGroup } from './components/Avatar';
+import {
+  AVATAR_THEME_SET,
+  Avatar,
+  AvatarGroup,
+  AvatarGroupVariant,
+  StatusItemIconAlign,
+  StatusItemsPosition,
+} from './components/Avatar';
 
 import { Badge } from './components/Badge';
 
@@ -75,7 +82,14 @@ import { Link } from './components/Link';
 
 import { List } from './components/List';
 
-import { Menu, MenuItemType, MenuVariant, MenuSize } from './components/Menu';
+import {
+  CascadingMenu,
+  Menu,
+  MenuItemIconAlign,
+  MenuItemType,
+  MenuVariant,
+  MenuSize,
+} from './components/Menu';
 
 import { Modal, ModalSize } from './components/Modal';
 
@@ -160,6 +174,8 @@ import {
   PanelHeader,
 } from './components/Panel';
 
+import { Popup, PopupSize, PopupTheme } from './components/Popup';
+
 import { Portal } from './components/Portal';
 
 import { RadioButton, RadioGroup } from './components/RadioButton';
@@ -181,6 +197,7 @@ import Table, {
 import Upload, {
   OcFile,
   UploadFile,
+  UploadFileStatus,
   UploadProps,
   UploadSize,
 } from './components/Upload';
@@ -188,6 +205,8 @@ import Upload, {
 import { ResizeObserver } from './shared/ResizeObserver/ResizeObserver';
 
 import { useBoolean } from './hooks/useBoolean';
+
+import { useCanvasDirection } from './hooks/useCanvasDirection';
 
 import { useMatchMedia } from './hooks/useMatchMedia';
 
@@ -204,6 +223,7 @@ export {
   AVATAR_THEME_SET,
   Avatar,
   AvatarGroup,
+  AvatarGroupVariant,
   Badge,
   ButtonIconAlign,
   ButtonShape,
@@ -215,6 +235,7 @@ export {
   CardSize,
   CardType,
   Carousel,
+  CascadingMenu,
   CheckBox,
   CheckBoxGroup,
   Col,
@@ -258,6 +279,7 @@ export {
   LoaderSize,
   MatchScore,
   Menu,
+  MenuItemIconAlign,
   MenuItemType,
   MenuVariant,
   MenuSize,
@@ -281,6 +303,9 @@ export {
   PillSize,
   PillThemeName,
   PillType,
+  Popup,
+  PopupSize,
+  PopupTheme,
   Portal,
   PrimaryButton,
   Progress,
@@ -315,6 +340,8 @@ export {
   Stack,
   Stat,
   StatThemeName,
+  StatusItemIconAlign,
+  StatusItemsPosition,
   StatValidationStatus,
   Step,
   StepSize,
@@ -347,9 +374,11 @@ export {
   TwoStateButton,
   Upload,
   UploadFile,
+  UploadFileStatus,
   UploadProps,
   UploadSize,
   useBoolean,
+  useCanvasDirection,
   useMatchMedia,
   useMaxVisibleSections,
   useOnClickOutside,

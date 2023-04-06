@@ -1,8 +1,16 @@
 import React from 'react';
-import { MenuSize, MenuVariant } from '../Menu.types';
+import { DropdownMenuProps, MenuSize, MenuVariant } from '../Menu.types';
 import { OcBaseProps } from '../../OcBase';
 import { IconProps } from '../../Icon';
 import { LinkProps } from '../../Link';
+import { ButtonProps } from '../../Button';
+
+export interface MenuIconProps extends Omit<IconProps, 'size'> {}
+
+export enum MenuItemIconAlign {
+  Left = 'left',
+  Right = 'right',
+}
 
 export enum MenuItemType {
   button = 'button',
@@ -13,10 +21,23 @@ export enum MenuItemType {
 
 export interface MenuItemProps {
   /**
+   * The Menu item icon alignment.
+   * @default MenuItemIconAlign.Left
+   */
+  alignIcon?: MenuItemIconAlign;
+  /**
+   * The canvas direction of the Menu.
+   */
+  direction?: string;
+  /**
    * Size of the menu
    * @default MenuSize.Medium
    */
   size?: MenuSize;
+  /**
+   * Display label of the menu item
+   */
+  text?: string;
   /**
    * Type of the menu
    * @default MenuType.button
@@ -25,12 +46,17 @@ export interface MenuItemProps {
   /**
    * Value of the menu item
    */
-  value: any;
+  value?: any;
   /**
    * Variant of the menu item
    * @default MenuVariant.neutral
    */
   variant?: MenuVariant;
+  /**
+   * The text should wrap
+   * @default false
+   */
+  wrap?: boolean;
 }
 
 type NativeMenuButtonProps = Omit<OcBaseProps<HTMLButtonElement>, 'children'>;
@@ -52,22 +78,34 @@ export interface MenuItemButtonProps
    */
   disabled?: boolean;
   /**
+   * Menu item opens a dropdown menu.
+   */
+  dropdownMenuItems?: DropdownMenuItemProps[];
+  /**
+   * The nested dropdown menu props
+   */
+  dropdownMenuProps?: NestedDropdownMenuProps;
+  /**
    * Menu item icon props
    */
-  iconProps?: IconProps;
+  iconProps?: MenuIconProps;
   /**
    * On Click handler of the menu item
    * @param value
    */
   onClick?: (value: any) => void;
   /**
-   * Display label of the menu item
+   * Secondary action button for the menu item
    */
-  text?: string;
+  secondaryButtonProps?: Omit<ButtonProps, 'text' | 'shape'>;
   /**
    * Display sub text of the menu item
    */
   subText?: string;
+  /**
+   * Display label of the menu item
+   */
+  text?: string;
 }
 
 export interface MenuItemLinkProps
@@ -89,15 +127,15 @@ export interface MenuItemLinkProps
   /**
    * Menu item icon props
    */
-  iconProps?: IconProps;
-  /**
-   * Display label of the menu item
-   */
-  text?: string;
+  iconProps?: MenuIconProps;
   /**
    * Display sub text of the menu item
    */
   subText?: string;
+  /**
+   * Display label of the menu item
+   */
+  text?: string;
 }
 
 export interface MenuItemSubHeaderProps
@@ -126,4 +164,24 @@ export interface MenuItemCustomProps
    * Method to render custom menu item
    */
   render?: (menuItemRender: IMenuItemRender) => React.ReactNode;
+  /**
+   * Menu item opens a dropdown menu.
+   */
+  dropdownMenuItems?: DropdownMenuItemProps[];
+  /**
+   * The nested dropdown menu props
+   */
+  dropdownMenuProps?: NestedDropdownMenuProps;
 }
+
+/**
+ * NOTE: Sub menus should only be triggered by buttons, not links or text.
+ */
+export type DropdownMenuItemProps =
+  | MenuItemButtonProps
+  | MenuItemLinkProps
+  | MenuItemSubHeaderProps
+  | MenuItemCustomProps;
+
+export interface NestedDropdownMenuProps
+  extends Omit<DropdownMenuProps, 'items'> {}

@@ -1,11 +1,12 @@
 import React from 'react';
-import Enzyme, { mount } from 'enzyme';
+import Enzyme from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import MatchMediaMock from 'jest-matchmedia-mock';
 import { SelectShape, SelectSize } from './Select.types';
-import { Select, SelectOption } from './';
-import { fireEvent, render } from '@testing-library/react';
+import { Select } from './';
 import { sleep } from '../../tests/Utilities';
+import { fireEvent, render } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -41,32 +42,284 @@ describe('Select', () => {
     await sleep();
   }
 
-  const defaultOptions: SelectOption[] = [
-    {
-      text: 'School',
-      value: 'school',
-    },
+  const ANIMATION_DURATION: number = 200;
+
+  const options = [
+    { text: 'Option 1', value: 'option1' },
+    { text: 'Option 2', value: 'option2' },
+    { text: 'Option 3', value: 'option3' },
   ];
 
-  test('Select clearable', async () => {
-    const { container } = render(
+  test('Renders without crashing', () => {
+    const { container, getAllByPlaceholderText } = render(
+      <Select options={options} placeholder="Select test" />
+    );
+    const select = getAllByPlaceholderText('Select test');
+    expect(() => container).not.toThrowError();
+    expect(select).toBeTruthy();
+    expect(container).toMatchSnapshot();
+  });
+
+  test('renders as not read-only and is editable', () => {
+    const { container } = render(<Select options={options} />);
+    expect(
+      container.querySelector('.select-input').getAttribute('readonly')
+    ).toBeFalsy();
+  });
+
+  test('Opens the dropdown when clicked', async () => {
+    const { getByPlaceholderText, getByText } = render(
+      <Select options={options} placeholder="Select test" />
+    );
+    const select = getByPlaceholderText('Select test');
+    fireEvent.click(select);
+    await sleep(ANIMATION_DURATION);
+    const option = getByText('Option 1');
+    expect(option).toBeTruthy();
+  });
+
+  test('Selects an option', async () => {
+    const handleChange = jest.fn();
+    const { getByPlaceholderText, getByText } = render(
       <Select
-        defaultValue="school"
-        options={defaultOptions}
-        textInputProps={{
-          defaultValue: 'school',
-          clearable: true,
-        }}
+        options={options}
+        onOptionsChange={handleChange}
+        placeholder="Select test"
       />
     );
-    await change(container, 'School');
+    const select = getByPlaceholderText('Select test');
+    fireEvent.click(select);
+    await sleep(ANIMATION_DURATION);
+    const option = getByText('Option 1');
+    fireEvent.click(option);
+    expect(handleChange).toHaveBeenCalledWith(
+      ['option1'],
+      [
+        {
+          hideOption: false,
+          id: 'Option 1-0',
+          object: undefined,
+          selected: true,
+          text: 'Option 1',
+          value: 'option1',
+        },
+      ]
+    );
+  });
+
+  test('Selects multiple options', async () => {
+    const handleChange = jest.fn();
+    const { getByPlaceholderText, getByText } = render(
+      <Select
+        options={options}
+        onOptionsChange={handleChange}
+        multiple
+        placeholder="Select test"
+      />
+    );
+    const select = getByPlaceholderText('Select test');
+    fireEvent.click(select);
+    await sleep(ANIMATION_DURATION);
+    const option1 = getByText('Option 1');
+    fireEvent.click(option1);
+    const option2 = getByText('Option 2');
+    fireEvent.click(option2);
+    expect(handleChange).toHaveBeenCalledWith(
+      ['option1', 'option2'],
+      [
+        {
+          hideOption: false,
+          id: 'Option 1-0',
+          object: undefined,
+          selected: true,
+          text: 'Option 1',
+          value: 'option1',
+        },
+        {
+          hideOption: false,
+          id: 'Option 2-1',
+          object: undefined,
+          selected: true,
+          text: 'Option 2',
+          value: 'option2',
+        },
+      ]
+    );
+  });
+
+  test('Renders with default value', () => {
+    const defaultValue = 'option2';
+    const { container, getByDisplayValue } = render(
+      <Select options={options} defaultValue={defaultValue} />
+    );
+    const select = getByDisplayValue('Option 2');
+    expect(() => container).not.toThrowError();
+    expect(select).toBeTruthy();
+    expect(container).toMatchSnapshot();
+  });
+
+  test('Updates the selected value', async () => {
+    const defaultValue = 'option2';
+    const handleChange = jest.fn();
+    const { getByPlaceholderText, getByText } = render(
+      <Select
+        options={options}
+        defaultValue={defaultValue}
+        onOptionsChange={handleChange}
+        placeholder="Select test"
+      />
+    );
+    const select = getByPlaceholderText('Select test');
+    fireEvent.click(select);
+    await sleep(ANIMATION_DURATION);
+    const option1 = getByText('Option 1');
+    fireEvent.click(option1);
+    expect(handleChange).toHaveBeenCalledWith([], []);
+    expect(handleChange).toHaveBeenCalledWith(
+      ['option2'],
+      [
+        {
+          hideOption: false,
+          id: 'Option 2-1',
+          object: undefined,
+          selected: true,
+          text: 'Option 2',
+          value: 'option2',
+        },
+      ]
+    );
+    expect(handleChange).toHaveBeenCalledWith(
+      ['option1'],
+      [
+        {
+          hideOption: false,
+          id: 'Option 1-0',
+          object: undefined,
+          selected: true,
+          text: 'Option 1',
+          value: 'option1',
+        },
+      ]
+    );
+  });
+
+  test('Renders with default values when multiple', () => {
+    const defaultValue = ['option2', 'option3'];
+    const { container, getByText } = render(
+      <Select options={options} defaultValue={defaultValue} multiple />
+    );
+    const option2 = getByText('Option 2');
+    const option3 = getByText('Option 3');
+    expect(() => container).not.toThrowError();
+    expect(option2).toBeTruthy();
+    expect(option3).toBeTruthy();
+    expect(container).toMatchSnapshot();
+  });
+
+  test('Updates the selected values when multiple', async () => {
+    const defaultValue = ['option2', 'option3'];
+    const handleChange = jest.fn();
+    const { container, getByText } = render(
+      <Select
+        options={options}
+        defaultValue={defaultValue}
+        multiple
+        onOptionsChange={handleChange}
+      />
+    );
+    const select = container.querySelector('.select-input');
+    fireEvent.click(select);
+    await sleep(ANIMATION_DURATION);
+    const option1 = getByText('Option 1');
+    fireEvent.click(option1);
+    expect(handleChange).toHaveBeenCalledWith(
+      ['option1', 'option2', 'option3'],
+      [
+        {
+          hideOption: false,
+          id: 'Option 1-0',
+          object: undefined,
+          selected: true,
+          text: 'Option 1',
+          value: 'option1',
+        },
+        {
+          hideOption: false,
+          id: 'Option 2-1',
+          object: undefined,
+          selected: true,
+          text: 'Option 2',
+          value: 'option2',
+        },
+        {
+          hideOption: false,
+          id: 'Option 3-2',
+          object: undefined,
+          selected: true,
+          text: 'Option 3',
+          value: 'option3',
+        },
+      ]
+    );
+  });
+
+  test('Renders with clear button', () => {
+    const defaultValue = 'option2';
+    const { container } = render(
+      <Select defaultValue={defaultValue} options={options} clearable />
+    );
+    const clearButton = container.querySelector('.clear-icon-button');
+    expect(clearButton).toBeTruthy();
+  });
+
+  test('Handles clearing the selected value', async () => {
+    const defaultValue = 'option2';
+    const handleChange = jest.fn();
+    const { container, getByPlaceholderText } = render(
+      <Select
+        options={options}
+        defaultValue={defaultValue}
+        onOptionsChange={handleChange}
+        clearable
+        placeholder="Select test"
+      />
+    );
+    const select = getByPlaceholderText('Select test');
+    fireEvent.click(select);
+    await sleep(ANIMATION_DURATION);
+    const clearButton = container.querySelector('.clear-icon-button');
+    fireEvent.click(clearButton);
+    expect(handleChange).toHaveBeenCalledWith([], []);
+    expect(handleChange).toHaveBeenCalledWith(
+      ['option2'],
+      [
+        {
+          hideOption: false,
+          id: 'Option 2-1',
+          object: undefined,
+          selected: true,
+          text: 'Option 2',
+          value: 'option2',
+        },
+      ]
+    );
+    expect(handleChange).toHaveBeenCalledWith([], []);
+  });
+
+  test('Select clearable input value is cleared and clear button is no longer visible', async () => {
+    const defaultValue = 'option2';
+    const { container } = render(
+      <Select defaultValue={defaultValue} options={options} clearable />
+    );
+    await change(container, 'Option 2');
     expect(
       (container.querySelector('.select-input') as HTMLInputElement).value
-    ).toBe('School');
+    ).toBe('Option 2');
     fireEvent.click(container.querySelector('.clear-icon-button'));
     expect(
       (container.querySelector('.select-input') as HTMLInputElement).value
     ).toBe('');
+    expect(container.querySelector('.clear-icon-button')).toBeFalsy();
   });
 
   test('Select backspace clearable', async () => {
@@ -100,12 +353,15 @@ describe('Select', () => {
 
       fireEvent.keyUp(element, sharedEventConfig);
     };
-    const { container } = render(<Select options={defaultOptions} />);
-    await change(container, 'School');
+    const defaultValue = 'option2';
+    const { container } = render(
+      <Select defaultValue={defaultValue} options={options} />
+    );
+    await change(container, 'Option 2');
     expect(
       (container.querySelector('.select-input') as HTMLInputElement).value
-    ).toBe('School');
-    let count = 6;
+    ).toBe('Option 2');
+    let count = 8;
     do {
       backspace(container.querySelector('.select-input') as HTMLInputElement);
     } while (count--);
@@ -114,44 +370,143 @@ describe('Select', () => {
     ).toBe('');
   });
 
+  test('Renders as disabled', () => {
+    const { container } = render(<Select options={options} disabled />);
+    expect(container.querySelector('.disabled')).toBeTruthy();
+  });
+
+  test('Does not open the dropdown when clicked and disabled', async () => {
+    const handleChange = jest.fn();
+    const { container, getByPlaceholderText } = render(
+      <Select
+        options={options}
+        onChange={handleChange}
+        disabled
+        placeholder="Select test"
+      />
+    );
+    const select = getByPlaceholderText('Select test');
+    fireEvent.click(select);
+    await sleep(ANIMATION_DURATION);
+    expect(container.querySelector('.dropdown')).toBeFalsy();
+    expect(handleChange).not.toHaveBeenCalled();
+  });
+
+  test('Renders with all options initially visible', async () => {
+    const { getAllByRole, getByPlaceholderText } = render(
+      <Select options={options} filterable placeholder="Select test" />
+    );
+    const select = getByPlaceholderText('Select test');
+    fireEvent.click(select);
+    await sleep(ANIMATION_DURATION);
+    const listbox = getAllByRole('menuitem');
+    expect(listbox).toHaveLength(options.length);
+  });
+
+  test('Filters the options when input value changes', async () => {
+    const { getByPlaceholderText, getByText, queryByText } = render(
+      <Select options={options} filterable placeholder="Select test" />
+    );
+    const select = getByPlaceholderText('Select test');
+    fireEvent.click(select);
+    userEvent.type(select, 'Option 1');
+    await sleep(ANIMATION_DURATION);
+    const option1 = getByText('Option 1');
+    const option2 = queryByText('Option 2');
+    const option3 = queryByText('Option 3');
+    expect(option1).toBeTruthy();
+    expect(option2).toBeFalsy();
+    expect(option3).toBeFalsy();
+  });
+
+  test('Calls onFocus and onBlur callbacks when Select is focused and blurred', () => {
+    const handleFocus = jest.fn();
+    const handleBlur = jest.fn();
+    const { getByPlaceholderText } = render(
+      <Select
+        options={options}
+        onFocus={handleFocus}
+        onBlur={handleBlur}
+        placeholder="Select test"
+      />
+    );
+
+    const select = getByPlaceholderText('Select test');
+    fireEvent.focus(select);
+    expect(handleFocus).toHaveBeenCalled();
+
+    fireEvent.blur(select);
+    expect(handleBlur).toHaveBeenCalled();
+  });
+
+  test('Displays an empty string when the default value is null', () => {
+    const { container } = render(
+      <Select options={options} defaultValue={null} />
+    );
+
+    expect(
+      (container.querySelector('.select-input') as HTMLInputElement).value
+    ).toBe('');
+  });
+
+  test('Sets the input element autocomplete attribute to the specified value', () => {
+    const { container } = render(
+      <Select options={options} defaultValue="option1" autocomplete="email" />
+    );
+
+    const input = container.querySelector('.select-input');
+    expect(input.getAttribute('autocomplete')).toBe('email');
+  });
+
+  test('Calls the onKeyDown function when a key is pressed', () => {
+    const onKeyDown = jest.fn();
+    const { container } = render(
+      <Select options={options} onKeyDown={onKeyDown} />
+    );
+
+    const input = container.querySelector('.select-input');
+    fireEvent.keyDown(input, { key: 'ArrowDown' });
+    expect(onKeyDown).toHaveBeenCalledTimes(1);
+  });
+
   test('Select is large', () => {
     const { container } = render(
-      <Select options={defaultOptions} size={SelectSize.Large} />
+      <Select options={options} size={SelectSize.Large} />
     );
     expect(container.firstChild).toMatchSnapshot();
   });
 
   test('Select is medium', () => {
     const { container } = render(
-      <Select options={defaultOptions} size={SelectSize.Medium} />
+      <Select options={options} size={SelectSize.Medium} />
     );
     expect(container.firstChild).toMatchSnapshot();
   });
 
   test('Select is small', () => {
     const { container } = render(
-      <Select options={defaultOptions} size={SelectSize.Small} />
+      <Select options={options} size={SelectSize.Small} />
     );
     expect(container.firstChild).toMatchSnapshot();
   });
 
   test('Select is rectangle shaped', () => {
     const { container } = render(
-      <Select options={defaultOptions} shape={SelectShape.Rectangle} />
+      <Select options={options} shape={SelectShape.Rectangle} />
     );
     expect(container.firstChild).toMatchSnapshot();
   });
 
   test('Select is pill shaped', () => {
     const { container } = render(
-      <Select options={defaultOptions} shape={SelectShape.Pill} />
+      <Select options={options} shape={SelectShape.Pill} />
     );
     expect(container.firstChild).toMatchSnapshot();
   });
 
   test('Select is underline shaped', () => {
     const { container } = render(
-      <Select options={defaultOptions} shape={SelectShape.Underline} />
+      <Select options={options} shape={SelectShape.Underline} />
     );
     expect(container.firstChild).toMatchSnapshot();
   });

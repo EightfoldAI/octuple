@@ -6,20 +6,31 @@ import React, {
   useImperativeHandle,
   useState,
 } from 'react';
+import {
+  autoUpdate,
+  flip,
+  FloatingFocusManager,
+  FloatingPortal,
+  offset as fOffset,
+  shift,
+  useFloating,
+} from '@floating-ui/react';
 import { DropdownProps, DropdownRef } from './Dropdown.types';
-import { autoUpdate, flip, shift, useFloating } from '@floating-ui/react-dom';
-import { offset as fOffset } from '@floating-ui/core';
+import { Menu } from '../Menu';
+import { useAccessibility } from '../../hooks/useAccessibility';
+import { useMergedState } from '../../hooks/useMergedState';
+import { useOnClickOutside } from '../../hooks/useOnClickOutside';
 import {
   ConditionalWrapper,
   mergeClasses,
   uniqueId,
 } from '../../shared/utilities';
-import { useOnClickOutside } from '../../hooks/useOnClickOutside';
-import { useAccessibility } from '../../hooks/useAccessibility';
+
 import styles from './dropdown.module.scss';
-import { FloatingPortal } from '@floating-ui/react-dom-interactions';
-import { Menu } from '../Menu';
-import { useMergedState } from '../../hooks/useMergedState';
+
+const ANIMATION_DURATION: number = 200;
+
+const PREVENT_DEFAULT_TRIGGERS: string[] = ['contextmenu'];
 
 const TRIGGER_TO_HANDLER_MAP_ON_ENTER = {
   click: 'onClick',
@@ -32,10 +43,6 @@ const TRIGGER_TO_HANDLER_MAP_ON_LEAVE = {
   hover: 'onMouseLeave',
   contextmenu: '',
 };
-
-const PREVENT_DEFAULT_TRIGGERS = ['contextmenu'];
-
-const ANIMATION_DURATION = 200;
 
 export const Dropdown: FC<DropdownProps> = React.memo(
   React.forwardRef<DropdownRef, DropdownProps>(
@@ -56,13 +63,15 @@ export const Dropdown: FC<DropdownProps> = React.memo(
         placement = 'bottom-start',
         portal = false,
         positionStrategy = 'absolute',
+        referenceOnClick,
+        role = 'listbox',
         showDropdown,
         style,
         trigger = 'click',
         visible,
         width,
       },
-      ref
+      ref: React.ForwardedRef<DropdownRef>
     ) => {
       const [mergedVisible, setVisible] = useMergedState<boolean>(false, {
         value: visible,
@@ -72,13 +81,12 @@ export const Dropdown: FC<DropdownProps> = React.memo(
       const dropdownId: string = uniqueId('dropdown-');
 
       let timeout: ReturnType<typeof setTimeout>;
-      const { x, y, reference, floating, strategy, update, refs } = useFloating(
-        {
+      const { x, y, reference, floating, strategy, update, refs, context } =
+        useFloating({
           placement,
           strategy: positionStrategy,
           middleware: [fOffset(offset), flip(), shift()],
-        }
-      );
+        });
 
       const toggle: Function =
         (show: boolean, showDropdown = (show: boolean) => show): Function =>
@@ -107,7 +115,6 @@ export const Dropdown: FC<DropdownProps> = React.memo(
         refs.floating,
         (e) => {
           if (closeOnOutsideClick) {
-            console.log('outside clicked');
             toggle(false)(e);
           }
           onClickOutside?.(e);
@@ -162,6 +169,15 @@ export const Dropdown: FC<DropdownProps> = React.memo(
         height: height ?? '',
       };
 
+      const handleReferenceClick = (event: React.MouseEvent): void => {
+        event.stopPropagation();
+        if (disabled) {
+          return;
+        }
+        toggle(!mergedVisible)(event);
+        referenceOnClick?.(event);
+      };
+
       const getReference = (): JSX.Element => {
         const child = React.Children.only(children) as React.ReactElement<any>;
         const referenceWrapperClasses: string = mergeClasses([
@@ -174,7 +190,7 @@ export const Dropdown: FC<DropdownProps> = React.memo(
           ...{
             [TRIGGER_TO_HANDLER_MAP_ON_ENTER[trigger]]: toggle(true),
           },
-          onClick: toggle(!mergedVisible),
+          onClick: handleReferenceClick,
           className: referenceWrapperClasses,
           'aria-controls': dropdownId,
           'aria-expanded': mergedVisible,
@@ -186,16 +202,27 @@ export const Dropdown: FC<DropdownProps> = React.memo(
 
       const getDropdown = (): JSX.Element =>
         mergedVisible && (
-          <div
-            ref={floating}
-            style={dropdownStyles}
-            className={dropdownClasses}
-            tabIndex={0}
-            onClick={closeOnDropdownClick ? toggle(false, showDropdown) : null}
-            id={dropdownId}
+          <FloatingFocusManager
+            context={context}
+            key={dropdownId}
+            modal={false}
+            order={['reference', 'content']}
+            returnFocus={false}
           >
-            {overlay}
-          </div>
+            <div
+              ref={floating}
+              style={dropdownStyles}
+              className={dropdownClasses}
+              role={role}
+              tabIndex={0}
+              onClick={
+                closeOnDropdownClick ? toggle(false, showDropdown) : null
+              }
+              id={dropdownId}
+            >
+              {overlay}
+            </div>
+          </FloatingFocusManager>
         );
 
       return (

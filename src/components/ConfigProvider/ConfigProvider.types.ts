@@ -37,9 +37,19 @@ export interface IConfigContext {
   themeOptions: ThemeOptions;
   setFontOptions: (fontOptions: FontOptions) => void;
   setThemeOptions: (themeOptions: ThemeOptions) => void;
+  disabled?: boolean;
+  focusVisibleOptions?: FocusVisibleOptions;
+  form?: {
+    validateMessages?: ValidateMessages;
+    requiredMark?: RequiredMark;
+    colon?: boolean;
+  };
+  icomoonIconSet?: Object;
+  locale?: Locale;
   registeredFont?: IRegisterFont;
   registeredTheme?: IRegisterTheme;
-  icomoonIconSet?: Object;
+  shape?: Shape;
+  size?: Size;
 }
 
 export interface ConfigProviderProps {
@@ -88,7 +98,7 @@ export interface ConfigProviderProps {
   size?: Size;
   /**
    * Options for theming
-   * @default { name: 'blue', useSystemTheme: false, customTheme: null }
+   * @default { name: 'blue', customTheme: null }
    */
   themeOptions?: ThemeOptions;
 }

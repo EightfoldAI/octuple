@@ -1,8 +1,14 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Stories } from '@storybook/addon-docs';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import Upload from '.';
-import { OcFile, UploadFile, UploadProps, UploadSize } from './Upload.types';
+import {
+  OcFile,
+  UploadFile,
+  UploadFileStatus,
+  UploadProps,
+  UploadSize,
+} from './Upload.types';
 import Cropper from './Cropper';
 import { Modal } from '../Modal';
 import { IconName } from '../Icon';
@@ -53,7 +59,7 @@ const snackArgs: Object = {
 const Basic_Story: ComponentStory<typeof Upload> = () => {
   const props: UploadProps = {
     name: 'file',
-    action: 'https://www.mocky.io/v2/5cc8019d300000980a055e76',
+    action: 'http://run.mocky.io/v3/35a4936d-4e32-4088-b9d1-47cd1002fefd',
     headers: {
       authorization: 'authorization-text',
     },
@@ -93,7 +99,7 @@ const Basic_Story: ComponentStory<typeof Upload> = () => {
 const Basic_With_Upload_List_Story: ComponentStory<typeof Upload> = () => {
   const props: UploadProps = {
     name: 'file',
-    action: 'https://www.mocky.io/v2/5cc8019d300000980a055e76',
+    action: 'http://run.mocky.io/v3/35a4936d-4e32-4088-b9d1-47cd1002fefd',
     headers: {
       authorization: 'authorization-text',
     },
@@ -134,7 +140,7 @@ const Drag_and_Drop_Single_Small_Story: ComponentStory<typeof Upload> = () => {
   const props: UploadProps = {
     name: 'file',
     maxCount: 1,
-    action: 'https://www.mocky.io/v2/5cc8019d300000980a055e76',
+    action: 'http://run.mocky.io/v3/35a4936d-4e32-4088-b9d1-47cd1002fefd',
     onChange(info) {
       const { status } = info.file;
       if (status !== 'uploading') {
@@ -158,7 +164,12 @@ const Drag_and_Drop_Single_Small_Story: ComponentStory<typeof Upload> = () => {
     },
     size: UploadSize.Small,
   };
-  return <Dropzone {...props} />;
+  return (
+    <>
+      <Dropzone {...props} />
+      <SnackbarContainer />
+    </>
+  );
 };
 
 const Drag_and_Drop_Multiple_Small_Story: ComponentStory<
@@ -167,7 +178,7 @@ const Drag_and_Drop_Multiple_Small_Story: ComponentStory<
   const props: UploadProps = {
     name: 'file',
     multiple: true,
-    action: 'https://www.mocky.io/v2/5cc8019d300000980a055e76',
+    action: 'http://run.mocky.io/v3/35a4936d-4e32-4088-b9d1-47cd1002fefd',
     onChange(info) {
       const { status } = info.file;
       if (status !== 'uploading') {
@@ -191,14 +202,19 @@ const Drag_and_Drop_Multiple_Small_Story: ComponentStory<
     },
     size: UploadSize.Small,
   };
-  return <Dropzone {...props} />;
+  return (
+    <>
+      <Dropzone {...props} />
+      <SnackbarContainer />
+    </>
+  );
 };
 
 const Drag_and_Drop_Single_Medium_Story: ComponentStory<typeof Upload> = () => {
   const props: UploadProps = {
     name: 'file',
     maxCount: 1,
-    action: 'https://www.mocky.io/v2/5cc8019d300000980a055e76',
+    action: 'http://run.mocky.io/v3/35a4936d-4e32-4088-b9d1-47cd1002fefd',
     listType: 'picture',
     onChange(info) {
       const { status } = info.file;
@@ -222,7 +238,12 @@ const Drag_and_Drop_Single_Medium_Story: ComponentStory<typeof Upload> = () => {
       console.log('Dropped files', e.dataTransfer.files);
     },
   };
-  return <Dropzone {...props} />;
+  return (
+    <>
+      <Dropzone {...props} />
+      <SnackbarContainer />
+    </>
+  );
 };
 
 const Drag_and_Drop_Multiple_Medium_Story: ComponentStory<
@@ -231,7 +252,7 @@ const Drag_and_Drop_Multiple_Medium_Story: ComponentStory<
   const props: UploadProps = {
     name: 'file',
     multiple: true,
-    action: 'https://www.mocky.io/v2/5cc8019d300000980a055e76',
+    action: 'http://run.mocky.io/v3/35a4936d-4e32-4088-b9d1-47cd1002fefd',
     listType: 'picture',
     onChange(info) {
       const { status } = info.file;
@@ -255,14 +276,19 @@ const Drag_and_Drop_Multiple_Medium_Story: ComponentStory<
       console.log('Dropped files', e.dataTransfer.files);
     },
   };
-  return <Dropzone {...props} />;
+  return (
+    <>
+      <Dropzone {...props} />
+      <SnackbarContainer />
+    </>
+  );
 };
 
 const Drag_and_Drop_Single_Large_Story: ComponentStory<typeof Upload> = () => {
   const props: UploadProps = {
     name: 'file',
     maxCount: 1,
-    action: 'https://www.mocky.io/v2/5cc8019d300000980a055e76',
+    action: 'http://run.mocky.io/v3/35a4936d-4e32-4088-b9d1-47cd1002fefd',
     listType: 'picture',
     onChange(info) {
       const { status } = info.file;
@@ -287,7 +313,12 @@ const Drag_and_Drop_Single_Large_Story: ComponentStory<typeof Upload> = () => {
     },
     size: UploadSize.Large,
   };
-  return <Dropzone {...props} />;
+  return (
+    <>
+      <Dropzone {...props} />
+      <SnackbarContainer />
+    </>
+  );
 };
 
 const Drag_and_Drop_Multiple_Large_Story: ComponentStory<
@@ -296,7 +327,7 @@ const Drag_and_Drop_Multiple_Large_Story: ComponentStory<
   const props: UploadProps = {
     name: 'file',
     multiple: true,
-    action: 'https://www.mocky.io/v2/5cc8019d300000980a055e76',
+    action: 'http://run.mocky.io/v3/35a4936d-4e32-4088-b9d1-47cd1002fefd',
     listType: 'picture',
     onChange(info) {
       const { status } = info.file;
@@ -321,7 +352,12 @@ const Drag_and_Drop_Multiple_Large_Story: ComponentStory<
     },
     size: UploadSize.Large,
   };
-  return <Dropzone {...props} />;
+  return (
+    <>
+      <Dropzone {...props} />
+      <SnackbarContainer />
+    </>
+  );
 };
 
 const Image_List_Story: ComponentStory<typeof Upload> = () => {
@@ -393,7 +429,7 @@ const Image_List_Story: ComponentStory<typeof Upload> = () => {
   return (
     <>
       <Upload
-        action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
+        action="http://run.mocky.io/v3/35a4936d-4e32-4088-b9d1-47cd1002fefd"
         listType="picture-card"
         fileList={fileList}
         onPreview={handlePreview}
@@ -455,7 +491,7 @@ const Image_Editor_Story: ComponentStory<typeof Upload> = () => {
   return (
     <Cropper rotate>
       <Upload
-        action={'https://www.mocky.io/v2/5cc8019d300000980a055e76'}
+        action={'http://run.mocky.io/v3/35a4936d-4e32-4088-b9d1-47cd1002fefd'}
         fileList={fileList}
         listType={'picture-card'}
         onChange={onChange}
@@ -477,6 +513,77 @@ const Image_Editor_Story: ComponentStory<typeof Upload> = () => {
   );
 };
 
+const Basic_Deferred_API_Story: ComponentStory<typeof Upload> = () => {
+  const [data, setData] = useState<Record<string, unknown>>({});
+  const [thumbUrl, setThumbUrl] = useState<string>('');
+
+  const [fileList, setFileList] = useState<UploadFile[]>([]);
+
+  const onChange: UploadProps['onChange'] = async (info: any) => {
+    await generateThumbAsync(info.file).then(() => {
+      setData({
+        ...info.file,
+        name: info.file.name,
+        percent: 100,
+        status: 'done',
+        thumbUrl: info.file.preview,
+      });
+    });
+  };
+
+  const getBase64 = (file: OcFile): Promise<string> =>
+    new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = () => resolve(reader.result as string);
+      reader.onerror = (error) => reject(error);
+    });
+
+  const generateThumbAsync = async (file: UploadFile): Promise<void> => {
+    if (!file.url && !file.preview) {
+      file.preview = await getBase64(file.originFileObj as OcFile);
+    }
+    setThumbUrl(file.url || (file.preview as string));
+  };
+
+  const props: UploadProps = {
+    customRequest() {
+      return true;
+    },
+    data: data,
+    fileList: fileList,
+    listType: 'picture',
+    maxCount: 1,
+    name: 'file',
+    onChange: onChange,
+  };
+
+  useEffect(() => {
+    if (data.status === 'done') {
+      setFileList([
+        {
+          ...data,
+          uid: data.uid as string,
+          name: data.name as string,
+          status: data.status as UploadFileStatus,
+          thumbUrl: data.thumbUrl as string,
+        },
+      ]);
+      snack.servePositive({
+        ...snackArgs,
+        content: `${data.name} file uploaded successfully`,
+      });
+    }
+  }, [data]);
+
+  return (
+    <>
+      <Dropzone {...props} />
+      <SnackbarContainer />
+    </>
+  );
+};
+
 export const Basic = Basic_Story.bind({});
 export const Basic_With_Upload_List = Basic_With_Upload_List_Story.bind({});
 export const Drag_and_Drop_Single_Small = Drag_and_Drop_Single_Small_Story.bind(
@@ -495,6 +602,7 @@ export const Drag_and_Drop_Multiple_Large =
   Drag_and_Drop_Multiple_Large_Story.bind({});
 export const Image_List = Image_List_Story.bind({});
 export const Image_Editor = Image_Editor_Story.bind({});
+export const Basic_Deferred_API = Basic_Deferred_API_Story.bind({});
 
 const uploadArgs: Object = {};
 
@@ -535,5 +643,9 @@ Image_List.args = {
 };
 
 Image_Editor.args = {
+  ...uploadArgs,
+};
+
+Basic_Deferred_API.args = {
   ...uploadArgs,
 };

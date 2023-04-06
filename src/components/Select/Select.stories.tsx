@@ -23,8 +23,9 @@ const defaultOptions: SelectOption[] = [
   },
   {
     iconProps: { path: IconName.mdiFlagVariant },
-    text: 'Supercalifragilisticexpialidocious',
+    text: 'Supercalifragilisticexpialidocious and another Supercalifragilisticexpialidocious',
     value: 'verylarge',
+    wrap: true,
   },
   {
     iconProps: { path: IconName.mdiAccount },
@@ -153,6 +154,7 @@ export type SelectStory = ComponentStory<React.FC<SelectProps>>;
 export const Basic: SelectStory = Basic_Story.bind({});
 export const Dynamic_Width: SelectStory = Basic_Story.bind({});
 export const With_DefaultValue: SelectStory = Basic_Story.bind({});
+export const With_DefaultValueMultiple: SelectStory = Basic_Story.bind({});
 export const Disabled: SelectStory = Basic_Story.bind({});
 export const With_Clear: SelectStory = Basic_Story.bind({});
 export const Options_Disabled: SelectStory = Basic_Story.bind({});
@@ -187,6 +189,12 @@ Dynamic_Width.args = {
 With_DefaultValue.args = {
   ...Basic.args,
   defaultValue: 'hat',
+};
+
+With_DefaultValueMultiple.args = {
+  ...Basic.args,
+  defaultValue: ['date', 'account', 'hat'],
+  multiple: true,
 };
 
 Disabled.args = {

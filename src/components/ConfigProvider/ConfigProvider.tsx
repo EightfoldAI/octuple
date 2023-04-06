@@ -141,12 +141,18 @@ const ConfigProvider: FC<ConfigProviderProps> = ({
         <ConfigContext.Provider
           value={{
             fontOptions,
-            setFontOptions,
             themeOptions,
+            setFontOptions,
             setThemeOptions,
+            disabled,
+            focusVisibleOptions,
+            form,
+            icomoonIconSet,
+            locale,
             registeredFont,
             registeredTheme,
-            icomoonIconSet,
+            shape,
+            size,
           }}
         >
           {childNode}

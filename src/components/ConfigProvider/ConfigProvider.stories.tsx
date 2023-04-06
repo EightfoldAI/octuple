@@ -1,6 +1,7 @@
-import React, { FC, useState, useRef } from 'react';
+import React, { FC, useState, useRef, useCallback } from 'react';
 import { Stories } from '@storybook/addon-docs';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { useArgs } from '@storybook/client-api';
 import {
   ButtonSize,
   DefaultButton,
@@ -28,7 +29,95 @@ import { Navbar, NavbarContent } from '../Navbar';
 import { Dropdown } from '../Dropdown';
 import { Menu, MenuVariant } from '../Menu';
 import { TextArea } from '../Inputs';
+import DatePicker, {
+  DatePickerProps,
+  DatePickerShape,
+  DatePickerSize,
+  RangePickerProps,
+} from '../DateTimePicker/DatePicker';
 import { Dialog } from '../Dialog';
+import { Pagination, PaginationLayoutOptions } from '../Pagination';
+import { SelectOption, SelectSize } from '../Select/Select.types';
+import { Select } from '../Select';
+import { snack, SnackbarContainer } from '../Snackbar';
+import Upload, { UploadProps } from '../Upload';
+import dayjs, { Dayjs } from 'dayjs';
+
+// locales
+import csCZ from '../Locale/cs_CZ'; // čeština
+import daDK from '../Locale/da_DK'; // Dansk
+import deDE from '../Locale/de_DE'; // Deutsch
+import elGR from '../Locale/el_GR'; // Ελληνικά
+import enGB from '../Locale/en_GB'; // English (United Kingdom)
+import enUS from '../Locale/en_US'; // English (United States)
+import esES from '../Locale/es_ES'; // Español
+import esDO from '../Locale/es_DO'; // Español (Dominican Republic)
+import esMX from '../Locale/es_MX'; // Español (Mexico)
+import fiFI from '../Locale/fi_FI'; // Suomi
+import frBE from '../Locale/fr_BE'; // Français (Belgium) TODO: dayjs has no fr_BE locale, use fr
+import frCA from '../Locale/fr_CA'; // Français (Canada)
+import frFR from '../Locale/fr_FR'; // Français
+import heIL from '../Locale/he_IL'; // עברית
+// import hiHI from '../Locale/hi_HI'; // हिंदी TODO: Add Hindi locale
+import hrHR from '../Locale/hr_HR'; // Hrvatski
+import htHT from '../Locale/ht_HT'; // Haitian
+import huHU from '../Locale/hu_HU'; // Magyar
+import itIT from '../Locale/it_IT'; // Italiano
+import jaJP from '../Locale/ja_JP'; // 日本語
+import koKR from '../Locale/ko_KR'; // 한국어
+import msMY from '../Locale/ms_MY'; // Bahasa melayu
+import nbNO from '../Locale/nb_NO'; // Norsk
+import nlBE from '../Locale/nl_BE'; // Nederlands (Belgium)
+import nlNL from '../Locale/nl_NL'; // Nederlands
+import plPL from '../Locale/pl_PL'; // Polski
+import ptBR from '../Locale/pt_BR'; // Português (Brazil)
+import ptPT from '../Locale/pt_PT'; // Português
+import ruRU from '../Locale/ru_RU'; // Pусский
+import svSE from '../Locale/sv_SE'; // Svenska
+import thTH from '../Locale/th_TH'; // ภาษาไทย
+import trTR from '../Locale/tr_TR'; // Türkçe
+import ukUA from '../Locale/uk_UA'; // Yкраїнська
+import zhCN from '../Locale/zh_CN'; // 中文 (简体)
+import zhTW from '../Locale/zh_TW'; // 中文 (繁體)
+
+// Dayjs locales
+import 'dayjs/locale/cs';
+import 'dayjs/locale/da';
+import 'dayjs/locale/de';
+import 'dayjs/locale/el';
+import 'dayjs/locale/en';
+import 'dayjs/locale/en-gb';
+import 'dayjs/locale/es';
+import 'dayjs/locale/es-do';
+import 'dayjs/locale/es-mx';
+import 'dayjs/locale/fi';
+import 'dayjs/locale/fr'; // Use fr for fr-BE too
+import 'dayjs/locale/fr-ca';
+import 'dayjs/locale/he';
+// import 'dayjs/locale/hi'; uncomment when Hindi locale is added
+import 'dayjs/locale/hr';
+import 'dayjs/locale/ht';
+import 'dayjs/locale/hu';
+import 'dayjs/locale/it';
+import 'dayjs/locale/ja';
+import 'dayjs/locale/ko';
+import 'dayjs/locale/ms-my';
+import 'dayjs/locale/nb';
+import 'dayjs/locale/nl-be';
+import 'dayjs/locale/nl';
+import 'dayjs/locale/pl';
+import 'dayjs/locale/pt';
+import 'dayjs/locale/pt-br';
+import 'dayjs/locale/ru';
+import 'dayjs/locale/sv';
+import 'dayjs/locale/th';
+import 'dayjs/locale/tr';
+import 'dayjs/locale/uk';
+import 'dayjs/locale/zh-cn';
+import 'dayjs/locale/zh-tw';
+
+const { Dropzone } = Upload;
+const { RangePicker } = DatePicker;
 
 export default {
   title: 'Config Provider',
@@ -93,7 +182,7 @@ const ThemedComponents: FC = () => {
   }));
 
   return (
-    <Stack direction="vertical" gap="xxl">
+    <Stack direction="vertical" flexGap="xxl">
       <h1 style={{ marginBottom: 0 }}>
         Selected Theme:
         <span
@@ -115,7 +204,7 @@ const ThemedComponents: FC = () => {
           | Accent
         </span>
       </h1>
-      <Stack direction="horizontal" gap="m" style={{ marginTop: 0 }}>
+      <Stack direction="horizontal" flexGap="m" style={{ marginTop: 0 }}>
         <div>
           <p>Predefined</p>
           <select
@@ -261,7 +350,7 @@ const ThemedComponents: FC = () => {
                   labelProps={{ text: 'Var Theme' }}
                   name="varTheme"
                   placeholder={'{"navbar-background":"pink"}'}
-                  value={JSON.stringify(themeOptions.customTheme.varTheme)}
+                  value={JSON.stringify(themeOptions.customTheme?.varTheme)}
                 ></TextArea>
               </>
             }
@@ -269,7 +358,7 @@ const ThemedComponents: FC = () => {
         )}
       </div>
 
-      <Stack direction="horizontal" gap="m">
+      <Stack direction="horizontal" flexGap="m">
         <PrimaryButton
           ariaLabel="Primary Button"
           size={ButtonSize.Small}
@@ -287,7 +376,7 @@ const ThemedComponents: FC = () => {
           text="Primary Button"
         />
       </Stack>
-      <Stack direction="horizontal" gap="m">
+      <Stack direction="horizontal" flexGap="m">
         <SecondaryButton
           ariaLabel="Secondary Button"
           size={ButtonSize.Small}
@@ -305,7 +394,7 @@ const ThemedComponents: FC = () => {
           iconProps={{ path: IconName.mdiCardsHeart }}
         />
       </Stack>
-      <Stack direction="horizontal" gap="m">
+      <Stack direction="horizontal" flexGap="m">
         <DefaultButton
           ariaLabel="Default Button"
           size={ButtonSize.Small}
@@ -323,7 +412,7 @@ const ThemedComponents: FC = () => {
           text="Default Button"
         />
       </Stack>
-      <Stack direction="horizontal" gap="m">
+      <Stack direction="horizontal" flexGap="m">
         <TwoStateButton
           ariaLabel="Two state button"
           size={ButtonSize.Small}
@@ -535,7 +624,260 @@ const Theming_Story: ComponentStory<typeof ConfigProvider> = (args) => {
 
 export const Theming = Theming_Story.bind({});
 
-Theming.args = {
+const localeValues: string[] = [
+  'cs_CZ',
+  'da_DK',
+  'de_DE',
+  'el_GR',
+  'en_GB',
+  'en_US',
+  'es_ES',
+  'es_DO',
+  'es_MX',
+  'fi_FI',
+  'fr_BE',
+  'fr_CA',
+  'fr_FR',
+  'he_IL',
+  // 'hi_HI',
+  'hr_HR',
+  'ht_HT',
+  'hu_HU',
+  'it_IT',
+  'ja_JP',
+  'ko_KR',
+  'ms_MY',
+  'nb_NO',
+  'nl_BE',
+  'nl_NL',
+  'pl_PL',
+  'pt_BR',
+  'pt_PT',
+  'ru_RU',
+  'sv_SE',
+  'th_TH',
+  'tr_TR',
+  'uk_UA',
+  'zh_CN',
+  'zh_TW',
+];
+
+const localeOptions: SelectOption[] = localeValues.map((locString) => ({
+  text: locString,
+  value: locString,
+}));
+
+const pickerArgs: Object = {
+  classNames: 'my-picker-class',
+  id: 'myPickerInputId',
+  popupPlacement: 'bottomLeft',
+  shape: DatePickerShape.Rectangle,
+  size: DatePickerSize.Small,
+};
+
+const snackArgs: Object = {
+  position: 'top-center',
+  closable: false,
+  icon: IconName.mdiInformation,
+  closeIcon: IconName.mdiClose,
+  id: 'mySnackId',
+};
+
+const Locale_Story: ComponentStory<typeof ConfigProvider> = (args) => {
+  const [_, updateArgs] = useArgs();
+  const [locale, setLocale] = useState(enUS);
+  const [localeValue, setLocaleValue] = useState<string>('en_US');
+
+  const locales: Record<string, any> = {
+    cs_CZ: csCZ,
+    da_DK: daDK,
+    de_DE: deDE,
+    el_GR: elGR,
+    en_GB: enGB,
+    en_US: enUS,
+    es_ES: esES,
+    es_DO: esDO,
+    es_MX: esMX,
+    fi_FI: fiFI,
+    fr_BE: frBE,
+    fr_CA: frCA,
+    fr_FR: frFR,
+    he_IL: heIL,
+    // 'hi_HI': hiHI,
+    hr_HR: hrHR,
+    ht_HT: htHT,
+    hu_HU: huHU,
+    it_IT: itIT,
+    ja_JP: jaJP,
+    ko_KR: koKR,
+    ms_MY: msMY,
+    nb_NO: nbNO,
+    nl_BE: nlBE,
+    nl_NL: nlNL,
+    pl_PL: plPL,
+    pt_BR: ptBR,
+    pt_PT: ptPT,
+    ru_RU: ruRU,
+    sv_SE: svSE,
+    th_TH: thTH,
+    tr_TR: trTR,
+    uk_UA: ukUA,
+    zh_CN: zhCN,
+    zh_TW: zhTW,
+  };
+
+  const localeToDayJsLocale = (locale: string): string => {
+    const localeMap: { [key: string]: string } = {
+      cs_CZ: 'cs',
+      da_DK: 'da',
+      de_DE: 'de',
+      el_GR: 'el',
+      en_GB: 'el-gb',
+      en_US: 'en',
+      es_ES: 'es',
+      es_DO: 'es-do',
+      es_MX: 'es-mx',
+      fi_FI: 'fi',
+      fr_BE: 'fr', // use fr for fr-be
+      fr_CA: 'fr-ca',
+      fr_FR: 'fr',
+      he_IL: 'he',
+      hr_HR: 'hr',
+      ht_HT: 'ht',
+      hu_HU: 'hu',
+      it_IT: 'it',
+      ja_JP: 'ja',
+      ko_KR: 'ko',
+      ms_MY: 'ms-my',
+      nb_NO: 'nb',
+      nl_BE: 'nl-be',
+      nl_NL: 'nl',
+      pl_PL: 'pl',
+      pt_BR: 'pt-br',
+      pt_PT: 'pt',
+      ru_RU: 'ru',
+      sv_SE: 'sv',
+      th_TH: 'th',
+      tr_TR: 'tr',
+      uk_UA: 'uk',
+      zh_CN: 'zh-cn',
+      zh_TW: 'zh-tw',
+    };
+
+    return localeMap[locale] || '';
+  };
+
+  const onLocaleChange = useCallback(
+    (options: SelectOption[]) => {
+      options.forEach((option: SelectOption) => {
+        console.log(option);
+        const optionString: string = option.toString();
+        console.log(locales[optionString]);
+        if (localeValues.includes(optionString)) {
+          setLocale(locales[optionString]);
+          updateArgs({
+            ...args,
+            locale: locales[optionString],
+          });
+          setLocaleValue(optionString);
+          dayjs.locale(localeToDayJsLocale(optionString));
+        }
+      });
+    },
+    [args, dayjs, locale, localeValues, locales, updateArgs]
+  );
+
+  const onDateChange: DatePickerProps['onChange'] = (
+    date: Dayjs,
+    dateString: string
+  ) => {
+    console.log(date, dateString);
+  };
+
+  const onDateRangeChange: RangePickerProps['onChange'] = (
+    dates: [Dayjs, Dayjs],
+    dateStrings: [string, string]
+  ) => {
+    if (dates) {
+      console.log('From: ', dates[0], ', to: ', dates[1]);
+      console.log('From: ', dateStrings[0], ', to: ', dateStrings[1]);
+    } else {
+      console.log('Clear');
+    }
+  };
+
+  const uploadProps: UploadProps = {
+    name: 'file',
+    maxCount: 1,
+    action: 'http://run.mocky.io/v3/35a4936d-4e32-4088-b9d1-47cd1002fefd',
+    listType: 'picture',
+    onChange(info) {
+      const { status } = info.file;
+      if (status !== 'uploading') {
+        console.log(info.file, info.fileList);
+      }
+      if (status === 'done') {
+        snack.servePositive({
+          ...snackArgs,
+          content: `${info.file.name} file uploaded successfully. Translate this string in the host app.`,
+        });
+      } else if (status === 'error') {
+        snack.serveDisruptive({
+          ...snackArgs,
+          closable: true,
+          content: `${info.file.name} file upload failed. Translate this string in the host app.`,
+        });
+      }
+    },
+    onDrop(e) {
+      console.log('Dropped files', e.dataTransfer.files);
+    },
+  };
+
+  return (
+    <ConfigProvider {...args} locale={locale}>
+      <Stack direction="vertical" flexGap="m">
+        <p>Locale</p>
+        <Select
+          defaultValue={localeValue}
+          filterable={true}
+          options={localeOptions}
+          onOptionsChange={onLocaleChange}
+          size={SelectSize.Small}
+        />
+        <Pagination
+          layout={[
+            PaginationLayoutOptions.Total,
+            PaginationLayoutOptions.Sizes,
+            PaginationLayoutOptions.Previous,
+            PaginationLayoutOptions.Pager,
+            PaginationLayoutOptions.Next,
+            PaginationLayoutOptions.Jumper,
+          ]}
+          pageSize={100}
+          pageSizes={[100, 200, 300, 400]}
+          total={400}
+        />
+        <Dropzone {...uploadProps} locale={locale!.Upload} />
+        <DatePicker
+          {...pickerArgs}
+          locale={locale!.DatePicker}
+          onChange={onDateChange}
+        />
+        <RangePicker
+          {...pickerArgs}
+          locale={locale!.DatePicker}
+          onChange={onDateRangeChange}
+        />
+      </Stack>
+      <SnackbarContainer />
+    </ConfigProvider>
+  );
+};
+
+export const Locale = Locale_Story.bind({});
+
+const providerArgs = {
   focusVisibleOptions: {
     focusVisible: DEFAULT_FOCUS_VISIBLE,
     focusVisibleElement: DEFAULT_FOCUS_VISIBLE_ELEMENT,
@@ -549,31 +891,16 @@ Theming.args = {
   // customizations the storybook user has applied so far.
   themeOptions: {
     name: 'blue',
-    customTheme: {
-      varTheme: undefined,
-      tabsTheme: {
-        label: '--text-secondary-color',
-        activeLabel: '--primary-color',
-        activeBackground: 'transparent',
-        hoverLabel: '--primary-color',
-        hoverBackground: 'transparent',
-        indicatorColor: '--primary-color',
-        smallActiveBackground: 'transparent',
-        smallHoverBackground: 'transparent',
-        pillLabel: '--text-secondary-color',
-        pillActiveLabel: '--primary-color',
-        pillActiveBackground: '--accent-color-20',
-        pillHoverLabel: '--primary-color',
-        pillBackground: '--grey-color-10',
-      },
-      navbarTheme: {
-        background: '--primary-color-80',
-        textColor: '--primary-color-10',
-        textHoverBackground: '--primary-color-80',
-        textHoverColor: '--primary-color-20',
-      },
-    },
   } as ThemeOptions,
   icomoonIconSet: {},
+  disabled: false,
+};
+
+Theming.args = {
+  ...providerArgs,
   children: <ThemedComponents />,
+};
+
+Locale.args = {
+  ...providerArgs,
 };

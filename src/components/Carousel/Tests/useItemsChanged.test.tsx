@@ -155,7 +155,6 @@ describe('useItemsChanged', () => {
         'child1',
         'child1-separator',
         'chidl2',
-        'child2-separator',
       ]);
 
       const newHash = JSON.parse(utils.getByTestId('hash').textContent!);

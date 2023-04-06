@@ -1,8 +1,16 @@
 import React from 'react';
 import { Stories } from '@storybook/addon-docs';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { IconName } from '../Icon';
-import { Avatar } from './';
+import {
+  Avatar,
+  AvatarProps,
+  getStatusItemSizeAndPadding,
+  StatusItemIconAlign,
+  StatusItemsPosition,
+} from './';
+import { Stack } from '../Stack';
+import { TooltipTheme } from '../Tooltip';
 
 export default {
   title: 'Avatar',
@@ -52,7 +60,7 @@ const Avatar_Icon_Story: ComponentStory<typeof Avatar> = (args) => (
 export const Avatar_Icon = Avatar_Icon_Story.bind({});
 
 const Avatar_Round_Story: ComponentStory<typeof Avatar> = (args) => (
-  <Avatar {...args} />
+  <Avatar popupProps={{ content: 'A popup' }} {...args} />
 );
 
 export const Avatar_Round = Avatar_Round_Story.bind({});
@@ -75,6 +83,163 @@ const Avatar_Fallback_Hashing_Story: ComponentStory<typeof Avatar> = (args) => (
 
 export const Avatar_Fallback_Hashing = Avatar_Fallback_Hashing_Story.bind({});
 
+const Avatar_StatusItem_Story: ComponentStory<typeof Avatar> = (args) => {
+  const avatarSize = 100;
+  const [statusItemSize] = getStatusItemSizeAndPadding(avatarSize);
+  args.size = `${avatarSize}px`;
+
+  const statusItemProps = {
+    backgroundColor: 'var(--blue-color-100)',
+    path: IconName.mdiPencil,
+    size: `${statusItemSize}px`,
+    type: 'round',
+  };
+
+  const examples: AvatarProps[] = [
+    {
+      children: 'A',
+      fontSize: '18px',
+      hashingFunction: () => 0,
+      size: '32px',
+      outline: {
+        // outlineColor: 'var(--green-color-60)',
+        outlineOffset: '1px',
+        // outlineStyle: 'solid',
+        outlineWidth: '2px',
+      },
+      statusItems: {
+        [StatusItemsPosition.Bottom]: {
+          ...statusItemProps,
+          ariaLabel: 'Clock icon',
+          backgroundColor: 'var(--green-color-20)',
+          color: 'var(--green-color-70)',
+          wrapperStyle: { padding: '2px' },
+          path: IconName.mdiHome,
+          size: '6px',
+        },
+        [StatusItemsPosition.TopRight]: {
+          ...statusItemProps,
+          ariaLabel: 'Pencil icon',
+          backgroundColor: 'var(--green-color-20)',
+          color: 'var(--green-color-70)',
+          wrapperStyle: { padding: '2px' },
+          path: IconName.mdiPencil,
+          size: '6px',
+          text: '20',
+        },
+      },
+    },
+    {
+      children: 'AB',
+      fontSize: '48px',
+      hashingFunction: () => 0,
+      outline: {
+        outlineColor: 'var(--blue-color-60)',
+        outlineOffset: '2px',
+        outlineStyle: 'solid',
+        outlineWidth: '4px',
+      },
+      statusItems: {
+        [StatusItemsPosition.TopRight]: {
+          ...statusItemProps,
+          ariaLabel: 'Pencil icon',
+          backgroundColor: 'var(--red-color-20)',
+          color: 'var(--red-color-70)',
+          onClick: () => alert('Clicked pencil icon'),
+          outline: {
+            outlineColor: 'var(--red-color-60)',
+            outlineOffset: '0px',
+            outlineStyle: 'solid',
+            outlineWidth: '2px',
+          },
+        },
+        [StatusItemsPosition.Bottom]: {
+          ...statusItemProps,
+          ariaLabel: 'Clock icon',
+          backgroundColor: 'var(--grey-color-10)',
+          color: 'var(--grey-color-70)',
+          onClick: () => alert('Clicked clock icon'),
+          outline: {},
+          path: IconName.mdiClock,
+        },
+      },
+    },
+    {
+      iconProps: {
+        path: IconName.mdiAccount,
+        size: '80px',
+      },
+      style: {
+        backgroundColor: 'var(--blue-color-50)',
+      },
+      statusItems: {
+        [StatusItemsPosition.BottomRight]: {
+          ...statusItemProps,
+          ariaLabel: 'Pencil icon',
+          onClick: () => alert('Clicked pencil icon'),
+        },
+        [StatusItemsPosition.BottomLeft]: {
+          ...statusItemProps,
+          ariaLabel: 'Clock icon',
+          onClick: () => alert('Clicked clock icon'),
+          path: IconName.mdiClock,
+        },
+      },
+    },
+    {
+      alt: imageProps.alt,
+      src: imageProps.src,
+      statusItems: {
+        [StatusItemsPosition.Left]: {
+          ...statusItemProps,
+          ariaLabel: 'Magnify icon',
+          backgroundColor: 'var(--blue-color-20)',
+          onClick: () => alert('Clicked magnify icon'),
+          path: IconName.mdiMagnify,
+        },
+        [StatusItemsPosition.TopLeft]: {
+          ...statusItemProps,
+          ariaLabel: 'Clock icon',
+          backgroundColor: 'var(--red-color-30)',
+          onClick: () => alert('Clicked clock icon'),
+          path: IconName.mdiClock,
+          text: '3000',
+        },
+        [StatusItemsPosition.Top]: {
+          ...statusItemProps,
+          backgroundColor: 'var(--red-color-30)',
+          path: IconName.mdiBell,
+          text: '4',
+          textMaxLength: 2,
+        },
+        [StatusItemsPosition.Right]: {
+          ...statusItemProps,
+          backgroundColor: 'var(--blue-color-20)',
+          path: IconName.mdiCalendar,
+          text: '20',
+          alignIcon: StatusItemIconAlign.Left,
+        },
+      },
+    },
+  ];
+
+  return (
+    <Stack direction="vertical" flexGap="l">
+      {examples.map((value: AvatarProps, index) => {
+        return <Avatar key={index} {...args} {...value} />;
+      })}
+    </Stack>
+  );
+};
+
+export const Avatar_StatusItem = Avatar_StatusItem_Story.bind({});
+
+const Avatar_Tooltip_Story: ComponentStory<typeof Avatar> = (args) => (
+  <Avatar {...args} theme="red" />
+);
+
+export const Avatar_Tooltip = Avatar_Tooltip_Story.bind({});
+
 const avatarArgs: Object = {
   children: 'JD',
   classNames: 'my-avatar-class',
@@ -89,6 +254,11 @@ Avatar_Default.args = {
   ...avatarArgs,
   src: imageProps.src,
   alt: imageProps.alt,
+};
+
+Avatar_StatusItem.args = {
+  ...avatarArgs,
+  type: 'round',
 };
 
 Avatar_Icon.args = {
@@ -129,4 +299,14 @@ Avatar_Fallback_Hashing.args = {
   ...avatarArgs,
   children: 'HF',
   type: 'round',
+};
+
+Avatar_Tooltip.args = {
+  ...avatarArgs,
+  children: 'A',
+  type: 'round',
+  tooltipProps: {
+    content: 'Tooltip text',
+    theme: TooltipTheme.dark,
+  },
 };

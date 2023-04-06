@@ -44,6 +44,7 @@ const multiSelectCountOffset: number = +styles.multiSelectCountOffset;
 export const Select: FC<SelectProps> = React.forwardRef(
   (
     {
+      autocomplete,
       classNames,
       clearable = false,
       configContextProps = {
@@ -64,7 +65,10 @@ export const Select: FC<SelectProps> = React.forwardRef(
       loadOptions,
       menuProps = {},
       multiple = false,
+      onBlur,
       onClear,
+      onFocus,
+      onKeyDown,
       onOptionsChange,
       options: _options = [],
       pillProps = {},
@@ -101,6 +105,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
         selected: false,
         hideOption: false,
         id: option.text + '-' + index,
+        object: option.object,
         ...option,
       }))
     );
@@ -124,10 +129,14 @@ export const Select: FC<SelectProps> = React.forwardRef(
       ? size
       : contextuallySized || size;
 
-    const getSelectedOptions = (): SelectOption['value'][] => {
+    const getSelectedOptionValues = (): SelectOption['value'][] => {
       return options
         .filter((option: SelectOption) => option.selected)
         .map((option: SelectOption) => option.value);
+    };
+
+    const getSelectedOptions = (): SelectOption['value'][] => {
+      return options.filter((option: SelectOption) => option.selected);
     };
 
     const { count, filled, width } = useMaxVisibleSections(
@@ -136,7 +145,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
       168,
       8,
       1,
-      getSelectedOptions().length
+      getSelectedOptionValues().length
     );
 
     useEffect(() => {
@@ -148,20 +157,24 @@ export const Select: FC<SelectProps> = React.forwardRef(
           selected: !!selected.find((opt) => opt.value === option.value),
           hideOption: false,
           id: option.text + index,
+          object: option.object,
           ...option,
         }))
       );
     }, [_options, isLoading]);
 
     useEffect(() => {
-      onOptionsChange?.(getSelectedOptions());
-    }, [getSelectedOptions().join('')]);
+      onOptionsChange?.(getSelectedOptionValues(), getSelectedOptions());
+    }, [getSelectedOptionValues().join('')]);
 
     useEffect(() => {
-      const updatedOptions = options.map((opt: SelectOption) => ({
+      const updatedOptions = options.map((opt) => ({
         ...opt,
         selected:
-          (defaultValue !== undefined && opt.value === defaultValue) ||
+          (defaultValue !== undefined &&
+            (multiple
+              ? defaultValue.includes(opt.value)
+              : opt.value === defaultValue)) ||
           opt.selected,
       }));
       setOptions(updatedOptions);
@@ -336,7 +349,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
 
     const isPillEllipsisActive = (element: HTMLElement) => {
       const labelElement: HTMLSpanElement =
-        element.firstElementChild as HTMLSpanElement;
+        element?.firstElementChild as HTMLSpanElement;
       return labelElement?.offsetWidth < labelElement?.scrollWidth;
     };
 
@@ -356,6 +369,8 @@ export const Select: FC<SelectProps> = React.forwardRef(
             classNames={styles.selectTooltip}
             content={value.text}
             disabled={!isPillEllipsisActive(document?.getElementById(value.id))}
+            id={`selectTooltip${index}`}
+            key={`select-tooltip-${index}`}
             placement={'top'}
             theme={TooltipTheme.dark}
           >
@@ -364,6 +379,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
               id={value.id}
               classNames={pillClasses}
               disabled={mergedDisabled}
+              key={`select-pill-${index}`}
               label={value.text}
               onClose={() => toggleOption(value)}
               size={selectSizeToPillSizeMap.get(size)}
@@ -381,6 +397,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
             <Pill
               classNames={countPillClasses}
               disabled={mergedDisabled}
+              key="select-count"
               label={'+' + (moreOptionsCount - count)}
               theme={'blueGreen'}
               size={selectSizeToPillSizeMap.get(mergedSize)}
@@ -549,10 +566,14 @@ export const Select: FC<SelectProps> = React.forwardRef(
             <TextInput
               ref={inputRef}
               {...selectInputProps}
+              autocomplete={autocomplete}
               classNames={styles.selectInput}
               disabled={mergedDisabled}
               formItemInput={mergedFormItemInput}
+              onBlur={onBlur}
               onChange={filterable ? onInputChange : null}
+              onFocus={onFocus}
+              onKeyDown={onKeyDown}
               readonly={!filterable}
               shape={selectShapeToTextInputShapeMap.get(mergedShape)}
               size={selectSizeToTextInputSizeMap.get(mergedSize)}

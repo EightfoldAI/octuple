@@ -1,187 +1,464 @@
-import React, { FC, useEffect, useRef, useState } from 'react';
+import React, {
+  FC,
+  SyntheticEvent,
+  useEffect,
+  useImperativeHandle,
+  useRef,
+  useState,
+} from 'react';
 import {
   arrow,
   autoUpdate,
+  FloatingFocusManager,
+  FloatingPortal,
   offset as fOffset,
   shift,
   useFloating,
-} from '@floating-ui/react-dom';
-import { FloatingPortal } from '@floating-ui/react-dom-interactions';
-import { TooltipProps, TooltipSize, TooltipTheme } from './Tooltip.types';
+} from '@floating-ui/react';
+import {
+  ANIMATION_DURATION,
+  NO_ANIMATION_DURATION,
+  PREVENT_DEFAULT_TRIGGERS,
+  TooltipProps,
+  TooltipRef,
+  TooltipSize,
+  TooltipTheme,
+  TooltipType,
+  TOOLTIP_ARROW_WIDTH,
+  TOOLTIP_DEFAULT_OFFSET,
+  TRIGGER_TO_HANDLER_MAP_ON_ENTER,
+  TRIGGER_TO_HANDLER_MAP_ON_LEAVE,
+} from './Tooltip.types';
+import { useMergedState } from '../../hooks/useMergedState';
+import { useOnClickOutside } from '../../hooks/useOnClickOutside';
 import {
   cloneElement,
   ConditionalWrapper,
-  generateId,
+  eventKeys,
   mergeClasses,
+  uniqueId,
 } from '../../shared/utilities';
 
 import styles from './tooltip.module.scss';
 
-const TOOLTIP_ARROW_WIDTH = 8;
-
-export const Tooltip: FC<TooltipProps> = ({
-  children,
-  offset = 8,
-  theme,
-  content,
-  placement = 'bottom',
-  portal = false,
-  portalId,
-  portalRoot,
-  disabled,
-  id,
-  visibleArrow = true,
-  classNames,
-  openDelay = 0,
-  hideAfter = 0,
-  tabIndex = 0,
-  tooltipStyle,
-  positionStrategy = 'absolute',
-  wrapperClassNames,
-  wrapperStyle,
-  size = TooltipSize.Small,
-  ...rest
-}) => {
-  const tooltipSide: string = placement.split('-')?.[0];
-  const [visible, setVisible] = useState<boolean>(false);
-  const arrowRef = useRef<HTMLDivElement>(null);
-  const tooltipId = useRef<string>(id || generateId());
-  let timeout: ReturnType<typeof setTimeout>;
-
-  const {
-    x,
-    y,
-    reference,
-    floating,
-    strategy,
-    update,
-    refs,
-    middlewareData: { arrow: { x: arrowX, y: arrowY } = {} },
-  } = useFloating({
-    placement,
-    strategy: positionStrategy,
-    middleware: [
-      shift(),
-      arrow({ element: arrowRef, padding: TOOLTIP_ARROW_WIDTH }),
-      fOffset(offset),
-    ],
-  });
-
-  useEffect(() => {
-    if (!refs.reference.current || !refs.floating.current) {
-      return () => {};
-    }
-
-    // Only call this when the floating element is rendered
-    return autoUpdate(refs.reference.current, refs.floating.current, update);
-  }, [refs.reference, refs.floating, update]);
-
-  const toggle: Function =
-    (show: boolean): Function =>
-    (): void => {
-      if (!content || disabled) {
-        return;
-      }
-      timeout && clearTimeout(timeout);
-      timeout = setTimeout(
-        () => {
-          setVisible(show);
-        },
-        show ? openDelay : hideAfter
-      );
-    };
-
-  const tooltipClasses: string = mergeClasses([
-    classNames,
-    styles.tooltip,
-    { [styles.visible]: visible },
-    { [styles.dark]: theme === TooltipTheme.dark },
-    { [styles.top]: tooltipSide === 'top' },
-    { [styles.bottom]: tooltipSide === 'bottom' },
-    { [styles.left]: tooltipSide === 'left' },
-    { [styles.right]: tooltipSide === 'right' },
-    { [styles.small]: size === TooltipSize.Small },
-    { [styles.medium]: size === TooltipSize.Medium },
-    { [styles.large]: size === TooltipSize.Large },
-  ]);
-
-  const referenceWrapperClasses: string = mergeClasses([
-    styles.referenceWrapper,
-    wrapperClassNames,
-    { [styles.disabled]: disabled },
-  ]);
-
-  const staticSide: string = {
-    top: 'bottom',
-    right: 'left',
-    bottom: 'top',
-    left: 'right',
-  }[tooltipSide];
-
-  const tooltipStyles: object = {
-    position: strategy,
-    top: y ?? '',
-    left: x ?? '',
-    ...tooltipStyle,
-  };
-
-  const arrowStyle: object = {
-    position: strategy,
-    top: arrowY ?? '',
-    left: arrowX ?? '',
-    [staticSide]: `-${TOOLTIP_ARROW_WIDTH / 2}px`,
-  };
-
-  const getChild = (node: React.ReactNode): JSX.Element | React.ReactNode => {
-    // Need this to handle disabled elements.
-    if (React.isValidElement(node) && node.props?.disabled) {
-      const child = React.Children.only(node) as React.ReactElement<any>;
-      return cloneElement(child, {
-        classNames: styles.noPointerEvents,
+export const Tooltip: FC<TooltipProps> = React.memo(
+  React.forwardRef<TooltipRef, TooltipProps>(
+    (
+      {
+        children,
+        classNames,
+        closeOnOutsideClick = true,
+        closeOnReferenceClick = true,
+        closeOnTooltipClick = false,
+        content,
+        disabled,
+        height,
+        hideAfter = ANIMATION_DURATION,
+        id,
+        minHeight,
+        offset = TOOLTIP_DEFAULT_OFFSET,
+        onClickOutside,
+        onVisibleChange,
+        openDelay = 0,
+        placement = 'bottom',
+        portal = false,
+        portalId,
+        portalRoot,
+        positionStrategy = 'absolute',
+        referenceOnClick,
+        referenceOnKeydown,
+        showTooltip,
+        size = TooltipSize.Small,
+        tabIndex = 0,
+        theme,
+        tooltipOnKeydown,
+        tooltipStyle,
+        trigger = 'hover',
+        triggerAbove = false,
+        type = TooltipType.Default,
+        visible,
+        visibleArrow = true,
+        width,
+        wrapperClassNames,
+        wrapperStyle,
+        ...rest
+      },
+      ref: React.ForwardedRef<TooltipRef>
+    ) => {
+      const tooltipSide: string = placement.split('-')?.[0];
+      const [mergedVisible, setVisible] = useMergedState<boolean>(false, {
+        value: visible,
       });
-    }
-    return node;
-  };
+      const arrowRef: React.MutableRefObject<HTMLDivElement> =
+        useRef<HTMLDivElement>(null);
 
-  return (
-    <>
-      <div
-        className={referenceWrapperClasses}
-        style={wrapperStyle}
-        id={tooltipId.current}
-        onMouseEnter={toggle(true)}
-        onMouseLeave={toggle(false)}
-        onFocus={toggle(true)}
-        onBlur={toggle(false)}
-        ref={reference}
-      >
-        {getChild(children)}
-      </div>
-      <ConditionalWrapper
-        condition={portal}
-        wrapper={(children) => (
-          <FloatingPortal id={portalId} root={portalRoot}>
-            {getChild(children)}
-          </FloatingPortal>
-        )}
-      >
-        {visible && (
-          <div
-            {...rest}
-            role="tooltip"
-            aria-hidden={!visible}
-            ref={floating}
-            style={tooltipStyles}
-            className={tooltipClasses}
-            tabIndex={tabIndex}
-          >
-            {content}
-            {visibleArrow && (
-              <div ref={arrowRef} style={arrowStyle} className={styles.arrow} />
+      const [hiding, setHiding] = useState<boolean>(false);
+      const tooltipId: React.MutableRefObject<string> = useRef<string>(
+        id || uniqueId('tooltip-')
+      );
+      const tooltipReferenceId: React.MutableRefObject<string> = useRef<string>(
+        `${tooltipId?.current}-reference`
+      );
+
+      let timeout: ReturnType<typeof setTimeout>;
+      const {
+        x,
+        y,
+        reference,
+        floating,
+        strategy,
+        update,
+        refs,
+        middlewareData: { arrow: { x: arrowX, y: arrowY } = {} },
+        context,
+      } = useFloating({
+        placement,
+        strategy: positionStrategy,
+        middleware: [
+          shift(),
+          arrow({
+            element: arrowRef,
+            padding: visibleArrow ? TOOLTIP_ARROW_WIDTH : 0,
+          }),
+          fOffset(offset),
+        ],
+      });
+
+      const toggle: Function =
+        (show: boolean, showTooltip = (show: boolean) => show): Function =>
+        (e: SyntheticEvent): void => {
+          if (!content || disabled) {
+            return;
+          }
+          // to control the toggle behaviour
+          const updatedShow: boolean = showTooltip(show);
+          if (PREVENT_DEFAULT_TRIGGERS.includes(trigger)) {
+            e.preventDefault();
+          }
+          setHiding(!updatedShow);
+          timeout && clearTimeout(timeout);
+          timeout = setTimeout(
+            () => {
+              setVisible(updatedShow);
+              onVisibleChange?.(updatedShow);
+            },
+            show ? openDelay : hideAfter
+          );
+        };
+
+      useEffect(() => {
+        if (!refs.reference.current || !refs.floating.current) {
+          return () => {};
+        }
+
+        // Only call this when the floating element is rendered
+        return autoUpdate(
+          refs.reference.current,
+          refs.floating.current,
+          update
+        );
+      }, [refs.reference, refs.floating, update]);
+
+      useImperativeHandle(ref, () => ({
+        update,
+      }));
+
+      useOnClickOutside(
+        refs.floating,
+        (e) => {
+          const referenceElement: HTMLElement = document.getElementById(
+            tooltipReferenceId?.current
+          );
+          if (closeOnOutsideClick && closeOnReferenceClick) {
+            toggle(false)(e);
+          }
+          if (
+            !closeOnReferenceClick &&
+            !referenceElement.contains(e.target as Node)
+          ) {
+            toggle(false)(e);
+          }
+          onClickOutside?.(e);
+        },
+        mergedVisible
+      );
+
+      const handleReferenceClick = (event: React.MouseEvent): void => {
+        event.stopPropagation();
+        if (disabled) {
+          return;
+        }
+        timeout && clearTimeout(timeout);
+        timeout = setTimeout(() => {
+          if (mergedVisible && closeOnReferenceClick) {
+            toggle(false)(event);
+          } else {
+            toggle(true)(event);
+          }
+        }, hideAfter);
+        referenceOnClick?.(event);
+      };
+
+      const handleReferenceKeyDown = (event: React.KeyboardEvent): void => {
+        event.stopPropagation();
+        if (disabled) {
+          return;
+        }
+        if (
+          event?.key === eventKeys.ENTER &&
+          document.activeElement === event.target
+        ) {
+          timeout && clearTimeout(timeout);
+          timeout = setTimeout(() => {
+            if (mergedVisible && closeOnReferenceClick) {
+              toggle(false)(event);
+            } else {
+              toggle(true)(event);
+            }
+          }, hideAfter);
+        }
+        if (
+          event?.key === eventKeys.ESCAPE ||
+          (event?.key === eventKeys.TAB && event.shiftKey)
+        ) {
+          toggle(false)(event);
+        }
+        referenceOnKeydown?.(event);
+      };
+
+      const handleFloatingKeyDown = (event: React.KeyboardEvent): void => {
+        event.stopPropagation();
+        if (event?.key === eventKeys.ESCAPE) {
+          toggle(false)(event);
+        }
+        if (event?.key === eventKeys.TAB) {
+          timeout && clearTimeout(timeout);
+          timeout = setTimeout(() => {
+            if (!refs.floating.current.matches(':focus-within')) {
+              toggle(false)(event);
+            }
+          }, NO_ANIMATION_DURATION);
+        }
+        if (event?.key === eventKeys.TAB && event.shiftKey) {
+          timeout && clearTimeout(timeout);
+          timeout = setTimeout(() => {
+            if (refs.floating.current.matches(':focus-within')) {
+              toggle(true)(event);
+            }
+          }, NO_ANIMATION_DURATION);
+        }
+        tooltipOnKeydown?.(event);
+      };
+
+      // The placement type contains both `Side` and `Alignment`, joined by `-`.
+      // e.g. placement: `${Side}-{Alignment}`
+      const tooltipClassNames: string = mergeClasses([
+        styles.tooltip,
+        { [styles.popup]: type === TooltipType.Popup },
+        classNames,
+        { [styles.visibleArrow]: !!visibleArrow },
+        { [styles.visible]: mergedVisible },
+        { [styles.hiding]: hiding },
+        { [styles.hidden]: !mergedVisible },
+        { [styles.dark]: theme === TooltipTheme.dark },
+        { [styles.bottom]: placement === 'bottom' },
+        { [styles.bottomEnd]: placement === 'bottom-end' },
+        { [styles.bottomStart]: placement === 'bottom-start' },
+        { [styles.left]: placement === 'left' },
+        { [styles.leftEnd]: placement === 'left-end' },
+        { [styles.leftStart]: placement === 'left-start' },
+        { [styles.right]: placement === 'right' },
+        { [styles.rightEnd]: placement === 'right-end' },
+        { [styles.rightStart]: placement === 'right-start' },
+        { [styles.top]: placement === 'top' },
+        { [styles.topEnd]: placement === 'top-end' },
+        { [styles.topStart]: placement === 'top-start' },
+        { [styles.small]: size === TooltipSize.Small },
+        { [styles.medium]: size === TooltipSize.Medium },
+        { [styles.large]: size === TooltipSize.Large },
+      ]);
+
+      const referenceWrapperClassNames: string = mergeClasses([
+        styles.referenceWrapper,
+        wrapperClassNames,
+        { [styles.disabled]: disabled },
+      ]);
+
+      // Only use the `placement` type's `Side` property to determine `staticSide`.
+      const staticSide: string = {
+        top: 'bottom',
+        right: 'left',
+        bottom: 'top',
+        left: 'right',
+      }[tooltipSide];
+
+      const tooltipStyles: object = {
+        position: strategy,
+        top: Math.floor(y) ?? '',
+        left: Math.floor(x) ?? '',
+        width: width ?? '',
+        height: height ?? '',
+        minHeight: minHeight ?? '',
+        ...tooltipStyle,
+      };
+
+      const arrowStyle: object = {
+        position: strategy,
+        top: arrowY ?? '',
+        left: arrowX ?? '',
+        [staticSide]: `-${TOOLTIP_ARROW_WIDTH / 2}px`,
+      };
+
+      const getDefaultReferenceElement = (
+        node: React.ReactNode
+      ): JSX.Element | React.ReactNode => {
+        if (React.isValidElement(node)) {
+          const child = React.Children.only(node) as React.ReactElement<any>;
+
+          // Need this to handle disabled elements of default Tooltip.
+          if (type === TooltipType.Default) {
+            if (node.props?.disabled) {
+              return cloneElement(child, {
+                className: styles.disabled,
+              });
+            }
+          }
+        }
+        return node;
+      };
+
+      const getPopupReferenceElement = (
+        node: React.ReactNode
+      ): JSX.Element | React.ReactNode => {
+        if (React.isValidElement(node)) {
+          const child = React.Children.only(node) as React.ReactElement<any>;
+
+          // Utilize tha same element clone pattern as Dropdown
+          // for more complex Popup elements.
+          const referenceWrapperClassNames: string = mergeClasses([
+            styles.referenceWrapper,
+            { [styles.triggerAbove]: !!triggerAbove },
+            // Add any classnames added to the reference element
+            { [child.props.className]: child.props.className },
+            { [styles.disabled]: disabled },
+          ]);
+          return cloneElement(child, {
+            ...{
+              [TRIGGER_TO_HANDLER_MAP_ON_ENTER[trigger]]: toggle(true),
+            },
+            id: tooltipReferenceId?.current,
+            key: tooltipId?.current,
+            onClick: handleReferenceClick,
+            onKeyDown: handleReferenceKeyDown,
+            className: referenceWrapperClassNames,
+            'aria-controls': tooltipId?.current,
+            'aria-expanded': mergedVisible,
+            'aria-haspopup': true,
+            role: 'button',
+            tabIndex: `${tabIndex}`,
+          });
+        }
+        return node;
+      };
+
+      const getTooltip = (): JSX.Element =>
+        mergedVisible && (
+          <ConditionalWrapper
+            condition={type === TooltipType.Popup}
+            wrapper={(children) => (
+              <FloatingFocusManager
+                context={context}
+                key={tooltipId?.current}
+                modal={false}
+                order={['reference', 'content']}
+                returnFocus={false}
+              >
+                {children}
+              </FloatingFocusManager>
             )}
+          >
+            <div
+              {...rest}
+              aria-hidden={!mergedVisible}
+              className={tooltipClassNames}
+              id={tooltipId?.current}
+              onClick={
+                closeOnTooltipClick && type === TooltipType.Popup
+                  ? toggle(false, showTooltip)
+                  : null
+              }
+              onKeyDown={
+                type === TooltipType.Popup ? handleFloatingKeyDown : null
+              }
+              ref={floating}
+              role="tooltip"
+              style={tooltipStyles}
+              tabIndex={tabIndex}
+            >
+              {content}
+              {visibleArrow && (
+                <div
+                  className={styles.arrow}
+                  ref={arrowRef}
+                  style={arrowStyle}
+                />
+              )}
+            </div>
+          </ConditionalWrapper>
+        );
+
+      const getConditionalWrapper = (): JSX.Element => (
+        <ConditionalWrapper
+          condition={portal}
+          wrapper={(children) => (
+            <FloatingPortal id={portalId} root={portalRoot}>
+              {children}
+            </FloatingPortal>
+          )}
+        >
+          {getTooltip()}
+        </ConditionalWrapper>
+      );
+
+      const getDefault = (): JSX.Element => (
+        <>
+          <div
+            className={referenceWrapperClassNames}
+            style={wrapperStyle}
+            id={tooltipId?.current}
+            onMouseEnter={toggle(true, showTooltip)}
+            onMouseLeave={toggle(false, showTooltip)}
+            onFocus={toggle(true, showTooltip)}
+            onBlur={toggle(false, showTooltip)}
+            ref={reference}
+          >
+            {getDefaultReferenceElement(children)}
           </div>
-        )}
-      </ConditionalWrapper>
-    </>
-  );
-};
+          {getConditionalWrapper()}
+        </>
+      );
+
+      const getPopup = (): JSX.Element => (
+        <div
+          className={referenceWrapperClassNames}
+          id={tooltipId?.current}
+          style={wrapperStyle}
+          ref={reference}
+          {...(TRIGGER_TO_HANDLER_MAP_ON_LEAVE[trigger]
+            ? {
+                [TRIGGER_TO_HANDLER_MAP_ON_LEAVE[trigger]]: toggle(
+                  false,
+                  showTooltip
+                ),
+              }
+            : {})}
+        >
+          {getPopupReferenceElement(children)}
+          {getConditionalWrapper()}
+        </div>
+      );
+
+      return type === TooltipType.Default ? getDefault() : getPopup();
+    }
+  )
+);

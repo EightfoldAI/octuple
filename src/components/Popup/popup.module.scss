@@ -1,0 +1,28 @@
+.popup {
+  border-radius: $border-radius-m;
+  padding: 0;
+  text-align: left;
+
+  // Popups may be larger than Tooltips
+  // Unset max-width and defer width to props if needed.
+  &.small {
+    max-width: unset;
+    width: 140px;
+  }
+
+  &.medium {
+    max-width: unset;
+    width: 240px;
+  }
+
+  &.large {
+    max-width: unset;
+    width: 360px;
+  }
+}
+
+.popup-rtl {
+  &.popup {
+    text-align: right;
+  }
+}
