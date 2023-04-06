@@ -72,6 +72,8 @@ import Grid, { Col, Row } from './components/Grid';
 
 import { Icon, IconName, IconSize } from './components/Icon';
 
+import { InlineSvgProps, InlineSvg } from './components/InlineSvg';
+
 import { Label, LabelSize } from './components/Label';
 
 import Layout from './components/Layout';
@@ -264,6 +266,8 @@ export {
   IconSize,
   InfoBar,
   InfoBarType,
+  InlineSvgProps,
+  InlineSvg,
   Label,
   LabelAlign,
   LabelPosition,
