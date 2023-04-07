@@ -10,9 +10,9 @@ $large-vertical-center: calc($large-slider-height / 2);
 $large-rail-top: $large-vertical-center - calc($large-track-height / 2);
 $large-marker-top: 0;
 $large-max-label-offset: 18px;
-$large-max-label-offset-with-steps: 22px;
+$large-max-label-offset-with-steps: 9px;
 $large-min-label-offset: 10px;
-$large-min-label-offset-with-steps: 6px;
+$large-min-label-offset-with-steps: 0;
 
 $medium-slider-height: 22px;
 $medium-slider-inline-margin: $space-xs;
@@ -23,9 +23,9 @@ $medium-vertical-center: calc($medium-slider-height / 2);
 $medium-rail-top: $medium-vertical-center - calc($medium-track-height / 2);
 $medium-marker-top: 0;
 $medium-max-label-offset: 13px;
-$medium-max-label-offset-with-steps: 17px;
+$medium-max-label-offset-with-steps: $space-xs;
 $medium-min-label-offset: 8px;
-$medium-min-label-offset-with-steps: 4px;
+$medium-min-label-offset-with-steps: 0;
 
 $small-slider-height: 16px;
 $small-slider-inline-margin: $space-xs;
@@ -35,9 +35,9 @@ $small-vertical-center: calc($small-slider-height / 2);
 $small-rail-top: $small-vertical-center - calc($small-track-height / 2);
 $small-marker-top: 0;
 $small-max-label-offset: 9px;
-$small-max-label-offset-with-steps: 11px;
+$small-max-label-offset-with-steps: 5px;
 $small-min-label-offset: 5px;
-$small-min-label-offset-with-steps: 3px;
+$small-min-label-offset-with-steps: 0;
 
 // Export values for typescript consumption.
 :export {
