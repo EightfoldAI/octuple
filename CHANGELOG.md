@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.34.1](https://github.com/EightfoldAI/octuple/compare/v2.34.0...v2.34.1) (2023-04-07)
+
+### Bug Fixes
+
+- mdi icons not correctly ordered ([#587](https://github.com/EightfoldAI/octuple/issues/587)) ([618e686](https://github.com/EightfoldAI/octuple/commits/618e686b7d5761fe47dba07c315c0086676dc1a3))
+
 ## [2.34.0](https://github.com/EightfoldAI/octuple/compare/v2.33.0...v2.34.0) (2023-04-07)
 
 ### Features
