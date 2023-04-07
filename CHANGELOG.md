@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.34.0](https://github.com/EightfoldAI/octuple/compare/v2.33.0...v2.34.0) (2023-04-07)
+
+### Features
+
+- adding mdi trend icons ([#585](https://github.com/EightfoldAI/octuple/issues/585)) ([56a04c7](https://github.com/EightfoldAI/octuple/commits/56a04c7dfc4bbf994bc53fb1e53d85caef538f31))
+- avatar: add avatar popup and fix group tooltips ([#575](https://github.com/EightfoldAI/octuple/issues/575)) ([c4dc4aa](https://github.com/EightfoldAI/octuple/commits/c4dc4aa34f0c6428ed02cc708945a727364103bf))
+- inline svg component ([#583](https://github.com/EightfoldAI/octuple/issues/583)) ([76836a0](https://github.com/EightfoldAI/octuple/commits/76836a0a6f5f6db8db0838cbfcebd9bd9b22110c))
+
+### Bug Fixes
+
+- dropdown: handle event propagation and disabled ([#580](https://github.com/EightfoldAI/octuple/issues/580)) ([8e49fef](https://github.com/EightfoldAI/octuple/commits/8e49fef84411e86cb5973c076bfcc61740842318))
+- menu: fixes keyboard focus and screen reader functionality ([#579](https://github.com/EightfoldAI/octuple/issues/579)) ([caeb475](https://github.com/EightfoldAI/octuple/commits/caeb475ce839ced408cb59a247145b031313a723))
+- pagination: bug fixes for simplified pagination ([#581](https://github.com/EightfoldAI/octuple/issues/581)) ([c6b83cc](https://github.com/EightfoldAI/octuple/commits/c6b83cc5ee0b89e154ef0cf114c62a17f512c3c6)), closes [#577](https://github.com/EightfoldAI/octuple/issues/577)
+- slider: pixel push extremity labels to better match thumb label position ([#577](https://github.com/EightfoldAI/octuple/issues/577)) ([f6b9a4e](https://github.com/EightfoldAI/octuple/commits/f6b9a4e628d59647fd5144ee8ec87b6e02a34c88))
+- storybook: fixes null ref error on var theme ([#578](https://github.com/EightfoldAI/octuple/issues/578)) ([da57518](https://github.com/EightfoldAI/octuple/commits/da57518ea933920060cfdc4485040017ca4ac716))
+
 ## [2.33.0](https://github.com/EightfoldAI/octuple/compare/v2.32.0...v2.33.0) (2023-03-23)
 
 ### Features
