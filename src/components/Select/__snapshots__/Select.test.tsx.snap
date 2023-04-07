@@ -78,7 +78,7 @@ exports[`Select Renders with default value 1`] = `
 exports[`Select Renders with default values when multiple 1`] = `
 <div>
   <div
-    class="select-wrapper select-multiple select-medium"
+    class="select-wrapper select-wrapper-multiple select-medium"
   >
     <div
       class="multi-select-pills"
