@@ -97,7 +97,11 @@ import { Navbar, NavbarContent } from './components/Navbar';
 
 import { NudgeAnimation } from './components/Button/Nudge';
 
-import { Pagination, PaginationLayoutOptions } from './components/Pagination';
+import {
+  Pagination,
+  PaginationLayoutOptions,
+  PaginationVisiblePagerCountSizeOptions,
+} from './components/Pagination';
 
 import { PersistentBar, PersistentBarType } from './components/PersistentBar';
 
@@ -293,6 +297,7 @@ export {
   OcThemeName,
   Pagination,
   PaginationLayoutOptions,
+  PaginationVisiblePagerCountSizeOptions,
   Panel,
   PanelHeader,
   PanelPlacement,
