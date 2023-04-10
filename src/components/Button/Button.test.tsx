@@ -11,14 +11,16 @@ import {
   SystemUIButton,
 } from './';
 import { NudgeAnimation } from './Nudge';
-import { fireEvent, getByTestId, render } from '@testing-library/react';
+import {
+  fireEvent,
+  getByTestId,
+  render,
+  waitFor,
+} from '@testing-library/react';
 
 Enzyme.configure({ adapter: new Adapter() });
 
 let matchMedia: any;
-
-const sleep: (ms: number) => Promise<unknown> = (ms: number) =>
-  new Promise((resolve) => setTimeout(resolve, ms));
 
 describe('Button', () => {
   beforeAll(() => {
@@ -149,7 +151,7 @@ describe('Button', () => {
       <PrimaryButton
         nudgeProps={{
           animation: NudgeAnimation.Background,
-          delay: 400,
+          delay: 0,
           enabled: true,
           iterations: 1,
         }}
@@ -157,7 +159,9 @@ describe('Button', () => {
         text="test"
       />
     );
-    await sleep(500);
+    await waitFor(() =>
+      expect(container.getElementsByClassName('background')).toHaveLength(1)
+    );
     expect(container.getElementsByClassName('background')).toHaveLength(1);
   });
 
@@ -166,7 +170,7 @@ describe('Button', () => {
       <PrimaryButton
         nudgeProps={{
           animation: NudgeAnimation.Bounce,
-          delay: 400,
+          delay: 0,
           enabled: true,
           iterations: 1,
         }}
@@ -174,11 +178,13 @@ describe('Button', () => {
         text="test"
       />
     );
-    await sleep(500);
+    await waitFor(() =>
+      expect(container.getElementsByClassName('bounce')).toHaveLength(1)
+    );
     expect(container.getElementsByClassName('bounce')).toHaveLength(1);
   });
 
-  test('Button nudge is conic', () => {
+  test('Button nudge is conic', async () => {
     const { container } = render(
       <PrimaryButton
         nudgeProps={{
@@ -191,6 +197,9 @@ describe('Button', () => {
         text="test"
       />
     );
+    await waitFor(() =>
+      expect(container.getElementsByClassName('conic')).toHaveLength(1)
+    );
     expect(container.getElementsByClassName('conic')).toHaveLength(1);
   });
 
@@ -199,7 +208,7 @@ describe('Button', () => {
       <PrimaryButton
         nudgeProps={{
           animation: NudgeAnimation.Ring,
-          delay: 400,
+          delay: 0,
           enabled: true,
           iterations: 1,
         }}
@@ -207,7 +216,9 @@ describe('Button', () => {
         text="test"
       />
     );
-    await sleep(500);
+    await waitFor(() =>
+      expect(container.getElementsByClassName('ring')).toHaveLength(1)
+    );
     expect(container.getElementsByClassName('ring')).toHaveLength(1);
   });
 
@@ -216,7 +227,7 @@ describe('Button', () => {
       <PrimaryButton
         nudgeProps={{
           animation: NudgeAnimation.Size,
-          delay: 400,
+          delay: 0,
           enabled: true,
           iterations: 1,
         }}
@@ -224,7 +235,9 @@ describe('Button', () => {
         text="test"
       />
     );
-    await sleep(500);
+    await waitFor(() =>
+      expect(container.getElementsByClassName('size')).toHaveLength(1)
+    );
     expect(container.getElementsByClassName('size')).toHaveLength(1);
   });
 
