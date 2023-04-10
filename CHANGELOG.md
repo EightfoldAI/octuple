@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.34.2](https://github.com/EightfoldAI/octuple/compare/v2.34.1...v2.34.2) (2023-04-10)
+
+### Bug Fixes
+
+- popup: fixes pseudo element so it doesn't block cursor ([#590](https://github.com/EightfoldAI/octuple/issues/590)) ([12fee03](https://github.com/EightfoldAI/octuple/commits/12fee0368883924b856940c439b476ec97841b6d))
+
 ### [2.34.1](https://github.com/EightfoldAI/octuple/compare/v2.34.0...v2.34.1) (2023-04-07)
 
 ### Bug Fixes
