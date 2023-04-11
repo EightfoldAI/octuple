@@ -107,10 +107,9 @@ Popups.args = {
             height: 172,
             margin: 4,
             width: 'calc(100% - 8px)',
-            zIndex: 0,
           }}
         />
-        <div className="octuple" style={{ zIndex: 1 }}>
+        <div className="octuple">
           <div className="octuple-content" style={{ padding: '16px' }}>
             <h5>Header 5</h5>
             <p className="octuple-content__small">
