@@ -361,6 +361,9 @@ export const Select: FC<SelectProps> = React.forwardRef(
 
     const showDropdown = (show: boolean) => {
       if (filterable || multiple) {
+        if (!multiple && options.length) {
+          return show;
+        }
         return true;
       }
       return show;
