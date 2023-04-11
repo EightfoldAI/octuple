@@ -124,6 +124,9 @@ export default {
     width: {
       control: { type: 'number' },
     },
+    scrollToActiveStep: {
+      control: 'boolean',
+    },
   },
 } as ComponentMeta<typeof Stepper>;
 
@@ -149,10 +152,12 @@ export const Default_Horizontal_Small_Read_Only = Default_Story.bind({});
 export const Default_Horizontal_Medium = Default_Story.bind({});
 export const Default_Horizontal_Medium_Required = Default_Story.bind({});
 export const Default_Horizontal_Medium_Read_Only = Default_Story.bind({});
+export const Default_Horizontal_Medium_Active_Scroll = Default_Story.bind({});
 export const Default_Vertical = Default_Story.bind({});
 export const Default_Vertical_Required = Default_Story.bind({});
 export const Default_Vertical_Read_Only = Default_Story.bind({});
 export const Default_Vertical_Scroll = Default_Story.bind({});
+export const Default_Vertical_Active_Scroll = Default_Story.bind({});
 
 const stepperArgs: Object = {
   activeStepIndex: 2,
@@ -199,6 +204,12 @@ Default_Horizontal_Medium_Read_Only.args = {
   readonly: true,
 };
 
+Default_Horizontal_Medium_Active_Scroll.args = {
+  ...stepperArgs,
+  width: 300,
+  scrollToActiveStep: true,
+};
+
 Default_Vertical.args = {
   ...stepperArgs,
   layout: 'vertical',
@@ -220,4 +231,11 @@ Default_Vertical_Scroll.args = {
   ...stepperArgs,
   height: 400,
   layout: 'vertical',
+};
+
+Default_Vertical_Active_Scroll.args = {
+  ...stepperArgs,
+  height: 300,
+  layout: 'vertical',
+  scrollToActiveStep: true,
 };
