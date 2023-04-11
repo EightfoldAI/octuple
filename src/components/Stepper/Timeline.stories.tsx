@@ -127,6 +127,9 @@ export default {
     width: {
       control: { type: 'number' },
     },
+    scrollToActiveStep: {
+      control: 'boolean',
+    },
   },
 } as ComponentMeta<typeof Stepper>;
 
@@ -237,6 +240,7 @@ export const Default_Horizontal_Small_Custom = Default_Story.bind({});
 export const Default_Horizontal_Medium = Default_Story.bind({});
 export const Default_Horizontal_Medium_Required = Default_Story.bind({});
 export const Default_Horizontal_Medium_Read_Only = Default_Story.bind({});
+export const Default_Horizontal_Medium_Active_Scroll = Default_Story.bind({});
 export const Default_Horizontal_Medium_Show_Active_Index =
   Show_Medium_Active_Index_Story.bind({});
 export const Default_Horizontal_Medium_Custom = Default_Story.bind({});
@@ -363,6 +367,12 @@ Default_Horizontal_Medium_Required.args = {
 Default_Horizontal_Medium_Read_Only.args = {
   ...timelineArgs,
   readonly: true,
+};
+
+Default_Horizontal_Medium_Active_Scroll.args = {
+  ...timelineArgs,
+  width: 400,
+  scrollToActiveStep: true,
 };
 
 Default_Horizontal_Medium_Show_Active_Index.args = {

@@ -65,6 +65,7 @@ export const Stepper: FC<StepperProps> = React.forwardRef(
       variant = StepperVariant.Default,
       width,
       'data-test-id': dataTestId,
+      scrollToActiveStep,
       ...rest
     } = props;
     const htmlDir: string = useCanvasDirection();
@@ -73,6 +74,8 @@ export const Stepper: FC<StepperProps> = React.forwardRef(
       useRef<HTMLDivElement>(null);
     const stepsRef: React.MutableRefObject<HTMLUListElement> =
       useRef<HTMLUListElement>(null);
+    const currentActiveStepRef: React.MutableRefObject<HTMLDivElement> =
+      useRef<HTMLDivElement>(null);
     const [currentActiveStep, setCurrentActiveStep] =
       useState<StepIndex>(index);
     const [_scrollable, setScrollable] = useState<boolean>(false);
@@ -432,6 +435,16 @@ export const Stepper: FC<StepperProps> = React.forwardRef(
     useLayoutEffect(() => {
       updateLayout();
     }, [mergedScrollable, steps]);
+
+    useLayoutEffect(() => {
+      if (scrollToActiveStep && currentActiveStepRef.current) {
+        currentActiveStepRef.current.scrollIntoView({
+          behavior: 'smooth',
+          inline: 'start',
+          block: 'start',
+        });
+      }
+    }, []);
 
     return (
       <LocaleReceiver componentName={'Stepper'} defaultLocale={enUS}>
@@ -793,7 +806,15 @@ export const Stepper: FC<StepperProps> = React.forwardRef(
                                 ])}
                               />
                             )}
-                            <div className={styles.content}>{stepItem}</div>
+                            <div
+                              className={styles.content}
+                              ref={
+                                index === currentActiveStep &&
+                                currentActiveStepRef
+                              }
+                            >
+                              {stepItem}
+                            </div>
                           </li>
                         </React.Fragment>
                       );
