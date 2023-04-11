@@ -26,11 +26,10 @@ $tooltip-arrow-shadow: 0px 1px 2px rgba(15, 20, 31, 0.12);
 }
 
 .tooltip {
-  --bg: var(--background-color);
-  --text-color: var(--text-primary-color);
+  --bg: var(--tooltip-background-color-light);
+  --text-color: var(--tooltip-text-color-light);
   background: var(--bg);
-  border-radius: $border-radius-s;
-  box-shadow: $shadow-object-s;
+  border-radius: var(--tooltip-border-radius);
   color: var(--text-color);
   font-family: $octuple-font-family;
   font-size: $text-font-size-1;
@@ -38,6 +37,14 @@ $tooltip-arrow-shadow: 0px 1px 2px rgba(15, 20, 31, 0.12);
   padding: $space-xs;
   text-align: center;
   z-index: $z-index-400;
+
+  &.bordered {
+    border: $tooltip-border-light;
+  }
+
+  &.drop-shadow {
+    box-shadow: $shadow-object-s;
+  }
 
   // When Popup, adds a pixel buffer equal to the width of the arrow to prevent
   // floating ui dismiss when hovering from reference to floating element.
@@ -65,16 +72,32 @@ $tooltip-arrow-shadow: 0px 1px 2px rgba(15, 20, 31, 0.12);
   }
 
   &.dark {
-    --bg: var(--grey-color-80);
-    --text-color: var(--text-inverse-color);
+    --bg: var(--tooltip-background-color-dark);
+    --text-color: var(--tooltip-text-color-dark);
+
+    &.bordered {
+      border: $tooltip-border-dark;
+    }
   }
 
   .arrow {
     background: inherit;
-    box-shadow: $tooltip-arrow-shadow;
     height: $space-xs;
     width: $space-xs;
     z-index: -1;
+  }
+
+  &.bordered {
+    .arrow {
+      border-bottom: $tooltip-border-light;
+      border-right: $tooltip-border-light;
+    }
+  }
+
+  &.drop-shadow {
+    .arrow {
+      box-shadow: $tooltip-arrow-shadow;
+    }
   }
 
   &.bottom {
@@ -175,14 +198,20 @@ $tooltip-arrow-shadow: 0px 1px 2px rgba(15, 20, 31, 0.12);
 
   &.visible {
     display: block;
-    animation: scaleTooltipIn $motion-duration-extra-fast
-      $motion-easing-easeinout 0s forwards;
+
+    &.animate {
+      animation: scaleTooltipIn $motion-duration-extra-fast
+        $motion-easing-easeinout 0s forwards;
+    }
   }
 
   &.hiding {
-    animation: scaleTooltipOut $motion-duration-extra-fast
-      $motion-easing-easeinout 0s forwards;
     pointer-events: none;
+
+    &.animate {
+      animation: scaleTooltipOut $motion-duration-extra-fast
+        $motion-easing-easeinout 0s forwards;
+    }
   }
 
   &.hidden {

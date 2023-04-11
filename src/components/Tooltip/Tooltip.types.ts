@@ -36,6 +36,16 @@ export enum TooltipType {
 
 export interface TooltipProps extends Omit<OcBaseProps<HTMLDivElement>, 'ref'> {
   /**
+   * Should animate the Tooltip transitions.
+   * @default true
+   */
+  animate?: boolean;
+  /**
+   * Whether the Tooltip has a border.
+   * @default false
+   */
+  bordered?: boolean;
+  /**
    * Should close Tooltip on click outside.
    * @default true
    */
@@ -59,6 +69,11 @@ export interface TooltipProps extends Omit<OcBaseProps<HTMLDivElement>, 'ref'> {
    * @default false
    */
   disabled?: boolean;
+  /**
+   * Whether the Tooltip has a drop shadow.
+   * @default true
+   */
+  dropShadow?: boolean;
   /**
    * Timeout in milliseconds to hide the Tooltip.
    * @default 0

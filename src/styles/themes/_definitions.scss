@@ -245,6 +245,16 @@ $picker-input-foreground-color: var(--picker-input-foreground-color);
 $picker-input-placeholder-color: var(--picker-input-placeholder-color);
 $picker-outline-color: var(--picker-outline-color);
 
+// Tooltip
+$tooltip-border-color-dark: var(--tooltip-border-color-dark);
+$tooltip-border-color-light: var(--tooltip-border-color-light);
+$tooltip-border-width: var(--tooltip-border-width);
+$tooltip-border-style: var(--tooltip-border-style);
+$tooltip-border-dark: $tooltip-border-width $tooltip-border-style
+  $tooltip-border-color-dark;
+$tooltip-border-light: $tooltip-border-width $tooltip-border-style
+  $tooltip-border-color-light;
+
 // END: VARIABLE COLOR DEFINITIONS
 
 // BEGIN: NON-COLOR DEFINITIONS
