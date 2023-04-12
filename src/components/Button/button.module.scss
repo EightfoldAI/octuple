@@ -756,10 +756,12 @@
 
   &:hover:not([disabled]) {
     --bg: var(--button-neutral-hover-background-color);
+    --color: var(--button-neutral-hover-text-color);
   }
 
   &:active:not([disabled]) {
     --bg: var(--button-neutral-active-background-color);
+    --color: var(--button-neutral-active-text-color);
   }
 }
 
@@ -802,10 +804,12 @@
 
   &:not(.transparent):not([disabled]):hover {
     --bg: var(--button-system-ui-hover-background-color);
+    --color: var(--button-system-ui-hover-text-color);
   }
 
   &:not(.transparent):not([disabled]):active {
     --bg: var(--button-system-ui-active-background-color);
+    --color: var(--button-system-ui-active-text-color);
   }
 }
 
@@ -913,22 +917,22 @@
 
 .two-state-button {
   --button-counter-default-background-color: var(
-    --button-two-state-counter-default-background-color
+    --button-two-state-default-counter-background-color
   );
   --button-counter-hover-background-color: var(
-    --button-two-state-counter-hover-background-color
+    --button-two-state-hover-counter-background-color
   );
   --button-counter-checked-background-color: var(
-    --button-two-state-counter-checked-background-color
+    --button-two-state-checked-counter-background-color
   );
   --button-counter-focus-background-color: var(
-    --button-two-state-counter-focus-background-color
+    --button-two-state-focus-counter-background-color
   );
   --button-counter-active-background-color: var(
-    --button-two-state-counter-active-background-color
+    --button-two-state-active-counter-background-color
   );
   --button-counter-default-text-color: var(
-    --button-two-state-counter-default-text-color
+    --button-two-state-default-counter-text-color
   );
 
   --bg: var(--button-two-state-background-color);
