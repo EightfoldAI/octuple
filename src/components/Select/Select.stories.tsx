@@ -193,8 +193,11 @@ With_DefaultValue.args = {
 
 With_DefaultValueMultiple.args = {
   ...Basic.args,
-  defaultValue: ['date', 'account', 'hat'],
+  defaultValue: ['verylarge', 'account', 'hat'],
   multiple: true,
+  style: {
+    width: 324,
+  },
 };
 
 Disabled.args = {

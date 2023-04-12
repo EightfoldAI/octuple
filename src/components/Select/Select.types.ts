@@ -34,6 +34,11 @@ export interface SelectOption extends MenuItemButtonProps {
    */
   object?: object;
   /**
+   * The select option aria role.
+   * @default 'option'
+   */
+  role?: string;
+  /**
    * The select option selected state.
    */
   selected?: boolean;
@@ -46,6 +51,11 @@ export interface SelectProps
    * @default undefined
    */
   autocomplete?: string;
+  /**
+   * programmatically clear the input when true.
+   * @default false
+   */
+  clear?: boolean;
   /**
    * Whether the select text input is clearable.
    * @default false
@@ -90,6 +100,10 @@ export interface SelectProps
    * @default false
    */
   formItemInput?: boolean;
+  /**
+   * The Select input custom class names.
+   */
+  inputClassNames?: string;
   /**
    * Width of the Select text input.
    * @default TextInputWidth.fitContent

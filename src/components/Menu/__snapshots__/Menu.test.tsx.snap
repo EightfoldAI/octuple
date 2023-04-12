@@ -11,6 +11,7 @@ exports[`Menu Menu is large 1`] = `
       aria-expanded="true"
       aria-haspopup="true"
       class="button button-default button-medium pill-shape"
+      id="dropdown-reference"
       role="button"
       tabindex="0"
     >
@@ -239,6 +240,7 @@ exports[`Menu Menu is medium 1`] = `
       aria-expanded="true"
       aria-haspopup="true"
       class="button button-default button-medium pill-shape"
+      id="dropdown-reference"
       role="button"
       tabindex="0"
     >
@@ -467,6 +469,7 @@ exports[`Menu Menu is small 1`] = `
       aria-expanded="true"
       aria-haspopup="true"
       class="button button-default button-medium pill-shape"
+      id="dropdown-reference"
       role="button"
       tabindex="0"
     >
@@ -695,6 +698,7 @@ exports[`Menu Should render a menu button 1`] = `
       aria-expanded="false"
       aria-haspopup="true"
       class="button button-default button-medium pill-shape"
+      id="dropdown-reference"
       role="button"
       tabindex="0"
     >

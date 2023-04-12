@@ -17,7 +17,6 @@ import {
   IntersectionObserverItem,
   ItemOrElement,
   OCCLUSION_AVOIDANCE_BUFFER,
-  ScrollMenuProps,
   scrollToItemOptions,
 } from './Carousel.types';
 import { ScrollMenu, VisibilityContext } from './ScrollMenu/ScrollMenu';
