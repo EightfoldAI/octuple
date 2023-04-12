@@ -113,7 +113,7 @@ exports[`Pill Pill should render with icon 1`] = `
   >
     <span
       aria-hidden="false"
-      class="icon icon-wrapper"
+      class="icon icon-left icon-wrapper"
       role="presentation"
     >
       <svg

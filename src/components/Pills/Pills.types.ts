@@ -5,6 +5,11 @@ import { ButtonProps } from '../Button';
 import { OcBaseProps } from '../OcBase';
 import { ConfigContextProps } from '../ConfigProvider';
 
+export enum PillIconAlign {
+  Left = 'left',
+  Right = 'right',
+}
+
 export enum PillType {
   default = 'default',
   closable = 'closable',
@@ -50,6 +55,11 @@ export type PillThemeName =
   | 'white';
 
 export interface PillProps extends OcBaseProps<HTMLElement> {
+  /**
+   * The pill icon alignment.
+   * @default PillIconAlign.Left
+   */
+  alignIcon?: PillIconAlign;
   /**
    * Props for the close button,
    * if type is set to PillType.closable

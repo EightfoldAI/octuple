@@ -158,7 +158,13 @@
   }
 
   .icon {
-    margin-right: $space-xxs;
+    &.icon-left {
+      margin-right: $space-xxs;
+    }
+
+    &.icon-right {
+      margin-left: $space-xxs;
+    }
   }
 
   &-disabled {
@@ -180,8 +186,15 @@
     }
 
     .icon {
-      margin-left: $space-xxs;
-      margin-right: unset;
+      &.icon-left {
+        margin-left: $space-xxs;
+        margin-right: unset;
+      }
+
+      &.icon-right {
+        margin-left: unset;
+        margin-right: $space-xxs;
+      }
     }
   }
 }
