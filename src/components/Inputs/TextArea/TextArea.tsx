@@ -31,6 +31,7 @@ export const TextArea: FC<TextAreaProps> = React.forwardRef(
       ariaLabel,
       autoFocus = false,
       classNames,
+      clear = false,
       configContextProps = {
         noDisabledContext: false,
         noShapeContext: false,
@@ -48,10 +49,13 @@ export const TextArea: FC<TextAreaProps> = React.forwardRef(
       name,
       onBlur,
       onChange,
+      onClear,
       onFocus,
       onKeyDown,
+      onReset,
       placeholder,
       required = false,
+      reset = false,
       shape = TextInputShape.Rectangle,
       size = TextInputSize.Medium,
       status,
@@ -83,6 +87,10 @@ export const TextArea: FC<TextAreaProps> = React.forwardRef(
 
     // Needed for form error scroll-into-view by id
     const mergedFormItemInput: boolean = isFormItemInput || formItemInput;
+
+    const inputField: HTMLElement = document.getElementById(
+      mergedFormItemInput ? id : textAreaId
+    );
 
     const contextuallyDisabled: Disabled = useContext(DisabledContext);
     const mergedDisabled: boolean = configContextProps.noDisabledContext
@@ -174,6 +182,26 @@ export const TextArea: FC<TextAreaProps> = React.forwardRef(
     ]);
 
     useEffect(() => setInputValue(value), [value]);
+
+    useEffect(() => {
+      if (clear) {
+        if (!!inputField && (inputField as HTMLInputElement).value !== '') {
+          (inputField as HTMLInputElement).value = '';
+          setInputValue('');
+          onClear?.();
+        }
+      }
+    }, [clear]);
+
+    useEffect(() => {
+      if (reset) {
+        if (!!inputField && (inputField as HTMLInputElement).value !== value) {
+          (inputField as HTMLInputElement).value = '';
+          setInputValue(value);
+          onReset?.();
+        }
+      }
+    }, [reset]);
 
     const debouncedChange = useDebounce<React.ChangeEvent<HTMLTextAreaElement>>(
       (_event?: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) =>

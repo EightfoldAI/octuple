@@ -69,7 +69,9 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
       onClear,
       onFocus,
       onKeyDown,
+      onReset,
       placeholder,
+      reset = false,
       required = false,
       readonly = false,
       role = 'textbox',
@@ -296,6 +298,16 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
       }
       setClearButtonShown(false);
     }, [value]);
+
+    useEffect(() => {
+      if (reset) {
+        if (!!inputField && (inputField as HTMLInputElement).value !== value) {
+          (inputField as HTMLInputElement).value = '';
+          setInputValue(value);
+          onReset?.();
+        }
+      }
+    }, [reset]);
 
     const setClearButtonShown = (showClear: boolean) => {
       return !clearable

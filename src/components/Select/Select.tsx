@@ -120,6 +120,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
     );
     const [searchQuery, setSearchQuery] = useState<string>('');
     const [selectedOptionText, setSelectedOptionText] = useState<string>('');
+    const [resetTextInput, setResetTextInput] = useState<boolean>(false);
 
     const { isFormItemInput } = useContext(FormItemInputContext);
     const mergedFormItemInput: boolean = isFormItemInput || formItemInput;
@@ -270,22 +271,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
         (opt: SelectOption) => opt.selected
       );
       if (selected.length && inputRef.current?.value !== selectedOptionText) {
-        // Browser input cache workaround to avoid clearing and reselecting
-        // the selected option in memory (ironic), which will trigger a rerender that
-        // would effect the HOC data. Leave in until a better solution is found.
-        // Only effects 1 edgy scenario - filterable !multiple where there's a currently
-        // selected option and the person using the select enters an invalid or
-        // partial value of the current selected option. This reset ensures the input
-        // element value is always valid within a reasonable amount of time when toggling
-        // the dropdown.
-        timeout && clearTimeout(timeout);
-        timeout = setTimeout(() => {
-          inputRef.current.value = selectedOptionText;
-          inputRef.current.setAttribute('value', selectedOptionText);
-          if (inputRef.current.getAttribute('value') === selectedOptionText) {
-            clearTimeout(timeout);
-          }
-        });
+        setResetTextInput(true);
       }
     };
 
@@ -616,6 +602,16 @@ export const Select: FC<SelectProps> = React.forwardRef(
       inputRef.current?.click();
     };
 
+    const handleOnInputBlur = (
+      event: React.FocusEvent<HTMLInputElement>
+    ): void => {
+      if (filterable && !multiple && !dropdownVisible) {
+        resetSingleSelectOnDropdownToggle();
+        resetSelectOnDropdownHide();
+      }
+      onBlur?.(event);
+    };
+
     const clearButtonClassNames: string = mergeClasses([
       styles.selectClearButton,
       { [styles.selectClearButtonEnd]: multiple && filterable && showPills() },
@@ -738,11 +734,13 @@ export const Select: FC<SelectProps> = React.forwardRef(
                 disabled={mergedDisabled}
                 formItemInput={mergedFormItemInput}
                 groupClassNames={styles.selectInputGroup}
-                onBlur={onBlur}
+                onBlur={handleOnInputBlur}
                 onChange={filterable ? onInputChange : null}
                 onFocus={onFocus}
                 onKeyDown={onKeyDown}
+                onReset={(): void => setResetTextInput(false)}
                 readonly={!filterable}
+                reset={resetTextInput}
                 role="combobox"
                 shape={selectShapeToTextInputShapeMap.get(mergedShape)}
                 size={selectSizeToTextInputSizeMap.get(mergedSize)}
