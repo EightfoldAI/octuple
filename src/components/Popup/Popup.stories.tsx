@@ -93,6 +93,9 @@ export const Popups = Popup_Story.bind({});
 Popups.args = {
   offset: 8,
   theme: PopupTheme.light,
+  animate: true,
+  bordered: false,
+  dropShadow: true,
   content: (
     <>
       <Stack

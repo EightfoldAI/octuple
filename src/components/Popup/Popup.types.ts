@@ -17,6 +17,7 @@ export interface PopupProps
     | 'closeOnTooltipClick'
     | 'showTooltip'
     | 'size'
+    | 'theme'
     | 'tooltipOnKeydown'
     | 'tooltipStyle'
     | 'type'
@@ -48,6 +49,11 @@ export interface PopupProps
    * @default PopupSize.Medium
    */
   size?: PopupSize;
+  /**
+   * Theme of the Popup.
+   * @default light
+   */
+  theme?: PopupTheme;
 }
 
 export type PopupRef = {

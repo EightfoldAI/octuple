@@ -798,4 +798,19 @@
   --slider-track-error-border-color: var(--red-color-60);
   --slider-value-text-color: var(--text-secondary-color);
   // ------ Slider theme ------
+
+  // ------ Tooltip theme ------
+  --tooltip-background-color-dark: var(--grey-color-80);
+  --tooltip-background-color-light: var(--background-color);
+  --tooltip-border-color-dark: var(--grey-color-40);
+  --tooltip-border-color-light: var(--grey-color-60);
+  --tooltip-border-radius: var(--border-radius-s);
+  --tooltip-border-style: solid;
+  --tooltip-border-width: 1px;
+  --tooltip-text-color-dark: var(--text-inverse-color);
+  --tooltip-text-color-light: var(--text-primary-color);
+  --tooltip-border-dark: var(--tooltip-border-width) var(--tooltip-border-style)
+    var(--tooltip-border-color-dark);
+  --tooltip-border-light: var(--tooltip-border-width)
+    var(--tooltip-border-style) var(--tooltip-border-color-light);
 }
