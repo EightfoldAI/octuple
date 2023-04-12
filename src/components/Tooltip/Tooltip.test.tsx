@@ -79,6 +79,49 @@ describe('Tooltip', () => {
     );
   });
 
+  test('Tooltip is bordered with no drop shadow', async () => {
+    const { container } = render(
+      <Tooltip
+        bordered
+        content={<div data-testid="tooltipBordered">This is a tooltip.</div>}
+        dropShadow={false}
+      >
+        <div className="test-div">test</div>
+      </Tooltip>
+    );
+    fireEvent.mouseOver(container.querySelector('.test-div'));
+    await waitFor(() => screen.getByTestId('tooltipBordered'));
+    expect(container.querySelector('.bordered')).toBeTruthy();
+    expect(container.querySelector('.drop-shadow')).toBeFalsy();
+  });
+
+  test('Tooltip is animated by default', async () => {
+    const { container } = render(
+      <Tooltip
+        content={<div data-testid="tooltipAnimated">This is a tooltip.</div>}
+      >
+        <div className="test-div">test</div>
+      </Tooltip>
+    );
+    fireEvent.mouseOver(container.querySelector('.test-div'));
+    await waitFor(() => screen.getByTestId('tooltipAnimated'));
+    expect(container.querySelector('.animate')).toBeTruthy();
+  });
+
+  test('Tooltip not animated', async () => {
+    const { container } = render(
+      <Tooltip
+        animate={false}
+        content={<div data-testid="tooltipNotAnimated">This is a tooltip.</div>}
+      >
+        <div className="test-div">test</div>
+      </Tooltip>
+    );
+    fireEvent.mouseOver(container.querySelector('.test-div'));
+    await waitFor(() => screen.getByTestId('tooltipNotAnimated'));
+    expect(container.querySelector('.animate')).toBeFalsy();
+  });
+
   test('Tooltip is large', async () => {
     const { container } = render(
       <Tooltip

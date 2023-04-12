@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { PopupProps, PopupRef, PopupSize, PopupTheme } from './Popup.types';
-import { Tooltip, TooltipSize, TooltipType } from '../Tooltip';
+import { Tooltip, TooltipSize, TooltipTheme, TooltipType } from '../Tooltip';
 import { useCanvasDirection } from '../../hooks/useCanvasDirection';
 import { mergeClasses, uniqueId } from '../../shared/utilities';
 
@@ -9,9 +9,12 @@ import styles from './popup.module.scss';
 export const Popup: FC<PopupProps> = React.forwardRef<PopupRef, PopupProps>(
   (
     {
+      animate = true,
+      bordered = false,
       classNames,
       closeOnPopupClick = false,
       closeOnReferenceClick = true,
+      dropShadow = true,
       id,
       popupOnKeydown,
       referenceOnClick,
@@ -19,6 +22,7 @@ export const Popup: FC<PopupProps> = React.forwardRef<PopupRef, PopupProps>(
       showPopup,
       size = PopupSize.Medium,
       tabIndex = 0,
+      theme = PopupTheme.light,
       trigger = 'click',
       popupStyle,
       ...rest
@@ -42,12 +46,20 @@ export const Popup: FC<PopupProps> = React.forwardRef<PopupRef, PopupProps>(
       [PopupSize.Small, TooltipSize.Small],
     ]);
 
+    const popupThemeToTooltipThemeMap = new Map<PopupTheme, TooltipTheme>([
+      [PopupTheme.dark, TooltipTheme.dark],
+      [PopupTheme.light, TooltipTheme.light],
+    ]);
+
     return (
       <Tooltip
         {...rest}
+        animate={animate}
+        bordered={bordered}
         classNames={popupClassNames}
         closeOnTooltipClick={closeOnPopupClick}
         closeOnReferenceClick={closeOnReferenceClick}
+        dropShadow={dropShadow}
         id={popupId}
         ref={ref}
         referenceOnClick={referenceOnClick}
@@ -55,6 +67,7 @@ export const Popup: FC<PopupProps> = React.forwardRef<PopupRef, PopupProps>(
         showTooltip={showPopup}
         size={popupSizeToTooltipSizeMap.get(size)}
         tabIndex={tabIndex}
+        theme={popupThemeToTooltipThemeMap.get(theme)}
         tooltipOnKeydown={popupOnKeydown}
         tooltipStyle={popupStyle}
         trigger={trigger}
