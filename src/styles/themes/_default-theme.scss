@@ -761,4 +761,8 @@
   --tooltip-border-width: 1px;
   --tooltip-text-color-dark: var(--text-inverse-color);
   --tooltip-text-color-light: var(--text-primary-color);
+  --tooltip-border-dark: var(--tooltip-border-width) var(--tooltip-border-style)
+    var(--tooltip-border-color-dark);
+  --tooltip-border-light: var(--tooltip-border-width)
+    var(--tooltip-border-style) var(--tooltip-border-color-light);
 }
