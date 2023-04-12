@@ -745,27 +745,33 @@
 }
 
 .button-neutral {
-  --button-counter-default-text-color: var(--grey-color-80);
+  --button-counter-default-text-color: var(
+    --button-neutral-counter-default-text-color
+  );
 
-  --bg: var(--grey-color-10);
-  --color: var(--text-secondary-color);
+  --bg: var(--button-neutral-background-color);
+  --color: var(--button-neutral-text-color);
   color: var(--color);
   background-color: var(--bg);
 
   &:hover:not([disabled]) {
-    --bg: var(--background-color);
+    --bg: var(--button-neutral-hover-background-color);
+    --color: var(--button-neutral-hover-text-color);
   }
 
   &:active:not([disabled]) {
-    --bg: var(--grey-color-20);
+    --bg: var(--button-neutral-active-background-color);
+    --color: var(--button-neutral-active-text-color);
   }
 }
 
 .button-system-ui {
-  --button-counter-default-text-color: var(--grey-color-80);
+  --button-counter-default-text-color: var(
+    --button-system-ui-counter-default-text-color
+  );
 
-  --bg: var(--background-color);
-  --color: var(--grey-color-60);
+  --bg: var(--button-system-ui-background-color);
+  --color: var(--button-system-ui-text-color);
   color: var(--color);
 
   .inner-nudge {
@@ -797,11 +803,13 @@
   }
 
   &:not(.transparent):not([disabled]):hover {
-    --bg: var(--grey-color-10);
+    --bg: var(--button-system-ui-hover-background-color);
+    --color: var(--button-system-ui-hover-text-color);
   }
 
   &:not(.transparent):not([disabled]):active {
-    --bg: var(--grey-color-20);
+    --bg: var(--button-system-ui-active-background-color);
+    --color: var(--button-system-ui-active-text-color);
   }
 }
 
@@ -856,35 +864,35 @@
     width: 1px;
 
     &.split-divider-primary {
-      background-color: var(--primary-color-80);
+      background-color: var(--button-primary-split-divider-color);
     }
 
     &.split-divider-secondary {
-      background-color: var(--primary-color-70);
+      background-color: var(--button-secondary-split-divider-color);
     }
 
     &.split-divider-system-ui {
-      background-color: var(--grey-color-70);
+      background-color: var(--button-system-ui-split-divider-color);
     }
 
     &.split-divider-primary-disruptive {
-      background-color: var(--disruptive-color-80);
+      background-color: var(--button-primary-disruptive-split-divider-color);
     }
 
     &.split-divider-secondary-disruptive {
-      background-color: var(--disruptive-color-70);
+      background-color: var(--button-secondary-disruptive-split-divider-color);
     }
 
     &.split-divider-default {
-      background-color: var(--primary-color-70);
+      background-color: var(--button-default-split-divider-color);
     }
 
     &.split-divider-disruptive {
-      background-color: var(--disruptive-color-70);
+      background-color: var(--button-default-disruptive-split-divider-color);
     }
 
     &.split-divider-neutral {
-      background-color: var(--grey-color-70);
+      background-color: var(--button-neutral-split-divider-color);
     }
   }
 
@@ -908,15 +916,27 @@
 }
 
 .two-state-button {
-  --button-counter-default-background-color: var(--green-color-20);
-  --button-counter-hover-background-color: var(--green-color-20);
-  --button-counter-checked-background-color: var(--green-color-10);
-  --button-counter-focus-background-color: var(--green-color-20);
-  --button-counter-active-background-color: var(--green-color-10);
-  --button-counter-default-text-color: var(--grey-color-80);
+  --button-counter-default-background-color: var(
+    --button-two-state-default-counter-background-color
+  );
+  --button-counter-hover-background-color: var(
+    --button-two-state-hover-counter-background-color
+  );
+  --button-counter-checked-background-color: var(
+    --button-two-state-checked-counter-background-color
+  );
+  --button-counter-focus-background-color: var(
+    --button-two-state-focus-counter-background-color
+  );
+  --button-counter-active-background-color: var(
+    --button-two-state-active-counter-background-color
+  );
+  --button-counter-default-text-color: var(
+    --button-two-state-default-counter-text-color
+  );
 
-  --bg: var(--grey-color-10);
-  --color: var(--grey-color-70);
+  --bg: var(--button-two-state-background-color);
+  --color: var(--button-two-state-text-color);
   background-color: var(--bg);
   color: var(--color);
 
@@ -964,8 +984,8 @@
   }
 
   &:hover:not([disabled]) {
-    --bg: var(--green-color-10);
-    --color: var(--accent-color-70);
+    --bg: var(--button-two-state-hover-background-color);
+    --color: var(--button-two-state-hover-text-color);
 
     .counter {
       background-color: var(--button-counter-hover-background-color);
@@ -973,8 +993,8 @@
   }
 
   &:active:not([disabled]) {
-    --bg: var(--green-color-20);
-    --color: var(--accent-color);
+    --bg: var(--button-two-state-active-background-color);
+    --color: var(--button-two-state-active-text-color);
 
     .counter {
       background-color: var(--button-counter-active-background-color);
@@ -982,8 +1002,8 @@
   }
 
   &.checked {
-    --bg: var(--green-color-20);
-    --color: var(--accent-color-80);
+    --bg: var(--button-two-state-checked-background-color);
+    --color: var(--button-two-state-checked-text-color);
 
     .counter {
       background-color: var(--button-counter-checked-background-color);
@@ -1284,7 +1304,7 @@
     &.button-neutral {
       &.focus-visible,
       &:focus-visible {
-        background-color: var(--grey-color-10);
+        background-color: var(--button-neutral-focus-visible-background-color);
 
         &.drop-shadow {
           box-shadow: var(--focus-visible-box-shadow), $shadow-object-s;
@@ -1295,7 +1315,9 @@
     &.button-system-ui {
       &.focus-visible,
       &:focus-visible {
-        background-color: var(--background-color);
+        background-color: var(
+          --button-system-ui-focus-visible-background-color
+        );
 
         &.drop-shadow {
           box-shadow: var(--focus-visible-box-shadow), $shadow-object-s;
