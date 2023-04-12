@@ -12,8 +12,12 @@ $multi-select-count-offset: 54px;
   position: relative;
   width: 100%;
 
+  min-width: 276px;
+
   // The minimum width required to ensure multi-select pills have enough room for 1 pill + the count
-  min-width: 256px;
+  &-multiple {
+    min-width: 324px;
+  }
 
   &-disabled {
     cursor: not-allowed;
@@ -32,8 +36,13 @@ $multi-select-count-offset: 54px;
     width: 100%;
   }
 
-  .select-input {
-    cursor: pointer;
+  .select-input-wrapper {
+    border-radius: inherit;
+    padding: 0;
+
+    .select-input {
+      cursor: pointer;
+    }
   }
 
   .multi-select-pills {
@@ -75,11 +84,45 @@ $multi-select-count-offset: 54px;
     .multi-select-pills {
       top: 7px;
     }
+
+    .select-clear-button {
+      bottom: 0;
+      height: 44px;
+      padding: 4px 8px;
+      width: 32px;
+    }
+
+    .select-clear-button-start {
+      left: 2px;
+      right: unset;
+    }
+
+    .select-clear-button-end {
+      left: unset;
+      right: 44px;
+    }
   }
 
   &.select-medium {
     .multi-select-pills {
       top: 5px;
+    }
+
+    .select-clear-button {
+      bottom: 4px;
+      height: 28px;
+      padding: 4px 6px;
+      width: 28px;
+    }
+
+    .select-clear-button-start {
+      left: 2px;
+      right: unset;
+    }
+
+    .select-clear-button-end {
+      left: unset;
+      right: 36px;
     }
   }
 
@@ -92,22 +135,22 @@ $multi-select-count-offset: 54px;
         padding: 2px 12px;
       }
     }
-  }
 
-  &-rtl {
-    .multi-select-pills {
-      left: $space-xxl;
-      right: $space-xs;
+    .select-clear-button {
+      bottom: 2px;
+      height: 24px;
+      padding: 2px 4px;
+      width: 24px;
     }
 
-    .multi-select-pill {
-      margin-left: $space-xs;
-      margin-right: 0;
+    .select-clear-button-start {
+      left: 2px;
+      right: unset;
     }
 
-    .multi-select-count {
-      margin-left: $space-xs;
-      margin-right: 0;
+    .select-clear-button-end {
+      left: unset;
+      right: 28px;
     }
   }
 }
@@ -121,3 +164,5 @@ $multi-select-count-offset: 54px;
 .select-tooltip {
   max-width: unset;
 }
+
+@import './Styles/rtl';

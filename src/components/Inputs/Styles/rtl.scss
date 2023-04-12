@@ -181,7 +181,7 @@
         }
       }
 
-      &.pill-shape-with-icon-button ~ .clear-icon-button {
+      &.pill-shape-with-icon-button ~ .clear-icon-button-rtl {
         border-bottom-left-radius: 50%;
         border-top-left-radius: 50%;
         border-bottom-right-radius: 0;
@@ -689,7 +689,7 @@
       }
     }
 
-    .clear-icon-button {
+    .clear-icon-button-rtl {
       left: $space-xxxs;
       right: unset;
 
@@ -753,7 +753,7 @@
         }
       }
 
-      .clear-icon-button {
+      .clear-icon-button-rtl {
         left: $space-xxxs;
         right: unset;
 
@@ -806,7 +806,7 @@
         }
       }
 
-      .clear-icon-button {
+      .clear-icon-button-rtl {
         left: 1px;
         right: unset;
 
@@ -859,7 +859,7 @@
         }
       }
 
-      .clear-icon-button {
+      .clear-icon-button-rtl {
         left: $space-xxxs;
         right: unset;
 

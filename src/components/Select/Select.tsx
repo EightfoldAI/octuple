@@ -46,6 +46,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
     {
       autocomplete,
       classNames,
+      clear = false,
       clearable = false,
       configContextProps = {
         noDisabledContext: false,
@@ -60,6 +61,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
       filterOption = null,
       formItemInput = false,
       id,
+      inputClassNames,
       inputWidth = TextInputWidth.fill,
       isLoading,
       loadOptions,
@@ -95,10 +97,16 @@ export const Select: FC<SelectProps> = React.forwardRef(
     const [dropdownWidth, setDropdownWidth] = useState(0);
     const [selectWidth, setSelectWidth] = useState(0);
 
-    const inputRef = useRef<HTMLInputElement>(null);
-    const dropdownRef = useRef<DropdownRef>(null);
+    const inputRef: React.MutableRefObject<HTMLInputElement> =
+      useRef<HTMLInputElement>(null);
+    const dropdownRef: React.MutableRefObject<DropdownRef> =
+      useRef<DropdownRef>(null);
     const pillRefs = useRef<HTMLElement[]>([]);
 
+    const [clearInput, setClearInput] = useState<boolean>(false);
+    const [closeOnReferenceClick, setCloseOnReferenceClick] = useState<boolean>(
+      !filterable && !multiple
+    );
     const [dropdownVisible, setDropdownVisibility] = useState<boolean>(false);
     const [options, setOptions] = useState<SelectOption[]>(
       _options.map((option: SelectOption, index: number) => ({
@@ -106,10 +114,13 @@ export const Select: FC<SelectProps> = React.forwardRef(
         hideOption: false,
         id: option.text + '-' + index,
         object: option.object,
+        role: 'option',
         ...option,
       }))
     );
     const [searchQuery, setSearchQuery] = useState<string>('');
+    const [selectedOptionText, setSelectedOptionText] = useState<string>('');
+    const [resetTextInput, setResetTextInput] = useState<boolean>(false);
 
     const { isFormItemInput } = useContext(FormItemInputContext);
     const mergedFormItemInput: boolean = isFormItemInput || formItemInput;
@@ -128,6 +139,8 @@ export const Select: FC<SelectProps> = React.forwardRef(
     const mergedSize: SelectSize | Size = configContextProps.noSizeContext
       ? size
       : contextuallySized || size;
+
+    let timeout: ReturnType<typeof setTimeout>;
 
     const getSelectedOptionValues = (): SelectOption['value'][] => {
       return options
@@ -148,6 +161,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
       getSelectedOptionValues().length
     );
 
+    // Populate options on component render
     useEffect(() => {
       const selected: SelectOption[] = options.filter(
         (opt: SelectOption) => opt.selected
@@ -163,8 +177,20 @@ export const Select: FC<SelectProps> = React.forwardRef(
       );
     }, [_options, isLoading]);
 
+    // Update options on change
     useEffect(() => {
       onOptionsChange?.(getSelectedOptionValues(), getSelectedOptions());
+      if (multiple) {
+        inputRef.current?.focus();
+      } else {
+        getSelectedOptionText();
+        if (filterable) {
+          inputRef.current?.focus();
+        }
+      }
+      if (filterable && multiple) {
+        setClearInput(false);
+      }
     }, [getSelectedOptionValues().join('')]);
 
     useEffect(() => {
@@ -180,24 +206,78 @@ export const Select: FC<SelectProps> = React.forwardRef(
       setOptions(updatedOptions);
     }, [defaultValue]);
 
+    useEffect(() => {
+      // When filterable and not multiple if the input value does not match
+      // the selected value, ensure it's restored.
+      if (filterable && !multiple) {
+        // When there's already an option selected and the input value is changed
+        // force the rendered value to restore the option.
+        resetSingleSelectOnDropdownToggle();
+      }
+
+      // When dropdown not visible and select is filterable
+      // reset the search query and visibility of the options.
+      if (!dropdownVisible && filterable) {
+        resetSelectOnDropdownHide();
+      }
+
+      // Resets closeOnReferenceClick
+      if ((dropdownVisible && filterable) || (dropdownVisible && multiple)) {
+        setCloseOnReferenceClick(!filterable && !multiple);
+      }
+
+      // Clears options
+      if (clear) {
+        onInputClear();
+      }
+    }, [clear, dropdownVisible, filterable]);
+
     const toggleOption = (option: SelectOption): void => {
       setSearchQuery('');
+
       const updatedOptions = options.map((opt: SelectOption) => {
-        const defaultState = multiple ? opt.selected : false;
-        const selected =
+        const defaultState: boolean = multiple ? opt.selected : false;
+        const selected: boolean =
           opt.value === option.value ? !opt.selected : defaultState;
+        const hideOption: boolean = false;
+
         return {
           ...opt,
-          hideOption: false,
-          selected: selected,
+          hideOption,
+          selected,
         };
       });
+
+      // Update the state with the updated options
       setOptions(updatedOptions);
+
+      if (filterable && multiple && inputRef.current?.value !== '') {
+        setClearInput(true);
+      }
+    };
+
+    const resetSelectOnDropdownHide = (): void => {
+      setSearchQuery('');
+      setOptions(
+        options.map((opt: SelectOption) => ({
+          ...opt,
+          hideOption: false,
+        }))
+      );
+    };
+
+    const resetSingleSelectOnDropdownToggle = (): void => {
+      const selected: SelectOption[] = options.filter(
+        (opt: SelectOption) => opt.selected
+      );
+      if (selected.length && inputRef.current?.value !== selectedOptionText) {
+        setResetTextInput(true);
+      }
     };
 
     const onInputClear = (): void => {
       setSearchQuery('');
-      if (filterable && multiple && dropdownVisible) {
+      if (filterable && multiple) {
         setOptions(
           options.map((opt: SelectOption) => ({
             ...opt,
@@ -221,6 +301,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
         );
       }
       onClear?.();
+      inputRef.current?.focus();
     };
 
     const onInputChange = (
@@ -229,7 +310,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
       const { target } = event;
       const value: string = target?.value || '';
       const valueLowerCase: string = value?.toLowerCase();
-      setSearchQuery(valueLowerCase);
+      setSearchQuery(value);
       if (loadOptions) {
         return loadOptions(value);
       }
@@ -265,34 +346,45 @@ export const Select: FC<SelectProps> = React.forwardRef(
     };
 
     const showDropdown = (show: boolean) => {
-      if (multiple) {
+      if (filterable || multiple) {
+        if (!multiple && options.length) {
+          return show;
+        }
         return true;
       }
       return show;
     };
 
-    const dropdownWrapperClasses: string = mergeClasses([
+    const selectInputClassNames: string = mergeClasses([
+      styles.selectInput,
+      inputClassNames,
+    ]);
+
+    const dropdownWrapperClassNames: string = mergeClasses([
       dropdownProps.classNames,
       styles.selectDropdownMainWrapper,
     ]);
 
-    const dropdownMenuOverlayClasses: string = mergeClasses([
+    const dropdownMenuOverlayClassNames: string = mergeClasses([
       dropdownProps.dropdownClassNames,
       styles.selectDropdownOverlay,
     ]);
 
-    const pillClasses: string = mergeClasses([
+    const pillClassNames: string = mergeClasses([
       pillProps.classNames,
       styles.multiSelectPill,
     ]);
 
-    const countPillClasses: string = mergeClasses([
+    const countPillClassNames: string = mergeClasses([
       pillProps.classNames,
       styles.multiSelectCount,
     ]);
 
-    const componentClasses: string = mergeClasses([
+    const componentClassNames: string = mergeClasses([
       styles.selectWrapper,
+      {
+        [styles.selectWrapperMultiple]: !!multiple,
+      },
       {
         [styles.selectSmall]:
           mergedSize === SelectSize.Flex && largeScreenActive,
@@ -363,40 +455,50 @@ export const Select: FC<SelectProps> = React.forwardRef(
       let moreOptionsCount: number = selectedCount;
 
       // TODO: Mutate Array based on order of selection.
-      selected.forEach((value: SelectOption, index: number) => {
-        pills.push(
-          <Tooltip
-            classNames={styles.selectTooltip}
-            content={value.text}
-            disabled={!isPillEllipsisActive(document?.getElementById(value.id))}
-            id={`selectTooltip${index}`}
-            key={`select-tooltip-${index}`}
-            placement={'top'}
-            theme={TooltipTheme.dark}
-          >
-            <Pill
-              ref={(ref) => (pillRefs.current[index] = ref)}
-              id={value.id}
-              classNames={pillClasses}
-              disabled={mergedDisabled}
-              key={`select-pill-${index}`}
-              label={value.text}
-              onClose={() => toggleOption(value)}
-              size={selectSizeToPillSizeMap.get(size)}
-              theme={'blueGreen'}
-              type={PillType.closable}
-              style={{
-                visibility: index < count ? 'visible' : 'hidden',
-              }}
-              {...pillProps}
-            />
-          </Tooltip>
+      selected.forEach((opt: SelectOption, index: number) => {
+        const pill = (): JSX.Element => (
+          <Pill
+            ref={(ref) => (pillRefs.current[index] = ref)}
+            id={`selectPill${opt.id}`}
+            classNames={pillClassNames}
+            disabled={mergedDisabled}
+            key={`select-pill-${index}`}
+            label={opt.text}
+            onClose={() => toggleOption(opt)}
+            size={selectSizeToPillSizeMap.get(size)}
+            theme={'blueGreen'}
+            type={PillType.closable}
+            style={{
+              visibility: index < count ? 'visible' : 'hidden',
+            }}
+            {...pillProps}
+          />
         );
+        if (
+          isPillEllipsisActive(document?.getElementById(`selectPill${opt.id}`))
+        ) {
+          pills.push(
+            <Tooltip
+              classNames={styles.selectTooltip}
+              content={opt.text}
+              id={`selectTooltip${index}`}
+              key={`select-tooltip-${index}`}
+              placement={'top'}
+              portal
+              theme={TooltipTheme.dark}
+            >
+              {pill()}
+            </Tooltip>
+          );
+        } else {
+          pills.push(pill());
+        }
         if (pills.length === count && filled) {
           pills.push(
             <Pill
-              classNames={countPillClasses}
+              classNames={countPillClassNames}
               disabled={mergedDisabled}
+              id="select-pill-count"
               key="select-count"
               label={'+' + (moreOptionsCount - count)}
               theme={'blueGreen'}
@@ -410,16 +512,17 @@ export const Select: FC<SelectProps> = React.forwardRef(
       return <div className={styles.multiSelectPills}>{pills}</div>;
     };
 
-    const getSelectedOptionText = (): string => {
+    const getSelectedOptionText = (): void => {
       if (multiple) {
-        return searchQuery;
+        setSelectedOptionText(searchQuery);
+        return;
       }
       const selectedOption = options
         .filter((opt: SelectOption) => opt.selected)
         .map((opt: SelectOption) => opt.text)
         .join(', ')
         .toLocaleString();
-      return selectedOption;
+      setSelectedOptionText(selectedOption);
     };
 
     const OptionMenu = ({
@@ -476,10 +579,55 @@ export const Select: FC<SelectProps> = React.forwardRef(
       }
     };
 
+    const restoreCloseOnReferenceClickAsync = async (): Promise<void> => {
+      if (filterable && !multiple) {
+        resetSingleSelectOnDropdownToggle();
+      }
+
+      if (filterable || multiple) {
+        setCloseOnReferenceClick(true);
+      }
+    };
+
+    const handleToggleButtonClick = async (
+      event: React.MouseEvent<HTMLButtonElement>
+    ): Promise<void> => {
+      event.stopPropagation();
+      if (mergedDisabled) {
+        return;
+      }
+      // Call setCloseOnReferenceClick asynchronously
+      // to ensure the input click is not handled.
+      await restoreCloseOnReferenceClickAsync();
+      inputRef.current?.click();
+    };
+
+    const handleOnInputBlur = (
+      event: React.FocusEvent<HTMLInputElement>
+    ): void => {
+      if (filterable && !multiple && !dropdownVisible) {
+        resetSingleSelectOnDropdownToggle();
+        resetSelectOnDropdownHide();
+      }
+      onBlur?.(event);
+    };
+
+    const clearButtonClassNames: string = mergeClasses([
+      styles.selectClearButton,
+      { [styles.selectClearButtonEnd]: multiple && filterable && showPills() },
+      { [styles.selectClearButtonStart]: !multiple },
+      {
+        [styles.selectClearButtonEndRtl]:
+          htmlDir === 'rtl' && multiple && filterable && showPills(),
+      },
+      { [styles.selectClearButtonStartRtl]: htmlDir === 'rtl' && !multiple },
+    ]);
+
     const selectInputProps: TextInputProps = {
       placeholder: showPills() ? '' : placeholder,
       alignIcon: TextInputIconAlign.Right,
       clearable: clearable,
+      clearButtonClassNames: clearButtonClassNames,
       inputWidth: inputWidth,
       iconButtonProps: {
         htmlType: 'button',
@@ -488,7 +636,7 @@ export const Select: FC<SelectProps> = React.forwardRef(
             ? IconName.mdiChevronUp
             : IconName.mdiChevronDown,
         },
-        onClick: () => inputRef.current.click(),
+        onClick: handleToggleButtonClick,
       },
       style: getStyle(),
       onClear: onInputClear,
@@ -540,20 +688,24 @@ export const Select: FC<SelectProps> = React.forwardRef(
       <ResizeObserver onResize={updateLayout}>
         <div
           ref={ref}
-          className={componentClasses}
+          className={componentClassNames}
           data-test-id={dataTestId}
           id={id}
           style={style}
         >
-          {showPills() ? getPills() : null}
+          {/* When Dropdown is hidden, place Pills outside the reference element */}
+          {!dropdownVisible && showPills() ? getPills() : null}
           <Dropdown
             width={dropdownWidth}
+            closeOnReferenceClick={closeOnReferenceClick}
             {...dropdownProps}
-            classNames={dropdownWrapperClasses}
-            dropdownClassNames={dropdownMenuOverlayClasses}
+            classNames={dropdownWrapperClassNames}
+            disabled={mergedDisabled}
+            dropdownClassNames={dropdownMenuOverlayClassNames}
             onVisibleChange={(isVisible) => setDropdownVisibility(isVisible)}
             overlay={isLoading ? spinner : <OptionMenu options={options} />}
             showDropdown={showDropdown}
+            tabIndex={-1} // Defer focus to the TextInput
             visible={
               dropdownVisible &&
               (showEmptyDropdown ||
@@ -563,22 +715,38 @@ export const Select: FC<SelectProps> = React.forwardRef(
             }
             ref={dropdownRef}
           >
-            <TextInput
-              ref={inputRef}
-              {...selectInputProps}
-              autocomplete={autocomplete}
-              classNames={styles.selectInput}
-              disabled={mergedDisabled}
-              formItemInput={mergedFormItemInput}
-              onBlur={onBlur}
-              onChange={filterable ? onInputChange : null}
-              onFocus={onFocus}
-              onKeyDown={onKeyDown}
-              readonly={!filterable}
-              shape={selectShapeToTextInputShapeMap.get(mergedShape)}
-              size={selectSizeToTextInputSizeMap.get(mergedSize)}
-              value={getSelectedOptionText()}
-            />
+            <div className={styles.selectInputWrapper}>
+              {/* When Dropdown is visible, place Pills in the reference element */}
+              {dropdownVisible && showPills() ? getPills() : null}
+              <TextInput
+                ref={inputRef}
+                {...selectInputProps}
+                autocomplete={autocomplete}
+                classNames={selectInputClassNames}
+                clear={
+                  (!dropdownVisible && getSelectedOptions().length === 0) ||
+                  (!dropdownVisible &&
+                    multiple &&
+                    filterable &&
+                    inputRef.current?.value !== '') ||
+                  clearInput
+                }
+                disabled={mergedDisabled}
+                formItemInput={mergedFormItemInput}
+                groupClassNames={styles.selectInputGroup}
+                onBlur={handleOnInputBlur}
+                onChange={filterable ? onInputChange : null}
+                onFocus={onFocus}
+                onKeyDown={onKeyDown}
+                onReset={(): void => setResetTextInput(false)}
+                readonly={!filterable}
+                reset={resetTextInput}
+                role="combobox"
+                shape={selectShapeToTextInputShapeMap.get(mergedShape)}
+                size={selectSizeToTextInputSizeMap.get(mergedSize)}
+                value={selectedOptionText}
+              />
+            </div>
           </Dropdown>
         </div>
       </ResizeObserver>
