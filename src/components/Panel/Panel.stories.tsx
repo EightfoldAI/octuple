@@ -171,7 +171,7 @@ const Stacked_Story: ComponentStory<typeof Panel> = (args) => {
   return (
     <>
       <PrimaryButton
-        text={'Open panel'}
+        text={'Open first panel'}
         onClick={() =>
           setVisible({
             simple: true,
@@ -180,7 +180,7 @@ const Stacked_Story: ComponentStory<typeof Panel> = (args) => {
       />
       <Panel {...args} visible={visible.simple} onClose={() => setVisible({})}>
         <PrimaryButton
-          text={'Open panel'}
+          text={'Open second panel'}
           onClick={() =>
             setVisible({
               ...visible,
@@ -200,7 +200,7 @@ const Stacked_Story: ComponentStory<typeof Panel> = (args) => {
           }
         >
           <PrimaryButton
-            text={'Open panel'}
+            text={'Open third panel'}
             onClick={() =>
               setVisible({
                 ...visible,
