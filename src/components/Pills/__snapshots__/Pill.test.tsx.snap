@@ -113,7 +113,7 @@ exports[`Pill Pill should render with icon 1`] = `
   >
     <span
       aria-hidden="false"
-      class="icon icon-left icon-wrapper"
+      class="icon icon-start icon-wrapper"
       role="presentation"
     >
       <svg
@@ -136,7 +136,7 @@ exports[`Pill Pill should render with icon 1`] = `
 </div>
 `;
 
-exports[`Pill Pill should render with icon to the right of its label 1`] = `
+exports[`Pill Pill should render with icon to the end of its label 1`] = `
 <div>
   <div
     class="tag-pills blue read-only"
@@ -148,7 +148,7 @@ exports[`Pill Pill should render with icon to the right of its label 1`] = `
     </span>
     <span
       aria-hidden="false"
-      class="icon icon-right icon-wrapper"
+      class="icon icon-end icon-wrapper"
       role="presentation"
     >
       <svg
