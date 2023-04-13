@@ -11,7 +11,7 @@ import styles from './pills.module.scss';
 export const Pill: FC<PillProps> = React.forwardRef(
   (
     {
-      alignIcon = PillIconAlign.Left,
+      alignIcon = PillIconAlign.Start,
       classNames,
       color,
       configContextProps = {
@@ -57,8 +57,8 @@ export const Pill: FC<PillProps> = React.forwardRef(
 
     const iconClassNames: string = mergeClasses([
       styles.icon,
-      { [styles.iconLeft]: alignIcon === PillIconAlign.Left },
-      { [styles.iconRight]: alignIcon === PillIconAlign.Right },
+      { [styles.iconStart]: alignIcon === PillIconAlign.Start },
+      { [styles.iconEnd]: alignIcon === PillIconAlign.End },
     ]);
 
     const labelClassNames: string = mergeClasses([
@@ -97,14 +97,14 @@ export const Pill: FC<PillProps> = React.forwardRef(
         style={{ ...style, color }}
         ref={ref}
       >
-        {iconProps && alignIcon === PillIconAlign.Left && getIcon()}
+        {iconProps && alignIcon === PillIconAlign.Start && getIcon()}
         <span
           className={labelClassNames}
           style={lineClamp ? { WebkitLineClamp: lineClamp } : null}
         >
           {label}
         </span>
-        {iconProps && alignIcon === PillIconAlign.Right && getIcon()}
+        {iconProps && alignIcon === PillIconAlign.End && getIcon()}
         {type === PillType.withButton && (
           <DefaultButton
             {...pillButtonProps}

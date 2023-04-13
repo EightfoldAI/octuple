@@ -46,17 +46,17 @@ describe('Pill', () => {
     expect(container).toMatchSnapshot();
   });
 
-  test('Pill should render with icon to the right of its label', () => {
+  test('Pill should render with icon to the end of its label', () => {
     const { container } = render(
       <Pill
-        alignIcon={PillIconAlign.Right}
+        alignIcon={PillIconAlign.End}
         label="A pill with icon"
         iconProps={{
           path: IconName.mdiInformationOutline,
         }}
       />
     );
-    expect(container.getElementsByClassName('icon-right')).toHaveLength(1);
+    expect(container.getElementsByClassName('icon-end')).toHaveLength(1);
     expect(container).toMatchSnapshot();
   });
 

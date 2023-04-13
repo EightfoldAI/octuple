@@ -35,7 +35,7 @@ export default {
       action: 'close',
     },
     alignIcon: {
-      options: [PillIconAlign.Left, PillIconAlign.Right],
+      options: [PillIconAlign.Start, PillIconAlign.End],
       control: { type: 'radio' },
     },
     size: {
@@ -136,7 +136,7 @@ const With_Long_Text_Story: ComponentStory<typeof Pill> = (args) => (
 export const With_Long_Text = With_Long_Text_Story.bind({});
 
 const pillArgs: Object = {
-  alignIcon: PillIconAlign.Left,
+  alignIcon: PillIconAlign.Start,
   size: PillSize.Large,
   type: PillType.default,
   label: 'Pill label',

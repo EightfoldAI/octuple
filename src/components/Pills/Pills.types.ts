@@ -6,8 +6,8 @@ import { OcBaseProps } from '../OcBase';
 import { ConfigContextProps } from '../ConfigProvider';
 
 export enum PillIconAlign {
-  Left = 'left',
-  Right = 'right',
+  Start = 'start',
+  End = 'end',
 }
 
 export enum PillType {

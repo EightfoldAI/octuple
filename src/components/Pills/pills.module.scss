@@ -158,11 +158,11 @@
   }
 
   .icon {
-    &.icon-left {
+    &.icon-start {
       margin-right: $space-xxs;
     }
 
-    &.icon-right {
+    &.icon-end {
       margin-left: $space-xxs;
     }
   }
@@ -186,12 +186,12 @@
     }
 
     .icon {
-      &.icon-left {
+      &.icon-start {
         margin-left: $space-xxs;
         margin-right: unset;
       }
 
-      &.icon-right {
+      &.icon-end {
         margin-left: unset;
         margin-right: $space-xxs;
       }
