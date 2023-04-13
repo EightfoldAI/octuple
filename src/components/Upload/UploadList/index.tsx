@@ -39,6 +39,7 @@ const InternalUploadList: React.ForwardRefRenderFunction<
     appendActionVisible = true,
     downloadFileText,
     downloadIcon,
+    downloadIconButtonType = 'button',
     iconRender,
     isImageUrl: isImgUrl = isImageUrl,
     itemRender,
@@ -55,6 +56,8 @@ const InternalUploadList: React.ForwardRefRenderFunction<
     progress = { strokeWidth: 2, showLabels: false },
     removeFileText,
     removeIcon,
+    removeIconButtonType = 'button',
+    replaceButtonType = 'button',
     replaceFileText,
     replaceIcon,
     showDownloadIconButton: showDownloadIconButton = false,
@@ -196,6 +199,7 @@ const InternalUploadList: React.ForwardRefRenderFunction<
         styles.uploadListItemCardActionsButton,
         styles.iconDownload,
       ]),
+      htmlType: downloadIconButtonType,
       iconProps: {
         path: IconName.mdiArrowDownThin,
       },
@@ -257,6 +261,7 @@ const InternalUploadList: React.ForwardRefRenderFunction<
             classNames={motionClassNames}
             downloadFileText={downloadFileText}
             downloadIcon={downloadIcon}
+            downloadIconButtonType={downloadIconButtonType}
             file={file}
             iconRender={internalIconRender}
             isImgUrl={isImgUrl}
@@ -274,6 +279,8 @@ const InternalUploadList: React.ForwardRefRenderFunction<
             progress={progress}
             removeFileText={removeFileText}
             removeIcon={removeIcon}
+            removeIconButtonType={removeIconButtonType}
+            replaceButtonType={replaceButtonType}
             replaceFileText={replaceFileText}
             replaceIcon={replaceIcon}
             showDownloadIconButton={showDownloadIconButton}
