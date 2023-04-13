@@ -105,7 +105,13 @@ import {
 
 import { PersistentBar, PersistentBarType } from './components/PersistentBar';
 
-import { Pill, PillSize, PillThemeName, PillType } from './components/Pills';
+import {
+  Pill,
+  PillIconAlign,
+  PillSize,
+  PillThemeName,
+  PillType,
+} from './components/Pills';
 
 import {
   SearchBox,
@@ -305,6 +311,7 @@ export {
   PersistentBar,
   PersistentBarType,
   Pill,
+  PillIconAlign,
   PillSize,
   PillThemeName,
   PillType,
