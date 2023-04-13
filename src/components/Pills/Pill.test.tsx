@@ -2,7 +2,7 @@ import React from 'react';
 import Enzyme from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import MatchMediaMock from 'jest-matchmedia-mock';
-import { Pill, PillThemeName, PillType } from '.';
+import { Pill, PillIconAlign, PillThemeName, PillType } from '.';
 import { IconName } from '../Icon';
 import { render } from '@testing-library/react';
 
@@ -43,6 +43,20 @@ describe('Pill', () => {
       />
     );
     expect(container.getElementsByClassName('icon')).toHaveLength(1);
+    expect(container).toMatchSnapshot();
+  });
+
+  test('Pill should render with icon to the end of its label', () => {
+    const { container } = render(
+      <Pill
+        alignIcon={PillIconAlign.End}
+        label="A pill with icon"
+        iconProps={{
+          path: IconName.mdiInformationOutline,
+        }}
+      />
+    );
+    expect(container.getElementsByClassName('icon-end')).toHaveLength(1);
     expect(container).toMatchSnapshot();
   });
 
