@@ -160,10 +160,13 @@ exports[`Pagination Pagination should render as simplified 1`] = `
     >
       <li>
         <span>
-          1 of
+          1
         </span>
-      </li>
-      <li>
+         
+        <span>
+          of
+        </span>
+         
         <span>
           5
         </span>
@@ -339,6 +342,7 @@ exports[`Pagination Pagination should render with all elements 1`] = `
           aria-haspopup="true"
           aria-label="Selected page size"
           class="button button-neutral button-medium icon-right"
+          id="dropdown-reference"
           role="button"
           tabindex="0"
         >

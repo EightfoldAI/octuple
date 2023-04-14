@@ -478,8 +478,11 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (
         {(_contextLocale: UploadLocale) => {
           const {
             downloadIcon,
+            downloadIconButtonType: downloadIconButtonType,
             previewIcon,
             removeIcon,
+            removeIconButtonType: removeIconButtonType,
+            replaceButtonType: replaceButtonType,
             replaceIcon,
             showDownloadIconButton: showDownloadIconButton,
             showPreviewIconButton: showPreviewIconButton,
@@ -494,6 +497,7 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (
               appendActionVisible={buttonVisible}
               downloadFileText={downloadFileText}
               downloadIcon={downloadIcon}
+              downloadIconButtonType={downloadIconButtonType}
               iconRender={iconRender}
               isImageUrl={isImageUrl}
               itemRender={itemRender}
@@ -510,6 +514,8 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (
               progress={progress}
               removeFileText={removeFileText}
               removeIcon={removeIcon}
+              removeIconButtonType={removeIconButtonType}
+              replaceButtonType={replaceButtonType}
               replaceFileText={replaceFileText}
               replaceIcon={replaceIcon}
               showDownloadIconButton={showDownloadIconButton}

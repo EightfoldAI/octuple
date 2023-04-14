@@ -282,10 +282,10 @@ export const Slider: FC<SliderProps> = React.forwardRef(
       thumbRadius: number
     ): number => {
       const inputWidth = sliderRef.current?.offsetWidth || 0;
-      return (
+      return Math.floor(
         ((val - mergedMin) / (mergedMax - mergedMin)) *
           (inputWidth - thumbDiameter) +
-        thumbRadius
+          thumbRadius
       );
     };
 
@@ -351,27 +351,28 @@ export const Slider: FC<SliderProps> = React.forwardRef(
       }
 
       if (!isRange) {
-        const lowerLabelOffset: number =
-          lowerLabelRef.current?.offsetWidth / 2 -
-          sliderRef.current?.offsetLeft;
+        const lowerLabelOffset: number = Math.floor(
+          lowerLabelRef.current?.offsetWidth / 2 - sliderRef.current?.offsetLeft
+        );
         const showMarkerOffest: number =
           showMarkers === true ? thumbGeometry().showMarkerOffset : 0;
 
         if (htmlDir === 'rtl') {
-          lowerLabelRef.current.style.right = `${
+          lowerLabelRef.current.style.right = `${Math.floor(
             lowerThumbOffset - lowerLabelOffset - showMarkerOffest
-          }px`;
+          )}px`;
           lowerLabelRef.current.style.left = 'unset';
         } else {
-          lowerLabelRef.current.style.left = `${
+          lowerLabelRef.current.style.left = `${Math.floor(
             lowerThumbOffset - lowerLabelOffset - showMarkerOffest
-          }px`;
+          )}px`;
           lowerLabelRef.current.style.right = 'unset';
         }
       } else {
         if (labelPosition === 'inline') {
-          const sliderLabelsOffset: number =
-            sliderLabelsRef.current.offsetWidth / 2;
+          const sliderLabelsOffset: number = Math.floor(
+            sliderLabelsRef.current.offsetWidth / 2
+          );
 
           if (htmlDir === 'rtl') {
             sliderLabelsRef.current.style.marginRight = `-${sliderLabelsOffset}px`;
@@ -439,7 +440,7 @@ export const Slider: FC<SliderProps> = React.forwardRef(
           ? `${lowerThumbOffset}px`
           : `${thumbRadius}px`;
       }
-      trackRef.current.style.width = `${rangeWidth}px`;
+      trackRef.current.style.width = `${Math.floor(rangeWidth)}px`;
     };
 
     const [formatValue] = useOffset(mergedMin, mergedMax, mergedStep, markers);

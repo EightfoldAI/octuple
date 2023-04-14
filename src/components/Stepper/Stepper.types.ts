@@ -237,4 +237,9 @@ export interface StepperProps
    * Use when layout is `horizontal`.
    */
   width?: number;
+  /**
+   * Scroll to active step on load.
+   * @default false
+   */
+  scrollToActiveStep?: boolean;
 }

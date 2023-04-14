@@ -8,10 +8,10 @@ import { Icon, IconName, IconSize } from '../../Icon';
 import { Label, LabelSize } from '../../Label';
 import {
   TextInputIconAlign,
-  TextInputWidth,
   TextInputProps,
   TextInputShape,
   TextInputSize,
+  TextInputWidth,
 } from '../index';
 import { FormItemInputContext } from '../../Form/Context';
 import { ValidateStatus } from '../../Form/Form.types';
@@ -40,6 +40,7 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
       clear = false,
       clearable = true,
       clearButtonAriaLabel,
+      clearButtonClassNames,
       configContextProps = {
         noDisabledContext: false,
         noShapeContext: false,
@@ -49,6 +50,7 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
       expandable = false,
       expandRight = false,
       formItemInput = false,
+      groupClassNames,
       htmlType = 'text',
       iconProps,
       iconButtonProps,
@@ -67,7 +69,9 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
       onClear,
       onFocus,
       onKeyDown,
+      onReset,
       placeholder,
+      reset = false,
       required = false,
       readonly = false,
       role = 'textbox',
@@ -152,8 +156,10 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
 
     const clearIconButtonClassNames: string = mergeClasses([
       styles.clearIconButton,
+      { [styles.clearIconButtonRtl]: htmlDir === 'rtl' },
       { [styles.leftIcon]: alignIcon === TextInputIconAlign.Left },
       { [styles.rightIcon]: alignIcon === TextInputIconAlign.Right },
+      clearButtonClassNames,
     ]);
 
     const textInputClassNames: string = mergeClasses([
@@ -236,6 +242,7 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
     ]);
 
     const textInputGroupClassNames: string = mergeClasses([
+      groupClassNames,
       styles.inputGroup,
       { [styles.inline]: inline },
       { [styles.leftIcon]: alignIcon === TextInputIconAlign.Left },
@@ -292,6 +299,16 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
       setClearButtonShown(false);
     }, [value]);
 
+    useEffect(() => {
+      if (reset) {
+        if (!!inputField && (inputField as HTMLInputElement).value !== value) {
+          (inputField as HTMLInputElement).value = '';
+          setInputValue(value);
+          onReset?.();
+        }
+      }
+    }, [reset]);
+
     const setClearButtonShown = (showClear: boolean) => {
       return !clearable
         ? _setClearButtonShown(false)
@@ -313,6 +330,7 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
       }
       handleOnClear;
     };
+
     const handleOnClear = (_event: React.MouseEvent) => {
       _event.preventDefault();
       _event.stopPropagation();
@@ -402,6 +420,25 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
       [TextInputSize.Small, LabelSize.Small],
     ]);
 
+    const getIconButton = (): JSX.Element => (
+      <SystemUIButton
+        allowDisabledFocus={iconButtonProps.allowDisabledFocus}
+        ariaLabel={iconButtonProps.ariaLabel}
+        checked={iconButtonProps.checked}
+        classNames={iconButtonClassNames}
+        disabled={iconButtonProps.disabled || mergedDisabled}
+        htmlType={iconButtonProps.htmlType}
+        iconProps={{
+          path: iconButtonProps.iconProps.path,
+        }}
+        id={iconButtonProps.id}
+        onClick={iconButtonProps.onClick}
+        shape={inputShapeToButtonShapeMap.get(shape)}
+        size={inputSizeToButtonSizeMap.get(mergedSize)}
+        transparent
+      />
+    );
+
     return (
       <div className={textInputWrapperClassNames}>
         {labelProps && (
@@ -479,24 +516,9 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
                   )}
                 </div>
               )}
-              {iconButtonProps && (
-                <SystemUIButton
-                  allowDisabledFocus={iconButtonProps.allowDisabledFocus}
-                  ariaLabel={iconButtonProps.ariaLabel}
-                  checked={iconButtonProps.checked}
-                  classNames={iconButtonClassNames}
-                  disabled={iconButtonProps.disabled || mergedDisabled}
-                  htmlType={iconButtonProps.htmlType}
-                  iconProps={{
-                    path: iconButtonProps.iconProps.path,
-                  }}
-                  id={iconButtonProps.id}
-                  onClick={iconButtonProps.onClick}
-                  shape={inputShapeToButtonShapeMap.get(shape)}
-                  size={inputSizeToButtonSizeMap.get(mergedSize)}
-                  transparent
-                />
-              )}
+              {iconButtonProps &&
+                alignIcon === TextInputIconAlign.Left &&
+                getIconButton()}
               {clearable &&
                 clearButtonShown &&
                 !numbersOnly &&
@@ -518,6 +540,9 @@ export const TextInput: FC<TextInputProps> = React.forwardRef(
                     transparent
                   />
                 )}
+              {iconButtonProps &&
+                alignIcon === TextInputIconAlign.Right &&
+                getIconButton()}
             </div>
           </div>
         </div>

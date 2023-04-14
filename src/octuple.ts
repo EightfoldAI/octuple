@@ -72,6 +72,8 @@ import Grid, { Col, Row } from './components/Grid';
 
 import { Icon, IconName, IconSize } from './components/Icon';
 
+import { InlineSvgProps, InlineSvg } from './components/InlineSvg';
+
 import { Label, LabelSize } from './components/Label';
 
 import Layout from './components/Layout';
@@ -95,11 +97,21 @@ import { Navbar, NavbarContent } from './components/Navbar';
 
 import { NudgeAnimation } from './components/Button/Nudge';
 
-import { Pagination, PaginationLayoutOptions } from './components/Pagination';
+import {
+  Pagination,
+  PaginationLayoutOptions,
+  PaginationVisiblePagerCountSizeOptions,
+} from './components/Pagination';
 
 import { PersistentBar, PersistentBarType } from './components/PersistentBar';
 
-import { Pill, PillSize, PillThemeName, PillType } from './components/Pills';
+import {
+  Pill,
+  PillIconAlign,
+  PillSize,
+  PillThemeName,
+  PillType,
+} from './components/Pills';
 
 import {
   SearchBox,
@@ -264,6 +276,8 @@ export {
   IconSize,
   InfoBar,
   InfoBarType,
+  InlineSvgProps,
+  InlineSvg,
   Label,
   LabelAlign,
   LabelPosition,
@@ -289,6 +303,7 @@ export {
   OcThemeName,
   Pagination,
   PaginationLayoutOptions,
+  PaginationVisiblePagerCountSizeOptions,
   Panel,
   PanelHeader,
   PanelPlacement,
@@ -296,6 +311,7 @@ export {
   PersistentBar,
   PersistentBarType,
   Pill,
+  PillIconAlign,
   PillSize,
   PillThemeName,
   PillType,

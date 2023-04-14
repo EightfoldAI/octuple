@@ -24,6 +24,7 @@ export const SearchBox: FC<SearchBoxProps> = React.forwardRef(
       autocomplete,
       autoFocus = false,
       classNames,
+      clear = false,
       clearable = true,
       clearButtonAriaLabel,
       configContextProps = {
@@ -48,10 +49,13 @@ export const SearchBox: FC<SearchBoxProps> = React.forwardRef(
       name,
       onBlur,
       onChange,
+      onClear,
       onFocus,
       onKeyDown,
+      onReset,
       onSubmit,
       placeholder = 'Search',
+      reset = false,
       shape = TextInputShape.Pill,
       size = TextInputSize.Medium,
       status,
@@ -88,6 +92,7 @@ export const SearchBox: FC<SearchBoxProps> = React.forwardRef(
           {...rest}
           ref={ref}
           alignIcon={alignIcon}
+          clear={clear}
           clearable={clearable}
           allowDisabledFocus={allowDisabledFocus}
           ariaLabel={ariaLabel}
@@ -116,9 +121,12 @@ export const SearchBox: FC<SearchBoxProps> = React.forwardRef(
           name={name}
           onBlur={onBlur}
           onChange={onChange}
+          onClear={onClear}
           onFocus={onFocus}
           onKeyDown={onKeyDown}
+          onReset={onReset}
           placeholder={placeholder}
+          reset={reset}
           shape={mergedShape}
           size={mergedSize}
           status={mergedStatus}

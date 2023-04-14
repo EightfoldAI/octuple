@@ -45,6 +45,8 @@ export const Tooltip: FC<TooltipProps> = React.memo(
   React.forwardRef<TooltipRef, TooltipProps>(
     (
       {
+        animate = true,
+        bordered = false,
         children,
         classNames,
         closeOnOutsideClick = true,
@@ -52,6 +54,7 @@ export const Tooltip: FC<TooltipProps> = React.memo(
         closeOnTooltipClick = false,
         content,
         disabled,
+        dropShadow = true,
         height,
         hideAfter = ANIMATION_DURATION,
         id,
@@ -256,6 +259,9 @@ export const Tooltip: FC<TooltipProps> = React.memo(
         styles.tooltip,
         { [styles.popup]: type === TooltipType.Popup },
         classNames,
+        { [styles.animate]: !!animate },
+        { [styles.bordered]: !!bordered },
+        { [styles.dropShadow]: !!dropShadow },
         { [styles.visibleArrow]: !!visibleArrow },
         { [styles.visible]: mergedVisible },
         { [styles.hiding]: hiding },

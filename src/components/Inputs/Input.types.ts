@@ -91,6 +91,10 @@ export interface InputIconButtonProps {
 export interface SearchBoxProps
   extends Omit<InputProps<HTMLInputElement>, 'htmlType'> {
   /**
+   * onclear event handler.
+   */
+  onClear?: React.MouseEventHandler<Element>;
+  /**
    * Form onsubmit event handler.
    */
   onSubmit?: FormEventHandler<HTMLFormElement | HTMLInputElement>;
@@ -114,6 +118,10 @@ export interface TextAreaProps
    * @default false
    */
   enableExpand?: boolean;
+  /**
+   * Callback fired on clear of the text area.
+   */
+  onClear?: () => void;
   /**
    * The text area component ref.
    */
@@ -210,6 +218,10 @@ export interface InputProps<T>
    */
   clearButtonAriaLabel?: string;
   /**
+   * The input clear button custom class names.
+   */
+  clearButtonClassNames?: string;
+  /**
    * The input disabled state.
    * @default false
    */
@@ -230,6 +242,10 @@ export interface InputProps<T>
    * @default false
    */
   formItemInput?: boolean;
+  /**
+   * The input group custom class names.
+   */
+  groupClassNames?: string;
   /**
    * The input icon button props.
    */
@@ -295,6 +311,11 @@ export interface InputProps<T>
     HTMLTextAreaElement | HTMLInputElement
   >;
   /**
+   * Callback fired on reset of the input.
+   * Use this to set reset back to false.
+   */
+  onReset?: () => void;
+  /**
    * Placeholder text of the input.
    */
   placeholder?: string;
@@ -303,6 +324,10 @@ export interface InputProps<T>
    * @default false
    */
   readonly?: boolean;
+  /**
+   * Resets the input value cache.
+   */
+  reset?: boolean;
   /**
    * Shape of the input.
    * @default TextInputShape.Pill

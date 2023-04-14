@@ -4,6 +4,7 @@ import React, {
   SyntheticEvent,
   useEffect,
   useImperativeHandle,
+  useRef,
   useState,
 } from 'react';
 import {
@@ -15,34 +16,26 @@ import {
   shift,
   useFloating,
 } from '@floating-ui/react';
-import { DropdownProps, DropdownRef } from './Dropdown.types';
+import {
+  ANIMATION_DURATION,
+  NO_ANIMATION_DURATION,
+  PREVENT_DEFAULT_TRIGGERS,
+  TRIGGER_TO_HANDLER_MAP_ON_ENTER,
+  TRIGGER_TO_HANDLER_MAP_ON_LEAVE,
+  DropdownProps,
+  DropdownRef,
+} from './Dropdown.types';
 import { Menu } from '../Menu';
-import { useAccessibility } from '../../hooks/useAccessibility';
 import { useMergedState } from '../../hooks/useMergedState';
 import { useOnClickOutside } from '../../hooks/useOnClickOutside';
 import {
   ConditionalWrapper,
+  eventKeys,
   mergeClasses,
   uniqueId,
 } from '../../shared/utilities';
 
 import styles from './dropdown.module.scss';
-
-const ANIMATION_DURATION: number = 200;
-
-const PREVENT_DEFAULT_TRIGGERS: string[] = ['contextmenu'];
-
-const TRIGGER_TO_HANDLER_MAP_ON_ENTER = {
-  click: 'onClick',
-  hover: 'onMouseEnter',
-  contextmenu: 'onContextMenu',
-};
-
-const TRIGGER_TO_HANDLER_MAP_ON_LEAVE = {
-  click: '',
-  hover: 'onMouseLeave',
-  contextmenu: '',
-};
 
 export const Dropdown: FC<DropdownProps> = React.memo(
   React.forwardRef<DropdownRef, DropdownProps>(
@@ -51,6 +44,7 @@ export const Dropdown: FC<DropdownProps> = React.memo(
         children,
         classNames,
         closeOnDropdownClick = true,
+        closeOnReferenceClick = true,
         closeOnOutsideClick = true,
         disabled,
         dropdownClassNames,
@@ -67,6 +61,7 @@ export const Dropdown: FC<DropdownProps> = React.memo(
         role = 'listbox',
         showDropdown,
         style,
+        tabIndex = 0,
         trigger = 'click',
         visible,
         width,
@@ -79,6 +74,8 @@ export const Dropdown: FC<DropdownProps> = React.memo(
 
       const [closing, setClosing] = useState<boolean>(false);
       const dropdownId: string = uniqueId('dropdown-');
+      const dropdownReferenceId: React.MutableRefObject<string> =
+        useRef<string>(`${dropdownId}reference`);
 
       let timeout: ReturnType<typeof setTimeout>;
       const { x, y, reference, floating, strategy, update, refs, context } =
@@ -114,7 +111,16 @@ export const Dropdown: FC<DropdownProps> = React.memo(
       useOnClickOutside(
         refs.floating,
         (e) => {
-          if (closeOnOutsideClick) {
+          const referenceElement: HTMLElement = document.getElementById(
+            dropdownReferenceId?.current
+          );
+          if (closeOnOutsideClick && closeOnReferenceClick) {
+            toggle(false)(e);
+          }
+          if (
+            !closeOnReferenceClick &&
+            !referenceElement.contains(e.target as Node)
+          ) {
             toggle(false)(e);
           }
           onClickOutside?.(e);
@@ -134,18 +140,7 @@ export const Dropdown: FC<DropdownProps> = React.memo(
           update
         );
       }, [refs.reference, refs.floating, update]);
-      useAccessibility(
-        trigger,
-        refs.reference,
-        toggle(true),
-        portal
-          ? (e) => {
-              if (e?.key == 'Enter') {
-                toggle(false);
-              }
-            }
-          : toggle(false)
-      );
+
       const dropdownClasses: string = mergeClasses([
         dropdownClassNames,
         styles.dropdownWrapper,
@@ -163,8 +158,8 @@ export const Dropdown: FC<DropdownProps> = React.memo(
       const dropdownStyles: React.CSSProperties = {
         ...dropdownStyle,
         position: strategy,
-        top: y ?? '',
-        left: x ?? '',
+        top: Math.floor(y) ?? '',
+        left: Math.floor(x) ?? '',
         width: width ?? '',
         height: height ?? '',
       };
@@ -174,13 +169,71 @@ export const Dropdown: FC<DropdownProps> = React.memo(
         if (disabled) {
           return;
         }
-        toggle(!mergedVisible)(event);
         referenceOnClick?.(event);
+        timeout && clearTimeout(timeout);
+        timeout = setTimeout(() => {
+          if (mergedVisible && closeOnReferenceClick) {
+            toggle(false)(event);
+          } else {
+            toggle(true)(event);
+          }
+        }, ANIMATION_DURATION);
+      };
+
+      const handleReferenceKeyDown = (event: React.KeyboardEvent): void => {
+        event.stopPropagation();
+        if (disabled) {
+          return;
+        }
+        if (
+          event?.key === eventKeys.ENTER &&
+          document.activeElement === event.target
+        ) {
+          timeout && clearTimeout(timeout);
+          timeout = setTimeout(() => {
+            if (mergedVisible && closeOnReferenceClick) {
+              toggle(false)(event);
+            } else {
+              toggle(true)(event);
+            }
+          }, ANIMATION_DURATION);
+        }
+        if (
+          event?.key === eventKeys.ESCAPE ||
+          (event?.key === eventKeys.TAB &&
+            event.shiftKey &&
+            !(event.target as HTMLElement).matches(':focus-within'))
+        ) {
+          toggle(false)(event);
+        }
+      };
+
+      const handleFloatingKeyDown = (event: React.KeyboardEvent): void => {
+        event.stopPropagation();
+        if (event?.key === eventKeys.ESCAPE) {
+          toggle(false)(event);
+        }
+        if (event?.key === eventKeys.TAB) {
+          timeout && clearTimeout(timeout);
+          timeout = setTimeout(() => {
+            if (!refs.floating.current.matches(':focus-within')) {
+              toggle(false)(event);
+            }
+          }, NO_ANIMATION_DURATION);
+        }
+        if (event?.key === eventKeys.TAB && event.shiftKey) {
+          timeout && clearTimeout(timeout);
+          timeout = setTimeout(() => {
+            if (refs.floating.current.matches(':focus-within')) {
+              toggle(true)(event);
+            }
+          }, NO_ANIMATION_DURATION);
+        }
       };
 
       const getReference = (): JSX.Element => {
         const child = React.Children.only(children) as React.ReactElement<any>;
-        const referenceWrapperClasses: string = mergeClasses([
+        const referenceWrapperClassNames: string = mergeClasses([
           styles.referenceWrapper,
           // Add any classnames added to the reference element
           { [child.props.className]: child.props.className },
@@ -190,13 +243,15 @@ export const Dropdown: FC<DropdownProps> = React.memo(
           ...{
             [TRIGGER_TO_HANDLER_MAP_ON_ENTER[trigger]]: toggle(true),
           },
+          id: dropdownReferenceId?.current,
           onClick: handleReferenceClick,
-          className: referenceWrapperClasses,
+          onKeyDown: handleReferenceKeyDown,
+          className: referenceWrapperClassNames,
           'aria-controls': dropdownId,
           'aria-expanded': mergedVisible,
           'aria-haspopup': true,
           role: 'button',
-          tabIndex: '0',
+          tabIndex: tabIndex,
         });
       };
 
@@ -213,12 +268,13 @@ export const Dropdown: FC<DropdownProps> = React.memo(
               ref={floating}
               style={dropdownStyles}
               className={dropdownClasses}
-              role={role}
               tabIndex={0}
               onClick={
                 closeOnDropdownClick ? toggle(false, showDropdown) : null
               }
+              onKeyDown={handleFloatingKeyDown}
               id={dropdownId}
+              role={role}
             >
               {overlay}
             </div>

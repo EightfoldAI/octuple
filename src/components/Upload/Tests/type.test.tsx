@@ -73,6 +73,9 @@ describe('Upload.typescript', () => {
     const upload = (
       <Upload
         showUploadList={{
+          downloadIconButtonType: 'button',
+          removeIconButtonType: 'button',
+          replaceButtonType: 'button',
           showPreviewIconButton: true,
           showRemoveIconButton: true,
           showReplaceButton: true,

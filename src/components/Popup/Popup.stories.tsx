@@ -93,6 +93,9 @@ export const Popups = Popup_Story.bind({});
 Popups.args = {
   offset: 8,
   theme: PopupTheme.light,
+  animate: true,
+  bordered: false,
+  dropShadow: true,
   content: (
     <>
       <Stack
@@ -107,10 +110,9 @@ Popups.args = {
             height: 172,
             margin: 4,
             width: 'calc(100% - 8px)',
-            zIndex: 0,
           }}
         />
-        <div className="octuple" style={{ zIndex: 1 }}>
+        <div className="octuple">
           <div className="octuple-content" style={{ padding: '16px' }}>
             <h5>Header 5</h5>
             <p className="octuple-content__small">

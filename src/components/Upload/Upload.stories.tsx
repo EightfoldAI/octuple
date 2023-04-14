@@ -121,6 +121,10 @@ const Basic_With_Upload_List_Story: ComponentStory<typeof Upload> = () => {
         });
       }
     },
+    showUploadList: {
+      downloadIconButtonType: 'button',
+      removeIconButtonType: 'button',
+    },
   };
   return (
     <>
@@ -163,6 +167,10 @@ const Drag_and_Drop_Single_Small_Story: ComponentStory<typeof Upload> = () => {
       console.log('Dropped files', e.dataTransfer.files);
     },
     size: UploadSize.Small,
+    showUploadList: {
+      replaceButtonType: 'button',
+      showReplaceButton: true,
+    },
   };
   return (
     <>
@@ -199,6 +207,10 @@ const Drag_and_Drop_Multiple_Small_Story: ComponentStory<
     },
     onDrop(e) {
       console.log('Dropped files', e.dataTransfer.files);
+    },
+    showUploadList: {
+      downloadIconButtonType: 'button',
+      removeIconButtonType: 'button',
     },
     size: UploadSize.Small,
   };
@@ -275,6 +287,10 @@ const Drag_and_Drop_Multiple_Medium_Story: ComponentStory<
     onDrop(e) {
       console.log('Dropped files', e.dataTransfer.files);
     },
+    showUploadList: {
+      downloadIconButtonType: 'button',
+      removeIconButtonType: 'button',
+    },
   };
   return (
     <>
@@ -349,6 +365,10 @@ const Drag_and_Drop_Multiple_Large_Story: ComponentStory<
     },
     onDrop(e) {
       console.log('Dropped files', e.dataTransfer.files);
+    },
+    showUploadList: {
+      downloadIconButtonType: 'button',
+      removeIconButtonType: 'button',
     },
     size: UploadSize.Large,
   };
