@@ -11,6 +11,8 @@ import { ConfigContextProps } from '../ConfigProvider';
 import { ButtonProps } from '../Button';
 import { IconName } from '../Icon';
 
+type UploadButtonHtmlType = 'button' | 'submit' | 'reset';
+
 type Locale = {
   /**
    * The Upload locale.
@@ -243,6 +245,11 @@ export interface ShowUploadListInterface {
    */
   downloadIcon?: IconName | ((file: UploadFile) => IconName);
   /**
+   * The download icon button type
+   * @default 'button'
+   */
+  downloadIconButtonType?: UploadButtonHtmlType;
+  /**
    * Customize the preview icon button svg path.
    */
   previewIcon?: IconName | ((file: UploadFile) => IconName);
@@ -250,6 +257,16 @@ export interface ShowUploadListInterface {
    * Customize the remove icon button svg path.
    */
   removeIcon?: IconName | ((file: UploadFile) => IconName);
+  /**
+   * The remove icon button type
+   * @default 'button'
+   */
+  removeIconButtonType?: UploadButtonHtmlType;
+  /**
+   * The replace button type
+   * @default 'button'
+   */
+  replaceButtonType?: UploadButtonHtmlType;
   /**
    * Customize the replace button icon svg path.
    */
@@ -268,6 +285,7 @@ export interface ShowUploadListInterface {
   showRemoveIconButton?: boolean;
   /**
    * Whether to show the replace button.
+   * Use when maxCount is 1
    */
   showReplaceButton?: boolean;
 }
@@ -495,7 +513,8 @@ export interface UploadProps<T = any> extends Pick<OcUploadProps, 'capture'> {
   selectMultipleFilesText?: string;
   /**
    * Whether to show default upload list,
-   * could be an object to specify each 'showPreviewIconButton', 'showRemoveIconButton',
+   * could be an object to specify each 'downloadIconButtonType', 'removeIconButtonType',
+   * 'replaceButtonType', 'showPreviewIconButton', 'showRemoveIconButton',
    * 'showDownloadIconButton', 'showReplaceButton', 'removeIcon', 'replaceIcon', and 'downloadIcon'.
    * @default true
    */
@@ -566,6 +585,11 @@ export interface UploadListProps<T = any> {
    * Customize the download icon button svg path.
    */
   downloadIcon?: IconName | ((file: UploadFile) => IconName);
+  /**
+   * The download icon button type
+   * @default 'button'
+   */
+  downloadIconButtonType?: UploadButtonHtmlType;
   /**
    * The custom icon.
    */
@@ -645,6 +669,16 @@ export interface UploadListProps<T = any> {
    */
   removeIcon?: IconName | ((file: UploadFile) => IconName);
   /**
+   * The remove icon button type
+   * @default 'button'
+   */
+  removeIconButtonType?: UploadButtonHtmlType;
+  /**
+   * The replace button type
+   * @default 'button'
+   */
+  replaceButtonType?: UploadButtonHtmlType;
+  /**
    * The replace string.
    * @default 'Replace'
    */
@@ -667,6 +701,7 @@ export interface UploadListProps<T = any> {
   showRemoveIconButton?: boolean;
   /**
    * Whether to show the replace button.
+   * Use when maxCount is 1
    */
   showReplaceButton?: boolean;
   /**
@@ -707,6 +742,11 @@ export interface ListItemProps {
    * Customize the download icon path.
    */
   downloadIcon?: IconName | ((file: UploadFile) => IconName);
+  /**
+   * The download icon button type
+   * @default 'button'
+   */
+  downloadIconButtonType?: UploadButtonHtmlType;
   /**
    * The Upload list item file.
    */
@@ -783,6 +823,16 @@ export interface ListItemProps {
    */
   removeIcon?: IconName | ((file: UploadFile) => IconName);
   /**
+   * The remove icon button type
+   * @default 'button'
+   */
+  removeIconButtonType?: UploadButtonHtmlType;
+  /**
+   * The replace button type
+   * @default 'button'
+   */
+  replaceButtonType?: UploadButtonHtmlType;
+  /**
    * The replace string.
    * @default 'Replace'
    */
@@ -805,6 +855,7 @@ export interface ListItemProps {
   showRemoveIconButton?: boolean;
   /**
    * Whether to show the replace button.
+   * Use when maxCount is 1
    */
   showReplaceButton?: boolean;
   /**

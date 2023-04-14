@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.35.0](https://github.com/EightfoldAI/octuple/compare/v2.34.2...v2.35.0) (2023-04-13)
+
+### Features
+
+- add mdi icon mdiClipboardAlert ([#582](https://github.com/EightfoldAI/octuple/issues/582)) ([8ed7d9f](https://github.com/EightfoldAI/octuple/commits/8ed7d9f7783ab40543dd645d9583b83381d2ffb2))
+- pill: add align icon prop ([#595](https://github.com/EightfoldAI/octuple/issues/595)) ([176d484](https://github.com/EightfoldAI/octuple/commits/176d4847debab327a83e94059e9daec4b924e362))
+- popup: add more props to style and global css vars ([#592](https://github.com/EightfoldAI/octuple/issues/592)) ([5a1a533](https://github.com/EightfoldAI/octuple/commits/5a1a5339ae33c1424086e9b4e190185f9e61504e))
+- stepper: Add scroll to active step support ([#591](https://github.com/EightfoldAI/octuple/issues/591)) ([32682a6](https://github.com/EightfoldAI/octuple/commits/32682a67e7913f1b7ec42561a90dbd93e2267487))
+
+### Bug Fixes
+
+- button: move three more button palettes to global css vars ([#593](https://github.com/EightfoldAI/octuple/issues/593)) ([f4e3ac5](https://github.com/EightfoldAI/octuple/commits/f4e3ac572ab3fb5dc38fd37fbcfd0712a59519b5))
+- panel: fixes panel to fit small screens ([#594](https://github.com/EightfoldAI/octuple/issues/594)) ([7deba10](https://github.com/EightfoldAI/octuple/commits/7deba10a4d01633d9b3bc47381af38a5f37c12d7))
+- select: clear input value on dismiss when not selected and other fixes ([#584](https://github.com/EightfoldAI/octuple/issues/584)) ([c0f483b](https://github.com/EightfoldAI/octuple/commits/c0f483bec121b3e0febd989236f3cd163aa5f8c3))
+- upload: adds button type props to show list item interface ([#596](https://github.com/EightfoldAI/octuple/issues/596)) ([77984f3](https://github.com/EightfoldAI/octuple/commits/77984f3fe6d9a1687fbda1a44ea545a0b0cfb718))
+
 ### [2.34.2](https://github.com/EightfoldAI/octuple/compare/v2.34.1...v2.34.2) (2023-04-10)
 
 ### Bug Fixes
