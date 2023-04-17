@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.35.1](https://github.com/EightfoldAI/octuple/compare/v2.35.0...v2.35.1) (2023-04-17)
+
+### Bug Fixes
+
+- tooltip: remove pointer events property of disabled styling ([#600](https://github.com/EightfoldAI/octuple/issues/600)) ([8b4568a](https://github.com/EightfoldAI/octuple/commits/8b4568aac101dfa6aafbfecbf2dc70bc6a95ba83))
+
 ## [2.35.0](https://github.com/EightfoldAI/octuple/compare/v2.34.2...v2.35.0) (2023-04-13)
 
 ### Features
