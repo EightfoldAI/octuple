@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.34.3](https://github.com/EightfoldAI/octuple/compare/v2.34.2...v2.34.3) (2023-04-19)
+
+### Bug Fixes
+
+- hotfix: remove pointer events none from tooltip css module disabled selector ([34a41e7](https://github.com/EightfoldAI/octuple/commits/34a41e70d22684da04a1d588e377a9d0743e52f2))
+
 ### [2.34.2](https://github.com/EightfoldAI/octuple/compare/v2.34.1...v2.34.2) (2023-04-10)
 
 ### Bug Fixes
